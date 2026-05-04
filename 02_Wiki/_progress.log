@@ -1,1 +1,2 @@
 [2026-05-04 22:50] BOOTSTRAP - project scaffolded; sources.yaml + crawler + GHA workflow + CLAUDE.md / README.md / system_instructions.md / canonical-names written. Raw still empty.
+[2026-05-05 02:55] P1_INGEST_COMPLETE - 349 summaries (4 parallel agents, ~30 min) + 32 entities/concepts enriched (5 parallel agents, ~7 min) + 5 cheatsheets. Coverage: code.claude.com (126 docs), anthropics/claude-code repo (sample plugins + workflows), anthropics/skills repo (5 example skills + spec). Audit PASS (0 issues).

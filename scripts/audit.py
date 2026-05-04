@@ -45,9 +45,16 @@ def all_wiki_files() -> list[Path]:
 
 
 def all_raw_files() -> set[Path]:
+    """All raw files we might summarize: docs (.md) + plugin/workflow configs (.json/.yml/.yaml) +
+    common code source extensions. Mirrors what summaries can reasonably cite."""
     if not RAW.exists():
         return set()
-    return {p for p in RAW.rglob("*.md")}
+    out: set[Path] = set()
+    for ext in ("*.md", "*.json", "*.yml", "*.yaml", "*.py", "*.ts", "*.tsx", "*.js", "*.jsx",
+                "*.toml", "*.txt", "*.sh", "*.css"):
+        for p in RAW.rglob(ext):
+            out.add(p)
+    return out
 
 
 def check_summaries() -> list[str]:
@@ -101,15 +108,30 @@ def check_entities_concepts() -> list[str]:
     return issues
 
 
+def strip_code_fences(text: str) -> str:
+    """Remove fenced code blocks (``` ... ```) and indented code blocks before wikilink scan,
+    so that bash `[[ $foo == bar ]]` test syntax in code examples isn't mistaken for a wikilink."""
+    # Remove fenced code blocks
+    text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+    # Remove inline code spans
+    text = re.sub(r"`[^`\n]+`", "", text)
+    return text
+
+
 def check_wikilinks() -> list[str]:
     issues: list[str] = []
     wiki_stems = {p.stem.lower() for p in all_wiki_files()}
     for p in all_wiki_files():
-        text = p.read_text(encoding="utf-8")
+        text = strip_code_fences(p.read_text(encoding="utf-8"))
+        seen_in_file: set[str] = set()
         for m in WIKILINK_RE.finditer(text):
             target = m.group(1).strip()
-            if target.lower() not in wiki_stems:
+            # Skip if it looks like shell expression rather than identifier
+            if any(c in target for c in "$=!<>"):
+                continue
+            if target.lower() not in wiki_stems and target not in seen_in_file:
                 issues.append(f"Dead wikilink in {p.relative_to(WIKI)}: [[{target}]]")
+                seen_in_file.add(target)
     return issues
 
 
