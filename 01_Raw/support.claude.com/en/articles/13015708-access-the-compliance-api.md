@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13015708-access-the-compliance-api
-fetched_at: 2026-05-04T16:55:24.834852+00:00
+fetched_at: 2026-05-04T17:12:30.962892+00:00
 fetch_method: mintlify_md
 ---
 
@@ -10,7 +10,7 @@ Enterprise plan Primary Owners can enable the Compliance API by navigating to **
 
 Once the Compliance API is enabled, create new compliance access keys by clicking "+ Create key":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1867701300/8a148e524f7ac2b1295d87005656/bd069690-3edf-4c51-ab66-09c73db81328?expires=1777915800&amp;signature=4db624939592ef7f4822623eb5819b0c4d89d0d47db5bfe363e82d59f4bac761&amp;req=dSghEc5%2BnIJfWfMW1HO4zdjcNE812MgbLb9AVN3cSSHPveLvDKV6lcG7565N%0A%2BaZx2anWV1XUwFv%2Feic%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1867701300/8a148e524f7ac2b1295d87005656/bd069690-3edf-4c51-ab66-09c73db81328?expires=1777916700&amp;signature=f1c3f1754965f6b2353d07f947dd9b8b45275664d9448224ec3473f143ebc490&amp;req=dSghEc5%2BnIJfWfMW1HO4zdjcNE812MsULb9AVN3cSSE4ysIXZZse0Gj4CzA5%0Ajw1PRHlTvydmFp33XIY%3D%0A)
 
 Creating a compliance access key will allow you to start pulling activity logs, chat data, and file content programmatically.
 

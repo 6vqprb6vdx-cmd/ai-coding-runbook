@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12461605-using-claude-in-slack
-fetched_at: 2026-05-04T16:54:58.845402+00:00
+fetched_at: 2026-05-04T17:12:28.467181+00:00
 fetch_method: mintlify_md
 ---
 
@@ -30,7 +30,7 @@ Claude in Slack gives you AI assistance right where your team collaborates. This
 
 6. Access previous conversations by clicking the clock icon.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1777915800&amp;signature=acd9987a0ad2f3a42f513dc1936ffc0c168a070d0cd5298c6af26139929a4f26&amp;req=dSciE8h7nYdZWPMW1HO4zXK25RZH6TQWVfOC%2FRy97LUfT%2FneqJapkJ4cnbVE%0AGFDD2SCPmlMIDyapm6s%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1755150661/a1a13c73bda421f6ee906650cfc9/22907223-e523-4a93-a6d2-3199a8368991?expires=1777916700&amp;signature=d81fde0e45e281190ed4c41b7eea49f3ab81d7f049cebd295ce9782a5c287915&amp;req=dSciE8h7nYdZWPMW1HO4zXK25RZH6TcZVfOC%2FRy97LV1xpNp4tJAP1e3wBVR%0A7OgRSVkq1Q9QTqf4h%2FM%3D%0A)
 
 ## Mention @Claude in a thread or channel
 

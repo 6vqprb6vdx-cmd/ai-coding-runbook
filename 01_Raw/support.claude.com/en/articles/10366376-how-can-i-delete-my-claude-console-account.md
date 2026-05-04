@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/10366376-how-can-i-delete-my-claude-console-account
-fetched_at: 2026-05-04T16:54:04.909483+00:00
+fetched_at: 2026-05-04T17:12:23.202275+00:00
 fetch_method: mintlify_md
 ---
 
@@ -40,7 +40,7 @@ If you followed the steps above to delete your Console organization but want to 
 
 If you have an outstanding balance, you will see a message during the deletion flow that prompts you to pay the balance first by routing you to [Settings > Billing](https://platform.claude.com/settings/billing).
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1777915800&amp;signature=ebb3d364d803a11f70082e6614e5c466ce2d5be231d98458eb558c8c9b4e8bd1&amp;req=dSkgFcB7moZZX%2FMW1HO4zbYXXxBrXeETFZRyvJPpBZ9M8eAi0V3ELN6ePltv%0ALetH1folXV%2Fqmx9wzgA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957766/5c2dd87c0818a0400099a833c9b3/4cc3130a-f696-4967-9fe3-e5623c6f02bd?expires=1777916700&amp;signature=acc8e4178a0d317a424bcba523c060cd8802db342a130cdaf20bfcb294aa8afd&amp;req=dSkgFcB7moZZX%2FMW1HO4zbYXXxBrXeIcFZRyvJPpBZ%2BFjY%2BmcIn1ZpyLnMBk%0AG%2FkN%2FTAAOxgDd6v2MPQ%3D%0A)
 
 You must pay this outstanding balance before you’re able to move forward with the deletion process.
 
@@ -48,6 +48,6 @@ You must pay this outstanding balance before you’re able to move forward with 
 
 There are some scenarios where you will need to contact our team to delete your account. If this is the case, it will be noted when you try to delete your organization:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1777915800&amp;signature=96343ca6f9903c8fbe392f211442dc6081de73b7616cd58e818ad760cb571782&amp;req=dSkgFcB7moZZXPMW1HO4zRW11OLEeaHxZxDZGlqR6Gi8lfYg7YwkEJPk%2B8Se%0A6fD6TVkMejwAS3Gt%2FPE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1973957765/19dda72a40db95d78c00c27a1a1c/6ce89be6-93ce-409c-bbea-d34be09db348?expires=1777916700&amp;signature=d56e3716ab6802b319d4f342c9e74e381599471c883a4a24b125f57fdf50d0d4&amp;req=dSkgFcB7moZZXPMW1HO4zRW11OLEeaL%2BZxDZGlqR6Gjxxmv3dgMm%2FWJU9IIR%0ADscsvL%2BgOr6EklVfdds%3D%0A)
 
 If you are seeing this message, this indicates that your Console organization cannot be deleted via the self-service pathway.

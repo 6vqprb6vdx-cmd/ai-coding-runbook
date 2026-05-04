@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans
-fetched_at: 2026-05-04T16:56:31.488894+00:00
+fetched_at: 2026-05-04T17:12:37.653407+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,7 +22,7 @@ Team and Enterprise plan admins can enable this organization-wide by following t
 
 2. Find the **Claude Design** toggle under **Anthropic Labs** and switch it on.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1777915800&amp;signature=a1c3822284f5f5f20c0b8fb1df3ec6a4816133ceb18e4f1a0d534d9c4966a6e6&amp;req=diIvH8t6nYFdXPMW1HO4zahp0uUBGOMtDIPtKBLQ9H%2FBMrgHVLp%2FOHfJEnc8%0AcNugxQ4CVLtzx57Op%2FE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2289240025/8a528b6cccc3ea1001c25953cb14/image.png?expires=1777916700&amp;signature=1fffb455e246df83c104e52e478f3fbe9d11231a66d332d206dd703867a53a87&amp;req=diIvH8t6nYFdXPMW1HO4zahp0uUBGOAiDIPtKBLQ9H%2Bn3F8WHZn7ofJvX3%2Bm%0AhA9wYs1xEeGjjKWib8k%3D%0A)
 
 ---
 

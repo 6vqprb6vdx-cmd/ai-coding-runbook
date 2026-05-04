@@ -1,12 +1,12 @@
 ---
 source_url: https://support.claude.com/en/articles/13189465-logging-in-to-your-claude-account
-fetched_at: 2026-05-04T16:55:36.063317+00:00
+fetched_at: 2026-05-04T17:12:32.038424+00:00
 fetch_method: mintlify_md
 ---
 
 When you open Claude on a web browser ([claude.ai](http://claude.ai)), the desktop app, or a mobile app, you will see two different options for logging in to your Claude account.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1777915800&amp;signature=c86a8f7e42267f3c5eae030f8c05293ecabf269716aa1c4a223246a9452228ab&amp;req=dSguFct%2Fm4lfXfMW1HO4zXg5CYWF4he8zWhrqpWiTMmq1%2FjVkfSLf2KiNqyy%0AJQr212DTjJE2vQ3SVtI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1893216804/f2209c3ec6cf4fc2e803d13bbc9d/40520c9e-ff82-4a7c-adca-5a064fe18d8c?expires=1777916700&amp;signature=8e4f07a52122e3b2dcfc198391cfd8f7999391f2b5518586bf4c78b412b902d0&amp;req=dSguFct%2Fm4lfXfMW1HO4zXg5CYWF4hSzzWhrqpWiTMkzIgW9W5KbaMzLsbhu%0A1OcOTI8qHryc4buSb3A%3D%0A)
 
 ## Continue with Google
 

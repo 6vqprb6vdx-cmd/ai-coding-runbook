@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages
-fetched_at: 2026-05-04T16:54:59.593686+00:00
+fetched_at: 2026-05-04T17:12:28.486953+00:00
 fetch_method: mintlify_md
 ---
 
@@ -62,4 +62,4 @@ Capacity issues will not appear on our status page because they represent normal
 
 Service incidents are disruptions where Claude is unavailable or significantly degraded for all or most users. These represent actual technical problems with our systems. To check for confirmed incidents, visit status.claude.com, where you'll find real-time updates on scope, impact, and resolution progress for any active incidents.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1777915800&amp;signature=ef39ceeeb06e1d273b12f75253850b9033702ff704883e0ac02b61baf287db0f&amp;req=dSciFc53m4NbXvMW1HO4za4BUagq07fM7y68oYp%2BYg9V9OzFNDSRCvEmMtQJ%0AnbvKo%2FvGy0c%2BIIDiUeE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1753796247/e6a8c6ef8653b229c5758e881242/c2fc6fc0-d163-4119-93e0-394104d86bc9?expires=1777916700&amp;signature=f89953b29bda0132264da011f78620a2662e547dea767f0aab5d1eca092f2ec4&amp;req=dSciFc53m4NbXvMW1HO4za4BUagq07TD7y68oYp%2BYg%2BQyAD5l0MIm6j3DlvJ%0AwATyJJHDXvmnPNR%2Bj2Q%3D%0A)

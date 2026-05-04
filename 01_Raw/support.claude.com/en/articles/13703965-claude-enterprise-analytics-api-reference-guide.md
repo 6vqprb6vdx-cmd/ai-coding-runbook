@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide
-fetched_at: 2026-05-04T16:55:51.369887+00:00
+fetched_at: 2026-05-04T17:12:33.832289+00:00
 fetch_method: mintlify_md
 ---
 
@@ -26,7 +26,7 @@ Some more details that might be helpful:
 
 - As always, *we strongly recommend handling API keys securely*: *never* share these keys publicly - they are secret, and should be shared securely.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053655566/6858d308d21c1d082cf67cdabd3b/19fadcdf-25f5-491d-a060-887da34b1082?expires=1777915800&amp;signature=486f3b0851630ecb8353cbed4d9a978a6ce6191c39dbc58ddb7c6c5dad6d09a3&amp;req=diAiFc97mIRZX%2FMW1HO4zXfNQF4JcxPTFbDaBcaxqj69cDCUYPhhsn54Z21j%0AQDqzANVv2YFsj1CIyGU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053655566/6858d308d21c1d082cf67cdabd3b/19fadcdf-25f5-491d-a060-887da34b1082?expires=1777916700&amp;signature=ebdf502a226cc35d65d3dfe9e3a9439001305c545e716b2496ad1f6b0804a052&amp;req=diAiFc97mIRZX%2FMW1HO4zXfNQF4JcxDcFbDaBcaxqj7hHxJRn1sBt58gEBVc%0AnVj%2FMCro3Sfb0PvdQBk%3D%0A)
 
 ## Base URL
 

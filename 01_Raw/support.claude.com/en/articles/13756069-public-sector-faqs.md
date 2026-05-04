@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13756069-public-sector-faqs
-fetched_at: 2026-05-04T16:55:53.586084+00:00
+fetched_at: 2026-05-04T17:12:33.715372+00:00
 fetch_method: mintlify_md
 ---
 
@@ -10,7 +10,7 @@ fetch_method: mintlify_md
 
 Select your product based on both your technical/functional requirements, and also your compliance/security/deployment environment requirements. Here is a list of options:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1777915800&amp;signature=5c0797def76db3be34a328c72333acdc5fb85030231a8bb1cd0e1d49d8703dd3&amp;req=diEuEc5%2FmoBZWPMW1HO4zU94IV4sHNg42WxtU42UVC01wsIuObDKA5sHbR7P%0A35SBJoZCRJAqHPQ%2F%2BLo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2197717161/79965a24090029e9e58c727c3c24/pubsec-product-matrix_png+%281%29.jpg?expires=1777916700&amp;signature=67bb7941725eb6dc173c7cb23d38adaaf678be20fa01ca00a54d9373700591c2&amp;req=diEuEc5%2FmoBZWPMW1HO4zU94IV4sHNs32WxtU42UVC23cCSTRozRlLOKklJv%0AFapJhc%2BfQMg1yJcikWs%3D%0A)
 
 ### What is Claude for Government (C4G)?
 

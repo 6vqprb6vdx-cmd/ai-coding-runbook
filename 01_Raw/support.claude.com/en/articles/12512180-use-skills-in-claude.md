@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12512180-use-skills-in-claude
-fetched_at: 2026-05-04T16:55:01.859774+00:00
+fetched_at: 2026-05-04T17:12:28.695868+00:00
 fetch_method: mintlify_md
 ---
 
@@ -176,7 +176,7 @@ To remove a custom skill you've uploaded:
 
 4. To delete the custom skill entirely, click the "..." button next to the toggle, then select "Delete":
 
-  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1777915800&amp;signature=e10022c503bdb7afd073f1f35d4ec06247021175ea409cdc45636f192b2063cb&amp;req=diEnE8p3nINYWvMW1HO4zSOgACwhw%2BOlH%2BdCnFXB0uj3Udfq290S%2FWGsb7%2BY%0AzG04%0A)
+  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2105391273/8359cbf8be20dce0f1cd3fd40e6f/CleanShot-2B2026-02-25-2Bat-2B15_50_16.png?expires=1777916700&amp;signature=5ac04ae25479cd65e50dee37dd33424e23cc28bca2e0bbb396b4f12577354aa3&amp;req=diEnE8p3nINYWvMW1HO4zSOgACwhw%2BCqH%2BdCnFXB0uiYmrOPxrozyBFUmhCq%0AydOd%0A)
 
 5. Click "Delete" in the confirmation prompt.
 

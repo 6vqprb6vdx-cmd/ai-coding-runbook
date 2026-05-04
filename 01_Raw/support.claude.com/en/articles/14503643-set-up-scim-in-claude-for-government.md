@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government
-fetched_at: 2026-05-04T16:56:16.783527+00:00
+fetched_at: 2026-05-04T17:12:36.081963+00:00
 fetch_method: mintlify_md
 ---
 
@@ -45,7 +45,7 @@ With SCIM, login and provisioning are separate. Your IdP tells Anthropic who sho
 
 **Important**: Store this key securely. It cannot be retrieved after you leave the page.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1777915800&amp;signature=6fd36dc5829b67c201c32b6701861de5ea90b72286d6809dc015f0e892aaaaf2&amp;req=diIiEMl6nYBWX%2FMW1HO4zSrRmqsWaDMcyIvvU1hav7PvBK3mfjN0R%2BTsfZsh%0A22mj%2FKqEeJcPk%2FURcTk%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040196/c3b045028c4c2edef9172b6fb424/9a71258e-ae73-41e3-83a2-d24a240ac0ae?expires=1777916700&amp;signature=26f943d10adbd521242b9a8f8f3b126f800e8c313da7ce801eb605cdff284d70&amp;req=diIiEMl6nYBWX%2FMW1HO4zSrRmqsWaDATyIvvU1hav7NTSnck5CmsMtoqg6%2B2%0An7hhmYYSGngXBBduOxQ%3D%0A)
 
 ### Step 2: Configure SCIM in your Identity Provider
 
@@ -71,7 +71,7 @@ After enabling the integration in your IdP:
 
 **Warning**: When you fully enable SCIM provisioning, any users who were **not** synced via SCIM will be removed from the organization. Confirm that all expected users appear in the sync before proceeding.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1777915800&amp;signature=22929ffc82642b6ec89a60233810635415318caaa413dc8a44cda4166e110fe9&amp;req=diIiEMl6nYBWUfMW1HO4zeLvPV9mS0nyoWupW8zJgMoBIKGnEWfvCRuDgIFx%0Am%2B3bVdkFSZRkKMV2axk%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256040198/da9188b8b968d5f900cc08e9ceb2/3814ab37-c3fa-4256-8d16-49c1e1b4c654?expires=1777916700&amp;signature=84274e4baf91c09b2e525daee2e6c20af83a264a848141992953e0e22dd1b079&amp;req=diIiEMl6nYBWUfMW1HO4zeLvPV9mS0r9oWupW8zJgMq5DMMnJgVQQahGnPP1%0AAuHTy4dSqlP4azoDcFI%3D%0A)
 
 ### Step 4: Map groups to roles and seat tiers
 
@@ -87,7 +87,7 @@ SCIM provisioning uses IdP groups to assign roles and seat tiers within Claude f
 
 3. Save your mappings.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1777915800&amp;signature=d314190310433c10172192531cee5cccaaf1f54393cfd7f1e5ced8a64e5b258d&amp;req=diIiEMl7m4VbWPMW1HO4zaWhvnQrs0ITh340B79BYGZUnv2wZmoNaeWVpLvj%0AOAKsWt8%2FR9vPCgVQTks%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256056441/f7eb09bba549e9861fc81b961cc7/2760fa5b-87bb-491f-9354-ca3cd2bc4475?expires=1777916700&amp;signature=ba65645bb6f55fa221538b9487090fe6c48e2137ea31559d4d0db305107c8d70&amp;req=diIiEMl7m4VbWPMW1HO4zaWhvnQrs0Ech340B79BYGYW1NWZE%2Fl9JkslZ5MN%0A%2BIkqyyDqICWrr4KY%2BG0%3D%0A)
 
 If you manage multiple organizations under a single parent (see below), each organization maintains its own role and seat tier mappings. Switch between organizations using the organization selector in the bottom-left corner of the page.
 

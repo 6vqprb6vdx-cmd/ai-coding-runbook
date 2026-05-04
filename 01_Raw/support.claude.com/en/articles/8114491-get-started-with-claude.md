@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/8114491-get-started-with-claude
-fetched_at: 2026-05-04T16:52:47.529030+00:00
+fetched_at: 2026-05-04T17:12:16.067734+00:00
 fetch_method: mintlify_md
 ---
 
@@ -40,7 +40,7 @@ You use **prompts** to communicate with Claude. The best approach is to speak to
 
 Type your prompt into the chat interface and click the submit button to start a conversation with Claude. You can click the "+" button in the lower left or type "/" to view additional options and commands:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1777915800&amp;signature=b6d51d3afb96a9f85e17ae2fd32d1f52865977a6885e2e633f290b44410a11b6&amp;req=dSkmEMt%2BlYRYUfMW1HO4zV2J4ijDtYKJ9crMELaMZPzC4NawylV6gbe56CMQ%0Aj8jtKAVFb6rWek6nX8o%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916208578/2cf2ea52f1f884084b57983a8805/image.png?expires=1777916700&amp;signature=37fa667b85a79ac559c6d165f6464b825fa27de03eebe3acdde27c597e2a6654&amp;req=dSkmEMt%2BlYRYUfMW1HO4zV2J4ijDtYGG9crMELaMZPzc%2B9PAab5tDT%2Fv2G%2FW%0An8KImBSPxhUblIPrc5w%3D%0A)
 
 ---
 

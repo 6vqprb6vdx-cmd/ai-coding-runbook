@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13892150-work-across-excel-powerpoint-and-word
-fetched_at: 2026-05-04T16:55:59.671729+00:00
+fetched_at: 2026-05-04T17:12:34.376872+00:00
 fetch_method: mintlify_md
 ---
 
@@ -30,13 +30,13 @@ Get **[Claude for Excel](https://marketplace.microsoft.com/en-us/product/saas/wa
 
 Go to **Settings** in each of Claude for Excel and Powerpoint and toggle **Let Claude work across files** on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1777915800&amp;signature=d7f4bed4274e39d9c2c6054a6f3e3300c417fc657d901a919d8b07543bbe90a8&amp;req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVW3P8UQtXQEr1GSm7Lk0J6UBF8uMBPv337dnc%0Abwz8BtS4npasCVGB3kA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152216540/23e9f22eca1109ec09f2c6138191/2ef697a8-3a60-4193-bbd7-639ed91b20e9?expires=1777916700&amp;signature=f97d806bccf1ccbb068bcd2c5474a856c4ff0af93e86a706b2f38b152a19e90f&amp;req=diEiFMt%2Fm4RbWfMW1HO4ze%2BVW3P8UQhYQEr1GSm7Lk3HAiJz2Ku5RiQTJpxM%0Ay2Ppn%2FoEqicpghW1fJM%3D%0A)
 
 **Note:** This setting is default on for Pro and Max plans and default off for Team and Enterprise plans.
 
 You'll see connected file indicators when Excel, PowerPoint, or Word files are linked to your session:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1777915800&amp;signature=48eef25a7b8098aa6e18ad2b9e491c6a09f0ac104f17d196e1df5fc79f5af2fd&amp;req=diEiFMt%2FmIFeWvMW1HO4zZtV0Wq%2F2tdpGgi4PNaz7vUxwJuma4tJKPmCHNr5%0AwvPe2xrSLDkqK%2Fi3iKk%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2152215013/db0cfd2aa4034975480d82218aad/8f11dc16-2173-4b34-a05a-e31a53b58cc2?expires=1777916700&amp;signature=3a8b2ed02da2520a553a8ed3dd980d19719f07dbfab8657236788536ef201b32&amp;req=diEiFMt%2FmIFeWvMW1HO4zZtV0Wq%2F2tRmGgi4PNaz7vU%2Bh2e2fPrhDxl0HzuT%0AOpif7rBH1YP%2F9CY3Og8%3D%0A)
 
 ---
 

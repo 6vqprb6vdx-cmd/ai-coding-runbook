@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization
-fetched_at: 2026-05-04T16:53:28.492484+00:00
+fetched_at: 2026-05-04T17:12:19.971812+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,7 +22,7 @@ Team admins can block new personal account creation on their verified domain, bu
 
 If your organization is on a Team plan (or hasn't initiated domain claiming), you may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1777915800&amp;signature=7f2e6a4236196ecd94956c21607c9c34b49ea304a169603381f890f566c93a9a&amp;req=diMmFMh3noJbXvMW1HO4zXhPktc%2FyRppufhmlOXMdYZI1ONd7Pu92DkbXgyH%0AtDJPS%2BsJt%2B8gl8XAn%2BU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1777916700&amp;signature=e6a044e2f0f0ad853bcf9b4d7545d1fc9c2db25b8af4c906000710a9cde80585&amp;req=diMmFMh3noJbXvMW1HO4zXhPktc%2FyRlmufhmlOXMdYbgYzL%2FVPmBJckMkvyB%0ABupMu4B0oWBSdzLJJZY%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 

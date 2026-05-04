@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13325567-account-management-faqs
-fetched_at: 2026-05-04T16:55:38.884023+00:00
+fetched_at: 2026-05-04T17:12:32.326727+00:00
 fetch_method: mintlify_md
 ---
 
@@ -48,6 +48,6 @@ The email domain that was used to create your Team or Enterprise plan organizati
 
 Owners can remove domains by opening up the same modal and clicking the trash can icon to the right of the domain:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1777915800&amp;signature=17d2aec76d7270cb8df173ae17f4b240305c759d58aca307f0f5a2f2e362f59d&amp;req=diAiFcF5nolaW%2FMW1HO4zUrhGeyRaA0SkeFUnrkrQZi2B4%2By4uurTEn7tsCN%0A2m1vpGyYXOLJF8dmVtA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1777916700&amp;signature=411fb0cf4907c56ed0f9e8e3a4d3562309c701acb61ba0cfe82fef05ed1c116e&amp;req=diAiFcF5nolaW%2FMW1HO4zUrhGeyRaA4dkeFUnrkrQZgThuT3So5YO5XyZ2VB%0A%2FraNe2l73Qvuhczt%2Brg%3D%0A)
 
 While the account creator must use a business email address, you can add public domains like @gmail.com, @yahoo.com, and @hotmail.com as allowed domains for other members of your organization.

@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12650343-use-claude-for-excel
-fetched_at: 2026-05-04T16:55:08.581702+00:00
+fetched_at: 2026-05-04T17:12:29.467501+00:00
 fetch_method: mintlify_md
 ---
 
@@ -334,7 +334,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 
 - System information: REGISTER.ID, RTD, INFO
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1777915800&amp;signature=41b93be84974216ef5294b1fe9cd6229cddbb594df4ba70e5dff98230b6a75f7&amp;req=dSgjH819nIJeWfMW1HO4zYWKZ%2BViI996qAsRdssXCyAroAR1ec4tnCRQlRjs%0AsVVsIyRzRMt2N9o5zvM%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1777916700&amp;signature=46ab1a5e8646a4ef4cb87f797f240776b71f7157fa8d7db4095975bfc3828875&amp;req=dSgjH819nIJeWfMW1HO4zYWKZ%2BViI9x1qAsRdssXCyCMlrG3DYYur7AGQcd6%0AwIHfNLNQvIn86S%2BtibU%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 

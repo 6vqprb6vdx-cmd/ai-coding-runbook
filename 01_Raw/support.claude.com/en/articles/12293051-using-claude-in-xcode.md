@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12293051-using-claude-in-xcode
-fetched_at: 2026-05-04T16:54:53.708390+00:00
+fetched_at: 2026-05-04T17:12:27.877783+00:00
 fetch_method: mintlify_md
 ---
 
@@ -38,7 +38,7 @@ To start using Claude in Xcode:
 
 3. Log in with your Claude account.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1777915800&amp;signature=739d82bfdb5918147d68c16ea3709f819ac516badd85e715fc883b36047116e8&amp;req=dSclEcp5nIRXXPMW1HO4zUAXLMsLU63cFalhp3bugHKByoGKt3S9AbVg39r3%0AHf6jF%2Bx2FA%2FqjF6iAuY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1727371585/b18ca03a6357c52d12d10386f28e/dab2dcb2-f670-4173-b77d-38767a34cec1?expires=1777916700&amp;signature=afc6898256b175b7def2cf64f89f389f76df74a6514038c05fb13f4f64f117ad&amp;req=dSclEcp5nIRXXPMW1HO4zUAXLMsLU67TFalhp3bugHI75cwsx9dZ19CY3qbu%0AC4wjcl53JTsyXoUYwZQ%3D%0A)
 
 ## Usage limits
 

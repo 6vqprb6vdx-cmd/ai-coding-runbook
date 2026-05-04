@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13162029-google-sheets-add-on
-fetched_at: 2026-05-04T16:55:33.096663+00:00
+fetched_at: 2026-05-04T17:12:31.780217+00:00
 fetch_method: mintlify_md
 ---
 
@@ -36,7 +36,7 @@ Easily enable Claude for Sheets using the following steps:
 
 3. **Connect your API key:** Enter your API key at `Extensions` > `Claude for Sheets™` > `Open sidebar` > `☰` > `Settings` > `API provider`. You may need to wait or refresh for the Claude for Sheets menu to appear.
 
-  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1885955653/fa55fbc81410f0f9da473a5b6c01/044af20-Screenshot_2024-01-04_at_11_58_21_AM.png?expires=1777915800&amp;signature=1dd8d59c08b76c863bf4f39fe63f9218cb9fbc461d0df529882492456f3a29e4&amp;req=dSgvE8B7mIdaWvMW1HO4zQWPGDECSCAMY2KGYHWoVfmbtZ%2FJMPZqzWJ6Lo%2FE%0A%2Bkco%0A)
+  ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1885955653/fa55fbc81410f0f9da473a5b6c01/044af20-Screenshot_2024-01-04_at_11_58_21_AM.png?expires=1777916700&amp;signature=949395a7fd9f4b3494d0da1fa478e2b8359f24a6f0361fd43992f619cb56fdaf&amp;req=dSgvE8B7mIdaWvMW1HO4zQWPGDECSCMDY2KGYHWoVfl%2FruBqUJpcWWCLiQgK%0Ah%2Fp0%0A)
 
 **Important:** You will have to re-enter your API key every time you make a new Google Sheet.
 
@@ -154,7 +154,7 @@ Make a copy of our [Claude for Sheets workbook template](https://docs.google.com
 
   2. Click on the triple dot menu at the top right corner of the Claude for Sheets extension and make sure "Use in this document" is checked
 
-      ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1885994017/0576e3f7d37c8223e5fb4743ad92/9cce371-Screenshot_2023-10-03_at_7_17_39_PM.png?expires=1777915800&amp;signature=9ec5df1685e943e1bbdd7d1c762475b4bcc9482a509294116f6519525eb6960a&amp;req=dSgvE8B3mYFeXvMW1HO4zftja8I4%2BEARpoA36c5sCs%2BDGVcjkRmUhBUdke1P%0AP2wq%0A)
+      ![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1885994017/0576e3f7d37c8223e5fb4743ad92/9cce371-Screenshot_2023-10-03_at_7_17_39_PM.png?expires=1777916700&amp;signature=561a13427779f758b145214a5c7c4d8848178c3fe92692eced82230ed994a283&amp;req=dSgvE8B3mYFeXvMW1HO4zftja8I4%2BEMepoA36c5sCs%2FIy4cTh8vai8eqY1WX%0AZXi%2F%0A)
 
 2. Refresh the page
 
@@ -162,7 +162,7 @@ Make a copy of our [Claude for Sheets workbook template](https://docs.google.com
 
 You can manually recalculate `#ERROR!`, `⚠ DEFERRED ⚠`, or `⚠ THROTTLED ⚠` cells by selecting from the recalculate options within the Claude for Sheets extension menu.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1885996645/cc87f17bd5fa2e8facfdbfc09154/f729ba9-Screenshot_2024-02-01_at_8_30_31_PM.png?expires=1777915800&amp;signature=614673e4125dc78277cfa815f7d2ffe39ab9c468cffc2e388ba9b2a27fce3709&amp;req=dSgvE8B3m4dbXPMW1HO4zSC1mgP0dqqehyBIJxp2kEzmz%2FpXGpOKr4NIJRLx%0AMRSHNu0V2KCHpPwid34%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1885996645/cc87f17bd5fa2e8facfdbfc09154/f729ba9-Screenshot_2024-02-01_at_8_30_31_PM.png?expires=1777916700&amp;signature=cf221ed4db3e5fb287f78dd8da5e95f48da88a34bd4748d5b454014d0a4c1c73&amp;req=dSgvE8B3m4dbXPMW1HO4zSC1mgP0dqmRhyBIJxp2kEyngbEtLJrUSW5Tgz0H%0A8Zu6E0FRdfDsYedYmeA%3D%0A)
 
 ### Can't enter API key
 

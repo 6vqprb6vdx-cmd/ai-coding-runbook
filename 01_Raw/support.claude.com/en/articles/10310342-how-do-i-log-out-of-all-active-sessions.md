@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions
-fetched_at: 2026-05-04T16:54:04.182086+00:00
+fetched_at: 2026-05-04T17:12:23.209393+00:00
 fetch_method: mintlify_md
 ---
 
@@ -42,7 +42,7 @@ To regain access to your account on any device, you'll need to authenticate agai
 
 If you used your Claude account to authenticate into Claude Code, you can manage your authorization tokens by navigating to [Settings > Claude Code](http://claude.ai/settings/claude-code). To remove a token and log out of Claude Code, click the trash can icon.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1777915800&amp;signature=0447bde148f441802021c935ac5717a3741373f33c5314ffe58d337f42043271&amp;req=dSYnHst4nohdWvMW1HO4zVuHhRv012KzAQofdwM8qVc0w36QTNfTEGeRJu1r%0AwZUXFJRSY51ud3Wt4G4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1608263923/b4fa7d6f6f08f2adffb4ea63bc58/image+%287%29.png?expires=1777916700&amp;signature=0578204b130d9684c31ec28904e8acf0baedb1b9c151b70325cef7de1974196c&amp;req=dSYnHst4nohdWvMW1HO4zVuHhRv012G8AQofdwM8qVfpKXYI9cwkucZaWvs3%0AovuFfDSh6ASdgStbqz8%3D%0A)
 
 ## Unable to access your account?
 

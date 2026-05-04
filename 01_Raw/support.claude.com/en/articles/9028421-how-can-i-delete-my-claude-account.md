@@ -1,12 +1,12 @@
 ---
 source_url: https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account
-fetched_at: 2026-05-04T16:53:15.681282+00:00
+fetched_at: 2026-05-04T17:12:18.574120+00:00
 fetch_method: mintlify_md
 ---
 
 Once you are logged in, click your initials or name in the lower left corner and select "Settings." Navigate to **[Settings > Account](https://claude.ai/settings/account)** and click the "Delete account" button:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2274267534/e7064e2657b1bd20031ba40da11c/CleanShot+2026-04-14+at+09_48_08.png?expires=1777915800&amp;signature=ee2e2e1b2570dcca80ab7c172e1b050ae763b4014ea1704a01cf5f25c56f3105&amp;req=diIgEst4moRcXfMW1HO4zeqzmnsHJ4T0oVDupr7i4TFtItHWQ1rG6irMTjVg%0ACtos3xsXN6jezoPNm1o%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2274267534/e7064e2657b1bd20031ba40da11c/CleanShot+2026-04-14+at+09_48_08.png?expires=1777916700&amp;signature=5531c793f079de690aaf5111516a15c38d0ebc486d6a7e039107d846a8343d58&amp;req=diIgEst4moRcXfMW1HO4zeqzmnsHJ4f7oVDupr7i4TF7veR3gTBP0Kikglzv%0AEtdzgt6b3EwQmO4HyYc%3D%0A)
 
 ## Considerations for paid Claude accounts
 
@@ -24,4 +24,4 @@ If you have multiple accounts associated with the same email address, you'll nee
 
 There are some scenarios where you will need to **[contact our team](https://support.claude.com/en/articles/9015913-how-to-get-support)** to delete your account. If this is the case, it will be noted in your account:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584796811/331afc5dc61eec6f72786155b782/Screenshot+2025-06-23+at+1_54_23%E2%80%AFPM.png?expires=1777915800&amp;signature=d3be72118cd67d15611e9c2a8e5d2df3a1d1f652b5548b51cfabd0227cdaf13c&amp;req=dSUvEs53m4leWPMW1HO4zXW0pBICGo9TVOsMorzl%2B%2FTCZ%2Fl6S3vRqR%2FS4WUJ%0AwQZQZ%2B9e7zlwmQwvves%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1584796811/331afc5dc61eec6f72786155b782/Screenshot+2025-06-23+at+1_54_23%E2%80%AFPM.png?expires=1777916700&amp;signature=871ab30706c07c1fbad9fa4d6af1b7e252b01455be0224dafea35fad2e20630a&amp;req=dSUvEs53m4leWPMW1HO4zXW0pBICGoxcVOsMorzl%2B%2FSIFZoWYzkc%2FZD%2BD6rM%0A8zQcTsSa933qNg%2FTClI%3D%0A)

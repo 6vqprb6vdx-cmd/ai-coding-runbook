@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12260368-using-incognito-chats
-fetched_at: 2026-05-04T16:54:52.998467+00:00
+fetched_at: 2026-05-04T17:12:27.925377+00:00
 fetch_method: mintlify_md
 ---
 
@@ -32,7 +32,7 @@ Incognito chats are temporary conversations that aren't saved to your chat histo
 
 When starting a new chat with Claude outside of a project, you'll see a ghost icon in the upper right corner of your screen:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1777915800&amp;signature=7076630d136c5ba8a0ed122294d5505d8f4dec9217d271842acdb211f0f408dc&amp;req=dScmH854lYZbXfMW1HO4zeUctAW0b%2BCDDCAt3Cx%2FSO2Nl2MchyeWdV3fN9yq%0A5s8pfyM85Y8SAAtvRDo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1719768744/c7a2fa56cf284e48472f3b9c4dbf/030563f8-9f97-4891-a749-9ae95968a063?expires=1777916700&amp;signature=fbaa7756df54d08f9def43dd127b619ee944a783b4815bbc5eaa557fd58206e9&amp;req=dScmH854lYZbXfMW1HO4zeUctAW0b%2BOMDCAt3Cx%2FSO3DeXsEkyAv2GuQ4V%2BU%0AiKHehMO5gX%2BsJjmujcg%3D%0A)
 
 1. Click the ghost icon to enable incognito mode.
 

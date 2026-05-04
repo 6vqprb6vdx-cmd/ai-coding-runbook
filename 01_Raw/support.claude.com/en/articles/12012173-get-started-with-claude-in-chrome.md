@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome
-fetched_at: 2026-05-04T16:54:46.466329+00:00
+fetched_at: 2026-05-04T17:12:27.250512+00:00
 fetch_method: mintlify_md
 ---
 
@@ -40,7 +40,7 @@ Start a task in Claude Desktop and let it handle work in the browser without swi
 
 4. Toggle the connector on, then download and install the extension if you haven’t already.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1777915800&amp;signature=d75297b7329c2cf9bcffc337c9d3ff315a6f423cdbd31fd3a96f2991a9aa2401&amp;req=dSguFM93m4RfW%2FMW1HO4zdOew4xV6bZxhnw73Y7ib%2Bd31fh9iInRaAYHd6%2Br%0Ap6S80fbCIV5QtED2w4M%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1892696502/a23969725f631e99b9e4c47ec6e9/89803b8f-4f3c-4983-8b4d-63aec687ea1a?expires=1777916700&amp;signature=aa0381a422f14d411ac2fc11aa5b25ba0e8377149ba90b92644a77fdb010cc4e&amp;req=dSguFM93m4RfW%2FMW1HO4zdOew4xV6bV%2Bhnw73Y7ib%2BfS52ZIhCGwufEtjEWk%0AZx6%2B0a9omy20VSJenHg%3D%0A)
 
 Completing these steps will add Claude in Chrome to the “Connectors” drop-down on your chats with Claude. This is disabled by default, so you’ll need to enable it manually for each conversation.
 

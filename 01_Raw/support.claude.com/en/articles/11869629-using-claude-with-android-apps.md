@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/11869629-using-claude-with-android-apps
-fetched_at: 2026-05-04T16:54:41.916302+00:00
+fetched_at: 2026-05-04T17:12:26.698655+00:00
 fetch_method: mintlify_md
 ---
 
@@ -228,7 +228,7 @@ Permission requirements vary by feature:
 
 For features requiring permissions (like location or calendar access), Claude will request permission contextually with clear explanations of why the access is needed. You’ll be prompted to approve the action with three options: Allow once, Always allow, or Don't allow.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1777915800&amp;signature=908d33c9b683b8fdd0c9d3be3d55929ed3a105cdf11516a0f99610099d35b9fa&amp;req=dScnEcp7nIdeXfMW1HO4zQe5FViG2iD8S5x65TIld%2FB5MlRZkMRBrhgwf8vM%0ArT1G39y6ss7K0fKbJXY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1707351614/ccb910e4b87b1e96ad9a11bbd835/b57b2130-d8d6-4499-89f6-6c12de236fd4?expires=1777916700&amp;signature=c9596536d7d958c470e54a50f0d3db92bf470dab3545e3d61f8be52969eddb8f&amp;req=dScnEcp7nIdeXfMW1HO4zQe5FViG2iPzS5x65TIld%2FChM4UYw%2F9yp%2BbJQZi1%0AGSnw58keoo%2BQghJtZeE%3D%0A)
 
 These permissions can be managed at any time in your device settings by going to Settings > Apps > Claude > Permissions. Click into each permission listed under **Allowed** and **Not allowed** to make changes. You can toggle between “Allow only while using the app” or “Ask every time” to change Claude’s access, or remove permissions by choosing “Don’t allow.” Claude will only request permissions if needed for specific features, and you can always choose to decline while still using other capabilities.
 

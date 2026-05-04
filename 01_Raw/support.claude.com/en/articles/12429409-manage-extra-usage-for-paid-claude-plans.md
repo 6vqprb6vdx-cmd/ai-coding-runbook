@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12429409-manage-extra-usage-for-paid-claude-plans
-fetched_at: 2026-05-04T16:54:58.082754+00:00
+fetched_at: 2026-05-04T17:12:28.288793+00:00
 fetch_method: mintlify_md
 ---
 
@@ -46,13 +46,13 @@ To enable extra usage on your paid Claude plan:
 
 6. Click “Adjust limit” to control costs with a monthly spending cap. You can also select “Set to unlimited” if you prefer no spending restrictions:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805820732/369dc2e95e2ea7131c75b92d52e2/ce39ab8c-ab3b-4936-986b-bc965919158e?expires=1777915800&amp;signature=7f841a67826ca9b3f348d81aa3dd2a7684a9e7beeafdf428ca26f30735a67fa3&amp;req=dSgnE8F8nYZcW%2FMW1HO4zV7kvnak9L5MxdoHGhDYlicGCzPVxWUBcwuHpnTW%0AHRKo%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805820732/369dc2e95e2ea7131c75b92d52e2/ce39ab8c-ab3b-4936-986b-bc965919158e?expires=1777916700&amp;signature=f1d1ce06e57ea5d726ec6b12ad9fe8ef169ff2c9dd15ca98aa8ed7ba3654b89a&amp;req=dSgnE8F8nYZcW%2FMW1HO4zV7kvnak9L1DxdoHGhDYlid5o8ci9S3Hz1v%2BG7S1%0AM0uq%0A)
 
 7. You’ll then need to prepay to cover usage beyond your plan limits. Click “Add funds,” enter the amount you want to purchase in the modal, then click “Purchase.”
 
 8. You can also enable auto-reload to automatically make a purchase when your balance falls below a threshold you set:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1777915800&amp;signature=0163096269e1e3d7ba99e03345ae3e6256e66e2371b9e438bba37cfd2f38aada&amp;req=dSgnE8F%2FlIZXXPMW1HO4zYj2DhWQpPUwopE7m38Ydfe9Bxg%2Fd6hsE2ZIAgG7%0ANC5CKlt6V3r01XCd5Fc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1805819785/5e203c38e6ba3f76bfd1dab0d5ce/fe062e7c-18cb-48cc-a7e2-754ac6e6c4be?expires=1777916700&amp;signature=edaea5aa0f61f0b0522b3123ebcdb1181935194eb222d0daeee54542bb80b138&amp;req=dSgnE8F%2FlIZXXPMW1HO4zYj2DhWQpPY%2FopE7m38Ydfc%2FAqhIHH0U5%2FsRj7me%0Ax2r3gcbfUb%2FcKWTPY5s%3D%0A)
 
 **Note:** There is a daily redemption limit of $2000.
 

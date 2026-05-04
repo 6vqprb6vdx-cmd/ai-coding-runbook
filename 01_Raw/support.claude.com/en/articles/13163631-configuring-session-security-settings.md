@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13163631-configuring-session-security-settings
-fetched_at: 2026-05-04T16:55:33.802957+00:00
+fetched_at: 2026-05-04T17:12:31.852526+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,7 +22,7 @@ Session duration controls allow Enterprise and Console Admins to set a maximum s
 
 5. Confirm your selection by clicking “Enable.”
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469436/1725e63ea1a2615948faecf4ec73/9bd276a1-7329-414d-87a1-d04dac93fff7?expires=1777915800&amp;signature=da73449d3229cbea21538d91f313b8ae496626fcfbd324a29cefb824d49a1252&amp;req=dSgvHs14lIVcX%2FMW1HO4zQNx5OUuQl9Yg%2F6XaftFnjzKGvBRYrE%2BsqoZbe1v%0ASHm95zPvxLSbCNMxU9M%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469436/1725e63ea1a2615948faecf4ec73/9bd276a1-7329-414d-87a1-d04dac93fff7?expires=1777916700&amp;signature=79ac14984d3d91e3bfd62cf47f16cbd9c0310f435e443af2f34d39efc3ecda6e&amp;req=dSgvHs14lIVcX%2FMW1HO4zQNx5OUuQlxXg%2F6XaftFnjyVYlBNxcS7poVxlJ%2BC%0Aa4WW3l0uMpkgmLdeklo%3D%0A)
 
 ### For Console Admins
 
@@ -36,7 +36,7 @@ Session duration controls allow Enterprise and Console Admins to set a maximum s
 
 5. Confirm your selection by clicking “Enable.”
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469435/7a766bbe02e61c7d8f05deb5b8f0/b0bda400-47c6-43dd-9907-131ebe180b36?expires=1777915800&amp;signature=e3b88b9b2dfe51b9d9122083424a5f7d98a3005f8de00d4260ba6f6a0fd2e379&amp;req=dSgvHs14lIVcXPMW1HO4zWzx174%2FJnopXZ5D7eVpMtdPie%2By36vaWLULojK8%0As2XFeCZwCo1LyGk8uhI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469435/7a766bbe02e61c7d8f05deb5b8f0/b0bda400-47c6-43dd-9907-131ebe180b36?expires=1777916700&amp;signature=f3f716879c09d5f878135dbd38250dccf9818545a364524fc805364b594d8ee4&amp;req=dSgvHs14lIVcXPMW1HO4zWzx174%2FJnkmXZ5D7eVpMtd6su4ucwOa3lDQuMZY%0AdWjQuqNcn8%2B0n7hGBmA%3D%0A)
 
 ### What happens after enabling shortened session length?
 
@@ -54,7 +54,7 @@ You can change the session duration at any time by selecting a new value from th
 
 - Sessions scheduled to expire beyond the new duration will have their expiration shortened accordingly.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469437/46ac5bc55484ca01556d87a5ade7/b01a7651-ad65-4b32-93ff-16dbc9ca97c0?expires=1777915800&amp;signature=c97d2d00135f963b697ed065b978751bed26319d44d51cdf700e8e81b990d85f&amp;req=dSgvHs14lIVcXvMW1HO4zZ7mVc%2BS5jyrA00cbyPOLDXt1zlaHxSwD0gKnAt4%0AzIipbjTsJYfpk6h%2Fq2E%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1888469437/46ac5bc55484ca01556d87a5ade7/b01a7651-ad65-4b32-93ff-16dbc9ca97c0?expires=1777916700&amp;signature=5147714e7a2062aeb1f4193feb766ade8b1cc3d91cd5e47746b6ce71ac4b96f7&amp;req=dSgvHs14lIVcXvMW1HO4zZ7mVc%2BS5j%2BkA00cbyPOLDU3t%2FKyluuOn1XgzaV7%0Ao4miBToXMhvSQ7NtZhQ%3D%0A)
 
 ## Disabling session length settings
 

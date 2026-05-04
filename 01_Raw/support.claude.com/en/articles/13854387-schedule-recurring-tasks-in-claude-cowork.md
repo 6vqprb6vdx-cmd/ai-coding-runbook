@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork
-fetched_at: 2026-05-04T16:55:58.922472+00:00
+fetched_at: 2026-05-04T17:12:34.307539+00:00
 fetch_method: mintlify_md
 ---
 
@@ -58,7 +58,7 @@ There are two ways to create a scheduled task:
 
 9. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1777915800&amp;signature=7717f8f2993944d7e1d2702bad1c91048453a74d2e998f0daf0c66991d300ec7&amp;req=diEnEsl2mIJWUPMW1HO4zeLJCULt%2Fu%2BPPx%2FSrZI7l8xwUCZEqAxRjrzefhxp%0A%2F%2B0J%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1777916700&amp;signature=eb094d504560cfcd6d5e5d28536522d06e79772b22a917385af65abc65959f8c&amp;req=diEnEsl2mIJWUPMW1HO4zeLJCULt%2FuyAPx%2FSrZI7l8zcfg6wE%2FupzzHLYFqz%0AEMVA%0A)
 
 10. Claude will create and schedule your task, and it will be added to the “Scheduled tasks” page.
 

@@ -1,12 +1,12 @@
 ---
 source_url: https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account
-fetched_at: 2026-05-04T16:55:42.404211+00:00
+fetched_at: 2026-05-04T17:12:32.703216+00:00
 fetch_method: mintlify_md
 ---
 
 When you navigate to the [Claude Console](https://platform.claude.com), you will see two different options for logging in to your Console account.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1777915800&amp;signature=f42af112ef4f351ce966b15831c85d4065a2f68e9110fa225dd9a8930245eae7&amp;req=dSkkE8l8m4dbX%2FMW1HO4zcrI6I7loYUF8vUNcPt4%2B72pDniIphVAkbU92dPJ%0AbIZsSy8hoKCcTkHbtv0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1935026646/d90d1613a3dbe763fef5abb96e3c/image.png?expires=1777916700&amp;signature=7af0240926a898938441ba55bbb6314f53c16f8fdcd84117445185741fb39044&amp;req=dSkkE8l8m4dbX%2FMW1HO4zcrI6I7loYYK8vUNcPt4%2B73A%2FfW9Nvoeua0fwi9e%0A1dzeA1WZUqXIK50LWLo%3D%0A)
 
 ## Continue with Google
 

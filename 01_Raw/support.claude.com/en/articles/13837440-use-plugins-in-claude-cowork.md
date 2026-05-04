@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork
-fetched_at: 2026-05-04T16:55:57.436218+00:00
+fetched_at: 2026-05-04T17:12:34.174773+00:00
 fetch_method: mintlify_md
 ---
 
@@ -40,7 +40,7 @@ For the full collection of Anthropic-built plugins, visit **[GitHub](https://git
 
 Plugins you add yourself are saved locally to your machine.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1777915800&amp;signature=188e92aa6fa28076cf5b01a57abfe561ed715d8f64b3b58746456a3ecf978de8&amp;req=diEnFs1%2BlINeWPMW1HO4zZF3LRLUMvBdxakFVfq5Wwwd1EpkP7fmUWOZWC6x%0Aa1Pb5q8pxbF3FV1lIxo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1777916700&amp;signature=8843fa197fecdad44cf0620292c4a8f97342462f7017e246d4068c44684da091&amp;req=diEnFs1%2BlINeWPMW1HO4zZF3LRLUMvNSxakFVfq5Wwx%2Fmt8hQdQIAqrWcJ7X%0AqL1qNPKt6IjAX%2BeDJRU%3D%0A)
 
 ---
 
@@ -48,7 +48,7 @@ Plugins you add yourself are saved locally to your machine.
 
 Each plugin you install adds Skills you can use while working in Cowork. Type "/" or click the "+" button to see available Skills from your installed plugins.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1777915800&amp;signature=06e4a0bd485e875b11564b766f19d82b2d0fa0a231ccefd4e6f74cee3f371445&amp;req=diEiEcp3m4lbXfMW1HO4zf4NC%2FH1gkWcmKUxugP2BQuRM7vTWE8XPbi5E%2BPP%0A2EdM1Nu0Wx7NA4ka%2BQM%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1777916700&amp;signature=080b9a1e79d528839d7bfd7cb2c19e43481f71b7a3e220bcf9184df4534053e6&amp;req=diEiEcp3m4lbXfMW1HO4zf4NC%2FH1gkaTmKUxugP2BQuBri7xVaTuLf0vKjCP%0AYblQGWiI12hXrammoq8%3D%0A)
 
 ---
 

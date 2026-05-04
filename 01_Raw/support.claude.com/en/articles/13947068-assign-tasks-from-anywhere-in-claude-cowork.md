@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork
-fetched_at: 2026-05-04T16:56:02.878643+00:00
+fetched_at: 2026-05-04T17:12:34.639775+00:00
 fetch_method: mintlify_md
 ---
 
@@ -50,11 +50,11 @@ Follow these steps to get started:
 
 5. You’ll land on a page describing the functionality. Click “Get started”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1777915800&amp;signature=238aa8c88b2c278c589ba4fe9c6865c02a1815d38a196f2d90bd42d3f99be3f0&amp;req=diEhH8B7mYFXX%2FMW1HO4zSZP3ZWCFAv3B32drIe5EDlzNISFcJ3lG019kLeB%0AiVkw%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169954086/419674f781edb2977b93cce062b4/93b1893c-d79a-4eb6-b2f1-2fe3e043bd90?expires=1777916700&amp;signature=5668a6e5cc3576c96addd712affcc695d424a805d9998c4804c4b0f81b0fc506&amp;req=diEhH8B7mYFXX%2FMW1HO4zSZP3ZWCFAj4B32drIe5EDnJ380%2BDVdMAPnEfFV6%0Asc6R%0A)
 
 6. On the next screen, you can give Claude access to your files and keep your computer awake by toggling those on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1777915800&amp;signature=c9a6be7e2b921a8d646e9ddd54fc30a4700497440226dfb4383268f320c37327&amp;req=diEhH8B7mIFXW%2FMW1HO4zaZWvN2RXAQWepuGRb1rD3KDi%2FimYWMZVcj6TxPg%0AfIYg%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2169955082/de4053ee0eab8fcb9263584bb171/d39b77da-1a69-4682-9fdb-7ed488f236b0?expires=1777916700&amp;signature=0488bef6ca7e16ecfb473412e738312d774466293fcd1ca7acf711aef77da831&amp;req=diEhH8B7mIFXW%2FMW1HO4zaZWvN2RXAcZepuGRb1rD3J6erIMB3BvQOAjXsYK%0Axm%2BS%0A)
 
 7. Click “Finish setup.”
 

@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13641943-visual-and-interactive-content
-fetched_at: 2026-05-04T16:55:49.057471+00:00
+fetched_at: 2026-05-04T17:12:33.325308+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,7 +22,7 @@ Claude can show current weather conditions and forecasts when you ask about the 
 
 Claude automatically displays temperatures in Fahrenheit for US locations and Celsius for everywhere else.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1777915800&amp;signature=92e835c630edc3d4b77bd62ec69d00cbd708368305db9e8773a14966e7a2d1b7&amp;req=diAjFsx6mYhdXvMW1HO4zXlB4jmz1B2AdgndksVD5R3tOz9R8agf9P2qXbpY%0Aa4vgjtYiW3myibT4Auo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544927/3a9c695b24df387ecdd766ad308c/8be9f393-dcb0-4ff8-89e8-5fa47bedaa38?expires=1777916700&amp;signature=cdda386ecaa9c921f0dfd8a449fa2377290ef1edc950b8a303daea653e4ae3f5&amp;req=diAjFsx6mYhdXvMW1HO4zXlB4jmz1B6PdgndksVD5R1lOrqZzDuCbBaAQOEa%0AcJQLy9Rj2Q8BPn7Rj6Q%3D%0A)
 
 Weather is powered by Google Maps (<https://policies.google.com/privacy>).
 
@@ -32,7 +32,7 @@ When you ask about recipes, Claude can display formatted recipe cards that are e
 
 **Note:** Visual recipe cards are available on web and desktop only. On mobile, Claude provides recipe information as text in the conversation.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1777915800&amp;signature=b644e94470b4527ebd2e39515e51851a6025dce43447bce6aec99f80d54ee852&amp;req=diAjFsx6mYhdUPMW1HO4zUQpdLcc01GfrIPm%2FImZVg2KtPMLseE%2BNCadAzWy%0AJS1%2BB9oP6il99%2FJwneY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544929/12f4c51eda7779d65d3ea2c7ab16/d0f4a314-cff8-421a-b401-10c2bf50374e?expires=1777916700&amp;signature=ee9349c32165b725db6338238c4b5a9b36f18246f376cf8adff4b212d3ab9b0d&amp;req=diAjFsx6mYhdUPMW1HO4zUQpdLcc01KQrIPm%2FImZVg35JNMC39DleFt%2FWD8W%0Aqh5XswuRfUS7tm55qr4%3D%0A)
 
 ### Custom visuals
 
@@ -80,7 +80,7 @@ For example, if you ask Claude to help you plan a trip, it might ask you to:
 
 This content appears at the bottom of the chat. You can still type a response if you prefer.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1777915800&amp;signature=eeab9d4cda64556e78f3623e3ef7e03798cd1a8078106dd33cd5fff23b0e6681&amp;req=diAjFsx6mYhcWfMW1HO4zWmF6PK3aBuqx4wz0C7CTAI49K76a1rhsom%2F%2BVXo%0ArPviH76PWv1WtEdqsQY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2040544930/9ad066e137d11e4b559b0217e12d/9bf30d2d-1715-42b3-9da5-2a9298f41f08?expires=1777916700&amp;signature=e2f5a871669089f207c86bd71ec0b4206282a141c3b04e423058373a0aa63f2b&amp;req=diAjFsx6mYhcWfMW1HO4zWmF6PK3aBilx4wz0C7CTAIHf04hKC5YVYft389W%0AS5MVxOndGMOiHaRx15c%3D%0A)
 
 ---
 

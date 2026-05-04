@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning
-fetched_at: 2026-05-04T16:55:30.139226+00:00
+fetched_at: 2026-05-04T17:12:31.493297+00:00
 fetch_method: mintlify_md
 ---
 
@@ -38,7 +38,7 @@ Use this table to help decide which provisioning mode is right for your organiza
 
 Both JIT and SCIM can be combined with **Enable group mappings** to control role or seat tier assignment based on IdP group membership. If you select either of these options for your provisioning mode, **Enable group mappings** will appear within the **User provisioning** section:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1777915800&amp;signature=69b5a4317afa9fcffdfff0fda7e47430c1dd1bb70efb62d3859cff6c2009b3e4&amp;req=diMmFM5%2Bm4FWUPMW1HO4zXBDTKxdDF9%2BxFMG%2BIEvQSfTTzTt9mzsY2USbv15%0AqB2lqa4bkxaANA%2Bgr8U%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312706099/35d5d3ec149880a96bb7acec59f6/a4cfce55-86bf-40b0-b455-c8f412d48e9e?expires=1777916700&amp;signature=e40fb8fad7c4f33b79f4ae14d24bba5d7e3dccb100d3b6f5bdcab0596e626591&amp;req=diMmFM5%2Bm4FWUPMW1HO4zXBDTKxdDFxxxFMG%2BIEvQSe4jJjYo%2FDShJswEESX%0Awh63WOTYOoT6JoGeJuw%3D%0A)
 
 ### Available roles and seat tiers
 
@@ -122,7 +122,7 @@ Once your IdP is connected, continue to Step 3.
 
 4. Toggle **Enable group mappings** on (if it’s not already):
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1777915800&amp;signature=471373d667dd954f3b1873237abffadfa281020fec4ed0be7cae1b2a4e6b7e14&amp;req=diMmFM5%2FmYdcXPMW1HO4zeBEYcLRlv9Ayb72rapuHpMUSmNhrS4TsbyRaHCd%0A4Y%2BM%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312714635/b57870b51e6511c8293637bceee2/da1ceabc-b6bc-451b-9cda-24ff6aa90d02?expires=1777916700&amp;signature=916ebabc9aafb5241d99bcb16f3cc74abc3fedb0d3eef16b1e585960ede8fd4c&amp;req=diMmFM5%2FmYdcXPMW1HO4zeBEYcLRlvxPyb72rapuHpPJoN2aNmaafM2USnxL%0AA1nU%0A)
 
 5. In the **Enable group mappings** section, click “Add” next to each role and select the corresponding group from your IdP in the dropdown.
 
@@ -164,7 +164,7 @@ Verify you have enough seats purchased and available to add members to your org.
 
 4. **For SCIM:** Click "Sync" to prompt an immediate sync, or wait for the automatic sync cycle:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1777915800&amp;signature=904dd153f784ff5c9f9701119eb061ad40389df9b32c185572b7df7cd2a3139c&amp;req=diMmFM5%2FmoVdWPMW1HO4zZ9LZFqkGM%2FK5hujYvMis4c6cR%2Fhkib0gMDJlUXN%0AVlCY%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312717421/c97fce49ad17d4660880a05fbaaf/59fbfa2a-1072-4662-8ca5-102970d5a795?expires=1777916700&amp;signature=a8f4bf8dadaaac74c071a0ff2626f40e4a0bf36adee6659038efe6828051b685&amp;req=diMmFM5%2FmoVdWPMW1HO4zZ9LZFqkGMzF5hujYvMis4flsxkK6izflq02JprF%0AyvAT%0A)
 
 ### I lost Admin/Owner access after enabling group mappings
 

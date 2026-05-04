@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12997503-team-plan-billing-faqs
-fetched_at: 2026-05-04T16:55:24.154637+00:00
+fetched_at: 2026-05-04T17:12:30.964582+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,7 +22,7 @@ Your organization's billing address determines where your invoices are sent. You
 
 If you want to use a name other than the one tied to your payment method, an organization Owner should check the "Use a different name on invoices" box when adding or updating your payment method in **[Organization settings > Billing](https://claude.ai/admin-settings/billing)**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1777915800&amp;signature=d8b399704345eeb014ce95427f0790ee2204366625c8a2e4f8d9801bfa007f4c&amp;req=dSklFMh6mINaWvMW1HO4zRZTy13Ius7bKAqLF4ERnlWWaSoBjJP1z6EyxRAt%0A5HwEfsrZsGxu4bX%2FBo8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922145253/f2e3d4e0fe43a2ea07e89244764c/image.png?expires=1777916700&amp;signature=285d19d4858447f3a421105203a164b51a35ce300bbc7570150c827c2e59d906&amp;req=dSklFMh6mINaWvMW1HO4zRZTy13Ius3UKAqLF4ERnlVKkIl0XOA3DLoEJR3L%0AKdm3Hluj7hJMspt%2F2eE%3D%0A)
 
 ## When will I be billed?
 

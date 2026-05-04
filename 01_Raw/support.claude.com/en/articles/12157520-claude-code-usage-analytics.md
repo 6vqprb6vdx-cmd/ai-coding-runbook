@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12157520-claude-code-usage-analytics
-fetched_at: 2026-05-04T16:54:52.268723+00:00
+fetched_at: 2026-05-04T17:12:27.679158+00:00
 fetch_method: mintlify_md
 ---
 
@@ -50,7 +50,7 @@ The Claude Code Usage page displays the following metrics for your organization:
 
 - **Lines accepted over time**: Daily breakdown of accepted code lines.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1777915800&amp;signature=ec3a0916fcbe0402225fec08f19c6100eb8feabdaf6d30f3046ddb7a47f0c3b7&amp;req=dScmEcx5lINYXvMW1HO4zfiEMKFZjnzGCX9h5MbdDjOQe6oRIwLsA2tZqmWV%0A3FGdPBfzBh3G0XwL9tw%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1717579277/46c512f4b3ed05c359cecd78ed5c/e0ce2c19-39e2-411f-9a1f-cb1d46439a42?expires=1777916700&amp;signature=5ce32bcc301c4ef751aac16ff478564ace7a287cacb3038bd791f4300259e8a4&amp;req=dScmEcx5lINYXvMW1HO4zfiEMKFZjn%2FJCX9h5MbdDjNSXuNE2VJRHGMyUG1f%0Aluc9mAaIkjQ568Fij8A%3D%0A)
 
 ### User-level metrics
 

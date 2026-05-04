@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations
-fetched_at: 2026-05-04T16:56:13.912180+00:00
+fetched_at: 2026-05-04T17:12:35.859781+00:00
 fetch_method: mintlify_md
 ---
 
@@ -54,7 +54,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 2. Click "Check for updates" under **SCIM sync**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1777915800&amp;signature=522d47ac543dbcdb22015f85295c7b2b68abdb1e4b054f02eaf83cc4a0d2b2ca&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gYzKkNMi8rgfl7PnOiumKpciUHb2EbbVWr23C%0ABEqk%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1777916700&amp;signature=ad9b1a014385c046276d53f4e1f2393a09581c1d1708a74df82ffc9d12dffa4a&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gYzKkNMuzrgfl7PnOiumizriNMXcNxOjy065R%0AI1t0%0A)
 
 3. Select whether to sync members, groups, or both.
 
@@ -66,7 +66,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 3. Select whether to sync members, groups, or both:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1777915800&amp;signature=b550282f0dd6a080551fefc110d54901097d787ad0ace8d9d6ddf7c8dc85e147&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4cb35yj4X43OpyTHzM9SZKwWP8CEL%2BOH%2FGQe4%0AvHuX%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1777916700&amp;signature=37232a525214201b252e1a340a85203969d92fe098d56a577bb16fd9011e2d76&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4cb35yj0Y43OpyTHzM9Q1P%2FT%2F%2FsKDIDOsH8sl%0Aweo7%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 

@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/8230524-how-can-i-delete-or-rename-a-conversation
-fetched_at: 2026-05-04T16:52:55.922156+00:00
+fetched_at: 2026-05-04T17:12:16.814398+00:00
 fetch_method: mintlify_md
 ---
 
@@ -16,7 +16,7 @@ To delete or rename an individual conversation:
 
 3. Select either "Delete" or "Rename" from the options that appear:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1777915800&amp;signature=358ff004cac16284f58d0eabed3199478025bdeb2ea395505377d0aca6b83fe4&amp;req=dSYlF8B7mIJbUfMW1HO4zVBo6%2BT%2BbIVSt5RK2C3E1TfZt%2BhiokYQHUExOitI%0ARMU4%2BFsevJr9ZEWfEvI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1621955348/4844057e0f0847b580b95bc01625/Screenshot+2025-07-15+at+11_43_18%E2%80%AFAM.png?expires=1777916700&amp;signature=af387f274bf59d6b21056e835a9144432e83ea0684af5a6c5101d33768081c7b&amp;req=dSYlF8B7mIJbUfMW1HO4zVBo6%2BT%2BbIZdt5RK2C3E1TcMCRft91j1weIU2v7Y%0APqfgJ7qHlqkyYO%2BTbIw%3D%0A)
 
 ## Deleting conversations in bulk
 

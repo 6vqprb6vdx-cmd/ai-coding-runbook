@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude
-fetched_at: 2026-05-04T16:54:49.434821+00:00
+fetched_at: 2026-05-04T17:12:27.518543+00:00
 fetch_method: mintlify_md
 ---
 
@@ -52,7 +52,7 @@ These capabilities make it easy to produce professional documents by simply chat
 
 To give Claude access to external data sources, toggle **Allow network egress** on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1777915800&amp;signature=6151d54cf4ede0c82b8fbb83d3574cbe2dd0e375de20e5b75d04607f4fc35929&amp;req=diAiEs55mYFfXPMW1HO4zYFJxApMDZzGPQVowIiib2lDK6%2FEHBY0k36jRPwW%0A42rYJhSQ5wgkhx6WkAs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1777916700&amp;signature=a7e11413bf7baa3891a4b5848066559138cd317b3acd210d92ddc9a7988b7e1d&amp;req=diAiEs55mYFfXPMW1HO4zYFJxApMDZ%2FJPQVowIiib2nk5qVgWbkj2uJRUJAG%0A7wi4WrcHaIqNTXU%2BkXE%3D%0A)
 
 ### Enabling on Claude Mobile
 
@@ -70,11 +70,11 @@ Team and Enterprise organization owners can control network access settings in *
 
 - **Allow network egress to package managers and specific domains:** Claude can access package managers plus additional domains you specify. Add domains individually to whitelist specific resources your organization needs:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1777915800&amp;signature=ac3e91c0ed38f7c61d1d7d2797a4ea060aaa623e46a4c4c1402fb6000819304d&amp;req=dScvH8B6mIJZW%2FMW1HO4zXJcCWpKlCxDpMW6Iph6YZcm%2B7J2cE2OTAj1oL14%0ADas%2BVTgZdmQpPtEax%2Fg%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1777916700&amp;signature=2df0314f6d94f90b4067149bd223e68f465e1572ff467bc87dfb78ad7d4483f0&amp;req=dScvH8B6mIJZW%2FMW1HO4zXJcCWpKlC9MpMW6Iph6YZc0XXl%2BTAelNFnzQhr8%0AQ6jKxMwaTc1Zq31hY94%3D%0A)
 
 **All domains:** Claude has full internet access except for domains on Anthropic's legal blocklist. While this provides maximum flexibility for file creation and analysis tasks, it’s also the riskiest option. Please review the **[security considerations below](#h_0ee9d698a1)** before enabling “All domains”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1777915800&amp;signature=a8a8bfbf49bc303e9c50131a64e1a6ca528aebee58e93fbee33d01255b312947&amp;req=dScvH8B6mIJZWPMW1HO4zdnsdxOb7zqqqgKIA6CM1trZIBOZBFI2shBxC0bW%0AJIYD7HW%2BYa2q1Ok78j8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1777916700&amp;signature=caf7ff37f82e9dcbab7465557d2348145c92dc2d30bacf64768488a91f12ffcd&amp;req=dScvH8B6mIJZWPMW1HO4zdnsdxOb7zmlqgKIA6CM1toRLzubprWhvisSGS5W%0AoP0S5%2FF5QU0Aar7lnS4%3D%0A)
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs
-fetched_at: 2026-05-04T16:53:03.045807+00:00
+fetched_at: 2026-05-04T17:12:17.501598+00:00
 fetch_method: mintlify_md
 ---
 
@@ -36,7 +36,7 @@ Additionally, all invoices are automatically emailed to your billing email addre
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in [Settings > Billing](http://claude.ai/settings/billing).
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1777915800&amp;signature=e21848c3f073c730ce4ac1fff1708926faf3db28ef5291853a0f6344f0a20b8d&amp;req=dSklFMh6nIZXXPMW1HO4zVXW%2F2qiajbEQoNvNFTb5cc2Yz46eaUPpIYLbGmQ%0AUfPJRuIj1g1a0ER0HY4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1777916700&amp;signature=0ce1c7734154b61b1a1145c1a0d5984bd4a2c6f874e73f4b467f7e2644d9b3a5&amp;req=dSklFMh6nIZXXPMW1HO4zVXW%2F2qiajXLQoNvNFTb5cdyCgdmdjgB2Kx%2B1ACj%0A5IHrdwZBIsQ%2FhGU6Srk%3D%0A)
 
 ## How can I edit a paid invoice?
 

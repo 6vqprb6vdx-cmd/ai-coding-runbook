@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop
-fetched_at: 2026-05-04T16:54:16.593018+00:00
+fetched_at: 2026-05-04T17:12:24.292111+00:00
 fetch_method: mintlify_md
 ---
 
@@ -52,7 +52,7 @@ for specific instructions.
 
 Custom desktop extensions uploads allow Team and Enterprise plans to leverage organization-specific workflows that aren’t available in the public directory. After creating a custom desktop extension, Owners and Primary Owners can navigate to Settings > Extensions within Claude Desktop and click “Advanced settings” to access the **Extension Developer** section:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1777915800&amp;signature=f0ca28140e774f7906908e39e64873c857508119b616de93dbc3470e332ce935&amp;req=dSYvF89%2BmodfXvMW1HO4zWbPy0d2Njg6Hn9K2IaIG2IyXXV1n8V%2F%2Bd4FVkX7%0A0QB%2BbVNnKBLcddrJ00Q%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1681607607/ba6e379d2769d190f0970a0adaed/AD_4nXd4aZkqjJFpiXMPF28Pih7HmSJ9pPsnoWAfVgiLdFRFiTkO92YtXteIjvDHaPl7T0tjfpRTBOlyrMbQ_aciCNDgfIuEvV3szmKvt72x5O51DMSClXOYWk1JIRIzylwkj3joXqZcLw?expires=1777916700&amp;signature=5048a2d93388dd923a0d979aaefe67c043de83ccdc8f2d7161ae2836941522d9&amp;req=dSYvF89%2BmodfXvMW1HO4zWbPy0d2Njs1Hn9K2IaIG2LC1HPQtP2PJa1ATuEC%0AFlZEFxaBJEQW8%2F3uP7c%3D%0A)
 
 Click “Install Extension…” and select the .mcpb file. Follow the prompts to install and configure your custom desktop extension. For more in-depth information, please refer to our [desktop extension developer documentation](https://github.com/anthropics/mcpb).
 

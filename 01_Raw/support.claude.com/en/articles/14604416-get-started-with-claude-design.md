@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/14604416-get-started-with-claude-design
-fetched_at: 2026-05-04T16:56:32.252478+00:00
+fetched_at: 2026-05-04T17:12:37.740601+00:00
 fetch_method: mintlify_md
 ---
 
@@ -126,7 +126,7 @@ Use the “Export” button in the upper right corner when viewing your project 
 
   - Send to Claude Code Web
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1777915800&amp;signature=ffe7080a38c4627dd41e03ec95dc5e8c3004e3324277e35c40f30aaaf9a2bea2&amp;req=diIvEcx%2FnYhaW%2FMW1HO4zQFD7itTmmh8nfz9ljnuyXRuOsiZuHIP%2BQV3kMOu%0Aq%2BTL0qeWxlkwrNQ%2FNdY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1777916700&amp;signature=33b0a58d34f31d7cd0fdc07e91407416a646badbac1e9a64d4cd669fbbedcc76&amp;req=diIvEcx%2FnYhaW%2FMW1HO4zQFD7itTmmtznfz9ljnuyXQb%2FRM1aIL8L0e4rJTF%0AMsBiI0%2F2xvYwj7Smuo0%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 

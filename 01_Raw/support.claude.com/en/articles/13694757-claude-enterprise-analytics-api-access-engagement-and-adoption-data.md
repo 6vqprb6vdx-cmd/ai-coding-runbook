@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13694757-claude-enterprise-analytics-api-access-engagement-and-adoption-data
-fetched_at: 2026-05-04T16:55:50.472280+00:00
+fetched_at: 2026-05-04T17:12:33.561164+00:00
 fetch_method: mintlify_md
 ---
 
@@ -34,7 +34,7 @@ Follow these steps:
 
 4. Use the key with the `x-api-key` header in your requests.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053687376/dac20c85f3d3fcab64c98fee0d1c/c0af2448-7bfb-4d10-b474-025cb4f04f59?expires=1777915800&amp;signature=8311e084b3a1b77ed3025404818542097209d0984768e77c3b52aced92b159da&amp;req=diAiFc92moJYX%2FMW1HO4zUxhx6pM266H2G8yJDINvfSocgJp%2BPWhMAepRYG6%0AHWKxjCVe23FqhJZ5s38%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053687376/dac20c85f3d3fcab64c98fee0d1c/c0af2448-7bfb-4d10-b474-025cb4f04f59?expires=1777916700&amp;signature=4765278df141a8a1b8d542a66c7f4dfae862834b6692c67a98cbd83ad8e36894&amp;req=diAiFc92moJYX%2FMW1HO4zUxhx6pM262I2G8yJDINvfQ53t7K1vw4llOaUR3I%0AfoGIh%2B95qskLGWDkm%2Bw%3D%0A)
 
 For full authentication details, endpoint references, and code examples, refer to our **[Claude Enterprise Analytics API reference guide](https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide)**.
 

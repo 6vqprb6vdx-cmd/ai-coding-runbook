@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork
-fetched_at: 2026-05-04T16:55:39.556450+00:00
+fetched_at: 2026-05-04T17:12:32.539637+00:00
 fetch_method: mintlify_md
 ---
 
@@ -156,7 +156,7 @@ To set global instructions:
 
 3. Type your instructions in the text box and click "Save":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1777915800&amp;signature=28fd8bed555f20a0b43b32f8346ac1adf849effdf511a0dc1d6ba731460b116e&amp;req=diEvFsx6nIlZWfMW1HO4zah%2FGLbsutlz8mPglonEgA6EcN8JU33927QjI6pa%0AVEab%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2180541860/aad5befe38e5d2da4f97040baa29/8c27842d-07d6-4b6f-b513-9ea9fbd002dc?expires=1777916700&amp;signature=5d1ffc83d1b2b515d7181aa683cae29134a5a728cf8dce81b406ef39e936dd18&amp;req=diEvFsx6nIlZWfMW1HO4zah%2FGLbsutp88mPglonEgA4nSdzZrTCXt%2Fmqf9zZ%0AOPwF%0A)
 
 ### Folder instructions
 

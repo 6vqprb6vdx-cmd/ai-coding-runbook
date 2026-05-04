@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/10504853-manage-user-feedback-settings-on-claude-console
-fetched_at: 2026-05-04T16:54:10.856274+00:00
+fetched_at: 2026-05-04T17:12:23.807800+00:00
 fetch_method: mintlify_md
 ---
 
@@ -12,6 +12,6 @@ To manage feedback for your Console organization:
 
 2. Toggle the feedback switch on or off.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1729186182/ebf4032a12a8c56959ca927726ce/Screenshot+2025-09-16+at+12_32_31%E2%80%AFPM.png?expires=1777915800&amp;signature=8589f5b70e7c83a0eca8b2beb7aca9f523eb4f030e5e2dad6c176e33c90a8e13&amp;req=dSclH8h2m4BXW%2FMW1HO4zVpN63AUWG1NJ%2FadMup7FQcCIb4G0FIKDPf3S3Gu%0A7EO7x%2F1Ub3818lQlfgA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1729186182/ebf4032a12a8c56959ca927726ce/Screenshot+2025-09-16+at+12_32_31%E2%80%AFPM.png?expires=1777916700&amp;signature=2692ed5d4a279f882942b83dfdc6907b0a93a535e813d00da8e3c8b857ca5703&amp;req=dSclH8h2m4BXW%2FMW1HO4zVpN63AUWG5CJ%2FadMup7FQdtCC2TqJSJR%2BdU0a6a%0AvSnE006P%2FzFJwKkXXnU%3D%0A)
 
 More information on how Anthropic collects, uses, and stores feedback data can be found in our Privacy Center: [How long do you store my organization’s data?](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)

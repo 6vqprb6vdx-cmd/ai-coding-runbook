@@ -1,6 +1,6 @@
 ---
 source_url: https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design
-fetched_at: 2026-05-04T16:56:30.552568+00:00
+fetched_at: 2026-05-04T17:12:37.425129+00:00
 fetch_method: mintlify_md
 ---
 
@@ -76,7 +76,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1777915800&amp;signature=f0f7629be130c8984612da6774bf711a1592a2bfb4a3188967daced119302236&amp;req=diIvEcx8moFfXvMW1HO4zWNHGPWCDz4fIQKNMXlu0T%2F7V4mNk17CQAse9%2BRc%0Asjvh9Bg3hWf%2FkoBxtd0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1777916700&amp;signature=604ab511ae85cfaa5504b78877165ca5081b4ca0215c12ae9bf02a5a37a53312&amp;req=diIvEcx8moFfXvMW1HO4zWNHGPWCDz0QIQKNMXlu0T85r6bGR6blc4onkvaU%0A7OfHsmM9v9GmQ8h1%2BDk%3D%0A)
 
 ---
 
