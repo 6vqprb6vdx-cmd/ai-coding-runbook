@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership
-fetched_at: 2026-05-04T16:39:23.552683+00:00
+fetched_at: 2026-05-04T17:13:48.441970+00:00
 title: "Anthropic and Salesforce expand partnership to bring Claude to regulated industries \\ Anthropic"
 ---
 
@@ -53,10 +53,6 @@ This partnership is strengthened by both companies using each other's products:
 
 ## Related content
 
-### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
-
-[Read more](/news/enterprise-ai-services-company)
-
 ### Claude for Creative Work
 
 [Read more](/news/claude-for-creative-work)
@@ -64,3 +60,9 @@ This partnership is strengthened by both companies using each other's products:
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
 [Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+
+### An update on our election safeguards
+
+We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
+
+[Read more](/news/election-safeguards-update)

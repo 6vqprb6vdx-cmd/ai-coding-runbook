@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/skt-partnership-announcement
-fetched_at: 2026-05-04T16:40:07.869525+00:00
+fetched_at: 2026-05-04T17:13:50.110461+00:00
 title: "SKT Partnership Announcement \\ Anthropic"
 ---
 
@@ -24,10 +24,6 @@ We are excited about the opportunities we will unlock by partnering with SKT to 
 
 ## Related content
 
-### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
-
-[Read more](/news/enterprise-ai-services-company)
-
 ### Claude for Creative Work
 
 [Read more](/news/claude-for-creative-work)
@@ -35,3 +31,9 @@ We are excited about the opportunities we will unlock by partnering with SKT to 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
 [Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+
+### An update on our election safeguards
+
+We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
+
+[Read more](/news/election-safeguards-update)
