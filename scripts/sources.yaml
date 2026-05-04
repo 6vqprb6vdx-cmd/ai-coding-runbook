@@ -48,14 +48,16 @@ docs_sites:
 
 github_repos:
   # ------- Anthropic core -------
+  # Repo names verified 2026-05-04 — Anthropic recently renamed several:
+  #   anthropic-cookbook → claude-cookbooks
+  #   anthropic-quickstarts → claude-quickstarts
+  #   anthropics/dxt → modelcontextprotocol/mcpb (moved to MCP org)
+  #   claude-code-sdk-python → merged into claude-agent-sdk-python
+  #   claude-code-sdk-typescript → deprecated (no replacement; Agent SDK is Python-only currently)
   - owner: anthropics
     repo: claude-code
   - owner: anthropics
     repo: claude-agent-sdk-python
-  - owner: anthropics
-    repo: claude-code-sdk-typescript
-  - owner: anthropics
-    repo: claude-code-sdk-python
   - owner: anthropics
     repo: anthropic-sdk-python
   - owner: anthropics
@@ -65,9 +67,9 @@ github_repos:
   - owner: anthropics
     repo: claude-code-base-action
   - owner: anthropics
-    repo: anthropic-cookbook
+    repo: claude-cookbooks
   - owner: anthropics
-    repo: anthropic-quickstarts
+    repo: claude-quickstarts
   - owner: anthropics
     repo: courses
   - owner: anthropics
@@ -76,12 +78,11 @@ github_repos:
     repo: skills
   - owner: anthropics
     repo: evals
-  - owner: anthropics
-    repo: dxt
 
   # ------- Model Context Protocol (Anthropic-led) -------
+  # Note: 'specification' was renamed to 'modelcontextprotocol' (the org's namesake repo).
   - owner: modelcontextprotocol
-    repo: specification
+    repo: modelcontextprotocol
   - owner: modelcontextprotocol
     repo: python-sdk
   - owner: modelcontextprotocol
@@ -90,3 +91,5 @@ github_repos:
     repo: servers
   - owner: modelcontextprotocol
     repo: docs
+  - owner: modelcontextprotocol
+    repo: mcpb     # Desktop Extensions (formerly anthropics/dxt)

@@ -269,23 +269,41 @@ def crawl_blog_index(site: dict, dry_run: bool) -> tuple[int, int, int]:
 
 
 def sync_github_repo(spec: dict, dry_run: bool) -> tuple[int, int, int]:
-    """git clone --depth 1 if missing, else git pull. Returns (fetched=1, written=0_or_1, errors)."""
+    """git clone --depth 1 if missing, else git pull. Returns (fetched=1, written=0_or_1, errors).
+
+    A 404 on the repo URL counts as 'skipped' (returned errors=0) so that one renamed/deleted
+    repo doesn't fail the whole workflow. Real errors (network / git internal) still count."""
     owner = spec["owner"]
     repo = spec["repo"]
     target = RAW / "github" / owner / repo
     url = f"https://github.com/{owner}/{repo}.git"
+    web_url = f"https://github.com/{owner}/{repo}"
 
     if dry_run:
         log(f"github: {owner}/{repo} → would clone/pull at {target.relative_to(ROOT)}")
         return 1, 0, 0
 
     if not target.exists():
+        # Probe with HEAD before clone — git auth prompt is the slowest failure mode.
+        try:
+            probe = requests.head(web_url, headers={"User-Agent": UA}, timeout=10, allow_redirects=False)
+            if probe.status_code == 404:
+                log(f"github: ⚠ {owner}/{repo} returns 404 (renamed or removed) — skipping")
+                return 0, 0, 0
+            # 301/302 = renamed; warn but still attempt (clone will follow)
+            if probe.status_code in (301, 302):
+                new_loc = probe.headers.get("location", "(unknown)")
+                log(f"github: ⚠ {owner}/{repo} redirects to {new_loc} — update sources.yaml")
+        except requests.RequestException as e:
+            log(f"github: probe failed for {owner}/{repo}: {e} (continuing to clone)")
+
         log(f"github: cloning {owner}/{repo} (shallow)")
         target.parent.mkdir(parents=True, exist_ok=True)
         try:
             subprocess.run(
                 ["git", "clone", "--depth", "1", url, str(target)],
                 check=True, capture_output=True, text=True,
+                env={**os.environ, "GIT_TERMINAL_PROMPT": "0"},  # never prompt for auth
             )
             return 1, 1, 0
         except subprocess.CalledProcessError as e:
