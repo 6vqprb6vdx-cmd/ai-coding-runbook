@@ -1,0 +1,92 @@
+# Claude Code Wiki — Source List
+# Edit this file to add/remove sources. crawler reads it.
+# After editing, the next GHA cron run (or manual `python3 scripts/refresh_raw.py`) picks it up.
+#
+# Three source kinds:
+#   - docs_site     : crawl HTML pages via sitemap.xml. Tries Mintlify-style .md endpoint first
+#                     (works on code.claude.com / platform.claude.com), falls back to HTML extraction.
+#   - github_repo   : git clone --depth 1 (shallow), refresh via git pull
+#   - rss_or_index  : enumerate posts via index page (fallback when no sitemap)
+#
+# Note: docs.claude.com (legacy) 301-redirects to either code.claude.com (for /claude-code/...)
+# or platform.claude.com (for /api, /docs/...). We crawl both new domains directly.
+
+docs_sites:
+  # Claude Code documentation
+  - name: code.claude.com
+    base_url: https://code.claude.com
+    sitemap: https://code.claude.com/sitemap.xml
+    target_dir: code.claude.com
+    include_prefixes:
+      - /docs/en
+
+  # Anthropic Platform / API documentation
+  - name: platform.claude.com
+    base_url: https://platform.claude.com
+    sitemap: https://platform.claude.com/sitemap.xml
+    target_dir: platform.claude.com
+    include_prefixes:
+      - /docs/en
+
+  # Anthropic main site: news, research, engineering blog (single sitemap)
+  - name: anthropic.com
+    base_url: https://www.anthropic.com
+    sitemap: https://www.anthropic.com/sitemap.xml
+    target_dir: anthropic.com
+    include_prefixes:
+      - /news/
+      - /research/
+      - /engineering/
+
+  # Claude.ai support / help center
+  - name: support.claude.com
+    base_url: https://support.claude.com
+    sitemap: https://support.claude.com/sitemap.xml
+    target_dir: support.claude.com
+    include_prefixes:
+      - /en/
+
+github_repos:
+  # ------- Anthropic core -------
+  - owner: anthropics
+    repo: claude-code
+  - owner: anthropics
+    repo: claude-agent-sdk-python
+  - owner: anthropics
+    repo: claude-code-sdk-typescript
+  - owner: anthropics
+    repo: claude-code-sdk-python
+  - owner: anthropics
+    repo: anthropic-sdk-python
+  - owner: anthropics
+    repo: anthropic-sdk-typescript
+  - owner: anthropics
+    repo: claude-code-action
+  - owner: anthropics
+    repo: claude-code-base-action
+  - owner: anthropics
+    repo: anthropic-cookbook
+  - owner: anthropics
+    repo: anthropic-quickstarts
+  - owner: anthropics
+    repo: courses
+  - owner: anthropics
+    repo: prompt-eng-interactive-tutorial
+  - owner: anthropics
+    repo: skills
+  - owner: anthropics
+    repo: evals
+  - owner: anthropics
+    repo: dxt
+
+  # ------- Model Context Protocol (Anthropic-led) -------
+  - owner: modelcontextprotocol
+    repo: specification
+  - owner: modelcontextprotocol
+    repo: python-sdk
+  - owner: modelcontextprotocol
+    repo: typescript-sdk
+  - owner: modelcontextprotocol
+    repo: servers
+  - owner: modelcontextprotocol
+    repo: docs

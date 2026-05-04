@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# macOS
+.DS_Store
+._*
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+.cursor/
+.claude/
+
+# Obsidian (if user opens vault in obsidian later) — keep entire folder local
+.obsidian/
+
+# Local-only
+*.local
+local_*

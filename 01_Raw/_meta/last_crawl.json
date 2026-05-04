@@ -1,0 +1,15 @@
+{
+  "completed_at": "2026-05-04T15:07:44.430130+00:00",
+  "stats": {
+    "docs_sites": [
+      {
+        "name": "code.claude.com",
+        "fetched": 124,
+        "written": 124,
+        "errors": 0
+      }
+    ],
+    "rss_or_index": [],
+    "github_repos": []
+  }
+}
