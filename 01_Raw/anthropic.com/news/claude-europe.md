@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/claude-europe
-fetched_at: 2026-05-04T16:31:55.122419+00:00
+fetched_at: 2026-05-04T17:07:21.085253+00:00
 title: "Claude is now available in the EU \\ Anthropic"
 ---
 
@@ -14,7 +14,7 @@ May 14, 2024
 
 We’re excited to announce that [Claude](https://www.anthropic.com/claude), Anthropic’s trusted AI assistant, is now available for people and businesses across Europe to enhance their productivity and creativity. Starting today, they will be able to use:
 
-- [Claude.ai](http://claude.ai/redirect/website.v1.b8e7a770-c184-4cc8-91ab-d5719b716e1a): the web-based version of our next-generation AI assistant
+- [Claude.ai](http://claude.ai/redirect/website.v1.25e2c692-d16c-47ac-98b8-063f55bb2f34): the web-based version of our next-generation AI assistant
 - The [Claude iOS app](https://apps.apple.com/app/claude/id6473753684): a free version of Claude that offers the same intuitive experience as mobile web
 - The [Claude Team plan](https://www.anthropic.com/news/team-plan-and-ios): the best way for every business to provide teams with secure access to Claude's state-of-the-art AI capabilities and the [Claude 3 model family](https://www.anthropic.com/news/claude-3-family)
 

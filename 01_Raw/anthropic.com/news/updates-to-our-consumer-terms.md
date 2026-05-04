@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/updates-to-our-consumer-terms
-fetched_at: 2026-05-04T16:42:35.229186+00:00
+fetched_at: 2026-05-04T17:08:09.885599+00:00
 title: "Updates to Consumer Terms and Privacy Policy  \\ Anthropic"
 ---
 
@@ -24,7 +24,7 @@ You’re always in control of this setting and whether we use your data in this 
 
 In-app notification for existing Claude app users
 
-Starting today, we’re rolling out notifications so you can review these updates and manage your settings. If you’re an existing user, you have until October 8, 2025 to accept the updated Consumer Terms and make your decision. If you choose to accept the new policies now, they will go into effect immediately. These updates will apply only to new or resumed chats and coding sessions. After October 8, you’ll need to make your selection on the model training setting in order to continue using Claude. You can change your choice in your [Privacy Settings](https://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d/settings/data-privacy-controls) at any time.
+Starting today, we’re rolling out notifications so you can review these updates and manage your settings. If you’re an existing user, you have until October 8, 2025 to accept the updated Consumer Terms and make your decision. If you choose to accept the new policies now, they will go into effect immediately. These updates will apply only to new or resumed chats and coding sessions. After October 8, you’ll need to make your selection on the model training setting in order to continue using Claude. You can change your choice in your [Privacy Settings](https://claude.ai/redirect/website.v1.25e2c692-d16c-47ac-98b8-063f55bb2f34/settings/data-privacy-controls) at any time.
 
 ## Extended data retention
 

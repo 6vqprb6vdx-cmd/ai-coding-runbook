@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/visible-extended-thinking
-fetched_at: 2026-05-04T16:52:38.531900+00:00
+fetched_at: 2026-05-04T17:09:30.868754+00:00
 title: "Claude's extended thinking \\ Anthropic"
 ---
 
@@ -100,7 +100,7 @@ The above is just a short summary of some of our extensive safety work on Claude
 
 ## **Using Claude**
 
-You can use Claude 3.7 Sonnet now at [Claude.ai](http://claude.ai/redirect/website.v1.4214c478-4166-4ab1-b495-b22b1f7f8acf) or on [our API](https://docs.anthropic.com/en/api/getting-started). And just as Claude can now let you know what it thinks, we hope you’ll let us know what you think, too. Please send your feedback about the new model to [feedback@anthropic.com](mailto:feedback@anthropic.com).
+You can use Claude 3.7 Sonnet now at [Claude.ai](http://claude.ai/redirect/website.v1.85decebc-fc03-43b4-b4dd-2a03a0897f66) or on [our API](https://docs.anthropic.com/en/api/getting-started). And just as Claude can now let you know what it thinks, we hope you’ll let us know what you think, too. Please send your feedback about the new model to [feedback@anthropic.com](mailto:feedback@anthropic.com).
 
 #### Footnotes
 

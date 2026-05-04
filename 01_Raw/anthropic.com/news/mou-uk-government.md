@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/mou-uk-government
-fetched_at: 2026-05-04T16:37:26.781928+00:00
+fetched_at: 2026-05-04T17:07:47.212762+00:00
 title: "Anthropic signs MOU with UK Government to explore how AI can transform UK public services \\ Anthropic"
 ---
 
@@ -24,7 +24,7 @@ DSIT and Anthropic plan to deepen their partnership by exploring additional oppo
 - Securing the supply chain for advanced AI and the UK’s future infrastructure;
 - Boosting the innovation economy with Anthropic’s AI systems and tools, supporting the UK’s world-leading startup community as well as universities and other organisations.
 
-The collaboration will also draw on Anthropic's recently released [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)—which uses anonymized conversations on [Claude.ai](https://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d) to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
+The collaboration will also draw on Anthropic's recently released [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)—which uses anonymized conversations on [Claude.ai](https://claude.ai/redirect/website.v1.85decebc-fc03-43b4-b4dd-2a03a0897f66) to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
 
 Anthropic will continue to work closely with the UK AI Security Institute to research and evaluate AI capabilities and potential security risks. Together, we're committed to developing robust safeguards that will help unlock the significant opportunities AI presents while ensuring its responsible and secure deployment.
 

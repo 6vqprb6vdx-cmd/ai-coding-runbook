@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/anthropic-rwanda-mou
-fetched_at: 2026-05-04T16:29:04.736194+00:00
+fetched_at: 2026-05-04T17:07:07.418784+00:00
 title: "Anthropic and the Government of Rwanda sign MOU for AI in health and education \\ Anthropic"
 ---
 
@@ -36,6 +36,10 @@ Together, these partnerships reflect a long-term collaboration that prioritizes 
 
 ## Related content
 
+### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
+
+[Read more](/news/enterprise-ai-services-company)
+
 ### Claude for Creative Work
 
 [Read more](/news/claude-for-creative-work)
@@ -43,9 +47,3 @@ Together, these partnerships reflect a long-term collaboration that prioritizes 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
 [Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
-
-### An update on our election safeguards
-
-We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
-
-[Read more](/news/election-safeguards-update)

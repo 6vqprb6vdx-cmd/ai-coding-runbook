@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/claude-design-anthropic-labs
-fetched_at: 2026-05-04T16:31:50.344724+00:00
+fetched_at: 2026-05-04T17:07:16.177795+00:00
 title: "Introducing Claude Design by Anthropic Labs \\ Anthropic"
 ---
 
@@ -71,7 +71,7 @@ Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers
 
 For Enterprise organizations, Claude Design is off by default. Admins can enable it in [Organization settings](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans).
 
-Start designing at [claude.ai/design](http://claude.ai/redirect/website.v1.25e2c692-d16c-47ac-98b8-063f55bb2f34/design).
+Start designing at [claude.ai/design](http://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d/design).
 
 ## Related content
 

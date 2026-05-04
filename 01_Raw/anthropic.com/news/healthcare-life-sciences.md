@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/healthcare-life-sciences
-fetched_at: 2026-05-04T16:35:44.835327+00:00
+fetched_at: 2026-05-04T17:07:38.470452+00:00
 title: "Advancing Claude in healthcare and the life sciences \\ Anthropic"
 ---
 
@@ -44,7 +44,7 @@ With these model improvements and our new tools, Claude is now dramatically more
 
 #### **What’s new**
 
-[Connectors](https://claude.ai/redirect/website.v1.4214c478-4166-4ab1-b495-b22b1f7f8acf/settings/connectors) are tools that allow users to give Claude access to other platforms directly. For payers and providers, we’ve added several connectors that make healthcare information easier to find, access, and understand. These allow Claude to pull information from industry-standard systems and databases, meaning that clinicians and administrators can save significant time finding the data and generating the reports they need.
+[Connectors](https://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d/settings/connectors) are tools that allow users to give Claude access to other platforms directly. For payers and providers, we’ve added several connectors that make healthcare information easier to find, access, and understand. These allow Claude to pull information from industry-standard systems and databases, meaning that clinicians and administrators can save significant time finding the data and generating the reports they need.
 
 Claude can now connect to:
 

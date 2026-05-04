@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/news/anthropic-partners-with-u-s-national-labs-for-first-1-000-scientist-ai-jam
-fetched_at: 2026-05-04T16:28:18.530556+00:00
+fetched_at: 2026-05-04T17:07:01.561201+00:00
 title: "Anthropic partners with U.S. National Labs for first 1,000 Scientist AI Jam \\ Anthropic"
 ---
 
@@ -32,6 +32,10 @@ Through initiatives like the AI Jam session, we are demonstrating how industry a
 
 ## Related content
 
+### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
+
+[Read more](/news/enterprise-ai-services-company)
+
 ### Claude for Creative Work
 
 [Read more](/news/claude-for-creative-work)
@@ -39,9 +43,3 @@ Through initiatives like the AI Jam session, we are demonstrating how industry a
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
 [Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
-
-### An update on our election safeguards
-
-We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
-
-[Read more](/news/election-safeguards-update)
