@@ -1,0 +1,37 @@
+---
+source_url: https://www.anthropic.com/news/skt-partnership-announcement
+fetched_at: 2026-05-04T16:40:07.869525+00:00
+title: "SKT Partnership Announcement \\ Anthropic"
+---
+
+Announcements
+
+# SKT Partnership Announcement
+
+Aug 15, 2023
+
+![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90c31d0ee08817d20f1ca2965a439585feac7093-2880x1620.png&w=3840&q=75)
+
+We are pleased to announce that SK Telecom ("SKT"), the largest mobile operator in Korea rapidly integrating AI into its business, has become a commercial partner with Anthropic as well as a strategic investor.
+
+SKT and Anthropic will work together to develop a large language model that will be customized to best meet the needs of telcos. Using a technique called fine-tuning, Anthropic will leverage SKT’s domain experience in telecommunications in order to make the model optimized for a wide variety of telco applications including customer service, marketing, sales, and interactive consumer applications. The multilingual model will support languages including Korean, English, Japanese, Spanish, and more.
+
+Fine-tuning creates a custom version of our LLM Claude that can be tailored to a specific industry or task, in this case improving performance on telco use cases. Fine-tuning is especially effective when Anthropic can harness the expertise of industry experts. SKT’s experts will provide feedback on Claude’s responses, and this feedback will be used to further train Claude on industry-specific solutions. This process allows Claude to scale the expertise of SKT’s industry-leading talent.
+
+In addition to this commercial partnership, SKT has invested an additional $100 million in Anthropic, which follows the previous investment from SK Telecom Venture Capital (SKTVC) in Silicon Valley. “With our strategic investment in Anthropic, a global leading AI technology company, we will be working closely with Anthropic to promote AI innovation,” said Ryu Young-sang, CEO of SKT. “By combining our Korean language-based LLM with Anthropic's strong AI capabilities, we expect to create synergy and gain leadership in the AI ecosystem together with our global telco partners.”
+
+We are excited about the opportunities we will unlock by partnering with SKT to build safer, more reliable AI technology that will serve telcos around the world.
+
+## Related content
+
+### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
+
+[Read more](/news/enterprise-ai-services-company)
+
+### Claude for Creative Work
+
+[Read more](/news/claude-for-creative-work)
+
+### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
+
+[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
