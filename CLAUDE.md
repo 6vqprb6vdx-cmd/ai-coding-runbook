@@ -9,7 +9,7 @@
 ## 一、对话开始时（必做）
 
 1. 跑 `python3 scripts/check_pending.py` → 把输出**完整**展示给用户
-2. 看 `03_Output/Changelog/` 里**最新一份**（按文件名日期排序），告诉用户"上次 GHA 刷新带来 N 个文件改动"
+2. 看 `03_Output/Changelog/` 里**最新一份**（按文件名日期排序），告诉用户"上次 GHA 刷新带来 N 个文件改动"。注意：GHA 现在是 matrix 并行，每个 source 单独 commit，changelog 是聚合视图
 3. **有 pending**：等用户授权（"ingest" / "ingest 1,3" / "skip" / 自然语言）才开始处理
 4. **无 pending + 无新 changelog**：简短确认，等其他指令
 

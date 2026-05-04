@@ -79,26 +79,38 @@
 
 ## 三、核心机制
 
-### 机制 1 · GHA cron 自动抓 raw
+### 机制 1 · GHA cron 自动抓 raw（matrix 并行）
 
-`.github/workflows/refresh-raw.yml` 每周一 01:00 UTC（= 09:00 HKT）自动跑：
+`.github/workflows/refresh-raw.yml` 每周一 01:00 UTC（= 09:00 HKT）自动跑。**6 个 source 并行**（GHA matrix），每个 source 独立 commit + push（`git pull --rebase` + 重试 5 次防并发冲突）。
 
-1. checkout repo（full history）
-2. `pip install -r scripts/requirements.txt`
-3. `python3 scripts/refresh_raw.py` —— crawl 所有 sources.yaml 里的源
-4. 如果 `git status 01_Raw/` 有改动：
-   - 写 changelog 到 `03_Output/Changelog/YYYY-MM-DD.md`
-   - commit + push（用 `claude-code-wiki-bot` 身份）
-5. 如果没改动 → exit，不 commit
-
-**人工触发**：在 GitHub repo Actions 页面点 "Run workflow"，或本地 `gh workflow run refresh-raw`。
-
-**本地刷新**（调试 / 不想等 cron）：
-```bash
-python3 scripts/refresh_raw.py            # 全量
-python3 scripts/refresh_raw.py --only docs  # 只 docs sites
-python3 scripts/refresh_raw.py --dry-run    # 看会抓什么
 ```
+matrix sources (parallel):
+  - code.claude.com           → 124 docs   (~2 min with concurrency=5)
+  - platform.claude.com       → 1275 docs  (~7 min)
+  - anthropic.com             → 345 docs   (~2 min, no .md probe)
+  - support.claude.com        → 347 docs   (~2 min)
+  - github.anthropics         → 12 repos   (~3 min)
+  - github.modelcontextprotocol → 6 repos  (~2 min)
+```
+
+每个 source 内：`ThreadPoolExecutor(5)` 并发 HTTP fetch + 自动 retry（429/5xx backoff）。Wall time ≈ max(单 source) ≈ **~10 分钟**。
+
+**aggregator job**（matrix 全跑完后跑一次）：扫最近 2h 内 bot commits → 写 `03_Output/Changelog/YYYY-MM-DD.md`。
+
+**`fail-fast: false`** —— 一个 source 挂了，其他继续，已抓的内容已 commit 不丢。
+
+**人工触发**：GitHub repo Actions 页面点 "Run workflow"，或本地 `gh workflow run refresh-raw`。
+
+**本地刷新**（调试）：
+```bash
+python3 scripts/refresh_raw.py --list                       # 列所有 source 名
+python3 scripts/refresh_raw.py --source code.claude.com     # 单 source
+python3 scripts/refresh_raw.py --source github.anthropics
+python3 scripts/refresh_raw.py --all                        # 全部 sequential
+python3 scripts/refresh_raw.py --source X --dry-run
+```
+
+GitHub repos 抓回来后会**剥离 `.git/`**（避免被父 repo 当成 submodule）。代价：失去原 repo 的 git history；好处：repo 内文件正常被 wiki repo 跟踪。每周完整 re-clone（小，3 分钟）。
 
 ### 机制 2 · Enrichment 飞轮（"煮过的菜"独立存在）
 
