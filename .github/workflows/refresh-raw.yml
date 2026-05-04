@@ -65,6 +65,10 @@ jobs:
           SOURCE: ${{ matrix.source }}
         run: |
           set -e
+          # Defensive: remove any stale submodule index entries (gitlinks) under 01_Raw/github/
+          # that may exist from earlier failed runs. Without this, `git add` on a path that's
+          # registered as a submodule keeps the gitlink instead of tracking the real files.
+          git rm --cached -r --ignore-unmatch 01_Raw/github/ >/dev/null 2>&1 || true
           # Stage everything related to this source.
           git add 01_Raw/ || true
           if git diff --cached --quiet; then
