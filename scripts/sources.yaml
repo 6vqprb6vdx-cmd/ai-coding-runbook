@@ -98,18 +98,20 @@ github_repos:
     repo: claude-code-action
   - owner: anthropics
     repo: claude-code-base-action
-  - owner: anthropics
-    repo: claude-cookbooks
+  # NOTE: claude-cookbooks (199MB) / courses (113MB) / evals (81MB) removed — mostly
+  #       Jupyter notebooks and media files with minimal text value for this wiki.
+  # - owner: anthropics
+  #   repo: claude-cookbooks
   - owner: anthropics
     repo: claude-quickstarts
-  - owner: anthropics
-    repo: courses
+  # - owner: anthropics
+  #   repo: courses
   - owner: anthropics
     repo: prompt-eng-interactive-tutorial
   - owner: anthropics
     repo: skills
-  - owner: anthropics
-    repo: evals
+  # - owner: anthropics
+  #   repo: evals
 
   # ------- OpenAI -------
   - owner: openai
