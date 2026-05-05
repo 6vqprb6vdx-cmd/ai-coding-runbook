@@ -29,6 +29,12 @@ Anthropic 提供的 Python SDK，构建用 Claude Code 同款 harness 的 agent 
 - 与同类对比：Client SDK 自己实现 tool loop；Agent SDK 帮你跑 loop；CLI 是同 capability 的交互界面；Managed Agents 跑在 Anthropic infra + sandbox。常见路径：本地 SDK 原型 → Managed Agents 上线 [[overview--agent-sdk]]
 - 第三方产品**不允许**用 "Claude Code" 品牌，推荐用 "Claude Agent" [[overview--agent-sdk]]
 - TS V2 preview 接口（unstable）拆 input / output：`createSession` + `session.send()` + `session.stream()`，比 V1 单一 async generator 简单；但还不支持 forkSession 等 [[typescript-v2-preview]]
+- **vs [[Anthropic-SDK-Python]] / [[Anthropic-SDK-TypeScript]]**：
+  - Agent SDK = 高层 harness（含 hooks / skills / subagent / plugin / permission mode / agentic loop / context management），等同 Claude Code CLI
+  - Anthropic SDK = raw API client，你自己实现 agent loop（虽然有 [[Tool-runner]] 简化）
+- **vs [[Managed-agent]]**：Agent SDK 在你机器跑；Managed Agent 在 Anthropic infra 跑（云沙盒），同时支持 [[Session-API]] / [[Vault]] / [[Memory-store]] / [[Environment-API]] 等 [[overview--agent-sdk]]
+- **TypeScript 版状态**：原 `claude-code-sdk-typescript` repo deprecated（404）；v0.1.0 重命名为 `@anthropic-ai/claude-agent-sdk` 后 TS 仍持续维护；deprecated 提及在 P1 cheatsheet 已被新版本超越 [[migration-guide]]
+- **新版本 v0.2.111+** 必需用于 Opus 4.7 [[overview--agent-sdk]]
 
 ## 出现来源
 

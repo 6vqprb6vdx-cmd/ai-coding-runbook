@@ -26,6 +26,16 @@ Claude 输出 reasoning trace 的模式（Sonnet 4+ / Opus 4+）
 - Agent SDK 中显式设置 `max_thinking_tokens` / `maxThinkingTokens` 会**禁用** `StreamEvent` 发出，只能拿到完整 message [[streaming-output]]
 - Effort 参数（beta header `effort-2025-11-24`）控制 Claude 在 thinking + 文本 + tool call 上的 token 投入；migration 到 Opus 4.5 推荐 `effort: "high"` [[effort]]
 - adaptive thinking 在 stream 中作为 `thinking_delta` 类型的 content_block_delta 单独处理 [[streaming--python]]
+- **API 完整规则**（详见 [[Adaptive-thinking]] entity）：
+  - Opus 4.7 manual `{type: "enabled", budget_tokens: N}` 直接 400；只能 `{type: "adaptive"}`
+  - Mythos Preview adaptive 是默认；不支持 `{type: "disabled"}`
+  - Opus 4.6 / Sonnet 4.6 manual 仍可用但 deprecated
+  - Sonnet 3.7 / 更早模型必须 manual mode [[adaptive-thinking--bwc]] [[extended-thinking--bwc]]
+- **Display 模式**：`summarized`（4.6 默认）vs `omitted`（4.7 / Mythos 默认；TTFT 更快，仅 signature） [[adaptive-thinking--bwc]]
+- **Signature** opaque + encrypted；跨 Anthropic / Bedrock / Vertex 兼容；多 turn 必须 unchanged 传回；改动 → API error [[extended-thinking--bwc]]
+- **Interleaved thinking**：tool calls 之间也思考；Mythos / Opus 4.7 上 inter-tool 推理总在 thinking blocks；Sonnet 4.6 manual 模式需 `interleaved-thinking-2025-05-14` beta header；adaptive 自动启用 [[extended-thinking--bwc]]
+- **Pricing**：billed for full original thinking tokens（不是 summary）；summary 生成本身免费（不同模型生成） [[extended-thinking--bwc]]
+- **Cache 交互**：thinking blocks 不进 cache prefix，但 stable system + tools 仍 hit；toggle thinking 仅作废 messages 层 [[Prompt-caching]] [[adaptive-thinking--bwc]]
 
 ## 出现来源
 

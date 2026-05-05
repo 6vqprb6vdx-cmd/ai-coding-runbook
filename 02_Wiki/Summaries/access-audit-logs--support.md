@@ -1,0 +1,17 @@
+---
+type: summary
+source: 01_Raw/support.claude.com/en/articles/9970975-access-audit-logs.md
+source_url: https://support.claude.com/en/articles/9970975-access-audit-logs
+title: "Access Audit Logs"
+summarized_at: 2026-05-05
+entities_referenced: []
+concepts_referenced: []
+---
+
+Audit logs are available for Enterprise organizations only.
+
+Organization Owners and Primary Owners can export data within Organization settings > Data and Privacy and clicking the "Export logs" button. Upon triggering this export, all audit logs for the organization within the past 180 days will be aggregated. The Owner who requested the export will receive an email containing a download link, which is active for 24 hours. Note that there may be a delay between triggering the export and receiving the email as logs are aggregated.
+
+Please note that title and content of chats and projects are not available to be exported in audit logs (only their unique identifiers will be exported). However, chat inputs/outputs will be exportable by Primary Owners via data exports.
+
+Covers: Log Structure; Entities; Recorded Events.

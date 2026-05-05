@@ -28,6 +28,14 @@ Claude 通过结构化输出调用外部工具的协议（Anthropic 称 tool use
 - 自定义 tool 通过 `createSdkMcpServer` (TS) / `create_sdk_mcp_server` (Python) 打包；fully qualified name = `mcp__{server_name}__{tool_name}`；用 wildcard `mcp__weather__*` 在 `allowedTools` 一次放行 [[custom-tools--agent-sdk]]
 - Anthropic 把 "tool use" 与业界 "function calling" 视为同义术语，部分 docs 混用 [[custom-tools--agent-sdk]]
 - Tool 数量过多时每 turn 都会消耗 context——超过约几十个时改用 Tool Search 按需加载 [[custom-tools--agent-sdk]]
+- **API server-managed tools**（在 Anthropic 端跑，不需 client 实现）：[[Code-execution-tool]] / [[Web-search-tool]] / [[Web-fetch-tool]] / [[Memory-tool]] / [[Text-editor-tool]] / [[Bash-tool-API]] / [[Computer-use-tool-API]] / [[Tool-search-tool-API]] / [[Advisor-tool]]；与 client-side tool 用法一致，但执行在 server side，部分支持 dynamic filtering [[tool-use-overview--at]] [[server-tools--at]]
+- **Client-side tools**（你 app 实现执行）：custom tools + 部分 schema-defined（如 [[Bash-tool-API]] / [[Text-editor-tool]] 既可作为 server-managed 内置 [[Code-execution-tool]] 的 sub-tool，也可作为独立 client-side tool） [[bash-tool--at]] [[text-editor-tool--at]]
+- **[[Tool-runner]] SDK 抽象**：自动处理 agentic loop + 错误 + type safety + auto compaction；Python `@beta_tool` / TS `betaZodTool` / Ruby `BaseTool` subclass [[tool-runner--at]]
+- **`strict: true`** + **[[Structured-outputs]]** = grammar 强制 tool input schema 验证 [[strict-tool-use--at]]
+- **Parallel tool calls** + `disable_parallel_tool_use` 控制并行 [[parallel-tool-use--at]]
+- **Programmatic tool calling**：Claude 通过 [[Code-execution-tool]] 用 Python 程序式调 tool（不直接 emit `tool_use`） [[programmatic-tool-calling--at]]
+- **Fine-grained tool streaming**：tool input 也增量流（默认 buffered） [[fine-grained-tool-streaming--at]]
+- **Build-a-tool-using agent** 教程：完整 e2e 示例 [[build-a-tool-using-agent--at]]
 
 
 ## 出现来源

@@ -24,3 +24,4 @@ venv/
 # Local-only
 *.local
 local_*
+.claudian/

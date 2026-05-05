@@ -28,6 +28,23 @@ Claude API 跨请求复用 prompt prefix 的机制（cost + latency 优化）
 - Claude Code 把 system prompt / CLAUDE.md / tool defs 等稳定 prefix 自动 prompt-cache；CLAUDE.md 在每次请求都被 re-inject（如果通过 `settingSources` 加载） [[agent-loop]]
 - Enterprise gateway（Bedrock / Vertex / Foundry）下 caching 默认开启；`ENABLE_PROMPT_CACHING_1H=1` 切 1h TTL；Vertex 上 `DISABLE_PROMPT_CACHING=1` 可关闭 [[amazon-bedrock]] [[google-vertex-ai]] [[microsoft-foundry]]
 - LLM gateway 的 attribution header（client version + conversation fingerprint）会被 Anthropic API 处理前剥离不影响 first-party cache；若 gateway 自己按完整 body 做 cache，设 `CLAUDE_CODE_ATTRIBUTION_HEADER=0` 关掉 [[llm-gateway]]
+- **完整 pricing matrix**（per MTok）—— from [[prompt-caching--bwc]]：
+  | Model | Base input | 5m write | 1h write | Cache hit | Output |
+  |---|---|---|---|---|---|
+  | Opus 4.7 / 4.6 / 4.5 | $5 | $6.25 | $10 | $0.50 | $25 |
+  | Sonnet 4.6 / 4.5 / 4 | $3 | $3.75 | $6 | $0.30 | $15 |
+  | Haiku 4.5 | $1 | $1.25 | $2 | $0.10 | $5 |
+  | Haiku 3.5 | $0.80 | $1 | $1.6 | $0.08 | $4 |
+- **Multipliers** 结构：5m write = 1.25× base；1h write = 2× base；cache read = 0.1× base —— 与 [[Batches-API]] (50% off) 和 data residency (1.1× US) stack [[prompt-caching--bwc]]
+- **两种 enablement 模式**：
+  - **Auto** —— 单 top-level `cache_control: {type: "ephemeral"}`；系统自动应用断点到最后 cacheable block 并随对话推进
+  - **Explicit** —— 在 individual content blocks 上放 `cache_control` 细粒度控制 [[prompt-caching--bwc]]
+- **Cache 覆盖顺序**：`tools` → `system` → `messages` 全 prefix（直到含 `cache_control` 的 block） [[prompt-caching--bwc]]
+- **`max_tokens: 0` 缓存预热**：可用，但 **[[Batches-API]] 内不支持**（cache 可能在 follow-up 跑前过期） [[prompt-caching--bwc]] [[batch-processing--bwc]]
+- **ZDR-eligible**（仅 KV cache 表示 + 加密 hash 在内存里 cache TTL 内，不含 prompt/output） [[prompt-caching--bwc]]
+- **Citations 兼容**：document block 加 `cache_control` —— citation 自身不能 cache，但 source document 可 [[Citations-API]]
+- **[[Tool-search-tool-API]] 兼容**：deferred tool 从 prefix 剥离 → cache key 不变；discovered tool 作 inline reference block in body [[tool-search-tool--at]]
+- **[[Advisor-tool]] cache 两层**：executor-side（`advisor_tool_result` 加 cache_control）+ advisor-side（`caching` field on tool）；break-even ≈ 3 advisor call [[advisor-tool--at]]
 
 
 ## 出现来源

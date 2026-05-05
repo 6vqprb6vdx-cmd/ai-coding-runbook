@@ -83,6 +83,81 @@
 
 ---
 
+## P2 Entity Registry（Anthropic API 层）
+
+### Core API entities
+
+| Canonical | Raw 中变体 | 说明 |
+|---|---|---|
+| Messages-API | Messages / messages.create / `/v1/messages` | 主要 chat completion endpoint |
+| Completions-API | text completions / claude-1 era API | legacy（建议用 Messages） |
+| Token-counting | count_tokens / token counter | `/v1/messages/count_tokens` |
+| Batches-API | message batches / batch processing / batch API | 异步批量请求 |
+| Streaming-API | streaming / SSE streaming / stream events | event-based 增量返回 |
+| Files-API | files / file upload / file metadata | beta，`/v1/files` |
+| Citations-API | citations / cited responses | 引用文档片段 |
+| Structured-outputs | structured outputs / strict outputs / response_format | JSON schema 强制 |
+| Vision | vision / image understanding / image input | multimodal 图像 |
+| PDF-support | pdf / pdf documents | base64 / files API PDF 输入 |
+| Embeddings | text embeddings / embedding API | 第三方供应商（Voyage 等），不是 Anthropic 自有 |
+| Adaptive-thinking | adaptive thinking | 与 Extended-thinking 区分 |
+| Effort | effort parameter / `effort` | low/medium/high token budget |
+| Compaction | context compaction | 自动 message 压缩 |
+| Context-editing | context editing / message edit | 在长 context 中编辑 |
+| Search-results | search results blocks / search blocks | 工具返回结构化结果 |
+
+### Server tools (Anthropic-managed, distinct from local Claude Code tools)
+
+| Canonical | 说明 |
+|---|---|
+| Code-execution-tool | server-managed Python sandbox（仅 API） |
+| Web-search-tool | server-managed web search（仅 API） |
+| Web-fetch-tool | server-managed URL fetch（仅 API） |
+| Memory-tool | server-managed persistent memory（仅 API，区别于 Claude Code [[Memory]]） |
+| Text-editor-tool | server-managed file editing（仅 API） |
+| Bash-tool-API | server-managed shell（仅 API，区别于 Claude Code 的 Bash 工具） |
+| Computer-use-tool-API | server-managed computer use（仅 API，区别于 [[Computer-use]]） |
+| Tool-search-tool-API | server-managed tool search（区别于 Claude Code [[Permission-mode]] 自动模式） |
+| Tool-runner | API tool runner harness |
+| Advisor-tool | beta advisor tool |
+
+### Beta API entities (managed agents / sessions / vaults)
+
+| Canonical | 说明 |
+|---|---|
+| Managed-agent | beta `/v1/beta/agents` —— 云端管理的 agent |
+| Session-API | beta `/v1/beta/sessions` —— 持久 conversation |
+| Environment-API | beta `/v1/beta/environments` —— 沙盒执行环境 |
+| Memory-store | beta `/v1/beta/memory_stores` —— 持久 memory storage |
+| Vault | beta `/v1/beta/vaults` —— credentials 加密存储 |
+| Skill-API | beta `/v1/beta/skills` —— 远程 skill 管理（区别于 Claude Code [[Skill]]） |
+| User-profile | beta `/v1/beta/user_profiles` —— end-user 身份管理 |
+
+### Admin API entities
+
+| Canonical | 说明 |
+|---|---|
+| Admin-API | 全局名 for `/v1/organizations/...` admin endpoints |
+| Workspace | admin workspace（org 内 sub-unit） |
+| API-key | admin-managed API key |
+| Cost-report | usage cost reporting endpoint |
+| Usage-report | message + Claude Code 使用统计 |
+| Rate-limit-API | per-org / per-workspace rate limit |
+| Invite | workspace member invitation |
+
+### SDK (raw API client，distinct from Agent-SDK)
+
+| Canonical | 说明 |
+|---|---|
+| Anthropic-SDK-Python | `anthropic` Python package |
+| Anthropic-SDK-TypeScript | `@anthropic-ai/sdk` |
+| Anthropic-SDK-Go | `anthropic-sdk-go` |
+| Anthropic-SDK-Java | `anthropic-sdk-java` |
+
+> P2 enrichment 时这些都建 entity（除非 source < 2 raw 支撑则 deferred）。
+
+---
+
 ## Model 名字
 
 | Canonical | model ID |

@@ -207,6 +207,10 @@ def crawl_docs_site(site: dict, dry_run: bool) -> tuple[int, int, int]:
     if prefixes:
         urls = [u for u in urls if any(urlparse(u).path.startswith(p) for p in prefixes)]
 
+    exclude_patterns = site.get("exclude_patterns", [])
+    if exclude_patterns:
+        urls = [u for u in urls if not any(urlparse(u).path.startswith(p) for p in exclude_patterns)]
+
     log(f"  → {len(urls)} URLs match prefixes (concurrent={HTTP_WORKERS}, skip_md={skip_md})")
     if dry_run:
         for u in urls[:5]:

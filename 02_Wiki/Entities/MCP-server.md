@@ -27,10 +27,24 @@ created: 2026-05-05
 - 推荐 stack（mcp-builder skill）：TypeScript + Streamable HTTP（remote）/ stdio（local）；**SSE 已 deprecated**，新项目用 streamable HTTP [[mcp-builder-skill]] [[mcp_best_practices]]
 - Anthropic 不审计任何第三方 MCP server — 只用 trusted 源或自己写；首次连新 MCP server 触发 trust prompt（headless `-p` 模式禁用） [[security]]
 - `npx @anthropic-ai/sandbox-runtime <command>` 可把 MCP server 跑在 sandbox 里增加隔离 [[sandboxing]] [[secure-deployment]]
+- CLI install scope 三种：`local`（默认，写 `~/.claude.json` 仅当前 project）、`project`（写 `.mcp.json` 团队共享）、`user`（写 `~/.claude.json` 跨 project）；优先级 local > project > user > plugin > claude.ai connector [[mcp--claude-code]]
+- Reconnect 行为：HTTP/SSE 断线指数退避 5 次（1s→16s）；v2.1.121+ 初次连接对 5xx/timeout 重试 3 次；auth/404 不重试；stdio 不自动重连 [[mcp--claude-code]]
+- OAuth 完整支持：`--callback-port` 固定回调端口、`--client-id` + `--client-secret` 给不支持 DCR 的 server（CI 用 `MCP_CLIENT_SECRET` env）、`authServerMetadataUrl` 覆盖 discovery、`oauth.scopes` pin 请求 scopes [[mcp--claude-code]]
+- `headersHelper` 配 shell command 动态生成 headers（10s timeout，每次连接跑，无 cache，project/local scope 需 trust prompt） [[mcp--claude-code]]
+- `claude mcp add-from-claude-desktop` 从 Claude Desktop 导入；`claude mcp serve` 把 Claude Code 自身暴露作 MCP server 给其他 client [[mcp--claude-code]]
+- claude.ai 账户登录后自动同步 connector（`/mcp` 标记来源），`ENABLE_CLAUDEAI_MCP_SERVERS=false` 关闭；同 endpoint 的本地 server 优先于 connector [[mcp--claude-code]]
+- Output 限制：默认 25K tokens / call、>10K 触发 warning、`MAX_MCP_OUTPUT_TOKENS` env 调整；server 作者可在 tool `_meta["anthropic/maxResultSizeChars"]` 声明（最高 500K chars，text only，image 仍受 token 限制） [[mcp--claude-code]]
+- MCP resources 用 `@server:protocol://path` 在 prompt 里引用（`@github:issue://123`），自动 fetch 作 attachment；@ autocomplete 列出已连 server 资源 [[mcp--claude-code]]
+- Elicitation：server 中途请求 form / URL 输入，弹 dialog 自动；`Elicitation` hook 可自动应答 [[mcp--claude-code]] [[Hooks]]
+- Tool Search 细节：`ENABLE_TOOL_SEARCH=auto` 阈值（10% context window）/ `auto:N` 自定义 / `false` 全量 / `true` 强制 defer；Vertex AI + 非第一方 base URL 默认关；Haiku 不支持；server `alwaysLoad: true` 或 tool `_meta["anthropic/alwaysLoad"]` 豁免单条 [[mcp--claude-code]]
+- MCP prompts → slash command：server 暴露的 prompt 显示为 `/mcp__<server>__<prompt>`，可带参数 [[mcp--claude-code]]
+- 企业 managed-mcp.json（`/Library/Application Support/ClaudeCode/` 等系统路径）= exclusive control；`allowedMcpServers`/`deniedMcpServers` 按 `serverName` / `serverCommand`（精确 args 匹配）/ `serverUrl`（通配符）三种方式 policy 控制；deny 优先 allow [[mcp--claude-code]]
+- Project-scoped MCP server 首次用要 trust prompt，可用 `claude mcp reset-project-choices` 重置 [[mcp--claude-code]]
+- `.mcp.json` 环境变量替换 `${VAR}` / `${VAR:-default}` 可用于 `command`/`args`/`env`/`url`/`headers`；required 变量缺失 → 启动失败 [[mcp--claude-code]]
 
 ## 出现来源
 
-_111 summaries reference this entity_:
+_112 summaries reference this entity_:
 
 - [[2026-w14]]
 - [[2026-w17]]
@@ -103,6 +117,7 @@ _111 summaries reference this entity_:
 - [[managed-agents-tools]]
 - [[manifest-reference--plugin-structure]]
 - [[mcp--agent-sdk]]
+- [[mcp--claude-code]]
 - [[mcp-builder-skill]]
 - [[mcp-integration--skill]]
 - [[mcp_best_practices]]

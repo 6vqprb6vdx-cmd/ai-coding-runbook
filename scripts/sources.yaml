@@ -27,24 +27,56 @@ docs_sites:
     target_dir: platform.claude.com
     include_prefixes:
       - /docs/en
+    # Exclude machine-generated SDK API reference directories (avg 1-2MB each, no narrative value)
+    exclude_patterns:
+      - /docs/en/api/go/
+      - /docs/en/api/java/
+      - /docs/en/api/python/
+      - /docs/en/api/typescript/
+      - /docs/en/api/csharp/
+      - /docs/en/api/ruby/
+      - /docs/en/api/php/
+      - /docs/en/api/cli/
+      - /docs/en/api/terraform/
 
-  # Anthropic main site: news, research, engineering blog (single sitemap)
+  # Anthropic main site: research + engineering blog (single sitemap)
+  # TODO: /news/ excluded — mostly PR/announcement articles; consider re-adding model-release
+  #       posts only (e.g. /news/claude-*) if a prefix-filter for that pattern is added.
   - name: anthropic.com
     base_url: https://www.anthropic.com
     sitemap: https://www.anthropic.com/sitemap.xml
     target_dir: anthropic.com
     include_prefixes:
-      - /news/
       - /research/
       - /engineering/
 
-  # Claude.ai support / help center
-  - name: support.claude.com
-    base_url: https://support.claude.com
-    sitemap: https://support.claude.com/sitemap.xml
-    target_dir: support.claude.com
+  # OpenAI Platform documentation
+  # NOTE: platform.openai.com/docs returns 403 to crawlers (Cloudflare protection).
+  # Sitemap only exposes /tokenizer, not /docs/*. OpenAI knowledge covered via GitHub repos below.
+  # - name: platform.openai.com
+  #   base_url: https://platform.openai.com
+  #   sitemap: https://platform.openai.com/sitemap.xml
+  #   target_dir: platform.openai.com
+  #   include_prefixes:
+  #     - /docs/
+
+  # Gemini API documentation
+  - name: ai.google.dev
+    base_url: https://ai.google.dev
+    sitemap: https://ai.google.dev/sitemap.xml
+    target_dir: ai.google.dev
     include_prefixes:
-      - /en/
+      - /gemini-api/docs/
+
+  # OpenAI official blog (model releases / product announcements)
+  - name: openai.com
+    base_url: https://openai.com
+    sitemap: https://openai.com/sitemap.xml
+    target_dir: openai.com
+    skip_md_probe: true
+    include_prefixes:
+      - /index/
+      - /blog/
 
 github_repos:
   # ------- Anthropic core -------
@@ -78,6 +110,16 @@ github_repos:
     repo: skills
   - owner: anthropics
     repo: evals
+
+  # ------- OpenAI -------
+  - owner: openai
+    repo: openai-python
+  - owner: openai
+    repo: openai-node
+  # NOTE: openai-cookbook clone hangs on index-pack for 35+ min (384MB pack, likely slow SSH tunnel).
+  # Skip for now; openai-python + openai-node cover the API surface.
+  # - owner: openai
+  #   repo: openai-cookbook
 
   # ------- Model Context Protocol (Anthropic-led) -------
   # Note: 'specification' was renamed to 'modelcontextprotocol' (the org's namesake repo).
