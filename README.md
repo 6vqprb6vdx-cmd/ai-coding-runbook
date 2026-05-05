@@ -1,4 +1,4 @@
-# Claude Code Wiki · 项目手册（Master Guide）
+# LLM Wiki · 项目手册（Master Guide）
 
 > **写给任何 LLM 和未来失忆的人**——下次任何 LLM 或人打开这个项目却不知它怎么工作时，**先读这一份**。
 > 项目所有规则、踩过的坑、维护方法都在这里。`CLAUDE.md` / `AGENTS.md` / `system_instructions.md` 都是这份的子集 / 引用。
@@ -7,11 +7,17 @@
 
 ## 一、这个项目是干啥的
 
-**一句话**：把所有 Anthropic / Claude / Claude Code / MCP 官方文档（docs.claude.com、support.anthropic.com、anthropic.com blog、anthropics + modelcontextprotocol GitHub repos）自动抓回来，由 LLM 加工成一个**可查询 + 自带 cheatsheet**的知识库。
+**一句话**：把 Anthropic、OpenAI、Google、Cursor 等主流 AI 工具的官方文档自动抓回来，由 LLM 加工成一个**可查询 + 自带 cheatsheet**的多厂商知识库。
+
+**覆盖来源**：
+- **Anthropic / Claude**：docs.claude.com、anthropic.com blog/research、anthropics + modelcontextprotocol GitHub repos
+- **OpenAI / Codex**：docs.openai.com、openai/codex GitHub repo、openai/model_spec
+- **Google Gemini**：ai.google.dev Gemini API 文档
+- **Cursor IDE**：cursor.com/docs（llms.txt 全量）
 
 **核心 use case**：
-1. 问"Skills 跟 MCP server 区别是什么 / hooks 怎么配置 / extended thinking 怎么用" → LLM 直接读 enriched entity 答（不用现场 google）
-2. Anthropic 这周改了什么 → 看 `03_Output/Changelog/<latest>.md`（GHA 自动生成）
+1. 问"Claude Code / Cursor / Codex 怎么选 / hooks 怎么配置 / extended thinking 怎么用" → LLM 直接读 enriched entity 答（不用现场 google）
+2. 哪家这周改了什么 → 看 `03_Output/Changelog/<latest>.md`（GHA 自动生成）
 3. 想看常用配置速查 → `03_Output/Cheatsheets/` 直接拿
 4. 加新 raw（GHA cron 每周一自动跑）→ session 开始时看到 "📋 待 ingest: N 个文件" → 用户授权后 LLM 处理
 
@@ -23,19 +29,22 @@
 
 ```
 ┌────────────────────────────────────────────────────────────────┐
-│  互联网（docs.claude.com / GitHub / anthropic.com blog）        │
+│  互联网（Anthropic / OpenAI / Google / Cursor 官方文档 + GitHub）│
 │       ↓ GHA cron 每周一 09:00 HKT 自动抓                        │
 │       ↓ crawler: scripts/refresh_raw.py                         │
 └────────────────────────────────────────────────────────────────┘
                           ↓
 ┌────────────────────────────────────────────────────────────────┐
-│  claude-code-wiki/                  ← 这个项目                  │
+│  llm-wiki/                          ← 这个项目                  │
 │  ├── 01_Raw/                ← 真理之源（read-only）             │
-│  │   ├── docs.claude.com/   crawler 抓的 markdown               │
-│  │   ├── support.anthropic.com/                                 │
+│  │   ├── docs.claude.com/   Anthropic 官方文档                  │
 │  │   ├── anthropic.com/{news,research,engineering}              │
+│  │   ├── docs.openai.com/   OpenAI 平台文档                     │
+│  │   ├── docs.cursor.com/   Cursor IDE 文档（llms.txt 全量）    │
+│  │   ├── ai.google.dev/     Gemini API 文档                     │
 │  │   ├── github/anthropics/<repo>/    （shallow clone）         │
 │  │   ├── github/modelcontextprotocol/<repo>/                    │
+│  │   ├── github/openai/{codex,model_spec}/                      │
 │  │   └── _meta/last_crawl.json                                  │
 │  │                                                               │
 │  ├── 02_Wiki/               ← LLM 加工区                        │
