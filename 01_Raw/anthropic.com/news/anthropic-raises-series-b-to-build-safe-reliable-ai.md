@@ -12,7 +12,7 @@ Apr 29, 2022
 
 Anthropic, an AI safety and research company, has raised $580 million in a Series B. The financing will help Anthropic build large-scale experimental infrastructure to explore and improve the safety properties of computationally intensive AI models.  
   
-Since its founding at the beginning of 2021, Anthropic has conducted research into making systems that are more steerable, robust, and interpretable. On interpretability, it has made progress in mathematically [reverse engineering the behavior of small language models](https://transformer-circuits.pub/2021/framework/index.html) and begun to understand the source of [pattern-matching behavior in large language models](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html). On steerability and robustness, it has developed [baseline techniques to make large language models more “helpful and harmless”](https://arxiv.org/abs/2112.00861), and followed this up with [reinforcement learning to further improve these properties](https://arxiv.org/abs/2204.05862), as well as releasing a dataset to help other research labs train models that are more [aligned with human preferences](https://github.com/anthropics/hh-rlhf). It has also released an analysis of [sudden changes in performance in large language models and the societal impacts of this phenomenon](https://arxiv.org/abs/2202.07785), which demonstrates the need for studying safety issues at scale.  
+Since its founding at the beginning of 2021, Anthropic has conducted research into making systems that are more steerable, robust, and interpretable. On interpretability, it has made progress in mathematically [reverse engineering the behavior of small language models](https://www.anthropic.com/news/reverse engineering the behavior of small language models) and begun to understand the source of [pattern-matching behavior in large language models](https://www.anthropic.com/news/pattern-matching behavior in large language models). On steerability and robustness, it has developed [baseline techniques to make large language models more “helpful and harmless”](https://www.anthropic.com/news/baseline techniques to make large language models more “helpful and harmless”), and followed this up with [reinforcement learning to further improve these properties](https://www.anthropic.com/news/reinforcement learning to further improve these properties), as well as releasing a dataset to help other research labs train models that are more [aligned with human preferences](https://www.anthropic.com/news/aligned with human preferences). It has also released an analysis of [sudden changes in performance in large language models and the societal impacts of this phenomenon](https://www.anthropic.com/news/sudden changes in performance in large language models and the societal impacts of this phenomenon), which demonstrates the need for studying safety issues at scale.  
   
 The purpose of this research is to develop the technical components necessary to build large-scale models which have better implicit safeguards and require less after-training interventions, as well as to develop the tools necessary to further look inside these models to be confident that the safeguards actually work. The company is also building out teams and partnerships dedicated to exploring the policy and societal impacts of these models.  
   
@@ -26,12 +26,12 @@ The Series B follows the company raising $124 million in a Series A round in 202
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

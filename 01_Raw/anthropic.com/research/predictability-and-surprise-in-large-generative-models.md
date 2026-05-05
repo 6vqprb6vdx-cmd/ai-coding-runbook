@@ -10,7 +10,7 @@ Societal Impacts
 
 Feb 15, 2022
 
-[Read Paper](https://arxiv.org/abs/2202.07785)
+[Read Paper](https://www.anthropic.com/research/Read Paper)
 
 ## Abstract
 
@@ -18,20 +18,20 @@ Large-scale pre-training has recently emerged as a technique for creating capabl
 
 ### Policy Memo
 
-[Predictability and Surprise Memo](https://www-cdn.anthropic.com/4ff80d7f8a98bf096cd543ec61ddc50de3ad8b16/Anthropic_PredictabilityAndSurprise.pdf)
+[Predictability and Surprise Memo](https://www.anthropic.com/research/Predictability and Surprise Memo)
 
 ## Related content
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

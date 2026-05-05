@@ -1,6 +1,6 @@
 ---
 type: summary
-source: 01_Raw/github/modelcontextprotocol/typescript-sdk/.changeset/
+source: 01_Raw/github/modelcontextprotocol/typescript-sdk/.changeset/README.md
 source_url: https://github.com/modelcontextprotocol/typescript-sdk/tree/main/.changeset
 title: "TS SDK .changeset/ directory (61 release notes for v2 alpha)"
 summarized_at: 2026-05-05

@@ -125,6 +125,33 @@ def html_to_markdown(html: str, source_url: str) -> str:
     )
     if main is None:
         return ""
+    # Strip Next.js image proxy tags before converting — their /_next/image?url=... relative
+    # paths survive as markdown image links and Obsidian misidentifies them as internal links,
+    # creating hundreds of ghost nodes in the graph.
+    for img in main.find_all("img", src=re.compile(r"/_next/image")):
+        # Try to recover the actual CDN URL from the `url` query param
+        src = img.get("src", "")
+        m_url = re.search(r"url=([^&]+)", src)
+        if m_url:
+            from urllib.parse import unquote
+            real_url = unquote(m_url.group(1))
+            img["src"] = real_url
+        else:
+            img.decompose()
+
+    # Resolve all relative links/images to absolute URLs before markdownifying.
+    # Obsidian interprets relative markdown links as internal vault links, creating
+    # ghost nodes in the graph. Making all links absolute prevents this.
+    from urllib.parse import urljoin, urlparse
+    base = source_url
+    for tag in main.find_all(["a", "img"]):
+        attr = "href" if tag.name == "a" else "src"
+        val = tag.get(attr, "")
+        if not val or val.startswith(("#", "mailto:", "javascript:")):
+            continue
+        if not val.startswith(("http://", "https://")):
+            tag[attr] = urljoin(base, val)
+
     md = markdownify(str(main), heading_style="ATX", bullets="-")
     md = re.sub(r"\n{3,}", "\n\n", md).strip()
     title = soup.title.string.strip() if soup.title and soup.title.string else ""

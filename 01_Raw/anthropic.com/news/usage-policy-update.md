@@ -10,23 +10,21 @@ Policy
 
 Aug 15, 2025
 
-![A hand-drawn image of a hand with a quill pen writing on paper](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F95b160e0fad48b2b2a81bd0a5384ee4413ebbf32-2401x1261.png&w=3840&q=75)
-
 Today, we’re sharing some updates to our Usage Policy that reflect the growing capabilities and evolving usage of our products. Our Usage Policy serves as a framework for how Claude should and shouldn’t be used, providing clear guidance for everyone who uses Anthropic’s products.
 
 In this update, our goal is to provide greater clarity and detail on our Policy based on user feedback, product changes, regulatory developments, and our enforcement priorities. These changes will take effect on September 15, 2025.
 
-Below is a summary of some of the changes, and you can view the new [Usage Policy here](https://www.anthropic.com/legal/aup).
+Below is a summary of some of the changes, and you can view the new [Usage Policy here](https://www.anthropic.com/news/Usage Policy here).
 
 ## **Addressing cybersecurity and agentic use**
 
 Over the past year, we’ve seen rapid advances in agentic capabilities. We've released our own agentic tools like Claude Code and Computer Use, and our models power many of the world's leading coding agents.
 
-These powerful capabilities introduce new risks, including potential for scaled abuse, malware creation, and cyber attacks, as shared in our first threat intelligence report, [*Detecting and Countering Malicious Uses of Claude: March 2025*](https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025).
+These powerful capabilities introduce new risks, including potential for scaled abuse, malware creation, and cyber attacks, as shared in our first threat intelligence report, [*Detecting and Countering Malicious Uses of Claude: March 2025*](https://www.anthropic.com/news/*Detecting and Countering Malicious Uses of Claude: March 2025*).
 
 To address these risks, we've added a section to our Usage Policy outlining the malicious computer, network, and infrastructure compromise activities that are prohibited by Anthropic. We continue to support use cases that strengthen cybersecurity, such as discovering vulnerabilities with the system owner's consent.
 
-We’ve also published a new article to our [Help Center](https://support.anthropic.com/en/articles/12005017-using-agents-according-to-our-usage-policy) on how our Usage Policy applies to agentic use more broadly. This supplementary guidance provides concrete examples of prohibited activities in agentic contexts, and is not meant to replace or supersede our Usage Policy.
+We’ve also published a new article to our [Help Center](https://www.anthropic.com/news/Help Center) on how our Usage Policy applies to agentic use more broadly. This supplementary guidance provides concrete examples of prohibited activities in agentic contexts, and is not meant to replace or supersede our Usage Policy.
 
 ## **Revisiting broad restrictions on political content**
 
@@ -54,12 +52,12 @@ We view our Usage Policy as a living document, evolving as AI risks themselves e
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

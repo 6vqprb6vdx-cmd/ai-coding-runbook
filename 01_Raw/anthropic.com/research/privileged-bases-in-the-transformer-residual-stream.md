@@ -10,7 +10,7 @@ InterpretabilityResearch
 
 Mar 16, 2023
 
-[Read Paper](https://transformer-circuits.pub/2023/privileged-basis/index.html)
+[Read Paper](https://www.anthropic.com/research/Read Paper)
 
 ## Abstract
 
@@ -22,14 +22,14 @@ We explore two other obvious sources of basis dependency in a Transformer: Layer
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

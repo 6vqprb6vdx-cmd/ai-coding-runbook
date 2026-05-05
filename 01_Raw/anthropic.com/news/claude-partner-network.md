@@ -12,7 +12,7 @@ Mar 12, 2026
 
 ![Anthropic invests $100 million into the Claude Partner Network](https://www-cdn.anthropic.com/images/4zrzovbb/website/6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-*We’re launching the Claude Partner Network, a program for partner organizations helping enterprises adopt Claude. We’re committing an initial $100 million to support our partners with training courses, dedicated technical support, and joint market development. Partners who join [from today](https://claude.com/partners) will get immediate access to a new technical certification and be eligible for investment.*
+*We’re launching the Claude Partner Network, a program for partner organizations helping enterprises adopt Claude. We’re committing an initial $100 million to support our partners with training courses, dedicated technical support, and joint market development. Partners who join [from today](https://www.anthropic.com/news/from today) will get immediate access to a new technical certification and be eligible for investment.*
 
 Anthropic is focused on ensuring that our AI model, Claude, serves the needs of businesses. To do this, we’ve partnered with a number of other companies. Notably, Claude is the only frontier AI model available on all three leading cloud providers: AWS, Google Cloud, and Microsoft.
 
@@ -30,11 +30,11 @@ A significant proportion of our $100 million investment will go directly to our 
 
 Those who join the network will have access to our Partner Portal, where we’ll share our Anthropic Academy training materials, the sales playbooks used by our own go-to-market team, and other co-marketing documentation. Qualified partners will also be added to our Services Partner Directory, where enterprise buyers can find firms with Claude implementation experience.
 
-Alongside the network, we’re introducing the first Claude technical certification: [Claude Certified Architect, Foundations](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request), available today for partners. This is a technical exam for solution architects building production applications with Claude. Later this year, we’ll introduce additional certifications for sellers, architects, and developers. Partners who join the network now will get priority access to new certifications as they roll out.
+Alongside the network, we’re introducing the first Claude technical certification: [Claude Certified Architect, Foundations](https://www.anthropic.com/news/Claude Certified Architect, Foundations), available today for partners. This is a technical exam for solution architects building production applications with Claude. Later this year, we’ll introduce additional certifications for sellers, architects, and developers. Partners who join the network now will get priority access to new certifications as they roll out.
 
 Finally, we’re launching a Code Modernization starter kit, which gives our partners a straightforward starting point for migrating legacy codebases and remediating enterprises’ technical debt. This is one of the highest-demand enterprise workloads, and one where Claude’s agentic coding capabilities most directly translate into client outcomes.
 
-Any organization that is bringing Claude to market is eligible to join the Claude Partner Network. Membership is free of charge, and applications open today. You can [find out more here](https://claude.com/partners).
+Any organization that is bringing Claude to market is eligible to join the Claude Partner Network. Membership is free of charge, and applications open today. You can [find out more here](https://www.anthropic.com/news/find out more here).
 
 *Below, our partners share more about their work with Claude:*
 
@@ -52,12 +52,12 @@ Any organization that is bringing Claude to market is eligible to join the Claud
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

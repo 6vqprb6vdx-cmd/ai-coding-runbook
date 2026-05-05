@@ -12,7 +12,7 @@ Claude 3 Haiku can now be fine-tuned in Amazon Bedrock with custom training data
 
 - Category
 
-  [Product announcements](https://claude.com/blog/category/announcements)
+  [Product announcements](https://www.anthropic.com/news/Product announcements)
 - Product
 
   Claude Platform
@@ -26,7 +26,7 @@ Claude 3 Haiku can now be fine-tuned in Amazon Bedrock with custom training data
   min
 - Share
 
-  [Copy link](#)
+  [Copy link](https://www.anthropic.com/news/Copy link)
 
   https://claude.com/blog/fine-tune-claude-3-haiku
 
@@ -34,7 +34,7 @@ Claude 3 Haiku can now be fine-tuned in Amazon Bedrock with custom training data
 
 ***Update:*** *Fine-tuning Claude 3 Haiku in Amazon Bedrock is generally available. (November 1, 2024)*
 
-Customers can now fine-tune Claude 3 Haiku—our fastest and most cost-effective model—in [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) to customize its knowledge and capabilities for their business, making the model more effective for specialized tasks.
+Customers can now fine-tune Claude 3 Haiku—our fastest and most cost-effective model—in [Amazon Bedrock](https://www.anthropic.com/news/Amazon Bedrock) to customize its knowledge and capabilities for their business, making the model more effective for specialized tasks.
 
 ## Overview of fine-tuning
 
@@ -58,27 +58,27 @@ We fine-tuned Haiku to moderate online comments on internet forums1, including i
 
 ## Customer spotlight
 
-[SK Telecom](https://www.claude.com/customers/skt), one of the largest telecommunications operators in South Korea, trained a custom Claude model to improve support workflows and enable better customer experiences by leveraging their industry-specific expertise.
+[SK Telecom](https://www.anthropic.com/news/SK Telecom), one of the largest telecommunications operators in South Korea, trained a custom Claude model to improve support workflows and enable better customer experiences by leveraging their industry-specific expertise.
 
 "Embedding a fine-tuned Claude in our customer support operations has measurably improved our internal processes and overall customer satisfaction. **By customizing Claude, we've seen a 73% increase in positive feedback for our agents' responses and a 37% improvement in key performance indicators for telecommunications-related tasks**. The fine-tuned model now efficiently generates topics, action items, and summaries from customer call logs, and breaks down complex customer issues into manageable steps for better problem-solving," said Eric Davis, Vice President, AI Tech Collaboration Group.
 
-[Thomson Reuters](https://www.claude.com/customers/thomson-reuters), a global content and technology company, has seen positive results with Claude 3 Haiku. The company, which serves professionals in legal, tax, accounting, compliance, government, and media, anticipates even faster and more relevant AI results by fine-tuning Claude with their industry expertise.
+[Thomson Reuters](https://www.anthropic.com/news/Thomson Reuters), a global content and technology company, has seen positive results with Claude 3 Haiku. The company, which serves professionals in legal, tax, accounting, compliance, government, and media, anticipates even faster and more relevant AI results by fine-tuning Claude with their industry expertise.
 
 “We are excited to fine-tune Anthropic’s Claude 3 Haiku model in Amazon Bedrock to further enhance our Claude-powered solutions. Thomson Reuters aims to provide accurate, fast, and consistent user experiences. By optimizing Claude around our industry expertise and specific requirements, we anticipate measurable improvements that deliver high-quality results at even faster speeds. **We’ve already seen positive results with Claude 3 Haiku, and fine-tuning will enable us to tailor AI assistance more precisely**,” said Joel Hron, Head of AI and Labs, Thomson Reuters.
 
 ## How to get started
 
-Fine-tuning for Claude 3 Haiku in Amazon Bedrock is now available in preview in the US West (Oregon) AWS Region. At launch, we're supporting text-based fine-tuning with context lengths up to 32K tokens, with plans to introduce vision capabilities in the future. Additional details are available in the [AWS launch blog](https://aws.amazon.com/blogs/machine-learning/fine-tune-anthropics-claude-3-haiku-in-amazon-bedrock-to-boost-model-accuracy-and-quality/) and [documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-model-supported.html).
+Fine-tuning for Claude 3 Haiku in Amazon Bedrock is now available in preview in the US West (Oregon) AWS Region. At launch, we're supporting text-based fine-tuning with context lengths up to 32K tokens, with plans to introduce vision capabilities in the future. Additional details are available in the [AWS launch blog](https://www.anthropic.com/news/AWS launch blog) and [documentation](https://www.anthropic.com/news/documentation).
 
-To request access, contact your AWS account team or submit a support ticket in the [AWS Management Console](https://console.aws.amazon.com/bedrock/).
+To request access, contact your AWS account team or submit a support ticket in the [AWS Management Console](https://www.anthropic.com/news/AWS Management Console).
 
 No items found.
 
-[Prev](#)Prev
+[Prev](https://www.anthropic.com/news/Prev)Prev
 
 0/5
 
-[Next](#)Next
+[Next](https://www.anthropic.com/news/Next)Next
 
 eBook
 
@@ -104,9 +104,9 @@ Apr 30, 2026
 
 Product announcements
 
-[Claude Security is now in public beta](#)Claude Security is now in public beta
+[Claude Security is now in public beta](https://www.anthropic.com/news/Claude Security is now in public beta)Claude Security is now in public beta
 
-[Claude Security is now in public beta](/blog/claude-security-public-beta)Claude Security is now in public beta
+[Claude Security is now in public beta](https://www.anthropic.com/news/Claude Security is now in public beta)Claude Security is now in public beta
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d22a8c18ce1b5adef7e9_6b1470e7fa2fb7280502291f204b88c412690076-1000x1000.svg)
 
@@ -116,9 +116,9 @@ Apr 23, 2026
 
 Product announcements
 
-[New connectors in Claude for everyday life](#)New connectors in Claude for everyday life
+[New connectors in Claude for everyday life](https://www.anthropic.com/news/New connectors in Claude for everyday life)New connectors in Claude for everyday life
 
-[New connectors in Claude for everyday life](/blog/connectors-for-everyday-life)New connectors in Claude for everyday life
+[New connectors in Claude for everyday life](https://www.anthropic.com/news/New connectors in Claude for everyday life)New connectors in Claude for everyday life
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6909386cc7ad3ed2a7ec8eed_Object-ThoughtBubble.svg)
 
@@ -128,9 +128,9 @@ Sep 11, 2025
 
 Product announcements
 
-[Bringing memory to Claude](#)Bringing memory to Claude
+[Bringing memory to Claude](https://www.anthropic.com/news/Bringing memory to Claude)Bringing memory to Claude
 
-[Bringing memory to Claude](/blog/memory)Bringing memory to Claude
+[Bringing memory to Claude](https://www.anthropic.com/news/Bringing memory to Claude)Bringing memory to Claude
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6903d225e31f7aa22c1f28cb_46e4aa7ea208ed440d5bd9e9e3a0ee66bc336ff1-1000x1000.svg)
 
@@ -140,25 +140,25 @@ Apr 23, 2026
 
 Product announcements
 
-[Built-in memory for Claude Managed Agents](#)Built-in memory for Claude Managed Agents
+[Built-in memory for Claude Managed Agents](https://www.anthropic.com/news/Built-in memory for Claude Managed Agents)Built-in memory for Claude Managed Agents
 
-[Built-in memory for Claude Managed Agents](/blog/claude-managed-agents-memory)Built-in memory for Claude Managed Agents
+[Built-in memory for Claude Managed Agents](https://www.anthropic.com/news/Built-in memory for Claude Managed Agents)Built-in memory for Claude Managed Agents
 
 ## Transform how your organization operates with Claude
 
 See pricing
 
-[See pricing](https://claude.com/pricing#api)See pricing
+[See pricing](https://www.anthropic.com/news/See pricing)See pricing
 
 Contact sales
 
-[Contact sales](https://claude.com/contact-sales)Contact sales
+[Contact sales](https://www.anthropic.com/news/Contact sales)Contact sales
 
 Get the developer newsletter
 
 Product updates, how-tos, community spotlights, and more. Delivered monthly to your inbox.
 
-[Subscribe](#)Subscribe
+[Subscribe](https://www.anthropic.com/news/Subscribe)Subscribe
 
 Please provide your email address if you'd like to receive our monthly developer newsletter. You can unsubscribe at any time.
 

@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:10:22.084803+00:00
 title: "Inferenza e ottimizzazione dell'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Home page](https://ai.google.dev/gemini-api/docs/Home page)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documenti](https://ai.google.dev/gemini-api/docs/Documenti)
 
 Invia feedback
 
@@ -40,7 +40,7 @@ Fornisce tempi di risposta normali senza costi aggiuntivi o code pesanti.
 
 ### Inferenza con priorità (ottimizzata per la latenza)
 
-[L'elaborazione con priorità](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it) indirizza le richieste
+[L'elaborazione con priorità](https://ai.google.dev/gemini-api/docs/L'elaborazione con priorità) indirizza le richieste
 alle code di calcolo ad alta criticità.
 Questo traffico è strettamente non rimovibile (non viene mai sostituito da altri livelli) e offre la massima affidabilità. Se superi i limiti di priorità dinamici, il sistema esegue il downgrade della richiesta all'elaborazione standard anziché generare un errore.
 
@@ -50,7 +50,7 @@ Questo traffico è strettamente non rimovibile (non viene mai sostituito da altr
 
 ### Inferenza flessibile (ottimizzata per i costi)
 
-[L'inferenza flessibile](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it) offre uno sconto del 50% rispetto alle tariffe standard utilizzando la capacità di calcolo
+[L'inferenza flessibile](https://ai.google.dev/gemini-api/docs/L'inferenza flessibile) offre uno sconto del 50% rispetto alle tariffe standard utilizzando la capacità di calcolo
 opportunistica fuori orario di punta. Le richieste vengono elaborate in modo sincrono, il che significa che non devi riscrivere il codice per gestire gli oggetti batch.
 Poiché si tratta di traffico "rimovibile", le richieste potrebbero essere sostituite se il sistema registra picchi di traffico standard.
 
@@ -60,7 +60,7 @@ Poiché si tratta di traffico "rimovibile", le richieste potrebbero essere sosti
 
 ## API Batch (bulk, asincrona)
 
-[L'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) è progettata per elaborare grandi volumi
+[L'API Batch](https://ai.google.dev/gemini-api/docs/L'API Batch) è progettata per elaborare grandi volumi
 di richieste in modo asincrono al
 50% del costo standard. Puoi inviare le richieste come dizionari in linea o utilizzando un file di input JSONL (fino a 2 GB). Elabora le richieste utilizzando le code di throughput in background con un tempo di risposta target di 24 ore.
 
@@ -70,7 +70,7 @@ di richieste in modo asincrono al
 
 ## Memorizzazione nella cache del contesto (risparmio di input)
 
-[La memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it) viene utilizzata quando un contesto iniziale sostanziale
+[La memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/La memorizzazione nella cache del contesto) viene utilizzata quando un contesto iniziale sostanziale
 viene referenziato ripetutamente da richieste più brevi.
 
 - **Memorizzazione nella cache implicita:** attivata automaticamente sui modelli Gemini 2.5 e versioni successive.
@@ -81,10 +81,8 @@ viene referenziato ripetutamente da richieste più brevi.
 
 Invia feedback
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/licenza Creative Commons Attribution 4.0), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://ai.google.dev/gemini-api/docs/licenza Apache 2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://ai.google.dev/gemini-api/docs/norme del sito di Google Developers). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
 Ultimo aggiornamento 2026-04-29 UTC.
 
 Vuoi dirci altro?
-
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

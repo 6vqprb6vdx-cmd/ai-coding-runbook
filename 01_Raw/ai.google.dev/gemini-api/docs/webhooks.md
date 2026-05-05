@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:19:07.707441+00:00
 title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [首页](https://ai.google.dev/gemini-api/docs/首页)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [文档](https://ai.google.dev/gemini-api/docs/文档)
 
 发送反馈
 
@@ -16,8 +16,8 @@ title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 
 借助网络钩子，Gemini API 可以在异步操作或长时间运行的操作 (LRO) 完成时，向您的服务器推送实时通知。这样就无需轮询 API 以获取状态更新，从而减少延迟和开销。
 
-网络钩子适用于[批量](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)作业、
-[互动](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn)和[视频生成](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)等操作。
+网络钩子适用于[批量](https://ai.google.dev/gemini-api/docs/批量)作业、
+[互动](https://ai.google.dev/gemini-api/docs/互动)和[视频生成](https://ai.google.dev/gemini-api/docs/视频生成)等操作。
 
 ## 运作方式
 
@@ -25,13 +25,13 @@ title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 
 Gemini API 支持两种配置网络钩子的方式：
 
-- [**静态网络钩子**](#static-webhooks)：使用 Gemini [WebhookService API](https://ai.google.dev/api?hl=zh-cn) 配置的项目级端点。适用于全局集成（例如通知 Slack、同步数据库等）。
-- [**动态网络钩子**](#dynamic-webhooks)：请求级替换，在特定作业调用的配置载荷中传递
+- [**静态网络钩子**](https://ai.google.dev/gemini-api/docs/**静态网络钩子**)：使用 Gemini [WebhookService API](https://ai.google.dev/gemini-api/docs/WebhookService API) 配置的项目级端点。适用于全局集成（例如通知 Slack、同步数据库等）。
+- [**动态网络钩子**](https://ai.google.dev/gemini-api/docs/**动态网络钩子**)：请求级替换，在特定作业调用的配置载荷中传递
   网络钩子网址。非常适合将特定作业路由到专用端点。
 
 ## 静态网络钩子
 
-静态网络钩子是为整个 [项目](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-cn#google-cloud-projects) 注册的，并且会针对任何匹配的
+静态网络钩子是为整个 [项目](https://ai.google.dev/gemini-api/docs/项目) 注册的，并且会针对任何匹配的
 事件触发。
 
 ### 创建网络钩子
@@ -40,7 +40,7 @@ Gemini API 支持两种配置网络钩子的方式：
 
 **重要提示**：创建网络钩子时，API **只会返回一次签名密钥**
 。您必须安全地存储此密钥（例如在环境变量中），以便稍后验证签名。如果您丢失了签名密钥，则必须
-[轮替](#rotate-signing-secret)该密钥。
+[轮替](https://ai.google.dev/gemini-api/docs/轮替)该密钥。
 
 ### Python
 
@@ -97,7 +97,7 @@ curl -X POST \
 ```
 
 如需详细了解如何设置服务器以接收数据，请参阅
-[处理网络钩子请求](#handle-webhook-requests)部分。
+[处理网络钩子请求](https://ai.google.dev/gemini-api/docs/处理网络钩子请求)部分。
 
 ### 获取网络钩子
 
@@ -340,7 +340,7 @@ curl -X POST \
 
 当您订阅的事件发生时，您的网络钩子网址将收到 HTTP POST 请求。您的端点必须在几秒钟内返回 2xx 状态代码，以避免重试。为确保传送，Gemini API 会使用指数退避算法自动重试失败的请求 24 小时。
 
-Gemini 严格遵循安全标头的 [标准网络钩子](https://github.com/standard-webhooks/standard-webhooks) 规范。使用签名标头签名和您存储的静态签名密钥在服务器上验证载荷。如需了解载荷信息，请参阅[网络钩子信封](#webhook-envelope)部分。
+Gemini 严格遵循安全标头的 [标准网络钩子](https://ai.google.dev/gemini-api/docs/标准网络钩子) 规范。使用签名标头签名和您存储的静态签名密钥在服务器上验证载荷。如需了解载荷信息，请参阅[网络钩子信封](https://ai.google.dev/gemini-api/docs/网络钩子信封)部分。
 
 以下是使用 Flask 作为 HTTP 监听器的示例：
 
@@ -506,7 +506,7 @@ curl -X POST \
 
 动态网络钩子请求会发出 JSON Web 令牌 (JWT) 签名。您的监听器
 必须提取签名并使用 [Google 的公共证书
-端点](https://www.googleapis.com/oauth2/v3/certs)对其进行验证。
+端点](https://ai.google.dev/gemini-api/docs/Google 的公共证书端点)对其进行验证。
 
 ### Python
 
@@ -653,14 +653,12 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 
 ## 接下来怎么做？
 
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=zh-cn)：利用网络钩子自动执行大量端点。
+- [Batch API](https://ai.google.dev/gemini-api/docs/Batch API)：利用网络钩子自动执行大量端点。
 
 发送反馈
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://ai.google.dev/gemini-api/docs/知识共享署名 4.0 许可)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://ai.google.dev/gemini-api/docs/Apache 2.0 许可)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://ai.google.dev/gemini-api/docs/Google 开发者网站政策)。Java 是 Oracle 和/或其关联公司的注册商标。
 
 最后更新时间 (UTC)：2026-05-05。
 
 需要向我们提供更多信息？
-
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-05。"],[],[]]

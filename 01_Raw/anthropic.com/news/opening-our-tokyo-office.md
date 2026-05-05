@@ -28,9 +28,9 @@ Anthropic also joined the Hiroshima AI Process Friends Group this week, deepenin
 
 "What we're seeing in Japan validates our belief that the most successful AI deployments enhance human capabilities rather than replace them," said Hidetoshi Tojo, Representative Director and President of Anthropic in Japan. "Japanese businesses understand that AI should allow people to focus on what humans do best—creative problem-solving, nuanced communication, and building trusted relationships."
 
-Japan ranks in the top 25% globally for AI adoption according to recent data from Anthropic’s [Economic Index](https://www.anthropic.com/economic-index). People in Japan use AI as a collaborative tool to augment human capabilities, primarily for productivity-enhancing tasks like academic research, writing, and document editing—reflecting a focus on enhancing creativity and communication quality rather than replacing human judgment.
+Japan ranks in the top 25% globally for AI adoption according to recent data from Anthropic’s [Economic Index](https://www.anthropic.com/news/Economic Index). People in Japan use AI as a collaborative tool to augment human capabilities, primarily for productivity-enhancing tasks like academic research, writing, and document editing—reflecting a focus on enhancing creativity and communication quality rather than replacing human judgment.
 
-Leading Japanese enterprises are already seeing results. [Rakuten](https://www.claude.com/customers/rakuten) is using Claude for autonomous coding projects, dramatically improving developer productivity. [Nomura Research Institute](https://www.linkedin.com/feed/update/urn:li:activity:7333205487473082368/) has transformed document analysis from hours to minutes while maintaining precision. [Panasonic](https://news.panasonic.com/global/press/en250108-11) has integrated Claude across both business operations and consumer applications. And [Classmethod](https://www.claude.com/customers/classmethod), a leading cloud integrator, reports achieving 10x productivity gains, with Claude Code generating 99% of a recent project's codebase.
+Leading Japanese enterprises are already seeing results. [Rakuten](https://www.anthropic.com/news/Rakuten) is using Claude for autonomous coding projects, dramatically improving developer productivity. [Nomura Research Institute](https://www.anthropic.com/news/Nomura Research Institute) has transformed document analysis from hours to minutes while maintaining precision. [Panasonic](https://www.anthropic.com/news/Panasonic) has integrated Claude across both business operations and consumer applications. And [Classmethod](https://www.anthropic.com/news/Classmethod), a leading cloud integrator, reports achieving 10x productivity gains, with Claude Code generating 99% of a recent project's codebase.
 
 This week we also hosted our first Builder Summit in Tokyo, where we met more than 150 startups and founders building with Claude. All this reflects the extraordinary momentum we're seeing across Asia Pacific, where our run rate revenue has grown more than 10x in the past year.
 
@@ -42,18 +42,18 @@ We also announced that we have extended our partnership with the Mori Art Museum
 
 The people and organizations we’ve met in Japan share our conviction that technological progress must enable human progress. We're building a team in Tokyo to work alongside partners across industry, government, and culture toward that goal. Over the coming months, we'll bring this same approach to Seoul and Bengaluru as we continue our Asia-Pacific expansion. We look forward to helping innovation flourish across the region.
 
-For information about career opportunities at our Tokyo office, [see here]( https://www.anthropic.com/jobs?office=4035213008).
+For information about career opportunities at our Tokyo office, [see here](https://www.anthropic.com/news/see here).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:21:28.438444+00:00
 title: "L\u01b0u ng\u1eef c\u1ea3nh v\u00e0o b\u1ed9 nh\u1edb \u0111\u1ec7m \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/Tính năng Nghiên cứu chuyên sâu của Gemini) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Trang chủ](https://ai.google.dev/gemini-api/docs/Trang chủ)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs/Tài liệu)
 
 Gửi ý kiến phản hồi
 
@@ -45,7 +45,7 @@ Khi sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng của Gemini A
 
 Khi lưu trữ một nhóm mã thông báo vào bộ nhớ đệm, bạn có thể chọn khoảng thời gian bạn muốn bộ nhớ đệm tồn tại trước khi mã thông báo bị xoá tự động. Khoảng thời gian lưu vào bộ nhớ đệm này được gọi là *thời gian tồn tại* (TTL). Nếu bạn không đặt, TTL sẽ mặc định là 1 giờ. Chi phí lưu vào bộ nhớ đệm phụ thuộc vào kích thước mã thông báo đầu vào và thời gian bạn muốn mã thông báo duy trì.
 
-Phần này giả định rằng bạn đã cài đặt Gemini SDK (hoặc đã cài đặt curl) và bạn đã định cấu hình khoá API, như trong phần [bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/quickstart?hl=vi).
+Phần này giả định rằng bạn đã cài đặt Gemini SDK (hoặc đã cài đặt curl) và bạn đã định cấu hình khoá API, như trong phần [bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/bắt đầu nhanh).
 
 ### Tạo nội dung bằng bộ nhớ đệm
 
@@ -617,13 +617,13 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key
 
 ### Lưu vào bộ nhớ đệm một cách rõ ràng bằng thư viện OpenAI
 
-Nếu đang sử dụng [thư viện OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi), bạn có thể bật tính năng lưu vào bộ nhớ đệm rõ ràng bằng cách sử dụng thuộc tính `cached_content` trên [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=vi#extra-body).
+Nếu đang sử dụng [thư viện OpenAI](https://ai.google.dev/gemini-api/docs/thư viện OpenAI), bạn có thể bật tính năng lưu vào bộ nhớ đệm rõ ràng bằng cách sử dụng thuộc tính `cached_content` trên [`extra_body`](https://ai.google.dev/gemini-api/docs/`extra_body`).
 
 ## Trường hợp sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng
 
 Tính năng lưu vào bộ nhớ đệm theo bối cảnh đặc biệt phù hợp với những trường hợp mà một bối cảnh ban đầu đáng kể được các yêu cầu ngắn hơn tham chiếu nhiều lần. Hãy cân nhắc sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh cho các trường hợp sử dụng như:
 
-- Chatbot có [hướng dẫn chi tiết về hệ thống](https://ai.google.dev/gemini-api/docs/system-instructions?hl=vi)
+- Chatbot có [hướng dẫn chi tiết về hệ thống](https://ai.google.dev/gemini-api/docs/hướng dẫn chi tiết về hệ thống)
 - Phân tích lặp đi lặp lại các tệp video dài
 - Truy vấn định kỳ đối với các tập tài liệu lớn
 - Thường xuyên phân tích kho lưu trữ mã hoặc sửa lỗi
@@ -636,23 +636,21 @@ Lưu vào bộ nhớ đệm theo ngữ cảnh là một tính năng có tính ph
 2. **Thời gian lưu trữ:** Khoảng thời gian lưu trữ mã thông báo được lưu vào bộ nhớ đệm (TTL), được tính phí dựa trên thời lượng TTL của số lượng mã thông báo được lưu vào bộ nhớ đệm. Không có giới hạn tối thiểu hoặc tối đa về TTL.
 3. **Các yếu tố khác:** Các khoản phí khác được áp dụng, chẳng hạn như đối với mã thông báo đầu vào và đầu ra không được lưu vào bộ nhớ đệm.
 
-Để biết thông tin chi tiết mới nhất về giá, hãy tham khảo [trang định giá](https://ai.google.dev/pricing?hl=vi) của Gemini API. Để tìm hiểu cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
+Để biết thông tin chi tiết mới nhất về giá, hãy tham khảo [trang định giá](https://ai.google.dev/gemini-api/docs/trang định giá) của Gemini API. Để tìm hiểu cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/Hướng dẫn về mã thông báo).
 
 ### Các yếu tố cần cân nhắc khác
 
 Khi sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh, hãy lưu ý những điểm sau:
 
-- Số lượng mã thông báo đầu vào *tối thiểu* để lưu vào bộ nhớ đệm theo bối cảnh sẽ khác nhau tuỳ theo mô hình. *Tối đa* cũng giống như giá trị tối đa của mô hình đã cho. (Để biết thêm thông tin về cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi)).
+- Số lượng mã thông báo đầu vào *tối thiểu* để lưu vào bộ nhớ đệm theo bối cảnh sẽ khác nhau tuỳ theo mô hình. *Tối đa* cũng giống như giá trị tối đa của mô hình đã cho. (Để biết thêm thông tin về cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/Hướng dẫn về mã thông báo)).
 - Mô hình này không phân biệt giữa các mã thông báo được lưu vào bộ nhớ đệm và các mã thông báo đầu vào thông thường. Nội dung trong bộ nhớ đệm là tiền tố của câu lệnh.
 - Không có giới hạn đặc biệt về tốc độ hoặc mức sử dụng đối với tính năng lưu vào bộ nhớ đệm theo ngữ cảnh; các giới hạn tiêu chuẩn về tốc độ đối với `GenerateContent` sẽ được áp dụng và giới hạn mã thông báo bao gồm cả mã thông báo được lưu vào bộ nhớ đệm.
 - Số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ được trả về trong `usage_metadata` từ các thao tác tạo, nhận và liệt kê của dịch vụ bộ nhớ đệm, cũng như trong `GenerateContent` khi sử dụng bộ nhớ đệm.
 
 Gửi ý kiến phản hồi
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://ai.google.dev/gemini-api/docs/Giấy phép ghi nhận tác giả 4.0 của Creative Commons) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://ai.google.dev/gemini-api/docs/Giấy phép Apache 2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://ai.google.dev/gemini-api/docs/Chính sách trang web của Google Developers). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
 Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
 Bạn muốn chia sẻ thêm với chúng tôi?
-
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

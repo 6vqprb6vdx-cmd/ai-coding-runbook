@@ -22,7 +22,7 @@ Anthropic has seen rapid growth since the launch of Claude in March 2023. At the
 
 Anthropic’s trajectory has been driven by our leading technical talent, our focus on safety, and our frontier research, including pioneering alignment and interpretability work, all of which underpin the performance and reliability of our models. Every day more businesses, developers, and consumer power users are trusting Claude to help them solve their most challenging problems. Anthropic now serves over 300,000 business customers, and our number of large accounts—customers that each represent over $100,000 in run-rate revenue—has grown nearly 7x in the past year.
 
-This growth spans the entire Anthropic platform, with advancements for businesses, developers, and consumers. For businesses, our API and [industry-specific products](https://www.anthropic.com/news/claude-for-financial-services) make it easy to add powerful AI to their critical applications without complex integration work. Developers have made Claude Code their tool of choice since its full launch in May 2025. Claude Code has quickly taken off—already generating over $500 million in run-rate revenue with usage growing more than 10x in just three months. For individual users, the Pro and Max plans for Claude deliver enhanced AI capabilities for everyday tasks and specialized projects.
+This growth spans the entire Anthropic platform, with advancements for businesses, developers, and consumers. For businesses, our API and [industry-specific products](https://www.anthropic.com/news/industry-specific products) make it easy to add powerful AI to their critical applications without complex integration work. Developers have made Claude Code their tool of choice since its full launch in May 2025. Claude Code has quickly taken off—already generating over $500 million in run-rate revenue with usage growing more than 10x in just three months. For individual users, the Pro and Max plans for Claude deliver enhanced AI capabilities for everyday tasks and specialized projects.
 
 “Anthropic is on an exceptional trajectory, combining research excellence, technological leadership, and relentless focus on customers. We’re honored to partner with Dario and the team, and our lead investment in their Series F reflects our belief in their values and their ability to shape the future of responsible AI,” said Divesh Makan, Partner at ICONIQ. “Enterprise leaders tell us what we’re seeing firsthand—Claude is reliable, built on a trustworthy foundation, and guided by leaders truly focused on the long term.”
 
@@ -32,12 +32,12 @@ The Series F investment will expand our capacity to meet growing enterprise dema
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

@@ -10,8 +10,6 @@ Announcements
 
 Aug 15, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90c31d0ee08817d20f1ca2965a439585feac7093-2880x1620.png&w=3840&q=75)
-
 We are pleased to announce that SK Telecom ("SKT"), the largest mobile operator in Korea rapidly integrating AI into its business, has become a commercial partner with Anthropic as well as a strategic investor.
 
 SKT and Anthropic will work together to develop a large language model that will be customized to best meet the needs of telcos. Using a technique called fine-tuning, Anthropic will leverage SKT’s domain experience in telecommunications in order to make the model optimized for a wide variety of telco applications including customer service, marketing, sales, and interactive consumer applications. The multilingual model will support languages including Korean, English, Japanese, Spanish, and more.
@@ -26,14 +24,14 @@ We are excited about the opportunities we will unlock by partnering with SKT to 
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### An update on our election safeguards
 
 We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
 
-[Read more](/news/election-safeguards-update)
+[Read more](https://www.anthropic.com/news/Read more)

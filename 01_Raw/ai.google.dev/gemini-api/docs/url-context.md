@@ -4,17 +4,17 @@ fetched_at: 2026-05-05T13:16:16.459778+00:00
 title: "URL context \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [首页](https://ai.google.dev/gemini-api/docs/首页)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [文档](https://ai.google.dev/gemini-api/docs/文档)
 
 发送反馈
 
 # URL context
 
-借助网址上下文工具，您可以网址的形式向模型提供更多上下文。通过在请求中添加网址，模型将访问这些网页中的内容（只要不是[限制部分](#limitations)中列出的网址类型），从而为回答提供信息并提高回答质量。
+借助网址上下文工具，您可以网址的形式向模型提供更多上下文。通过在请求中添加网址，模型将访问这些网页中的内容（只要不是[限制部分](https://ai.google.dev/gemini-api/docs/限制部分)中列出的网址类型），从而为回答提供信息并提高回答质量。
 
 网址上下文工具适用于以下任务：
 
@@ -114,11 +114,11 @@ cat result.json
 
 您可以将网址上下文工具与其他工具结合使用，以创建更强大的工作流。
 
-[Gemini 3 模型](#supported-models)支持将内置工具（例如网址上下文）与自定义工具（函数调用）相结合。如需了解详情，请参阅[工具组合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)页面。
+[Gemini 3 模型](https://ai.google.dev/gemini-api/docs/Gemini 3 模型)支持将内置工具（例如网址上下文）与自定义工具（函数调用）相结合。如需了解详情，请参阅[工具组合](https://ai.google.dev/gemini-api/docs/工具组合)页面。
 
 ### 依托搜索进行接地
 
-同时启用网址上下文和[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)后，模型可以使用其搜索功能在网上查找相关信息，然后使用网址上下文工具更深入地了解找到的网页。对于需要广泛搜索和深入分析特定网页的提示，这种方法非常有效。
+同时启用网址上下文和[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/依托 Google 搜索进行接地)后，模型可以使用其搜索功能在网上查找相关信息，然后使用网址上下文工具更深入地了解找到的网页。对于需要广泛搜索和深入分析特定网页的提示，这种方法非常有效。
 
 ### Python
 
@@ -239,7 +239,7 @@ cat result.json
 }
 ```
 
-如需详细了解此对象，请参阅 [`UrlContextMetadata` API 参考文档](https://ai.google.dev/api/generate-content?hl=zh-cn#UrlContextMetadata)。
+如需详细了解此对象，请参阅 [`UrlContextMetadata` API 参考文档](https://ai.google.dev/gemini-api/docs/`UrlContextMetadata` API 参考文档)。
 
 ### 安全检查
 
@@ -247,7 +247,7 @@ cat result.json
 
 ### Token 计数
 
-从您在提示中指定的网址检索到的内容会作为输入 token 的一部分进行统计。您可以在模型输出的 [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=zh-cn#UsageMetadata) 对象中查看提示和工具使用的 token 数量。以下是输出示例：
+从您在提示中指定的网址检索到的内容会作为输入 token 的一部分进行统计。您可以在模型输出的 [`usage_metadata`](https://ai.google.dev/gemini-api/docs/`usage_metadata`) 对象中查看提示和工具使用的 token 数量。以下是输出示例：
 
 ```
 'usage_metadata': {
@@ -263,18 +263,18 @@ cat result.json
   }
 ```
 
-每个令牌的价格取决于所用模型，详情请参阅[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)页面。
+每个令牌的价格取决于所用模型，详情请参阅[价格](https://ai.google.dev/gemini-api/docs/价格)页面。
 
 ## 支持的模型
 
 | 模型 | 网址上下文 |
 | --- | --- |
-| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Flash-Lite 预览版](https://ai.google.dev/gemini-api/docs/gemini-3.1-flash-lite-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/Gemini 3.1 Pro 预览版) | ✔️ |
+| [Gemini 3.1 Flash-Lite 预览版](https://ai.google.dev/gemini-api/docs/Gemini 3.1 Flash-Lite 预览版) | ✔️ |
+| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/Gemini 3 Flash 预览版) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Pro) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash-Lite) | ✔️ |
 
 ## 最佳做法
 
@@ -302,20 +302,18 @@ cat result.json
 以下内容类型**不**受支持：
 
 - 付费内容
-- YouTube 视频（请参阅[视频理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-cn#youtube)，了解如何处理 YouTube 网址）
+- YouTube 视频（请参阅[视频理解](https://ai.google.dev/gemini-api/docs/视频理解)，了解如何处理 YouTube 网址）
 - Google Workspace 文件，例如 Google 文档或电子表格
 - 视频和音频文件
 
 ## 后续步骤
 
-- 如需查看更多示例，请参阅 [网址 上下文实用指南](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=zh-cn#url-context)。
+- 如需查看更多示例，请参阅 [网址 上下文实用指南](https://ai.google.dev/gemini-api/docs/网址 上下文实用指南)。
 
 发送反馈
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://ai.google.dev/gemini-api/docs/知识共享署名 4.0 许可)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://ai.google.dev/gemini-api/docs/Apache 2.0 许可)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://ai.google.dev/gemini-api/docs/Google 开发者网站政策)。Java 是 Oracle 和/或其关联公司的注册商标。
 
 最后更新时间 (UTC)：2026-04-29。
 
 需要向我们提供更多信息？
-
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]

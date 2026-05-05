@@ -10,8 +10,6 @@ Announcements
 
 Jul 9, 2025
 
-![A hand-drawn image of a hand with a set of nodes emerging above it, extending in several different directions](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd4b60fbc087e8ec3f47c69fbe03298fedcaebb9c-2880x1620.png&w=3840&q=75)
-
 Lawrence Livermore National Laboratory (LLNL), one of the United States' premier research institutions, is expanding its deployment of Claude for Enterprise to its entire laboratory. This expansion will make advanced AI capabilities available to about 10,000 scientists, researchers, and staff. LLNL's expansion of Claude access will help bolster research across nuclear deterrence, energy, materials science, and energy security in one of the largest deployments of Claude for Enterprise within the U.S. Department of Energy's national laboratory system.
 
 ## Building on proven partnership
@@ -22,7 +20,7 @@ This expanded partnership between LLNL and Anthropic serves as a blueprint for h
 
 "LLNL has always been at the cutting edge of computational science," said Greg Herweg, Chief Technology Officer at Lawrence Livermore National Laboratory. "This expanded partnership demonstrates how frontier AI can amplify the capabilities of world-class researchers working on some of humanity's most pressing challenges."
 
-LLNL's Claude application suite [includes](https://www.anthropic.com/enterprise) robust security features designed specifically for government environments. The platform's expanded context window can process hundreds of documents, entire codebases with 100,000+ lines, or complex datasets in a single query — enabling scientists to analyze fusion experiments, or nuclear simulations comprehensively. Enterprise security features include single sign-on (SSO), audit logging, role-based access controls, and end-to-end encryption.
+LLNL's Claude application suite [includes](https://www.anthropic.com/news/includes) robust security features designed specifically for government environments. The platform's expanded context window can process hundreds of documents, entire codebases with 100,000+ lines, or complex datasets in a single query — enabling scientists to analyze fusion experiments, or nuclear simulations comprehensively. Enterprise security features include single sign-on (SSO), audit logging, role-based access controls, and end-to-end encryption.
 
 ## Accelerating scientific discovery with AI
 
@@ -42,11 +40,11 @@ Claude supports LLNL teams working on:
 - **Computational Biology:** Processing vast simulation datasets to advance biosecurity research and accelerate biological threat detection capabilities
 - **High-Performance Computing:** Optimizing code development and scientific computing workflows to maximize the impact of LLNL's world-class supercomputing resources
 
-This expansion follows a successful pilot program, the first-ever [AI Jam](https://www.anthropic.com/news/anthropic-partners-with-u-s-national-labs-for-first-1-000-scientist-ai-jam) with U.S. National Labs, and the [aiEDGE for Innovation Day](https://www.llnl.gov/article/52701/llnl-employees-dive-ais-transformative-potential-aiedge-innovation-day) in March, where approximately 3,200 LLNL scientists and operational staff experienced firsthand how Claude can accelerate and enhance scientific national security research.
+This expansion follows a successful pilot program, the first-ever [AI Jam](https://www.anthropic.com/news/AI Jam) with U.S. National Labs, and the [aiEDGE for Innovation Day](https://www.anthropic.com/news/aiEDGE for Innovation Day) in March, where approximately 3,200 LLNL scientists and operational staff experienced firsthand how Claude can accelerate and enhance scientific national security research.
 
 ## Getting started
 
-Organizations interested in transforming their operations with Claude for Enterprise can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+Organizations interested in transforming their operations with Claude for Enterprise can [contact our public sector team](https://www.anthropic.com/news/contact our public sector team) to learn more and get started.
 
 *This blog was updated on July 11, 2025 with additional information from LLNL.*
 
@@ -54,12 +52,12 @@ Organizations interested in transforming their operations with Claude for Enterp
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

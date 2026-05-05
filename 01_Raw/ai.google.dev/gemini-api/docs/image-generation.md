@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:23:52.582875+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/Deep Research do Gemini) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Página inicial](https://ai.google.dev/gemini-api/docs/Página inicial)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documentos](https://ai.google.dev/gemini-api/docs/Documentos)
 
 Envie comentários
 
@@ -18,7 +18,7 @@ Use comandos para criar protótipos de apps totalmente funcionais e com interfac
 completa. Veja o Nano Banana 2 integrado a ferramentas e dados do mundo real e ao ecossistema
 do Gemini. Tudo isso antes de escrever uma única linha de código.
 
-- [Teste um app do Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=pt-br)
+- [Teste um app do Nano Banana 2](https://ai.google.dev/gemini-api/docs/Teste um app do Nano Banana 2)
 - Ou crie o seu com comandos:
 
 - ![revista](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
@@ -32,56 +32,56 @@ do Gemini. Tudo isso antes de escrever uma única linha de código.
     
   Coloque o número de referência e a data "Fev 2026" no canto junto com um código de barras. A revista está em uma prateleira contra uma parede laranja rebocada, dentro de uma loja de design.
 
-  Criar [fotos profissionais de produtos](#4_product_mockups_commercial_photography) no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=pt-br)
+  Criar [fotos profissionais de produtos](https://ai.google.dev/gemini-api/docs/fotos profissionais de produtos) no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
   Gerado pelo Nano Banana Pro
 
   **Comando**: "Apresente uma cena de desenho animado 3D em miniatura isométrica clara, vista de cima para baixo com 45° de inclinação, de Londres, com os marcos e elementos arquitetônicos mais icônicos. Use texturas suaves e refinadas com materiais PBR realistas e iluminação e sombras suaves e realistas. Integre as condições climáticas atuais diretamente ao ambiente da cidade para criar uma atmosfera imersiva. Use uma composição limpa e minimalista com um fundo macio e de cor sólida. Na parte superior central, coloque o título "Londres" em texto grande e em negrito, um ícone de clima em destaque abaixo dele e, em seguida, a data (texto pequeno) e a temperatura (texto médio). Todo o texto precisa estar centralizado com espaçamento consistente e pode se sobrepor sutilmente aos topos dos edifícios".
 
-  Saiba mais sobre o [embasamento de pesquisa](#use-with-grounding) e teste no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=pt-br)
+  Saiba mais sobre o [embasamento de pesquisa](https://ai.google.dev/gemini-api/docs/embasamento de pesquisa) e teste no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
   Gerado pelo Nano Banana 2
 
   **Comando**: "Use a Pesquisa por imagens para encontrar imagens precisas de um pássaro quetzal resplandecente. Crie um plano de fundo 3:2 lindo dessa ave, com um gradiente natural de cima para baixo e composição minimalista."
 
-  Use o [embasamento](#image-search) da Pesquisa de imagens do Google com o Nano Banana 2. Teste no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=pt-br)
+  Use o [embasamento](https://ai.google.dev/gemini-api/docs/embasamento) da Pesquisa de imagens do Google com o Nano Banana 2. Teste no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
   Gerado pelo Nano Banana Pro
 
   **Comando**: "Coloque este logotipo em um anúncio sofisticado de um perfume com aroma de banana. O logotipo está perfeitamente integrado à garrafa".
 
-  Teste a [preservação de detalhes de alta fidelidade](#5_high-fidelity_detail_preservation) do Nano Banana no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=pt-br)
+  Teste a [preservação de detalhes de alta fidelidade](https://ai.google.dev/gemini-api/docs/preservação de detalhes de alta fidelidade) do Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
   Gerado pelo Nano Banana Pro
 
   **Comando**: "Uma foto de uma cena cotidiana em um café movimentado que serve café da manhã. Em primeiro plano, um homem de anime com cabelo azul, uma das pessoas é um esboço a lápis, outra é uma pessoa de animação com massa de modelar"
 
-  Teste diferentes [estilos artísticos](#3_style_transfer) com o Nano Banana no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=pt-br)
+  Teste diferentes [estilos artísticos](https://ai.google.dev/gemini-api/docs/estilos artísticos) com o Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![artigo](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
   Gerado pelo Nano Banana Pro
 
   **Comando**: "Use a pesquisa para saber como foi recebido o lançamento do Gemini 3 Flash. Use essas informações para escrever um pequeno artigo sobre o assunto (com títulos). Retorne uma foto do artigo como ele apareceu em uma revista brilhante focada em design. É uma foto de uma única página dobrada, mostrando o artigo sobre o Gemini 3 Flash. Uma foto principal. Título em serifada."
 
-  Gerar [texto preciso](#3_accurate_text_in_images) com base na [pesquisa](#use-with-grounding). Teste o Nano Banana no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=pt-br)
+  Gerar [texto preciso](https://ai.google.dev/gemini-api/docs/texto preciso) com base na [pesquisa](https://ai.google.dev/gemini-api/docs/pesquisa). Teste o Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![cachorro](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
   Gerado pelo Nano Banana Pro
 
   **Comando**: "Um ícone representando um cachorro fofo. O plano de fundo é branco. Faça os ícones em um estilo 3D colorido e tátil. Sem texto."
 
-  Crie [ícones, adesivos e recursos](#2_stylized_illustrations_stickers) com o Nano Banana no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=pt-br)
+  Crie [ícones, adesivos e recursos](https://ai.google.dev/gemini-api/docs/ícones, adesivos e recursos) com o Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 - ![isométrico](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
   Gerado pelo Nano Banana 2
 
   **Comando**: "Crie uma foto perfeitamente isométrica. Não é uma miniatura, é uma foto capturada que acabou sendo perfeitamente isométrica. É uma foto de um lindo jardim moderno. Há uma piscina grande em forma de 2 e as palavras: Nano Banana 2."
 
-  Teste a [geração de imagens fotorrealistas](#1_photorealistic_scenes) no [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=pt-br)
+  Teste a [geração de imagens fotorrealistas](https://ai.google.dev/gemini-api/docs/geração de imagens fotorrealistas) no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
 
 **Nano Banana** é o nome dos recursos nativos de geração de imagens do Gemini.
 O Gemini pode gerar e processar imagens de forma conversacional
@@ -90,14 +90,14 @@ fazer iterações em recursos visuais com controle incomparável.
 
 Nano Banana se refere a três modelos distintos disponíveis na API Gemini:
 
-- **Nano Banana 2**: o modelo [pré-lançamento do Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=pt-br) (`gemini-3.1-flash-image-preview`). Esse modelo serve como a contraparte de alta eficiência do Gemini 3 Pro Image, otimizado para velocidade e casos de uso de desenvolvedores de alto volume.
-- **Nano Banana Pro**: o modelo [Prévia de imagens no Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=pt-br)
+- **Nano Banana 2**: o modelo [pré-lançamento do Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/pré-lançamento do Gemini 3.1 Flash Image) (`gemini-3.1-flash-image-preview`). Esse modelo serve como a contraparte de alta eficiência do Gemini 3 Pro Image, otimizado para velocidade e casos de uso de desenvolvedores de alto volume.
+- **Nano Banana Pro**: o modelo [Prévia de imagens no Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/Prévia de imagens no Gemini 3 Pro)
   (`gemini-3-pro-image-preview`). Ele foi projetado para produção de recursos
   profissionais, usando raciocínio avançado ("Pensamento") para seguir instruções
   complexas e renderizar texto de alta fidelidade.
-- **Nano Banana**: o modelo [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pt-br) (`gemini-2.5-flash-image`). Ele foi projetado para velocidade e eficiência, otimizado para tarefas de alto volume e baixa latência.
+- **Nano Banana**: o modelo [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash Image) (`gemini-2.5-flash-image`). Ele foi projetado para velocidade e eficiência, otimizado para tarefas de alto volume e baixa latência.
 
-Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=pt-br).
+Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/gemini-api/docs/marca-d'água do SynthID).
 
 ## Geração de imagens (conversão de texto em imagem)
 
@@ -255,13 +255,13 @@ curl -s -X POST \
 ## Edição de imagens (texto e imagem para imagem)
 
 **Lembrete**: confira se você tem os direitos necessários sobre as imagens que enviar.
-Não gere conteúdo que viole os direitos de terceiros, incluindo vídeos ou imagens que enganem, assediem ou prejudiquem pessoas. O uso deste serviço de IA generativa está sujeito à nossa [Política de uso proibido](https://policies.google.com/terms/generative-ai/use-policy?hl=pt-br).
+Não gere conteúdo que viole os direitos de terceiros, incluindo vídeos ou imagens que enganem, assediem ou prejudiquem pessoas. O uso deste serviço de IA generativa está sujeito à nossa [Política de uso proibido](https://ai.google.dev/gemini-api/docs/Política de uso proibido).
 
 Forneça uma imagem e use comandos de texto para adicionar, remover ou modificar elementos,
 mudar o estilo ou ajustar a gradação de cores.
 
 O exemplo a seguir demonstra o upload de imagens codificadas em `base64`.
-Para várias imagens, payloads maiores e tipos MIME compatíveis, consulte a página [Entendimento de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br).
+Para várias imagens, payloads maiores e tipos MIME compatíveis, consulte a página [Entendimento de imagens](https://ai.google.dev/gemini-api/docs/Entendimento de imagens).
 
 ### Python
 
@@ -825,7 +825,7 @@ Projetados para lidar com os fluxos de trabalho mais desafiadores usando racioc�
   - O **Gemini 3.1 Flash Image** adiciona a integração do embasamento com a Pesquisa Google para imagens e na Web.
 - **Modo de raciocínio**: o modelo usa um processo de "raciocínio" para analisar comandos complexos. Ele gera "imagens de pensamento" provisórias (visíveis no back-end, mas sem cobrança) para refinar a composição antes de produzir a saída final de alta qualidade.
 - **Até 14 imagens de referência**: agora você pode misturar até 14 imagens de referência para produzir a imagem final.
-- [**Novas proporções**: o pré-lançamento do Gemini 3.1 Flash Image adiciona proporções 1:4, 4:1, 1:8 e 8:1.](#aspect_ratios_and_image_size)
+- [**Novas proporções**: o pré-lançamento do Gemini 3.1 Flash Image adiciona proporções 1:4, 4:1, 1:8 e 8:1.](https://ai.google.dev/gemini-api/docs/**Novas proporções**: o pré-lançamento do Gemini 3.1 Flash Image adiciona proporções 1:4, 4:1, 1:8 e 8:1.)
 
 ### Usar até 14 imagens de referência
 
@@ -1108,9 +1108,9 @@ Foto de grupo do escritório gerada com IA
 
 ### Embasamento com a Pesquisa Google
 
-Use a [ferramenta Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) para gerar imagens com base em informações em tempo real, como previsões do tempo, gráficos de ações ou eventos recentes.
+Use a [ferramenta Pesquisa Google](https://ai.google.dev/gemini-api/docs/ferramenta Pesquisa Google) para gerar imagens com base em informações em tempo real, como previsões do tempo, gráficos de ações ou eventos recentes.
 
-Ao usar o embasamento com a Pesquisa Google para geração de imagens, os resultados da pesquisa baseados em imagens não são transmitidos ao modelo de geração e são excluídos da resposta. Consulte [Embasamento com a Pesquisa Google para imagens](#image-search).
+Ao usar o embasamento com a Pesquisa Google para geração de imagens, os resultados da pesquisa baseados em imagens não são transmitidos ao modelo de geração e são excluídos da resposta. Consulte [Embasamento com a Pesquisa Google para imagens](https://ai.google.dev/gemini-api/docs/Embasamento com a Pesquisa Google para imagens).
 
 ### Python
 
@@ -1264,7 +1264,7 @@ A resposta inclui `groundingMetadata`, que contém os seguintes campos obrigató
 
 ### Embasamento com a Pesquisa Google Imagens (3.1 Flash)
 
-O embasamento com a Pesquisa Google para imagens permite que os modelos usem imagens da Web recuperadas pela Pesquisa Google como contexto visual para geração de imagens. A Pesquisa por imagens é um novo tipo de pesquisa na ferramenta Embasamento com a Pesquisa Google, que funciona junto com a [Pesquisa Google na Web](#use-with-grounding) padrão.
+O embasamento com a Pesquisa Google para imagens permite que os modelos usem imagens da Web recuperadas pela Pesquisa Google como contexto visual para geração de imagens. A Pesquisa por imagens é um novo tipo de pesquisa na ferramenta Embasamento com a Pesquisa Google, que funciona junto com a [Pesquisa Google na Web](https://ai.google.dev/gemini-api/docs/Pesquisa Google na Web) padrão.
 
 Para ativar a Pesquisa de imagens, configure a ferramenta `googleSearch` na solicitação de API
 e especifique `imageSearch` no objeto `searchTypes`. A Pesquisa de imagens pode ser usada de forma independente ou com a Pesquisa na Web.
@@ -1634,7 +1634,7 @@ Esboço anatômico de uma borboleta monarca dissecada no estilo de Da Vinci, ger
 ### Processo de raciocínio
 
 Os modelos de imagem do Gemini 3 são modelos de raciocínio que usam um processo de inferência ("Raciocínio") para comandos complexos. Esse recurso é ativado por padrão e
-não pode ser desativado na API. Para saber mais sobre o processo de raciocínio, consulte o guia [Raciocínio do Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br).
+não pode ser desativado na API. Para saber mais sobre o processo de raciocínio, consulte o guia [Raciocínio do Gemini](https://ai.google.dev/gemini-api/docs/Raciocínio do Gemini).
 
 O modelo gera até duas imagens provisórias para testar a composição e a lógica. A última imagem em "Raciocínio" também é a imagem renderizada final.
 
@@ -1812,11 +1812,11 @@ curl -s -X POST \
   }'
 ```
 
-Os tokens de pensamento são faturados, independente de `includeThoughts` estar definido como `true` ou `false`, já que o [processo de pensamento](#thinking-process) sempre acontece por padrão, mesmo que você não o veja.
+Os tokens de pensamento são faturados, independente de `includeThoughts` estar definido como `true` ou `false`, já que o [processo de pensamento](https://ai.google.dev/gemini-api/docs/processo de pensamento) sempre acontece por padrão, mesmo que você não o veja.
 
 #### Assinaturas de pensamento
 
-As assinaturas de pensamento são representações criptografadas do processo de raciocínio interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias rodadas. Todas as respostas incluem um campo `thought_signature`. Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como foi recebida ao enviar o histórico da conversa na próxima vez. Se não fizer isso, a resposta poderá falhar. Consulte a documentação sobre [assinatura de pensamento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pt-br) para mais explicações sobre assinaturas em geral.
+As assinaturas de pensamento são representações criptografadas do processo de raciocínio interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias rodadas. Todas as respostas incluem um campo `thought_signature`. Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como foi recebida ao enviar o histórico da conversa na próxima vez. Se não fizer isso, a resposta poderá falhar. Consulte a documentação sobre [assinatura de pensamento](https://ai.google.dev/gemini-api/docs/assinatura de pensamento) para mais explicações sobre assinaturas em geral.
 
 Confira como elas funcionam:
 
@@ -1897,9 +1897,9 @@ O Gemini oferece suporte a outros modos de interação com imagens com base na e
 ## Gerar imagens em lote
 
 Se você precisar gerar muitas imagens, use a
-[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br). Você recebe [limites de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br) mais altos em troca de um tempo de resposta de até 24 horas.
+[API em lote](https://ai.google.dev/gemini-api/docs/API em lote). Você recebe [limites de taxa](https://ai.google.dev/gemini-api/docs/limites de taxa) mais altos em troca de um tempo de resposta de até 24 horas.
 
-Confira a [documentação da API Batch para geração de imagens](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br#image-generation) e o [cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=pt-br)
+Confira a [documentação da API Batch para geração de imagens](https://ai.google.dev/gemini-api/docs/documentação da API Batch para geração de imagens) e o [cookbook](https://ai.google.dev/gemini-api/docs/cookbook)
 para exemplos e código de imagens da API Batch.
 
 ## Guia e estratégias para a criação de comandos
@@ -2052,7 +2052,7 @@ Para melhorar ainda mais seus resultados, incorpore estas estratégias profissio
 - O `gemini-2.5-flash-image` funciona melhor com até três imagens como entrada, enquanto o `gemini-3-pro-image-preview` aceita cinco imagens com alta fidelidade e até 14 imagens no total. O `gemini-3.1-flash-image-preview` oferece suporte à semelhança de até quatro caracteres e à fidelidade de até 10 objetos em um único fluxo de trabalho.
 - Ao gerar texto para uma imagem, o Gemini funciona melhor se você primeiro gerar o texto e depois pedir uma imagem com ele.
 - `gemini-3.1-flash-image-preview` No momento, o embasamento com a Pesquisa Google não é compatível com o uso de imagens de pessoas do mundo real na pesquisa na Web.
-- Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=pt-br).
+- Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/gemini-api/docs/marca-d'água do SynthID).
 
 ## Configurações opcionais
 
@@ -2342,29 +2342,27 @@ As diferentes proporções disponíveis e o tamanho da imagem gerada estão list
 
 Escolha o modelo mais adequado ao seu caso de uso específico.
 
-- O **pré-lançamento do Gemini 3.1 Flash Image (pré-lançamento do Nano Banana 2)** é o modelo de geração de imagens ideal, já que oferece o melhor desempenho geral e equilíbrio entre inteligência, custo e latência. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-3.1-flash-image-preview) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=pt-br) do modelo.
+- O **pré-lançamento do Gemini 3.1 Flash Image (pré-lançamento do Nano Banana 2)** é o modelo de geração de imagens ideal, já que oferece o melhor desempenho geral e equilíbrio entre inteligência, custo e latência. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/preços) e [recursos](https://ai.google.dev/gemini-api/docs/recursos) do modelo.
 - O **pré-lançamento do Gemini 3 Pro Image (pré-lançamento do Nano Banana Pro)** foi criado para
-  produção de recursos profissionais e instruções complexas. Esse modelo tem embasamento no mundo real usando a Pesquisa Google, um processo padrão de "Raciocínio" que aprimora a composição antes da geração e pode gerar imagens com resoluções de até 4K. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-3-pro-image-preview) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=pt-br) do modelo.
-- O **Gemini 2.5 Flash Image (Nano Banana)** foi projetado para ser rápido e eficiente. Ele é otimizado para tarefas de alto volume e baixa latência e gera imagens com resolução de 1024 px. Confira a página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-2.5-flash-image) e [recursos](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pt-br) do modelo para mais detalhes.
+  produção de recursos profissionais e instruções complexas. Esse modelo tem embasamento no mundo real usando a Pesquisa Google, um processo padrão de "Raciocínio" que aprimora a composição antes da geração e pode gerar imagens com resoluções de até 4K. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/preços) e [recursos](https://ai.google.dev/gemini-api/docs/recursos) do modelo.
+- O **Gemini 2.5 Flash Image (Nano Banana)** foi projetado para ser rápido e eficiente. Ele é otimizado para tarefas de alto volume e baixa latência e gera imagens com resolução de 1024 px. Confira a página de [preços](https://ai.google.dev/gemini-api/docs/preços) e [recursos](https://ai.google.dev/gemini-api/docs/recursos) do modelo para mais detalhes.
 
 ### Quando usar o Imagen
 
-Além de usar os recursos integrados de geração de imagens do Gemini, você também pode acessar o [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pt-br), nosso modelo especializado de geração de imagens, pela API Gemini.
+Além de usar os recursos integrados de geração de imagens do Gemini, você também pode acessar o [Imagen](https://ai.google.dev/gemini-api/docs/Imagen), nosso modelo especializado de geração de imagens, pela API Gemini.
 
 O Imagen 4 é o modelo ideal para começar a gerar imagens com o Imagen. Escolha o Imagen 4 Ultra para casos de uso avançados ou quando você precisar da melhor qualidade de imagem (observe que só é possível gerar uma imagem por vez).
 
 ## A seguir
 
-- Encontre mais exemplos e amostras de código no [guia de receitas](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=pt-br).
-- Confira o [guia do Veo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br) para saber como gerar vídeos com a API Gemini.
-- Para saber mais sobre os modelos do Gemini, consulte [Modelos do Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br).
+- Encontre mais exemplos e amostras de código no [guia de receitas](https://ai.google.dev/gemini-api/docs/guia de receitas).
+- Confira o [guia do Veo](https://ai.google.dev/gemini-api/docs/guia do Veo) para saber como gerar vídeos com a API Gemini.
+- Para saber mais sobre os modelos do Gemini, consulte [Modelos do Gemini](https://ai.google.dev/gemini-api/docs/Modelos do Gemini).
 
 Envie comentários
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://ai.google.dev/gemini-api/docs/Licença de atribuição 4.0 do Creative Commons), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://ai.google.dev/gemini-api/docs/Licença Apache 2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://ai.google.dev/gemini-api/docs/políticas do site do Google Developers). Java é uma marca registrada da Oracle e/ou afiliadas.
 
 Última atualização 2026-04-29 UTC.
 
 Quer enviar seu feedback?
-
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

@@ -10,7 +10,7 @@ AnnouncementsPolicy
 
 Feb 27, 2026
 
-Earlier today, Secretary of War Pete Hegseth [shared on X](https://x.com/SecWar/status/2027507717469049070?s=20) that he is directing the Department of War to designate Anthropic a supply chain risk. This action follows months of negotiations that reached an impasse over [two exceptions](https://www.anthropic.com/news/statement-department-of-war) we requested to the lawful use of our AI model, Claude: the mass domestic surveillance of Americans and fully autonomous weapons.
+Earlier today, Secretary of War Pete Hegseth [shared on X](https://www.anthropic.com/news/shared on X) that he is directing the Department of War to designate Anthropic a supply chain risk. This action follows months of negotiations that reached an impasse over [two exceptions](https://www.anthropic.com/news/two exceptions) we requested to the lawful use of our AI model, Claude: the mass domestic surveillance of Americans and fully autonomous weapons.
 
 We have not yet received direct communication from the Department of War or the White House on the status of our negotiations.
 
@@ -26,14 +26,14 @@ No amount of intimidation or punishment from the Department of War will change o
 
 **What this means for our customers**
 
-Secretary Hegseth has implied this designation would restrict anyone who does business with the military from doing business with Anthropic. The Secretary does not have the statutory authority to back up this statement. Legally, a supply chain risk designation under [10 USC 3252](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title10-section3252&num=0&edition=prelim) can only extend to the use of Claude as part of Department of War contracts—it cannot affect how contractors use Claude to serve other customers.
+Secretary Hegseth has implied this designation would restrict anyone who does business with the military from doing business with Anthropic. The Secretary does not have the statutory authority to back up this statement. Legally, a supply chain risk designation under [10 USC 3252](https://www.anthropic.com/news/10 USC 3252) can only extend to the use of Claude as part of Department of War contracts—it cannot affect how contractors use Claude to serve other customers.
 
 In practice, this means:
 
 - **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
 - **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
 
-Our sales and [support](https://support.claude.com/en/) teams are standing by to answer any questions you may have.
+Our sales and [support](https://www.anthropic.com/news/support) teams are standing by to answer any questions you may have.
 
 We are deeply grateful to our users, and to the industry peers, policymakers, veterans, and members of the public who have voiced their support in recent days. Thank you. Above all else, our priorities are to protect our customers from any disruption caused by these extraordinary events and to work with the Department of War to ensure a smooth transition—for them, for our troops, and for American military operations.
 
@@ -41,12 +41,12 @@ We are deeply grateful to our users, and to the industry peers, policymakers, ve
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

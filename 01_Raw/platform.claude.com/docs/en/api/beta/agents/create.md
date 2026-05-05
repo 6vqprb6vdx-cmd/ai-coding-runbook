@@ -70,19 +70,19 @@ Create Agent
 
 - `model: BetaManagedAgentsModel or BetaManagedAgentsModelConfigParams`
 
-  Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
+  Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/api/beta/agents/model string), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
 
   - `BetaManagedAgentsModel = "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more or string`
 
     The model that will power your agent.
 
-    See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    See [models](https://platform.claude.com/docs/en/api/beta/agents/models) for additional details and options.
 
     - `UnionMember0 = "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more`
 
       The model that will power your agent.
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      See [models](https://platform.claude.com/docs/en/api/beta/agents/models) for additional details and options.
 
       - `"claude-opus-4-7"`
 
@@ -130,13 +130,13 @@ Create Agent
 
       The model that will power your agent.
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      See [models](https://platform.claude.com/docs/en/api/beta/agents/models) for additional details and options.
 
       - `UnionMember0 = "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more`
 
         The model that will power your agent.
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        See [models](https://platform.claude.com/docs/en/api/beta/agents/models) for additional details and options.
 
         - `"claude-opus-4-7"`
 
@@ -484,13 +484,13 @@ Create Agent
 
       The model that will power your agent.
 
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      See [models](https://platform.claude.com/docs/en/api/beta/agents/models) for additional details and options.
 
       - `UnionMember0 = "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more`
 
         The model that will power your agent.
 
-        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        See [models](https://platform.claude.com/docs/en/api/beta/agents/models) for additional details and options.
 
         - `"claude-opus-4-7"`
 

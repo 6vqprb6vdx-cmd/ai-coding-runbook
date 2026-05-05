@@ -162,10 +162,7 @@ def main() -> int:
         report_lines.append("")
         total_issues += len(issues)
 
-    report_path = WIKI / f"_audit_report--{today}.md"
-    report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text("\n".join(report_lines), encoding="utf-8")
-    print(f"Audit report → {report_path.relative_to(ROOT)}")
+    print("\n".join(report_lines))
     print(f"Total issues: {total_issues}")
     return 0 if total_issues == 0 else 1
 

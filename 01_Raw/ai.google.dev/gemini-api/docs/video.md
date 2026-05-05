@@ -4,20 +4,20 @@ fetched_at: 2026-05-05T13:12:49.960024+00:00
 title: "Membuat video dengan Veo 3.1 di Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Beranda](https://ai.google.dev/gemini-api/docs/Beranda)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/Dokumen)
 
 Kirim masukan
 
 # Membuat video dengan Veo 3.1 di Gemini API
 
-> Untuk mempelajari pemahaman video, lihat panduan [Pemahaman video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id).
+> Untuk mempelajari pemahaman video, lihat panduan [Pemahaman video](https://ai.google.dev/gemini-api/docs/Pemahaman video).
 
-[Veo 3.1](https://deepmind.google/models/veo/?hl=id) adalah model tercanggih Google untuk membuat video 8 detik beresolusi 720p, 1080p, atau 4k dengan fidelitas tinggi yang menampilkan realisme memukau dan audio yang dibuat secara native. Anda dapat mengakses
-model ini secara terprogram menggunakan Gemini API. Untuk mempelajari lebih lanjut varian model Veo yang tersedia, lihat bagian [Versi Model](#model-versions).
+[Veo 3.1](https://ai.google.dev/gemini-api/docs/Veo 3.1) adalah model tercanggih Google untuk membuat video 8 detik beresolusi 720p, 1080p, atau 4k dengan fidelitas tinggi yang menampilkan realisme memukau dan audio yang dibuat secara native. Anda dapat mengakses
+model ini secara terprogram menggunakan Gemini API. Untuk mempelajari lebih lanjut varian model Veo yang tersedia, lihat bagian [Versi Model](https://ai.google.dev/gemini-api/docs/Versi Model).
 
 Veo 3.1 unggul dalam berbagai gaya visual dan sinematik serta memperkenalkan beberapa kemampuan baru:
 
@@ -26,7 +26,7 @@ Veo 3.1 unggul dalam berbagai gaya visual dan sinematik serta memperkenalkan beb
 - **Pembuatan spesifik per frame**: Buat video dengan menentukan frame pertama dan terakhir.
 - **Arahan berbasis gambar**: Gunakan hingga tiga gambar referensi untuk memandu konten video yang dibuat.
 
-Untuk mengetahui informasi selengkapnya tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](#prompt-guide).
+Untuk mengetahui informasi selengkapnya tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](https://ai.google.dev/gemini-api/docs/panduan perintah Veo).
 
 ## Pembuatan video dari teks
 
@@ -398,9 +398,9 @@ done
 Veo 3.1 juga dapat langsung membuat video 720p, 1080p, atau 4k (4k tidak tersedia untuk Veo 3.1 Lite).
 
 Perhatikan bahwa makin tinggi resolusinya, makin tinggi latensinya. Video 4K
-juga lebih mahal (lihat [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#veo-3.1)).
+juga lebih mahal (lihat [harga](https://ai.google.dev/gemini-api/docs/harga)).
 
-[Ekstensi video](#extending_veo_videos) juga terbatas pada video 720p.
+[Ekstensi video](https://ai.google.dev/gemini-api/docs/Ekstensi video) juga terbatas pada video 720p.
 
 ### Python
 
@@ -566,7 +566,7 @@ done
 ## Pembuatan video dari gambar
 
 Kode berikut menunjukkan cara membuat gambar menggunakan
-[Gemini 3.1 Flash Image alias Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=id),
+[Gemini 3.1 Flash Image alias Nano Banana 2](https://ai.google.dev/gemini-api/docs/Gemini 3.1 Flash Image alias Nano Banana 2),
 lalu menggunakan gambar tersebut sebagai
 frame awal untuk membuat video dengan Veo 3.1.
 
@@ -761,8 +761,8 @@ class GenerateVideoFromImage {
 Veo 3.1 kini menerima hingga 3 gambar referensi untuk memandu konten video yang dihasilkan. Berikan gambar orang, karakter, atau produk untuk mempertahankan penampilan subjek dalam video output.
 
 Misalnya, menggunakan tiga gambar yang dibuat dengan
-[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=id) sebagai referensi dengan
-[perintah yang ditulis dengan baik](#use-reference-images) akan membuat video berikut:
+[Nano Banana](https://ai.google.dev/gemini-api/docs/Nano Banana) sebagai referensi dengan
+[perintah yang ditulis dengan baik](https://ai.google.dev/gemini-api/docs/perintah yang ditulis dengan baik) akan membuat video berikut:
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
@@ -997,7 +997,7 @@ done
 ### Menggunakan frame pertama dan terakhir
 
 Veo 3.1 memungkinkan Anda membuat video menggunakan interpolasi, atau menentukan frame pertama dan
-terakhir video. Untuk mengetahui informasi tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](#use-reference-images).
+terakhir video. Untuk mengetahui informasi tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](https://ai.google.dev/gemini-api/docs/panduan perintah Veo).
 
 ### Python
 
@@ -1373,7 +1373,7 @@ while true; do
 done
 ```
 
-Untuk mengetahui informasi tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](#extend-prompt).
+Untuk mengetahui informasi tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](https://ai.google.dev/gemini-api/docs/panduan perintah Veo).
 
 ## Menangani operasi asinkron
 
@@ -1576,7 +1576,7 @@ Berikut adalah parameter yang dapat Anda tetapkan dalam permintaan API untuk men
 | Parameter | | | | |
 | `aspectRatio`: Rasio aspek video. | `"16:9"` (default), `"9:16"` | `"16:9"` (default), `"9:16"` | `"16:9"` (default), `"9:16"` | `"16:9"` (default), `"9:16"` |
 | `durationSeconds`: Durasi video yang dihasilkan. | `"4"`, `"6"`, `"8"`.   *Harus "8" saat menggunakan ekstensi, gambar referensi, atau dengan resolusi 1080p dan 4k* | `"4"`, `"6"`, `"8"`.   *Harus "8" saat menggunakan gambar referensi atau dengan 1080p* | `"4"`, `"6"`, `"8"`.   *Harus "8" saat menggunakan ekstensi, gambar referensi, atau dengan resolusi 1080p dan 4k* | `"5"`, `"6"`, `"8"` |
-| `personGeneration`: Mengontrol pembuatan orang. (Lihat [Batasan](#limitations) untuk mengetahui batasan wilayah) | Teks ke video & Ekstensi: `"allow_all"` saja   Gambar ke video, Interpolasi, & Gambar referensi: `"allow_adult"` saja | Teks ke video: `"allow_all"` saja   Gambar ke video, Interpolasi, & Gambar referensi: `"allow_adult"` saja | Teks ke video: `"allow_all"` saja   Gambar ke video: `"allow_adult"` saja | Teks ke video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Gambar ke video:  `"allow_adult"`, dan `"dont_allow"` |
+| `personGeneration`: Mengontrol pembuatan orang. (Lihat [Batasan](https://ai.google.dev/gemini-api/docs/Batasan) untuk mengetahui batasan wilayah) | Teks ke video & Ekstensi: `"allow_all"` saja   Gambar ke video, Interpolasi, & Gambar referensi: `"allow_adult"` saja | Teks ke video: `"allow_all"` saja   Gambar ke video, Interpolasi, & Gambar referensi: `"allow_adult"` saja | Teks ke video: `"allow_all"` saja   Gambar ke video: `"allow_adult"` saja | Teks ke video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Gambar ke video:  `"allow_adult"`, dan `"dont_allow"` |
 | `resolution`: Resolusi video. | `"720p"` (default),  `"1080p"` (hanya mendukung durasi 8 detik), `"4k"` (hanya mendukung durasi 8 detik)   *`"720p"` hanya untuk ekstensi* | `"720p"` (default),  `"1080p"` (hanya mendukung durasi 8 detik) | `"720p"` (default),  `"1080p"` (hanya mendukung durasi 8 detik), `"4k"` (hanya mendukung durasi 8 detik)   *`"720p"` hanya untuk ekstensi* | Tidak didukung |
 
 Perhatikan bahwa parameter `seed` juga tersedia untuk model Veo 3.
@@ -1592,7 +1592,7 @@ Hal ini tidak menjamin determinisme, tetapi sedikit meningkatkannya.
 | **Kecepatan frame:** Kecepatan frame output video. | 24 fps | 24 fps | 24 fps | 24 fps |
 | **Durasi video:** Durasi video yang dihasilkan. | 8 detik, 6 detik, 4 detik  *8 detik hanya jika 1080p atau 4k atau menggunakan gambar referensi* | 8 detik, 6 detik, 4 detik  *8 detik hanya jika 1080p atau menggunakan gambar referensi* | 8 detik | 5-8 detik |
 | **Video per permintaan:** Jumlah video yang dibuat per permintaan. | 1 | 1 | 1 | 1 atau 2 |
-| **Status:** Ketersediaan model | [Pratinjau](https://ai.google.dev/gemini-api/docs/models?hl=id#preview) | [Pratinjau](https://ai.google.dev/gemini-api/docs/models?hl=id#preview) | [Stabil](https://ai.google.dev/gemini-api/docs/models?hl=id#stable) | [Stabil](https://ai.google.dev/gemini-api/docs/models?hl=id#latest-stable) |
+| **Status:** Ketersediaan model | [Pratinjau](https://ai.google.dev/gemini-api/docs/Pratinjau) | [Pratinjau](https://ai.google.dev/gemini-api/docs/Pratinjau) | [Stabil](https://ai.google.dev/gemini-api/docs/Stabil) | [Stabil](https://ai.google.dev/gemini-api/docs/Stabil) |
 
 ## Batasan
 
@@ -1603,7 +1603,7 @@ Hal ini tidak menjamin determinisme, tetapi sedikit meningkatkannya.
   - Veo 2: `dont_allow` dan `allow_adult`. Jumlah defaultnya adalah `dont_allow`
 - **Retensi video:** Video yang dibuat disimpan di server selama 2 hari,
   setelah itu video akan dihapus. Untuk menyimpan salinan lokal, Anda harus mendownload video dalam waktu 2 hari setelah dibuat. Video panjang diperlakukan sebagai video yang baru dibuat.
-- **Pemberian watermark:** Video yang dibuat oleh Veo diberi watermark menggunakan [SynthID](https://deepmind.google/technologies/synthid/?hl=id), alat kami untuk memberi watermark dan mengidentifikasi konten buatan AI. Video dapat diverifikasi menggunakan platform verifikasi [SynthID](https://deepmind.google/science/synthid/?hl=id).
+- **Pemberian watermark:** Video yang dibuat oleh Veo diberi watermark menggunakan [SynthID](https://ai.google.dev/gemini-api/docs/SynthID), alat kami untuk memberi watermark dan mengidentifikasi konten buatan AI. Video dapat diverifikasi menggunakan platform verifikasi [SynthID](https://ai.google.dev/gemini-api/docs/SynthID).
 - **Keamanan:** Video yang dihasilkan akan melewati filter keamanan dan proses pemeriksaan memori yang membantu mengurangi risiko privasi, hak cipta, dan bias.
 - **Error audio:** Terkadang Veo 3.1 akan memblokir pembuatan video karena filter keamanan atau masalah pemrosesan lainnya pada audio. Anda tidak akan dikenai biaya jika video Anda diblokir agar tidak dibuat.
 
@@ -1615,7 +1615,7 @@ cara mengubah perintah untuk menghasilkan hasil yang berbeda.
 ### Filter keamanan
 
 Veo menerapkan filter keamanan di Gemini untuk membantu memastikan bahwa video yang dibuat dan foto yang diupload tidak berisi konten yang menyinggung.
-Perintah yang melanggar [persyaratan dan pedoman](https://ai.google.dev/gemini-api/docs/usage-policies?hl=id#abuse-monitoring) kami akan diblokir.
+Perintah yang melanggar [persyaratan dan pedoman](https://ai.google.dev/gemini-api/docs/persyaratan dan pedoman) kami akan diblokir.
 
 ### Dasar-dasar penulisan perintah
 
@@ -1641,7 +1641,7 @@ Elemen berikut harus disertakan dalam perintah Anda:
 - **Gunakan bahasa deskriptif**: Gunakan kata sifat dan kata keterangan untuk memberikan gambaran yang jelas kepada Veo.
 - **Sempurnakan detail wajah**: Tentukan detail wajah sebagai fokus foto, seperti menggunakan kata *potret* dalam perintah.
 
-*Untuk strategi penulisan perintah yang lebih komprehensif, buka [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=id).*
+*Untuk strategi penulisan perintah yang lebih komprehensif, buka [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/Pengantar desain perintah).*
 
 ### Meminta audio
 
@@ -1661,18 +1661,18 @@ Video ini menunjukkan cara memberikan perintah pada pembuatan audio Veo 3 dengan
 | **Lebih sedikit detail (Dialog)** Animasi Potongan Kertas. Pustakawan Baru: "Di mana Anda menyimpan buku-buku terlarang?" Kurator Lama: "Tidak. Mereka menjaga kita." | Pustakawan animasi sedang mendiskusikan buku-buku terlarang |
 
 Coba sendiri perintah ini untuk mendengar audionya.
-[Coba Veo](https://deepmind.google/models/veo/?hl=id)
+[Coba Veo](https://ai.google.dev/gemini-api/docs/Coba Veo)
 
 ### Menulis perintah dengan gambar referensi
 
-Anda dapat menggunakan satu atau beberapa gambar sebagai input untuk memandu video yang dibuat, menggunakan kemampuan [image-to-video](https://ai.google.dev/gemini-api/docs/video?hl=id#generate-from-images) Veo. Veo menggunakan gambar input sebagai frame awal. Pilih gambar yang paling mendekati visi Anda sebagai adegan pertama video untuk menganimasikan objek sehari-hari, menghidupkan gambar dan lukisan, serta menambahkan gerakan dan suara ke pemandangan alam.
+Anda dapat menggunakan satu atau beberapa gambar sebagai input untuk memandu video yang dibuat, menggunakan kemampuan [image-to-video](https://ai.google.dev/gemini-api/docs/image-to-video) Veo. Veo menggunakan gambar input sebagai frame awal. Pilih gambar yang paling mendekati visi Anda sebagai adegan pertama video untuk menganimasikan objek sehari-hari, menghidupkan gambar dan lukisan, serta menambahkan gerakan dan suara ke pemandangan alam.
 
 | **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
 | **Gambar input (Dibuat oleh Nano Banana)** Foto makro hiper-realistis peselancar kecil yang sedang berselancar di ombak laut di dalam wastafel kamar mandi batu pedesaan. Keran kuningan antik mengalirkan air, menciptakan ombak abadi. Surealis, unik, pencahayaan alami yang terang. | Peselancar kecil miniatur sedang berselancar di ombak laut di dalam wastafel kamar mandi batu rustic. |
 | **Video Output (Dibuat oleh Veo 3.1)** Video makro sinematik yang surealis. Peselancar kecil menunggangi ombak yang terus bergulung di dalam wastafel kamar mandi batu. Keran kuningan antik yang mengalirkan air akan menghasilkan ombak yang tak berujung. Kamera perlahan-lahan menggeser adegan yang unik dan diterangi sinar matahari saat figur miniatur dengan ahli mengukir air biru kehijauan. | Peselancar kecil mengelilingi ombak di wastafel kamar mandi. |
 
-Veo 3.1 memungkinkan Anda [merujuk gambar](https://ai.google.dev/gemini-api/docs/video?hl=id#reference-images) atau bahan untuk mengarahkan konten video yang dihasilkan. Berikan hingga tiga gambar aset dari satu orang, karakter, atau produk. Veo mempertahankan penampilan subjek dalam video output.
+Veo 3.1 memungkinkan Anda [merujuk gambar](https://ai.google.dev/gemini-api/docs/merujuk gambar) atau bahan untuk mengarahkan konten video yang dihasilkan. Berikan hingga tiga gambar aset dari satu orang, karakter, atau produk. Veo mempertahankan penampilan subjek dalam video output.
 
 | **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
@@ -1680,7 +1680,7 @@ Veo 3.1 memungkinkan Anda [merujuk gambar](https://ai.google.dev/gemini-api/docs
 | **Gambar referensi (Dibuat oleh Nano Banana)** Kostum putri anak berwarna merah muda lengkap dengan tongkat dan tiara, di latar belakang produk polos. | Kostum putri merah muda untuk anak |
 | **Video Output (Dibuat oleh Veo 3.1)** Buat versi kartun konyol dari ikan yang mengenakan kostum, berenang, dan mengayunkan tongkat. | Ikan pemancing mengenakan kostum putri |
 
-Dengan Veo 3.1, Anda juga dapat membuat video dengan menentukan [frame pertama dan terakhir](https://ai.google.dev/gemini-api/docs/video?hl=id#using-first-and-last-video-frames) video.
+Dengan Veo 3.1, Anda juga dapat membuat video dengan menentukan [frame pertama dan terakhir](https://ai.google.dev/gemini-api/docs/frame pertama dan terakhir) video.
 
 | **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
@@ -1692,7 +1692,7 @@ Fitur ini memberi Anda kontrol yang presisi atas komposisi bidikan dengan memung
 
 ### Meminta perpanjangan waktu
 
-Untuk [memperpanjang](https://ai.google.dev/gemini-api/docs/video?hl=id#extending_veo_videos) video yang dibuat Veo dengan Veo 3.1 (tidak tersedia untuk Veo 3.1 Lite), gunakan video tersebut sebagai input bersama dengan perintah teks opsional. Perpanjang menyelesaikan detik terakhir atau 24
+Untuk [memperpanjang](https://ai.google.dev/gemini-api/docs/memperpanjang) video yang dibuat Veo dengan Veo 3.1 (tidak tersedia untuk Veo 3.1 Lite), gunakan video tersebut sebagai input bersama dengan perintah teks opsional. Perpanjang menyelesaikan detik terakhir atau 24
 frame video Anda dan melanjutkan tindakan.
 
 Perhatikan bahwa suara tidak dapat diperpanjang secara efektif jika tidak ada dalam 1 detik terakhir video.
@@ -1709,7 +1709,7 @@ Bagian ini menyajikan beberapa perintah, yang menyoroti bagaimana detail deskrip
 #### Bunga Es
 
 Video ini menunjukkan cara menggunakan elemen
-[dasar-dasar penulisan perintah](#basics) dalam perintah Anda.
+[dasar-dasar penulisan perintah](https://ai.google.dev/gemini-api/docs/dasar-dasar penulisan perintah) dalam perintah Anda.
 
 | **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
@@ -1791,7 +1791,7 @@ Veo memungkinkan Anda menentukan rasio aspek untuk video Anda.
 
 ## Versi model
 
-Lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#veo-3.1) dan [Batas kecepatan](https://aistudio.google.com/rate-limit?hl=id) untuk mengetahui detail penggunaan khusus model Veo selengkapnya.
+Lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/Harga) dan [Batas kecepatan](https://ai.google.dev/gemini-api/docs/Batas kecepatan) untuk mengetahui detail penggunaan khusus model Veo selengkapnya.
 
 ### Pratinjau Veo 3.1
 
@@ -1860,16 +1860,14 @@ Versi Veo Fast memungkinkan developer membuat video dengan suara sekaligus mempe
 
 ## Langkah berikutnya
 
-- Mulai gunakan Veo 3.1 API dengan bereksperimen di [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=id)
-  dan [applet Veo 3.1](https://aistudio.google.com/apps/bundled/veo_studio?hl=id).
-- Pelajari cara menulis perintah yang lebih baik lagi dengan [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=id) kami.
+- Mulai gunakan Veo 3.1 API dengan bereksperimen di [Veo Quickstart Colab](https://ai.google.dev/gemini-api/docs/Veo Quickstart Colab)
+  dan [applet Veo 3.1](https://ai.google.dev/gemini-api/docs/applet Veo 3.1).
+- Pelajari cara menulis perintah yang lebih baik lagi dengan [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/Pengantar desain perintah) kami.
 
 Kirim masukan
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
 Terakhir diperbarui pada 2026-04-29 UTC.
 
 Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

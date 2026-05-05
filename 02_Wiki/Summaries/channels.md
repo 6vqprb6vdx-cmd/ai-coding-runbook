@@ -19,7 +19,7 @@ Built-in supported channels (each is a plugin requiring [Bun](https://bun.sh)):
 
 Demo channel: **fakechat** — localhost UI at `http://localhost:8787`, no auth, good for first-time setup.
 
-Build your own: see [Channels reference](/en/channels-reference) doc.
+Build your own: see [Channels reference](https://code.claude.com/en/channels-reference) doc.
 
 Security model:
 - Each channel maintains a **sender allowlist** — non-allowlisted IDs silently dropped.

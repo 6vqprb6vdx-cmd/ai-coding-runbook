@@ -1,11 +1,11 @@
 # Everything Server - Project Structure
 
-**[Architecture](architecture.md)
+**[Architecture](https://raw.githubusercontent.com/modelcontextprotocol/servers/main/src/everything/docs/Architecture)
 | Project Structure
-| [Startup Process](startup.md)
-| [Server Features](features.md)
-| [Extension Points](extension.md)
-| [How It Works](how-it-works.md)**
+| [Startup Process](https://raw.githubusercontent.com/modelcontextprotocol/servers/main/src/everything/docs/Startup Process)
+| [Server Features](https://raw.githubusercontent.com/modelcontextprotocol/servers/main/src/everything/docs/Server Features)
+| [Extension Points](https://raw.githubusercontent.com/modelcontextprotocol/servers/main/src/everything/docs/Extension Points)
+| [How It Works](https://raw.githubusercontent.com/modelcontextprotocol/servers/main/src/everything/docs/How It Works)**
 
 ```
 src/everything

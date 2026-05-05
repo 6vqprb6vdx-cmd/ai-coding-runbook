@@ -60,20 +60,20 @@ Anthropic and Accenture will also co-invest in a Claude Center of Excellence ins
 
 ## **Getting started**
 
-Accenture clients can contact their account team to discuss deployment options. Enterprises can visit our [Enterprise page](https://www.anthropic.com/enterprise) to learn more about Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
+Accenture clients can contact their account team to discuss deployment options. Enterprises can visit our [Enterprise page](https://www.anthropic.com/news/Enterprise page) to learn more about Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
-*\*[Menlo Ventures’ 2025 State of Generative AI in the Enterprise report](https://menlovc.com/perspective/2025-the-state-of-generative-ai-in-the-enterprise/)*
+*\*[Menlo Ventures’ 2025 State of Generative AI in the Enterprise report](https://www.anthropic.com/news/Menlo Ventures’ 2025 State of Generative AI in the Enterprise report)*
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

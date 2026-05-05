@@ -20,17 +20,17 @@ Government partners are already using Claude to improve and accelerate their wor
 
 **How government partners can access Claude for $1**
 
-Our partnership with the General Services Administration has been instrumental in making Claude accessible to federal agencies. Building on [last week's](https://www.anthropic.com/news/federal-government-departments-and-agencies-can-now-purchase-claude-through-the-gsa-schedule) addition of Claude to the GSA schedule, which streamlined procurement, we're now able to further expand access through this offer.
+Our partnership with the General Services Administration has been instrumental in making Claude accessible to federal agencies. Building on [last week's](https://www.anthropic.com/news/last week's) addition of Claude to the GSA schedule, which streamlined procurement, we're now able to further expand access through this offer.
 
-We're offering both [Claude for Government](https://www.anthropic.com/solutions/government), which supports FedRAMP High workloads that enable federal workers to use Claude for sensitive unclassified work, and [Claude for Enterprise](https://www.anthropic.com/news/claude-for-enterprise). Agencies will have access to our frontier models with continuous updates as new capabilities are released.
+We're offering both [Claude for Government](https://www.anthropic.com/news/Claude for Government), which supports FedRAMP High workloads that enable federal workers to use Claude for sensitive unclassified work, and [Claude for Enterprise](https://www.anthropic.com/news/Claude for Enterprise). Agencies will have access to our frontier models with continuous updates as new capabilities are released.
 
 To ensure successful adoption, we are also providing technical support to help agencies rapidly implement AI into their productivity and mission workflows. This package will be available for one year.
 
 **Building on proven success with Claude**
 
-Claude is already the trusted AI partner for some of the government's most critical missions. The Department of Defense [selected](https://www.anthropic.com/news/anthropic-and-the-department-of-defense-to-advance-responsible-ai-in-defense-operations) Claude through an agreement with a $200 million ceiling with the Chief Digital and Artificial Intelligence Office to advance U.S. national security capabilities.
+Claude is already the trusted AI partner for some of the government's most critical missions. The Department of Defense [selected](https://www.anthropic.com/news/selected) Claude through an agreement with a $200 million ceiling with the Chief Digital and Artificial Intelligence Office to advance U.S. national security capabilities.
 
-At [Lawrence Livermore National Laboratory](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and), 10,000 scientists and researchers use Claude daily to accelerate scientific discoveries, and the District of Columbia Department of Health [deployed](https://newsroom.accenture.com/news/2024/aws-accenture-and-anthropic-join-forces-to-help-organizations-scale-ai-responsibly) Claude to help residents access health services in multiple languages.
+At [Lawrence Livermore National Laboratory](https://www.anthropic.com/news/Lawrence Livermore National Laboratory), 10,000 scientists and researchers use Claude daily to accelerate scientific discoveries, and the District of Columbia Department of Health [deployed](https://www.anthropic.com/news/deployed) Claude to help residents access health services in multiple languages.
 
 We are able to make this deployment because Claude meets the government's highest security standards. Our models offered through Claude for Government are certified for FedRAMP High, the most stringent requirement for handling unclassified sensitive government data. Through partnerships with AWS, Google Cloud, and Palantir, agencies can access Claude through their existing secure infrastructure while maintaining complete control over their data.
 
@@ -44,18 +44,18 @@ We hope other companies will join us in taking similar steps to ensure the U.S. 
 
 **Getting started**
 
-To gain access, department or agency leadership at eligible organizations should contact us at [pubsec@anthropic.com](mailto:pubsec@anthropic.com).
+To gain access, department or agency leadership at eligible organizations should contact us at [pubsec@anthropic.com](https://www.anthropic.com/news/pubsec@anthropic.com).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

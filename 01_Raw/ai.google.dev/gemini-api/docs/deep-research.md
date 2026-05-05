@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:17:55.133719+00:00
 title: "Gemini Deep Research \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [ホーム](https://ai.google.dev/gemini-api/docs/ホーム)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/ドキュメント)
 
 フィードバックを送信
 
@@ -16,7 +16,7 @@ title: "Gemini Deep Research \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 
 
 Gemini Deep Research エージェントは、複数ステップの調査タスクを自律的に計画、実行、合成します。Gemini を搭載し、複雑な情報環境をナビゲートして、詳細な引用付きレポートを作成します。新しい機能により、エージェントと共同で計画を立てたり、MCP サーバーを使用して外部ツールに接続したり、グラフなどの可視化を含めたり、ドキュメントを直接入力として提供したりできます。
 
-リサーチのタスクでは、反復的な検索と読み取りが行われ、完了までに数分かかることがあります。エージェントを非同期で実行し、結果をポーリングするか、更新をストリーミングするには、バックグラウンド実行（`background=true` を設定）を使用する必要があります。詳しくは、[長時間実行タスクの処理](#long-running-tasks)をご覧ください。
+リサーチのタスクでは、反復的な検索と読み取りが行われ、完了までに数分かかることがあります。エージェントを非同期で実行し、結果をポーリングするか、更新をストリーミングするには、バックグラウンド実行（`background=true` を設定）を使用する必要があります。詳しくは、[長時間実行タスクの処理](https://ai.google.dev/gemini-api/docs/長時間実行タスクの処理)をご覧ください。
 
 次の例は、バックグラウンドでリサーチ タスクを開始し、結果をポーリングする方法を示しています。
 
@@ -595,7 +595,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ### ファイル検索
 
-[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)ツールを使用して、エージェントが自分のデータにアクセスできるようにします。
+[ファイル検索](https://ai.google.dev/gemini-api/docs/ファイル検索)ツールを使用して、エージェントが自分のデータにアクセスできるようにします。
 
 ### Python
 
@@ -1138,7 +1138,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 Gemini Deep Research Agent には、Google AI Studio の Interactions API と Gemini API を使用してアクセスできます。
 
-料金は、基盤となる Gemini モデルとエージェントが使用する特定のツールに基づく[従量課金制モデル](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#pricing-for-agents)に従います。リクエストが 1 つの出力につながる標準的なチャット リクエストとは異なり、Deep Research タスクはエージェント ワークフローです。1 つのリクエストで、計画、検索、読み取り、推論の自律ループがトリガーされます。
+料金は、基盤となる Gemini モデルとエージェントが使用する特定のツールに基づく[従量課金制モデル](https://ai.google.dev/gemini-api/docs/従量課金制モデル)に従います。リクエストが 1 つの出力につながる標準的なチャット リクエストとは異なり、Deep Research タスクはエージェント ワークフローです。1 つのリクエストで、計画、検索、読み取り、推論の自律ループがトリガーされます。
 
 ### 推定費用
 
@@ -1171,20 +1171,18 @@ Gemini Deep Research Agent には、Google AI Studio の Interactions API と Ge
 - **構造化出力:** Deep Research エージェントは現在、構造化出力をサポートしていません。
 - **最大調査時間:** Deep Research エージェントの最大調査時間は 60 分です。ほとんどのタスクは 20 分以内に完了します。
 - **ストアの要件:** `background=True` を使用したエージェントの実行には `store=True` が必要です。
-- **Google 検索:** [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)はデフォルトで有効になっており、グラウンディングされた検索結果には[特定の制限](https://ai.google.dev/gemini-api/terms?hl=ja#use-restrictions2)が適用されます。
+- **Google 検索:** [Google 検索](https://ai.google.dev/gemini-api/docs/Google 検索)はデフォルトで有効になっており、グラウンディングされた検索結果には[特定の制限](https://ai.google.dev/gemini-api/docs/特定の制限)が適用されます。
 
 ## 次のステップ
 
-- [操作用 API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja) の詳細をご確認ください。
-- [Gemini API クックブックの Deep Research](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Deep_Research.ipynb?hl=ja) を試す。
-- [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)ツールを使用して独自のデータを使用する方法について説明します。
+- [操作用 API](https://ai.google.dev/gemini-api/docs/操作用 API) の詳細をご確認ください。
+- [Gemini API クックブックの Deep Research](https://ai.google.dev/gemini-api/docs/Gemini API クックブックの Deep Research) を試す。
+- [ファイル検索](https://ai.google.dev/gemini-api/docs/ファイル検索)ツールを使用して独自のデータを使用する方法について説明します。
 
 フィードバックを送信
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://ai.google.dev/gemini-api/docs/クリエイティブ・コモンズの表示 4.0 ライセンス)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://ai.google.dev/gemini-api/docs/Apache 2.0 ライセンス)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://ai.google.dev/gemini-api/docs/Google Developers サイトのポリシー)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
 最終更新日 2026-04-29 UTC。
 
 ご意見をお聞かせください
-
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

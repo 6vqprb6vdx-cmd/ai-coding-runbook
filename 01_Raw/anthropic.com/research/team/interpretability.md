@@ -4,15 +4,13 @@ fetched_at: 2026-05-04T16:50:46.135777+00:00
 title: "Interpretability Research \\ Anthropic"
 ---
 
-[Back to Overview](/research)
+[Back to Overview](https://www.anthropic.com/research/team/Back to Overview)
 
 # Interpretability
 
 The mission of the Interpretability team is to discover and understand how large language models work internally, as a foundation for AI safety and positive outcomes.
 
-Research teams:[Alignment](/research/team/alignment)[Economic Research](/research/team/economic-research)[Interpretability](/research/team/interpretability)[Societal Impacts](/research/team/societal-impacts)
-
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F27748c7d4c470d931ef828085ecb870d6a41f0e9-1440x810.png&w=3840&q=75)
+Research teams:[Alignment](https://www.anthropic.com/research/team/Alignment)[Economic Research](https://www.anthropic.com/research/team/Economic Research)[Interpretability](https://www.anthropic.com/research/team/Interpretability)[Societal Impacts](https://www.anthropic.com/research/team/Societal Impacts)
 
 ### Safety through understanding
 
@@ -22,27 +20,25 @@ It's very challenging to reason about the safety of neural networks without unde
 
 Some Interpretability researchers have deep backgrounds in machine learning – one member of the team is often described as having started mechanistic interpretability, while another was on the famous scaling laws paper. Other members joined after careers in astronomy, physics, mathematics, biology, data visualization, and more.
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F6c30d7fb336b69fc7756b9846ee88c8d0d5122da-1920x1080.png&w=3840&q=75)
-
 [## Tracing the thoughts of a large language model
 
 InterpretabilityMar 27, 2025
 
-Circuit tracing lets us watch Claude think, uncovering a shared conceptual space where reasoning happens before being translated into language—suggesting the model can learn something in one language and apply it in another.](/research/tracing-thoughts-language-model)
+Circuit tracing lets us watch Claude think, uncovering a shared conceptual space where reasoning happens before being translated into language—suggesting the model can learn something in one language and apply it in another.](https://www.anthropic.com/research/tracing-thoughts-language-model)
 
 [InterpretabilityOct 29, 2025
 
 #### Signs of introspection in large language models
 
-Can Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect—a step toward understanding what's actually happening inside these models.](/research/introspection)[InterpretabilityAug 1, 2025
+Can Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect—a step toward understanding what's actually happening inside these models.](https://www.anthropic.com/research/team/InterpretabilityOct 29, 2025#### Signs of introspection in large language modelsCan Claude access and report on its own internal states? This research finds evidence for a limited but functional ability to introspect—a step toward understanding what's actually happening inside these models.)[InterpretabilityAug 1, 2025
 
 #### Persona vectors: Monitoring and controlling character traits in language models
 
-AI models represent character traits as patterns of activations within their neural networks. By extracting "persona vectors" for traits like sycophancy or hallucination, we can monitor personality shifts and mitigate undesirable behaviors.](/research/persona-vectors)[InterpretabilitySep 14, 2022
+AI models represent character traits as patterns of activations within their neural networks. By extracting "persona vectors" for traits like sycophancy or hallucination, we can monitor personality shifts and mitigate undesirable behaviors.](https://www.anthropic.com/research/team/InterpretabilityAug 1, 2025#### Persona vectors: Monitoring and controlling character traits in language modelsAI models represent character traits as patterns of activations within their neural networks. By extracting "persona vectors" for traits like sycophancy or hallucination, we can monitor personality shifts and mitigate undesirable behaviors.)[InterpretabilitySep 14, 2022
 
 #### Toy Models of Superposition
 
-Neural networks pack many concepts into single neurons. This paper shows how and when models represent more features than they have dimensions.](/research/toy-models-of-superposition)
+Neural networks pack many concepts into single neurons. This paper shows how and when models represent more features than they have dimensions.](https://www.anthropic.com/research/team/InterpretabilitySep 14, 2022#### Toy Models of SuperpositionNeural networks pack many concepts into single neurons. This paper shows how and when models represent more features than they have dimensions.)
 
 ## Publications
 
@@ -52,37 +48,37 @@ DateCategoryTitle
 
 - [Apr 2, 2026Interpretability
 
-  Emotion concepts and their function in a large language model](/research/emotion-concepts-function)
+  Emotion concepts and their function in a large language model](https://www.anthropic.com/research/team/Apr 2, 2026Interpretability  Emotion concepts and their function in a large language model)
 - [Mar 13, 2026Interpretability
 
-  A “diff” tool for AI: Finding behavioral differences in new models](/research/diff-tool)
+  A “diff” tool for AI: Finding behavioral differences in new models](https://www.anthropic.com/research/team/Mar 13, 2026Interpretability  A “diff” tool for AI: Finding behavioral differences in new models)
 - [Jan 19, 2026Interpretability
 
-  The assistant axis: situating and stabilizing the character of large language models](/research/assistant-axis)
+  The assistant axis: situating and stabilizing the character of large language models](https://www.anthropic.com/research/team/Jan 19, 2026Interpretability  The assistant axis: situating and stabilizing the character of large language models)
 - [Oct 29, 2025Interpretability
 
-  Signs of introspection in large language models](/research/introspection)
+  Signs of introspection in large language models](https://www.anthropic.com/research/team/Oct 29, 2025Interpretability  Signs of introspection in large language models)
 - [Aug 1, 2025Interpretability
 
-  Persona vectors: Monitoring and controlling character traits in language models](/research/persona-vectors)
+  Persona vectors: Monitoring and controlling character traits in language models](https://www.anthropic.com/research/team/Aug 1, 2025Interpretability  Persona vectors: Monitoring and controlling character traits in language models)
 - [May 29, 2025Interpretability
 
-  Open-sourcing circuit tracing tools](/research/open-source-circuit-tracing)
+  Open-sourcing circuit tracing tools](https://www.anthropic.com/research/team/May 29, 2025Interpretability  Open-sourcing circuit tracing tools)
 - [Mar 27, 2025Interpretability
 
-  Tracing the thoughts of a large language model](/research/tracing-thoughts-language-model)
+  Tracing the thoughts of a large language model](https://www.anthropic.com/research/team/Mar 27, 2025Interpretability  Tracing the thoughts of a large language model)
 - [Mar 13, 2025Alignment
 
-  Auditing language models for hidden objectives](/research/auditing-hidden-objectives)
+  Auditing language models for hidden objectives](https://www.anthropic.com/research/team/Mar 13, 2025Alignment  Auditing language models for hidden objectives)
 - [Feb 20, 2025Interpretability
 
-  Insights on Crosscoder Model Diffing](/research/crosscoder-model-diffing)
+  Insights on Crosscoder Model Diffing](https://www.anthropic.com/research/team/Feb 20, 2025Interpretability  Insights on Crosscoder Model Diffing)
 - [Oct 25, 2024Societal Impacts
 
-  Evaluating feature steering: A case study in mitigating social biases](/research/evaluating-feature-steering)
+  Evaluating feature steering: A case study in mitigating social biases](https://www.anthropic.com/research/team/Oct 25, 2024Societal Impacts  Evaluating feature steering: A case study in mitigating social biases)
 
-[See more](#)
+[See more](https://www.anthropic.com/research/team/See more)
 
 Join the Research team
 
-[See open roles](/jobs)
+[See open roles](https://www.anthropic.com/research/team/See open roles)

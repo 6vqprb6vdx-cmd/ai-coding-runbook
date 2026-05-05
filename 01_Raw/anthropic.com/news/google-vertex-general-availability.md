@@ -10,11 +10,9 @@ Announcements
 
 Mar 19, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F02cb754c15691375b31f63ca61cb024898b77f52-2880x1620.png&w=3840&q=75)
-
 Claude 3 Haiku and Claude 3 Sonnet are now generally available on Google Cloud’s Vertex AI platform. Enterprises can use our state-of-the-art models that optimize intelligence, speed, and cost with Google Cloud's robust infrastructure and tools. This collaboration enables businesses to quickly prototype and scale generative AI solutions with enterprise-grade data privacy and security. The benefits for Google Cloud customers include the ability to keep their data within their existing cloud environment, simplify data governance, reduce operational costs and complexities, and more easily manage access permissions.
 
-The general availability of our [Claude 3 models](https://www.anthropic.com/news/claude-3-family) will empower more organizations to access safer, more reliable AI solutions on the cloud platform of their choice.
+The general availability of our [Claude 3 models](https://www.anthropic.com/news/Claude 3 models) will empower more organizations to access safer, more reliable AI solutions on the cloud platform of their choice.
 
 ## Spotlight: Quora
 
@@ -24,18 +22,18 @@ Quora, the popular question-and-answer platform, has already seen positive resul
 
 ## Get started
 
-To start building with Claude 3 Haiku and Claude 3 Sonnet on Vertex AI, visit the [Model Garden console](https://cloud.google.com/model-garden) and select your desired model. Claude 3 Opus, our most capable and intelligent model to date, will be available on Vertex AI in the coming weeks.
+To start building with Claude 3 Haiku and Claude 3 Sonnet on Vertex AI, visit the [Model Garden console](https://www.anthropic.com/news/Model Garden console) and select your desired model. Claude 3 Opus, our most capable and intelligent model to date, will be available on Vertex AI in the coming weeks.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

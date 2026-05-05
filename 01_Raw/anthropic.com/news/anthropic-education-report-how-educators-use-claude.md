@@ -14,20 +14,20 @@ Aug 27, 2025
 
 Understandably, much of the conversation of AI in education focuses on how students are using large language models to help them study and write. But educators use AI too. In a recent Gallup survey, teachers reported that AI tools saved them an average of 5.9 hours per week. And in an inversion of the usual discussion, students have begun expressing concerns about *professors* using AI in the classroom.
 
-We previously [reported data](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude) on how students were using AI. Our new analysis looks at professors: we analyzed ~74,000 anonymized conversations from higher education professionals across the world on Claude.ai this past May and June.1 We also partnered with Northeastern University to hear directly from faculty how they were using AI within the university. Our findings provide an empirical snapshot of educator AI adoption, specifically in university settings.
+We previously [reported data](https://www.anthropic.com/news/reported data) on how students were using AI. Our new analysis looks at professors: we analyzed ~74,000 anonymized conversations from higher education professionals across the world on Claude.ai this past May and June.1 We also partnered with Northeastern University to hear directly from faculty how they were using AI within the university. Our findings provide an empirical snapshot of educator AI adoption, specifically in university settings.
 
 We find that:
 
 |  |
 | --- |
 | **Educators use AI in and out of the classroom** Educators’ uses range from developing course materials and writing grant proposals to academic advising and managing administrative tasks like admissions and financial planning. |
-| **Educators aren't just using chatbots; they're building their own custom tools with AI** Faculty are using [Claude Artifacts](https://www.anthropic.com/news/build-artifacts) to create interactive educational materials, such as chemistry simulations, automated grading rubrics, and data visualization dashboards. |
+| **Educators aren't just using chatbots; they're building their own custom tools with AI** Faculty are using [Claude Artifacts](https://www.anthropic.com/news/Claude Artifacts) to create interactive educational materials, such as chemistry simulations, automated grading rubrics, and data visualization dashboards. |
 | **Educators tend to automate the drudgery while staying in the loop for everything else** Tasks requiring significant context, creativity, or direct student interaction—like designing lessons, advising students, and writing grant proposals—are where educators are more likely to use AI as an enhancement. In contrast, routine administrative work such as financial management and record-keeping are more automation-heavy. |
 | **Some educators are automating grading; others are deeply opposed** In our Claude.ai data, faculty used AI for grading and evaluation less frequently than other uses, but when they did, 48.9% of the time they used it in an automation-heavy way (where the AI directly performs the task). That’s despite educator concerns about automating assessment tasks, as well as our surveyed faculty rating it as the area where they felt AI was least effective. |
 
 ## **Identifying educators’ use of Claude**
 
-In this research, we used [our automated analysis research tool](https://www.anthropic.com/research/clio) that reveals broad patterns of Claude usage while protecting users’ privacy.
+In this research, we used [our automated analysis research tool](https://www.anthropic.com/news/our automated analysis research tool) that reveals broad patterns of Claude usage while protecting users’ privacy.
 
 Studying higher education professionals’ use of Claude.ai presents unique challenges, as we don’t currently collect self-reported occupational data on our platform. Unlike students who often explicitly mention coursework or assignments, educators’ AI interactions span teaching, research, administration, and personal learning, making them harder to identify and categorize.
 
@@ -40,8 +40,6 @@ We complemented our analysis with survey data and qualitative research from 22 N
 ## **Common uses among educators**
 
 The most prominent use of AI, as revealed by both our Claude.ai analysis and our qualitative research with Northeastern, was for curriculum development. Our Claude.ai analysis also surfaced academic research and assessing student performance as the second and third most common uses.
-
-![Bar chart showing three educational AI use cases: "Develop curricula" (57%), "Conduct academic research" (13%), and "Assess student performance" (7%). Each category shows common requests and the split between augmentation and automation approaches, with augmentation generally preferred over automation across all categories.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4c5504abad57cc0bc8a086f524134254c51598b0-2880x858.png&w=3840&q=75)
 
 Top three AI uses among educators, as based on 74,000 conversations of Claude.ai data: Develop curricula (57% of the conversations in our analysis), Conduct academic research (13%), and Assess student performance (7%). The augmentation/automation spectrum of how faculty use AI for these tasks is also displayed.
 
@@ -64,7 +62,7 @@ Our qualitative research with Northeastern faculty hints at why educators often 
 
 ## **How educators are building custom tools with AI**
 
-One of the most inspiring findings is how educators use Claude's [Artifacts feature](https://www.anthropic.com/news/build-artifacts) to create interactive educational materials. Rather than just having conversations, educators are often building complete, functional resources that in some cases they can immediately deploy in their classrooms.
+One of the most inspiring findings is how educators use Claude's [Artifacts feature](https://www.anthropic.com/news/Artifacts feature) to create interactive educational materials. Rather than just having conversations, educators are often building complete, functional resources that in some cases they can immediately deploy in their classrooms.
 
 As one surveyed Northeastern faculty member put it: *“*What was prohibitively expensive (time) to do [before] now becomes possible. Custom simulation, illustration, interactive experiment. Wow. Much more engaging for students.”
 
@@ -88,9 +86,7 @@ These creations represent a shift from AI as conversational assistant to AI as c
 
 ## **The augmentation-automation spectrum**
 
-Our analysis reveals a nuanced picture of how educators balance AI augmentation (collaborative use) versus automation (delegating tasks entirely), building upon Anthropic’s prior work on the [Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index).
-
-![Horizontal stacked bar chart titled "Augmentation vs. Automation for Educator Tasks" showing 12 different academic tasks (like university teaching, grant writing, academic advising, etc.) with percentage breakdowns between augmentation approaches (shown in blue) and automation approaches (shown in purple). Most tasks show higher preference for augmentation over automation, with percentages varying across different task categories.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F42a1f4533a5fb5b2e7b160cb0bb8c761ed8c73c8-2880x1620.png&w=3840&q=75)
+Our analysis reveals a nuanced picture of how educators balance AI augmentation (collaborative use) versus automation (delegating tasks entirely), building upon Anthropic’s prior work on the [Economic Index](https://www.anthropic.com/news/Economic Index).
 
 The percentage of educator conversations with Claude.ai that involved augmentation (where AI collaborates with a user to perform a task) versus automation (where AI directly performs tasks\*), for a given task category. We identified tasks associated with educator-related occupations in the O\*NET database of occupational information from the U.S. Department of Labor. We grouped similar tasks together to create high-level categories of tasks, which are reported above.
 
@@ -120,8 +116,6 @@ That said, 48.9% of grading-related conversations being identified as automation
 Using AI in grading remains a contentious issue among educators. One Northeastern professor shared: “Ethically and practically, I am very wary of using [AI tools] to assess or advise students in any way. Part of that is the accuracy issue. I have tried some experiments where I had an LLM grade papers, and they're simply not good enough for me. And ethically, students are not paying tuition for the LLM’s time, they're paying for my time. It's my moral obligation to do a good job (with the assistance, perhaps, of LLMs).”
 
 While there are ways AI feedback can support a student’s development, such as through automatic systems providing formative feedback (e.g. those being built by educators in Claude Artifacts), most educators seem to agree that grading shouldn’t be anywhere close to fully automated.
-
-![Four simple line icons on a light gray background showing: a hand selecting documents, a laboratory flask, a presentation screen with pie chart and upward arrow, and a calendar grid.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F25a30bf5521d4d6bb57818df97984e9f0eb47642-7200x2145.png&w=3840&q=75)
 
 ## **How educators are rethinking what to teach**
 
@@ -192,18 +186,18 @@ Esin Durmus, Alex Tamkin, Miles McCain, Stuart Ritchie, Jennifer Martinez, Ryan 
 
 2 Specifically, we used the following filter, powered by Claude, to identify educator-relevant conversations: “Is this conversation likely to be with an educator (teacher, professor, or instructor) seeking help with instructional content, grading, research, or administrative duties? Make sure to not include students doing their own coursework, research papers, etc. Err on the side of conservatism and assume it's not an educator if you're not sure.”
 
-\*In cases where the augmentation/automation category could not be identified, we excluded those from the chart. For more information on these categories, please see our Anthropic Economic Index [research](https://arxiv.org/pdf/2503.04761).
+\*In cases where the augmentation/automation category could not be identified, we excluded those from the chart. For more information on these categories, please see our Anthropic Economic Index [research](https://www.anthropic.com/news/research).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

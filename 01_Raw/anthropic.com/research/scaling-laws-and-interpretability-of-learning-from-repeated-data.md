@@ -10,7 +10,7 @@ InterpretabilityResearch
 
 May 21, 2022
 
-[Read Paper](https://arxiv.org/abs/2205.10487)
+[Read Paper](https://www.anthropic.com/research/Read Paper)
 
 ## Abstract
 
@@ -24,14 +24,14 @@ Amanda Askell, Yuntao Bai, Anna Chen, Dawn Drain, Deep Ganguli, Tom Henighan, An
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

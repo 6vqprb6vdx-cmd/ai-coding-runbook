@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:16:07.265483+00:00
 title: "Inferensi fleksibel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Beranda](https://ai.google.dev/gemini-api/docs/Beranda)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/Dokumen)
 
 Kirim masukan
 
@@ -112,7 +112,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 
 ## Cara kerja inferensi Flex
 
-Inferensi Gemini Flex menjembatani kesenjangan antara API standar dan waktu penyelesaian 24 jam [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id). Layanan ini memanfaatkan kapasitas komputasi di luar jam sibuk yang dapat dihentikan untuk memberikan solusi hemat biaya bagi tugas latar belakang dan alur kerja berurutan.
+Inferensi Gemini Flex menjembatani kesenjangan antara API standar dan waktu penyelesaian 24 jam [Batch API](https://ai.google.dev/gemini-api/docs/Batch API). Layanan ini memanfaatkan kapasitas komputasi di luar jam sibuk yang dapat dihentikan untuk memberikan solusi hemat biaya bagi tugas latar belakang dan alur kerja berurutan.
 
 | Fitur | Lipat | Prioritas | Standar | Batch |
 | --- | --- | --- | --- | --- |
@@ -135,13 +135,13 @@ Inferensi Gemini Flex menjembatani kesenjangan antara API standar dan waktu peny
 
 ### Batas kapasitas
 
-Traffic inferensi fleksibel dihitung dalam [batas kapasitas](https://aistudio.google.com/rate-limit?hl=id) umum Anda; tidak
-menawarkan batas kapasitas yang diperluas seperti [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id).
+Traffic inferensi fleksibel dihitung dalam [batas kapasitas](https://ai.google.dev/gemini-api/docs/batas kapasitas) umum Anda; tidak
+menawarkan batas kapasitas yang diperluas seperti [Batch API](https://ai.google.dev/gemini-api/docs/Batch API).
 
 ### Kapasitas yang dapat dikurangi
 
 Traffic fleksibel diperlakukan dengan prioritas yang lebih rendah. Jika terjadi lonjakan traffic standar, permintaan Fleksibel dapat didahulukan atau dikeluarkan untuk memastikan kapasitas bagi pengguna prioritas tinggi. Jika Anda mencari inferensi prioritas tinggi, lihat
-[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)
+[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/Inferensi prioritas)
 
 ### Kode error
 
@@ -635,7 +635,7 @@ print(response.text)
 
 ## Harga
 
-Inferensi fleksibel dihargai 50% dari [API standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id)
+Inferensi fleksibel dihargai 50% dari [API standar](https://ai.google.dev/gemini-api/docs/API standar)
 dan ditagih per token.
 
 ## Model yang didukung
@@ -644,29 +644,27 @@ Model berikut mendukung inferensi Flex:
 
 | Model | Inferensi fleksibel |
 | --- | --- |
-| [Pratinjau Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=id) | ✔️ |
-| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=id) | ✔️ |
-| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) | ✔️ |
-| [Pratinjau Gambar Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=id) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=id) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=id) | ✔️ |
-| [Gambar Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=id) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=id) | ✔️ |
+| [Pratinjau Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/Pratinjau Gemini 3.1 Flash-Lite) | ✔️ |
+| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/Pratinjau Gemini 3.1 Pro) | ✔️ |
+| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/Pratinjau Gemini 3 Flash) | ✔️ |
+| [Pratinjau Gambar Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/Pratinjau Gambar Gemini 3 Pro) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Pro) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash) | ✔️ |
+| [Gambar Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/Gambar Gemini 2.5 Flash) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash-Lite) | ✔️ |
 
 ## Langkah berikutnya
 
-Baca opsi [inferensi dan pengoptimalan](https://ai.google.dev/gemini-api/docs/optimization?hl=id) Gemini lainnya:
+Baca opsi [inferensi dan pengoptimalan](https://ai.google.dev/gemini-api/docs/inferensi dan pengoptimalan) Gemini lainnya:
 
-- [Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id) untuk latensi ultra-rendah.
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id) untuk pemrosesan asinkron dalam waktu 24 jam.
-- [Penyimpanan cache konteks](https://ai.google.dev/gemini-api/docs/caching?hl=id) untuk mengurangi biaya token input.
+- [Inferensi prioritas](https://ai.google.dev/gemini-api/docs/Inferensi prioritas) untuk latensi ultra-rendah.
+- [Batch API](https://ai.google.dev/gemini-api/docs/Batch API) untuk pemrosesan asinkron dalam waktu 24 jam.
+- [Penyimpanan cache konteks](https://ai.google.dev/gemini-api/docs/Penyimpanan cache konteks) untuk mengurangi biaya token input.
 
 Kirim masukan
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
 Terakhir diperbarui pada 2026-04-29 UTC.
 
 Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

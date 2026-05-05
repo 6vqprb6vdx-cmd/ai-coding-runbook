@@ -27,11 +27,11 @@ Plugins are packages of Claude Code extensions that can include:
   The `commands/` directory is a legacy format. Use `skills/` for new plugins. Claude Code continues to support both formats for backward compatibility.
 </Note>
 
-For complete information on plugin structure and how to create plugins, see [Plugins](/en/plugins).
+For complete information on plugin structure and how to create plugins, see [Plugins](https://code.claude.com/docs/en/agent-sdk/Plugins).
 
 ## Loading plugins
 
-Load plugins by providing their local file system paths in your options configuration. The `type` field must be `"local"`, the only value the SDK accepts. To use a plugin distributed through a [marketplace](/en/plugin-marketplaces) or remote repository, download it first and provide the local directory path. The SDK supports loading multiple plugins from different locations.
+Load plugins by providing their local file system paths in your options configuration. The `type` field must be `"local"`, the only value the SDK accepts. To use a plugin distributed through a [marketplace](https://code.claude.com/docs/en/agent-sdk/marketplace) or remote repository, download it first and provide the local directory path. The SDK supports loading multiple plugins from different locations.
 
 <CodeGroup>
   ```typescript TypeScript theme={null}
@@ -54,7 +54,6 @@ Load plugins by providing their local file system paths in your options configur
   import asyncio
   from claude_agent_sdk import query
 
-
   async def main():
       async for message in query(
           prompt="Hello",
@@ -67,7 +66,6 @@ Load plugins by providing their local file system paths in your options configur
       ):
           # Plugin commands, agents, and other features are now available
           pass
-
 
   asyncio.run(main())
   ```
@@ -114,7 +112,6 @@ When plugins load successfully, they appear in the system initialization message
   import asyncio
   from claude_agent_sdk import query
 
-
   async def main():
       async for message in query(
           prompt="Hello", options={"plugins": [{"type": "local", "path": "./my-plugin"}]}
@@ -127,7 +124,6 @@ When plugins load successfully, they appear in the system initialization message
               # Check available commands from plugins
               print("Commands:", message.data.get("slash_commands"))
               # Example: ["/help", "/compact", "my-plugin:custom-command"]
-
 
   asyncio.run(main())
   ```
@@ -159,7 +155,6 @@ Skills from plugins are automatically namespaced with the plugin name to avoid c
   import asyncio
   from claude_agent_sdk import query, AssistantMessage, TextBlock
 
-
   async def main():
       # Load a plugin with a custom /greet skill
       async for message in query(
@@ -171,7 +166,6 @@ Skills from plugins are automatically namespaced with the plugin name to avoid c
               for block in message.content:
                   if isinstance(block, TextBlock):
                       print(f"Claude: {block.text}")
-
 
   asyncio.run(main())
   ```
@@ -229,7 +223,6 @@ Here's a full example demonstrating plugin loading and usage:
       query,
   )
 
-
   async def run_with_plugin():
       """Example using a custom plugin."""
       plugin_path = Path(__file__).parent / "plugins" / "demo-plugin"
@@ -252,7 +245,6 @@ Here's a full example demonstrating plugin loading and usage:
               for block in message.content:
                   if isinstance(block, TextBlock):
                       print(f"Assistant: {block.text}")
-
 
   if __name__ == "__main__":
       anyio.run(run_with_plugin)
@@ -281,8 +273,8 @@ my-plugin/
 
 For detailed information on creating plugins, see:
 
-* [Plugins](/en/plugins) - Complete plugin development guide
-* [Plugins reference](/en/plugins-reference) - Technical specifications and schemas
+* [Plugins](https://code.claude.com/docs/en/agent-sdk/Plugins) - Complete plugin development guide
+* [Plugins reference](https://code.claude.com/docs/en/agent-sdk/Plugins reference) - Technical specifications and schemas
 
 ## Common use cases
 
@@ -341,8 +333,8 @@ If relative paths don't work:
 
 ## See also
 
-* [Plugins](/en/plugins) - Complete plugin development guide
-* [Plugins reference](/en/plugins-reference) - Technical specifications
-* [Slash Commands](/en/agent-sdk/slash-commands) - Using slash commands in the SDK
-* [Subagents](/en/agent-sdk/subagents) - Working with specialized agents
-* [Skills](/en/agent-sdk/skills) - Using Agent Skills
+* [Plugins](https://code.claude.com/docs/en/agent-sdk/Plugins) - Complete plugin development guide
+* [Plugins reference](https://code.claude.com/docs/en/agent-sdk/Plugins reference) - Technical specifications
+* [Slash Commands](https://code.claude.com/docs/en/agent-sdk/Slash Commands) - Using slash commands in the SDK
+* [Subagents](https://code.claude.com/docs/en/agent-sdk/Subagents) - Working with specialized agents
+* [Skills](https://code.claude.com/docs/en/agent-sdk/Skills) - Using Agent Skills

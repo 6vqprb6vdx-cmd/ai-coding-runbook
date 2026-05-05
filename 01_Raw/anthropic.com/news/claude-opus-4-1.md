@@ -18,27 +18,23 @@ Opus 4.1 is now available to paid Claude users and in Claude Code. It's also on 
 
 ## Claude Opus 4.1
 
-Opus 4.1 advances our state-of-the-art coding performance to 74.5% on [SWE-bench Verified](https://www.swebench.com/). It also improves Claude’s in-depth research and data analysis skills, especially around detail tracking and agentic search.
-
-![Chart showing Claude's progress on a popular coding evaluation](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdced1e451a52da3bcb3807d7a9510b1b5426ace6-3840x2160.png&w=3840&q=75)
+Opus 4.1 advances our state-of-the-art coding performance to 74.5% on [SWE-bench Verified](https://www.anthropic.com/news/SWE-bench Verified). It also improves Claude’s in-depth research and data analysis skills, especially around detail tracking and agentic search.
 
 **GitHub** notes that Claude Opus 4.1 improves across most capabilities relative to Opus 4, with particularly notable performance gains in multi-file code refactoring. **Rakuten Group** finds that Opus 4.1 excels at pinpointing exact corrections within large codebases without making unnecessary adjustments or introducing bugs, with their team preferring this precision for everyday debugging tasks. **Windsurf** reports Opus 4.1 delivers a one standard deviation improvement over Opus 4 on their junior developer benchmark, showing roughly the same performance leap as the jump from Sonnet 3.7 to Sonnet 4.
 
-![A benchmark table comparing Claude Opus 4.1 to prior Claude models and other public models](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbde326699c667506c87f74b09a6355961d29eb26-2600x2084.png&w=3840&q=75)
-
 ## Getting started
 
-We recommend upgrading from Opus 4 to Opus 4.1 for all uses. If you’re a developer, simply use `claude-opus-4-1-20250805` via the API. You can also explore our [system card](https://www.anthropic.com/claude-opus-4-1-system-card), [model page](https://www.anthropic.com/claude/opus), [pricing page](https://www.anthropic.com/pricing#api), and [docs](https://docs.anthropic.com/en/docs/about-claude/models/overview) to learn more.
+We recommend upgrading from Opus 4 to Opus 4.1 for all uses. If you’re a developer, simply use `claude-opus-4-1-20250805` via the API. You can also explore our [system card](https://www.anthropic.com/news/system card), [model page](https://www.anthropic.com/news/model page), [pricing page](https://www.anthropic.com/news/pricing page), and [docs](https://www.anthropic.com/news/docs) to learn more.
 
-As always, your [feedback](mailto: feedback@anthropic.com) helps us improve, especially as we continue to release new and more capable models.
+As always, your [feedback](https://www.anthropic.com/news/feedback) helps us improve, especially as we continue to release new and more capable models.
 
 #### Appendix
 
 **Data sources**
 
-- OpenAI: [o3 launch post](https://openai.com/index/introducing-o3-and-o4-mini/), [o3 system card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf)
-- Gemini: [2.5 Pro model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf)
-- Claude: [Sonnet 3.7 launch post](https://www.anthropic.com/news/claude-3-7-sonnet), [Claude 4 launch post](https://www.anthropic.com/news/claude-4)
+- OpenAI: [o3 launch post](https://www.anthropic.com/news/o3 launch post), [o3 system card](https://www.anthropic.com/news/o3 system card)
+- Gemini: [2.5 Pro model card](https://www.anthropic.com/news/2.5 Pro model card)
+- Claude: [Sonnet 3.7 launch post](https://www.anthropic.com/news/Sonnet 3.7 launch post), [Claude 4 launch post](https://www.anthropic.com/news/Claude 4 launch post)
 
 **Benchmark reporting**
 
@@ -53,18 +49,18 @@ Scores were achieved with a prompt addendum to both the Airline and Retail Agent
 
 **SWE-bench methodology**
 
-For the Claude 4 family of models, we continue to use the same simple scaffold that equips the model with solely the two tools described in our prior releases [here](https://www.anthropic.com/engineering/swe-bench-sonnet)—a bash tool, and a file editing tool that operates via string replacements. We no longer include the [third ‘planning tool’](https://www.anthropic.com/engineering/claude-think-tool) used by Claude 3.7 Sonnet. On all Claude 4 models, we report scores out of the full 500 problems. Scores for OpenAI models are reported out of a [477 problem subset](https://openai.com/index/gpt-4-1/).
+For the Claude 4 family of models, we continue to use the same simple scaffold that equips the model with solely the two tools described in our prior releases [here](https://www.anthropic.com/news/here)—a bash tool, and a file editing tool that operates via string replacements. We no longer include the [third ‘planning tool’](https://www.anthropic.com/news/third ‘planning tool’) used by Claude 3.7 Sonnet. On all Claude 4 models, we report scores out of the full 500 problems. Scores for OpenAI models are reported out of a [477 problem subset](https://www.anthropic.com/news/477 problem subset).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

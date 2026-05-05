@@ -10,9 +10,7 @@ Announcements
 
 Jul 25, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png&w=3840&q=75)
-
-As the capabilities of frontier artificial intelligence models continue to increase rapidly, ensuring the security of these systems has become a critical priority. In our previous posts, we’ve focused on Anthropic’s [approach to safety](/news/core-views-on-ai-safety), and Claude’s capabilities and applications. In this post, we are sharing some of the steps we are taking to ensure our models are developed securely. We hope to advance public discussion about how all labs can deploy top models securely, as well as share recommendations for government regulatory approaches that encourage adoption of strong cybersecurity practices. Below we discuss some of our recommendations for cybersecurity best practices, which Anthropic itself is in the process of implementing.
+As the capabilities of frontier artificial intelligence models continue to increase rapidly, ensuring the security of these systems has become a critical priority. In our previous posts, we’ve focused on Anthropic’s [approach to safety](https://www.anthropic.com/news/approach to safety), and Claude’s capabilities and applications. In this post, we are sharing some of the steps we are taking to ensure our models are developed securely. We hope to advance public discussion about how all labs can deploy top models securely, as well as share recommendations for government regulatory approaches that encourage adoption of strong cybersecurity practices. Below we discuss some of our recommendations for cybersecurity best practices, which Anthropic itself is in the process of implementing.
 
 ## Summary
 
@@ -24,7 +22,7 @@ Many of these measures can begin as voluntary arrangements, but in time it may b
 
 ## Cybersecurity Best Practices
 
-We believe “two-party control” is necessary to secure advanced AI systems. Two-party control is already used in a range of domains; for example, two people with two keys are needed to open the most secure vaults, and multi-party review patterns have been applied in manufacturing ([GMP](https://www.who.int/teams/health-product-policy-and-standards/standards-and-specifications/gmp#:~:text=GMP%20defines%20quality%20measures%20for,the%20production%20of%20pharmaceuticals%20and), [ISO 9001](https://www.iso.org/iso-9001-quality-management.html)), food ([FSMA PCQI](https://www.sqfi.com/wp-content/uploads/2018/08/FSMA-FAQs-for-website-.pdf), [ISO 22000](https://www.iso.org/iso-22000-food-safety-management.html)), medical ([ISO 13485](https://www.iso.org/standard/59752.html)) and finance tech ([SOX](https://en.wikipedia.org/wiki/Sarbanes%E2%80%93Oxley_Act)).
+We believe “two-party control” is necessary to secure advanced AI systems. Two-party control is already used in a range of domains; for example, two people with two keys are needed to open the most secure vaults, and multi-party review patterns have been applied in manufacturing ([GMP](https://www.anthropic.com/news/GMP), [ISO 9001](https://www.anthropic.com/news/ISO 9001)), food ([FSMA PCQI](https://www.anthropic.com/news/FSMA PCQI), [ISO 22000](https://www.anthropic.com/news/ISO 22000)), medical ([ISO 13485](https://www.anthropic.com/news/ISO 13485)) and finance tech ([SOX](https://www.anthropic.com/news/SOX)).
 
 - This pattern should be applied to all systems involved in the development, training, hosting, and deployment of frontier AI models.
 - This pattern is already in widespread use within major tech companies to defend against the most advanced threat actors and mitigate insider risk.
@@ -33,7 +31,7 @@ We believe “two-party control” is necessary to secure advanced AI systems. T
 
 We call this **multi-party authorization to AI-critical infrastructure design**. This is a leading security requirement that depends on the gamut of cybersecurity best practices to implement correctly.  
   
-In addition, secure software development practices should pervade the frontier AI model environment. The gold-standard for these practices are the NIST [Secure Software Development Framework](https://csrc.nist.gov/Projects/ssdf) (SSDF) and the [Supply Chain Levels for Software Artifacts](https://slsa.dev/) (SLSA). Executive Orders have been leveraged successfully to encourage major tech companies to adopt higher development standards: in 2021, [EO 14028](https://www.whitehouse.gov/briefing-room/presidential-actions/2021/05/12/executive-order-on-improving-the-nations-cybersecurity/) directed OMB to set Federal Procurement guidelines. This motivated action: the software industry has invested heavily to meet the SSDF’s requirements to retain federal contracts.  
+In addition, secure software development practices should pervade the frontier AI model environment. The gold-standard for these practices are the NIST [Secure Software Development Framework](https://www.anthropic.com/news/Secure Software Development Framework) (SSDF) and the [Supply Chain Levels for Software Artifacts](https://www.anthropic.com/news/Supply Chain Levels for Software Artifacts) (SLSA). Executive Orders have been leveraged successfully to encourage major tech companies to adopt higher development standards: in 2021, [EO 14028](https://www.anthropic.com/news/EO 14028) directed OMB to set Federal Procurement guidelines. This motivated action: the software industry has invested heavily to meet the SSDF’s requirements to retain federal contracts.  
   
 While frontier AI research is already benefiting from the implementation of some of these standards by dint of cloud providers hosting their models, applying these existing standards can step-change the security of these AI systems:  
   
@@ -61,12 +59,12 @@ The development of artificial intelligence has incredible potential to benefit h
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

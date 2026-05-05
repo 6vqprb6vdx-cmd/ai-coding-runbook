@@ -10,7 +10,7 @@ InterpretabilityResearch
 
 Mar 8, 2024
 
-[Read Transformer Circuits](https://transformer-circuits.pub/2024/qualitative-essay/index.html)
+[Read Transformer Circuits](https://www.anthropic.com/research/Read Transformer Circuits)
 
 This note offers some opinionated thoughts on why interpretability research may have qualitative aspects be more central than we're used to in other fields. It also aims to describe some heuristics for research taste in qualitative work.
 
@@ -18,14 +18,14 @@ This note offers some opinionated thoughts on why interpretability research may 
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

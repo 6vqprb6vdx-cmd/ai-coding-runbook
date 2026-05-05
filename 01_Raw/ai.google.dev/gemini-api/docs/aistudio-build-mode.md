@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:29:22.761707+00:00
 title: "Apps in Google\u00a0AI Studio entwickeln \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Startseite](https://ai.google.dev/gemini-api/docs/Startseite)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs/Dokumentation)
 
 Feedback geben
 
@@ -16,20 +16,20 @@ Feedback geben
 
 Auf dieser Seite wird beschrieben, wie Sie mit Google AI Studio schnell Apps erstellen (oder „vibe
 coden“) und bereitstellen, mit denen die neuesten Funktionen von Gemini wie
-[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) und die [Live
-API](https://ai.google.dev/gemini-api/docs/live?hl=de) getestet werden können. Google AI Studio unterstützt jetzt **Full-Stack
+[Nano Banana](https://ai.google.dev/gemini-api/docs/Nano Banana) und die [Live
+API](https://ai.google.dev/gemini-api/docs/LiveAPI) getestet werden können. Google AI Studio unterstützt jetzt **Full-Stack
 Laufzeiten**, mit denen Sie robuste Anwendungen mit serverseitiger Logik,
 sicherer Secret-Verwaltung und Unterstützung für npm-Pakete erstellen können – alles über Prompts in natürlicher Sprache.
 
 ## Jetzt starten
 
-Starten Sie den [Build-Modus](https://aistudio.google.com/apps?hl=de) in Google AI Studio, um mit dem Vibe Coding zu beginnen. Sie haben mehrere Möglichkeiten, mit der Entwicklung zu beginnen:
+Starten Sie den [Build-Modus](https://ai.google.dev/gemini-api/docs/Build-Modus) in Google AI Studio, um mit dem Vibe Coding zu beginnen. Sie haben mehrere Möglichkeiten, mit der Entwicklung zu beginnen:
 
 - **Mit einem Prompt beginnen**: Geben Sie im Build-Modus im Eingabefeld eine
   Beschreibung dessen ein, was Sie erstellen möchten. Wählen Sie AI Chips aus, um Ihrem Prompt bestimmte Funktionen wie die Bildgenerierung oder Google Maps-Daten hinzuzufügen. Sie können auch die Schaltfläche für die Sprach-zu-Text-Funktion verwenden, um zu sagen, was Sie möchten.
 - **Schaltfläche „Auf gut Glück“**: Wenn Sie eine kreative Idee brauchen, verwenden Sie die Schaltfläche „Auf gut Glück“. Gemini generiert dann einen Prompt mit einer Projektidee, mit der Sie beginnen können.
 - **Projekt aus der Galerie remixen**: Öffnen Sie ein Projekt aus der [App
-  Galerie](https://aistudio.google.com/apps?source=showcase&hl=de) und wählen Sie **App kopieren** aus.
+  Galerie](https://ai.google.dev/gemini-api/docs/App  Galerie) und wählen Sie **App kopieren** aus.
 
 Nachdem Sie den Prompt ausgeführt haben, werden der erforderliche Code und die Dateien generiert. Rechts sehen Sie eine Live-Vorschau Ihrer App.
 
@@ -45,7 +45,7 @@ Sie können den generierten Code ansehen, indem Sie im rechten Vorschaufenster d
 ### Der Antigravity Agent
 
 Der **Antigravity Agent** ist die wichtigste KI-Funktion in [Google
-Antigravity](https://antigravity.google?hl=de). Die Kernkomponenten des
+Antigravity](https://ai.google.dev/gemini-api/docs/GoogleAntigravity). Die Kernkomponenten des
 Agent-Harness werden jetzt für den Build-Modus in Google AI Studio verwendet. Er geht über die einfache Code-Generierung hinaus, indem er den Kontext Ihres gesamten Projekts beibehält, mehrere Dateien verwaltet und komplexe Anweisungen versteht, um robuste Full-Stack-Anwendungen zu erstellen.
 
 Zu den wichtigsten Funktionen gehören:
@@ -66,7 +66,7 @@ Google AI Studio nutzt die Leistungsfähigkeit des modernen Web-Ökosystems, sod
 - **Firebase-Integration**: Firebase wird automatisch bereitgestellt und eingerichtet, einschließlich der Firestore-Datenbank (permanente Datenspeicherung) und der Firebase-Authentifizierung (Anmeldeabläufe, insbesondere „Über Google anmelden“).
   Der Agent übernimmt den gesamten Einrichtungsprozess und schreibt sogar den Code in Ihrer App für diese Dienste.
 
-[Weitere Informationen zum Entwickeln von Full-Stack-Anwendungen](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=de)
+[Weitere Informationen zum Entwickeln von Full-Stack-Anwendungen](https://ai.google.dev/gemini-api/docs/Weitere Informationen zum Entwickeln von Full-Stack-Anwendungen)
 
 ## Noch mehr erstellen
 
@@ -103,7 +103,7 @@ Google AI Studio bietet mehrere Funktionen, mit denen der Erstellungsprozess int
 Wenn Ihre Anwendung fertig ist, können Sie sie bereitstellen:
 
 - **Google Cloud Run**: Stellen Sie Ihre Anwendung als skalierbaren Dienst bereit.
-  Je nach Nutzung können Kosten für [Google Cloud Run](https://cloud.google.com/run?hl=de) anfallen.
+  Je nach Nutzung können Kosten für [Google Cloud Run](https://ai.google.dev/gemini-api/docs/Google Cloud Run) anfallen.
 - **GitHub**: Exportieren Sie Ihr Projekt in ein GitHub-Repository.
 
 ## Beschränkungen
@@ -154,7 +154,7 @@ Standardmäßig ist Ihre App privat. Sie können Ihre App für andere Nutzer fre
 
 ### Kann ich Apps außerhalb von AI Studio ausführen?
 
-Sie können Ihre App aus AI Studio in [Cloud Run](https://cloud.google.com/run?hl=de) bereitstellen. Dadurch erhält Ihre App eine öffentliche URL. Sie wird zusammen mit einem Proxyserver bereitgestellt, der Ihren API-Schlüssel privat hält. Die bereitgestellte App verwendet jedoch Ihren API-Schlüssel für alle Gemini API-Aufrufe der Nutzer. Sie können Ihre App auch als ZIP-Datei herunterladen. Wenn Sie den Platzhalterwert durch einen echten API-Schlüssel ersetzen, sollte die App weiterhin funktionieren. Sie *sollten* Ihre App jedoch nicht auf diese Weise bereitstellen, da der API-Schlüssel dann für alle Nutzer sichtbar ist. [Wenn eine App sicher außerhalb von AI Studio ausgeführt werden soll, muss ein Teil der Logik serverseitig verschoben werden, damit der API-Schlüssel nicht mehr offengelegt wird.](https://ai.google.dev/gemini-api/tutorials/web-app?lang=python&hl=de)
+Sie können Ihre App aus AI Studio in [Cloud Run](https://ai.google.dev/gemini-api/docs/Cloud Run) bereitstellen. Dadurch erhält Ihre App eine öffentliche URL. Sie wird zusammen mit einem Proxyserver bereitgestellt, der Ihren API-Schlüssel privat hält. Die bereitgestellte App verwendet jedoch Ihren API-Schlüssel für alle Gemini API-Aufrufe der Nutzer. Sie können Ihre App auch als ZIP-Datei herunterladen. Wenn Sie den Platzhalterwert durch einen echten API-Schlüssel ersetzen, sollte die App weiterhin funktionieren. Sie *sollten* Ihre App jedoch nicht auf diese Weise bereitstellen, da der API-Schlüssel dann für alle Nutzer sichtbar ist. [Wenn eine App sicher außerhalb von AI Studio ausgeführt werden soll, muss ein Teil der Logik serverseitig verschoben werden, damit der API-Schlüssel nicht mehr offengelegt wird.](https://ai.google.dev/gemini-api/docs/Wenn eine App sicher außerhalb von AI Studio ausgeführt werden soll, muss ein Teil der Logik serverseitig verschoben werden, damit der API-Schlüssel nicht mehr offengelegt wird.)
 
 ### Kann ich Apps lokal mit meinen eigenen Tools entwickeln und sie dann hier freigeben?
 
@@ -170,7 +170,7 @@ Wir arbeiten daran, in Zukunft direkte Unterstützung für Speicher hinzuzufüge
 
 Damit Nutzer wissen, dass eine App ihre Webcam oder andere
 Geräte verwendet, ist eine zusätzliche Bestätigung erforderlich, bevor die App auf diese
-[Navigator APIs](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) zugreifen kann.
+[Navigator APIs](https://ai.google.dev/gemini-api/docs/Navigator APIs) zugreifen kann.
 App-Entwickler können diese Berechtigungsanfragen der Datei `metadata.json` ihrer App hinzufügen. Beispiel:
 
 ```
@@ -190,7 +190,7 @@ App-Entwickler können diese Berechtigungsanfragen der Datei `metadata.json` ihr
 ```
 
 Die unterstützten Werte für `requestFramePermissions` sind eine Teilmenge der
-standardmäßigen [richtlinienbasierten Funktionen](https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md).
+standardmäßigen [richtlinienbasierten Funktionen](https://ai.google.dev/gemini-api/docs/richtlinienbasierten Funktionen).
 
 ### Wie kann ich GitHub mit meinen Apps verwenden?
 
@@ -220,28 +220,26 @@ Wenn Ihre App wegen eines Richtlinienverstoßes gemeldet wurde und Sie der Meinu
 Als Eigentümer Ihrer Anwendung sind Sie für ihr Verhalten und alle Daten verantwortlich, die sie verarbeitet. Dazu zählen:
 
 - **Einhaltung von Gesetzen und Rechten Dritter**:Ihre App muss allen anwendbaren Gesetzen und Vorschriften entsprechen und darf nicht gegen die Rechte anderer verstoßen, einschließlich geistiger Eigentumsrechte und des Rechts auf Privatsphäre.
-- **Inhaltsüberwachung:** Für andere Dienste, die von Ihrer App verwendet werden, gelten möglicherweise zusätzliche Bedingungen. Gemäß den [Google Cloud-Nutzungsbedingungen](https://cloud.google.com/terms?hl=de), die für Firestore gelten, müssen Kunden, die Inhalte von Dritten hosten, beispielsweise Richtlinien veröffentlichen, in denen verbotene Inhalte definiert sind (z.B. illegale Inhalte), und die Inhalte auf das Vorhandensein solcher illegalen Inhalte überwachen.
+- **Inhaltsüberwachung:** Für andere Dienste, die von Ihrer App verwendet werden, gelten möglicherweise zusätzliche Bedingungen. Gemäß den [Google Cloud-Nutzungsbedingungen](https://ai.google.dev/gemini-api/docs/Google Cloud-Nutzungsbedingungen), die für Firestore gelten, müssen Kunden, die Inhalte von Dritten hosten, beispielsweise Richtlinien veröffentlichen, in denen verbotene Inhalte definiert sind (z.B. illegale Inhalte), und die Inhalte auf das Vorhandensein solcher illegalen Inhalte überwachen.
 - **Sichere Implementierung**:Sie müssen die erforderlichen Sicherheitsmaßnahmen und Moderationstools implementieren, um den Missbrauch Ihrer Anwendung zu verhindern.
 
-Beachten Sie die [Nutzungsbeschränkungen](https://ai.google.dev/gemini-api/terms?hl=de#use-restrictions)
+Beachten Sie die [Nutzungsbeschränkungen](https://ai.google.dev/gemini-api/docs/Nutzungsbeschränkungen)
 in den Nutzungsbedingungen.
 
 ### Welche Bedingungen gelten für Apps in der App-Galerie in AI Studio?
 
-Für die Nutzung von Apps in der App-Galerie in AI Studio gelten die [Zusatzbedingungen für die Gemini API](https://ai.google.dev/gemini-api/terms?hl=de), sofern nichts
+Für die Nutzung von Apps in der App-Galerie in AI Studio gelten die [Zusatzbedingungen für die Gemini API](https://ai.google.dev/gemini-api/docs/Zusatzbedingungen für die Gemini API), sofern nichts
 anderes angegeben ist.
 
 ## Nächste Schritte
 
-- [Full-Stack-Anwendungen entwickeln](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=de)
-- Beispiele in der [App-Galerie](https://aistudio.google.com/apps?source=showcase&hl=de) ansehen
+- [Full-Stack-Anwendungen entwickeln](https://ai.google.dev/gemini-api/docs/Full-Stack-Anwendungen entwickeln)
+- Beispiele in der [App-Galerie](https://ai.google.dev/gemini-api/docs/App-Galerie) ansehen
 
 Feedback geben
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 License) und Codebeispiele unter der [Apache 2.0 License](https://ai.google.dev/gemini-api/docs/Apache 2.0 License) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://ai.google.dev/gemini-api/docs/Websiterichtlinien von Google Developers). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
 Zuletzt aktualisiert: 2026-04-29 (UTC).
 
 Haben Sie Feedback für uns?
-
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

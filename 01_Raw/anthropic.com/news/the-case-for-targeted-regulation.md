@@ -10,9 +10,7 @@ Policy
 
 Oct 31, 2024
 
-![A building with columns](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6b04f486cfe0b8a62e4632f3186f23afcd22a890-2880x1621.png&w=3840&q=75)
-
-Increasingly powerful AI systems have the potential to [accelerate scientific progress](https://darioamodei.com/machines-of-loving-grace), unlock new medical treatments, and grow the economy. But along with the remarkable new capabilities of these AIs come significant risks. **Governments should urgently take action on AI policy in the next eighteen months. The window for proactive risk prevention is closing fast.**
+Increasingly powerful AI systems have the potential to [accelerate scientific progress](https://www.anthropic.com/news/accelerate scientific progress), unlock new medical treatments, and grow the economy. But along with the remarkable new capabilities of these AIs come significant risks. **Governments should urgently take action on AI policy in the next eighteen months. The window for proactive risk prevention is closing fast.**
 
 Judicious, narrowly-targeted regulation can allow us to get the best of both worlds: realizing the benefits of AI while mitigating the risks. Dragging our feet might lead to the worst of both worlds: poorly-designed, knee-jerk regulation that hampers progress while also failing to be effective at preventing risks.
 
@@ -22,13 +20,13 @@ In this post, we suggest some principles for how governments can meaningfully re
 
 In the last year, AI systems have grown dramatically better at math, graduate-level reasoning, and computer coding, along with many other capabilities. Inside AI companies, we see continued progress on as-yet undisclosed systems and results. These advances offer many positive applications. But progress in these same broad capabilities also brings with it the potential for destructive applications, either from the misuse of AI in domains such as cybersecurity or biology, or from the accidental or autonomous behavior of the AI system itself.
 
-In the realm of cyber capabilities, models have rapidly advanced on a broad range of coding tasks and cyber offense evaluations. On the SWE-bench software engineering task, models have improved from being able to solve 1.96% of a test set of real-world coding problems ([Claude 2, October 2023](https://arxiv.org/abs/2310.06770)) to 13.5% ([Devin, March 2024](https://www.cognition.ai/blog/swe-bench-technical-report)) to 49% ([Claude 3.5 Sonnet, October 2024](https://www.anthropic.com/news/3-5-models-and-computer-use)). Internally, our Frontier Red Team has found that current models can already assist on a broad range of cyber offense-related tasks, and we expect that the next generation of models—which will be able to plan over long, multi-step tasks—will be even more effective.
+In the realm of cyber capabilities, models have rapidly advanced on a broad range of coding tasks and cyber offense evaluations. On the SWE-bench software engineering task, models have improved from being able to solve 1.96% of a test set of real-world coding problems ([Claude 2, October 2023](https://www.anthropic.com/news/Claude 2, October 2023)) to 13.5% ([Devin, March 2024](https://www.anthropic.com/news/Devin, March 2024)) to 49% ([Claude 3.5 Sonnet, October 2024](https://www.anthropic.com/news/Claude 3.5 Sonnet, October 2024)). Internally, our Frontier Red Team has found that current models can already assist on a broad range of cyber offense-related tasks, and we expect that the next generation of models—which will be able to plan over long, multi-step tasks—will be even more effective.
 
-On the potential for AI exacerbating CBRN (chemical, biological, radiological, and nuclear) misuses, the UK AI Safety Institute tested a range of models from industry actors (including Anthropic) and [concluded](https://www.aisi.gov.uk/work/advanced-ai-evaluations-may-update) that:
+On the potential for AI exacerbating CBRN (chemical, biological, radiological, and nuclear) misuses, the UK AI Safety Institute tested a range of models from industry actors (including Anthropic) and [concluded](https://www.anthropic.com/news/concluded) that:
 
 > ...models can be used to obtain expert-level knowledge about biology and chemistry. For several models, replies to science questions were on par with those given by PhD-level experts.
 
-AI systems have progressed dramatically in their understanding of the sciences in the last year. The widely used benchmark GPQA saw scores on its hardest section [grow from 38.8%](https://arxiv.org/abs/2311.12022) when it was released in November 2023, to 59.4% in June 2024 ([Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet)), to 77.3% in September ([OpenAI o1](https://openai.com/index/learning-to-reason-with-llms/); human experts score 81.2%). Our Frontier Red Team has also found continued progress in CBRN capabilities. For now, the uplift of having access to a frontier model relative to existing software and internet tools is still relatively small, however it is growing rapidly. As models advance in capabilities, the potential for misuse is likely to continue on a similar scaling trend.
+AI systems have progressed dramatically in their understanding of the sciences in the last year. The widely used benchmark GPQA saw scores on its hardest section [grow from 38.8%](https://www.anthropic.com/news/grow from 38.8%) when it was released in November 2023, to 59.4% in June 2024 ([Claude 3.5 Sonnet](https://www.anthropic.com/news/Claude 3.5 Sonnet)), to 77.3% in September ([OpenAI o1](https://www.anthropic.com/news/OpenAI o1); human experts score 81.2%). Our Frontier Red Team has also found continued progress in CBRN capabilities. For now, the uplift of having access to a frontier model relative to existing software and internet tools is still relatively small, however it is growing rapidly. As models advance in capabilities, the potential for misuse is likely to continue on a similar scaling trend.
 
 About a year ago, we warned that frontier models might pose real risks in the cyber and CBRN domains within 2-3 years. Based on the progress described above, we believe we are now substantially closer to such risks. Surgical, careful regulation will soon be needed.
 
@@ -36,11 +34,11 @@ About a year ago, we warned that frontier models might pose real risks in the cy
 
 Grappling with the catastrophic risks of AI systems is rife with uncertainty. We see the initial glimmers of risks that could become serious in the near future, but we don’t know exactly when the real dangers will arrive. We want to make the critical preparations well in advance.
 
-At Anthropic, we try to deal with this challenge via our [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy) (RSP): an adaptive framework for identifying, evaluating, and mitigating catastrophic risks. The first principle of the RSP is that it is *proportionate*: the strength of our safety and security measures increase in proportion with defined “capability thresholds” that the AI systems meet. The “if-then” structure requires safety and security measures to be applied, but only whenmodels become capable enough to warrant them.
+At Anthropic, we try to deal with this challenge via our [Responsible Scaling Policy](https://www.anthropic.com/news/Responsible Scaling Policy) (RSP): an adaptive framework for identifying, evaluating, and mitigating catastrophic risks. The first principle of the RSP is that it is *proportionate*: the strength of our safety and security measures increase in proportion with defined “capability thresholds” that the AI systems meet. The “if-then” structure requires safety and security measures to be applied, but only whenmodels become capable enough to warrant them.
 
 The second key idea is that the RSP should be *iterative*: we regularly measure the capabilities of our models and rethink our security and safety approaches in light of how things have developed.
 
-Anthropic has had a formal RSP in place since [September 2023](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) (and recently released an [updated version](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)), and other frontier model labs have, to varying degrees, adopted similar plans.
+Anthropic has had a formal RSP in place since [September 2023](https://www.anthropic.com/news/September 2023) (and recently released an [updated version](https://www.anthropic.com/news/updated version)), and other frontier model labs have, to varying degrees, adopted similar plans.
 
 RSPs serve many useful purposes:
 
@@ -86,7 +84,7 @@ A: “Regulation by use case” doesn’t make sense for the form and format in 
 
 *Q: This post talks a lot about CBRN misuses and cyber risks. Why not other, nearer-term risks, like deepfakes and child safety?*
 
-This post is not an attempt to address every possible safety problem posed by generative AI systems. Instead, it aims to lay out principles for grappling with *some* types of risks which aren’t well-addressed by regulation today and which show up in computationally-intensive frontier models. We continue to address near term risks through things like our [election integrity](https://www.anthropic.com/news/us-elections-readiness) work and partnering with organizations like Thorn, on their “[Safety by Design for Generative AI](https://www.thorn.org/blog/safety-by-design-for-generative-ai-3-month-progress-report/#:~:text=In%20collaboration%20with%20Thorn%20and,CSAM)%20and%20other%20sexual%20harms)” initiative on child safety.
+This post is not an attempt to address every possible safety problem posed by generative AI systems. Instead, it aims to lay out principles for grappling with *some* types of risks which aren’t well-addressed by regulation today and which show up in computationally-intensive frontier models. We continue to address near term risks through things like our [election integrity](https://www.anthropic.com/news/election integrity) work and partnering with organizations like Thorn, on their “[Safety by Design for Generative AI](https://www.anthropic.com/news/Safety by Design for Generative AI)%20and%20other%20sexual%20harms)” initiative on child safety.
 
 *Q: Won’t regulation slow down innovation, and reduce our ability to compete with geopolitical adversaries?*
 
@@ -100,12 +98,12 @@ A: Our view is that regulation of frontier models should focus on empirically me
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

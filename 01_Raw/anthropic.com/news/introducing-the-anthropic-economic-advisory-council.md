@@ -10,13 +10,11 @@ AnnouncementsSocietal Impacts
 
 Apr 28, 2025
 
-![A stock chart moving up and to the right](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png&w=3840&q=75)
-
-Today, we’re announcing the formation of the Anthropic Economic Advisory Council, a group of distinguished economists who will provide Anthropic with expert guidance on the economic implications of AI development and deployment. The Council will advise Anthropic on AI's impact on labor markets, economic growth, and broader socioeconomic systems. This work will inform the research agenda for the [Anthropic Economic Index](https://www.anthropic.com/economic-index), an initiative that aims to understand AI’s impact on the labor market and global economy over time.
+Today, we’re announcing the formation of the Anthropic Economic Advisory Council, a group of distinguished economists who will provide Anthropic with expert guidance on the economic implications of AI development and deployment. The Council will advise Anthropic on AI's impact on labor markets, economic growth, and broader socioeconomic systems. This work will inform the research agenda for the [Anthropic Economic Index](https://www.anthropic.com/news/Anthropic Economic Index), an initiative that aims to understand AI’s impact on the labor market and global economy over time.
 
 As AI capabilities continue to advance, it has never been more critical to understand the opportunities and challenges this evolution presents to jobs and how we work. The Council will provide important input on areas where we can expand our research for the Economic Index. The Council members’ deep domain expertise will help guide our research on the changes AI will bring to the global economy. We hope this research will be a resource for policymakers, researchers, and business leaders worldwide as they weigh how to prepare for AI’s economic impact.
 
-As we shared in our latest [Economic Index report](https://www.anthropic.com/research/impact-software-development) today, AI is already shifting how people approach tasks in their day-to-day work.
+As we shared in our latest [Economic Index report](https://www.anthropic.com/news/Economic Index report) today, AI is already shifting how people approach tasks in their day-to-day work.
 
 ## The Economic Advisory Council members
 
@@ -42,12 +40,12 @@ We’re proud to share the addition of two new members to the Anthropic Economic
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

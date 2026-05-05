@@ -32,7 +32,7 @@ Significant Trainium2 capacity is coming online in Q2 and scaled Trainium3 capac
 
 Enterprise and developer demand for Claude has accelerated in 2026, and alongside it we have experienced a sharp rise in consumer usage across our free, Pro, and Max tiers. Our run-rate revenue has now surpassed $30 billion, up from approximately $9 billion at the end of 2025. Growth at this pace places an inevitable strain on our infrastructure; our unprecedented consumer growth, in particular, has impacted reliability and performance for free, Pro, Max, and Team users, especially during peak hours.
 
-Today’s agreement will quickly expand our available capacity, delivering meaningful compute in the next three months and nearly 1GW in total before the end of the year. Combined with [additional capacity expansions](https://www.anthropic.com/news/google-broadcom-partnership-compute) and our diversified hardware strategy, with workloads spread across a range of chips, we are building the infrastructure needed to keep Claude at the frontier and reliably serve our growing customer base.
+Today’s agreement will quickly expand our available capacity, delivering meaningful compute in the next three months and nearly 1GW in total before the end of the year. Combined with [additional capacity expansions](https://www.anthropic.com/news/additional capacity expansions) and our diversified hardware strategy, with workloads spread across a range of chips, we are building the infrastructure needed to keep Claude at the frontier and reliably serve our growing customer base.
 
 To learn more about Anthropic on AWS, visit: <https://aws.amazon.com/bedrock/anthropic/>.
 
@@ -42,12 +42,12 @@ To learn more about Anthropic on AWS, visit: <https://aws.amazon.com/bedrock/ant
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

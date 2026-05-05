@@ -12,9 +12,9 @@ Apr 17, 2026
 
 ![Introducing Claude Design by Anthropic Labs](https://www-cdn.anthropic.com/images/4zrzovbb/website/33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
 
-Today, we’re launching Claude Design, a new [Anthropic Labs](https://www.anthropic.com/news/introducing-anthropic-labs) product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.
+Today, we’re launching Claude Design, a new [Anthropic Labs](https://www.anthropic.com/news/Anthropic Labs) product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.
 
-Claude Design is powered by our most capable vision model, [Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7), and is available in research preview for Claude Pro, Max, Team, and Enterprise subscribers. We’re rolling out to users gradually throughout the day.
+Claude Design is powered by our most capable vision model, [Claude Opus 4.7](https://www.anthropic.com/news/Claude Opus 4.7), and is available in research preview for Claude Pro, Max, Team, and Enterprise subscribers. We’re rolling out to users gradually throughout the day.
 
 ## Design with Claude
 
@@ -41,8 +41,6 @@ Claude Design follows a natural creative flow.
 
 **Refine with fine-grained controls.** Comment inline on specific elements, edit text directly, or use adjustment knobs to tweak spacing, color, and layout live. Then ask Claude to apply your changes across the full design.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F499e91975d880b35eac6e48ad43161de7d10416c-2876x1614.jpg&w=3840&q=75)
-
 **Collaborate.** Designs have organization-scoped sharing. You can keep a document private, share it so anyone in your organization with the link can view it, or grant edit access so colleagues can modify the design and chat with Claude together in a group conversation.
 
 **Export anywhere.** Share designs as an internal URL within your organization, save as a folder, or export to Canva, PDF, PPTX, or standalone HTML files.
@@ -67,22 +65,22 @@ Over the coming weeks, we'll make it easier to build integrations with Claude De
 
 ## Get started
 
-Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers. Access is included with your plan and uses your subscription limits, with the option to continue beyond those limits by enabling [extra usage](https://support.claude.com/en/articles/12429409-manage-extra-usage-for-paid-claude-plans).
+Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers. Access is included with your plan and uses your subscription limits, with the option to continue beyond those limits by enabling [extra usage](https://www.anthropic.com/news/extra usage).
 
-For Enterprise organizations, Claude Design is off by default. Admins can enable it in [Organization settings](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans).
+For Enterprise organizations, Claude Design is off by default. Admins can enable it in [Organization settings](https://www.anthropic.com/news/Organization settings).
 
-Start designing at [claude.ai/design](http://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d/design).
+Start designing at [claude.ai/design](https://www.anthropic.com/news/claude.ai/design).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

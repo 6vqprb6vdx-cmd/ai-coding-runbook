@@ -26,7 +26,6 @@ from mcp.types import AnyUrl
 from mcp.client.session import ClientSession
 from mcp.client.stdio import StdioServerParameters, stdio_client
 
-
 async def main():
     async with stdio_client(
         StdioServerParameters(command="uv", args=["run", "mcp-simple-resource"])
@@ -41,7 +40,6 @@ async def main():
             # Get a specific resource
             resource = await session.read_resource(AnyUrl("file:///greeting.txt"))
             print(resource)
-
 
 asyncio.run(main())
 

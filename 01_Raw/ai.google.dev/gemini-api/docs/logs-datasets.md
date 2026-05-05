@@ -4,27 +4,27 @@ fetched_at: 2026-05-05T13:20:58.094593+00:00
 title: "Log dan set data \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Beranda](https://ai.google.dev/gemini-api/docs/Beranda)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/Dokumen)
 
 Kirim masukan
 
 # Log dan set data
 
 Panduan ini berisi semua yang Anda perlukan untuk mulai mengaktifkan logging untuk aplikasi Gemini API yang ada. Dalam panduan ini, Anda akan mempelajari cara melihat log dari aplikasi yang ada atau baru di dasbor Google AI Studio untuk lebih memahami perilaku model dan cara pengguna berinteraksi dengan aplikasi Anda. Gunakan logging untuk mengamati, men-debug, dan *secara opsional membagikan masukan penggunaan
-kepada Google untuk membantu meningkatkan kualitas Gemini di berbagai kasus penggunaan developer*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id)
+kepada Google untuk membantu meningkatkan kualitas Gemini di berbagai kasus penggunaan developer*.[\*](https://ai.google.dev/gemini-api/docs/\*)
 
 Semua panggilan API `GenerateContent` dan `StreamGenerateContent` didukung,
-termasuk panggilan yang dilakukan melalui endpoint [kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id).
+termasuk panggilan yang dilakukan melalui endpoint [kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/kompatibilitas OpenAI).
 
 ## 1. Mengaktifkan logging di Google AI Studio
 
 Sebelum memulai, pastikan Anda memiliki project yang mengaktifkan penagihan dan Anda adalah pemiliknya.
 
-1. Buka halaman log di Google [AI Studio](https://aistudio.google.com/logs?hl=id).
+1. Buka halaman log di Google [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio).
 2. Pilih project Anda dari menu drop-down dan tekan tombol aktifkan untuk mengaktifkan logging untuk semua permintaan secara default.
 
 ![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=id)
@@ -33,7 +33,7 @@ Anda dapat mengaktifkan atau menonaktifkan logging untuk semua project atau untu
 
 ## 2. Melihat log di AI Studio
 
-1. Buka [AI Studio](https://aistudio.google.com/logs?hl=id).
+1. Buka [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio).
 2. Pilih project yang telah Anda aktifkan logging-nya.
 3. Anda akan melihat log muncul di tabel dalam urutan kronologis terbalik.
 
@@ -64,10 +64,10 @@ Anda dapat membantu mendorong kemajuan dalam riset AI, Gemini API, dan Google AI
 
 Setelah mengaktifkan logging, berikut beberapa hal yang dapat Anda coba:
 
-- **Membuat prototipe dengan histori sesi:** Manfaatkan [Build AI Studio](https://aistudio.google.com/apps?hl=id) untuk membuat prototipe aplikasi kode dan menambahkan kunci API Anda untuk mengaktifkan histori log pengguna.
+- **Membuat prototipe dengan histori sesi:** Manfaatkan [Build AI Studio](https://ai.google.dev/gemini-api/docs/Build AI Studio) untuk membuat prototipe aplikasi kode dan menambahkan kunci API Anda untuk mengaktifkan histori log pengguna.
 - **Menjalankan kembali log dengan Gemini Batch API:** Gunakan set data untuk pengambilan sampel respons
   dan evaluasi model atau logika aplikasi dengan menjalankan kembali log melalui
-  [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+  [Gemini Batch API](https://ai.google.dev/gemini-api/docs/Gemini Batch API).
 
 ## Kompatibilitas
 
@@ -79,10 +79,8 @@ Logging saat ini tidak didukung untuk hal berikut:
 
 Kirim masukan
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
 Terakhir diperbarui pada 2026-04-29 UTC.
 
 Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

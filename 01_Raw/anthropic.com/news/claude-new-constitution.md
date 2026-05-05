@@ -10,7 +10,7 @@ Announcements
 
 Jan 22, 2026
 
-[Read the constitution](http://anthropic.com/constitution)
+[Read the constitution](https://www.anthropic.com/news/Read the constitution)
 
 ![Claude's new constitution](https://www-cdn.anthropic.com/images/4zrzovbb/website/e69f9d8245799a0c2688d72e997f708475233d6b-1000x1000.svg)
 
@@ -20,7 +20,7 @@ The constitution is a crucial part of our model training process, and its conten
 
 In this post, we describe what we’ve included in the new constitution and some of the considerations that informed our approach.
 
-*We’re releasing Claude’s constitution in full under a [Creative Commons CC0 1.0 Deed](https://creativecommons.org/publicdomain/zero/1.0/), meaning it can be freely used by anyone for any purpose without asking for permission.*
+*We’re releasing Claude’s constitution in full under a [Creative Commons CC0 1.0 Deed](https://www.anthropic.com/news/Creative Commons CC0 1.0 Deed), meaning it can be freely used by anyone for any purpose without asking for permission.*
 
 ## What is Claude’s Constitution?
 
@@ -28,13 +28,13 @@ Claude’s constitution is the foundational document that both expresses and sha
 
 We treat the constitution as the final authority on how we want Claude to be and to behave—that is, any other training or instruction given to Claude should be consistent with both its letter and its underlying spirit. This makes publishing the constitution particularly important from a transparency perspective: it lets people understand which of Claude’s behaviors are intended versus unintended, to make informed choices, and to provide useful feedback. We think transparency of this kind will become ever more important as AIs start to exert more influence in society1.
 
-We use the constitution at various stages of the training process. This has grown out of training techniques we’ve been using since 2023, when we first began training Claude models using [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback). Our approach has evolved significantly since then, and the new constitution plays an even more central role in training.
+We use the constitution at various stages of the training process. This has grown out of training techniques we’ve been using since 2023, when we first began training Claude models using [Constitutional AI](https://www.anthropic.com/news/Constitutional AI). Our approach has evolved significantly since then, and the new constitution plays an even more central role in training.
 
 Claude itself also uses the constitution to construct many kinds of synthetic training data, including data that helps it learn and understand the constitution, conversations where the constitution might be relevant, responses that are in line with its values, and rankings of possible responses. All of these can be used to train future versions of Claude to become the kind of entity the constitution describes. This practical function has shaped how we’ve written the constitution: it needs to work both as a statement of abstract ideals *and* a useful artifact for training.
 
 ## Our new approach to Claude’s Constitution
 
-Our previous [Constitution](https://www.anthropic.com/news/claudes-constitution) was composed of a list of standalone principles. We’ve come to believe that a different approach is necessary. We think that in order to be good actors in the world, AI models like Claude need to understand *why* we want them to behave in certain ways, and we need to explain this to them rather than merely specify *what* we want them to do. If we want models to exercise good judgment across a wide range of novel situations, they need to be able to generalize—to apply broad principles rather than mechanically following specific rules.
+Our previous [Constitution](https://www.anthropic.com/news/Constitution) was composed of a list of standalone principles. We’ve come to believe that a different approach is necessary. We think that in order to be good actors in the world, AI models like Claude need to understand *why* we want them to behave in certain ways, and we need to explain this to them rather than merely specify *what* we want them to do. If we want models to exercise good judgment across a wide range of novel situations, they need to be able to generalize—to apply broad principles rather than mechanically following specific rules.
 
 Specific rules and bright lines sometimes have their advantages. They can make models’ actions more predictable, transparent, and testable, and we do use them for some especially high-stakes behaviors in which Claude should never engage (we call these “hard constraints”). But such rules can also be applied poorly in unanticipated situations or when followed too rigidly2. We don’t intend for the constitution to be a rigid legal document—and legal constitutions aren’t necessarily like this anyway.
 
@@ -69,29 +69,29 @@ While writing the constitution, we sought feedback from various external experts
 
 This constitution is written for our mainline, general-access Claude models. We have some models built for specialized uses that don’t fully fit this constitution; as we continue to develop products for specialized use cases, we will continue to evaluate how to best ensure our models meet the core objectives outlined in this constitution.
 
-Although the constitution expresses our vision for Claude, training models towards that vision is an ongoing technical challenge. We will continue to be open about any ways in which model behavior comes apart from our vision, such as in [our system cards](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf). Readers of the constitution should keep this gap between intention and reality in mind.
+Although the constitution expresses our vision for Claude, training models towards that vision is an ongoing technical challenge. We will continue to be open about any ways in which model behavior comes apart from our vision, such as in [our system cards](https://www.anthropic.com/news/our system cards). Readers of the constitution should keep this gap between intention and reality in mind.
 
-Even if we succeed with our current training methods at creating models that fit our vision, we might fail later as models become more capable. For this and other reasons, alongside the constitution, we [continue to pursue](https://www.anthropic.com/research) a broad portfolio of methods and tools to help us assess and improve the alignment of our models: new and more rigorous evaluations, safeguards to prevent misuse, detailed investigations of actual and potential alignment failures, and interpretability tools that help us understand at a deeper level how the models work.
+Even if we succeed with our current training methods at creating models that fit our vision, we might fail later as models become more capable. For this and other reasons, alongside the constitution, we [continue to pursue](https://www.anthropic.com/news/continue to pursue) a broad portfolio of methods and tools to help us assess and improve the alignment of our models: new and more rigorous evaluations, safeguards to prevent misuse, detailed investigations of actual and potential alignment failures, and interpretability tools that help us understand at a deeper level how the models work.
 
 At some point in the future, and perhaps soon, documents like Claude’s constitution might matter a lot—much more than they do now. Powerful AI models will be a new kind of force in the world, and those who are creating them have a chance to help them embody the best in humanity. We hope this new constitution is a step in that direction.
 
-Read [**the full constitution**](http://anthropic.com/constitution).
+Read [**the full constitution**](https://www.anthropic.com/news/**the full constitution**).
 
 #### Footnotes
 
-1. We have previously published an [earlier version](https://www.anthropic.com/news/claudes-constitution) of our constitution, and OpenAI has published their [model spec](https://model-spec.openai.com/2025-10-27.html) which has a similar function.
+1. We have previously published an [earlier version](https://www.anthropic.com/news/earlier version) of our constitution, and OpenAI has published their [model spec](https://www.anthropic.com/news/model spec) which has a similar function.
 2. Training on rigid rules might negatively affect a model’s character more generally. For example, imagine we trained Claude to follow a rule like “Always recommend professional help when discussing emotional topics.” This might be well-intentioned, but it could have unintended consequences: Claude might start modeling itself as an entity that cares more about bureaucratic box-ticking—always ensuring that a specific recommendation is made—rather than actually helping people.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

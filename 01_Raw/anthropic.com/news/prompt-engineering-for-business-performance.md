@@ -10,8 +10,6 @@ Product
 
 Feb 29, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F519f63e0ea393f33e56c2e812713d65dcf27a79a-2880x1620.png&w=3840&q=75)
-
 ## Executive summary
 
 - Prompt engineering is an important tool for any business seeking to optimize Claude. Good prompts improve Claude’s outputs, reduce deployment costs, and ensure customer-facing experiences are on-brand.
@@ -27,7 +25,7 @@ To gain the most value from Claude, you can apply a variety of techniques to cre
 
 ### Here are some of the benefits of effective prompts:
 
-- **Accuracy:** While we have made strides in [reducing Claude’s hallucination rates](https://www.anthropic.com/news/claude-2-1), effective prompting helps further reduce the risk of inaccurate outputs
+- **Accuracy:** While we have made strides in [reducing Claude’s hallucination rates](https://www.anthropic.com/news/reducing Claude’s hallucination rates), effective prompting helps further reduce the risk of inaccurate outputs
 - **Consistency:** Providing a cohesive experience for end-users is crucial, and well thought out prompts ensure that Claude will produce consistent results in terms of quality, formatting, relevance, and tone
 - **Usefulness:** Prompt engineering helps customers deliver targeted experiences for their desired audiences and industries. With careful prompting, you can cater to very specific personas and their needs
 - **Cost savings:** Running inefficient inputs and outputs at scale can become costly. Optimizing your prompts helps minimize unnecessary back-and-forth, and saves money
@@ -40,7 +38,7 @@ Before we dive in, remember that no matter which techniques you choose, always s
 
 ### 1. Step by step
 
-It might sound overly simple, but often Claude will respond more accurately if you simply tell it to [think step by step](https://docs.anthropic.com/claude/docs/ask-claude-to-think-step-by-step) after you give it an instruction.
+It might sound overly simple, but often Claude will respond more accurately if you simply tell it to [think step by step](https://www.anthropic.com/news/think step by step) after you give it an instruction.
 
 For example, if you wanted Claude to solve a logic puzzle, you could say:
 
@@ -50,7 +48,7 @@ For example, if you wanted Claude to solve a logic puzzle, you could say:
 
 It’s helpful to give Claude realistic and specific examples of the inputs and ideal outputs you’re hoping to see. It’s useful to include challenging examples and edge cases to help Claude understand exactly what you’re looking for.
 
-For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.4214c478-4166-4ab1-b495-b22b1f7f8acf) may look something like this:
+For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://www.anthropic.com/news/claude.ai) may look something like this:
 
 *You are an expert redactor. I am going to provide you with some text. Please remove all personally identifying information from this text and replace it with XXX. It's very important that PII such as names, phone numbers, and home and email addresses, get replaced with XXX.*
 
@@ -97,7 +95,7 @@ A Fortune 500 company wanted to build an AI-powered chat assistant that could re
 
 The company tried some other solutions in the market, but were unhappy with their wordiness, stilted tone, and overall lack of cohesion. They also wanted to see if they could achieve lower latency — i.e., provide faster responses — without affecting accuracy.
 
-They turned to [Claude Instant](https://www.anthropic.com/news/releasing-claude-instant-1-2) to power a friendly, concise chatbot that could answer customers’ questions quickly and accurately.
+They turned to [Claude Instant](https://www.anthropic.com/news/Claude Instant) to power a friendly, concise chatbot that could answer customers’ questions quickly and accurately.
 
 The company’s first efforts to deploy Claude fell short of their goal for accuracy. To remedy this, we sent in an Anthropic prompt engineer to partner with the company’s subject matter experts on improving Claude’s responses.
 
@@ -146,18 +144,18 @@ There’s no single best technique for prompt engineering. Every LLM is differen
 
 If you’re deploying an AI-powered solution within your business, prompt engineering is essential — and it should be a collaborative effort between prompt engineers and subject matter experts.
 
-To get started on optimizing Claude for your use case, read our [prompt engineering guide](https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources) or [contact our sales team](https://www.anthropic.com/earlyaccess).
+To get started on optimizing Claude for your use case, read our [prompt engineering guide](https://www.anthropic.com/news/prompt engineering guide) or [contact our sales team](https://www.anthropic.com/news/contact our sales team).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

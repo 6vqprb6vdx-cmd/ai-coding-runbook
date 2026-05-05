@@ -10,8 +10,6 @@ Announcements
 
 Feb 6, 2025
 
-![Lyft + Anthropic logo lockup](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb735b997d44def324027a9790429b021b0949496-2880x1620.png&w=3840&q=75)
-
 Lyft is working with Anthropic to introduce customer-first, AI-powered Lyft products. This is to enhance the rideshare experience for its community of more than 40 million annual riders and over 1 million drivers. The work includes early research testing of new models and technology, alongside initiatives to advance Lyft's engineering capabilities.
 
 The impact is already evident. Lyft's customer care AI assistant, powered by Claude via Amazon Bedrock, has reduced customer service resolution time by 87%, handling thousands of daily customer inquiries while seamlessly transitioning complex cases to human specialists when needed.
@@ -40,12 +38,12 @@ For the millions of people who rely on Lyft every day, this collaboration aims t
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

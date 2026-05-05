@@ -10,18 +10,16 @@ Announcements
 
 May 22, 2025
 
-![Illustration of Claude juggling several tasks in parallel](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9890d1bb39c15c41772af22d2282eb612469051c-2880x1620.jpg&w=3840&q=75)
-
 Today, we’re introducing the next generation of Claude models: **Claude Opus 4** and **Claude Sonnet 4**, setting new standards for coding, advanced reasoning, and AI agents.
 
 Claude Opus 4 is the world’s best coding model, with sustained performance on complex, long-running tasks and agent workflows. Claude Sonnet 4 is a significant upgrade to Claude Sonnet 3.7, delivering superior coding and reasoning while responding more precisely to your instructions.
 
 Alongside the models, we're also announcing:
 
-- **Extended thinking with tool use (beta)**: Both models can use tools—like [web search](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/web-search-tool)—during extended thinking, allowing Claude to alternate between reasoning and tool use to improve responses.
+- **Extended thinking with tool use (beta)**: Both models can use tools—like [web search](https://www.anthropic.com/news/web search)—during extended thinking, allowing Claude to alternate between reasoning and tool use to improve responses.
 - **New model capabilities**: Both models can use tools in parallel, follow instructions more precisely, and—when given access to local files by developers—demonstrate significantly improved memory capabilities, extracting and saving key facts to maintain continuity and build tacit knowledge over time.
 - **Claude Code is now generally available**: After receiving extensive positive feedback during our research preview, we’re expanding how developers can collaborate with Claude. Claude Code now supports background tasks via GitHub Actions and native integrations with VS Code and JetBrains, displaying edits directly in your files for seamless pair programming.
-- **New API capabilities:** We’re releasing [four new capabilities](https://www.anthropic.com/news/agent-capabilities-api) on our API that enable developers to build more powerful AI agents: the code execution tool, MCP connector, Files API, and the ability to cache prompts for up to one hour.
+- **New API capabilities:** We’re releasing [four new capabilities](https://www.anthropic.com/news/four new capabilities) on our API that enable developers to build more powerful AI agents: the code execution tool, MCP connector, Files API, and the ability to cache prompts for up to one hour.
 
 Claude Opus 4 and Sonnet 4 are hybrid models offering two modes: near-instant responses and extended thinking for deeper reasoning. The Pro, Max, Team, and Enterprise Claude plans include both models and extended thinking, with Sonnet 4 also available to free users. Both models are available on our API, Amazon Bedrock, and Google Cloud's Vertex AI. Pricing remains consistent with previous Opus and Sonnet models: Opus 4 at $15/$75 per million tokens (input/output) and Sonnet 4 at $3/$15.
 
@@ -37,8 +35,6 @@ Claude Sonnet 4 significantly improves on Sonnet 3.7's industry-leading capabili
 
 These models advance our customers' AI strategies across the board: Opus 4 pushes boundaries in coding, research, writing, and scientific discovery, while Sonnet 4 brings frontier performance to everyday use cases as an instant upgrade from Sonnet 3.7.
 
-![Bar chart comparison between Claude and other LLMs on software engineering tasks](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F09a6d5aa47c25cb2037efff9f486da4918f77708-3840x2304.png&w=3840&q=75)
-
 Claude 4 models lead on SWE-bench Verified, a benchmark for performance on real software engineering tasks. See appendix for more on methodology.
 
 ## Model improvements
@@ -47,11 +43,9 @@ In addition to extended thinking with tool use, parallel tool execution, and mem
 
 Claude Opus 4 also dramatically outperforms all previous models on memory capabilities. When developers build applications that provide Claude local file access, Opus 4 becomes skilled at creating and maintaining 'memory files' to store key information. This unlocks better long-term task awareness, coherence, and performance on agent tasks—like Opus 4 creating a 'Navigation Guide' while playing Pokémon.
 
-![A visual note in Claude's memories that depicts a navigation guide for the game Pokemon Red.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe51564bb5ce9597dbfc59bbab13a0efbe25a7d66-1920x1080.gif&w=3840&q=75)
-
 Memory: When given access to local files, Claude Opus 4 records key information to help improve its game play. The notes depicted above are real notes taken by Opus 4 while playing Pokémon.
 
-Finally, we've introduced thinking summaries for Claude 4 models that use a smaller model to condense lengthy thought processes. This summarization is only needed about 5% of the time—most thought processes are short enough to display in full. Users requiring raw chains of thought for advanced prompt engineering can [contact sales](https://www.anthropic.com/contact-sales) about our new Developer Mode to retain full access.
+Finally, we've introduced thinking summaries for Claude 4 models that use a smaller model to condense lengthy thought processes. This summarization is only needed about 5% of the time—most thought processes are short enough to display in full. Users requiring raw chains of thought for advanced prompt engineering can [contact sales](https://www.anthropic.com/news/contact sales) about our new Developer Mode to retain full access.
 
 ## Claude Code
 
@@ -63,19 +57,19 @@ Beyond the IDE, we're releasing an extensible Claude Code SDK, so you can build 
 
 ## Getting started
 
-These models are a large step toward the virtual collaborator—maintaining full context, sustaining focus on longer projects, and driving transformational impact. They come with extensive testing and evaluation to minimize risk and maximize safety, including [implementing measures](https://www.anthropic.com/news/activating-asl3-protections) for higher AI Safety Levels like ASL-3.
+These models are a large step toward the virtual collaborator—maintaining full context, sustaining focus on longer projects, and driving transformational impact. They come with extensive testing and evaluation to minimize risk and maximize safety, including [implementing measures](https://www.anthropic.com/news/implementing measures) for higher AI Safety Levels like ASL-3.
 
-We're excited to see what you'll create. Get started today on [Claude](https://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d), [Claude Code](https://www.anthropic.com/claude-code), or the platform of your choice.
+We're excited to see what you'll create. Get started today on [Claude](https://www.anthropic.com/news/Claude), [Claude Code](https://www.anthropic.com/news/Claude Code), or the platform of your choice.
 
-*As always, your [feedback](mailto: feedback@anthropic.com) helps us improve.*
+*As always, your [feedback](https://www.anthropic.com/news/feedback) helps us improve.*
 
 #### Appendix
 
 #### Performance benchmark data sources
 
-- Open AI: [o3 launch post](https://openai.com/index/introducing-o3-and-o4-mini/), [o3 system card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf), [GPT-4.1 launch post](https://openai.com/index/gpt-4-1/), [GPT-4.1 hosted evals](https://github.com/openai/simple-evals/blob/main/multilingual_mmlu_benchmark_results.md)
-- Gemini: [Gemini 2.5 Pro Preview model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf)
-- Claude: [Claude 3.7 Sonnet launch post](https://www.anthropic.com/news/claude-3-7-sonnet)
+- Open AI: [o3 launch post](https://www.anthropic.com/news/o3 launch post), [o3 system card](https://www.anthropic.com/news/o3 system card), [GPT-4.1 launch post](https://www.anthropic.com/news/GPT-4.1 launch post), [GPT-4.1 hosted evals](https://www.anthropic.com/news/GPT-4.1 hosted evals)
+- Gemini: [Gemini 2.5 Pro Preview model card](https://www.anthropic.com/news/Gemini 2.5 Pro Preview model card)
+- Claude: [Claude 3.7 Sonnet launch post](https://www.anthropic.com/news/Claude 3.7 Sonnet launch post)
 
 #### Performance benchmark reporting
 
@@ -95,12 +89,12 @@ Scores were achieved with a prompt addendum to both the Airline and Retail Agent
 
 #### SWE-bench methodology
 
-For the Claude 4 family of models, we continue to use the same simple scaffold that equips the model with solely the two tools described in our prior releases [here](https://www.anthropic.com/engineering/swe-bench-sonnet)—a bash tool, and a file editing tool that operates via string replacements. We no longer include the [third ‘planning tool’](https://www.anthropic.com/engineering/claude-think-tool) used by Claude 3.7 Sonnet. On all Claude 4 models, we report scores out of the full 500 problems. Scores for OpenAI models are reported out of a [477 problem subset](https://openai.com/index/gpt-4-1/).
+For the Claude 4 family of models, we continue to use the same simple scaffold that equips the model with solely the two tools described in our prior releases [here](https://www.anthropic.com/news/here)—a bash tool, and a file editing tool that operates via string replacements. We no longer include the [third ‘planning tool’](https://www.anthropic.com/news/third ‘planning tool’) used by Claude 3.7 Sonnet. On all Claude 4 models, we report scores out of the full 500 problems. Scores for OpenAI models are reported out of a [477 problem subset](https://www.anthropic.com/news/477 problem subset).
 
 For our “high compute” numbers we adopt additional complexity and parallel test-time compute as follows:
 
 - We sample multiple parallel attempts.
-- We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by [Agentless (Xia et al. 2024)](https://arxiv.org/abs/2407.01489); note no hidden test information is used.
+- We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by [Agentless (Xia et al. 2024)](https://www.anthropic.com/news/Agentless (Xia et al. 2024)); note no hidden test information is used.
 - We then use an internal scoring model to select the best candidate from the remaining attempts.
 
 This results in a score of 79.4% and 80.2% for Opus 4 and Sonnet 4 respectively.
@@ -109,12 +103,12 @@ This results in a score of 79.4% and 80.2% for Opus 4 and Sonnet 4 respectively.
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

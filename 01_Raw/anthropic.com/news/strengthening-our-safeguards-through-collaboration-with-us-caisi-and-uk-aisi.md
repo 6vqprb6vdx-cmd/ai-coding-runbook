@@ -16,11 +16,11 @@ Over the past year, we've collaborated with the US Center for AI Standards and I
 
 Governments bring unique capabilities to this work, particularly deep expertise in national security areas like cybersecurity, intelligence analysis, and threat modeling that enables them to evaluate specific attack vectors and defense mechanisms when paired with their machine learning expertise. Their feedback helps us improve our security measures so our systems can withstand some of the most sophisticated attempts at misuse.
 
-Working with independent external experts to identify vulnerabilities in AI systems is a core part of Anthropic’s [Safeguards](https://www.anthropic.com/news/building-safeguards-for-claude) approach and is critical to preventing misuse of our models that could cause real-world harm.
+Working with independent external experts to identify vulnerabilities in AI systems is a core part of Anthropic’s [Safeguards](https://www.anthropic.com/news/Safeguards) approach and is critical to preventing misuse of our models that could cause real-world harm.
 
 ## Uncovering and addressing vulnerabilities
 
-This collaboration has already led to key findings that helped us strengthen the tools we use to prevent malicious use of our models. As part of our respective agreements with CAISI and AISI, each organization evaluated several iterations of our [Constitutional Classifiers](https://www.anthropic.com/news/constitutional-classifiers)—a defense system we use to spot and prevent jailbreaks—on models like Claude Opus 4 and 4.1 prior to deployment to help identify vulnerabilities and build robust safeguards.
+This collaboration has already led to key findings that helped us strengthen the tools we use to prevent malicious use of our models. As part of our respective agreements with CAISI and AISI, each organization evaluated several iterations of our [Constitutional Classifiers](https://www.anthropic.com/news/Constitutional Classifiers)—a defense system we use to spot and prevent jailbreaks—on models like Claude Opus 4 and 4.1 prior to deployment to help identify vulnerabilities and build robust safeguards.
 
 **Testing of Constitutional Classifiers.** We gave CAISI and AISI access to several early versions of our constitutional classifiers, and we’ve continued to provide access to our latest systems as we’ve made improvements. Together, we stress-tested these classifiers, with government red-teamers identifying a range of vulnerabilities—both before and after deployment—and our technical team using these findings to strengthen the safeguards. As examples, these vulnerabilities included:
 
@@ -45,7 +45,7 @@ Our experience has taught us several important lessons about how to engage effec
 
 **Iterative testing allows for complex vulnerability discovery.** Though single evaluations provide value, sustained collaboration enables external teams to develop deep system expertise and uncover more complex vulnerabilities. During critical phases, we've maintained daily communication channels and frequent technical deep-dives with our partners.
 
-**Complementary approaches offer more robust security.** CAISI and AISI evaluations work synergistically with our broader ecosystem. [Public bug bounty](https://www.anthropic.com/news/testing-our-safety-defenses-with-a-new-bug-bounty-program) programs generate high-volume, diverse vulnerability reports from a wide talent pool, while specialized expert teams can help uncover complex, subtle attack vectors that require deep technical knowledge to identify. This multi-layered strategy helps ensure we catch both common exploits and sophisticated edge cases.
+**Complementary approaches offer more robust security.** CAISI and AISI evaluations work synergistically with our broader ecosystem. [Public bug bounty](https://www.anthropic.com/news/Public bug bounty) programs generate high-volume, diverse vulnerability reports from a wide talent pool, while specialized expert teams can help uncover complex, subtle attack vectors that require deep technical knowledge to identify. This multi-layered strategy helps ensure we catch both common exploits and sophisticated edge cases.
 
 ## Ongoing collaboration
 
@@ -59,12 +59,12 @@ As AI capabilities advance, the role of independent evaluations of mitigations i
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

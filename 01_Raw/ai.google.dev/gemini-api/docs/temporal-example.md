@@ -4,21 +4,21 @@ fetched_at: 2026-05-05T13:22:51.727837+00:00
 title: "Agente AI durevole con Gemini e Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Home page](https://ai.google.dev/gemini-api/docs/Home page)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documenti](https://ai.google.dev/gemini-api/docs/Documenti)
 
 Invia feedback
 
 # Agente AI durevole con Gemini e Temporal
 
 Questo tutorial ti guida nella creazione di un
-[loop agentico in stile ReAct](https://arxiv.org/abs/2210.03629) che utilizza l'
-API Gemini per il ragionamento e [Temporal](https://temporal.io/) per la durabilità.
+[loop agentico in stile ReAct](https://ai.google.dev/gemini-api/docs/loop agentico in stile ReAct) che utilizza l'
+API Gemini per il ragionamento e [Temporal](https://ai.google.dev/gemini-api/docs/Temporal) per la durabilità.
 Il codice sorgente completo per questo tutorial è disponibile su
-[GitHub](https://github.com/temporal-community/durable-react-agent-gemini).
+[GitHub](https://ai.google.dev/gemini-api/docs/GitHub).
 
 L'agente può chiamare strumenti, ad esempio cercare avvisi meteo o geolocalizzare un indirizzo IP, e continuerà a eseguire il loop finché non avrà informazioni sufficienti per rispondere.
 
@@ -39,15 +39,15 @@ In questo esempio, inserirai tutti e tre questi elementi in un unico file (`dura
 Per completare questa guida, avrai bisogno di:
 
 - Una chiave API Gemini. Puoi crearne una senza costi in
-  [Google AI Studio](https://aistudio.google.com/apikey?hl=it).
-- [Python](https://www.python.org/downloads/) versione 3.10 o successive.
-- La [CLI Temporal](https://docs.temporal.io/cli) per l'esecuzione di un server di sviluppo
+  [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio).
+- [Python](https://ai.google.dev/gemini-api/docs/Python) versione 3.10 o successive.
+- La [CLI Temporal](https://ai.google.dev/gemini-api/docs/CLI Temporal) per l'esecuzione di un server di sviluppo
   locale.
 
 ## Configurazione
 
 Prima di iniziare, assicurati di avere un
-[server di sviluppo Temporal](https://docs.temporal.io/cli#start-dev-server)
+[server di sviluppo Temporal](https://ai.google.dev/gemini-api/docs/server di sviluppo Temporal)
 in esecuzione localmente:
 
 ```
@@ -62,7 +62,7 @@ pip install temporalio google-genai httpx pydantic python-dotenv
 
 Crea un file `.env` nella directory del progetto con la tua chiave API Gemini. Puoi
 ottenere una chiave API da
-[Google AI Studio](https://aistudio.google.com/apikey?hl=it).
+[Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio).
 
 ```
 echo "GOOGLE_API_KEY=your-api-key-here" > .env
@@ -556,17 +556,15 @@ Temporal riproduce la cronologia del workflow. Le chiamate LLM e le chiamate di 
 
 ## Ulteriori risorse
 
-- [Documentazione di Temporal](https://docs.temporal.io/)
-- [SDK Python di Temporal](https://docs.temporal.io/develop/python)
-- [SDK Google GenAI](https://googleapis.github.io/python-genai/)
-- [Codice sorgente per questo tutorial](https://github.com/temporal-community/durable-react-agent-gemini)
+- [Documentazione di Temporal](https://ai.google.dev/gemini-api/docs/Documentazione di Temporal)
+- [SDK Python di Temporal](https://ai.google.dev/gemini-api/docs/SDK Python di Temporal)
+- [SDK Google GenAI](https://ai.google.dev/gemini-api/docs/SDK Google GenAI)
+- [Codice sorgente per questo tutorial](https://ai.google.dev/gemini-api/docs/Codice sorgente per questo tutorial)
 
 Invia feedback
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/licenza Creative Commons Attribution 4.0), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://ai.google.dev/gemini-api/docs/licenza Apache 2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://ai.google.dev/gemini-api/docs/norme del sito di Google Developers). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
 Ultimo aggiornamento 2026-04-29 UTC.
 
 Vuoi dirci altro?
-
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

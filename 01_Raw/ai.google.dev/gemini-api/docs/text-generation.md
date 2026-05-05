@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:23:24.073806+00:00
 title: "Metin olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Ana Sayfa](https://ai.google.dev/gemini-api/docs/Ana Sayfa)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/Dokümanlar)
 
 Geri bildirim gönderin
 
@@ -157,9 +157,9 @@ function main() {
 
 ## Gemini ile düşünme
 
-Gemini modellerinde genellikle varsayılan olarak ["düşünme"](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) özelliği etkindir. Bu özellik, modelin bir isteğe yanıt vermeden önce akıl yürütmesini sağlar.
+Gemini modellerinde genellikle varsayılan olarak ["düşünme"](https://ai.google.dev/gemini-api/docs/"düşünme") özelliği etkindir. Bu özellik, modelin bir isteğe yanıt vermeden önce akıl yürütmesini sağlar.
 
-Her model, maliyet, gecikme ve zeka üzerinde kontrol sahibi olmanızı sağlayan farklı düşünce yapılandırmalarını destekler. Daha fazla ayrıntı için [düşünme kılavuzuna](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#set-budget) bakın.
+Her model, maliyet, gecikme ve zeka üzerinde kontrol sahibi olmanızı sağlayan farklı düşünce yapılandırmalarını destekler. Daha fazla ayrıntı için [düşünme kılavuzuna](https://ai.google.dev/gemini-api/docs/düşünme kılavuzuna) bakın.
 
 ### Python
 
@@ -333,7 +333,7 @@ function main() {
 
 ## Sistem talimatları ve diğer yapılandırmalar
 
-Sistem talimatlarıyla Gemini modellerinin davranışını yönlendirebilirsiniz. Bunun için [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig) nesnesi iletin.
+Sistem talimatlarıyla Gemini modellerinin davranışını yönlendirebilirsiniz. Bunun için [`GenerateContentConfig`](https://ai.google.dev/gemini-api/docs/`GenerateContentConfig`) nesnesi iletin.
 
 ### Python
 
@@ -505,8 +505,8 @@ function main() {
 }
 ```
 
-[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig)
-nesnesi, [sıcaklık](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig) gibi varsayılan oluşturma parametrelerini de geçersiz kılmanıza olanak tanır.
+[`GenerateContentConfig`](https://ai.google.dev/gemini-api/docs/`GenerateContentConfig`)
+nesnesi, [sıcaklık](https://ai.google.dev/gemini-api/docs/sıcaklık) gibi varsayılan oluşturma parametrelerini de geçersiz kılmanıza olanak tanır.
 
 ### Python
 
@@ -682,7 +682,7 @@ function main() {
 }
 ```
 
-Yapılandırılabilir parametrelerin ve açıklamalarının tam listesi için API referansımızdaki [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig) bölümüne bakın.
+Yapılandırılabilir parametrelerin ve açıklamalarının tam listesi için API referansımızdaki [`GenerateContentConfig`](https://ai.google.dev/gemini-api/docs/`GenerateContentConfig`) bölümüne bakın.
 
 ## Çok formatlı girişler
 
@@ -894,14 +894,14 @@ function getImageData(url) {
 }
 ```
 
-Resim sağlamanın alternatif yöntemleri ve daha gelişmiş resim işleme hakkında bilgi edinmek için [Görüntü Anlama Rehberimizi](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr) inceleyin.
-API, [doküman](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr), [video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) ve [ses](https://ai.google.dev/gemini-api/docs/audio?hl=tr) girişlerini ve bu girişlerin anlaşılmasını da destekler.
+Resim sağlamanın alternatif yöntemleri ve daha gelişmiş resim işleme hakkında bilgi edinmek için [Görüntü Anlama Rehberimizi](https://ai.google.dev/gemini-api/docs/Görüntü Anlama Rehberimizi) inceleyin.
+API, [doküman](https://ai.google.dev/gemini-api/docs/doküman), [video](https://ai.google.dev/gemini-api/docs/video) ve [ses](https://ai.google.dev/gemini-api/docs/ses) girişlerini ve bu girişlerin anlaşılmasını da destekler.
 
 ## Yanıtları akış şeklinde gösterme
 
 Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir.
 
-Daha akıcı etkileşimler için, [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerateContentResponse) örneklerini oluşturuldukça artımlı olarak almak üzere akışı kullanın.
+Daha akıcı etkileşimler için, [`GenerateContentResponse`](https://ai.google.dev/gemini-api/docs/`GenerateContentResponse`) örneklerini oluşturuldukça artımlı olarak almak üzere akışı kullanın.
 
 ### Python
 
@@ -1486,23 +1486,21 @@ function main() {
 
 ## İstem ipuçları
 
-Gemini'dan en iyi şekilde yararlanmayla ilgili öneriler için [istem mühendisliği kılavuzumuza](https://ai.google.dev/gemini/docs/prompting-strategies?hl=tr) göz atın.
+Gemini'dan en iyi şekilde yararlanmayla ilgili öneriler için [istem mühendisliği kılavuzumuza](https://ai.google.dev/gemini-api/docs/istem mühendisliği kılavuzumuza) göz atın.
 
 ## Sırada ne var?
 
-- [Google AI Studio'da Gemini](https://aistudio.google.com?hl=tr)'ı deneyin.
-- JSON benzeri yanıtlar için [yapılandırılmış çıkışlarla](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) deneme yapın.
-- Gemini'ın [görüntü](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr),
-  [video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr), [ses](https://ai.google.dev/gemini-api/docs/audio?hl=tr)
-  ve [doküman](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr) anlama özelliklerini keşfedin.
-- Çok formatlı [dosya istemi stratejileri](https://ai.google.dev/gemini-api/docs/files?hl=tr#prompt-guide) hakkında bilgi edinin.
+- [Google AI Studio'da Gemini](https://ai.google.dev/gemini-api/docs/Google AI Studio'da Gemini)'ı deneyin.
+- JSON benzeri yanıtlar için [yapılandırılmış çıkışlarla](https://ai.google.dev/gemini-api/docs/yapılandırılmış çıkışlarla) deneme yapın.
+- Gemini'ın [görüntü](https://ai.google.dev/gemini-api/docs/görüntü),
+  [video](https://ai.google.dev/gemini-api/docs/video), [ses](https://ai.google.dev/gemini-api/docs/ses)
+  ve [doküman](https://ai.google.dev/gemini-api/docs/doküman) anlama özelliklerini keşfedin.
+- Çok formatlı [dosya istemi stratejileri](https://ai.google.dev/gemini-api/docs/dosya istemi stratejileri) hakkında bilgi edinin.
 
 Geri bildirim gönderin
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://ai.google.dev/gemini-api/docs/Creative Commons Atıf 4.0 Lisansı) altında ve kod örnekleri [Apache 2.0 Lisansı](https://ai.google.dev/gemini-api/docs/Apache 2.0 Lisansı) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://ai.google.dev/gemini-api/docs/Google Developers Site Politikaları)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
 Son güncelleme tarihi: 2026-04-29 UTC.
 
 Bize geri bildirimde bulunmak mı istiyorsunuz?
-
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

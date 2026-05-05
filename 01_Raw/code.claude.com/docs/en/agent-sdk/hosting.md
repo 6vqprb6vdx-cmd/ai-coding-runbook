@@ -15,7 +15,7 @@ fetch_method: mintlify_md
 The Claude Agent SDK differs from traditional stateless LLM APIs in that it maintains conversational state and executes commands in a persistent environment. This guide covers the architecture, hosting considerations, and best practices for deploying SDK-based agents in production.
 
 <Info>
-  For security hardening beyond basic sandboxing (including network controls, credential management, and isolation options), see [Secure Deployment](/en/agent-sdk/secure-deployment).
+  For security hardening beyond basic sandboxing (including network controls, credential management, and isolation options), see [Secure Deployment](https://code.claude.com/docs/en/agent-sdk/Secure Deployment).
 </Info>
 
 ## Hosting Requirements
@@ -24,7 +24,7 @@ The Claude Agent SDK differs from traditional stateless LLM APIs in that it main
 
 For security and isolation, the SDK should run inside a sandboxed container environment. This provides process isolation, resource limits, network control, and ephemeral filesystems.
 
-The SDK also supports [programmatic sandbox configuration](/en/agent-sdk/typescript#sandbox-settings) for command execution.
+The SDK also supports [programmatic sandbox configuration](https://code.claude.com/docs/en/agent-sdk/programmatic sandbox configuration) for command execution.
 
 ### System Requirements
 
@@ -53,14 +53,14 @@ Unlike stateless API calls, the Claude Agent SDK operates as a **long-running pr
 
 Several providers specialize in secure container environments for AI code execution:
 
-* **[Modal Sandbox](https://modal.com/docs/guide/sandbox)** - [demo implementation](https://modal.com/docs/examples/claude-slack-gif-creator)
-* **[Cloudflare Sandboxes](https://github.com/cloudflare/sandbox-sdk)**
-* **[Daytona](https://www.daytona.io/)**
-* **[E2B](https://e2b.dev/)**
-* **[Fly Machines](https://fly.io/docs/machines/)**
-* **[Vercel Sandbox](https://vercel.com/docs/functions/sandbox)**
+* **[Modal Sandbox](https://code.claude.com/docs/en/agent-sdk/Modal Sandbox)** - [demo implementation](https://code.claude.com/docs/en/agent-sdk/demo implementation)
+* **[Cloudflare Sandboxes](https://code.claude.com/docs/en/agent-sdk/Cloudflare Sandboxes)**
+* **[Daytona](https://code.claude.com/docs/en/agent-sdk/Daytona)**
+* **[E2B](https://code.claude.com/docs/en/agent-sdk/E2B)**
+* **[Fly Machines](https://code.claude.com/docs/en/agent-sdk/Fly Machines)**
+* **[Vercel Sandbox](https://code.claude.com/docs/en/agent-sdk/Vercel Sandbox)**
 
-For self-hosted options (Docker, gVisor, Firecracker) and detailed isolation configuration, see [Isolation Technologies](/en/agent-sdk/secure-deployment#isolation-technologies).
+For self-hosted options (Docker, gVisor, Firecracker) and detailed isolation configuration, see [Isolation Technologies](https://code.claude.com/docs/en/agent-sdk/Isolation Technologies).
 
 ## Production Deployment Patterns
 
@@ -140,9 +140,9 @@ An agent session will not timeout, but consider setting a 'maxTurns' property to
 
 ## Next Steps
 
-* [Secure Deployment](/en/agent-sdk/secure-deployment) - Network controls, credential management, and isolation hardening
-* [TypeScript SDK - Sandbox Settings](/en/agent-sdk/typescript#sandbox-settings) - Configure sandbox programmatically
-* [Sessions Guide](/en/agent-sdk/sessions) - Learn about session management
-* [Permissions](/en/agent-sdk/permissions) - Configure tool permissions
-* [Cost Tracking](/en/agent-sdk/cost-tracking) - Monitor API usage
-* [MCP Integration](/en/agent-sdk/mcp) - Extend with custom tools
+* [Secure Deployment](https://code.claude.com/docs/en/agent-sdk/Secure Deployment) - Network controls, credential management, and isolation hardening
+* [TypeScript SDK - Sandbox Settings](https://code.claude.com/docs/en/agent-sdk/TypeScript SDK - Sandbox Settings) - Configure sandbox programmatically
+* [Sessions Guide](https://code.claude.com/docs/en/agent-sdk/Sessions Guide) - Learn about session management
+* [Permissions](https://code.claude.com/docs/en/agent-sdk/Permissions) - Configure tool permissions
+* [Cost Tracking](https://code.claude.com/docs/en/agent-sdk/Cost Tracking) - Monitor API usage
+* [MCP Integration](https://code.claude.com/docs/en/agent-sdk/MCP Integration) - Extend with custom tools

@@ -32,30 +32,30 @@ Joining Levin are leaders who bring extensive experience serving in academia:
 
 ## **AI fluency courses for educators and students**
 
-Working with the advisory board and educators worldwide, we've developed three new courses that build on our existing [AI Fluency course](https://www.anthropic.com/learn/claude-for-you), and are designed to address what universities need most: practical frameworks for thoughtful AI integration. Each course, co-developed with Professor Rick Dakan of Ringling College of Art and Design and Professor Joseph Feller of University College Cork, is available now under Creative Commons license, so any institution can adapt them:
+Working with the advisory board and educators worldwide, we've developed three new courses that build on our existing [AI Fluency course](https://www.anthropic.com/news/AI Fluency course), and are designed to address what universities need most: practical frameworks for thoughtful AI integration. Each course, co-developed with Professor Rick Dakan of Ringling College of Art and Design and Professor Joseph Feller of University College Cork, is available now under Creative Commons license, so any institution can adapt them:
 
-**[AI Fluency for Educators](http://anthropic.skilljar.com/ai-fluency-for-educators)** helps faculty integrate AI into their teaching practice, from creating materials and assessments to enhancing classroom discussions. Built on experience from early adopters, it shows what works in real classrooms.
+**[AI Fluency for Educators](https://www.anthropic.com/news/AI Fluency for Educators)** helps faculty integrate AI into their teaching practice, from creating materials and assessments to enhancing classroom discussions. Built on experience from early adopters, it shows what works in real classrooms.
 
-**[AI Fluency for Students](http://anthropic.skilljar.com/ai-fluency-for-students)** teaches responsible AI collaboration for coursework and career planning. Students learn to work with AI while developing their own critical thinking skills**,** and write their own personal commitment to responsible AI use
+**[AI Fluency for Students](https://www.anthropic.com/news/AI Fluency for Students)** teaches responsible AI collaboration for coursework and career planning. Students learn to work with AI while developing their own critical thinking skills**,** and write their own personal commitment to responsible AI use
 
-**[Teaching AI Fluency](http://anthropic.skilljar.com/teaching-ai-fluency)** supports educators who want to bring AI literacy to their campuses and classrooms. It includes frameworks for instruction and assessment, plus curriculum considerations for preparing students for a more AI-enhanced world.
+**[Teaching AI Fluency](https://www.anthropic.com/news/Teaching AI Fluency)** supports educators who want to bring AI literacy to their campuses and classrooms. It includes frameworks for instruction and assessment, plus curriculum considerations for preparing students for a more AI-enhanced world.
 
 ## **The path forward**
 
 These initiatives reflect our commitment to co-creating the future of AI in education. As universities worldwide grapple with AI's role in education, these resources provide both immediate support and long-term guidance. While the advisory board informs our strategic approach, the AI Fluency courses offer practical tools educators can use today to navigate this transformation thoughtfully and responsibly.
 
-Access the courses and learn more at [anthropic.com/learn](https://www.anthropic.com/learn).
+Access the courses and learn more at [anthropic.com/learn](https://www.anthropic.com/news/anthropic.com/learn).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

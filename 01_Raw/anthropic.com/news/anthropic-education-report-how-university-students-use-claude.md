@@ -10,8 +10,6 @@ AnnouncementsSocietal Impacts
 
 Apr 8, 2025
 
-![A lamp shining on a document ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1f1187198617af2835239af187ce7125c05ba5e2-2400x1260.png&w=3840&q=75)
-
 AI systems are no longer just specialized research tools: they’re everyday academic companions. As AIs integrate more deeply into educational environments, we need to consider important questions about learning, assessment, and skill development. Until now, most discussions have relied on surveys and controlled experiments rather than direct evidence of how students naturally integrate AI into their academic work in real settings.
 
 To address this gap, we’ve conducted one of the first large-scale studies of real-world AI usage patterns in higher education, analyzing one million anonymized student conversations on Claude.ai.
@@ -20,11 +18,11 @@ The key findings from our Education Report are:
 
 - STEM students are early adopters of AI tools like Claude, with Computer Science students particularly overrepresented (accounting for 36.8% of students’ conversations while comprising only 5.4% of U.S. degrees). In contrast, Business, Health, and Humanities students show lower adoption rates relative to their enrollment numbers.
 - We identified four patterns by which students interact with AI, each of which were present in our data at approximately equal rates (each 23-29% of conversations): Direct Problem Solving, Direct Output Creation, Collaborative Problem Solving, and Collaborative Output Creation.
-- Students primarily use AI systems for creating (using information to learn something new) and analyzing (taking apart the known and identifying relationships), such as creating coding projects or analyzing law concepts. This aligns with higher-order cognitive functions on [Bloom’s Taxonomy](https://www.researchgate.net/publication/235465787_A_Taxonomy_for_Learning_Teaching_and_Assessing_A_Revision_of_Bloom's_Taxonomy_of_Educational_Objectives). This raises questions about ensuring students don’t offload critical cognitive tasks to AI systems.
+- Students primarily use AI systems for creating (using information to learn something new) and analyzing (taking apart the known and identifying relationships), such as creating coding projects or analyzing law concepts. This aligns with higher-order cognitive functions on [Bloom’s Taxonomy](https://www.anthropic.com/news/Bloom’s Taxonomy). This raises questions about ensuring students don’t offload critical cognitive tasks to AI systems.
 
 ## Identifying educational AI usage
 
-When researching how people use AI models, protecting user privacy is paramount. For this project, we used Claude Insights and Observations, or "[Clio](https://www.anthropic.com/research/clio)," our automated analysis tool that provides insights into how people are using Claude. Clio enables bottom-up discovery of AI usage patterns by distilling user conversations into high-level usage summaries, such as “troubleshoot code” or “explain economic concepts.” Clio uses a multi-layered, automated process that removes private user information from conversations. We built this process so it minimizes the information that passes from one layer to the next. We describe Clio’s privacy-first design in this [earlier blog](https://www.anthropic.com/research/clio).
+When researching how people use AI models, protecting user privacy is paramount. For this project, we used Claude Insights and Observations, or "[Clio](https://www.anthropic.com/news/Clio)," our automated analysis tool that provides insights into how people are using Claude. Clio enables bottom-up discovery of AI usage patterns by distilling user conversations into high-level usage summaries, such as “troubleshoot code” or “explain economic concepts.” Clio uses a multi-layered, automated process that removes private user information from conversations. We built this process so it minimizes the information that passes from one layer to the next. We describe Clio’s privacy-first design in this [earlier blog](https://www.anthropic.com/news/earlier blog).
 
 We used Clio to analyze approximately one million anonymized1 conversations from Claude.ai Free and Pro accounts tied to higher education email addresses.2 We then filtered these conversations for student and academic relevance—such as whether the conversation pertained to coursework or academic research—which yielded 574,740 conversations.3 Clio then grouped these conversations to derive aggregate education-related insights: how different academic subjects were represented; how students-AI interaction differed; and the types of cognitive tasks that students delegate to AI systems.
 
@@ -33,8 +31,6 @@ We used Clio to analyze approximately one million anonymized1 conversations from
 We found that students primarily use Claude to create and improve educational content across disciplines (39.3% of conversations). This often entailed designing practice questions, editing essays, or summarizing academic material. Students also frequently used Claude to provide technical explanations or solutions for academic assignments (33.5%)—working with AI to debug and fix errors in coding assignments, implement programming algorithms and data structures, and explain or solve mathematical problems. Some of this usage might also be cheating, which we discuss below. A smaller but still sizable portion of student usage was to analyze and visualize data (11.0%), support research design and tool development (6.5%), create technical diagrams (3.2%), and translate or proofread content between languages (2.4%).
 
 Below is a more detailed breakdown of common requests across subjects.
-
-![Common student requests from the top four subject areas, based on the 15 most frequent requests in Clio within each subject.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7d9704a6edee6bb96a7f767621d83beadc039a0c-2400x1586.png&w=3840&q=75)
 
 Common student requests from the top four subject areas, based on the 15 most frequent requests in Clio within each subject.
 
@@ -46,17 +42,13 @@ Conversely, Business-related educational conversations accounted for just 8.9% o
 
 These patterns suggest that STEM students, particularly those in Computer Science, may be earlier adopters of Claude for educational purposes, while students in Business, Health, and Humanities disciplines may be integrating these tools more slowly into their academic workflows. This may reflect higher awareness of Claude in Computer Science communities, as well as AI systems’ greater proficiency at tasks performed by STEM students relative to those performed by students in other disciplines.
 
-![Comparing the percentage of Claude.ai student conversations that are related to an National Center for Education Statistics (NCES) subject area (gray) to the percentage of U.S. college students with an associated major (orange). Note that percentages don’t sum to 100% as some conversations were classified under the “Other” category from the NCES which we exclude from our analysis.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd22ea4cc33c603b51435e334c4311ffc5b1d7f5a-2400x1818.png&w=3840&q=75)
-
-Comparing the percentage of Claude.ai student conversations that are related to an National Center for Education Statistics ([NCES](https://nces.ed.gov/programs/digest/d23/tables/dt23_318.20.asp?current=yes)) subject area (gray) to the percentage of U.S. college students with an associated major (orange). Note that percentages don’t sum to 100% as some conversations were classified under the “Other” category from the NCES which we exclude from our analysis.
+Comparing the percentage of Claude.ai student conversations that are related to an National Center for Education Statistics ([NCES](https://www.anthropic.com/news/NCES)) subject area (gray) to the percentage of U.S. college students with an associated major (orange). Note that percentages don’t sum to 100% as some conversations were classified under the “Other” category from the NCES which we exclude from our analysis.
 
 ## How students interact with AI
 
 There are many ways of interacting with AI, and they’ll affect the learning process differently. In our analysis of how students interact with AI, we identified four distinct patterns of interaction, which we categorized along two different axes, as shown in the figure below.
 
 The first axis was “mode of interaction”. This could involve:5 (1) **Direct** conversations, where the user is looking to resolve their query as quickly as possible, and (2) **Collaborative** conversations, where the user actively seeks to engage in dialogue with the model to achieve their goals. The second axis was the “desired outcome” of the interaction. This could involve: (1) **Problem Solving**, where the user seeks solutions or explanations to questions, and (2) **Output Creation**, where the user seeks to produce longer outputs like presentations or essays. Combining the two axes gives us the four patterns presented below.
-
-![Our taxonomy for student-AI conversations, along with sample conversation topics based on those surfaced by Clio.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5b3d52e53c95e4d3f7a3f5e3592f859c5358fd82-2400x1526.png&w=3840&q=75)
 
 Our taxonomy for student-AI conversations, along with sample conversation topics based on those surfaced by Clio.
 
@@ -86,13 +78,11 @@ Students across disciplines engage with AI in different manners:
 
 This suggests that educational approaches to AI integration would likely benefit from being discipline-specific. Our data are a first step in helping recognize the variations in how students across subjects engage with AI.
 
-![Distribution of conversations across interaction styles, for each NCES subject.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F99474f14f372a13fd858e8bceb1e6add170ee1c4-2400x2054.png&w=3840&q=75)
-
 Distribution of conversations across interaction styles for each NCES subject.
 
 ## Cognitive tasks students delegate to AI
 
-We also explored how students delegate cognitive responsibilities to AI systems. We used [Bloom's Taxonomy](https://www.researchgate.net/publication/235465787_A_Taxonomy_for_Learning_Teaching_and_Assessing_A_Revision_of_Bloom's_Taxonomy_of_Educational_Objectives),6 a hierarchical framework used in education to classify cognitive processes from simpler to more complex. While the framework was initially intended for student thinking, we adapted it to analyze Claude’s responses when conversing with a student.
+We also explored how students delegate cognitive responsibilities to AI systems. We used [Bloom's Taxonomy](https://www.anthropic.com/news/Bloom's Taxonomy),6 a hierarchical framework used in education to classify cognitive processes from simpler to more complex. While the framework was initially intended for student thinking, we adapted it to analyze Claude’s responses when conversing with a student.
 
 We saw an inverted pattern of Bloom's Taxonomy domains exhibited by the AI:
 
@@ -103,9 +93,7 @@ This distribution also varied by interaction style. As expected, Output Creation
 
 The fact that AI systems exhibit these skills does not preclude students from also engaging in the skills themselves—for example, co-creating a project together or using AI-generated code to analyze a dataset in another context—but it does point to the potential concerns of students outsourcing cognitive abilities to AI. There are legitimate worries that AI systems may provide a crutch for students, stifling the development of foundational skills needed to support higher-order thinking. An inverted pyramid, after all, can topple over.
 
-![The cognitive skills that are exhibited by Claude in conversations with students, based on Bloom’s Taxonomy. Descriptions of skills from University of Florida’s Center for Instructional Technology and Training.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6452eb87ddbb634191c9c72aae80ae7f9d3e114b-2400x1732.png&w=3840&q=75)
-
-The cognitive skills that are exhibited by Claude in conversations with students, based on Bloom’s Taxonomy. Descriptions of skills from [University of Florida’s Center for Instructional Technology and Training](https://citt.ufl.edu/resources/the-learning-process/designing-the-learning-experience/blooms-taxonomy/).
+The cognitive skills that are exhibited by Claude in conversations with students, based on Bloom’s Taxonomy. Descriptions of skills from [University of Florida’s Center for Instructional Technology and Training](https://www.anthropic.com/news/University of Florida’s Center for Instructional Technology and Training).
 
 ## Limitations
 
@@ -125,7 +113,7 @@ Institutional policies regarding AI use in education vary widely, and might sign
 
 Our analysis provides a bird’s-eye view of where and how students are using AI in the real world. We recognize that we are only at the beginning of understanding AI's impact on education.
 
-We've seen in our discussions with students and educators that AI can empower learning in remarkable ways. For example, AI has been used to support a [student's nuclear fusion reactor project](https://www.businessinsider.com/student-builds-nuclear-fusion-prototype-using-ai-glowing-plasma-orb-2024-9), and to facilitate [better communication between students and teachers in classrooms](https://www.sciencedirect.com/science/article/abs/pii/S0360131524001970?via%3Dihub).
+We've seen in our discussions with students and educators that AI can empower learning in remarkable ways. For example, AI has been used to support a [student's nuclear fusion reactor project](https://www.anthropic.com/news/student's nuclear fusion reactor project), and to facilitate [better communication between students and teachers in classrooms](https://www.anthropic.com/news/better communication between students and teachers in classrooms).
 
 But we are under no illusions that these initial findings entirely address the profound changes happening in education. AI is making educators' lives more challenging in all kinds of ways, and this research doesn't fully capture them. As students delegate higher-order cognitive tasks to AI systems, fundamental questions arise: How do we ensure students still develop foundational cognitive and meta-cognitive skills? How do we redefine assessment and cheating policies in an AI-enabled world? What does meaningful learning look like if AI systems can near-instantly generate polished essays, or rapidly solve complex problems that would take a person many hours of work? As model capabilities grow and AI becomes more integrated into our lives, will everything from homework design to assessment methods fundamentally shift?
 
@@ -133,7 +121,7 @@ These findings contribute to the ongoing discussions amongst educators, administ
 
 ## Anthropic’s approach to education
 
-In addition to this Education Report, we are [partnering with universities](https://www.anthropic.com/news/introducing-claude-for-education) to better understand the role of AI in education. As an early step, we are experimenting with a Learning Mode that emphasizes the Socratic method and conceptual understanding over direct answers. We look forward to collaborating with universities on future research studies and more directly studying the effects that AI has on learning.
+In addition to this Education Report, we are [partnering with universities](https://www.anthropic.com/news/partnering with universities) to better understand the role of AI in education. As an early step, we are experimenting with a Learning Mode that emphasizes the Socratic method and conceptual understanding over direct answers. We look forward to collaborating with universities on future research studies and more directly studying the effects that AI has on learning.
 
 ## Bibtex
 
@@ -159,28 +147,28 @@ Additionally, we appreciate helpful discussion and comments from Rose E. Wang, L
 
 #### Footnotes
 
-1 These spanned an 18-day period on Claude.ai to continue managing data according to our [privacy and retention policies](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-personal-data). For more information about how Clio protects privacy, see our [research blog](https://www.anthropic.com/research/clio).
+1 These spanned an 18-day period on Claude.ai to continue managing data according to our [privacy and retention policies](https://www.anthropic.com/news/privacy and retention policies). For more information about how Clio protects privacy, see our [research blog](https://www.anthropic.com/news/research blog).
 
 2 In particular, we limit the analysis to accounts with email addresses associated with higher education institutions globally, such as emails with .edu and .ac.uk domains. We recognize that not all educational email addresses may be those of students. For this reason, we then filter the associated conversations to those likely addressing students’ schoolwork.
 
-3 Clio uses Claude to filter conversations in an automated way. For this research, Clio filtered conversations to those “likely to be a student seeking help with academics, school work, studying, learning a new concept, academic research, etc?”. Our [previous paper on Clio](https://arxiv.org/abs/2412.13678) details and validates this filtering mechanism.
+3 Clio uses Claude to filter conversations in an automated way. For this research, Clio filtered conversations to those “likely to be a student seeking help with academics, school work, studying, learning a new concept, academic research, etc?”. Our [previous paper on Clio](https://www.anthropic.com/news/previous paper on Clio) details and validates this filtering mechanism.
 
-4 Via the [National Center for Education Statistics (NCES)](https://nces.ed.gov/programs/digest/d23/tables/dt23_318.20.asp?current=yes).
+4 Via the [National Center for Education Statistics (NCES)](https://www.anthropic.com/news/National Center for Education Statistics (NCES)).
 
 5 In our experiments, we used the terminology “Transactional” and “Dialogic” to classify conversations as we found those terms to most precisely capture the bottom-up interaction patterns surfaced by Clio. Specifically, we used Clio to classify a conversation as one of: Transactional Problem Solving, Transactional Output Creation, Dialogic Problem Solving, or Dialogic Output Creation; Clio was provided with an associated description for each interaction pattern. For ease of understanding, we use the terminology “Direct” and “Collaborative” in place of “Transactional” and “Dialogic” in this report.
 
-6 In particular, we use [Anderson and Krathwohl's (2001) revision](https://books.google.com/books/about/A_Taxonomy_for_Learning_Teaching_and_Ass.html?id=JPkXAQAAMAAJ&source=kp_book_description) of Bloom's Taxonomy and their taxonomy of cognitive processes.
+6 In particular, we use [Anderson and Krathwohl's (2001) revision](https://www.anthropic.com/news/Anderson and Krathwohl's (2001) revision) of Bloom's Taxonomy and their taxonomy of cognitive processes.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

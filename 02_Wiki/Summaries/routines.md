@@ -26,7 +26,7 @@ concepts_referenced: []
 
 **Repos**: each cloned per run. By default Claude can push only to `claude/`-prefixed branches (protect existing branches). Toggle "Allow unrestricted branch pushes" per-repo to override.
 
-**Environments** ([cloud env](/en/claude-code-on-the-web)): network access level, env vars (secrets), setup script (cached, not re-run per session). "Default" provided; create custom before routine creation.
+**Environments** ([cloud env](https://code.claude.com/en/claude-code-on-the-web)): network access level, env vars (secrets), setup script (cached, not re-run per session). "Default" provided; create custom before routine creation.
 
 **API trigger usage** (beta header `experimental-cc-routine-2026-04-01`):
 ```bash

@@ -4,18 +4,18 @@ fetched_at: 2026-05-05T13:18:13.083295+00:00
 title: "Live API best practices \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/live-api/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Beranda](https://ai.google.dev/gemini-api/docs/live-api/Beranda)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/live-api/Gemini API)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/live-api/Dokumen)
 
 Kirim masukan
 
 # Live API best practices
 
 Panduan ini membahas praktik terbaik yang dapat Anda ikuti untuk mengoptimalkan penggunaan Live API.
-Lihat halaman [Memulai Live API](https://ai.google.dev/gemini-api/docs/live?hl=id)
+Lihat halaman [Memulai Live API](https://ai.google.dev/gemini-api/docs/live-api/Memulai Live API)
 untuk mengetahui ringkasan dan contoh kode untuk kasus penggunaan umum.
 
 ## Mendesain petunjuk sistem yang jelas
@@ -36,7 +36,7 @@ Untuk hasil terbaik, pisahkan setiap agen ke dalam SI yang berbeda.
 ## Menentukan alat dengan tepat
 
 Saat menggunakan alat dengan Live API, berikan detail dalam definisi alat Anda.
-Pastikan untuk memberi tahu Gemini dalam kondisi apa panggilan alat harus dipanggil. Untuk mengetahui detail selengkapnya, lihat [Definisi alat](#tool-definitions-example) di
+Pastikan untuk memberi tahu Gemini dalam kondisi apa panggilan alat harus dipanggil. Untuk mengetahui detail selengkapnya, lihat [Definisi alat](https://ai.google.dev/gemini-api/docs/live-api/Definisi alat) di
 bagian contoh.
 
 ## Membuat perintah yang efektif
@@ -79,25 +79,25 @@ Pastikan aplikasi klien Anda mengambil ulang sampel input mikrofon (sering kali 
 Ikuti panduan ini untuk menangani siklus proses sesi dan memastikan pengalaman pengguna yang andal:
 
 - **Aktifkan kompresi jendela konteks:** Token audio terakumulasi sekitar 25 token per detik. Tanpa kompresi, sesi khusus audio dibatasi hingga 15 menit dan sesi audio-video hingga 2 menit. Aktifkan
-  [kompresi jendela konteks](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id#context-window-compression)
+  [kompresi jendela konteks](https://ai.google.dev/gemini-api/docs/live-api/kompresi jendela konteks)
   untuk memperpanjang sesi hingga durasi yang tidak terbatas.
 - **Terapkan kelanjutan sesi:** Server dapat secara berkala mereset koneksi WebSocket. Gunakan
-  [kelanjutan sesi](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id#session-resumption)
+  [kelanjutan sesi](https://ai.google.dev/gemini-api/docs/live-api/kelanjutan sesi)
   untuk terhubung kembali dengan lancar tanpa kehilangan konteks. Pertahankan token kelanjutan terbaru dari pesan `SessionResumptionUpdate` dan teruskan sebagai pengendali saat menghubungkan kembali. Token kelanjutan berlaku selama 2 jam setelah sesi terakhir berakhir.
 - **Tangani pesan GoAway:** Server mengirim pesan
-  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id#goaway-message) sebelum menghentikan koneksi. Dengarkan pesan ini dan gunakan kolom `timeLeft` untuk mengakhiri atau menghubungkan kembali dengan lancar sebelum koneksi ditutup.
+  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/GoAway) sebelum menghentikan koneksi. Dengarkan pesan ini dan gunakan kolom `timeLeft` untuk mengakhiri atau menghubungkan kembali dengan lancar sebelum koneksi ditutup.
 - **Tangani sinyal generationComplete:** Gunakan
-  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id#generation-complete-message)
+  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/`generationComplete`)
   pesan untuk mengetahui kapan model selesai membuat respons, sehingga
   aplikasi Anda dapat memperbarui UI atau melanjutkan ke tindakan berikutnya.
 
 Untuk mengetahui detail penerapan, lihat
-[Pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id).
+[Pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-api/Pengelolaan sesi).
 
 ## Contoh
 
 Contoh ini menggabungkan praktik terbaik dan
-[panduan untuk desain petunjuk sistem](#system-instruction-guidelines) guna
+[panduan untuk desain petunjuk sistem](https://ai.google.dev/gemini-api/docs/live-api/panduan untuk desain petunjuk sistem) guna
 memandu performa model sebagai pelatih karier.
 
 ```
@@ -245,10 +245,8 @@ Untuk hasil terbaik saat menentukan fungsi, sertakan nama, deskripsi, parameter,
 
 Kirim masukan
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/live-api/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/live-api/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/live-api/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
 Terakhir diperbarui pada 2026-04-29 UTC.
 
 Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

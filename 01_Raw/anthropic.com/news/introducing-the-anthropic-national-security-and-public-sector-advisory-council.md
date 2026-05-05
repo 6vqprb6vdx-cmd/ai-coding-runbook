@@ -10,8 +10,6 @@ Announcements
 
 Aug 27, 2025
 
-![Introducing the Anthropic National Security and Public Sector Advisory Council](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F45c41da0a894deb7c2265fffc882caa4a716947d-1600x1203.png&w=3840&q=75)
-
 Today, we are announcing the formation of the Anthropic National Security and Public Sector Advisory Council, a group of leading bipartisan national security and public policy practitioners who will help Anthropic support the U.S. government and closely allied democracies in building and maintaining enduring technological advantages in an era of strategic competition.
 
 The Advisory Council includes former Senators as well as former leaders from the U.S. Department of Defense, Intelligence Community, the Department of Energy, the Department of Justice, and former national security advisors to bipartisan Congressional leaders.
@@ -38,9 +36,9 @@ We look forward to announcing additional Council members in the coming months as
 
 Deep public sector engagement is essential to Anthropic’s mission of ensuring the world safely makes the transition through transformative AI and that the United States and closely allied democracies continue to lead the development and deployment of powerful and trusted frontier AI, particularly for national security.
 
-To that end, Anthropic has taken significant steps over the past several months to accelerate the responsible adoption of frontier AI capabilities across the defense, intelligence, and broader public sector community. This has included introducing a custom set of [Claude Gov](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers) models built exclusively for U.S. national security customers, our $200 million [partnership](https://www.anthropic.com/news/anthropic-and-the-department-of-defense-to-advance-responsible-ai-in-defense-operations) with DOD to prototype frontier AI capabilities that advance U.S. national security, [deploying](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and) Claude to 10,000 scientists at Lawrence Livermore National Laboratory, partnering with the National Nuclear Security Administration to [develop](https://www.anthropic.com/news/developing-nuclear-safeguards-for-ai-through-public-private-partnership) nuclear safeguards for AI, and making Claude [available](https://www.anthropic.com/news/offering-expanded-claude-access-across-all-three-branches-of-government) for $1 to all three branches of government.
+To that end, Anthropic has taken significant steps over the past several months to accelerate the responsible adoption of frontier AI capabilities across the defense, intelligence, and broader public sector community. This has included introducing a custom set of [Claude Gov](https://www.anthropic.com/news/Claude Gov) models built exclusively for U.S. national security customers, our $200 million [partnership](https://www.anthropic.com/news/partnership) with DOD to prototype frontier AI capabilities that advance U.S. national security, [deploying](https://www.anthropic.com/news/deploying) Claude to 10,000 scientists at Lawrence Livermore National Laboratory, partnering with the National Nuclear Security Administration to [develop](https://www.anthropic.com/news/develop) nuclear safeguards for AI, and making Claude [available](https://www.anthropic.com/news/available) for $1 to all three branches of government.
 
-In addition, as AI systems grow more capable, understanding their national security implications is increasingly vital. Over the past year, we have voluntarily [partnered](https://www.axios.com/2024/11/14/anthropic-claude-nuclear-information-safety) with the Department of Energy’s nuclear experts to assess our models’ potential to divulge sensitive information about nuclear weapons and with the U.S. Center for AI Standards and Innovation and UK AI Security Institute to [test](https://www.nist.gov/news-events/news/2024/11/pre-deployment-evaluation-anthropics-upgraded-claude-35-sonnet) our models’ biological, cyber, and AI R&D capabilities.
+In addition, as AI systems grow more capable, understanding their national security implications is increasingly vital. Over the past year, we have voluntarily [partnered](https://www.anthropic.com/news/partnered) with the Department of Energy’s nuclear experts to assess our models’ potential to divulge sensitive information about nuclear weapons and with the U.S. Center for AI Standards and Innovation and UK AI Security Institute to [test](https://www.anthropic.com/news/test) our models’ biological, cyber, and AI R&D capabilities.
 
 The Council will aid in the development of safe, effective, and cutting edge technology for the United States and closely allied democracies to establish and maintain enduring technological advantages in this vital era of strategic competition.
 
@@ -48,12 +46,12 @@ The Council will aid in the development of safe, effective, and cutting edge tec
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

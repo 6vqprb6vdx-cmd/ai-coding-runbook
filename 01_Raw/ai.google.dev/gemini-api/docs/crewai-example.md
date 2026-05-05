@@ -4,17 +4,17 @@ fetched_at: 2026-05-05T13:26:34.213212+00:00
 title: "Analiza obs\u0142ugi klienta za pomoc\u0105 Gemini i CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Strona główna](https://ai.google.dev/gemini-api/docs/Strona główna)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/Dokumenty)
 
 Prześlij opinię
 
 # Analiza obsługi klienta za pomocą Gemini i CrewAI
 
-[CrewAI](https://docs.crewai.com/introduction) to platforma do koordynowania autonomicznych agentów AI, którzy współpracują ze sobą, aby osiągać złożone cele. Umożliwia ona definiowanie agentów przez określanie ról, celów i historii, a następnie definiowanie dla nich zadań.
+[CrewAI](https://ai.google.dev/gemini-api/docs/CrewAI) to platforma do koordynowania autonomicznych agentów AI, którzy współpracują ze sobą, aby osiągać złożone cele. Umożliwia ona definiowanie agentów przez określanie ról, celów i historii, a następnie definiowanie dla nich zadań.
 
 Ten przykład pokazuje, jak utworzyć system wielu agentów do analizowania danych obsługi klienta w celu identyfikowania problemów i proponowania ulepszeń procesów przy użyciu Gemini 3 Flash. System generuje raport przeznaczony dla dyrektora operacyjnego.
 
@@ -25,7 +25,7 @@ Z tego przewodnika dowiesz się, jak utworzyć „zespół” agentów AI, któ
 3. sugerować praktyczne ulepszenia,
 4. Zbierz wyniki w zwięzłym raporcie odpowiednim dla dyrektora operacyjnego.
 
-Potrzebujesz klucza interfejsu Gemini API. Jeśli jeszcze go nie masz, możesz [uzyskać go w Google AI Studio](https://aistudio.google.com/app/apikey?hl=pl).
+Potrzebujesz klucza interfejsu Gemini API. Jeśli jeszcze go nie masz, możesz [uzyskać go w Google AI Studio](https://ai.google.dev/gemini-api/docs/uzyskać go w Google AI Studio).
 
 ```
 pip install "crewai[tools]"
@@ -52,7 +52,7 @@ Twórz aplikacje CrewAI za pomocą **narzędzi**, **agentów**, **zadań** i sa
 
 ### Narzędzia
 
-Narzędzia to funkcje, których agenci mogą używać do interakcji ze światem zewnętrznym lub wykonywania określonych działań. W tym miejscu definiujesz narzędzie zastępcze, które symuluje pobieranie danych obsługi klienta. W prawdziwej aplikacji połączysz się z bazą danych, interfejsem API lub systemem plików. Więcej informacji o narzędziach znajdziesz w [przewodniku po narzędziach CrewAI](https://docs.crewai.com/concepts/tools).
+Narzędzia to funkcje, których agenci mogą używać do interakcji ze światem zewnętrznym lub wykonywania określonych działań. W tym miejscu definiujesz narzędzie zastępcze, które symuluje pobieranie danych obsługi klienta. W prawdziwej aplikacji połączysz się z bazą danych, interfejsem API lub systemem plików. Więcej informacji o narzędziach znajdziesz w [przewodniku po narzędziach CrewAI](https://ai.google.dev/gemini-api/docs/przewodniku po narzędziach CrewAI).
 
 ```
 from crewai.tools import BaseTool
@@ -84,7 +84,7 @@ support_data_tool = CustomerSupportDataTool()
 
 ### Agenty
 
-Agenci to poszczególne instancje robocze AI w Twoim zespole. Każdy agent ma określony `role`, `goal`, `backstory`, przypisany `llm` i opcjonalny `tools`. Więcej informacji o agentach znajdziesz w [przewodniku po agentach CrewAI](https://docs.crewai.com/concepts/agents).
+Agenci to poszczególne instancje robocze AI w Twoim zespole. Każdy agent ma określony `role`, `goal`, `backstory`, przypisany `llm` i opcjonalny `tools`. Więcej informacji o agentach znajdziesz w [przewodniku po agentach CrewAI](https://ai.google.dev/gemini-api/docs/przewodniku po agentach CrewAI).
 
 ```
 from crewai import Agent
@@ -133,7 +133,7 @@ report_writer = Agent(
 
 ### Lista zadań
 
-Zadania określają konkretne przypisania dla agentów. Każde zadanie ma `description`, `expected_output` i jest przypisane do `agent`. Zadania są domyślnie wykonywane sekwencyjnie i uwzględniają kontekst poprzedniego zadania. Więcej informacji o zadaniach znajdziesz w [przewodniku po zadaniach CrewAI](https://docs.crewai.com/concepts/tasks).
+Zadania określają konkretne przypisania dla agentów. Każde zadanie ma `description`, `expected_output` i jest przypisane do `agent`. Zadania są domyślnie wykonywane sekwencyjnie i uwzględniają kontekst poprzedniego zadania. Więcej informacji o zadaniach znajdziesz w [przewodniku po zadaniach CrewAI](https://ai.google.dev/gemini-api/docs/przewodniku po zadaniach CrewAI).
 
 ```
 from crewai import Task
@@ -226,14 +226,12 @@ print(result)
 Skrypt zostanie uruchomiony. `Data Analyst` używa narzędzia, `Process
 Optimizer` analizuje wyniki, a `Report Writer` kompiluje raport końcowy, który jest następnie drukowany w konsoli. Ustawienie `verbose=True` wyświetli szczegółowy proces myślowy i działania każdego agenta.
 
-Więcej informacji o CrewAI znajdziesz we [wprowadzeniu do CrewAI](https://docs.crewai.com/introduction).
+Więcej informacji o CrewAI znajdziesz we [wprowadzeniu do CrewAI](https://ai.google.dev/gemini-api/docs/wprowadzeniu do CrewAI).
 
 Prześlij opinię
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://ai.google.dev/gemini-api/docs/licencją Creative Commons – uznanie autorstwa 4.0), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://ai.google.dev/gemini-api/docs/licencji Apache 2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://ai.google.dev/gemini-api/docs/zasady dotyczące witryny Google Developers). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
 Ostatnia aktualizacja: 2026-04-29 UTC.
 
 Chcesz przekazać coś jeszcze?
-
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

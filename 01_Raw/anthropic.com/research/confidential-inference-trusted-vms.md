@@ -10,18 +10,16 @@ Announcements
 
 Jun 18, 2025
 
-[Read the paper](https://assets.anthropic.com/m/c52125297b85a42/original/Confidential_Inference_Paper.pdf)
+[Read the paper](https://www.anthropic.com/research/Read the paper)
 
-![Confidential Inference via Trusted Virtual Machines](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F43a67cfcf45f5cc75995274620b187889fbbefb7-2881x1621.png&w=3840&q=75)
+Every day, millions of users [entrust](https://www.anthropic.com/research/entrust) Claude with sensitive information—from proprietary code to confidential business strategies. At Anthropic, we’re researching and building new technology to ensure that our users’ trust is warranted—and in fact, to ensure that their trust is cryptographically guaranteed.
 
-Every day, millions of users [entrust](https://trust.anthropic.com/) Claude with sensitive information—from proprietary code to confidential business strategies. At Anthropic, we’re researching and building new technology to ensure that our users’ trust is warranted—and in fact, to ensure that their trust is cryptographically guaranteed.
+What do we mean by “cryptographically guaranteed”? In a [new report](https://www.anthropic.com/research/new report) published in collaboration with [Pattern Labs](https://www.anthropic.com/research/Pattern Labs), we describe the mechanics of Confidential Inference. Confidential Inference is a set of tools we can use to process encrypted data and to show that such data is only readable within servers that can prove themselves trustworthy. There are two main reasons to adopt these tools:
 
-What do we mean by “cryptographically guaranteed”? In a [new report](https://assets.anthropic.com/m/c52125297b85a42/original/Confidential_Inference_Paper.pdf) published in collaboration with [Pattern Labs](https://www.patternlabs.co/), we describe the mechanics of Confidential Inference. Confidential Inference is a set of tools we can use to process encrypted data and to show that such data is only readable within servers that can prove themselves trustworthy. There are two main reasons to adopt these tools:
-
-- Model Weight Security: We can use Confidential Inference as one component of our broader effort to secure frontier models like Claude against increasingly capable threat actors, such as those described in the recent report from RAND on [Securing AI Model Weights](https://www.rand.org/pubs/research_reports/RRA2849-1.html);
+- Model Weight Security: We can use Confidential Inference as one component of our broader effort to secure frontier models like Claude against increasingly capable threat actors, such as those described in the recent report from RAND on [Securing AI Model Weights](https://www.anthropic.com/research/Securing AI Model Weights);
 - User Security: We can use Confidential Inference to prove that sensitive user data is kept private.
 
-We're sharing this post, and the accompanying [report](https://assets.anthropic.com/m/c52125297b85a42/original/Confidential_Inference_Paper.pdf), to explain what Confidential Inference is and the benefits it could offer our users. We also want to share how we're thinking about the security of the systems involved. This is just a sketch of our research to start a conversation; we’re still early in this work and it is too soon to forecast how it will evolve into specific designs or features we might offer in the future.
+We're sharing this post, and the accompanying [report](https://www.anthropic.com/research/report), to explain what Confidential Inference is and the benefits it could offer our users. We also want to share how we're thinking about the security of the systems involved. This is just a sketch of our research to start a conversation; we’re still early in this work and it is too soon to forecast how it will evolve into specific designs or features we might offer in the future.
 
 The following sections provide some of the technical details for the implementation of Confidential Inference. The key takeaway is that we're building systems designed to help ensure your sensitive data remains encrypted everywhere except for the exact moment it needs to be processed—and even then, only within a highly restricted, verifiable environment.
 
@@ -63,7 +61,7 @@ The decision of whether an environment is “trusted” ultimately rests on the 
 
 ## Future directions
 
-As frontier models grow more capable, we may find it necessary to incorporate further safeguards at the secure loader layer. This may include features such as an additional layer of [egress bandwidth limitations](https://www.anthropic.com/news/activating-asl3-protections) on servers that holds cleartext model weights, or requiring a signature from a safety classifier in order to run inference. We hope that presenting this model of Confidential Inference might inspire discussion about what additional features are worth exploring to ensure the ongoing security of Anthropic's environment and the confidentiality of our users’ data.
+As frontier models grow more capable, we may find it necessary to incorporate further safeguards at the secure loader layer. This may include features such as an additional layer of [egress bandwidth limitations](https://www.anthropic.com/research/egress bandwidth limitations) on servers that holds cleartext model weights, or requiring a signature from a safety classifier in order to run inference. We hope that presenting this model of Confidential Inference might inspire discussion about what additional features are worth exploring to ensure the ongoing security of Anthropic's environment and the confidentiality of our users’ data.
 
 ## Conclusions
 
@@ -76,26 +74,26 @@ This research will advance our ongoing efforts to secure our model weights and p
 
 Model weights are a simpler story: they can be stored encrypted, decrypted at the loader, and never released from there.
 
-Hardware designers (who have not [already done so](https://developer.nvidia.com/blog/confidential-computing-on-h100-gpus-for-secure-and-trustworthy-ai/)) should consider incorporating confidential computing into their chips. If there is a hardware root of trust attached to the accelerator, then the trust boundary of this kind of system can be significantly reduced.
+Hardware designers (who have not [already done so](https://www.anthropic.com/research/already done so)) should consider incorporating confidential computing into their chips. If there is a hardware root of trust attached to the accelerator, then the trust boundary of this kind of system can be significantly reduced.
 
-Read [the full report](https://assets.anthropic.com/m/c52125297b85a42/original/Confidential_Inference_Paper.pdf).
+Read [the full report](https://www.anthropic.com/research/the full report).
 
 ### Work with us
 
-If this discussion of Confidential Inference has inspired you to want to work with us on these questions, please consider applying for one of the open roles listed in the “Security” and “AI Research and Engineering” sections on the [jobs page on our website](https://www.anthropic.com/jobs).
+If this discussion of Confidential Inference has inspired you to want to work with us on these questions, please consider applying for one of the open roles listed in the “Security” and “AI Research and Engineering” sections on the [jobs page on our website](https://www.anthropic.com/research/jobs page on our website).
 
 ## Related content
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

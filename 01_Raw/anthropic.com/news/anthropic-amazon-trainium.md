@@ -10,8 +10,6 @@ Announcements
 
 Nov 22, 2024
 
-![amazon and anthropic logos](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F253277d4ba0d1b94a52fde6d206cba743098eb61-5760x3240.png&w=3840&q=75)
-
 Today we’re announcing an expansion of our collaboration with Amazon Web Services (AWS), deepening our work together to develop and deploy advanced AI systems. This expanded partnership includes a new $4 billion investment from Amazon and establishes AWS as our primary cloud and training partner. This will bring Amazon's total investment in Anthropic to $8 billion, while maintaining their position as a minority investor.
 
 ## Collaboration on AWS Trainium hardware and software
@@ -26,7 +24,7 @@ Through Amazon Bedrock, Claude has become core infrastructure for tens of thousa
 
 ## Enabling secure, customizable AI solutions
 
-Claude in Amazon Bedrock provides access to frontier intelligence within AWS, allowing customers to keep models and data in the same cloud environment. Building on this unified architecture, organizations can fine-tune Claude models in Amazon Bedrock, [including Claude 3 Haiku](https://www.anthropic.com/news/fine-tune-claude-3-haiku), to tailor outputs to their specific requirements and boost accuracy for domain-specific tasks. Customer proprietary training data remains secure within AWS, preserving our commitment to safety and privacy.
+Claude in Amazon Bedrock provides access to frontier intelligence within AWS, allowing customers to keep models and data in the same cloud environment. Building on this unified architecture, organizations can fine-tune Claude models in Amazon Bedrock, [including Claude 3 Haiku](https://www.anthropic.com/news/including Claude 3 Haiku), to tailor outputs to their specific requirements and boost accuracy for domain-specific tasks. Customer proprietary training data remains secure within AWS, preserving our commitment to safety and privacy.
 
 By leveraging AWS’s robust security features and compliance certifications, organizations can confidently deploy AI solutions that meet stringent regulatory requirements. Government customers and industry partners can access Claude’s capabilities through Amazon Bedrock in AWS GovCloud (US). Additionally, government customers can access Claude through Amazon SageMaker in highly controlled environments like the AWS Secret and Top Secret Cloud Regions.
 
@@ -34,18 +32,18 @@ By leveraging AWS’s robust security features and compliance certifications, or
 
 Together with AWS, we’re laying the technological foundation—from silicon to software—that will power the next generation of AI research and development. By combining Anthropic’s expertise in frontier AI systems with AWS’s world-class infrastructure, we’re building a secure, enterprise-ready platform that gives organizations of all sizes access to the forefront of AI technology.
 
-If you're interested in using Claude in Amazon Bedrock, you can get started at [aws.amazon.com/bedrock/claude/](http://aws.amazon.com/bedrock/claude/).
+If you're interested in using Claude in Amazon Bedrock, you can get started at [aws.amazon.com/bedrock/claude/](https://www.anthropic.com/news/aws.amazon.com/bedrock/claude/).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:12:56.942393+00:00
 title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [דף הבית](https://ai.google.dev/gemini-api/docs/דף הבית)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
 
 שליחת משוב
 
@@ -20,7 +20,7 @@ title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google A
 
 ### למה אנחנו עושים את זה?
 
-אנחנו כל הזמן פועלים לשיפור המודלים והשירותים שלנו מבוססי-AI. המשוב שלכם באמצעות ההצבעה על העדפות בתוך הטקסט עוזר לנו לספק, לשפר ולפתח מוצרים ושירותים של Google וטכנולוגיות למידת מכונה, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם [לתנאים והגבלות נוספים לממשקי Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות הפרטיות](https://policies.google.com/privacy?hl=he).
+אנחנו כל הזמן פועלים לשיפור המודלים והשירותים שלנו מבוססי-AI. המשוב שלכם באמצעות ההצבעה על העדפות בתוך הטקסט עוזר לנו לספק, לשפר ולפתח מוצרים ושירותים של Google וטכנולוגיות למידת מכונה, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם [לתנאים והגבלות נוספים לממשקי Gemini API](https://ai.google.dev/gemini-api/docs/לתנאים והגבלות נוספים לממשקי Gemini API) ול[מדיניות הפרטיות](https://ai.google.dev/gemini-api/docs/מדיניות הפרטיות).
 
 ### אילו נתונים נכללים במשוב?
 
@@ -42,10 +42,8 @@ title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google A
 
 שליחת משוב
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://ai.google.dev/gemini-api/docs/מדיניות האתר Google Developers‏).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
 עדכון אחרון: 2026-04-29 (שעון UTC).
 
 רוצה לתת לנו משוב?
-
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

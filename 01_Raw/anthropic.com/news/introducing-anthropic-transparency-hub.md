@@ -10,9 +10,7 @@ Societal Impacts
 
 Feb 27, 2025
 
-![Introducing Anthropic's Transparency Hub](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fafa967c5b3e44027494f744d397e5934fcf8bdd8-2881x1621.png&w=3840&q=75)
-
-Today, we're launching Anthropic's [Transparency Hub](https://www.anthropic.com/transparency)—a detailed overview of concrete measures we're implementing to ensure our systems are safe, beneficial, and trustworthy.
+Today, we're launching Anthropic's [Transparency Hub](https://www.anthropic.com/news/Transparency Hub)—a detailed overview of concrete measures we're implementing to ensure our systems are safe, beneficial, and trustworthy.
 
 As AI capabilities advance rapidly, meaningful transparency is essential for building trust and accountability. Organizations working on frontier AI have a responsibility to provide clear insights into their processes for responsible scaling, safety protocols, and risk mitigation strategies—particularly as regulatory frameworks continue to evolve. As a starting point, we are publishing our first periodic report on several key transparency metrics: banned accounts, account appeals, appeal overturns, reports to the National Center for Missing and Exploited Children (NCMEC), and government request data.
 
@@ -33,18 +31,18 @@ We've designed our approach to address a key challenge in AI governance: the pro
 
 In keeping with our commitment to raising the bar on transparency, we'll continuously expand our reporting to reflect evolving best practices as AI capabilities advance and new challenges emerge.
 
-We invite you to explore the [Transparency Hub](https://www.anthropic.com/transparency) and see firsthand how we're working to build AI systems worthy of trust. We welcome your feedback at transparency@anthropic.com.
+We invite you to explore the [Transparency Hub](https://www.anthropic.com/news/Transparency Hub) and see firsthand how we're working to build AI systems worthy of trust. We welcome your feedback at transparency@anthropic.com.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

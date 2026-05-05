@@ -10,8 +10,6 @@ Announcements
 
 Feb 26, 2025
 
-![Alexa Plus logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff2e857ba0cb99a69af066281df6b66db63d4bc3d-2880x1620.png&w=3840&q=75)
-
 Today, we're announcing that Claude models are helping power Alexa+. This collaboration is part of our ongoing partnership with Amazon to deliver advanced AI technology to businesses and consumers around the world.
 
 Teams from Amazon and Anthropic worked closely throughout the past year. Our Chief Product Officer, Mike Krieger, led a team that helped Alexa+ to get the full benefits of Claude's capabilities.
@@ -24,12 +22,12 @@ Alexa+ accesses Claude through Amazon Bedrock. It will start rolling out in the 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

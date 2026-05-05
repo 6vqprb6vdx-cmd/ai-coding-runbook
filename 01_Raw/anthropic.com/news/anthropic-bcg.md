@@ -10,11 +10,9 @@ Announcements
 
 Sep 14, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F376344ca734e3e2bbfb4fefcd7c21f6dd59b2288-2880x1620.png&w=3840&q=75)
-
 We’re pleased to announce our new collaboration with Boston Consulting Group (BCG) to bring Claude to more enterprises. BCG customers around the world will get direct access to our AI assistant to power their strategic AI offerings and deploy safer, more reliable AI solutions.  
   
-Our work towards creating helpful, honest and harmless systems with techniques like [Constitutional AI](/news/claudes-constitution) aligns with BCG’s focus on [responsible AI](https://www.bcg.com/capabilities/artificial-intelligence/responsible-ai). Through this collaboration, BCG will advise their customers on strategic applications of AI and help them deploy Anthropic models including [Claude 2](/news/claude-2) to deliver business results. Use cases involving Claude span knowledge management, market research, fraud detection, demand forecasting, report generation, business analysis and more.  
+Our work towards creating helpful, honest and harmless systems with techniques like [Constitutional AI](https://www.anthropic.com/news/Constitutional AI) aligns with BCG’s focus on [responsible AI](https://www.anthropic.com/news/responsible AI). Through this collaboration, BCG will advise their customers on strategic applications of AI and help them deploy Anthropic models including [Claude 2](https://www.anthropic.com/news/Claude 2) to deliver business results. Use cases involving Claude span knowledge management, market research, fraud detection, demand forecasting, report generation, business analysis and more.  
   
 Anthropic and BCG have already partnered to help organizations understand the force-multiplying impact of generative AI, most recently at the United Nations. In addition to working together to bring AI to new organizations, BCG has partnered with Anthropic to use Claude within its own teams. We're excited to see how Claude will provide BCG with the ability to synthesize research effectively, analyze data quickly, and drive inspired insights to clients.  
   
@@ -26,12 +24,12 @@ We’re extending a warm welcome to BCG and its customers—and look forward to 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

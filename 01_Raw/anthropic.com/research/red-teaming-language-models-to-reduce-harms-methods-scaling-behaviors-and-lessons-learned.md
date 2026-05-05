@@ -10,7 +10,7 @@ Societal Impacts
 
 Aug 22, 2022
 
-[Read Paper](https://arxiv.org/abs/2209.07858)
+[Read Paper](https://www.anthropic.com/research/Read Paper)
 
 ## Abstract
 
@@ -18,20 +18,20 @@ We describe our early efforts to red team language models in order to simultaneo
 
 ## Policy Memo
 
-[Red Teaming Policy Memo](https://www-cdn.anthropic.com/82564d4ec2451b2eed2e0796b7c658fc989f0c1a/Anthropic_RedTeaming.pdf)
+[Red Teaming Policy Memo](https://www.anthropic.com/research/Red Teaming Policy Memo)
 
 ## Related content
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

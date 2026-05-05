@@ -373,7 +373,7 @@ Methods:
 - <code>client.vectorStores.fileBatches.<a href="./src/resources/vector-stores/file-batches.ts">poll</a>(vectorStoreId, batchId, options?) -> Promise&lt;VectorStoreFileBatch&gt;</code>
 - <code>client.vectorStores.fileBatches.<a href="./src/resources/vector-stores/file-batches.ts">uploadAndPoll</a>(vectorStoreId, { files, fileIds? }, options?) -> Promise&lt;VectorStoreFileBatch&gt;</code>
 
-# [Webhooks](src/resources/webhooks/api.md)
+# [Webhooks](https://raw.githubusercontent.com/openai/openai-node/main/Webhooks)
 
 # Beta
 
@@ -906,11 +906,11 @@ Methods:
 - <code title="post /organization/projects/{project_id}/certificates/activate">client.admin.organization.projects.certificates.<a href="./src/resources/admin/organization/projects/certificates.ts">activate</a>(projectID, { ...params }) -> CertificateActivateResponsesPage</code>
 - <code title="post /organization/projects/{project_id}/certificates/deactivate">client.admin.organization.projects.certificates.<a href="./src/resources/admin/organization/projects/certificates.ts">deactivate</a>(projectID, { ...params }) -> CertificateDeactivateResponsesPage</code>
 
-# [Responses](src/resources/responses/api.md)
+# [Responses](https://raw.githubusercontent.com/openai/openai-node/main/Responses)
 
-# [Realtime](src/resources/realtime/api.md)
+# [Realtime](https://raw.githubusercontent.com/openai/openai-node/main/Realtime)
 
-# [Conversations](src/resources/conversations/api.md)
+# [Conversations](https://raw.githubusercontent.com/openai/openai-node/main/Conversations)
 
 # Evals
 

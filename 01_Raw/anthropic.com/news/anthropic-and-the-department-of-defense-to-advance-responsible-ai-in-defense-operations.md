@@ -30,24 +30,24 @@ We believe democracies must work together to ensure AI development strengthens d
 
 Our commitment to responsible AI deployment, including rigorous safety testing, collaborative governance development, and strict usage policies, makes Claude uniquely suited for sensitive national security applications.
 
-This agreement with CDAO builds upon Anthropic's growing ecosystem of public sector deployments. Last week, we [announced](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and) that Lawrence Livermore National Laboratory will make advanced AI capabilities available to over 10,000 scientists, researchers, and staff. LLNL's expansion of Claude access will help bolster research across nuclear deterrence, energy security, and materials science.
+This agreement with CDAO builds upon Anthropic's growing ecosystem of public sector deployments. Last week, we [announced](https://www.anthropic.com/news/announced) that Lawrence Livermore National Laboratory will make advanced AI capabilities available to over 10,000 scientists, researchers, and staff. LLNL's expansion of Claude access will help bolster research across nuclear deterrence, energy security, and materials science.
 
 We’ve accelerated mission impact across U.S. defense workflows with partners like Palantir, where Claude is integrated into mission workflows on classified networks. This has enabled U.S. defense and intelligence organizations with powerful AI tools to rapidly process and analyze vast amounts of complex data.
 
-[Claude Gov models](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers), which we custom built for national security customers, already power deployments by agencies across the national security community atop infrastructure powered by Amazon Web Services(AWS).
+[Claude Gov models](https://www.anthropic.com/news/Claude Gov models), which we custom built for national security customers, already power deployments by agencies across the national security community atop infrastructure powered by Amazon Web Services(AWS).
 
-Organizations interested in transforming their operations with Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+Organizations interested in transforming their operations with Claude can [contact our public sector team](https://www.anthropic.com/news/contact our public sector team) to learn more and get started.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

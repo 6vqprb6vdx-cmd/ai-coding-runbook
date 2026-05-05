@@ -10,9 +10,7 @@ Announcements
 
 Sep 19, 2023
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe85c883654e0a7e6d096cfa0413b35bcb7ccad58-2880x1620.png&w=3840&q=75)
-
-Today we are sharing more details about our new governance structure called the **Long-Term Benefit Trust (LTBT)**, which we have been developing since the birth of Anthropic. The LTBT is our attempt to fine-tune our corporate governance to address the unique challenges and long-term opportunities we believe [transformative AI will present](/news/core-views-on-ai-safety).
+Today we are sharing more details about our new governance structure called the **Long-Term Benefit Trust (LTBT)**, which we have been developing since the birth of Anthropic. The LTBT is our attempt to fine-tune our corporate governance to address the unique challenges and long-term opportunities we believe [transformative AI will present](https://www.anthropic.com/news/transformative AI will present).
 
 The Trust is an independent body of five financially disinterested members with an authority to select and remove a portion of our Board that will grow over time (ultimately, a majority of our Board). Paired with our Public Benefit Corporation status, the LTBT helps to align our corporate governance with our mission of developing and maintaining advanced AI for the long-term benefit of humanity.
 
@@ -30,7 +28,7 @@ Importantly, the rights to elect, remove, and sue directors belong exclusively t
 
 Corporate governance has seen centuries of legal precedent and iteration, and views differ greatly on its effectiveness, strengths, and weaknesses. At Anthropic, our perspective is that the capacity of corporate governance to produce socially beneficial outcomes depends strongly on non-market externalities. Externalities are a type of market failure that occurs when a transaction between two parties imposes costs or benefits on a third party who has not consented to the transaction. Common examples of costs include pollution from factories, systemic financial risk from banks, and national security risks from weapons manufacturers. Examples of positive spillover effects include the societal benefits of education that reach beyond the individuals being educated, or investments in R&D that boost entire sectors beyond the company making the investment. Many parties who contract with a corporation, such as customers, workers, and suppliers, are capable of negotiating or demanding prices and terms that reflect the full costs and benefits of their exchanges. But other parties, such as the general public, don’t directly contract with a corporation and therefore do not have a means to charge or pay for the costs and benefits they experience.  
   
-The greater the externalities, the less we expect corporate governance defaults to serve the interests of non-contracting parties such as the general public. We believe AI may create [unprecedentedly large externalities](/news/core-views-on-ai-safety), ranging from national security risks, to large-scale economic disruption, to fundamental threats to humanity, to enormous benefits to human safety and health. The technology is advancing so rapidly that the laws and social norms that constrain other high-externality corporate activities have yet to catch up with AI; this has led us to invest in fine-tuning Anthropic’s governance to meet the challenge ahead of us.  
+The greater the externalities, the less we expect corporate governance defaults to serve the interests of non-contracting parties such as the general public. We believe AI may create [unprecedentedly large externalities](https://www.anthropic.com/news/unprecedentedly large externalities), ranging from national security risks, to large-scale economic disruption, to fundamental threats to humanity, to enormous benefits to human safety and health. The technology is advancing so rapidly that the laws and social norms that constrain other high-externality corporate activities have yet to catch up with AI; this has led us to invest in fine-tuning Anthropic’s governance to meet the challenge ahead of us.  
   
 To be clear, for most of the day-to-day decisions Anthropic makes, public benefit is not at odds with commercial success or stockholder returns, and if anything our experience has shown that the two are often strongly synergistic: our ability to do effective safety research depends on building frontier models (the resources for which are greatly aided by commercial success), and our ability to foster a “race to the top” depends on being a viable company in the ecosystem in both a technical sense and a commercial sense. We do not expect the LTBT to intervene in these day-to-day decisions or in our ordinary commercial strategy.  
   
@@ -46,7 +44,7 @@ The legal latitude afforded by our PBC structure is important in aligning Anthro
 
 The Anthropic Long-Term Benefit Trust (LTBT, or Trust) is an independent body comprising five Trustees with backgrounds and expertise in AI safety, national security, public policy, and social enterprise. The Trust’s arrangements are designed to insulate the Trustees from financial interest in Anthropic and to grant them sufficient independence to balance the interests of the public alongside the interests of Anthropic’s stockholders.  
   
-At the close of our [Series C](/news/anthropic-series-c), we amended our corporate charter to create a new class of stock (Class T) held exclusively by the Trust.1 The Class T stock grants the Trust the authority to elect and remove a number of Anthropic’s board members that will phase in according to time- and funding-based milestones; in any event, the Trust will elect a majority of the board within 4 years. At the same time, we created a new director seat that will be elected by the Series C and subsequent investors to ensure that our investors’ perspectives will be directly represented on the board into the future.  
+At the close of our [Series C](https://www.anthropic.com/news/Series C), we amended our corporate charter to create a new class of stock (Class T) held exclusively by the Trust.1 The Class T stock grants the Trust the authority to elect and remove a number of Anthropic’s board members that will phase in according to time- and funding-based milestones; in any event, the Trust will elect a majority of the board within 4 years. At the same time, we created a new director seat that will be elected by the Series C and subsequent investors to ensure that our investors’ perspectives will be directly represented on the board into the future.  
   
 The Class T stock also includes “protective provisions” that require the Trust to receive notice of certain actions that could significantly alter the corporation or its business.  
   
@@ -68,36 +66,36 @@ One of the most difficult design challenges was reconciling the imperative for t
 
 The initial Trustees are:  
   
-[Jason Matheny](https://www.rand.org/about/people/m/matheny_jason.html): CEO of the [RAND Corporation](https://www.rand.org/)  
-[Kanika Bahl](https://www.evidenceaction.org/about/our-people/kanika-bahl): CEO & President of [Evidence Action](https://www.evidenceaction.org/)  
-[Neil Buddy Shah](https://www.clintonhealthaccess.org/news/chai-board-of-directors-announces-appointment-of-dr-neil-buddy-shah-as-chief-executive-officer/): CEO of the [Clinton Health Access Initiative](https://www.clintonhealthaccess.org/about-us/) (Chair)  
-[Paul Christiano](https://paulfchristiano.com/): Founder of the [Alignment Research Center](https://www.alignment.org/)  
-[Zach Robinson](https://www.linkedin.com/in/zyrobinson): Interim CEO of [Effective Ventures US](https://ev.org/)  
+[Jason Matheny](https://www.anthropic.com/news/Jason Matheny): CEO of the [RAND Corporation](https://www.anthropic.com/news/RAND Corporation)  
+[Kanika Bahl](https://www.anthropic.com/news/Kanika Bahl): CEO & President of [Evidence Action](https://www.anthropic.com/news/Evidence Action)  
+[Neil Buddy Shah](https://www.anthropic.com/news/Neil Buddy Shah): CEO of the [Clinton Health Access Initiative](https://www.anthropic.com/news/Clinton Health Access Initiative) (Chair)  
+[Paul Christiano](https://www.anthropic.com/news/Paul Christiano): Founder of the [Alignment Research Center](https://www.anthropic.com/news/Alignment Research Center)  
+[Zach Robinson](https://www.anthropic.com/news/Zach Robinson): Interim CEO of [Effective Ventures US](https://www.anthropic.com/news/Effective Ventures US)  
   
 The Anthropic board chose these initial Trustees after a year-long search and interview process to surface individuals who exhibit thoughtfulness, strong character, and a deep understanding of the risks, benefits, and trajectory of AI and its impacts on society. Trustees serve one-year terms and future Trustees will be elected by a vote of the Trustees. We are honored that this founding group of Trustees chose to accept their places on the Trust, and we believe they will provide invaluable insight and judgment.
 
 [1] An earlier version of the Trust, which was then called the “Long-Term Benefit Committee,” was written into our Series A investment documents in 2021, but since the committee was not slated to elect its first director until 2023, we took the intervening time to red-team and improve the legal structure and to carefully consider candidate selection. The current LTBT is the result.
 
-[2] The Trust structure was designed and “red teamed” with immeasurable assistance by [John Morley of Yale Law School](https://law.yale.edu/john-d-morley), [David Berger](https://www.wsgr.com/en/people/david-j-berger.html), [Amy Simmerman](https://www.wsgr.com/en/people/amy-l-simmerman.html#credentials), and other lawyers from Wilson Sonsini, and by [Noah Feldman](https://hls.harvard.edu/faculty/noah-r-feldman/) and [Seth Berman from Harvard Law School and Ethical Compass Advisors](https://ethical-compass-advisors.com/).
+[2] The Trust structure was designed and “red teamed” with immeasurable assistance by [John Morley of Yale Law School](https://www.anthropic.com/news/John Morley of Yale Law School), [David Berger](https://www.anthropic.com/news/David Berger), [Amy Simmerman](https://www.anthropic.com/news/Amy Simmerman), and other lawyers from Wilson Sonsini, and by [Noah Feldman](https://www.anthropic.com/news/Noah Feldman) and [Seth Berman from Harvard Law School and Ethical Compass Advisors](https://www.anthropic.com/news/Seth Berman from Harvard Law School and Ethical Compass Advisors).
 
 #### Footnotes
 
 *Since this page was originally published, there have been several changes to the composition of the Long-Term Benefit Trust.*
 
-*In December 2023, Jason Matheny stepped down from the Trust to preempt any potential conflicts of interest that might arise with* [*RAND Corporation's*](https://www.rand.org/) *policy-related initiatives. Paul Christiano stepped down in April 2024 to take a new role as the Head of AI Safety at the* *[U.S. AI Safety Institute](https://www.nist.gov/news-events/news/2024/04/us-commerce-secretary-gina-raimondo-announces-expansion-us-ai-safety). In January 2026, Kanika Bahl stepped down to begin a new nonprofit, the* *[AI Access Initiative](https://www.aiaccessinitiative.org/), and Zach Robinson stepped down to focus on non-profit and philanthropic work.*
+*In December 2023, Jason Matheny stepped down from the Trust to preempt any potential conflicts of interest that might arise with* [*RAND Corporation's*](https://www.anthropic.com/news/*RAND Corporation's*) *policy-related initiatives. Paul Christiano stepped down in April 2024 to take a new role as the Head of AI Safety at the* *[U.S. AI Safety Institute](https://www.anthropic.com/news/U.S. AI Safety Institute). In January 2026, Kanika Bahl stepped down to begin a new nonprofit, the* *[AI Access Initiative](https://www.anthropic.com/news/AI Access Initiative), and Zach Robinson stepped down to focus on non-profit and philanthropic work.*
 
-*Richard Fontaine, CEO of the* *[Center for a New American Security](https://www.cnas.org/), joined the LTBT in May 2025, and Mariano-Florentino (Tino) Cuéllar, President of the Carnegie Endowment for International Peace, joined in January 2026. Additional LTBT members will be elected by the Trustees in due course.*
+*Richard Fontaine, CEO of the* *[Center for a New American Security](https://www.anthropic.com/news/Center for a New American Security), joined the LTBT in May 2025, and Mariano-Florentino (Tino) Cuéllar, President of the Carnegie Endowment for International Peace, joined in January 2026. Additional LTBT members will be elected by the Trustees in due course.*
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

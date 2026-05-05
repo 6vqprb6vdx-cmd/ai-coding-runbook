@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:24:16.170131+00:00
 title: "T\u00ecm hi\u1ec3u v\u00e0 t\u00ednh m\u00e3 th\u00f4ng b\u00e1o \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/Tính năng Nghiên cứu chuyên sâu của Gemini) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Trang chủ](https://ai.google.dev/gemini-api/docs/Trang chủ)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs/Tài liệu)
 
 Gửi ý kiến phản hồi
 
@@ -23,13 +23,13 @@ Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào v
 
 Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả các token mà mô hình sử dụng được gọi là từ vựng và quy trình phân tách văn bản thành token được gọi là *tách từ*.
 
-Khi bạn bật tính năng thanh toán, [chi phí cho một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
+Khi bạn bật tính năng thanh toán, [chi phí cho một lệnh gọi đến Gemini API](https://ai.google.dev/gemini-api/docs/chi phí cho một lệnh gọi đến Gemini API) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
 
 Bạn có thể thử đếm mã thông báo trong Colab của chúng tôi.
 
 |  |  |  |
 | --- | --- | --- |
-| [Xem trên ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | [Dùng thử sổ tay Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=vi) | [Xem sổ tay trên GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=vi) |
+| [Xem trên ai.google.dev](https://ai.google.dev/gemini-api/docs/Xem trên ai.google.dev) | [Dùng thử sổ tay Colab](https://ai.google.dev/gemini-api/docs/Dùng thử sổ tay Colab) | [Xem sổ tay trên GitHub](https://ai.google.dev/gemini-api/docs/Xem sổ tay trên GitHub) |
 
 ## Đếm mã thông báo
 
@@ -37,13 +37,13 @@ Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được
 
 Bạn có thể đếm mã thông báo theo những cách sau:
 
-- **Gọi [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=vi) bằng dữ liệu đầu vào của yêu cầu.**  
+- **Gọi [`count_tokens`](https://ai.google.dev/gemini-api/docs/`count_tokens`) bằng dữ liệu đầu vào của yêu cầu.**  
    Hàm này chỉ trả về tổng số mã thông báo trong *đầu vào*. Bạn có thể thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào đến mô hình để kiểm tra kích thước của các yêu cầu.
 - **Sử dụng thuộc tính `usage_metadata` trên đối tượng `response` sau khi gọi `generate_content`.**  
    Hàm này trả về tổng số mã thông báo trong *cả dữ liệu đầu vào và đầu ra*: `total_token_count`.  
    Hàm này cũng trả về số lượng mã thông báo của đầu vào và đầu ra riêng biệt: `prompt_token_count` (mã thông báo đầu vào) và `candidates_token_count` (mã thông báo đầu ra).
 
-  Nếu bạn đang sử dụng [mô hình tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi), thì mã thông báo được dùng trong quá trình tư duy sẽ được trả về trong `thoughts_token_count`. Và nếu bạn đang sử dụng [Lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi), thì số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ nằm trong `cached_content_token_count`.
+  Nếu bạn đang sử dụng [mô hình tư duy](https://ai.google.dev/gemini-api/docs/mô hình tư duy), thì mã thông báo được dùng trong quá trình tư duy sẽ được trả về trong `thoughts_token_count`. Và nếu bạn đang sử dụng [Lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/Lưu vào bộ nhớ đệm theo bối cảnh), thì số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ nằm trong `cached_content_token_count`.
 
 ### Đếm mã thông báo văn bản
 
@@ -273,10 +273,10 @@ Tất cả thông tin đầu vào cho Gemini API đều được tách từ, bao
 
 #### Độ phân giải của nội dung nghe nhìn
 
-[Các mô hình Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=vi#gemini-3) cung cấp khả năng kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
+[Các mô hình Gemini 3](https://ai.google.dev/gemini-api/docs/Các mô hình Gemini 3) cung cấp khả năng kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
 Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
 
-Để biết thêm thông tin về tham số này và mức độ ảnh hưởng của tham số này đến việc tính toán mã thông báo, hãy xem hướng dẫn về [độ phân giải của nội dung nghe nhìn](https://ai.google.dev/gemini-api/docs/media-resolution?hl=vi).
+Để biết thêm thông tin về tham số này và mức độ ảnh hưởng của tham số này đến việc tính toán mã thông báo, hãy xem hướng dẫn về [độ phân giải của nội dung nghe nhìn](https://ai.google.dev/gemini-api/docs/độ phân giải của nội dung nghe nhìn).
 
 #### Tệp hình ảnh
 
@@ -625,7 +625,7 @@ fmt.Println(string(usageMetadata))
 
 ## Cửa sổ ngữ cảnh
 
-Các mô hình có trong Gemini API có cửa sổ ngữ cảnh được đo bằng số lượng mã thông báo. Cửa sổ ngữ cảnh xác định lượng dữ liệu đầu vào mà bạn có thể cung cấp và lượng dữ liệu đầu ra mà mô hình có thể tạo. Bạn có thể xác định kích thước của cửa sổ ngữ cảnh bằng cách gọi [điểm cuối `models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=vi) hoặc bằng cách xem trong [tài liệu về các mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+Các mô hình có trong Gemini API có cửa sổ ngữ cảnh được đo bằng số lượng mã thông báo. Cửa sổ ngữ cảnh xác định lượng dữ liệu đầu vào mà bạn có thể cung cấp và lượng dữ liệu đầu ra mà mô hình có thể tạo. Bạn có thể xác định kích thước của cửa sổ ngữ cảnh bằng cách gọi [điểm cuối `models.get`](https://ai.google.dev/gemini-api/docs/điểm cuối `models.get`) hoặc bằng cách xem trong [tài liệu về các mô hình](https://ai.google.dev/gemini-api/docs/tài liệu về các mô hình).
 
 ### Python
 
@@ -672,10 +672,8 @@ fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 
 Gửi ý kiến phản hồi
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://ai.google.dev/gemini-api/docs/Giấy phép ghi nhận tác giả 4.0 của Creative Commons) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://ai.google.dev/gemini-api/docs/Giấy phép Apache 2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://ai.google.dev/gemini-api/docs/Chính sách trang web của Google Developers). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
 Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
 Bạn muốn chia sẻ thêm với chúng tôi?
-
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

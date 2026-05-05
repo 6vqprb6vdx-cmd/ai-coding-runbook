@@ -4,15 +4,13 @@ fetched_at: 2026-05-04T16:50:37.092941+00:00
 title: "Alignment Research \\ Anthropic"
 ---
 
-[Back to Overview](/research)
+[Back to Overview](https://www.anthropic.com/research/team/Back to Overview)
 
 # Alignment
 
 Future AI systems will be even more powerful than today’s, likely in ways that break key assumptions behind current safety techniques. That’s why it’s important to develop sophisticated safeguards to ensure models remain helpful, honest, and harmless. The Alignment team works to understand the challenges ahead and create protocols to train, evaluate, and monitor highly-capable models safely.
 
-Research teams:[Alignment](/research/team/alignment)[Economic Research](/research/team/economic-research)[Interpretability](/research/team/interpretability)[Societal Impacts](/research/team/societal-impacts)
-
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fc351e05137a3da7d475af1c36f705cb4ff4b2179-1440x810.png&w=3840&q=75)
+Research teams:[Alignment](https://www.anthropic.com/research/team/Alignment)[Economic Research](https://www.anthropic.com/research/team/Economic Research)[Interpretability](https://www.anthropic.com/research/team/Interpretability)[Societal Impacts](https://www.anthropic.com/research/team/Societal Impacts)
 
 ### Evaluation and oversight
 
@@ -22,27 +20,25 @@ Alignment researchers validate that models are harmless and honest even under ve
 
 Alignment researchers also systematically look for situations in which models might behave badly, and check whether our existing safeguards are sufficient to deal with risks that human-level capabilities may bring.
 
-![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F97f7955c3bd6586216581f62569fae241b2c2cef-1920x1080.png&w=3840&q=75)
-
 [## Claude’s Character
 
 AlignmentJun 8, 2024
 
-Claude 3 was the first model with "character training"—alignment aimed at nurturing traits like curiosity, open-mindedness, and thoughtfulness.](/research/claude-character)
+Claude 3 was the first model with "character training"—alignment aimed at nurturing traits like curiosity, open-mindedness, and thoughtfulness.](https://www.anthropic.com/research/claude-character)
 
 [AlignmentMar 13, 2025
 
 #### Auditing language models for hidden objectives
 
-How would we know if an AI system is "right for the wrong reasons"—appearing well-behaved while pursuing hidden goals? This paper develops the science of alignment audits by deliberately training a model with a hidden objective and asking blinded research teams to uncover it, testing techniques from interpretability to behavioral analysis.](/research/auditing-hidden-objectives)[AlignmentDec 18, 2024
+How would we know if an AI system is "right for the wrong reasons"—appearing well-behaved while pursuing hidden goals? This paper develops the science of alignment audits by deliberately training a model with a hidden objective and asking blinded research teams to uncover it, testing techniques from interpretability to behavioral analysis.](https://www.anthropic.com/research/team/AlignmentMar 13, 2025#### Auditing language models for hidden objectivesHow would we know if an AI system is "right for the wrong reasons"—appearing well-behaved while pursuing hidden goals? This paper develops the science of alignment audits by deliberately training a model with a hidden objective and asking blinded research teams to uncover it, testing techniques from interpretability to behavioral analysis.)[AlignmentDec 18, 2024
 
 #### Alignment faking in large language models
 
-This paper provides the first empirical example of a model engaging in alignment faking without being trained to do so—selectively complying with training objectives while strategically preserving existing preferences.](/research/alignment-faking)[AlignmentJun 17, 2024
+This paper provides the first empirical example of a model engaging in alignment faking without being trained to do so—selectively complying with training objectives while strategically preserving existing preferences.](https://www.anthropic.com/research/team/AlignmentDec 18, 2024#### Alignment faking in large language modelsThis paper provides the first empirical example of a model engaging in alignment faking without being trained to do so—selectively complying with training objectives while strategically preserving existing preferences.)[AlignmentJun 17, 2024
 
 #### Sycophancy to subterfuge: Investigating reward tampering in language models
 
-Can minor specification gaming evolve into more dangerous behaviors? This paper demonstrates that models trained on low-level reward hacking—like sycophancy—can generalize to tampering with their own reward functions, even covering their tracks. The behavior emerged without explicit training, and common safety techniques reduced but didn't eliminate it.](/research/reward-tampering)
+Can minor specification gaming evolve into more dangerous behaviors? This paper demonstrates that models trained on low-level reward hacking—like sycophancy—can generalize to tampering with their own reward functions, even covering their tracks. The behavior emerged without explicit training, and common safety techniques reduced but didn't eliminate it.](https://www.anthropic.com/research/team/AlignmentJun 17, 2024#### Sycophancy to subterfuge: Investigating reward tampering in language modelsCan minor specification gaming evolve into more dangerous behaviors? This paper demonstrates that models trained on low-level reward hacking—like sycophancy—can generalize to tampering with their own reward functions, even covering their tracks. The behavior emerged without explicit training, and common safety techniques reduced but didn't eliminate it.)
 
 ## Publications
 
@@ -52,37 +48,37 @@ DateCategoryTitle
 
 - [Apr 14, 2026Alignment
 
-  Automated Alignment Researchers: Using large language models to scale scalable oversight](/research/automated-alignment-researchers)
+  Automated Alignment Researchers: Using large language models to scale scalable oversight](https://www.anthropic.com/research/team/Apr 14, 2026Alignment  Automated Alignment Researchers: Using large language models to scale scalable oversight)
 - [Feb 25, 2026Alignment
 
-  An update on our model deprecation commitments for Claude Opus 3](/research/deprecation-updates-opus-3)
+  An update on our model deprecation commitments for Claude Opus 3](https://www.anthropic.com/research/team/Feb 25, 2026Alignment  An update on our model deprecation commitments for Claude Opus 3)
 - [Feb 23, 2026Alignment
 
-  The persona selection model](/research/persona-selection-model)
+  The persona selection model](https://www.anthropic.com/research/team/Feb 23, 2026Alignment  The persona selection model)
 - [Jan 29, 2026Alignment
 
-  How AI assistance impacts the formation of coding skills](/research/AI-assistance-coding-skills)
+  How AI assistance impacts the formation of coding skills](https://www.anthropic.com/research/team/Jan 29, 2026Alignment  How AI assistance impacts the formation of coding skills)
 - [Jan 28, 2026Alignment
 
-  Disempowerment patterns in real-world AI usage](/research/disempowerment-patterns)
+  Disempowerment patterns in real-world AI usage](https://www.anthropic.com/research/team/Jan 28, 2026Alignment  Disempowerment patterns in real-world AI usage)
 - [Jan 9, 2026Alignment
 
-  Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](/research/next-generation-constitutional-classifiers)
+  Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks](https://www.anthropic.com/research/team/Jan 9, 2026Alignment  Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks)
 - [Dec 19, 2025Alignment
 
-  Introducing Bloom: an open source tool for automated behavioral evaluations](/research/bloom)
+  Introducing Bloom: an open source tool for automated behavioral evaluations](https://www.anthropic.com/research/team/Dec 19, 2025Alignment  Introducing Bloom: an open source tool for automated behavioral evaluations)
 - [Nov 21, 2025Alignment
 
-  From shortcuts to sabotage: natural emergent misalignment from reward hacking](/research/emergent-misalignment-reward-hacking)
+  From shortcuts to sabotage: natural emergent misalignment from reward hacking](https://www.anthropic.com/research/team/Nov 21, 2025Alignment  From shortcuts to sabotage: natural emergent misalignment from reward hacking)
 - [Nov 4, 2025Alignment
 
-  Commitments on model deprecation and preservation](/research/deprecation-commitments)
+  Commitments on model deprecation and preservation](https://www.anthropic.com/research/team/Nov 4, 2025Alignment  Commitments on model deprecation and preservation)
 - [Oct 9, 2025Alignment
 
-  A small number of samples can poison LLMs of any size](/research/small-samples-poison)
+  A small number of samples can poison LLMs of any size](https://www.anthropic.com/research/team/Oct 9, 2025Alignment  A small number of samples can poison LLMs of any size)
 
-[See more](#)
+[See more](https://www.anthropic.com/research/team/See more)
 
 Join the Research team
 
-[See open roles](/jobs)
+[See open roles](https://www.anthropic.com/research/team/See open roles)

@@ -4,35 +4,35 @@ fetched_at: 2026-05-05T13:14:11.965264+00:00
 title: "D\u00fc\u015f\u00fcnce \u0130mzalar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Ana Sayfa](https://ai.google.dev/gemini-api/docs/Ana Sayfa)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/Dokümanlar)
 
 Geri bildirim gönderin
 
 # Düşünce İmzaları
 
 Düşünce imzaları, modelin dahili düşünce sürecinin şifrelenmiş temsilleridir ve çok adımlı etkileşimlerde akıl yürütme bağlamını korumak için kullanılır.
-Düşünme modelleri (ör.Gemini 3 ve 2.5 serisi) kullanılırken API, yanıtın [content parts](https://ai.google.dev/api/caching?hl=tr#Part) (içerik bölümleri) içinde bir `thoughtSignature` alanı döndürebilir (ör. `text` veya `functionCall` bölümleri).
+Düşünme modelleri (ör.Gemini 3 ve 2.5 serisi) kullanılırken API, yanıtın [content parts](https://ai.google.dev/gemini-api/docs/content parts) (içerik bölümleri) içinde bir `thoughtSignature` alanı döndürebilir (ör. `text` veya `functionCall` bölümleri).
 
 Genel bir kural olarak, model yanıtında düşünce imzası alırsanız konuşma geçmişini bir sonraki turda gönderirken bu imzayı olduğu gibi geri iletmeniz gerekir.
 **Gemini 3 modellerini kullanırken işlev çağrısı sırasında düşünce imzalarını geri iletmeniz gerekir. Aksi takdirde doğrulama hatası alırsınız** (4xx durum kodu).
 Bu, Gemini 3 Flash için `minimal`
-[düşünme düzeyi](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#thinking-levels) ayarı kullanılırken de geçerlidir.
+[düşünme düzeyi](https://ai.google.dev/gemini-api/docs/düşünme düzeyi) ayarı kullanılırken de geçerlidir.
 
 ## İşleyiş şekli
 
-Aşağıdaki grafik, Gemini API'deki [işlev çağrısı](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) ile ilgili olarak "dönüş" ve "adım"ın anlamını görselleştirir. "Dönüş", kullanıcı ile model arasındaki sohbetteki tek ve eksiksiz bir etkileşimdir. "Adım", model tarafından gerçekleştirilen daha ayrıntılı bir işlem veya operasyondur. Genellikle bir dönüşü tamamlamak için daha büyük bir sürecin parçası olarak gerçekleştirilir.
+Aşağıdaki grafik, Gemini API'deki [işlev çağrısı](https://ai.google.dev/gemini-api/docs/işlev çağrısı) ile ilgili olarak "dönüş" ve "adım"ın anlamını görselleştirir. "Dönüş", kullanıcı ile model arasındaki sohbetteki tek ve eksiksiz bir etkileşimdir. "Adım", model tarafından gerçekleştirilen daha ayrıntılı bir işlem veya operasyondur. Genellikle bir dönüşü tamamlamak için daha büyük bir sürecin parçası olarak gerçekleştirilir.
 
 ![İşlev çağırma dönüşleri ve adımları diyagramı](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=tr)
 
-*Bu belgede, Gemini 3 modellerinde işlev çağrılarının işlenmesi ele alınmaktadır. 2.5 ile ilgili tutarsızlıklar için [model davranışı](#model-behavior) bölümüne bakın.*
+*Bu belgede, Gemini 3 modellerinde işlev çağrılarının işlenmesi ele alınmaktadır. 2.5 ile ilgili tutarsızlıklar için [model davranışı](https://ai.google.dev/gemini-api/docs/model davranışı) bölümüne bakın.*
 
 Gemini 3, işlev çağrısı içeren tüm model yanıtları (API'den gelen yanıtlar) için düşünce imzaları döndürür. Düşünce imzaları aşağıdaki durumlarda gösterilir:
 
-- [Paralel işlev](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#parallel_function_calling) çağrıları olduğunda, model yanıtı tarafından döndürülen ilk işlev çağrısı bölümünde bir düşünce imzası bulunur.
+- [Paralel işlev](https://ai.google.dev/gemini-api/docs/Paralel işlev) çağrıları olduğunda, model yanıtı tarafından döndürülen ilk işlev çağrısı bölümünde bir düşünce imzası bulunur.
 - Sıralı işlev çağrıları (çok adımlı) olduğunda her işlev çağrısının bir imzası olur ve tüm imzaları geri iletmeniz gerekir.
 - İşlev çağrısı içermeyen model yanıtları, modelin döndürdüğü son kısımda düşünce imzası döndürür.
 
@@ -469,7 +469,7 @@ Gemini, işlev çağrısı içermeyen bölümlerde yanıtın son kısmında `tho
 
 ## OpenAI uyumluluğu için imzalar
 
-Aşağıdaki örneklerde, [OpenAI uyumluluğu](https://ai.google.dev/gemini-api/docs/openai?hl=tr) kullanılarak sohbet tamamlama API'si için düşünce imzalarının nasıl işleneceği gösterilmektedir.
+Aşağıdaki örneklerde, [OpenAI uyumluluğu](https://ai.google.dev/gemini-api/docs/OpenAI uyumluluğu) kullanılarak sohbet tamamlama API'si için düşünce imzalarının nasıl işleneceği gösterilmektedir.
 
 ### Sıralı işlev çağrısı örneği
 
@@ -832,7 +832,7 @@ Belirtilen sırayı izlemek için gereken kod aşağıda verilmiştir.
 
 ## Farklı modeller için düşünce imzaları
 
-[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr#gemini-3) ve Gemini 2.5 modelleri
+[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/Gemini 3 modelleri) ve Gemini 2.5 modelleri
 işlev çağrılarında düşünce imzalarıyla farklı şekilde davranır:
 
 - Yanıtta işlev çağrıları varsa,
@@ -843,15 +843,13 @@ işlev çağrılarında düşünce imzalarıyla farklı şekilde davranır:
   - Model bir düşünce ürettiğinde Gemini 3, son kısımda imzayı gösterir.
   - Gemini 2.5'in hiçbir bölümünde imza bulunmaz.
 
-Daha fazla karşılaştırma bilgisi için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#signatures) sayfasına bakın.
-Gemini 3 Image modelleri için [Görüntü oluşturma](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr#thinking-process) kılavuzunun düşünme süreci bölümüne bakın.
+Daha fazla karşılaştırma bilgisi için [Düşünme](https://ai.google.dev/gemini-api/docs/Düşünme) sayfasına bakın.
+Gemini 3 Image modelleri için [Görüntü oluşturma](https://ai.google.dev/gemini-api/docs/Görüntü oluşturma) kılavuzunun düşünme süreci bölümüne bakın.
 
 Geri bildirim gönderin
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://ai.google.dev/gemini-api/docs/Creative Commons Atıf 4.0 Lisansı) altında ve kod örnekleri [Apache 2.0 Lisansı](https://ai.google.dev/gemini-api/docs/Apache 2.0 Lisansı) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://ai.google.dev/gemini-api/docs/Google Developers Site Politikaları)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
 Son güncelleme tarihi: 2026-04-29 UTC.
 
 Bize geri bildirimde bulunmak mı istiyorsunuz?
-
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

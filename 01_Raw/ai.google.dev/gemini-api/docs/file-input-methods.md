@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:26:53.095287+00:00
 title: "Ph\u01b0\u01a1ng th\u1ee9c nh\u1eadp t\u1ec7p \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/Tính năng Nghiên cứu chuyên sâu của Gemini) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Trang chủ](https://ai.google.dev/gemini-api/docs/Trang chủ)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs/Tài liệu)
 
 Gửi ý kiến phản hồi
 
@@ -18,7 +18,7 @@ Hướng dẫn này giải thích những cách để bạn có thể đưa các
 Các phương thức mới được hỗ trợ trong tất cả các điểm cuối của Gemini API, bao gồm cả Batch, Interactions và Live API.
 Việc chọn phương thức phù hợp phụ thuộc vào kích thước tệp, nơi dữ liệu của bạn hiện được lưu trữ và tần suất bạn dự định sử dụng tệp.
 
-Cách đơn giản nhất để đưa một tệp vào làm thông tin đầu vào là đọc một tệp cục bộ rồi đưa tệp đó vào một câu lệnh. Ví dụ sau đây cho biết cách đọc một tệp PDF cục bộ. Tệp PDF có giới hạn là 50 MB đối với phương thức này. Hãy xem [Bảng so sánh phương thức nhập](#method-comparison) để biết danh sách đầy đủ các loại và giới hạn nhập tệp.
+Cách đơn giản nhất để đưa một tệp vào làm thông tin đầu vào là đọc một tệp cục bộ rồi đưa tệp đó vào một câu lệnh. Ví dụ sau đây cho biết cách đọc một tệp PDF cục bộ. Tệp PDF có giới hạn là 50 MB đối với phương thức này. Hãy xem [Bảng so sánh phương thức nhập](https://ai.google.dev/gemini-api/docs/Bảng so sánh phương thức nhập) để biết danh sách đầy đủ các loại và giới hạn nhập tệp.
 
 ### Python
 
@@ -354,10 +354,10 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
    3. **Cấp cho Gemini API Service Agent quyền** đọc các bộ chứa lưu trữ của bạn.
 
       Người dùng cần chỉ định `Storage Object Viewer`
-      [vai trò IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=vi#storage.objectViewer)
+      [vai trò IAM](https://ai.google.dev/gemini-api/docs/vai trò IAM)
       cho tác nhân dịch vụ này trên các vùng lưu trữ cụ thể mà họ dự định sử dụng.
 
-   Theo mặc định, quyền truy cập này không hết hạn, nhưng bạn có thể thay đổi bất cứ lúc nào. Bạn cũng có thể dùng các lệnh [SDK IAM của Google Cloud Storage](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=vi) để cấp quyền.
+   Theo mặc định, quyền truy cập này không hết hạn, nhưng bạn có thể thay đổi bất cứ lúc nào. Bạn cũng có thể dùng các lệnh [SDK IAM của Google Cloud Storage](https://ai.google.dev/gemini-api/docs/SDK IAM của Google Cloud Storage) để cấp quyền.
 2. Xác thực dịch vụ của bạn
 
    **Điều kiện tiên quyết**
@@ -371,12 +371,12 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
    Nếu mã của bạn đang chạy bên ngoài Google Cloud, chẳng hạn như trên máy tính, hãy tải thông tin đăng nhập tài khoản xuống từ Google Cloud Console theo các bước sau:
 
-   1. Duyệt đến [bảng điều khiển Tài khoản dịch vụ](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=vi)
+   1. Duyệt đến [bảng điều khiển Tài khoản dịch vụ](https://ai.google.dev/gemini-api/docs/bảng điều khiển Tài khoản dịch vụ)
    2. Chọn tài khoản dịch vụ có liên quan
    3. Chọn thẻ **Khoá** rồi chọn **Thêm khoá, Tạo khoá mới**
    4. Chọn loại khoá **JSON** và ghi lại vị trí tải tệp xuống trên máy của bạn.
 
-   Để biết thêm thông tin chi tiết, hãy xem tài liệu chính thức của Google Cloud về [hoạt động quản lý khoá tài khoản dịch vụ](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=vi).
+   Để biết thêm thông tin chi tiết, hãy xem tài liệu chính thức của Google Cloud về [hoạt động quản lý khoá tài khoản dịch vụ](https://ai.google.dev/gemini-api/docs/hoạt động quản lý khoá tài khoản dịch vụ).
 
    Sau đó, hãy dùng các lệnh sau để xác thực. Các lệnh này giả định rằng tệp tài khoản dịch vụ của bạn nằm trong thư mục hiện tại, có tên là `service-account.json`.
 
@@ -426,11 +426,11 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
    **Trên Google Cloud**
 
-   Nếu đang chạy trực tiếp trong Google Cloud, chẳng hạn như bằng cách sử dụng [các hàm Cloud Run](https://cloud.google.com/functions?hl=vi) hoặc một [phiên bản Compute Engine](https://cloud.google.com/products/compute?hl=vi), bạn sẽ có thông tin đăng nhập ngầm nhưng cần xác thực lại để cấp các phạm vi thích hợp.
+   Nếu đang chạy trực tiếp trong Google Cloud, chẳng hạn như bằng cách sử dụng [các hàm Cloud Run](https://ai.google.dev/gemini-api/docs/các hàm Cloud Run) hoặc một [phiên bản Compute Engine](https://ai.google.dev/gemini-api/docs/phiên bản Compute Engine), bạn sẽ có thông tin đăng nhập ngầm nhưng cần xác thực lại để cấp các phạm vi thích hợp.
 
    ### Python
 
-   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=vi) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
+   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://ai.google.dev/gemini-api/docs/Thông tin xác thực mặc định của ứng dụng) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
 
    ```
    import google.auth
@@ -445,7 +445,7 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
    ### JavaScript
 
-   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=vi) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
+   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://ai.google.dev/gemini-api/docs/Thông tin xác thực mặc định của ứng dụng) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -460,7 +460,7 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
    ### CLI
 
-   Đây là một lệnh tương tác. Đối với các dịch vụ như Compute Engine, bạn có thể đính kèm các phạm vi vào dịch vụ đang chạy ở cấp cấu hình. Hãy xem [tài liệu về dịch vụ do người dùng quản lý](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=vi#using) để biết ví dụ.
+   Đây là một lệnh tương tác. Đối với các dịch vụ như Compute Engine, bạn có thể đính kèm các phạm vi vào dịch vụ đang chạy ở cấp cấu hình. Hãy xem [tài liệu về dịch vụ do người dùng quản lý](https://ai.google.dev/gemini-api/docs/tài liệu về dịch vụ do người dùng quản lý) để biết ví dụ.
 
    ```
    gcloud auth application-default login \
@@ -515,7 +515,7 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
 ## HTTP bên ngoài / URL đã ký
 
-Bạn có thể truyền trực tiếp các URL HTTPS truy cập công khai hoặc URL được ký trước (tương thích với [URL được ký trước S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) và SAS Azure) trong yêu cầu tạo. Gemini API sẽ tìm nạp nội dung một cách an toàn trong quá trình xử lý. Đây là lựa chọn lý tưởng cho những tệp có dung lượng tối đa 100 MB mà bạn không muốn tải lại lên.
+Bạn có thể truyền trực tiếp các URL HTTPS truy cập công khai hoặc URL được ký trước (tương thích với [URL được ký trước S3](https://ai.google.dev/gemini-api/docs/URL được ký trước S3) và SAS Azure) trong yêu cầu tạo. Gemini API sẽ tìm nạp nội dung một cách an toàn trong quá trình xử lý. Đây là lựa chọn lý tưởng cho những tệp có dung lượng tối đa 100 MB mà bạn không muốn tải lại lên.
 
 Bạn có thể sử dụng URL công khai hoặc URL đã ký làm dữ liệu đầu vào bằng cách sử dụng các URL trong trường `file_uri`.
 
@@ -649,7 +649,7 @@ Ngoài ra, tính năng truy xuất nội dung cho các loại tệp này hiện 
 
 ## Các điểm hạn chế
 
-- Giới hạn kích thước tệp thay đổi tuỳ theo phương thức (xem [bảng so sánh](#method-comparison)) và loại tệp.
+- Giới hạn kích thước tệp thay đổi tuỳ theo phương thức (xem [bảng so sánh](https://ai.google.dev/gemini-api/docs/bảng so sánh)) và loại tệp.
 - Dữ liệu cùng dòng làm tăng kích thước tải trọng yêu cầu.
 - Tệp tải lên qua File API chỉ là tạm thời và sẽ hết hạn sau 48 giờ.
 - Việc tìm nạp URL bên ngoài bị giới hạn ở mức 100 MB cho mỗi tải trọng và hỗ trợ các loại nội dung cụ thể.
@@ -657,16 +657,14 @@ Ngoài ra, tính năng truy xuất nội dung cho các loại tệp này hiện 
 
 ## Bước tiếp theo
 
-- Hãy thử viết câu lệnh đa phương thức của riêng bạn bằng [Google AI Studio](http://aistudio.google.com/?hl=vi).
-- Để biết thông tin về cách đưa tệp vào câu lệnh, hãy xem hướng dẫn về [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=vi), [Âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi) và [Xử lý tài liệu](https://ai.google.dev/gemini-api/docs/document-processing?hl=vi).
-- Để biết thêm hướng dẫn về cách thiết kế câu lệnh, chẳng hạn như điều chỉnh các thông số lấy mẫu, hãy xem hướng dẫn [Chiến lược tạo câu lệnh](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=vi).
+- Hãy thử viết câu lệnh đa phương thức của riêng bạn bằng [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio).
+- Để biết thông tin về cách đưa tệp vào câu lệnh, hãy xem hướng dẫn về [Vision](https://ai.google.dev/gemini-api/docs/Vision), [Âm thanh](https://ai.google.dev/gemini-api/docs/Âm thanh) và [Xử lý tài liệu](https://ai.google.dev/gemini-api/docs/Xử lý tài liệu).
+- Để biết thêm hướng dẫn về cách thiết kế câu lệnh, chẳng hạn như điều chỉnh các thông số lấy mẫu, hãy xem hướng dẫn [Chiến lược tạo câu lệnh](https://ai.google.dev/gemini-api/docs/Chiến lược tạo câu lệnh).
 
 Gửi ý kiến phản hồi
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://ai.google.dev/gemini-api/docs/Giấy phép ghi nhận tác giả 4.0 của Creative Commons) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://ai.google.dev/gemini-api/docs/Giấy phép Apache 2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://ai.google.dev/gemini-api/docs/Chính sách trang web của Google Developers). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
 Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
 Bạn muốn chia sẻ thêm với chúng tôi?
-
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

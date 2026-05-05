@@ -10,19 +10,17 @@ Policy
 
 May 22, 2025
 
-![A hand sheltering a neural network](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F82a608c11df1f1b35124716071e084288989a224-2881x1621.png&w=3840&q=75)
-
 *We have activated the AI Safety Level 3 (ASL-3) Deployment and Security Standards described in Anthropic’s Responsible Scaling Policy (RSP) in conjunction with launching Claude Opus 4. The ASL-3 Security Standard involves increased internal security measures that make it harder to steal model weights, while the corresponding Deployment Standard covers a narrowly targeted set of deployment measures designed to limit the risk of Claude being misused specifically for the development or acquisition of chemical, biological, radiological, and nuclear (CBRN) weapons. These measures should not lead Claude to refuse queries except on a very narrow set of topics.*
 
 *We are deploying Claude Opus 4 with our ASL-3 measures as a precautionary and provisional action. To be clear, we have not yet determined whether Claude Opus 4 has definitively passed the Capabilities Threshold that requires ASL-3 protections. Rather, due to continued improvements in CBRN-related knowledge and capabilities, we have determined that clearly ruling out ASL-3 risks is not possible for Claude Opus 4 in the way it was for every previous model, and more detailed study is required to conclusively assess the model’s level of risk. (We have ruled out that Claude Opus 4 needs the ASL-4 Standard, as required by our RSP, and, similarly, we have ruled out that Claude Sonnet 4 needs the ASL-3 Standard.)*
 
-*Dangerous capability evaluations of AI models are inherently [challenging](https://www.anthropic.com/news/strategic-warning-for-ai-risk-progress-and-insights-from-our-frontier-red-team), and as models approach our thresholds of concern, it takes longer to determine their status. Proactively enabling a higher standard of safety and security simplifies model releases while allowing us to learn from experience by iteratively improving our defenses and reducing their impact on users.*
+*Dangerous capability evaluations of AI models are inherently [challenging](https://www.anthropic.com/news/challenging), and as models approach our thresholds of concern, it takes longer to determine their status. Proactively enabling a higher standard of safety and security simplifies model releases while allowing us to learn from experience by iteratively improving our defenses and reducing their impact on users.*
 
-*This post and the accompanying [report](http://anthropic.com/activating-asl3-report) discuss the new measures and the rationale behind them.*
+*This post and the accompanying [report](https://www.anthropic.com/news/report) discuss the new measures and the rationale behind them.*
 
 ## Background
 
-Increasingly capable AI models warrant increasingly strong deployment and security protections. This principle is core to Anthropic’s [Responsible Scaling Policy](https://www-cdn.anthropic.com/872c653b2d0501d6ab44cf87f43e1dc4853e4d37.pdf) (RSP).1
+Increasingly capable AI models warrant increasingly strong deployment and security protections. This principle is core to Anthropic’s [Responsible Scaling Policy](https://www.anthropic.com/news/Responsible Scaling Policy) (RSP).1
 
 - **Deployment measures** target specific categories of misuse; in particular, our RSP focuses on reducing the risk that models could be misused for attacks with the most dangerous categories of weapons–CBRN.
 - **Security** **controls** aim to prevent the theft of model weights–the essence of the AI’s intelligence and capability.
@@ -31,7 +29,7 @@ Anthropic’s RSP includes *Capability Thresholds* for models: if models reach t
 
 ## Rationale
 
-We have not yet determined whether Claude Opus 4 capabilities actually require the protections of the ASL-3 Standard. So why did we implement those protections now? We anticipated that we might do this when we launched our last model, Claude Sonnet 3.7. In that case, we determined that the model did not require the protections of the ASL-3 Standard. But we [acknowledged](https://www.anthropic.com/news/visible-extended-thinking) the very real possibility that given the pace of progress, near future models might warrant these enhanced measures.2 And indeed, in the lead up to releasing Claude Opus 4, we proactively decided to launch it under the ASL-3 Standard. This approach allowed us to focus on developing, testing, and refining these protections before we needed them.
+We have not yet determined whether Claude Opus 4 capabilities actually require the protections of the ASL-3 Standard. So why did we implement those protections now? We anticipated that we might do this when we launched our last model, Claude Sonnet 3.7. In that case, we determined that the model did not require the protections of the ASL-3 Standard. But we [acknowledged](https://www.anthropic.com/news/acknowledged) the very real possibility that given the pace of progress, near future models might warrant these enhanced measures.2 And indeed, in the lead up to releasing Claude Opus 4, we proactively decided to launch it under the ASL-3 Standard. This approach allowed us to focus on developing, testing, and refining these protections before we needed them.
 
 This approach is also consistent with the RSP, which allows us to err on the side of caution and deploy a model under a higher standard than we are sure is needed. In this case, that meant proactively carrying out the ASL-3 Security and Deployment Standards (and ruling out the need for even more advanced protections). We will continue to evaluate Claude Opus 4’s CBRN capabilities. If we conclude that Claude Opus 4 has not surpassed the relevant Capability Threshold, then we may remove or adjust the ASL-3 protections.
 
@@ -41,9 +39,9 @@ The new ASL-3 deployment measures are narrowly focused on preventing the model f
 
 We have developed a three-part approach: making the system more difficult to jailbreak, detecting jailbreaks when they do occur, and iteratively improving our defenses.
 
-- **Making the system more difficult to jailbreak.** We have implemented [Constitutional Classifiers](https://www.anthropic.com/research/constitutional-classifiers)—a system where real-time classifier guards, trained on synthetic data representing harmful and harmless CBRN-related prompts and completions, monitor model inputs and outputs and intervene to block a narrow class of harmful CBRN information. Our pre-production testing suggests we can substantially reduce jailbreaking success while adding only moderate compute overhead (additional processing costs beyond what is required for model inference) to normal operations.
-- **Detecting jailbreaks when they occur.** We have also instituted a wider monitoring system including a [bug bounty program](https://www.anthropic.com/news/testing-our-safety-defenses-with-a-new-bug-bounty-program) focused on stress-testing our Constitutional Classifiers, offline classification systems, and threat intelligence partnerships to quickly identify and respond to potential universal jailbreaks that would enable CBRN misuse.
-- **Iteratively improving our defenses.** We believe we can rapidly remediate jailbreaks using methods including [generating synthetic jailbreaks](https://arxiv.org/abs/2411.07494) that resemble those we discovered and using those data to train a new classifier.
+- **Making the system more difficult to jailbreak.** We have implemented [Constitutional Classifiers](https://www.anthropic.com/news/Constitutional Classifiers)—a system where real-time classifier guards, trained on synthetic data representing harmful and harmless CBRN-related prompts and completions, monitor model inputs and outputs and intervene to block a narrow class of harmful CBRN information. Our pre-production testing suggests we can substantially reduce jailbreaking success while adding only moderate compute overhead (additional processing costs beyond what is required for model inference) to normal operations.
+- **Detecting jailbreaks when they occur.** We have also instituted a wider monitoring system including a [bug bounty program](https://www.anthropic.com/news/bug bounty program) focused on stress-testing our Constitutional Classifiers, offline classification systems, and threat intelligence partnerships to quickly identify and respond to potential universal jailbreaks that would enable CBRN misuse.
+- **Iteratively improving our defenses.** We believe we can rapidly remediate jailbreaks using methods including [generating synthetic jailbreaks](https://www.anthropic.com/news/generating synthetic jailbreaks) that resemble those we discovered and using those data to train a new classifier.
 
 All these measures will require ongoing refinement, both to improve their effectiveness and because they may still occasionally affect legitimate queries (that is, they may produce false positives).4 Nevertheless, they represent a substantial advance in defending against catastrophic misuse of AI capabilities.5
 
@@ -61,19 +59,19 @@ As we have emphasized above, the question of which deployment and security measu
 
 We will continually work with others in the AI industry, users of Claude, and partners in government and civil society to improve our methods of guarding these models. We hope that our detailed report will be of use to others in the AI industry attempting to implement similar protections and help us all prepare for the promise and challenge of even more capable AI.
 
-Read the full [report](https://www.anthropic.com/activating-asl3-report).
+Read the full [report](https://www.anthropic.com/news/report).
 
 #### Footnotes
 
-1The RSP is only one component of our [approach](https://www.anthropic.com/news/our-approach-to-understanding-and-addressing-ai-harms) to mitigating potential risks.
+1The RSP is only one component of our [approach](https://www.anthropic.com/news/approach) to mitigating potential risks.
 
-2In particular, we had some evidence of improved CBRN-related capabilities. Experiments showed that access to Claude Sonnet 3.7 helped participants do somewhat better on tasks related to CBRN weapon acquisition than those with standard internet access (although all participants’ plans still had critical failures). Model performance on evaluations like the [Virology Capabilities Test](https://arxiv.org/abs/2504.16137) had been steadily increasing over time.
+2In particular, we had some evidence of improved CBRN-related capabilities. Experiments showed that access to Claude Sonnet 3.7 helped participants do somewhat better on tasks related to CBRN weapon acquisition than those with standard internet access (although all participants’ plans still had critical failures). Model performance on evaluations like the [Virology Capabilities Test](https://www.anthropic.com/news/Virology Capabilities Test) had been steadily increasing over time.
 
 3Initially they are focused exclusively on biological weapons as we believe these account for the vast majority of the risk, although we are evaluating a potential expansion in scope to some other CBRN threats.
 
 4 We have also established access control systems so that users with dual-use science and technology applications may be vetted to receive targeted exemptions from some classifier actions.
 
-5For more information on our assessment of the effectiveness and sufficiency of these measures, see the [ASL-3 Deployment Safeguards Report](http://anthropic.com/asl3-deployment-safeguards).
+5For more information on our assessment of the effectiveness and sufficiency of these measures, see the [ASL-3 Deployment Safeguards Report](https://www.anthropic.com/news/ASL-3 Deployment Safeguards Report).
 
 6Nation-state threats (other than those using non-novel attack chains) and sophisticated insider risk are out of the scope of the ASL-3 Standard.
 
@@ -81,12 +79,12 @@ Read the full [report](https://www.anthropic.com/activating-asl3-report).
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

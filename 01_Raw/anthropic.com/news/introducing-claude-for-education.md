@@ -10,9 +10,7 @@ Education
 
 Apr 2, 2025
 
-[Claude for Education](https://www.anthropic.com/education)
-
-![Claude for Education ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff5d0990ee33385000ff56ed82f3c5efb4e2d33da-2400x1260.png&w=3840&q=75)
+[Claude for Education](https://www.anthropic.com/news/Claude for Education)
 
 Today we're launching Claude for Education, a specialized version of Claude tailored for higher education institutions. This initiative equips universities to develop and implement AI-enabled approaches across teaching, learning, and administration—ensuring educators and students play a key role in actively shaping AI's role in society.
 
@@ -35,7 +33,7 @@ For example,
 
 ## Learning mode
 
-Claude for Education introduces our new Learning mode, a feature that works within [Projects](https://www.anthropic.com/news/projects) (saved conversations where students can organize their work with Claude around specific assignments or topics). In Learning mode, Claude helps students develop their independent thinking by:
+Claude for Education introduces our new Learning mode, a feature that works within [Projects](https://www.anthropic.com/news/Projects) (saved conversations where students can organize their work with Claude around specific assignments or topics). In Learning mode, Claude helps students develop their independent thinking by:
 
 - Guiding rather than answering: Asking "How would you approach this problem?" instead of providing immediate solutions
 - Using Socratic questioning: Prompting with "What evidence supports your conclusion?" to deepen understanding
@@ -48,20 +46,20 @@ Claude for Education introduces our new Learning mode, a feature that works with
 
 Today, we are also introducing two new student programs designed to nurture and empower our growing Claude student community:
 
-- [**Claude Campus Ambassadors**](https://www.anthropic.com/contact-sales/claude-campus-ambassadors): an opportunity for students to work directly with the Anthropic team to launch educational initiatives on their campus
-- [**For student builders**](https://www.anthropic.com/contact-sales/for-student-builders): an opportunity for students who are building projects with Claude to apply for funding in the form of API credits
+- [**Claude Campus Ambassadors**](https://www.anthropic.com/news/**Claude Campus Ambassadors**): an opportunity for students to work directly with the Anthropic team to launch educational initiatives on their campus
+- [**For student builders**](https://www.anthropic.com/news/**For student builders**): an opportunity for students who are building projects with Claude to apply for funding in the form of API credits
 
 ## Campus wide partnerships: Northeastern University, LSE and Champlain College
 
-[Northeastern University](https://www.northeastern.edu/) is collaborating as Anthropic's first university design partner. This trail-blazing initiative aims to transform teaching, research and business practices across Northeastern’s global university system. The partnership provides 50,000 students, faculty, and staff across 13 global campuses with seamless access to Claude. We’re working with Northeastern University to build best practices for AI integration in higher education, new AI-powered education tools, and frameworks for responsible AI adoption in educational settings.
+[Northeastern University](https://www.anthropic.com/news/Northeastern University) is collaborating as Anthropic's first university design partner. This trail-blazing initiative aims to transform teaching, research and business practices across Northeastern’s global university system. The partnership provides 50,000 students, faculty, and staff across 13 global campuses with seamless access to Claude. We’re working with Northeastern University to build best practices for AI integration in higher education, new AI-powered education tools, and frameworks for responsible AI adoption in educational settings.
 
 Northeastern was the first university in the U.S. to develop an entire academic plan — Northeastern 2025 — focused on AI and its implications for the future of learning. President Joseph E. Aoun, a thought leader in AI and higher education, authored “Robot-Proof,” the definitive book on the future of learning in an AI-driven world. A second edition, released by MIT Press in August 2024, further explores AI’s evolving role in education and the workforce.
 
-A world-leading university, specializing in the social sciences, [LSE](https://www.lse.ac.uk/) is sharing Claude across their student body. By partnering with Anthropic, LSE is ensuring equity of access for their students by equipping them with both the tools and skills they need to succeed in an AI-transformed world, and exploring how to responsibly deploy AI in educational contexts to help the sector and humanity.
+A world-leading university, specializing in the social sciences, [LSE](https://www.anthropic.com/news/LSE) is sharing Claude across their student body. By partnering with Anthropic, LSE is ensuring equity of access for their students by equipping them with both the tools and skills they need to succeed in an AI-transformed world, and exploring how to responsibly deploy AI in educational contexts to help the sector and humanity.
 
 “Since our founding, LSE has been at the forefront of understanding social change and seeking solutions to real world challenges,” said President and Vice Chancellor Larry Kramer. "This new partnership is part of that mission. As social scientists, we are in a unique position to understand and shape how AI can positively transform education and society.
 
-[Champlain College](https://www.champlain.edu/), a leader in career-focused learning, is adopting Claude campus-wide so students develop the AI skills they will need to thrive in the workplace. By integrating Claude across their on-campus and online programs, Champlain College will explore AI's implications for workforce development, including the human skills that set graduates apart in a technology-driven world.
+[Champlain College](https://www.anthropic.com/news/Champlain College), a leader in career-focused learning, is adopting Claude campus-wide so students develop the AI skills they will need to thrive in the workplace. By integrating Claude across their on-campus and online programs, Champlain College will explore AI's implications for workforce development, including the human skills that set graduates apart in a technology-driven world.
 
 “AI is changing what it means to be Ready for Work and, as a future-focused college, Champlain is giving students opportunities to use AI so they can hit the ground running when they graduate,” says Champlain College president Alex Hernandez. “The Anthropic collaboration is fueling a new wave of innovations at Champlain College, giving us an opportunity to learn lessons that can benefit all higher education.”
 
@@ -69,23 +67,23 @@ A world-leading university, specializing in the social sciences, [LSE](https://w
 
 We are also building partnerships with leading organizations to safely and reliably integrate Claude within higher education institutions' existing tools and workflows to help facilitate the use of trusted AI across academia. These partnerships include:
 
-- [Internet2](https://internet2.edu/): A non-profit organization that provides a secure high-speed network, cloud solutions, research support, and identity and access management (IAM) tools built specifically for research and education. Their community includes higher education institutions, research organizations, government entities, corporations, and cultural organizations like museums and libraries. We're proud to join Internet2, the member-driven advanced technology community developing solutions and solving shared challenges to support research and education, and are working with members to complete a NET+ service evaluation.
-- [Instructure](https://www.instructure.com/): The educational technology company behind the leading education software Canvas, that provides technological solutions specifically designed for higher education institutions to provide learners at every stage with tools that make educators more effective and students more successful, both in school and beyond. Anthropic and Instructure are working together to increase equitable access to tools that support universities as they integrate AI into their teaching & learning.
+- [Internet2](https://www.anthropic.com/news/Internet2): A non-profit organization that provides a secure high-speed network, cloud solutions, research support, and identity and access management (IAM) tools built specifically for research and education. Their community includes higher education institutions, research organizations, government entities, corporations, and cultural organizations like museums and libraries. We're proud to join Internet2, the member-driven advanced technology community developing solutions and solving shared challenges to support research and education, and are working with members to complete a NET+ service evaluation.
+- [Instructure](https://www.anthropic.com/news/Instructure): The educational technology company behind the leading education software Canvas, that provides technological solutions specifically designed for higher education institutions to provide learners at every stage with tools that make educators more effective and students more successful, both in school and beyond. Anthropic and Instructure are working together to increase equitable access to tools that support universities as they integrate AI into their teaching & learning.
 
 ## Get started
 
-To get started with Claude for Education and Learning mode, share your interest online [here](https://www.anthropic.com/education).
+To get started with Claude for Education and Learning mode, share your interest online [here](https://www.anthropic.com/news/here).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

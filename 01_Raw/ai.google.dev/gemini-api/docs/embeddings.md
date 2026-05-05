@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:13:32.381529+00:00
 title: "\u30a8\u30f3\u30d9\u30c7\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [ホーム](https://ai.google.dev/gemini-api/docs/ホーム)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/ドキュメント)
 
 フィードバックを送信
 
@@ -16,9 +16,9 @@ title: "\u30a8\u30f3\u30d9\u30c7\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00
 
 Gemini API は、テキスト、画像、動画などのコンテンツのエンベディングを生成するエンベディング モデルを提供します。これらのエンベディングは、セマンティック検索、分類、クラスタリングなどのタスクに使用できます。キーワード ベースのアプローチよりも正確で、コンテキストを認識した結果が得られます。
 
-最新のモデル `gemini-embedding-2` は、Gemini API の最初のマルチモーダル エンベディング モデルです。テキスト、画像、動画、音声、ドキュメントを統合されたエンベディング空間にマッピングし、100 以上の言語でクロスモーダル検索、分類、クラスタリングを可能にします。詳しくは、[マルチモーダル エンベディングのセクション](#multimodal)をご覧ください。テキストのみのユースケースでは、`gemini-embedding-001` は引き続き使用できます。
+最新のモデル `gemini-embedding-2` は、Gemini API の最初のマルチモーダル エンベディング モデルです。テキスト、画像、動画、音声、ドキュメントを統合されたエンベディング空間にマッピングし、100 以上の言語でクロスモーダル検索、分類、クラスタリングを可能にします。詳しくは、[マルチモーダル エンベディングのセクション](https://ai.google.dev/gemini-api/docs/マルチモーダル エンベディングのセクション)をご覧ください。テキストのみのユースケースでは、`gemini-embedding-001` は引き続き使用できます。
 
-検索拡張生成（RAG）システムの構築は、AI プロダクトの一般的なユースケースです。エンベディングは、事実の正確性、一貫性、コンテキストの豊富さを向上させ、モデルの出力を大幅に強化するうえで重要な役割を果たします。マネージド RAG ソリューションを使用する場合は、RAG の管理を容易にし、費用対効果を高める [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)ツールをご利用ください。
+検索拡張生成（RAG）システムの構築は、AI プロダクトの一般的なユースケースです。エンベディングは、事実の正確性、一貫性、コンテキストの豊富さを向上させ、モデルの出力を大幅に強化するうえで重要な役割を果たします。マネージド RAG ソリューションを使用する場合は、RAG の管理を容易にし、費用対効果を高める [ファイル検索](https://ai.google.dev/gemini-api/docs/ファイル検索)ツールをご利用ください。
 
 ## エンベディングの生成
 
@@ -182,7 +182,7 @@ def prepare_query_and_document(content):
 
 ### Embeddings 1 を使用するタスクタイプ
 
-`gemini-embedding-001` の場合、`embedContent` メソッドで `task_type` を指定できます。サポートされているタスクタイプの完全なリストについては、[サポートされているタスクタイプ](#supported-task-types)の表をご覧ください。
+`gemini-embedding-001` の場合、`embedContent` メソッドで `task_type` を指定できます。サポートされているタスクタイプの完全なリストについては、[サポートされているタスクタイプ](https://ai.google.dev/gemini-api/docs/サポートされているタスクタイプ)の表をご覧ください。
 
 次の例は、`SEMANTIC_SIMILARITY` を使用してテキスト文字列の意味がどの程度類似しているかを確認する方法を示しています。
 
@@ -528,7 +528,7 @@ Norm of normed embedding: 1.000000
 
 次の例は、`gemini-embedding-2` を使用して画像を埋め込む方法を示しています。
 
-画像は、インライン データとして、または [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を介してアップロードされたファイルとして提供できます。
+画像は、インライン データとして、または [Files API](https://ai.google.dev/gemini-api/docs/Files API) を介してアップロードされたファイルとして提供できます。
 
 ### Python
 
@@ -791,7 +791,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 
 次の例は、`gemini-embedding-2` を使用して音声ファイルを埋め込む方法を示しています。
 
-音声ファイルは、インライン データとして提供することも、[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を介してアップロードされたファイルとして提供することもできます。
+音声ファイルは、インライン データとして提供することも、[Files API](https://ai.google.dev/gemini-api/docs/Files API) を介してアップロードされたファイルとして提供することもできます。
 
 ### Python
 
@@ -869,7 +869,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 
 次の例は、`gemini-embedding-2` を使用して動画を埋め込む方法を示しています。
 
-動画は、インライン データとして提供することも、[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を介してアップロードされたファイルとして提供することもできます。
+動画は、インライン データとして提供することも、[Files API](https://ai.google.dev/gemini-api/docs/Files API) を介してアップロードされたファイルとして提供することもできます。
 
 ### Python
 
@@ -949,7 +949,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 
 PDF 形式のドキュメントを直接埋め込むことができます。モデルは、各ページのビジュアル コンテンツとテキスト コンテンツを処理します。
 
-PDF は、インライン データとして、または [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を介してアップロードされたファイルとして提供できます。
+PDF は、インライン データとして、または [Files API](https://ai.google.dev/gemini-api/docs/Files API) を介してアップロードされたファイルとして提供できます。
 
 ### Python
 
@@ -1030,30 +1030,30 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 - **検索拡張生成（RAG）:** エンベディングは、関連情報を取得してモデルのコンテキストに組み込むことで、生成されたテキストの品質を高めます。
 - **情報検索:** 入力テキストが与えられたときに、意味的に最も類似したテキストまたはドキュメントを検索します。
 
-  [ドキュメント検索のチュートリアルtask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
+  [ドキュメント検索のチュートリアルtask](https://ai.google.dev/gemini-api/docs/ドキュメント検索のチュートリアルtask)
 - **検索結果の再ランキング**: クエリに対して初期結果を意味的にスコアリングすることで、最も関連性の高いアイテムを優先します。
 
-  [検索結果の再ランキングのチュートリアルtask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
+  [検索結果の再ランキングのチュートリアルtask](https://ai.google.dev/gemini-api/docs/検索結果の再ランキングのチュートリアルtask)
 - **異常検出:** エンベディングのグループを比較すると、隠れた傾向や外れ値を特定できます。
 
-  [異常検出チュートリアルbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
+  [異常検出チュートリアルbubble\_chart](https://ai.google.dev/gemini-api/docs/異常検出チュートリアルbubble\_chart)
 - **分類:** 感情分析やスパム検出など、コンテンツに基づいてテキストを自動的に分類します。
 
-  [分類チュートリアルtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
+  [分類チュートリアルtoken](https://ai.google.dev/gemini-api/docs/分類チュートリアルtoken)
 - **クラスタリング:** エンベディングのクラスタと可視化を作成して、複雑な関係を効果的に把握します。
 
-  [クラスタリングの可視化のチュートリアルbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
+  [クラスタリングの可視化のチュートリアルbubble\_chart](https://ai.google.dev/gemini-api/docs/クラスタリングの可視化のチュートリアルbubble\_chart)
 
 ## エンベディングの保存
 
-エンベディングをプロダクションに移行する場合は、**ベクトル データベース**を使用して、高次元エンベディングを効率的に保存、インデックス登録、取得するのが一般的です。Google Cloud には、この目的で使用できるマネージド データサービス（[Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/BUILD/vector-search-2?hl=ja)、[BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=ja)、[AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=ja)、[Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=ja) など）が用意されています。
+エンベディングをプロダクションに移行する場合は、**ベクトル データベース**を使用して、高次元エンベディングを効率的に保存、インデックス登録、取得するのが一般的です。Google Cloud には、この目的で使用できるマネージド データサービス（[Gemini Enterprise Agent Platform Vector Search 2.0](https://ai.google.dev/gemini-api/docs/Gemini Enterprise Agent Platform Vector Search 2.0)、[BigQuery](https://ai.google.dev/gemini-api/docs/BigQuery)、[AlloyDB](https://ai.google.dev/gemini-api/docs/AlloyDB)、[Cloud SQL](https://ai.google.dev/gemini-api/docs/Cloud SQL) など）が用意されています。
 
 次のチュートリアルでは、Gemini Embedding で他のサードパーティのベクトル データベースを使用する方法について説明します。
 
-- [ChromaDB チュートリアルbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
-- [QDrant チュートリアルbolt](https://qdrant.tech/documentation/embeddings/gemini/)
-- [Weaviate チュートリアルbolt](https://docs.weaviate.io/weaviate/model-providers/google)
-- [Pinecone チュートリアルbolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
+- [ChromaDB チュートリアルbolt](https://ai.google.dev/gemini-api/docs/ChromaDB チュートリアルbolt)
+- [QDrant チュートリアルbolt](https://ai.google.dev/gemini-api/docs/QDrant チュートリアルbolt)
+- [Weaviate チュートリアルbolt](https://ai.google.dev/gemini-api/docs/Weaviate チュートリアルbolt)
+- [Pinecone チュートリアルbolt](https://ai.google.dev/gemini-api/docs/Pinecone チュートリアルbolt)
 
 ## モデル バージョン
 
@@ -1064,7 +1064,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 | id\_cardモデルコード | **Gemini API**  `gemini-embedding-2` |
 | save でサポートされるデータ型 | **入力**  テキスト、画像、動画、音声、PDF  **出力**  テキスト エンベディング |
 | token\_autoトークン上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  8,192  **出力ディメンションのサイズ**  柔軟、サポート: 128 ～ 3072、推奨: 768、1536、3072 |
-| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - 安定版: `gemini-embedding-2` |
+| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/モデル バージョンのパターン)をご覧ください。  - 安定版: `gemini-embedding-2` |
 | calendar\_month最終更新日 | 2026 年 4 月 |
 
 ### Gemini エンベディング
@@ -1074,10 +1074,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 | id\_cardモデルコード | **Gemini API**  `gemini-embedding-001` |
 | save でサポートされるデータ型 | **入力**  テキスト  **出力**  テキスト エンベディング |
 | token\_autoトークン上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  2,048  **出力ディメンションのサイズ**  柔軟、サポート: 128 ～ 3072、推奨: 768、1536、3072 |
-| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - 安定版: `gemini-embedding-001` |
+| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/モデル バージョンのパターン)をご覧ください。  - 安定版: `gemini-embedding-001` |
 | calendar\_month最終更新日 | 2025 年 6 月 |
 
-非推奨のエンベディング モデルについては、[非推奨](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja)のページをご覧ください。
+非推奨のエンベディング モデルについては、[非推奨](https://ai.google.dev/gemini-api/docs/非推奨)のページをご覧ください。
 
 ## gemini-embedding-001 からの移行
 
@@ -1085,28 +1085,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
 
 互換性がないだけでなく、この 2 つのモデルには次のような違いがあります。
 
-- **タスクタイプの指定:** `gemini-embedding-001` では、`task_type` パラメータ（`SEMANTIC_SIMILARITY`、`RETRIEVAL_DOCUMENT` など）を使用してタスクタイプを指定します。`gemini-embedding-2` では、`task_type` パラメータは対象外です。代わりに、テキストのみのタスクのプロンプトにタスクの指示を直接含める必要があります。さまざまなユースケースのプロンプトの形式設定方法については、[Embeddings 2 を使用したタスクタイプ](#task-types-embeddings-2)をご覧ください。
-- **エンベディングの集約:** `gemini-embedding-001` は、入力リスト内の各文字列に対して個別のエンベディングを生成します。一方、`gemini-embedding-2` は、複数の入力（テキストや画像など）が 1 つのリクエストで直接提供された場合、単一の集約されたエンベディングを生成します。個々の入力に対して個別のエンベディングを生成するには、各入力を `Content` オブジェクトでラップするか、[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja#batch-embedding) を使用します。詳細については、[エンベディングの集計](#embedding-aggregation)をご覧ください。
-- **正規化:** `output_dimensionality` を使用して 3, 072 個未満のディメンションでエンベディングをリクエストすると、`gemini-embedding-2` はこれらの切り捨てられたエンベディングを自動的に正規化します。`gemini-embedding-001` では、3, 072 以外のディメンションに対して手動で正規化を行う必要があります。詳しくは、[小さいサイズの品質を確保する](#quality-for-smaller-dimensions)をご覧ください。
+- **タスクタイプの指定:** `gemini-embedding-001` では、`task_type` パラメータ（`SEMANTIC_SIMILARITY`、`RETRIEVAL_DOCUMENT` など）を使用してタスクタイプを指定します。`gemini-embedding-2` では、`task_type` パラメータは対象外です。代わりに、テキストのみのタスクのプロンプトにタスクの指示を直接含める必要があります。さまざまなユースケースのプロンプトの形式設定方法については、[Embeddings 2 を使用したタスクタイプ](https://ai.google.dev/gemini-api/docs/Embeddings 2 を使用したタスクタイプ)をご覧ください。
+- **エンベディングの集約:** `gemini-embedding-001` は、入力リスト内の各文字列に対して個別のエンベディングを生成します。一方、`gemini-embedding-2` は、複数の入力（テキストや画像など）が 1 つのリクエストで直接提供された場合、単一の集約されたエンベディングを生成します。個々の入力に対して個別のエンベディングを生成するには、各入力を `Content` オブジェクトでラップするか、[Batch API](https://ai.google.dev/gemini-api/docs/Batch API) を使用します。詳細については、[エンベディングの集計](https://ai.google.dev/gemini-api/docs/エンベディングの集計)をご覧ください。
+- **正規化:** `output_dimensionality` を使用して 3, 072 個未満のディメンションでエンベディングをリクエストすると、`gemini-embedding-2` はこれらの切り捨てられたエンベディングを自動的に正規化します。`gemini-embedding-001` では、3, 072 以外のディメンションに対して手動で正規化を行う必要があります。詳しくは、[小さいサイズの品質を確保する](https://ai.google.dev/gemini-api/docs/小さいサイズの品質を確保する)をご覧ください。
 
 ## バッチ エンベディング
 
-レイテンシが問題にならない場合は、[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja#batch-embedding) で Gemini Embeddings モデルを使用してみてください。これにより、デフォルトのエンベディング料金の 50% でスループットを大幅に向上させることができます。[Batch API クックブック](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)で、開始方法の例をご覧ください。
+レイテンシが問題にならない場合は、[Batch API](https://ai.google.dev/gemini-api/docs/Batch API) で Gemini Embeddings モデルを使用してみてください。これにより、デフォルトのエンベディング料金の 50% でスループットを大幅に向上させることができます。[Batch API クックブック](https://ai.google.dev/gemini-api/docs/Batch API クックブック)で、開始方法の例をご覧ください。
 
 ## 責任ある使用に関する通知
 
-新しいコンテンツを作成する生成 AI モデルとは異なり、Gemini エンベディング モデルは、入力データの形式を数値表現に変換することのみを目的としています。Google は、入力データの形式をリクエストされた数値形式に変換するエンベディング モデルを提供する責任を負いますが、ユーザーは入力したデータと結果のエンベディングに対する全責任を負います。Gemini エンベディング モデルを使用することにより、アップロードするコンテンツに対して必要な権利を有することを確認したと見なされます。他者の知的財産やプライバシーの権利を侵害するコンテンツを生成することはできません。このサービスの使用には、Google の[使用禁止に関するポリシー](https://policies.google.com/terms/generative-ai/use-policy?hl=ja)と[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja)が適用されます。
+新しいコンテンツを作成する生成 AI モデルとは異なり、Gemini エンベディング モデルは、入力データの形式を数値表現に変換することのみを目的としています。Google は、入力データの形式をリクエストされた数値形式に変換するエンベディング モデルを提供する責任を負いますが、ユーザーは入力したデータと結果のエンベディングに対する全責任を負います。Gemini エンベディング モデルを使用することにより、アップロードするコンテンツに対して必要な権利を有することを確認したと見なされます。他者の知的財産やプライバシーの権利を侵害するコンテンツを生成することはできません。このサービスの使用には、Google の[使用禁止に関するポリシー](https://ai.google.dev/gemini-api/docs/使用禁止に関するポリシー)と[利用規約](https://ai.google.dev/gemini-api/docs/利用規約)が適用されます。
 
 ## エンベディングを使用して構築を開始する
 
-[エンベディングのクイックスタート ノートブック](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb)で、モデルの機能を確認し、エンベディングをカスタマイズして可視化する方法を学習します。
+[エンベディングのクイックスタート ノートブック](https://ai.google.dev/gemini-api/docs/エンベディングのクイックスタート ノートブック)で、モデルの機能を確認し、エンベディングをカスタマイズして可視化する方法を学習します。
 
 フィードバックを送信
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://ai.google.dev/gemini-api/docs/クリエイティブ・コモンズの表示 4.0 ライセンス)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://ai.google.dev/gemini-api/docs/Apache 2.0 ライセンス)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://ai.google.dev/gemini-api/docs/Google Developers サイトのポリシー)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
 最終更新日 2026-05-01 UTC。
 
 ご意見をお聞かせください
-
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-01 UTC。"],[],[]]

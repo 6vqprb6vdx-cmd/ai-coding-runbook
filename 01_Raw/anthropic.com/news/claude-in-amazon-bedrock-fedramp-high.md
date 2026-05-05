@@ -10,9 +10,7 @@ Announcements
 
 Jun 11, 2025
 
-![A hand drawn illustration of a hand holding a white key vertically against a blue background. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b7d06ee68925400d1e2444fa067ccb1eca95705-2881x1621.png&w=3840&q=75)
-
-Today, we're announcing that Claude models are approved for use in FedRAMP High and DoD Impact Level 4 and 5 workloads through [Amazon Bedrock]( https://aws.amazon.com/bedrock/anthropic/) in AWS GovCloud (US) regions.
+Today, we're announcing that Claude models are approved for use in FedRAMP High and DoD Impact Level 4 and 5 workloads through [Amazon Bedrock](https://www.anthropic.com/news/Amazon Bedrock) in AWS GovCloud (US) regions.
 
 Federal agencies and defense organizations can now access Claude's advanced AI capabilities while meeting the government’s stringent security requirements—opening new possibilities for mission-critical applications across defense, intelligence, and sensitive civilian operations.
 
@@ -38,18 +36,18 @@ Government customers now have flexibility to deploy some of the most capable AI 
 
 Federal agency employees, defense contractors, and approved partners can access Claude models through Amazon Bedrock in AWS GovCloud (US) regions using familiar AWS APIs and management tools.
 
-[Contact our public sector team](mailto:pubsec@anthropic.com) for guidance on implementing Claude in your federal environment while ensuring full compliance with government security requirements.
+[Contact our public sector team](https://www.anthropic.com/news/Contact our public sector team) for guidance on implementing Claude in your federal environment while ensuring full compliance with government security requirements.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

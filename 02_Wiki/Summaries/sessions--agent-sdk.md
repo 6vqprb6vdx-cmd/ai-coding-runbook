@@ -8,7 +8,7 @@ entities_referenced: [Agent-SDK, Checkpointing]
 concepts_referenced: [Agentic-loop, Context-window]
 ---
 
-A session = full conversation history (prompt + every tool call/result + every response) auto-persisted to disk under `~/.claude/projects/<encoded-cwd>/<session-id>.jsonl` (`<encoded-cwd>` is absolute cwd with non-alphanumerics replaced by `-`). Sessions persist conversation only — for filesystem rollback see [file checkpointing](Checkpointing).
+A session = full conversation history (prompt + every tool call/result + every response) auto-persisted to disk under `~/.claude/projects/<encoded-cwd>/<session-id>.jsonl` (`<encoded-cwd>` is absolute cwd with non-alphanumerics replaced by `-`). Sessions persist conversation only — for filesystem rollback see [file checkpointing](https://code.claude.com/docs/en/agent-sdk/Checkpointing).
 
 **Three operations** on `query()` options:
 - **Continue** (`continue: true` TS / `continue_conversation=True` Py) — finds most recent session in cwd. No ID handling. Survives process restart.

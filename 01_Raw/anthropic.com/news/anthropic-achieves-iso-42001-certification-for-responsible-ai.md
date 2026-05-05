@@ -10,9 +10,7 @@ Announcements
 
 Jan 13, 2025
 
-![Four locks joined together](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png&w=3840&q=75)
-
-We are excited to announce that Anthropic has achieved accredited certification under the new [ISO/IEC 42001:2023 standard](https://www.iso.org/standard/81230.html) for our AI management system. ISO 42001 is the first international standard outlining requirements for AI governance and helps ensure AI systems are developed and used responsibly.
+We are excited to announce that Anthropic has achieved accredited certification under the new [ISO/IEC 42001:2023 standard](https://www.anthropic.com/news/ISO/IEC 42001:2023 standard) for our AI management system. ISO 42001 is the first international standard outlining requirements for AI governance and helps ensure AI systems are developed and used responsibly.
 
 Achieving this certification underscores our commitment to AI safety and responsible development. It provides independent validation that we have implemented a comprehensive framework to identify, assess and mitigate potential risks associated with our AI systems. Key elements include:
 
@@ -23,26 +21,26 @@ Achieving this certification underscores our commitment to AI safety and respons
 
 We're proud to be **one of the first frontier AI labs** to achieve this certification and hope it provides further assurance to our partners and the public of our strong commitment to AI safety.
 
-The [ISO 42001 certification](https://trust.anthropic.com/) builds on our existing work to develop AI safely and responsibly, including the release and recent update of our public [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy) governance framework, deployment of [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) to help models operate in alignment with human values, and active [research](https://www.anthropic.com/research) into AI safety and robustness. Schellman Compliance, LLC, an ISO certification body accredited by the ANSI National Accreditation Board, issued the certification.
+The [ISO 42001 certification](https://www.anthropic.com/news/ISO 42001 certification) builds on our existing work to develop AI safely and responsibly, including the release and recent update of our public [Responsible Scaling Policy](https://www.anthropic.com/news/Responsible Scaling Policy) governance framework, deployment of [Constitutional AI](https://www.anthropic.com/news/Constitutional AI) to help models operate in alignment with human values, and active [research](https://www.anthropic.com/news/research) into AI safety and robustness. Schellman Compliance, LLC, an ISO certification body accredited by the ANSI National Accreditation Board, issued the certification.
 
 ## Continuing our commitment to responsible AI leadership
 
-Beyond ISO 42001, we have made a number of [additional voluntary commitments](https://www.anthropic.com/voluntary-commitments) demonstrating our dedication to responsible AI development. These voluntary frameworks cover key areas such as risk assessment and mitigation, security and privacy safeguards, and public awareness efforts.
+Beyond ISO 42001, we have made a number of [additional voluntary commitments](https://www.anthropic.com/news/additional voluntary commitments) demonstrating our dedication to responsible AI development. These voluntary frameworks cover key areas such as risk assessment and mitigation, security and privacy safeguards, and public awareness efforts.
 
 As AI systems become increasingly powerful, safety and security are at the forefront of our ongoing research and innovation. The ISO 42001 certification is an exciting milestone in that journey.
 
-Information about our ISO certification is now available on our [Trust Center](https://trust.anthropic.com/). This includes the issued certificate, an overview of the standard, what it entails, and how it reinforces our commitments to responsible AI development.
+Information about our ISO certification is now available on our [Trust Center](https://www.anthropic.com/news/Trust Center). This includes the issued certificate, an overview of the standard, what it entails, and how it reinforces our commitments to responsible AI development.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

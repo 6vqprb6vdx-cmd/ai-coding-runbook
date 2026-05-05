@@ -4,19 +4,19 @@ fetched_at: 2026-05-05T13:28:19.357670+00:00
 title: "Tool use with Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/live-api/Gemini Deep Research) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Strona główna](https://ai.google.dev/gemini-api/docs/live-api/Strona główna)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/live-api/Gemini API)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/live-api/Dokumenty)
 
 Prześlij opinię
 
 # Tool use with Live API
 
 Korzystanie z narzędzi pozwala interfejsowi Live API wyjść poza zwykłą rozmowę, umożliwiając mu wykonywanie działań w świecie rzeczywistym i pobieranie kontekstu zewnętrznego przy jednoczesnym utrzymaniu połączenia w czasie rzeczywistym.
-Za pomocą interfejsu Live API możesz definiować narzędzia, takie jak [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
-i [wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl).
+Za pomocą interfejsu Live API możesz definiować narzędzia, takie jak [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/live-api/wywoływanie funkcji)
+i [wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/live-api/wyszukiwarka Google).
 
 ## Omówienie obsługiwanych narzędzi
 
@@ -25,7 +25,7 @@ Oto krótkie omówienie narzędzi dostępnych w modelach interfejsu Live API:
 | Narzędzie | Gemini 3.1 Flash Live (wersja testowa) | Gemini 2.5 Flash Live (wersja testowa) |
 | --- | --- | --- |
 | **Szukaj** | Obsługiwane | Obsługiwane |
-| **Wywoływanie funkcji** | Obsługiwane (tylko synchroniczne) | Obsługiwane (synchroniczne i [asynchroniczne](#async-function-calling)) |
+| **Wywoływanie funkcji** | Obsługiwane (tylko synchroniczne) | Obsługiwane (synchroniczne i [asynchroniczne](https://ai.google.dev/gemini-api/docs/live-api/asynchroniczne)) |
 | **Mapy Google** | Nieobsługiwane | Nieobsługiwane |
 | **Wykonywanie kodu** | Nieobsługiwane | Nieobsługiwane |
 | **Kontekst adresu URL** | Nieobsługiwane | Nieobsługiwane |
@@ -37,7 +37,7 @@ Interfejs Live API obsługuje wywoływanie funkcji, podobnie jak zwykłe żądan
 Deklaracje funkcji możesz zdefiniować w ramach konfiguracji sesji.
 Po otrzymaniu wywołań narzędzi klient powinien odpowiedzieć listą obiektów `FunctionResponse` za pomocą metody `session.send_tool_response`.
 
-Więcej informacji znajdziesz w [samouczku dotyczącym wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
+Więcej informacji znajdziesz w [samouczku dotyczącym wywoływania funkcji](https://ai.google.dev/gemini-api/docs/live-api/samouczku dotyczącym wywoływania funkcji).
 
 ### Python
 
@@ -214,7 +214,7 @@ async function main() {
 main();
 ```
 
-Na podstawie jednego prompta model może wygenerować wiele wywołań funkcji i kod niezbędny do łączenia ich wyników. Ten kod jest wykonywany w środowisku piaskownicy, co powoduje generowanie kolejnych [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=pl#bidigeneratecontenttoolcall).
+Na podstawie jednego prompta model może wygenerować wiele wywołań funkcji i kod niezbędny do łączenia ich wyników. Ten kod jest wykonywany w środowisku piaskownicy, co powoduje generowanie kolejnych [BidiGenerateContentToolCall](https://ai.google.dev/gemini-api/docs/live-api/BidiGenerateContentToolCall).
 
 ## Asynchroniczne wywoływanie funkcji
 
@@ -287,7 +287,7 @@ const functionResponse = {
 
 ## Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google
 
-W ramach konfiguracji sesji możesz włączyć powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google. Zwiększa to dokładność interfejsu Live API i zapobiega halucynacjom. Więcej informacji znajdziesz w [samouczku dotyczącym powiązania ze źródłem informacji](https://ai.google.dev/gemini-api/docs/grounding?hl=pl).
+W ramach konfiguracji sesji możesz włączyć powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google. Zwiększa to dokładność interfejsu Live API i zapobiega halucynacjom. Więcej informacji znajdziesz w [samouczku dotyczącym powiązania ze źródłem informacji](https://ai.google.dev/gemini-api/docs/live-api/samouczku dotyczącym powiązania ze źródłem informacji).
 
 ### Python
 
@@ -499,16 +499,14 @@ const config = {
 ## Co dalej?
 
 - Więcej przykładów używania narzędzi z interfejsem Live API znajdziesz w
-  [przewodniku Tool use cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=pl).
+  [przewodniku Tool use cookbook](https://ai.google.dev/gemini-api/docs/live-api/przewodniku Tool use cookbook).
 - Więcej informacji o funkcjach i konfiguracjach znajdziesz w
-  [przewodniku Live API Capabilities guide](https://ai.google.dev/gemini-api/docs/live-guide?hl=pl).
+  [przewodniku Live API Capabilities guide](https://ai.google.dev/gemini-api/docs/live-api/przewodniku Live API Capabilities guide).
 
 Prześlij opinię
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://ai.google.dev/gemini-api/docs/live-api/licencją Creative Commons – uznanie autorstwa 4.0), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://ai.google.dev/gemini-api/docs/live-api/licencji Apache 2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://ai.google.dev/gemini-api/docs/live-api/zasady dotyczące witryny Google Developers). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
 Ostatnia aktualizacja: 2026-05-01 UTC.
 
 Chcesz przekazać coś jeszcze?
-
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-01 UTC."],[],[]]

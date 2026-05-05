@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:27:33.359419+00:00
 title: "Audioverst\u00e4ndnis \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Startseite](https://ai.google.dev/gemini-api/docs/Startseite)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs/Dokumentation)
 
 Feedback geben
 
@@ -171,12 +171,12 @@ Gemini kann Audioeingaben analysieren und verstehen und Textantworten darauf gen
 - Analysiere bestimmte Segmente des Audios und gib Zeitstempel an.
 
 Derzeit unterstützt die Gemini API keine Anwendungsfälle für die Echtzeit-Transkription.
-Informationen zu Sprach- und Videointeraktionen in Echtzeit finden Sie in der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de).
-Wenn Sie spezielle Speech-to-Text-Modelle mit Unterstützung für die Echtzeit-Transkription benötigen, verwenden Sie die [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=de).
+Informationen zu Sprach- und Videointeraktionen in Echtzeit finden Sie in der [Live API](https://ai.google.dev/gemini-api/docs/Live API).
+Wenn Sie spezielle Speech-to-Text-Modelle mit Unterstützung für die Echtzeit-Transkription benötigen, verwenden Sie die [Google Cloud Speech-to-Text API](https://ai.google.dev/gemini-api/docs/Google Cloud Speech-to-Text API).
 
 ## Sprache in Text transkribieren
 
-Diese Beispielanwendung zeigt, wie Sie die Gemini API auffordern, Sprache zu transkribieren, zu übersetzen und zusammenzufassen, einschließlich Zeitstempeln und Erkennung von Emotionen mithilfe von [strukturierten Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de).
+Diese Beispielanwendung zeigt, wie Sie die Gemini API auffordern, Sprache zu transkribieren, zu übersetzen und zusammenzufassen, einschließlich Zeitstempeln und Erkennung von Emotionen mithilfe von [strukturierten Ausgaben](https://ai.google.dev/gemini-api/docs/strukturierten Ausgaben).
 
 ### Python
 
@@ -404,7 +404,7 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Sie können [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=de) auffordern, mit nur einem Klick eine App wie [diese Beispiel-Transkriptions-App](https://aistudio.google.com/apps/bundled/echoscript?hl=de) zu erstellen.
+Sie können [AI Studio Build](https://ai.google.dev/gemini-api/docs/AI Studio Build) auffordern, mit nur einem Klick eine App wie [diese Beispiel-Transkriptions-App](https://ai.google.dev/gemini-api/docs/diese Beispiel-Transkriptions-App) zu erstellen.
 
 ![Eine mehrsprachige Gemini App für die Audio-Transkription](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=de)
 
@@ -412,14 +412,14 @@ Sie können [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=de) auffo
 
 Sie haben folgende Möglichkeiten, Gemini Audiodaten zur Verfügung zu stellen:
 
-- [Laden Sie eine Audiodatei hoch](#upload-audio), bevor Sie eine Anfrage an `generateContent` senden.
-- [Inline-Audiodaten](#inline-audio) mit der Anfrage an `generateContent` übergeben.
+- [Laden Sie eine Audiodatei hoch](https://ai.google.dev/gemini-api/docs/Laden Sie eine Audiodatei hoch), bevor Sie eine Anfrage an `generateContent` senden.
+- [Inline-Audiodaten](https://ai.google.dev/gemini-api/docs/Inline-Audiodaten) mit der Anfrage an `generateContent` übergeben.
 
-Informationen zu anderen Methoden für die Dateieingabe finden Sie im Leitfaden [Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
+Informationen zu anderen Methoden für die Dateieingabe finden Sie im Leitfaden [Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/Methoden für die Dateieingabe).
 
 ### Audiodatei hochladen
 
-Sie können die [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) verwenden, um eine Audiodatei hochzuladen.
+Sie können die [Files API](https://ai.google.dev/gemini-api/docs/Files API) verwenden, um eine Audiodatei hochzuladen.
 Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich der Dateien, des Textprompts, der Systemanweisungen usw.) größer als 20 MB ist.
 
 Im folgenden Code wird eine Audiodatei hochgeladen und dann in einem Aufruf von `generateContent` verwendet.
@@ -569,7 +569,7 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Weitere Informationen zum Arbeiten mit Media-Dateien finden Sie unter [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
+Weitere Informationen zum Arbeiten mit Media-Dateien finden Sie unter [Files API](https://ai.google.dev/gemini-api/docs/Files API).
 
 ### Audiodaten inline übergeben
 
@@ -674,8 +674,8 @@ func main() {
 
 Einige wichtige Hinweise zu Inline-Audiodaten:
 
-- Die maximale Anfragesgröße beträgt 20 MB. Dazu gehören Text-Prompts, Systemanweisungen und inline bereitgestellte Dateien. Wenn die Größe Ihrer Datei dazu führt, dass die *Gesamtgröße der Anfrage* 20 MB überschreitet, verwenden Sie die Files API, um eine [Audiodatei für die Verwendung in der Anfrage hochzuladen](#upload-audio).
-- Wenn Sie ein Audio-Sample mehrmals verwenden, ist es effizienter, eine [Audiodatei hochzuladen](#upload-audio).
+- Die maximale Anfragesgröße beträgt 20 MB. Dazu gehören Text-Prompts, Systemanweisungen und inline bereitgestellte Dateien. Wenn die Größe Ihrer Datei dazu führt, dass die *Gesamtgröße der Anfrage* 20 MB überschreitet, verwenden Sie die Files API, um eine [Audiodatei für die Verwendung in der Anfrage hochzuladen](https://ai.google.dev/gemini-api/docs/Audiodatei für die Verwendung in der Anfrage hochzuladen).
+- Wenn Sie ein Audio-Sample mehrmals verwenden, ist es effizienter, eine [Audiodatei hochzuladen](https://ai.google.dev/gemini-api/docs/Audiodatei hochzuladen).
 
 ## Transkript erstellen
 
@@ -945,16 +945,14 @@ Gemini unterstützt die folgenden MIME-Typen für Audioformate:
 
 In dieser Anleitung wird gezeigt, wie Sie Text als Reaktion auf Audiodaten generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
 
-- [Strategien für Dateiprompts](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch bekannt als multimodale Prompts.
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#system-instructions): Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren spezifischen Anforderungen und Anwendungsfällen steuern.
-- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Manchmal geben generative KI‑Modelle unerwartete Ausgaben aus, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+- [Strategien für Dateiprompts](https://ai.google.dev/gemini-api/docs/Strategien für Dateiprompts): Die Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch bekannt als multimodale Prompts.
+- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/Systemanweisungen): Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren spezifischen Anforderungen und Anwendungsfällen steuern.
+- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/Sicherheitshinweise): Manchmal geben generative KI‑Modelle unerwartete Ausgaben aus, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
 
 Feedback geben
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 License) und Codebeispiele unter der [Apache 2.0 License](https://ai.google.dev/gemini-api/docs/Apache 2.0 License) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://ai.google.dev/gemini-api/docs/Websiterichtlinien von Google Developers). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
 Zuletzt aktualisiert: 2026-04-29 (UTC).
 
 Haben Sie Feedback für uns?
-
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

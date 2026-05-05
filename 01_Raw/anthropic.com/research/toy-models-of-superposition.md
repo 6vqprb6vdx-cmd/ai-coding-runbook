@@ -10,7 +10,7 @@ InterpretabilityResearch
 
 Sep 14, 2022
 
-[Read Paper](https://transformer-circuits.pub/2022/toy_model/index.html)
+[Read Paper](https://www.anthropic.com/research/Read Paper)
 
 ### Abstract
 
@@ -20,14 +20,14 @@ In this paper, we use toy models — small ReLU networks trained on synthetic da
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

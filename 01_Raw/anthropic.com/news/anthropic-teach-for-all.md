@@ -26,13 +26,9 @@ What makes this partnership distinctive is its approach. Teachers are positioned
 
 ## **What teachers are building**
 
-One teacher in Liberia, new to AI, attended the AI LCC's live trainings on AI fluency. Within weeks, he had built an [interactive climate education curriculum](https://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d/public/artifacts/5a020adb-ab65-4637-bcf0-79e6d20c58d2) for Liberian schools using Claude Artifacts: interactive tools like apps, games, or visualizations that Claude can build on the spot.
+One teacher in Liberia, new to AI, attended the AI LCC's live trainings on AI fluency. Within weeks, he had built an [interactive climate education curriculum](https://www.anthropic.com/news/interactive climate education curriculum) for Liberian schools using Claude Artifacts: interactive tools like apps, games, or visualizations that Claude can build on the spot.
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8e2e99d8b3534d5e1c4dcc950b1b0e0bbcd768cd-1920x1080.png&w=3840&q=75)
-
-In Bangladesh, a teacher working with Grade 6 and 7 students—over half of whom struggled with basic numeracy—built a [gamified math learning app](https://claude.ai/redirect/website.v1.160683d3-b377-4ce4-97f8-fdb70520e69d/public/artifacts/e94bf439-b3a6-4087-87f2-dee5d8de99d8) complete with boss battles, a leaderboard, and XP rewards.
-
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8745b5fa855dfeca249bdd8b7696b5440da72ac7-1920x1080.png&w=3840&q=75)
+In Bangladesh, a teacher working with Grade 6 and 7 students—over half of whom struggled with basic numeracy—built a [gamified math learning app](https://www.anthropic.com/news/gamified math learning app) complete with boss battles, a leaderboard, and XP rewards.
 
 The pattern is consistent across the network: teachers who know their students best can now build tools tailored to them.
 
@@ -60,18 +56,18 @@ As AI transforms how knowledge is created and shared, teachers will be essential
 
 This is our commitment—ensuring that educators in every community, not just the most well-resourced, can shape and benefit from AI's potential.
 
-For more on Anthropic's education initiatives, [see here](https://claude.com/solutions/education).
+For more on Anthropic's education initiatives, [see here](https://www.anthropic.com/news/see here).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

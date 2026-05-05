@@ -10,13 +10,11 @@ Policy
 
 Jul 21, 2025
 
-[Report: Build AI in America](https://www-cdn.anthropic.com/0dc382a2086f6a054eeb17e8a531bd9625b8e6e5.pdf)
-
-![Lightning bolt](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8b7e77b565b733050684ddce84734a5c565bcd88-1920x1079.png&w=3840&q=75)
+Report: Build AI in America
 
 For the United States to lead the world in AI, we must make substantial investments in computing power and electricity that make it possible to build AI in America. As technology evolves, the required resources, infrastructure, and regulatory conditions need to change too. That’s why we are releasing a set of policy recommendations to support building the necessary domestic infrastructure to train the world’s most capable AI models in the U.S. and support the broad deployment of AI across sectors.
 
-Advances in AI, driven by cutting-edge American companies, are reshaping our economy and society. At Anthropic, we see our AI models used every day by American [businesses](https://www.anthropic.com/customers), [scientists](https://www.anthropic.com/news/ai-for-science-program), [educators](https://www.anthropic.com/education), [governments](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers), and others—in ways that make workers more productive, our economy more prosperous, and our nation more secure.
+Advances in AI, driven by cutting-edge American companies, are reshaping our economy and society. At Anthropic, we see our AI models used every day by American [businesses](https://www.anthropic.com/news/businesses), [scientists](https://www.anthropic.com/news/scientists), [educators](https://www.anthropic.com/news/educators), [governments](https://www.anthropic.com/news/governments), and others—in ways that make workers more productive, our economy more prosperous, and our nation more secure.
 
 By acting decisively now we can ensure that the future is built here in America.
 
@@ -26,7 +24,7 @@ Our full list of recommendations can be found in our new report, “Build AI in 
 
 Frontier AI model training requires continuous access to firm, reliable power sources, and meeting this goal will require extraordinary U.S. energy capacity across a range of energy technologies. Data centers used to develop state-of-the-art models need stable power access to operate effectively, and given the energy demand for AI development, an “all of the above” approach is required to ensure American AI leadership. This approach will help the U.S. meet immediate energy needs, expand sources of firm power, and maximize opportunities for AI to catalyze emerging energy technologies, like next-generation geothermal and advanced nuclear technologies.
 
-While the U.S. is lagging in bringing energy generation online, China is rapidly building energy infrastructure for AI, having added over 400 gigawatts of power capacity last year compared to the just several dozen gigawatts added in the U.S. This disparity is especially concerning in the context of AI development: we project that 2GW and 5GW data centers will be needed to develop single advanced AI models for Anthropic in 2027 and 2028, respectively. With several other U.S. companies developing frontier AI models, we expect total frontier AI training demands in America to reach 20-25GW in total by 2028. For context, this is roughly twice [New York City’s peak](https://climate.cityofnewyork.us/subtopics/systems/) electricity demand, and at least as much will likely be needed for serving everyday AI model demand (called “inference”). Put another way, the U.S. AI sector needs at least 50GW of electric capacity by 2028 to maintain global AI leadership.
+While the U.S. is lagging in bringing energy generation online, China is rapidly building energy infrastructure for AI, having added over 400 gigawatts of power capacity last year compared to the just several dozen gigawatts added in the U.S. This disparity is especially concerning in the context of AI development: we project that 2GW and 5GW data centers will be needed to develop single advanced AI models for Anthropic in 2027 and 2028, respectively. With several other U.S. companies developing frontier AI models, we expect total frontier AI training demands in America to reach 20-25GW in total by 2028. For context, this is roughly twice [New York City’s peak](https://www.anthropic.com/news/New York City’s peak) electricity demand, and at least as much will likely be needed for serving everyday AI model demand (called “inference”). Put another way, the U.S. AI sector needs at least 50GW of electric capacity by 2028 to maintain global AI leadership.
 
 While the Trump Administration has already taken important steps toward removing barriers by setting ambitious nuclear power targets and accelerating National Environmental Policy Act (NEPA) reviews, to compete with China, it is critical that the U.S. take further action to address regulatory challenges that can delay energy projects.
 
@@ -54,18 +52,18 @@ America has the economic strength, technical prowess, and innovative spirit to m
 
 By partnering across government, industry, and communities, we can build the foundation for decades of American leadership in AI.
 
-Read the full [report](https://www-cdn.anthropic.com/0dc382a2086f6a054eeb17e8a531bd9625b8e6e5.pdf).
+Read the full [report](https://www.anthropic.com/news/report).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

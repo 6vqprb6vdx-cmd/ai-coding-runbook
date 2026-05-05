@@ -22,22 +22,22 @@ We will continue to work with our partners across the government to expand Claud
 
 The deployment of AI across federal agencies enhances productivity, streamlines operations, and enables more effective and responsive government services. This partnership with GSA enables us to help government organizations harness the power of AI to modernize operations.
 
-Anthropic has recently announced partnerships with [national laboratories](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and) for scientific research, integration into defense and intelligence workflows through technology partners, and [custom Claude Gov models](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers) designed specifically for national security applications.
+Anthropic has recently announced partnerships with [national laboratories](https://www.anthropic.com/news/national laboratories) for scientific research, integration into defense and intelligence workflows through technology partners, and [custom Claude Gov models](https://www.anthropic.com/news/custom Claude Gov models) designed specifically for national security applications.
 
 **Get started**
 
-Organizations interested in transforming their operations with Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+Organizations interested in transforming their operations with Claude can [contact our public sector team](https://www.anthropic.com/news/contact our public sector team) to learn more and get started.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

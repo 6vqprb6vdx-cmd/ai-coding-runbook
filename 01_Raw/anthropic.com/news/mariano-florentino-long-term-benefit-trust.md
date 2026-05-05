@@ -14,7 +14,7 @@ Jan 21, 2026
 
 Anthropic’s Long-Term Benefit Trust announced the appointment of Mariano-Florentino (Tino) Cuéllar as a new member of the Trust. The Long-Term Benefit Trust is an independent body designed to help Anthropic achieve its public benefit mission.
 
-Cuéllar brings extensive experience in law, governance, and international affairs, including service as a Justice of the Supreme Court of California, leadership of Stanford's Freeman Spogli Institute for International Studies, and his current role as President of the Carnegie Endowment for International Peace. Cuéllar [announced plans](https://carnegieendowment.org/posts/2026/01/tino-cuellar-to-step-down-as-carnegie-endowment-president-in-july-2026?lang=en) to step down from Carnegie in July 2026, when he will return to Stanford University to lead the Center for Advanced Study in the Behavioral Sciences and the Knight-Hennessy Scholars Program.
+Cuéllar brings extensive experience in law, governance, and international affairs, including service as a Justice of the Supreme Court of California, leadership of Stanford's Freeman Spogli Institute for International Studies, and his current role as President of the Carnegie Endowment for International Peace. Cuéllar [announced plans](https://www.anthropic.com/news/announced plans) to step down from Carnegie in July 2026, when he will return to Stanford University to lead the Center for Advanced Study in the Behavioral Sciences and the Knight-Hennessy Scholars Program.
 
 He has served three U.S. presidential administrations and currently chairs the board of the William & Flora Hewlett Foundation. Cuéllar offers a global perspective shaped by his upbringing along the U.S.-Mexico border and a career spanning immigration, criminal justice, public health, and regulatory reform. His work has consistently focused on how technology affects public institutions and democratic governance—including co-leading California's Working Group on AI Frontier Models alongside Fei-Fei Li, and serving on the National Academy of Sciences Committee on Social and Ethical Implications of Computing Research.
 
@@ -38,12 +38,12 @@ Zachary Robinson, CEO of the Centre for Effective Altruism, said: “I've been h
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

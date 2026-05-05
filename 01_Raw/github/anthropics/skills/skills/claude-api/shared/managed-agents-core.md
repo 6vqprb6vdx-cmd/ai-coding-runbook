@@ -215,4 +215,3 @@ session = client.beta.sessions.create(
     environment_id=environment_id,
 )
 ```
-

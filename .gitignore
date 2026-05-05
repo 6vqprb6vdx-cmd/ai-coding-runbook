@@ -25,3 +25,9 @@ venv/
 *.local
 local_*
 .claudian/
+
+# Agent working dirs — created by coding agents exploring the repo, should never be committed
+/codex/
+/apps-sdk/
+/tmp/
+/scratch/

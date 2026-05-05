@@ -18,7 +18,7 @@ Alongside the founding partners, the new company is backed by a consortium of le
 
 **Why we’re building this**
 
-Putting Claude to work in an organization’s core operations takes hands-on engineering and deep familiarity with how each business runs. Systems integrators in the [Claude Partner Network](https://www.anthropic.com/news/claude-partner-network) lead that work for the world’s largest enterprises today, and we are continuing to invest deeply in those partnerships as Claude reaches more customers. This new firm extends that delivery capacity further. Companies from community banks to mid-sized manufacturers and regional health systems stand to gain from AI, but lack the in-house resources to build and run frontier deployments.
+Putting Claude to work in an organization’s core operations takes hands-on engineering and deep familiarity with how each business runs. Systems integrators in the [Claude Partner Network](https://www.anthropic.com/news/Claude Partner Network) lead that work for the world’s largest enterprises today, and we are continuing to invest deeply in those partnerships as Claude reaches more customers. This new firm extends that delivery capacity further. Companies from community banks to mid-sized manufacturers and regional health systems stand to gain from AI, but lack the in-house resources to build and run frontier deployments.
 
 “Enterprise demand for Claude is significantly outpacing any single delivery model. Our partnerships with the world's leading systems integrators are central to how Claude reaches large enterprises,” said Krishna Rao, Chief Financial Officer of Anthropic. “This new firm brings additional operating capability to the ecosystem and capital from leading alternative asset managers. We are proud to build it alongside Blackstone, Hellman & Friedman, Goldman Sachs, and our other partners.”
 
@@ -40,14 +40,14 @@ Our partnerships with Accenture, Deloitte, PwC, and the other consulting and sys
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### An update on our election safeguards
 
 We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
 
-[Read more](/news/election-safeguards-update)
+[Read more](https://www.anthropic.com/news/Read more)

@@ -13,17 +13,17 @@ title: "Best practices for Claude Code - Claude Code Docs"
 Claude Code is an agentic coding environment. Unlike a chatbot that answers questions and waits, Claude Code can read your files, run commands, make changes, and autonomously work through problems while you watch, redirect, or step away entirely.
 This changes how you work. Instead of writing code yourself and asking Claude to review it, you describe what you want and Claude figures out how to build it. Claude explores, plans, and implements.
 But this autonomy still comes with a learning curve. Claude works within certain constraints you need to understand.
-This guide covers patterns that have proven effective across Anthropic’s internal teams and for engineers using Claude Code across various codebases, languages, and environments. For how the agentic loop works under the hood, see [How Claude Code works](/docs/en/how-claude-code-works).
+This guide covers patterns that have proven effective across Anthropic’s internal teams and for engineers using Claude Code across various codebases, languages, and environments. For how the agentic loop works under the hood, see [How Claude Code works](https://www.anthropic.com/engineering/How Claude Code works).
 
 ---
 
 Most best practices are based on one constraint: Claude’s context window fills up fast, and performance degrades as it fills.
 Claude’s context window holds your entire conversation, including every message, every file Claude reads, and every command output. However, this can fill up fast. A single debugging session or codebase exploration might generate and consume tens of thousands of tokens.
-This matters since LLM performance degrades as context fills. When the context window is getting full, Claude may start “forgetting” earlier instructions or making more mistakes. The context window is the most important resource to manage. To see how a session fills up in practice, [watch an interactive walkthrough](/docs/en/context-window) of what loads at startup and what each file read costs. Track context usage continuously with a [custom status line](/docs/en/statusline), and see [Reduce token usage](/docs/en/costs#reduce-token-usage) for strategies on reducing token usage.
+This matters since LLM performance degrades as context fills. When the context window is getting full, Claude may start “forgetting” earlier instructions or making more mistakes. The context window is the most important resource to manage. To see how a session fills up in practice, [watch an interactive walkthrough](https://www.anthropic.com/engineering/watch an interactive walkthrough) of what loads at startup and what each file read costs. Track context usage continuously with a [custom status line](https://www.anthropic.com/engineering/custom status line), and see [Reduce token usage](https://www.anthropic.com/engineering/Reduce token usage) for strategies on reducing token usage.
 
 ---
 
-## [​](#give-claude-a-way-to-verify-its-work) Give Claude a way to verify its work
+## [​](https://www.anthropic.com/engineering/​) Give Claude a way to verify its work
 
 Include tests, screenshots, or expected outputs so Claude can check itself. This is the single highest-leverage thing you can do.
 
@@ -32,20 +32,20 @@ Without clear success criteria, it might produce something that looks right but 
 
 | Strategy | Before | After |
 | --- | --- | --- |
-| **Provide verification criteria** | *”implement a function that validates email addresses"* | *"write a validateEmail function. example test cases: [user@example.com](mailto:user@example.com) is true, invalid is false, [user@.com](mailto:user@.com) is false. run the tests after implementing”* |
+| **Provide verification criteria** | *”implement a function that validates email addresses"* | *"write a validateEmail function. example test cases: [user@example.com](https://www.anthropic.com/engineering/user@example.com) is true, invalid is false, [user@.com](https://www.anthropic.com/engineering/user@.com) is false. run the tests after implementing”* |
 | **Verify UI changes visually** | *”make the dashboard look better"* | *"[paste screenshot] implement this design. take a screenshot of the result and compare it to the original. list differences and fix them”* |
 | **Address root causes, not symptoms** | *”the build is failing"* | *"the build fails with this error: [paste error]. fix it and verify the build succeeds. address the root cause, don’t suppress the error”* |
 
-UI changes can be verified using the [Claude in Chrome extension](/docs/en/chrome). It opens new tabs in your browser, tests the UI, and iterates until the code works.
+UI changes can be verified using the [Claude in Chrome extension](https://www.anthropic.com/engineering/Claude in Chrome extension). It opens new tabs in your browser, tests the UI, and iterates until the code works.
 Your verification can also be a test suite, a linter, or a Bash command that checks output. Invest in making your verification rock-solid.
 
 ---
 
-## [​](#explore-first-then-plan-then-code) Explore first, then plan, then code
+## [​](https://www.anthropic.com/engineering/​) Explore first, then plan, then code
 
 Separate research and planning from implementation to avoid solving the wrong problem.
 
-Letting Claude jump straight to coding can produce code that solves the wrong problem. Use [plan mode](/docs/en/permission-modes#analyze-before-you-edit-with-plan-mode) to separate exploration from execution.
+Letting Claude jump straight to coding can produce code that solves the wrong problem. Use [plan mode](https://www.anthropic.com/engineering/plan mode) to separate exploration from execution.
 The recommended workflow has four phases:
 
 1
@@ -105,7 +105,7 @@ Plan mode is useful, but also adds overhead.For tasks where the scope is clear a
 
 ---
 
-## [​](#provide-specific-context-in-your-prompts) Provide specific context in your prompts
+## [​](https://www.anthropic.com/engineering/​) Provide specific context in your prompts
 
 The more precise your instructions, the fewer corrections you’ll need.
 
@@ -120,7 +120,7 @@ Claude can infer intent, but it can’t read your mind. Reference specific files
 
 Vague prompts can be useful when you’re exploring and can afford to course-correct. A prompt like `"what would you improve in this file?"` can surface things you wouldn’t have thought to ask about.
 
-### [​](#provide-rich-content) Provide rich content
+### [​](https://www.anthropic.com/engineering/​) Provide rich content
 
 Use `@` to reference files, paste screenshots/images, or pipe data directly.
 
@@ -134,11 +134,11 @@ You can provide rich data to Claude in several ways:
 
 ---
 
-## [​](#configure-your-environment) Configure your environment
+## [​](https://www.anthropic.com/engineering/​) Configure your environment
 
-A few setup steps make Claude Code significantly more effective across all your sessions. For a full overview of extension features and when to use each one, see [Extend Claude Code](/docs/en/features-overview).
+A few setup steps make Claude Code significantly more effective across all your sessions. For a full overview of extension features and when to use each one, see [Extend Claude Code](https://www.anthropic.com/engineering/Extend Claude Code).
 
-### [​](#write-an-effective-claude-md) Write an effective CLAUDE.md
+### [​](https://www.anthropic.com/engineering/​) Write an effective CLAUDE.md
 
 Run `/init` to generate a starter CLAUDE.md file based on your current project structure, then refine over time.
 
@@ -158,7 +158,7 @@ CLAUDE.md
 - Prefer running single tests, and not the whole test suite, for performance
 ```
 
-CLAUDE.md is loaded every session, so only include things that apply broadly. For domain knowledge or workflows that are only relevant sometimes, use [skills](/docs/en/skills) instead. Claude loads them on demand without bloating every conversation.
+CLAUDE.md is loaded every session, so only include things that apply broadly. For domain knowledge or workflows that are only relevant sometimes, use [skills](https://www.anthropic.com/engineering/skills) instead. Claude loads them on demand without bloating every conversation.
 Keep it concise. For each line, ask: *“Would removing this cause Claude to make mistakes?”* If not, cut it. Bloated CLAUDE.md files cause Claude to ignore your actual instructions!
 
 | ✅ Include | ❌ Exclude |
@@ -193,9 +193,9 @@ You can place CLAUDE.md files in several locations:
 - **Parent directories**: useful for monorepos where both `root/CLAUDE.md` and `root/foo/CLAUDE.md` are pulled in automatically
 - **Child directories**: Claude pulls in child CLAUDE.md files on demand when working with files in those directories
 
-### [​](#configure-permissions) Configure permissions
+### [​](https://www.anthropic.com/engineering/​) Configure permissions
 
-Use [auto mode](/docs/en/permission-modes#eliminate-prompts-with-auto-mode) to let a classifier handle approvals, `/permissions` to allowlist specific commands, or `/sandbox` for OS-level isolation. Each reduces interruptions while keeping you in control.
+Use [auto mode](https://www.anthropic.com/engineering/auto mode) to let a classifier handle approvals, `/permissions` to allowlist specific commands, or `/sandbox` for OS-level isolation. Each reduces interruptions while keeping you in control.
 
 By default, Claude Code requests permission for actions that might modify your system: file writes, Bash commands, MCP tools, etc. This is safe but tedious. After the tenth approval you’re not really reviewing anymore, you’re just clicking through. There are three ways to reduce these interruptions:
 
@@ -203,33 +203,33 @@ By default, Claude Code requests permission for actions that might modify your s
 - **Permission allowlists**: permit specific tools you know are safe, like `npm run lint` or `git commit`
 - **Sandboxing**: enable OS-level isolation that restricts filesystem and network access, allowing Claude to work more freely within defined boundaries
 
-Read more about [permission modes](/docs/en/permission-modes), [permission rules](/docs/en/permissions), and [sandboxing](/docs/en/sandboxing).
+Read more about [permission modes](https://www.anthropic.com/engineering/permission modes), [permission rules](https://www.anthropic.com/engineering/permission rules), and [sandboxing](https://www.anthropic.com/engineering/sandboxing).
 
-### [​](#use-cli-tools) Use CLI tools
+### [​](https://www.anthropic.com/engineering/​) Use CLI tools
 
 Tell Claude Code to use CLI tools like `gh`, `aws`, `gcloud`, and `sentry-cli` when interacting with external services.
 
 CLI tools are the most context-efficient way to interact with external services. If you use GitHub, install the `gh` CLI. Claude knows how to use it for creating issues, opening pull requests, and reading comments. Without `gh`, Claude can still use the GitHub API, but unauthenticated requests often hit rate limits.
 Claude is also effective at learning CLI tools it doesn’t already know. Try prompts like `Use 'foo-cli-tool --help' to learn about foo tool, then use it to solve A, B, C.`
 
-### [​](#connect-mcp-servers) Connect MCP servers
+### [​](https://www.anthropic.com/engineering/​) Connect MCP servers
 
 Run `claude mcp add` to connect external tools like Notion, Figma, or your database.
 
-With [MCP servers](/docs/en/mcp), you can ask Claude to implement features from issue trackers, query databases, analyze monitoring data, integrate designs from Figma, and automate workflows.
+With [MCP servers](https://www.anthropic.com/engineering/MCP servers), you can ask Claude to implement features from issue trackers, query databases, analyze monitoring data, integrate designs from Figma, and automate workflows.
 
-### [​](#set-up-hooks) Set up hooks
+### [​](https://www.anthropic.com/engineering/​) Set up hooks
 
 Use hooks for actions that must happen every time with zero exceptions.
 
-[Hooks](/docs/en/hooks-guide) run scripts automatically at specific points in Claude’s workflow. Unlike CLAUDE.md instructions which are advisory, hooks are deterministic and guarantee the action happens.
+[Hooks](https://www.anthropic.com/engineering/Hooks) run scripts automatically at specific points in Claude’s workflow. Unlike CLAUDE.md instructions which are advisory, hooks are deterministic and guarantee the action happens.
 Claude can write hooks for you. Try prompts like *“Write a hook that runs eslint after every file edit”* or *“Write a hook that blocks writes to the migrations folder.”* Edit `.claude/settings.json` directly to configure hooks by hand, and run `/hooks` to browse what’s configured.
 
-### [​](#create-skills) Create skills
+### [​](https://www.anthropic.com/engineering/​) Create skills
 
 Create `SKILL.md` files in `.claude/skills/` to give Claude domain knowledge and reusable workflows.
 
-[Skills](/docs/en/skills) extend Claude’s knowledge with information specific to your project, team, or domain. Claude applies them automatically when relevant, or you can invoke them directly with `/skill-name`.
+[Skills](https://www.anthropic.com/engineering/Skills) extend Claude’s knowledge with information specific to your project, team, or domain. Claude applies them automatically when relevant, or you can invoke them directly with `/skill-name`.
 Create a skill by adding a directory with a `SKILL.md` to `.claude/skills/`:
 
 .claude/skills/api-conventions/SKILL.md
@@ -270,11 +270,11 @@ Analyze and fix the GitHub issue: $ARGUMENTS.
 
 Run `/fix-issue 1234` to invoke it. Use `disable-model-invocation: true` for workflows with side effects that you want to trigger manually.
 
-### [​](#create-custom-subagents) Create custom subagents
+### [​](https://www.anthropic.com/engineering/​) Create custom subagents
 
 Define specialized assistants in `.claude/agents/` that Claude can delegate to for isolated tasks.
 
-[Subagents](/docs/en/sub-agents) run in their own context with their own set of allowed tools. They’re useful for tasks that read many files or need specialized focus without cluttering your main conversation.
+[Subagents](https://www.anthropic.com/engineering/Subagents) run in their own context with their own set of allowed tools. They’re useful for tasks that read many files or need specialized focus without cluttering your main conversation.
 
 .claude/agents/security-reviewer.md
 
@@ -296,20 +296,20 @@ Provide specific line references and suggested fixes.
 
 Tell Claude to use subagents explicitly: *“Use a subagent to review this code for security issues.”*
 
-### [​](#install-plugins) Install plugins
+### [​](https://www.anthropic.com/engineering/​) Install plugins
 
 Run `/plugin` to browse the marketplace. Plugins add skills, tools, and integrations without configuration.
 
-[Plugins](/docs/en/plugins) bundle skills, hooks, subagents, and MCP servers into a single installable unit from the community and Anthropic. If you work with a typed language, install a [code intelligence plugin](/docs/en/discover-plugins#code-intelligence) to give Claude precise symbol navigation and automatic error detection after edits.
-For guidance on choosing between skills, subagents, hooks, and MCP, see [Extend Claude Code](/docs/en/features-overview#match-features-to-your-goal).
+[Plugins](https://www.anthropic.com/engineering/Plugins) bundle skills, hooks, subagents, and MCP servers into a single installable unit from the community and Anthropic. If you work with a typed language, install a [code intelligence plugin](https://www.anthropic.com/engineering/code intelligence plugin) to give Claude precise symbol navigation and automatic error detection after edits.
+For guidance on choosing between skills, subagents, hooks, and MCP, see [Extend Claude Code](https://www.anthropic.com/engineering/Extend Claude Code).
 
 ---
 
-## [​](#communicate-effectively) Communicate effectively
+## [​](https://www.anthropic.com/engineering/​) Communicate effectively
 
 The way you communicate with Claude Code significantly impacts the quality of results.
 
-### [​](#ask-codebase-questions) Ask codebase questions
+### [​](https://www.anthropic.com/engineering/​) Ask codebase questions
 
 Ask Claude questions you’d ask a senior engineer.
 
@@ -323,7 +323,7 @@ When onboarding to a new codebase, use Claude Code for learning and exploration.
 
 Using Claude Code this way is an effective onboarding workflow, improving ramp-up time and reducing load on other engineers. No special prompting required: ask questions directly.
 
-### [​](#let-claude-interview-you) Let Claude interview you
+### [​](https://www.anthropic.com/engineering/​) Let Claude interview you
 
 For larger features, have Claude interview you first. Start with a minimal prompt and ask Claude to interview you using the `AskUserQuestion` tool.
 
@@ -341,11 +341,11 @@ Once the spec is complete, start a fresh session to execute it. The new session 
 
 ---
 
-## [​](#manage-your-session) Manage your session
+## [​](https://www.anthropic.com/engineering/​) Manage your session
 
 Conversations are persistent and reversible. Use this to your advantage!
 
-### [​](#course-correct-early-and-often) Course-correct early and often
+### [​](https://www.anthropic.com/engineering/​) Course-correct early and often
 
 Correct Claude as soon as you notice it going off track.
 
@@ -358,7 +358,7 @@ The best results come from tight feedback loops. Though Claude occasionally solv
 
 If you’ve corrected Claude more than twice on the same issue in one session, the context is cluttered with failed approaches. Run `/clear` and start fresh with a more specific prompt that incorporates what you learned. A clean session with a better prompt almost always outperforms a long session with accumulated corrections.
 
-### [​](#manage-context-aggressively) Manage context aggressively
+### [​](https://www.anthropic.com/engineering/​) Manage context aggressively
 
 Run `/clear` between unrelated tasks to reset context.
 
@@ -370,9 +370,9 @@ During long sessions, Claude’s context window can fill with irrelevant convers
 - For more control, run `/compact <instructions>`, like `/compact Focus on the API changes`
 - To compact only part of the conversation, use `Esc + Esc` or `/rewind`, select a message checkpoint, and choose **Summarize from here**. This condenses messages from that point forward while keeping earlier context intact.
 - Customize compaction behavior in CLAUDE.md with instructions like `"When compacting, always preserve the full list of modified files and any test commands"` to ensure critical context survives summarization
-- For quick questions that don’t need to stay in context, use [`/btw`](/docs/en/interactive-mode#side-questions-with-%2Fbtw). The answer appears in a dismissible overlay and never enters conversation history, so you can check a detail without growing context.
+- For quick questions that don’t need to stay in context, use [`/btw`](https://www.anthropic.com/engineering/`/btw`). The answer appears in a dismissible overlay and never enters conversation history, so you can check a detail without growing context.
 
-### [​](#use-subagents-for-investigation) Use subagents for investigation
+### [​](https://www.anthropic.com/engineering/​) Use subagents for investigation
 
 Delegate research with `"use subagents to investigate X"`. They explore in a separate context, keeping your main conversation clean for implementation.
 
@@ -390,33 +390,33 @@ You can also use subagents for verification after Claude implements something:
 use a subagent to review this code for edge cases
 ```
 
-### [​](#rewind-with-checkpoints) Rewind with checkpoints
+### [​](https://www.anthropic.com/engineering/​) Rewind with checkpoints
 
 Every action Claude makes creates a checkpoint. You can restore conversation, code, or both to any previous checkpoint.
 
-Claude automatically checkpoints before changes. Double-tap `Escape` or run `/rewind` to open the rewind menu. You can restore conversation only, restore code only, restore both, or summarize from a selected message. See [Checkpointing](/docs/en/checkpointing) for details.
+Claude automatically checkpoints before changes. Double-tap `Escape` or run `/rewind` to open the rewind menu. You can restore conversation only, restore code only, restore both, or summarize from a selected message. See [Checkpointing](https://www.anthropic.com/engineering/Checkpointing) for details.
 Instead of carefully planning every move, you can tell Claude to try something risky. If it doesn’t work, rewind and try a different approach. Checkpoints persist across sessions, so you can close your terminal and still rewind later.
 
 Checkpoints only track changes made *by Claude*, not external processes. This isn’t a replacement for git.
 
-### [​](#resume-conversations) Resume conversations
+### [​](https://www.anthropic.com/engineering/​) Resume conversations
 
 Name sessions with `/rename` and treat them like branches: each workstream gets its own persistent context.
 
-Claude Code saves conversations locally, so when a task spans multiple sittings you don’t have to re-explain the context. Run `claude --continue` to pick up the most recent session, or `claude --resume` to choose from a list. Give sessions descriptive names like `oauth-migration` so you can find them later. See [Manage sessions](/docs/en/sessions) for the full set of resume, branch, and naming controls.
+Claude Code saves conversations locally, so when a task spans multiple sittings you don’t have to re-explain the context. Run `claude --continue` to pick up the most recent session, or `claude --resume` to choose from a list. Give sessions descriptive names like `oauth-migration` so you can find them later. See [Manage sessions](https://www.anthropic.com/engineering/Manage sessions) for the full set of resume, branch, and naming controls.
 
 ---
 
-## [​](#automate-and-scale) Automate and scale
+## [​](https://www.anthropic.com/engineering/​) Automate and scale
 
 Once you’re effective with one Claude, multiply your output with parallel sessions, non-interactive mode, and fan-out patterns.
 Everything so far assumes one human, one Claude, and one conversation. But Claude Code scales horizontally. The techniques in this section show how you can get more done.
 
-### [​](#run-non-interactive-mode) Run non-interactive mode
+### [​](https://www.anthropic.com/engineering/​) Run non-interactive mode
 
 Use `claude -p "prompt"` in CI, pre-commit hooks, or scripts. Add `--output-format stream-json` for streaming JSON output.
 
-With `claude -p "your prompt"`, you can run Claude non-interactively, without a session. [Non-interactive mode](/docs/en/headless) is how you integrate Claude into CI pipelines, pre-commit hooks, or any automated workflow. The output formats let you parse results programmatically: plain text, JSON, or streaming JSON.
+With `claude -p "your prompt"`, you can run Claude non-interactively, without a session. [Non-interactive mode](https://www.anthropic.com/engineering/Non-interactive mode) is how you integrate Claude into CI pipelines, pre-commit hooks, or any automated workflow. The output formats let you parse results programmatically: plain text, JSON, or streaming JSON.
 
 ```
 # One-off queries
@@ -429,16 +429,16 @@ claude -p "List all API endpoints" --output-format json
 claude -p "Analyze this log file" --output-format stream-json
 ```
 
-### [​](#run-multiple-claude-sessions) Run multiple Claude sessions
+### [​](https://www.anthropic.com/engineering/​) Run multiple Claude sessions
 
 Run multiple Claude sessions in parallel to speed up development, run isolated experiments, or start complex workflows.
 
 Pick the parallel approach that fits how much coordination you want to do yourself:
 
-- [Worktrees](/docs/en/worktrees): run separate CLI sessions in isolated git checkouts so edits don’t collide
-- [Desktop app](/docs/en/desktop#work-in-parallel-with-sessions): manage multiple local sessions visually, each in its own worktree
-- [Claude Code on the web](/docs/en/claude-code-on-the-web): run sessions on Anthropic-managed cloud infrastructure in isolated VMs
-- [Agent teams](/docs/en/agent-teams): automated coordination of multiple sessions with shared tasks, messaging, and a team lead
+- [Worktrees](https://www.anthropic.com/engineering/Worktrees): run separate CLI sessions in isolated git checkouts so edits don’t collide
+- [Desktop app](https://www.anthropic.com/engineering/Desktop app): manage multiple local sessions visually, each in its own worktree
+- [Claude Code on the web](https://www.anthropic.com/engineering/Claude Code on the web): run sessions on Anthropic-managed cloud infrastructure in isolated VMs
+- [Agent teams](https://www.anthropic.com/engineering/Agent teams): automated coordination of multiple sessions with shared tasks, messaging, and a team lead
 
 Beyond parallelizing work, multiple sessions enable quality-focused workflows. A fresh context improves code review since Claude won’t be biased toward code it just wrote.
 For example, use a Writer/Reviewer pattern:
@@ -451,7 +451,7 @@ For example, use a Writer/Reviewer pattern:
 
 You can do something similar with tests: have one Claude write tests, then another write code to pass them.
 
-### [​](#fan-out-across-files) Fan out across files
+### [​](https://www.anthropic.com/engineering/​) Fan out across files
 
 Loop through tasks calling `claude -p` for each. Use `--allowedTools` to scope permissions for batch operations.
 
@@ -488,19 +488,19 @@ claude -p "<your prompt>" --output-format json | your_command
 
 Use `--verbose` for debugging during development, and turn it off in production.
 
-### [​](#run-autonomously-with-auto-mode) Run autonomously with auto mode
+### [​](https://www.anthropic.com/engineering/​) Run autonomously with auto mode
 
-For uninterrupted execution with background safety checks, use [auto mode](/docs/en/permission-modes#eliminate-prompts-with-auto-mode). A classifier model reviews commands before they run, blocking scope escalation, unknown infrastructure, and hostile-content-driven actions while letting routine work proceed without prompts.
+For uninterrupted execution with background safety checks, use [auto mode](https://www.anthropic.com/engineering/auto mode). A classifier model reviews commands before they run, blocking scope escalation, unknown infrastructure, and hostile-content-driven actions while letting routine work proceed without prompts.
 
 ```
 claude --permission-mode auto -p "fix all lint errors"
 ```
 
-For non-interactive runs with the `-p` flag, auto mode aborts if the classifier repeatedly blocks actions, since there is no user to fall back to. See [when auto mode falls back](/docs/en/permission-modes#when-auto-mode-falls-back) for thresholds.
+For non-interactive runs with the `-p` flag, auto mode aborts if the classifier repeatedly blocks actions, since there is no user to fall back to. See [when auto mode falls back](https://www.anthropic.com/engineering/when auto mode falls back) for thresholds.
 
 ---
 
-## [​](#avoid-common-failure-patterns) Avoid common failure patterns
+## [​](https://www.anthropic.com/engineering/​) Avoid common failure patterns
 
 These are common mistakes. Recognizing them early saves time:
 
@@ -517,16 +517,16 @@ These are common mistakes. Recognizing them early saves time:
 
 ---
 
-## [​](#develop-your-intuition) Develop your intuition
+## [​](https://www.anthropic.com/engineering/​) Develop your intuition
 
 The patterns in this guide aren’t set in stone. They’re starting points that work well in general, but might not be optimal for every situation.
 Sometimes you *should* let context accumulate because you’re deep in one complex problem and the history is valuable. Sometimes you should skip planning and let Claude figure it out because the task is exploratory. Sometimes a vague prompt is exactly right because you want to see how Claude interprets the problem before constraining it.
 Pay attention to what works. When Claude produces great output, notice what you did: the prompt structure, the context you provided, the mode you were in. When Claude struggles, ask why. Was the context too noisy? The prompt too vague? The task too big for one pass?
 Over time, you’ll develop intuition that no guide can capture. You’ll know when to be specific and when to be open-ended, when to plan and when to explore, when to clear context and when to let it accumulate.
 
-## [​](#related-resources) Related resources
+## [​](https://www.anthropic.com/engineering/​) Related resources
 
-- [How Claude Code works](/docs/en/how-claude-code-works): the agentic loop, tools, and context management
-- [Extend Claude Code](/docs/en/features-overview): skills, hooks, MCP, subagents, and plugins
-- [Common workflows](/docs/en/common-workflows): step-by-step recipes for debugging, testing, PRs, and more
-- [CLAUDE.md](/docs/en/memory): store project conventions and persistent context
+- [How Claude Code works](https://www.anthropic.com/engineering/How Claude Code works): the agentic loop, tools, and context management
+- [Extend Claude Code](https://www.anthropic.com/engineering/Extend Claude Code): skills, hooks, MCP, subagents, and plugins
+- [Common workflows](https://www.anthropic.com/engineering/Common workflows): step-by-step recipes for debugging, testing, PRs, and more
+- [CLAUDE.md](https://www.anthropic.com/engineering/CLAUDE.md): store project conventions and persistent context

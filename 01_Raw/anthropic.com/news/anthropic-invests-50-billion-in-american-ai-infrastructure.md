@@ -12,9 +12,9 @@ Nov 12, 2025
 
 ![Anthropic invests $50 billion in American AI infrastructure](https://www-cdn.anthropic.com/images/4zrzovbb/website/c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Today, we are announcing a $50 billion investment in American computing infrastructure, building data centers with [Fluidstack](https://www.fluidstack.io/) in Texas and New York, with more sites to come. These facilities are custom built for Anthropic with a focus on maximizing efficiency for our workloads, enabling continued research and development at the frontier.
+Today, we are announcing a $50 billion investment in American computing infrastructure, building data centers with [Fluidstack](https://www.anthropic.com/news/Fluidstack) in Texas and New York, with more sites to come. These facilities are custom built for Anthropic with a focus on maximizing efficiency for our workloads, enabling continued research and development at the frontier.
 
-The project will create approximately 800 permanent jobs and 2,400 construction jobs, with sites coming online throughout 2026. It will help advance the goals in the Trump administration’s [AI Action Plan](https://www.ai.gov/action-plan) to maintain American AI leadership and strengthen domestic technology infrastructure. We are proud to create good American jobs and bolster American competitiveness.
+The project will create approximately 800 permanent jobs and 2,400 construction jobs, with sites coming online throughout 2026. It will help advance the goals in the Trump administration’s [AI Action Plan](https://www.anthropic.com/news/AI Action Plan) to maintain American AI leadership and strengthen domestic technology infrastructure. We are proud to create good American jobs and bolster American competitiveness.
 
 “We’re getting closer to AI that can accelerate scientific discovery and help solve complex problems in ways that weren’t possible before. Realizing that potential requires infrastructure that can support continued development at the frontier,” said Dario Amodei, CEO and co-founder of Anthropic. “These sites will help us build more capable AI systems that can drive those breakthroughs, while creating American jobs."
 
@@ -28,12 +28,12 @@ The scale of this investment is necessary to meet the growing demand for Claude 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

@@ -4,29 +4,29 @@ fetched_at: 2026-05-05T13:09:30.890019+00:00
 title: "Lyria RealTime\uc744 \uc0ac\uc6a9\ud55c \uc2e4\uc2dc\uac04 \uc74c\uc545 \uc0dd\uc131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [홈](https://ai.google.dev/gemini-api/docs/홈)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [문서](https://ai.google.dev/gemini-api/docs/문서)
 
 의견 보내기
 
 # Lyria RealTime을 사용한 실시간 음악 생성
 
-[Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=ko)을 사용하는 Gemini API는 최첨단의 실시간 스트리밍 음악
+[Lyria RealTime](https://ai.google.dev/gemini-api/docs/Lyria RealTime)을 사용하는 Gemini API는 최첨단의 실시간 스트리밍 음악
 생성 모델에 대한 액세스를 제공합니다. 이를 통해 개발자는 사용자가 악기 음악을 대화형으로 만들고, 지속적으로 조작하고, 연주할 수 있는 애플리케이션을 빌드할 수 있습니다.
 
 Lyria RealTime 음악 생성은 WebSocket을 사용하여 지속적인 양방향,
 저지연 스트리밍 연결을 사용합니다.
-[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+[WebSocket](https://ai.google.dev/gemini-api/docs/WebSocket).
 
 [[Lyria RealTime을 사용하여 빌드할 수 있는 기능을 경험하려면 프롬프트 DJ 또는 MIDI DJ 앱을 사용하여 AI Studio
-에서 사용해 보세요.](https://aistudio.google.com/apps/bundled/promptdj?hl=ko)](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=ko)
+에서 사용해 보세요.](https://ai.google.dev/gemini-api/docs/[Lyria RealTime을 사용하여 빌드할 수 있는 기능을 경험하려면 프롬프트 DJ 또는 MIDI DJ 앱을 사용하여 AI Studio에서 사용해 보세요.)](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=ko)
 
 ## 음악 생성 및 제어
 
-Lyria RealTime은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)
+Lyria RealTime은 [Live API](https://ai.google.dev/gemini-api/docs/Live API)
 와 유사하게 작동하며, WebSocket을 사용하여 모델과의 실시간 통신을 유지합니다.
 
 다음 코드는 음악을 생성하는 방법을 보여줍니다.
@@ -263,7 +263,7 @@ bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 
 
 음악 생성은 다음을 포함하는 메시지를 전송하여 실시간으로 영향을 받을 수 있습니다.
 
-- `WeightedPrompt`: 음악적 아이디어, 장르, 악기, 분위기 또는 특징을 설명하는 텍스트 문자열입니다. 영향을 혼합하기 위해 여러 프롬프트가 제공될 수 있습니다. Lyria RealTime에 프롬프트를 작성하는 가장 좋은 방법에 관한 자세한 내용은 [위](https://ai.google.dev/gemini-api/docs/:?hl=ko#steer-music)를 참고하세요.
+- `WeightedPrompt`: 음악적 아이디어, 장르, 악기, 분위기 또는 특징을 설명하는 텍스트 문자열입니다. 영향을 혼합하기 위해 여러 프롬프트가 제공될 수 있습니다. Lyria RealTime에 프롬프트를 작성하는 가장 좋은 방법에 관한 자세한 내용은 [위](https://ai.google.dev/gemini-api/docs/위)를 참고하세요.
 - `MusicGenerationConfig`: 음악 생성 프로세스의 구성으로, 출력 오디오의 특징에 영향을 미칩니다. 매개변수는 다음과 같습니다.
   - `guidance`: (float) 범위: `[0.0, 6.0]`. 기본값: `4.0`.
     모델이 프롬프트를 얼마나 엄격하게 따르는지 제어합니다. 안내 값이 높을수록 프롬프트 준수가 개선되지만 전환이 더 갑작스러워집니다.
@@ -274,7 +274,7 @@ bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 
   - `brightness`: (float) 범위: `[0.0, 1.0]`.
     음색 품질을 조정합니다. 값이 높을수록 '더 밝은' 사운드 오디오가 생성되며 일반적으로 높은 주파수를 강조합니다.
   - `scale`: (Enum) 생성을 위한 음악적 스케일 (키 및 모드)을 설정합니다. SDK에서 제공하는
-    [`Scale` enum 값을](#scale-enum) 사용합니다. 모델이 새 스케일을 고려하도록 컨텍스트를 중지/재생하거나 재설정해야 합니다.
+    [`Scale` enum 값을](https://ai.google.dev/gemini-api/docs/`Scale` enum 값을) 사용합니다. 모델이 새 스케일을 고려하도록 컨텍스트를 중지/재생하거나 재설정해야 합니다.
   - `mute_bass`: (bool) 기본값: `False`.
     모델이 출력의 베이스를 줄이는지 여부를 제어합니다.
   - `mute_drums`: (bool) 기본값: `False`.
@@ -314,26 +314,24 @@ bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 
 
 - 연주곡만: 모델은 연주곡만 생성합니다.
 - 안전: 프롬프트는 안전 필터로 확인됩니다. 필터를 트리거하는 프롬프트는 무시되며, 이 경우 출력의 `filtered_prompt` 필드에 설명이 작성됩니다.
-- [워터마크: 출력 오디오는 항상 책임감 있는 AI](https://ai.google/responsibility/principles/?hl=ko) 원칙에 따라 식별을 위해 워터마크 처리됩니다.
+- [워터마크: 출력 오디오는 항상 책임감 있는 AI](https://ai.google.dev/gemini-api/docs/워터마크: 출력 오디오는 항상 책임감 있는 AI) 원칙에 따라 식별을 위해 워터마크 처리됩니다.
 
 ## 다음 단계
 
-- [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=ko)로 전체 노래와 보컬 트랙을 생성합니다.
+- [Lyria 3](https://ai.google.dev/gemini-api/docs/Lyria 3)로 전체 노래와 보컬 트랙을 생성합니다.
 - 음악 대신
-  [TTS 모델](https://ai.google.dev/gemini-api/docs/audio-generation?hl=ko)을 사용하여 다중 화자 대화를 생성하는 방법을 알아봅니다.
-- [이미지](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko) 또는 [동영상](https://ai.google.dev/gemini-api/docs/video?hl=ko)을 생성하는 방법을 알아봅니다.
+  [TTS 모델](https://ai.google.dev/gemini-api/docs/TTS 모델)을 사용하여 다중 화자 대화를 생성하는 방법을 알아봅니다.
+- [이미지](https://ai.google.dev/gemini-api/docs/이미지) 또는 [동영상](https://ai.google.dev/gemini-api/docs/동영상)을 생성하는 방법을 알아봅니다.
 - 음악 또는 오디오를 생성하는 대신 Gemini가 오디오 파일을 이해하는 방법을 알아봅니다.
-- [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 사용하여 Gemini와 실시간으로 대화합니다.
+- [Live API](https://ai.google.dev/gemini-api/docs/Live API)를 사용하여 Gemini와 실시간으로 대화합니다.
 
-[Cookbook](https://github.com/google-gemini/cookbook)에서 더 많은
+[Cookbook](https://ai.google.dev/gemini-api/docs/Cookbook)에서 더 많은
 코드 예와 가이드를 살펴보세요.
 
 의견 보내기
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 라이선스)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://ai.google.dev/gemini-api/docs/Apache 2.0 라이선스)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://ai.google.dev/gemini-api/docs/Google Developers 사이트 정책)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
 최종 업데이트: 2026-04-29(UTC)
 
 의견을 전달하고 싶나요?
-
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

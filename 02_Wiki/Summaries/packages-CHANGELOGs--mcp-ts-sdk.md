@@ -1,6 +1,6 @@
 ---
 type: summary
-source: 01_Raw/github/modelcontextprotocol/typescript-sdk/packages/{client,core,server,middleware/{express,fastify,hono,node}}/CHANGELOG.md and test/integration/CHANGELOG.md
+source: 01_Raw/github/modelcontextprotocol/typescript-sdk/packages/client/CHANGELOG.md
 source_url: https://github.com/modelcontextprotocol/typescript-sdk/tree/main/packages
 title: "TS SDK package CHANGELOGs (consolidated)"
 summarized_at: 2026-05-05

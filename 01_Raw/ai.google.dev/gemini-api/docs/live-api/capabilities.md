@@ -4,46 +4,46 @@ fetched_at: 2026-05-05T13:15:36.095399+00:00
 title: "Live API capabilities guide \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/live-api/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Beranda](https://ai.google.dev/gemini-api/docs/live-api/Beranda)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/live-api/Gemini API)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/live-api/Dokumen)
 
 Kirim masukan
 
 # Live API capabilities guide
 
 Ini adalah panduan komprehensif yang mencakup kemampuan dan konfigurasi yang tersedia dengan Live API.
-Lihat halaman [Mulai menggunakan Live API](https://ai.google.dev/gemini-api/docs/live?hl=id) untuk mengetahui ringkasan dan contoh kode untuk kasus penggunaan umum.
+Lihat halaman [Mulai menggunakan Live API](https://ai.google.dev/gemini-api/docs/live-api/Mulai menggunakan Live API) untuk mengetahui ringkasan dan contoh kode untuk kasus penggunaan umum.
 
 ## Sebelum memulai
 
 - **Pahami konsep inti:** Jika belum melakukannya,
-  baca halaman [Mulai menggunakan Live API](https://ai.google.dev/gemini-api/docs/live?hl=id)  terlebih dahulu.
-  Bagian ini akan memperkenalkan Anda pada prinsip-prinsip dasar Live API, cara kerjanya, dan berbagai [pendekatan penerapan](https://ai.google.dev/gemini-api/docs/live?hl=id#implementation-approach).
+  baca halaman [Mulai menggunakan Live API](https://ai.google.dev/gemini-api/docs/live-api/Mulai menggunakan Live API)  terlebih dahulu.
+  Bagian ini akan memperkenalkan Anda pada prinsip-prinsip dasar Live API, cara kerjanya, dan berbagai [pendekatan penerapan](https://ai.google.dev/gemini-api/docs/live-api/pendekatan penerapan).
 - **Coba Live API di AI Studio:** Anda mungkin merasa berguna untuk mencoba
-  Live API di [Google AI Studio](https://aistudio.google.com/app/live?hl=id) sebelum mulai membangun. Untuk menggunakan
+  Live API di [Google AI Studio](https://ai.google.dev/gemini-api/docs/live-api/Google AI Studio) sebelum mulai membangun. Untuk menggunakan
   Live API di Google AI Studio, pilih **Stream**.
 
 ## Perbandingan model
 
 Tabel berikut merangkum perbedaan utama antara model
-[Pratinjau Langsung Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=id) dan [Pratinjau Langsung Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=id):
+[Pratinjau Langsung Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/live-api/Pratinjau Langsung Gemini 3.1 Flash) dan [Pratinjau Langsung Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/live-api/Pratinjau Langsung Gemini 2.5 Flash):
 
 | Fitur | Pratinjau Langsung Gemini 3.1 Flash | Pratinjau Langsung Gemini 2.5 Flash |
 | --- | --- | --- |
-| **[Berpikir](#native-audio-output-thinking)** | Menggunakan `thinkingLevel` untuk mengontrol kedalaman penalaran dengan setelan seperti `minimal`, `low`, `medium`, dan `high`. Defaultnya adalah `minimal` untuk mengoptimalkan latensi terendah. Lihat [Tingkat dan anggaran yang perlu dipertimbangkan](https://ai.google.dev/gemini-api/docs/thinking?hl=id#levels-budgets). | Menggunakan `thinkingBudget` untuk menetapkan jumlah token penalaran. Pemikiran dinamis diaktifkan secara default. Tetapkan `thinkingBudget` ke `0` untuk menonaktifkan. Lihat [Tingkat dan anggaran yang perlu dipertimbangkan](https://ai.google.dev/gemini-api/docs/thinking?hl=id#levels-budgets). |
-| **[Menerima respons](https://ai.google.dev/api/live?hl=id#bidigeneratecontentservercontent)** | Satu peristiwa server dapat berisi beberapa bagian konten secara bersamaan (misalnya, `inlineData` dan transkrip). Pastikan kode Anda memproses semua bagian dalam setiap peristiwa untuk menghindari hilangnya konten. | Setiap peristiwa server hanya berisi satu bagian konten. Bagian dikirim dalam acara terpisah. |
-| **[Konten klien](#incremental-updates)** | `send_client_content` hanya didukung untuk mengisi histori konteks awal (memerlukan setelan `initial_history_in_client_content` dalam konfigurasi sesi). Untuk mengirim pembaruan teks selama percakapan, gunakan `send_realtime_input`. | `send_client_content` didukung di seluruh percakapan untuk mengirim update konten inkremental dan menetapkan konteks. |
-| **[Cakupan belokan](https://ai.google.dev/api/live?hl=id#turncoverage)** | Default-nya adalah `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Giliran model mencakup aktivitas audio yang terdeteksi dan semua frame video. | Default-nya adalah `TURN_INCLUDES_ONLY_ACTIVITY`. Giliran model hanya mencakup aktivitas yang terdeteksi. |
-| **[VAD Kustom](#disable-automatic-vad)** (`activity_start`/`activity_end`) | Didukung. Nonaktifkan VAD otomatis dan kirim pesan `activityStart` dan `activityEnd` secara manual untuk mengontrol batas giliran. | Didukung. Nonaktifkan VAD otomatis dan kirim pesan `activityStart` dan `activityEnd` secara manual untuk mengontrol batas giliran. |
-| **[Konfigurasi VAD otomatis](#configure-automatic-vad)** | Didukung. Konfigurasi parameter seperti `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms`, dan `silence_duration_ms`. | Didukung. Konfigurasi parameter seperti `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms`, dan `silence_duration_ms`. |
-| **[Panggilan fungsi asinkron](https://ai.google.dev/gemini-api/docs/live-tools?hl=id#async-function-calling)** (`behavior: NON_BLOCKING`) | Tidak didukung. Panggilan fungsi hanya berurutan. Model tidak akan mulai merespons hingga Anda mengirimkan respons alat. | Didukung. Tetapkan `behavior` ke `NON_BLOCKING` pada deklarasi fungsi agar model dapat terus berinteraksi saat fungsi berjalan. Kontrol cara model menangani respons dengan parameter `scheduling` (`INTERRUPT`, `WHEN_IDLE`, atau `SILENT`). |
-| **[Audio proaktif](#proactive-audio)** | Tidak didukung | Didukung. Jika diaktifkan, model dapat secara proaktif memutuskan untuk tidak merespons jika konten input tidak relevan. Tetapkan `proactive_audio` ke `true` dalam konfigurasi `proactivity` (memerlukan `v1alpha`). |
-| **[Dialog afektif](#affective-dialog)** | Tidak didukung | Didukung. Model menyesuaikan gaya responsnya agar sesuai dengan ekspresi dan nada bahasa input. Tetapkan `enable_affective_dialog` ke `true` dalam konfigurasi sesi (memerlukan `v1alpha`). |
+| **[Berpikir](https://ai.google.dev/gemini-api/docs/live-api/Berpikir)** | Menggunakan `thinkingLevel` untuk mengontrol kedalaman penalaran dengan setelan seperti `minimal`, `low`, `medium`, dan `high`. Defaultnya adalah `minimal` untuk mengoptimalkan latensi terendah. Lihat [Tingkat dan anggaran yang perlu dipertimbangkan](https://ai.google.dev/gemini-api/docs/live-api/Tingkat dan anggaran yang perlu dipertimbangkan). | Menggunakan `thinkingBudget` untuk menetapkan jumlah token penalaran. Pemikiran dinamis diaktifkan secara default. Tetapkan `thinkingBudget` ke `0` untuk menonaktifkan. Lihat [Tingkat dan anggaran yang perlu dipertimbangkan](https://ai.google.dev/gemini-api/docs/live-api/Tingkat dan anggaran yang perlu dipertimbangkan). |
+| **[Menerima respons](https://ai.google.dev/gemini-api/docs/live-api/Menerima respons)** | Satu peristiwa server dapat berisi beberapa bagian konten secara bersamaan (misalnya, `inlineData` dan transkrip). Pastikan kode Anda memproses semua bagian dalam setiap peristiwa untuk menghindari hilangnya konten. | Setiap peristiwa server hanya berisi satu bagian konten. Bagian dikirim dalam acara terpisah. |
+| **[Konten klien](https://ai.google.dev/gemini-api/docs/live-api/Konten klien)** | `send_client_content` hanya didukung untuk mengisi histori konteks awal (memerlukan setelan `initial_history_in_client_content` dalam konfigurasi sesi). Untuk mengirim pembaruan teks selama percakapan, gunakan `send_realtime_input`. | `send_client_content` didukung di seluruh percakapan untuk mengirim update konten inkremental dan menetapkan konteks. |
+| **[Cakupan belokan](https://ai.google.dev/gemini-api/docs/live-api/Cakupan belokan)** | Default-nya adalah `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Giliran model mencakup aktivitas audio yang terdeteksi dan semua frame video. | Default-nya adalah `TURN_INCLUDES_ONLY_ACTIVITY`. Giliran model hanya mencakup aktivitas yang terdeteksi. |
+| **[VAD Kustom](https://ai.google.dev/gemini-api/docs/live-api/VAD Kustom)** (`activity_start`/`activity_end`) | Didukung. Nonaktifkan VAD otomatis dan kirim pesan `activityStart` dan `activityEnd` secara manual untuk mengontrol batas giliran. | Didukung. Nonaktifkan VAD otomatis dan kirim pesan `activityStart` dan `activityEnd` secara manual untuk mengontrol batas giliran. |
+| **[Konfigurasi VAD otomatis](https://ai.google.dev/gemini-api/docs/live-api/Konfigurasi VAD otomatis)** | Didukung. Konfigurasi parameter seperti `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms`, dan `silence_duration_ms`. | Didukung. Konfigurasi parameter seperti `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms`, dan `silence_duration_ms`. |
+| **[Panggilan fungsi asinkron](https://ai.google.dev/gemini-api/docs/live-api/Panggilan fungsi asinkron)** (`behavior: NON_BLOCKING`) | Tidak didukung. Panggilan fungsi hanya berurutan. Model tidak akan mulai merespons hingga Anda mengirimkan respons alat. | Didukung. Tetapkan `behavior` ke `NON_BLOCKING` pada deklarasi fungsi agar model dapat terus berinteraksi saat fungsi berjalan. Kontrol cara model menangani respons dengan parameter `scheduling` (`INTERRUPT`, `WHEN_IDLE`, atau `SILENT`). |
+| **[Audio proaktif](https://ai.google.dev/gemini-api/docs/live-api/Audio proaktif)** | Tidak didukung | Didukung. Jika diaktifkan, model dapat secara proaktif memutuskan untuk tidak merespons jika konten input tidak relevan. Tetapkan `proactive_audio` ke `true` dalam konfigurasi `proactivity` (memerlukan `v1alpha`). |
+| **[Dialog afektif](https://ai.google.dev/gemini-api/docs/live-api/Dialog afektif)** | Tidak didukung | Didukung. Model menyesuaikan gaya responsnya agar sesuai dengan ekspresi dan nada bahasa input. Tetapkan `enable_affective_dialog` ke `true` dalam konfigurasi sesi (memerlukan `v1alpha`). |
 
-Untuk bermigrasi dari Gemini 2.5 Flash Live ke Gemini 3.1 Flash Live, lihat [panduan migrasi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=id#migrating).
+Untuk bermigrasi dari Gemini 2.5 Flash Live ke Gemini 3.1 Flash Live, lihat [panduan migrasi](https://ai.google.dev/gemini-api/docs/live-api/panduan migrasi).
 
 ## Membuat koneksi
 
@@ -145,7 +145,7 @@ session.sendRealtimeInput({
 Data audio di Live API selalu berupa PCM 16-bit mentah, little-endian. Output audio selalu menggunakan frekuensi sampling 24 kHz. Audio input
 secara native adalah 16 kHz, tetapi Live API akan melakukan pengambilan sampel ulang jika diperlukan
 sehingga frekuensi sampel apa pun dapat dikirim. Untuk menyampaikan sample rate audio input, tetapkan
-jenis MIME setiap [Blob](https://ai.google.dev/api/caching?hl=id#Blob) yang berisi audio ke nilai
+jenis MIME setiap [Blob](https://ai.google.dev/gemini-api/docs/live-api/Blob) yang berisi audio ke nilai
 seperti `audio/pcm;rate=16000`.
 
 ### Menerima audio
@@ -259,7 +259,7 @@ inputTurns = [{ "role": "user", "parts": [{ "text": "What is the capital of Germ
 session.sendClientContent({ turns: inputTurns, turnComplete: true })
 ```
 
-Untuk konteks yang lebih panjang, sebaiknya berikan ringkasan pesan tunggal untuk mengosongkan jendela konteks untuk interaksi berikutnya. Lihat [Melanjutkan Sesi](https://ai.google.dev/gemini-api/docs/live-session?hl=id#session-resumption) untuk metode lain dalam memuat konteks sesi.
+Untuk konteks yang lebih panjang, sebaiknya berikan ringkasan pesan tunggal untuk mengosongkan jendela konteks untuk interaksi berikutnya. Lihat [Melanjutkan Sesi](https://ai.google.dev/gemini-api/docs/live-api/Melanjutkan Sesi) untuk metode lain dalam memuat konteks sesi.
 
 ### Transkripsi audio
 
@@ -533,7 +533,7 @@ main();
 
 ### Mengubah suara dan bahasa
 
-Model [output audio bawaan](#native-audio-output) mendukung suara apa pun yang tersedia untuk model [Text-to-Speech (TTS)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id#voices) kami. Anda dapat mendengarkan semua suara di [AI Studio](https://aistudio.google.com/app/live?hl=id).
+Model [output audio bawaan](https://ai.google.dev/gemini-api/docs/live-api/output audio bawaan) mendukung suara apa pun yang tersedia untuk model [Text-to-Speech (TTS)](https://ai.google.dev/gemini-api/docs/live-api/Text-to-Speech (TTS)) kami. Anda dapat mendengarkan semua suara di [AI Studio](https://ai.google.dev/gemini-api/docs/live-api/AI Studio).
 
 Untuk menentukan suara, tetapkan nama suara dalam objek `speechConfig` sebagai bagian
 dari konfigurasi sesi:
@@ -558,21 +558,21 @@ const config = {
 };
 ```
 
-Live API mendukung [beberapa bahasa](#supported-languages).
-Model [output audio native](#native-audio-output) secara otomatis memilih
+Live API mendukung [beberapa bahasa](https://ai.google.dev/gemini-api/docs/live-api/beberapa bahasa).
+Model [output audio native](https://ai.google.dev/gemini-api/docs/live-api/output audio native) secara otomatis memilih
 bahasa yang sesuai dan tidak mendukung penetapan kode
 bahasa secara eksplisit.
 
 ## Kemampuan audio native
 
-Model terbaru kami memiliki [output audio bawaan](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=id), yang memberikan ucapan yang terdengar alami dan realistis serta peningkatan performa multibahasa.
+Model terbaru kami memiliki [output audio bawaan](https://ai.google.dev/gemini-api/docs/live-api/output audio bawaan), yang memberikan ucapan yang terdengar alami dan realistis serta peningkatan performa multibahasa.
 
 ### Penalaran
 
 Model Gemini 3.1 menggunakan `thinkingLevel` untuk mengontrol kedalaman pemikiran, dengan setelan seperti `minimal`, `low`, `medium`, dan `high`. Defaultnya adalah `minimal` untuk mengoptimalkan latensi terendah. Model Gemini 2.5 menggunakan
 `thinkingBudget` untuk menetapkan jumlah token penalaran. Untuk mengetahui detail selengkapnya
 tentang tingkat vs. anggaran, lihat
-[Memikirkan tingkat dan anggaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id#levels-budgets).
+[Memikirkan tingkat dan anggaran](https://ai.google.dev/gemini-api/docs/live-api/Memikirkan tingkat dan anggaran).
 
 ### Python
 
@@ -618,7 +618,7 @@ main();
 ```
 
 Selain itu, Anda dapat mengaktifkan ringkasan pemikiran dengan menyetel `includeThoughts` ke
-`true` dalam konfigurasi Anda. Lihat [ringkasan pemikiran](https://ai.google.dev/gemini-api/docs/thinking?hl=id#summaries)
+`true` dalam konfigurasi Anda. Lihat [ringkasan pemikiran](https://ai.google.dev/gemini-api/docs/live-api/ringkasan pemikiran)
 untuk mengetahui info selengkapnya:
 
 ### Python
@@ -711,7 +711,7 @@ const config = {
 Deteksi Aktivitas Suara (VAD) memungkinkan model mengenali saat seseorang sedang berbicara. Hal ini penting untuk menciptakan percakapan yang alami, karena memungkinkan pengguna menginterupsi model kapan saja.
 
 Saat VAD mendeteksi gangguan, pembuatan yang sedang berlangsung akan dibatalkan dan
-dihapus. Hanya informasi yang sudah dikirim ke klien yang dipertahankan dalam histori sesi. Server kemudian mengirimkan pesan [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=id#bidigeneratecontentservercontent) untuk melaporkan gangguan.
+dihapus. Hanya informasi yang sudah dikirim ke klien yang dipertahankan dalam histori sesi. Server kemudian mengirimkan pesan [`BidiGenerateContentServerContent`](https://ai.google.dev/gemini-api/docs/live-api/`BidiGenerateContentServerContent`) untuk melaporkan gangguan.
 
 Server Gemini kemudian akan membatalkan semua panggilan fungsi yang tertunda dan mengirim pesan `BidiGenerateContentServerContent` dengan ID panggilan yang dibatalkan.
 
@@ -745,12 +745,12 @@ for (const turn of turns) {
 
 Secara default, model akan otomatis melakukan VAD pada
 aliran input audio berkelanjutan. VAD dapat dikonfigurasi dengan kolom
-[`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=id#RealtimeInputConfig.AutomaticActivityDetection)
-dari [konfigurasi penyiapan](https://ai.google.dev/api/live?hl=id#BidiGenerateContentSetup).
+[`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/gemini-api/docs/live-api/`realtimeInputConfig.automaticActivityDetection`)
+dari [konfigurasi penyiapan](https://ai.google.dev/gemini-api/docs/live-api/konfigurasi penyiapan).
 
 Saat aliran audio dijeda selama lebih dari satu detik (misalnya,
 karena pengguna menonaktifkan mikrofon), peristiwa
-[`audioStreamEnd`](https://ai.google.dev/api/live?hl=id#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end)
+[`audioStreamEnd`](https://ai.google.dev/gemini-api/docs/live-api/`audioStreamEnd`)
 harus dikirim untuk menghapus semua audio yang di-cache. Klien dapat melanjutkan pengiriman data audio kapan saja.
 
 ### Python
@@ -892,7 +892,7 @@ VAD. Meskipun `send_client_content` menambahkan pesan ke konteks model secara be
 
 ### Konfigurasi VAD otomatis
 
-Untuk kontrol yang lebih besar atas aktivitas VAD, Anda dapat mengonfigurasi parameter berikut. Lihat [referensi API](https://ai.google.dev/api/live?hl=id#automaticactivitydetection) untuk mengetahui info selengkapnya.
+Untuk kontrol yang lebih besar atas aktivitas VAD, Anda dapat mengonfigurasi parameter berikut. Lihat [referensi API](https://ai.google.dev/gemini-api/docs/live-api/referensi API) untuk mengetahui info selengkapnya.
 
 ### Python
 
@@ -937,8 +937,8 @@ const config = {
 Atau, VAD otomatis dapat dinonaktifkan dengan menyetel
 `realtimeInputConfig.automaticActivityDetection.disabled` ke `true` dalam pesan
 penyiapan. Dalam konfigurasi ini, klien bertanggung jawab untuk mendeteksi ucapan pengguna dan mengirim pesan
-[`activityStart`](https://ai.google.dev/api/live?hl=id#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start)
-dan [`activityEnd`](https://ai.google.dev/api/live?hl=id#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end)
+[`activityStart`](https://ai.google.dev/gemini-api/docs/live-api/`activityStart`)
+dan [`activityEnd`](https://ai.google.dev/gemini-api/docs/live-api/`activityEnd`)
 pada waktu yang tepat. `audioStreamEnd` tidak dikirim dalam konfigurasi ini. Sebagai gantinya, setiap gangguan streaming ditandai dengan pesan `activityEnd`.
 
 ### Python
@@ -989,7 +989,7 @@ session.sendRealtimeInput({ activityEnd: {} })
 ## Jumlah token
 
 Anda dapat menemukan jumlah total token yang digunakan di kolom
-[usageMetadata](https://ai.google.dev/api/live?hl=id#usagemetadata) dari pesan server yang ditampilkan.
+[usageMetadata](https://ai.google.dev/gemini-api/docs/live-api/usageMetadata) dari pesan server yang ditampilkan.
 
 ### Python
 
@@ -1057,23 +1057,23 @@ Pertimbangkan batasan Live API berikut saat Anda merencanakan project.
 ### Modalitas respons
 
 Model audio native hanya mendukung modalitas respons `AUDIO`. Jika Anda memerlukan
-respons model sebagai teks, gunakan fitur [transkripsi audio output](#audio-transcription).
+respons model sebagai teks, gunakan fitur [transkripsi audio output](https://ai.google.dev/gemini-api/docs/live-api/transkripsi audio output).
 
 ### Autentikasi klien
 
-Live API hanya menyediakan autentikasi server-ke-server secara default. Jika Anda menerapkan aplikasi Live API menggunakan [pendekatan client-to-server](https://ai.google.dev/gemini-api/docs/live?hl=id#implementation-approach), Anda harus menggunakan [token sementara](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=id) untuk mengurangi risiko keamanan.
+Live API hanya menyediakan autentikasi server-ke-server secara default. Jika Anda menerapkan aplikasi Live API menggunakan [pendekatan client-to-server](https://ai.google.dev/gemini-api/docs/live-api/pendekatan client-to-server), Anda harus menggunakan [token sementara](https://ai.google.dev/gemini-api/docs/live-api/token sementara) untuk mengurangi risiko keamanan.
 
 ### Durasi sesi
 
 Sesi audio saja dibatasi hingga 15 menit,
 dan sesi audio plus video dibatasi hingga 2 menit.
-Namun, Anda dapat mengonfigurasi berbagai [teknik pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-session?hl=id) untuk perpanjangan tanpa batas pada durasi sesi.
+Namun, Anda dapat mengonfigurasi berbagai [teknik pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-api/teknik pengelolaan sesi) untuk perpanjangan tanpa batas pada durasi sesi.
 
 ### Jendela konteks
 
 Sesi memiliki batas jendela konteks:
 
-- 128 ribu token untuk model [output audio native](#native-audio-output)
+- 128 ribu token untuk model [output audio native](https://ai.google.dev/gemini-api/docs/live-api/output audio native)
 - 32 ribu token untuk model Live API lainnya
 
 ## Bahasa yang didukung
@@ -1134,21 +1134,19 @@ Live API mendukung 97 bahasa berikut.
 
 ## Langkah berikutnya
 
-- Baca panduan [Penggunaan Alat](https://ai.google.dev/gemini-api/docs/live-tools?hl=id) dan
-  [Pengelolaan Sesi](https://ai.google.dev/gemini-api/docs/live-session?hl=id) untuk mendapatkan informasi penting tentang cara menggunakan Live API secara efektif.
-- Coba Live API di [Google AI Studio](https://aistudio.google.com/app/live?hl=id).
-- Untuk mengetahui info selengkapnya tentang model Live API, lihat [Audio Native Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=id#gemini-2.5-flash-native-audio)
+- Baca panduan [Penggunaan Alat](https://ai.google.dev/gemini-api/docs/live-api/Penggunaan Alat) dan
+  [Pengelolaan Sesi](https://ai.google.dev/gemini-api/docs/live-api/Pengelolaan Sesi) untuk mendapatkan informasi penting tentang cara menggunakan Live API secara efektif.
+- Coba Live API di [Google AI Studio](https://ai.google.dev/gemini-api/docs/live-api/Google AI Studio).
+- Untuk mengetahui info selengkapnya tentang model Live API, lihat [Audio Native Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/live-api/Audio Native Gemini 2.5 Flash)
   di halaman Model.
-- Coba contoh lainnya di [buku resep Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=id),
-  [buku resep Alat Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=id),
-  dan [skrip Memulai Live API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
+- Coba contoh lainnya di [buku resep Live API](https://ai.google.dev/gemini-api/docs/live-api/buku resep Live API),
+  [buku resep Alat Live API](https://ai.google.dev/gemini-api/docs/live-api/buku resep Alat Live API),
+  dan [skrip Memulai Live API](https://ai.google.dev/gemini-api/docs/live-api/skrip Memulai Live API).
 
 Kirim masukan
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/live-api/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/live-api/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/live-api/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
 Terakhir diperbarui pada 2026-04-29 UTC.
 
 Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

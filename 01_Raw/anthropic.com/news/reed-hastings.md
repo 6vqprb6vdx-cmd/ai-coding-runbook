@@ -14,7 +14,7 @@ Today we announced that Reed Hastings, Chairman and co-founder of Netflix who se
 
 "The Long Term Benefit Trust appointed Reed because his impressive leadership experience, deep philanthropic work, and commitment to addressing AI's societal challenges make him uniquely qualified to guide Anthropic at this critical juncture in AI development," said Buddy Shah, Chair of Anthropic's Long Term Benefit Trust.
 
-Hastings recently made a $50 million gift to Bowdoin College to establish a research initiative on [AI and Humanity](https://www.bowdoin.edu/news/2025/03/announcing-the-hastings-initiative-for-ai-and-humanity.html). The program examines how AI will transform work, relationships, and education, and develops ethical frameworks for its use. These are all areas that align closely with Anthropic's own research priorities.
+Hastings recently made a $50 million gift to Bowdoin College to establish a research initiative on [AI and Humanity](https://www.anthropic.com/news/AI and Humanity). The program examines how AI will transform work, relationships, and education, and develops ethical frameworks for its use. These are all areas that align closely with Anthropic's own research priorities.
 
 Beyond his recent AI-focused giving, Hastings has spent decades working to expand opportunity in education and global development. He has donated hundreds of millions to charter school networks serving low-income U.S. communities and sits on the board of the Knowledge Is Power Program (KIPP)'s 275-school network. Internationally, he supports East African farmers through Kenya's One Acre Fund and subsidizes internet access in Rwanda, where he helped launch a program offering smartphones for ten times cheaper than they'd cost in the US.
 
@@ -30,12 +30,12 @@ With Hastings' appointment, the Trust continues to build a board with the divers
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

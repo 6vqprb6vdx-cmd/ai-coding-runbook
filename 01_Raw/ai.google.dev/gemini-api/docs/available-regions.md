@@ -4,29 +4,29 @@ fetched_at: 2026-05-05T13:28:07.290540+00:00
 title: "\u0627\u0644\u0645\u0646\u0627\u0637\u0642 \u0627\u0644\u062a\u064a \u062a\u062a\u0648\u0641\u0651\u0631 \u0641\u064a\u0647\u0627 \u0645\u064a\u0632\u0627\u062a Google AI Studio \u0648Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/Deep Research من Gemini) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [الصفحة الرئيسية](https://ai.google.dev/gemini-api/docs/الصفحة الرئيسية)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [المستندات](https://ai.google.dev/gemini-api/docs/المستندات)
 
 إرسال ملاحظات
 
 # المناطق التي تتوفّر فيها ميزات Google AI Studio وGemini API
 
-إذا وصلت إلى هذه الصفحة أثناء محاولة الوصول إلى [Google AI Studio](https://aistudio.google.com/?hl=ar)، قد
+إذا وصلت إلى هذه الصفحة أثناء محاولة الوصول إلى [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio)، قد
 يرجع ذلك إلى أحد الأسباب التالية:
 
 - **القيود الإقليمية**: لا يتوفّر Google AI Studio في منطقتك. يُرجى الرجوع إلى القسم أدناه للاطّلاع على قائمة بالمناطق المتاحة.
 - **السنّ المسموح به**: أنت لا تستوفي الحدّ الأدنى للسنّ المسموح به (18 عامًا أو أكثر) للوصول إلى هذه الخدمة.
-- **تأكيد الحساب**: قد يكون بإمكانك الوصول إلى الخدمة، ولكن لم يتم بعد [إثبات عمرك](https://support.google.com/accounts/answer/10071085?hl=ar) في حسابك على Google.
+- **تأكيد الحساب**: قد يكون بإمكانك الوصول إلى الخدمة، ولكن لم يتم بعد [إثبات عمرك](https://ai.google.dev/gemini-api/docs/إثبات عمرك) في حسابك على Google.
 
-لمزيد من التفاصيل حول المتطلبات، يُرجى مراجعة [بنود الخدمة](https://ai.google.dev/gemini-api/terms?hl=ar).
+لمزيد من التفاصيل حول المتطلبات، يُرجى مراجعة [بنود الخدمة](https://ai.google.dev/gemini-api/docs/بنود الخدمة).
 
 ## المناطق المتاحة
 
 يتوفّر Gemini API وGoogle AI Studio في البلدان والمناطق التالية. إذا لم تكن مقيمًا في أحد هذه البلدان أو المناطق، جرِّب الـ
-[Gemini API في Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=ar):
+[Gemini API في Gemini Enterprise Agent Platform](https://ai.google.dev/gemini-api/docs/Gemini API في Gemini Enterprise Agent Platform):
 
 - ألبانيا
 - الجزائر
@@ -261,10 +261,8 @@ title: "\u0627\u0644\u0645\u0646\u0627\u0637\u0642 \u0627\u0644\u062a\u064a \u06
 
 إرسال ملاحظات
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://ai.google.dev/gemini-api/docs/ترخيص Creative Commons Attribution 4.0‏) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://ai.google.dev/gemini-api/docs/ترخيص Apache 2.0‏). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://ai.google.dev/gemini-api/docs/سياسات موقع Google Developers‏). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
 تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
-
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

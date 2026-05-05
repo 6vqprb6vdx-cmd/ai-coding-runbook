@@ -28,7 +28,6 @@ import asyncio
 from mcp.client.session import ClientSession
 from mcp.client.stdio import StdioServerParameters, stdio_client
 
-
 async def main():
     async with stdio_client(
         StdioServerParameters(command="uv", args=["run", "mcp-simple-prompt"])
@@ -49,7 +48,6 @@ async def main():
                 },
             )
             print(prompt)
-
 
 asyncio.run(main())
 ```

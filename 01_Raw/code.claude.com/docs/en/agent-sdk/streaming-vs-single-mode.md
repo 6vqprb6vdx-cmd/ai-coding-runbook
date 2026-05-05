@@ -160,7 +160,6 @@ sequenceDiagram
   import asyncio
   import base64
 
-
   async def streaming_analysis():
       async def message_generator():
           # First message
@@ -210,7 +209,6 @@ sequenceDiagram
                   for block in message.content:
                       if isinstance(block, TextBlock):
                           print(block.text)
-
 
   asyncio.run(streaming_analysis())
   ```
@@ -277,7 +275,6 @@ Use single message input when:
   from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage
   import asyncio
 
-
   async def single_message_example():
       # Simple one-shot query using query() function
       async for message in query(
@@ -294,7 +291,6 @@ Use single message input when:
       ):
           if isinstance(message, ResultMessage):
               print(message.result)
-
 
   asyncio.run(single_message_example())
   ```

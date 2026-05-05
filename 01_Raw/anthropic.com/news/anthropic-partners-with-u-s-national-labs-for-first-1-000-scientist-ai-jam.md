@@ -10,9 +10,7 @@ Announcements
 
 Feb 28, 2025
 
-![A head with neurons](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F80d6e033480704f5d57fbae4e3f0368d86a747ae-5761x3240.png&w=3840&q=75)
-
-We are proud to participate in the U.S. Department of Energy’s (DOE) first-ever 1,000 Scientist AI Jam, which will bring together scientists across multiple National Laboratories to evaluate frontier AI models on scientific research and national security applications. AI has the potential to dramatically accelerate scientific discovery and technological development, [compressing decades](https://darioamodei.com/machines-of-loving-grace) of scientific progress into just a few years by enabling a new era of invention and problem-solving that addresses humanity’s greatest challenges. This week, we [launched](https://www.anthropic.com/news/claude-3-7-sonnet) Claude 3.7 Sonnet, the first hybrid reasoning model on the market, which will be evaluated at the event.
+We are proud to participate in the U.S. Department of Energy’s (DOE) first-ever 1,000 Scientist AI Jam, which will bring together scientists across multiple National Laboratories to evaluate frontier AI models on scientific research and national security applications. AI has the potential to dramatically accelerate scientific discovery and technological development, [compressing decades](https://www.anthropic.com/news/compressing decades) of scientific progress into just a few years by enabling a new era of invention and problem-solving that addresses humanity’s greatest challenges. This week, we [launched](https://www.anthropic.com/news/launched) Claude 3.7 Sonnet, the first hybrid reasoning model on the market, which will be evaluated at the event.
 
 ## Accelerating American scientific leadership through AI
 
@@ -22,7 +20,7 @@ These scientists will test Claude’s abilities using real-world research proble
 
 ## Building on established partnerships
 
-This initiative builds on Anthropic’s existing partnership with the Department of Energy, including the National Nuclear Security Administration (NNSA). In April 2024, Anthropic [became the first frontier lab](https://www.axios.com/2024/11/14/anthropic-claude-nuclear-information-safety) to collaborate with NNSA and DOE National Laboratories to evaluate a model in a Top Secret classified environment to determine how large language models may contribute to or help to address national security risks in the nuclear domain.
+This initiative builds on Anthropic’s existing partnership with the Department of Energy, including the National Nuclear Security Administration (NNSA). In April 2024, Anthropic [became the first frontier lab](https://www.anthropic.com/news/became the first frontier lab) to collaborate with NNSA and DOE National Laboratories to evaluate a model in a Top Secret classified environment to determine how large language models may contribute to or help to address national security risks in the nuclear domain.
 
 The AI Jam session expands this work beyond security testing to explore how AI can contribute to solving our nation's most pressing scientific challenges. This event offers a rare opportunity to get feedback on our models across a wide range of realistic scientific tasks. The insights gained will help us improve Claude to better serve America’s scientific community and further strengthen our nation's competitive advantage.
 
@@ -34,12 +32,12 @@ Through initiatives like the AI Jam session, we are demonstrating how industry a
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

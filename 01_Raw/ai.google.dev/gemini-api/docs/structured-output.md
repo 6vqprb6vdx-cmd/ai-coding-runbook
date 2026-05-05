@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:27:13.073366+00:00
 title: "Output strutturati \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Home page](https://ai.google.dev/gemini-api/docs/Home page)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documenti](https://ai.google.dev/gemini-api/docs/Documenti)
 
 Invia feedback
 
@@ -25,8 +25,8 @@ L'utilizzo di output strutturati è ideale per:
 
 Oltre a supportare JSON Schema nell'API REST, gli SDK Google GenAI
 semplificano la definizione degli schemi utilizzando
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) e
-[Zod](https://zod.dev/) (JavaScript).
+[Pydantic](https://ai.google.dev/gemini-api/docs/Pydantic) (Python) e
+[Zod](https://ai.google.dev/gemini-api/docs/Zod) (JavaScript).
 
 Estrai ricette
 Moderazione dei contenuti
@@ -382,11 +382,11 @@ for await (const chunk of stream) {
 ## Output strutturati con strumenti
 
 Gemini 3 ti consente di combinare gli output strutturati con strumenti integrati, tra cui
-[Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it),
-[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it),
-[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it),
-[Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it#structured-output) e
-[Chiamata di funzioni](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
+[Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/Grounding con la Ricerca Google),
+[Contesto URL](https://ai.google.dev/gemini-api/docs/Contesto URL),
+[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/Esecuzione di codice),
+[Ricerca file](https://ai.google.dev/gemini-api/docs/Ricerca file) e
+[Chiamata di funzioni](https://ai.google.dev/gemini-api/docs/Chiamata di funzioni).
 
 ### Python
 
@@ -491,11 +491,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
 
 ## Supporto dello schema JSON
 
-Per generare un oggetto JSON, imposta `response_mime_type` nella configurazione di generazione su `application/json` e fornisci un `response_json_schema`. Lo schema deve essere uno [schema JSON](https://json-schema.org/) valido che descriva il formato di output desiderato.
+Per generare un oggetto JSON, imposta `response_mime_type` nella configurazione di generazione su `application/json` e fornisci un `response_json_schema`. Lo schema deve essere uno [schema JSON](https://ai.google.dev/gemini-api/docs/schema JSON) valido che descriva il formato di output desiderato.
 
 Il modello genererà quindi una risposta che è una stringa JSON sintatticamente valida corrispondente allo schema fornito. Quando utilizzi output strutturati, il modello produce output nello stesso ordine delle chiavi nello schema.
 
-La modalità di output strutturato di Gemini supporta un sottoinsieme della specifica [JSON Schema](https://json-schema.org).
+La modalità di output strutturato di Gemini supporta un sottoinsieme della specifica [JSON Schema](https://ai.google.dev/gemini-api/docs/JSON Schema).
 
 Sono supportati i seguenti valori di `type`:
 
@@ -552,7 +552,7 @@ I seguenti modelli supportano l'output strutturato:
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* Tieni presente che Gemini 2.0 richiede un elenco `propertyOrdering` esplicito all'interno dell'input JSON per definire la struttura preferita. Puoi trovare un esempio in questo [cookbook](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
+*\* Tieni presente che Gemini 2.0 richiede un elenco `propertyOrdering` esplicito all'interno dell'input JSON per definire la struttura preferita. Puoi trovare un esempio in questo [cookbook](https://ai.google.dev/gemini-api/docs/cookbook).*
 
 ## Output strutturati e chiamata di funzione
 
@@ -578,10 +578,8 @@ Sia gli output strutturati che le chiamate di funzione utilizzano schemi JSON, m
 
 Invia feedback
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/licenza Creative Commons Attribution 4.0), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://ai.google.dev/gemini-api/docs/licenza Apache 2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://ai.google.dev/gemini-api/docs/norme del sito di Google Developers). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
 Ultimo aggiornamento 2026-04-29 UTC.
 
 Vuoi dirci altro?
-
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

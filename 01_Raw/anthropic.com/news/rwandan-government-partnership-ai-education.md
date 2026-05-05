@@ -42,7 +42,7 @@ Early results demonstrate Chidi's potential impact: since the tool was rolled ou
 
 Today’s announcement represents a new milestone in Anthropic's commitment to ensuring AI works for the public good by reaching students globally. It builds upon our focus on education partnerships that reshape how students and educators interact with AI worldwide.
 
-In [Iceland](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots), we recently launched one of the world's first comprehensive national AI education pilots with the Ministry of Education and Children, giving teachers across the nation access to Claude to transform lesson preparation and student support. The [London School of Economics](https://www.lse.ac.uk/news/latest-news-from-lse/d-april/lse-partners-with-anthropic-to-shape-the-future-of-ai-in-education) has provided all students with access to Claude for Education, helping them develop critical thinking skills. And our expanded presence in [India](https://www.anthropic.com/news/expanding-global-operations-to-india), where we're opening an office in Bengaluru, focuses on supporting the country's rapidly growing developer and startup ecosystem.
+In [Iceland](https://www.anthropic.com/news/Iceland), we recently launched one of the world's first comprehensive national AI education pilots with the Ministry of Education and Children, giving teachers across the nation access to Claude to transform lesson preparation and student support. The [London School of Economics](https://www.anthropic.com/news/London School of Economics) has provided all students with access to Claude for Education, helping them develop critical thinking skills. And our expanded presence in [India](https://www.anthropic.com/news/India), where we're opening an office in Bengaluru, focuses on supporting the country's rapidly growing developer and startup ecosystem.
 
 These partnerships demonstrate a consistent approach to working closely with governments, educational institutions, and technology companies to ensure AI expands opportunity and serves the communities where it's deployed.
 
@@ -52,12 +52,12 @@ We look forward to learning from these deployments, sharing what we've learned w
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

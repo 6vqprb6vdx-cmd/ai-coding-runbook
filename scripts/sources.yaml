@@ -52,13 +52,32 @@ docs_sites:
 
   # OpenAI Platform documentation
   # NOTE: platform.openai.com/docs returns 403 to crawlers (Cloudflare protection).
-  # Sitemap only exposes /tokenizer, not /docs/*. OpenAI knowledge covered via GitHub repos below.
+  # Sitemap only exposes /tokenizer, not /docs/*. OpenAI knowledge covered via:
+  #   1. Manually fetched pages → 01_Raw/docs.openai.com/ (30 key guides, last updated 2026-05-05)
+  #   2. GitHub repos (openai-python, openai-node, model_spec)
+  # GHA cannot auto-refresh docs.openai.com — manual re-fetch needed when content changes.
   # - name: platform.openai.com
   #   base_url: https://platform.openai.com
   #   sitemap: https://platform.openai.com/sitemap.xml
   #   target_dir: platform.openai.com
   #   include_prefixes:
   #     - /docs/
+
+  # Cursor IDE documentation
+  - name: docs.cursor.com
+    base_url: https://docs.cursor.com
+    sitemap: https://docs.cursor.com/sitemap.xml
+    target_dir: docs.cursor.com
+    include_prefixes:
+      - /get-started/
+      - /chat/
+      - /tab/
+      - /agent/
+      - /context/
+      - /settings/
+      - /troubleshooting/
+      - /account/
+      - /privacy/
 
   # Gemini API documentation
   - name: ai.google.dev
@@ -115,11 +134,15 @@ github_repos:
 
   # ------- OpenAI -------
   - owner: openai
+    repo: codex    # Codex CLI / desktop agent (open-source)
+  - owner: openai
     repo: openai-python
   - owner: openai
     repo: openai-node
+  - owner: openai
+    repo: model_spec    # Model behavior specification (model-spec.openai.com source)
   # NOTE: openai-cookbook clone hangs on index-pack for 35+ min (384MB pack, likely slow SSH tunnel).
-  # Skip for now; openai-python + openai-node cover the API surface.
+  # Skip for now; openai-python + openai-node + model_spec cover the API surface.
   # - owner: openai
   #   repo: openai-cookbook
 

@@ -61,7 +61,7 @@ Claude incorporates the error into the user-facing reply ("I'm sorry, I was unab
 
 *Invalid tool name / missing parameters*: usually means the description was insufficient; first try improving the tool's description. You can also return a `tool_result` with `is_error: true` and a message like `"Error: Missing required 'location' parameter"`—Claude will retry 2–3 times with corrections before apologizing to the user.
 
-> "To eliminate invalid tool calls entirely, use [strict tool use](/docs/en/agents-and-tools/tool-use/strict-tool-use) with `strict: true` on your tool definitions."
+> "To eliminate invalid tool calls entirely, use [strict tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/strict-tool-use) with `strict: true` on your tool definitions."
 
 This refers to [[Structured-outputs]] guarantees on tool inputs.
 

@@ -10,13 +10,11 @@ Societal Impacts
 
 Apr 23, 2025
 
-![Profile with Claude sunburst ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff16227567bc84029b2fa7933409557272e1503ab-1920x1079.png&w=3840&q=75)
-
 We are committed to preventing misuse of our Claude models by adversarial actors while maintaining their utility for legitimate users. While our safety measures successfully prevent many harmful outputs, threat actors continue to explore methods to circumvent these protections. We are continuously using learnings to upgrade our safeguards.
 
 This report outlines several case studies on how actors have misused our models, as well as the steps we have taken to detect and counter such misuse. By sharing these insights, we hope to protect the safety of our users, prevent abuse or misuse of our services, enforce our Usage Policy and other terms, and share our learnings for the benefit of the wider online ecosystem. The case studies presented in this report, while specific, are representative of broader patterns we're observing across our monitoring systems. These examples were selected because they clearly illustrate emerging trends in how malicious actors are adapting to and leveraging frontier AI models. We hope to contribute to a broader understanding of the evolving threat landscape and help the wider AI ecosystem develop more robust safeguards.
 
-The most novel case of misuse detected was a professional 'influence-as-a-service' operation showcasing a distinct evolution in how certain actors are leveraging LLMs for influence operation campaigns. What is especially novel is that this operation used Claude not just for content generation, but also to decide when social media bot accounts would comment, like, or re-share posts from authentic social media users. As described in the full report, Claude was used as an orchestrator deciding what actions social media bot accounts should take based on politically motivated personas. **Read the full report [here](https://cdn.sanity.io/files/4zrzovbb/website/45bc6adf039848841ed9e47051fb1209d6bb2b26.pdf)**.
+The most novel case of misuse detected was a professional 'influence-as-a-service' operation showcasing a distinct evolution in how certain actors are leveraging LLMs for influence operation campaigns. What is especially novel is that this operation used Claude not just for content generation, but also to decide when social media bot accounts would comment, like, or re-share posts from authentic social media users. As described in the full report, Claude was used as an orchestrator deciding what actions social media bot accounts should take based on politically motivated personas. **Read the full report [here](https://www.anthropic.com/news/here)**.
 
 We have also observed cases of credential stuffing operations, recruitment fraud campaigns, and a novice actor using AI to enhance their technical capabilities for malware generation beyond their skill level, among other activities not mentioned in this blog. The impact of these activities varies:
 
@@ -30,11 +28,11 @@ We have also observed cases of credential stuffing operations, recruitment fraud
 - Users are starting to use frontier models to semi-autonomously orchestrate complex abuse systems that involve many social media bots. As agentic AI systems improve we expect this trend to continue.
 - Generative AI can accelerate capability development for less sophisticated actors, potentially allowing them to operate at a level previously only achievable by more technically proficient individuals.
 
-Our intelligence program is meant to be a safety net by both finding harms not caught by our standard scaled detection and to add context in how bad actors are using our models maliciously. In investigating these cases, our team applied techniques described in our recently published research papers, including [Clio](https://www.anthropic.com/research/clio) and [hierarchical summarization](https://alignment.anthropic.com/2025/summarization-for-monitoring/). These approaches allowed us to efficiently analyze large volumes of conversation data to identify patterns of misuse. These techniques, coupled with classifiers (which analyze user inputs for potentially harmful requests and evaluate Claude's responses before or after delivery) allowed us to detect, investigate, and ban the accounts associated with these cases.
+Our intelligence program is meant to be a safety net by both finding harms not caught by our standard scaled detection and to add context in how bad actors are using our models maliciously. In investigating these cases, our team applied techniques described in our recently published research papers, including [Clio](https://www.anthropic.com/news/Clio) and [hierarchical summarization](https://www.anthropic.com/news/hierarchical summarization). These approaches allowed us to efficiently analyze large volumes of conversation data to identify patterns of misuse. These techniques, coupled with classifiers (which analyze user inputs for potentially harmful requests and evaluate Claude's responses before or after delivery) allowed us to detect, investigate, and ban the accounts associated with these cases.
 
 The case studies below highlight the types of threats we have detected and provide insights into how threat actors are adapting their operations to leverage generative AI.
 
-### **Case Study: Operating Multi-Client Influence Networks Across Platforms [full report available [here](https://cdn.sanity.io/files/4zrzovbb/website/45bc6adf039848841ed9e47051fb1209d6bb2b26.pdf)]**
+### **Case Study: Operating Multi-Client Influence Networks Across Platforms [full report available [here](https://www.anthropic.com/news/full report available [here)]**
 
 We identified and banned an actor using Claude for a financially-motivated "influence-as-a-service" operation. This actor’s infrastructure leveraged Claude to orchestrate over a hundred social media bot accounts for the purpose of pushing their clients political narratives. These political narratives are consistent with what we expect from state affiliated campaigns, however we have not confirmed this attribution. Most significantly, the operation utilized Claude to make tactical engagement decisions such as determining whether social media bot accounts should like, share, comment on, or ignore specific posts created by other accounts based on political objectives aligned with their clients' interests.
 
@@ -110,12 +108,12 @@ We hope this report provides insights our industry, governments, and the wider r
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

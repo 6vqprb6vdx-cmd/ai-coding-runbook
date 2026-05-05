@@ -14,13 +14,13 @@ Feb 2, 2026
 
 Modern biological research generates data at unprecedented scale—from single-cell sequencing to whole-brain connectomics—yet transforming that data into validated biological insights remains a fundamental bottleneck. Knowledge synthesis, hypothesis generation, and experimental interpretation still depend on manual processes that can't keep pace with the data being produced.
 
-Today, Anthropic is announcing two flagship partnerships designed to close that gap. [**The Allen Institute**](https://alleninstitute.org/) and **[Howard Hughes Medical Institute](https://www.hhmi.org/)** (HHMI) will serve as founding partners in life sciences, extending Claude’s capabilities to frontier scientific research and enabling teams of scientists to work more effectively together and take on ambitious scientific challenges. Each collaboration brings together Anthropic's expertise in foundation models, agentic systems, and interpretability with world-class research institutions tackling distinct but complementary problems in biology and biomedical science. These partnerships position Claude at the center of scientific experimentation and will build a foundation in which scientists actively use Claude to plan and execute experiments.
+Today, Anthropic is announcing two flagship partnerships designed to close that gap. [**The Allen Institute**](https://www.anthropic.com/news/**The Allen Institute**) and **[Howard Hughes Medical Institute](https://www.anthropic.com/news/Howard Hughes Medical Institute)** (HHMI) will serve as founding partners in life sciences, extending Claude’s capabilities to frontier scientific research and enabling teams of scientists to work more effectively together and take on ambitious scientific challenges. Each collaboration brings together Anthropic's expertise in foundation models, agentic systems, and interpretability with world-class research institutions tackling distinct but complementary problems in biology and biomedical science. These partnerships position Claude at the center of scientific experimentation and will build a foundation in which scientists actively use Claude to plan and execute experiments.
 
 Both partnerships are committed to transparency and advances that will help the broader scientific community rigorously deploy AI tools across many scientific domains. Scientific AI systems must not only produce accurate predictions but also provide reasoning that researchers can evaluate, trace, and build upon. These collaborations position Claude as a tool that augments, rather than replaces, human scientific judgment — ensuring that AI-generated insights are grounded in evidence and legible to the scientists who use them.
 
 ## **Howard Hughes Medical Institute: Building the infrastructure for AI-enabled scientific discovery**
 
-HHMI will partner with Anthropic to accelerate discovery in the biological sciences as one part of the Institute’s [AI@HHMI](https://ai.hhmi.org/) initiative. The collaboration is anchored at HHMI’s Janelia Research Campus, which has been developing transformative technologies—from genetically encoded calcium sensors to electron microscopes engineered for understanding the architecture of the brain—for two decades. This foundation uniquely positions HHMI to help shape how AI systems participate in and enhance the research process.
+HHMI will partner with Anthropic to accelerate discovery in the biological sciences as one part of the Institute’s [AI@HHMI](https://www.anthropic.com/news/AI@HHMI) initiative. The collaboration is anchored at HHMI’s Janelia Research Campus, which has been developing transformative technologies—from genetically encoded calcium sensors to electron microscopes engineered for understanding the architecture of the brain—for two decades. This foundation uniquely positions HHMI to help shape how AI systems participate in and enhance the research process.
 
 The partnership with Anthropic will involve close collaboration on both the deployment and ongoing development of AI models, ensuring that AI tools evolve in direct response to real experimental needs. Since announcing AI@HHMI in 2024, HHMI has launched several projects that seek to use AI tools to solve longstanding scientific problems ranging from computational protein design to neural mechanisms of cognition. The collaboration with Anthropic will focus on developing specialized AI agents for use within labs. These will serve as a comprehensive source of experimental knowledge integrated with cutting-edge scientific instruments and analysis pipelines to speed the pace of discovery.
 
@@ -34,18 +34,18 @@ For Anthropic, this collaboration provides in-depth feedback from real scientifi
 
 ## **Looking ahead**
 
-These partnerships will inform the broader development of [Claude’s life science capabilities](https://claude.com/solutions/life-sciences), generating insights about how AI systems can most effectively support scientific workflows across diverse research contexts. Anthropic is committed to responsible development that prioritizes scientific rigor, interpretability, and researcher autonomy.
+These partnerships will inform the broader development of [Claude’s life science capabilities](https://www.anthropic.com/news/Claude’s life science capabilities), generating insights about how AI systems can most effectively support scientific workflows across diverse research contexts. Anthropic is committed to responsible development that prioritizes scientific rigor, interpretability, and researcher autonomy.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

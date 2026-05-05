@@ -4,17 +4,17 @@ fetched_at: 2026-05-05T13:18:24.169315+00:00
 title: "Compreens\u00e3o do v\u00eddeo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/Deep Research do Gemini) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Página inicial](https://ai.google.dev/gemini-api/docs/Página inicial)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documentos](https://ai.google.dev/gemini-api/docs/Documentos)
 
 Envie comentários
 
 # Compreensão do vídeo
 
-> Para saber mais sobre a geração de vídeos, consulte o guia do [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br).
+> Para saber mais sobre a geração de vídeos, consulte o guia do [Veo](https://ai.google.dev/gemini-api/docs/Veo).
 
 Os modelos do Gemini podem processar vídeos, permitindo muitos casos de uso de desenvolvedores de ponta que historicamente exigiam modelos específicos de domínio.
 Alguns dos recursos de visão do Gemini incluem a capacidade de: descrever, segmentar e extrair informações de vídeos, responder a perguntas sobre o conteúdo do vídeo e se referir a carimbos de data/hora específicos em um vídeo.
@@ -23,20 +23,20 @@ Alguns dos recursos de visão do Gemini incluem a capacidade de: descrever, segm
 
 | Método de entrada | Tamanho máximo | Caso de uso recomendado |
 | --- | --- | --- |
-| [API Files](#upload-video) | 20 GB (pago) / 2 GB (sem custo financeiro) | Arquivos grandes (mais de 100 MB), vídeos longos (mais de 10 minutos), arquivos reutilizáveis. |
-| [Registro do Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br#registration) | 2 GB (por arquivo, sem limites de armazenamento) | Arquivos grandes (mais de 100 MB), vídeos longos (mais de 10 minutos), arquivos persistentes e reutilizáveis. |
-| [Dados inline](#inline-video) | Menos de 100 MB | Arquivos pequenos (menos de 100 MB), curta duração (menos de 1 minuto), entradas únicas. |
-| [URLs do YouTube](#youtube) | N/A | Vídeos públicos do YouTube. |
+| [API Files](https://ai.google.dev/gemini-api/docs/API Files) | 20 GB (pago) / 2 GB (sem custo financeiro) | Arquivos grandes (mais de 100 MB), vídeos longos (mais de 10 minutos), arquivos reutilizáveis. |
+| [Registro do Cloud Storage](https://ai.google.dev/gemini-api/docs/Registro do Cloud Storage) | 2 GB (por arquivo, sem limites de armazenamento) | Arquivos grandes (mais de 100 MB), vídeos longos (mais de 10 minutos), arquivos persistentes e reutilizáveis. |
+| [Dados inline](https://ai.google.dev/gemini-api/docs/Dados inline) | Menos de 100 MB | Arquivos pequenos (menos de 100 MB), curta duração (menos de 1 minuto), entradas únicas. |
+| [URLs do YouTube](https://ai.google.dev/gemini-api/docs/URLs do YouTube) | N/A | Vídeos públicos do YouTube. |
 
-> **Observação**:a [API Files](#upload-video) é recomendada para a maioria dos casos de uso, especialmente para arquivos maiores que 100 MB ou quando você quiser reutilizar o arquivo em várias solicitações.
+> **Observação**:a [API Files](https://ai.google.dev/gemini-api/docs/API Files) é recomendada para a maioria dos casos de uso, especialmente para arquivos maiores que 100 MB ou quando você quiser reutilizar o arquivo em várias solicitações.
 
 Para saber mais sobre outros métodos de entrada de arquivos, como o uso de URLs externos ou arquivos
 armazenados no Google Cloud, consulte o
-[guia Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
+[guia Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/guia Métodos de entrada de arquivos).
 
 ### Enviar um arquivo de vídeo
 
-O código a seguir faz o download de um vídeo de amostra, faz o upload usando a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br),
+O código a seguir faz o download de um vídeo de amostra, faz o upload usando a [API Files](https://ai.google.dev/gemini-api/docs/API Files),
 aguarda o processamento e usa a referência do arquivo enviado para
 resumir o vídeo.
 
@@ -167,7 +167,7 @@ Sempre use a API Files quando o tamanho total da solicitação (incluindo o arqu
 A API Files aceita formatos de arquivo de vídeo diretamente.
 
 Para saber mais sobre como trabalhar com arquivos de mídia, consulte
-[API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+[API Files](https://ai.google.dev/gemini-api/docs/API Files).
 
 ### Transmitir dados de vídeo inline
 
@@ -376,7 +376,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 ## Usar o armazenamento em cache de contexto para vídeos longos
 
 Para vídeos com mais de 10 minutos ou quando você planeja fazer várias solicitações
-no mesmo arquivo de vídeo, use [o armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br) para
+no mesmo arquivo de vídeo, use [o armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/o armazenamento em cache de contexto) para
 reduzir custos e melhorar a latência. O armazenamento em cache de contexto permite processar o vídeo uma vez e reutilizar os tokens para consultas subsequentes, o que o torna ideal para sessões de chat ou análises repetidas de conteúdo longo.
 
 ## Referir-se a carimbos de data/hora no conteúdo
@@ -417,7 +417,7 @@ PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 Os modelos do Gemini oferecem recursos avançados para entender o conteúdo de vídeo processando informações dos streams **de áudio e visuais**. Isso permite extrair um conjunto detalhado de informações, incluindo a geração de descrições do que está acontecendo em um vídeo e a resposta a perguntas sobre o conteúdo.
 
 Para descrições visuais, o modelo faz a amostragem do vídeo a uma taxa de **1 frame por segundo** (QPS). Essa taxa de amostragem padrão funciona bem para a maioria dos conteúdos, mas pode perder detalhes em vídeos com movimentos rápidos ou mudanças rápidas de cena.
-Para esse conteúdo de alta movimentação, considere [definir uma taxa de frames personalizada](#custom-frame-rate).
+Para esse conteúdo de alta movimentação, considere [definir uma taxa de frames personalizada](https://ai.google.dev/gemini-api/docs/definir uma taxa de frames personalizada).
 
 ### Python
 
@@ -575,10 +575,10 @@ O Gemini oferece suporte aos seguintes tipos MIME de formato de vídeo:
   quadro por segundo (QPS) e o áudio é processado a 1 Kbps (canal único).
   Os carimbos de data/hora são adicionados a cada segundo.
   - Essas taxas estão sujeitas a mudanças no futuro para melhorias na inferência.
-  - É possível substituir a taxa de amostragem de 1 QPS definindo [uma taxa de frames personalizada](#custom-frame-rate).
+  - É possível substituir a taxa de amostragem de 1 QPS definindo [uma taxa de frames personalizada](https://ai.google.dev/gemini-api/docs/uma taxa de frames personalizada).
 - **Cálculo de tokens**: cada segundo de vídeo é tokenizado da seguinte maneira:
   - Frames individuais (amostrados a 1 QPS):
-    - Se [`mediaResolution`](https://ai.google.dev/api/generate-content?hl=pt-br#MediaResolution) estiver definido
+    - Se [`mediaResolution`](https://ai.google.dev/gemini-api/docs/`mediaResolution`) estiver definido
       como baixo, os frames serão tokenizados a 66 tokens por frame.
     - Caso contrário, os frames serão tokenizados a 258 tokens por frame.
   - Áudio: 32 tokens por segundo.
@@ -588,7 +588,7 @@ O Gemini oferece suporte aos seguintes tipos MIME de formato de vídeo:
   com o parâmetro `media_resolution`. O parâmetro `media_resolution` determina o **número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
   Resoluções mais altas melhoram a capacidade do modelo de ler textos finos ou identificar pequenos detalhes, mas aumentam o uso de tokens e a latência.
 
-  Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de tokens, consulte o [guia de resolução de mídia](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br).
+  Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de tokens, consulte o [guia de resolução de mídia](https://ai.google.dev/gemini-api/docs/guia de resolução de mídia).
 - **Formato de carimbo de data/hora**: ao se referir a momentos específicos em um vídeo no comando, use o formato `MM:SS` (por exemplo, `01:15` para 1 minuto e 15 segundos).
 - **Práticas recomendadas**:
 
@@ -600,23 +600,21 @@ O Gemini oferece suporte aos seguintes tipos MIME de formato de vídeo:
 
 Este guia mostra como fazer upload de arquivos de vídeo e gerar saídas de texto a partir de entradas de vídeo. Para saber mais, consulte os seguintes recursos:
 
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
+- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/Instruções do sistema):
   As instruções do sistema permitem orientar o comportamento do modelo com base nas suas
   necessidades e casos de uso específicos.
-- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br): saiba mais sobre como fazer upload e gerenciar
+- [API Files](https://ai.google.dev/gemini-api/docs/API Files): saiba mais sobre como fazer upload e gerenciar
   arquivos para uso com o Gemini.
-- [Estratégias de comando de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): A
+- [Estratégias de comando de arquivos](https://ai.google.dev/gemini-api/docs/Estratégias de comando de arquivos): A
   API Gemini oferece suporte a comandos com dados de texto, imagem, áudio e vídeo, também
   conhecidos como comandos multimodais.
-- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pt-br): às vezes, os modelos de IA generativa produzem saídas inesperadas, como saídas imprecisas, tendenciosas ou ofensivas. O pós-processamento e a avaliação humana são essenciais para
+- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/Orientações de segurança): às vezes, os modelos de IA generativa produzem saídas inesperadas, como saídas imprecisas, tendenciosas ou ofensivas. O pós-processamento e a avaliação humana são essenciais para
   limitar o risco de danos causados por essas saídas.
 
 Envie comentários
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://ai.google.dev/gemini-api/docs/Licença de atribuição 4.0 do Creative Commons), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://ai.google.dev/gemini-api/docs/Licença Apache 2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://ai.google.dev/gemini-api/docs/políticas do site do Google Developers). Java é uma marca registrada da Oracle e/ou afiliadas.
 
 Última atualização 2026-04-29 UTC.
 
 Quer enviar seu feedback?
-
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

@@ -2,7 +2,6 @@
 
 To use this library with Foundry, use the `AnthropicFoundry` class instead of the `Anthropic` class.
 
-
 ## Installation
 
 ```bash

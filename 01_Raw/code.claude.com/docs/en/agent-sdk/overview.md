@@ -13,13 +13,13 @@ fetch_method: mintlify_md
 > Build production AI agents with Claude Code as a library
 
 <Note>
-  The Claude Code SDK has been renamed to the Claude Agent SDK. If you're migrating from the old SDK, see the [Migration Guide](/en/agent-sdk/migration-guide).
+  The Claude Code SDK has been renamed to the Claude Agent SDK. If you're migrating from the old SDK, see the [Migration Guide](https://code.claude.com/docs/en/agent-sdk/Migration Guide).
 </Note>
 
 Build AI agents that autonomously read files, run commands, search the web, edit code, and more. The Agent SDK gives you the same tools, agent loop, and context management that power Claude Code, programmable in Python and TypeScript.
 
 <Note>
-  Opus 4.7 (`claude-opus-4-7`) requires Agent SDK v0.2.111 or later. If you see a `thinking.type.enabled` API error, see [Troubleshooting](/en/agent-sdk/quickstart#troubleshooting).
+  Opus 4.7 (`claude-opus-4-7`) requires Agent SDK v0.2.111 or later. If you see a `thinking.type.enabled` API error, see [Troubleshooting](https://code.claude.com/docs/en/agent-sdk/Troubleshooting).
 </Note>
 
 <CodeGroup>
@@ -27,14 +27,12 @@ Build AI agents that autonomously read files, run commands, search the web, edit
   import asyncio
   from claude_agent_sdk import query, ClaudeAgentOptions
 
-
   async def main():
       async for message in query(
           prompt="Find and fix the bug in auth.py",
           options=ClaudeAgentOptions(allowed_tools=["Read", "Edit", "Bash"]),
       ):
           print(message)  # Claude reads the file, finds the bug, edits it
-
 
   asyncio.run(main())
   ```
@@ -87,7 +85,7 @@ The Agent SDK includes built-in tools for reading files, running commands, and e
   </Step>
 
   <Step title="Set your API key">
-    Get an API key from the [Console](https://platform.claude.com/), then set it as an environment variable:
+    Get an API key from the [Console](https://code.claude.com/docs/en/agent-sdk/Console), then set it as an environment variable:
 
     ```bash theme={null}
     export ANTHROPIC_API_KEY=your-api-key
@@ -99,7 +97,7 @@ The Agent SDK includes built-in tools for reading files, running commands, and e
     * **Google Vertex AI**: set `CLAUDE_CODE_USE_VERTEX=1` environment variable and configure Google Cloud credentials
     * **Microsoft Azure**: set `CLAUDE_CODE_USE_FOUNDRY=1` environment variable and configure Azure credentials
 
-    See the setup guides for [Bedrock](/en/amazon-bedrock), [Vertex AI](/en/google-vertex-ai), or [Azure AI Foundry](/en/microsoft-foundry) for details.
+    See the setup guides for [Bedrock](https://code.claude.com/docs/en/agent-sdk/Bedrock), [Vertex AI](https://code.claude.com/docs/en/agent-sdk/Vertex AI), or [Azure AI Foundry](https://code.claude.com/docs/en/agent-sdk/Azure AI Foundry) for details.
 
     <Note>
       Unless previously approved, Anthropic does not allow third party developers to offer claude.ai login or rate limits for their products, including agents built on the Claude Agent SDK. Please use the API key authentication methods described in this document instead.
@@ -114,7 +112,6 @@ The Agent SDK includes built-in tools for reading files, running commands, and e
       import asyncio
       from claude_agent_sdk import query, ClaudeAgentOptions
 
-
       async def main():
           async for message in query(
               prompt="What files are in this directory?",
@@ -122,7 +119,6 @@ The Agent SDK includes built-in tools for reading files, running commands, and e
           ):
               if hasattr(message, "result"):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -141,7 +137,7 @@ The Agent SDK includes built-in tools for reading files, running commands, and e
   </Step>
 </Steps>
 
-**Ready to build?** Follow the [Quickstart](/en/agent-sdk/quickstart) to create an agent that finds and fixes bugs in minutes.
+**Ready to build?** Follow the [Quickstart](https://code.claude.com/docs/en/agent-sdk/Quickstart) to create an agent that finds and fixes bugs in minutes.
 
 ## Capabilities
 
@@ -162,7 +158,7 @@ Everything that makes Claude Code powerful is available in the SDK:
     | **Grep**                                                                    | Search file contents with regex                                     |
     | **WebSearch**                                                               | Search the web for current information                              |
     | **WebFetch**                                                                | Fetch and parse web page content                                    |
-    | **[AskUserQuestion](/en/agent-sdk/user-input#handle-clarifying-questions)** | Ask the user clarifying questions with multiple choice options      |
+    | **[AskUserQuestion](https://code.claude.com/docs/en/agent-sdk/AskUserQuestion)** | Ask the user clarifying questions with multiple choice options      |
 
     This example creates an agent that searches your codebase for TODO comments:
 
@@ -171,7 +167,6 @@ Everything that makes Claude Code powerful is available in the SDK:
       import asyncio
       from claude_agent_sdk import query, ClaudeAgentOptions
 
-
       async def main():
           async for message in query(
               prompt="Find all TODO comments and create a summary",
@@ -179,7 +174,6 @@ Everything that makes Claude Code powerful is available in the SDK:
           ):
               if hasattr(message, "result"):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -210,13 +204,11 @@ Everything that makes Claude Code powerful is available in the SDK:
       from datetime import datetime
       from claude_agent_sdk import query, ClaudeAgentOptions, HookMatcher
 
-
       async def log_file_change(input_data, tool_use_id, context):
           file_path = input_data.get("tool_input", {}).get("file_path", "unknown")
           with open("./audit.log", "a") as f:
               f.write(f"{datetime.now()}: modified {file_path}\n")
           return {}
-
 
       async def main():
           async for message in query(
@@ -232,7 +224,6 @@ Everything that makes Claude Code powerful is available in the SDK:
           ):
               if hasattr(message, "result"):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -261,7 +252,7 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```
     </CodeGroup>
 
-    [Learn more about hooks →](/en/agent-sdk/hooks)
+    [Learn more about hooks →](https://code.claude.com/docs/en/agent-sdk/Learn more about hooks →)
   </Tab>
 
   <Tab title="Subagents">
@@ -273,7 +264,6 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```python Python theme={null}
       import asyncio
       from claude_agent_sdk import query, ClaudeAgentOptions, AgentDefinition
-
 
       async def main():
           async for message in query(
@@ -291,7 +281,6 @@ Everything that makes Claude Code powerful is available in the SDK:
           ):
               if hasattr(message, "result"):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -319,19 +308,18 @@ Everything that makes Claude Code powerful is available in the SDK:
 
     Messages from within a subagent's context include a `parent_tool_use_id` field, letting you track which messages belong to which subagent execution.
 
-    [Learn more about subagents →](/en/agent-sdk/subagents)
+    [Learn more about subagents →](https://code.claude.com/docs/en/agent-sdk/Learn more about subagents →)
   </Tab>
 
   <Tab title="MCP">
-    Connect to external systems via the Model Context Protocol: databases, browsers, APIs, and [hundreds more](https://github.com/modelcontextprotocol/servers).
+    Connect to external systems via the Model Context Protocol: databases, browsers, APIs, and [hundreds more](https://code.claude.com/docs/en/agent-sdk/hundreds more).
 
-    This example connects the [Playwright MCP server](https://github.com/microsoft/playwright-mcp) to give your agent browser automation capabilities:
+    This example connects the [Playwright MCP server](https://code.claude.com/docs/en/agent-sdk/Playwright MCP server) to give your agent browser automation capabilities:
 
     <CodeGroup>
       ```python Python theme={null}
       import asyncio
       from claude_agent_sdk import query, ClaudeAgentOptions
-
 
       async def main():
           async for message in query(
@@ -344,7 +332,6 @@ Everything that makes Claude Code powerful is available in the SDK:
           ):
               if hasattr(message, "result"):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -365,14 +352,14 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```
     </CodeGroup>
 
-    [Learn more about MCP →](/en/agent-sdk/mcp)
+    [Learn more about MCP →](https://code.claude.com/docs/en/agent-sdk/Learn more about MCP →)
   </Tab>
 
   <Tab title="Permissions">
     Control exactly which tools your agent can use. Allow safe operations, block dangerous ones, or require approval for sensitive actions.
 
     <Note>
-      For interactive approval prompts and the `AskUserQuestion` tool, see [Handle approvals and user input](/en/agent-sdk/user-input).
+      For interactive approval prompts and the `AskUserQuestion` tool, see [Handle approvals and user input](https://code.claude.com/docs/en/agent-sdk/Handle approvals and user input).
     </Note>
 
     This example creates a read-only agent that can analyze but not modify code. `allowed_tools` pre-approves `Read`, `Glob`, and `Grep`.
@@ -381,7 +368,6 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```python Python theme={null}
       import asyncio
       from claude_agent_sdk import query, ClaudeAgentOptions
-
 
       async def main():
           async for message in query(
@@ -392,7 +378,6 @@ Everything that makes Claude Code powerful is available in the SDK:
           ):
               if hasattr(message, "result"):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -411,7 +396,7 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```
     </CodeGroup>
 
-    [Learn more about permissions →](/en/agent-sdk/permissions)
+    [Learn more about permissions →](https://code.claude.com/docs/en/agent-sdk/Learn more about permissions →)
   </Tab>
 
   <Tab title="Sessions">
@@ -423,7 +408,6 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```python Python theme={null}
       import asyncio
       from claude_agent_sdk import query, ClaudeAgentOptions, SystemMessage, ResultMessage
-
 
       async def main():
           session_id = None
@@ -443,7 +427,6 @@ Everything that makes Claude Code powerful is available in the SDK:
           ):
               if isinstance(message, ResultMessage):
                   print(message.result)
-
 
       asyncio.run(main())
       ```
@@ -473,7 +456,7 @@ Everything that makes Claude Code powerful is available in the SDK:
       ```
     </CodeGroup>
 
-    [Learn more about sessions →](/en/agent-sdk/sessions)
+    [Learn more about sessions →](https://code.claude.com/docs/en/agent-sdk/Learn more about sessions →)
   </Tab>
 </Tabs>
 
@@ -483,10 +466,10 @@ The SDK also supports Claude Code's filesystem-based configuration. With default
 
 | Feature                                          | Description                                          | Location                           |
 | ------------------------------------------------ | ---------------------------------------------------- | ---------------------------------- |
-| [Skills](/en/agent-sdk/skills)                   | Specialized capabilities defined in Markdown         | `.claude/skills/*/SKILL.md`        |
-| [Slash commands](/en/agent-sdk/slash-commands)   | Custom commands for common tasks                     | `.claude/commands/*.md`            |
-| [Memory](/en/agent-sdk/modifying-system-prompts) | Project context and instructions                     | `CLAUDE.md` or `.claude/CLAUDE.md` |
-| [Plugins](/en/agent-sdk/plugins)                 | Extend with custom commands, agents, and MCP servers | Programmatic via `plugins` option  |
+| [Skills](https://code.claude.com/docs/en/agent-sdk/Skills)                   | Specialized capabilities defined in Markdown         | `.claude/skills/*/SKILL.md`        |
+| [Slash commands](https://code.claude.com/docs/en/agent-sdk/Slash commands)   | Custom commands for common tasks                     | `.claude/commands/*.md`            |
+| [Memory](https://code.claude.com/docs/en/agent-sdk/Memory) | Project context and instructions                     | `CLAUDE.md` or `.claude/CLAUDE.md` |
+| [Plugins](https://code.claude.com/docs/en/agent-sdk/Plugins)                 | Extend with custom commands, agents, and MCP servers | Programmatic via `plugins` option  |
 
 ## Compare the Agent SDK to other Claude tools
 
@@ -494,7 +477,7 @@ The Claude Platform offers multiple ways to build with Claude. Here's how the Ag
 
 <Tabs>
   <Tab title="Agent SDK vs Client SDK">
-    The [Anthropic Client SDK](https://platform.claude.com/docs/en/api/client-sdks) gives you direct API access: you send prompts and implement tool execution yourself. The **Agent SDK** gives you Claude with built-in tool execution.
+    The [Anthropic Client SDK](https://code.claude.com/docs/en/agent-sdk/Anthropic Client SDK) gives you direct API access: you send prompts and implement tool execution yourself. The **Agent SDK** gives you Claude with built-in tool execution.
 
     With the Client SDK, you implement a tool loop. With the Agent SDK, Claude handles it:
 
@@ -542,7 +525,7 @@ The Claude Platform offers multiple ways to build with Claude. Here's how the Ag
   </Tab>
 
   <Tab title="Agent SDK vs Managed Agents">
-    [Managed Agents](https://platform.claude.com/docs/en/managed-agents/overview) is a hosted REST API: Anthropic runs the agent and the sandbox, and your application sends events and streams back results. The **Agent SDK** is a library that runs the agent loop inside your own process.
+    [Managed Agents](https://code.claude.com/docs/en/agent-sdk/Managed Agents) is a hosted REST API: Anthropic runs the agent and the sandbox, and your application sends events and streams back results. The **Agent SDK** is a library that runs the agent loop inside your own process.
 
     |                    | Agent SDK                                                                    | Managed Agents                                                                                                |
     | ------------------ | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
@@ -561,15 +544,15 @@ The Claude Platform offers multiple ways to build with Claude. Here's how the Ag
 
 View the full changelog for SDK updates, bug fixes, and new features:
 
-* **TypeScript SDK**: [view CHANGELOG.md](https://github.com/anthropics/claude-agent-sdk-typescript/blob/main/CHANGELOG.md)
-* **Python SDK**: [view CHANGELOG.md](https://github.com/anthropics/claude-agent-sdk-python/blob/main/CHANGELOG.md)
+* **TypeScript SDK**: [view CHANGELOG.md](https://code.claude.com/docs/en/agent-sdk/view CHANGELOG.md)
+* **Python SDK**: [view CHANGELOG.md](https://code.claude.com/docs/en/agent-sdk/view CHANGELOG.md)
 
 ## Reporting bugs
 
 If you encounter bugs or issues with the Agent SDK:
 
-* **TypeScript SDK**: [report issues on GitHub](https://github.com/anthropics/claude-agent-sdk-typescript/issues)
-* **Python SDK**: [report issues on GitHub](https://github.com/anthropics/claude-agent-sdk-python/issues)
+* **TypeScript SDK**: [report issues on GitHub](https://code.claude.com/docs/en/agent-sdk/report issues on GitHub)
+* **Python SDK**: [report issues on GitHub](https://code.claude.com/docs/en/agent-sdk/report issues on GitHub)
 
 ## Branding guidelines
 
@@ -586,11 +569,11 @@ For partners integrating the Claude Agent SDK, use of Claude branding is optiona
 * "Claude Code" or "Claude Code Agent"
 * Claude Code-branded ASCII art or visual elements that mimic Claude Code
 
-Your product should maintain its own branding and not appear to be Claude Code or any Anthropic product. For questions about branding compliance, contact the Anthropic [sales team](https://www.anthropic.com/contact-sales).
+Your product should maintain its own branding and not appear to be Claude Code or any Anthropic product. For questions about branding compliance, contact the Anthropic [sales team](https://code.claude.com/docs/en/agent-sdk/sales team).
 
 ## License and terms
 
-Use of the Claude Agent SDK is governed by [Anthropic's Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms), including when you use it to power products and services that you make available to your own customers and end users, except to the extent a specific component or dependency is covered by a different license as indicated in that component's LICENSE file.
+Use of the Claude Agent SDK is governed by [Anthropic's Commercial Terms of Service](https://code.claude.com/docs/en/agent-sdk/Anthropic's Commercial Terms of Service), including when you use it to power products and services that you make available to your own customers and end users, except to the extent a specific component or dependency is covered by a different license as indicated in that component's LICENSE file.
 
 ## Next steps
 

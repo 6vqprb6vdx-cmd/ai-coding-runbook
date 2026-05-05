@@ -4,26 +4,26 @@ fetched_at: 2026-05-05T13:10:38.925508+00:00
 title: "Resoluci\u00f3n de contenido multimedia \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Página principal](https://ai.google.dev/gemini-api/docs/Página principal)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documentos](https://ai.google.dev/gemini-api/docs/Documentos)
 
 Enviar comentarios
 
 # Resolución de contenido multimedia
 
-El parámetro `media_resolution` controla cómo la API de Gemini procesa las entradas de medios, como imágenes, videos y documentos PDF, ya que determina la **cantidad máxima de tokens** asignados para las entradas de medios, lo que te permite equilibrar la calidad de la respuesta con la latencia y el costo. Para conocer los diferentes parámetros de configuración, los valores predeterminados y cómo se corresponden con los tokens, consulta la sección [Recuento de tokens](#token-counts).
+El parámetro `media_resolution` controla cómo la API de Gemini procesa las entradas de medios, como imágenes, videos y documentos PDF, ya que determina la **cantidad máxima de tokens** asignados para las entradas de medios, lo que te permite equilibrar la calidad de la respuesta con la latencia y el costo. Para conocer los diferentes parámetros de configuración, los valores predeterminados y cómo se corresponden con los tokens, consulta la sección [Recuento de tokens](https://ai.google.dev/gemini-api/docs/Recuento de tokens).
 
 Puedes configurar la resolución de los medios de dos maneras:
 
-- [Por parte](https://ai.google.dev/gemini-api/docs/media-resolution?hl=es-419#per-part-media-resolution) (solo Gemini 3)
-- [Globalmente](https://ai.google.dev/gemini-api/docs/media-resolution?hl=es-419#global-media-resolution) para toda la solicitud de `generateContent` (todos los modelos multimodales)
+- [Por parte](https://ai.google.dev/gemini-api/docs/Por parte) (solo Gemini 3)
+- [Globalmente](https://ai.google.dev/gemini-api/docs/Globalmente) para toda la solicitud de `generateContent` (todos los modelos multimodales)
 
 ## Resolución de medios por parte (solo Gemini 3)
 
-Gemini 3 te permite establecer la resolución de los medios para objetos multimedia individuales dentro de tu solicitud, lo que ofrece una optimización detallada del uso de tokens. Puedes combinar niveles de resolución en una sola solicitud. Por ejemplo, usar alta resolución para un diagrama complejo y baja resolución para una imagen contextual simple. Este parámetro de configuración anula cualquier configuración global para una parte específica. Para conocer la configuración predeterminada, consulta la sección [Recuentos de tokens](https://ai.google.dev/gemini-api/docs/media-resolution?hl=es-419#token-counts).
+Gemini 3 te permite establecer la resolución de los medios para objetos multimedia individuales dentro de tu solicitud, lo que ofrece una optimización detallada del uso de tokens. Puedes combinar niveles de resolución en una sola solicitud. Por ejemplo, usar alta resolución para un diagrama complejo y baja resolución para una imagen contextual simple. Este parámetro de configuración anula cualquier configuración global para una parte específica. Para conocer la configuración predeterminada, consulta la sección [Recuentos de tokens](https://ai.google.dev/gemini-api/docs/Recuentos de tokens).
 
 ### Python
 
@@ -128,7 +128,7 @@ curl -s -X POST \
 
 ## Resolución de medios global
 
-Puedes establecer una resolución predeterminada para todas las partes de los medios en una solicitud con `GenerationConfig`. Todos los modelos multimodales admiten esta función. Si una solicitud incluye la configuración global y la [configuración por parte](https://ai.google.dev/gemini-api/docs/media-resolution?hl=es-419#per-part-media-resolution), la configuración por parte tendrá prioridad para ese elemento específico.
+Puedes establecer una resolución predeterminada para todas las partes de los medios en una solicitud con `GenerationConfig`. Todos los modelos multimodales admiten esta función. Si una solicitud incluye la configuración global y la [configuración por parte](https://ai.google.dev/gemini-api/docs/configuración por parte), la configuración por parte tendrá prioridad para ese elemento específico.
 
 ### Python
 
@@ -204,7 +204,7 @@ La API de Gemini define los siguientes niveles de resolución de medios:
 - `MEDIA_RESOLUTION_LOW`: Recuento de tokens más bajo, lo que genera un procesamiento más rápido y un costo menor, pero con menos detalles.
 - `MEDIA_RESOLUTION_MEDIUM`: Un equilibrio entre detalle, costo y latencia.
 - `MEDIA_RESOLUTION_HIGH`: Mayor recuento de tokens, lo que proporciona más detalles para que el modelo trabaje, a costa de una mayor latencia y costo.
-- `MEDIA_RESOLUTION_ULTRA_HIGH` (solo por parte): Es el recuento de tokens más alto, necesario para casos de uso específicos, como el [uso de computadoras](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419).
+- `MEDIA_RESOLUTION_ULTRA_HIGH` (solo por parte): Es el recuento de tokens más alto, necesario para casos de uso específicos, como el [uso de computadoras](https://ai.google.dev/gemini-api/docs/uso de computadoras).
 
 Ten en cuenta que `MEDIA_RESOLUTION_HIGH` proporciona el rendimiento óptimo para la mayoría de los casos de uso.
 
@@ -265,14 +265,12 @@ Siempre prueba y evalúa el impacto de los diferentes parámetros de configuraci
 
 ## Próximos pasos
 
-- Obtén más información sobre las capacidades multimodales de la API de Gemini en las guías de [comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419), [comprensión de videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419) y [comprensión de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419).
+- Obtén más información sobre las capacidades multimodales de la API de Gemini en las guías de [comprensión de imágenes](https://ai.google.dev/gemini-api/docs/comprensión de imágenes), [comprensión de videos](https://ai.google.dev/gemini-api/docs/comprensión de videos) y [comprensión de documentos](https://ai.google.dev/gemini-api/docs/comprensión de documentos).
 
 Enviar comentarios
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://ai.google.dev/gemini-api/docs/licencia Atribución 4.0 de Creative Commons), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://ai.google.dev/gemini-api/docs/licencia Apache 2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://ai.google.dev/gemini-api/docs/políticas del sitio de Google Developers). Java es una marca registrada de Oracle o sus afiliados.
 
 Última actualización: 2026-04-29 (UTC)
 
 ¿Quieres brindar más información?
-
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]

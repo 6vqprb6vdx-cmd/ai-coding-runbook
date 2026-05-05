@@ -10,15 +10,15 @@ Policy
 
 Nov 13, 2025
 
-[Read the report](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf)
+[Read the report](https://www.anthropic.com/news/Read the report)
 
 ![Disrupting the first reported AI-orchestrated cyber espionage campaign](https://www-cdn.anthropic.com/images/4zrzovbb/website/e029027e0b3beeb5b629bd4a26143597e7775b38-1000x1000.svg)
 
-We recently argued that an [inflection point](https://www.anthropic.com/research/building-ai-cyber-defenders) had been reached in cybersecurity: a point at which AI models had become genuinely useful for cybersecurity operations, both for good and for ill. This was based on systematic evaluations showing cyber capabilities doubling in six months; we’d also been tracking real-world cyberattacks, observing how malicious actors were using AI capabilities. While we predicted these capabilities would continue to evolve, what has stood out to us is how quickly they have done so at scale.
+We recently argued that an [inflection point](https://www.anthropic.com/news/inflection point) had been reached in cybersecurity: a point at which AI models had become genuinely useful for cybersecurity operations, both for good and for ill. This was based on systematic evaluations showing cyber capabilities doubling in six months; we’d also been tracking real-world cyberattacks, observing how malicious actors were using AI capabilities. While we predicted these capabilities would continue to evolve, what has stood out to us is how quickly they have done so at scale.
 
 In mid-September 2025, we detected suspicious activity that later investigation determined to be a highly sophisticated espionage campaign. The attackers used AI’s “agentic” capabilities to an unprecedented degree—using AI not just as an advisor, but to execute the cyberattacks themselves.
 
-The threat actor—whom we assess with high confidence was a Chinese state-sponsored group—manipulated our [Claude Code](https://www.claude.com/product/claude-code) tool into attempting infiltration into roughly thirty global targets and succeeded in a small number of cases. The operation targeted large tech companies, financial institutions, chemical manufacturing companies, and government agencies. We believe this is the first documented case of a large-scale cyberattack executed without substantial human intervention.
+The threat actor—whom we assess with high confidence was a Chinese state-sponsored group—manipulated our [Claude Code](https://www.anthropic.com/news/Claude Code) tool into attempting infiltration into roughly thirty global targets and succeeded in a small number of cases. The operation targeted large tech companies, financial institutions, chemical manufacturing companies, and government agencies. We believe this is the first documented case of a large-scale cyberattack executed without substantial human intervention.
 
 Upon detecting this activity, we immediately launched an investigation to understand its scope and nature. Over the following ten days, as we mapped the severity and full extent of the operation, we banned accounts as they were identified, notified affected entities as appropriate, and coordinated with authorities as we gathered actionable intelligence.
 
@@ -28,7 +28,7 @@ These attacks are likely to only grow in their effectiveness. To keep pace with 
 
 In the meantime, we’re sharing this case publicly, to help those in industry, government, and the wider research community strengthen their own cyber defenses. We’ll continue to release reports like this regularly, and be transparent about the threats we find.
 
-Read [the full report](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf).
+Read [the full report](https://www.anthropic.com/news/the full report).
 
 ## How the cyberattack worked
 
@@ -36,11 +36,9 @@ The attack relied on several features of AI models that did not exist, or were i
 
 1. *Intelligence.* Models’ general levels of capability have increased to the point that they can follow complex instructions and understand context in ways that make very sophisticated tasks possible. Not only that, but several of their well-developed specific skills—in particular, software coding—lend themselves to being used in cyberattacks.
 2. *Agency*. Models can act as agents—that is, they can run in loops where they take autonomous actions, chain together tasks, and make decisions with only minimal, occasional human input.
-3. *Tools*. Models have access to a wide array of software tools (often via the open standard [Model Context Protocol](https://modelcontextprotocol.io/docs/getting-started/intro)). They can now search the web, retrieve data, and perform many other actions that were previously the sole domain of human operators. In the case of cyberattacks, the tools might include password crackers, network scanners, and other security-related software.
+3. *Tools*. Models have access to a wide array of software tools (often via the open standard [Model Context Protocol](https://www.anthropic.com/news/Model Context Protocol)). They can now search the web, retrieve data, and perform many other actions that were previously the sole domain of human operators. In the case of cyberattacks, the tools might include password crackers, network scanners, and other security-related software.
 
 The diagram below shows the different phases of the attack, each of which required all three of the above developments:
-
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fb0d38712e4f7b8002bb3a2734ceeb33f34817a43-2755x2050.png&w=3840&q=75)
 
 The lifecycle of the cyberattack, showing the move from human-led targeting to largely AI-driven attacks using various tools (often via the Model Context Protocol; MCP). At various points during the attack, the AI returns to its human operator for review and further direction.
 
@@ -62,13 +60,13 @@ Claude didn’t always work perfectly. It occasionally hallucinated credentials 
 
 The barriers to performing sophisticated cyberattacks have dropped substantially—and we predict that they’ll continue to do so. With the correct setup, threat actors can now use agentic AI systems for extended periods to do the work of entire teams of experienced hackers: analyzing target systems, producing exploit code, and scanning vast datasets of stolen information more efficiently than any human operator. Less experienced and resourced groups can now potentially perform large-scale attacks of this nature.
 
-This attack is an escalation even on the “vibe hacking” findings we [reported this summer](https://www.anthropic.com/news/detecting-countering-misuse-aug-2025): in those operations, humans were very much still in the loop, directing the operations. Here, human involvement was much less frequent, despite the larger scale of the attack. And although we only have visibility into Claude usage, this case study probably reflects consistent patterns of behavior across frontier AI models and demonstrates how threat actors are adapting their operations to exploit today’s most advanced AI capabilities.
+This attack is an escalation even on the “vibe hacking” findings we [reported this summer](https://www.anthropic.com/news/reported this summer): in those operations, humans were very much still in the loop, directing the operations. Here, human involvement was much less frequent, despite the larger scale of the attack. And although we only have visibility into Claude usage, this case study probably reflects consistent patterns of behavior across frontier AI models and demonstrates how threat actors are adapting their operations to exploit today’s most advanced AI capabilities.
 
 This raises an important question: if AI models can be misused for cyberattacks at this scale, why continue to develop and release them? The answer is that the very abilities that allow Claude to be used in these attacks also make it crucial for cyber defense. When sophisticated cyberattacks inevitably occur, our goal is for Claude—into which we’ve built strong safeguards—to assist cybersecurity professionals to detect, disrupt, and prepare for future versions of the attack. Indeed, our Threat Intelligence team used Claude extensively in analyzing the enormous amounts of data generated during this very investigation.
 
 A fundamental change has occurred in cybersecurity. We advise security teams to experiment with applying AI for defense in areas like Security Operations Center automation, threat detection, vulnerability assessment, and incident response. We also advise developers to continue to invest in safeguards across their AI platforms, to prevent adversarial misuse. The techniques described above will doubtless be used by many more attackers—which makes industry threat sharing, improved detection methods, and stronger safety controls all the more critical.
 
-Read [the full report](https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf).
+Read [the full report](https://www.anthropic.com/news/the full report).
 
 *Edited November 14 2025:*
 
@@ -79,12 +77,12 @@ Read [the full report](https://assets.anthropic.com/m/ec212e6566a0d47/original/D
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

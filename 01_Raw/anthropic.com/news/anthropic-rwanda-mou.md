@@ -12,13 +12,13 @@ Feb 17, 2026
 
 ![Anthropic and the Government of Rwanda sign MOU for AI in health and education](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
-The Government of Rwanda and Anthropic have signed a three-year Memorandum of Understanding to formalize and expand our partnership, bringing AI to Rwanda’s education, health, and public sector systems. This agreement builds on the [ALX education partnership we announced in November 2025](http://anthropic.com/news/rwandan-government-partnership-ai-education) and marks the first time Anthropic has formalized a multi-sector partnership through a government MOU on the African continent.
+The Government of Rwanda and Anthropic have signed a three-year Memorandum of Understanding to formalize and expand our partnership, bringing AI to Rwanda’s education, health, and public sector systems. This agreement builds on the [ALX education partnership we announced in November 2025](https://www.anthropic.com/news/ALX education partnership we announced in November 2025) and marks the first time Anthropic has formalized a multi-sector partnership through a government MOU on the African continent.
 
 Our collaboration spans three areas:
 
 - **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
 - **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
-- **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies [our fall 2025 education agreement](https://www.anthropic.com/news/rwandan-government-partnership-ai-education), which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
+- **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies [our fall 2025 education agreement](https://www.anthropic.com/news/our fall 2025 education agreement), which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
 
 ## Accelerating AI for health, education, and the public sector
 
@@ -38,12 +38,12 @@ Together, these partnerships reflect a long-term collaboration that prioritizes 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

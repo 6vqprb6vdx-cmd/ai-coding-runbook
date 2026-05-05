@@ -4,21 +4,21 @@ fetched_at: 2026-05-05T13:11:50.526793+00:00
 title: "\u05d9\u05e6\u05d9\u05e8\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [דף הבית](https://ai.google.dev/gemini-api/docs/דף הבית)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
 
 שליחת משוב
 
 # יצירת תמונות באמצעות Imagen
 
-‫Imagen הוא מודל של Google ליצירת תמונות באיכות גבוהה, שיכול ליצור תמונות מציאותיות ואיכותיות מהנחיות טקסט. כל התמונות שנוצרו כוללות סימן מים של SynthID. מידע נוסף על הווריאציות הזמינות של מודל Imagen זמין בקטע [גרסאות המודל](#model-versions).
+‫Imagen הוא מודל של Google ליצירת תמונות באיכות גבוהה, שיכול ליצור תמונות מציאותיות ואיכותיות מהנחיות טקסט. כל התמונות שנוצרו כוללות סימן מים של SynthID. מידע נוסף על הווריאציות הזמינות של מודל Imagen זמין בקטע [גרסאות המודל](https://ai.google.dev/gemini-api/docs/גרסאות המודל).
 
 ## יצירת תמונות באמצעות מודלים של Imagen
 
-בדוגמה הזו מוצגת יצירת תמונות באמצעות [מודל Imagen](https://deepmind.google/technologies/imagen/?hl=he):
+בדוגמה הזו מוצגת יצירת תמונות באמצעות [מודל Imagen](https://ai.google.dev/gemini-api/docs/מודל Imagen):
 
 ### Python
 
@@ -479,14 +479,12 @@ sporty electric sedan with skyscrapers in the background"*
 
 ### Imagen 3
 
-מודל Imagen 3 [יצא משימוש](https://ai.google.dev/gemini-api/docs/deprecations?hl=he).
+מודל Imagen 3 [יצא משימוש](https://ai.google.dev/gemini-api/docs/יצא משימוש).
 
 שליחת משוב
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://ai.google.dev/gemini-api/docs/מדיניות האתר Google Developers‏).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
 עדכון אחרון: 2026-04-29 (שעון UTC).
 
 רוצה לתת לנו משוב?
-
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

@@ -4,20 +4,20 @@ fetched_at: 2026-05-05T13:27:59.565060+00:00
 title: "Agent de recherche avec Gemini et LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/recherche approfondie Gemini) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Accueil](https://ai.google.dev/gemini-api/docs/Accueil)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
 
 Envoyer des commentaires
 
 # Agent de recherche avec Gemini et LlamaIndex
 
-LlamaIndex est un framework permettant de créer des agents de connaissances à l'aide de LLM connectés à vos données. Cet exemple vous montre comment créer un workflow multi-agents pour un agent de recherche. Dans LlamaIndex, les [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
+LlamaIndex est un framework permettant de créer des agents de connaissances à l'aide de LLM connectés à vos données. Cet exemple vous montre comment créer un workflow multi-agents pour un agent de recherche. Dans LlamaIndex, les [`Workflows`](https://ai.google.dev/gemini-api/docs/`Workflows`)
 sont les éléments constitutifs des systèmes mono-agent et multi-agents.
 
-Vous avez besoin d'une clé API Gemini. Si vous n'en avez pas encore, vous pouvez [en obtenir une dans Google AI Studio](https://aistudio.google.com/app/apikey?hl=fr).
+Vous avez besoin d'une clé API Gemini. Si vous n'en avez pas encore, vous pouvez [en obtenir une dans Google AI Studio](https://ai.google.dev/gemini-api/docs/en obtenir une dans Google AI Studio).
 Commencez par installer toutes les bibliothèques LlamaIndex requises. LlamaIndex utilise le package `google-genai` en arrière-plan.
 
 ```
@@ -26,7 +26,7 @@ pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai
 
 ## Configurer Gemini dans LlamaIndex
 
-Le moteur de tout agent LlamaIndex est un LLM qui gère le raisonnement et le traitement du texte. Cet exemple utilise Gemini 3 Flash. Assurez-vous de [définir votre clé API en tant que variable d'environnement](https://ai.google.dev/gemini-api/docs/api-key?hl=fr).
+Le moteur de tout agent LlamaIndex est un LLM qui gère le raisonnement et le traitement du texte. Cet exemple utilise Gemini 3 Flash. Assurez-vous de [définir votre clé API en tant que variable d'environnement](https://ai.google.dev/gemini-api/docs/définir votre clé API en tant que variable d'environnement).
 
 ```
 import os
@@ -40,7 +40,7 @@ llm = GoogleGenAI(model="gemini-3-flash-preview")
 
 ## Outils de compilation
 
-Les agents utilisent des outils pour interagir avec le monde extérieur, comme effectuer des recherches sur le Web ou stocker des informations. Les [outils de LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/) peuvent être des fonctions Python standards ou être importés à partir de `ToolSpecs` préexistants.
+Les agents utilisent des outils pour interagir avec le monde extérieur, comme effectuer des recherches sur le Web ou stocker des informations. Les [outils de LlamaIndex](https://ai.google.dev/gemini-api/docs/outils de LlamaIndex) peuvent être des fonctions Python standards ou être importés à partir de `ToolSpecs` préexistants.
 Gemini est fourni avec un outil intégré pour utiliser la recherche Google, qui est utilisé ici.
 
 ```
@@ -248,14 +248,12 @@ Le `AgentWorkflow` est un excellent moyen de se lancer dans les systèmes multi-
 - **Planification plus intelligente** : vous pouvez concevoir un workflow qui crée d'abord un plan détaillé avant que les agents ne commencent à travailler. Cela est utile pour les tâches complexes qui nécessitent plusieurs étapes.
 - **Activer l'auto-correction** : créez des agents capables de vérifier leur propre travail. Si le résultat n'est pas satisfaisant, l'agent peut réessayer, créant ainsi une boucle d'amélioration jusqu'à ce que le résultat soit parfait.
 
-Pour en savoir plus sur les workflows LlamaIndex, consultez la [documentation sur les workflows LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
+Pour en savoir plus sur les workflows LlamaIndex, consultez la [documentation sur les workflows LlamaIndex](https://ai.google.dev/gemini-api/docs/documentation sur les workflows LlamaIndex).
 
 Envoyer des commentaires
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0), et les échantillons de code sont régis par une licence [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://ai.google.dev/gemini-api/docs/Règles du site Google Developers). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
 Dernière mise à jour le 2026/04/29 (UTC).
 
 Voulez-vous nous donner plus d'informations ?
-
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:24:48.756362+00:00
 title: "\u05d0\u05d9\u05da \u05d9\u05d5\u05e6\u05e8\u05d9\u05dd \u05de\u05d5\u05d6\u05d9\u05e7\u05d4 \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [דף הבית](https://ai.google.dev/gemini-api/docs/דף הבית)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
 
 שליחת משוב
 
@@ -23,7 +23,7 @@ title: "\u05d0\u05d9\u05da \u05d9\u05d5\u05e6\u05e8\u05d9\u05dd \u05de\u05d5\u05
 | **Lyria 3 Clip** | `lyria-3-clip-preview` | קליפים קצרים, לופים, קטעים מקדימים | ‫30 שניות | MP3 |
 | ‫**Lyria 3 Pro** | `lyria-3-pro-preview` | שירים באורך מלא עם בתים, פזמונים וגשרים | כמה דקות (ניתן לשלוט באמצעות ההנחיה) | MP3 |
 
-אפשר להשתמש בשני המודלים באמצעות ה-method הרגילה `generateContent` ו-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=he) החדש, הם תומכים בקלט מולטי-מודאלי (טקסט ותמונות) ומפיקים אודיו **סטריאו באיכות גבוהה של 44.1kHz**.
+אפשר להשתמש בשני המודלים באמצעות ה-method הרגילה `generateContent` ו-[Interactions API](https://ai.google.dev/gemini-api/docs/Interactions API) החדש, הם תומכים בקלט מולטי-מודאלי (טקסט ותמונות) ומפיקים אודיו **סטריאו באיכות גבוהה של 44.1kHz**.
 
 ## יצירת קליפ מוזיקה
 
@@ -210,7 +210,7 @@ public class GenerateMusicClip {
 
 ## יצירת שיר באורך מלא
 
-אפשר להשתמש במודל `lyria-3-pro-preview` כדי ליצור שירים באורך מלא שנמשכים כמה דקות. מודל Pro מבין את המבנה המוזיקלי ויכול ליצור קומפוזיציות עם בתים, פזמונים וגשרים מובחנים. אפשר להשפיע על משך השיר על ידי ציון משך השיר בהנחיה (לדוגמה, 'צור שיר באורך 2 דקות') או על ידי שימוש [בחותמות זמן](#timing) כדי להגדיר את המבנה.
+אפשר להשתמש במודל `lyria-3-pro-preview` כדי ליצור שירים באורך מלא שנמשכים כמה דקות. מודל Pro מבין את המבנה המוזיקלי ויכול ליצור קומפוזיציות עם בתים, פזמונים וגשרים מובחנים. אפשר להשפיע על משך השיר על ידי ציון משך השיר בהנחיה (לדוגמה, 'צור שיר באורך 2 דקות') או על ידי שימוש [בחותמות זמן](https://ai.google.dev/gemini-api/docs/בחותמות זמן) כדי להגדיר את המבנה.
 
 ### Python
 
@@ -810,7 +810,7 @@ curl -s -X POST \
 
 [
 
-](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
+](https://ai.google.dev/gemini-api/docs/music-generation?hl=he)
 
 ## שליטה בתזמון ובמבנה
 
@@ -1085,7 +1085,7 @@ curl -s -X POST \
 
 ## Interactions API
 
-אתם יכולים להשתמש במודלים של Lyria 3 עם [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=he), ממשק מאוחד לאינטראקציה עם מודלים וסוכנים של Gemini. הוא מפשט את ניהול המצב ומשימות ארוכות טווח בתרחישי שימוש מורכבים עם כמה אמצעי קלט.
+אתם יכולים להשתמש במודלים של Lyria 3 עם [Interactions API](https://ai.google.dev/gemini-api/docs/Interactions API), ממשק מאוחד לאינטראקציה עם מודלים וסוכנים של Gemini. הוא מפשט את ניהול המצב ומשימות ארוכות טווח בתרחישי שימוש מורכבים עם כמה אמצעי קלט.
 
 ### Python
 
@@ -1300,7 +1300,7 @@ Go with the flow
 ## מגבלות
 
 - **בטיחות**: כל ההנחיות נבדקות על ידי מסנני בטיחות. הנחיות שמפעילות את המסננים ייחסמו. זה כולל הנחיות שמבקשות קולות ספציפיים של אומנים או יצירה של מילות שירים שמוגנות בזכויות יוצרים.
-- **סימני מים**: כל האודיו שנוצר כולל [סימן מים באודיו של SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=he) לצורך זיהוי. סימן המים הזה לא נשמע לאוזן אנושית ולא משפיע על חוויית ההאזנה.
+- **סימני מים**: כל האודיו שנוצר כולל [סימן מים באודיו של SynthID](https://ai.google.dev/gemini-api/docs/סימן מים באודיו של SynthID) לצורך זיהוי. סימן המים הזה לא נשמע לאוזן אנושית ולא משפיע על חוויית ההאזנה.
 - **עריכה בכמה שלבים**: יצירת מוזיקה היא תהליך חד-שלבי.
   בגרסה הנוכחית של Lyria 3 אין תמיכה בעריכה איטרטיבית או בשיפור של קליפ שנוצר באמצעות כמה הנחיות.
 - **אורך**: מודל הקליפים תמיד יוצר קליפים באורך 30 שניות. מודל Pro יוצר שירים באורך של כמה דקות. אפשר להשפיע על האורך המדויק באמצעות ההנחיה.
@@ -1308,19 +1308,17 @@ Go with the flow
 
 ## המאמרים הבאים
 
-- כדאי לעיין ב[תמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he) של מודלים של Lyria 3,
-- כדאי לנסות [יצירת מוזיקה בזמן אמת בסטרימינג](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=he) באמצעות Lyria RealTime,
-- יצירת שיחות עם כמה דוברים באמצעות [מודלים של TTS](https://ai.google.dev/gemini-api/docs/audio-generation?hl=he),
-- [איך יוצרים תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he) או [סרטונים](https://ai.google.dev/gemini-api/docs/video?hl=he)
-- [איך Gemini יכול להבין קובצי אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he),
-- מנהלים שיחה בזמן אמת עם Gemini באמצעות [Live API](https://ai.google.dev/gemini-api/docs/live?hl=he).
+- כדאי לעיין ב[תמחור](https://ai.google.dev/gemini-api/docs/תמחור) של מודלים של Lyria 3,
+- כדאי לנסות [יצירת מוזיקה בזמן אמת בסטרימינג](https://ai.google.dev/gemini-api/docs/יצירת מוזיקה בזמן אמת בסטרימינג) באמצעות Lyria RealTime,
+- יצירת שיחות עם כמה דוברים באמצעות [מודלים של TTS](https://ai.google.dev/gemini-api/docs/מודלים של TTS),
+- [איך יוצרים תמונות](https://ai.google.dev/gemini-api/docs/איך יוצרים תמונות) או [סרטונים](https://ai.google.dev/gemini-api/docs/סרטונים)
+- [איך Gemini יכול להבין קובצי אודיו](https://ai.google.dev/gemini-api/docs/איך Gemini יכול להבין קובצי אודיו),
+- מנהלים שיחה בזמן אמת עם Gemini באמצעות [Live API](https://ai.google.dev/gemini-api/docs/Live API).
 
 שליחת משוב
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://ai.google.dev/gemini-api/docs/מדיניות האתר Google Developers‏).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
 עדכון אחרון: 2026-04-28 (שעון UTC).
 
 רוצה לתת לנו משוב?
-
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-28 (שעון UTC)."],[],[]]

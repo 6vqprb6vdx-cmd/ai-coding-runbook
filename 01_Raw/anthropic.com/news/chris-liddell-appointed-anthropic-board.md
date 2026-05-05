@@ -14,7 +14,7 @@ Chris Liddell has been appointed to Anthropic’s Board of Directors. He brings 
 
 “Chris has spent his career at the intersection of technology, public service, and governance—and has a track record of helping organizations get those things right when the stakes are highest,” said Daniela Amodei, Co-founder and President of Anthropic. “As AI’s impact on society grows, that kind of judgement and experience is exactly what we seek on our board.”
 
-Liddell joins Dario Amodei, Daniela Amodei, [Yasmin Razavi](https://www.anthropic.com/news/anthropic-series-c), [Jay Kreps](https://www.anthropic.com/news/jay-kreps-appointed-to-board-of-directors), and [Reed Hastings](https://www.anthropic.com/news/reed-hastings) on Anthropic’s Board of Directors. Anthropic is a Public Benefit Corporation and its Board is elected by stockholders and the Long-Term Benefit Trust, as detailed [here](https://www.anthropic.com/news/the-long-term-benefit-trust).
+Liddell joins Dario Amodei, Daniela Amodei, [Yasmin Razavi](https://www.anthropic.com/news/Yasmin Razavi), [Jay Kreps](https://www.anthropic.com/news/Jay Kreps), and [Reed Hastings](https://www.anthropic.com/news/Reed Hastings) on Anthropic’s Board of Directors. Anthropic is a Public Benefit Corporation and its Board is elected by stockholders and the Long-Term Benefit Trust, as detailed [here](https://www.anthropic.com/news/here).
 
 “My career has taught me the governance of transformative technologies matters as much as the technologies themselves,” said Chris Liddell. “Anthropic’s approach—building AI that’s both capable and responsible—is critical for our future, and it’s why I’m proud to be joining the company’s Board.”
 
@@ -26,12 +26,12 @@ Beyond his corporate and public service career, Liddell has been recognized for 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

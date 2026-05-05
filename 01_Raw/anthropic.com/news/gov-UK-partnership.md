@@ -14,7 +14,7 @@ Jan 27, 2026
 
 Anthropic has been selected by the UK's Department for Science, Innovation and Technology (DSIT) to help build and pilot a dedicated AI-powered assistant for GOV.UK. The AI assistant will help people navigate government services and give tailored advice. The initial use case is employment: helping people find work, access training, understand the support and resources available, and more.
 
-This builds on the [Memorandum of Understanding](https://www.anthropic.com/news/mou-uk-government) Anthropic signed in February 2025 with the UK government to explore how advanced AI could transform public services for UK citizens.
+This builds on the [Memorandum of Understanding](https://www.anthropic.com/news/Memorandum of Understanding) Anthropic signed in February 2025 with the UK government to explore how advanced AI could transform public services for UK citizens.
 
 ### **AI for UK government services that puts safety first**
 
@@ -40,18 +40,18 @@ Our London office is home to a growing team of AI researchers, and continues to 
 
 ### **Bringing AI to public services around the world**
 
-This initiative with DSIT is part of a growing trend of governments and organizations partnering with Anthropic to deploy AI for public benefit. In the UK, we partner with the London School of Economics to provide students access to Claude. In Iceland, we've [partnered](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots) with the Ministry of Education and Children to launch one of the world's first national AI education pilots, giving teachers across the country access to Claude to support lesson preparation and student learning. Anthropic has also recently partnered with the [Rwandan Government](https://www.anthropic.com/news/rwandan-government-partnership-ai-education) to bring AI education to hundreds of thousands of learners across the country.
+This initiative with DSIT is part of a growing trend of governments and organizations partnering with Anthropic to deploy AI for public benefit. In the UK, we partner with the London School of Economics to provide students access to Claude. In Iceland, we've [partnered](https://www.anthropic.com/news/partnered) with the Ministry of Education and Children to launch one of the world's first national AI education pilots, giving teachers across the country access to Claude to support lesson preparation and student learning. Anthropic has also recently partnered with the [Rwandan Government](https://www.anthropic.com/news/Rwandan Government) to bring AI education to hundreds of thousands of learners across the country.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

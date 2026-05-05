@@ -30,7 +30,7 @@ Beyond the classroom, Anthropic and CodePath will collaborate on public research
 
 ## **A broader commitment to AI education**
 
-This partnership builds on Anthropic’s work to put AI tools in the hands of educators and students. We’re partnering with the [American Federation of Teachers (AFT)](https://www.aft.org/press-release/aft-launch-national-academy-ai-instruction-microsoft-openai-anthropic-and-united) to offer free AI training to their 1.8 million members across the US. In [Iceland](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots), we launched one of the world’s first national AI education pilots with the Ministry of Education and Children, giving teachers across the country access to Claude. In [Rwanda](https://www.anthropic.com/news/rwandan-government-partnership-ai-education), we’re working with the government and ALX to bring a Claude-powered learning companion to hundreds of thousands of students and young professionals across Africa. We also signed the White House’s “[Pledge to America’s Youth: Investing in AI Education](https://www.anthropic.com/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education),” committing to expand AI education nationwide through investments in cybersecurity education, the Presidential AI Challenge, and a free AI curriculum for educators.
+This partnership builds on Anthropic’s work to put AI tools in the hands of educators and students. We’re partnering with the [American Federation of Teachers (AFT)](https://www.anthropic.com/news/American Federation of Teachers (AFT)) to offer free AI training to their 1.8 million members across the US. In [Iceland](https://www.anthropic.com/news/Iceland), we launched one of the world’s first national AI education pilots with the Ministry of Education and Children, giving teachers across the country access to Claude. In [Rwanda](https://www.anthropic.com/news/Rwanda), we’re working with the government and ALX to bring a Claude-powered learning companion to hundreds of thousands of students and young professionals across Africa. We also signed the White House’s “[Pledge to America’s Youth: Investing in AI Education](https://www.anthropic.com/news/Pledge to America’s Youth: Investing in AI Education),” committing to expand AI education nationwide through investments in cybersecurity education, the Presidential AI Challenge, and a free AI curriculum for educators.
 
 The tools changing how software is built shouldn’t only be available to students at well-resourced universities. With CodePath, they won’t be.
 
@@ -38,12 +38,12 @@ The tools changing how software is built shouldn’t only be available to studen
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

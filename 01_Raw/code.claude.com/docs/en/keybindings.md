@@ -108,8 +108,8 @@ Actions available in the `Chat` context:
 | Action                | Default                   | Description                                                                                                                                                    |
 | :-------------------- | :------------------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `chat:cancel`         | Escape                    | Cancel current input                                                                                                                                           |
-| `chat:clearInput`     | Ctrl+L                    | Force a full screen redraw, preserving input. In [fullscreen rendering](/en/fullscreen#clear-the-conversation), press twice within two seconds to run `/clear` |
-| `chat:clearScreen`    | Cmd+K                     | In [fullscreen rendering](/en/fullscreen#clear-the-conversation), press twice within two seconds to run `/clear`                                               |
+| `chat:clearInput`     | Ctrl+L                    | Force a full screen redraw, preserving input. In [fullscreen rendering](https://code.claude.com/docs/en/fullscreen rendering), press twice within two seconds to run `/clear` |
+| `chat:clearScreen`    | Cmd+K                     | In [fullscreen rendering](https://code.claude.com/docs/en/fullscreen rendering), press twice within two seconds to run `/clear`                                               |
 | `chat:killAgents`     | Ctrl+X Ctrl+K             | Kill all background agents                                                                                                                                     |
 | `chat:cycleMode`      | Shift+Tab\*               | Cycle permission modes                                                                                                                                         |
 | `chat:modelPicker`    | Meta+P                    | Open model picker                                                                                                                                              |
@@ -313,7 +313,7 @@ Actions available in the `Doctor` context:
 
 ### Voice actions
 
-Actions available in the `Chat` context when [voice dictation](/en/voice-dictation) is enabled:
+Actions available in the `Chat` context when [voice dictation](https://code.claude.com/docs/en/voice dictation) is enabled:
 
 | Action             | Default | Description                                              |
 | :----------------- | :------ | :------------------------------------------------------- |
@@ -321,7 +321,7 @@ Actions available in the `Chat` context when [voice dictation](/en/voice-dictati
 
 ### Scroll actions
 
-Actions available in the `Scroll` context when [fullscreen rendering](/en/fullscreen) is enabled:
+Actions available in the `Scroll` context when [fullscreen rendering](https://code.claude.com/docs/en/fullscreen rendering) is enabled:
 
 | Action                      | Default              | Description                                                                                               |
 | :-------------------------- | :------------------- | :-------------------------------------------------------------------------------------------------------- |

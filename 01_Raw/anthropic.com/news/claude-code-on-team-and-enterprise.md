@@ -10,8 +10,6 @@ Product
 
 Aug 20, 2025
 
-![A hand and a graph, signaling growth](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4a3b1276cc8de8f453e3c7b7840b1b7a8b22ade5-2880x1620.png&w=3840&q=75)
-
 Enterprise and Team customers can now upgrade to premium seats that include more usage and Claude Code—bringing our app and powerful coding agent together under one subscription. Users can move seamlessly between ideation and implementation, while admins get the visibility and controls they need to scale Claude across their organization.
 
 We are also introducing a new Compliance API, giving organizations programmatic access to usage data and customer content for better observability, auditing, and governance.
@@ -51,18 +49,18 @@ Administrators can integrate Claude data into existing compliance dashboards, au
 
 Team and Enterprise plan admins can now upgrade to premium seats with Claude Code—and take advantage of flexible pricing with extra usage options. Both Team and Enterprise plans include granular spend caps, self-serve seat management, and Claude Code usage analytics.
 
-To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, [contact](https://www.anthropic.com/contact-sales) our sales team.
+To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, [contact](https://www.anthropic.com/news/contact) our sales team.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

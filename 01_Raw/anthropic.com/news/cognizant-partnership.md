@@ -36,18 +36,18 @@ This partnership directly addresses these challenges. Cognizant is deploying Cla
 
 Cognizant plans to engage clients through workshops, reference patterns, and platform integrations using Claude to help teams identify high-value use cases and move them into production.
 
-**Getting started:** Visit [this page](https://www.cognizant.com/us/en/engineering-ai-for-impact) and get in touch with a Cognizant client partner.
+**Getting started:** Visit [this page](https://www.anthropic.com/news/this page) and get in touch with a Cognizant client partner.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

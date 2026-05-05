@@ -41,7 +41,6 @@ created: 2026-05-05
 
 _3 summaries reference this entity_ ——
 - [[embeddings--bwc]] / [[overview--bwc]]
-- [[contextual-embeddings-README--cookbook]]
 
 ## 相关
 

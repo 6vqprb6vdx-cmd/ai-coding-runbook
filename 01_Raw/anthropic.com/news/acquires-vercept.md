@@ -16,22 +16,22 @@ People are using Claude for increasingly complex work—writing and running code
 
 Vercept was built around a clear thesis: making AI genuinely useful for completing complex tasks requires solving hard perception and interaction problems. The Vercept team—including co-founders Kiana Ehsani, Luca Weihs, and Ross Girshick—have spent years thinking carefully about how AI systems can see and act within the same software humans use every day. That expertise maps directly onto some of the hardest problems we're working on at Anthropic. Vercept will wind down its external product in the coming weeks and join Anthropic in pushing the frontiers of computer use.
 
-This acquisition follows the recent launch of Claude [Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6), which shows a major improvement in computer use skills: on OSWorld, a widely-used evaluation for AI computer use, our Sonnet models went from under 15% in late 2024, when we first released computer use, to 72.5% today. Sonnet 4.6 is now approaching human-level performance on tasks like navigating complex spreadsheets and completing web forms across browser tabs.
+This acquisition follows the recent launch of Claude [Sonnet 4.6](https://www.anthropic.com/news/Sonnet 4.6), which shows a major improvement in computer use skills: on OSWorld, a widely-used evaluation for AI computer use, our Sonnet models went from under 15% in late 2024, when we first released computer use, to 72.5% today. Sonnet 4.6 is now approaching human-level performance on tasks like navigating complex spreadsheets and completing web forms across browser tabs.
 
-Vercept is the latest team we’ve brought into Anthropic, following the acquisition of [Bun](https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone). We look for teams whose technical ambitions match ours, whose work advances our capabilities, and whose approach to building AI is grounded in the same principles of safety and rigor that guide everything we do.
+Vercept is the latest team we’ve brought into Anthropic, following the acquisition of [Bun](https://www.anthropic.com/news/Bun). We look for teams whose technical ambitions match ours, whose work advances our capabilities, and whose approach to building AI is grounded in the same principles of safety and rigor that guide everything we do.
 
-We’re also looking for individuals. If you're interested in joining Anthropic’s engineering team, visit our [careers page](https://www.anthropic.com/jobs).
+We’re also looking for individuals. If you're interested in joining Anthropic’s engineering team, visit our [careers page](https://www.anthropic.com/news/careers page).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

@@ -4,33 +4,33 @@ fetched_at: 2026-05-05T13:26:42.380548+00:00
 title: "Guida rapida all'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Home page](https://ai.google.dev/gemini-api/docs/Home page)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documenti](https://ai.google.dev/gemini-api/docs/Documenti)
 
 Invia feedback
 
 # Guida rapida all'API Gemini
 
-Questa guida rapida mostra come installare le nostre [librerie](https://ai.google.dev/gemini-api/docs/libraries?hl=it)
+Questa guida rapida mostra come installare le nostre [librerie](https://ai.google.dev/gemini-api/docs/librerie)
 ed effettuare la prima richiesta all'API Gemini.
 
 ## Prima di iniziare
 
 Per utilizzare l'API Gemini è necessaria una chiave API, che puoi creare senza costi per iniziare.
 
-[Crea una chiave API Gemini](https://aistudio.google.com/app/apikey?hl=it)
+[Crea una chiave API Gemini](https://ai.google.dev/gemini-api/docs/Crea una chiave API Gemini)
 
 ## Installa l'SDK Google GenAI
 
 ### Python
 
-Utilizzando [Python 3.9 o versioni successive](https://www.python.org/downloads/), installa il
-[`google-genai` pacchetto](https://pypi.org/project/google-genai/)
+Utilizzando [Python 3.9 o versioni successive](https://ai.google.dev/gemini-api/docs/Python 3.9 o versioni successive), installa il
+[`google-genai` pacchetto](https://ai.google.dev/gemini-api/docs/`google-genai` pacchetto)
 utilizzando il seguente
-[comando pip](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+[comando pip](https://ai.google.dev/gemini-api/docs/comando pip):
 
 ```
 pip install -q -U google-genai
@@ -38,11 +38,11 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-Utilizzando [Node.js v18+](https://nodejs.org/en/download/package-manager),
+Utilizzando [Node.js v18+](https://ai.google.dev/gemini-api/docs/Node.js v18+),
 installa l'
-[SDK Google Gen AI per TypeScript e JavaScript](https://www.npmjs.com/package/@google/genai)
+[SDK Google Gen AI per TypeScript e JavaScript](https://ai.google.dev/gemini-api/docs/SDK Google Gen AI per TypeScript e JavaScript)
 utilizzando il seguente
-[comando npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+[comando npm](https://ai.google.dev/gemini-api/docs/comando npm):
 
 ```
 npm install @google/genai
@@ -51,8 +51,8 @@ npm install @google/genai
 ### Vai
 
 Installa
-[google.golang.org/genai](https://pkg.go.dev/google.golang.org/genai) nella
-directory del modulo utilizzando il [comando go get](https://go.dev/doc/code):
+[google.golang.org/genai](https://ai.google.dev/gemini-api/docs/google.golang.org/genai) nella
+directory del modulo utilizzando il [comando go get](https://ai.google.dev/gemini-api/docs/comando go get):
 
 ```
 go get google.golang.org/genai
@@ -61,7 +61,7 @@ go get google.golang.org/genai
 ### Java
 
 Se utilizzi Maven, puoi installare
-[google-genai](https://github.com/googleapis/java-genai) aggiungendo quanto segue alle dipendenze:
+[google-genai](https://ai.google.dev/gemini-api/docs/google-genai) aggiungendo quanto segue alle dipendenze:
 
 ```
 <dependencies>
@@ -76,8 +76,8 @@ Se utilizzi Maven, puoi installare
 ### C#
 
 Installa
-[googleapis/go-genai](https://googleapis.github.io/dotnet-genai/) nella
-directory del modulo utilizzando il [comando dotnet add](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-package-add)
+[googleapis/go-genai](https://ai.google.dev/gemini-api/docs/googleapis/go-genai) nella
+directory del modulo utilizzando il [comando dotnet add](https://ai.google.dev/gemini-api/docs/comando dotnet add)
 
 ```
 dotnet add package Google.GenAI
@@ -86,10 +86,10 @@ dotnet add package Google.GenAI
 ### Apps Script
 
 1. Per creare un nuovo progetto Apps Script, vai a
-   [script.new](https://script.google.com/u/0/home/projects/create?hl=it).
+   [script.new](https://ai.google.dev/gemini-api/docs/script.new).
 2. Fai clic su **Progetto senza titolo**.
 3. Rinomina il progetto Apps Script **AI Studio** e fai clic su **Rinomina**.
-4. Imposta la [chiave API](https://developers.google.com/apps-script/guides/properties?hl=it#manage_script_properties_manually)
+4. Imposta la [chiave API](https://ai.google.dev/gemini-api/docs/chiave API)
    1. A sinistra, fai clic su **Impostazioni progetto** ![L&#39;icona delle impostazioni progetto](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/settings/default/24px.svg).
    2. In **Proprietà script** fai clic su **Aggiungi proprietà script**.
    3. In **Proprietà**, inserisci il nome della chiave: `GEMINI_API_KEY`.
@@ -100,12 +100,12 @@ dotnet add package Google.GenAI
 ## Effettua la prima richiesta
 
 Ecco un esempio che utilizza il
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=it#method:-models.generatecontent) metodo
+[`generateContent`](https://ai.google.dev/gemini-api/docs/`generateContent`) metodo
 per inviare una richiesta all'API Gemini utilizzando il modello Gemini 2.5 Flash.
 
-Se [imposti la chiave API](https://ai.google.dev/gemini-api/docs/api-key?hl=it#set-api-env-var) come
-variabile di ambiente `GEMINI_API_KEY`, il client la rileverà automaticamente quando utilizzi le [librerie dell'API Gemini](https://ai.google.dev/gemini-api/docs/libraries?hl=it).
-In caso contrario, dovrai [passare la chiave API](https://ai.google.dev/gemini-api/docs/api-key?hl=it#provide-api-key-explicitly) come
+Se [imposti la chiave API](https://ai.google.dev/gemini-api/docs/imposti la chiave API) come
+variabile di ambiente `GEMINI_API_KEY`, il client la rileverà automaticamente quando utilizzi le [librerie dell'API Gemini](https://ai.google.dev/gemini-api/docs/librerie dell'API Gemini).
+In caso contrario, dovrai [passare la chiave API](https://ai.google.dev/gemini-api/docs/passare la chiave API) come
 argomento durante l'inizializzazione del client.
 
 Tieni presente che tutti gli esempi di codice nella documentazione dell'API Gemini presuppongono che tu abbia impostato la variabile di ambiente `GEMINI_API_KEY`.
@@ -277,20 +277,18 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 
 Ora che hai effettuato la prima richiesta API, potresti voler esplorare le seguenti guide che mostrano Gemini in azione:
 
-- [Generazione di testo](https://ai.google.dev/gemini-api/docs/text-generation?hl=it)
-- [Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)
-- [Comprensione delle immagini](https://ai.google.dev/gemini-api/docs/image-understanding?hl=it)
-- [Ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it)
-- [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
-- [Contesto lungo](https://ai.google.dev/gemini-api/docs/long-context?hl=it)
-- [Incorporamenti](https://ai.google.dev/gemini-api/docs/embeddings?hl=it)
+- [Generazione di testo](https://ai.google.dev/gemini-api/docs/Generazione di testo)
+- [Generazione di immagini](https://ai.google.dev/gemini-api/docs/Generazione di immagini)
+- [Comprensione delle immagini](https://ai.google.dev/gemini-api/docs/Comprensione delle immagini)
+- [Ragionamento](https://ai.google.dev/gemini-api/docs/Ragionamento)
+- [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/Chiamata di funzione)
+- [Contesto lungo](https://ai.google.dev/gemini-api/docs/Contesto lungo)
+- [Incorporamenti](https://ai.google.dev/gemini-api/docs/Incorporamenti)
 
 Invia feedback
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/licenza Creative Commons Attribution 4.0), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://ai.google.dev/gemini-api/docs/licenza Apache 2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://ai.google.dev/gemini-api/docs/norme del sito di Google Developers). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
 Ultimo aggiornamento 2026-04-29 UTC.
 
 Vuoi dirci altro?
-
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

@@ -4,32 +4,32 @@ fetched_at: 2026-05-05T13:20:37.442357+00:00
 title: "Session management with Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/live-api/recherche approfondie Gemini) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Accueil](https://ai.google.dev/gemini-api/docs/live-api/Accueil)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/live-api/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/live-api/Docs)
 
 Envoyer des commentaires
 
 # Session management with Live API
 
-Dans l'API Live, une session fait référence à une connexion persistante où les entrées et les sorties sont diffusées en continu sur la même connexion (pour en savoir plus, consultez [Fonctionnement](https://ai.google.dev/gemini-api/docs/live?hl=fr)).
+Dans l'API Live, une session fait référence à une connexion persistante où les entrées et les sorties sont diffusées en continu sur la même connexion (pour en savoir plus, consultez [Fonctionnement](https://ai.google.dev/gemini-api/docs/live-api/Fonctionnement)).
 Cette conception de session unique permet une faible latence et prend en charge des fonctionnalités uniques, mais peut également poser des problèmes, comme des limites de temps de session et une fin anticipée.
 Ce guide présente des stratégies pour surmonter les difficultés de gestion des sessions qui peuvent survenir lors de l'utilisation de l'API Live.
 
 ## Durée de vie de la session
 
-Sans compression, les sessions audio uniquement sont limitées à 15 minutes et les sessions audio et vidéo à 2 minutes. Si vous dépassez ces limites, la session (et donc la connexion) sera interrompue. Toutefois, vous pouvez utiliser la [compression de la fenêtre de contexte](#context-window-compression) pour prolonger les sessions indéfiniment.
+Sans compression, les sessions audio uniquement sont limitées à 15 minutes et les sessions audio et vidéo à 2 minutes. Si vous dépassez ces limites, la session (et donc la connexion) sera interrompue. Toutefois, vous pouvez utiliser la [compression de la fenêtre de contexte](https://ai.google.dev/gemini-api/docs/live-api/compression de la fenêtre de contexte) pour prolonger les sessions indéfiniment.
 
-La durée de vie d'une connexion est également limitée à environ 10 minutes. Lorsque la connexion se termine, la session se termine également. Dans ce cas, vous pouvez configurer une seule session pour qu'elle reste active sur plusieurs connexions à l'aide de la [reprise de session](#session-resumption).
-Vous recevrez également un [message GoAway](#goaway-message) avant la fin de la connexion, ce qui vous permettra de prendre d'autres mesures.
+La durée de vie d'une connexion est également limitée à environ 10 minutes. Lorsque la connexion se termine, la session se termine également. Dans ce cas, vous pouvez configurer une seule session pour qu'elle reste active sur plusieurs connexions à l'aide de la [reprise de session](https://ai.google.dev/gemini-api/docs/live-api/reprise de session).
+Vous recevrez également un [message GoAway](https://ai.google.dev/gemini-api/docs/live-api/message GoAway) avant la fin de la connexion, ce qui vous permettra de prendre d'autres mesures.
 
 ## Compression de la fenêtre de contexte
 
-Pour activer des sessions plus longues et éviter l'arrêt brutal de la connexion, vous pouvez activer la compression de la fenêtre de contexte en définissant le champ [contextWindowCompression](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression) dans la configuration de la session.
+Pour activer des sessions plus longues et éviter l'arrêt brutal de la connexion, vous pouvez activer la compression de la fenêtre de contexte en définissant le champ [contextWindowCompression](https://ai.google.dev/gemini-api/docs/live-api/contextWindowCompression) dans la configuration de la session.
 
-Dans [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=fr#contextwindowcompressionconfig), vous pouvez configurer un [mécanisme de fenêtre glissante](https://ai.google.dev/api/live?hl=fr#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window) et le [nombre de jetons](https://ai.google.dev/api/live?hl=fr#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens) qui déclenche la compression.
+Dans [ContextWindowCompressionConfig](https://ai.google.dev/gemini-api/docs/live-api/ContextWindowCompressionConfig), vous pouvez configurer un [mécanisme de fenêtre glissante](https://ai.google.dev/gemini-api/docs/live-api/mécanisme de fenêtre glissante) et le [nombre de jetons](https://ai.google.dev/gemini-api/docs/live-api/nombre de jetons) qui déclenche la compression.
 
 ### Python
 
@@ -58,9 +58,9 @@ const config = {
 
 ## Reprise de session
 
-Pour éviter la fin de la session lorsque le serveur réinitialise régulièrement la connexion WebSocket, configurez le champ [sessionResumption](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption) dans la [configuration de l'installation](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentSetup).
+Pour éviter la fin de la session lorsque le serveur réinitialise régulièrement la connexion WebSocket, configurez le champ [sessionResumption](https://ai.google.dev/gemini-api/docs/live-api/sessionResumption) dans la [configuration de l'installation](https://ai.google.dev/gemini-api/docs/live-api/configuration de l'installation).
 
-Si vous transmettez cette configuration, le serveur envoie des messages [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=fr#SessionResumptionUpdate), qui peuvent être utilisés pour reprendre la session en transmettant le dernier jeton de reprise en tant que [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=fr#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle) de la connexion suivante.
+Si vous transmettez cette configuration, le serveur envoie des messages [SessionResumptionUpdate](https://ai.google.dev/gemini-api/docs/live-api/SessionResumptionUpdate), qui peuvent être utilisés pour reprendre la session en transmettant le dernier jeton de reprise en tant que [`SessionResumptionConfig.handle`](https://ai.google.dev/gemini-api/docs/live-api/`SessionResumptionConfig.handle`) de la connexion suivante.
 
 Les jetons de reprise sont valides pendant deux heures après la fin de la dernière session.
 
@@ -199,7 +199,7 @@ main();
 
 ## Recevoir un message avant la déconnexion de la session
 
-Le serveur envoie un message [GoAway](https://ai.google.dev/api/live?hl=fr#GoAway) indiquant que la connexion actuelle sera bientôt interrompue. Ce message inclut [timeLeft](https://ai.google.dev/api/live?hl=fr#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left), qui indique le temps restant, et vous permet de prendre d'autres mesures avant que la connexion ne soit interrompue (ABORTED).
+Le serveur envoie un message [GoAway](https://ai.google.dev/gemini-api/docs/live-api/GoAway) indiquant que la connexion actuelle sera bientôt interrompue. Ce message inclut [timeLeft](https://ai.google.dev/gemini-api/docs/live-api/timeLeft), qui indique le temps restant, et vous permet de prendre d'autres mesures avant que la connexion ne soit interrompue (ABORTED).
 
 ### Python
 
@@ -224,7 +224,7 @@ for (const turn of turns) {
 
 ## Recevoir un message une fois la génération terminée
 
-Le serveur envoie un message [generationComplete](https://ai.google.dev/api/live?hl=fr#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete) pour indiquer que le modèle a terminé de générer la réponse.
+Le serveur envoie un message [generationComplete](https://ai.google.dev/gemini-api/docs/live-api/generationComplete) pour indiquer que le modèle a terminé de générer la réponse.
 
 ### Python
 
@@ -248,14 +248,12 @@ for (const turn of turns) {
 
 ## Étape suivante
 
-Découvrez d'autres façons d'utiliser l'API Live dans le guide complet des [fonctionnalités](https://ai.google.dev/gemini-api/docs/live?hl=fr), sur la page [Utilisation des outils](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr) ou dans le [cookbook de l'API Live](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=fr).
+Découvrez d'autres façons d'utiliser l'API Live dans le guide complet des [fonctionnalités](https://ai.google.dev/gemini-api/docs/live-api/fonctionnalités), sur la page [Utilisation des outils](https://ai.google.dev/gemini-api/docs/live-api/Utilisation des outils) ou dans le [cookbook de l'API Live](https://ai.google.dev/gemini-api/docs/live-api/cookbook de l'API Live).
 
 Envoyer des commentaires
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/live-api/Creative Commons Attribution 4.0), et les échantillons de code sont régis par une licence [Apache 2.0](https://ai.google.dev/gemini-api/docs/live-api/Apache 2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://ai.google.dev/gemini-api/docs/live-api/Règles du site Google Developers). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
 Dernière mise à jour le 2026/04/29 (UTC).
 
 Voulez-vous nous donner plus d'informations ?
-
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

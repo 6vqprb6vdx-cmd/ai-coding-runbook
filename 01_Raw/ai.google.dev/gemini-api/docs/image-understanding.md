@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:15:43.998181+00:00
 title: "Compreens\u00e3o de imagens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/Deep Research do Gemini) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Página inicial](https://ai.google.dev/gemini-api/docs/Página inicial)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Documentos](https://ai.google.dev/gemini-api/docs/Documentos)
 
 Envie comentários
 
@@ -16,14 +16,14 @@ Envie comentários
 
 Os modelos do Gemini são multimodais desde o início, o que permite uma ampla variedade de tarefas de processamento de imagens e visão computacional, incluindo, entre outras, legendas, classificação e respostas visuais a perguntas, sem precisar treinar modelos especializados de ML.
 
-Além das funcionalidades multimodais gerais, os modelos do Gemini oferecem **precisão aprimorada** para casos de uso específicos, como [detecção de objetos](#object-detection), por meio de treinamento adicional.
+Além das funcionalidades multimodais gerais, os modelos do Gemini oferecem **precisão aprimorada** para casos de uso específicos, como [detecção de objetos](https://ai.google.dev/gemini-api/docs/detecção de objetos), por meio de treinamento adicional.
 
 ## Enviar imagens para o Gemini
 
 É possível fornecer imagens como entrada para o Gemini usando dois métodos:
 
-- [Transmissão de dados de imagem inline](#inline-image): ideal para arquivos menores (tamanho total da solicitação inferior a 20 MB, incluindo comandos).
-- [Fazer upload de imagens usando a API File](#upload-image): recomendado para arquivos maiores ou para
+- [Transmissão de dados de imagem inline](https://ai.google.dev/gemini-api/docs/Transmissão de dados de imagem inline): ideal para arquivos menores (tamanho total da solicitação inferior a 20 MB, incluindo comandos).
+- [Fazer upload de imagens usando a API File](https://ai.google.dev/gemini-api/docs/Fazer upload de imagens usando a API File): recomendado para arquivos maiores ou para
   reutilizar imagens em várias solicitações.
 
 ### Como transmitir dados de imagem in-line
@@ -287,7 +287,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 
 Para arquivos grandes ou para usar o mesmo arquivo de imagem várias vezes, use a
 API Files. O código a seguir faz upload de um arquivo de imagem e o usa em uma
-chamada para `generateContent`. Consulte o [guia da API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br) para mais informações e exemplos.
+chamada para `generateContent`. Consulte o [guia da API Files](https://ai.google.dev/gemini-api/docs/guia da API Files) para mais informações e exemplos.
 
 ### Python
 
@@ -660,10 +660,10 @@ print("Image size: ", width, height)
 print("Bounding boxes:", converted_bounding_boxes)
 ```
 
-Para mais exemplos, confira os seguintes notebooks no [manual do Gemini](https://github.com/google-gemini/cookbook):
+Para mais exemplos, confira os seguintes notebooks no [manual do Gemini](https://ai.google.dev/gemini-api/docs/manual do Gemini):
 
-- [Notebook de compreensão espacial 2D](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=pt-br)
-- [Notebook experimental de apontamento 3D](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=pt-br)
+- [Notebook de compreensão espacial 2D](https://ai.google.dev/gemini-api/docs/Notebook de compreensão espacial 2D)
+- [Notebook experimental de apontamento 3D](https://ai.google.dev/gemini-api/docs/Notebook experimental de apontamento 3D)
 
 ## Formatos de imagem compatíveis
 
@@ -675,7 +675,7 @@ O Gemini é compatível com os seguintes tipos MIME de formato de imagem:
 - HEIC: `image/heic`
 - HEIF - `image/heif`
 
-Para conhecer outros métodos de entrada de arquivos, consulte o guia [Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
+Para conhecer outros métodos de entrada de arquivos, consulte o guia [Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/Métodos de entrada de arquivos).
 
 ## Recursos
 
@@ -683,7 +683,7 @@ Todas as versões do modelo do Gemini são multimodais e podem ser usadas em uma
 
 O Gemini pode reduzir a necessidade de usar modelos de ML especializados, dependendo dos seus requisitos de qualidade e desempenho.
 
-As versões mais recentes do modelo são treinadas especificamente para melhorar a acurácia de tarefas especializadas, além de recursos genéricos, como a [detecção de objetos](#object-detection) aprimorada.
+As versões mais recentes do modelo são treinadas especificamente para melhorar a acurácia de tarefas especializadas, além de recursos genéricos, como a [detecção de objetos](https://ai.google.dev/gemini-api/docs/detecção de objetos) aprimorada.
 
 ## Limitações e principais informações técnicas
 
@@ -708,7 +708,7 @@ Por exemplo, uma imagem de dimensões 960 x 540 teria um tamanho de unidade de c
 O Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. O parâmetro `media_resolution` determina o **número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
 Resoluções mais altas melhoram a capacidade do modelo de ler textos pequenos ou identificar detalhes, mas aumentam o uso de tokens e a latência.
 
-Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de token, consulte o guia de [resolução de mídia](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br).
+Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de token, consulte o guia de [resolução de mídia](https://ai.google.dev/gemini-api/docs/resolução de mídia).
 
 ## Dicas e práticas recomendadas
 
@@ -720,21 +720,19 @@ Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de tok
 
 Neste guia, você vai aprender a fazer upload de arquivos de imagem e gerar saídas de texto com base em entradas de imagem. Para saber mais, consulte os seguintes recursos:
 
-- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br): saiba mais sobre como enviar e gerenciar arquivos para uso com o Gemini.
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
+- [API Files](https://ai.google.dev/gemini-api/docs/API Files): saiba mais sobre como enviar e gerenciar arquivos para uso com o Gemini.
+- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/Instruções do sistema):
   Com elas, é possível orientar o comportamento do modelo com base nas suas
   necessidades e casos de uso específicos.
-- [Estratégias de comandos de arquivo](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): a
+- [Estratégias de comandos de arquivo](https://ai.google.dev/gemini-api/docs/Estratégias de comandos de arquivo): a
   API Gemini aceita comandos com dados de texto, imagem, áudio e vídeo, também
   conhecidos como comandos multimodais.
-- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pt-br): às vezes, os modelos de IA generativa produzem resultados inesperados, como imprecisos, tendenciosos ou ofensivos. O pós-processamento e a avaliação humana são essenciais para limitar o risco de danos causados por essas saídas.
+- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/Orientações de segurança): às vezes, os modelos de IA generativa produzem resultados inesperados, como imprecisos, tendenciosos ou ofensivos. O pós-processamento e a avaliação humana são essenciais para limitar o risco de danos causados por essas saídas.
 
 Envie comentários
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://ai.google.dev/gemini-api/docs/Licença de atribuição 4.0 do Creative Commons), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://ai.google.dev/gemini-api/docs/Licença Apache 2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://ai.google.dev/gemini-api/docs/políticas do site do Google Developers). Java é uma marca registrada da Oracle e/ou afiliadas.
 
 Última atualização 2026-05-01 UTC.
 
 Quer enviar seu feedback?
-
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-01 UTC."],[],[]]

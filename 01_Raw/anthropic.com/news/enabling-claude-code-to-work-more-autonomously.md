@@ -12,25 +12,23 @@ Sep 29, 2025
 
 ![Enabling Claude Code to work more autonomously](https://www-cdn.anthropic.com/images/4zrzovbb/website/a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
 
-We’re introducing several upgrades to [Claude Code](https://claude.com/product/claude-code): a native VS Code extension, version 2.0 of our terminal interface, and checkpoints for autonomous operation. Powered by [Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5), Claude Code now handles longer, more complex development tasks in your terminal and IDE.
+We’re introducing several upgrades to [Claude Code](https://www.anthropic.com/news/Claude Code): a native VS Code extension, version 2.0 of our terminal interface, and checkpoints for autonomous operation. Powered by [Sonnet 4.5](https://www.anthropic.com/news/Sonnet 4.5), Claude Code now handles longer, more complex development tasks in your terminal and IDE.
 
 ## Claude Code on more surfaces
 
 **VS Code extension**
 
-We’re introducing a [native VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) in beta that brings Claude Code directly into your IDE. You can now see Claude’s changes in real-time through a dedicated sidebar panel with inline diffs. The extension provides a richer, graphical Claude Code experience for users who prefer to work in IDEs over terminals.
+We’re introducing a [native VS Code extension](https://www.anthropic.com/news/native VS Code extension) in beta that brings Claude Code directly into your IDE. You can now see Claude’s changes in real-time through a dedicated sidebar panel with inline diffs. The extension provides a richer, graphical Claude Code experience for users who prefer to work in IDEs over terminals.
 
 **Enhanced terminal experience**
 
 We’ve also refreshed Claude Code’s terminal interface. The updated interface features improved status visibility and searchable prompt history (Ctrl+r), making it easier to reuse or edit previous prompts.
 
-![An image of the new Claude Code terminal UX](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3613f360926fae004521197488623465eb0cd751-1920x1035.png&w=3840&q=75)
-
 **Claude Agent SDK**
 
 For teams who want to create custom agentic experiences, the Claude Agent SDK (formerly the Claude Code SDK) gives access to the same core tools, context management systems, and permissions frameworks that power Claude Code. We’ve also released SDK support for subagents and hooks, making it more customizable for building agents for your specific workflows.
 
-Developers are [already building agents](https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) for a broad range use cases with the SDK, including financial compliance agents, cybersecurity agents, and code debugging agents.
+Developers are [already building agents](https://www.anthropic.com/news/already building agents) for a broad range use cases with the SDK, including financial compliance agents, cybersecurity agents, and code debugging agents.
 
 ## Execute long-running tasks with confidence
 
@@ -57,20 +55,20 @@ Together, these capabilities let you confidently delegate broad tasks like exten
 These updates are available now for Claude Code users.
 
 - **Claude Sonnet 4.5** is the new default model in Claude Code. Run /model to switch models
-- **VS Code extension** (beta)**:** Download from the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) to get started
+- **VS Code extension** (beta)**:** Download from the [VS Code Extension Marketplace](https://www.anthropic.com/news/VS Code Extension Marketplace) to get started
 - **Terminal updates**, including the visual refresh and checkpoints, are available to all Claude Code users—just update your local installation
-- **Claude Agent SDK:** [See the docs](https://docs.claude.com/en/api/agent-sdk/overview) to get started
+- **Claude Agent SDK:** [See the docs](https://www.anthropic.com/news/See the docs) to get started
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

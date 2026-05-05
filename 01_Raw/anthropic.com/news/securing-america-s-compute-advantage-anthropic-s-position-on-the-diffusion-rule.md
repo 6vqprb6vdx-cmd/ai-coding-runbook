@@ -10,11 +10,9 @@ Policy
 
 Apr 30, 2025
 
-[Read the submission here]( https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf)
+[Read the submission here](https://www.anthropic.com/news/Read the submission here)
 
-![Column with burst](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1fa171285ace9c40899647e1b68c8f66d0d7915d-1920x1079.png&w=3840&q=75)
-
-In response to the Department of Commerce's "Framework for Artificial Intelligence Diffusion" interim final rule, Anthropic has [submitted detailed analysis and recommendations](https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf) for maintaining and strengthening export controls on advanced semiconductors. At the heart of our recommendations is a clear message: maintaining America's compute advantage through export controls is essential for national security and economic prosperity as powerful new AI systems are developed in the coming years.
+In response to the Department of Commerce's "Framework for Artificial Intelligence Diffusion" interim final rule, Anthropic has [submitted detailed analysis and recommendations](https://www.anthropic.com/news/submitted detailed analysis and recommendations) for maintaining and strengthening export controls on advanced semiconductors. At the heart of our recommendations is a clear message: maintaining America's compute advantage through export controls is essential for national security and economic prosperity as powerful new AI systems are developed in the coming years.
 
 The "Diffusion Rule," published in January 2025, establishes export controls on advanced AI chips and model weights worldwide. The Diffusion Framework also creates a three-tier system based on national security risk. Tier 1 includes close allies with few restrictions, Tier 2 includes most other countries with some limits, and Tier 3 includes adversarial nations with strict controls.
 
@@ -44,20 +42,20 @@ The strategic window for strengthening American export controls is now. By stren
 
 Anthropic’s leaders have previously outlined our position on competition with China and export controls in the following pieces.
 
-- “[Trump Can Keep America’s AI Advantage,](https://www.wsj.com/opinion/trump-can-keep-americas-ai-advantage-china-chips-data-eccdce91)” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
-- “[On DeepSeek and Export Controls](https://www.darioamodei.com/post/on-deepseek-and-export-controls),” Dario Amodei, darioamodei.com, January 2025“[Anthropic's Dario Amodei on AI Competition](https://www.chinatalk.media/p/anthropics-dario-amodei-on-ai-competition),” China Talk Podcast, February 5, 2025
-- “[DeepSeek means AI proliferation is guaranteed](https://jack-clark.net/2025/01/27/import-ai-397-deepseek-means-ai-proliferation-is-guaranteed-maritime-wardrones-and-more-evidence-of-llm-capability-overhangs/),” Jack Clark Import AI 397
+- “[Trump Can Keep America’s AI Advantage,](https://www.anthropic.com/news/Trump Can Keep America’s AI Advantage,)” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
+- “[On DeepSeek and Export Controls](https://www.anthropic.com/news/On DeepSeek and Export Controls),” Dario Amodei, darioamodei.com, January 2025“[Anthropic's Dario Amodei on AI Competition](https://www.anthropic.com/news/Anthropic's Dario Amodei on AI Competition),” China Talk Podcast, February 5, 2025
+- “[DeepSeek means AI proliferation is guaranteed](https://www.anthropic.com/news/DeepSeek means AI proliferation is guaranteed),” Jack Clark Import AI 397
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

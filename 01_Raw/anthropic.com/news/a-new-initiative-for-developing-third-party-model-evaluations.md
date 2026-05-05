@@ -10,13 +10,11 @@ Announcements
 
 Jul 1, 2024
 
-![A computer chip inside a flame](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fefd36fc64fd3b723e596406e5320161276017b57-2880x1620.png&w=3840&q=75)
-
-A [robust, third-party evaluation ecosystem](https://www.anthropic.com/news/third-party-testing) is essential for assessing AI capabilities and risks, but the current evaluations landscape is limited. Developing high-quality, safety-relevant evaluations remains challenging, and the demand is outpacing the supply. To address this, today we're introducing a new initiative to fund evaluations developed by third-party organizations that can effectively measure advanced capabilities in AI models. Our investment in these evaluations is intended to elevate the entire field of AI safety, providing valuable tools that benefit the whole ecosystem.
+A [robust, third-party evaluation ecosystem](https://www.anthropic.com/news/robust, third-party evaluation ecosystem) is essential for assessing AI capabilities and risks, but the current evaluations landscape is limited. Developing high-quality, safety-relevant evaluations remains challenging, and the demand is outpacing the supply. To address this, today we're introducing a new initiative to fund evaluations developed by third-party organizations that can effectively measure advanced capabilities in AI models. Our investment in these evaluations is intended to elevate the entire field of AI safety, providing valuable tools that benefit the whole ecosystem.
 
 In this post, we describe our initiative to source new evaluations for measuring advanced model capabilities and outline our motivations and the specific types of evaluations we're prioritizing.
 
-If you have a proposal,apply through our [**application form**](https://forms.gle/atw9KD3N9RPYeqoh6).
+If you have a proposal,apply through our [**application form**](https://www.anthropic.com/news/**application form**).
 
 ## Our highest priority focus areas
 
@@ -28,13 +26,13 @@ We are interested in sourcing three key areas of evaluation development, which w
 
 ### AI Safety Level assessments
 
-We're seeking evaluations that help us measure the AI Safety Levels (ASLs) defined in our [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy). These levels determine the safety and security requirements for models with specific capabilities. Robust ASL evaluations are crucial for ensuring we develop and deploy our models responsibly. This category includes:
+We're seeking evaluations that help us measure the AI Safety Levels (ASLs) defined in our [Responsible Scaling Policy](https://www.anthropic.com/news/Responsible Scaling Policy). These levels determine the safety and security requirements for models with specific capabilities. Robust ASL evaluations are crucial for ensuring we develop and deploy our models responsibly. This category includes:
 
 - **Cybersecurity —** Evaluations that assess models' capabilities to assist or act autonomously in cyber operations at the level of sophisticated threat actors. Our focus is on critical aspects of the cyber kill chain, such as vulnerability discovery, exploit development, and lateral movement. We're particularly interested in capabilities that, if automated and scaled, could pose significant risks to critical infrastructure and economically valuable systems at levels approaching advanced persistent threat actors. Effective evaluations in this domain might resemble novel Capture The Flag (CTF) challenges without publicly available solutions. Current evaluations often fall short, being either too simplistic or having solutions readily accessible online.
 - **Chemical, biological, radiological and nuclear (CBRN) risks —** We're prioritizing evaluations that assess two critical capabilities: a) the potential for models to significantly enhance the abilities of non-experts or experts in creating CBRN threats, and b) the capacity to design novel, more harmful CBRN threats. A key challenge in this domain is ensuring that evaluations measure real-world risks accurately. Proposals should carefully consider how their evaluations target the correct uplift bottlenecks or advanced design criteria that could lead to genuine, catastrophic CBRN threats.
 - **Model autonomy —** Evaluations that assess models' capabilities for autonomous operation, focusing on three key areas:
   - **AI research and development:** Measuring models' proficiency in performing AI R&D tasks at junior, median, or expert research engineer levels.
-  - **Advanced autonomous behaviors:** For more information, see the [Autonomous Capabilities evaluations in our Responsible Scaling Policy](https://www-cdn.anthropic.com/1adf000c8f675958c2ee23805d91aaade1cd4613/responsible-scaling-policy.pdf) and [METR's public task suite.](https://github.com/METR/public-tasks)
+  - **Advanced autonomous behaviors:** For more information, see the [Autonomous Capabilities evaluations in our Responsible Scaling Policy](https://www.anthropic.com/news/Autonomous Capabilities evaluations in our Responsible Scaling Policy) and [METR's public task suite.](https://www.anthropic.com/news/METR's public task suite.)
   - **Self-replication and adaptation:** Assessing models' abilities to acquire computational and financial resources or exfiltrate weights.
 - **Other national security risks —** AI systems have the potential to significantly impact national security, defense, and intelligence operations of both state and non-state actors. We're committed to developing an early warning system to identify and assess these complex emerging risks. Given the sensitive nature of this domain, we invite interested parties to submit an application with your proposal, including the following points:
   - Defining detailed and comprehensive threat models for how misuse can be leveraged by different actors
@@ -42,13 +40,13 @@ We're seeking evaluations that help us measure the AI Safety Levels (ASLs) defin
 - **Social manipulation —** Evaluations that measure the extent to which models may amplify persuasion-related threats, such as disinformation and manipulation. This area presents two significant challenges:
   - Developing a robust theory of how these capabilities escalate real-world risks beyond current baselines
   - Isolating and assessing the model's unique contribution to these risks
-- **Misalignment risks —** Our research shows that, under some circumstances, AI models can [learn dangerous goals and motivations](https://www.anthropic.com/research/reward-tampering), retain them [even after safety training](https://www.anthropic.com/news/sleeper-agents-training-deceptive-llms-that-persist-through-safety-training), and deceive human users about actions taken in their pursuit. These abilities, in combination with the human-level [persuasiveness](https://www.anthropic.com/news/measuring-model-persuasiveness) and cyber capabilities of current AI models, increases our concern about the potential actions of future, more-capable models. For example, future models might be able to pursue sophisticated and hard-to-detect deception that bypasses or sabotages the security of an organization, either by causing humans to take actions they would not otherwise take or exfiltrating sensitive information. We propose to develop evaluations that would monitor such abilities.
+- **Misalignment risks —** Our research shows that, under some circumstances, AI models can [learn dangerous goals and motivations](https://www.anthropic.com/news/learn dangerous goals and motivations), retain them [even after safety training](https://www.anthropic.com/news/even after safety training), and deceive human users about actions taken in their pursuit. These abilities, in combination with the human-level [persuasiveness](https://www.anthropic.com/news/persuasiveness) and cyber capabilities of current AI models, increases our concern about the potential actions of future, more-capable models. For example, future models might be able to pursue sophisticated and hard-to-detect deception that bypasses or sabotages the security of an organization, either by causing humans to take actions they would not otherwise take or exfiltrating sensitive information. We propose to develop evaluations that would monitor such abilities.
 
 ### Advanced capability and safety metrics
 
 Beyond our ASL assessments, we want to develop evaluations that assess advanced model capabilities and relevant safety criteria. These metrics will provide a more comprehensive understanding of our models' strengths and potential risks. This category includes:
 
-- **Advanced science —** AI's potential to transform scientific research is immense. While evaluations like [Google-Proof Q&A (GPQA)](https://arxiv.org/abs/2311.12022) provide a strong foundation, we believe there's significant room for growth. We're seeking to fund the development of tens of thousands of new evaluation questions and end-to-end tasks that would challenge even graduate students. Our focus areas include:
+- **Advanced science —** AI's potential to transform scientific research is immense. While evaluations like [Google-Proof Q&A (GPQA)](https://www.anthropic.com/news/Google-Proof Q&A (GPQA)) provide a strong foundation, we believe there's significant room for growth. We're seeking to fund the development of tens of thousands of new evaluation questions and end-to-end tasks that would challenge even graduate students. Our focus areas include:
   - Knowledge synthesis (combining insights from multiple bodies of work)
   - Graduate-level knowledge beyond existing training data
   - Autonomous end-to-end research project execution
@@ -76,7 +74,7 @@ We're interested in funding tools and infrastructure that streamline the develop
 
 ## Principles of good evaluations
 
-[Developing great evaluations is hard](https://www.anthropic.com/news/evaluating-ai-systems). Even some of the most experienced developers fall into common traps, and even the best evaluations are not always indicative of risks they purport to measure. Below we list some of the characteristics of good evaluations that we’ve learned through trial-and-error:
+[Developing great evaluations is hard](https://www.anthropic.com/news/Developing great evaluations is hard). Even some of the most experienced developers fall into common traps, and even the best evaluations are not always indicative of risks they purport to measure. Below we list some of the characteristics of good evaluations that we’ve learned through trial-and-error:
 
 1. **Sufficiently difficult:** Evaluations should be relevant for measuring the capabilities listed for levels ASL-3 or ASL-4 in our Responsible Scaling Policy, and/or human-expert level behavior.
 
@@ -100,7 +98,7 @@ We're interested in funding tools and infrastructure that streamline the develop
 
 ## How to submit a proposal
 
-You can submit a proposal on our [**application form**](https://forms.gle/atw9KD3N9RPYeqoh6). For any questions, please reach out to [**eval-initiative@anthropic.com**](mailto:eval-initiative@anthropic.com).
+You can submit a proposal on our [**application form**](https://www.anthropic.com/news/**application form**). For any questions, please reach out to [**eval-initiative@anthropic.com**](https://www.anthropic.com/news/**eval-initiative@anthropic.com**).
 
 Our team will review submissions on a rolling basis and follow up with selected proposals to discuss next steps. We offer a range of funding options tailored to the needs and stage of each project.
 
@@ -112,12 +110,12 @@ We hope this initiative serves as a catalyst for progress towards a future where
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

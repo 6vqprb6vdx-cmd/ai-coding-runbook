@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:13:07.080783+00:00
 title: "Perujukan dengan Google Penelusuran \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Beranda](https://ai.google.dev/gemini-api/docs/Beranda)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/Dokumen)
 
 Kirim masukan
 
@@ -94,7 +94,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-Anda dapat mempelajari lebih lanjut dengan mencoba [notebook alat Penelusuran](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=id).
+Anda dapat mempelajari lebih lanjut dengan mencoba [notebook alat Penelusuran](https://ai.google.dev/gemini-api/docs/notebook alat Penelusuran).
 
 ## Cara kerja perujukan dengan Google Penelusuran
 
@@ -163,14 +163,14 @@ Gemini API menampilkan informasi berikut dengan `groundingMetadata`:
 - `webSearchQueries` : Array kueri penelusuran yang digunakan. Hal ini berguna untuk
   men-debug dan memahami proses penalaran model.
 - `searchEntryPoint` : Berisi HTML dan CSS untuk merender Saran
-  Penelusuran yang diperlukan. Persyaratan penggunaan lengkap dijelaskan dalam [Persyaratan Layanan](https://ai.google.dev/gemini-api/terms?hl=id#grounding-with-google-search).
+  Penelusuran yang diperlukan. Persyaratan penggunaan lengkap dijelaskan dalam [Persyaratan Layanan](https://ai.google.dev/gemini-api/docs/Persyaratan Layanan).
 - `groundingChunks` : Array objek yang berisi sumber web (`uri` dan
   `title`).
 - `groundingSupports` : Array potongan untuk menghubungkan respons model `text` ke sumber di `groundingChunks`. Setiap bagian menautkan teks `segment` (ditentukan
   oleh `startIndex` dan `endIndex`) ke satu atau beberapa `groundingChunkIndices`. Langkah ini
   adalah kunci untuk membuat kutipan inline.
 
-Pen-grounding dengan Google Penelusuran juga dapat digunakan bersama dengan [alat konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) untuk men-grounding respons dalam data web publik dan URL tertentu yang Anda berikan.
+Pen-grounding dengan Google Penelusuran juga dapat digunakan bersama dengan [alat konteks URL](https://ai.google.dev/gemini-api/docs/alat konteks URL) untuk men-grounding respons dalam data web publik dan URL tertentu yang Anda berikan.
 
 ## Mengatribusikan sumber dengan kutipan di dalam teks
 
@@ -191,12 +191,12 @@ def add_citations(response):
     for support in sorted_supports:
         end_index = support.segment.end_index
         if support.grounding_chunk_indices:
-            # Create citation string like [1](link1)[2](link2)
+            # Create citation string like [1](https://ai.google.dev/gemini-api/docs/1)[2](https://ai.google.dev/gemini-api/docs/2)
             citation_links = []
             for i in support.grounding_chunk_indices:
                 if i < len(chunks):
                     uri = chunks[i].web.uri
-                    citation_links.append(f"[{i + 1}]({uri})")
+                    citation_links.append(f"[{i + 1}](https://ai.google.dev/gemini-api/docs/{i + 1})")
 
             citation_string = ", ".join(citation_links)
             text = text[:end_index] + citation_string + text[end_index:]
@@ -231,7 +231,7 @@ function addCitations(response) {
         .map(i => {
             const uri = chunks[i]?.web?.uri;
             if (uri) {
-            return `[${i + 1}](${uri})`;
+            return `[${i + 1}](https://ai.google.dev/gemini-api/docs/${i + 1})`;
             }
             return null;
         })
@@ -253,7 +253,7 @@ console.log(textWithCitations);
 Respons baru dengan kutipan inline akan terlihat seperti ini:
 
 ```
-Spain won Euro 2024, defeating England 2-1 in the final.[1](https:/...), [2](https:/...), [4](https:/...), [5](https:/...) This victory marks Spain's record-breaking fourth European Championship title.[5]((https:/...), [2](https:/...), [3](https:/...), [4](https:/...)
+Spain won Euro 2024, defeating England 2-1 in the final.[1](https://ai.google.dev/gemini-api/docs/1), [2](https://ai.google.dev/gemini-api/docs/2), [4](https://ai.google.dev/gemini-api/docs/4), [5](https://ai.google.dev/gemini-api/docs/5) This victory marks Spain's record-breaking fourth European Championship title.[5](https://ai.google.dev/gemini-api/docs/5), [2](https://ai.google.dev/gemini-api/docs/2), [3](https://ai.google.dev/gemini-api/docs/3), [4](https://ai.google.dev/gemini-api/docs/4)
 ```
 
 ## Harga
@@ -265,12 +265,12 @@ menelusuri `"UEFA Euro 2024 winner"` dan `"Spain vs England Euro 2024 final
 score"` dalam panggilan API yang sama), hal ini dihitung sebagai dua penggunaan alat yang dapat ditagih
 untuk permintaan tersebut. Untuk tujuan penagihan, kami mengabaikan kueri penelusuran web yang kosong saat menghitung kueri unik. Model penagihan ini hanya berlaku untuk model Gemini 3; saat Anda menggunakan perujukan penelusuran dengan model Gemini 2.5 atau yang lebih lama, project Anda akan ditagih per perintah.
 
-Untuk mengetahui informasi harga selengkapnya, lihat [halaman harga Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+Untuk mengetahui informasi harga selengkapnya, lihat [halaman harga Gemini API](https://ai.google.dev/gemini-api/docs/halaman harga Gemini API).
 
 ## Model yang didukung
 
 Anda dapat menemukan kemampuan lengkap di halaman [ringkasan
-model](https://ai.google.dev/gemini-api/docs/models?hl=id).
+model](https://ai.google.dev/gemini-api/docs/ringkasanmodel).
 
 | Model | Grounding dengan Google Penelusuran |
 | --- | --- |
@@ -286,24 +286,22 @@ model](https://ai.google.dev/gemini-api/docs/models?hl=id).
 ## Kombinasi alat yang didukung
 
 Anda dapat menggunakan Grounding dengan Google Penelusuran bersama alat lain seperti
-[eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) dan
-[konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) untuk mendukung kasus penggunaan yang lebih kompleks.
+[eksekusi kode](https://ai.google.dev/gemini-api/docs/eksekusi kode) dan
+[konteks URL](https://ai.google.dev/gemini-api/docs/konteks URL) untuk mendukung kasus penggunaan yang lebih kompleks.
 
 Model Gemini 3 mendukung penggabungan alat bawaan (seperti Perujukan dengan Google Penelusuran) dengan alat kustom (pemanggilan fungsi). Pelajari lebih lanjut di halaman
-[kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
+[kombinasi alat](https://ai.google.dev/gemini-api/docs/kombinasi alat).
 
 ## Langkah berikutnya
 
-- Coba [Grounding dengan Google Penelusuran di Cookbook Gemini API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=id).
-- Pelajari alat lain yang tersedia, seperti [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
-- Pelajari cara memperkaya perintah dengan URL tertentu menggunakan [alat konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id).
+- Coba [Grounding dengan Google Penelusuran di Cookbook Gemini API](https://ai.google.dev/gemini-api/docs/Grounding dengan Google Penelusuran di Cookbook Gemini API).
+- Pelajari alat lain yang tersedia, seperti [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/Panggilan Fungsi).
+- Pelajari cara memperkaya perintah dengan URL tertentu menggunakan [alat konteks URL](https://ai.google.dev/gemini-api/docs/alat konteks URL).
 
 Kirim masukan
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
 Terakhir diperbarui pada 2026-04-29 UTC.
 
 Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

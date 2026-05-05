@@ -16,11 +16,11 @@ AI adoption is increasing rapidly in Europe and the UK, but the conversation abo
 
 We want to help researchers, policymakers, and practitioners tackle this topic head-on. To that end, we’re expanding our Economic Futures Programme to the UK and Europe, starting with a symposium at the London School of Economics and Political Science with more to follow.
 
-Building on our [US launch](https://www.anthropic.com/news/introducing-the-anthropic-economic-futures-program), the [Economic Futures Programme](https://www.anthropic.com/economic-futures) includes research grants and Claude credits for UK and EU researchers, forums like the Symposium for evaluating AI policy, and the provision of additional, more granular data about actual AI use in these countries.
+Building on our [US launch](https://www.anthropic.com/news/US launch), the [Economic Futures Programme](https://www.anthropic.com/news/Economic Futures Programme) includes research grants and Claude credits for UK and EU researchers, forums like the Symposium for evaluating AI policy, and the provision of additional, more granular data about actual AI use in these countries.
 
 ## A look into UK and European AI adoption
 
-AI could compress decades’ worth of technological change into just a few years. The [Anthropic Economic Index](https://www.anthropic.com/economic-index), which examines the use of Claude in the real world, reveals that AI adoption is already widespread in industries throughout the UK and Europe.Across the continent, Claude is most often used for coding. In the UK, though—and perhaps fittingly for a country with some of the oldest universities in the world—the most common use of Claude is support for academic research, writing, and educational content. In Germany, data shows Claude is bolstering local manufacturing, with especially high per capita use for calibrating, troubleshooting, and repairing equipment. And in France, Claude is supporting the country’s culture and tourism, with four times the global average use for information about dining, shopping and the nightlife.
+AI could compress decades’ worth of technological change into just a few years. The [Anthropic Economic Index](https://www.anthropic.com/news/Anthropic Economic Index), which examines the use of Claude in the real world, reveals that AI adoption is already widespread in industries throughout the UK and Europe.Across the continent, Claude is most often used for coding. In the UK, though—and perhaps fittingly for a country with some of the oldest universities in the world—the most common use of Claude is support for academic research, writing, and educational content. In Germany, data shows Claude is bolstering local manufacturing, with especially high per capita use for calibrating, troubleshooting, and repairing equipment. And in France, Claude is supporting the country’s culture and tourism, with four times the global average use for information about dining, shopping and the nightlife.
 
 The rapid adoption of AI demands a thoughtful policy response. To inform this, we hope to provide the data—and prompt some of the ideas—that will help British and European policymakers make informed decisions about this potential workforce transition.
 
@@ -34,7 +34,7 @@ The London School of Economics and Political Science (LSE) Anthropic Economic Fu
 
 As with the US, the Anthropic Economic Futures Programme in the UK and Europe will focus on three areas:
 
-- **Research grants:** We will provide grants and API credits to European researchers investigating AI's effects on labor markets, productivity, or value creation. For full details, see [here](https://www.anthropic.com/economic-futures); applications are open [here](https://forms.gle/jsyseT2mXtD578gM9).
+- **Research grants:** We will provide grants and API credits to European researchers investigating AI's effects on labor markets, productivity, or value creation. For full details, see [here](https://www.anthropic.com/news/here); applications are open [here](https://www.anthropic.com/news/here).
 - **Evidence-based policy:** The LSE Symposium will mark the first of many forums where researchers, policymakers, and practitioners can develop and evaluate policy proposals grounded in real data on Europeans’ use of AI.
 - **Economic measurement and data:** We're expanding the Anthropic Economic Index to provide more granular, Europe-specific information, with regular public data releases tracking AI adoption across European industries and regions.
 
@@ -44,18 +44,18 @@ Professor Cosmina Dorobantu at the London School of Economics added: "AI is forc
 
 The decisions that people in Europe make today about the development, deployment, and governing of AI will shape the continent's economic future. We're committed to partnering with policymakers, academics and economists across the region to prepare for the transition ahead.
 
-If you’re a researcher working on AI policy in the UK or Europe, you can submit your research proposal or learn more about the program at [anthropic.com/economic-futures](https://www.anthropic.com/economic-futures). For questions, contact **economicfutures@anthropic.com**.
+If you’re a researcher working on AI policy in the UK or Europe, you can submit your research proposal or learn more about the program at [anthropic.com/economic-futures](https://www.anthropic.com/news/anthropic.com/economic-futures). For questions, contact **economicfutures@anthropic.com**.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

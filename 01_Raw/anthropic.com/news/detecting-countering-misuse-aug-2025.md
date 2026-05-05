@@ -10,11 +10,11 @@ Announcements
 
 Aug 27, 2025
 
-[Threat Intelligence Report: August 2025](https://www-cdn.anthropic.com/b2a76c6f6992465c09a6f2fce282f6c0cea8c200.pdf)
+[Threat Intelligence Report: August 2025](https://www.anthropic.com/news/Threat Intelligence Report: August 2025)
 
-We’ve [developed](https://www.anthropic.com/news/building-safeguards-for-claude) sophisticated safety and security measures to prevent the misuse of our AI models. But cybercriminals and other malicious actors are actively attempting to find ways around them. Today, we’re releasing a report that details how.
+We’ve [developed](https://www.anthropic.com/news/developed) sophisticated safety and security measures to prevent the misuse of our AI models. But cybercriminals and other malicious actors are actively attempting to find ways around them. Today, we’re releasing a report that details how.
 
-Our [Threat Intelligence report](https://www-cdn.anthropic.com/b2a76c6f6992465c09a6f2fce282f6c0cea8c200.pdf) discusses several recent examples of Claude being misused, including a large-scale extortion operation using Claude Code, a fraudulent employment scheme from North Korea, and the sale of AI-generated ransomware by a cybercriminal with only basic coding skills. We also cover the steps we’ve taken to detect and counter these abuses.
+Our [Threat Intelligence report](https://www.anthropic.com/news/Threat Intelligence report) discusses several recent examples of Claude being misused, including a large-scale extortion operation using Claude Code, a fraudulent employment scheme from North Korea, and the sale of AI-generated ransomware by a cybercriminal with only basic coding skills. We also cover the steps we’ve taken to detect and counter these abuses.
 
 We find that threat actors have adapted their operations to exploit AI’s most advanced capabilities. Specifically, our report shows:
 
@@ -208,11 +208,9 @@ Copy
 
 **The threat:** We discovered that North Korean operatives had been using Claude to fraudulently secure and maintain remote employment positions at US Fortune 500 technology companies. This involved using our models to create elaborate false identities with convincing professional backgrounds, complete technical and coding assessments during the application process, and deliver actual technical work once hired.
 
-These employment schemes were designed to generate profit for the North Korean regime, in defiance of international sanctions. This is a long-running operation that began before the adoption of LLMs, and has been reported by [the FBI](https://www.ic3.gov/PSA/2025/PSA250723-4).
+These employment schemes were designed to generate profit for the North Korean regime, in defiance of international sanctions. This is a long-running operation that began before the adoption of LLMs, and has been reported by [the FBI](https://www.anthropic.com/news/the FBI).
 
 **Implications:** North Korean IT workers previously underwent years of specialized training prior to taking on remote technical work, which made the regime’s training capacity a major bottleneck. But AI has eliminated this constraint. Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews at reputable technology companies and then maintain their positions. This represents a fundamentally new phase for these employment scams.
-
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa474b3555a5486e3b8c0fa97434b27924a11b8d5-2756x5840.png&w=3840&q=75)
 
 *Top: Simulated prompts created by our threat intelligence team demonstrating a lack of relevant technical knowledge. Bottom: Simulated prompts demonstrating linguistic and cultural barriers.*
 
@@ -221,8 +219,6 @@ These employment schemes were designed to generate profit for the North Korean r
 ## **No-code malware: selling AI-generated ransomware-as-a-service**
 
 **The threat:** A cybercriminal used Claude to develop, market, and distribute several variants of ransomware, each with advanced evasion capabilities, encryption, and anti-recovery mechanisms. The ransomware packages were sold on internet forums to other cybercriminals for $400 to $1200 USD.
-
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3d0f1e44057b1d4a58f56785009a18efb7123cb0-4158x2958.png&w=3840&q=75)
 
 *The cybercriminal’s initial sales offering on the dark web, from January 2025.*
 
@@ -240,18 +236,18 @@ We’re committed to continually improving our methods for detecting and mitigat
 
 ## **Further reading**
 
-For the full report with additional case studies, [see here.](https://www-cdn.anthropic.com/b2a76c6f6992465c09a6f2fce282f6c0cea8c200.pdf)
+For the full report with additional case studies, [see here.](https://www.anthropic.com/news/see here.)
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

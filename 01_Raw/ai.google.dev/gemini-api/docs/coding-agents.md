@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:11:57.830556+00:00
 title: "\u4f7f\u7528 Gemini MCP \u548c Skills \u8a2d\u5b9a\u7a0b\u5f0f\u8a2d\u8a08\u52a9\u7406 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [首頁](https://ai.google.dev/gemini-api/docs/首頁)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [文件](https://ai.google.dev/gemini-api/docs/文件)
 
 提供意見
 
@@ -36,8 +36,8 @@ npx add-mcp "https://gemini-api-docs-mcp.dev"
 
 如要安裝這些技能，可以使用下列任一支援的工具。每個技能模組下方都有安裝說明：
 
-- **[skills.sh](https://skills.sh)**：建議使用。可攜式代理程式行為的開放標準。
-- **[Context7](https://context7.com)**：支援已使用 Context7 生態系統的使用者。
+- **[skills.sh](https://ai.google.dev/gemini-api/docs/skills.sh)**：建議使用。可攜式代理程式行為的開放標準。
+- **[Context7](https://ai.google.dev/gemini-api/docs/Context7)**：支援已使用 Context7 生態系統的使用者。
 
 ### gemini-api-dev
 
@@ -80,7 +80,7 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
 
 ### gemini-interactions-api
 
-使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw) 建構應用程式的技能。Interactions API 是與 Gemini 模型和代理程式互動的統一介面，專為代理程式應用程式設計。這項技能涵蓋的主題包括：
+使用 [Interactions API](https://ai.google.dev/gemini-api/docs/Interactions API) 建構應用程式的技能。Interactions API 是與 Gemini 模型和代理程式互動的統一介面，專為代理程式應用程式設計。這項技能涵蓋的主題包括：
 
 - 生成文字、進行多輪對話及串流
 - 函式呼叫、結構化輸出內容和圖像生成
@@ -150,17 +150,15 @@ npx skills add google-gemini/gemini-skills --skill gemini-api-dev
 
 ## 資源
 
-- [GitHub 上的 Gemini API 技能](https://github.com/google-gemini/gemini-skills)
-- [互動 API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)
-- [快速入門導覽課程](https://ai.google.dev/gemini-api/docs/quickstart?hl=zh-tw)
-- [程式庫](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw)
+- [GitHub 上的 Gemini API 技能](https://ai.google.dev/gemini-api/docs/GitHub 上的 Gemini API 技能)
+- [互動 API](https://ai.google.dev/gemini-api/docs/互動 API)
+- [快速入門導覽課程](https://ai.google.dev/gemini-api/docs/快速入門導覽課程)
+- [程式庫](https://ai.google.dev/gemini-api/docs/程式庫)
 
 提供意見
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://ai.google.dev/gemini-api/docs/創用 CC 姓名標示 4.0 授權)，程式碼範例則為[阿帕契 2.0 授權](https://ai.google.dev/gemini-api/docs/阿帕契 2.0 授權)。詳情請參閱《[Google Developers 網站政策](https://ai.google.dev/gemini-api/docs/Google Developers 網站政策)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
 上次更新時間：2026-04-29 (世界標準時間)。
 
 想進一步說明嗎？
-
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]

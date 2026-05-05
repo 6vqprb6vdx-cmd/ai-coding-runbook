@@ -26,7 +26,7 @@ Teachers will be able to use Claude to analyze and interpret a wide range of con
 
 ## **Building on global momentum in education and public sector**
 
-Iceland's pioneering education pilot builds upon a growing number of governments partnering with Anthropic across Europe and beyond. The [European Parliament](https://www.claude.com/customers/european-parliament) Archives Unit has deployed Claude to make over 2.1 million official documents readily accessible, reducing document search time by 80%. In the [UK](https://www.anthropic.com/news/mou-uk-government), we've signed a Memorandum of Understanding with the Department for Science, Innovation and Technology to explore how AI can transform public services for UK citizens. Additionally, the [London School of Economics](https://www.lse.ac.uk/news/latest-news-from-lse/d-april/lse-partners-with-anthropic-to-shape-the-future-of-ai-in-education) has provided all students with access to Claude for Education, helping them to solve problems and develop their critical thinking skills.
+Iceland's pioneering education pilot builds upon a growing number of governments partnering with Anthropic across Europe and beyond. The [European Parliament](https://www.anthropic.com/news/European Parliament) Archives Unit has deployed Claude to make over 2.1 million official documents readily accessible, reducing document search time by 80%. In the [UK](https://www.anthropic.com/news/UK), we've signed a Memorandum of Understanding with the Department for Science, Innovation and Technology to explore how AI can transform public services for UK citizens. Additionally, the [London School of Economics](https://www.anthropic.com/news/London School of Economics) has provided all students with access to Claude for Education, helping them to solve problems and develop their critical thinking skills.
 
 These partnerships demonstrate how European governments and institutions are thoughtfully integrating AI into public services. Iceland's comprehensive approach, focusing specifically on teachers, adds another model for how nations can harness AI to modernize education.
 
@@ -42,12 +42,12 @@ We look forward to bringing similar partnerships to more nations as we continue 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

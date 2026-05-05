@@ -10,15 +10,13 @@ Policy
 
 Jul 7, 2025
 
-[Read the Transparency Framework](https://www-cdn.anthropic.com/19cc4bf9eb6a94f9762ac67368f3322cf82b09fe.pdf)
+[Read the Transparency Framework](https://www.anthropic.com/news/Read the Transparency Framework)
 
-![A building with a set of columns ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa4b4c0066fe7b5761115569317b97259567e207c-1920x1079.png&w=3840&q=75)
+Frontier AI development [needs greater transparency](https://www.anthropic.com/news/needs greater transparency) to ensure public safety and accountability for the companies developing this powerful technology. AI is advancing rapidly. While industry, governments, academia, and others work to develop agreed-upon safety standards and comprehensive evaluation methods—a process that could take months to years—we need interim steps to ensure that very powerful AI is developed securely, responsibly, and transparently.
 
-Frontier AI development [needs greater transparency](https://www.nytimes.com/2025/06/05/opinion/anthropic-ceo-regulate-transparency.html) to ensure public safety and accountability for the companies developing this powerful technology. AI is advancing rapidly. While industry, governments, academia, and others work to develop agreed-upon safety standards and comprehensive evaluation methods—a process that could take months to years—we need interim steps to ensure that very powerful AI is developed securely, responsibly, and transparently.
+We are therefore proposing a [targeted transparency framework](https://www.anthropic.com/news/targeted transparency framework), one that could be applied at the federal, state, or international level, and which applies only to the largest AI systems and developers while establishing clear disclosure requirements for safety practices.
 
-We are therefore proposing a [targeted transparency framework](https://www-cdn.anthropic.com/19cc4bf9eb6a94f9762ac67368f3322cf82b09fe.pdf), one that could be applied at the federal, state, or international level, and which applies only to the largest AI systems and developers while establishing clear disclosure requirements for safety practices.
-
-Our approach deliberately avoids being heavily prescriptive. We recognize that as the science of AI continues to evolve, any regulatory effort must remain lightweight and flexible. **It should not impede AI innovation, nor should it slow our ability to realize AI's benefits—including lifesaving drug discovery, swift delivery of public benefits, and critical national security functions.** Rigid government-imposed standards would be especially counterproductive given that evaluation methods [become outdated within months](https://hai.stanford.edu/news/ai-benchmarks-hit-saturation) due to the pace of technological change.
+Our approach deliberately avoids being heavily prescriptive. We recognize that as the science of AI continues to evolve, any regulatory effort must remain lightweight and flexible. **It should not impede AI innovation, nor should it slow our ability to realize AI's benefits—including lifesaving drug discovery, swift delivery of public benefits, and critical national security functions.** Rigid government-imposed standards would be especially counterproductive given that evaluation methods [become outdated within months](https://www.anthropic.com/news/become outdated within months) due to the pace of technological change.
 
 ## Minimum Standards for AI Transparency
 
@@ -31,22 +29,22 @@ Below are the core tenets we believe should guide AI transparency policy:
 - **Protect Whistleblowers by Prohibiting False Statements**: Explicitly make it a violation of law for a lab to lie about its compliance with its framework. This clarification creates a clear legal violation that enables existing whistleblower protections to apply and ensures that enforcement resources are squarely focused on labs that have engaged in purposeful misconduct.
 - **Transparency Standards:** A workable AI transparency framework should have a minimum set of standards so that it can enhance security and public safety while accommodating the evolving nature of AI development. Given that AI safety and security practices remain in their early stages, with frontier developers like Anthropic actively researching best practices, any framework must be designed for evolution. Standards should begin as flexible, lightweight requirements that can adapt as consensus best practices emerge among industry, government, and other stakeholders.
 
-This transparency approach sheds light on industry best practices for safety and can help set a baseline for how responsible labs train their models, ensuring developers meet basic accountability standards while enabling the public and policymakers to distinguish between responsible and irresponsible practices. For example, the Secure Development Framework we describe here is akin to Anthropic’s own Responsible Scaling Policy and others from leading labs ([Google DeepMind](https://deepmind.google/discover/blog/introducing-the-frontier-safety-framework/), [OpenAI](https://openai.com/index/updating-our-preparedness-framework/), [Microsoft](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/Microsoft-Frontier-Governance-Framework.pdf)), all of whom have already implemented similar approaches while releasing frontier models.Putting a Secure Development Framework transparency requirement into law would not only standardize industry best practices without setting them in stone, it would also ensure that the disclosures (which are now voluntary) could not be withdrawn in the future as models become more powerful.
+This transparency approach sheds light on industry best practices for safety and can help set a baseline for how responsible labs train their models, ensuring developers meet basic accountability standards while enabling the public and policymakers to distinguish between responsible and irresponsible practices. For example, the Secure Development Framework we describe here is akin to Anthropic’s own Responsible Scaling Policy and others from leading labs ([Google DeepMind](https://www.anthropic.com/news/Google DeepMind), [OpenAI](https://www.anthropic.com/news/OpenAI), [Microsoft](https://www.anthropic.com/news/Microsoft)), all of whom have already implemented similar approaches while releasing frontier models.Putting a Secure Development Framework transparency requirement into law would not only standardize industry best practices without setting them in stone, it would also ensure that the disclosures (which are now voluntary) could not be withdrawn in the future as models become more powerful.
 
 Views differ on whether and when AI models could pose catastrophic risks. Transparency requirements for Secure Development Frameworks and system cards could help give policymakers the evidence they need to determine if further regulation is warranted, as well as provide the public with important information about this powerful new technology.
 
-As models advance, we have an unprecedented opportunity to accelerate scientific discovery, healthcare, and economic growth. Without safe and responsible development, a single catastrophic failure could halt progress for decades. **Our [proposed transparency framework](https://www-cdn.anthropic.com/19cc4bf9eb6a94f9762ac67368f3322cf82b09fe.pdf) offers a practical first step:** public visibility into safety practices while preserving private sector agility to deliver AI's transformative potential.
+As models advance, we have an unprecedented opportunity to accelerate scientific discovery, healthcare, and economic growth. Without safe and responsible development, a single catastrophic failure could halt progress for decades. **Our [proposed transparency framework](https://www.anthropic.com/news/proposed transparency framework) offers a practical first step:** public visibility into safety practices while preserving private sector agility to deliver AI's transformative potential.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

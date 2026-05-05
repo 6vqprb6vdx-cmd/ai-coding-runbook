@@ -10,17 +10,13 @@ Product
 
 Jul 15, 2025
 
-![Illustration of a step chart with growth arrows](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F333cd5ef21b4254fcd7f20ce5ae9e2697a0a425d-2880x1620.png&w=3840&q=75)
-
 Today, we're introducing a comprehensive solution for financial analysis that transforms how finance professionals analyze markets, conduct research, and make investment decisions with Claude.
 
 The Financial Analysis Solution unifies your financial data—from market feeds to internal data stored in platforms like Databricks and Snowflake—into a single interface. Access your critical data sources with direct hyperlinks to source materials for instant verification, all in one platform with expanded capacity for demanding financial workloads.
 
-![A price performance chart showing movement with key events](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8e5e04d55f4bcd660503514efdc3f3a1bf32694d-2880x1620.png&w=3840&q=75)
-
 Our Financial Analysis Solution includes:
 
-- **Claude’s industry-leading financial capabilities:** Claude 4 models outperform other frontier models as research agents across financial tasks in Vals AI's Finance Agent [benchmark](https://www.vals.ai/fab/benchmark-card.pdf). When deployed by FundamentalLabs to build an Excel agent, Claude Opus 4 passed 5 out of 7 levels of the Financial Modeling World Cup competition and scored 83% accuracy on complex excel tasks.
+- **Claude’s industry-leading financial capabilities:** Claude 4 models outperform other frontier models as research agents across financial tasks in Vals AI's Finance Agent [benchmark](https://www.anthropic.com/news/benchmark). When deployed by FundamentalLabs to build an Excel agent, Claude Opus 4 passed 5 out of 7 levels of the Financial Modeling World Cup competition and scored 83% accuracy on complex excel tasks.
 - **Claude Code and Claude for Enterprise with expanded usage limits**: Modernize trading systems, develop proprietary models, automate compliance, and run complex analyses including Monte Carlo simulations and risk modeling with Claude Code. With Claude, analysts can handle demanding workloads across critical market events and deal deadlines.
 - **Pre-built MCP connectors:** Access financial data providers and enterprise platforms for comprehensive market data and private market intelligence.
 - **Expert implementation support**: Tailored onboarding, training, and best practices for rapid value realization.
@@ -61,8 +57,6 @@ Our ecosystem delivers both data access and implementation expertise through lea
 
 Claude accelerates critical investment and analysis workflows including due diligence and market research, competitive benchmarking and portfolio deep dives, financial modeling with full audit trails, and generating institutional-quality investment memos and pitch decks. Teams can monitor portfolio performance and compare metrics across investments to identify opportunities faster than traditional methods.
 
-![A Comparable Company Analysis Chart](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F57c89bc3582c7f3bce005f864c077bf7b015f626-2880x1620.png&w=3840&q=75)
-
 Leading financial institutions are seeing proven results:
 
 > "We've been developing capabilities powered by Claude since 2023 within AIA Labs. Claude powered the first versions of our Investment Analyst Assistant, which streamlined our analysts' workflow by generating Python code, creating data visualizations, and iterating through complex financial analysis tasks with the precision of a junior analyst." **- Aaron Linsky, CTO, AIA Labs at Bridgewater**
@@ -77,7 +71,7 @@ Claude provides the complete platform for financial AI—from immediate deployme
 
 For streamlined procurement and consolidated billing, both Claude for Enterprise and the Financial Analysis Solution are now available on AWS Marketplace, enabling you to leverage existing vendor relationships while reducing procurement cycles. Google Cloud Marketplace availability is coming soon.
 
-Contact our sales team to learn more about [Claude for Financial Services](https://www.anthropic.com/solutions/financial-services), schedule a demonstration, or discuss implementation for your organization.
+Contact our sales team to learn more about [Claude for Financial Services](https://www.anthropic.com/news/Claude for Financial Services), schedule a demonstration, or discuss implementation for your organization.
 
 #### Footnotes
 
@@ -87,12 +81,12 @@ Contact our sales team to learn more about [Claude for Financial Services](https
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

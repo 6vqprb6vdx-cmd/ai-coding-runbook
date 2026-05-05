@@ -10,34 +10,32 @@ Announcements
 
 Aug 1, 2024
 
-![Claude 3 head illustration](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc6108088abbb2c615b798899cb3bdc91ef8f2c09-5760x3240.png&w=3840&q=75)
-
 Claude, Anthropic’s trusted AI assistant, is now available in Brazil. Starting today, consumers and businesses in Brazil will be able to access Claude via:
 
-- [Claude.ai](http://claude.ai/redirect/website.v1.25e2c692-d16c-47ac-98b8-063f55bb2f34): The web-based version of our next-generation AI assistant.
-- Claude mobile apps: Free [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude&pli=1) and [iOS](https://apps.apple.com/app/claude/id6473753684) apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
-- [Anthropic API](https://www.anthropic.com/api): Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
+- [Claude.ai](https://www.anthropic.com/news/Claude.ai): The web-based version of our next-generation AI assistant.
+- Claude mobile apps: Free [Android](https://www.anthropic.com/news/Android) and [iOS](https://www.anthropic.com/news/iOS) apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
+- [Anthropic API](https://www.anthropic.com/news/Anthropic API): Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
 
-Claude.ai offers both free and paid plans. Paid users on the [Pro plan](https://www.anthropic.com/claude) get 5x more usage versus our Free tier, early access to new features, and access to all our current Claude models—including [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet), our most intelligent model yet, and the rest of the Claude 3 family—for R$ 110 per user per month.
+Claude.ai offers both free and paid plans. Paid users on the [Pro plan](https://www.anthropic.com/news/Pro plan) get 5x more usage versus our Free tier, early access to new features, and access to all our current Claude models—including [Claude 3.5 Sonnet](https://www.anthropic.com/news/Claude 3.5 Sonnet), our most intelligent model yet, and the rest of the Claude 3 family—for R$ 110 per user per month.
 
-Paid users on the [Team plan](https://www.anthropic.com/team) get even more usage and access to shared chats with teammates for R$ 165 per user per month, with a minimum of 5 seats. The Team plan includes administrative tools to conveniently control user and billing management for easier onboarding and less overhead.
+Paid users on the [Team plan](https://www.anthropic.com/news/Team plan) get even more usage and access to shared chats with teammates for R$ 165 per user per month, with a minimum of 5 seats. The Team plan includes administrative tools to conveniently control user and billing management for easier onboarding and less overhead.
 
 ## Commitment to safety and privacy
 
 Anthropic prioritizes safety, privacy, and ethical AI development in Claude's design. Rigorous testing and training aim to reduce misuse, while a strong commitment to user privacy means generative models are not trained on user data without explicit permission.
 
-*Read this post in [Portuguese](https://cdn.sanity.io/files/4zrzovbb/website/ea3d47f547131c9fbed59bfe68ed8b1cbe747179.pdf).*
+*Read this post in [Portuguese](https://www.anthropic.com/news/Portuguese).*
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

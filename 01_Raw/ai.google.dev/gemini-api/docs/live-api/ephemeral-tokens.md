@@ -4,17 +4,17 @@ fetched_at: 2026-05-05T13:15:22.123938+00:00
 title: "Ephemeral tokens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/live-api/Gemini Deep Research) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Strona główna](https://ai.google.dev/gemini-api/docs/live-api/Strona główna)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/live-api/Gemini API)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/live-api/Dokumenty)
 
 Prześlij opinię
 
 # Ephemeral tokens
 
-Tokeny tymczasowe to krótkotrwałe tokeny uwierzytelniające, które umożliwiają dostęp do interfejsu Gemini API za pomocą [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Zostały one zaprojektowane w celu zwiększenia bezpieczeństwa podczas łączenia się bezpośrednio z interfejsem API z urządzenia użytkownika (implementacja [klient-serwer](https://ai.google.dev/gemini-api/docs/live?hl=pl#implementation-approach)). Podobnie jak standardowe klucze interfejsu API, tymczasowe tokeny można wyodrębnić z aplikacji po stronie klienta, takich jak przeglądarki internetowe lub aplikacje mobilne. Jednak tymczasowe tokeny szybko wygasają i można je ograniczać, co znacznie zmniejsza ryzyko związane z bezpieczeństwem w środowisku produkcyjnym. Używaj ich, gdy uzyskujesz dostęp do interfejsu Live API bezpośrednio z aplikacji po stronie klienta, aby zwiększyć bezpieczeństwo klucza interfejsu API.
+Tokeny tymczasowe to krótkotrwałe tokeny uwierzytelniające, które umożliwiają dostęp do interfejsu Gemini API za pomocą [WebSockets](https://ai.google.dev/gemini-api/docs/live-api/WebSockets). Zostały one zaprojektowane w celu zwiększenia bezpieczeństwa podczas łączenia się bezpośrednio z interfejsem API z urządzenia użytkownika (implementacja [klient-serwer](https://ai.google.dev/gemini-api/docs/live-api/klient-serwer)). Podobnie jak standardowe klucze interfejsu API, tymczasowe tokeny można wyodrębnić z aplikacji po stronie klienta, takich jak przeglądarki internetowe lub aplikacje mobilne. Jednak tymczasowe tokeny szybko wygasają i można je ograniczać, co znacznie zmniejsza ryzyko związane z bezpieczeństwem w środowisku produkcyjnym. Używaj ich, gdy uzyskujesz dostęp do interfejsu Live API bezpośrednio z aplikacji po stronie klienta, aby zwiększyć bezpieczeństwo klucza interfejsu API.
 
 ## Jak działają tymczasowe tokeny
 
@@ -77,8 +77,8 @@ const expireTime = new Date(Date.now() + 30 * 60 * 1000).toISOString();
   });
 ```
 
-Ograniczenia wartości, wartości domyślne i inne specyfikacje pól `expireTime` znajdziesz w [dokumentacji API](https://ai.google.dev/api/live?hl=pl#ephemeral-auth-tokens).
-W `expireTime` tym czasie musisz [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=pl#session-resumption) ponownie połączyć się z połączeniem co 10 minut (możesz to zrobić za pomocą tego samego tokena, nawet jeśli `uses: 1`).
+Ograniczenia wartości, wartości domyślne i inne specyfikacje pól `expireTime` znajdziesz w [dokumentacji API](https://ai.google.dev/gemini-api/docs/live-api/dokumentacji API).
+W `expireTime` tym czasie musisz [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-api/`sessionResumption`) ponownie połączyć się z połączeniem co 10 minut (możesz to zrobić za pomocą tego samego tokena, nawet jeśli `uses: 1`).
 
 Możesz też powiązać token efemeryczny z zestawem konfiguracji. Może to być przydatne do dalszego zwiększania bezpieczeństwa aplikacji i przechowywania instrukcji systemowych po stronie serwera.
 
@@ -136,13 +136,13 @@ const token = await client.authTokens.create({
 // You'll need to pass the value under token.name back to your client to use it
 ```
 
-Możesz też zablokować podzbiór pól. Więcej informacji znajdziesz w [dokumentacji pakietu SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
+Możesz też zablokować podzbiór pól. Więcej informacji znajdziesz w [dokumentacji pakietu SDK](https://ai.google.dev/gemini-api/docs/live-api/dokumentacji pakietu SDK).
 
 ## Łączenie się z Live API za pomocą tokena tymczasowego
 
 Gdy uzyskasz token tymczasowy, używaj go tak, jakby był kluczem interfejsu API (pamiętaj jednak, że działa on tylko w przypadku interfejsu API w wersji produkcyjnej i tylko z wersją `v1alpha` interfejsu API).
 
-Używanie tymczasowych tokenów ma sens tylko w przypadku wdrażania aplikacji, które korzystają z [implementacji po stronie klienta i serwera](https://ai.google.dev/gemini-api/docs/live?hl=pl#implementation-approach).
+Używanie tymczasowych tokenów ma sens tylko w przypadku wdrażania aplikacji, które korzystają z [implementacji po stronie klienta i serwera](https://ai.google.dev/gemini-api/docs/live-api/implementacji po stronie klienta i serwera).
 
 ### JavaScript
 
@@ -172,7 +172,7 @@ async function main() {
 main();
 ```
 
-Więcej przykładów znajdziesz w artykule [Pierwsze kroki z interfejsem Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl).
+Więcej przykładów znajdziesz w artykule [Pierwsze kroki z interfejsem Live API](https://ai.google.dev/gemini-api/docs/live-api/Pierwsze kroki z interfejsem Live API).
 
 ## Sprawdzone metody
 
@@ -183,18 +183,16 @@ Więcej przykładów znajdziesz w artykule [Pierwsze kroki z interfejsem Live AP
 
 ## Ograniczenia
 
-Obecnie tokeny tymczasowe są zgodne tylko z [interfejsem Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl).
+Obecnie tokeny tymczasowe są zgodne tylko z [interfejsem Live API](https://ai.google.dev/gemini-api/docs/live-api/interfejsem Live API).
 
 ## Co dalej?
 
-- Więcej informacji znajdziesz w [dokumentacji API](https://ai.google.dev/api/live?hl=pl#ephemeral-auth-tokens) interfejsu Live API na temat tokenów tymczasowych.
+- Więcej informacji znajdziesz w [dokumentacji API](https://ai.google.dev/gemini-api/docs/live-api/dokumentacji API) interfejsu Live API na temat tokenów tymczasowych.
 
 Prześlij opinię
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://ai.google.dev/gemini-api/docs/live-api/licencją Creative Commons – uznanie autorstwa 4.0), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://ai.google.dev/gemini-api/docs/live-api/licencji Apache 2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://ai.google.dev/gemini-api/docs/live-api/zasady dotyczące witryny Google Developers). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
 Ostatnia aktualizacja: 2026-04-29 UTC.
 
 Chcesz przekazać coś jeszcze?
-
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

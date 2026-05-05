@@ -26,7 +26,7 @@ Anthropic seeks to provide DOE researchers access both to Claude and to a team o
 
 - AI "agents" (models that take actions) for DOE’s highest-priority challenges
 - Model Context Protocol servers that connect Claude to scientific instruments and tools
-- Claude [Skills](https://www.claude.com/blog/skills) for specialized expertise on relevant scientific workflows
+- Claude [Skills](https://www.anthropic.com/news/Skills) for specialized expertise on relevant scientific workflows
 
 Claude can facilitate substantial advancements in:
 
@@ -38,18 +38,18 @@ Claude can facilitate substantial advancements in:
 
 Scientific progress has always driven America’s prosperity and security. Anthropic aspires to expand existing arrangements with DOE to build the next chapter: using AI across America’s research institutions, with deep context on scientists’ work and active support from our engineers.
 
-Potential future arrangements would represent the next stage of Anthropic and DOE’s multi-year partnership. Past projects with DOE include co-development of a [nuclear risk classifier](https://red.anthropic.com/2025/nuclear-safeguards/) with the National Nuclear Security Administration and rolling out Claude at the [Lawrence Livermore national laboratory](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and). As we learn from the current work with DOE’s, we’ll be able to develop a model for how AI and human researchers can work together—and feed this back into the development of the AI tools they use.
+Potential future arrangements would represent the next stage of Anthropic and DOE’s multi-year partnership. Past projects with DOE include co-development of a [nuclear risk classifier](https://www.anthropic.com/news/nuclear risk classifier) with the National Nuclear Security Administration and rolling out Claude at the [Lawrence Livermore national laboratory](https://www.anthropic.com/news/Lawrence Livermore national laboratory). As we learn from the current work with DOE’s, we’ll be able to develop a model for how AI and human researchers can work together—and feed this back into the development of the AI tools they use.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

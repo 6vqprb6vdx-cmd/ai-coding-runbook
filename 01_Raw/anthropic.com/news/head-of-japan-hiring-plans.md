@@ -22,18 +22,18 @@ Anthropic plans to officially open its first office in Asia in the coming months
 
 The Japanese HQ will also allow Anthropic to deepen its partnerships with businesses, policymakers, platform partners like Amazon Bedrock and Google Cloud Vertex, and academic and creative industries in Japan and across Asia.
 
-For more information about current career opportunities at Anthropic Japan, visit [anthropic.com/careers](http://anthropic.com/careers).
+For more information about current career opportunities at Anthropic Japan, visit [anthropic.com/careers](https://www.anthropic.com/news/anthropic.com/careers).
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

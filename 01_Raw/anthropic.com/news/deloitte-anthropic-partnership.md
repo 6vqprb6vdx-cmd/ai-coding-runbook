@@ -14,7 +14,7 @@ Oct 6, 2025
 
 Anthropic and Deloitte today announced an expanded alliance that will make Claude available to Deloitte people across its global network and develop new industry-specific solutions powered by Claude. As part of the collaboration, Deloitte will establish a Claude Center of Excellence with trained specialists who will develop implementation frameworks, share leading practices across deployments, and provide ongoing technical support to create the systems needed to move AI pilots to production at scale. The collaboration represents Anthropic's largest enterprise AI deployment to date, available to more than 470,000 Deloitte people.
 
-Deloitte and Anthropic are co-creating a formal certification program to [train and certify 15,000 of its professionals](https://www.deloitte.com/us/en/about/press-room/deloitte-and-anthropic-launch-certification-program.html) on Claude. These practitioners will help support Claude implementations across Deloitte's network and Deloitte’s internal AI transformation efforts.
+Deloitte and Anthropic are co-creating a formal certification program to [train and certify 15,000 of its professionals](https://www.anthropic.com/news/train and certify 15,000 of its professionals) on Claude. These practitioners will help support Claude implementations across Deloitte's network and Deloitte’s internal AI transformation efforts.
 
 ## **Differentiated Approach**
 
@@ -26,7 +26,7 @@ Deloitte and Anthropic will build AI solutions, including compliance features, t
 
 ## **Getting Started**
 
-Deloitte clients can contact their account team to discuss deployment options, enterprises can visit our [Enterprise page](https://claude.com/pricing/enterprise) to explore how Claude can transform their operations, and developers can access the Anthropic API at https://www.claude.com/platform/api.
+Deloitte clients can contact their account team to discuss deployment options, enterprises can visit our [Enterprise page](https://www.anthropic.com/news/Enterprise page) to explore how Claude can transform their operations, and developers can access the Anthropic API at https://www.claude.com/platform/api.
 
 *Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (DTTL), its global network of member firms, and their related entities (collectively, the “Deloitte organization”). DTTL (also referred to as “Deloitte Global”) and each of its member firms and related entities are legally separate and independent entities, which cannot obligate or bind each other in respect of third parties. DTTL and each DTTL member firm and related entity is liable only for its own acts and omissions, and not those of each other. DTTL does not provide services to clients. Please see www.deloitte.com/about to learn more.*
 
@@ -36,12 +36,12 @@ Deloitte clients can contact their account team to discuss deployment options, e
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

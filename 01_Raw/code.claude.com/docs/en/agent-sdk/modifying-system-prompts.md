@@ -187,7 +187,6 @@ Output styles are saved configurations that modify Claude's system prompt. They'
   ```python Python theme={null}
   from pathlib import Path
 
-
   async def create_output_style(name: str, description: str, prompt: str):
       # User-level: ~/.claude/output-styles
       # Project-level: .claude/output-styles
@@ -205,7 +204,6 @@ Output styles are saved configurations that modify Claude's system prompt. They'
       file_name = name.lower().replace(" ", "-") + ".md"
       file_path = output_styles_dir / file_name
       file_path.write_text(content, encoding="utf-8")
-
 
   # Example: Create a code review specialist
   await create_output_style(
@@ -331,7 +329,7 @@ The following example pairs a shared `append` block with `excludeDynamicSections
 
 **Tradeoffs:** the working directory, git status, and memory location still reach Claude, but as part of the first user message rather than the system prompt. Instructions in the user message carry marginally less weight than the same text in the system prompt, so Claude may rely on them less strongly when reasoning about the current directory or auto-memory paths. Enable this option when cross-session cache reuse matters more than maximally authoritative environment context.
 
-For the equivalent flag in non-interactive CLI mode, see [`--exclude-dynamic-system-prompt-sections`](/en/cli-reference).
+For the equivalent flag in non-interactive CLI mode, see [`--exclude-dynamic-system-prompt-sections`](https://code.claude.com/docs/en/agent-sdk/`--exclude-dynamic-system-prompt-sections`).
 
 ### Method 4: Custom system prompts
 
@@ -519,6 +517,6 @@ You can combine these methods for maximum flexibility:
 
 ## See also
 
-* [Output styles](/en/output-styles) - Complete output styles documentation
-* [TypeScript SDK guide](/en/agent-sdk/typescript) - Complete SDK usage guide
-* [Configuration guide](/en/settings) - General configuration options
+* [Output styles](https://code.claude.com/docs/en/agent-sdk/Output styles) - Complete output styles documentation
+* [TypeScript SDK guide](https://code.claude.com/docs/en/agent-sdk/TypeScript SDK guide) - Complete SDK usage guide
+* [Configuration guide](https://code.claude.com/docs/en/agent-sdk/Configuration guide) - General configuration options

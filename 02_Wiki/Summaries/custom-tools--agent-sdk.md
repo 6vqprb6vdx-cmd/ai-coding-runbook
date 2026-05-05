@@ -30,6 +30,6 @@ How to define custom tools using the Claude Agent SDK's **in-process MCP server*
 
 **Non-text returns**: `image` blocks carry base64 bytes inline + required `mimeType` (no URL field; fetch + encode in handler). `resource` blocks embed URI + `text` or `blob`; URI is just a label, SDK doesn't read from it.
 
-**Scaling**: every tool consumes context every turn. For dozens of tools use [tool search](/en/agent-sdk/tool-search) for on-demand loading.
+**Scaling**: every tool consumes context every turn. For dozens of tools use [tool search](https://code.claude.com/en/agent-sdk/tool-search) for on-demand loading.
 
 Examples: weather (`get_temperature`, `get_precipitation_chance`), HTTP fetcher with error handling, unit converter showing enum schemas + unsupported-input handling via `isError`.

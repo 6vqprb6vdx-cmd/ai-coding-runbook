@@ -10,9 +10,7 @@ Announcements
 
 Jul 23, 2025
 
-![Anthropic partners with the University of Chicago’s Becker Friedman Institute on AI economic research](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png&w=3840&q=75)
-
-Today, we’re announcing a partnership with the University of Chicago's Becker Friedman Institute for Economics (BFI) to study AI's impact on labor markets and the economy. As part of this, we will equip BFI faculty economists with Claude for Enterprise access, provide training sessions on applying AI in economic research, and offer virtual workshops on our research to measure AI’s economic impacts. This partnership is an extension of our [Economic Index](https://www.anthropic.com/economic-index) initiative, which is dedicated to tracking and understanding AI’s effects on the economy over time.
+Today, we’re announcing a partnership with the University of Chicago's Becker Friedman Institute for Economics (BFI) to study AI's impact on labor markets and the economy. As part of this, we will equip BFI faculty economists with Claude for Enterprise access, provide training sessions on applying AI in economic research, and offer virtual workshops on our research to measure AI’s economic impacts. This partnership is an extension of our [Economic Index](https://www.anthropic.com/news/Economic Index) initiative, which is dedicated to tracking and understanding AI’s effects on the economy over time.
 
 The rapid pace of technological advancement is increasing the challenges in analyzing the resulting impacts across the labor market and throughout society. We aim to deepen our analysis of AI’s economic impacts by combining our research data with BFI's distinguished economic expertise. This partnership offers BFI economists opportunities to examine questions including:
 
@@ -24,18 +22,18 @@ The rapid pace of technological advancement is increasing the challenges in anal
 
 "The Anthropic Economic Index provides a foundation of data, but maximizing its research value requires expertise from economists who understand labor markets, productivity dynamics, and policy implications," said Sarah Heck, Head of Policy, Programs and Partnerships. "BFI represents an ideal partner given the breadth of expertise and commitment to both insightful theory and empirical research that has made the University of Chicago economics community world-renowned."
 
-The partnership will help expand the methodologies used to study AI's economic impact, with the goal of providing policymakers and researchers with more robust insights. As our [Economic Index](https://www.anthropic.com/economic-index) shows, AI use is distributed unevenly across the economy–with complex patterns that defy simple narratives about automation. Working hand-in-hand with BFI economists, we hope to develop a more precise understanding of these patterns and their implications for economic policy, workforce development, and technology governance.
+The partnership will help expand the methodologies used to study AI's economic impact, with the goal of providing policymakers and researchers with more robust insights. As our [Economic Index](https://www.anthropic.com/news/Economic Index) shows, AI use is distributed unevenly across the economy–with complex patterns that defy simple narratives about automation. Working hand-in-hand with BFI economists, we hope to develop a more precise understanding of these patterns and their implications for economic policy, workforce development, and technology governance.
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

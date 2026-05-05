@@ -4,19 +4,19 @@ fetched_at: 2026-05-05T13:13:21.132397+00:00
 title: "Google GenAI SDK\ub85c \uc774\uc804 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [홈](https://ai.google.dev/gemini-api/docs/홈)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [문서](https://ai.google.dev/gemini-api/docs/문서)
 
 의견 보내기
 
 # Google GenAI SDK로 이전
 
-2024년 말에 출시된 Gemini 2.0부터 [Google 생성형 AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ko)라는 새로운 라이브러리 세트가 도입되었습니다. [업데이트된 클라이언트 아키텍처](https://ai.google.dev/gemini-api/docs/migrate?hl=ko#client)를 통해 개발자 환경을 개선하고 개발자와 엔터프라이즈 워크플로 간의 [전환을 간소화](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=ko)합니다.
+2024년 말에 출시된 Gemini 2.0부터 [Google 생성형 AI SDK](https://ai.google.dev/gemini-api/docs/Google 생성형 AI SDK)라는 새로운 라이브러리 세트가 도입되었습니다. [업데이트된 클라이언트 아키텍처](https://ai.google.dev/gemini-api/docs/업데이트된 클라이언트 아키텍처)를 통해 개발자 환경을 개선하고 개발자와 엔터프라이즈 워크플로 간의 [전환을 간소화](https://ai.google.dev/gemini-api/docs/전환을 간소화)합니다.
 
-이제 지원되는 모든 플랫폼에서 Google GenAI SDK가 [정식 버전 (GA)](https://ai.google.dev/gemini-api/docs/libraries?hl=ko#new-libraries)으로 제공됩니다. Google의 [기존 라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko#previous-sdks) 중 하나를 사용하고 있다면 이전하는 것이 좋습니다.
+이제 지원되는 모든 플랫폼에서 Google GenAI SDK가 [정식 버전 (GA)](https://ai.google.dev/gemini-api/docs/정식 버전 (GA))으로 제공됩니다. Google의 [기존 라이브러리](https://ai.google.dev/gemini-api/docs/기존 라이브러리) 중 하나를 사용하고 있다면 이전하는 것이 좋습니다.
 
 이 가이드에서는 마이그레이션된 코드의 전후 예시를 제공하여 시작하는 데 도움을 드립니다.
 
@@ -176,7 +176,7 @@ tuningJob, err := client.Tunings.Tune(...)
 
 ## 인증
 
-기존 라이브러리와 새 라이브러리 모두 API 키를 사용하여 인증합니다. Google AI Studio에서 API 키를 [만들 수](https://aistudio.google.com/app/apikey?hl=ko) 있습니다.
+기존 라이브러리와 새 라이브러리 모두 API 키를 사용하여 인증합니다. Google AI Studio에서 API 키를 [만들 수](https://ai.google.dev/gemini-api/docs/만들 수) 있습니다.
 
 **전**
 
@@ -752,16 +752,16 @@ result, err := client.Models.GenerateContent(ctx,
     "gemini-2.0-flash",
     genai.Text("Tell me about New York"),
     &genai.GenerateContentConfig{
-        Temperature:      genai.Ptr[float32](0.5),
-        TopP:             genai.Ptr[float32](0.5),
-        TopK:             genai.Ptr[float32](2.0),
+        Temperature:      genai.Ptr[float32](https://ai.google.dev/gemini-api/docs/float32),
+        TopP:             genai.Ptr[float32](https://ai.google.dev/gemini-api/docs/float32),
+        TopK:             genai.Ptr[float32](https://ai.google.dev/gemini-api/docs/float32),
         ResponseMIMEType: "application/json",
         StopSequences:    []string{"Yankees"},
         CandidateCount:   2,
-        Seed:             genai.Ptr[int32](42),
+        Seed:             genai.Ptr[int32](https://ai.google.dev/gemini-api/docs/int32),
         MaxOutputTokens:  128,
-        PresencePenalty:  genai.Ptr[float32](0.5),
-        FrequencyPenalty: genai.Ptr[float32](0.5),
+        PresencePenalty:  genai.Ptr[float32](https://ai.google.dev/gemini-api/docs/float32),
+        FrequencyPenalty: genai.Ptr[float32](https://ai.google.dev/gemini-api/docs/float32),
     },
 )
 if err != nil {
@@ -1901,10 +1901,8 @@ console.log(result.embeddings);
 
 의견 보내기
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 라이선스)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://ai.google.dev/gemini-api/docs/Apache 2.0 라이선스)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://ai.google.dev/gemini-api/docs/Google Developers 사이트 정책)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
 최종 업데이트: 2026-04-29(UTC)
 
 의견을 전달하고 싶나요?
-
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

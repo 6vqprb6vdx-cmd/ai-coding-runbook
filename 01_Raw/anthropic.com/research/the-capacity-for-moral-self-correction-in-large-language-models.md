@@ -10,7 +10,7 @@ Societal Impacts
 
 Feb 15, 2023
 
-[Read Paper](https://arxiv.org/abs/2302.07459)
+[Read Paper](https://www.anthropic.com/research/Read Paper)
 
 ## Abstract
 
@@ -18,20 +18,20 @@ We test the hypothesis that language models trained with reinforcement learning 
 
 ## Policy Memo
 
-[Moral Self-Correction Policy Memo](https://www-cdn.anthropic.com/d14f58fe8f611858bc37ff8686bbda71e4927ce6/Anthropic_MoralSelfCorrection_v3.pdf)
+[Moral Self-Correction Policy Memo](https://www.anthropic.com/research/Moral Self-Correction Policy Memo)
 
 ## Related content
 
 ### How people ask Claude for personal guidance
 
-[Read more](/research/claude-personal-guidance)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
 
-[Read more](/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+[Read more](https://www.anthropic.com/research/Read more)
 
 ### Announcing the Anthropic Economic Index Survey
 
 We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
 
-[Read more](/research/economic-index-survey-announcement)
+[Read more](https://www.anthropic.com/research/Read more)

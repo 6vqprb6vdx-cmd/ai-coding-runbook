@@ -4,19 +4,19 @@ fetched_at: 2026-05-05T13:09:40.469430+00:00
 title: "Gemini \uc9c0\uc6d0 \uc911\ub2e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [홈](https://ai.google.dev/gemini-api/docs/홈)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [문서](https://ai.google.dev/gemini-api/docs/문서)
 
 의견 보내기
 
 # Gemini 지원 중단
 
-이 페이지에는 Gemini API의 [안정화 (GA)](https://ai.google.dev/gemini-api/docs/models?hl=ko#stable) 및 [미리보기](https://ai.google.dev/gemini-api/docs/models?hl=ko#preview) 모델의 알려진 지원 중단 일정이 나와 있습니다. '**지원 중단**'은 더 이상 모델을 지원하지 않으며 가까운 시일 내에 '**종료**'될 것이라는 발표입니다. 모델이 '**shutdown**'되면 완전히 꺼지고 엔드포인트를 더 이상 사용할 수 없습니다.
+이 페이지에는 Gemini API의 [안정화 (GA)](https://ai.google.dev/gemini-api/docs/안정화 (GA)) 및 [미리보기](https://ai.google.dev/gemini-api/docs/미리보기) 모델의 알려진 지원 중단 일정이 나와 있습니다. '**지원 중단**'은 더 이상 모델을 지원하지 않으며 가까운 시일 내에 '**종료**'될 것이라는 발표입니다. 모델이 '**shutdown**'되면 완전히 꺼지고 엔드포인트를 더 이상 사용할 수 없습니다.
 
-지원 중단 공지는 [출시 노트](https://ai.google.dev/gemini-api/docs/changelog?hl=ko) 페이지에 게시되며, 공지된 가장 빠른 종료 날짜는 이 페이지에서 추적됩니다.
+지원 중단 공지는 [출시 노트](https://ai.google.dev/gemini-api/docs/출시 노트) 페이지에 게시되며, 공지된 가장 빠른 종료 날짜는 이 페이지에서 추적됩니다.
 이미 종료된 모델은 회색 배경으로 표시됩니다.
 
 ## Gemini 3 모델
@@ -142,10 +142,8 @@ title: "Gemini \uc9c0\uc6d0 \uc911\ub2e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 
 
 의견 보내기
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 라이선스)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://ai.google.dev/gemini-api/docs/Apache 2.0 라이선스)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://ai.google.dev/gemini-api/docs/Google Developers 사이트 정책)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
 최종 업데이트: 2026-05-05(UTC)
 
 의견을 전달하고 싶나요?
-
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-05(UTC)"],[],[]]

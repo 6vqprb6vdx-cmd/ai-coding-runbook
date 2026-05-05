@@ -4,28 +4,28 @@ fetched_at: 2026-05-05T13:25:07.657964+00:00
 title: "\u05d4\u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05de\u05ea\u05d7\u05d9\u05dc\u05d9\u05dd \u05e9\u05dc Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [דף הבית](https://ai.google.dev/gemini-api/docs/דף הבית)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
 
 שליחת משוב
 
 # המדריך למתחילים של Google AI Studio
 
-ב-[Google AI Studio](https://aistudio.google.com/?hl=he) אפשר לנסות מודלים במהירות ולהתנסות בהנחיות שונות. כשמוכנים לבנות, אפשר לבחור באפשרות 'קבלת קוד' ובשפת התכנות המועדפת כדי להשתמש ב-[Gemini API](https://ai.google.dev/gemini-api/docs/quickstart?hl=he).
+ב-[Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio) אפשר לנסות מודלים במהירות ולהתנסות בהנחיות שונות. כשמוכנים לבנות, אפשר לבחור באפשרות 'קבלת קוד' ובשפת התכנות המועדפת כדי להשתמש ב-[Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API).
 
 ## הנחיות והגדרות
 
-ב-Google AI Studio יש כמה ממשקים להנחיות שנועדו לתרחישי שימוש שונים. במדריך הזה מוסבר על **הנחיות לצ'אט**, שמשמשות ליצירת ממשקי צ'אט עם AI. טכניקת ההנחיה הזו מאפשרת להזין כמה קלטים ולקבל כמה תשובות כדי ליצור פלט. [בדוגמה של הנחיה לצ'אט שבהמשך](#chat_example) אפשר לקבל מידע נוסף.
+ב-Google AI Studio יש כמה ממשקים להנחיות שנועדו לתרחישי שימוש שונים. במדריך הזה מוסבר על **הנחיות לצ'אט**, שמשמשות ליצירת ממשקי צ'אט עם AI. טכניקת ההנחיה הזו מאפשרת להזין כמה קלטים ולקבל כמה תשובות כדי ליצור פלט. [בדוגמה של הנחיה לצ'אט שבהמשך](https://ai.google.dev/gemini-api/docs/בדוגמה של הנחיה לצ'אט שבהמשך) אפשר לקבל מידע נוסף.
 אפשרויות נוספות כוללות **סטרימינג בזמן אמת**, **יצירת סרטונים** ועוד.
 
-ב-AI Studio יש גם חלונית **Run settings** (הגדרות הפעלה), שבה אפשר לבצע שינויים ב[פרמטרים של המודל](https://ai.google.dev/docs/prompting-strategies?hl=he#model-parameters), ב[הגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he) ולהפעיל כלים כמו [structured output](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) (פלט מובנה), [function calling](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) (הפעלת פונקציות), [code execution](https://ai.google.dev/gemini-api/docs/code-execution?hl=he) (הרצת קוד) ו-[grounding](https://ai.google.dev/gemini-api/docs/grounding?hl=he) (הארקה).
+ב-AI Studio יש גם חלונית **Run settings** (הגדרות הפעלה), שבה אפשר לבצע שינויים ב[פרמטרים של המודל](https://ai.google.dev/gemini-api/docs/פרמטרים של המודל), ב[הגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/הגדרות הבטיחות) ולהפעיל כלים כמו [structured output](https://ai.google.dev/gemini-api/docs/structured output) (פלט מובנה), [function calling](https://ai.google.dev/gemini-api/docs/function calling) (הפעלת פונקציות), [code execution](https://ai.google.dev/gemini-api/docs/code execution) (הרצת קוד) ו-[grounding](https://ai.google.dev/gemini-api/docs/grounding) (הארקה).
 
 ## דוגמה להנחיה ב-Chat: יצירת אפליקציית צ'אט בהתאמה אישית
 
-אם השתמשתם בצ'אטבוט רב-תכליתי כמו [Gemini](https://gemini.google.com/?hl=he), אתם יודעים כמה מודלים של AI גנרטיבי יכולים להיות יעילים לדיאלוג פתוח. צ'אטבוטים למטרות כלליות הם שימושיים, אבל לעיתים קרובות צריך להתאים אותם לתרחישי שימוש ספציפיים.
+אם השתמשתם בצ'אטבוט רב-תכליתי כמו [Gemini](https://ai.google.dev/gemini-api/docs/Gemini), אתם יודעים כמה מודלים של AI גנרטיבי יכולים להיות יעילים לדיאלוג פתוח. צ'אטבוטים למטרות כלליות הם שימושיים, אבל לעיתים קרובות צריך להתאים אותם לתרחישי שימוש ספציפיים.
 
 לדוגמה, יכול להיות שתרצו ליצור צ'אט בוט לשירות לקוחות שתומך רק בשיחות שקשורות למוצר של החברה. יכול להיות שתרצו לבנות צ'אטבוט שמדבר בטון או בסגנון מסוימים: צ'אטבוט שמספר הרבה בדיחות, שמתחרז כמו משורר או שמשתמש בהרבה אמוג'י בתשובות שלו.
 
@@ -38,8 +38,8 @@ title: "\u05d4\u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05de\u05ea\u05d7\u05d9\u05d
 
 כדי ליצור הנחיה לצ'אט:
 
-1. פותחים את [Google AI Studio](https://aistudio.google.com/?hl=he). האפשרות **צ'אט** תהיה מסומנת מראש בתפריט האפשרויות בצד ימין.
-2. לוחצים על הסמל assignment בראש חלון ההנחיה של Chat כדי להרחיב את שדה להזנת קלט [**הוראות המערכת**](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions). מדביקים את הטקסט הבא בשדה להזנת טקסט:
+1. פותחים את [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio). האפשרות **צ'אט** תהיה מסומנת מראש בתפריט האפשרויות בצד ימין.
+2. לוחצים על הסמל assignment בראש חלון ההנחיה של Chat כדי להרחיב את שדה להזנת קלט [**הוראות המערכת**](https://ai.google.dev/gemini-api/docs/**הוראות המערכת**). מדביקים את הטקסט הבא בשדה להזנת טקסט:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
@@ -101,15 +101,13 @@ title: "\u05d4\u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05de\u05ea\u05d7\u05d9\u05d
 
 ## קריאה נוספת
 
-- אם אתם מוכנים לעבור לקוד, תוכלו לעיין ב[מדריכי ההתחלה המהירה של ה-API](https://ai.google.dev/gemini-api/docs/quickstart?hl=he).
-- כדי ללמוד איך לכתוב הנחיות טובות יותר, אפשר לעיין [בהנחיות לעיצוב הנחיות](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=he).
+- אם אתם מוכנים לעבור לקוד, תוכלו לעיין ב[מדריכי ההתחלה המהירה של ה-API](https://ai.google.dev/gemini-api/docs/מדריכי ההתחלה המהירה של ה-API).
+- כדי ללמוד איך לכתוב הנחיות טובות יותר, אפשר לעיין [בהנחיות לעיצוב הנחיות](https://ai.google.dev/gemini-api/docs/בהנחיות לעיצוב הנחיות).
 
 שליחת משוב
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://ai.google.dev/gemini-api/docs/מדיניות האתר Google Developers‏).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
 עדכון אחרון: 2026-04-29 (שעון UTC).
 
 רוצה לתת לנו משוב?
-
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

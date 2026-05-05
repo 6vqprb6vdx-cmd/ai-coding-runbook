@@ -12,17 +12,17 @@ Dec 19, 2025
 
 ![Sharing our compliance framework for California's Transparency in Frontier AI Act](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
-On January 1, California's Transparency in Frontier AI Act ([SB 53](https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB53)) will go into effect. It establishes the nation’s first frontier AI safety and transparency requirements for catastrophic risks.
+On January 1, California's Transparency in Frontier AI Act ([SB 53](https://www.anthropic.com/news/SB 53)) will go into effect. It establishes the nation’s first frontier AI safety and transparency requirements for catastrophic risks.
 
-While we have long advocated for a federal framework, Anthropic [endorsed](https://www.anthropic.com/news/anthropic-is-endorsing-sb-53) SB 53 because we believe frontier AI developers like ourselves should be transparent about how they assess and manage these risks. Importantly, the law balances the need for strong safety practices, incident reporting, and whistleblower protections—while preserving flexibility in how developers implement their safety measures, and exempting smaller companies from unnecessary regulatory burdens.
+While we have long advocated for a federal framework, Anthropic [endorsed](https://www.anthropic.com/news/endorsed) SB 53 because we believe frontier AI developers like ourselves should be transparent about how they assess and manage these risks. Importantly, the law balances the need for strong safety practices, incident reporting, and whistleblower protections—while preserving flexibility in how developers implement their safety measures, and exempting smaller companies from unnecessary regulatory burdens.
 
-One of the law’s key requirements is that frontier AI developers publish a framework describing how they assess and manage catastrophic risks. Our Frontier Compliance Framework (FCF) is now available to the public, [here](https://trust.anthropic.com/resources?s=eorilovp4wxk38nxbi7k3&name=anthropic-frontier-compliance-framework). Below, we discuss what’s included within it, and highlight what we think should come next for frontier AI transparency.
+One of the law’s key requirements is that frontier AI developers publish a framework describing how they assess and manage catastrophic risks. Our Frontier Compliance Framework (FCF) is now available to the public, [here](https://www.anthropic.com/news/here). Below, we discuss what’s included within it, and highlight what we think should come next for frontier AI transparency.
 
 ## **What’s in our Frontier Compliance Framework**
 
 Our FCF describes how we assess and mitigate cyber offense, chemical, biological, radiological, and nuclear threats, as well as the risks of AI sabotage and loss of control, for our frontier models. The framework also lays out our tiered system for evaluating model capabilities against these risk categories and explains our approach to mitigations. It also covers how we protect model weights and respond to safety incidents.
 
-Much of what's in the FCF reflects an evolution of practices we've followed for years. Since 2023, our [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) (RSP) has outlined our approach to managing extreme risks from advanced AI systems and informed our decisions about AI development and deployment. We also release detailed system cards when we launch new models, which describe capabilities, safety evaluations, and risk assessments. Other labs have voluntarily adopted similar approaches. Under the new law going into effect on January 1, those types of transparency practices are mandatory for those building the most powerful AI systems in California.
+Much of what's in the FCF reflects an evolution of practices we've followed for years. Since 2023, our [Responsible Scaling Policy](https://www.anthropic.com/news/Responsible Scaling Policy) (RSP) has outlined our approach to managing extreme risks from advanced AI systems and informed our decisions about AI development and deployment. We also release detailed system cards when we launch new models, which describe capabilities, safety evaluations, and risk assessments. Other labs have voluntarily adopted similar approaches. Under the new law going into effect on January 1, those types of transparency practices are mandatory for those building the most powerful AI systems in California.
 
 Moving forward, the FCF will serve as our compliance framework for SB 53 and other regulatory requirements. The RSP will remain our voluntary safety policy, reflecting what we believe best practices should be as the AI landscape evolves, even when that goes beyond or otherwise differs from current regulatory requirements.
 
@@ -30,7 +30,7 @@ Moving forward, the FCF will serve as our compliance framework for SB 53 and oth
 
 The implementation of SB 53 is an important moment. By formalizing achievable transparency practices that responsible labs already voluntarily follow, the law ensures these commitments can't be abandoned quietly later once models get more capable, or as competition intensifies. Now, a federal AI transparency framework enshrining these practices is needed to ensure consistency across the country.
 
-Earlier this year, we proposed a [framework](https://www.anthropic.com/news/the-need-for-transparency-in-frontier-ai) for federal legislation. It emphasizes public visibility into safety practices, without trying to lock in specific technical approaches that may not make sense over time. The core tenets of our framework include:
+Earlier this year, we proposed a [framework](https://www.anthropic.com/news/framework) for federal legislation. It emphasizes public visibility into safety practices, without trying to lock in specific technical approaches that may not make sense over time. The core tenets of our framework include:
 
 - **Requiring a public secure development framework:** Covered developers should publish a framework laying out how they assess and mitigate serious risks, including chemical, biological, radiological, and nuclear harms, as well as harms from misaligned model autonomy.
 - **Publishing system cards at deployment:** Documentation summarizing testing, evaluation procedures, results, and mitigations should be publicly disclosed when models are deployed and updated if models are substantially modified.
@@ -44,12 +44,12 @@ As AI systems grow more powerful, the public deserves visibility into how they'r
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

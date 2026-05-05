@@ -26,7 +26,7 @@ Foreign labs that distill American models can then feed these unprotected capabi
 
 ## Distillation attacks and export controls
 
-Anthropic has [consistently supported](https://www.anthropic.com/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule) export controls to help maintain America’s lead in AI. Distillation attacks undermine those controls by allowing foreign labs, including those subject to the control of the Chinese Communist Party, to close the competitive advantage that export controls are designed to preserve through other means.
+Anthropic has [consistently supported](https://www.anthropic.com/news/consistently supported) export controls to help maintain America’s lead in AI. Distillation attacks undermine those controls by allowing foreign labs, including those subject to the control of the Chinese Communist Party, to close the competitive advantage that export controls are designed to preserve through other means.
 
 Without visibility into these attacks, the apparently rapid advancements made by these labs are incorrectly taken as evidence that export controls are ineffective and able to be circumvented by innovation. In reality, these advancements depend in significant part on capabilities extracted from American models, and executing this extraction at scale requires access to advanced chips. Distillation attacks therefore reinforce the rationale for export controls: restricted chip access limits both direct model training and the scale of illicit distillation.
 
@@ -76,7 +76,7 @@ We attributed the campaign to MiniMax through request metadata and infrastructur
 
 ## How distillers access frontier models
 
-For national security reasons, Anthropic does not currently offer commercial access to Claude in China, or to [subsidiaries of their companies](https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions) located outside of the country.
+For national security reasons, Anthropic does not currently offer commercial access to Claude in China, or to [subsidiaries of their companies](https://www.anthropic.com/news/subsidiaries of their companies) located outside of the country.
 
 To circumvent this, labs use commercial proxy services which resell access to Claude and other frontier AI models at scale. These services run what we call “hydra cluster” architectures: sprawling networks of fraudulent accounts that distribute traffic across our API as well as third-party cloud platforms. The breadth of these networks means that there are no single points of failure. When one account is banned, a new one takes its place. In one case, a single proxy network managed more than 20,000 fraudulent accounts simultaneously, mixing distillation traffic with unrelated customer requests to make detection harder.
 
@@ -101,12 +101,12 @@ But no company can solve this alone. As we noted above, distillation attacks at 
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

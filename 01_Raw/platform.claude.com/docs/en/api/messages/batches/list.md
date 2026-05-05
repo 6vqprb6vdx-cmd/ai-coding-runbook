@@ -10,7 +10,7 @@ fetch_method: mintlify_md
 
 List all Message Batches within a Workspace. Most recently created batches are returned first.
 
-Learn more about the Message Batches API in our [user guide](https://docs.claude.com/en/docs/build-with-claude/batch-processing)
+Learn more about the Message Batches API in our [user guide](https://platform.claude.com/docs/en/api/messages/batches/user guide)
 
 ### Query Parameters
 

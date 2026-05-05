@@ -10,7 +10,7 @@ fetch_method: mintlify_md
 
 When you make a request to the Messages API, Claude's response includes a `stop_reason` field that indicates why the model stopped generating its response. Understanding these values is crucial for building robust applications that handle different response types appropriately.
 
-For details about `stop_reason` in the API response, see the [Messages API reference](/docs/en/api/messages/create).
+For details about `stop_reason` in the API response, see the [Messages API reference](https://platform.claude.com/docs/en/build-with-claude/Messages API reference).
 
 ## The stop_reason field
 
@@ -113,7 +113,6 @@ messages = [
         ],
     },  # Just the tool_result, no additional text
 ]
-
 
 # If you still get empty responses after fixing the above:
 def handle_empty_response(client, messages):
@@ -413,7 +412,7 @@ if response.stop_reason == "stop_sequence":
 Claude is calling a tool and expects you to execute it.
 
 <Note>
-For most tool use implementations, we recommend using the [tool runner](/docs/en/agents-and-tools/tool-use/tool-runner) which automatically handles tool execution, result formatting, and conversation management.
+For most tool use implementations, we recommend using the [tool runner](https://platform.claude.com/docs/en/build-with-claude/tool runner) which automatically handles tool execution, result formatting, and conversation management.
 </Note>
 
 ```python Python nocheck
@@ -432,11 +431,9 @@ weather_tool = {
     },
 }
 
-
 def execute_tool(name, tool_input):
     """Execute a tool and return the result."""
     return f"Weather in {tool_input.get('location', 'unknown')}: 72°F"
-
 
 response = client.messages.create(
     model="claude-sonnet-4-20250514",
@@ -454,7 +451,7 @@ if response.stop_reason == "tool_use":
 ```
 
 ### pause_turn
-Returned when the server-side sampling loop reaches its iteration limit while executing [server tools](/docs/en/agents-and-tools/tool-use/server-tools) like web search or web fetch. The default limit is 10 iterations per request.
+Returned when the server-side sampling loop reaches its iteration limit while executing [server tools](https://platform.claude.com/docs/en/build-with-claude/server tools) like web search or web fetch. The default limit is 10 iterations per request.
 
 When this happens, the response may contain a `server_tool_use` block without a corresponding `server_tool_result`. To let Claude finish processing, continue the conversation by sending the response back as-is.
 
@@ -500,11 +497,11 @@ if response.stop_reason == "refusal":
 ```
 
 <Tip>
-If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1, you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
+If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1, you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://platform.claude.com/docs/en/build-with-claude/understanding Sonnet 4.5's API safety filters).
 </Tip>
 
 <Note>
-To learn more about refusals triggered by API safety filters for Claude Sonnet 4.5, see [Understanding Sonnet 4.5's API Safety Filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
+To learn more about refusals triggered by API safety filters for Claude Sonnet 4.5, see [Understanding Sonnet 4.5's API Safety Filters](https://platform.claude.com/docs/en/build-with-claude/Understanding Sonnet 4.5's API Safety Filters).
 </Note>
 
 ### model_context_window_exceeded
@@ -582,7 +579,7 @@ def handle_truncated_response(response):
 
 ### 3. Implement retry logic for pause_turn
 
-When using [server tools](/docs/en/agents-and-tools/tool-use/server-tools), the API may return `pause_turn` if the server-side sampling loop reaches its iteration limit (default 10). Handle this by continuing the conversation:
+When using [server tools](https://platform.claude.com/docs/en/build-with-claude/server tools), the API may return `pause_turn` if the server-side sampling loop reaches its iteration limit (default 10). Handle this by continuing the conversation:
 
 ```python nocheck
 def handle_server_tool_conversation(client, user_query, tools, max_continuations=5):
@@ -682,7 +679,7 @@ with client.messages.stream(
 ### Handling tool use workflows
 
 <Tip>
-**Simpler with tool runner**: The example below shows manual tool handling. For most use cases, the [tool runner](/docs/en/agents-and-tools/tool-use/tool-runner) automatically handles tool execution with much less code.
+**Simpler with tool runner**: The example below shows manual tool handling. For most use cases, the [tool runner](https://platform.claude.com/docs/en/build-with-claude/tool runner) automatically handles tool execution with much less code.
 </Tip>
 
 ```python nocheck

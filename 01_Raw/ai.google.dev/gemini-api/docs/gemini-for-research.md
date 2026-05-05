@@ -4,29 +4,29 @@ fetched_at: 2026-05-05T13:11:08.303545+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/Deep Research من Gemini) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [الصفحة الرئيسية](https://ai.google.dev/gemini-api/docs/الصفحة الرئيسية)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
 
 # تسريع الاكتشاف باستخدام Gemini for Research
 
-[الحصول على مفتاح Gemini API](https://aistudio.google.com/apikey?hl=ar)
+[الحصول على مفتاح Gemini API](https://ai.google.dev/gemini-api/docs/الحصول على مفتاح Gemini API)
 
 يمكن استخدام نماذج Gemini لتعزيز الأبحاث الأساسية في مختلف المجالات.
 في ما يلي طرق لاستكشاف Gemini لأغراض بحثك:
 
 - **تحليل نواتج النموذج والتحكّم بها**: لمزيد من التحليل، يمكنك فحص
   ردّ مقترَح أنشأه النموذج باستخدام أدوات مثل
-  `CitationMetadata`. يمكنك أيضًا ضبط خيارات إنشاء النموذج ونواتجه، مثل `responseSchema` و`topP` و`topK`. [مزيد من المعلومات](https://ai.google.dev/api/generate-content?hl=ar).
-- **الإدخالات المتعدّدة الوسائط**: يمكن لـ Gemini معالجة الصور والمقاطع الصوتية والفيديوهات، ما يتيح إجراء مجموعة كبيرة من الأبحاث المثيرة. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/vision?hl=ar).
-- **إمكانات السياق الطويل**: يتضمّن Gemini 3.0 Flash وPro قدرة استيعاب تبلغ مليون رمز مميّز. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/long-context?hl=ar).
+  `CitationMetadata`. يمكنك أيضًا ضبط خيارات إنشاء النموذج ونواتجه، مثل `responseSchema` و`topP` و`topK`. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/مزيد من المعلومات).
+- **الإدخالات المتعدّدة الوسائط**: يمكن لـ Gemini معالجة الصور والمقاطع الصوتية والفيديوهات، ما يتيح إجراء مجموعة كبيرة من الأبحاث المثيرة. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/مزيد من المعلومات).
+- **إمكانات السياق الطويل**: يتضمّن Gemini 3.0 Flash وPro قدرة استيعاب تبلغ مليون رمز مميّز. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/مزيد من المعلومات).
 - **Grow with Google**: يمكنك الوصول بسرعة إلى نماذج Gemini من خلال واجهة برمجة التطبيقات وGoogle AI
   Studio لحالات الاستخدام في مرحلة الإنتاج. إذا كنت تبحث عن منصة مستندة إلى Google Cloud، يمكن أن توفّر منصة Gemini Enterprise Agent بنية أساسية إضافية داعمة.
 
 لدعم الأبحاث الأكاديمية وتعزيز الأبحاث المتطورة، تتيح Google
 للعلماء والباحثين الأكاديميين الوصول إلى أرصدة Gemini API من خلال
-[برنامج Gemini Academic Program](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ar#gemini-academic-program).
+[برنامج Gemini Academic Program](https://ai.google.dev/gemini-api/docs/برنامج Gemini Academic Program).
 
 ## بدء استخدام Gemini
 
@@ -91,7 +91,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 ## برنامج Gemini Academic Program
 
 يمكن للباحثين الأكاديميين المؤهّلين (مثل أعضاء هيئة التدريس والموظفين وطلاب الدكتوراه) في [البلدان
-المتاحة](https://ai.google.dev/gemini-api/docs/available-regions?hl=ar) التقديم للحصول على أرصدة Gemini API
+المتاحة](https://ai.google.dev/gemini-api/docs/البلدانالمتاحة) التقديم للحصول على أرصدة Gemini API
 وحدود أعلى للطلبات في مشاريعهم البحثية. يسمح هذا الدعم بزيادة سرعة معالجة البيانات في التجارب العلمية وتعزيز الأبحاث.
 
 نحن مهتمون بشكل خاص بمجالات البحث الواردة في القسم التالي، ولكننا نرحّب بالطلبات من مختلف التخصّصات العلمية:
@@ -110,10 +110,8 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 
 ### بدء البحث باستخدام Gemini API
 
-[تقديم طلب الآن](https://forms.gle/HMviQstU8PxC5iCt5)
+[تقديم طلب الآن](https://ai.google.dev/gemini-api/docs/تقديم طلب الآن)
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://ai.google.dev/gemini-api/docs/ترخيص Creative Commons Attribution 4.0‏) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://ai.google.dev/gemini-api/docs/ترخيص Apache 2.0‏). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://ai.google.dev/gemini-api/docs/سياسات موقع Google Developers‏). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
 تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
-
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

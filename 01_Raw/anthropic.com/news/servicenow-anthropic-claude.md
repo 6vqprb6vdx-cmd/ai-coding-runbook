@@ -26,7 +26,7 @@ Enterprises use ServiceNow’s platform to process more than 80 billion workflow
 
 ## **Claude for ServiceNow customers**
 
-**Powering enterprise app development**: Claude is the default model powering [ServiceNow Build Agent](https://www.servicenow.com/products/vibe-coding.html), an enterprise-grade coding solution for building apps and automations with AI. Build Agent has gained significant early traction: ServiceNow expects its usage to quadruple over the next 12 months. By integrating Build Agent with Claude, developers of all skill levels, including professional coders and citizen developers, can use natural language prompts to create applications that previously required significant developer support, or design, test, and use agentic automations. Customers use Claude in ServiceNow to handle tasks that need more advanced AI, while still keeping full visibility and control over what the AI does.
+**Powering enterprise app development**: Claude is the default model powering [ServiceNow Build Agent](https://www.anthropic.com/news/ServiceNow Build Agent), an enterprise-grade coding solution for building apps and automations with AI. Build Agent has gained significant early traction: ServiceNow expects its usage to quadruple over the next 12 months. By integrating Build Agent with Claude, developers of all skill levels, including professional coders and citizen developers, can use natural language prompts to create applications that previously required significant developer support, or design, test, and use agentic automations. Customers use Claude in ServiceNow to handle tasks that need more advanced AI, while still keeping full visibility and control over what the AI does.
 
 **Accelerating product adoption and time to value**: ServiceNow is also working with us to improve how customers deploy and adopt ServiceNow products. With Claude, ServiceNow is targeting a 50% reduction in time-to-implement for customers—reducing the delay from initial sales conversations to autonomous deployment. Customers and partners will be able to use the same AI-powered approach to speed their own deployments.
 
@@ -42,20 +42,20 @@ ServiceNow is putting Claude to work for the companys global workforce, applying
 
 ### **Availability**
 
-Claude is now available as the default model for Build Agent and as a preferred model across the ServiceNow AI Platform. Tens of thousands of ServiceNow enterprise customers and the company’s global workforce can access Claude to build and deploy agentic automation and workflows across departments. Learn more about ServiceNow’s AI Platform at [servicenow.com/ai](https://servicenow.com/ai).
+Claude is now available as the default model for Build Agent and as a preferred model across the ServiceNow AI Platform. Tens of thousands of ServiceNow enterprise customers and the company’s global workforce can access Claude to build and deploy agentic automation and workflows across departments. Learn more about ServiceNow’s AI Platform at [servicenow.com/ai](https://www.anthropic.com/news/servicenow.com/ai).
 
-*\*For more on these evaluations, see [here](https://www.anthropic.com/news/healthcare-life-sciences).*
+*\*For more on these evaluations, see [here](https://www.anthropic.com/news/here).*
 
 ## Related content
 
 ### Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
 
-[Read more](/news/enterprise-ai-services-company)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)

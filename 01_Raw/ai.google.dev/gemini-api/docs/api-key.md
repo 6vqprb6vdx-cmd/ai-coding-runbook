@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:28:54.477211+00:00
 title: "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0645\u0641\u0627\u062a\u064a\u062d \u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0641\u064a Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/Deep Research من Gemini) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [الصفحة الرئيسية](https://ai.google.dev/gemini-api/docs/الصفحة الرئيسية)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [المستندات](https://ai.google.dev/gemini-api/docs/المستندات)
 
 إرسال ملاحظات
 
@@ -16,25 +16,25 @@ title: "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0645\u0641\u0627\u062a\u064
 
 لاستخدام Gemini API، يجب أن يكون لديك مفتاح واجهة برمجة تطبيقات. توضّح هذه الصفحة كيفية إنشاء مفاتيحك وإدارتها في Google AI Studio، بالإضافة إلى كيفية إعداد بيئتك لاستخدامها في الرمز البرمجي.
 
-[إنشاء مفتاح واجهة Gemini API أو عرضه](https://aistudio.google.com/app/apikey?hl=ar)
+[إنشاء مفتاح واجهة Gemini API أو عرضه](https://ai.google.dev/gemini-api/docs/إنشاء مفتاح واجهة Gemini API أو عرضه)
 
 ## مفاتيح واجهة برمجة التطبيقات
 
-يمكنك إنشاء جميع مفاتيح Gemini API وإدارتها من صفحة [مفاتيح API](https://aistudio.google.com/app/apikey?hl=ar) في **Google AI Studio**.
+يمكنك إنشاء جميع مفاتيح Gemini API وإدارتها من صفحة [مفاتيح API](https://ai.google.dev/gemini-api/docs/مفاتيح API) في **Google AI Studio**.
 
 بعد الحصول على مفتاح واجهة برمجة التطبيقات، تتوفّر لك الخيارات التالية للربط بواجهة Gemini API:
 
-- [ضبط مفتاح واجهة برمجة التطبيقات كمتغيّر بيئة](#set-api-env-var)
-- [تقديم مفتاح واجهة برمجة التطبيقات بشكلٍ صريح](#provide-api-key-explicitly)
+- [ضبط مفتاح واجهة برمجة التطبيقات كمتغيّر بيئة](https://ai.google.dev/gemini-api/docs/ضبط مفتاح واجهة برمجة التطبيقات كمتغيّر بيئة)
+- [تقديم مفتاح واجهة برمجة التطبيقات بشكلٍ صريح](https://ai.google.dev/gemini-api/docs/تقديم مفتاح واجهة برمجة التطبيقات بشكلٍ صريح)
 
-لإجراء الاختبار الأوّلي، يمكنك تضمين مفتاح واجهة برمجة التطبيقات في الرمز البرمجي، ولكن يجب أن يكون ذلك مؤقتًا فقط لأنّه غير آمن. يمكنك العثور على أمثلة حول الترميز الثابت لمفتاح واجهة برمجة التطبيقات في قسم [توفير مفتاح واجهة برمجة التطبيقات بشكل صريح](#provide-api-key-explicitly).
+لإجراء الاختبار الأوّلي، يمكنك تضمين مفتاح واجهة برمجة التطبيقات في الرمز البرمجي، ولكن يجب أن يكون ذلك مؤقتًا فقط لأنّه غير آمن. يمكنك العثور على أمثلة حول الترميز الثابت لمفتاح واجهة برمجة التطبيقات في قسم [توفير مفتاح واجهة برمجة التطبيقات بشكل صريح](https://ai.google.dev/gemini-api/docs/توفير مفتاح واجهة برمجة التطبيقات بشكل صريح).
 
 ## مشاريع Google Cloud
 
-تُعد [مشاريع Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ar) أساسية لاستخدام خدمات Google Cloud (مثل Gemini API) وإدارة الفوترة والتحكّم في المتعاونين والأذونات. يوفّر Google AI
+تُعد [مشاريع Google Cloud](https://ai.google.dev/gemini-api/docs/مشاريع Google Cloud) أساسية لاستخدام خدمات Google Cloud (مثل Gemini API) وإدارة الفوترة والتحكّم في المتعاونين والأذونات. يوفّر Google AI
 Studio واجهة بسيطة لمشاريعك على Google Cloud.
 
-إذا لم يسبق لك إنشاء أي مشاريع، عليك إنشاء مشروع جديد أو استيراد مشروع من Google Cloud إلى Google AI Studio. ستعرض صفحة **المشاريع** في Google AI Studio جميع المفاتيح التي لديها الإذن الكافي لاستخدام Gemini API. راجِع قسم [استيراد المشاريع](#import-projects) للحصول على التعليمات.
+إذا لم يسبق لك إنشاء أي مشاريع، عليك إنشاء مشروع جديد أو استيراد مشروع من Google Cloud إلى Google AI Studio. ستعرض صفحة **المشاريع** في Google AI Studio جميع المفاتيح التي لديها الإذن الكافي لاستخدام Gemini API. راجِع قسم [استيراد المشاريع](https://ai.google.dev/gemini-api/docs/استيراد المشاريع) للحصول على التعليمات.
 
 ### المشروع التلقائي
 
@@ -46,7 +46,7 @@ Studio واجهة بسيطة لمشاريعك على Google Cloud.
 
 إذا لم تستورد أي مشاريع على السحابة الإلكترونية بعد، اتّبِع الخطوات التالية لاستيراد مشروع Google Cloud وإنشاء مفتاح:
 
-1. انتقِل إلى [Google AI Studio](https://aistudio.google.com?hl=ar).
+1. انتقِل إلى [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio).
 2. افتح **لوحة البيانات** من اللوحة الجانبية على يمين الصفحة.
 3. اختَر **المشاريع**.
 4. انقر على الزر **استيراد المشاريع** في صفحة **المشاريع**.
@@ -64,12 +64,12 @@ Studio واجهة بسيطة لمشاريعك على Google Cloud.
 - لا يتم عرض سوى مفاتيح واجهة برمجة التطبيقات التي لا تتضمّن أي قيود أو التي تقتصر على Generative Language API.
 
 للحصول على إذن إضافي بإدارة مشاريعك، بما في ذلك تعديل مفاتيح واجهة برمجة التطبيقات وتقييدها، انتقِل إلى
-[صفحة بيانات الاعتماد في Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=ar).
+[صفحة بيانات الاعتماد في Google Cloud Console](https://ai.google.dev/gemini-api/docs/صفحة بيانات الاعتماد في Google Cloud Console).
 في Cloud Console، يمكنك اختيار مشروعك والنقر على مفتاح واجهة برمجة تطبيقات حالي، ثم حصر استخدامه على **Generative Language API**.
 
 ## ضبط مفتاح واجهة برمجة التطبيقات كمتغيّر بيئي
 
-في حال ضبطت متغيّر البيئة `GEMINI_API_KEY` أو `GOOGLE_API_KEY`، سيختار العميل مفتاح واجهة برمجة التطبيقات تلقائيًا عند استخدام إحدى [مكتبات Gemini API](https://ai.google.dev/gemini-api/docs/libraries?hl=ar). ننصحك بضبط أحد المتغيرَين فقط، ولكن في حال ضبط كليهما، ستكون الأولوية للمتغير `GOOGLE_API_KEY`.
+في حال ضبطت متغيّر البيئة `GEMINI_API_KEY` أو `GOOGLE_API_KEY`، سيختار العميل مفتاح واجهة برمجة التطبيقات تلقائيًا عند استخدام إحدى [مكتبات Gemini API](https://ai.google.dev/gemini-api/docs/مكتبات Gemini API). ننصحك بضبط أحد المتغيرَين فقط، ولكن في حال ضبط كليهما، ستكون الأولوية للمتغير `GOOGLE_API_KEY`.
 
 إذا كنت تستخدم REST API أو JavaScript على المتصفّح، عليك تقديم مفتاح واجهة برمجة التطبيقات بشكل صريح.
 
@@ -277,12 +277,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 ### أفضل الممارسات
 
 - **استخدام طلبات من جهة الخادم مع مفاتيح واجهة برمجة التطبيقات** إنّ الطريقة الأكثر أمانًا لاستخدام مفتاح واجهة برمجة التطبيقات هي إرسال طلبات إلى Gemini API من تطبيق من جهة الخادم حيث يمكن الحفاظ على سرية المفتاح.
-- **استخدام رموز مميزة مؤقتة للوصول من جهة العميل (Live API فقط):** للوصول مباشرةً إلى Live API من جهة العميل، يمكنك استخدام رموز مميزة مؤقتة. وتكون هذه النماذج أقل عرضة للمخاطر الأمنية ويمكن استخدامها في عملية الإنتاج. راجِع دليل [الرموز المميزة المؤقتة](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ar) لمزيد من المعلومات.
+- **استخدام رموز مميزة مؤقتة للوصول من جهة العميل (Live API فقط):** للوصول مباشرةً إلى Live API من جهة العميل، يمكنك استخدام رموز مميزة مؤقتة. وتكون هذه النماذج أقل عرضة للمخاطر الأمنية ويمكن استخدامها في عملية الإنتاج. راجِع دليل [الرموز المميزة المؤقتة](https://ai.google.dev/gemini-api/docs/الرموز المميزة المؤقتة) لمزيد من المعلومات.
 - **ننصحك بإضافة قيود إلى مفتاحك:** يمكنك الحدّ من أذونات المفتاح
-  من خلال إضافة [قيود على مفتاح واجهة برمجة التطبيقات](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=ar#add-api-restrictions).
+  من خلال إضافة [قيود على مفتاح واجهة برمجة التطبيقات](https://ai.google.dev/gemini-api/docs/قيود على مفتاح واجهة برمجة التطبيقات).
   ويقلّل ذلك من الأضرار المحتملة في حال تسرُّب المفتاح.
 
-للاطّلاع على بعض أفضل الممارسات العامة، يمكنك أيضًا مراجعة [مقالة الدعم](https://support.google.com/googleapi/answer/6310037?hl=ar) هذه.
+للاطّلاع على بعض أفضل الممارسات العامة، يمكنك أيضًا مراجعة [مقالة الدعم](https://ai.google.dev/gemini-api/docs/مقالة الدعم) هذه.
 
 ## تحديد المشاكل في إنشاء مفتاح واجهة برمجة التطبيقات وحلّها
 
@@ -294,16 +294,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 - **`apikeys.keys.create`**: يسمح بإنشاء مفتاح واجهة برمجة التطبيقات نفسه.
 - **`serviceusage.services.enable`**: مطلوبة لضمان تفعيل Gemini API في المشروع.
 
-لحلّ مشكلة الأذونات، اطلب من مشرف المشروع أو مشرف مؤسستك إذا كان المشروع تابعًا [لمؤسسة](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ar) منحك دورًا يتضمّن الأذونات المذكورة أعلاه (مثل "محرّر المشروع" أو دور مخصّص).
+لحلّ مشكلة الأذونات، اطلب من مشرف المشروع أو مشرف مؤسستك إذا كان المشروع تابعًا [لمؤسسة](https://ai.google.dev/gemini-api/docs/لمؤسسة) منحك دورًا يتضمّن الأذونات المذكورة أعلاه (مثل "محرّر المشروع" أو دور مخصّص).
 
 إذا لم يكن لديك إذن وصول إداري إلى مشروع، يمكنك إنشاء مشروع جديد غير مرتبط بمؤسسة لإنشاء مفاتيحك.
 
 إرسال ملاحظات
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://ai.google.dev/gemini-api/docs/ترخيص Creative Commons Attribution 4.0‏) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://ai.google.dev/gemini-api/docs/ترخيص Apache 2.0‏). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://ai.google.dev/gemini-api/docs/سياسات موقع Google Developers‏). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
 تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
-
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

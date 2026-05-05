@@ -4,18 +4,18 @@ fetched_at: 2026-05-05T13:09:14.809078+00:00
 title: "Ex\u00e9cution de code \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/recherche approfondie Gemini) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Accueil](https://ai.google.dev/gemini-api/docs/Accueil)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
 
 Envoyer des commentaires
 
 # Exécution de code
 
 L'API Gemini fournit un outil d'exécution de code qui permet au modèle de générer et d'exécuter du code Python. Le modèle peut ensuite apprendre de manière itérative à partir des résultats de l'exécution du code jusqu'à ce qu'il parvienne à une sortie finale. Vous pouvez utiliser l'exécution de code pour créer des applications qui bénéficient d'un raisonnement basé sur du code. Par exemple, vous pouvez utiliser l'exécution de code pour résoudre des équations ou traiter du texte. Vous pouvez
-également utiliser les [bibliothèques](#supported-libraries) incluses dans l'environnement d'exécution de code
+également utiliser les [bibliothèques](https://ai.google.dev/gemini-api/docs/bibliothèques) incluses dans l'environnement d'exécution de code
 pour effectuer des tâches plus spécialisées.
 
 Gemini ne peut exécuter du code qu'en Python. Vous pouvez toujours demander à Gemini de générer du code dans un autre langage, mais le modèle ne peut pas utiliser l'outil d'exécution de code pour l'exécuter.
@@ -592,7 +592,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 
 L'exécution de code est compatible avec l'entrée de fichier et la sortie de graphique. Grâce à ces fonctionnalités d'entrée et de
 sortie, vous pouvez importer des fichiers CSV et des fichiers texte, poser des questions sur les
-fichiers et générer des graphiques [Matplotlib](https://matplotlib.org/) dans la réponse. Les fichiers de sortie sont renvoyés en tant qu'images intégrées dans la réponse.
+fichiers et générer des graphiques [Matplotlib](https://ai.google.dev/gemini-api/docs/Matplotlib) dans la réponse. Les fichiers de sortie sont renvoyés en tant qu'images intégrées dans la réponse.
 
 ### Tarifs d'E/S
 
@@ -618,7 +618,7 @@ Lorsque vous utilisez l'E/S d'exécution de code, tenez compte des détails tech
 - La taille maximale de l'entrée de fichier est limitée par la fenêtre de jetons du modèle. Dans AI Studio, la taille maximale du fichier d'entrée est de 1 million de jetons (environ 2 Mo pour les fichiers texte des types d'entrée compatibles). Si vous importez un fichier trop volumineux, AI Studio ne vous permettra pas de l'envoyer.
 - L'exécution de code fonctionne mieux avec les fichiers texte et CSV.
 - Le fichier d'entrée peut être transmis dans `part.inlineData` ou `part.fileData` (importé
-  via l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=fr)), et le fichier de sortie est toujours
+  via l'[API Files](https://ai.google.dev/gemini-api/docs/API Files)), et le fichier de sortie est toujours
   renvoyé en tant que `part.inlineData`.
 
 ## Facturation
@@ -650,11 +650,11 @@ Le modèle de facturation est présenté dans le schéma suivant :
 ## Combinaisons d'outils compatibles
 
 L'outil d'exécution de code peut être combiné avec
-[l'ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) pour
+[l'ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/l'ancrage avec la recherche Google) pour
 des cas d'utilisation plus complexes.
 
 Les modèles Gemini 3 sont compatibles avec la combinaison d'outils intégrés (comme l'exécution de code) et d'outils personnalisés (appel de fonction). Vous devez renvoyer les champs `id` et `thought_signature` pour que la combinaison d'outils fonctionne. Pour en savoir plus, consultez la
-[page sur les combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
+[page sur les combinaisons d'outils](https://ai.google.dev/gemini-api/docs/page sur les combinaisons d'outils).
 
 ## Bibliothèques prises en charge
 
@@ -703,17 +703,15 @@ Vous ne pouvez pas installer vos propres bibliothèques.
 ## Étape suivante
 
 - Essayez l'
-  [atelier de programmation sur l'exécution de code](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=fr).
+  [atelier de programmation sur l'exécution de code](https://ai.google.dev/gemini-api/docs/atelier de programmation sur l'exécution de code).
 - Découvrez d'autres outils de l'API Gemini :
-  - [Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)
-  - [Ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/grounding?hl=fr)
+  - [Appel de fonction](https://ai.google.dev/gemini-api/docs/Appel de fonction)
+  - [Ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/Ancrage avec la recherche Google)
 
 Envoyer des commentaires
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0), et les échantillons de code sont régis par une licence [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://ai.google.dev/gemini-api/docs/Règles du site Google Developers). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
 Dernière mise à jour le 2026/04/29 (UTC).
 
 Voulez-vous nous donner plus d'informations ?
-
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

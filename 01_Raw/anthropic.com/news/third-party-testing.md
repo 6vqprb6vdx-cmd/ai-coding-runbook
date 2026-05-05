@@ -10,15 +10,13 @@ Policy
 
 Mar 25, 2024
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe58c41bc9d1b73af36f0ede659256cadfee682b0-2880x1621.jpg&w=3840&q=75)
-
 We believe that the AI sector needs effective third-party testing for frontier AI systems. Developing a testing regime and associated policy interventions based on the insights of industry, government, and academia is the best way to avoid societal harm—whether deliberate or accidental—from AI systems.
 
 Our deployment of large-scale, generative AI systems like Claude has shown us that work is needed to set up the policy environment to respond to the capabilities of today’s most powerful AI models, as well as those likely to be built in the future. In this post, we discuss what third-party testing looks like, why it’s needed, and describe some of the research we’ve done to arrive at this policy position. We also discuss how ideas around testing relate to other topics on AI policy, such as openly accessible models and issues of regulatory capture.
 
 ## Policy overview
 
-Today’s frontier AI systems demand a third-party oversight and testing regime to validate their safety. In particular, we need this oversight for understanding and analyzing model behavior relating to issues like [election integrity](https://www.anthropic.com/news/preparing-for-global-elections-in-2024), [harmful discrimination](https://arxiv.org/abs/2312.03689), and the potential for [national security misuse](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety). We also expect more powerful systems in the future will demand deeper oversight - as discussed in our [‘Core views on AI safety’](https://www.anthropic.com/news/core-views-on-ai-safety) post, we think there’s a chance that today’s approaches to AI development could yield systems of immense capability, and we expect that increasingly powerful systems will need more expansive testing procedures. A robust, third-party testing regime seems like a good way to complement sector-specific regulation as well as develop the muscle for policy approaches that are more general as well.
+Today’s frontier AI systems demand a third-party oversight and testing regime to validate their safety. In particular, we need this oversight for understanding and analyzing model behavior relating to issues like [election integrity](https://www.anthropic.com/news/election integrity), [harmful discrimination](https://www.anthropic.com/news/harmful discrimination), and the potential for [national security misuse](https://www.anthropic.com/news/national security misuse). We also expect more powerful systems in the future will demand deeper oversight - as discussed in our [‘Core views on AI safety’](https://www.anthropic.com/news/‘Core views on AI safety’) post, we think there’s a chance that today’s approaches to AI development could yield systems of immense capability, and we expect that increasingly powerful systems will need more expansive testing procedures. A robust, third-party testing regime seems like a good way to complement sector-specific regulation as well as develop the muscle for policy approaches that are more general as well.
 
 Developing a third-party testing regime for the AI systems of today seems to give us one of the best tools to manage the challenges of AI today, while also providing infrastructure we can use for the systems of the future. We expect that ultimately some form of third-party testing will be a legal requirement for widely deploying AI models, but designing this regime and figuring out exactly what standards AI systems should be assessed against is something we’ll need to iterate on in the coming years - it’s not obvious what would be appropriate or effective today, and the way to learn that is to prototype such a regime and generate evidence about it.
 
@@ -42,7 +40,7 @@ These systems are extremely capable and useful, but they also present risks for 
 
 Systems also have the potential to display emergent, autonomous behaviors which could lead to serious accidents - for instance, systems might insert vulnerabilities into code that they are asked to produce or, when asked to carry out a complex task with many steps, carry some actions which contradict human intentions. Though these kinds of behaviors are inherently hard to measure, it’s worth developing tools to measure for them today as insurance against these manifesting in widely deployed systems.
 
-At Anthropic, we’ve implemented self-governance systems that we believe should meaningfully reduce the risk of misuse or accidents from the technologies we’ve developed. Our main approach is our [Responsible Scaling Policy (RSP)](https://www.anthropic.com/news/anthropics-responsible-scaling-policy), which commits us to testing our frontier systems, like Claude, for misuses and accident risks, and to deploy only models that pass our safety tests. Multiple other AI developers have subsequently adopted or are adopting frameworks that bear a significant resemblance to Anthropic's RSP.
+At Anthropic, we’ve implemented self-governance systems that we believe should meaningfully reduce the risk of misuse or accidents from the technologies we’ve developed. Our main approach is our [Responsible Scaling Policy (RSP)](https://www.anthropic.com/news/Responsible Scaling Policy (RSP)), which commits us to testing our frontier systems, like Claude, for misuses and accident risks, and to deploy only models that pass our safety tests. Multiple other AI developers have subsequently adopted or are adopting frameworks that bear a significant resemblance to Anthropic's RSP.
 
 However, although Anthropic is investing in our RSP (and other organizations are doing the same), we believe that this type of testing is insufficient as it relies on self-governance decisions made by single, private sector actors. Ultimately, testing will need to be done in a way which is broadly trusted, and it will need to be applied to everyone developing frontier systems. This type of industry-wide testing approach isn’t unusual - most important sectors of the economy are regulated via product safety standards and testing regimes, including food, medicine, automobiles, and aerospace.
 
@@ -75,7 +73,7 @@ In the future, Anthropic will carry out the following activities to support gove
 
 - Prototyping a testing regime via implementing our RSP and sharing what we learn
 - Testing third-party assessment of our systems via contractors and government partners
-- Deepening our [frontier red teaming](https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety) work to give us and the broader sector a clearer sense of the risks of AI systems and their mitigations
+- Deepening our [frontier red teaming](https://www.anthropic.com/news/frontier red teaming) work to give us and the broader sector a clearer sense of the risks of AI systems and their mitigations
 - Advocating for governments to fund the agencies and organizations that could help to develop an effective third-party testing regime (e.g, in the United States, NIST, the US AI Safety Institute, the National AI Research Resource, the usage of DoE supercomputers for AI testing, and so on)
 - Encouraging governments to build their own ‘National Research Clouds’ (like the National AI Research Resource in the US) so that they can a) develop independent capacity in academia and government to build, study, and test frontier AI systems, and b) work on the science of evaluating AI systems, including those developed by private companies like Anthropic
 
@@ -87,19 +85,19 @@ Our overarching policy goal is to have appropriate oversight of the AI sector. W
 
 **Greater funding for AI testing and evaluation in government**
 
-- Effective testing and evaluation procedures are a necessary prerequisite of any effective form of AI policy. We think that governments should stand up and support institutions that develop AI evaluations, as well as bringing together industry, academia, and other stakeholders to agree on standards for the safety of AI systems. In the US, we specifically advocate for [greater funding for NIST](https://www.anthropic.com/index/an-ai-policy-tool-for-today-ambitiously-invest-in-nist).
+- Effective testing and evaluation procedures are a necessary prerequisite of any effective form of AI policy. We think that governments should stand up and support institutions that develop AI evaluations, as well as bringing together industry, academia, and other stakeholders to agree on standards for the safety of AI systems. In the US, we specifically advocate for [greater funding for NIST](https://www.anthropic.com/news/greater funding for NIST).
 
 **Support greater evaluation of AI systems through public sector infrastructure for doing AI research**
 
-- We urgently need to increase the number and breadth of people working to test and evaluate AI systems, for both current and future risks. It’s therefore crucial that governments create experimental infrastructure to help academic researchers test out and evaluate frontier AI systems, and develop their own frontier systems for beneficial purposes. For more information, see our support for a US national research cloud via the [CREATE AI Act](https://twitter.com/AnthropicAI/status/1684972354592546816), and our [written Senate testimony](https://www.commerce.senate.gov/services/files/F7BFA181-1B1B-4933-A815-70043413A7FF).
+- We urgently need to increase the number and breadth of people working to test and evaluate AI systems, for both current and future risks. It’s therefore crucial that governments create experimental infrastructure to help academic researchers test out and evaluate frontier AI systems, and develop their own frontier systems for beneficial purposes. For more information, see our support for a US national research cloud via the [CREATE AI Act](https://www.anthropic.com/news/CREATE AI Act), and our [written Senate testimony](https://www.anthropic.com/news/written Senate testimony).
 
 **Developing tests for specific, national security-relevant capabilities**
 
-- We should know if AI systems can be used in ways that strengthen or (if fielded by another entity) weaken national security. Whereas the private sector and academia can develop the vast majority of tests, some testing and evaluation questions relate to national security capabilities which are classified, so only certain governments are able to effectively evaluate them. Therefore, we want to support US Government efforts to develop ways of testing AI systems for national security-relevant capabilities. We will also continue our own work to [better understand the capabilities of our own systems](https://www.anthropic.com/index/frontier-threats-red-teaming-for-ai-safety).
+- We should know if AI systems can be used in ways that strengthen or (if fielded by another entity) weaken national security. Whereas the private sector and academia can develop the vast majority of tests, some testing and evaluation questions relate to national security capabilities which are classified, so only certain governments are able to effectively evaluate them. Therefore, we want to support US Government efforts to develop ways of testing AI systems for national security-relevant capabilities. We will also continue our own work to [better understand the capabilities of our own systems](https://www.anthropic.com/news/better understand the capabilities of our own systems).
 
 **Scenario planning and test development for increasingly advanced systems**
 
-- Our [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) is designed to frontload work about evaluating and testing future, hypothetical capabilities of AI systems. This is to ensure we have the relevant tests to better assess and minimize accident and misuse risks from increasingly powerful AI systems. But we don’t claim that our RSP delineates all the tests that need to be run on increasingly powerful models. As AI advances driven by growing computational power increase, a broader set of actors should work to anticipate the future capabilities of AI systems, and develop tests for them.
+- Our [Responsible Scaling Policy](https://www.anthropic.com/news/Responsible Scaling Policy) is designed to frontload work about evaluating and testing future, hypothetical capabilities of AI systems. This is to ensure we have the relevant tests to better assess and minimize accident and misuse risks from increasingly powerful AI systems. But we don’t claim that our RSP delineates all the tests that need to be run on increasingly powerful models. As AI advances driven by growing computational power increase, a broader set of actors should work to anticipate the future capabilities of AI systems, and develop tests for them.
 
 ## Aspects of AI policy we believe are important to discuss
 
@@ -134,7 +132,7 @@ We believe that building out a third-party testing ecosystem is one of the best 
 
 ## Footnotes
 
-[1] Some countries may also experiment with [‘regulatory markets’](https://arxiv.org/abs/2304.04914) where AI developers can buy and sell AI testing services and compete with one another to try to build and deploy successively safer, more useful systems.
+[1] Some countries may also experiment with [‘regulatory markets’](https://www.anthropic.com/news/‘regulatory markets’) where AI developers can buy and sell AI testing services and compete with one another to try to build and deploy successively safer, more useful systems.
 
 [2] For example, if you openly release an AI model, it’s relatively easy for a third-party to fine-tune that model on a dataset of their own choosing. Such a dataset could be designed to optimize for a misuse (e.g, phishing or offensive hacking). If you were able to develop technology that made it very hard to fine-tune an AI model away from its original capability distribution, then it’d be easier to confidently release models without potentially compromising on downstream safety.
 
@@ -142,14 +140,14 @@ We believe that building out a third-party testing ecosystem is one of the best 
 
 ### Claude for Creative Work
 
-[Read more](/news/claude-for-creative-work)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
 
-[Read more](/news/theo-hourmouzis-general-manager-australia-new-zealand)
+[Read more](https://www.anthropic.com/news/Read more)
 
 ### An update on our election safeguards
 
 We explain what we’re doing to ensure Claude plays a positive role in the US midterms and other major elections around the world this year.
 
-[Read more](/news/election-safeguards-update)
+[Read more](https://www.anthropic.com/news/Read more)

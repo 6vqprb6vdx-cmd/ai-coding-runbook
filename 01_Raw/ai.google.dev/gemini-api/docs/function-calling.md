@@ -4,11 +4,11 @@ fetched_at: 2026-05-05T13:20:05.878371+00:00
 title: "\u4f7f\u7528 Gemini API \u547c\u53eb\u51fd\u5f0f \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [首頁](https://ai.google.dev/gemini-api/docs/首頁)
+- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+- [文件](https://ai.google.dev/gemini-api/docs/文件)
 
 提供意見
 
@@ -214,7 +214,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
    - **否：**模型已直接提供提示詞的文字回覆 (範例中較不強調這個流程，但這是可能的結果)。
 4. **建立易於理解的回覆：**如果已執行函式，請擷取結果並傳回模型，確保在後續對話中包含相符的 `id`。並根據結果生成最終回應，以利使用者閱讀，其中會納入函式呼叫中的資訊。
 
-這個程序可以重複多輪，實現複雜的互動和工作流程。模型也支援在單一回合中呼叫多個函式 ([平行函式呼叫](#parallel_function_calling))、依序呼叫 ([組合函式呼叫](#compositional_function_calling))，以及搭配內建 Gemini 工具呼叫 ([多工具使用](#native-tools))。
+這個程序可以重複多輪，實現複雜的互動和工作流程。模型也支援在單一回合中呼叫多個函式 ([平行函式呼叫](https://ai.google.dev/gemini-api/docs/平行函式呼叫))、依序呼叫 ([組合函式呼叫](https://ai.google.dev/gemini-api/docs/組合函式呼叫))，以及搭配內建 Gemini 工具呼叫 ([多工具使用](https://ai.google.dev/gemini-api/docs/多工具使用))。
 
 \* **一律對應函式 ID：**現在，Gemini 3 一律會在每次 `functionCall` 時傳回專屬的 `id`。在 `functionResponse` 中加入這個確切的 `id`，模型才能準確地將結果對應回原始要求。
 
@@ -470,7 +470,7 @@ console.log(final_response.text);
 
 ## 函式宣告
 
-在提示中導入函式呼叫時，您會建立 `tools` 物件，其中包含一或多個 `function declarations`。您可以使用 JSON 定義函式，具體來說，就是使用[OpenAPI 結構定義](https://spec.openapis.org/oas/v3.0.3#schemaw)格式的[選取子集](https://ai.google.dev/api/caching?hl=zh-tw#Schema)。單一函式宣告可包含下列參數：
+在提示中導入函式呼叫時，您會建立 `tools` 物件，其中包含一或多個 `function declarations`。您可以使用 JSON 定義函式，具體來說，就是使用[OpenAPI 結構定義](https://ai.google.dev/gemini-api/docs/OpenAPI 結構定義)格式的[選取子集](https://ai.google.dev/gemini-api/docs/選取子集)。單一函式宣告可包含下列參數：
 
 - `name` (字串)：函式的專屬名稱 (`get_weather_forecast`、`send_email`)。請使用不含空格或特殊字元的描述性名稱 (使用底線或駝峰式大小寫)。
 - `description` (字串)：清楚詳細地說明函式的用途和功能。這對模型瞭解何時使用函式至關重要。請盡量具體，並視需要提供範例 (「根據位置資訊尋找電影院，並視需要尋找目前正在電影院上映的電影。」)。
@@ -486,28 +486,28 @@ console.log(final_response.text);
 
 ## 使用思考模型呼叫函式
 
-Gemini 3 和 2.5 系列模型會使用內部「思考」程序來推論要求。這項功能可大幅提升函式呼叫效能，讓模型更準確判斷何時呼叫函式，以及要使用哪些參數。由於 Gemini API 是無狀態的，模型會使用[想法簽章](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw)，在多輪對話中維持脈絡。
+Gemini 3 和 2.5 系列模型會使用內部「思考」程序來推論要求。這項功能可大幅提升函式呼叫效能，讓模型更準確判斷何時呼叫函式，以及要使用哪些參數。由於 Gemini API 是無狀態的，模型會使用[想法簽章](https://ai.google.dev/gemini-api/docs/想法簽章)，在多輪對話中維持脈絡。
 
 本節說明如何進階管理思緒簽章，只有在手動建構 API 要求 (例如透過 REST) 或操控對話記錄時，才需要瞭解這項資訊。
 
-**如果您使用 [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw) (我們的官方程式庫)，就不需要管理這個程序**。如先前的[範例](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#step-4)所示，SDK 會自動處理必要步驟。
+**如果您使用 [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/Google GenAI SDK) (我們的官方程式庫)，就不需要管理這個程序**。如先前的[範例](https://ai.google.dev/gemini-api/docs/範例)所示，SDK 會自動處理必要步驟。
 
 ### 手動管理對話記錄
 
-如果手動修改對話記錄，請務必正確處理模型回合中包含的 `thought_signature`，而不是傳送[完整的先前回覆](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#step-4)。
+如果手動修改對話記錄，請務必正確處理模型回合中包含的 `thought_signature`，而不是傳送[完整的先前回覆](https://ai.google.dev/gemini-api/docs/完整的先前回覆)。
 
 請遵守下列規則，確保模型保留情境：
 
-- 請務必將 `thought_signature` 放回模型內，並使用原始[`Part`](https://ai.google.dev/api?hl=zh-tw#request-body-structure)。
+- 請務必將 `thought_signature` 放回模型內，並使用原始[`Part`](https://ai.google.dev/gemini-api/docs/`Part`)。
 - **請務必在 `function_response` 中加入 `function_call` 的確切 `id`，以便 API 將結果對應至正確要求。**
 - 請勿將含有簽章的 `Part` 與不含簽章的 `Part` 合併。這會破壞想法的位置脈絡。
 - 請勿合併兩個都含有簽章的 `Parts`，因為簽章字串無法合併。
 
 #### Gemini 3 思考簽章
 
-在 Gemini 3 中，模型回覆的任何 [`Part`](https://ai.google.dev/api?hl=zh-tw#request-body-structure) 可能包含思維簽章。一般來說，我們建議從所有 `Part` 型別傳回簽章，但函式呼叫必須傳回想法簽章。除非您手動操控對話記錄，否則 Google GenAI SDK 會自動處理想法簽章。
+在 Gemini 3 中，模型回覆的任何 [`Part`](https://ai.google.dev/gemini-api/docs/`Part`) 可能包含思維簽章。一般來說，我們建議從所有 `Part` 型別傳回簽章，但函式呼叫必須傳回想法簽章。除非您手動操控對話記錄，否則 Google GenAI SDK 會自動處理想法簽章。
 
-如要手動操控對話記錄，請參閱「[想法簽章](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw)」頁面，取得 Gemini 3 想法簽章的完整處理指南和詳細資料。
+如要手動操控對話記錄，請參閱「[想法簽章](https://ai.google.dev/gemini-api/docs/想法簽章)」頁面，取得 Gemini 3 想法簽章的完整處理指南和詳細資料。
 
 ##### 檢查想法簽章
 
@@ -539,7 +539,7 @@ if (part.thoughtSignature) {
 }
 ```
 
-如要進一步瞭解思維簽章的限制和用途，以及一般思維模型，請參閱「[思維](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#signatures)」頁面。
+如要進一步瞭解思維簽章的限制和用途，以及一般思維模型，請參閱「[思維](https://ai.google.dev/gemini-api/docs/思維)」頁面。
 
 ## 平行函式呼叫
 
@@ -656,7 +656,7 @@ const dimLights = {
 ```
 
 設定函式呼叫模式，允許使用所有指定的工具。
-如要瞭解詳情，請參閱[設定函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#function_calling_modes)。
+如要瞭解詳情，請參閱[設定函式呼叫](https://ai.google.dev/gemini-api/docs/設定函式呼叫)。
 
 ### Python
 
@@ -732,7 +732,7 @@ for (const fn of response.functionCalls) {
 
 每個列印結果都反映了模型要求的單一函式呼叫。如要傳回結果，請按照要求順序加入回應。
 
-Python SDK 支援[自動呼叫函式](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#automatic_function_calling_python_only)，可自動將 Python 函式轉換為宣告，並為您處理函式呼叫執行和回應週期。以下是迪斯可用途的範例。
+Python SDK 支援[自動呼叫函式](https://ai.google.dev/gemini-api/docs/自動呼叫函式)，可自動將 Python 函式轉換為宣告，並為您處理函式呼叫執行和回應週期。以下是迪斯可用途的範例。
 
 ### Python
 
@@ -950,7 +950,7 @@ while (true) {
     }
 
     // Call the function and get the response.
-    const toolResponse = toolFunctions[name](args);
+    const toolResponse = toolFunctions[name](https://ai.google.dev/gemini-api/docs/name);
 
     const functionResponsePart = {
       name: functionCall.name,
@@ -997,7 +997,7 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-組合式函式呼叫是 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 的原生功能。也就是說，Live API 可以處理函式呼叫，與 Python SDK 類似。
+組合式函式呼叫是 [Live API](https://ai.google.dev/gemini-api/docs/Live API) 的原生功能。也就是說，Live API 可以處理函式呼叫，與 Python SDK 類似。
 
 ### Python
 
@@ -1089,7 +1089,7 @@ const config = {
 
 ## 自動呼叫函式 (僅限 Python)
 
-使用 Python SDK 時，您可以直接提供 Python 函式做為工具。SDK 會將這些函式轉換為宣告、管理函式呼叫執行作業，並為您處理回應週期。使用型別提示和說明字串定義函式。為獲得最佳結果，建議使用[Google 樣式的 docstring](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)。SDK 隨後會自動執行下列操作：
+使用 Python SDK 時，您可以直接提供 Python 函式做為工具。SDK 會將這些函式轉換為宣告、管理函式呼叫執行作業，並為您處理回應週期。使用型別提示和說明字串定義函式。為獲得最佳結果，建議使用[Google 樣式的 docstring](https://ai.google.dev/gemini-api/docs/Google 樣式的 docstring)。SDK 隨後會自動執行下列操作：
 
 1. 偵測模型傳回的函式呼叫回應。
 2. 在程式碼中呼叫對應的 Python 函式。
@@ -1155,7 +1155,7 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-如要查看推論的結構定義，可以使用 [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable) 進行轉換：
+如要查看推論的結構定義，可以使用 [`from_callable`](https://ai.google.dev/gemini-api/docs/`from_callable`) 進行轉換：
 
 ### Python
 
@@ -1178,7 +1178,7 @@ print(fn_decl.to_json_dict())
 
 您可以啟用多項工具，在同一項要求中結合內建工具和函式呼叫。
 
-有了工具脈絡循環功能，Gemini 3 模型就能結合內建工具和函式呼叫功能，詳情請參閱「[結合內建工具和函式呼叫](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
+有了工具脈絡循環功能，Gemini 3 模型就能結合內建工具和函式呼叫功能，詳情請參閱「[結合內建工具和函式呼叫](https://ai.google.dev/gemini-api/docs/結合內建工具和函式呼叫)」頁面。
 
 ### Python
 
@@ -1320,7 +1320,7 @@ async function run() {
 run();
 ```
 
-如果是 Gemini 3 系列之前的模型，請使用 [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-tw)。
+如果是 Gemini 3 系列之前的模型，請使用 [Live API](https://ai.google.dev/gemini-api/docs/Live API)。
 
 ## 多模態函式回應
 
@@ -1579,19 +1579,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 
 ## 使用函式呼叫取得結構化輸出內容
 
-如果是 Gemini 3 系列模型，您可以搭配[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)使用函式呼叫功能。這可讓模型預測函式呼叫或輸出內容，並遵守特定結構定義。因此，當模型未產生函式呼叫時，您會收到格式一致的回覆。
+如果是 Gemini 3 系列模型，您可以搭配[結構化輸出內容](https://ai.google.dev/gemini-api/docs/結構化輸出內容)使用函式呼叫功能。這可讓模型預測函式呼叫或輸出內容，並遵守特定結構定義。因此，當模型未產生函式呼叫時，您會收到格式一致的回覆。
 
 ## Model Context Protocol (MCP)
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) 是一項開放標準，可讓 AI 應用程式連結外部工具和資料。MCP 提供通用通訊協定，供模型存取內容，例如函式 (工具)、資料來源 (資源) 或預先定義的提示。
+[Model Context Protocol (MCP)](https://ai.google.dev/gemini-api/docs/Model Context Protocol (MCP)) 是一項開放標準，可讓 AI 應用程式連結外部工具和資料。MCP 提供通用通訊協定，供模型存取內容，例如函式 (工具)、資料來源 (資源) 或預先定義的提示。
 
-Gemini SDK 內建 MCP 支援功能，可減少樣板程式碼，並為 MCP 工具提供[自動工具呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#automatic_function_calling_python_only)功能。模型產生 MCP 工具呼叫時，Python 和 JavaScript 用戶端 SDK 會自動執行 MCP 工具，並在後續要求中將回應傳回模型，持續這個迴圈，直到模型不再進行工具呼叫為止。
+Gemini SDK 內建 MCP 支援功能，可減少樣板程式碼，並為 MCP 工具提供[自動工具呼叫](https://ai.google.dev/gemini-api/docs/自動工具呼叫)功能。模型產生 MCP 工具呼叫時，Python 和 JavaScript 用戶端 SDK 會自動執行 MCP 工具，並在後續要求中將回應傳回模型，持續這個迴圈，直到模型不再進行工具呼叫為止。
 
 您可以在這裡找到如何搭配使用本機 MCP 伺服器與 Gemini 和 `mcp` SDK 的範例。
 
 ### Python
 
-請確認您已在所選平台上安裝最新版 [`mcp` SDK](https://modelcontextprotocol.io/introduction)。
+請確認您已在所選平台上安裝最新版 [`mcp` SDK](https://ai.google.dev/gemini-api/docs/`mcp` SDK)。
 
 ```
 pip install mcp
@@ -1696,7 +1696,7 @@ await client.close();
 
 ### 內建 MCP 支援的限制
 
-SDK 內建的 MCP 支援是[實驗性](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#preview)功能，有下列限制：
+SDK 內建的 MCP 支援是[實驗性](https://ai.google.dev/gemini-api/docs/實驗性)功能，有下列限制：
 
 - 僅支援工具，不支援資源或提示
 - 適用於 Python 和 JavaScript/TypeScript SDK。
@@ -1706,17 +1706,17 @@ SDK 內建的 MCP 支援是[實驗性](https://ai.google.dev/gemini-api/docs/mod
 
 ## 支援的模型
 
-本節列出模型及其函式呼叫功能。不含實驗模型。如需完整的功能總覽，請參閱[模型總覽](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)頁面。
+本節列出模型及其函式呼叫功能。不含實驗模型。如需完整的功能總覽，請參閱[模型總覽](https://ai.google.dev/gemini-api/docs/模型總覽)頁面。
 
 | 型號 | 函式呼叫 | 平行函式呼叫 | 組合式函式呼叫 |
 | --- | --- | --- | --- |
-| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/Gemini 3.1 Pro 預先發布版) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash-Lite 預先發布版](https://ai.google.dev/gemini-api/docs/Gemini 3.1 Flash-Lite 預先發布版) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/Gemini 3 Flash 預先發布版) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Pro) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash-Lite) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.0 Flash](https://ai.google.dev/gemini-api/docs/Gemini 2.0 Flash) | ✔️ | ✔️ | ✔️ |
 
 ## 最佳做法
 
@@ -1728,29 +1728,27 @@ SDK 內建的 MCP 支援是[實驗性](https://ai.google.dev/gemini-api/docs/mod
   - 提供背景資訊：告知模型其角色 (例如「你是實用的天氣助理。」)。
   - 提供指示：具體說明函式的使用方式和時機 (例如「請勿猜測日期，預測時一律使用未來的日期。」)。
   - 鼓勵釐清：指示模型視需要提出釐清問題。
-  - 如要進一步瞭解如何設計這些提示，請參閱「[Agentic workflows](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw#agentic-workflows)」。以下是經過測試的[系統指令](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw#agentic-si-template)範例。
+  - 如要進一步瞭解如何設計這些提示，請參閱「[Agentic workflows](https://ai.google.dev/gemini-api/docs/Agentic workflows)」。以下是經過測試的[系統指令](https://ai.google.dev/gemini-api/docs/系統指令)範例。
 - **溫度：**使用低溫 (例如 0) 進行更具確定性且可靠的函式呼叫。
 - **驗證：**如果函式呼叫會造成重大後果 (例如下單)，請先向使用者驗證呼叫，再執行呼叫。
-- **檢查完成原因：**請務必檢查模型回覆中的 [`finishReason`](https://ai.google.dev/api/generate-content?hl=zh-tw#FinishReason)，處理模型無法生成有效函式呼叫的情況。
+- **檢查完成原因：**請務必檢查模型回覆中的 [`finishReason`](https://ai.google.dev/gemini-api/docs/`finishReason`)，處理模型無法生成有效函式呼叫的情況。
 - **錯誤處理**：在函式中導入完善的錯誤處理機制，以便妥善處理非預期的輸入內容或 API 失敗情形。回傳資訊豐富的錯誤訊息，供模型用來生成對使用者有幫助的回覆。
 - **安全性：**呼叫外部 API 時，請注意安全性。使用適當的驗證和授權機制。避免在函式呼叫中公開機密資料。
 - **權杖限制：**函式說明和參數會計入輸入權杖限制。如果達到權杖上限，請考慮限制函式數量或說明長度，並將複雜工作分解為較小、更專注的函式集。
-- **Bash 和自訂工具的組合**：如果建構時使用 Bash 和自訂工具的組合，Gemini 3.1 Pro 預先發布版會提供獨立端點，可透過 API 呼叫 [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw#gemini-31-pro-preview-customtools)。
+- **Bash 和自訂工具的組合**：如果建構時使用 Bash 和自訂工具的組合，Gemini 3.1 Pro 預先發布版會提供獨立端點，可透過 API 呼叫 [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/`gemini-3.1-pro-preview-customtools`)。
 
 ## 注意事項和限制
 
-- 函式呼叫部分的定位：[搭配內建工具](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw) (例如 Google 搜尋) 使用自訂函式宣告時，模型可能會在單一回合中傳回 `functionCall`、`toolCall` 和 `toolResponse` 部分。因此，請勿假設 `functionCall` 一律是 parts 陣列中的最後一個項目。如要手動剖析 JSON 回應，請一律透過 parts 陣列進行疊代，而非依賴位置。
-- 系統僅支援[部分 OpenAPI 架構](https://ai.google.dev/api/caching?hl=zh-tw#FunctionDeclaration)。
+- 函式呼叫部分的定位：[搭配內建工具](https://ai.google.dev/gemini-api/docs/搭配內建工具) (例如 Google 搜尋) 使用自訂函式宣告時，模型可能會在單一回合中傳回 `functionCall`、`toolCall` 和 `toolResponse` 部分。因此，請勿假設 `functionCall` 一律是 parts 陣列中的最後一個項目。如要手動剖析 JSON 回應，請一律透過 parts 陣列進行疊代，而非依賴位置。
+- 系統僅支援[部分 OpenAPI 架構](https://ai.google.dev/gemini-api/docs/部分 OpenAPI 架構)。
 - 如果是 `ANY` 模式，API 可能會拒絕過大或深度巢狀結構的結構定義。如果發生錯誤，請縮短屬性名稱、減少巢狀結構或限制函式宣告數量，簡化函式參數和回應結構定義。
 - Python 支援的參數類型有限。
 - 自動函式呼叫功能僅適用於 Python SDK。
 
 提供意見
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://ai.google.dev/gemini-api/docs/創用 CC 姓名標示 4.0 授權)，程式碼範例則為[阿帕契 2.0 授權](https://ai.google.dev/gemini-api/docs/阿帕契 2.0 授權)。詳情請參閱《[Google Developers 網站政策](https://ai.google.dev/gemini-api/docs/Google Developers 網站政策)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
 上次更新時間：2026-04-29 (世界標準時間)。
 
 想進一步說明嗎？
-
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]
