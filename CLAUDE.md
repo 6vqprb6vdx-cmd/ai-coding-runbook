@@ -1,8 +1,10 @@
-# Claude Code Wiki — Agent 操作规则（session 启动钩子）
+# LLM Wiki — Agent 操作规则（session 启动钩子）
 
-> Claude Code 进 session 自动加载本文件；Codex 等 agent 读 `AGENTS.md`（symlink 到本文件，内容 100% 一致）。
+> Claude Code / Cursor / Codex 等 agent 进 session 自动加载本文件（`AGENTS.md` 是 symlink，内容 100% 一致）。
 >
 > 这是**操作 hook + 关键规则**。完整工作手册见 `README.md`（master）。冲突时以 `README.md` 为准。
+>
+> **项目**：多厂商 LLM 工具知识库（Anthropic · OpenAI · Google · Cursor）。GitHub: `wesleywufp-sketch/llm-wiki`。
 
 ---
 
@@ -19,10 +21,12 @@
 
 ```
 01_Raw/       ← 真理之源，read-only（GHA bot 写，人 / LLM 永远不能改）
-  ├── docs.claude.com/      （Anthropic 官方文档站，crawler 抓的 markdown）
-  ├── support.anthropic.com/ （Claude.ai 产品文档）
-  ├── anthropic.com/        （news / research / engineering blog 文章）
-  └── github/               （anthropics/* + modelcontextprotocol/* 的 git clone）
+  ├── docs.claude.com/      （Anthropic Claude 官方文档）
+  ├── anthropic.com/        （news / research / engineering blog）
+  ├── docs.openai.com/      （OpenAI 平台文档）
+  ├── docs.cursor.com/      （Cursor IDE 文档，llms.txt 全量）
+  ├── ai.google.dev/        （Gemini API 文档）
+  └── github/               （anthropics/* + modelcontextprotocol/* + openai/* 的 git clone）
 
 02_Wiki/      ← 加工层（神经元）
   ├── Entities/    （具体的工具 / feature 档案：Skills.md, Hooks.md, MCP-server.md, Subagents.md ...）
@@ -65,10 +69,10 @@
 2. **建 Entity / Concept 前必查** —— `ls 02_Wiki/Entities/ 02_Wiki/Concepts/` + grep frontmatter `aliases`，避免造 ghost entity。Anthropic 同一概念有多名（Sub-agent / Subagent / Sub agent；MCP server / MCP；Tool use / Function calling），靠 canonical-names.md 统一。
 3. **Verbatim quote 必须有 source** —— 引号 (「」/ "") 必须能在某 raw 文档里精确搜到。找不到原文的降级为 paraphrase 或 *italic*。
 4. **Wikilink 必须指向真文件** —— `[[X]]` 引用前 `ls 02_Wiki/{Entities,Concepts}/` 确认。死链由 audit 抓，但写时就该避免。
-5. **不能凭"我记得 Claude Code 有这个 feature"写 entity** —— 任何事实必须能 trace 回某份 raw 文件。模型权重里的训练知识 vs raw 里的当前文档以 raw 为准（Anthropic 改 API 频繁）。
+5. **不能凭"我记得某工具有这个 feature"写 entity** —— 任何事实必须能 trace 回某份 raw 文件。模型权重里的训练知识 vs raw 里的当前文档以 raw 为准（各厂商改 API 频繁）。
 6. **Subagent finding 不能直接 trust** —— 调用 subagent 调研后，master 阶段必须 sample re-verify（≥3 + 全部 MAJOR claim）。
 7. **Frontmatter 规范严格** —— Summary 必须有 `source:` 指向 `01_Raw/...`；Entity / Concept 必须有 `name:` + `## 出现来源` section。
-8. **多 Mac iCloud workflow** —— 此 repo 在 `~/Desktop/wesleywufp/` 下，git 推 wesleywufp-sketch 账号（SSH 路由自动）。绝对路径都用 `~` 或 project-relative，不要 hardcode `/Users/wesleywu/...`。
+8. **多 Mac iCloud workflow** —— 此 repo（`wesleywufp-sketch/llm-wiki`）在 `~/Desktop/wesleywufp/` 下某个本地文件夹内，git 推 wesleywufp-sketch 账号（SSH 路由自动）。绝对路径都用 `~` 或 project-relative，不要 hardcode `/Users/wesleywu/...`。本地文件夹名可能改变，但 remote URL 固定为 `git@github-wesleywufp:wesleywufp-sketch/llm-wiki.git`。
 
 ---
 

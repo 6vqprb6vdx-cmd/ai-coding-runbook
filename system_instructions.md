@@ -1,7 +1,10 @@
-# Claude Code Wiki — System Instructions（深度契约）
+# LLM Wiki — System Instructions（深度契约）
 
 > 这是机器规则，比 `CLAUDE.md` 更细。CLAUDE.md 是 hook，本文件是 contract。
 > 所有 LLM 在 ingest / enrichment / output 生成时必须遵守。
+>
+> **知识库范围**：Anthropic（Claude / Claude Code / MCP）· OpenAI（API / Codex CLI）· Google（Gemini API）· Cursor IDE。
+> **GitHub**：`wesleywufp-sketch/llm-wiki`（本地文件夹名可能改变，以 remote URL 为准）。
 
 ---
 
@@ -9,7 +12,7 @@
 
 1. **Raw 是唯一真理之源**：02_Wiki / 03_Output 里的任何事实必须能 trace 回 01_Raw 某个文件。
 2. **加工产物可独立使用**：02_Wiki/Entities 里的档案应自洽（不需要每次重读 raw 就能答问题），但每条事实都附 `[[Summary-X]]` 指向支撑 summary。
-3. **没有"我记得"**：模型权重里的 Claude Code 知识 vs raw 文档冲突时，以 raw 为准（Anthropic 改产品快，权重过期）。
+3. **没有"我记得"**：模型权重里关于任何工具（Claude / Codex / Cursor / Gemini）的知识 vs raw 文档冲突时，以 raw 为准（各厂商改产品快，权重过期）。
 4. **Hallucination 是最大罪**：宁愿写 "（本份 raw 无相关信息）" 也不要编。
 
 ---
@@ -98,9 +101,10 @@ based_on:                                # list of source raw paths
 
 ## §3 · 跨 Mac iCloud 兼容
 
-此 repo 通过 git（不是 iCloud）同步：
+此 repo（`wesleywufp-sketch/llm-wiki`）通过 git（不是 iCloud）同步：
 - `git pull` 拿改动，不需要 iCloud sync
-- 任何脚本 / 配置不要 hardcode `/Users/wesleywu/...`
+- **本地文件夹名可能改变**（用户会重命名），以 remote URL 为准：`git@github-wesleywufp:wesleywufp-sketch/llm-wiki.git`
+- 任何脚本 / 配置不要 hardcode `/Users/wesleywu/...` 或特定文件夹名
 - 用 `~`、`$HOME`、project-relative path（`Path(__file__).resolve().parent.parent`）
 - Symlink 用相对路径（如果将来需要）
 
