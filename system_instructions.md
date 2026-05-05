@@ -1,10 +1,10 @@
-# LLM Wiki — System Instructions（深度契约）
+# AI Coding Runbook — System Instructions（深度契约）
 
 > 这是机器规则，比 `CLAUDE.md` 更细。CLAUDE.md 是 hook，本文件是 contract。
 > 所有 LLM 在 ingest / enrichment / output 生成时必须遵守。
 >
 > **知识库范围**：Anthropic（Claude / Claude Code / MCP）· OpenAI（API / Codex CLI）· Google（Gemini API）· Cursor IDE。
-> **GitHub**：`wesleywufp-sketch/llm-wiki`（本地文件夹名可能改变，以 remote URL 为准）。
+> **GitHub**：`wesleywufp-sketch/ai-coding-runbook`（本地文件夹名可能改变，以 remote URL 为准）。
 
 ---
 
@@ -101,9 +101,9 @@ based_on:                                # list of source raw paths
 
 ## §3 · 跨 Mac iCloud 兼容
 
-此 repo（`wesleywufp-sketch/llm-wiki`）通过 git（不是 iCloud）同步：
+此 repo（`wesleywufp-sketch/ai-coding-runbook`）通过 git（不是 iCloud）同步：
 - `git pull` 拿改动，不需要 iCloud sync
-- **本地文件夹名可能改变**（用户会重命名），以 remote URL 为准：`git@github-wesleywufp:wesleywufp-sketch/llm-wiki.git`
+- **本地文件夹名可能改变**（用户会重命名），以 remote URL 为准：`git@github-wesleywufp:wesleywufp-sketch/ai-coding-runbook.git`
 - 任何脚本 / 配置不要 hardcode `/Users/wesleywu/...` 或特定文件夹名
 - 用 `~`、`$HOME`、project-relative path（`Path(__file__).resolve().parent.parent`）
 - Symlink 用相对路径（如果将来需要）

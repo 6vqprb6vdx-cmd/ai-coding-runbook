@@ -1,4 +1,4 @@
-# Claude Code Wiki — Source List
+# AI Coding Runbook — Source List
 # Edit this file to add/remove sources. crawler reads it.
 # After editing, the next GHA cron run (or manual `python3 scripts/refresh_raw.py`) picks it up.
 #

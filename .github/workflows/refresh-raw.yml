@@ -57,8 +57,8 @@ jobs:
 
       - name: Configure git
         run: |
-          git config user.name "claude-code-wiki-bot"
-          git config user.email "claude-code-wiki-bot@users.noreply.github.com"
+          git config user.name "ai-coding-runbook-bot"
+          git config user.email "ai-coding-runbook-bot@users.noreply.github.com"
 
       - name: Refresh raw — ${{ matrix.source }}
         run: python3 scripts/refresh_raw.py --source "${{ matrix.source }}"
@@ -107,8 +107,8 @@ jobs:
 
       - name: Configure git
         run: |
-          git config user.name "claude-code-wiki-bot"
-          git config user.email "claude-code-wiki-bot@users.noreply.github.com"
+          git config user.name "ai-coding-runbook-bot"
+          git config user.email "ai-coding-runbook-bot@users.noreply.github.com"
 
       - name: Generate changelog
         id: gen
@@ -117,8 +117,8 @@ jobs:
           DATE=$(date -u +%Y-%m-%d)
           OUT="03_Output/Changelog/${DATE}.md"
           mkdir -p 03_Output/Changelog
-          # Find commits from this run (those by claude-code-wiki-bot in the last 1 hour).
-          COMMITS=$(git log --since="2 hours ago" --author="claude-code-wiki-bot" --pretty=format:"%h" -- 01_Raw/ || true)
+          # Find commits from this run (those by ai-coding-runbook-bot in the last 2 hours).
+          COMMITS=$(git log --since="2 hours ago" --author="ai-coding-runbook-bot" --pretty=format:"%h" -- 01_Raw/ || true)
           if [ -z "$COMMITS" ]; then
             echo "no bot commits in last 2h — nothing to aggregate"
             echo "wrote=false" >> "$GITHUB_OUTPUT"
@@ -131,7 +131,7 @@ jobs:
             echo
             echo "## Per-source commits"
             echo
-            git log --since="2 hours ago" --author="claude-code-wiki-bot" \
+            git log --since="2 hours ago" --author="ai-coding-runbook-bot" \
               --pretty=format:"- \`%h\` %s" -- 01_Raw/ || true
             echo
             echo

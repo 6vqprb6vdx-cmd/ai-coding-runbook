@@ -1,10 +1,10 @@
-# LLM Wiki — Agent 操作规则（session 启动钩子）
+# AI Coding Runbook — Agent 操作规则（session 启动钩子）
 
 > Claude Code / Cursor / Codex 等 agent 进 session 自动加载本文件（`AGENTS.md` 是 symlink，内容 100% 一致）。
 >
 > 这是**操作 hook + 关键规则**。完整工作手册见 `README.md`（master）。冲突时以 `README.md` 为准。
 >
-> **项目**：多厂商 LLM 工具知识库（Anthropic · OpenAI · Google · Cursor）。GitHub: `wesleywufp-sketch/llm-wiki`。
+> **项目**：多厂商 AI 编程工具知识库（Anthropic · OpenAI · Google · Cursor）。GitHub: `wesleywufp-sketch/ai-coding-runbook`。
 
 ---
 
@@ -72,7 +72,7 @@
 5. **不能凭"我记得某工具有这个 feature"写 entity** —— 任何事实必须能 trace 回某份 raw 文件。模型权重里的训练知识 vs raw 里的当前文档以 raw 为准（各厂商改 API 频繁）。
 6. **Subagent finding 不能直接 trust** —— 调用 subagent 调研后，master 阶段必须 sample re-verify（≥3 + 全部 MAJOR claim）。
 7. **Frontmatter 规范严格** —— Summary 必须有 `source:` 指向 `01_Raw/...`；Entity / Concept 必须有 `name:` + `## 出现来源` section。
-8. **多 Mac iCloud workflow** —— 此 repo（`wesleywufp-sketch/llm-wiki`）在 `~/Desktop/wesleywufp/` 下某个本地文件夹内，git 推 wesleywufp-sketch 账号（SSH 路由自动）。绝对路径都用 `~` 或 project-relative，不要 hardcode `/Users/wesleywu/...`。本地文件夹名可能改变，但 remote URL 固定为 `git@github-wesleywufp:wesleywufp-sketch/llm-wiki.git`。
+8. **多 Mac iCloud workflow** —— 此 repo（`wesleywufp-sketch/ai-coding-runbook`）在 `~/Desktop/wesleywufp/` 下某个本地文件夹内，git 推 wesleywufp-sketch 账号（SSH 路由自动）。绝对路径都用 `~` 或 project-relative，不要 hardcode `/Users/wesleywu/...`。本地文件夹名可能改变，但 remote URL 固定为 `git@github-wesleywufp:wesleywufp-sketch/ai-coding-runbook.git`。
 
 ---
 
