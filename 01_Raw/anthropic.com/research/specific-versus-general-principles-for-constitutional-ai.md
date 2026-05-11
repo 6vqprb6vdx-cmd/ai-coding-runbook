@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/specific-versus-general-principles-for-constitutional-ai
-fetched_at: 2026-05-04T16:50:12.807675+00:00
+fetched_at: 2026-05-11T12:30:24.946816+00:00
 title: "Specific versus General Principles for Constitutional AI \\ Anthropic"
 ---
 
@@ -10,7 +10,7 @@ AlignmentResearch
 
 Oct 24, 2023
 
-[Read Paper](https://www.anthropic.com/research/Read Paper)
+[Read Paper](https://arxiv.org/abs/2310.13798)
 
 ## Abstract
 
@@ -18,16 +18,18 @@ Human feedback can prevent overtly harmful utterances in conversational models, 
 
 ## Related content
 
-### How people ask Claude for personal guidance
+### Teaching Claude why
 
-[Read more](https://www.anthropic.com/research/Read more)
+New research on how we've reduced agentic misalignment.
 
-### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+[Read more](https://www.anthropic.com/research/teaching-claude-why)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Natural Language Autoencoders: Turning Claude’s thoughts into text
 
-### Announcing the Anthropic Economic Index Survey
+AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
 
-We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
+[Read more](https://www.anthropic.com/research/natural-language-autoencoders)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Donating our open-source alignment tool
+
+[Read more](https://www.anthropic.com/research/donating-open-source-petri)

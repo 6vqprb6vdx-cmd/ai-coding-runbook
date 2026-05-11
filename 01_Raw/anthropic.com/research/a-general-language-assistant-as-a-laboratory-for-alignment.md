@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/a-general-language-assistant-as-a-laboratory-for-alignment
-fetched_at: 2026-05-04T16:43:19.175710+00:00
+fetched_at: 2026-05-11T12:29:22.145830+00:00
 title: "A General Language Assistant as a Laboratory for Alignment \\ Anthropic"
 ---
 
@@ -10,7 +10,7 @@ AlignmentResearch
 
 Dec 1, 2021
 
-[Read Paper](https://www.anthropic.com/research/Read Paper)
+[Read Paper](https://arxiv.org/abs/2112.00861)
 
 ## Abstract
 
@@ -18,16 +18,18 @@ Given the broad capabilities of large language models, it should be possible to 
 
 ## Related content
 
-### How people ask Claude for personal guidance
+### Teaching Claude why
 
-[Read more](https://www.anthropic.com/research/Read more)
+New research on how we've reduced agentic misalignment.
 
-### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+[Read more](https://www.anthropic.com/research/teaching-claude-why)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Natural Language Autoencoders: Turning Claude’s thoughts into text
 
-### Announcing the Anthropic Economic Index Survey
+AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
 
-We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
+[Read more](https://www.anthropic.com/research/natural-language-autoencoders)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Donating our open-source alignment tool
+
+[Read more](https://www.anthropic.com/research/donating-open-source-petri)

@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/circuits-updates-july-2024
-fetched_at: 2026-05-04T16:44:25.345613+00:00
+fetched_at: 2026-05-11T12:29:25.012772+00:00
 title: "Circuits Updates \u2013 July 2024 \\ Anthropic"
 ---
 
@@ -10,7 +10,7 @@ Interpretability
 
 Jul 31, 2024
 
-[Read Circuits Updates](https://www.anthropic.com/research/Read Circuits Updates)
+[Read Circuits Updates](https://transformer-circuits.pub/2024/july-update/index.html)
 
 At the link above, we report a number of developing ideas on the Anthropic interpretability team, which might be of interest to researchers working actively in this space. Some of these are emerging strands of research where we expect to publish more in the coming months. Others are minor points we wish to share, since we're unlikely to ever write a paper about them.
 
@@ -18,16 +18,18 @@ We'd ask you to treat these results like those of a colleague sharing some thoug
 
 ## Related content
 
-### How people ask Claude for personal guidance
+### Teaching Claude why
 
-[Read more](https://www.anthropic.com/research/Read more)
+New research on how we've reduced agentic misalignment.
 
-### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+[Read more](https://www.anthropic.com/research/teaching-claude-why)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Natural Language Autoencoders: Turning Claude’s thoughts into text
 
-### Announcing the Anthropic Economic Index Survey
+AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
 
-We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
+[Read more](https://www.anthropic.com/research/natural-language-autoencoders)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Donating our open-source alignment tool
+
+[Read more](https://www.anthropic.com/research/donating-open-source-petri)

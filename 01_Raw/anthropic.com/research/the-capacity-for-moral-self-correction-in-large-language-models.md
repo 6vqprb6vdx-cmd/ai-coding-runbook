@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/the-capacity-for-moral-self-correction-in-large-language-models
-fetched_at: 2026-05-04T16:50:55.833004+00:00
+fetched_at: 2026-05-11T12:30:29.485361+00:00
 title: "The Capacity for Moral Self-Correction in Large Language Models \\ Anthropic"
 ---
 
@@ -10,7 +10,7 @@ Societal Impacts
 
 Feb 15, 2023
 
-[Read Paper](https://www.anthropic.com/research/Read Paper)
+[Read Paper](https://arxiv.org/abs/2302.07459)
 
 ## Abstract
 
@@ -18,20 +18,22 @@ We test the hypothesis that language models trained with reinforcement learning 
 
 ## Policy Memo
 
-[Moral Self-Correction Policy Memo](https://www.anthropic.com/research/Moral Self-Correction Policy Memo)
+[Moral Self-Correction Policy Memo](https://www-cdn.anthropic.com/d14f58fe8f611858bc37ff8686bbda71e4927ce6/Anthropic_MoralSelfCorrection_v3.pdf)
 
 ## Related content
 
-### How people ask Claude for personal guidance
+### Teaching Claude why
 
-[Read more](https://www.anthropic.com/research/Read more)
+New research on how we've reduced agentic misalignment.
 
-### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+[Read more](https://www.anthropic.com/research/teaching-claude-why)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Natural Language Autoencoders: Turning Claude’s thoughts into text
 
-### Announcing the Anthropic Economic Index Survey
+AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
 
-We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
+[Read more](https://www.anthropic.com/research/natural-language-autoencoders)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Donating our open-source alignment tool
+
+[Read more](https://www.anthropic.com/research/donating-open-source-petri)

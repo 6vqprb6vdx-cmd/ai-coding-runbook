@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning
-fetched_at: 2026-05-04T16:48:47.546768+00:00
+fetched_at: 2026-05-11T12:30:01.243496+00:00
 title: "Measuring Faithfulness in Chain-of-Thought Reasoning \\ Anthropic"
 ---
 
@@ -10,7 +10,7 @@ AlignmentResearch
 
 Jul 18, 2023
 
-[Download Paper](https://www.anthropic.com/research/Download Paper)
+[Download Paper](https://www-cdn.anthropic.com/827afa7dd36e4afbb1a49c735bfbb2c69749756e/measuring-faithfulness-in-chain-of-thought-reasoning.pdf)
 
 ## Abstract
 
@@ -18,16 +18,18 @@ Large language models (LLMs) perform better when they produce step-by-step, “C
 
 ## Related content
 
-### How people ask Claude for personal guidance
+### Teaching Claude why
 
-[Read more](https://www.anthropic.com/research/Read more)
+New research on how we've reduced agentic misalignment.
 
-### Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+[Read more](https://www.anthropic.com/research/teaching-claude-why)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Natural Language Autoencoders: Turning Claude’s thoughts into text
 
-### Announcing the Anthropic Economic Index Survey
+AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
 
-We're launching the Anthropic Economic Index Survey, a monthly survey conducted through Anthropic Interviewer.
+[Read more](https://www.anthropic.com/research/natural-language-autoencoders)
 
-[Read more](https://www.anthropic.com/research/Read more)
+### Donating our open-source alignment tool
+
+[Read more](https://www.anthropic.com/research/donating-open-source-petri)
