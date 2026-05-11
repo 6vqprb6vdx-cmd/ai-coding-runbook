@@ -1,43 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=zh-CN
-fetched_at: 2026-05-05T13:13:49.501764+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=ar
+fetched_at: 2026-05-11T12:38:04.938894+00:00
 title: "Veo 2.0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-发送反馈
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+
+إرسال ملاحظات
 
 # Veo 2.0
 
-我们稳健可靠的稳定视频生成模型，可为可用于生产用途的工作流提供一致的性能。Veo 2.0 最适合用于标准 1080p 内容创作、社交媒体素材资源和需要可靠的角色一致性以及可预测的亚秒级生成速度的大批量视频任务。
+نموذجنا القوي والموثوق به لإنشاء الفيديوهات الثابتة، والذي يوفّر أداءً ثابتًا لسير العمل الجاهز للإنتاج. يُعدّ Veo 2.0 الخيار الأفضل لإنشاء محتوى عادي بدقة 1080p ومواد عرض لوسائل التواصل الاجتماعي ومهام الفيديوهات الكبيرة التي تعطي الأولوية للاتساق الموثوق به للشخصيات وسرعات الإنشاء المتوقّعة التي تقلّ عن ثانية واحدة.
 
-[在 Google AI Studio 中试用](https://aistudio.google.com?model=veo-2.0-generate-001&hl=zh-cn)
+[تجربة في Google AI Studio](https://aistudio.google.com?model=veo-2.0-generate-001&hl=ar)
 
-## 文档
+## الوثائق
 
-如需全面了解
-功能，请访问[视频生成](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)页面。
+انتقِل إلى صفحة [إنشاء الفيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar) للاطّلاع على تغطية كاملة لـ
+الميزات والإمكانات.
 
 ## veo-2.0-generate-001
 
-| 属性 | 说明 |
+| الموقع | الوصف |
 | --- | --- |
-| id\_card模型代码 | **Gemini API**  `veo-2.0-generate-001` |
-| save支持的数据类型 | **输入**  文本、图片  **输出**  视频 |
-| token\_auto限制 | **文本输入**  不适用  **图片输入**  任何图片分辨率和宽高比，文件大小不超过 20MB  **输出视频**  最多 2 个 |
-| calendar\_month最后更新时间 | 2025 年 4 月 |
+| id\_cardرمز النموذج | ‫**Gemini API**  `veo-2.0-generate-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة  **الناتج**  فيديو |
+| token\_autoالحدود | **إدخال نص**  لا ينطبق  **إدخال صورة**  أي دقة صورة ونسبة عرض إلى ارتفاع تصل إلى 20 ميغابايت لحجم الملف  **فيديو الناتج**  ما يصل إلى 2 |
+| calendar\_monthآخر تعديل | أبريل 2025 |
 
-发送反馈
+إرسال ملاحظات
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最后更新时间 (UTC)：2026-04-29。
+تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-需要向我们提供更多信息？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

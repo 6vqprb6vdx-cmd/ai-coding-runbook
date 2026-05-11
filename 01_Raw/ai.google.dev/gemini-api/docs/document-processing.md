@@ -1,35 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-BR
-fetched_at: 2026-05-05T13:19:20.140086+00:00
-title: "Entendimento de documentos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=it
+fetched_at: 2026-05-11T12:42:26.791940+00:00
+title: "Document understanding \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/Deep Research do Gemini) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-- [Página inicial](https://ai.google.dev/gemini-api/docs/Página inicial)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Documentos](https://ai.google.dev/gemini-api/docs/Documentos)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Envie comentários
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Entendimento de documentos
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Os modelos do Gemini podem processar documentos em formato PDF usando a visão nativa para entender contextos completos. Isso vai além da extração de texto, permitindo que o Gemini:
+Invia feedback
 
-- Analisar e interpretar conteúdo, incluindo texto, imagens, diagramas, gráficos e tabelas, mesmo em documentos longos de até 1.000 páginas.
-- Extrair informações em formatos de [saída estruturada](https://ai.google.dev/gemini-api/docs/saída estruturada).
-- Resumir e responder a perguntas com base nos elementos visuais e textuais de um documento.
-- Transcrever o conteúdo do documento (por exemplo, para HTML), preservando layouts e formatação, para uso em aplicativos downstream.
+# Document understanding
 
-Você também pode transmitir documentos que não sejam em PDF da mesma forma, mas o Gemini os verá como texto normal, o que vai eliminar o contexto, como gráficos ou formatação.
+I modelli Gemini possono elaborare documenti in formato PDF utilizzando la visione nativa per comprendere i contesti dei documenti completi. Questo va oltre la semplice estrazione del testo e consente a Gemini di:
 
-## Como transmitir dados de PDF inline
+- Analizzare e interpretare i contenuti, inclusi testo, immagini, diagrammi, grafici e tabelle, anche in documenti lunghi fino a 1000 pagine.
+- Estrarre le informazioni in formati di output [strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it).
+- Riassumere e rispondere alle domande in base agli elementi visivi e testuali di un documento.
+- Trascrivere i contenuti dei documenti (ad es. in HTML), mantenendo layout e formattazione, per l'utilizzo nelle applicazioni downstream.
 
-É possível transmitir dados de PDF inline na solicitação para `generateContent`. Essa opção é mais adequada para documentos menores ou processamento temporário em que não é necessário referenciar o arquivo em solicitações subsequentes. Recomendamos usar a [API Files](https://ai.google.dev/gemini-api/docs/API Files)
-para documentos maiores que você precisa consultar em interações de várias rodadas para
-melhorar a latência da solicitação e reduzir o uso da largura de banda.
+Puoi anche passare documenti non PDF nello stesso modo, ma Gemini li considererà come testo normale, eliminando il contesto come grafici o formattazione.
 
-O exemplo a seguir mostra como buscar um PDF de um URL e convertê-lo em bytes para processamento:
+## Passare i dati PDF in linea
+
+Puoi passare i dati PDF in linea nella richiesta a `generateContent`. Questa opzione è più adatta per documenti più piccoli o per l'elaborazione temporanea in cui non è necessario fare riferimento al file nelle richieste successive. Ti consigliamo di utilizzare l'[API Files](https://ai.google.dev/gemini-api/docs/document-processing?hl=it#large-pdfs)
+per i documenti più grandi a cui devi fare riferimento nelle interazioni a più turni per
+migliorare la latenza delle richieste e ridurre l'utilizzo della larghezza di banda.
+
+L'esempio seguente mostra come recuperare un PDF da un URL e convertirlo in byte per l'elaborazione:
 
 ### Python
 
@@ -91,7 +95,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -187,7 +191,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-Também é possível ler um PDF de um arquivo local para processamento:
+Puoi anche leggere un PDF da un file locale per l'elaborazione:
 
 ### Python
 
@@ -242,7 +246,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -288,14 +292,13 @@ func main() {
 }
 ```
 
-## Fazer upload de PDFs usando a API Files
+## Caricare PDF utilizzando l'API Files
 
-Recomendamos usar a API Files para arquivos maiores ou quando você pretende reutilizar um
-documento em várias solicitações. Isso melhora a latência da solicitação e reduz o uso de largura de banda ao desacoplar o upload de arquivos das solicitações de modelo.
+Ti consigliamo di utilizzare l'API Files per i file più grandi o quando intendi riutilizzare un documento in più richieste. In questo modo si migliora la latenza delle richieste e si riduce l'utilizzo della larghezza di banda separando il caricamento dei file dalle richieste del modello.
 
-### PDFs grandes de URLs
+### PDF di grandi dimensioni da URL
 
-Use a API File para simplificar o upload e o processamento de arquivos PDF grandes de URLs:
+Utilizza l'API File per semplificare il caricamento e l'elaborazione di file PDF di grandi dimensioni da URL:
 
 ### Python
 
@@ -385,7 +388,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -503,7 +506,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-### PDFs grandes armazenados localmente
+### PDF di grandi dimensioni archiviati localmente
 
 ### Python
 
@@ -583,7 +586,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -675,7 +678,8 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Para verificar se a API armazenou o arquivo enviado e receber os metadados dele, chame [`files.get`](https://ai.google.dev/gemini-api/docs/`files.get`). Somente o `name` (e, por extensão, o `uri`) é exclusivo.
+Puoi verificare che l'API abbia archiviato correttamente il file caricato e recuperarne i
+metadati chiamando [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=it). Solo `name` (e, per estensione, `uri`) sono univoci.
 
 ### Python
 
@@ -707,9 +711,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Enviar vários PDFs
+## Passare più PDF
 
-A API Gemini pode processar vários documentos PDF (até 1.000 páginas) em uma única solicitação, desde que o tamanho combinado dos documentos e do comando de texto permaneça dentro da janela de contexto do modelo.
+L'API Gemini è in grado di elaborare più documenti PDF (fino a 1000 pagine) in un'unica richiesta, a condizione che le dimensioni combinate dei documenti e del prompt di testo rimangano all'interno della finestra contestuale del modello.
 
 ### Python
 
@@ -811,7 +815,7 @@ async function main() {
 main();
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -961,57 +965,56 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Detalhes técnicos
+## Dettagli tecnici
 
-O Gemini aceita arquivos PDF de até 50 MB ou 1.000 páginas. Esse limite se aplica a dados inline e uploads da API Files. Cada página do documento equivale a 258
-tokens.
+Gemini supporta file PDF fino a 50 MB o 1000 pagine. Questo limite si applica sia ai dati in linea sia ai caricamenti dell'API Files. Ogni pagina del documento equivale a 258 token.
 
-Embora não haja limites específicos para o número de pixels em um documento além da [janela de contexto](https://ai.google.dev/gemini-api/docs/janela de contexto) do modelo, páginas maiores são reduzidas para uma resolução máxima de 3072 x 3072, preservando a proporção original, enquanto páginas menores são aumentadas para 768 x 768 pixels. Não há redução de custo para páginas em tamanhos menores, além da largura de banda, ou melhoria de desempenho para páginas em resolução mais alta.
+Sebbene non esistano limiti specifici al numero di pixel in un documento oltre a la [finestra contestuale](https://ai.google.dev/gemini-api/docs/long-context?hl=it) del modello, le pagine più grandi vengono ridimensionate a una risoluzione massima di 3072 x 3072 mantenendo le proporzioni originali, mentre le pagine più piccole vengono ingrandite a 768 x 768 pixel. Non è prevista alcuna riduzione dei costi per le pagine di dimensioni inferiori, ad eccezione della larghezza di banda, né un miglioramento delle prestazioni per le pagine a risoluzione più elevata.
 
-### Modelos do Gemini 3
+### Modelli di Gemini 3
 
-O Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. Agora você pode definir a resolução como baixa, média ou alta para cada trecho de áudio individual. Com essa adição, o processamento de documentos em PDF foi atualizado:
+Gemini 3 introduce un controllo granulare sull'elaborazione della visione multimodale con il parametro `media_resolution`. Ora puoi impostare la risoluzione su bassa, media o alta per ogni parte multimediale. Con questa aggiunta, l'elaborazione dei documenti PDF è stata aggiornata:
 
-1. **Inclusão de texto nativo**:o texto incorporado nativamente no PDF é extraído
-   e fornecido ao modelo.
-2. **Faturamento e relatórios de tokens**:
-   - Você **não é cobrado** por tokens originados do **texto nativo** extraído de PDFs.
-   - Na seção `usage_metadata` da resposta da API, os tokens gerados
-     pelo processamento de páginas PDF (como imagens) agora são contados na modalidade `IMAGE`
-     , e não em uma modalidade `DOCUMENT` separada, como em algumas versões
-     anteriores.
+1. **Inclusione di testo nativo:** il testo incorporato in modo nativo nel PDF viene estratto e fornito al modello.
+2. **Fatturazione e report sui token:**
+   - I token provenienti dal **testo nativo** estratto dai PDF **non vengono addebitati**.
+   - Nella sezione `usage_metadata` della risposta dell'API, i token generati dall'elaborazione delle pagine PDF (come immagini) vengono ora conteggiati nella modalità `IMAGE`, non in una modalità `DOCUMENT` separata come in alcune versioni precedenti.
 
-Para mais detalhes sobre o parâmetro de resolução de mídia, consulte o guia [Resolução de mídia](https://ai.google.dev/gemini-api/docs/Resolução de mídia).
+Per maggiori dettagli sul parametro di risoluzione dei contenuti multimediali, consulta la
+[guida Risoluzione dei contenuti multimediali](https://ai.google.dev/gemini-api/docs/media-resolution?hl=it).
 
-### Tipos de documentos
+### Tipi di documenti
 
-Tecnicamente, é possível transmitir outros tipos MIME para o entendimento de documentos, como TXT, Markdown, HTML, XML etc. No entanto, a visão de documentos ***só entende PDFs de maneira significativa***. Outros tipos serão extraídos como texto puro, e o modelo não poderá interpretar o que vemos na renderização desses arquivos. Todas as especificidades de tipo de arquivo, como gráficos, diagramas, tags HTML, formatação Markdown etc., serão perdidas.
+Tecnicamente, puoi passare altri tipi MIME per la comprensione dei documenti, come TXT, Markdown, HTML, XML e così via. Tuttavia, la visione dei documenti ***comprende in modo significativo solo i PDF***. Gli altri tipi verranno estratti come testo semplice e il modello non sarà in grado di interpretare ciò che vediamo nel rendering di questi file. Verranno perse tutte le specifiche del tipo di file, come grafici, diagrammi, tag HTML, formattazione Markdown e così via.
 
-Para conhecer outros métodos de entrada de arquivos, consulte o guia [Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/Métodos de entrada de arquivos).
+Per scoprire di più sugli altri metodi di input dei file, consulta la
+[guida Metodi di input dei file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=it).
 
-### Práticas recomendadas
+### Best practice
 
-Para conseguir os melhores resultados:
+Per ottenere risultati ottimali:
 
-- Gire as páginas para a orientação correta antes de fazer o upload.
-- Evite páginas desfocadas.
-- Se você estiver usando uma única página, coloque o comando de texto depois dela.
+- Ruota le pagine con l'orientamento corretto prima del caricamento.
+- Evita le pagine sfocate.
+- Se utilizzi una singola pagina, inserisci il prompt di testo dopo la pagina.
 
-## A seguir
+## Passaggi successivi
 
-Para saber mais, consulte os seguintes recursos:
+Per saperne di più, consulta le seguenti risorse:
 
-- [Estratégias de comandos de arquivo](https://ai.google.dev/gemini-api/docs/Estratégias de comandos de arquivo): a
-  API Gemini aceita comandos com dados de texto, imagem, áudio e vídeo, também
-  conhecidos como comandos multimodais.
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/Instruções do sistema):
-  Com elas, é possível orientar o comportamento do modelo com base nas suas
-  necessidades e casos de uso específicos.
+- [Strategie di prompting dei file](https://ai.google.dev/gemini-api/docs/files?hl=it#prompt-guide): l'
+  API Gemini supporta il prompting con dati di testo, immagini, audio e video, noto
+  anche come prompting multimodale.
+- [Istruzioni di sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions):
+  Le istruzioni di sistema ti consentono di indirizzare il comportamento del modello in base alle tue
+  esigenze e ai tuoi casi d'uso specifici.
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://ai.google.dev/gemini-api/docs/Licença de atribuição 4.0 do Creative Commons), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://ai.google.dev/gemini-api/docs/Licença Apache 2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://ai.google.dev/gemini-api/docs/políticas do site do Google Developers). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-04-29 UTC.
+Ultimo aggiornamento 2026-04-29 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
+
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

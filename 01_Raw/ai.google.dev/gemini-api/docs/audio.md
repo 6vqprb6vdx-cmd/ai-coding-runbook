@@ -1,20 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=de
-fetched_at: 2026-05-05T13:27:33.359419+00:00
-title: "Audioverst\u00e4ndnis \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=zh-CN
+fetched_at: 2026-05-11T12:34:16.244901+00:00
+title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-- [Startseite](https://ai.google.dev/gemini-api/docs/Startseite)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs/Dokumentation)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Feedback geben
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Audioverständnis
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gemini kann Audioeingaben analysieren und Textantworten generieren.
+发送反馈
+
+# 音频理解
+
+Gemini 可以分析音频输入并生成文本回答。
 
 ### Python
 
@@ -62,7 +66,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -161,22 +165,22 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Übersicht
+## 概览
 
-Gemini kann Audioeingaben analysieren und verstehen und Textantworten darauf generieren. Das ermöglicht Anwendungsfälle wie die folgenden:
+Gemini 可以分析和理解音频输入，并生成文本回复，从而实现以下用例：
 
-- Audioinhalte beschreiben, zusammenfassen oder Fragen dazu beantworten
-- Stellen Sie eine Transkription und Übersetzung des Audios bereit (Sprache zu Text).
-- Emotionen in Sprache und Musik erkennen
-- Analysiere bestimmte Segmente des Audios und gib Zeitstempel an.
+- 描述、总结音频内容或回答与音频内容相关的问题。
+- 提供音频的转写和翻译（语音转文字）。
+- 检测语音和音乐中的情绪。
+- 分析音频的特定片段，并提供时间戳。
 
-Derzeit unterstützt die Gemini API keine Anwendungsfälle für die Echtzeit-Transkription.
-Informationen zu Sprach- und Videointeraktionen in Echtzeit finden Sie in der [Live API](https://ai.google.dev/gemini-api/docs/Live API).
-Wenn Sie spezielle Speech-to-Text-Modelle mit Unterstützung für die Echtzeit-Transkription benötigen, verwenden Sie die [Google Cloud Speech-to-Text API](https://ai.google.dev/gemini-api/docs/Google Cloud Speech-to-Text API).
+目前，Gemini API 不支持实时转写用例。
+如需进行实时语音和视频互动，请参阅 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn)。
+如需使用支持实时转写的专用语音转文字模型，请使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-cn)。
 
-## Sprache in Text transkribieren
+## 将语音转写为文字
 
-Diese Beispielanwendung zeigt, wie Sie die Gemini API auffordern, Sprache zu transkribieren, zu übersetzen und zusammenzufassen, einschließlich Zeitstempeln und Erkennung von Emotionen mithilfe von [strukturierten Ausgaben](https://ai.google.dev/gemini-api/docs/strukturierten Ausgaben).
+此示例应用展示了如何提示 Gemini API 转写、翻译和总结语音，包括使用[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)的时间戳和情绪检测。
 
 ### Python
 
@@ -217,7 +221,7 @@ def main():
       )
     ],
     config=types.GenerateContentConfig(
-      response_mime_type="application/json",
+      response_format={"text": {"mime_type": "application/json"}},
       response_schema=types.Schema(
         type=types.Type.OBJECT,
         properties={
@@ -302,7 +306,7 @@ async function main() {
       ],
     },
     config: {
-      responseMimeType: "application/json",
+      responseFormat: { text: { mimeType: "application/json" } },
       responseSchema: {
         type: Type.OBJECT,
         properties: {
@@ -365,7 +369,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
         }
       ],
       "generation_config": {
-        "response_mime_type": "application/json",
+        "response_format": {"text": {"mime_type": "application/json"}},
         "response_schema": {
           "type": "OBJECT",
           "properties": {
@@ -404,25 +408,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Sie können [AI Studio Build](https://ai.google.dev/gemini-api/docs/AI Studio Build) auffordern, mit nur einem Klick eine App wie [diese Beispiel-Transkriptions-App](https://ai.google.dev/gemini-api/docs/diese Beispiel-Transkriptions-App) zu erstellen.
+您只需点击一个按钮，即可提示 [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=zh-cn) 创建一个与[此转写应用示例](https://aistudio.google.com/apps/bundled/echoscript?hl=zh-cn)类似的应用。
 
-![Eine mehrsprachige Gemini App für die Audio-Transkription](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=de)
+![一款多语言音频转写 Gemini 应用](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-cn)
 
-## Eingabeaudio
+## 输入音频
 
-Sie haben folgende Möglichkeiten, Gemini Audiodaten zur Verfügung zu stellen:
+您可以通过以下方式向 Gemini 提供音频数据：
 
-- [Laden Sie eine Audiodatei hoch](https://ai.google.dev/gemini-api/docs/Laden Sie eine Audiodatei hoch), bevor Sie eine Anfrage an `generateContent` senden.
-- [Inline-Audiodaten](https://ai.google.dev/gemini-api/docs/Inline-Audiodaten) mit der Anfrage an `generateContent` übergeben.
+- 在向 `generateContent` 发出请求之前，请先[上传音频文件](#upload-audio)。
+- 通过向 `generateContent` 发出的请求[传递内嵌音频数据](#inline-audio)。
 
-Informationen zu anderen Methoden für die Dateieingabe finden Sie im Leitfaden [Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/Methoden für die Dateieingabe).
+如需了解其他文件输入方法，请参阅[文件输入方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-cn)指南。
 
-### Audiodatei hochladen
+### 上传音频文件
 
-Sie können die [Files API](https://ai.google.dev/gemini-api/docs/Files API) verwenden, um eine Audiodatei hochzuladen.
-Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich der Dateien, des Textprompts, der Systemanweisungen usw.) größer als 20 MB ist.
+您可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传音频文件。
+当总请求大小（包括文件、文本提示、系统指令等）超过 20 MB 时，请务必使用 Files API。
 
-Im folgenden Code wird eine Audiodatei hochgeladen und dann in einem Aufruf von `generateContent` verwendet.
+以下代码会上传音频文件，然后在对 `generateContent` 的调用中使用该文件。
 
 ### Python
 
@@ -470,7 +474,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -569,11 +573,11 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Weitere Informationen zum Arbeiten mit Media-Dateien finden Sie unter [Files API](https://ai.google.dev/gemini-api/docs/Files API).
+如需详细了解如何处理媒体文件，请参阅 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn)。
 
-### Audiodaten inline übergeben
+### 内嵌传递音频数据
 
-Anstatt eine Audiodatei hochzuladen, können Sie Inline-Audiodaten im Request an `generateContent` übergeben:
+您可以将内嵌音频数据传递给 `generateContent`，而不是上传音频文件：
 
 ### Python
 
@@ -627,7 +631,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -672,14 +676,14 @@ func main() {
 }
 ```
 
-Einige wichtige Hinweise zu Inline-Audiodaten:
+关于内嵌音频数据，请注意以下几点：
 
-- Die maximale Anfragesgröße beträgt 20 MB. Dazu gehören Text-Prompts, Systemanweisungen und inline bereitgestellte Dateien. Wenn die Größe Ihrer Datei dazu führt, dass die *Gesamtgröße der Anfrage* 20 MB überschreitet, verwenden Sie die Files API, um eine [Audiodatei für die Verwendung in der Anfrage hochzuladen](https://ai.google.dev/gemini-api/docs/Audiodatei für die Verwendung in der Anfrage hochzuladen).
-- Wenn Sie ein Audio-Sample mehrmals verwenden, ist es effizienter, eine [Audiodatei hochzuladen](https://ai.google.dev/gemini-api/docs/Audiodatei hochzuladen).
+- 请求大小上限为 20 MB，其中包括文本提示、系统指令和内嵌提供的文件。如果文件的大小会导致*总请求大小*超过 20 MB，请使用 Files API [上传音频文件](#upload-audio)以供请求使用。
+- 如果您要多次使用某个音频样本，最好[上传音频文件](#upload-audio)。
 
-## Transkript erstellen
+## 获取转写内容
 
-Wenn Sie ein Transkript von Audiodaten erhalten möchten, fragen Sie einfach im Prompt danach:
+如需获取音频数据的转写内容，只需在提示中提出要求即可：
 
 ### Python
 
@@ -723,7 +727,7 @@ const result = await ai.models.generateContent({
 console.log("result.text=", result.text);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -768,12 +772,12 @@ func main() {
 }
 ```
 
-## Auf Zeitstempel verweisen
+## 参考时间戳
 
-Mit Zeitstempeln im Format `MM:SS` können Sie auf bestimmte Abschnitte einer Audiodatei verweisen. Im folgenden Prompt wird beispielsweise ein Transkript angefordert, das
+您可以使用 `MM:SS` 格式的时间戳来引用音频文件的特定部分。例如，以下提示请求生成一份包含以下内容的转写
 
-- Beginnt 2 Minuten und 30 Sekunden nach Beginn der Datei.
-- Endet nach 3 Minuten und 29 Sekunden ab Beginn der Datei.
+- 从文件开头 2 分 30 秒处开始。
+- 结束时间为从文件开头算起的 3 分 29 秒。
 
 ### Python
 
@@ -789,7 +793,7 @@ prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 const prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -835,9 +839,9 @@ func main() {
 }
 ```
 
-## Tokens zählen
+## 统计 token 数量
 
-Rufen Sie die Methode `countTokens` auf, um die Anzahl der Tokens in einer Audiodatei zu ermitteln. Beispiel:
+调用 `countTokens` 方法可获取音频文件中的 token 数量。例如：
 
 ### Python
 
@@ -877,7 +881,7 @@ const countTokensResponse = await ai.models.countTokens({
 console.log(countTokensResponse.totalTokens);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -921,38 +925,39 @@ func main() {
 }
 ```
 
-## Unterstützte Audioformate
+## 支持的音频格式
 
-Gemini unterstützt die folgenden MIME-Typen für Audioformate:
+Gemini 支持以下音频格式 MIME 类型：
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
-- AIFF – `audio/aiff`
+- AIFF - `audio/aiff`
 - AAC - `audio/aac`
-- OGG Vorbis – `audio/ogg`
+- OGG Vorbis - `audio/ogg`
 - FLAC - `audio/flac`
 
-## Technische Details zu Audio
+## 有关音频的技术详细信息
 
-- Gemini stellt jede Sekunde Audio als 32 Tokens dar. Eine Minute Audio entspricht also 1.920 Tokens.
-- Gemini kann auch nicht sprachliche Komponenten wie Vogelgesang oder Sirenen „verstehen“.
-- Die maximal unterstützte Länge von Audiodaten in einem einzelnen Prompt beträgt 9,5 Stunden.
-  Gemini schränkt die *Anzahl* der Audiodateien in einem einzelnen Prompt nicht ein.Die kombinierte Gesamtlänge aller Audiodateien in einem einzelnen Prompt darf jedoch 9,5 Stunden nicht überschreiten.
-- Gemini führt ein Downsampling von Audiodateien auf eine Datenauflösung von 16 kbit/s durch.
-- Wenn die Audioquelle mehrere Kanäle enthält, werden diese von Gemini in einem einzigen Kanal zusammengefasst.
+- Gemini 将每秒音频表示为 32 个 token；例如，1 分钟的音频表示为 1,920 个 token。
+- Gemini 可以“理解”非语音成分，例如鸟鸣声或警报声。
+- 单个提示中支持的音频数据时长上限为 9.5 小时。Gemini 不限制单个提示中的音频文件*数量*；不过，单个提示中所有音频文件的总时长不得超过 9.5 小时。
+- Gemini 会将音频文件下采样到 16 Kbps 的数据分辨率。
+- 如果音频源包含多个声道，Gemini 会将这些声道合并为一个声道。
 
-## Nächste Schritte
+## 后续步骤
 
-In dieser Anleitung wird gezeigt, wie Sie Text als Reaktion auf Audiodaten generieren. Weitere Informationen finden Sie in den folgenden Ressourcen:
+本指南介绍了如何根据音频数据生成文本。如需了解详情，请参阅以下资源：
 
-- [Strategien für Dateiprompts](https://ai.google.dev/gemini-api/docs/Strategien für Dateiprompts): Die Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch bekannt als multimodale Prompts.
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/Systemanweisungen): Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren spezifischen Anforderungen und Anwendungsfällen steuern.
-- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/Sicherheitshinweise): Manchmal geben generative KI‑Modelle unerwartete Ausgaben aus, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
+- [文件提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn#prompt-guide)：Gemini API 支持使用文本、图片、音频和视频数据进行提示，也称为多模态提示。
+- [系统指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#system-instructions)：系统指令可让您根据自己的特定需求和使用情形来控制模型的行为。
+- [安全指南](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-cn)：有时，生成式 AI 模型会生成意料之外的输出，例如不准确、有偏见或令人反感的输出。后处理和人工评估对于限制此类输出造成的危害风险至关重要。
 
-Feedback geben
+发送反馈
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 License) und Codebeispiele unter der [Apache 2.0 License](https://ai.google.dev/gemini-api/docs/Apache 2.0 License) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://ai.google.dev/gemini-api/docs/Websiterichtlinien von Google Developers). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Zuletzt aktualisiert: 2026-04-29 (UTC).
+最后更新时间 (UTC)：2026-05-07。
 
-Haben Sie Feedback für uns?
+需要向我们提供更多信息？
+
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-07。"],[],[]]

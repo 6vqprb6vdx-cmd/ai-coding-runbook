@@ -1,47 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=th
-fetched_at: 2026-05-05T13:16:54.963567+00:00
-title: "\u0e40\u0e02\u0e49\u0e32\u0e16\u0e36\u0e07 Google AI Studio \u0e14\u0e49\u0e27\u0e22\u0e1a\u0e31\u0e0d\u0e0a\u0e35 Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=de
+fetched_at: 2026-05-11T12:40:00.197721+00:00
+title: "Mit Ihrem Workspace-Konto auf Google AI Studio zugreifen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-- [หน้าแรก](https://ai.google.dev/gemini-api/docs/หน้าแรก)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/เอกสาร)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-ส่งความคิดเห็น
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# เข้าถึง Google AI Studio ด้วยบัญชี Workspace
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-ผู้ใช้ [Google Workspace](https://ai.google.dev/gemini-api/docs/Google Workspace) ทุกคนมีสิทธิ์เข้าถึง AI
-Studio โดยค่าเริ่มต้น หากคุณเป็นผู้ใช้ Workspace และต้องการเริ่มต้นใช้งาน
-AI Studio โปรดดู[การเริ่มต้นใช้งาน AI Studio ฉบับย่อ](https://ai.google.dev/gemini-api/docs/การเริ่มต้นใช้งาน AI Studio ฉบับย่อ)
+Feedback geben
 
-## การแก้ปัญหา
+# Mit Ihrem Workspace-Konto auf Google AI Studio zugreifen
 
-หากบัญชี Google Workspace ของคุณถูกปิดใช้การเข้าถึง AI Studio คุณอาจเห็นข้อผิดพลาดต่อไปนี้
+Alle [Google Workspace](https://workspace.google.com?hl=de)-Nutzer haben standardmäßig Zugriff auf AI Studio. Wenn Sie Workspace-Nutzer sind und mit AI Studio beginnen möchten, lesen Sie die [AI Studio-Kurzanleitung](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=de).
+
+## Fehlerbehebung
+
+Wenn der Zugriff auf AI Studio für Ihr Google Workspace-Konto deaktiviert ist, wird möglicherweise eine Fehlermeldung wie die folgende angezeigt:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-หากคิดว่าคุณควรมีสิทธิ์เข้าถึง AI Studio โปรดติดต่อผู้ดูแลระบบ Workspace
+Wenn Sie der Meinung sind, dass Sie Zugriff auf AI Studio haben sollten, wenden Sie sich an Ihren Workspace-Administrator.
 
-## เปิดใช้ AI Studio สำหรับผู้ใช้ Workspace
+## AI Studio für Workspace-Nutzer aktivieren
 
-ในฐานะผู้ดูแลระบบ Google Workspace คุณสามารถควบคุมผู้ที่ใช้ AI Studio ได้โดยทำดังนี้
+Als Google Workspace-Administrator können Sie festlegen, wer AI Studio verwenden darf:
 
-- AI Studio จะเปิดอยู่โดยค่าเริ่มต้นสำหรับทุกรุ่น
-- คุณสามารถปิดหรือเปิด AI Studio สำหรับชุดผู้ใช้ในหรือภายใน
-  หน่วยขององค์กรได้
-- รุ่น Google Workspace for Education: ผู้ใช้ที่มีอายุต่ำกว่า 18 ปีจะถูกจำกัดไม่ให้ใช้ AI Studio ด้วยบัญชี Google Workspace for Education ของตนเอง ถึงแม้จะเปิดการตั้งค่า AI Studio อยู่ก็ตาม โปรดดูรายละเอียดที่หัวข้อ[ควบคุมสิทธิ์เข้าถึงบริการของ Google ตามอายุ](https://ai.google.dev/gemini-api/docs/ควบคุมสิทธิ์เข้าถึงบริการของ Google ตามอายุ)
+- AI Studio ist standardmäßig für alle Versionen aktiviert.
+- Sie können AI Studio für Nutzergruppen in oder innerhalb von Organisationseinheiten deaktivieren oder aktivieren.
+- Google Workspace for Education-Versionen: Nutzer unter 18 Jahren können AI Studio nicht mit ihren Google Workspace for Education-Konten verwenden. Das gilt auch dann, wenn die AI Studio-Einstellung aktiviert ist. Weitere Informationen finden Sie im Hilfeartikel [Altersabhängige Zugriffseinstellungen für Google-Dienste festlegen](https://support.google.com/a/answer/10651918?hl=de).
 
-หากต้องการเปิดหรือปิดใช้ AI Studio สำหรับผู้ใช้ในองค์กร โปรดดูหัวข้อ[เปิดหรือปิด Google AI Studio ให้กับผู้ใช้](https://ai.google.dev/gemini-api/docs/เปิดหรือปิด Google AI Studio ให้กับผู้ใช้)
+Informationen zum Aktivieren oder Deaktivieren von AI Studio für Nutzer in Ihrer Organisation finden Sie unter [Google AI Studio für Nutzer aktivieren oder deaktivieren](https://support.google.com/a/answer/15004095?hl=de).
 
-ส่งความคิดเห็น
+Feedback geben
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://ai.google.dev/gemini-api/docs/ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://ai.google.dev/gemini-api/docs/ใบอนุญาต Apache 2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://ai.google.dev/gemini-api/docs/นโยบายเว็บไซต์ Google Developers) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-อัปเดตล่าสุด 2026-04-29 UTC
+Zuletzt aktualisiert: 2026-04-29 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Haben Sie Feedback für uns?
+
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

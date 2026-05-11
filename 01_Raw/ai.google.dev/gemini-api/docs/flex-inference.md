@@ -1,25 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=id
-fetched_at: 2026-05-05T13:16:07.265483+00:00
-title: "Inferensi fleksibel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-BR
+fetched_at: 2026-05-11T12:40:12.159995+00:00
+title: "Infer\u00eancia flex\u00edvel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-- [Beranda](https://ai.google.dev/gemini-api/docs/Beranda)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/Dokumen)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Kirim masukan
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Inferensi fleksibel
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Gemini Flex API adalah tingkat inferensi yang menawarkan pengurangan biaya sebesar 50% dibandingkan dengan tarif standar, sebagai imbalan atas latensi variabel dan ketersediaan upaya terbaik. API ini dirancang untuk beban kerja yang toleran terhadap latensi yang memerlukan pemrosesan sinkron, tetapi tidak memerlukan performa real-time dari API standar.
+Envie comentários
 
-## Cara menggunakan Flex
+# Inferência flexível
 
-Untuk menggunakan tingkat Flex, tentukan `service_tier` sebagai `flex` di
-isi permintaan. Secara default, permintaan menggunakan tingkat standar jika kolom ini tidak diisi.
+A API Gemini Flex é um nível de inferência que oferece uma redução de custos de 50% em comparação com as taxas padrão, em troca de latência variável e disponibilidade de melhor esforço. Ela foi projetada para cargas de trabalho tolerantes à latência que exigem processamento síncrono, mas não precisam do desempenho em tempo real da API padrão.
+
+## Como usar o Flex
+
+Para usar o nível Flex, especifique `service_tier` como `flex` no corpo da solicitação. Por padrão, as solicitações usam o nível padrão se esse campo for omitido.
 
 ### Python
 
@@ -110,65 +113,63 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 }'
 ```
 
-## Cara kerja inferensi Flex
+## Como funciona a inferência do Flex
 
-Inferensi Gemini Flex menjembatani kesenjangan antara API standar dan waktu penyelesaian 24 jam [Batch API](https://ai.google.dev/gemini-api/docs/Batch API). Layanan ini memanfaatkan kapasitas komputasi di luar jam sibuk yang dapat dihentikan untuk memberikan solusi hemat biaya bagi tugas latar belakang dan alur kerja berurutan.
+A inferência do Gemini Flex preenche a lacuna entre a API padrão e o tempo de resposta de 24 horas
+da [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br). Ela usa capacidade de computação fora do horário de pico e "descartável" para fornecer uma solução econômica para tarefas em segundo plano e fluxos de trabalho sequenciais.
 
-| Fitur | Lipat | Prioritas | Standar | Batch |
+| Recurso | Flex | Prioridade | Padrão | Lote |
 | --- | --- | --- | --- | --- |
-| **Harga** | Diskon 50% | 75-100% lebih banyak daripada Standard | Harga penuh | Diskon 50% |
-| **Latensi** | Menit (target 1–15 menit) | Rendah (Detik) | Detik ke menit | Hingga 24 jam |
-| **Keandalan** | Upaya terbaik (Dapat Dihapus) | Tinggi (Tidak rontok) | Tinggi / Sedang tinggi | Tinggi (untuk throughput) |
-| **Antarmuka** | Sinkron | Sinkron | Sinkron | Asinkron |
+| **Preços** | 50% de desconto | 75 a 100% mais caro que o padrão | Preço total | 50% de desconto |
+| **Latência** | Minutos (1 a 15 min de destino) | Baixa (segundos) | Segundos a minutos | Até 24 horas |
+| **Confiabilidade** | Melhor esforço (descartável) | Alta (não descartável) | Alta / média-alta | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrona |
 
-### Manfaat utama
+### Principais benefícios
 
-- **Efisiensi biaya**: Penghematan yang signifikan untuk evaluasi non-produksi, agen latar belakang, dan pengayaan data.
-- **Gesekan rendah**: Tidak perlu mengelola objek batch, ID tugas, atau polling; cukup tambahkan satu parameter ke permintaan yang ada.
-- **Alur kerja sinkron**: Ideal untuk rangkaian API berurutan di mana permintaan berikutnya bergantung pada output permintaan sebelumnya, sehingga lebih fleksibel daripada Batch untuk alur kerja agentik.
+- **Custo-benefício**: economia substancial para avaliações de não produção, agentes em segundo plano e aprimoramento de dados.
+- **Baixa fricção**: não é necessário gerenciar objetos em lote, IDs de jobs ou pesquisas. Basta adicionar um único parâmetro às solicitações atuais.
+- **Fluxos de trabalho síncronos**: ideal para cadeias de API sequenciais em que a próxima solicitação depende da saída da anterior, tornando-a mais flexível do que o lote para fluxos de trabalho de agentes.
 
-### Kasus penggunaan
+### Casos de uso
 
-- **Evaluasi offline**: Menjalankan pengujian regresi atau papan peringkat "LLM sebagai juri".
-- **Agen latar belakang**: Tugas berurutan seperti pembaruan CRM, pembuatan profil, atau moderasi konten yang dapat ditunda beberapa menit.
-- **Riset dengan anggaran terbatas**: Eksperimen akademis yang memerlukan volume token tinggi dengan anggaran terbatas.
+- **Avaliações off-line**: execução de testes de regressão ou placares de "LLM como um juiz".
+- **Agentes em segundo plano**: tarefas sequenciais, como atualizações de CRM, criação de perfis ou moderação de conteúdo, em que minutos de atraso são aceitáveis.
+- **Pesquisa limitada pelo orçamento**: experimentos acadêmicos que exigem alto volume de tokens com um orçamento limitado.
 
-### Batas kapasitas
+### Limites de taxas
 
-Traffic inferensi fleksibel dihitung dalam [batas kapasitas](https://ai.google.dev/gemini-api/docs/batas kapasitas) umum Anda; tidak
-menawarkan batas kapasitas yang diperluas seperti [Batch API](https://ai.google.dev/gemini-api/docs/Batch API).
+O tráfego de inferência do Flex é contabilizado nos limites de [taxa](https://aistudio.google.com/rate-limit?hl=pt-br) gerais. Ele não
+oferece limites de taxa estendidos, como a [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br).
 
-### Kapasitas yang dapat dikurangi
+### Capacidade descartável
 
-Traffic fleksibel diperlakukan dengan prioritas yang lebih rendah. Jika terjadi lonjakan traffic standar, permintaan Fleksibel dapat didahulukan atau dikeluarkan untuk memastikan kapasitas bagi pengguna prioritas tinggi. Jika Anda mencari inferensi prioritas tinggi, lihat
-[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/Inferensi prioritas)
+O tráfego do Flex é tratado com menor prioridade. Se houver um pico no tráfego padrão, as solicitações do Flex poderão ser interrompidas ou removidas para garantir a capacidade dos usuários de alta prioridade. Se você estiver procurando inferência de alta prioridade, confira
+[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)
 
-### Kode error
+### Códigos de erro
 
-Jika kapasitas Flex tidak tersedia atau sistem mengalami kemacetan, API akan
-menampilkan kode error standar:
+Quando a capacidade do Flex não estiver disponível ou o sistema estiver congestionado, a API vai retornar códigos de erro padrão:
 
-- **503 Layanan Tidak Tersedia**: Sistem saat ini mencapai batas kapasitas.
-- **429 Too Many Requests**: Batas frekuensi atau kehabisan resource.
+- **503 Serviço indisponível**: o sistema está com capacidade total.
+- **429 Há muitas solicitações**: limites de taxa ou esgotamento de recursos.
 
-### Tanggung jawab klien
+### Responsabilidade do cliente
 
-- **Tidak ada penggantian sisi server**: Untuk mencegah biaya yang tidak terduga, sistem tidak akan otomatis mengupgrade permintaan Flex ke paket Standar jika kapasitas Flex penuh.
-- **Percobaan ulang**: Anda harus menerapkan logika percobaan ulang sisi klien sendiri dengan
-  backoff eksponensial.
-- **Waktu tunggu**: Karena permintaan Flex mungkin berada dalam antrean, sebaiknya
-  perpanjang waktu tunggu sisi klien menjadi 10 menit atau lebih untuk menghindari penutupan
-  koneksi sebelum waktunya.
+- **Nenhum fallback do lado do servidor**: para evitar cobranças inesperadas, o sistema não vai
+  fazer upgrade automático de uma solicitação do Flex para o nível padrão se a capacidade do Flex estiver
+  cheia.
+- **Novas tentativas**: é necessário implementar sua própria lógica de nova tentativa do lado do cliente com
+  espera exponencial.
+- **Tempos limite**: como as solicitações do Flex podem ficar em uma fila, recomendamos aumentar os tempos limite do lado do cliente para 10 minutos ou mais para evitar o fechamento prematuro da conexão.
 
-## Menyesuaikan periode tunggu
+## Ajustar janelas de tempo limite
 
-Anda dapat mengonfigurasi waktu tunggu per permintaan untuk REST API dan library klien,
-serta waktu tunggu global hanya saat menggunakan library klien.
+É possível configurar tempos limite por solicitação para a API REST e bibliotecas de cliente, e tempos limite globais apenas ao usar as bibliotecas de cliente.
 
-Selalu pastikan waktu tunggu sisi klien Anda mencakup periode waktu tunggu server yang diinginkan (misalnya, 600 detik+ untuk antrean tunggu Flex). SDK mengharapkan nilai waktu tunggu dalam
-milidetik.
+Sempre verifique se o tempo limite do lado do cliente abrange a janela de paciência do servidor pretendida (por exemplo, 600 segundos ou mais para filas de espera do Flex). Os SDKs esperam valores de tempo limite em milissegundos.
 
-### Waktu tunggu per permintaan
+### Tempos limite por solicitação
 
 ### Python
 
@@ -315,14 +316,12 @@ func main() {
 
 ### REST
 
-Saat melakukan panggilan REST, Anda dapat mengontrol waktu tunggu menggunakan kombinasi header HTTP dan opsi `curl`:
+Ao fazer chamadas REST, é possível controlar os tempos limite usando uma combinação de cabeçalhos HTTP e opções `curl`:
 
-- Header **`X-Server-Timeout` (waktu tunggu sisi server)**: Header ini menyarankan durasi waktu tunggu yang disukai (default 600 detik) ke server Gemini API. Server
-  akan mencoba mematuhinya, tetapi tidak dijamin. Nilai harus dalam
-  detik.
-- **`--max-time` di `curl` (Waktu Tunggu Sisi Klien)**: Opsi `curl --max-time
-  <seconds>` menetapkan batas ketat pada total waktu (dalam detik) yang akan ditunggu `curl`
-  hingga seluruh operasi selesai. Ini adalah pengamanan sisi klien.
+- **Cabeçalho `X-Server-Timeout` (tempo limite do lado do servidor)**: esse cabeçalho sugere uma duração de tempo limite preferencial (padrão de 600 segundos) para o servidor da API Gemini. O servidor vai tentar respeitar isso, mas não é garantido. O valor precisa estar em segundos.
+- **`--max-time` em `curl` (tempo limite do lado do cliente)**: a opção `curl --max-time
+  <seconds>` define um limite rígido para o tempo total (em segundos) que `curl`
+  vai esperar para que toda a operação seja concluída. Essa é uma proteção do lado do cliente.
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -338,11 +337,9 @@ Saat melakukan panggilan REST, Anda dapat mengontrol waktu tunggu menggunakan ko
  }'
 ```
 
-### Waktu tunggu global
+### Tempos limite globais
 
-Jika ingin semua panggilan API yang dilakukan melalui instance `genai.Client` tertentu
-(khusus library klien) memiliki waktu tunggu default, Anda dapat mengonfigurasi ini saat
-menginisialisasi klien menggunakan `http_options` dan `genai.types.HttpOptions`.
+Se você quiser que todas as chamadas de API feitas por uma instância `genai.Client` específica (somente bibliotecas de cliente) tenham um tempo limite padrão, é possível configurar isso ao inicializar o cliente usando `http_options` e `genai.types.HttpOptions`.
 
 ### Python
 
@@ -489,9 +486,9 @@ await main();
  }
 ```
 
-## Menerapkan percobaan ulang
+## Implementar novas tentativas
 
-Karena Flex dapat dihentikan dan gagal dengan error 503, berikut contoh penerapan logika percobaan ulang secara opsional untuk melanjutkan permintaan yang gagal:
+Como o Flex é descartável e falha com erros 503, confira um exemplo de implementação opcional da lógica de nova tentativa para continuar com solicitações com falha:
 
 ### Python
 
@@ -633,38 +630,41 @@ print(response.text)
  }
 ```
 
-## Harga
+## Preços
 
-Inferensi fleksibel dihargai 50% dari [API standar](https://ai.google.dev/gemini-api/docs/API standar)
-dan ditagih per token.
+A inferência do Flex custa 50% da [API padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br)
+e é faturada por token.
 
-## Model yang didukung
+## Modelos compatíveis
 
-Model berikut mendukung inferensi Flex:
+Os seguintes modelos oferecem suporte à inferência do Flex:
 
-| Model | Inferensi fleksibel |
+| Modelo | Inferência do Flex |
 | --- | --- |
-| [Pratinjau Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/Pratinjau Gemini 3.1 Flash-Lite) | ✔️ |
-| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/Pratinjau Gemini 3.1 Pro) | ✔️ |
-| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/Pratinjau Gemini 3 Flash) | ✔️ |
-| [Pratinjau Gambar Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/Pratinjau Gambar Gemini 3 Pro) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Pro) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash) | ✔️ |
-| [Gambar Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/Gambar Gemini 2.5 Flash) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash-Lite) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento da imagem do Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Imagem do Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## Langkah berikutnya
+## A seguir
 
-Baca opsi [inferensi dan pengoptimalan](https://ai.google.dev/gemini-api/docs/inferensi dan pengoptimalan) Gemini lainnya:
+Leia sobre as outras opções de [inferência e otimização](https://ai.google.dev/gemini-api/docs/optimization?hl=pt-br) do Gemini:
 
-- [Inferensi prioritas](https://ai.google.dev/gemini-api/docs/Inferensi prioritas) untuk latensi ultra-rendah.
-- [Batch API](https://ai.google.dev/gemini-api/docs/Batch API) untuk pemrosesan asinkron dalam waktu 24 jam.
-- [Penyimpanan cache konteks](https://ai.google.dev/gemini-api/docs/Penyimpanan cache konteks) untuk mengurangi biaya token input.
+- [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br) para latência ultrabaixa.
+- [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br) para processamento assíncrono em até 24 horas.
+- [Armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br) para reduzir os custos de token de entrada.
 
-Kirim masukan
+Envie comentários
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+Última atualização 2026-05-08 UTC.
 
-Ada masukan untuk kami?
+Quer enviar seu feedback?
+
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-08 UTC."],[],[]]

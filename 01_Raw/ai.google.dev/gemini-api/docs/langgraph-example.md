@@ -1,38 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=fr
-fetched_at: 2026-05-05T13:16:29.068214+00:00
-title: "Cr\u00e9er un agent ReAct \u00e0 partir de z\u00e9ro avec Gemini et LangGraph \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=th
+fetched_at: 2026-05-11T12:40:20.532949+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e2d\u0e40\u0e08\u0e19\u0e15\u0e4c ReAct \u0e15\u0e31\u0e49\u0e07\u0e41\u0e15\u0e48\u0e15\u0e49\u0e19\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 LangGraph \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/recherche approfondie Gemini) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-- [Accueil](https://ai.google.dev/gemini-api/docs/Accueil)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Envoyer des commentaires
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Créer un agent ReAct à partir de zéro avec Gemini et LangGraph
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-LangGraph est un framework permettant de créer des applications LLM avec état. Il constitue donc un bon choix pour créer des agents ReAct (Reasoning and Acting).
+ส่งความคิดเห็น
 
-Les agents ReAct combinent le raisonnement LLM et l'exécution d'actions. Ils réfléchissent de manière itérative, utilisent des outils et agissent en fonction des observations pour atteindre les objectifs des utilisateurs, en adaptant dynamiquement leur approche. Présenté dans ["ReAct : Synergizing Reasoning and Acting in Language Models"](https://ai.google.dev/gemini-api/docs/"ReAct : Synergizing Reasoning and Acting in Language Models") (2023), ce modèle tente d'imiter la résolution de problèmes flexible et semblable à celle des humains plutôt que des workflows rigides.
+# สร้างเอเจนต์ ReAct ตั้งแต่ต้นด้วย Gemini และ LangGraph
 
-LangGraph propose un agent ReAct prédéfini ([`create_react_agent`](https://ai.google.dev/gemini-api/docs/`create_react_agent`)), qui est idéal lorsque vous avez besoin de plus de contrôle et de personnalisation pour vos implémentations ReAct. Ce guide vous en présente une version simplifiée.
+LangGraph เป็นเฟรมเวิร์กสำหรับสร้างแอปพลิเคชัน LLM แบบมีสถานะ จึงเป็นตัวเลือกที่ดีในการสร้างเอเจนต์ ReAct (การให้เหตุผลและการดำเนินการ)
 
-LangGraph modélise les agents sous forme de graphiques à l'aide de trois composants clés :
+เอเจนต์ ReAct ผสานการให้เหตุผลของ LLM กับการดำเนินการ โดยจะคิดอย่างเป็นขั้นตอน
+ใช้เครื่องมือ และดำเนินการตามสิ่งที่สังเกตได้เพื่อบรรลุเป้าหมายของผู้ใช้ พร้อมทั้งปรับแนวทางแบบไดนามิก
+รูปแบบนี้ซึ่งเปิดตัวใน ["ReAct: Synergizing Reasoning and Acting
+in Language Models"](https://arxiv.org/abs/2210.03629) (2023) พยายาม
+จำลองการแก้ปัญหาที่ยืดหยุ่นแบบมนุษย์แทนที่จะใช้เวิร์กโฟลว์ที่เข้มงวด
 
-- `State` : structure de données partagée (généralement `TypedDict` ou `Pydantic BaseModel`) représentant l'instantané actuel de l'application.
-- `Nodes` : code la logique de vos agents. Ils reçoivent l'état actuel en entrée, effectuent un calcul ou un effet secondaire, et renvoient un état mis à jour, tel que des appels LLM ou des appels d'outils.
-- `Edges` : définit le prochain `Node` à exécuter en fonction du `State` actuel, ce qui permet une logique conditionnelle et des transitions fixes.
+LangGraph มีเอเจนต์ ReAct ที่สร้างไว้ล่วงหน้า ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent))
+ซึ่งจะทำงานได้ดีเมื่อคุณต้องการควบคุมและปรับแต่งการใช้งาน ReAct เพิ่มเติม คู่มือนี้จะแสดงเวอร์ชันที่เรียบง่าย
 
-Si vous ne disposez pas encore d'une clé API, vous pouvez en obtenir une auprès de [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio).
+LangGraph สร้างโมเดล Agent เป็นกราฟโดยใช้คอมโพเนนต์หลัก 3 อย่าง ได้แก่
+
+- `State`: โครงสร้างข้อมูลที่แชร์ (โดยปกติคือ `TypedDict` หรือ `Pydantic BaseModel`) ซึ่งแสดงถึงสแนปชอตปัจจุบันของแอปพลิเคชัน
+- `Nodes`: เข้ารหัสตรรกะของเอเจนต์ โดยจะรับสถานะปัจจุบันเป็นอินพุต ทำการคำนวณหรือผลข้างเคียงบางอย่าง และส่งคืนสถานะที่อัปเดตแล้ว เช่น การเรียก LLM หรือการเรียกเครื่องมือ
+- `Edges`: กำหนด`Node`ถัดไปที่จะดำเนินการตาม`State`ปัจจุบัน เพื่อให้ใช้ตรรกะแบบมีเงื่อนไขและการเปลี่ยนสถานะแบบคงที่ได้
+
+หากยังไม่มีคีย์ API คุณสามารถรับคีย์ได้จาก [Google AI
+Studio](https://aistudio.google.com/app/apikey?hl=th)
 
 ```
 pip install langgraph langchain-google-genai geopy requests
 ```
 
-Définissez votre clé API dans la variable d'environnement `GEMINI_API_KEY`.
+ตั้งค่าคีย์ API ในตัวแปรสภาพแวดล้อม `GEMINI_API_KEY`
 
 ```
 import os
@@ -41,11 +51,16 @@ import os
 api_key = os.getenv("GEMINI_API_KEY")
 ```
 
-Pour mieux comprendre comment implémenter un agent ReAct à l'aide de LangGraph, ce guide vous présentera un exemple pratique. Vous allez créer un agent dont l'objectif est d'utiliser un outil pour trouver la météo actuelle d'un lieu spécifié.
+คู่มือนี้จะอธิบายตัวอย่างการใช้งานจริงเพื่อให้คุณเข้าใจวิธีใช้เอเจนต์ ReAct โดยใช้ LangGraph ได้ดียิ่งขึ้น
+คุณจะสร้าง Agent ที่มีเป้าหมายคือ
+ใช้เครื่องมือเพื่อค้นหาสภาพอากาศปัจจุบันของสถานที่ที่ระบุ
 
-Pour cet agent météo, `State` conservera l'historique des conversations en cours (sous forme de liste de messages) et un compteur (sous forme d'entier) pour le nombre d'étapes effectuées, à des fins d'illustration.
+สำหรับเอเจนต์สภาพอากาศนี้ `State` จะเก็บประวัติการสนทนาที่ดำเนินอยู่ (เป็นรายการข้อความ) และตัวนับ (เป็นจำนวนเต็ม) สำหรับจำนวนขั้นตอนที่ดำเนินการเพื่อเป็นตัวอย่าง
 
-LangGraph fournit une fonction d'assistance, `add_messages`, pour mettre à jour les listes de messages d'état. Elle fonctionne comme un [réducteur](https://ai.google.dev/gemini-api/docs/réducteur), en prenant la liste actuelle, plus les nouveaux messages, et en renvoyant une liste combinée. Il gère les mises à jour par ID de message et adopte par défaut un comportement "d'ajout uniquement" pour les nouveaux messages non lus.
+LangGraph มีฟังก์ชันตัวช่วย `add_messages` สำหรับอัปเดตรายการข้อความสถานะ โดยจะทำหน้าที่เป็น[ตัวลด](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers)
+ซึ่งจะรับรายการปัจจุบันรวมกับข้อความใหม่ แล้วแสดงผลเป็นรายการที่รวมกัน โดยจะ
+จัดการการอัปเดตตามรหัสข้อความ และค่าเริ่มต้นจะเป็นลักษณะการทำงานแบบ "ต่อท้ายเท่านั้น" สำหรับข้อความใหม่
+ที่ยังไม่ได้อ่าน
 
 ```
 from typing import Annotated,Sequence, TypedDict
@@ -59,7 +74,7 @@ class AgentState(TypedDict):
     number_of_steps: int
 ```
 
-Définissez ensuite votre outil météo.
+จากนั้นกำหนดเครื่องมือสภาพอากาศ
 
 ```
 from langchain_core.tools import tool
@@ -98,7 +113,7 @@ def get_weather_forecast(location: str, date: str):
 tools = [get_weather_forecast]
 ```
 
-Initialisez maintenant le modèle et associez-y les outils.
+ตอนนี้ให้เริ่มต้นโมเดลและเชื่อมโยงเครื่องมือกับโมเดล
 
 ```
 from datetime import datetime
@@ -121,14 +136,16 @@ res=model.invoke(f"What is the weather in Berlin on {datetime.today()}?")
 print(res)
 ```
 
-La dernière étape avant de pouvoir exécuter votre agent consiste à définir vos nœuds et vos arêtes.
-Dans cet exemple, vous avez deux nœuds et un bord.
+ขั้นตอนสุดท้ายก่อนที่จะเรียกใช้ Agent ได้คือการกำหนดโหนดและขอบ
+ในตัวอย่างนี้ คุณมี 2 โหนดและ 1 ขอบ
 
-- Nœud `call_tool` qui exécute la méthode de votre outil. LangGraph dispose d'un nœud prédéfini à cet effet, appelé [ToolNode](https://ai.google.dev/gemini-api/docs/ToolNode).
-- Nœud `call_model` qui utilise `model_with_tools` pour appeler le modèle.
-- `should_continue` edge qui décide s'il faut appeler l'outil ou le modèle.
+- `call_tool` โหนดที่เรียกใช้เมธอดเครื่องมือ LangGraph มีโหนดที่สร้างไว้ล่วงหน้า
+  สำหรับฟังก์ชันนี้ชื่อว่า [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/)
+- `call_model` โหนดที่ใช้ `model_with_tools` เพื่อเรียกโมเดล
+- `should_continue` ที่ตัดสินใจว่าจะเรียกใช้เครื่องมือหรือโมเดล
 
-Le nombre de nœuds et d'arêtes n'est pas fixe. Vous pouvez ajouter autant de nœuds et d'arêtes que vous le souhaitez à votre graphique. Par exemple, vous pouvez ajouter un nœud pour ajouter une sortie structurée ou un nœud d'auto-vérification/réflexion pour vérifier la sortie du modèle avant d'appeler l'outil ou le modèle.
+จำนวนโหนดและขอบไม่คงที่ คุณเพิ่มโหนดและขอบ
+ได้มากเท่าที่ต้องการลงในกราฟ เช่น คุณอาจเพิ่มโหนดสำหรับการเพิ่มเอาต์พุตที่มีโครงสร้าง หรือโหนดการตรวจสอบ/การไตร่ตรองด้วยตนเองเพื่อตรวจสอบเอาต์พุตของโมเดลก่อนเรียกใช้เครื่องมือหรือโมเดล
 
 ```
 from langchain_core.messages import ToolMessage
@@ -172,7 +189,7 @@ def should_continue(state: AgentState):
     return "continue"
 ```
 
-Maintenant que tous les composants de l'agent sont prêts, vous pouvez les assembler.
+เมื่อคอมโพเนนต์ของเอเจนต์ทั้งหมดพร้อมแล้ว คุณก็สามารถประกอบคอมโพเนนต์เหล่านั้นได้
 
 ```
 from langgraph.graph import StateGraph, END
@@ -208,7 +225,7 @@ workflow.add_edge("tools", "llm")
 graph = workflow.compile()
 ```
 
-Vous pouvez visualiser votre graphique à l'aide de la méthode `draw_mermaid_png`.
+คุณสามารถแสดงภาพกราฟโดยใช้`draw_mermaid_png`วิธีนี้
 
 ```
 from IPython.display import Image, display
@@ -216,9 +233,9 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=fr)
+![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=th)
 
-Exécutez maintenant l'agent.
+ตอนนี้ให้เรียกใช้ Agent
 
 ```
 from datetime import datetime
@@ -231,7 +248,7 @@ for state in graph.stream(inputs, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-Vous pouvez à présent poursuivre votre conversation, demander la météo dans une autre ville ou demander une comparaison.
+ตอนนี้คุณสามารถสนทนาต่อ ถามถึงสภาพอากาศในเมืองอื่น หรือขอเปรียบเทียบได้แล้ว
 
 ```
 state["messages"].append(("user", "Would it be warmer in Munich?"))
@@ -241,10 +258,12 @@ for state in graph.stream(state, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-Envoyer des commentaires
+ส่งความคิดเห็น
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0), et les échantillons de code sont régis par une licence [Apache 2.0](https://ai.google.dev/gemini-api/docs/Apache 2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://ai.google.dev/gemini-api/docs/Règles du site Google Developers). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Dernière mise à jour le 2026/04/29 (UTC).
+อัปเดตล่าสุด 2026-04-29 UTC
 
-Voulez-vous nous donner plus d'informations ?
+หากต้องการบอกให้เราทราบเพิ่มเติม
+
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

@@ -1,24 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi
-fetched_at: 2026-05-05T13:26:53.095287+00:00
-title: "Ph\u01b0\u01a1ng th\u1ee9c nh\u1eadp t\u1ec7p \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi
+fetched_at: 2026-05-11T12:35:31.978496+00:00
+title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/Tính năng Nghiên cứu chuyên sâu của Gemini) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-- [Trang chủ](https://ai.google.dev/gemini-api/docs/Trang chủ)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/Tài liệu)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Gửi ý kiến phản hồi
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Phương thức nhập tệp
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Hướng dẫn này giải thích những cách để bạn có thể đưa các tệp đa phương tiện (chẳng hạn như hình ảnh, âm thanh, video và tài liệu) vào khi đưa ra yêu cầu cho Gemini API.
-Các phương thức mới được hỗ trợ trong tất cả các điểm cuối của Gemini API, bao gồm cả Batch, Interactions và Live API.
-Việc chọn phương thức phù hợp phụ thuộc vào kích thước tệp, nơi dữ liệu của bạn hiện được lưu trữ và tần suất bạn dự định sử dụng tệp.
+सुझाव भेजें
 
-Cách đơn giản nhất để đưa một tệp vào làm thông tin đầu vào là đọc một tệp cục bộ rồi đưa tệp đó vào một câu lệnh. Ví dụ sau đây cho biết cách đọc một tệp PDF cục bộ. Tệp PDF có giới hạn là 50 MB đối với phương thức này. Hãy xem [Bảng so sánh phương thức nhập](https://ai.google.dev/gemini-api/docs/Bảng so sánh phương thức nhập) để biết danh sách đầy đủ các loại và giới hạn nhập tệp.
+# फ़ाइल इनपुट के तरीके
+
+इस गाइड में, Gemini API को अनुरोध भेजते समय, मीडिया फ़ाइलें शामिल करने के अलग-अलग तरीकों के बारे में बताया गया है. जैसे, इमेज, ऑडियो, वीडियो, और दस्तावेज़.
+नए तरीके, Gemini API के सभी एंडपॉइंट पर काम करते हैं. इनमें
+बैच, इंटरैक्शन, और Live API शामिल हैं.
+सही तरीका चुनना, आपकी फ़ाइल के साइज़, फ़िलहाल आपका डेटा कहां सेव है, और आपको फ़ाइल का इस्तेमाल कितनी बार करना है, इस पर निर्भर करता है.
+
+इनपुट के तौर पर कोई फ़ाइल शामिल करने का सबसे आसान तरीका यह है कि स्थानीय फ़ाइल को पढ़ा जाए और उसे किसी प्रॉम्प्ट में शामिल किया जाए. यहां दिए गए उदाहरण में, स्थानीय पीडीएफ़ फ़ाइल को पढ़ने का तरीका बताया गया है. इस तरीके के लिए, पीडीएफ़ का साइज़ 50 एमबी से ज़्यादा नहीं होना चाहिए. फ़ाइल
+इनपुट के टाइप और सीमाओं की पूरी सूची देखने के लिए,
+[इनपुट के तरीकों की तुलना करने वाली टेबल](#method-comparison) देखें.
 
 ### Python
 
@@ -107,26 +114,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
   }'
 ```
 
-## So sánh phương thức nhập
+## इनपुट के तरीकों की तुलना
 
-Bảng sau đây so sánh từng phương thức nhập với giới hạn tệp và các trường hợp sử dụng hiệu quả nhất. Xin lưu ý rằng giới hạn kích thước tệp có thể thay đổi tuỳ thuộc vào loại tệp và mô hình/trình mã hoá từ được dùng để xử lý tệp.
+यहां दी गई टेबल में, फ़ाइल की सीमाओं और सबसे सही इस्तेमाल के उदाहरणों के साथ, हर इनपुट तरीके की तुलना की गई है. ध्यान दें कि फ़ाइल के टाइप और उसे प्रोसेस करने के लिए इस्तेमाल किए गए मॉडल/टोकनाइज़र के हिसाब से, फ़ाइल के साइज़ की सीमा अलग-अलग हो सकती है.
 
-| Phương thức | Phù hợp nhất cho | Kích thước tệp tối đa | Khả năng lưu trữ dài lâu |
+| तरीका | इन स्थितियों में बेहतर है | अधिकतम फ़ाइल आकार | फ़ाइल सेव करके रखने की अवधि |
 | --- | --- | --- | --- |
-| **Dữ liệu nội tuyến** | Thử nghiệm nhanh, tệp nhỏ, ứng dụng theo thời gian thực. | 100 MB cho mỗi yêu cầu/tải trọng   (**50 MB đối với tệp PDF**) | Không có (gửi kèm theo mọi yêu cầu) |
-| **Tải tệp lên bằng API** | Tệp lớn, tệp được sử dụng nhiều lần. | 2 GB cho mỗi tệp,   tối đa 20 GB cho mỗi dự án | 48 giờ |
-| **Đăng ký URI GCS của File API** | Các tệp lớn đã có trong Google Cloud Storage, các tệp được dùng nhiều lần. | 2 GB cho mỗi tệp, không có giới hạn về tổng dung lượng lưu trữ | Không có (tìm nạp theo yêu cầu). Một lần đăng ký có thể cấp quyền truy cập trong tối đa 30 ngày. |
-| **URL bên ngoài** | Dữ liệu công khai hoặc dữ liệu trong các vùng lưu trữ đám mây (AWS, Azure, GCS) mà không cần tải lại. | 100 MB cho mỗi yêu cầu/tải trọng | Không có (tìm nạp theo yêu cầu) |
+| **इनलाइन डेटा** | क्विक टेस्टिंग, छोटी फ़ाइलें, रीयल-टाइम ऐप्लिकेशन. | हर अनुरोध/पेलोड के लिए 100 एमबी   (**पीडीएफ़ के लिए 50 एमबी**) | कोई नहीं (हर अनुरोध के साथ भेजा जाता है) |
+| **File API से अपलोड करना** | बड़ी फ़ाइलें, वे फ़ाइलें जिनका इस्तेमाल कई बार किया जाता है. | हर फ़ाइल के लिए 2 जीबी,   हर प्रोजेक्ट के लिए 20 जीबी तक | 48 घंटे |
+| **File API से GCS यूआरआई रजिस्टर करना** | Google Cloud Storage में पहले से मौजूद बड़ी फ़ाइलें, वे फ़ाइलें जिनका इस्तेमाल कई बार किया जाता है. | हर फ़ाइल के लिए 2 जीबी, स्टोरेज की कोई सीमा नहीं | कोई नहीं (हर अनुरोध के लिए फ़ेच किया जाता है). एक बार रजिस्टर करने पर, 30 दिनों तक ऐक्सेस मिल सकता है. |
+| **एक्सटर्नल यूआरएल** | पब्लिक डेटा या क्लाउड बकेट (AWS, Azure, GCS) में मौजूद डेटा को फिर से अपलोड किए बिना इस्तेमाल करना. | हर अनुरोध/पेलोड के लिए 100 एमबी | कोई नहीं (हर अनुरोध के लिए फ़ेच किया जाता है) |
 
-## Dữ liệu trong dòng
+## इनलाइन डेटा
 
-Đối với các tệp nhỏ hơn (dưới 100 MB hoặc 50 MB đối với tệp PDF), bạn có thể truyền dữ liệu trực tiếp trong tải trọng yêu cầu. Đây là phương thức đơn giản nhất để kiểm thử nhanh hoặc các ứng dụng xử lý dữ liệu tạm thời theo thời gian thực. Bạn có thể cung cấp dữ liệu dưới dạng chuỗi được mã hoá base64 hoặc bằng cách đọc trực tiếp các tệp cục bộ.
+छोटी फ़ाइलों (100 एमबी से कम या पीडीएफ़ के लिए 50 एमबी) के लिए, अनुरोध के पेलोड में सीधे डेटा पास किया जा सकता है. क्विक टेस्ट या रीयल-टाइम, ट्रांज़िएंट डेटा को मैनेज करने वाले ऐप्लिकेशन के लिए, यह सबसे आसान तरीका है. बेस64 एनकोड किए गए स्ट्रिंग के तौर पर डेटा दिया जा सकता है या स्थानीय फ़ाइलों को सीधे पढ़कर डेटा दिया जा सकता है.
 
-Để xem ví dụ về cách đọc từ một tệp cục bộ, hãy xem ví dụ ở đầu trang này.
+स्थानीय फ़ाइल से पढ़ने के उदाहरण के लिए, इस पेज की शुरुआत में दिया गया उदाहरण देखें.
 
-### Tìm nạp từ URL
+### किसी यूआरएल से फ़ेच करना
 
-Bạn cũng có thể tìm nạp một tệp từ URL, chuyển đổi tệp đó thành byte và đưa tệp đó vào dữ liệu đầu vào.
+किसी यूआरएल से कोई फ़ाइल फ़ेच की जा सकती है, उसे बाइट में बदला जा सकता है, और उसे इनपुट में शामिल किया जा सकता है.
 
 ### Python
 
@@ -230,11 +237,11 @@ jq ".candidates[].content.parts[].text" response.json
 
 ## Gemini File API
 
-File API được thiết kế cho các tệp lớn hơn (tối đa 2 GB) hoặc các tệp mà bạn dự định dùng trong nhiều yêu cầu.
+File API, बड़ी फ़ाइलों (2 जीबी तक) या उन फ़ाइलों के लिए डिज़ाइन किया गया है जिनका इस्तेमाल कई अनुरोधों में किया जाना है.
 
-### Tải tệp lên theo cách tiêu chuẩn
+### फ़ाइल अपलोड करने का स्टैंडर्ड तरीका
 
-Tải một tệp cục bộ lên Gemini API. Các tệp được tải lên theo cách này sẽ được lưu trữ tạm thời (48 giờ) và được xử lý để mô hình có thể truy xuất hiệu quả.
+Gemini API पर कोई स्थानीय फ़ाइल अपलोड करें. इस तरीके से अपलोड की गई फ़ाइलें, अस्थायी तौर पर (48 घंटे) सेव की जाती हैं. साथ ही, मॉडल की मदद से इन्हें आसानी से वापस पाने के लिए प्रोसेस किया जाता है.
 
 ### Python
 
@@ -341,44 +348,45 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Đăng ký tệp Google Cloud Storage
+### Google Cloud Storage में मौजूद फ़ाइलें रजिस्टर करना
 
-Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không cần tải xuống rồi tải lên lại. Bạn có thể đăng ký trực tiếp với File API.
+अगर आपका डेटा पहले से ही Google Cloud Storage में है, तो उसे डाउनलोड करके फिर से अपलोड करने की ज़रूरत नहीं है. उसे सीधे File API से रजिस्टर किया जा सकता है.
 
-1. Cấp quyền truy cập cho **Service Agent** vào từng bộ chứa
+1. हर बकेट को **सर्विस एजेंट** का ऐक्सेस दें
 
-   1. Bật Gemini API trong dự án trên đám mây của bạn.
-   2. Tạo tác nhân dịch vụ:
+   1. अपने Google Cloud प्रोजेक्ट में Gemini API चालू करें.
+   2. सर्विस एजेंट बनाएं:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Cấp cho Gemini API Service Agent quyền** đọc các bộ chứa lưu trữ của bạn.
+   3. अपने स्टोरेज बकेट को पढ़ने के लिए, **Gemini API सर्विस एजेंट को अनुमतियां दें**.
 
-      Người dùng cần chỉ định `Storage Object Viewer`
-      [vai trò IAM](https://ai.google.dev/gemini-api/docs/vai trò IAM)
-      cho tác nhân dịch vụ này trên các vùng lưu trữ cụ thể mà họ dự định sử dụng.
+      उपयोगकर्ता को उन स्टोरेज बकेट के लिए, इस सर्विस एजेंट को `Storage Object Viewer`
+      [IAM की भूमिका](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=hi#storage.objectViewer)
+      असाइन करनी होगी जिनका इस्तेमाल करना है.
 
-   Theo mặc định, quyền truy cập này không hết hạn, nhưng bạn có thể thay đổi bất cứ lúc nào. Bạn cũng có thể dùng các lệnh [SDK IAM của Google Cloud Storage](https://ai.google.dev/gemini-api/docs/SDK IAM của Google Cloud Storage) để cấp quyền.
-2. Xác thực dịch vụ của bạn
+   डिफ़ॉल्ट रूप से, यह ऐक्सेस खत्म नहीं होता. हालांकि, इसे कभी भी बदला जा सकता है. [अनुमतियां देने के लिए, Google Cloud Storage IAM SDK के कमांड भी इस्तेमाल किए जा सकते हैं.](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=hi)
+2. अपनी सेवा की पुष्टि करें
 
-   **Điều kiện tiên quyết**
+   **ज़रूरी शर्तें**
 
-   - Bật API
-   - Tạo một tài khoản dịch vụ/tác nhân có các quyền thích hợp.
+   - एपीआई चालू करना
+   - सही अनुमतियों वाला कोई सेवा खाता/एजेंट बनाना.
 
-   Trước tiên, bạn cần xác thực với tư cách là dịch vụ có quyền xem đối tượng lưu trữ. Cách thức này phụ thuộc vào môi trường mà mã quản lý tệp của bạn sẽ chạy.
+   सबसे पहले, आपको उस सेवा के तौर पर पुष्टि करनी होगी जिसके पास स्टोरेज ऑब्जेक्ट व्यूअर की अनुमतियां हैं. यह इस बात पर निर्भर करता है कि आपकी फ़ाइल मैनेजमेंट का कोड किस एनवायरमेंट में चलेगा.
 
-   **Bên ngoài Google Cloud**
+   **Google Cloud के बाहर**
 
-   Nếu mã của bạn đang chạy bên ngoài Google Cloud, chẳng hạn như trên máy tính, hãy tải thông tin đăng nhập tài khoản xuống từ Google Cloud Console theo các bước sau:
+   अगर आपका कोड Google Cloud के बाहर चल रहा है, जैसे कि आपके डेस्कटॉप पर, तो Google Cloud Console से खाते की क्रेडेंशियल डाउनलोड करें. इसके लिए, यह तरीका अपनाएं:
 
-   1. Duyệt đến [bảng điều khiển Tài khoản dịch vụ](https://ai.google.dev/gemini-api/docs/bảng điều khiển Tài khoản dịch vụ)
-   2. Chọn tài khoản dịch vụ có liên quan
-   3. Chọn thẻ **Khoá** rồi chọn **Thêm khoá, Tạo khoá mới**
-   4. Chọn loại khoá **JSON** và ghi lại vị trí tải tệp xuống trên máy của bạn.
+   1. [सर्विस एजेंट कंसोल](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=hi) पर जाएं
+   2. काम का सेवा खाता चुनें
+   3. **कुंजियां** टैब चुनें और **कुंजी जोड़ें, नई कुंजी बनाएं** को चुनें
+   4. **JSON** कुंजी का टाइप चुनें. साथ ही, ध्यान दें कि आपके कंप्यूटर पर फ़ाइल कहां डाउनलोड हुई है.
 
-   Để biết thêm thông tin chi tiết, hãy xem tài liệu chính thức của Google Cloud về [hoạt động quản lý khoá tài khoản dịch vụ](https://ai.google.dev/gemini-api/docs/hoạt động quản lý khoá tài khoản dịch vụ).
+   ज़्यादा जानकारी के लिए, [सेवा खाते की कुंजी
+   के मैनेजमेंट](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=hi) के बारे में Google Cloud का आधिकारिक दस्तावेज़ देखें.
 
-   Sau đó, hãy dùng các lệnh sau để xác thực. Các lệnh này giả định rằng tệp tài khoản dịch vụ của bạn nằm trong thư mục hiện tại, có tên là `service-account.json`.
+   इसके बाद, पुष्टि करने के लिए ये कमांड इस्तेमाल करें. इन कमांड से यह माना जाता है कि आपका सेवा खाता, मौजूदा डायरेक्ट्री में है और उसका नाम `service-account.json` है.
 
    ### Python
 
@@ -398,7 +406,7 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
    )
    ```
 
-   ### JavaScript
+   ### Javascript
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -424,13 +432,19 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **Trên Google Cloud**
+   **Google Cloud पर**
 
-   Nếu đang chạy trực tiếp trong Google Cloud, chẳng hạn như bằng cách sử dụng [các hàm Cloud Run](https://ai.google.dev/gemini-api/docs/các hàm Cloud Run) hoặc một [phiên bản Compute Engine](https://ai.google.dev/gemini-api/docs/phiên bản Compute Engine), bạn sẽ có thông tin đăng nhập ngầm nhưng cần xác thực lại để cấp các phạm vi thích hợp.
+   अगर आप सीधे Google Cloud में काम कर रहे हैं, जैसे कि [Cloud
+   Run फ़ंक्शन](https://cloud.google.com/functions?hl=hi) या
+   [Compute Engine इंस्टेंस](https://cloud.google.com/products/compute?hl=hi) का इस्तेमाल करके, तो आपके पास
+   इंप्लिसिट क्रेडेंशियल होंगे. हालांकि, सही स्कोप देने के लिए, आपको
+   फिर से पुष्टि करनी होगी.
 
    ### Python
 
-   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://ai.google.dev/gemini-api/docs/Thông tin xác thực mặc định của ứng dụng) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
+   इस कोड से यह माना जाता है कि सेवा ऐसे एनवायरमेंट में चल रही है जहां
+   [ऐप्लिकेशन डिफ़ॉल्ट क्रेडेंशियल](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=hi)
+   अपने-आप हासिल किए जा सकते हैं. जैसे, Cloud Run या Compute Engine.
 
    ```
    import google.auth
@@ -445,7 +459,9 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
    ### JavaScript
 
-   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://ai.google.dev/gemini-api/docs/Thông tin xác thực mặc định của ứng dụng) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
+   इस कोड से यह माना जाता है कि सेवा ऐसे एनवायरमेंट में चल रही है जहां
+   [ऐप्लिकेशन डिफ़ॉल्ट क्रेडेंशियल](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=hi)
+   अपने-आप हासिल किए जा सकते हैं. जैसे, Cloud Run या Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -460,15 +476,17 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
 
    ### CLI
 
-   Đây là một lệnh tương tác. Đối với các dịch vụ như Compute Engine, bạn có thể đính kèm các phạm vi vào dịch vụ đang chạy ở cấp cấu hình. Hãy xem [tài liệu về dịch vụ do người dùng quản lý](https://ai.google.dev/gemini-api/docs/tài liệu về dịch vụ do người dùng quản lý) để biết ví dụ.
+   यह एक इंटरैक्टिव कमांड है. Compute Engine जैसी सेवाओं के लिए, कॉन्फ़िगरेशन लेवल पर चल रही सेवा में स्कोप जोड़े जा सकते हैं. उदाहरण के लिए, [उपयोगकर्ता मैनेज की गई सेवा
+   के दस्तावेज़](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=hi#using)
+   देखें.
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. Đăng ký tệp (API Tệp)
+3. फ़ाइल रजिस्टर करना (Files API)
 
-   Sử dụng Files API để đăng ký tệp và tạo đường dẫn Files API có thể được dùng trực tiếp trong Gemini API.
+   फ़ाइलें रजिस्टर करने के लिए, Files API का इस्तेमाल करें. इससे Files API का पाथ जनरेट होता है. इसका इस्तेमाल सीधे Gemini API में किया जा सकता है.
 
    ### Python
 
@@ -513,11 +531,14 @@ Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không 
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## HTTP bên ngoài / URL đã ký
+## एक्सटर्नल एचटीटीपी / साइन किए गए यूआरएल
 
-Bạn có thể truyền trực tiếp các URL HTTPS truy cập công khai hoặc URL được ký trước (tương thích với [URL được ký trước S3](https://ai.google.dev/gemini-api/docs/URL được ký trước S3) và SAS Azure) trong yêu cầu tạo. Gemini API sẽ tìm nạp nội dung một cách an toàn trong quá trình xử lý. Đây là lựa chọn lý tưởng cho những tệp có dung lượng tối đa 100 MB mà bạn không muốn tải lại lên.
+जनरेट करने के अनुरोध में, सार्वजनिक तौर पर ऐक्सेस किए जा सकने वाले एचटीटीपीएस यूआरएल या पहले से साइन किए गए यूआरएल (जो
+[S3 Presigned
+URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
+और Azure SAS के साथ काम करते हैं) सीधे पास किए जा सकते हैं. प्रोसेसिंग के दौरान, Gemini API सुरक्षित तरीके से कॉन्टेंट फ़ेच करेगा. यह 100 एमबी तक की उन फ़ाइलों के लिए सही है जिन्हें आपको फिर से अपलोड नहीं करना है.
 
-Bạn có thể sử dụng URL công khai hoặc URL đã ký làm dữ liệu đầu vào bằng cách sử dụng các URL trong trường `file_uri`.
+`file_uri` फ़ील्ड में यूआरएल का इस्तेमाल करके, सार्वजनिक या साइन किए गए यूआरएल को इनपुट के तौर पर इस्तेमाल किया जा सकता है.
 
 ### Python
 
@@ -543,7 +564,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI, createPartFromUri } from '@google/genai';
@@ -591,20 +612,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
         }'
 ```
 
-### Hỗ trợ tiếp cận
+### सुलभता
 
-Xác minh rằng các URL bạn cung cấp không dẫn đến những trang yêu cầu đăng nhập hoặc có tường phí. Đối với cơ sở dữ liệu riêng tư, hãy đảm bảo rằng bạn tạo một URL đã ký với quyền truy cập và thời gian hết hạn chính xác.
+पक्का करें कि आपके दिए गए यूआरएल, ऐसे पेजों पर न ले जाएं जिनके लिए लॉगिन करना ज़रूरी हो या जो पेवॉल के पीछे हों. प्राइवेट डेटाबेस के लिए, पक्का करें कि आपने सही ऐक्सेस अनुमतियों और समयसीमा के साथ साइन किया गया यूआरएल बनाया हो.
 
-### Kiểm tra an toàn
+### सुरक्षा की जांच
 
-Hệ thống sẽ kiểm tra nội dung của URL để xác nhận rằng các URL đó đáp ứng các tiêu chuẩn về sự an toàn và chính sách (ví dụ: nội dung không bị loại trừ và có tường phí). Nếu URL bạn cung cấp không vượt qua bước kiểm tra này, bạn sẽ nhận được `url_retrieval_status` trong số `URL_RETRIEVAL_STATUS_UNSAFE`.
+सिस्टम, यूआरएल पर कॉन्टेंट मॉडरेशन की जांच करता है.इससे यह पक्का किया जाता है कि वे सुरक्षा और नीति के मानकों के मुताबिक हों. जैसे, ऑप्ट आउट न किया गया और पेवॉल वाला कॉन्टेंट. अगर आपके दिए गए यूआरएल इस जांच में पास नहीं होते हैं, तो आपको `url_retrieval_status` की वैल्यू `URL_RETRIEVAL_STATUS_UNSAFE` मिलेगी.
 
-### Các loại nội dung được hỗ trợ
+### कॉन्टेंट के काम करने वाले टाइप
 
-Danh sách các loại tệp được hỗ trợ và hạn chế này chỉ mang tính hướng dẫn ban đầu và chưa đầy đủ. Tập hợp các loại được hỗ trợ có hiệu quả có thể thay đổi và khác nhau tuỳ theo mô hình và phiên bản mã hoá từ cụ thể đang được sử dụng. Các loại không được hỗ trợ sẽ dẫn đến lỗi.
-Ngoài ra, tính năng truy xuất nội dung cho các loại tệp này hiện chỉ hỗ trợ những URL có thể truy cập công khai.
+काम करने वाले फ़ाइल टाइप और सीमाओं की यह सूची, शुरुआती जानकारी देने के लिए है. यह पूरी सूची नहीं है. काम करने वाले टाइप का सेट बदल सकता है. साथ ही, इस्तेमाल किए जा रहे मॉडल और टोकनाइज़र के वर्शन के हिसाब से भी यह अलग-अलग हो सकता है. काम न करने वाले टाइप की वजह से गड़बड़ी होगी.
+इसके अलावा, फ़िलहाल इन फ़ाइल टाइप के लिए कॉन्टेंट को वापस पाने की सुविधा सिर्फ़ सार्वजनिक तौर पर ऐक्सेस किए जा सकने वाले यूआरएल के लिए उपलब्ध है.
 
-#### Loại tệp văn bản
+#### टेक्स्ट फ़ाइल के टाइप
 
 - `text/html`
 - `text/css`
@@ -614,19 +635,19 @@ Ngoài ra, tính năng truy xuất nội dung cho các loại tệp này hiện 
 - `text/rtf`
 - `text/javascript`
 
-#### Các loại tệp ứng dụng
+#### ऐप्लिकेशन फ़ाइल के टाइप
 
 - `application/json`
 - `application/pdf`
 
-#### Loại tệp hình ảnh
+#### इमेज फ़ाइल के टाइप
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Loại tệp video
+#### वीडियो फ़ाइल के टाइप
 
 - `video/mp4`
 - `video/mpeg`
@@ -638,33 +659,38 @@ Ngoài ra, tính năng truy xuất nội dung cho các loại tệp này hiện 
 - `video/wmv`
 - `video/3gpp`
 
-## Các phương pháp hay nhất
+## सबसे सही तरीके
 
-- **Chọn phương thức phù hợp:** Sử dụng dữ liệu nội tuyến cho các tệp nhỏ, tạm thời.
-  Sử dụng File API cho các tệp có kích thước lớn hoặc thường dùng. Sử dụng URL bên ngoài cho dữ liệu đã được lưu trữ trực tuyến.
-- **Chỉ định loại MIME:** Luôn cung cấp loại MIME chính xác cho dữ liệu tệp để đảm bảo quá trình xử lý diễn ra đúng cách.
-- **Xử lý lỗi:** Triển khai quy trình xử lý lỗi trong mã của bạn để quản lý các vấn đề tiềm ẩn như lỗi mạng, vấn đề về quyền truy cập vào tệp hoặc lỗi API.
-- **Quản lý quyền GCS:** Khi sử dụng chế độ đăng ký GCS, chỉ cấp cho Gemini API Service Agent vai trò `Storage Object Viewer` cần thiết trên các bộ chứa cụ thể.
-- **Bảo mật URL đã ký:** Đảm bảo URL đã ký có thời gian hết hạn thích hợp và quyền hạn hạn chế.
+- **सही तरीका चुनें:** छोटी, ट्रांज़िएंट फ़ाइलों के लिए, इनलाइन डेटा का इस्तेमाल करें.
+  बड़ी या अक्सर इस्तेमाल की जाने वाली फ़ाइलों के लिए, File API का इस्तेमाल करें. ऑनलाइन होस्ट किए गए डेटा के लिए, एक्सटर्नल यूआरएल का इस्तेमाल करें.
+- **MIME टाइप तय करें:** फ़ाइल डेटा की सही प्रोसेसिंग के लिए, हमेशा फ़ाइल डेटा का सही MIME टाइप दें.
+- **गड़बड़ियों को मैनेज करें:** नेटवर्क की समस्याओं, फ़ाइल ऐक्सेस करने में आने वाली समस्याओं या एपीआई से जुड़ी गड़बड़ियों जैसी संभावित समस्याओं को मैनेज करने के लिए, अपने कोड में गड़बड़ी को मैनेज करने की सुविधा लागू करें.
+- **GCS की अनुमतियां मैनेज करें:** GCS रजिस्ट्रेशन का इस्तेमाल करते समय, Gemini API सर्विस एजेंट को सिर्फ़ ज़रूरी `Storage Object Viewer` की भूमिका असाइन करें. यह भूमिका, चुनिंदा बकेट के लिए ही असाइन करें.
+- **साइन किए गए यूआरएल की सुरक्षा:** पक्का करें कि साइन किए गए यूआरएल की समयसीमा खत्म होने का सही समय हो और उनके पास सीमित अनुमतियां हों.
 
-## Các điểm hạn chế
+## सीमाएं
 
-- Giới hạn kích thước tệp thay đổi tuỳ theo phương thức (xem [bảng so sánh](https://ai.google.dev/gemini-api/docs/bảng so sánh)) và loại tệp.
-- Dữ liệu cùng dòng làm tăng kích thước tải trọng yêu cầu.
-- Tệp tải lên qua File API chỉ là tạm thời và sẽ hết hạn sau 48 giờ.
-- Việc tìm nạp URL bên ngoài bị giới hạn ở mức 100 MB cho mỗi tải trọng và hỗ trợ các loại nội dung cụ thể.
-- Để đăng ký Google Cloud Storage, bạn cần thiết lập IAM và quản lý mã thông báo OAuth đúng cách.
+- [फ़ाइल के साइज़ की सीमाएं, तरीके (तुलना करने वाली टेबल देखें)
+  और फ़ाइल के टाइप के हिसाब से अलग-अलग होती हैं.](#method-comparison)
+- इनलाइन डेटा से, अनुरोध के पेलोड का साइज़ बढ़ जाता है.
+- File API से अपलोड की गई फ़ाइलें अस्थायी होती हैं और 48 घंटे बाद खत्म हो जाती हैं.
+- एक्सटर्नल यूआरएल से फ़ेच करने की सीमा, हर पेलोड के लिए 100 एमबी है. साथ ही, यह कॉन्टेंट के चुनिंदा टाइप के साथ काम करता है.
+- Google Cloud Storage में फ़ाइलें रजिस्टर करने के लिए, IAM को सही तरीके से सेट अप करना और OAuth टोकन को मैनेज करना ज़रूरी है.
 
-## Bước tiếp theo
+## आगे क्या करना है
 
-- Hãy thử viết câu lệnh đa phương thức của riêng bạn bằng [Google AI Studio](https://ai.google.dev/gemini-api/docs/Google AI Studio).
-- Để biết thông tin về cách đưa tệp vào câu lệnh, hãy xem hướng dẫn về [Vision](https://ai.google.dev/gemini-api/docs/Vision), [Âm thanh](https://ai.google.dev/gemini-api/docs/Âm thanh) và [Xử lý tài liệu](https://ai.google.dev/gemini-api/docs/Xử lý tài liệu).
-- Để biết thêm hướng dẫn về cách thiết kế câu lệnh, chẳng hạn như điều chỉnh các thông số lấy mẫu, hãy xem hướng dẫn [Chiến lược tạo câu lệnh](https://ai.google.dev/gemini-api/docs/Chiến lược tạo câu lệnh).
+- Google AI Studio का इस्तेमाल करके, मल्टीमॉडल प्रॉम्प्ट लिखने की कोशिश करें.
+- अपने प्रॉम्प्ट में फ़ाइलें शामिल करने के बारे में जानकारी पाने के लिए, [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=hi),
+  [ऑडियो](https://ai.google.dev/gemini-api/docs/audio?hl=hi), और
+  [दस्तावेज़ प्रोसेसिंग](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi) की गाइड देखें.
+- प्रॉम्प्ट डिज़ाइन के बारे में ज़्यादा जानकारी पाने के लिए, जैसे कि सैंपलिंग पैरामीटर को ट्यून करना, [प्रॉम्प्ट की रणनीतियों](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=hi) की गाइड देखें.
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://ai.google.dev/gemini-api/docs/Giấy phép ghi nhận tác giả 4.0 của Creative Commons) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://ai.google.dev/gemini-api/docs/Giấy phép Apache 2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://ai.google.dev/gemini-api/docs/Chính sách trang web của Google Developers). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+आखिरी बार 2026-05-07 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
+
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-07 (UTC) को अपडेट किया गया."],[],[]]

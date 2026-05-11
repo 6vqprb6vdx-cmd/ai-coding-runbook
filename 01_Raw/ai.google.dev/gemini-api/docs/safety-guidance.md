@@ -1,146 +1,157 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pl
-fetched_at: 2026-05-05T13:23:33.286324+00:00
-title: "Wytyczne dotycz\u0105ce bezpiecze\u0144stwa i\u00a0rzetelno\u015bci \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=es-419
+fetched_at: 2026-05-11T12:32:06.508301+00:00
+title: "Orientaci\u00f3n sobre seguridad y facticidad \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-- [Strona główna](https://ai.google.dev/gemini-api/docs/Strona główna)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs/Dokumenty)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Prześlij opinię
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Wytyczne dotyczące bezpieczeństwa i rzetelności
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Modele generatywnej sztucznej inteligencji to potężne narzędzia, ale mają one pewne ograniczenia. Ich wszechstronność i możliwość zastosowania mogą czasami prowadzić do nieoczekiwanych wyników, takich jak wyniki niedokładne, stronnicze lub obraźliwe. Przetwarzanie końcowe i rygorystyczna ocena ręczna są niezbędne, aby ograniczyć ryzyko szkód wynikających z takich danych wyjściowych.
+Enviar comentarios
 
-Modele udostępniane przez Gemini API mogą być używane w wielu różnych aplikacjach generatywnej AI i przetwarzania języka naturalnego (NLP). Korzystanie z tych
-funkcji jest możliwe tylko za pomocą Gemini API lub aplikacji internetowej Google AI Studio. Korzystanie z Gemini API podlega też [zasadom dotyczącym niedozwolonych zastosowań generatywnej AI](https://ai.google.dev/gemini-api/docs/zasadom dotyczącym niedozwolonych zastosowań generatywnej AI) oraz
-[warunkom korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/docs/warunkom korzystania z usługi Gemini API).
+# Orientación sobre seguridad y facticidad
 
-Duże modele językowe (LLM) są tak przydatne, ponieważ są to narzędzia kreatywne, które mogą wykonywać wiele różnych zadań językowych. Niestety oznacza to również, że duże modele językowe mogą generować dane wyjściowe, których się nie spodziewasz, w tym teksty obraźliwe, nietaktowne lub niezgodne z faktami.
-Co więcej, niesamowita wszechstronność tych modeli utrudnia też przewidywanie, jakie dokładnie niepożądane dane wyjściowe mogą one generować. Interfejs
-Gemini API został zaprojektowany z uwzględnieniem [zasad AI Google](https://ai.google.dev/gemini-api/docs/zasad AI Google), ale to deweloperzy muszą
-stosować te modele w sposób odpowiedzialny. Aby pomóc deweloperom w tworzeniu bezpiecznych i odpowiedzialnych aplikacji, Gemini API ma wbudowane filtrowanie treści oraz dostosowywane ustawienia bezpieczeństwa w 4 wymiarach szkodliwości. Więcej informacji znajdziesz w
-[przewodniku po ustawieniach bezpieczeństwa](https://ai.google.dev/gemini-api/docs/przewodniku po ustawieniach bezpieczeństwa). Oferuje też funkcję Grounding z włączoną wyszukiwarką Google, która zwiększa wiarygodność informacji. Deweloperzy, których przypadki użycia są bardziej kreatywne i nie polegają na wyszukiwaniu informacji, mogą jednak wyłączyć tę funkcję.
+Los modelos de inteligencia artificial generativa son herramientas poderosas, pero no están exentos de limitaciones. Su versatilidad y aplicabilidad a veces pueden generar resultados inesperados, como resultados imprecisos, sesgados u ofensivos. El procesamiento posterior y la evaluación manual rigurosa son esenciales para limitar el riesgo de daño de esos resultados.
 
-Ten dokument ma na celu przedstawienie niektórych zagrożeń dla bezpieczeństwa, które mogą wystąpić podczas korzystania z LLM, oraz przedstawienie nowych zaleceń dotyczących projektowania i tworzenia bezpiecznych aplikacji. (Pamiętaj, że przepisy prawa mogą również nakładać ograniczenia, ale te kwestie wykraczają poza zakres tego przewodnika).
+Los modelos que proporciona la API de Gemini se pueden usar para una amplia variedad de aplicaciones de IA generativa y procesamiento de lenguaje natural (NLP). El uso de estas
+funciones solo está disponible a través de la API de Gemini o la app web
+de Google AI Studio. El uso de la API de Gemini también está sujeto a la [Política de Uso Prohibido de IA Generativas](https://policies.google.com/terms/generative-ai/use-policy?hl=es-419) y a las
+[Condiciones del Servicio de la API de Gemini](https://ai.google.dev/terms?hl=es-419).
 
-Podczas tworzenia aplikacji z użyciem LLM zalecamy wykonanie tych czynności:
+Parte de lo que hace que los modelos de lenguaje grandes (LLM) sean tan útiles es que son herramientas creativas que pueden abordar muchas tareas de lenguaje diferentes. Lamentablemente, esto también implica que los modelos de lenguaje grandes pueden generar resultados inesperados, incluyendo contenido ofensivo, insensible o incorrecto desde el punto de vista fáctico.
+Además, la increíble versatilidad de estos modelos es lo que dificulta la predicción exacta de los tipos de resultados no deseados que podrían producir. Si bien la
+API de Gemini se diseñó teniendo en cuenta los [principios de IA
+de Google](https://ai.google/principles/?hl=es-419), la responsabilidad de aplicar estos modelos de manera responsable recae en los desarrolladores. Para ayudar a los desarrolladores a crear aplicaciones seguras y responsables, la API de Gemini tiene algunos filtros de contenido integrados, así como parámetros de configuración de seguridad ajustables en 4 dimensiones de daño. Consulta la
+[guía de parámetros de configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) para obtener más información. También ofrece la Fundamentación con la Búsqueda de Google habilitada para mejorar la veracidad, aunque esto se puede inhabilitar para los desarrolladores cuyos casos de uso sean más creativos y no busquen información.
 
-- Zrozumienie zagrożeń dla bezpieczeństwa związanych z aplikacją
-- Rozważenie zmian, które pozwolą zmniejszyć zagrożenia dla bezpieczeństwa
-- Przeprowadzenie testów bezpieczeństwa odpowiednich dla danego przypadku użycia
-- Zbieranie opinii od użytkowników i monitorowanie użytkowania
+El objetivo de este documento es presentarte algunos riesgos de seguridad que pueden surgir cuando se usan LLM y recomendar las nuevas recomendaciones de diseño y desarrollo de seguridad. (Ten en cuenta que las leyes y los reglamentos también pueden imponer restricciones, pero esas consideraciones están fuera del alcance de esta guía).
 
-Fazy dostosowywania i testowania powinny być powtarzane, aż osiągniesz wydajność odpowiednią dla swojej aplikacji.
+Se recomiendan los siguientes pasos cuando se compilan aplicaciones con LLM:
 
-![Cykl wdrażania modelu](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=pl)
+- Comprender los riesgos de seguridad de tu aplicación
+- Considerar realizar ajustes para mitigar los riesgos de seguridad
+- Realizar pruebas de seguridad adecuadas según tu caso de uso
+- Solicitar comentarios de los usuarios y supervisar el uso
 
-## Zrozumienie zagrożeń dla bezpieczeństwa związanych z aplikacją
+Las fases de ajuste y prueba deben ser iterativas hasta que alcances el rendimiento adecuado para tu aplicación.
 
-W tym kontekście bezpieczeństwo definiujemy jako zdolność LLM do unikania wyrządzania szkód użytkownikom, na przykład przez generowanie toksycznych treści lub treści promujących stereotypy. Modele dostępne w Gemini API zostały zaprojektowane z
-uwzględnieniem [zasad AI Google](https://ai.google.dev/gemini-api/docs/zasad AI Google) w myśl
-i korzystanie z nich podlega zasadom dotyczącym [niedozwolonych zastosowań generatywnej AI](https://ai.google.dev/gemini-api/docs/niedozwolonych zastosowań generatywnej AI). Interfejs API ma wbudowane filtry bezpieczeństwa, które pomagają rozwiązać niektóre typowe problemy z modelami językowymi, takie jak toksyczne treści i szerzenie nienawiści, oraz dążą do inkluzywności i unikania stereotypów. Każda aplikacja może jednak stwarzać inne zagrożenia dla użytkowników. Jako właściciel aplikacji musisz znać swoich użytkowników i potencjalne szkody, jakie może wyrządzić Twoja aplikacja, oraz dbać o to, aby aplikacja korzystała z LLM w sposób bezpieczny i odpowiedzialny.
+![Ciclo de implementación del modelo](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=es-419)
 
-W ramach tej oceny należy wziąć pod uwagę prawdopodobieństwo wystąpienia szkody, określić jej powagę i podjąć kroki w celu jej ograniczenia. Na przykład aplikacja, która generuje eseje na podstawie faktów, musi bardziej uważać na unikanie dezinformacji niż aplikacja, która generuje fikcyjne historie dla rozrywki. Dobrym sposobem na rozpoczęcie badania potencjalnych zagrożeń dla bezpieczeństwa jest przeprowadzenie badań wśród użytkowników końcowych i innych osób, które mogą być narażone na skutki działania aplikacji. Może to przybierać różne formy, np. badanie najnowszych badań w dziedzinie aplikacji, obserwowanie, jak użytkownicy korzystają z podobnych aplikacji, lub przeprowadzenie badania opinii użytkowników, ankiety lub nieformalnych wywiadów z potencjalnymi użytkownikami.
+## Comprende los riesgos de seguridad de tu aplicación
 
-#### Wskazówki dla zaawansowanych
+En este contexto, la seguridad se define como la capacidad de un LLM para evitar causar daño a sus usuarios, por ejemplo, generando lenguaje tóxico o contenido que promueva estereotipos. Los modelos disponibles a través de la API de Gemini se diseñaron teniendo en cuenta los [principios de la IA de Google](https://ai.google/principles/?hl=es-419) y su uso está sujeto a la [Política de Uso Prohibido de IA Generativas](https://policies.google.com/terms/generative-ai/use-policy?hl=es-419). La API proporciona filtros de seguridad integrados para ayudar a abordar algunos problemas comunes de los modelos de lenguaje, como el lenguaje tóxico y la incitación al odio o a la violencia, y para esforzarse por lograr la inclusión y evitar los estereotipos. Sin embargo, cada aplicación puede plantear un conjunto diferente de riesgos para sus usuarios. Por lo tanto, como propietario de la aplicación, eres responsable de conocer a tus usuarios y los posibles daños que puede causar tu aplicación, y de asegurarte de que tu aplicación use LLM de forma segura y responsable.
 
-- Porozmawiaj z różnymi potencjalnymi użytkownikami z grupy docelowej o swojej aplikacji i jej przeznaczeniu, aby uzyskać szerszą perspektywę na potencjalne zagrożenia i w razie potrzeby dostosować kryteria różnorodności.
-- Więcej szczegółowych wskazówek i dodatkowych materiałów edukacyjnych dotyczących zarządzania ryzykiem związanym z AI znajdziesz w opracowanym przez amerykański Narodowy Instytut Norm i Techniki (NIST) dokumencie [AI Risk Management Framework](https://ai.google.dev/gemini-api/docs/AI Risk Management Framework).
-- Publikacja DeepMind na temat
-  [etycznych i społecznych zagrożeń związanych z modelami językowymi](https://ai.google.dev/gemini-api/docs/etycznych i społecznych zagrożeń związanych z modelami językowymi)
-  szczegółowo opisuje, w jaki sposób aplikacje oparte na modelach językowych
-  mogą wyrządzać szkody.
+Como parte de esta evaluación, debes considerar la probabilidad de que se produzcan daños y determinar su gravedad y los pasos de mitigación. Por ejemplo, una app que genera ensayos basados en eventos fácticos debería tener más cuidado para evitar la información errónea, en comparación con una app que genera historias de ficción para el entretenimiento. Una buena manera de comenzar a explorar los posibles riesgos de seguridad es investigar a tus usuarios finales y a otras personas que podrían verse afectadas por los resultados de tu aplicación. Esto puede adoptar muchas formas, como investigar estudios de vanguardia en el dominio de tu app, observar cómo las personas usan apps similares o realizar un estudio de usuarios, una encuesta o entrevistas informales con usuarios potenciales.
 
-## Rozważenie zmian, które pozwolą zmniejszyć zagrożenia dla bezpieczeństwa i wiarygodności informacji
+#### Sugerencias avanzadas
 
-Teraz, gdy znasz już zagrożenia, możesz zdecydować, jak je ograniczyć. Określenie, które zagrożenia są priorytetowe i jak wiele należy zrobić, aby im zapobiec, to kluczowa decyzja, podobna do ustalania priorytetów błędów w projekcie oprogramowania. Gdy ustalisz priorytety, możesz zacząć zastanawiać się nad rodzajami środków zaradczych, które będą najbardziej odpowiednie. Często proste zmiany mogą przynieść efekty i zmniejszyć ryzyko.
+- Habla con una mezcla diversa de posibles usuarios dentro de tu público objetivo
+  sobre tu aplicación y su propósito previsto para obtener una perspectiva más amplia sobre los riesgos potenciales y ajustar los criterios de diversidad
+  según sea necesario.
+- El [Marco de Administración de Riesgos de IA](https://www.nist.gov/itl/ai-risk-management-framework) publicado por el Instituto Nacional de Normas y Tecnología (NIST) del Gobierno de EE.UU. proporciona orientación más detallada y recursos de aprendizaje adicionales para la administración de riesgos de IA.
+- La publicación de DeepMind sobre los
+  [riesgos éticos y sociales de daño de los modelos de lenguaje](https://arxiv.org/abs/2112.04359)
+  describe en detalle las formas en que las aplicaciones de modelos de lenguaje
+  pueden causar daño.
 
-Podczas projektowania aplikacji rozważ te kwestie:
+## Considera realizar ajustes para mitigar los riesgos de seguridad y veracidad
 
-- **Dostrajanie danych wyjściowych modelu** tak, aby lepiej odzwierciedlały to, co jest akceptowalne w kontekście aplikacji. Dostrajanie może sprawić, że dane wyjściowe modelu będą bardziej przewidywalne i spójne, co może pomóc w ograniczeniu niektórych zagrożeń.
-- **Udostępnianie metody wprowadzania danych, która ułatwia uzyskiwanie bezpieczniejszych danych wyjściowych.** Dokładne dane wejściowe przekazywane do LLM mogą mieć wpływ na jakość danych wyjściowych.
-  Eksperymentowanie z promptami wejściowymi, aby znaleźć te, które działają najbezpieczniej w Twoim przypadku użycia, jest warte wysiłku, ponieważ możesz wtedy udostępnić interfejs użytkownika, który to ułatwia. Możesz na przykład ograniczyć użytkownikom możliwość wyboru tylko z listy rozwijanej promptów wejściowych lub wyświetlać wyskakujące sugestie z opisowymi frazami, które w kontekście Twojej aplikacji działają bezpiecznie.
-- **Blokowanie niebezpiecznych danych wejściowych i filtrowanie danych wyjściowych, zanim zostaną wyświetlone użytkownikowi.** W prostych sytuacjach listy blokowania można wykorzystać do identyfikowania i blokowania niebezpiecznych słów lub fraz w promptach lub odpowiedziach albo do wymagania od weryfikatorów ręcznego zmieniania lub blokowania takich treści.
-- **Używanie wytrenowanych klasyfikatorów do oznaczania każdego promptu potencjalnymi szkodami lub złośliwymi sygnałami.** Wtedy można zastosować różne strategie obsługi żądań bazujące na typie wykrytych szkód. Jeśli na przykład dane wejściowe są ewidentnie szkodliwe lub mają charakter nadużycia, można je zablokować, a jako dane wyjściowe wyświetlić przygotowaną wcześniej odpowiedź.
+Ahora que comprendes los riesgos, puedes decidir cómo mitigarlos. Determinar qué riesgos priorizar y qué tanto debes hacer para intentar prevenirlos es una decisión fundamental, similar a la clasificación de errores en un proyecto de software. Una vez que hayas determinado las prioridades, puedes comenzar a pensar en los tipos de mitigaciones que serían más apropiados. A menudo, los cambios simples pueden marcar la diferencia y reducir los riesgos.
 
-  #### Wskazówka dla zaawansowanych
+Por ejemplo, cuando diseñes una aplicación, considera lo siguiente:
 
-  - Jeśli sygnały wskazują, że dane wyjściowe są szkodliwe,
-    aplikacja może zastosować te opcje:
-    - Wyświetl komunikat o błędzie lub przygotowane dane wyjściowe.
-    - Spróbuj ponownie użyć prompta, jeśli wygenerowane zostaną alternatywne bezpieczne dane wyjściowe, ponieważ czasami ten sam prompt może wywołać
-      różne dane wyjściowe.
-- **Wprowadzanie zabezpieczeń przed celowym nadużyciem** , np. przypisywanie każdemu użytkownikowi unikalnego identyfikatora i nakładanie limitu na liczbę zapytań użytkowników, które można przesłać w danym okresie. Kolejnym zabezpieczeniem jest próba ochrony przed możliwym wstrzyknięciem prompta. Wstrzyknięcie prompta, podobnie jak wstrzyknięcie kodu SQL, to sposób na to, aby złośliwi użytkownicy mogli zaprojektować prompt wejściowy, który manipuluje danymi wyjściowymi modelu, np. przez wysłanie prompta wejściowego, który instruuje model, aby ignorował wszystkie poprzednie przykłady. Szczegółowe informacje o celowym nadużyciu znajdziesz w
-  [zasadach dotyczących niedozwolonych zastosowań generatywnej AI](https://ai.google.dev/gemini-api/docs/zasadach dotyczących niedozwolonych zastosowań generatywnej AI).
-- **Dostosowywanie funkcjonalności do czegoś, co z natury wiąże się z mniejszym ryzykiem.**
-  Zadania o węższym zakresie (np. wyodrębnianie słów kluczowych z fragmentów tekstu) lub te, które są bardziej nadzorowane przez człowieka (np. generowanie krótkich treści, które będą sprawdzane przez człowieka), często wiążą się z mniejszym ryzykiem. Na przykład zamiast tworzyć aplikację do pisania odpowiedzi na e-mail od zera, możesz ograniczyć ją do rozwijania konspektu lub sugerowania alternatywnych sformułowań.
-- **Dostosowywanie ustawień bezpieczeństwa dotyczących szkodliwych treści, aby zmniejszyć prawdopodobieństwo napotkania odpowiedzi, które mogą być szkodliwe.** Gemini API udostępnia ustawienia bezpieczeństwa, które możesz dostosować na etapie prototypowania, aby określić, czy aplikacja wymaga bardziej czy mniej restrykcyjnej konfiguracji bezpieczeństwa. Te ustawienia możesz dostosować w 5 kategoriach filtrów, aby ograniczyć lub zezwolić na określone typy treści. Więcej informacji o
-  dostosowywanych ustawieniach bezpieczeństwa dostępnych w Gemini API znajdziesz w przewodniku po [ustawieniach bezpieczeństwa](https://ai.google.dev/gemini-api/docs/ustawieniach bezpieczeństwa).
-- **Zmniejszenie potencjalnych nieścisłości zgodnych z prawdą lub halucynacji przez włączenie funkcji powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google.** Pamiętaj, że wiele modeli AI ma charakter eksperymentalny i może zawierać nieścisłe informacje, halucynacje lub inne problematyczne dane wyjściowe. Funkcja powiązania ze źródłem informacji przy użyciu wyszukiwarki Google łączy model Gemini z treściami z internetu w czasie rzeczywistym i działa we wszystkich dostępnych językach. Dzięki temu Gemini może udzielać dokładniejszych odpowiedzi i podawać zweryfikowane źródła poza granicą wiedzy modeli.
+- **Ajustar el resultado del modelo** para reflejar mejor lo que es aceptable en el contexto de tu aplicación. El ajuste puede hacer que el resultado del modelo sea más predecible y coherente y, por lo tanto, puede ayudar a mitigar ciertos riesgos.
+- **Proporcionar un método de entrada que facilite resultados más seguros.** La entrada exacta que le das a un LLM puede marcar la diferencia en la calidad del resultado.
+  Experimentar con instrucciones de entrada para encontrar lo que funciona de forma más segura en tu caso de uso vale la pena, ya que luego puedes proporcionar una UX que lo facilite. Por ejemplo, puedes restringir a los usuarios para que elijan solo de una lista desplegable de instrucciones de entrada o ofrecer sugerencias emergentes con frases descriptivas que hayas encontrado que funcionan de forma segura en el contexto de tu aplicación.
+- **Bloquear las entradas no seguras y filtrar el resultado antes de que se muestre al usuario.** En situaciones simples, se pueden usar listas de entidades bloqueadas para identificar y bloquear palabras o frases no seguras en instrucciones o respuestas, o bien requerir que los revisores humanos modifiquen o bloqueen manualmente ese contenido.
+- **Usar clasificadores entrenados para etiquetar cada instrucción con posibles daños o señales adversas.** Luego, se pueden emplear diferentes estrategias para administrar la solicitud en función del tipo de daño que se detectó. Por ejemplo, si la entrada es de evidente naturaleza adversaria o abusiva, se puede bloquear y, en su lugar, emitir una respuesta predeterminada.
 
-## Przeprowadzenie testów bezpieczeństwa odpowiednich dla danego przypadku użycia
+  #### Sugerencia avanzada
 
-Testowanie jest kluczowym elementem tworzenia niezawodnych i bezpiecznych aplikacji, ale zakres, zakres i strategie testowania będą się różnić. Na przykład generator haiku, który służy tylko do zabawy, prawdopodobnie będzie stwarzać mniejsze zagrożenia niż aplikacja przeznaczona do użytku przez kancelarie prawne, która ma podsumowywać dokumenty prawne i pomagać w tworzeniu umów. Generator haiku może być jednak używany przez szerszą grupę użytkowników, co oznacza, że potencjał prób ataku lub nawet niezamierzonych szkodliwych danych wejściowych może być większy. Ważny jest też kontekst implementacji. Na przykład aplikacja, której dane wyjściowe są sprawdzane przez ekspertów przed podjęciem jakichkolwiek działań, może być uznana za mniej prawdopodobną do generowania szkodliwych danych wyjściowych niż identyczna aplikacja bez takiego nadzoru.
+  - Si las señales determinan que el resultado es dañino,
+    la aplicación puede emplear las siguientes opciones:
+    - Proporcionar un mensaje de error o una salida predeterminada.
+    - Volver a probar la instrucción, en caso de que se genere un resultado seguro alternativo,
+      ya que, a veces, la misma instrucción generará resultados diferentes.
+- **Implementar medidas de protección contra el uso inadecuado deliberado** , como asignar a cada usuario un ID único y establecer un límite en el volumen de consultas de usuarios que se pueden enviar en un período determinado. Otra medida de protección es intentar protegerse contra la posible inserción de instrucciones. La inserción de instrucciones, al igual que la inserción de SQL, es una forma en que los usuarios maliciosos diseñan una instrucción de entrada que manipula el resultado del modelo, por ejemplo, enviando una instrucción de entrada que le indica al modelo que ignore cualquier ejemplo anterior. Consulta la
+  [Política de Uso Prohibido de IA Generativas](https://policies.google.com/terms/generative-ai/use-policy?hl=es-419)
+  para obtener detalles sobre el uso inadecuado deliberado.
+- **Ajustar la funcionalidad a algo que sea inherentemente de menor riesgo.**
+  Las tareas que tienen un alcance más limitado (p.ej., extraer palabras clave de pasajes de texto) o que tienen una mayor supervisión humana (p.ej., generar contenido de formato corto que revisará una persona) suelen representar un riesgo menor. Por ejemplo, en lugar de crear una aplicación para escribir una respuesta de correo electrónico desde cero, puedes limitarla a expandir un esquema o sugerir frases alternativas.
+- **Ajustar la configuración de seguridad de contenido dañino para disminuir la probabilidad de que veas respuestas que podrían ser perjudiciales.** La API de Gemini proporciona parámetros de configuración de seguridad que puedes ajustar durante la fase de creación de prototipos para determinar si tu aplicación requiere una configuración de seguridad más o menos restrictiva. Puedes ajustar estos parámetros en cinco categorías de filtros para restringir o permitir ciertos tipos de contenido. Consulta la [guía de parámetros de configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) para obtener información sobre
+  los parámetros de configuración de seguridad ajustables disponibles a través de la API de Gemini.
+- **Habilita la Fundamentación con la Búsqueda de Google para disminuir las posibles imprecisiones o alucinaciones fácticas**. Recuerda que muchos modelos de IA son experimentales y pueden presentar información imprecisa desde el punto de vista fáctico, alucinar o producir resultados problemáticos. La función Fundamentación con la Búsqueda de Google conecta el modelo de Gemini con el contenido web en tiempo real y funciona con todos los idiomas disponibles. Esto permite que Gemini proporcione respuestas más precisas y cite fuentes verificables más allá de la fecha límite de conocimiento de los modelos.
 
-Nawet w przypadku aplikacji o stosunkowo niskim ryzyku często trzeba wprowadzić kilka zmian i przeprowadzić kilka testów, zanim poczujesz się pewnie, że możesz ją uruchomić. W przypadku aplikacji AI szczególnie przydatne są 2 rodzaje testów:
+## Realiza pruebas de seguridad adecuadas según tu caso de uso
 
-- **Testy porównawcze bezpieczeństwa** polegają na zaprojektowaniu danych bezpieczeństwa, które odzwierciedlają sposoby, w jakie aplikacja może być niebezpieczna w kontekście sposobu jej używania, a następnie na sprawdzeniu, jak dobrze aplikacja działa w przypadku tych danych za pomocą zbiorów danych do oceny. Przed testowaniem warto zastanowić się nad minimalnymi akceptowalnymi poziomami danych bezpieczeństwa, aby 1) móc ocenić wyniki testów na podstawie tych oczekiwań i 2) zebrać zbiór danych do oceny na podstawie testów, które oceniają dane, na których najbardziej Ci zależy.
+Las pruebas son una parte fundamental de la compilación de aplicaciones sólidas y seguras, pero el alcance, el alcance y las estrategias para las pruebas variarán. Por ejemplo, es probable que un generador de haikus solo por diversión plantee riesgos menos graves que, por ejemplo, una aplicación diseñada para que la usen los bufetes de abogados para resumir documentos legales y ayudar a redactar contratos. Sin embargo, el generador de haikus puede ser usado por una variedad más amplia de usuarios, lo que significa que el potencial de intentos adversarios o incluso entradas dañinas no deseadas puede ser mayor. El contexto de implementación también es importante. Por ejemplo, una aplicación con resultados que son revisados por expertos humanos antes de que se tome cualquier medida podría considerarse menos propensa a producir resultados dañinos que la aplicación idéntica sin esa supervisión.
 
-  #### Wskazówki dla zaawansowanych
+No es raro pasar por varias iteraciones de realizar cambios y pruebas antes de sentirte seguro de que estás listo para lanzar, incluso para aplicaciones que tienen un riesgo relativamente bajo. Hay dos tipos de pruebas que son particularmente útiles para las aplicaciones de IA:
 
-  - Uważaj na nadmierne poleganie na gotowych rozwiązaniach, ponieważ prawdopodobnie
-    będziesz musiał utworzyć własne zbiory danych do testowania przy użyciu oceniających, aby
-    w pełni dostosować się do kontekstu aplikacji.
-  - Jeśli masz więcej niż 1 dane, musisz zdecydować, jak będziesz je
-    wymieniać, jeśli zmiana spowoduje poprawę w przypadku 1 danych, ale
-    pogorszenie w przypadku innych. Podobnie jak w przypadku innych inżynierii wydajności, możesz skupić się na najgorszej wydajności w zbiorze danych do oceny, a nie na średniej wydajności.
-- **Testy z użyciem szkodliwych danych wejściowych** polegają na proaktywnym próbowaniu zepsucia aplikacji. Celem jest zidentyfikowanie słabych punktów, aby można było podjąć odpowiednie kroki w celu ich naprawienia. Testy z użyciem szkodliwych danych wejściowych mogą wymagać znacznego nakładu czasu i wysiłku ze strony oceniających, którzy mają wiedzę specjalistyczną w zakresie Twojej aplikacji, ale im więcej testów przeprowadzisz, tym większa szansa na wykrycie problemów, zwłaszcza tych, które występują rzadko lub tylko po wielokrotnym uruchomieniu aplikacji.
+- La **evaluación comparativa de seguridad** implica diseñar métricas de seguridad que reflejen las formas en que tu aplicación podría ser insegura en el contexto de cómo es probable que se use y, luego, probar qué tan bien se desempeña tu aplicación en las métricas con conjuntos de datos de evaluación. Es una buena práctica pensar en los niveles mínimos aceptables de las métricas de seguridad antes de realizar las pruebas para que 1) puedas evaluar los resultados de las pruebas en función de esas expectativas y 2) puedas recopilar el conjunto de datos de evaluación en función de las pruebas que evalúan las métricas que más te interesan.
 
-  - Testy z użyciem szkodliwych danych wejściowych to metoda systematycznej oceny modelu ML z zamiarem ustalenia, jak się on zachowuje, gdy celowo lub nieumyślnie wprowadzimy do niego szkodliwe dane wejściowe:
-    - Dane wejściowe mogą być złośliwe, gdy ewidentnie mają za zadanie wygenerować niebezpieczne lub szkodliwe dane wyjściowe – na przykład gdy poprosisz model generujący teksty o wygenerowanie wypowiedzi szerzącej nienawiść do określonej religii.
-    - Dane wejściowe są nieumyślnie szkodliwe, gdy one same są nieszkodliwe, ale powodują wygenerowanie szkodliwych danych wyjściowych – na przykład gdy poprosisz model generujący teksty o opisanie osoby o określonym pochodzeniu etnicznym, co spowoduje, że model generuje rasistowską odpowiedź.
-  - Test z użyciem szkodliwych danych wejściowych różni się od standardowej oceny składem danych używanych do testowania. W przypadku testów z użyciem szkodliwych danych wejściowych wybierz
-    dane testowe, które najprawdopodobniej spowodują wygenerowanie przez model problematycznych danych wyjściowych. Oznacza to, że należy sprawdzić zachowanie modelu pod kątem wszystkich rodzajów szkód, w tym rzadkich lub nietypowych przykładów i przypadków brzegowych, które są istotne z punktu widzenia zasad bezpieczeństwa. Powinny one również uwzględniać różnorodność w różnych wymiarach zdania, takich jak struktura, znaczenie i długość. Więcej informacji o tym, co należy wziąć pod uwagę podczas tworzenia zbioru danych do testowania, znajdziesz w artykule [Google's Responsible AI
-    dotyczącym praktyk
-    odpowiedzialnej AI w zakresie](https://ai.google.dev/gemini-api/docs/Google's Responsible AI    dotyczącym praktyk    odpowiedzialnej AI w zakresie)
-    sprawiedliwości.
+  #### Sugerencias avanzadas
 
-    #### Wskazówki dla zaawansowanych
+  - Ten cuidado de no depender demasiado de los enfoques “listos para usar”, ya que es probable que necesites compilar tus propios conjuntos de datos de prueba con evaluadores humanos para que se adapten por completo al contexto de tu aplicación.
+  - Si tienes más de una métrica, deberás decidir cómo
+    compensarás si un cambio genera mejoras para una métrica en
+    detrimento de otra. Al igual que con otras ingenierías de rendimiento, es posible que desees enfocarte en el rendimiento en el peor de los casos en tu conjunto de evaluación en lugar del rendimiento promedio.
+- Las **pruebas adversarias** implican intentar de forma proactiva dañar tu aplicación. El objetivo es identificar los puntos débiles para que puedas tomar medidas para solucionarlos según corresponda. Las pruebas adversarias pueden requerir mucho tiempo y esfuerzo de los evaluadores con experiencia en tu aplicación, pero cuanto más lo hagas, mayores serán tus posibilidades de detectar problemas, en especial aquellos que ocurren con poca frecuencia o solo después de ejecuciones repetidas de la aplicación.
 
-    - Zamiast tradycyjnej metody angażowania osób w „czerwone zespoły”, które mają próbować zepsuć Twoją aplikację, używaj
-      [testów automatycznych](https://ai.google.dev/gemini-api/docs/testów automatycznych). W testach automatycznych „zespół red team” to inny model językowy, który znajduje tekst wejściowy, który wywołuje szkodliwe dane wyjściowe z testowanego modelu.może być konieczne przeprowadzenie kilku rund testów.
+  - Las pruebas adversarias son un método para evaluar de manera sistemática un modelo de AA con la intención de aprender cómo se comporta cuando se le proporcionan entradas maliciosas o inadvertidamente dañinas:
+    - Una entrada puede ser maliciosa cuando está claro que está diseñada para producir una salida insegura o dañina, por ejemplo, pedirle a un modelo de generación de texto que genere una diatriba de odio sobre una religión en particular.
+    - Una entrada es inadvertidamente dañina cuando la entrada en sí puede ser inocua, pero produce una salida dañina, por ejemplo, pedirle a un modelo de generación de texto que describa a una persona de un origen étnico en particular y recibir una salida racista.
+  - Lo que distingue una prueba adversaria de una evaluación estándar es la composición de los datos que se usan para la prueba. Para las pruebas adversarias, selecciona
+    datos de prueba que tengan más probabilidades de generar resultados problemáticos de
+    l modelo. Esto significa probar el comportamiento del modelo para todos los tipos de daños posibles, incluidos los ejemplos poco comunes o inusuales y los casos extremos que son relevantes para las políticas de seguridad. También debe incluir diversidad en las diferentes dimensiones de una oración, como la estructura, el significado y la longitud. Puedes consultar las prácticas de IA responsable de [Google
+    en cuanto a
+    equidad](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=es-419)
+    para obtener más detalles sobre qué tener en cuenta cuando compilas un conjunto de datos de prueba.
 
-## Monitorowanie problemów
+    #### Sugerencias avanzadas
 
-Niezależnie od tego, ile testów przeprowadzisz i jak wiele środków zaradczych zastosujesz, nigdy nie możesz zagwarantować doskonałości, dlatego z wyprzedzeniem zaplanuj, jak będziesz wykrywać i rozwiązywać problemy. Typowe podejścia obejmują skonfigurowanie monitorowanego kanału, na którym użytkownicy mogą dzielić się opiniami (np. ocena kciukiem w górę lub w dół), oraz przeprowadzenie badania opinii użytkowników, aby proaktywnie zbierać opinie od różnych użytkowników – jest to szczególnie przydatne, jeśli wzorce użytkowania różnią się od oczekiwań.
+    - Usa
+      [pruebas automatizadas](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=es-419)
+      en lugar del método tradicional de reclutar personas en 'equipos rojos'
+      para intentar dañar tu aplicación. En las pruebas automatizadas, el
+      “equipo rojo” es otro modelo de lenguaje que encuentra texto de entrada que
+      genera resultados dañinos del modelo que se está probando.
 
-#### Wskazówki dla zaawansowanych
+## Supervisa para detectar problemas
 
-- Gdy użytkownicy przekazują opinie o produktach AI, mogą one znacznie poprawić wydajność AI
-  i wygodę użytkowników, np.
-  pomagając Ci wybrać lepsze przykłady do dostrajania promptów. W
-  [rozdziale Opinie i kontrola](https://ai.google.dev/gemini-api/docs/rozdziale Opinie i kontrola)
-  w [przewodniku Google dotyczącym ludzi i AI](https://ai.google.dev/gemini-api/docs/przewodniku Google dotyczącym ludzi i AI)
-  znajdziesz najważniejsze kwestie, które należy wziąć pod uwagę podczas projektowania
-  mechanizmów opinii.
+Sin importar cuánto pruebes y mitigues, nunca podrás garantizar la perfección, así que planifica con anticipación cómo detectarás y abordarás los problemas que surjan. Los enfoques comunes incluyen configurar un canal supervisado para que los usuarios compartan comentarios (p.ej., calificación de me gusta o no me gusta) y realizar un estudio de usuarios para solicitar de forma proactiva comentarios de una mezcla diversa de usuarios, lo que es especialmente valioso si los patrones de uso son diferentes de las expectativas.
 
-## Dalsze kroki
+#### Sugerencias avanzadas
 
-- Więcej informacji o dostosowywanych
-  ustawieniach bezpieczeństwa dostępnych w Gemini API znajdziesz w przewodniku po
-  [ustawieniach bezpieczeństwa](https://ai.google.dev/gemini-api/docs/ustawieniach bezpieczeństwa).
-- Aby zacząć pisać pierwsze prompty, zapoznaj się z [wprowadzeniem do promptów](https://ai.google.dev/gemini-api/docs/wprowadzeniem do promptów) aby zacząć
-  pisać pierwsze prompty.
+- Cuando los usuarios envían comentarios a los productos de IA, pueden mejorar en gran medida el rendimiento de la IA
+  y la experiencia del usuario con el tiempo, por ejemplo,
+  ayudándote a elegir mejores ejemplos para el ajuste de instrucciones. En el capítulo
+  [Comentarios y control](https://pair.withgoogle.com/chapter/feedback-controls/)
+  de [la guía Personas y la IA de Google](https://pair.withgoogle.com/guidebook/chapters)
+  se destacan las consideraciones clave que se deben tener en cuenta cuando se diseñan
+  mecanismos de comentarios.
 
-Prześlij opinię
+## Próximos pasos
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://ai.google.dev/gemini-api/docs/licencją Creative Commons – uznanie autorstwa 4.0), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://ai.google.dev/gemini-api/docs/licencji Apache 2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://ai.google.dev/gemini-api/docs/zasady dotyczące witryny Google Developers). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+- Consulta la
+  [guía de parámetros de configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) para obtener información sobre los parámetros de configuración de seguridad ajustables
+  disponibles a través de la API de Gemini.
+- Consulta la [introducción a las instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419) para comenzar a
+  escribir tus primeras instrucciones.
 
-Ostatnia aktualizacja: 2026-04-29 UTC.
+Enviar comentarios
 
-Chcesz przekazać coś jeszcze?
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+
+Última actualización: 2026-04-29 (UTC)
+
+¿Quieres brindar más información?
+
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]

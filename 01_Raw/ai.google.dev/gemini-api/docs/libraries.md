@@ -1,52 +1,56 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=ko
-fetched_at: 2026-05-05T13:10:46.143526+00:00
-title: "Gemini API \ub77c\uc774\ube0c\ub7ec\ub9ac \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=zh-CN
+fetched_at: 2026-05-11T12:35:54.322484+00:00
+title: "Gemini API \u5e93 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-- [홈](https://ai.google.dev/gemini-api/docs/홈)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [문서](https://ai.google.dev/gemini-api/docs/문서)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-의견 보내기
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Gemini API 라이브러리
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gemini API로 빌드할 때는 **Google 생성형 AI SDK** 를 사용하는 것이 좋습니다.
-Google 생성형 AI SDK는 가장 널리 사용되는 프로그래밍 언어용으로 Google에서 개발 및 유지보수하는 프로덕션에 즉시 사용 가능한 공식 라이브러리입니다. [정식 버전으로 제공되며 모든 공식
-문서 및 예에서 사용됩니다.](https://ai.google.dev/gemini-api/docs/정식 버전으로 제공되며 모든 공식문서 및 예에서 사용됩니다.)
+发送反馈
 
-Gemini API를 처음 사용하는 경우 [빠른 시작 가이드](https://ai.google.dev/gemini-api/docs/빠른 시작 가이드)에 따라 시작하세요.
+# Gemini API 库
 
-## 언어 지원 및 설치
+使用 Gemini API 进行构建时，我们建议使用 **Google GenAI SDK** 。
+这些是我们为最常用的语言开发和维护的官方可用于生产用途库。它们处于[正式版](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn#new-libraries)状态，并用于我们的所有官方
+文档和示例。
 
-Google 생성형 AI SDK는 Python, JavaScript/TypeScript, Go, Java 언어로 제공됩니다. 패키지 관리자를 사용하여 각 언어의 라이브러리를 설치하거나 GitHub 저장소를 방문하여 추가로 참여할 수 있습니다.
+如果您是 Gemini API 的新手，请按照我们的 [快速入门指南](https://ai.google.dev/gemini-api/docs/quickstart?hl=zh-cn) 开始使用。
+
+## 语言支持和安装
+
+Google GenAI SDK 支持 Python、JavaScript/TypeScript、Go 和 Java 语言。您可以使用软件包管理器安装每种语言的库，也可以访问其 GitHub 代码库以进行进一步互动：
 
 ### Python
 
-- 라이브러리: [`google-genai`](https://ai.google.dev/gemini-api/docs/`google-genai`)
-- GitHub 저장소: [googleapis/python-genai](https://ai.google.dev/gemini-api/docs/googleapis/python-genai)
-- 설치: `pip install google-genai`
+- 库： [`google-genai`](https://pypi.org/project/google-genai)
+- GitHub 代码库：[googleapis/python-genai](https://github.com/googleapis/python-genai)
+- 安装：`pip install google-genai`
 
 ### JavaScript
 
-- 라이브러리: [`@google/genai`](https://ai.google.dev/gemini-api/docs/`@google/genai`)
-- GitHub 저장소: [googleapis/js-genai](https://ai.google.dev/gemini-api/docs/googleapis/js-genai)
-- 설치: `npm install @google/genai`
+- 库： [`@google/genai`](https://www.npmjs.com/package/@google/genai)
+- GitHub 代码库：[googleapis/js-genai](https://github.com/googleapis/js-genai)
+- 安装：`npm install @google/genai`
 
 ### Go
 
-- 라이브러리: [`google.golang.org/genai`](https://ai.google.dev/gemini-api/docs/`google.golang.org/genai`)
-- GitHub 저장소: [googleapis/go-genai](https://ai.google.dev/gemini-api/docs/googleapis/go-genai)
-- 설치: `go get google.golang.org/genai`
+- 库： [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
+- GitHub 代码库：[googleapis/go-genai](https://github.com/googleapis/go-genai)
+- 安装：`go get google.golang.org/genai`
 
 ### Java
 
-- 라이브러리: `google-genai`
-- GitHub 저장소: [googleapis/java-genai](https://ai.google.dev/gemini-api/docs/googleapis/java-genai)
-- 설치: Maven을 사용하는 경우 종속 항목에 다음을 추가합니다.
+- 库：`google-genai`
+- GitHub 代码库：[googleapis/java-genai](https://github.com/googleapis/java-genai)
+- 安装：如果您使用的是 Maven，请将以下代码添加到您的依赖项中：
 
 ```
 <dependencies>
@@ -60,44 +64,46 @@ Google 생성형 AI SDK는 Python, JavaScript/TypeScript, Go, Java 언어로 제
 
 ### C#
 
-- 라이브러리: `Google.GenAI`
-- GitHub 저장소: [googleapis/dotnet-genai](https://ai.google.dev/gemini-api/docs/googleapis/dotnet-genai)
-- 설치: `dotnet add package Google.GenAI`
+- 库：`Google.GenAI`
+- GitHub 代码库：[googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
+- 安装：`dotnet add package Google.GenAI`
 
-## 정식 버전
+## 正式版
 
-2025년 5월을 기준으로 Google 생성형 AI SDK는 지원되는 모든 플랫폼에서 정식 버전 (GA)에 도달했으며 Gemini API에 액세스하는 데 권장되는 라이브러리입니다.
-안정적이고 프로덕션 용도로 완전히 지원되며 적극적으로 유지보수됩니다.
-최신 기능에 대한 액세스를 제공하며 Gemini와 함께 작업할 때 최고의 성능을 제공합니다.
+截至 2025 年 5 月，Google GenAI SDK 已在所有受支持的平台上达到正式版 (GA) 状态，是访问 Gemini API 的推荐库。
+它们稳定可靠，完全支持在生产环境中使用，并且会积极维护。
+它们提供对最新功能的访问权限，并提供与 Gemini 配合使用的最佳性能。
 
-기존 라이브러리 중 하나를 사용하고 있다면 최신 기능에 액세스하고 Gemini와 함께 작업할 때 최고의 성능을 얻을 수 있도록 마이그레이션하는 것이 좋습니다. 자세한 내용은 [기존 라이브러리](https://ai.google.dev/gemini-api/docs/기존 라이브러리) 섹션을 검토하세요.
+如果您使用的是我们的旧版库，我们强烈建议您进行迁移，以便能够访问最新功能并获得与 Gemini 配合使用的最佳性能。如需了解详情，请参阅[旧版库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn#previous-sdks)部分。
 
-## 기존 라이브러리 및 마이그레이션
+## 旧版库和迁移
 
-기존 라이브러리 중 하나를 사용하고 있다면 새 라이브러리로 마이그레이션하는 것이 좋습니다.
+如果您使用的是我们的旧版库，我们建议您
+[迁移到新库](https://ai.google.dev/gemini-api/docs/migrate?hl=zh-cn)。
 
-기존 라이브러리는 최신 기능 (예:
-[Live API](https://ai.google.dev/gemini-api/docs/Live API) 및 [Veo](https://ai.google.dev/gemini-api/docs/Veo))에 대한 액세스를 제공하지 않으며
-2025년 11월 30일에 지원 중단됩니다.
+旧版库无法访问最新功能（例如
+[Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 和 [Veo](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)），并且已于
+2025 年 11 月 30 日废弃。
 
-각 기존 라이브러리의 지원 상태는 다음 표에 자세히 설명되어 있습니다.
+每个旧版库的支持状态各不相同，详见下表：
 
-| 언어 | 기존 라이브러리 | 지원 상태 | 권장 라이브러리 |
+| 语言 | 旧版库 | 支持状态 | 推荐的库 |
 | --- | --- | --- | --- |
-| **Python** | `google-generativeai` | 적극적으로 유지보수되지 않음 | `google-genai` |
-| **JavaScript/TypeScript** | `@google/generativeai` | 적극적으로 유지보수되지 않음 | `@google/genai` |
-| **Go** | `google.golang.org/generative-ai` | 적극적으로 유지보수되지 않음 | `google.golang.org/genai` |
-| **Dart 및 Flutter** | `google_generative_ai` | 적극적으로 유지보수되지 않음 | [Genkit Dart](https://ai.google.dev/gemini-api/docs/Genkit Dart) 또는 [Firebase AI Logic](https://ai.google.dev/gemini-api/docs/Firebase AI Logic) 사용 |
-| **Swift** | `generative-ai-swift` | 적극적으로 유지보수되지 않음 | [Firebase AI Logic](https://ai.google.dev/gemini-api/docs/Firebase AI Logic) 사용 |
-| **Android** | `generative-ai-android` | 적극적으로 유지보수되지 않음 | [Firebase AI Logic](https://ai.google.dev/gemini-api/docs/Firebase AI Logic) 사용 |
+| **Python** | `google-generativeai` | 不会积极维护 | `google-genai` |
+| **JavaScript/TypeScript** | `@google/generativeai` | 不会积极维护 | `@google/genai` |
+| **Go** | `google.golang.org/generative-ai` | 不会积极维护 | `google.golang.org/genai` |
+| **Dart 和 Flutter** | `google_generative_ai` | 不会积极维护 | 使用 [Genkit Dart](https://genkit.dev/docs/dart/get-started/) 或 [Firebase AI Logic](https://pub.dev/packages/firebase_ai) |
+| **Swift** | `generative-ai-swift` | 不会积极维护 | 使用 [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=zh-cn) |
+| **Android** | `generative-ai-android` | 不会积极维护 | 使用 [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=zh-cn) |
 
-**Java 개발자 참고사항:** Gemini API용으로 Google에서 제공하는 기존 Java SDK가 없으므로 이전 Google 라이브러리에서 마이그레이션할 필요가 없습니다. [언어 지원 및 설치](https://ai.google.dev/gemini-api/docs/언어 지원 및 설치)
-섹션의 새 라이브러리로 바로 시작할 수 있습니다.
+**Java 开发者注意** ：Gemini API 没有 Google 提供的旧版 Java SDK，因此无需从之前的 Google 库进行迁移。您可以直接从[语言支持和安装](#install)部分开始使用新库。
 
-의견 보내기
+发送反馈
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 라이선스)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://ai.google.dev/gemini-api/docs/Apache 2.0 라이선스)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://ai.google.dev/gemini-api/docs/Google Developers 사이트 정책)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-최종 업데이트: 2026-04-29(UTC)
+最后更新时间 (UTC)：2026-04-29。
 
-의견을 전달하고 싶나요?
+需要向我们提供更多信息？
+
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]

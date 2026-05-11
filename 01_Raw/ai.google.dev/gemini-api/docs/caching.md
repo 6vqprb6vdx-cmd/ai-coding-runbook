@@ -1,59 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=vi
-fetched_at: 2026-05-05T13:21:28.438444+00:00
-title: "L\u01b0u ng\u1eef c\u1ea3nh v\u00e0o b\u1ed9 nh\u1edb \u0111\u1ec7m \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ar
+fetched_at: 2026-05-11T12:30:33.743150+00:00
+title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/Tính năng Nghiên cứu chuyên sâu của Gemini) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-- [Trang chủ](https://ai.google.dev/gemini-api/docs/Trang chủ)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/Tài liệu)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Gửi ý kiến phản hồi
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Lưu ngữ cảnh vào bộ nhớ đệm
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Trong quy trình làm việc điển hình của AI, bạn có thể truyền đi truyền lại cùng một mã thông báo đầu vào cho một mô hình. Gemini API cung cấp 2 cơ chế lưu vào bộ nhớ đệm:
+إرسال ملاحظات
 
-- Lưu vào bộ nhớ đệm ngầm (tự động bật trên Gemini 2.5 và các mô hình mới hơn, không đảm bảo tiết kiệm chi phí)
-- Lưu vào bộ nhớ đệm rõ ràng (có thể bật theo cách thủ công trên hầu hết các mô hình, đảm bảo tiết kiệm chi phí)
+# التخزين المؤقت للسياق
 
-Việc lưu vào bộ nhớ đệm rõ ràng sẽ hữu ích trong trường hợp bạn muốn đảm bảo tiết kiệm chi phí, nhưng cần thêm một số công việc của nhà phát triển.
+في سير عمل الذكاء الاصطناعي النموذجي، قد يتم تمرير رموز الإدخال نفسها بشكل متكرر إلى أحد النماذج. توفّر Gemini API آليتَين مختلفتَين للتخزين المؤقت:
 
-## Lưu vào bộ nhớ đệm ngầm
+- التخزين المؤقت الضمني (مفعَّل تلقائيًا في Gemini 2.5 والنماذج الأحدث، ولا يضمن توفير التكاليف)
+- التخزين المؤقت الصريح (يمكن تفعيله يدويًا في معظم النماذج، ويضمن توفير التكاليف)
 
-Tính năng lưu vào bộ nhớ đệm ngầm định được bật theo mặc định cho tất cả các mô hình Gemini 2.5 trở lên. Chúng tôi tự động chuyển các khoản tiết kiệm chi phí nếu yêu cầu của bạn truy cập vào bộ nhớ đệm. Bạn không cần làm gì để bật tính năng này. Số lượng mã thông báo đầu vào tối thiểu để lưu vào bộ nhớ đệm ngữ cảnh được liệt kê trong bảng sau cho từng mô hình:
+يكون التخزين المؤقت الصريح مفيدًا في الحالات التي تريد فيها ضمان توفير التكاليف، ولكن مع بعض العمل الإضافي من جانب المطوّر.
 
-| Mô hình | Giới hạn mã thông báo tối thiểu |
+## التخزين المؤقت الضمني
+
+يكون التخزين المؤقت الضمني مفعَّلاً تلقائيًا لجميع نماذج Gemini 2.5 والنماذج الأحدث. ونحن نمرّر تلقائيًا وفورات التكاليف إذا كانت طلباتك تستخدم البيانات المخزّنة مؤقتًا. وليس عليك اتّخاذ أي إجراء لتفعيل هذه الميزة. يتم إدراج الحد الأدنى لعدد رموز الإدخال للتخزين المؤقت للسياق في الجدول التالي لكل نموذج:
+
+| الطراز | الحد الأدنى لعدد الرموز |
 | --- | --- |
-| Bản xem trước Gemini 3 Flash | 1024 |
-| Bản dùng thử Gemini 3 Pro | 4096 |
+| Gemini 3 Flash Preview | 1024 |
+| Gemini 3 Pro Preview | 4096 |
 | Gemini 2.5 Flash | 1024 |
 | Gemini 2.5 Pro | 4096 |
 
-Để tăng cơ hội đạt được kết quả tìm kiếm trong bộ nhớ cache ngầm ẩn:
+لزيادة فرصة استخدام البيانات المخزّنة مؤقتًا ضمنيًا:
 
-- Hãy thử đặt nội dung lớn và phổ biến ở đầu câu lệnh
-- Hãy thử gửi các yêu cầu có tiền tố tương tự trong một khoảng thời gian ngắn
+- حاوِل وضع المحتويات الكبيرة والشائعة في بداية الطلب
+- حاوِل إرسال الطلبات التي تتضمّن بادئة مشابهة خلال فترة زمنية قصيرة
 
-Bạn có thể xem số lượng mã thông báo là lượt truy cập vào bộ nhớ đệm trong trường `usage_metadata` của đối tượng phản hồi.
+يمكنك الاطّلاع على عدد الرموز التي تم استخدامها من البيانات المخزّنة مؤقتًا في حقل `usage_metadata` في عنصر الاستجابة.
 
-## Lưu vào bộ nhớ đệm một cách rõ ràng
+## التخزين المؤقت الصريح
 
-Khi sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng của Gemini API, bạn có thể truyền một số nội dung đến mô hình một lần, lưu mã thông báo đầu vào vào bộ nhớ đệm, sau đó tham chiếu đến mã thông báo đã lưu vào bộ nhớ đệm cho các yêu cầu tiếp theo. Ở một số lượng nhất định, việc sử dụng mã thông báo được lưu vào bộ nhớ đệm sẽ có chi phí thấp hơn so với việc truyền cùng một tập hợp mã thông báo nhiều lần.
+باستخدام ميزة التخزين المؤقت الصريح في Gemini API، يمكنك تمرير بعض المحتوى إلى النموذج مرة واحدة، وتخزين رموز الإدخال مؤقتًا، ثم الإشارة إلى الرموز المخزّنة مؤقتًا للطلبات اللاحقة. عند استخدام كميات معيّنة، تكون تكلفة استخدام الرموز المخزّنة مؤقتًا أقل من تكلفة تمرير مجموعة الرموز نفسها بشكل متكرر.
 
-Khi lưu trữ một nhóm mã thông báo vào bộ nhớ đệm, bạn có thể chọn khoảng thời gian bạn muốn bộ nhớ đệm tồn tại trước khi mã thông báo bị xoá tự động. Khoảng thời gian lưu vào bộ nhớ đệm này được gọi là *thời gian tồn tại* (TTL). Nếu bạn không đặt, TTL sẽ mặc định là 1 giờ. Chi phí lưu vào bộ nhớ đệm phụ thuộc vào kích thước mã thông báo đầu vào và thời gian bạn muốn mã thông báo duy trì.
+عند تخزين مجموعة من الرموز مؤقتًا، يمكنك اختيار المدة التي تريد أن تظل فيها البيانات المخزّنة مؤقتًا قبل حذف الرموز تلقائيًا. تُعرف مدة التخزين المؤقت هذه باسم *مدة البقاء* (TTL). إذا لم يتم ضبط مدة البقاء، يتم ضبطها تلقائيًا على ساعة واحدة. تعتمد تكلفة التخزين المؤقت على حجم رمز الإدخال والمدة التي تريد أن تظل فيها الرموز.
 
-Phần này giả định rằng bạn đã cài đặt Gemini SDK (hoặc đã cài đặt curl) và bạn đã định cấu hình khoá API, như trong phần [bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/bắt đầu nhanh).
+يفترض هذا القسم أنّك ثبّت أحد حِزم Gemini SDK (أو ثبّت أداة curl)
+وأنّك ضبطت مفتاح واجهة برمجة التطبيقات، كما هو موضّح في
+[دليل البدء السريع](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
 
-### Tạo nội dung bằng bộ nhớ đệm
+### إنشاء محتوى باستخدام ذاكرة تخزين مؤقت
 
 ### Python
 
-Ví dụ sau đây cho biết cách tạo nội dung bằng chỉ dẫn hệ thống và tệp video được lưu vào bộ nhớ đệm.
+يوضّح المثال التالي كيفية إنشاء محتوى باستخدام تعليمات نظام مخزّنة مؤقتًا وملف فيديو.
 
-### Video
+### الفيديوهات
 
 ```
 import os
@@ -112,7 +118,7 @@ print(response.usage_metadata)
 print(response.text)
 ```
 
-### PDF
+### ملفات PDF
 
 ```
 from google import genai
@@ -160,7 +166,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-Ví dụ sau đây minh hoạ cách tạo nội dung bằng cách sử dụng một chỉ dẫn hệ thống được lưu vào bộ nhớ đệm và một tệp văn bản.
+يوضّح المثال التالي كيفية إنشاء محتوى باستخدام تعليمات نظام مخزّنة مؤقتًا وملف نصي.
 
 ```
 import {
@@ -199,9 +205,9 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
-Ví dụ sau đây cho thấy cách tạo nội dung bằng bộ nhớ đệm.
+يوضّح المثال التالي كيفية إنشاء محتوى باستخدام ذاكرة تخزين مؤقت.
 
 ```
 package main
@@ -271,9 +277,9 @@ func main() {
 
 ### REST
 
-Ví dụ sau đây cho biết cách tạo bộ nhớ đệm rồi dùng bộ nhớ đệm đó để tạo nội dung.
+يوضّح المثال التالي كيفية إنشاء ذاكرة تخزين مؤقت ثم استخدامها لإنشاء محتوى.
 
-### Video
+### الفيديوهات
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -324,7 +330,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
     }'
 ```
 
-### PDF
+### ملفات PDF
 
 ```
 DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
@@ -422,20 +428,22 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Liệt kê bộ nhớ đệm
+### سرد ذاكرات التخزين المؤقت
 
-Bạn không thể truy xuất hoặc xem nội dung trong bộ nhớ đệm, nhưng có thể truy xuất siêu dữ liệu bộ nhớ đệm (`name`, `model`, `display_name`, `usage_metadata`, `create_time`, `update_time` và `expire_time`).
+لا يمكن استرداد المحتوى المخزّن مؤقتًا أو عرضه، ولكن يمكنك استرداد
+البيانات الوصفية لذاكرة التخزين المؤقت (`name`، `model`، `display_name`، `usage_metadata`،
+`create_time`، `update_time`، و`expire_time`).
 
 ### Python
 
-Để liệt kê siêu dữ liệu cho tất cả bộ nhớ đệm đã tải lên, hãy sử dụng `CachedContent.list()`:
+لسرد البيانات الوصفية لجميع ذاكرات التخزين المؤقت التي تم تحميلها، استخدِم `CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-Để tìm nạp siêu dữ liệu cho một đối tượng trong bộ nhớ đệm, nếu bạn biết tên của đối tượng đó, hãy sử dụng `get`:
+لاسترداد البيانات الوصفية لعنصر ذاكرة تخزين مؤقت واحد، استخدِم `get` إذا كنت تعرف اسمه:
 
 ```
 client.caches.get(name=name)
@@ -443,7 +451,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-Để liệt kê siêu dữ liệu cho tất cả bộ nhớ đệm đã tải lên, hãy sử dụng `GoogleGenAI.caches.list()`:
+لسرد البيانات الوصفية لجميع ذاكرات التخزين المؤقت التي تم تحميلها، استخدِم `GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -458,9 +466,9 @@ while (true) {
 }
 ```
 
-### Go
+### انتقال
 
-Ví dụ sau đây liệt kê tất cả các bộ nhớ đệm.
+يسرد المثال التالي جميع ذاكرات التخزين المؤقت.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -473,7 +481,7 @@ for _, item := range caches {
 }
 ```
 
-Ví dụ sau đây liệt kê các bộ nhớ đệm bằng kích thước trang là 2.
+يسرد المثال التالي ذاكرات التخزين المؤقت باستخدام حجم صفحة يبلغ 2.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -506,13 +514,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### Cập nhật bộ nhớ đệm
+### تعديل ذاكرة تخزين مؤقت
 
-Bạn có thể đặt `ttl` hoặc `expire_time` mới cho bộ nhớ đệm. Không hỗ trợ việc thay đổi bất kỳ thông tin nào khác về bộ nhớ đệm.
+يمكنك ضبط `ttl` أو `expire_time` جديدَين لذاكرة تخزين مؤقت. لا يمكن تغيير أي شيء آخر في ذاكرة التخزين المؤقت.
 
 ### Python
 
-Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm bằng `client.caches.update()`.
+يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت باستخدام `client.caches.update()`.
 
 ```
 from google import genai
@@ -526,7 +534,10 @@ client.caches.update(
 )
 ```
 
-Để đặt thời gian hết hạn, bạn có thể chấp nhận đối tượng `datetime` hoặc chuỗi ngày giờ theo định dạng ISO (`dt.isoformat()`, chẳng hạn như `2025-01-27T16:02:36.473528+00:00`). Thời gian của bạn phải bao gồm múi giờ (`datetime.utcnow()` không đính kèm múi giờ, `datetime.now(datetime.timezone.utc)` có đính kèm múi giờ).
+لضبط وقت انتهاء الصلاحية، سيتم قبول كائن `datetime` أو سلسلة بتنسيق datetime بتنسيق ISO (`dt.isoformat()`، مثل
+`2025-01-27T16:02:36.473528+00:00`). يجب أن يتضمّن الوقت منطقة زمنية
+(`datetime.utcnow()` لا يرفق منطقة زمنية،
+`datetime.now(datetime.timezone.utc)` يرفق منطقة زمنية).
 
 ```
 from google import genai
@@ -546,7 +557,7 @@ client.caches.update(
 
 ### JavaScript
 
-Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm bằng `GoogleGenAI.caches.update()`.
+يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت باستخدام `GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -557,9 +568,9 @@ const updatedCache = await ai.caches.update({
 console.log("After update (TTL):", updatedCache);
 ```
 
-### Go
+### انتقال
 
-Ví dụ sau đây cho thấy cách cập nhật `TTL` của một bộ nhớ đệm.
+يوضّح المثال التالي كيفية تعديل `TTL` لذاكرة تخزين مؤقت.
 
 ```
 // Update the TTL (2 hours).
@@ -575,7 +586,7 @@ fmt.Println(cache)
 
 ### REST
 
-Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm.
+يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -583,9 +594,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### Xoá bộ nhớ đệm
+### حذف ذاكرة تخزين مؤقت
 
-Dịch vụ lưu vào bộ nhớ đệm cung cấp một thao tác xoá để xoá nội dung khỏi bộ nhớ đệm theo cách thủ công. Ví dụ sau đây cho thấy cách xoá bộ nhớ đệm:
+توفّر خدمة التخزين المؤقت عملية حذف لإزالة المحتوى يدويًا من ذاكرة التخزين المؤقت. يوضّح المثال التالي كيفية حذف ذاكرة تخزين مؤقت:
 
 ### Python
 
@@ -599,7 +610,7 @@ client.caches.delete(cache.name)
 await ai.caches.delete({ name: cache.name });
 ```
 
-### Go
+### انتقال
 
 ```
 _, err = client.Caches.Delete(ctx, cache.Name, &genai.DeleteCachedContentConfig{})
@@ -615,42 +626,48 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### Lưu vào bộ nhớ đệm một cách rõ ràng bằng thư viện OpenAI
+### التخزين المؤقت الصريح باستخدام مكتبة OpenAI
 
-Nếu đang sử dụng [thư viện OpenAI](https://ai.google.dev/gemini-api/docs/thư viện OpenAI), bạn có thể bật tính năng lưu vào bộ nhớ đệm rõ ràng bằng cách sử dụng thuộc tính `cached_content` trên [`extra_body`](https://ai.google.dev/gemini-api/docs/`extra_body`).
+إذا كنت تستخدم مكتبة [OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar)، يمكنك تفعيل
+التخزين المؤقت الصريح باستخدام السمة `cached_content` في
+[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=ar#extra-body).
 
-## Trường hợp sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng
+## حالات استخدام التخزين المؤقت الصريح
 
-Tính năng lưu vào bộ nhớ đệm theo bối cảnh đặc biệt phù hợp với những trường hợp mà một bối cảnh ban đầu đáng kể được các yêu cầu ngắn hơn tham chiếu nhiều lần. Hãy cân nhắc sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh cho các trường hợp sử dụng như:
+يكون التخزين المؤقت للسياق مناسبًا بشكل خاص للسيناريوهات التي تتم فيها الإشارة بشكل متكرر إلى سياق أولي كبير من خلال طلبات أقصر. ننصحك باستخدام التخزين المؤقت للسياق في حالات الاستخدام التالية:
 
-- Chatbot có [hướng dẫn chi tiết về hệ thống](https://ai.google.dev/gemini-api/docs/hướng dẫn chi tiết về hệ thống)
-- Phân tích lặp đi lặp lại các tệp video dài
-- Truy vấn định kỳ đối với các tập tài liệu lớn
-- Thường xuyên phân tích kho lưu trữ mã hoặc sửa lỗi
+- روبوتات الدردشة التي تتضمّن تعليمات نظام [شاملة](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ar)
+- التحليل المتكرر لملفات الفيديو الطويلة
+- الطلبات المتكررة التي يتم إرسالها إلى مجموعات كبيرة من المستندات
+- التحليل المتكرر لمستودع الرموز أو إصلاح الأخطاء
 
-### Cách bộ nhớ đệm rõ ràng giúp giảm chi phí
+### كيفية تقليل التكاليف باستخدام التخزين المؤقت الصريح
 
-Lưu vào bộ nhớ đệm theo ngữ cảnh là một tính năng có tính phí được thiết kế để giảm chi phí. Việc tính phí dựa trên các yếu tố sau:
+التخزين المؤقت للسياق هو ميزة مدفوعة مصمّمة لتقليل التكلفة. تستند الفوترة إلى العوامل التالية:
 
-1. **Số lượng mã thông báo trong bộ nhớ đệm:** Số lượng mã thông báo đầu vào được lưu vào bộ nhớ đệm, được tính phí với mức giá thấp hơn khi có trong các câu lệnh tiếp theo.
-2. **Thời gian lưu trữ:** Khoảng thời gian lưu trữ mã thông báo được lưu vào bộ nhớ đệm (TTL), được tính phí dựa trên thời lượng TTL của số lượng mã thông báo được lưu vào bộ nhớ đệm. Không có giới hạn tối thiểu hoặc tối đa về TTL.
-3. **Các yếu tố khác:** Các khoản phí khác được áp dụng, chẳng hạn như đối với mã thông báo đầu vào và đầu ra không được lưu vào bộ nhớ đệm.
+1. **عدد رموز ذاكرة التخزين المؤقت:** عدد رموز الإدخال المخزّنة مؤقتًا، والتي يتم تحصيل رسومها بسعر مخفّض عند تضمينها في الطلبات اللاحقة
+2. **مدة التخزين:** المدة التي يتم فيها تخزين الرموز مؤقتًا (مدة البقاء)، ويتم تحصيل الرسوم استنادًا إلى مدة البقاء لعدد الرموز المخزّنة مؤقتًا ما مِن حدود دنيا أو قصوى لـ "مدة البقاء".
+3. **عوامل أخرى:** يتم تطبيق رسوم أخرى، مثل رموز الإدخال ورموز الإخراج غير المخزّنة مؤقتًا.
 
-Để biết thông tin chi tiết mới nhất về giá, hãy tham khảo [trang định giá](https://ai.google.dev/gemini-api/docs/trang định giá) của Gemini API. Để tìm hiểu cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/Hướng dẫn về mã thông báo).
+للاطّلاع على تفاصيل التسعير الحديثة، يُرجى الرجوع إلى صفحة [تسعير
+Gemini API](https://ai.google.dev/pricing?hl=ar). للتعرّف على كيفية احتساب الرموز، يُرجى الاطّلاع على دليل [الرموز](https://ai.google.dev/gemini-api/docs/tokens?hl=ar).
 
-### Các yếu tố cần cân nhắc khác
+### اعتبارات أخرى
 
-Khi sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh, hãy lưu ý những điểm sau:
+يجب مراعاة الاعتبارات التالية عند استخدام التخزين المؤقت للسياق:
 
-- Số lượng mã thông báo đầu vào *tối thiểu* để lưu vào bộ nhớ đệm theo bối cảnh sẽ khác nhau tuỳ theo mô hình. *Tối đa* cũng giống như giá trị tối đa của mô hình đã cho. (Để biết thêm thông tin về cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/Hướng dẫn về mã thông báo)).
-- Mô hình này không phân biệt giữa các mã thông báo được lưu vào bộ nhớ đệm và các mã thông báo đầu vào thông thường. Nội dung trong bộ nhớ đệm là tiền tố của câu lệnh.
-- Không có giới hạn đặc biệt về tốc độ hoặc mức sử dụng đối với tính năng lưu vào bộ nhớ đệm theo ngữ cảnh; các giới hạn tiêu chuẩn về tốc độ đối với `GenerateContent` sẽ được áp dụng và giới hạn mã thông báo bao gồm cả mã thông báo được lưu vào bộ nhớ đệm.
-- Số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ được trả về trong `usage_metadata` từ các thao tác tạo, nhận và liệt kê của dịch vụ bộ nhớ đệm, cũng như trong `GenerateContent` khi sử dụng bộ nhớ đệm.
+- يختلف *الحد الأدنى* لعدد رموز الإدخال للتخزين المؤقت للسياق حسب النموذج. ويكون *الحد الأقصى* هو نفسه الحد الأقصى للنموذج المحدّد. (لمزيد من المعلومات حول احتساب الرموز،
+  يُرجى الاطّلاع على [دليل الرموز](https://ai.google.dev/gemini-api/docs/tokens?hl=ar)).
+- لا يميّز النموذج بين الرموز المخزّنة مؤقتًا ورموز الإدخال العادية. المحتوى المخزّن مؤقتًا هو بادئة للطلب.
+- ما مِن حدود خاصة للأسعار أو الاستخدام في ما يتعلق بالتخزين المؤقت للسياق، ويتم تطبيق الحدود القصوى القياسية للطلبات على `GenerateContent`، وتشمل الحدود القصوى للرموز الرموز المخزّنة مؤقتًا.
+- يتم عرض عدد الرموز المخزّنة مؤقتًا في `usage_metadata` من عمليات الإنشاء والاسترداد والسرد في خدمة ذاكرة التخزين المؤقت، وأيضًا في `GenerateContent` عند استخدام ذاكرة التخزين المؤقت.
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://ai.google.dev/gemini-api/docs/Giấy phép ghi nhận tác giả 4.0 của Creative Commons) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://ai.google.dev/gemini-api/docs/Giấy phép Apache 2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://ai.google.dev/gemini-api/docs/Chính sách trang web của Google Developers). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+تاريخ التعديل الأخير: 2026-05-07 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
+
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-07 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

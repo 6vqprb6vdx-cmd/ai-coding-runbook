@@ -1,40 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=id
-fetched_at: 2026-05-05T13:12:49.960024+00:00
-title: "Membuat video dengan Veo 3.1 di Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=fr
+fetched_at: 2026-05-11T12:38:37.815877+00:00
+title: "G\u00e9n\u00e9rer des vid\u00e9os avec Veo\u00a03.1 dans l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-- [Beranda](https://ai.google.dev/gemini-api/docs/Beranda)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/Dokumen)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Kirim masukan
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Membuat video dengan Veo 3.1 di Gemini API
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-> Untuk mempelajari pemahaman video, lihat panduan [Pemahaman video](https://ai.google.dev/gemini-api/docs/Pemahaman video).
+Envoyer des commentaires
 
-[Veo 3.1](https://ai.google.dev/gemini-api/docs/Veo 3.1) adalah model tercanggih Google untuk membuat video 8 detik beresolusi 720p, 1080p, atau 4k dengan fidelitas tinggi yang menampilkan realisme memukau dan audio yang dibuat secara native. Anda dapat mengakses
-model ini secara terprogram menggunakan Gemini API. Untuk mempelajari lebih lanjut varian model Veo yang tersedia, lihat bagian [Versi Model](https://ai.google.dev/gemini-api/docs/Versi Model).
+# Générer des vidéos avec Veo 3.1 dans l'API Gemini
 
-Veo 3.1 unggul dalam berbagai gaya visual dan sinematik serta memperkenalkan beberapa kemampuan baru:
+> Pour en savoir plus sur la compréhension des vidéos, consultez le guide [Compréhension des vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr).
 
-- **Video potret**: Pilih antara video lanskap (`16:9`) dan potret (`9:16`).
-- **Ekstensi video**: Memperpanjang durasi video yang sebelumnya dibuat menggunakan Veo.
-- **Pembuatan spesifik per frame**: Buat video dengan menentukan frame pertama dan terakhir.
-- **Arahan berbasis gambar**: Gunakan hingga tiga gambar referensi untuk memandu konten video yang dibuat.
+[Veo 3.1](https://deepmind.google/models/veo/?hl=fr) est le modèle de pointe de Google pour générer des vidéos de huit secondes en 720p, 1080p ou 4K de haute fidélité, avec un réalisme époustouflant et un son généré de manière native. Vous pouvez accéder à ce modèle de manière programmatique à l'aide de l'API Gemini. Pour en savoir plus sur les variantes de modèles Veo disponibles, consultez la section [Versions de modèle](#model-versions).
 
-Untuk mengetahui informasi selengkapnya tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](https://ai.google.dev/gemini-api/docs/panduan perintah Veo).
+Veo 3.1 excelle dans un large éventail de styles visuels et cinématographiques, et introduit plusieurs nouvelles fonctionnalités :
 
-## Pembuatan video dari teks
+- **Vidéos en mode portrait** : choisissez entre les vidéos en mode paysage (`16:9`) et en mode portrait (`9:16`).
+- **Extension de vidéo** : étendez les vidéos qui ont été générées précédemment à l'aide de Veo.
+- **Génération spécifique à une image** : générez une vidéo en spécifiant la première et la dernière image.
+- **Direction basée sur des images** : utilisez jusqu'à trois images de référence pour guider le contenu de la vidéo générée.
 
-Pilih contoh untuk melihat cara membuat video dengan dialog, realisme sinematik, atau animasi kreatif:
+Pour en savoir plus sur la rédaction de prompts textuels efficaces pour la génération de vidéos, consultez le [Guide sur les prompts Veo](#prompt-guide).
 
-Dialog & Efek Suara
-Realisme Sinematik
-Animasi Kreatif
+## Génération de vidéos à partir de texte
+
+Choisissez un exemple pour découvrir comment générer une vidéo avec des dialogues, un réalisme cinématographique ou une animation créative :
+
+Dialogues et effets sonores
+Réalisme cinématographique
+Animation créative
 
 ### Python
 
@@ -226,11 +229,9 @@ while true; do
 done
 ```
 
-### Mengontrol rasio aspek
+### Contrôler le format
 
-Veo 3.1 memungkinkan Anda membuat video lanskap (`16:9`, setelan default) atau potret
-(`9:16`). Anda dapat memberi tahu model mana yang Anda inginkan menggunakan parameter
-`aspect_ratio`:
+Veo 3.1 vous permet de créer des vidéos au format paysage (`16:9`, le paramètre par défaut) ou portrait (`9:16`). Vous pouvez indiquer au modèle celui que vous souhaitez utiliser à l'aide du paramètre `aspect_ratio` :
 
 ### Python
 
@@ -393,14 +394,13 @@ while true; do
 done
 ```
 
-### Mengontrol resolusi
+### Contrôler la résolution
 
-Veo 3.1 juga dapat langsung membuat video 720p, 1080p, atau 4k (4k tidak tersedia untuk Veo 3.1 Lite).
+Veo 3.1 peut également générer directement des vidéos en 720p, 1080p ou 4K (4K non disponible pour Veo 3.1 Lite).
 
-Perhatikan bahwa makin tinggi resolusinya, makin tinggi latensinya. Video 4K
-juga lebih mahal (lihat [harga](https://ai.google.dev/gemini-api/docs/harga)).
+Notez que plus la résolution est élevée, plus la latence est importante. Les vidéos 4K sont également plus chères (voir [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#veo-3.1)).
 
-[Ekstensi video](https://ai.google.dev/gemini-api/docs/Ekstensi video) juga terbatas pada video 720p.
+L'[extension vidéo](#extending_veo_videos) est également limitée aux vidéos 720p.
 
 ### Python
 
@@ -563,12 +563,9 @@ while true; do
 done
 ```
 
-## Pembuatan video dari gambar
+## Génération de vidéos à partir d'images
 
-Kode berikut menunjukkan cara membuat gambar menggunakan
-[Gemini 3.1 Flash Image alias Nano Banana 2](https://ai.google.dev/gemini-api/docs/Gemini 3.1 Flash Image alias Nano Banana 2),
-lalu menggunakan gambar tersebut sebagai
-frame awal untuk membuat video dengan Veo 3.1.
+Le code suivant montre comment générer une image à l'aide de [Gemini 3.1 Flash Image (alias Nano Banana 2)](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr), puis comment utiliser cette image comme frame de départ pour générer une vidéo avec Veo 3.1.
 
 ### Python
 
@@ -756,17 +753,15 @@ class GenerateVideoFromImage {
 }
 ```
 
-### Menggunakan gambar referensi
+### Utiliser des images de référence
 
-Veo 3.1 kini menerima hingga 3 gambar referensi untuk memandu konten video yang dihasilkan. Berikan gambar orang, karakter, atau produk untuk mempertahankan penampilan subjek dalam video output.
+Veo 3.1 accepte désormais jusqu'à trois images de référence pour guider le contenu de votre vidéo générée. Fournissez des images d'une personne, d'un personnage ou d'un produit pour préserver l'apparence du sujet dans la vidéo générée.
 
-Misalnya, menggunakan tiga gambar yang dibuat dengan
-[Nano Banana](https://ai.google.dev/gemini-api/docs/Nano Banana) sebagai referensi dengan
-[perintah yang ditulis dengan baik](https://ai.google.dev/gemini-api/docs/perintah yang ditulis dengan baik) akan membuat video berikut:
+Par exemple, l'utilisation de ces trois images générées avec [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr) comme références avec un [prompt bien rédigé](#use-reference-images) crée la vidéo suivante :
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
-| Gaun flamingo kelas atas dengan lapisan bulu merah muda dan fusia | Perempuan cantik dengan rambut gelap dan mata cokelat hangat | Kacamata surya berbentuk hati berwarna merah muda yang unik |
+| Robe flamant rose haute couture avec des couches de plumes roses et fuchsia | Belle femme aux cheveux foncés et aux yeux brun chaud | Lunettes de soleil roses en forme de cœur |
 
 ### Python
 
@@ -994,10 +989,9 @@ while true; do
 done
 ```
 
-### Menggunakan frame pertama dan terakhir
+### Utiliser les première et dernière images
 
-Veo 3.1 memungkinkan Anda membuat video menggunakan interpolasi, atau menentukan frame pertama dan
-terakhir video. Untuk mengetahui informasi tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](https://ai.google.dev/gemini-api/docs/panduan perintah Veo).
+Veo 3.1 vous permet de créer des vidéos à l'aide de l'interpolation ou en spécifiant les première et dernière images de la vidéo. Pour savoir comment rédiger des prompts textuels efficaces pour la génération de vidéo, consultez le [Guide sur les prompts Veo](#use-reference-images).
 
 ### Python
 
@@ -1170,34 +1164,30 @@ done
 
 | `` `first_image` `` | `` `last_image` `` | *veo3.1\_with\_interpolation.mp4* |
 | --- | --- | --- |
-| Seorang wanita hantu dengan rambut putih panjang dan gaun yang berkibar berayun perlahan di ayunan tali | Wanita hantu menghilang dari ayunan | Video sinematik yang menghantui tentang seorang wanita menyeramkan yang menghilang dari ayunan di dalam kabut |
+| Une femme fantomatique aux longs cheveux blancs et à la robe fluide se balance doucement sur une balançoire à corde. | La femme fantomatique disparaît de la balançoire | Vidéo cinématographique et envoûtante d&#39;une femme étrange disparaissant d&#39;une balançoire dans la brume |
 
-## Memperpanjang video Veo
+## Prolonger des vidéos Veo
 
-Gunakan Veo 3.1 untuk memperpanjang video yang sebelumnya Anda buat dengan Veo hingga 7 detik dan hingga 20 kali.
+Utilisez Veo 3.1 pour prolonger de sept secondes et jusqu'à 20 fois les vidéos que vous avez générées précédemment avec Veo.
 
-Batasan video input:
+Limites concernant les vidéos d'entrée :
 
-- Video yang dibuat Veo hanya berdurasi hingga 141 detik.
-- Gemini API hanya mendukung ekstensi video untuk video yang dibuat dengan Veo.
-- Video harus berasal dari generasi sebelumnya, seperti
-  `operation.response.generated_videos[0].video`
-- Video disimpan selama 2 hari, tetapi jika video dirujuk untuk perpanjangan, timer penyimpanan 2 hari akan direset. Anda hanya dapat memperpanjang video yang dibuat atau dirujuk dalam dua hari terakhir.
-- Video input diharapkan memiliki durasi, rasio aspek, dan dimensi tertentu:
-  - Rasio aspek: 9:16 atau 16:9
-  - Resolusi: 720p
-  - Durasi video: 141 detik atau kurang
+- Les vidéos générées par Veo ne peuvent pas durer plus de 141 secondes.
+- L'API Gemini n'accepte que les extensions vidéo pour les vidéos générées par Veo.
+- La vidéo doit provenir d'une génération précédente, comme `operation.response.generated_videos[0].video`.
+- Les vidéos sont stockées pendant deux jours, mais si une vidéo est référencée pour une extension, le minuteur de stockage de deux jours se réinitialise. Vous ne pouvez étendre que les vidéos générées ou référencées au cours des deux derniers jours.
+- Les vidéos d'entrée doivent avoir une certaine durée, un certain format et certaines dimensions :
+  - Format : 9:16 ou 16:9
+  - Résolution : 720p
+  - Durée de la vidéo : 141 secondes ou moins
 
-Output ekstensi adalah satu video yang menggabungkan video input pengguna dan
-video yang diperpanjang yang dihasilkan hingga 148 detik video.
+L'extension génère une seule vidéo combinant l'entrée utilisateur et la vidéo étendue générée, pour une durée maximale de 148 secondes.
 
-Contoh ini mengambil video yang dibuat Veo, yang ditampilkan di sini dengan
-perintah aslinya, dan memperpanjang durasinya menggunakan parameter `video` dan perintah
-baru:
+Cet exemple prend une vidéo générée par Veo, présentée ici avec sa requête d'origine, et l'étend à l'aide du paramètre `video` et d'une nouvelle requête :
 
-| Perintah | Output: `butterfly_video` |
+| Prompt | Résultat : `butterfly_video` |
 | --- | --- |
-| Kupu-kupu origami mengepakkan sayapnya dan terbang keluar dari pintu kaca menuju taman. | Kupu-kupu origami mengepakkan sayapnya dan terbang keluar dari pintu kaca menuju taman. |
+| Un papillon en origami bat des ailes et s'envole par la porte-fenêtre pour rejoindre le jardin. | Un papillon en origami bat des ailes et s&#39;envole par la porte-fenêtre pour rejoindre le jardin. |
 
 ### Python
 
@@ -1373,16 +1363,13 @@ while true; do
 done
 ```
 
-Untuk mengetahui informasi tentang cara menulis perintah teks yang efektif untuk pembuatan video, lihat [panduan perintah Veo](https://ai.google.dev/gemini-api/docs/panduan perintah Veo).
+Pour savoir comment rédiger des requêtes textuelles efficaces pour la génération de vidéos, consultez le [guide des requêtes Veo](#extend-prompt).
 
-## Menangani operasi asinkron
+## Gérer les opérations asynchrones
 
-Pembuatan video adalah tugas yang intensif secara komputasi. Saat Anda mengirim permintaan
-ke API, API akan memulai tugas yang berjalan lama dan segera menampilkan objek `operation`. Kemudian, Anda harus melakukan polling hingga video siap, yang ditunjukkan oleh status
-`done` yang benar.
+La génération de vidéos est une tâche gourmande en ressources de calcul. Lorsque vous envoyez une requête à l'API, elle lance un job de longue durée et renvoie immédiatement un objet `operation`. Vous devez ensuite interroger l'API jusqu'à ce que la vidéo soit prête, ce qui est indiqué par l'état `done` défini sur "true".
 
-Inti dari proses ini adalah loop polling, yang secara berkala memeriksa status
-tugas.
+Le cœur de ce processus est une boucle d'interrogation qui vérifie régulièrement l'état du job.
 
 ### Python
 
@@ -1561,313 +1548,303 @@ while true; do
 done
 ```
 
-## Parameter dan spesifikasi Veo API
+## Paramètres et spécifications de l'API Veo
 
-Berikut adalah parameter yang dapat Anda tetapkan dalam permintaan API untuk mengontrol proses pembuatan video.
+Voici les paramètres que vous pouvez définir dans votre requête API pour contrôler le processus de génération de vidéos.
 
-| Parameter | Veo 3.1 & Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 & Veo 3 Fast | Veo 2 |
+| Paramètre | Veo 3.1 et Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 et Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| Instance | | | | |
-| `prompt`: Deskripsi teks untuk video. Mendukung isyarat audio. | `string` | `string` | `string` | `string` |
-| `image`: Gambar awal yang akan dianimasikan. | Objek `Image` | Objek `Image` | Objek `Image` | Objek `Image` |
-| `lastFrame`: Gambar akhir untuk transisi video interpolasi. Harus digunakan bersama dengan parameter `image`. | Objek `Image` | Objek `Image` | Objek `Image` | Objek `Image` |
-| `referenceImages`: Hingga tiga gambar yang akan digunakan sebagai referensi gaya dan konten. | Objek `VideoGenerationReferenceImage` | Objek `n/a` | t/a | t/a |
-| `video`: Video yang akan digunakan untuk ekstensi video. | Objek `Video` dari generasi sebelumnya | t/a | t/a | t/a |
-| Parameter | | | | |
-| `aspectRatio`: Rasio aspek video. | `"16:9"` (default), `"9:16"` | `"16:9"` (default), `"9:16"` | `"16:9"` (default), `"9:16"` | `"16:9"` (default), `"9:16"` |
-| `durationSeconds`: Durasi video yang dihasilkan. | `"4"`, `"6"`, `"8"`.   *Harus "8" saat menggunakan ekstensi, gambar referensi, atau dengan resolusi 1080p dan 4k* | `"4"`, `"6"`, `"8"`.   *Harus "8" saat menggunakan gambar referensi atau dengan 1080p* | `"4"`, `"6"`, `"8"`.   *Harus "8" saat menggunakan ekstensi, gambar referensi, atau dengan resolusi 1080p dan 4k* | `"5"`, `"6"`, `"8"` |
-| `personGeneration`: Mengontrol pembuatan orang. (Lihat [Batasan](https://ai.google.dev/gemini-api/docs/Batasan) untuk mengetahui batasan wilayah) | Teks ke video & Ekstensi: `"allow_all"` saja   Gambar ke video, Interpolasi, & Gambar referensi: `"allow_adult"` saja | Teks ke video: `"allow_all"` saja   Gambar ke video, Interpolasi, & Gambar referensi: `"allow_adult"` saja | Teks ke video: `"allow_all"` saja   Gambar ke video: `"allow_adult"` saja | Teks ke video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Gambar ke video:  `"allow_adult"`, dan `"dont_allow"` |
-| `resolution`: Resolusi video. | `"720p"` (default),  `"1080p"` (hanya mendukung durasi 8 detik), `"4k"` (hanya mendukung durasi 8 detik)   *`"720p"` hanya untuk ekstensi* | `"720p"` (default),  `"1080p"` (hanya mendukung durasi 8 detik) | `"720p"` (default),  `"1080p"` (hanya mendukung durasi 8 detik), `"4k"` (hanya mendukung durasi 8 detik)   *`"720p"` hanya untuk ekstensi* | Tidak didukung |
+| Instances | | | | |
+| `prompt` : Description textuelle de la vidéo. Compatible avec les repères audio. | `string` | `string` | `string` | `string` |
+| `image` : image initiale à animer. | Objet `Image` | Objet `Image` | Objet `Image` | Objet `Image` |
+| `lastFrame` : image finale pour la transition d'une vidéo d'interpolation. Doit être utilisé avec le paramètre `image`. | Objet `Image` | Objet `Image` | Objet `Image` | Objet `Image` |
+| `referenceImages` : Jusqu'à trois images à utiliser comme références de style et de contenu. | Objet `VideoGenerationReferenceImage` | Objet `n/a` | n/a | n/a |
+| `video` : vidéo à utiliser pour l'extension vidéo. | Objet `Video` d'une génération précédente | n/a | n/a | n/a |
+| Paramètres | | | | |
+| `aspectRatio` : format de la vidéo. | `"16:9"` (par défaut), `"9:16"` | `"16:9"` (par défaut), `"9:16"` | `"16:9"` (par défaut), `"9:16"` | `"16:9"` (par défaut), `"9:16"` |
+| `durationSeconds` : Durée de la vidéo générée. | `"4"`, `"6"`, `"8"`.   *Doit être défini sur "8" lorsque vous utilisez des extensions ou des images de référence, ou avec des résolutions 1080p et 4K* | `"4"`, `"6"`, `"8"`.   *Doit être défini sur "8" lorsque vous utilisez des images de référence ou avec 1080p* | `"4"`, `"6"`, `"8"`.   *Doit être défini sur "8" lorsque vous utilisez des extensions ou des images de référence, ou avec des résolutions 1080p et 4K* | `"5"`, `"6"`, `"8"` |
+| `personGeneration` : contrôle la génération de personnes. (Pour connaître les restrictions régionales, consultez [Limites](#limitations).) | Texte vers vidéo et extension : `"allow_all"` uniquement   Image vers vidéo, interpolation et images de référence : `"allow_adult"` uniquement | Texte vers vidéo : `"allow_all"` uniquement   Image vers vidéo, interpolation et images de référence : `"allow_adult"` uniquement | Texte-vers-vidéo : `"allow_all"` uniquement   Image-vers-vidéo : `"allow_adult"` uniquement | Texte-vers-vidéo :  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Image-vers-vidéo :  `"allow_adult"` et `"dont_allow"` |
+| `resolution` : résolution de la vidéo. | `"720p"` (par défaut),  `"1080p"` (ne prend en charge que les durées de 8 s), `"4k"` (ne prend en charge que les durées de 8 s)   *`"720p"` uniquement pour l'extension* | `"720p"` (par défaut),  `"1080p"` (ne prend en charge que les durées de 8 secondes) | `"720p"` (par défaut),  `"1080p"` (ne prend en charge que les durées de 8 s), `"4k"` (ne prend en charge que les durées de 8 s)   *`"720p"` uniquement pour l'extension* | Non compatible |
 
-Perhatikan bahwa parameter `seed` juga tersedia untuk model Veo 3.
-Hal ini tidak menjamin determinisme, tetapi sedikit meningkatkannya.
+Notez que le paramètre `seed` est également disponible pour les modèles Veo 3.
+Cela ne garantit pas le déterminisme, mais l'améliore légèrement.
 
-## Fitur model
+## Fonctionnalités du modèle
 
-| Fitur | Veo 3.1 & Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 & Veo 3 Fast | Veo 2 |
+| Fonctionnalité | Veo 3.1 et Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 et Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| **Audio:** Membuat audio secara native dengan video. | ✔️ Selalu aktif | ✔️ Selalu aktif | ✔️ Selalu aktif | ❌ Hanya senyap |
-| **Modalitas input:** Jenis input yang digunakan untuk pembuatan. | Teks ke Video, Gambar ke Video, Video ke Video | Teks ke Video, Gambar ke Video | Teks ke Video, Gambar ke Video | Teks ke Video, Gambar ke Video |
-| **Resolusi:** Resolusi output video. | 720p, 1080p (khusus durasi 8 detik), 4k (khusus durasi 8 detik)  *Hanya 720p saat menggunakan ekstensi video.* | 720p, 1080p (khusus durasi 8 detik) | 720p & 1080p (khusus 16:9) | 720p |
-| **Kecepatan frame:** Kecepatan frame output video. | 24 fps | 24 fps | 24 fps | 24 fps |
-| **Durasi video:** Durasi video yang dihasilkan. | 8 detik, 6 detik, 4 detik  *8 detik hanya jika 1080p atau 4k atau menggunakan gambar referensi* | 8 detik, 6 detik, 4 detik  *8 detik hanya jika 1080p atau menggunakan gambar referensi* | 8 detik | 5-8 detik |
-| **Video per permintaan:** Jumlah video yang dibuat per permintaan. | 1 | 1 | 1 | 1 atau 2 |
-| **Status:** Ketersediaan model | [Pratinjau](https://ai.google.dev/gemini-api/docs/Pratinjau) | [Pratinjau](https://ai.google.dev/gemini-api/docs/Pratinjau) | [Stabil](https://ai.google.dev/gemini-api/docs/Stabil) | [Stabil](https://ai.google.dev/gemini-api/docs/Stabil) |
+| **Audio** : génère l'audio de manière native avec la vidéo. | ✔️ Toujours activé | ✔️ Toujours activé | ✔️ Toujours activé | ❌ Mode silencieux uniquement |
+| **Modalités d'entrée** :  Type d'entrée utilisé pour la génération. | Texte-vers-vidéo, image-vers-vidéo, vidéo-vers-vidéo | Texte vers vidéo, image vers vidéo | Texte vers vidéo, image vers vidéo | Texte vers vidéo, image vers vidéo |
+| **Résolution** : résolution de sortie de la vidéo. | 720p, 1080p (8 s uniquement), 4K (8 s uniquement)  *720p uniquement lorsque vous utilisez l'extension de vidéo.* | 720p, 1080p (8 s uniquement) | 720p et 1080p (16:9 uniquement) | 720p |
+| **Fréquence d'images** : fréquence d'images de la vidéo de sortie. | 24 ips | 24 ips | 24 ips | 24 ips |
+| **Durée de la vidéo** :  durée de la vidéo générée. | 8 secondes, 6 secondes, 4 secondes  *8 secondes uniquement si la résolution est de 1080p ou 4K, ou si vous utilisez des images de référence* | 8 secondes, 6 secondes, 4 secondes  *8 secondes uniquement si la résolution est de 1080p ou si vous utilisez des images de référence* | 8 secondes | 5 à 8 secondes |
+| **Vidéos par requête** : nombre de vidéos générées par requête. | 1 | 1 | 1 | 1 ou 2 |
+| **État** : Disponibilité du modèle | [Aperçu](https://ai.google.dev/gemini-api/docs/models?hl=fr#preview) | [Aperçu](https://ai.google.dev/gemini-api/docs/models?hl=fr#preview) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=fr#stable) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=fr#latest-stable) |
 
-## Batasan
+## Limites
 
-- **Latensi permintaan:** Min: 11 detik; Maks: 6 menit (selama jam sibuk).
-- **Batasan regional:** Di lokasi Uni Eropa, Inggris Raya, Swiss, MENA, berikut
-  adalah nilai yang diizinkan untuk `personGeneration`:
-  - Veo 3 dan 3.1: Hanya `allow_adult`.
-  - Veo 2: `dont_allow` dan `allow_adult`. Jumlah defaultnya adalah `dont_allow`
-- **Retensi video:** Video yang dibuat disimpan di server selama 2 hari,
-  setelah itu video akan dihapus. Untuk menyimpan salinan lokal, Anda harus mendownload video dalam waktu 2 hari setelah dibuat. Video panjang diperlakukan sebagai video yang baru dibuat.
-- **Pemberian watermark:** Video yang dibuat oleh Veo diberi watermark menggunakan [SynthID](https://ai.google.dev/gemini-api/docs/SynthID), alat kami untuk memberi watermark dan mengidentifikasi konten buatan AI. Video dapat diverifikasi menggunakan platform verifikasi [SynthID](https://ai.google.dev/gemini-api/docs/SynthID).
-- **Keamanan:** Video yang dihasilkan akan melewati filter keamanan dan proses pemeriksaan memori yang membantu mengurangi risiko privasi, hak cipta, dan bias.
-- **Error audio:** Terkadang Veo 3.1 akan memblokir pembuatan video karena filter keamanan atau masalah pemrosesan lainnya pada audio. Anda tidak akan dikenai biaya jika video Anda diblokir agar tidak dibuat.
+- **Latence des requêtes** : min. 11 secondes, max. 6 minutes (pendant les heures de pointe).
+- **Limites régionales** : dans les régions de l'UE, du Royaume-Uni, de la Suisse et du Moyen-Orient et Afrique du Nord, les valeurs autorisées pour `personGeneration` sont les suivantes :
+  - Veo 3 et 3.1 : `allow_adult` uniquement.
+  - Veo 2 : `dont_allow` et `allow_adult`. La valeur par défaut est `dont_allow`.
+- **Conservation des vidéos** : les vidéos générées sont stockées sur le serveur pendant deux jours, après quoi elles sont supprimées. Pour enregistrer une copie locale, vous devez télécharger votre vidéo dans les deux jours suivant sa génération. Les vidéos longues sont traitées comme des vidéos nouvellement générées.
+- **Filigranes** : les vidéos créées par Veo sont marquées par un filigrane à l'aide de [SynthID](https://deepmind.google/technologies/synthid/?hl=fr), notre outil permettant d'ajouter un filigrane et d'identifier les contenus générés par l'IA. Les vidéos peuvent être vérifiées à l'aide de la plate-forme de vérification [SynthID](https://deepmind.google/science/synthid/?hl=fr).
+- **Sécurité** : les vidéos générées sont soumises à des filtres de sécurité et à des processus de vérification de la mémorisation qui permettent d'atténuer les risques liés à la confidentialité, aux droits d'auteur et aux biais.
+- **Erreur audio** : Veo 3.1 bloque parfois la génération d'une vidéo en raison de filtres de sécurité ou d'autres problèmes de traitement de l'audio. Vous ne serez pas facturé si la génération de votre vidéo est bloquée.
 
-## Panduan perintah Veo
+## Guide sur les prompts Veo
 
-Bagian ini berisi contoh video yang dapat Anda buat menggunakan Veo, dan menunjukkan
-cara mengubah perintah untuk menghasilkan hasil yang berbeda.
+Cette section contient des exemples de vidéos que vous pouvez créer à l'aide de Veo. Elle vous montre également comment modifier les requêtes pour obtenir des résultats différents.
 
-### Filter keamanan
+### Filtres de sécurité
 
-Veo menerapkan filter keamanan di Gemini untuk membantu memastikan bahwa video yang dibuat dan foto yang diupload tidak berisi konten yang menyinggung.
-Perintah yang melanggar [persyaratan dan pedoman](https://ai.google.dev/gemini-api/docs/persyaratan dan pedoman) kami akan diblokir.
+Veo applique des filtres de sécurité dans Gemini pour s'assurer que les vidéos générées et les photos importées ne contiennent pas de contenu offensant.
+Les requêtes qui ne respectent pas nos [conditions d'utilisation et nos consignes](https://ai.google.dev/gemini-api/docs/usage-policies?hl=fr#abuse-monitoring) sont bloquées.
 
-### Dasar-dasar penulisan perintah
+### Principes de base concernant l'écriture de requêtes
 
-Perintah yang baik bersifat deskriptif dan jelas. Untuk mendapatkan hasil maksimal dari Veo, mulailah dengan mengidentifikasi ide inti Anda, menyempurnakan ide Anda dengan menambahkan kata kunci dan pengubah, serta memasukkan terminologi khusus video ke dalam perintah Anda.
+Les bons prompts sont descriptifs et clairs. Pour exploiter tout le potentiel de Veo, commencez par identifier votre idée principale, affinez-la en ajoutant des mots clés et des modificateurs, et intégrez une terminologie spécifique aux vidéos dans vos requêtes.
 
-Elemen berikut harus disertakan dalam perintah Anda:
+Les éléments suivants doivent figurer dans votre requête :
 
-- **Subjek**: Objek, orang, hewan, atau pemandangan yang Anda inginkan dalam
-  video, seperti *pemandangan kota*, *alam*, *kendaraan*, atau *anak*.
-- **Tindakan**: Apa yang dilakukan subjek (misalnya, *berjalan*, *berlari*, atau
-  *menolehkan kepala*).
-- **Gaya**: Tentukan arah kreatif menggunakan kata kunci gaya film tertentu, seperti *sci-fi*, *film horor*, *film noir*, atau gaya animasi seperti *kartun*.
-- **Pemosisian dan gerakan kamera**: [Opsional] Kontrol lokasi dan gerakan kamera menggunakan istilah seperti *tampilan dari atas*, *sejajar mata*, *bidikan dari atas*, *bidikan dolly*, atau *sudut pandang cacing*.
-- **Komposisi**: [Opsional] Cara pengambilan gambar, seperti *sudut lebar*,
-  *close-up*, *satu gambar*, atau *dua gambar*.
-- **Efek fokus dan lensa**: [Opsional] Gunakan istilah seperti *fokus dangkal*,
-  *fokus dalam*, *fokus lembut*, *lensa makro*, dan *lensa sudut lebar* untuk mendapatkan
-  efek visual tertentu.
-- **Suasana**: [Opsional] Kontribusi warna dan cahaya pada latar, seperti *nuansa biru*, *malam*, atau *nuansa hangat*.
+- **Sujet** : l'objet, la personne, l'animal ou le paysage que vous souhaitez voir dans votre vidéo, par exemple *paysage urbain*, *nature*, *véhicules* ou *chiots*.
+- **Action** : ce que fait le sujet (par exemple, *marcher*, *courir* ou *tourner la tête*).
+- **Style** : spécifiez l'orientation créative à l'aide de mots clés spécifiques au style de film, tels que *science-fiction*, *film d'horreur*, *film noir* ou des styles d'animation comme *dessin animé*.
+- **Positionnement et mouvement de la caméra** : [Facultatif] Contrôlez l'emplacement et le mouvement de la caméra à l'aide de termes tels que *vue aérienne*, *à hauteur des yeux*, *vue de dessus*, *travelling* ou *vue de dessous*.
+- **Composition** : [facultatif] cadrage du plan, par exemple *plan large*, *plan rapproché*, *plan séquence* ou *plan à deux*.
+- **Effets de mise au point et d'objectif** : [facultatif] utilisez des termes tels que *faible profondeur de champ*,
+  *forte profondeur de champ*, *flou artistique*, *objectif macro* et *objectif grand-angle* pour obtenir
+  des effets visuels spécifiques.
+- **Ambiance** : [facultatif] comment la couleur et la lumière contribuent-elles à la scène (par exemple, *tons bleus*, *nuit* ou *tons chauds*) ?
 
-#### Tips lainnya untuk menulis perintah
+#### Autres conseils pour rédiger des requêtes
 
-- **Gunakan bahasa deskriptif**: Gunakan kata sifat dan kata keterangan untuk memberikan gambaran yang jelas kepada Veo.
-- **Sempurnakan detail wajah**: Tentukan detail wajah sebagai fokus foto, seperti menggunakan kata *potret* dalam perintah.
+- **Utilisez un langage descriptif** : utilisez des adjectifs et des adverbes pour donner une image claire à Veo.
+- **Améliorez les détails du visage** : spécifiez que les détails du visage doivent être au centre de la photo, par exemple en utilisant le mot *portrait* dans la requête.
 
-*Untuk strategi penulisan perintah yang lebih komprehensif, buka [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/Pengantar desain perintah).*
+*Pour des stratégies de requête plus complètes, consultez [Présentation de la conception des requêtes](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=fr).*
 
-### Meminta audio
+### Demander de l'audio
 
-Anda dapat memberikan isyarat kepada Veo untuk efek suara, suara bising di sekitar, dan dialog.
-Model ini menangkap nuansa isyarat ini untuk menghasilkan soundtrack yang disinkronkan.
+Vous pouvez fournir à Veo des repères pour les effets sonores, les bruits ambiants et les dialogues.
+Le modèle capture la nuance de ces signaux pour générer une bande-son synchronisée.
 
-- **Dialog:** Gunakan kutipan untuk ucapan tertentu. (Contoh: "Ini pasti
-  kuncinya," gumamnya.)
-- **Efek Suara (SFX):** Jelaskan suara secara eksplisit. (Contoh: ban berdecit keras, deru mesin.)
-- **Derau Sekitar:** Jelaskan lanskap suara lingkungan. (Contoh: Suara dengungan samar dan aneh beresonansi di latar belakang.)
+- **Dialogue** : utilisez des guillemets pour les paroles spécifiques. (Exemple : "Ce doit être la clé", murmura-t-il.)
+- **Effets sonores** : décrivez explicitement les sons. (Exemple : pneus qui crissent fort, moteur qui rugit.)
+- **Bruit ambiant** : décrivez l'environnement sonore. (Exemple : Un léger bourdonnement étrange résonne en arrière-plan.)
 
-Video ini menunjukkan cara memberikan perintah pada pembuatan audio Veo 3 dengan tingkat detail yang berbeda-beda.
+Ces vidéos montrent comment demander à Veo 3 de générer de l'audio avec des niveaux de détail croissants.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Detail lainnya (Dialog dan suasana)** Gambar lebar hutan Pacific Northwest yang berkabut. Dua pendaki yang kelelahan, seorang pria dan seorang wanita, berjalan melewati pakis ketika pria itu tiba-tiba berhenti, menatap pohon. Tampilan close-up: Bekas cakaran yang dalam dan baru menganga di kulit pohon. Pria: (Tangan di pisau berburunya) "Itu bukan beruang biasa." Wanita: (Suara tegang karena takut, memindai hutan) "Lalu apa itu?" Kulit kayu yang kasar, ranting yang patah, langkah kaki di tanah yang lembap. Seekor burung berkicau. | Dua orang di hutan menemukan tanda-tanda keberadaan beruang. |
-| **Lebih sedikit detail (Dialog)** Animasi Potongan Kertas. Pustakawan Baru: "Di mana Anda menyimpan buku-buku terlarang?" Kurator Lama: "Tidak. Mereka menjaga kita." | Pustakawan animasi sedang mendiskusikan buku-buku terlarang |
+| **Plus de détails (dialogues et ambiance)** Plan large d'une forêt brumeuse du nord-ouest du Pacifique. Deux randonneurs épuisés, un homme et une femme, se frayent un chemin à travers les fougères. L'homme s'arrête brusquement et fixe un arbre. Gros plan : des griffures profondes et récentes sont visibles sur l'écorce de l'arbre. Homme : (Main sur son couteau de chasse) "Ce n'est pas un ours ordinaire." Femme : (voix serrée par la peur, scrutant les bois) "Alors, qu'est-ce que c'est ?" Une écorce rugueuse, des brindilles qui craquent, des pas sur la terre humide. Un oiseau solitaire gazouille. | Deux personnes dans les bois rencontrent des traces d&#39;ours. |
+| **Moins de détails (dialogues)** Animation en papier découpé. Nouveau bibliothécaire : "Où rangez-vous les livres interdits ?" Ancien conservateur : "Non. Ils nous gardent." | Bibliothécaires animés discutant de livres interdits |
 
-Coba sendiri perintah ini untuk mendengar audionya.
-[Coba Veo](https://ai.google.dev/gemini-api/docs/Coba Veo)
+Essayez ces requêtes pour écouter l'audio !
+[Essayer Veo](https://deepmind.google/models/veo/?hl=fr)
 
-### Menulis perintah dengan gambar referensi
+### Utiliser des images de référence dans les requêtes
 
-Anda dapat menggunakan satu atau beberapa gambar sebagai input untuk memandu video yang dibuat, menggunakan kemampuan [image-to-video](https://ai.google.dev/gemini-api/docs/image-to-video) Veo. Veo menggunakan gambar input sebagai frame awal. Pilih gambar yang paling mendekati visi Anda sebagai adegan pertama video untuk menganimasikan objek sehari-hari, menghidupkan gambar dan lukisan, serta menambahkan gerakan dan suara ke pemandangan alam.
+Vous pouvez utiliser une ou plusieurs images comme entrées pour guider vos vidéos générées, à l'aide des fonctionnalités [image-to-video](https://ai.google.dev/gemini-api/docs/video?hl=fr#generate-from-images) de Veo. Veo utilise l'image d'entrée comme frame initiale. Sélectionnez une image qui se rapproche le plus de ce que vous imaginez comme première scène de votre vidéo pour animer des objets du quotidien, donner vie à des dessins et peintures, et ajouter du mouvement et du son à des scènes de nature.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Gambar input (Dibuat oleh Nano Banana)** Foto makro hiper-realistis peselancar kecil yang sedang berselancar di ombak laut di dalam wastafel kamar mandi batu pedesaan. Keran kuningan antik mengalirkan air, menciptakan ombak abadi. Surealis, unik, pencahayaan alami yang terang. | Peselancar kecil miniatur sedang berselancar di ombak laut di dalam wastafel kamar mandi batu rustic. |
-| **Video Output (Dibuat oleh Veo 3.1)** Video makro sinematik yang surealis. Peselancar kecil menunggangi ombak yang terus bergulung di dalam wastafel kamar mandi batu. Keran kuningan antik yang mengalirkan air akan menghasilkan ombak yang tak berujung. Kamera perlahan-lahan menggeser adegan yang unik dan diterangi sinar matahari saat figur miniatur dengan ahli mengukir air biru kehijauan. | Peselancar kecil mengelilingi ombak di wastafel kamar mandi. |
+| **Image d'entrée (générée par Nano Banana)** Macrophotographie hyperréaliste de minuscules surfeurs miniatures chevauchant les vagues de l'océan dans un lavabo rustique en pierre. Un robinet en laiton ancien est ouvert, créant ainsi la vague perpétuelle. Surréaliste, fantaisiste, éclairage naturel lumineux. | Minuscules surfeurs miniatures chevauchant les vagues de l&#39;océan dans un lavabo rustique en pierre. |
+| **Vidéo générée par Veo 3.1** Vidéo macro surréaliste et cinématographique. De minuscules surfeurs chevauchent des vagues perpétuelles et ondulantes dans un lavabo en pierre. Un robinet en laiton vintage ouvert en continu génère une vague infinie. La caméra effectue un lent panoramique sur la scène fantaisiste et ensoleillée, tandis que les figurines miniatures sculptent l'eau turquoise avec expertise. | Minuscules surfeurs faisant le tour des vagues dans un lavabo. |
 
-Veo 3.1 memungkinkan Anda [merujuk gambar](https://ai.google.dev/gemini-api/docs/merujuk gambar) atau bahan untuk mengarahkan konten video yang dihasilkan. Berikan hingga tiga gambar aset dari satu orang, karakter, atau produk. Veo mempertahankan penampilan subjek dalam video output.
+Veo 3.1 vous permet d'[utiliser des images de référence](https://ai.google.dev/gemini-api/docs/video?hl=fr#reference-images) ou des ingrédients pour orienter le contenu de la vidéo générée. Fournissez jusqu'à trois images de ressources d'une même personne, d'un même personnage ou d'un même produit. Veo préserve l'apparence du sujet dans la vidéo générée.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Gambar referensi (Dibuat oleh Nano Banana)** Ikan sungut ganda laut dalam bersembunyi di laut dalam yang gelap, dengan gigi terbuka dan umpan bercahaya. | Ikan pemancing yang gelap dan bercahaya |
-| **Gambar referensi (Dibuat oleh Nano Banana)** Kostum putri anak berwarna merah muda lengkap dengan tongkat dan tiara, di latar belakang produk polos. | Kostum putri merah muda untuk anak |
-| **Video Output (Dibuat oleh Veo 3.1)** Buat versi kartun konyol dari ikan yang mengenakan kostum, berenang, dan mengayunkan tongkat. | Ikan pemancing mengenakan kostum putri |
+| **Image de référence (générée par Nano Banana)** Une baudroie abyssale se cache dans les eaux profondes et sombres, les dents à découvert et l'appât lumineux. | Un poisson-pêcheur sombre et lumineux |
+| **Image de référence (générée par Nano Banana)** Costume de princesse rose pour enfant avec baguette et tiare, sur un fond uni. | Costume de princesse rose pour enfant |
+| **Vidéo de sortie (générée par Veo 3.1)** Crée une version dessin animé amusante du poisson portant le costume, nageant et agitant la baguette. | Un poisson-pêcheur portant un costume de princesse |
 
-Dengan Veo 3.1, Anda juga dapat membuat video dengan menentukan [frame pertama dan terakhir](https://ai.google.dev/gemini-api/docs/frame pertama dan terakhir) video.
+Avec Veo 3.1, vous pouvez également générer des vidéos en spécifiant la [première et la dernière image](https://ai.google.dev/gemini-api/docs/video?hl=fr#using-first-and-last-video-frames) de la vidéo.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Gambar pertama (Dibuat oleh Nano Banana)** Gambar depan realistis berkualitas tinggi dari seekor kucing oranye yang mengendarai mobil balap convertible merah di pesisir French Riviera. | Kucing oranye mengendarai mobil balap convertible merah |
-| **Gambar terakhir (Dibuat oleh Nano Banana)** Tunjukkan apa yang terjadi saat mobil melaju dari tebing. | Kucing oranye mengendarai mobil convertible merah jatuh dari tebing |
-| **Video Output (Dibuat oleh Veo 3.1)** Opsional | Seekor kucing mengemudi dari tebing dan terbang |
+| **Première image (générée par Nano Banana)** Image photoréaliste de haute qualité d'un chat roux conduisant une voiture de course décapotable rouge sur la Côte d'Azur. | Un chat roux conduisant une voiture de course décapotable rouge |
+| **Dernière image (générée par Nano Banana)** Montre ce qui se passe lorsque la voiture décolle d'une falaise. | Un chat roux au volant d&#39;une décapotable rouge tombe d&#39;une falaise |
+| **Vidéo générée par Veo 3.1** Facultatif | Un chat saute d&#39;une falaise et s&#39;envole |
 
-Fitur ini memberi Anda kontrol yang presisi atas komposisi bidikan dengan memungkinkan Anda menentukan frame awal dan akhir. Upload gambar atau gunakan frame dari pembuatan video sebelumnya untuk memastikan adegan Anda dimulai dan diakhiri persis seperti yang Anda bayangkan.
+Cette fonctionnalité vous permet de contrôler précisément la composition de votre plan en définissant l'image de début et de fin. Importez une image ou utilisez un frame d'une vidéo générée précédemment pour vous assurer que votre scène commence et se termine exactement comme vous l'imaginez.
 
-### Meminta perpanjangan waktu
+### Requêtes pour l'extension
 
-Untuk [memperpanjang](https://ai.google.dev/gemini-api/docs/memperpanjang) video yang dibuat Veo dengan Veo 3.1 (tidak tersedia untuk Veo 3.1 Lite), gunakan video tersebut sebagai input bersama dengan perintah teks opsional. Perpanjang menyelesaikan detik terakhir atau 24
-frame video Anda dan melanjutkan tindakan.
+Pour [étendre](https://ai.google.dev/gemini-api/docs/video?hl=fr#extending_veo_videos) une vidéo générée par Veo avec Veo 3.1 (non disponible pour Veo 3.1 Lite), utilisez la vidéo comme entrée avec un prompt textuel facultatif. L'option "Prolonger" finalise la dernière seconde ou les 24 dernières images de votre vidéo et poursuit l'action.
 
-Perhatikan bahwa suara tidak dapat diperpanjang secara efektif jika tidak ada dalam 1 detik terakhir video.
+Notez que la voix ne peut pas être étendue efficacement si elle n'est pas présente dans la dernière seconde de la vidéo.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Video input (Dibuat oleh Veo 3.1)** Paralayang lepas landas dari puncak gunung dan mulai meluncur menuruni gunung yang menghadap ke lembah yang tertutup bunga di bawahnya. | Paralayang lepas landas dari puncak gunung |
-| **Video Output (Dibuat oleh Veo 3.1)** Perpanjang video ini dengan paralayang yang turun perlahan. | Paralayang lepas landas dari puncak gunung, lalu turun perlahan |
+| **Vidéo d'entrée (générée par Veo 3.1)** Le parapentiste décolle du sommet de la montagne et commence à planer au-dessus des vallées fleuries en contrebas. | Parapentiste décollant du sommet d&#39;une montagne |
+| **Vidéo de sortie (générée par Veo 3.1)** Prolonge cette vidéo avec le parapentiste qui descend lentement. | Un parapentiste décolle du sommet d&#39;une montagne, puis redescend lentement |
 
-### Contoh perintah dan output
+### Exemples de requêtes et de résultats
 
-Bagian ini menyajikan beberapa perintah, yang menyoroti bagaimana detail deskriptif dapat meningkatkan hasil setiap video.
+Cette section présente plusieurs requêtes, en soulignant comment les détails descriptifs peuvent améliorer le résultat de chaque vidéo.
 
-#### Bunga Es
+#### Glaçons
 
-Video ini menunjukkan cara menggunakan elemen
-[dasar-dasar penulisan perintah](https://ai.google.dev/gemini-api/docs/dasar-dasar penulisan perintah) dalam perintah Anda.
+Cette vidéo vous montre comment utiliser les éléments des [principes de base de la rédaction de requêtes](#basics) dans votre requête.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Foto close-up (komposisi) tetesan air yang mencair (subjek) di dinding batu yang membeku (konteks) dengan nuansa biru dingin (suasana), diperbesar (gerakan kamera) sambil mempertahankan detail close-up tetesan air (aksi). | Tetesan es dengan latar belakang biru. |
+| Gros plan (composition) de stalactites de glace en train de fondre (sujet) sur une paroi rocheuse gelée (contexte) avec des tons bleus froids (ambiance), zoom avant (mouvement de caméra) en conservant les détails des gouttes d'eau (action). | Des glaçons qui fondent sur un fond bleu. |
 
-#### Pria sedang menelepon
+#### Un homme au téléphone
 
-Video ini menunjukkan cara merevisi perintah Anda dengan detail yang semakin spesifik agar Veo menyempurnakan output sesuai keinginan Anda.
+Ces vidéos montrent comment réviser votre requête en ajoutant des détails de plus en plus spécifiques pour que Veo affine le résultat à votre guise.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Lebih sedikit detail** Kamera bergerak untuk menampilkan close-up seorang pria putus asa yang mengenakan jas hujan hijau. Dia sedang menelepon menggunakan telepon dinding putar dengan lampu neon hijau. Tampilannya seperti adegan film. | Pria sedang berbicara di telepon. |
-| **Detail selengkapnya** Bidikan sinematik close-up mengikuti seorang pria putus asa yang mengenakan jas hujan hijau lusuh saat ia memutar telepon putar yang terpasang di dinding bata kasar, yang disinari cahaya aneh dari tanda neon hijau. Kamera bergerak mendekat, memperlihatkan ketegangan di rahangnya dan keputusasaan yang terukir di wajahnya saat ia berjuang untuk melakukan panggilan. Kedalaman bidang gambar yang dangkal berfokus pada kerutan di dahinya dan telepon putar hitam, mengaburkan latar belakang menjadi lautan warna neon dan bayangan yang tidak jelas, sehingga menciptakan kesan mendesak dan terisolasi. | Pria sedang menelepon |
+| **Moins de détails** La caméra effectue un travelling pour montrer un gros plan d'un homme désespéré portant un trench vert. Il passe un appel sur un téléphone mural à cadran avec un néon vert. On dirait une scène de film. | Homme parlant au téléphone. |
+| **Plus de détails** Un gros plan cinématographique suit un homme désespéré portant un trench vert usé alors qu'il compose un numéro sur un téléphone à cadran fixé sur un mur de briques rugueux, baigné dans la lueur étrange d'un néon vert. La caméra se rapproche, révélant la tension dans sa mâchoire et le désespoir gravé sur son visage alors qu'il s'efforce de passer l'appel. La faible profondeur de champ se concentre sur ses sourcils froncés et le téléphone noir à cadran, floutant l'arrière-plan en une mer de couleurs néon et d'ombres indistinctes, créant un sentiment d'urgence et d'isolement. | Homme parlant au téléphone |
 
-#### Macan tutul salju
+#### Léopard des neiges
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Perintah sederhana:** Makhluk lucu dengan bulu seperti macan tutul salju sedang berjalan di hutan musim dingin, rendering gaya kartun 3D. | Macan tutul salju lesu. |
-| **Perintah mendetail:** Buat adegan animasi 3D pendek dengan gaya kartun yang ceria. Makhluk imut dengan bulu seperti macan tutul salju, mata besar yang ekspresif, dan bentuk bulat yang ramah, dengan riang melompat-lompat di hutan musim dingin yang unik. Adegan harus menampilkan pohon-pohon bulat yang tertutup salju, kepingan salju yang jatuh dengan lembut, dan sinar matahari hangat yang menembus dahan-dahan. Gerakan makhluk yang melompat-lompat dan senyum lebarnya harus menyampaikan kegembiraan murni. Gunakan gaya bahasa yang ceria dan menyentuh hati dengan warna-warna cerah dan ceria serta animasi yang menyenangkan. | Macan tutul salju berlari lebih cepat. |
+| **Prompt simple** : Une créature mignonne avec une fourrure de léopard des neiges se promène dans une forêt hivernale, rendu de style dessin animé 3D. | Le léopard des neiges est léthargique. |
+| **Requête détaillée** : Crée une courte scène animée en 3D dans un style cartoon joyeux. Une créature mignonne avec une fourrure semblable à celle d'un léopard des neiges, de grands yeux expressifs et une forme arrondie et amicale gambade joyeusement dans une forêt hivernale fantaisiste. La scène doit représenter des arbres arrondis et enneigés, de doux flocons de neige qui tombent et une lumière chaude du soleil qui filtre à travers les branches. Les mouvements rebondissants et le large sourire de la créature doivent exprimer une joie pure. Optez pour un ton optimiste et chaleureux, avec des couleurs vives et gaies, et des animations ludiques. | Snow Leopard s&#39;exécute plus rapidement. |
 
-### Contoh menurut elemen penulisan
+### Exemples par éléments de rédaction
 
-Contoh ini menunjukkan cara menyempurnakan perintah Anda berdasarkan setiap elemen dasar.
+Ces exemples vous montrent comment affiner vos requêtes en fonction de chaque élément de base.
 
-#### Subjek dan konteks
+#### Objet et contexte
 
-Tentukan fokus utama (subjek) dan latar belakang atau lingkungan (konteks).
+Spécifiez le sujet principal et l'arrière-plan ou l'environnement (contexte).
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Rendering arsitektur bangunan apartemen beton putih dengan bentuk organik yang mengalir, yang berpadu mulus dengan tanaman hijau yang rimbun dan elemen futuristik | Placeholder. |
-| Satelit mengambang di luar angkasa dengan bulan dan beberapa bintang di latar belakang. | Satelit mengapung di atmosfer. |
+| Rendu architectural d'un immeuble d'appartements en béton blanc avec des formes organiques fluides, se fondant parfaitement dans une végétation luxuriante et des éléments futuristes | Espace réservé. |
+| Un satellite flottant dans l'espace, avec la lune et quelques étoiles en arrière-plan. | Satellite flottant dans l&#39;atmosphère. |
 
-#### Tindakan
+#### Action
 
-Tentukan apa yang dilakukan subjek (misalnya, berjalan, berlari, atau menoleh).
+Spécifiez ce que fait le sujet (par exemple, marcher, courir ou tourner la tête).
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Pemandangan luas seorang wanita yang berjalan di sepanjang pantai, tampak puas dan santai saat melihat ke arah cakrawala saat matahari terbenam. | Matahari terbenam sangat indah. |
+| Plan large d'une femme marchant le long de la plage, l'air satisfait et détendu, vers l'horizon au coucher du soleil. | Le coucher de soleil est absolument magnifique. |
 
-#### Gaya
+#### Style
 
-Tambahkan kata kunci untuk mengarahkan pembuatan ke estetika tertentu (misalnya, surealis, antik, futuristik, film noir).
+Ajoutez des mots clés pour orienter la génération vers une esthétique spécifique (par exemple, surréaliste, vintage, futuriste, film noir).
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Gaya film noir, pria dan wanita berjalan di jalan, misteri, sinematik, hitam putih. | Gaya film noir sangat indah. |
+| Style film noir, homme et femme marchant dans la rue, mystère, cinématographique, noir et blanc. | Le style film noir est absolument magnifique. |
 
-#### Gerakan dan komposisi kamera
+#### Mouvement de la caméra et composition
 
-Tentukan cara kamera bergerak (bidikan POV, tampilan udara, tampilan drone pelacak) dan
-cara pengambilan gambar (bidikan lebar, close-up, sudut rendah).
+Précisez comment la caméra se déplace (vue subjective, vue aérienne, vue de drone en suivi) et comment le plan est cadré (plan large, gros plan, contre-plongée).
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Bidikan POV dari mobil vintage yang melaju di tengah hujan, Kanada pada malam hari, sinematik. | Matahari terbenam sangat indah. |
-| Close-up ekstrem mata dengan pantulan kota di dalamnya. | Matahari terbenam sangat indah. |
+| Vue subjective d'une voiture ancienne roulant sous la pluie, Canada de nuit, style cinématographique. | Le coucher de soleil est absolument magnifique. |
+| Gros plan sur un œil avec la ville reflétée dedans. | Le coucher de soleil est absolument magnifique. |
 
-#### Suasana
+#### Ambiance
 
-Palet warna dan pencahayaan memengaruhi suasana hati. Coba istilah seperti "oranye lembut
-nuansa hangat", "cahaya alami", "matahari terbit", atau "nuansa biru dingin".
+Les palettes de couleurs et l'éclairage influencent l'ambiance. Essayez des termes comme "tons chauds orange sourd", "lumière naturelle", "lever du soleil" ou "tons bleus froids".
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Tampilan dekat seorang gadis yang memegang anak golden retriever yang menggemaskan di taman, sinar matahari. | Anak di pelukan seorang anak perempuan. |
-| Bidikan sinematik jarak dekat seorang perempuan sedih yang sedang menaiki bus saat hujan, dengan nuansa biru dingin dan suasana sedih. | Seorang perempuan yang sedang naik bus tampak sedih. |
+| Gros plan sur une fille tenant un adorable chiot golden retriever dans le parc, en plein soleil. | Un chiot dans les bras d&#39;une jeune fille. |
+| Gros plan cinématographique d'une femme triste qui prend le bus sous la pluie, tons bleus froids, ambiance triste. | Une femme assise dans un bus a l&#39;air triste. |
 
-### Rasio aspek
+### Formats
 
-Veo memungkinkan Anda menentukan rasio aspek untuk video Anda.
+Veo vous permet de spécifier le format de votre vidéo.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Layar lebar (16:9)** Buat video dengan tampilan drone pelacak seorang pria yang mengendarai mobil convertible merah di Palm Springs, tahun 1970-an, sinar matahari hangat, bayangan panjang. | Seorang pria mengendarai mobil convertible merah di Palm Springs, dengan gaya tahun 1970-an. |
-| **Potret (9:16)** Buat video yang menyoroti gerakan lancar air terjun Hawaii yang megah di dalam hutan hujan yang rimbun. Berfokus pada aliran air yang realistis, dedaunan yang detail, dan pencahayaan alami untuk menyampaikan ketenangan. Abadikan air yang mengalir deras, suasana berkabut, dan sinar matahari yang menembus kanopi lebat. Gunakan gerakan kamera yang halus dan sinematik untuk menampilkan air terjun dan sekitarnya. Gunakan nada yang tenang dan realistis, yang membawa penonton ke keindahan hutan hujan Hawaii yang tenang. | Air terjun Hawaii yang megah di hutan hujan yang rimbun. |
+| **Grand écran (16:9)** Crée une vidéo avec une vue de drone suivant un homme conduisant une décapotable rouge à Palm Springs dans les années 1970, avec une lumière chaude et de longues ombres. | Un homme conduit une décapotable rouge à Palm Springs, dans le style des années 1970. |
+| **Portrait (9:16)** Créez une vidéo mettant en avant le mouvement fluide d'une majestueuse cascade hawaïenne dans une forêt tropicale luxuriante. Mettez l'accent sur un écoulement d'eau réaliste, un feuillage détaillé et un éclairage naturel pour transmettre un sentiment de tranquillité. Capturez l'eau vive, l'atmosphère brumeuse et la lumière du soleil filtrant à travers la canopée dense. Utilisez des mouvements de caméra fluides et cinématographiques pour mettre en valeur la cascade et ses environs. Adopte un ton paisible et réaliste, et transporte le spectateur dans la beauté sereine de la forêt tropicale hawaïenne. | Majestueuse cascade hawaïenne dans une forêt tropicale luxuriante |
 
-## Versi model
+## Versions de modèle
 
-Lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/Harga) dan [Batas kecepatan](https://ai.google.dev/gemini-api/docs/Batas kecepatan) untuk mengetahui detail penggunaan khusus model Veo selengkapnya.
+Pour en savoir plus sur l'utilisation spécifique au modèle Veo, consultez les pages [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#veo-3.1) et [Limites de débit](https://aistudio.google.com/rate-limit?hl=fr).
 
-### Pratinjau Veo 3.1
+### Veo 3.1 (preview)
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-3.1-generate-preview` |
-| saveJenis data yang didukung | **Input**  Teks, Gambar  **Output**  Video dengan audio |
-| Batas token\_auto | **Input teks**  1.024 token  **Video output**  1 |
-| calendar\_monthPembaruan terbaru | Januari 2026 |
+| Code du modèle id\_card | **API Gemini**  `veo-3.1-generate-preview` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
+| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
+| calendar\_monthDernière mise à jour | Janvier 2026 |
 
-### Pratinjau Veo 3.1 Fast
+### Veo 3.1 Fast (preview)
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-3.1-fast-generate-preview` |
-| saveJenis data yang didukung | **Input**  Teks, Gambar  **Output**  Video dengan audio |
-| Batas token\_auto | **Input teks**  1.024 token  **Video output**  1 |
-| calendar\_monthPembaruan terbaru | Januari 2026 |
+| Code du modèle id\_card | **API Gemini**  `veo-3.1-fast-generate-preview` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
+| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
+| calendar\_monthDernière mise à jour | Janvier 2026 |
 
-### Pratinjau Veo 3.1 Lite
+### Veo 3.1 Lite (preview)
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-3.1-lite-generate-preview` |
-| saveJenis data yang didukung | **Input**  Teks, gambar  **Output**  Video dengan audio |
-| Batas token\_auto | **Input teks**  1.024 token  **Video output**  1 |
-| calendar\_monthPembaruan terbaru | Maret 2026 |
+| Code du modèle id\_card | **API Gemini**  `veo-3.1-lite-generate-preview` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
+| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
+| calendar\_monthDernière mise à jour | Mars 2026 |
 
-### Veo 3
+### Veo 3
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-3.0-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks, Gambar  **Output**  Video dengan audio |
-| Batas token\_auto | **Input teks**  1.024 token  **Video output**  1 |
-| calendar\_monthPembaruan terbaru | Juli 2025 |
+| Code du modèle id\_card | **API Gemini**  `veo-3.0-generate-001` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
+| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
+| calendar\_monthDernière mise à jour | Juillet 2025 |
 
-### Veo 3 Fast
+### Veo 3 Fast
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-3.0-fast-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks, Gambar  **Output**  Video dengan audio |
-| Batas token\_auto | **Input teks**  1.024 token  **Video output**  1 |
-| calendar\_monthPembaruan terbaru | Juli 2025 |
+| Code du modèle id\_card | **API Gemini**  `veo-3.0-fast-generate-001` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
+| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
+| calendar\_monthDernière mise à jour | Juillet 2025 |
 
-### Veo 2
+### Veo 2
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-2.0-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks, gambar  **Output**  Video |
-| Batas token\_auto | **Input teks**  T/A  **Input gambar**  Resolusi dan rasio aspek gambar apa pun hingga ukuran file 20 MB  **Video output**  Maksimal 2 |
-| calendar\_monthPembaruan terbaru | April 2025 |
+| Code du modèle id\_card | **API Gemini**  `veo-2.0-generate-001` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo |
+| Limites de token\_auto | **Saisie de texte**  N/A  **Entrée d'image**  N'importe quelle résolution et n'importe quel format d'image, à condition que la taille du fichier ne dépasse pas 20 Mo  **Vidéo de sortie**  Jusqu'à 2 |
+| calendar\_monthDernière mise à jour | Avril 2025 |
 
-### Veo 2
+### Veo 2
 
-| Properti | Deskripsi |
+| Propriété | Description |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `veo-2.0-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks, gambar  **Output**  Video |
-| Batas token\_auto | **Input teks**  T/A  **Input gambar**  Resolusi dan rasio aspek gambar apa pun hingga ukuran file 20 MB  **Video output**  Maksimal 2 |
-| calendar\_monthPembaruan terbaru | April 2025 |
+| Code du modèle id\_card | **API Gemini**  `veo-2.0-generate-001` |
+| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo |
+| Limites de token\_auto | **Saisie de texte**  N/A  **Entrée d'image**  N'importe quelle résolution et n'importe quel format d'image, à condition que la taille du fichier ne dépasse pas 20 Mo  **Vidéo de sortie**  Jusqu'à 2 |
+| calendar\_monthDernière mise à jour | Avril 2025 |
 
-Versi Veo Fast memungkinkan developer membuat video dengan suara sekaligus mempertahankan kualitas tinggi dan mengoptimalkan kecepatan serta kasus penggunaan bisnis. API ini ideal untuk layanan backend yang membuat iklan secara terprogram, alat untuk pengujian A/B cepat konsep materi iklan, atau aplikasi yang perlu membuat konten media sosial dengan cepat.
+Les versions Veo Fast permettent aux développeurs de créer des vidéos avec du son tout en conservant une qualité élevée et en optimisant la vitesse et les cas d'utilisation professionnels. Ils sont idéaux pour les services de backend qui génèrent des annonces de manière programmatique, les outils de tests A/B rapides des concepts créatifs ou les applications qui doivent produire rapidement du contenu pour les réseaux sociaux.
 
-## Langkah berikutnya
+## Étape suivante
 
-- Mulai gunakan Veo 3.1 API dengan bereksperimen di [Veo Quickstart Colab](https://ai.google.dev/gemini-api/docs/Veo Quickstart Colab)
-  dan [applet Veo 3.1](https://ai.google.dev/gemini-api/docs/applet Veo 3.1).
-- Pelajari cara menulis perintah yang lebih baik lagi dengan [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/Pengantar desain perintah) kami.
+- Pour commencer à utiliser l'API Veo 3.1, faites des tests dans le [notebook Colab de démarrage rapide Veo](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=fr) et l'[applet Veo 3.1](https://aistudio.google.com/apps/bundled/veo_studio?hl=fr).
+- Découvrez comment rédiger des requêtes encore plus efficaces grâce à notre [présentation de la conception des requêtes](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=fr).
 
-Kirim masukan
+Envoyer des commentaires
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+Dernière mise à jour le 2026/04/29 (UTC).
 
-Ada masukan untuk kami?
+Voulez-vous nous donner plus d'informations ?
+
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

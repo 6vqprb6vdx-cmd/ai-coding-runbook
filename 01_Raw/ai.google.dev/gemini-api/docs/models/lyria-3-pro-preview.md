@@ -1,42 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=tr
-fetched_at: 2026-05-05T13:09:55.654657+00:00
-title: "Lyria 3 Pro \u00d6nizlemesi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=de
+fetched_at: 2026-05-11T12:39:06.253770+00:00
+title: "Lyria\u00a03\u00a0Pro (Vorabversion) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/models/Gemini Deep Research) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-- [Ana Sayfa](https://ai.google.dev/gemini-api/docs/models/Ana Sayfa)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/models/Gemini API)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/models/Dokümanlar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Geri bildirim gönderin
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Lyria 3 Pro Önizlemesi
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Lyria 3 Pro Önizleme, Google'ın amiral gemisi müzik üretme modelidir. Birden fazla kıta, nakarat ve köprü içeren, karmaşık yapısal tutarlılığa sahip tam uzunlukta şarkılar oluşturmak için optimize edilmiştir. Metin istemlerinden veya resim girişlerinden yüksek kaliteli, 48 kHz stereo ses üretir.
+Feedback geben
 
-[Google AI Studio'da deneme](https://ai.google.dev/gemini-api/docs/models/Google AI Studio'da deneme)
+# Lyria 3 Pro (Vorabversion)
 
-## Belgeler
+Lyria 3 Pro Preview ist das Flaggschiff-Modell von Google für die Musikgenerierung. Es ist für die Generierung von Songs in voller Länge mit komplexer struktureller Kohärenz optimiert, einschließlich mehrerer Strophen, Refrains und Bridges. Es generiert hochwertiges 48-kHz-Stereo-Audio aus Text-Prompts oder Bildeingaben.
 
-Özellikler ve işlevler hakkında kapsamlı bilgi için [Müzik Üretme](https://ai.google.dev/gemini-api/docs/models/Müzik Üretme) kılavuzunu ziyaret edin.
+[In Google AI Studio testen](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=de)
+
+## Dokumentation
+
+Im Leitfaden zur [Musikgenerierung](https://ai.google.dev/gemini-api/docs/music-generation?hl=de) finden Sie eine vollständige
+Übersicht der Funktionen.
 
 ## lyria-3-pro-preview
 
-| Mülk | Açıklama |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardModel kodu | `lyria-3-clip-preview` |
-| saveDesteklenen veri türleri | **Girişler**  Metin ve Resim  **Çıkış**  Ses (MP3), Metin (Şarkı Sözleri) |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  131.072 |
-| handymanÖzellikler | **Ses üretimi**  Destekleniyor  **Batch API**  Desteklenmiyor  **Önbelleğe alma**  Desteklenmiyor  **Kod yürütme**  Desteklenmiyor  **Dosya arama**  Desteklenmiyor  **İşlev çağırma**  Desteklenmiyor  **Google Haritalar ile Temellendirme**  Desteklenmiyor  **Görüntü üretme**  Desteklenmiyor  **Live API**  Desteklenmiyor  **Arama temellendirme**  Desteklenmiyor  **Yapılandırılmış çıkışlar**  Desteklenmiyor  **Düşünme** (Thinking)  Desteklenmiyor  **URL bağlamı**  Desteklenmiyor |
-| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/model sürümü kalıplarını) okuyun.  - Önizleme: `lyria-3-clip-preview` - Önizleme: `lyria-3-pro-preview` |
-| calendar\_monthSon güncelleme | Mart 2026 |
+| id\_cardModellcode | `lyria-3-clip-preview` |
+| saveUnterstützte Datentypen | **Eingaben**  Text und Bild  **Ausgabe**  Audio (MP3), Text (Songtexte) |
+| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Tokenlimit für Eingaben**  131.072 |
+| handymanFunktionen | **Audiogenerierung**  Unterstützt  **Batch API**  Nicht unterstützt  **Caching**  Nicht unterstützt  **Codeausführung**  Nicht unterstützt  **Dateisuche**  Nicht unterstützt  **Funktionsaufrufe**  Nicht unterstützt  **Fundierung mit Google Maps**  Nicht unterstützt  **Bildgenerierung**  Nicht unterstützt  **Live API**  Nicht unterstützt  **Suchfundierung**  Nicht unterstützt  **Strukturierte Ausgaben**  Nicht unterstützt  **Überlegung**  Nicht unterstützt  **URL-Kontext**  Nicht unterstützt |
+| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `lyria-3-clip-preview` - Vorschau für: `lyria-3-pro-preview` |
+| calendar\_monthLetzte Aktualisierung | März 2026 |
 
-Geri bildirim gönderin
+Feedback geben
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://ai.google.dev/gemini-api/docs/models/Creative Commons Atıf 4.0 Lisansı) altında ve kod örnekleri [Apache 2.0 Lisansı](https://ai.google.dev/gemini-api/docs/models/Apache 2.0 Lisansı) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://ai.google.dev/gemini-api/docs/models/Google Developers Site Politikaları)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+Zuletzt aktualisiert: 2026-04-29 (UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Haben Sie Feedback für uns?
+
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

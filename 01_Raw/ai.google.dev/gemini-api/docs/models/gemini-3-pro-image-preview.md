@@ -1,43 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=vi
-fetched_at: 2026-05-05T13:11:31.401093+00:00
-title: "B\u1ea3n xem tr\u01b0\u1edbc h\u00ecnh \u1ea3nh c\u1ee7a Gemini 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=tr
+fetched_at: 2026-05-11T12:37:53.081735+00:00
+title: "Gemini 3 Pro G\u00f6r\u00fcnt\u00fc \u00d6nizlemesi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/models/Tính năng Nghiên cứu chuyên sâu của Gemini) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-- [Trang chủ](https://ai.google.dev/gemini-api/docs/models/Trang chủ)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/models/Gemini API)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/models/Tài liệu)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Gửi ý kiến phản hồi
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Bản xem trước hình ảnh của Gemini 3 Pro
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-**Nano Banana Pro** là một công cụ tinh vi dựa trên khả năng suy luận để chỉnh sửa và tạo hình ảnh ở cấp chuyên nghiệp, mang đến độ chính xác ở cấp độ studio và khả năng kiểm soát sáng tạo nâng cao. Nano Banana Pro phù hợp nhất với thiết kế đồ hoạ phức tạp, bản mô phỏng sản phẩm có độ trung thực cao và hình ảnh trực quan hoá dữ liệu thực tế đòi hỏi khả năng hiển thị văn bản chính xác và liên kết thực tế thông qua Google Tìm kiếm.
+Geri bildirim gönderin
 
-[Dùng thử trong Google AI Studio](https://ai.google.dev/gemini-api/docs/models/Dùng thử trong Google AI Studio)
+# Gemini 3 Pro Görüntü Önizlemesi
 
-## Tài liệu
+**Nano Banana Pro**, profesyonel düzeyde görüntü düzenleme ve üretme için gelişmiş bir akıl yürütme motorudur. Stüdyo kalitesinde hassasiyet ve gelişmiş yaratıcı kontrol sunar. Nano Banana Pro, karmaşık grafik tasarım, yüksek kaliteli ürün taslakları ve Google Arama aracılığıyla doğru metin oluşturma ve gerçek dünyayla temellendirme gerektiren, olgusal veri görselleştirmeleri için en uygun modeldir.
 
-Hãy truy cập trang [Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/models/Tạo hình ảnh) để xem toàn bộ các tính năng và khả năng.
+[Google AI Studio'da deneme](https://aistudio.google.com?model=gemini-3-pro-image-preview&hl=tr)
+
+## Belgeler
+
+Özellikler ve işlevler hakkında kapsamlı bilgi için [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) sayfasını ziyaret edin.
 
 ## gemini-3-pro-image-preview
 
-| Thuộc tính | Mô tả |
+| Mülk | Açıklama |
 | --- | --- |
-| id\_cardMã mô hình | `gemini-3-pro-image-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Hình ảnh và văn bản  **Đầu ra**  Hình ảnh và văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  65.536  **Giới hạn mã thông báo đầu ra**  32.768 |
-| handymanCác tính năng | **Tạo âm thanh**  Không được hỗ trợ  **API hàng loạt**  Được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Suy luận linh hoạt**  Được hỗ trợ  **Gọi hàm**  Không được hỗ trợ  **Liên kết thực tế với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Được hỗ trợ  **API trực tiếp**  Không được hỗ trợ  **Suy luận mức độ ưu tiên**  Được hỗ trợ  **Tìm trong phần liên kết thực tế**  Được hỗ trợ  **Đầu ra có cấu trúc**  Được hỗ trợ  **Tư duy**  Được hỗ trợ  **Ngữ cảnh URL**  Không được hỗ trợ |
-| 123Phiên bản | Đọc các [mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/mẫu phiên bản mô hình) để biết thêm thông tin.  - `Preview: gemini-3-pro-image-preview` |
-| calendar\_monthNội dung cập nhật mới nhất | Tháng 11 năm 2025 |
-| cognition\_2Điểm cắt kiến thức | Tháng 1 năm 2025 |
+| id\_cardModel kodu | `gemini-3-pro-image-preview` |
+| saveDesteklenen veri türleri | **Girişler**  Resim ve Metin  **Çıkış**  Resim ve Metin |
+| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  65.536  **Çıkış jetonu sınırı**  32.768 |
+| handymanÖzellikler | **Ses üretimi**  Desteklenmiyor  **Batch API**  Destekleniyor  **Önbelleğe alma**  Desteklenmiyor  **Kod yürütme**  Desteklenmiyor  **Dosya arama**  Desteklenmiyor  **Esnek çıkarım**  Destekleniyor  **İşlev çağırma**  Desteklenmiyor  **Google Haritalar ile Temellendirme**  Desteklenmiyor  **Görüntü üretme**  Destekleniyor  **Live API**  Desteklenmiyor  **Öncelik çıkarımı**  Destekleniyor  **Arama temellendirme**  Destekleniyor  **Yapılandırılmış çıkışlar**  Destekleniyor  **Düşünme** (Thinking)  Destekleniyor  **URL bağlamı**  Desteklenmiyor |
+| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - `Preview: gemini-3-pro-image-preview` |
+| calendar\_monthSon güncelleme | Kasım 2025 |
+| cognition\_2Son güncel bilgi tarihi | Ocak 2025 |
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://ai.google.dev/gemini-api/docs/models/Giấy phép ghi nhận tác giả 4.0 của Creative Commons) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://ai.google.dev/gemini-api/docs/models/Giấy phép Apache 2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://ai.google.dev/gemini-api/docs/models/Chính sách trang web của Google Developers). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
+
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

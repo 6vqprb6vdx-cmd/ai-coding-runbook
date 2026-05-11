@@ -1,29 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=zh-CN
-fetched_at: 2026-05-05T13:22:58.433606+00:00
-title: "\u4f7f\u7528 Gemini API \u8fdb\u884c\u5fae\u8c03 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=ko
+fetched_at: 2026-05-11T12:30:41.365719+00:00
+title: "Gemini API\ub85c \ubbf8\uc138 \uc870\uc815 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-- [首页](https://ai.google.dev/gemini-api/docs/首页)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-发送反馈
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# 使用 Gemini API 进行微调
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
 
-由于 Gemini 1.5 Flash-001 将于 2025 年 5 月被弃用，因此我们不再有任何模型支持在 Gemini API 或 AI Studio 中进行微调，但
-[Gemini Enterprise Agent Platform](https://ai.google.dev/gemini-api/docs/Gemini Enterprise Agent Platform) 支持微调。
+의견 보내기
 
-我们目前没有立即推出微调支持的计划，但如果您认为微调对您的用例非常重要，欢迎在我们的开发者论坛上[告诉
-我们](https://ai.google.dev/gemini-api/docs/告诉我们)
-。
+# Gemini API로 미세 조정
 
-发送反馈
+2025년 5월에 Gemini 1.5 Flash-001이 지원 중단됨에 따라 Gemini API 또는 AI Studio에서 미세 조정을 지원하는
+모델은 더 이상 제공되지 않지만
+[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=ko)에서는 지원됩니다.
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://ai.google.dev/gemini-api/docs/知识共享署名 4.0 许可)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://ai.google.dev/gemini-api/docs/Apache 2.0 许可)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://ai.google.dev/gemini-api/docs/Google 开发者网站政策)。Java 是 Oracle 和/或其关联公司的注册商标。
+미세 조정 지원을 즉시 제공할 계획은 없지만, 사용 사례에 미세 조정이 중요한 경우 개발자 포럼을 통해 [의견을
+보내주세요](https://discuss.ai.google.dev/c/gemini-api/4?hl=ko).
 
-最后更新时间 (UTC)：2026-04-29。
+의견 보내기
 
-需要向我们提供更多信息？
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+
+최종 업데이트: 2026-04-29(UTC)
+
+의견을 전달하고 싶나요?
+
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

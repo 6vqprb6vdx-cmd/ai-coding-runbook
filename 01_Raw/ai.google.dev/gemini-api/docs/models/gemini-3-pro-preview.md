@@ -1,35 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=fr
-fetched_at: 2026-05-05T13:25:34.072204+00:00
-title: "Aper\u00e7u de Gemini\u00a03 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=id
+fetched_at: 2026-05-11T12:35:14.774117+00:00
+title: "Pratinjau Gemini 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/models/recherche approfondie Gemini) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-- [Accueil](https://ai.google.dev/gemini-api/docs/models/Accueil)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/models/Gemini API)
-- [Docs](https://ai.google.dev/gemini-api/docs/models/Docs)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Envoyer des commentaires
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Aperçu de Gemini 3 Pro
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+
+Kirim masukan
+
+# Pratinjau Gemini 3 Pro
 
 ## gemini-3-pro-preview
 
-| Propriété | Description |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardCode du modèle | `gemini-3-pro-preview` |
-| saveTypes de données compatibles | **Entrées**  Texte, image, vidéo, audio et PDF  **Résultat**  Texte |
-| token\_auto[Limites de jetons[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  1 048 576  **Limite de jetons de sortie**  65 536 |
-| handymanFonctions | **Génération audio**  Non compatible  **API par lot**  Compatible  **Mise en cache**  Compatible  **Exécution de code**  Compatible  **Utilisation de l'ordinateur**  Non compatible  **Recherche de fichiers**  Compatible  **Appel de fonction**  Compatible  **Ancrage avec Google Maps**  Non compatible  **Génération d'images**  Non compatible  **API Live**  Non compatible  **Ancrage de recherche**  Compatible  **Sorties structurées**  Compatible  **Raisonnement**  Compatible  **Contexte d'URL**  Compatible |
-| 123Versions | Pour en savoir plus, consultez les [modèles de version](https://ai.google.dev/gemini-api/docs/models/modèles de version).  - *Éteindre* : `gemini-3-pro-preview` |
-| calendar\_monthDernière mise à jour | Novembre 2025 |
-| cognition\_2Date limite des connaissances (ou "knowledge cutoff") | Janvier 2025 |
+| Kode model id\_card | `gemini-3-pro-preview` |
+| saveJenis data yang didukung | **Input**  Teks, Gambar, Video, Audio, dan PDF  **Output**  Teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  1.048.576  **Batas token output**  65.536 |
+| handymanKemampuan | **Pembuatan audio**  Tidak didukung  **Batch API**  Didukung  **Menyimpan ke cache**  Didukung  **Eksekusi kode**  Didukung  **Penggunaan komputer**  Tidak didukung  **Penelusuran file**  Didukung  **Panggilan fungsi**  Didukung  **Melakukan grounding dengan Google Maps**  Tidak didukung  **Pembuatan gambar**  Tidak didukung  **Live API**  Tidak didukung  **Grounding penelusuran**  Didukung  **Output terstruktur**  Didukung  **Berpikir**  Didukung  **Konteks URL**  Didukung |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - *Matikan*: `gemini-3-pro-preview` |
+| calendar\_monthPembaruan terbaru | November 2025 |
+| cognition\_2Batas informasi | Januari 2025 |
 
-Envoyer des commentaires
+Kirim masukan
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/models/Creative Commons Attribution 4.0), et les échantillons de code sont régis par une licence [Apache 2.0](https://ai.google.dev/gemini-api/docs/models/Apache 2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://ai.google.dev/gemini-api/docs/models/Règles du site Google Developers). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Dernière mise à jour le 2026/04/29 (UTC).
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Ada masukan untuk kami?
+
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

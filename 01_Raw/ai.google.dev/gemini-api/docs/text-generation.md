@@ -1,22 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=tr
-fetched_at: 2026-05-05T13:23:24.073806+00:00
-title: "Metin olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=he
+fetched_at: 2026-05-11T12:33:06.683089+00:00
+title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-- [Ana Sayfa](https://ai.google.dev/gemini-api/docs/Ana Sayfa)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/Dokümanlar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Geri bildirim gönderin
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Metin oluşturma
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gemini API, metin, resim, video ve ses girişlerinden metin çıkışı oluşturabilir.
+שליחת משוב
 
-Temel bir örnek:
+# יצירת טקסט
+
+‫Gemini API יכול ליצור פלט של טקסט מקלט של טקסט, תמונות, סרטונים ואודיו.
+
+דוגמה בסיסית:
 
 ### Python
 
@@ -120,7 +124,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -155,11 +159,11 @@ function main() {
 }
 ```
 
-## Gemini ile düşünme
+## חשיבה עם Gemini
 
-Gemini modellerinde genellikle varsayılan olarak ["düşünme"](https://ai.google.dev/gemini-api/docs/"düşünme") özelliği etkindir. Bu özellik, modelin bir isteğe yanıt vermeden önce akıl yürütmesini sağlar.
+במודלים של Gemini, התכונה ['חשיבה'](https://ai.google.dev/gemini-api/docs/thinking?hl=he) מופעלת בדרך כלל כברירת מחדל, והיא מאפשרת למודל להסיק מסקנות לפני שהוא מגיב לבקשה.
 
-Her model, maliyet, gecikme ve zeka üzerinde kontrol sahibi olmanızı sağlayan farklı düşünce yapılandırmalarını destekler. Daha fazla ayrıntı için [düşünme kılavuzuna](https://ai.google.dev/gemini-api/docs/düşünme kılavuzuna) bakın.
+כל מודל תומך בהגדרות שונות של חשיבה, שמאפשרות לכם לשלוט בעלות, בחביון ובאינטליגנציה. מידע נוסף זמין ב[מדריך החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he#set-budget).
 
 ### Python
 
@@ -291,7 +295,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -331,9 +335,9 @@ function main() {
 }
 ```
 
-## Sistem talimatları ve diğer yapılandırmalar
+## הוראות מערכת והגדרות אחרות
 
-Sistem talimatlarıyla Gemini modellerinin davranışını yönlendirebilirsiniz. Bunun için [`GenerateContentConfig`](https://ai.google.dev/gemini-api/docs/`GenerateContentConfig`) nesnesi iletin.
+אתם יכולים להנחות את ההתנהגות של מודלים של Gemini באמצעות הוראות מערכת. כדי לעשות את זה, מעבירים אובייקט [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig).
 
 ### Python
 
@@ -463,7 +467,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -505,8 +509,7 @@ function main() {
 }
 ```
 
-[`GenerateContentConfig`](https://ai.google.dev/gemini-api/docs/`GenerateContentConfig`)
-nesnesi, [sıcaklık](https://ai.google.dev/gemini-api/docs/sıcaklık) gibi varsayılan oluşturma parametrelerini de geçersiz kılmanıza olanak tanır.
+אובייקט [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig) מאפשר גם לשנות פרמטרים של יצירה שמוגדרים כברירת מחדל, כמו [רמת אקראיות](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig).
 
 ### Python
 
@@ -639,7 +642,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-prev
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -651,7 +654,7 @@ function main() {
     temperature: 1,
     topP: 0.95,
     topK: 40,
-    responseMimeType: 'text/plain',
+    responseFormat: { text: { mimeType: "text/plain" } },
   };
 
   const payload = {
@@ -682,11 +685,11 @@ function main() {
 }
 ```
 
-Yapılandırılabilir parametrelerin ve açıklamalarının tam listesi için API referansımızdaki [`GenerateContentConfig`](https://ai.google.dev/gemini-api/docs/`GenerateContentConfig`) bölümüne bakın.
+רשימה מלאה של הפרמטרים שאפשר להגדיר והתיאורים שלהם מופיעה [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig) בהפניית ה-API שלנו.
 
-## Çok formatlı girişler
+## קלט מרובה מצבים
 
-Gemini API, çok formatlı girişleri destekler. Bu sayede metinle medya dosyalarını birleştirebilirsiniz. Aşağıdaki örnekte resim sağlama gösterilmektedir:
+‫Gemini API תומך בקלט מולטי-מודאלי, ומאפשר לכם לשלב טקסט עם קובצי מדיה. בדוגמה הבאה מוצג איך מספקים תמונה:
 
 ### Python
 
@@ -847,7 +850,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   -d "@$TEMP_JSON"
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -894,14 +897,14 @@ function getImageData(url) {
 }
 ```
 
-Resim sağlamanın alternatif yöntemleri ve daha gelişmiş resim işleme hakkında bilgi edinmek için [Görüntü Anlama Rehberimizi](https://ai.google.dev/gemini-api/docs/Görüntü Anlama Rehberimizi) inceleyin.
-API, [doküman](https://ai.google.dev/gemini-api/docs/doküman), [video](https://ai.google.dev/gemini-api/docs/video) ve [ses](https://ai.google.dev/gemini-api/docs/ses) girişlerini ve bu girişlerin anlaşılmasını da destekler.
+שיטות חלופיות להוספת תמונות ומידע נוסף על עיבוד תמונות מתקדם זמינים [במדריך שלנו להבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he).
+ממשק ה-API תומך גם בהזנות ובפענוח של [מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he), [סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he) ו[אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he).
 
-## Yanıtları akış şeklinde gösterme
+## הצגת התשובות באופן שוטף
 
-Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir.
+כברירת מחדל, המודל מחזיר תשובה רק אחרי שתהליך היצירה כולו מסתיים.
 
-Daha akıcı etkileşimler için, [`GenerateContentResponse`](https://ai.google.dev/gemini-api/docs/`GenerateContentResponse`) örneklerini oluşturuldukça artımlı olarak almak üzere akışı kullanın.
+כדי לקבל אינטראקציות חלקות יותר, אפשר להשתמש בסטרימינג כדי לקבל מופעים של [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerateContentResponse) באופן מצטבר בזמן שהם נוצרים.
 
 ### Python
 
@@ -1020,7 +1023,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1055,9 +1058,9 @@ function main() {
 }
 ```
 
-## Çok turlu görüşmeler (sohbet)
+## שיחות עם זיכרון (צ'אט)
 
-SDK'larımız, birden fazla istem ve yanıt turunu bir sohbette toplama işlevi sunar. Böylece, sohbet geçmişini kolayca takip edebilirsiniz.
+ערכות ה-SDK שלנו מספקות פונקציונליות לאיסוף של כמה סבבים של הנחיות ותשובות בצ'אט, וכך מאפשרות לכם לעקוב בקלות אחרי היסטוריית השיחה.
 
 ### Python
 
@@ -1217,7 +1220,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-prev
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1265,7 +1268,7 @@ function main() {
 }
 ```
 
-Yayın, çok adımlı görüşmeler için de kullanılabilir.
+אפשר להשתמש בסטרימינג גם בשיחות מרובות תפניות.
 
 ### Python
 
@@ -1436,7 +1439,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-prev
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1484,23 +1487,23 @@ function main() {
 }
 ```
 
-## İstem ipuçları
+## טיפים לכתיבת הנחיות
 
-Gemini'dan en iyi şekilde yararlanmayla ilgili öneriler için [istem mühendisliği kılavuzumuza](https://ai.google.dev/gemini-api/docs/istem mühendisliği kılavuzumuza) göz atın.
+ב[מדריך שלנו להנדסת הנחיות](https://ai.google.dev/gemini/docs/prompting-strategies?hl=he) מופיעות הצעות שיעזרו לכם להפיק את המרב מ-Gemini.
 
-## Sırada ne var?
+## המאמרים הבאים
 
-- [Google AI Studio'da Gemini](https://ai.google.dev/gemini-api/docs/Google AI Studio'da Gemini)'ı deneyin.
-- JSON benzeri yanıtlar için [yapılandırılmış çıkışlarla](https://ai.google.dev/gemini-api/docs/yapılandırılmış çıkışlarla) deneme yapın.
-- Gemini'ın [görüntü](https://ai.google.dev/gemini-api/docs/görüntü),
-  [video](https://ai.google.dev/gemini-api/docs/video), [ses](https://ai.google.dev/gemini-api/docs/ses)
-  ve [doküman](https://ai.google.dev/gemini-api/docs/doküman) anlama özelliklerini keşfedin.
-- Çok formatlı [dosya istemi stratejileri](https://ai.google.dev/gemini-api/docs/dosya istemi stratejileri) hakkında bilgi edinin.
+- כדאי לנסות את [Gemini ב-Google AI Studio](https://aistudio.google.com?hl=he).
+- אפשר להתנסות ב[פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) כדי לקבל תשובות שדומות ל-JSON.
+- אפשר לבדוק את היכולות של Gemini להבנת [תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he), [סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he), [אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he) ו[מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he).
+- [מידע על אסטרטגיות להנפקת הנחיות לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide)
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://ai.google.dev/gemini-api/docs/Creative Commons Atıf 4.0 Lisansı) altında ve kod örnekleri [Apache 2.0 Lisansı](https://ai.google.dev/gemini-api/docs/Apache 2.0 Lisansı) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://ai.google.dev/gemini-api/docs/Google Developers Site Politikaları)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+עדכון אחרון: 2026-05-07 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
+
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-07 (שעון UTC)."],[],[]]

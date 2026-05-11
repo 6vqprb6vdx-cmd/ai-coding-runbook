@@ -1,105 +1,104 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-BR
-fetched_at: 2026-05-05T13:23:52.582875+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=fr
+fetched_at: 2026-05-11T12:33:32.321339+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/Deep Research do Gemini) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-- [Página inicial](https://ai.google.dev/gemini-api/docs/Página inicial)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Documentos](https://ai.google.dev/gemini-api/docs/Documentos)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Envie comentários
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Geração de imagens com o Nano Banana
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Use comandos para criar protótipos de apps totalmente funcionais e com interface
-completa. Veja o Nano Banana 2 integrado a ferramentas e dados do mundo real e ao ecossistema
-do Gemini. Tudo isso antes de escrever uma única linha de código.
+Envoyer des commentaires
 
-- [Teste um app do Nano Banana 2](https://ai.google.dev/gemini-api/docs/Teste um app do Nano Banana 2)
-- Ou crie o seu com comandos:
+# Génération d'images Nano Banana
 
-- ![revista](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+Créez des applications entièrement fonctionnelles avec une interface utilisateur complète à partir d'une requête, et découvrez
+Nano Banana 2 intégré à des outils, des données et l'écosystème Gemini réels. le tout sans écrire une seule ligne de code.
+
+- [Essayer une application Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=fr)
+- Ou créez la vôtre à partir de requêtes :
+
+- ![magazine](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
   ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![restore](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-- ![revista](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![restaurer](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+- ![magazine](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Gerado pelo Nano Banana 2
+  Généré par Nano Banana 2
 
-  **Comando**: "Uma foto da capa brilhante de uma revista. A capa azul minimalista tem as palavras Nano Banana em negrito e grandes. O texto está em uma fonte serifada e preenche a visualização. Nenhum outro texto. Na frente do texto, há um retrato de uma pessoa com um vestido elegante e minimalista. Ela está segurando o número 2, que é o ponto focal.
+  **Requête** : "Photo d'une couverture de magazine brillant, la couverture bleue minimaliste comporte les mots Nano Banana en gros et en gras. Le texte est dans une police avec empattement et remplit la vue. Aucun autre texte. Devant le texte se trouve le portrait d'une personne portant une robe élégante et minimaliste. Elle tient le chiffre 2 de manière ludique, qui est le point focal.
     
-  Coloque o número de referência e a data "Fev 2026" no canto junto com um código de barras. A revista está em uma prateleira contra uma parede laranja rebocada, dentro de uma loja de design.
+   Mets le numéro du problème et la date "février 2026" dans l'angle, avec un code-barres. Le magazine est posé sur une étagère contre un mur orange crépi, dans une boutique de créateurs."
 
-  Criar [fotos profissionais de produtos](https://ai.google.dev/gemini-api/docs/fotos profissionais de produtos) no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
+  Créez des [photos de produits professionnelles](#4_product_mockups_commercial_photography) dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=fr).
 - ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Gerado pelo Nano Banana Pro
+  Généré par Nano Banana Pro
 
-  **Comando**: "Apresente uma cena de desenho animado 3D em miniatura isométrica clara, vista de cima para baixo com 45° de inclinação, de Londres, com os marcos e elementos arquitetônicos mais icônicos. Use texturas suaves e refinadas com materiais PBR realistas e iluminação e sombras suaves e realistas. Integre as condições climáticas atuais diretamente ao ambiente da cidade para criar uma atmosfera imersiva. Use uma composição limpa e minimalista com um fundo macio e de cor sólida. Na parte superior central, coloque o título "Londres" em texto grande e em negrito, um ícone de clima em destaque abaixo dele e, em seguida, a data (texto pequeno) e a temperatura (texto médio). Todo o texto precisa estar centralizado com espaçamento consistente e pode se sobrepor sutilmente aos topos dos edifícios".
+  **Prompt** : "Présente une scène 3D isométrique miniature et claire, vue de dessus à 45°, de Londres, avec ses monuments et éléments architecturaux les plus emblématiques. Utilise des textures douces et raffinées avec des matériaux PBR réalistes, ainsi que des éclairages et des ombres doux et réalistes. Intégrez les conditions météorologiques actuelles directement dans l'environnement urbain pour créer une ambiance immersive. Utilise une composition épurée et minimaliste avec un arrière-plan uni et doux. En haut au centre, placez le titre "Londres" en gros texte en gras, une icône météo bien visible en dessous, puis la date (en petits caractères) et la température (en caractères moyens). Tout le texte doit être centré avec un espacement cohérent et peut chevaucher légèrement le haut des bâtiments."
 
-  Saiba mais sobre o [embasamento de pesquisa](https://ai.google.dev/gemini-api/docs/embasamento de pesquisa) e teste no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
+  En savoir plus sur l'[ancrage de la recherche](#use-with-grounding) et l'essayer dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=fr)
 - ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Gerado pelo Nano Banana 2
+  Généré par Nano Banana 2
 
-  **Comando**: "Use a Pesquisa por imagens para encontrar imagens precisas de um pássaro quetzal resplandecente. Crie um plano de fundo 3:2 lindo dessa ave, com um gradiente natural de cima para baixo e composição minimalista."
+  **Requête** : "Utilise la recherche d'images pour trouver des images précises d'un quetzal resplendissant. Crée un magnifique fond d'écran au format 3:2 de cet oiseau, avec un dégradé naturel de haut en bas et une composition minimaliste."
 
-  Use o [embasamento](https://ai.google.dev/gemini-api/docs/embasamento) da Pesquisa de imagens do Google com o Nano Banana 2. Teste no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
+  Utilisez l'ancrage [Recherche d'images](#image-search) de Google avec Nano Banana 2. Essayer dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=fr)
 - ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Gerado pelo Nano Banana Pro
+  Généré par Nano Banana Pro
 
-  **Comando**: "Coloque este logotipo em um anúncio sofisticado de um perfume com aroma de banana. O logotipo está perfeitamente integrado à garrafa".
+  **Requête** : "Place ce logo sur une publicité haut de gamme pour un parfum à la banane. Le logo est parfaitement intégré à la bouteille."
 
-  Teste a [preservação de detalhes de alta fidelidade](https://ai.google.dev/gemini-api/docs/preservação de detalhes de alta fidelidade) do Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
+  Essayez la [préservation des détails haute fidélité](#5_high-fidelity_detail_preservation) de Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=fr)
 - ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Gerado pelo Nano Banana Pro
+  Généré par Nano Banana Pro
 
-  **Comando**: "Uma foto de uma cena cotidiana em um café movimentado que serve café da manhã. Em primeiro plano, um homem de anime com cabelo azul, uma das pessoas é um esboço a lápis, outra é uma pessoa de animação com massa de modelar"
+  **Requête** : "Photo d'une scène quotidienne dans un café animé servant le petit-déjeuner. Au premier plan, un homme d'anime aux cheveux bleus, l'une des personnes est un croquis au crayon, l'autre est une personne en pâte à modeler"
 
-  Teste diferentes [estilos artísticos](https://ai.google.dev/gemini-api/docs/estilos artísticos) com o Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
-- ![artigo](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  Testez différents [styles artistiques](#3_style_transfer) avec Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=fr).
+- ![article](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Gerado pelo Nano Banana Pro
+  Généré par Nano Banana Pro
 
-  **Comando**: "Use a pesquisa para saber como foi recebido o lançamento do Gemini 3 Flash. Use essas informações para escrever um pequeno artigo sobre o assunto (com títulos). Retorne uma foto do artigo como ele apareceu em uma revista brilhante focada em design. É uma foto de uma única página dobrada, mostrando o artigo sobre o Gemini 3 Flash. Uma foto principal. Título em serifada."
+  **Requête** : "Utilise la recherche pour savoir comment le lancement de Gemini 3 Flash a été accueilli. Utilise ces informations pour écrire un court article à ce sujet (avec des titres). Retourne une photo de l'article tel qu'il est apparu dans un magazine brillant axé sur le design. Il s'agit d'une photo d'une seule page pliée, montrant l'article sur Gemini 3 Flash. Une photo principale Titre en serif."
 
-  Gerar [texto preciso](https://ai.google.dev/gemini-api/docs/texto preciso) com base na [pesquisa](https://ai.google.dev/gemini-api/docs/pesquisa). Teste o Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
-- ![cachorro](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  Générer du [texte précis](#3_accurate_text_in_images) à partir de la [recherche](#use-with-grounding) Essayer Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=fr)
+- ![chien](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Gerado pelo Nano Banana Pro
+  Généré par Nano Banana Pro
 
-  **Comando**: "Um ícone representando um cachorro fofo. O plano de fundo é branco. Faça os ícones em um estilo 3D colorido e tátil. Sem texto."
+  **Requête** : "Une icône représentant un chien mignon. L'arrière-plan est blanc. Crée des icônes en 3D colorées et tactiles. Pas de texte."
 
-  Crie [ícones, adesivos e recursos](https://ai.google.dev/gemini-api/docs/ícones, adesivos e recursos) com o Nano Banana no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
-- ![isométrico](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  Créez des [icônes, des autocollants et des composants](#2_stylized_illustrations_stickers) avec Nano Banana dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=fr)
+- ![isométrique](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Gerado pelo Nano Banana 2
+  Généré par Nano Banana 2
 
-  **Comando**: "Crie uma foto perfeitamente isométrica. Não é uma miniatura, é uma foto capturada que acabou sendo perfeitamente isométrica. É uma foto de um lindo jardim moderno. Há uma piscina grande em forma de 2 e as palavras: Nano Banana 2."
+  **Requête** : "Crée une photo parfaitement isométrique. Il ne s'agit pas d'une miniature, mais d'une photo qui s'est avérée parfaitement isométrique. Il s'agit d'une photo d'un magnifique jardin moderne. Il y a une grande piscine en forme de 2 et les mots "Nano Banana 2"."
 
-  Teste a [geração de imagens fotorrealistas](https://ai.google.dev/gemini-api/docs/geração de imagens fotorrealistas) no [AI Studio](https://ai.google.dev/gemini-api/docs/AI Studio)
+  Essayez la [génération d'images photoréalistes](#1_photorealistic_scenes) dans [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=fr)
 
-**Nano Banana** é o nome dos recursos nativos de geração de imagens do Gemini.
-O Gemini pode gerar e processar imagens de forma conversacional
-com texto, imagens ou uma combinação dos dois. Isso permite criar, editar e
-fazer iterações em recursos visuais com controle incomparável.
+**Nano Banana** est le nom des fonctionnalités de génération d'images natives de Gemini.
+Gemini peut générer et traiter des images de manière conversationnelle avec du texte, des images ou une combinaison des deux. Vous pouvez ainsi créer, modifier et itérer des éléments visuels avec un contrôle sans précédent.
 
-Nano Banana se refere a três modelos distintos disponíveis na API Gemini:
+Nano Banana fait référence à trois modèles distincts disponibles dans l'API Gemini :
 
-- **Nano Banana 2**: o modelo [pré-lançamento do Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/pré-lançamento do Gemini 3.1 Flash Image) (`gemini-3.1-flash-image-preview`). Esse modelo serve como a contraparte de alta eficiência do Gemini 3 Pro Image, otimizado para velocidade e casos de uso de desenvolvedores de alto volume.
-- **Nano Banana Pro**: o modelo [Prévia de imagens no Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/Prévia de imagens no Gemini 3 Pro)
-  (`gemini-3-pro-image-preview`). Ele foi projetado para produção de recursos
-  profissionais, usando raciocínio avançado ("Pensamento") para seguir instruções
-  complexas e renderizar texto de alta fidelidade.
-- **Nano Banana**: o modelo [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/Gemini 2.5 Flash Image) (`gemini-2.5-flash-image`). Ele foi projetado para velocidade e eficiência, otimizado para tarefas de alto volume e baixa latência.
+- **Nano Banana 2** : modèle [Gemini 3.1 Flash Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=fr) (`gemini-3.1-flash-image-preview`). Ce modèle est l'équivalent haute efficacité de Gemini 3 Pro Image. Il est optimisé pour la vitesse et les cas d'utilisation des développeurs à volume élevé.
+- **Nano Banana Pro** : modèle [Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=fr) (`gemini-3-pro-image-preview`). Ce modèle est conçu pour la production d'assets professionnels. Il utilise un raisonnement avancé ("Réflexion") pour suivre des instructions complexes et générer du texte haute fidélité.
+- **Nano Banana** : modèle [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr) (`gemini-2.5-flash-image`). Ce modèle est conçu pour la rapidité et l'efficacité, et optimisé pour les tâches à volume élevé et à faible latence.
 
-Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/gemini-api/docs/marca-d'água do SynthID).
+Toutes les images générées incluent un [filigrane SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr).
 
-## Geração de imagens (conversão de texto em imagem)
+## Génération d'images (texte vers image)
 
 ### Python
 
@@ -252,16 +251,15 @@ curl -s -X POST \
   }'
 ```
 
-## Edição de imagens (texto e imagem para imagem)
+## Retouche d'images (texte et image vers image)
 
-**Lembrete**: confira se você tem os direitos necessários sobre as imagens que enviar.
-Não gere conteúdo que viole os direitos de terceiros, incluindo vídeos ou imagens que enganem, assediem ou prejudiquem pessoas. O uso deste serviço de IA generativa está sujeito à nossa [Política de uso proibido](https://ai.google.dev/gemini-api/docs/Política de uso proibido).
+**Rappel** : Assurez-vous de disposer des droits nécessaires sur toutes les images que vous importez.
+Ne générez aucun contenu qui porte atteinte aux droits d'autrui, y compris des vidéos ou des images trompeuses, ou qui harcèlent ou nuisent à autrui. L'utilisation de ce service d'IA générative est soumise à notre [Règlement sur les utilisations interdites](https://policies.google.com/terms/generative-ai/use-policy?hl=fr).
 
-Forneça uma imagem e use comandos de texto para adicionar, remover ou modificar elementos,
-mudar o estilo ou ajustar a gradação de cores.
+Fournissez une image et utilisez des requêtes textuelles pour ajouter, supprimer ou modifier des éléments, changer le style ou ajuster la correction colorimétrique.
 
-O exemplo a seguir demonstra o upload de imagens codificadas em `base64`.
-Para várias imagens, payloads maiores e tipos MIME compatíveis, consulte a página [Entendimento de imagens](https://ai.google.dev/gemini-api/docs/Entendimento de imagens).
+L'exemple suivant montre comment importer des images encodées `base64`.
+Pour en savoir plus sur les images multiples, les charges utiles plus importantes et les types MIME acceptés, consultez la page [Compréhension des images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr).
 
 ### Python
 
@@ -464,9 +462,9 @@ curl -s -X POST \
     }"
 ```
 
-### Edição de imagens em várias etapas
+### Modification d'images en plusieurs étapes
 
-Continue gerando e editando imagens de forma conversacional. O chat ou a conversa em vários turnos é a maneira recomendada de iterar imagens. O exemplo a seguir mostra um comando para gerar um infográfico sobre a fotossíntese.
+Continuez à générer et à modifier des images de manière conversationnelle. Nous vous recommandons d'utiliser le chat ou les conversations multitours pour modifier vos images. L'exemple suivant montre une requête permettant de générer une infographie sur la photosynthèse.
 
 ### Python
 
@@ -657,11 +655,11 @@ curl -s -X POST \
   }'
 ```
 
-![Infográfico gerado com IA sobre a fotossíntese](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=pt-br)
+![Infographie générée par IA sur la photosynthèse](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=fr)
 
-Infográfico gerado com IA sobre a fotossíntese
+Infographie générée par IA sur la photosynthèse
 
-Em seguida, use o mesmo chat para mudar o idioma do gráfico para espanhol.
+Vous pouvez ensuite utiliser la même discussion pour modifier la langue du graphique et la passer à l'espagnol.
 
 ### Python
 
@@ -809,32 +807,32 @@ curl -s -X POST \
   }'
 ```
 
-![Infográfico gerado com IA sobre a fotossíntese em espanhol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=pt-br)
+![Infographie sur la photosynthèse générée par l&#39;IA en espagnol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=fr)
 
-Infográfico gerado com IA sobre a fotossíntese em espanhol
+Infographie sur la photosynthèse générée par IA en espagnol
 
-## Novidade com os modelos de imagem do Gemini 3
+## Nouveautés des modèles Gemini 3 Image
 
-O Gemini 3 oferece modelos de edição e geração de imagens de última geração. O Gemini 3.1 Flash Image é otimizado para velocidade e casos de uso de alto volume, e o Gemini 3 Pro Image é otimizado para produção de recursos profissionais.
-Projetados para lidar com os fluxos de trabalho mais desafiadores usando raciocínio avançado, eles são excelentes em tarefas complexas de criação e modificação em várias etapas.
+Gemini 3 propose des modèles de pointe pour la génération et la retouche d'images. Gemini 3.1 Flash Image est optimisé pour la vitesse et les cas d'utilisation à fort volume, tandis que Gemini 3 Pro Image est optimisé pour la production d'assets professionnels.
+Conçus pour gérer les workflows les plus complexes grâce à un raisonnement avancé, ils excellent dans les tâches complexes de création et de modification en plusieurs étapes.
 
-- **Saída de alta resolução**: recursos de geração integrados para visuais de 1K, 2K e 4K.
-  - O **Gemini 3.1 Flash Image** adiciona a resolução menor de 512 (0,5K).
-- **Renderização avançada de texto**: capaz de gerar texto legível e estilizado para infográficos, menus, diagramas e recursos de marketing.
-- **Embasamento com a Pesquisa Google**: o modelo pode usar a Pesquisa Google como uma ferramenta para verificar fatos e gerar imagens com base em dados em tempo real (por exemplo, mapas de clima atuais, gráficos de ações, eventos recentes).
-  - O **Gemini 3.1 Flash Image** adiciona a integração do embasamento com a Pesquisa Google para imagens e na Web.
-- **Modo de raciocínio**: o modelo usa um processo de "raciocínio" para analisar comandos complexos. Ele gera "imagens de pensamento" provisórias (visíveis no back-end, mas sem cobrança) para refinar a composição antes de produzir a saída final de alta qualidade.
-- **Até 14 imagens de referência**: agora você pode misturar até 14 imagens de referência para produzir a imagem final.
-- [**Novas proporções**: o pré-lançamento do Gemini 3.1 Flash Image adiciona proporções 1:4, 4:1, 1:8 e 8:1.](https://ai.google.dev/gemini-api/docs/**Novas proporções**: o pré-lançamento do Gemini 3.1 Flash Image adiciona proporções 1:4, 4:1, 1:8 e 8:1.)
+- **Sortie haute résolution** : fonctionnalités de génération intégrées pour les visuels 1K, 2K et 4K.
+  - **Gemini 3.1 Flash Image** ajoute la résolution plus petite de 512 pixels (0,5K).
+- **Rendu de texte avancé** : permet de générer du texte lisible et stylisé pour les infographies, les menus, les diagrammes et les ressources marketing.
+- **Ancrage avec la recherche Google** : le modèle peut utiliser la recherche Google comme outil pour vérifier des faits et générer des images basées sur des données en temps réel (par exemple, des cartes météo actuelles, des graphiques boursiers ou des événements récents).
+  - **Gemini 3.1 Flash Image** ajoute l'intégration de l'ancrage avec la Recherche Google pour les images et la recherche sur le Web.
+- **Mode Raisonnement** : le modèle utilise un processus de "réflexion" pour raisonner sur les requêtes complexes. Il génère des "images de réflexion" intermédiaires (visibles dans le backend, mais non facturées) pour affiner la composition avant de produire le résultat final de haute qualité.
+- **Jusqu'à 14 images de référence** : vous pouvez désormais combiner jusqu'à 14 images de référence pour générer l'image finale.
+- **Nouveaux formats** : l'aperçu Gemini 3.1 Flash Image ajoute les [formats](#aspect_ratios_and_image_size) 1:4, 4:1, 1:8 et 8:1.
 
-### Usar até 14 imagens de referência
+### Utiliser jusqu'à 14 images de référence
 
-Com os modelos de imagem do Gemini 3, você pode misturar até 14 imagens de referência. Essas 14 imagens podem incluir o seguinte:
+Les modèles d'image Gemini 3 vous permettent de combiner jusqu'à 14 images de référence. Ces 14 images peuvent inclure les éléments suivants :
 
-| Pré-lançamento da imagem do Gemini 3.1 Flash | Pré-lançamento do Gemini 3 Pro Image |
+| Preview de l'image Gemini 3.1 Flash | Preview Gemini 3 Pro Image |
 | --- | --- |
-| Até 10 imagens de objetos com alta fidelidade para incluir na imagem final | Até seis imagens de objetos com alta fidelidade para incluir na imagem final |
-| Até quatro imagens de personagens para manter a consistência deles | Até cinco imagens de personagens para manter a consistência |
+| Jusqu'à 10 images d'objets haute fidélité à inclure dans l'image finale | Jusqu'à six images d'objets haute fidélité à inclure dans l'image finale |
+| Jusqu'à quatre images de personnages pour assurer leur cohérence | Jusqu'à cinq images de personnages pour assurer leur cohérence |
 
 ### Python
 
@@ -1102,15 +1100,15 @@ curl -s -X POST \
     }"
 ```
 
-![Foto de grupo do escritório gerada com IA](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=pt-br)
+![Photo de groupe de bureau générée par IA](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=fr)
 
-Foto de grupo do escritório gerada com IA
+Photo de groupe au bureau générée par IA
 
-### Embasamento com a Pesquisa Google
+### Ancrage avec la recherche Google
 
-Use a [ferramenta Pesquisa Google](https://ai.google.dev/gemini-api/docs/ferramenta Pesquisa Google) para gerar imagens com base em informações em tempo real, como previsões do tempo, gráficos de ações ou eventos recentes.
+Utilisez l'[outil de recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) pour générer des images basées sur des informations en temps réel, comme les prévisions météo, les graphiques boursiers ou les événements récents.
 
-Ao usar o embasamento com a Pesquisa Google para geração de imagens, os resultados da pesquisa baseados em imagens não são transmitidos ao modelo de geração e são excluídos da resposta. Consulte [Embasamento com a Pesquisa Google para imagens](https://ai.google.dev/gemini-api/docs/Embasamento com a Pesquisa Google para imagens).
+Notez que lorsque vous utilisez l'ancrage avec la recherche Google pour générer des images, les résultats de recherche basés sur des images ne sont pas transmis au modèle de génération et sont exclus de la réponse (voir [Ancrer avec la recherche Google pour les images](#image-search)).
 
 ### Python
 
@@ -1252,24 +1250,22 @@ curl -s -X POST \
   }'
 ```
 
-![Gráfico de previsão do tempo de cinco dias gerado com IA para São Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=pt-br)
+![Graphique météo sur cinq jours généré par IA pour San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=fr)
 
-Gráfico de previsão do tempo de cinco dias gerado por IA para São Francisco
+Tableau météo sur cinq jours généré par l'IA pour San Francisco
 
-A resposta inclui `groundingMetadata`, que contém os seguintes campos obrigatórios:
+La réponse inclut `groundingMetadata`, qui contient les champs obligatoires suivants :
 
-- **`searchEntryPoint`**: contém o HTML e o CSS para renderizar as sugestões de pesquisa
-  necessárias.
-- **`groundingChunks`**: retorna as três principais fontes da Web usadas para embasar a imagem gerada.
+- **`searchEntryPoint`** : contient le code HTML et CSS permettant d'afficher les suggestions de recherche requises.
+- **`groundingChunks`** : renvoie les trois principales sources Web utilisées pour ancrer l'image générée.
 
-### Embasamento com a Pesquisa Google Imagens (3.1 Flash)
+### Ancrage avec la recherche Google pour les images (3.1 Flash)
 
-O embasamento com a Pesquisa Google para imagens permite que os modelos usem imagens da Web recuperadas pela Pesquisa Google como contexto visual para geração de imagens. A Pesquisa por imagens é um novo tipo de pesquisa na ferramenta Embasamento com a Pesquisa Google, que funciona junto com a [Pesquisa Google na Web](https://ai.google.dev/gemini-api/docs/Pesquisa Google na Web) padrão.
+L'ancrage avec la recherche Google pour les images permet aux modèles d'utiliser les images Web récupérées via la recherche Google comme contexte visuel pour la génération d'images. La recherche d'images est un nouveau type de recherche au sein de l'outil existant d'ancrage avec la recherche Google. Elle fonctionne en parallèle de la [recherche sur le Web](#use-with-grounding) standard.
 
-Para ativar a Pesquisa de imagens, configure a ferramenta `googleSearch` na solicitação de API
-e especifique `imageSearch` no objeto `searchTypes`. A Pesquisa de imagens pode ser usada de forma independente ou com a Pesquisa na Web.
+Pour activer la recherche d'images, configurez l'outil `googleSearch` dans votre requête API et spécifiez `imageSearch` dans l'objet `searchTypes`. La recherche d'images peut être utilisée indépendamment ou en même temps que la recherche sur le Web.
 
-O embasamento com a Pesquisa Google para imagens não pode ser usado para pesquisar pessoas.
+Notez que l'ancrage avec la recherche Google pour les images ne peut pas être utilisé pour rechercher des personnes.
 
 ### Python
 
@@ -1403,36 +1399,31 @@ curl -s -X POST \
   }'
 ```
 
-**Requisitos de exibição**
+**Conditions requises pour l'affichage**
 
-Ao usar a Pesquisa de imagens no Embasamento com a Pesquisa Google, você precisa obedecer às seguintes condições:
+Lorsque vous utilisez la recherche d'images dans l'ancrage avec la recherche Google, vous devez respecter les conditions suivantes :
 
-- **Atribuição da fonte**: você precisa fornecer um link para a página da Web que contém a imagem de origem (a "página que contém", não o arquivo de imagem em si) de uma maneira que o usuário reconheça como um link.
-- **Navegação direta**: se você também optar por mostrar as imagens de origem, será necessário fornecer um caminho direto de um único clique das imagens de origem para a página da Web de origem que as contém. Qualquer outra implementação que atrase ou abstraia
-  o acesso do usuário final à página da Web de origem, incluindo, entre outros,
-  qualquer caminho de vários cliques ou o uso de um visualizador de imagens intermediário, não é
-  permitida.
+- **Attribution de la source** : vous devez fournir un lien vers la page Web contenant l'image source (la "page contenant l'image", et non le fichier image lui-même) de manière à ce que l'utilisateur puisse l'identifier comme un lien.
+- **Navigation directe** : si vous choisissez également d'afficher les images sources, vous devez fournir un chemin direct en un seul clic depuis les images sources vers la page Web source qui les contient. Toute autre implémentation qui retarde ou abstrait l'accès de l'utilisateur final à la page Web source, y compris, mais sans s'y limiter, tout chemin à plusieurs clics ou l'utilisation d'une visionneuse d'images intermédiaire, n'est pas autorisée.
 
-**Resposta**
+**Réponse**
 
-Para respostas embasadas usando a pesquisa por imagens, a API fornece atribuição e metadados claros para vincular a saída a fontes verificadas. Os principais campos do objeto `groundingMetadata` incluem:
+Pour les réponses ancrées utilisant la recherche d'images, l'API fournit une attribution et des métadonnées claires pour associer sa sortie à des sources validées. Voici les principaux champs de l'objet `groundingMetadata` :
 
-- **`imageSearchQueries`**: as consultas específicas usadas pelo modelo para contexto visual (Pesquisa por imagens).
-- **`groundingChunks`**: contém informações de origem para os resultados recuperados.
-  Para fontes de imagens, eles serão retornados como URLs de redirecionamento usando um novo tipo de
-  fragmento de imagem. Esse trecho inclui:
+- **`imageSearchQueries`** : requêtes spécifiques utilisées par le modèle pour le contexte visuel (recherche d'images).
+- **`groundingChunks`** : contient des informations sur la source des résultats récupérés.
+  Pour les sources d'images, elles seront renvoyées sous forme d'URL de redirection à l'aide d'un nouveau type de bloc d'image. Ce bloc comprend :
 
-  - **`uri`**: o URL da página da Web para atribuição (a página de destino).
-  - **`image_uri`**: o URL direto da imagem.
-- **`groundingSupports`**: fornece mapeamentos específicos que vinculam o conteúdo gerado à fonte de citação relevante nos trechos.
-- **`searchEntryPoint`**: inclui o ícone "Pesquisa Google" com
-  HTML e CSS compatíveis para renderizar as sugestões de pesquisa.
+  - **`uri`** : URL de la page Web pour l'attribution (page de destination).
+  - **`image_uri`** : URL directe de l'image.
+- **`groundingSupports`** : fournit des mappages spécifiques qui associent le contenu généré à sa source de citation pertinente dans les blocs.
+- **`searchEntryPoint`** : inclut le chip "Recherche Google" contenant du code HTML et CSS conforme pour afficher les suggestions de recherche.
 
-### Gerar imagens com resolução de até 4K
+### Générer des images jusqu'à une résolution 4K
 
-Os modelos de imagem do Gemini 3 geram 1.000 imagens por padrão, mas também podem gerar imagens de 2K, 4K e 512 (0,5K) (somente o Gemini 3.1 Flash Image). Para gerar recursos de resolução mais alta, especifique o `image_size` no `generation_config`.
+Les modèles d'images Gemini 3 génèrent 1 000 images par défaut, mais peuvent également générer des images de 2 000, 4 000 et 512 (0,5 K) (Gemini 3.1 Flash Image uniquement). Pour générer des composants de résolution supérieure, spécifiez `image_size` dans `generation_config`.
 
-Use um "K" maiúsculo (por exemplo, 1K, 2K, 4K). O valor `512` não usa um sufixo "K". Parâmetros em letras minúsculas (por exemplo, 1k) serão rejeitados.
+Vous devez utiliser un "K" majuscule (par exemple, 1K, 2K, 4K). La valeur `512` n'utilise pas de suffixe "K". Les paramètres en minuscules (par exemple, 1k) seront refusés.
 
 ### Python
 
@@ -1625,20 +1616,19 @@ curl -s -X POST \
   }'
 ```
 
-Confira um exemplo de imagem gerada com esse comando:
+Voici un exemple d'image générée à partir de cette requête :
 
-![Esboço anatômico de uma borboleta monarca dissecada no estilo Da Vinci gerado por IA.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=pt-br)
+![Croquis anatomique d&#39;un monarque disséqué, généré par IA dans le style de Léonard de Vinci.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=fr)
 
-Esboço anatômico de uma borboleta monarca dissecada no estilo de Da Vinci, gerado por IA.
+Croquis anatomique d'un papillon monarque disséqué, généré par IA dans le style de Léonard de Vinci.
 
-### Processo de raciocínio
+### Processus de réflexion
 
-Os modelos de imagem do Gemini 3 são modelos de raciocínio que usam um processo de inferência ("Raciocínio") para comandos complexos. Esse recurso é ativado por padrão e
-não pode ser desativado na API. Para saber mais sobre o processo de raciocínio, consulte o guia [Raciocínio do Gemini](https://ai.google.dev/gemini-api/docs/Raciocínio do Gemini).
+Les modèles d'image Gemini 3 sont des modèles de réflexion qui utilisent un processus de raisonnement ("Réflexion") pour les requêtes complexes. Cette fonctionnalité est activée par défaut et ne peut pas être désactivée dans l'API. Pour en savoir plus sur le processus de réflexion, consultez le guide [Réflexion de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
 
-O modelo gera até duas imagens provisórias para testar a composição e a lógica. A última imagem em "Raciocínio" também é a imagem renderizada final.
+Le modèle génère jusqu'à deux images intermédiaires pour tester la composition et la logique. La dernière image de la section "Réflexion" est également l'image rendue finale.
 
-Você pode conferir as ideias que levaram à produção da imagem final.
+Vous pouvez consulter les réflexions qui ont conduit à la production de l'image finale.
 
 ### Python
 
@@ -1668,11 +1658,11 @@ for (const part of response.candidates[0].content.parts) {
 }
 ```
 
-#### Como controlar os níveis de pensamento
+#### Contrôler les niveaux de réflexion
 
-Com o Gemini 3.1 Flash Image, você controla a quantidade de raciocínio que o modelo usa para equilibrar qualidade e latência. O `thinkingLevel` padrão é `minimal`, e os níveis aceitos são `minimal` e `high`. Definir o `thinkingLevel` como `minimal` oferece respostas com a menor latência. O pensamento mínimo não significa que o modelo não usa nenhum pensamento.
+Avec Gemini 3.1 Flash Image, vous pouvez contrôler la quantité de réflexion utilisée par le modèle pour équilibrer la qualité et la latence. La valeur par défaut de `thinkingLevel` est `minimal`, et les niveaux acceptés sont `minimal` et `high`. Définir `thinkingLevel` sur `minimal` permet d'obtenir les réponses avec la latence la plus faible. Notez que la pensée minimale ne signifie pas que le modèle ne réfléchit pas du tout.
 
-Você pode adicionar o booleano `includeThoughts` para determinar se os pensamentos gerados pelo modelo são retornados na resposta ou permanecem ocultos.
+Vous pouvez ajouter le booléen `includeThoughts` pour déterminer si les réflexions générées par le modèle sont renvoyées dans la réponse ou restent masquées.
 
 ### Python
 
@@ -1812,20 +1802,19 @@ curl -s -X POST \
   }'
 ```
 
-Os tokens de pensamento são faturados, independente de `includeThoughts` estar definido como `true` ou `false`, já que o [processo de pensamento](https://ai.google.dev/gemini-api/docs/processo de pensamento) sempre acontece por padrão, mesmo que você não o veja.
+Notez que les jetons de réflexion sont facturés, que `includeThoughts` soit défini sur `true` ou `false`, car le [processus de réflexion](#thinking-process) a toujours lieu par défaut, que vous le consultiez ou non.
 
-#### Assinaturas de pensamento
+#### Signatures de pensée
 
-As assinaturas de pensamento são representações criptografadas do processo de raciocínio interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias rodadas. Todas as respostas incluem um campo `thought_signature`. Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como foi recebida ao enviar o histórico da conversa na próxima vez. Se não fizer isso, a resposta poderá falhar. Consulte a documentação sobre [assinatura de pensamento](https://ai.google.dev/gemini-api/docs/assinatura de pensamento) para mais explicações sobre assinaturas em geral.
+Les signatures de pensée sont des représentations chiffrées du processus de réflexion interne du modèle. Elles sont utilisées pour préserver le contexte de raisonnement lors des interactions en plusieurs tours. Toutes les réponses incluent un champ `thought_signature`. En règle générale, si vous recevez une signature de pensée dans une réponse du modèle, vous devez la renvoyer exactement telle qu'elle a été reçue lorsque vous envoyez l'historique des conversations au tour suivant. Si les signatures de pensée ne sont pas diffusées, la réponse peut échouer. Pour en savoir plus sur les signatures en général, consultez la documentation sur la [signature de pensée](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=fr).
 
-Confira como elas funcionam:
+Voici comment fonctionnent les signatures de pensée :
 
-- Todas as partes `inline_data` com a imagem `mimetype` que fazem parte da resposta
-  precisam ter assinatura.
-- Se houver algumas partes de texto no início (antes de qualquer imagem) logo após os pensamentos, a primeira parte de texto também deverá ter uma assinatura.
-- Se `inline_data` partes com a imagem `mimetype` fizerem parte de pensamentos, elas não terão assinaturas.
+- Toutes les parties `inline_data` avec l'image `mimetype` qui font partie de la réponse doivent comporter une signature.
+- S'il y a des parties de texte au début (avant toute image) juste après les pensées, la première partie de texte doit également avoir une signature.
+- Si des parties `inline_data` avec l'image `mimetype` font partie des pensées, elles n'auront pas de signature.
 
-O código a seguir mostra um exemplo de onde as assinaturas de pensamento são incluídas:
+Le code suivant montre un exemple d'emplacement des signatures de pensée :
 
 ```
 [
@@ -1885,182 +1874,179 @@ O código a seguir mostra um exemplo de onde as assinaturas de pensamento são i
 ]
 ```
 
-## Outros modos de geração de imagens
+## Autres modes de génération d'images
 
-O Gemini oferece suporte a outros modos de interação com imagens com base na estrutura e no contexto do comando, incluindo:
+Gemini est compatible avec d'autres modes d'interaction avec les images en fonction de la structure et du contexte de la requête, y compris :
 
-- **Texto para imagens e texto (intercalado)**: gera imagens com texto relacionado.
-  - Exemplo de comando: "Gere uma receita ilustrada de paella".
-- **Imagens e texto para imagens e texto (intercalados)**: usa imagens e texto de entrada para criar novas imagens e texto relacionados.
-  - Exemplo de comando: (com uma imagem de uma sala mobiliada) "Quais outros sofás de cores diferentes ficariam bons no meu espaço? Você pode atualizar a imagem?"
+- **Texte vers image(s) et texte (entrelacé)** : génère des images avec du texte associé.
+  - Exemple de requête : "Génère une recette illustrée de paella."
+- **Image(s) et texte vers image(s) et texte (entrelacés)** : utilise des images et du texte en entrée pour créer de nouvelles images et du texte associés.
+  - Exemple de requête : (avec l'image d'une pièce meublée) "Quelles autres couleurs de canapés conviendraient à mon espace ? Peux-tu modifier l'image ?"
 
-## Gerar imagens em lote
+## Générer des images par lot
 
-Se você precisar gerar muitas imagens, use a
-[API em lote](https://ai.google.dev/gemini-api/docs/API em lote). Você recebe [limites de taxa](https://ai.google.dev/gemini-api/docs/limites de taxa) mais altos em troca de um tempo de resposta de até 24 horas.
+Si vous devez générer de nombreuses images, vous pouvez utiliser l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr). Vous bénéficiez de [limites de fréquence](https://ai.google.dev/gemini-api/docs/rate-limits?hl=fr) plus élevées en échange d'un délai de traitement pouvant aller jusqu'à 24 heures.
 
-Confira a [documentação da API Batch para geração de imagens](https://ai.google.dev/gemini-api/docs/documentação da API Batch para geração de imagens) e o [cookbook](https://ai.google.dev/gemini-api/docs/cookbook)
-para exemplos e código de imagens da API Batch.
+Consultez la [documentation sur la génération d'images avec l'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr#image-generation) et le [cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=fr) pour obtenir des exemples d'images et de code avec l'API Batch.
 
-## Guia e estratégias para a criação de comandos
+## Guide et stratégies de requête
 
-Para dominar a geração de imagens, é preciso entender um princípio fundamental:
+Pour maîtriser la génération d'images, vous devez commencer par un principe fondamental :
 
-> **Descreva a cena, não apenas liste palavras-chave.**
-> O principal ponto forte do modelo é a compreensão profunda da linguagem. Um parágrafo narrativo e descritivo quase sempre produz uma imagem melhor e mais coerente do que uma lista de palavras desconectadas.
+> **Décrivez la scène, ne vous contentez pas de lister des mots clés.**
+> La principale force du modèle réside dans sa compréhension approfondie du langage. Un paragraphe descriptif et narratif produira presque toujours une image de meilleure qualité et plus cohérente qu'une liste de mots isolés.
 
-### Comandos para gerar imagens
+### Requêtes pour générer des images
 
-As estratégias a seguir vão ajudar você a criar comandos eficazes para gerar exatamente as imagens que procura.
+Les stratégies suivantes vous aideront à créer des requêtes efficaces pour générer exactement les images que vous recherchez.
 
-#### Fotografia
+#### Photographie
 
-Para imagens realistas, use termos de fotografia. Mencione ângulos de câmera, tipos de lente, iluminação e detalhes para orientar o modelo a um resultado realista.
+Pour obtenir des images réalistes, utilisez des termes de photographie. Mentionnez les angles de caméra, les types d'objectif, l'éclairage et les détails fins pour guider le modèle vers un résultat réaliste.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Uma foto em close de um ceramista japonês idoso com rugas profundas e marcadas pelo sol e um sorriso caloroso e cúmplice. Ele está inspecionando cuidadosamente uma xícara de chá recém-esmaltada. O cenário é a oficina rústica e ensolarada dele. A cena é iluminada por uma luz suave e dourada que entra por uma janela, destacando a textura delicada da argila. A imagem é capturada com uma lente de 85 mm, própria para retratos, resultando em um fundo suave e desfocado (bokeh). O clima geral é sereno e magistral. Orientação retrato vertical. | Ceramista japonês idoso |
+| Photo en gros plan d'un céramiste japonais âgé, au visage ridé par le soleil, avec un sourire chaleureux et complice. Il examine attentivement un bol à thé fraîchement émaillé. L'action se déroule dans son atelier rustique et ensoleillé. La scène est éclairée par une lumière douce et dorée qui entre par une fenêtre, mettant en valeur la texture fine de l'argile. L'image doit être capturée avec un objectif pour portrait de 85 mm, ce qui donne un arrière-plan flou et doux (bokeh). L'ambiance générale est sereine et magistrale. Orientation portrait verticale. | Céramiste japonais âgé |
 
-#### Ilustrações e adesivos estilizados
+#### Illustrations et autocollants stylisés
 
-Para criar adesivos, ícones ou recursos, seja explícito sobre o estilo e peça um fundo branco.
+Pour créer des autocollants, des icônes ou des composants, soyez explicite sur le style et demandez un arrière-plan blanc.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Um adesivo no estilo kawaii de um panda-vermelho feliz usando um chapéu de bambu pequeno. Ele está mastigando uma folha de bambu verde. O design tem contornos limpos e destacados, cel-shading simples e uma paleta de cores vibrante. O fundo precisa ser branco. | Adesivo de panda-vermelho kawaii |
+| Autocollant de style kawaii représentant un panda roux joyeux portant un petit chapeau de bambou. Il est en train de manger une feuille de bambou verte. Le design présente des contours épais et nets, un ombrage simple et une palette de couleurs vives. L'arrière-plan doit être blanc. | Autocollant de panda roux kawaii |
 
-#### Texto preciso em imagens
+#### Texte précis dans les images
 
-O Gemini é excelente em renderizar texto. Seja claro sobre o texto, o estilo da fonte (de forma descritiva) e o design geral. Use a prévia de imagens do Gemini 3 Pro para
-produção de recursos profissionais.
+Gemini excelle dans le rendu de texte. Décrivez clairement le texte, le style de police et la conception globale. Utilisez la prévisualisation d'images Gemini 3 Pro pour la production d'assets professionnels.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Crie um logotipo moderno e minimalista para uma cafeteria chamada "The Daily Grind". O texto precisa estar em uma fonte sem serifa, limpa e em negrito. O esquema de cores é preto e branco. Coloque o logo em um círculo. Use um grão de café de maneira inteligente. | Logotipo de cafeteria |
+| Crée un logo moderne et minimaliste pour un café appelé "The Daily Grind". Le texte doit être écrit dans une police Sans Serif propre et en gras. La palette de couleurs est en noir et blanc. Placez le logo dans un cercle. Utilisez un grain de café de manière astucieuse. | Logo de café |
 
-#### Simulações de produtos e fotografia comercial
+#### Maquettes de produits et photographie commerciale
 
-Perfeito para criar fotos de produtos limpas e profissionais para e-commerce, publicidade ou branding.
+Idéal pour créer des photos de produits claires et professionnelles pour l'e-commerce, la publicité ou le branding.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Uma foto de produto em alta resolução, iluminada em estúdio, de uma xícara de café minimalista de cerâmica em preto fosco, apresentada em uma superfície de concreto polido. A iluminação é uma configuração de softbox de três pontos projetada para criar destaques suaves e difusos e eliminar sombras fortes. O ângulo da câmera é um pouco elevado, com um disparo de 45 graus para mostrar as linhas limpas. Ultrarrealista, com foco nítido no vapor saindo do café. Imagem quadrada. | Foto de produto de uma xícara de café de cerâmica |
+| Photo de produit en haute résolution et éclairée en studio, montrant une tasse à café minimaliste en céramique noire mate, présentée sur une surface en béton poli. L'éclairage est un système à trois points avec softbox conçu pour créer des lumières douces et diffuses, et éliminer les ombres dures. L'angle de la caméra est légèrement surélevé à 45 degrés pour mettre en valeur ses lignes épurées. Ultra-réaliste, avec une mise au point nette sur la vapeur qui s'échappe du café. Image carrée. | Photo de produit d&#39;une tasse à café en céramique |
 
-#### Design minimalista e de espaço negativo
+#### Design minimaliste et espace négatif
 
-Excelente para criar planos de fundo para sites, apresentações ou materiais de marketing em que o texto será sobreposto.
+Idéal pour créer des arrière-plans pour des sites Web, des présentations ou des supports marketing sur lesquels du texte sera superposé.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Uma composição minimalista com uma única e delicada folha de bordo vermelho posicionada na parte inferior direita da imagem. O fundo é uma tela branca vazia, criando um espaço negativo significativo para o texto. Iluminação suave e difusa do canto superior esquerdo. Imagem quadrada. | Design minimalista com folha de bordo vermelha |
+| Composition minimaliste avec une seule et délicate feuille d'érable rouge placée en bas à droite du cadre. Le fond est une vaste toile blanc cassé vide, créant un espace négatif important pour le texte. Éclairage doux et diffus en haut à gauche. Image carrée. | Design minimaliste avec une feuille d&#39;érable rouge |
 
-#### Arte sequencial (painel de quadrinhos / storyboard)
+#### Art séquentiel (panneau de bande dessinée / storyboard)
 
-Cria painéis para contar histórias visuais com base na consistência dos personagens e na descrição das cenas. Para ter mais precisão com texto e capacidade de storytelling, esses comandos funcionam melhor com o Gemini 3 Pro e o pré-lançamento do Gemini 3.1 Flash Image.
+S'appuie sur la cohérence des personnages et la description des scènes pour créer des panneaux de narration visuelle. Pour obtenir des résultats précis avec du texte et des capacités de storytelling, ces prompts fonctionnent mieux avec Gemini 3 Pro et Gemini 3.1 Flash Image Preview.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagem de entrada**:  Homem de óculos brancos   Imagem de entrada   **Comando**:crie uma história em quadrinhos de três quadros em um estilo de arte noir e realista com tintas em preto e branco de alto contraste. Coloque o personagem em uma cena engraçada. | Painel de quadrinhos noir sombrio |
+| **Image d'entrée** :  Homme portant des lunettes blanches   Image d'entrée   **Requête** : Crée une bande dessinée en trois cases dans un style artistique noir et réaliste, avec des encres en noir et blanc à fort contraste. Place le personnage dans une scène humoristique. | Bande dessinée noire et réaliste |
 
-#### Embasamento com a Pesquisa Google
+#### Ancrage avec la recherche Google
 
-Usar a Pesquisa Google para gerar imagens com base em informações recentes ou em tempo real.
-Isso é útil para notícias, clima e outros assuntos urgentes.
+Utilisez la recherche Google pour générer des images basées sur des informations récentes ou en temps réel.
+Cela s'avère utile pour les actualités, la météo et d'autres sujets urgents.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| Crie um gráfico simples, mas elegante, do jogo do Arsenal de ontem à noite na Liga dos Campeões | Gráfico de pontuação do Arsenal |
+| Crée un graphique simple, mais élégant, du match d'Arsenal d'hier soir en Ligue des champions. | Graphique des scores de football d&#39;Arsenal |
 
-### Comandos para editar imagens
+### Requêtes pour modifier des images
 
-Estes exemplos mostram como fornecer imagens junto com seus comandos de texto para edição, composição e transferência de estilo.
+Ces exemples montrent comment fournir des images en plus de vos requêtes textuelles pour l'édition, la composition et le transfert de style.
 
-#### Adicionar e remover elementos
+#### Ajouter et supprimer des éléments
 
-Forneça uma imagem e descreva a mudança. O modelo vai corresponder ao estilo, à iluminação e à perspectiva da imagem original.
+Fournissez une image et décrivez votre modification. Le modèle correspondra au style, à l'éclairage et à la perspective de l'image d'origine.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagem de entrada**:  Uma imagem fotorrealista de um gato ruivo fofo...   Imagem de entrada   **Comando**:usando a imagem fornecida do meu gato, adicione um pequeno chapéu de mago de tricô na cabeça dele. Faça com que pareça estar sentado confortavelmente e combine com a iluminação suave da foto. | Gato com chapéu de mago |
+| **Image d'entrée** :  Image photoréaliste d&#39;un chat roux duveteux…   Image d'entrée   **Requête** : À partir de l'image fournie de mon chat, veuillez ajouter un petit chapeau de sorcier tricoté sur sa tête. Faites en sorte qu'il semble assis confortablement et que l'éclairage corresponde à celui de la photo. | Chat avec un chapeau de sorcier |
 
-#### Retoque (mascaramento semântico)
+#### Remplissage (masquage sémantique)
 
-Defina uma "máscara" por conversa para editar uma parte específica de uma imagem sem alterar o restante.
+Définissez de manière conversationnelle un "masque" pour modifier une partie spécifique d'une image tout en laissant le reste intact.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagem de entrada**:  Uma tomada ampla de uma sala de estar moderna e bem iluminada...   Imagem de entrada   **Comando**:usando a imagem fornecida de uma sala de estar, mude apenas o sofá azul para um sofá chesterfield vintage de couro marrom. Mantenha o restante do ambiente, incluindo os travesseiros no sofá e a iluminação, inalterado. | Sala de estar com sofá de couro marrom |
+| **Image d'entrée** :  Un plan large d&#39;un salon moderne et bien éclairé…   Image d'entrée   **Requête** : À partir de l'image fournie d'un salon, remplace uniquement le canapé bleu par un canapé Chesterfield vintage en cuir marron. Ne modifiez pas le reste de la pièce, y compris les coussins sur le canapé et l'éclairage. | Salle de séjour avec un canapé en cuir marron |
 
-#### Transferência de estilo
+#### Transfert de style
 
-Forneça uma imagem e peça para o modelo recriar o conteúdo dela em um estilo artístico diferente.
+Fournissez une image et demandez au modèle de recréer son contenu dans un autre style artistique.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagem de entrada**:  Uma fotografia fotorrealista de alta resolução de uma rua movimentada...   Imagem de entrada   **Comando**:transforme a fotografia fornecida de uma rua moderna da cidade à noite no estilo artístico de "A Noite Estrelada", de Vincent van Gogh. Preserve a composição original de edifícios e carros, mas renderize todos os elementos com pinceladas giratórias e empastadas e uma paleta dramática de azuis profundos e amarelos brilhantes. | Rua da cidade no estilo Noite Estrelada |
+| **Image d'entrée** :  Photo haute résolution et photoréaliste d&#39;une rue animée d&#39;une ville…   Image d'entrée   **Requête** : Transforme la photo fournie d'une rue moderne en ville la nuit dans le style artistique de "La Nuit étoilée" de Vincent van Gogh. Conserve la composition d'origine des bâtiments et des voitures, mais rend tous les éléments avec des coups de pinceau tourbillonnants et empâtés, et une palette spectaculaire de bleus profonds et de jaunes vifs. | Rue de la ville dans le style de &quot;La Nuit étoilée&quot; |
 
-#### Composição avançada: combinar várias imagens
+#### Composition avancée : combiner plusieurs images
 
-Forneça várias imagens como contexto para criar uma cena nova e composta. Isso é perfeito para simulações de produtos ou colagens criativas.
+Fournissez plusieurs images comme contexte pour créer une nouvelle scène composite. C'est l'outil idéal pour les maquettes de produits ou les collages créatifs.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagens de entrada:**  Uma foto profissional de um vestido de verão azul com estampa floral...   Entrada 1: vestido   Foto de corpo inteiro de uma mulher com o cabelo preso em um coque...   Entrada 2: modelo   **Comando**:crie uma foto profissional de moda para e-commerce. Pegue o vestido floral azul da primeira imagem e deixe a mulher da segunda imagem usá-lo. Gere uma foto realista de corpo inteiro da mulher usando o vestido, com a iluminação e as sombras ajustadas para corresponder ao ambiente externo. | Foto de e-commerce de moda |
+| **Images d'entrée** :  Une photo professionnelle d&#39;une robe d&#39;été bleue à fleurs…   Entrée 1 : Robe   Photo en pied d&#39;une femme aux cheveux attachés en chignon…   Entrée 2 : Mannequin   **Requête** : Crée une photo de mode professionnelle pour l'e-commerce. Prends la robe à fleurs bleue de la première image et fais-la porter à la femme de la deuxième image. Génère une image réaliste de la femme portant la robe, avec l'éclairage et les ombres ajustés pour correspondre à l'environnement extérieur. | Photo de mode pour l&#39;e-commerce |
 
-#### Preservação de detalhes de alta fidelidade
+#### Préservation des détails haute fidélité
 
-Para garantir que detalhes importantes (como um rosto ou um logotipo) sejam preservados durante uma edição, descreva-os com muitos detalhes junto com sua solicitação de edição.
+Pour vous assurer que les détails importants (comme un visage ou un logo) sont conservés lors d'une modification, décrivez-les en détail dans votre demande de modification.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagens de entrada:**  Um retrato profissional de uma mulher com cabelo castanho e olhos azuis...   Entrada 1: mulher   Um logotipo simples e moderno com as letras &quot;G&quot; e &quot;A&quot;...   Entrada 2: logotipo   **Comando**:pegue a primeira imagem da mulher com cabelo castanho, olhos azuis e uma expressão neutra. Adicione o logo da segunda imagem à camiseta preta dela. Mantenha o rosto e as características da mulher completamente inalterados. O logotipo precisa parecer impresso naturalmente no tecido, seguindo as dobras da camisa. | Mulher com logotipo na camiseta |
+| **Images d'entrée** :  Un portrait professionnel d&#39;une femme aux cheveux bruns et aux yeux bleus…   Entrée 1 : Femme   Un logo simple et moderne avec les lettres &quot;G&quot; et &quot;A&quot;…   Entrée 2 : Logo   **Requête** : Prends la première image de la femme aux cheveux bruns, aux yeux bleus et à l'expression neutre. Ajoute le logo de la deuxième image sur son T-shirt noir. Assurez-vous que le visage et les traits de la femme restent complètement inchangés. Le logo doit avoir l'air d'être imprimé naturellement sur le tissu, en suivant les plis du t-shirt. | Femme portant un t-shirt avec un logo |
 
-#### Dar vida a algo
+#### Donner vie à quelque chose
 
-Faça upload de um esboço ou desenho e peça ao modelo para refinar e criar uma imagem finalizada.
+Importez une esquisse ou un dessin et demandez au modèle de le transformer en image finalisée.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagem de entrada**:  Esboço de um carro   Esboço de um carro   **Comando**:transforme este esboço a lápis de um carro futurista em uma foto polida do carro-conceito finalizado em um showroom. Mantenha as linhas elegantes e o perfil baixo do esboço, mas adicione tinta azul metálica e iluminação neon na borda. | Foto polida de um carro conceito |
+| **Image d'entrée** :  Croquis d&#39;une voiture   Croquis d'une voiture   **Requête** : Transforme ce croquis au crayon d'une voiture futuriste en photo soignée du concept car final dans un showroom. Conserve les lignes épurées et le profil bas de l'esquisse, mais ajoute une peinture bleu métallisé et un éclairage néon sur les jantes. | Photo retouchée d&#39;un concept car |
 
-#### Consistência de personagens: visualização em 360 graus
+#### Cohérence des personnages : vue à 360°
 
-É possível gerar visualizações de 360 graus de um personagem pedindo ângulos diferentes de forma iterativa. Para melhores resultados, inclua imagens geradas anteriormente em comandos subsequentes para manter a consistência. Para poses complexas, inclua uma imagem de referência da pose desejada.
+Vous pouvez générer des vues à 360 degrés d'un personnage en demandant de manière itérative différents angles. Pour de meilleurs résultats, incluez les images générées précédemment dans les requêtes suivantes afin de maintenir la cohérence. Pour les poses complexes, incluez une image de référence de la pose souhaitée.
 
-| **Comando** | **Saída gerada** |
+| **Prompt** (Requête) | **Résultat généré** |
 | --- | --- |
-| **Imagem de entrada**:  Entrada original de um homem com óculos brancos   Imagem original   **Comando**:um retrato de estúdio desse homem em um fundo branco, de perfil olhando para a direita | Saída de um homem de óculos brancos olhando para a direita   Homem de óculos brancos olhando para a direita   Saída de um homem com óculos brancos olhando para frente   Homem de óculos brancos olhando para frente |
+| **Image d'entrée** :  Entrée d&#39;origine d&#39;un homme portant des lunettes blanches   Image d'origine   **Prompt** : Portrait studio de cet homme sur fond blanc, de profil, regardant vers la droite | Sortie d&#39;un homme portant des lunettes blanches et regardant vers la droite   Homme portant des lunettes blanches et regardant vers la droite   Sortie d&#39;un homme portant des lunettes blanches et regardant droit devant lui   Homme portant des lunettes blanches et regardant vers l'avant |
 
-### Práticas recomendadas
+### Bonnes pratiques
 
-Para melhorar ainda mais seus resultados, incorpore estas estratégias profissionais ao seu fluxo de trabalho.
+Pour passer de bons à excellents résultats, intégrez ces stratégies professionnelles à votre workflow.
 
-- **Seja muito específico**:quanto mais detalhes você fornecer, mais controle terá. Em vez de "armadura de fantasia", descreva: "armadura de placas élfica ornamentada, gravada com padrões de folhas de prata, com uma gola alta e ombreiras em forma de asas de falcão".
-- **Forneça contexto e intenção**:explique o *propósito* da imagem. A compreensão do contexto pelo modelo influencia a saída final. Por exemplo, "Crie um logotipo para uma marca de skincare minimalista e sofisticada" vai gerar resultados melhores do que apenas "Crie um logotipo".
-- **Itere e refine**:não espere uma imagem perfeita na primeira tentativa. Use a natureza conversacional do modelo para fazer pequenas mudanças. Faça perguntas complementares como: "Ótimo, mas você pode deixar a iluminação um pouco mais quente?" ou "Mantenha tudo igual, mas mude a expressão do personagem para algo mais sério".
-- **Use instruções detalhadas**:para cenas complexas com muitos elementos, divida o comando em etapas. "Primeiro, crie um plano de fundo de uma floresta serena e enevoada ao amanhecer. Em seguida, em primeiro plano, adicione um altar de pedra antigo coberto de musgo.
-  Por fim, coloque uma espada brilhante em cima do altar".
-- **Use comandos negativos semânticos**: em vez de dizer "sem carros", descreva a cena desejada de forma positiva: "uma rua vazia e deserta, sem sinais de trânsito".
-- **Controle a câmera**:use linguagem fotográfica e cinematográfica para controlar a composição. Termos como `wide-angle shot`, `macro shot` e `low-angle
+- **Soyez très précis** : plus vous fournissez de détails, plus vous avez de contrôle. Au lieu de "armure fantastique", décrivez-la : "armure de plates elfique ornée, gravée de motifs en feuille d'argent, avec un col montant et des épaulières en forme d'ailes de faucon".
+- **Fournissez le contexte et l'intention** : expliquez la *finalité* de l'image. La compréhension du contexte par le modèle influencera le résultat final. Par exemple, « Crée un logo pour une marque de soins pour la peau haut de gamme et minimaliste » donnera de meilleurs résultats que « Crée un logo ».
+- **Répétez et affinez** : ne vous attendez pas à obtenir une image parfaite du premier coup. Utilisez la nature conversationnelle du modèle pour apporter de petites modifications. Faites un suivi avec des requêtes telles que "C'est super, mais peux-tu rendre l'éclairage un peu plus chaud ?" ou "Garde tout pareil, mais rends l'expression du personnage plus sérieuse".
+- **Utilisez des instructions détaillées** : pour les scènes complexes comportant de nombreux éléments, divisez votre requête en étapes. "Commence par créer un arrière-plan représentant une forêt sereine et brumeuse à l'aube. Ensuite, au premier plan, ajoutez un ancien autel de pierre recouvert de mousse.
+  Enfin, placez une épée lumineuse sur l'autel."
+- **Utilisez des requêtes négatives sémantiques** : au lieu de dire "pas de voitures", décrivez la scène souhaitée de manière positive : "une rue vide et désertée, sans aucun signe de circulation".
+- **Contrôlez la caméra** : utilisez un langage photographique et cinématographique pour contrôler la composition. Termes tels que `wide-angle shot`, `macro shot` et `low-angle
   perspective`.
 
-## Limitações
+## Limites
 
-- Para ter o melhor desempenho, use os seguintes idiomas: EN, ar-EG, de-DE, es-MX, fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
-- A geração de imagens não aceita entradas de áudio ou vídeo.
-- O modelo nem sempre segue o número exato de imagens que o usuário pede explicitamente.
-- O `gemini-2.5-flash-image` funciona melhor com até três imagens como entrada, enquanto o `gemini-3-pro-image-preview` aceita cinco imagens com alta fidelidade e até 14 imagens no total. O `gemini-3.1-flash-image-preview` oferece suporte à semelhança de até quatro caracteres e à fidelidade de até 10 objetos em um único fluxo de trabalho.
-- Ao gerar texto para uma imagem, o Gemini funciona melhor se você primeiro gerar o texto e depois pedir uma imagem com ele.
-- `gemini-3.1-flash-image-preview` No momento, o embasamento com a Pesquisa Google não é compatível com o uso de imagens de pessoas do mundo real na pesquisa na Web.
-- Todas as imagens geradas incluem uma [marca-d'água do SynthID](https://ai.google.dev/gemini-api/docs/marca-d'água do SynthID).
+- Pour des performances optimales, utilisez les langues suivantes : EN, ar-EG, de-DE, es-MX, fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
+- La génération d'images n'est pas compatible avec les entrées audio ou vidéo.
+- Le modèle ne suit pas toujours le nombre exact d'images de sortie que l'utilisateur demande explicitement.
+- `gemini-2.5-flash-image` fonctionne mieux avec un maximum de trois images en entrée, tandis que `gemini-3-pro-image-preview` accepte cinq images haute fidélité et jusqu'à 14 images au total. `gemini-3.1-flash-image-preview` accepte une ressemblance de caractères allant jusqu'à quatre caractères et une fidélité allant jusqu'à 10 objets dans un même workflow.
+- Lorsque vous générez du texte pour une image, Gemini fonctionne mieux si vous générez d'abord le texte, puis demandez une image avec le texte.
+- `gemini-3.1-flash-image-preview` L'ancrage avec la recherche Google ne permet pas d'utiliser des images de personnes réelles issues de la recherche sur le Web pour le moment.
+- Toutes les images générées incluent un [filigrane SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr).
 
-## Configurações opcionais
+## Configurations facultatives
 
-Você pode configurar as modalidades de resposta e a proporção da saída do modelo no campo `config` das chamadas `generate_content`.
+Vous pouvez éventuellement configurer les modalités de réponse et le format de la sortie du modèle dans le champ `config` des appels `generate_content`.
 
-### Tipos de saída
+### Types de sortie
 
-Por padrão, o modelo retorna respostas de texto e imagem (ou seja, `response_modalities=['Text', 'Image']`). Você pode configurar a resposta para retornar apenas imagens sem texto usando `response_modalities=['Image']`.
+Par défaut, le modèle renvoie des réponses textuelles et imagées (c'est-à-dire `response_modalities=['Text', 'Image']`). Vous pouvez configurer la réponse pour qu'elle ne renvoie que des images sans texte à l'aide de `response_modalities=['Image']`.
 
 ### Python
 
@@ -2130,11 +2116,10 @@ curl -s -X POST \
   }'
 ```
 
-### Proporções e tamanho da imagem
+### Formats et taille d'image
 
-Por padrão, o modelo corresponde o tamanho da imagem de saída ao da imagem de entrada ou gera quadrados 1:1.
-É possível controlar a proporção da imagem de saída usando o campo `aspect_ratio`
-em `image_config` na solicitação de resposta, mostrada aqui:
+Par défaut, le modèle fait correspondre la taille d'image de sortie à celle de votre image d'entrée, ou génère des carrés au format 1:1.
+Vous pouvez contrôler le format de l'image de sortie à l'aide du champ `aspect_ratio` sous `image_config` dans la demande de réponse, comme indiqué ici :
 
 ### Python
 
@@ -2287,82 +2272,83 @@ curl -s -X POST \
   }'
 ```
 
-As diferentes proporções disponíveis e o tamanho da imagem gerada estão listados nas tabelas a seguir:
+Les différents ratios disponibles et la taille de l'image générée sont listés dans les tableaux suivants :
 
-### 3.1 Prévia da imagem do Flash
+### 3.1 Aperçu de l'image Flash
 
-| Proporção | Resolução 512 | 0,5 mil tokens | Resolução 1K | 1.000 tokens | Resolução 2K | 2 mil tokens | Resolução 4K | 4 mil tokens |
+| Format | Résolution 512 | 500 jetons | Résolution 1K | 1 000 jetons | Résolution 2K | 2 000 jetons | Résolution 4K | 4 000 jetons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2.048 x 2.048 | 1680 | 4096x4096 | 2520 |
-| **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2.048 x 8.192 | 2520 |
-| **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
-| **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
-| **3:2** | 632x424 | 747 | 1264x848 | 1120 | 2.528 x 1.696 | 1680 | 5056x3392 | 2520 |
-| **3:4** | 448x600 | 747 | 896x1200 | 1120 | 1792x2400 | 1680 | 3584x4800 | 2520 |
-| **4:1** | 1024x256 | 747 | 2048x512 | 1120 | 4096x1024 | 1680 | 8.192 x 2.048 | 2520 |
-| **4:3** | 600x448 | 747 | 1200x896 | 1120 | 2400x1792 | 1680 | 4800x3584 | 2520 |
-| **4:5** | 464x576 | 747 | 928x1152 | 1120 | 1856x2304 | 1680 | 3712x4608 | 2520 |
-| **5:4** | 576x464 | 747 | 1152x928 | 1120 | 2304x1856 | 1680 | 4.608 x 3.712 | 2520 |
-| **8:1** | 1536x192 | 747 | 3072x384 | 1120 | 6144x768 | 1680 | 12288x1536 | 2520 |
-| **9:16** | 384x688 | 747 | 768 x 1.376 | 1120 | 1536x2752 | 1680 | 3072x5504 | 2520 |
-| **16:9** | 688x384 | 747 | 1376x768 | 1120 | 2752x1536 | 1680 | 5504x3072 | 2520 |
-| **21:9** | 792x168 | 747 | 1584x672 | 1120 | 3168x1344 | 1680 | 6336x2688 | 2520 |
+| **1:1** | 512 x 512 | 747 | 1024x1024 | 1120 | 2048 x 2048 | 1680 | 4 096 x 4 096 | 2520 |
+| **1:4** | 256 x 1 024 | 747 | 512 x 2 048 | 1120 | 1024x4096 | 1680 | 2048 x 8192 | 2520 |
+| **1:8** | 192x1536 | 747 | 384 x 3 072 | 1120 | 768 x 6 144 | 1680 | 1536 x 12288 | 2520 |
+| **2:3** | 424 x 632 | 747 | 848 x 1 264 | 1120 | 1696 x 2528 | 1680 | 3392 x 5056 | 2520 |
+| **3:2** | 632 x 424 | 747 | 1 264 x 848 | 1120 | 2528 x 1696 | 1680 | 5056 x 3392 | 2520 |
+| **3:4** | 448 x 600 | 747 | 896 x 1200 | 1120 | 1792x2400 | 1680 | 3584 x 4800 | 2520 |
+| **4:1** | 1024x256 | 747 | 2048 x 512 | 1120 | 4 096 x 1 024 | 1680 | 8192 x 2048 | 2520 |
+| **4:3** | 600 x 448 | 747 | 1 200 x 896 | 1120 | 2400x1792 | 1680 | 4 800 x 3 584 | 2520 |
+| **4:5** | 464 x 576 | 747 | 928 x 1 152 | 1120 | 1856 x 2304 | 1680 | 3712 x 4608 | 2520 |
+| **5:4** | 576 x 464 | 747 | 1152x928 | 1120 | 2304 x 1856 | 1680 | 4608 x 3712 | 2520 |
+| **8:1** | 1536x192 | 747 | 3072 x 384 | 1120 | 6 144 x 768 | 1680 | 12288x1536 | 2520 |
+| **9:16** | 384 x 688 | 747 | 768 x 1 376 | 1120 | 1 536 x 2 752 | 1680 | 3072 x 5504 | 2520 |
+| **16:9** | 688x384 | 747 | 1 376 x 768 | 1120 | 2752 x 1536 | 1680 | 5504 x 3072 | 2520 |
+| **21:9** | 792 x 168 | 747 | 1 584 x 672 | 1120 | 3168x1344 | 1680 | 6336 x 2688 | 2520 |
 
-### Visualização de imagem do 3 Pro
+### Aperçu de l'image 3 Pro
 
-| Proporção | Resolução 1K | 1.000 tokens | Resolução 2K | 2 mil tokens | Resolução 4K | 4 mil tokens |
+| Format | Résolution 1K | 1 000 jetons | Résolution 2K | 2 000 jetons | Résolution 4K | 4 000 jetons |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2.048 x 2.048 | 1120 | 4096x4096 | 2000 |
-| **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
-| **3:2** | 1264x848 | 1120 | 2.528 x 1.696 | 1120 | 5056x3392 | 2000 |
-| **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
-| **4:3** | 1200x896 | 1120 | 2400x1792 | 1120 | 4800x3584 | 2000 |
-| **4:5** | 928x1152 | 1120 | 1856x2304 | 1120 | 3712x4608 | 2000 |
-| **5:4** | 1152x928 | 1120 | 2304x1856 | 1120 | 4.608 x 3.712 | 2000 |
-| **9:16** | 768 x 1.376 | 1120 | 1536x2752 | 1120 | 3072x5504 | 2000 |
-| **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
-| **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4 096 x 4 096 | 2000 |
+| **2:3** | 848 x 1 264 | 1120 | 1696 x 2528 | 1120 | 3392 x 5056 | 2000 |
+| **3:2** | 1 264 x 848 | 1120 | 2528 x 1696 | 1120 | 5056 x 3392 | 2000 |
+| **3:4** | 896 x 1200 | 1120 | 1792x2400 | 1120 | 3584 x 4800 | 2000 |
+| **4:3** | 1 200 x 896 | 1120 | 2400x1792 | 1120 | 4 800 x 3 584 | 2000 |
+| **4:5** | 928 x 1 152 | 1120 | 1856 x 2304 | 1120 | 3712 x 4608 | 2000 |
+| **5:4** | 1152x928 | 1120 | 2304 x 1856 | 1120 | 4608 x 3712 | 2000 |
+| **9:16** | 768 x 1 376 | 1120 | 1 536 x 2 752 | 1120 | 3072 x 5504 | 2000 |
+| **16:9** | 1 376 x 768 | 1120 | 2752 x 1536 | 1120 | 5504 x 3072 | 2000 |
+| **21:9** | 1 584 x 672 | 1120 | 3168x1344 | 1120 | 6336 x 2688 | 2000 |
 
-### Imagem do Gemini 2.5 Flash
+### Gemini 2.5 Flash Image
 
-| Proporção | Resolução | Tokens |
+| Format | Solution | Jetons |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
-| 2:3 | 832x1248 | 1290 |
-| 3:2 | 1248x832 | 1290 |
-| 3:4 | 864x1184 | 1290 |
-| 4:3 | 1184x864 | 1290 |
-| 4:5 | 896x1152 | 1290 |
+| 2:3 | 832 x 1 248 | 1290 |
+| 3:2 | 1 248 x 832 | 1290 |
+| 3:4 | 864 x 1 184 | 1290 |
+| 4:3 | 1 184 x 864 | 1290 |
+| 4:5 | 896 x 1 152 | 1290 |
 | 5:4 | 1152x896 | 1290 |
-| 9:16 | 768x1344 | 1290 |
+| 9:16 | 768 x 1 344 | 1290 |
 | 16:9 | 1344x768 | 1290 |
-| 21:9 | 1536x672 | 1290 |
+| 21:9 | 1 536 x 672 | 1290 |
 
-## Seleção de modelos
+## Sélection du modèle
 
-Escolha o modelo mais adequado ao seu caso de uso específico.
+Choisissez le modèle le mieux adapté à votre cas d'utilisation spécifique.
 
-- O **pré-lançamento do Gemini 3.1 Flash Image (pré-lançamento do Nano Banana 2)** é o modelo de geração de imagens ideal, já que oferece o melhor desempenho geral e equilíbrio entre inteligência, custo e latência. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/preços) e [recursos](https://ai.google.dev/gemini-api/docs/recursos) do modelo.
-- O **pré-lançamento do Gemini 3 Pro Image (pré-lançamento do Nano Banana Pro)** foi criado para
-  produção de recursos profissionais e instruções complexas. Esse modelo tem embasamento no mundo real usando a Pesquisa Google, um processo padrão de "Raciocínio" que aprimora a composição antes da geração e pode gerar imagens com resoluções de até 4K. Confira mais detalhes na página de [preços](https://ai.google.dev/gemini-api/docs/preços) e [recursos](https://ai.google.dev/gemini-api/docs/recursos) do modelo.
-- O **Gemini 2.5 Flash Image (Nano Banana)** foi projetado para ser rápido e eficiente. Ele é otimizado para tarefas de alto volume e baixa latência e gera imagens com resolução de 1024 px. Confira a página de [preços](https://ai.google.dev/gemini-api/docs/preços) e [recursos](https://ai.google.dev/gemini-api/docs/recursos) do modelo para mais detalhes.
+- **Gemini 3.1 Flash Image Preview (Nano Banana 2 Preview)** devrait être votre modèle de génération d'images de référence, car il offre le meilleur équilibre entre performances globales, intelligence, coût et latence. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.1-flash-image-preview) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=fr) des modèles.
+- **Gemini 3 Pro Image (version preview de Nano Banana Pro)** est conçu pour la production d'assets professionnels et les instructions complexes. Ce modèle est ancré dans le monde réel grâce à la recherche Google. Il dispose d'un processus de "Raisonnement" par défaut qui affine la composition avant la génération et peut générer des images d'une résolution allant jusqu'à 4K. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3-pro-image-preview) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=fr) des modèles.
+- **Gemini 2.5 Flash Image (Nano Banana)** est conçu pour la rapidité et l'efficacité. Ce modèle est optimisé pour les tâches à faible latence et à volume élevé. Il génère des images d'une résolution de 1 024 px. Pour en savoir plus, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-2.5-flash-image) et [Fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr) des modèles.
 
-### Quando usar o Imagen
+### Quand utiliser Imagen ?
 
-Além de usar os recursos integrados de geração de imagens do Gemini, você também pode acessar o [Imagen](https://ai.google.dev/gemini-api/docs/Imagen), nosso modelo especializado de geração de imagens, pela API Gemini.
+En plus d'utiliser les fonctionnalités de génération d'images intégrées à Gemini, vous pouvez également accéder à [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr), notre modèle spécialisé de génération d'images, via l'API Gemini.
 
-O Imagen 4 é o modelo ideal para começar a gerar imagens com o Imagen. Escolha o Imagen 4 Ultra para casos de uso avançados ou quando você precisar da melhor qualidade de imagem (observe que só é possível gerar uma imagem por vez).
+Imagen 4 doit être votre modèle de référence lorsque vous commencez à générer des images avec Imagen. Choisissez Imagen 4 Ultra pour les cas d'utilisation avancés ou lorsque vous avez besoin de la meilleure qualité d'image (notez que vous ne pouvez générer qu'une seule image à la fois).
 
-## A seguir
+## Étape suivante
 
-- Encontre mais exemplos e amostras de código no [guia de receitas](https://ai.google.dev/gemini-api/docs/guia de receitas).
-- Confira o [guia do Veo](https://ai.google.dev/gemini-api/docs/guia do Veo) para saber como gerar vídeos com a API Gemini.
-- Para saber mais sobre os modelos do Gemini, consulte [Modelos do Gemini](https://ai.google.dev/gemini-api/docs/Modelos do Gemini).
+- Vous trouverez d'autres exemples et extraits de code dans le [guide du livre de recettes](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=fr).
+- Consultez le [guide Veo](https://ai.google.dev/gemini-api/docs/video?hl=fr) pour découvrir comment générer des vidéos avec l'API Gemini.
+- Pour en savoir plus sur les modèles Gemini, consultez [Modèles Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr).
 
-Envie comentários
+Envoyer des commentaires
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://ai.google.dev/gemini-api/docs/Licença de atribuição 4.0 do Creative Commons), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://ai.google.dev/gemini-api/docs/Licença Apache 2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://ai.google.dev/gemini-api/docs/políticas do site do Google Developers). Java é uma marca registrada da Oracle e/ou afiliadas.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Última atualização 2026-04-29 UTC.
+Dernière mise à jour le 2026/04/29 (UTC).
 
-Quer enviar seu feedback?
+Voulez-vous nous donner plus d'informations ?
+
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

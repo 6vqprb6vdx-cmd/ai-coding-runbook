@@ -1,39 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=th
-fetched_at: 2026-05-05T13:09:46.990732+00:00
-title: "\u0e42\u0e21\u0e40\u0e14\u0e25 Gemini Embedding 2 (\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e19\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=es-419
+fetched_at: 2026-05-11T12:37:35.758584+00:00
+title: "Modelo de Gemini Embedding 2 en versi\u00f3n preliminar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/models/Gemini Deep Research) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-- [หน้าแรก](https://ai.google.dev/gemini-api/docs/models/หน้าแรก)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/models/Gemini API)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-ส่งความคิดเห็น
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# โมเดล Gemini Embedding 2 (เวอร์ชันตัวอย่าง)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
 
-โมเดลการฝังแบบหลายรูปแบบตัวแรกของเรา ซึ่งให้การแมปตัวเลขที่มีประสิทธิภาพของ
-ข้อความ รูปภาพ วิดีโอ เสียง และ PDF ลงในพื้นที่การฝังแบบรวมเดียว โมเดล Gemini Embedding 2 เหมาะที่สุดสำหรับการค้นหาเชิงความหมายแบบข้ามโมดอล การดึงข้อมูลเอกสาร และระบบคำแนะนำที่ต้องมีการคำนวณความคล้ายคลึงที่รวดเร็วและปรับขนาดได้ในชุดข้อมูลมัลติโมดอลขนาดใหญ่
+Enviar comentarios
 
-## เอกสารประกอบ
+# Modelo de Gemini Embedding 2 en versión preliminar
 
-ไปที่หน้า[การฝัง](https://ai.google.dev/gemini-api/docs/models/การฝัง)เพื่อดูฟีเจอร์และความสามารถทั้งหมด
+Nuestro primer modelo de embedding multimodal, que proporciona una asignación numérica eficiente de texto, imágenes, video, audio y archivos PDF en un solo espacio de embedding unificado. El modelo Gemini Embedding 2 es ideal para la búsqueda semántica intermodal, la recuperación de documentos y los sistemas de recomendación que requieren cálculos de similitud rápidos y escalables en grandes conjuntos de datos multimodales.
+
+## Documentación
+
+Visita la página [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419) para obtener una cobertura completa
+de las funciones y capacidades.
 
 ## gemini-embedding-2-preview
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| Propiedad | Descripción |
 | --- | --- |
-| รหัสโมเดล id\_card | **Gemini API**  `gemini-embedding-2-preview` |
-| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ, รูปภาพ, วิดีโอ, เสียง, PDF  **เอาต์พุต**  การฝังข้อความ |
-| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  8,192  **ขนาดมิติข้อมูลเอาต์พุต**  ยืดหยุ่น รองรับ: 128 - 3072, แนะนำ: 768, 1536, 3072 |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/รูปแบบเวอร์ชันของโมเดล)  - ตัวอย่าง: `gemini-embedding-2-preview` |
-| calendar\_monthการอัปเดตล่าสุด | มีนาคม 2026 |
+| id\_cardCódigo del modelo | **API de Gemini**  `gemini-embedding-2-preview` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen, video, audio, PDF  **Resultado**  Incorporaciones de texto |
+| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  8,192  **Tamaño de la dimensión de salida**  Flexible, admite: 128 - 3072, recomendado: 768, 1536, 3072 |
+| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Vista previa: `gemini-embedding-2-preview` |
+| calendar\_monthÚltima actualización | Marzo de 2026 |
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://ai.google.dev/gemini-api/docs/models/ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://ai.google.dev/gemini-api/docs/models/ใบอนุญาต Apache 2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://ai.google.dev/gemini-api/docs/models/นโยบายเว็บไซต์ Google Developers) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-อัปเดตล่าสุด 2026-04-29 UTC
+Última actualización: 2026-04-29 (UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+¿Quieres brindar más información?
+
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]

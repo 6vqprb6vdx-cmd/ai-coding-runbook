@@ -1,39 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ko
-fetched_at: 2026-05-05T13:09:30.890019+00:00
-title: "Lyria RealTime\uc744 \uc0ac\uc6a9\ud55c \uc2e4\uc2dc\uac04 \uc74c\uc545 \uc0dd\uc131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=th
+fetched_at: 2026-05-11T12:37:15.602010+00:00
+title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e1e\u0e25\u0e07\u0e41\u0e1a\u0e1a\u0e40\u0e23\u0e35\u0e22\u0e25\u0e44\u0e17\u0e21\u0e4c\u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-- [홈](https://ai.google.dev/gemini-api/docs/홈)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [문서](https://ai.google.dev/gemini-api/docs/문서)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-의견 보내기
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Lyria RealTime을 사용한 실시간 음악 생성
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-[Lyria RealTime](https://ai.google.dev/gemini-api/docs/Lyria RealTime)을 사용하는 Gemini API는 최첨단의 실시간 스트리밍 음악
-생성 모델에 대한 액세스를 제공합니다. 이를 통해 개발자는 사용자가 악기 음악을 대화형으로 만들고, 지속적으로 조작하고, 연주할 수 있는 애플리케이션을 빌드할 수 있습니다.
+ส่งความคิดเห็น
 
-Lyria RealTime 음악 생성은 WebSocket을 사용하여 지속적인 양방향,
-저지연 스트리밍 연결을 사용합니다.
-[WebSocket](https://ai.google.dev/gemini-api/docs/WebSocket).
+# การสร้างเพลงแบบเรียลไทม์โดยใช้ Lyria RealTime
 
-[[Lyria RealTime을 사용하여 빌드할 수 있는 기능을 경험하려면 프롬프트 DJ 또는 MIDI DJ 앱을 사용하여 AI Studio
-에서 사용해 보세요.](https://ai.google.dev/gemini-api/docs/[Lyria RealTime을 사용하여 빌드할 수 있는 기능을 경험하려면 프롬프트 DJ 또는 MIDI DJ 앱을 사용하여 AI Studio에서 사용해 보세요.)](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=ko)
+Gemini API ซึ่งใช้ [Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=th)
+ช่วยให้เข้าถึงโมเดลการสร้างเพลงแบบสตรีมมิงแบบเรียลไทม์ที่ล้ำสมัย
+โดยช่วยให้นักพัฒนาแอปสร้างแอปพลิเคชันที่ผู้ใช้
+สามารถสร้างแบบอินเทอร์แอกทีฟ ควบคุมอย่างต่อเนื่อง และเล่นดนตรี
+บรรเลงได้
 
-## 음악 생성 및 제어
+การสร้างเพลงแบบเรียลไทม์ของ Lyria ใช้การเชื่อมต่อสตรีมมิงแบบ 2 ทิศทางที่มีความหน่วงต่ำอย่างต่อเนื่องโดยใช้ [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 
-Lyria RealTime은 [Live API](https://ai.google.dev/gemini-api/docs/Live API)
-와 유사하게 작동하며, WebSocket을 사용하여 모델과의 실시간 통신을 유지합니다.
+หากต้องการสัมผัสสิ่งที่สร้างขึ้นได้โดยใช้ Lyria RealTime ให้ลองใช้ใน AI Studio โดยใช้แอป [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=th) หรือ [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=th)
 
-다음 코드는 음악을 생성하는 방법을 보여줍니다.
+## สร้างและควบคุมเพลง
+
+Lyria RealTime ทำงานคล้ายกับ [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
+โดยใช้ WebSockets เพื่อรักษาการสื่อสารแบบเรียลไทม์กับโมเดล
+
+โค้ดต่อไปนี้แสดงวิธีสร้างเพลง
 
 ### Python
 
-이 예에서는 `client.aio.live.music.connect()`를 사용하여 Lyria RealTime 세션을 초기화한 다음, `session.set_weighted_prompts()`를 사용하여 초기 프롬프트를 `session.set_music_generation_config`를 사용하는 초기 구성과 함께 전송하고, `session.play()`를 사용하여 음악 생성을 시작하고, 수신하는 오디오 청크를 처리하도록 `receive_audio()`를 설정합니다.
+ตัวอย่างนี้จะเริ่มต้นเซสชัน Lyria RealTime โดยใช้ `client.aio.live.music.connect()` จากนั้นจะส่งข้อความแจ้งเริ่มต้นพร้อมกับ `session.set_weighted_prompts()` รวมถึงการกำหนดค่าเริ่มต้นโดยใช้ `session.set_music_generation_config` เริ่มการสร้างเพลงโดยใช้ `session.play()` และตั้งค่า `receive_audio()` เพื่อประมวลผลกลุ่มเสียงที่ได้รับ
 
 ```
   import asyncio
@@ -76,7 +80,11 @@ Lyria RealTime은 [Live API](https://ai.google.dev/gemini-api/docs/Live API)
 
 ### JavaScript
 
-이 예에서는 `client.live.music.connect()`를 사용하여 Lyria RealTime 세션을 초기화한 다음, `session.setWeightedPrompts()`를 사용하여 초기 프롬프트를 `session.setMusicGenerationConfig`를 사용하는 초기 구성과 함께 전송하고, `session.play()`를 사용하여 음악 생성을 시작하고, 수신하는 오디오 청크를 처리하도록 `onMessage` 콜백을 설정합니다.
+ตัวอย่างนี้จะเริ่มต้นเซสชัน Lyria RealTime โดยใช้
+`client.live.music.connect()` จากนั้นจะส่ง
+พรอมต์เริ่มต้นพร้อมกับ `session.setWeightedPrompts()` รวมถึง
+การกำหนดค่าเริ่มต้นโดยใช้ `session.setMusicGenerationConfig` เริ่มการสร้างเพลงโดยใช้ `session.play()` และตั้งค่า
+การเรียกกลับ `onMessage` เพื่อประมวลผลกลุ่มเสียงที่ได้รับ
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -132,18 +140,20 @@ async function main() {
 main().catch(console.error);
 ```
 
-그런 다음 `session.play()`, `session.pause()`, `session.stop()` 및 `session.reset_context()`를 사용하여 세션을 시작, 일시중지, 중지 또는 재설정할 수 있습니다.
+จากนั้นคุณสามารถใช้ `session.play()`, `session.pause()`, `session.stop()` และ
+`session.reset_context()` เพื่อเริ่ม หยุดชั่วคราว หยุด หรือรีเซ็ตเซสชัน
 
-## 실시간으로 음악 조작
+## ควบคุมเพลงแบบเรียลไทม์
 
-프롬프트를 전송하고 생성 매개변수를 실시간으로 업데이트하여 음악 생성을 실시간으로 조작할 수 있습니다.
+คุณสามารถควบคุมการสร้างเพลงแบบเรียลไทม์ได้โดยส่งพรอมต์และอัปเดต
+พารามิเตอร์การสร้างแบบเรียลไทม์
 
-### Lyria RealTime 프롬프트
+### พรอมต์ Lyria RealTime
 
-스트림이 활성 상태인 동안 언제든지 새 `WeightedPrompt` 메시지를 전송하여 생성된 음악을 변경할 수 있습니다. 모델은 새 입력에 따라 원활하게 전환됩니다.
+ขณะที่ไลฟ์สดอยู่ คุณจะส่ง`WeightedPrompt`ข้อความใหม่ได้ทุกเมื่อเพื่อเปลี่ยนเพลงที่สร้างขึ้น โมเดลจะเปลี่ยนไปอย่างราบรื่นตามข้อมูลใหม่
 
-프롬프트는 `text` (실제 프롬프트) 및 `weight`를 사용하여 올바른 형식을 따라야 합니다. `weight`는 `0`을 제외한 모든 값을 사용할 수 있습니다. `1.0`
-이 일반적으로 좋은 시작점입니다.
+พรอมต์ต้องเป็นไปตามรูปแบบที่ถูกต้องโดยมี `text` (พรอมต์จริง) และ `weight` `weight` สามารถใช้ค่าใดก็ได้ยกเว้น `0` `1.0`
+มักเป็นจุดเริ่มต้นที่ดี
 
 ### Python
 
@@ -170,13 +180,16 @@ main().catch(console.error);
   });
 ```
 
-프롬프트를 크게 변경하면 모델 전환이 다소 갑작스러울 수 있으므로 중간 가중치 값을 모델에 전송하여 일종의 크로스페이딩을 구현하는 것이 좋습니다.
+โปรดทราบว่าการเปลี่ยนโมเดลอาจเกิดขึ้นอย่างกะทันหันเมื่อเปลี่ยนพรอมต์อย่างมาก
+จึงขอแนะนำให้ใช้การเฟดข้ามประเภทหนึ่งโดย
+ส่งค่าถ่วงน้ำหนักกลางไปยังโมเดล
 
-### 구성 업데이트
+### อัปเดตการกำหนดค่า
 
-음악 생성 매개변수를 실시간으로 업데이트하여 음악 생성을 조작할 수 있습니다. 매개변수를 업데이트할 수만 있는 것이 아니라 전체 구성을 설정해야 합니다. 그렇지 않으면 다른 필드가 기본값으로 재설정됩니다.
+คุณสามารถควบคุมการสร้างเพลงได้โดยการอัปเดตพารามิเตอร์การสร้างเพลงแบบเรียลไทม์ คุณจะอัปเดตเฉพาะพารามิเตอร์ไม่ได้ แต่ต้องตั้งค่าทั้ง
+การกำหนดค่า มิเช่นนั้นระบบจะรีเซ็ตช่องอื่นๆ กลับเป็นค่าเริ่มต้น
 
-bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 새 구성을 고려하도록 `reset_context()`를 사용하여 컨텍스트를 재설정하도록 모델에 지시해야 합니다. 스트림이 중지되지는 않지만 전환이 어려울 수 있습니다. 다른 매개변수에는 이 작업을 할 필요가 없습니다.
+เนื่องจากการอัปเดต bpm หรือสเกลเป็นการเปลี่ยนแปลงที่รุนแรงสำหรับโมเดล คุณจึงต้องบอกให้รีเซ็ตบริบทโดยใช้ `reset_context()` เพื่อนำการกำหนดค่าใหม่มาพิจารณาด้วย การดำเนินการนี้จะไม่หยุดสตรีม แต่จะเป็นการเปลี่ยนฉากแบบฮาร์ด คุณไม่จำเป็นต้องทำสำหรับพารามิเตอร์อื่นๆ
 
 ### Python
 
@@ -206,11 +219,11 @@ bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 
   await session.reset_context();
 ```
 
-## Lyria RealTime 프롬프트 가이드
+## คู่มือการใช้พรอมต์สำหรับ Lyria RealTime
 
-다음은 Lyria RealTime에 프롬프트를 작성하는 데 사용할 수 있는 프롬프트의 전체 목록입니다.
+ต่อไปนี้คือรายการพรอมต์โดยสังเขปที่คุณใช้เพื่อพรอมต์ Lyria RealTime ได้
 
-- 악기: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
+- เครื่องดนตรี: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
   Bagpipes, Balalaika Ensemble, Banjo, Bass Clarinet, Bongos, Boomy Bass,
   Bouzouki, Buchla Synths, Cello, Charango, Clavichord, Conga Drums,
   Didgeridoo, Dirty Synths, Djembe, Drumline, Dulcimer, Fiddle, Flamenco
@@ -221,7 +234,7 @@ bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 
   Guitar, Sitar, Slide Guitar, Smooth Pianos, Spacey Synths, Steel Drum, Synth
   Pads, Tabla, TR-909 Drum Machine, Trumpet, Tuba, Vibraphone, Viola Ensemble,
   Warm Acoustic Guitar, Woodwinds, ...`
-- 음악 장르: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
+- ประเภทเพลง: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
   Bhangra, Bluegrass, Blues Rock, Bossa Nova, Breakbeat, Celtic Folk, Chillout,
   Chiptune, Classic Rock, Contemporary R&B, Cumbia, Deep House, Disco Funk,
   Drum & Bass, Dubstep, EDM, Electro Swing, Funk Metal, G-funk, Garage Rock,
@@ -232,106 +245,131 @@ bpm 또는 스케일을 업데이트하는 것은 모델에 큰 변화이므로 
   Rock, Psytrance, R&B, Reggae, Reggaeton, Renaissance Music, Salsa, Shoegaze,
   Ska, Surf Rock, Synthpop, Techno, Trance, Trap Beat, Trip Hop, Vaporwave,
   Witch house, ...`
-- 분위기/설명: `Acoustic Instruments, Ambient, Bright Tones, Chill,
+- อารมณ์/คำอธิบาย: `Acoustic Instruments, Ambient, Bright Tones, Chill,
   Crunchy Distortion, Danceable, Dreamy, Echo, Emotional, Ethereal Ambience,
   Experimental, Fat Beats, Funky, Glitchy Effects, Huge Drop, Live Performance,
   Lo-fi, Ominous Drone, Psychedelic, Rich Orchestration, Saturated Tones,
   Subdued Melody, Sustained Chords, Swirling Phasers, Tight Groove,
   Unsettling, Upbeat, Virtuoso, Weird Noises, ...`
 
-이러한 예 외에도 Lyria RealTime은 훨씬 더 많은 작업을 할 수 있습니다. 자체 프롬프트를 실험해 보세요.
+นี่เป็นเพียงตัวอย่างบางส่วนเท่านั้น Lyria RealTime ทำได้มากกว่านี้ ทดลอง
+กับพรอมต์ของคุณเอง
 
-## 권장사항
+## แนวทางปฏิบัติแนะนำ
 
-- 클라이언트 애플리케이션은 원활한 재생을 보장하기 위해 강력한 오디오 버퍼링을 구현해야 합니다. 이렇게 하면 네트워크 지터와 생성 지연 시간의 약간의 변동을 고려하는 데 도움이 됩니다.
-- 효과적인 프롬프트 작성:
-  - 자세히 설명합니다. 분위기, 장르, 악기를 설명하는 형용사를 사용합니다.
-  - 점진적으로 반복하고 조작합니다. 프롬프트를 완전히 변경하는 대신 요소를 추가하거나 수정하여 음악을 더 원활하게 변형해 보세요.
-  - `WeightedPrompt`의 가중치를 실험하여 새 프롬프트가 진행 중인 생성에 미치는 영향을 조정합니다.
+- แอปพลิเคชันไคลเอ็นต์ต้องใช้การบัฟเฟอร์เสียงที่มีประสิทธิภาพเพื่อให้
+  การเล่นเป็นไปอย่างราบรื่น ซึ่งจะช่วยอธิบายถึงความผันผวนของเครือข่ายและความแตกต่างเล็กน้อยใน
+  เวลาในการตอบสนองของการสร้าง
+- การใช้พรอมต์อย่างมีประสิทธิภาพ
+  - สื่อความหมาย ใช้คำคุณศัพท์ที่อธิบายอารมณ์ แนวเพลง และเครื่องดนตรี
+  - ทำซ้ำและค่อยๆ ปรับเปลี่ยน แทนที่จะเปลี่ยนพรอมต์ทั้งหมด
+    ให้ลองเพิ่มหรือแก้ไของค์ประกอบเพื่อเปลี่ยนเพลงให้ราบรื่นยิ่งขึ้น
+  - ทดลองใช้ค่าถ่วงน้ำหนักใน `WeightedPrompt` เพื่อกำหนดว่าพรอมต์ใหม่จะส่งผลต่อการสร้างที่กำลังดำเนินอยู่อย่างไร
 
-## 기술 세부정보
+## รายละเอียดทางเทคนิค
 
-이 섹션에서는 Lyria RealTime 음악 생성 사용 방법에 관한 세부정보를 설명합니다.
+ส่วนนี้จะอธิบายรายละเอียดเกี่ยวกับวิธีใช้การสร้างเพลงด้วย Lyria RealTime
 
-### 사양
+### ข้อกำหนดเฉพาะ
 
-- 출력 형식: 원시 16비트 PCM 오디오
-- 샘플링 레이트: 48kHz
-- 채널: 2 (스테레오)
+- รูปแบบเอาต์พุต: เสียง PCM 16 บิตแบบดิบ
+- อัตราการสุ่มตัวอย่าง: 48 kHz
+- ช่องสัญญาณ: 2 (สเตอริโอ)
 
-### 컨트롤
+### การควบคุม
 
-음악 생성은 다음을 포함하는 메시지를 전송하여 실시간으로 영향을 받을 수 있습니다.
+การสร้างเพลงสามารถรับอิทธิพลแบบเรียลไทม์ได้โดยการส่งข้อความที่มีเนื้อหาต่อไปนี้
 
-- `WeightedPrompt`: 음악적 아이디어, 장르, 악기, 분위기 또는 특징을 설명하는 텍스트 문자열입니다. 영향을 혼합하기 위해 여러 프롬프트가 제공될 수 있습니다. Lyria RealTime에 프롬프트를 작성하는 가장 좋은 방법에 관한 자세한 내용은 [위](https://ai.google.dev/gemini-api/docs/위)를 참고하세요.
-- `MusicGenerationConfig`: 음악 생성 프로세스의 구성으로, 출력 오디오의 특징에 영향을 미칩니다. 매개변수는 다음과 같습니다.
-  - `guidance`: (float) 범위: `[0.0, 6.0]`. 기본값: `4.0`.
-    모델이 프롬프트를 얼마나 엄격하게 따르는지 제어합니다. 안내 값이 높을수록 프롬프트 준수가 개선되지만 전환이 더 갑작스러워집니다.
-  - `bpm`: (int) 범위: `[60, 200]`.
-    생성된 음악에 원하는 분당 비트를 설정합니다. 모델이 새 bpm을 고려하도록 컨텍스트를 중지/재생하거나 재설정해야 합니다.
-  - `density`: (float) 범위: `[0.0, 1.0]`.
-    음악적 음표/사운드의 밀도를 제어합니다. 값이 낮을수록 음악이 더 희소해지고 값이 높을수록 '더 바쁜' 음악이 생성됩니다.
-  - `brightness`: (float) 범위: `[0.0, 1.0]`.
-    음색 품질을 조정합니다. 값이 높을수록 '더 밝은' 사운드 오디오가 생성되며 일반적으로 높은 주파수를 강조합니다.
-  - `scale`: (Enum) 생성을 위한 음악적 스케일 (키 및 모드)을 설정합니다. SDK에서 제공하는
-    [`Scale` enum 값을](https://ai.google.dev/gemini-api/docs/`Scale` enum 값을) 사용합니다. 모델이 새 스케일을 고려하도록 컨텍스트를 중지/재생하거나 재설정해야 합니다.
-  - `mute_bass`: (bool) 기본값: `False`.
-    모델이 출력의 베이스를 줄이는지 여부를 제어합니다.
-  - `mute_drums`: (bool) 기본값: `False`.
-    모델 출력이 출력의 드럼을 줄이는지 여부를 제어합니다.
-  - `only_bass_and_drums`: (bool) 기본값: `False`.
-    베이스와 드럼만 출력하도록 모델을 조작합니다.
-  - `music_generation_mode`: (Enum) 모델에 음악의 `QUALITY` (기본값) 또는 `DIVERSITY`에 집중해야 하는지 나타냅니다. 모델이 보컬을 다른 악기로 생성하도록 `VOCALIZATION`으로 설정할 수도 있습니다 (새 프롬프트로 추가).
-- `PlaybackControl`: 재생, 일시중지, 중지 또는 컨텍스트 재설정과 같은 재생 측면을 제어하는 명령어입니다.
+- `WeightedPrompt`: สตริงข้อความที่อธิบายไอเดียเพลง แนวเพลง เครื่องดนตรี
+  อารมณ์ หรือลักษณะ คุณอาจป้อนพรอมต์หลายรายการเพื่อผสมผสาน
+  อิทธิพล ดูรายละเอียดเพิ่มเติมเกี่ยวกับวิธีพรอมต์
+  Lyria RealTime ให้ได้ผลลัพธ์ดีที่สุดได้[ด้านบน](https://ai.google.dev/gemini-api/docs/:?hl=th#steer-music)
+- `MusicGenerationConfig`: การกำหนดค่าสำหรับกระบวนการสร้างเพลง
+  ซึ่งมีผลต่อลักษณะของเสียงเอาต์พุต) พารามิเตอร์
+  ประกอบด้วย
+  - `guidance`: (ลอย) ช่วง: `[0.0, 6.0]` ค่าเริ่มต้น: `4.0`
+    ควบคุมความเข้มงวดที่โมเดลปฏิบัติตามพรอมต์ คำแนะนำที่สูงขึ้น
+    จะช่วยให้ปฏิบัติตามพรอมต์ได้ดีขึ้น แต่จะทำให้การเปลี่ยนผ่านดูไม่ราบรื่น
+  - `bpm`: (int) ช่วง: `[60, 200]`
+    ตั้งค่าจังหวะต่อนาทีที่คุณต้องการสำหรับเพลงที่สร้างขึ้น คุณต้อง
+    หยุด/เล่นหรือรีเซ็ตบริบทเพื่อให้โมเดลพิจารณา
+    BPM ใหม่
+  - `density`: (ลอย) ช่วง: `[0.0, 1.0]`
+    ควบคุมความหนาแน่นของโน้ต/เสียงดนตรี ค่าที่ต่ำจะทำให้เพลงมีความเบาบางมากขึ้น
+    ส่วนค่าที่สูงจะทำให้เพลง "หนักแน่น" มากขึ้น
+  - `brightness`: (ลอย) ช่วง: `[0.0, 1.0]`
+    ปรับคุณภาพโทนสี ค่าที่สูงขึ้นจะทำให้เสียง "สว่าง" ขึ้น
+    โดยทั่วไปจะเน้นความถี่ที่สูงขึ้น
+  - `scale`: (Enum)
+    ตั้งค่าบันไดเสียง (คีย์และโหมด) สำหรับการสร้าง ใช้ค่า enum ของ [`Scale`](#scale-enum) ที่ SDK ระบุ คุณต้อง
+    หยุด/เล่นหรือรีเซ็ตบริบทเพื่อให้โมเดลพิจารณาสเกลใหม่
+  - `mute_bass`: (bool) ค่าเริ่มต้น: `False`
+    ควบคุมว่าโมเดลจะลดเสียงเบสของเอาต์พุตหรือไม่
+  - `mute_drums`: (bool) ค่าเริ่มต้น: `False`
+    ควบคุมว่าเอาต์พุตของโมเดลจะลดเสียงกลองของเอาต์พุตหรือไม่
+  - `only_bass_and_drums`: (bool) ค่าเริ่มต้น: `False`
+    บังคับให้โมเดลพยายามเอาต์พุตเฉพาะเสียงเบสและกลอง
+  - `music_generation_mode`: (Enum)
+    ระบุให้โมเดลทราบว่าควรโฟกัสที่`QUALITY` (ค่าเริ่มต้น) หรือ`DIVERSITY` ของเพลง นอกจากนี้ ยังตั้งค่าเป็น `VOCALIZATION` เพื่อให้โมเดล
+    สร้างเสียงร้องเป็นเครื่องดนตรีอีกชิ้นได้ด้วย (เพิ่มเป็นพรอมต์ใหม่)
+- `PlaybackControl`: คำสั่งเพื่อควบคุมลักษณะการเล่น เช่น เล่น หยุดชั่วคราว
+  หยุด หรือรีเซ็ตบริบท
 
-`bpm`, `density`, `brightness`, `scale`의 경우 값이 제공되지 않으면 모델이 초기 프롬프트에 따라 가장 적합한 값을 결정합니다.
+สำหรับ `bpm`, `density`, `brightness` และ `scale` หากไม่ได้ระบุค่าไว้ โมเดลจะตัดสินใจว่าค่าใดดีที่สุดตามพรอมต์เริ่มต้นของคุณ
 
-`temperature` (0.0~3.0, 기본값 1.1), `top_k`(1~1000, 기본값 40), `seed` (0~2,147,483,647, 기본적으로 무작위로 선택됨)와 같은 더 클래식한 매개변수도 `MusicGenerationConfig`에서 맞춤설정할 수 있습니다.
+นอกจากนี้ คุณยังปรับแต่งพารามิเตอร์แบบคลาสสิกอื่นๆ เช่น `temperature` (0.0 ถึง 3.0 ค่าเริ่มต้นคือ 1.1), `top_k`
+(1 ถึง 1000 ค่าเริ่มต้นคือ 40) และ `seed` (0 ถึง 2147483647 โดยระบบจะเลือกแบบสุ่ม
+โดยค่าเริ่มต้น) ได้ใน `MusicGenerationConfig`
 
-#### 스케일 enum 값
+#### ค่า Enum ของมาตราส่วน
 
-다음은 모델이 허용할 수 있는 모든 스케일 값입니다.
+ค่าสเกลทั้งหมดที่โมเดลยอมรับได้มีดังนี้
 
-| enum 값 | 스케일 / 키 |
+| ค่า enum | สเกล / คีย์ |
 | --- | --- |
-| `C_MAJOR_A_MINOR` | C 장조 / A 단조 |
-| `D_FLAT_MAJOR_B_FLAT_MINOR` | D♭ 장조 / B♭ 단조 |
-| `D_MAJOR_B_MINOR` | D 장조 / B 단조 |
-| `E_FLAT_MAJOR_C_MINOR` | E♭ 장조 / C 단조 |
-| `E_MAJOR_D_FLAT_MINOR` | E 장조 / C♯/D♭ 단조 |
-| `F_MAJOR_D_MINOR` | F 장조 / D 단조 |
-| `G_FLAT_MAJOR_E_FLAT_MINOR` | G♭ 장조 / E♭ 단조 |
-| `G_MAJOR_E_MINOR` | G 장조 / E 단조 |
-| `A_FLAT_MAJOR_F_MINOR` | A♭ 장조 / F 단조 |
-| `A_MAJOR_G_FLAT_MINOR` | A 장조 / F♯/G♭ 단조 |
-| `B_FLAT_MAJOR_G_MINOR` | B♭ 장조 / G 단조 |
-| `B_MAJOR_A_FLAT_MINOR` | B 장조 / G♯/A♭ 단조 |
-| `SCALE_UNSPECIFIED` | 기본값 / 모델 결정 |
+| `C_MAJOR_A_MINOR` | คีย์ C เมเจอร์ / คีย์ A ไมเนอร์ |
+| `D_FLAT_MAJOR_B_FLAT_MINOR` | D♭ เมเจอร์ / B♭ ไมเนอร์ |
+| `D_MAJOR_B_MINOR` | D major / B minor |
+| `E_FLAT_MAJOR_C_MINOR` | E♭ เมเจอร์ / C ไมเนอร์ |
+| `E_MAJOR_D_FLAT_MINOR` | อีเมเจอร์ / ซีชาร์ป/ดีแฟลตไมเนอร์ |
+| `F_MAJOR_D_MINOR` | F เมเจอร์ / D ไมเนอร์ |
+| `G_FLAT_MAJOR_E_FLAT_MINOR` | G♭ เมเจอร์ / E♭ ไมเนอร์ |
+| `G_MAJOR_E_MINOR` | G เมเจอร์ / E ไมเนอร์ |
+| `A_FLAT_MAJOR_F_MINOR` | A♭ เมเจอร์ / F ไมเนอร์ |
+| `A_MAJOR_G_FLAT_MINOR` | A เมเจอร์ / F♯/G♭ ไมเนอร์ |
+| `B_FLAT_MAJOR_G_MINOR` | B♭ เมเจอร์ / G ไมเนอร์ |
+| `B_MAJOR_A_FLAT_MINOR` | B เมเจอร์ / G♯/A♭ ไมเนอร์ |
+| `SCALE_UNSPECIFIED` | ค่าเริ่มต้น / โมเดลตัดสิน |
 
-모델은 연주되는 음표를 안내할 수 있지만 상대 키를 구분하지는 않습니다. 따라서 각 enum은 상대 장조와 단조에 모두 해당합니다. 예를 들어 `C_MAJOR_A_MINOR`는 피아노의 모든 흰색 키에 해당하고 `F_MAJOR_D_MINOR`는 B♭을 제외한 모든 흰색 키에 해당합니다.
+โมเดลนี้สามารถแนะนำโน้ตที่เล่นได้ แต่ไม่สามารถแยกแยะคีย์ที่สัมพันธ์กันได้ ดังนั้นแต่ละ Enum จึงสอดคล้องกับ
+หมายเลขเวอร์ชันหลักและเวอร์ชันย่อยที่เกี่ยวข้อง เช่น `C_MAJOR_A_MINOR` จะสอดคล้องกับคีย์สีขาวทั้งหมด
+ของเปียโน และ `F_MAJOR_D_MINOR` จะเป็นคีย์สีขาวทั้งหมด
+ยกเว้น B แฟลต
 
-### 제한사항
+### ข้อจำกัด
 
-- 연주곡만: 모델은 연주곡만 생성합니다.
-- 안전: 프롬프트는 안전 필터로 확인됩니다. 필터를 트리거하는 프롬프트는 무시되며, 이 경우 출력의 `filtered_prompt` 필드에 설명이 작성됩니다.
-- [워터마크: 출력 오디오는 항상 책임감 있는 AI](https://ai.google.dev/gemini-api/docs/워터마크: 출력 오디오는 항상 책임감 있는 AI) 원칙에 따라 식별을 위해 워터마크 처리됩니다.
+- บรรเลงเท่านั้น: โมเดลจะสร้างเพลงบรรเลงเท่านั้น
+- ความปลอดภัย: ตัวกรองความปลอดภัยจะตรวจสอบพรอมต์ ระบบจะไม่สนใจพรอมต์ที่ทริกเกอร์ตัวกรอง
+  และจะเขียนคำอธิบายไว้ใน`filtered_prompt`ฟิลด์ของเอาต์พุตแทน
+- การใส่ลายน้ำ: เสียงเอาต์พุตจะมีลายน้ำเสมอเพื่อการระบุตามหลักการ[AI ที่มีความรับผิดชอบ](https://ai.google/responsibility/principles/?hl=th)
 
-## 다음 단계
+## ขั้นตอนถัดไป
 
-- [Lyria 3](https://ai.google.dev/gemini-api/docs/Lyria 3)로 전체 노래와 보컬 트랙을 생성합니다.
-- 음악 대신
-  [TTS 모델](https://ai.google.dev/gemini-api/docs/TTS 모델)을 사용하여 다중 화자 대화를 생성하는 방법을 알아봅니다.
-- [이미지](https://ai.google.dev/gemini-api/docs/이미지) 또는 [동영상](https://ai.google.dev/gemini-api/docs/동영상)을 생성하는 방법을 알아봅니다.
-- 음악 또는 오디오를 생성하는 대신 Gemini가 오디오 파일을 이해하는 방법을 알아봅니다.
-- [Live API](https://ai.google.dev/gemini-api/docs/Live API)를 사용하여 Gemini와 실시간으로 대화합니다.
+- สร้างเพลงและแทร็กเสียงร้องแบบเต็มด้วย [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=th)
+- หากต้องการสร้างการสนทนาแบบหลายคนพูดโดยใช้[โมเดล TTS](https://ai.google.dev/gemini-api/docs/audio-generation?hl=th) แทนเพลง ให้ดูวิธีที่นี่
+- ดูวิธีสร้าง[รูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)หรือ[วิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)
+- แทนที่จะสร้างเพลงหรือเสียง ลองดูว่า Gemini สามารถ[ทำความเข้าใจไฟล์เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)ได้อย่างไร
+- สนทนากับ Gemini แบบเรียลไทม์โดยใช้
+  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
 
-[Cookbook](https://ai.google.dev/gemini-api/docs/Cookbook)에서 더 많은
-코드 예와 가이드를 살펴보세요.
+ดูตัวอย่างโค้ดและบทแนะนำเพิ่มเติมได้ใน[ตำราอาหาร](https://github.com/google-gemini/cookbook)
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 라이선스)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://ai.google.dev/gemini-api/docs/Apache 2.0 라이선스)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://ai.google.dev/gemini-api/docs/Google Developers 사이트 정책)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-04-29(UTC)
+อัปเดตล่าสุด 2026-04-29 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
+
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

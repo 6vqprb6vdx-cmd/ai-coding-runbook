@@ -1,104 +1,102 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=id
-fetched_at: 2026-05-05T13:18:13.083295+00:00
+source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=ja
+fetched_at: 2026-05-11T12:40:59.534228+00:00
 title: "Live API best practices \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/live-api/Deep Research Gemini) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-- [Beranda](https://ai.google.dev/gemini-api/docs/live-api/Beranda)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/live-api/Gemini API)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/live-api/Dokumen)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Kirim masukan
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+
+フィードバックを送信
 
 # Live API best practices
 
-Panduan ini membahas praktik terbaik yang dapat Anda ikuti untuk mengoptimalkan penggunaan Live API.
-Lihat halaman [Memulai Live API](https://ai.google.dev/gemini-api/docs/live-api/Memulai Live API)
-untuk mengetahui ringkasan dan contoh kode untuk kasus penggunaan umum.
+このガイドでは、Live API の使用を最適化するために従うことができるベスト プラクティスについて説明します。
+概要と一般的なユースケースのサンプルコードについては、[Live API を使ってみる](https://ai.google.dev/gemini-api/docs/live?hl=ja)
+をご覧ください。
 
-## Mendesain petunjuk sistem yang jelas
+## 明確なシステム指示を設計する
 
-Untuk mendapatkan performa terbaik dari Live API, sebaiknya miliki serangkaian petunjuk sistem (SI) yang jelas dan menentukan persona agen, aturan percakapan, dan batasan, dalam urutan ini.
+Live API のパフォーマンスを最大限に引き出すには、エージェントのペルソナ、会話ルール、ガードレールをこの順序で明確に定義した、一連のシステム指示（SI）を用意することをおすすめします。
 
-Untuk hasil terbaik, pisahkan setiap agen ke dalam SI yang berbeda.
+最適な結果を得るには、各エージェントを個別の SI に分割します。
 
-1. **Tentukan persona agen:** Berikan detail tentang nama, peran, dan karakteristik pilihan agen. Jika Anda ingin menentukan aksen, pastikan untuk juga menentukan bahasa output pilihan (seperti aksen Inggris untuk penutur bahasa Inggris).
-2. **Tentukan aturan percakapan:** Tempatkan aturan ini dalam urutan yang Anda harapkan untuk diikuti model. Gariskan antara elemen percakapan satu kali dan loop percakapan. Contoh:
+1. **エージェントのペルソナを指定する:** エージェントの名前、役割、望ましい特性について詳しく説明します。アクセントを指定する場合は、優先する出力言語（英語話者の場合は英国のアクセントなど）も必ず指定してください。
+2. **会話ルールを指定する:** モデルに適用する順序でルールを記述します。会話の 1 回限りの要素と会話ループを区別します。例:
 
-   - **Elemen satu kali:** Kumpulkan detail pelanggan satu kali (seperti nama, lokasi, nomor kartu loyalitas).
-   - **Loop percakapan:** Pengguna dapat membahas rekomendasi, harga, pengembalian, dan pengiriman, serta mungkin ingin berpindah dari satu topik ke topik lain. Beri tahu model bahwa tidak masalah untuk terlibat dalam loop percakapan ini selama pengguna menginginkannya.
-3. **Tentukan panggilan alat dalam alur dalam kalimat yang berbeda:** Misalnya, jika langkah satu kali untuk mengumpulkan detail pelanggan memerlukan pemanggilan fungsi `get_user_info`, Anda dapat mengatakan: *Langkah pertama Anda adalah mengumpulkan informasi pengguna. Pertama, minta pengguna untuk memberikan nama, lokasi, dan nomor kartu loyalitas mereka. Kemudian
-   panggil `get_user_info` dengan detail ini.*
-4. **Tambahkan batasan yang diperlukan:** Berikan batasan percakapan umum yang tidak ingin Anda lakukan oleh model. Jangan ragu untuk memberikan contoh spesifik jika *x* terjadi, Anda ingin model melakukan *y*. Jika Anda masih belum mendapatkan tingkat presisi yang diinginkan, gunakan kata *tidak salah* untuk memandu model agar presisi.
+   - **1 回限りの要素:** お客様の詳細情報（名前、ロケーション、ポイントカード番号など）を 1 回収集します。
+   - **会話ループ:** ユーザーは、おすすめ、価格、返品、配達について話し合うことができ、トピックからトピックへと移動したい場合があります。ユーザーが望む限り、この会話ループを継続してもよいことをモデルに伝えます。
+3. **フロー内のツール呼び出しを個別の文で指定する:** たとえば、お客様の詳細情報を収集する 1 回限りのステップで `get_user_info` 関数を呼び出す必要がある場合、最初のステップはユーザー情報の収集です。*まず、お客様に名前、ロケーション、ポイントカード番号の提供を依頼します。*次に、これらの詳細情報を使用して `get_user_info` を呼び出します。
+4. **必要なガードレールを追加します。**モデルに実行させたくない一般的な会話のガードレールを指定します。x が発生した場合にモデルに y を実行させたい場合は、具体的な例を自由に指定してください。それでも望ましいレベルの精度が得られない場合は、 *unmistakably* という単語を使用して、モデルが正確になるようにガイドします。
 
-## Menentukan alat dengan tepat
+## ツールを正確に定義する
 
-Saat menggunakan alat dengan Live API, berikan detail dalam definisi alat Anda.
-Pastikan untuk memberi tahu Gemini dalam kondisi apa panggilan alat harus dipanggil. Untuk mengetahui detail selengkapnya, lihat [Definisi alat](https://ai.google.dev/gemini-api/docs/live-api/Definisi alat) di
-bagian contoh.
+Live API でツールを使用する場合は、ツール定義を具体的に記述します。
+ツール呼び出しを呼び出す条件を Gemini に必ず伝えてください。詳細については、[ツール定義](#tool-definitions-example)の
+例のセクションをご覧ください。
 
-## Membuat perintah yang efektif
+## 効果的なプロンプトを作成する
 
-- **Gunakan perintah yang jelas:** Berikan contoh hal yang harus dan tidak boleh dilakukan model dalam perintah, dan coba batasi perintah menjadi satu perintah per persona atau peran dalam satu waktu. Daripada perintah yang panjang dan multi-halaman, sebaiknya gunakan chaining perintah. Model ini berperforma terbaik pada tugas dengan panggilan fungsi tunggal.
-- **Berikan perintah dan informasi awal:** Live API mengharapkan input pengguna sebelum merespons. Agar Live API memulai percakapan, sertakan perintah yang memintanya untuk menyapa pengguna atau memulai percakapan. Sertakan informasi tentang pengguna agar Live API mempersonalisasi sapaan tersebut.
+- **明確なプロンプトを使用する:** プロンプトで、モデルが実行すべきことと実行すべきでないことの例を示します。また、プロンプトは一度に 1 つのペルソナまたは役割につき 1 つに制限するようにします。長い複数ページのプロンプトではなく、プロンプト チェーンの使用を検討してください。このモデルは、単一の関数呼び出しを含むタスクで最適なパフォーマンスを発揮します。
+- **開始コマンドと情報を提供する:** Live API は、応答する前にユーザー入力を想定しています。Live API に会話を開始させるには、ユーザーに挨拶するか、会話を開始するよう求めるプロンプトを含めます。Live API であいさつをパーソナライズするために、ユーザーに関する情報を含めます。
 
-## Menentukan bahasa
+## 言語を指定する
 
-Untuk performa optimal pada `gemini-live-2.5-flash` yang dikaskadekan Live API, pastikan `language_code` API cocok dengan bahasa yang digunakan oleh pengguna.
+Live API のカスケード `gemini-live-2.5-flash` で最適なパフォーマンスを得るには、API の `language_code` がユーザーが話す言語と一致していることを確認してください。
 
-Jika Anda mengharapkan model merespons dalam bahasa selain bahasa Inggris, sertakan hal berikut sebagai bagian dari petunjuk sistem Anda:
+モデルが英語以外の言語で応答することを想定している場合は、システム指示の一部として次の内容を含めます。
 
 ```
 RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 ```
 
-## Streaming
+## ストリーミング
 
-Saat menerapkan audio real-time, ikuti praktik terbaik berikut:
+リアルタイム音声を実装する際は、次のベスト プラクティスを参考にしてください。
 
-- **Ukuran Chunk dan Latensi**: Kirim audio dalam chunk berukuran 20 md hingga 40 md.
-- **Penanganan Interupsi**: Saat pengguna berbicara saat model membalas,
-  server akan mengirim pesan `server_content` dengan `"interrupted": true`. Anda harus segera menghapus buffer audio sisi klien untuk mencegah agen terus berbicara dengan pengguna.
+- **チャンクサイズとレイテンシ**: 20～40 ミリ秒のチャンクで音声を送信します。
+- **割り込み処理**: モデルが返信している間にユーザーが発話すると、サーバーは `"interrupted": true` を含む `server_content` メッセージを送信します。エージェントがユーザーに話しかけ続けるのを防ぐため、クライアントサイドの音声バッファを直ちに破棄する必要があります。
 
-## Pengelolaan konteks
+## コンテキスト管理
 
-Gunakan `ContextWindowCompressionConfig` untuk sesi yang panjang, karena token audio native terakumulasi dengan cepat (sekitar 25 token per detik audio).
+ネイティブ音声トークンは急速に蓄積されるため（音声 1 秒あたり約 25 トークン）、長いセッションの場合は `ContextWindowCompressionConfig` を使用します。
 
-## Buffering klien
+## クライアント バッファリング
 
-Jangan buffer audio input secara signifikan (seperti 1 detik) sebelum mengirim. Kirim chunk kecil (20 md - 100 md) untuk meminimalkan latensi.
+送信前に、入力音声を大幅に（1 秒など）バッファリングしないでください。レイテンシを最小限に抑えるため、小さなチャンク（20～100 ミリ秒）で送信してください。
 
-## Pengambilan ulang sampel
+## 再サンプリング
 
-Pastikan aplikasi klien Anda mengambil ulang sampel input mikrofon (sering kali 44,1 kHz atau 48 kHz) ke 16 kHz sebelum transmisi.
+クライアント アプリケーションが、送信前にマイク入力（通常は 44.1 kHz または 48 kHz）を 16 kHz に再サンプリングするようにしてください。
 
-## Pengelolaan sesi
+## セッション管理
 
-Ikuti panduan ini untuk menangani siklus proses sesi dan memastikan pengalaman pengguna yang andal:
+セッションのライフサイクルを処理し、信頼性の高いユーザー エクスペリエンスを確保するには、次のガイドラインに沿ってください。
 
-- **Aktifkan kompresi jendela konteks:** Token audio terakumulasi sekitar 25 token per detik. Tanpa kompresi, sesi khusus audio dibatasi hingga 15 menit dan sesi audio-video hingga 2 menit. Aktifkan
-  [kompresi jendela konteks](https://ai.google.dev/gemini-api/docs/live-api/kompresi jendela konteks)
-  untuk memperpanjang sesi hingga durasi yang tidak terbatas.
-- **Terapkan kelanjutan sesi:** Server dapat secara berkala mereset koneksi WebSocket. Gunakan
-  [kelanjutan sesi](https://ai.google.dev/gemini-api/docs/live-api/kelanjutan sesi)
-  untuk terhubung kembali dengan lancar tanpa kehilangan konteks. Pertahankan token kelanjutan terbaru dari pesan `SessionResumptionUpdate` dan teruskan sebagai pengendali saat menghubungkan kembali. Token kelanjutan berlaku selama 2 jam setelah sesi terakhir berakhir.
-- **Tangani pesan GoAway:** Server mengirim pesan
-  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/GoAway) sebelum menghentikan koneksi. Dengarkan pesan ini dan gunakan kolom `timeLeft` untuk mengakhiri atau menghubungkan kembali dengan lancar sebelum koneksi ditutup.
-- **Tangani sinyal generationComplete:** Gunakan
-  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/`generationComplete`)
-  pesan untuk mengetahui kapan model selesai membuat respons, sehingga
-  aplikasi Anda dapat memperbarui UI atau melanjutkan ke tindakan berikutnya.
+- **コンテキスト ウィンドウの圧縮を有効にする:** 音声トークンは 1 秒あたり約 25 トークンの割合で蓄積されます。圧縮しない場合、音声のみのセッションは 15 分、音声と動画のセッションは 2 分に制限されます。[コンテキスト ウィンドウの圧縮を有効にすると、セッションを無制限に延長できます。](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ja#context-window-compression)
+- **セッションの再開を実装する:** サーバーは WebSocket 接続を定期的にリセットする場合があります。[セッションの再開を使用すると、コンテキストを失うことなくシームレスに再接続できます。](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ja#session-resumption)`SessionResumptionUpdate` メッセージから最新の再開トークンを保持し、再接続時にハンドルとして渡します。再開トークンは、最後のセッションが終了してから 2 時間有効です。
+- **GoAway メッセージを処理する:** サーバーは、接続を終了する前に
+  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ja#goaway-message) メッセージを送信します。このメッセージをリッスンし、`timeLeft` フィールドを使用して、接続が閉じる前に正常に終了するか再接続します。
+- **generationComplete シグナルを処理する:**
+  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ja#generation-complete-message)
+  メッセージを使用すると、モデルがレスポンスの生成を完了したタイミングを把握できるため、
+  アプリケーションで UI を更新したり、次のアクションに進んだりできます。
 
-Untuk mengetahui detail penerapan, lihat
-[Pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-api/Pengelolaan sesi).
+実装の詳細については、
+[セッション管理](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ja)をご覧ください。
 
-## Contoh
+## 例
 
-Contoh ini menggabungkan praktik terbaik dan
-[panduan untuk desain petunjuk sistem](https://ai.google.dev/gemini-api/docs/live-api/panduan untuk desain petunjuk sistem) guna
-memandu performa model sebagai pelatih karier.
+この例では、ベスト プラクティスと
+[システム指示の設計に関するガイドライン](#system-instruction-guidelines)の両方を組み合わせて、
+キャリアコーチとしてのモデルのパフォーマンスをガイドしています。
 
 ```
 **Persona:**
@@ -150,10 +148,9 @@ Remember that your ultimate goal is to create a supportive environment for your
 clients to thrive.
 ```
 
-### Definisi alat
+### ツール定義
 
-JSON ini menentukan fungsi relevan yang dipanggil dalam contoh pelatih karier.
-Untuk hasil terbaik saat menentukan fungsi, sertakan nama, deskripsi, parameter, dan kondisi pemanggilan.
+この JSON は、キャリアコーチの例で呼び出される関連関数を定義します。関数を定義する際は、名前、説明、パラメータ、呼び出し条件を含めると、最適な結果が得られます。
 
 ```
 [
@@ -243,10 +240,12 @@ Untuk hasil terbaik saat menentukan fungsi, sertakan nama, deskripsi, parameter,
 ]
 ```
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/live-api/Lisensi Creative Commons Attribution 4.0), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://ai.google.dev/gemini-api/docs/live-api/Lisensi Apache 2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://ai.google.dev/gemini-api/docs/live-api/Kebijakan Situs Google Developers). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+最終更新日 2026-04-29 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
+
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

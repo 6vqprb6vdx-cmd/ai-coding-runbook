@@ -1,43 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he
-fetched_at: 2026-05-05T13:14:35.567338+00:00
-title: "\u202bGemini 3 Flash Preview \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fr
+fetched_at: 2026-05-11T12:39:19.629757+00:00
+title: "Aper\u00e7u de Gemini\u00a03 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/models/Gemini Deep Research) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-- [דף הבית](https://ai.google.dev/gemini-api/docs/models/דף הבית)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/models/Gemini API)
-- [Docs](https://ai.google.dev/gemini-api/docs/models/Docs)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-שליחת משוב
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# ‫Gemini 3 Flash Preview
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-המודל הכי טוב בעולם להבנה מולטימודאלית, והמודל הכי עוצמתי שלנו עד כה עם יכולות סוכנותיות וקידוד של אווירה, שמספק תמונות עשירות יותר ואינטראקטיביות עמוקה יותר, והכול מבוסס על יכולות חשיבה רציונלית מתקדמות.
+Envoyer des commentaires
 
-[לניסיון ב-Google AI Studio](https://ai.google.dev/gemini-api/docs/models/לניסיון ב-Google AI Studio)
+# Aperçu de Gemini 3 Flash
 
-## מאמרי עזרה
+Le meilleur modèle au monde pour la compréhension multimodale. C'est aussi notre modèle agentique et de vibe coding le plus puissant à ce jour. Il offre des visuels plus riches et une meilleure interactivité, et repose sur une technologie de raisonnement à la pointe du secteur.
 
-ב[מדריך למפתחים של Gemini 3](https://ai.google.dev/gemini-api/docs/models/מדריך למפתחים של Gemini 3) יש מידע מקיף על התכונות והיכולות.
+[Essayer dans Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=fr)
+
+## Documentation
+
+Consultez la page du [guide du développeur Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=fr) pour obtenir une couverture complète des
+fonctionnalités.
 
 ## gemini-3-flash-preview
 
-| נכס | תיאור |
+| Propriété | Description |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-3-flash-preview` |
-| saveסוגי נתונים נתמכים | **קלטים**  טקסט, תמונה, סרטון, אודיו ו-PDF  **פלט**  טקסט |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  1,048,576  **מגבלת אסימונים בפלט**  65,536 |
-| handymanיכולות | **יצירת אודיו**  לא נתמך  ‫**Batch API**  נתמך  **שמירת נתונים במטמון**  נתמך  **ביצוע קוד**  נתמך  **שימוש במחשב**  נתמך  **חיפוש קבצים**  נתמך  **הסקת מסקנות גמישה**  נתמך  **בקשה להפעלת פונקציה**  נתמך  **עיגון בעזרת מפות Google**  נתמך  **יצירת תמונות**  לא נתמך  ‫**Live API**  לא נתמך  **היקש בעדיפות גבוהה**  נתמך  **חיפוש עם עיגון בנתונים**  נתמך  **פלטים מובְנים**  נתמך  **תהליך החשיבה**  נתמך  **הקשר של כתובת ה-URL**  נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/דפוסי גרסאות של מודלים).  - `Preview: gemini-3-flash-preview` |
-| calendar\_monthהעדכון האחרון | דצמבר 2025 |
-| cognition\_2תאריך סף הידע | ינואר 2025 |
+| id\_cardCode du modèle | `gemini-3-flash-preview` |
+| saveTypes de données compatibles | **Entrées**  Texte, image, vidéo, audio et PDF  **Résultat**  Texte |
+| token\_auto[Limites de jetons[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  1 048 576  **Limite de jetons de sortie**  65 536 |
+| handymanFonctionnalités | **Génération audio**  Not supported  **API par lot**  Compatible  **Mise en cache**  Compatible  **Exécution de code**  Compatible  **Utilisation de l'ordinateur**  Compatible  **Recherche de fichiers**  Compatible  **Inférence Flex**  Compatible  **Appel de fonction**  Compatible  **Ancrage avec Google Maps**  Compatible  **Génération d'images**  Not supported  **API Live**  Not supported  **Inférence prioritaire**  Compatible  **Ancrage de recherche**  Compatible  **Sorties structurées**  Compatible  **Raisonnement**  Compatible  **Contexte d'URL**  Compatible |
+| 123Versions | Pour en savoir plus, consultez les [modèles de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - `Preview: gemini-3-flash-preview` |
+| calendar\_monthDernière mise à jour | Décembre 2025 |
+| cognition\_2Date limite des connaissances | Janvier 2025 |
 
-שליחת משוב
+Envoyer des commentaires
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/models/Creative Commons Attribution 4.0) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://ai.google.dev/gemini-api/docs/models/Apache 2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://ai.google.dev/gemini-api/docs/models/מדיניות האתר Google Developers‏).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+Dernière mise à jour le 2026/04/29 (UTC).
 
-רוצה לתת לנו משוב?
+Voulez-vous nous donner plus d'informations ?
+
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

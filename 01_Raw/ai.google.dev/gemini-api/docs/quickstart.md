@@ -1,36 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/quickstart?hl=it
-fetched_at: 2026-05-05T13:26:42.380548+00:00
-title: "Guida rapida all'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/quickstart?hl=ko
+fetched_at: 2026-05-11T12:35:40.749138+00:00
+title: "Gemini API \ube60\ub978 \uc2dc\uc791 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-- [Home page](https://ai.google.dev/gemini-api/docs/Home page)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Documenti](https://ai.google.dev/gemini-api/docs/Documenti)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Invia feedback
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Guida rapida all'API Gemini
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Questa guida rapida mostra come installare le nostre [librerie](https://ai.google.dev/gemini-api/docs/librerie)
-ed effettuare la prima richiesta all'API Gemini.
+의견 보내기
 
-## Prima di iniziare
+# Gemini API 빠른 시작
 
-Per utilizzare l'API Gemini è necessaria una chiave API, che puoi creare senza costi per iniziare.
+이 빠른 시작에서는 [라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko)
+를 설치하고 첫 번째 Gemini API 요청을 만드는 방법을 보여줍니다.
 
-[Crea una chiave API Gemini](https://ai.google.dev/gemini-api/docs/Crea una chiave API Gemini)
+## 시작하기 전에
 
-## Installa l'SDK Google GenAI
+Gemini API를 사용하려면 API 키가 필요합니다. 무료로 API 키를 만들어 시작할 수 있습니다.
+
+[Gemini API 키 만들기](https://aistudio.google.com/app/apikey?hl=ko)
+
+## Google GenAI SDK 설치
 
 ### Python
 
-Utilizzando [Python 3.9 o versioni successive](https://ai.google.dev/gemini-api/docs/Python 3.9 o versioni successive), installa il
-[`google-genai` pacchetto](https://ai.google.dev/gemini-api/docs/`google-genai` pacchetto)
-utilizzando il seguente
-[comando pip](https://ai.google.dev/gemini-api/docs/comando pip):
+[Python 3.9+](https://www.python.org/downloads/) 이상을 사용하여 다음
+[pip 명령어](https://packaging.python.org/en/latest/tutorials/installing-packages/)를 사용하여
+[`google-genai` 패키지](https://pypi.org/project/google-genai/)를 설치합니다.
 
 ```
 pip install -q -U google-genai
@@ -38,21 +41,19 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-Utilizzando [Node.js v18+](https://ai.google.dev/gemini-api/docs/Node.js v18+),
-installa l'
-[SDK Google Gen AI per TypeScript e JavaScript](https://ai.google.dev/gemini-api/docs/SDK Google Gen AI per TypeScript e JavaScript)
-utilizzando il seguente
-[comando npm](https://ai.google.dev/gemini-api/docs/comando npm):
+[Node.js v18+](https://nodejs.org/en/download/package-manager)을 사용하여 다음
+[npm 명령어](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)를 사용하여
+[TypeScript 및 JavaScript용 Google 생성형 AI SDK](https://www.npmjs.com/package/@google/genai)를 설치합니다.
 
 ```
 npm install @google/genai
 ```
 
-### Vai
+### Go
 
-Installa
-[google.golang.org/genai](https://ai.google.dev/gemini-api/docs/google.golang.org/genai) nella
-directory del modulo utilizzando il [comando go get](https://ai.google.dev/gemini-api/docs/comando go get):
+[go get 명령어를 사용하여 모듈 디렉터리에
+[google.golang.org/genai](https://pkg.go.dev/google.golang.org/genai)를 설치합니다
+:](https://go.dev/doc/code)
 
 ```
 go get google.golang.org/genai
@@ -60,8 +61,8 @@ go get google.golang.org/genai
 
 ### Java
 
-Se utilizzi Maven, puoi installare
-[google-genai](https://ai.google.dev/gemini-api/docs/google-genai) aggiungendo quanto segue alle dipendenze:
+Maven을 사용하는 경우 종속 항목에 다음을 추가하여
+[google-genai](https://github.com/googleapis/java-genai)를 설치할 수 있습니다.
 
 ```
 <dependencies>
@@ -75,9 +76,7 @@ Se utilizzi Maven, puoi installare
 
 ### C#
 
-Installa
-[googleapis/go-genai](https://ai.google.dev/gemini-api/docs/googleapis/go-genai) nella
-directory del modulo utilizzando il [comando dotnet add](https://ai.google.dev/gemini-api/docs/comando dotnet add)
+[googleapis/go-genai](https://googleapis.github.io/dotnet-genai/)를 모듈 디렉터리에 [dotnet add 명령어를](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-package-add) 사용하여 설치합니다.
 
 ```
 dotnet add package Google.GenAI
@@ -85,30 +84,30 @@ dotnet add package Google.GenAI
 
 ### Apps Script
 
-1. Per creare un nuovo progetto Apps Script, vai a
-   [script.new](https://ai.google.dev/gemini-api/docs/script.new).
-2. Fai clic su **Progetto senza titolo**.
-3. Rinomina il progetto Apps Script **AI Studio** e fai clic su **Rinomina**.
-4. Imposta la [chiave API](https://ai.google.dev/gemini-api/docs/chiave API)
-   1. A sinistra, fai clic su **Impostazioni progetto** ![L&#39;icona delle impostazioni progetto](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/settings/default/24px.svg).
-   2. In **Proprietà script** fai clic su **Aggiungi proprietà script**.
-   3. In **Proprietà**, inserisci il nome della chiave: `GEMINI_API_KEY`.
-   4. In **Valore**, inserisci il valore della chiave API.
-   5. Fai clic su **Salva proprietà script**.
-5. Sostituisci i contenuti del file `Code.gs` con il seguente codice:
+1. 새 Apps Script 프로젝트를 만들려면
+   [script.new](https://script.google.com/u/0/home/projects/create?hl=ko)로 이동합니다.
+2. **제목 없는 프로젝트** 를 클릭합니다.
+3. Apps Script 프로젝트의 이름을 **AI Studio** 로 바꾸고 **이름 바꾸기** 를 클릭합니다.
+4. [API 키](https://developers.google.com/apps-script/guides/properties?hl=ko#manage_script_properties_manually) 설정
+   1. 왼쪽에서 **프로젝트 설정** ![프로젝트 설정 아이콘](https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/settings/default/24px.svg)을 클릭합니다.
+   2. **스크립트 속성** 에서 **스크립트 속성 추가** 를 클릭합니다.
+   3. **\*\*속성\*\* 에 키 이름 `GEMINI_API_KEY`를 입력합니다.**
+   4. **값**에 API 키의 값을 입력합니다.
+   5. **스크립트 속성 저장** 을 클릭합니다.
+5. `Code.gs` 파일 콘텐츠를 다음 코드로 바꿉니다.
 
-## Effettua la prima richiesta
+## 첫 번째 요청하기
 
-Ecco un esempio che utilizza il
-[`generateContent`](https://ai.google.dev/gemini-api/docs/`generateContent`) metodo
-per inviare una richiesta all'API Gemini utilizzando il modello Gemini 2.5 Flash.
+다음은 Gemini 2.5 Flash 모델을 사용하여 Gemini API에 요청을 전송하는
+[`generateContent`](https://ai.google.dev/api/generate-content?hl=ko#method:-models.generatecontent) 메서드
+를 사용하는 예입니다.
 
-Se [imposti la chiave API](https://ai.google.dev/gemini-api/docs/imposti la chiave API) come
-variabile di ambiente `GEMINI_API_KEY`, il client la rileverà automaticamente quando utilizzi le [librerie dell'API Gemini](https://ai.google.dev/gemini-api/docs/librerie dell'API Gemini).
-In caso contrario, dovrai [passare la chiave API](https://ai.google.dev/gemini-api/docs/passare la chiave API) come
-argomento durante l'inizializzazione del client.
+API 키를 [환경 변수 `GEMINI_API_KEY`로](https://ai.google.dev/gemini-api/docs/api-key?hl=ko#set-api-env-var)설정하면
+Gemini API 라이브러리를 사용할 때 [클라이언트에서 자동으로 선택합니다](https://ai.google.dev/gemini-api/docs/libraries?hl=ko).
+그렇지 않으면 클라이언트를 초기화할 때 [API 키를](https://ai.google.dev/gemini-api/docs/api-key?hl=ko#provide-api-key-explicitly)
+인수로 전달해야 합니다.
 
-Tieni presente che tutti gli esempi di codice nella documentazione dell'API Gemini presuppongono che tu abbia impostato la variabile di ambiente `GEMINI_API_KEY`.
+Gemini API 문서의 모든 코드 샘플은 환경 변수 `GEMINI_API_KEY`를 설정했다고 가정합니다.
 
 ### Python
 
@@ -143,7 +142,7 @@ async function main() {
 main();
 ```
 
-### Vai
+### Go
 
 ```
 package main
@@ -273,22 +272,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-## Passaggi successivi
+## 다음 단계
 
-Ora che hai effettuato la prima richiesta API, potresti voler esplorare le seguenti guide che mostrano Gemini in azione:
+이제 첫 번째 API 요청을 만들었으므로 Gemini가 작동하는 모습을 보여주는 다음 가이드를 살펴보는 것이 좋습니다.
 
-- [Generazione di testo](https://ai.google.dev/gemini-api/docs/Generazione di testo)
-- [Generazione di immagini](https://ai.google.dev/gemini-api/docs/Generazione di immagini)
-- [Comprensione delle immagini](https://ai.google.dev/gemini-api/docs/Comprensione delle immagini)
-- [Ragionamento](https://ai.google.dev/gemini-api/docs/Ragionamento)
-- [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/Chiamata di funzione)
-- [Contesto lungo](https://ai.google.dev/gemini-api/docs/Contesto lungo)
-- [Incorporamenti](https://ai.google.dev/gemini-api/docs/Incorporamenti)
+- [텍스트 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)
+- [이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)
+- [이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko)
+- [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)
+- [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)
+- [긴 컨텍스트](https://ai.google.dev/gemini-api/docs/long-context?hl=ko)
+- [임베딩](https://ai.google.dev/gemini-api/docs/embeddings?hl=ko)
 
-Invia feedback
+의견 보내기
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://ai.google.dev/gemini-api/docs/licenza Creative Commons Attribution 4.0), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://ai.google.dev/gemini-api/docs/licenza Apache 2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://ai.google.dev/gemini-api/docs/norme del sito di Google Developers). Java è un marchio registrato di Oracle e/o delle sue consociate.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Ultimo aggiornamento 2026-04-29 UTC.
+최종 업데이트: 2026-05-07(UTC)
 
-Vuoi dirci altro?
+의견을 전달하고 싶나요?
+
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-07(UTC)"],[],[]]

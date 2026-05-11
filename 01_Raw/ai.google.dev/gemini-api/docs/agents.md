@@ -1,56 +1,61 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agents?hl=tr
-fetched_at: 2026-05-05T13:11:38.911017+00:00
-title: "Arac\u0131lara Genel Bak\u0131\u015f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agents?hl=zh-TW
+fetched_at: 2026-05-11T12:38:15.464898+00:00
+title: "\u4ee3\u7406\u7a0b\u5f0f\u7e3d\u89bd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/Gemini Deep Research) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-- [Ana Sayfa](https://ai.google.dev/gemini-api/docs/Ana Sayfa)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/Dokümanlar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Geri bildirim gönderin
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Aracılara Genel Bakış
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Aracılar, karmaşık ve çok adımlı görevleri gerçekleştirmek ve belirli hedeflere ulaşmak için Gemini modellerinden, bir dizi araçtan ve akıl yürütme özelliklerinden yararlanan sistemlerdir. Tek bir model çağrısının aksine, bir aracı planlama yapabilir, bir dizi işlemi yürütebilir, harici sistemlerle etkileşimde bulunabilir ve kullanıcının isteğini karşılamak için bilgileri sentezleyebilir.
+提供意見
 
-Gemini API ile aşağıdaki gibi özellikleri kullanarak güçlü aracıları oluşturabilirsiniz:
+# 代理程式總覽
 
-- **[Gemini modelleri](https://ai.google.dev/gemini-api/docs/Gemini modelleri):** Akıl yürütme ve dil anlayışı sağlayan temel zeka.
-- **[Araçlar](https://ai.google.dev/gemini-api/docs/Araçlar):** Modeli gerçek dünyadaki bilgilere ve işlemlere bağlayan özellikler. Bunlar yerleşik araçlar (ör. Google Arama, Haritalar, Kod Yürütme) veya özel araçlar olabilir.
-- **[İşlev çağrısı](https://ai.google.dev/gemini-api/docs/İşlev çağrısı):** Kendi özel araçlarınızı ve API'lerinizi Gemini modeline tanımlayıp bağlama mekanizmasıdır.
-- **[Düşünme](https://ai.google.dev/gemini-api/docs/Düşünme):** Modelin karmaşık görevler için akıl yürütme ve planlama becerisini geliştiren özellikler.
-- **[Uzun bağlam](https://ai.google.dev/gemini-api/docs/Uzun bağlam):** Aracıların, uzun süren etkileşimler boyunca durumu ve bilgileri korumasını sağlar.
+代理是運用 Gemini 模型、一組工具和推論能力的系統，可執行複雜的多步驟工作，並達成特定目標。與單一模型呼叫不同，代理可以規劃及執行一系列動作、與外部系統互動，並彙整資訊來滿足使用者的要求。
 
-## Kullanılabilir temsilciler
+透過 Gemini API，您可以運用下列功能建構強大的代理程式：
 
-- **[Derin Araştırma Temsilcisi](https://ai.google.dev/gemini-api/docs/Derin Araştırma Temsilcisi):** Pazar analizi, gerekli özen ve literatür incelemeleri gibi kullanım alanları için çok adımlı araştırma görevlerini planlayan, yürüten ve sentezleyen bağımsız bir temsilci.
+- **[Gemini 模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)：**核心智慧，提供推理和語言理解能力。
+- **[工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw)：**可將模型連結至真實世界資訊和動作的功能。這些工具可以是內建工具 (例如 Google 搜尋、地圖、程式碼執行)，也可以是自訂工具。
+- **[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)：**定義及連結自訂工具和 API 與 Gemini 模型的機制。
+- **[思考型](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)：**可強化模型推論能力，並規劃複雜工作。
+- **[長脈絡](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw)：**讓代理程式在長時間的互動中，持續記住狀態和資訊。
 
-## Ajan oluşturma
+## 可用的代理程式
 
-Temsilciler, çok adımlı görevleri tamamlamak için modelleri ve araçları kullanır. Gemini, akıl yürütme özellikleri ("beyin") ve temel araçlar ("eller") sunsa da genellikle aracının belleğini yönetmek, planlama döngüleri oluşturmak ve karmaşık araç zincirleme işlemleri gerçekleştirmek için bir orkestrasyon çerçevesine ihtiyacınız olur.
+- **[深入研究代理](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)：**自主代理，可規劃、執行及整合多步驟研究工作，適用於市場分析、盡職調查和文獻回顧等用途。
 
-Çok adımlı iş akışlarında güvenilirliği en üst düzeye çıkarmak için modelin nasıl akıl yürüteceğini ve planlayacağını açıkça kontrol eden talimatlar oluşturmanız gerekir. Gemini, genel olarak güçlü bir akıl yürütme yeteneği sunsa da karmaşık ajanlar, sorunlar karşısında ısrarcı olma, risk değerlendirmesi ve proaktif planlama gibi belirli davranışları zorunlu kılan istemlerden yararlanır.
+## 建構代理
 
-Bu istemleri tasarlama stratejileri için [Agentic iş akışları](https://ai.google.dev/gemini-api/docs/Agentic iş akışları) bölümüne bakın. Aşağıda, çeşitli yapay zeka ölçütlerinde performansı yaklaşık %5 oranında artıran bir [sistem
-talimatı](https://ai.google.dev/gemini-api/docs/sistemtalimatı) örneği verilmiştir.
+代理會使用模型和工具完成多步驟工作。Gemini 提供推論能力 (「大腦」) 和必要工具 (「雙手」)，但您通常需要自動化調度管理框架來管理代理程式的個人化記憶、規劃迴圈，以及執行複雜的工具鍊結。
 
-## Aracı çerçeveleri
+如要盡量提升多步驟工作流程的可靠性，請編寫指令，明確控管模型的推論和規劃方式。雖然 Gemini 的一般推論能力很強大，但複雜的代理程式需要提示，強制執行特定行為，例如在遇到問題時堅持不懈、評估風險，以及主動規劃。
 
-Gemini, aşağıdakiler gibi önde gelen açık kaynaklı aracı çerçeveleriyle entegre olur:
+如需設計這些提示的策略，請參閱[代理程式工作流程](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw#agentic-workflows)。以下是[系統指令](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw#agentic-si-template)範例，可將多個代理程式基準的效能提升約 5%。
 
-- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/**LangChain / LangGraph**): Grafik yapılarını kullanarak durum bilgisi olan, karmaşık uygulama akışları ve çoklu ajan sistemleri oluşturun.
-- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/**LlamaIndex**): RAG ile geliştirilmiş iş akışları için Gemini ajanlarını özel verilerinize bağlayın.
-- [**CrewAI**](https://ai.google.dev/gemini-api/docs/**CrewAI**): Ortak çalışmaya dayalı, rol oynayan otonom yapay zeka temsilcilerini yönetin.
-- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/**Vercel AI SDK**): JavaScript/TypeScript'te yapay zeka destekli kullanıcı arayüzleri ve temsilciler oluşturun.
-- [**Google ADK**](https://ai.google.dev/gemini-api/docs/**Google ADK**): Birlikte çalışabilen yapay zeka temsilcileri oluşturmak ve düzenlemek için kullanılan açık kaynaklı bir çerçeve.
+## 代理架構
 
-Geri bildirim gönderin
+Gemini 整合了領先業界的開放原始碼代理框架，例如：
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://ai.google.dev/gemini-api/docs/Creative Commons Atıf 4.0 Lisansı) altında ve kod örnekleri [Apache 2.0 Lisansı](https://ai.google.dev/gemini-api/docs/Apache 2.0 Lisansı) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://ai.google.dev/gemini-api/docs/Google Developers Site Politikaları)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=zh-tw)：使用圖表結構建構有狀態的複雜應用程式流程和多代理系統。
+- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=zh-tw)：將 Gemini 代理程式連結至私人資料，以利 RAG 增強型工作流程。
+- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=zh-tw)：自動調度管理角色扮演的自主式 AI 代理，進行協作。
+- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=zh-tw)：在 JavaScript/TypeScript 中建構 AI 輔助的使用者介面和代理程式。
+- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/)：開放原始碼框架，用於建構及自動調度可互通的 AI 代理。
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+提供意見
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+
+上次更新時間：2026-04-29 (世界標準時間)。
+
+想進一步說明嗎？
+
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]

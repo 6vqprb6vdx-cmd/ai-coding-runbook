@@ -1,35 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=hi
-fetched_at: 2026-05-05T13:26:12.981378+00:00
-title: "Gemini Developer API \u092c\u0928\u093e\u092e Gemini Enterprise Agent Platform \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=zh-CN
+fetched_at: 2026-05-11T12:34:55.339071+00:00
+title: "Gemini Developer API \u4e0e Gemini Enterprise Agent Platform \u7684\u5bf9\u6bd4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/Gemini की Deep Research की सुविधा) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-- [होम पेज](https://ai.google.dev/gemini-api/docs/होम पेज)
-- [Gemini API](https://ai.google.dev/gemini-api/docs/Gemini API)
-- [Docs](https://ai.google.dev/gemini-api/docs/Docs)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-सुझाव भेजें
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-# Gemini Developer API बनाम Gemini Enterprise Agent Platform
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gemini की मदद से जनरेटिव एआई के समाधान तैयार करते समय, Google दो एपीआई प्रॉडक्ट उपलब्ध कराता है:
-[Gemini Developer API](https://ai.google.dev/gemini-api/docs/Gemini Developer API) और [Gemini Enterprise Agent Platform API](https://ai.google.dev/gemini-api/docs/Gemini Enterprise Agent Platform API).
+发送反馈
 
-Gemini Developer API की मदद से, Gemini की सुविधाओं वाले ऐप्लिकेशन को तेज़ी से बनाया, प्रोडक्शन में लाया, और स्केल किया जा सकता है. ज़्यादातर डेवलपर को Gemini Developer API का इस्तेमाल करना चाहिए. हालांकि, अगर एंटरप्राइज़ के लिए खास कंट्रोल की ज़रूरत हो, तो वे Gemini Enterprise API का इस्तेमाल कर सकते हैं.
+# Gemini Developer API 与 Gemini Enterprise Agent Platform 的对比
 
-Gemini Enterprise Agent Platform, एंटरप्राइज़ के लिए तैयार सुविधाओं और सेवाओं का एक पूरा इकोसिस्टम उपलब्ध कराता है. इसकी मदद से, Google Cloud Platform पर जनरेटिव एआई ऐप्लिकेशन बनाए और डिप्लॉय किए जा सकते हैं.
+在使用 Gemini 开发生成式 AI 解决方案时，Google 提供了两种 API 产品：
+[Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=zh-cn) 和 [Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=zh-cn)。
 
-हमने हाल ही में, इन सेवाओं के बीच माइग्रेट करने की प्रोसेस को आसान बनाया है. Gemini Developer API और Gemini Enterprise Agent Platform API, दोनों को अब [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/Google Gen AI SDK) के ज़रिए ऐक्सेस किया जा सकता है.
+Gemini Developer API 可让您以最快的速度构建、生产化和扩缩由 Gemini 提供支持的应用。大多数开发者都应使用 Gemini Developer API，除非需要特定的企业控制。
 
-## कोड की तुलना करना
+Gemini Enterprise Agent Platform 提供了一个全面的生态系统，其中包含企业就绪型功能和服务，可用于构建和部署由 Google Cloud Platform 提供支持的生成式 AI 应用。
 
-इस पेज पर, टेक्स्ट जनरेट करने के लिए Gemini Developer API और Gemini Enterprise Agent Platform की क्विकस्टार्ट गाइड के कोड की तुलना की गई है.
+我们最近简化了在这些服务之间迁移的过程。现在，您可以通过统一的
+[Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn)访问 Gemini
+Developer API 和 Gemini Enterprise Agent Platform API。
+
+## 代码比较
+
+本页并排比较了 Gemini Developer API 和 Gemini Enterprise Agent Platform 文本生成快速入门的代码。
 
 ### Python
 
-Gemini Developer API और Gemini Enterprise Agent Platform, दोनों की सेवाओं को `google-genai` लाइब्रेरी के ज़रिए ऐक्सेस किया जा सकता है. `google-genai` को इंस्टॉल करने का तरीका जानने के लिए, [लाइब्रेरी](https://ai.google.dev/gemini-api/docs/लाइब्रेरी) पेज पर जाएं.
+您可以通过 `google-genai` 库访问 Gemini Developer API 和 Gemini Enterprise Agent Platform 服务。如需了解如何安装 `google-genai`，请参阅 [库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn) 页面
+。
 
 ### Gemini Developer API
 
@@ -59,9 +66,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript और TypeScript
+### JavaScript 和 TypeScript
 
-Gemini Developer API और Gemini Enterprise Agent Platform, दोनों की सेवाओं को `@google/genai` लाइब्रेरी के ज़रिए ऐक्सेस किया जा सकता है. `@google/genai` को इंस्टॉल करने का तरीका जानने के लिए, [लाइब्रेरी](https://ai.google.dev/gemini-api/docs/लाइब्रेरी) पेज देखें.
+您可以通过 `@google/genai` 库访问 Gemini Developer API 和 Gemini Enterprise Agent Platform 服务。如需了解如何安装 `@google/genai`，请参阅 [库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn) 页面。
 
 ### Gemini Developer API
 
@@ -102,9 +109,9 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
-Gemini Developer API और Gemini Enterprise Agent Platform, दोनों की सेवाओं को `google.golang.org/genai` लाइब्रेरी के ज़रिए ऐक्सेस किया जा सकता है. `google.golang.org/genai` को इंस्टॉल करने का तरीका जानने के लिए, [लाइब्रेरी](https://ai.google.dev/gemini-api/docs/लाइब्रेरी) पेज देखें.
+您可以通过 `google.golang.org/genai` 库访问 Gemini Developer API 和 Gemini Enterprise Agent Platform 服务。如需了解如何安装 `google.golang.org/genai`，请参阅 [库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn)页面。
 
 ### Gemini Developer API
 
@@ -165,38 +172,50 @@ func main() {
 }
 ```
 
-### इस्तेमाल के अन्य उदाहरण और प्लैटफ़ॉर्म
+### 其他用例和平台
 
-अन्य प्लैटफ़ॉर्म और इस्तेमाल के उदाहरणों के लिए, [Gemini Developer API के दस्तावेज़](https://ai.google.dev/gemini-api/docs/Gemini Developer API के दस्तावेज़) और [Gemini Enterprise एजेंट प्लैटफ़ॉर्म के दस्तावेज़](https://ai.google.dev/gemini-api/docs/Gemini Enterprise एजेंट प्लैटफ़ॉर्म के दस्तावेज़) में, इस्तेमाल के उदाहरणों से जुड़ी गाइड देखें.
+如需了解其他平台和用例，请参阅 [Gemini Developer API 文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+和 [Gemini Enterprise Agent Platform 文档](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=zh-cn)
+中特定于用例的指南。
 
-## माइग्रेशन से जुड़ी ज़रूरी बातें
+## 迁移注意事项
 
-माइग्रेट करने पर:
+迁移时：
 
-- पुष्टि करने के लिए, आपको Google Cloud सेवा खातों का इस्तेमाल करना होगा. ज़्यादा जानकारी के लिए, [Gemini Enterprise Agent Platform का दस्तावेज़](https://ai.google.dev/gemini-api/docs/Gemini Enterprise Agent Platform का दस्तावेज़) देखें.
-- अपने मौजूदा Google Cloud प्रोजेक्ट का इस्तेमाल किया जा सकता है. यह वही प्रोजेक्ट होना चाहिए जिसका इस्तेमाल आपने एपीआई पासकोड जनरेट करने के लिए किया था. इसके अलावा, [नया Google Cloud प्रोजेक्ट बनाया](https://ai.google.dev/gemini-api/docs/नया Google Cloud प्रोजेक्ट बनाया) जा सकता है.
-- Gemini Developer API और Gemini Enterprise Agent Platform API के लिए, उपलब्ध क्षेत्रों में अंतर हो सकता है. [Google Cloud पर जनरेटिव एआई की सुविधा के लिए, उपलब्ध देशों/इलाकों की सूची](https://ai.google.dev/gemini-api/docs/Google Cloud पर जनरेटिव एआई की सुविधा के लिए, उपलब्ध देशों/इलाकों की सूची) देखें.
-- Google AI Studio में बनाए गए सभी मॉडल को Gemini Enterprise Agent Platform में फिर से ट्रेन करना होगा.
+- 您需要使用 Google Cloud 服务账号进行身份验证。如需了解详情，请参阅 [Gemini Enterprise Agent Platform 文档](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=zh-cn)
+  。
+- 您可以使用现有的 Google Cloud 项目
+  （即用于生成 API 密钥的项目），也可以
+  [创建新的 Google Cloud 项目](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=zh-cn)。
+- Gemini Developer API 和 Gemini Enterprise Agent Platform API 支持的区域可能有所不同。请参阅 Google Cloud 上的生成式 AI 支持的区域列表
+  。
+- 您在 Google AI Studio 中创建的任何模型都需要在 Gemini Enterprise Agent Platform 中重新训练。
 
-अगर आपको Gemini Developer API के लिए, Gemini API पासकोड का इस्तेमाल नहीं करना है, तो सुरक्षा के सबसे सही तरीके अपनाएं और इसे मिटाएं.
+如果您不再需要使用 Gemini Developer API 的 Gemini API 密钥，请遵循安全性最佳实践并将其删除。
 
-किसी एपीआई पासकोड को मिटाने के लिए:
+如需删除 API 密钥，请执行以下操作：
 
-1. [Google Cloud API के क्रेडेंशियल](https://ai.google.dev/gemini-api/docs/Google Cloud API के क्रेडेंशियल) पेज खोलें.
-2. वह एपीआई पासकोड ढूंढें जिसे आपको मिटाना है. इसके बाद, **कार्रवाइयां** आइकॉन पर क्लिक करें.
-3. **एपीआई पासकोड मिटाएं** को चुनें.
-4. **क्रेडेंशियल मिटाएं** मोडल में जाकर, **मिटाएं** को चुनें.
+1. 打开
+   [Google Cloud API 凭据](https://console.cloud.google.com/apis/credentials?hl=zh-cn)
+   页面。
+2. 找到您要删除的 API 密钥，然后点击**操作** 图标。
+3. 选择**删除 API 密钥** 。
+4. 在**删除凭据**模态框中，选择**删除**。
 
-   एपीआई पासकोड को हटाने में कुछ मिनट लगते हैं. प्रॉपगेशन पूरा होने के बाद, मिटाई गई एपीआई कुंजी का इस्तेमाल करने वाले किसी भी ट्रैफ़िक को अस्वीकार कर दिया जाता है.
+   删除 API 密钥的操作需要几分钟时间才能生效。生效后，任何使用已删除的 API 密钥的流量都将遭到拒绝。
 
-## अगले चरण
+## 后续步骤
 
-- Gemini Enterprise Agent Platform पर जनरेटिव एआई के समाधानों के बारे में ज़्यादा जानने के लिए, [Gemini Enterprise Agent Platform पर जनरेटिव एआई की खास जानकारी](https://ai.google.dev/gemini-api/docs/Gemini Enterprise Agent Platform पर जनरेटिव एआई की खास जानकारी) देखें.
+- 如需详细了解 Gemini Enterprise Agent Platform 上的生成式 AI 解决方案，请参阅
+  [Gemini Enterprise Agent Platform 上的生成式 AI 概览](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/multimodal/overview?hl=zh-cn)
+  。
 
-सुझाव भेजें
+发送反馈
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://ai.google.dev/gemini-api/docs/Creative Commons Attribution 4.0 License) के तहत और कोड के नमूनों को [Apache 2.0 License](https://ai.google.dev/gemini-api/docs/Apache 2.0 License) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://ai.google.dev/gemini-api/docs/Google Developers साइट नीतियां) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
+最后更新时间 (UTC)：2026-04-29。
 
-क्या आपको हमें और कुछ बताना है?
+需要向我们提供更多信息？
+
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
