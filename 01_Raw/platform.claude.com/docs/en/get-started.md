@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/get-started
-fetched_at: 2026-05-04T16:08:23.753546+00:00
+fetched_at: 2026-05-11T12:28:38.144701+00:00
 fetch_method: mintlify_md
 ---
 
@@ -12,8 +12,8 @@ Make your first API call to Claude and build a simple web search assistant.
 
 ## Prerequisites
 
-- An Anthropic [Console account](https://platform.claude.com/docs/en/Console account)
-- An [API key](https://platform.claude.com/docs/en/API key)
+- An Anthropic [Console account](/)
+- An [API key](/settings/keys)
 
 ## Call the API
 
@@ -21,7 +21,7 @@ Make your first API call to Claude and build a simple web search assistant.
   <Tab title="cURL">
     <Steps>
       <Step title="Set your API key">
-        Get your API key from the [Claude Console](https://platform.claude.com/docs/en/Claude Console) and set it as an environment variable:
+        Get your API key from the [Claude Console](/settings/keys) and set it as an environment variable:
 
         ```bash
         export ANTHROPIC_API_KEY='your-api-key-here'
@@ -77,7 +77,7 @@ Make your first API call to Claude and build a simple web search assistant.
   <Tab title="CLI">
     <Steps>
       <Step title="Set your API key">
-        Get your API key from the [Claude Console](https://platform.claude.com/docs/en/Claude Console) and set it as an environment variable:
+        Get your API key from the [Claude Console](/settings/keys) and set it as an environment variable:
 
         ```bash
         export ANTHROPIC_API_KEY='your-api-key-here'
@@ -93,7 +93,7 @@ Make your first API call to Claude and build a simple web search assistant.
         brew install anthropics/tap/ant
         ```
 
-        For other installation methods, see [Installation](https://platform.claude.com/docs/en/Installation) in the CLI reference.
+        For other installation methods, see [Installation](/docs/en/api/sdks/cli#installation) in the CLI reference.
       </Step>
 
       <Step title="Make your first API call">
@@ -136,7 +136,7 @@ Make your first API call to Claude and build a simple web search assistant.
   <Tab title="Python">
     <Steps>
       <Step title="Set your API key">
-        Get your API key from the [Claude Console](https://platform.claude.com/docs/en/Claude Console) and set it as an environment variable:
+        Get your API key from the [Claude Console](/settings/keys) and set it as an environment variable:
 
         ```bash
         export ANTHROPIC_API_KEY='your-api-key-here'
@@ -196,7 +196,7 @@ Make your first API call to Claude and build a simple web search assistant.
   <Tab title="TypeScript">
     <Steps>
       <Step title="Set your API key">
-        Get your API key from the [Claude Console](https://platform.claude.com/docs/en/Claude Console) and set it as an environment variable:
+        Get your API key from the [Claude Console](/settings/keys) and set it as an environment variable:
 
         ```bash
         export ANTHROPIC_API_KEY='your-api-key-here'
@@ -290,7 +290,7 @@ main().catch(console.error);
   <Tab title="Java">
     <Steps>
       <Step title="Set your API key">
-        Get your API key from the [Claude Console](https://platform.claude.com/docs/en/Claude Console) and set it as an environment variable:
+        Get your API key from the [Claude Console](/settings/keys) and set it as an environment variable:
 
         ```bash
         export ANTHROPIC_API_KEY='your-api-key-here'
@@ -299,58 +299,108 @@ main().catch(console.error);
         To persist the key across shell sessions, add the line to your shell profile (such as `~/.zshrc` or `~/.bashrc`).
       </Step>
 
-      <Step title="Install the SDK">
-        Add the Anthropic Java SDK to your project. First find the current version on [Maven Central](https://platform.claude.com/docs/en/Maven Central).
+      <Step title="Set up your project">
+        You need a JDK (25 or later) and either [Gradle](https://gradle.org/install/) or [Maven](https://maven.apache.org/install.html) on your `PATH`. Create a directory for your project with a Java source directory inside it:
 
-        **Gradle:**
-        ```groovy
-        implementation("com.anthropic:anthropic-java:2.27.0")
+        ```bash
+        mkdir -p claude-quickstart/src/main/java && cd claude-quickstart
         ```
 
-        **Maven:**
-        ```xml
-        <dependency>
-          <groupId>com.anthropic</groupId>
-          <artifactId>anthropic-java</artifactId>
-          <version>2.27.0</version>
-        </dependency>
-        ```
+        Then add a build file. Find the current SDK version on [Maven Central](https://central.sonatype.com/artifact/com.anthropic/anthropic-java).
+
+        <Tabs>
+          <Tab title="Gradle">
+            Save this as `build.gradle.kts`:
+
+            ```kotlin
+            plugins {
+                application
+            }
+
+            repositories {
+                mavenCentral()
+            }
+
+            java {
+                toolchain {
+                    languageVersion = JavaLanguageVersion.of(25)
+                }
+            }
+
+            dependencies {
+                implementation("com.anthropic:anthropic-java:2.30.0")
+            }
+
+            application {
+                mainClass = "QuickStart"
+            }
+            ```
+          </Tab>
+          <Tab title="Maven">
+            Save this as `pom.xml`:
+
+            ```xml
+            <project xmlns="http://maven.apache.org/POM/4.0.0">
+              <modelVersion>4.0.0</modelVersion>
+              <groupId>com.example</groupId>
+              <artifactId>quickstart</artifactId>
+              <version>1.0-SNAPSHOT</version>
+              <properties>
+                <maven.compiler.release>25</maven.compiler.release>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+              </properties>
+              <dependencies>
+                <dependency>
+                  <groupId>com.anthropic</groupId>
+                  <artifactId>anthropic-java</artifactId>
+                  <version>2.30.0</version>
+                </dependency>
+              </dependencies>
+            </project>
+            ```
+          </Tab>
+        </Tabs>
       </Step>
 
       <Step title="Create your code">
-        Save this as `QuickStart.java`:
+        Save this as `QuickStart.java` in your project's Java source directory (usually `src/main/java/`):
 
         ```java
-        import com.anthropic.client.AnthropicClient;
         import com.anthropic.client.okhttp.AnthropicOkHttpClient;
         import com.anthropic.models.messages.Message;
         import com.anthropic.models.messages.MessageCreateParams;
+        import com.anthropic.models.messages.Model;
 
-        public class QuickStart {
+        static void main() {
+            var client = AnthropicOkHttpClient.fromEnv();
 
-          public static void main(String[] args) {
-            AnthropicClient client = AnthropicOkHttpClient.fromEnv();
-
-            MessageCreateParams params = MessageCreateParams.builder()
-              .model("claude-opus-4-7")
-              .maxTokens(1000)
-              .addUserMessage(
-                "What should I search for to find the latest developments in renewable energy?"
-              )
-              .build();
+            var params = MessageCreateParams.builder()
+                .model(Model.CLAUDE_OPUS_4_7)
+                .maxTokens(1000)
+                .addUserMessage(
+                    "What should I search for to find the latest developments in renewable energy?"
+                )
+                .build();
 
             Message message = client.messages().create(params);
-            System.out.println(message.content());
-          }
+            IO.println(message.content());
         }
         ```
       </Step>
 
       <Step title="Run your code">
-        ```bash
-        javac QuickStart.java
-        java QuickStart
-        ```
+        <Tabs>
+          <Tab title="Gradle">
+            ```bash
+            gradle run
+            ```
+          </Tab>
+          <Tab title="Maven">
+            ```bash
+            mvn compile exec:java -Dexec.mainClass=QuickStart
+            ```
+          </Tab>
+        </Tabs>
 
         **Example output:**
         ```text Output

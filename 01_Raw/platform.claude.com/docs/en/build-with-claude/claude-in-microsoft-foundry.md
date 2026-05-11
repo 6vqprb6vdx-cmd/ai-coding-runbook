@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry
-fetched_at: 2026-05-04T16:08:56.235666+00:00
+fetched_at: 2026-05-11T12:28:39.241111+00:00
 fetch_method: mintlify_md
 ---
 
@@ -12,10 +12,10 @@ Access Claude models through Microsoft Foundry with Azure-native endpoints and a
 
 This guide walks you through the process of setting up and making API calls to Claude in Foundry in Python, TypeScript, or using direct HTTP requests. When you can access Claude in Foundry, you are billed for Claude usage in the Microsoft Marketplace with your Azure subscription, allowing you to access Claude's latest capabilities while managing costs through your Azure subscription.
 
-Regional availability: At launch, Claude is available as a Global Standard deployment type in Foundry resources (US DataZone coming soon). Pricing for Claude in the Microsoft Marketplace uses Anthropic's standard API pricing. Visit the [pricing page](https://platform.claude.com/docs/en/build-with-claude/pricing page) for details.
+Regional availability: At launch, Claude is available as a Global Standard deployment type in Foundry resources (US DataZone coming soon). Pricing for Claude in the Microsoft Marketplace uses Anthropic's standard API pricing. Visit the [pricing page](https://claude.com/pricing#api) for details.
 
 <Note>
-Foundry is supported by the C#, Java, PHP, Python, and TypeScript SDKs. The Go and Ruby SDKs do not currently support Microsoft Foundry. For available SDK platform integrations, see [Client SDKs](https://platform.claude.com/docs/en/build-with-claude/Client SDKs).
+Foundry is supported by the C#, Java, PHP, Python, and TypeScript SDKs. The Go and Ruby SDKs do not currently support Microsoft Foundry. For available SDK platform integrations, see [Client SDKs](/docs/en/api/client-sdks).
 </Note>
 
 ## Preview
@@ -27,12 +27,12 @@ In this preview platform integration, Claude models run on Anthropic's infrastru
 Before you begin, ensure you have:
 
 - An active Azure subscription
-- Access to [Foundry](https://platform.claude.com/docs/en/build-with-claude/Foundry)
-- The [Azure CLI](https://platform.claude.com/docs/en/build-with-claude/Azure CLI) installed (optional, for resource management)
+- Access to [Foundry](https://ai.azure.com/)
+- The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) installed (optional, for resource management)
 
 ## Install an SDK
 
-Anthropic's [client SDKs](https://platform.claude.com/docs/en/build-with-claude/client SDKs) support Foundry through platform-specific packages.
+Anthropic's [client SDKs](/docs/en/api/client-sdks) support Foundry through platform-specific packages.
 
 <Tabs>
 <Tab title="Python">
@@ -57,7 +57,7 @@ dotnet add package Anthropic.Foundry
 <Tabs>
 <Tab title="Gradle">
 ```kotlin
-implementation("com.anthropic:anthropic-java-foundry:2.27.0")
+implementation("com.anthropic:anthropic-java-foundry:2.30.0")
 ```
 </Tab>
 <Tab title="Maven">
@@ -65,7 +65,7 @@ implementation("com.anthropic:anthropic-java-foundry:2.27.0")
 <dependency>
     <groupId>com.anthropic</groupId>
     <artifactId>anthropic-java-foundry</artifactId>
-    <version>2.27.0</version>
+    <version>2.30.0</version>
 </dependency>
 ```
 </Tab>
@@ -85,15 +85,15 @@ Foundry uses a two-level hierarchy: **resources** contain your security and bill
 
 ### Provisioning Foundry resources
 
-Create a Foundry resource, which is required to use and manage services in Azure. You can follow these instructions to create a [Foundry resource](https://platform.claude.com/docs/en/build-with-claude/Foundry resource). Alternatively, you can start by creating a [Foundry project](https://platform.claude.com/docs/en/build-with-claude/Foundry project), which involves creating a Foundry resource.
+Create a Foundry resource, which is required to use and manage services in Azure. You can follow these instructions to create a [Foundry resource](https://learn.microsoft.com/en-us/azure/ai-services/multi-service-resource?pivots=azportal#create-a-new-azure-ai-foundry-resource). Alternatively, you can start by creating a [Foundry project](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/create-projects?tabs=ai-foundry), which involves creating a Foundry resource.
 
 To provision your resource:
 
-1. Navigate to the [Foundry portal](https://platform.claude.com/docs/en/build-with-claude/Foundry portal)
+1. Navigate to the [Foundry portal](https://ai.azure.com/)
 2. Create a new Foundry resource or select an existing one
-3. Configure access management using Azure-issued API keys or Entra ID for role-based access control
+3. Configure access management using Azure-issued API keys or Entra ID (formerly Azure Active Directory) for role-based access control
 4. Optionally configure the resource to be part of a private network (Azure Virtual Network) for enhanced security
-5. Note your resource name. You'll use this as `{resource}` in API endpoints (e.g., `https://{resource}.services.ai.azure.com/anthropic/v1/*`)
+5. Note your resource name. You'll use this as `{resource}` in API endpoints (for example, `https://{resource}.services.ai.azure.com/anthropic/v1/*`)
 
 ### Creating Foundry deployments
 
@@ -101,9 +101,9 @@ After creating your resource, deploy a Claude model to make it available for API
 
 1. In the Foundry portal, navigate to your resource
 2. Go to **Models + endpoints** and select **+ Deploy model** > **Deploy base model**
-3. Search for and select a Claude model (e.g., `claude-sonnet-4-6`)
+3. Search for and select a Claude model (for example, `claude-sonnet-4-6`)
 4. Configure deployment settings:
-   - **Deployment name:** Defaults to the model ID, but you can customize it (e.g., `my-claude-deployment`). The deployment name cannot be changed after it has been created.
+   - **Deployment name:** Defaults to the model ID, but you can customize it (for example, `my-claude-deployment`). The deployment name cannot be changed after it has been created.
    - **Deployment type:** Select Global Standard (recommended for Claude)
 5. Select **Deploy** and wait for provisioning to complete
 6. Once deployed, you can find your endpoint URL and keys under **Keys and Endpoint**
@@ -231,8 +231,9 @@ var response = await client.Messages.Create(new MessageCreateParams
 
 Console.WriteLine(
     string.Join("", response.Content
-        .Where(c => c.Value is TextBlock)
-        .Select(c => (c.Value as TextBlock)!.Text)));
+        .Select(block => block.Value)
+        .OfType<TextBlock>()
+        .Select(textBlock => textBlock.Text)));
 ```
 </Tab>
 
@@ -244,20 +245,22 @@ import com.anthropic.client.okhttp.AnthropicOkHttpClient;
 import com.anthropic.foundry.backends.FoundryBackend;
 import com.anthropic.models.messages.MessageCreateParams;
 
-// Requires env vars: ANTHROPIC_FOUNDRY_API_KEY, ANTHROPIC_FOUNDRY_RESOURCE
-AnthropicClient client = AnthropicOkHttpClient.builder()
-  .backend(FoundryBackend.fromEnv())
-  .build();
+void main() {
+    // Requires env vars: ANTHROPIC_FOUNDRY_API_KEY, ANTHROPIC_FOUNDRY_RESOURCE
+    AnthropicClient client = AnthropicOkHttpClient.builder()
+        .backend(FoundryBackend.fromEnv())
+        .build();
 
-MessageCreateParams params = MessageCreateParams.builder()
-  .model("claude-opus-4-7")
-  .maxTokens(1024)
-  .addUserMessage("Hello!")
-  .build();
+    MessageCreateParams params = MessageCreateParams.builder()
+        .model("claude-opus-4-7")
+        .maxTokens(1024)
+        .addUserMessage("Hello!")
+        .build();
 
-client.messages().create(params).content().stream()
-  .flatMap(block -> block.text().stream())
-  .forEach(textBlock -> System.out.println(textBlock.text()));
+    client.messages().create(params).content().stream()
+        .flatMap(block -> block.text().stream())
+        .forEach(textBlock -> System.out.println(textBlock.text()));
+}
 ```
 </Tab>
 
@@ -407,8 +410,9 @@ var response = await client.Messages.Create(new MessageCreateParams
 
 Console.WriteLine(
     string.Join("", response.Content
-        .Where(c => c.Value is TextBlock)
-        .Select(c => (c.Value as TextBlock)!.Text)));
+        .Select(block => block.Value)
+        .OfType<TextBlock>()
+        .Select(textBlock => textBlock.Text)));
 ```
 </Tab>
 
@@ -423,27 +427,29 @@ import com.azure.identity.AuthenticationUtil;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import java.util.function.Supplier;
 
-Supplier<String> bearerTokenSupplier = AuthenticationUtil.getBearerTokenSupplier(
-    new DefaultAzureCredentialBuilder().build(),
-    "https://cognitiveservices.azure.com/.default"
-);
+void main() {
+    Supplier<String> bearerTokenSupplier = AuthenticationUtil.getBearerTokenSupplier(
+        new DefaultAzureCredentialBuilder().build(),
+        "https://cognitiveservices.azure.com/.default"
+    );
 
-AnthropicClient client = AnthropicOkHttpClient.builder()
-  .backend(FoundryBackend.builder()
-    .bearerTokenSupplier(bearerTokenSupplier)
-    .resource("example-resource")
-    .build())
-  .build();
+    AnthropicClient client = AnthropicOkHttpClient.builder()
+        .backend(FoundryBackend.builder()
+            .bearerTokenSupplier(bearerTokenSupplier)
+            .resource("example-resource")
+            .build())
+        .build();
 
-MessageCreateParams params = MessageCreateParams.builder()
-  .model("claude-opus-4-7")
-  .maxTokens(1024)
-  .addUserMessage("Hello!")
-  .build();
+    MessageCreateParams params = MessageCreateParams.builder()
+        .model("claude-opus-4-7")
+        .maxTokens(1024)
+        .addUserMessage("Hello!")
+        .build();
 
-client.messages().create(params).content().stream()
-  .flatMap(block -> block.text().stream())
-  .forEach(textBlock -> System.out.println(textBlock.text()));
+    client.messages().create(params).content().stream()
+        .flatMap(block -> block.text().stream())
+        .forEach(textBlock -> System.out.println(textBlock.text()));
+}
 ```
 </Tab>
 
@@ -488,23 +494,24 @@ Foundry includes request identifiers in HTTP response headers for debugging and 
 
 ## Supported features
 
-Claude on Foundry supports most of Claude's powerful features. You can find all the features currently supported in the [overview documentation](https://platform.claude.com/docs/en/build-with-claude/overview documentation).
+Claude on Foundry supports most of Claude's powerful features. You can find all the features currently supported in the [overview documentation](/docs/en/build-with-claude/overview).
 
 ### Context window
 
-Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context window](https://platform.claude.com/docs/en/build-with-claude/1M-token context window) on Microsoft Foundry. Other Claude models, including Sonnet 4.5, have a 200k-token context window.
+Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context window](/docs/en/build-with-claude/context-windows) on Microsoft Foundry. Other Claude models, including Sonnet 4.5, have a 200k-token context window.
 
 ### Features not supported
 
 - Admin API (`/v1/organizations/*` endpoints)
+- Compliance API (`/v1/compliance/*` endpoints)
 - Models API (`/v1/models`)
 - Message Batch API (`/v1/messages/batches`)
 
 ## API responses
 
-API responses from Claude on Foundry follow the standard [Claude API response format](https://platform.claude.com/docs/en/build-with-claude/Claude API response format). This includes the `usage` object in response bodies, which provides detailed token consumption information for your requests. The `usage` object is consistent across all platforms (first-party API, Foundry, Amazon Bedrock, and Google Vertex AI).
+API responses from Claude on Foundry follow the standard [Claude API response format](/docs/en/api/messages/create). This includes the `usage` object in response bodies, which provides detailed token consumption information for your requests. The `usage` object is consistent across all platforms (first-party API, Foundry, Amazon Bedrock, and Google Vertex AI).
 
-For details on response headers specific to Foundry, see the [correlation request IDs section](https://platform.claude.com/docs/en/build-with-claude/correlation request IDs section).
+For details on response headers specific to Foundry, see the [correlation request IDs section](#correlation-request-ids).
 
 ## API model IDs and deployments
 
@@ -547,7 +554,7 @@ Azure's logging services are configured within your Azure subscription. Enabling
 
 **Error:** `403 Forbidden`
 
-- **Solution:** Your Azure account may lack the necessary permissions. Ensure you have the appropriate Azure RBAC role assigned (e.g., "Cognitive Services OpenAI User").
+- **Solution:** Your Azure account may lack the necessary permissions. Ensure you have the appropriate Azure RBAC role assigned (for example, "Cognitive Services OpenAI User").
 
 ### Rate limiting
 
@@ -564,7 +571,7 @@ Foundry does not include Anthropic's standard rate limit headers (`anthropic-rat
 
 **Error:** `Model not found` or `Deployment not found`
 
-- **Solution:** Verify you're using the correct deployment name. If you haven't created a custom deployment, use the default model ID (e.g., `claude-sonnet-4-6`).
+- **Solution:** Verify you're using the correct deployment name. If you haven't created a custom deployment, use the default model ID (for example, `claude-sonnet-4-6`).
 - **Solution:** Ensure the model/deployment is available in your Azure region.
 
 **Error:** `Invalid model parameter`
@@ -572,13 +579,13 @@ Foundry does not include Anthropic's standard rate limit headers (`anthropic-rat
 - **Solution:** The model parameter should contain your deployment name, which can be customized in the Foundry portal. Verify the deployment exists and is properly configured.
 
 <Info>
-[Claude Mythos Preview](https://platform.claude.com/docs/en/build-with-claude/Claude Mythos Preview) is a research preview available to invited customers on Microsoft Foundry. For more information, see [Project Glasswing](https://platform.claude.com/docs/en/build-with-claude/Project Glasswing).
+[Claude Mythos Preview](https://anthropic.com/glasswing) is a research preview available to invited customers on Microsoft Foundry. For more information, see [Project Glasswing](https://anthropic.com/glasswing).
 </Info>
 
 ## Additional resources
 
-- **Foundry documentation:** [ai.azure.com/catalog](https://platform.claude.com/docs/en/build-with-claude/ai.azure.com/catalog)
-- **Azure pricing:** [azure.microsoft.com/en-us/pricing](https://platform.claude.com/docs/en/build-with-claude/azure.microsoft.com/en-us/pricing)
-- **Anthropic pricing details:** [Pricing documentation](https://platform.claude.com/docs/en/build-with-claude/Pricing documentation)
-- **Authentication guide:** See the [authentication section](https://platform.claude.com/docs/en/build-with-claude/authentication section) above
-- **Azure portal:** [portal.azure.com](https://platform.claude.com/docs/en/build-with-claude/portal.azure.com)
+- **Foundry documentation:** [ai.azure.com/catalog](https://ai.azure.com/catalog/publishers/anthropic)
+- **Azure pricing:** [azure.microsoft.com/en-us/pricing](https://azure.microsoft.com/en-us/pricing/)
+- **Anthropic pricing details:** [Pricing documentation](/docs/en/about-claude/pricing#third-party-platform-pricing)
+- **Authentication guide:** See the [authentication section](#authentication) above
+- **Azure portal:** [portal.azure.com](https://portal.azure.com/)

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals
-fetched_at: 2026-05-04T16:08:31.765627+00:00
+fetched_at: 2026-05-11T12:28:38.418926+00:00
 fetch_method: mintlify_md
 ---
 
@@ -11,7 +11,7 @@ fetch_method: mintlify_md
 Starting with Claude 4 models, streaming responses from Claude's API return **`stop_reason`: `"refusal"`** when streaming classifiers intervene to handle potential policy violations. This new safety feature helps maintain content compliance during real-time streaming.
 
 <Tip>
-To learn more about refusals triggered by API safety filters for Claude Sonnet 4.5, see [Understanding Sonnet 4.5's API Safety Filters](https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/Understanding Sonnet 4.5's API Safety Filters).
+To learn more about refusals triggered by API safety filters for Claude Sonnet 4.5, see [Understanding Sonnet 4.5's API Safety Filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
 </Tip>
 
 ## API response format
@@ -37,7 +37,7 @@ No additional refusal message is included. You must handle the response and prov
 
 ## Reset context after refusal
 
-When you receive **`stop_reason`: `refusal`**, you must reset the conversation context **by removing or updating the turn that was refused** before continuing. Attempting to continue without resetting will result in continued refusals.
+When you receive **`stop_reason`: `refusal`**, you must reset the conversation context before continuing. You can remove or rephrase the turn that triggered the refusal, or clear the conversation history entirely. Attempting to continue without resetting will result in continued refusals.
 
 <Note>
 Usage metrics are still provided in the response for billing purposes, even when the response is refused.
@@ -46,7 +46,7 @@ You will be billed for output tokens up until the refusal.
 </Note>
 
 <Tip>
-If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1, you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/understanding Sonnet 4.5's API safety filters).
+If you encounter `refusal` stop reasons frequently while using Claude Sonnet 4.5 or Opus 4.1, you can try updating your API calls to use Haiku 4.5 (`claude-haiku-4-5-20251001`), which has different usage restrictions. Learn more about [understanding Sonnet 4.5's API safety filters](https://support.claude.com/en/articles/12449294-understanding-sonnet-4-5-s-api-safety-filters).
 </Tip>
 
 ## Implementation guide
@@ -80,11 +80,13 @@ import anthropic
 client = anthropic.Anthropic()
 messages = []
 
+
 def reset_conversation():
     """Reset conversation context after refusal"""
     global messages
     messages = []
     print("Conversation reset due to refusal")
+
 
 try:
     with client.messages.stream(

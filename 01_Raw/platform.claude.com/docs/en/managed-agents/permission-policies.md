@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/permission-policies
-fetched_at: 2026-05-04T16:09:00.593366+00:00
+fetched_at: 2026-05-11T12:28:39.390614+00:00
 fetch_method: mintlify_md
 ---
 
@@ -21,7 +21,7 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 | Policy | Behavior |
 | --- | --- |
 | `always_allow` | The tool executes automatically with no confirmation. |
-| `always_ask` | The session emits a `session.status_idle` event and waits for a `user.tool_confirmation` event before executing. |
+| `always_ask` | The session pauses and waits for your approval before executing. See [Respond to confirmation requests](#respond-to-confirmation-requests) for the event flow. |
 
 ## Set a policy for a toolset
 
@@ -625,7 +625,7 @@ When the agent invokes a tool with an `always_ask` policy:
 3. Send a `user.tool_confirmation` event for each, passing the event ID in the `tool_use_id` param. Set `result` to `"allow"` or `"deny"`. Use `deny_message` to explain a denial.
 4. Once all blocking events are resolved, the session transitions back to `running`.
 
-Learn more about event handling in the [session event stream](https://platform.claude.com/docs/en/managed-agents/session event stream) guide.
+Learn more about event handling in the [session event stream](/docs/en/managed-agents/events-and-streaming) guide.
 
 <CodeGroup>
 ```bash curl
@@ -880,4 +880,4 @@ client.beta.sessions.events.send_(
 
 ## Custom tools
 
-Permission policies do not apply to custom tools. When the agent invokes a custom tool, your application receives an `agent.custom_tool_use` event and is responsible for deciding whether to execute it before sending back a `user.custom_tool_result`. See [Session event stream](https://platform.claude.com/docs/en/managed-agents/Session event stream) for the full flow.
+Permission policies do not apply to custom tools. When the agent invokes a custom tool, your application receives an `agent.custom_tool_use` event and is responsible for deciding whether to execute it before sending back a `user.custom_tool_result`. See [Session event stream](/docs/en/managed-agents/events-and-streaming#handling-custom-tool-calls) for the full flow.
