@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/interactive-mode
-fetched_at: 2026-05-04T15:05:59.497815+00:00
+fetched_at: 2026-05-11T12:28:32.103541+00:00
 fetch_method: mintlify_md
 ---
 
@@ -17,13 +17,13 @@ fetch_method: mintlify_md
 <Note>
   Keyboard shortcuts may vary by platform and terminal. Press `?` to see available shortcuts for your environment.
 
-  **macOS users**: Option/Alt key shortcuts (`Alt+B`, `Alt+F`, `Alt+Y`, `Alt+M`, `Alt+P`, `Alt+T`) require configuring Option as Meta in your terminal:
+  **macOS users**: Option/Alt key shortcuts (`Alt+B`, `Alt+F`, `Alt+Y`, `Alt+M`, `Alt+P`) require configuring Option as Meta in your terminal:
 
   * **iTerm2**: Settings → Profiles → Keys → General → set Left/Right Option key to "Esc+"
   * **Apple Terminal**: Settings → Profiles → Keyboard → check "Use Option as Meta Key"
   * **VS Code**: set `"terminal.integrated.macOptionIsMeta": true` in VS Code settings
 
-  See [Terminal configuration](https://code.claude.com/docs/en/Terminal configuration) for details.
+  See [Terminal configuration](/en/terminal-config) for details.
 </Note>
 
 ### General controls
@@ -39,14 +39,14 @@ fetch_method: mintlify_md
 | `Ctrl+R`                                          | Reverse search command history                                      | Search through previous commands interactively                                                                                                                                                                                                                                                         |
 | `Ctrl+V` or `Cmd+V` (iTerm2) or `Alt+V` (Windows) | Paste image from clipboard                                          | Inserts an `[Image #N]` chip at the cursor so you can reference it positionally in your prompt                                                                                                                                                                                                         |
 | `Ctrl+B`                                          | Background running tasks                                            | Backgrounds bash commands and agents. Tmux users press twice                                                                                                                                                                                                                                           |
-| `Ctrl+T`                                          | Toggle task list                                                    | Show or hide the [task list](https://code.claude.com/docs/en/task list) in the terminal status area                                                                                                                                                                                                                                   |
+| `Ctrl+T`                                          | Toggle task list                                                    | Show or hide the [task list](#task-list) in the terminal status area                                                                                                                                                                                                                                   |
 | `Left/Right arrows`                               | Cycle through dialog tabs                                           | Navigate between tabs in permission dialogs and menus                                                                                                                                                                                                                                                  |
 | `Up/Down arrows` or `Ctrl+P`/`Ctrl+N`             | Move cursor or navigate command history                             | In multiline input, first moves the cursor within the prompt. Once the cursor is already on the top or bottom edge, pressing again navigates command history                                                                                                                                           |
 | `Esc` + `Esc`                                     | Rewind or summarize                                                 | Restore code and/or conversation to a previous point, or summarize from a selected message                                                                                                                                                                                                             |
-| `Shift+Tab` or `Alt+M` (some configurations)      | Cycle permission modes                                              | Cycle through `default`, `acceptEdits`, `plan`, and any modes you have enabled, such as `auto` or `bypassPermissions`. See [permission modes](https://code.claude.com/docs/en/permission modes).                                                                                                                                   |
+| `Shift+Tab` or `Alt+M` (some configurations)      | Cycle permission modes                                              | Cycle through `default`, `acceptEdits`, `plan`, and any modes you have enabled, such as `auto` or `bypassPermissions`. See [permission modes](/en/permission-modes).                                                                                                                                   |
 | `Option+P` (macOS) or `Alt+P` (Windows/Linux)     | Switch model                                                        | Switch models without clearing your prompt                                                                                                                                                                                                                                                             |
-| `Option+T` (macOS) or `Alt+T` (Windows/Linux)     | Toggle extended thinking                                            | Enable or disable extended thinking mode. On macOS, configure your terminal to send Option as Meta for this shortcut to work                                                                                                                                                                           |
-| `Option+O` (macOS) or `Alt+O` (Windows/Linux)     | Toggle fast mode                                                    | Enable or disable [fast mode](https://code.claude.com/docs/en/fast mode)                                                                                                                                                                                                                                                           |
+| `Option+T` (macOS) or `Alt+T` (Windows/Linux)     | Toggle extended thinking                                            | Enable or disable extended thinking mode. {/* min-version: 2.1.132 */}As of v2.1.132 this shortcut works on macOS without configuring Option as Meta                                                                                                                                                   |
+| `Option+O` (macOS) or `Alt+O` (Windows/Linux)     | Toggle fast mode                                                    | Enable or disable [fast mode](/en/fast-mode)                                                                                                                                                                                                                                                           |
 
 ### Text editing
 
@@ -58,9 +58,9 @@ fetch_method: mintlify_md
 | `Ctrl+U`                 | Delete from cursor to line start     | Stores deleted text for pasting. Repeat to clear across lines in multiline input. On macOS, terminal emulators including iTerm2 and Terminal.app map `Cmd+Backspace` to this shortcut |
 | `Ctrl+W`                 | Delete previous word                 | Stores deleted text for pasting. On Windows, `Ctrl+Backspace` also deletes the previous word                                                                                          |
 | `Ctrl+Y`                 | Paste deleted text                   | Paste text deleted with `Ctrl+K`, `Ctrl+U`, or `Ctrl+W`                                                                                                                               |
-| `Alt+Y` (after `Ctrl+Y`) | Cycle paste history                  | After pasting, cycle through previously deleted text. Requires [Option as Meta](https://code.claude.com/docs/en/Option as Meta) on macOS                                                                         |
-| `Alt+B`                  | Move cursor back one word            | Word navigation. Requires [Option as Meta](https://code.claude.com/docs/en/Option as Meta) on macOS                                                                                                              |
-| `Alt+F`                  | Move cursor forward one word         | Word navigation. Requires [Option as Meta](https://code.claude.com/docs/en/Option as Meta) on macOS                                                                                                              |
+| `Alt+Y` (after `Ctrl+Y`) | Cycle paste history                  | After pasting, cycle through previously deleted text. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                         |
+| `Alt+B`                  | Move cursor back one word            | Word navigation. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                                                              |
+| `Alt+F`                  | Move cursor forward one word         | Word navigation. Requires [Option as Meta](#keyboard-shortcuts) on macOS                                                                                                              |
 
 ### Theme and display
 
@@ -73,45 +73,45 @@ fetch_method: mintlify_md
 | Method           | Shortcut       | Context                                                                                            |
 | :--------------- | :------------- | :------------------------------------------------------------------------------------------------- |
 | Quick escape     | `\` + `Enter`  | Works in all terminals                                                                             |
-| Option key       | `Option+Enter` | After enabling [Option as Meta](https://code.claude.com/docs/en/Option as Meta) on macOS |
-| Shift+Enter      | `Shift+Enter`  | Native in iTerm2, WezTerm, Ghostty, Kitty, Warp, Apple Terminal                                    |
+| Option key       | `Option+Enter` | After enabling [Option as Meta](/en/terminal-config#enable-option-key-shortcuts-on-macos) on macOS |
+| Shift+Enter      | `Shift+Enter`  | Native in iTerm2, WezTerm, Ghostty, Kitty, Warp, Apple Terminal, Windows Terminal                  |
 | Control sequence | `Ctrl+J`       | Works in any terminal without configuration                                                        |
 | Paste mode       | Paste directly | For code blocks, logs                                                                              |
 
 <Tip>
-  Shift+Enter works without configuration in iTerm2, WezTerm, Ghostty, Kitty, Warp, and Apple Terminal. For VS Code, Cursor, Windsurf, Alacritty, and Zed, run `/terminal-setup` to install the binding.
+  Shift+Enter works without configuration in iTerm2, WezTerm, Ghostty, Kitty, Warp, Apple Terminal, and Windows Terminal. For VS Code, Cursor, Windsurf, Alacritty, and Zed, run `/terminal-setup` to install the binding.
 </Tip>
 
 ### Quick commands
 
 | Shortcut     | Description       | Notes                                                         |
 | :----------- | :---------------- | :------------------------------------------------------------ |
-| `/` at start | Command or skill  | See [commands](https://code.claude.com/docs/en/commands) and [skills](https://code.claude.com/docs/en/skills)            |
+| `/` at start | Command or skill  | See [commands](#commands) and [skills](/en/skills)            |
 | `!` at start | Shell mode        | Run commands directly and add execution output to the session |
 | `@`          | File path mention | Trigger file path autocomplete                                |
 
 ### Transcript viewer
 
-When the transcript viewer is open (toggled with `Ctrl+O`), these shortcuts are available. `Ctrl+E` can be rebound via [`transcript:toggleShowAll`](https://code.claude.com/docs/en/`transcript:toggleShowAll`).
+When the transcript viewer is open (toggled with `Ctrl+O`), these shortcuts are available. `Ctrl+E` can be rebound via [`transcript:toggleShowAll`](/en/keybindings).
 
 | Shortcut             | Description                                                                                                                                                                                                           |
 | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Ctrl+E`             | Toggle show all content                                                                                                                                                                                               |
-| `[`                  | Write the full conversation to your terminal's native scrollback so `Cmd+F`, tmux copy mode, and other native tools can search it. Requires [fullscreen rendering](https://code.claude.com/docs/en/`                  | Write the full conversation to your terminal's native scrollback so `Cmd+F`, tmux copy mode, and other native tools can search it. Requires [fullscreen rendering) |
-| `v`                  | Write the conversation to a temporary file and open it in `$VISUAL` or `$EDITOR`. Requires [fullscreen rendering](https://code.claude.com/docs/en/fullscreen rendering)                                                                                     |
-| `q`, `Ctrl+C`, `Esc` | Exit transcript view. All three can be rebound via [`transcript:exit`](https://code.claude.com/docs/en/`transcript:exit`)                                                                                                                               |
+| `[`                  | Write the full conversation to your terminal's native scrollback so `Cmd+F`, tmux copy mode, and other native tools can search it. Requires [fullscreen rendering](/en/fullscreen#search-and-review-the-conversation) |
+| `v`                  | Write the conversation to a temporary file and open it in `$VISUAL` or `$EDITOR`. Requires [fullscreen rendering](/en/fullscreen)                                                                                     |
+| `q`, `Ctrl+C`, `Esc` | Exit transcript view. All three can be rebound via [`transcript:exit`](/en/keybindings)                                                                                                                               |
 
 ### Voice input
 
 | Shortcut            | Description     | Notes                                                                                                                                                                            |
 | :------------------ | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hold or tap `Space` | Voice dictation | Requires [voice dictation](https://code.claude.com/docs/en/voice dictation) to be enabled. Hold to record, or run `/voice tap` for tap-to-toggle. [Rebindable](https://code.claude.com/docs/en/Rebindable) |
+| Hold or tap `Space` | Voice dictation | Requires [voice dictation](/en/voice-dictation) to be enabled. Hold to record, or run `/voice tap` for tap-to-toggle. [Rebindable](/en/voice-dictation#rebind-the-dictation-key) |
 
 ## Commands
 
-Type `/` in Claude Code to see all available commands, or type `/` followed by any letters to filter. The `/` menu shows everything you can invoke: built-in commands, bundled and user-authored [skills](https://code.claude.com/docs/en/skills), and commands contributed by [plugins](https://code.claude.com/docs/en/plugins) and [MCP servers](https://code.claude.com/docs/en/MCP servers). Not all built-in commands are visible to every user since some depend on your platform or plan.
+Type `/` in Claude Code to see all available commands, or type `/` followed by any letters to filter. The `/` menu shows everything you can invoke: built-in commands, bundled and user-authored [skills](/en/skills), and commands contributed by [plugins](/en/plugins) and [MCP servers](/en/mcp#use-mcp-prompts-as-commands). Not all built-in commands are visible to every user since some depend on your platform or plan.
 
-See the [commands reference](https://code.claude.com/docs/en/commands reference) for the full list of commands included in Claude Code.
+See the [commands reference](/en/commands) for the full list of commands included in Claude Code.
 
 ## Vim editor mode
 
@@ -136,6 +136,7 @@ Enable vim-style editing via `/config` → Editor mode.
 | Command         | Action                                              |
 | :-------------- | :-------------------------------------------------- |
 | `h`/`j`/`k`/`l` | Move left/down/up/right                             |
+| `Space`         | Move right                                          |
 | `w`             | Next word                                           |
 | `e`             | End of word                                         |
 | `b`             | Previous word                                       |
@@ -226,7 +227,7 @@ Press `Ctrl+R` to interactively search through your command history:
 1. **Start search**: press `Ctrl+R` to activate reverse history search
 2. **Type query**: enter text to search for in previous commands. The search term is highlighted in matching results
 3. **Navigate matches**: press `Ctrl+R` again to cycle through older matches
-4. **Change scope**: press `Ctrl+S` to cycle between this session, this project, and all projects
+4. **Change scope**: search defaults to prompts from all projects. Press `Ctrl+S` to cycle the scope through this session, this project, and all projects
 5. **Accept match**:
    * Press `Tab` or `Esc` to accept the current match and continue editing
    * Press `Enter` to accept and execute the command immediately
@@ -256,7 +257,7 @@ To run commands in the background, you can either:
 * Background tasks are automatically cleaned up when Claude Code exits
 * Background tasks are automatically terminated if output exceeds 5GB, with a note in stderr explaining why
 
-To disable all background task functionality, set the `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to `1`. See [Environment variables](https://code.claude.com/docs/en/`/`a[` | Inner/around brackets                    || `i{`/`a{` | Inner/around braces                      |### Visual modePress `v` for character-wise selection or `V` for line-wise selection. Motions extend the selection, and operators act on it directly.| Command          | Action                                               || :--------------- | :--------------------------------------------------- || `d`/`x`          | Delete selection                                     || `y`              | Yank selection                                       || `c`/`s`          | Change selection                                     || `p`              | Replace selection with register contents             || `r{char}`        | Replace every selected character with `{char}`       || `~`/`u`/`U`      | Toggle, lowercase, or uppercase selection            || `>`/`<`          | Indent or dedent selected lines                      || `J`              | Join selected lines                                  || `o`              | Swap cursor and anchor                               || `iw`/`aw`/`i"`/… | Select a text object                                 || `v`/`V`          | Toggle between character-wise and line-wise, or exit |Block-wise visual mode with `Ctrl+V` is not supported.## Command historyClaude Code maintains command history for the current session:* Input history is stored per working directory* Input history resets when you run `/clear` to start a new session. The previous session's conversation is preserved and can be resumed.* Use Up/Down arrows to navigate (see keyboard shortcuts above)* **Note**: history expansion (`!`) is disabled by default### Reverse search with Ctrl+RPress `Ctrl+R` to interactively search through your command history:1. **Start search**: press `Ctrl+R` to activate reverse history search2. **Type query**: enter text to search for in previous commands. The search term is highlighted in matching results3. **Navigate matches**: press `Ctrl+R` again to cycle through older matches4. **Change scope**: press `Ctrl+S` to cycle between this session, this project, and all projects5. **Accept match**:   * Press `Tab` or `Esc` to accept the current match and continue editing   * Press `Enter` to accept and execute the command immediately6. **Cancel search**:   * Press `Ctrl+C` to cancel and restore your original input   * Press `Backspace` on empty search to cancelThe search displays matching commands with the search term highlighted, so you can find and reuse previous inputs.## Background bash commandsClaude Code supports running bash commands in the background, allowing you to continue working while long-running processes execute.### How backgrounding worksWhen Claude Code runs a command in the background, it runs the command asynchronously and immediately returns a background task ID. Claude Code can respond to new prompts while the command continues executing in the background.To run commands in the background, you can either:* Prompt Claude Code to run a command in the background* Press Ctrl+B to move a regular Bash tool invocation to the background. (Tmux users must press Ctrl+B twice due to tmux's prefix key.)**Key features:*** Output is written to a file and Claude can retrieve it using the Read tool* Background tasks have unique IDs for tracking and output retrieval* Background tasks are automatically cleaned up when Claude Code exits* Background tasks are automatically terminated if output exceeds 5GB, with a note in stderr explaining whyTo disable all background task functionality, set the `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to `1`. See [Environment variables) for details.
+To disable all background task functionality, set the `CLAUDE_CODE_DISABLE_BACKGROUND_TASKS` environment variable to `1`. See [Environment variables](/en/env-vars) for details.
 
 **Common backgrounded commands:**
 
@@ -294,7 +295,7 @@ When you first open a session, a grayed-out example command appears in the promp
 
 After Claude responds, suggestions continue to appear based on your conversation history, such as a follow-up step from a multi-part request or a natural continuation of your workflow.
 
-* Press **Tab** or **Right arrow** to accept the suggestion, or press **Enter** to accept and submit
+* Press **Tab** or **Right arrow** to place the suggestion in the prompt input, then **Enter** to submit
 * Start typing to dismiss it
 
 The suggestion runs as a background request that reuses the parent conversation's prompt cache, so the additional cost is minimal. Claude Code skips suggestion generation when the cache is cold to avoid unnecessary cost.
@@ -324,7 +325,7 @@ Side questions have full visibility into the current conversation, so you can as
 
 Press **Space**, **Enter**, or **Escape** to dismiss the answer and return to the prompt.
 
-`/btw` is the inverse of a [subagent](https://code.claude.com/docs/en/subagent): it sees your full conversation but has no tools, while a subagent has full tools but starts with an empty context. Use `/btw` to ask about what Claude already knows from this session; use a subagent to go find out something new.
+`/btw` is the inverse of a [subagent](/en/sub-agents): it sees your full conversation but has no tools, while a subagent has full tools but starts with an empty context. Use `/btw` to ask about what Claude already knows from this session; use a subagent to go find out something new.
 
 ## Task list
 
@@ -361,8 +362,8 @@ When working on a branch with an open pull request, Claude Code displays a click
 
 ## See also
 
-* [Skills](https://code.claude.com/docs/en/Skills) - Custom prompts and workflows
-* [Checkpointing](https://code.claude.com/docs/en/Checkpointing) - Rewind Claude's edits and restore previous states
-* [CLI reference](https://code.claude.com/docs/en/CLI reference) - Command-line flags and options
-* [Settings](https://code.claude.com/docs/en/Settings) - Configuration options
-* [Memory management](https://code.claude.com/docs/en/Memory management) - Managing CLAUDE.md files
+* [Skills](/en/skills) - Custom prompts and workflows
+* [Checkpointing](/en/checkpointing) - Rewind Claude's edits and restore previous states
+* [CLI reference](/en/cli-reference) - Command-line flags and options
+* [Settings](/en/settings) - Configuration options
+* [Memory management](/en/memory) - Managing CLAUDE.md files

@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/agent-sdk/typescript-v2-preview
-fetched_at: 2026-05-04T15:04:17.572167+00:00
+fetched_at: 2026-05-11T12:28:31.670778+00:00
 fetch_method: mintlify_md
 ---
 
@@ -8,15 +8,15 @@ fetch_method: mintlify_md
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# TypeScript SDK V2 interface (preview)
+# TypeScript SDK V2 session API (deprecated)
 
-> Preview of the simplified V2 TypeScript Agent SDK, with session-based send/stream patterns for multi-turn conversations.
+> Reference for the deprecated V2 TypeScript Agent SDK session API, with session-based send/stream patterns for multi-turn conversations.
 
 <Warning>
-  The V2 interface is an **unstable preview**. APIs may change based on feedback before becoming stable. Some features like session forking are only available in the [V1 SDK](https://code.claude.com/docs/en/agent-sdk/V1 SDK).
+  The V2 session API functions `unstable_v2_createSession`, `unstable_v2_resumeSession`, and `unstable_v2_prompt` are deprecated and will be removed in a future release. Use the [V1 `query()` API](/en/agent-sdk/typescript) instead.
 </Warning>
 
-The V2 Claude Agent TypeScript SDK removes the need for async generators and yield coordination. This makes multi-turn conversations simpler, instead of managing generator state across turns, each turn is a separate `send()`/`stream()` cycle. The API surface reduces to three concepts:
+V2 was an experimental session API that removed the need for async generators and yield coordination. Instead of managing generator state across turns, each turn was a separate `send()`/`stream()` cycle. The API surface reduced to three concepts:
 
 * `createSession()` / `resumeSession()`: Start or continue a conversation
 * `session.send()`: Send a message
@@ -79,7 +79,7 @@ For interactions beyond a single prompt, create a session. V2 separates sending 
 
 This explicit separation makes it easier to add logic between turns (like processing responses before sending follow-ups).
 
-The example below creates a session, sends "Hello!" to Claude, and prints the text response. It uses [`await using`](https://code.claude.com/docs/en/agent-sdk/`await using`) (TypeScript 5.2+) to automatically close the session when the block exits. You can also call `session.close()` manually.
+The example below creates a session, sends "Hello!" to Claude, and prints the text response. It uses [`await using`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#using-declarations-and-explicit-resource-management) (TypeScript 5.2+) to automatically close the session when the block exits. You can also call `session.close()` manually.
 
 ```typescript theme={null}
 import { unstable_v2_createSession } from "@anthropic-ai/claude-agent-sdk";
@@ -307,7 +307,7 @@ for await (const msg of resumedSession.stream()) {
 
 ### Cleanup
 
-Sessions can be closed manually or automatically using [`await using`](https://code.claude.com/docs/en/agent-sdk/`await using`), a TypeScript 5.2+ feature for automatic resource cleanup. If you're using an older TypeScript version or encounter compatibility issues, use manual cleanup instead.
+Sessions can be closed manually or automatically using [`await using`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-2.html#using-declarations-and-explicit-resource-management), a TypeScript 5.2+ feature for automatic resource cleanup. If you're using an older TypeScript version or encounter compatibility issues, use manual cleanup instead.
 
 **Automatic cleanup (TypeScript 5.2+):**
 
@@ -386,17 +386,13 @@ interface SDKSession {
 
 ## Feature availability
 
-Not all V1 features are available in V2 yet. The following require using the [V1 SDK](https://code.claude.com/docs/en/agent-sdk/V1 SDK):
+The V2 session API does not support every V1 feature. The following require the [V1 SDK](/en/agent-sdk/typescript):
 
 * Session forking (`forkSession` option)
 * Some advanced streaming input patterns
 
-## Feedback
-
-Share your feedback on the V2 interface before it becomes stable. Report issues and suggestions through [GitHub Issues](https://code.claude.com/docs/en/agent-sdk/GitHub Issues).
-
 ## See also
 
-* [TypeScript SDK reference (V1)](https://code.claude.com/docs/en/agent-sdk/TypeScript SDK reference (V1)) - Full V1 SDK documentation
-* [SDK overview](https://code.claude.com/docs/en/agent-sdk/SDK overview) - General SDK concepts
-* [V2 examples on GitHub](https://code.claude.com/docs/en/agent-sdk/V2 examples on GitHub) - Working code examples
+* [TypeScript SDK reference (V1)](/en/agent-sdk/typescript) - Full V1 SDK documentation
+* [SDK overview](/en/agent-sdk/overview) - General SDK concepts
+* [V2 examples on GitHub](https://github.com/anthropics/claude-agent-sdk-demos/tree/main/hello-world-v2) - Working code examples
