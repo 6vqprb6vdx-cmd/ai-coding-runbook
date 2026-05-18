@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=zh-CN
-fetched_at: 2026-05-11T12:34:55.339071+00:00
+fetched_at: 2026-05-18T13:05:49.659427+00:00
 title: "Gemini Developer API \u4e0e Gemini Enterprise Agent Platform \u7684\u5bf9\u6bd4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,12 +18,12 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 # Gemini Developer API 与 Gemini Enterprise Agent Platform 的对比
 
-在使用 Gemini 开发生成式 AI 解决方案时，Google 提供了两种 API 产品：
+使用 Gemini 开发生成式 AI 解决方案时，Google 提供两种 API 产品：
 [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=zh-cn) 和 [Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=zh-cn)。
 
-Gemini Developer API 可让您以最快的速度构建、生产化和扩缩由 Gemini 提供支持的应用。大多数开发者都应使用 Gemini Developer API，除非需要特定的企业控制。
+Gemini Developer API 提供最快的路径来构建、生产化和扩缩由 Gemini 提供支持的应用。大多数开发者都应使用 Gemini Developer API，除非需要特定的企业控制。
 
-Gemini Enterprise Agent Platform 提供了一个全面的生态系统，其中包含企业就绪型功能和服务，可用于构建和部署由 Google Cloud Platform 提供支持的生成式 AI 应用。
+Gemini Enterprise Agent Platform 提供了一个全面的生态系统，其中包含企业就绪型功能和服务，用于构建和部署由 Google Cloud Platform 提供支持的生成式 AI 应用。
 
 我们最近简化了在这些服务之间迁移的过程。现在，您可以通过统一的
 [Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn)访问 Gemini
@@ -31,7 +31,7 @@ Developer API 和 Gemini Enterprise Agent Platform API。
 
 ## 代码比较
 
-本页并排比较了 Gemini Developer API 和 Gemini Enterprise Agent Platform 文本生成快速入门的代码。
+此页面并排比较了 Gemini Developer API 和 Gemini Enterprise Agent Platform 文本生成快速入门的代码。
 
 ### Python
 
@@ -214,8 +214,8 @@ func main() {
 
 如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最后更新时间 (UTC)：2026-04-29。
+最后更新时间 (UTC)：2026-05-13。
 
 需要向我们提供更多信息？
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-13。"],[],[]]

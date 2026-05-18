@@ -1,189 +1,183 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja
-fetched_at: 2026-05-11T12:38:08.078093+00:00
-title: "\u30ec\u30fc\u30c8\u5236\u9650 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-TW
+fetched_at: 2026-05-18T13:10:37.350725+00:00
+title: "\u983b\u7387\u9650\u5236 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# レート制限
+# 頻率限制
 
-レート制限は、特定の期間内に Gemini API に送信できるリクエスト数を規制します。この制限は、公正な使用を維持し、不正使用を防ぎ、すべてのユーザーのシステム パフォーマンスを維持するのに役立ちます。
+頻率限制會控管您在特定時間範圍內可向 Gemini API 發出的要求數量。這些限制有助於維持公平使用原則、防範濫用行為，以及確保所有使用者都能享有良好的系統效能。
 
-[AI Studio で有効なレート制限を確認する](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=ja)
+[在 AI Studio 中查看有效費率限制](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=zh-tw)
 
-## レート制限の仕組み
+## 速率限制的運作方式
 
-レート制限は通常、次の 3 つのディメンションで測定されます。
+頻率限制通常會從三個面向進行測量：
 
-- 1 分あたりのリクエスト数（**RPM**）
-- 1 分あたりのトークン数（入力）（**TPM**）
-- 1 日あたりのリクエスト数（**RPD**）
+- 每分鐘要求數 (**RPM**)
+- 每分鐘權杖數 (輸入) (**TPM**)
+- 每日要求數 (**RPD**)
 
-使用量は各上限と比較され、いずれかを超えるとレート制限エラーがトリガーされます。たとえば、RPM 上限が 20 の場合、1 分以内に 21 件のリクエストを行うと、TPM やその他の上限を超えていなくてもエラーが発生します。
+系統會根據各項限制評估您的用量，如果超出任何限制，就會觸發速率限制錯誤。舉例來說，如果 RPM 上限為 20，即使您未超過 TPM 或其他限制，在一分鐘內提出 21 個要求仍會導致錯誤。
 
-レート制限は、API キーごとではなく、プロジェクトごとに適用されます。1 日あたりのリクエスト数（**RPD**）の割り当ては、午前 0 時（太平洋時間）にリセットされます。
+頻率限制適用於專案，而非 API 金鑰。每日要求數 (**RPD**)：配額會在太平洋時間午夜重設。
 
-上限は使用する特定のモデルによって異なり、一部の上限は特定のモデルにのみ適用されます。たとえば、1 分あたりの画像数（IPM）は、画像を生成できるモデル（Nano Banana）でのみ計算されますが、概念的には TPM と似ています。他のモデルでは、1 日あたりのトークン数（TPD）の上限が設定されている場合があります。
+限制會因使用的模型而異，部分限制僅適用於特定模型。舉例來說，每分鐘圖像數 (IPM) 只會針對可生成圖像的模型 (Nano Banana) 計算，但概念上與 TPM 相似。其他模型可能設有每日權杖數上限 (TPD)。
 
-試験運用版モデルとプレビュー版モデルでは、レート制限が厳しくなっています。
+實驗和預覽模型的頻率限制較嚴格。
 
-## 使用量ティア
+## 用量層級
 
-レート制限は、プロジェクトの使用量ティアに関連付けられています。API の使用量と費用が増加すると、レート制限が引き上げられた上位のティアに自動的にアップグレードされます。
+頻率限制與專案的使用層級相關。隨著 API 用量和支出增加，系統會自動將您升級至較高的級別，並提高費率限制。
 
-Tier 2 と Tier 3 の資格は、プロジェクトにリンクされた請求先アカウントの Google Cloud サービス（Gemini API 以下を含みます（ただしこれらに限定されません））の合計累積費用に基づいています。
+第 2 級和第 3 級的資格條件，是根據連結至專案的帳單帳戶，在 Google Cloud 服務 (包括但不限於 Gemini API) 的累計總支出而定。
 
-| 使用量ティア | 予選 | [請求先アカウント枠の上限](https://ai.google.dev/gemini-api/docs/billing?hl=ja#tier-spend-caps) |
+| 用量層級 | 資格賽 | [帳單層級上限](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw#tier-spend-caps) |
 | --- | --- | --- |
-| **無料** | [有効なプロジェクト](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)または無料トライアル | なし |
-| **Tier 1** | [有効な請求先アカウントを設定してリンクしている](https://ai.google.dev/gemini-api/docs/billing?hl=ja#setup-billing) | $250 |
-| **Tier 2** | 最初の支払いが完了してから 3 日以上経過し、$100 以上を支払っている | $2,000 |
-| **Tier 3** | 最初の支払いが完了してから 30 日以上経過し、$1,000 以上を支払っている | $20,000 ～$100,000 以上 |
+| **免費** | [有效專案](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)或免費試用方案 | 不適用 |
+| **第 1 級** | [設定並連結有效的帳單帳戶](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw#setup-billing) | $250 美元 |
+| **第 2 級** | 支付 $100 美元 + 首次付款成功後 3 天 | $2,000 美元 |
+| **第 3 級** | 支付 $1,000 美元 + 首次付款成功後 30 天 | $20,000 美元 - $100,000 美元以上 |
 
-通常、記載されている資格要件を満たしていれば承認されますが、審査プロセスで特定された他の要因に基づいて、アップグレード リクエストが拒否される場合があります。
+一般而言，只要符合上述資格條件，升級要求通常就會獲得核准。但少數情況下，我們可能會根據審查過程中發現的其他因素，拒絕升級要求。
 
-このシステムは、すべてのユーザーに対して Gemini API プラットフォームのセキュリティと整合性を維持するのに役立ちます。
+這項系統有助於維護所有使用者的 Gemini API 平台安全和完整性。
 
-## Gemini API のレート制限
+## Gemini API 頻率限制
 
-レート制限は、使用量ティアなどのさまざまな要因によって異なり、Google AI Studio で確認できます。ティアとアカウントのステータスが時間とともに変化すると、レート制限は自動的に更新されます。
+速率限制取決於多種因素 (例如使用層級)，您可以在 Google AI Studio 中查看。隨著層級和帳戶狀態改變，費率限制會自動更新。
 
-[AI Studio で有効なレート制限を確認する](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=ja)
+[在 AI Studio 中查看有效費率限制](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=zh-tw)
 
-指定されたレート制限は保証されるものではなく、実際の容量は異なる場合があります。
+我們無法保證一定會達到指定的速率限制，實際容量可能有所不同。
 
-## 優先推論のレート制限
+## 優先順序推斷頻率限制
 
-[優先](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)消費量は、消費量が全体的なインタラクティブ トラフィックの
-レート制限にカウントされる場合でも、独自のレート
-制限を保持します。**デフォルトのレート制限は、モデルとティアごとに[標準レート制限](https://aistudio.google.com/rate-limit?hl=ja)の 0.3 倍です。**
+[優先順序](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-tw)用量有自己的速率限制，但用量會計入整體互動式流量速率限制。**預設速率限制：每個模型和層級的[標準速率限制](https://aistudio.google.com/rate-limit?hl=zh-tw)的 0.3 倍**
 
-## Batch API のレート制限
+## 批次 API 頻率限制
 
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) リクエストには、非バッチ API 呼び出しとは別に、独自のレート
-制限が適用されます。
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw) 要求有自己的速率限制，與非批次 API 呼叫不同。
 
-- **同時実行バッチ リクエスト:** 100
-- **入力ファイルサイズの制限:** 2 GB
-- **ファイル ストレージの上限:** 20 GB
-- **モデルごとにキューに追加できるトークン数:** [**キューに追加できるバッチトークン**] 表に、特定のモデルのアクティブなバッチジョブ全体でバッチ処理用にキューに追加できるトークンの最大数が表示されます。
+- **並行批次要求：**100 個
+- **輸入檔案大小上限：**2 GB
+- **檔案儲存空間上限：**20 GB
+- **每個模型排入佇列的詞元數：**「批次排入佇列的詞元數」資料表會列出特定模型所有有效批次工作可排入佇列的詞元數上限。
 
-### Tier 1
+### 級別 1
 
-| モデル | キューに追加できるバッチトークン |
+| 型號 | 批次加入佇列的權杖 |
 | --- | --- |
-| テキスト出力モデル | | | | |
+| 文字輸出模型 | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro プレビュー版 | 5,000,000 |
+| Gemini 3 Pro 預先發布版 | 5,000,000 |
 | Gemini 3.1 Flash-Lite | 10,000,000 |
-| Gemini 3.1 Flash-Lite プレビュー版 | 10,000,000 |
-| Gemini 3 Flash プレビュー | 3,000,000 |
+| Gemini 3.1 Flash-Lite 預先發布版 | 10,000,000 |
+| Gemini 3 Flash 預先發布版 | 3,000,000 |
 | Gemini 2.5 Pro | 5,000,000 |
 | Gemini 2.5 Pro TTS | 25,000 |
 | Gemini 2.5 Flash | 3,000,000 |
-| Gemini 2.5 Flash プレビュー | 3,000,000 |
-| Gemini 2.5 Flash 画像プレビュー | 3,000,000 |
+| Gemini 2.5 Flash 預先發布版 | 3,000,000 |
+| Gemini 2.5 Flash Image 預先發布版 | 3,000,000 |
 | Gemini 2.5 Flash TTS | 100,000 |
 | Gemini 2.5 Flash-Lite | 10,000,000 |
-| Gemini 2.5 Flash-Lite プレビュー版 | 10,000,000 |
+| Gemini 2.5 Flash-Lite 預先發布版 | 10,000,000 |
 | Gemini 2.0 Flash | 10,000,000 |
-| Gemini 2.0 Flash 画像 | 3,000,000 |
+| Gemini 2.0 Flash Image | 3,000,000 |
 | Gemini 2.0 Flash-Lite | 10,000,000 |
-| マルチモーダル生成モデル | | | | |
-| Gemini 3.1 Flash 画像プレビュー 🍌 | 1,000,000 |
-| Gemini 3 Pro 画像プレビュー 🍌 | 2,000,000 |
-| エンベディング モデル | | | | |
-| Gemini エンベディング | 500,000 |
+| 多模態生成模型 | | | | |
+| Gemini 3.1 Flash Image 預先發布版 🍌 | 1,000,000 |
+| Gemini 3 Pro Image 預先發布版 🍌 | 2,000,000 |
+| 嵌入模型 | | | | |
+| Gemini Embedding | 500,000 |
 
-### Tier 2
+### 級別 2
 
-| モデル | キューに追加できるバッチトークン |
+| 型號 | 批次加入佇列的權杖 |
 | --- | --- |
-| テキスト出力モデル | | | | |
+| 文字輸出模型 | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro プレビュー版 | 500,000,000 |
+| Gemini 3 Pro 預先發布版 | 500,000,000 |
 | Gemini 3.1 Flash-Lite | 500,000,000 |
-| Gemini 3.1 Flash-Lite プレビュー版 | 500,000,000 |
-| Gemini 3.1 Flash プレビュー | 400,000,000 |
+| Gemini 3.1 Flash-Lite 預先發布版 | 500,000,000 |
+| Gemini 3.1 Flash 預先發布版 | 400,000,000 |
 | Gemini 2.5 Pro | 500,000,000 |
 | Gemini 2.5 Pro TTS | 100,000 |
 | Gemini 2.5 Flash | 400,000,000 |
-| Gemini 2.5 Flash プレビュー | 400,000,000 |
-| Gemini 2.5 Flash 画像プレビュー | 400,000,000 |
+| Gemini 2.5 Flash 預先發布版 | 400,000,000 |
+| Gemini 2.5 Flash Image 預先發布版 | 400,000,000 |
 | Gemini 2.5 Flash TTS | 100,000 |
 | Gemini 2.5 Flash-Lite | 500,000,000 |
-| Gemini 2.5 Flash-Lite プレビュー版 | 500,000,000 |
+| Gemini 2.5 Flash-Lite 預先發布版 | 500,000,000 |
 | Gemini 2.0 Flash | 1,000,000,000 |
-| Gemini 2.0 Flash 画像 | 400,000,000 |
+| Gemini 2.0 Flash Image | 400,000,000 |
 | Gemini 2.0 Flash-Lite | 1,000,000,000 |
-| マルチモーダル生成モデル | | | | |
-| Gemini 3.1 Flash 画像プレビュー 🍌 | 250,000,000 |
-| Gemini 3 Pro 画像プレビュー 🍌 | 270,000,000 |
-| エンベディング モデル | | | | |
-| Gemini エンベディング | 5,000,000 |
+| 多模態生成模型 | | | | |
+| Gemini 3.1 Flash Image 預先發布版 🍌 | 250,000,000 |
+| Gemini 3 Pro Image 預先發布版 🍌 | 270,000,000 |
+| 嵌入模型 | | | | |
+| Gemini Embedding | 5,000,000 |
 
-### Tier 3
+### 階層 3
 
-| モデル | キューに追加できるバッチトークン |
+| 型號 | 批次加入佇列的權杖 |
 | --- | --- |
-| テキスト出力モデル | | | | |
+| 文字輸出模型 | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro プレビュー版 | 1,000,000,000 |
+| Gemini 3 Pro 預先發布版 | 1,000,000,000 |
 | Gemini 3.1 Flash-Lite | 1,000,000,000 |
-| Gemini 3.1 Flash-Lite プレビュー版 | 1,000,000,000 |
-| Gemini 3.1 Flash プレビュー | 1,000,000,000 |
+| Gemini 3.1 Flash-Lite 預先發布版 | 1,000,000,000 |
+| Gemini 3.1 Flash 預先發布版 | 1,000,000,000 |
 | Gemini 2.5 Pro | 1,000,000,000 |
 | Gemini 2.5 Pro TTS | 1,000,000 |
 | Gemini 2.5 Flash | 1,000,000,000 |
-| Gemini 2.5 Flash プレビュー | 1,000,000,000 |
-| Gemini 2.5 Flash 画像プレビュー | 1,000,000,000 |
+| Gemini 2.5 Flash 預先發布版 | 1,000,000,000 |
+| Gemini 2.5 Flash Image 預先發布版 | 1,000,000,000 |
 | Gemini 2.5 Flash TTS | 4,000,000 |
 | Gemini 2.5 Flash-Lite | 1,000,000,000 |
-| Gemini 2.5 Flash-Lite プレビュー版 | 1,000,000,000 |
+| Gemini 2.5 Flash-Lite 預先發布版 | 1,000,000,000 |
 | Gemini 2.0 Flash | 5,000,000,000 |
-| Gemini 2.0 Flash 画像 | 1,000,000,000 |
+| Gemini 2.0 Flash Image | 1,000,000,000 |
 | Gemini 2.0 Flash-Lite | 5,000,000,000 |
-| マルチモーダル生成モデル | | | | |
-| Gemini 3.1 Flash 画像プレビュー 🍌 | 750,000,000 |
-| Gemini 3 Pro 画像プレビュー 🍌 | 1,000,000,000 |
-| エンベディング モデル | | | | |
-| Gemini エンベディング | 10,000,000 |
+| 多模態生成模型 | | | | |
+| Gemini 3.1 Flash Image 預先發布版 🍌 | 750,000,000 |
+| Gemini 3 Pro Image 預先發布版 🍌 | 1,000,000,000 |
+| 嵌入模型 | | | | |
+| Gemini Embedding | 10,000,000 |
 
-## 次のティアにアップグレードする方法
+## 如何升級至下一個級別
 
-無料ティアから有料ティアに移行するには、まず
-[AI Studio で課金を設定する必要があります](https://ai.google.dev/gemini-api/docs/billing?hl=ja)。
+如要從免費方案轉換為付費方案，請先[在 AI Studio 中設定帳單資訊](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw)。
 
-プロジェクトが[指定された条件](#usage-tiers)を満たすと、
-自動的に次のティアにアップグレードされます。無料ティアから Tier 1 へのティアのアップグレードは通常、すぐに有効になり、それ以降のティアのアップグレードは 10 分以内に有効になります。AI Studio の [[プロジェクト] ページ](https://aistudio.google.com/projects?hl=ja)に移動して、ティアを確認します。
+專案符合[指定條件](#usage-tiers)後，系統就會自動升級至下一個層級。從免費方案升級至第 1 級方案通常會立即生效，後續升級作業則會在 10 分鐘內生效。前往 AI Studio 的「Projects」頁面，即可查看層級。
 
-## レート制限の引き上げをリクエストする
+## 要求提高頻率限制
 
-モデル バリエーションごとに、関連付けられたレート制限（1 分あたりのリクエスト数、RPM）があります。
-これらのレート制限の詳細については、
-[AI Studio のレート制限](https://aistudio.google.com/rate-limit?hl=ja)のページをご覧ください。
+每個模型變體都有相關聯的速率限制 (每分鐘要求數，RPM)。
+如要進一步瞭解這些速率限制，請參閱「[AI Studio 速率限制](https://aistudio.google.com/rate-limit?hl=zh-tw)」頁面。
 
-[有料ティアのレート制限の引き上げをリクエストする](https://forms.gle/ETzX94k8jf7iSotH9)
+[申請提高付費層級的速率限制](https://forms.gle/ETzX94k8jf7iSotH9)
 
-レート制限の引き上げを保証するものではありませんが、リクエストの審査に最善を尽くします。
+我們無法保證會提高速率限制，但會盡力審查您的要求。
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-05-07 UTC。
+上次更新時間：2026-05-07 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-07 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-07 (世界標準時間)。"],[],[]]

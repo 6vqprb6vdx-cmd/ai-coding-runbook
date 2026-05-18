@@ -1,35 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=it
-fetched_at: 2026-05-11T12:40:06.387287+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=pt-BR
+fetched_at: 2026-05-18T13:04:28.854893+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Invia feedback
+Envie comentários
 
-# Inferenza con priorità
+# Inferência prioritária
 
-L'API Gemini Priority è un livello di inferenza premium progettato per workload mission critical che richiedono una latenza inferiore e la massima affidabilità a un prezzo premium. Il traffico del livello Priority ha la priorità rispetto al traffico dell'API standard e del livello Flex.
+A API Gemini Priority é um nível de inferência premium projetado para cargas de trabalho essenciais aos negócios que exigem menor latência e maior confiabilidade a um preço premium. O tráfego de nível prioritário tem prioridade sobre o tráfego da API padrão e do nível Flex.
 
-L'inferenza con priorità è disponibile in tutti gli endpoint dell'API Interactions.
+A inferência prioritária está disponível em todos os endpoints da API Interactions.
 
-## Come utilizzare la priorità
+## Como usar a prioridade
 
-Per utilizzare il livello Priority, imposta il campo `service_tier` della richiesta su `priority`. Se il campo viene omesso, il livello predefinito è standard.
+Para usar o nível de prioridade, defina o campo `service_tier` na solicitação como `priority`. O nível padrão será usado se o campo for omitido.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -55,6 +56,7 @@ except Exception as e:
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from '@google/genai';
 
 const ai = new GoogleGenAI({});
@@ -85,9 +87,11 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "Triage this critical customer support ticket immediately.",
@@ -95,86 +99,84 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Come funziona l'inferenza con priorità
+## Como funciona a inferência prioritária
 
-L'inferenza con priorità indirizza le richieste alle code di calcolo ad alta criticità, offrendo prestazioni veloci e prevedibili per le applicazioni rivolte agli utenti. Il suo meccanismo principale è un downgrade controllato lato server all'elaborazione standard per il traffico che supera i limiti dinamici, garantendo la stabilità dell'applicazione anziché la mancata riuscita della richiesta.
+A inferência prioritária encaminha solicitações para filas de computação de alta criticidade, oferecendo desempenho rápido e previsível para aplicativos voltados ao usuário. O mecanismo principal é um downgrade suave do lado do servidor para o processamento padrão de tráfego que excede os limites dinâmicos, garantindo a estabilidade do aplicativo em vez de falhar na solicitação.
 
-| Funzionalità | Priorità | Standard | Flex | Batch |
+| Recurso | Prioridade | Padrão | Flex | Lote |
 | --- | --- | --- | --- | --- |
-| **Prezzi** | 75-100% in più rispetto a Standard | Intero | Sconto del 50% | Sconto del 50% |
-| **Latenza** | Secondi | Da secondi a minuti | Minuti (target 1-15 min) | Fino a 24 ore |
-| **Affidabilità** | Elevata (non eliminabile) | Elevata / medio-alta | Best effort (eliminabile) | Elevata (per il throughput) |
-| **Interfaccia** | Sincrona | Sincrona | Sincrona | Asincrona |
+| **Preços** | 75 a 100% mais caro que o padrão | Preço total | 50% de desconto | 50% de desconto |
+| **Latência** | Segundos | Segundos a minutos | Minutos (meta de 1 a 15 min) | Até 24 horas |
+| **Confiabilidade** | Alta (não descartável) | Alta / média-alta | Melhor esforço (descartável) | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrona |
 
-### Vantaggi principali
+### Principais benefícios
 
-- **Bassa latenza**: progettata per tempi di risposta in secondi per gli strumenti di AI interattivi
-  rivolti agli utenti.
-- **Elevata affidabilità**: il traffico viene trattato con la massima criticità ed è
-  strettamente non eliminabile.
-- **Riduzione controllata**: i picchi di traffico che superano i limiti dinamici vengono
-  automaticamente sottoposti a downgrade al livello Standard per l'elaborazione anziché non riuscire,
-  evitando interruzioni del servizio.
-- **Basso attrito**: utilizza lo stesso metodo sincrono `create` dei livelli
-  Standard e Flex.
+- **Baixa latência**: projetado para tempos de resposta de segundos para ferramentas de IA interativas,
+  voltadas ao usuário.
+- **Alta confiabilidade**: o tráfego é tratado com a maior criticidade e é
+  estritamente não descartável.
+- **Degradação suave**: picos de tráfego que excedem os limites dinâmicos são
+  automaticamente rebaixados para o nível padrão para processamento em vez de falhar,
+  evitando interrupções de serviço.
+- **Baixa fricção**: usa o mesmo método `create` síncrono que os
+  níveis padrão e Flex.
 
-### Casi d'uso
+### Casos de uso
 
-L'elaborazione con priorità è ideale per i workflow mission critical in cui le prestazioni e l'affidabilità sono fondamentali.
+O processamento prioritário é ideal para fluxos de trabalho essenciais aos negócios em que o desempenho e a confiabilidade são fundamentais.
 
-- **Applicazioni di AI interattive**: chatbot e copiloti dell'assistenza clienti in cui
-  gli utenti pagano un premio e si aspettano risposte rapide e coerenti.
-- **Motori decisionali in tempo reale**: sistemi che richiedono risultati a bassa latenza e altamente affidabili
-  , come il triage dei ticket live o il rilevamento delle frodi.
-- **Funzionalità premium per i clienti**: sviluppatori che devono garantire obiettivi di livello
-  di servizio (SLO) più elevati per i clienti paganti.
+- **Aplicativos de IA interativos**: chatbots e copilotos de atendimento ao cliente em que
+  os usuários pagam um valor premium e esperam respostas rápidas e consistentes.
+- **Mecanismos de decisão em tempo real**: sistemas que exigem resultados altamente confiáveis e de baixa latência
+  como triagem de tickets ao vivo ou detecção de fraudes.
+- **Recursos premium para clientes**: desenvolvedores que precisam garantir objetivos de nível de serviço (SLOs) mais altos para clientes pagantes.
 
-### Limiti di frequenza
+### Limites de taxas
 
-Il consumo con priorità ha i propri limiti di frequenza, anche se il consumo viene
-conteggiato ai fini dei [limiti di frequenza del traffico interattivo complessivo](https://aistudio.google.com/rate-limit?hl=it). I limiti di frequenza predefiniti per l'inferenza con priorità sono **0,3 volte il limite di frequenza standard per modello / livello**
+O consumo prioritário tem limites de taxa próprios, mesmo que o consumo seja contabilizado nos [limites gerais de taxa de tráfego interativo](https://aistudio.google.com/rate-limit?hl=pt-br). Os limites de taxa padrão para inferência prioritária são **0,3 vezes o limite de taxa padrão para modelo / nível**
 
-### Logica di downgrade controllato
+### Lógica de downgrade suave
 
-Se i limiti di priorità vengono superati a causa della congestione, le richieste di overflow vengono sottoposte a downgrade **automatico e controllato** all'elaborazione standard anziché non riuscire con un errore 503 o 429. Le richieste sottoposte a downgrade vengono fatturate alla tariffa standard, non alla tariffa premium con priorità.
+Se os limites de prioridade forem excedidos devido ao congestionamento, as solicitações de estouro serão **rebaixadas automaticamente e de maneira suave** para o processamento padrão em vez de falhar com um erro 503 ou 429. As solicitações rebaixadas são cobradas na taxa padrão, não na taxa premium de prioridade.
 
-### Responsabilità del cliente
+### Responsabilidade do cliente
 
-- **Monitoraggio delle risposte**: gli sviluppatori devono monitorare l'`x-gemini-service-tier`
-  intestazione nella risposta dell'API per rilevare se le richieste vengono sottoposte a downgrade frequente a
+- **Monitoramento de respostas**: os desenvolvedores precisam monitorar o `x-gemini-service-tier`
+  cabeçalho na resposta da API para detectar se as solicitações estão sendo rebaixadas com frequência para
   `standard`.
-- **Nuovi tentativi**: i client devono implementare la logica di ripetizione/il backoff esponenziale per gli
-  errori standard, ad esempio `DEADLINE_EXCEEDED`.
+- **Repetições**: os clientes precisam implementar a lógica de repetição/espera exponencial para
+  erros padrão, como `DEADLINE_EXCEEDED`.
 
-## Prezzi
+## Preços
 
-L'inferenza con priorità ha un prezzo superiore del 75-100% rispetto all'[API standard](https://ai.google.dev/gemini-api/docs/pricing?hl=it) e viene fatturata per token.
+A inferência prioritária custa de 75 a 100% mais do que a [API padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) e é cobrada por token.
 
-## Modelli supportati
+## Modelos compatíveis
 
-I seguenti modelli supportano l'inferenza con priorità:
+Os seguintes modelos oferecem suporte à inferência prioritária:
 
-| Modello | Inferenza con priorità |
+| Modelo | Inferência prioritária |
 | --- | --- |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it) | ✔️ |
-| [Gemini 3.1 Flash-Lite (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=it) | ✔️ |
-| [Gemini 3.1 Pro (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it) | ✔️ |
-| [Gemini 3 Flash (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=it) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=it) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=it) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=it) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## Passaggi successivi
+## A seguir
 
-- [Inferenza Flex](https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=it) per la riduzione dei costi.
-- [Token](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=it): informazioni sui token.
+- [Inferência flexível](https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=pt-br) para redução de custos.
+- [Tokens](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=pt-br): entenda os tokens.
 
-Invia feedback
+Envie comentários
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ultimo aggiornamento 2026-05-09 UTC.
+Última atualização 2026-05-12 UTC.
 
-Vuoi dirci altro?
+Quer enviar seu feedback?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-09 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-12 UTC."],[],[]]

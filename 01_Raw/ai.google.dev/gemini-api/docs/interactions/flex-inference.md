@@ -1,33 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=es-419
-fetched_at: 2026-05-11T12:42:30.160526+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=pt-BR
+fetched_at: 2026-05-18T13:05:16.944967+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Enviar comentarios
+Envie comentários
 
-# Inferencia flexible
+# Inferência flexível
 
-La API de Gemini Flex es un nivel de inferencia que ofrece una reducción de costos del 50% en comparación con las tarifas estándar, a cambio de una latencia variable y una disponibilidad de mejor esfuerzo. Está diseñada para cargas de trabajo tolerantes a la latencia que requieren procesamiento síncrono, pero no necesitan el rendimiento en tiempo real de la API estándar.
+A API Gemini Flex é um nível de inferência que oferece uma redução de custo de 50% em comparação com as taxas padrão, em troca de latência variável e disponibilidade do melhor esforço. Ele foi projetado para cargas de trabalho tolerantes à latência que exigem processamento síncrono, mas não precisam do desempenho em tempo real da API padrão.
 
-## Cómo usar Flex
+## Como usar o Flex
 
-Para usar el nivel Flex, especifica `service_tier` como `flex` en tu solicitud. De forma predeterminada, las solicitudes usan el nivel estándar si se omite este campo.
+Para usar o nível Flex, especifique `service_tier` como `flex` na solicitação. Por padrão, as solicitações usam a camada padrão se esse campo for omitido.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -46,6 +47,7 @@ except Exception as e:
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
@@ -68,9 +70,11 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
       "model": "gemini-3-flash-preview",
       "input": "Analyze this dataset for trends...",
@@ -78,63 +82,60 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cómo funciona la inferencia flexible
+## Como a inferência do Flex funciona
 
-La inferencia de Gemini Flex une la brecha entre la API estándar y el tiempo de respuesta de las 24 horas de la [API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419). Utiliza capacidad de procesamiento fuera de las horas pico y "desechable" para proporcionar una solución rentable para tareas en segundo plano y flujos de trabajo secuenciales.
+A inferência do Gemini Flex faz a ponte entre a API padrão e o tempo de resposta de 24 horas da [API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br). Ele usa capacidade de computação fora do pico e "descartável" para oferecer uma solução econômica para tarefas em segundo plano e fluxos de trabalho sequenciais.
 
-| Función | Flexible | Prioridad | Estándar | Lote |
+| Recurso | Flex | Prioridade | Padrão | Lote |
 | --- | --- | --- | --- | --- |
-| **Precios** | 50% de descuento | Entre un 75% y un 100% más que el estándar | Precio completo | 50% de descuento |
-| **Latencia** | Minutos (objetivo de 1 a 15 min) | Baja (segundos) | De segundos a minutos | Hasta 24 horas |
-| **Confiabilidad** | Mejor esfuerzo (desechable) | Alta (no desechable) | Alta / media alta | Alta (para la capacidad de procesamiento) |
-| **Interfaz** | Síncrona | Síncrona | Síncrona | Asíncrona |
+| **Preços** | 50% de desconto | 75 a 100% mais do que o Standard | Preço total | 50% de desconto |
+| **Latência** | Minutos (meta de 1 a 15 minutos) | Baixo (segundos) | Segundos para minutos | Até 24 horas |
+| **Confiabilidade** | Melhor esforço (descartável) | Alta (não descartável) | Alta / Média-alta | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrono |
 
-### Ventajas clave
+### Principais vantagens
 
-- **Rentabilidad**: Ahorros significativos para evaluaciones que no son de producción, agentes en segundo plano y enriquecimiento de datos
-- **Baja fricción**: Simplemente agrega un solo parámetro a tus solicitudes existentes.
-- **Flujos de trabajo síncronos**: Ideal para cadenas de API secuenciales en las que la siguiente solicitud depende del resultado de la anterior, lo que la hace más flexible que Batch para los flujos de trabajo de agentes.
+- **Eficiência de custos**: economia substancial para avaliações de não produção, agentes em segundo plano e aprimoramento de dados.
+- **Baixa fricção**: basta adicionar um único parâmetro às suas solicitações atuais.
+- **Fluxos de trabalho síncronos**: ideais para cadeias de API sequenciais em que a próxima solicitação depende da saída da anterior, o que os torna mais flexíveis do que o Batch para fluxos de trabalho com agentes.
 
 ### Casos de uso
 
-- **Evaluaciones sin conexión**: Ejecución de pruebas de regresión o clasificaciones de "LLM como juez".
-- **Agentes en segundo plano**: Tareas secuenciales como actualizaciones de CRM, creación de perfiles o moderación de contenido en las que se aceptan minutos de demora.
-- **Investigación con presupuesto limitado**: Experimentos académicos que requieren un gran volumen de tokens con un presupuesto limitado.
+- **Avaliações off-line**: execução de testes de regressão ou rankings de "LLM como juiz".
+- **Agentes em segundo plano**: tarefas sequenciais, como atualizações de CRM, criação de perfis ou moderação de conteúdo, em que minutos de atraso são aceitáveis.
+- **Pesquisa limitada pelo orçamento**: experimentos acadêmicos que exigem um alto volume de tokens com um orçamento limitado.
 
-### Límites de frecuencia
+### Limites de taxas
 
-El tráfico de inferencia flexible se incluye en los límites de frecuencia [generales](https://aistudio.google.com/rate-limit?hl=es-419); no
-ofrece límites de frecuencia extendidos como la [API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419).
+O tráfego de inferência flexível conta para os [limites de taxa](https://aistudio.google.com/rate-limit?hl=pt-br) gerais, mas não oferece limites estendidos como a [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br).
 
-### Capacidad desechable
+### Capacidade descartável
 
-El tráfico flexible se trata con menor prioridad. Si hay un aumento repentino en el tráfico estándar, es posible que se interrumpan o se expulsen las solicitudes Flex para garantizar la capacidad de los usuarios de alta prioridad. Si buscas inferencia de alta prioridad, consulta
-[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=es-419)
+O tráfego flexível é tratado com prioridade mais baixa. Se houver um pico no tráfego padrão, as solicitações flexíveis poderão ser interrompidas ou removidas para garantir a capacidade dos usuários de alta prioridade. Se você estiver procurando inferência de alta prioridade, confira
+[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=pt-br)
 
-### Códigos de error
+### Códigos de erro
 
-Cuando la capacidad flexible no esté disponible o el sistema esté congestionado, la API mostrará códigos de error estándar:
+Quando a capacidade flexível não está disponível ou o sistema está congestionado, a API retorna códigos de erro padrão:
 
-- **503 Service Unavailable**: El sistema está actualmente al máximo de su capacidad.
-- **429 Too Many Requests**: Límites de frecuencia o agotamiento de recursos.
+- **503 Serviço indisponível**: o sistema está na capacidade máxima.
+- **429 Há muitas solicitações**: limites de taxa ou esgotamento de recursos.
 
-### Responsabilidad del cliente
+### Responsabilidade do cliente
 
-- **Sin fallback del servidor**: Para evitar cargos inesperados, el sistema no
-  actualizará automáticamente una solicitud flexible al nivel estándar si la capacidad flexible está
-  llena.
-- **Reintentos**: Debes implementar tu propia lógica de reintento del cliente con
-  retirada exponencial.
-- **Tiempos de espera**: Debido a que las solicitudes flexibles pueden permanecer en una cola, te recomendamos
-  que aumentes los tiempos de espera del cliente a 10 minutos o más para evitar el cierre prematuro
-  de la conexión.
+- **Sem substituição do lado do servidor**: para evitar cobranças inesperadas, o sistema não
+  fará upgrade automático de uma solicitação flexível para o nível Standard se a capacidade flexível estiver
+  cheia.
+- **Novas tentativas**: é necessário implementar sua própria lógica de novas tentativas do lado do cliente com
+  espera exponencial.
+- **Tempos limite**: como as solicitações Flex podem ficar em uma fila, recomendamos aumentar os tempos limite do lado do cliente para 10 minutos ou mais para evitar o fechamento prematuro da conexão.
 
-## Ajusta los períodos de tiempo de espera
+## Ajustar janelas de tempo limite
 
-Puedes configurar tiempos de espera por solicitud para la API de REST y las bibliotecas cliente.
-Asegúrate siempre de que el tiempo de espera del cliente cubra el período de paciencia del servidor deseado (p.ej., 600 s o más para las colas de espera flexibles). Los SDK esperan valores de tiempo de espera en milisegundos.
+É possível configurar tempos limite por solicitação para a API REST e as bibliotecas de cliente.
+Sempre verifique se o tempo limite do lado do cliente cobre a janela de espera pretendida do servidor (por exemplo, 600 segundos ou mais para filas de espera flexíveis). Os SDKs esperam valores de tempo limite em milissegundos.
 
-### Tiempos de espera por solicitud
+### Tempos limite por solicitação
 
 ### Python
 
@@ -175,9 +176,10 @@ async function main() {
 await main();
 ```
 
-## Implementa reintentos
+## Implementar novas tentativas
 
-Debido a que Flex es desechable y falla con errores 503, aquí tienes un ejemplo de cómo implementar de forma opcional la lógica de reintento para continuar con las solicitudes fallidas:
+Como o Flex pode ser descartado e falha com erros 503, confira um exemplo de
+implementação opcional da lógica de repetição para continuar com solicitações com falha:
 
 ### Python
 
@@ -258,36 +260,36 @@ async function main() {
 await main();
 ```
 
-## Precios
+## Preços
 
-La inferencia flexible tiene un precio del 50% de la [API estándar](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419)
-y se factura por token.
+A inferência flexível custa 50% da [API padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br)
+e é cobrada por token.
 
-## Modelos compatibles
+## Modelos compatíveis
 
-Los siguientes modelos admiten la inferencia flexible:
+Os seguintes modelos são compatíveis com a inferência flexível:
 
-| Modelo | Inferencia flexible |
+| Modelo | Inferência flexível |
 | --- | --- |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## ¿Qué sigue?
+## A seguir
 
-- [Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=es-419) para una latencia ultrabaja
-- [Tokens](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=es-419): Comprende los tokens
+- [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=pt-br) para latência ultrabaixa.
+- [Tokens](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=pt-br): entenda os tokens.
 
-Enviar comentarios
+Envie comentários
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última actualización: 2026-05-09 (UTC)
+Última atualização 2026-05-12 UTC.
 
-¿Quieres brindar más información?
+Quer enviar seu feedback?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-09 (UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-12 UTC."],[],[]]

@@ -1,115 +1,116 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=id
-fetched_at: 2026-05-11T12:40:47.550583+00:00
-title: "Menggunakan Alat dengan Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=pt-BR
+fetched_at: 2026-05-18T13:05:07.706366+00:00
+title: "Usar ferramentas com a API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Kirim masukan
+Envie comentários
 
-# Menggunakan Alat dengan Gemini API
+# Usar ferramentas com a API Gemini
 
-Alat memperluas kemampuan model Gemini, sehingga memungkinkan model mengambil tindakan di dunia, mengakses informasi real-time, dan melakukan tugas komputasi yang kompleks. Model dapat menggunakan alat dalam interaksi respons permintaan standar dan
-sesi streaming real-time menggunakan [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=id).
+As ferramentas ampliam os recursos dos modelos do Gemini, permitindo que eles ajam no mundo real, acessem informações em tempo real e realizem tarefas computacionais complexas. Os modelos podem usar ferramentas em interações padrão de solicitação-resposta e em
+sessões de streaming em tempo real usando a [API Live](https://ai.google.dev/gemini-api/docs/live-tools?hl=pt-br).
 
-Alat adalah kemampuan tertentu (seperti Google Penelusuran atau Eksekusi Kode) yang dapat digunakan model untuk menjawab kueri. Gemini API menyediakan rangkaian alat bawaan yang dikelola sepenuhnya
-, atau Anda dapat menentukan alat kustom menggunakan [Panggilan
-Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
+As ferramentas são recursos específicos (como a Pesquisa Google ou a execução de código) que um modelo pode usar para responder a consultas. A API Gemini oferece um conjunto de ferramentas integradas e totalmente
+gerenciadas, ou você pode definir ferramentas personalizadas usando [chamada de
+função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
 
-Untuk membuat sistem multi-langkah yang berorientasi pada tujuan, lihat [Ringkasan
-Agen](https://ai.google.dev/gemini-api/docs/agents?hl=id).
+Para criar sistemas orientados a metas e de várias etapas, consulte a [Visão geral
+dos agentes](https://ai.google.dev/gemini-api/docs/agents?hl=pt-br).
 
-## Alat bawaan yang tersedia
+## Ferramentas integradas disponíveis
 
-| Alat | Deskripsi | Kasus Penggunaan |
+| Ferramenta | Descrição | Casos de uso |
 | --- | --- | --- |
-| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Mendasarkan respons pada peristiwa dan fakta terkini dari web untuk mengurangi halusinasi. | \- Menjawab pertanyaan tentang peristiwa terbaru   \- Memverifikasi fakta dengan berbagai sumber |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Membuat asisten yang mengetahui lokasi dan dapat menemukan tempat, mendapatkan rute, serta memberikan konteks lokal yang lengkap. | \- Merencanakan itinerari perjalanan dengan beberapa perhentian   \- Menemukan bisnis lokal berdasarkan kriteria pengguna |
-| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Memungkinkan model menulis dan menjalankan kode Python untuk menyelesaikan masalah matematika atau memproses data secara akurat. | \- Menyelesaikan persamaan matematika yang kompleks   \- Memproses dan menganalisis data teks secara akurat |
-| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Mengarahkan model untuk membaca dan menganalisis konten dari halaman web atau dokumen tertentu. | \- Menjawab pertanyaan berdasarkan URL atau dokumen tertentu   \- Mengambil informasi di berbagai halaman web |
-| [Penggunaan Komputer (Pratinjau)](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Memungkinkan Gemini melihat layar dan membuat tindakan untuk berinteraksi dengan UI browser web (Eksekusi sisi klien). | \- Mengotomatiskan alur kerja berbasis web yang berulang   \- Menguji antarmuka pengguna aplikasi web |
-| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Mengindeks dan menelusuri dokumen Anda sendiri untuk mengaktifkan Retrieval Augmented Generation (RAG). | \- Menelusuri panduan teknis   \- Menjawab pertanyaan tentang data eksklusif |
+| [Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) | Embase as respostas em eventos e fatos atuais da Web para reduzir as alucinações. | \- Responder a perguntas sobre eventos recentes   \- Verificar fatos com diversas fontes |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br) | Crie assistentes com reconhecimento de localização que podem encontrar lugares, receber rotas e fornecer um contexto local avançado. | - Planejar itinerários de viagem com várias paradas   - Encontrar empresas locais com base nos critérios do usuário |
+| [Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br) | Permita que o modelo escreva e execute código Python para resolver problemas matemáticos ou processar dados com precisão. | \- Resolver equações matemáticas complexas   \- Processar e analisar dados de texto com precisão |
+| [Contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br) | Direcione o modelo para ler e analisar conteúdo de páginas ou documentos da Web específicos. | \- Responder a perguntas com base em URLs ou documentos específicos   \- Recuperar informações em diferentes páginas da Web |
+| [Uso do computador (prévia)](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br) | Permita que o Gemini visualize uma tela e gere ações para interagir com as interfaces do navegador da Web (execução do lado do cliente). | \- Automatizar fluxos de trabalho repetitivos baseados na Web   \- Testar interfaces de usuário de aplicativos da Web |
+| [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br) | Indexe e pesquise seus próprios documentos para ativar a geração aumentada de recuperação (RAG). | - Pesquisar manuais técnicos   - Responder a perguntas sobre dados próprios |
 
-Lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#pricing_for_tools) untuk mengetahui detail
-biaya yang terkait dengan alat tertentu.
+Consulte a [página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#pricing_for_tools) para detalhes
+sobre os custos associados a ferramentas específicas.
 
-## Cara kerja eksekusi alat
+## Como funciona a execução de ferramentas
 
-Alat memungkinkan model meminta tindakan selama percakapan. Alurnya berbeda bergantung pada apakah alat tersebut bawaan (dikelola oleh Google) atau kustom (dikelola oleh Anda).
+As ferramentas permitem que o modelo solicite ações durante uma conversa. O fluxo varia dependendo se a ferramenta é integrada (gerenciada pelo Google) ou personalizada (gerenciada por você).
 
-### Alur alat bawaan
+### Fluxo de ferramentas integradas
 
-Untuk alat bawaan (Google Penelusuran, Google Maps, Konteks URL, Penelusuran File, Eksekusi Kode), seluruh proses terjadi dalam satu panggilan API:
+Para ferramentas integradas (Pesquisa Google, Google Maps, contexto de URL, pesquisa de arquivos, execução de código), todo o processo acontece em uma chamada de API:
 
-1. **Anda** mengirim perintah: "Berapa akar kuadrat dari harga saham GOOG terbaru?"
-2. **Gemini** memutuskan bahwa model memerlukan alat dan menjalankannya di server Google (misalnya, menelusuri harga saham, lalu menjalankan kode Python untuk menghitung akar kuadrat).
-3. **Gemini** mengirim kembali jawaban akhir yang didasarkan pada hasil alat.
+1. **Você** envia um comando: "Qual é a raiz quadrada do preço mais recente das ações da GOOG?"
+2. O **Gemini** decide que precisa de ferramentas e as executa nos servidores do Google (por exemplo, pesquisa o preço das ações e executa o código Python para calcular a raiz quadrada).
+3. O **Gemini** envia a resposta final com base nos resultados da ferramenta.
 
-### Alur alat kustom (Panggilan fungsi)
+### Fluxo de ferramentas personalizadas (chamada de função)
 
-Untuk alat kustom dan Penggunaan Komputer, aplikasi Anda menangani eksekusi:
+Para ferramentas personalizadas e uso do computador, o aplicativo processa a execução:
 
-1. **Anda** mengirim perintah beserta deklarasi fungsi (alat).
-2. **Gemini** dapat mengirim kembali JSON terstruktur untuk memanggil fungsi tertentu
-   (misalnya, `{"name": "get_order_status", "args": {"order_id": "123"}}`),
-   selalu dengan `id` unik.
-3. **Anda** menjalankan fungsi di aplikasi atau lingkungan Anda.
-4. **Anda** mengirim hasil fungsi, dengan `id` yang sama dengan panggilan fungsi, kembali ke Gemini.
-5. **Gemini** menggunakan hasil untuk membuat respons akhir atau panggilan alat lainnya.
+1. **Você** envia um comando com declarações de funções (ferramentas).
+2. O **Gemini** pode enviar um JSON estruturado para chamar uma função específica
+   (por exemplo, `{"name": "get_order_status", "args": {"order_id": "123"}}`),
+   sempre com um `id` exclusivo.
+3. **Você** executa a função no aplicativo ou ambiente.
+4. **Você** envia os resultados da função, com o mesmo `id` da chamada de função, de volta ao Gemini.
+5. O **Gemini** usa os resultados para gerar uma resposta final ou outra chamada de ferramenta.
 
-Pelajari lebih lanjut dalam panduan [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
+Saiba mais no [guia de chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
 
-### Menggabungkan alur alat bawaan dan alat kustom
+### Como combinar o fluxo de ferramentas integradas e personalizadas
 
-[Untuk permintaan yang menggabungkan alat bawaan dan alat kustom (panggilan fungsi), model menggunakan sirkulasi konteks alat untuk mengoordinasikan eksekusi di berbagai lingkungan:](https://ai.google.dev/gemini-api/docs/toold-combination?hl=id)
+Para solicitações que combinam ferramentas integradas e personalizadas (chamadas de função), o
+modelo usa [circulação de contexto de ferramenta](https://ai.google.dev/gemini-api/docs/toold-combination?hl=pt-br) para
+coordenar a execução em diferentes ambientes:
 
-1. **Anda** mengirim perintah dan mendeklarasikan alat bawaan dan fungsi kustom yang ingin diaktifkan, dengan menetapkan flag untuk mengaktifkan dukungan kombinasi.
-2. **Gemini** menjalankan alat bawaan dan memberikan hasil kepada pengguna jika ada panggilan fungsi sisi klien yang dibuat (yang dijalankan terlebih dahulu bergantung pada perintah dan keputusan model). Model akan mengirim kembali respons dengan:
-   - Konfirmasi panggilan alat
-   - Hasil respons alat (ini mungkin muncul setelah JSON jika model membuat dua panggilan fungsi paralel)
-   - JSON terstruktur untuk memanggil fungsi Anda
-   - Tanda tangan pemikiran terenkripsi untuk mempertahankan konteks
-3. **Anda** menjalankan fungsi di aplikasi atau lingkungan Anda.
-4. **Anda** menampilkan semua bagian respons Gemini, ditambah hasil panggilan fungsi Anda.
-5. **Gemini** membuat respons akhir menggunakan semua konteks gabungan.
+1. **Você** envia um comando e declara as ferramentas integradas e as funções personalizadas que quer ativar, definindo um flag para ativar o suporte à combinação.
+2. O **Gemini** executa ferramentas integradas e cede ao usuário se alguma chamada de função do lado do cliente for gerada (a execução depende do comando e do que o modelo decidir). Ele envia uma resposta com:
+   - Confirmação da chamada de ferramenta
+   - Resultados da resposta da ferramenta (isso pode acontecer após o JSON se o modelo gerar duas chamadas de função paralelas)
+   - JSON estruturado para chamar sua função
+   - Assinaturas de pensamento criptografadas para preservar o contexto
+3. **Você** executa a função no aplicativo ou ambiente.
+4. **Você** retorna todas as partes da resposta do Gemini, além dos resultados da chamada de função.
+5. O **Gemini** gera a resposta final usando todo o contexto combinado.
 
-Baca [panduan Kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id) untuk mempelajari
-cara mengaktifkan dukungan untuk kombinasi alat bawaan dan alat kustom serta contoh
-sirkulasi konteks.
+Leia o [guia de combinação de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br) para saber
+como ativar o suporte à combinação de ferramentas integradas e personalizadas e exemplos de
+circulação de contexto.
 
-## Output terstruktur vs. panggilan fungsi
+## Respostas estruturadas x chamada de função
 
-Gemini menawarkan dua metode untuk membuat output terstruktur. Gunakan [Panggilan
-fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) jika model perlu melakukan
-langkah perantara dengan menghubungkan ke alat atau sistem data Anda sendiri. Gunakan
-[Output Terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id) jika Anda benar-benar memerlukan
-respons akhir model untuk mematuhi skema tertentu, seperti untuk merender
-UI kustom.
+O Gemini oferece dois métodos para gerar respostas estruturadas. Use [Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) quando o modelo precisar realizar uma
+etapa intermediária conectando-se às suas próprias ferramentas ou sistemas de dados. Use
+[respostas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) quando precisar que
+a resposta final do modelo siga um esquema específico, como para renderizar
+uma interface personalizada.
 
-## Output terstruktur dengan alat
+## Respostas estruturadas com ferramentas
 
-Anda dapat menggabungkan [Output Terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id) dengan
-alat bawaan untuk memastikan bahwa respons model yang didasarkan pada data atau
-komputasi eksternal tetap mematuhi skema yang ketat.
+É possível combinar [respostas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) com
+ferramentas integradas para garantir que as respostas do modelo baseadas em dados ou
+cálculos externos ainda sigam um esquema rigoroso.
 
-Lihat [Output terstruktur dengan alat](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=id#structured_outputs_with_tools)
-untuk contoh kode.
+Consulte [Respostas estruturadas com ferramentas](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=pt-br#structured_outputs_with_tools)
+para exemplos de código.
 
-Kirim masukan
+Envie comentários
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+Última atualização 2026-04-29 UTC.
 
-Ada masukan untuk kami?
+Quer enviar seu feedback?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

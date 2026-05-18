@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi
-fetched_at: 2026-05-11T12:39:47.588352+00:00
+fetched_at: 2026-05-18T13:05:24.047555+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -12,7 +12,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 - [Trang chủ](https://ai.google.dev/?hl=vi)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=vi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
 - [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
 Gửi ý kiến phản hồi
@@ -26,7 +26,7 @@ Các mô hình Gemini có thể xử lý tài liệu ở định dạng PDF, s�
 - Tóm tắt và trả lời câu hỏi dựa trên cả yếu tố hình ảnh và văn bản trong tài liệu.
 - Chuyển nội dung tài liệu thành văn bản (ví dụ: sang HTML), giữ nguyên bố cục và định dạng để sử dụng trong các ứng dụng tiếp theo.
 
-Bạn cũng có thể truyền các tài liệu không phải là PDF theo cách tương tự, nhưng Gemini sẽ coi các tài liệu đó là văn bản thông thường, do đó sẽ loại bỏ các ngữ cảnh như biểu đồ hoặc định dạng.
+Bạn cũng có thể truyền các tài liệu không phải là PDF theo cách tương tự, nhưng Gemini sẽ coi các tài liệu đó là văn bản thông thường, do đó sẽ loại bỏ ngữ cảnh như biểu đồ hoặc định dạng.
 
 ## Truyền dữ liệu PDF nội tuyến
 
@@ -37,6 +37,7 @@ Ví dụ sau đây cho thấy cách truyền dữ liệu PDF cùng dòng:
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 import base64
 
@@ -63,6 +64,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as fs from "node:fs";
 
@@ -101,9 +103,11 @@ else
   B64FLAGS="-w0"
 fi
 
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": [
@@ -122,6 +126,7 @@ Bạn cũng có thể tải một tệp PDF trên máy lên để xử lý:
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -141,6 +146,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -179,6 +185,7 @@ Sử dụng File API để đơn giản hoá việc tải lên và xử lý các
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 import io
 import httpx
@@ -212,6 +219,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -314,9 +322,11 @@ cat << EOF > payload.json
 EOF
 
 # Now create an interaction using that file
+# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
+    -H "Api-Revision: 2026-05-20" \
     -X POST \
     -d @payload.json 2> /dev/null > response.json
 
@@ -330,11 +340,12 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### Tệp PDF lớn được lưu trữ cục bộ
+### Các tệp PDF lớn được lưu trữ trên thiết bị
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 import pathlib
 
@@ -359,6 +370,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -434,9 +446,11 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now create an interaction using that file
+# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
+    -H "Api-Revision: 2026-05-20" \
     -X POST \
     -d '{
       "model": "gemini-3-flash-preview",
@@ -457,6 +471,7 @@ Bạn có thể xác minh rằng API đã lưu trữ thành công tệp được
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 import pathlib
 
@@ -491,6 +506,7 @@ Gemini API có thể xử lý nhiều tài liệu PDF (tối đa 1.000 trang) tr
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 import io
 import httpx
@@ -530,6 +546,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -662,9 +679,11 @@ EOF
 
 # Now create an interaction using both files
 # Using GEMINI_API_KEY instead of GOOGLE_API_KEY
+# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
+    -H "Api-Revision: 2026-05-20" \
     -X POST \
     -d @payload_multi.json 2> /dev/null > response.json
 
@@ -687,7 +706,7 @@ Mặc dù không có giới hạn cụ thể về số lượng pixel trong mộ
 
 ### Mô hình Gemini 3
 
-Gemini 3 giới thiệu khả năng kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Giờ đây, bạn có thể đặt độ phân giải thành thấp, trung bình hoặc cao cho từng phần nội dung nghe nhìn. Với việc bổ sung này, quy trình xử lý tài liệu PDF đã được cập nhật:
+Gemini 3 giới thiệu chế độ kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Giờ đây, bạn có thể đặt độ phân giải thành thấp, trung bình hoặc cao cho từng phần nội dung nghe nhìn. Với việc bổ sung này, quy trình xử lý tài liệu PDF đã được cập nhật:
 
 1. **Bao gồm văn bản gốc:** Văn bản được nhúng nguyên bản trong tệp PDF sẽ được trích xuất và cung cấp cho mô hình.
 2. **Báo cáo về việc thanh toán và mã thông báo:**
@@ -719,8 +738,8 @@ Gửi ý kiến phản hồi
 
 Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Cập nhật lần gần đây nhất: 2026-05-09 UTC.
+Cập nhật lần gần đây nhất: 2026-05-12 UTC.
 
 Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-09 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-12 UTC."],[],[]]

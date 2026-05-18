@@ -1,43 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-TW
-fetched_at: 2026-05-11T12:40:18.051184+00:00
-title: "Interactions API\uff1a\u91cd\u5927\u8b8a\u66f4\u9077\u79fb\u6307\u5357 (2026 \u5e74 5 \u6708) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=ja
+fetched_at: 2026-05-18T13:02:33.723224+00:00
+title: "Interactions API: \u7834\u58ca\u7684\u5909\u66f4\u306e\u79fb\u884c\u30ac\u30a4\u30c9\uff082026 \u5e74 5 \u6708\uff09 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-提供意見
+フィードバックを送信
 
-# Interactions API：重大變更遷移指南 (2026 年 5 月)
+# Interactions API: 破壊的変更の移行ガイド（2026 年 5 月）
 
-`v1beta` Interactions API 導入破壞性變更，重新架構 API 形狀，以支援飛行中導引和非同步工具呼叫等未來能力。本頁說明異動內容，並提供異動前後的程式碼範例，協助您完成遷移。變更分為兩類：
+`v1beta` Interactions API には、API の形状を再構築して、飛行中のステアリングや非同期ツール呼び出しなどの今後の機能をサポートするための破壊的変更が導入されています。このページでは、変更点について説明し、移行に役立つように変更前後のコード例を示します。変更には次の 2 つのカテゴリがあります。
 
-1. [**步驟結構定義**](#steps-schema)：新的 `steps` 陣列會取代 `outputs` 陣列，提供每個互動回合的結構化時間軸。
-2. [**輸出格式設定**](#output-format-config)：新的多型 `response_format` 會整合所有輸出格式控制項，並移除 `response_mime_type`。
+1. [**ステップ スキーマ**](#steps-schema): 新しい `steps` 配列が `outputs` 配列に代わり、各インタラクション ターンの構造化されたタイムラインを提供します。
+2. [**出力形式の構成**](#output-format-config): 新しいポリモーフィック `response_format` により、すべての出力形式の制御が統合され、`response_mime_type` が削除されます。
 
-請按照「[如何遷移至新版結構定義](#how-to-migrate)」一文中的步驟，更新整合服務。
+[新しいスキーマに移行する方法](#how-to-migrate)の手順に沿って、統合を更新します。
 
-## 核心異動：`outputs` 改為 `steps`
+## コアの変更: `outputs` から `steps`
 
-新結構定義會將 `outputs` 陣列替換為 `steps` 陣列。
+新しいスキーマでは、`outputs` 配列が `steps` 配列に置き換えられます。
 
-- **舊版**：傳回的回覆是扁平的 `outputs` 陣列，只包含模型生成的內容。
-- **新結構定義**：回覆會傳回 `steps` 陣列，其中包含具有型別鑑別器的結構化步驟。
+- **以前**: レスポンスは、モデルの生成コンテンツのみを含むフラットな `outputs` 配列を返していました。
+- **新しいスキーマ**: レスポンスは、型判別子を含む構造化されたステップを含む `steps` 配列を返します。
 
-`POST /interactions` 僅會傳回輸出步驟。`GET /interactions/{id}`
-會傳回完整步驟時間軸，包括初始 `user_input` 步驟。
+`POST /interactions` は出力ステップのみを返します。`GET /interactions/{id}` は、最初の `user_input` ステップを含む完全なステップ タイムラインを返します。
 
-### 基本輸入/輸出 (一元)
+### 基本的な入出力（単項）
 
-#### 之前 (舊版)
+#### 以前（従来版）
 
 ### Python
 
@@ -89,7 +88,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 之後 (新結構定義)
+#### 変更後（新しいスキーマ）
 
 ### Python
 
@@ -169,11 +168,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 函式呼叫
+### 関数呼び出し
 
-要求結構維持不變，但回應會以結構化步驟取代平面 `outputs` 內容。
+リクエストの構造は変更されませんが、レスポンスではフラットな `outputs` コンテンツが構造化されたステップに置き換えられます。
 
-#### 之前 (舊版)
+#### 以前（従来版）
 
 ### Python
 
@@ -218,7 +217,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### 之後 (新結構定義)
+#### 変更後（新しいスキーマ）
 
 ### Python
 
@@ -266,11 +265,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### 伺服器端工具
+### サーバーサイド ツール
 
-伺服器端工具 (例如 Google 搜尋或程式碼執行) 現在會在 `steps` 陣列中產生特定步驟類型。舊版架構會在 `outputs` 陣列中將這些作業傳回為特定內容類型，新版架構則會將這些作業移至 `steps` 陣列。下列範例使用 Google 搜尋。
+サーバーサイド ツール（Google 検索やコード実行など）は、`steps` 配列で特定のステップタイプを生成するようになりました。以前のスキーマでは、これらのオペレーションは `outputs` 配列内の特定のコンテンツ タイプとして返されていましたが、新しいスキーマでは `steps` 配列に移動されています。次の例では、Google 検索を使用します。
 
-#### 之前 (舊版)
+#### 以前（従来版）
 
 ### Python
 
@@ -344,7 +343,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 之後 (新結構定義)
+#### 変更後（新しいスキーマ）
 
 ### Python
 
@@ -428,38 +427,36 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 串流
+### ストリーミング
 
-串流會公開新的事件類型：
+ストリーミングでは、新しいイベントタイプが公開されます。
 
-#### 新事件類型
+#### 新しいイベントタイプ
 
 - `interaction.created`
 - `interaction.completed`
 - `interaction.in_progress`
 - `interaction.requires_action`
-- `interaction.error`
 - `step.start`
 - `step.delta`
 - `step.stop`
 
-#### 已淘汰的事件類型
+#### 非推奨のイベントタイプ
 
-上述新事件會取代下列舊版事件類型：
+次の以前のイベントタイプは、上記の新しいイベントに置き換えられます。
 
 - `interaction.start` → `interaction.created`
 - `content.start` → `step.start`
 - `content.delta` → `step.delta`
 - `content.stop` → `step.stop`
 - `interaction.complete` → `interaction.completed`
-- `error` → `interaction.error`
-- `interaction.status_update` → 取代為 `interaction.in_progress`、`interaction.requires_action` 等。
+- `interaction.status_update` → `interaction.in_progress`、`interaction.requires_action` などに置き換えられました。
 
-**串流函式呼叫**：使用串流函式呼叫時，`step.start` 事件會傳送函式名稱，而 `step.delta` 事件會將引數串流為部分 JSON 字串 (使用 `arguments_delta`)。您必須累計這些差異，才能取得完整引數。這與一元呼叫不同，因為您會一次收到完整的函式呼叫物件。
+**ストリーミング関数呼び出し**: 関数呼び出しでストリーミングを使用する場合、`step.start` イベントは関数名を配信し、`step.delta` イベントは引数を部分的な JSON 文字列としてストリーミングします（`arguments_delta` を使用）。これらのデルタを累積して、完全な引数を取得する必要があります。これは、完全な関数呼び出しオブジェクトを一度に受け取る単項呼び出しとは異なります。
 
-#### 範例
+#### 例
 
-##### 之前 (舊版)
+##### 変更前（従来版）
 
 ### Python
 
@@ -526,7 +523,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### 之後 (新結構定義)
+##### 変更後（新しいスキーマ）
 
 ### Python
 
@@ -603,29 +600,28 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### 無狀態對話記錄
+### ステートレスの会話履歴
 
-如果您在用戶端手動管理對話記錄 (無狀態用途)，就必須更新先前回合的串連方式。
+クライアント側で会話履歴を手動で管理している場合（ステートレスのユースケース）、以前のターンを連結する方法を更新する必要があります。
 
-- **舊版**：開發人員通常會從回覆中收集 `outputs` 陣列，並在下一個回合中將其傳回 `input` 欄位。
-- **新結構**：您現在應從回應中收集 `steps` 陣列，並將其傳遞至下一個要求的 `input` 欄位，將新的使用者輪流步驟附加為 `user_input` 步驟。
+- **以前の動作**: デベロッパーは、レスポンスから `outputs` 配列を収集し、次のターンで `input` フィールドで返送していました。
+- **新しいスキーマ**: レスポンスから `steps` 配列を収集し、次のリクエストの `input` フィールドに渡して、新しいユーザー ターンを `user_input` ステップとして追加する必要があります。
 
-## 輸出格式設定：`response_format` 變更
+## 出力形式の構成: `response_format` の変更
 
-更新後的 API 會將所有輸出格式控制項整合為統一的多型 `response_format` 欄位。這項做法可集中管理頂層的輸出設定，並讓 `generation_config` 專注於模型行為 (例如溫度參數、Top-P 和思考)。
+更新された API では、すべての出力形式制御が統合されたポリモーフィック `response_format` フィールドに統合されています。これにより、出力構成が最上位レベルで一元化され、`generation_config` はモデルの動作（Temperature、Top-P、思考モードなど）に集中できます。
 
-### 主要異動
+### 主な変更点
 
-- **API 會移除 `response_mime_type`。**現在，您可以在 `response_format` 內為每個格式項目指定 MIME 類型。
-- **`response_format` 現在是多型物件 (或陣列)。**每個項目都有 `type` 鑑別器 (`text`、`audio`、`image`) 和類型專屬欄位。如要要求多種輸出模態，請傳遞格式項目的陣列。
-- **`image_config`已從「`generation_config`」移至「`response_format`」。**
-  現在，您可以在 `response_format` 項目中指定圖片輸出設定，例如 `aspect_ratio` 和 `image_size`，並使用 `"type": "image"`。
+- **API は `response_mime_type` を削除します。**`response_format` 内の形式エントリごとに MIME タイプを指定するようになりました。
+- **`response_format` はポリモーフィック オブジェクト（または配列）になりました。**各エントリには、`type` 判別子（`text`、`audio`、`image`）と型固有のフィールドがあります。複数の出力モードをリクエストするには、形式エントリの配列を渡します。
+- **`image_config` が `generation_config` から `response_format` に移動します。**`aspect_ratio` や `image_size` などの画像出力設定は、`"type": "image"` を含む `response_format` エントリで指定するようになりました。
 
-### 結構化輸出內容 (JSON)
+### 構造化出力（JSON）
 
-新結構定義會移除 `response_mime_type` 欄位。請改為在 `response_format` 物件中指定 MIME 類型和 JSON 結構定義，並使用 `"type": "text"`。
+新しいスキーマでは `response_mime_type` フィールドが削除されています。代わりに、`"type": "text"` を使用して `response_format` オブジェクト内に MIME タイプと JSON スキーマを指定します。
 
-#### 之前 (舊版)
+#### 以前（従来版）
 
 ### Python
 
@@ -651,8 +647,8 @@ print(interaction.outputs[-1].text)
 const interaction = await client.interactions.create({
     model: 'gemini-3-flash-preview',
     input: 'Summarize this article.',
-    responseMimeType: 'application/json',
-    responseFormat: {
+    response_mime_type: 'application/json',
+    response_format: {
         type: 'object',
         properties: {
             summary: { type: 'string' }
@@ -681,7 +677,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之後 (新結構定義)
+#### 変更後（新しいスキーマ）
 
 ### Python
 
@@ -711,10 +707,10 @@ print(interaction.steps[-1].content[0].text)
 const interaction = await client.interactions.create({
     model: 'gemini-3-flash-preview',
     input: 'Summarize this article.',
-    // responseMimeType is removed — specify mimeType inside responseFormat
-    responseFormat: {
+    // response_mime_type is removed — specify mime_type inside response_format
+    response_format: {
         type: 'text',
-        mimeType: 'application/json',
+        mime_type: 'application/json',
         schema: {
             type: 'object',
             properties: {
@@ -750,11 +746,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### 圖片設定
+### イメージの構成
 
-新結構定義會從 `generation_config` 中移除 `image_config`。您現在可以在 `"type": "image"` 的 `response_format` 項目中指定圖片輸出設定。
+新しいスキーマでは、`generation_config` から `image_config` が削除されています。`"type": "image"` を使用して `response_format` エントリで画像出力設定を指定するようになりました。
 
-#### 之前 (舊版)
+#### 以前（従来版）
 
 ### Python
 
@@ -777,10 +773,10 @@ interaction = client.interactions.create(
 const interaction = await client.interactions.create({
     model: 'gemini-3-flash-preview',
     input: 'Generate an image of a sunset over the ocean.',
-    generationConfig: {
-        imageConfig: {
-            aspectRatio: '1:1',
-            imageSize: '1K'
+    generation_config: {
+        image_config: {
+            aspect_ratio: '1:1',
+            image_size: '1K'
         }
     },
 });
@@ -803,7 +799,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之後 (新結構定義)
+#### 変更後（新しいスキーマ）
 
 ### Python
 
@@ -815,7 +811,6 @@ interaction = client.interactions.create(
     response_format={
         "type": "image",
         "mime_type": "image/jpeg",
-        "delivery": "inline",
         "aspect_ratio": "1:1",
         "image_size": "1K"
     },
@@ -828,13 +823,12 @@ interaction = client.interactions.create(
 const interaction = await client.interactions.create({
     model: 'gemini-3-flash-preview',
     input: 'Generate an image of a sunset over the ocean.',
-    // imageConfig is removed from generationConfig — use responseFormat
-    responseFormat: {
+    // image_config is removed from generation_config — use response_format
+    response_format: {
         type: 'image',
-        mimeType: 'image/jpeg',
-        delivery: 'inline',
-        aspectRatio: '1:1',
-        imageSize: '1K'
+        mime_type: 'image/jpeg',
+        aspect_ratio: '1:1',
+        image_size: '1K'
     },
 });
 ```
@@ -852,57 +846,56 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
     "response_format": {
       "type": "image",
       "mime_type": "image/jpeg",
-      "delivery": "inline",
       "aspect_ratio": "1:1",
       "image_size": "1K"
     }
   }'
 ```
 
-如要要求多種輸出模態 (例如同時輸出文字和音訊)，請將格式項目陣列傳遞至 `response_format`，而非單一物件。
+複数の出力モダリティ（テキストと音声など）を同時にリクエストするには、単一のオブジェクトではなく、形式エントリの配列を `response_format` に渡します。
 
-## 如何遷移至新結構定義
+## 新しいスキーマに移行する方法
 
-### SDK 使用者
+### SDK ユーザー
 
-升級至最新版 SDK (Python ≥2.0.0、JavaScript ≥2.0.0)。SDK 會自動選擇採用新架構，您只需要更新讀取回應的方式 (請參閱上方的範例)，不必變更任何程式碼。請注意，這些 SDK 版本僅支援新結構定義。在 2026 年 6 月 8 日移除舊版結構定義前，舊版 SDK (Python 1.x.x、JavaScript 1.x.x) 仍可繼續運作。
+最新の SDK バージョン（Python ≥2.0.0、JavaScript ≥2.0.0）にアップグレードします。SDK は新しいスキーマを自動的に有効にします。レスポンスの読み取り方法を更新する以外にコードを変更する必要はありません（上記の例を参照）。これらの SDK バージョンでは、新しいスキーマのみがサポートされます。古い SDK バージョン（Python 1.x.x、JavaScript 1.x.x）は、2026 年 6 月 8 日にレガシー スキーマが削除されるまで引き続き動作します。
 
-### REST API 使用者
+### REST API ユーザー
 
-在要求中加入 `Api-Revision: 2026-05-20` 標頭，即可立即選擇採用新結構定義。**5 月 26 日**後，所有要求都會預設使用新結構定義。您可以使用 `Api-Revision: 2026-05-07` 暫時停用，但 **6 月 8 日**後，API 就會永久移除舊版結構定義。
+リクエストに `Api-Revision: 2026-05-20` ヘッダーを追加して、新しいスキーマを今すぐ有効にしてください。**5 月 26 日**以降、新しいスキーマがすべてのリクエストのデフォルトになります。**6 月 8 日**までは `Api-Revision: 2026-05-07` で一時的にオプトアウトできます。この日以降は、API によって以前のスキーマが完全に削除されます。
 
-### 時間軸
+### タイムライン
 
-| 日期 | 階段 | SDK 使用者 | REST API 使用者 |
+| 日付 | フェーズ | SDK ユーザー | REST API ユーザー |
 | --- | --- | --- | --- |
-| **5 月 7 日** | 啟用 | 推出新版 SDK (Python ≥2.0.0、JS ≥2.0.0)。升級即可自動取得新結構定義。 | 新增 `Api-Revision: 2026-05-20` 標頭即可選擇加入。預設值仍為舊版。 |
-| **5 月 26 日** | 預設翻轉 | 如果已升級，則無須採取任何行動。舊版 SDK (Python 1.x.x、JS 1.x.x) 仍可運作，但會傳回舊版的回應。 | 新結構定義現在為預設結構定義。傳送 `Api-Revision: 2026-05-07` 標頭即可停用。 |
-| **6 月 8 日** | 日落 | Python 1.x.x 和 JS 1.x.x SDK 版本會中斷 Interactions API 呼叫。 | 已移除 Interactions API 的舊版結構定義。系統會忽略 `Api-Revision` 標頭。 |
+| **5 月 7 日** | オプトイン | 新しい SDK バージョンが利用可能（Python ≥2.0.0、JS ≥2.0.0）。アップグレードすると、新しいスキーマが自動的に取得されます。 | `Api-Revision: 2026-05-20` ヘッダーを追加してオプトインします。デフォルトはレガシーのままです。 |
+| **5 月 26 日** | デフォルトの反転 | すでにアップグレード済みの場合は、対応は不要です。古い SDK（Python 1.x.x、JS 1.x.x）は引き続き機能しますが、以前のレスポンスを返します。 | 新しいスキーマがデフォルトになりました。オプトアウトするには、`Api-Revision: 2026-05-07` ヘッダーを送信します。 |
+| **6 月 8 日** | 夕暮れ | Python 1.x.x と JS 1.x.x の SDK バージョンでは、Interactions API 呼び出しが失敗します。 | Interactions API の従来のスキーマが削除されました。`Api-Revision` ヘッダーは無視されます。 |
 
-## 遷移檢查清單
+## 移行チェックリスト
 
-### 步驟結構定義 (`steps`)
+### 歩数スキーマ（`steps`）
 
-- 更新程式碼，從 `steps` 陣列而非 `outputs` 讀取回應內容。[查看範例](#basic-unary)。
-- 確認程式碼可處理 `user_input` 和 `model_output` 步驟類型。[查看範例](#basic-unary)。
-- (函式呼叫) 更新程式碼，在 `steps` 陣列中找出 `function_call` 步驟。[查看範例](#function-calling)。
-- (伺服器端工具) 更新程式碼，處理工具專屬步驟 (例如 `google_search_call`、`google_search_result`)。[查看範例](#server-side-tools)。
-- (無狀態記錄) 更新記錄管理，在下一個要求的 `input` 欄位中傳遞 `steps` 陣列。[查看詳細資料](#stateless-history)。
-- (僅限串流) 更新用戶端，監聽新的 SSE 事件類型 (`interaction.created`、`step.delta` 等)。[查看範例](#streaming)。
+- `outputs` ではなく `steps` 配列からレスポンス コンテンツを読み取るようにコードを更新します。[例を見る](#basic-unary)。
+- コードで `user_input` と `model_output` の両方のステップタイプが処理されることを確認します。[例を見る](#basic-unary)。
+- （関数呼び出し）`steps` 配列で `function_call` ステップを見つけるようにコードを更新します。[例を見る](#function-calling)。
+- （サーバーサイド ツール）ツール固有の手順（`google_search_call`、`google_search_result` など）を処理するようにコードを更新します。[例をご覧ください](#server-side-tools)。
+- （ステートレス履歴）履歴管理を更新して、次のリクエストの `input` フィールドに `steps` 配列を渡します。[詳細](#stateless-history)
+- （ストリーミングのみ）新しい SSE イベントタイプ（`interaction.created`、`step.delta` など）をリッスンするようにクライアントを更新します。[例を見る](#streaming)。
 
-### 輸出格式設定 (`response_format`)
+### 出力形式の構成（`response_format`）
 
-- 將 `response_format` 內的 `mime_type` 欄位替換為 `response_mime_type`。[查看範例](#structured-output)。
-- 將現有的 `response_format` JSON 結構定義包裝在 `{"type": "text", "schema": ...}` 物件中。[查看範例](#structured-output)。
-- (圖像生成) 將 `image_config` 從 `generation_config` 移至 `response_format` 中的 `{"type": "image", ...}` 項目。[查看範例](#image-config)。
-- (多模態) 要求多個輸出模態時，請將 `response_format` 從單一物件轉換為陣列。
+- `response_mime_type` を `response_format` 内の `mime_type` フィールドに置き換えます。[例を見る](#structured-output)。
+- 既存の `response_format` JSON スキーマを `{"type": "text", "schema": ...}` オブジェクトでラップします。[例を見る](#structured-output)。
+- （画像生成）`image_config` を `generation_config` から `response_format` の `{"type": "image", ...}` エントリに移動します。[例を見る](#image-config)。
+- （マルチモーダル）複数の出力モードをリクエストするときに、`response_format` を単一のオブジェクトから配列に変換します。
 
-提供意見
+フィードバックを送信
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-上次更新時間：2026-05-08 (世界標準時間)。
+最終更新日 2026-05-12 UTC。
 
-想進一步說明嗎？
+ご意見をお聞かせください
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-08 (世界標準時間)。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-12 UTC。"],[],[]]

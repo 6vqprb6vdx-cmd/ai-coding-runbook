@@ -1,117 +1,131 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=vi
-fetched_at: 2026-05-11T12:31:31.384174+00:00
-title: "Ph\u00e1t tri\u1ec3n \u1ee9ng d\u1ee5ng Full-Stack trong Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=es-419
+fetched_at: 2026-05-18T12:59:14.471066+00:00
+title: "Desarrolla apps de full stack en Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Phát triển ứng dụng Full-Stack trong Google AI Studio
+# Desarrolla apps de full stack en Google AI Studio
 
-Google AI Studio hiện hỗ trợ phát triển toàn ngăn xếp, cho phép bạn tạo các ứng dụng vượt xa nguyên mẫu phía máy khách. Với thời gian chạy phía máy chủ, bạn có thể quản lý bí mật, kết nối với các API bên ngoài và tạo trải nghiệm nhiều người chơi theo thời gian thực.
+Google AI Studio ahora admite el desarrollo de pila completa, lo que te permite compilar aplicaciones que van más allá de los prototipos del cliente. Con un entorno de ejecución del servidor, puedes administrar secretos, conectarte a APIs externas y crear experiencias multijugador en tiempo real.
 
-## Thời gian chạy phía máy chủ
+## Entorno de ejecución del servidor
 
-Giờ đây, các ứng dụng Google AI Studio có thể bao gồm một thành phần phía máy chủ (Node.js).
-Điều này cho phép bạn:
+Las aplicaciones de Google AI Studio ahora pueden incluir un componente del servidor (Node.js).
+Esto te permite hacer lo siguiente:
 
-- **Thực thi logic phía máy chủ**: Chạy mã không được hiển thị cho máy
-  khách.
-- **Truy cập vào các gói npm**: [Tác nhân Antigravity](https://antigravity.google/docs/agent?hl=vi)
-  có thể cài đặt và sử dụng các gói từ hệ sinh thái npm rộng lớn.
-- **Xử lý bí mật**: Sử dụng khoá API và thông tin đăng nhập một cách an toàn.
+- **Ejecutar lógica del servidor**: Ejecuta código que no debe exponerse al
+  cliente.
+- **Acceder a paquetes npm**: El [agente Antigravity](https://antigravity.google/docs/agent?hl=es-419)
+  puede instalar y usar paquetes del vasto ecosistema de npm.
+- **Administrar secretos**: Usa de forma segura las claves de API y las credenciales.
 
-### Sử dụng các gói npm
+### Usa paquetes npm
 
-Bạn không cần chạy `npm install` theo cách thủ công. Chỉ cần yêu cầu Tác nhân thêm chức năng yêu cầu một gói, và tác nhân này sẽ xử lý quá trình cài đặt và nhập.
+No es necesario que ejecutes `npm install` de forma manual. Solo pídele al agente que agregue la funcionalidad que requiere un paquete, y se encargará de la instalación y la importación.
 
-**Ví dụ**: > "Sử dụng `axios` để tìm nạp dữ liệu từ API bên ngoài."
+**Ejemplo**: > "Usa `axios` para recuperar datos de la API externa".
 
-## Quản lý bí mật một cách an toàn
+## Administra secretos de forma segura
 
-Với mã phía máy chủ và tính năng quản lý bí mật, giờ đây, bạn có thể tạo các ứng dụng tương tác với thế giới.
+Con el código del servidor y la administración de secretos, ahora puedes compilar apps que interactúen con el mundo.
 
-- **API của bên thứ ba**: Kết nối với các dịch vụ như Stripe, SendGrid hoặc các API REST tuỳ chỉnh.
-- **Cơ sở dữ liệu**: Kết nối với các cơ sở dữ liệu bên ngoài (ví dụ: thông qua Supabase, Firebase,
-  hoặc MongoDB Atlas) để lưu giữ dữ liệu ngoài phiên.
+### Clave de API de Gemini
 
-Khi tạo các ứng dụng trong thế giới thực, bạn thường cần kết nối với các dịch vụ bên thứ ba (như Twilio, Slack hoặc cơ sở dữ liệu) yêu cầu khoá API. Bạn có thể thêm khoá theo cách thủ công bằng các bước sau:
+Cuando creas una app nueva que usa la API de Gemini, AI Studio configura automáticamente tu `GEMINI_API_KEY` como un secreto del servidor, sin necesidad de configuración manual. Puedes ver esta clave en el panel **Secretos** de Configuración. Las llamadas a la API de Gemini de tu app se realizan desde el código del servidor con esta clave, por lo que nunca se expone en el navegador.
 
-1. **Thêm bí mật**: Chuyển đến trình đơn **Cài đặt** trong Google AI Studio và tìm
-   phần Bí mật.
-2. **Lưu trữ khoá**: Thêm khoá API hoặc mã thông báo bí mật của bạn vào đây.
-3. **Truy cập vào mã**: Tác nhân có thể viết mã phía máy chủ để truy cập vào các
-   bí mật này một cách an toàn (thường là thông qua các biến môi trường), đảm bảo rằng các bí mật này không bao giờ được hiển thị cho trình duyệt phía máy khách.
+### Claves de API de terceros
 
-Khi cần, tác nhân cũng sẽ hiển thị một thẻ trong cuộc trò chuyện nhắc bạn thêm khoá bất cứ khi nào cần một bí mật mới hoặc khi một khoá mới được phát hiện trong các biến môi trường của dự án.
+Para otros servicios, puedes agregar claves de API de forma manual:
 
-### Tích hợp Firebase cho cơ sở dữ liệu và xác thực
+- **APIs de terceros**: Conéctate a servicios como Stripe, SendGrid o APIs de REST personalizadas.
+- **Bases de datos**: Conéctate a bases de datos externas (p.ej., a través de Supabase, Firebase,
+  o MongoDB Atlas) para conservar los datos más allá de la sesión.
 
-[Giờ đây, Google AI Studio giúp bạn dễ dàng thêm cơ sở dữ liệu hoặc xác thực vào ứng dụng thông qua quá trình tích hợp Firebase.](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=vi)
-Tác nhân Antigravity có thể tự động cung cấp và thiết lập các dịch vụ sau cho bạn:
+Cuando compilas apps del mundo real, a menudo necesitas conectarte a servicios de terceros (como Twilio, Slack o bases de datos) que requieren claves de API. Puedes agregar claves de forma manual con los siguientes pasos:
 
-- **Cơ sở dữ liệu Firestore**: một cơ sở dữ liệu đám mây NoSQL linh hoạt, có thể mở rộng để lưu trữ
-  và đồng bộ hoá dữ liệu cho quá trình phát triển phía máy khách và máy chủ.
-- **Xác thực Firebase**: cho phép người dùng đăng nhập vào
-  ứng dụng của bạn một cách an toàn bằng quy trình "Đăng nhập bằng Google".
+1. **Agrega un secreto**: Ve al menú **Configuración** en Google AI Studio y busca
+   la sección Secretos.
+2. **Almacena tu clave**: Agrega aquí tus claves de API o tokens secretos.
+3. **Accede al código**: El agente puede escribir código del servidor que acceda a estos
+   secretos de forma segura (por lo general, a través de variables de entorno), lo que garantiza que nunca se
+   expongan al navegador del cliente.
 
-Chỉ cần yêu cầu tác nhân "thêm cơ sở dữ liệu vào ứng dụng của tôi" hoặc "thiết lập tính năng Đăng nhập bằng Google", và tác nhân này sẽ xử lý cấu hình cần thiết và tạo mã cho bạn.
+Cuando sea necesario, el agente también mostrará una tarjeta en el chat que te solicitará que agregues claves cuando se necesite un secreto nuevo o cuando se detecte una clave nueva en las variables de entorno del proyecto.
 
-Firebase cho phép bạn bắt đầu miễn phí và tuỳ ý mở rộng bằng tài khoản trả phí bất cứ khi nào bạn sẵn sàng sử dụng thêm hạn mức hoặc các tính năng trả phí.
+### Integración de Firebase para la base de datos y la autenticación
 
-### Thiết lập OAuth
+Google AI Studio ahora facilita la adición de una base de datos o la autenticación a tu
+app a través de una
+[integración de Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=es-419).
+El agente Antigravity puede aprovisionar y configurar automáticamente los siguientes servicios:
 
-Một trường hợp sử dụng chính để quản lý bí mật là thiết lập OAuth để kết nối với các trang web hoặc ứng dụng khác. Khi lời nhắc của bạn bao gồm hướng dẫn về cách kết nối với một ứng dụng bên thứ ba yêu cầu xác thực OAuth, tác nhân sẽ cung cấp hướng dẫn về cách thiết lập OAuth cho ứng dụng đó. Các hướng dẫn này sẽ bao gồm các URL gọi lại cần thiết để định cấu hình Ứng dụng OAuth.
-Bạn cũng có thể tìm thấy các URL gọi lại trong phần **Tích hợp** trên bảng điều khiển Cài đặt.
+- **Base de datos de Firestore**: Una base de datos NoSQL flexible, escalable y en la nube para almacenar
+  y sincronizar datos para el desarrollo en el cliente y el servidor.
+- **Firebase Authentication**: Permite que los usuarios accedan de forma segura a tu
+  aplicación con los flujos de "Acceder con Google".
 
-## Tạo trải nghiệm nhiều người chơi
+Solo pídele al agente que "agregue una base de datos a mi app" o que "configure el acceso con Google", y se encargará de la configuración y la generación de código necesarias.
 
-Thời gian chạy toàn ngăn xếp cho phép các tính năng cộng tác theo thời gian thực.
+Firebase te permite comenzar de forma gratuita y, de manera opcional, escalar con una cuenta pagada cuando estés listo para obtener más cuota o usar funciones pagadas.
 
-- **Trạng thái theo thời gian thực**: Bạn có thể yêu cầu Tác nhân tạo các tính năng như "trò chuyện trực tiếp
-  ," "bảng trắng cộng tác" hoặc "trò chơi nhiều người chơi."
-- **Phiên được đồng bộ hoá**: Máy chủ quản lý trạng thái, cho phép nhiều người dùng
-  tương tác với cùng một thực thể ứng dụng theo thời gian thực.
+### Configura OAuth
 
-**Ví dụ về lời nhắc**: > "Tạo trò chơi nhiều người chơi, trong đó người chơi có thể nhìn thấy con trỏ của nhau."
+Un caso de uso clave para la administración de secretos es configurar OAuth para conectarse a otros sitios web o apps. Cuando tu instrucción incluye instrucciones para conectarse a una app de terceros que requiere autenticación de OAuth, el agente proporcionará instrucciones para configurar OAuth para esa aplicación. Estas instrucciones incluirán las URLs de devolución de llamada necesarias para configurar tu aplicación de OAuth.
+También puedes encontrar las URLs de devolución de llamada en **Integraciones** en el panel Configuración.
 
-### Mẹo kiểm thử ứng dụng nhiều người chơi
+## Crea experiencias multijugador
 
-Bạn có thể kiểm thử chế độ nhiều người chơi theo 2 cách trước khi triển khai ứng dụng.
+El entorno de ejecución de pila completa habilita las funciones de colaboración en tiempo real.
 
-1. Mở ứng dụng của bạn ở chế độ Tạo trong Google AI Studio trên nhiều thẻ. Khi phát triển ở chế độ Tạo, ứng dụng của bạn sẽ nằm trong một vùng chứa dành cho nhà phát triển. Việc mở ứng dụng trên nhiều thẻ sẽ cho phép bạn mô phỏng nhiều người chơi sử dụng ứng dụng của mình.
-2. Chia sẻ ứng dụng với người khác bằng trình đơn **Chia sẻ** ở trên cùng bên phải. sau đó sử dụng **URL được chia sẻ** trong thẻ **Tích hợp** của trình đơn **Chia sẻ** để sử dụng ứng dụng với những người chơi mà bạn đã chia sẻ ứng dụng.
+- **Estado en tiempo real**: Puedes pedirle al agente que cree funciones como "un chat
+  en vivo", "una pizarra colaborativa" o "un juego multijugador".
+- **Sesiones sincronizadas**: El servidor administra el estado, lo que permite que varios usuarios
+  interactúen con la misma instancia de la aplicación en tiempo real.
 
-## Các phương pháp hay nhất
+**Ejemplo de instrucción**: > "Haz que este sea un juego multijugador en el que los jugadores puedan ver los cursores de los demás."
 
-- **Bảo mật bí mật**: Luôn sử dụng Trình quản lý bí mật cho các khoá nhạy cảm.
-  Không bao giờ mã hoá cứng các khoá này trong tệp của bạn.
-- **Phân tách mối quan tâm**: Giữ logic giao diện người dùng trong khung phía máy khách
-  (React/Angular) và logic nghiệp vụ/xử lý dữ liệu ở phía máy chủ.
-- **Xử lý lỗi**: Đảm bảo mã phía máy chủ của bạn xử lý lỗi một cách mạnh mẽ
-  từ các lệnh gọi API bên ngoài để ngăn ứng dụng gặp sự cố.
+### Sugerencias para probar apps multijugador
 
-## Tiếp theo là gì?
+Puedes probar el modo multijugador de dos maneras antes de implementar tu app.
 
-- [Tạo ứng dụng trong Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi)
-- [Thư viện ứng dụng](https://aistudio.google.com/apps?source=showcase&hl=vi)
+1. Abre tu app en el modo de compilación de Google AI Studio en varias pestañas. Cuando desarrollas en el modo de compilación, tu app está en un contenedor de desarrollo. Si abres la app en varias pestañas, podrás simular varios jugadores que usan tu app.
+2. Comparte la app con otras personas usando el menú **Compartir** en la esquina superior derecha. Luego, usa la **URL compartida** de la pestaña **Integraciones** del menú **Compartir** para usar la app con los jugadores con los que la compartiste.
 
-Gửi ý kiến phản hồi
+## Prácticas recomendadas
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+- **Llamadas a la API de Gemini**: Tu `GEMINI_API_KEY` se configura automáticamente como un
+  secreto del servidor. Realiza llamadas a la API de Gemini desde el código del servidor con esta clave. Puedes verla en el panel **Secretos**.
+- **Seguridad de secretos**: Siempre usa el administrador de secretos para las claves sensibles.
+  Nunca los codifiques en tus archivos.
+- **Separación de intereses**: Mantén la lógica de la IU en el framework del cliente
+  (React/Angular) y la lógica empresarial o el manejo de datos en el servidor.
+- **Manejo de errores**: Asegúrate de que el código del servidor controle de forma sólida los errores
+  de las llamadas a la API externa para evitar que la app falle.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+## ¿Qué sigue?
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+- [Compila apps en Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=es-419)
+- [Implementa desde Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=es-419)
+- [Galería de apps](https://aistudio.google.com/apps?source=showcase&hl=es-419)
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+Enviar comentarios
+
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+
+Última actualización: 2026-05-17 (UTC)
+
+¿Quieres brindar más información?
+
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-17 (UTC)"],[],[]]

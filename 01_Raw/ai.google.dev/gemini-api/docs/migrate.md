@@ -1,38 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate?hl=th
-fetched_at: 2026-05-11T12:36:15.057017+00:00
-title: "\u0e22\u0e49\u0e32\u0e22\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e44\u0e1b\u0e22\u0e31\u0e07 Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate?hl=ar
+fetched_at: 2026-05-18T13:07:58.837946+00:00
+title: "\u0627\u0644\u0627\u0646\u062a\u0642\u0627\u0644 \u0625\u0644\u0649 \u062d\u0632\u0645\u0629 \u062a\u0637\u0648\u064a\u0631 \u0627\u0644\u0628\u0631\u0627\u0645\u062c (SDK) \u0645\u0646 Google GenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-ส่งความคิดเห็น
+إرسال ملاحظات
 
-# ย้ายข้อมูลไปยัง Google GenAI SDK
+# الانتقال إلى حزمة تطوير البرامج (SDK) من Google GenAI
 
-ตั้งแต่การเปิดตัว Gemini 2.0 ในช่วงปลายปี 2024 เราได้เปิดตัวชุดไลบรารีใหม่
-ที่เรียกว่า [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=th) โดยจะมอบ
-ประสบการณ์การใช้งานที่ดียิ่งขึ้นสำหรับนักพัฒนาแอปผ่าน
-[สถาปัตยกรรมไคลเอ็นต์ที่อัปเดตแล้ว](https://ai.google.dev/gemini-api/docs/migrate?hl=th#client) และ
-[ลดความซับซ้อนของการเปลี่ยน](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=th)ระหว่างเวิร์กโฟลว์ของนักพัฒนาแอป
-และเวิร์กโฟลว์ขององค์กร
+بدءًا من إصدار Gemini 2.0 في أواخر عام 2024، طرحنا مجموعة جديدة من
+المكتبات تُعرف باسم [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ar). وتوفّر هذه المكتبة
+تجربة محسّنة للمطوّرين من خلال
+بنية أساسية [محدَّثة للعميل](https://ai.google.dev/gemini-api/docs/migrate?hl=ar#client)، و
+[تسهّل عملية الانتقال](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=ar) بين سير عمل المطوّرين
+والمؤسسات.
 
-ตอนนี้ Google GenAI SDK อยู่ใน[เวอร์ชันสำหรับผู้ใช้ทั่วไป (GA)](https://ai.google.dev/gemini-api/docs/libraries?hl=th#new-libraries) ในแพลตฟอร์มที่รองรับทั้งหมด
-หากคุณใช้[ไลบรารีเดิม](https://ai.google.dev/gemini-api/docs/libraries?hl=th#previous-sdks)ของเรา เราขอแนะนำให้คุณย้ายข้อมูล
+[أصبحت Google GenAI SDK متوفّرة الآن للجمهور العام على جميع المنصات المتوافقة.](https://ai.google.dev/gemini-api/docs/libraries?hl=ar#new-libraries) إذا كنت تستخدم إحدى [مكتباتنا القديمة](https://ai.google.dev/gemini-api/docs/libraries?hl=ar#previous-sdks)، ننصحك بشدة بنقل بياناتك.
 
-คู่มือนี้มีตัวอย่างโค้ดก่อนและหลังการย้ายข้อมูลเพื่อช่วยให้คุณเริ่มต้นใช้งานได้
+يقدّم هذا الدليل أمثلة على الرموز البرمجية قبل وبعد نقل البيانات لمساعدتك في البدء.
 
-## การติดตั้ง
+## تثبيت
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -52,7 +51,7 @@ npm install @google/generative-ai
 go get github.com/google/generative-ai-go
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -72,19 +71,16 @@ npm install @google/genai
 go get google.golang.org/genai
 ```
 
-## การเข้าถึง API
+## الدخول إلى واجهة برمجة التطبيقات
 
-SDK เก่าจะจัดการไคลเอ็นต์ API โดยนัยเบื้องหลังโดยใช้วิธีการเฉพาะกิจที่หลากหลาย
-ซึ่งทำให้จัดการไคลเอ็นต์และข้อมูลเข้าสู่ระบบได้ยาก
-ตอนนี้คุณโต้ตอบผ่านออบเจ็กต์ `Client` ส่วนกลาง ออบเจ็กต์ `Client` นี้ทำหน้าที่เป็นจุดแรกเข้าเดียวสำหรับบริการ API ต่างๆ (เช่น `models`, `chats`, `files`, `tunings`) ซึ่งช่วยส่งเสริมความสอดคล้องและลดความซับซ้อนในการจัดการข้อมูลเข้าสู่ระบบและการกำหนดค่าในการเรียก API ต่างๆ
+كانت حزمة SDK القديمة تعالج عميل واجهة برمجة التطبيقات ضمنيًا في الخلفية باستخدام مجموعة متنوّعة من الطرق المخصّصة. وقد صعّب ذلك إدارة العميل وبيانات الاعتماد.
+يمكنك الآن التفاعل من خلال عنصر `Client` مركزي. يعمل عنصر `Client` هذا كنقطة دخول واحدة لمختلف خدمات واجهة برمجة التطبيقات (مثل `models` و`chats` و`files` و`tunings`)، ما يعزّز الاتساق ويسهّل إدارة بيانات الاعتماد والإعدادات على مستوى طلبات واجهة برمجة التطبيقات المختلفة.
 
-**ก่อน (การเข้าถึง API แบบรวมศูนย์น้อยกว่า)**
+**قبل (الوصول إلى واجهة برمجة التطبيقات بشكل أقل مركزية)**
 
 ### Python
 
-SDK เก่าไม่ได้ใช้ออบเจ็กต์ไคลเอ็นต์ระดับบนสุดอย่างชัดเจนสำหรับการเรียก API ส่วนใหญ่
-คุณจะสร้างอินสแตนซ์และโต้ตอบกับออบเจ็กต์ `GenerativeModel`
-โดยตรง
+لم تكن حزمة SDK القديمة تستخدم بشكل صريح عنصر عميل على المستوى الأعلى لمعظم طلبات واجهة برمجة التطبيقات. وكان عليك إنشاء مثيل لعناصر `GenerativeModel` والتفاعل معها مباشرةً.
 
 ```
 import google.generativeai as genai
@@ -97,7 +93,7 @@ chat = model.start_chat(...)
 
 ### JavaScript
 
-แม้ว่า `GoogleGenerativeAI` จะเป็นจุดศูนย์กลางสำหรับโมเดลและการแชท แต่ฟังก์ชันอื่นๆ เช่น การจัดการไฟล์และแคช มักต้องมีการนำเข้าและสร้างอินสแตนซ์ของคลาสไคลเอ็นต์ที่แยกกันโดยสิ้นเชิง
+في حين أنّ `GoogleGenerativeAI` كانت نقطة مركزية للنماذج والمحادثات، كانت الوظائف الأخرى، مثل إدارة الملفات وذاكرة التخزين المؤقت، تتطلّب غالبًا استيراد فئات عملاء منفصلة تمامًا وإنشاء مثيل لها.
 
 ```
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -119,8 +115,7 @@ const cache = await cacheManager.create(...);
 
 ### Go
 
-`genai.NewClient` ฟังก์ชันสร้างไคลเอ็นต์ แต่โดยปกติแล้วการดำเนินการของโมเดล Generative จะเรียกใช้ใน`GenerativeModel`อินสแตนซ์
-แยกต่างหากที่ได้จากไคลเอ็นต์นี้ บริการอื่นๆ อาจเข้าถึงได้ผ่านแพ็กเกจหรือรูปแบบที่แตกต่างกัน
+أنشأت الدالة `genai.NewClient` عميلاً، ولكن عادةً ما يتم استدعاء عمليات النموذج التوليدي على مثيل `GenerativeModel` منفصل تم الحصول عليه من هذا العميل. قد يكون من الممكن الوصول إلى الخدمات الأخرى من خلال حِزم أو أنماط مختلفة.
 
 ```
 import (
@@ -141,7 +136,7 @@ cs := model.StartChat()
 uploadedFile, err := fileClient.UploadFile(...)
 ```
 
-**หลังจาก (ออบเจ็กต์ไคลเอ็นต์แบบรวมศูนย์)**
+**بعد (عنصر العميل المركزي)**
 
 ### Python
 
@@ -188,16 +183,17 @@ uploadedFile, err := client.Files.Upload(...)
 tuningJob, err := client.Tunings.Tune(...)
 ```
 
-## การตรวจสอบสิทธิ์
+## المصادقة
 
-ทั้งไลบรารีเดิมและไลบรารีใหม่จะตรวจสอบสิทธิ์โดยใช้คีย์ API คุณ[สร้าง](https://aistudio.google.com/app/apikey?hl=th)คีย์ API ได้ใน Google AI
-Studio
+تتم المصادقة في كلٍّ من المكتبات القديمة والجديدة باستخدام مفاتيح واجهة برمجة التطبيقات. يمكنك
+[إنشاء](https://aistudio.google.com/app/apikey?hl=ar) مفتاح واجهة برمجة التطبيقات في Google AI
+Studio.
 
-**ก่อน**
+**قبل**
 
 ### Python
 
-SDK เวอร์ชันเก่าจะจัดการออบเจ็กต์ไคลเอ็นต์ API โดยนัย
+كانت حزمة SDK القديمة تعالج عنصر عميل واجهة برمجة التطبيقات ضمنيًا.
 
 ```
 import google.generativeai as genai
@@ -215,7 +211,7 @@ const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 
 ### Go
 
-นำเข้าไลบรารีของ Google
+استيراد مكتبات Google:
 
 ```
 import (
@@ -224,18 +220,18 @@ import (
 )
 ```
 
-สร้างไคลเอ็นต์
+إنشاء العميل:
 
 ```
 client, err := genai.NewClient(ctx, option.WithAPIKey("GEMINI_API_KEY"))
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-เมื่อใช้ Google GenAI SDK คุณจะต้องสร้างไคลเอ็นต์ API ก่อน ซึ่งจะใช้ในการเรียก API
-SDK ใหม่จะดึงคีย์ API จากตัวแปร`GEMINI_API_KEY`สภาพแวดล้อม หากคุณไม่ได้ส่งคีย์ไปยังไคลเอ็นต์
+باستخدام Google GenAI SDK، يمكنك إنشاء عميل لواجهة برمجة التطبيقات أولاً، ويُستخدم هذا العميل لاستدعاء واجهة برمجة التطبيقات.
+ستحصل حزمة SDK الجديدة على مفتاح واجهة برمجة التطبيقات من متغيرات البيئة `GEMINI_API_KEY`، إذا لم يتم تمرير مفتاح إلى العميل.
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
@@ -259,13 +255,13 @@ const ai = new GoogleGenAI({apiKey: "GEMINI_API_KEY"});
 
 ### Go
 
-นำเข้าไลบรารี GenAI
+استيراد مكتبة GenAI:
 
 ```
 import "google.golang.org/genai"
 ```
 
-สร้างไคลเอ็นต์
+إنشاء العميل:
 
 ```
 client, err := genai.NewClient(ctx, &genai.ClientConfig{
@@ -273,16 +269,15 @@ client, err := genai.NewClient(ctx, &genai.ClientConfig{
 })
 ```
 
-## สร้างเนื้อหา
+## إنشاء محتوى
 
-### ข้อความ
+### نص
 
-**ก่อน**
+**قبل**
 
 ### Python
 
-ก่อนหน้านี้ไม่มีออบเจ็กต์ไคลเอ็นต์ คุณเข้าถึง API โดยตรงผ่านออบเจ็กต์
-`GenerativeModel`
+في السابق، لم تكن هناك عناصر عميل، وكان بإمكانك الوصول إلى واجهات برمجة التطبيقات مباشرةً من خلال عناصر `GenerativeModel`.
 
 ```
 import google.generativeai as genai
@@ -326,14 +321,11 @@ if err != nil {
 printResponse(resp) // utility for printing response parts
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-Google GenAI SDK ใหม่ช่วยให้เข้าถึงเมธอด API ทั้งหมดได้ผ่านออบเจ็กต์
-`Client` ฟังก์ชันเหล่านี้เป็นฟังก์ชันแบบไม่เก็บสถานะทั้งหมด ยกเว้นกรณีพิเศษแบบเก็บสถานะบางกรณี (`chat` และ
-live-api `session`) เพื่อความสะดวกและ
-ความสม่ำเสมอ ออบเจ็กต์ที่แสดงผลจะเป็นคลาส `pydantic`
+تتيح Google GenAI SDK الجديدة الوصول إلى جميع طرق واجهة برمجة التطبيقات من خلال عنصر `Client`. باستثناء بعض الحالات الخاصة التي تحتفظ بالحالة (`chat` و`session`s لواجهة برمجة التطبيقات المباشرة)، تكون جميع هذه الدوال غير محتفظة بالحالة. لتحقيق الفائدة والاتساق، تكون العناصر التي يتم عرضها فئات `pydantic`.
 
 ```
 from google import genai
@@ -379,9 +371,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-### รูปภาพ
+### صورة
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -451,11 +443,11 @@ if err != nil {
 printResponse(resp) // utility for printing response
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-SDK ใหม่มีฟีเจอร์อำนวยความสะดวกหลายอย่างเหมือนกับ SDK เดิม ตัวอย่างเช่น ระบบจะแปลง`PIL.Image`โดยอัตโนมัติ
+تتوفّر العديد من الميزات المريحة نفسها في حزمة SDK الجديدة. على سبيل المثال، يتم تلقائيًا تحويل عناصر `PIL.Image`.
 
 ```
 from google import genai
@@ -525,9 +517,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-### สตรีมมิง
+### البث
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -584,7 +576,7 @@ for {
 }
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -640,9 +632,9 @@ for result, err := range client.Models.GenerateContentStream(
 }
 ```
 
-## การกำหนดค่า
+## التهيئة
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -709,15 +701,11 @@ if err != nil {
 printResponse(resp) // utility for printing response
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-สำหรับเมธอดทั้งหมดใน SDK ใหม่ อาร์กิวเมนต์ที่จำเป็นจะระบุเป็น
-อาร์กิวเมนต์คีย์เวิร์ด อินพุตที่ไม่บังคับทั้งหมดจะระบุไว้ใน `config`
-argument คุณระบุอาร์กิวเมนต์การกำหนดค่าเป็นพจนานุกรม Python หรือคลาส `Config` ในเนมสเปซ `google.genai.types` ก็ได้ เพื่อความสะดวกและ
-ความสม่ำเสมอ คำจำกัดความทั้งหมดภายในโมดูล `types` เป็น`pydantic`
-คลาส
+بالنسبة إلى جميع الطرق في حزمة SDK الجديدة، يتم تقديم الوسيطات المطلوبة كـ "وسيطات الكلمات الرئيسية". يتم تقديم جميع الإدخالات الاختيارية في وسيطة `config`. يمكن تحديد وسيطات الإعداد إما كقواميس Python أو فئات `Config` في مساحة الاسم `google.genai.types`. لتحقيق الفائدة والاتساق، تكون جميع التعريفات ضمن وحدة `types` فئات `pydantic`.
 
 ```
 from google import genai
@@ -793,11 +781,11 @@ if err != nil {
 debugPrint(result) // utility for printing response
 ```
 
-## การตั้งค่าความปลอดภัย
+## إعدادات الأمان
 
-สร้างคำตอบด้วยการตั้งค่าความปลอดภัย
+إنشاء ردّ باستخدام إعدادات الأمان:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -845,7 +833,7 @@ try {
 }
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -897,9 +885,9 @@ console.log("Finish reason:", response.candidates[0].finishReason);
 console.log("Safety ratings:", response.candidates[0].safetyRatings);
 ```
 
-## Async
+## غير متزامنة
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -912,12 +900,12 @@ response = model.generate_content_async(
 )
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-หากต้องการใช้ SDK ใหม่กับ `asyncio` จะมีการติดตั้งใช้งาน`async`
-แยกต่างหากสำหรับแต่ละเมธอดภายใต้ `client.aio`
+لاستخدام حزمة SDK الجديدة مع `asyncio`، هناك تنفيذ `async`
+منفصل لكل طريقة ضمن `client.aio`.
 
 ```
 from google import genai
@@ -930,11 +918,11 @@ response = await client.aio.models.generate_content(
 )
 ```
 
-## แชท
+## محادثة
 
-เริ่มแชทและส่งข้อความถึงโมเดลโดยทำดังนี้
+بدء محادثة وإرسال رسالة إلى النموذج:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1010,7 +998,7 @@ if err != nil {
 printResponse(res) // utility for printing the response
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1085,9 +1073,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-## การเรียกใช้ฟังก์ชัน
+## استدعاء الدالة
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1114,12 +1102,11 @@ response = model.generate_content("What is the weather in San Francisco?")
 function_call = response.candidates[0].parts[0].function_call
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-ใน SDK ใหม่ การเรียกฟังก์ชันอัตโนมัติจะเป็นค่าเริ่มต้น คุณปิดใช้
-ได้ที่นี่
+في حزمة SDK الجديدة، يكون استدعاء الدالة التلقائي هو الإعداد التلقائي. في ما يلي، يتم إيقاف هذه الميزة.
 
 ```
 from google import genai
@@ -1149,14 +1136,13 @@ response = client.models.generate_content(
 function_call = response.candidates[0].content.parts[0].function_call
 ```
 
-### การเรียกใช้ฟังก์ชันอัตโนมัติ
+### استدعاء الدالة التلقائي
 
-**ก่อน**
+**قبل**
 
 ### Python
 
-SDK เวอร์ชันเก่ารองรับเฉพาะการเรียกใช้ฟังก์ชันอัตโนมัติในแชท ใน SDK เวอร์ชันใหม่
-ลักษณะการทำงานนี้จะเป็นค่าเริ่มต้นใน `generate_content`
+لا تتيح حزمة SDK القديمة استدعاء الدالة التلقائي إلا في المحادثة. في حزمة SDK الجديدة، يكون هذا السلوك هو الإعداد التلقائي في `generate_content`.
 
 ```
 import google.generativeai as genai
@@ -1174,7 +1160,7 @@ chat = model.start_chat(
 result = chat.send_message("What is the weather in San Francisco?")
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1195,11 +1181,11 @@ response = client.models.generate_content(
 )
 ```
 
-## การรันโค้ด
+## تنفيذ الرموز البرمجية
 
-การดำเนินการโค้ดเป็นเครื่องมือที่ช่วยให้โมเดลสร้างโค้ด Python ดำเนินการ และแสดงผลลัพธ์ได้
+تنفيذ الرموز البرمجية هو أداة تتيح للنموذج إنشاء رموز Python البرمجية وتشغيلها وعرض النتيجة.
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1236,7 +1222,7 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1280,13 +1266,13 @@ console.log("-".repeat(80));
 console.log("\n", response.text);
 ```
 
-## การเชื่อมต่อแหล่งข้อมูลของ Search
+## لتحديد المصادر في "بحث Google"
 
-`GoogleSearch` (Gemini>=2.0) และ `GoogleSearchRetrieval` (Gemini < 2.0) เป็น
-เครื่องมือที่ช่วยให้โมเดลดึงข้อมูลเว็บสาธารณะเพื่อการเชื่อมต่อแหล่งข้อมูลได้ โดยขับเคลื่อนโดย
-Google
+`GoogleSearch` (‫Gemini>=2.0) و`GoogleSearchRetrieval` (‫Gemini < 2.0) هما
+أداتان تتيحان للنموذج استرداد بيانات الويب العلنية لتحديد المصادر، وتعملان باستخدام تكنولوجيا
+Google.
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1300,7 +1286,7 @@ response = model.generate_content(
 )
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1323,16 +1309,17 @@ response = client.models.generate_content(
 )
 ```
 
-## การตอบสนองของ JSON
+## استجابة JSON
 
-สร้างคำตอบในรูปแบบ JSON
+إنشاء إجابات بتنسيق JSON:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
-การระบุ `response_schema` และการตั้งค่า
-`response_mime_type="application/json"` จะช่วยให้ผู้ใช้จำกัดโมเดลให้สร้างคำตอบ `JSON` ตามโครงสร้างที่กำหนดได้
+من خلال تحديد `response_schema` وضبط
+`response_mime_type="application/json"`، يمكن للمستخدمين حصر النموذج لـ
+إنتاج استجابة `JSON` تتبع بنية معيّنة.
 
 ```
 import google.generativeai as genai
@@ -1395,13 +1382,11 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
-SDK ใหม่ใช้คลาส `pydantic` เพื่อระบุสคีมา (แม้ว่าคุณจะส่ง `genai.types.Schema` หรือ `dict` ที่เทียบเท่าได้) เมื่อเป็นไปได้ SDK จะแยกวิเคราะห์ JSON ที่ส่งคืนและส่งคืนผลลัพธ์ใน `response.parsed` หากคุณ
-ระบุคลาส `pydantic` เป็นสคีมา SDK จะแปลง `JSON`
-เป็นอินสแตนซ์ของคลาส
+تستخدم حزمة SDK الجديدة فئات `pydantic` لتوفير المخطط (على الرغم من أنّه يمكنك تمرير `genai.types.Schema` أو `dict` مكافئ). عندما يكون ذلك ممكنًا، ستحلّل حزمة SDK ملف JSON الذي تم عرضه، وتعرض النتيجة في `response.parsed`. إذا قدّمت فئة `pydantic` كمخطط، ستحوّل حزمة SDK ملف `JSON` هذا إلى مثيل للفئة.
 
 ```
 from google import genai
@@ -1458,13 +1443,13 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-## ไฟล์
+## الملفات
 
-### อัปโหลด
+### تحميل
 
-อัปโหลดไฟล์
+تحميل ملف:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1488,7 +1473,7 @@ response = model.generate_content([
 print(response.text)
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1516,11 +1501,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### แสดงรายการและรับ
+### الإدراج والحصول
 
-แสดงรายการไฟล์ที่อัปโหลดและรับไฟล์ที่อัปโหลดโดยใช้ชื่อไฟล์
+إدراج الملفات التي تم تحميلها والحصول على ملف تم تحميله باسم ملف:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1533,7 +1518,7 @@ for file in genai.list_files():
 file = genai.get_file(name=file.name)
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1547,11 +1532,11 @@ for file in client.files.list():
 file = client.files.get(name=file.name)
 ```
 
-### ลบ
+### حذف
 
-วิธีลบไฟล์
+حذف ملف:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1565,7 +1550,7 @@ dummy_file = genai.upload_file(path='dummy.txt')
 file = genai.delete_file(name=dummy_file.name)
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1581,11 +1566,11 @@ dummy_file = client.files.upload(file='dummy.txt')
 response = client.files.delete(name=dummy_file.name)
 ```
 
-## การแคชบริบท
+## تخزين السياق مؤقتًا
 
-การแคชบริบทช่วยให้ผู้ใช้ส่งเนื้อหาไปยังโมเดลได้ครั้งเดียว แคชโทเค็นอินพุต แล้วอ้างอิงโทเค็นที่แคชไว้ในการเรียกครั้งต่อๆ ไปเพื่อลดค่าใช้จ่าย
+يتيح تخزين السياق مؤقتًا للمستخدم تمرير المحتوى إلى النموذج مرة واحدة وتخزين الرموز المميّزة للإدخال مؤقتًا، ثم الرجوع إلى الرموز المميّزة المخزّنة مؤقتًا في عمليات الاستدعاء اللاحقة لتقليل التكلفة.
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1657,7 +1642,7 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1739,11 +1724,11 @@ const response = await ai.models.generateContent({
 console.log("Response text:", response.text);
 ```
 
-## นับโทเค็น
+## عدد الرموز المميّزة
 
-นับจำนวนโทเค็นในคำขอ
+حساب عدد الرموز المميّزة في الطلب:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1785,7 +1770,7 @@ response = model.count_tokens(
  // { promptTokenCount: 11, candidatesTokenCount: 124, totalTokenCount: 135 }
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1820,11 +1805,11 @@ const generateResponse = await ai.models.generateContent({
 console.log(generateResponse.usageMetadata);
 ```
 
-## สร้างรูปภาพ
+## إنشاء صور
 
-สร้างรูปภาพ
+إنشاء صور:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1843,7 +1828,7 @@ gen_images = imagen.generate_images(
 )
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1868,11 +1853,11 @@ for n, image in enumerate(gen_images.generated_images):
         image.image.image_bytes)
 ```
 
-## ฝังเนื้อหา
+## تضمين المحتوى
 
-สร้างการฝังเนื้อหา
+إنشاء عمليات تضمين المحتوى:
 
-**ก่อน**
+**قبل**
 
 ### Python
 
@@ -1900,7 +1885,7 @@ const result = await model.embedContent("Hello world!");
 console.log(result.embedding);
 ```
 
-**หลัง**
+**بعد**
 
 ### Python
 
@@ -1930,12 +1915,12 @@ const result = await ai.models.embedContent({
 console.log(result.embeddings);
 ```
 
-ส่งความคิดเห็น
+إرسال ملاحظات
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-อัปเดตล่าสุด 2026-04-29 UTC
+تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

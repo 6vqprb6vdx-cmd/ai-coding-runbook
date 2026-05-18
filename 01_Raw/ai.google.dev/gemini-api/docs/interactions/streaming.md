@@ -1,0 +1,1075 @@
+---
+source_url: https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=ja
+fetched_at: 2026-05-18T13:09:42.521985+00:00
+title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+---
+
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+
+フィードバックを送信
+
+# ストリーミング インタラクション
+
+Interaction を作成するときに、`stream: true` を設定して、[サーバー送信イベント](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)（SSE）を使用してレスポンスを段階的にストリーミングできます。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+stream = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="Count to from 1 to 25.",
+    stream=True,
+)
+for event in stream:
+    if event.event_type == "step.delta":
+        if event.delta.type == "text":
+            print(event.delta.text, end="", flush=True)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const stream = await client.interactions.create({
+    model: "gemini-3-flash-preview",
+    input: "Count to from 1 to 25.",
+    stream: true,
+});
+for await (const event of stream) {
+    if (event.event_type === "step.delta") {
+        if (event.delta.type === "text") {
+            process.stdout.write(event.delta.text);
+        }
+    }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "input": "Count to from 1 to 25.",
+    "stream": true
+  }'
+```
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+
+event: interaction.status_update
+data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
+
+event: step.start
+data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":"1, 2, 3, 4, 5, 6, ","type":"text"},"event_type":"step.delta"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":"7, 8, 9, 10, 11, 12, 13,","type":"text"},"event_type":"step.delta"}
+
+...
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_...","status":"completed","usage":{"total_tokens":346,"total_input_tokens":11,"input_tokens_by_modality":[{"modality":"text","tokens":11}],"total_cached_tokens":0,"total_output_tokens":90,"total_tool_use_tokens":0,"total_thought_tokens":245},"created":"2026-05-12T18:44:51Z","updated":"2026-05-12T18:44:51Z","service_tier":"standard","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.completed"}
+
+event: done
+data: [DONE]
+```
+
+## イベントタイプ
+
+サーバー送信イベントには、名前付きの `event_type` と関連する JSON データが含まれます。Interactions API は、すべてのコンテンツ（テキスト、ツール呼び出し、思考）が一貫した**ステップベースの**イベントを介して流れる対称ストリーミング モデルを使用します。
+
+各ストリームは次のイベント フローに従います。
+
+1. `interaction.created`: インタラクションが作成され、メタデータ（ID、モデル、ステータス）が含まれます。
+2. 一連の**ステップ**。各ステップは次の要素で構成されます。
+   - ステップタイプ（`model_output`、`thought`、`function_call` など）を示す `step.start` イベント。
+   - そのステップの増分データを含む 1 つ以上の `step.delta` イベント。
+   - ステップを完了としてマークする `step.stop` イベント。
+3. 最終的な `usage` 統計情報を含む `interaction.completed` イベント。
+
+`stream: false` を設定すると、API は `steps` 配列を含む単一の `interaction` オブジェクトを返します。`steps` 内の各要素は、1 つの `step.start` → `step.delta`(s) → `step.stop` サイクルの完全に組み立てられたバージョンです。
+
+### `interaction.created`
+
+インタラクションが初めて作成されたときに送信されます。インタラクション ID、モデル、初期ステータスが含まれます。
+
+```
+event: interaction.created
+data: {"interaction": {"id": "...", "model": "gemini-3-flash-preview", "status": "in_progress", "object": "interaction"}, "event_type": "interaction.created"}
+```
+
+### `interaction.status_update`
+
+インタラクション レベルのステータス遷移を通知します。ステップの間に表示されることがあります。
+
+```
+event: interaction.status_update
+data: {"interaction_id": "...", "status": "in_progress", "event_type": "interaction.status_update"}
+```
+
+### `step.start`
+
+新しいステップの始まりを示します。ステップ `type` と `index` が含まれます。ステップタイプによって、想定されるデルタタイプと、非ストリーミング レスポンスでのステップの表示方法が決まります。
+
+| ステップの種類 | 想定される差分タイプ | 説明 |
+| --- | --- | --- |
+| `model_output` | `text`、`image`、`audio` | モデルの最終的なレスポンス コンテンツ。 |
+| `thought` | `thought_signature`、`thought_summary` | Chain-of-Thought 推論。`summary` は、`thinking_summaries` が有効になっている場合にのみ存在します。 |
+| `function_call` | `arguments_delta` | クライアントが関数を実行するためのリクエスト。インタラクションのステータスを `requires_action` に設定します。 |
+| サーバーサイド ツール | ツールによって異なる | API によって実行されるツール（`google_search_call`、`google_search_result`、`code_execution_call`、`code_execution_result` など）。 |
+
+完全なリストについては、[Interactions API リファレンス](https://ai.google.dev/api/interactions?hl=ja)をご覧ください。
+
+```
+event: step.start
+data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
+```
+
+関数呼び出しの場合、ステップには関数名、ID、空の引数 `{}` が含まれます。
+
+```
+event: step.start
+data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "get_weather", "arguments":{}}, "event_type": "step.start"}
+```
+
+### `step.delta`
+
+現在のステップの増分データ。`delta` オブジェクトには、その形状を決定する `type` フィールドが含まれています。
+
+**例:**
+
+**`text`:** `model_output` ステップからの増分テキスト トークン:
+
+```
+event: step.delta
+data: {"index": 0, "delta": {"type": "text", "text": "Hello, my name is Phil"}, "event_type": "step.delta"}
+
+event: step.delta
+data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
+```
+
+**`image`:** `model_output` ステップの Base64 エンコードされた画像データ:
+
+```
+event: step.delta
+data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
+```
+
+**`thought_summary`:** `thought` ステップの思考の要約コンテンツ:
+
+```
+event: step.delta
+data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
+```
+
+**`arguments_delta`:** 関数呼び出し引数の（部分的な）JSON 文字列。デルタ間で累積する必要があります。
+
+```
+event: step.delta
+data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
+```
+
+最も一般的なデルタタイプは次のとおりです。すべての差分タイプの完全なリストについては、[Interactions API リファレンス](https://ai.google.dev/api/interactions?hl=ja)をご覧ください。
+
+### `step.stop`
+
+ステップの終了をマークします。ステップ `index` が含まれます。
+
+```
+event: step.stop
+data: {"index": 0, "event_type": "step.stop"}
+```
+
+### `interaction.completed`
+
+インタラクションが終了すると送信されます。`usage` 統計情報を含む最終的なインタラクション オブジェクトが含まれます。非ストリーミング モードでは、これは最上位のレスポンス オブジェクト自体です。レスポンスに `steps` が含まれていません。
+
+```
+event: interaction.completed
+data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"total_input_tokens": 7, "total_output_tokens": 12, "total_tokens": 19}}, "event_type": "interaction.completed"}
+```
+
+### `error`
+
+インタラクション中にエラーが発生した場合に送信されます。メッセージとコードを含むエラー オブジェクトが含まれます。
+
+```
+event: error
+data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
+```
+
+## ツールを使用したストリーミング
+
+Interactions API は、クライアントサイド ツール（関数呼び出し）とサーバーサイド ツール（Google 検索、コード実行など）の両方を使用したストリーミングを 1 つのリクエストでサポートします。ストリーミング中、ツール呼び出しはイベント ストリームに型付きステップとして表示されます。関数呼び出しの場合、`step.start` イベントは関数名を配信し、`step.delta` イベントは引数を JSON 文字列（`arguments_delta`）としてストリーミングします。これらの差分を累積して、完全な引数を取得する必要があります。Google 検索などのサーバーサイド ツールは API によって自動的に実行され、`google_search_call` ステップと `google_search_result` ステップが生成されます。
+
+### 関数呼び出しを使用したストリーミング
+
+ストリーミングで関数呼び出しを行うには、クライアントがマルチターンの会話を処理する必要があります。**ターン 1（関数リクエスト）:** `stream: true` と定義済みの `tools` を使用して `interactions.create` を呼び出します。API は `function_call` ステップをストリーミングします。`step.delta` イベントから、ステータス `requires_action` でインタラクションが完了するまで、増分引数 JSON 文字列（`arguments_delta`）を蓄積する必要があります。2. **ターン 2（結果の送信）:** `interactions.create` を再度呼び出し、`previous_interaction_id`（最初のインタラクションの ID と一致）を渡して、`input` 配列内の `function_result` ブロックを送信します。これによりストリームが再開され、モデルは最終的なレスポンスを生成できるようになります。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+weather_tool = {
+    "type": "function",
+    "name": "get_weather",
+    "description": "Get the current weather in a given location",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "location": {
+                "type": "string",
+                "description": "The city and state, e.g. San Francisco, CA"
+            }
+        },
+        "required": ["location"]
+    }
+}
+
+# Turn 1: Request function call
+stream = client.interactions.create(
+    model="gemini-3-flash-preview",
+    tools=[weather_tool],
+    input="What is the weather in Paris right now?",
+    stream=True,
+)
+
+first_interaction_id = None
+func_call_id = None
+func_call_name = None
+func_args_accumulated = ""
+
+for event in stream:
+    if event.event_type == "interaction.created":
+        first_interaction_id = event.interaction.id
+    elif event.event_type == "step.start":
+        step = event.step
+        if step.type == "function_call":
+            func_call_id = step.id
+            func_call_name = step.name
+    elif event.event_type == "step.delta":
+        if event.delta.type == "arguments_delta":
+            func_args_accumulated += event.delta.arguments
+
+# Turn 2: Execute tool and send the result back to resume stream
+if func_call_id:
+    # Execute weather_tool using accumulated arguments
+    # args = json.loads(func_args_accumulated)
+    dummy_result = {
+        "content": [{"type": "text", "text": '{"weather": "Sunny and 22°C"}'}]
+    }
+
+    stream2 = client.interactions.create(
+        model="gemini-3-flash-preview",
+        previous_interaction_id=first_interaction_id,
+        input=[{
+            "type": "function_result",
+            "name": func_call_name,
+            "call_id": func_call_id,
+            "result": dummy_result
+        }],
+        stream=True,
+    )
+
+    for event in stream2:
+        if event.event_type == "step.delta":
+            if event.delta.type == "text":
+                print(event.delta.text, end="", flush=True)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const weatherTool = {
+    type: "function",
+    name: "get_weather",
+    description: "Get the current weather in a given location",
+    parameters: {
+        type: "object",
+        properties: {
+            location: {
+                type: "string",
+                description: "The city and state, e.g. San Francisco, CA"
+            }
+        },
+        required: ["location"]
+    }
+};
+
+// Turn 1: Request function call
+const stream = await client.interactions.create({
+    model: "gemini-3-flash-preview",
+    tools: [weatherTool],
+    input: "What is the weather in Paris right now?",
+    stream: true,
+});
+
+let firstInteractionId = null;
+let funcCallId = null;
+let funcCallName = null;
+let funcArgsAccumulated = "";
+
+for await (const event of stream) {
+    if (event.event_type === "interaction.created") {
+        firstInteractionId = event.interaction.id;
+    } else if (event.event_type === "step.start") {
+        const step = event.step;
+        if (step.type === "function_call") {
+            funcCallId = step.id;
+            funcCallName = step.name;
+        }
+    } else if (event.event_type === "step.delta") {
+        if (event.delta.type === "arguments_delta") {
+            funcArgsAccumulated += event.delta.arguments;
+        }
+    }
+}
+
+// Turn 2: Execute tool and send the result back to resume stream
+if (funcCallId && firstInteractionId && funcCallName) {
+    // const args = JSON.parse(funcArgsAccumulated);
+    const dummyResult = {
+        content: [{ type: "text", text: '{"weather": "Sunny and 22°C"}' }]
+    };
+
+    const stream2 = await client.interactions.create({
+        model: "gemini-3-flash-preview",
+        previous_interaction_id: firstInteractionId,
+        input: [{
+            type: "function_result",
+            name: funcCallName,
+            call_id: funcCallId,
+            result: dummyResult
+        }],
+        stream: true,
+    });
+
+    for await (const event of stream2) {
+        if (event.event_type === "step.delta") {
+            if (event.delta.type === "text") {
+                process.stdout.write(event.delta.text);
+            }
+        }
+    }
+}
+```
+
+### REST
+
+**ターン 1:** 関数呼び出しをリクエストする
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "input": "What is the weather in Paris right now?",
+    "stream": true,
+    "tools": [
+      {
+        "type": "function",
+        "name": "get_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The city and state, e.g. San Francisco, CA"
+            }
+          },
+          "required": ["location"]
+        }
+      }
+    ]
+  }'
+```
+
+**ターン 2:** ターン 1 の `previous_interaction_id` と `call_id` を使用して関数結果を送信する
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "previous_interaction_id": "v1_ChdGUVFJYXBXVUdLVEF4TjhQ...",
+    "stream": true,
+    "input": [
+      {
+        "type": "function_result",
+        "name": "get_weather",
+        "call_id": "CALL_ID",
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"weather\": \"Sunny and 22°C\"}"
+            }
+          ]
+        }
+      }
+    ]
+  }'
+```
+
+### 複数のツールを使用したストリーミング
+
+次の例では、1 つのリクエストで `function` ツールと `google_search` の両方を使用しています。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+tools = [
+    {"type": "google_search"},
+    {
+        "type": "function",
+        "name": "get_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {
+                    "type": "string",
+                    "description": "The city and state, e.g. San Francisco, CA"
+                }
+            },
+            "required": ["location"]
+        }
+    }
+]
+
+stream = client.interactions.create(
+    model="gemini-3-flash-preview",
+    tools=tools,
+    input="Search what it the largest mountain in Europe and what the weather is there right now?",
+    stream=True,
+)
+for event in stream:
+    if event.event_type == "step.start":
+        step = event.step
+        print(f"\n--- Step {event.index}: {step.type} ---")
+        # Show details for tool steps
+        if step.type == "google_search_call":
+            print(f"  Search ID: {step.id}")
+        elif step.type == "google_search_result":
+            print(f"  Result for: {step.call_id}")
+        elif step.type == "function_call":
+            print(f"  Function: {step.name}({step.arguments})")
+    elif event.event_type == "step.delta":
+        if event.delta.type == "text":
+            print(event.delta.text, end="", flush=True)
+        elif event.delta.type == "google_search_call":
+            print(f"  Queries: {event.delta.arguments}")
+        elif event.delta.type == "arguments_delta":
+            print(f"  Args chunk: {event.delta.arguments}", end="", flush=True)
+    elif event.event_type == "interaction.completed":
+        print(f"\n\nStatus: {event.interaction.status}")
+        if event.interaction.status == "requires_action":
+            print("Action required: provide function call results to continue.")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const tools = [
+    { type: "google_search" },
+    {
+        type: "function",
+        name: "get_weather",
+        description: "Get the current weather in a given location",
+        parameters: {
+            type: "object",
+            properties: {
+                location: {
+                    type: "string",
+                    description: "The city and state, e.g. San Francisco, CA"
+                }
+            },
+            required: ["location"]
+        }
+    }
+];
+
+const stream = await client.interactions.create({
+    model: "gemini-3-flash-preview",
+    tools: tools,
+    input: "Search what it the largest mountain in Europe and what the weather is there right now?",
+    stream: true,
+});
+for await (const event of stream) {
+    if (event.event_type === "step.start") {
+        const step = event.step;
+        console.log(`\n--- Step ${event.index}: ${step.type} ---`);
+        // Show details for tool steps
+        if (step.type === "google_search_call") {
+            console.log(`  Search ID: ${step.id}`);
+        } else if (step.type === "google_search_result") {
+            console.log(`  Result for: ${step.call_id}`);
+        } else if (step.type === "function_call") {
+            console.log(`  Function: ${step.name}(${JSON.stringify(step.arguments)})`);
+        }
+    } else if (event.event_type === "step.delta") {
+        if (event.delta.type === "text") {
+            process.stdout.write(event.delta.text);
+        } else if (event.delta.type === "google_search_call") {
+            console.log(`  Queries: ${JSON.stringify(event.delta.arguments?.queries)}`);
+        } else if (event.step.type === "google_search_result") {
+            console.log(`  Result for: ${event.step.call_id}`);
+        } else if (event.delta.type === "arguments_delta") {
+            process.stdout.write(`  Args chunk: ${event.delta.arguments}`);
+        }
+    } else if (event.event_type === "interaction.completed") {
+        console.log(`\n\nStatus: ${event.interaction.status}`);
+        if (event.interaction.status === "requires_action") {
+            console.log("Action required: provide function call results to continue.");
+        }
+    }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "input": "Search what it the largest mountain in Europe and what the weather is there right now?",
+    "stream": true,
+    "tools": [
+      { "type": "google_search" },
+      {
+        "type": "function",
+        "name": "get_weather",
+        "description": "Get the current weather in a given location",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "type": "string",
+              "description": "The city and state, e.g. San Francisco, CA"
+            }
+          },
+          "required": ["location"]
+        }
+      }
+    ]
+  }'
+```
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+
+event: interaction.status_update
+data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
+
+event: step.start
+data: {"index":0,"step":{"id":"mkutnkgn","signature":"","type":"google_search_call"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"signature":"...","type":"google_search_call","arguments":{"queries":["largest mountain in Europe"]}},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"call_id":"mkutnkgn","signature":"","type":"google_search_result"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"signature":"...","type":"google_search_result","is_error":false},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":2,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":2,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":2,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":3,"step":{"id":"ktr5aysg","type":"function_call","name":"get_weather","arguments":{}},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":3,"delta":{"arguments":"{\"location\":\"Mount Elbrus, Russia\"}","type":"arguments_delta"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":3,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_...","status":"requires_action","usage":{"total_tokens":299,"total_input_tokens":138,"input_tokens_by_modality":[{"modality":"text","tokens":138}],"total_cached_tokens":0,"total_output_tokens":20,"total_tool_use_tokens":0,"total_thought_tokens":141},"created":"2026-05-12T17:24:26Z","updated":"2026-05-12T17:24:26Z","service_tier":"standard","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.completed"}
+
+event: done
+data: [DONE]
+```
+
+## 思考を伴うストリーミング
+
+モデルが思考を使用すると、2 つの異なるデルタ型（`thought_summary`（増分テキストまたは画像要約コンテンツ）と `thought_signature`（モデルの内部推論の暗号化された表現。`step.stop` の前の最後のデルタとして送信））を含む `thought` ステップが返されます。`thinking_summaries` が有効になっている場合、`thought_summary` デルタはモデルの推論の要約をストリーミングします。思考の詳細については、[思考ガイド](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ja)をご覧ください。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+stream = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="What is the greatest common divisor of 1071 and 462?",
+    generation_config={
+        "thinking_summaries": "auto"
+    },
+    stream=True,
+)
+for event in stream:
+    if event.event_type == "step.start":
+        print(f"\n--- Step: {event.step.type} ---")
+    elif event.event_type == "step.delta":
+        if event.delta.type == "thought_summary":
+            if event.delta.content.type == "text":
+                print(event.delta.content.text, end="", flush=True)
+        elif event.delta.type == "text":
+            print(event.delta.text, end="", flush=True)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const stream = await client.interactions.create({
+    model: "gemini-3-flash-preview",
+    input: "What is the greatest common divisor of 1071 and 462?",
+    generation_config: {
+        thinking_summaries: "auto",
+    },
+    stream: true,
+});
+for await (const event of stream) {
+    if (event.event_type === "step.start") {
+        console.log(`\n--- Step: ${event.step.type} ---`);
+    } else if (event.event_type === "step.delta") {
+        if (event.delta.type === "thought_summary") {
+            if (event.delta.content.type === "text") {
+                process.stdout.write(event.delta.content.text);
+            }
+        } else if (event.delta.type === "text") {
+            process.stdout.write(event.delta.text);
+        }
+    }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "input": "What is the greatest common divisor of 1071 and 462?",
+    "stream": true,
+    "generation_config": {
+      "thinking_summaries": "auto"
+    }
+  }'
+```
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+
+event: interaction.status_update
+data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
+
+event: step.start
+data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"content":{"text":"**Implementing Euclidean Algorithm**\n\nI've just worked through a detailed example applying the Euclidean algorithm to find the GCD of 1071 and 462, confirming its step-by-step nature. The calculations went smoothly, tracking the remainders until zero. My focus is now solidifying the implementation logic, ensuring accuracy and considering potential edge cases. I'll translate this example into code.\n\n\n","type":"text"},"type":"thought_summary"},"event_type":"step.delta"}
+
+event: step.delta
+data: {"index":0,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
+
+...
+```
+
+## エージェントによるストリーミング
+
+Interactions API は、Deep Research などのエージェントをサポートしています。エージェントは `background=True` を使用して結果を非同期で返しますが、エージェントのインタラクションをストリーミングして、進行状況の更新と中間ステップをリアルタイムで受け取ることもできます。詳しくは、[Deep Research ガイド](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=ja)をご覧ください。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+stream = client.interactions.create(
+    agent="deep-research-preview-04-2026",
+    input="Research the latest advances in quantum computing.",
+    stream=True,
+    background=True,
+    agent_config={
+        "type": "deep-research",
+        "thinking_summaries": "auto"
+    }
+)
+for event in stream:
+    if event.event_type == "step.start":
+        print(f"\n--- Step: {event.step.type} ---")
+    elif event.event_type == "step.delta":
+        if event.delta.type == "text":
+            print(event.delta.text, end="", flush=True)
+        elif event.delta.type == "thought_summary":
+            if event.delta.content.type == "text":
+                print(event.delta.content.text, end="", flush=True)
+    elif event.event_type == "interaction.completed":
+        print(f"\n\nTotal Tokens: {event.interaction.usage.total_tokens}")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const stream = await client.interactions.create({
+    agent: "deep-research-preview-04-2026",
+    input: "Research the latest advances in quantum computing.",
+    stream: true,
+    background: true,
+    agent_config: {
+        type: "deep-research",
+        thinking_summaries: "auto"
+    }
+});
+for await (const event of stream) {
+    if (event.event_type === "step.start") {
+        console.log(`\n--- Step: ${event.step.type} ---`);
+    } else if (event.event_type === "step.delta") {
+        if (event.delta.type === "text") {
+            process.stdout.write(event.delta.text);
+        } else if (event.delta.type === "thought_summary") {
+            if (event.delta.content.type === "text") {
+                process.stdout.write(event.delta.content.text);
+            }
+        }
+    } else if (event.event_type === "interaction.completed") {
+        console.log(`\n\nTotal Tokens: ${event.interaction.usage.total_tokens}`);
+    }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "agent": "deep-research-preview-04-2026",
+    "input": "Research the latest advances in quantum computing.",
+    "stream": true,
+    "background": true,
+    "agent_config": {
+      "type": "deep-research",
+      "thinking_summaries": "auto"
+    }
+  }'
+```
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","agent":"deep-research-preview-04-2026"},"event_type":"interaction.created"}
+
+event: interaction.status_update
+data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
+
+event: step.start
+data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"content":{"text":"***Generating research plan***\n\nTo best answer your request, I'm starting by constructing a comprehensive research plan. This will outline the key areas I need to investigate and the strategy I'll use to connect them."},"type":"thought_summary"},"event_type":"step.delta"}
+
+... (additional thought steps) ...
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":"# The Quantum Inflection Point: Exhaustive Analysis of Hardware, Algorithms, and Market Dynamics in 2026\n\n## Executive Summary\n\n..."},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_...","status":"completed","usage":{"total_tokens":1117031,"total_input_tokens":428865,"total_output_tokens":22294,"total_thought_tokens":26213},"created":"2026-05-12T17:24:27Z","updated":"2026-05-12T17:24:27Z","object":"interaction","agent":"deep-research-preview-04-2026"},"event_type":"interaction.completed"}
+
+event: done
+data: [DONE]
+```
+
+## ストリーミング画像生成
+
+Interactions API は、複数の出力モードの同時ストリーミングをサポートしています。`response_format` で `text` と `image` の両方をリクエストすると、インターリーブされたテキストと生成された画像を同じストリームで受け取ることができます。
+
+次の例では、`gemini-3.1-flash-image-preview`（Nano Banana 2）を使用して情報を検索し、イラストが挿入された物語を生成します。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+stream = client.interactions.create(
+    model="gemini-3.1-flash-image-preview",
+    tools=[{"type": "google_search", "search_types": ["web_search", "image_search"]}],
+    input="Search for the history of the Colosseum and write a short illustrated story about a gladiator named Marcus. Interleave text and generated images.",
+    response_format=[
+        {"type": "text"},
+        {"type": "image"}
+    ],
+    stream=True,
+)
+
+for event in stream:
+    if event.event_type == "step.delta":
+        if event.delta.type == "text":
+            print(event.delta.text, end="", flush=True)
+        elif event.delta.type == "image":
+            print(f"\n[Image chunk: {len(event.delta.data)} bytes]", end="", flush=True)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const stream = await client.interactions.create({
+    model: "gemini-3.1-flash-image-preview",
+    tools: [{ type: "google_search", search_types: ["web_search", "image_search"] }],
+    input: "Search for the history of the Colosseum and write a short illustrated story about a gladiator named Marcus. Interleave text and generated images.",
+    response_format: [
+        { type: "text" },
+        { type: "image" }
+    ],
+    stream: true,
+});
+
+for await (const event of stream) {
+    if (event.event_type === "step.delta") {
+        if (event.delta.type === "text") {
+            process.stdout.write(event.delta.text);
+        } else if (event.delta.type === "image") {
+            console.log(`\n[Image chunk: ${event.delta.data.length} bytes]`);
+        }
+    }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3.1-flash-image-preview",
+    "input": "Search for the history of the Colosseum and write a short illustrated story about a gladiator named Marcus. Interleave text and generated images.",
+    "stream": true,
+    "tools": [
+      { "type": "google_search",
+        "search_types": ["web_search", "image_search"]
+      }
+    ],
+    "generation_config": {
+      "thinking_summaries": "auto"
+    },
+    "response_format": [
+      { "type": "text" }, { "type": "image"}
+    ]
+  }'
+```
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3.1-flash-image-preview"},"event_type":"interaction.created"}
+
+event: interaction.status_update
+data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
+
+event: step.start
+data: {"index":0,"step":{"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"text":"Here is a short illustrated story about the Colosseum...\n\n### Part 1: The New Flavian Amphitheater\n\n...","type":"text"},"event_type":"step.delta"}
+
+...
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":2,"step":{"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":2,"delta":{"mime_type":"image/jpeg","data":"/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg...","type":"image"},"event_type":"step.delta"}
+
+event: step.delta
+data: {"index":2,"delta":{"text":"### Part 2: The Hypogeum and the Wait\n\n...","type":"text"},"event_type":"step.delta"}
+
+...
+
+event: step.stop
+data: {"index":2,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":3,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":3,"delta":{"signature":"...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":3,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":4,"step":{"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":4,"delta":{"mime_type":"image/jpeg","data":"/9j/4AAQSkZJRgABAQAAAQABAAD/...","type":"image"},"event_type":"step.delta"}
+
+event: step.delta
+data: {"index":4,"delta":{"text":"### Part 3: The Moment of Spectacle\n\n...","type":"text"},"event_type":"step.delta"}
+
+...
+
+event: step.stop
+data: {"index":4,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_...","status":"completed","usage":{"total_tokens":6128,"total_input_tokens":29,"total_output_tokens":6099,"output_tokens_by_modality":[{"modality":"image","tokens":4480}]}},"event_type":"interaction.completed"}
+
+event: done
+data: [DONE]
+```
+
+## 不明なイベントの処理
+
+API のバージョン管理ポリシーに沿って、新しいイベントタイプとデルタタイプが今後追加される可能性があります。コードは、認識できないイベントタイプを適切に処理する必要があります。エラーをスローするのではなく、認識できないイベントをログに記録してスキップします。
+
+## 次のステップ
+
+- [操作用 API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja) の詳細をご確認ください。
+- ツールを使用して[関数呼び出し](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ja)を試す。
+- 推論を強化する [Thinking](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ja) について確認する。
+- 長時間実行タスクには [Deep Research エージェント](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=ja)を試してください。
+- すべてのイベントタイプとデルタタイプについては、[インタラクション API リファレンス](https://ai.google.dev/api/interactions?hl=ja)をご覧ください。
+
+フィードバックを送信
+
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+
+最終更新日 2026-05-16 UTC。
+
+ご意見をお聞かせください
+
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-16 UTC。"],[],[]]

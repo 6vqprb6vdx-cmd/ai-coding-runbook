@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=fr
-fetched_at: 2026-05-11T12:39:54.987299+00:00
+fetched_at: 2026-05-18T13:04:07.299564+00:00
 title: "Journalisation et partage des donn\u00e9es \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

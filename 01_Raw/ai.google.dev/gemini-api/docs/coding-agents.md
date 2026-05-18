@@ -1,62 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr
-fetched_at: 2026-05-11T12:36:28.244581+00:00
-title: "Gemini MCP ve Skills ile kodlama asistan\u0131n\u0131z\u0131 ayarlama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=th
+fetched_at: 2026-05-18T13:10:11.118252+00:00
+title: "\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e1c\u0e39\u0e49\u0e0a\u0e48\u0e27\u0e22\u0e40\u0e02\u0e35\u0e22\u0e19\u0e42\u0e04\u0e49\u0e14\u0e14\u0e49\u0e27\u0e22 Gemini MCP \u0e41\u0e25\u0e30\u0e17\u0e31\u0e01\u0e29\u0e30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Gemini MCP ve Skills ile kodlama asistanınızı ayarlama
+# ตั้งค่าผู้ช่วยเขียนโค้ดด้วย Gemini MCP และทักษะ
 
-Yapay zeka kodlama asistanları güçlüdür ancak sınırlamaları vardır. Eğitim verileri belirli bir tarihte sona erer, yeni API özellikleri ve değişiklikleri eksiktir. Gemini'a özel belgelere erişim olmadığında, aracıların optimize edilmiş yaklaşımlar yerine genel kalıplar önermesi mümkündür.
+ผู้ช่วยเขียนโค้ดด้วย AI มีประสิทธิภาพสูงแต่ก็มีข้อจำกัด เช่น ข้อมูลฝึกฝนจะสิ้นสุด ณ วันที่ที่กำหนด ฟีเจอร์ใหม่ของ API และการเปลี่ยนแปลงต่างๆ จะไม่รวมอยู่ด้วย หากไม่มีสิทธิ์เข้าถึงเอกสารประกอบเฉพาะของ Gemini, Agent อาจแนะนำรูปแบบทั่วไปแทนที่จะเป็นแนวทางที่ปรับให้เหมาะสม
 
-Kodlama asistanınızın, gelişen Gemini API ve önerilen kullanımıyla güncel kalması için **Gemini Docs MCP**'yi ayarlamanızı ve ortamınızı **Gemini API Becerileri** ile geliştirmenizi öneririz. Bu araçlar bağımsız olarak kullanılabilir ancak eksiksiz kapsam sağlamak için birlikte çalışacak şekilde tasarlanmıştır.
+เราขอแนะนำให้ตั้งค่า **Gemini Docs MCP** และเพิ่มประสิทธิภาพสภาพแวดล้อมด้วย **Gemini API Skills** เพื่อให้ผู้ช่วยเขียนโค้ดของคุณทันต่อ Gemini API ที่มีการพัฒนาอยู่เสมอและวิธีการใช้งานที่แนะนำ แม้ว่าเครื่องมือเหล่านี้จะใช้งานแยกกันได้ แต่ก็ได้รับการออกแบบมาให้ทำงานร่วมกันเพื่อให้ครอบคลุมการใช้งานทั้งหมด
 
-## Gemini Dokümanları MCP'sini bağlama
+## เชื่อมต่อ Gemini Docs MCP
 
-Gemini, `https://gemini-api-docs-mcp.dev` adresinde herkese açık bir Model Context Protocol (MCP) sunucusu barındırır. Kodlama aracınızı bu sunucuya bağladığınızda tüm sorguların en yeni API'lere, kod güncellemelerine ve optimum yapılandırma örneklerine erişebilmesi sağlanır.
+Gemini โฮสต์เซิร์ฟเวอร์ Model Context Protocol (MCP) สาธารณะที่ `https://gemini-api-docs-mcp.dev` การเชื่อมต่อ Agent เขียนโค้ดกับเซิร์ฟเวอร์นี้จะช่วยให้มั่นใจได้ว่าการค้นหาทั้งหมดจะเข้าถึง API, การอัปเดตโค้ด และตัวอย่างการกำหนดค่าที่เหมาะสมที่สุดได้
 
-Sunucuyu yüklemek için aracınızın terminalinde veya proje kök dizininde aşağıdaki komutu çalıştırın:
+เรียกใช้คำสั่งต่อไปนี้ในเทอร์มินัลของ Agent หรือรูทของโปรเจ็กต์เพื่อติดตั้งเซิร์ฟเวอร์
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-Bu sunucu, aracınızın resmi Gemini doküman dosyalarından gerçek zamanlı API tanımlarını ve entegrasyon kalıplarını almak için kullanabileceği bir `search_documentation` işlevi ekler.
+เซิร์ฟเวอร์นี้จะเพิ่มฟังก์ชัน `search_documentation` ที่ Agent ใช้เพื่อดึงข้อมูลคำจำกัดความของ API และรูปแบบการผสานรวมแบบเรียลไทม์จากไฟล์เอกสารประกอบอย่างเป็นทางการของ Gemini ได้
 
-## API geliştirme becerileri ekleme
+## เพิ่มทักษะการพัฒนา API
 
-Beceriler, doğrudan asistanınızın bağlamında **yerleşik kurallar ve en iyi uygulamalar** (ör. doğru SDK ve mevcut model sürümlerini zorunlu kılma) sağlar. Bu beceri, Gemini Dokümanları MCP hizmetiyle birlikte çalışır: Her ikisini de yüklediyseniz beceri, dokümanlar için MCP hizmetini kullanır. Ancak MCP yüklenmemiş olsa bile `llms.txt`, yedek olarak `ai.google.dev`'den alınır.
+ทักษะเหล่านี้มี**กฎและแนวทางปฏิบัติแนะนำในตัว** (เช่น การบังคับใช้ SDK เวอร์ชันที่ถูกต้องและโมเดลเวอร์ชันปัจจุบัน) ในบริบทของผู้ช่วยโดยตรง ทักษะนี้ทำงานร่วมกับบริการ Gemini Docs MCP โดยหากคุณติดตั้งทั้ง 2 อย่างไว้ ทักษะจะใช้บริการ MCP สำหรับเอกสารประกอบ แต่แม้ว่าจะไม่ได้ติดตั้ง MCP ไว้ ทักษะก็จะดึงข้อมูล `llms.txt` จาก `ai.google.dev` เป็นข้อมูลสำรอง
 
-Bu becerileri yüklemek için aşağıdaki desteklenen araçlardan birini kullanabilirsiniz. Her ikisi için de yükleme talimatları her beceri modülünün altında verilmiştir:
+หากต้องการติดตั้งทักษะเหล่านี้ คุณสามารถใช้เครื่องมือที่รองรับอย่างใดอย่างหนึ่งต่อไปนี้ โดยเราได้ระบุวิธีการติดตั้งสำหรับทั้ง 2 อย่างไว้ใต้โมดูลทักษะแต่ละโมดูล
 
-- **[skills.sh](https://skills.sh)**: Önerilir. Taşınabilir temsilci davranışları için açık standart.
-- **[Context7](https://context7.com)**: Context7 ekosistemini kullanan kullanıcılar tarafından desteklenir.
+- **[skills.sh](https://skills.sh)**: แนะนำ มาตรฐานเปิดสำหรับลักษณะการทำงานของ Agent แบบพกพา
+- **[Context7](https://context7.com)**
 
 ### gemini-api-dev
 
-Genel amaçlı Gemini geliştirme için temel beceri. Bu beceri, aşağıdakilerle ilgili dokümanlar ve en iyi uygulamalar sunar:
+ทักษะพื้นฐานสำหรับการพัฒนา Gemini แบบอเนกประสงค์ ทักษะนี้มีเอกสารประกอบและแนวทางปฏิบัติแนะนำสำหรับสิ่งต่อไปนี้
 
-- İstemleri mevcut modellere (ör. Gemini 3.1 Pro/Flash) yönlendirme ve desteği sonlandırılan modellerden kaçınma
-- Çok formatlı istem yazma, işlev çağrısı, yapılandırılmış çıkışlar ve yaygın entegrasyon kalıpları
+- การกำหนดเส้นทางพรอมต์ไปยังโมเดลปัจจุบัน (เช่น Gemini 3.1 Pro/Flash) และหลีกเลี่ยงโมเดลที่เลิกใช้งานแล้ว
+- การเขียนพรอมต์แบบหลายรูปแบบ การเรียกใช้ฟังก์ชัน เอาต์พุตที่มีโครงสร้าง และรูปแบบการผสานรวมทั่วไป
 
-#### Install with skills.sh
+#### ติดตั้งด้วย skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 ```
 
-#### Context7 ile yükleme
+#### ติดตั้งด้วย Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
@@ -64,19 +64,19 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
 
 ### gemini-live-api-dev
 
-Gemini Live API ile anlık sohbet yapabilen yapay zeka uygulamaları oluşturma becerisi. Bu beceri, aşağıdakilerle ilgili dokümanlar ve en iyi uygulamalar sunar:
+ทักษะสำหรับการสร้างแอปพลิเคชัน AI สำหรับการสนทนาแบบเรียลไทม์ด้วย Gemini Live API ทักษะนี้มีเอกสารประกอบและแนวทางปฏิบัติแนะนำสำหรับสิ่งต่อไปนี้
 
-- Düşük gecikmeli akış için WebSocket bağlantıları
-- Ses, video ve metin akışı
-- Konuşma etkinliği algılama ve araya girme desteği
+- การเชื่อมต่อ WebSocket สำหรับการสตรีมที่มีเวลาในการตอบสนองต่ำ
+- การสตรีมเสียง วิดีโอ และข้อความ
+- การตรวจหากิจกรรมเสียงและการรองรับการขัดจังหวะ
 
-#### Install with skills.sh
+#### ติดตั้งด้วย skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 ```
 
-#### Context7 ile yükleme
+#### ติดตั้งด้วย Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
@@ -84,87 +84,88 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
 
 ### gemini-interactions-api
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions?hl=tr) ile uygulama geliştirme becerisi. Etkileşimler API'si, Gemini modelleri ve aracılarıyla etkileşim kurmak için kullanılan birleşik bir arayüzdür ve aracı uygulamaları için tasarlanmıştır. Bu beceriyle ilgili konular:
+ทักษะสำหรับการสร้างแอปด้วย
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=th) Interactions API เป็นอินเทอร์เฟซแบบรวมสำหรับการโต้ตอบกับโมเดลและ Agent ของ Gemini ซึ่งออกแบบมาสำหรับแอปพลิเคชันแบบ Agent ทักษะนี้ครอบคลุมสิ่งต่อไปนี้
 
-- Metin oluşturma, çok adımlı sohbet ve yayın
-- İşlev çağırma, yapılandırılmış çıkış ve görüntü üretme
-- Arka planda yürütme ve Deep Research temsilcileri
-- Sunucu tarafı sohbet durumu yönetimi
-- Python ve TypeScript SDK kalıpları
+- การสร้างข้อความ การแชทหลายรอบ และการสตรีม
+- การเรียกใช้ฟังก์ชัน เอาต์พุตที่มีโครงสร้าง และการสร้างรูปภาพ
+- การดำเนินการในเบื้องหลังและ Agent ของ Deep Research
+- การจัดการสถานะการสนทนาฝั่งเซิร์ฟเวอร์
+- รูปแบบ SDK ของ Python และ TypeScript
 
-#### Install with skills.sh
+#### ติดตั้งด้วย skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
 ```
 
-#### Context7 ile yükleme
+#### ติดตั้งด้วย Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-interactions-api
 ```
 
-## Yüklemeyi doğrula
+## ยืนยันการติดตั้ง
 
-Yükleme işleminden sonra kodlama asistanınızın Gemini Docs MCP sunucusuna bağlanabildiğini ve yüklediğiniz becerileri kullanabildiğini onaylayın.
+หลังจากติดตั้งแล้ว ให้ยืนยันว่าผู้ช่วยเขียนโค้ดของคุณเชื่อมต่อกับเซิร์ฟเวอร์ Gemini Docs MCP และใช้ทักษะที่คุณติดตั้งไว้ได้
 
-### 1. Temsilci davranışını doğrulama
+### 1. ยืนยันลักษณะการทำงานของ Agent
 
-Doğrulamanın en güvenilir yolu, temsilcinize Gemini API hakkında teknik bir soru sormaktır.
+วิธีที่เชื่อถือได้มากที่สุดในการยืนยันคือการถามคำถามทางเทคนิคเกี่ยวกับ Gemini API กับ Agent
 
-**İstem:** "Gemini API ile bağlam önbelleğini nasıl kullanırım?"
+**พรอมต์:** "ฉันจะใช้การแคชบริบทกับ Gemini API ได้อย่างไร"
 
-Başarılı bir kurulum:
+การตั้งค่าที่สำเร็จจะมีลักษณะดังนี้
 
-- **Doğru kod sağlama**: En yeni uç noktalardaki `cacheContent` veya `cachedContents.create` gibi belirli Gemini yöntemlerine referans verin.
-- **MCP aracını kullanma**: **Gemini Dokümanları MCP sunucusuna** bağlı olduğunu veya veri getirmek için `search_documentation` aracını kullandığını gösterin.
-- **Yüklenen becerileri çağırma**: "Beceriyi kullanıyor: gemini-api-dev" (ikincil bir sarmalayıcıya güveniyorsanız) göstergesini gösterin.
+- **ให้โค้ดที่ถูกต้อง**: อ้างอิงเมธอดเฉพาะของ Gemini เช่น `cacheContent` หรือ `cachedContents.create` จากปลายทางล่าสุด
+- **ใช้เครื่องมือ MCP**: แสดงว่าเครื่องมือเชื่อมต่อกับ **เซิร์ฟเวอร์ Gemini Docs MCP** หรือใช้เครื่องมือ `search_documentation` เพื่อดึงข้อมูล
+- **เรียกใช้ทักษะที่โหลดไว้**: แสดงตัวบ่งชี้ว่า "กำลังใช้ทักษะ: gemini-api-dev" (หากใช้ Wrapper รอง)
 
-### 2. Bildirimleri ve araçları doğrulama
+### 2. ยืนยันการแสดงและเครื่องมือ
 
-Aracı genel veya jenerik bir yanıt verirse Docs MCP'nin ya da becerinin belleğe yüklendiğini doğrulamak için ortamınızla ilgili Discovery veya Status komutlarını kullanın.
+หาก Agent ให้คำตอบทั่วไป ให้ใช้คำสั่ง Discovery หรือ Status เฉพาะสำหรับสภาพแวดล้อมของคุณเพื่อยืนยันว่าได้โหลด Docs MCP หรือทักษะลงในหน่วยความจำแล้ว
 
-| Ortam | MCP Doğrulaması | Beceri Doğrulama |
+| สภาพแวดล้อม | การยืนยัน MCP | การยืนยันทักษะ |
 | --- | --- | --- |
-| **Claude Code** | Etkin sunucuları ve `search_documentation` araçlarını görüntülemek için terminale `/mcp` yazın. | Etkin olan tüm manifestleri listelemek için terminale `/skills` yazın. |
-| **İmleç** | **Ayarlar > Özellikler > MCP**'ye gidin. Sunucunun "Bağlı" olduğundan emin olun. | **Ayarlar > Kurallar**'ı açın. Beceri, "Temsilci Karar Verir" bölümünde görünüyor mu? |
-| **Antigravity** | MCP durumunu öğrenmek için **Özelleştirmeler > Bağlantılar** kenar çubuğunu kontrol edin. | `/skills list` yazın veya **Özelleştirmeler > Kurallar** kenar çubuğunu kontrol edin. |
-| **Gemini CLI** | `gemini mcp list` komutunu çalıştırın veya `/mcp list` kullanın. | `gemini skills list` komutunu çalıştırın veya oturumda `/skills` eğik çizgi komutunu kullanın. |
-| **Copilot** | Etkin veri bağlayıcılarını listelemek için `@gemini /mcp` yazın. | Etkin uzantıları görüntülemek için `@gemini /skills` (veya `/skills`) yazın. |
+| **Claude Code** | พิมพ์ `/mcp` ในเทอร์มินัลเพื่อดูเซิร์ฟเวอร์ที่ใช้งานอยู่และเครื่องมือ `search_documentation` | พิมพ์ `/skills` ในเทอร์มินัลเพื่อแสดงรายการการแสดงทั้งหมดที่ใช้งานอยู่ |
+| **Cursor** | ไปที่**การตั้งค่า > ฟีเจอร์ > MCP** ตรวจสอบว่าเซิร์ฟเวอร์ "เชื่อมต่อแล้ว" | เปิด**การตั้งค่า > กฎ** ตรวจสอบว่าทักษะปรากฏในส่วน "Agent ตัดสินใจ" |
+| **Antigravity** | ตรวจสอบแถบด้านข้าง**การปรับแต่ง > การเชื่อมต่อ** เพื่อดูสถานะ MCP | พิมพ์ `/skills list` หรือตรวจสอบแถบด้านข้าง**การปรับแต่ง > กฎ** |
+| **Gemini CLI** | เรียกใช้ `gemini mcp list` หรือใช้ `/mcp list` | เรียกใช้ `gemini skills list` หรือใช้คำสั่งเครื่องหมายทับ `/skills` ในเซสชัน |
+| **Copilot** | พิมพ์ `@gemini /mcp` เพื่อแสดงรายการเครื่องมือเชื่อมต่อข้อมูลที่ใช้งานอยู่ | พิมพ์ `@gemini /skills` (หรือ `/skills`) เพื่อดูส่วนขยายที่ใช้งานอยู่ |
 
-## Sorun giderme
+## การแก้ปัญหา
 
-Aracınız yalnızca genel bilgiler veriyorsa veya Gemini'a özgü yöntemleri tanımıyorsa aşağıdakileri kontrol edin:
+หาก Agent ให้ข้อมูลทั่วไปเท่านั้นหรือจดจำเมธอดเฉพาะของ Gemini ไม่ได้ ให้ตรวจสอบสิ่งต่อไปนี้
 
-### Ajan, beceriyi keşfetmedi
+### Agent ไม่พบทักษะ
 
-Çoğu temsilci, becerileri yalnızca başlangıçta dizine ekler.
+Agent ส่วนใหญ่จะจัดทำดัชนีทักษะเมื่อเริ่มต้นเท่านั้น
 
-**Düzeltme:** IDE'nizi (Cursor/VS Code) tamamen yeniden başlatın veya terminal tabanlı aracınızdan (Claude Code) çıkıp yeniden açın.
+**วิธีแก้ไข:** รีสตาร์ท IDE (Cursor/VS Code) อย่างสมบูรณ์ หรือออกจาก Agent ที่ใช้เทอร์มินัล (Claude Code) แล้วเปิดอีกครั้ง
 
-### Küresel ve yerel çatışmalar
+### ความขัดแย้งส่วนกลางกับส่วนท้องถิ่น
 
-`--global` işaretini kullanarak yükleme yaptıysanız aracınız, projeye özel kurallar lehine bu işareti yoksayıyor olabilir.
+หากคุณติดตั้งด้วยแฟล็ก `--global` Agent อาจละเว้นแฟล็กนี้และใช้กฎเฉพาะของโปรเจ็กต์แทน
 
-**Düzeltme:** Global işaret olmadan beceriyi doğrudan proje kökünüze yüklemeyi deneyin:
+**วิธีแก้ไข:** ลองติดตั้งทักษะลงในรูทของโปรเจ็กต์โดยตรงโดยไม่ใช้แฟล็กส่วนกลาง
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev
 ```
 
-## Kaynaklar
+## แหล่งข้อมูล
 
-- [GitHub'daki Gemini API becerileri](https://github.com/google-gemini/gemini-skills)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=tr)
-- [Hızlı Başlangıç Kılavuzu](https://ai.google.dev/gemini-api/docs/quickstart?hl=tr)
-- [Kitaplıklar](https://ai.google.dev/gemini-api/docs/libraries?hl=tr)
+- [ทักษะ Gemini API ใน GitHub](https://github.com/google-gemini/gemini-skills)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=th)
+- [การเริ่มต้นอย่างรวดเร็ว](https://ai.google.dev/gemini-api/docs/quickstart?hl=th)
+- [ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+อัปเดตล่าสุด 2026-04-29 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

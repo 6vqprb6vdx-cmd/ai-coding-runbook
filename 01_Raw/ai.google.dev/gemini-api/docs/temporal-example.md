@@ -1,84 +1,81 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=pt-BR
-fetched_at: 2026-05-11T12:31:01.649011+00:00
-title: "Agente de IA dur\u00e1vel com Gemini e Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=ko
+fetched_at: 2026-05-18T12:58:55.635304+00:00
+title: "Gemini \ubc0f Temporal\uc744 \uc0ac\uc6a9\ud55c \uc9c0\uc18d \uac00\ub2a5\ud55c AI \uc5d0\uc774\uc804\ud2b8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Envie comentários
+의견 보내기
 
-# Agente de IA durável com Gemini e Temporal
+# Gemini 및 Temporal을 사용한 지속 가능한 AI 에이전트
 
-Neste tutorial, você vai aprender a criar um loop de agente [estilo ReAct](https://arxiv.org/abs/2210.03629) que usa a API Gemini para raciocínio e o [Temporal](https://temporal.io/) para durabilidade.
-O código-fonte completo deste tutorial está disponível no
-[GitHub](https://github.com/temporal-community/durable-react-agent-gemini).
+이 가이드에서는 추론을 위해
+[ReAct 스타일](https://arxiv.org/abs/2210.03629) 에이전트 루프를 빌드하는 방법을 안내합니다. 이 루프는
+Gemini API를 사용하고 내구성을 위해 [Temporal](https://temporal.io/)을 사용합니다.
+이 가이드의 전체 소스 코드는
+[GitHub](https://github.com/temporal-community/durable-react-agent-gemini)에서 확인할 수 있습니다.
 
-O agente pode chamar ferramentas, como pesquisar alertas de clima ou geolocalizar um endereço IP, e vai repetir o processo até ter informações suficientes para responder.
+에이전트는 날씨 알림 조회 또는 IP 주소의 지리적 위치 찾기와 같은 도구를 호출할 수 있으며 응답할 충분한 정보가 있을 때까지 루프합니다.
 
-O que diferencia isso de uma demonstração típica de agente é a **durabilidade**. Cada chamada de LLM, cada invocação de ferramenta e cada etapa do loop do agente são mantidas pelo Temporal. Se o processo falhar, a rede cair ou uma API atingir o tempo limite,
-o Temporal vai tentar novamente e retomar automaticamente da última etapa concluída. Nenhum histórico de conversas é perdido, e nenhuma chamada de ferramenta é repetida incorretamente.
+일반적인 에이전트 데모와 다른 점은 **내구성** 입니다. 모든 LLM 호출, 모든 도구 호출, 에이전트 루프의 모든 단계는 Temporal에 의해 지속됩니다. 프로세스가 다운되거나, 네트워크가 끊어지거나, API가 시간 초과되면 Temporal은 자동으로 재시도하고 마지막으로 완료된 단계부터 다시 시작합니다. 대화 기록이 손실되지 않으며 도구 호출이 잘못 반복되지 않습니다.
 
-## Arquitetura
+## 아키텍처
 
-A arquitetura consiste em três partes:
+아키텍처는 세 부분으로 구성됩니다.
 
-- **Fluxo de trabalho**:o loop agêntico que orquestra a lógica de execução.
-- **Atividades**:unidades individuais de trabalho (chamadas de LLM, chamadas de ferramentas) que o Temporal torna duráveis.
-- **Worker**:o processo que executa os fluxos de trabalho e as atividades.
+- **워크플로:** 실행 로직을 조정하는 에이전트 루프입니다.
+- **활동:** Temporal이 지속적으로 만드는 개별 작업 단위 (LLM 호출, 도구 호출)입니다.
+- **작업자:** 워크플로와 활동을 실행하는 프로세스입니다.
 
-Neste exemplo, você vai colocar todas as três partes em um único arquivo (`durable_agent_worker.py`). Em uma implementação real, você as separaria para permitir várias vantagens de implantação e escalonabilidade. Você vai colocar o código que fornece um comando ao agente em um segundo arquivo (`start_workflow.py`).
+이 예에서는 이 세 가지를 모두 단일 파일(`durable_agent_worker.py`)에 배치합니다. 실제 구현에서는 다양한 배포 및 확장성 이점을 위해 이를 분리합니다. 에이전트에 프롬프트를 제공하는 코드를 두 번째 파일(`start_workflow.py`)에 배치합니다.
 
-## Pré-requisitos
+## 기본 요건
 
-Para concluir este guia, você vai precisar do seguinte:
+이 가이드를 완료하려면 다음이 필요합니다.
 
-- Uma chave da API Gemini. Você pode criar uma sem custo financeiro no
-  [Google AI Studio](https://aistudio.google.com/apikey?hl=pt-br).
-- [Python](https://www.python.org/downloads/) versão 3.10 ou mais recente.
-- A [CLI do Temporal](https://docs.temporal.io/cli) para executar um servidor de desenvolvimento local.
+- Gemini API 키. Google AI Studio에서 무료로 만들 수 있습니다.
+- [Python](https://www.python.org/downloads/) 버전 3.10 이상.
+- 로컬
+  개발 서버를 실행하기 위한 [Temporal CLI](https://docs.temporal.io/cli).
 
-## Configuração
+## 설정
 
-Antes de começar, verifique se você tem um
-[servidor de desenvolvimento do Temporal](https://docs.temporal.io/cli#start-dev-server)
-em execução localmente:
+시작하기 전에 로컬에서
+[Temporal 개발 서버](https://docs.temporal.io/cli#start-dev-server)
+가 실행되고 있는지 확인하세요.
 
 ```
 temporal server start-dev
 ```
 
-Em seguida, instale as dependências necessárias:
+그런 후 필수 종속 항목을 설치합니다.
 
 ```
 pip install temporalio google-genai httpx pydantic python-dotenv
 ```
 
-Crie um arquivo `.env` no diretório do projeto com sua chave de API Gemini. Você
-pode receber uma chave de API do
-[Google AI Studio](https://aistudio.google.com/apikey?hl=pt-br).
+Gemini API 키를 사용하여 프로젝트 디렉터리에 `.env` 파일을 만듭니다. [Google AI Studio](https://aistudio.google.com/apikey?hl=ko)에서 API 키를 가져올 수 있습니다.
 
 ```
 echo "GOOGLE_API_KEY=your-api-key-here" > .env
 ```
 
-## Implementação
+## 구현
 
-O restante deste tutorial explica o `durable_agent_worker.py` de cima para baixo, criando o agente parte por parte. Crie o arquivo e acompanhe.
+이 가이드의 나머지 부분에서는 `durable_agent_worker.py`를 위에서 아래로 살펴보고 에이전트를 조금씩 빌드합니다. 파일을 만들고 따라 해 보세요.
 
-### Importações e configuração de sandbox
+### 가져오기 및 샌드박스 설정
 
-Comece com as importações que precisam ser definidas antecipadamente. O bloco
-`workflow.unsafe.imports_passed_through()` instrui a sandbox de fluxo de trabalho do Temporal
-a permitir que determinados módulos passem sem restrições. Isso é necessário porque várias bibliotecas (principalmente `httpx`, que cria subclasses de `urllib.request.Request`) usam padrões que o sandbox bloquearia.
+먼저 정의해야 하는 가져오기로 시작합니다. `workflow.unsafe.imports_passed_through()` 블록은 Temporal의 워크플로 샌드박스에 특정 모듈이 제한 없이 통과하도록 지시합니다. 이는 여러 라이브러리 (특히 `urllib.request.Request`를 서브클래스하는 `httpx`)가 샌드박스에서 차단하는 패턴을 사용하기 때문에 필요합니다.
 
 ```
 from temporalio import workflow
@@ -93,10 +90,9 @@ with workflow.unsafe.imports_passed_through():
     from google.genai import types
 ```
 
-### Instruções do sistema
+### 시스템 안내
 
-Em seguida, defina a personalidade do agente. As instruções do sistema informam ao modelo como
-se comportar. O agente foi instruído a responder em haicais quando nenhuma ferramenta é necessária.
+다음으로 에이전트의 개성을 정의합니다. 시스템 안내는 모델의 동작 방식을 알려줍니다. 이 에이전트는 도구가 필요하지 않을 때 하이쿠로 응답하도록 지시됩니다.
 
 ```
 SYSTEM_INSTRUCTIONS = """
@@ -107,11 +103,9 @@ If no tools are needed, respond in haikus.
 """
 ```
 
-### Definições de ferramentas
+### 도구 정의
 
-Agora, defina as ferramentas que o agente pode usar. Cada ferramenta é uma função assíncrona com uma
-docstring descritiva. As ferramentas que usam parâmetros usam um modelo Pydantic como argumento único. Essa é uma prática recomendada do Temporal que mantém as assinaturas de atividade
-estáveis à medida que você adiciona campos opcionais ao longo do tempo.
+이제 에이전트가 사용할 수 있는 도구를 정의합니다. 각 도구는 설명적인 독스트링이 있는 비동기 함수입니다. 매개변수를 사용하는 도구는 Pydantic 모델을 단일 인수로 사용합니다. 이는 시간이 지남에 따라 선택적 필드를 추가할 때 활동 서명을 안정적으로 유지하는 Temporal 권장사항입니다.
 
 ```
 import json
@@ -140,7 +134,7 @@ async def get_weather_alerts(request: GetWeatherAlertsRequest) -> str:
         return json.dumps(response.json())
 ```
 
-Em seguida, defina ferramentas para geolocalização de endereços IP:
+다음으로 IP 주소 지리적 위치 찾기 도구를 정의합니다.
 
 ```
 class GetLocationRequest(BaseModel):
@@ -169,11 +163,11 @@ async def get_location_info(request: GetLocationRequest) -> str:
         return f"{result['city']}, {result['regionName']}, {result['country']}"
 ```
 
-### Registro de ferramentas
+### 도구 레지스트리
 
-Em seguida, crie um registro que mapeie nomes de ferramentas para funções de manipulador. A função
-`get_tools()` gera objetos `FunctionDeclaration` compatíveis com o Gemini
-das chamadas usando `FunctionDeclaration.from_callable_with_api_option()`.
+다음으로 도구 이름을 핸들러 함수에 매핑하는 레지스트리를 만듭니다.
+`get_tools()` 함수는 호출 가능 항목에서 Gemini 호환 `FunctionDeclaration` 객체
+를 `FunctionDeclaration.from_callable_with_api_option()` 사용하여 생성합니다.
 
 ```
 from typing import Any, Awaitable, Callable
@@ -211,12 +205,11 @@ def get_tools() -> types.Tool:
     )
 ```
 
-### Atividade do LLM
+### LLM 활동
 
-Agora defina a atividade que chama a API Gemini. As classes de dados `GeminiChatRequest` e `GeminiChatResponse` definem o contrato.
+이제 Gemini API를 호출하는 활동을 정의합니다. `GeminiChatRequest` 및 `GeminiChatResponse` 데이터 클래스는 계약을 정의합니다.
 
-Você vai desativar a chamada de função automática para que a invocação do LLM e da ferramenta sejam tratadas como tarefas separadas, aumentando a durabilidade do seu agente. Você também vai desativar as novas tentativas integradas do SDK (`attempts=1`), já que
-o Temporal processa as novas tentativas de maneira durável.
+LLM 호출과 도구 호출이 별도의 작업으로 처리되도록 자동 함수 호출을 사용 중지하여 에이전트의 내구성을 높입니다. Temporal이 재시도를 지속적으로 처리하므로 SDK의 기본 제공 재시도 (`attempts=1`)도 사용 중지합니다.
 
 ```
 import os
@@ -292,12 +285,12 @@ async def generate_content(request: GeminiChatRequest) -> GeminiChatResponse:
     )
 ```
 
-### Atividade da ferramenta dinâmica
+### 동적 도구 활동
 
-Em seguida, defina a atividade que executa ferramentas. Isso usa o recurso de atividade dinâmica do Temporal: o gerenciador de ferramentas (um objeto invocável) é obtido do registro de ferramentas pela função `get_handler`. Isso permite que diferentes agentes sejam definidos apenas fornecendo um conjunto diferente de ferramentas e instruções do sistema. O fluxo de trabalho que implementa o loop de agente não requer mudanças.
+다음으로 도구를 실행하는 활동을 정의합니다. 이는 Temporal의 동적 활동 기능을 사용합니다. 도구 핸들러 (호출 가능 항목)는 `get_handler` 함수를 통해 도구 레지스트리에서 가져옵니다. 이를 통해 다양한 도구 및 시스템 안내를 제공하여 다양한 에이전트를 간단히 정의할 수 있습니다. 에이전트 루프를 구현하는 워크플로에는 변경이 필요하지 않습니다.
 
-A atividade inspeciona a assinatura do manipulador para determinar como transmitir
-argumentos. Se o manipulador esperar um modelo Pydantic, ele vai processar o formato de saída aninhado que o Gemini produz (por exemplo, `{"request": {"state": "CA"}}` em vez de um `{"state": "CA"}` simples).
+활동은 핸들러의 서명을 검사하여 인수를 전달하는 방법을 결정합니다. 핸들러가 Pydantic 모델을 예상하는 경우 Gemini에서 생성하는 중첩된 출력
+형식 (예: 평면 `{"state": "CA"}` 대신 `{"request": {"state": "CA"}}`)을 처리합니다.
 
 ```
 import inspect
@@ -337,14 +330,11 @@ async def dynamic_tool_activity(args: Sequence[RawValue]) -> dict:
     return result
 ```
 
-### O fluxo de trabalho de loop com agentes
+### 에이전트 루프 워크플로
 
-Agora você tem tudo o que precisa para terminar de criar o agente. A classe `AgentWorkflow` implementa um fluxo de trabalho que contém o ciclo do agente. Nesse loop, o LLM
-é invocado por uma atividade (tornando-o durável), a saída é inspecionada e, se uma
-ferramenta foi escolhida pelo LLM, ela é invocada pelo `dynamic_tool_activity`.
+이제 에이전트 빌드를 완료하는 데 필요한 모든 항목이 있습니다. `AgentWorkflow` 클래스는 에이전트 루프가 포함된 워크플로를 구현합니다. 이 루프 내에서 LLM은 활동을 통해 호출되고 (지속적으로 만듦) 출력이 검사되며 LLM에서 도구를 선택한 경우 `dynamic_tool_activity`를 통해 호출됩니다.
 
-Neste agente simples de estilo ReAct, quando o LLM decide não usar uma ferramenta, o
-loop é considerado concluído e o resultado final do LLM é retornado.
+이 간단한 ReAct 스타일 에이전트에서 LLM이 도구를 사용하지 않기로 선택하면 루프가 완료된 것으로 간주되고 최종 LLM 결과가 반환됩니다.
 
 ```
 from datetime import timedelta
@@ -412,17 +402,13 @@ class AgentWorkflow:
         return result
 ```
 
-O loop de agente é totalmente durável. Se o worker do agente falhar após várias
-iterações no loop, o Temporal vai retomar exatamente de onde parou
-sem precisar invocar novamente as invocações de LLM ou chamadas de ferramentas já executadas.
+에이전트 루프는 완전히 지속됩니다. 루프를 여러 번 반복한 후 에이전트 작업자가 다운되면 Temporal은 이미 실행된 LLM 호출 또는 도구 호출을 다시 호출할 필요 없이 중단된 지점부터 정확히 다시 시작합니다.
 
-### Inicialização do worker
+### 작업자 시작
 
-Por fim, conecte tudo. Embora o código implemente a lógica de negócios necessária de maneira que pareça estar sendo executado em um único processo, o uso do Temporal o torna um sistema orientado a eventos (especificamente, originado por eventos), em que a comunicação entre o fluxo de trabalho e as atividades acontece por mensagens fornecidas pelo Temporal.
+마지막으로 모든 것을 연결합니다. 코드는 단일 프로세스에서 실행되는 것처럼 보이도록 필요한 비즈니스 로직을 구현하지만 Temporal을 사용하면 워크플로와 활동 간의 통신이 Temporal에서 제공하는 메시징을 통해 이루어지는 이벤트 기반 시스템 (특히 이벤트 소싱)이 됩니다.
 
-O worker do Temporal se conecta ao serviço do Temporal e atua como um programador para
-as tarefas de fluxo de trabalho e atividade. O worker registra o fluxo de trabalho e as duas
-atividades e começa a detectar tarefas.
+Temporal 작업자는 Temporal 서비스에 연결하고 워크플로 및 활동 작업의 스케줄러 역할을 합니다. 작업자는 워크플로와 두 활동을 모두 등록한 다음 작업을 리슨하기 시작합니다.
 
 ```
 import asyncio
@@ -461,9 +447,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## O script do cliente
+## 클라이언트 스크립트
 
-Crie o script do cliente (`start_workflow.py`). Ele envia uma consulta e aguarda o resultado. Ele se conecta à mesma fila de tarefas referenciada no worker do agente. O script `start_workflow` envia uma tarefa de fluxo de trabalho com o comando do usuário para essa fila, iniciando a execução do agente.
+클라이언트 스크립트 (`start_workflow.py`)를 만듭니다. 쿼리를 제출하고 결과를 기다립니다. 에이전트 작업자에서 참조되는 동일한 태스크 큐에 연결됩니다. `start_workflow` 스크립트는 사용자 프롬프트가 포함된 워크플로 태스크를 해당 태스크 큐에 디스패치하여 에이전트 실행을 시작합니다.
 
 ```
 import asyncio
@@ -493,31 +479,29 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Run the agent
+## 에이전트 실행
 
-Se ainda não tiver feito isso, inicie o servidor de desenvolvimento do Temporal:
+아직 시작하지 않았다면 Temporal 개발 서버를 시작합니다.
 
 ```
 temporal server start-dev
 ```
 
-Em uma nova janela de terminal, inicie o worker do agente:
+새 터미널 창에서 에이전트 작업자를 시작합니다.
 
 ```
 python -m durable_agent_worker
 ```
 
-Em uma terceira janela de terminal, envie uma consulta ao seu agente:
+세 번째 터미널 창에서 에이전트에 쿼리를 제출합니다.
 
 ```
 python -m start_workflow "are there any weather alerts for where I am?"
 ```
 
-Observe a saída no terminal do `durable_agent_worker`, que mostra as ações que acontecem em cada iteração do loop de agente. O LLM consegue atender à solicitação do usuário invocando uma série de ferramentas disponíveis. Você pode
-conferir as etapas executadas na interface do Temporal em
-`http://localhost:8233/namespaces/default/workflows`.
+에이전트 루프의 각 반복에서 발생하는 작업을 보여주는 `durable_agent_worker`의 터미널 출력을 확인합니다. LLM은 사용할 수 있는 일련의 도구를 호출하여 사용자 요청을 충족할 수 있습니다. `http://localhost:8233/namespaces/default/workflows`의 Temporal UI를 통해 실행된 단계를 확인할 수 있습니다.
 
-Teste alguns comandos diferentes para ver o raciocínio do agente e chamar ferramentas:
+몇 가지 다른 프롬프트를 사용하여 에이전트 추론 및 도구 호출을 확인합니다.
 
 ```
 python -m start_workflow "are there any weather alerts for New York?"
@@ -526,67 +510,64 @@ python -m start_workflow "what is my ip address?"
 python -m start_workflow "tell me a joke"
 ```
 
-O último comando não exige ferramentas, então o agente responde com um haicai
-baseado no `SYSTEM_INSTRUCTIONS`.
+마지막 프롬프트에는 도구가 필요하지 않으므로 에이전트는 `SYSTEM_INSTRUCTIONS`에 따라 하이쿠로 응답합니다.
 
-## Testar a durabilidade (opcional)
+## 내구성 테스트 (선택사항)
 
-A criação com base no Temporal garante que seu agente sobreviva a falhas sem problemas. Você pode testar isso usando dois experimentos distintos.
+Temporal을 기반으로 빌드하면 에이전트가 오류를 원활하게 처리할 수 있습니다. 두 가지 실험을 사용하여 이를 테스트할 수 있습니다.
 
-### Como simular uma interrupção de rede
+### 네트워크 중단 시뮬레이션
 
-Neste teste, você vai desativar temporariamente a conexão de Internet do computador,
-enviar um fluxo de trabalho, observar o Temporal tentar novamente de forma automática e restaurar a
-rede para ver a recuperação.
+이 테스트에서는 컴퓨터의 인터넷 연결을 일시적으로 사용 중지하고, 워크플로를 제출하고, Temporal이 자동으로 재시도하는 것을 확인한 다음, 네트워크를 복원하여 복구되는지 확인합니다.
 
-1. Desconecte a máquina da Internet (por exemplo, desative o Wi-Fi).
-2. Envie um fluxo de trabalho:
+1. 컴퓨터를 인터넷에서 연결 해제합니다 (예: Wi-Fi 사용 중지).
+2. 워크플로를 제출합니다.
 
    ```
    python -m start_workflow "tell me a joke"
    ```
-3. Verifique a interface do Temporal (`http://localhost:8233`). Você vai notar que a atividade do LLM está falhando e que o Temporal está gerenciando automaticamente as novas tentativas em segundo plano.
-4. Conecte-se à Internet novamente.
-5. A próxima tentativa automática vai acessar a API Gemini, e seu terminal vai imprimir o resultado final.
+3. Temporal UI (`http://localhost:8233`)를 확인합니다. LLM 활동이 실패하고 Temporal이 백그라운드에서 재시도를 자동으로 관리하는 것을 확인할 수 있습니다.
+4. 인터넷에 다시 연결합니다.
+5. 다음 자동 재시도는 Gemini API에 성공적으로 도달하고 터미널에 최종 결과가 출력됩니다.
 
-### Como sobreviver a uma falha de worker
+### 작업자 다운에서 살아남기
 
-Neste teste, você vai encerrar o worker no meio da execução e reiniciá-lo. O Temporal reproduz o histórico do fluxo de trabalho (origem de eventos) e retoma da última atividade concluída. As invocações de LLM e as chamadas de ferramentas já concluídas não são repetidas.
+이 테스트에서는 실행 중에 작업자를 종료하고 다시 시작합니다. Temporal은 워크플로 기록 (이벤트 소싱)을 재생하고 마지막으로 완료된 활동부터 다시 시작합니다. 이미 완료된 LLM 호출 및 도구 호출은 반복되지 않습니다.
 
-1. Para ter tempo de encerrar o worker, abra `durable_agent_worker.py` e remova temporariamente o comentário de `await asyncio.sleep(10)` dentro do laço `AgentWorkflow`
-   `run`.
-2. Reinicie o worker:
+1. 작업자를 종료할 시간을 확보하려면 `durable_agent_worker.py`를 열고 `AgentWorkflow`
+   `run` 루프 내에서 `await asyncio.sleep(10)`의 주석 처리를 일시적으로 삭제합니다.
+2. 작업자를 다시 시작합니다.
 
    ```
    python -m durable_agent_worker
    ```
-3. Envie uma consulta que acione várias ferramentas:
+3. 여러 도구를 트리거하는 쿼리를 제출합니다.
 
    ```
    python -m start_workflow "are there any weather alerts where I am?"
    ```
-4. Encerre o processo de worker a qualquer momento antes da conclusão (`Ctrl-C` no terminal do worker ou usando `kill %1` se estiver em execução em segundo plano).
-5. Reinicie o worker:
+4. 완료되기 전에 언제든지 작업자 프로세스를 종료합니다 (작업자 터미널에서 `Ctrl-C` 또는 백그라운드에서 실행 중인 경우 `kill %1` 사용).
+5. 작업자를 다시 시작합니다.
 
    ```
    python -m durable_agent_worker
    ```
 
-O Temporal reproduz o histórico do fluxo de trabalho. As chamadas de LLM e as invocações de ferramentas que já foram concluídas **não** são executadas novamente. Os resultados delas são reproduzidos instantaneamente do histórico (o log de eventos). O fluxo de trabalho é concluído.
+Temporal은 워크플로 기록을 재생합니다. 이미 완료된 LLM 호출 및 도구 호출은 다시 실행되지 **않습니다**. 결과는 기록 (이벤트 로그)에서 즉시 재생됩니다. 워크플로가 성공적으로 완료됩니다.
 
-## Outros recursos
+## 추가 자료
 
-- [Documentação temporal](https://docs.temporal.io/)
-- [SDK do Python do Temporal](https://docs.temporal.io/develop/python)
-- [SDK da IA generativa do Google](https://googleapis.github.io/python-genai/)
-- [Código-fonte deste tutorial](https://github.com/temporal-community/durable-react-agent-gemini)
+- [Temporal 문서](https://docs.temporal.io/)
+- [Temporal Python SDK](https://docs.temporal.io/develop/python)
+- [Google GenAI SDK](https://googleapis.github.io/python-genai/)
+- [이 가이드의 소스 코드](https://github.com/temporal-community/durable-react-agent-gemini)
 
-Envie comentários
+의견 보내기
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última atualização 2026-04-29 UTC.
+최종 업데이트: 2026-04-29(UTC)
 
-Quer enviar seu feedback?
+의견을 전달하고 싶나요?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

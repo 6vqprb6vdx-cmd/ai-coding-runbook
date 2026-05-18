@@ -1,47 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-CN
-fetched_at: 2026-05-11T12:30:52.466130+00:00
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=hi
+fetched_at: 2026-05-18T12:59:27.637483+00:00
 title: "Batch API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-发送反馈
+सुझाव भेजें
 
 # Batch API
 
-Gemini Batch API 旨在以标准费用的 [50%](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn) 异步处理大量请求。
-目标周转时间为 24 小时，但在大多数情况下，速度要快得多。
+Gemini Batch API को, बड़ी संख्या में अनुरोधों को एसिंक्रोनस तरीके से प्रोसेस करने के लिए डिज़ाइन किया गया है. इसके लिए, स्टैंडर्ड लागत का [50% शुल्क लिया जाता है](https://ai.google.dev/gemini-api/docs/pricing?hl=hi).
+इसे पूरा होने में 24 घंटे लगते हैं. हालांकि, ज़्यादातर मामलों में यह इससे भी कम समय में पूरा हो जाता है.
 
-对于大规模、非紧急任务（例如数据预处理或运行评估，不需要立即响应），请使用 Batch API。
+Batch API का इस्तेमाल, बड़े पैमाने पर किए जाने वाले और तुरंत जवाब की ज़रूरत न होने वाले टास्क के लिए करें. जैसे, डेटा की पहले से प्रोसेसिंग करना या ऐसे आकलन करना जिनमें तुरंत जवाब की ज़रूरत न हो.
 
-## 创建批量作业
+## बैच जॉब बनाना
 
-您可以通过以下两种方式在 Batch API 中提交请求：
+Batch API में अनुरोध सबमिट करने के दो तरीके हैं:
 
-- **[内嵌请求](#inline-requests)**： 直接包含在批量创建请求中的
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest) 对象
-  列表。此方法适用于总请求大小不超过 20MB 的较小批量。模型返回的**输出** 是 `inlineResponse` 对象列表。
-- **[输入文件](#input-file)**： 一个 [JSON 行 (JSONL)](https://jsonlines.org/)
-  文件，其中每一行都包含一个完整的
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest) 对象。
-  建议对较大请求使用此方法。模型返回的**输出** 是 JSONL 文件，其中每一行都是 `GenerateContentResponse` 或状态对象。
+- **[इनलाइन अनुरोध](#inline-requests):** बैच बनाने के अनुरोध में सीधे तौर पर शामिल किए गए
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=hi#GenerateContentRequest) ऑब्जेक्ट की सूची. यह छोटे बैच के लिए सही है. इससे अनुरोध का कुल साइज़ 20 एमबी से कम रहता है. मॉडल से मिलने वाला **आउटपुट**, `inlineResponse` ऑब्जेक्ट की सूची होती है.
+- **[इनपुट फ़ाइल](#input-file):** एक [JSON लाइंस (JSONL)](https://jsonlines.org/)
+  फ़ाइल. इसकी हर लाइन में, [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=hi#GenerateContentRequest) का पूरा ऑब्जेक्ट होता है.
+  बड़े अनुरोधों के लिए, इस तरीके का इस्तेमाल करने का सुझाव दिया जाता है. मॉडल से मिलने वाला **आउटपुट** एक JSONL फ़ाइल होती है. इसकी हर लाइन में, `GenerateContentResponse` या स्टेटस ऑब्जेक्ट होता है.
 
-### 内嵌请求
+### इनलाइन अनुरोध
 
-对于少量请求，您可以直接将
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest)对象
-嵌入到[`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#request-body)中。以下示例使用内嵌请求调用
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=zh-cn#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-方法：
+कम संख्या में अनुरोधों के लिए, [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=hi#GenerateContentRequest) ऑब्जेक्ट को सीधे तौर पर [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=hi#request-body) में एम्बेड किया जा सकता है. यहां दिए गए उदाहरण में, इनलाइन अनुरोधों के साथ
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=hi#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+तरीके को कॉल किया गया है:
 
 ### Python
 
@@ -143,25 +139,25 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-prev
 }'
 ```
 
-### 输入文件
+### इनपुट फ़ाइल
 
-对于较大的请求集，请准备一个 JSON 行 (JSONL) 文件。此文件中的每一行都必须是一个 JSON 对象，其中包含用户定义的键和请求
-对象，并且请求是有效的
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=zh-cn#GenerateContentRequest) 对象。用户定义的键用于在响应中指明哪个输出是哪个请求的结果。例如，键定义为 `request-1` 的请求的响应将使用相同的键名称进行注释。
+ज़्यादा अनुरोधों के लिए, JSON लाइंस (JSONL) फ़ाइल तैयार करें. इस फ़ाइल की हर लाइन में, JSON ऑब्जेक्ट होना चाहिए. इसमें उपयोगकर्ता की तय की गई कुंजी और अनुरोध
+ऑब्जेक्ट शामिल होना चाहिए. साथ ही, अनुरोध, मान्य
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=hi#GenerateContentRequest) ऑब्जेक्ट होना चाहिए. जवाब में, उपयोगकर्ता की तय की गई कुंजी का इस्तेमाल यह बताने के लिए किया जाता है कि कौनसा आउटपुट, किस अनुरोध का नतीजा है. उदाहरण के लिए, `request-1` के तौर पर तय की गई कुंजी वाले अनुरोध के जवाब में, उसी कुंजी के नाम का एनोटेशन होगा.
 
-此文件使用 [File API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传。输入文件的最大允许文件大小为 2GB。
+इस फ़ाइल को, [File API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करके अपलोड किया जाता है. इनपुट फ़ाइल के लिए, ज़्यादा से ज़्यादा 2 जीबी की फ़ाइल अपलोड की जा सकती है.
 
-以下是 JSONL 文件示例。您可以将其保存在名为 `my-batch-requests.json` 的文件中：
+यहां JSONL फ़ाइल का एक उदाहरण दिया गया है. इसे `my-batch-requests.json` नाम की फ़ाइल में सेव किया जा सकता है:
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-与内嵌请求类似，您可以在每个请求 JSON 中指定其他参数，例如系统说明、工具或其他配置。
+इनलाइन अनुरोधों की तरह, हर अनुरोध के JSON में अन्य पैरामीटर तय किए जा सकते हैं. जैसे, सिस्टम के निर्देश, टूल या अन्य कॉन्फ़िगरेशन.
 
-您可以使用 [File API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传此文件，如
-以下示例所示。如果您使用的是多模态输入，则可以在 JSONL 文件中引用其他已上传的文件。
+इस फ़ाइल को, [File API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करके अपलोड किया जा सकता है. इसका तरीका, यहां दिए गए उदाहरण में
+दिखाया गया है. अगर मल्टीमॉडल इनपुट का इस्तेमाल किया जा रहा है, तो JSONL फ़ाइल में अपलोड की गई अन्य फ़ाइलों का रेफ़रंस दिया जा सकता है.
 
 ### Python
 
@@ -282,9 +278,9 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-以下示例使用通过 File API 上传的输入文件调用
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=zh-cn#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-方法：
+यहां दिए गए उदाहरण में, File API का इस्तेमाल करके अपलोड की गई इनपुट फ़ाइल के साथ
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=hi#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+तरीके को कॉल किया गया है:
 
 ### Python
 
@@ -338,23 +334,21 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-prev
 }"
 ```
 
-创建批量作业时，系统会返回作业名称。[[您可以使用此名称
-监控作业状态，并在作业完成后
-检索结果。](#batch-job-status)](#retrieve-batch-results)
+बैच जॉब बनाने पर, आपको जॉब का नाम मिलेगा. [[जॉब की स्थिति की निगरानी करने के साथ-साथ, जॉब पूरी होने के बाद नतीजे पाने के लिए, इस नाम का इस्तेमाल करें.](#batch-job-status)](#retrieve-batch-results)
 
-以下是包含作业名称的输出示例：
+यहां आउटपुट का एक उदाहरण दिया गया है, जिसमें जॉब का नाम शामिल है:
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### 批量嵌入支持
+### बैच एम्बेडिंग की सुविधा
 
-您可以使用 Batch API 与
-[Embeddings 模型](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)进行交互，以获得更高的吞吐量。
-如需使用[内嵌请求](#inline-requests)
-或[输入文件](#input-file)创建嵌入批量作业，请使用`batches.create_embeddings` API 并
-指定嵌入模型。
+ज़्यादा थ्रूपुट पाने के लिए, Batch API का इस्तेमाल करके
+[Embeddings मॉडल](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi) के साथ इंटरैक्ट किया जा सकता है.
+[[इनलाइन अनुरोधों](#inline-requests)
+या इनपुट फ़ाइलों](#input-file) की मदद से, एम्बेडिंग बैच जॉब बनाने के लिए, `batches.create_embeddings` API का इस्तेमाल करें और
+एम्बेडिंग मॉडल तय करें.
 
 ### Python
 
@@ -402,11 +396,12 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-如需查看更多示例，请参阅 [Batch API cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb) 中的 Embeddings 部分。
+ज़्यादा उदाहरणों के लिए, [Batch API कुकबुक](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
+में एम्बेडिंग सेक्शन पढ़ें.
 
-### 请求配置
+### अनुरोध का कॉन्फ़िगरेशन
 
-您可以添加在标准非批量请求中使用的任何请求配置。例如，您可以指定温度、系统说明，甚至传入其他模态。以下示例展示了一个内嵌请求示例，其中包含一个请求的系统说明：
+अनुरोध के ऐसे सभी कॉन्फ़िगरेशन शामिल किए जा सकते हैं जिनका इस्तेमाल, बैच के अलावा किसी सामान्य अनुरोध में किया जाता है. उदाहरण के लिए, तापमान, सिस्टम के निर्देश तय किए जा सकते हैं या अन्य मोडैलिटी भी पास की जा सकती हैं. यहां इनलाइन अनुरोध का एक उदाहरण दिया गया है. इसमें, किसी एक अनुरोध के लिए सिस्टम का निर्देश शामिल है:
 
 ### Python
 
@@ -434,8 +429,7 @@ inlineRequestsList = [
 ]
 ```
 
-同样，您可以指定要用于请求的工具。以下示例
-展示了一个启用 [Google 搜索工具](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)的请求：
+इसी तरह, किसी अनुरोध के लिए इस्तेमाल किए जाने वाले टूल तय किए जा सकते हैं. यहां एक ऐसे अनुरोध का उदाहरण दिया गया है जिसमें [Google Search टूल](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) चालू किया गया है:
 
 ### Python
 
@@ -456,8 +450,8 @@ inlineRequestsList = [
 ]
 ```
 
-您还可以指定[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
-以下示例展示了如何为批量请求指定结构化输出。
+आप [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) भी तय कर सकते हैं.
+यहां दिए गए उदाहरण में, बैच अनुरोधों के लिए स्ट्रक्चर्ड आउटपुट तय करने का तरीका बताया गया है.
 
 ### Python
 
@@ -608,7 +602,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-以下展示了此作业的输出示例：
+यहां इस जॉब के आउटपुट का एक उदाहरण दिया गया है:
 
 ```
 --- Response 1 ---
@@ -704,20 +698,20 @@ const inlinedBatchJob = await ai.batches.create({
 ]
 ```
 
-## 监控作业状态
+## जॉब की स्थिति की निगरानी करना
 
-使用创建批量作业时获得的操作名称来轮询其状态。
-批量作业的状态字段将指明其当前状态。批量作业可以处于以下状态之一：
+बैच जॉब बनाते समय मिले ऑपरेशन के नाम का इस्तेमाल करके, उसकी स्थिति के बारे में जानकारी पाएं.
+बैच जॉब का state फ़ील्ड, उसकी मौजूदा स्थिति के बारे में बताएगा. बैच जॉब इनमें से किसी एक स्थिति में हो सकती है:
 
-- `JOB_STATE_PENDING`：作业已创建，正在等待服务处理。
-- `JOB_STATE_RUNNING`：作业正在处理中。
-- `JOB_STATE_SUCCEEDED`：作业已成功完成。您现在可以检索结果。
-- `JOB_STATE_FAILED`：作业失败。如需了解详情，请查看错误详情。
-- `JOB_STATE_CANCELLED`：作业已被用户取消。
-- `JOB_STATE_EXPIRED`：作业已过期，因为其运行或待处理时间超过 48 小时。作业将没有任何结果可供检索。
-  您可以尝试重新提交作业，或将请求拆分为较小的批量。
+- `JOB_STATE_PENDING`: जॉब बन गई है और सेवा से प्रोसेस होने का इंतज़ार कर रही है.
+- `JOB_STATE_RUNNING`: जॉब प्रोसेस हो रही है.
+- `JOB_STATE_SUCCEEDED`: जॉब पूरी हो गई है. अब नतीजे पाए जा सकते हैं.
+- `JOB_STATE_FAILED`: जॉब फ़ेल हो गई है. ज़्यादा जानकारी के लिए, गड़बड़ी की जानकारी देखें.
+- `JOB_STATE_CANCELLED`: उपयोगकर्ता ने जॉब रद्द कर दी है.
+- `JOB_STATE_EXPIRED`: जॉब की समयसीमा खत्म हो गई है, क्योंकि वह 48 घंटे से ज़्यादा समय से चल रही थी या पेंडिंग थी. जॉब के नतीजे नहीं पाए जा सकेंगे.
+  जॉब को फिर से सबमिट किया जा सकता है या अनुरोधों को छोटे-छोटे बैच में बांटा जा सकता है.
 
-您可以定期轮询作业状态以检查是否完成。
+जॉब की स्थिति की समय-समय पर जानकारी पाने के लिए, पोलिंग की जा सकती है.
 
 ### Python
 
@@ -783,11 +777,11 @@ try {
 }
 ```
 
-### 轮询和网络钩子
+### पोलिंग और वेबहुक
 
-**厌倦了轮询？**Gemini 现在支持
-[网络钩子](https://ai.google.dev/gemini-api/docs/webhooks?hl=zh-cn)异步处理补全。
-您可以直接订阅 `batch.succeeded`，而不是持续调用 `GET / operations`，以便在异步或长时间运行的操作完成时，Gemini API 可以向您的服务器推送实时通知。
+**क्या आपको पोलिंग करते-करते थकान महसूस होने लगी है?** अब Gemini, एसिंक्रोनस तरीके से पूरे होने की प्रोसेस के लिए
+[वेबहुक](https://ai.google.dev/gemini-api/docs/webhooks?hl=hi) की सुविधा देता है.
+`GET / operations` को लगातार कॉल करने के बजाय, सीधे `batch.succeeded` की सदस्यता लें. इससे, एसिंक्रोनस या लंबे समय तक चलने वाले ऑपरेशन पूरे होने पर, Gemini API आपके सर्वर पर रीयल-टाइम सूचनाएं पुश कर सकेगा.
 
 ### Python
 
@@ -839,9 +833,9 @@ curl -X POST \
   }'
 ```
 
-## 检索结果
+## नतीजे पाना
 
-作业状态表明批量作业已成功后，结果将显示在 `response` 字段中。
+जॉब की स्थिति से पता चलता है कि आपकी बैच जॉब पूरी हो गई है. इसके बाद, नतीजे `response` फ़ील्ड में उपलब्ध होते हैं.
 
 ### Python
 
@@ -994,9 +988,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## 列出批量作业
+## बैच जॉब की सूची देखना
 
-您可以列出最近的批量作业。
+हाल ही में की गई बैच जॉब की सूची देखी जा सकती है.
 
 ### Python
 
@@ -1030,9 +1024,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 取消批量作业
+## बैच जॉब रद्द करना
 
-您可以使用批量作业的名称取消正在进行的批量作业。取消作业后，系统会停止处理新请求。
+चालू बैच जॉब को उसके नाम का इस्तेमाल करके रद्द किया जा सकता है. जॉब रद्द होने पर, वह नए अनुरोधों को प्रोसेस करना बंद कर देती है.
 
 ### Python
 
@@ -1061,9 +1055,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## 删除批量作业
+## बैच जॉब मिटाना
 
-您可以使用现有批量作业的名称将其删除。删除作业后，系统会停止处理新请求，并将其从批量作业列表中移除。
+मौजूदा बैच जॉब को उसके नाम का इस्तेमाल करके मिटाया जा सकता है. जॉब मिटाने पर, वह नए अनुरोधों को प्रोसेस करना बंद कर देती है और बैच जॉब की सूची से हट जाती है.
 
 ### Python
 
@@ -1087,14 +1081,16 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 批量生成图片
+## बैच में इमेज जनरेट करना
 
-如果您使用的是 [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn) 并且需要生成大量图片，则可以使用 Batch API 来获得更高的[速率限制](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn)，但周转时间最长为 24 小时。
+अगर [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) का इस्तेमाल किया जा रहा है और आपको कई
+इमेज जनरेट करनी हैं, तो Batch API का इस्तेमाल करके, ज़्यादा
+[रेट लिमिट](https://ai.google.dev/gemini-api/docs/rate-limits?hl=hi) पाई जा सकती हैं. हालांकि, इसके लिए 24 घंटे तक का समय लग सकता है.
 
-您可以针对小批量请求（不超过 20MB）使用内嵌请求，也可以针对大批量请求使用 JSONL 输入文件（建议用于图片生成）：
+अनुरोधों के छोटे बैच (20 एमबी से कम) के लिए, इनलाइन अनुरोधों का इस्तेमाल किया जा सकता है. वहीं, बड़े बैच के लिए JSONL इनपुट फ़ाइल का इस्तेमाल किया जा सकता है. इमेज जनरेट करने के लिए, JSONL इनपुट फ़ाइल का इस्तेमाल करने का सुझाव दिया जाता है:
 
-内嵌请求
-输入文件
+इनलाइन अनुरोध
+इनपुट फ़ाइल
 
 ### Python
 
@@ -1326,45 +1322,42 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## 技术详情
+## तकनीकी जानकारी
 
-- **支持的模型**： Batch API 支持一系列 Gemini 模型。
-  如需了解每个模型对 Batch API 的支持情况，请参阅[模型页面](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)
-  。Batch API 支持的模态与交互式（或非批量）API 支持的模态相同。
-- **价格**： Batch API 的使用费用为同等模型的标准交互式 API 费用的 50%。如需了解详情，请参阅[价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)
-  。如需详细了解此功能的速率限制，请参阅[速率限制页面](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn#batch-mode)
-  。
-- **服务等级目标 (SLO)**： 批量作业旨在在 24 小时内完成。许多作业可能会更快完成，具体取决于作业大小和当前系统负载。
-- **缓存**： [上下文缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)已启用
-  批量请求。如果批量中的请求导致缓存命中，则缓存的令牌的价格与非批量 API 流量的价格相同。
+- **काम करने वाले मॉडल:** Batch API, Gemini के कई मॉडल के साथ काम करता है.
+  हर मॉडल के लिए, Batch API की सुविधा काम करती है या नहीं, यह जानने के लिए [मॉडल पेज](https://ai.google.dev/gemini-api/docs/models?hl=hi) देखें. Batch API के लिए काम करने वाली मोडैलिटी वही हैं जो इंटरैक्टिव (या बैच के अलावा) API के लिए काम करती हैं.
+- **कीमत:** Batch API के इस्तेमाल के लिए, उसी मॉडल के इंटरैक्टिव API की स्टैंडर्ड लागत का 50% शुल्क लिया जाता है. ज़्यादा जानकारी के लिए, [कीमत वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi)
+  देखें. इस सुविधा के लिए तय की गई रेट लिमिट के बारे में जानने के लिए, [रेट लिमिट वाला पेज](https://ai.google.dev/gemini-api/docs/rate-limits?hl=hi#batch-mode)
+  देखें.
+- **सेवा स्तर का उद्देश्य (एसएलओ):** बैच जॉब को 24 घंटे के अंदर पूरा करने के लिए डिज़ाइन किया गया है. कई जॉब, अपने साइज़ और मौजूदा सिस्टम लोड के हिसाब से, इससे भी कम समय में पूरी हो सकती हैं.
+- **कैशिंग:** [कॉन्टेक्स्ट कैशिंग](https://ai.google.dev/gemini-api/docs/caching?hl=hi) बैच अनुरोधों के लिए सक्षम है. अगर आपके बैच में मौजूद किसी अनुरोध की वजह से कैश हिट होता है, तो कैश किए गए टोकन की कीमत, बैच के अलावा अन्य API ट्रैफ़िक के लिए तय की गई कीमत के बराबर होती है.
 
-## 最佳做法
+## सबसे सही तरीके
 
-- **对大型请求使用输入文件**： 对于大量请求，
-  请始终使用文件输入
-  方法，以便更好地进行管理，并避免达到
-  [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=zh-cn#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-  调用本身的请求大小限制。请注意，每个输入文件的文件大小限制为 2GB。
-- **错误处理**： 作业完成后，检查 `batchStats` 中的 `failedRequestCount`。如果使用文件输出，请解析每一行，以检查其是否为 `GenerateContentResponse` 或状态对象，以指明该特定请求的错误。如需查看完整的错误代码集，请参阅[问题排查
-  指南](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=zh-cn#error-codes)。
-- **一次性提交作业**： 批量作业的创建不是幂等的。
-  如果您两次发送相同的创建请求，系统将创建两个单独的批量作业。
-- **拆分非常大的批量**： 虽然目标周转时间为 24 小时，但实际处理时间可能会因系统负载和作业大小而异。
-  对于大型作业，如果需要更快获得中间结果，请考虑将其拆分为较小的批量。
+- **बड़े अनुरोधों के लिए, इनपुट फ़ाइलों का इस्तेमाल करें:** बड़ी संख्या में अनुरोधों के लिए,
+  फ़ाइल इनपुट तरीके का इस्तेमाल करें.
+  इससे, अनुरोधों को बेहतर तरीके से मैनेज किया जा सकता है. साथ ही,
+  [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=hi#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+  कॉल के लिए तय की गई अनुरोध के साइज़ की सीमाओं से बचा जा सकता है. ध्यान दें कि हर इनपुट फ़ाइल के लिए, 2 जीबी की फ़ाइल साइज़ लिमिट है.
+- **गड़बड़ी को ठीक करना:** जॉब पूरी होने के बाद, `failedRequestCount` के लिए `batchStats` देखें. अगर फ़ाइल आउटपुट का इस्तेमाल किया जा रहा है, तो हर लाइन को पार्स करके देखें कि वह `GenerateContentResponse` है या स्टेटस ऑब्जेक्ट. इससे, उस खास अनुरोध के लिए गड़बड़ी का पता चलता है. गड़बड़ी कोड का पूरा सेट देखने के लिए, [समस्या हल करने की
+  गाइड](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=hi#error-codes) देखें.
+- **जॉब को एक बार सबमिट करें:** बैच जॉब बनाने की प्रोसेस, आइडमपोटेंट नहीं है.
+  अगर एक ही अनुरोध को दो बार भेजा जाता है, तो दो अलग-अलग बैच जॉब बनेंगी.
+- **बहुत बड़े बैच को छोटे-छोटे बैच में बांटें:** जॉब को पूरा होने में 24 घंटे लगते हैं. हालांकि, सिस्टम लोड और जॉब के साइज़ के हिसाब से, प्रोसेसिंग में लगने वाला समय अलग-अलग हो सकता है.
+  अगर बड़े जॉब के लिए, बीच-बीच में नतीजे चाहिए, तो उन्हें छोटे-छोटे बैच में बांटने पर विचार करें.
 
-## 后续步骤
+## आगे क्या करना है
 
-- 如需查看更多示例，请参阅[Batch API 笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=zh-cn)
-  。
-- OpenAI 兼容性层支持 Batch API。请参阅
-  [OpenAI 兼容性](https://ai.google.dev/gemini-api/docs/openai?hl=zh-cn#batch)页面上的示例。
+- ज़्यादा उदाहरणों के लिए, [Batch API नोटबुक](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=hi)
+  देखें.
+- OpenAI के साथ काम करने वाली लेयर, Batch API के साथ काम करती है. [OpenAI के साथ काम करने की सुविधा वाले पेज पर दिए गए उदाहरण पढ़ें.](https://ai.google.dev/gemini-api/docs/openai?hl=hi#batch)
 
-发送反馈
+सुझाव भेजें
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最后更新时间 (UTC)：2026-05-07。
+आखिरी बार 2026-05-13 (UTC) को अपडेट किया गया.
 
-需要向我们提供更多信息？
+क्या आपको हमें और कुछ बताना है?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-07。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-13 (UTC) को अपडेट किया गया."],[],[]]

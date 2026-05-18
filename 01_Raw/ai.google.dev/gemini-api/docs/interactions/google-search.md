@@ -1,35 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=ko
-fetched_at: 2026-05-11T12:33:40.587398+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=pt-BR
+fetched_at: 2026-05-18T13:01:08.236364+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-의견 보내기
+Envie comentários
 
-# Google 검색을 사용한 그라운딩
+# Embasamento com a Pesquisa Google
 
-Google 검색을 사용한 그라운딩은 Gemini 모델을 실시간 웹 콘텐츠에 연결하며 사용 가능한 모든 언어로 작동합니다. 이를 통해 Gemini는 지식 단절 시점 이후에 더 정확한 답변을 제공하고 검증 가능한 출처를 인용할 수 있습니다.
+O embasamento com a Pesquisa Google conecta o modelo do Gemini a conteúdo da Web em tempo real e funciona com todos os idiomas disponíveis. Isso permite que o Gemini forneça respostas mais precisas e cite fontes verificáveis além do limite de conhecimento.
 
-그라운딩을 사용하면 다음 작업을 할 수 있는 애플리케이션을 빌드할 수 있습니다.
+O embasamento ajuda você a criar aplicativos que podem:
 
-- **사실에 기반한 정확성 향상:** 실제 정보를 기반으로 대답하여 모델 할루시네이션을 줄입니다.
-- **실시간 정보 액세스:** 최근 이벤트 및 주제에 관한 질문에 대답합니다.
-- **인용 제공:** 모델의 주장에 대한 출처를 표시하여 사용자 신뢰를 구축합니다.
+- **Aumentar a acurácia factual**:reduza as alucinações do modelo embasando as respostas em informações do mundo real.
+- **Acessar informações em tempo real**:responda a perguntas sobre eventos e temas recentes.
+- **Forneça citações**:aumente a confiança do usuário mostrando as fontes das declarações do modelo.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -51,6 +52,7 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -72,9 +74,11 @@ if (modelStep) {
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "Who won the euro 2024?",
@@ -82,21 +86,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Google 검색을 사용한 그라운딩 작동 방식
+## Como funciona o embasamento com a Pesquisa Google
 
-`google_search` 도구를 사용 설정하면 모델이 정보 검색, 처리, 인용의 전체 워크플로를 자동으로 처리합니다.
+Quando você ativa a ferramenta `google_search`, o modelo processa todo o fluxo de trabalho de pesquisa, tratamento e citação de informações automaticamente.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=ko)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=pt-br)
 
-1. **사용자 프롬프트:** 애플리케이션이 `google_search` 도구가 사용 설정된 상태로 사용자의 프롬프트를 Gemini API로 전송합니다.
-2. **프롬프트 분석:** 모델이 프롬프트를 분석하고 Google 검색으로 대답을 개선할 수 있는지 확인합니다.
-3. **Google 검색:** 필요한 경우 모델이 하나 이상의 검색어를 자동으로 생성하고 실행합니다.
-4. **검색 결과 처리:** 모델이 검색 결과를 처리하고 정보를 합성하여 대답을 구성합니다.
-5. **그라운딩된 대답:** API가 검색 결과에 그라운딩된 최종적인 사용자 친화적인 대답을 반환합니다. 이 대답에는 인용이 포함된 인라인 `annotations`가 있는 모델의 텍스트 대답과 검색어 및 추천 검색어가 있는 `google_search_call` 및 `google_search_result` 단계가 포함됩니다.
+1. **Comando do usuário**:seu aplicativo envia um comando do usuário para a API Gemini
+   com a ferramenta `google_search` ativada.
+2. **Análise do comando**:o modelo analisa o comando e determina se uma
+   Pesquisa Google pode melhorar a resposta.
+3. **Pesquisa Google**:se necessário, o modelo gera e executa automaticamente uma ou várias consultas de pesquisa.
+4. **Processamento de resultados da pesquisa**:o modelo processa os resultados da pesquisa, sintetiza as informações e formula uma resposta.
+5. **Resposta embasada**:a API retorna uma resposta final e fácil de usar que
+   é baseada nos resultados da pesquisa. Essa resposta inclui o texto do modelo
+   com `annotations` inline contendo as citações, bem como
+   etapas `google_search_call` e `google_search_result` com as consultas
+   de pesquisa e sugestões de pesquisa.
 
-## 그라운딩 대답 이해
+## Entender a resposta de embasamento
 
-대답이 성공적으로 그라운딩되면 모델의 텍스트 출력에 텍스트 콘텐츠 블록에 직접 인라인 `annotations`가 포함됩니다. 이러한 주석은 대답의 일부를 출처에 연결하는 인용 정보를 제공합니다.
+Quando uma resposta é fundamentada, a saída de texto do modelo inclui `annotations` inline diretamente no bloco de conteúdo de texto. Essas anotações
+fornecem informações de citação que vinculam partes da resposta às fontes.
 
 ```
 {
@@ -155,21 +166,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-대답의 주요 필드는 다음과 같습니다.
+Os campos principais na resposta:
 
-- `google_search_call` : 모델이 실행한 검색 `queries`를 포함합니다.
-- `google_search_result` : UI에서 추천 검색어를 렌더링하기 위한 HTML 스니펫인 `search_suggestions`를 포함합니다. 전체 사용 요구사항은
-  [서비스 약관](https://ai.google.dev/gemini-api/terms?hl=ko#grounding-with-google-search)에 자세히 설명되어 있습니다.
-- `annotations`가 있는 `text` : 인라인 인용이 포함된 모델의 합성된 대답입니다. 각 `url_citation` 주석은 텍스트 세그먼트 (`start_index` 및 `end_index`로 정의됨)를 출처 URL에 연결합니다. 이는 인라인 인용을 빌드하는 데 핵심적인 요소입니다.
+- `google_search_call` : contém a pesquisa `queries` executada pelo modelo.
+- `google_search_result` : contém `search_suggestions`, um snippet HTML
+  para renderizar sugestões de pesquisa na sua interface. Os requisitos de uso completos estão detalhados nos [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#grounding-with-google-search).
+- `text` com `annotations` : a resposta sintetizada do modelo com citações
+  inline. Cada anotação `url_citation` vincula um segmento de texto (definido por `start_index` e `end_index`) a um URL de origem. Essa é a chave para
+  criar citações inline.
 
-Google 검색을 사용한 그라운딩은 [URL
-컨텍스트 도구](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ko)와 함께 사용하여
-공개 웹 데이터와 제공하는 특정 URL 모두에서 대답을 그라운딩할 수도 있습니다.
+O embasamento com a Pesquisa Google também pode ser usado em combinação com a [ferramenta de contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br) para embasar respostas em dados públicos da Web e nos URLs específicos que você fornece.
 
-## 인라인 인용으로 출처 기여 분석
+## Atribuição de fontes com citações inline
 
-API는 텍스트 콘텐츠 블록에 인라인 `url_citation` 주석을 반환하므로 사용자 인터페이스에서 출처를 표시하는 방식을 완전히 제어할 수 있습니다.
-각 주석에는 텍스트의 어느 부분을 인용하는지 식별하는 `start_index`와 `end_index`가 포함됩니다. 이를 추출하고 표시하는 방법은 다음과 같습니다.
+A API retorna anotações `url_citation` inline no bloco de conteúdo de texto, controle total sobre como você mostra as fontes na interface do usuário.
+Cada anotação inclui `start_index` e `end_index` para identificar a parte do texto que ela cita. Veja como extrair e mostrar esses dados.
 
 ### Python
 
@@ -212,7 +223,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-출력에는 텍스트와 그 인용이 표시됩니다.
+A saída vai mostrar o texto seguido das citações:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -224,51 +235,47 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## 가격 책정
+## Preços
 
-Gemini 3에서 Google 검색을 사용한 그라운딩을 사용하면 모델이 실행하기로 결정한 각 검색어에 대해 프로젝트에 요금이 청구됩니다. 모델이 단일 프롬프트에 대답하기 위해
-여러 검색어를 실행하기로 결정하는 경우 (예:
-`"UEFA Euro 2024 winner"` 및 `"Spain vs England Euro 2024 final
-score"`를 동일한 API 호출 내에서 검색) 이 요청에 대해 도구의 청구 가능한 사용 2회로 계산됩니다. 청구 목적으로 고유한 검색어를 계산할 때 빈 웹 검색어는 무시됩니다. 이 청구 모델은 Gemini 3 모델에만 적용됩니다. Gemini 2.5 또는 이전 모델에서 검색 그라운딩을 사용하면 프롬프트당 프로젝트에 요금이 청구됩니다.
+Quando você usa o Embasamento com a Pesquisa Google com o Gemini 3, seu projeto é cobrado
+por cada consulta de pesquisa que o modelo decide executar. Se o modelo decidir executar várias consultas de pesquisa para responder a um único comando (por exemplo, pesquisar `"UEFA Euro 2024 winner"` e `"Spain vs England Euro 2024 final
+score"` na mesma chamada de API), isso será contabilizado como dois usos faturáveis da ferramenta para essa solicitação. Para fins de faturamento, ignoramos as consultas de pesquisa na Web vazias ao contar as consultas únicas. Esse modelo de faturamento se aplica apenas aos modelos do Gemini 3. Ao usar o embasamento da pesquisa com o Gemini 2.5 ou modelos mais antigos, seu projeto é faturado por comando.
 
-자세한 가격 책정 정보는 [Gemini API 가격 책정
-페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)를 참고하세요.
+Para informações detalhadas sobre preços, consulte a [página de preços da API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
 
-## 지원되는 모델
+## Modelos compatíveis
 
-모델 [개요](https://ai.google.dev/gemini-api/docs/models?hl=ko) 페이지에서 전체 기능을 확인할 수 있습니다.
+Confira todos os recursos na página [Visão geral do modelo](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
 
-| 모델 | Google 검색을 사용한 그라운딩 |
+| Modelo | Embasamento com a Pesquisa Google |
 | --- | --- |
-| Gemini 3.1 Flash Image 프리뷰 | ✔️ |
-| Gemini 3.1 Pro 프리뷰 | ✔️ |
-| Gemini 3 Pro Image 프리뷰 | ✔️ |
-| Gemini 3 Flash 프리뷰 | ✔️ |
+| Pré-lançamento da imagem do Gemini 3.1 Flash | ✔️ |
+| Pré-lançamento do Gemini 3.1 Pro | ✔️ |
+| Pré-lançamento do Gemini 3 Pro Image | ✔️ |
+| Pré-lançamento do Gemini 3 Flash | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## 지원되는 도구 조합
+## Combinações de ferramentas compatíveis
 
-[코드 실행](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=ko) 및
-[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ko)와 같은 다른 도구와 함께 Google 검색을 사용한 그라운딩을 사용하여 더 복잡한
-사용 사례를 지원할 수 있습니다.
+Você pode usar o embasamento com a Pesquisa Google com outras ferramentas, como [execução de código](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=pt-br) e [contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br), para casos de uso mais complexos.
 
-Gemini 3 모델은 기본 제공 도구 (예: Google 검색을 사용한 그라운딩)와 커스텀 도구 (함수 호출)의 조합을 지원합니다. 도구 조합
- 페이지에서 자세히 알아보세요.
+Os modelos do Gemini 3 permitem combinar ferramentas integradas (como o embasamento com a Pesquisa Google) e personalizadas (chamada de função). Saiba mais na página de
+[combinações de ferramentas](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=pt-br).
 
-## 다음 단계
+## A seguir
 
-- [함수 호출과 같은 사용 가능한 다른 도구에 대해 알아보세요.](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ko)
-- [URL 컨텍스트 도구를 사용하여 특정 URL로 프롬프트를 보강하는 방법을 알아보세요.](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ko)
+- Saiba mais sobre outras ferramentas disponíveis, como a [chamada de função](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=pt-br).
+- Saiba como aumentar os comandos com URLs específicos usando a [ferramenta de contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br).
 
-의견 보내기
+Envie comentários
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-최종 업데이트: 2026-05-07(UTC)
+Última atualização 2026-05-12 UTC.
 
-의견을 전달하고 싶나요?
+Quer enviar seu feedback?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-07(UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-12 UTC."],[],[]]

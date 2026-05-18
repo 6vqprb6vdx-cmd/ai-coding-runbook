@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=he
-fetched_at: 2026-05-11T12:41:51.616104+00:00
+fetched_at: 2026-05-18T13:04:45.658231+00:00
 title: "\u05ea\u05e6\u05d5\u05d2\u05d4 \u05de\u05e7\u05d3\u05d9\u05de\u05d4 \u05e9\u05dc \u05e7\u05dc\u05d9\u05e4 \u05d1-Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

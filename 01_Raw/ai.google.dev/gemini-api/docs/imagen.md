@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=zh-TW
-fetched_at: 2026-05-11T12:39:29.770291+00:00
-title: "\u4f7f\u7528 Imagen \u751f\u6210\u5716\u7247 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=fr
+fetched_at: 2026-05-18T13:07:43.003970+00:00
+title: "G\u00e9n\u00e9rer des images \u00e0 l'aide d'Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-提供意見
+Envoyer des commentaires
 
-# 使用 Imagen 生成圖片
+# Générer des images à l'aide d'Imagen
 
-Imagen 是 Google 的高保真圖像生成模型，可根據文字提示生成逼真且高畫質的圖像。所有生成的圖像都會加上 SynthID 浮水印。如要進一步瞭解可用的 Imagen 模型變體，請參閱「[模型版本](#model-versions)」一節。
+Imagen est le modèle de génération d'images haute fidélité de Google. Il est capable de générer des images réalistes et de haute qualité à partir de requêtes textuelles. Toutes les images générées incluent un filigrane SynthID. Pour en savoir plus sur les variantes de modèle Imagen disponibles, consultez la section [Versions de modèle](#model-versions).
 
-## 使用 Imagen 模型生成圖像
+## Générer des images à l'aide des modèles Imagen
 
-以下範例說明如何使用 [Imagen 模型](https://deepmind.google/technologies/imagen/?hl=zh-tw)生成圖片：
+Cet exemple montre comment générer des images avec un [modèle Imagen](https://deepmind.google/technologies/imagen/?hl=fr) :
 
 ### Python
 
@@ -132,359 +132,364 @@ curl -X POST \
       }'
 ```
 
-![AI 生成的圖像：機器人拿著紅色滑板](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=zh-tw)
+![Image générée par IA d&#39;un robot tenant un skateboard rouge](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=fr)
 
-機器人拿著紅色滑板的 AI 生成圖像
+Image générée par IA d'un robot tenant un skateboard rouge
 
-### Imagen 設定
+### Configuration d'Imagen
 
-Imagen 目前僅支援英文提示詞和下列參數：
+Pour le moment, Imagen n'accepte que les requêtes en anglais et les paramètres suivants :
 
-- `numberOfImages`：要生成的圖片數量，範圍為 1 到 4 (含 1 和 4)。預設值為 4。
-- `imageSize`：生成圖像的大小。這項功能僅適用於標準和 Ultra 模型。支援的值為 `1K` 和 `2K`。
-  預設值為 `1K`。
-- `aspectRatio`：變更生成的圖像的顯示比例。支援的值為 `"1:1"`、`"3:4"`、`"4:3"`、`"9:16"` 和 `"16:9"`。預設值為 `"1:1"`。
-- `personGeneration`：允許模型生成人物圖像。支援的值如下：
+- `numberOfImages` : nombre d'images à générer, entre 1 et 4 (inclus).
+  La valeur par défaut est 4.
+- `imageSize` : taille de l'image générée. Cette fonctionnalité n'est compatible qu'avec les modèles Standard et Ultra. Les valeurs acceptées sont `1K` et `2K`.
+  La valeur par défaut est `1K`.
+- `aspectRatio` : modifie le format de l'image générée. Les valeurs acceptées sont `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` et `"16:9"`. La valeur par défaut est `"1:1"`.
+- `personGeneration` : autorise le modèle à générer des images de personnes. Les valeurs suivantes sont acceptées :
 
-  - `"dont_allow"`：禁止生成人物圖像。
-  - `"allow_adult"`：生成成人圖片，但不能生成兒童圖片。此為預設值。
-  - `"allow_all"`：生成包含成人和兒童的圖片。
+  - `"dont_allow"` : bloquer la génération d'images de personnes.
+  - `"allow_adult"` : générer des images d'adultes, mais pas d'enfants. Ce paramètre est la valeur par défaut
+  - `"allow_all"` : génère des images incluant des adultes et des enfants.
 
-## Imagen 提示詞指南
+## Guide sur les requêtes Imagen
 
-本節的 Imagen 指南將說明如何修改文字轉圖像提示，產生不同的結果，並提供可建立的圖片範例。
+Cette section du guide Imagen vous montre comment la modification d'une requête texte vers image peut produire différents résultats, ainsi que des exemples d'images que vous pouvez créer.
 
-### 提示撰寫基礎知識
+### Principes de base concernant l'écriture de requêtes
 
-好的提示應具備描述性且清楚明瞭，並使用有意義的關鍵字和修飾符。首先，請思考**主題**、**脈絡**和**風格**。
+Une bonne requête est descriptive et claire, et utilise des mots clés et des modificateurs pertinents. Commencez par réfléchir à l'**objet**, au **contexte** et au **style**.
 
-**![提示詞，並強調主題、脈絡和風格](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=zh-tw)
+![Requête avec l&#39;objet, le contexte et le style mis en avant](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=fr)
 
-圖片文字：*現代公寓大樓*的*草圖* (**樣式**)，周圍環繞著*摩天大樓* (**背景和背景**)。**
+Texte de l'image : Un *croquis* (**style**) d'un *appartement moderne* (**objet**) entouré de *gratte-ciel* (**contexte et arrière-plan**).
 
-1. **主題**：在任何提示中，首先要考慮的是*主題*，也就是您想生成圖片的物件、人物、動物或風景。
-2. **背景資訊：***背景或情境*與主體同樣重要，嘗試將拍攝主體放在各種背景中。例如白色背景的攝影棚、戶外或室內環境。
-3. **風格：**最後，新增想要的圖片風格。*樣式*可以是廣泛的類型 (繪畫、攝影、素描)，也可以是非常具體的類型 (粉彩畫、炭筆畫、等距 3D)。你也可以合併樣式。
+1. **Objet :** La première chose à laquelle réfléchir pour une requête est l'*objet* : c'est-à-dire l'objet, la personne, l'animal ou le paysage dont vous souhaitez obtenir une image.
+2. **Contexte et arrière-plan :** L'*arrière-plan ou le contexte* dans lequel le sujet sera placé est tout aussi important. Essayez de placer votre sujet dans différents arrière-plans. Par exemple, un studio sur fond blanc, en extérieur ou en intérieur.
+3. **Style :** Pour finir, ajoutez le style d'image souhaité. Les *styles* peuvent être généraux (peinture, photographie, croquis) ou très spécifiques (pastel, fusain, 3D isométrique). Vous pouvez également combiner des styles.
 
-撰寫提示詞的第一個版本後，請加入更多詳細資料來修正提示詞，直到生成想要的圖像為止。反覆運算很重要。首先請確立核心概念，然後不斷修正及擴充這個概念，直到生成的圖片接近您的想像。
+Après avoir rédigé une première version de votre requête, affinez-la en ajoutant des détails jusqu'à obtenir l'image souhaitée. L'itération est importante.
+Commencez par établir votre idée principale, puis affinez-la et développez-la jusqu'à ce que l'image générée corresponde à votre vision.
 
 |  |  |  |
 | --- | --- | --- |
-| 擬真範例圖片 1   提示：湖邊的春季公園 | 擬真範例圖片 2   提示：湖畔的春季公園，**夕陽在湖的對面落下，呈現黃金時刻** | 擬真樣本圖片 3   提示：湖畔的春季公園，***夕陽在湖的對面落下，黃金時段，紅色野花*** |
+| exemple d&#39;image photoréaliste 1   Requête : Un parc au printemps au bord d'un lac | exemple d&#39;image photoréaliste 2   Requête : un parc au printemps au bord d'un lac, **le soleil se couche sur le lac, heure dorée** | exemple d&#39;image photoréaliste 3   Requête : Un parc au printemps à côté d'un lac, ***le soleil se couche sur le lac, heure dorée, fleurs sauvages rouges*** |
 
-無論提示簡短或詳盡，Imagen 模型都能將你的想法轉化為細緻的圖像。透過反覆提示來調整圖像，加入詳細資料，直到獲得完美結果。
+Les modèles Imagen peuvent transformer vos idées en images détaillées, que vos requêtes soient courtes ou longues et détaillées. Affinez votre vision en ajoutant des détails à vos requêtes jusqu'à obtenir le résultat parfait.
 
 |  |  |
 | --- | --- |
-| 簡短提示可快速生成圖片。  Imagen 4 簡短提示範例   提示：20 多歲女性的特寫照片、街頭攝影、電影劇照、柔和的暖橘色調 | 提示越長，就能新增更多詳細資料，打造出理想的圖片。  Imagen 4 長提示範例   提示：以街頭攝影風格拍攝一位 20 多歲女性的迷人相片。圖片應看起來像電影劇照，並帶有柔和的橘色暖色調。 |
+| Les requêtes courtes vous permettent de générer rapidement une image.  Exemple de requête courte Imagen 4   Requête : photo en gros plan d'une femme d'une vingtaine d'années, photographie de rue, film, tons chauds orange atténués | Les requêtes plus longues vous permettent d'ajouter des détails spécifiques et de créer votre image.  Exemple de requête longue Imagen 4   Requête : photo captivante d'une femme d'une vingtaine d'années dans le style de la photographie de rue. L'image doit ressembler à une capture d'écran d'un film avec des tons chauds orange atténués. |
 
-撰寫 Imagen 提示的其他建議：
+Conseils supplémentaires pour rédiger des requêtes Imagen :
 
-- **使用描述性語言**：使用詳細的形容詞和副詞，為 Imagen 描繪清晰的圖像。
-- **提供背景資訊**：視需要提供背景資訊，協助 AI 瞭解內容。
-- **參考特定藝人或風格**：如果心中已有特定美學，參考特定藝人或藝術運動會很有幫助。
-- **使用提示工程工具**：考慮探索提示工程工具或資源，協助您修正提示並獲得最佳結果。
-- **強化個人和團體相片中的臉部細節**：將臉部細節指定為相片的焦點 (例如在提示中使用「肖像」一詞)。
+- **Utilisez un langage descriptif** : employez des adjectifs et des adverbes détaillés pour donner une image claire à Imagen.
+- **Fournissez du contexte** : si nécessaire, incluez des informations générales pour aider l'IA à comprendre.
+- **Faites référence à des artistes ou à des styles spécifiques** : si vous avez une esthétique particulière en tête, il peut être utile de faire référence à des artistes ou à des mouvements artistiques spécifiques.
+- **Utilisez des outils de prompt engineering** : envisagez d'explorer les outils ou ressources de prompt engineering pour vous aider à affiner vos prompts et à obtenir des résultats optimaux.
+- **Améliorer les détails du visage dans vos photos personnelles et de groupe** : spécifiez les détails du visage comme point focal de la photo (par exemple, utilisez le mot "portrait" dans la requête).
 
-### 生成圖片中的文字
+### Générer du texte dans des images
 
-Imagen 模型可以在圖片中加入文字，開創更多創意圖像生成可能性。請參閱下列指引，充分運用這項功能：
+Les modèles Imagen peuvent ajouter du texte dans les images, ce qui ouvre de nouvelles possibilités de génération d'images créatives. Suivez les conseils ci-dessous pour exploiter pleinement cette fonctionnalité :
 
-- **放心反覆生成**：您可能需要多次重新生成圖片，直到獲得滿意的結果為止。Imagen 的文字整合功能仍在發展中，有時多試幾次才能獲得最佳結果。
-- **簡短扼要**：文字長度應限制在 25 個字元以內，才能獲得最佳生成結果。
-- **多個詞組**：嘗試使用兩到三個不同的詞組，提供額外資訊。為求簡潔，請避免使用超過三個片語。
+- **Itérez en toute confiance** : vous devrez peut-être régénérer des images jusqu'à obtenir le résultat souhaité. L'intégration de texte d'Imagen est encore en cours de développement. Parfois, plusieurs tentatives sont nécessaires pour obtenir les meilleurs résultats.
+- **Soyez bref** : limitez le texte à 25 caractères maximum pour une génération optimale.
+- **Plusieurs expressions** : testez deux ou trois expressions distinctes pour fournir des informations supplémentaires. Évitez de dépasser trois expressions pour des compositions plus claires.
 
-  ![Imagen 4 生成文字範例](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=zh-tw)
+  ![Exemple de génération de texte Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=fr)
 
-  提示詞：海報，標題為粗體字「Summerland」，下方是宣傳標語「Summer never felt so good」
-- **文字位置**：Imagen 會盡量按照指示放置文字，但有時可能會出現變化。這項功能會持續改善。
-- **字型樣式**：指定一般字型樣式，稍微影響 Imagen 的選擇。請勿期待完全複製字型，但可期待創意詮釋。
-- **字型大小**：指定字型大小或一般大小 (例如*小*、*中*、*大*)，影響字型大小的生成。
+  Requête : une affiche avec le texte "Summerland" en gras comme titre, et en dessous le slogan "L'été n'a jamais été aussi agréable"
+- **Emplacement du texte** : bien qu'Imagen puisse tenter de positionner le texte comme indiqué, attendez-vous à des variations occasionnelles. Cette fonctionnalité est en constante amélioration.
+- **Style de police "Inspirer"** : spécifiez un style de police général pour influencer subtilement les choix d'Imagen. Ne vous attendez pas à une réplication précise des polices, mais plutôt à des interprétations créatives.
+- **Taille de la police** : spécifiez une taille de police ou une indication générale de la taille (par exemple, *petite*, *moyenne*, *grande*) pour influencer la génération de la taille de la police.
 
-### 提示參數化
+### Paramétrage des prompts
 
-如要進一步控制輸出結果，您可能會發現將輸入內容參數化為 Imagen 很有幫助。舉例來說，假設您希望顧客能為自己的商家生成標誌，並確保標誌一律以純色背景生成，您也想限制用戶端可從選單中選取的選項。
+Pour mieux contrôler les résultats, il peut être utile de paramétrer les entrées dans Imagen. Par exemple, supposons que vous souhaitiez que vos clients puissent générer des logos pour leur entreprise et que vous souhaitiez vous assurer que les logos sont toujours générés sur un fond de couleur unie. Vous souhaitez également limiter les options que le client peut sélectionner dans un menu.
 
-在本例中，您可以建立類似下列的參數化提示：
+Dans cet exemple, vous pouvez créer une requête paramétrée semblable à celle-ci :
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-在自訂使用者介面中，顧客可以使用選單輸入參數，而他們選擇的值會填入 Imagen 收到的提示。
+Dans votre interface utilisateur personnalisée, le client peut saisir les paramètres à l'aide d'un menu. La valeur choisie est alors insérée dans la requête qu'Imagen reçoit.
 
-例如：
+Exemple :
 
-1. 提示：`A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. Invite : `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Imagen 4 提示參數化範例 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=zh-tw)
-2. 提示：`A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Exemple de paramétrisation de requête Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=fr)
+2. Invite : `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Imagen 4 提示參數化範例 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=zh-tw)
-3. 提示：`A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Exemple de paramétrisation de requête Imagen 4 : exemple 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=fr)
+3. Invite : `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Imagen 4 提示參數化範例 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=zh-tw)
+   ![Exemple de paramétrisation de requête Imagen 4 : 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=fr)
 
-### 進階提示詞撰寫技巧
+### Techniques d'écriture de requête avancées
 
-根據攝影描述符、形狀和材質、歷史藝術運動和圖像品質修飾符等屬性，使用下列範例建立更具體的提示。
+Utilisez les exemples suivants pour créer des requêtes plus spécifiques basées sur des attributs tels que les descripteurs de photo, les formes et les matériaux, les courants artistiques historiques et les modificateurs de qualité d'image.
 
-#### 攝影
+#### Photographie
 
-- 提示包含：*「一張...的相片」*
+- La requête inclut : *"Une photo de…"*
 
-如要使用這種風格，請先使用清楚告知 Imagen 你要尋找相片的關鍵字。*提示開頭為「一張<某某事物>的相片。。。"*。例如：
-
-|  |  |  |
-| --- | --- | --- |
-| 擬真範例圖片 1   提示：**廚房中木質表面上的咖啡豆相片** | 擬真範例圖片 2   提示詞：**廚房檯面上的一塊巧克力棒** | 擬真樣本圖片 3   提示：**以水為背景的現代建築相片** |
-
-圖片來源：每張圖片都是使用 Imagen 4 模型，根據對應的文字提示詞生成。
-
-##### 攝影修飾符
-
-在下列範例中，您可以看到幾個攝影專屬的修飾符和參數。您可以組合多個修飾符，以便更精確地控制。
-
-1. **相機近拍** - *近拍，從遠處拍攝*
-
-   |  |  |
-   | --- | --- |
-   | 特寫相機的範例圖片   提示：咖啡豆的**特寫**相片 | 拉遠的相機樣張   提示：在凌亂的廚房中，一小袋咖啡豆的**縮放**相片 |
-2. **攝影機位置** - *空拍、由下往上拍*
-
-   |  |  |
-   | --- | --- |
-   | 空拍相片範例圖片   提示：高樓林立的城市**空照圖** | 從下方檢視範例圖片   提示：一張森林樹冠的照片，**從下方**拍攝，背景是藍天 |
-3. **光線** - *自然、戲劇性、暖色、冷色*
-
-   |  |  |
-   | --- | --- |
-   | 自然光線範例圖片   提示：現代扶手椅的攝影棚照片，**自然光** | 戲劇性照明的範例圖片   提示：現代扶手椅的攝影棚照片，**戲劇性燈光** |
-4. **相機設定** *- 動作模糊、柔焦、散景、人像*
-
-   |  |  |
-   | --- | --- |
-   | 動態模糊範例圖片   提示：從車內拍攝城市和摩天大樓的相片，並加上**動態模糊**效果 | 柔焦範例圖片   提示：夜晚城市中橋梁的**柔焦**相片 |
-5. **鏡頭類型** - *35 公釐、50 公釐、魚眼、廣角、微距*
-
-   |  |  |
-   | --- | --- |
-   | 微距鏡頭的範例圖片   提示：葉子的相片，**微距鏡頭** | 魚眼鏡頭範例圖片   提示：街頭攝影、紐約市、**魚眼鏡頭** |
-6. **底片類型** - *黑白、拍立得*
-
-   |  |  |
-   | --- | --- |
-   | 拍立得相片範例圖片   提示：戴著太陽眼鏡的小狗的**拍立得肖像照** | 黑白相片範例圖片   提示：戴太陽眼鏡的狗的**黑白照片** |
-
-圖片來源：每張圖片都是使用 Imagen 4 模型，根據對應的文字提示詞生成。
-
-### 插畫和藝術
-
-- 提示包含：「painting」*"A painting of..."*、「A sketch of...」
-
-藝術風格從鉛筆素描等單色風格，到超寫實數位藝術都有。舉例來說，下列圖片使用相同提示，但風格不同：
-
-*「背景為摩天大樓的運動風電動斜背轎車」*[art style or creation technique]
+Pour utiliser ce style, commencez par utiliser des mots clés qui indiquent clairement à Imagen que vous souhaitez obtenir une photographie. Start your prompts with
+*"A photo of. . ."*. Par exemple :
 
 |  |  |  |
 | --- | --- | --- |
-| 藝術範例圖片   提示詞：以**技術鉛筆繪製**一個有稜有角的... | 藝術範例圖片   提示詞：以**炭筆繪製**一個有稜有角的... | 藝術範例圖片   提示詞：以**彩色鉛筆繪製**一個有稜有角的... |
+| exemple d&#39;image photoréaliste 1   Requête : **Une photo de** grains de café dans une cuisine sur une surface en bois | exemple d&#39;image photoréaliste 2   Requête: **Une photo** d'une barre de chocolat sur un plan de travail | exemple d&#39;image photoréaliste 3   Requête : **Une photo de** bâtiment moderne avec de l'eau en arrière-plan |
+
+Source de l'image : chaque image a été générée à l'aide de la requête textuelle correspondante avec le modèle Imagen 4.
+
+##### Modificateurs de photo
+
+Dans les exemples ci-dessous, vous pouvez voir plusieurs modificateurs et paramètres spécifiques à la photographie. Vous pouvez combiner plusieurs modificateurs pour un contrôle plus précis.
+
+1. **Proximité de l'appareil** : *gros plan, plan large*
+
+   |  |  |
+   | --- | --- |
+   | exemple d&#39;image de gros plan   Requête : Une photo **en gros plan** de grains de café | exemple d&#39;image de plan large   Requête : Une photo **en plan large** d'un petit sac de  grains de café dans une cuisine en désordre |
+2. **Position de l'appareil** : *vue aérienne, vue de dessous*
+
+   |  |  |
+   | --- | --- |
+   | exemple de photo en vue aérienne   Requête : **photo aérienne** d'une ville urbaine avec des gratte-ciel | exemple d&#39;image en vue de dessous   Requête : Photo d'une canopée de forêt avec un ciel bleu en **vue de dessous** |
+3. **Éclairage** : *naturel, spectaculaire, chaud, froid*
+
+   |  |  |
+   | --- | --- |
+   | exemple d&#39;image avec éclairage naturel   Requête : photo en studio d'un fauteuil moderne, **éclairage naturel** | exemple d&#39;image avec éclairage spectaculaire   Requête : photo en studio d'un fauteuil moderne, **éclairage spectaculaire** |
+4. **Paramètres de l'appareil** : *flou de mouvement, flou artistique, bokeh, portrait*
+
+   |  |  |
+   | --- | --- |
+   | exemple d&#39;image avec flou de mouvement   Requête : photo d'une ville avec des gratte-ciel à l'intérieur d'une voiture avec **floutage du mouvement** | exemple d&#39;image avec flou artistique   Requête : photo avec **flou artistique** d'un pont dans une ville urbaine de nuit |
+5. **Types d'objectifs** : *35 mm, 50 mm, fisheye, grand angle, macro*
+
+   |  |  |
+   | --- | --- |
+   | exemple d&#39;image avec objectif macro   Requête : photo de feuille, **objectif macro** | exemple d&#39;image avec objectif fisheye   Requête : photographie de rue, New York, **objectif fisheye** |
+6. **Types de pellicule** : *noir et blanc, polaroid*
+
+   |  |  |
+   | --- | --- |
+   | exemple d&#39;image de photo polaroid   Requête : un **portrait polaroid** d'un chien portant des lunettes de soleil | exemple d&#39;image de photo en noir et blanc   Requête : **photo en noir et blanc** d'un chien portant des lunettes de soleil |
+
+Source de l'image : chaque image a été générée à l'aide de la requête textuelle correspondante avec le modèle Imagen 4.
+
+### Illustration et art
+
+- La requête inclut : *"Une painting de…"*, *"Une sketch de…"*
+
+Les styles artistiques vont des styles monochromes tels que les esquisses au crayon à l'art numérique hyperréaliste. Par exemple, les images suivantes utilisent la même requête avec différents styles :
+
+*"Une [art style or creation technique] d'une berline électrique angulaire avec des gratte-ciel en arrière-plan"*
 
 |  |  |  |
 | --- | --- | --- |
-| 藝術範例圖片   提示：以**粉彩畫**風格繪製一個有稜有角的... | 藝術範例圖片   提示：以**數位藝術**風格繪製... | 藝術範例圖片   提示：以**裝飾藝術風格 (海報)**呈現尖角... |
-
-圖片來源：每張圖片都是使用 Imagen 2 模型，根據對應的文字提示詞生成。
-
-##### 形狀和材質
-
-- 提示包含：*「...製成...」*、*「...形狀...」*
-
-這項技術的優勢之一，就是能製作出原本難以或無法實現的圖像。舉例來說，你可以用不同材質和紋理重新製作公司標誌。
+| exemples d&#39;images artistiques   Requête : Un **dessin technique au crayon** d'une berline… | exemples d&#39;images artistiques   Requête : Un **dessin au fusain** d'une berline… | exemples d&#39;images artistiques   Requête : Un **dessin au crayon de couleur** d'une berline… |
 
 |  |  |  |
 | --- | --- | --- |
-| 形狀和材質範例圖片 1   提示：用起司**製成**的行李袋 | 形狀和材質範例圖片 2   提示：霓虹燈管，形狀為鳥類 | 形狀和材質範例圖片 3   提示詞：紙製扶手椅，工作室照片，摺紙風格 |
+| exemples d&#39;images artistiques   Requête : Une **peinture au pastel** d'une berline… | exemples d&#39;images artistiques   Requête : Un **rendu numérique** d'une berline… | exemples d&#39;images artistiques   Requête : Une **affiche art déco** d'une berline… |
 
-圖片來源：每張圖片都是使用 Imagen 4 模型，根據對應的文字提示詞生成。
+Source de l'image : chaque image a été générée à l'aide de la requête textuelle correspondante avec le modèle Imagen 2.
 
-#### 歷史藝術參考資料
+##### Formes et matériaux
 
-- 提示包含：*「...的風格...」*
+- La requête inclut : *"…fait en…"*, *"…en forme de…"*
 
-多年來，某些風格已成為經典。以下提供一些歷史繪畫或藝術風格的構想，供您參考。
-
-「以[art period or movement]
-的風格生成風力發電廠的圖片」
+L'un des points forts de cette technologie est que vous pouvez créer des images qui seraient autrement difficiles voire impossibles à obtenir. Par exemple, vous pouvez recréer le logo de votre entreprise dans différents matériaux et textures.
 
 |  |  |  |
 | --- | --- | --- |
-| 印象主義範例圖片   提示詞：生成圖片***印象派繪畫*風格**：風力發電廠 | 文藝復興範例圖片   提示：生成圖片***文藝復興繪畫***風格的圖像：風力發電廠 | 普普藝術範例圖片   提示：生成圖片***普普藝術*風格的**：風力發電廠 |
+| image d&#39;exemple de formes et matériaux 1   Requête : un sac de sport **fait en** fromage | image d&#39;exemple de formes et matériaux 2   Requête : tubes néons **en forme** d'oiseau | image d&#39;exemple de formes et matériaux 3   Requête : un fauteuil **fait en papier**, photo en studio, style origami |
 
-圖片來源：每張圖片都是使用 Imagen 4 模型，根據對應的文字提示詞生成。
+Source de l'image : chaque image a été générée à l'aide de la requête textuelle correspondante avec le modèle Imagen 4.
 
-#### 圖片品質修飾符
+#### Références artistiques historiques
 
-某些關鍵字可讓模型瞭解您要尋找高品質素材資源。品質修飾符的範例如下：
+- La requête inclut : *"…dans le style de…"*
 
-- **一般修飾符** - *高品質、美麗、風格化*
-- **相片** - *4K、HDR、攝影棚相片*
-- **藝術、插畫** - *由專業人士繪製，細緻*
+Certains styles sont devenus iconiques au fil des années. Voici quelques idées de styles artistiques ou de peinture que vous pouvez essayer.
 
-以下列舉幾個範例，說明沒有品質修飾符的提示，以及含有品質修飾符的相同提示。
+*"génère une image dans le style de [art period or movement]
+ : une ferme éolienne"*
+
+|  |  |  |
+| --- | --- | --- |
+| *Exemple d&#39;image de style impressionniste   Requête : génère une image **dans le style d'un tableau impressionniste**   : une ferme éolienne* | *Exemple d&#39;image de style renaissance   Requête : génère une image **dans le style d'un tableau de la Renaissance**   : une ferme éolienne* | *Exemple d&#39;image de style pop-art   Requête : génère une image **dans le style pop art**   : une ferme éolienne* |
+
+Source de l'image : chaque image a été générée à l'aide de la requête textuelle correspondante avec le modèle Imagen 4.
+
+#### Modificateurs de qualité d'image
+
+Certains mots clés peuvent indiquer au modèle que vous recherchez un élément de haute qualité. Voici quelques exemples de modificateurs de qualité :
+
+- **Modificateurs généraux** : *de haute qualité, agréable, stylisé*
+- **Photos** : *4K, HDR, photo studio*
+- **Art, iIlustration** : *professionnel, détaillé*
+
+Voici quelques exemples de requêtes utilisées avec et sans modificateurs de qualité.
 
 |  |  |
 | --- | --- |
-| 不含修飾符的玉米範例圖片   提示詞 (無品質修飾符)：玉米桿的相片 | 玉米範例圖片 (附帶修飾符)   提示 (含品質修飾符)：**4k HDR beautiful**   photo of a corn stalk **taken by a   professional photographer** |
+| exemple d&#39;image de maïs sans modificateurs   Requête (aucun modificateur de qualité) : photo d'un pied de maïs | exemple d&#39;image de maïs avec modificateurs   Requête (avec modificateurs de qualité) : **image 4K HDR**   d'un pied de maïs **prise par un   photographe professionnel** |
 
-圖片來源：每張圖片都是使用 Imagen 4 模型，根據對應的文字提示詞生成。
+Source de l'image : chaque image a été générée à l'aide de la requête textuelle correspondante avec le modèle Imagen 4.
 
-#### 顯示比例
+#### Formats
 
-Imagen 圖像生成功能可讓你設定五種不同的圖像顯示比例。
+La génération d'images Imagen vous permet de définir cinq formats d'image distincts.
 
-1. **正方形** (1:1，預設) - 標準正方形相片。這個長寬比的常見用途包括社群媒體貼文。
-2. **全螢幕** (4:3) - 媒體或電影通常會使用這個顯示比例。這也是大多數舊型 (非寬螢幕) 電視和中片幅相機的尺寸。相較於 1:1，16:9 可橫向捕捉更多場景，因此是攝影的首選長寬比。
-
-   |  |  |
-   | --- | --- |
-   | 顯示比例範例   提示：音樂家彈奏鋼琴的手指特寫、黑白電影、復古 (4:3 長寬比) | 顯示比例範例   提示：為高級餐廳拍攝的薯條專業棚內照片，風格類似美食雜誌 (4:3 長寬比) |
-3. **直向全螢幕** (3:4)：這是旋轉 90 度的全螢幕顯示比例。與 1:1 顯示比例相比，這項功能可垂直擷取更多場景。
+1. **Carré** (1:1, par défaut) : photo carrée standard. Les utilisations courantes de ce format incluent les publications sur les réseaux sociaux.
+2. **Plein écran** (4:3) : ce format est couramment utilisé dans les médias ou les films.
+   Il correspond également aux dimensions de la plupart des anciens téléviseurs (non panoramiques) et des appareils photo de format moyen. Il capture une plus grande partie de la scène horizontalement (comparé au format 1:1), ce qui en fait le format préféré pour la photographie.
 
    |  |  |
    | --- | --- |
-   | 顯示比例範例   提示：一名女子在健行，水窪中映照出她的靴子，背景是高山，風格類似廣告，角度誇張 (3:4 長寬比) | 顯示比例範例   提示：空拍圖，一條河流流經神秘山谷 (顯示比例 3:4) |
-4. **寬螢幕** (16:9) - 這個比例已取代 4:3，現在是電視、螢幕和手機螢幕 (橫向) 最常見的顯示比例。如要拍攝更多背景 (例如風景)，請使用這個顯示比例。
+   | Exemple de format   Requête : gros plan des doigts d'un Musicien qui jouent du piano, film en noir et blanc, rétro (format 4:3) | Exemple de format   Requête : Photo professionnelle en studio de frites pour un restaurant haut de gamme, dans le style d'un magazine de cuisine (format 4:3) |
+3. **Portrait plein écran** (3:4) : il s'agit du format plein écran ayant une rotation de 90 degrés. Cela permet de capturer une plus grande partie de la scène verticalement par rapport au format 1:1.
 
-   ![顯示比例範例](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=zh-tw)
+   |  |  |
+   | --- | --- |
+   | Exemple de format   Requête : une femme faisant une randonnée, près de ses bottes, le reflet dans une flaque de grandes montagnes en arrière-plan, dans le style d'une publicité, angles spectaculaires (format 3:4) | Exemple de format   Requête : plan en vue aérienne d'une rivière s'écoulant dans une montagne mystique (format 3:4) |
+4. **Écran large** (16:9) : ce format a remplacé le format 4:3 et est désormais le format le plus courant pour les téléviseurs, les écrans d'ordinateur et les écrans de téléphones mobiles (paysage).
+   Utilisez ce format lorsque vous souhaitez inclure plus d'arrière-plan (par exemple, des paysages).
 
-   提示：一名男子穿著全白服裝坐在海灘上，特寫鏡頭，黃金時刻光線 (顯示比例 16:9)
-5. **直向** (9:16)：這個比例是寬螢幕，但經過旋轉。這是相對較新的長寬比，因短片應用程式 (例如 YouTube Shorts) 而廣為人知。適用於高聳的物件，例如建築物、樹木、瀑布或其他類似物件。
+   ![Exemple de format](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=fr)
 
-   ![顯示比例範例](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=zh-tw)
+   Requête : un homme portant des vêtements blancs, assis sur la plage, en gros plan, un éclairage de l'heure dorée (format 16:9)
+5. **Portrait** (9:16) : il s'agit d'un format grand écran, mais pivoté. Il s'agit d'un format relativement nouveau qui est rendu populaire par les applications vidéo courtes (par exemple, les Shorts YouTube). Utilisez ce format pour les éléments élevés ayant une orientation verticale marquée, tels que les bâtiments, les arbres, les cascades ou d'autres éléments similaires.
 
-   提示詞：巨大的現代摩天大樓數位算繪圖，宏偉壯觀，背景是美麗的日落 (顯示比例 9:16)
+   ![Exemple de format](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=fr)
 
-#### 逼真圖像
+   Requête : rendu numérique d'un gratte-ciel massif, moderne, grand et épique avec un magnifique coucher de soleil en arrière-plan (format 9:16)
 
-不同版本的圖像生成模型可能會提供藝術風格和寫實風格的輸出內容。在提示中使用下列字詞，根據要生成的主題，生成更擬真的輸出內容。
+#### Images photoréalistes
 
-| 用途 | 鏡頭類型 | 焦距 | 其他詳細資訊 |
+Différentes versions du modèle de génération d'images peuvent offrir une combinaison de sorties artistiques et photoréalistes. Utilisez les mots suivants dans vos requêtes pour générer un résultat plus réaliste en fonction du sujet que vous souhaitez générer.
+
+| Cas d'utilisation | Type d'objectif | Longueurs focales | Informations supplémentaires |
 | --- | --- | --- | --- |
-| 人物 (肖像) | Prime、Zoom | 24-35mm | 黑白電影、黑色電影、景深、雙色調 (提及兩種顏色) |
-| 食物、昆蟲、植物 (物體、靜物) | 巨集 | 60-105mm | 細節豐富、精準對焦、光線受控 |
-| 運動、野生動物 (動作) | 望遠變焦 | 100-400mm | 快門速度快、追蹤動作或移動 |
-| 天文、風景 (廣角) | 廣角 | 10-24mm | 長時間曝光、清晰對焦、長時間曝光、平滑的水面或雲朵 |
+| Personnes (Portraits) | Primaire, zoom | 24-35 mm | Pellicule noir et blanc, Film noir, Profondeur de champ, Bichromie (mentionnez les noms de deux couleurs) |
+| Aliment, insectes, plantes (objets, nature morte) | Macro | 60-105 mm | Niveau de détail élevé, mise au point précise, éclairage contrôlé |
+| Sport, faune (mouvement) | Téléobjectif | 100-400 mm | Vitesse d'obturation rapide, Action ou suivi des mouvements |
+| Astronomique, paysage (grand angle) | Grand angle | 10-24 mm | Durées d'exposition longues, mise au point nette, longue exposition, eau ou nuages fluides |
 
-##### 人像
+##### Portraits
 
-| 用途 | 鏡頭類型 | 焦距 | 其他詳細資訊 |
+| Cas d'utilisation | Type d'objectif | Longueurs focales | Informations supplémentaires |
 | --- | --- | --- | --- |
-| 人物 (肖像) | Prime、Zoom | 24-35mm | 黑白電影、黑色電影、景深、雙色調 (提及兩種顏色) |
+| Personnes (Portraits) | Primaire, zoom | 24-35 mm | Pellicule noir et blanc, Film noir, Profondeur de champ, Bichromie (mentionnez les noms de deux couleurs) |
 
-Imagen 可使用表格中的多個關鍵字，生成下列肖像：
+Avec plusieurs mots clés du tableau, Imagen peut générer les portraits suivants :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 肖像攝影範例 | 肖像攝影範例 | 肖像攝影範例 | 肖像攝影範例 |
+| exemple de portrait photographique | exemple de portrait photographique | exemple de portrait photographique | exemple de portrait photographique |
 
-提示：*一位女性，35 公釐肖像，藍色和灰色雙色調*  
-模型：`imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| 肖像攝影範例 | 肖像攝影範例 | 肖像攝影範例 | 肖像攝影範例 |
-
-提示詞：*A woman, 35mm portrait, film noir*  
-模型：`imagen-4.0-generate-001`
-
-##### 物件
-
-| 用途 | 鏡頭類型 | 焦距 | 其他詳細資訊 |
-| --- | --- | --- | --- |
-| 食物、昆蟲、植物 (物體、靜物) | 巨集 | 60-105mm | 細節豐富、精準對焦、光線受控 |
-
-使用表格中的幾個關鍵字，Imagen 可以生成下列物件圖片：
+Requête : *Femme, portrait en 35 mm, bichromie bleu et gris*  
+Modèle : `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 物件攝影範例 | 物件攝影範例 | 物件攝影範例 | 物件攝影範例 |
+| exemple de portrait photographique | exemple de portrait photographique | exemple de portrait photographique | exemple de portrait photographique |
 
-提示：*leaf of a prayer plant, macro lens, 60mm*  
-模型：`imagen-4.0-generate-001`
+Requête : *Femme, portrait en 35 mm, film noir*  
+Modèle : `imagen-4.0-generate-001`
+
+##### Objets
+
+| Cas d'utilisation | Type d'objectif | Longueurs focales | Informations supplémentaires |
+| --- | --- | --- | --- |
+| Aliment, insectes, plantes (objets, nature morte) | Macro | 60-105 mm | Niveau de détail élevé, mise au point précise, éclairage contrôlé |
+
+Avec plusieurs mots clés du tableau, Imagen peut générer les images d'objets suivantes :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 物件攝影範例 | 物件攝影範例 | 物件攝影範例 | 物件攝影範例 |
+| exemple de photographie d&#39;objet | exemple de photographie d&#39;objet | exemple de photographie d&#39;objet | exemple de photographie d&#39;objet |
 
-提示：*一盤義大利麵，100 公釐微距鏡頭*  
-模型：`imagen-4.0-generate-001`
-
-##### 動作
-
-| 用途 | 鏡頭類型 | 焦距 | 其他詳細資訊 |
-| --- | --- | --- | --- |
-| 運動、野生動物 (動作) | 望遠變焦 | 100-400mm | 快門速度快、追蹤動作或移動 |
-
-使用表格中的幾個關鍵字，Imagen 可以生成下列動態圖片：
+Requête : *feuille de maranta, objectif macro, 60 mm*  
+Modèle : `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 動態攝影範例 | 動態攝影範例 | 動態攝影範例 | 動態攝影範例 |
+| exemple de photographie d&#39;objet | exemple de photographie d&#39;objet | exemple de photographie d&#39;objet | exemple de photographie d&#39;objet |
 
-提示：*接球達陣、快速快門速度、動作追蹤*  
-模型：`imagen-4.0-generate-001`
+Requête : *Assiette de pâtes, Objectif macro de 100 mm*  
+Modèle : `imagen-4.0-generate-001`
+
+##### Mouvement
+
+| Cas d'utilisation | Type d'objectif | Longueurs focales | Informations supplémentaires |
+| --- | --- | --- | --- |
+| Sport, faune (mouvement) | Téléobjectif | 100-400 mm | Vitesse d'obturation rapide, Action ou suivi des mouvements |
+
+Avec plusieurs mots clés du tableau, Imagen peut générer les images de mouvement suivantes :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 動態攝影範例 | 動態攝影範例 | 動態攝影範例 | 動態攝影範例 |
+| exemple de photographie de mouvement | exemple de photographie de mouvement | exemple de photographie de mouvement | exemple de photographie de mouvement |
 
-提示：*森林中奔跑的鹿，快門速度快，追蹤動作*  
-模型：`imagen-4.0-generate-001`
-
-##### 廣角
-
-| 用途 | 鏡頭類型 | 焦距 | 其他詳細資訊 |
-| --- | --- | --- | --- |
-| 天文、風景 (廣角) | 廣角 | 10-24mm | 長時間曝光、清晰對焦、長時間曝光、平滑的水面或雲朵 |
-
-使用表格中的幾個關鍵字，Imagen 可以生成下列廣角圖像：
+Requête : *Un "touchdown" victorieux, vitesse d'obturation rapide, suivi des mouvements*  
+Modèle : `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 廣角拍攝範例 | 廣角拍攝範例 | 廣角拍攝範例 | 廣角拍攝範例 |
+| exemple de photographie de mouvement | exemple de photographie de mouvement | exemple de photographie de mouvement | exemple de photographie de mouvement |
 
-提示：*廣闊的山脈，風景廣角 10 公釐*  
-模型：`imagen-4.0-generate-001`
+Requête : *Cerf courant dans la forêt, vitesse d'obturation rapide, suivi des mouvements*  
+Modèle : `imagen-4.0-generate-001`
+
+##### Grand angle
+
+| Cas d'utilisation | Type d'objectif | Longueurs focales | Informations supplémentaires |
+| --- | --- | --- | --- |
+| Astronomique, paysage (grand angle) | Grand angle | 10-24 mm | Durées d'exposition longues, mise au point nette, longue exposition, eau ou nuages fluides |
+
+Avec plusieurs mots clés du tableau, Imagen peut générer les images grand angle suivantes :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| 廣角拍攝範例 | 廣角拍攝範例 | 廣角拍攝範例 | 廣角拍攝範例 |
+| exemple de photographie grand angle | exemple de photographie grand angle | exemple de photographie grand angle | exemple de photographie grand angle |
 
-提示：*月亮相片，天文攝影，10 公釐廣角*  
-模型：`imagen-4.0-generate-001`
+Requête : *Une chaîne de montagnes très large, paysage grand angle de 10 mm*  
+Modèle : `imagen-4.0-generate-001`
 
-## 模型版本
+|  |  |  |  |
+| --- | --- | --- | --- |
+| exemple de photographie grand angle | exemple de photographie grand angle | exemple de photographie grand angle | exemple de photographie grand angle |
 
-### Imagen 4
+Requête : *une photo de la lune, astrophotographie, grand angle de 10 mm*  
+Modèle : `imagen-4.0-generate-001`
 
-| 屬性 | 說明 |
+## Versions de modèle
+
+### Imagen 4
+
+| Propriété | Description |
 | --- | --- |
-| id\_card 模型代碼 | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| save支援的資料類型 | **輸入功率**  文字  **輸出內容**  圖片 |
-| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  480 個符記 (文字)  **輸出圖片**  1 到 4 (Ultra/Standard/Fast) |
-| calendar\_month最新更新 | 2025 年 6 月 |
+| Code du modèle id\_card | **API Gemini**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| Types de données acceptés pour save | **Entrée**  Texte  **Résultat**  Images |
+| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  480 jetons (texte)  **Images de sortie**  1 à 4 (Ultra/Standard/Rapide) |
+| calendar\_monthDernière mise à jour | Juin 2025 |
 
-### Imagen 3
+### Imagen 3
 
-Imagen 3 模型已[關閉](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-tw)。
+Le modèle Imagen 3 a été [arrêté](https://ai.google.dev/gemini-api/docs/deprecations?hl=fr).
 
-提供意見
+Envoyer des commentaires
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-上次更新時間：2026-04-29 (世界標準時間)。
+Dernière mise à jour le 2026/05/13 (UTC).
 
-想進一步說明嗎？
+Voulez-vous nous donner plus d'informations ?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/13 (UTC)."],[],[]]

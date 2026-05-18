@@ -1,43 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=th
-fetched_at: 2026-05-11T12:37:15.602010+00:00
-title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e1e\u0e25\u0e07\u0e41\u0e1a\u0e1a\u0e40\u0e23\u0e35\u0e22\u0e25\u0e44\u0e17\u0e21\u0e4c\u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ar
+fetched_at: 2026-05-18T13:11:21.514297+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u0627\u0644\u0645\u0648\u0633\u064a\u0642\u0649 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-ส่งความคิดเห็น
+إرسال ملاحظات
 
-# การสร้างเพลงแบบเรียลไทม์โดยใช้ Lyria RealTime
+# إنشاء الموسيقى في الوقت الفعلي باستخدام Lyria RealTime
 
-Gemini API ซึ่งใช้ [Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=th)
-ช่วยให้เข้าถึงโมเดลการสร้างเพลงแบบสตรีมมิงแบบเรียลไทม์ที่ล้ำสมัย
-โดยช่วยให้นักพัฒนาแอปสร้างแอปพลิเคชันที่ผู้ใช้
-สามารถสร้างแบบอินเทอร์แอกทีฟ ควบคุมอย่างต่อเนื่อง และเล่นดนตรี
-บรรเลงได้
+تتيح Gemini API، باستخدام
+[Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=ar)،
+الوصول إلى نموذج متطوّر لإنشاء الموسيقى
+عبر البث في الوقت الفعلي. تتيح للمطوّرين إنشاء تطبيقات يمكن للمستخدمين من خلالها إنشاء موسيقى آلية بشكل تفاعلي وتوجيهها باستمرار وتشغيلها.
 
-การสร้างเพลงแบบเรียลไทม์ของ Lyria ใช้การเชื่อมต่อสตรีมมิงแบบ 2 ทิศทางที่มีความหน่วงต่ำอย่างต่อเนื่องโดยใช้ [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
+تستخدم ميزة "إنشاء الموسيقى في الوقت الفعلي" من Lyria اتصالاً دائمًا وثنائي الاتجاه للبث وبزمن استجابة منخفض باستخدام [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
 
-หากต้องการสัมผัสสิ่งที่สร้างขึ้นได้โดยใช้ Lyria RealTime ให้ลองใช้ใน AI Studio โดยใช้แอป [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=th) หรือ [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=th)
+لتجربة ما يمكن إنشاؤه باستخدام Lyria RealTime، يمكنك تجربته في AI Studio باستخدام تطبيقَي [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=ar) أو [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=ar).
 
-## สร้างและควบคุมเพลง
+## إنشاء الموسيقى والتحكّم فيها
 
-Lyria RealTime ทำงานคล้ายกับ [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
-โดยใช้ WebSockets เพื่อรักษาการสื่อสารแบบเรียลไทม์กับโมเดล
+تعمل Lyria RealTime بشكل مشابه [لواجهة برمجة التطبيقات Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)،
+إذ تستخدم Websockets للحفاظ على التواصل في الوقت الفعلي مع النموذج.
 
-โค้ดต่อไปนี้แสดงวิธีสร้างเพลง
+يوضّح الرمز التالي كيفية إنشاء موسيقى:
 
 ### Python
 
-ตัวอย่างนี้จะเริ่มต้นเซสชัน Lyria RealTime โดยใช้ `client.aio.live.music.connect()` จากนั้นจะส่งข้อความแจ้งเริ่มต้นพร้อมกับ `session.set_weighted_prompts()` รวมถึงการกำหนดค่าเริ่มต้นโดยใช้ `session.set_music_generation_config` เริ่มการสร้างเพลงโดยใช้ `session.play()` และตั้งค่า `receive_audio()` เพื่อประมวลผลกลุ่มเสียงที่ได้รับ
+يهدف هذا المثال إلى تهيئة جلسة Lyria RealTime باستخدام `client.aio.live.music.connect()`، ثم إرسال طلب أولي باستخدام `session.set_weighted_prompts()` مع عملية إعداد أولية باستخدام `session.set_music_generation_config`، وبدء إنشاء الموسيقى باستخدام `session.play()`، وإعداد `receive_audio()` لمعالجة أجزاء الصوت التي يتلقّاها.
 
 ```
   import asyncio
@@ -80,11 +79,7 @@ Lyria RealTime ทำงานคล้ายกับ [Live API](https://ai.goo
 
 ### JavaScript
 
-ตัวอย่างนี้จะเริ่มต้นเซสชัน Lyria RealTime โดยใช้
-`client.live.music.connect()` จากนั้นจะส่ง
-พรอมต์เริ่มต้นพร้อมกับ `session.setWeightedPrompts()` รวมถึง
-การกำหนดค่าเริ่มต้นโดยใช้ `session.setMusicGenerationConfig` เริ่มการสร้างเพลงโดยใช้ `session.play()` และตั้งค่า
-การเรียกกลับ `onMessage` เพื่อประมวลผลกลุ่มเสียงที่ได้รับ
+يهدف هذا المثال إلى تهيئة جلسة Lyria RealTime باستخدام `client.live.music.connect()`، ثم إرسال طلب أولي باستخدام `session.setWeightedPrompts()` مع إعدادات أولية باستخدام `session.setMusicGenerationConfig`، وبدء إنشاء الموسيقى باستخدام `session.play()`، وإعداد معاودة الاتصال `onMessage` لمعالجة أجزاء الصوت التي يتم تلقّيها.
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -140,20 +135,18 @@ async function main() {
 main().catch(console.error);
 ```
 
-จากนั้นคุณสามารถใช้ `session.play()`, `session.pause()`, `session.stop()` และ
-`session.reset_context()` เพื่อเริ่ม หยุดชั่วคราว หยุด หรือรีเซ็ตเซสชัน
+يمكنك بعد ذلك استخدام `session.play()` أو `session.pause()` أو `session.stop()` أو `session.reset_context()` لبدء الجلسة أو إيقافها مؤقتًا أو إيقافها أو إعادة ضبطها.
 
-## ควบคุมเพลงแบบเรียลไทม์
+## توجيه الموسيقى في الوقت الفعلي
 
-คุณสามารถควบคุมการสร้างเพลงแบบเรียลไทม์ได้โดยส่งพรอมต์และอัปเดต
-พารามิเตอร์การสร้างแบบเรียลไทม์
+يمكنك توجيه عملية إنشاء الموسيقى في الوقت الفعلي من خلال إرسال طلبات وتعديل معلمات الإنشاء في الوقت الفعلي.
 
-### พรอมต์ Lyria RealTime
+### ‫Prompt Lyria RealTime
 
-ขณะที่ไลฟ์สดอยู่ คุณจะส่ง`WeightedPrompt`ข้อความใหม่ได้ทุกเมื่อเพื่อเปลี่ยนเพลงที่สร้างขึ้น โมเดลจะเปลี่ยนไปอย่างราบรื่นตามข้อมูลใหม่
+أثناء البث المباشر، يمكنك إرسال رسائل `WeightedPrompt` جديدة في أي وقت لتغيير الموسيقى التي تم إنشاؤها. سينتقل النموذج بسلاسة استنادًا إلى الإدخال الجديد.
 
-พรอมต์ต้องเป็นไปตามรูปแบบที่ถูกต้องโดยมี `text` (พรอมต์จริง) และ `weight` `weight` สามารถใช้ค่าใดก็ได้ยกเว้น `0` `1.0`
-มักเป็นจุดเริ่มต้นที่ดี
+يجب أن تتّبع الطلبات التنسيق الصحيح مع `text` (الطلب الفعلي) و`weight`. يمكن أن تأخذ السمة `weight` أي قيمة باستثناء `0`. `1.0`
+هي عادةً نقطة بداية جيدة.
 
 ### Python
 
@@ -180,16 +173,13 @@ main().catch(console.error);
   });
 ```
 
-โปรดทราบว่าการเปลี่ยนโมเดลอาจเกิดขึ้นอย่างกะทันหันเมื่อเปลี่ยนพรอมต์อย่างมาก
-จึงขอแนะนำให้ใช้การเฟดข้ามประเภทหนึ่งโดย
-ส่งค่าถ่วงน้ำหนักกลางไปยังโมเดล
+يُرجى العِلم أنّ عمليات الانتقال بين النماذج يمكن أن تكون مفاجئة بعض الشيء عند تغيير الطلبات بشكل كبير، لذا يُنصح بتنفيذ نوع من التلاشي التدريجي من خلال إرسال قيم وزن وسيطة إلى النموذج.
 
-### อัปเดตการกำหนดค่า
+### تعديل الإعداد
 
-คุณสามารถควบคุมการสร้างเพลงได้โดยการอัปเดตพารามิเตอร์การสร้างเพลงแบบเรียลไทม์ คุณจะอัปเดตเฉพาะพารามิเตอร์ไม่ได้ แต่ต้องตั้งค่าทั้ง
-การกำหนดค่า มิเช่นนั้นระบบจะรีเซ็ตช่องอื่นๆ กลับเป็นค่าเริ่มต้น
+يمكنك توجيه عملية إنشاء الموسيقى من خلال تعديل مَعلمات إنشاء الموسيقى في الوقت الفعلي. لا يمكنك تعديل إحدى المَعلمات فقط، بل عليك ضبط الإعدادات بأكملها، وإلا ستتم إعادة ضبط الحقول الأخرى على قيمها التلقائية.
 
-เนื่องจากการอัปเดต bpm หรือสเกลเป็นการเปลี่ยนแปลงที่รุนแรงสำหรับโมเดล คุณจึงต้องบอกให้รีเซ็ตบริบทโดยใช้ `reset_context()` เพื่อนำการกำหนดค่าใหม่มาพิจารณาด้วย การดำเนินการนี้จะไม่หยุดสตรีม แต่จะเป็นการเปลี่ยนฉากแบบฮาร์ด คุณไม่จำเป็นต้องทำสำหรับพารามิเตอร์อื่นๆ
+بما أنّ تعديل عدد نبضات القلب في الدقيقة أو المقياس هو تغيير جذري للنموذج، عليك أيضًا إخباره بإعادة ضبط السياق باستخدام `reset_context()` ليأخذ الإعداد الجديد في الاعتبار. لن يؤدي ذلك إلى إيقاف البث، ولكن سيكون الانتقال صعبًا. ليس عليك إجراء ذلك للمعلمات الأخرى.
 
 ### Python
 
@@ -219,11 +209,11 @@ main().catch(console.error);
   await session.reset_context();
 ```
 
-## คู่มือการใช้พรอมต์สำหรับ Lyria RealTime
+## دليل كتابة الطلبات في Lyria RealTime
 
-ต่อไปนี้คือรายการพรอมต์โดยสังเขปที่คุณใช้เพื่อพรอมต์ Lyria RealTime ได้
+في ما يلي قائمة غير شاملة بالطلبات التي يمكنك استخدامها لتوجيه طلب إلى Lyria RealTime:
 
-- เครื่องดนตรี: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
+- الأدوات: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
   Bagpipes, Balalaika Ensemble, Banjo, Bass Clarinet, Bongos, Boomy Bass,
   Bouzouki, Buchla Synths, Cello, Charango, Clavichord, Conga Drums,
   Didgeridoo, Dirty Synths, Djembe, Drumline, Dulcimer, Fiddle, Flamenco
@@ -234,7 +224,7 @@ main().catch(console.error);
   Guitar, Sitar, Slide Guitar, Smooth Pianos, Spacey Synths, Steel Drum, Synth
   Pads, Tabla, TR-909 Drum Machine, Trumpet, Tuba, Vibraphone, Viola Ensemble,
   Warm Acoustic Guitar, Woodwinds, ...`
-- ประเภทเพลง: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
+- نوع الموسيقى: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
   Bhangra, Bluegrass, Blues Rock, Bossa Nova, Breakbeat, Celtic Folk, Chillout,
   Chiptune, Classic Rock, Contemporary R&B, Cumbia, Deep House, Disco Funk,
   Drum & Bass, Dubstep, EDM, Electro Swing, Funk Metal, G-funk, Garage Rock,
@@ -245,131 +235,114 @@ main().catch(console.error);
   Rock, Psytrance, R&B, Reggae, Reggaeton, Renaissance Music, Salsa, Shoegaze,
   Ska, Surf Rock, Synthpop, Techno, Trance, Trap Beat, Trip Hop, Vaporwave,
   Witch house, ...`
-- อารมณ์/คำอธิบาย: `Acoustic Instruments, Ambient, Bright Tones, Chill,
+- المزاج/الوصف: `Acoustic Instruments, Ambient, Bright Tones, Chill,
   Crunchy Distortion, Danceable, Dreamy, Echo, Emotional, Ethereal Ambience,
   Experimental, Fat Beats, Funky, Glitchy Effects, Huge Drop, Live Performance,
   Lo-fi, Ominous Drone, Psychedelic, Rich Orchestration, Saturated Tones,
   Subdued Melody, Sustained Chords, Swirling Phasers, Tight Groove,
   Unsettling, Upbeat, Virtuoso, Weird Noises, ...`
 
-นี่เป็นเพียงตัวอย่างบางส่วนเท่านั้น Lyria RealTime ทำได้มากกว่านี้ ทดลอง
-กับพรอมต์ของคุณเอง
+هذه مجرّد أمثلة قليلة، إذ يمكن لـ Lyria RealTime تنفيذ المزيد من المهام. جرِّبوا
+إنشاء طلباتكم الخاصة.
 
-## แนวทางปฏิบัติแนะนำ
+## أفضل الممارسات
 
-- แอปพลิเคชันไคลเอ็นต์ต้องใช้การบัฟเฟอร์เสียงที่มีประสิทธิภาพเพื่อให้
-  การเล่นเป็นไปอย่างราบรื่น ซึ่งจะช่วยอธิบายถึงความผันผวนของเครือข่ายและความแตกต่างเล็กน้อยใน
-  เวลาในการตอบสนองของการสร้าง
-- การใช้พรอมต์อย่างมีประสิทธิภาพ
-  - สื่อความหมาย ใช้คำคุณศัพท์ที่อธิบายอารมณ์ แนวเพลง และเครื่องดนตรี
-  - ทำซ้ำและค่อยๆ ปรับเปลี่ยน แทนที่จะเปลี่ยนพรอมต์ทั้งหมด
-    ให้ลองเพิ่มหรือแก้ไของค์ประกอบเพื่อเปลี่ยนเพลงให้ราบรื่นยิ่งขึ้น
-  - ทดลองใช้ค่าถ่วงน้ำหนักใน `WeightedPrompt` เพื่อกำหนดว่าพรอมต์ใหม่จะส่งผลต่อการสร้างที่กำลังดำเนินอยู่อย่างไร
+- يجب أن تنفّذ تطبيقات العميل عملية تخزين مؤقت قوية للصوت لضمان تشغيل سلس. يساعد ذلك في احتساب تفاوتات الشبكة والاختلافات الطفيفة في وقت استجابة الإنشاء.
+- كتابة طلبات فعّالة:
+  - استخدم عبارات وصفية. استخدِم صفات تصف المزاج والنوع الموسيقي والآلات الموسيقية.
+  - كرِّر العملية ووجِّهها تدريجيًا. بدلاً من تغيير الطلب بالكامل،
+    جرِّب إضافة عناصر أو تعديلها لتغيير الموسيقى بسلاسة أكبر.
+  - جرِّب استخدام ميزة "الوزن" في `WeightedPrompt` للتأثير في مدى تأثير طلب جديد في عملية الإنشاء الجارية.
 
-## รายละเอียดทางเทคนิค
+## التفاصيل الفنية
 
-ส่วนนี้จะอธิบายรายละเอียดเกี่ยวกับวิธีใช้การสร้างเพลงด้วย Lyria RealTime
+يوضّح هذا القسم تفاصيل كيفية استخدام ميزة إنشاء الموسيقى في الوقت الفعلي من Lyria.
 
-### ข้อกำหนดเฉพาะ
+### المواصفات
 
-- รูปแบบเอาต์พุต: เสียง PCM 16 บิตแบบดิบ
-- อัตราการสุ่มตัวอย่าง: 48 kHz
-- ช่องสัญญาณ: 2 (สเตอริโอ)
+- تنسيق الإخراج: صوت PCM خام 16 بت
+- معدّل البيانات في الملف الصوتي: 48 كيلوهرتز
+- القنوات: 2 (استيريو)
 
-### การควบคุม
+### عناصر التحكّم
 
-การสร้างเพลงสามารถรับอิทธิพลแบบเรียลไทม์ได้โดยการส่งข้อความที่มีเนื้อหาต่อไปนี้
+يمكن التأثير في إنشاء الموسيقى في الوقت الفعلي من خلال إرسال رسائل تحتوي على:
 
-- `WeightedPrompt`: สตริงข้อความที่อธิบายไอเดียเพลง แนวเพลง เครื่องดนตรี
-  อารมณ์ หรือลักษณะ คุณอาจป้อนพรอมต์หลายรายการเพื่อผสมผสาน
-  อิทธิพล ดูรายละเอียดเพิ่มเติมเกี่ยวกับวิธีพรอมต์
-  Lyria RealTime ให้ได้ผลลัพธ์ดีที่สุดได้[ด้านบน](https://ai.google.dev/gemini-api/docs/:?hl=th#steer-music)
-- `MusicGenerationConfig`: การกำหนดค่าสำหรับกระบวนการสร้างเพลง
-  ซึ่งมีผลต่อลักษณะของเสียงเอาต์พุต) พารามิเตอร์
-  ประกอบด้วย
-  - `guidance`: (ลอย) ช่วง: `[0.0, 6.0]` ค่าเริ่มต้น: `4.0`
-    ควบคุมความเข้มงวดที่โมเดลปฏิบัติตามพรอมต์ คำแนะนำที่สูงขึ้น
-    จะช่วยให้ปฏิบัติตามพรอมต์ได้ดีขึ้น แต่จะทำให้การเปลี่ยนผ่านดูไม่ราบรื่น
-  - `bpm`: (int) ช่วง: `[60, 200]`
-    ตั้งค่าจังหวะต่อนาทีที่คุณต้องการสำหรับเพลงที่สร้างขึ้น คุณต้อง
-    หยุด/เล่นหรือรีเซ็ตบริบทเพื่อให้โมเดลพิจารณา
-    BPM ใหม่
-  - `density`: (ลอย) ช่วง: `[0.0, 1.0]`
-    ควบคุมความหนาแน่นของโน้ต/เสียงดนตรี ค่าที่ต่ำจะทำให้เพลงมีความเบาบางมากขึ้น
-    ส่วนค่าที่สูงจะทำให้เพลง "หนักแน่น" มากขึ้น
-  - `brightness`: (ลอย) ช่วง: `[0.0, 1.0]`
-    ปรับคุณภาพโทนสี ค่าที่สูงขึ้นจะทำให้เสียง "สว่าง" ขึ้น
-    โดยทั่วไปจะเน้นความถี่ที่สูงขึ้น
-  - `scale`: (Enum)
-    ตั้งค่าบันไดเสียง (คีย์และโหมด) สำหรับการสร้าง ใช้ค่า enum ของ [`Scale`](#scale-enum) ที่ SDK ระบุ คุณต้อง
-    หยุด/เล่นหรือรีเซ็ตบริบทเพื่อให้โมเดลพิจารณาสเกลใหม่
-  - `mute_bass`: (bool) ค่าเริ่มต้น: `False`
-    ควบคุมว่าโมเดลจะลดเสียงเบสของเอาต์พุตหรือไม่
-  - `mute_drums`: (bool) ค่าเริ่มต้น: `False`
-    ควบคุมว่าเอาต์พุตของโมเดลจะลดเสียงกลองของเอาต์พุตหรือไม่
-  - `only_bass_and_drums`: (bool) ค่าเริ่มต้น: `False`
-    บังคับให้โมเดลพยายามเอาต์พุตเฉพาะเสียงเบสและกลอง
-  - `music_generation_mode`: (Enum)
-    ระบุให้โมเดลทราบว่าควรโฟกัสที่`QUALITY` (ค่าเริ่มต้น) หรือ`DIVERSITY` ของเพลง นอกจากนี้ ยังตั้งค่าเป็น `VOCALIZATION` เพื่อให้โมเดล
-    สร้างเสียงร้องเป็นเครื่องดนตรีอีกชิ้นได้ด้วย (เพิ่มเป็นพรอมต์ใหม่)
-- `PlaybackControl`: คำสั่งเพื่อควบคุมลักษณะการเล่น เช่น เล่น หยุดชั่วคราว
-  หยุด หรือรีเซ็ตบริบท
+- `WeightedPrompt`: سلسلة نصية تصف فكرة موسيقية أو نوعًا موسيقيًا أو آلة موسيقية أو حالة مزاجية أو سمة يمكن تقديم طلبات متعدّدة لدمج التأثيرات. يمكنك الاطّلاع [أعلاه](https://ai.google.dev/gemini-api/docs/:?hl=ar#steer-music) لمعرفة المزيد من التفاصيل حول أفضل طريقة لتقديم الطلبات إلى Lyria RealTime.
+- `MusicGenerationConfig`: إعدادات عملية إنشاء الموسيقى،
+  ما يؤثر في خصائص الصوت الناتج. تشمل المَعلَمات ما يلي:
+  - ‫`guidance`: (عدد عشري) النطاق: `[0.0, 6.0]`. القيمة التلقائية: `4.0`
+    يتحكّم هذا الإعداد في مدى التزام النموذج بالطلبات. تؤدي الإرشادات الأعلى إلى تحسين الالتزام بالطلب، ولكنها تجعل عمليات الانتقال أكثر حدة.
+  - ‫`bpm`: (عدد صحيح) النطاق: `[60, 200]`
+    تضبط هذه السمة عدد النبضات في الدقيقة الذي تريده للموسيقى التي يتم إنشاؤها. يجب إيقاف/تشغيل أو إعادة ضبط السياق للنموذج الذي يأخذ في الاعتبار عدد النبضات الجديد في الدقيقة.
+  - ‫`density`: (عدد عشري) النطاق: `[0.0, 1.0]`.
+    تتحكّم هذه السمة في كثافة النوتات الموسيقية/الأصوات. تؤدي القيم المنخفضة إلى إنتاج موسيقى أقل كثافة، بينما تؤدي القيم المرتفعة إلى إنتاج موسيقى "أكثر ازدحامًا".
+  - ‫`brightness`: (عدد عشري) النطاق: `[0.0, 1.0]`.
+    تعديل جودة النغمات تنتج القيم الأعلى صوتًا "أكثر سطوعًا"، مع التركيز بشكل عام على الترددات الأعلى.
+  - ‫`scale`: (تعداد)
+    يضبط المقياس الموسيقي (المفتاح والوضع) للإنشاء. استخدِم
+    [قيم التعداد `Scale`](#scale-enum) التي توفّرها حزمة SDK. عليك إيقاف/تشغيل أو إعادة ضبط السياق الخاص بالنموذج ليأخذ في الاعتبار المقياس الجديد.
+  - ‫`mute_bass`: (bool) القيمة التلقائية: `False`.
+    تتحكّم هذه السمة في ما إذا كان النموذج يقلّل من مستوى صوت الجهير في النواتج.
+  - ‫`mute_drums`: (bool) القيمة التلقائية: `False`.
+    تتحكّم هذه السمة في ما إذا كان النموذج يقلّل من إيقاع الطبول في النتائج.
+  - ‫`only_bass_and_drums`: (bool) القيمة التلقائية: `False`.
+    توجيه النموذج لمحاولة إخراج صوت الجهير والطبول فقط
+  - ‫`music_generation_mode`: (تعداد)
+    تُعلم هذه السمة النموذج ما إذا كان عليه التركيز على `QUALITY` (القيمة التلقائية) أو
+    `DIVERSITY` من المحتوى الموسيقي. يمكن أيضًا ضبطها على `VOCALIZATION` للسماح للنموذج بإنشاء أصوات بشرية كآلة موسيقية أخرى (إضافتها كطلبات جديدة).
+- ‫`PlaybackControl`: أوامر للتحكّم في جوانب التشغيل، مثل التشغيل أو الإيقاف المؤقت أو الإيقاف أو إعادة ضبط السياق.
 
-สำหรับ `bpm`, `density`, `brightness` และ `scale` หากไม่ได้ระบุค่าไว้ โมเดลจะตัดสินใจว่าค่าใดดีที่สุดตามพรอมต์เริ่มต้นของคุณ
+بالنسبة إلى `bpm` و`density` و`brightness` و`scale`، إذا لم يتم تقديم أي قيمة، سيقرّر النموذج الخيار الأفضل وفقًا لطلباتك الأولية.
 
-นอกจากนี้ คุณยังปรับแต่งพารามิเตอร์แบบคลาสสิกอื่นๆ เช่น `temperature` (0.0 ถึง 3.0 ค่าเริ่มต้นคือ 1.1), `top_k`
-(1 ถึง 1000 ค่าเริ่มต้นคือ 40) และ `seed` (0 ถึง 2147483647 โดยระบบจะเลือกแบบสุ่ม
-โดยค่าเริ่มต้น) ได้ใน `MusicGenerationConfig`
+يمكن أيضًا تخصيص المزيد من المَعلمات التقليدية، مثل `temperature` (من 0.0 إلى 3.0، القيمة التلقائية 1.1) و`top_k` (من 1 إلى 1000، القيمة التلقائية 40) و`seed` (من 0 إلى 2,147,483,647، يتم اختيارها عشوائيًا تلقائيًا) في `MusicGenerationConfig`.
 
-#### ค่า Enum ของมาตราส่วน
+#### قيم التعداد في المقياس
 
-ค่าสเกลทั้งหมดที่โมเดลยอมรับได้มีดังนี้
+في ما يلي جميع قيم المقياس التي يمكن أن يقبلها النموذج:
 
-| ค่า enum | สเกล / คีย์ |
+| قيمة التعداد | المقياس / المفتاح |
 | --- | --- |
-| `C_MAJOR_A_MINOR` | คีย์ C เมเจอร์ / คีย์ A ไมเนอร์ |
-| `D_FLAT_MAJOR_B_FLAT_MINOR` | D♭ เมเจอร์ / B♭ ไมเนอร์ |
+| `C_MAJOR_A_MINOR` | دو الكبير / لا الصغير |
+| `D_FLAT_MAJOR_B_FLAT_MINOR` | D♭ major / B♭ minor |
 | `D_MAJOR_B_MINOR` | D major / B minor |
-| `E_FLAT_MAJOR_C_MINOR` | E♭ เมเจอร์ / C ไมเนอร์ |
-| `E_MAJOR_D_FLAT_MINOR` | อีเมเจอร์ / ซีชาร์ป/ดีแฟลตไมเนอร์ |
-| `F_MAJOR_D_MINOR` | F เมเจอร์ / D ไมเนอร์ |
-| `G_FLAT_MAJOR_E_FLAT_MINOR` | G♭ เมเจอร์ / E♭ ไมเนอร์ |
-| `G_MAJOR_E_MINOR` | G เมเจอร์ / E ไมเนอร์ |
-| `A_FLAT_MAJOR_F_MINOR` | A♭ เมเจอร์ / F ไมเนอร์ |
-| `A_MAJOR_G_FLAT_MINOR` | A เมเจอร์ / F♯/G♭ ไมเนอร์ |
-| `B_FLAT_MAJOR_G_MINOR` | B♭ เมเจอร์ / G ไมเนอร์ |
-| `B_MAJOR_A_FLAT_MINOR` | B เมเจอร์ / G♯/A♭ ไมเนอร์ |
-| `SCALE_UNSPECIFIED` | ค่าเริ่มต้น / โมเดลตัดสิน |
+| `E_FLAT_MAJOR_C_MINOR` | E♭ major / C minor |
+| `E_MAJOR_D_FLAT_MINOR` | مفتاح E الكبير / C♯/D♭ الصغير |
+| `F_MAJOR_D_MINOR` | مقام فا الكبير / مقام ري الصغير |
+| `G_FLAT_MAJOR_E_FLAT_MINOR` | G♭ major / E♭ minor |
+| `G_MAJOR_E_MINOR` | صول كبير / مي صغير |
+| `A_FLAT_MAJOR_F_MINOR` | مفتاح A♭ الكبير / مفتاح F الصغير |
+| `A_MAJOR_G_FLAT_MINOR` | لا يوجد / فا♯/صول♭ صغير |
+| `B_FLAT_MAJOR_G_MINOR` | B♭ major / G minor |
+| `B_MAJOR_A_FLAT_MINOR` | B major / G♯/A♭ minor |
+| `SCALE_UNSPECIFIED` | تلقائي / يقرّر النموذج |
 
-โมเดลนี้สามารถแนะนำโน้ตที่เล่นได้ แต่ไม่สามารถแยกแยะคีย์ที่สัมพันธ์กันได้ ดังนั้นแต่ละ Enum จึงสอดคล้องกับ
-หมายเลขเวอร์ชันหลักและเวอร์ชันย่อยที่เกี่ยวข้อง เช่น `C_MAJOR_A_MINOR` จะสอดคล้องกับคีย์สีขาวทั้งหมด
-ของเปียโน และ `F_MAJOR_D_MINOR` จะเป็นคีย์สีขาวทั้งหมด
-ยกเว้น B แฟลต
+يمكن للنموذج توجيه النوتات التي يتم تشغيلها، ولكنّه لا يميّز بين المفاتيح النسبية. وبالتالي، يتوافق كل نوع تعداد مع الرقمين النسبيين الرئيسي والثانوي. على سبيل المثال، يشير `C_MAJOR_A_MINOR` إلى جميع مفاتيح البيانو البيضاء، بينما يشير `F_MAJOR_D_MINOR` إلى جميع مفاتيح البيانو البيضاء باستثناء المفتاح B flat.
 
-### ข้อจำกัด
+### القيود
 
-- บรรเลงเท่านั้น: โมเดลจะสร้างเพลงบรรเลงเท่านั้น
-- ความปลอดภัย: ตัวกรองความปลอดภัยจะตรวจสอบพรอมต์ ระบบจะไม่สนใจพรอมต์ที่ทริกเกอร์ตัวกรอง
-  และจะเขียนคำอธิบายไว้ใน`filtered_prompt`ฟิลด์ของเอาต์พุตแทน
-- การใส่ลายน้ำ: เสียงเอาต์พุตจะมีลายน้ำเสมอเพื่อการระบุตามหลักการ[AI ที่มีความรับผิดชอบ](https://ai.google/responsibility/principles/?hl=th)
+- موسيقى فقط: ينشئ النموذج موسيقى فقط.
+- الأمان: يتم فحص الطلبات من خلال فلاتر الأمان. سيتم تجاهل الطلبات التي تؤدي إلى تشغيل الفلاتر، وفي هذه الحالة، سيتم كتابة توضيح في الحقل `filtered_prompt` في الناتج.
+- وضع العلامات المائية: يتم دائمًا وضع علامات مائية على المقاطع الصوتية الناتجة لتحديدها وفقًا لمبادئ [الذكاء الاصطناعي المسؤول](https://ai.google/responsibility/principles/?hl=ar).
 
-## ขั้นตอนถัดไป
+## الخطوات التالية
 
-- สร้างเพลงและแทร็กเสียงร้องแบบเต็มด้วย [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=th)
-- หากต้องการสร้างการสนทนาแบบหลายคนพูดโดยใช้[โมเดล TTS](https://ai.google.dev/gemini-api/docs/audio-generation?hl=th) แทนเพลง ให้ดูวิธีที่นี่
-- ดูวิธีสร้าง[รูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)หรือ[วิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)
-- แทนที่จะสร้างเพลงหรือเสียง ลองดูว่า Gemini สามารถ[ทำความเข้าใจไฟล์เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)ได้อย่างไร
-- สนทนากับ Gemini แบบเรียลไทม์โดยใช้
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
+- إنشاء أغاني كاملة ومقاطع صوتية باستخدام [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=ar)
+- بدلاً من الموسيقى، تعرَّف على كيفية إنشاء محادثة بين عدة متحدثين باستخدام [نماذج تحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/audio-generation?hl=ar).
+- تعرَّف على كيفية إنشاء [صور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) أو [فيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar).
+- بدلاً من إنشاء موسيقى أو محتوى صوتي، تعرَّف على كيفية
+  [فهم Gemini للملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar).
+- إجراء محادثة فورية مع Gemini باستخدام
+  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)
 
-ดูตัวอย่างโค้ดและบทแนะนำเพิ่มเติมได้ใน[ตำราอาหาร](https://github.com/google-gemini/cookbook)
+يمكنك استكشاف [كتاب الطبخ](https://github.com/google-gemini/cookbook) للحصول على المزيد من الأمثلة والبرامج التعليمية حول الرموز البرمجية.
 
-ส่งความคิดเห็น
+إرسال ملاحظات
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-อัปเดตล่าสุด 2026-04-29 UTC
+تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

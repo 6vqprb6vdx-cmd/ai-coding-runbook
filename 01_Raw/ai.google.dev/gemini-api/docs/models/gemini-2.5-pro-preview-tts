@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=he
-fetched_at: 2026-05-11T12:34:07.178559+00:00
-title: "\u05d4\u05de\u05e8\u05ea \u05d8\u05e7\u05e1\u05d8 \u05dc\u05d3\u05d9\u05d1\u05d5\u05e8 \u05d1-Gemini 2.5 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=pt-BR
+fetched_at: 2026-05-18T13:07:03.959357+00:00
+title: "Convers\u00e3o de texto em voz do Gemini 2.5 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-שליחת משוב
+Envie comentários
 
-# המרת טקסט לדיבור ב-Gemini 2.5 Pro
+# Conversão de texto em voz do Gemini 2.5 Pro
 
-מנוע פרימיום לסינתזת דיבור באיכות סטודיו, שמציע נאמנות גבוהה למקור ויצירת אודיו מתוחכמת. ‫Gemini 2.5 Pro TTS הוא המודל הכי טוב ליצירת תוכן ארוך, קריינות מקצועית ותהליכי עבודה יצירתיים מורכבים שדורשים את הרמה הכי גבוהה של בהירות קולית ופרוזודיה טבעית.
+Nosso mecanismo premium para síntese de voz com qualidade de estúdio, que oferece geração de áudio sofisticada e de alta fidelidade. O Gemini 2.5 Pro TTS é ideal para conteúdo longo, narrações profissionais e fluxos de trabalho criativos complexos que exigem o mais alto nível de clareza vocal e prosódia natural.
 
-[לניסיון ב-Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro-preview-tts&hl=he)
+[Testar no Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro-preview-tts&hl=pt-br)
 
-## מאמרי עזרה
+## Documentação
 
-במדריך [המרת טקסט לדיבור](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he) יש מידע מפורט על התכונות והיכולות.
+Acesse o guia de [conversão de texto em voz](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pt-br) para conferir a cobertura completa de recursos e funcionalidades.
 
 ## gemini-2.5-pro-preview-tts
 
-| נכס | תיאור |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-2.5-pro-preview-tts` |
-| saveסוגי נתונים נתמכים | **קלטים**  טקסט  **פלט**  אודיו |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  8,192  **מגבלת אסימונים בפלט**  16,384 |
-| handymanיכולות | **יצירת אודיו**  נתמך  ‫**Batch API**  נתמך  **שמירת נתונים במטמון**  לא נתמך  **ביצוע קוד**  לא נתמך  **חיפוש קבצים**  לא נתמך  **בקשה להפעלת פונקציה**  לא נתמך  **עיגון בעזרת מפות Google**  לא נתמך  **יצירת תמונות**  לא נתמך  ‫**Live API**  לא נתמך  **חיפוש עם עיגון בנתונים**  לא נתמך  **פלטים מובְנים**  לא נתמך  **תהליך החשיבה**  לא נתמך  **הקשר של כתובת ה-URL**  לא נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - `gemini-2.5-pro-preview-tts` |
-| calendar\_monthהעדכון האחרון | דצמבר 2025 |
+| id\_cardCódigo do modelo | `gemini-2.5-pro-preview-tts` |
+| saveTipos de dados com suporte | **Entradas (link em inglês)**  Texto  **Saída**  Áudio |
+| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de token de entrada**  8.192  **Limite de token de saída**  16.384 |
+| handymanRecursos | **Geração de áudio**  Compatível  **API em lote**  Compatível  **Armazenamento em cache**  indisponível  **Execução de código**  indisponível  **Pesquisa de arquivos**  incompatível  **Chamadas de função**  indisponível  **Embasamento com o Google Maps**  indisponível  **Geração de imagens**  indisponível  **API Live**  indisponível  **Embasamento da pesquisa**  indisponível  **Respostas estruturadas**  indisponível  **Raciocínio**  indisponível  **Contexto de URL**  indisponível |
+| 123Versões | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - `gemini-2.5-pro-preview-tts` |
+| calendar\_monthAtualização mais recente | Dezembro de 2025 |
 
-שליחת משוב
+Envie comentários
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+Última atualização 2026-04-29 UTC.
 
-רוצה לתת לנו משוב?
+Quer enviar seu feedback?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

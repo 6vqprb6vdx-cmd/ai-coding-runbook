@@ -1,44 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=pl
-fetched_at: 2026-05-11T12:31:28.614596+00:00
-title: "Przechodzenie na interfejs Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=id
+fetched_at: 2026-05-18T12:59:48.831463+00:00
+title: "Bermigrasi ke Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Prześlij opinię
+Kirim masukan
 
-# Przechodzenie na interfejs Interactions API
+# Bermigrasi ke Interactions API
 
-Ten przewodnik pomoże Ci przejść z interfejsu `generateContent` API na interfejs Interactions API.
+Panduan ini membantu Anda bermigrasi dari `generateContent` API ke Interactions API.
 
-Interfejs Interactions API to standardowy interfejs do tworzenia aplikacji z użyciem Gemini. Jest zoptymalizowany pod kątem przepływów pracy z agentami, zarządzania stanem po stronie serwera oraz złożonych rozmów wielomodowych i wielokrotnych, a jednocześnie w pełni obsługuje proste, bezstanowe żądania jednokrotne. Chociaż interfejs `generateContent` jest w dalszym ciągu w pełni obsługiwany, w przypadku wszystkich nowych projektów zalecamy korzystanie z interfejsu Interactions API.
+Interactions API adalah antarmuka standar untuk membangun aplikasi dengan Gemini. API ini dioptimalkan untuk alur kerja agen, pengelolaan status sisi server, dan percakapan multi-giliran multimodal yang kompleks, sekaligus tetap mendukung sepenuhnya permintaan satu giliran tanpa status yang sederhana. Meskipun `generateContent` tetap didukung sepenuhnya, sebaiknya gunakan Interactions API untuk semua pengembangan baru.
 
-### Dlaczego warto przeprowadzić migrację?
+### Mengapa harus bermigrasi?
 
-Interfejs Interactions API zapewnia bardziej ustrukturyzowany i zaawansowany sposób tworzenia aplikacji z użyciem Gemini:
+Interactions API menyediakan cara yang lebih terstruktur dan canggih untuk membangun aplikasi dengan Gemini:
 
-- **Zarządzanie historią po stronie serwera:** uproszczone przepływy wieloetapowe za pomocą `previous_interaction_id`. Serwer domyślnie włącza stan (`store=true`), ale możesz włączyć zachowanie bezstanowe, ustawiając `store=false`.
-- **Widoczne kroki wykonania:** wpisywanie kroków ułatwia debugowanie złożonych przepływów i renderowanie interfejsu użytkownika dla zdarzeń pośrednich (takich jak przemyślenia czy widżety wyszukiwania).
-- **Stworzone z myślą o przepływach pracy z agentami:** natywna obsługa wieloetapowego korzystania z narzędzi, orkiestracji i złożonych przepływów rozumowania za pomocą wpisywanych kroków wykonywania.
-- **Długotrwałe zadania i zadania w tle:** obsługuje przenoszenie czasochłonnych operacji, takich jak Deep Think i Deep Research, do procesów w tle za pomocą `background=true`.
-- **Dostęp do nowych modeli i możliwości:** w przyszłości nowe modele wykraczające poza podstawową rodzinę modeli głównych, a także nowe możliwości i narzędzia związane z agentami będą wprowadzane wyłącznie w interfejsie Interactions API. `generateContent` będzie nadal w pełni obsługiwana w przypadku dotychczasowych zastosowań.
+- **Pengelolaan histori sisi server**: Alur multi-giliran yang disederhanakan melalui `previous_interaction_id`. Server mengaktifkan status secara default (`store=true`), tetapi Anda dapat memilih perilaku tanpa status dengan menetapkan `store=false`.
+- **Langkah-langkah eksekusi yang dapat diamati**: Langkah-langkah yang diketik memudahkan proses debug alur yang kompleks dan merender UI untuk peristiwa perantara (seperti pemikiran atau widget penelusuran).
+- **Dibuat untuk alur kerja agen**: Dukungan native untuk penggunaan alat multilangkah, orkestrasi, dan alur penalaran yang kompleks melalui langkah-langkahlah eksekusi yang diketik.
+- **Tugas latar belakang dan berjalan lama**: Mendukung operasi yang memakan waktu seperti Deep Think dan Deep Research ke proses latar belakang menggunakan `background=true`.
 
-## Podstawowe dane wejściowe/wyjściowe
+## Input/output dasar
 
-W tej sekcji pokazujemy, jak przeprowadzić migrację prostego żądania generowania tekstu.
+Bagian ini menunjukkan cara memigrasikan permintaan pembuatan teks sederhana.
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-Interfejs `generateContent` API jest bezstanowy i zwraca odpowiedź bezpośrednio. Struktura odpowiedzi obejmuje dane wyjściowe w postaci listy elementów `candidates`, z których każdy zawiera element `content` z listą elementów `parts` do przeanalizowania.
+`generateContent` API tidak memiliki status dan menampilkan respons secara langsung. Struktur respons menggabungkan output dalam daftar `candidates`, yang masing-masing berisi `content` dengan daftar `parts` yang akan diuraikan.
 
 ### Python
 
@@ -106,9 +105,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-Interfejs API interakcji zwraca zapisany zasób interakcji z osią czasu `steps`. Zamiast przeglądać kandydatów i części, sprawdź tablicę `steps`, aby znaleźć odpowiedni typ danych wyjściowych.
+Interactions API menampilkan resource interaksi tersimpan dengan linimasa `steps`. Daripada melintasi kandidat dan bagian, periksa array `steps` untuk menemukan jenis output yang diinginkan.
 
 ### Python
 
@@ -186,17 +185,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Rozmowy wieloetapowe
+## Percakapan multi-giliran
 
-Interfejs API interakcji domyślnie przechowuje interakcje, co umożliwia zarządzanie stanem po stronie serwera w przypadku rozmów wieloetapowych.
+Interactions API menyimpan interaksi secara default, sehingga memungkinkan pengelolaan status sisi server untuk percakapan multi-giliran.
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-W `generateContent` musisz ręcznie zarządzać historią rozmów za pomocą tablicy `contents` lub pomocnika czatu po stronie klienta.
+Di `generateContent`, Anda harus mengelola histori percakapan secara manual menggunakan array `contents` atau helper chat sisi klien.
 
 ### Python
 
-**Korzystanie z pomocy na czacie (zalecane)**
+**Menggunakan helper chat (direkomendasikan)**
 
 ```
 from google import genai
@@ -211,7 +210,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**Ręczne zarządzanie historią**
+**Mengelola histori secara manual**
 
 ```
 from google import genai
@@ -240,7 +239,7 @@ print(response.text)
 
 ### JavaScript
 
-**Korzystanie z pomocy na czacie (zalecane)**
+**Menggunakan helper chat (direkomendasikan)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -255,7 +254,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**Ręczne zarządzanie historią**
+**Mengelola histori secara manual**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -308,9 +307,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-Interfejs Interactions API zarządza stanem na serwerze. Kontynuujesz rozmowę, odwołując się do `previous_interaction_id`.
+Interactions API mengelola status di server. Anda melanjutkan percakapan dengan mereferensikan `previous_interaction_id`.
 
 ### Python
 
@@ -407,13 +406,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Dane wejściowe multimodalne
+## Input multimodal
 
-Oba interfejsy API obsługują dane wejściowe multimodalne (tekst, obrazy, filmy itp.).
+Kedua API mendukung input multimodal (teks, gambar, video, dll.).
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-W `generateContent` przekazujesz listę `parts` w tablicy `contents`. Odpowiedź zwraca dane wyjściowe w `parts` pierwszego kandydata.
+Di `generateContent`, Anda meneruskan daftar `parts` dalam array `contents`. Respons menampilkan output di `parts` kandidat pertama.
 
 ### Python
 
@@ -476,9 +475,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-W interfejsie Interactions API przekazujesz tablicę do pola `input`. Aby pobrać treści wyjściowe, znajdź krok `model_output` na osi czasu.
+Di Interactions API, Anda meneruskan array ke kolom `input`. Anda mengambil konten output dengan menemukan langkah `model_output` di linimasa.
 
 ### Python
 
@@ -593,13 +592,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Uporządkowane dane wyjściowe
+## Output terstruktur
 
-Aby model zwracał JSON zgodny z określonym schematem, skonfiguruj format odpowiedzi.
+Agar model menampilkan JSON yang cocok dengan skema tertentu, konfigurasi format respons.
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-W `generateContent` format wyjściowy konfiguruje się za pomocą pola `response_format` zagnieżdżonego w obiekcie `generationConfig`.
+Di `generateContent`, Anda mengonfigurasi format output menggunakan kolom `response_format` yang berada di dalam objek `generationConfig`.
 
 ### Python
 
@@ -681,9 +680,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-W interfejsie Interactions API elementy sterujące formatem wyjściowym są przenoszone do tablicy `response_format` najwyższego poziomu.
+Di Interactions API, kontrol format output dipindahkan ke array `response_format` tingkat atas.
 
 ### Python
 
@@ -801,13 +800,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Generowanie multimodalne
+## Pembuatan multimodal
 
-Podczas generowania treści w innych formatach niż tekst (np. obrazy lub dźwięk) główna różnica polega na tym, jak odpowiedź strukturyzuje wygenerowane multimedia.
+Saat membuat konten dalam modalitas selain teks (seperti gambar atau audio), perbedaan utamanya adalah cara respons menyusun media yang dibuat.
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-W `generateContent` odpowiedź zwraca wygenerowane multimedia bezpośrednio w `parts` kandydata, zwykle jako dane w formacie base64 w `inlineData`.
+Di `generateContent`, respons menampilkan media yang dibuat langsung di `parts` kandidat, biasanya sebagai data base64 di `inlineData`.
 
 ```
 # Response structure concept
@@ -832,9 +831,9 @@ W `generateContent` odpowiedź zwraca wygenerowane multimedia bezpośrednio w 
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-W interfejsie Interactions API wygenerowane multimedia są wyświetlane jako osobne elementy w `content` tablicy `model_output` kroku na osi czasu, co pozwala zachować chronologiczny przebieg interakcji.
+Di Interactions API, media yang dibuat muncul sebagai item terpisah dalam array `content` dari langkah `model_output` di linimasa, sehingga mempertahankan alur kronologis interaksi.
 
 ```
 # Response structure concept
@@ -860,15 +859,15 @@ W interfejsie Interactions API wygenerowane multimedia są wyświetlane jako os
 }
 ```
 
-Dzięki temu analiza odpowiedzi jest spójna z tym, jak obsługiwane są dane wejściowe i wyjściowe w postaci tekstu – wszystko jest krokiem na osi czasu.
+Hal ini membuat penguraian respons konsisten dengan cara input dan output teks ditangani—semuanya adalah langkah dalam linimasa.
 
-## Narzędzia po stronie serwera
+## Alat sisi server
 
-Gemini obsługuje wbudowane narzędzia po stronie serwera, takie jak wyszukiwarka Google. Główna różnica polega na tym, jak odpowiedź reprezentuje wykonanie narzędzia.
+Gemini mendukung alat sisi server bawaan seperti grounding Google Penelusuran. Perbedaan utamanya adalah cara respons merepresentasikan eksekusi alat.
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-W `generateContent` narzędzia po stronie serwera są w dużej mierze nieprzejrzyste. Włączasz narzędzie i otrzymujesz ostateczną odpowiedź w osobnym obiekcie `groundingMetadata`. Co ważne, cytaty nie są wstawiane w tekście. `groundingSupports` Użyj indeksów znaków, aby zmapować segmenty tekstu z powrotem do źródeł internetowych w `groundingChunks`.
+Di `generateContent`, alat sisi server sebagian besar bersifat buram. Anda mengaktifkan alat dan mendapatkan jawaban akhir dengan objek `groundingMetadata` terpisah. Yang terpenting, kutipan tidak sebaris; `groundingSupports` menggunakan indeks karakter untuk memetakan segmen teks kembali ke sumber web di `groundingChunks`.
 
 ### Python
 
@@ -977,11 +976,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-W interfejsie API interakcji narzędzia po stronie serwera zapewniają pełną przejrzystość osi czasu. Interfejs API rejestruje wywołanie i wynik jako odrębne wykonania `steps` (`google_search_call` i `google_search_result`), ujawniając dokładnie, jakie dane zostały pobrane przez model.
+Di Interactions API, alat sisi server memberikan transparansi linimasa penuh. API mencatat panggilan dan hasil sebagai `steps` eksekusi terpisah (`google_search_call` dan `google_search_result`), yang menunjukkan data yang diambil model secara tepat.
 
-Interfejs API zwraca też **w tekście** cytaty. Zamiast mapować indeksy z osobnego obiektu metadanych, element tekstowy w `model_output` zawiera własną tablicę `annotations`, która jest bezpośrednio połączona ze źródłem.
+Selain itu, API menampilkan kutipan **sebaris**. Daripada memetakan indeks dari objek metadata terpisah, item teks dalam langkah `model_output` berisi array `annotations` sendiri yang ditautkan langsung ke sumber.
 
 ### Python
 
@@ -1092,13 +1091,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Wywoływanie funkcji
+## Panggilan fungsi
 
-Zmieniliśmy też strukturę wywołań funkcji i wyników, aby pasowała do schematu Steps.
+Struktur panggilan dan hasil fungsi juga telah diubah agar sesuai dengan skema Langkah.
 
-### Przed (`generateContent`)
+### Sebelum (`generateContent`)
 
-W `generateContent` odpowiedź zwraca wywołania funkcji w ramach kandydatów.
+Di `generateContent`, respons menampilkan panggilan fungsi dalam kandidat.
 
 ### Python
 
@@ -1237,9 +1236,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-Wywołania narzędzi i wyniki są teraz odrębnymi krokami na osi czasu.
+Panggilan dan hasil alat kini merupakan langkah terpisah dalam linimasa.
 
 ### Python
 
@@ -1439,13 +1438,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 
 ## Streaming
 
-Kluczową różnicą w przypadku przesyłania strumieniowego jest to, że interfejs Interactions API używa tego samego punktu końcowego z parametrem `"stream": true` w treści żądania, podczas gdy interfejs `generateContent` API wymagał wywołania dedykowanego punktu końcowego (`:streamGenerateContent`).
+Perbedaan utama dalam streaming adalah Interactions API menggunakan endpoint yang sama dengan `"stream": true` di isi permintaan, sedangkan `generateContent` API mengharuskan panggilan endpoint khusus (`:streamGenerateContent`).
 
-Dodatkowo zdarzenia przesyłane strumieniowo korzystają teraz ze specjalistycznych typów, które umożliwiają monitorowanie cyklu życia interakcji i śledzenie kroków wykonania na osi czasu.
+Selain itu, peristiwa streaming kini menggunakan jenis khusus untuk memantau siklus proses interaksi dan melacak langkah-langkah eksekusi di sepanjang linimasa.
 
-### Przed (`generateContentStream`)
+### Sebelum (`generateContentStream`)
 
-Za pomocą `generateContent` możesz przetwarzać strumień fragmentów odpowiedzi.
+Dengan `generateContent`, Anda menggunakan aliran potongan respons.
 
 ### Python
 
@@ -1499,9 +1498,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### After (Interactions API)
+### Setelah (Interactions API)
 
-W interfejsie Interactions API strumieniowanie wykorzystuje zdarzenia wysyłane przez serwer (SSE) i specjalistyczne typy delta do reprezentowania kroków wykonania w miarę ich występowania.
+Di Interactions API, streaming menggunakan Server-Sent Events (SSE) dan jenis delta khusus untuk merepresentasikan langkah-langkah eksekusi saat terjadi.
 
 ### Python
 
@@ -1550,7 +1549,7 @@ for await (const event of stream) {
 
 ### REST
 
-# Przykład danych wyjściowych strumienia SSE
+# Contoh output aliran SSE
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1560,24 +1559,24 @@ data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
 event: step.delta
 data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "User wants an explanation."}}
 event: step.stop
-data: {"type": "step.stop", "index": 0, "status": "done"}
+data: {"type": "step.stop", "index": 0, "status": "done"}}
 event: step.start
 data: {"type": "step.start", "index": 1, "step": {"type": "model\_output"}}
 event: step.delta
 data: {"type": "step.delta", "index": 1, "delta": {"type": "text", "text": "Hello"}}
 event: step.stop
-data: {"type": "step.stop", "index": 1, "status": "done"}
+data: {"type": "step.stop", "index": 1, "status": "done"}}
 event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### Narzędzia do przesyłania strumieniowego i wywołania funkcji
+### Alat streaming dan panggilan fungsi
 
-Sposób działania narzędzi w strumieniu znacznie się zmienił, aby zapewnić bardziej szczegółową kontrolę i widoczność.`generateContent`
+Perilaku alat dalam aliran telah berubah secara signifikan dari `generateContent` untuk memberikan kontrol dan visibilitas yang lebih terperinci.
 
-#### Przed (`generateContent`)
+#### Sebelum (`generateContent`)
 
-W przypadku `generateContent` wywołania funkcji przesyłane strumieniowo docierały w całości w jednym bloku. Nie można było zobaczyć argumentów generowanych w czasie rzeczywistym, więc program obsługi po prostu sprawdzał, czy obiekt `functionCall` jest kompletny.
+Dengan `generateContent`, panggilan fungsi streaming tiba lengkap dalam satu potongan. Anda tidak dapat melihat argumen yang dibuat secara real-time, sehingga pengendali hanya memeriksa objek `functionCall` yang lengkap.
 
 ### Python
 
@@ -1642,9 +1641,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### After (Interactions API)
+#### Setelah (Interactions API)
 
-Interfejs Interactions API przesyła argumenty wywołania funkcji znak po znaku jako zdarzenia `arguments`. Cały cykl życia narzędzia – pomysł, wywołanie, wynik i dane wyjściowe – przebiega w postaci serii odrębnych kroków.
+Interactions API melakukan streaming argumen panggilan fungsi karakter demi karakter sebagai peristiwa `arguments`. Seluruh siklus proses alat — pemikiran, panggilan, hasil, dan output — berjalan sebagai serangkaian langkah terpisah.
 
 ### Python
 
@@ -1789,32 +1788,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-#### Narzędzia po stronie serwera w strumieniu
+Kirim masukan
 
-Narzędzia po stronie serwera, takie jak wyszukiwarka Google, działają inaczej niż wywołania funkcji w strumieniu. Połączenie i wynik docierają **w całości** w wydarzeniu `step.start` bez zmian – tylko `step.start`, po którym natychmiast następuje `step.stop`:
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-```
-// Server-side tool call — payload arrives complete in step.start
-event: step.start
-data: {"type": "step.start", "index": 4, "step": {"type": "google_search_call", "id": "gs_2", "query": "Alphabet Q4 2025 earnings"}}
+Terakhir diperbarui pada 2026-05-17 UTC.
 
-event: step.stop
-data: {"type": "step.stop", "index": 4, "status": "done"}
+Ada masukan untuk kami?
 
-// Server-side tool result — also complete in step.start
-event: step.start
-data: {"type": "step.start", "index": 5, "step": {"type": "google_search_result", "call_id": "gs_2", "rendered_content": "<div>Alphabet Q4 2025 Revenue: $105.6B</div>", "signature": "abc123..."}}
-
-event: step.stop
-data: {"type": "step.stop", "index": 5, "status": "done"}
-```
-
-Prześlij opinię
-
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
-
-Ostatnia aktualizacja: 2026-05-08 UTC.
-
-Chcesz przekazać coś jeszcze?
-
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-08 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-17 UTC."],[],[]]

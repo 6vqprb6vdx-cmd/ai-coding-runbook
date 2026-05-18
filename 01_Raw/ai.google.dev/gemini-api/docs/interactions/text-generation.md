@@ -1,31 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ko
-fetched_at: 2026-05-11T12:39:17.601151+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi
+fetched_at: 2026-05-18T13:08:24.872170+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# 텍스트 생성
+# Tạo văn bản
 
-Gemini API는 텍스트, 이미지, 동영상, 오디오 입력에서 텍스트 출력을 생성할 수 있습니다.
+Gemini API có thể tạo đầu ra là văn bản từ văn bản, hình ảnh, video và âm thanh đầu vào.
 
-다음은 기본적인 예입니다.
+Sau đây là một ví dụ cơ bản:
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -40,6 +41,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -58,26 +60,27 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "How does AI work?"
   }'
 ```
 
-## Gemini로 생각하기
+## Suy nghĩ cùng Gemini
 
-Gemini 모델은 요청에 응답하기 전에 모델이 추론할 수 있도록 ["생각"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ko)
-이 기본적으로 사용 설정되어 있는 경우가 많습니다.
+Các mô hình Gemini thường được bật tính năng ["suy nghĩ"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=vi) theo mặc định. Tính năng này cho phép mô hình suy luận trước khi trả lời một yêu cầu.
 
-각 모델은 비용, 지연 시간, 인텔리전스를 제어할 수 있는 다양한 생각 구성을 지원합니다. 자세한 내용은
-[생각 가이드](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ko#set-budget)를 참고하세요.
+Mỗi mô hình hỗ trợ các cấu hình tư duy khác nhau, giúp bạn kiểm soát chi phí, độ trễ và mức độ thông minh. Để biết thêm thông tin, hãy xem [hướng dẫn tư duy](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=vi#set-budget).
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -95,6 +98,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -116,9 +120,11 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "How does AI work?",
@@ -128,13 +134,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 시스템 안내 및 기타 구성
+## Hướng dẫn hệ thống và các cấu hình khác
 
-시스템 안내를 사용하여 Gemini 모델의 동작을 안내할 수 있습니다. `system_instruction` 매개변수를 전달하여 모델의 동작을 구성합니다.
+Bạn có thể hướng dẫn hành vi của các mô hình Gemini bằng chỉ dẫn hệ thống. Truyền tham số `system_instruction` để định cấu hình hành vi của mô hình.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -151,6 +158,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -170,9 +178,11 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "system_instruction": "You are a cat. Your name is Neko.",
@@ -180,11 +190,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-`generation_config` 매개변수를 사용하여 온도와 같은 기본 생성 매개변수를 재정의할 수도 있습니다.
+Bạn cũng có thể ghi đè các tham số tạo mặc định, chẳng hạn như nhiệt độ, bằng cách sử dụng tham số `generation_config`.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -193,7 +204,7 @@ interaction = client.interactions.create(
     model="gemini-3-flash-preview",
     input="Explain how AI works",
     generation_config={
-        "temperature": 0.1
+        "temperature": 1.0
     }
 )
 print(interaction.steps[-1].content[0].text)
@@ -202,6 +213,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -211,7 +223,7 @@ async function main() {
     model: "gemini-3-flash-preview",
     input: "Explain how AI works",
     generation_config: {
-      temperature: 0.1,
+      temperature: 1.0,
     },
   });
   console.log(interaction.steps.at(-1).content[0].text);
@@ -223,27 +235,30 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "Explain how AI works",
     "generation_config": {
-      "temperature": 0.1
+      "temperature": 1.0
     }
   }'
 ```
 
-구성 가능한 매개변수와 그 설명의 전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 참고하세요.
+Hãy tham khảo [Tài liệu tham khảo về Interactions API](https://ai.google.dev/api/interactions-api?hl=vi) để xem danh sách đầy đủ các tham số có thể định cấu hình và nội dung mô tả của các tham số đó.
 
-## 멀티모달 입력
+## Thông tin đầu vào đa phương thức
 
-Gemini API는 멀티모달 입력을 지원하므로 텍스트와 미디어 파일을 결합할 수 있습니다. 다음 예에서는 이미지를 제공하는 방법을 보여줍니다.
+Gemini API hỗ trợ dữ liệu đầu vào đa phương thức, cho phép bạn kết hợp văn bản với các tệp nội dung nghe nhìn. Ví dụ sau đây minh hoạ cách cung cấp hình ảnh:
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -267,6 +282,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -298,9 +314,11 @@ await main();
 
 ```
 # First upload the file using the Files API, then use the URI:
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": [
@@ -314,21 +332,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-이미지를 제공하는 대체 방법과 고급 이미지 처리는
-[이미지 이해 가이드](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=ko)를 참고하세요.
-API는 [문서](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=ko), [동영상](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=ko), 및
-[오디오](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ko) 입력 및 이해도 지원합니다.
+Để biết các phương thức thay thế để cung cấp hình ảnh và quy trình xử lý hình ảnh nâng cao hơn, hãy xem [hướng dẫn về việc hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=vi).
+API này cũng hỗ trợ các dữ liệu đầu vào và thông tin [văn bản](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi) và [âm thanh](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi).
 
-## 스트리밍 응답
+## Hiện câu trả lời theo thời gian thực
 
-기본적으로 모델은 전체 생성
-프로세스가 완료된 후에만 응답을 반환합니다.
+Theo mặc định, mô hình chỉ trả về phản hồi sau khi toàn bộ quá trình tạo hoàn tất.
 
-더 원활한 상호작용을 위해 스트리밍을 사용하여 응답 청크가 생성될 때 처리합니다.
+Để có các hoạt động tương tác mượt mà hơn, hãy sử dụng tính năng truyền phát trực tiếp để xử lý các khối phản hồi khi chúng được tạo. Để xem hướng dẫn toàn diện về các loại sự kiện, tính năng phát trực tiếp bằng công cụ, suy nghĩ, tác nhân và tạo hình ảnh, hãy xem hướng dẫn chuyên biệt về [Tương tác phát trực tiếp](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=vi).
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -347,6 +363,7 @@ for event in stream:
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -373,9 +390,11 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   --no-buffer \
   -d '{
     "model": "gemini-3-flash-preview",
@@ -384,13 +403,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## 멀티턴 대화
+## Cuộc trò chuyện nhiều lượt
 
-Interactions API는 `previous_interaction_id`를 사용하여 상호작용을 연결하여 멀티턴 대화를 지원합니다. 각 턴은 별도의 상호작용이며 API는 대화 기록을 자동으로 관리합니다.
+Interactions API hỗ trợ các cuộc trò chuyện nhiều lượt bằng cách liên kết các lượt tương tác với nhau bằng cách sử dụng `previous_interaction_id`. Mỗi lượt là một lượt tương tác riêng biệt và API sẽ tự động quản lý nhật ký trò chuyện.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -412,6 +432,7 @@ print(interaction2.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -437,9 +458,11 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "I have 2 dogs in my house."
@@ -447,9 +470,11 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
 
 INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
 
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "I have two dogs in my house. How many paws are in my house?",
@@ -457,11 +482,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-스트리밍은 `previous_interaction_id`를 스트리밍 메서드와 결합하여 멀티턴 대화에도 사용할 수 있습니다.
+Bạn cũng có thể sử dụng tính năng truyền trực tuyến cho các cuộc trò chuyện nhiều lượt bằng cách kết hợp `previous_interaction_id` với các phương thức truyền trực tuyến.
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -487,6 +513,7 @@ for event in stream:
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -519,18 +546,22 @@ await main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
     "model": "gemini-3-flash-preview",
     "input": "I have 2 dogs in my house."
   }')
 INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
 
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   --no-buffer \
   -d '{
     "model": "gemini-3-flash-preview",
@@ -540,31 +571,168 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## 프롬프트 작성 팁
+## Cuộc trò chuyện không trạng thái
 
-Gemini를 최대한 활용하기 위한 제안은 [프롬프트 엔지니어링 가이드](https://ai.google.dev/gemini/docs/prompting-strategies?hl=ko)를
-참고하세요.
+Theo mặc định, Interactions API quản lý trạng thái cuộc trò chuyện phía máy chủ khi bạn sử dụng `previous_interaction_id`. Tuy nhiên, bạn cũng có thể hoạt động ở chế độ không trạng thái bằng cách tự quản lý nhật ký cuộc trò chuyện ở phía máy khách.
 
-## 다음 단계
+Cách sử dụng chế độ không trạng thái:
+1. Đặt `store=false` trong yêu cầu của bạn để chọn không sử dụng bộ nhớ phía máy chủ.
+2. Duy trì nhật ký trò chuyện dưới dạng một mảng **các bước** ở phía máy khách.
+3. Trong các yêu cầu tiếp theo, hãy truyền các bước đã tích luỹ trong trường `input` và thêm lượt tương tác mới của bạn dưới dạng một bước `user_input`.
 
-- Google AI Studio에서 [Gemini](https://aistudio.google.com?hl=ko)를 사용해 보세요.
-- JSON과 유사한 응답에
-  [구조화된 출력](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ko)을
-  실험해 보세요.
-- Gemini의 [이미지](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=ko),
-  [동영상](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=ko),
-  [오디오](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ko) 및
-  [문서](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=ko) 이해 기능을
-  살펴보세요.
-- 멀티모달
-  [파일 프롬프트 전략](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ko#prompt-guide)에 대해 알아보세요.
+### Python
 
-의견 보내기
+```
+# This will only work for SDK newer than 2.0.0
+from google import genai
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+client = genai.Client()
 
-최종 업데이트: 2026-05-09(UTC)
+# Initialize history with the first user turn
+history = [
+    {
+        "type": "user_input",
+        "content": [{"type": "text", "text": "I have 2 dogs in my house."}]
+    }
+]
 
-의견을 전달하고 싶나요?
+# Turn 1: Send request with store=False
+interaction1 = client.interactions.create(
+    model="gemini-3-flash-preview",
+    store=False,
+    input=history
+)
+print("Response 1:", interaction1.steps[-1].content[0].text)
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-09(UTC)"],[],[]]
+# Append the model's response steps to history
+for step in interaction1.steps:
+    # Convert the SDK Step object to a dictionary
+    history.append(step.model_dump())
+
+# Append the next user turn as a user_input step
+history.append({
+    "type": "user_input",
+    "content": [{"type": "text", "text": "How many paws are in my house?"}]
+})
+
+# Turn 2: Send full history with store=False
+interaction2 = client.interactions.create(
+    model="gemini-3-flash-preview",
+    store=False,
+    input=history
+)
+print("Response 2:", interaction2.steps[-1].content[0].text)
+```
+
+### JavaScript
+
+```
+// This will only work for SDK newer than 2.0.0
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  // Initialize history with the first user turn
+  const history = [
+    {
+      type: "user_input",
+      content: [{ type: "text", text: "I have 2 dogs in my house." }]
+    }
+  ];
+
+  // Turn 1: Send request with store: false
+  const interaction1 = await ai.interactions.create({
+    model: "gemini-3-flash-preview",
+    store: false,
+    input: history
+  });
+  console.log("Response 1:", interaction1.steps.at(-1).content[0].text);
+
+  // Append model response steps to history
+  history.push(...interaction1.steps);
+
+  // Append the next user turn
+  history.push({
+    type: "user_input",
+    content: [{ type: "text", text: "How many paws are in my house?" }]
+  });
+
+  // Turn 2: Send full history with store: false
+  const interaction2 = await ai.interactions.create({
+    model: "gemini-3-flash-preview",
+    store: false,
+    input: history
+  });
+  console.log("Response 2:", interaction2.steps.at(-1).content[0].text);
+}
+
+await main();
+```
+
+### REST
+
+```
+# Turn 1: Send request with store: false
+# Specifies the API revision to avoid breaking changes when they become default
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "store": false,
+    "input": [
+      {
+        "type": "user_input",
+        "content": [{"type": "text", "text": "I have 2 dogs in my house."}]
+      }
+    ]
+  }')
+
+# Extract the steps from response
+MODEL_STEPS=$(echo "$RESPONSE1" | jq '.steps')
+
+# Reconstruct the full history for Turn 2 by combining:
+# 1. First user input
+# 2. Model response steps
+# 3. Second user input
+HISTORY=$(jq -n \
+  --argjson first_input '[{"type": "user_input", "content": [{"type": "text", "text": "I have 2 dogs in my house."}]}]' \
+  --argjson model_steps "$MODEL_STEPS" \
+  --argjson second_input '[{"type": "user_input", "content": [{"type": "text", "text": "How many paws are in my house?"}]}]' \
+  "'"'"'$first_input + $model_steps + $second_input'"'"'")
+
+# Turn 2: Send the full history
+# Specifies the API revision to avoid breaking changes when they become default
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d "{
+    \"model\": \"gemini-3-flash-preview\",
+    \"store\": false,
+    \"input\": $HISTORY
+  }"
+```
+
+## Mẹo tạo câu lệnh
+
+Tham khảo [hướng dẫn về thiết kế câu lệnh](https://ai.google.dev/gemini/docs/prompting-strategies?hl=vi) của chúng tôi để biết các đề xuất về cách khai thác tối đa Gemini.
+
+## Bước tiếp theo
+
+- Dùng thử [Gemini trong Google AI Studio](https://aistudio.google.com?hl=vi).
+- Thử nghiệm với [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi) cho các phản hồi tương tự như JSON.
+- Khám phá các khả năng hiểu [hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=vi), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi), [âm thanh](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi) và [tài liệu](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi) của Gemini.
+- Tìm hiểu về [các chiến lược đưa ra câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi#prompt-guide) đa phương thức.
+
+Gửi ý kiến phản hồi
+
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+
+Cập nhật lần gần đây nhất: 2026-05-16 UTC.
+
+Bạn muốn chia sẻ thêm với chúng tôi?
+
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-16 UTC."],[],[]]

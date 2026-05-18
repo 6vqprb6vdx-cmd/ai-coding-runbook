@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=pt-BR
-fetched_at: 2026-05-11T12:42:18.430213+00:00
-title: "Pr\u00e9via do Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=hi
+fetched_at: 2026-05-18T13:02:39.395286+00:00
+title: "Deep Research \u0915\u0940 \u091d\u0932\u0915 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envie comentários
+सुझाव भेजें
 
-# Prévia do Deep Research
+# Deep Research की झलक
 
-Um pesquisador agente avançado criado para investigações autônomas de várias etapas que sintetizam informações complexas em relatórios abrangentes e citados. Esse modelo oferece suporte ao planejamento colaborativo, visualização, servidores MCP e pesquisa de arquivos. Ele está disponível em duas versões: Deep Research para velocidade e eficiência e Deep Research Max para máxima abrangência.
+यह एक दमदार एजेंट के तौर पर काम करने वाला रिसर्चर है. इसे अपने-आप काम करने और कई चरणों में जांच करने के लिए डिज़ाइन किया गया है. यह मुश्किल जानकारी को इकट्ठा करके, उद्धरणों के साथ पूरी जानकारी वाली रिपोर्ट तैयार करता है. इस मॉडल में, साथ मिलकर प्लानिंग करने, विज़ुअलाइज़ेशन, एमसीपी सर्वर, और फ़ाइल खोजने की सुविधा काम करती है. यह दो वर्शन में उपलब्ध है: Deep Research, जो तेज़ी से और असरदार तरीके से काम करता है. दूसरा, Deep Research Max, जो ज़्यादा से ज़्यादा जानकारी देता है.
 
-## Documentação
+## दस्तावेज़
 
-Acesse a página do [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) para conferir a cobertura completa
-de recursos e funcionalidades.
+सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए, [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) पेज पर जाएं.
 
 ## deep-research-preview-04-2026
 
-| Propriedade | Descrição |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardCódigo do agente | **API Interactions**  `deep-research-preview-04-2026` |
-| saveTipos de dados com suporte | **Entrada**  Texto, imagem, PDF, áudio, vídeo  **Saída**  Texto (relatórios citados), imagens |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Janela de contexto de entrada**  1.048.576  **Limite de token de saída**  65.536 |
-| 123Versões | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `deep-research-preview-04-2026` - Máx.: `deep-research-max-preview-04-2026` |
-| calendar\_monthAtualização mais recente | Abril de 2026 |
+| id\_cardएजेंट कोड | **Interactions API**  `deep-research-preview-04-2026` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज, PDF, ऑडियो, वीडियो  **आउटपुट**  टेक्स्ट (उद्धृत रिपोर्ट), इमेज |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट कॉन्टेक्स्ट विंडो**  1,048,576  **आउटपुट टोकन की सीमा**  65,536 |
+| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - झलक देखें: `deep-research-preview-04-2026` - ज़्यादा से ज़्यादा: `deep-research-max-preview-04-2026` |
+| calendar\_monthनया अपडेट | अप्रैल 2026 |
 
-Envie comentários
+सुझाव भेजें
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última atualização 2026-04-29 UTC.
+आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
 
-Quer enviar seu feedback?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]

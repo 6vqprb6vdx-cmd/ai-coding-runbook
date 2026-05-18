@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=id
-fetched_at: 2026-05-11T12:40:23.231856+00:00
-title: "Pratinjau Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=ar
+fetched_at: 2026-05-18T13:03:35.901222+00:00
+title: "\u0645\u0639\u0627\u064a\u0646\u0629 Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Kirim masukan
+إرسال ملاحظات
 
-# Pratinjau Deep Research
+# معاينة Deep Research
 
-Peneliti agentik yang canggih dan dirancang untuk penyelidikan multi-langkah yang otonom, yang menyintesis informasi kompleks menjadi laporan komprehensif yang mencantumkan kutipan. Didukung oleh Gemini 3.1 Pro, model ini dioptimalkan untuk tugas yang berjalan lama dan analisis yang sangat akurat di ratusan sumber web publik dan data ruang kerja pribadi seperti Gmail dan Drive.
+باحث قوي مستنِد إلى الذكاء الاصطناعي الوكيل ومصمَّم لإجراء تحقيقات مستقلة ومتعدّدة الخطوات،
+ويجمع المعلومات المعقّدة في تقارير شاملة مع ذكر المصادر. هذا النموذج يستند إلى Gemini 3.1 Pro، وهو محسّن للمهام الطويلة الأمد والتحليلات التي تتطلّب دقة عالية، ويستند إلى مئات المصادر المتاحة على الويب وبيانات Workspace الخاصة، مثل Gmail وDrive.
 
-## Dokumentasi
+## الوثائق
 
-Buka halaman [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) untuk mengetahui cakupan lengkap fitur dan kapabilitas.
+انتقِل إلى صفحة [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
 
 ## deep-research-pro-preview-12-2025
 
-| Properti | Deskripsi |
+| الموقع | الوصف |
 | --- | --- |
-| Kode agen id\_card | **Interactions API**  `deep-research-pro-preview-12-2025` |
-| saveJenis data yang didukung | **Input**  Teks, Gambar, PDF, Audio, Video  **Output**  Teks (Laporan yang Dikutip) |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Jendela konteks input**  1.048.576  **Batas token output**  65.536 |
-| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `deep-research-pro-preview-12-2025` |
-| calendar\_monthPembaruan terbaru | Desember 2025 |
+| id\_cardرمز الوكيل | **Interactions API**  `deep-research-pro-preview-12-2025` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة وملف PDF وملف صوتي وفيديو  **الناتج**  النص (التقارير المقتبَسة) |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **قدرة الاستيعاب الخاصة بالمدخلات**  1,048,576  **الحد الأقصى لعدد الرموز المميزة في الناتج**  65,536 |
+| 123الإصدارات | لمزيد من التفاصيل، يُرجى الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions).  - معاينة: `deep-research-pro-preview-12-2025` |
+| calendar\_monthآخر تعديل | ديسمبر 2025 |
 
-Kirim masukan
+إرسال ملاحظات
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-Ada masukan untuk kami?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

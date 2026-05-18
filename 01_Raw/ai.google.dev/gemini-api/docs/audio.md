@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=zh-CN
-fetched_at: 2026-05-11T12:34:16.244901+00:00
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=vi
+fetched_at: 2026-05-18T13:06:04.783744+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-发送反馈
+Gửi ý kiến phản hồi
 
-# 音频理解
+# Hiểu được âm thanh
 
-Gemini 可以分析音频输入并生成文本回答。
+Gemini có thể phân tích dữ liệu đầu vào bằng âm thanh và tạo câu trả lời bằng văn bản.
 
 ### Python
 
@@ -165,22 +165,22 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## 概览
+## Tổng quan
 
-Gemini 可以分析和理解音频输入，并生成文本回复，从而实现以下用例：
+Gemini có thể phân tích và hiểu nội dung đầu vào bằng âm thanh, đồng thời tạo câu trả lời bằng văn bản cho nội dung đó, cho phép các trường hợp sử dụng như sau:
 
-- 描述、总结音频内容或回答与音频内容相关的问题。
-- 提供音频的转写和翻译（语音转文字）。
-- 检测语音和音乐中的情绪。
-- 分析音频的特定片段，并提供时间戳。
+- Mô tả, tóm tắt hoặc trả lời câu hỏi về nội dung âm thanh.
+- Cung cấp bản chép lời và bản dịch cho âm thanh (chuyển lời nói thành văn bản).
+- Phát hiện cảm xúc trong lời nói và âm nhạc.
+- Phân tích các đoạn âm thanh cụ thể và cung cấp dấu thời gian.
 
-目前，Gemini API 不支持实时转写用例。
-如需进行实时语音和视频互动，请参阅 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn)。
-如需使用支持实时转写的专用语音转文字模型，请使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-cn)。
+Hiện tại, Gemini API chưa hỗ trợ các trường hợp sử dụng tính năng phiên âm theo thời gian thực.
+Để biết thông tin về hoạt động tương tác bằng giọng nói và video theo thời gian thực, hãy tham khảo [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
+Đối với các mô hình chuyển lời nói thành văn bản chuyên dụng có hỗ trợ tính năng phiên âm theo thời gian thực, hãy sử dụng [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=vi).
 
-## 将语音转写为文字
+## Chuyển lời nói thành văn bản
 
-此示例应用展示了如何提示 Gemini API 转写、翻译和总结语音，包括使用[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)的时间戳和情绪检测。
+Ứng dụng mẫu này cho biết cách nhắc Gemini API phiên âm, dịch và tóm tắt lời nói, bao gồm cả dấu thời gian và tính năng phát hiện cảm xúc bằng cách sử dụng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi).
 
 ### Python
 
@@ -408,25 +408,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-您只需点击一个按钮，即可提示 [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=zh-cn) 创建一个与[此转写应用示例](https://aistudio.google.com/apps/bundled/echoscript?hl=zh-cn)类似的应用。
+Bạn có thể yêu cầu [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=vi) tạo một ứng dụng giống như [ứng dụng phiên âm mẫu này](https://aistudio.google.com/apps/bundled/echoscript?hl=vi) chỉ bằng một nút nhấn.
 
-![一款多语言音频转写 Gemini 应用](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-cn)
+![Ứng dụng Gemini có tính năng chuyển âm thanh thành văn bản bằng nhiều ngôn ngữ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=vi)
 
-## 输入音频
+## Đầu vào âm thanh
 
-您可以通过以下方式向 Gemini 提供音频数据：
+Bạn có thể cung cấp dữ liệu âm thanh cho Gemini theo những cách sau:
 
-- 在向 `generateContent` 发出请求之前，请先[上传音频文件](#upload-audio)。
-- 通过向 `generateContent` 发出的请求[传递内嵌音频数据](#inline-audio)。
+- [Tải một tệp âm thanh lên](#upload-audio) trước khi đưa ra yêu cầu cho `generateContent`.
+- [Truyền dữ liệu âm thanh nội tuyến](#inline-audio) bằng yêu cầu đến `generateContent`.
 
-如需了解其他文件输入方法，请参阅[文件输入方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-cn)指南。
+Để tìm hiểu về các phương thức nhập tệp khác, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
 
-### 上传音频文件
+### Tải tệp âm thanh lên
 
-您可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传音频文件。
-当总请求大小（包括文件、文本提示、系统指令等）超过 20 MB 时，请务必使用 Files API。
+Bạn có thể dùng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) để tải một tệp âm thanh lên.
+Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, câu lệnh bằng văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB.
 
-以下代码会上传音频文件，然后在对 `generateContent` 的调用中使用该文件。
+Đoạn mã sau đây tải một tệp âm thanh lên rồi dùng tệp đó trong một lệnh gọi đến `generateContent`.
 
 ### Python
 
@@ -573,11 +573,11 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-如需详细了解如何处理媒体文件，请参阅 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn)。
+Để tìm hiểu thêm về cách làm việc với tệp đa phương tiện, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
 
-### 内嵌传递音频数据
+### Truyền dữ liệu âm thanh cùng dòng
 
-您可以将内嵌音频数据传递给 `generateContent`，而不是上传音频文件：
+Thay vì tải tệp âm thanh lên, bạn có thể truyền dữ liệu âm thanh nội tuyến trong yêu cầu đến `generateContent`:
 
 ### Python
 
@@ -676,14 +676,14 @@ func main() {
 }
 ```
 
-关于内嵌音频数据，请注意以下几点：
+Một số điều cần lưu ý về dữ liệu âm thanh nội tuyến:
 
-- 请求大小上限为 20 MB，其中包括文本提示、系统指令和内嵌提供的文件。如果文件的大小会导致*总请求大小*超过 20 MB，请使用 Files API [上传音频文件](#upload-audio)以供请求使用。
-- 如果您要多次使用某个音频样本，最好[上传音频文件](#upload-audio)。
+- Kích thước yêu cầu tối đa là 20 MB, bao gồm cả câu lệnh dạng văn bản, chỉ dẫn hệ thống và tệp được cung cấp nội tuyến. Nếu kích thước tệp của bạn khiến *tổng kích thước yêu cầu* vượt quá 20 MB, hãy sử dụng Files API để [tải tệp âm thanh lên](#upload-audio) để dùng trong yêu cầu.
+- Nếu bạn đang sử dụng một đoạn âm thanh nhiều lần, thì việc [tải một tệp âm thanh lên](#upload-audio) sẽ hiệu quả hơn.
 
-## 获取转写内容
+## Lấy bản chép lời
 
-如需获取音频数据的转写内容，只需在提示中提出要求即可：
+Để nhận bản chép lời của dữ liệu âm thanh, bạn chỉ cần yêu cầu trong câu lệnh:
 
 ### Python
 
@@ -772,12 +772,12 @@ func main() {
 }
 ```
 
-## 参考时间戳
+## Tham khảo dấu thời gian
 
-您可以使用 `MM:SS` 格式的时间戳来引用音频文件的特定部分。例如，以下提示请求生成一份包含以下内容的转写
+Bạn có thể tham chiếu đến các phần cụ thể của một tệp âm thanh bằng cách sử dụng dấu thời gian có dạng `MM:SS`. Ví dụ: câu lệnh sau đây yêu cầu một bản chép lời
 
-- 从文件开头 2 分 30 秒处开始。
-- 结束时间为从文件开头算起的 3 分 29 秒。
+- Bắt đầu từ 2 phút 30 giây tính từ đầu tệp.
+- Kết thúc ở 3 phút 29 giây tính từ đầu tệp.
 
 ### Python
 
@@ -839,9 +839,9 @@ func main() {
 }
 ```
 
-## 统计 token 数量
+## Đếm mã thông báo
 
-调用 `countTokens` 方法可获取音频文件中的 token 数量。例如：
+Gọi phương thức `countTokens` để đếm số lượng mã thông báo trong một tệp âm thanh. Ví dụ:
 
 ### Python
 
@@ -925,39 +925,40 @@ func main() {
 }
 ```
 
-## 支持的音频格式
+## Định dạng âm thanh được hỗ trợ
 
-Gemini 支持以下音频格式 MIME 类型：
+Gemini hỗ trợ các loại MIME sau đây cho định dạng âm thanh:
 
-- WAV - `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
-- AAC - `audio/aac`
-- OGG Vorbis - `audio/ogg`
-- FLAC - `audio/flac`
+- WAV – `audio/wav`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
+- AAC – `audio/aac`
+- OGG Vorbis – `audio/ogg`
+- FLAC – `audio/flac`
 
-## 有关音频的技术详细信息
+## Thông tin kỹ thuật về âm thanh
 
-- Gemini 将每秒音频表示为 32 个 token；例如，1 分钟的音频表示为 1,920 个 token。
-- Gemini 可以“理解”非语音成分，例如鸟鸣声或警报声。
-- 单个提示中支持的音频数据时长上限为 9.5 小时。Gemini 不限制单个提示中的音频文件*数量*；不过，单个提示中所有音频文件的总时长不得超过 9.5 小时。
-- Gemini 会将音频文件下采样到 16 Kbps 的数据分辨率。
-- 如果音频源包含多个声道，Gemini 会将这些声道合并为一个声道。
+- Gemini biểu thị mỗi giây âm thanh dưới dạng 32 mã thông báo; ví dụ: một phút âm thanh được biểu thị dưới dạng 1.920 mã thông báo.
+- Gemini có thể "hiểu" các thành phần không phải lời nói, chẳng hạn như tiếng chim hót hoặc tiếng còi báo động.
+- Thời lượng tối đa được hỗ trợ của dữ liệu âm thanh trong một câu lệnh là 9,5 giờ.
+  Gemini không giới hạn *số lượng* tệp âm thanh trong một câu lệnh; tuy nhiên, tổng thời lượng kết hợp của tất cả tệp âm thanh trong một câu lệnh không được vượt quá 9,5 giờ.
+- Gemini giảm độ phân giải dữ liệu của tệp âm thanh xuống 16 Kbps.
+- Nếu nguồn âm thanh có nhiều kênh, Gemini sẽ kết hợp các kênh đó thành một kênh duy nhất.
 
-## 后续步骤
+## Bước tiếp theo
 
-本指南介绍了如何根据音频数据生成文本。如需了解详情，请参阅以下资源：
+Hướng dẫn này cho biết cách tạo văn bản để phản hồi dữ liệu âm thanh. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
 
-- [文件提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn#prompt-guide)：Gemini API 支持使用文本、图片、音频和视频数据进行提示，也称为多模态提示。
-- [系统指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#system-instructions)：系统指令可让您根据自己的特定需求和使用情形来控制模型的行为。
-- [安全指南](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-cn)：有时，生成式 AI 模型会生成意料之外的输出，例如不准确、有偏见或令人反感的输出。后处理和人工评估对于限制此类输出造成的危害风险至关重要。
+- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
+- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều hướng hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
+- [Hướng dẫn về sự an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Hậu xử lý và đánh giá của con người là những bước cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
 
-发送反馈
+Gửi ý kiến phản hồi
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最后更新时间 (UTC)：2026-05-07。
+Cập nhật lần gần đây nhất: 2026-05-13 UTC.
 
-需要向我们提供更多信息？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-07。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-13 UTC."],[],[]]

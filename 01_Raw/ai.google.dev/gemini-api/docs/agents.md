@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/agents?hl=zh-TW
-fetched_at: 2026-05-11T12:38:15.464898+00:00
+fetched_at: 2026-05-18T13:09:24.970861+00:00
 title: "\u4ee3\u7406\u7a0b\u5f0f\u7e3d\u89bd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

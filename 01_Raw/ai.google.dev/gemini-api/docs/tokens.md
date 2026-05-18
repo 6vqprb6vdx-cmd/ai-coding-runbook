@@ -1,63 +1,67 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=vi
-fetched_at: 2026-05-11T12:31:53.872768+00:00
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=ar
+fetched_at: 2026-05-18T13:02:00.748614+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Tìm hiểu và đếm mã thông báo
+# فهم الرموز المميّزة وعدّها
 
-Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào và đầu ra ở mức độ chi tiết được gọi là *mã thông báo*.
+تعالج نماذج Gemini ونماذج الذكاء الاصطناعي التوليدي الأخرى الإدخالات والنتائج بدقة تُعرف باسم *الرمز المميز*.
 
-**Đối với các mô hình Gemini, một mã thông báo tương đương với khoảng 4 ký tự.
-100 mã thông báo tương đương với khoảng 60 đến 80 từ tiếng Anh.**
+**بالنسبة إلى نماذج Gemini، يعادل الرمز المميز الواحد 4 أحرف تقريبًا.
+ويعادل 100 رمز مميز من 60 إلى 80 كلمة باللغة الإنجليزية تقريبًا.**
 
-## Giới thiệu về mã thông báo
+## لمحة عن الرموز المميّزة
 
-Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả các token mà mô hình sử dụng được gọi là từ vựng và quy trình phân tách văn bản thành token được gọi là *tách từ*.
+يمكن أن تكون الرموز المميّزة أحرفًا مفردة، مثل `z`، أو كلمات كاملة، مثل `cat`. ويتم تقسيم الكلمات الطويلة إلى عدة رموز مميّزة. تُعرف مجموعة جميع الرموز المميّزة التي يستخدمها النموذج باسم المفردات، وتُعرف عملية تقسيم النص إلى رموز مميّزة باسم *الترميز*.
 
-Khi bạn bật tính năng thanh toán, [chi phí cho một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
+عند تفعيل الفوترة، يتم تحديد [تكلفة طلب إلى Gemini API](https://ai.google.dev/pricing?hl=ar) جزئيًا من خلال عدد الرموز المميّزة للإدخال والإخراج، لذا قد يكون من المفيد معرفة كيفية
+عدّ الرموز المميّزة.
 
-Bạn có thể thử đếm mã thông báo trong Colab của chúng tôi.
+يمكنك تجربة عدّ الرموز المميّزة في Colab.
 
 |  |  |  |
 | --- | --- | --- |
-| [Xem trên ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | [Dùng thử sổ tay Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=vi) | [Xem sổ tay trên GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=vi) |
+| [عرض على ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | [تجربة ورقة ملاحظات Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ar) | [عرض ورقة الملاحظات على GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ar) |
 
-## Đếm mã thông báo
+## عدّ الرموز المميّزة
 
-Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được tách từ, bao gồm cả văn bản, tệp hình ảnh và các phương thức không phải văn bản khác.
+يتم ترميز جميع الإدخالات والنتائج من Gemini API، بما في ذلك النصوص وملفات الصور والوسائط الأخرى غير النصية.
 
-Bạn có thể đếm mã thông báo theo những cách sau:
+يمكنك عدّ الرموز المميّزة بالطرق التالية:
 
-- **Gọi [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=vi) bằng dữ liệu đầu vào của yêu cầu.**  
-   Hàm này chỉ trả về tổng số mã thông báo trong *đầu vào*. Bạn có thể thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào đến mô hình để kiểm tra kích thước của các yêu cầu.
-- **Sử dụng thuộc tính `usage_metadata` trên đối tượng `response` sau khi gọi `generate_content`.**  
-   Hàm này trả về tổng số mã thông báo trong *cả dữ liệu đầu vào và đầu ra*: `total_token_count`.  
-   Hàm này cũng trả về số lượng mã thông báo của đầu vào và đầu ra riêng biệt: `prompt_token_count` (mã thông báo đầu vào) và `candidates_token_count` (mã thông báo đầu ra).
+- **استدعاء [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=ar) باستخدام إدخال
+  الطلب.**  
+   تعرض هذه الطريقة إجمالي عدد الرموز المميّزة في *الإدخال فقط*. يمكنك إجراء هذا الاستدعاء قبل إرسال الإدخال إلى النموذج للتحقّق من حجم طلباتك.
+- **استخدام السمة `usage_metadata` في عنصر `response` بعد
+  استدعاء `generate_content`.**  
+   تعرض هذه الطريقة إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج*: `total_token_count`.  
+   تعرض أيضًا عدد الرموز المميّزة للإدخال والإخراج بشكل منفصل: `prompt_token_count` (رموز الإدخال المميّزة) و`candidates_token_count` (رموز الإخراج المميّزة).
 
-  Nếu bạn đang sử dụng [mô hình tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi), thì mã thông báo được dùng trong quá trình tư duy sẽ được trả về trong `thoughts_token_count`. Và nếu bạn đang sử dụng [Lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi), thì số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ nằm trong `cached_content_token_count`.
+  [إذا كنت تستخدم نموذجًا للتفكير، يتم عرض الرموز المميّزة المستخدَمة أثناء عملية التفكير في `thoughts_token_count`.](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) وإذا كنت تستخدم
+  [ميزة "تخزين السياق مؤقتًا"](https://ai.google.dev/gemini-api/docs/caching?hl=ar)، سيكون عدد الرموز المميّزة المخزّنة مؤقتًا في `cached_content_token_count`.
 
-### Đếm mã thông báo văn bản
+### عدّ الرموز المميّزة للنص
 
-Nếu bạn gọi `count_tokens` bằng dữ liệu đầu vào chỉ có văn bản, thì hàm này sẽ trả về số lượng mã thông báo của văn bản *chỉ trong dữ liệu đầu vào* (`total_tokens`). Bạn có thể thực hiện lệnh gọi này trước khi gọi `generate_content` để kiểm tra kích thước của các yêu cầu.
+إذا استدعيت `count_tokens` باستخدام إدخال نصي فقط، ستعرض هذه الطريقة عدد الرموز المميّزة للنص في *الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الاستدعاء قبل استدعاء `generate_content` للتحقّق من حجم طلباتك.
 
-Một lựa chọn khác là gọi `generate_content` rồi sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận được những thông tin sau:
+هناك خيار آخر وهو استدعاء `generate_content` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
 
-- Số lượng mã thông báo riêng biệt của đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và đầu ra (`candidates_token_count`)
-- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
-- Tổng số mã thông báo trong *cả đầu vào và đầu ra* (`total_token_count`)
+- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
+- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
+- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`)
 
 ### Python
 
@@ -104,7 +108,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 ctx := context.Background()
@@ -132,17 +136,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Đếm mã thông báo nhiều lượt (trò chuyện)
+### عدّ الرموز المميّزة للمحادثات المتعدّدة الجولات (المحادثة)
 
-Nếu bạn gọi `count_tokens` bằng nhật ký trò chuyện, thì hàm này sẽ trả về tổng số token của văn bản từ mỗi vai trò trong cuộc trò chuyện (`total_tokens`).
+إذا استدعيت `count_tokens` باستخدام سجلّ المحادثة، ستعرض هذه الطريقة إجمالي عدد الرموز المميّزة للنص من كل دور في المحادثة (`total_tokens`).
 
-Một lựa chọn khác là gọi `send_message` rồi sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận được những thông tin sau:
+هناك خيار آخر وهو استدعاء `send_message` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
 
-- Số lượng mã thông báo riêng biệt của đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và đầu ra (`candidates_token_count`)
-- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
-- Tổng số mã thông báo trong *cả đầu vào và đầu ra* (`total_token_count`)
+- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
+- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
+- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`)
 
-Để biết lượt trò chuyện tiếp theo của bạn sẽ lớn đến mức nào, bạn cần thêm lượt trò chuyện đó vào nhật ký khi gọi `count_tokens`.
+لفهم حجم جولة المحادثة التالية، عليك إلحاقها بالسجلّ عند استدعاء `count_tokens`.
 
 ### Python
 
@@ -230,7 +234,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 ctx := context.Background()
@@ -268,31 +272,33 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Đếm mã thông báo đa phương thức
+### عدّ الرموز المميّزة المتعددة الوسائط
 
-Tất cả thông tin đầu vào cho Gemini API đều được tách từ, bao gồm cả văn bản, tệp hình ảnh và các phương thức không phải văn bản khác. Lưu ý những điểm chính sau đây về việc tách từ dữ liệu đầu vào đa phương thức trong quá trình xử lý bằng Gemini API:
+يتم ترميز جميع الإدخالات إلى Gemini API، بما في ذلك النصوص وملفات الصور والوسائط الأخرى غير النصية. يُرجى العِلم بالنقاط الرئيسية التالية حول ترميز الإدخالات المتعددة الوسائط أثناء معالجتها من قِبل Gemini API:
 
-- Đầu vào hình ảnh có cả hai chiều <=384 pixel được tính là 258 mã thông báo. Những hình ảnh có kích thước lớn hơn ở một hoặc cả hai chiều sẽ bị cắt và điều chỉnh tỷ lệ thành các ô có kích thước 768x768 pixel (mỗi ô được tính là 258 mã thông báo) nếu cần.
-- Tệp video và âm thanh được chuyển đổi thành mã thông báo theo các mức cố định sau: video ở mức 263 mã thông báo mỗi giây và âm thanh ở mức 32 mã thông báo mỗi giây.
+- يتم عدّ إدخالات الصور التي يكون كلا بُعدَيها ≤384 بكسل على أنّها 258 رمزًا مميّزًا. يتم اقتصاص الصور التي يكون أحد بُعدَيها أو كلاهما أكبر من ذلك وتغيير حجمها حسب الحاجة إلى مربّعات بحجم 768 × 768 بكسل، ويتم عدّ كل منها على أنّه 258 رمزًا مميّزًا.
+- يتم تحويل ملفات الفيديو والصوت إلى رموز مميّزة بالمعدّلات الثابتة التالية: الفيديو بمعدّل 263 رمزًا مميّزًا في الثانية والصوت بمعدّل 32 رمزًا مميّزًا في الثانية.
 
-#### Độ phân giải của nội dung nghe nhìn
+#### دقة الوسائط
 
-[Các mô hình Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=vi#gemini-3) cung cấp khả năng kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
-Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
+[توفّر نماذج Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=ar#gemini-3) تحكّمًا دقيقًا في
+معالجة الصور المتعددة الوسائط باستخدام المَعلمة `media_resolution`. تحدّد المَعلمة `media_resolution` **الحد الأقصى لعدد الرموز المميّزة المخصّصة لكل صورة إدخال أو إطار فيديو.**
+تُحسِّن الدقة العالية قدرة النموذج على قراءة النصوص الدقيقة أو تحديد التفاصيل الصغيرة، ولكنها تزيد من استخدام الرموز المميّزة والمدة الزمنية المستغرَقة.
 
-Để biết thêm thông tin về tham số này và mức độ ảnh hưởng của tham số này đến việc tính toán mã thông báo, hãy xem hướng dẫn về [độ phân giải của nội dung nghe nhìn](https://ai.google.dev/gemini-api/docs/media-resolution?hl=vi).
+لمزيد من التفاصيل حول المَعلمة وكيفية تأثيرها في عمليات احتساب الرموز المميّزة،
+يُرجى الاطّلاع على دليل [دقة الوسائط](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ar).
 
-#### Tệp hình ảnh
+#### ملفات الصور
 
-Nếu gọi `count_tokens` bằng dữ liệu đầu vào là văn bản và hình ảnh, thì hàm này sẽ trả về tổng số mã thông báo của văn bản và hình ảnh *chỉ trong dữ liệu đầu vào* (`total_tokens`). Bạn có thể gọi hàm này trước khi gọi `generate_content` để kiểm tra kích thước của các yêu cầu. Bạn cũng có thể gọi `count_tokens` trên văn bản và tệp riêng biệt (nếu muốn).
+إذا استدعيت `count_tokens` باستخدام إدخال نصي وصورة، ستعرض هذه الطريقة عدد الرموز المميّزة المجمّع للنص والصورة في *الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الاستدعاء قبل استدعاء `generate_content` للتحقّق من حجم طلباتك. يمكنك أيضًا اختياريًا استدعاء `count_tokens` على النص والملف بشكل منفصل.
 
-Một lựa chọn khác là gọi `generate_content` rồi sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận được những thông tin sau:
+هناك خيار آخر وهو استدعاء `generate_content` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
 
-- Số lượng mã thông báo riêng biệt của đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và đầu ra (`candidates_token_count`)
-- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
-- Tổng số mã thông báo trong *cả đầu vào và đầu ra* (`total_token_count`)
+- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
+- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
+- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`)
 
-Ví dụ sử dụng hình ảnh được tải lên từ File API:
+مثال يستخدم صورة تم تحميلها من File API:
 
 ### Python
 
@@ -351,7 +357,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 ctx := context.Background()
@@ -392,7 +398,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Ví dụ cung cấp hình ảnh dưới dạng dữ liệu cùng dòng:
+مثال يقدّم الصورة كبيانات مضمّنة:
 
 ### Python
 
@@ -449,7 +455,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 ctx := context.Background()
@@ -489,20 +495,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### Tệp video hoặc âm thanh
+#### ملفات الفيديو أو الصوت
 
-Mỗi loại âm thanh và video được chuyển đổi thành mã thông báo theo các mức cố định sau:
+يتم تحويل كل من الصوت والفيديو إلى رموز مميّزة بالمعدّلات الثابتة التالية:
 
-- Video: 263 mã thông báo mỗi giây
-- Âm thanh: 32 mã thông báo mỗi giây
+- الفيديو: 263 رمزًا مميّزًا في الثانية
+- الصوت: 32 رمزًا مميّزًا في الثانية
 
-Nếu gọi `count_tokens` bằng đầu vào văn bản và video/âm thanh, thì hàm này sẽ trả về tổng số mã thông báo của văn bản và tệp video/âm thanh *chỉ trong đầu vào* (`total_tokens`). Bạn có thể gọi hàm này trước khi gọi `generate_content` để kiểm tra kích thước của các yêu cầu. Bạn cũng có thể gọi `count_tokens` trên văn bản và tệp riêng biệt (không bắt buộc).
+إذا استدعيت `count_tokens` باستخدام إدخال نصي وفيديو/صوت، ستعرض هذه الطريقة عدد الرموز المميّزة المجمّع للنص وملف الفيديو/الصوت في *الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الاستدعاء قبل استدعاء `generate_content` للتحقّق من حجم طلباتك. يمكنك أيضًا اختياريًا استدعاء `count_tokens` على النص والملف بشكل منفصل.
 
-Một lựa chọn khác là gọi `generate_content` rồi sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận được những thông tin sau:
+هناك خيار آخر وهو استدعاء `generate_content` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
 
-- Số lượng mã thông báo riêng biệt của đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và đầu ra (`candidates_token_count`)
-- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
-- Tổng số mã thông báo trong *cả đầu vào và đầu ra* (`total_token_count`).
+- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
+- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
+- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`).
 
 ### Python
 
@@ -575,7 +581,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 ctx := context.Background()
@@ -627,9 +633,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-## Cửa sổ ngữ cảnh
+## قدرات الاستيعاب
 
-Các mô hình có trong Gemini API có cửa sổ ngữ cảnh được đo bằng số lượng mã thông báo. Cửa sổ ngữ cảnh xác định lượng dữ liệu đầu vào mà bạn có thể cung cấp và lượng dữ liệu đầu ra mà mô hình có thể tạo. Bạn có thể xác định kích thước của cửa sổ ngữ cảnh bằng cách gọi [điểm cuối `models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=vi) hoặc bằng cách xem trong [tài liệu về các mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+تتضمّن النماذج المتاحة من خلال Gemini API قدرات استيعاب يتم قياسها بالرموز المميّزة. تحدّد قدرة الاستيعاب حجم الإدخال الذي يمكنك تقديمه وحجم الإخراج الذي يمكن للنموذج إنشاؤه. يمكنك تحديد حجم قدرة الاستيعاب من خلال استدعاء نقطة النهاية [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=ar)أو الاطّلاع على [مستندات النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
 
 ### Python
 
@@ -658,7 +664,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 ctx := context.Background()
@@ -674,12 +680,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-05-07 UTC.
+تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-07 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

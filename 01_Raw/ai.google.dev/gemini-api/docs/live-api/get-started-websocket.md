@@ -1,69 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=ar
-fetched_at: 2026-05-11T12:42:02.301940+00:00
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=fr
+fetched_at: 2026-05-18T13:03:51.714927+00:00
 title: "Get started with Gemini Live API using WebSockets \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-إرسال ملاحظات
+Envoyer des commentaires
 
 # Get started with Gemini Live API using WebSockets
 
-تتيح واجهة برمجة التطبيقات Gemini Live API التفاعل الثنائي الاتجاه مع نماذج Gemini في الوقت الفعلي، وتتوافق مع مدخلات الصوت والفيديو والنص ومخرجات الصوت الأصلية. يوضّح هذا الدليل كيفية الدمج مباشرةً مع واجهة برمجة التطبيقات باستخدام WebSockets الأولية.
+L'API Gemini Live permet une interaction bidirectionnelle en temps réel avec les modèles Gemini, et accepte les entrées audio, vidéo et texte, ainsi que les sorties audio natives. Ce guide explique comment intégrer directement l'API à l'aide de WebSockets bruts.
 
-[تجربة Live API في Google AI Studiomic](https://aistudio.google.com/live?hl=ar)
-[استنساخ تطبيق المثال من GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
-[استخدام مهارات وكيل الترميزterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ar)
+[Essayez l'API Live dans Google AI Studiomic](https://aistudio.google.com/live?hl=fr)
+[Cloner l'exemple d'application depuis GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
+[Utiliser les compétences de l'agent de codageterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=fr)
 
-## نظرة عامة
+## Présentation
 
-تستخدم واجهة برمجة التطبيقات Gemini Live WebSockets للتواصل في الوقت الفعلي. على عكس استخدام حزمة تطوير البرامج (SDK)، يتضمّن هذا الأسلوب إدارة اتصال WebSocket مباشرةً وإرسال الرسائل وتلقّيها بتنسيق JSON محدّد تحدّده واجهة برمجة التطبيقات.
+L'API Gemini Live utilise WebSockets pour la communication en temps réel. Contrairement à l'utilisation d'un SDK, cette approche implique de gérer directement la connexion WebSocket et d'envoyer/recevoir des messages dans un format JSON spécifique défini par l'API.
 
-المفاهيم الأساسية:
+Concepts clés :
 
-- **نقطة نهاية WebSocket**: عنوان URL محدّد للاتصال به.
-- **تنسيق الرسالة**: تتم جميع عمليات التواصل من خلال رسائل JSON تتوافق مع بنية [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentclientmessage) و[`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentservermessage).
-- **إدارة الجلسات**: أنت المسؤول عن الحفاظ على اتصال WebSocket.
+- **Point de terminaison WebSocket** : URL spécifique à laquelle se connecter.
+- **Format des messages** : toutes les communications sont effectuées via des messages JSON conformes aux structures [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentclientmessage) et [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentservermessage).
+- **Gestion des sessions** : vous êtes responsable de la maintenance de la connexion WebSocket.
 
-## المصادقة
+## Authentification
 
-تتم المصادقة من خلال تضمين مفتاح واجهة برمجة التطبيقات كمعلَمة طلب بحث في عنوان URL الخاص بـ WebSocket.
+L'authentification est gérée en incluant votre clé API en tant que paramètre de requête dans l'URL WebSocket.
 
-تنسيق نقطة النهاية هو:
+Le format du point de terminaison est le suivant :
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=YOUR_API_KEY
 ```
 
-استبدِل `YOUR_API_KEY` بمفتاح واجهة برمجة التطبيقات الفعلي.
+Remplacez `YOUR_API_KEY` par votre clé API réelle.
 
-## المصادقة باستخدام الرموز المميزة المؤقتة
+## Authentification avec des jetons éphémères
 
-في حال استخدام [الرموز المميزة المؤقتة](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ar)، عليك الاتصال بنقطة النهاية `v1alpha`.
-يجب تمرير الرمز المميّز المؤقت كمعلَمة طلب بحث `access_token`.
+Si vous utilisez des [jetons éphémères](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=fr), vous devez vous connecter au point de terminaison `v1alpha`.
+Le jeton éphémère doit être transmis en tant que paramètre de requête `access_token`.
 
-يكون تنسيق نقطة النهاية للمفاتيح المؤقتة على النحو التالي:
+Le format du point de terminaison pour les clés éphémères est le suivant :
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContentConstrained?access_token={short-lived-token}
 ```
 
-استبدِل `{short-lived-token}` بالرمز المميّز المؤقت الفعلي.
+Remplacez `{short-lived-token}` par le jeton éphémère réel.
 
-## الاتصال بواجهة برمجة التطبيقات Live API
+## Se connecter à l'API Live
 
-لبدء جلسة مباشرة، عليك إنشاء اتصال WebSocket بنقطة النهاية التي تمت مصادقتها.
-يجب أن تكون الرسالة الأولى التي يتم إرسالها عبر WebSocket هي [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentsetup) تحتوي على `config`.
-للاطّلاع على خيارات الإعداد الكاملة، يُرجى الانتقال إلى [Live API - مرجع واجهة برمجة تطبيقات WebSockets](https://ai.google.dev/api/live?hl=ar).
+Pour démarrer une session en direct, établissez une connexion WebSocket au point de terminaison authentifié.
+Le premier message envoyé via WebSocket doit être un [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentsetup) contenant la `config`.
+Pour obtenir la liste complète des options de configuration, consultez la documentation de référence de l'API [Live - WebSockets](https://ai.google.dev/api/live?hl=fr).
 
 ### Python
 
@@ -144,9 +144,9 @@ websocket.onclose = () => {
 };
 ```
 
-## جارٍ إرسال الرسالة النصية
+## Envoi d'un SMS…
 
-لإرسال نص مُدخَل، أنشئ رسالة [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentrealtimeinput) تتضمّن الحقل `text`.
+Pour envoyer une entrée de texte, créez un [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentrealtimeinput) message avec le `text` champ.
 
 ### Python
 
@@ -185,9 +185,9 @@ function sendTextMessage(text) {
 sendTextMessage("Hello, how are you?");
 ```
 
-## إرسال الصوت
+## Envoi de l'audio
 
-يجب إرسال الصوت كبيانات PCM أولية (صوت PCM أولي 16 بت، 16 كيلوهرتز، ترتيب البايتات الصغير). إنشاء رسالة [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentrealtimeinput) باستخدام البيانات الصوتية `mimeType` مهم جدًا.
+L'audio doit être envoyé sous forme de données PCM brutes (audio PCM 16 bits brut, 16 kHz, little-endian). Créez un [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentrealtimeinput) message avec les données audio. Le `mimeType` est essentiel.
 
 ### Python
 
@@ -232,11 +232,12 @@ function sendAudioChunk(chunk) {
 // Example usage: sendAudioChunk(audioBuffer);
 ```
 
-للاطّلاع على مثال حول كيفية الحصول على الصوت من جهاز العميل (مثل المتصفح)، يُرجى الاطّلاع على المثال الشامل على [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74).
+Pour obtenir un exemple de récupération de l'audio à partir de l'appareil client (par exemple, le navigateur),
+consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74).
 
-## إرسال الفيديو
+## Envoi de la vidéo…
 
-يتم إرسال لقطات الفيديو كصور فردية (مثل JPEG أو PNG). كما هو الحال مع الصوت، استخدِم `realtimeInput` مع `Blob`، مع تحديد `mimeType` الصحيح.
+Les images vidéo sont envoyées sous forme d'images individuelles (par exemple, JPEG ou PNG). Comme pour l'audio, utilisez `realtimeInput` avec un `Blob`, en spécifiant le `mimeType` approprié.
 
 ### Python
 
@@ -281,11 +282,12 @@ function sendVideoFrame(frame, mimeType = 'image/jpeg') {
 // Example usage: sendVideoFrame(jpegBuffer);
 ```
 
-للاطّلاع على مثال حول كيفية الحصول على الفيديو من جهاز العميل (مثل المتصفح)، يُرجى الرجوع إلى المثال الشامل على [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222).
+Pour obtenir un exemple de récupération de la vidéo à partir de l'appareil client (par exemple, le navigateur),
+consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222).
 
-## تلقّي الردود
+## Recevoir les réponses
 
-سيرسل WebSocket رسائل [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentservermessage). عليك تحليل رسائل JSON هذه والتعامل مع أنواع مختلفة من المحتوى.
+WebSocket renverra des [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentservermessage) messages. Vous devez analyser ces messages JSON et gérer différents types de contenu.
 
 ### Python
 
@@ -356,11 +358,11 @@ websocket.onmessage = (event) => {
 };
 ```
 
-للاطّلاع على مثال حول كيفية التعامل مع الردّ، يُرجى الرجوع إلى المثال الشامل على [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75).
+Pour obtenir un exemple de gestion de la réponse, consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75).
 
-## معالجة طلبات الأدوات
+## Gérer les appels d'outils
 
-عندما يطلب النموذج إجراء مكالمة باستخدام أداة، سيحتوي [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentservermessage) على حقل `toolCall`. يجب تنفيذ الدالة محليًا وإعادة النتيجة إلى WebSocket باستخدام رسالة [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontenttoolresponse).
+Lorsque le modèle demande un appel d'outil, le [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontentservermessage) contient un champ `toolCall`. Vous devez exécuter la fonction localement et renvoyer le résultat à WebSocket à l'aide d'un [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=fr#bidigeneratecontenttoolresponse) message.
 
 ### Python
 
@@ -447,20 +449,20 @@ function handleToolCall(toolCall) {
 // This function is called within websocket.onmessage when a toolCall is detected.
 ```
 
-## الخطوات التالية
+## Étape suivante
 
-- اطّلِع على دليل [الإمكانات](https://ai.google.dev/gemini-api/docs/live-guide?hl=ar) الكامل لواجهة Live API لمعرفة الإمكانات والإعدادات الرئيسية، بما في ذلك ميزة "رصد النشاط الصوتي" وميزات الصوت الأصلية.
-- اطّلِع على دليل [استخدام الأدوات](https://ai.google.dev/gemini-api/docs/live-tools?hl=ar) لمعرفة كيفية دمج Live API مع الأدوات وميزة "استدعاء الدوال".
-- اطّلِع على دليل [إدارة الجلسات](https://ai.google.dev/gemini-api/docs/live-session?hl=ar) لمعرفة كيفية إدارة المحادثات الطويلة.
-- اطّلِع على دليل [الرموز المميزة المؤقتة](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ar) لإجراء مصادقة آمنة في تطبيقات [العميل إلى الخادم](#implementation-approach).
-- لمزيد من المعلومات عن واجهة برمجة تطبيقات WebSockets الأساسية، يُرجى الاطّلاع على [مرجع واجهة برمجة تطبيقات WebSockets](https://ai.google.dev/api/live?hl=ar).
+- Consultez le guide complet sur les fonctionnalités de l'API Live [Fonctionnalités](https://ai.google.dev/gemini-api/docs/live-guide?hl=fr) pour découvrir les principales fonctionnalités et configurations, y compris la détection d'activité vocale et les fonctionnalités audio natives.
+- Consultez le [guide sur l'utilisation des outils](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr) pour découvrir comment intégrer l'API Live aux outils et aux appels de fonction.
+- Consultez le [guide sur la gestion des sessions](https://ai.google.dev/gemini-api/docs/live-session?hl=fr) pour gérer les conversations de longue durée.
+- Consultez le guide sur les [jetons éphémères](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=fr) pour une authentification sécurisée dans les applications [client-serveur](#implementation-approach).
+- Pour en savoir plus sur l'API WebSockets sous-jacente, consultez la [documentation de référence de l'API WebSockets](https://ai.google.dev/api/live?hl=fr).
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Dernière mise à jour le 2026/05/13 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Voulez-vous nous donner plus d'informations ?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/13 (UTC)."],[],[]]

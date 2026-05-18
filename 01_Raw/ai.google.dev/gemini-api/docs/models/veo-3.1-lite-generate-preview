@@ -1,51 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=ja
-fetched_at: 2026-05-11T12:35:56.518323+00:00
-title: "Veo 3.1 Lite \u30d7\u30ec\u30d3\u30e5\u30fc\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=he
+fetched_at: 2026-05-18T13:10:20.350469+00:00
+title: "\u05d2\u05e8\u05e1\u05ea \u05d8\u05e8\u05d5\u05dd-\u05d4\u05e9\u05e7\u05d4 \u05e9\u05dc Veo 3.1 Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-フィードバックを送信
+שליחת משוב
 
-# Veo 3.1 Lite プレビュー版
+# גרסת טרום-השקה של Veo 3.1 Lite
 
-Veo 3.1 Lite Preview は、高効率でデベロッパー ファーストの動画モデルであり、高忠実度の動画生成、編集、シネマティック制御を実現します。最先端の Veo 3.1 モデルを活用して、クリエイターや企業向けにスケーラブルでプログラマブルなインターフェースを提供することで、プロ品質の動画 AI を民主化します。
+‫Veo 3.1 Lite Preview הוא מודל וידאו יעיל במיוחד שמתאים במיוחד למפתחים. הוא מאפשר ליצור ולערוך סרטונים באיכות גבוהה, וכולל אמצעי בקרה קולנועיים. הוא מבוסס על מודל Veo 3.1 המתקדם ביותר, ומאפשר ליוצרים ולעסקים ליהנות מ-AI ליצירת סרטונים ברמה מקצועית באמצעות ממשק ניתן לתכנות וניתן להרחבה.
 
-[Google AI Studio で試す](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=ja)
+[לניסיון ב-Google AI Studio](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=he)
 
-## ドキュメント
+## מאמרי עזרה
 
-Veo 3.1 Lite は、大量の動画アプリケーションやワークフローを大規模に構築するデベロッパーや企業に最適な価格を提供します。詳細と他の
-Veo 3.1 モデルとの比較については、[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#veo-3.1)のページをご覧ください。
+‫Veo 3.1 Lite מציע את המחירים הטובים ביותר למפתחים ולארגונים שיוצרים אפליקציות וסביבות עבודה ליצירת סרטונים בכמויות גדולות ובקנה מידה נרחב. פרטים והשוואה עם מודלים אחרים של Veo 3.1 זמינים בדף [התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he#veo-3.1).
 
-機能と機能の全容については、[動画生成](https://ai.google.dev/gemini-api/docs/video?hl=ja)のページをご覧ください。Veo 3.1 Lite Preview は、
-[4K 出力](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=ja#resolution)または
-[拡張機能](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=ja#extending_veo_videos)をサポートしていません。
+ב[דף בנושא יצירת סרטונים](https://ai.google.dev/gemini-api/docs/video?hl=he) אפשר לקרוא על כל התכונות והיכולות. חשוב לדעת שגרסת הטרום-השקה של Veo 3.1 Lite לא תומכת ב[פלט באיכות 4K](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=he#resolution) או ב[תוספים](https://ai.google.dev/gemini-api/docs/video?example=dialogue&hl=he#extending_veo_videos).
 
 ## veo-3.1-lite-generate-preview
 
-| プロパティ | 説明 |
+| נכס | תיאור |
 | --- | --- |
-| id\_cardモデルコード | **Gemini API**  `veo-3.1-lite-generate-preview` |
-| saveサポートされるデータタイプ | **入力**  テキスト、画像  **出力**  音声付きの動画 |
-| token\_auto上限 | **テキスト入力**  1,024 トークン  **出力動画**  1 |
-| calendar\_month最終更新日 | 2026 年 3 月 |
+| id\_cardקוד מודל | ‫**Gemini API**  `veo-3.1-lite-generate-preview` |
+| saveסוגי נתונים נתמכים | **קלט**  טקסט, תמונה  **פלט**  סרטון עם אודיו |
+| token\_autoמגבלות | **קלט טקסט**  ‫1,024 טוקנים  **סרטון הפלט**  1 |
+| calendar\_monthהעדכון האחרון | מרץ 2026 |
 
-フィードバックを送信
+שליחת משוב
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-最終更新日 2026-04-29 UTC。
+עדכון אחרון: 2026-04-29 (שעון UTC).
 
-ご意見をお聞かせください
+רוצה לתת לנו משוב?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

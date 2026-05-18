@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=he
-fetched_at: 2026-05-11T12:41:02.467898+00:00
-title: "\u05de\u05d5\u05d3\u05dc Gemini Embedding 2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=pl
+fetched_at: 2026-05-18T13:05:05.317826+00:00
+title: "Model Gemini Embedding\u00a02 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-שליחת משוב
+Prześlij opinię
 
-# מודל Gemini Embedding 2
+# Model Gemini Embedding 2
 
-מודל ההטמעה המולטי-מודאלי הראשון שלנו, שמספק מיפוי מספרי יעיל של טקסט, תמונות, סרטונים, אודיו וקובצי PDF למרחב הטמעה מאוחד אחד. מודל Gemini Embedding 2 הוא המודל הכי טוב לחיפוש סמנטי חוצה-אופנים, לאחזור מסמכים ולמערכות המלצות שדורשות חישובי דמיון מהירים וניתנים להרחבה על קבוצות גדולות של נתונים מולטי-מודאליים.
+Nasz pierwszy multimodalny model wektorów dystrybucyjnych, który zapewnia wydajne numeryczne mapowanie tekstu, obrazów, filmów, dźwięku i plików PDF do jednej ujednoliconej przestrzeni wektorów dystrybucyjnych. Model Gemini Embedding 2 najlepiej sprawdza się w przypadku semantycznego wyszukiwania między różnymi rodzajami danych, wyszukiwania dokumentów i systemów rekomendacji, które wymagają szybkich i skalowalnych obliczeń podobieństwa w dużych multimodalnych zbiorach danych.
 
-## מאמרי עזרה
+## Dokumentacja
 
-למידע מלא על התכונות והיכולות, אפשר לעבור לדף [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=he).
+Więcej informacji o funkcjach i możliwościach znajdziesz na stronie [Wektory dystrybucyjne](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl).
 
 ## gemini-embedding-2
 
-| נכס | תיאור |
+| Właściwość | Opis |
 | --- | --- |
-| id\_cardקוד מודל | ‫**Gemini API**  `gemini-embedding-2` |
-| saveסוגי נתונים נתמכים | **קלט**  טקסט, תמונה, סרטון, אודיו, PDF  **פלט**  הטמעות של טקסט |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  8,192  **גודל מאפיין הפלט**  גמיש, תומך בערכים: 128 עד 3072, מומלץ: 768, ‏ 1536, ‏ 3072 |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-embedding-2` |
-| calendar\_monthהעדכון האחרון | אפריל 2026 |
+| id\_cardKod modelu | **Gemini API**  `gemini-embedding-2` |
+| saveObsługiwane typy danych | **Wejście**  Tekst, obraz, film, dźwięk, PDF  **Dane wyjściowe**  Wektory dystrybucyjne tekstu |
+| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  8192  **Rozmiar wymiaru wyjściowego**  Elastyczny, obsługuje: 128–3072, zalecane: 768, 1536, 3072 |
+| 123Wersje | Więcej informacji znajdziesz w artykule [Wzorce wersji modelu](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#model-versions).  - Stabilny: `gemini-embedding-2` |
+| calendar\_monthOstatnia aktualizacja | Kwiecień 2026 r. |
 
-שליחת משוב
+Prześlij opinię
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+Ostatnia aktualizacja: 2026-04-29 UTC.
 
-רוצה לתת לנו משוב?
+Chcesz przekazać coś jeszcze?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

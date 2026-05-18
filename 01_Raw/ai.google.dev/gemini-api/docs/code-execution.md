@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=id
-fetched_at: 2026-05-11T12:38:02.058496+00:00
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-TW
+fetched_at: 2026-05-18T13:11:15.614744+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Eksekusi kode
+# 程式碼執行
 
-Gemini API menyediakan alat eksekusi kode yang memungkinkan model membuat dan menjalankan kode Python. Model kemudian dapat belajar secara berulang dari hasil eksekusi kode hingga mencapai output akhir. Anda dapat menggunakan eksekusi kode untuk membuat aplikasi yang memanfaatkan penalaran berbasis kode. Misalnya, Anda dapat menggunakan eksekusi kode untuk menyelesaikan persamaan atau memproses teks. Anda juga dapat menggunakan [library](#supported-libraries) yang disertakan dalam lingkungan eksekusi kode untuk melakukan tugas yang lebih khusus.
+Gemini API 提供程式碼執行工具，可讓模型生成及執行 Python 程式碼。模型會根據程式碼執行結果反覆試驗學習，直到生成最終輸出內容。您可以使用程式碼執行功能，建構根據程式碼進行推論的應用程式。舉例來說，您可以使用程式碼執行功能解方程式或處理文字。您也可以使用程式碼執行環境中包含的[程式庫](#supported-libraries)，執行更專業的工作。
 
-Gemini hanya dapat menjalankan kode di Python. Anda masih dapat meminta Gemini untuk membuat kode dalam bahasa lain, tetapi model tidak dapat menggunakan alat eksekusi kode untuk menjalankannya.
+Gemini 只能執行 Python 程式碼。您仍可問問 Gemini 以其他語言生成程式碼，但模型無法使用程式碼執行工具執行程式碼。
 
-## Mengaktifkan eksekusi kode
+## 啟用程式碼執行功能
 
-Untuk mengaktifkan eksekusi kode, konfigurasi alat eksekusi kode pada model. Hal ini memungkinkan model membuat dan menjalankan kode.
+如要啟用程式碼執行功能，請在模型上設定程式碼執行工具。模型就能生成及執行程式碼。
 
 ### Python
 
@@ -142,7 +142,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 }'
 ```
 
-Outputnya mungkin terlihat seperti berikut, yang telah diformat agar mudah dibaca:
+輸出內容可能如下所示，為了方便閱讀，我們已將其格式化：
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -191,31 +191,27 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-Output ini menggabungkan beberapa bagian konten yang ditampilkan model saat menggunakan eksekusi kode:
+這項輸出內容結合了模型在使用程式碼執行功能時傳回的幾個內容部分：
 
-- `text`: Teks inline yang dihasilkan oleh model
-- `executableCode`: Kode yang dihasilkan oleh model yang dimaksudkan untuk dieksekusi
-- `codeExecutionResult`: Hasil kode yang dapat dieksekusi
+- `text`：模型生成的內嵌文字
+- `executableCode`：模型產生的程式碼，可供執行
+- `codeExecutionResult`：可執行程式碼的結果
 
-Konvensi penamaan untuk bagian ini bervariasi menurut bahasa pemrograman.
+這些部分的命名慣例會因程式設計語言而異。
 
-## Eksekusi Kode dengan gambar (Gemini 3)
+## 使用圖片執行程式碼 (Gemini 3)
 
-Model Gemini 3 Flash kini dapat menulis dan menjalankan kode Python untuk memanipulasi dan memeriksa gambar secara aktif.
+Gemini 3 Flash 模型現在可以撰寫及執行 Python 程式碼，主動操控及檢查圖片。
 
-**Kasus penggunaan**
+**用途**
 
-- **Zoom dan periksa**: Model secara implisit mendeteksi saat detail terlalu kecil
-  (misalnya, membaca pengukur yang jauh) dan menulis kode untuk memangkas dan memeriksa ulang area tersebut
-  pada resolusi yang lebih tinggi.
-- **Matematika visual**: Model dapat menjalankan penghitungan multi-langkah menggunakan kode (misalnya,
-  menjumlahkan item baris pada tanda terima).
-- **Anotasi gambar**: Model dapat menganotasi gambar untuk menjawab pertanyaan, seperti
-  menggambar panah untuk menunjukkan hubungan.
+- **縮放及檢查**：模型會隱含偵測細節是否過小 (例如讀取遠處的儀表)，並編寫程式碼來裁剪及重新檢查該區域，以提高解析度。
+- **視覺數學**：模型可使用程式碼執行多步驟計算 (例如加總收據上的項目)。
+- **圖片註解**：模型可為圖片加上註解來回答問題，例如繪製箭頭來顯示關係。
 
-### Mengaktifkan Eksekusi Kode dengan gambar
+### 啟用圖片程式碼執行功能
 
-Eksekusi Kode dengan gambar secara resmi didukung di Gemini 3 Flash. Anda dapat mengaktifkan perilaku ini dengan mengaktifkan Eksekusi Kode sebagai alat dan Pemikiran.
+Gemini 3 Flash 正式支援使用圖片執行程式碼。如要啟用這項行為，請同時啟用「程式碼執行」工具和「思考」功能。
 
 ### Python
 
@@ -430,9 +426,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## Menggunakan eksekusi kode dalam chat
+## 在對話中使用程式碼執行功能
 
-Anda juga dapat menggunakan eksekusi kode sebagai bagian dari chat.
+你也可以在對話中使用程式碼執行功能。
 
 ### Python
 
@@ -590,81 +586,73 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 }'
 ```
 
-## Input/output (I/O)
+## 輸入/輸出 (I/O)
 
-Eksekusi kode mendukung input file dan output grafik. Dengan menggunakan kemampuan input dan
-output ini, Anda dapat mengupload file CSV dan teks, mengajukan pertanyaan tentang
-file, dan membuat [Matplotlib](https://matplotlib.org/) grafik sebagai bagian
-dari respons. File output ditampilkan sebagai gambar inline dalam respons.
+「程式碼執行」支援檔案輸入和圖表輸出。有了這些輸入和輸出功能，您就能上傳 CSV 和文字檔、詢問檔案相關問題，並在回覆中生成 [Matplotlib](https://matplotlib.org/) 圖表。輸出檔案會以內嵌圖片的形式傳回。
 
-### Harga I/O
+### I/O 價格
 
-Saat menggunakan I/O eksekusi kode, Anda akan dikenai biaya untuk token input dan token output:
+使用程式碼執行 I/O 時，系統會根據輸入和輸出權杖向您收費：
 
-**Token input:**
+**輸入內容詞元：**
 
-- Perintah pengguna
+- 使用者提示詞
 
-**Token output:**
+**輸出內容詞元：**
 
-- Kode yang dihasilkan oleh model
-- Output eksekusi kode di lingkungan kode
-- Token pemikiran
-- Ringkasan yang dihasilkan oleh model
+- 模型生成的程式碼
+- 程式碼環境中的程式碼執行輸出內容
+- 思考詞元
+- 模型生成的摘要
 
-### Detail I/O
+### I/O 詳細資料
 
-Saat menggunakan I/O eksekusi kode, perhatikan detail teknis berikut:
+使用程式碼執行 I/O 時，請注意下列技術細節：
 
-- Runtime maksimum lingkungan kode adalah 30 detik.
-- Jika lingkungan kode menghasilkan error, model dapat memutuskan untuk membuat ulang output kode. Hal ini dapat terjadi hingga 5 kali.
-- Ukuran input file maksimum dibatasi oleh jendela token model. Di AI Studio, ukuran file input maksimum adalah 1 juta token (sekitar 2 MB untuk file teks dari jenis input yang didukung). Jika Anda mengupload file yang terlalu besar, AI Studio tidak akan mengizinkan Anda mengirimkannya.
-- Eksekusi kode berfungsi paling baik dengan file teks dan CSV.
-- File input dapat diteruskan di `part.inlineData` atau `part.fileData` (diupload
-  melalui [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id)), dan file output selalu
-  ditampilkan sebagai `part.inlineData`.
+- 程式碼環境的執行階段時間上限為 30 秒。
+- 如果程式碼環境產生錯誤，模型可能會決定重新生成程式碼輸出內容。最多可重複 5 次。
+- 檔案輸入大小上限取決於模型權杖視窗。在 AI Studio 中，輸入檔案大小上限為 100 萬個權杖 (支援的輸入類型文字檔約為 2 MB)。如果上傳的檔案過大，AI Studio 就不會允許傳送。
+- 程式碼執行功能最適合搭配文字和 CSV 檔案使用。
+- 輸入檔案可以透過 `part.inlineData` 或 `part.fileData` 傳遞 (透過 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳)，輸出檔案一律以 `part.inlineData` 形式傳回。
 
-## Penagihan
+## 帳單
 
-Tidak ada biaya tambahan untuk mengaktifkan eksekusi kode dari Gemini API.
-Anda akan ditagih dengan tarif token input dan output saat ini berdasarkan model Gemini yang Anda gunakan.
+啟用 Gemini API 的程式碼執行功能無須額外付費。
+系統會根據您使用的 Gemini 模型，以目前的輸入和輸出詞元費率計費。
 
-Berikut beberapa hal lain yang perlu diketahui tentang penagihan untuk eksekusi kode:
+以下是程式碼執行計費的其他注意事項：
 
-- Anda hanya akan ditagih satu kali untuk token input yang diteruskan ke model, dan Anda akan ditagih untuk token output akhir yang ditampilkan kepada Anda oleh model.
-- Token yang mewakili kode yang dihasilkan dihitung sebagai token output. Kode yang dihasilkan dapat mencakup teks dan output multimodal seperti gambar.
-- Hasil eksekusi kode juga dihitung sebagai token output.
+- 系統只會針對您傳送給模型的輸入權杖收費一次，並針對模型傳回給您的最終輸出權杖收費。
+- 代表生成程式碼的權杖會計為輸出權杖。生成的程式碼可能包含文字和圖片等多模態輸出內容。
+- 程式碼執行結果也會計為輸出權杖。
 
-Model penagihan ditampilkan dalam diagram berikut:
+計費模式如下圖所示：
 
-![Model penagihan eksekusi kode](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=id)
+![程式碼執行帳單模式](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=zh-tw)
 
-- Anda akan ditagih dengan tarif token input dan output saat ini berdasarkan model Gemini yang Anda gunakan.
-- Jika Gemini menggunakan eksekusi kode saat membuat respons Anda, perintah asli, kode yang dihasilkan, dan hasil kode yang dieksekusi akan diberi label *token perantara* dan ditagih sebagai *token input*.
-- Gemini kemudian membuat ringkasan dan menampilkan kode yang dihasilkan, hasil kode yang dieksekusi, dan ringkasan akhir. Hal ini ditagih sebagai *token output*.
-- Gemini API menyertakan jumlah token perantara dalam respons API, sehingga Anda mengetahui alasan Anda mendapatkan token input tambahan di luar perintah awal.
+- 系統會根據您使用的 Gemini 模型，以目前的輸入和輸出詞元費率計費。
+- 如果 Gemini 在生成回覆時執行程式碼，系統會將原始提示、生成的程式碼和執行的程式碼結果標示為*中間權杖*，並以*輸入權杖*計費。
+- 接著生成摘要，並傳回生成的程式碼、執行程式碼的結果和最終摘要。這些會以*輸出權杖*計費。
+- Gemini API 會在 API 回應中提供中繼權杖計數，讓您瞭解為何會收到超出初始提示的額外輸入權杖。
 
-## Batasan
+## 限制
 
-- Model hanya dapat membuat dan menjalankan kode. Model tidak dapat menampilkan artefak lain seperti file media.
-- Dalam beberapa kasus, mengaktifkan eksekusi kode dapat menyebabkan regresi di area output model lainnya (misalnya, menulis cerita).
-- Ada beberapa variasi dalam kemampuan model yang berbeda untuk menggunakan eksekusi kode dengan berhasil.
+- 模型只能生成及執行程式碼，無法傳回其他構件，例如媒體檔案。
+- 在某些情況下，啟用程式碼執行功能可能會導致模型輸出內容的其他部分出現回歸現象 (例如撰寫故事)。
+- 不同模型成功執行程式碼的能力有所差異。
 
-## Kombinasi alat yang didukung
+## 支援的工具組合
 
-Alat eksekusi kode dapat dikombinasikan dengan
-[Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) untuk
-mendukung kasus penggunaan yang lebih kompleks.
+程式碼執行工具可與[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)搭配使用，處理更複雜的應用實例。
 
-Model Gemini 3 mendukung kombinasi alat bawaan (seperti Eksekusi Kode) dengan alat kustom (panggilan fungsi). Anda harus meneruskan kembali kolom `id` dan `thought_signature` agar kombinasi alat berfungsi. Pelajari lebih lanjut di halaman
-[kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
+Gemini 3 模型支援結合內建工具 (例如程式碼執行) 和自訂工具 (函式呼叫)。您必須傳回 `id` 和 `thought_signature` 欄位，工具組合才能運作。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
 
-## Library yang didukung
+## 支援的程式庫
 
-Lingkungan eksekusi kode mencakup library berikut:
+程式碼執行環境包含下列程式庫：
 
 - attrs
-- chess
+- 棋子
 - contourpy
 - fpdf
 - geopandas
@@ -679,7 +667,7 @@ Lingkungan eksekusi kode mencakup library berikut:
 - numpy
 - opencv-python
 - openpyxl
-- packaging
+- 包裝
 - pandas
 - pillow
 - protobuf
@@ -693,30 +681,29 @@ Lingkungan eksekusi kode mencakup library berikut:
 - scikit-learn
 - scipy
 - seaborn
-- six
+- 六
 - striprtf
 - sympy
 - tabulate
-- tensorflow
+- TensorFlow
 - toolz
 - xlrd
 
-Anda tidak dapat menginstal library sendiri.
+您無法安裝自己的程式庫。
 
-## Langkah berikutnya
+## 後續步驟
 
-- Coba
-  [Colab eksekusi kode](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=id).
-- Pelajari alat Gemini API lainnya:
-  - [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-  - [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/grounding?hl=id)
+- 試用[程式碼執行 Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=zh-tw)。
+- 瞭解其他 Gemini API 工具：
+  - [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
+  - [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Terakhir diperbarui pada 2026-05-07 UTC.
+上次更新時間：2026-05-13 (世界標準時間)。
 
-Ada masukan untuk kami?
+想進一步說明嗎？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-07 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-13 (世界標準時間)。"],[],[]]

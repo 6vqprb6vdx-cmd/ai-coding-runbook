@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=zh-TW
-fetched_at: 2026-05-11T12:33:14.294908+00:00
-title: "Gemini Embedding \u6a21\u578b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=ar
+fetched_at: 2026-05-18T13:00:26.602674+00:00
+title: "\u0646\u0645\u0648\u0630\u062c Gemini Embedding \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-提供意見
+إرسال ملاحظات
 
-# Gemini Embedding 模型
+# نموذج Gemini Embedding
 
-這款專用引擎可提供高維度向量表示法，有效率地將文字和圖片對應至數值。Gemini Embedding 模型最適合語意搜尋、文件檢索和推薦系統，這類系統需要對大型資料集進行快速、可擴充的相似度計算。
+محرك متخصص لتمثيل المتجهات عالية الأبعاد، يوفر ربطًا رقميًا فعالاً للنصوص والصور. يُعدّ نموذج Gemini Embedding الأفضل للبحث الدلالي واسترجاع المستندات وأنظمة الاقتراحات التي تتطلب إجراء عمليات حسابية سريعة وقابلة للتوسّع للتشابه في مجموعات البيانات الكبيرة.
 
-## 說明文件
+## الوثائق
 
-如要全面瞭解功能和用途，請前往「[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)」頁面。
+[يمكنك الانتقال إلى صفings](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar) صفحة التضمينات للاطّلاع على تغطية كاملة
+للميزات والإمكانات.
 
 ## gemini-embedding-001
 
-| 屬性 | 說明 |
+| الموقع | الوصف |
 | --- | --- |
-| id\_card 模型代碼 | **Gemini API**  `gemini-embedding-001` |
-| save支援的資料類型 | **輸入功率**  文字  **輸出內容**  文字嵌入 |
-| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  2,048  **輸出尺寸大小**  彈性，支援：128 - 3072，建議：768、1536、3072 |
-| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 穩定：`gemini-embedding-001` |
-| calendar\_month最新更新 | 2025 年 6 月 |
+| id\_cardرمز النموذج | **Gemini API**  `gemini-embedding-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص  **الناتج**  تضمينات النص |
+| token\_autoالحدود القصوى للرموز[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لرموز الإدخال**  2,048  **حجم بُعد الناتج**  مرن، يتراوح بين 128 و3072، ننصح باستخدام: 768 و1536 و3072 |
+| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - الإصدار الثابت: `gemini-embedding-001` |
+| calendar\_monthآخر تعديل | يونيو 2025 |
 
-提供意見
+إرسال ملاحظات
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-上次更新時間：2026-04-29 (世界標準時間)。
+تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-想進一步說明嗎？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

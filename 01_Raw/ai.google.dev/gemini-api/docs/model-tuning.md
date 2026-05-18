@@ -1,35 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=ko
-fetched_at: 2026-05-11T12:30:41.365719+00:00
-title: "Gemini API\ub85c \ubbf8\uc138 \uc870\uc815 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=vi
+fetched_at: 2026-05-18T13:02:03.837821+00:00
+title: "Tinh ch\u1ec9nh b\u1eb1ng Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# Gemini API로 미세 조정
+# Tinh chỉnh bằng Gemini API
 
-2025년 5월에 Gemini 1.5 Flash-001이 지원 중단됨에 따라 Gemini API 또는 AI Studio에서 미세 조정을 지원하는
-모델은 더 이상 제공되지 않지만
-[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=ko)에서는 지원됩니다.
+Do Gemini 1.5 Flash-001 sẽ ngừng hoạt động vào tháng 5 năm 2025, nên chúng tôi không còn mô hình nào hỗ trợ tinh chỉnh trong Gemini API hoặc AI Studio, nhưng mô hình này được hỗ trợ trong [Nền tảng tác nhân Gemini Enterprise](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=vi).
 
-미세 조정 지원을 즉시 제공할 계획은 없지만, 사용 사례에 미세 조정이 중요한 경우 개발자 포럼을 통해 [의견을
-보내주세요](https://discuss.ai.google.dev/c/gemini-api/4?hl=ko).
+Chúng tôi chưa có kế hoạch hỗ trợ tinh chỉnh ngay lập tức, nhưng rất mong [nhận được ý kiến của bạn trên diễn đàn dành cho nhà phát triển](https://discuss.ai.google.dev/c/gemini-api/4?hl=vi) nếu tính năng tinh chỉnh quan trọng đối với trường hợp sử dụng của bạn.
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-최종 업데이트: 2026-04-29(UTC)
+Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
-의견을 전달하고 싶나요?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

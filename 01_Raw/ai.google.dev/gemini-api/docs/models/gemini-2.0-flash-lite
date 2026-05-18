@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite?hl=he
-fetched_at: 2026-05-11T12:33:35.388354+00:00
-title: "\u202bGemini 2.0 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite?hl=pt-BR
+fetched_at: 2026-05-18T12:59:51.338550+00:00
+title: "Gemini 2.0 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-שליחת משוב
+Envie comentários
 
-# ‫Gemini 2.0 Flash-Lite
+# Gemini 2.0 Flash-Lite
 
 ## gemini-2.0-flash-lite
 
-| נכס | תיאור |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-2.0-flash-lite` |
-| saveסוגי נתונים נתמכים | **קלטים**  אודיו, תמונות, סרטונים וטקסט  **פלט**  טקסט |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  1,048,576  **מגבלת אסימונים בפלט**  8,192 |
-| handymanיכולות | **יצירת אודיו**  לא נתמך  ‫**Batch API**  נתמך  **שמירת נתונים במטמון**  נתמך  **ביצוע קוד**  לא נתמך  **חיפוש קבצים**  לא נתמך  **בקשה להפעלת פונקציה**  נתמך  **עיגון בעזרת מפות Google**  לא נתמך  **יצירת תמונות**  לא נתמך  ‫**Live API**  לא נתמך  **חיפוש עם עיגון בנתונים**  לא נתמך  **פלטים מובְנים**  נתמך  **תהליך החשיבה**  לא נתמך  **הקשר של כתובת ה-URL**  לא נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - הוצא משימוש: `gemini-2.0-flash-lite` - הוצא משימוש: `gemini-2.0-flash-lite-001` |
-| calendar\_monthהעדכון האחרון | פברואר 2025 |
-| cognition\_2תאריך סף הידע | אוגוסט 2024 |
+| id\_cardCódigo do modelo | `gemini-2.0-flash-lite` |
+| saveTipos de dados com suporte | **Entradas**  Áudio, imagens, vídeo e texto  **Saída**  Texto |
+| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de token de entrada**  1.048.576  **Limite de token de saída**  8.192 |
+| handymanRecursos | **Geração de áudio**  indisponível  **API em lote**  Compatível  **Armazenamento em cache**  Compatível  **Execução de código**  indisponível  **Pesquisa de arquivos**  indisponível  **Chamadas de função**  Compatível  **Embasamento com o Google Maps**  indisponível  **Geração de imagens**  indisponível  **API Live**  indisponível  **Embasamento da pesquisa**  indisponível  **Respostas estruturadas**  Compatível  **Raciocínio**  incompatível  **Contexto de URL**  indisponível |
+| 123Versões | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Uso suspenso: `gemini-2.0-flash-lite` - Uso suspenso: `gemini-2.0-flash-lite-001` |
+| calendar\_monthAtualização mais recente | Fevereiro de 2025 |
+| cognition\_2Limite de conhecimento | Agosto de 2024 |
 
-שליחת משוב
+Envie comentários
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-עדכון אחרון: 2026-05-07 (שעון UTC).
+Última atualização 2026-05-07 UTC.
 
-רוצה לתת לנו משוב?
+Quer enviar seu feedback?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-07 (שעון UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-07 UTC."],[],[]]

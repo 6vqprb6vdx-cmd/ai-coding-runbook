@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=he
-fetched_at: 2026-05-11T12:33:06.683089+00:00
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-BR
+fetched_at: 2026-05-18T13:00:58.117236+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-שליחת משוב
+Envie comentários
 
-# יצירת טקסט
+# Geração de texto
 
-‫Gemini API יכול ליצור פלט של טקסט מקלט של טקסט, תמונות, סרטונים ואודיו.
+A API Gemini pode gerar saídas de texto com base em entradas de texto, imagens, vídeo e áudio.
 
-דוגמה בסיסית:
+Confira um exemplo básico:
 
 ### Python
 
@@ -159,11 +159,11 @@ function main() {
 }
 ```
 
-## חשיבה עם Gemini
+## Pensar com o Gemini
 
-במודלים של Gemini, התכונה ['חשיבה'](https://ai.google.dev/gemini-api/docs/thinking?hl=he) מופעלת בדרך כלל כברירת מחדל, והיא מאפשרת למודל להסיק מסקנות לפני שהוא מגיב לבקשה.
+Os modelos do Gemini geralmente têm o ["raciocínio"](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) ativado por padrão, o que permite que o modelo pense antes de responder a uma solicitação.
 
-כל מודל תומך בהגדרות שונות של חשיבה, שמאפשרות לכם לשלוט בעלות, בחביון ובאינטליגנציה. מידע נוסף זמין ב[מדריך החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he#set-budget).
+Cada modelo é compatível com diferentes configurações de pensamento, o que dá controle sobre custo, latência e inteligência. Para mais detalhes, consulte o [guia de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#set-budget).
 
 ### Python
 
@@ -335,9 +335,9 @@ function main() {
 }
 ```
 
-## הוראות מערכת והגדרות אחרות
+## Instruções do sistema e outras configurações
 
-אתם יכולים להנחות את ההתנהגות של מודלים של Gemini באמצעות הוראות מערכת. כדי לעשות את זה, מעבירים אובייקט [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig).
+É possível orientar o comportamento dos modelos do Gemini com instruções do sistema. Para fazer isso, transmita um objeto [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig).
 
 ### Python
 
@@ -509,7 +509,9 @@ function main() {
 }
 ```
 
-אובייקט [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig) מאפשר גם לשנות פרמטרים של יצירה שמוגדרים כברירת מחדל, כמו [רמת אקראיות](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig).
+O objeto [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig)
+também permite substituir parâmetros de geração padrão, como
+[temperatura](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig).
 
 ### Python
 
@@ -685,11 +687,14 @@ function main() {
 }
 ```
 
-רשימה מלאה של הפרמטרים שאפשר להגדיר והתיאורים שלהם מופיעה [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerationConfig) בהפניית ה-API שלנו.
+Consulte [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig)
+na referência da API para ver uma lista completa de parâmetros configuráveis e as respectivas
+descrições.
 
-## קלט מרובה מצבים
+## Entradas multimodais
 
-‫Gemini API תומך בקלט מולטי-מודאלי, ומאפשר לכם לשלב טקסט עם קובצי מדיה. בדוגמה הבאה מוצג איך מספקים תמונה:
+A API Gemini aceita entradas multimodais, permitindo combinar texto com
+arquivos de mídia. O exemplo a seguir mostra como fornecer uma imagem:
 
 ### Python
 
@@ -897,14 +902,15 @@ function getImageData(url) {
 }
 ```
 
-שיטות חלופיות להוספת תמונות ומידע נוסף על עיבוד תמונות מתקדם זמינים [במדריך שלנו להבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he).
-ממשק ה-API תומך גם בהזנות ובפענוח של [מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he), [סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he) ו[אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he).
+Para conhecer outros métodos de fornecimento de imagens e um processamento mais avançado,
+consulte nosso [guia de compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br).
+A API também é compatível com entradas e compreensão de [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br), [vídeos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br) e [áudios](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br).
 
-## הצגת התשובות באופן שוטף
+## Respostas de streaming
 
-כברירת מחדל, המודל מחזיר תשובה רק אחרי שתהליך היצירה כולו מסתיים.
+Por padrão, o modelo retorna uma resposta somente depois que todo o processo de geração é concluído.
 
-כדי לקבל אינטראקציות חלקות יותר, אפשר להשתמש בסטרימינג כדי לקבל מופעים של [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=he#v1beta.GenerateContentResponse) באופן מצטבר בזמן שהם נוצרים.
+Para interações mais fluidas, use o streaming para receber instâncias de [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerateContentResponse) de forma incremental à medida que são geradas.
 
 ### Python
 
@@ -1058,9 +1064,11 @@ function main() {
 }
 ```
 
-## שיחות עם זיכרון (צ'אט)
+## Conversas com várias interações (chat)
 
-ערכות ה-SDK שלנו מספקות פונקציונליות לאיסוף של כמה סבבים של הנחיות ותשובות בצ'אט, וכך מאפשרות לכם לעקוב בקלות אחרי היסטוריית השיחה.
+Nossos SDKs oferecem funcionalidades para coletar várias rodadas de comandos e
+respostas em uma conversa, facilitando o acompanhamento do histórico
+da conversa.
 
 ### Python
 
@@ -1268,7 +1276,7 @@ function main() {
 }
 ```
 
-אפשר להשתמש בסטרימינג גם בשיחות מרובות תפניות.
+O streaming também pode ser usado em conversas com várias interações.
 
 ### Python
 
@@ -1487,23 +1495,25 @@ function main() {
 }
 ```
 
-## טיפים לכתיבת הנחיות
+## Dicas de comandos
 
-ב[מדריך שלנו להנדסת הנחיות](https://ai.google.dev/gemini/docs/prompting-strategies?hl=he) מופיעות הצעות שיעזרו לכם להפיק את המרב מ-Gemini.
+Consulte nosso [guia de engenharia de comandos](https://ai.google.dev/gemini/docs/prompting-strategies?hl=pt-br) para
+sugestões sobre como aproveitar ao máximo o Gemini.
 
-## המאמרים הבאים
+## A seguir
 
-- כדאי לנסות את [Gemini ב-Google AI Studio](https://aistudio.google.com?hl=he).
-- אפשר להתנסות ב[פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) כדי לקבל תשובות שדומות ל-JSON.
-- אפשר לבדוק את היכולות של Gemini להבנת [תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he), [סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he), [אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he) ו[מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he).
-- [מידע על אסטרטגיות להנפקת הנחיות לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide)
+- Teste o [Gemini no Google AI Studio](https://aistudio.google.com?hl=pt-br).
+- Teste [saídas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) para respostas semelhantes a JSON.
+- Conheça as capacidades de compreensão de [imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br), [vídeos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br), [áudios](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br) e [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br) do Gemini.
+- Saiba mais sobre as
+  [estratégias de comando de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide) multimodais.
 
-שליחת משוב
+Envie comentários
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-עדכון אחרון: 2026-05-07 (שעון UTC).
+Última atualização 2026-05-13 UTC.
 
-רוצה לתת לנו משוב?
+Quer enviar seu feedback?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-07 (שעון UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-13 UTC."],[],[]]

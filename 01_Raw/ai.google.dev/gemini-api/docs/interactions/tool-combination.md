@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=zh-TW
-fetched_at: 2026-05-11T12:38:52.007946+00:00
+fetched_at: 2026-05-18T13:11:18.346334+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -12,7 +12,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 - [首頁](https://ai.google.dev/?hl=zh-tw)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=zh-tw)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)
 - [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
 提供意見
@@ -26,6 +26,7 @@ Gemini 允許在單一互動中組合[內建工具](https://ai.google.dev/gemini
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -68,6 +69,7 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
@@ -112,9 +114,11 @@ for (const step of interaction.steps) {
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
+-H "Api-Revision: 2026-05-20" \
 -d '{
   "model": "gemini-3-flash-preview",
   "input": "What is the northernmost city in the United States? What'\''s the weather like there today?",
@@ -141,7 +145,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ## 運作方式
 
-Gemini 3 模型使用*工具脈絡循環*，可啟用內建和自訂工具組合。工具脈絡循環可保留及公開內建工具的脈絡，並在同一互動中與自訂工具共用。
+Gemini 3 模型採用*工具脈絡循環*，可啟用內建和自訂工具組合。工具脈絡循環可保留及公開內建工具的脈絡，並在同一互動中與自訂工具共用。
 
 ### 啟用工具組合
 
@@ -217,8 +221,8 @@ Google 搜尋工具不在此限。Google 搜尋已在查詢層級套用自己的
 
 除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-上次更新時間：2026-05-09 (世界標準時間)。
+上次更新時間：2026-05-16 (世界標準時間)。
 
 想進一步說明嗎？
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-09 (世界標準時間)。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-16 (世界標準時間)。"],[],[]]

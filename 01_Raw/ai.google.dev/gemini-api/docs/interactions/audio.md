@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ar
-fetched_at: 2026-05-11T12:32:49.538754+00:00
+fetched_at: 2026-05-18T13:01:45.778201+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -12,7 +12,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 - [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=ar)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar)
 - [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
 إرسال ملاحظات

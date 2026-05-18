@@ -1,104 +1,128 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/api-key?hl=ja
-fetched_at: 2026-05-11T12:35:22.948165+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/api-key?hl=it
+fetched_at: 2026-05-18T13:05:40.667016+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/overview?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-フィードバックを送信
+Invia feedback
 
-# Gemini API キーを使用する
+# Utilizzo delle chiavi API Gemini
 
-Gemini API を使用するには、API キーが必要です。このページでは、Google AI Studio でキーを作成して管理する方法と、コードで使用するための環境を設定する方法について説明します。
+Per utilizzare l'API Gemini, devi avere una chiave API. Questa pagina descrive come creare e
+gestire le chiavi in Google AI Studio, nonché come configurare l'ambiente
+per utilizzarle nel codice.
 
-[Gemini API キーを作成または表示する](https://aistudio.google.com/app/apikey?hl=ja)
+[Creare o visualizzare una chiave API Gemini](https://aistudio.google.com/app/apikey?hl=it)
 
-## API キー
+## Chiavi API
 
-[Google AI Studio](https://aistudio.google.com/app/apikey?hl=ja) の **API キー**ページで、すべての Gemini API キーを作成して管理できます。
+Puoi creare e gestire tutte le tue chiavi API Gemini dalla pagina
+[Chiavi API di **Google AI Studio**](https://aistudio.google.com/app/apikey?hl=it).
 
-API キーを取得したら、次のオプションを使用して Gemini API に接続できます。
+Una volta ottenuta una chiave API, hai le seguenti opzioni per connetterti all'API Gemini:
 
-- [API キーを環境変数として設定する](#set-api-env-var)
-- [API キーを明示的に指定する](#provide-api-key-explicitly)
+- [Impostare la chiave API come variabile di ambiente](#set-api-env-var)
+- [Fornire la chiave API in modo esplicito](#provide-api-key-explicitly)
 
-初期テストでは API キーをハードコードできますが、これは安全ではなく、一時的なものにすぎません。API キーをハードコードする例については、[API キーを明示的に指定する](#provide-api-key-explicitly)をご覧ください。
+Per il test iniziale, puoi codificare una chiave API, ma questa operazione deve essere
+temporanea perché non è sicura. Puoi trovare esempi di codifica hardcoded della chiave API nella sezione [Fornire la chiave API in modo esplicito](#provide-api-key-explicitly).
 
-## Google Cloud プロジェクト
+## Progetti Google Cloud
 
-[Google Cloud プロジェクト](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ja)は、Google Cloud サービス（Gemini API など）の使用、課金の管理、共同編集者と権限の制御に不可欠です。Google AI Studio は、Google Cloud プロジェクトへの軽量インターフェースを提供します。
+I [progetti Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=it)
+sono fondamentali per utilizzare i servizi Google Cloud (come l'API Gemini),
+gestire la fatturazione e controllare collaboratori e autorizzazioni. Google AI
+Studio fornisce un'interfaccia leggera per i tuoi progetti Google Cloud.
 
-まだプロジェクトを作成していない場合は、新しいプロジェクトを作成するか、Google Cloud から Google AI Studio にプロジェクトをインポートする必要があります。Google AI Studio の [**プロジェクト**] ページには、Gemini API を使用するのに十分な権限を持つすべてのキーが表示されます。手順については、[プロジェクトをインポートする](#import-projects)セクションをご覧ください。
+Se non hai ancora creato progetti, devi crearne uno nuovo o importarne uno da Google Cloud in Google AI Studio. La pagina **Progetti** di Google AI
+Studio mostrerà tutte le chiavi che dispongono dell'autorizzazione sufficiente per utilizzare l'API
+Gemini. Per istruzioni, consulta la sezione [Importare progetti](#import-projects).
 
-### デフォルトのプロジェクト
+### Progetto predefinito
 
-初めてご利用になる場合は、利用規約に同意すると、Google AI Studio によってデフォルトの Google Cloud プロジェクトと API キーが作成され、すぐに使用を開始できます。このプロジェクトの名前を変更するには、Google AI Studio の**ダッシュボード**の [**プロジェクト**] ビューに移動し、プロジェクトの横にある 3 つのドットの設定ボタンをクリックして、[**プロジェクトの名前を変更**] を選択します。既存のユーザー、またはすでに Google Cloud アカウントをお持ちのユーザーには、デフォルト プロジェクトは作成されません。
+Per i nuovi utenti, dopo aver accettato i Termini di servizio, Google AI Studio crea un progetto Google Cloud e una chiave API predefiniti per facilitarne l'utilizzo. Puoi rinominare questo
+progetto in Google AI Studio andando alla visualizzazione **Progetti** nella
+**Dashboard**, facendo clic sul pulsante delle impostazioni con tre puntini accanto a un progetto e
+scegliendo **Rinomina progetto**. Per gli utenti esistenti o per quelli che hanno già account Google Cloud non verrà creato un progetto predefinito.
 
-## プロジェクトをインポートする
+## Importare progetti
 
-Gemini API キーはそれぞれ Google Cloud プロジェクトに関連付けられています。デフォルトでは、Google AI Studio にすべての Cloud プロジェクトが表示されるわけではありません。必要なプロジェクトは、[**プロジェクトのインポート**] ダイアログで名前またはプロジェクト ID を検索してインポートする必要があります。アクセス権のあるプロジェクトの一覧を表示するには、Cloud Console にアクセスします。
+Ogni chiave API Gemini è associata a un progetto cloud Google. Per impostazione predefinita,
+Google AI Studio non mostra tutti i tuoi progetti cloud. Devi importare i
+progetti che vuoi cercando il nome o l'ID progetto nella
+finestra di dialogo **Importa progetti**. Per visualizzare un elenco completo dei progetti a cui hai accesso, visita Cloud Console.
 
-まだプロジェクトをインポートしていない場合は、次の手順で Google Cloud プロジェクトをインポートして鍵を作成します。
+Se non hai ancora importato progetti cloud, segui questi passaggi per importare un progetto Google Cloud e creare una chiave:
 
-1. [Google AI Studio](https://aistudio.google.com?hl=ja) に移動します。
-2. 左側のサイドパネルから [**ダッシュボード**] を開きます。
-3. [**プロジェクト**] を選択します。
-4. [**プロジェクト**] ページで [**プロジェクトをインポート**] ボタンを選択します。
-5. インポートする Google Cloud プロジェクトを検索して選択し、[**インポート**] ボタンを選択します。
+1. Vai a [Google AI Studio](https://aistudio.google.com?hl=it).
+2. Apri la **dashboard** dal riquadro laterale a sinistra.
+3. Seleziona **Progetti**.
+4. Seleziona il pulsante **Importa progetti** nella pagina **Progetti**.
+5. Cerca e seleziona il progetto Google Cloud che vuoi importare e fai clic sul pulsante
+   **Importa**.
 
-プロジェクトをインポートしたら、**ダッシュボード** メニューから **API キー**ページに移動し、インポートしたプロジェクトで API キーを作成します。
+Una volta importato un progetto, vai alla pagina **Chiavi API** dal menu **Dashboard** e crea una chiave API nel progetto appena importato.
 
-## 制限事項
+## Limitazioni
 
-Google AI Studio での API キーと Google Cloud プロジェクトの管理には、次の制限があります。
+Di seguito sono riportate le limitazioni della gestione delle chiavi API e dei progetti Google Cloud in
+Google AI Studio.
 
-- Google AI Studio の [**プロジェクト**] ページから、一度に最大 10 個のプロジェクトを作成できます。
-- プロジェクトと鍵の名前を設定したり、変更したりできます。
-- [**API キー**] ページと [**プロジェクト**] ページには、最大 100 個のキーと 50 個のプロジェクトが表示されます。
-- 制限がない API キー、または Generative Language API に制限されている API キーのみが表示されます。
+- Puoi creare un massimo di 10 progetti alla volta dalla pagina **Progetti** di Google AI Studio.
+- Puoi assegnare un nome e rinominare progetti e chiavi.
+- Le pagine **Chiavi API** e **Progetti** mostrano un massimo di 100 chiavi e
+  50 progetti.
+- Vengono visualizzate solo le chiavi API senza limitazioni o limitate all'API Generative
+  Language.
 
-API キーの変更や制限など、プロジェクトへの追加の管理アクセスについては、[Google Cloud コンソールの認証情報ページ](https://console.cloud.google.com/apis/credentials?hl=ja)をご覧ください。Cloud コンソールで、プロジェクトを選択し、既存の API キーをクリックして、**Generative Language API** に制限できます。
+Per un accesso di gestione aggiuntivo ai tuoi progetti, inclusa la modifica e la limitazione delle chiavi API, visita la
+[pagina delle credenziali di console Google Cloud](https://console.cloud.google.com/apis/credentials?hl=it).
+Nella console Cloud, puoi selezionare il tuo progetto, fare clic su una chiave API esistente e poi limitarla all'**API Generative Language**.
 
-## API キーを環境変数として設定する
+## Impostazione della chiave API come variabile di ambiente
 
-環境変数 `GEMINI_API_KEY` または `GOOGLE_API_KEY` を設定すると、[Gemini API ライブラリ](https://ai.google.dev/gemini-api/docs/libraries?hl=ja)のいずれかを使用するときに、API キーがクライアントによって自動的に取得されます。これらの変数のいずれか 1 つのみを設定することをおすすめしますが、両方が設定されている場合は `GOOGLE_API_KEY` が優先されます。
+Se imposti la variabile di ambiente `GEMINI_API_KEY` o `GOOGLE_API_KEY`, la chiave API verrà rilevata automaticamente dal client quando utilizzi una delle [librerie API Gemini](https://ai.google.dev/gemini-api/docs/libraries?hl=it). Ti consigliamo di impostare solo una di queste variabili, ma se vengono impostate entrambe, `GOOGLE_API_KEY` ha la precedenza.
 
-REST API またはブラウザの JavaScript を使用している場合は、API キーを明示的に指定する必要があります。
+Se utilizzi l'API REST o JavaScript sul browser, devi fornire la chiave API in modo esplicito.
 
-さまざまなオペレーティング システムで API キーをローカルで環境変数 `GEMINI_API_KEY` として設定する方法は次のとおりです。
+Ecco come puoi impostare la chiave API localmente come variabile di ambiente
+`GEMINI_API_KEY` con diversi sistemi operativi.
 
 ### Linux/macOS - Bash
 
-Bash は、Linux と macOS の一般的なターミナル構成です。次のコマンドを実行すると、構成ファイルがあるかどうかを確認できます。
+Bash è una configurazione comune del terminale Linux e macOS. Puoi verificare se
+hai un file di configurazione eseguendo il seguente comando:
 
 ```
 ~/.bashrc
 ```
 
-「No such file or directory」という応答が返された場合は、次のコマンドを実行してこのファイルを作成して開くか、`zsh` を使用する必要があります。
+Se la risposta è "No such file or directory", devi creare questo
+file e aprirlo eseguendo i seguenti comandi o utilizzare `zsh`:
 
 ```
 touch ~/.bashrc
 open ~/.bashrc
 ```
 
-次に、次のエクスポート コマンドを追加して API キーを設定する必要があります。
+Successivamente, devi impostare la chiave API aggiungendo il seguente comando di esportazione:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-ファイルを保存したら、次のコマンドを実行して変更を適用します。
+Dopo aver salvato il file, applica le modifiche eseguendo:
 
 ```
 source ~/.bashrc
@@ -106,26 +130,28 @@ source ~/.bashrc
 
 ### macOS - Zsh
 
-Zsh は、Linux と macOS で一般的なターミナル構成です。次のコマンドを実行すると、構成ファイルがあるかどうかを確認できます。
+Zsh è una configurazione comune del terminale Linux e macOS. Puoi verificare se
+hai un file di configurazione eseguendo il seguente comando:
 
 ```
 ~/.zshrc
 ```
 
-「No such file or directory」という応答が返された場合は、次のコマンドを実行してこのファイルを作成して開くか、`bash` を使用する必要があります。
+Se la risposta è "No such file or directory", devi creare questo
+file e aprirlo eseguendo i seguenti comandi o utilizzare `bash`:
 
 ```
 touch ~/.zshrc
 open ~/.zshrc
 ```
 
-次に、次のエクスポート コマンドを追加して API キーを設定する必要があります。
+Successivamente, devi impostare la chiave API aggiungendo il seguente comando di esportazione:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-ファイルを保存したら、次のコマンドを実行して変更を適用します。
+Dopo aver salvato il file, applica le modifiche eseguendo:
 
 ```
 source ~/.zshrc
@@ -133,27 +159,34 @@ source ~/.zshrc
 
 ### Windows
 
-1. 検索バーで「環境変数」を検索します。
-2. [**システム設定**] を変更します。この操作を行うことを確認するメッセージが表示されることがあります。
-3. [システム設定] ダイアログで、[**環境変数**] というラベルのボタンをクリックします。
-4. [**ユーザー環境変数**]（現在のユーザーの場合）または [**システム環境変数**]（マシンを使用するすべてのユーザーに適用）のいずれかで、[**新規...**] をクリックします。
-5. 変数名を `GEMINI_API_KEY` として指定します。Gemini API キーを変数値として指定します。
-6. [**OK**] をクリックして変更を適用します。
-7. 新しいターミナル セッション（cmd または Powershell）を開いて、新しい変数を確認します。
+1. Cerca "Variabili di ambiente" nella barra di ricerca.
+2. Scegli di modificare le **impostazioni di sistema**. Potresti dover confermare di voler
+   procedere.
+3. Nella finestra di dialogo delle impostazioni di sistema, fai clic sul pulsante **Variabili
+   di ambiente**.
+4. In **Variabili utente** (per l'utente corrente) o **Variabili
+   di sistema** (si applica a tutti gli utenti che utilizzano la macchina), fai clic su **Nuova…**
+5. Specifica il nome della variabile come `GEMINI_API_KEY`. Specifica la chiave API Gemini
+   come valore della variabile.
+6. Fai clic su **Ok** per applicare le modifiche.
+7. Apri una nuova sessione del terminale (cmd o Powershell) per ottenere la nuova variabile.
 
-## API キーを明示的に指定する
+## Fornire la chiave API in modo esplicito
 
-場合によっては、API キーを明示的に指定する必要があります。次に例を示します。
+In alcuni casi, potresti voler fornire esplicitamente una chiave API. Ad esempio:
 
-- 単純な API 呼び出しを行っており、API キーをハードコードすることを希望している。
-- Gemini API ライブラリによる環境変数の自動検出に依存せずに、明示的な制御を行いたい
-- 環境変数がサポートされていない環境（ウェブなど）を使用しているか、REST 呼び出しを行っている。
+- Stai effettuando una semplice chiamata API e preferisci codificare la chiave API.
+- Vuoi un controllo esplicito senza dover fare affidamento sul rilevamento automatico delle
+  variabili di ambiente da parte delle librerie dell'API Gemini
+- Stai utilizzando un ambiente in cui le variabili di ambiente non sono supportate
+  (ad es.web) o stai effettuando chiamate REST.
 
-以下に、Interactions API を使用して API キーを明示的に指定する方法の例を示します。
+Di seguito sono riportati esempi di come fornire una chiave API in modo esplicito utilizzando l'API Interactions:
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client(api_key="YOUR_API_KEY")
@@ -168,6 +201,7 @@ print(interaction.steps[-1].content[0].text)
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: "YOUR_API_KEY" });
@@ -186,9 +220,11 @@ main();
 ### REST
 
 ```
+# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "x-goog-api-key: YOUR_API_KEY" \
+  -H "Api-Revision: 2026-05-20" \
   -X POST \
   -d '{
     "model": "gemini-3-flash-preview",
@@ -196,48 +232,58 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## API キーを安全に保護する
+## Proteggere la chiave API
 
-Gemini API キーはパスワードと同様に扱ってください。漏洩した場合、他のユーザーがプロジェクトの割り当てを使用したり、料金が発生したり（課金が有効になっている場合）、ファイルなどのプライベート データにアクセスしたりする可能性があります。
+Tratta la chiave API Gemini come una password. Se viene compromesso, altri possono utilizzare la quota del tuo progetto, sostenere addebiti (se la fatturazione è abilitata) e accedere ai tuoi dati privati, come i file.
 
-### 重大なセキュリティ ルール
+### Regole di sicurezza critiche
 
-- **キーの機密性を維持する**: Gemini の API キーは、アプリケーションが依存するセンシティブ データにアクセスする可能性があります。
+- **Mantieni riservate le chiavi**: le chiavi API per Gemini potrebbero accedere a dati sensibili da cui dipende la tua applicazione.
 
-  - **API キーをソース コントロールに commit しないでください。**API キーを Git などのバージョン管理システムにチェックインしないでください。
-  - **クライアントサイドで API キーを公開しないでください。**本番環境のウェブアプリやモバイルアプリで API キーを直接使用しないでください。クライアントサイド コード（JavaScript/TypeScript ライブラリや REST 呼び出しなど）のキーは抽出できます。
-- **アクセスを制限する**: 可能であれば、API キーの使用を特定の IP アドレス、HTTP リファラー、Android/iOS アプリに制限します。
-- **使用を制限する**: 各キーに必要な API のみを有効にします。
-- **定期的な監査を実施する**: API キーを定期的に監査し、定期的にローテーションします。
+  - **Non eseguire mai il commit delle chiavi API nel controllo del codice sorgente.** Non archiviare la chiave API in sistemi di controllo della versione come Git.
+  - **Non esporre mai le chiavi API lato client.** Non utilizzare la chiave API direttamente
+    nelle app web o mobile in produzione. Le chiavi nel codice lato client
+    (incluse le nostre librerie JavaScript/TypeScript e le chiamate REST) possono essere
+    estratte.
+- **Limita l'accesso**: limita l'utilizzo della chiave API a indirizzi IP, referrer HTTP o app per Android/iOS specifici, ove possibile.
+- **Limita l'utilizzo**: abilita solo le API necessarie per ogni chiave.
+- **Esegui controlli regolari**: controlla regolarmente le chiavi API e ruotale periodicamente.
 
-### ベスト プラクティス
+### Best practice
 
-- **API キーを使用してサーバーサイド呼び出しを行う**: API キーを使用する最も安全な方法は、キーを機密情報として保持できるサーバーサイド アプリケーションから Gemini API を呼び出すことです。
-- **クライアントサイド アクセスにエフェメラル トークンを使用する（Live API のみ）:** Live API に直接クライアントサイド アクセスする場合は、エフェメラル トークンを使用できます。セキュリティ リスクが低く、本番環境での使用に適しています。詳しくは、[エフェメラル トークン](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ja)のガイドをご覧ください。
-- **キーに制限を追加することを検討する:** [API キー制限](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=ja#add-api-restrictions)を追加することで、キーの権限を制限できます。これにより、鍵が漏洩した場合の潜在的な被害を最小限に抑えることができます。
+- **Utilizza chiamate lato server con chiavi API** Il modo più sicuro per utilizzare la chiave API è chiamare l'API Gemini da un'applicazione lato server in cui la chiave può essere mantenuta riservata.
+- **Utilizza token effimeri per l'accesso lato client (solo API Live):** per l'accesso diretto lato client all'API Live, puoi utilizzare token effimeri. Presentano
+  rischi per la sicurezza inferiori e possono essere adatti all'uso in produzione. Per saperne di più, consulta la guida sui
+  [token effimeri](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=it).
+- **Valuta la possibilità di aggiungere limitazioni alla chiave**:puoi limitare le autorizzazioni di una chiave
+  aggiungendo [limitazioni relative alle chiavi API](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=it#add-api-restrictions).
+  Ciò riduce al minimo i potenziali danni in caso di perdita della chiave.
 
-一般的なベスト プラクティスについては、こちらの[サポート記事](https://support.google.com/googleapi/answer/6310037?hl=ja)もご覧ください。
+Per alcune best practice generali, puoi anche consultare questo
+[articolo del Centro assistenza](https://support.google.com/googleapi/answer/6310037?hl=it).
 
-## API キーの作成に関するトラブルシューティング
+## Risoluzione dei problemi relativi alla creazione della chiave API
 
-Google AI Studio で、[**API キーを作成**] ボタンが使用できない状態になり、「*このプロジェクトでキーを作成する権限がありません*」というメッセージが表示されることがあります。
+In Google AI Studio, il pulsante **Crea chiave API** potrebbe non essere disponibile e potrebbe essere visualizzato il messaggio: "*Non hai l'autorizzazione per creare una chiave in questo progetto*".
 
-これは、新しい鍵を生成するために必要な権限がプロジェクト内にない場合に発生します。
+Ciò si verifica quando non disponi delle autorizzazioni necessarie all'interno del progetto per generare una nuova chiave:
 
-- **`resourcemanager.projects.get`**: AI Studio がプロジェクトの存在を確認できるようにします。
-- **`apikeys.keys.create`**: API キー自体の生成を許可します。
-- **`serviceusage.services.enable`**: プロジェクトで Gemini API が有効になっていることを確認するために必要です。
+- **`resourcemanager.projects.get`**: consente ad AI Studio di verificare l'esistenza del progetto.
+- **`apikeys.keys.create`**: consente la generazione della chiave API.
+- **`serviceusage.services.enable`**: necessario per garantire che l'API Gemini sia
+  attiva nel progetto.
 
-権限を修正するには、プロジェクト管理者に依頼して、上記の権限（プロジェクト編集者やカスタムロールなど）を持つロールを付与してもらいます。プロジェクトが[組織](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ja)に属している場合は、組織の管理者に依頼します。
+Per correggere le autorizzazioni, chiedi all'amministratore del progetto o all'amministratore della tua organizzazione, se il progetto appartiene a un'[organizzazione](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=it), di concederti un ruolo con le autorizzazioni elencate sopra (ad esempio Editor progetto o un ruolo personalizzato).
 
-プロジェクトに対する管理者権限がない場合は、組織に関連付けられていない新しいプロジェクトを作成して、キーを生成できます。
+Se non disponi dell'accesso amministrativo a un progetto, puoi creare
+un nuovo progetto non associato a un'organizzazione per generare le chiavi.
 
-フィードバックを送信
+Invia feedback
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-最終更新日 2026-05-07 UTC。
+Ultimo aggiornamento 2026-05-12 UTC.
 
-ご意見をお聞かせください
+Vuoi dirci altro?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-07 UTC。"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-12 UTC."],[],[]]

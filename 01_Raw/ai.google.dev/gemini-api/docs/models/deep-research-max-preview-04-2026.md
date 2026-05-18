@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=ko
-fetched_at: 2026-05-11T12:39:57.981083+00:00
-title: "Deep Research Max \ubbf8\ub9ac\ubcf4\uae30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=es-419
+fetched_at: 2026-05-18T13:02:36.564245+00:00
+title: "Vista previa de Deep Research Max \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-의견 보내기
+Enviar comentarios
 
-# Deep Research Max 미리보기
+# Vista previa de Deep Research Max
 
-자동화된 컨텍스트 수집 및 종합을 위한 최대 포괄성입니다. Deep Research Max는 수백 개의 공개 웹 소스와 비공개 Workspace 데이터의 복잡한 정보를 포괄적이고 인용된 보고서로 종합하는 장기 실행되고 정확성이 중요한 조사를 위해 최적화되었습니다. 공동 계획, 시각화, MCP 서버, 파일 검색을 지원합니다.
+Máxima exhaustividad para la recopilación y síntesis automatizadas de contexto. Deep Research Max está optimizado para investigaciones de larga duración y con requisitos de precisión críticos que sintetizan información compleja de cientos de fuentes web públicas y datos de espacios de trabajo privados en informes integrales con citas. Admite la planificación colaborativa, la visualización, los servidores de MCP y la búsqueda de archivos.
 
-## 문서
+## Documentación
 
-기능 및 기능의 전체 적용 범위는 [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko) 페이지를 참고하세요.
+Visita la página [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) para obtener una cobertura completa de las funciones y capacidades.
 
 ## deep-research-max-preview-04-2026
 
-| 속성 | 설명 |
+| Propiedad | Descripción |
 | --- | --- |
-| id\_card에이전트 코드 | **Interactions API**  `deep-research-max-preview-04-2026` |
-| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, PDF, 오디오, 동영상  **출력**  텍스트 (인용된 보고서), 이미지 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 컨텍스트 윈도우**  1,048,576  **출력 토큰 한도**  65,536 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `deep-research-max-preview-04-2026` |
-| calendar\_month최근 업데이트 | 2026년 4월 |
+| id\_cardCódigo de agente | **API de Interactions**  `deep-research-max-preview-04-2026` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen, PDF, audio y video  **Resultado**  Texto (informes citados), imágenes |
+| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Ventana de contexto de entrada**  1,048,576  **Límite de tokens de salida**  65,536 |
+| Versiones 123 | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Vista previa: `deep-research-max-preview-04-2026` |
+| calendar\_monthÚltima actualización | Abril de 2026 |
 
-의견 보내기
+Enviar comentarios
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-최종 업데이트: 2026-04-29(UTC)
+Última actualización: 2026-04-29 (UTC)
 
-의견을 전달하고 싶나요?
+¿Quieres brindar más información?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]

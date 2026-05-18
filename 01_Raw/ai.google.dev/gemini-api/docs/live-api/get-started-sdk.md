@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ja
-fetched_at: 2026-05-11T12:36:30.330287+00:00
+fetched_at: 2026-05-18T13:07:35.699695+00:00
 title: "Get started with Gemini Live API using the Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -21,7 +21,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 Gemini Live API を使用すると、Gemini モデルとのリアルタイムの双方向インタラクションが可能になります。音声、動画、テキストの入力とネイティブ音声出力をサポートしています。このガイドでは、サーバーで Google GenAI SDK を使用して API と統合する方法について説明します。
 
 [Google AI Studio で Live API を試すmic](https://aistudio.google.com/live?hl=ja)
-[GitHub からサンプルアプリを複製するcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[GitHub からサンプルアプリをクローンするcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
 [コーディング エージェントのスキルを使用するterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ja)
 
 ## 概要
@@ -117,7 +117,7 @@ session.sendRealtimeInput({
 
 ## 音声を送信する
 
-音声は RAW PCM データ（RAW 16 ビット PCM 音声、16kHz、リトル エンディアン）として送信する必要があります。
+音声は RAW PCM データ（RAW 16 ビット PCM 音声、16 kHz、リトル エンディアン）として送信する必要があります。
 
 ### Python
 
@@ -175,9 +175,9 @@ session.sendRealtimeInput({
 
 クライアント デバイス（ブラウザなど）から動画を取得する方法の例については、[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120) のエンドツーエンドの例をご覧ください。
 
-## 音声の受信
+## 音声を受信する
 
-モデルの音声レスポンスは、データのチャンクとして受信されます。
+モデルの音声応答は、データのチャンクとして受信されます。
 
 ### Python
 
@@ -291,8 +291,8 @@ if (response.toolCall) {
 
 特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最終更新日 2026-04-29 UTC。
+最終更新日 2026-05-13 UTC。
 
 ご意見をお聞かせください
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-13 UTC。"],[],[]]
