@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/agents-and-tools/agent-skills/quickstart
-fetched_at: 2026-05-11T12:28:39.095973+00:00
+fetched_at: 2026-05-18T12:57:06.389144+00:00
 fetch_method: mintlify_md
 ---
 
@@ -232,7 +232,7 @@ echo "Presentation saved to renewable_energy.pptx"
 FILE_ID=$(ant beta:messages create \
   --beta code-execution-2025-08-25 --beta skills-2025-10-02 \
   --transform 'content.#.content.content.#.file_id|@flatten|0' \
-  --format yaml <<'YAML'
+  --raw-output <<'YAML'
 model: claude-opus-4-7
 max_tokens: 4096
 container:
