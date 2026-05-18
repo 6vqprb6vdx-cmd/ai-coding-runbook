@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/legal-and-compliance
-fetched_at: 2026-05-11T12:28:32.111428+00:00
+fetched_at: 2026-05-18T12:57:00.748977+00:00
 fetch_method: mintlify_md
 ---
 
@@ -11,6 +11,10 @@ fetch_method: mintlify_md
 # Legal and compliance
 
 > Legal agreements, compliance certifications, and security information for Claude Code.
+
+<Note>
+  Starting June 15, 2026, Agent SDK and `claude -p` usage on subscription plans will draw from a new monthly Agent SDK credit, separate from your interactive usage limits. See [Use the Claude Agent SDK with your Claude plan](https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan) for details.
+</Note>
 
 ## Legal agreements
 

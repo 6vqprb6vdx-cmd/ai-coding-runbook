@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/common-workflows
-fetched_at: 2026-05-11T12:28:31.872137+00:00
+fetched_at: 2026-05-18T12:57:00.440346+00:00
 fetch_method: mintlify_md
 ---
 
@@ -479,7 +479,7 @@ Work on a feature in one terminal while Claude fixes a bug in another, without t
 claude --worktree feature-auth
 ```
 
-Run the same command with a different name in a second terminal to start an isolated parallel session. See [Worktrees](/en/worktrees) for cleanup, `.worktreeinclude`, and non-git VCS support.
+Run the same command with a different name in a second terminal to start an isolated parallel session. See [Worktrees](/en/worktrees) for cleanup, `.worktreeinclude`, and non-git VCS support. To monitor parallel sessions from one screen instead of separate terminals, see [background agents](/en/agent-view).
 
 ## Plan before editing
 
