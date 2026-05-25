@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/voice-dictation
-fetched_at: 2026-05-18T12:57:01.065673+00:00
+fetched_at: 2026-05-25T12:53:28.720691+00:00
 fetch_method: mintlify_md
 ---
 
@@ -148,7 +148,7 @@ The dictation key is bound to `voice:pushToTalk` in the `Chat` context and defau
 }
 ```
 
-Setting `"space": null` removes the default binding. Omit it if you want both keys active.
+The `voice:pushToTalk` action uses one key at a time. When you bind a custom key, it replaces the default `Space` binding rather than adding a second trigger, so the `"space": null` line in this example is for clarity and can be omitted without changing behavior.
 
 In hold mode, avoid binding a bare letter key like `v` since hold detection relies on key-repeat and the letter types into the prompt during warmup. Use `Space`, or use a modifier combination like `meta+k` to start recording on the first keypress with no warmup. Tap mode has no warmup, so most keys work.
 
