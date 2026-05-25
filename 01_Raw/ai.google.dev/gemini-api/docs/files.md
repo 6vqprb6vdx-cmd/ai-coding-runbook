@@ -1,35 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/files?hl=pt-BR
-fetched_at: 2026-05-18T13:07:13.551218+00:00
+source_url: https://ai.google.dev/gemini-api/docs/files?hl=zh-TW
+fetched_at: 2026-05-25T13:02:42.572611+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Envie comentários
+提供意見
 
-# API Files
+# Files API
 
-O Gemini pode processar vários tipos de dados de entrada, incluindo texto, imagens e áudio, ao mesmo tempo.
+Gemini 可同時處理各種輸入資料，包括文字、圖片和音訊。
 
-Este guia mostra como trabalhar com arquivos de mídia usando a API Files. As operações básicas são as mesmas para arquivos de áudio, imagens, vídeos, documentos e outros tipos de arquivos compatíveis.
+本指南說明如何使用 Files API 處理媒體檔案。音訊檔案、圖片、影片、文件和其他支援的檔案類型，基本操作都相同。
 
-Para orientações sobre comandos de arquivo, consulte a seção [Guia de comandos de arquivo](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide).
+如需檔案提示詞指南，請參閱「[檔案提示指南](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw#prompt-guide)」一節。
 
-## Carregar um arquivo
+## 上傳檔案
 
-Use a API Files para fazer upload de um arquivo de mídia. Sempre use a API Files quando o tamanho total da solicitação (incluindo arquivos, comando de texto, instruções do sistema etc.) for maior que 100 MB. Para arquivos PDF, o limite é de 50 MB.
+你可以使用 Files API 上傳媒體檔案。如果要求總大小 (包括檔案、文字提示、系統指令等) 超過 100 MB，請務必使用 Files API。PDF 檔案大小上限為 50 MB。
 
-O código a seguir faz upload de um arquivo e o usa em uma chamada para
-`generateContent`.
+下列程式碼會上傳檔案，然後在呼叫 `generateContent` 時使用該檔案。
 
 ### Python
 
@@ -41,7 +40,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents=["Describe this audio clip", myfile]
+    model="gemini-3.5-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -65,7 +64,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -86,7 +85,7 @@ if err != nil {
 }
 defer client.Files.Delete(ctx, file.Name)
 
-resp, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", []*genai.Content{
+resp, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", []*genai.Content{
   {
     Parts: []*genai.Part{
       genai.NewPartFromFile(*file),
@@ -138,7 +137,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -156,9 +155,10 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Receber metadados de um arquivo
+## 取得檔案的中繼資料
 
-Para verificar se a API armazenou o arquivo enviado e receber os metadados dele, chame `files.get`.
+您可以呼叫 `files.get`，確認 API 是否已成功儲存上傳的檔案並取得其
+中繼資料。
 
 ### Python
 
@@ -226,9 +226,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Listar arquivos enviados
+## 列出上傳的檔案
 
-O código a seguir recebe uma lista de todos os arquivos enviados:
+下列程式碼會取得所有已上傳檔案的清單：
 
 ### Python
 
@@ -281,10 +281,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Excluir arquivos enviados
+## 刪除上傳的檔案
 
-Os arquivos são excluídos automaticamente após 48 horas. Também é possível excluir manualmente um
-arquivo enviado:
+檔案會在 48 小時後自動刪除。你也可以手動刪除上傳的檔案：
 
 ### Python
 
@@ -336,211 +335,189 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Informações de uso
+## 使用資訊
 
-É possível usar a API Files para fazer upload e interagir com arquivos de mídia. Com a API Files, é possível armazenar até 20 GB de arquivos por projeto, com um tamanho máximo de 2 GB por arquivo. Os arquivos são armazenados por 48 horas. Durante esse período, você pode
-usar a API para receber metadados sobre os arquivos, mas não é possível fazer o download deles.
-A API Files está disponível sem custo financeiro em todas as regiões onde a API Gemini está disponível.
+您可以使用 Files API 上傳媒體檔案並與之互動。Files API 可讓您為每個專案儲存最多 20 GB 的檔案，每個檔案的大小上限為 2 GB。檔案會保存 48 小時，在這段期間，您可以使用 API 取得檔案的中繼資料，但無法下載檔案。在 Gemini API 支援的所有地區，都能免付費使用 Files API。
 
-## Estratégias de solicitação de arquivos
+## 檔案提示策略
 
-Esta seção oferece orientações e práticas recomendadas para usar arquivos de mídia com
-comandos para a API Gemini.
+本節提供指南和最佳做法，說明如何搭配 Gemini API 的提示使用媒體檔案。
 
-A capacidade de usar vários tipos de dados nos comandos oferece mais flexibilidade em termos de tarefas que podem ser realizadas com a API Gemini. Por
-exemplo, você pode enviar para o modelo a foto de uma refeição deliciosa e pedir que ele escreva
-um pequeno blog sobre ela.
+您可以在提示中使用各種資料類型，更靈活地運用 Gemini API 處理工作。例如，你可以向模型傳送美味餐點的相片，並請模型撰寫有關該餐點的短篇網誌。
 
 |  |  |
 | --- | --- |
-| **Comando** | **Resposta** |
-| Escreva uma postagem curta e interessante para o blog com base nessa foto. A foto deve incluir uma descrição da refeição e falar sobre a preparação das refeições.   Cookies | Preparar refeições é uma ótima maneira de economizar tempo e dinheiro, além de ajudar você a comer de forma mais saudável. Essa refeição é um ótimo exemplo de uma refeição saudável e deliciosa que pode ser preparada com antecedência.  Essa refeição inclui arroz integral, legumes assados e frango teriyaki. O arroz integral é um carboidrato saudável e complexo que vai dar energia sustentada. Os vegetais assados são uma ótima maneira de receber sua dose diária de vitaminas e minerais, e o frango teriyaki é uma opção deliciosa e rica em proteínas.  Além disso, ela é muito fácil de preparar. Basta cozinhar o arroz integral, assar os legumes e preparar o frango teriyaki. Depois de tudo cozido, divida em recipientes para marmita e guarde na geladeira. Assim, você pode pegar um recipiente e sair para enfrentar as manhãs agitadas!  Se você quer uma refeição saudável e deliciosa que pode ser preparada com antecedência, essa é uma ótima opção. Ele é cheio de nutrientes e sabor, e vai deixar você satisfeito.  Que venham muitas refeições deliciosas e saudáveis! |
+| **提示** | **回應** |
+| 根據這張圖片撰寫簡短有趣的網誌文章。並說明相片中的餐點，以及我準備餐點的過程。   Cookie | 事先備餐不僅能節省時間和金錢，也有助於你吃得更健康。這道餐點是健康美味的絕佳範例，而且可以輕鬆提前準備。  這道餐點包含糙米、烤蔬菜和照燒雞肉。 糙米是健康且複雜的碳水化合物，可提供持久的能量。烤蔬菜富含每日所需的維生素和礦物質，照燒雞肉則美味又富含蛋白質。  這道餐點的準備方式也很簡單，只要煮好糙米飯、烤蔬菜，以及照燒雞肉，所有食材煮熟後， 將其分裝到備餐容器中，然後放入冰箱。這樣就能在忙碌的早晨直接拿了就走！  如果你想吃健康美味的餐點，而且可以輕鬆提前準備，這道料理就是絕佳選擇。這道料理營養豐富、風味十足，保證能讓您飽足又滿足。  祝你餐點準備順利，吃得健康又美味！ |
 
-Se você estiver com dificuldade para receber a saída desejada de comandos que usam arquivos de mídia, há algumas estratégias que podem ajudar. As seções a seguir fornecem abordagens de design e dicas de solução de problemas para melhorar os comandos que usam entrada multimodal.
+如果無法透過使用媒體檔案的提示獲得所需輸出內容，可以嘗試一些策略，協助你取得想要的結果。下列各節提供設計方法和疑難排解提示，協助您改善使用多模態輸入內容的提示。
 
-É possível melhorar os prompts multimodais seguindo estas práticas recomendadas:
+如要改善多模態提示，請參考下列最佳做法：
 
-- ### [Conceitos básicos do design de comandos](#specific-instructions)
+- ### [提示設計基礎知識](#specific-instructions)
 
-  - **Seja específico nas instruções**: crie instruções claras e concisas que deixem pouco espaço para interpretações equivocadas.
-  - **Adicione alguns exemplos ao comando**: use exemplos realistas de few-shot para ilustrar o que você quer alcançar.
-  - **Detalhamento por etapas**: divida tarefas complexas em submetas gerenciáveis para guiar o modelo pelo processo.
-  - **Especifique o formato de saída**: no comando, peça que a saída esteja no formato desejado, como markdown, JSON, HTML e muito mais.
-  - **Coloque sua imagem em primeiro lugar nos comandos de imagem única**: o Gemini processa entradas de imagem e texto em qualquer ordem, mas para comandos com uma única imagem, o desempenho pode ser melhor se a imagem (ou vídeo) for colocada antes no comando de texto. No entanto, nos comandos que exigem que as imagens sejam altamente intercaladas com textos para fazer sentido, use a ordem mais natural.
-- ### [Como solucionar problemas do comando multimodal](#troubleshooting)
+  - **提供明確的指令**：清楚簡潔地撰寫指令，盡量避免誤解。
+  - **在提示中加入幾個範例：**使用實際的少量樣本範例，說明您想達成的目標。
+  - **逐步分解**：將複雜工作拆解為可管理的小目標，引導模型完成整個程序。
+  - **指定輸出格式**：在提示中要求輸出內容採用所需格式，例如 Markdown、JSON、HTML 等。
+  - **單一圖片提示請先放圖片**：Gemini 可以處理任何順序的圖片和文字輸入內容，但如果提示只包含一張圖片，將圖片 (或影片) 放在文字提示之前，可能會有較好的效果。不過，如果提示需要圖片與文字高度交錯才能有意義，請使用最自然的順序。
+- ### [排解多模態提示詞問題](#troubleshooting)
 
-  - **Se o modelo não estiver desenhando informações da parte relevante da imagem**: solte dicas com os aspectos da imagem de que você quer que o comando extraia informações.
-  - **Se a saída do modelo for muito genérica (não personalizada o suficiente para a entrada de imagem/vídeo)**: no início do comando, peça para o modelo descrever as imagens ou o vídeo antes de fornecer a tarefa ou peça ao modelo para consultar o conteúdo da imagem.
-  - **Para resolver problemas de qual parte falhou**: peça para o modelo descrever a imagem ou explicar o raciocínio para avaliar o entendimento inicial dele.
-  - **Se o comando resultar em conteúdo alucinado**: diminua a configuração de temperatura ou peça ao modelo descrições mais curtas para diminuir a probabilidade de extrapolar detalhes.
-  - **Ajuste os parâmetros de amostragem**: teste diferentes configurações de temperatura e as seleções de top-k para ajustar a criatividade do modelo.
+  - **如果模型未從圖片的相關部分提取資訊：**請提供提示，說明要從圖片的哪些部分提取資訊。
+  - **如果模型輸出內容過於一般 (不夠符合輸入的圖片/影片)：** 在提示開頭，先要求模型描述圖片或影片，再提供工作指令，或要求模型參考圖片內容。
+  - **如要排解哪個部分發生錯誤：**要求模型描述圖片或說明推論過程，藉此評估模型的初步理解程度。
+  - **如果提示詞導致模型生成幻覺內容：**請嘗試調低溫度參數設定，或要求模型提供較短的說明，這樣模型就比較不會推斷額外詳細資料。
+  - **調整取樣參數：**嘗試不同的溫度參數設定和 Top-K 選項，調整模型的創意程度。
 
-### Especificar as instruções
+### 指令應明確具體
 
-As instruções têm mais sucesso quando são claras e detalhadas. Se você tiver uma
-saída específica em mente, é melhor incluir esse requisito no comando
-para garantir a saída desejada.
+提示越清楚詳細，生成結果就越符合需求。如果您有特定輸出內容，建議在提示中加入該要求，確保取得所需輸出內容。
 
-Para essa imagem de uma placa de aeroporto, pedir ao modelo apenas "descrever esta
-imagem" pode gerar uma descrição geral. Se você precisa que o modelo analise a hora e a cidade a partir da imagem, inclua essa solicitação diretamente no comando.
+以這張機場看板圖片為例，如果只要求模型「描述這張圖片」，模型可能會生成一般描述。如要模型從圖片中剖析時間和城市，可以直接在提示中加入這項要求。
 
-| Comando | Resposta do modelo |
+| 提示詞 | 模型回應 |
 | --- | --- |
-| Descreva esta imagem. | A imagem mostra um painel de chegadas e partidas do aeroporto. |
+| 描述這張圖片。 | 圖片：機場抵達和起飛時刻資訊看板。 |
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| Horários de viagem Analise a hora e a cidade no quadro do aeroporto mostrado nesta imagem em uma lista. | - 10:50 Moscow - 11:05 Edimburgo - 11:05 Londres - 11:10 Bucareste - 11:30 Kiev - 11:35 Dublin - 11:45 Midlands Orientais - 12:15 Sófia - 12:30 Londres - 12:30 Newcastle - 12:40 São Petersburgo - 12:40 Londres - 12:45 Manchester |
+| 旅行時刻表 Parse the time and city from the airport board shown in this image into a list. | - 莫斯科時間 10:50 - 11:05 愛丁堡 - 11:05 倫敦 - 11:10 布加勒斯特 - 基輔時間 11:30 - 11:35 都柏林 - 11:45 東密德蘭 - 12:15 Sofia - 倫敦時間 12:30 - 12:30 新堡 - 12:40 聖彼得堡 - 12:40 倫敦 - 12:45 曼徹斯特 |
 
-### Adicionar alguns exemplos
+### 新增幾個範例
 
-O modelo Gemini pode aceitar várias entradas que podem ser usadas como exemplos para entender a
-saída que você quer. Adicionar esses exemplos pode ajudar o modelo a identificar os padrões e aplicar a relação entre as imagens fornecidas e as respostas ao novo exemplo. Isso também é chamado de aprendizado "few-shot".
+Gemini 模型可接受多個輸入內容，並將其做為範例，瞭解您想要的輸出內容。加入這些範例可協助模型找出模式，並將指定圖片與回應之間的關係套用至新範例。這也稱為「少量樣本」學習。
 
-No exemplo abaixo, a saída inicial é escrita na forma de frase e também contém o país (Brasil). Suponha que você queira a saída em um formato ou estilo diferente e queira
-apenas a cidade, não o país. Adicionar alguns exemplos ao comando pode fazer com que o modelo responda da maneira desejada.
+在下方範例中，初始輸出內容是以句子形式撰寫，且包含國家/地區 (巴西)。假設您希望輸出內容採用不同格式或風格，而且只想要城市，而非國家/地區。在提示中加入少量樣本範例，可引導模型以您想要的方式回覆。
 
-| **Comando** | **Resposta do modelo** |
+| **提示** | **模型回覆** |
 | --- | --- |
-| Horários de viagem Determine a cidade junto com o ponto de referência. | O ponto turístico é a estátua do Cristo Redentor no Rio de Janeiro, Brasil. |
+| 旅行時刻表 判斷城市和地標。 | 地標是巴西里約熱內盧的救世基督像。 |
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| Determine a cidade junto com o ponto de referência. coliseu | cidade: Roma, ponto de referência: o Coliseu. |
-| Cidade Proibida | cidade: Pequim, ponto de referência: Cidade Proibida |
-| Cidade Proibida | cidade: Rio de Janeiro, ponto de referência: estátua do Cristo Redentor |
+| 判斷城市和地標。 羅馬競技場 | 城市：羅馬，地標：羅馬競技場。 |
+| 紫禁城 | 城市：北京，地標：紫禁城 |
+| forbidden-city | 城市：里約熱內盧，地標：救世基督像 |
 
-### Detalhar por etapas
+### 逐步分解
 
-Para tarefas complexas, como as que exigem compreensão e raciocínio visual, pode ser útil dividir a tarefa em etapas menores e mais diretas. Também poderia ser eficaz se você
-pedisse diretamente ao modelo para “pensar passo a passo” no comando.
+對於需要視覺理解和推理的複雜工作，建議將工作拆解成較小、更直接的步驟。或者，您也可以直接在提示詞中要求模型「逐步思考」，這也可能很有效。
 
-| Comando | Resposta do modelo |
+| 提示詞 | 模型回應 |
 | --- | --- |
-| Quando vou ficar sem papel higiênico? | Em breve, você só tem mais três rolos. |
+| 我何時會用完衛生紙？ | 不久後，你只剩下 3 卷。 |
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| 1. Primeiro, conte quantos rolos de papel higiênico há nessa imagem.  2. Em seguida, determine a quantidade de papel higiênico que uma pessoa usa por dia.  3. Calcule quanto tempo esses rolos de papel higiênico vão durar. | 1. Há três rolos de papel higiênico nesta imagem.  2. Uma pessoa usa cerca de 20 folhas de papel higiênico por dia.  3. Se cada rolo tiver 200 páginas, cada um deles durará cerca de 10 dias. Portanto, os três rolos durarão cerca de um mês. |
+| 1. 首先，請計算這張圖片中有多少捲衛生紙。  2. 然後判斷一般人每天使用的衛生紙量。  3. 計算這些捲筒衛生紙可以使用多久。 | 1. 這張圖片中有 3 卷衛生紙。  2. 一般人每天會使用約 20 張衛生紙。  3. 如果每捲有 200 張，則每捲約可使用 10 天。因此，3 卷膠帶約可使用一個月。 |
 
-Problemas matemáticos ou outros tipos de problemas são ótimos candidatos para pedir que o modelo pense em etapas.
+數學問題或其他類型的文字題很適合要求模型逐步思考。
 
-| **Comando** | **Resposta** |
+| **提示** | **回應** |
 | --- | --- |
-| Qual é o quarto termo na sequência? | -135 |
+| 這個數列的第 4 項為何？ | -135 |
 
-A resposta do modelo está incorreta. Uma maneira de melhorar isso é pedir ao modelo que analise o problema antes de responder ao comando.
+模型回覆的內容不正確。如要改善這點，可以要求模型先剖析問題，再回答提示。
 
-| **Comando** | **Resposta** |
+| **提示** | **回應** |
 | --- | --- |
-| Analise a fórmula na imagem primeiro.  Depois, com base na fórmula, responda "qual é o quarto termo na sequência?". | *Clique para abrir o resultado* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Substitua n = 4 na fórmula:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Não sabemos o valor de b(3), portanto, substitua n = 3 na fórmula:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Não sabemos o valor de b(2), portanto, substitua n = 2 na fórmula:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Sabemos que o valor de b(1) é 15, portanto, substitua-o na fórmula:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Agora que sabemos o valor de b(2), substitua-o na fórmula por b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Agora que sabemos o valor de b(3), substitua-o na fórmula por b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Portanto, o quarto termo na sequência é -405. |
+| 請先剖析圖片中的公式。  然後根據公式回答「這個數列的第 4 項是什麼？」。 | *按一下即可展開結果* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. 將 n = 4 代入公式：  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. 我們不知道 b(3) 的值，因此將 n = 3 代入公式：  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. 我們不知道 b(2) 的值，因此將 n = 2 代入公式：  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. 我們知道 b(1) 的值是 15，因此將其代入公式：  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. 現在我們知道 b(2) 的值，請將其代入 b(3) 的公式：  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. 現在我們知道 b(3) 的值，請將其代入 b(4) 的公式：  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   因此，這個數列的第 4 項是 -405。 |
 
-A resposta do modelo está correta. Agora, para simplificar ainda mais, peça ao modelo que pense em etapas detalhadas.
+這個模型回應正確無誤，但為了讓回應更精簡，
+你可以要求模型逐步思考。
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| Qual é o quarto termo na sequência? Pense em etapas. | O primeiro termo é 15.  O segundo termo é b(1) \* (-3) = 15 \* (-3) = -45.  O terceiro termo é b(2) \* (-3) = -45 \* (-3) = 135.  O quarto termo é b(3) \* (-3) = 135 \* (-3) = -405. |
+| 這個數列的第 4 項為何？請逐步思考。 | 第一個項是 15。  第二項是 b(1) \* (-3) = 15 \* (-3) = -45。  第三項是 b(2) \* (-3) = -45 \* (-3) = 135。  第四項是 b(3) \* (-3) = 135 \* (-3) = -405。 |
 
-### especifique o formato das respostas
+### 指定輸出格式
 
-Um problema comum é a necessidade de a saída do modelo estar em um determinado formato
-(por exemplo, markdown, JSON, HTML), especialmente se ela precisar ser ingerida por uma tarefa downstream. Você pode tentar produzir saídas nesse formato instruindo o modelo a fazer isso no comando. Veja dois exemplos:
+常見的問題是需要模型輸出內容採用特定格式 (例如 Markdown、JSON、HTML)，尤其是當模型輸出內容需要由下游工作擷取時。您可以指示模型在提示中以該格式輸出內容。以下提供兩個範例：
 
-| Comando | Resposta do modelo |
+| 提示詞 | 模型回應 |
 | --- | --- |
-| Analise a tabela nesta imagem no formato markdown | | Assunto | Status | Tempo | Data de início | Prazo |  | ------- | ------ | ---- | ---------- | ------ |  | Matemática | Concluído | 1h30 | 29/11/2023 | 01/12/2023 |  | Geografia | Concluído | 30 min | 02/12/2023 | 04/12/2023 |  | Física | Em andamento | 2h | 03/12/2023 | 05/12/2023 |  | Biologia | Não começou | 6 horas | 02/11/2016 | 06/12/2023 | |
+| 將這張圖片中的表格剖析為 Markdown 格式 | | 主題 | 狀態 | 時間 | 開始日期 | 截止日期 |  | ------- | ------ | ---- | ---------- | ------ |  | 數學 | 完成 | 1.5 小時 | 2023 年 11 月 29 日 | 2023 年 12 月 1 日 |  | 地理 | 完成 | 30 分鐘 | 2023 年 12 月 2 日 | 2023 年 12 月 4 日 |  | 物理 | 進行中 | 2 小時 | 2023 年 12 月 3 日 | 2023 年 12 月 5 日 |  | 生物學 | 未開始 | 6 小時 | 2016 年 11 月 2 日 | 2023 年 12 月 6 日 | |
 
-| **Comando** | **Resposta do modelo** |
+| **提示** | **模型回覆** |
 | --- | --- |
-| Forneça uma lista com todos os atributos a seguir:  Ingredientes, tipo de culinária, vegetariano ou não, no formato JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| 請提供下列所有屬性的清單：  食材、菜餚類型、是否為素食，以 JSON 格式提供 | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### Colocar a imagem em primeiro lugar nos comandos com uma imagem
+### 單張圖片提示請先提供圖片
 
-O Gemini pode interpretar imagens e textos em qualquer ordem nos comandos, mas inserir uma imagem individual antes do texto pode gerar resultados melhores.
-Nos exemplos a seguir, você vai notar que a imagem vem antes do texto em
-cada comando.
+雖然 Gemini 可以解讀提示中的圖片和文字，但將單一圖片放在文字提示之前，可能會得到更理想的結果。在下列範例中，你會發現每個提示中的圖片都排在文字前面。
 
-### solucionar problemas do comando multimodal
+### 排解多模態提示問題
 
-Se você não receber uma resposta útil, talvez seja necessário resolver problemas do comando. Aqui estão algumas estratégias que você pode tentar.
+如果沒有獲得實用回覆，可能需要排解提示問題。以下提供幾種策略供您參考。
 
-#### Se o modelo não estiver desenhando informações da parte relevante da imagem
+#### 如果模型未從圖片的相關部分擷取資訊
 
-Para receber uma resposta mais específica, indique de quais aspectos da imagem
-você quer que o comando extraia informações para embasar sua resposta.
+如要取得更具體的回答，可以指出提示要從圖片的哪些方面擷取資訊，以利生成回覆。
 
-| Comando | Resposta do modelo |
+| 提示詞 | 模型回應 |
 | --- | --- |
-| Quantos dias essas fraldas vão durar para um bebê? | As fraldas durarão 198 dias antes de acabarem. |
+| 這些尿布夠寶寶用幾天？ | 這些尿布可使用 198 天。 |
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| Quanto tempo essas fraldas vão durar?  Determine a idade da criança e o número total de fraldas na caixa com base no peso total.  Divida o total pelo número de fraldas usadas diariamente por uma criança. | A caixa contém 198 fraldas. Ela também informa que as fraldas são para crianças que pesam de 9 a 16 quilos.  Crianças nessa faixa de peso geralmente têm de 1 a 2 anos de idade.  Uma criança de dois anos costuma usar 6 fraldas por dia, logo, as fraldas vão durar cerca de 33 dias (198/6). |
+| 這些尿布可以用多久？  根據包裝盒上顯示的體重判斷孩子的年齡，並使用包裝盒中的尿布總數。  將總數除以孩子每天使用的尿布數量。 | 一箱有 198 片尿布。包裝盒上標示尿布適用於體重 22 至 37 磅的兒童。  這個體重範圍的兒童平均年齡可能介於 1 到 2 歲。  2 歲幼童通常每天會用掉 6 片尿布，因此 198 片尿布大約可用 33 天 (198/6)。 |
 
-#### Se a saída do modelo for muito genérica e não for personalizada o suficiente para a entrada de imagem
+#### 如果模型輸出內容過於一般，不夠符合圖片輸入內容
 
-Para ajudar o modelo a adaptar a resposta às imagens, peça para ele descrever
-as imagens antes de realizar a tarefa de raciocínio.
+為協助模型根據圖片調整回覆內容，請先要求模型描述圖片，再執行推論工作。
 
-| Comando | Resposta do modelo |
+| 提示詞 | 模型回應 |
 | --- | --- |
-| O que há em comum entre essas imagens? | As quatro imagens são exemplos de fotografia de paisagem. |
+| 這些圖片有什麼共通點？ | 這四張圖片都是風景攝影的例子。 |
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| Primeiro, descreva o que está em cada imagem em detalhes. O que há em comum entre essas imagens? | A primeira imagem mostra uma pessoa fazendo as malas. A segunda imagem mostra um corredor vazio de um shopping. A terceira imagem mostra um rolo de papel higiênico. A quarta imagem mostra um mar escuro e tempestuoso.  O ponto em comum entre essas imagens é que todas são exemplos de espaços liminais. Espaços liminais são lugares ou situações que estão entre dois outros lugares ou situações. Elas costumam ser caracterizadas por um senso de incerteza ou ambiguidade.  A primeira imagem mostra a pessoa entre o momento em que está em casa e viajando. A segunda imagem mostra o corredor entre duas lojas. A terceira imagem é de papel higiênico, que pode representar um banheiro. Um banheiro é um espaço de transição entre domínios privados e públicos. É um lugar onde nos preparamos para entrar ou sair do mundo exterior.  A quarta imagem mostra o mar entre calmo e tempestuoso.  Espaços liminais podem ser empolgantes e perturbadores. Eles podem ser um lugar de recomeço ou de fim. Eles podem ser um local de reflexão ou ação. |
+| 首先，請詳細描述每張圖片的內容。這些圖片有什麼共通點？ | 第一張圖片顯示有人正在打包行李箱。第二張圖片顯示購物中心空蕩蕩的走廊。第三張圖片顯示一捲衛生紙。第四張圖片：狂風暴雨中的大海。  這些圖片的共同點是，它們都是過渡空間的例子。過渡空間是指介於兩個地點或情況之間的地點或情況。這類內容通常會營造不確定或模稜兩可的感覺。  第一張圖片顯示使用者在家和旅行之間。第二張圖片顯示兩間商店之間的走廊。第三張圖片是衛生紙，代表浴室。浴室是私人和公共領域之間的過渡空間。我們在這裡準備進入或離開外在世界。  第四張圖片顯示介於平靜和暴風雨之間的海洋。  過渡空間既令人興奮，又令人不安。可以是新的開始，也可以是結束。可以是反思或行動的場所。 |
 
-Você também pode tentar pedir explicitamente ao modelo para se referir ao que está na imagem.
+你也可以明確要求模型參照圖片內容。
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| O que há em comum entre essas imagens? Consulte o que está nas imagens na sua resposta. | Todas as imagens são relacionadas a viagens. A primeira imagem mostra uma pessoa fazendo as malas, a segunda mostra um corredor vazio de um shopping, a terceira imagem mostra uma pilha de papel higiênico e a quarta mostra um mar escuro e violento.  Todas essas imagens são relacionadas a viagens, porque são tudo o que as pessoas precisam ou usam quando viajam. A primeira imagem mostra uma pessoa fazendo as malas, que é algo que as pessoas fazem quando viajam. A segunda imagem mostra um corredor vazio de um shopping, que é um lugar onde as pessoas costumam comprar itens para viagens. A terceira imagem mostra uma pilha de papel higiênico, algo que as pessoas costumam usar quando estão viajando. A quarta imagem mostra um mar escuro e tempestuoso, algo que as pessoas encontram com frequência quando estão viajando. |
+| 這些圖片有什麼共通點？在回覆中提及圖片內容。 | 所有圖片都與旅遊相關。第一張圖片顯示有人正在打包行李箱，第二張圖片顯示購物中心空蕩蕩的走廊，第三張圖片顯示一疊衛生紙，第四張圖片顯示陰暗且暴風雨的海面。  這些圖片都與旅遊相關，因為都是人們在旅行時需要或使用的物品。第一張圖片顯示一個人正在打包行李箱，這是旅行時會做的事。第二張圖片顯示購物中心空蕩蕩的走廊，人們經常會到這裡購買旅遊用品。第三張圖片顯示一疊衛生紙，這是人們旅行時經常使用的物品。第四張圖片顯示狂風暴雨的海面，這是人們旅行時經常會遇到的情況。 |
 
-As mesmas dicas funcionam para resultados criativos de imagens. No exemplo a seguir com o coelho, pedir explicitamente ao modelo para incluir aspectos da imagem pode melhorar a saída.
+這些訣竅也適用於圖片生成的創意內容。在以下兔子範例中，明確要求模型納入圖片中的元素，可以提升輸出結果。
 
-| Comando | Resposta do modelo |
+| 提示詞 | 模型回應 |
 | --- | --- |
-| Você pode me escrever um poema sobre esta imagem? | Coelhinho peludo e marrom  Pulando pelo campo, para cima e para baixo.  Suas orelhas são tão longas e sua cauda tão pequena!  Você é a criatura mais fofa de todas.  Você morde a grama, tão verde e doce,  E pula quando me vê.  Mas sempre serei seu amigo,  Coelhinho, até o fim. |
+| 可以幫我寫一首關於本圖片的詩嗎？ | 小兔兔，柔軟又棕色，  在田野間跳躍，上上下下。  你的耳朵好長，尾巴好小，  你是最可愛的生物。  你啃食青翠甜美的草，  看到我時就跳開。  但小兔兔，我永遠是你的朋友，  直到最後一刻。 |
 
-| **Comando atualizado** | **Resposta aprimorada** |
+| **更新提示** | **提升回應速度** |
 | --- | --- |
-| Você pode escrever um poema descritivo e dramático sobre esta imagem e incluir o local? | Coelhinho no verde  Orelhas tão compridas e pontudas.  O que você vê lá fora,  À distância, onde você olha?  É o oceano azul,  Brilhando na tonalidade do sol?  Ou as ondas que quebram e rugem,  Um ritmo que você adora?  Coelhinho, fale a verdade:  O que chama sua atenção de verdade?  É a brisa salgada,  Ou o choro das gaivotas te agrada?  Talvez seja a vastidão de tudo isso,  Um mundo tão grande e pequeno.  Um lugar onde os sonhos podem andar,  e aventuras podem ser livres.  Coelhinho me pergunto o que você sonha,  Sentado na grama, tão sereno.  Você quer explorar as profundezas  Ou ficar na terra para dar um salto?  Seja o que for, coelhinho!  Deixe a faísca da maravilha brilhar.  Nos seus sonhos e aspirações,  há um mundo esperando sua criação. |
+| 請根據這張圖片撰寫一首描述性強烈且充滿戲劇性的詩，並加入地點資訊。 | 綠地上的小兔，  耳朵又長又尖。  你望向遠方，  看到什麼？  是海洋的藍，  在陽光下閃耀光芒？  還是海浪拍打的轟隆巨響，  你最愛的節奏？  小兔兒，請你告訴我，  是什麼吸引了你的目光？  是鹹鹹的海風，  還是海鷗的叫聲令人心曠神怡？  或許是萬物浩瀚，  世界如此廣大，又如此渺小。  夢想在此漫遊，  冒險在此萌芽。  小兔，我好奇你夢見了什麼，  你坐在草地上，如此寧靜。  你想探索深海，  還是留在陸地，盡情跳躍？  無論如何，小兔子，  請讓好奇心持續閃耀。  因為在你的夢想和抱負中，  蘊藏著等待你創造的世界。 |
 
-#### Solução de problemas em qual parte do prompt falhou
+#### 排解提示的哪個部分失敗
 
-Pode ser difícil saber se uma solicitação falhou porque o modelo
-não **entendeu a imagem** ou se ele entendeu a imagem
-mas não executou as **etapas de raciocínio** corretas.
-Para fazer essa diferenciação, peça ao modelo que descreva o que aparece na imagem.
+很難判斷提示失敗的原因是模型一開始就**無法理解圖片**，還是模型理解圖片後，**推論步驟**卻有誤。如要釐清這些原因，請要求模型描述圖像內容。
 
-No exemplo a seguir, se o modelo responder com um lanche que parece diferente quando combinado com chá (como pipoca), primeiro é possível resolver problemas para determinar se o modelo reconheceu corretamente que a imagem contém chá.
+在下列範例中，如果模型回應的點心與茶飲搭配起來似乎很奇怪 (例如爆米花)，您可以先進行疑難排解，判斷模型是否正確辨識出圖片含有茶飲。
 
-| Comando | Prompt de solução de problemas |
+| 提示詞 | 提示進行疑難排解 |
 | --- | --- |
-| Que lanchinho eu posso fazer em 1 minuto e que combina com este? | Descreva o que há na imagem. |
+| 有什麼零食可以在 1 分鐘內完成，而且很適合搭配這道料理？ | 描述這張圖片的內容。 |
 
-Outra estratégia é pedir que o modelo explique o raciocínio dele. Isso pode ajudar você a filtrar qual parte do raciocínio está incorreta, se houver.
+另一種策略是要求模型說明推論過程。這有助於您縮小範圍，找出推論過程中的錯誤 (如有)。
 
-| Comando | Prompt de solução de problemas |
+| 提示詞 | 提示進行疑難排解 |
 | --- | --- |
-| Que lanchinho eu posso fazer em 1 minuto e que combina com este? | Que lanchinho eu posso fazer em 1 minuto e que combina com este? Explique o motivo. |
+| 有什麼零食可以在 1 分鐘內完成，而且很適合搭配這道料理？ | 有什麼零食可以在 1 分鐘內完成，而且很適合搭配這道料理？請說明原因。 |
 
-## A seguir
+## 後續步驟
 
-- Escreva seus próprios comandos multimodais usando o [Google AI Studio](http://aistudio.google.com?hl=pt-br).
-- Para informações sobre como usar a API Gemini Files para
-  fazer upload de arquivos de mídia e incluí-los nos seus comandos, consulte os guias
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br), [Áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br) e
-  [Processamento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br).
-- Para mais orientações sobre design de comandos, como ajuste de parâmetros de amostragem, consulte a página
-  [Estratégias de comandos](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-br).
+- 使用 [Google AI Studio](http://aistudio.google.com?hl=zh-tw) 撰寫自己的多模態提示。
+- 如要瞭解如何使用 Gemini Files API 上傳媒體檔案並加入提示，請參閱[Vision](https://ai.google.dev/gemini-api/docs/vision?hl=zh-tw)、[音訊](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)和[文件處理](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)指南。
+- 如需提示設計的更多指引 (例如調整取樣參數)，請參閱「[提示策略](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw)」頁面。
 
-Envie comentários
+提供意見
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Última atualização 2026-05-13 UTC.
+上次更新時間：2026-05-19 (世界標準時間)。
 
-Quer enviar seu feedback?
+想進一步說明嗎？
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-13 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]

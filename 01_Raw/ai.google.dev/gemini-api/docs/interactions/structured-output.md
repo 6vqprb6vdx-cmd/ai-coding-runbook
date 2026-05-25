@@ -1,45 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=pt-BR
-fetched_at: 2026-05-18T13:02:27.921364+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-TW
+fetched_at: 2026-05-25T12:56:01.631115+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Envie comentários
+提供意見
 
-# Respostas estruturadas
+# 結構化輸出內容
 
-É possível configurar os modelos do Gemini para gerar respostas que sigam um esquema JSON fornecido. Isso garante resultados previsíveis e seguros de tipo e simplifica
-a extração de dados estruturados de texto não estruturado.
+您可以設定 Gemini 模型，生成符合所提供 JSON 結構定義的回覆。這可確保結果類型安全無虞且可預測，並簡化從非結構化文字中擷取結構化資料的程序。
 
-Usar respostas estruturadas é ideal para:
+使用結構化輸出內容非常適合：
 
-- **Extração de dados**:extrai informações específicas, como nomes e datas, de um texto.
-- **Classificação estruturada**:classifique textos em categorias predefinidas.
-- **Fluxos de trabalho agênticos**:geram entradas estruturadas para ferramentas ou APIs.
+- **資料擷取：**從文字中擷取特定資訊，例如姓名和日期。
+- **結構化分類：**將文字分類到預先定義的類別。
+- **代理工作流程：**為工具或 API 產生結構化輸入內容。
 
-Além de oferecer suporte ao esquema JSON na API REST, os SDKs da IA generativa do Google permitem definir esquemas usando [Pydantic](https://docs.pydantic.dev/latest/) (Python) e [Zod](https://zod.dev/) (JavaScript).
+除了在 REST API 中支援 JSON 結構定義，Google GenAI SDK 也允許使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 定義結構定義。
 
-Extrator de receitas
-Moderação de conteúdo
-Estruturas recursivas
+食譜擷取器
+內容審核
+遞迴結構
 
-Este exemplo demonstra como extrair dados estruturados de texto usando tipos básicos de esquema JSON, como `object`, `array`, `string` e `integer`.
+這個範例說明如何使用基本 JSON 結構定義型別 (例如 `object`、`array`、`string` 和 `integer`)，從文字中擷取結構化資料。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 from pydantic import BaseModel, Field
 from typing import List, Optional
@@ -71,7 +69,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 """
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -80,14 +78,13 @@ interaction = client.interactions.create(
     },
 )
 
-recipe = Recipe.model_validate_json(interaction.steps[-1].content[0].text)
+recipe = Recipe.model_validate_json(interaction.output_text)
 print(recipe)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -140,7 +137,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 `;
 
 const interaction = await client.interactions.create({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   input: prompt,
   response_format: {
     type: 'text',
@@ -149,20 +146,19 @@ const interaction = await client.interactions.create({
   },
 });
 
-const recipe = recipeSchema.parse(JSON.parse(interaction.steps.at(-1).content[0].text));
+const recipe = recipeSchema.parse(JSON.parse(interaction.output_text));
 console.log(recipe);
 ```
 
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -H "Api-Revision: 2026-05-20" \
     -d '{
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.5-flash",
       "input": "Please extract the recipe from the following text.\nThe user wants to make delicious chocolate chip cookies.\nThey need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,\n1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,\n3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.\nFor the best part, they will need 2 cups of semisweet chocolate chips.\nFirst, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,\nbaking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar\nuntil light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry\ningredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons\nonto ungreased baking sheets and bake for 9 to 11 minutes.",
       "response_format": {
         "type": "text",
@@ -201,7 +197,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**回覆範例：**
 
 ```
 {
@@ -229,15 +225,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Resultados de streaming
+## 串流結果
 
-É possível transmitir saídas estruturadas, permitindo que você comece a processar a
-resposta enquanto ela está sendo gerada. Os blocos transmitidos são strings JSON parciais válidas que podem ser concatenadas para formar o objeto JSON final.
+您可以串流輸出結構化內容，在生成回覆的同時開始處理回覆。串流區塊是有效的局部 JSON 字串，可串連形成最終的 JSON 物件。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 from pydantic import BaseModel
 from typing import Literal
@@ -250,7 +244,7 @@ client = genai.Client()
 prompt = "The new UI is incredibly intuitive. Add a very long summary to test streaming!"
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=prompt,
     response_format={
         "type": "text",
@@ -267,7 +261,6 @@ for event in stream:
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -285,7 +278,7 @@ const feedbackSchema = z.fromJSONSchema(feedbackJsonSchema);
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   input: "The new UI is incredibly intuitive. Add a very long summary!",
   response_format: {
     type: 'text',
@@ -302,18 +295,18 @@ for await (const event of stream) {
 }
 ```
 
-## Saídas estruturadas com ferramentas
+## 使用工具產生結構化輸出內容
 
-Com o Gemini 3, você pode combinar saídas estruturadas com ferramentas integradas, incluindo
-[Embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=pt-br),
-[Contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br),
-[Execução de código](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=pt-br), [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=pt-br#structured-output) e
-[Chamada de função](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=pt-br).
+Gemini 3 可讓您將結構化輸出內容與內建工具結合，包括
+[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-tw)、
+[網址內容](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)、
+[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)、
+[檔案搜尋](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=zh-tw#structured-output)和
+[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 from pydantic import BaseModel, Field
 from typing import List
@@ -336,14 +329,13 @@ interaction = client.interactions.create(
     },
 )
 
-result = MatchResult.model_validate_json(interaction.steps[-1].content[0].text)
+result = MatchResult.model_validate_json(interaction.output_text)
 print(result)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -372,14 +364,13 @@ const interaction = await client.interactions.create({
   },
 });
 
-const match = matchSchema.parse(JSON.parse(interaction.steps.at(-1).content[0].text));
+const match = matchSchema.parse(JSON.parse(interaction.output_text));
 console.log(match);
 ```
 
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -404,79 +395,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Suporte a esquemas JSON
+## 支援 JSON 結構定義
 
-Para gerar um objeto JSON, configure `response_format` com um objeto (ou uma matriz que contenha um objeto) do tipo `text` e defina `mime_type` como `application/json`. O esquema precisa ser fornecido no campo `schema`.
+如要產生 JSON 物件，請使用 `text` 類型的物件 (或包含物件的陣列) 設定 `response_format`，並將其 `mime_type` 設為 `application/json`。結構定義應在 `schema` 欄位中提供。
 
-O modo de saída estruturada do Gemini é compatível com um subconjunto da especificação [JSON Schema](https://json-schema.org/).
+Gemini 的結構化輸出模式支援部分 [JSON 結構定義](https://json-schema.org/)規格。
 
-Os seguintes valores de `type` são aceitos:
+支援的 `type` 值如下：
 
-- **`string`**: para texto.
-- **`number`**: para usar pontos flutuantes.
-- **`integer`**: para números inteiros.
-- **`boolean`**: para valores verdadeiro ou falso.
-- **`object`**: para dados estruturados com pares de chave-valor.
-- **`array`**: para listas de itens.
-- **`null`**: para permitir que uma propriedade seja nula, inclua `"null"` na matriz de tipo (por exemplo, `{"type": ["string", "null"]}`).
+- **`string`**：文字。
+- **`number`**：適用於浮點數。
+- **`integer`**：適用於整數。
+- **`boolean`**：適用於 true 或 false 值。
+- **`object`**：適用於含有鍵/值組合的結構化資料。
+- **`array`**：適用於項目清單。
+- **`null`**：如要允許屬性為空值，請在型別陣列中加入 `"null"` (例如 `{"type": ["string", "null"]}`)。
 
-Essas propriedades descritivas ajudam a orientar o modelo:
+這些描述性屬性有助於引導模型：
 
-- **`title`**: uma breve descrição de uma propriedade.
-- **`description`**: uma descrição mais longa e detalhada de uma propriedade.
+- **`title`**：屬性的簡短說明。
+- **`description`**：房源的詳細說明。
 
-### Propriedades específicas do tipo
+### 類型專屬屬性
 
-**Para valores de `object`:**
+**適用於 `object` 值：**
 
-- **`properties`**: um objeto em que cada chave é um nome de propriedade e cada valor é um esquema para essa propriedade.
-- **`required`**: uma matriz de strings que lista quais propriedades são obrigatórias.
-- **`additionalProperties`**: controla se as propriedades não listadas em `properties` são permitidas. Pode ser um booleano ou um esquema.
+- **`properties`**：物件，其中每個鍵都是屬性名稱，每個值都是該屬性的結構定義。
+- **`required`**：字串陣列，列出哪些屬性為必要屬性。
+- **`additionalProperties`**：控制是否允許未列於 `properties` 中的屬性。可以是布林值或結構定義。
 
-**Para valores de `string`:**
+**適用於 `string` 值：**
 
-- **`enum`**: lista um conjunto específico de strings possíveis para tarefas de classificação.
-- **`format`**: especifica uma sintaxe para a string, como `date-time`, `date` e `time`.
+- **`enum`**：列出分類工作的一組特定可能字串。
+- **`format`**：指定字串的語法，例如 `date-time`、`date`、`time`。
 
-**Para valores `number` e `integer`:**
+**`number` 和 `integer` 值：**
 
-- **`enum`**: lista um conjunto específico de valores numéricos possíveis.
-- **`minimum`**: o valor mínimo inclusivo.
-- **`maximum`**: o valor máximo inclusivo.
+- **`enum`**：列出特定的一組可能數值。
+- **`minimum`**：最小值 (含)。
+- **`maximum`**：最大值 (含)。
 
-**Para valores de `array`:**
+**適用於 `array` 值：**
 
-- **`items`**: define o esquema de todos os itens na matriz.
-- **`prefixItems`**: define uma lista de esquemas para os primeiros N itens, permitindo estruturas semelhantes a tuplas.
-- **`minItems`**: o número mínimo de itens na matriz.
-- **`maxItems`**: o número máximo de itens na matriz.
+- **`items`**：定義陣列中所有項目的結構定義。
+- **`prefixItems`**：定義前 N 個項目的結構定義清單，允許類似元組的結構。
+- **`minItems`**：陣列中的項目數量下限。
+- **`maxItems`**：陣列中的項目數量上限。
 
-## Saídas estruturadas x chamada de função
+## 結構化輸出內容與函式呼叫
 
-| Recurso | Caso de uso principal |
+| 功能 | 主要用途 |
 | --- | --- |
-| **Saídas estruturadas** | **Formatando a resposta final.** Use quando quiser que a *resposta* do modelo esteja em um formato específico. |
-| **Chamada de função** | **Realizar ações durante a conversa** Use quando o modelo precisar *pedir que você* realize uma tarefa antes de dar uma resposta final. |
+| **結構化輸出內容** | **設定最終回覆的格式。**如要讓模型以特定格式*回答*，請使用這項功能。 |
+| **函式呼叫** | **在對話期間採取行動**。如果模型需要*請您*執行工作，才能提供最終答案，請使用這項功能。 |
 
-## Práticas recomendadas
+## 最佳做法
 
-- **Descrições claras**:use o campo `description` para orientar o modelo.
-- **Tipagem forte**:use tipos específicos (`integer`, `string`, `enum`).
-- **Engenharia de comando**:indique claramente o que você quer que o modelo faça.
-- **Validação**:embora a saída seja um JSON sintaticamente correto, sempre valide os valores na sua aplicação.
-- **Tratamento de erros**:implemente um tratamento de erros robusto para saídas compatíveis com o esquema, mas semanticamente incorretas.
+- **清楚的說明：**使用 `description` 欄位指引模型。
+- **嚴格型別：**使用特定型別 (`integer`、`string`、`enum`)。
+- **提示工程：**明確指出希望模型執行的動作。
+- **驗證：**雖然輸出內容是語法正確的 JSON，但請務必在應用程式中驗證值。
+- **錯誤處理：**針對符合結構定義但語意有誤的輸出內容，導入完善的錯誤處理機制。
 
-## Limitações
+## 限制
 
-- **Subconjunto de esquema**:nem todos os recursos do esquema JSON são compatíveis.
-- **Complexidade do esquema**:esquemas muito grandes ou aninhados podem ser rejeitados.
+- **結構定義子集：**並非所有 JSON 結構定義功能都受到支援。
+- **結構定義複雜度：**如果結構定義過大或巢狀結構過深，可能會遭到拒絕。
 
-Envie comentários
+提供意見
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Última atualização 2026-05-12 UTC.
+上次更新時間：2026-05-19 (世界標準時間)。
 
-Quer enviar seu feedback?
+想進一步說明嗎？
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-12 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]

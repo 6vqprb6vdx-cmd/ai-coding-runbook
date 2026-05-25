@@ -1,128 +1,112 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/api-key?hl=it
-fetched_at: 2026-05-18T13:05:40.667016+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/api-key?hl=id
+fetched_at: 2026-05-25T13:03:49.029262+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Invia feedback
+Kirim masukan
 
-# Utilizzo delle chiavi API Gemini
+# Menggunakan kunci Gemini API
 
-Per utilizzare l'API Gemini, devi avere una chiave API. Questa pagina descrive come creare e
-gestire le chiavi in Google AI Studio, nonché come configurare l'ambiente
-per utilizzarle nel codice.
+Untuk menggunakan Gemini API, Anda memerlukan kunci API. Halaman ini menguraikan cara membuat dan mengelola kunci di Google AI Studio serta cara menyiapkan lingkungan untuk menggunakannya dalam kode Anda.
 
-[Creare o visualizzare una chiave API Gemini](https://aistudio.google.com/app/apikey?hl=it)
+[Membuat atau melihat Kunci Gemini API](https://aistudio.google.com/app/apikey?hl=id)
 
-## Chiavi API
+## Kunci API
 
-Puoi creare e gestire tutte le tue chiavi API Gemini dalla pagina
-[Chiavi API di **Google AI Studio**](https://aistudio.google.com/app/apikey?hl=it).
+Anda dapat membuat dan mengelola semua Kunci Gemini API dari halaman
+[Google AI Studio](https://aistudio.google.com/app/apikey?hl=id) **Kunci API**.
 
-Una volta ottenuta una chiave API, hai le seguenti opzioni per connetterti all'API Gemini:
+Setelah memiliki kunci API, Anda memiliki opsi berikut untuk terhubung ke Gemini API:
 
-- [Impostare la chiave API come variabile di ambiente](#set-api-env-var)
-- [Fornire la chiave API in modo esplicito](#provide-api-key-explicitly)
+- [Menetapkan kunci API sebagai variabel lingkungan](#set-api-env-var)
+- [Memberikan kunci API secara eksplisit](#provide-api-key-explicitly)
 
-Per il test iniziale, puoi codificare una chiave API, ma questa operazione deve essere
-temporanea perché non è sicura. Puoi trovare esempi di codifica hardcoded della chiave API nella sezione [Fornire la chiave API in modo esplicito](#provide-api-key-explicitly).
+Untuk pengujian awal, Anda dapat meng-hardcode kunci API, tetapi hal ini hanya boleh bersifat sementara karena tidak aman. Anda dapat menemukan contoh untuk meng-hardcode kunci API
+di bagian [Memberikan kunci API secara eksplisit](#provide-api-key-explicitly).
 
-## Progetti Google Cloud
+## Project Google Cloud
 
-I [progetti Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=it)
-sono fondamentali per utilizzare i servizi Google Cloud (come l'API Gemini),
-gestire la fatturazione e controllare collaboratori e autorizzazioni. Google AI
-Studio fornisce un'interfaccia leggera per i tuoi progetti Google Cloud.
+[Project Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=id)
+sangat penting untuk menggunakan layanan Google Cloud (seperti Gemini API),
+mengelola penagihan, dan mengontrol kolaborator serta izin. Google AI Studio menyediakan antarmuka ringan ke project Google Cloud Anda.
 
-Se non hai ancora creato progetti, devi crearne uno nuovo o importarne uno da Google Cloud in Google AI Studio. La pagina **Progetti** di Google AI
-Studio mostrerà tutte le chiavi che dispongono dell'autorizzazione sufficiente per utilizzare l'API
-Gemini. Per istruzioni, consulta la sezione [Importare progetti](#import-projects).
+Jika belum membuat project, Anda harus membuat project baru atau mengimpor project dari Google Cloud ke Google AI Studio. Halaman **Project** di Google AI Studio akan menampilkan semua kunci yang memiliki izin yang memadai untuk menggunakan Gemini API. Lihat bagian [mengimpor project](#import-projects) untuk mengetahui petunjuknya.
 
-### Progetto predefinito
+### Project default
 
-Per i nuovi utenti, dopo aver accettato i Termini di servizio, Google AI Studio crea un progetto Google Cloud e una chiave API predefiniti per facilitarne l'utilizzo. Puoi rinominare questo
-progetto in Google AI Studio andando alla visualizzazione **Progetti** nella
-**Dashboard**, facendo clic sul pulsante delle impostazioni con tre puntini accanto a un progetto e
-scegliendo **Rinomina progetto**. Per gli utenti esistenti o per quelli che hanno già account Google Cloud non verrà creato un progetto predefinito.
+Untuk pengguna baru, setelah menyetujui Persyaratan Layanan, Google AI Studio akan membuat Project Google Cloud dan Kunci API default, untuk kemudahan penggunaan. Anda dapat mengganti nama project ini di Google AI Studio dengan membuka tampilan **Project** di **Dasbor**, mengklik tombol setelan 3 titik di samping project, dan memilih **Ganti nama project**. Pengguna yang sudah ada, atau pengguna yang sudah memiliki Akun Google Cloud tidak akan memiliki project default yang dibuat.
 
-## Importare progetti
+## Mengimpor project
 
-Ogni chiave API Gemini è associata a un progetto cloud Google. Per impostazione predefinita,
-Google AI Studio non mostra tutti i tuoi progetti cloud. Devi importare i
-progetti che vuoi cercando il nome o l'ID progetto nella
-finestra di dialogo **Importa progetti**. Per visualizzare un elenco completo dei progetti a cui hai accesso, visita Cloud Console.
+Setiap kunci Gemini API dikaitkan dengan project Google Cloud. Secara default, Google AI Studio tidak menampilkan semua Project Cloud Anda. Anda harus mengimpor project yang diinginkan dengan menelusuri nama atau project ID di dialog **Impor Project**. Untuk melihat daftar lengkap project yang dapat Anda akses, buka Konsol Cloud.
 
-Se non hai ancora importato progetti cloud, segui questi passaggi per importare un progetto Google Cloud e creare una chiave:
+Jika belum mengimpor project, ikuti langkah-langkah berikut untuk mengimpor project Google Cloud dan membuat kunci:
 
-1. Vai a [Google AI Studio](https://aistudio.google.com?hl=it).
-2. Apri la **dashboard** dal riquadro laterale a sinistra.
-3. Seleziona **Progetti**.
-4. Seleziona il pulsante **Importa progetti** nella pagina **Progetti**.
-5. Cerca e seleziona il progetto Google Cloud che vuoi importare e fai clic sul pulsante
-   **Importa**.
+1. Buka [Google AI Studio](https://aistudio.google.com?hl=id).
+2. Buka **Dasbor** dari panel sisi kiri.
+3. Pilih **Project**.
+4. Pilih tombol **Impor project** di halaman **Project**.
+5. Telusuri dan pilih project Google Cloud yang ingin Anda impor, lalu pilih tombol **Impor**.
 
-Una volta importato un progetto, vai alla pagina **Chiavi API** dal menu **Dashboard** e crea una chiave API nel progetto appena importato.
+Setelah project diimpor, buka halaman **Kunci API** dari menu **Dasbor** dan buat kunci API di project yang baru saja Anda impor.
 
-## Limitazioni
+## Batasan
 
-Di seguito sono riportate le limitazioni della gestione delle chiavi API e dei progetti Google Cloud in
-Google AI Studio.
+Berikut adalah batasan pengelolaan kunci API dan project Google Cloud di Google AI Studio.
 
-- Puoi creare un massimo di 10 progetti alla volta dalla pagina **Progetti** di Google AI Studio.
-- Puoi assegnare un nome e rinominare progetti e chiavi.
-- Le pagine **Chiavi API** e **Progetti** mostrano un massimo di 100 chiavi e
-  50 progetti.
-- Vengono visualizzate solo le chiavi API senza limitazioni o limitate all'API Generative
-  Language.
+- Anda dapat membuat maksimum 10 project sekaligus dari halaman **Project** Google AI Studio.
+- Anda dapat memberi nama dan mengganti nama project serta kunci.
+- Halaman **Kunci API** dan **Project** menampilkan maksimum 100 kunci dan 50 project.
+- Hanya kunci API yang tidak memiliki batasan, atau dibatasi ke Generative Language API yang ditampilkan.
 
-Per un accesso di gestione aggiuntivo ai tuoi progetti, inclusa la modifica e la limitazione delle chiavi API, visita la
-[pagina delle credenziali di console Google Cloud](https://console.cloud.google.com/apis/credentials?hl=it).
-Nella console Cloud, puoi selezionare il tuo progetto, fare clic su una chiave API esistente e poi limitarla all'**API Generative Language**.
+Untuk akses pengelolaan tambahan ke project Anda, termasuk mengubah dan
+membatasi kunci API, buka
+[halaman kredensial Konsol Google Cloud](https://console.cloud.google.com/apis/credentials?hl=id).
+Di Konsol Cloud, Anda dapat memilih project, mengklik kunci API yang ada, lalu membatasinya ke **Generative Language API**.
 
-## Impostazione della chiave API come variabile di ambiente
+## Menetapkan kunci API sebagai variabel lingkungan
 
-Se imposti la variabile di ambiente `GEMINI_API_KEY` o `GOOGLE_API_KEY`, la chiave API verrà rilevata automaticamente dal client quando utilizzi una delle [librerie API Gemini](https://ai.google.dev/gemini-api/docs/libraries?hl=it). Ti consigliamo di impostare solo una di queste variabili, ma se vengono impostate entrambe, `GOOGLE_API_KEY` ha la precedenza.
+Jika Anda menetapkan variabel lingkungan `GEMINI_API_KEY` atau `GOOGLE_API_KEY`, kunci API akan otomatis diambil oleh klien saat menggunakan salah satu
+[library Gemini API](https://ai.google.dev/gemini-api/docs/libraries?hl=id). Sebaiknya tetapkan hanya satu dari variabel tersebut, tetapi jika keduanya ditetapkan, `GOOGLE_API_KEY` akan diprioritaskan.
 
-Se utilizzi l'API REST o JavaScript sul browser, devi fornire la chiave API in modo esplicito.
+Jika menggunakan REST API, atau JavaScript di browser, Anda harus memberikan kunci API secara eksplisit.
 
-Ecco come puoi impostare la chiave API localmente come variabile di ambiente
-`GEMINI_API_KEY` con diversi sistemi operativi.
+Berikut cara menetapkan kunci API secara lokal sebagai variabel lingkungan `GEMINI_API_KEY` dengan sistem operasi yang berbeda.
 
 ### Linux/macOS - Bash
 
-Bash è una configurazione comune del terminale Linux e macOS. Puoi verificare se
-hai un file di configurazione eseguendo il seguente comando:
+Bash adalah konfigurasi terminal Linux dan macOS yang umum. Anda dapat memeriksa apakah memiliki file konfigurasi untuknya dengan menjalankan perintah berikut:
 
 ```
 ~/.bashrc
 ```
 
-Se la risposta è "No such file or directory", devi creare questo
-file e aprirlo eseguendo i seguenti comandi o utilizzare `zsh`:
+Jika responsnya adalah "No such file or directory", Anda harus membuat file ini dan membukanya dengan menjalankan perintah berikut, atau menggunakan `zsh`:
 
 ```
 touch ~/.bashrc
 open ~/.bashrc
 ```
 
-Successivamente, devi impostare la chiave API aggiungendo il seguente comando di esportazione:
+Selanjutnya, Anda harus menetapkan kunci API dengan menambahkan perintah ekspor berikut:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Dopo aver salvato il file, applica le modifiche eseguendo:
+Setelah menyimpan file, terapkan perubahan dengan menjalankan:
 
 ```
 source ~/.bashrc
@@ -130,28 +114,26 @@ source ~/.bashrc
 
 ### macOS - Zsh
 
-Zsh è una configurazione comune del terminale Linux e macOS. Puoi verificare se
-hai un file di configurazione eseguendo il seguente comando:
+Zsh adalah konfigurasi terminal Linux dan macOS yang umum. Anda dapat memeriksa apakah memiliki file konfigurasi untuknya dengan menjalankan perintah berikut:
 
 ```
 ~/.zshrc
 ```
 
-Se la risposta è "No such file or directory", devi creare questo
-file e aprirlo eseguendo i seguenti comandi o utilizzare `bash`:
+Jika responsnya adalah "No such file or directory", Anda harus membuat file ini dan membukanya dengan menjalankan perintah berikut, atau menggunakan `bash`:
 
 ```
 touch ~/.zshrc
 open ~/.zshrc
 ```
 
-Successivamente, devi impostare la chiave API aggiungendo il seguente comando di esportazione:
+Selanjutnya, Anda harus menetapkan kunci API dengan menambahkan perintah ekspor berikut:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Dopo aver salvato il file, applica le modifiche eseguendo:
+Setelah menyimpan file, terapkan perubahan dengan menjalankan:
 
 ```
 source ~/.zshrc
@@ -159,59 +141,51 @@ source ~/.zshrc
 
 ### Windows
 
-1. Cerca "Variabili di ambiente" nella barra di ricerca.
-2. Scegli di modificare le **impostazioni di sistema**. Potresti dover confermare di voler
-   procedere.
-3. Nella finestra di dialogo delle impostazioni di sistema, fai clic sul pulsante **Variabili
-   di ambiente**.
-4. In **Variabili utente** (per l'utente corrente) o **Variabili
-   di sistema** (si applica a tutti gli utenti che utilizzano la macchina), fai clic su **Nuova…**
-5. Specifica il nome della variabile come `GEMINI_API_KEY`. Specifica la chiave API Gemini
-   come valore della variabile.
-6. Fai clic su **Ok** per applicare le modifiche.
-7. Apri una nuova sessione del terminale (cmd o Powershell) per ottenere la nuova variabile.
+1. Telusuri "Environment Variables" di kotak penelusuran.
+2. Pilih untuk mengubah **System Settings**. Anda mungkin harus mengonfirmasi bahwa Anda ingin melakukannya.
+3. Dalam dialog setelan sistem, klik tombol berlabel **Environment Variables**.
+4. Di bagian **User variables** (untuk pengguna saat ini) atau **System variables** (berlaku untuk semua pengguna yang menggunakan mesin), klik **New...**
+5. Tentukan nama variabel sebagai `GEMINI_API_KEY`. Tentukan Kunci Gemini API Anda sebagai nilai variabel.
+6. Klik **OK** untuk menerapkan perubahan.
+7. Buka sesi terminal baru (cmd atau Powershell) untuk mendapatkan variabel baru.
 
-## Fornire la chiave API in modo esplicito
+## Memberikan kunci API secara eksplisit
 
-In alcuni casi, potresti voler fornire esplicitamente una chiave API. Ad esempio:
+Dalam beberapa kasus, Anda mungkin ingin memberikan kunci API secara eksplisit. Contoh:
 
-- Stai effettuando una semplice chiamata API e preferisci codificare la chiave API.
-- Vuoi un controllo esplicito senza dover fare affidamento sul rilevamento automatico delle
-  variabili di ambiente da parte delle librerie dell'API Gemini
-- Stai utilizzando un ambiente in cui le variabili di ambiente non sono supportate
-  (ad es.web) o stai effettuando chiamate REST.
+- Anda melakukan panggilan API sederhana dan lebih suka meng-hardcode kunci API.
+- Anda menginginkan kontrol eksplisit tanpa harus mengandalkan penemuan otomatis variabel lingkungan oleh library Gemini API
+- Anda menggunakan lingkungan yang tidak mendukung variabel lingkungan (misalnya, web) atau Anda melakukan panggilan REST.
 
-Di seguito sono riportati esempi di come fornire una chiave API in modo esplicito utilizzando l'API Interactions:
+Di bawah ini adalah contoh cara memberikan kunci API secara eksplisit menggunakan Interactions API:
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client(api_key="YOUR_API_KEY")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview", 
+    model="gemini-3.5-flash", 
     input="Explain how AI works in a few words"
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: "YOUR_API_KEY" });
 
 async function main() {
   const interaction = await ai.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: "Explain how AI works in a few words",
   });
-  console.log(interaction.steps.at(-1).content[0].text);
+  console.log(interaction.output_text);
 }
 
 main();
@@ -220,70 +194,66 @@ main();
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "x-goog-api-key: YOUR_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
   -X POST \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Explain how AI works in a few words"
   }'
 ```
 
-## Proteggere la chiave API
+## Menjaga keamanan kunci API
 
-Tratta la chiave API Gemini come una password. Se viene compromesso, altri possono utilizzare la quota del tuo progetto, sostenere addebiti (se la fatturazione è abilitata) e accedere ai tuoi dati privati, come i file.
+Perlakukan kunci Gemini API Anda seperti sandi. Jika kunci tersebut disusupi, orang lain dapat menggunakan kuota project Anda, dikenai biaya (jika penagihan diaktifkan), dan mengakses data pribadi Anda, seperti file.
 
-### Regole di sicurezza critiche
+### Aturan keamanan penting
 
-- **Mantieni riservate le chiavi**: le chiavi API per Gemini potrebbero accedere a dati sensibili da cui dipende la tua applicazione.
+- **Jaga kerahasiaan kunci**: Kunci API untuk Gemini dapat mengakses data sensitif yang bergantung pada
+  aplikasi Anda.
 
-  - **Non eseguire mai il commit delle chiavi API nel controllo del codice sorgente.** Non archiviare la chiave API in sistemi di controllo della versione come Git.
-  - **Non esporre mai le chiavi API lato client.** Non utilizzare la chiave API direttamente
-    nelle app web o mobile in produzione. Le chiavi nel codice lato client
-    (incluse le nostre librerie JavaScript/TypeScript e le chiamate REST) possono essere
-    estratte.
-- **Limita l'accesso**: limita l'utilizzo della chiave API a indirizzi IP, referrer HTTP o app per Android/iOS specifici, ove possibile.
-- **Limita l'utilizzo**: abilita solo le API necessarie per ogni chiave.
-- **Esegui controlli regolari**: controlla regolarmente le chiavi API e ruotale periodicamente.
+  - **Jangan pernah meng-commit kunci API ke kontrol sumber.** Jangan check in kunci API Anda ke sistem kontrol versi seperti Git.
+  - **Jangan pernah menampilkan kunci API di sisi klien.** Jangan gunakan kunci API Anda secara langsung di aplikasi web atau seluler dalam produksi. Kunci dalam kode sisi klien (termasuk library JavaScript/TypeScript dan panggilan REST) dapat diekstrak.
+- **Batasi akses**: Batasi penggunaan kunci API ke alamat IP, perujuk HTTP, atau aplikasi Android/iOS tertentu jika memungkinkan.
+- **Batasi penggunaan**: Aktifkan hanya API yang diperlukan untuk setiap kunci.
+- **Lakukan audit rutin**: Audit kunci API Anda secara rutin dan putar kunci tersebut
+  secara berkala.
 
-### Best practice
+### Praktik terbaik
 
-- **Utilizza chiamate lato server con chiavi API** Il modo più sicuro per utilizzare la chiave API è chiamare l'API Gemini da un'applicazione lato server in cui la chiave può essere mantenuta riservata.
-- **Utilizza token effimeri per l'accesso lato client (solo API Live):** per l'accesso diretto lato client all'API Live, puoi utilizzare token effimeri. Presentano
-  rischi per la sicurezza inferiori e possono essere adatti all'uso in produzione. Per saperne di più, consulta la guida sui
-  [token effimeri](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=it).
-- **Valuta la possibilità di aggiungere limitazioni alla chiave**:puoi limitare le autorizzazioni di una chiave
-  aggiungendo [limitazioni relative alle chiavi API](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=it#add-api-restrictions).
-  Ciò riduce al minimo i potenziali danni in caso di perdita della chiave.
+- **Gunakan panggilan sisi server dengan kunci API** Cara paling aman untuk menggunakan kunci API adalah dengan memanggil Gemini API dari aplikasi sisi server tempat kunci dapat dijaga kerahasiaannya.
+- **Gunakan token sementara untuk akses sisi klien (khusus Live API):** Untuk akses sisi klien langsung ke Live API, Anda dapat menggunakan token sementara. Token ini memiliki risiko keamanan yang lebih rendah dan dapat cocok untuk penggunaan produksi. Tinjau
+  [panduan token sementara](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=id) untuk mengetahui informasi selengkapnya.
+- **Pertimbangkan untuk menambahkan batasan pada kunci Anda:** Anda dapat membatasi izin kunci
+  dengan menambahkan [batasan kunci API](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=id#add-api-restrictions).
+  Tindakan ini akan meminimalkan potensi kerusakan jika kunci bocor.
 
-Per alcune best practice generali, puoi anche consultare questo
-[articolo del Centro assistenza](https://support.google.com/googleapi/answer/6310037?hl=it).
+Untuk beberapa praktik terbaik umum, Anda juga dapat meninjau
+[artikel dukungan ini](https://support.google.com/googleapi/answer/6310037?hl=id).
 
-## Risoluzione dei problemi relativi alla creazione della chiave API
+## Memecahkan masalah pembuatan kunci API
 
-In Google AI Studio, il pulsante **Crea chiave API** potrebbe non essere disponibile e potrebbe essere visualizzato il messaggio: "*Non hai l'autorizzazione per creare una chiave in questo progetto*".
+Di Google AI Studio, tombol **Buat kunci API** mungkin tampak tidak tersedia, dengan
+pesan: "*Anda tidak memiliki izin untuk membuat kunci dalam project ini*".
 
-Ciò si verifica quando non disponi delle autorizzazioni necessarie all'interno del progetto per generare una nuova chiave:
+Hal ini terjadi jika Anda tidak memiliki izin yang diperlukan dalam project untuk membuat kunci baru:
 
-- **`resourcemanager.projects.get`**: consente ad AI Studio di verificare l'esistenza del progetto.
-- **`apikeys.keys.create`**: consente la generazione della chiave API.
-- **`serviceusage.services.enable`**: necessario per garantire che l'API Gemini sia
-  attiva nel progetto.
+- **`resourcemanager.projects.get`**: Memungkinkan AI Studio memverifikasi keberadaan project.
+- **`apikeys.keys.create`**: Memungkinkan pembuatan kunci API itu sendiri.
+- **`serviceusage.services.enable`**: Diperlukan untuk memastikan Gemini API aktif di project.
 
-Per correggere le autorizzazioni, chiedi all'amministratore del progetto o all'amministratore della tua organizzazione, se il progetto appartiene a un'[organizzazione](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=it), di concederti un ruolo con le autorizzazioni elencate sopra (ad esempio Editor progetto o un ruolo personalizzato).
+Untuk memperbaiki izin Anda, minta admin project, atau admin organisasi Anda jika project tersebut milik [organisasi](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=id), untuk memberi Anda peran dengan izin yang tercantum di atas (seperti Editor Project atau peran kustom).
 
-Se non disponi dell'accesso amministrativo a un progetto, puoi creare
-un nuovo progetto non associato a un'organizzazione per generare le chiavi.
+Jika tidak memiliki akses administratif ke project, Anda dapat membuat project baru yang tidak terkait dengan organisasi untuk membuat kunci.
 
-Invia feedback
+Kirim masukan
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ultimo aggiornamento 2026-05-12 UTC.
+Terakhir diperbarui pada 2026-05-19 UTC.
 
-Vuoi dirci altro?
+Ada masukan untuk kami?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-12 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]

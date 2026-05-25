@@ -1,67 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=ar
-fetched_at: 2026-05-18T13:02:00.748614+00:00
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=pt-BR
+fetched_at: 2026-05-25T13:04:17.453834+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-إرسال ملاحظات
+Envie comentários
 
-# فهم الرموز المميّزة وعدّها
+# Entender e contar tokens
 
-تعالج نماذج Gemini ونماذج الذكاء الاصطناعي التوليدي الأخرى الإدخالات والنتائج بدقة تُعرف باسم *الرمز المميز*.
+O Gemini e outros modelos de IA generativa processam entradas e saídas em uma granularidade chamada *token*.
 
-**بالنسبة إلى نماذج Gemini، يعادل الرمز المميز الواحد 4 أحرف تقريبًا.
-ويعادل 100 رمز مميز من 60 إلى 80 كلمة باللغة الإنجليزية تقريبًا.**
+**Para modelos do Gemini, um token equivale a cerca de quatro caracteres.
+100 tokens equivalem a cerca de 60 a 80 palavras em inglês.**
 
-## لمحة عن الرموز المميّزة
+## Sobre tokens
 
-يمكن أن تكون الرموز المميّزة أحرفًا مفردة، مثل `z`، أو كلمات كاملة، مثل `cat`. ويتم تقسيم الكلمات الطويلة إلى عدة رموز مميّزة. تُعرف مجموعة جميع الرموز المميّزة التي يستخدمها النموذج باسم المفردات، وتُعرف عملية تقسيم النص إلى رموز مميّزة باسم *الترميز*.
+Os tokens podem ser caracteres únicos, como `z`, ou palavras inteiras, como `cat`. Palavras longas são divididas em vários tokens. O conjunto de todos os tokens usados pelo modelo é chamado de vocabulário, e o processo de dividir o texto em tokens é chamado de *tokenização*.
 
-عند تفعيل الفوترة، يتم تحديد [تكلفة طلب إلى Gemini API](https://ai.google.dev/pricing?hl=ar) جزئيًا من خلال عدد الرموز المميّزة للإدخال والإخراج، لذا قد يكون من المفيد معرفة كيفية
-عدّ الرموز المميّزة.
+Quando o faturamento está ativado, o [custo de uma chamada para a API Gemini](https://ai.google.dev/pricing?hl=pt-br) é determinado em parte pelo número de tokens de entrada e saída. Por isso, saber como contar tokens pode ser útil.
 
-يمكنك تجربة عدّ الرموز المميّزة في Colab.
+Você pode testar a contagem de tokens no nosso Colab.
 
 |  |  |  |
 | --- | --- | --- |
-| [عرض على ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | [تجربة ورقة ملاحظات Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ar) | [عرض ورقة الملاحظات على GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ar) |
+| [Ver em ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | [Testar um notebook do Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=pt-br) | [Conferir o notebook no GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=pt-br) |
 
-## عدّ الرموز المميّزة
+## Contar tokens
 
-يتم ترميز جميع الإدخالات والنتائج من Gemini API، بما في ذلك النصوص وملفات الصور والوسائط الأخرى غير النصية.
+Todas as entradas e saídas da API Gemini são tokenizadas, incluindo texto, arquivos de imagem e outras modalidades que não são de texto.
 
-يمكنك عدّ الرموز المميّزة بالطرق التالية:
+É possível contar tokens das seguintes maneiras:
 
-- **استدعاء [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=ar) باستخدام إدخال
-  الطلب.**  
-   تعرض هذه الطريقة إجمالي عدد الرموز المميّزة في *الإدخال فقط*. يمكنك إجراء هذا الاستدعاء قبل إرسال الإدخال إلى النموذج للتحقّق من حجم طلباتك.
-- **استخدام السمة `usage_metadata` في عنصر `response` بعد
-  استدعاء `generate_content`.**  
-   تعرض هذه الطريقة إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج*: `total_token_count`.  
-   تعرض أيضًا عدد الرموز المميّزة للإدخال والإخراج بشكل منفصل: `prompt_token_count` (رموز الإدخال المميّزة) و`candidates_token_count` (رموز الإخراج المميّزة).
+- **Chame [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=pt-br) com a entrada da solicitação.**  
+   Isso retorna o número total de tokens *apenas na entrada*. Você pode fazer essa chamada antes de enviar a entrada para o modelo e verificar o tamanho das solicitações.
+- **Use o atributo `usage_metadata` no objeto `response` depois de
+  chamar `generate_content`.**  
+   Isso retorna o número total de tokens em *entrada e saída*: `total_token_count`.  
+   Ele
+  também retorna as contagens de tokens da entrada e da saída separadamente: `prompt_token_count` (tokens de entrada) e `candidates_token_count`
+  (tokens de saída).
 
-  [إذا كنت تستخدم نموذجًا للتفكير، يتم عرض الرموز المميّزة المستخدَمة أثناء عملية التفكير في `thoughts_token_count`.](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) وإذا كنت تستخدم
-  [ميزة "تخزين السياق مؤقتًا"](https://ai.google.dev/gemini-api/docs/caching?hl=ar)، سيكون عدد الرموز المميّزة المخزّنة مؤقتًا في `cached_content_token_count`.
+  Se você estiver usando um [modelo de raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br), os tokens usados durante o processo de raciocínio serão retornados em `thoughts_token_count`. Se você estiver usando o [armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br), a contagem de tokens armazenados em cache estará em `cached_content_token_count`.
 
-### عدّ الرموز المميّزة للنص
+### Contar tokens de texto
 
-إذا استدعيت `count_tokens` باستخدام إدخال نصي فقط، ستعرض هذه الطريقة عدد الرموز المميّزة للنص في *الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الاستدعاء قبل استدعاء `generate_content` للتحقّق من حجم طلباتك.
+Se você chamar `count_tokens` com uma entrada somente de texto, ele vai retornar a contagem de tokens do texto *apenas na entrada* (`total_tokens`). É possível fazer essa chamada antes de chamar `generate_content` para verificar o tamanho das solicitações.
 
-هناك خيار آخر وهو استدعاء `generate_content` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
+Outra opção é chamar `generate_content` e usar o atributo `usage_metadata`
+no objeto `response` para receber o seguinte:
 
-- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`)
+- As contagens de tokens separadas da entrada (`prompt_token_count`), do conteúdo em cache (`cached_content_token_count`) e da saída (`candidates_token_count`).
+- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
+- O número total de tokens *na entrada e na saída*
+  (`total_token_count`)
 
 ### Python
 
@@ -72,12 +73,12 @@ client = genai.Client()
 prompt = "The quick brown fox jumps over the lazy dog."
 
 total_tokens = client.models.count_tokens(
-    model="gemini-3-flash-preview", contents=prompt
+    model="gemini-3.5-flash", contents=prompt
 )
 print("total_tokens: ", total_tokens)
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents=prompt
+    model="gemini-3.5-flash", contents=prompt
 )
 
 print(response.usage_metadata)
@@ -93,13 +94,13 @@ const prompt = "The quick brown fox jumps over the lazy dog.";
 
 async function main() {
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: prompt,
   });
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: prompt,
   });
   console.log(generateResponse.usageMetadata);
@@ -108,7 +109,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
 ```
 ctx := context.Background()
@@ -118,13 +119,13 @@ client, err := genai.NewClient(ctx, nil)
 contents := []*genai.Content{
   genai.NewContentFromText(prompt, genai.RoleUser),
 }
-countResp, err := client.Models.CountTokens(ctx, "gemini-3-flash-preview", contents, nil)
+countResp, err := client.Models.CountTokens(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   return err
 }
 fmt.Println("total_tokens:", countResp.TotalTokens)
 
-response, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -136,17 +137,21 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### عدّ الرموز المميّزة للمحادثات المتعدّدة الجولات (المحادثة)
+### Contar tokens multiturno (chat)
 
-إذا استدعيت `count_tokens` باستخدام سجلّ المحادثة، ستعرض هذه الطريقة إجمالي عدد الرموز المميّزة للنص من كل دور في المحادثة (`total_tokens`).
+Se você chamar `count_tokens` com o histórico de chat, ele vai retornar a contagem total de tokens do texto de cada função no chat (`total_tokens`).
 
-هناك خيار آخر وهو استدعاء `send_message` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
+Outra opção é chamar `send_message` e usar o atributo `usage_metadata`
+no objeto `response` para receber o seguinte:
 
-- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`)
+- As contagens separadas de tokens da entrada (`prompt_token_count`), do conteúdo
+  em cache (`cached_content_token_count`) e da saída
+  (`candidates_token_count`)
+- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
+- O número total de tokens *na entrada e na saída*
+  (`total_token_count`)
 
-لفهم حجم جولة المحادثة التالية، عليك إلحاقها بالسجلّ عند استدعاء `count_tokens`.
+Para entender o tamanho da sua próxima conversa, adicione-a ao histórico ao chamar `count_tokens`.
 
 ### Python
 
@@ -157,7 +162,7 @@ from google.genai import types
 client = genai.Client()
 
 chat = client.chats.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     history=[
         types.Content(
             role="user", parts=[types.Part(text="Hi my name is Bob")]
@@ -168,7 +173,7 @@ chat = client.chats.create(
 
 print(
     client.models.count_tokens(
-        model="gemini-3-flash-preview", contents=chat.get_history()
+        model="gemini-3.5-flash", contents=chat.get_history()
     )
 )
 
@@ -185,7 +190,7 @@ extra = types.UserContent(
     ]
 )
 history = [*chat.get_history(), extra]
-print(client.models.count_tokens(model="gemini-3-flash-preview", contents=history))
+print(client.models.count_tokens(model="gemini-3.5-flash", contents=history))
 ```
 
 ### JavaScript
@@ -201,12 +206,12 @@ async function main() {
     { role: "model", parts: [{ text: "Hi Bob!" }] },
   ];
   const chat = ai.chats.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     history: history,
   });
 
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: chat.getHistory(),
   });
   console.log(countTokensResponse.totalTokens);
@@ -222,7 +227,7 @@ async function main() {
   };
   const combinedHistory = [...chat.getHistory(), extraMessage];
   const combinedCountTokensResponse = await ai.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: combinedHistory,
   });
   console.log(
@@ -234,7 +239,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
 ```
 ctx := context.Background()
@@ -244,12 +249,12 @@ history := []*genai.Content{
   {Role: genai.RoleUser, Parts: []*genai.Part({Text: "Hi my name is Bob"})},
   {Role: genai.RoleModel, Parts: []*genai.Part({Text: "Hi Bob!"})},
 }
-chat, err := client.Chats.Create(ctx, "gemini-3-flash-preview", nil, history)
+chat, err := client.Chats.Create(ctx, "gemini-3.5-flash", nil, history)
 if err != nil {
   log.Fatal(err)
 }
 
-firstTokenResp, err := client.Models.CountTokens(ctx, "gemini-3-flash-preview", chat.History(false), nil)
+firstTokenResp, err := client.Models.CountTokens(ctx, "gemini-3.5-flash", chat.History(false), nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -265,40 +270,44 @@ extra := genai.NewContentFromText("What is the meaning of life?", genai.RoleUser
 hist := chat.History(false)
 hist = append(hist, extra)
 
-secondTokenResp, err := client.Models.CountTokens(ctx, "gemini-3-flash-preview", hist, nil)
+secondTokenResp, err := client.Models.CountTokens(ctx, "gemini-3.5-flash", hist, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### عدّ الرموز المميّزة المتعددة الوسائط
+### Contar tokens multimodais
 
-يتم ترميز جميع الإدخالات إلى Gemini API، بما في ذلك النصوص وملفات الصور والوسائط الأخرى غير النصية. يُرجى العِلم بالنقاط الرئيسية التالية حول ترميز الإدخالات المتعددة الوسائط أثناء معالجتها من قِبل Gemini API:
+Todas as entradas da API Gemini são tokenizadas, incluindo texto, arquivos de imagem e outras modalidades não textuais. Confira os principais pontos sobre a tokenização de entradas multimodais durante o processamento pela API Gemini:
 
-- يتم عدّ إدخالات الصور التي يكون كلا بُعدَيها ≤384 بكسل على أنّها 258 رمزًا مميّزًا. يتم اقتصاص الصور التي يكون أحد بُعدَيها أو كلاهما أكبر من ذلك وتغيير حجمها حسب الحاجة إلى مربّعات بحجم 768 × 768 بكسل، ويتم عدّ كل منها على أنّه 258 رمزًا مميّزًا.
-- يتم تحويل ملفات الفيديو والصوت إلى رموز مميّزة بالمعدّلات الثابتة التالية: الفيديو بمعدّل 263 رمزًا مميّزًا في الثانية والصوت بمعدّل 32 رمزًا مميّزًا في الثانية.
+- Entradas de imagem com ambas as dimensões <=384 pixels são contadas como
+  258 tokens. Imagens maiores em uma ou ambas as dimensões são cortadas e dimensionadas conforme
+  necessário em blocos de 768 x 768 pixels, cada um contado como 258 tokens.
+- Os arquivos de vídeo e áudio são convertidos em tokens nas seguintes taxas fixas: vídeo a 263 tokens por segundo e áudio a 32 tokens por segundo.
 
-#### دقة الوسائط
+#### Resoluções de mídia
 
-[توفّر نماذج Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=ar#gemini-3) تحكّمًا دقيقًا في
-معالجة الصور المتعددة الوسائط باستخدام المَعلمة `media_resolution`. تحدّد المَعلمة `media_resolution` **الحد الأقصى لعدد الرموز المميّزة المخصّصة لكل صورة إدخال أو إطار فيديو.**
-تُحسِّن الدقة العالية قدرة النموذج على قراءة النصوص الدقيقة أو تحديد التفاصيل الصغيرة، ولكنها تزيد من استخدام الرموز المميّزة والمدة الزمنية المستغرَقة.
+Os [modelos do Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3) introduzem um controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. O parâmetro
+`media_resolution` determina o
+**número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
+Resoluções mais altas melhoram a capacidade do modelo de ler textos pequenos ou identificar detalhes, mas aumentam o uso de tokens e a latência.
 
-لمزيد من التفاصيل حول المَعلمة وكيفية تأثيرها في عمليات احتساب الرموز المميّزة،
-يُرجى الاطّلاع على دليل [دقة الوسائط](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ar).
+Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de token, consulte o guia de [resolução de mídia](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br).
 
-#### ملفات الصور
+#### Arquivos de imagem
 
-إذا استدعيت `count_tokens` باستخدام إدخال نصي وصورة، ستعرض هذه الطريقة عدد الرموز المميّزة المجمّع للنص والصورة في *الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الاستدعاء قبل استدعاء `generate_content` للتحقّق من حجم طلباتك. يمكنك أيضًا اختياريًا استدعاء `count_tokens` على النص والملف بشكل منفصل.
+Se você chamar `count_tokens` com uma entrada de texto e imagem, ele vai retornar a contagem combinada de tokens do texto e da imagem *apenas na entrada* (`total_tokens`). Você pode fazer essa chamada antes de chamar `generate_content` para verificar o tamanho das suas solicitações. Você também pode chamar `count_tokens` no texto e no arquivo separadamente.
 
-هناك خيار آخر وهو استدعاء `generate_content` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
+Outra opção é chamar `generate_content` e usar o atributo `usage_metadata`
+no objeto `response` para receber o seguinte:
 
-- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`)
+- As contagens de tokens separadas da entrada (`prompt_token_count`), do conteúdo em cache (`cached_content_token_count`) e da saída (`candidates_token_count`).
+- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
+- O número total de tokens *na entrada e na saída*
+  (`total_token_count`)
 
-مثال يستخدم صورة تم تحميلها من File API:
+Exemplo que usa uma imagem enviada da API File:
 
 ### Python
 
@@ -311,12 +320,12 @@ your_image_file = client.files.upload(file=media / "organ.jpg")
 
 print(
     client.models.count_tokens(
-        model="gemini-3-flash-preview", contents=[prompt, your_image_file]
+        model="gemini-3.5-flash", contents=[prompt, your_image_file]
     )
 )
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents=[prompt, your_image_file]
+    model="gemini-3.5-flash", contents=[prompt, your_image_file]
 )
 print(response.usage_metadata)
 ```
@@ -336,7 +345,7 @@ async function main() {
   });
 
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(organ.uri, organ.mimeType),
@@ -345,7 +354,7 @@ async function main() {
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(organ.uri, organ.mimeType),
@@ -357,7 +366,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
 ```
 ctx := context.Background()
@@ -381,13 +390,13 @@ contents := []*genai.Content{
   genai.NewContentFromParts(parts, genai.RoleUser),
 }
 
-tokenResp, err := client.Models.CountTokens(ctx, "gemini-3-flash-preview", contents, nil)
+tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println("Multimodal image token count:", tokenResp.TotalTokens)
 
-response, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -398,7 +407,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-مثال يقدّم الصورة كبيانات مضمّنة:
+Exemplo que fornece a imagem como dados inline:
 
 ### Python
 
@@ -412,12 +421,12 @@ your_image_file = PIL.Image.open(media / "organ.jpg")
 
 print(
     client.models.count_tokens(
-        model="gemini-3-flash-preview", contents=[prompt, your_image_file]
+        model="gemini-3.5-flash", contents=[prompt, your_image_file]
     )
 )
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents=[prompt, your_image_file]
+    model="gemini-3.5-flash", contents=[prompt, your_image_file]
 )
 print(response.usage_metadata)
 ```
@@ -440,13 +449,13 @@ const contents = createUserContent([
 
 async function main() {
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: contents,
   });
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: contents,
   });
   console.log(generateResponse.usageMetadata);
@@ -455,7 +464,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
 ```
 ctx := context.Background()
@@ -478,13 +487,13 @@ contents := []*genai.Content{
   genai.NewContentFromParts(parts, genai.RoleUser),
 }
 
-tokenResp, err := client.Models.CountTokens(ctx, "gemini-3-flash-preview", contents, nil)
+tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println("Multimodal image token count:", tokenResp.TotalTokens)
 
-response, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -495,20 +504,21 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### ملفات الفيديو أو الصوت
+#### Arquivos de vídeo ou áudio
 
-يتم تحويل كل من الصوت والفيديو إلى رموز مميّزة بالمعدّلات الثابتة التالية:
+O áudio e o vídeo são convertidos em tokens nas seguintes taxas fixas:
 
-- الفيديو: 263 رمزًا مميّزًا في الثانية
-- الصوت: 32 رمزًا مميّزًا في الثانية
+- Vídeo: 263 tokens por segundo
+- Áudio: 32 tokens por segundo
 
-إذا استدعيت `count_tokens` باستخدام إدخال نصي وفيديو/صوت، ستعرض هذه الطريقة عدد الرموز المميّزة المجمّع للنص وملف الفيديو/الصوت في *الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الاستدعاء قبل استدعاء `generate_content` للتحقّق من حجم طلباتك. يمكنك أيضًا اختياريًا استدعاء `count_tokens` على النص والملف بشكل منفصل.
+Se você chamar `count_tokens` com uma entrada de texto e vídeo/áudio, ele vai retornar a contagem combinada de tokens do texto e do arquivo de vídeo/áudio *apenas na entrada* (`total_tokens`). Você pode fazer essa chamada antes de chamar `generate_content` para verificar o tamanho das suas solicitações. Também é possível chamar `count_tokens` no texto e no arquivo separadamente.
 
-هناك خيار آخر وهو استدعاء `generate_content` ثم استخدام السمة `usage_metadata` في عنصر `response` للحصول على ما يلي:
+Outra opção é chamar `generate_content` e usar o atributo `usage_metadata`
+no objeto `response` para receber o seguinte:
 
-- عدد الرموز المميّزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الإدخال والإخراج* (`total_token_count`).
+- As contagens de tokens separadas da entrada (`prompt_token_count`), do conteúdo em cache (`cached_content_token_count`) e da saída (`candidates_token_count`).
+- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
+- O número total de tokens *na entrada e na saída* (`total_token_count`).
 
 ### Python
 
@@ -528,12 +538,12 @@ while not your_file.state or your_file.state.name != "ACTIVE":
 
 print(
     client.models.count_tokens(
-        model="gemini-3-flash-preview", contents=[prompt, your_file]
+        model="gemini-3.5-flash", contents=[prompt, your_file]
     )
 )
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents=[prompt, your_file]
+    model="gemini-3.5-flash", contents=[prompt, your_file]
 )
 print(response.usage_metadata)
 ```
@@ -560,7 +570,7 @@ async function main() {
   }
 
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(videoFile.uri, videoFile.mimeType),
@@ -569,7 +579,7 @@ async function main() {
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(videoFile.uri, videoFile.mimeType),
@@ -581,7 +591,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
 ```
 ctx := context.Background()
@@ -617,12 +627,12 @@ contents := []*genai.Content{
   genai.NewContentFromParts(parts, genai.RoleUser),
 }
 
-tokenResp, err := client.Models.CountTokens(ctx, "gemini-3-flash-preview", contents, nil)
+tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println("Multimodal video/audio token count:", tokenResp.TotalTokens)
-response, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -633,9 +643,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-## قدرات الاستيعاب
+## Janelas de contexto
 
-تتضمّن النماذج المتاحة من خلال Gemini API قدرات استيعاب يتم قياسها بالرموز المميّزة. تحدّد قدرة الاستيعاب حجم الإدخال الذي يمكنك تقديمه وحجم الإخراج الذي يمكن للنموذج إنشاؤه. يمكنك تحديد حجم قدرة الاستيعاب من خلال استدعاء نقطة النهاية [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=ar)أو الاطّلاع على [مستندات النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
+Os modelos disponíveis na API Gemini têm janelas de contexto medidas em tokens. A janela de contexto define a quantidade de entrada que você pode fornecer e a quantidade de saída que o modelo pode gerar. Para determinar o tamanho da janela de contexto, chame o [endpoint `models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=pt-br) ou consulte a [documentação de modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
 
 ### Python
 
@@ -643,7 +653,7 @@ fmt.Println(string(usageMetadata))
 from google import genai
 
 client = genai.Client()
-model_info = client.models.get(model="gemini-3-flash-preview")
+model_info = client.models.get(model="gemini-3.5-flash")
 print(f"{model_info.input_token_limit=}")
 print(f"{model_info.output_token_limit=}")
 ```
@@ -656,7 +666,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI({});
 
 async function main() {
-  const modelInfo = await ai.models.get({model: 'gemini-3-flash-preview'});
+  const modelInfo = await ai.models.get({model: 'gemini-3.5-flash'});
   console.log(modelInfo.inputTokenLimit);
   console.log(modelInfo.outputTokenLimit);
 }
@@ -664,7 +674,7 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
 ```
 ctx := context.Background()
@@ -672,7 +682,7 @@ client, err := genai.NewClient(ctx, nil)
 if err != nil {
   log.Fatal(err)
 }
-modelInfo, err := client.ModelInfo(ctx, "models/gemini-3-flash-preview")
+modelInfo, err := client.ModelInfo(ctx, "models/gemini-3.5-flash")
 if err != nil {
   log.Fatal(err)
 }
@@ -680,12 +690,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-إرسال ملاحظات
+Envie comentários
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
+Última atualização 2026-05-19 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Quer enviar seu feedback?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]

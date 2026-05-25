@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/caching?hl=vi
-fetched_at: 2026-05-18T13:06:54.789886+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/caching?hl=he
+fetched_at: 2026-05-25T13:03:15.715378+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Lưu ngữ cảnh vào bộ nhớ đệm
+# שמירה במטמון של הקשר
 
-Trong quy trình làm việc điển hình của AI, bạn có thể truyền đi truyền lại cùng một mã thông báo đầu vào cho một mô hình. Gemini API cung cấp tính năng lưu vào bộ nhớ đệm ngầm để tối ưu hoá hiệu suất và chi phí.
+בתהליך עבודה טיפוסי של AI, יכול להיות שתעבירו את אותם אסימוני קלט שוב ושוב למודל. ‫Gemini API מציע שמירה מרומזת במטמון כדי לשפר את הביצועים ולצמצם את העלויות.
 
-## Lưu vào bộ nhớ đệm ngầm
+## שמירה מרומזת במטמון
 
-Tính năng lưu vào bộ nhớ đệm ngầm định được bật theo mặc định cho tất cả các mô hình Gemini 2.5 trở lên. Chúng tôi tự động chuyển các khoản tiết kiệm chi phí nếu yêu cầu của bạn truy cập vào bộ nhớ đệm. Bạn không cần làm gì để bật tính năng này. Số lượng mã thông báo đầu vào tối thiểu để lưu vào bộ nhớ đệm ngữ cảnh được liệt kê trong bảng sau cho từng mô hình:
+האפשרות 'שמירת נתונים במטמון באופן מרומז' מופעלת כברירת מחדל בכל המודלים של Gemini מגרסה 2.5 ואילך. אם הבקשה שלכם מגיעה למטמון, אנחנו מעבירים לכם באופן אוטומטי את החיסכון בעלויות. לא צריך לעשות שום דבר כדי להפעיל את התכונה הזו. בטבלה הבאה מפורט מספר האסימונים המינימלי של הקלט לכל מודל לצורך שמירת מטמון של ההקשר:
 
-| Mô hình | Giới hạn mã thông báo tối thiểu |
+| מודל | מגבלת טוקנים מינימלית |
 | --- | --- |
-| Bản xem trước Gemini 3 Flash | 1024 |
-| Bản dùng thử Gemini 3 Pro | 4096 |
-| Gemini 2.5 Flash | 1024 |
-| Gemini 2.5 Pro | 4096 |
+| Gemini 3.5 Flash | 1024 |
+| ‫Gemini 3 Pro Preview | 4096 |
+| Gemini ‎2.5 Flash | 1024 |
+| Gemini ‎2.5 Pro | 4096 |
 
-Để tăng cơ hội đạt được kết quả tìm kiếm trong bộ nhớ cache ngầm ẩn:
+כדי להגדיל את הסיכוי לפגיעה במטמון משתמע:
 
-- Hãy thử đặt nội dung lớn và phổ biến ở đầu câu lệnh
-- Hãy thử gửi các yêu cầu có tiền tố tương tự trong một khoảng thời gian ngắn
+- כדאי לנסות להוסיף בתחילת ההנחיה תוכן גדול ונפוץ
+- ניסיון לשלוח בקשות עם קידומת דומה בפרק זמן קצר
 
-Bạn có thể xem số lượng mã thông báo là lượt truy cập vào bộ nhớ đệm trong trường `usage_metadata` (Python) hoặc `usageMetadata` (JavaScript) của đối tượng phản hồi.
+אפשר לראות את מספר הטוקנים שהיו פגיעות במטמון בשדה `usage_metadata` (Python) או `usageMetadata` (JavaScript) של אובייקט התגובה.
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-05-07 UTC.
+עדכון אחרון: 2026-05-19 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-07 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-19 (שעון UTC)."],[],[]]

@@ -1,45 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=zh-TW
-fetched_at: 2026-05-18T13:05:28.025434+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=ja
+fetched_at: 2026-05-25T12:56:19.093435+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-提供意見
+フィードバックを送信
 
-# 瞭解及計算權杖
+# トークンを理解してカウントする
 
-Gemini 和其他生成式 AI 模型會以稱為「*權杖*」的細微程度處理輸入和輸出內容。
+Gemini などの生成 AI モデルは、入力と出力をトークンという粒度で処理します。
 
-**對於 Gemini 模型，一個符記約等於 4 個字元。
-100 個符記約等於 60 到 80 個英文字。**
+**Gemini モデルの場合、1 個のトークンは約 4 文字に相当します。100 個のトークンは、約 60 ～ 80 ワード（英語）に相当します。**
 
-## 關於權杖
+## トークンについて
 
-符記可以是單一字元 (例如 `z`)，也可以是整個字詞 (例如 `cat`)。長字會分成多個符記。模型使用的所有權杖集合稱為詞彙，將文字分割成權杖的過程稱為「權杖化」。
+トークンは、`z` などの単一の文字、`cat` などの単語全体にすることができます。長い単語は複数のトークンに分割されます。モデルで使用されるすべてのトークンのセットを語彙と呼び、テキストをトークンに分割するプロセスをトークン化と呼びます。
 
-啟用帳單後，[Gemini API 呼叫費用](https://ai.google.dev/pricing?hl=zh-tw)會部分取決於輸入和輸出權杖數量，因此瞭解如何計算權杖數量會很有幫助。
+課金が有効になっている場合、[Gemini API の呼び出し費用](https://ai.google.dev/pricing?hl=ja)は入力トークンと出力トークンの数によって決まるため、トークンのカウント方法を知っておくと便利です。
 
-## 計算詞元數
+## トークンのカウント
 
-Gemini API 的所有輸入和輸出內容 (包括文字、圖片檔案和其他非文字模態) 都會經過權杖化。
+Gemini API へのすべての入力と Gemini API からのすべての出力は、テキスト、画像ファイル、テキスト以外のモダリティを含めてトークン化されます。
 
-您可以透過下列方式計算權杖：
+トークンは次の方法でカウントできます。
 
-- **使用要求的輸入內容呼叫 `count_tokens`。**傳回*輸入內容*的詞元總數。傳送輸入內容前，請先進行這項呼叫，檢查要求的大小。
-- **使用互動回覆中的 `usage`。**傳回輸入 (`total_input_tokens`)、輸出 (`total_output_tokens`)、思考 (`total_thought_tokens`)、快取內容 (`total_cached_tokens`)、工具使用 (`total_tool_use_tokens`) 和總計 (`total_tokens`) 的權杖數量。
+- **リクエストの入力を使用して `count_tokens` を呼び出します。***入力のみ*のトークンの合計数を返します。リクエストのサイズを確認するために、入力を送信する前にこの呼び出しを行います。
+- **インタラクション レスポンスの `usage` を使用します。**入力（`total_input_tokens`）、出力（`total_output_tokens`）、思考（`total_thought_tokens`）、キャッシュに保存されたコンテンツ（`total_cached_tokens`）、ツール使用（`total_tool_use_tokens`）、合計（`total_tokens`）のトークン数を返します。
 
-### 計算文字權杖
+### テキスト トークンをカウントする
 
 ### Python
 
@@ -52,14 +51,14 @@ prompt = "The quick brown fox jumps over the lazy dog."
 
 # Count tokens before sending
 total_tokens = client.models.count_tokens(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=prompt
 )
 print("total_tokens:", total_tokens.total_tokens)
 
 # Get usage from interaction
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=prompt
 )
 print(interaction.usage)
@@ -76,14 +75,14 @@ const prompt = "The quick brown fox jumps over the lazy dog.";
 
 // Count tokens before sending
 const countResponse = await client.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: prompt,
 });
 console.log(countResponse.totalTokens);
 
 // Get usage from interaction
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: prompt,
 });
 console.log(interaction.usage);
@@ -93,16 +92,16 @@ console.log(interaction.usage);
 
 ```
 # Specifies the API revision to avoid breaking changes when they become default
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:countTokens" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:countTokens" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### 計算多輪對話的權杖數
+### マルチターンのトークンをカウントする
 
-使用 `previous_interaction_id` 計算對話記錄中的權杖數：
+`previous_interaction_id` を使用して会話履歴全体のトークン数をカウントします。
 
 ### Python
 
@@ -110,13 +109,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 # This will only work for SDK newer than 2.0.0
 # First interaction
 interaction1 = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Hi, my name is Bob"
 )
 
 # Second interaction continues the conversation
 interaction2 = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What's my name?",
     previous_interaction_id=interaction1.id
 )
@@ -133,13 +132,13 @@ print(f"Total tokens: {interaction2.usage.total_tokens}")
 // This will only work for SDK newer than 2.0.0
 // First interaction
 const interaction1 = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: "Hi, my name is Bob"
 });
 
 // Second interaction continues the conversation
 const interaction2 = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: "What's my name?",
     previous_interaction_id: interaction1.id
 });
@@ -148,16 +147,15 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### 計算多模態權杖
+### マルチモーダル トークンをカウントする
 
-Gemini API 的所有輸入內容都會經過權杖化，包括圖片、影片和音訊。
-代碼化相關重點：
+Gemini API への入力はすべてトークン化されます（画像、動画、音声を含む）。トークン化に関する重要なポイント:
 
-- **圖片**：圖片的長寬皆 ≤384 像素，算為 258 個權杖。較大的圖片會分割成 768x768 像素的圖塊，每個圖塊算做 258 個權杖。
-- **影片**：每秒 263 個權杖
-- **音訊**：每秒 32 個權杖
+- **画像**: 両方の寸法が 384 ピクセル以下の画像は 258 個のトークンとしてカウントされます。大きな画像は 768x768 ピクセルのタイルに分割され、各タイルは 258 個のトークンとしてカウントされます。
+- **動画**: 1 秒あたり 263 トークン
+- **音声**: 1 秒あたり 32 トークン
 
-#### 圖片權杖
+#### 画像トークン
 
 ### Python
 
@@ -167,14 +165,14 @@ uploaded_file = client.files.upload(file="path/to/image.jpg")
 
 # Count tokens for image + text
 total_tokens = client.models.count_tokens(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=["Tell me about this image", uploaded_file]
 )
 print(f"Total tokens: {total_tokens}")
 
 # Generate with image
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Tell me about this image"},
         {"type": "image", "uri": uploaded_file.uri, "mime_type": uploaded_file.mime_type}
@@ -194,7 +192,7 @@ const uploadedFile = await client.files.upload({
 
 // Count tokens
 const countResponse = await client.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: [
         { text: "Tell me about this image" },
         { fileData: { fileUri: uploadedFile.uri, mimeType: uploadedFile.mimeType } }
@@ -203,7 +201,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**內嵌資料範例：**
+**インライン データの例:**
 
 ### Python
 
@@ -215,7 +213,7 @@ with open('image.jpg', 'rb') as f:
     image_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Describe this image"},
         {
@@ -228,7 +226,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### 影片權杖
+#### 動画トークン
 
 ### Python
 
@@ -245,14 +243,14 @@ while not video_file.state or video_file.state.name != "ACTIVE":
 
 # A 60-second video is approximately 263 * 60 = 15,780 tokens
 total_tokens = client.models.count_tokens(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=["Summarize this video", video_file]
 )
 print(f"Total tokens: {total_tokens}")
 
 # Generate with video
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Summarize this video"},
         {"type": "video", "uri": video_file.uri, "mime_type": video_file.mime_type}
@@ -261,7 +259,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### 音訊權杖
+#### 音声トークン
 
 ### Python
 
@@ -271,14 +269,14 @@ audio_file = client.files.upload(file="path/to/audio.mp3")
 
 # A 60-second audio clip is approximately 32 * 60 = 1,920 tokens
 total_tokens = client.models.count_tokens(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=["Transcribe this audio", audio_file]
 )
 print(f"Total tokens: {total_tokens}")
 
 # Generate with audio
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Transcribe this audio"},
         {"type": "audio", "uri": audio_file.uri, "mime_type": audio_file.mime_type}
@@ -287,16 +285,16 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### 計算系統指令的權杖數
+### システム指示トークンをカウントする
 
-系統指令會計入輸入權杖：
+システム指示は入力トークンの一部としてカウントされます。
 
 ### Python
 
 ```
 # This will only work for SDK newer than 2.0.0
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Hello!",
     system_instruction="You are a helpful assistant who speaks like a pirate."
 )
@@ -305,9 +303,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### 計算工具權杖
+### ツールトークンをカウントする
 
-工具 (函式、程式碼執行、Google 搜尋) 也會計入：
+ツール（関数、コード実行、Google 検索）もカウントされます。
 
 ### Python
 
@@ -328,7 +326,7 @@ tools = [
 ]
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What's the weather in Tokyo?",
     tools=tools
 )
@@ -337,17 +335,17 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## 脈絡窗口
+## コンテキスト ウィンドウ
 
-每個 Gemini 模型都有可處理的符記數量上限。內容視窗會定義輸入和輸出權杖的合併限制。
+各 Gemini モデルには、処理できるトークンの最大数があります。コンテキスト ウィンドウは、入力トークンと出力トークンの合計上限を定義します。
 
-### 以程式輔助方式取得脈絡窗口大小
+### コンテキスト ウィンドウのサイズをプログラムで取得する
 
 ### Python
 
 ```
 # This will only work for SDK newer than 2.0.0
-model_info = client.models.get(model="gemini-3-flash-preview")
+model_info = client.models.get(model="gemini-3.5-flash")
 print(f"Input token limit: {model_info.input_token_limit}")
 print(f"Output token limit: {model_info.output_token_limit}")
 ```
@@ -356,25 +354,25 @@ print(f"Output token limit: {model_info.output_token_limit}")
 
 ```
 // This will only work for SDK newer than 2.0.0
-const modelInfo = await client.models.get({ model: "gemini-3-flash-preview" });
+const modelInfo = await client.models.get({ model: "gemini-3.5-flash" });
 console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-您可以在「模型」頁面查看脈絡窗口大小。
+コンテキスト ウィンドウのサイズは、[[モデル](https://ai.google.dev/gemini-api/docs/models?hl=ja)] ページで確認できます。
 
-## 後續步驟
+## 次のステップ
 
-- [文字生成](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw)：生成基礎
-- [快取](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=zh-tw)：透過快取降低成本
-- [定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)：瞭解費用
+- [テキスト生成](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ja): 生成の基本
+- [キャッシュ保存](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=ja): キャッシュ保存でコストを削減する
+- [料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja): 費用を把握する
 
-提供意見
+フィードバックを送信
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-上次更新時間：2026-05-12 (世界標準時間)。
+最終更新日 2026-05-19 UTC。
 
-想進一步說明嗎？
+ご意見をお聞かせください
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-12 (世界標準時間)。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

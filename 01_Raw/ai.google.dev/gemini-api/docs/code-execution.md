@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-TW
-fetched_at: 2026-05-18T13:11:15.614744+00:00
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=th
+fetched_at: 2026-05-25T12:58:53.266912+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=th)
 
-提供意見
+ส่งความคิดเห็น
 
-# 程式碼執行
+# การเรียกใช้โค้ด
 
-Gemini API 提供程式碼執行工具，可讓模型生成及執行 Python 程式碼。模型會根據程式碼執行結果反覆試驗學習，直到生成最終輸出內容。您可以使用程式碼執行功能，建構根據程式碼進行推論的應用程式。舉例來說，您可以使用程式碼執行功能解方程式或處理文字。您也可以使用程式碼執行環境中包含的[程式庫](#supported-libraries)，執行更專業的工作。
+Gemini API มีเครื่องมือเรียกใช้โค้ดที่ช่วยให้โมเดลสร้างและรันโค้ด Python ได้ จากนั้นโมเดลจะเรียนรู้ซ้ำๆ จากผลการเรียกใช้โค้ดจนกว่าจะได้เอาต์พุตสุดท้าย คุณสามารถใช้การดำเนินการโค้ดเพื่อสร้างแอปพลิเคชันที่ได้รับประโยชน์จากการให้เหตุผลตามโค้ด เช่น คุณสามารถใช้การเรียกใช้โค้ดเพื่อแก้สมการหรือประมวลผลข้อความ นอกจากนี้ คุณยังใช้ [ไลบรารี](#supported-libraries)ที่รวมอยู่ในสภาพแวดล้อมการเรียกใช้โค้ดเพื่อทำงานที่เฉพาะเจาะจงมากขึ้นได้ด้วย
 
-Gemini 只能執行 Python 程式碼。您仍可問問 Gemini 以其他語言生成程式碼，但模型無法使用程式碼執行工具執行程式碼。
+Gemini สามารถเรียกใช้โค้ดใน Python ได้เท่านั้น คุณยังคงขอความช่วยเหลือจาก Gemini ให้สร้างโค้ดในภาษาอื่นได้ แต่โมเดลจะใช้เครื่องมือเรียกใช้โค้ดเพื่อดำเนินการไม่ได้
 
-## 啟用程式碼執行功能
+## เปิดใช้การเรียกใช้โค้ด
 
-如要啟用程式碼執行功能，請在模型上設定程式碼執行工具。模型就能生成及執行程式碼。
+หากต้องการเปิดใช้การเรียกใช้โค้ด ให้กำหนดค่าเครื่องมือเรียกใช้โค้ดในโมเดล ซึ่งจะช่วยให้โมเดลสร้างและรันโค้ดได้
 
 ### Python
 
@@ -35,7 +35,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents="What is the sum of the first 50 prime numbers? "
     "Generate and run code for the calculation, and make sure you get all 50.",
     config=types.GenerateContentConfig(
@@ -60,7 +60,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 let response = await ai.models.generateContent({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   contents: [
     "What is the sum of the first 50 prime numbers? " +
       "Generate and run code for the calculation, and make sure you get all 50.",
@@ -114,7 +114,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         genai.Text("What is the sum of the first 50 prime numbers? " +
                   "Generate and run code for the calculation, and make sure you get all 50."),
         config,
@@ -129,7 +129,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d ' {"tools": [{"code_execution": {}}],
@@ -142,7 +142,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 }'
 ```
 
-輸出內容可能如下所示，為了方便閱讀，我們已將其格式化：
+เอาต์พุตอาจมีลักษณะดังต่อไปนี้ ซึ่งจัดรูปแบบให้อ่านง่าย
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -191,27 +191,31 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-這項輸出內容結合了模型在使用程式碼執行功能時傳回的幾個內容部分：
+เอาต์พุตนี้รวมส่วนเนื้อหาหลายส่วนที่โมเดลส่งคืนเมื่อใช้การเรียกใช้โค้ด
 
-- `text`：模型生成的內嵌文字
-- `executableCode`：模型產生的程式碼，可供執行
-- `codeExecutionResult`：可執行程式碼的結果
+- `text`: ข้อความแบบอินไลน์ที่โมเดลสร้างขึ้น
+- `executableCode`: โค้ดที่โมเดลสร้างขึ้นเพื่อเรียกใช้
+- `codeExecutionResult`: ผลลัพธ์ของโค้ดที่เรียกใช้ได้
 
-這些部分的命名慣例會因程式設計語言而異。
+รูปแบบการตั้งชื่อสำหรับส่วนเหล่านี้จะแตกต่างกันไปตามภาษาโปรแกรม
 
-## 使用圖片執行程式碼 (Gemini 3)
+## การเรียกใช้โค้ดกับรูปภาพ (Gemini 3)
 
-Gemini 3 Flash 模型現在可以撰寫及執行 Python 程式碼，主動操控及檢查圖片。
+ตอนนี้โมเดล Gemini 3 Flash สามารถเขียนและเรียกใช้โค้ด Python เพื่อจัดการและตรวจสอบรูปภาพได้อย่างมีประสิทธิภาพ
 
-**用途**
+**กรณีการใช้งาน**
 
-- **縮放及檢查**：模型會隱含偵測細節是否過小 (例如讀取遠處的儀表)，並編寫程式碼來裁剪及重新檢查該區域，以提高解析度。
-- **視覺數學**：模型可使用程式碼執行多步驟計算 (例如加總收據上的項目)。
-- **圖片註解**：模型可為圖片加上註解來回答問題，例如繪製箭頭來顯示關係。
+- **ซูมและตรวจสอบ**: โมเดลจะตรวจหาโดยนัยเมื่อรายละเอียดมีขนาดเล็กเกินไป
+  (เช่น การอ่านมาตรวัดที่อยู่ไกลออกไป) และเขียนโค้ดเพื่อครอบตัดและตรวจสอบพื้นที่อีกครั้ง
+  ด้วยความละเอียดที่สูงขึ้น
+- **คณิตศาสตร์เชิงภาพ**: โมเดลสามารถทำการคำนวณหลายขั้นตอนโดยใช้โค้ด (เช่น
+  การรวมรายการในใบเสร็จ)
+- **การใส่คำอธิบายประกอบในรูปภาพ**: โมเดลสามารถใส่คำอธิบายประกอบในรูปภาพเพื่อตอบคำถาม เช่น
+  การวาดลูกศรเพื่อแสดงความสัมพันธ์
 
-### 啟用圖片程式碼執行功能
+### เปิดใช้การเรียกใช้โค้ดกับรูปภาพ
 
-Gemini 3 Flash 正式支援使用圖片執行程式碼。如要啟用這項行為，請同時啟用「程式碼執行」工具和「思考」功能。
+ระบบรองรับการเรียกใช้โค้ดกับรูปภาพอย่างเป็นทางการใน Gemini 3 Flash คุณสามารถเปิดใช้งานลักษณะการทำงานนี้ได้โดยเปิดใช้ทั้งการเรียกใช้โค้ดเป็นเครื่องมือและการคิด
 
 ### Python
 
@@ -232,7 +236,7 @@ image = types.Part.from_bytes(
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[image, "Zoom into the expression pedals and tell me how many pedals are there?"],
     config=types.GenerateContentConfig(
         tools=[types.Tool(code_execution=types.ToolCodeExecution)]
@@ -265,7 +269,7 @@ async function main() {
 
   // 2. Call the API with Code Execution enabled
   const result = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: [
       {
         inlineData: {
@@ -346,7 +350,7 @@ func main() {
     // 3. Generate Content
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         []*genai.Content{
             {
                 Parts: []*genai.Part{
@@ -387,7 +391,7 @@ func main() {
 
 ```
 IMG_URL="https://goo.gle/instrument-img"
-MODEL="gemini-3-flash-preview"
+MODEL="gemini-3.5-flash"
 
 MIME_TYPE=$(curl -sIL "$IMG_URL" | grep -i '^content-type:' | awk -F ': ' '{print $2}' | sed 's/\r$//' | head -n 1)
 if [[ -z "$MIME_TYPE" || ! "$MIME_TYPE" == image/* ]]; then
@@ -426,9 +430,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## 在對話中使用程式碼執行功能
+## ใช้การเรียกใช้โค้ดในการแชท
 
-你也可以在對話中使用程式碼執行功能。
+คุณยังใช้การเรียกใช้โค้ดเป็นส่วนหนึ่งของการแชทได้ด้วย
 
 ### Python
 
@@ -439,7 +443,7 @@ from google.genai import types
 client = genai.Client()
 
 chat = client.chats.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     config=types.GenerateContentConfig(
         tools=[types.Tool(code_execution=types.ToolCodeExecution)]
     ),
@@ -470,7 +474,7 @@ import {GoogleGenAI} from "@google/genai";
 const ai = new GoogleGenAI({});
 
 const chat = ai.chats.create({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   history: [
     {
       role: "user",
@@ -521,7 +525,7 @@ func main() {
 
     chat, _ := client.Chats.Create(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         config,
         nil,
     )
@@ -543,7 +547,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{"tools": [{"code_execution": {}}],
@@ -586,73 +590,80 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 }'
 ```
 
-## 輸入/輸出 (I/O)
+## อินพุต/เอาต์พุต (I/O)
 
-「程式碼執行」支援檔案輸入和圖表輸出。有了這些輸入和輸出功能，您就能上傳 CSV 和文字檔、詢問檔案相關問題，並在回覆中生成 [Matplotlib](https://matplotlib.org/) 圖表。輸出檔案會以內嵌圖片的形式傳回。
+การเรียกใช้โค้ดรองรับอินพุตไฟล์และเอาต์พุตกราฟ คุณสามารถอัปโหลดไฟล์ CSV และไฟล์ข้อความ ถามคำถามเกี่ยวกับ
+ไฟล์ และสร้างกราฟ [Matplotlib](https://matplotlib.org/) เป็นส่วนหนึ่ง
+ของการตอบกลับได้โดยใช้ความสามารถด้านอินพุตและ
+เอาต์พุตเหล่านี้ ระบบจะแสดงไฟล์เอาต์พุตเป็นรูปภาพแบบอินไลน์ในการตอบกลับ
 
-### I/O 價格
+### การกำหนดราคา I/O
 
-使用程式碼執行 I/O 時，系統會根據輸入和輸出權杖向您收費：
+เมื่อใช้ I/O ของการเรียกใช้โค้ด ระบบจะเรียกเก็บเงินจากคุณสำหรับโทเค็นอินพุตและโทเค็นเอาต์พุต
 
-**輸入內容詞元：**
+**โทเค็นอินพุต:**
 
-- 使用者提示詞
+- พรอมต์ของผู้ใช้
 
-**輸出內容詞元：**
+**โทเค็นเอาต์พุต:**
 
-- 模型生成的程式碼
-- 程式碼環境中的程式碼執行輸出內容
-- 思考詞元
-- 模型生成的摘要
+- โค้ดที่โมเดลสร้างขึ้น
+- เอาต์พุตการเรียกใช้โค้ดในสภาพแวดล้อมโค้ด
+- โทเค็นการคิด
+- ข้อมูลสรุปที่โมเดลสร้างขึ้น
 
-### I/O 詳細資料
+### รายละเอียด I/O
 
-使用程式碼執行 I/O 時，請注意下列技術細節：
+เมื่อทำงานกับ I/O ของการเรียกใช้โค้ด โปรดทราบรายละเอียดทางเทคนิคต่อไปนี้
 
-- 程式碼環境的執行階段時間上限為 30 秒。
-- 如果程式碼環境產生錯誤，模型可能會決定重新生成程式碼輸出內容。最多可重複 5 次。
-- 檔案輸入大小上限取決於模型權杖視窗。在 AI Studio 中，輸入檔案大小上限為 100 萬個權杖 (支援的輸入類型文字檔約為 2 MB)。如果上傳的檔案過大，AI Studio 就不會允許傳送。
-- 程式碼執行功能最適合搭配文字和 CSV 檔案使用。
-- 輸入檔案可以透過 `part.inlineData` 或 `part.fileData` 傳遞 (透過 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳)，輸出檔案一律以 `part.inlineData` 形式傳回。
+- รันไทม์สูงสุดของสภาพแวดล้อมโค้ดคือ 30 วินาที
+- หากสภาพแวดล้อมโค้ดสร้างข้อผิดพลาด โมเดลอาจตัดสินใจสร้างเอาต์พุตโค้ดใหม่ ซึ่งอาจเกิดขึ้นได้สูงสุด 5 ครั้ง
+- ขนาดอินพุตไฟล์สูงสุดจะจำกัดตามหน้าต่างโทเค็นของโมเดล ใน AI Studio ขนาดไฟล์อินพุตสูงสุดคือ 1 ล้านโทเค็น (ประมาณ 2 MB สำหรับไฟล์ข้อความของประเภทอินพุตที่รองรับ) หากคุณอัปโหลดไฟล์ที่มีขนาดใหญ่เกินไป AI Studio จะไม่อนุญาตให้คุณส่งไฟล์ดังกล่าว
+- การเรียกใช้โค้ดทำงานได้ดีที่สุดกับไฟล์ข้อความและไฟล์ CSV
+- คุณส่งไฟล์อินพุตใน `part.inlineData` หรือ `part.fileData` (อัปโหลด
+  ผ่าน [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)) ได้ และระบบจะส่งคืนไฟล์เอาต์พุตเป็น `part.inlineData` เสมอ
 
-## 帳單
+## การเรียกเก็บเงิน
 
-啟用 Gemini API 的程式碼執行功能無須額外付費。
-系統會根據您使用的 Gemini 模型，以目前的輸入和輸出詞元費率計費。
+การเปิดใช้การเรียกใช้โค้ดจาก Gemini API จะไม่มีค่าใช้จ่ายเพิ่มเติม
+ระบบจะเรียกเก็บเงินจากคุณตามอัตราปัจจุบันของโทเค็นอินพุตและเอาต์พุตโดยอิงตามโมเดล Gemini ที่คุณใช้
 
-以下是程式碼執行計費的其他注意事項：
+สิ่งอื่นๆ ที่ควรทราบเกี่ยวกับการเรียกเก็บเงินสำหรับการเรียกใช้โค้ดมีดังนี้
 
-- 系統只會針對您傳送給模型的輸入權杖收費一次，並針對模型傳回給您的最終輸出權杖收費。
-- 代表生成程式碼的權杖會計為輸出權杖。生成的程式碼可能包含文字和圖片等多模態輸出內容。
-- 程式碼執行結果也會計為輸出權杖。
+- ระบบจะเรียกเก็บเงินจากคุณเพียงครั้งเดียวสำหรับโทเค็นอินพุตที่คุณส่งไปยังโมเดล และจะเรียกเก็บเงินสำหรับโทเค็นเอาต์พุตสุดท้ายที่โมเดลส่งคืนให้คุณ
+- ระบบจะนับโทเค็นที่แสดงโค้ดที่สร้างขึ้นเป็นโทเค็นเอาต์พุต โค้ดที่สร้างขึ้นอาจมีข้อความและเอาต์พุตหลายรูปแบบ เช่น รูปภาพ
+- ระบบจะนับผลการเรียกใช้โค้ดเป็นโทเค็นเอาต์พุตด้วย
 
-計費模式如下圖所示：
+โมเดลการเรียกเก็บเงินแสดงอยู่ในแผนภาพต่อไปนี้
 
-![程式碼執行帳單模式](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=zh-tw)
+![โมเดลการเรียกเก็บเงินสำหรับการรันโค้ด](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=th)
 
-- 系統會根據您使用的 Gemini 模型，以目前的輸入和輸出詞元費率計費。
-- 如果 Gemini 在生成回覆時執行程式碼，系統會將原始提示、生成的程式碼和執行的程式碼結果標示為*中間權杖*，並以*輸入權杖*計費。
-- 接著生成摘要，並傳回生成的程式碼、執行程式碼的結果和最終摘要。這些會以*輸出權杖*計費。
-- Gemini API 會在 API 回應中提供中繼權杖計數，讓您瞭解為何會收到超出初始提示的額外輸入權杖。
+- ระบบจะเรียกเก็บเงินจากคุณตามอัตราปัจจุบันของโทเค็นอินพุตและเอาต์พุตโดยอิงตามโมเดล Gemini ที่คุณใช้
+- หาก Gemini ใช้การเรียกใช้โค้ดเมื่อสร้างการตอบกลับ พรอมต์เดิม โค้ดที่สร้างขึ้น และผลลัพธ์ของโค้ดที่เรียกใช้จะติดป้ายกำกับเป็น *โทเค็นระดับกลาง* และระบบจะเรียกเก็บเงินเป็น *โทเค็นอินพุต*
+- จากนั้น Gemini จะสร้างข้อมูลสรุปและส่งคืนโค้ดที่สร้างขึ้น ผลลัพธ์ของโค้ดที่เรียกใช้ และข้อมูลสรุปสุดท้าย ระบบจะเรียกเก็บเงินสำหรับรายการเหล่านี้เป็น *โทเค็นเอาต์พุต*
+- Gemini API จะรวมจำนวนโทเค็นระดับกลางไว้ในการตอบกลับจาก API เพื่อให้คุณทราบว่าเหตุใดคุณจึงได้รับโทเค็นอินพุตเพิ่มเติมนอกเหนือจากพรอมต์เริ่มต้น
 
-## 限制
+## ข้อจำกัด
 
-- 模型只能生成及執行程式碼，無法傳回其他構件，例如媒體檔案。
-- 在某些情況下，啟用程式碼執行功能可能會導致模型輸出內容的其他部分出現回歸現象 (例如撰寫故事)。
-- 不同模型成功執行程式碼的能力有所差異。
+- โมเดลสามารถสร้างและเรียกใช้โค้ดได้เท่านั้น โดยไม่สามารถส่งคืนอาร์ติแฟกต์อื่นๆ เช่น ไฟล์สื่อ
+- ในบางกรณี การเปิดใช้การเรียกใช้โค้ดอาจทำให้เกิดการถดถอยในส่วนอื่นๆ ของเอาต์พุตโมเดล (เช่น การเขียนเรื่องราว)
+- โมเดลต่างๆ มีความสามารถในการใช้การเรียกใช้โค้ดให้สำเร็จแตกต่างกัน
 
-## 支援的工具組合
+## ชุดค่าผสมของเครื่องมือที่รองรับ
 
-程式碼執行工具可與[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)搭配使用，處理更複雜的應用實例。
+คุณสามารถรวมเครื่องมือเรียกใช้โค้ดกับ
+[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) เพื่อ
+รองรับกรณีการใช้งานที่ซับซ้อนมากขึ้น
 
-Gemini 3 模型支援結合內建工具 (例如程式碼執行) 和自訂工具 (函式呼叫)。您必須傳回 `id` 和 `thought_signature` 欄位，工具組合才能運作。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
+โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การเรียกใช้โค้ด) กับเครื่องมือที่กำหนดเอง (การเรียกฟังก์ชัน) คุณต้องส่งฟิลด์ `id` และ `thought_signature` กลับมาเพื่อให้การรวมเครื่องมือทำงานได้ ดูข้อมูลเพิ่มเติมได้ในหน้า
+[ชุดค่าผสมของเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
 
-## 支援的程式庫
+## ไลบรารีที่รองรับ
 
-程式碼執行環境包含下列程式庫：
+สภาพแวดล้อมการเรียกใช้โค้ดมีไลบรารีต่อไปนี้
 
 - attrs
-- 棋子
+- chess
 - contourpy
 - fpdf
 - geopandas
@@ -667,7 +678,7 @@ Gemini 3 模型支援結合內建工具 (例如程式碼執行) 和自訂工具 
 - numpy
 - opencv-python
 - openpyxl
-- 包裝
+- packaging
 - pandas
 - pillow
 - protobuf
@@ -681,29 +692,30 @@ Gemini 3 模型支援結合內建工具 (例如程式碼執行) 和自訂工具 
 - scikit-learn
 - scipy
 - seaborn
-- 六
+- six
 - striprtf
 - sympy
 - tabulate
-- TensorFlow
+- tensorflow
 - toolz
 - xlrd
 
-您無法安裝自己的程式庫。
+คุณจะติดตั้งไลบรารีของคุณเองไม่ได้
 
-## 後續步驟
+## ขั้นตอนถัดไป
 
-- 試用[程式碼執行 Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=zh-tw)。
-- 瞭解其他 Gemini API 工具：
-  - [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
-  - [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)
+- ลองใช้
+  [Colab ของการเรียกใช้โค้ด](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=th)
+- ดูข้อมูลเกี่ยวกับเครื่องมืออื่นๆ ของ Gemini API ได้แก่
+  - [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+  - [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
 
-提供意見
+ส่งความคิดเห็น
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-上次更新時間：2026-05-13 (世界標準時間)。
+อัปเดตล่าสุด 2026-05-19 UTC
 
-想進一步說明嗎？
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-13 (世界標準時間)。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-19 UTC"],[],[]]

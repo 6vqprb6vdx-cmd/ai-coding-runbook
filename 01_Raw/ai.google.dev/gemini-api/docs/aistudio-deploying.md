@@ -1,84 +1,95 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-CN
-fetched_at: 2026-05-18T12:58:51.515643+00:00
-title: "\u4ece Google AI Studio \u90e8\u7f72 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pt-BR
+fetched_at: 2026-05-25T13:05:46.549998+00:00
+title: "Implanta\u00e7\u00e3o do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-发送反馈
+Envie comentários
 
-# 从 Google AI Studio 部署
+# Implantação do Google AI Studio
 
-借助 Google AI Studio，您可以直接从构建模式部署全栈应用。这样，您就可以快速从原型过渡到可扩缩的托管生产环境。
+Com o Google AI Studio, você pode implantar seus aplicativos de pilha completa diretamente
+no modo de criação. Isso oferece um caminho rápido do protótipo para um ambiente de produção gerenciado e escalonável.
 
-## 部署方案
+## Opções de implantação
 
-如需从 AI Studio 构建模式部署应用，具体要求取决于您使用的层级：
+Para implantar seu aplicativo no modo de criação do AI Studio, os requisitos dependem
+do nível que você usa:
 
-- [**Google Cloud Starter 层级**](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn): 您无需设置 Google Cloud 云项目或结算账号，即可发布最多 2 个全栈应用。
-- **标准部署**：需要将 Google Cloud 项目与您的
-  AI Studio 账号相关联，并对该项目启用结算功能。
+- [**Nível inicial do Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br):
+  permite publicar até dois aplicativos full-stack sem configurar um
+  projeto na nuvem ou uma conta de faturamento do Google Cloud.
+- **Implantação padrão**: requer um projeto do Google Cloud vinculado à sua conta do AI Studio e o faturamento ativado nesse projeto.
 
-## 关于 Starter 层级
+## Sobre o nível Starter
 
-借助 Google Cloud Starter 层级，您可以直接从 Google AI Studio 将应用部署到 Google Cloud，而无需设置完整的 Google Cloud 环境或结算账号，从而简化了部署流程。
+O nível inicial do Google Cloud oferece um caminho simplificado para implantar
+aplicativos no Google Cloud diretamente do Google AI Studio sem configurar
+um ambiente completo do Google Cloud ou uma conta de faturamento.
 
-每次 Google AI Studio 部署都会在 Cloud Run 中创建一个相应的服务。对于在 Google AI Studio 中使用 Starter 层级部署的服务，存在以下限制：
+Cada implantação do Google AI Studio cria um serviço correspondente no
+Cloud Run. Para serviços implantados no Google AI Studio com o nível
+Starter, as seguintes limitações se aplicam:
 
-- 您最多可以部署两个服务。
-- 您的服务部署在
-  [单个 Cloud Run 区域中](https://docs.cloud.google.com/run/docs/locations?hl=zh-cn)。
+- É possível implantar até dois serviços.
+- Seus serviços são implantados em uma [única região do Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=pt-br).
 
-## Starter 层级部署步骤
+## Etapas de implantação do nível Starter
 
-在构建模式下设计应用后，使用 Starter 层级进行部署：
+Depois de criar o app no modo de criação, implante-o com o nível Starter:
 
-1. 点击右上角的**发布** 按钮。
-2. 点击**开始使用** 。
-3. 点击**发布应用** 。
+1. Clique no botão **Publicar** no canto superior direito.
+2. Clique em **Primeiros passos**.
+3. Clique em **Publicar app**.
 
-部署完成后，AI Studio 会提供一个 Cloud Run 网址，您可以通过该网址访问您的正式版应用。
+Quando a implantação for concluída, o AI Studio vai fornecer um URL do Cloud Run em que você pode
+acessar seu aplicativo ativo.
 
-## 标准部署
+## Implantação padrão
 
-随着应用的发展，您可能需要 Starter 层级之外的功能，例如更高的配额、更多的计算资源，或 Starter 层级中没有的其他 Google Cloud 产品。如需解锁这些功能，您可以将全托管式 Starter 层级项目转换为标准 Google Cloud 云项目。
+À medida que seus aplicativos evoluem, você pode precisar de recursos além do nível Starter, como cotas mais altas, mais recursos de computação ou outros produtos do Google Cloud não disponíveis nesse nível. Para desbloquear esses recursos, você pode converter seu projeto totalmente gerenciado do nível Starter em um projeto na nuvem padrão do Google.
 
-这样，您就可以无缝扩缩，而不会丢失进度。[[请按照以下步骤创建 Cloud Billing 账号，正式接受标准 Google Cloud 服务条款，并升级到标准 Google Cloud 项目。](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=zh-cn#create-new-billing-account)](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn#upgradee)如需了解详情，请参阅
-[付费账号的设置](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-cn#paid-setup)。
+Isso garante que você possa dimensionar sem perder o progresso. Siga as etapas para
+[criar uma conta do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=pt-br#create-new-billing-account),
+aceitar formalmente os Termos de Serviço padrão do Google Cloud e
+[fazer upgrade para um projeto na nuvem padrão do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br#upgradee).
+Para mais informações, consulte
+[Configuração para contas pagas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#paid-setup).
 
-如需详细了解结算层级，请参阅[结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
+Para saber mais sobre os níveis de faturamento, consulte [Faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br).
 
-## 删除应用
+## Excluir sua inscrição
 
-如果您不再需要某个应用，可以在 Google AI Studio 中按照以下说明将其删除：
+Se você não precisar mais do app, siga estas instruções para excluí-lo no Google AI Studio:
 
-1. 在 Google AI Studio 中，前往您的
-   [应用页面](https://aistudio.google.com/app/apps?hl=zh-cn)。
-2. 在左侧菜单中，选择**应用** 。
-3. 将指针悬停在要删除的应用上。
-4. 点击该行右侧的垃圾桶图标，即可删除该应用。
+1. No Google AI Studio, acesse a
+   [página "Apps"](https://aistudio.google.com/app/apps?hl=pt-br).
+2. No menu à esquerda, selecione **Apps**.
+3. Coloque o cursor sobre o app que você quer excluir.
+4. Clique no ícone de lixeira no lado direito da linha para excluir o app.
 
-## 后续步骤
+## A seguir
 
-- 详细了解
-  [Google Cloud Starter 层级](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn)。
-- 了解 Gemini API 中的[结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
+- Saiba mais sobre o
+  [nível inicial do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br).
+- Leia sobre o [faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br) na API Gemini.
 
-发送反馈
+Envie comentários
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最后更新时间 (UTC)：2026-05-16。
+Última atualização 2026-05-16 UTC.
 
-需要向我们提供更多信息？
+Quer enviar seu feedback?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-16。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-16 UTC."],[],[]]

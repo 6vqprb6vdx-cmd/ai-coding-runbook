@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi
-fetched_at: 2026-05-18T13:08:52.646762+00:00
+fetched_at: 2026-05-25T12:59:51.795721+00:00
 title: "B\u1ea3n xem tr\u01b0\u1edbc Gemini 3 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

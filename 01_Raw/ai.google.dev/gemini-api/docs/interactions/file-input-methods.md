@@ -1,35 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=th
-fetched_at: 2026-05-18T13:09:00.422989+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=de
+fetched_at: 2026-05-25T13:00:34.251202+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-ส่งความคิดเห็น
+Feedback geben
 
-# วิธีการป้อนไฟล์
+# Methoden für die Dateieingabe
 
-คำแนะนำนี้จะอธิบายวิธีต่างๆ ในการรวมไฟล์สื่อ เช่น รูปภาพ เสียง วิดีโอ และเอกสาร เมื่อส่งคำขอไปยัง Gemini API
-วิธีการใหม่นี้รองรับในปลายทาง Gemini API ทั้งหมด ซึ่งรวมถึง Batch, Interactions และ Live API
-การเลือกวิธีที่เหมาะสมขึ้นอยู่กับขนาดไฟล์ ตำแหน่งที่จัดเก็บข้อมูล และความถี่ที่คุณวางแผนจะใช้ไฟล์
+In diesem Leitfaden wird beschrieben, wie Sie Medien wie Bilder, Audio, Videos und Dokumente in Anfragen an die Gemini API einfügen können.
+Die neuen Methoden werden in allen Gemini API-Endpunkten unterstützt, einschließlich Batch, Interactions und Live API.
+Die Auswahl der richtigen Methode hängt von der Größe der Datei, dem Speicherort der Daten und der Häufigkeit ab, mit der Sie die Datei verwenden möchten.
 
-วิธีที่ง่ายที่สุดในการรวมไฟล์เป็นอินพุตคือการอ่านไฟล์ในเครื่องและรวมไว้ในพรอมต์ ตัวอย่างต่อไปนี้แสดงวิธีอ่านไฟล์ PDF ในเครื่อง PDF มีขนาดไม่เกิน 50 MB สำหรับวิธีนี้ ดูรายการประเภทอินพุตไฟล์และขีดจำกัดทั้งหมดใน
-[ตารางเปรียบเทียบวิธีการป้อนข้อมูล](#method-comparison)
+Die einfachste Methode, eine Datei als Eingabe zu verwenden, besteht darin, eine lokale Datei zu lesen und in einen Prompt einzufügen. Im folgenden Beispiel wird gezeigt, wie eine lokale PDF-Datei gelesen wird. PDFs dürfen für diese Methode maximal 50 MB groß sein. Eine vollständige Liste der Dateieingabetypen und ‑beschränkungen finden Sie in der [Vergleichstabelle für Eingabemethoden](#method-comparison).
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import pathlib
 import base64
@@ -40,24 +38,18 @@ filepath = pathlib.Path('my_local_file.pdf')
 
 prompt = "Summarize this document"
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": prompt},
         {"type": "document", "data": base64.b64encode(filepath.read_bytes()).decode('utf-8'), "mime_type": "application/pdf"}
     ]
 )
-# Print the model's text response
-for step in interaction.steps:
-    if step.type == "model_output":
-        for content_block in step.content:
-            if content_block.type == "text":
-                print(content_block.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as fs from 'node:fs';
 
@@ -68,7 +60,7 @@ async function main() {
     const filePath = 'my_local_file.pdf';
 
     const interaction = await client.interactions.create({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         input: [
             { type: "text", text: prompt },
             {
@@ -78,12 +70,7 @@ async function main() {
             }
         ]
     });
-    const modelStep = interaction.steps.find(s => s.type === 'model_output');
-    if (modelStep) {
-      for (const contentBlock of modelStep.content) {
-        if (contentBlock.type === 'text') console.log(contentBlock.text);
-      }
-    }
+    console.log(interaction.output_text);
 }
 
 main();
@@ -95,13 +82,12 @@ main();
 # Encode the local file to base64
 B64_CONTENT=$(base64 -w 0 my_local_file.pdf)
 
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Summarize this document"},
       {
@@ -113,31 +99,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การเปรียบเทียบวิธีการป้อนข้อมูล
+## Vergleich der Eingabemethoden
 
-ตารางต่อไปนี้เปรียบเทียบวิธีการป้อนข้อมูลแต่ละวิธีกับขีดจำกัดของไฟล์และ Use Case ที่ดีที่สุด โปรดทราบว่าขีดจำกัดขนาดไฟล์อาจแตกต่างกันไปตามประเภทไฟล์และโมเดลหรือตัวแยกคำที่ใช้ในการประมวลผลไฟล์
+In der folgenden Tabelle werden die einzelnen Eingabemethoden mit Dateibeschränkungen und Anwendungsfällen verglichen. Beachten Sie, dass die maximale Dateigröße je nach Dateityp und Modell oder Tokenizer, der zum Verarbeiten der Datei verwendet wird, variieren kann.
 
-| วิธีการ | เหมาะสำหรับ | ขนาดไฟล์สูงสุด | ความต่อเนื่อง |
+| Methode | Optimal für | Maximale Dateigröße | Persistenz |
 | --- | --- | --- | --- |
-| **ข้อมูลแบบอินไลน์** | การทดสอบอย่างรวดเร็ว ไฟล์ขนาดเล็ก แอปพลิเคชันแบบเรียลไทม์ | 100 MB ต่อคำขอหรือเพย์โหลด   (**50 MB สำหรับ PDF**) | ไม่มี (ส่งไปพร้อมกับทุกคำขอ) |
-| **การอัปโหลด File API** | ไฟล์ขนาดใหญ่ ไฟล์ที่ใช้หลายครั้ง | 2 GB ต่อไฟล์   สูงสุด 20 GB ต่อโปรเจ็กต์ | 48 ชั่วโมง |
-| **การลงทะเบียน URI ของ File API GCS** | ไฟล์ขนาดใหญ่ที่อยู่ใน Google Cloud Storage อยู่แล้ว ไฟล์ที่ใช้หลายครั้ง | 2 GB ต่อไฟล์ ไม่มีขีดจำกัดพื้นที่เก็บข้อมูลโดยรวม | ไม่มี (ดึงข้อมูลต่อคำขอ) การลงทะเบียนครั้งเดียวจะให้สิทธิ์เข้าถึงได้นานสูงสุด 30 วัน |
-| **URL ภายนอก** | ข้อมูลสาธารณะหรือข้อมูลใน Bucket ของระบบคลาวด์ (AWS, Azure, GCS) โดยไม่ต้องอัปโหลดซ้ำ | 100 MB ต่อคำขอ/เพย์โหลด | ไม่มี (ดึงข้อมูลต่อคำขอ) |
+| **Inlinedaten** | Schnelle Tests, kleine Dateien, Echtzeitanwendungen. | 100 MB pro Anfrage oder Nutzlast   (**50 MB für PDFs**) | Keine (wird mit jeder Anfrage gesendet) |
+| **Datei-API-Upload** | Große Dateien, Dateien, die mehrmals verwendet werden. | 2 GB pro Datei,   bis zu 20 GB pro Projekt | 48 Stunden |
+| **Registrierung von GCS-URIs für die File API** | Große Dateien, die sich bereits in Google Cloud Storage befinden, Dateien, die mehrmals verwendet werden. | 2 GB pro Datei, keine Speicherplatzbeschränkungen insgesamt | Keine (werden pro Anfrage abgerufen). Eine einmalige Registrierung kann bis zu 30 Tage lang Zugriff gewähren. |
+| **Externe URLs** | Öffentliche Daten oder Daten in Cloud-Buckets (AWS, Azure, GCS), ohne sie noch einmal hochzuladen. | 100 MB pro Anfrage/Nutzlast | Keine (werden pro Anfrage abgerufen) |
 
-## ข้อมูลแบบอินไลน์
+## Inline-Daten
 
-สำหรับไฟล์ขนาดเล็ก (ไม่เกิน 100 MB หรือ 50 MB สำหรับ PDF) คุณสามารถส่งข้อมูลในเพย์โหลดของคำขอได้โดยตรง วิธีนี้เป็นวิธีที่ง่ายที่สุดสำหรับการทดสอบอย่างรวดเร็วหรือแอปพลิเคชันที่จัดการข้อมูลชั่วคราวแบบเรียลไทม์ คุณสามารถระบุข้อมูลเป็นสตริงที่เข้ารหัสแบบ Base64 หรือโดยการอ่านไฟล์ในเครื่องโดยตรง
+Bei kleineren Dateien (unter 100 MB oder 50 MB für PDFs) können Sie die Daten direkt im Anfrage-Payload übergeben. Dies ist die einfachste Methode für schnelle Tests oder Anwendungen, die Echtzeit- und temporäre Daten verarbeiten. Sie können Daten als base64-codierte Strings bereitstellen oder lokale Dateien direkt lesen.
 
-ดูตัวอย่างการอ่านจากไฟล์ในเครื่องได้ที่ตัวอย่างที่จุดเริ่มต้นของหน้านี้
+Ein Beispiel für das Lesen aus einer lokalen Datei finden Sie am Anfang dieser Seite.
 
-### ดึงข้อมูลจาก URL
+### Von einer URL abrufen
 
-นอกจากนี้ คุณยังดึงข้อมูลไฟล์จาก URL แปลงเป็นไบต์ และรวมไว้ในอินพุตได้ด้วย
+Sie können auch eine Datei über eine URL abrufen, sie in Byte konvertieren und in die Eingabe einfügen.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import httpx
 import base64
@@ -150,24 +135,18 @@ doc_data = httpx.get(doc_url).content
 prompt = "Summarize this document"
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "document", "data": base64.b64encode(doc_data).decode('utf-8'), "mime_type": "application/pdf"},
         {"type": "text", "text": prompt}
     ]
 )
-# Print the model's text response
-for step in interaction.steps:
-    if step.type == "model_output":
-        for content_block in step.content:
-            if content_block.type == "text":
-                print(content_block.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -179,7 +158,7 @@ async function main() {
       .then((response) => response.arrayBuffer());
 
     const interaction = await client.interactions.create({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         input: [
             { type: "text", text: prompt },
             {
@@ -189,12 +168,7 @@ async function main() {
             }
         ]
     });
-    const modelStep = interaction.steps.find(s => s.type === 'model_output');
-    if (modelStep) {
-      for (const contentBlock of modelStep.content) {
-        if (contentBlock.type === 'text') console.log(contentBlock.text);
-      }
-    }
+    console.log(interaction.output_text);
 }
 
 main();
@@ -223,7 +197,7 @@ ENCODED_PDF=$(base64 $B64FLAGS "${DISPLAY_NAME}.pdf")
 # Create JSON payload file
 cat <<EOF > payload.json
 {
-"model": "gemini-3-flash-preview",
+"model": "gemini-3.5-flash",
 "input": [
 {"type": "document", "data": "${ENCODED_PDF}", "mime_type": "application/pdf"},
 {"type": "text", "text": "${PROMPT}"}
@@ -232,7 +206,6 @@ cat <<EOF > payload.json
 EOF
 
 # Generate content using interactions
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
@@ -247,44 +220,35 @@ jq ".outputs[] | select(.type == \"text\") | .text" response.json
 
 ## Gemini File API
 
-File API ออกแบบมาสำหรับไฟล์ขนาดใหญ่ (สูงสุด 2 GB) หรือไฟล์ที่คุณต้องการใช้ในคำขอหลายรายการ
+Die File API ist für größere Dateien (bis zu 2 GB) oder Dateien vorgesehen, die Sie in mehreren Anfragen verwenden möchten.
 
-### การอัปโหลดไฟล์มาตรฐาน
+### Standard-Dateiupload
 
-อัปโหลดไฟล์ในเครื่องไปยัง Gemini API ระบบจะจัดเก็บไฟล์ที่อัปโหลดด้วยวิธีนี้ไว้ชั่วคราว (48 ชั่วโมง) และประมวลผลเพื่อให้โมเดลดึงข้อมูลได้อย่างมีประสิทธิภาพ
+Laden Sie eine lokale Datei in die Gemini API hoch. Auf diese Weise hochgeladene Dateien werden vorübergehend (48 Stunden) gespeichert und verarbeitet, damit das Modell sie effizient abrufen kann.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
 
-# Upload the file
 doc_file = client.files.upload(file="path/to/your/sample.pdf")
 prompt = "Summarize this document"
 
-# Use the uploaded file in an interaction
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": prompt},
         {"type": "document", "uri": doc_file.uri, "mime_type": doc_file.mime_type}
     ]
 )
-# Print the model's text response
-for step in interaction.steps:
-    if step.type == "model_output":
-        for content_block in step.content:
-            if content_block.type == "text":
-                print(content_block.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -299,18 +263,13 @@ async function main() {
   });
 
   const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         { type: "text", text: prompt },
         { type: "document", uri: myfile.uri, mime_type: myfile.mimeType }
     ]
   });
-  const modelStep = interaction.steps.find(s => s.type === 'model_output');
-  if (modelStep) {
-    for (const contentBlock of modelStep.content) {
-      if (contentBlock.type === 'text') console.log(contentBlock.text);
-    }
-  }
+  console.log(interaction.output_text);
 }
 
 await main();
@@ -350,13 +309,12 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 
 # Now use in an interaction
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -H "Api-Revision: 2026-05-20" \
     -d '{
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.5-flash",
       "input": [
         {"type": "text", "text": "Summarize this document"},
         {"type": "document", "uri": '$file_uri', "mime_type": "'${MIME_TYPE}'"}
@@ -364,46 +322,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-### ลงทะเบียนไฟล์ Google Cloud Storage
+### Google Cloud Storage-Dateien registrieren
 
-หากข้อมูลอยู่ใน Google Cloud Storage อยู่แล้ว คุณไม่จำเป็นต้องดาวน์โหลดและอัปโหลดซ้ำ คุณสามารถลงทะเบียนข้อมูลกับ File API ได้โดยตรง
+Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie nicht herunterladen und neu hochladen. Sie können sie direkt mit der File API registrieren.
 
-1. ให้สิทธิ์เข้าถึง **Service Agent** แก่แต่ละ Bucket
+1. **Dienst-Agent** Zugriff auf jeden Bucket gewähren
 
-   1. เปิดใช้ Gemini API ในโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google
-   2. สร้าง Service Agent ด้วยคำสั่งต่อไปนี้
+   1. Aktivieren Sie die Gemini API in Ihrem Google Cloud-Projekt.
+   2. Dienst-Agent erstellen:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **ให้สิทธิ์ Service Agent ของ Gemini API** ในการอ่าน Bucket พื้นที่เก็บข้อมูล
+   3. **Gewähren Sie dem Gemini API-Dienst-Agent Berechtigungen** zum Lesen Ihrer Speicher-Buckets.
 
-      ผู้ใช้ต้องกำหนดบทบาท `Storage Object Viewer`
-      [IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=th#storage.objectViewer)
-      ให้กับตัวแทนบริการนี้ใน Bucket พื้นที่เก็บข้อมูลที่ต้องการใช้
+      Der Nutzer muss diesem Dienst-Agenten die `Storage Object Viewer`-[IAM-Rolle](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=de#storage.objectViewer) für die jeweiligen Speicher-Buckets zuweisen, die er verwenden möchte.
 
-   สิทธิ์เข้าถึงนี้จะไม่มีวันหมดอายุโดยค่าเริ่มต้น แต่คุณสามารถเปลี่ยนแปลงได้ทุกเมื่อ นอกจากนี้ คุณยังใช้
-   [คำสั่ง Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=th)
-   เพื่อให้สิทธิ์ได้ด้วย
-2. ตรวจสอบสิทธิ์บริการ
+   Dieser Zugriff läuft nicht automatisch ab, kann aber jederzeit geändert werden. Sie können auch die Befehle des [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=de) verwenden, um Berechtigungen zu erteilen.
+2. Dienst authentifizieren
 
-   **ข้อกำหนดเบื้องต้น**
+   **Voraussetzungen**
 
-   - เปิดใช้ API
-   - สร้างบัญชีบริการหรือ Agent ที่มีสิทธิ์ที่เหมาะสม
+   - API aktivieren
+   - Erstellen Sie ein Dienstkonto oder einen Agent mit den entsprechenden Berechtigungen.
 
-   ก่อนอื่น คุณต้องตรวจสอบสิทธิ์ในฐานะบริการที่มีสิทธิ์เข้าถึง Storage Object Viewer ซึ่งวิธีการตรวจสอบสิทธิ์จะขึ้นอยู่กับสภาพแวดล้อมที่โค้ดการจัดการไฟล์จะทำงาน
+   Sie müssen sich zuerst als der Dienst authentifizieren, der über die Berechtigungen für den Storage-Objekt-Betrachter verfügt. Wie das geschieht, hängt von der Umgebung ab, in der Ihr Dateiverwaltungscode ausgeführt wird.
 
-   **ภายนอก Google Cloud**
+   **Außerhalb von Google Cloud**
 
-   หากโค้ดทำงานจากภายนอก Google Cloud เช่น จากเดสก์ท็อป ให้ดาวน์โหลดข้อมูลเข้าสู่ระบบบัญชีจากคอนโซล Google Cloud โดยทำตามขั้นตอนต่อไปนี้
+   Wenn Ihr Code außerhalb von Google Cloud ausgeführt wird, z. B. auf Ihrem Computer, laden Sie die Kontoanmeldedaten mit den folgenden Schritten aus der Google Cloud Console herunter:
 
-   1. ไปที่[คอนโซลบัญชีบริการ](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=th)
-   2. เลือกบัญชีบริการที่เกี่ยวข้อง
-   3. เลือกแท็บ**คีย์** แล้วเลือก**เพิ่มคีย์ สร้างคีย์ใหม่**
-   4. เลือกประเภทคีย์ **JSON** และจดบันทึกตำแหน่งที่ดาวน์โหลดไฟล์ในเครื่อง
+   1. Rufen Sie die [Dienstkontokonsole](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=de) auf.
+   2. Relevantes Dienstkonto auswählen
+   3. Wählen Sie den Tab **Schlüssel** aus und klicken Sie auf **Schlüssel hinzufügen, Neuen Schlüssel erstellen**.
+   4. Wählen Sie den Schlüsseltyp **JSON** aus und notieren Sie sich, wohin die Datei auf Ihrem Computer heruntergeladen wurde.
 
-   ดูรายละเอียดเพิ่มเติมได้ในเอกสารประกอบอย่างเป็นทางการของ Google Cloud เกี่ยวกับการจัดการคีย์บัญชีบริการ
+   Weitere Informationen finden Sie in der offiziellen Google Cloud-Dokumentation zur [Verwaltung von Dienstkontoschlüsseln](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=de).
 
-   จากนั้นใช้คำสั่งต่อไปนี้เพื่อตรวจสอบสิทธิ์ คำสั่งเหล่านี้ถือว่าไฟล์บัญชีบริการอยู่ในไดเรกทอรีปัจจุบันและมีชื่อว่า `service-account.json`
+   Verwenden Sie dann die folgenden Befehle zur Authentifizierung. Bei diesen Befehlen wird davon ausgegangen, dass sich die Dienstkontodatei im aktuellen Verzeichnis befindet und den Namen `service-account.json` hat.
 
    ### Python
 
@@ -423,7 +377,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
    )
    ```
 
-   ### Javascript
+   ### JavaScript
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -441,7 +395,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
    });
    ```
 
-   ### CLI
+   ### Befehlszeile
 
    ```
    gcloud auth application-default login \
@@ -449,18 +403,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **ใน Google Cloud**
+   **Mit Google Cloud**
 
-   หากคุณใช้งานใน Google Cloud โดยตรง เช่น โดยใช้ [ฟังก์ชัน Cloud Run](https://cloud.google.com/functions?hl=th) หรือ
-   [อินสแตนซ์ Compute Engine](https://cloud.google.com/products/compute?hl=th) คุณจะ
-   มีข้อมูลเข้าสู่ระบบโดยนัย แต่จะต้องตรวจสอบสิทธิ์อีกครั้งเพื่อให้
-   ขอบเขตที่เหมาะสม
+   Wenn Sie direkt in Google Cloud ausgeführt werden, z. B. mit [Cloud Run-Funktionen](https://cloud.google.com/functions?hl=de) oder einer [Compute Engine-Instanz](https://cloud.google.com/products/compute?hl=de), haben Sie implizite Anmeldedaten, müssen sich aber neu authentifizieren, um die entsprechenden Zugriffsbereiche zu gewähren.
 
    ### Python
 
-   โค้ดนี้คาดหวังว่าบริการจะทำงานในสภาพแวดล้อมที่
-   [ข้อมูลรับรองเริ่มต้นของแอปพลิเคชัน](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=th)
-   ได้โดยอัตโนมัติ เช่น Cloud Run หรือ Compute Engine
+   In diesem Code wird davon ausgegangen, dass der Dienst in einer Umgebung ausgeführt wird, in der [Standardanmeldedaten für Anwendungen](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=de) automatisch abgerufen werden können, z. B. in Cloud Run oder Compute Engine.
 
    ```
    import google.auth
@@ -475,9 +424,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
    ### JavaScript
 
-   โค้ดนี้คาดหวังว่าบริการจะทำงานในสภาพแวดล้อมที่
-   [ข้อมูลรับรองเริ่มต้นของแอปพลิเคชัน](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=th)
-   ได้โดยอัตโนมัติ เช่น Cloud Run หรือ Compute Engine
+   In diesem Code wird davon ausgegangen, dass der Dienst in einer Umgebung ausgeführt wird, in der [Standardanmeldedaten für Anwendungen](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=de) automatisch abgerufen werden können, z. B. in Cloud Run oder Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -490,26 +437,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
    });
    ```
 
-   ### CLI
+   ### Befehlszeile
 
-   นี่เป็นคำสั่งแบบอินเทอร์แอกทีฟ สำหรับบริการอย่าง Compute Engine คุณสามารถแนบขอบเขตกับบริการที่ทำงานอยู่ที่ระดับการกำหนดค่าได้ ดูตัวอย่างได้ในเอกสารประกอบเกี่ยวกับบริการที่ผู้ใช้จัดการ
+   Dies ist ein interaktiver Befehl. Für Dienste wie Compute Engine können Sie Bereiche auf Konfigurationsebene an den ausgeführten Dienst anhängen. Ein Beispiel finden Sie in der [Dokumentation zu vom Nutzer verwalteten Diensten](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=de#using).
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. การลงทะเบียนไฟล์ (Files API)
+3. Dateiregistrierung (Files API)
 
-   ใช้ Files API เพื่อลงทะเบียนไฟล์และสร้างเส้นทาง Files API ที่ใช้ใน Gemini API ได้โดยตรง
+   Mit der Files API können Sie Dateien registrieren und einen Files API-Pfad erstellen, der direkt in der Gemini API verwendet werden kann.
 
    ### Python
 
    ```
-   # This will only work for SDK newer than 2.0.0
    from google import genai
 
-   # Note that you must provide an API key in the GEMINI_API_KEY
-   # environment variable, but it is unused for the registration endpoint.
    client = genai.Client(credentials=credentials)
 
    registered_gcs_files = client.files.register_files(
@@ -517,28 +461,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
    )
    prompt = "Summarize this file."
 
-   # call interactions.create for each file
    for f in registered_gcs_files.files:
      print(f.name)
      interaction = client.interactions.create(
-       model="gemini-3-flash-preview",
+       model="gemini-3.5-flash",
        input=[
          {"type": "text", "text": prompt},
          {"type": "document", "uri": f.uri, "mime_type": f.mime_type}
        ],
      )
-     # Print the model's text response
-     for step in interaction.steps:
-         if step.type == "model_output":
-             for content_block in step.content:
-                 if content_block.type == "text":
-                     print(content_block.text)
+     print(interaction.output_text)
    ```
 
    ### JavaScript
 
    ```
-   // This will only work for SDK newer than 2.0.0
    import { GoogleGenAI } from "@google/genai";
 
    const ai = new GoogleGenAI({ auth: auth });
@@ -553,26 +490,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
        for (const file of registeredGcsFiles.files) {
            console.log(file.name);
            const interaction = await ai.interactions.create({
-               model: "gemini-3-flash-preview",
+               model: "gemini-3.5-flash",
                input: [
                    { type: "text", text: prompt },
                    { type: "document", uri: file.uri, mime_type: file.mimeType }
                ]
            });
 
-           const modelStep = interaction.steps.find(s => s.type === 'model_output');
-           if (modelStep) {
-               for (const contentBlock of modelStep.content) {
-                   if (contentBlock.type === 'text') console.log(contentBlock.text);
-               }
-           }
+           console.log(interaction.output_text);
        }
    }
 
    main();
    ```
 
-   ### CLI
+   ### Befehlszeile
 
    ```
    access_token=$(gcloud auth application-default print-access-token)
@@ -584,15 +516,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## URL HTTP ภายนอก / URL ที่ลงชื่อแล้ว
+## Externe HTTP-/signierte URLs
 
-คุณสามารถส่ง URL HTTPS ที่เข้าถึงได้แบบสาธารณะหรือ URL ที่ลงชื่อไว้ล่วงหน้าในคำขอได้โดยตรง Gemini API จะดึงข้อมูลเนื้อหาอย่างปลอดภัยในระหว่างการประมวลผล
-วิธีนี้เหมาะสำหรับไฟล์ขนาดไม่เกิน 100 MB ที่คุณไม่ต้องการอัปโหลดซ้ำ
+Sie können öffentlich zugängliche HTTPS-URLs oder vorab signierte URLs direkt in Ihrer Anfrage übergeben. Die Gemini API ruft die Inhalte während der Verarbeitung sicher ab.
+Das ist ideal für Dateien mit einer Größe von bis zu 100 MB, die Sie nicht noch einmal hochladen möchten.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 uri = "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf"
@@ -601,24 +532,18 @@ prompt = "Summarize this file"
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "document", "uri": uri, "mime_type": "application/pdf"},
         {"type": "text", "text": prompt}
     ]
 )
-# Print the model's text response
-for step in interaction.steps:
-    if step.type == "model_output":
-        for content_block in step.content:
-            if content_block.type == "text":
-                print(content_block.text)
+print(interaction.output_text)
 ```
 
-### Javascript
+### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
@@ -627,19 +552,14 @@ const uri = "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf
 
 async function main() {
   const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: [
       { type: "document", uri: uri, mime_type: "application/pdf" },
       { type: "text", text: "summarize this file" }
     ]
   });
 
-  const modelStep = interaction.steps.find(s => s.type === 'model_output');
-  if (modelStep) {
-    for (const contentBlock of modelStep.content) {
-      if (contentBlock.type === 'text') console.log(contentBlock.text);
-    }
-  }
+  console.log(interaction.output_text);
 }
 
 main();
@@ -648,13 +568,12 @@ main();
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
       -H 'x-goog-api-key: $GEMINI_API_KEY' \
       -H 'Content-Type: application/json' \
       -H "Api-Revision: 2026-05-20" \
       -d '{
-          "model": "gemini-3-flash-preview",
+          "model": "gemini-3.5-flash",
           "input": [
             {"type": "text", "text": "Summarize this pdf"},
             {
@@ -666,20 +585,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         }'
 ```
 
-### การช่วยเหลือพิเศษ
+### Bedienungshilfen
 
-ตรวจสอบว่า URL ที่คุณระบุไม่ได้นำไปยังหน้าที่ต้องเข้าสู่ระบบหรืออยู่หลังเพย์วอลล์ สำหรับฐานข้อมูลส่วนตัว โปรดตรวจสอบว่าคุณสร้าง URL ที่ลงชื่อแล้วโดยมีสิทธิ์เข้าถึงและวันหมดอายุที่ถูกต้อง
+Prüfen Sie, ob die von Ihnen angegebenen URLs zu Seiten führen, für die eine Anmeldung erforderlich ist oder die sich hinter einer Paywall befinden. Bei privaten Datenbanken müssen Sie eine signierte URL mit den richtigen Zugriffsberechtigungen und dem richtigen Ablaufdatum erstellen.
 
-### การตรวจสอบความปลอดภัย
+### Sicherheitschecks
 
-ระบบจะตรวจสอบการกลั่นกรองเนื้อหาใน URL เพื่อยืนยันว่า URL เป็นไปตามมาตรฐานด้านความปลอดภัยและนโยบาย หาก URL ไม่ผ่านการตรวจสอบนี้ คุณจะได้รับ `url_retrieval_status` เป็น `URL_RETRIEVAL_STATUS_UNSAFE`
+Das System führt eine Inhaltsmoderationsprüfung der URL durch, um zu bestätigen, dass sie den Sicherheits- und Richtlinienstandards entspricht. Wenn die URL diese Prüfung nicht besteht, erhalten Sie eine `url_retrieval_status` mit dem Wert `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### ประเภทเนื้อหาที่รองรับ
+### Unterstützte Inhaltstypen
 
-รายการประเภทไฟล์และข้อจำกัดที่รองรับนี้มีไว้เพื่อเป็นแนวทางเบื้องต้นและไม่ครอบคลุมทั้งหมด ชุดประเภทที่รองรับจริงอาจมีการเปลี่ยนแปลงและแตกต่างกันไปตามโมเดลและเวอร์ชันตัวแยกคำที่ใช้ ประเภทที่ไม่รองรับจะทำให้เกิดข้อผิดพลาด
-นอกจากนี้ การดึงข้อมูลเนื้อหาสำหรับไฟล์ประเภทเหล่านี้ยังรองรับเฉพาะ URL ที่เข้าถึงได้แบบสาธารณะ
+Diese Liste der unterstützten Dateitypen und Einschränkungen dient als erste Orientierung und ist nicht vollständig. Die effektive Menge der unterstützten Typen kann sich ändern und je nach verwendetem Modell und Tokenizer-Version variieren. Nicht unterstützte Typen führen zu einem Fehler.
+Außerdem werden für das Abrufen von Inhalten für diese Dateitypen nur öffentlich zugängliche URLs unterstützt.
 
-#### ประเภทไฟล์ข้อความ
+#### Textdateitypen
 
 - `text/html`
 - `text/css`
@@ -689,48 +608,43 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `text/rtf`
 - `text/javascript`
 
-#### ประเภทไฟล์แอปพลิเคชัน
+#### Anwendungsdateitypen
 
 - `application/json`
 - `application/pdf`
 
-#### ประเภทไฟล์รูปภาพ
+#### Bilddateitypen
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-## แนวทางปฏิบัติแนะนำ
+## Best Practices
 
-- **เลือกวิธีที่เหมาะสม:** ใช้ข้อมูลแบบอินไลน์สำหรับไฟล์ขนาดเล็กและชั่วคราว
-  ใช้ File API สำหรับไฟล์ขนาดใหญ่หรือไฟล์ที่ใช้บ่อย ใช้ URL ภายนอกสำหรับข้อมูลที่โฮสต์ออนไลน์อยู่แล้ว
-- **ระบุประเภท MIME:** ระบุประเภท MIME ที่ถูกต้องสำหรับข้อมูลไฟล์เสมอเพื่อให้แน่ใจว่าระบบจะประมวลผลได้อย่างถูกต้อง
-- **จัดการข้อผิดพลาด:** ใช้การจัดการข้อผิดพลาดในโค้ดเพื่อจัดการปัญหาที่อาจเกิดขึ้น เช่น เครือข่ายล่ม ปัญหาการเข้าถึงไฟล์ หรือข้อผิดพลาดของ API
+- **Die richtige Methode auswählen**:Verwenden Sie Inline-Daten für kleine, vorübergehende Dateien.
+  Verwenden Sie die File API für größere oder häufig verwendete Dateien. Verwenden Sie externe URLs für Daten, die bereits online gehostet werden.
+- **MIME-Typen angeben**:Geben Sie immer den richtigen MIME-Typ für die Dateidaten an, damit sie richtig verarbeitet werden.
+- **Fehlerbehandlung:** Implementieren Sie eine Fehlerbehandlung in Ihrem Code, um potenzielle Probleme wie Netzwerkfehler, Probleme beim Dateizugriff oder API-Fehler zu beheben.
 
-## ข้อจำกัด
+## Beschränkungen
 
-- ขีดจำกัดขนาดไฟล์จะแตกต่างกันไปตามวิธี (ดู [ตารางเปรียบเทียบ](#method-comparison))
-  และประเภทไฟล์
-- ข้อมูลแบบอินไลน์จะเพิ่มขนาดเพย์โหลดของคำขอ
-- การอัปโหลด File API เป็นแบบชั่วคราวและจะหมดอายุหลังจากผ่านไป 48 ชั่วโมง
-- การดึงข้อมูล URL ภายนอกจำกัดไว้ที่ 100 MB ต่อเพย์โหลดและรองรับเนื้อหาบางประเภท
+- Die Dateigrößenbeschränkungen variieren je nach Methode (siehe [Vergleichstabelle](#method-comparison)) und Dateityp.
+- Durch Inline-Daten wird die Nutzlastgröße der Anfrage erhöht.
+- File API-Uploads sind temporär und laufen nach 48 Stunden ab.
+- Das Abrufen externer URLs ist auf 100 MB pro Nutzlast begrenzt und unterstützt bestimmte Inhaltstypen.
 
-## ขั้นตอนถัดไป
+## Nächste Schritte
 
-- ลองเขียนพรอมต์มัลติโมดัลของคุณเองโดยใช้
-  [Google AI Studio](http://aistudio.google.com/?hl=th)
-- ดูข้อมูลเกี่ยวกับการรวมไฟล์ไว้ในพรอมต์ได้ที่คำแนะนำการประมวลผล
-  [Vision](https://ai.google.dev/gemini-api/docs/interactions/vision?hl=th),
-  [เสียง](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=th) และ
-  [เอกสาร](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=th)
+- Sie können auch eigene multimodale Prompts in [Google AI Studio](http://aistudio.google.com/?hl=de) erstellen.
+- Informationen zum Einbinden von Dateien in Ihre Prompts finden Sie in den Anleitungen zu [Vision](https://ai.google.dev/gemini-api/docs/interactions/vision?hl=de), [Audio](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=de) und [Dokumentverarbeitung](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=de).
 
-ส่งความคิดเห็น
+Feedback geben
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-อัปเดตล่าสุด 2026-05-12 UTC
+Zuletzt aktualisiert: 2026-05-19 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Haben Sie Feedback für uns?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-12 UTC"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-05-19 (UTC)."],[],[]]

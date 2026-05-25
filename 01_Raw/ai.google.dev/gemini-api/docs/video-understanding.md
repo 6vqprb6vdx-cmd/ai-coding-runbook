@@ -1,46 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko
-fetched_at: 2026-05-18T13:03:00.286718+00:00
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419
+fetched_at: 2026-05-25T12:57:18.648290+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-의견 보내기
+Enviar comentarios
 
-# 동영상 이해
+# Comprensión de videos
 
-> 동영상 생성에 대해 알아보려면 [Veo](https://ai.google.dev/gemini-api/docs/video?hl=ko) 가이드를 참고하세요.
+> Para obtener información sobre la generación de videos, consulta la guía de [Veo](https://ai.google.dev/gemini-api/docs/video?hl=es-419).
 
-Gemini 모델은 동영상을 처리할 수 있으므로 과거에 도메인별 모델이 필요했던 많은 최첨단 개발자 사용 사례를 지원합니다.
-Gemini의 비전 기능에는 동영상에서 정보를 설명, 분할, 추출하고, 동영상 콘텐츠에 관한 질문에 답변하고, 동영상 내의 특정 타임스탬프를 참조하는 기능이 포함됩니다.
+Los modelos de Gemini pueden procesar videos, lo que permite muchos casos de uso de desarrolladores de vanguardia que históricamente habrían requerido modelos específicos del dominio.
+Algunas de las capacidades de visión de Gemini incluyen la capacidad de describir, segmentar y extraer información de videos, responder preguntas sobre el contenido de los videos y hacer referencia a marcas de tiempo específicas dentro de un video.
 
-다음과 같은 방법으로 Gemini에 동영상을 입력으로 제공할 수 있습니다.
+Puedes proporcionar videos como entrada a Gemini de las siguientes maneras:
 
-| 입력 방법 | 최대 크기 | 권장 사용 사례 |
+| Método de entrada | Tamaño máximo | Caso de uso recomendado |
 | --- | --- | --- |
-| [File API](#upload-video) | 20GB (유료) / 2GB (무료) | 대용량 파일 (100MB 이상), 긴 동영상 (10분 이상), 재사용 가능한 파일 |
-| [Cloud Storage 등록](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ko#registration) | 2GB (파일당, 스토리지 제한 없음) | 대용량 파일 (100MB 이상), 긴 동영상 (10분 이상), 영구적이고 재사용 가능한 파일 |
-| [인라인 데이터](#inline-video) | 100MB 미만 | 작은 파일(100MB 미만), 짧은 시간(1분 미만), 일회성 입력 |
-| [YouTube URL](#youtube) | 해당 사항 없음 | 공개 YouTube 동영상 |
+| [File API](#upload-video) | 20 GB (pagado) o 2 GB (gratis) | Archivos grandes (más de 100 MB), videos largos (más de 10 minutos) y archivos reutilizables |
+| [Registro de Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=es-419#registration) | 2 GB (por archivo, sin límites de almacenamiento) | Archivos grandes (más de 100 MB), videos largos (más de 10 min) y archivos persistentes y reutilizables |
+| [Datos intercalados](#inline-video) | < 100 MB | Archivos pequeños (menos de 100 MB), duración corta (menos de 1 min) y entradas únicas. |
+| [URLs de YouTube](#youtube) | N/A | Videos públicos de YouTube |
 
-> **참고:** [File API](#upload-video)는 대부분의 사용 사례, 특히 100MB보다 큰 파일 또는 여러 요청에서 파일을 재사용하려는 경우에 권장됩니다.
+> **Nota:** Se recomienda la [API de File](#upload-video) para la mayoría de los casos de uso, en especial para los archivos de más de 100 MB o cuando deseas reutilizar el archivo en varias solicitudes.
 
-[외부 URL 또는 Google Cloud에 저장된 파일 사용과 같은 다른 파일 입력 방법에 대해 알아보려면 파일 입력 방법 가이드를 참고하세요.](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ko)
+Para obtener información sobre otros métodos de entrada de archivos, como el uso de URLs externas o archivos almacenados en Google Cloud, consulta la guía [Métodos de entrada de archivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=es-419).
 
-### 동영상 파일 업로드
+### Cómo subir un archivo de video
 
-다음 코드는 샘플 동영상을 다운로드하고, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용하여 업로드하고,
-처리가 완료될 때까지 기다린 후 업로드된 파일 참조를 사용하여
-동영상을 요약합니다.
+El siguiente código descarga un video de muestra, lo sube con la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419), espera a que se procese y, luego, usa la referencia del archivo subido para resumir el video.
 
 ### Python
 
@@ -52,7 +50,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp4")
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents=[myfile, "Summarize this video. Then create a quiz with an answer key based on the information in this video."]
+    model="gemini-3.5-flash", contents=[myfile, "Summarize this video. Then create a quiz with an answer key based on the information in this video."]
 )
 
 print(response.text)
@@ -76,7 +74,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Summarize this video. Then create a quiz with an answer key based on the information in this video.",
@@ -104,7 +102,7 @@ contents := []*genai.Content{
 
 result, _ := client.Models.GenerateContent(
     ctx,
-    "gemini-3-flash-preview",
+    "gemini-3.5-flash",
     contents,
     nil,
 )
@@ -150,7 +148,7 @@ echo "File uploaded successfully. File URI: ${file_uri}"
 
 # --- 3. Generate content using the uploaded video file ---
 echo "Generating content from video..."
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -165,17 +163,16 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 jq -r ".candidates[].content.parts[].text" response.json
 ```
 
-총 요청 크기 (파일, 텍스트 프롬프트, 시스템 안내 등 포함)가 20MB보다 크거나, 동영상 재생 시간이 길거나, 여러 프롬프트에서 동일한 동영상을 사용하려는 경우 항상 Files API를 사용하세요.
-File API는 동영상 파일 형식을 직접 허용합니다.
+Siempre usa la API de Files cuando el tamaño total de la solicitud (incluido el archivo, la instrucción de texto, las instrucciones del sistema, etcétera) sea superior a 20 MB, la duración del video sea significativa o si tienes la intención de usar el mismo video en varias instrucciones.
+La API de File acepta formatos de archivos de video directamente.
 
-미디어 파일 작업에 대해 자세히 알아보려면
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 참고하세요.
+Para obtener más información sobre cómo trabajar con archivos multimedia, consulta la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419).
 
-### 동영상 데이터 인라인 전달
+### Pasa datos de video intercalados
 
-File API를 사용하여 동영상 파일을 업로드하는 대신 `generateContent` 요청에서 더 작은 동영상을 직접 전달할 수 있습니다. 이는 총 요청 크기가 20MB 미만인 짧은 동영상에 적합합니다.
+En lugar de subir un archivo de video con la API de File, puedes pasar videos más pequeños directamente en la solicitud a `generateContent`. Esto es adecuado para videos más cortos con un tamaño total de solicitud inferior a 20 MB.
 
-다음은 인라인 동영상 데이터를 제공하는 예입니다.
+A continuación, se muestra un ejemplo de cómo proporcionar datos de video intercalados:
 
 ### Python
 
@@ -189,7 +186,7 @@ video_bytes = open(video_file_name, 'rb').read()
 
 client = genai.Client()
 response = client.models.generate_content(
-    model='gemini-3-flash-preview',
+    model='gemini-3.5-flash',
     contents=types.Content(
         parts=[
             types.Part(
@@ -224,7 +221,7 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   contents: contents,
 });
 console.log(response.text);
@@ -241,7 +238,7 @@ else
   B64FLAGS="-w0"
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -260,9 +257,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
     }' 2> /dev/null
 ```
 
-### YouTube URL 전달
+### Pasa URLs de YouTube
 
-다음과 같이 요청의 일부로 YouTube URL을 Gemini API에 직접 전달할 수 있습니다.
+Puedes pasar URLs de YouTube directamente a la API de Gemini como parte de tu solicitud de la siguiente manera:
 
 ### Python
 
@@ -272,7 +269,7 @@ from google.genai import types
 
 client = genai.Client()
 response = client.models.generate_content(
-    model='gemini-3-flash-preview',
+    model='gemini-3.5-flash',
     contents=types.Content(
         parts=[
             types.Part(
@@ -302,7 +299,7 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   contents: contents,
 });
 console.log(response.text);
@@ -338,7 +335,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3-flash-preview",
+      "gemini-3.5-flash",
       contents,
       nil,
   )
@@ -350,7 +347,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -368,20 +365,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
     }' 2> /dev/null
 ```
 
-**제한사항:**
+**Limitaciones:**
 
-- 무료 등급의 경우 하루에 8시간이 넘는 YouTube 동영상을 업로드할 수 없습니다.
-- 유료 등급의 경우 동영상 길이에 따른 제한이 없습니다.
-- Gemini 2.5 이전 모델의 경우 요청당 동영상 1개만 업로드할 수 있습니다. Gemini 2.5 이상 모델의 경우 요청당 최대 10개의 동영상을 업로드할 수 있습니다.
-- 공개 동영상만 업로드할 수 있습니다 (비공개 또는 일부 공개 동영상은 업로드할 수 없음).
+- En el nivel gratuito, no puedes subir más de 8 horas de video de YouTube por día.
+- En el nivel pagado, no hay límites basados en la duración del video.
+- En el caso de los modelos anteriores a Gemini 2.5, solo puedes subir 1 video por solicitud. En el caso de Gemini 2.5 y modelos posteriores, puedes subir un máximo de 10 videos por solicitud.
+- Solo puedes subir videos públicos (no privados ni no listados).
 
-## 긴 동영상에 컨텍스트 캐싱 사용
+## Usa el almacenamiento de contexto en caché para videos largos
 
-[10분이 넘는 동영상의 경우 또는 동일한 동영상 파일에 대해 여러 요청을 하려는 경우 컨텍스트 캐싱을 사용하여 비용을 절감하고 지연 시간을 개선하세요.](https://ai.google.dev/gemini-api/docs/caching?hl=ko) 컨텍스트 캐싱을 사용하면 동영상을 한 번 처리하고 후속 쿼리에 토큰을 재사용할 수 있으므로 채팅 세션 또는 긴 형식 콘텐츠의 반복 분석에 적합합니다.
+Para los videos de más de 10 minutos o cuando planees realizar varias solicitudes en el mismo archivo de video, usa el [almacenamiento en caché de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=es-419) para reducir los costos y mejorar la latencia. El almacenamiento de contexto en caché te permite procesar el video una vez y reutilizar los tokens para las consultas posteriores, lo que lo hace ideal para las sesiones de chat o el análisis repetido de contenido de formato largo.
 
-## 콘텐츠에서 타임스탬프 참조
+## Consulta las marcas de tiempo en el contenido
 
-`MM:SS` 형식의 타임스탬프를 사용하여 동영상 내의 특정 시점에 관한 질문을 할 수 있습니다.
+Puedes hacer preguntas sobre momentos específicos del video usando marcas de tiempo con el formato `MM:SS`.
 
 ### Python
 
@@ -412,12 +409,12 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## 동영상에서 세부적인 유용한 정보 추출
+## Extrae estadísticas detalladas de los videos
 
-Gemini 모델은 **오디오 및 시각적** 스트림 모두에서 정보를 처리하여 동영상 콘텐츠를 이해하는 강력한 기능을 제공합니다. 이를 통해 동영상에서 발생하는 상황에 관한 설명을 생성하고 콘텐츠에 관한 질문에 답변하는 등 다양한 세부정보를 추출할 수 있습니다.
+Los modelos de Gemini ofrecen capacidades potentes para comprender el contenido de video, ya que procesan información de los flujos de **audio y visuales**. Esto te permite extraer un conjunto enriquecido de detalles, lo que incluye generar descripciones de lo que sucede en un video y responder preguntas sobre su contenido.
 
-시각적 설명의 경우 모델은 **초당 1프레임** (FPS)의 비율로 동영상을 샘플링합니다. 이 기본 샘플링 비율은 대부분의 콘텐츠에 적합하지만, 움직임이 빠르거나 장면이 빠르게 바뀌는 동영상의 세부정보는 누락될 수 있습니다.
-움직임이 많은 콘텐츠의 경우 [커스텀 프레임 속도를 설정하는 것](#custom-frame-rate)이 좋습니다.
+En el caso de las descripciones visuales, el modelo muestrea el video a una velocidad de **1 fotograma por segundo** (FPS). Esta frecuencia de muestreo predeterminada funciona bien para la mayoría del contenido, pero ten en cuenta que es posible que no capte los detalles en los videos con movimiento rápido o cambios de escena rápidos.
+Para este tipo de contenido con mucho movimiento, considera [establecer una velocidad de fotogramas personalizada](#custom-frame-rate).
 
 ### Python
 
@@ -447,15 +444,13 @@ const prompt = "Describe the key events in this video, providing both audio and 
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## 동영상 처리 맞춤설정
+## Personaliza el procesamiento de video
 
-클리핑 간격을 설정하거나 커스텀 프레임 속도 샘플링을 제공하여 Gemini API에서 동영상 처리를 맞춤설정할 수 있습니다.
+Puedes personalizar el procesamiento de video en la API de Gemini configurando intervalos de recorte o proporcionando un muestreo de frecuencia de fotogramas personalizado.
 
- 
+### Cómo establecer intervalos de recorte
 
-### 클리핑 간격 설정
-
-시작 및 종료 오프셋으로 `videoMetadata`를 지정하여 동영상을 클립할 수 있습니다.
+Puedes cortar videos especificando `videoMetadata` con compensaciones de inicio y finalización.
 
 ### Python
 
@@ -465,7 +460,7 @@ from google.genai import types
 
 client = genai.Client()
 response = client.models.generate_content(
-    model='models/gemini-3-flash-preview',
+    model='models/gemini-3.5-flash',
     contents=types.Content(
         parts=[
             types.Part(
@@ -486,7 +481,7 @@ response = client.models.generate_content(
 ```
 import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI({});
-const model = 'gemini-3-flash-preview';
+const model = 'gemini-3.5-flash';
 
 async function main() {
 const contents = [
@@ -522,9 +517,9 @@ console.log(response.text)
 await main();
 ```
 
-### 커스텀 프레임 속도 설정
+### Cómo establecer una velocidad de fotogramas personalizada
 
-`fps` 인수를 `videoMetadata`에 전달하여 커스텀 프레임 속도 샘플링을 설정할 수 있습니다.
+Puedes establecer un muestreo de la velocidad de fotogramas personalizado pasando un argumento `fps` a `videoMetadata`.
 
 ### Python
 
@@ -538,7 +533,7 @@ video_bytes = open(video_file_name, 'rb').read()
 
 client = genai.Client()
 response = client.models.generate_content(
-    model='models/gemini-3-flash-preview',
+    model='models/gemini-3.5-flash',
     contents=types.Content(
         parts=[
             types.Part(
@@ -553,11 +548,11 @@ response = client.models.generate_content(
 )
 ```
 
-기본적으로 동영상에서 초당 1프레임 (FPS)이 샘플링됩니다. 긴 동영상의 경우 낮은 FPS(< 1)를 설정하는 것이 좋습니다. 이는 대부분 정적 동영상 (예: 강의)에 특히 유용합니다. 빠른 액션 이해 또는 고속 모션 추적과 같이 세부적인 시간 분석이 필요한 동영상의 경우 더 높은 FPS를 사용하세요.
+De forma predeterminada, se muestrea 1 fotograma por segundo (FPS) del video. Es posible que desees establecer un valor de FPS bajo (inferior a 1) para los videos largos. Esto es especialmente útil para los videos que son mayormente estáticos (p.ej., conferencias). Usa un FPS más alto para los videos que requieren un análisis temporal detallado, como la comprensión de acciones rápidas o el seguimiento de movimiento de alta velocidad.
 
-## 지원되는 동영상 형식
+## Formatos de video compatibles
 
-Gemini는 다음과 같은 동영상 형식 MIME 유형을 지원합니다.
+Gemini admite los siguientes tipos de MIME de formato de video:
 
 - `video/mp4`
 - `video/mpeg`
@@ -569,54 +564,48 @@ Gemini는 다음과 같은 동영상 형식 MIME 유형을 지원합니다.
 - `video/wmv`
 - `video/3gpp`
 
-## 동영상에 대한 기술 세부정보
+## Detalles técnicos sobre los videos
 
-- **지원되는 모델 및 컨텍스트**: 모든 Gemini는 동영상 데이터를 처리할 수 있습니다.
-  - 1M 컨텍스트 윈도우 모델은 기본 미디어 해상도에서 최대 1시간 또는 낮은 미디어 해상도에서 최대 3시간 길이의 동영상을 처리할 수 있습니다.
-- **File API 처리**: File API를 사용하면 동영상이 초당 1
-  프레임 (FPS)으로 저장되고 오디오는 1Kbps (단일 채널)로 처리됩니다.
-  타임스탬프는 매초마다 추가됩니다.
-  - 이러한 비율은 추론 개선을 위해 향후 변경될 수 있습니다.
-  - 커스텀 프레임 속도를 [설정하여 1FPS 샘플링 비율을 재정의할 수 있습니다](#custom-frame-rate).
-- **토큰 계산**: 동영상의 각 초는 다음과 같이 토큰화됩니다.
-  - 개별 프레임 (1FPS로 샘플링됨):
-    - [`mediaResolution`](https://ai.google.dev/api/generate-content?hl=ko#MediaResolution)이 낮음으로 설정되면 프레임이 프레임당 66개 토큰으로 토큰화됩니다.
-    - 그렇지 않으면 프레임이 프레임당 258개의 토큰으로 토큰화됩니다.
-  - 오디오: 초당 토큰 32개
-  - 메타데이터도 포함됩니다.
-  - 총계: 기본 미디어 해상도 동영상에서 초당 약 300개 토큰 또는 낮은 미디어 해상도 동영상에서 초당 100개 토큰
-- **미디어 해상도**: Gemini 3는 멀티모달
-  비전 처리에 대한 세밀한 제어 기능을 `media_resolution` 파라미터를 통해 제공합니다. `media_resolution` 파라미터는 **입력 이미지 또는 동영상 프레임당 할당되는 최대 토큰 수** 를 결정합니다.
-  해상도가 높을수록 모델이 작은 텍스트를 읽거나 세부 요소를 식별하는 능력을 향상시키지만, 토큰 사용량과 지연 시간이 증가합니다.
+- **Modelos y contexto compatibles**: Todos los modelos de Gemini pueden procesar datos de video.
+  - Los modelos con una ventana de contexto de 1 millón de tokens pueden procesar videos de hasta 1 hora de duración con la resolución de medios predeterminada o de hasta 3 horas con una resolución de medios baja.
+- **Procesamiento de la API de File**: Cuando se usa la API de File, los videos se almacenan a 1 fotograma por segundo (FPS) y el audio se procesa a 1 Kbps (canal único).
+  Las marcas de tiempo se agregan cada segundo.
+  - Estas tasas están sujetas a cambios en el futuro para mejorar la inferencia.
+  - Puedes anular la tasa de muestreo de 1 FPS [estableciendo una velocidad de fotogramas personalizada](#custom-frame-rate).
+- **Cálculo de tokens**: Cada segundo de video se tokeniza de la siguiente manera:
+  - Fotogramas individuales (muestreados a 1 FPS):
+    - Si [`mediaResolution`](https://ai.google.dev/api/generate-content?hl=es-419#MediaResolution) se establece en un valor bajo, los fotogramas se tokenizan en 66 tokens por fotograma.
+    - De lo contrario, los fotogramas se tokenizan a 258 tokens por fotograma.
+  - Audio: 32 tokens por segundo
+  - También se incluyen los metadatos.
+  - Total: Aproximadamente 300 tokens por segundo de video en la resolución de medios predeterminada o 100 tokens por segundo de video en la resolución de medios baja.
+- **Resolución media**: Gemini 3 introduce un control detallado sobre el procesamiento de visión multimodal con el parámetro `media_resolution`. El parámetro `media_resolution` determina la **cantidad máxima de tokens asignados por imagen de entrada o fotograma de video.**
+  Las resoluciones más altas mejoran la capacidad del modelo para leer texto pequeño o identificar detalles pequeños, pero aumentan el uso de tokens y la latencia.
 
-  파라미터 및 토큰
-  계산에 미치는 영향에 관한 자세한 내용은 [미디어 해상도](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ko) 가이드를 참고하세요.
-- **타임스탬프 형식**: 프롬프트 내에서 동영상의 특정 순간을 언급할 때는 `MM:SS` 형식을 사용하세요 (예: 1분 15초의 경우 `01:15`).
-- **권장사항**:
+  Para obtener más detalles sobre el parámetro y cómo puede afectar los cálculos de tokens, consulta la guía de [resolución de medios](https://ai.google.dev/gemini-api/docs/media-resolution?hl=es-419).
+- **Formato de marca de tiempo**: Cuando te refieras a momentos específicos de un video en tu instrucción, usa el formato `MM:SS` (p.ej., `01:15` para 1 minuto y 15 segundos).
+- **Recomendaciones:**
 
-  - 최적의 결과를 얻으려면 프롬프트 요청당 하나의 동영상만 사용하세요.
-  - 텍스트와 단일 동영상을 결합하는 경우 `contents` 배열의 동영상 부분 *뒤에* 텍스트 프롬프트를 배치하세요.
-  - 1FPS 샘플링 비율로 인해 빠른 액션 시퀀스에서 세부정보가 손실될 수 있습니다. 필요한 경우 이러한 클립의 속도를 늦추는 것이 좋습니다.
+  - Para obtener resultados óptimos, usa solo un video por solicitud de instrucción.
+  - Si combinas texto y un solo video, coloca la instrucción de texto *después* de la parte del video en el array `contents`.
+  - Ten en cuenta que las secuencias de acción rápidas pueden perder detalles debido a la frecuencia de muestreo de 1 FPS. Si es necesario, considera reducir la velocidad de esos clips.
 
-## 다음 단계
+## ¿Qué sigue?
 
-이 가이드에서는 동영상 파일을 업로드하고 동영상 입력에서 텍스트 출력을 생성하는 방법을 보여줍니다. 자세한 내용은 다음 리소스를 참고하세요.
+En esta guía, se muestra cómo subir archivos de video y generar resultados de texto a partir de entradas de video. Para obtener más información, consulta los siguientes recursos:
 
-- [시스템 안내](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#system-instructions):
-  시스템 안내를 사용하면 특정 요구사항 및 사용 사례에 따라 모델의 동작을 조정할 수 있습니다.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko): Gemini에서 사용할
-  파일을 업로드하고 관리하는 방법을 자세히 알아보세요.
-- [파일 프롬프트 전략](https://ai.google.dev/gemini-api/docs/files?hl=ko#prompt-guide): Gemini API는 멀티모달 프롬프트 사용이라고도 하는 텍스트, 이미지, 오디오, 동영상 데이터로 프롬프트를 지원합니다.
-- [안전 가이드](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ko): 생성형
-  AI 모델은 때때로 부정확하거나
-  편향되거나 불쾌감을 주는 등 예상치 못한 출력을 생성합니다. 이러한 출력으로 인한 피해 위험을 제한하려면 후처리 및 인간 평가가 필수적입니다.
+- [Instrucciones del sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#system-instructions):
+  Las instrucciones del sistema te permiten dirigir el comportamiento del modelo según tus necesidades y casos de uso específicos.
+- [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419): Obtén más información para subir y administrar archivos para usarlos con Gemini.
+- [Estrategias de instrucciones con archivos](https://ai.google.dev/gemini-api/docs/files?hl=es-419#prompt-guide): La API de Gemini admite instrucciones con datos de texto, imagen, audio y video, lo que también se conoce como instrucciones multimodales.
+- [Orientación sobre seguridad](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=es-419): A veces, los modelos de IA generativa producen resultados inesperados, como resultados inexactos, sesgados u ofensivos. El procesamiento posterior y la evaluación humana son fundamentales para limitar el riesgo de daño que pueden causar estos resultados.
 
-의견 보내기
+Enviar comentarios
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-최종 업데이트: 2026-05-13(UTC)
+Última actualización: 2026-05-19 (UTC)
 
-의견을 전달하고 싶나요?
+¿Quieres brindar más información?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-13(UTC)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-19 (UTC)"],[],[]]

@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ar
-fetched_at: 2026-05-18T13:01:45.778201+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ko
+fetched_at: 2026-05-25T13:07:07.099271+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-إرسال ملاحظات
+의견 보내기
 
-# فهم الصوت
+# 오디오 이해
 
-يمكن لـ Gemini تحليل الإدخال الصوتي وإنشاء ردود نصية.
+Gemini는 오디오 입력을 분석하여 텍스트 응답을 생성할 수 있습니다.
 
 ### Python
 
@@ -32,7 +32,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -42,10 +42,10 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -58,7 +58,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -68,7 +68,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -78,8 +78,9 @@ console.log(interaction.steps.at(-1).content[0].text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -91,22 +92,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## نظرة عامة
+## 개요
 
-يمكن لـ Gemini تحليل وفهم الإدخال الصوتي وإنشاء ردود نصية، ما يتيح حالات استخدام مثل:
+Gemini는 오디오 입력을 분석하고 이해하여 텍스트 응답을 생성할 수 있으므로 다음과 같은 사용 사례가 가능합니다.
 
-- وصف المحتوى الصوتي أو تلخيصه أو الإجابة عن أسئلة بشأنه
-- تحويل الصوت إلى نص وترجمته
-- تمييز أصوات المتحدّثِين (تحديد المتحدّثِين المختلفين)
-- رصد المشاعر في الكلام والموسيقى
-- تحليل شرائح معيّنة باستخدام الطوابع الزمنية
+- 오디오 콘텐츠에 대해 설명, 요약 또는 질문에 대한 답변
+- 자막 생성 및 번역 (음성 텍스트 변환)
+- 화자 분할 (서로 다른 화자 식별)
+- 음성 및 음악의 감정 감지
+- 타임스탬프를 사용하여 특정 세그먼트 분석
 
-للتفاعلات الصوتية والمرئية في الوقت الفعلي، يمكنك الاطّلاع على [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar).
-بالنسبة إلى نماذج تحويل الكلام إلى نص المخصّصة التي تتيح تحويل الكلام إلى نص في الوقت الفعلي، استخدِم [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ar).
+실시간 음성 및 동영상 상호작용은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
+실시간 스크립트 작성을 지원하는 전용 음성 텍스트 변환 모델의 경우 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ko)를 사용하세요.
 
-## تحويل الكلام إلى نص
+## 음성을 텍스트로 변환
 
-يوضّح هذا المثال كيفية تحويل الكلام إلى نص وترجمته وتلخيصه مع الطوابع الزمنية وتحديد المتحدثين ورصد المشاعر باستخدام [النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ar).
+이 예에서는 [구조화된 출력](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ko)을 사용하여 타임스탬프, 화자 분리, 감정 감지가 포함된 음성을 텍스트로 변환하고, 번역하고, 요약하는 방법을 보여줍니다.
 
 ### Python
 
@@ -155,7 +156,7 @@ response_schema = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "video", "uri": YOUTUBE_URL, "mime_type": "video/mp4"},
         {"type": "text", "text": prompt}
@@ -163,10 +164,10 @@ interaction = client.interactions.create(
     response_format=response_schema,
 )
 
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -213,7 +214,7 @@ const responseSchema = {
 };
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         { type: "video", uri: YOUTUBE_URL, mime_type: "video/mp4" },
         { type: "text", text: prompt }
@@ -221,7 +222,7 @@ const interaction = await client.interactions.create({
     response_format: responseSchema,
 });
 
-console.log(JSON.parse(interaction.steps.at(-1).content[0].text));
+console.log(JSON.parse(interaction.output_text));
 ```
 
 ### REST
@@ -230,8 +231,9 @@ console.log(JSON.parse(interaction.steps.at(-1).content[0].text));
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {
         "type": "video",
@@ -264,18 +266,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![تطبيق Gemini لتحويل الصوت إلى نص بلغات متعددة](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ar)
+![다국어 오디오 스크립트 작성 Gemini 앱](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ko)
 
-## إدخال الصوت
+## 입력 오디오
 
-يمكنك تقديم بيانات صوتية بالطرق التالية:
+다음과 같은 방법으로 오디오 데이터를 제공할 수 있습니다.
 
-- [حمِّل ملفًا صوتيًا](#upload-audio) قبل تقديم طلب.
-- [مرِّر بيانات الصوت المضمّنة](#inline-audio) مع الطلب.
+- 요청하기 전에 [오디오 파일을 업로드](#upload-audio)하세요.
+- 요청과 함께 [인라인 오디오 데이터를 전달](#inline-audio)합니다.
 
-### تحميل ملف صوتي
+### 오디오 파일 업로드
 
-استخدِم [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ar) للملفات التي يزيد حجمها عن 20 ميغابايت.
+20MB보다 큰 파일에는 [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ko)를 사용합니다.
 
 ### Python
 
@@ -287,7 +289,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -297,10 +299,10 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -313,7 +315,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -323,7 +325,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -333,8 +335,9 @@ console.log(interaction.steps.at(-1).content[0].text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -346,9 +349,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### تمرير بيانات الصوت مضمّنة
+### 오디오 데이터를 인라인으로 전달
 
-بالنسبة إلى ملفات الصوت الصغيرة التي يقلّ حجم الطلب الإجمالي فيها عن 20 ميغابايت:
+총 요청 크기가 20MB 미만인 작은 오디오 파일의 경우:
 
 ### Python
 
@@ -362,7 +365,7 @@ with open('path/to/small-sample.mp3', 'rb') as f:
     audio_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {
@@ -372,10 +375,10 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -388,7 +391,7 @@ const audioData = fs.readFileSync("path/to/small-sample.mp3", {
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "Describe this audio clip"},
         {
@@ -398,7 +401,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -415,8 +418,9 @@ fi
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Describe this audio clip"},
       {
@@ -428,19 +432,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-ملاحظات حول بيانات الصوت المضمّنة:
-\* الحد الأقصى لحجم الطلب هو 20 ميغابايت إجمالاً (بما في ذلك الطلبات وكل الملفات)
-\* لإعادة الاستخدام، يُرجى [تحميل الملف](#upload-audio) بدلاً من ذلك
+인라인 오디오 데이터 관련 참고사항:
+\* 최대 요청 크기는 총 20MB입니다 (프롬프트 및 모든 파일 포함).
+\* 재사용하려면 대신 [파일을 업로드](#upload-audio)하세요.
 
-## الحصول على نص
+## 스크립트 받기
 
-للحصول على نص، اطلب ذلك في الطلب:
+스크립트를 받으려면 프롬프트에 요청하세요.
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Generate a transcript of the speech."},
         {
@@ -450,14 +454,14 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         { type: "text", text: "Generate a transcript of the speech." },
         {
@@ -467,18 +471,18 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
-## الرجوع إلى الطوابع الزمنية
+## 타임스탬프 참고
 
-استخدِم التنسيق `MM:SS` للإشارة إلى أقسام معيّنة:
+`MM:SS` 형식을 사용하여 특정 섹션을 참조합니다.
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Provide a transcript from 02:30 to 03:29."},
         {
@@ -490,11 +494,11 @@ interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         { type: "text", text: "Provide a transcript from 02:30 to 03:29." },
         { type: "audio", uri: uploadedFile.uri, mime_type: "audio/mp3" }
@@ -502,25 +506,25 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## عدد الرموز المميزة
+## 토큰 집계
 
-حساب عدد الرموز المميزة في ملف صوتي:
+오디오 파일의 토큰 수 계산:
 
 ### Python
 
 ```
 response = client.models.count_tokens(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[uploaded_file]
 )
 print(response)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const response = await client.models.countTokens({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: [
         { fileData: { fileUri: uploadedFile.uri, mimeType: uploadedFile.mimeType } }
     ]
@@ -528,7 +532,7 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## تنسيقات الصوت المتوافقة
+## 지원되는 오디오 형식
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -537,28 +541,28 @@ console.log(response.totalTokens);
 - OGG Vorbis - `audio/ogg`
 - FLAC - `audio/flac`
 
-## التفاصيل الفنية حول الصوت
+## 오디오에 대한 기술 세부정보
 
-- **الرموز المميزة**: 32 رمزًا مميزًا لكل ثانية من الصوت (دقيقة واحدة = 1,920 رمزًا مميزًا)
-- **الأصوات غير الكلامية**: يفهم Gemini الأصوات غير الكلامية (مثل زقزقة العصافير وصفارات الإنذار وما إلى ذلك).
-- **الحدّ الأقصى للطول**: 9.5 ساعات من الصوت لكل طلب
-- **درجة الدقة**: تم تخفيضها إلى 16 كيلوبت في الثانية
-- **القنوات**: صوت متعدد القنوات مدمج في قناة واحدة
+- **토큰**: 오디오 초당 토큰 32개 (1분 = 토큰 1,920개)
+- **비언어적 소리**: Gemini는 비언어적 소리 (새소리, 사이렌 등)를 이해합니다.
+- **최대 길이**: 프롬프트당 오디오 9시간 30분
+- **해상도**: 16Kbps로 다운샘플링됨
+- **채널**: 다중 채널 오디오가 단일 채널로 결합됨
 
-## الخطوات التالية
+## 다음 단계
 
-- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ar): تحميل الملفات الصوتية وإدارتها
-- [تعليمات النظام](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ar#system-instructions):
-  تخصيص سلوك النموذج
-- [الناتج المنظَّم](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ar):
-  الحصول على نتائج تحويل الصوت إلى نص بتنسيق JSON
+- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ko): 오디오 파일 업로드 및 관리
+- [시스템 요청 사항](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ko#system-instructions):
+  모델 동작 맞춤설정
+- [구조화된 출력](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ko):
+  JSON 형식으로 스크립트 결과 가져오기
 
-إرسال ملاحظات
+의견 보내기
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-تاريخ التعديل الأخير: 2026-05-09 (حسب التوقيت العالمي المتفَّق عليه)
+최종 업데이트: 2026-05-19(UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+의견을 전달하고 싶나요?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]

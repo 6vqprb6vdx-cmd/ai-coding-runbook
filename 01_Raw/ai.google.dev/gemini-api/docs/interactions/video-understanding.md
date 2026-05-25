@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi
-fetched_at: 2026-05-18T13:08:12.046362+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=hi
+fetched_at: 2026-05-25T12:59:10.648299+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-# Hiểu video
+# वीडियो को समझना
 
-> Để tìm hiểu về tính năng tạo video, hãy xem hướng dẫn về [Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi).
+> वीडियो जनरेट करने के बारे में जानने के लिए, [Veo](https://ai.google.dev/gemini-api/docs/video?hl=hi) गाइड देखें.
 
-Các mô hình Gemini có thể xử lý video, cho phép nhiều trường hợp sử dụng của nhà phát triển tiên phong mà trước đây cần đến các mô hình dành riêng cho miền.
-Một số khả năng thị giác của Gemini bao gồm: mô tả, phân đoạn và trích xuất thông tin từ video, trả lời câu hỏi về nội dung video và tham khảo dấu thời gian cụ thể trong video.
+Gemini मॉडल, वीडियो प्रोसेस कर सकते हैं. इससे डेवलपर को इस्तेमाल के कई ऐसे उदाहरण मिलते हैं जिनके लिए पहले, डोमेन के हिसाब से मॉडल की ज़रूरत होती थी.
+Gemini की विज़न से जुड़ी कुछ क्षमताओं में ये शामिल हैं: वीडियो से जानकारी निकालना, वीडियो के अलग-अलग हिस्सों के बारे में बताना, वीडियो के कॉन्टेंट से जुड़े सवालों के जवाब देना, और वीडियो में किसी खास टाइमस्टैंप का रेफ़रंस देना.
 
-Bạn có thể cung cấp video làm dữ liệu đầu vào cho Gemini theo những cách sau:
+Gemini को इन तरीकों से वीडियो इनपुट के तौर पर दिए जा सकते हैं:
 
-| Phương thức nhập | Kích thước tối đa | Trường hợp sử dụng được đề xuất |
+| इनपुट विधि | ज़्यादा से ज़्यादा साइज़ | इस्तेमाल का सुझाया गया उदाहरण |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 GB (có tính phí) / 2 GB (miễn phí) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp có thể dùng lại. |
-| [Đăng ký Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi#registration) | 2 GB (mỗi tệp, không giới hạn bộ nhớ) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp cố định, có thể dùng lại. |
-| [Dữ liệu nội tuyến](#inline-video) | < 100MB | Tệp nhỏ (<100 MB), thời lượng ngắn (<1 phút), dữ liệu đầu vào một lần. |
-| [URL trên YouTube](#youtube) | Không áp dụng | Video công khai trên YouTube. |
+| [File API](#upload-video) | 20 जीबी (पैसे चुकाकर लिया गया) / 2 जीबी (बिना शुल्क वाला) | बड़ी फ़ाइलें (100 एमबी से ज़्यादा), लंबी अवधि के वीडियो (10 मिनट से ज़्यादा), और फिर से इस्तेमाल की जा सकने वाली फ़ाइलें. |
+| [Cloud Storage रजिस्ट्रेशन](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi#registration) | 2 जीबी (हर फ़ाइल के लिए, स्टोरेज की कोई सीमा नहीं) | बड़ी फ़ाइलें (100 एमबी से ज़्यादा), लंबी अवधि के वीडियो (10 मिनट से ज़्यादा), लगातार इस्तेमाल की जा सकने वाली फ़ाइलें. |
+| [इनलाइन डेटा](#inline-video) | < 100 एमबी | छोटी फ़ाइलें (<100 एमबी), कम अवधि (<1 मिनट), एक बार में इनपुट. |
+| [YouTube के यूआरएल](#youtube) | लागू नहीं | सार्वजनिक तौर पर उपलब्ध YouTube वीडियो. |
 
-> **Lưu ý:** Bạn nên dùng [File API](#upload-video) cho hầu hết các trường hợp sử dụng, đặc biệt là đối với những tệp có kích thước lớn hơn 100 MB hoặc khi bạn muốn dùng lại tệp trong nhiều yêu cầu.
+> **ध्यान दें:** ज़्यादातर मामलों में, [File API](#upload-video) का इस्तेमाल करने का सुझाव दिया जाता है. खास तौर पर, 100 एमबी से ज़्यादा साइज़ वाली फ़ाइलों के लिए या जब आपको एक ही फ़ाइल का इस्तेमाल कई अनुरोधों में करना हो.
 
-Để tìm hiểu về các phương thức nhập tệp khác, chẳng hạn như sử dụng URL bên ngoài hoặc tệp được lưu trữ trong Google Cloud, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=vi).
+फ़ाइल इनपुट करने के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट करने के तरीके](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=hi) गाइड देखें. जैसे, बाहरी यूआरएल या Google Cloud में सेव की गई फ़ाइलों का इस्तेमाल करना.
 
-### Tải tệp video lên
+### वीडियो फ़ाइल अपलोड करना
 
-Đoạn mã sau đây tải một video mẫu xuống, tải video đó lên bằng [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi), đợi video được xử lý, sau đó dùng thông tin tham chiếu về tệp đã tải lên để tóm tắt video.
+नीचे दिए गए कोड में, एक सैंपल वीडियो डाउनलोड किया जाता है. इसके बाद, उसे [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=hi) का इस्तेमाल करके अपलोड किया जाता है. इसके बाद, वीडियो के प्रोसेस होने का इंतज़ार किया जाता है. इसके बाद, अपलोड की गई फ़ाइल के रेफ़रंस का इस्तेमाल करके वीडियो की खास जानकारी तैयार की जाती है.
 
 ### Python
 
@@ -178,16 +178,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, câu lệnh văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB, thời lượng video đáng kể hoặc nếu bạn dự định sử dụng cùng một video trong nhiều câu lệnh.
-File API chấp nhận trực tiếp các định dạng tệp video.
+जब अनुरोध का कुल साइज़ (इसमें फ़ाइल, टेक्स्ट प्रॉम्प्ट, सिस्टम के निर्देश वगैरह शामिल हैं) 20 एमबी से ज़्यादा हो, वीडियो की अवधि ज़्यादा हो या आपको एक ही वीडियो का इस्तेमाल कई प्रॉम्प्ट में करना हो, तो हमेशा Files API का इस्तेमाल करें.
+File API, वीडियो फ़ाइल फ़ॉर्मैट को सीधे तौर पर स्वीकार करता है.
 
-Để tìm hiểu thêm về cách làm việc với tệp đa phương tiện, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi).
+मीडिया फ़ाइलों के साथ काम करने के बारे में ज़्यादा जानने के लिए, [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=hi) देखें.
 
-### Truyền dữ liệu video nội tuyến
+### वीडियो डेटा को इनलाइन पास करना
 
-Thay vì tải tệp video lên bằng File API, bạn có thể truyền trực tiếp các video nhỏ hơn trong yêu cầu. Phương thức này phù hợp với những video ngắn có tổng kích thước yêu cầu dưới 20 MB.
+File API का इस्तेमाल करके वीडियो फ़ाइल अपलोड करने के बजाय, अनुरोध में सीधे तौर पर छोटे वीडियो पास किए जा सकते हैं. यह 20 एमबी से कम साइज़ वाले छोटे वीडियो के लिए सही है.
 
-Dưới đây là ví dụ về cách cung cấp dữ liệu video nội tuyến:
+यहां इनलाइन वीडियो का डेटा देने का उदाहरण दिया गया है:
 
 ### Python
 
@@ -266,9 +266,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### URL của YouTube
+### YouTube वीडियो के यूआरएल पास करना
 
-Bạn có thể truyền trực tiếp URL của YouTube đến Gemini API trong yêu cầu của mình như sau:
+अपने अनुरोध के हिस्से के तौर पर, YouTube यूआरएल को सीधे Gemini API पर भेजा जा सकता है. इसके लिए, यह तरीका अपनाएं:
 
 ### Python
 
@@ -328,16 +328,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**Các điểm hạn chế:**
+**सीमाएं:**
 
-- Đối với gói miễn phí, bạn không thể tải quá 8 giờ video trên YouTube lên mỗi ngày.
-- Đối với gói có tính phí, không có giới hạn về thời lượng video.
-- Đối với các mô hình trước Gemini 2.5, bạn chỉ có thể tải 1 video lên mỗi yêu cầu. Đối với Gemini 2.5 và các mô hình sau này, bạn có thể tải tối đa 10 video lên cho mỗi yêu cầu.
-- Bạn chỉ có thể tải video công khai lên (không thể tải video riêng tư hoặc không công khai lên).
+- मुफ़्त टियर के लिए, हर दिन आठ घंटे से ज़्यादा का YouTube वीडियो अपलोड नहीं किया जा सकता.
+- पैसे चुकाकर ली जाने वाली सदस्यता के लिए, वीडियो की अवधि के हिसाब से कोई सीमा तय नहीं की गई है.
+- Gemini 2.5 से पहले के मॉडल के लिए, हर अनुरोध में सिर्फ़ एक वीडियो अपलोड किया जा सकता है. Gemini 2.5 और इसके बाद के मॉडल के लिए, हर अनुरोध में ज़्यादा से ज़्यादा 10 वीडियो अपलोड किए जा सकते हैं.
+- सिर्फ़ सार्वजनिक वीडियो अपलोड किए जा सकते हैं. निजी या 'सबके लिए मौजूद नहीं' के तौर पर उपलब्ध वीडियो अपलोड नहीं किए जा सकते.
 
-## Tham khảo dấu thời gian trong nội dung
+## कॉन्टेंट में मौजूद टाइमस्टैंप देखें
 
-Bạn có thể đặt câu hỏi về những thời điểm cụ thể trong video bằng cách sử dụng dấu thời gian có dạng `MM:SS`.
+वीडियो में किसी खास समय के बारे में सवाल पूछने के लिए, `MM:SS` फ़ॉर्मैट वाले टाइमस्टैंप का इस्तेमाल किया जा सकता है.
 
 ### Python
 
@@ -357,12 +357,12 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## Trích xuất thông tin chi tiết từ video
+## वीडियो से अहम जानकारी निकालना
 
-Các mô hình Gemini mang đến những khả năng mạnh mẽ để hiểu nội dung video bằng cách xử lý thông tin từ cả luồng **âm thanh và hình ảnh**. Nhờ đó, bạn có thể trích xuất một bộ thông tin chi tiết phong phú, bao gồm cả việc tạo nội dung mô tả về những gì đang diễn ra trong video và trả lời các câu hỏi về nội dung của video.
+Gemini मॉडल, वीडियो कॉन्टेंट को समझने के लिए कई सुविधाएं देते हैं. इसके लिए, वे **ऑडियो और विज़ुअल**, दोनों स्ट्रीम से मिली जानकारी को प्रोसेस करते हैं. इसकी मदद से, आपको वीडियो के बारे में ज़्यादा जानकारी मिलती है. जैसे, वीडियो में क्या हो रहा है, इसके बारे में ब्यौरा जनरेट करना और वीडियो के कॉन्टेंट के बारे में सवालों के जवाब देना.
 
-Đối với nội dung mô tả bằng hình ảnh, mô hình lấy mẫu video với tốc độ **1 khung hình/giây** (FPS). Tỷ lệ lấy mẫu mặc định này phù hợp với hầu hết nội dung, nhưng lưu ý rằng tỷ lệ này có thể bỏ lỡ các chi tiết trong video có chuyển động nhanh hoặc cảnh thay đổi nhanh.
-Đối với nội dung có chuyển động nhanh như vậy, hãy cân nhắc [đặt tốc độ khung hình tuỳ chỉnh](#custom-frame-rate).
+विज़ुअल के बारे में जानकारी देने के लिए, मॉडल वीडियो को **एक फ़्रेम प्रति सेकंड** (एफ़पीएस) की दर से सैंपल करता है. डिफ़ॉल्ट सैंपलिंग रेट, ज़्यादातर कॉन्टेंट के लिए सही होता है. हालांकि, ध्यान दें कि तेज़ी से चलने वाले वीडियो या सीन में तेज़ी से बदलाव होने वाले वीडियो में, यह कुछ जानकारी को छोड़ सकता है.
+तेज़ी से चलने वाले ऐसे कॉन्टेंट के लिए, [कस्टम फ़्रेम रेट सेट करें](#custom-frame-rate).
 
 ### Python
 
@@ -382,9 +382,9 @@ const prompt = "Describe the key events in this video, providing both audio and 
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## Định dạng video được hỗ trợ
+## काम करने वाले वीडियो फ़ॉर्मैट
 
-Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
+Gemini, इन वीडियो फ़ॉर्मैट के MIME टाइप के साथ काम करता है:
 
 - `video/mp4`
 - `video/mpeg`
@@ -396,46 +396,47 @@ Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
 - `video/wmv`
 - `video/3gpp`
 
-## Thông tin kỹ thuật về video
+## वीडियो के बारे में तकनीकी जानकारी
 
-- **Các mô hình và ngữ cảnh được hỗ trợ**: Tất cả các mô hình Gemini đều có thể xử lý dữ liệu video.
-  - Các mô hình có cửa sổ ngữ cảnh 1 triệu token có thể xử lý video dài tối đa 1 giờ ở độ phân giải mặc định hoặc video dài tối đa 3 giờ ở độ phân giải thấp.
-- **Xử lý bằng File API**: Khi sử dụng File API, video được lưu trữ ở tốc độ 1 khung hình/giây (FPS) và âm thanh được xử lý ở tốc độ 1 Kbps (một kênh).
-  Dấu thời gian được thêm vào mỗi giây.
-  - Những tỷ lệ này có thể thay đổi trong tương lai để cải thiện khả năng suy luận.
-- **Tính toán mã thông báo**: Mỗi giây video được mã hoá như sau:
-  - Khung hình riêng lẻ (lấy mẫu ở tốc độ 1 khung hình/giây):
-    - Nếu `media_resolution` được đặt thành thấp, các khung hình sẽ được mã hoá thành 66 mã thông báo cho mỗi khung hình.
-    - Nếu không, các khung hình sẽ được mã hoá thành 258 mã thông báo cho mỗi khung hình.
-  - Âm thanh: 32 mã thông báo mỗi giây.
-  - Siêu dữ liệu cũng được đưa vào.
-  - Tổng cộng: Khoảng 300 mã thông báo cho mỗi giây video ở độ phân giải mặc định của nội dung nghe nhìn hoặc 100 mã thông báo cho mỗi giây video ở độ phân giải thấp của nội dung nghe nhìn.
-- **Độ phân giải trung bình**: Gemini 3 giới thiệu khả năng kiểm soát chi tiết đối với quá trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
-  Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
+- **इस्तेमाल किए जा सकने वाले मॉडल और कॉन्टेक्स्ट**: Gemini के सभी मॉडल, वीडियो डेटा को प्रोसेस कर सकते हैं.
+  - 10 लाख कॉन्टेक्स्ट विंडो वाले मॉडल, डिफ़ॉल्ट मीडिया रिज़ॉल्यूशन पर एक घंटे तक के वीडियो प्रोसेस कर सकते हैं. वहीं, कम मीडिया रिज़ॉल्यूशन पर तीन घंटे तक के वीडियो प्रोसेस किए जा सकते हैं.
+- **File API प्रोसेसिंग**: File API का इस्तेमाल करते समय, वीडियो को एक फ़्रेम प्रति सेकंड (एफ़पीएस) पर सेव किया जाता है. साथ ही, ऑडियो को 1Kbps (सिंगल चैनल) पर प्रोसेस किया जाता है.
+  हर सेकंड टाइमस्टैंप जोड़े जाते हैं.
+  - इन दरों में आने वाले समय में बदलाव हो सकता है, ताकि अनुमान लगाने की प्रोसेस को बेहतर बनाया जा सके.
+- **टोकन की गिनती**: वीडियो के हर सेकंड को इस तरह टोकन में बदला जाता है:
+  - अलग-अलग फ़्रेम (1 एफ़पीएस पर सैंपल किए गए):
+    - अगर `media_resolution` को कम पर सेट किया जाता है, तो हर फ़्रेम को 66 टोकन में बदला जाता है.
+    - अगर ऐसा नहीं है, तो हर फ़्रेम को 258 टोकन के हिसाब से टोकन में बदला जाता है.
+  - ऑडियो: हर सेकंड 32 टोकन.
+  - इसमें मेटाडेटा भी शामिल होता है.
+  - कुल: डिफ़ॉल्ट मीडिया रिज़ॉल्यूशन पर, वीडियो के हर सेकंड के लिए करीब 300 टोकन या कम मीडिया रिज़ॉल्यूशन पर, वीडियो के हर सेकंड के लिए 100 टोकन.
+- **मीडिया की क्वालिटी**: Gemini 3 में, `media_resolution` पैरामीटर की मदद से मल्टीमॉडल विज़न प्रोसेसिंग को ज़्यादा बारीकी से कंट्रोल करने की सुविधा मिलती है. `media_resolution` पैरामीटर से यह तय होता है कि **हर इनपुट इमेज या वीडियो फ़्रेम के लिए ज़्यादा से ज़्यादा कितने टोकन असाइन किए जाएं.**
+  ज़्यादा रिज़ॉल्यूशन से, मॉडल को छोटे टेक्स्ट को पढ़ने या छोटी-छोटी बारीकियों को पहचानने में मदद मिलती है. हालांकि, इससे टोकन का इस्तेमाल और लेटेन्सी बढ़ जाती है.
 
-  tính toán, hãy xem hướng dẫn về [mã thông báo](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=vi).
-- **Định dạng dấu thời gian**: Khi đề cập đến những khoảnh khắc cụ thể trong video trong câu lệnh, hãy sử dụng định dạng `MM:SS` (ví dụ: `01:15` cho 1 phút 15 giây).
-- **Các phương pháp hay nhất**:
+  कैलकुलेशन के बारे में जानने के लिए, [टोकन](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=hi) गाइड देखें.
+- **टाइमस्टैंप का फ़ॉर्मैट**: अगर आपको वीडियो के किसी खास हिस्से के बारे में बताना है, तो अपने प्रॉम्प्ट में `MM:SS` फ़ॉर्मैट का इस्तेमाल करें. उदाहरण के लिए, 1 मिनट और 15 सेकंड के लिए `01:15` का इस्तेमाल करें.
+- **सबसे सही तरीके**:
 
-  - Chỉ sử dụng một video cho mỗi yêu cầu câu lệnh để có kết quả tối ưu.
-  - Nếu kết hợp văn bản và một video, hãy đặt câu lệnh bằng văn bản *sau* phần video trong mảng `input`.
-  - Xin lưu ý rằng các cảnh hành động nhanh có thể bị mất chi tiết do tốc độ lấy mẫu 1 khung hình/giây. Cân nhắc làm chậm những đoạn video như vậy nếu cần.
+  - बेहतर नतीजों के लिए, हर प्रॉम्प्ट के अनुरोध में सिर्फ़ एक वीडियो का इस्तेमाल करें.
+  - अगर टेक्स्ट और एक वीडियो को साथ में इस्तेमाल किया जा रहा है, तो `input` ऐरे में वीडियो वाले हिस्से के *बाद* टेक्स्ट प्रॉम्प्ट डालें.
+  - ध्यान दें कि 1 एफ़पीएस की सैंपलिंग दर की वजह से, तेज़ कार्रवाई वाले सीक्वेंस में जानकारी कम हो सकती है. अगर ज़रूरी हो, तो ऐसी क्लिप की स्पीड कम करें.
 
-## Bước tiếp theo
+## आगे क्या करना है
 
-Hướng dẫn này trình bày cách tải tệp video lên và tạo đầu ra văn bản từ đầu vào video. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
+इस गाइड में, वीडियो फ़ाइलें अपलोड करने और वीडियो इनपुट से टेक्स्ट आउटपुट जनरेट करने का तरीका बताया गया है. ज़्यादा जानने के लिए, यहां दिए गए संसाधन देखें:
 
-- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều hướng hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
-- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi): Tìm hiểu thêm về cách tải lên và quản lý tệp để sử dụng với Gemini.
-- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
-- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Việc xử lý hậu kỳ và đánh giá của con người là điều cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
+- [सिस्टम के लिए निर्देश](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=hi#system-instructions):
+  सिस्टम के लिए निर्देश देने की सुविधा की मदद से, अपनी खास ज़रूरतों और इस्तेमाल के उदाहरणों के आधार पर, मॉडल के व्यवहार को कंट्रोल किया जा सकता है.
+- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=hi): Gemini के साथ इस्तेमाल करने के लिए, फ़ाइलें अपलोड करने और मैनेज करने के बारे में ज़्यादा जानें.
+- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/interactions/files?hl=hi#prompt-guide): Gemini API में टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा उपलब्ध है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
+- [सुरक्षा से जुड़ी गाइडलाइन](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=hi): कभी-कभी जनरेटिव एआई मॉडल ऐसे आउटपुट जनरेट करते हैं जिनकी उम्मीद नहीं होती. जैसे, गलत, पक्षपात करने वाले या आपत्तिजनक आउटपुट. इस तरह के आउटपुट से होने वाले नुकसान के जोखिम को कम करने के लिए, पोस्ट-प्रोसेसिंग और मैन्युअल तरीके से आकलन करना ज़रूरी है.
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-05-09 UTC.
+आखिरी बार 2026-05-09 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-09 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-09 (UTC) को अपडेट किया गया."],[],[]]

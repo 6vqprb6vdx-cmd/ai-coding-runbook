@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=ar
-fetched_at: 2026-05-18T13:04:25.398777+00:00
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=vi
+fetched_at: 2026-05-25T12:57:56.349701+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-# ‫Gemini يفكّر
+# Gemini đang suy nghĩ
 
-تستخدم [سلسلة نماذج Gemini 3 و2.5](https://ai.google.dev/gemini-api/docs/models?hl=ar) "عملية تفكير" داخلية تحسّن بشكل كبير قدراتها على الاستدلال والتخطيط المتعدّد الخطوات، ما يجعلها فعّالة للغاية في المهام المعقّدة، مثل الترميز والرياضيات المتقدّمة وتحليل البيانات.
+[Các mô hình thuộc dòng Gemini 3 và 2.5](https://ai.google.dev/gemini-api/docs/models?hl=vi) sử dụng một "quy trình tư duy" nội bộ giúp cải thiện đáng kể khả năng suy luận và lập kế hoạch nhiều bước, khiến các mô hình này trở nên hiệu quả cao đối với các nhiệm vụ phức tạp như lập trình, toán học nâng cao và phân tích dữ liệu.
 
-يوضّح هذا الدليل كيفية الاستفادة من إمكانات التفكير في Gemini باستخدام Gemini API.
+Hướng dẫn này cho bạn biết cách khai thác khả năng tư duy của Gemini bằng Gemini API.
 
-## إنشاء محتوى مع التفكير
+## Tạo nội dung bằng tư duy
 
-إنّ بدء طلب باستخدام نموذج تفكير يشبه أي طلب آخر لإنشاء المحتوى. يكمن الاختلاف الرئيسي في تحديد أحد [النماذج التي تتضمّن ميزة التفكير](#supported-models) في الحقل `model`، كما هو موضّح في مثال [إنشاء النص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#text-input) التالي:
+Việc bắt đầu một yêu cầu bằng mô hình tư duy cũng tương tự như mọi yêu cầu tạo nội dung khác. Điểm khác biệt chính nằm ở việc chỉ định một trong các [mô hình có hỗ trợ tư duy](#supported-models) trong trường `model`, như minh hoạ trong ví dụ [tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#text-input) sau đây:
 
 ### Python
 
@@ -34,7 +34,7 @@ from google import genai
 client = genai.Client()
 prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example."
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=prompt
 )
 
@@ -52,7 +52,7 @@ async function main() {
   const prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example.";
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: prompt,
   });
 
@@ -83,7 +83,7 @@ func main() {
   }
 
   prompt := "Explain the concept of Occam's Razor and provide a simple, everyday example."
-  model := "gemini-3-flash-preview"
+  model := "gemini-3.5-flash"
 
   resp, _ := client.Models.GenerateContent(ctx, model, genai.Text(prompt), nil)
 
@@ -94,7 +94,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
  -H "x-goog-api-key: $GEMINI_API_KEY" \
  -H 'Content-Type: application/json' \
  -X POST \
@@ -112,14 +112,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
  ```
 ```
 
-## ملخّصات الأفكار
+## Tóm tắt suy nghĩ
 
-ملخّصات الأفكار هي إصدارات موجزة من الأفكار الأولية التي يطرحها النموذج، وهي تقدّم
-إحصاءات حول عملية الاستدلال الداخلية التي يجريها النموذج. يُرجى العِلم أنّ مستويات التفكير والميزانيات تنطبق على الأفكار الأولية للنموذج وليس على ملخّصات الأفكار.
+Bản tóm tắt suy nghĩ là phiên bản tóm tắt về những suy nghĩ thô của mô hình và cung cấp thông tin chi tiết về quy trình suy luận nội bộ của mô hình. Xin lưu ý rằng các cấp độ và ngân sách tư duy áp dụng cho suy nghĩ thô của mô hình chứ không áp dụng cho bản tóm tắt suy nghĩ.
 
-يمكنك تفعيل ملخّصات الأفكار من خلال ضبط `includeThoughts` على `true` في إعدادات الطلب. يمكنك بعد ذلك الوصول إلى الملخّص من خلال تكرار المعلَمة `response`، والتحقّق من القيمة المنطقية `thought`.`parts`
+Bạn có thể bật tính năng tóm tắt suy nghĩ bằng cách đặt `includeThoughts` thành `true` trong cấu hình yêu cầu. Sau đó, bạn có thể truy cập vào bản tóm tắt bằng cách lặp lại `parts` của tham số `response` và kiểm tra boolean `thought`.
 
-في ما يلي مثال يوضّح كيفية تفعيل ملخّصات الأفكار واستردادها بدون بث، ما يؤدي إلى عرض ملخّص نهائي واحد للأفكار مع الردّ:
+Dưới đây là ví dụ minh hoạ cách bật và truy xuất bản tóm tắt suy nghĩ mà không cần truyền trực tuyến, trả về một bản tóm tắt suy nghĩ cuối cùng duy nhất cùng với phản hồi:
 
 ### Python
 
@@ -130,7 +129,7 @@ from google.genai import types
 client = genai.Client()
 prompt = "What is the sum of the first 50 prime numbers?"
 response = client.models.generate_content(
-  model="gemini-3-flash-preview",
+  model="gemini-3.5-flash",
   contents=prompt,
   config=types.GenerateContentConfig(
     thinking_config=types.ThinkingConfig(
@@ -161,7 +160,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: "What is the sum of the first 50 prime numbers?",
     config: {
       thinkingConfig: {
@@ -208,7 +207,7 @@ func main() {
   }
 
   contents := genai.Text("What is the sum of the first 50 prime numbers?")
-  model := "gemini-3-flash-preview"
+  model := "gemini-3.5-flash"
   resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
       IncludeThoughts: true,
@@ -229,7 +228,7 @@ func main() {
 }
 ```
 
-في ما يلي مثال على استخدام ميزة "التفكير أثناء البث"، والتي تعرض ملخّصات متجدّدة وتدريجية أثناء عملية الإنشاء:
+Sau đây là ví dụ về cách sử dụng tính năng suy nghĩ bằng cách phát trực tuyến, tính năng này sẽ trả về các bản tóm tắt tăng dần, liên tục trong quá trình tạo:
 
 ### Python
 
@@ -253,7 +252,7 @@ thoughts = ""
 answer = ""
 
 for chunk in client.models.generate_content_stream(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=prompt,
     config=types.GenerateContentConfig(
       thinking_config=types.ThinkingConfig(
@@ -294,7 +293,7 @@ let answer = "";
 
 async function main() {
   const response = await ai.models.generateContentStream({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: prompt,
     config: {
       thinkingConfig: {
@@ -358,7 +357,7 @@ func main() {
   }
 
   contents := genai.Text(prompt)
-  model := "gemini-3-flash-preview"
+  model := "gemini-3.5-flash"
 
   resp := client.Models.GenerateContentStream(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
@@ -382,25 +381,25 @@ func main() {
 }
 ```
 
-## التحكّم في التفكير
+## Kiểm soát suy nghĩ
 
-تعتمد نماذج Gemini التفكير الديناميكي تلقائيًا، ما يعني أنّها تعدّل تلقائيًا مقدار الجهد المبذول في الاستدلال استنادًا إلى مدى تعقيد طلب المستخدم.
-ومع ذلك، إذا كانت لديك قيود محدّدة بشأن وقت الاستجابة أو كنت تحتاج إلى أن يشارك النموذج في عملية تفكير أعمق من المعتاد، يمكنك اختياريًا استخدام المَعلمات للتحكّم في سلوك التفكير.
+Theo mặc định, các mô hình Gemini tham gia vào quá trình tư duy linh hoạt bằng cách tự động điều chỉnh mức độ nỗ lực suy luận dựa trên độ phức tạp của yêu cầu của người dùng.
+Tuy nhiên, nếu có những hạn chế cụ thể về độ trễ hoặc yêu cầu mô hình tham gia vào quá trình suy luận sâu hơn bình thường, bạn có thể tuỳ ý sử dụng các tham số để kiểm soát hành vi tư duy.
 
-### مستويات التفكير (Gemini 3)
+### Cấp độ tư duy (Gemini 3)
 
-تتيح لك المَعلمة `thinkingLevel`، التي يُنصح باستخدامها مع نماذج Gemini 3 والإصدارات الأحدث، التحكّم في سلوك الاستدلال.
+Tham số `thinkingLevel` (nên dùng cho các mô hình Gemini 3 trở lên) cho phép bạn kiểm soát hành vi suy luận.
 
-يوضّح الجدول التالي إعدادات `thinkingLevel` لكل نوع من أنواع النماذج:
+Bảng sau đây trình bày chi tiết các chế độ cài đặt `thinkingLevel` cho từng loại mô hình:
 
-| مستوى التفكير | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | الوصف |
-| --- | --- | --- | --- | --- |
-| **`minimal`** | غير متاح | متاح (الإعداد التلقائي) | متاح | يتطابق هذا الخيار مع الإعداد "بدون تفكير" لمعظم طلبات البحث. قد يفكّر النموذج بشكل محدود جدًا لإنجاز مهام الترميز المعقّدة. يقلّل من وقت الاستجابة للتطبيقات التي تتضمّن محادثات أو تتطلّب معدّل أعلى لنقل البيانات. يُرجى العِلم أنّ `minimal` لا يضمن إيقاف التفكير. |
-| **`low`** | متاح | متاح | متاح | يقلّل من زمن الانتقال والتكلفة. الأفضل للتطبيقات التي تتطلّب اتّباع تعليمات بسيطة أو المحادثة أو معالجة البيانات بسرعة كبيرة. |
-| **`medium`** | متاح | متاح | متاح | تفكير متوازن لمعظم المهام |
-| **`high`** | متاح (تلقائي، ديناميكي) | متاح (ديناميكي) | متاح (تلقائي، ديناميكي) | زيادة عمق الاستدلال إلى أقصى حد قد يستغرق النموذج وقتًا أطول بكثير للوصول إلى الرمز المميز الأول (غير المفكّر)، ولكن سيكون الناتج أكثر دقة. |
+| Cấp độ tư duy | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Gemini 3.5 Flash | Mô tả |
+| --- | --- | --- | --- | --- | --- |
+| **`minimal`** | Không được hỗ trợ | Được hỗ trợ (Mặc định) | Được hỗ trợ | Được hỗ trợ | Phù hợp với chế độ cài đặt "không suy nghĩ" cho hầu hết các cụm từ tìm kiếm. Mô hình có thể tư duy rất ít cho các nhiệm vụ lập trình phức tạp. Giảm thiểu độ trễ cho các ứng dụng trò chuyện hoặc ứng dụng có thông lượng cao. Xin lưu ý rằng `minimal` không đảm bảo rằng tính năng suy nghĩ đã tắt. |
+| **`low`** | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Giảm thiểu độ trễ và chi phí. Phù hợp nhất với các ứng dụng tuân theo hướng dẫn đơn giản, trò chuyện hoặc có thông lượng cao. |
+| **`medium`** | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ (Mặc định) | Tư duy cân bằng cho hầu hết các nhiệm vụ. |
+| **`high`** | Được hỗ trợ (Mặc định, Động) | Được hỗ trợ (Động) | Được hỗ trợ (Mặc định, Động) | Được hỗ trợ (Động) | Tối đa hoá độ sâu suy luận. Mô hình có thể mất nhiều thời gian hơn đáng kể để đạt được mã thông báo đầu tiên (không phải mã thông báo tư duy), nhưng đầu ra sẽ được suy luận cẩn thận hơn. |
 
-يوضّح المثال التالي كيفية ضبط مستوى التفكير.
+Ví dụ sau đây cho thấy cách thiết lập cấp độ tư duy.
 
 ### Python
 
@@ -411,7 +410,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents="Provide a list of 3 famous physicists and their key contributions",
     config=types.GenerateContentConfig(
         thinking_config=types.ThinkingConfig(thinking_level="low")
@@ -430,7 +429,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: "Provide a list of 3 famous physicists and their key contributions",
     config: {
       thinkingConfig: {
@@ -467,7 +466,7 @@ func main() {
   thinkingLevelVal := "low"
 
   contents := genai.Text("Provide a list of 3 famous physicists and their key contributions")
-  model := "gemini-3-flash-preview"
+  model := "gemini-3.5-flash"
   resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
     ThinkingConfig: &genai.ThinkingConfig{
       ThinkingLevel: &thinkingLevelVal,
@@ -481,7 +480,7 @@ fmt.Println(resp.Text())
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -X POST \
@@ -503,29 +502,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 }'
 ```
 
-لا يمكنك إيقاف ميزة "أفكاري" في Gemini 3.1 Pro. لا يتيح نموذجا Gemini 3 Flash وFlash-Lite إيقاف التفكير بالكامل، ولكن يعني `minimal`
-أنّ النموذج لن يفكّر على الأرجح (مع أنّه قد يفكّر في بعض الأحيان).
-إذا لم تحدّد مستوى التفكير، سيستخدم Gemini مستوى التفكير الديناميكي التلقائي `"high"` في نماذج Gemini 3.
+Bạn không thể tắt tính năng suy nghĩ cho Gemini 3.1 Pro. Gemini 3 Flash và Flash-Lite cũng không hỗ trợ tắt hoàn toàn tính năng tư duy, nhưng chế độ cài đặt `minimal` có nghĩa là mô hình có thể sẽ không tư duy (mặc dù vẫn có khả năng).
+Nếu bạn không chỉ định mức độ tư duy, Gemini sẽ sử dụng mức độ tư duy mặc định của các mô hình Gemini 3 (ví dụ: `"high"` cho Gemini 3.1 Pro và `"medium"` cho Gemini 3.5 Flash).
 
-لا تتوافق سلسلة نماذج Gemini 2.5 مع `thinkingLevel`، لذا يُرجى استخدام `thinkingBudget` بدلاً من ذلك.
+Các mô hình Gemini 2.5 không hỗ trợ `thinkingLevel`; thay vào đó, hãy sử dụng `thinkingBudget`.
 
-### التفكير في الميزانيات
+### Ngân sách tư duy
 
-توجّه المَعلمة `thinkingBudget`، التي تم طرحها مع سلسلة Gemini 2.5، النموذج بشأن العدد المحدّد من الرموز المميزة التي يجب استخدامها للاستدلال.
+Tham số `thinkingBudget` (ra mắt cùng với dòng Gemini 2.5) hướng dẫn mô hình về số lượng mã thông báo tư duy cụ thể cần sử dụng để suy luận.
 
-في ما يلي تفاصيل `thinkingBudget` الإعدادات لكل نوع من أنواع النماذج.
-يمكنك إيقاف التفكير من خلال ضبط `thinkingBudget` على 0.
-يؤدي ضبط قيمة `thinkingBudget` على -1 إلى تفعيل **الاستدلال الديناميكي**، ما يعني أنّ النموذج سيعدّل الميزانية استنادًا إلى مدى تعقيد الطلب.
+Sau đây là thông tin chi tiết về cấu hình `thinkingBudget` cho từng loại mô hình.
+Bạn có thể tắt tính năng suy nghĩ bằng cách đặt `thinkingBudget` thành 0.
+Việc đặt `thinkingBudget` thành -1 sẽ bật **tư duy linh hoạt**, tức là mô hình sẽ điều chỉnh ngân sách dựa trên độ phức tạp của yêu cầu.
 
-| الطراز | الإعداد التلقائي (لم يتم ضبط ميزانية التفكير) | النطاق | إيقاف التفكير | تفعيل التفكير الديناميكي |
+| Mô hình | Chế độ cài đặt mặc định (Chưa đặt ngân sách suy nghĩ) | Phạm vi | Tắt tính năng suy nghĩ | Bật tư duy linh hoạt |
 | --- | --- | --- | --- | --- |
-| ‫**2.5 Pro** | التفكير الديناميكي | من `128` إلى `32768` | لا ينطبق: لا يمكن إيقاف التفكير | `thinkingBudget = -1` (تلقائي) |
-| **2.5 Flash** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
-| **معاينة ‎2.5 Flash** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
-| ‫**2.5 Flash Lite** | النموذج لا يفكّر | من `512` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **معاينة إصدار Flash Lite من ‎2.5** | النموذج لا يفكّر | من `512` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **الإصدار التجريبي من Robotics-ER 1.6** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
-| **‫2.5 Flash Live Native Audio Preview (09-2025)** | التفكير الديناميكي | من `0` إلى `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (تلقائي) |
+| **2.5 Pro** | Tư duy linh hoạt | `128` đến `32768` | Không áp dụng: Không tắt được tính năng suy nghĩ | `thinkingBudget = -1` (Mặc định) |
+| **2.5 Flash** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
+| **2.5 Flash Preview** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
+| **2.5 Flash Lite** | Mô hình không suy nghĩ | `512` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite Preview** | Mô hình không suy nghĩ | `512` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 Preview** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
+| **2.5 Flash Bản xem trước âm thanh gốc trực tiếp (tháng 9 năm 2025)** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
 
 ### Python
 
@@ -640,30 +638,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-استنادًا إلى الطلب، قد يتجاوز النموذج ميزانية الرموز المميزة أو لا يبلغها.
+Tuỳ thuộc vào câu lệnh, mô hình có thể vượt quá hoặc không đạt được hạn mức token.
 
-## توقيعات الأفكار
+## Chữ ký của suy nghĩ
 
-‫Gemini API غير احتفاظي بالحالة، لذا يتعامل النموذج مع كل طلب بيانات من واجهة برمجة التطبيقات بشكل مستقل، ولا يمكنه الوصول إلى سياق الأفكار من الأدوار السابقة في التفاعلات المتعددة الأدوار.
+Gemini API không lưu giữ trạng thái, vì vậy mô hình này xử lý độc lập mọi yêu cầu API và không có quyền truy cập vào ngữ cảnh suy nghĩ từ các lượt tương tác trước đó trong các lượt tương tác nhiều lượt.
 
-لإتاحة الحفاظ على سياق الأفكار خلال المحادثات المتعددة الأدوار، يعرض Gemini توقيعات الأفكار، وهي تمثيلات مشفّرة لعملية معالجة الأفكار الداخلية في النموذج.
+Để duy trì bối cảnh tư duy trong các lượt tương tác nhiều lượt, Gemini trả về chữ ký tư duy. Đây là các biểu thị được mã hoá của quy trình tư duy nội bộ của mô hình.
 
-- تعرض **نماذج Gemini 2.5** توقيعات الأفكار عندما تكون ميزة "التفكير" مفعّلة ويتضمّن الطلب [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#thinking)، وتحديدًا [تعريفات الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-2).
-- قد تعرض **نماذج Gemini 3** توقيعات الأفكار لجميع أنواع [الأجزاء](https://ai.google.dev/api/caching?hl=ar#Part).
-  ننصحك دائمًا بإعادة جميع التواقيع كما تم استلامها، ولكن هذا الإجراء *إلزامي* لتواقيع طلبات تنفيذ الدوال. يمكنك الاطّلاع على صفحة [توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar) لمعرفة المزيد.
+- **Các mô hình Gemini 2.5** trả về chữ ký suy nghĩ khi bạn bật tính năng suy nghĩ và yêu cầu bao gồm [lệnh gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#thinking), cụ thể là [khai báo hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-2).
+- **Các mô hình Gemini 3** có thể trả về chữ ký suy nghĩ cho tất cả các loại [phần](https://ai.google.dev/api/caching?hl=vi#Part).
+  Bạn nên luôn truyền tất cả chữ ký trở lại như đã nhận, nhưng đây là *yêu cầu bắt buộc* đối với chữ ký gọi hàm. Hãy đọc trang [Chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để tìm hiểu thêm.
 
-تشمل القيود الأخرى على الاستخدام التي يجب مراعاتها عند استخدام ميزة "استدعاء الدوال" ما يلي:
+Những hạn chế khác về việc sử dụng cần cân nhắc khi gọi hàm bao gồm:
 
-- يتم عرض التواقيع من النموذج ضمن أجزاء أخرى في الردّ،
-  مثل استدعاء الدوال أو الأجزاء النصية.
-  [أعِد الردّ بأكمله](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-4)
-  مع جميع الأجزاء إلى النموذج في المحادثات اللاحقة.
-- لا تدمج الأجزاء التي تتضمّن توقيعات معًا.
-- لا تدمج جزءًا من مستند يتضمّن توقيعًا مع جزء آخر لا يتضمّن توقيعًا.
+- Chữ ký được trả về từ mô hình trong các phần khác của phản hồi, ví dụ: gọi hàm hoặc các phần văn bản.
+  [Trả về toàn bộ câu trả lời](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-4) cùng với tất cả các phần cho mô hình trong các lượt tiếp theo.
+- Đừng nối các phần có chữ ký với nhau.
+- Không được hợp nhất một phần có chữ ký với một phần không có chữ ký.
 
-## الأسعار
+## Giá
 
-عند تفعيل ميزة "التفكير"، يكون سعر الردّ هو مجموع الرموز المميزة للناتج والرموز المميزة للتفكير. يمكنك الحصول على إجمالي عدد الرموز المميزة التي تم إنشاؤها من حقل `thoughtsTokenCount`.
+Khi tính năng suy nghĩ được bật, giá phản hồi là tổng số mã thông báo đầu ra và mã thông báo suy nghĩ. Bạn có thể lấy tổng số mã thông báo tư duy đã tạo từ trường `thoughtsTokenCount`.
 
 ### Python
 
@@ -693,53 +689,52 @@ fmt.Println("Thoughts tokens:", string(usageMetadata.thoughts_token_count))
 fmt.Println("Output tokens:", string(usageMetadata.candidates_token_count))
 ```
 
-تنشئ نماذج التفكير أفكارًا كاملة لتحسين جودة الرد النهائي، ثم تعرض [ملخّصات](#summaries) لتقديم نظرة ثاقبة حول عملية التفكير. لذلك، يستند التسعير إلى الرموز المميزة الكاملة التي يحتاج إليها النموذج لإنشاء ملخّص، على الرغم من أنّ الملخّص هو الناتج الوحيد من واجهة برمجة التطبيقات.
+Các mô hình tư duy tạo ra những suy nghĩ hoàn chỉnh để cải thiện chất lượng của câu trả lời cuối cùng, sau đó đưa ra [bản tóm tắt](#summaries) để cung cấp thông tin chi tiết về quy trình tư duy. Vì vậy, giá được tính dựa trên số lượng mã thông báo đầy đủ mà mô hình cần tạo để tạo bản tóm tắt, mặc dù chỉ có bản tóm tắt được xuất ra từ API.
 
-يمكنك الاطّلاع على مزيد من المعلومات حول الرموز المميزة في دليل [احتساب الرموز المميزة](https://ai.google.dev/gemini-api/docs/tokens?hl=ar).
+Bạn có thể tìm hiểu thêm về mã thông báo trong hướng dẫn [Đếm mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
 
-## أفضل الممارسات
+## Các phương pháp hay nhất
 
-يتضمّن هذا القسم بعض الإرشادات لاستخدام نماذج التفكير بكفاءة.
-كما هو الحال دائمًا، سيساعدك اتّباع [إرشادات كتابة الطلبات وأفضل الممارسات](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar) في الحصول على أفضل النتائج.
+Phần này bao gồm một số hướng dẫn để sử dụng hiệu quả các mô hình tư duy.
+Như thường lệ, việc làm theo [hướng dẫn và các phương pháp hay nhất về câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi) sẽ giúp bạn đạt được kết quả tốt nhất.
 
-### تصحيح الأخطاء والتوجيه
+### Gỡ lỗi và định hướng
 
-- **مراجعة الاستدلال**: عندما لا تحصل على الردّ المتوقّع من نماذج التفكير، قد يساعدك ذلك في تحليل ملخّصات أفكار Gemini بعناية.
-  يمكنك الاطّلاع على كيفية تقسيم المهمة والوصول إلى الاستنتاج، واستخدام هذه المعلومات لتصحيح النتائج.
-- **تقديم إرشادات بشأن الاستدلال**: إذا كنت تأمل في الحصول على ناتج طويل بشكل خاص، يمكنك تقديم إرشادات في طلبك للحدّ من [مقدار التفكير](#set-budget) الذي يستخدمه النموذج. يتيح لك ذلك حجز المزيد من الرموز المميزة لردّك.
+- **Xem xét suy luận**: Khi bạn không nhận được câu trả lời như mong đợi từ các mô hình tư duy, bạn có thể phân tích kỹ lưỡng bản tóm tắt suy nghĩ của Gemini.
+  Bạn có thể xem cách AI phân tích việc cần làm và đưa ra kết luận, đồng thời sử dụng thông tin đó để điều chỉnh cho phù hợp với kết quả mong muốn.
+- **Đưa ra hướng dẫn về suy luận**: Nếu muốn nhận được kết quả đặc biệt dài, bạn có thể đưa ra hướng dẫn trong câu lệnh để giới hạn [lượng tư duy](#set-budget) mà mô hình sử dụng. Điều này cho phép bạn dành nhiều mã thông báo đầu ra hơn cho câu trả lời của mình.
 
-### مدى تعقيد المهمة
+### Độ phức tạp của nhiệm vụ
 
-- **المهام السهلة (قد تكون ميزة "أفكر" غير مفعّلة):** لا تتطلّب الطلبات المباشرة التي لا تحتاج إلى استدلال معقّد، مثل استرجاع الحقائق أو التصنيف، تفعيل ميزة "أفكر". تشمل الأمثلة ما يلي:
-  - "أين تأسّست شركة DeepMind؟"
-  - "هل تطلب هذه الرسالة الإلكترونية عقد اجتماع أم أنّها تقدّم معلومات فقط؟"
-- **المهام المتوسطة (الإعداد التلقائي/بعض التفكير):** تستفيد العديد من الطلبات الشائعة من المعالجة خطوة بخطوة أو الفهم الأعمق. يمكن لـ Gemini استخدام قدرات التفكير بمرونة لتنفيذ مهام مثل:
-  - قدِّم تشبيهًا بين عملية التمثيل الضوئي والنمو.
-  - تحديد أوجه الاختلاف والتشابه بين السيارات الكهربائية والسيارات الهجينة
-- **المهام الصعبة (الحد الأقصى لقدرة التفكير):** بالنسبة إلى التحديات المعقدة حقًا، مثل حلّ مسائل رياضية معقدة أو مهام الترميز، ننصحك بتحديد ميزانية تفكير عالية. تتطلّب هذه الأنواع من المهام أن يستفيد النموذج من جميع إمكاناته في التفكير والتخطيط، وغالبًا ما تتضمّن العديد من الخطوات الداخلية قبل تقديم إجابة. تشمل الأمثلة ما يلي:
-  - حلّ المسألة 1 في مسابقة AIME لعام 2025: أوجد مجموع جميع الأعداد الصحيحة b > 9 التي يكون فيها 17b قاسمًا لـ 97b.
-  - اكتب رمز Python لتطبيق ويب يعرض بيانات سوق الأسهم في الوقت الفعلي، بما في ذلك مصادقة المستخدم. يجب أن يكون هذا الإجراء بأكبر قدر ممكن من الفعالية.
+- **Nhiệm vụ dễ dàng (Có thể TẮT tính năng tư duy):** Đối với những yêu cầu đơn giản không đòi hỏi khả năng suy luận phức tạp, chẳng hạn như truy xuất thông tin thực tế hoặc phân loại, thì không cần tư duy. Ví dụ:
+  - "DeepMind được thành lập ở đâu?"
+  - "Email này có yêu cầu tổ chức cuộc họp hay chỉ cung cấp thông tin?"
+- **Các tác vụ trung bình (Mặc định/Cần suy nghĩ):** Nhiều yêu cầu phổ biến sẽ được hưởng lợi từ mức độ xử lý từng bước hoặc hiểu biết sâu sắc hơn. Gemini có thể linh hoạt sử dụng khả năng tư duy cho các tác vụ như:
+  - So sánh quá trình quang hợp và quá trình trưởng thành.
+  - So sánh và đối chiếu xe điện và xe lai điện.
+- **Nhiệm vụ khó (Khả năng tư duy tối đa):** Đối với những thử thách thực sự phức tạp, chẳng hạn như giải các bài toán phức tạp hoặc nhiệm vụ lập trình, bạn nên đặt ngân sách tư duy cao. Những loại tác vụ này đòi hỏi mô hình phải sử dụng toàn bộ khả năng suy luận và lập kế hoạch, thường liên quan đến nhiều bước nội bộ trước khi đưa ra câu trả lời. Ví dụ:
+  - Giải bài toán 1 trong AIME 2025: Tìm tổng của tất cả các cơ số nguyên b > 9 sao cho 17b là ước số của 97b.
+  - Viết mã Python cho một ứng dụng web trực quan hoá dữ liệu thị trường chứng khoán theo thời gian thực, bao gồm cả xác thực người dùng. Hãy làm cho nó hiệu quả nhất có thể.
 
-## الطُرز والأدوات والإمكانات المتوافقة
+## Các mô hình, công cụ và chức năng được hỗ trợ
 
-تتوفّر ميزات التفكير على جميع طُرز السلسلة 3 و2.5.
-يمكنك العثور على جميع إمكانات النموذج في صفحة
-[النظرة العامة على النموذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
+Các tính năng tư duy được hỗ trợ trên tất cả các mô hình thuộc dòng 3 và 2.5.
+Bạn có thể tìm thấy tất cả các chức năng của mô hình trên trang [tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
 
-تعمل النماذج المفكِّرة مع جميع أدوات Gemini وإمكاناته. يتيح ذلك للنماذج التفاعل مع الأنظمة الخارجية أو تنفيذ الرموز أو الوصول إلى المعلومات في الوقت الفعلي، ودمج النتائج في عملية الاستدلال والرد النهائي.
+Các mô hình tư duy hoạt động với tất cả các công cụ và tính năng của Gemini. Điều này cho phép các mô hình tương tác với các hệ thống bên ngoài, thực thi mã hoặc truy cập thông tin theo thời gian thực, kết hợp kết quả vào quá trình suy luận và phản hồi cuối cùng của chúng.
 
-يمكنك تجربة أمثلة على استخدام الأدوات مع النماذج المفكِّرة في [كتاب الطبخ الخاص بالنماذج المفكِّرة](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_thinking.ipynb?hl=ar).
+Bạn có thể thử các ví dụ về cách sử dụng công cụ với mô hình tư duy trong [Sổ tay tư duy](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_thinking.ipynb?hl=vi).
 
-## ما هي الخطوات التالية؟
+## Tiếp theo là gì?
 
-- تتوفّر معلومات حول التغطية في دليل [التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar#thinking).
+- Thông tin về phạm vi hỗ trợ có trong hướng dẫn [Khả năng tương thích với OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi#thinking) của chúng tôi.
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
+Cập nhật lần gần đây nhất: 2026-05-19 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]

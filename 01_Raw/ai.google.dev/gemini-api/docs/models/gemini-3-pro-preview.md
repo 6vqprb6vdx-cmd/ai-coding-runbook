@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=ar
-fetched_at: 2026-05-18T13:07:07.131719+00:00
-title: "\u0645\u0639\u0627\u064a\u0646\u0629 Gemini 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=fr
+fetched_at: 2026-05-25T13:04:03.512992+00:00
+title: "Aper\u00e7u de Gemini\u00a03 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-# معاينة Gemini 3 Pro
+# Aperçu de Gemini 3 Pro
 
 ## gemini-3-pro-preview
 
-| الموقع | الوصف |
+| Propriété | Description |
 | --- | --- |
-| id\_cardرمز النموذج | `gemini-3-pro-preview` |
-| saveأنواع البيانات المتوافقة | **المدخلات**  النصوص والصور والفيديوهات والمحتوى الصوتي وملفات PDF  **الناتج**  نص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  1,048,576  **الحد الأقصى لعدد الرموز المميزة في الناتج**  65,536 |
-| handymanالإمكانات | **إنشاء الصوت**  غير متاح  **Batch API**  متاح  **التخزين المؤقت**  متاح  **تنفيذ الرموز البرمجية**  متاح  **استخدام الكمبيوتر**  غير متاح  **البحث عن الملفات**  متاح  **استدعاء الدوال**  متاح  **استخدام "خرائط Google" كمصدر**  غير متاح  **إنشاء الصور**  غير متاح  ‫**Live API**  غير متاح  **تحديد المصادر في "بحث Google"**  متاح  **المخرجات المنظَّمة**  متاح  **التفكير**  متاح  **سياق عنوان URL**  متاح |
-| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - *إيقاف*: `gemini-3-pro-preview` |
-| calendar\_monthآخر تعديل | نوفمبر 2025 |
-| cognition\_2تاريخ آخر تحديث للبيانات | يناير 2025 |
+| id\_cardCode du modèle | `gemini-3-pro-preview` |
+| saveTypes de données compatibles | **Entrées**  Texte, image, vidéo, audio et PDF  **Résultat**  Texte |
+| token\_auto[Limites de jetons[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  1 048 576  **Limite de jetons de sortie**  65 536 |
+| handymanFonctions | **Génération audio**  Non compatible  **API par lot**  Compatible  **Mise en cache**  Compatible  **Exécution de code**  Compatible  **Utilisation de l'ordinateur**  Non compatible  **Recherche de fichiers**  Compatible  **Appel de fonction**  Compatible  **Ancrage avec Google Maps**  Non compatible  **Génération d'images**  Non compatible  **API Live**  Non compatible  **Ancrage de recherche**  Compatible  **Sorties structurées**  Compatible  **Raisonnement**  Compatible  **Contexte d'URL**  Compatible |
+| 123Versions | Pour en savoir plus, consultez les [modèles de version](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - *Éteindre* : `gemini-3-pro-preview` |
+| calendar\_monthDernière mise à jour | Novembre 2025 |
+| cognition\_2Date limite des connaissances (ou "knowledge cutoff") | Janvier 2025 |
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Dernière mise à jour le 2026/04/29 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Voulez-vous nous donner plus d'informations ?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

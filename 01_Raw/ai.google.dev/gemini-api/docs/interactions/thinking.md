@@ -1,43 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=he
-fetched_at: 2026-05-18T12:59:02.337680+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ko
+fetched_at: 2026-05-25T13:05:19.986381+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-שליחת משוב
+의견 보내기
 
-# ‫Gemini חושב
+# Gemini가 생각 중
 
-[למודלים מסדרות Gemini 3 ו-2.5](https://ai.google.dev/gemini-api/docs/models?hl=he) יש תהליך חשיבה שמשפר באופן משמעותי את יכולות החשיבה הרציונלית והתכנון הרב-שלבי שלהם. כך הם יעילים מאוד במשימות מורכבות כמו כתיבת קוד, מתמטיקה מתקדמת וניתוח נתונים.
+[Gemini 3 및 2.5 시리즈 모델](https://ai.google.dev/gemini-api/docs/models?hl=ko)은 추론 및 다단계 계획 수립 능력을 크게 향상시키는 '사고 과정'을 사용하므로 코딩, 고급 수학, 데이터 분석과 같은 복잡한 작업에 매우 효과적입니다.
 
-כשמשתמשים במודל חשיבה, Gemini מסיק מסקנות באופן פנימי לפני שהוא משיב. ה-API של האינטראקציות חושף את ההסבר הזה באמצעות `thought` שלבים ייעודיים שמופיעים בסדר כרונולוגי לצד קריאות לפונקציות, קלט משתמש או פלט של מודל במערך `steps`.
+사고 모델을 사용하면 Gemini가 대답하기 전에 내부적으로 추론합니다. Interactions API는 `thought` 단계, 즉 `steps` 배열의 함수 호출, 사용자 입력 또는 모델 출력과 함께 시간순으로 표시되는 전용 단계를 통해 이 추론을 표시합니다.
 
-כל שלב מחשבה מכיל שני שדות:
+모든 사고 단계에는 다음 두 필드가 포함됩니다.
 
-| שדה | חובה? | תיאור |
+| 필드 | 필수 | 설명 |
 | --- | --- | --- |
-| `signature` | ‫✅ כן | ייצוג מוצפן של מצב החשיבה הרציונלית הפנימית של המודל. תמיד מוצג, גם כשהמודל מבצע נימוק מינימלי. |
-| `summary` | ❌ לא | מערך של תוכן (טקסט ו/או תמונות) שמסכם את הנימוקים. יכול להיות שיהיה ריק, בהתאם להגדרות של [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=he), אם המודל ביצע מספיק חשיבה רציונלית או בהתאם לסוג התוכן (לדוגמה, יכול להיות שלא יהיו סיכומי טקסט לתמונות לטנטיות). |
+| `signature` | ✅ 예 | 모델의 내부 추론 상태의 암호화된 표현입니다. 모델이 최소한의 추론을 수행하는 경우에도 항상 표시됩니다. |
+| `summary` | ❌ 아니요 | 추론을 요약하는 콘텐츠 (텍스트 및/또는 이미지) 배열입니다. [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=ko) 구성, 모델이 충분한 추론을 수행했는지, 콘텐츠 유형에 따라 비어 있을 수 있습니다 (예: 이미지 잠재 변수에는 텍스트 요약이 없을 수 있음). |
 
-## אינטראקציות עם תכונת ההעמקה
+## 생각과의 상호작용
 
-התחלת אינטראקציה עם מודל חשיבה דומה לכל בקשת אינטראקציה אחרת. בשדה `model`, מציינים אחד מ[המודלים עם תמיכה בחשיבה](#thinking-levels):
+사고 모델과의 상호작용을 시작하는 것은 다른 상호작용 요청과 유사합니다. `model` 필드에 [사고 지원 모델](#thinking-levels) 중 하나를 지정합니다.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -46,13 +45,12 @@ interaction = client.interactions.create(
     model="gemini-3-flash-preview",
     input="Explain the concept of Occam's Razor and provide a simple, everyday example."
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -61,13 +59,12 @@ const interaction = await client.interactions.create({
     model: "gemini-3-flash-preview",
     input: "Explain the concept of Occam's Razor and provide a simple, everyday example."
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
@@ -78,17 +75,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-אתם יכולים להפעיל סטרימינג של אינטראקציות של חשיבה כדי לקבל סיכומים מצטברים של מחשבות וחתימות במהלך היצירה. במדריך [הזרמת אינטראקציות](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=he#streaming-with-thinking) אפשר לקרוא על סוגי אירועים, סוגי דלתא ודוגמאות קוד.
+## 생각 요약
 
-## סיכומי מחשבות
-
-סיכומי מחשבות מספקים תובנות לגבי תהליך הנימוק הפנימי של המודל.
-כברירת מחדל, מוחזר רק הפלט הסופי. אפשר להפעיל סיכומי מחשבות באמצעות `thinking_summaries`:
+사고 요약은 모델의 내부 추론 프로세스에 대한 인사이트를 제공합니다.
+기본적으로 최종 출력만 반환됩니다. `thinking_summaries`로 생각 요약을 사용 설정할 수 있습니다.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -117,10 +111,9 @@ for step in interaction.steps:
                 print()
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -155,7 +148,6 @@ for (const step of interaction.steps) {
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
@@ -169,31 +161,172 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-בלוק מחשבה יכול להכיל **רק חתימה ללא סיכום** במקרים הבאים:
+다음과 같은 경우 생각 블록에는 **요약이 없는 서명만** 포함될 수 있습니다.
 
-- בקשות פשוטות, שבהן המודל לא נימק מספיק כדי ליצור סיכום
-- `thinking_summaries: "none"`, במקרים שבהם הסיכומים מושבתים באופן מפורש
-- יכול להיות שלסוגים מסוימים של תוכן מחשבות, כמו תמונות, לא יהיו סיכומים של טקסט
+- 모델이 요약을 생성할 만큼 충분히 추론하지 않은 간단한 요청
+- `thinking_summaries: "none"`: 요약이 명시적으로 사용 중지된 경우
+- 이미지와 같은 특정 생각 콘텐츠 유형에는 텍스트 요약이 없을 수 있습니다.
 
-הקוד צריך תמיד לטפל בבלוקים של מחשבות שבהם `summary` ריק או לא קיים.
+`summary`이 비어 있거나 없는 경우 코드는 항상 사고 블록을 처리해야 합니다.
 
-## שליטה בחשיבה
+## 사고를 포함한 스트리밍
 
-מודלים של Gemini חושבים באופן דינמי כברירת מחדל, ומתאימים אוטומטית את כמות המאמץ הנדרש להסקה על סמך מורכבות הבקשה. אפשר לשלוט בהתנהגות הזו באמצעות הפרמטר `thinking_level`.
+생성 중에 스트리밍을 사용하여 증분 생각 요약을 수신합니다.
+사고 블록은 두 가지 고유한 델타 유형과 함께 서버 전송 이벤트 (SSE)를 사용하여 전송됩니다.
 
-| מודל | חשיבה כברירת מחדל | רמות נתמכות |
+| 델타 유형 | 포함 | 전송 시점 |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | מופעל (גבוהה) | נמוך, בינוני, גבוה |
-| gemini-3-flash-preview | מופעל (גבוהה) | מינימלי, נמוך, בינוני, גבוה |
-| gemini-3-pro-preview | מופעל (גבוהה) | נמוך, גבוה |
-| ‫gemini-2.5-pro | מופעל | נמוך, בינוני, גבוה |
-| gemini-2.5-flash | מופעל | נמוך, בינוני, גבוה |
-| gemini-2.5-flash-lite | מושבת | נמוך, בינוני, גבוה |
+| `thought_summary` | 텍스트 또는 이미지 요약 콘텐츠 | 증분 요약이 포함된 하나 이상의 델타 |
+| `thought_signature` | 암호화 서명 | `step.stop` 전의 마지막 델타 |
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
+from google import genai
+
+client = genai.Client()
+
+prompt = """
+Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue.
+Alice does not live in the red house.
+Bob does not live in the green house.
+Carol does not live in the red or green house.
+Which house does each person live in?
+"""
+
+thoughts = ""
+answer = ""
+
+stream = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input=prompt,
+    generation_config={
+        "thinking_summaries": "auto"
+    },
+    stream=True
+)
+
+for event in stream:
+    if event.event_type == "step.delta":
+        if event.delta.type == "thought_summary":
+            if not thoughts:
+                print("Thinking...")
+            summary_text = event.delta.content.text
+            print(f"[Thought] {summary_text}", end="")
+            thoughts += summary_text
+        elif event.delta.type == "text" and event.delta.text:
+            if not answer:
+                print("\nAnswer:")
+            print(event.delta.text, end="")
+            answer += event.delta.text
+```
+
+### 자바스크립트
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const prompt = `Alice, Bob, and Carol each live in a different house on the same
+street: red, green, and blue. Alice does not live in the red house.
+Bob does not live in the green house.
+Carol does not live in the red or green house.
+Which house does each person live in?`;
+
+let thoughts = "";
+let answer = "";
+
+const stream = await client.interactions.create({
+    model: "gemini-3-flash-preview",
+    input: prompt,
+    generation_config: {
+        thinking_summaries: "auto"
+    },
+    stream: true
+});
+
+for await (const event of stream) {
+    if (event.event_type === "step.delta") {
+        if (event.delta.type === "thought_summary") {
+            if (!thoughts) console.log("Thinking...");
+            const text = event.delta.content?.text || "";
+            process.stdout.write(`[Thought] ${text}`);
+            thoughts += text;
+        } else if (event.delta.type === "text" && event.delta.text) {
+            if (!answer) console.log("\nAnswer:");
+            process.stdout.write(event.delta.text);
+            answer += event.delta.text;
+        }
+    }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Api-Revision: 2026-05-20" \
+  -H 'Content-Type: application/json' \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "input": "Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue. Alice does not live in the red house. Bob does not live in the green house. Carol does not live in the red or green house. Which house does each person live in?",
+    "generation_config": {
+      "thinking_summaries": "auto"
+    },
+    "stream": true
+  }'
+```
+
+스트리밍 응답은 서버 전송 이벤트 (SSE)를 사용하며 다음과 같이 단계와 이벤트로 구성됩니다.
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+
+event: step.start
+data: {"index":0,"step":{"signature":"","summary":[{"text":"**Evaluating the clues**\n\nI'm considering...","type":"text"}],"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"signature":"EpoGCpcGAXLI2nx/...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"content":[{"text":"Based on the clues provided, here","type":"text"}],"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":" is the answer to your question...","type":"text"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_xxx","status":"completed","usage":{"total_tokens":530,"total_input_tokens":62,"total_output_tokens":171,"total_thought_tokens":297}},"event_type":"interaction.completed"}
+
+event: done
+data: [DONE]
+```
+
+## 사고 제어
+
+Gemini 모델은 기본적으로 동적 사고를 수행하여 요청의 복잡성에 따라 추론 노력의 양을 자동으로 조정합니다. `thinking_level` 매개변수를 사용하여 이 동작을 제어할 수 있습니다.
+
+| 모델 | 기본 사고방식 | 지원되는 수준 |
+| --- | --- | --- |
+| gemini-3.1-pro-preview | 사용 설정 (높음) | 낮음, 중간, 높음 |
+| gemini-3-flash-preview | 사용 설정 (높음) | 최소, 낮음, 중간, 높음 |
+| gemini-3-pro-preview | 켜짐 (높음) | 낮음, 높음 |
+| gemini-2.5-pro | 사용 | 낮음, 중간, 높음 |
+| gemini-2.5-flash | 사용 | 낮음, 중간, 높음 |
+| gemini-2.5-flash-lite | 사용 안함 | 낮음, 중간, 높음 |
+
+### Python
+
+```
 from google import genai
 
 client = genai.Client()
@@ -205,13 +338,12 @@ interaction = client.interactions.create(
         "thinking_level": "low"
     }
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -223,13 +355,12 @@ const interaction = await client.interactions.create({
         thinking_level: "low"
     }
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Api-Revision: 2026-05-20" \
@@ -243,72 +374,68 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## חתימות של תהליכי חשיבה
+## 생각 서명
 
-חתימות מחשבה הן ייצוגים מוצפנים של ההיגיון הפנימי של המודל. הם נדרשים לשמור על רצף של נימוקים לאורך אינטראקציות עוקבות.
+사고 서명은 모델의 내부 추론을 암호화한 표현입니다. 멀티턴 상호작용 전반에서 추론 연속성을 유지해야 합니다.
 
-ממשק Interactions API מפשט את הטיפול בחתימות מחשבה בהשוואה ל-`generateContent` API.
+Interactions API를 사용하면 `generateContent` API보다 훨씬 간단하게 생각 서명을 처리할 수 있습니다.
 
-### מצב עם שמירת מצב (מומלץ)
+### 상태 저장 모드 (권장)
 
-כברירת מחדל, כשמשתמשים ב-Interactions API במצב stateful (על ידי הגדרת `store: true` והעברת `previous_interaction_id` בתורות הבאות), השרת מנהל באופן אוטומטי את מצב השיחה, כולל כל בלוקי המחשבה והחתימות. במצב הזה, לא צריך לעשות שום דבר לגבי חתימות. הם מטופלים באופן מלא בצד השרת.
+기본적으로 상태 저장 모드에서 Interactions API를 사용하면 (`store: true`를 설정하고 후속 턴에서 `previous_interaction_id`를 전달) 서버에서 모든 생각 블록과 서명을 포함한 대화 상태를 자동으로 관리합니다. 이 모드에서는 서명과 관련하여 아무것도 할 필요가 없습니다. 서버 측에서 완전히 처리됩니다.
 
-### מצב בלי שמירת מצב
+### 스테이트리스 모드
 
-אם אתם מנהלים את מצב השיחה בעצמכם (מצב בלי שמירת מצב) ומעבירים את ההיסטוריה המלאה של הקלט והפלט בכל בקשה:
+대화 상태를 직접 관리하고 (스테이트리스 모드) 각 요청에서 입력 및 출력의 전체 기록을 전달하는 경우:
 
-- **חובה** לשלוח מחדש את כל הבלוקים של `thought` בדיוק כפי שהם התקבלו מהמודל.
-- **חשוב** לא להסיר או לשנות את בלוקי המחשבה מההיסטוריה, כי הם מכילים את החתימות שנדרשות כדי שהמודל ימשיך את החשיבה הרציונלית שלו.
-- כשמחליפים מודלים במהלך סשן, עדיין צריך לשלוח מחדש את בלוקי המחשבה של המודל הקודם. הקצה העורפי מנהל את התאימות.
+- 항상 모델에서 수신한 그대로 모든 `thought` 블록을 다시 전송**해야 합니다**(MUST).
+- 모델이 추론을 계속하는 데 필요한 서명이 포함되어 있으므로 기록에서 사고 블록을 삭제하거나 수정해서는 **안 됩니다**.
+- 세션 내에서 모델을 전환할 때도 이전 모델의 사고 블록을 다시 전송해야 합니다. 백엔드에서 호환성을 관리합니다.
 
-## תמחור
+## 가격 책정
 
-כשהתכונה 'חשיבה' מופעלת, התמחור של התגובה הוא סכום האסימונים של הפלט והאסימונים של החשיבה. אפשר לקבל את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `total_thought_tokens`.
+사고가 사용 설정된 경우 대답 가격은 출력 토큰과 사고 토큰의 합계입니다. 생성된 사고 토큰의 총수는 `total_thought_tokens` 필드에서 확인할 수 있습니다.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
-# ...
 print("Thoughts tokens:", interaction.usage.total_thought_tokens)
 print("Output tokens:", interaction.usage.total_output_tokens)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
-// This will only work for SDK newer than 2.0.0
-// ...
 console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז יוצרים [סיכומים](#summaries) כדי לספק תובנות לגבי תהליך החשיבה. התמחור מבוסס על מספר הטוקנים המלא שהמודל צריך ליצור, למרות שרק הסיכום מופק מה-API.
+사고 모델은 최종 대답의 품질을 개선하기 위해 전체 사고를 생성한 다음 [요약](#summaries)을 출력하여 사고 과정에 대한 통계를 제공합니다. 가격은 API에서 요약만 출력되더라도 모델이 생성해야 하는 전체 생각 토큰을 기준으로 합니다.
 
-מידע נוסף על טוקנים זמין במדריך [ספירת טוקנים](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=he).
+토큰에 관한 자세한 내용은 [토큰 수 계산](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=ko) 가이드를 참고하세요.
 
-## שיטות מומלצות
+## 권장사항
 
-כדי להשתמש במודלים של חשיבה בצורה יעילה, כדאי לפעול לפי ההנחיות הבאות.
+다음 가이드라인에 따라 사고 모델을 효율적으로 사용하세요.
 
-- **בדיקת חשיבה רציונלית**: ניתוח סיכומי המחשבות כדי להבין את הכשלים ולשפר את ההנחיות.
-- **שליטה בתקציב החשיבה**: אפשר להנחות את המודל לחשוב פחות כדי לחסוך בטוקנים כשמבקשים פלט ארוך.
-- **משימות פשוטות**: השתמשו ב-Gemini כדי לאחזר עובדות או לסווג (למשל, "איפה הוקמה DeepMind?").
-- **משימות מתונות**: השתמשו בחשיבה שמוגדרת כברירת מחדל כדי להשוות בין מושגים או לבצע נימוקים יצירתיים (למשל, השוואה בין מכוניות חשמליות למכוניות היברידיות).
-- **משימות מורכבות**: שימוש ביכולת חשיבה מקסימלית לתכנות מתקדם, למתמטיקה או לתכנון רב-שלבי (למשל, פתרון בעיות מתמטיות של AIME).
+- **추론 검토**: 생각 요약을 분석하여 실패를 이해하고 프롬프트를 개선합니다.
+- **사고 예산 관리**: 토큰을 절약하기 위해 긴 출력의 경우 모델이 생각을 덜 하도록 프롬프트를 작성합니다.
+- **간단한 작업**: 사실 검색 또는 분류에 최소한의 사고를 사용합니다 (예: 'DeepMind는 어디에서 설립되었어?').
+- **적당한 작업**: 개념 비교 또는 창의적인 추론 (예: 전기 자동차와 하이브리드 자동차 비교)에는 기본 사고를 사용합니다.
+- **복잡한 작업**: 고급 코딩, 수학 또는 다단계 계획 (예: AIME 수학 문제 풀기)을 위해 최대한의 사고력을 사용합니다.
 
-## המאמרים הבאים
+## 다음 단계
 
-- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=he): תשובות טקסט בסיסיות
-- [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=he): התחברות לכלי עזר
-- [מדריך Gemini 3](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=he): תכונות ספציפיות למודל
+- [텍스트 생성](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ko): 기본 텍스트 응답
+- [함수 호출](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ko): 도구에 연결
+- [Gemini 3 가이드](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=ko): 모델별 기능
 
-שליחת משוב
+의견 보내기
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-עדכון אחרון: 2026-05-16 (שעון UTC).
+최종 업데이트: 2026-05-19(UTC)
 
-רוצה לתת לנו משוב?
+의견을 전달하고 싶나요?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-16 (שעון UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]

@@ -1,36 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=pl
-fetched_at: 2026-05-18T13:06:48.834838+00:00
-title: "Agent badawczy z\u00a0Gemini i\u00a0LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=ar
+fetched_at: 2026-05-25T13:04:05.889040+00:00
+title: "\u0648\u0643\u064a\u0644 \u0627\u0644\u0628\u062d\u062b \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini \u0648LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Prześlij opinię
+إرسال ملاحظات
 
-# Agent badawczy z Gemini i LlamaIndex
+# وكيل البحث باستخدام Gemini وLlamaIndex
 
-LlamaIndex to platforma do tworzenia agentów wiedzy przy użyciu dużych modeli językowych połączonych z Twoimi danymi. Ten przykład pokazuje, jak utworzyć przepływ pracy z wieloma agentami dla agenta badawczego. W LlamaIndex [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
-są podstawowymi elementami systemów agentów i systemów wieloagentowych.
+‫LlamaIndex هو إطار عمل لإنشاء وكلاء معرفة باستخدام نماذج لغوية كبيرة مرتبطة ببياناتك. يوضّح لك هذا المثال كيفية إنشاء سير عمل يتضمّن عدّة وكلاء
+لوكلاء البحث. في LlamaIndex، تشكّل [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
+المكوّنات الأساسية للوكلاء والأنظمة المتعددة الوكلاء.
 
-Potrzebujesz klucza interfejsu Gemini API. Jeśli jeszcze nie masz klucza, możesz go [uzyskać w Google AI Studio](https://aistudio.google.com/app/apikey?hl=pl).
-Najpierw zainstaluj wszystkie wymagane biblioteki LlamaIndex. LlamaIndex korzysta z pakietu `google-genai`.
+يجب أن يكون لديك مفتاح Gemini API. إذا لم يكن لديك حساب، يمكنك
+[إنشاء حساب في Google AI Studio](https://aistudio.google.com/app/apikey?hl=ar).
+أولاً، ثبِّت جميع مكتبات LlamaIndex المطلوبة. تستخدم LlamaIndex حزمة `google-genai` في الخلفية.
 
 ```
 pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai llama-index-tools-google
 ```
 
-## Konfigurowanie Gemini w LlamaIndex
+## إعداد Gemini في LlamaIndex
 
-Silnikiem każdego agenta LlamaIndex jest model LLM, który zajmuje się rozumowaniem i przetwarzaniem tekstu. W tym przykładzie używamy Gemini 3 Flash. Upewnij się, że [klucz interfejsu API jest ustawiony jako zmienna środowiskowa](https://ai.google.dev/gemini-api/docs/api-key?hl=pl).
+محرك أي وكيل LlamaIndex هو نموذج لغوي كبير (LLM) يتعامل مع الاستدلال ومعالجة النصوص. يستخدم هذا المثال Gemini 3 Flash. تأكَّد من [ضبط مفتاح واجهة برمجة التطبيقات كمتغيّر بيئة](https://ai.google.dev/gemini-api/docs/api-key?hl=ar).
 
 ```
 import os
@@ -39,14 +41,14 @@ from llama_index.llms.google_genai import GoogleGenAI
 # Set your API key in the environment elsewhere, or with os.environ['GEMINI_API_KEY'] = '...'
 assert 'GEMINI_API_KEY' in os.environ
 
-llm = GoogleGenAI(model="gemini-3-flash-preview")
+llm = GoogleGenAI(model="gemini-3.5-flash")
 ```
 
-## Narzędzia do kompilacji
+## أدوات الإنشاء
 
-Agenty korzystają z narzędzi do interakcji ze światem zewnętrznym, np. do wyszukiwania informacji w internecie lub przechowywania danych. [Narzędzia w LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
-mogą być zwykłymi funkcjami Pythona lub importowane z wcześniej utworzonych `ToolSpecs`.
-Gemini ma wbudowane narzędzie do korzystania z wyszukiwarki Google, które jest tutaj używane.
+تستخدم البرامج الآلية الأدوات للتفاعل مع العالم الخارجي، مثل البحث على الويب أو تخزين المعلومات. يمكن أن تكون [الأدوات في LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
+عبارة عن دوال Python عادية، أو يمكن استيرادها من `ToolSpecs` حالي.
+يتضمّن Gemini أداة مدمجة لاستخدام "بحث Google"، وهي الأداة المستخدَمة هنا.
 
 ```
 from google.genai import types
@@ -56,26 +58,27 @@ google_search_tool = types.Tool(
 )
 
 llm_with_search = GoogleGenAI(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     generation_config=types.GenerateContentConfig(tools=[google_search_tool])
 )
 ```
 
-Teraz przetestuj instancję LLM za pomocą zapytania, które wymaga wyszukiwania. W tym przewodniku zakładamy, że pętla zdarzeń jest uruchomiona (np. `python -m asyncio` lub Google Colab).
+اختبِر الآن مثيل النموذج اللغوي الكبير باستخدام طلب بحث يتطلّب البحث. يفترض هذا الدليل
+حلقة أحداث نشطة (مثل `python -m asyncio` أو Google Colab).
 
 ```
 response = await llm_with_search.acomplete("What's the weather like today in Biarritz?")
 print(response)
 ```
 
-Agent badawczy będzie używać funkcji Pythona jako narzędzi. Istnieje wiele sposobów na zbudowanie systemu, który będzie wykonywać to zadanie. W tym przykładzie użyjesz tych elementów:
+سيستخدم "وكيل البحث" دوال Python كأدوات. هناك العديد من الطرق التي يمكنك اتّباعها لإنشاء نظام ينفّذ هذه المهمة. في هذا المثال، ستستخدم ما يلي:
 
-1. `search_web` korzysta z Gemini z wyszukiwarką Google, aby wyszukiwać w internecie informacje na dany temat.
-2. `record_notes` zapisuje wyniki wyszukiwania w internecie w stanie, aby inne narzędzia mogły z nich korzystać.
-3. `write_report` tworzy raport na podstawie informacji znalezionych przez `ResearchAgent`
-4. `review_report` sprawdza raport i przekazuje opinię.
+1. تستخدم `search_web` Gemini مع "بحث Google" للبحث على الويب عن معلومات حول الموضوع المحدّد.
+2. تحفظ `record_notes` الأبحاث التي تم العثور عليها على الويب في الحالة حتى تتمكّن الأدوات الأخرى من استخدامها.
+3. تكتب `write_report` التقرير باستخدام المعلومات التي عثر عليها `ResearchAgent`
+4. `review_report` يراجع التقرير ويقدّم ملاحظات.
 
-Klasa `Context` przekazuje stan między agentami i narzędziami, a każdy agent ma dostęp do bieżącego stanu systemu.
+تمرِّر فئة `Context` الحالة بين الوكلاء/الأدوات، وسيتمكّن كل وكيل من الوصول إلى الحالة الحالية للنظام.
 
 ```
 from llama_index.core.workflow import Context
@@ -110,18 +113,18 @@ async def review_report(ctx: Context, review: str) -> str:
     return "Report reviewed."
 ```
 
-## Tworzenie asystenta z wieloma agentami
+## إنشاء مساعد متعدد الوكلاء
 
-Aby utworzyć system wieloagentowy, musisz zdefiniować agentów i ich interakcje.
-System będzie miał 3 agenty:
+لإنشاء نظام متعدد الوكلاء، عليك تحديد الوكلاء وتفاعلاتهم.
+سيتضمّن نظامك ثلاثة وكلاء:
 
-1. `ResearchAgent` wyszukuje w internecie informacje na dany temat.
-2. `WriteAgent` pisze raport na podstawie informacji znalezionych przez `ResearchAgent`.
-3. `ReviewAgent` sprawdza raport i przekazuje opinię.
+1. تجري أداة `ResearchAgent` عمليات بحث على الويب للعثور على معلومات حول الموضوع المحدّد.
+2. يكتب `WriteAgent` التقرير باستخدام المعلومات التي يعثر عليها `ResearchAgent`.
+3. `ReviewAgent` يراجع التقرير ويقدّم ملاحظات.
 
-W tym przykładzie do utworzenia systemu z wieloma agentami, którzy będą wykonywani po kolei, użyto klasy `AgentWorkflow`. Każdy agent otrzymuje `system_prompt`, które informuje go, co ma robić, i sugeruje, jak współpracować z innymi agentami.
+يستخدم هذا المثال الفئة `AgentWorkflow` لإنشاء نظام متعدد الوكلاء سيتم تنفيذه بالترتيب. يتلقّى كل وكيل `system_prompt` يخبره بما يجب أن يفعله، ويقترح عليه كيفية العمل مع الوكلاء الآخرين.
 
-Opcjonalnie możesz pomóc systemowi wieloagentowemu, określając, z którymi innymi agentami może się komunikować, używając znaku `can_handoff_to` (w przeciwnym razie system spróbuje sam to ustalić).
+يمكنك اختياريًا مساعدة نظامك المتعدد الوكلاء من خلال تحديد الوكلاء الآخرين الذين يمكنه التحدث إليهم باستخدام `can_handoff_to` (إذا لم تفعل ذلك، سيحاول النظام تحديد ذلك بنفسه).
 
 ```
 from llama_index.core.agent.workflow import (
@@ -171,7 +174,7 @@ review_agent = FunctionAgent(
 )
 ```
 
-Agenty zostały zdefiniowane. Teraz możesz utworzyć `AgentWorkflow` i ją uruchomić.
+تم تحديد الوكلاء، ويمكنك الآن إنشاء `AgentWorkflow` وتشغيله.
 
 ```
 from llama_index.core.agent.workflow import AgentWorkflow
@@ -187,7 +190,7 @@ agent_workflow = AgentWorkflow(
 )
 ```
 
-Podczas wykonywania przepływu pracy możesz przesyłać strumieniowo do konsoli zdarzenia, wywołania narzędzi i aktualizacje.
+أثناء تنفيذ سير العمل، يمكنك بث الأحداث واستدعاءات الأدوات والتحديثات إلى وحدة التحكّم.
 
 ```
 from llama_index.core.agent.workflow import (
@@ -235,7 +238,7 @@ async for event in handler.stream_events():
         print(f"  With arguments: {event.tool_kwargs}")
 ```
 
-Po zakończeniu procesu możesz wydrukować ostateczną wersję raportu, a także ostateczny stan weryfikacji od agenta weryfikującego.
+بعد اكتمال سير العمل، يمكنك طباعة الناتج النهائي للتقرير، بالإضافة إلى حالة المراجعة النهائية من وكيل المراجعة.
 
 ```
 state = await handler.ctx.store.get("state")
@@ -243,24 +246,24 @@ print("Report Content:\n", state["report_content"])
 print("\n------------\nFinal Review:\n", state["review"])
 ```
 
-## Więcej możliwości dzięki niestandardowym przepływom pracy
+## الاستفادة من ميزات إضافية مع مهام سير العمل المخصّصة
 
-`AgentWorkflow` to świetny sposób na rozpoczęcie pracy z systemami wieloagentowymi. A co, jeśli potrzebujesz większej kontroli? Możesz utworzyć proces od podstaw. Oto kilka powodów, dla których warto utworzyć własny przepływ pracy:
+تُعدّ `AgentWorkflow` طريقة رائعة للبدء باستخدام الأنظمة المتعدّدة الوكلاء. ولكن ماذا لو كنت بحاجة إلى المزيد من التحكّم؟ يمكنك إنشاء سير عمل من البداية. في ما يلي بعض الأسباب التي قد تدفعك إلى إنشاء سير عمل خاص بك:
 
-- **Większa kontrola nad procesem:** możesz określić dokładną ścieżkę, którą będą podążać Twoi agenci. Możesz na przykład tworzyć pętle, podejmować decyzje w określonych momentach lub zlecać agentom równoległe wykonywanie różnych zadań.
-- **Używaj złożonych danych:** wyjdź poza zwykły tekst. Niestandardowe przepływy pracy umożliwiają używanie bardziej uporządkowanych danych, takich jak obiekty JSON lub klasy niestandardowe, jako danych wejściowych i wyjściowych.
-- **Praca z różnymi mediami:** twórz agentów, którzy rozumieją i przetwarzają nie tylko tekst, ale też obrazy, dźwięk i wideo.
-- **Inteligentniejsze planowanie:** możesz zaprojektować przepływ pracy, który najpierw tworzy szczegółowy plan, zanim agenci zaczną pracować. Jest to przydatne w przypadku złożonych zadań, które wymagają wykonania wielu czynności.
-- **Włączanie autokorekty:** tworzenie agentów, którzy mogą sprawdzać własną pracę. Jeśli wynik nie jest wystarczająco dobry, agent może spróbować ponownie, tworząc pętlę ulepszeń, aż rezultat będzie idealny.
+- **التحكّم بشكل أكبر في العملية**: يمكنك تحديد المسار الدقيق الذي تتّبعه برامجك. ويشمل ذلك إنشاء حلقات أو اتّخاذ قرارات في نقاط معيّنة أو جعل الوكلاء يعملون بالتوازي على مهام مختلفة.
+- **استخدام بيانات معقّدة**: يمكنك استخدام بيانات أكثر من النص العادي. تتيح لك سير العمل المخصّصة استخدام المزيد من البيانات المنظَّمة، مثل عناصر JSON أو الفئات المخصّصة، للإدخالات والمخرجات.
+- **التعامل مع وسائط مختلفة**: يمكنك إنشاء وكلاء يمكنهم فهم النصوص والصور والمحتوى الصوتي والفيديوهات ومعالجتها.
+- **تخطيط أكثر ذكاءً**: يمكنك تصميم سير عمل ينشئ أولاً خطة تفصيلية قبل أن يبدأ الموظفون العمل. ويفيد هذا في المهام المعقّدة التي تتطلّب عدّة خطوات.
+- **تفعيل ميزة "التصحيح الذاتي"**: يمكنك إنشاء وكلاء يمكنهم مراجعة عملهم. إذا لم تكن النتيجة جيدة بما فيه الكفاية، يمكن للوكيل المحاولة مرة أخرى، ما يؤدي إلى إنشاء حلقة من التحسينات إلى أن تصبح النتيجة مثالية.
 
-Więcej informacji o przepływach pracy LlamaIndex znajdziesz w [dokumentacji przepływów pracy LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
+لمزيد من المعلومات حول LlamaIndex Workflows، اطّلِع على [مستندات LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
 
-Prześlij opinię
+إرسال ملاحظات
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ostatnia aktualizacja: 2026-04-29 UTC.
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Chcesz przekazać coś jeszcze?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

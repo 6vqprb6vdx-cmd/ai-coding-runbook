@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=ja
-fetched_at: 2026-05-18T13:09:42.521985+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=hi
+fetched_at: 2026-05-25T13:01:13.895209+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-# ストリーミング インタラクション
+# स्ट्रीमिंग इंटरैक्शन
 
-Interaction を作成するときに、`stream: true` を設定して、[サーバー送信イベント](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events)（SSE）を使用してレスポンスを段階的にストリーミングできます。
+इंटरैक्शन बनाते समय, `stream: true` सेट किया जा सकता है. इससे, [सर्वर-सेंट इवेंट](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (एसएसई) का इस्तेमाल करके, जवाब को धीरे-धीरे स्ट्रीम किया जा सकता है.
 
 ### Python
 
@@ -112,24 +112,24 @@ event: done
 data: [DONE]
 ```
 
-## イベントタイプ
+## इवेंट किस तरह के हैं
 
-サーバー送信イベントには、名前付きの `event_type` と関連する JSON データが含まれます。Interactions API は、すべてのコンテンツ（テキスト、ツール呼び出し、思考）が一貫した**ステップベースの**イベントを介して流れる対称ストリーミング モデルを使用します。
+सर्वर-सेंट हर इवेंट में, `event_type` नाम और उससे जुड़ा JSON डेटा शामिल होता है. Interactions API, सिमेट्रिक स्ट्रीमिंग मॉडल का इस्तेमाल करता है. इसमें, सभी कॉन्टेंट—टेक्स्ट, टूल कॉल, थिंकिंग—**चरण-आधारित** एक जैसे इवेंट के ज़रिए फ़्लो होता है.
 
-各ストリームは次のイベント フローに従います。
+हर स्ट्रीम, इस इवेंट फ़्लो को फ़ॉलो करती है:
 
-1. `interaction.created`: インタラクションが作成され、メタデータ（ID、モデル、ステータス）が含まれます。
-2. 一連の**ステップ**。各ステップは次の要素で構成されます。
-   - ステップタイプ（`model_output`、`thought`、`function_call` など）を示す `step.start` イベント。
-   - そのステップの増分データを含む 1 つ以上の `step.delta` イベント。
-   - ステップを完了としてマークする `step.stop` イベント。
-3. 最終的な `usage` 統計情報を含む `interaction.completed` イベント。
+1. `interaction.created`: इंटरैक्शन बनाया जाता है. इसमें मेटाडेटा (आईडी, मॉडल, स्टेटस) शामिल होता है.
+2. **चरणों** की सीरीज़. हर चरण में ये चीज़ें शामिल होती हैं:
+   - `step.start` इवेंट. यह इवेंट के टाइप (जैसे, `model_output`, `thought`, `function_call`) की जानकारी देता है.
+   - `step.delta` एक या उससे ज़्यादा इवेंट. इनमें उस चरण के लिए, धीरे-धीरे मिलने वाला डेटा शामिल होता है.
+   - `step.stop` इवेंट. यह इवेंट, चरण के पूरा होने की जानकारी देता है.
+3. `interaction.completed` इवेंट. इसमें `usage` के फ़ाइनल आंकड़े शामिल होते हैं.
 
-`stream: false` を設定すると、API は `steps` 配列を含む単一の `interaction` オブジェクトを返します。`steps` 内の各要素は、1 つの `step.start` → `step.delta`(s) → `step.stop` サイクルの完全に組み立てられたバージョンです。
+`stream: false` सेट करने पर, एपीआई `steps` कलेक्शन के साथ एक `interaction` ऑब्जेक्ट दिखाता है. `steps` में मौजूद हर एलिमेंट, `step.start` → `step.delta`(s) → `step.stop` साइकल का पूरी तरह से असेंबल किया गया वर्शन होता है.
 
 ### `interaction.created`
 
-インタラクションが初めて作成されたときに送信されます。インタラクション ID、モデル、初期ステータスが含まれます。
+यह इवेंट तब भेजा जाता है, जब इंटरैक्शन पहली बार बनाया जाता है. इसमें इंटरैक्शन आईडी, मॉडल, और शुरुआती स्टेटस शामिल होता है.
 
 ```
 event: interaction.created
@@ -138,7 +138,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3-flash-preview", "status":
 
 ### `interaction.status_update`
 
-インタラクション レベルのステータス遷移を通知します。ステップの間に表示されることがあります。
+यह इवेंट, इंटरैक्शन-लेवल के स्टेटस में बदलाव का सिग्नल देता है. यह इवेंट, चरणों के बीच दिख सकता है.
 
 ```
 event: interaction.status_update
@@ -147,23 +147,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-新しいステップの始まりを示します。ステップ `type` と `index` が含まれます。ステップタイプによって、想定されるデルタタイプと、非ストリーミング レスポンスでのステップの表示方法が決まります。
+यह इवेंट, नए चरण की शुरुआत की जानकारी देता है. इसमें चरण का `type` और `index` शामिल होता है. चरण का टाइप तय करता है कि किस तरह के डेल्टा टाइप की उम्मीद की जानी चाहिए और स्ट्रीमिंग के बिना जवाब में चरण कैसे दिखता है:
 
-| ステップの種類 | 想定される差分タイプ | 説明 |
+| चरण का टाइप | डेल्टा के संभावित टाइप | ब्यौरा |
 | --- | --- | --- |
-| `model_output` | `text`、`image`、`audio` | モデルの最終的なレスポンス コンテンツ。 |
-| `thought` | `thought_signature`、`thought_summary` | Chain-of-Thought 推論。`summary` は、`thinking_summaries` が有効になっている場合にのみ存在します。 |
-| `function_call` | `arguments_delta` | クライアントが関数を実行するためのリクエスト。インタラクションのステータスを `requires_action` に設定します。 |
-| サーバーサイド ツール | ツールによって異なる | API によって実行されるツール（`google_search_call`、`google_search_result`、`code_execution_call`、`code_execution_result` など）。 |
+| `model_output` | `text`, `image`, `audio` | मॉडल के फ़ाइनल जवाब का कॉन्टेंट. |
+| `thought` | `thought_signature`, `thought_summary` | चेन-ऑफ़-थॉट रीज़निंग. `summary` सिर्फ़ तब मौजूद होता है, जब `thinking_summaries` की सुविधा चालू हो. |
+| `function_call` | `arguments_delta` | क्लाइंट से किसी फ़ंक्शन को चलाने का अनुरोध. इंटरैक्शन का स्टेटस `requires_action` पर सेट करता है. |
+| सर्वर-साइड टूल | टूल के हिसाब से अलग-अलग होता है | एपीआई से चलाए जाने वाले टूल. जैसे, `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`. |
 
-完全なリストについては、[Interactions API リファレンス](https://ai.google.dev/api/interactions?hl=ja)をご覧ください。
+पूरी सूची देखने के लिए, [Interactions API का रेफ़रंस](https://ai.google.dev/api/interactions?hl=hi) देखें.
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-関数呼び出しの場合、ステップには関数名、ID、空の引数 `{}` が含まれます。
+फ़ंक्शन कॉल के लिए, चरण में फ़ंक्शन का नाम, आईडी, और खाली आर्ग्युमेंट `{}` शामिल होते हैं
 
 ```
 event: step.start
@@ -172,11 +172,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-現在のステップの増分データ。`delta` オブジェクトには、その形状を決定する `type` フィールドが含まれています。
+मौजूदा चरण के लिए, धीरे-धीरे मिलने वाला डेटा. `delta` ऑब्जेक्ट में एक `type` फ़ील्ड होता है. इससे, इसके आकार का पता चलता है.
 
-**例:**
+**उदाहरण:**
 
-**`text`:** `model_output` ステップからの増分テキスト トークン:
+**`text`:** `model_output` चरण से मिलने वाला, धीरे-धीरे टेक्स्ट टोकन:
 
 ```
 event: step.delta
@@ -186,32 +186,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** `model_output` ステップの Base64 エンコードされた画像データ:
+**`image`:** `model_output` चरण से मिलने वाला, Base64 में एनकोड किया गया इमेज डेटा:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** `thought` ステップの思考の要約コンテンツ:
+**`thought_summary`:** `thought` चरण से मिलने वाला, थिंकिंग की खास जानकारी का कॉन्टेंट:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** 関数呼び出し引数の（部分的な）JSON 文字列。デルタ間で累積する必要があります。
+**`arguments_delta`:** फ़ंक्शन कॉल के आर्ग्युमेंट के लिए (आंशिक) JSON स्ट्रिंग. इसे डेल्टा में इकट्ठा करना ज़रूरी है:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-最も一般的なデルタタイプは次のとおりです。すべての差分タイプの完全なリストについては、[Interactions API リファレンス](https://ai.google.dev/api/interactions?hl=ja)をご覧ください。
+ये डेल्टा के कुछ सबसे सामान्य टाइप हैं. डेल्टा के सभी टाइप की पूरी सूची देखने के लिए, [Interactions API का रेफ़रंस देखें](https://ai.google.dev/api/interactions?hl=hi).
 
 ### `step.stop`
 
-ステップの終了をマークします。ステップ `index` が含まれます。
+यह इवेंट, चरण के खत्म होने की जानकारी देता है. इसमें चरण का `index` शामिल होता है.
 
 ```
 event: step.stop
@@ -220,7 +220,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-インタラクションが終了すると送信されます。`usage` 統計情報を含む最終的なインタラクション オブジェクトが含まれます。非ストリーミング モードでは、これは最上位のレスポンス オブジェクト自体です。レスポンスに `steps` が含まれていません。
+यह इवेंट तब भेजा जाता है, जब इंटरैक्शन पूरा हो जाता है. इसमें `usage` के आंकड़ों के साथ, फ़ाइनल इंटरैक्शन ऑब्जेक्ट शामिल होता है. स्ट्रीमिंग के बिना वाले मोड में, यह टॉप-लेवल का रिस्पॉन्स ऑब्जेक्ट होता है. जवाब में `steps` शामिल नहीं होते.
 
 ```
 event: interaction.completed
@@ -229,20 +229,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-インタラクション中にエラーが発生した場合に送信されます。メッセージとコードを含むエラー オブジェクトが含まれます。
+यह इवेंट तब भेजा जाता है, जब इंटरैक्शन के दौरान कोई गड़बड़ी होती है. इसमें मैसेज और कोड के साथ, गड़बड़ी का ऑब्जेक्ट शामिल होता है.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## ツールを使用したストリーミング
+## टूल की मदद से स्ट्रीमिंग
 
-Interactions API は、クライアントサイド ツール（関数呼び出し）とサーバーサイド ツール（Google 検索、コード実行など）の両方を使用したストリーミングを 1 つのリクエストでサポートします。ストリーミング中、ツール呼び出しはイベント ストリームに型付きステップとして表示されます。関数呼び出しの場合、`step.start` イベントは関数名を配信し、`step.delta` イベントは引数を JSON 文字列（`arguments_delta`）としてストリーミングします。これらの差分を累積して、完全な引数を取得する必要があります。Google 検索などのサーバーサイド ツールは API によって自動的に実行され、`google_search_call` ステップと `google_search_result` ステップが生成されます。
+Interactions API, एक ही अनुरोध में क्लाइंट-साइड टूल (फ़ंक्शन कॉलिंग) और सर्वर-साइड टूल (Google Search, कोड एक्ज़ीक्यूशन वगैरह), दोनों की मदद से स्ट्रीमिंग की सुविधा देता है. स्ट्रीमिंग के दौरान, टूल के इनवोकेशन, इवेंट स्ट्रीम में टाइप किए गए चरणों के तौर पर दिखते हैं. फ़ंक्शन कॉल के लिए, `step.start` इवेंट, फ़ंक्शन का नाम डिलीवर करता है. वहीं, `step.delta` इवेंट, आर्ग्युमेंट को JSON स्ट्रिंग (`arguments_delta`) के तौर पर स्ट्रीम करते हैं. पूरे आर्ग्युमेंट पाने के लिए, आपको इन डेल्टा को इकट्ठा करना होगा.
+Google Search जैसे सर्वर-साइड टूल, एपीआई से अपने-आप चलते हैं. इससे, `google_search_call` और `google_search_result` चरण जनरेट होते हैं.
 
-### 関数呼び出しを使用したストリーミング
+### फ़ंक्शन कॉलिंग की मदद से स्ट्रीमिंग
 
-ストリーミングで関数呼び出しを行うには、クライアントがマルチターンの会話を処理する必要があります。**ターン 1（関数リクエスト）:** `stream: true` と定義済みの `tools` を使用して `interactions.create` を呼び出します。API は `function_call` ステップをストリーミングします。`step.delta` イベントから、ステータス `requires_action` でインタラクションが完了するまで、増分引数 JSON 文字列（`arguments_delta`）を蓄積する必要があります。2. **ターン 2（結果の送信）:** `interactions.create` を再度呼び出し、`previous_interaction_id`（最初のインタラクションの ID と一致）を渡して、`input` 配列内の `function_result` ブロックを送信します。これによりストリームが再開され、モデルは最終的なレスポンスを生成できるようになります。
+स्ट्रीमिंग के साथ फ़ंक्शन कॉलिंग करने के लिए, क्लाइंट को मल्टी-टर्न बातचीत को मैनेज करना होगा:
+
+1. **पहला टर्न (फ़ंक्शन का अनुरोध):** `stream: true` और आपके तय किए गए `tools` के साथ, `interactions.create` को कॉल करें. एपीआई, `function_call` चरण को स्ट्रीम करेगा. `step.delta` इवेंट से, आर्ग्युमेंट की JSON स्ट्रिंग (`arguments_delta`) को तब तक इकट्ठा करें, जब तक इंटरैक्शन, `requires_action` स्टेटस के साथ पूरा न हो जाए.
+2. **दूसरा टर्न (नतीजा भेजना):** `interactions.create` को फिर से कॉल करें. इसमें `previous_interaction_id` (पहले इंटरैक्शन के आईडी से मैच करने वाला) पास करें. साथ ही, `input` कलेक्शन में `function_result` ब्लॉक भेजें. इससे स्ट्रीम फिर से शुरू हो जाती है. इससे मॉडल को अपना फ़ाइनल जवाब जनरेट करने में मदद मिलती है.
 
 ### Python
 
@@ -401,7 +405,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**ターン 1:** 関数呼び出しをリクエストする
+**पहला टर्न:** फ़ंक्शन कॉल का अनुरोध करें
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -433,7 +437,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**ターン 2:** ターン 1 の `previous_interaction_id` と `call_id` を使用して関数結果を送信する
+**दूसरा टर्न:** पहले टर्न से मिले `previous_interaction_id` और `call_id` का इस्तेमाल करके, फ़ंक्शन का नतीजा भेजें
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -463,9 +467,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 複数のツールを使用したストリーミング
+### एक से ज़्यादा टूल की मदद से स्ट्रीमिंग
 
-次の例では、1 つのリクエストで `function` ツールと `google_search` の両方を使用しています。
+यहां दिए गए उदाहरण में, एक ही अनुरोध में `function` टूल और `google_search`, दोनों का इस्तेमाल किया गया है:
 
 ### Python
 
@@ -669,9 +673,9 @@ event: done
 data: [DONE]
 ```
 
-## 思考を伴うストリーミング
+## थिंकिंग की मदद से स्ट्रीमिंग
 
-モデルが思考を使用すると、2 つの異なるデルタ型（`thought_summary`（増分テキストまたは画像要約コンテンツ）と `thought_signature`（モデルの内部推論の暗号化された表現。`step.stop` の前の最後のデルタとして送信））を含む `thought` ステップが返されます。`thinking_summaries` が有効になっている場合、`thought_summary` デルタはモデルの推論の要約をストリーミングします。思考の詳細については、[思考ガイド](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ja)をご覧ください。
+जब मॉडल, थिंकिंग का इस्तेमाल करता है, तो आपको `thought` चरण मिलेंगे. इनमें डेल्टा के दो अलग-अलग टाइप होंगे: `thought_summary` (धीरे-धीरे मिलने वाला टेक्स्ट या इमेज की खास जानकारी का कॉन्टेंट) और `thought_signature` (मॉडल की इंटरनल रीज़निंग का एनक्रिप्ट किया गया वर्शन. यह `step.stop` से पहले, आखिरी डेल्टा के तौर पर भेजा जाता है). अगर `thinking_summaries` की सुविधा चालू है, तो `thought_summary` डेल्टा, मॉडल की रीज़निंग की खास जानकारी स्ट्रीम करते हैं. थिंकिंग के बारे में ज़्यादा जानने के लिए, [थिंकिंग गाइड](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=hi) देखें.
 
 ### Python
 
@@ -772,9 +776,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## エージェントによるストリーミング
+## एजेंट की मदद से स्ट्रीमिंग
 
-Interactions API は、Deep Research などのエージェントをサポートしています。エージェントは `background=True` を使用して結果を非同期で返しますが、エージェントのインタラクションをストリーミングして、進行状況の更新と中間ステップをリアルタイムで受け取ることもできます。詳しくは、[Deep Research ガイド](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=ja)をご覧ください。
+Interactions API, Deep Research जैसे एजेंट के साथ काम करता है. एजेंट, `background=True` का इस्तेमाल करते हैं और नतीजे एसिंक्रोनस तरीके से देते हैं. हालांकि, एजेंट इंटरैक्शन को स्ट्रीम भी किया जा सकता है. इससे, प्रोग्रेस अपडेट और इंटरमीडिएट चरण मिलते हैं. ज़्यादा जानकारी के लिए, [Deep Research गाइड](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=hi) देखें.
 
 ### Python
 
@@ -894,11 +898,11 @@ event: done
 data: [DONE]
 ```
 
-## ストリーミング画像生成
+## इमेज जनरेट करने की प्रोसेस की मदद से इमेज जनरेट करने के लिए ऑटोमेशन
 
-Interactions API は、複数の出力モードの同時ストリーミングをサポートしています。`response_format` で `text` と `image` の両方をリクエストすると、インターリーブされたテキストと生成された画像を同じストリームで受け取ることができます。
+Interactions API, एक साथ कई आउटपुट मोडैलिटी को स्ट्रीम करने की सुविधा देता है. `response_format` में `text` और `image`, दोनों का अनुरोध करके, एक ही स्ट्रीम में इंटरलीव किए गए टेक्स्ट और जनरेट की गई इमेज पाई जा सकती हैं.
 
-次の例では、`gemini-3.1-flash-image-preview`（Nano Banana 2）を使用して情報を検索し、イラストが挿入された物語を生成します。
+यहां दिए गए उदाहरण में, जानकारी खोजने और इंटरलीव किए गए इलस्ट्रेशन वाली कहानी जनरेट करने के लिए, `gemini-3.1-flash-image-preview` (Nano Banana 2) का इस्तेमाल किया गया है.
 
 ### Python
 
@@ -1052,24 +1056,24 @@ event: done
 data: [DONE]
 ```
 
-## 不明なイベントの処理
+## अनजान इवेंट को मैनेज करना
 
-API のバージョン管理ポリシーに沿って、新しいイベントタイプとデルタタイプが今後追加される可能性があります。コードは、認識できないイベントタイプを適切に処理する必要があります。エラーをスローするのではなく、認識できないイベントをログに記録してスキップします。
+एपीआई की वर्शनिंग नीति के मुताबिक, समय के साथ-साथ इवेंट के नए टाइप और डेल्टा के नए टाइप जोड़े जा सकते हैं. आपके कोड को, इवेंट के अनजान टाइप को आसानी से मैनेज करना चाहिए. साथ ही, जिन इवेंट की पहचान नहीं हो पाती उन्हें लॉग करें और स्किप करें. इसके बजाय, गड़बड़ी न दिखाएं.
 
-## 次のステップ
+## आगे क्या करना है
 
-- [操作用 API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja) の詳細をご確認ください。
-- ツールを使用して[関数呼び出し](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ja)を試す。
-- 推論を強化する [Thinking](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ja) について確認する。
-- 長時間実行タスクには [Deep Research エージェント](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=ja)を試してください。
-- すべてのイベントタイプとデルタタイプについては、[インタラクション API リファレンス](https://ai.google.dev/api/interactions?hl=ja)をご覧ください。
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=hi) के बारे में ज़्यादा जानें.
+- टूल की मदद से [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi) के बारे में जानें.
+- बेहतर रीज़निंग के लिए, [थिंकिंग](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=hi) के बारे में जानें.
+- लंबे समय तक चलने वाले टास्क के लिए, [Deep Research एजेंट](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=hi) आज़माएं.
+- इवेंट के सभी टाइप और डेल्टा के सभी टाइप देखने के लिए, [Interactions API का रेफ़रंस](https://ai.google.dev/api/interactions?hl=hi) देखें.
 
-フィードバックを送信
+सुझाव भेजें
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最終更新日 2026-05-16 UTC。
+आखिरी बार 2026-05-21 (UTC) को अपडेट किया गया.
 
-ご意見をお聞かせください
+क्या आपको हमें और कुछ बताना है?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-16 UTC。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-21 (UTC) को अपडेट किया गया."],[],[]]

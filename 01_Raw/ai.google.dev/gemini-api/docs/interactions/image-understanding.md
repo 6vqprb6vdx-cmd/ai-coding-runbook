@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=ar
-fetched_at: 2026-05-18T13:01:04.705397+00:00
+fetched_at: 2026-05-25T13:05:36.104708+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -46,7 +46,7 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="path/to/organ.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -56,7 +56,7 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -72,7 +72,7 @@ const uploadedFile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -82,7 +82,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -94,7 +94,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -122,7 +122,7 @@ with open('path/to/small-sample.jpg', 'rb') as f:
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -132,7 +132,7 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -147,7 +147,7 @@ const base64ImageFile = fs.readFileSync("path/to/small-sample.jpg", {
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -157,7 +157,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -176,7 +176,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -202,7 +202,7 @@ client = genai.Client()
 my_file = client.files.upload(file="path/to/sample.jpg")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Caption this image."},
         {
@@ -212,7 +212,7 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -228,7 +228,7 @@ const myfile = await client.files.upload({
 });
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "Caption this image."},
         {
@@ -238,7 +238,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -252,7 +252,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Caption this image."},
       {
@@ -276,7 +276,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "What is different between these two images?"},
         {
@@ -291,7 +291,7 @@ interaction = client.interactions.create(
         }
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -302,7 +302,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
         {type: "text", text: "What is different between these two images?"},
         {
@@ -317,7 +317,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -328,7 +328,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "What is different between these two images?"},
       {
@@ -369,7 +369,7 @@ class BoundingBoxes(BaseModel):
     boxes: List[BoundingBox]
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": prompt},
         {
@@ -385,7 +385,7 @@ interaction = client.interactions.create(
     }
 )
 
-bounding_boxes = BoundingBoxes.model_validate_json(interaction.steps[-1].content[0].text)
+bounding_boxes = BoundingBoxes.model_validate_json(interaction.output_text)
 print(bounding_boxes)
 ```
 
@@ -407,7 +407,7 @@ const boundingBoxesSchema = z.object({
 });
 
 const interaction = await client.interactions.create({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   input: [
     { type: "text", text: prompt },
     {
@@ -423,7 +423,7 @@ const interaction = await client.interactions.create({
   },
 });
 
-const result = boundingBoxesSchema.parse(JSON.parse(interaction.steps.at(-1).content[0].text));
+const result = boundingBoxesSchema.parse(JSON.parse(interaction.output_text));
 console.log(result);
 ```
 
@@ -435,7 +435,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Detect the all of the prominent items in the image. The box_2d should be [ymin, xmin, ymax, xmax] normalized to 0-1000."},
       {
@@ -504,7 +504,7 @@ class BoundingBoxes(BaseModel):
     boxes: List[BoundingBox]
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": prompt},
         {
@@ -519,11 +519,11 @@ interaction = client.interactions.create(
         "schema": BoundingBoxes.model_json_schema()
     },
     generation_config={
-        "thinking_level": "minimal"  # Minimize thinking for better detection results
+        "thinking_level": "minimal"
     }
 )
 
-items = BoundingBoxes.model_validate_json(interaction.steps[-1].content[0].text)
+items = BoundingBoxes.model_validate_json(interaction.output_text)
 print("Segmentation results:", items)
 ```
 
@@ -550,7 +550,7 @@ const boundingBoxesSchema = z.object({
 });
 
 const interaction = await client.interactions.create({
-  model: "gemini-3-flash-preview",
+  model: "gemini-3.5-flash",
   input: [
     { type: "text", text: prompt },
     {
@@ -569,7 +569,7 @@ const interaction = await client.interactions.create({
   }
 });
 
-const result = boundingBoxesSchema.parse(JSON.parse(interaction.steps.at(-1).content[0].text));
+const result = boundingBoxesSchema.parse(JSON.parse(interaction.output_text));
 console.log(result);
 ```
 
@@ -581,7 +581,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {"type": "text", "text": "Give the segmentation masks for the wooden and glass items.\nOutput a JSON list of segmentation masks where each entry contains the 2D\nbounding box in the key \"box_2d\", the segmentation mask in key \"mask\", and\nthe text label in the key \"label\". Use descriptive labels."},
       {
@@ -687,8 +687,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-تاريخ التعديل الأخير: 2026-05-11 (حسب التوقيت العالمي المتفَّق عليه)
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-11 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

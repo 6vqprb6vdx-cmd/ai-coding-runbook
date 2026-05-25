@@ -1,156 +1,156 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deprecations?hl=pl
-fetched_at: 2026-05-18T13:10:29.117835+00:00
-title: "Wycofanie Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deprecations?hl=ja
+fetched_at: 2026-05-25T13:00:04.482682+00:00
+title: "Gemini \u306e\u975e\u63a8\u5968 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Prześlij opinię
+フィードバックを送信
 
-# Wycofanie Gemini
+# Gemini の非推奨
 
-Na tej stronie znajdziesz znane harmonogramy wycofywania [stabilnych (ogólnodostępnych)](https://ai.google.dev/gemini-api/docs/models?hl=pl#stable) i [wersji podglądowych](https://ai.google.dev/gemini-api/docs/models?hl=pl#preview) modeli w interfejsie Gemini API. „**Wycofanie**” to ogłoszenie, że nie obsługujemy już danego modelu i w niedalekiej przyszłości zostanie on „**wyłączony**”. Gdy model zostanie „**wyłączony**”, jest całkowicie wyłączony, a punkt końcowy nie jest już dostępny.
+このページでは、Gemini API の[安定版（GA）](https://ai.google.dev/gemini-api/docs/models?hl=ja#stable)モデルと[プレビュー版](https://ai.google.dev/gemini-api/docs/models?hl=ja#preview)モデルの既知の非推奨スケジュールを示します。「**非推奨**」とは、モデルのサポートが終了し、近い将来に「**シャットダウン**」されることをお知らせするものです。モデルが「**シャットダウン**」されると、完全にオフになり、エンドポイントは使用できなくなります。
 
-Ogłoszenia o wycofaniu są publikowane na stronie [Informacje o wersji](https://ai.google.dev/gemini-api/docs/changelog?hl=pl), a ogłoszone najwcześniejsze daty wyłączenia są śledzone na tej stronie.
-Modele, które zostały już wyłączone, są oznaczone szarym tłem.
+非推奨の発表は[リリースノート](https://ai.google.dev/gemini-api/docs/changelog?hl=ja)のページで行われ、発表された最も早いシャットダウン日はこのページで追跡されます。すでにシャットダウンされているモデルは、背景がグレーで表示されます。
 
-## Modele Gemini 3
+## Gemini 3 モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-3.1-flash-lite` | 7 maja 2026 r. | 7 maja 2027 r. |  |
-| Podgląd modeli | | | |
-| `gemini-3.1-flash-lite-preview` | 3 marca 2026 r. | 25 maja 2026 r. | `gemini-3.1-flash-lite` |
-| `gemini-3.1-flash-image-preview` | 26 lutego 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-3.1-pro-preview` | 19 lutego 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-3-pro-image-preview` | 20 listopada 2025 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-3-flash-preview` | 17 grudnia 2025 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-3-pro-preview` | 18 listopada 2025 r. | 9 marca 2026 r. | `gemini-3.1-pro-preview` |
+| `gemini-3.5-flash` | 2026 年 5 月 19 日 | 提供終了日は未発表 |  |
+| `gemini-3.1-flash-lite` | 2026 年 5 月 7 日 | 2027 年 5 月 7 日 |  |
+| モデルをプレビュー | | | |
+| `gemini-3.1-flash-lite-preview` | 2026 年 3 月 3 日 | 2026 年 5 月 25 日 | `gemini-3.1-flash-lite` |
+| `gemini-3.1-flash-image-preview` | 2026 年 2 月 26 日 | 提供終了日は未発表 |  |
+| `gemini-3.1-pro-preview` | 2026 年 2 月 19 日 | 提供終了日は未発表 |  |
+| `gemini-3-pro-image-preview` | 2025 年 11 月 20 日 | 提供終了日は未発表 |  |
+| `gemini-3-flash-preview` | 2025 年 12 月 17 日 | 提供終了日は未発表 | `gemini-3.5-flash` |
+| `gemini-3-pro-preview` | 2025 年 11 月 18 日 | 2026 年 3 月 9 日 | `gemini-3.1-pro-preview` |
 
-## modele Gemini 2.5 Pro,
+## Gemini 2.5 Pro モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-2.5-pro` | 17 czerwca 2025 r. | 16 października 2026 r. | `gemini-3.1-pro-preview` |
-| Podgląd modeli | | | |
-| `gemini-2.5-pro-preview-03-25` | 3 marca 2025 r. | 2 grudnia 2025 r. | `gemini-3.1-pro-preview` |
-| `gemini-2.5-pro-preview-05-06` | 6 maja 2025 r. | 2 grudnia 2025 r. | `gemini-3.1-pro-preview` |
-| `gemini-2.5-pro-preview-06-05` | 5 czerwca 2025 r. | 2 grudnia 2025 r. | `gemini-3.1-pro-preview` |
+| `gemini-2.5-pro` | 2025 年 6 月 17 日 | 2026 年 10 月 16 日 | `gemini-3.1-pro-preview` |
+| モデルをプレビュー | | | |
+| `gemini-2.5-pro-preview-03-25` | 2025 年 3 月 3 日 | 2025 年 12 月 2 日 | `gemini-3.1-pro-preview` |
+| `gemini-2.5-pro-preview-05-06` | 2025 年 5 月 6 日 | 2025 年 12 月 2 日 | `gemini-3.1-pro-preview` |
+| `gemini-2.5-pro-preview-06-05` | 2025 年 6 月 5 日 | 2025 年 12 月 2 日 | `gemini-3.1-pro-preview` |
 
-## Modele Gemini 2.5 Flash
+## Gemini 2.5 Flash モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-2.5-flash` | 17 czerwca 2025 r. | 16 października 2026 r. | `gemini-3-flash-preview` |
-| `gemini-2.5-flash-image` | 2 października 2025 r. | 2 października 2026 r. | `gemini-3.1-flash-image-preview` |
-| `gemini-2.5-flash-lite` | 22 lipca 2025 r. | 16 października 2026 r. | `gemini-3.1-flash-lite` |
-| Podgląd modeli | | | |
-| `gemini-2.5-flash-lite-preview-09-2025` | 25 września 2025 r. | 31 marca 2026 r. | `gemini-3.1-flash-lite` |
-| `gemini-2.5-flash-preview-05-20` | 20 maja 2025 r. | 18 listopada 2025 r. | `gemini-3-flash-preview` |
-| `gemini-2.5-flash-image-preview` | 7 maja 2025 r. | 15 stycznia 2026 r. | `gemini-2.5-flash-image` |
-| `gemini-2.5-flash-preview-09-25` | 25 września 2025 r. | 17 lutego 2026 r. | `gemini-3-flash-preview` |
+| `gemini-2.5-flash` | 2025 年 6 月 17 日 | 2026 年 10 月 16 日 | `gemini-3.5-flash` |
+| `gemini-2.5-flash-image` | 2025 年 10 月 2 日 | 2026 年 10 月 2 日 | `gemini-3.1-flash-image-preview` |
+| `gemini-2.5-flash-lite` | 2025 年 7 月 22 日 | 2026 年 10 月 16 日 | `gemini-3.1-flash-lite` |
+| モデルをプレビュー | | | |
+| `gemini-2.5-flash-lite-preview-09-2025` | 2025 年 9 月 25 日 | 2026 年 3 月 31 日 | `gemini-3.1-flash-lite` |
+| `gemini-2.5-flash-preview-05-20` | 2025 年 5 月 20 日 | 2025 年 11 月 18 日 | `gemini-3.5-flash` |
+| `gemini-2.5-flash-image-preview` | 2025 年 5 月 7 日 | 2026 年 1 月 15 日 | `gemini-2.5-flash-image` |
+| `gemini-2.5-flash-preview-09-25` | 2025 年 9 月 25 日 | 2026 年 2 月 17 日 | `gemini-3.5-flash` |
 
-## Modele Gemini 2.0
+## Gemini 2.0 モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-2.0-flash` | 5 lutego 2025 r. | 1 czerwca 2026 r. | `gemini-2.5-flash` |
-| `gemini-2.0-flash-001` | 5 lutego 2025 r. | 1 czerwca 2026 r. | `gemini-2.5-flash` |
-| `gemini-2.0-flash-lite` | 25 lutego 2025 r. | 1 czerwca 2026 r. | `gemini-2.5-flash-lite` |
-| `gemini-2.0-flash-lite-001` | 25 lutego 2025 r. | 1 czerwca 2026 r. | `gemini-2.5-flash-lite` |
-| Podgląd modeli | | | |
-| `gemini-2.0-flash-preview-image-generation` | 7 maja 2025 r. | 14 listopada 2025 r. | `gemini-2.5-flash-image` |
-| `gemini-2.0-flash-lite-preview` | 5 lutego 2025 r. | 9 grudnia 2025 r. | `gemini-2.5-flash-lite` |
-| `gemini-2.0-flash-lite-preview-02-05` | 5 lutego 2025 r. | 9 grudnia 2025 r. | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash` | 2025 年 2 月 5 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash` |
+| `gemini-2.0-flash-001` | 2025 年 2 月 5 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash` |
+| `gemini-2.0-flash-lite` | 2025 年 2 月 25 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash-lite-001` | 2025 年 2 月 25 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash-lite` |
+| モデルをプレビュー | | | |
+| `gemini-2.0-flash-preview-image-generation` | 2025 年 5 月 7 日 | 2025 年 11 月 14 日 | `gemini-2.5-flash-image` |
+| `gemini-2.0-flash-lite-preview` | 2025 年 2 月 5 日 | 2025 年 12 月 9 日 | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash-lite-preview-02-05` | 2025 年 2 月 5 日 | 2025 年 12 月 9 日 | `gemini-2.5-flash-lite` |
 
-## Modele interfejsu Live API
+## Live API モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-2.0-flash-live-001` | 9 kwietnia 2025 r. | 9 grudnia 2025 r. | `gemini-3.1-flash-live-preview` |
-| Podgląd modeli | | | |
-| `gemini-3.1-flash-live-preview` | 11 marca 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-2.5-flash-native-audio-preview-12-2025` | 12 grudnia 2025 r. | Nie ogłoszono daty wyłączenia | `gemini-3.1-flash-live-preview` |
-| `gemini-live-2.5-flash-preview` | 17 czerwca 2025 r. | 9 grudnia 2025 r. | `gemini-3.1-flash-live-preview` |
+| `gemini-2.0-flash-live-001` | 2025 年 4 月 9 日 | 2025 年 12 月 9 日 | `gemini-3.1-flash-live-preview` |
+| モデルをプレビュー | | | |
+| `gemini-3.1-flash-live-preview` | 2026 年 3 月 11 日 | 提供終了日は未発表 |  |
+| `gemini-2.5-flash-native-audio-preview-12-2025` | 2025 年 12 月 12 日 | 提供終了日は未発表 | `gemini-3.1-flash-live-preview` |
+| `gemini-live-2.5-flash-preview` | 2025 年 6 月 17 日 | 2025 年 12 月 9 日 | `gemini-3.1-flash-live-preview` |
 
-## Modele audio
+## 音声モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| Podgląd modeli | | | |
-| `gemini-3.1-flash-tts-preview` | 13 kwietnia 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-2.5-flash-preview-tts` | 20 maja 2025 r. | Nie ogłoszono daty wyłączenia | `gemini-3.1-flash-tts-preview` |
-| `gemini-2.5-pro-preview-tts` | 20 maja 2025 r. | Nie ogłoszono daty wyłączenia | `gemini-3.1-flash-tts-preview` |
+| モデルをプレビュー | | | |
+| `gemini-3.1-flash-tts-preview` | 2026 年 4 月 13 日 | 提供終了日は未発表 |  |
+| `gemini-2.5-flash-preview-tts` | 2025 年 5 月 20 日 | 提供終了日は未発表 | `gemini-3.1-flash-tts-preview` |
+| `gemini-2.5-pro-preview-tts` | 2025 年 5 月 20 日 | 提供終了日は未発表 | `gemini-3.1-flash-tts-preview` |
 
-## Modele wektorów dystrybucyjnych
+## エンベディング モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-embedding-001` | 14 lipca 2025 r. | 14 lipca 2026 r. |  |
-| `text-embedding-004` | 9 kwietnia 2024 r. | 14 stycznia 2026 r. | `gemini-embedding-001` |
-| Podgląd modeli | | | |
-| `embedding-001` | 9 kwietnia 2024 r. | 30 października 2025 r. | `gemini-embedding-001` |
-| `embedding-gecko-001` |  | 30 października 2025 r. | `gemini-embedding-001` |
-| `gemini-embedding-exp` |  | 30 października 2025 r. | `gemini-embedding-001` |
-| `gemini-embedding-exp-03-07` |  | 30 października 2025 r. | `gemini-embedding-001` |
+| `gemini-embedding-001` | 2025 年 7 月 14 日 | 2026 年 7 月 14 日 |  |
+| `text-embedding-004` | 2024 年 4 月 9 日 | 2026 年 1 月 14 日 | `gemini-embedding-001` |
+| モデルをプレビュー | | | |
+| `embedding-001` | 2024 年 4 月 9 日 | 2025 年 10 月 30 日 | `gemini-embedding-001` |
+| `embedding-gecko-001` |  | 2025 年 10 月 30 日 | `gemini-embedding-001` |
+| `gemini-embedding-exp` |  | 2025 年 10 月 30 日 | `gemini-embedding-001` |
+| `gemini-embedding-exp-03-07` |  | 2025 年 10 月 30 日 | `gemini-embedding-001` |
 
-## Modele Imagen
+## Imagen モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `imagen-4.0-generate-001` | 24 czerwca 2025 r. | 24 czerwca 2026 r. | `gemini-3-pro-image-preview` lub `gemini-2.5-flash-image` |
-| `imagen-4.0-ultra-generate-001` | 24 czerwca 2025 r. | 24 czerwca 2026 r. | `gemini-3-pro-image-preview` lub `gemini-2.5-flash-image` |
-| `imagen-4.0-fast-generate-001` | 24 czerwca 2025 r. | 24 czerwca 2026 r. | `gemini-3-pro-image-preview` lub `gemini-2.5-flash-image` |
-| `imagen-3.0-generate-002` | 6 lutego 2025 r. | 10 listopada 2025 r. | `imagen-4.0-generate-001` |
-| Podgląd modeli | | | |
-| `imagen-4.0-generate-preview-06-06` | 24 czerwca 2025 r. | 17 lutego 2026 r. | `imagen-4.0-generate-001` |
-| `imagen-4.0-ultra-generate-preview-06-06` | 24 czerwca 2025 r. | 17 lutego 2026 r. | `imagen-4.0-ultra-generate-001` |
+| `imagen-4.0-generate-001` | 2025 年 6 月 24 日 | 2026 年 6 月 24 日 | `gemini-3-pro-image-preview` または `gemini-2.5-flash-image` |
+| `imagen-4.0-ultra-generate-001` | 2025 年 6 月 24 日 | 2026 年 6 月 24 日 | `gemini-3-pro-image-preview` または `gemini-2.5-flash-image` |
+| `imagen-4.0-fast-generate-001` | 2025 年 6 月 24 日 | 2026 年 6 月 24 日 | `gemini-3-pro-image-preview` または `gemini-2.5-flash-image` |
+| `imagen-3.0-generate-002` | 2025 年 2 月 6 日 | 2025 年 11 月 10 日 | `imagen-4.0-generate-001` |
+| モデルをプレビュー | | | |
+| `imagen-4.0-generate-preview-06-06` | 2025 年 6 月 24 日 | 2026 年 2 月 17 日 | `imagen-4.0-generate-001` |
+| `imagen-4.0-ultra-generate-preview-06-06` | 2025 年 6 月 24 日 | 2026 年 2 月 17 日 | `imagen-4.0-ultra-generate-001` |
 
-## Modele Veo
+## Veo モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `veo-3.0-generate-001` | 9 września 2025 r. | Wkrótce | `veo-3.1-generate-preview` |
-| `veo-3.0-fast-generate-001` | 9 września 2025 r. | Wkrótce | `veo-3.1-lite-generate-preview` |
-| `veo-2.0-generate-001` | 9 kwietnia 2025 r. | Wkrótce | `veo-3.1-generate-preview` |
-| Podgląd modeli | | | |
-| `veo-3.1-lite-generate-preview` | 31 marca 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `veo-3.1-generate-preview` | 15 października 2025 r. | Nie ogłoszono daty wyłączenia |  |
-| `veo-3.1-fast-generate-preview` | 15 października 2025 r. | Nie ogłoszono daty wyłączenia |  |
-| `veo-3.0-generate-preview` | 31 lipca 2025 r. | 12 listopada 2025 r. | `veo-3.1-generate-preview` |
-| `veo-3.0-fast-generate-preview` | 31 lipca 2025 r. | 12 listopada 2025 r. | `veo-3.1-fast-generate-preview` |
+| `veo-3.0-generate-001` | 2025 年 9 月 9 日 | 近日提供予定 | `veo-3.1-generate-preview` |
+| `veo-3.0-fast-generate-001` | 2025 年 9 月 9 日 | 近日提供予定 | `veo-3.1-lite-generate-preview` |
+| `veo-2.0-generate-001` | 2025 年 4 月 9 日 | 近日提供予定 | `veo-3.1-generate-preview` |
+| モデルをプレビュー | | | |
+| `veo-3.1-lite-generate-preview` | 2026 年 3 月 31 日 | 提供終了日は未発表 |  |
+| `veo-3.1-generate-preview` | 2025 年 10 月 15 日 | 提供終了日は未発表 |  |
+| `veo-3.1-fast-generate-preview` | 2025 年 10 月 15 日 | 提供終了日は未発表 |  |
+| `veo-3.0-generate-preview` | 2025 年 7 月 31 日 | 2025 年 11 月 12 日 | `veo-3.1-generate-preview` |
+| `veo-3.0-fast-generate-preview` | 2025 年 7 月 31 日 | 2025 年 11 月 12 日 | `veo-3.1-fast-generate-preview` |
 
-## Modele Lyria
+## Lyria モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `lyria-3-clip-preview` | 25 marca 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `lyria-3-pro-preview` | 25 marca 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `lyria-realtime-exp` | 20 maja 2025 r. | Nie ogłoszono daty wyłączenia |  |
+| `lyria-3-clip-preview` | 2026 年 3 月 25 日 | 提供終了日は未発表 |  |
+| `lyria-3-pro-preview` | 2026 年 3 月 25 日 | 提供終了日は未発表 |  |
+| `lyria-realtime-exp` | 2025 年 5 月 20 日 | 提供終了日は未発表 |  |
 
-## Modele robotów
+## ロボット工学モデル
 
-| **Model** | **Data premiery** | **Data wyłączenia** | **Zalecany zamiennik** |
+| **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| Podgląd modeli | | | |
-| `gemini-robotics-er-1.6-preview` | 14 kwietnia 2026 r. | Nie ogłoszono daty wyłączenia |  |
-| `gemini-robotics-er-1.5-preview` | 25 września 2025 r. | 30 kwietnia 2026 r. | `gemini-robotics-er-1.6-preview` |
+| モデルをプレビュー | | | |
+| `gemini-robotics-er-1.6-preview` | 2026 年 4 月 14 日 | サービス終了日は未発表 |  |
+| `gemini-robotics-er-1.5-preview` | 2025 年 9 月 25 日 | 2026 年 4 月 30 日 | `gemini-robotics-er-1.6-preview` |
 
-Prześlij opinię
+フィードバックを送信
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ostatnia aktualizacja: 2026-05-08 UTC.
+最終更新日 2026-05-19 UTC。
 
-Chcesz przekazać coś jeszcze?
+ご意見をお聞かせください
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-08 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

@@ -1,35 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=pl
-fetched_at: 2026-05-18T13:04:09.851493+00:00
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=tr
+fetched_at: 2026-05-25T12:55:27.650949+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Prześlij opinię
+Geri bildirim gönderin
 
-# Kontekst adresu URL
+# URL bağlamı
 
-Narzędzie do określania kontekstu adresu URL umożliwia przekazywanie modelom dodatkowego kontekstu w postaci adresów URL. Jeśli w żądaniu uwzględnisz adresy URL, model uzyska dostęp do treści z tych stron (o ile nie jest to typ adresu URL wymieniony w [sekcji Ograniczenia](#limitations)), aby wzbogacić swoją odpowiedź.
+URL bağlamı aracı, URL'ler şeklinde modellere ek bağlam sağlamanıza olanak tanır. İsteğinize URL'ler ekleyerek model, yanıtını bilgilendirmek ve geliştirmek için bu sayfalardaki içeriğe ([sınırlamalar bölümünde](#limitations) listelenen bir URL türü olmadığı sürece) erişir.
 
-Narzędzie do określania kontekstu adresu URL jest przydatne w przypadku takich zadań jak:
+URL bağlamı aracı, aşağıdaki gibi görevler için kullanışlıdır:
 
-- **Wyodrębnianie danych**: pobieranie konkretnych informacji, takich jak ceny, nazwy lub kluczowe
-  ustalenia, z wielu adresów URL.
-- **Porównywanie dokumentów**: analizowanie wielu raportów, artykułów lub plików PDF w celu
-  identyfikowania różnic i śledzenia trendów.
-- **Synteza i tworzenie treści:** łączenie informacji z kilku źródłowych adresów URL w celu generowania dokładnych podsumowań, postów na blogu lub raportów.
-- **Analizowanie kodu i dokumentów:** wskazywanie repozytorium GitHub lub dokumentacji technicznej w celu wyjaśnienia kodu, wygenerowania instrukcji konfiguracji lub udzielenia odpowiedzi na pytania.
+- **Veri Ayıklama**: Fiyatlar, adlar veya temel bulgular gibi belirli bilgileri birden fazla URL'den çekin.
+- **Belgeleri Karşılaştırma**: Farklılıkları belirlemek ve trendleri takip etmek için birden fazla raporu, makaleyi veya PDF'yi analiz edin.
+- **İçerik Sentezleme ve Oluşturma**: Doğru özetler, blog yayınları veya raporlar oluşturmak için çeşitli kaynak URL'lerden gelen bilgileri birleştirin.
+- **Kodu ve Dokümanları Analiz Etme**: Kodu açıklamak, kurulum talimatları oluşturmak veya soruları yanıtlamak için bir GitHub deposunu ya da teknik dokümanı işaret edin.
 
-Z przykładu poniżej dowiesz się, jak porównać 2 przepisy z różnych witryn.
+Aşağıdaki örnekte, farklı web sitelerindeki iki tarifin nasıl karşılaştırılacağı gösterilmektedir.
 
 ### Python
 
@@ -38,7 +36,7 @@ from google import genai
 from google.genai.types import Tool, GenerateContentConfig
 
 client = genai.Client()
-model_id = "gemini-3-flash-preview"
+model_id = "gemini-3.5-flash"
 
 tools = [
   {"url_context": {}},
@@ -71,7 +69,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: [
         "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
     ],
@@ -91,7 +89,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -112,26 +110,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 cat result.json
 ```
 
-## Jak to działa
+## İşleyiş şekli
 
-Narzędzie do określania kontekstu adresu URL korzysta z 2-etapowego procesu pobierania, aby zrównoważyć szybkość, koszt i dostęp do aktualnych danych. Gdy podasz adres URL, narzędzie najpierw spróbuje pobrać treść z wewnętrznej pamięci podręcznej indeksu. Działa ona jako wysoce zoptymalizowana pamięć podręczna. Jeśli adres URL nie jest dostępny w indeksie (np. jeśli jest to bardzo nowa strona), narzędzie automatycznie przełączy się na pobieranie na żywo.
-Dzięki temu uzyskuje bezpośredni dostęp do adresu URL, aby pobrać jego zawartość w czasie rzeczywistym.
+URL Bağlamı aracı, hızı, maliyeti ve güncel verilere erişimi dengelemek için iki adımlı bir alma süreci kullanır. Bir URL sağladığınızda araç, önce içeriği dahili bir dizin önbelleğinden getirmeye çalışır. Bu, yüksek düzeyde optimize edilmiş bir önbellek görevi görür. Bir URL dizinde mevcut değilse (ör. çok yeni bir sayfa ise) araç otomatik olarak canlı getirme işlemine geri döner.
+Bu araç, içeriğini gerçek zamanlı olarak almak için doğrudan URL'ye erişir.
 
-## Łączenie z innymi narzędziami
+## Diğer araçlarla birlikte kullanma
 
-Aby tworzyć bardziej zaawansowane przepływy pracy, możesz połączyć narzędzie do określania kontekstu adresu URL z innymi narzędziami.
+Daha güçlü iş akışları oluşturmak için URL bağlamı aracını diğer araçlarla birlikte kullanabilirsiniz.
 
-[Modele Gemini 3](#supported-models) obsługują łączenie wbudowanych narzędzi
-(takich jak narzędzie do określania kontekstu adresu URL) z narzędziami niestandardowymi (wywołanie funkcji). Więcej informacji znajdziesz na
-[stronie dotyczącej kombinacji narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+[Gemini 3 modelleri](#supported-models), yerleşik araçların (ör. URL bağlamı) özel araçlarla (işlev çağrısı) birleştirilmesini destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
 
-### Powiązanie ze źródłem informacji przy użyciu wyszukiwarki
+### Arama ile temellendirme
 
-Gdy włączone są zarówno narzędzie do określania kontekstu adresu URL, jak i
-[powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl),
-model może korzystać z funkcji wyszukiwania, aby znajdować
-odpowiednie informacje w internecie, a następnie używać narzędzia do określania kontekstu adresu URL, aby lepiej
-zrozumieć znalezione strony. To podejście jest skuteczne w przypadku promptów, które wymagają zarówno szerokiego wyszukiwania, jak i dogłębnej analizy konkretnych stron.
+Hem URL bağlamı hem de [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/grounding?hl=tr) etkinleştirildiğinde model, arama özelliklerini kullanarak internette alakalı bilgiler bulabilir ve ardından bulduğu sayfalar hakkında daha ayrıntılı bilgi edinmek için URL bağlamı aracını kullanabilir. Bu yaklaşım, hem geniş kapsamlı arama hem de belirli sayfaların ayrıntılı analizini gerektiren istemler için oldukça etkilidir.
 
 ### Python
 
@@ -140,7 +132,7 @@ from google import genai
 from google.genai.types import Tool, GenerateContentConfig, GoogleSearch, UrlContext
 
 client = genai.Client()
-model_id = "gemini-3-flash-preview"
+model_id = "gemini-3.5-flash"
 
 tools = [
       {"url_context": {}},
@@ -170,7 +162,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: [
         "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
     ],
@@ -192,7 +184,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -216,11 +208,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 cat result.json
 ```
 
-## Interpretowanie odpowiedzi
+## Yanıtı anlama
 
-Gdy model używa narzędzia do określania kontekstu adresu URL, odpowiedź zawiera obiekt `url_context_metadata`. Ten obiekt zawiera listę adresów URL, z których model pobrał treści, oraz stan każdej próby pobrania. Jest to przydatne do weryfikacji i debugowania.
+Model, URL bağlamı aracını kullandığında yanıtta bir `url_context_metadata` nesnesi bulunur. Bu nesne, modelin içerik aldığı URL'leri ve her alma denemesinin durumunu listeler. Bu bilgiler, doğrulama ve hata ayıklama için yararlıdır.
 
-Oto przykład tej części odpowiedzi (dla zwięzłości pominięto niektóre części):
+Aşağıda, yanıtın bu bölümüne ilişkin bir örnek verilmiştir (kısa olması için yanıtın bazı bölümleri çıkarılmıştır):
 
 ```
 {
@@ -252,18 +244,16 @@ Oto przykład tej części odpowiedzi (dla zwięzłości pominięto niektóre cz
 }
 ```
 
-Szczegółowe informacje o tym obiekcie znajdziesz w
-[`UrlContextMetadata` dokumentacji API](https://ai.google.dev/api/generate-content?hl=pl#UrlContextMetadata).
+Bu nesneyle ilgili tüm ayrıntılar için [`UrlContextMetadata` API referansı](https://ai.google.dev/api/generate-content?hl=tr#UrlContextMetadata) bölümüne bakın.
 
-### Testy zabezpieczeń
+### Güvenlik kontrolleri
 
-System przeprowadza kontrolę moderacji treści pod kątem adresu URL, aby potwierdzić, że spełnia on standardy bezpieczeństwa. Jeśli podany adres URL nie przejdzie tej kontroli, otrzymasz `url_retrieval_status` o wartości `URL_RETRIEVAL_STATUS_UNSAFE`.
+Sistem, URL'de içerik denetimi yaparak güvenlik standartlarını karşılayıp karşılamadığını onaylar. Sağladığınız URL bu denetimi geçemezse `url_retrieval_status` `URL_RETRIEVAL_STATUS_UNSAFE` hatası alırsınız.
 
-### Liczba tokenów
+### Jeton sayısı
 
-Treści pobrane z adresów URL podanych w prompcie są liczone jako część tokenów wejściowych. Liczbę tokenów dla promptu i
-użycia narzędzi możesz sprawdzić w [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=pl#UsageMetadata)
-obiekcie danych wyjściowych modelu. Oto przykład danych wyjściowych:
+İsteminizde belirttiğiniz URL'lerden alınan içerik, giriş jetonları kapsamında sayılır. İsteminizin jeton sayısını ve araç kullanımını model çıkışının [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=tr#UsageMetadata)
+nesnesinde görebilirsiniz. Aşağıda örnek bir çıkış verilmiştir:
 
 ```
 'usage_metadata': {
@@ -279,65 +269,62 @@ obiekcie danych wyjściowych modelu. Oto przykład danych wyjściowych:
   }
 ```
 
-Cena za token zależy od używanego modelu. Szczegółowe informacje znajdziesz na
-[stronie z cennikiem](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
+Jeton başına fiyat, kullanılan modele bağlıdır. Ayrıntılar için [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) sayfasına bakın.
 
-## Obsługiwane modele
+## Desteklenen modeller
 
-| Model | Kontekst adresu URL |
+| Model | URL Bağlamı |
 | --- | --- |
-| [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite (wersja testowa)](https://ai.google.dev/gemini-api/docs/gemini-3.1-flash-lite-preview?hl=pl) | ✔️ |
-| [Gemini 3 Flash (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) | ✔️ |
+| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=tr) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.1 Flash-Lite Önizlemesi](https://ai.google.dev/gemini-api/docs/gemini-3.1-flash-lite-preview?hl=tr) | ✔️ |
+| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
 
-## Sprawdzone metody
+## En İyi Uygulamalar
 
-- **Podawaj konkretne adresy URL**: aby uzyskać najlepsze wyniki, podaj bezpośrednie adresy URL
-  treści, które mają być analizowane przez model. Model będzie pobierać treści tylko z podanych adresów URL, a nie z linków zagnieżdżonych.
-- **Sprawdzaj dostępność**: upewnij się, że podane adresy URL nie prowadzą do
-  stron, które wymagają logowania lub są płatne.
-- **Używaj pełnego adresu URL**: podaj pełny adres URL, w tym protokół
-  (np. https://www.google.com zamiast google.com).
+- **Belirli URL'ler sağlama**: En iyi sonuçları elde etmek için modelin analiz etmesini istediğiniz içeriğe doğrudan URL'ler sağlayın. Model yalnızca sağladığınız URL'lerden içerik alır, iç içe yerleştirilmiş bağlantılardaki içerikleri almaz.
+- **Erişilebilirliği kontrol edin**: Sağladığınız URL'lerin, giriş yapılması gereken veya ödeme duvarının arkasında olan sayfalara yönlendirmediğini doğrulayın.
+- **Tam URL'yi kullanın**: Protokolü de dahil ederek tam URL'yi girin (ör. yalnızca google.com yerine https://www.google.com).
 
-## Ograniczenia
+## Sınırlamalar
 
-- Wywołanie funkcji: używanie narzędzi (kontekst adresu URL, powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google itp.) z wywołaniem funkcji nie jest obecnie obsługiwane.
-- Limit żądań: narzędzie może przetworzyć maksymalnie 20 adresów URL na żądanie.
-- Rozmiar treści adresu URL: maksymalny rozmiar treści pobranych z jednego adresu URL to 34 MB.
-- Dostępność publiczna: adresy URL muszą być publicznie dostępne w internecie.
-  Adresy localhost (np. localhost, 127.0.0.1), sieci prywatne i usługi tunelowania (np. ngrok, pinggy) nie są obsługiwane.
-- Tylko interfejs Gemini API: kontekst adresu URL jest dostępny tylko w interfejsie Gemini API, a nie w Gemini Enterprise Agent Platform.
+- İşlev çağırma: İşlev çağırma ile araç kullanımı (URL bağlamı, Google Arama ile temellendirme vb.) şu anda desteklenmemektedir.
+- İstek sınırı: Araç, istek başına en fazla 20 URL işleyebilir.
+- URL içerik boyutu: Tek bir URL'den alınan içeriklerin maksimum boyutu 34 MB'tır.
+- Herkese açık erişim: URL'ler web'de herkesin erişimine açık olmalıdır.
+  Localhost adresleri (ör. localhost, 127.0.0.1), özel ağlar ve tünel oluşturma hizmetleri (ör. ngrok, pinggy) desteklenmez.
+- Yalnızca Gemini API: URL bağlamı, Gemini Enterprise Agent Platformu üzerinden değil yalnızca Gemini API'de kullanılabilir.
 
-### Obsługiwane i nieobsługiwane typy treści
+### Desteklenen ve desteklenmeyen içerik türleri
 
-Narzędzie może wyodrębniać treści z adresów URL o tych typach:
+Araç, aşağıdaki içerik türlerine sahip URL'lerden içerik ayıklayabilir:
 
-- Tekst (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- Obraz (image/png, image/jpeg, image/bmp, image/webp)
+- Metin (text/html, application/json, text/plain, text/xml, text/css,
+  text/javascript , text/csv, text/rtf)
+- Resim (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-Te typy treści **nie są** obsługiwane:
+Aşağıdaki içerik türleri **desteklenmez**:
 
-- Treści płatne
-- Filmy z YouTube (informacje o tym, jak przetwarzać adresy URL z YouTube, znajdziesz w artykule o
-  [rozumieniu treści wideo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl#youtube))
-- Pliki Google Workspace, takie jak dokumenty i arkusze Google
-- Pliki audio i wideo
+- Ödeme duvarlı içerik
+- YouTube videoları (YouTube URL'lerinin nasıl işleneceğini öğrenmek için [video anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr#youtube) bölümüne bakın)
+- Google Dokümanları veya e-tablolar gibi Google Workspace dosyaları
+- Video ve ses dosyaları
 
-## Co dalej?
+## Sırada ne var?
 
-- [Więcej przykładów znajdziesz w przewodniku po kontekście adresu URL.](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=pl#url-context)
+- Daha fazla örnek için [URL bağlamı yemek kitabını](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=tr#url-context) inceleyin.
 
-Prześlij opinię
+Geri bildirim gönderin
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Ostatnia aktualizacja: 2026-05-13 UTC.
+Son güncelleme tarihi: 2026-05-19 UTC.
 
-Chcesz przekazać coś jeszcze?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-13 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-19 UTC."],[],[]]

@@ -1,37 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-CN
-fetched_at: 2026-05-18T13:02:22.751739+00:00
+source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=th
+fetched_at: 2026-05-25T12:55:35.186979+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=th)
 
-发送反馈
+ส่งความคิดเห็น
 
-# 文档理解
+# การทำความเข้าใจเอกสาร
 
-Gemini 模型可以处理 PDF 格式的文档，并使用原生视觉功能来理解整个文档的上下文。这不仅仅是提取文本，还让 Gemini 能够：
+โมเดล Gemini สามารถประมวลผลเอกสารในรูปแบบ PDF โดยใช้
+Vision ดั้งเดิมเพื่อทำความเข้าใจบริบทของเอกสารทั้งฉบับ ซึ่งจะช่วยให้ Gemini ทำสิ่งต่อไปนี้ได้
+นอกเหนือจากการดึงข้อความ
 
-- 分析和解读内容，包括文本、图片、图表、图表和表格，即使是长达 1,000 页的文档也能轻松应对。
-- 将信息提取为[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)格式。
-- 根据文档中的视觉和文本元素总结内容并回答问题。
-- 转写文档内容（例如转写为 HTML），同时保留布局和格式，以便在下游应用中使用。
+- วิเคราะห์และตีความเนื้อหา รวมถึงข้อความ รูปภาพ แผนภาพ
+  แผนภูมิ และตาราง แม้ในเอกสารขนาดยาวที่มีมากถึง 1,000 หน้า
+- ดึงข้อมูลลงในรูปแบบ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)
+- สรุปและตอบคำถามโดยอิงตามทั้งองค์ประกอบภาพและข้อความ
+  ในเอกสาร
+- ถอดเสียงเนื้อหาเอกสาร (เช่น เป็น HTML) โดยคงเลย์เอาต์และการจัดรูปแบบไว้เพื่อใช้ในแอปพลิเคชันดาวน์สตรีม
 
-您也可以通过相同的方式传递非 PDF 文档，但 Gemini 会将它们视为普通文本，从而消除图表或格式等上下文。
+นอกจากนี้ คุณยังส่งเอกสารที่ไม่ใช่ PDF ในลักษณะเดียวกันได้ แต่ Gemini จะเห็นเอกสารเหล่านั้นเป็นข้อความปกติ ซึ่งจะไม่มีบริบท เช่น แผนภูมิหรือการจัดรูปแบบ
 
-## 以内嵌方式传递 PDF 数据
+## การส่งข้อมูล PDF แบบอินไลน์
 
-您可以在对 `generateContent` 的请求中内嵌传递 PDF 数据。此方法最适合处理较小的文档或临时处理，因为您无需在后续请求中引用该文件。对于需要在多轮对话中参考的较大文档，我们建议使用 [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-cn#large-pdfs)，以缩短请求延迟时间并减少带宽使用量。
+คุณส่งข้อมูล PDF แบบอินไลน์ในคำขอไปยัง `generateContent` ได้ วิธีนี้เหมาะที่สุดสำหรับเอกสารขนาดเล็กหรือการประมวลผลชั่วคราวซึ่งคุณไม่จำเป็นต้องอ้างอิงไฟล์ในคำขอที่ตามมา เราขอแนะนำให้ใช้ [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=th#large-pdfs)
+สำหรับเอกสารขนาดใหญ่ที่คุณต้องอ้างอิงในการโต้ตอบแบบหลายรอบเพื่อ
+ปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์
 
-以下示例展示了如何从网址提取 PDF 并将其转换为字节以进行处理：
+ตัวอย่างต่อไปนี้แสดงวิธีดึงข้อมูล PDF จาก URL และแปลงเป็น
+ไบต์เพื่อประมวลผล
 
 ### Python
 
@@ -49,7 +56,7 @@ doc_data = httpx.get(doc_url).content
 
 prompt = "Summarize this document"
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[
         types.Part.from_bytes(
             data=doc_data,
@@ -84,7 +91,7 @@ async function main() {
     ];
 
     const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         contents: contents
     });
     console.log(response.text);
@@ -138,7 +145,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         contents,
         nil,
     )
@@ -168,7 +175,7 @@ fi
 ENCODED_PDF=$(base64 $B64FLAGS "${DISPLAY_NAME}.pdf")
 
 # Generate content using the base64 encoded PDF
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -189,7 +196,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-您还可以从本地文件读取 PDF 以进行处理：
+นอกจากนี้ คุณยังอ่าน PDF จากไฟล์ในเครื่องเพื่อประมวลผลได้ด้วย
 
 ### Python
 
@@ -205,7 +212,7 @@ filepath = pathlib.Path('file.pdf')
 
 prompt = "Summarize this document"
 response = client.models.generate_content(
-  model="gemini-3-flash-preview",
+  model="gemini-3.5-flash",
   contents=[
       types.Part.from_bytes(
         data=filepath.read_bytes(),
@@ -235,7 +242,7 @@ async function main() {
     ];
 
     const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         contents: contents
     });
     console.log(response.text);
@@ -281,7 +288,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         contents,
         nil,
     )
@@ -290,13 +297,13 @@ func main() {
 }
 ```
 
-## 使用 Files API 上传 PDF
+## การอัปโหลด PDF โดยใช้ Files API
 
-建议您使用 Files API 处理较大的文件，或者打算在多个请求中重复使用某个文档时使用该 API。通过将文件上传与模型请求分离，可以缩短请求延迟时间并减少带宽使用量。
+เราขอแนะนำให้คุณใช้ Files API สำหรับไฟล์ขนาดใหญ่หรือเมื่อต้องการนำเอกสารกลับมาใช้ซ้ำในคำขอหลายรายการ ซึ่งจะช่วยปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์ด้วยการแยกการอัปโหลดไฟล์ออกจากคำขอโมเดล
 
-### 来自网址的大型 PDF 文件
+### PDF ขนาดใหญ่จาก URL
 
-使用 File API 可简化通过网址上传和处理大型 PDF 文件的流程：
+ใช้ File API เพื่อลดความซับซ้อนในการอัปโหลดและประมวลผลไฟล์ PDF ขนาดใหญ่จาก URL โดยทำดังนี้
 
 ### Python
 
@@ -323,7 +330,7 @@ sample_doc = client.files.upload(
 prompt = "Summarize this document"
 
 response = client.models.generate_content(
-  model="gemini-3-flash-preview",
+  model="gemini-3.5-flash",
   contents=[sample_doc, prompt])
 print(response.text)
 ```
@@ -375,7 +382,7 @@ async function main() {
     }
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.5-flash',
         contents: content,
     });
 
@@ -432,7 +439,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         contents,
         nil,
     )
@@ -484,7 +491,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo "file_uri: ${file_uri}"
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -504,7 +511,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-### 本地存储的大型 PDF
+### PDF ขนาดใหญ่ที่จัดเก็บไว้ในเครื่อง
 
 ### Python
 
@@ -527,7 +534,7 @@ sample_file = client.files.upload(
 prompt="Summarize this document"
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[sample_file, "Summarize this document"])
 print(response.text)
 ```
@@ -573,7 +580,7 @@ async function main() {
     }
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.5-flash',
         contents: content,
     });
 
@@ -618,7 +625,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         contents,
         nil,
     )
@@ -659,7 +666,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -676,7 +683,8 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-您可以调用 [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=zh-cn) 来验证 API 是否已成功存储上传的文件并获取其元数据。只有 `name`（以及扩展的 `uri`）是唯一的。
+คุณสามารถยืนยันว่า API จัดเก็บไฟล์ที่อัปโหลดเรียบร้อยแล้วและรับข้อมูลเมตาของไฟล์ได้โดยการเรียกใช้ [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=th) มีเพียง `name`
+(และ `uri`) เท่านั้นที่ไม่ซ้ำกัน
 
 ### Python
 
@@ -708,9 +716,11 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## 传递多个 PDF
+## ส่ง PDF หลายไฟล์
 
-Gemini API 能够在单个请求中处理多个 PDF 文档（最多 1, 000 页），前提是文档和文本提示的总大小不超过模型的上下文窗口大小。
+Gemini API สามารถประมวลผลเอกสาร PDF หลายรายการ (สูงสุด 1, 000 หน้า)
+ในคำขอเดียวได้ ตราบใดที่ขนาดรวมของเอกสารและพรอมต์ข้อความ
+ยังคงอยู่ภายในหน้าต่างบริบทของโมเดล
 
 ### Python
 
@@ -740,7 +750,7 @@ sample_pdf_2 = client.files.upload(
 prompt = "What is the difference between each of the main benchmarks between these two papers? Output these in a table."
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[sample_pdf_1, sample_pdf_2, prompt]
 )
 
@@ -802,7 +812,7 @@ async function main() {
     }
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.5-flash',
         contents: content,
     });
 
@@ -870,7 +880,7 @@ func main() {
         genai.NewContentFromParts(promptParts, genai.RoleUser),
     }
 
-    modelName := "gemini-3-flash-preview"
+    modelName := "gemini-3.5-flash"
     result, _ := client.Models.GenerateContent(
         ctx,
         modelName,
@@ -943,7 +953,7 @@ file_uri_1=$(upload_pdf "${DOC_URL_1}" "${DISPLAY_NAME_1}")
 file_uri_2=$(upload_pdf "${DOC_URL_2}" "${DISPLAY_NAME_2}")
 
 # Now generate content using both files
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -962,50 +972,57 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## 技术详情
+## รายละเอียดทางเทคนิค
 
-Gemini 支持不超过 50MB 或 1,000 页的 PDF 文件。此限制适用于内嵌数据和 Files API 上传。每个文档页面相当于 258 个词元。
+Gemini รองรับไฟล์ PDF ที่มีขนาดไม่เกิน 50 MB หรือ 1,000 หน้า ขีดจํากัดนี้มีผล
+ทั้งกับข้อมูลแบบอินไลน์และการอัปโหลดผ่าน Files API หน้าเอกสารแต่ละหน้าจะเท่ากับโทเค็น 258 รายการ
 
-虽然除了模型的[上下文窗口](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-cn)之外，文档中的像素数量没有具体限制，但较大的页面会被缩小到最大分辨率 (3072 x 3072)，同时保留其原始宽高比，而较小的页面会被放大到 768 x 768 像素。除了带宽之外，较低尺寸的网页不会降低费用，而较高分辨率的网页也不会提高性能。
+แม้จะไม่มีขีดจำกัดที่เฉพาะเจาะจงสำหรับจำนวนพิกเซลในเอกสารนอกเหนือจาก[หน้าต่างบริบท](https://ai.google.dev/gemini-api/docs/long-context?hl=th)ของโมเดล แต่ระบบจะปรับขนาดหน้าเว็บที่ใหญ่ขึ้นให้มีความละเอียดสูงสุด 3072 x 3072 โดยยังคงอัตราส่วนเดิมไว้ ส่วนหน้าเว็บที่เล็กลงจะได้รับการปรับขนาดเป็น 768 x 768 พิกเซล ไม่มีการลดต้นทุนสำหรับหน้าเว็บที่มีขนาดเล็กลงนอกเหนือจากแบนด์วิดท์ หรือการปรับปรุงประสิทธิภาพสำหรับหน้าเว็บที่มีความละเอียดสูงขึ้น
 
-### Gemini 3 模型
+### โมเดล Gemini 3
 
-Gemini 3 引入了 `media_resolution` 参数，可对多模态视觉处理进行精细控制。您现在可以为每个媒体部分单独设置低、中或高分辨率。添加此功能后，PDF 文档的处理方式已更新：
+Gemini 3 มีการควบคุมแบบละเอียดเกี่ยวกับการประมวลผลวิสัยทัศน์แบบมัลติโมดอลด้วยพารามิเตอร์ `media_resolution`
+ตอนนี้คุณสามารถตั้งค่าความละเอียดเป็นต่ำ ปานกลาง หรือสูงสำหรับสื่อแต่ละส่วนได้แล้ว การเพิ่มฟีเจอร์นี้จะอัปเดตการประมวลผลเอกสาร PDF ดังนี้
 
-1. **原生文本纳入**：提取 PDF 中原生嵌入的文本并将其提供给模型。
-2. **结算和代币报告**：
-   - 您**无需支付** PDF 中提取的**原生文本**所对应的 token 费用。
-   - 在 API 响应的 `usage_metadata` 部分，通过处理 PDF 页面（作为图片）生成的令牌现在计入 `IMAGE` 模态，而不是像某些早期版本那样计入单独的 `DOCUMENT` 模态。
+1. **การรวมข้อความดั้งเดิม:** ระบบจะดึงข้อความที่ฝังอยู่ใน PDF
+   และส่งให้โมเดล
+2. **การเรียกเก็บเงินและการรายงานโทเค็น:**
+   - ระบบ**ไม่เรียกเก็บเงิน**สำหรับโทเค็นที่มาจาก**ข้อความดั้งเดิม**ที่ดึงออกมาใน PDF
+   - ในส่วน `usage_metadata` ของการตอบกลับของ API ตอนนี้ระบบจะนับโทเค็นที่สร้างขึ้น
+     จากการประมวลผลหน้า PDF (เป็นรูปภาพ) ภายใต้รูปแบบ `IMAGE`
+     ไม่ใช่รูปแบบ `DOCUMENT` แยกต่างหากเหมือนในบางเวอร์ชันก่อนหน้า
 
-如需详细了解媒体分辨率参数，请参阅[媒体分辨率](https://ai.google.dev/gemini-api/docs/media-resolution?hl=zh-cn)指南。
+ดูรายละเอียดเพิ่มเติมเกี่ยวกับพารามิเตอร์ความละเอียดของสื่อได้ที่คู่มือ[ความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/media-resolution?hl=th)
 
-### 文档类型
+### ประเภทเอกสาร
 
-从技术上讲，您可以传递其他 MIME 类型以进行文档理解，例如 TXT、Markdown、HTML、XML 等。不过，文档视觉 ***仅能有意义地理解 PDF***。其他类型的文件将被提取为纯文本，模型将无法解读我们在这些文件的呈现中看到的内容。所有特定于文件类型的信息（例如图表、示意图、HTML 标记、Markdown 格式等）都将丢失。
+ในทางเทคนิค คุณสามารถส่ง MIME ประเภทอื่นๆ สำหรับการทำความเข้าใจเอกสารได้ เช่น TXT, Markdown, HTML, XML ฯลฯ อย่างไรก็ตาม Document Vision ***จะเข้าใจเฉพาะ PDF เท่านั้น*** ส่วนไฟล์ประเภทอื่นๆ จะได้รับการแยกเป็นข้อความธรรมดา และโมเดล
+จะไม่สามารถตีความสิ่งที่เห็นในการแสดงผลไฟล์เหล่านั้นได้ รายละเอียดของประเภทไฟล์ เช่น แผนภูมิ ไดอะแกรม แท็ก HTML การจัดรูปแบบ Markdown ฯลฯ จะหายไป
 
-如需了解其他文件输入方法，请参阅[文件输入方法](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-cn)指南。
+ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ ได้ที่คู่มือ[วิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
 
-### 最佳做法
+### แนวทางปฏิบัติแนะนำ
 
-为了达到最佳效果，请注意以下事项：
+เพื่อผลลัพธ์ที่ดีที่สุด ให้ทำดังนี้
 
-- 请先将页面旋转到正确方向，然后再上传。
-- 避免页面模糊不清。
-- 如果使用单页，请将文本提示放在该页之后。
+- หมุนหน้าให้เป็นการวางแนวที่ถูกต้องก่อนอัปโหลด
+- หลีกเลี่ยงหน้าเว็บที่เบลอ
+- หากใช้หน้าเดียว ให้วางพรอมต์ข้อความไว้หลังหน้า
 
-## 后续步骤
+## ขั้นตอนถัดไป
 
-如需了解详情，请参阅以下资源：
+ดูข้อมูลเพิ่มเติมได้ที่แหล่งข้อมูลต่อไปนี้
 
-- [文件提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn#prompt-guide)：Gemini API 支持使用文本、图片、音频和视频数据进行提示，也称为多模态提示。
-- [系统指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#system-instructions)：系统指令可让您根据自己的特定需求和使用情形来控制模型的行为。
+- [กลยุทธ์การเขียนพรอมต์ด้วยไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide): Gemini API รองรับการเขียนพรอมต์ด้วยข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ ซึ่งเรียกอีกอย่างว่าการเขียนพรอมต์แบบหลายรูปแบบ
+- [คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions):
+  คำสั่งของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตามความต้องการและกรณีการใช้งานเฉพาะของคุณได้
 
-发送反馈
+ส่งความคิดเห็น
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-最后更新时间 (UTC)：2026-05-13。
+อัปเดตล่าสุด 2026-05-19 UTC
 
-需要向我们提供更多信息？
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-13。"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-19 UTC"],[],[]]

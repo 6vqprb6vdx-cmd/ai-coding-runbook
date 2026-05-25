@@ -1,202 +1,202 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr
-fetched_at: 2026-05-18T13:09:56.383470+00:00
-title: "Strat\u00e9gies de conception des invites \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=tr
+fetched_at: 2026-05-25T12:58:16.252024+00:00
+title: "H\u0131zl\u0131 tasar\u0131m stratejileri \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-# Stratégies de conception des invites
+# Hızlı tasarım stratejileri
 
-La *conception de requêtes* est le processus de création de requêtes, ou demandes en langage naturel, qui permettent d'obtenir des réponses précises et de haute qualité à partir d'un modèle de langage.
+*İstem tasarımı*, dil modelinden doğru ve yüksek kaliteli yanıtlar alınmasını sağlayan istemler veya doğal dil istekleri oluşturma sürecidir.
 
-Cette page présente des concepts, des stratégies et des bonnes pratiques de base pour vous aider à concevoir des requêtes afin de tirer le meilleur parti des modèles d'IA Gemini.
+Bu sayfada, Gemini yapay zeka modellerinden en iyi şekilde yararlanmak için istem tasarlamaya başlamanıza yardımcı olacak temel kavramlar, stratejiler ve en iyi uygulamalar tanıtılmaktadır.
 
-## Guides de requêtes spécifiques à un thème
+## Konuya özel istem kılavuzları
 
-Vous recherchez des stratégies de requête plus spécifiques ? Consultez nos autres guides sur les prompts :
+Daha spesifik istem stratejileri mi arıyorsunuz? Aşağıdaki konularda diğer istem kılavuzlarımıza göz atın:
 
-- [Utiliser des fichiers multimédias dans les requêtes](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide)
-- Requêtes pour la génération d'images avec [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr#imagen-prompt-guide) et [Gemini Native Image Generation](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr#prompt-guide)
-- [Requêtes pour la génération de vidéos](https://ai.google.dev/gemini-api/docs/video?hl=fr#prompt-guide)
+- [Medya dosyalarıyla istem oluşturma](https://ai.google.dev/gemini-api/docs/files?hl=tr#prompt-guide)
+- [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=tr#imagen-prompt-guide) ve [Gemini Native Image Generation](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr#prompt-guide) ile görüntü üretme istemleri
+- [Video üretimi için istem girme](https://ai.google.dev/gemini-api/docs/video?hl=tr#prompt-guide)
 
-Vous trouverez d'autres exemples de requêtes dans la [galerie de requêtes](https://ai.google.dev/gemini-api/prompts?hl=fr), qui vise à présenter de manière interactive de nombreux concepts abordés dans ce guide.
+Bu kılavuzda paylaşılan birçok kavramı etkileşimli olarak sergilemek için tasarlanan [istem galerisinde](https://ai.google.dev/gemini-api/prompts?hl=tr) diğer örnek istemleri bulabilirsiniz.
 
-## Instructions claires et spécifiques
+## Net ve spesifik talimatlar
 
-Pour personnaliser le comportement d'un modèle de manière efficace, fournissez-lui des instructions claires et spécifiques. Les instructions peuvent se présenter sous la forme d'une question, de tâches détaillées ou être aussi complexes que de définir l'expérience et l'état d'esprit d'un utilisateur.
+Model davranışını özelleştirmenin etkili ve verimli bir yolu, modele net ve spesifik talimatlar vermektir. Talimatlar soru, adım adım görevler şeklinde veya kullanıcının deneyimini ve düşünce yapısını haritalandırmak kadar karmaşık olabilir.
 
-### Entrée
+### Giriş
 
-L'entrée est le texte obligatoire de la requête pour laquelle le modèle doit fournir une réponse. Les entrées peuvent être des questions auxquelles le modèle répond (entrée de question), une tâche effectuée par le modèle (entrée de tâche), une entité sur laquelle le modèle travaille (entrée d'entité) ou une entrée partielle que le modèle doit terminer ou continuer (entrée de saisie semi-automatique).
+Giriş, istemde modelin yanıt vermesini istediğiniz zorunlu metindir. Girişler; modelin yanıtladığı bir soru (soru girişi), modelin gerçekleştirdiği bir görev (görev girişi), modelin üzerinde işlem yaptığı bir varlık (varlık girişi) veya modelin tamamladığı ya da devam ettirdiği kısmi giriş (tamamlama girişi) olabilir.
 
-| **Type d'entrée** | **Prompt** (Requête) | **Résultat généré** |
+| **Giriş türü** | **İstem** | **Üretilen çıkış** |
 | --- | --- | --- |
-| Question | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
-| Tâche | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
-| Entité | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
+| Soru | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
+| Görev | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
+| Varlık | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
 
-#### Saisie semi-automatique partielle
+#### Kısmi giriş tamamlama
 
-Les modèles de langage génératif fonctionnent comme un outil de saisie semi-automatique avancé. Lorsque vous fournissez un contenu partiel, le modèle peut fournir le reste du contenu ou ce qu'il considère comme une suite de ce contenu en tant que réponse. Ainsi, si vous incluez des exemples ou du contexte, le modèle peut prendre en compte ces exemples ou éléments de contexte.
+Üretken dil modelleri, gelişmiş bir otomatik tamamlama aracı gibi çalışır. Kısmi içerik sağladığınızda model, içeriğin geri kalanını veya içeriğin devamı olduğunu düşündüğü kısmı yanıt olarak verebilir. Bunu yaparken örnek veya bağlam eklerseniz model bu örnekleri ya da bağlamı dikkate alabilir.
 
-L'exemple suivant fournit une requête avec une instruction et une entrée d'entité :
-
-|  |
-| --- |
-| **Requête :**    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Réponse:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
-
-Bien que le modèle ait respecté l'invite, il peut parfois être difficile d'écrire les instructions en langage naturel et cela laisse une marge d'interprétation au modèle.
-Par exemple, le menu d'un restaurant peut contenir de nombreux plats. Pour réduire la taille de la réponse JSON, vous souhaiterez probablement omettre les éléments qui n'ont pas été commandés. Dans ce cas, vous pouvez fournir un exemple et un préfixe de réponse, puis laisser le modèle le terminer :
+Aşağıdaki örnekte, talimat ve öğe girişi içeren bir istem sağlanmaktadır:
 
 |  |
 | --- |
-| **Requête :**    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Réponse:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
+| **İstem:**    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Yanıt:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
 
-Notez que le "cheeseburger" a été exclu du résultat, car il ne faisait pas partie de la commande.
-
-Bien que vous puissiez spécifier le format des objets de réponse JSON simples à l'aide d'invites, nous vous recommandons d'utiliser la fonctionnalité [Sortie structurée](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) de l'API Gemini lorsque vous spécifiez un schéma JSON plus complexe pour la réponse.
-
-### Contraintes
-
-Spécifiez les contraintes liées à la lecture du prompt ou à la génération d'une réponse. Vous pouvez indiquer au modèle ce qu'il doit faire et ne pas faire. Par exemple, vous pouvez spécifier une contrainte dans la requête concernant la durée d'un résumé :
+Model, isteneni yapmasına rağmen talimatları doğal dilde yazmak bazen zor olabilir ve modelin yorumuna çok şey bırakır.
+Örneğin, bir restoranın menüsünde birçok öğe olabilir. JSON yanıtının boyutunu küçültmek için sipariş edilmeyen öğeleri atlamak isteyebilirsiniz. Bu durumda, bir örnek ve yanıt öneki verebilir, modelin bunu tamamlamasına izin verebilirsiniz:
 
 |  |
 | --- |
-| **Requête :**     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Réponse :**     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
+| **İstem:**    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Yanıt:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
 
-### Format de réponse
+"Cheeseburger"ın siparişin bir parçası olmadığı için çıkıştan nasıl hariç tutulduğuna dikkat edin.
 
-Vous pouvez donner des instructions qui spécifient le format de la réponse. Par exemple, vous pouvez demander que la réponse soit mise en forme sous forme de tableau, de liste à puces, d'argumentaire éclair, de mots clés, de phrase ou de paragraphe. L'instruction système suivante indique au modèle d'être plus conversationnel dans sa réponse :
+Basit JSON yanıt nesnelerinin biçimini istemleri kullanarak belirtebilseniz de yanıt için daha karmaşık bir JSON şeması belirtirken Gemini API'nin [yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) özelliğini kullanmanızı öneririz.
 
-|  |
-| --- |
-| **Instruction système**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **Requête**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Réponse:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
+### Sınırlamalar
 
-#### Mettre en forme les réponses avec la stratégie de complétion
-
-La [stratégie de complémentation](#completion) peut également vous aider à formater la réponse.
-L'exemple suivant demande au modèle de créer un plan de dissertation :
+İstemi okuma veya yanıt oluşturma ile ilgili kısıtlamaları belirtin. Modele ne yapıp ne yapmaması gerektiğini söyleyebilirsiniz. Örneğin, istemde özetin ne kadar uzun olmasını istediğinize dair bir kısıtlama belirtebilirsiniz:
 
 |  |
 | --- |
-| **Requête :**    ``` Create an outline for an essay about hummingbirds. ```  **Réponse:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
+| **İstem:**     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Yanıt:**     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
 
-La requête ne mentionnait pas de format pour le plan et le modèle a choisi un format pour vous. Pour que le modèle renvoie un plan dans un format spécifique, vous pouvez ajouter du texte représentant le début du plan et laisser le modèle le terminer en fonction du schéma que vous avez initié.
+### Yanıt biçimi
 
-|  |
-| --- |
-| **Requête :**    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Réponse:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
-
-## Requêtes zero-shot et requêtes few-shot
-
-Vous pouvez inclure des exemples dans la requête afin de montrer au modèle à quoi ressemble une réponse correcte. Le modèle tente d'identifier des schémas et des relations à partir des exemples, et les applique lors de la génération d'une réponse. Les requêtes contenant quelques exemples sont appelées des requêtes *few-shot*, tandis que les requêtes qui ne fournissent aucun exemple sont appelées *requêtes zero-shot*. Les requêtes few-shot sont souvent utilisées pour réguler la mise en forme, la formulation, le champ d'application ou la mise en forme générale des réponses du modèle. Utilisez des exemples spécifiques et variés pour aider le modèle à affiner sa cible et à générer des résultats plus précis.
-
-Nous vous recommandons d'inclure systématiquement des exemples few-shot dans vos requêtes. Les requêtes sans exemples few-shot sont susceptibles d'être moins efficaces. En fait, vous pouvez supprimer les instructions de votre requête si vos exemples montrent clairement la tâche à accomplir.
-
-La requête zero-shot suivante demande au modèle de choisir la meilleure explication.
+Yanıtın biçimini belirten talimatlar verebilirsiniz. Örneğin, yanıtın tablo, madde işaretli liste, kısa açıklama, anahtar kelime, cümle veya paragraf olarak biçimlendirilmesini isteyebilirsiniz. Aşağıdaki sistem talimatı, modele yanıtında daha sohbet tarzında olmasını söylüyor:
 
 |  |
 | --- |
-| **Requête :**    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Réponse:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
+| **Sistem talimatı**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **İstem**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Yanıt:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
 
-Si votre cas d'utilisation nécessite que le modèle produise des réponses concises, vous pouvez inclure dans la requête des exemples qui privilégient les réponses concises.
+#### Tamamlama stratejisiyle yanıtları biçimlendirme
 
-La requête suivante fournit deux exemples qui indiquent une préférence pour les explications plus courtes. Dans la réponse, vous pouvez constater que les exemples ont poussé le modèle à choisir l'explication la plus courte (`Explanation2`), par opposition à la plus longue (`Explanation1`).
-
-|  |
-| --- |
-| **Requête :**    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Réponse:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
-
-### Nombre optimal d'exemples
-
-Des modèles tels que Gemini peuvent souvent détecter des schémas avec seulement quelques exemples, mais vous devrez peut-être tester le nombre d'exemples à fournir dans la requête pour obtenir les meilleurs résultats. Cependant, si vous incluez trop d'exemples, le modèle peut manifester un [surapprentissage](https://developers.google.com/machine-learning/glossary?hl=fr#overfitting) qui biaise les réponses obtenues.
-
-### Toujours le même format
-
-Assurez-vous que la structure et la mise en forme des exemples few-shot sont identiques pour éviter les réponses avec des formats indésirables. L'un des principaux objectifs de l'ajout d'exemples few-shot dans les requêtes est de montrer au modèle le format de réponse. Il est donc essentiel de veiller à ce que le format soit cohérent dans tous les exemples, en prêtant particulièrement attention aux balises XML, aux espaces blancs, aux sauts de ligne et aux séparateurs d'exemples.
-
-## Ajouter le contexte
-
-Vous pouvez inclure dans une requête des instructions et des informations dont le modèle a besoin pour résoudre un problème, au lieu de supposer que le modèle dispose de toutes les informations requises. Ces informations contextuelles aident le modèle à comprendre les contraintes et les détails de ce que vous lui demandez de faire.
-
-L'exemple suivant demande au modèle de fournir des conseils de dépannage pour un routeur :
+[Tamamlama stratejisi](#completion), yanıtın biçimlendirilmesine de yardımcı olabilir.
+Aşağıdaki örnekte, modelden bir makale taslağı oluşturması isteniyor:
 
 |  |
 | --- |
-| **Requête :**    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Réponse:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+| **İstem:**    ``` Create an outline for an essay about hummingbirds. ```  **Yanıt:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
 
-La réponse est semblable aux informations de dépannage génériques qui ne sont pas spécifiques au routeur ou à l'état des témoins LED.
-
-Pour personnaliser la réponse en fonction du routeur spécifique, vous pouvez ajouter le guide de dépannage du routeur à la requête en tant que contexte auquel le modèle doit faire référence dans sa réponse.
+İstemde, taslağın biçimi belirtilmedi ve model sizin için bir biçim seçti. Modelin belirli bir biçimde ana hat döndürmesini sağlamak için ana hattın başlangıcını temsil eden metin ekleyebilir ve başlattığınız düzene göre modeli tamamlamasına izin verebilirsiniz.
 
 |  |
 | --- |
-| **Requête :**    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Réponse:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+| **İstem:**    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Yanıt:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
 
-## Décomposer les requêtes en composants
+## Sıfır görevli ve çok görevli istemler
 
-Pour les cas d'utilisation qui nécessitent des requêtes complexes, vous pouvez aider le modèle à gérer cette complexité en décomposant les éléments en composants plus simples.
+İstemde, modele doğru yanıtın nasıl göründüğünü gösteren örnekler ekleyebilirsiniz. Model, örneklerdeki kalıpları ve ilişkileri belirlemeye çalışır ve yanıt oluştururken bunları uygular. Birkaç örnek içeren istemlere *çok görevli* istem, örnek içermeyen istemlere ise *sıfır görevli* istem adı verilir. Az görevli istemler genellikle model yanıtlarının biçimlendirmesini, ifade biçimini, kapsamını veya genel kalıbını düzenlemek için kullanılır. Modelin odak noktasını daraltmasına ve daha doğru sonuçlar üretmesine yardımcı olmak için spesifik ve çeşitli örnekler kullanın.
 
-1. **Décomposez les instructions** : au lieu d'inclure plusieurs instructions dans une même requête, créez une requête par instruction. Vous pouvez choisir l'invite à traiter en fonction de la saisie de l'utilisateur.
-2. **Requêtes de chaîne** : pour les tâches complexes impliquant plusieurs étapes séquentielles, faites de chaque étape une requête et associez les requêtes dans une séquence. Dans cette chaîne de prompts séquentielle, la sortie d'un prompt de la séquence devient l'entrée du prompt suivant. Le résultat de la dernière requête de la séquence est le résultat final.
-3. **Réponses agrégées** : l'agrégation consiste à effectuer différentes tâches parallèles sur différentes parties des données et à agréger les résultats pour produire le résultat final. Par exemple, vous pouvez demander au modèle d'effectuer une opération sur la première partie des données, une autre opération sur le reste des données et d'agréger les résultats.
+İstemlerinize her zaman birkaç görevli örnek eklemenizi öneririz. Birkaç görev örneği içermeyen istemlerin etkili olma olasılığı daha düşüktür. Hatta örnekleriniz, söz konusu görevi gösterme konusunda yeterince netse isteminizdeki talimatları kaldırabilirsiniz.
 
-## Tester les paramètres du modèle
+Aşağıdaki sıfır görevli istemde modelden en iyi açıklamayı seçmesi isteniyor.
 
-Chaque appel que vous envoyez à un modèle inclut des valeurs de paramètres qui contrôlent la manière dont le modèle génère sa réponse. Le modèle peut générer différents résultats pour différentes valeurs de paramètre. Testez différentes valeurs de paramètre pour obtenir les meilleures valeurs pour la tâche. Les paramètres disponibles pour les différents modèles peuvent différer. Les paramètres les plus courants sont les suivants :
+|  |
+| --- |
+| **İstem:**    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Yanıt:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
 
-1. **Nombre maximal de jetons de sortie** : spécifie le nombre maximal de jetons pouvant être générés dans la réponse. Un jeton correspond environ à quatre caractères. 100 jetons correspondent environ à 60-80 mots.
-2. **Température** : la température permet de contrôler le degré de hasard dans la sélection des jetons. La température est utilisée pour l'échantillonnage pendant la génération de la réponse, qui se produit lorsque `topP` et `topK` sont appliqués. Les températures basses sont idéales pour les requêtes qui nécessitent une réponse plus déterministe ou moins ouverte, tandis que des températures plus élevées peuvent entraîner des résultats plus diversifiés ou créatifs. Une température de 0 est déterministe, ce qui signifie que la réponse dont la probabilité est la plus élevée est toujours sélectionnée.
-3. **`topK`** : le paramètre `topK` modifie la façon dont le modèle sélectionne les jetons pour la sortie. Une valeur `topK` de 1 signifie que le jeton sélectionné est le plus probable parmi tous les jetons du vocabulaire du modèle (également appelé décodage glouton), tandis qu'une valeur `topK` de 3 signifie que le jeton suivant est sélectionné parmi les trois jetons les plus probables à l'aide de la température. Pour chaque étape de sélection de jeton, les principaux jetons `topK` ayant les probabilités les plus élevées sont échantillonnés. Les jetons sont ensuite filtrés en fonction de `topP`, puis le jeton final est sélectionné à l'aide de l'échantillonnage de température.
-4. **`topP`** : le paramètre `topP` modifie la façon dont le modèle sélectionne les jetons pour la sortie. Les jetons sont sélectionnés de la probabilité la plus élevée à la plus faible jusqu'à ce que la somme de leurs probabilités soit égale à la valeur `topP`. Par exemple, si les jetons A, B et C ont une probabilité de 0,3, 0,2 et 0,1 et que la valeur `topP` est égale à 0,5, le modèle sélectionne A ou B comme jeton suivant en utilisant la température et exclut C comme candidat. La valeur `topP` par défaut est 0,95.
-5. **`stop_sequences`** : définissez une séquence d'arrêt pour indiquer au modèle d'arrêter de générer du contenu. Une séquence d'arrêt peut être n'importe quelle séquence de caractères. Essayez d'éviter d'utiliser une séquence de caractères qui pourrait apparaître dans le contenu généré.
+Kullanım alanınızda modelin kısa yanıtlar üretmesi gerekiyorsa isteme kısa yanıtları tercih eden örnekler ekleyebilirsiniz.
 
-## Stratégies d'itération des invites
+Aşağıdaki istemde, daha kısa açıklamalara öncelik verildiğini gösteren iki örnek verilmiştir. Yanıtta, örneklerin modeli daha önce yaptığı gibi daha uzun açıklama (`Explanation1`) yerine daha kısa açıklamayı (`Explanation2`) seçmeye yönlendirdiği görülüyor.
 
-La conception d'une requête peut parfois nécessiter plusieurs essais avant d'obtenir la réponse souhaitée de manière consistante. Cette section fournit des conseils sur les mesures que vous pouvez appliquer lors de l'itération de vos requêtes :
+|  |
+| --- |
+| **İstem:**    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Yanıt:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
 
-1. **Utilisez des formulations différentes** : l'utilisation de formulations ou de mots différents dans vos requêtes permet souvent d'obtenir des réponses différentes du modèle, même lorsque les requêtes ont le même sens. Si vous n'obtenez pas les résultats attendus à partir de la requête, essayez de la reformuler.
+### İdeal örnek sayısı
+
+Gemini gibi modeller, birkaç örnek kullanarak kalıpları genellikle algılayabilir. Ancak en iyi sonuçları elde etmek için istemde sağlanan örnek sayısıyla denemeler yapmanız gerekebilir. Aynı zamanda, çok fazla örnek eklerseniz model, yanıtı örneklere göre [aşırı öğrenmeye](https://developers.google.com/machine-learning/glossary?hl=tr#overfitting) başlayabilir.
+
+### Tutarlı format
+
+İstenmeyen biçimlerde yanıtlar almamak için birden çok örnekteki yapının ve biçimlendirmenin aynı olduğundan emin olun. İstemlere az görevli örnekler eklemenin temel amaçlarından biri, modele yanıt biçimini göstermektir. Bu nedenle, özellikle XML etiketlerine, boşluklara, yeni satırlara ve örnek ayırıcılara dikkat ederek tüm örneklerde tutarlı bir biçim kullanmak çok önemlidir.
+
+## Bağlam bilgisi ekleyin
+
+Modelin gerekli tüm bilgilere sahip olduğunu varsaymak yerine, bir sorunu çözmek için ihtiyaç duyduğu talimatları ve bilgileri isteme ekleyebilirsiniz. Bu bağlamsal bilgiler, modelin istediğiniz işle ilgili kısıtlamaları ve ayrıntıları anlamasına yardımcı olur.
+
+Aşağıdaki örnekte, modelden bir yönlendiriciyle ilgili sorun giderme talimatları vermesi isteniyor:
+
+|  |
+| --- |
+| **İstem:**    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Yanıt:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+
+Yanıtta, yönlendiriciye veya LED gösterge ışıklarının durumuna özgü olmayan genel sorun giderme bilgileri yer alıyor.
+
+Yanıtı belirli bir yönlendirici için özelleştirmek istiyorsanız isteme, yanıt verirken başvurması için yönlendiricinin sorun giderme kılavuzunu bağlam olarak ekleyebilirsiniz.
+
+|  |
+| --- |
+| **İstem:**    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Yanıt:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+
+## İstemleri bileşenlere ayırma
+
+Karmaşık istemler gerektiren kullanım alanlarında, öğeleri daha basit bileşenlere ayırarak modelin bu karmaşıklığı yönetmesine yardımcı olabilirsiniz.
+
+1. **Talimatları bölme:** Tek bir istemde çok sayıda talimat vermek yerine her talimat için ayrı bir istem oluşturun. Kullanıcının girişine göre hangi istemin işleneceğini seçebilirsiniz.
+2. **Zincir istemler:** Sıralı birden fazla adım içeren karmaşık görevler için her adımı istem olarak girin ve istemleri bir sırayla birbirine bağlayın. Bu sıralı istem zincirinde, dizideki bir istemin çıkışı bir sonraki istemin girişi olur. Dizideki son istemin çıkışı, nihai çıkıştır.
+3. **Yanıtları toplama:** Toplama, verilerin farklı bölümlerinde farklı paralel görevler gerçekleştirmek ve sonuçları toplayarak nihai çıktıyı oluşturmak istediğinizde kullanılır. Örneğin, modele verilerin ilk bölümünde bir işlem, verilerin geri kalanında başka bir işlem yapmasını ve sonuçları toplaması talimatını verebilirsiniz.
+
+## Model parametreleriyle denemeler yapma
+
+Bir modele gönderdiğiniz her çağrı, modelin nasıl yanıt üreteceğini kontrol eden parametre değerleri içerir. Model, farklı parametre değerleri için farklı sonuçlar üretebilir. Görev için en iyi değerleri elde etmek üzere farklı parametre değerleriyle denemeler yapın. Farklı modeller için kullanılabilen parametreler farklı olabilir. En yaygın parametreler şunlardır:
+
+1. **Maksimum çıkış jetonu:** Yanıtta oluşturulabilecek maksimum jeton sayısını belirtir. Bir jeton, yaklaşık dört karakterden oluşur. 100 jeton yaklaşık 60-80 kelimeye karşılık gelir.
+2. **Sıcaklık:** Sıcaklık, jeton seçimindeki rastgelelik derecesini kontrol eder. Sıcaklık, `topP` ve `topK` uygulandığında gerçekleşen yanıt üretimi sırasında örnekleme için kullanılır. Düşük sıcaklıklar, daha belirleyici veya daha az açık uçlu yanıt gerektiren istemler için tercih edilir. Yüksek sıcaklıklar ise daha çeşitli veya yaratıcı sonuçlar sunabilir. Sıcaklık 0 olduğunda her zaman en yüksek olasılığa sahip yanıt seçilir.
+3. **`topK`:** `topK` parametresi, modelin çıkış için jeton seçme şeklini değiştirir. `topK` değeri 1 olduğunda, seçilen jeton modelin kelime dağarcığındaki tüm jetonlar arasında en olası olanıdır (açgözlü kod çözme olarak da adlandırılır). `topK` değeri 3 olduğunda ise sıcaklık kullanılarak en olası 3 jeton arasından bir sonraki jeton seçilir. Her jeton seçimi adımında, en yüksek olasılıklara sahip `topK` jeton örneklenir. Daha sonra jetonlar `topP`'ye göre daha da filtrelenir ve son jeton, sıcaklık örneklemesi kullanılarak seçilir.
+4. **`topP`:** `topP` parametresi, modelin çıkış için jeton seçme şeklini değiştirir. Olasılıklarının toplamı `topP` değerine eşit olana kadar en olasıdan en az olasıya doğru parçalar seçilir. Örneğin, A, B ve C jetonlarının olasılığı 0,3, 0,2 ve 0,1 ise ve `topP` değeri 0,5 ise model, sıcaklığı kullanarak sonraki jeton olarak A veya B'yi seçer ve C'yi aday olarak hariç tutar. Varsayılan `topP` değeri 0,95'tir.
+5. **`stop_sequences`:** Modeli içerik oluşturmayı durdurmaya yönlendirmek için durdurma sırası ayarlayın. Durdurma dizisi herhangi bir karakter dizisi olabilir. Oluşturulan içerikte görünebilecek karakter dizilerini kullanmaktan kaçının.
+
+## İstem tekrarlama stratejileri
+
+İstediğiniz yanıtı tutarlı bir şekilde alabilmeniz için istem tasarımında bazen birkaç yineleme yapmanız gerekebilir. Bu bölümde, istemlerinizi yineleme sırasında deneyebileceğiniz bazı yöntemler hakkında bilgi verilmektedir:
+
+1. **Farklı ifadeler kullanın:** İstemlerinizde farklı kelimeler veya ifadeler kullanmak, aynı anlama gelseler bile modelden genellikle farklı yanıtlar almanızı sağlar. İsteminizden beklediğiniz sonuçları alamıyorsanız isteminizi yeniden ifade etmeyi deneyin.
 
    |  |
    | --- |
    | ``` Version 1: How do I bake a pie?  Version 2: Suggest a recipe for a pie.  Version 3: What's a good pie recipe? ``` |
-2. **Passez à une tâche analogue** : si vous ne parvenez pas à ce que le modèle suive vos instructions pour une tâche, essayez de lui donner des instructions pour une tâche analogue qui permet d'obtenir le même résultat.
+2. **Benzer bir göreve geçin:** Modelin bir görevle ilgili talimatlarınızı uygulamasını sağlayamıyorsanız aynı sonucu elde eden benzer bir görevle ilgili talimatlar vermeyi deneyin.
 
-   Cette requête demande au modèle de catégoriser un livre en utilisant des catégories prédéfinies :
-
-   |  |
-   | --- |
-   | **Requête :**    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Réponse:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
-
-   La réponse est correcte, mais le modèle n'est pas resté dans les limites des options. Vous souhaitez également que le modèle réponde avec l'une des options plutôt qu'avec une phrase complète. Dans ce cas, vous pouvez reformuler les instructions sous la forme d'une question à choix multiples et demander au modèle de choisir une option.
+   Bu istemde, modelden önceden tanımlanmış kategorileri kullanarak bir kitabı sınıflandırması isteniyor:
 
    |  |
    | --- |
-   | **Requête :**    ``` Multiple choice problem: Which of the following options describes the book The Odyssey? Options: ``` |
+   | **İstem:**    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Yanıt:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
+
+   Yanıt doğru ancak model, seçeneklerin sınırları içinde kalmadı. Ayrıca, modelin tam cümleyle yanıt vermek yerine yalnızca seçeneklerden birini kullanarak yanıt vermesini istiyorsunuz. Bu durumda, talimatları çoktan seçmeli soru olarak yeniden ifade edebilir ve modelden bir seçenek belirlemesini isteyebilirsiniz.
+
+   |  |
+   | --- |
+   | **İstem:**    ``` Multiple choice problem: Which of the following options describes the book The Odyssey? Options: ``` |
 
    - thriller
    - sci-fi
    - mythology
    - biography
-     **Réponse:**
+     **Yanıt:**
 
      ```
      The correct answer is mythology.
      ```
 
      (gemini-2.5-flash)
-   - **Modifier l'ordre du contenu dans la requête** : l'ordre du contenu dans la requête peut parfois affecter la réponse. Essayez de modifier l'ordre du contenu et vérifiez comment cela affecte la réponse.
+   - **İstem içeriğinin sırasını değiştirme:** İstemdeki içeriğin sırası bazen yanıtı etkileyebilir. İçerik sırasını değiştirmeyi deneyin ve bunun yanıtı nasıl etkilediğini görün.
 
      ```
      Version 1:
@@ -215,51 +215,51 @@ La conception d'une requête peut parfois nécessiter plusieurs essais avant d'o
      [context]
      ```
 
-## Réponses de remplacement
+## Yedek yanıtlar
 
-Une réponse de remplacement est une réponse renvoyée par le modèle lorsque la requête ou la réponse déclenche un filtre de sécurité. Voici un exemple de réponse de remplacement : "Je ne peux pas vous aider, car je ne suis qu'un modèle de langage".
+Yedek yanıt, istem veya yanıt bir güvenlik filtresini tetiklediğinde model tarafından döndürülen yanıttır. Yedek yanıta örnek olarak "Yalnızca bir dil modeli olduğum için bu konuda yardımcı olamıyorum." verilebilir.
 
-Si le modèle renvoie une réponse de remplacement, essayez d'augmenter la température.
+Model, yedek yanıtla karşılık verirse sıcaklığı artırmayı deneyin.
 
-## Ancrage et exécution de code
+## Temellendirme ve kod yürütme
 
-Gemini peut utiliser des outils pour éviter les hallucinations dans les scénarios où il pourrait produire des réponses incorrectes.
+Gemini, aksi takdirde yanlış yanıtlar verebileceği senaryolarda halüsinasyonları önlemek için araçları kullanabilir.
 
-L'[ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) connecte le modèle Gemini à du contenu Web en temps réel. Il doit être activé chaque fois que le modèle peut avoir besoin de connaître des faits obscurs ou récents.
+[Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr), Gemini modelini gerçek zamanlı web içeriğine bağlar ve modelin belirsiz veya güncel bilgileri bilmesi gerekebileceği durumlarda etkinleştirilmelidir.
 
-L'[outil d'exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) de Gemini permet au modèle de générer et d'exécuter du code Python. Il doit être activé chaque fois que le modèle doit effectuer un calcul arithmétique, un décompte ou un calcul.
+Gemini'ın [kod yürütme aracı](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr), modelin Python kodu oluşturup çalıştırmasını sağlar. Modelin herhangi bir aritmetik işlem, sayma veya hesaplama yapması gerektiğinde bu araç etkinleştirilmelidir.
 
-## Gemini 3
+## Gemini 3
 
-Les [modèles Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=fr#gemini-3) sont conçus pour le raisonnement avancé et le suivi des instructions.
-Ils répondent mieux aux requêtes directes et bien structurées qui définissent clairement la tâche et les éventuelles contraintes. Les pratiques suivantes sont recommandées pour obtenir des résultats optimaux avec Gemini 3 :
+[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr#gemini-3), gelişmiş akıl yürütme ve talimatları uygulama için tasarlanmıştır.
+Bu modeller, doğrudan, iyi yapılandırılmış, görevi ve kısıtlamaları net bir şekilde tanımlayan istemlere en iyi yanıtı verir. Gemini 3 ile en iyi sonuçları almak için aşağıdaki uygulamalar önerilir:
 
-### Principes de base du prompting
+### Temel istem ilkeleri
 
-- **Soyez précis et direct** : énoncez votre objectif clairement et de manière concise. Évitez les formulations inutiles ou trop persuasives.
-- **Utilisez une structure cohérente** : utilisez des délimiteurs clairs pour séparer les différentes parties de votre requête. Les balises de style XML (par exemple, `<context>`, `<task>`) ou les titres Markdown sont efficaces. Choisissez un format et utilisez-le de manière cohérente dans un même prompt.
-- **Définissez les paramètres** : expliquez clairement tous les termes ou paramètres ambigus.
-- **Contrôler la verbosité de la sortie** : par défaut, les modèles Gemini 3 fournissent des réponses directes et efficaces. Si vous avez besoin d'une réponse plus détaillée ou plus conversationnelle, vous devez l'indiquer explicitement dans vos instructions.
-- **Gérez les entrées multimodales de manière cohérente** : lorsque vous utilisez du texte, des images, de l'audio ou des vidéos, traitez-les comme des entrées de même catégorie. Assurez-vous que vos instructions font clairement référence à chaque modalité, si nécessaire.
-- **Donnez la priorité aux instructions critiques** : placez les contraintes comportementales essentielles, les définitions de rôle (persona) et les exigences de format de sortie dans l'instruction système ou tout au début du prompt utilisateur.
-- **Structure pour les contextes longs** : lorsque vous fournissez de grandes quantités de contexte (par exemple, des documents ou du code), fournissez d'abord tout le contexte. Placez vos instructions ou questions spécifiques tout à la *fin* du prompt.
-- **Contexte d'ancrage** : après un grand bloc de données, utilisez une phrase de transition claire pour faire le lien entre le contexte et votre requête, par exemple "Sur la base des informations ci-dessus…".
+- **Net ve doğrudan olun:** Hedefinizi açık ve kısa bir şekilde belirtin. Gereksiz veya aşırı ikna edici dil kullanmaktan kaçının.
+- **Tutarlı bir yapı kullanın:** İsteminizin farklı bölümlerini ayırmak için net sınırlayıcılar kullanın. XML tarzı etiketler (ör. `<context>`, `<task>`) veya Markdown başlıkları etkili olur. Tek bir biçim seçin ve tek bir istemde tutarlı bir şekilde kullanın.
+- **Parametreleri tanımlayın:** Belirsiz terimleri veya parametreleri açıkça açıklayın.
+- **Çıkış ayrıntı düzeyini kontrol etme:** Gemini 3 modelleri varsayılan olarak doğrudan ve etkili yanıtlar verir. Daha sohbet tarzında veya ayrıntılı bir yanıt istiyorsanız talimatlarınızda bunu açıkça belirtmeniz gerekir.
+- **Çok formatlı girişleri tutarlı bir şekilde ele alın:** Metin, resim, ses veya video kullanırken bunları eşit sınıf girişler olarak değerlendirin. Talimatlarınızın, gerektiğinde her bir yönteme açıkça atıfta bulunduğundan emin olun.
+- **Önemli talimatlara öncelik verin:** Davranışla ilgili temel kısıtlamaları, rol tanımlarını (karakter) ve çıkış biçimiyle ilgili şartları Sistem Talimatı'na veya kullanıcı isteminin en başına ekleyin.
+- **Uzun bağlamlar için yapı:** Büyük miktarda bağlam (ör. dokümanlar, kod) sağlarken önce tüm bağlamı sağlayın. Belirli talimatlarınızı veya sorularınızı istemin en *sonuna* yerleştirin.
+- **Bağlamı sabitleme:** Büyük bir veri bloğundan sonra, bağlam ile sorgunuz arasında köprü kurmak için net bir geçiş ifadesi kullanın. Örneğin, "Yukarıdaki bilgilere göre..."
 
-### Stratégies Gemini 3 Flash
+### Gemini 3 Flash stratejileri
 
-- **Précision pour le jour actuel** : ajoutez la clause suivante aux instructions système pour aider le modèle à tenir compte du fait que le jour actuel est en 2026 :
+- **Güncel gün doğruluğu:** Modelin, güncel günün 2026'da olduğuna dikkat etmesine yardımcı olmak için sistem talimatlarına aşağıdaki maddeyi ekleyin:
 
   ```
   For time-sensitive user queries that require up-to-date information, you
   MUST follow the provided current time (date and year) when formulating
   search queries in tool calls. Remember it is 2026 this year.
   ```
-- **Précision de la date limite des connaissances** : ajoutez la clause suivante aux instructions système pour informer le modèle de sa date limite des connaissances :
+- **Son güncel bilgi tarihi doğruluğu:** Modelin son güncel bilgi tarihinin farkında olması için sistem talimatlarına aşağıdaki maddeyi ekleyin:
 
   ```
   Your knowledge cutoff date is January 2025.
   ```
-- **Performances d'ancrage** : ajoutez la clause suivante aux instructions système (en la modifiant si nécessaire) pour améliorer la capacité du modèle à ancrer les réponses dans le contexte fourni :
+- **Temellendirme performansı:** Modelin yanıtları sağlanan bağlamda temellendirme becerisini artırmak için sistem talimatlarına aşağıdaki ifadeyi ekleyin (gerekli yerlerde düzenlemeler yaparak):
 
   ```
   You are a strictly grounded assistant limited to the information provided in
@@ -275,17 +275,17 @@ Ils répondent mieux aux requêtes directes et bien structurées qui définissen
   the context, you must state that the information is not available.
   ```
 
-### Améliorer le raisonnement et la planification
+### Akıl yürütme ve planlamayı geliştirme
 
-Les modèles des séries Gemini 2.5 et 3 génèrent automatiquement du texte de "réflexion" interne pour améliorer les performances de raisonnement. Par conséquent, il n'est généralement pas nécessaire que le modèle fournisse un plan, un résumé ou des étapes de raisonnement détaillées dans la réponse renvoyée. Pour les problèmes qui nécessitent un raisonnement approfondi, des requêtes simples comme "Réfléchis bien avant de répondre" peuvent améliorer les performances, mais au prix de jetons de réflexion supplémentaires.
+Gemini 2.5 ve 3 serisi modeller, akıl yürütme performansını artırmak için otomatik olarak dahili "düşünme" metni oluşturur. Bu nedenle, döndürülen yanıtta modelin ana hatlarını, planını veya ayrıntılı muhakeme adımlarını belirtmek genellikle gerekli değildir. Yoğun akıl yürütme gerektiren sorunlarda, "Yanıt vermeden önce çok iyi düşün" gibi basit istekler, ek düşünme jetonları karşılığında performansı artırabilir.
 
-Pour en savoir plus, consultez la documentation [Pensée de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
+Daha fazla ayrıntı için [Gemini düşünme süreci](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) belgelerini inceleyin.
 
-### Exemples de requêtes structurées
+### Yapılandırılmış istem örnekleri
 
-L'utilisation de tags ou de Markdown aide le modèle à faire la distinction entre les instructions, le contexte et les tâches.
+Etiket veya Markdown kullanmak, modelin talimatlar, bağlam ve görevler arasında ayrım yapmasına yardımcı olur.
 
-**Exemple de code XML :**
+**XML örneği:**
 
 ```
 <role>
@@ -306,7 +306,7 @@ You are a helpful assistant.
 </task>
 ```
 
-**Exemple Markdown :**
+**Markdown örneği:**
 
 ```
 # Identity
@@ -320,11 +320,12 @@ You are a senior solution architect.
 Return a single code block.
 ```
 
-### Exemple de modèle combinant les bonnes pratiques
+### En iyi uygulamaları birleştiren örnek şablon
 
-Ce modèle reprend les principes de base pour rédiger des requêtes avec Gemini 3. Veillez toujours à itérer et à modifier le code pour l'adapter à votre cas d'utilisation spécifique.
+Bu şablon, Gemini 3 ile istem oluşturmanın temel ilkelerini içerir. Her zaman
+kendi kullanım alanınıza göre yineleme ve değişiklik yapmayı unutmayın.
 
-**Instruction système :**
+**Sistem Talimatı:**
 
 ```
 <role>
@@ -351,7 +352,7 @@ Structure your response as follows:
 </output_format>
 ```
 
-**Requête de l'utilisateur** :
+**Kullanıcı İstemi:**
 
 ```
 <context>
@@ -367,41 +368,41 @@ Remember to think step-by-step before answering.
 </final_instruction>
 ```
 
-## Workflows agentifs
+## Temsilci tabanlı iş akışları
 
-Pour les workflows agentiques complexes, des instructions spécifiques sont souvent nécessaires pour contrôler la façon dont le modèle raisonne, planifie et exécute les tâches. Bien que Gemini offre de bonnes performances générales, les agents complexes vous obligent souvent à configurer le compromis entre le coût de calcul (latence et jetons) et la précision des tâches.
+Derin görev odaklı iş akışlarında, modelin nasıl akıl yürüteceğini, planlayacağını ve görevleri nasıl yürüteceğini kontrol etmek için genellikle belirli talimatlar gerekir. Gemini genel olarak güçlü bir performans sunsa da karmaşık aracıların genellikle bilgi işlem maliyeti (gecikme ve jetonlar) ile görev doğruluğu arasında bir denge kurmanızı gerektirdiğini unutmayın.
 
-Lorsque vous concevez des requêtes pour les agents, tenez compte des dimensions de comportement suivantes que vous pouvez orienter dans l'agent :
+Temsilciler için istem tasarlarken temsilcide yönlendirebileceğiniz aşağıdaki davranış boyutlarını göz önünde bulundurun:
 
-### Raisonnement et stratégie
+### Akıl yürütme ve strateji
 
-Configuration de la façon dont le modèle réfléchit et planifie avant d'agir.
+Modelin işlem yapmadan önce nasıl düşüneceği ve planlayacağıyla ilgili yapılandırma.
 
-- **Décomposition logique** : définit la profondeur d'analyse des contraintes, des conditions préalables et de l'ordre des opérations par le modèle.
-- **Diagnostic des problèmes** : contrôle la profondeur de l'analyse lors de l'identification des causes et l'utilisation du raisonnement abductif par le modèle. Détermine si le modèle doit accepter la réponse la plus évidente ou explorer des explications complexes et moins probables.
-- **Exhaustivité des informations** : compromis entre l'analyse de toutes les règles et tous les documents disponibles, et la priorité accordée à l'efficacité et à la rapidité.
+- **Mantıksal ayrıştırma:** Modelin kısıtlamaları, ön koşulları ve işlem sırasını ne kadar ayrıntılı analiz etmesi gerektiğini tanımlar.
+- **Sorun teşhisi**: Nedenler belirlenirken analiz derinliğini ve modelin abduktif akıl yürütme kullanımını kontrol eder. Modelin en bariz yanıtı kabul edip etmeyeceğini veya karmaşık ve daha az olası açıklamaları inceleyip incelemeyeceğini belirler.
+- **Bilgi kapsamlılığı:** Mevcut her politikayı ve belgeyi analiz etmek ile verimliliğe ve hıza öncelik vermek arasındaki denge.
 
-### Exécution et fiabilité
+### Yürütme ve güvenilirlik
 
-Configuration du fonctionnement autonome de l'agent et de la gestion des obstacles.
+Ajanın bağımsız olarak nasıl çalışacağı ve engelleri nasıl aşacağıyla ilgili yapılandırma.
 
-- **Adaptabilité** : façon dont le modèle réagit aux nouvelles données. Détermine s'il doit s'en tenir strictement à son plan initial ou pivoter immédiatement lorsque les observations contredisent les hypothèses.
-- **Persistance et récupération** : degré auquel le modèle tente de corriger lui-même les erreurs. Une persistance élevée augmente les taux de réussite, mais risque d'entraîner des coûts de jetons plus élevés ou des boucles.
-- **Évaluation des risques** : logique d'évaluation des conséquences. Il distingue explicitement les actions exploratoires à faible risque (lectures) des modifications d'état à haut risque (écritures).
+- **Uyarlanabilirlik:** Modelin yeni verilere nasıl tepki verdiği. Başlangıç planına sıkı sıkıya bağlı kalıp kalmayacağını veya gözlemler varsayımlarla çeliştiğinde hemen değişip değişmeyeceğini belirler.
+- **Kalıcılık ve Kurtarma:** Modelin hataları kendi kendine düzeltme girişimi. Yüksek kalıcılık, başarı oranlarını artırır ancak daha yüksek jeton maliyetleri veya döngüler riski taşır.
+- **Risk Değerlendirmesi:** Sonuçları değerlendirme mantığı. Düşük riskli keşif işlemleri (okuma) ile yüksek riskli durum değişiklikleri (yazma) arasında açıkça ayrım yapar.
 
-### Interaction et sortie
+### Etkileşim ve çıktı
 
-Configuration de la façon dont l'agent communique avec l'utilisateur et met en forme les résultats.
+Aracının kullanıcıyla nasıl iletişim kuracağı ve sonuçları nasıl biçimlendireceğiyle ilgili yapılandırma.
 
-- **Gestion de l'ambiguïté et des autorisations** : définit les cas où le modèle est autorisé à faire des hypothèses et ceux où il doit suspendre l'exécution pour demander des éclaircissements ou une autorisation à l'utilisateur.
-- **Niveau de détail** : contrôle le volume de texte généré en plus des appels d'outils. Cela détermine si le modèle explique ses actions à l'utilisateur ou reste silencieux lors de l'exécution.
-- **Précision et exhaustivité** : fidélité requise de la sortie. Indique si le modèle doit résoudre tous les cas extrêmes et fournir des chiffres exacts, ou si des estimations approximatives sont acceptables.
+- **Belirsizlik ve izin işleme:** Modelin ne zaman varsayımda bulunmasına izin verildiğini, ne zaman yürütmeyi duraklatıp kullanıcıdan açıklama veya izin istemesi gerektiğini tanımlar.
+- **Ayrıntı düzeyi:** Araç çağrılarıyla birlikte oluşturulan metinlerin hacmini kontrol eder. Bu, modelin işlemlerini kullanıcıya açıklayıp açıklamayacağını veya yürütme sırasında sessiz kalıp kalmayacağını belirler.
+- **Hassasiyet ve eksiksizlik:** Çıkışın gerekli doğruluğu. Modelin her uç durumu çözmesi ve tam rakamlar vermesi gerekip gerekmediğini veya yaklaşık tahminlerin kabul edilip edilmeyeceğini belirtir.
 
-### Modèle d'instruction système
+### Sistem talimatı şablonu
 
-L'instruction système suivante est un exemple qui a été évalué par des chercheurs pour améliorer les performances sur les benchmarks agentiques où le modèle doit respecter un ensemble de règles complexes et interagir avec un utilisateur. Il encourage l'agent à agir en tant que planificateur et raisonneur efficace, applique des comportements spécifiques aux dimensions listées ci-dessus et exige du modèle qu'il planifie de manière proactive avant d'entreprendre toute action.
+Aşağıdaki sistem talimatı, modelin karmaşık bir kural kitabına uyması ve kullanıcıyla etkileşimde bulunması gereken, araştırmacılar tarafından değerlendirilmiş ve performansını artırmak için kullanılmış bir örnektir. Bu istem, aracıyı güçlü bir muhakeme ve planlama aracı olarak hareket etmeye teşvik eder, yukarıda listelenen boyutlarda belirli davranışları zorunlu kılar ve modelin herhangi bir işlem yapmadan önce proaktif olarak planlama yapmasını gerektirir.
 
-Vous pouvez adapter ce modèle pour qu'il corresponde aux contraintes de votre cas d'utilisation spécifique.
+Bu şablonu, kullanım alanınızla ilgili kısıtlamalara uyacak şekilde uyarlayabilirsiniz.
 
 ```
 You are a very strong reasoner and planner. Use these critical instructions to structure your plans, thoughts, and responses.
@@ -449,19 +450,19 @@ Before taking any action (either tool calls *or* responses to the user), you mus
 9) Inhibit your response: only take an action after all the above reasoning is completed. Once you've taken an action, you cannot take it back.
 ```
 
-## Étapes suivantes
+## Sonraki adımlar
 
-- Maintenant que vous avez une meilleure compréhension de la conception des requêtes, essayez d'écrire vos propres requêtes à l'aide de [Google AI Studio](http://aistudio.google.com?hl=fr).
-- Pour en savoir plus sur le prompting multimodal, consultez [Utiliser des fichiers multimédias dans les requêtes](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide).
-- Pour en savoir plus sur les prompts d'images, consultez les guides sur les prompts [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr#prompt-guide) et [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr#imagen-prompt-guide).
-- Pour en savoir plus sur les prompts vidéo, consultez le [Guide sur les prompts Veo](https://ai.google.dev/gemini-api/docs/video?hl=fr#prompt-guide).
+- İstem tasarımını daha iyi anladığınıza göre [Google AI Studio](http://aistudio.google.com?hl=tr)'yu kullanarak kendi istemlerinizi yazmayı deneyin.
+- Çok formatlı istemler hakkında bilgi edinmek için [Medya dosyalarıyla istem oluşturma](https://ai.google.dev/gemini-api/docs/files?hl=tr#prompt-guide) başlıklı makaleyi inceleyin.
+- Resimleri istem olarak kullanma hakkında bilgi edinmek için [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr#prompt-guide) ve [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=tr#imagen-prompt-guide) istem kılavuzlarına bakın.
+- Video istemleri hakkında bilgi edinmek için [Veo istem kılavuzunu](https://ai.google.dev/gemini-api/docs/video?hl=tr#prompt-guide) inceleyin.
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Dernière mise à jour le 2026/04/29 (UTC).
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

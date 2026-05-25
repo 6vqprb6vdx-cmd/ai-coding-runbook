@@ -1,43 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi
-fetched_at: 2026-05-18T13:05:24.047555+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=id
+fetched_at: 2026-05-25T12:55:16.981230+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-# Hiểu tài liệu
+# Pemahaman dokumen
 
-Các mô hình Gemini có thể xử lý tài liệu ở định dạng PDF, sử dụng thị giác tự nhiên để hiểu toàn bộ ngữ cảnh của tài liệu. Điều này không chỉ dừng lại ở việc trích xuất văn bản mà còn cho phép Gemini:
+Model Gemini dapat memproses dokumen dalam format PDF, menggunakan visi bawaan untuk memahami seluruh konteks dokumen. Hal ini tidak hanya
+sekadar mengekstrak teks, tetapi juga memungkinkan Gemini untuk:
 
-- Phân tích và diễn giải nội dung, bao gồm văn bản, hình ảnh, sơ đồ, biểu đồ và bảng, ngay cả trong các tài liệu dài lên đến 1.000 trang.
-- Trích xuất thông tin thành các định dạng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi).
-- Tóm tắt và trả lời câu hỏi dựa trên cả yếu tố hình ảnh và văn bản trong tài liệu.
-- Chuyển nội dung tài liệu thành văn bản (ví dụ: sang HTML), giữ nguyên bố cục và định dạng để sử dụng trong các ứng dụng tiếp theo.
+- Menganalisis dan menginterpretasikan konten, termasuk teks, gambar, diagram, grafik, dan tabel, bahkan dalam dokumen panjang hingga 1.000 halaman.
+- Mengekstrak informasi ke dalam format [output terstruktur](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=id).
+- Meringkas dan menjawab pertanyaan berdasarkan elemen visual dan tekstual dalam dokumen.
+- Mentranskripsikan konten dokumen (misalnya, ke HTML), dengan mempertahankan tata letak dan
+  pemformatan, untuk digunakan dalam aplikasi hilir.
 
-Bạn cũng có thể truyền các tài liệu không phải là PDF theo cách tương tự, nhưng Gemini sẽ coi các tài liệu đó là văn bản thông thường, do đó sẽ loại bỏ ngữ cảnh như biểu đồ hoặc định dạng.
+Anda juga dapat meneruskan dokumen non-PDF dengan cara yang sama, tetapi Gemini akan melihatnya sebagai teks biasa yang akan menghilangkan konteks seperti diagram atau pemformatan.
 
-## Truyền dữ liệu PDF nội tuyến
+## Meneruskan data PDF secara inline
 
-Bạn có thể truyền dữ liệu PDF cùng dòng trong yêu cầu. Phương thức này phù hợp nhất với các tài liệu nhỏ hơn hoặc quy trình xử lý tạm thời mà bạn không cần tham chiếu tệp trong các yêu cầu tiếp theo. Bạn nên sử dụng [Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi#large-pdfs) cho các tài liệu lớn hơn mà bạn cần tham khảo trong các lượt tương tác nhiều lượt để cải thiện độ trễ của yêu cầu và giảm mức sử dụng băng thông.
+Anda dapat meneruskan data PDF secara inline dalam permintaan. Metode ini paling cocok untuk dokumen yang lebih kecil atau pemrosesan sementara yang tidak memerlukan referensi file dalam permintaan berikutnya. Sebaiknya gunakan
+[Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=id#large-pdfs)
+untuk dokumen yang lebih besar yang perlu Anda rujuk dalam interaksi multi-turn untuk
+meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth.
 
-Ví dụ sau đây cho thấy cách truyền dữ liệu PDF cùng dòng:
+Contoh berikut menunjukkan cara meneruskan data PDF secara inline:
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import base64
 
@@ -47,7 +51,7 @@ with open('path/to/document.pdf', 'rb') as f:
     pdf_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {
             "type": "document",
@@ -58,13 +62,12 @@ interaction = client.interactions.create(
     ]
 )
 
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as fs from "node:fs";
 
@@ -76,7 +79,7 @@ async function main() {
     });
 
     const interaction = await ai.interactions.create({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         input: [
             { type: "text", text: "Summarize this document" },
             {
@@ -86,7 +89,7 @@ async function main() {
             }
         ]
     });
-    console.log(interaction.steps.at(-1).content[0].text);
+    console.log(interaction.output_text);
 }
 
 main();
@@ -103,13 +106,12 @@ else
   B64FLAGS="-w0"
 fi
 
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
       {
         "type": "document",
@@ -121,12 +123,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Bạn cũng có thể tải một tệp PDF trên máy lên để xử lý:
+Anda juga dapat mengupload file PDF lokal untuk diproses:
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -134,19 +135,18 @@ client = genai.Client()
 uploaded_file = client.files.upload(file="file.pdf")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "document", "uri": uploaded_file.uri, "mime_type": uploaded_file.mime_type},
         {"type": "text", "text": "Summarize this document"}
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -158,7 +158,7 @@ async function main() {
     });
 
     const interaction = await ai.interactions.create({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         input: [
             { type: "text", text: "Summarize this document" },
             {
@@ -168,24 +168,23 @@ async function main() {
             }
         ]
     });
-    console.log(interaction.steps.at(-1).content[0].text);
+    console.log(interaction.output_text);
 }
 
 main();
 ```
 
-## Tải tệp PDF lên bằng Files API
+## Mengupload PDF menggunakan Files API
 
-Bạn nên sử dụng Files API cho các tệp lớn hơn hoặc khi bạn dự định dùng lại một tài liệu trong nhiều yêu cầu. Điều này giúp cải thiện độ trễ của yêu cầu và giảm mức sử dụng băng thông bằng cách tách việc tải tệp lên khỏi các yêu cầu về mô hình.
+Sebaiknya gunakan Files API untuk file yang lebih besar atau saat Anda ingin menggunakan kembali dokumen di beberapa permintaan. Hal ini meningkatkan latensi permintaan dan mengurangi penggunaan bandwidth dengan memisahkan upload file dari permintaan model.
 
-### Tệp PDF lớn từ URL
+### PDF besar dari URL
 
-Sử dụng File API để đơn giản hoá việc tải lên và xử lý các tệp PDF lớn từ URL:
+Gunakan File API untuk menyederhanakan upload dan pemrosesan file PDF besar dari URL:
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import io
 import httpx
@@ -194,11 +193,9 @@ client = genai.Client()
 
 long_context_pdf_path = "https://arxiv.org/pdf/2312.11805"
 
-# Retrieve and upload the PDF using the File API
 doc_io = io.BytesIO(httpx.get(long_context_pdf_path).content)
 
 sample_doc = client.files.upload(
-  # You can pass a path or a file-like object here
   file=doc_io,
   config=dict(
     mime_type='application/pdf')
@@ -207,19 +204,18 @@ sample_doc = client.files.upload(
 prompt = "Summarize this document"
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "document", "uri": sample_doc.uri, "mime_type": sample_doc.mime_type},
         {"type": "text", "text": prompt}
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -238,7 +234,6 @@ async function main() {
         },
     });
 
-    // Wait for the file to be processed.
     let getFile = await ai.files.get({ name: file.name });
     while (getFile.state === 'PROCESSING') {
         getFile = await ai.files.get({ name: file.name });
@@ -254,14 +249,14 @@ async function main() {
     }
 
     const interaction = await ai.interactions.create({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.5-flash',
         input: [
             { type: "document", uri: file.uri, mime_type: file.mime_type },
             { type: "text", text: "Summarize this document" }
         ],
     });
 
-    console.log(interaction.steps.at(-1).content[0].text);
+    console.log(interaction.output_text);
 
 }
 
@@ -313,7 +308,7 @@ echo "file_uri: ${file_uri}"
 # Create payload JSON file for safety
 cat << EOF > payload.json
 {
-  "model": "gemini-3-flash-preview",
+  "model": "gemini-3.5-flash",
   "input": [
     {"type": "text", "text": "${PROMPT}"},
     {"type": "document", "uri": "${file_uri}", "mime_type": "application/pdf"}
@@ -322,7 +317,6 @@ cat << EOF > payload.json
 EOF
 
 # Now create an interaction using that file
-# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
@@ -340,37 +334,34 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### Các tệp PDF lớn được lưu trữ trên thiết bị
+### PDF besar yang disimpan secara lokal
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import pathlib
 
 client = genai.Client()
 
-# Upload the PDF using the File API
 file_path = pathlib.Path('large_file.pdf')
 sample_file = client.files.upload(
     file=file_path,
 )
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "document", "uri": sample_file.uri, "mime_type": sample_file.mime_type},
         {"type": "text", "text": "Summarize this document"}
     ]
 )
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -383,7 +374,6 @@ async function main() {
         },
     });
 
-    // Wait for the file to be processed.
     let getFile = await ai.files.get({ name: file.name });
     while (getFile.state === 'PROCESSING') {
         getFile = await ai.files.get({ name: file.name });
@@ -399,14 +389,14 @@ async function main() {
     }
 
     const interaction = await ai.interactions.create({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.5-flash',
         input: [
             { type: "document", uri: file.uri, mime_type: file.mime_type },
             { type: "text", text: "Summarize this document" }
         ],
     });
 
-    console.log(interaction.steps.at(-1).content[0].text);
+    console.log(interaction.output_text);
 
 }
 
@@ -446,14 +436,13 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now create an interaction using that file
-# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -H "Api-Revision: 2026-05-20" \
     -X POST \
     -d '{
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.5-flash",
       "input": [
         {"type": "document", "uri": '$file_uri', "mime_type": "application/pdf"},
         {"type": "text", "text": "Can you add a few more lines to this poem?"}
@@ -466,12 +455,13 @@ echo
 jq ".steps[-1].content[0].text" response.json
 ```
 
-Bạn có thể xác minh rằng API đã lưu trữ thành công tệp được tải lên và lấy siêu dữ liệu của tệp đó bằng cách gọi [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=vi). Chỉ có `name` (và theo đó là `uri`) là duy nhất.
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
+metadatanya dengan memanggil [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=id). Hanya `name`
+(dan dengan demikian, `uri`) yang unik.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import pathlib
 
@@ -499,14 +489,15 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Truyền nhiều tệp PDF
+## Meneruskan beberapa PDF
 
-Gemini API có thể xử lý nhiều tài liệu PDF (tối đa 1.000 trang) trong một yêu cầu duy nhất, miễn là kích thước kết hợp của các tài liệu và câu lệnh văn bản nằm trong cửa sổ ngữ cảnh của mô hình.
+Gemini API dapat memproses beberapa dokumen PDF (hingga 1.000 halaman)
+dalam satu permintaan, selama ukuran gabungan dokumen dan perintah
+teks tetap berada dalam jendela konteks model.
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import io
 import httpx
@@ -516,7 +507,6 @@ client = genai.Client()
 doc_url_1 = "https://arxiv.org/pdf/2312.11805"
 doc_url_2 = "https://arxiv.org/pdf/2403.05530"
 
-# Retrieve and upload both PDFs using the File API
 doc_data_1 = io.BytesIO(httpx.get(doc_url_1).content)
 doc_data_2 = io.BytesIO(httpx.get(doc_url_2).content)
 
@@ -532,7 +522,7 @@ sample_pdf_2 = client.files.upload(
 prompt = "What is the difference between each of the main benchmarks between these two papers? Output these in a table."
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "document", "uri": sample_pdf_1.uri, "mime_type": sample_pdf_1.mime_type},
         {"type": "document", "uri": sample_pdf_2.uri, "mime_type": sample_pdf_2.mime_type},
@@ -540,13 +530,12 @@ interaction = client.interactions.create(
     ]
 )
 
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
@@ -564,7 +553,6 @@ async function uploadRemotePDF(url, displayName) {
         },
     });
 
-    // Wait for the file to be processed.
     let getFile = await ai.files.get({ name: file.name });
     while (getFile.state === 'PROCESSING') {
         getFile = await ai.files.get({ name: file.name });
@@ -587,7 +575,7 @@ async function main() {
     const file2 = await uploadRemotePDF("https://arxiv.org/pdf/2403.05530", "PDF 2");
 
     const interaction = await ai.interactions.create({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.5-flash',
         input: [
             { type: "document", uri: file1.uri, mime_type: file1.mime_type },
             { type: "document", uri: file2.uri, mime_type: file2.mime_type },
@@ -595,7 +583,7 @@ async function main() {
         ],
     });
 
-    console.log(interaction.steps.at(-1).content[0].text);
+    console.log(interaction.output_text);
 }
 
 main();
@@ -668,7 +656,7 @@ file_uri_2=$(upload_pdf "${DOC_URL_2}" "${DISPLAY_NAME_2}")
 # Create payload JSON file for safety
 cat << EOF > payload_multi.json
 {
-  "model": "gemini-3-flash-preview",
+  "model": "gemini-3.5-flash",
   "input": [
     {"type": "document", "uri": "${file_uri_1}", "mime_type": "application/pdf"},
     {"type": "document", "uri": "${file_uri_2}", "mime_type": "application/pdf"},
@@ -679,7 +667,6 @@ EOF
 
 # Now create an interaction using both files
 # Using GEMINI_API_KEY instead of GOOGLE_API_KEY
-# Specifies the API revision to avoid breaking changes when they become default
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
@@ -698,48 +685,57 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## Chi tiết kỹ thuật
+## Detail teknis
 
-Gemini hỗ trợ tệp PDF có kích thước tối đa 50 MB hoặc 1.000 trang. Giới hạn này áp dụng cho cả dữ liệu nội tuyến và nội dung tải lên bằng Files API. Mỗi trang tài liệu tương đương với 258 mã thông báo.
+Gemini mendukung file PDF hingga 50 MB atau 1.000 halaman. Batas ini berlaku
+untuk data inline dan upload Files API. Setiap halaman dokumen setara dengan 258
+token.
 
-Mặc dù không có giới hạn cụ thể về số lượng pixel trong một tài liệu ngoài [cửa sổ ngữ cảnh](https://ai.google.dev/gemini-api/docs/long-context?hl=vi) của mô hình, nhưng các trang lớn hơn sẽ được thu nhỏ xuống độ phân giải tối đa là 3072 x 3072 trong khi vẫn giữ nguyên tỷ lệ khung hình ban đầu, còn các trang nhỏ hơn sẽ được phóng to lên 768 x 768 pixel. Không có mức giảm chi phí cho các trang có kích thước nhỏ hơn, ngoài băng thông hoặc cải thiện hiệu suất cho các trang có độ phân giải cao hơn.
+Meskipun tidak ada batasan khusus untuk jumlah piksel dalam dokumen selain [jendela konteks](https://ai.google.dev/gemini-api/docs/long-context?hl=id) model, halaman yang lebih besar akan diperkecil hingga resolusi maksimum 3072 x 3072 dengan mempertahankan rasio aspek aslinya, sedangkan halaman yang lebih kecil akan diperbesar hingga 768 x 768 piksel. Tidak ada pengurangan biaya untuk halaman dengan ukuran yang lebih kecil, selain bandwidth, atau peningkatan performa untuk halaman dengan resolusi yang lebih tinggi.
 
-### Mô hình Gemini 3
+### Model Gemini 3
 
-Gemini 3 giới thiệu chế độ kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Giờ đây, bạn có thể đặt độ phân giải thành thấp, trung bình hoặc cao cho từng phần nội dung nghe nhìn. Với việc bổ sung này, quy trình xử lý tài liệu PDF đã được cập nhật:
+Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter
+`media_resolution`. Sekarang Anda dapat menyetel resolusi ke rendah, sedang, atau tinggi untuk setiap bagian media. Dengan penambahan ini, pemrosesan dokumen PDF telah diperbarui:
 
-1. **Bao gồm văn bản gốc:** Văn bản được nhúng nguyên bản trong tệp PDF sẽ được trích xuất và cung cấp cho mô hình.
-2. **Báo cáo về việc thanh toán và mã thông báo:**
-   - Bạn **không bị tính phí** cho các token bắt nguồn từ **văn bản gốc** được trích xuất trong tệp PDF.
-   - Trong phần `usage_metadata` của phản hồi API, các mã thông báo được tạo từ việc xử lý các trang PDF (dưới dạng hình ảnh) hiện được tính theo phương thức `IMAGE` chứ không phải phương thức `DOCUMENT` riêng biệt như trong một số phiên bản trước.
+1. **Penyertaan teks native:** Teks yang disematkan secara native dalam PDF diekstrak
+   dan diberikan ke model.
+2. **Penagihan & pelaporan token:**
+   - Anda **tidak dikenai biaya** untuk token yang berasal dari
+     **teks native** yang diekstrak dalam PDF.
+   - Di bagian `usage_metadata` respons API, token yang dihasilkan dari pemrosesan halaman PDF (sebagai gambar) kini dihitung dalam modalitas `IMAGE`, bukan modalitas `DOCUMENT` terpisah seperti pada beberapa versi sebelumnya.
 
-### Các loại tài liệu
+### Jenis dokumen
 
-Về mặt kỹ thuật, bạn có thể truyền các loại MIME khác để hiểu tài liệu, chẳng hạn như TXT, Markdown, HTML, XML, v.v. Tuy nhiên, tính năng thị giác tài liệu ***chỉ hiểu được PDF một cách có ý nghĩa***. Các loại khác sẽ được trích xuất dưới dạng văn bản thuần tuý và mô hình sẽ không thể diễn giải những gì chúng ta thấy trong quá trình hiển thị các tệp đó. Mọi thông tin cụ thể về loại tệp như biểu đồ, sơ đồ, thẻ HTML, định dạng Markdown, v.v. sẽ bị mất.
+Secara teknis, Anda dapat meneruskan jenis MIME lain untuk pemahaman dokumen, seperti TXT, Markdown, HTML, XML, dll. Namun, visi dokumen ***hanya dapat memahami PDF secara efektif***. Jenis lainnya akan diekstrak sebagai teks murni, dan model tidak akan dapat menafsirkan apa yang kita lihat dalam rendering file tersebut. Semua
+spesifikasi jenis file seperti diagram, HTML tag, pemformatan Markdown, dll.,
+akan hilang.
 
-Để tìm hiểu về các phương thức nhập tệp khác, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=vi).
+Untuk mempelajari metode input file lainnya, lihat panduan
+[Metode input file](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=id).
 
-### Các phương pháp hay nhất
+### Praktik terbaik
 
-Để có kết quả tốt nhất:
+Untuk hasil terbaik:
 
-- Xoay các trang theo đúng hướng trước khi tải lên.
-- Tránh các trang bị mờ.
-- Nếu sử dụng một trang duy nhất, hãy đặt câu lệnh văn bản sau trang.
+- Putar halaman ke orientasi yang benar sebelum mengupload.
+- Hindari halaman yang buram.
+- Jika menggunakan satu halaman, tempatkan perintah teks setelah halaman.
 
-## Bước tiếp theo
+## Langkah berikutnya
 
-Để tìm hiểu thêm, hãy xem các tài nguyên sau:
+Untuk mempelajari lebih lanjut, lihat referensi berikut:
 
-- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
-- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều hướng hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
+- [Strategi perintah file](https://ai.google.dev/gemini-api/docs/interactions/files?hl=id#prompt-guide): Gemini API mendukung perintah dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai perintah multimodal.
+- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=id#system-instructions):
+  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Cập nhật lần gần đây nhất: 2026-05-12 UTC.
+Terakhir diperbarui pada 2026-05-19 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Ada masukan untuk kami?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-12 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]

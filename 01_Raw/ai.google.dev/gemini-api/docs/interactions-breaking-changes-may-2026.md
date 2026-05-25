@@ -1,49 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=ja
-fetched_at: 2026-05-18T13:02:33.723224+00:00
-title: "Interactions API: \u7834\u58ca\u7684\u5909\u66f4\u306e\u79fb\u884c\u30ac\u30a4\u30c9\uff082026 \u5e74 5 \u6708\uff09 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=de
+fetched_at: 2026-05-25T12:57:29.800492+00:00
+title: "Interactions API: Migrationsanleitung f\u00fcr Breaking Changes (Mai 2026) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-フィードバックを送信
+Feedback geben
 
-# Interactions API: 破壊的変更の移行ガイド（2026 年 5 月）
+# Interactions API: Migrationsanleitung für Breaking Changes (Mai 2026)
 
-`v1beta` Interactions API には、API の形状を再構築して、飛行中のステアリングや非同期ツール呼び出しなどの今後の機能をサポートするための破壊的変更が導入されています。このページでは、変更点について説明し、移行に役立つように変更前後のコード例を示します。変更には次の 2 つのカテゴリがあります。
+In der `v1beta` Interactions API werden wichtige Änderungen eingeführt, die die API-Struktur neu organisieren, um zukünftige Funktionen wie die Steuerung während der Ausführung und asynchrone Tool-Aufrufe zu unterstützen. Auf dieser Seite wird erläutert, was sich ändert, und es werden Vorher-Nachher-Codebeispiele bereitgestellt, die Ihnen bei der Migration helfen. Es gibt zwei Kategorien von Änderungen:
 
-1. [**ステップ スキーマ**](#steps-schema): 新しい `steps` 配列が `outputs` 配列に代わり、各インタラクション ターンの構造化されたタイムラインを提供します。
-2. [**出力形式の構成**](#output-format-config): 新しいポリモーフィック `response_format` により、すべての出力形式の制御が統合され、`response_mime_type` が削除されます。
+1. [**Schrittschema**](#steps-schema): Ein neues `steps`-Array ersetzt das `outputs`-Array und bietet eine strukturierte Zeitachse für jede Interaktion.
+2. [**Konfiguration des Ausgabeformats**](#output-format-config): Eine neue polymorphe `response_format` fasst alle Steuerelemente für das Ausgabeformat zusammen und entfernt `response_mime_type`.
 
-[新しいスキーマに移行する方法](#how-to-migrate)の手順に沿って、統合を更新します。
+Folgen Sie der Anleitung unter [Zur neuen Schemas migrieren](#how-to-migrate), um Ihre Integration zu aktualisieren.
 
-## コアの変更: `outputs` から `steps`
+## Wichtige Änderung: `outputs` zu `steps`
 
-新しいスキーマでは、`outputs` 配列が `steps` 配列に置き換えられます。
+Im neuen Schema wird das Array `outputs` durch ein Array `steps` ersetzt.
 
-- **以前**: レスポンスは、モデルの生成コンテンツのみを含むフラットな `outputs` 配列を返していました。
-- **新しいスキーマ**: レスポンスは、型判別子を含む構造化されたステップを含む `steps` 配列を返します。
+- **Legacy**: Die Antworten gaben ein flaches `outputs`-Array zurück, das nur die vom Modell generierten Inhalte enthielt.
+- **Neues Schema**: Antworten geben ein `steps`-Array mit strukturierten Schritten mit Typ-Diskriminatoren zurück.
 
-`POST /interactions` は出力ステップのみを返します。`GET /interactions/{id}` は、最初の `user_input` ステップを含む完全なステップ タイムラインを返します。
+`POST /interactions` gibt nur Ausgabeschritte zurück. `GET /interactions/{id}` gibt die vollständige Schritt-Zeitachse zurück, einschließlich des ersten `user_input`-Schritts.
 
-### 基本的な入出力（単項）
+### Einfache Eingabe/Ausgabe (unär)
 
-#### 以前（従来版）
+#### Vorher (Legacy)
 
 ### Python
 
 ```
 # Request
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview", input="Tell me a joke."
+    model="gemini-3.5-flash", input="Tell me a joke."
 )
 
 # Response access
@@ -55,7 +55,7 @@ print(interaction.outputs[-1].text)
 ```
 // Request
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Tell me a joke.'
 });
 
@@ -69,7 +69,7 @@ console.log(interaction.outputs[-1].text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Tell me a joke."
   }'
 ```
@@ -88,18 +88,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 変更後（新しいスキーマ）
+#### Nachher (neues Schema)
 
 ### Python
 
 ```
 # Request
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview", input="Tell me a joke."
+    model="gemini-3.5-flash", input="Tell me a joke."
 )
 
-# Response access
-print(interaction.steps[-1].content[0].text)  # CHANGED: steps instead of outputs
+# Response access (Recommended sugar)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -107,13 +107,15 @@ print(interaction.steps[-1].content[0].text)  # CHANGED: steps instead of output
 ```
 // Request
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Tell me a joke.'
 });
 
-// Response access
-console.log(interaction.steps.at(-1).content[0].text);
+// Response access (Recommended sugar)
+console.log(interaction.output_text);
 ```
+
+[sdk-convenience]: /gemini-api/docs/interactions#convenience-properties
 
 ### REST
 
@@ -123,7 +125,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Tell me a joke."
   }'
 ```
@@ -168,11 +170,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 関数呼び出し
+### Funktionsaufrufe
 
-リクエストの構造は変更されませんが、レスポンスではフラットな `outputs` コンテンツが構造化されたステップに置き換えられます。
+Die Anfragestruktur bleibt unverändert, aber in der Antwort wird der einfache `outputs`-Inhalt durch strukturierte Schritte ersetzt.
 
-#### 以前（従来版）
+#### Vorher (Legacy)
 
 ### Python
 
@@ -217,7 +219,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### 変更後（新しいスキーマ）
+#### Nachher (neues Schema)
 
 ### Python
 
@@ -265,11 +267,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### サーバーサイド ツール
+### Serverseitige Tools
 
-サーバーサイド ツール（Google 検索やコード実行など）は、`steps` 配列で特定のステップタイプを生成するようになりました。以前のスキーマでは、これらのオペレーションは `outputs` 配列内の特定のコンテンツ タイプとして返されていましたが、新しいスキーマでは `steps` 配列に移動されています。次の例では、Google 検索を使用します。
+Serverseitige Tools wie die Google Suche oder die Codeausführung liefern jetzt bestimmte Schritttypen im `steps`-Array. Im alten Schema wurden diese Vorgänge als bestimmte Inhaltstypen im `outputs`-Array zurückgegeben, im neuen Schema werden sie in das `steps`-Array verschoben. In den folgenden Beispielen wird die Google Suche verwendet.
 
-#### 以前（従来版）
+#### Vorher (Legacy)
 
 ### Python
 
@@ -301,7 +303,7 @@ for (const output of interaction.outputs) {
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Who won the last Super Bowl?",
     "tools": [
       { "type": "google_search" }
@@ -343,7 +345,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 変更後（新しいスキーマ）
+#### Nachher (neues Schema)
 
 ### Python
 
@@ -377,7 +379,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Who won the last Super Bowl?",
     "tools": [
       { "type": "google_search" }
@@ -427,11 +429,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### ストリーミング
+### Streaming
 
-ストリーミングでは、新しいイベントタイプが公開されます。
+Beim Streaming werden neue Ereignistypen verfügbar:
 
-#### 新しいイベントタイプ
+#### Neue Ereignistypen
 
 - `interaction.created`
 - `interaction.completed`
@@ -441,29 +443,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 - `step.delta`
 - `step.stop`
 
-#### 非推奨のイベントタイプ
+#### Eingestellte Ereignistypen
 
-次の以前のイベントタイプは、上記の新しいイベントに置き換えられます。
+Die folgenden Legacy-Ereignistypen werden durch die oben aufgeführten neuen Ereignisse ersetzt:
 
-- `interaction.start` → `interaction.created`
-- `content.start` → `step.start`
-- `content.delta` → `step.delta`
-- `content.stop` → `step.stop`
-- `interaction.complete` → `interaction.completed`
-- `interaction.status_update` → `interaction.in_progress`、`interaction.requires_action` などに置き換えられました。
+- `interaction.start` → `interaction.created`
+- `content.start` → `step.start`
+- `content.delta` → `step.delta`
+- `content.stop` → `step.stop`
+- `interaction.complete` → `interaction.completed`
+- `interaction.status_update` → ersetzt durch `interaction.in_progress`, `interaction.requires_action` usw.
 
-**ストリーミング関数呼び出し**: 関数呼び出しでストリーミングを使用する場合、`step.start` イベントは関数名を配信し、`step.delta` イベントは引数を部分的な JSON 文字列としてストリーミングします（`arguments_delta` を使用）。これらのデルタを累積して、完全な引数を取得する必要があります。これは、完全な関数呼び出しオブジェクトを一度に受け取る単項呼び出しとは異なります。
+**Streaming von Funktionsaufrufen**: Wenn Sie Streaming mit Funktionsaufrufen verwenden, wird mit dem `step.start`-Ereignis der Funktionsname und mit `step.delta`-Ereignissen die Argumente als partielle JSON-Strings (mit `arguments_delta`) gestreamt. Sie müssen diese Deltas zusammenführen, um die vollständigen Argumente zu erhalten. Dies unterscheidet sich von unären Aufrufen, bei denen Sie das vollständige Funktionsaufrufobjekt auf einmal erhalten.
 
-#### 例
+#### Beispiele
 
-##### 変更前（従来版）
+##### Vorher (Legacy)
 
 ### Python
 
 ```
 # Legacy streaming used content.delta
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Explain quantum entanglement in simple terms.",
     stream=True,
 )
@@ -479,7 +481,7 @@ for chunk in stream:
 ```
 // Legacy streaming used content.delta
 const stream = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Explain quantum entanglement in simple terms.',
     stream: true,
 });
@@ -499,7 +501,7 @@ for await (const chunk of stream) {
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Explain quantum entanglement in simple terms.",
     "stream": true
   }'
@@ -523,14 +525,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### 変更後（新しいスキーマ）
+##### Nachher (neues Schema)
 
 ### Python
 
 ```
 # Consuming stream and handling new event types
 for event in client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Tell me a story.",
     stream=True,
 ):
@@ -544,7 +546,7 @@ for event in client.interactions.create(
 ```
 // Consuming stream and handling new event types
 const stream = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Tell me a story.',
     stream: true,
 });
@@ -567,7 +569,7 @@ for await (const event of stream) {
    -H "Accept: text/event-stream" \
    -H "Api-Revision: 2026-05-20" \
    -d '{
-     "model": "gemini-3-flash-preview",
+     "model": "gemini-3.5-flash",
      "input": "Tell me a story.",
      "stream": true
    }'
@@ -576,7 +578,7 @@ for await (const event of stream) {
 ```
  // Response (SSE Lines)
  // event: interaction.created
- // data: {"interaction": {"id": "int_xyz", "status": "in_progress", "object": "interaction", "model": "gemini-3-flash-preview"}, "event_type": "interaction.created"}
+ // data: {"interaction": {"id": "int_xyz", "status": "in_progress", "object": "interaction", "model": "gemini-3.5-flash"}, "event_type": "interaction.created"}
  //
  // event: interaction.in_progress
  // data: {"interaction_id": "int_xyz", "event_type": "interaction.in_progress"}
@@ -600,34 +602,35 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### ステートレスの会話履歴
+### Zustandsloser Unterhaltungsverlauf
 
-クライアント側で会話履歴を手動で管理している場合（ステートレスのユースケース）、以前のターンを連結する方法を更新する必要があります。
+Wenn Sie den Unterhaltungsverlauf manuell auf der Clientseite verwalten (zustandsloser Anwendungsfall), müssen Sie die Art und Weise aktualisieren, wie Sie vorherige Turns aneinanderreihen.
 
-- **以前の動作**: デベロッパーは、レスポンスから `outputs` 配列を収集し、次のターンで `input` フィールドで返送していました。
-- **新しいスキーマ**: レスポンスから `steps` 配列を収集し、次のリクエストの `input` フィールドに渡して、新しいユーザー ターンを `user_input` ステップとして追加する必要があります。
+- **Legacy**: Entwickler haben das `outputs`-Array oft aus Antworten erfasst und im nächsten Zug im Feld `input` zurückgesendet.
+- **Neues Schema**: Sie sollten jetzt das `steps`-Array aus der Antwort erfassen und im Feld `input` der nächsten Anfrage übergeben. Hängen Sie Ihren neuen Nutzerzug als `user_input`-Schritt an.
 
-## 出力形式の構成: `response_format` の変更
+## Konfiguration des Ausgabeformats: `response_format`-Änderungen
 
-更新された API では、すべての出力形式制御が統合されたポリモーフィック `response_format` フィールドに統合されています。これにより、出力構成が最上位レベルで一元化され、`generation_config` はモデルの動作（Temperature、Top-P、思考モードなど）に集中できます。
+In der aktualisierten API werden alle Steuerelemente für das Ausgabeformat in einem einheitlichen, polymorphen `response_format`-Feld zusammengefasst. Dadurch wird die Ausgabekonfiguration auf oberster Ebene zentralisiert und `generation_config` konzentriert sich auf das Modellverhalten (z. B. Temperatur, top\_p und Denkprozess).
 
-### 主な変更点
+### Wichtigste Änderungen
 
-- **API は `response_mime_type` を削除します。**`response_format` 内の形式エントリごとに MIME タイプを指定するようになりました。
-- **`response_format` はポリモーフィック オブジェクト（または配列）になりました。**各エントリには、`type` 判別子（`text`、`audio`、`image`）と型固有のフィールドがあります。複数の出力モードをリクエストするには、形式エントリの配列を渡します。
-- **`image_config` が `generation_config` から `response_format` に移動します。**`aspect_ratio` や `image_size` などの画像出力設定は、`"type": "image"` を含む `response_format` エントリで指定するようになりました。
+- **Die API entfernt `response_mime_type`.** Sie geben den MIME-Typ jetzt pro Formateintrag in `response_format` an.
+- **`response_format` ist jetzt ein polymorphes Objekt (oder Array).** Jeder Eintrag hat einen `type`-Diskriminator (`text`, `audio`, `image`) und typspezifische Felder. Wenn Sie mehrere Ausgabemodalitäten anfordern möchten, übergeben Sie ein Array von Formateinträgen.
+- **`image_config` wird von `generation_config` nach `response_format` verschoben.**
+  Sie geben jetzt Einstellungen für die Bildausgabe wie `aspect_ratio` und `image_size` in einem `response_format`-Eintrag mit `"type": "image"` an.
 
-### 構造化出力（JSON）
+### Strukturierte Ausgabe (JSON)
 
-新しいスキーマでは `response_mime_type` フィールドが削除されています。代わりに、`"type": "text"` を使用して `response_format` オブジェクト内に MIME タイプと JSON スキーマを指定します。
+Im neuen Schema wird das Feld `response_mime_type` entfernt. Geben Sie stattdessen den MIME-Typ und das JSON-Schema in einem `response_format`-Objekt mit `"type": "text"` an.
 
-#### 以前（従来版）
+#### Vorher (Legacy)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Summarize this article.",
     response_mime_type="application/json",
     response_format={
@@ -645,7 +648,7 @@ print(interaction.outputs[-1].text)
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Summarize this article.',
     response_mime_type: 'application/json',
     response_format: {
@@ -665,7 +668,7 @@ console.log(interaction.outputs[-1].text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Summarize this article.",
     "response_mime_type": "application/json",
     "response_format": {
@@ -677,13 +680,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 変更後（新しいスキーマ）
+#### Nachher (neues Schema)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Summarize this article.",
     # response_mime_type is removed — specify mime_type inside response_format
     response_format={
@@ -698,14 +701,15 @@ interaction = client.interactions.create(
     },
 )
 
-print(interaction.steps[-1].content[0].text)
+# Print response
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Summarize this article.',
     // response_mime_type is removed — specify mime_type inside response_format
     response_format: {
@@ -720,7 +724,8 @@ const interaction = await client.interactions.create({
     },
 });
 
-console.log(interaction.steps.at(-1).content[0].text);
+// Print response
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -731,7 +736,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Summarize this article.",
     "response_format": {
       "type": "text",
@@ -746,17 +751,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### イメージの構成
+### Image-Konfiguration
 
-新しいスキーマでは、`generation_config` から `image_config` が削除されています。`"type": "image"` を使用して `response_format` エントリで画像出力設定を指定するようになりました。
+Im neuen Schema wird `image_config` aus `generation_config` entfernt. Sie geben jetzt die Einstellungen für die Bildausgabe in einem `response_format`-Eintrag mit `"type": "image"` an.
 
-#### 以前（従来版）
+#### Vorher (Legacy)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Generate an image of a sunset over the ocean.",
     generation_config={
         "image_config": {
@@ -771,7 +776,7 @@ interaction = client.interactions.create(
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Generate an image of a sunset over the ocean.',
     generation_config: {
         image_config: {
@@ -788,7 +793,7 @@ const interaction = await client.interactions.create({
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Generate an image of a sunset over the ocean.",
     "generation_config": {
       "image_config": {
@@ -799,13 +804,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 変更後（新しいスキーマ）
+#### Nachher (neues Schema)
 
 ### Python
 
 ```
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Generate an image of a sunset over the ocean.",
     # image_config is removed from generation_config — use response_format
     response_format={
@@ -821,7 +826,7 @@ interaction = client.interactions.create(
 
 ```
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Generate an image of a sunset over the ocean.',
     // image_config is removed from generation_config — use response_format
     response_format: {
@@ -841,7 +846,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   -H "Content-Type: application/json" \
   -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Generate an image of a sunset over the ocean.",
     "response_format": {
       "type": "image",
@@ -852,50 +857,50 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-複数の出力モダリティ（テキストと音声など）を同時にリクエストするには、単一のオブジェクトではなく、形式エントリの配列を `response_format` に渡します。
+Wenn Sie mehrere Ausgabemodalitäten anfordern möchten (z. B. Text und Audio zusammen), übergeben Sie ein Array von Formateinträgen an `response_format` anstelle eines einzelnen Objekts.
 
-## 新しいスキーマに移行する方法
+## Zur neuen Version des Schemas migrieren
 
-### SDK ユーザー
+### SDK-Nutzer
 
-最新の SDK バージョン（Python ≥2.0.0、JavaScript ≥2.0.0）にアップグレードします。SDK は新しいスキーマを自動的に有効にします。レスポンスの読み取り方法を更新する以外にコードを変更する必要はありません（上記の例を参照）。これらの SDK バージョンでは、新しいスキーマのみがサポートされます。古い SDK バージョン（Python 1.x.x、JavaScript 1.x.x）は、2026 年 6 月 8 日にレガシー スキーマが削除されるまで引き続き動作します。
+Aktualisieren Sie auf die neueste SDK-Version (Python ≥2.0.0, JavaScript ≥2.0.0). Das SDK aktiviert das neue Schema automatisch. Sie müssen lediglich den Code zum Lesen von Antworten aktualisieren (siehe Beispiele oben). In diesen SDK-Versionen wird nur das neue Schema unterstützt. Ältere SDK-Versionen (Python 1.x.x, JavaScript 1.x.x) funktionieren weiterhin, bis das alte Schema am **8. Juni 2026** entfernt wird.
 
-### REST API ユーザー
+### REST API-Nutzer
 
-リクエストに `Api-Revision: 2026-05-20` ヘッダーを追加して、新しいスキーマを今すぐ有効にしてください。**5 月 26 日**以降、新しいスキーマがすべてのリクエストのデフォルトになります。**6 月 8 日**までは `Api-Revision: 2026-05-07` で一時的にオプトアウトできます。この日以降は、API によって以前のスキーマが完全に削除されます。
+Fügen Sie den `Api-Revision: 2026-05-20`-Header in Ihre Anfragen ein, um das neue Schema jetzt zu aktivieren. Nach dem **26. Mai** wird das neue Schema zur Standardeinstellung für alle Anfragen. Sie können sich mit `Api-Revision: 2026-05-07` bis zum **8. Juni** vorübergehend abmelden. Danach wird das Legacy-Schema dauerhaft aus der API entfernt.
 
-### タイムライン
+### Zeitachse
 
-| 日付 | フェーズ | SDK ユーザー | REST API ユーザー |
+| Datum | Phase | SDK-Nutzer | REST API-Nutzer |
 | --- | --- | --- | --- |
-| **5 月 7 日** | オプトイン | 新しい SDK バージョンが利用可能（Python ≥2.0.0、JS ≥2.0.0）。アップグレードすると、新しいスキーマが自動的に取得されます。 | `Api-Revision: 2026-05-20` ヘッダーを追加してオプトインします。デフォルトはレガシーのままです。 |
-| **5 月 26 日** | デフォルトの反転 | すでにアップグレード済みの場合は、対応は不要です。古い SDK（Python 1.x.x、JS 1.x.x）は引き続き機能しますが、以前のレスポンスを返します。 | 新しいスキーマがデフォルトになりました。オプトアウトするには、`Api-Revision: 2026-05-07` ヘッダーを送信します。 |
-| **6 月 8 日** | 夕暮れ | Python 1.x.x と JS 1.x.x の SDK バージョンでは、Interactions API 呼び出しが失敗します。 | Interactions API の従来のスキーマが削除されました。`Api-Revision` ヘッダーは無視されます。 |
+| **7. Mai** | Opt-in | Neue SDK-Version verfügbar (Python ≥2.0.0, JS ≥2.0.0). Führen Sie ein Upgrade durch, um das neue Schema automatisch zu erhalten. | Fügen Sie den `Api-Revision: 2026-05-20`-Header hinzu, um die Funktion zu aktivieren. Die Standardeinstellung bleibt die alte. |
+| **26. Mai** | Standard-Flip | Wenn Sie bereits ein Upgrade durchgeführt haben, müssen Sie nichts weiter tun. Ältere SDKs (Python 1.x.x, JS 1.x.x) funktionieren weiterhin, geben aber Legacy-Antworten zurück. | Das neue Schema ist jetzt der Standard. Senden Sie den `Api-Revision: 2026-05-07`-Header, um die Funktion zu deaktivieren. |
+| **8. Juni** | Sonnenuntergang | Python 1.x.x- und JS 1.x.x-SDK-Versionen funktionieren nicht mehr für Interactions API-Aufrufe. | Das alte Schema für die Interactions API wurde entfernt. Der Header `Api-Revision` wird ignoriert. |
 
-## 移行チェックリスト
+## Checkliste für die Migration
 
-### 歩数スキーマ（`steps`）
+### Schrittschema (`steps`)
 
-- `outputs` ではなく `steps` 配列からレスポンス コンテンツを読み取るようにコードを更新します。[例を見る](#basic-unary)。
-- コードで `user_input` と `model_output` の両方のステップタイプが処理されることを確認します。[例を見る](#basic-unary)。
-- （関数呼び出し）`steps` 配列で `function_call` ステップを見つけるようにコードを更新します。[例を見る](#function-calling)。
-- （サーバーサイド ツール）ツール固有の手順（`google_search_call`、`google_search_result` など）を処理するようにコードを更新します。[例をご覧ください](#server-side-tools)。
-- （ステートレス履歴）履歴管理を更新して、次のリクエストの `input` フィールドに `steps` 配列を渡します。[詳細](#stateless-history)
-- （ストリーミングのみ）新しい SSE イベントタイプ（`interaction.created`、`step.delta` など）をリッスンするようにクライアントを更新します。[例を見る](#streaming)。
+- Aktualisieren Sie den Code, um Antwortinhalte aus dem Array `steps` anstelle von `outputs` zu lesen. [Beispiele](#basic-unary)
+- Prüfen Sie, ob Ihr Code sowohl den Schritttyp `user_input` als auch den Schritttyp `model_output` verarbeitet. [Beispiele](#basic-unary)
+- (Function Calling) Code aktualisieren, um `function_call`-Schritte im `steps`-Array zu finden. [Beispiele](#function-calling)
+- (Serverseitige Tools) Code aktualisieren, um toolspezifische Schritte zu verarbeiten (z. B. `google_search_call`, `google_search_result`). [Beispiele ansehen](#server-side-tools)
+- (Stateless History) Aktualisieren Sie die Verlaufsverwaltung, um das `steps`-Array im Feld `input` der nächsten Anfrage zu übergeben. [Details ansehen](#stateless-history)
+- (Nur Streaming) Client aktualisieren, damit er auf neue SSE-Ereignistypen (`interaction.created`, `step.delta` usw.) wartet. [Beispiele](#streaming)
 
-### 出力形式の構成（`response_format`）
+### Konfiguration des Ausgabeformats (`response_format`)
 
-- `response_mime_type` を `response_format` 内の `mime_type` フィールドに置き換えます。[例を見る](#structured-output)。
-- 既存の `response_format` JSON スキーマを `{"type": "text", "schema": ...}` オブジェクトでラップします。[例を見る](#structured-output)。
-- （画像生成）`image_config` を `generation_config` から `response_format` の `{"type": "image", ...}` エントリに移動します。[例を見る](#image-config)。
-- （マルチモーダル）複数の出力モードをリクエストするときに、`response_format` を単一のオブジェクトから配列に変換します。
+- Ersetzen Sie `response_mime_type` durch ein `mime_type`-Feld in `response_format`. [Beispiele](#structured-output)
+- Schließen Sie Ihr vorhandenes `response_format`-JSON-Schema in ein `{"type": "text", "schema": ...}`-Objekt ein. [Beispiele](#structured-output)
+- (Bildgenerierung) Verschiebe `image_config` von `generation_config` zu einem `{"type": "image", ...}`-Eintrag in `response_format`. [Beispiele](#image-config)
+- (Multimodal) Konvertiere `response_format` von einem einzelnen Objekt in ein Array, wenn mehrere Ausgabemodalitäten angefordert werden.
 
-フィードバックを送信
+Feedback geben
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-最終更新日 2026-05-12 UTC。
+Zuletzt aktualisiert: 2026-05-19 (UTC).
 
-ご意見をお聞かせください
+Haben Sie Feedback für uns?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-12 UTC。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-05-19 (UTC)."],[],[]]

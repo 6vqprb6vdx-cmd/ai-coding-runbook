@@ -1,93 +1,88 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-BR
-fetched_at: 2026-05-18T12:59:05.102293+00:00
-title: "Registros e conjuntos de dados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=fr
+fetched_at: 2026-05-25T13:05:28.455375+00:00
+title: "Journaux et ensembles de donn\u00e9es \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Envie comentários
+Envoyer des commentaires
 
-# Registros e conjuntos de dados
+# Journaux et ensembles de données
 
-Este guia contém tudo o que você precisa para começar a ativar o registro em
-log nos seus aplicativos da API Gemini. Neste guia, você vai aprender a
-visualizar registros de um aplicativo novo ou atual no painel do Google AI Studio
-para entender melhor o comportamento do modelo e como os usuários interagem com seus
-aplicativos. Use o registro para observar, depurar e *compartilhar feedback de uso com o Google para ajudar a melhorar o Gemini em vários casos de uso de desenvolvedores*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=pt-br)
+Ce guide contient tout ce dont vous avez besoin pour commencer à activer la journalisation pour vos applications Gemini API existantes. Dans ce guide, vous allez apprendre à afficher les journaux d'une application existante ou nouvelle dans le tableau de bord Google AI Studio pour mieux comprendre le comportement du modèle et la façon dont les utilisateurs interagissent avec vos applications. Utilisez la journalisation pour observer, déboguer et *partager éventuellement des commentaires sur l'utilisation avec Google afin d'améliorer Gemini pour les cas d'utilisation des développeurs*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=fr)
 
-Todas as chamadas de API `GenerateContent` e `StreamGenerateContent` são compatíveis, incluindo as feitas pelos endpoints de [compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
+Tous les appels d'API `GenerateContent` et `StreamGenerateContent` sont acceptés, y compris ceux effectués via les points de terminaison de [compatibilité avec OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=fr).
 
-## 1. Ativar a geração de registros no Google AI Studio
+## 1. Activer la journalisation dans Google AI Studio
 
-Antes de começar, verifique se você tem um projeto ativado para faturamento.
+Avant de commencer, assurez-vous de disposer d'un projet dont vous êtes propriétaire et pour lequel la facturation est activée.
 
-1. Abra a página de registros no [AI Studio](https://aistudio.google.com/logs?hl=pt-br) do Google.
-2. Escolha seu projeto no menu suspenso e pressione o botão "Ativar" para ativar o registro em log de todas as solicitações por padrão.
+1. Ouvrez la page des journaux dans Google [AI Studio](https://aistudio.google.com/logs?hl=fr).
+2. Sélectionnez votre projet dans le menu déroulant, puis appuyez sur le bouton "Activer" pour activer la journalisation de toutes les requêtes par défaut.
 
-![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=pt-br)
+![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=fr)
 
-É possível ativar ou desativar a geração de registros para todos os projetos ou para projetos específicos, e mudar essas preferências a qualquer momento no Google AI Studio.
+Vous pouvez activer ou désactiver la journalisation pour tous les projets ou pour des projets spécifiques, et modifier ces préférences à tout moment dans Google AI Studio.
 
-## 2. Ver registros no AI Studio
+## 2. Afficher les journaux dans AI Studio
 
-1. Acesse o [AI Studio](https://aistudio.google.com/logs?hl=pt-br).
-2. Selecione o projeto em que você ativou o registro em registros.
-3. Seus registros vão aparecer na tabela em ordem cronológica inversa.
+1. Accédez à [AI Studio](https://aistudio.google.com/logs?hl=fr).
+2. Sélectionnez le projet pour lequel vous avez activé la journalisation.
+3. Vos journaux devraient s'afficher dans le tableau, dans l'ordre chronologique inverse.
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/nano-banana-logs.gif)
 
-Clique em uma entrada para ver a visualização de página inteira do par de solicitação e resposta. Você pode inspecionar o comando completo, a resposta completa do Gemini e o contexto da troca anterior. Cada projeto tem um limite de armazenamento padrão de até 1.000 registros, e os registros não salvos em conjuntos de dados expiram após 55 dias. Se o projeto atingir o limite de armazenamento, você vai receber uma solicitação para excluir registros.
+Cliquez sur une entrée pour afficher la paire requête/réponse en plein écran. Vous pouvez examiner le prompt complet, la réponse complète de Gemini et le contexte du tour précédent. Notez que chaque projet dispose d'une limite de stockage par défaut de 1 000 journaux maximum. Les journaux non enregistrés dans des ensembles de données expirent au bout de 55 jours. Si votre projet atteint sa limite de stockage, vous serez invité à supprimer des journaux.
 
-## 3. Selecionar e compartilhar conjuntos de dados
+## 3. Organiser et partager des ensembles de données
 
-- Na tabela de registros, encontre a barra de filtro na parte de cima para selecionar uma propriedade e filtrar.
-- Na visualização filtrada de registros, use as caixas de seleção para selecionar todos ou alguns deles.
-- Clique no botão "Criar conjunto de dados" que aparece na parte de cima da lista.
-- Dê um nome descritivo e uma descrição opcional ao novo conjunto de dados.
-- Você vai encontrar o conjunto de dados que acabou de criar com o conjunto selecionado de registros.
-- Exporte seu conjunto de dados para análise posterior como arquivos CSV, JSONL ou para o Google Planilhas.
+- Dans le tableau des journaux, recherchez la barre de filtres en haut de la page pour sélectionner une propriété à filtrer.
+- Dans la vue filtrée des journaux, utilisez les cases à cocher pour sélectionner tous les journaux ou certains d'entre eux.
+- Cliquez sur le bouton "Créer un ensemble de données" qui s'affiche en haut de la liste.
+- Attribuez un nom descriptif et éventuellement une description à votre nouvel ensemble de données.
+- L'ensemble de données que vous venez de créer s'affiche avec l'ensemble de journaux sélectionnés.
+- Exportez votre ensemble de données pour une analyse plus approfondie au format CSV ou JSONL, ou vers Google Sheets.
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/sales-dataset.gif)
 
-Os conjuntos de dados podem ser úteis para vários casos de uso diferentes.
+Les ensembles de données peuvent être utiles pour différents cas d'utilisation.
 
-- **Organize conjuntos de desafios**:impulsione melhorias futuras em áreas que você quer que a IA melhore.
-- **Organize conjuntos de amostras**:por exemplo, uma amostra de uso real para gerar respostas de outro modelo ou uma coleção de casos extremos para verificações de rotina antes da implantação.
-- **Conjuntos de avaliação**:conjuntos representativos do uso real em recursos importantes, para comparação entre outros modelos ou iterações de instruções do sistema.
+- **Organisez des ensembles de défis** : favorisez les améliorations futures dans les domaines où vous souhaitez que votre IA progresse.
+- **Organisez des ensembles d'échantillons** : par exemple, un échantillon d'utilisation réelle pour générer des réponses à partir d'un autre modèle, ou une collection de cas extrêmes pour les vérifications de routine avant le déploiement.
+- **Ensembles d'évaluation** : ensembles représentatifs de l'utilisation réelle des fonctionnalités importantes, permettant de comparer les modèles ou les itérations d'instructions système.
 
-Você pode ajudar a impulsionar o progresso na pesquisa de IA, na API Gemini e no Google AI Studio
-compartilhando seus conjuntos de dados como exemplos de demonstração. Isso nos permite refinar nossos modelos em diversos contextos e criar sistemas de IA que continuam sendo úteis para desenvolvedores em vários campos e aplicativos.
+Vous pouvez contribuer à faire progresser la recherche sur l'IA, l'API Gemini et Google AI Studio en choisissant de partager vos ensembles de données comme exemples de démonstration. Cela nous permet d'affiner nos modèles dans divers contextes et de créer des systèmes d'IA qui restent utiles aux développeurs dans de nombreux domaines et applications.
 
-## Próximas etapas e o que testar
+## Étapes suivantes et éléments à tester
 
-Agora que você ativou o registro em log, veja algumas coisas que você pode fazer:
+Maintenant que vous avez activé la journalisation, voici quelques opérations à essayer :
 
-- **Criar protótipos com o histórico de sessões**:use o [AI Studio Build](https://aistudio.google.com/apps?hl=pt-br) para programar apps e adicione sua chave de API para ativar um histórico de registros do usuário.
-- **Executar novamente os registros com a API Gemini Batch**:use conjuntos de dados para amostragem de respostas e avaliação de modelos ou lógica de aplicativos executando novamente os registros pela [API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **Prototyper avec l'historique des sessions** : utilisez [AI Studio Build](https://aistudio.google.com/apps?hl=fr) pour créer des applications avec le vibe coding et ajoutez votre clé API pour activer un historique des journaux utilisateur.
+- **Réexécuter les journaux avec l'API Gemini Batch** : utilisez des ensembles de données pour l'échantillonnage des réponses et l'évaluation des modèles ou de la logique d'application en réexécutant les journaux via l'[API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-## Compatibilidade
+## Compatibilité
 
-No momento, não há suporte para o registro em log nos seguintes casos:
+La journalisation n'est actuellement pas disponible pour les éléments suivants :
 
-- Modelos do Imagen e do Veo
-- Modelo de embedding do Gemini
-- Entradas com vídeos, GIFs ou PDFs
+- Modèles Imagen et Veo
+- Modèle d'embedding Gemini
+- Entrées contenant des vidéos, des GIF ou des PDF
 
-Envie comentários
+Envoyer des commentaires
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Última atualização 2026-04-29 UTC.
+Dernière mise à jour le 2026/04/29 (UTC).
 
-Quer enviar seu feedback?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

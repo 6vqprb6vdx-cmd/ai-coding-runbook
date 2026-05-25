@@ -1,42 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ar
-fetched_at: 2026-05-18T13:11:21.514297+00:00
-title: "\u0625\u0646\u0634\u0627\u0621 \u0627\u0644\u0645\u0648\u0633\u064a\u0642\u0649 \u0641\u064a \u0627\u0644\u0648\u0642\u062a \u0627\u0644\u0641\u0639\u0644\u064a \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi
+fetched_at: 2026-05-25T13:00:59.025295+00:00
+title: "T\u1ea1o nh\u1ea1c theo th\u1eddi gian th\u1ef1c b\u1eb1ng Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-# إنشاء الموسيقى في الوقت الفعلي باستخدام Lyria RealTime
+# Tạo nhạc theo thời gian thực bằng Lyria RealTime
 
-تتيح Gemini API، باستخدام
-[Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=ar)،
-الوصول إلى نموذج متطوّر لإنشاء الموسيقى
-عبر البث في الوقت الفعلي. تتيح للمطوّرين إنشاء تطبيقات يمكن للمستخدمين من خلالها إنشاء موسيقى آلية بشكل تفاعلي وتوجيهها باستمرار وتشغيلها.
+Gemini API, sử dụng [Lyria RealTime](https://deepmind.google/technologies/lyria/realtime/?hl=vi), cung cấp quyền truy cập vào một mô hình tạo nhạc trực tuyến theo thời gian thực, hiện đại. Nó cho phép nhà phát triển xây dựng các ứng dụng mà người dùng có thể tương tác để tạo, điều khiển liên tục và biểu diễn nhạc cụ.
 
-تستخدم ميزة "إنشاء الموسيقى في الوقت الفعلي" من Lyria اتصالاً دائمًا وثنائي الاتجاه للبث وبزمن استجابة منخفض باستخدام [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
+Tính năng tạo nhạc theo thời gian thực của Lyria sử dụng một kết nối truyền phát trực tiếp liên tục, hai chiều và có độ trễ thấp bằng [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API).
 
-لتجربة ما يمكن إنشاؤه باستخدام Lyria RealTime، يمكنك تجربته في AI Studio باستخدام تطبيقَي [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=ar) أو [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=ar).
+Để trải nghiệm những nội dung có thể tạo bằng Lyria RealTime, hãy dùng thử trên AI Studio bằng ứng dụng [Prompt DJ](https://aistudio.google.com/apps/bundled/promptdj?hl=vi) hoặc [MIDI DJ](https://aistudio.google.com/apps/bundled/promptdj-midi?hl=vi).
 
-## إنشاء الموسيقى والتحكّم فيها
+## Tạo và điều khiển nhạc
 
-تعمل Lyria RealTime بشكل مشابه [لواجهة برمجة التطبيقات Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)،
-إذ تستخدم Websockets للحفاظ على التواصل في الوقت الفعلي مع النموذج.
+Lyria RealTime hoạt động tương tự như [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) ở chỗ nó sử dụng Websocket để duy trì giao tiếp theo thời gian thực với mô hình.
 
-يوضّح الرمز التالي كيفية إنشاء موسيقى:
+Đoạn mã sau đây minh hoạ cách tạo nhạc:
 
 ### Python
 
-يهدف هذا المثال إلى تهيئة جلسة Lyria RealTime باستخدام `client.aio.live.music.connect()`، ثم إرسال طلب أولي باستخدام `session.set_weighted_prompts()` مع عملية إعداد أولية باستخدام `session.set_music_generation_config`، وبدء إنشاء الموسيقى باستخدام `session.play()`، وإعداد `receive_audio()` لمعالجة أجزاء الصوت التي يتلقّاها.
+Ví dụ này khởi tạo phiên Lyria RealTime bằng `client.aio.live.music.connect()`, sau đó gửi một lời nhắc ban đầu bằng `session.set_weighted_prompts()` cùng với cấu hình ban đầu bằng `session.set_music_generation_config`, bắt đầu tạo nhạc bằng `session.play()` và thiết lập `receive_audio()` để xử lý các đoạn âm thanh mà nó nhận được.
 
 ```
   import asyncio
@@ -79,7 +75,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ### JavaScript
 
-يهدف هذا المثال إلى تهيئة جلسة Lyria RealTime باستخدام `client.live.music.connect()`، ثم إرسال طلب أولي باستخدام `session.setWeightedPrompts()` مع إعدادات أولية باستخدام `session.setMusicGenerationConfig`، وبدء إنشاء الموسيقى باستخدام `session.play()`، وإعداد معاودة الاتصال `onMessage` لمعالجة أجزاء الصوت التي يتم تلقّيها.
+Ví dụ này khởi chạy phiên Lyria RealTime bằng `client.live.music.connect()`, sau đó gửi một lời nhắc ban đầu bằng `session.setWeightedPrompts()` cùng với cấu hình ban đầu bằng `session.setMusicGenerationConfig`, bắt đầu tạo nhạc bằng `session.play()` và thiết lập một lệnh gọi lại `onMessage` để xử lý các đoạn âm thanh mà nó nhận được.
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -135,18 +131,17 @@ async function main() {
 main().catch(console.error);
 ```
 
-يمكنك بعد ذلك استخدام `session.play()` أو `session.pause()` أو `session.stop()` أو `session.reset_context()` لبدء الجلسة أو إيقافها مؤقتًا أو إيقافها أو إعادة ضبطها.
+Sau đó, bạn có thể dùng `session.play()`, `session.pause()`, `session.stop()` và `session.reset_context()` để bắt đầu, tạm dừng, dừng hoặc đặt lại phiên.
 
-## توجيه الموسيقى في الوقت الفعلي
+## Điều chỉnh nhạc theo thời gian thực
 
-يمكنك توجيه عملية إنشاء الموسيقى في الوقت الفعلي من خلال إرسال طلبات وتعديل معلمات الإنشاء في الوقت الفعلي.
+Bạn có thể định hướng quá trình tạo nhạc theo thời gian thực bằng cách gửi câu lệnh và cập nhật các thông số tạo theo thời gian thực.
 
-### ‫Prompt Lyria RealTime
+### Prompt Lyria RealTime
 
-أثناء البث المباشر، يمكنك إرسال رسائل `WeightedPrompt` جديدة في أي وقت لتغيير الموسيقى التي تم إنشاؤها. سينتقل النموذج بسلاسة استنادًا إلى الإدخال الجديد.
+Trong khi sự kiện phát trực tiếp đang diễn ra, bạn có thể gửi tin nhắn `WeightedPrompt` mới bất cứ lúc nào để thay đổi nhạc được tạo. Mô hình sẽ chuyển đổi mượt mà dựa trên dữ liệu đầu vào mới.
 
-يجب أن تتّبع الطلبات التنسيق الصحيح مع `text` (الطلب الفعلي) و`weight`. يمكن أن تأخذ السمة `weight` أي قيمة باستثناء `0`. `1.0`
-هي عادةً نقطة بداية جيدة.
+Câu lệnh cần tuân theo đúng định dạng với `text` (câu lệnh thực tế) và `weight`. `weight` có thể nhận bất kỳ giá trị nào ngoại trừ `0`. `1.0`thường là một điểm xuất phát tốt.
 
 ### Python
 
@@ -173,13 +168,13 @@ main().catch(console.error);
   });
 ```
 
-يُرجى العِلم أنّ عمليات الانتقال بين النماذج يمكن أن تكون مفاجئة بعض الشيء عند تغيير الطلبات بشكل كبير، لذا يُنصح بتنفيذ نوع من التلاشي التدريجي من خلال إرسال قيم وزن وسيطة إلى النموذج.
+Xin lưu ý rằng quá trình chuyển đổi mô hình có thể diễn ra hơi đột ngột khi bạn thay đổi lời nhắc một cách đáng kể. Vì vậy, bạn nên triển khai một số loại hiệu ứng làm mờ bằng cách gửi các giá trị trọng số trung gian đến mô hình.
 
-### تعديل الإعداد
+### Cập nhật cấu hình
 
-يمكنك توجيه عملية إنشاء الموسيقى من خلال تعديل مَعلمات إنشاء الموسيقى في الوقت الفعلي. لا يمكنك تعديل إحدى المَعلمات فقط، بل عليك ضبط الإعدادات بأكملها، وإلا ستتم إعادة ضبط الحقول الأخرى على قيمها التلقائية.
+Bạn có thể điều hướng quá trình tạo nhạc bằng cách cập nhật các thông số tạo nhạc theo thời gian thực. Bạn không thể chỉ cập nhật một tham số, mà cần phải đặt toàn bộ cấu hình. Nếu không, các trường khác sẽ được đặt lại về giá trị mặc định.
 
-بما أنّ تعديل عدد نبضات القلب في الدقيقة أو المقياس هو تغيير جذري للنموذج، عليك أيضًا إخباره بإعادة ضبط السياق باستخدام `reset_context()` ليأخذ الإعداد الجديد في الاعتبار. لن يؤدي ذلك إلى إيقاف البث، ولكن سيكون الانتقال صعبًا. ليس عليك إجراء ذلك للمعلمات الأخرى.
+Vì việc cập nhật bpm hoặc thang âm là một thay đổi lớn đối với mô hình, bạn cũng cần cho mô hình biết rằng mô hình cần đặt lại ngữ cảnh bằng cách sử dụng `reset_context()` để tính đến cấu hình mới. Thao tác này sẽ không dừng luồng phát, nhưng sẽ là một quá trình chuyển đổi khó khăn. Bạn không cần làm việc này cho các tham số khác.
 
 ### Python
 
@@ -209,11 +204,11 @@ main().catch(console.error);
   await session.reset_context();
 ```
 
-## دليل كتابة الطلبات في Lyria RealTime
+## Hướng dẫn về câu lệnh cho Lyria RealTime
 
-في ما يلي قائمة غير شاملة بالطلبات التي يمكنك استخدامها لتوجيه طلب إلى Lyria RealTime:
+Sau đây là danh sách không đầy đủ các câu lệnh bạn có thể dùng để nhắc Lyria RealTime:
 
-- الأدوات: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
+- Nhạc cụ: `303 Acid Bass, 808 Hip Hop Beat, Accordion, Alto Saxophone,
   Bagpipes, Balalaika Ensemble, Banjo, Bass Clarinet, Bongos, Boomy Bass,
   Bouzouki, Buchla Synths, Cello, Charango, Clavichord, Conga Drums,
   Didgeridoo, Dirty Synths, Djembe, Drumline, Dulcimer, Fiddle, Flamenco
@@ -224,7 +219,7 @@ main().catch(console.error);
   Guitar, Sitar, Slide Guitar, Smooth Pianos, Spacey Synths, Steel Drum, Synth
   Pads, Tabla, TR-909 Drum Machine, Trumpet, Tuba, Vibraphone, Viola Ensemble,
   Warm Acoustic Guitar, Woodwinds, ...`
-- نوع الموسيقى: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
+- Thể loại nhạc: `Acid Jazz, Afrobeat, Alternative Country, Baroque, Bengal Baul,
   Bhangra, Bluegrass, Blues Rock, Bossa Nova, Breakbeat, Celtic Folk, Chillout,
   Chiptune, Classic Rock, Contemporary R&B, Cumbia, Deep House, Disco Funk,
   Drum & Bass, Dubstep, EDM, Electro Swing, Funk Metal, G-funk, Garage Rock,
@@ -235,114 +230,105 @@ main().catch(console.error);
   Rock, Psytrance, R&B, Reggae, Reggaeton, Renaissance Music, Salsa, Shoegaze,
   Ska, Surf Rock, Synthpop, Techno, Trance, Trap Beat, Trip Hop, Vaporwave,
   Witch house, ...`
-- المزاج/الوصف: `Acoustic Instruments, Ambient, Bright Tones, Chill,
+- Tâm trạng/Nội dung mô tả: `Acoustic Instruments, Ambient, Bright Tones, Chill,
   Crunchy Distortion, Danceable, Dreamy, Echo, Emotional, Ethereal Ambience,
   Experimental, Fat Beats, Funky, Glitchy Effects, Huge Drop, Live Performance,
   Lo-fi, Ominous Drone, Psychedelic, Rich Orchestration, Saturated Tones,
   Subdued Melody, Sustained Chords, Swirling Phasers, Tight Groove,
   Unsettling, Upbeat, Virtuoso, Weird Noises, ...`
 
-هذه مجرّد أمثلة قليلة، إذ يمكن لـ Lyria RealTime تنفيذ المزيد من المهام. جرِّبوا
-إنشاء طلباتكم الخاصة.
+Đây chỉ là một số ví dụ, Lyria RealTime có thể làm được nhiều việc hơn thế. Thử nghiệm với câu lệnh của riêng bạn!
 
-## أفضل الممارسات
+## Các phương pháp hay nhất
 
-- يجب أن تنفّذ تطبيقات العميل عملية تخزين مؤقت قوية للصوت لضمان تشغيل سلس. يساعد ذلك في احتساب تفاوتات الشبكة والاختلافات الطفيفة في وقت استجابة الإنشاء.
-- كتابة طلبات فعّالة:
-  - استخدم عبارات وصفية. استخدِم صفات تصف المزاج والنوع الموسيقي والآلات الموسيقية.
-  - كرِّر العملية ووجِّهها تدريجيًا. بدلاً من تغيير الطلب بالكامل،
-    جرِّب إضافة عناصر أو تعديلها لتغيير الموسيقى بسلاسة أكبر.
-  - جرِّب استخدام ميزة "الوزن" في `WeightedPrompt` للتأثير في مدى تأثير طلب جديد في عملية الإنشاء الجارية.
+- Các ứng dụng khách phải triển khai tính năng đệm âm thanh mạnh mẽ để đảm bảo quá trình phát mượt mà. Điều này giúp tính đến độ trễ mạng và những thay đổi nhỏ về độ trễ tạo.
+- Đưa ra câu lệnh hiệu quả:
+  - Hãy cung cấp thông tin mô tả. Sử dụng tính từ mô tả tâm trạng, thể loại và nhạc cụ.
+  - Lặp lại và điều chỉnh dần dần. Thay vì thay đổi hoàn toàn câu lệnh, hãy thử thêm hoặc sửa đổi các phần tử để biến đổi nhạc một cách mượt mà hơn.
+  - Thử nghiệm với trọng số trên `WeightedPrompt` để tác động đến mức độ ảnh hưởng của một câu lệnh mới đối với quá trình tạo nội dung đang diễn ra.
 
-## التفاصيل الفنية
+## Chi tiết kỹ thuật
 
-يوضّح هذا القسم تفاصيل كيفية استخدام ميزة إنشاء الموسيقى في الوقت الفعلي من Lyria.
+Phần này mô tả cụ thể cách sử dụng tính năng tạo nhạc theo thời gian thực của Lyria.
 
-### المواصفات
+### Thông số kỹ thuật
 
-- تنسيق الإخراج: صوت PCM خام 16 بت
-- معدّل البيانات في الملف الصوتي: 48 كيلوهرتز
-- القنوات: 2 (استيريو)
+- Định dạng đầu ra: Âm thanh PCM 16 bit thô
+- Tốc độ lấy mẫu: 48 kHz
+- Kênh: 2 (âm thanh nổi)
 
-### عناصر التحكّم
+### Các chế độ kiểm soát
 
-يمكن التأثير في إنشاء الموسيقى في الوقت الفعلي من خلال إرسال رسائل تحتوي على:
+Bạn có thể ảnh hưởng đến quá trình tạo nhạc theo thời gian thực bằng cách gửi tin nhắn có chứa:
 
-- `WeightedPrompt`: سلسلة نصية تصف فكرة موسيقية أو نوعًا موسيقيًا أو آلة موسيقية أو حالة مزاجية أو سمة يمكن تقديم طلبات متعدّدة لدمج التأثيرات. يمكنك الاطّلاع [أعلاه](https://ai.google.dev/gemini-api/docs/:?hl=ar#steer-music) لمعرفة المزيد من التفاصيل حول أفضل طريقة لتقديم الطلبات إلى Lyria RealTime.
-- `MusicGenerationConfig`: إعدادات عملية إنشاء الموسيقى،
-  ما يؤثر في خصائص الصوت الناتج. تشمل المَعلَمات ما يلي:
-  - ‫`guidance`: (عدد عشري) النطاق: `[0.0, 6.0]`. القيمة التلقائية: `4.0`
-    يتحكّم هذا الإعداد في مدى التزام النموذج بالطلبات. تؤدي الإرشادات الأعلى إلى تحسين الالتزام بالطلب، ولكنها تجعل عمليات الانتقال أكثر حدة.
-  - ‫`bpm`: (عدد صحيح) النطاق: `[60, 200]`
-    تضبط هذه السمة عدد النبضات في الدقيقة الذي تريده للموسيقى التي يتم إنشاؤها. يجب إيقاف/تشغيل أو إعادة ضبط السياق للنموذج الذي يأخذ في الاعتبار عدد النبضات الجديد في الدقيقة.
-  - ‫`density`: (عدد عشري) النطاق: `[0.0, 1.0]`.
-    تتحكّم هذه السمة في كثافة النوتات الموسيقية/الأصوات. تؤدي القيم المنخفضة إلى إنتاج موسيقى أقل كثافة، بينما تؤدي القيم المرتفعة إلى إنتاج موسيقى "أكثر ازدحامًا".
-  - ‫`brightness`: (عدد عشري) النطاق: `[0.0, 1.0]`.
-    تعديل جودة النغمات تنتج القيم الأعلى صوتًا "أكثر سطوعًا"، مع التركيز بشكل عام على الترددات الأعلى.
-  - ‫`scale`: (تعداد)
-    يضبط المقياس الموسيقي (المفتاح والوضع) للإنشاء. استخدِم
-    [قيم التعداد `Scale`](#scale-enum) التي توفّرها حزمة SDK. عليك إيقاف/تشغيل أو إعادة ضبط السياق الخاص بالنموذج ليأخذ في الاعتبار المقياس الجديد.
-  - ‫`mute_bass`: (bool) القيمة التلقائية: `False`.
-    تتحكّم هذه السمة في ما إذا كان النموذج يقلّل من مستوى صوت الجهير في النواتج.
-  - ‫`mute_drums`: (bool) القيمة التلقائية: `False`.
-    تتحكّم هذه السمة في ما إذا كان النموذج يقلّل من إيقاع الطبول في النتائج.
-  - ‫`only_bass_and_drums`: (bool) القيمة التلقائية: `False`.
-    توجيه النموذج لمحاولة إخراج صوت الجهير والطبول فقط
-  - ‫`music_generation_mode`: (تعداد)
-    تُعلم هذه السمة النموذج ما إذا كان عليه التركيز على `QUALITY` (القيمة التلقائية) أو
-    `DIVERSITY` من المحتوى الموسيقي. يمكن أيضًا ضبطها على `VOCALIZATION` للسماح للنموذج بإنشاء أصوات بشرية كآلة موسيقية أخرى (إضافتها كطلبات جديدة).
-- ‫`PlaybackControl`: أوامر للتحكّم في جوانب التشغيل، مثل التشغيل أو الإيقاف المؤقت أو الإيقاف أو إعادة ضبط السياق.
+- `WeightedPrompt`: Một chuỗi văn bản mô tả ý tưởng âm nhạc, thể loại, nhạc cụ, tâm trạng hoặc đặc điểm. Bạn có thể cung cấp nhiều câu lệnh để kết hợp các yếu tố ảnh hưởng. Hãy xem [phía trên](https://ai.google.dev/gemini-api/docs/:?hl=vi#steer-music) để biết thêm thông tin chi tiết về cách đưa ra câu lệnh hiệu quả nhất cho Lyria RealTime.
+- `MusicGenerationConfig`: Cấu hình cho quy trình tạo nhạc, ảnh hưởng đến các đặc điểm của âm thanh đầu ra.). Các tham số bao gồm:
+  - `guidance`: (số thực có độ chính xác đơn) Phạm vi: `[0.0, 6.0]`. Mặc định: `4.0`.
+    Kiểm soát mức độ tuân thủ câu lệnh của mô hình. Hướng dẫn chi tiết hơn sẽ giúp cải thiện mức độ tuân thủ lời nhắc, nhưng khiến các chuyển cảnh trở nên đột ngột hơn.
+  - `bpm`: (int) Phạm vi: `[60, 200]`.
+    Đặt số nhịp mỗi phút bạn muốn cho bản nhạc được tạo. Bạn cần dừng/phát hoặc đặt lại ngữ cảnh để mô hình tính đến nhịp độ mới.
+  - `density`: (số thực có độ chính xác đơn) Phạm vi: `[0.0, 1.0]`.
+    Kiểm soát mật độ của các nốt nhạc/âm thanh. Giá trị thấp tạo ra nhạc thưa thớt hơn; giá trị cao tạo ra nhạc "dồn dập" hơn.
+  - `brightness`: (số thực có độ chính xác đơn) Phạm vi: `[0.0, 1.0]`.
+    Điều chỉnh chất lượng âm sắc. Giá trị càng cao thì âm thanh càng "sáng", thường nhấn mạnh các tần số cao hơn.
+  - `scale`: (Enum) Đặt thang âm nhạc (Khoá và chế độ) cho quá trình tạo. Sử dụng [các giá trị enum `Scale`](#scale-enum) do SDK cung cấp. Bạn cần dừng/phát hoặc đặt lại ngữ cảnh để mô hình tính đến tỷ lệ mới.
+  - `mute_bass`: (bool) Mặc định: `False`.
+    Kiểm soát xem mô hình có giảm âm trầm của đầu ra hay không.
+  - `mute_drums`: (bool) Mặc định: `False`.
+    Kiểm soát việc đầu ra của mô hình có giảm trống của đầu ra hay không.
+  - `only_bass_and_drums`: (bool) Mặc định: `False`.
+    Điều chỉnh mô hình để chỉ xuất ra âm trầm và trống.
+  - `music_generation_mode`: (Enum) Cho biết mô hình có nên tập trung vào `QUALITY` (giá trị mặc định) hay `DIVERSITY` của nhạc hay không. Bạn cũng có thể đặt thành `VOCALIZATION` để cho phép mô hình tạo ra các âm thanh như một nhạc cụ khác (thêm các âm thanh đó làm câu lệnh mới).
+- `PlaybackControl`: Các lệnh điều khiển các khía cạnh phát, chẳng hạn như phát, tạm dừng, dừng hoặc đặt lại ngữ cảnh.
 
-بالنسبة إلى `bpm` و`density` و`brightness` و`scale`، إذا لم يتم تقديم أي قيمة، سيقرّر النموذج الخيار الأفضل وفقًا لطلباتك الأولية.
+Đối với `bpm`, `density`, `brightness` và `scale`, nếu bạn không cung cấp giá trị, thì mô hình sẽ quyết định giá trị nào phù hợp nhất dựa trên câu lệnh ban đầu của bạn.
 
-يمكن أيضًا تخصيص المزيد من المَعلمات التقليدية، مثل `temperature` (من 0.0 إلى 3.0، القيمة التلقائية 1.1) و`top_k` (من 1 إلى 1000، القيمة التلقائية 40) و`seed` (من 0 إلى 2,147,483,647، يتم اختيارها عشوائيًا تلقائيًا) في `MusicGenerationConfig`.
+Các thông số cổ điển khác như `temperature` (0,0 đến 3,0, mặc định là 1,1), `top_k` (1 đến 1000, mặc định là 40) và `seed` (0 đến 2.147.483.647, được chọn ngẫu nhiên theo mặc định) cũng có thể tuỳ chỉnh trong `MusicGenerationConfig`.
 
-#### قيم التعداد في المقياس
+#### Giá trị enum tỷ lệ
 
-في ما يلي جميع قيم المقياس التي يمكن أن يقبلها النموذج:
+Sau đây là tất cả các giá trị tỷ lệ mà mô hình có thể chấp nhận:
 
-| قيمة التعداد | المقياس / المفتاح |
+| Giá trị enum | Gam / Khoá |
 | --- | --- |
-| `C_MAJOR_A_MINOR` | دو الكبير / لا الصغير |
-| `D_FLAT_MAJOR_B_FLAT_MINOR` | D♭ major / B♭ minor |
-| `D_MAJOR_B_MINOR` | D major / B minor |
-| `E_FLAT_MAJOR_C_MINOR` | E♭ major / C minor |
-| `E_MAJOR_D_FLAT_MINOR` | مفتاح E الكبير / C♯/D♭ الصغير |
-| `F_MAJOR_D_MINOR` | مقام فا الكبير / مقام ري الصغير |
-| `G_FLAT_MAJOR_E_FLAT_MINOR` | G♭ major / E♭ minor |
-| `G_MAJOR_E_MINOR` | صول كبير / مي صغير |
-| `A_FLAT_MAJOR_F_MINOR` | مفتاح A♭ الكبير / مفتاح F الصغير |
-| `A_MAJOR_G_FLAT_MINOR` | لا يوجد / فا♯/صول♭ صغير |
-| `B_FLAT_MAJOR_G_MINOR` | B♭ major / G minor |
-| `B_MAJOR_A_FLAT_MINOR` | B major / G♯/A♭ minor |
-| `SCALE_UNSPECIFIED` | تلقائي / يقرّر النموذج |
+| `C_MAJOR_A_MINOR` | Đô trưởng / La thứ |
+| `D_FLAT_MAJOR_B_FLAT_MINOR` | Rê giáng trưởng / Si giáng thứ |
+| `D_MAJOR_B_MINOR` | D trưởng / B thứ |
+| `E_FLAT_MAJOR_C_MINOR` | Mi giáng trưởng / Đô thứ |
+| `E_MAJOR_D_FLAT_MINOR` | Mi trưởng / Đô thăng/Rê giáng thứ |
+| `F_MAJOR_D_MINOR` | Fa trưởng / Rê thứ |
+| `G_FLAT_MAJOR_E_FLAT_MINOR` | Sol giáng trưởng / Mi giáng thứ |
+| `G_MAJOR_E_MINOR` | Sol trưởng / Mi thứ |
+| `A_FLAT_MAJOR_F_MINOR` | La giáng trưởng / Fa thứ |
+| `A_MAJOR_G_FLAT_MINOR` | Giọng trưởng / Giọng thứ |
+| `B_FLAT_MAJOR_G_MINOR` | Si giáng trưởng / Sol thứ |
+| `B_MAJOR_A_FLAT_MINOR` | Giọng Si trưởng / Giọng Sol thăng/La giáng thứ |
+| `SCALE_UNSPECIFIED` | Mặc định / Mô hình quyết định |
 
-يمكن للنموذج توجيه النوتات التي يتم تشغيلها، ولكنّه لا يميّز بين المفاتيح النسبية. وبالتالي، يتوافق كل نوع تعداد مع الرقمين النسبيين الرئيسي والثانوي. على سبيل المثال، يشير `C_MAJOR_A_MINOR` إلى جميع مفاتيح البيانو البيضاء، بينما يشير `F_MAJOR_D_MINOR` إلى جميع مفاتيح البيانو البيضاء باستثناء المفتاح B flat.
+Mô hình này có thể hướng dẫn các nốt nhạc được phát, nhưng không phân biệt giữa các khoá tương đối. Do đó, mỗi enum tương ứng với cả hai khoá chính và khoá phụ tương đối. Ví dụ: `C_MAJOR_A_MINOR` sẽ tương ứng với tất cả các phím trắng của đàn piano và `F_MAJOR_D_MINOR` sẽ là tất cả các phím trắng ngoại trừ phím B giáng.
 
-### القيود
+### Các điểm hạn chế
 
-- موسيقى فقط: ينشئ النموذج موسيقى فقط.
-- الأمان: يتم فحص الطلبات من خلال فلاتر الأمان. سيتم تجاهل الطلبات التي تؤدي إلى تشغيل الفلاتر، وفي هذه الحالة، سيتم كتابة توضيح في الحقل `filtered_prompt` في الناتج.
-- وضع العلامات المائية: يتم دائمًا وضع علامات مائية على المقاطع الصوتية الناتجة لتحديدها وفقًا لمبادئ [الذكاء الاصطناعي المسؤول](https://ai.google/responsibility/principles/?hl=ar).
+- Chỉ nhạc không lời: Mô hình chỉ tạo nhạc không lời.
+- An toàn: Các bộ lọc an toàn sẽ kiểm tra câu lệnh. Các câu lệnh kích hoạt bộ lọc sẽ bị bỏ qua. Trong trường hợp đó, lời giải thích sẽ được viết trong trường `filtered_prompt` của đầu ra.
+- Tạo hình mờ: Âm thanh đầu ra luôn được tạo hình mờ để nhận dạng theo các nguyên tắc [AI có trách nhiệm](https://ai.google/responsibility/principles/?hl=vi) của chúng tôi.
 
-## الخطوات التالية
+## Bước tiếp theo
 
-- إنشاء أغاني كاملة ومقاطع صوتية باستخدام [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=ar)
-- بدلاً من الموسيقى، تعرَّف على كيفية إنشاء محادثة بين عدة متحدثين باستخدام [نماذج تحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/audio-generation?hl=ar).
-- تعرَّف على كيفية إنشاء [صور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) أو [فيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar).
-- بدلاً من إنشاء موسيقى أو محتوى صوتي، تعرَّف على كيفية
-  [فهم Gemini للملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar).
-- إجراء محادثة فورية مع Gemini باستخدام
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)
+- Tạo các bài hát hoàn chỉnh và bản nhạc có giọng hát bằng [Lyria 3](https://ai.google.dev/gemini-api/docs/music-generation?hl=vi),
+- Thay vì âm nhạc, hãy tìm hiểu cách tạo cuộc trò chuyện nhiều người nói bằng [các mô hình TTS](https://ai.google.dev/gemini-api/docs/audio-generation?hl=vi),
+- Khám phá cách tạo [hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) hoặc [video](https://ai.google.dev/gemini-api/docs/video?hl=vi),
+- Thay vì tạo nhạc hoặc âm thanh, hãy tìm hiểu cách Gemini có thể [hiểu các tệp âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi),
+- Trò chuyện theo thời gian thực với Gemini bằng [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
 
-يمكنك استكشاف [كتاب الطبخ](https://github.com/google-gemini/cookbook) للحصول على المزيد من الأمثلة والبرامج التعليمية حول الرموز البرمجية.
+Khám phá [Sổ tay hướng dẫn](https://github.com/google-gemini/cookbook) để xem thêm các ví dụ về mã và hướng dẫn.
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
+Cập nhật lần gần đây nhất: 2026-05-13 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-13 UTC."],[],[]]

@@ -1,40 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/files?hl=es-419
-fetched_at: 2026-05-18T13:02:09.353227+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/files?hl=ja
+fetched_at: 2026-05-25T13:04:10.886320+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Enviar comentarios
+フィードバックを送信
 
-# API de Files
+# Files API
 
-Gemini puede procesar varios tipos de datos de entrada, como texto, imágenes y audio, al mismo tiempo.
+Gemini は、テキスト、画像、音声など、さまざまな種類の入力データを同時に処理できます。
 
-En esta guía, se muestra cómo trabajar con archivos multimedia usando la API de Files. Las operaciones básicas son las mismas para los archivos de audio, las imágenes, los videos, los documentos y otros tipos de archivos admitidos.
+このガイドでは、Files API を使用してメディア ファイルを操作する方法について説明します。音声ファイル、画像、動画、ドキュメント、その他のサポートされているファイル形式の基本的な操作は同じです。
 
-Para obtener orientación sobre las instrucciones de archivos, consulta la sección [Guía de instrucciones de archivos](https://ai.google.dev/gemini-api/docs/interactions/files?hl=es-419#prompt-guide).
+ファイル プロンプトのガイダンスについては、[ファイル プロンプト ガイド](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ja#prompt-guide)をご覧ください。
 
-## Subir un archivo
+## ファイルをアップロード
 
-Puedes usar la API de Files para subir un archivo multimedia. Siempre usa la API de Files cuando el tamaño total de la solicitud (incluidos los archivos, la instrucción de texto, las instrucciones del sistema, etcétera) sea superior a 100 MB. En el caso de los archivos PDF, el límite es de 50 MB.
+Files API を使用してメディア ファイルをアップロードできます。リクエストの合計サイズ（ファイル、テキスト プロンプト、システム指示などを含む）が 100 MB を超える場合は、常に Files API を使用します。PDF ファイルの上限は 50 MB です。
 
-El siguiente código sube un archivo y, luego, lo usa en una llamada a `interactions.create`.
+次のコードは、ファイルをアップロードしてから、`interactions.create` の呼び出しでそのファイルを使用します。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -42,25 +41,19 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "text", "text": "Describe this audio clip"},
         {"type": "audio", "uri": myfile.uri, "mime_type": myfile.mime_type}
     ]
 )
 
-# Print the model's text response
-for step in interaction.steps:
-    if step.type == "model_output":
-        for content_block in step.content:
-            if content_block.type == "text":
-                print(content_block.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -72,18 +65,13 @@ async function main() {
   });
 
   const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
       { type: "text", text: "Describe this audio clip" },
       { type: "audio", uri: myfile.uri, mime_type: myfile.mimeType }
     ]
   });
-  const modelStep = interaction.steps.find(s => s.type === 'model_output');
-  if (modelStep) {
-    for (const contentBlock of modelStep.content) {
-      if (contentBlock.type === 'text') console.log(contentBlock.text);
-    }
-  }
+  console.log(interaction.output_text);
 }
 
 await main();
@@ -98,7 +86,7 @@ if err != nil {
 }
 defer client.Files.Delete(ctx, file.Name)
 
-interaction, err := client.Interactions.Create(ctx, "gemini-3-flash-preview", &genai.InteractionRequest{
+interaction, err := client.Interactions.Create(ctx, "gemini-3.5-flash", &genai.InteractionRequest{
     Input: []interface{}{
         genai.NewPartFromFile(*file),
         genai.NewPartFromText("Describe this audio clip"),
@@ -157,13 +145,12 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now create an interaction using the Interactions API
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -H "Api-Revision: 2026-05-20" \
     -d '{
-      "model": "gemini-3-flash-preview",
+      "model": "gemini-3.5-flash",
       "input": [
         {"type": "text", "text": "Describe this audio clip"},
         {"type": "audio", "uri": '$file_uri', "mime_type": "'${MIME_TYPE}'"}
@@ -176,14 +163,13 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## Obtén los metadatos de un archivo
+## ファイルのメタデータを取得する
 
-Puedes verificar que la API haya almacenado correctamente el archivo subido y obtener sus metadatos llamando a `files.get`.
+`files.get` を呼び出すことで、API がアップロードされたファイルを正常に保存し、そのメタデータを取得したことを確認できます。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -197,7 +183,6 @@ print(myfile)
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import {
   GoogleGenAI,
 } from "@google/genai";
@@ -248,14 +233,13 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Enumera los archivos subidos
+## アップロードされたファイルを一覧表示する
 
-El siguiente código obtiene una lista de todos los archivos subidos:
+次のコードは、アップロードされたすべてのファイルのリストを取得します。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -268,7 +252,6 @@ for f in client.files.list():
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import {
   GoogleGenAI,
 } from "@google/genai";
@@ -305,14 +288,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Borra archivos subidos
+## アップロードしたファイルを削除する
 
-Los archivos se borran automáticamente después de 48 horas. También puedes borrar manualmente un archivo subido:
+ファイルは 48 時間後に自動的に削除されます。アップロードしたファイルを手動で削除することもできます。
 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -324,7 +306,6 @@ client.files.delete(name=myfile.name)
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import {
   GoogleGenAI,
 } from "@google/genai";
@@ -361,191 +342,188 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/$name \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Información de uso
+## 使用状況情報
 
-Puedes usar la API de Files para subir archivos multimedia y, luego, interactuar con ellos. La API de Files te permite almacenar hasta 20 GB de archivos por proyecto, con un tamaño máximo por archivo de 2 GB. Los archivos se almacenan durante 48 horas. Durante ese tiempo, puedes usar la API para obtener metadatos sobre los archivos, pero no puedes descargarlos.
-La API de Files está disponible sin costo en todas las regiones en las que está disponible la API de Gemini.
+Files API を使用して、メディア ファイルをアップロードし、操作できます。Files API を使用すると、プロジェクトごとに最大 20 GB のファイルを保存できます。ファイルごとの最大サイズは 2 GB です。ファイルは 48 時間保存されます。この間、API を使用してファイルに関するメタデータを取得することはできますが、ファイルをダウンロードすることはできません。Files API は、Gemini API が利用可能なすべてのリージョンで無料で利用できます。
 
-## Estrategias de instrucciones de archivos
+## ファイル プロンプト戦略
 
-En esta sección, se proporcionan orientación y prácticas recomendadas para usar archivos multimedia con instrucciones en la API de Gemini.
+このセクションでは、Gemini API のプロンプトでメディア ファイルを使用するためのガイダンスとベスト プラクティスについて説明します。
 
-Poder usar varios tipos de datos en tus instrucciones te brinda más flexibilidad en cuanto a las tareas que puedes abordar con la API de Gemini. Por ejemplo, puedes enviar al modelo una foto de una comida deliciosa y pedirle que escriba un blog breve sobre ella.
+プロンプトでさまざまな種類のデータを使用できるため、Gemini API で処理できるタスクの柔軟性が高まります。たとえば、おいしい食事の写真をモデルに送信し、その食事に関する短いブログ記事を作成するよう依頼できます。
 
 |  |  |
 | --- | --- |
-| **Instrucción** | **Respuesta** |
-| Escribe una entrada de blog breve y atractiva basada en esta foto. Debe incluir una descripción de la comida que aparece en la foto y hablar sobre mi proceso de preparación de comidas.   Cookies | Preparar las comidas es una excelente manera de ahorrar tiempo y dinero, y también puede ayudarte a comer de forma más saludable. Esta comida es un excelente ejemplo de una comida saludable y deliciosa que se puede preparar con anticipación.  Esta comida incluye arroz integral, verduras asadas y pollo teriyaki. El arroz integral es un carbohidrato saludable y complejo que te proporcionará energía sostenida. Las verduras asadas son una excelente manera de obtener tu dosis diaria de vitaminas y minerales, y el pollo teriyaki es una opción deliciosa y rica en proteínas.  Esta comida también es fácil de preparar. Solo tienes que cocinar el arroz integral, asar las verduras y cocinar el pollo teriyaki. Una vez que todo esté cocido, divídelo en contenedores para preparar comidas y guárdalos en el refrigerador. Luego, puedes tomar un recipiente y salir en las mañanas ajetreadas.  Si buscas una comida saludable y deliciosa que puedas preparar con anticipación, esta es una excelente opción. Está repleta de nutrientes y sabor, y seguro te dejará satisfecho.  ¡Salud por la preparación de comidas saludables y deliciosas! |
+| **プロンプト** | **レスポンス** |
+| この写真に基づいて、魅力的な短いブログ投稿を書いてください。写真に写っている食事の説明と、私がミールプレップ（食事の作り置き）を始めた経緯について説明する必要があります。   クッキー | ミールプレップは、時間とお金の節約に役立つだけでなく、健康的な食生活にもつながります。この食事は、事前に準備できる健康的でおいしい食事の好例です。  この食事は、玄米、焼き野菜、鶏肉の照り焼きが特徴です。玄米は、持続的なエネルギーを供給する健康的で複合的な炭水化物です。焼き野菜は、1 日に必要なビタミンとミネラルを摂取するのに最適です。鶏肉の照り焼きは、おいしくてタンパク質が豊富なオプションです。  この食事は準備も簡単です。玄米を炊き、野菜をローストし、鶏肉の照り焼きを作ります。すべて調理したら、食事の準備用容器に分けて冷蔵庫に保管します。忙しい朝に、容器を持って出かけることができます。  事前に準備できる健康的でおいしい食事をお探しなら、この食事はおすすめです。栄養と風味がたっぷり詰まっており、満腹感と満足感が得られます。  健康的でおいしいミールプレップを楽しみましょう。 |
 
-Si tienes problemas para obtener el resultado que deseas a partir de instrucciones que usan archivos multimedia, existen algunas estrategias que pueden ayudarte a obtener los resultados que deseas. En las siguientes secciones, se proporcionan enfoques de diseño y sugerencias para solucionar problemas que te ayudarán a mejorar las instrucciones que usan entradas multimodales.
+メディアファイルを使用するプロンプトから目的の出力を取得できない場合は、目的の結果を得るために役立つ戦略がいくつかあります。以降のセクションでは、マルチモーダル入力を使用するプロンプトを改善するための設計アプローチとトラブルシューティングのヒントについて説明します。
 
-Para mejorar tus prompts multimodales, sigue estas prácticas recomendadas:
+マルチモーダル プロンプトは、次のベスト プラクティスに沿って改善できます。
 
-- ### [Conceptos básicos sobre el diseño de prompts](#specific-instructions)
+- ### [プロンプト設計の基礎](#specific-instructions)
 
-  - **Sé específico en tus instrucciones**: Crea instrucciones claras y concisas que dejen espacio mínimo para interpretaciones erróneas.
-  - **Agrega algunos ejemplos a tu prompt:** Usa ejemplos poco frecuentes para ilustrar lo que quieres lograr.
-  - **Desglosar paso a paso**: Divide las tareas complejas en subobjetivos administrables y guiando el modelo a través del proceso.
-  - **Especifica el formato del resultado**: En el prompt, solicita que el resultado tenga el formato que deseas, como Markdown, JSON, HTML y más.
-  - **Coloca tu imagen primero para los prompts de una sola imagen**: Si bien Gemini puede manejar las entradas de imágenes y texto en cualquier orden, en el caso de los prompts que contienen una sola imagen, podría tener un mejor rendimiento si esa imagen (o video) se coloca antes del prompt de texto. Sin embargo, en el caso de los prompts que requieren que las imágenes estén muy intercaladas con textos para que tengan sentido, usa el orden que sea más natural.
-- ### [Soluciona problemas de tu prompt multimodal](#troubleshooting)
+  - **指示を具体的にする**: 誤解を招かないように明確で簡潔な指示を記述します。
+  - **プロンプトにいくつかの例を加える:** 現実的な数個の例を使用して実現したいことを示します。
+  - **小さいステップに分ける**: 複雑なタスクを扱いやすい中間目標に分割して、プロセスに沿ってモデルを導きます。
+  - **出力形式を指定する**: プロンプトで、必要とする形式（マークダウン、JSON、HTML など）で出力することを指示します。
+  - **単一画像のプロンプトではまず画像を配置する**: Gemini は、画像とテキストの入力をどのような順序でも処理できますが、単一画像のプロンプトの場合は、対象の画像（または動画）をテキストのプロンプトよりも前に配置することでパフォーマンスが向上する可能性があります。ただし、その画像がテキストと複雑に絡み合っている場合は、最も自然に意味を捉えることができる順序を使用してください。
+- ### [マルチモーダル プロンプトのトラブルシューティング](#troubleshooting)
 
-  - **Si el modelo no extrae información de la parte relevante de la imagen:** Agrega pistas sobre los aspectos de la imagen de los que quieres que el prompt extraiga información.
-  - **Si el resultado del modelo es demasiado genérico (no lo suficientemente personalizado para la entrada de imagen o video):** Al inicio del prompt, intenta pedirle al modelo que describa las imágenes o el video antes de proporcionar la instrucción de la tarea, o intenta pedirle al modelo que haga referencia a lo que hay en la imagen.
-  - **Para solucionar la parte que falló:** Pídele al modelo que describa la imagen o pídele que explique su razonamiento, para medir su comprensión inicial.
-  - **Si el prompt muestra contenido alucinado:** Intenta reducir la configuración de la temperatura o pide descripciones más cortas al modelo para que sea menos probable extrapolar detalles adicionales.
-  - **Ajusta los parámetros de muestreo:** Experimenta con diferentes opciones de configuración de temperatura y selecciones de Top-K para ajustar la creatividad del modelo.
+  - **モデルが画像の該当箇所から情報を抽出していない場合:** プロンプトで画像のどの部分から情報を引き出してほしいかについてのヒントを出してください。
+  - **モデルの出力内容が一般的すぎる（入力した画像 / 動画に十分対応していない）場合:** プロンプトの冒頭で、タスクの指示を出す前にモデルに画像や動画について説明するよう求めるか、画像の内容に言及するよう求めてみてください。
+  - **失敗した部分のトラブルシューティングを行うには:** モデルの最初の理解度を測るために、モデルに画像の説明を求めるか、モデルに推論についての説明を求めます。
+  - **プロンプトによりハルシネーションが生じたコンテンツが生成された場合:** 温度設定を下げるか、モデルに短い説明を求め、追加の詳細情報が推定されないようにしてみます。
+  - **サンプリング パラメータのチューニング:** さまざまな Temperature 設定と Top-K 選択を試して、モデルの創造性を調整します。
 
-### Proporciona instrucciones específicas
+### 指示を具体的にする
 
-Los prompts tienen más éxito cuando son claros y detallados. Si tienes un resultado específico en mente, es mejor incluir ese requisito en el prompt para asegurarte de obtener el resultado que deseas.
+プロンプトは、明確かつ詳細である場合に最も良い結果が出ます。特定の出力を想定している場合は、必要な出力を確実に得られるように、その要件をプロンプトに含めることをおすすめします。
 
-Para esta imagen de un panel de aeropuerto, pedirle al modelo que simplemente “describa esta imagen” podría generar una descripción general. Si necesitas que el modelo analice la hora y la ciudad de la imagen, puedes incluir esa solicitud directamente en tu instrucción.
+下に示す空港の発着表示板の画像の場合、「この画像について説明する」ようにモデルにリクエストすると、漠然とした説明が生成される可能性があります。モデルによって画像から時刻と都市が抽出されることを必要とする場合は、そのリクエストをプロンプトに直接追加します。
 
-| Instrucción | Respuesta del modelo |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Describe esta imagen. | En la imagen, se muestra el panel de llegadas y salidas de un aeropuerto. |
+| この画像を説明してください。 | この画像は、空港の発着表示板を示しています。 |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Tablero de horarios de viajes Analiza la hora y la ciudad del panel de aeropuerto que se muestra en esta imagen y crea una lista con esos datos. | - 10:50 Moscú - 11:05 Edimburgo - 11:05 Londres - 11:10 Bucarest - 11:30 Kiev - 11:35 Dublín - 11:45 Midlands del Este - 12:15 Sofía - 12:30 Londres - 12:30 Newcastle - 12:40 San Petersburgo - 12:40 Londres - 12:45 Mánchester |
+| 運行時刻表 この画像にある空港の発着表示板の時刻と都市を抽出してリストにしてください。 | - 10:50 モスクワ - 11:05 エディンバラ - 11:05 ロンドン - 11:10 ブカレスト - 11:30 キーウ - 11:35 ダブリン - 11:45 イースト ミッドランズ - 12:15 ソフィア - 12:30 ロンドン - 12:30 ニューカッスル - 12:40 サンクトペテルブルク - 12:40 ロンドン - 12:45 マンチェスター |
 
-### Agrega algunos ejemplos
+### 例をいくつか追加する
 
-El modelo de Gemini puede aceptar varias entradas que puede usar como ejemplos para comprender el resultado que deseas. Agregar estos ejemplos puede ayudar al modelo a identificar los patrones y aplicar la relación entre las imágenes y respuestas proporcionadas al ejemplo nuevo. Esto también se conoce como aprendizaje "con varios ejemplos".
+この Gemini モデルはさまざまな入力を受け付けます。その入力を例として使用することにより、ユーザーが必要とする出力を理解できます。こうした例を追加することでモデルがパターンを識別できるようになり、指定された画像と回答の関係を新しい例に適用できます。これは「少数ショット」学習とも呼ばれます。
 
-En el siguiente ejemplo, el resultado inicial está escrito en forma de oración y también contiene el país (Brasil). Supongamos que deseas obtener el resultado en un formato o estilo diferente y solo quieres la ciudad, no el país. Agregar ejemplos de pocos intentos a tu instrucción puede hacer que el modelo responda de la manera que deseas.
+次の例では、最初の出力が文章形式で記述されており、国（ブラジル）も含まれています。別の形式やスタイルで出力し、国ではなく都市のみを出力したいとします。プロンプトに少数ショットの例を追加すると、意図したとおりに回答するようモデルを誘導できます。
 
-| **Instrucción** | **Respuesta del modelo** |
+| **プロンプト** | **モデルのレスポンス** |
 | --- | --- |
-| Tablero de horarios de viajes Determina la ciudad junto con el punto de referencia. | El punto de referencia es la estatua del Cristo Redentor de Río de Janeiro, Brasil. |
+| 運行時刻表 ランドマークに一致する都市を特定してください。 | このランドマークは、ブラジルのリオデジャネイロにあるコルコバードのキリスト像です。 |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Determina la ciudad junto con el punto de referencia. coliseo | ciudad: Roma, punto de referencia: el Coliseo. |
-| La Ciudad Prohibida | ciudad: Beijing, punto de referencia: la Ciudad Prohibida |
-| La Ciudad Prohibida | ciudad: Río de Janeiro, punto de referencia: estatua del Cristo Redentor |
+| ランドマークに一致する都市を特定してください。 コロッセオ | 都市: ローマ、ランドマーク: コロッセオ。 |
+| 紫禁城 | 都市: 北京、ランドマーク: 紫禁城 |
+| 紫禁城 | 都市: リオデジャネイロ、ランドマーク: コルコバードのキリスト像 |
 
-### Desglósala paso a paso
+### 順を追って説明する
 
-Para tareas complejas, como las que requieren comprensión visual y razonamiento, puede ser útil dividir la tarea en pasos más pequeños y sencillos. Como alternativa, también podría ser efectivo si le pides al modelo que "piense paso a paso" en el prompt.
+視覚的な理解と推論の両方を必要とするような複雑なタスクの場合は、タスクをより小さく、より簡単なステップに分割することが有効です。また、プロンプトの中でモデルに直接「順を追って考える」ように指示することも効果的な場合があります。
 
-| Instrucción | Respuesta del modelo |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| ¿Cuándo se me acabará el papel higiénico? | Pronto, solo te quedan 3 rollos. |
+| トイレット ペーパーは、いつ使い切りますか？ | 間もなくです。あと 3 ロールしかありません。 |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| 1. Primero, cuenta cuántos rollos de papel higiénico hay en esta imagen. 2. Luego, determina cuánto papel higiénico usa una persona común por día. 3. Calcula cuánto durarán estos rollos de papel higiénico. | 1. En esta imagen, hay 3 rollos de papel higiénico. 2. Una persona común usa alrededor de 20 hojas de papel higiénico por día. 3. Si cada rollo contiene 200 hojas, cada uno durará alrededor de 10 días. Por lo tanto, los 3 rollos durarán aproximadamente un mes. |
+| 1. まず、この写真に写っているトイレット ペーパーのロールを数えてください。 2. 次に、標準的な人が 1 日に使用するトイレット ペーパーの量を定めます。 3. そのトイレット ペーパーがどのくらいの期間使用できるかを算出します。 | 1. この写真には、トイレット ペーパーのロールが 3 つ写っています。 2. 標準的な人は、1 日に約 20 枚のトイレット ペーパーを使用します。 3. 1 ロールに 200 枚入っているとすると、1 ロールで約 10 日間使用できます。したがって、3 ロールでは約 1 か月使用できます。 |
 
-Los problemas matemáticos y otros tipos de problemas de palabras son excelentes opciones para pedirle al modelo que piense paso a paso.
+数学の問題や他の種類の言葉の問題は、モデルに順を追って考えることを求めるのに適しています。
 
-| **Instrucción** | **Respuesta** |
+| **プロンプト** | **レスポンス** |
 | --- | --- |
-| ¿Cuál es el cuarto término de la secuencia? | -135 |
+| 数列の第 4 項は何ですか？ | -135 |
 
-La respuesta del modelo es incorrecta. Algunas formas de mejorar esto son pedirle al modelo que analice el problema antes de responder al prompt.
+モデルからのレスポンスが正しくありません。これを改善するには、プロンプトに答える前に問題を解析するようにモデルに求める方法があります。
 
-| **Instrucción** | **Respuesta** |
+| **プロンプト** | **レスポンス** |
 | --- | --- |
-| Analiza primero la fórmula de la imagen.  Luego, en función de la fórmula, responde “¿Cuál es el cuarto término de la secuencia?”. | *Haz clic para expandir el resultado* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Sustituye n = 4 en la fórmula: $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. No sabemos el valor de b(3), así que sustituye n = 3 en la fórmula: $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. No sabemos el valor de b(2), así que sustituye n = 2 en la fórmula: $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Sabemos que el valor de b(1) es 15, por lo que debes sustituirlo en la fórmula: $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Ahora que conocemos el valor de b(2), reemplázalo por b(3) en la fórmula: $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Ahora que conocemos el valor de b(3), reemplázalo en la fórmula por b(4): $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Por lo tanto, el cuarto término de la secuencia es -405. |
+| まず、画像内の数式を解析します。  次に、数式に基づいて、「数列の第 4 項は何ですか？」に答えます。 | クリックして結果を拡大 $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. n = 4 を数式に代入します。 $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. b(3) の値がわからないため、式に n = 3 を代入します。 $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. b(2) の値がわからないため、式に n = 2 を代入します。 $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. b(1) の値は 15 であるとわかっているため、それを数式に代入します。 $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. b(2) の値がわかったので、それを b(3) の数式に代入します。 $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. b(3) の値がわかったので、それを b(4) の数式に代入します。 $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   したがって、数列の第 4 項は -405 です。 |
 
-Esta respuesta del modelo es correcta. Ahora, para que la respuesta sea aún más optimizada, puedes pedirle al modelo que piense paso a paso.
+このモデルのレスポンスは正確ですが、レスポンスをさらに合理化するには、モデルに順を追って考えるように依頼します。
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| ¿Cuál es el cuarto término de la secuencia? Piensa paso a paso. | El primer término es 15.  El segundo término es b(1) \* (-3) = 15 \* (-3) = -45.  El tercer término es b(2) \* (-3) = -45 \* (-3) = 135.  El cuarto término es b(3) \* (-3) = 135 \* (-3) = -405. |
+| 数列の第 4 項は何ですか？順を追って考えてください。 | 最初の項は 15 です。  第 2 項は、b(1) × (-3) = 15 × (-3) = -45 です。  第 3 項は、b(2) × (-3) = -45 × (-3) = 135 です。  第 4 項は、b(3) × (-3) = 135 × (-3) = -405 です。 |
 
-### Especifica el formato del resultado
+### 出力形式を指定する
 
-Un problema común es la necesidad de que el resultado del modelo esté en un formato determinado (p.ej., Markdown, JSON, HTML), en especial si el resultado del modelo debe transferirse a través de una tarea de downstream. Puedes intentar que el modelo produzca un resultado en ese formato indicándoselo en la instrucción. A continuación, se muestran dos ejemplos:
+よくある問題は、モデル出力を特定の形式（マークダウン、JSON、HTML など）にする必要があることです。特に、モデルの出力を下流のタスクで取り込む必要がある場合に発生します。プロンプトの中でモデルにそのように指示することで、その形式での出力を試みることができます。以下に 2 つの例を示します。
 
-| Instrucción | Respuesta del modelo |
+| プロンプト | モデルの回答 |
 | --- | --- |
-| Analiza la tabla en esta imagen en formato Markdown | ```none | Asunto | Estado | Hora | Fecha de inicio | Plazo | | ------- | ------ | ---- | ---------- | ------ | | Matemáticas | Listo | 1.5 h | 29/11/2023 | 1/12/2023 | | Geografía | Listo | 30 min | 2/12/2023 | 4/12/2023 | | Física | En curso | 2 h | 3/12/2023 | 5/12/2023 | | Biología | No iniciado | 6 h | 2/11/2016 | 6/12/2023 | ``` |
+| この画像の表を解析してマークダウン形式にしてください。 | ```none | 科目 | ステータス | 時間 | 開始日 | 期限: | | ------- | ------ | ---- | ---------- | ------ | | 数学 | 完了 | 1.5 時間 | 2023 年 11 月 29 日 | 2023 年 12 月 1 日 | | 地理 | 完了 | 30 分 | 2023 年 12 月 2 日 | 2023 年 12 月 4 日 | | 物理 | 進行中 | 2 時間 | 2023 年 12 月 3 日 | 2023 年 12 月 5 日 | | 生物 | 未開始 | 6 時間 | 2016 年 11 月 2 日 | 2023 年 12 月 6 日 | ``` |
 
-| **Instrucción** | **Respuesta del modelo** |
+| **プロンプト** | **モデルのレスポンス** |
 | --- | --- |
-| Proporciona una lista de todos los atributos siguientes:  ingredientes, tipo de cocina, vegetariano o no, en formato JSON | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
+| 次の属性をすべてリストアップしてください。  材料、料理の種類、ベジタリアンかどうか、JSON 形式 | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
 
-### Coloca primero la imagen para prompts de una sola imagen
+### 単一画像のプロンプトではまず画像を配置する
 
-Si bien Gemini puede interpretar la imagen y el texto en cualquier orden dentro de un mensaje, colocar una sola imagen antes del mensaje de texto puede generar mejores resultados.
-En los siguientes ejemplos, notarás que la imagen aparece antes del texto en cada instrucción.
+Gemini は、プロンプト内の画像とテキストをどのような順序でも解釈できますが、テキスト プロンプトの前に画像を 1 つ配置するとより良い結果が得られる場合があります。以下の例では、それぞれのプロンプトにおいて、テキストの前に画像があることを確認できます。
 
-### Soluciona los problemas de tu instrucción multimodal
+### マルチモーダル プロンプトのトラブルシューティング
 
-Es posible que debas solucionar los problemas de tu instrucción si no obtienes una respuesta útil. Estas son algunas estrategias que puedes probar.
+役に立つ回答が得られない場合は、プロンプトのトラブルシューティングが必要になることがあります。以下にいくつかの方法を示します。
 
-#### Si el modelo no extrae información de la parte relevante de la imagen
+#### モデルが画像の該当部分から情報を引き出していない場合
 
-Para obtener una respuesta más específica, puedes indicar desde qué aspectos de la imagen deseas que la instrucción extraiga información para generar su respuesta.
+より具体的なレスポンスを得るには、プロンプトへのレスポンスに必要な情報を、画像のどの部分から引き出すかを指定します。
 
-| Instrucción | Respuesta del modelo |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| ¿Cuántos días durarán estos pañales para un bebé? | Los pañales se acabarán en 198 días. |
+| このおむつは赤ちゃんに何日使えますか？ | おむつは、なくなるまで 198 日使用できます。 |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| ¿Cuánto durarán estos pañales antes de acabarse?  Usa el peso que se muestra en la caja para determinar la edad del bebé y usa la cantidad total de pañales que aparece en la caja.  Divide la cantidad total por la cantidad de pañales que el bebé usa en un día. | La caja contiene 198 pañales. La caja indica que los pañales son para niños que pesan entre 10 y 17 kg.  Es probable que el niño promedio de este rango de peso tenga entre 1 y 2 años.  Por lo general, un niño de 2 años usa 6 pañales por día. Por lo tanto, durarán aproximadamente 33 días (198/6). |
+| この紙おむつは、どのくらいで使い切りますか？  箱に記載されている体重から子どもの年齢を割り出し、箱に入っているおむつの総数を使用してください。  合計数を、子どもが 1 日あたりに使用するおむつの数で割ってください。 | 箱には 198 枚のおむつが入っています。箱には、おむつが 22～37 ポンドの子ども用であると書かれています。  この体重の範囲にある子どもの平均年齢は 1～2 歳であると考えられます。  通常、2 歳の子どもは 1 日あたり 6 枚のおむつを使用するため、おむつは約 33 日間（198÷6）使用できます。 |
 
-#### Si el resultado del modelo es demasiado genérico y no se adapta lo suficiente a la entrada de imagen
+#### モデル出力が漠然としすぎて、画像の入力に十分対応できない場合
 
-Para ayudar a que el modelo adapte su respuesta a las imágenes, pídele que las describa antes de realizar su tarea de razonamiento.
+モデルが画像に対するレスポンスを調整できるように、推論タスクを実行する前に、画像について説明するように求めてみます。
 
-| Instrucción | Respuesta del modelo |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| ¿Qué tienen en común estas imágenes? | Las cuatro imágenes son ejemplos de fotografías horizontales. |
+| これらの画像の共通点は何ですか？ | 4 枚の画像はいずれも風景写真のサンプルです。 |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Primero, describe el contenido de cada imagen en detalle. ¿Qué tienen en común estas imágenes? | En la primera imagen, se muestra a una persona empacando una maleta. La segunda imagen muestra un pasillo vacío en un centro comercial. La tercera imagen muestra un rollo de papel higiénico. La cuarta imagen muestra un mar oscuro y tormentoso.  La común entre estas imágenes es que todos son ejemplos de espacios liminales. Los espacios liminales son lugares o situaciones que se encuentran entre otros dos lugares o situaciones. A menudo, se caracterizan por un sentido de incertidumbre o ambigüedad.  La primera imagen muestra a la persona entre estar en casa y estar de viaje. La segunda imagen muestra el pasillo entre dos tiendas. La tercera imagen es de papel higiénico, que puede representar un baño. Un baño es un espacio de transición entre el ámbito privado y el público. Es un lugar donde nos preparamos para ir al mundo exterior o para dejarlo.  En la cuarta imagen, se muestra el mar entre la calma y la tormenta.  Los espacios liminales pueden ser emocionantes e inquietantes. Pueden ser un lugar de nuevos comienzos o de finales. Pueden ser un lugar de reflexión o un lugar de acción. |
+| まず、それぞれの画像の内容を詳しく説明してください。これらの画像の共通点は何ですか？ | 1 つ目の画像にはスーツケースに荷物を詰めている人物が写っています。2 つ目の画像にはショッピング モールの何もない廊下が写っています。3 つ目の画像にはトイレット ペーパーが写っています。4 つ目の画像には暗く荒れ狂う海が写っています。  これらの画像の共通点は、どれもリミナル スペースの例であるということです。リミナル スペースとは、他の 2 つの場所や状況の間にある場所や状況のことです。多くの場合、不確実性やあいまいさによって特徴付けられます。  1 つ目の画像は、自宅にいるときと旅行中の人物を写しています。2 つ目の画像は 2 つの店舗の間にある廊下が写されています。3 つ目の画像はトイレット ペーパーの画像で、バスルームの可能性もあります。トイレは、プライベートなスペースと共用スペースの間の過渡的なスペースです。そこは、外の世界に出入りするための準備をする場所です。  4 つ目の画像は、凪の状態と嵐の状態の間にある海を示しています。  リミナル スペースは刺激的でもあり、不安でもあります。新たな始まりの場所にもなれば、終わりの場所にもなります。内省の場所にもなれば、行動の場所にもなります。 |
 
-También puedes intentar solicitar explícitamente que el modelo haga referencia a lo que hay en la imagen.
+また、画像の内容に言及するように明示的にモデルに指示することもできます。
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| ¿Qué tienen en común estas imágenes? Consulta el contenido de las imágenes en tu respuesta. | Todas las imágenes están relacionadas con viajes. La primera imagen muestra a una persona empacando una maleta; la segunda, un pasillo vacío en un centro comercial; la tercera imagen, una pila de papel higiénico, y la cuarta imagen, un mar oscuro y tormentoso.  Todas estas imágenes están relacionadas con viajes porque son todo lo que las personas necesitan o usan cuando viajan. La primera imagen muestra a una persona empacando una maleta, que es algo que hacen las personas cuando viajan. La segunda imagen muestra un pasillo vacío en un centro comercial, que es un lugar donde las personas suelen ir a comprar artículos para sus viajes. La tercera imagen muestra una pila de papel higiénico, algo que la gente suele usar cuando viaja. La cuarta imagen muestra un mar oscuro y tormentoso, algo que las personas suelen encontrar cuando viajan. |
+| これらの画像の共通点は何ですか？レスポンスでは、画像の内容を参考にしてください。 | 画像はすべて旅行に関連しています。1 つ目の画像にはスーツケースに荷物を詰めている人物が写っています。2 つ目の画像にはショッピング モールの何もない廊下が写っています。3 つ目の画像には積み重ねたトイレット ペーパーが写っています。4 つ目の画像には暗く荒れ狂う海が写っています。  これらの画像はすべて、人々が旅行するときに必要なもの、または使用するものであるため、すべて旅行に関連しています。1 つ目の画像には、スーツケースに荷物を詰めている人が写っています。これは、旅行に出かける人が行うことです。2 つ目の画像には、ショッピング モール内の何もない廊下が写っています。ショッピング モールは、旅行用品を購入するために訪れることが多い場所です。3 つ目の画像には、積み重ねたトイレット ペーパーが写っています。トイレット ペーパーは、人が旅行中によく使用するものです。4 つ目の画像には、暗い荒れ狂う海が写っています。これは、人が旅行中によく遭遇する場面です。 |
 
-Las mismas sugerencias funcionan para obtener un resultado creativo a partir de imágenes. En el siguiente ejemplo con el conejo, pedirle explícitamente al modelo que incluya aspectos de la imagen puede mejorar el resultado.
+画像からクリエイティブな出力を得たい場合も、同じアプローチが有効です。ウサギを使った次の例では、画像の特徴を含めるようにモデルに明示的に依頼すると、出力を改善できます。
 
-| Instrucción | Respuesta del modelo |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| ¿Puedes escribirme un poema sobre esta imagen? | Conejito, tan suave y marrón,  que salta por el campo arriba y abajo.  Tus orejas tan largas y tan pequeña tu cola,  Eres la criatura más tierna de todas.  Mordisqueas el pasto, tan verde y suave,  Y huyes saltando cuando me veas.  Pero siempre tendrás mi amistad,  Conejito, hasta el final. |
+| この画像について詩を書いてもらえますか？ | 柔らかくて茶色い小さなウサギ、 野原を飛び跳ね、上へ下へ。  耳はとても長く、しっぽはとても小さい、  君は一番かわいい生き物だ。  君は草をかじってる、とても青々としていて甘い、 私を見たらぴょんぴょん跳ねて逃げて行ったね。  でも私はいつも君の友だち。  小さなウサギさんが生きている限り。 |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| ¿Puedes escribirme un poema descriptivo y dramático sobre esta imagen y también incluir la ubicación? | Conejito sobre el verde,  Orejas tan largas y agudas.  ¿Qué ves allí,  En la distancia, donde observas?  ¿Es el océano azul  Que brilla con el sol?  ¿O bien las olas que chocan y rugen,  Un ritmo que te adoras?  Pequeño conejo, dime la verdad,  ¿qué capta tu atención?  ¿La brisa salada  o el llanto de las gaviotas?  Quizás sea la enormidad de todo,  Un mundo tan grande y pequeño.  Un lugar donde los deseos pueden viajar,  y las historias se pueden sembrar.  Conejito, me pregunto qué soñarás,  mientras te sientas en el césped, tan sereno.  ¿Te animas a explorar la profundidad?  ¿O te quedarás en la tierra, donde puedes saltar?  Sin importar cómo sea, conejito  Mantén esa chispa de asombro siempre brillante.  Porque en tus sueños y deseos,  hay un mundo que espera tu creación. |
+| この画像について、叙述的で印象的な詩を書き、場所も含めてもらえますか？ | 草原にいる小さなウサギ、 長い耳、鋭い耳。 何を見ているの？ 遠くを見つめて。  それは海の青、 太陽に照らされて輝く海か？ それとも打ち寄せて響く波、 そのリズムに夢中なの？  小さいウサギさん、本当のことを教えてください、 君の心を捉えるものは？ 潮風、 それとも楽しいカモメの鳴き声かい？  きっと、あらゆる存在の壮大さだね、 とても大きくて小さな世界。 夢が広がる場所、 冒険の種がまかれる場所。  小さなウサギさん、どんな夢を見ているの？ 草の上に座って、とても穏やかに。 深い穴を掘りたいの？ それとも飛び跳ねられる大地にいたいの？  君の夢が何であれ、小さいウサギさん、 明るく輝く不思議さをなくさないでね。 夢と願望の中に、 君の創造を待っている世界があるから。 |
 
-#### Soluciona problemas de qué parte del prompt falló
+#### プロンプトの失敗した部分に対するトラブルシューティング
 
-Puede ser difícil saber si un prompt falló porque el modelo no **entendió la imagen** en primer lugar, o si la entendió, pero no realizó los **pasos de razonamiento** correctos después.
-Para distinguir los motivos, pídele al modelo que describa el contenido de la imagen.
+プロンプトが失敗したのは、モデルがそもそも**画像を理解**していなかったからなのか、それとも画像は理解していたものの、その後に正しい**推論の手順**を実行しなかったからなのかを判断することは困難です。このような理由を見極めるには、画像に何が写っているかを説明するようモデルに指示します。
 
-En el siguiente ejemplo, si el modelo responde con un bocadillo que parece extraño en combinación con el té (p.ej., palomitas de maíz), el primer paso para solucionar el problema es determinar si el modelo reconoció correctamente que la imagen contiene té.
+次の例では、お茶と組み合わせると意外に思えるおやつ（ポップコーンなど）をモデルが返す場合に、まずトラブルシューティングを行い、画像にお茶が含まれていることをモデルが正しく認識しているかどうかを判断します。
 
-| Instrucción | Prompt para solucionar problemas |
+| プロンプト | トラブルシューティング用のプロンプト |
 | --- | --- |
-| ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? | Describe el contenido de esta imagen. |
+| 1 分で作ることができるおやつで、これに合うものは何ですか？ | この画像にあるものを説明してください。 |
 
-Otra estrategia es pedirle al modelo que explique su razonamiento. Eso puede ayudarte a limitar qué parte del razonamiento falló, si la hubiera.
+もう 1 つの方法は、モデルにその推論を説明してもらうことです。そうすることで、推論が破綻した部分を絞り込むことができます。
 
-| Instrucción | Prompt para solucionar problemas |
+| プロンプト | トラブルシューティング用のプロンプト |
 | --- | --- |
-| ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? | ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? Explica por qué. |
+| 1 分で作ることができるおやつで、これに合うものは何ですか？ | 1 分で作ることができるおやつで、これに合うものは何ですか？理由を説明してください。 |
 
-## ¿Qué sigue?
+## 次のステップ
 
-- Intenta escribir tus propias instrucciones multimodales con [Google AI Studio](http://aistudio.google.com?hl=es-419).
-- Si quieres obtener información para usar la API de Gemini Files para subir archivos multimedia y agregarlos a tus instrucciones, consulta las guías de [Vision](https://ai.google.dev/gemini-api/docs/interactions/vision?hl=es-419), [Audio](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=es-419) y [Procesamiento de documentos](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=es-419).
-- Para obtener más orientación sobre el diseño de instrucciones, como el ajuste de los parámetros de muestreo, consulta la página [Estrategias de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=es-419).
+- [Google AI Studio](http://aistudio.google.com?hl=ja) を使用して、独自のマルチモーダル プロンプトを作成してみましょう。
+- Gemini Files API を使用してメディア ファイルをアップロードし、プロンプトに含める方法については、[Vision](https://ai.google.dev/gemini-api/docs/interactions/vision?hl=ja)、[音声](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ja)、[ドキュメント処理](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=ja)の各ガイドをご覧ください。
+- サンプリング パラメータのチューニングなど、プロンプト設計に関するその他のガイダンスについては、[プロンプト戦略](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)のページをご覧ください。
 
-Enviar comentarios
+フィードバックを送信
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última actualización: 2026-05-12 (UTC)
+最終更新日 2026-05-19 UTC。
 
-¿Quieres brindar más información?
+ご意見をお聞かせください
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-12 (UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

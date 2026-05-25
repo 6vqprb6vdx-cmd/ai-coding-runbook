@@ -1,30 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ar
-fetched_at: 2026-05-18T13:05:33.153282+00:00
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he
+fetched_at: 2026-05-25T13:03:46.350363+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=he)
 
-إرسال ملاحظات
+שליחת משוב
 
-# طُرق إدخال الملفات
+# שיטות קלט של קבצים
 
-يوضّح هذا الدليل الطرق المختلفة التي يمكنك من خلالها تضمين ملفات الوسائط، مثل الصور والصوت والفيديو والمستندات، عند إرسال طلبات إلى Gemini API.
-تتوفّر الطرق الجديدة في جميع نقاط نهاية Gemini API، بما في ذلك
-Batch وInteractions وLive API.
-يعتمد اختيار الطريقة المناسبة على حجم ملفك ومكان تخزين بياناتك حاليًا ومدى تكرار استخدامك للملف.
+במדריך הזה מוסברות הדרכים השונות שבהן אפשר לכלול קובצי מדיה כמו תמונות, אודיו, וידאו ומסמכים כששולחים בקשות ל-Gemini API.
+השיטות החדשות נתמכות בכל נקודות הקצה (endpoints) של Gemini API, כולל Batch, ‏ Interactions ו-Live API.
+השיטה הנכונה תלויה בגודל הקובץ, במיקום שבו הנתונים מאוחסנים כרגע ובתדירות שבה אתם מתכננים להשתמש בקובץ.
 
-أسهل طريقة لتضمين ملف كإدخال هي قراءة ملف محلي وتضمينه في طلب. يوضّح المثال التالي كيفية قراءة ملف PDF محلي. يقتصر حجم ملفات PDF على 50 ميغابايت في هذه الطريقة. للاطّلاع على قائمة كاملة بأنواع إدخال الملفات والحدود المفروضة عليها، راجِع جدول مقارنة طُرق الإدخال
-.
+הדרך הכי פשוטה לכלול קובץ כקלט היא לקרוא קובץ מקומי ולכלול אותו בהנחיה. בדוגמה הבאה אפשר לראות איך קוראים קובץ PDF מקומי. בשיטה הזו, גודל קובצי ה-PDF מוגבל ל-50MB. רשימה מלאה של סוגי קבצים ומגבלות מופיעה [בטבלת ההשוואה של שיטות הקלט](#method-comparison).
 
 ### Python
 
@@ -39,7 +37,7 @@ filepath = pathlib.Path('my_local_file.pdf')
 
 prompt = "Summarize this document"
 response = client.models.generate_content(
-  model="gemini-3-flash-preview",
+  model="gemini-3.5-flash",
   contents=[
       types.Part.from_bytes(
         data=filepath.read_bytes(),
@@ -74,7 +72,7 @@ async function main() {
     ];
 
     const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         contents: contents
     });
     console.log(response.text);
@@ -89,7 +87,7 @@ main();
 # Encode the local file to base64
 B64_CONTENT=$(base64 -w 0 my_local_file.pdf)
 
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -113,26 +111,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
   }'
 ```
 
-## مقارنة طُرق الإدخال
+## השוואה בין שיטות קלט
 
-يقارن الجدول التالي بين كل طريقة إدخال مع حدود الملفات وأفضل حالات الاستخدام. يُرجى العِلم أنّ الحدّ الأقصى لحجم الملف قد يختلف حسب نوع الملف والنموذج/أداة تقسيم الكلمات المستخدَمة لمعالجة الملف.
+בטבלה הבאה מוצגת השוואה בין כל שיטות הקלט, עם מגבלות הקבצים והתרחישים המומלצים לשימוש. שימו לב שמגבלת גודל הקובץ עשויה להשתנות בהתאם לסוג הקובץ ולמודל או לטוקנייזר שמשמשים לעיבוד הקובץ.
 
-| الطريقة | الأفضل لـ | الحجم الأقصى للملف | الاستمرارية |
+| שיטה | הכי טוב עבור | גודל קובץ מקסימלי | התמדה |
 | --- | --- | --- | --- |
-| **البيانات المضمّنة** | الاختبار السريع والملفات الصغيرة والتطبيقات في الوقت الفعلي | ‫100 ميغابايت لكل طلب/بيانات   (**50 ميغابايت لملفات PDF**) | لا شيء (يتم إرسالها مع كل طلب) |
-| **تحميل الملفات باستخدام File API** | الملفات الكبيرة والملفات المستخدَمة عدة مرات | ‫2 غيغابايت لكل ملف،   ما يصل إلى 20 غيغابايت لكل مشروع | 48 ساعة |
-| **تسجيل معرّف URI لـ Google Cloud Storage باستخدام File API** | الملفات الكبيرة المخزَّنة حاليًا في Google Cloud Storage والملفات المستخدَمة عدة مرات | ‫2 غيغابايت لكل ملف، بدون حدود إجمالية للتخزين | لا شيء (يتم استرجاعها لكل طلب). يمكن أن يمنح التسجيل لمرة واحدة إمكانية الوصول لمدة تصل إلى 30 يومًا. |
-| **عناوين URL الخارجية** | البيانات العلنية أو البيانات في حِزم التخزين السحابي (AWS وAzure وGCS) بدون إعادة تحميلها | ‫100 ميغابايت لكل طلب/بيانات | لا شيء (يتم استرجاعها لكل طلب) |
+| **נתונים מוטבעים** | בדיקה מהירה, קבצים קטנים, אפליקציות בזמן אמת. | ‫100MB לכל בקשה או מטען ייעודי (payload)   (**50MB לקובצי PDF**) | ללא (נשלח עם כל בקשה) |
+| **העלאת קובץ דרך API** | קבצים גדולים, קבצים שנעשה בהם שימוש כמה פעמים. | ‫2GB לכל קובץ,   עד 20GB לכל פרויקט | 48 שעות |
+| **רישום של URI של GCS ב-File API** | קבצים גדולים שכבר נמצאים ב-Google Cloud Storage, קבצים שנמצאים בשימוש כמה פעמים. | ‫2GB לכל קובץ, ללא מגבלות אחסון כוללות | ללא (מאוחזר לכל בקשה). רישום חד-פעמי יכול להעניק גישה למשך 30 יום לכל היותר. |
+| **כתובות URL חיצוניות** | נתונים ציבוריים או נתונים בדליים בענן (AWS, ‏ Azure, ‏ GCS) בלי להעלות אותם מחדש. | ‫100MB לכל בקשה או מטען ייעודי (payload) | ללא (מאוחזר לפי בקשה) |
 
-## البيانات المضمّنة
+## נתונים מוטבעים
 
-بالنسبة إلى الملفات الأصغر حجمًا (أقل من 100 ميغابايت أو 50 ميغابايت لملفات PDF)، يمكنك تمرير البيانات مباشرةً في بيانات الطلب. هذه هي الطريقة الأسهل لإجراء اختبارات سريعة أو إنشاء تطبيقات تعالج البيانات المؤقتة في الوقت الفعلي. يمكنك تقديم البيانات كسلاسل base64 مشفّرة أو من خلال قراءة الملفات المحلية مباشرةً.
+בקובצים קטנים יותר (עד 100MB, או עד 50MB בקובצי PDF), אפשר להעביר את הנתונים ישירות במטען הייעודי (payload) של הבקשה. זו השיטה הפשוטה ביותר לבדיקות מהירות או לאפליקציות שמטפלות בנתונים זמניים בזמן אמת. אפשר לספק נתונים כמחרוזות מקודדות ב-Base64 או על ידי קריאה ישירה של קבצים מקומיים.
 
-للاطّلاع على مثال لقراءة ملف محلي، راجِع المثال في بداية هذه الصفحة.
+דוגמה לקריאה מקובץ מקומי מופיעה בתחילת הדף הזה.
 
-### استرجاع ملف من عنوان URL
+### אחזור מכתובת URL
 
-يمكنك أيضًا استرجاع ملف من عنوان URL وتحويله إلى وحدات بايت وتضمينه في الإدخال.
+אפשר גם לאחזר קובץ מכתובת URL, להמיר אותו לבייטים ולכלול אותו בקלט.
 
 ### Python
 
@@ -149,7 +147,7 @@ doc_data = httpx.get(doc_url).content
 prompt = "Summarize this document"
 
 response = client.models.generate_content(
-  model="gemini-3-flash-preview",
+  model="gemini-3.5-flash",
   contents=[
       types.Part.from_bytes(
         data=doc_data,
@@ -185,7 +183,7 @@ async function main() {
     ];
 
     const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         contents: contents
     });
     console.log(response.text);
@@ -215,7 +213,7 @@ fi
 ENCODED_PDF=$(base64 $B64FLAGS "${DISPLAY_NAME}.pdf")
 
 # Generate content using the base64 encoded PDF
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -234,13 +232,13 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## ‫Gemini File API
+## Gemini File API
 
-تم تصميم File API للملفات الأكبر حجمًا (ما يصل إلى 2 غيغابايت) أو الملفات التي تنوي استخدامها في طلبات متعددة.
+ממשק ה-API של הקבצים מיועד לקבצים גדולים יותר (עד 2GB) או לקבצים שרוצים להשתמש בהם בכמה בקשות.
 
-### تحميل الملفات العادي
+### העלאה רגילה של קבצים
 
-حمِّل ملفًا محليًا إلى Gemini API. يتم تخزين الملفات التي يتم تحميلها بهذه الطريقة مؤقتًا (48 ساعة) ومعالجتها لاسترجاعها بكفاءة من قِبل النموذج.
+מעלים קובץ מקומי ל-Gemini API. קבצים שמועלים בדרך הזו מאוחסנים באופן זמני (למשך 48 שעות) ומעובדים כדי שהמודל יוכל לאחזר אותם ביעילות.
 
 ### Python
 
@@ -254,7 +252,7 @@ prompt = "Describe this audio clip"
 
 # Use the uploaded file in a prompt
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[prompt, audio_file]
 )
 print(response.text)
@@ -281,7 +279,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(myfile.uri, myfile.mimeType),
@@ -329,7 +327,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -347,48 +345,43 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-### تسجيل ملفات Google Cloud Storage
+### רישום קבצים ב-Google Cloud Storage
 
-إذا كانت بياناتك مخزَّنة حاليًا في Google Cloud Storage، لن تحتاج إلى تنزيلها وإعادة تحميلها. يمكنك تسجيلها مباشرةً باستخدام File API.
+אם הנתונים שלכם כבר נמצאים ב-Google Cloud Storage, אתם לא צריכים להוריד אותם ולהעלות אותם מחדש. אפשר לרשום אותו ישירות באמצעות File API.
 
-1. منح إذن الوصول إلى **وكيل الخدمة** لكل حزمة
+1. נותנים ל**סוכן השירות** גישה לכל קטגוריה
 
-   1. فعِّل Gemini API في مشروعك على Google Cloud.
-   2. أنشئ وكيل الخدمة:
+   1. מפעילים את Gemini API בפרויקט בענן ב-Google Cloud.
+   2. יוצרים את סוכן השירות:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **امنح وكيل خدمة Gemini API أذونات** قراءة حِزم التخزين.
+   3. **נותנים לסוכן השירות של Gemini API הרשאות** לקריאה של קטגוריות האחסון.
 
-      على المستخدم منح دور `Storage Object Viewer`
-      [إدارة الهوية والوصول (IAM)](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=ar#storage.objectViewer)
-      لوكيل الخدمة هذا على حِزم التخزين المحدّدة التي ينوي استخدامها.
+      המשתמש צריך להקצות את `Storage Object Viewer`
+      [תפקיד ה-IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=he#storage.objectViewer) לסוכן השירות הזה בקטגוריות האחסון הספציפיות שהוא מתכוון להשתמש בהן.
 
-   لا تنتهي صلاحية إذن الوصول هذا تلقائيًا، ولكن يمكن تغييره في أي وقت. يمكنك
-   أيضًا استخدام
-   [أوامر Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=ar)
-   لمنح الأذونات.
-2. مصادقة خدمتك
+   הגישה הזו לא פגה כברירת מחדל, אבל אפשר לשנות את זה בכל שלב. אפשר גם להשתמש בפקודות של [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=he) כדי להעניק הרשאות.
+2. אימות השירות
 
-   **المتطلبات الأساسية**
+   **דרישות מוקדמות**
 
-   - تفعيل واجهة برمجة التطبيقات
-   - إنشاء حساب خدمة/وكيل بأذونات مناسبة
+   - הפעלת ה-API
+   - יוצרים חשבון שירות או סוכן עם ההרשאות המתאימות.
 
-   عليك أولاً المصادقة بصفتك الخدمة التي لديها أذونات عارض عناصر التخزين. يعتمد ذلك على البيئة التي سيتم فيها تشغيل رمز إدارة الملفات.
+   קודם צריך לבצע אימות כשירות שיש לו הרשאות לצפייה באובייקט אחסון. אופן הפעולה תלוי בסביבה שבה יפעל קוד ניהול הקבצים.
 
-   **خارج Google Cloud**
+   **מחוץ ל-Google Cloud**
 
-   إذا كان الرمز قيد التشغيل من خارج Google Cloud، مثل جهاز الكمبيوتر، نزِّل بيانات اعتماد الحساب من Google Cloud Console باتّباع الخطوات التالية:
+   אם הקוד שלכם מורץ מחוץ ל-Google Cloud, למשל מהמחשב, אתם צריכים להוריד את פרטי הכניסה לחשבון מ-Google Cloud Console. כך עושים את זה:
 
-   1. انتقِل إلى [وحدة تحكّم حساب الخدمة](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=ar)
-   2. اختَر حساب الخدمة ذي الصلة
-   3. اختَر علامة التبويب **المفاتيح** واختَر **إضافة مفتاح، إنشاء مفتاح جديد**
-   4. اختَر نوع المفتاح **JSON**، ولاحِظ مكان تنزيل الملف على جهازك.
+   1. עוברים אל [מסוף חשבון השירות](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=he).
+   2. בוחרים את חשבון השירות הרלוונטי.
+   3. בוחרים בכרטיסייה **Keys** ואז באפשרות **Add key, Create new key**.
+   4. בוחרים את סוג המפתח **JSON** ורושמים את המיקום במחשב שאליו הקובץ הורד.
 
-   لمزيد من التفاصيل، راجِع مستندات Google Cloud الرسمية حول [إدارة
-   مفاتيح حسابات الخدمة](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=ar).
+   פרטים נוספים זמינים במאמרי העזרה הרשמיים של Google Cloud בנושא [ניהול מפתחות של חשבונות שירות](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=he).
 
-   بعد ذلك، استخدِم الأوامر التالية للمصادقة. تفترض هذه الأوامر أنّ ملف حساب الخدمة موجود في الدليل الحالي باسم `service-account.json`.
+   אחר כך משתמשים בפקודות הבאות כדי לבצע אימות. הפקודות האלה מניחות שקובץ חשבון השירות נמצא בספרייה הנוכחית ושמו `service-account.json`.
 
    ### Python
 
@@ -408,7 +401,7 @@ jq ".candidates[].content.parts[].text" response.json
    )
    ```
 
-   ### Javascript
+   ### JavaScript
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -434,18 +427,13 @@ jq ".candidates[].content.parts[].text" response.json
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **على Google Cloud**
+   **ב-Google Cloud**
 
-   إذا كنت تستخدم Google Cloud مباشرةً، مثلاً من خلال استخدام [وظائف Cloud Run](https://cloud.google.com/functions?hl=ar) أو
-   [مثيل Compute Engine](https://cloud.google.com/products/compute?hl=ar)، ستتوفّر لك
-   بيانات اعتماد ضمنية ولكن عليك إعادة المصادقة لمنح
-   النطاقات المناسبة.
+   אם אתם מריצים את התהליך ישירות ב-Google Cloud, למשל באמצעות [פונקציות של Cloud Run](https://cloud.google.com/functions?hl=he) או [מכונה של Compute Engine](https://cloud.google.com/products/compute?hl=he), יהיו לכם פרטי כניסה מרומזים, אבל תצטרכו לבצע אימות מחדש כדי להעניק את ההיקפים המתאימים.
 
    ### Python
 
-   يتوقّع هذا الرمز تشغيل الخدمة في بيئة يمكن فيها الحصول تلقائيًا على
-   [بيانات الاعتماد التلقائية للتطبيق](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ar)
-   ، مثل Cloud Run أو Compute Engine.
+   הקוד הזה מניח שהשירות פועל בסביבה שבה אפשר לקבל אוטומטית [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=he), כמו Cloud Run או Compute Engine.
 
    ```
    import google.auth
@@ -460,9 +448,7 @@ jq ".candidates[].content.parts[].text" response.json
 
    ### JavaScript
 
-   يتوقّع هذا الرمز تشغيل الخدمة في بيئة يمكن فيها الحصول تلقائيًا على
-   [بيانات الاعتماد التلقائية للتطبيق](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ar)
-   ، مثل Cloud Run أو Compute Engine.
+   הקוד הזה מניח שהשירות פועל בסביבה שבה אפשר לקבל אוטומטית [Application Default Credentials](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=he), כמו Cloud Run או Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -477,15 +463,15 @@ jq ".candidates[].content.parts[].text" response.json
 
    ### CLI
 
-   هذا أمر تفاعلي. بالنسبة إلى خدمات مثل Compute Engine، يمكنك إرفاق النطاقات بالخدمة قيد التشغيل على مستوى الإعداد. [راجِع مستندات الخدمة التي يديرها المستخدم للحصول على مثال.](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=ar#using)
+   זוהי פקודה אינטראקטיבית. בשירותים כמו Compute Engine, אפשר לצרף היקפי הרשאות לשירות הפועל ברמת ההגדרה. דוגמה מופיעה ב[מסמכים בנושא שירותים בניהול המשתמשים](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=he#using).
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. تسجيل الملفات (Files API)
+3. רישום קבצים (Files API)
 
-   استخدِم Files API لتسجيل الملفات وإنشاء مسار Files API يمكن استخدامه مباشرةً في Gemini API.
+   משתמשים ב-Files API כדי לרשום קבצים וליצור נתיב Files API שאפשר להשתמש בו ישירות ב-Gemini API.
 
    ### Python
 
@@ -508,7 +494,7 @@ jq ".candidates[].content.parts[].text" response.json
    for f in registered_gcs_files.files:
      print(f.name)
      response = client.models.generate_content(
-       model="gemini-3-flash-preview",
+       model="gemini-3.5-flash",
        contents=[Part.from_uri(
          file_uri=f.uri,
          mime_type=f.mime_type,
@@ -530,13 +516,11 @@ jq ".candidates[].content.parts[].text" response.json
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## عناوين URL الخارجية لبروتوكول HTTP / عناوين URL الموقَّعة
+## כתובות URL חיצוניות מסוג HTTP / כתובות URL חתומות
 
-يمكنك تمرير عناوين URL لبروتوكول HTTPS التي يمكن الوصول إليها علنًا أو عناوين URL الموقَّعة مسبقًا (المتوافقة مع
-[عناوين URL الموقَّعة مسبقًا في S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
-وعناوين URL لبروتوكول SAS في Azure) مباشرةً في طلب الإنشاء. سيسترجع Gemini API المحتوى بأمان أثناء المعالجة. هذا مثالي للملفات التي يصل حجمها إلى 100 ميغابايت والتي لا تريد إعادة تحميلها.
+אפשר להעביר כתובות URL מסוג HTTPS שנגישות לכולם או כתובות URL חתומות מראש (שמתאימות ל[כתובות URL חתומות מראש של S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) ול-Azure SAS) ישירות בבקשת היצירה. ‫Gemini API יאחזר את התוכן בצורה מאובטחת במהלך העיבוד. האפשרות הזו מתאימה לקבצים בגודל של עד 100MB שלא רוצים להעלות מחדש.
 
-يمكنك استخدام عناوين URL العلنية أو الموقَّعة كإدخال من خلال استخدام عناوين URL في الحقل `file_uri`.
+אתם יכולים להשתמש בכתובות URL ציבוריות או חתומות כקלט באמצעות כתובות ה-URL בשדה `file_uri`.
 
 ### Python
 
@@ -550,7 +534,7 @@ prompt = "Summarize this file"
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     contents=[
         Part.from_uri(
             file_uri=uri,
@@ -562,7 +546,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Javascript
+### JavaScript
 
 ```
 import { GoogleGenAI, createPartFromUri } from '@google/genai';
@@ -573,7 +557,7 @@ const uri = "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf
 
 async function main() {
   const response = await client.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     contents: [
       // equivalent to Part.from_uri(file_uri=uri, mime_type="...")
       createPartFromUri(uri, "application/pdf"),
@@ -590,7 +574,7 @@ main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent \
       -H 'x-goog-api-key: $GEMINI_API_KEY' \
       -H 'Content-Type: application/json' \
       -d '{
@@ -610,20 +594,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
         }'
 ```
 
-### تسهيل الاستخدام
+### נגישות
 
-تأكَّد من أنّ عناوين URL التي تقدّمها لا تؤدي إلى صفحات تتطلّب تسجيل الدخول أو تستخدم نظام حظر الاشتراك غير المدفوع (جدار الدفع). بالنسبة إلى قواعد البيانات الخاصة، تأكَّد من إنشاء عنوان URL موقَّع بأذونات الوصول الصحيحة وتاريخ انتهاء الصلاحية.
+מוודאים שכתובות ה-URL שציינתם לא מובילות לדפים שנדרשת בהם התחברות או לדפים שמוגנים על ידי חומת תשלום. במסדי נתונים פרטיים, חשוב לוודא שאתם יוצרים כתובת URL חתומה עם הרשאות הגישה ותאריך התפוגה הנכונים.
 
-### عمليات فحص الأمان
+### בדיקות אבטחה
 
-يُجري النظام فحصًا للإشراف على المحتوى على عنوان URL للتأكّد من استيفائه لمعايير الأمان والسياسات (مثل المحتوى غير المستبعَد والمحتوى المحظور بنظام حظر الاشتراك غير المدفوع). إذا لم يستوفِ عنوان URL الذي قدّمته هذا الفحص، سيظهر لك `url_retrieval_status` بقيمة `URL_RETRIEVAL_STATUS_UNSAFE`.
+המערכת מבצעת בדיקה של ניהול התוכן בכתובת ה-URL כדי לוודא שהיא עומדת בתקני הבטיחות והמדיניות (למשל, תוכן שלא נחסם ושהגישה אליו היא בתשלום). אם כתובת ה-URL שסיפקתם לא תעבור את הבדיקה הזו, תקבלו הודעה `url_retrieval_status` על `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### أنواع المحتوى المتوافقة
+### סוגי התוכן הנתמכים
 
-تهدف قائمة أنواع الملفات المتوافقة والقيود إلى تقديم إرشادات أولية وليست شاملة. قد تتغيّر المجموعة الفعّالة من الأنواع المتوافقة ويمكن أن تختلف حسب النموذج المحدّد وإصدار أداة تقسيم الكلمات المستخدَمة. ستؤدي الأنواع غير المتوافقة إلى ظهور خطأ.
-بالإضافة إلى ذلك، لا يتيح استرجاع المحتوى لأنواع الملفات هذه حاليًا سوى عناوين URL التي يمكن الوصول إليها علنًا.
+הרשימה הזו של סוגי קבצים נתמכים ומגבלות נועדה לספק הנחיות ראשוניות, והיא לא מלאה. קבוצת הסוגים הנתמכים בפועל עשויה להשתנות, והיא תלויה במודל הספציפי ובגרסת הטוקנייזר שנמצאים בשימוש. סוגים שלא נתמכים יגרמו לשגיאה.
+בנוסף, אחזור תוכן עבור סוגי הקבצים האלה תומך כרגע רק בכתובות URL שזמינות לכל.
 
-#### أنواع الملفات النصية
+#### סוגים של קובצי טקסט
 
 - `text/html`
 - `text/css`
@@ -633,19 +617,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 - `text/rtf`
 - `text/javascript`
 
-#### أنواع ملفات التطبيقات
+#### סוגי קבצים של אפליקציות
 
 - `application/json`
 - `application/pdf`
 
-#### أنواع ملفات الصور
+#### סוגים של קובצי תמונות
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### أنواع ملفات الفيديو
+#### סוגים של קובצי וידאו
 
 - `video/mp4`
 - `video/mpeg`
@@ -657,41 +641,36 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
 - `video/wmv`
 - `video/3gpp`
 
-## أفضل الممارسات
+## שיטות מומלצות
 
-- **اختيار الطريقة المناسبة:** استخدِم البيانات المضمّنة للملفات الصغيرة والمؤقتة.
-  استخدِم File API للملفات الأكبر حجمًا أو الملفات المستخدَمة بشكل متكرر. استخدِم عناوين URL الخارجية للبيانات المستضافة حاليًا على الإنترنت.
-- **تحديد أنواع MIME:** قدِّم دائمًا نوع MIME الصحيح لبيانات الملف لضمان معالجتها بشكل سليم.
-- **معالجة الأخطاء:** نفِّذ عملية معالجة الأخطاء في الرمز لإدارة المشاكل المحتمَلة، مثل الأعطال في الشبكة أو مشاكل الوصول إلى الملفات أو أخطاء واجهة برمجة التطبيقات.
-- **إدارة أذونات Google Cloud Storage:** عند استخدام تسجيل Google Cloud Storage، امنح وكيل خدمة Gemini API دور `Storage Object Viewer` اللازم فقط على الحِزم المحدّدة.
-- **أمان عناوين URL الموقَّعة:** تأكَّد من أنّ عناوين URL الموقَّعة لها وقت انتهاء صلاحية مناسب وأذونات محدودة.
+- **בחירת השיטה הנכונה:** משתמשים בנתונים מוטבעים לקבצים קטנים וזמניים.
+  כדאי להשתמש ב-File API לקבצים גדולים או לקבצים שמשתמשים בהם לעיתים קרובות. שימוש בכתובות URL חיצוניות
+  לנתונים שכבר מתארחים אונליין.
+- **מציינים סוגי MIME:** חשוב לספק תמיד את סוג ה-MIME הנכון לנתוני הקובץ כדי להבטיח עיבוד תקין.
+- **טיפול בשגיאות:** כדאי להטמיע טיפול בשגיאות בקוד כדי לנהל בעיות פוטנציאליות כמו כשלים ברשת, בעיות בגישה לקבצים או שגיאות ב-API.
+- **ניהול הרשאות GCS:** כשמשתמשים ברישום GCS, צריך להעניק לסוכן השירות של Gemini API רק את התפקיד `Storage Object Viewer` הנדרש בקטגוריות הספציפיות.
+- **אבטחת כתובות URL חתומות:** מוודאים שלכתובות URL חתומות יש זמן תפוגה מתאים והרשאות מוגבלות.
 
-## القيود
+## מגבלות
 
-- تختلف الحدود القصوى لحجم الملف حسب الطريقة (راجِع [جدول المقارنة](#method-comparison))
-  ونوع الملف.
-- تزيد البيانات المضمّنة من حجم بيانات الطلب.
-- تكون عمليات تحميل الملفات باستخدام File API مؤقتة وتنتهي صلاحيتها بعد 48 ساعة.
-- يقتصر استرجاع عناوين URL الخارجية على 100 ميغابايت لكل بيانات ويدعم أنواع محتوى محدّدة.
-- يتطلّب تسجيل Google Cloud Storage إعداد IAM بشكل سليم وإدارة رموز OAuth المميزة.
+- מגבלות גודל הקובץ משתנות בהתאם לשיטה (ראו [טבלת השוואה](#method-comparison)) ולסוג הקובץ.
+- נתונים מוטבעים מגדילים את גודל המטען הייעודי (payload) של הבקשה.
+- העלאות באמצעות File API הן זמניות והתוקף שלהן פג אחרי 48 שעות.
+- הגודל המקסימלי של מטען ייעודי (payload) שאפשר לאחזר מכתובת URL חיצונית הוא 100MB, ויש תמיכה בסוגי תוכן ספציפיים.
+- כדי להירשם ל-Google Cloud Storage, צריך להגדיר את IAM בצורה נכונה ולנהל את אסימוני OAuth.
 
-## الخطوات التالية
+## המאמרים הבאים
 
-- جرِّب كتابة طلبات متعددة الوسائط خاصة بك باستخدام
-  [Google AI Studio](http://aistudio.google.com/?hl=ar).
-- للحصول على معلومات حول تضمين الملفات في طلباتك، راجِع أدلة معالجة
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=ar)، و
-  [الصوت](https://ai.google.dev/gemini-api/docs/audio?hl=ar)، و
-  [المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar).
-- لمزيد من الإرشادات حول تصميم الطلبات، مثل ضبط مَعلمات أخذ العيّنات، راجِع الـ
-  [دليل استراتيجيات الطلبات](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=ar).
+- אתם יכולים לנסות לכתוב הנחיות מולטימודאליות משלכם באמצעות [Google AI Studio](http://aistudio.google.com/?hl=he).
+- מידע על הכללת קבצים בהנחיות זמין במדריכים בנושא [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=he), [אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he) ו[עיבוד מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he).
+- הנחיות נוספות לעיצוב הנחיות, כמו כוונון פרמטרים של דגימה, זמינות במדריך [אסטרטגיות להנחיות](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=he).
 
-إرسال ملاحظات
+שליחת משוב
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
+עדכון אחרון: 2026-05-19 (שעון UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+רוצה לתת לנו משוב?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-19 (שעון UTC)."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=vi
-fetched_at: 2026-05-18T13:10:55.858864+00:00
+fetched_at: 2026-05-25T13:00:41.107177+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -13,7 +13,6 @@ Google uses AI technology to translate content into your preferred language. AI 
 - [Trang chủ](https://ai.google.dev/?hl=vi)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
 - [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
 Gửi ý kiến phản hồi
 
@@ -29,7 +28,6 @@ Bắt đầu bằng một vài dòng mã:
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -39,13 +37,12 @@ interaction = client.interactions.create(
     input="Find the race condition in this multi-threaded C++ snippet: [code here]",
 )
 
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -56,7 +53,7 @@ async function run() {
     input: "Find the race condition in this multi-threaded C++ snippet: [code here]",
   });
 
-  console.log(interaction.steps.at(-1).content[0].text);
+  console.log(interaction.output_text);
 }
 
 run();
@@ -65,7 +62,6 @@ run();
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -121,7 +117,6 @@ Nếu bạn không chỉ định `thinking_level`, Gemini 3 sẽ mặc định l
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
@@ -132,13 +127,12 @@ interaction = client.interactions.create(
     generation_config={"thinking_level": "low"},
 )
 
-print(interaction.steps[-1].content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -151,13 +145,12 @@ const interaction = await client.interactions.create({
     },
   });
 
-console.log(interaction.steps.at(-1).content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -193,7 +186,6 @@ Các mô hình Gemini 3 cho phép bạn kết hợp [Đầu ra có cấu trúc](
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 from pydantic import BaseModel, Field
 from typing import List
@@ -219,14 +211,13 @@ interaction = client.interactions.create(
     },
 )
 
-result = MatchResult.model_validate_json(interaction.steps[-1].content[0].text)
+result = MatchResult.model_validate_json(interaction.output_text)
 print(result)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -263,7 +254,7 @@ async function run() {
     },
   });
 
-  const match = matchSchema.parse(JSON.parse(interaction.steps.at(-1).content[0].text));
+  const match = matchSchema.parse(JSON.parse(interaction.output_text));
   console.log(match);
 }
 
@@ -273,7 +264,6 @@ run();
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -320,7 +310,6 @@ Gemini 3.1 Flash Image và Gemini 3 Pro Image cho phép bạn tạo và chỉnh 
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import base64
 
@@ -340,9 +329,9 @@ interaction = client.interactions.create(
 from PIL import Image
 import io
 
-image_blocks = [content_block for content_block in interaction.steps[-1].content if content_block.type == "image"]
-if image_blocks:
-    image_data = base64.b64decode(image_blocks[0].data)
+generated_image = interaction.output_image
+if generated_image:
+    image_data = base64.b64decode(generated_image.data)
     image = Image.open(io.BytesIO(image_data))
     image.save('weather_tokyo.png')
     image.show()
@@ -351,7 +340,6 @@ if image_blocks:
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 import * as fs from "node:fs";
 
@@ -369,12 +357,9 @@ async function run() {
     }
   });
 
-  for (const contentBlock of interaction.steps.at(-1).content) {
-    if (contentBlock.type === "image") {
-      const buffer = Buffer.from(contentBlock.data, "base64");
-      fs.writeFileSync("weather_tokyo.png", buffer);
-    }
-  }
+  const buffer = Buffer.from(interaction.output_image.data, 'base64');
+
+  fs.writeFileSync('weather_tokyo.png', buffer);
 }
 
 run();
@@ -383,7 +368,6 @@ run();
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -419,7 +403,6 @@ Gemini 3 Flash có thể coi hình ảnh là một đối tượng cần đượ
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 from google.genai import types
 import requests
@@ -462,7 +445,6 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
@@ -526,7 +508,6 @@ else
   IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -w0)
 fi
 
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
@@ -614,19 +595,16 @@ interaction_2 = client.interactions.create(
     tools=[get_image_tool]
 )
 
-model_output_step = next(s for s in interaction_2.steps if s.type == "model_output")
-print(f"\nFinal model response: {model_output_step.content[0].text}")
+print(f"\nFinal model response: {interaction_2.output_text}")
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
-// 1. Define the tool
 const getImageTool = {
     type: 'function',
     name: 'get_image',
@@ -643,24 +621,20 @@ const getImageTool = {
     },
 };
 
-// 2. Send the request with tools
 const interaction1 = await client.interactions.create({
     model: 'gemini-3-flash-preview',
     input: 'Use the get_image tool to show me the instrument I ordered last month.',
     tools: [getImageTool],
 });
 
-// 3. Find the function call step
 const fcStep = interaction1.steps.find(s => s.type === 'function_call');
 console.log(`Tool Call: ${fcStep.name}(${JSON.stringify(fcStep.arguments)})`);
 
-// Execute tool (fetch image)
 const imageUrl = 'https://goo.gle/instrument-img';
 const response = await fetch(imageUrl);
 const imageArrayBuffer = await response.arrayBuffer();
 const base64ImageData = Buffer.from(imageArrayBuffer).toString('base64');
 
-// 4. Send multimodal function result back
 const interaction2 = await client.interactions.create({
     model: 'gemini-3-flash-preview',
     previous_interaction_id: interaction1.id,
@@ -680,7 +654,7 @@ const interaction2 = await client.interactions.create({
     tools: [getImageTool]
 });
 
-console.log(`\nFinal model response: ${interaction2.steps.at(-1).content[0].text}`);
+console.log(`\nFinal model response: ${interaction2.output_text}`);
 ```
 
 ### REST
@@ -710,7 +684,6 @@ fi
 #   -d '{ "model": "gemini-3-flash-preview", "input": "Show me the instrument I ordered last month.", "tools": [...] }'
 
 # 2. Send multimodal function result back (Replace INTERACTION_ID and CALL_ID)
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
@@ -741,7 +714,6 @@ Gemini 3 cho phép sử dụng các công cụ tích hợp sẵn (như Google T�
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 from google.genai import types
 
@@ -772,11 +744,9 @@ interaction = client.interactions.create(
     ],
 )
 
-# Find the function call step
 fc_step = next((s for s in interaction.steps if s.type == "function_call"), None)
 
 if fc_step:
-    # Simulate a function result
     result = {"response": "Very cold. 22 degrees Fahrenheit."}
 
     final_interaction = client.interactions.create(
@@ -791,13 +761,12 @@ if fc_step:
         previous_interaction_id=interaction.id,
     )
 
-    print(final_interaction.steps[-1].content[0].text)
+    print(final_interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI, Type } from '@google/genai';
 
 const client = new GoogleGenAI({});
@@ -827,7 +796,6 @@ const interaction = await client.interactions.create({
   ],
 });
 
-// Find the function call step
 const fcStep = interaction.steps.find(s => s.type === 'function_call');
 
 if (fcStep) {
@@ -845,7 +813,7 @@ if (fcStep) {
     previous_interaction_id: interaction.id,
   });
 
-  console.log(finalInteraction.steps.at(-1).content[0].text);
+  console.log(finalInteraction.output_text);
 }
 ```
 
@@ -892,8 +860,8 @@ Gửi ý kiến phản hồi
 
 Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Cập nhật lần gần đây nhất: 2026-05-12 UTC.
+Cập nhật lần gần đây nhất: 2026-05-19 UTC.
 
 Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-12 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]

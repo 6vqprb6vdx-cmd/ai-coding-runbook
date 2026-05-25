@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=it
-fetched_at: 2026-05-18T12:59:11.094214+00:00
-title: "Gemini 2.5 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl
+fetched_at: 2026-05-25T13:04:25.476321+00:00
+title: "Gemini\u00a02.5 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Invia feedback
+Prześlij opinię
 
-# Gemini 2.5 Flash-Lite
+# Gemini 2.5 Flash-Lite
 
-Il nostro modello multimodale più conveniente, che offre le prestazioni più rapide per
-attività leggere e ad alta frequenza. Gemini 2.5 Flash-Lite è ideale per la classificazione di volumi elevati, l'estrazione semplice di dati e le applicazioni a latenza estremamente bassa in cui il budget e la velocità sono i vincoli principali.
+Nasz najbardziej ekonomiczny model multimodalny, który zapewnia najszybsze działanie w przypadku częstych, nietrudnych zadań. Gemini 2.5 Flash-Lite najlepiej sprawdza się w przypadku klasyfikacji dużej liczby żądań, prostego wyodrębniania danych i aplikacji o bardzo małych opóźnieniach, w których głównymi ograniczeniami są budżet i szybkość.
 
-[Prova in Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=it)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=pl)
 
 ## gemini-2.5-flash-lite
 
-| Proprietà | Descrizione |
+| Właściwość | Opis |
 | --- | --- |
-| Codice modello id\_card | `gemini-2.5-flash-lite` |
-| saveTipi di dati supportati | **Input**  Testo, immagine, video, audio, PDF  **Output**  Testo |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  1.048.576  **Limite di token di output**  65.536 |
-| handymanFunzionalità | **Generazione di audio**  Non supportato  **API batch**  Supportato  **Memorizzazione nella cache**  Supportato  **Esecuzione di codice**  Supportato  **Ricerca file**  Supportato  **Inferenza flessibile**  Supportato  **Chiamata di funzione**  Supportato  **Grounding con Google Maps**  Supportato  **Generazione di immagini**  Non supportato  **API Live**  Non supportato  **Inferenza della priorità**  Supportato  **Fondatezza della Ricerca**  Supportato  **Output strutturati**  Supportato  **Ragionamento**  Supportato  **Contesto URL**  Supportato |
-| Versioni 123 | Per ulteriori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Stabile: `gemini-2.5-flash-lite` - Arresto: [`gemini-2.5-flash-lite-preview-09-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite-preview-09-2025?hl=it) |
-| calendar\_monthUltimo aggiornamento | Luglio 2025 |
-| cognition\_2Knowledge cutoff | Gennaio 2025 |
+| id\_cardKod modelu | `gemini-2.5-flash-lite` |
+| saveObsługiwane typy danych | **Dane wejściowe**  Tekst, obraz, film, dźwięk, PDF  **Dane wyjściowe**  Tekst |
+| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  1 048 576  **Limit tokenów wyjściowych**  65 536 |
+| handymanUprawnienia | **Generowanie dźwięku**  Nieobsługiwane  **Batch API**  Obsługiwane  **Zapisywanie w pamięci podręcznej**  Obsługiwane  **Wykonanie kodu**  Obsługiwane  **Wyszukiwanie plików**  Obsługiwane  **Elastyczne wnioskowanie**  Obsługiwane  **Wywoływanie funkcji**  Obsługiwane  **Powiązanie ze źródłem informacji przy użyciu Map Google**  Obsługiwane  **Generowanie obrazów**  Nieobsługiwane  **Live API**  Nieobsługiwane  **Wnioskowanie o priorytecie**  Obsługiwane  **Szukaj groundingu**  Obsługiwane  **Ustrukturyzowane dane wyjściowe**  Obsługiwane  **Myślenie**  Obsługiwane  **Kontekst adresu URL**  Obsługiwane |
+| 123Wersje | Więcej informacji znajdziesz w [wzorcach wersji modelu](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#model-versions).  - Stabilny: `gemini-2.5-flash-lite` - Wyłącz: [`gemini-2.5-flash-lite-preview-09-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite-preview-09-2025?hl=pl) |
+| calendar\_monthOstatnia aktualizacja | Lipiec 2025 r. |
+| cognition\_2Granica wiedzy | Styczeń 2025 r. |
 
-Invia feedback
+Prześlij opinię
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Ultimo aggiornamento 2026-04-29 UTC.
+Ostatnia aktualizacja: 2026-04-29 UTC.
 
-Vuoi dirci altro?
+Chcesz przekazać coś jeszcze?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

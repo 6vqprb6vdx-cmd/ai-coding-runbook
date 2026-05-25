@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar
-fetched_at: 2026-05-18T13:03:16.588665+00:00
-title: "\u0627\u0644\u0627\u0633\u062a\u0646\u062a\u0627\u062c \u0627\u0644\u0645\u0631\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl
+fetched_at: 2026-05-25T12:56:42.822107+00:00
+title: "Elastyczne wnioskowanie \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-# الاستنتاج المرن
+# Elastyczne wnioskowanie
 
-‫Gemini Flex API هو مستوى استنتاج يتيح خفض التكلفة بنسبة% 50 مقارنةً بالأسعار العادية، مقابل وقت استجابة متغيّر وتوفّر بأفضل جهد. تم تصميمها لأحمال العمل التي تتحمّل وقت الاستجابة وتتطلّب معالجة متزامنة ولكنّها لا تحتاج إلى الأداء في الوقت الفعلي الذي توفّره واجهة برمجة التطبيقات العادية.
+Gemini Flex API to warstwa wnioskowania, która oferuje 50% obniżkę kosztów w porównaniu ze stawkami standardowymi w zamian za zmienne opóźnienie i dostępność bez gwarancji. Jest przeznaczona do zbiorów zadań, które są odporne na opóźnienia i wymagają przetwarzania synchronicznego, ale nie potrzebują wydajności w czasie rzeczywistym, jaką zapewnia standardowy interfejs API.
 
-## كيفية استخدام Flex
+## Jak korzystać z Flex
 
-لاستخدام المستوى المرن، حدِّد `service_tier` على أنّه `flex` في نص الطلب. تستخدم الطلبات تلقائيًا الفئة العادية إذا تم حذف هذا الحقل.
+Aby korzystać z warstwy Flex, w treści żądania określ `service_tier` jako `flex`. Jeśli to pole zostanie pominięte, żądania będą domyślnie korzystać z warstwy standardowej.
 
 ### Python
 
@@ -33,7 +33,7 @@ client = genai.Client()
 
 try:
     response = client.models.generate_content(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         contents="Analyze this dataset for trends...",
         config={"service_tier": "flex"},
     )
@@ -52,7 +52,7 @@ const ai = new GoogleGenAI({});
 async function main() {
   try {
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3.5-flash",
       contents: "Analyze this dataset for trends...",
       config: { serviceTier: "flex" },
     });
@@ -86,7 +86,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         genai.Text("Analyze this dataset for trends..."),
         &genai.GenerateContentConfig{
             ServiceTier: "flex",
@@ -103,7 +103,7 @@ func main() {
 ### REST
 
 ```
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GEMINI_API_KEY" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{
   "contents": [{
@@ -113,58 +113,62 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 }'
 ```
 
-## طريقة عمل استنتاج Flex
+## Jak działa wnioskowanie Flex
 
-تساعد Gemini Flex Inference في سد الفجوة بين واجهة برمجة التطبيقات العادية و[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) التي تستغرق 24 ساعة. تستفيد هذه الخدمة من سعة الحوسبة "القابلة للتخفيض" في غير أوقات الذروة لتوفير حلّ فعّال من حيث التكلفة للمهام التي تعمل في الخلفية وسير العمل التسلسلي.
+Wnioskowanie Gemini Flex wypełnia lukę między standardowym interfejsem API a 24-godzinnym
+czasem realizacji interfejsu [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl). Wykorzystuje moc obliczeniową poza godzinami szczytu, którą można „zrzucać”, aby zapewnić ekonomiczne rozwiązanie do zadań wykonywanych w tle i sekwencyjnych przepływów pracy.
 
-| الميزة | التعبير | الأولوية | خطة "الرزمة العادية" | مجمّعة |
+| Funkcja | Flex | Priorytet | Standardowe | Wsad |
 | --- | --- | --- | --- | --- |
-| **الأسعار** | خصم بنسبة% 50 | أكثر بنسبة تتراوح بين 75% و100% من خطة Standard | السعر الكامل | خصم بنسبة% 50 |
-| **وقت الاستجابة** | الدقائق (المدة المستهدَفة من دقيقة واحدة إلى 15 دقيقة) | منخفض (ثوانٍ) | من ثوانٍ إلى دقائق | ما يصل إلى 24 ساعة |
-| **الموثوقية** | أفضل جهد (يمكن التخلي عنه) | عالية (غير قابلة للإزالة) | مرتفع / مرتفع إلى حد ما | عالية (لمعدّل نقل البيانات) |
-| **الواجهة** | متزامن | متزامن | متزامن | غير متزامن |
+| **Ceny** | 50% rabatu | 75–100% więcej niż w przypadku wersji Standard | Bilet normalny | 50% rabatu |
+| **Czas oczekiwania** | Minuty (docelowo 1–15 min) | Niski (sekundy) | Sekundy do minut | Do 24 godzin |
+| **Niezawodność** | Bez gwarancji (możliwość zrzucania) | Wysoka (bez możliwości zrzucania) | Wysoka / średnio wysoka | Wysoka (w przypadku przepustowości) |
+| **Interfejs** | Synchroniczna | Synchroniczna | Synchroniczna | Asynchroniczny |
 
-### المزايا الرئيسية
+### Główne korzyści
 
-- **فعالية التكلفة**: توفير كبير في التكاليف عند إجراء عمليات التقييم غير الإنتاجية، واستخدام برامج الخلفية، وإثراء البيانات
-- **سهولة الاستخدام**: لا حاجة إلى إدارة عناصر الدفعات أو معرّفات المهام أو الاستقصاء، ما عليك سوى إضافة مَعلمة واحدة إلى طلباتك الحالية.
-- **نماذج سير العمل المتزامنة**: هي الأنسب لسلاسل واجهات برمجة التطبيقات المتسلسلة التي يعتمد فيها الطلب التالي على ناتج الطلب السابق، ما يجعلها أكثر مرونة من "المعالجة المجمّعة" لنماذج سير العمل المستندة إلى الوكلاء.
+- **Oszczędność kosztów**: znaczne oszczędności w przypadku ocen innych niż produkcyjne, agentów działających w tle i wzbogacania danych.
+- **Niewielkie utrudnienia**: nie musisz zarządzać obiektami wsadowymi, identyfikatorami zadań ani sondowaniem. Wystarczy, że dodasz jeden parametr do istniejących żądań.
+- **Synchroniczne przepływy pracy**: idealne do sekwencyjnych łańcuchów interfejsów API, w których kolejne żądanie zależy od wyniku poprzedniego, co sprawia, że jest bardziej elastyczne niż w przypadku przepływów pracy agentów.
 
-### حالات الاستخدام
+### Przypadki użycia
 
-- **التقييمات بلا إنترنت**: إجراء اختبارات الانحدار أو قوائم الصدارة باستخدام "نماذج اللغة الكبيرة كحكم"
-- **الوكلاء الذين يعملون في الخلفية**: المهام المتسلسلة، مثل تعديلات نظام إدارة علاقات العملاء أو إنشاء الملفات الشخصية أو الإشراف على المحتوى، حيث يكون التأخير لبضع دقائق مقبولاً
-- **البحث المقيّد بالميزانية**: تجارب أكاديمية تتطلّب عددًا كبيرًا من الرموز المميزة بميزانية محدودة.
+- **Oceny offline**: przeprowadzanie testów regresji lub rankingów „LLM-as-a-judge”.
+- **Agenci działający w tle**: zadania sekwencyjne, takie jak aktualizacje CRM, tworzenie profili czy moderowanie treści, w których dopuszczalne są kilkuminutowe opóźnienia.
+- **Badania z ograniczonym budżetem**: eksperymenty akademickie, które wymagają dużej liczby tokenów przy ograniczonym budżecie.
 
-### حدود معدّل الاستخدام
+### Ograniczenia liczby żądań
 
-يتم احتساب عدد الزيارات التي تستخدم ميزة "الاستنتاج المرن" ضمن [حدود المعدّل](https://aistudio.google.com/rate-limit?hl=ar) العامة، ولا توفّر حدودًا موسّعة للمعدّل مثل [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar).
+Ruch związany z wnioskowaniem Flex wlicza się do ogólnych [limitów liczby żądań](https://aistudio.google.com/rate-limit?hl=pl). Nie
+oferuje on rozszerzonych limitów liczby żądań, takich jak interfejs [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl).
 
-### السعة القابلة للخفض
+### Możliwość zrzucania
 
-يتم التعامل مع الزيارات المرنة بأولوية أقل. في حال حدوث ارتفاع مفاجئ في عدد الزيارات العادية، قد يتم إيقاف طلبات Flex أو إزالتها لضمان توفّر سعة للمستخدمين ذوي الأولوية العالية. إذا كنت تبحث عن استنتاج ذي أولوية عالية، يمكنك الاطّلاع على [الاستنتاج ذو الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar).
+Ruch Flex jest traktowany z niższym priorytetem. Jeśli nastąpi wzrost ruchu standardowego, żądania Flex mogą zostać wywłaszczone lub usunięte, aby zapewnić pojemność dla użytkowników o wysokim priorytecie. Jeśli szukasz wnioskowania o wysokim priorytecie, sprawdź
+[wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl)
 
-### رموز الخطأ
+### Kody błędów
 
-عندما تكون سعة Flex غير متاحة أو يكون النظام مزدحمًا، ستعرض واجهة برمجة التطبيقات رموز الخطأ العادية التالية:
+Gdy pojemność Flex jest niedostępna lub system jest przeciążony, interfejs API zwraca standardowe kody błędów:
 
-- **‫503 Service Unavailable**: النظام حاليًا في أقصى طاقته.
-- **429 Too Many Requests**: حدود المعدّل أو استنفاد الموارد
+- **Błąd 503 (usługa niedostępna):** system jest obecnie w pełni wykorzystany.
+- **429 Zbyt wiele żądań**: przekroczenie limitów liczby żądań lub wyczerpanie zasobów.
 
-### مسؤولية العميل
+### Odpowiedzialność klienta
 
-- **عدم توفّر خيار احتياطي من جهة الخادم**: لمنع فرض رسوم غير متوقّعة، لن يرقّي النظام تلقائيًا طلب Flex إلى فئة Standard إذا كانت سعة Flex ممتلئة.
-- **عمليات إعادة المحاولة**: يجب تنفيذ منطق إعادة المحاولة من جهة العميل باستخدام خوارزمية الرقود الأسي الثنائي.
-- **مهلات**: بما أنّ طلبات Flex قد تبقى في صفّ الانتظار، ننصحك بزيادة المهلات من جهة العميل إلى 10 دقائق أو أكثر لتجنُّب إغلاق الاتصال قبل الأوان.
+- **Brak rezerwy po stronie serwera**: aby zapobiec nieoczekiwanym opłatom, system nie będzie automatycznie uaktualniać żądania Flex do warstwy standardowej, jeśli pojemność Flex jest pełna.
+- **Ponowne próby**: musisz zaimplementować własną logikę ponawiania prób po stronie klienta z wzrastającym czasem do ponowienia.
+- **Limity czasu**: ponieważ żądania Flex mogą znajdować się w kolejce, zalecamy
+  zwiększenie limitów czasu po stronie klienta do co najmniej 10 minut, aby uniknąć przedwczesnego
+  zamknięcia połączenia.
 
-## تعديل فترات المهلة
+## Dostosowywanie limitów czasu
 
-يمكنك ضبط مهلات لكل طلب في واجهة REST API ومكتبات العميل،
-ومهلات عامة فقط عند استخدام مكتبات العميل.
+Limity czasu dla poszczególnych żądań możesz skonfigurować w przypadku interfejsu REST API i bibliotek klienta, a limity czasu globalne – tylko w przypadku korzystania z bibliotek klienta.
 
-احرص دائمًا على أن يغطي المهلة الزمنية من جهة العميل فترة انتظار الخادم المقصودة (على سبيل المثال، 600 ثانية أو أكثر لقوائم انتظار Flex). تتوقّع حِزم SDK قيم المهلة بالملي ثانية.
+Zawsze upewnij się, że limit czasu po stronie klienta obejmuje zamierzony limit czasu oczekiwania serwera (np. 600 s lub więcej w przypadku kolejek oczekiwania Flex). Pakiety SDK oczekują wartości limitu czasu w milisekundach.
 
-### انتهاء المهلة لكل طلب
+### Limity czasu dla poszczególnych żądań
 
 ### Python
 
@@ -175,7 +179,7 @@ client = genai.Client()
 
 try:
     response = client.models.generate_content(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         contents="why is the sky blue?",
         config={
             "service_tier": "flex",
@@ -188,7 +192,7 @@ except Exception as e:
 # Example with streaming
 try:
     response = client.models.generate_content_stream(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         contents=["List 5 ideas for a sci-fi movie."],
         config={
             "service_tier": "flex",
@@ -213,7 +217,7 @@ except Exception as e:
  async function main() {
      try {
          const response = await client.models.generateContent({
-             model: "gemini-3-flash-preview",
+             model: "gemini-3.5-flash",
              contents: "why is the sky blue?",
              config: {
                serviceTier: "flex",
@@ -227,7 +231,7 @@ except Exception as e:
      // Example with streaming
      try {
          const response = await client.models.generateContentStream({
-             model: "gemini-3-flash-preview",
+             model: "gemini-3.5-flash",
              contents: ["List 5 ideas for a sci-fi movie."],
              config: {
                  serviceTier: "flex",
@@ -273,7 +277,7 @@ func main() {
 
     _, err = client.Models.GenerateContent(
         timeoutCtx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         genai.Text("why is the sky blue?"),
         &genai.GenerateContentConfig{
             ServiceTier: "flex",
@@ -289,7 +293,7 @@ func main() {
 
     iter := client.Models.GenerateContentStream(
         streamTimeoutCtx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         genai.Text("List 5 ideas for a sci-fi movie."),
         &genai.GenerateContentConfig{
             ServiceTier: "flex",
@@ -311,18 +315,17 @@ func main() {
 
 ### REST
 
-عند إجراء طلبات REST، يمكنك التحكّم في المهلات باستخدام مجموعة من عناوين HTTP وخيارات `curl`:
+Podczas wykonywania wywołań REST możesz kontrolować limity czasu za pomocą kombinacji nagłówków HTTP i opcji `curl`:
 
-- **العنوان `X-Server-Timeout` (مهلة من جهة الخادم)**: يقترح هذا العنوان مدة مهلة مفضّلة (600 ثانية تلقائيًا) لخادم Gemini API. سيحاول الخادم
-  الالتزام بذلك، ولكن ليس مضمونًا أن ينجح. يجب أن تكون القيمة بالثواني.
-- **`--max-time` في `curl` (مهلة من جهة العميل)**: يضبط الخيار `curl --max-time
-  <seconds>` حدًا أقصى لإجمالي الوقت (بالثواني) الذي ستنتظره `curl`
-  حتى تكتمل العملية بأكملها. هذا إجراء وقائي من جهة العميل.
+- **Nagłówek `X-Server-Timeout` (limit czasu po stronie serwera):** ten nagłówek sugeruje preferowany czas oczekiwania (domyślnie 600 s) dla serwera Gemini API. Serwer będzie próbował go przestrzegać, ale nie jest to gwarantowane. Wartość powinna być podana w sekundach.
+- **`--max-time` w `curl` (limit czasu po stronie klienta)**: opcja `curl --max-time
+  <seconds>` ustawia twardy limit całkowitego czasu (w sekundach), przez jaki `curl`
+  będzie czekać na zakończenie całej operacji. Jest to zabezpieczenie po stronie klienta.
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
  curl --max-time 125 \
-   -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GEMINI_API_KEY" \
+   -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
    -H "Content-Type: application/json" \
    -H "X-Server-Timeout: 120" \
    -d '{
@@ -333,9 +336,9 @@ func main() {
  }'
 ```
 
-### مهلات عالمية
+### Limity czasu globalne
 
-إذا كنت تريد أن تتضمّن جميع طلبات البيانات من واجهة برمجة التطبيقات التي يتم إجراؤها من خلال مثيل `genai.Client` معيّن (مكتبات العميل فقط) مهلة تلقائية، يمكنك ضبط ذلك عند تهيئة العميل باستخدام `http_options` و`genai.types.HttpOptions`.
+Jeśli chcesz, aby wszystkie wywołania interfejsu API wykonywane za pomocą konkretnej instancji `genai.Client` (tylko biblioteki klienta) miały domyślny limit czasu, możesz skonfigurować go podczas inicjowania klienta za pomocą `http_options` i `genai.types.HttpOptions`.
 
 ### Python
 
@@ -352,7 +355,7 @@ client_with_global_timeout = genai.Client(
 try:
     # Calling generate_content using global timeout...
     response = client_with_global_timeout.models.generate_content(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         contents="Summarize the history of AI development since 2000.",
         config={"service_tier": "flex"},
     )
@@ -361,7 +364,7 @@ try:
     # A per-request timeout will *override* the global timeout for that specific call.
     shorter_timeout = 30000
     response = client_with_global_timeout.models.generate_content(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         contents="Provide a very brief definition of machine learning.",
         config={
             "service_tier": "flex",
@@ -392,7 +395,7 @@ async function main() {
     try {
         // Calling generate_content using global timeout...
         const response1 = await clientWithGlobalTimeout.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-3.5-flash",
             contents: "Summarize the history of AI development since 2000.",
             config: { serviceTier: "flex" },
         });
@@ -401,7 +404,7 @@ async function main() {
         // A per-request timeout will *override* the global timeout for that specific call.
         const shorterTimeout = 30000;
         const response2 = await clientWithGlobalTimeout.models.generateContent({
-            model: "gemini-3-flash-preview",
+            model: "gemini-3.5-flash",
             contents: "Provide a very brief definition of machine learning.",
             config: {
                 serviceTier: "flex",
@@ -447,7 +450,7 @@ await main();
      }
      defer client.Close()
 
-     model := client.GenerativeModel("gemini-3-flash-preview")
+     model := client.GenerativeModel("gemini-3.5-flash")
 
      // Go uses context for timeouts, not client options.
      // Set a default timeout for requests.
@@ -482,9 +485,9 @@ await main();
  }
 ```
 
-## تنفيذ عمليات إعادة المحاولة
+## Wdrażanie ponownych prób
 
-بما أنّ Flex يمكن إيقافه مؤقتًا ويتعذّر تنفيذه بسبب أخطاء 503، إليك مثال على التنفيذ الاختياري لمنطق إعادة المحاولة لمواصلة الطلبات التي تعذّر تنفيذها:
+Ponieważ Flex jest zrzucany i kończy się błędami 503, oto przykład opcjonalnego wdrożenia logiki ponawiania prób, aby kontynuować nieudane żądania:
 
 ### Python
 
@@ -498,7 +501,7 @@ def call_with_retry(max_retries=3, base_delay=5):
     for attempt in range(max_retries):
         try:
             return client.models.generate_content(
-                model="gemini-3-flash-preview",
+                model="gemini-3.5-flash",
                 contents="Analyze this batch statement.",
                 config={"service_tier": "flex"},
             )
@@ -513,7 +516,7 @@ def call_with_retry(max_retries=3, base_delay=5):
                 # Fallback to standard on last strike (Optional)
                 print("Flex exhausted, falling back to Standard...")
                 return client.models.generate_content(
-                    model="gemini-3-flash-preview",
+                    model="gemini-3.5-flash",
                     contents="Analyze this batch statement."
                 )
 
@@ -538,7 +541,7 @@ print(response.text)
      try {
        console.log(`Attempt ${attempt + 1}: Calling Flex tier...`);
        const response = await ai.models.generateContent({
-         model: "gemini-3-flash-preview",
+         model: "gemini-3.5-flash",
          contents: "Analyze this batch statement.",
          config: { serviceTier: 'flex' },
        });
@@ -551,7 +554,7 @@ print(response.text)
        } else {
          console.log("Flex exhausted, falling back to Standard...");
          return await ai.models.generateContent({
-           model: "gemini-3-flash-preview",
+           model: "gemini-3.5-flash",
            contents: "Analyze this batch statement.",
          });
        }
@@ -583,7 +586,7 @@ print(response.text)
  )
 
  func callWithRetry(ctx context.Context, client *genai.Client, maxRetries int, baseDelay time.Duration) (*genai.GenerateContentResponse, error) {
-     modelName := "gemini-3-flash-preview"
+     modelName := "gemini-3.5-flash"
      content := genai.Text("Analyze this batch statement.")
      flexConfig := &genai.GenerateContentConfig{
          ServiceTier: "flex",
@@ -626,41 +629,42 @@ print(response.text)
  }
 ```
 
-## الأسعار
+## Ceny
 
-يتم تحديد سعر Flex inference بنسبة% 50 من [واجهة برمجة التطبيقات العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)
-ويتم تحصيل الرسوم لكل رمز مميز.
+Wnioskowanie Flex jest wyceniane na 50% [standardowego interfejsu API](https://ai.google.dev/gemini-api/docs/pricing?hl=pl)
+i rozliczane za token.
 
-## النماذج المتوافقة
+## Obsługiwane modele
 
-تتيح الطُرز التالية الاستدلال المرن:
+Wnioskowanie Flex obsługują te modele:
 
-| الطراز | Flex inference |
+| Model | Wnioskowanie Flex |
 | --- | --- |
-| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
-| [معاينة Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=ar) | ✔️ |
-| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
-| [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
-| [معاينة الصور في Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ar) | ✔️ |
-| [‫Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
+| [Gemini 3.1 Flash-Lite (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pl) | ✔️ |
+| [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | ✔️ |
+| [Gemini 3 Flash (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
+| [Gemini 3 Pro Image (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=pl) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
+| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pl) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
 
-## الخطوات التالية
+## Co dalej?
 
-اطّلِع على خيارات [الاستنتاج والتحسين](https://ai.google.dev/gemini-api/docs/optimization?hl=ar) الأخرى في Gemini:
+Przeczytaj o innych opcjach [wnioskowania i optymalizacji](https://ai.google.dev/gemini-api/docs/optimization?hl=pl) Gemini:
 
-- [استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar) لوقت الاستجابة الفائق السرعة
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) للمعالجة غير المتزامنة في غضون 24 ساعة
-- [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar) لتقليل تكاليف الرموز المميزة للإدخال
+- [Wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) zapewniające bardzo małe opóźnienie.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl) do przetwarzania asynchronicznego w ciągu 24 godzin.
+- [Buforowanie kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl) w celu zmniejszenia kosztów tokenów wejściowych.
 
-إرسال ملاحظات
+Prześlij opinię
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)
+Ostatnia aktualizacja: 2026-05-19 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Chcesz przekazać coś jeszcze?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-19 UTC."],[],[]]

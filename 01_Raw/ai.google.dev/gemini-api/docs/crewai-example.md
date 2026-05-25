@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=pl
-fetched_at: 2026-05-18T13:06:51.918579+00:00
-title: "Analiza obs\u0142ugi klienta za pomoc\u0105 Gemini i CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=tr
+fetched_at: 2026-05-25T13:03:04.960978+00:00
+title: "Gemini ve CrewAI ile m\u00fc\u015fteri deste\u011fi analizi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Prześlij opinię
+Geri bildirim gönderin
 
-# Analiza obsługi klienta za pomocą Gemini i CrewAI
+# Gemini ve CrewAI ile müşteri desteği analizi
 
-[CrewAI](https://docs.crewai.com/introduction) to platforma do koordynowania autonomicznych agentów AI, którzy współpracują ze sobą, aby osiągać złożone cele. Umożliwia ona definiowanie agentów przez określanie ról, celów i historii, a następnie definiowanie dla nich zadań.
+[CrewAI](https://docs.crewai.com/introduction), karmaşık hedeflere ulaşmak için işbirliği yapan bağımsız yapay zeka aracılarını düzenlemeye yönelik bir çerçevedir. Rolleri, hedefleri ve geçmişleri belirterek aracıları tanımlamanıza ve ardından bunlar için görevler tanımlamanıza olanak tanır.
 
-Ten przykład pokazuje, jak utworzyć system wielu agentów do analizowania danych obsługi klienta w celu identyfikowania problemów i proponowania ulepszeń procesów przy użyciu Gemini 3 Flash. System generuje raport przeznaczony dla dyrektora operacyjnego.
+Bu örnekte, Gemini 3 Flash kullanarak sorunları belirlemek ve süreç iyileştirmeleri önermek için müşteri desteği verilerini analiz etmeye yönelik çoklu aracı sistemi oluşturma ve bir Operasyon Direktörü (COO) tarafından okunması amaçlanan bir rapor oluşturma işlemi gösterilmektedir.
 
-Z tego przewodnika dowiesz się, jak utworzyć „zespół” agentów AI, którzy mogą wykonywać te zadania:
+Bu kılavuzda, aşağıdaki görevleri yapabilen bir "ekip" yapay zeka temsilcisi oluşturma adımları açıklanmaktadır:
 
-1. Pobieranie i analizowanie danych obsługi klienta (symulowane w tym przykładzie).
-2. Identyfikuj powtarzające się problemy i wąskie gardła w procesie.
-3. sugerować praktyczne ulepszenia,
-4. Zbierz wyniki w zwięzłym raporcie odpowiednim dla dyrektora operacyjnego.
+1. Müşteri desteği verilerini getirme ve analiz etme (bu örnekte simüle edilmiştir).
+2. Tekrarlanan sorunları ve süreçlerdeki darboğazları belirleyin.
+3. Uygulanabilir iyileştirmeler önerin.
+4. Bulguları, COO için uygun olan kısa bir raporda derleyin.
 
-Potrzebujesz klucza interfejsu Gemini API. Jeśli jeszcze go nie masz, możesz [uzyskać go w Google AI Studio](https://aistudio.google.com/app/apikey?hl=pl).
+Gemini API anahtarına ihtiyacınız vardır. Henüz bir hesabınız yoksa [Google AI Studio'da hesap oluşturabilirsiniz](https://aistudio.google.com/app/apikey?hl=tr).
 
 ```
 pip install "crewai[tools]"
 ```
 
-Ustaw klucz interfejsu Gemini API jako zmienną środowiskową o nazwie `GEMINI_API_KEY`, a następnie skonfiguruj CrewAI tak, aby używał modelu Gemini.
+Gemini API anahtarınızı `GEMINI_API_KEY` adlı bir ortam değişkeni olarak ayarlayın, ardından CrewAI'yı Gemini modelini kullanacak şekilde yapılandırın.
 
 ```
 import os
@@ -44,19 +44,19 @@ from crewai import LLM
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
 gemini_llm = LLM(
-    model='gemini/gemini-3-flash-preview',
+    model='gemini/gemini-3.5-flash',
     api_key=gemini_api_key,
     temperature=1.0  # Use the Gemini 3 recommended temperature
 )
 ```
 
-## Definiowanie komponentów
+## Bileşenleri tanımlama
 
-Twórz aplikacje CrewAI za pomocą **narzędzi**, **agentów**, **zadań** i samej **ekipy**. W sekcjach poniżej znajdziesz opis każdego z tych komponentów.
+**Araçlar**, **Temsilciler**, **Görevler** ve **Ekip**'i kullanarak CrewAI uygulamaları oluşturun. Aşağıdaki bölümlerde bu bileşenlerin her biri açıklanmaktadır.
 
-### Narzędzia
+### Araçlar
 
-Narzędzia to funkcje, których agenci mogą używać do interakcji ze światem zewnętrznym lub wykonywania określonych działań. W tym miejscu definiujesz narzędzie zastępcze, które symuluje pobieranie danych obsługi klienta. W prawdziwej aplikacji połączysz się z bazą danych, interfejsem API lub systemem plików. Więcej informacji o narzędziach znajdziesz w [przewodniku po narzędziach CrewAI](https://docs.crewai.com/concepts/tools).
+Araçlar, temsilcilerin dış dünyayla etkileşim kurmak veya belirli işlemleri gerçekleştirmek için kullanabileceği özelliklerdir. Burada, müşteri desteği verilerini getirme işlemini simüle etmek için bir yer tutucu araç tanımlarsınız. Gerçek bir uygulamada, veritabanına, API'ye veya dosya sistemine bağlanırsınız. Araçlar hakkında daha fazla bilgi için [CrewAI araçları rehberine](https://docs.crewai.com/concepts/tools) bakın.
 
 ```
 from crewai.tools import BaseTool
@@ -86,9 +86,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### Agenty
+### Temsilciler
 
-Agenci to poszczególne instancje robocze AI w Twoim zespole. Każdy agent ma określony `role`, `goal`, `backstory`, przypisany `llm` i opcjonalny `tools`. Więcej informacji o agentach znajdziesz w [przewodniku po agentach CrewAI](https://docs.crewai.com/concepts/agents).
+Ajanlar, ekibinizdeki bağımsız yapay zeka çalışanlarıdır. Her aracının belirli bir `role`, `goal`, `backstory`, atanmış `llm` ve isteğe bağlı `tools` vardır. Temsilciler hakkında daha fazla bilgi için [CrewAI temsilcileri rehberine](https://docs.crewai.com/concepts/agents) bakın.
 
 ```
 from crewai import Agent
@@ -135,9 +135,9 @@ report_writer = Agent(
 )
 ```
 
-### Lista zadań
+### Görevler
 
-Zadania określają konkretne przypisania dla agentów. Każde zadanie ma `description`, `expected_output` i jest przypisane do `agent`. Zadania są domyślnie wykonywane sekwencyjnie i uwzględniają kontekst poprzedniego zadania. Więcej informacji o zadaniach znajdziesz w [przewodniku po zadaniach CrewAI](https://docs.crewai.com/concepts/tasks).
+Görevler, temsilcilerin belirli atamalarını tanımlar. Her görevin bir `description`, `expected_output` ve `agent` ataması vardır. Görevler varsayılan olarak sırayla çalıştırılır ve önceki görevin bağlamını içerir. Görevler hakkında daha fazla bilgi için [CrewAI görevleri rehberine](https://docs.crewai.com/concepts/tasks) bakın.
 
 ```
 from crewai import Task
@@ -196,9 +196,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Ekipa
+### Ekip
 
-Element `Crew` łączy agenty i zadania, definiując proces przepływu pracy (np. „sekwencyjny”).
+`Crew`, iş akışı sürecini ("sıralı" gibi) tanımlayarak aracıları ve görevleri bir araya getirir.
 
 ```
 from crewai import Crew, Process
@@ -211,9 +211,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## Uruchamianie ekipy
+## Run the crew
 
-Na koniec uruchom wykonanie przez grupę, podając niezbędne dane wejściowe.
+Son olarak, gerekli girişleri yaparak ekibin çalışmasını başlatın.
 
 ```
 # Start the crew's work
@@ -227,17 +227,18 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-Skrypt zostanie uruchomiony. `Data Analyst` używa narzędzia, `Process
-Optimizer` analizuje wyniki, a `Report Writer` kompiluje raport końcowy, który jest następnie drukowany w konsoli. Ustawienie `verbose=True` wyświetli szczegółowy proces myślowy i działania każdego agenta.
+Komut dosyası artık yürütülecek. `Data Analyst` aracı kullanır, `Process
+Optimizer` bulguları analiz eder ve `Report Writer` nihai raporu derler. Bu rapor daha sonra konsola yazdırılır. `verbose=True` ayarı, her aracının ayrıntılı düşünce sürecini ve işlemlerini gösterir.
 
-Więcej informacji o CrewAI znajdziesz we [wprowadzeniu do CrewAI](https://docs.crewai.com/introduction).
+CrewAI hakkında daha fazla bilgi edinmek için [CrewAI'ya
+giriş](https://docs.crewai.com/introduction) bölümüne göz atın.
 
-Prześlij opinię
+Geri bildirim gönderin
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Ostatnia aktualizacja: 2026-04-29 UTC.
+Son güncelleme tarihi: 2026-05-19 UTC.
 
-Chcesz przekazać coś jeszcze?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-19 UTC."],[],[]]

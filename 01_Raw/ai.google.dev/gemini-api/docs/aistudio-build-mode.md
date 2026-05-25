@@ -1,159 +1,177 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=ja
-fetched_at: 2026-05-18T13:05:37.586210+00:00
-title: "Google AI Studio \u3067\u30a2\u30d7\u30ea\u3092\u69cb\u7bc9\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi
+fetched_at: 2026-05-25T13:03:21.306218+00:00
+title: "T\u1ea1o \u1ee9ng d\u1ee5ng trong Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# Google AI Studio でアプリを構築する
+# Tạo ứng dụng trong Google AI Studio
 
-このページでは、Google AI Studio を使用して、[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) や [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) などの Gemini の最新機能を試すアプリをすばやく構築（または「バイブ コーディング」）してデプロイする方法について説明します。Google AI Studio が**フルスタック ランタイム**に対応しました。これにより、自然言語プロンプトを使用して、サーバーサイド ロジック、安全なシークレット管理、npm パッケージのサポートを備えた堅牢なアプリケーションを構築できます。
+Trang này mô tả cách sử dụng Google AI Studio để nhanh chóng tạo (hoặc "lập trình theo cảm hứng") và triển khai các ứng dụng kiểm thử những khả năng mới nhất của Gemini như [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) và [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi). Google AI Studio hỗ trợ việc tạo **ứng dụng web** bằng thời gian chạy toàn ngăn xếp và **ứng dụng Android gốc** bằng Kotlin và Jetpack Compose – tất cả đều thông qua câu lệnh bằng ngôn ngữ tự nhiên.
 
-## 始める
+## Bắt đầu
 
-Google AI Studio の[ビルドモード](https://aistudio.google.com/apps?hl=ja)でバイブ コーディングを開始します。ビルドを開始するには、いくつかの方法があります。
+Bắt đầu lập trình theo cảm hứng trong [Chế độ tạo](https://aistudio.google.com/apps?hl=vi) của Google AI Studio. Bạn có thể bắt đầu xây dựng theo một số cách:
 
-- **プロンプトから始める**: ビルドモードで、入力ボックスを使用して、作成したいものの説明を入力します。[AI チップ] を選択して、画像生成や Google マップのデータなどの特定の機能をプロンプトに追加します。音声文字変換ボタンを使って、リクエストしたい内容を話すこともできます。
-- **[ラッキー] ボタン**: クリエイティブなアイデアが必要な場合は、[ラッキー] ボタンを使用します。Gemini がプロジェクトのアイデアを含むプロンプトを生成し、作業を開始できます。
-- **ギャラリーからプロジェクトをリミックスする**: [アプリギャラリー](https://aistudio.google.com/apps?source=showcase&hl=ja)からプロジェクトを開き、[**アプリをコピー**] を選択します。
+- **Bắt đầu bằng một câu lệnh**: Ở chế độ Tạo, hãy dùng ô nhập dữ liệu để nhập nội dung mô tả về những gì bạn muốn tạo. Chọn AI Chips để thêm các tính năng cụ thể như tạo hình ảnh hoặc dữ liệu của Google Maps vào câu lệnh. Bạn thậm chí có thể nói nội dung mình muốn bằng cách dùng nút chuyển lời nói thành văn bản.
+- **Nút "Xem trang đầu tiên tìm được"**: Nếu cần khơi nguồn sáng tạo, hãy dùng nút "Xem trang đầu tiên tìm được" và Gemini sẽ tạo một câu lệnh kèm theo ý tưởng dự án để bạn bắt đầu.
+- **Trộn một dự án trong thư viện**: Mở một dự án trong [Thư viện ứng dụng](https://aistudio.google.com/apps?source=showcase&hl=vi) rồi chọn **Sao chép ứng dụng**.
 
-プロンプトを実行すると、必要なコードとファイルが生成され、アプリのライブプレビューが右側に表示されます。
+Sau khi chạy câu lệnh, bạn sẽ thấy mã và các tệp cần thiết được tạo, cùng với bản xem trước trực tiếp của ứng dụng xuất hiện ở bên phải.
 
-## 作成されるもの
+## Nội dung nào được tạo?
 
-プロンプトを実行すると、AI Studio は完全なアプリケーションを作成します。デフォルトでは、次のものを含むフルスタック環境が作成されます。
+Khi bạn chạy câu lệnh, AI Studio sẽ tạo một ứng dụng hoàn chỉnh. Bạn có thể chọn tạo **ứng dụng web** hoặc **ứng dụng Android gốc** bằng cách sử dụng bộ chọn nền tảng.
 
-- **クライアントサイド**: ウェブ フロントエンド（デフォルトは React）。
-- **サーバーサイド**: 安全な API 呼び出し、データベース接続、npm パッケージの使用を可能にする Node.js ランタイム。
+Đối với **ứng dụng web** (mặc định), AI Studio sẽ tạo một môi trường toàn ngăn xếp bao gồm:
 
-生成されたコードを表示するには、右側のプレビュー ペインで [**コード**] タブを選択します。**Antigravity Agent** は、スタック全体で複数のファイルをインテリジェントに管理し、変更が正しく伝播されるようにします。
+- **Phía máy khách**: giao diện người dùng web (React là giao diện mặc định).
+- **Phía máy chủ**: một thời gian chạy Node.js cho phép thực hiện các lệnh gọi API bảo mật, kết nối cơ sở dữ liệu và sử dụng gói npm.
 
-### Antigravity エージェント
+Đối với **các ứng dụng Android**, AI Studio sẽ tạo một dự án Kotlin và Jetpack Compose mà bạn có thể xem trước trong trình mô phỏng dựa trên trình duyệt, cài đặt trên một thiết bị thực và xuất bản lên Cửa hàng Play để kiểm thử. [Tìm hiểu thêm về cách tạo ứng dụng Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=vi).
 
-**Antigravity エージェント**は [Google Antigravity](https://antigravity.google?hl=ja) の主な AI 機能であり、エージェント ハーネスのコア コンポーネントが Google AI Studio のビルドモード エクスペリエンスを強化しています。プロジェクト全体のコンテキストを維持し、複数のファイルを管理し、複雑な指示を理解して堅牢なフルスタック アプリケーションを構築することで、単純なコード生成を超えた機能を実現します。
+Bạn có thể xem mã được tạo bằng cách chọn thẻ **Mã** trong ngăn xem trước bên phải. **Antigravity Agent** quản lý một cách thông minh nhiều tệp trên ngăn xếp của bạn, đảm bảo rằng các thay đổi được truyền tải chính xác.
 
-主な機能は次のとおりです。
+### The Antigravity Agent
 
-- **コンテキスト アウェア**: 以前のプロンプトとファイルの状態のコンテキストを維持します。
-- **複数ファイル管理**: 複数のファイルにまたがる依存関係を処理します。
-- **検証済みの実行**: コードの更新を検証して、ハルシネーションを減らします。
+**Antigravity Agent** là chức năng AI chính trong [Google Antigravity](https://antigravity.google?hl=vi) và hiện tại, các thành phần cốt lõi của bộ công cụ tác nhân này đang hỗ trợ trải nghiệm Chế độ tạo trong Google AI Studio. Công cụ này không chỉ đơn thuần tạo mã mà còn duy trì ngữ cảnh của toàn bộ dự án, quản lý nhiều tệp và hiểu các chỉ dẫn phức tạp để tạo các ứng dụng toàn diện, mạnh mẽ.
 
-## フルスタックの機能
+Các chức năng chính bao gồm:
 
-Google AI Studio は、最新のウェブ エコシステムの力を引き出し、クライアントサイドのプロトタイプだけでなく、さまざまなものを構築できるようにします。
+- **Nhận biết bối cảnh**: duy trì bối cảnh của các câu lệnh trước đó và trạng thái tệp.
+- **Quản lý nhiều tệp**: xử lý các phần phụ thuộc trên nhiều tệp.
+- **Thực thi đã xác minh**: xác minh các nội dung cập nhật mã để giảm hiện tượng ảo giác.
 
-- **サーバーサイド ランタイムと npm**: npm パッケージの膨大なライブラリを使用します。エージェントは、アプリに必要なパッケージ（データ可視化や API クライアント用の特定のライブラリなど）を自動的に特定してインストールします。必要に応じて、特定のパッケージをリクエストすることもできます。
-- **シークレット管理**: API キーとシークレットを [**設定**] メニューに安全に保存します。これらはサーバーサイド コードでアクセスできるため、クライアントサイドで公開されることはありません。
-- **マルチプレーヤー**: AI Studio 内でリアルタイムのコラボレーション エクスペリエンスを直接構築できます。サーバーサイド ランタイムは、ユーザーが相互にやり取りするために必要な状態と接続を管理します。
-- **Firebase の統合**: Firestore データベース（永続データ ストレージ）や Firebase Authentication（ログイン フロー、特に「Google でログイン」）など、Firebase のプロビジョニングと設定を自動的に行います。エージェントは、セットアップ プロセス全体を処理し、アプリでこれらのサービスのコードも生成します。
+## Khả năng full-stack
 
-[フルスタック アプリの開発の詳細](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=ja)
+Google AI Studio khai thác sức mạnh của hệ sinh thái web hiện đại, cho phép bạn tạo nhiều nguyên mẫu hơn là chỉ nguyên mẫu phía máy khách.
 
-## 構築を続行
+- **Thời gian chạy phía máy chủ và npm**: sử dụng thư viện rộng lớn gồm các gói npm. Tác nhân sẽ tự động xác định và cài đặt các gói khi cần cho ứng dụng của bạn (ví dụ: các thư viện cụ thể để trực quan hoá dữ liệu hoặc ứng dụng API). Bạn cũng có thể yêu cầu các gói cụ thể nếu muốn.
+- **Quản lý bí mật**: lưu trữ an toàn các khoá API và bí mật trong trình đơn **Cài đặt**. Bạn có thể truy cập vào các khoá này trong mã phía máy chủ, giúp bảo vệ chúng khỏi bị lộ ở phía máy khách.
+- **Nhiều người chơi**: xây dựng trải nghiệm cộng tác theo thời gian thực ngay trong AI Studio. Thời gian chạy phía máy chủ quản lý trạng thái và các kết nối cần thiết để người dùng tương tác với nhau.
+- **Firebase Firestore và Xác thực**: tự động cung cấp và thiết lập Firebase, bao gồm cả cơ sở dữ liệu Firestore (lưu trữ dữ liệu liên tục) và Xác thực Firebase (quy trình đăng nhập, cụ thể là "Đăng nhập bằng Google").
+  Tác nhân này xử lý toàn bộ quy trình thiết lập và thậm chí còn viết mã trong ứng dụng của bạn cho các dịch vụ này.
+- **Tích hợp Google Workspace**: Kết nối ứng dụng của bạn với các API của Google Workspace như Gmail, Trang tính, Tài liệu, Drive, Lịch và nhiều API khác. AI Studio sẽ tự động xử lý mọi cấu hình OAuth.
 
-Google AI Studio がアプリケーションの初期コードを生成したら、次の手順でコードを調整できます。
+[Tìm hiểu thêm về cách phát triển ứng dụng full-stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=vi)
 
-### Google AI Studio で構築する
+### Ứng dụng Android
 
-- **Gemini を使用して反復処理を行う**: **ビルドモード**のチャット パネルを使用して、Gemini に相談し、変更の実行、新機能の追加、スタイルの変更をリクエストします。
-- **コードを直接編集する**: プレビュー パネルで [**コード**] タブを開いて、ライブ編集を行います。
+Bạn cũng có thể tạo ứng dụng Android gốc bằng Kotlin và Jetpack Compose.
+Xem trước ứng dụng của bạn trong trình mô phỏng Android dựa trên trình duyệt, cài đặt ứng dụng trên một thiết bị thực bằng ADB trong trình duyệt và xuất bản lên Cửa hàng Play để kiểm thử nội bộ.
 
-### 外部で開発する
+[Tìm hiểu thêm về cách tạo ứng dụng Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=vi)
 
-より高度なワークフローでは、コードをエクスポートして、お好みの環境で作業できます。
+## Tiếp tục xây dựng
 
-- **ダウンロードしてローカルで開発する**: 生成されたコードを **ZIP ファイル**としてエクスポートし、コードエディタにインポートします。
-- **GitHub に push**: コードを **GitHub リポジトリ**に push して、既存の開発プロセスとデプロイ プロセスに統合します。
+Sau khi Google AI Studio tạo mã ban đầu cho ứng dụng của bạn, bạn có thể tiếp tục tinh chỉnh mã đó:
 
-## 主な機能
+### Tạo trong Google AI Studio
 
-Google AI Studio には、構築プロセスを直感的かつ視覚的に行うための機能がいくつか用意されています。
+- **Lặp lại với Gemini**: Sử dụng bảng trò chuyện ở **Chế độ tạo** để hỏi Gemini sửa đổi, thêm tính năng mới hoặc thay đổi kiểu.
+- **Chỉnh sửa mã trực tiếp**: Mở **thẻ Mã** trong bảng xem trước để chỉnh sửa trực tiếp.
 
-- **フルスタック アプリを作成して反復処理する**: プロンプトだけでフルスタック アプリを作成し、チャットまたは**アノテーション モード**で反復処理します。アノテーション モードでは、アプリの UI の任意の部分をハイライト表示して、希望する変更を説明できます。
-- **アプリを共有してデプロイする**: 作成したものを他のユーザーと共有して、共同作業を行ったり、作品を公開したりできます。共有すると、API 呼び出しは使用量上限にカウントされます。有料モデルを使用する場合は、費用が発生する可能性があります。アプリの準備ができたら、Cloud Run にデプロイします。
-- **アプリ ギャラリー**: アプリ ギャラリーには、プロジェクトのアイデアのビジュアル ライブラリが用意されています。Gemini でできることを確認したり、アプリをすぐにプレビューしたり、アプリをリミックスして独自のアプリを作成したりできます。
+### Phát triển bên ngoài
 
-## アプリをデプロイまたはアーカイブする
+Đối với các quy trình làm việc nâng cao hơn, bạn có thể xuất mã và làm việc trong môi trường mà bạn muốn:
 
-アプリケーションの準備ができたら、デプロイできます。
+- **Tải xuống và phát triển cục bộ**: Xuất mã đã tạo dưới dạng **Tệp ZIP** rồi nhập mã đó vào trình soạn thảo mã của bạn.
+- **Đẩy lên GitHub**: Tích hợp mã với các quy trình phát triển và triển khai hiện có bằng cách đẩy mã đó lên một **kho lưu trữ GitHub**.
 
-- **Cloud Run**: アプリケーションをスケーラブルなサービスとしてデプロイします。使用量に応じて、[Google Cloud Run](https://cloud.google.com/run?hl=ja) の料金が適用される場合があります。デプロイの詳細については、[Google AI Studio からのデプロイ](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ja)をご覧ください。
-- **GitHub**: プロジェクトを GitHub リポジトリにエクスポートします。
+## Các tính năng chính
 
-## 制限事項
+Google AI Studio có một số tính năng giúp quá trình xây dựng trở nên trực quan và dễ hiểu:
 
-このセクションでは、Google AI Studio のビルドモードの現在の制限事項について説明します。
+- **Tạo và lặp lại các ứng dụng toàn diện**: Tạo các ứng dụng toàn diện chỉ bằng một câu lệnh và lặp lại thông qua chế độ trò chuyện hoặc **chú thích**. Chế độ chú thích cho phép bạn làm nổi bật mọi phần trên giao diện người dùng của ứng dụng và mô tả thay đổi bạn muốn.
+- **Chia sẻ và triển khai ứng dụng**: Bạn có thể chia sẻ các tác phẩm của mình với người khác để cộng tác hoặc giới thiệu tác phẩm. Khi chia sẻ, các lệnh gọi API sẽ được tính vào hạn mức sử dụng của bạn. Nếu sử dụng các mô hình trả phí, bạn có thể phải trả phí. Sau đó, khi ứng dụng của bạn đã sẵn sàng, hãy triển khai lên Cloud Run.
+- **Thư viện ứng dụng**: Thư viện ứng dụng cung cấp một thư viện trực quan về các ý tưởng dự án.
+  Bạn có thể duyệt xem những việc có thể làm với Gemini, xem trước các ứng dụng ngay lập tức và phối lại các ứng dụng đó để tạo ra ứng dụng của riêng mình.
 
-### API キー管理
+## Triển khai hoặc lưu trữ ứng dụng
 
-Gemini API を使用する新しいアプリを作成すると、AI Studio は Gemini API キーをアプリのサーバーサイド環境のシークレットとして自動的に構成します。この鍵は、[**シークレット**] パネルで表示および管理できます。
+Sau khi ứng dụng đã sẵn sàng, bạn có thể triển khai ứng dụng đó:
 
-- **自動設定**: `GEMINI_API_KEY` が自動的に設定されるため、ビルドを開始するために手動で構成する必要はありません。
-- **サーバーサイドのみ**: API キーはサーバーサイドのランタイムに挿入され、クライアントサイドのコードには含まれません。
-- **既存のアプリ**: 2026 年 5 月 14 日より前にビルドされたアプリの場合、アプリの Gemini 機能を次回変更する際に、エージェントが Gemini API 統合を推奨されるサーバーサイド アプローチに自動的にアップグレードします。
+- **Cloud Run**: triển khai ứng dụng của bạn dưới dạng một dịch vụ có khả năng mở rộng.
+  Bạn có thể phải trả phí cho [Google Cloud Run](https://cloud.google.com/run?hl=vi) dựa trên mức sử dụng. Để tìm hiểu thêm về quy trình triển khai, hãy xem bài viết [Triển khai từ Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=vi).
+- **GitHub**: xuất dự án của bạn sang một kho lưu trữ trên GitHub.
 
-### Google AI Studio 以外でのデプロイ
+## Các điểm hạn chế
 
-- **Cloud Run**: AI Studio から Cloud Run にデプロイすると、API キーがサーバーサイド環境に安全に組み込まれます。デプロイされたアプリは、すべてのユーザーの Gemini API 呼び出しに API キーを使用します。
-- **ZIP ダウンロード**: アプリを ZIP ファイルとしてダウンロードして別の場所で実行する場合は、ホスティング環境で `GEMINI_API_KEY` 環境変数を設定する必要があります。アプリの Gemini API 呼び出しはサーバーサイド コードから行われるため、キーがエンドユーザーに公開されることはありません。
+Phần này liệt kê các giới hạn hiện tại của chế độ tạo trong Google AI Studio.
 
-### アプリの共有時のエラー
+### Quản lý khoá API
 
-アプリを共有したエンドユーザーが共有 URL を使用したときに **403 Access Restricted** エラーが発生した場合、次のいずれかの原因が考えられます。
+Khi bạn tạo một ứng dụng mới sử dụng Gemini API, AI Studio sẽ tự động định cấu hình khoá Gemini API của bạn dưới dạng một bí mật trong môi trường phía máy chủ của ứng dụng.
+Bạn có thể xem và quản lý khoá này trong bảng điều khiển **Bí mật**.
 
-- **ブラウザの拡張機能**: Privacy Badger などのプライバシー拡張機能がアプリをブロックしている可能性があります。エラーを回避するには、拡張機能を無効にします。
-- **ビルドに関する問題**: 現在のコードに問題がある可能性があります。エージェントに「現在のコードのビルドの問題を修正」するよう指示し、URL を再共有します。
+- **Thiết lập tự động**: `GEMINI_API_KEY` của bạn được thiết lập sẵn cho bạn – bạn không cần định cấu hình theo cách thủ công để bắt đầu tạo.
+- **Chỉ phía máy chủ**: Khoá API được chèn vào thời gian chạy phía máy chủ và không bao giờ được đưa vào mã phía máy khách.
+- **Các ứng dụng hiện có**: Đối với những ứng dụng được tạo trước ngày 14 tháng 5 năm 2026, tác nhân sẽ tự động nâng cấp quy trình tích hợp Gemini API của bạn lên phương pháp phía máy chủ được đề xuất vào lần tiếp theo bạn sửa đổi các tính năng Gemini của ứng dụng.
 
-## よくある質問
+### Triển khai bên ngoài Google AI Studio
 
-### AI Studio の「Build」機能とは？
+- **Cloud Run**: Khi bạn triển khai lên Cloud Run từ AI Studio, khoá API của bạn sẽ được đưa vào một cách an toàn trong môi trường phía máy chủ. Ứng dụng đã triển khai sẽ dùng khoá API của bạn cho tất cả các lệnh gọi Gemini API của người dùng.
+- **Tải tệp ZIP xuống**: Nếu tải ứng dụng xuống dưới dạng tệp ZIP để kích hoạt ở nơi khác, bạn sẽ cần thiết lập biến môi trường `GEMINI_API_KEY` trong môi trường lưu trữ. Vì các lệnh gọi Gemini API của ứng dụng được thực hiện từ mã phía máy chủ, nên khoá này không được hiển thị cho người dùng cuối.
 
-AI Studio Build は、Gemini を使用して簡単なプロンプトから本番環境対応の AI 搭載アプリケーションを作成できるように設計されたプラットフォームです。プロンプトで作成したい内容を説明すると、Gemini がアプリを生成します。ギャラリーで Gemini API でできることを確認したり、アプリをリミックスして独自のアプリを作成したりすることもできます。
+### Lỗi khi chia sẻ ứng dụng
 
-### Build では Gemini API キーはどのように処理されますか？
+Nếu bạn chia sẻ ứng dụng của mình và người dùng cuối gặp phải lỗi **403 Access Restricted** (Quyền truy cập bị hạn chế) khi sử dụng URL được chia sẻ, thì có thể là do một trong những nguyên nhân sau:
 
-Gemini API を使用するアプリを作成すると、AI Studio は Gemini API キーをサーバーサイド シークレットとして自動的に設定します。アプリの Gemini API 呼び出しは、このキーを使用してサーバーサイド コードから行われるため、ブラウザで公開されることはありません。API キーは、[設定] の [**シークレット**] パネルで確認できます。
+- **Tiện ích trên trình duyệt**: các tiện ích bảo vệ quyền riêng tư như Privacy Badger có thể đang chặn ứng dụng. Hãy tắt tiện ích này để tránh gặp lỗi.
+- **Vấn đề về bản dựng**: có thể có vấn đề với mã hiện tại. Yêu cầu tác nhân "khắc phục mọi vấn đề về bản dựng bằng mã hiện tại", sau đó chia sẻ lại URL.
 
-### アプリを共有すると API キーが公開されますか？
+## Câu hỏi thường gặp
 
-いいえ。API キーはサーバーサイドのシークレットとして保存され、クライアントサイドのコードには含まれません。アプリを共有すると、他のユーザーはアプリを使用できますが、API キーは表示されません。
+### Build trong AI Studio là gì?
 
-アプリを他のユーザーと共有する場合、API 呼び出しは使用量上限の対象となります。有料モデルを使用する場合は、費用が発生する可能性があります。アプリで費用が発生する可能性がある場合は、設定時と共有前に AI Studio から通知されます。
+AI Studio Build là một nền tảng được thiết kế để đưa bạn từ một câu lệnh đơn giản đến một ứng dụng dựa trên AI, sẵn sàng phát hành bằng Gemini. Mô tả những gì bạn muốn tạo bằng một câu lệnh, Gemini sẽ tạo một ứng dụng cho bạn. Bạn cũng có thể khám phá thư viện của chúng tôi để xem những việc có thể làm với Gemini API và phối lại các ứng dụng để tạo ra ứng dụng của riêng bạn.
 
-### アプリを公開するユーザー
+### Build xử lý khoá Gemini API của tôi như thế nào?
 
-アプリはデフォルトで非公開になっています。アプリを他のユーザーと共有して、他のユーザーがアプリを使用できるようにすることができます。アプリを共有したユーザーは、アプリのコードを表示して、自分の目的でフォークできます。編集権限を付与してアプリを共有すると、他のユーザーがアプリのコードを編集できるようになります。
+Khi bạn tạo một ứng dụng sử dụng Gemini API, AI Studio sẽ tự động thiết lập khoá Gemini API của bạn dưới dạng một bí mật phía máy chủ. Các lệnh gọi Gemini API của ứng dụng được thực hiện từ mã phía máy chủ bằng khoá này, vì vậy, khoá này sẽ không bao giờ xuất hiện trong trình duyệt. Bạn có thể xem khoá API trong bảng **Bí mật** trong phần Cài đặt.
 
-### AI Studio の外部でアプリを実行できますか？
+### Khoá API của tôi có bị lộ khi chia sẻ ứng dụng không?
 
-はい。AI Studio から [Cloud Run](https://cloud.google.com/run?hl=ja) にアプリをデプロイできます。これにより、アプリにパブリック URL が付与され、API キーがサーバーサイド環境で安全に構成されます。アプリを ZIP ファイルとしてダウンロードして別の場所でホストすることもできます。この場合は、ホスティング環境で `GEMINI_API_KEY` 環境変数を設定する必要があります。Gemini API 呼び出しはサーバーサイド コードから行われるため、キーは安全に保たれます。
+Không. Khoá API của bạn được lưu trữ dưới dạng một bí mật phía máy chủ và không bao giờ được đưa vào mã phía máy khách. Khi bạn chia sẻ ứng dụng, những người dùng khác có thể sử dụng ứng dụng đó nhưng không thể xem khoá API của bạn.
 
-デプロイ オプションの詳細については、[Google AI Studio からのデプロイ](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ja)をご覧ください。
+Khi bạn chia sẻ ứng dụng của mình với người khác, các lệnh gọi API sẽ được tính vào hạn mức sử dụng của bạn.
+Nếu sử dụng các mô hình trả phí, bạn có thể phải trả phí. AI Studio sẽ thông báo cho bạn trong quá trình thiết lập và trước khi bạn chia sẻ nếu ứng dụng của bạn có thể phát sinh chi phí.
 
-### 独自のツールを使ってローカルでアプリを開発し、ここで共有することはできますか？
+### Những người có thể thấy ứng dụng của tôi
 
-この機能はまだご利用いただけません。今後もアプリのユースケースを増やしていく予定です。具体的なご意見やご提案がありましたら、ぜひフィードバックをお寄せください。
+Theo mặc định, ứng dụng của bạn sẽ ở chế độ riêng tư. Bạn có thể chia sẻ ứng dụng của mình với người dùng khác để cho phép họ sử dụng ứng dụng đó. Những người dùng mà bạn chia sẻ ứng dụng có thể xem mã của ứng dụng và phát triển nhánh mã đó cho mục đích riêng của họ. Nếu bạn chia sẻ ứng dụng của mình với quyền chỉnh sửa, thì những người dùng khác có thể chỉnh sửa mã của ứng dụng.
 
-### アプリでデータベースやその他のストレージを使用するにはどうすればよいですか？
+### Tôi có thể chạy các ứng dụng bên ngoài AI Studio không?
 
-AI Studio アプリは、Cloud Run コンテナで実行される標準アプリです。動的 IP 範囲からのアクセスをブロックするファイアウォールがない限り、ネットワーク経由で接続できるストレージ ソリューションを使用できます。
+Có. Bạn có thể triển khai ứng dụng của mình lên [Cloud Run](https://cloud.google.com/run?hl=vi) từ AI Studio. Việc này sẽ cung cấp cho ứng dụng của bạn một URL công khai với khoá API được định cấu hình an toàn trong môi trường phía máy chủ. Bạn cũng có thể tải ứng dụng xuống dưới dạng tệp ZIP và lưu trữ ở nơi khác. Bạn cần đặt biến môi trường `GEMINI_API_KEY` trong môi trường lưu trữ. Vì các lệnh gọi Gemini API được thực hiện từ mã phía máy chủ, nên khoá của bạn vẫn an toàn.
 
-今後、ストレージの直接サポートを追加する予定です。これにより、AI Studio 内で直接構成できるようになります。
+Để tìm hiểu thêm về các lựa chọn triển khai, hãy xem phần [Triển khai từ Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=vi).
 
-### マイク、ウェブカメラ、その他の Navigator API にアクセスするにはどうすればよいですか？
+### Tôi có thể phát triển ứng dụng trên thiết bị của mình bằng các công cụ riêng rồi chia sẻ chúng tại đây không?
 
-視聴者がアプリによるウェブカメラなどのデバイスの使用を認識できるように、アプリがこれらの [Navigator API](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) にアクセスする前に、追加の確認を求める必要があります。アプリ作成者は、アプリの `metadata.json` ファイルにこれらの権限リクエストを追加できます。次に例を示します。
+Chức năng này hiện chưa hoạt động. Chúng tôi rất vui khi có thể hỗ trợ nhiều trường hợp sử dụng hơn cho các ứng dụng trong tương lai. Vui lòng cân nhắc gửi ý kiến phản hồi cho chúng tôi nếu bạn có ý tưởng cụ thể.
+
+### Làm cách nào để sử dụng cơ sở dữ liệu hoặc bộ nhớ khác với các ứng dụng của tôi?
+
+Các ứng dụng AI Studio là những ứng dụng tiêu chuẩn chạy trong một vùng chứa Cloud Run. Bạn có thể sử dụng bất kỳ giải pháp lưu trữ nào mà bạn có thể kết nối qua mạng, miễn là không có tường lửa ngăn chặn quyền truy cập từ dải IP động.
+
+Chúng tôi đang nỗ lực bổ sung tính năng hỗ trợ trực tiếp cho bộ nhớ trong tương lai. Bạn sẽ có thể định cấu hình bộ nhớ trực tiếp trong AI Studio.
+
+### Làm cách nào để truy cập vào micrô, webcam và các API Navigator khác?
+
+Để đảm bảo người xem biết về việc một ứng dụng sử dụng webcam hoặc các thiết bị khác của họ, chúng tôi yêu cầu họ xác nhận thêm trước khi ứng dụng có thể truy cập vào [các API Navigator](https://developer.mozilla.org/en-US/docs/Web/API/Navigator) này.
+Nhà sáng tạo ứng dụng có thể thêm các yêu cầu cấp quyền này vào tệp `metadata.json` của ứng dụng. Ví dụ:
 
 ```
 {
@@ -171,56 +189,57 @@ AI Studio アプリは、Cloud Run コンテナで実行される標準アプリ
 }
 ```
 
-`requestFramePermissions` でサポートされている値は、標準の[ポリシー制御機能](https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md)のサブセットです。
+Các giá trị được hỗ trợ cho `requestFramePermissions` là một phần trong số các [tính năng tiêu chuẩn chịu sự kiểm soát của chính sách](https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md).
 
-### アプリで GitHub を使用するにはどうすればよいですか？
+### Làm cách nào để sử dụng GitHub với các ứng dụng của tôi?
 
-AI Studio の GitHub 統合により、作業用のリポジトリを作成して最新の変更を commit できます。現在、リモートの変更の取得はサポートされていません。
+Tính năng tích hợp GitHub của AI Studio cho phép bạn tạo kho lưu trữ cho công việc của mình và xác nhận các thay đổi mới nhất. Chúng tôi hiện không hỗ trợ việc kéo các thay đổi từ xa.
 
-### 他のユーザーにアプリの編集権限を付与できますか？
+### Tôi có thể cấp cho người dùng khác quyền chỉnh sửa ứng dụng của mình không?
 
-この機能はまだサポートされていませんが、近日中にサポートされる予定です。
+Tính năng này hiện chưa được hỗ trợ nhưng sẽ sớm ra mắt.
 
-### アプリがポリシー違反として報告されたのはなぜですか？
+### Tại sao ứng dụng của tôi bị gắn cờ do vi phạm chính sách?
 
-Google には、アプリがポリシーに準拠しているかどうかを自動的に審査するシステムがあります。アプリがポリシーに違反していることが判明した場合、そのアプリは AI Studio から削除されます。ポリシー違反には、次のようなものがあります。
+Chúng tôi có các hệ thống tự động xem xét ứng dụng để đảm bảo ứng dụng tuân thủ chính sách của chúng tôi. Nếu chúng tôi phát hiện thấy một ứng dụng vi phạm chính sách của chúng tôi, thì ứng dụng đó sẽ bị xoá khỏi AI Studio. Các lỗi vi phạm chính sách có thể bao gồm nhưng không giới hạn ở những lỗi sau:
 
-- マルウェア、フィッシング、なりすましを含むアプリ
-- 児童への性的虐待の画像に関するポリシーに違反するコンテンツを表示または配信するアプリ
-- ハラスメントに関するポリシーに違反するコンテンツを表示または配信するアプリ
-- ヘイトスピーチに関するポリシーに違反するコンテンツを表示または配信するアプリ
-- 人身売買に関するポリシーに違反するコンテンツを表示または配信するアプリ
-- 露骨な性的描写を含むコンテンツに関するポリシーに違反するコンテンツを表示または配信するアプリ
-- 暴力的または残虐なコンテンツに関するポリシーに違反するコンテンツを表示または配信するアプリ
-- 有害または危険なコンテンツに関するポリシーに違反するコンテンツを表示または配信するアプリ
+- Ứng dụng chứa phần mềm độc hại, nội dung lừa đảo hoặc mạo danh
+- Ứng dụng hiển thị hoặc phát tán nội dung vi phạm chính sách về hình ảnh xâm hại tình dục trẻ em
+- Ứng dụng hiển thị hoặc phân phối nội dung vi phạm chính sách về hành vi quấy rối
+- Ứng dụng hiển thị hoặc phân phối nội dung vi phạm chính sách về lời nói hận thù
+- Ứng dụng hiển thị hoặc phân phối nội dung vi phạm chính sách về nạn buôn người
+- Ứng dụng hiển thị hoặc phân phối nội dung vi phạm chính sách về nội dung khiêu dâm
+- Ứng dụng hiển thị hoặc phân phối nội dung vi phạm chính sách về bạo lực và máu me
+- Ứng dụng hiển thị hoặc phân phối nội dung vi phạm chính sách về nội dung gây hại hoặc nguy hiểm
 
-アプリにポリシー違反のフラグが付けられ、それが誤りであると思われる場合は、再審査請求を送信できます。ポリシーの度重なる違反があった場合、AI Studio へのアクセスが停止されることがあります。
+Nếu ứng dụng của bạn bị gắn cờ vì vi phạm chính sách và bạn cho rằng đó là do nhầm lẫn, thì bạn có thể gửi đơn kháng nghị. Việc nhiều lần vi phạm chính sách của chúng tôi có thể khiến bạn bị chấm dứt quyền truy cập vào AI Studio.
 
-### アプリ デベロッパーの責任
+### Tôi có trách nhiệm gì với tư cách là nhà phát triển ứng dụng?
 
-アプリケーションの所有者は、アプリケーションの動作と、アプリケーションが処理するすべてのデータに対して責任を負います。これには以下が該当します。
+Xin lưu ý rằng, với tư cách là chủ sở hữu ứng dụng, bạn chịu trách nhiệm về hành vi của ứng dụng và mọi dữ liệu mà ứng dụng xử lý. Nội dung như vậy bao gồm:
 
-- **法令遵守と第三者の権利:** アプリが適用されるすべての法律および規制を遵守し、知的財産権やプライバシーの権利など、他者の権利を侵害しないようにします。
-- **コンテンツのモニタリング:** アプリで使用される他のサービスには、追加利用規約の遵守が適用される場合があります。たとえば、Firestore に適用される [Google Cloud 利用規約](https://cloud.google.com/terms?hl=ja)では、第三者のコンテンツをホストするお客様は、禁止されているコンテンツ（違法なコンテンツなど）を定義するポリシーを公開し、その違法なコンテンツの存在をモニタリングすることが求められています。
-- **安全な実装:** アプリケーションの不正使用を防ぐために必要な保護対策とモデレーション ツールを実装します。
+- **Tuân thủ pháp luật và tôn trọng quyền của bên thứ ba:** Đảm bảo ứng dụng của bạn tuân thủ tất cả luật và quy định hiện hành, đồng thời không vi phạm quyền của người khác, bao gồm cả quyền tài sản trí tuệ và quyền riêng tư.
+- **Giám sát nội dung:** Việc tuân thủ các điều khoản bổ sung có thể áp dụng cho các dịch vụ khác mà ứng dụng của bạn sử dụng. Ví dụ: [Điều khoản dịch vụ của Google Cloud](https://cloud.google.com/terms?hl=vi) (áp dụng cho Firestore) yêu cầu những khách hàng lưu trữ nội dung của bên thứ ba phải xuất bản các chính sách xác định nội dung bị cấm (ví dụ: nội dung bất hợp pháp) và giám sát sự xuất hiện của nội dung bất hợp pháp đó.
+- **Triển khai an toàn:** Triển khai các biện pháp bảo vệ và công cụ kiểm duyệt cần thiết để ngăn chặn việc sử dụng sai mục đích ứng dụng của bạn.
 
-利用規約の[使用制限](https://ai.google.dev/gemini-api/terms?hl=ja#use-restrictions)に注意してください。
+Lưu ý [các hạn chế về việc sử dụng](https://ai.google.dev/gemini-api/terms?hl=vi#use-restrictions) trong Điều khoản dịch vụ.
 
-### AI Studio のアプリギャラリーのアプリにはどのような規約が適用されますか？
+### Những điều khoản nào áp dụng cho các ứng dụng trong thư viện ứng dụng của AI Studio?
 
-特に記載がない限り、AI Studio のアプリギャラリーで紹介されているアプリの使用には、[Gemini API 追加利用規約](https://ai.google.dev/gemini-api/terms?hl=ja)が適用されます。
+[Điều khoản dịch vụ bổ sung của Gemini API](https://ai.google.dev/gemini-api/terms?hl=vi) áp dụng cho việc sử dụng các ứng dụng có trong thư viện ứng dụng của AI Studio, trừ phi có quy định khác.
 
-## 次のステップ
+## Bước tiếp theo
 
-- [フルスタック アプリの開発](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=ja)
-- [アプリギャラリー](https://aistudio.google.com/apps?source=showcase&hl=ja)の例をご覧ください。
+- [Phát triển ứng dụng Full-Stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=vi) (web)
+- [Tạo ứng dụng Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=vi)
+- Xem các ví dụ trong [Thư viện ứng dụng](https://aistudio.google.com/apps?source=showcase&hl=vi).
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-05-17 UTC。
+Cập nhật lần gần đây nhất: 2026-05-19 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-17 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]

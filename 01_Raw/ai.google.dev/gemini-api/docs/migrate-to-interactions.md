@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=id
-fetched_at: 2026-05-18T12:59:48.831463+00:00
-title: "Bermigrasi ke Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ja
+fetched_at: 2026-05-25T13:06:00.742756+00:00
+title: "Interactions API \u3078\u306e\u79fb\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Bermigrasi ke Interactions API
+# Interactions API への移行
 
-Panduan ini membantu Anda bermigrasi dari `generateContent` API ke Interactions API.
+このガイドでは、`generateContent` API から Interactions API に移行する方法について説明します。
 
-Interactions API adalah antarmuka standar untuk membangun aplikasi dengan Gemini. API ini dioptimalkan untuk alur kerja agen, pengelolaan status sisi server, dan percakapan multi-giliran multimodal yang kompleks, sekaligus tetap mendukung sepenuhnya permintaan satu giliran tanpa status yang sederhana. Meskipun `generateContent` tetap didukung sepenuhnya, sebaiknya gunakan Interactions API untuk semua pengembangan baru.
+Interactions API は、Gemini を使用して構築するための標準インターフェースです。エージェント ワークフロー、サーバーサイドの状態管理、複雑なマルチモーダル、マルチターンの会話に最適化されていますが、シンプルなステートレスのシングルターン リクエストも完全にサポートしています。`generateContent` は引き続き完全にサポートされますが、新規開発には Interactions API をおすすめします。
 
-### Mengapa harus bermigrasi?
+### 移行の理由
 
-Interactions API menyediakan cara yang lebih terstruktur dan canggih untuk membangun aplikasi dengan Gemini:
+Interactions API は、Gemini を使用して構築するための、より構造化された強力な方法を提供します。
 
-- **Pengelolaan histori sisi server**: Alur multi-giliran yang disederhanakan melalui `previous_interaction_id`. Server mengaktifkan status secara default (`store=true`), tetapi Anda dapat memilih perilaku tanpa status dengan menetapkan `store=false`.
-- **Langkah-langkah eksekusi yang dapat diamati**: Langkah-langkah yang diketik memudahkan proses debug alur yang kompleks dan merender UI untuk peristiwa perantara (seperti pemikiran atau widget penelusuran).
-- **Dibuat untuk alur kerja agen**: Dukungan native untuk penggunaan alat multilangkah, orkestrasi, dan alur penalaran yang kompleks melalui langkah-langkahlah eksekusi yang diketik.
-- **Tugas latar belakang dan berjalan lama**: Mendukung operasi yang memakan waktu seperti Deep Think dan Deep Research ke proses latar belakang menggunakan `background=true`.
+- **サーバーサイドの履歴管理**: `previous_interaction_id` を使用してマルチターンのフローを簡素化します。サーバーはデフォルトで状態を有効にします（`store=true`）。ただし、`store=false` を設定することで、ステートレス動作を選択できます。
+- **実行ステップのオブザーバビリティ**: 型付きステップにより、複雑なフローのデバッグが容易になり、中間イベント（思考や検索ウィジェットなど）の UI をレンダリングできます。
+- **エージェント ワークフロー向けに構築**: 型付き実行ステップを通じて、マルチステップ ツールの使用、オーケストレーション、複雑な推論フローをネイティブにサポートします。
+- **長時間実行タスクとバックグラウンド タスク**: Deep Think や Deep Research などの時間のかかるオペレーションをバックグラウンド プロセスにオフロードできます。`background=true`
 
-## Input/output dasar
+## 基本的な入出力
 
-Bagian ini menunjukkan cara memigrasikan permintaan pembuatan teks sederhana.
+このセクションでは、シンプルなテキスト生成リクエストを移行する方法について説明します。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-`generateContent` API tidak memiliki status dan menampilkan respons secara langsung. Struktur respons menggabungkan output dalam daftar `candidates`, yang masing-masing berisi `content` dengan daftar `parts` yang akan diuraikan.
+`generateContent` API はステートレスで、レスポンスを直接返します。レスポンス構造は、出力を `candidates` のリストでラップします。各リストには、解析する `parts` のリストを含む `content` が含まれています。
 
 ### Python
 
@@ -105,9 +105,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+Interactions API は、`steps` タイムラインを含む保存されたインタラクション リソースを返します。`steps` 配列を手動で調べて中間イベントを見つけることもできますが、Google GenAI SDK は、返された `Interaction` オブジェクトに便利なプロパティを直接提供して、最終的な出力にアクセスできるようにします。
 
-Interactions API menampilkan resource interaksi tersimpan dengan linimasa `steps`. Daripada melintasi kandidat dan bagian, periksa array `steps` untuk menemukan jenis output yang diinginkan.
+最も一般的な便利なプロパティは **`.output_text`** （文字列）で、モデルのレスポンスの末尾にある連続する `TextContent` ブロックを自動的に抽出して結合します。これはシンプルなレスポンスには最適ですが、テキスト以外のコンテンツ（思考、画像、音声、ツール呼び出しなど）で区切られた以前のテキスト ブロックは含まれません。複雑なマルチモーダル レスポンスやインターリーブされたマルチモーダル レスポンスの場合は、代わりに `steps` を手動で反復処理する必要があります。
 
 ### Python
 
@@ -116,15 +116,11 @@ from google import genai
 
 client = genai.Client()
 
-# The input can be a simple string shorthand
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview", input="Tell me a joke."
+    model="gemini-3.5-flash", input="Tell me a joke."
 )
 
-# Inspect the steps manually
-for step in interaction.steps:
-    if step.type == "model_output":
-        print(step.content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -135,13 +131,11 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Tell me a joke.'
 });
 
-// Manual inspection
-const modelStep = interaction.steps.find(s => s.type === 'model_output');
-console.log(modelStep.content[0].text);
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -152,7 +146,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Tell me a joke."
 }'
 
@@ -185,17 +179,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Percakapan multi-giliran
+## マルチターンの会話
 
-Interactions API menyimpan interaksi secara default, sehingga memungkinkan pengelolaan status sisi server untuk percakapan multi-giliran.
+Interactions API はデフォルトでインタラクションを保存するため、マルチターンの会話のサーバーサイドの状態管理が可能になります。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-Di `generateContent`, Anda harus mengelola histori percakapan secara manual menggunakan array `contents` atau helper chat sisi klien.
+`generateContent` では、`contents` 配列またはクライアントサイドのチャット ヘルパーを使用して、会話履歴を手動で管理する必要があります。
 
 ### Python
 
-**Menggunakan helper chat (direkomendasikan)**
+**チャット ヘルパーを使用する（推奨）**
 
 ```
 from google import genai
@@ -210,7 +204,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**Mengelola histori secara manual**
+**履歴を手動で管理する**
 
 ```
 from google import genai
@@ -218,7 +212,6 @@ from google.genai import types
 
 client = genai.Client()
 
-# The second turn requires sending the entire history
 response = client.models.generate_content(
     model="gemini-2.5-flash",
     contents=[
@@ -239,7 +232,7 @@ print(response.text)
 
 ### JavaScript
 
-**Menggunakan helper chat (direkomendasikan)**
+**チャット ヘルパーを使用する（推奨）**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -254,14 +247,13 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**Mengelola histori secara manual**
+**履歴を手動で管理する**
 
 ```
 import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
-// The second turn requires sending the entire history
 const response = await client.models.generateContent({
     model: 'gemini-2.5-flash',
     contents: [
@@ -307,9 +299,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Interactions API mengelola status di server. Anda melanjutkan percakapan dengan mereferensikan `previous_interaction_id`.
+Interactions API はサーバーで状態を管理します。`previous_interaction_id` を参照して会話を続けます。
 
 ### Python
 
@@ -318,19 +310,17 @@ from google import genai
 
 client = genai.Client()
 
-# First turn
 interaction1 = client.interactions.create(
-    model="gemini-3-flash-preview", input="Hi, my name is Phil."
+    model="gemini-3.5-flash", input="Hi, my name is Phil."
 )
-print(interaction1.steps[-1].content[0].text)
+print("Response 1:", interaction1.output_text)
 
-# Second turn (passing previous_interaction_id)
 interaction2 = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     previous_interaction_id=interaction1.id,
     input="What is my name?",
 )
-print(interaction2.steps[-1].content[0].text)
+print("Response 2:", interaction2.output_text)
 ```
 
 ### JavaScript
@@ -340,20 +330,18 @@ import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
-// First turn
 let interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Hi, my name is Phil.'
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log("Response 1:", interaction.output_text);
 
-// Second turn
 interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     previous_interaction_id: interaction.id,
     input: 'What is my name?'
 });
-console.log(interaction.steps.at(-1).content[0].text);
+console.log("Response 2:", interaction.output_text);
 ```
 
 ### REST
@@ -364,7 +352,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Hi, my name is Phil."
 }'
 
@@ -373,7 +361,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "previous_interaction_id": "int_123",
     "input": "What is my name?"
 }'
@@ -406,13 +394,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Input multimodal
+## マルチモーダル入力
 
-Kedua API mendukung input multimodal (teks, gambar, video, dll.).
+どちらの API もマルチモーダル入力（テキスト、画像、動画など）をサポートしています。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-Di `generateContent`, Anda meneruskan daftar `parts` dalam array `contents`. Respons menampilkan output di `parts` kandidat pertama.
+`generateContent` では、`contents` 配列内で `parts` のリストを渡します。レスポンスは、最初の候補の `parts` に出力を返します。
 
 ### Python
 
@@ -475,9 +463,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Di Interactions API, Anda meneruskan array ke kolom `input`. Anda mengambil konten output dengan menemukan langkah `model_output` di linimasa.
+Interactions API では、配列を `input` フィールドに渡します。出力コンテンツを取得するには、タイムラインで `model_output` ステップを見つけます。
 
 ### Python
 
@@ -486,12 +474,11 @@ from google import genai
 
 client = genai.Client()
 
-# Assuming you have an image file
 with open("sample.jpg", "rb") as f:
     image_bytes = f.read()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {
             "type": "image",
@@ -501,9 +488,7 @@ interaction = client.interactions.create(
         {"type": "text", "text": "Describe this image."},
     ],
 )
-for step in interaction.steps:
-    if step.type == "model_output":
-        print(step.content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -517,7 +502,7 @@ const client = new GoogleGenAI({});
 const imageBytes = fs.readFileSync('sample.jpg').toString('base64');
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: [
         {
             type: 'image',
@@ -530,11 +515,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-for (const step of interaction.steps) {
-    if (step.type === 'model_output') {
-        console.log(step.content[0].text);
-    }
-}
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -545,7 +526,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": [
         {
             "type": "image",
@@ -592,13 +573,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Output terstruktur
+## 構造化出力
 
-Agar model menampilkan JSON yang cocok dengan skema tertentu, konfigurasi format respons.
+特定のスキーマに一致する JSON をモデルに返させるには、レスポンス形式を構成します。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-Di `generateContent`, Anda mengonfigurasi format output menggunakan kolom `response_format` yang berada di dalam objek `generationConfig`.
+`generateContent` では、`generationConfig` オブジェクト内にネストされた `response_format` フィールドを使用して出力形式を構成します。
 
 ### Python
 
@@ -680,9 +661,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Di Interactions API, kontrol format output dipindahkan ke array `response_format` tingkat atas.
+Interactions API では、出力形式の制御が最上位の `response_format` 配列に移動します。
 
 ### Python
 
@@ -697,7 +678,7 @@ class Recipe(BaseModel):
     ingredients: list[str]
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Give me a recipe for chocolate chip cookies.",
     response_format=[
         {
@@ -708,9 +689,7 @@ interaction = client.interactions.create(
     ],
 )
 
-for step in interaction.steps:
-    if step.type == "model_output":
-        print(step.content[0].text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -721,7 +700,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Give me a recipe for chocolate chip cookies.',
     response_format: [
         {
@@ -741,11 +720,7 @@ const interaction = await client.interactions.create({
         }
     ]
 });
-for (const step of interaction.steps) {
-    if (step.type === 'model_output') {
-        console.log(step.content[0].text);
-    }
-}
+console.log(interaction.output_text);
 ```
 
 ### REST
@@ -756,7 +731,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Give me a recipe for chocolate chip cookies.",
     "response_format": [
         {
@@ -800,13 +775,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Pembuatan multimodal
+## マルチモーダル生成
 
-Saat membuat konten dalam modalitas selain teks (seperti gambar atau audio), perbedaan utamanya adalah cara respons menyusun media yang dibuat.
+テキスト以外のモダリティ（画像や音声など）でコンテンツを生成する場合、主な違いは、生成されたメディアをレスポンスがどのように構造化するかです。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-Di `generateContent`, respons menampilkan media yang dibuat langsung di `parts` kandidat, biasanya sebagai data base64 di `inlineData`.
+`generateContent` では、レスポンスは生成されたメディアを候補の `parts` に直接返します。通常は `inlineData` の base64 データとして返されます。
 
 ```
 # Response structure concept
@@ -831,9 +806,9 @@ Di `generateContent`, respons menampilkan media yang dibuat langsung di `parts` 
 }
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Di Interactions API, media yang dibuat muncul sebagai item terpisah dalam array `content` dari langkah `model_output` di linimasa, sehingga mempertahankan alur kronologis interaksi.
+Interactions API では、生成されたメディアはタイムラインの `model_output` ステップの `content` 配列内の個別のアイテムとして表示され、インタラクションの時系列フローが維持されます。
 
 ```
 # Response structure concept
@@ -859,15 +834,15 @@ Di Interactions API, media yang dibuat muncul sebagai item terpisah dalam array 
 }
 ```
 
-Hal ini membuat penguraian respons konsisten dengan cara input dan output teks ditangani—semuanya adalah langkah dalam linimasa.
+これにより、レスポンスの解析は、入力とテキスト出力の処理方法と一貫性が保たれます。すべてがタイムラインのステップです。
 
-## Alat sisi server
+## サーバーサイド ツール
 
-Gemini mendukung alat sisi server bawaan seperti grounding Google Penelusuran. Perbedaan utamanya adalah cara respons merepresentasikan eksekusi alat.
+Gemini は、Google 検索のグラウンディングなどの組み込みのサーバーサイド ツールをサポートしています。主な違いは、レスポンスがツールの実行をどのように表すかです。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-Di `generateContent`, alat sisi server sebagian besar bersifat buram. Anda mengaktifkan alat dan mendapatkan jawaban akhir dengan objek `groundingMetadata` terpisah. Yang terpenting, kutipan tidak sebaris; `groundingSupports` menggunakan indeks karakter untuk memetakan segmen teks kembali ke sumber web di `groundingChunks`.
+`generateContent` では、サーバーサイド ツールはほとんど不透明です。ツールを有効にして、別の `groundingMetadata` オブジェクトで最終的な回答を取得します。重要な点として、引用はインラインではありません。`groundingSupports` は文字インデックスを使用して、テキスト セグメントを `groundingChunks` のウェブソースにマッピングします。
 
 ### Python
 
@@ -885,7 +860,6 @@ response = client.models.generate_content(
     ),
 )
 
-# Access search entry point (widget) and citations
 metadata = response.candidates[0].grounding_metadata
 if metadata.search_entry_point:
     print(f"Search Entry Point: {metadata.search_entry_point.rendered_content}")
@@ -976,11 +950,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Di Interactions API, alat sisi server memberikan transparansi linimasa penuh. API mencatat panggilan dan hasil sebagai `steps` eksekusi terpisah (`google_search_call` dan `google_search_result`), yang menunjukkan data yang diambil model secara tepat.
+Interactions API では、サーバーサイド ツールはタイムラインの完全な透明性を提供します。API は呼び出しと結果を個別の実行 `steps`（`google_search_call` と `google_search_result`）として記録し、モデルが取得したデータを正確に公開します。
 
-Selain itu, API menampilkan kutipan **sebaris**. Daripada memetakan indeks dari objek metadata terpisah, item teks dalam langkah `model_output` berisi array `annotations` sendiri yang ditautkan langsung ke sumber.
+さらに、API は引用を**インライン** で返します。別のメタデータ オブジェクトからインデックスをマッピングする代わりに、`model_output` ステップ内のテキスト アイテムには、ソースに直接リンクする独自の `annotations` 配列が含まれています。
 
 ### Python
 
@@ -990,7 +964,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Who won Euro 2024?",
     tools=[{"type": "google_search"}],
 )
@@ -1013,7 +987,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Who won Euro 2024?',
     tools: [{ type: 'google_search' }]
 });
@@ -1040,7 +1014,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Who won Euro 2024?",
     "tools": [{"type": "google_search"}]
 }'
@@ -1091,13 +1065,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Panggilan fungsi
+## 関数呼び出し
 
-Struktur panggilan dan hasil fungsi juga telah diubah agar sesuai dengan skema Langkah.
+関数呼び出しと結果の構造も、Steps スキーマに合わせて変更されています。
 
-### Sebelum (`generateContent`)
+### 移行前（`generateContent`）
 
-Di `generateContent`, respons menampilkan panggilan fungsi dalam kandidat.
+`generateContent` では、レスポンスは候補内の関数呼び出しを返します。
 
 ### Python
 
@@ -1107,18 +1081,15 @@ from google.genai import types
 
 client = genai.Client()
 
-# Step 1: Send prompt with tools
 response = client.models.generate_content(
     model="gemini-2.5-flash",
     contents="What's the weather in Boston?",
     config=types.GenerateContentConfig(tools=[weather_tool]),
 )
 
-# Assume model returned function_call
 function_call = response.candidates[0].content.parts[0].function_call
 print(f"Requested tool: {function_call.name}")
 
-# Step 2: Execute local function and send result back
 result = "52°F and rain"
 
 response = client.models.generate_content(
@@ -1130,7 +1101,7 @@ response = client.models.generate_content(
                 types.Part.from_text(text="What's the weather in Boston?")
             ],
         ),
-        response.candidates[0].content,  # Model turn with function call
+        response.candidates[0].content,
         types.Content(
             role="user",
             parts=[
@@ -1153,7 +1124,6 @@ import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
-// Step 1: Send prompt with tools
 let response = await client.models.generateContent({
     model: 'gemini-2.5-flash',
     contents: "What's the weather in Boston?",
@@ -1163,14 +1133,13 @@ let response = await client.models.generateContent({
 const functionCall = response.candidates[0].content.parts[0].functionCall;
 console.log(`Requested tool: ${functionCall.name}`);
 
-// Step 2: Execute local function and send result back
 const result = "52°F and rain";
 
 response = await client.models.generateContent({
     model: 'gemini-2.5-flash',
     contents: [
         { role: 'user', parts: [{ text: "What's the weather in Boston?" }] },
-        response.candidates[0].content, // Model turn
+        response.candidates[0].content,
         {
             role: 'user',
             parts: [{
@@ -1236,9 +1205,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Panggilan dan hasil alat kini merupakan langkah terpisah dalam linimasa.
+ツール呼び出しと結果は、タイムラインの個別のステップになりました。
 
 ### Python
 
@@ -1260,22 +1229,19 @@ weather_tool = {
 }
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What's the weather in Boston?",
     tools=[weather_tool],
 )
 
-# Check if the model requested a tool call
 for step in interaction.steps:
     if step.type == "function_call":
         print(f"Executing {step.name} for {step.arguments}")
 
-        # Execute your local function here...
         result = "52°F and rain"
 
-        # Submit the result back as a step
         interaction = client.interactions.create(
-            model="gemini-3-flash-preview",
+            model="gemini-3.5-flash",
             previous_interaction_id=interaction.id,
             input=[
                 {
@@ -1286,10 +1252,7 @@ for step in interaction.steps:
                 }
             ],
         )
-        # Inspect steps for final response
-        for s in interaction.steps:
-            if s.type == "model_output":
-                print(s.content[0].text)
+        print(next_interaction.output_text)
 ```
 
 ### JavaScript
@@ -1313,21 +1276,19 @@ const weatherTool = {
 };
 
 const interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: "What's the weather in Boston?",
     tools: [weatherTool]
 });
 
-// Check if the model requested a tool call
 for (const step of interaction.steps) {
     if (step.type === 'function_call') {
         console.log(`Executing ${step.name} for ${JSON.stringify(step.arguments)}`);
 
         const result = "52°F and rain";
 
-        // Submit the result back as a step
         const nextInteraction = await client.interactions.create({
-            model: 'gemini-3-flash-preview',
+            model: 'gemini-3.5-flash',
             previous_interaction_id: interaction.id,
             input: [
                 {
@@ -1339,12 +1300,7 @@ for (const step of interaction.steps) {
             ]
         });
 
-        // Inspect steps for final response
-        for (const s of nextInteraction.steps) {
-            if (s.type === 'model_output') {
-                console.log(s.content[0].text);
-            }
-        }
+        console.log(nextInteraction.output_text);
     }
 }
 ```
@@ -1357,7 +1313,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What's the weather in Boston?",
     "tools": [{
         "type": "function",
@@ -1400,7 +1356,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "previous_interaction_id": "int_001",
     "input": {
         "type": "function_result",
@@ -1436,15 +1392,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Streaming
+## ストリーミング
 
-Perbedaan utama dalam streaming adalah Interactions API menggunakan endpoint yang sama dengan `"stream": true` di isi permintaan, sedangkan `generateContent` API mengharuskan panggilan endpoint khusus (`:streamGenerateContent`).
+ストリーミングの主な違いは、Interactions API がリクエスト本文で `"stream": true` を使用して同じエンドポイントを使用するのに対し、`generateContent` API では専用のエンドポイント（`:streamGenerateContent`）を呼び出す必要があったことです。
 
-Selain itu, peristiwa streaming kini menggunakan jenis khusus untuk memantau siklus proses interaksi dan melacak langkah-langkah eksekusi di sepanjang linimasa.
+また、ストリーミング イベントでは、特殊な型を使用してインタラクションのライフサイクルをモニタリングし、タイムラインに沿って実行ステップを追跡します。
 
-### Sebelum (`generateContentStream`)
+### 移行前（`generateContentStream`）
 
-Dengan `generateContent`, Anda menggunakan aliran potongan respons.
+`generateContent` を使用すると、レスポンス チャンクのストリームを使用します。
 
 ### Python
 
@@ -1498,9 +1454,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### Setelah (Interactions API)
+### 移行後（Interactions API）
 
-Di Interactions API, streaming menggunakan Server-Sent Events (SSE) dan jenis delta khusus untuk merepresentasikan langkah-langkah eksekusi saat terjadi.
+Interactions API では、ストリーミングは Server-Sent Events（SSE）と特殊なデルタ型を使用して、実行ステップを発生時に表現します。
 
 ### Python
 
@@ -1510,7 +1466,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Tell me a story",
     stream=True,
 )
@@ -1531,7 +1487,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'Tell me a story',
     stream: true,
 });
@@ -1549,7 +1505,7 @@ for await (const event of stream) {
 
 ### REST
 
-# Contoh output aliran SSE
+# Example SSE stream output
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1570,13 +1526,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### Alat streaming dan panggilan fungsi
+### ストリーミング ツールと関数呼び出し
 
-Perilaku alat dalam aliran telah berubah secara signifikan dari `generateContent` untuk memberikan kontrol dan visibilitas yang lebih terperinci.
+ストリームでのツールの動作は、`generateContent` から大幅に変更され、よりきめ細かい制御と可視性が提供されるようになりました。
 
-#### Sebelum (`generateContent`)
+#### 移行前（`generateContent`）
 
-Dengan `generateContent`, panggilan fungsi streaming tiba lengkap dalam satu potongan. Anda tidak dapat melihat argumen yang dibuat secara real-time, sehingga pengendali hanya memeriksa objek `functionCall` yang lengkap.
+`generateContent` では、ストリーミング関数呼び出しは 1 つのチャンクで完了しました。引数がリアルタイムで生成されるのを確認できなかったため、ハンドラは完全な `functionCall` オブジェクトを確認するだけでした。
 
 ### Python
 
@@ -1615,7 +1571,6 @@ const stream = await client.models.generateContentStream({
 });
 
 for await (const chunk of stream) {
-    // Function calls arrived complete — no partial arguments
     const part = chunk.candidates[0].content.parts[0];
     if (part.functionCall) {
         console.log(`Call: ${part.functionCall.name}(${JSON.stringify(part.functionCall.args)})`);
@@ -1641,9 +1596,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### Setelah (Interactions API)
+#### 移行後（Interactions API）
 
-Interactions API melakukan streaming argumen panggilan fungsi karakter demi karakter sebagai peristiwa `arguments`. Seluruh siklus proses alat — pemikiran, panggilan, hasil, dan output — berjalan sebagai serangkaian langkah terpisah.
+Interactions API は、関数呼び出し引数を `arguments` イベントとして文字単位でストリーミングします。思考、呼び出し、結果、出力など、ツール ライフサイクル全体が、一連の個別のステップとして実行されます。
 
 ### Python
 
@@ -1653,7 +1608,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What's the weather in Boston?",
     tools=[get_weather_tool],
     stream=True,
@@ -1680,7 +1635,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: "What's the weather in Boston?",
     tools: [getWeatherTool],
     stream: true,
@@ -1711,7 +1666,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What'\''s the weather in Boston?",
     "tools": [{"type": "function", "name": "get_weather", "parameters": {"type": "object", "properties": {"location": {"type": "string"}}}}],
     "stream": true
@@ -1788,12 +1743,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-05-17 UTC.
+最終更新日 2026-05-19 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-17 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

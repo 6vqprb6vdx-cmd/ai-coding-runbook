@@ -1,109 +1,102 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=es-419
-fetched_at: 2026-05-18T13:03:54.507287+00:00
+source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=ko
+fetched_at: 2026-05-25T12:57:41.806425+00:00
 title: "Live API best practices \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Enviar comentarios
+의견 보내기
 
 # Live API best practices
 
-En esta guía, se abarcan las prácticas recomendadas que puedes seguir para optimizar el uso de la API de Live.
-Consulta la página [Comienza a usar la API de Live](https://ai.google.dev/gemini-api/docs/live?hl=es-419)
-para obtener una descripción general y un código de muestra para casos de uso comunes.
+이 가이드에서는 Live API 사용을 최적화하기 위해 따를 수 있는 권장사항을 설명합니다.
+일반적인 사용 사례의 개요 및 샘플 코드는 [Live API 시작하기](https://ai.google.dev/gemini-api/docs/live?hl=ko)
+페이지를 참고하세요.
 
-## Diseña instrucciones del sistema claras
+## 명확한 시스템 요청 사항 설계
 
-Para obtener el mejor rendimiento de la API de Live, te recomendamos que tengas un conjunto de instrucciones del sistema (IS) claramente definido que defina la personalidad del agente, las reglas conversacionales y las barreras de protección, en este orden.
+Live API를 최대한 활용하려면 에이전트 페르소나, 대화 규칙, 가드레일을 이 순서대로 정의하는 명확하게 정의된 시스템 요청 사항 집합 (SIs)이 있어야 합니다.
 
-Para obtener mejores resultados, separa cada agente en una IS distinta.
+최상의 결과를 얻으려면 각 에이전트를 별도의 SI로 분리하세요.
 
-1. **Especifica la personalidad del agente:** Proporciona detalles sobre el nombre, el rol y las características preferidas del agente. Si quieres especificar el acento, asegúrate de especificar también el idioma de resultado preferido (como un acento británico para un hablante de inglés).
-2. **Especifica las reglas conversacionales:** Coloca estas reglas en el orden en que esperas que siga el modelo. Delimita entre los elementos únicos de la conversación y los bucles conversacionales. Por ejemplo:
+1. **에이전트 페르소나 지정:** 에이전트의 이름, 역할, 선호하는 특징에 관한 세부정보를 제공합니다. 억양을 지정하려면 선호하는 출력 언어(예: 영어 화자의 경우 영국 억양)도 지정해야 합니다.
+2. **대화 규칙 지정:** 모델이 따라야 하는 순서대로 이러한 규칙을 입력합니다. 대화의 일회성 요소와 대화형 루프를 구분합니다. 예를 들면 다음과 같습니다.
 
-   - **Elemento único:** Recopila los detalles de un cliente una vez (como el nombre, la ubicación y el número de tarjeta de lealtad).
-   - **Bucle conversacional:** El usuario puede analizar recomendaciones, precios, devoluciones y entregas, y es posible que quiera pasar de un tema a otro. Informa al modelo que está bien participar en este bucle conversacional durante el tiempo que desee el usuario.
-3. **Especifica las llamadas a herramientas dentro de un flujo en oraciones distintas:** Por ejemplo, si un paso único para recopilar los detalles de un cliente requiere invocar una función `get_user_info`, puedes decir lo siguiente: *Tu primer paso es recopilar información del usuario. Primero, pídele al usuario que proporcione su nombre, ubicación y número de tarjeta de lealtad. Luego,
-   invoca `get_user_info` con estos detalles.*
-4. **Agrega las barreras de protección necesarias:** Proporciona las barreras de protección conversacionales generales que no quieres que haga el modelo. No dudes en proporcionar ejemplos específicos de si sucede *x*, quieres que el modelo haga *y*. Si aún no obtienes el nivel de precisión preferido, usa la palabra *inequívocamente* para guiar al modelo para que sea preciso.
+   - **일회성 요소:** 고객의 세부정보(예: 이름, 위치, 포인트 카드 번호)를 한 번 수집합니다.
+   - **대화형 루프:** 사용자는 추천, 가격, 반품, 배송에 대해 논의할 수 있으며 주제를 전환하고 싶어 할 수 있습니다. 사용자가 원하는 한 이 대화형 루프에 참여해도 된다고 모델에게 알립니다.
+3. **흐름 내에서 도구 호출을 별도의 문장으로 지정:** 예를 들어 고객 세부정보를 수집하는 일회성 단계에서 `get_user_info` 함수를 호출해야 하는 경우 다음과 같이 말할 수 있습니다. *첫 번째 단계는 사용자 정보를 수집하는 것입니다. 먼저 사용자에게 이름, 위치, 포인트 카드 번호를 제공해 달라고 요청합니다. 그런 다음 이러한 세부정보를 사용하여 `get_user_info`를 호출합니다.*
+4. **필요한 가드레일 추가:** 모델이 수행하지 않기를 바라는 일반적인 대화형 가드레일을 제공합니다. *x*가 발생하면 모델이 *y*를 수행하기를 바라는 구체적인 예시를 제공해도 됩니다. 여전히 원하는 수준의 정밀도를 얻지 못한다면 *분명하게*라는 단어를 사용하여 모델이 정확하도록 안내합니다.
 
-## Define las herramientas con precisión
+## 도구 정확하게 정의
 
-Cuando uses herramientas con la API de Live, sé específico en las definiciones de herramientas.
-Asegúrate de indicarle a Gemini en qué condiciones se debe invocar una llamada a herramienta. Para obtener más detalles, consulta [Definiciones de herramientas](#tool-definitions-example) en
-la sección de ejemplos.
+Live API에서 도구를 사용할 때는 도구 정의를 구체적으로 작성하세요.
+어떤 조건에서 도구 호출이 실행되어야 하는지 Gemini에게 명확하게 전달해야 합니다. 자세한 내용은 예시 섹션의 [도구 정의](#tool-definitions-example)를 참조하세요.
 
-## Elabora instrucciones efectivas
+## 효과적인 프롬프트 작성
 
-- **Usa instrucciones claras:** Proporciona ejemplos de lo que los modelos deben y no deben hacer en las instrucciones, y trata de limitar las instrucciones a una por personalidad o rol a la vez. En lugar de instrucciones largas de varias páginas, considera usar el encadenamiento de instrucciones. El modelo funciona mejor en tareas con llamadas a funciones únicas.
-- **Proporciona comandos e información iniciales:** La API de Live espera la entrada del usuario antes de responder. Para que la API de Live inicie la conversación, incluye una instrucción en la que se le pida que salude al usuario o que comience la conversación. Incluye información sobre el usuario para que la API de Live personalice ese saludo.
+- **명확한 프롬프트 사용:** 프롬프트에서 모델이 해야 하는 일과 하지 말아야 하는 일의 예시를 제공하고, 한 번에 페르소나 또는 역할당 하나의 프롬프트로 제한합니다. 길고 여러 페이지로 구성된 프롬프트 대신 프롬프트 체이닝을 사용하는 것이 좋습니다. 모델은 단일 함수 호출이 있는 태스크에서 가장 우수한 성능을 발휘합니다.
+- **시작 명령어와 정보 제공:** Live API는 응답하기 전에 사용자 입력을 기다립니다. Live API가 대화를 시작하도록 하려면 사용자에게 인사하거나 대화를 시작하라는 프롬프트를 포함합니다. Live API가 인사말을 맞춤설정할 수 있도록 사용자에 관한 정보를 포함합니다.
 
-## Especifica el idioma
+## 언어 지정
 
-Para obtener un rendimiento óptimo en `gemini-live-2.5-flash` en cascada de la API de Live, asegúrate de que el `language_code` de la API coincida con el idioma que habla el usuario.
+Live API 단계식 `gemini-live-2.5-flash`에서 최적의 성능을 얻으려면 API의 `language_code`가 사용자가 말하는 언어와 일치해야 합니다.
 
-Si se espera que el modelo responda en un idioma que no sea inglés, incluye lo siguiente como parte de las instrucciones del sistema:
+모델이 영어 이외의 언어로 응답해야 하는 경우 시스템 요청 사항에 다음을 포함하세요.
 
 ```
 RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 ```
 
-## Transmisión
+## 스트리밍
 
-Cuando implementes audio en tiempo real, sigue estas prácticas recomendadas:
+실시간 오디오를 구현할 때는 다음 권장사항을 따르세요.
 
-- **Tamaño del fragmento y latencia**: Envía audio en fragmentos de 20 ms a 40 ms.
-- **Control de interrupciones**: Cuando el usuario habla mientras el modelo responde,
-  el servidor envía un mensaje `server_content` con `"interrupted": true`. Debes descartar de inmediato el búfer de audio del cliente para evitar que el agente siga hablando sobre el usuario.
+- **청크 크기 및 지연 시간**: 오디오를 20ms~40ms 청크로 전송합니다.
+- **중단 처리**: 모델이 대답하는 동안 사용자가 말하면 서버는 `"interrupted": true`가 포함된 `server_content` 메시지를 전송합니다. 에이전트의 말이 사용자의 말과 겹치지 않도록 클라이언트 측 오디오 버퍼를 즉시 삭제해야 합니다.
 
-## Administración del contexto
+## 컨텍스트 관리
 
-Usa `ContextWindowCompressionConfig` para sesiones largas, ya que los tokens de audio nativos se acumulan rápidamente (aproximadamente 25 tokens por segundo de audio).
+기본 오디오 토큰이 빠르게 누적되므로(오디오 초당 약 25개 토큰) 긴 세션에는 `ContextWindowCompressionConfig`를 사용하세요.
 
-## Almacenamiento en búfer del cliente
+## 클라이언트 버퍼링
 
-No almacenes en búfer el audio de entrada de forma significativa (como 1 segundo) antes de enviarlo. Envía fragmentos pequeños (20 ms a 100 ms) para minimizar la latencia.
+전송하기 전에 입력 오디오를 크게(예: 1초) 버퍼링하지 마세요. 지연 시간을 최소화하기 위해 작은 청크(20ms~100ms)를 전송합니다.
 
-## Reproducción de muestras
+## 리샘플링
 
-Asegúrate de que tu aplicación cliente vuelva a muestrear la entrada del micrófono (a menudo, 44.1 kHz o 48 kHz) a 16 kHz antes de la transmisión.
+클라이언트 애플리케이션이 전송 전에 마이크 입력 (일반적으로 44.1kHz 또는 48kHz)을 16kHz로 리샘플링하는지 확인합니다.
 
-## Administración de las sesiones
+## 세션 관리
 
-Sigue estos lineamientos para controlar el ciclo de vida de la sesión y garantizar una experiencia del usuario confiable:
+세션 수명 주기를 처리하고 안정적인 사용자 환경을 보장하려면 다음 가이드라인을 따르세요.
 
-- **Habilita la compresión de la ventana de contexto:** Los tokens de audio se acumulan a aproximadamente 25 tokens por segundo. Sin compresión, las sesiones solo de audio se limitan a 15 minutos y las sesiones de audio y video a 2 minutos. Habilita
-  [la compresión de la ventana de contexto](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#context-window-compression)
-  para extender las sesiones a una duración ilimitada.
-- **Implementa la reanudación de la sesión:** Es posible que el servidor restablezca periódicamente la conexión WebSocket. Usa
-  [la reanudación de la sesión](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#session-resumption)
-  para volver a conectarte sin problemas sin perder el contexto. Conserva el token de reanudación más reciente de los mensajes `SessionResumptionUpdate` y pásalo como el controlador cuando vuelvas a conectarte. Los tokens de reanudación son válidos durante 2 horas después de que finaliza la última sesión.
-- **Controla los mensajes GoAway:** El servidor envía un
-  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#goaway-message)
-  antes de finalizar una conexión. Escucha este mensaje y usa el campo `timeLeft` para finalizar o volver a conectarte correctamente antes de que se cierre la conexión.
-- **Controla los indicadores generationComplete:** Usa el
-  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#generation-complete-message)
-  mensaje para saber cuándo el modelo terminó de generar una respuesta, de modo que tu
-  aplicación pueda actualizar su IU o continuar con la siguiente acción.
+- **컨텍스트 윈도우 압축 사용 설정:** 오디오 토큰은 초당 약 25개 토큰으로 누적됩니다. 압축이 없으면 오디오 전용 세션은 15분으로 제한되고 오디오-동영상 세션은 2분으로 제한됩니다. [컨텍스트 윈도우 압축을 사용 설정하여 세션을 무제한으로 연장합니다.](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko#context-window-compression)
+- **세션 재개 구현:** 서버는 WebSocket 연결을 주기적으로 재설정할 수 있습니다. [세션 재개를 사용하여 컨텍스트를 잃지 않고 원활하게 다시 연결합니다.](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko#session-resumption) `SessionResumptionUpdate` 메시지에서 최신 재개 토큰을 보관하고 다시 연결할 때 핸들로 전달합니다. 재개 토큰은 마지막 세션이 종료된 후 2시간 동안 유효합니다.
+- **GoAway 메시지 처리:** 서버는 연결을 종료하기 전에
+  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko#goaway-message) 메시지를
+  전송합니다. 이 메시지를 수신 대기하고 `timeLeft` 필드를 사용하여 연결이 닫히기 전에 정상적으로 래핑하거나 다시 연결합니다.
+- **generationComplete 신호 처리:** 모델이 응답 생성을 완료한 시점을 알 수 있도록
+  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko#generation-complete-message)
+  메시지를 사용하여
+  애플리케이션이 UI를 업데이트하거나 다음 작업을 진행할 수 있도록 합니다.
 
-Para obtener detalles sobre la implementación, consulta
-[Administración de las sesiones](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419).
+구현 세부정보는
+[세션 관리](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko)를 참고하세요.
 
-## Ejemplos
+## 예
 
-En este ejemplo, se combinan las prácticas recomendadas y los
-[lineamientos para el diseño de instrucciones del sistema](#system-instruction-guidelines) para
-guiar el rendimiento del modelo como asesor profesional.
+이 예시에서는 권장사항과
+[시스템 요청 사항 설계 가이드라인](#system-instruction-guidelines)을 결합하여
+모델이 커리어 코치로서의 성능을 발휘하도록 안내합니다.
 
 ```
 **Persona:**
@@ -155,10 +148,10 @@ Remember that your ultimate goal is to create a supportive environment for your
 clients to thrive.
 ```
 
-### Definiciones de herramientas
+### 도구 정의
 
-Este JSON define las funciones relevantes que se llaman en el ejemplo de asesor profesional.
-Para obtener mejores resultados cuando definas funciones, incluye sus nombres, descripciones, parámetros y condiciones de invocación.
+이 JSON은 커리어 코치 예시에서 호출되는 관련 함수를 정의합니다.
+함수를 정의할 때 최상의 결과를 얻으려면 이름, 설명, 파라미터, 호출 조건을 포함하세요.
 
 ```
 [
@@ -248,44 +241,44 @@ Para obtener mejores resultados cuando definas funciones, incluye sus nombres, d
 ]
 ```
 
-## Precios y facturación
+## 가격 책정 및 결제
 
-La API de Gemini Live se factura estrictamente según el uso de tokens. Debido a que la API de Live mantiene una sesión WebSocket persistente, la facturación sigue un modelo de capitalización basado en la ventana de contexto activa.
+Gemini Live API는 토큰 사용량에 따라 엄격하게 청구합니다. Live API는 영구 WebSocket 세션을 유지하므로 결제는 활성 컨텍스트 윈도우를 기반으로 하는 복리 모델을 따릅니다.
 
-### La ventana de contexto de la sesión (costos de capitalización)
+### 세션 컨텍스트 윈도우 (복리 비용)
 
-La API te cobra por turno por todos los tokens presentes en la ventana de contexto de la sesión. Un "turno" se define como una entrada del usuario y la respuesta correspondiente del modelo.
+API는 세션 컨텍스트 윈도우에 있는 모든 토큰에 대해 턴당 요금을 청구합니다. '턴'은 하나의 사용자 입력과 모델의 해당 응답으로 정의됩니다.
 
-- **Acumulación:** La ventana de contexto incluye tokens nuevos del turno actual, además de todos los tokens acumulados de turnos anteriores.
-- **Re-facturación:** Los tokens anteriores se vuelven a procesar y se registran en cada turno nuevo, hasta el tamaño de la ventana de contexto configurada. A medida que se alarga una sesión, aumenta el costo por turno porque se vuelve a procesar el historial conversacional.
+- **누적:** 컨텍스트 윈도우에는 현재 턴의 새 토큰과 이전 턴에서 누적된 모든 토큰이 포함됩니다.
+- **재청구:** 이전 토큰은 구성된 컨텍스트 윈도우 크기까지 각 새 턴에서 다시 처리되고 계산됩니다. 세션이 길어지면 대화 기록이 다시 처리되므로 턴당 비용이 증가합니다.
 
-### Tokens de audio y transcripciones
+### 오디오 토큰 및 스크립트
 
-La API de Live es multimodal de forma nativa. Conserva el historial conversacional como tokens de audio sin procesar para preservar el tono y los matices acústicos.
+Live API는 기본적으로 멀티모달입니다. 음향 뉘앙스와 톤을 보존하기 위해 대화 기록을 원시 오디오 토큰으로 유지합니다.
 
-- **Facturación de audio:** La API te factura los tokens de audio nativos acumulados a la tasa de entrada de audio estándar en cada turno.
-- **Recargo por transcripción:** Cuando se habilita la transcripción de audio a texto (`inputAudioTranscription` o `outputAudioTranscription`), la API cobra todos los tokens de texto generados para la transcripción a la tasa de salida de tokens de texto, además de los costos estándar de los tokens de audio.
+- **오디오 결제:** API는 모든 턴에서 표준 오디오 입력 요금으로 누적된 기본 오디오 토큰에 대해 청구합니다.
+- **스크립트 추가 요금:** 오디오-텍스트 스크립트가 사용 설정된 경우 (`inputAudioTranscription` 또는 `outputAudioTranscription`) API는 표준 오디오 토큰 비용 외에도 텍스트 토큰 출력 요금으로 스크립트 생성을 위해 생성된 모든 텍스트 토큰에 대해 청구합니다.
 
-### Administra los costos con límites de contexto
+### 컨텍스트 한도로 비용 관리
 
-Para evitar el crecimiento ilimitado de los costos en sesiones largas, configura el tamaño de la ventana de contexto con `contextWindowCompression`.
+긴 세션에서 무제한 비용 증가를 방지하려면 `contextWindowCompression`을 사용하여 컨텍스트 윈도우 크기를 구성하세요.
 
-Si estableces un activador de compresión (p.ej., 25,000 tokens) y una ventana deslizante (p.ej., 8,000 tokens), la API expulsa automáticamente los tokens más antiguos una vez que se alcanza el umbral. Luego, la API factura los turnos posteriores solo por el historial retenido, además de los tokens nuevos.
+압축 트리거 (예: 25,000개 토큰)와 슬라이딩 윈도우 (예: 8,000개 토큰)를 설정하면 API는 기준점에 도달하는 즉시 이전 토큰을 자동으로 삭제합니다. 그런 다음 API는 보관된 기록과 새 토큰에 대해서만 후속 턴에 청구합니다.
 
-### Modo de audio proactivo
+### 능동적 오디오 모드
 
-Cuando se habilita el modo de audio proactivo, los tokens de entrada se cobran durante todo el tiempo que la API de Live está escuchando, mientras que los tokens de salida solo se cobran cuando la API responde.
+능동적 오디오 모드가 사용 설정되면 Live API가 수신 대기하는 동안 입력 토큰에 요금이 청구되고 출력 토큰은 API가 응답할 때만 청구됩니다.
 
-- **Nota para Gemini 3.1:** El modo de audio proactivo no es compatible con `gemini-3.1-flash-live-preview`. Para este modelo, solo se te factura el audio cuando transmites activamente la entrada.
+- **Gemini 3.1 참고사항:** 능동적 오디오 모드는 `gemini-3.1-flash-live-preview`에서 지원되지 않습니다. 이 모델의 경우 입력을 적극적으로 스트리밍할 때만 오디오 요금이 청구됩니다.
 
-Para obtener información detallada sobre los precios, consulta la [página de precios de la API de Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419).
+자세한 가격 책정 정보는 [Gemini API 가격 책정 페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)를 참고하세요.
 
-Enviar comentarios
+의견 보내기
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última actualización: 2026-05-11 (UTC)
+최종 업데이트: 2026-05-11(UTC)
 
-¿Quieres brindar más información?
+의견을 전달하고 싶나요?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-11 (UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-11(UTC)"],[],[]]

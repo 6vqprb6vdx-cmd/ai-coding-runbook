@@ -1,30 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr
-fetched_at: 2026-05-18T13:09:49.847645+00:00
-title: "\u00d6ncelik \u00e7\u0131kar\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi
+fetched_at: 2026-05-25T12:58:25.015349+00:00
+title: "\u092a\u094d\u0930\u093e\u0925\u092e\u093f\u0915\u0924\u093e \u0915\u0947 \u0906\u0927\u093e\u0930 \u092a\u0930 \u0905\u0928\u0941\u092e\u093e\u0928 \u0932\u0917\u093e\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Geri bildirim gönderin
+सुझाव भेजें
 
-# Öncelik çıkarımı
+# प्राथमिकता के आधार पर अनुमान लगाना
 
-Gemini Priority API, daha düşük gecikme süresi ve en yüksek güvenilirlik gerektiren, işletme açısından kritik iş yükleri için tasarlanmış premium bir çıkarım katmanıdır. Bu katman, premium fiyat noktasında sunulur. Öncelikli katman trafiğine, standart API ve esnek katman trafiğine göre öncelik verilir.
+Gemini Priority API, अनुमान लगाने के लिए प्रीमियम लेवल का एपीआई है. इसे कारोबार के लिए ज़रूरी उन वर्कलोड के लिए डिज़ाइन किया गया है जिनके लिए कम इंतज़ार का समय और ज़्यादा भरोसेमंद परफ़ॉर्मेंस की ज़रूरत होती है. इसके लिए, प्रीमियम कीमत चुकानी पड़ती है. Priority लेवल के ट्रैफ़िक को, स्टैंडर्ड एपीआई और Flex लेवल के ट्रैफ़िक से ज़्यादा प्राथमिकता दी जाती है.
 
-Öncelikli çıkarım, GenerateContent API ve Interactions API uç noktalarında [2. ve 3. katman](https://ai.google.dev/gemini-api/docs/billing?hl=tr#about-billing) kullanıcıları tarafından kullanılabilir.
+GenerateContent API
+और Interactions API के एंडपॉइंट पर, [Tier 2 और Tier 3](https://ai.google.dev/gemini-api/docs/billing?hl=hi#about-billing) के उपयोगकर्ता, प्राथमिकता के साथ अनुमान लगाने की सुविधा का इस्तेमाल कर सकते हैं.
 
-## Öncelik özelliğini kullanma
+## प्राथमिकता के साथ अनुमान लगाने की सुविधा का इस्तेमाल करना
 
-Öncelik katmanını kullanmak için istek gövdesindeki `service_tier` alanını `priority` olarak ayarlayın. Alan atlanırsa varsayılan katman standarttır.
+Priority लेवल का इस्तेमाल करने के लिए, अनुरोध के मुख्य हिस्से में मौजूद `service_tier` फ़ील्ड को `priority` पर सेट करें. अगर फ़ील्ड को छोड़ दिया जाता है, तो डिफ़ॉल्ट लेवल स्टैंडर्ड होता है.
 
 ### Python
 
@@ -35,7 +36,7 @@ client = genai.Client()
 
 try:
     response = client.models.generate_content(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         contents="Triage this critical customer support ticket immediately.",
         config={"service_tier": "priority"},
     )
@@ -61,7 +62,7 @@ const ai = new GoogleGenAI({});
 async function main() {
   try {
       const result = await ai.models.generateContent({
-          model: "gemini-3-flash-preview",
+          model: "gemini-3.5-flash",
           contents: "Triage this critical customer support ticket immediately.",
           config: {serviceTier: "priority"},
       });
@@ -81,7 +82,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -103,7 +104,7 @@ func main() {
 
     resp, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3-flash-preview",
+        "gemini-3.5-flash",
         genai.Text("Triage this critical customer support ticket immediately."),
         &genai.GenerateContentConfig{
             ServiceTier: "priority",
@@ -125,7 +126,7 @@ func main() {
 ### REST
 
 ```
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GEMINI_API_KEY" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
 -H "Content-Type: application/json" \
 -d '{
   "contents": [{
@@ -135,80 +136,91 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
 }'
 ```
 
-## Öncelikli çıkarımın işleyiş şekli
+## प्राथमिकता के साथ अनुमान लगाने की सुविधा कैसे काम करती है
 
-Öncelikli çıkarım, istekleri yüksek önem dereceli bilgi işlem kuyruklarına yönlendirerek kullanıcıya yönelik uygulamalar için öngörülebilir ve hızlı performans sunar. Bu özelliğin temel mekanizması, dinamik sınırları aşan trafik için sunucu tarafında standart işleme sorunsuz bir şekilde geçiş yaparak isteği başarısız kılmak yerine uygulama kararlılığını sağlamaktır.
+प्राथमिकता के साथ अनुमान लगाने की सुविधा, अनुरोधों को ज़्यादा अहमियत वाली कंप्यूटिंग क्यू में भेजती है. इससे, उपयोगकर्ता के लिए बने ऐप्लिकेशन के लिए, अनुमान के मुताबिक और तेज़ परफ़ॉर्मेंस मिलती है. इसका मुख्य तरीका यह है कि डाइनैमिक सीमाओं से ज़्यादा ट्रैफ़िक होने पर, सर्वर-साइड पर स्टैंडर्ड प्रोसेसिंग पर डाउनग्रेड किया जाता है. इससे अनुरोध को अस्वीकार करने के बजाय, ऐप्लिकेशन की स्थिरता बनी रहती है.
 
-| Özellik | Öncelik | Standart | Yaratıcılığınızı | Toplu |
+| सुविधा | प्राथमिकता | स्टैंडर्ड | Flex | बैच |
 | --- | --- | --- | --- | --- |
-| **Fiyatlandırma** | Standart'tan% 75-100 daha fazla | Tam fiyat | %50 indirim | %50 indirim |
-| **Gecikme** | Saniye | Saniyelerden dakikalara | Dakikalar (1-15 dakika hedef) | En fazla 24 saat |
-| **Güvenilirlik** | Yüksek (tüy dökmeyen) | Yüksek / Biraz yüksek | En iyi sonuç (Sheddable) | Yüksek (işleme hızı için) |
-| **Arayüz** | Eşzamanlı | Eşzamanlı | Eşzamanlı | Eşzamansız |
+| **कीमत** | स्टैंडर्ड से 75-100% ज़्यादा | फ़ुल टिकट | 50% की छूट | 50% की छूट |
+| **Latency** | सेकंड | सेकंड से मिनट | मिनट (1–15 मिनट का टारगेट) | 24 घंटे तक |
+| **भरोसेमंद परफ़ॉर्मेंस** | ज़्यादा (इसे कम नहीं किया जा सकता) | ज़्यादा / मीडियम-ज़्यादा | बेस्ट-एफ़र्ट (इसे कम किया जा सकता है) | ज़्यादा (थ्रूपुट के लिए) |
+| **इंटरफ़ेस** | सिंक्रोनस | सिंक्रोनस | सिंक्रोनस | एसिंक्रोनस |
 
-### Temel avantajlar
+### मुख्य फ़ायदे
 
-- **Düşük gecikme**: Etkileşimli, kullanıcıya yönelik yapay zeka araçları için saniyelik yanıt süreleri sunacak şekilde tasarlanmıştır.
-- **Yüksek güvenilirlik**: Trafik en yüksek öncelik seviyesinde ele alınır ve kesinlikle bırakılmaz.
-- **Kontrollü azalma**: Dinamik sınırları aşan trafik artışları, başarısız olmak yerine işleme için otomatik olarak Standart katmanına düşürülür ve hizmet kesintileri önlenir.
-- **Kolaylık**: Standart ve Flex katmanlarıyla aynı senkron `generateContent` yöntemi kullanılır.
+- **कम इंतज़ार का समय**: इसे इंटरैक्टिव,
+  उपयोगकर्ता के लिए बने एआई टूल के लिए, सेकंड में जवाब देने के हिसाब से डिज़ाइन किया गया है.
+- **ज़्यादा भरोसेमंद परफ़ॉर्मेंस**: ट्रैफ़िक को सबसे ज़्यादा अहमियत दी जाती है और इसे
+  कम नहीं किया जा सकता.
+- **अनुकूल गिरावट**: डाइनैमिक सीमाओं से ज़्यादा ट्रैफ़िक बढ़ने पर, इसे प्रोसेस करने के लिए, स्टैंडर्ड लेवल पर अपने-आप डाउनग्रेड कर दिया जाता है.
+  इससे, सेवा में रुकावट नहीं आती.
+- **कम मुश्किल**: यह `generateContent` तरीके का इस्तेमाल,
+  स्टैंडर्ड और Flex लेवल की तरह ही करता है.
 
-### Kullanım alanları
+### इस्तेमाल के उदाहरण
 
-Öncelikli işleme, performans ve güvenilirliğin en önemli olduğu, işletme açısından kritik iş akışları için idealdir.
+प्राथमिकता के साथ प्रोसेसिंग, कारोबार के लिए ज़रूरी उन वर्कफ़्लो के लिए सबसे सही है जिनमें परफ़ॉर्मेंस और भरोसेमंद परफ़ॉर्मेंस सबसे अहम होती है.
 
-- **Etkileşimli yapay zeka uygulamaları**: Kullanıcıların premium ödeme yaptığı ve hızlı, tutarlı yanıtlar beklediği müşteri hizmetleri sohbet botları ve yardımcı pilotlar.
-- **Anlık karar motorları**: Canlı bilet önceliklendirme veya sahtekarlık tespiti gibi yüksek güvenilirlik ve düşük gecikme süresi gerektiren sistemler.
-- **Premium müşteri özellikleri**: Ücretli müşteriler için daha yüksek hizmet düzeyi hedefleri (SLO'lar) garanti etmesi gereken geliştiriciler.
+- **इंटरैक्टिव एआई ऐप्लिकेशन**: ग्राहक सेवा के चैटबॉट और कोपायलट. इनके लिए
+  उपयोगकर्ता प्रीमियम चुकाते हैं और उन्हें तेज़ और लगातार जवाब मिलने की उम्मीद होती है.
+- **रीयल-टाइम डिसिजन इंजन**: ऐसे सिस्टम जिनमें ज़्यादा भरोसेमंद और कम इंतज़ार के समय वाले
+  नतीजों की ज़रूरत होती है. जैसे, लाइव टिकट ट्राइएज या धोखाधड़ी का पता लगाना.
+- **प्रीमियम ग्राहकों के लिए सुविधाएं**: ऐसे डेवलपर जिन्हें पैसे चुकाने वाले ग्राहकों के लिए, बेहतर सर्विस
+  लेवल ऑब्जेक्टिव (एसएलओ) की गारंटी देनी होती है.
 
-### Hız sınırları
+### रेट लिमिट
 
-Öncelikli tüketim, [genel etkileşimli trafik hızı sınırlarına](https://aistudio.google.com/rate-limit?hl=tr) dahil edilse de kendi hız sınırlarına sahiptir. Öncelikli çıkarım için varsayılan sıklık sınırları **Model / Katman için standart sıklık sınırının 0,3 katıdır**.
+प्राथमिकता के साथ अनुमान लगाने की सुविधा के लिए, अलग से रेट लिमिट होती हैं. हालांकि, इसके इस्तेमाल को,
+[इंटरैक्टिव ट्रैफ़िक की कुल रेट लिमिट](https://aistudio.google.com/rate-limit?hl=hi) में गिना जाता है. प्राथमिकता के साथ अनुमान लगाने की सुविधा के लिए, डिफ़ॉल्ट रेट लिमिट **मॉडल / लेवल के लिए स्टैंडर्ड रेट लिमिट का 0.3 गुना** होती हैं
 
-### Kontrollü sürüm düşürme mantığı
+### अनुकूल डाउनग्रेड लॉजिक
 
-Yoğunluk nedeniyle öncelik sınırları aşılırsa taşma istekleri, 503 veya 429 hatasıyla başarısız olmak yerine **otomatik olarak ve sorunsuz bir şekilde** standart işleme düşürülür. Düşürülmüş istekler, öncelikli premium ücretiyle değil, standart ücretle faturalandırılır.
+अगर कंजेशन की वजह से, प्राथमिकता के साथ अनुमान लगाने की सुविधा की सीमाएं पार हो जाती हैं, तो ओवरफ़्लो वाले अनुरोधों को **अपने-आप और आसानी से** स्टैंडर्ड प्रोसेसिंग पर डाउनग्रेड कर दिया जाता है. ऐसा 503 या 429 गड़बड़ी के साथ अनुरोध को अस्वीकार करने के बजाय किया जाता है. डाउनग्रेड किए गए अनुरोधों के लिए, प्राथमिकता के साथ अनुमान लगाने की सुविधा की प्रीमियम दर के बजाय, स्टैंडर्ड दर से बिल भेजा जाता है.
 
-### Müşterinin sorumluluğu
+### क्लाइंट की ज़िम्मेदारी
 
-- **Yanıt izleme**: Geliştiriciler, isteklerin sık sık `x-gemini-service-tier`
-  düşürülüp düşürülmediğini tespit etmek için API yanıtındaki `standard` başlığını izlemelidir.
-- **Yeniden denemeler**: İstemciler, `DEADLINE_EXCEEDED` gibi standart hatalar için yeniden deneme mantığı/eksponansiyel geri yükleme uygulamalıdır.
+- **जवाब की निगरानी करना**: डेवलपर को एपीआई के जवाब में मौजूद `x-gemini-service-tier`
+  हेडर की निगरानी करनी चाहिए, ताकि यह पता लगाया जा सके कि अनुरोधों को बार-बार
+  `standard` पर डाउनग्रेड किया जा रहा है या नहीं.
+- **फिर से कोशिश करना**: क्लाइंट को
+  स्टैंडर्ड गड़बड़ियों के लिए, फिर से कोशिश करने का लॉजिक/एक्सपोनेंशियल बैकऑफ़ लागू करना होगा. जैसे, `DEADLINE_EXCEEDED`.
 
-## Fiyatlandırma
+## कीमत
 
-Öncelikli çıkarım, [standart API](https://ai.google.dev/gemini-api/docs/pricing?hl=tr)'den% 75-100 daha yüksek bir fiyata sahiptir ve jeton başına faturalandırılır.
+प्राथमिकता के साथ अनुमान लगाने की सुविधा की कीमत, [स्टैंडर्ड एपीआई](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) से 75-100% ज़्यादा होती है. इसके लिए, हर टोकन के हिसाब से बिल भेजा जाता है.
 
-## Desteklenen modeller
+## काम करने वाले मॉडल
 
-Aşağıdaki modellerde öncelikli çıkarım desteklenir:
+इन मॉडल पर, प्राथमिकता के साथ अनुमान लगाने की सुविधा काम करती है:
 
-| Model | Öncelik çıkarımı |
+| मॉडल | प्राथमिकता के साथ अनुमान लगाने की सुविधा |
 | --- | --- |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
-| [Gemini 3.1 Flash-Lite Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=tr) | ✔️ |
-| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | ✔️ |
-| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
-| [Gemini 3 Pro ile Görüntü Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=tr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite का प्रीव्यू](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=hi) | ✔️ |
+| [Gemini 3.1 Pro का प्रीव्यू](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
+| [Gemini 3 Flash का प्रीव्यू](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
+| [Gemini 3 Pro Image का प्रीव्यू](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=hi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
 
-## Sırada ne var?
+## आगे क्या करना है
 
-Gemini'ın diğer [çıkarım ve optimizasyon](https://ai.google.dev/gemini-api/docs/optimization?hl=tr) seçenekleri hakkında bilgi edinin:
+Gemini के अनुमान लगाने और ऑप्टिमाइज़ेशन के अन्य [विकल्पों](https://ai.google.dev/gemini-api/docs/optimization?hl=hi) के बारे में पढ़ें:
 
-- %50 maliyet azaltımı için [esnek çıkarım](https://ai.google.dev/gemini-api/docs/flex-inference?hl=tr).
-- 24 saat içinde eşzamansız işleme için [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr).
-- Giriş jetonu maliyetlerini azaltmak için [bağlam önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr).
+- [लागत में 50% की कमी के लिए, Flex के साथ अनुमान लगाने की सुविधा](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi).
+- [बैच एपीआई](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi), 24 घंटे के अंदर एसिंक्रोनस प्रोसेसिंग के लिए.
+- इनपुट टोकन की लागत कम करने के लिए, [कॉन्टेक्स्ट कैशिंग](https://ai.google.dev/gemini-api/docs/caching?hl=hi).
 
-Geri bildirim gönderin
+सुझाव भेजें
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Son güncelleme tarihi: 2026-05-13 UTC.
+आखिरी बार 2026-05-19 (UTC) को अपडेट किया गया.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-13 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-19 (UTC) को अपडेट किया गया."],[],[]]

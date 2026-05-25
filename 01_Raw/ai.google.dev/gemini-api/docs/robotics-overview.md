@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=vi
-fetched_at: 2026-05-18T13:07:20.444885+00:00
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he
+fetched_at: 2026-05-25T13:03:55.031924+00:00
 title: "Gemini Robotics-ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
 # Gemini Robotics-ER 1.6
 
-Gemini Robotics-ER 1.6 là một mô hình thị giác-ngôn ngữ (VLM) mang các khả năng của tác nhân AI của Gemini vào lĩnh vực robot học. Mô hình này được thiết kế để suy luận nâng cao trong thế giới thực, cho phép robot diễn giải dữ liệu hình ảnh phức tạp, thực hiện suy luận không gian và lập kế hoạch hành động từ các lệnh bằng ngôn ngữ tự nhiên.
+‫Gemini Robotics-ER 1.6 הוא מודל ראייה ושפה (VLM) שמביא את יכולות ה-AI האקטיבי של Gemini לרובוטיקה. הוא מיועד לחשיבה רציונלית משופרת בעולם הפיזי, ומאפשר לרובוטים לפרש נתונים חזותיים מורכבים, לבצע חשיבה רציונלית מרחבית ולתכנן פעולות מפקודות בשפה טבעית.
 
-Xin lưu ý rằng nếu đang sử dụng Gemini Robotics-ER 1.5, bạn có thể bắt đầu sử dụng mô hình 1.6 bằng cách thay thế tên mô hình từ `model="gemini-robotics-er-1.5-preview"` thành `model="gemini-robotics-er-1.6-preview"` trong lệnh gọi API.
+שימו לב: אם השתמשתם ב-Gemini Robotics-ER 1.5, אתם יכולים להתחיל להשתמש במודל 1.6 על ידי החלפת שם המודל מ-`model="gemini-robotics-er-1.5-preview"` ל-`model="gemini-robotics-er-1.6-preview"` בקריאה ל-API.
 
-Các tính năng và lợi ích chính:
+התכונות והיתרונות העיקריים:
 
-- **Khả năng tự chủ nâng cao:** Robot có thể suy luận, thích ứng và phản hồi những thay đổi trong môi trường mở.
-- **Tương tác bằng ngôn ngữ tự nhiên:** Giúp người dùng dễ dàng sử dụng robot hơn bằng cách cho phép giao các nhiệm vụ phức tạp bằng ngôn ngữ tự nhiên.
-- **Điều phối tác vụ:** Phân tích các lệnh bằng ngôn ngữ tự nhiên thành các tác vụ phụ và tích hợp với các bộ điều khiển cũng như hành vi hiện có của robot để hoàn thành các tác vụ dài hạn.
-- **Khả năng linh hoạt:** Định vị và xác định các đối tượng, hiểu mối quan hệ giữa các đối tượng, lập kế hoạch nắm bắt và quỹ đạo, đồng thời diễn giải các cảnh động.
+- **אוטונומיה משופרת:** רובוטים יכולים להסיק מסקנות, להסתגל ולתת מענה לשינויים בסביבות פתוחות.
+- **אינטראקציה בשפה טבעית:** מאפשרת להשתמש ברובוטים בקלות רבה יותר על ידי הקצאת משימות מורכבות באמצעות שפה טבעית.
+- **תיאום משימות:** פירוק פקודות בשפה טבעית למשימות משנה ושילוב עם בקרי רובוטים והתנהגויות קיימים כדי להשלים משימות ארוכות טווח.
+- **יכולות מגוונות:** איתור וזיהוי של אובייקטים, הבנה של קשרי גומלין בין אובייקטים, תכנון של תפיסות ומסלולים ופירוש של סצנות דינמיות.
 
-Tài liệu này mô tả [những việc mà mô hình này có thể làm](#how-it-works) và giới thiệu cho bạn một số [ví dụ](#standard-spatial-reasoning) minh hoạ các khả năng của tác nhân AI của mô hình này.
+במסמך הזה מוסבר [מה המודל עושה](#how-it-works) ומוצגות כמה [דוגמאות](#standard-spatial-reasoning) שממחישות את יכולות ה-AI האקטיבי של המודל.
 
-Nếu muốn bắt đầu ngay, bạn có thể dùng thử mô hình này trong Google AI Studio.
+אם אתם רוצים להתחיל מיד, אתם יכולים לנסות את המודל ב-Google AI Studio.
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=vi)
+[לניסיון ב-Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=he)
 
-## An toàn
+## בטיחות
 
-Mặc dù Gemini Robotics-ER 1.6 được xây dựng với mục tiêu đảm bảo an toàn, nhưng bạn vẫn phải có trách nhiệm duy trì một môi trường an toàn xung quanh robot. Các mô hình AI tạo sinh có thể mắc lỗi và robot thực có thể gây hư hỏng. An toàn là ưu tiên hàng đầu và việc đảm bảo an toàn cho các mô hình AI tạo sinh khi sử dụng với robot trong thế giới thực là một lĩnh vực nghiên cứu quan trọng và đang được chúng tôi tích cực triển khai. Để tìm hiểu thêm, hãy truy cập vào [trang an toàn về robot của Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=vi).
+‫Gemini Robotics-ER 1.6 פותח תוך הקפדה על בטיחות, אבל האחריות לשמירה על סביבה בטוחה סביב הרובוט היא שלכם. מודלים של AI גנרטיבי עלולים לטעות, ורובוטים פיזיים עלולים לגרום נזק. הבטיחות היא בראש סדר העדיפויות שלנו, ואנחנו מקדישים מאמצים רבים למחקר בתחום של שימוש בטוח במודלים של AI גנרטיבי ברובוטיקה בעולם האמיתי. מידע נוסף זמין ב[דף הבטיחות של Google DeepMind בנושא רובוטיקה](https://deepmind.google/models/gemini-robotics/safety?hl=he).
 
-## Bắt đầu: Tìm các đối tượng trong một cảnh
+## תחילת העבודה: איתור אובייקטים בסצנה
 
-Ví dụ sau đây minh hoạ một trường hợp sử dụng phổ biến trong lĩnh vực robot học. Ví dụ này cho thấy cách truyền một hình ảnh và một câu lệnh văn bản đến mô hình bằng phương thức [`generateContent`](https://ai.google.dev/api/generate-content?hl=vi#method:-models.generatecontent) để nhận danh sách các đối tượng được nhận dạng cùng với các điểm 2D tương ứng.
-Mô hình này trả về các điểm cho những mục mà mô hình xác định được trong một hình ảnh, trả về nhãn và toạ độ 2D được chuẩn hoá của các mục đó.
+בדוגמה הבאה מוצג תרחיש שימוש נפוץ ברובוטיקה. הדוגמה מראה איך להעביר תמונה והנחיית טקסט למודל באמצעות השיטה [`generateContent`](https://ai.google.dev/api/generate-content?hl=he#method:-models.generatecontent) כדי לקבל רשימה של אובייקטים מזוהים עם הנקודות הדו-ממדיות התואמות שלהם.
+המודל מחזיר נקודות לפריטים שהוא זיהה בתמונה, ומחזיר את הקואורדינטות הדו-ממדיות והתוויות המנורמלות שלהם.
 
-Bạn có thể sử dụng đầu ra này với một API robot hoặc gọi một mô hình hành động bằng ngôn ngữ thị giác (VLA) hoặc bất kỳ hàm do người dùng xác định nào khác của bên thứ ba để tạo hành động cho robot thực hiện.
+אפשר להשתמש בפלט הזה עם API של רובוטיקה, או להפעיל מודל של ראייה-שפה-פעולה (VLA) או כל פונקציה אחרת שמוגדרת על ידי המשתמש של צד שלישי כדי ליצור פעולות לביצוע על ידי רובוט.
 
 ### Python
 
@@ -119,7 +119,7 @@ curl -X POST \
   }'
 ```
 
-Đầu ra sẽ là một mảng JSON chứa các đối tượng, mỗi đối tượng có một `point` (toạ độ `[y, x]` được chuẩn hoá) và một `label` xác định đối tượng.
+הפלט יהיה מערך JSON שמכיל אובייקטים, שלכל אחד מהם יש `point` (קואורדינטות `[y, x]` מנורמלות) ו-`label` שמזהה את האובייקט.
 
 ### JSON
 
@@ -138,43 +138,43 @@ curl -X POST \
 ]
 ```
 
-Hình ảnh sau đây là một ví dụ về cách hiển thị các điểm này:
+התמונה הבאה היא דוגמה לאופן שבו אפשר להציג את הנקודות האלה:
 
-![Ví dụ minh hoạ các điểm của đối tượng trong hình ảnh](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=vi)
+![דוגמה שמציגה את הנקודות של אובייקטים בתמונה](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=he)
 
-## Cách hoạt động
+## איך זה עובד
 
-Gemini Robotics-ER 1.6 cho phép robot của bạn đưa ra bối cảnh và hoạt động trong thế giới thực bằng cách sử dụng khả năng hiểu biết về không gian. Công cụ này nhận đầu vào là hình ảnh/video/âm thanh và câu lệnh bằng ngôn ngữ tự nhiên để:
+‫Gemini Robotics-ER 1.6 מאפשר לרובוטים שלכם להבין את ההקשר ולעבוד בעולם הפיזי באמצעות הבנה מרחבית. הוא מקבל קלט של תמונות, סרטונים או אודיו, וגם הנחיות בשפה טבעית, כדי:
 
-- **Hiểu được các đối tượng và bối cảnh của cảnh**: Xác định các đối tượng và lý do về mối quan hệ của các đối tượng đó với cảnh, bao gồm cả khả năng tương tác của các đối tượng.
-- **Hiểu hướng dẫn về nhiệm vụ**: Diễn giải các nhiệm vụ được giao bằng ngôn ngữ tự nhiên, chẳng hạn như "tìm quả chuối".
-- **Lý luận về không gian và thời gian**: Hiểu rõ trình tự hành động và cách các đối tượng tương tác với một cảnh theo thời gian.
-- **Cung cấp đầu ra có cấu trúc**: Trả về toạ độ (điểm hoặc khung hình chữ nhật) biểu thị vị trí của đối tượng.
+- **הבנת אובייקטים והקשר של הסצנה**: זיהוי אובייקטים והסבר על הקשר שלהם לסצנה, כולל האפשרויות שהם מציעים.
+- **הבנת הוראות למשימות**: פירוש משימות שניתנות בשפה טבעית, כמו "תמצא את הבננה".
+- **הסקת מסקנות מרחבית וזמנית**: הבנת רצפים של פעולות ואיך אובייקטים מקיימים אינטראקציה עם סצנה לאורך זמן.
+- **יצירת פלט מובנה**: מחזירה קואורדינטות (נקודות או תיבות תוחמות) שמייצגות מיקומי אובייקטים.
 
-Điều này cho phép robot "nhìn" và "hiểu" môi trường của chúng theo cách có lập trình.
+כך רובוטים יכולים "לראות" את הסביבה שלהם ו "להבין" אותה באופן פרוגרמטי.
 
-Gemini Robotics-ER 1.6 cũng có khả năng hoạt động như một tác nhân, tức là có thể chia nhỏ các nhiệm vụ phức tạp (như "đặt quả táo vào bát") thành các nhiệm vụ phụ để điều phối các nhiệm vụ trong thời gian dài:
+‫Gemini Robotics-ER 1.6 הוא גם סוכן, כלומר הוא יכול לפרק משימות מורכבות (כמו "שים את התפוח בקערה") למשימות משנה כדי לתזמן משימות ארוכות טווח:
 
-- **Sắp xếp các bước của lệnh**: Phân tách các lệnh thành một trình tự hợp lý gồm các bước.
-- **Lệnh gọi hàm/Thực thi mã**: Thực thi các bước bằng cách gọi các hàm/công cụ hiện có của robot hoặc thực thi mã được tạo.
+- **חלוקת משימות משנה לרצף**: פירוק פקודות לרצף לוגי של שלבים.
+- **קריאות לפונקציות/ביצוע קוד**: ביצוע שלבים באמצעות קריאה לפונקציות/כלים קיימים של הרובוט או ביצוע קוד שנוצר.
 
-Đọc thêm về cách tính năng gọi hàm hoạt động với Gemini trên [trang Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=vi#how-it-works).
+מידע נוסף על בקשות להפעלת פונקציות באמצעות Gemini זמין [בדף בנושא בקשות להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=he#how-it-works).
 
-### Sử dụng ngân sách tư duy với Gemini Robotics-ER 1.6
+### שימוש בתקציב החשיבה עם Gemini Robotics-ER 1.6
 
-Gemini Robotics-ER 1.6 có ngân sách tư duy linh hoạt, cho phép bạn kiểm soát sự đánh đổi giữa độ trễ và độ chính xác. Đối với các tác vụ hiểu không gian như phát hiện đối tượng, mô hình có thể đạt được hiệu suất cao với ngân sách suy nghĩ nhỏ. Các nhiệm vụ suy luận phức tạp hơn như đếm và ước tính trọng lượng sẽ được hưởng lợi từ ngân sách tư duy lớn hơn. Điều này giúp bạn cân bằng nhu cầu về phản hồi có độ trễ thấp với kết quả có độ chính xác cao cho các tác vụ khó hơn.
+ל-Gemini Robotics-ER 1.6 יש תקציב גמיש של חשיבה שמאפשר לכם לשלוט בפשרות בין זמן האחזור לבין הדיוק. במשימות של הבנה מרחבית כמו זיהוי אובייקטים, המודל יכול להשיג ביצועים גבוהים עם תקציב חשיבה קטן. משימות מורכבות יותר של הסקת מסקנות, כמו ספירה ואומדן משקל, נהנות מתקציב חשיבה גדול יותר. כך תוכלו לאזן בין הצורך בתשובות עם זמן אחזור נמוך לבין תוצאות מדויקות מאוד למשימות מורכבות יותר.
 
-Để tìm hiểu thêm về ngân sách tư duy, hãy xem trang [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) về các chức năng cốt lõi.
+מידע נוסף על תקציבים זמין בדף [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he).
 
-## Khả năng suy luận không gian tiêu chuẩn
+## חשיבה מרחבית רגילה
 
-Các ví dụ sau đây minh hoạ các nhiệm vụ về **nhận thức của robot** và suy luận không gian bằng cách sử dụng câu lệnh bằng ngôn ngữ tự nhiên, từ việc chỉ và tìm vật thể trong hình ảnh đến lập kế hoạch cho quỹ đạo. Để đơn giản hoá, các đoạn mã trong những ví dụ này đã được rút gọn để chỉ hiển thị câu lệnh và lệnh gọi đến API `generate_content`.
+בדוגמאות הבאות מוצגות משימות של **תפיסה רובוטית** ושל חשיבה מרחבית באמצעות הנחיות בשפה טבעית, החל מהצבעה על אובייקטים בתמונה ומציאת אובייקטים בתמונה ועד לתכנון מסלולים. כדי לפשט את הדברים, קטעי הקוד בדוגמאות האלה צומצמו כך שיוצגו רק ההנחיה והקריאה ל-API של `generate_content`.
 
-Bạn có thể tìm thấy mã có thể chạy đầy đủ cũng như các ví dụ khác trong [Sổ tay về robot học](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+קוד מלא שניתן להפעלה ודוגמאות נוספות זמינים ב[ספר המתכונים בנושא רובוטיקה](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-### Chỉ vào vật thể
+### הצבעה על אובייקטים
 
-Chỉ và tìm vật thể trong hình ảnh hoặc khung hình video là một trường hợp sử dụng phổ biến đối với các mô hình thị giác và ngôn ngữ (VLM) trong ngành robot học. Ví dụ sau đây yêu cầu mô hình tìm các đối tượng cụ thể trong một hình ảnh và trả về toạ độ của các đối tượng đó.
+הצבעה על אובייקטים ומציאת אובייקטים בתמונות או בפריים של סרטונים הם תרחישי שימוש נפוצים במודלים של ראייה ושפה (VLMs) ברובוטיקה. בדוגמה הבאה, המודל מתבקש למצוא אובייקטים ספציפיים בתמונה ולהחזיר את הקואורדינטות שלהם.
 
 ### Python
 
@@ -222,7 +222,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Đầu ra sẽ tương tự như ví dụ về cách bắt đầu, một tệp JSON chứa toạ độ của các đối tượng được tìm thấy và nhãn của các đối tượng đó.
+הפלט יהיה דומה לדוגמה של תחילת העבודה, קובץ JSON שמכיל את הקואורדינטות של האובייקטים שנמצאו ואת התוויות שלהם.
 
 ```
 [
@@ -236,9 +236,9 @@ print(image_response.text)
 ]
 ```
 
-![Ví dụ minh hoạ các điểm của vật thể được nhận dạng trong hình ảnh](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=vi)
+![דוגמה שבה מוצגות הנקודות של אובייקטים שזוהו בתמונה](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=he)
 
-Sử dụng câu lệnh sau để yêu cầu mô hình diễn giải các danh mục trừu tượng như "trái cây" thay vì các đối tượng cụ thể và xác định vị trí của tất cả các thực thể trong hình ảnh.
+משתמשים בהנחיה הבאה כדי לבקש מהמודל לפרש קטגוריות מופשטות כמו 'פרי' במקום אובייקטים ספציפיים, ולאתר את כל המקרים בתמונה.
 
 ### Python
 
@@ -251,13 +251,13 @@ prompt = f"""
         [y, x] format normalized to 0-1000."""
 ```
 
-Truy cập vào trang [hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi) để biết các kỹ thuật xử lý hình ảnh khác.
+ב[דף בנושא הבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he) אפשר למצוא טכניקות נוספות לעיבוד תמונות.
 
-### Theo dõi đối tượng trong video
+### מעקב אחרי אובייקטים בסרטון
 
-Gemini Robotics-ER 1.6 cũng có thể phân tích các khung hình video để theo dõi các đối tượng theo thời gian. Hãy xem phần [Đầu vào video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#supported-formats) để biết danh sách các định dạng video được hỗ trợ.
+‫Gemini Robotics-ER 1.6 יכול גם לנתח פריים של סרטונים כדי לעקוב אחרי אובייקטים לאורך זמן. רשימה של פורמטים נתמכים של וידאו זמינה במאמר בנושא [קלט וידאו](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he#supported-formats).
 
-Sau đây là câu lệnh cơ bản được dùng để tìm các đối tượng cụ thể trong mỗi khung hình mà mô hình phân tích:
+זוהי הנחיית הבסיס שמשמשת למציאת אובייקטים ספציפיים בכל פריים שהמודל מנתח:
 
 ### Python
 
@@ -281,17 +281,17 @@ base_prompt = f"""
   """
 ```
 
-Đầu ra cho thấy một cây bút và máy tính xách tay đang được theo dõi trên các khung hình video.
+הפלט מראה עט ומחשב נייד במעקב לאורך פריים הסרטון.
 
-![Ví dụ minh hoạ các đối tượng được theo dõi qua các khung hình trong ảnh GIF](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=vi)
+![דוגמה שבה רואים אובייקטים במעקב דרך פריימים בקובץ GIF](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=he)
 
-Để xem mã có thể chạy đầy đủ, hãy xem [Sổ tay về robot học](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+קוד מלא שאפשר להריץ מופיע ב[ספר המתכונים בנושא רובוטיקה](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-### Phát hiện vật thể và khung hình chữ nhật
+### זיהוי אובייקטים ותיבות תוחמות
 
-Ngoài các điểm đơn lẻ, mô hình này cũng có thể trả về các khung hình chữ nhật 2D, cung cấp một vùng hình chữ nhật bao quanh một đối tượng.
+בנוסף לנקודות בודדות, המודל יכול גם להחזיר תיבות תוחמות דו-ממדיות, שמספקות אזור מלבני שמקיף אובייקט.
 
-Ví dụ này yêu cầu hộp giới hạn 2D cho các đối tượng có thể nhận dạng trên một chiếc bàn. Mô hình được hướng dẫn giới hạn đầu ra ở 25 đối tượng và đặt tên riêng cho nhiều thực thể.
+בדוגמה הזו מבוקשות תיבות תוחמות דו-ממדיות לאובייקטים שניתן לזהות על שולחן. המודל מקבל הוראה להגביל את הפלט ל-25 אובייקטים ולתת שם ייחודי לכמה מקרים.
 
 ### Python
 
@@ -334,18 +334,18 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Sau đây là các hộp được trả về từ mô hình.
+בתמונה הבאה מוצגות התיבות שהוחזרו מהמודל.
 
-![Ví dụ minh hoạ các hộp giới hạn cho những đối tượng được tìm thấy](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=vi)
+![דוגמה להצגת תיבות תוחמות לאובייקטים שנמצאו](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=he)
 
-Để xem toàn bộ mã có thể chạy, hãy xem [Sổ tay về Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
-Trang [Hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi) cũng có các ví dụ khác về những tác vụ trực quan như phát hiện đối tượng và ví dụ về khung hình chữ nhật.
+קוד מלא שניתן להרצה מופיע ב[ספר המתכונים בנושא רובוטיקה](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+בדף [Image understanding](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he) יש גם דוגמאות נוספות למשימות ויזואליות כמו זיהוי אובייקטים ודוגמאות לתיבות תוחמות.
 
-### Quỹ đạo
+### מסלולים
 
-Gemini Robotics-ER 1.6 có thể tạo ra các chuỗi điểm xác định quỹ đạo, hữu ích cho việc hướng dẫn chuyển động của robot.
+‫Gemini Robotics-ER 1.6 יכול ליצור רצפים של נקודות שמגדירות מסלול, וזה שימושי להנחיית תנועת הרובוט.
 
-Ví dụ này yêu cầu một quỹ đạo để di chuyển bút đỏ đến một ngăn chứa, bao gồm cả điểm xuất phát và một loạt điểm trung gian.
+בדוגמה הזו מבוקשת טרַקְטוֹרְיָה להזזת עט אדום למארגן, כולל נקודת ההתחלה וסדרה של נקודות ביניים.
 
 ### Python
 
@@ -387,7 +387,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Phản hồi là một tập hợp các toạ độ mô tả quỹ đạo của đường dẫn mà bút màu đỏ phải đi theo để hoàn thành nhiệm vụ di chuyển bút lên trên cùng của trình sắp xếp:
+התשובה היא קבוצת קואורדינטות שמתארות את המסלול של הנתיב שעט אדום צריך לעבור כדי להשלים את המשימה של העברתו מעל הארגונית:
 
 ```
 [
@@ -410,15 +410,15 @@ Phản hồi là một tập hợp các toạ độ mô tả quỹ đạo của 
 ]
 ```
 
-![Ví dụ cho thấy quỹ đạo dự kiến](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=vi)
+![דוגמה שמציגה את המסלול המתוכנן](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=he)
 
-## Khả năng của tác nhân AI
+## יכולות של AI אקטיבי
 
-Các ví dụ sau đây minh hoạ **khả năng suy luận nâng cao của robot** bằng cách sử dụng các khả năng của tác nhân AI của mô hình, cụ thể là **khả năng thực thi mã**. Trong những trường hợp này, mô hình có thể quyết định viết và thực thi mã Python để thao tác với hình ảnh (chẳng hạn như phóng to, cắt hoặc xoay) nhằm giải quyết sự mơ hồ hoặc cải thiện độ chính xác trước khi trả lời.
+בדוגמאות הבאות מוצגות יכולות מתקדמות של **חשיבה רציונלית רובוטית** באמצעות יכולות של AI אקטיבי של המודל, במיוחד **הרצת קוד**. במקרים כאלה, המודל יכול להחליט לכתוב ולהריץ קוד Python כדי לערוך תמונות (למשל, להגדיל, לחתוך או לסובב אותן) כדי לפתור אי-בהירויות או לשפר את הדיוק לפני שהוא עונה.
 
-### Phát hiện vật thể (Thu phóng và cắt)
+### זיהוי אובייקטים (התקרבות וחיתוך)
 
-Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để thu phóng và cắt ảnh nhằm có chế độ xem rõ ràng hơn khi phát hiện các đối tượng và trả về các hộp giới hạn.
+בדוגמה הבאה אפשר לראות איך משתמשים בהרצת קוד כדי להגדיל ולחתוך תמונה לתצוגה ברורה יותר כשמזהים אובייקטים ומחזירים תיבות תוחמות.
 
 ### Python
 
@@ -457,7 +457,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Đầu ra của mô hình sẽ tương tự như sau:
+הפלט של המודל ייראה כך:
 
 ```
 [
@@ -469,13 +469,13 @@ print(response.text)
 ]
 ```
 
-Sau đây là các hộp được trả về từ mô hình.
+בתמונה הבאה מוצגות התיבות שהוחזרו מהמודל.
 
-![Ví dụ minh hoạ các hộp giới hạn cho những đối tượng được tìm thấy](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=vi)
+![דוגמה להצגת תיבות תוחמות לאובייקטים שנמצאו](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=he)
 
-### Đọc đồng hồ đo analog và áp dụng logic
+### קריאת מד אנלוגי ויישום לוגיקה
 
-Ví dụ sau đây minh hoạ cách sử dụng mô hình để đọc đồng hồ đo tương tự và thực hiện các phép tính thời gian. Công cụ này sử dụng một chỉ dẫn hệ thống để thực thi đầu ra JSON.
+הדוגמה הבאה מדגימה איך להשתמש במודל כדי לקרוא מד אנלוגי ולבצע חישובי זמן. היא משתמשת בהוראת מערכת כדי לאכוף פלט JSON.
 
 ### Python
 
@@ -512,11 +512,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Sau đây là một ví dụ về dữ liệu đầu vào hình ảnh.
+זוהי דוגמה לקלט של תמונה.
 
-![Ví dụ minh hoạ một chiếc đồng hồ để đọc](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=vi)
+![דוגמה שמציגה שעון לקריאה](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=he)
 
-Đầu ra của mô hình sẽ tương tự như sau:
+הפלט של המודל ייראה כך:
 
 ```
 Time Response:  {
@@ -525,9 +525,9 @@ Time Response:  {
  }
 ```
 
-### Đo chất lỏng trong một hộp đựng
+### מדידת נוזל במיכל
 
-Ví dụ sau đây cho biết cách sử dụng tính năng thực thi mã để đọc đồng hồ đo và tính toán mức chất lỏng theo tỷ lệ phần trăm.
+בדוגמה הבאה אפשר לראות איך משתמשים בהרצת קוד כדי לקרוא מדד ולחשב את מפלס הנוזל באחוזים.
 
 ### Python
 
@@ -567,13 +567,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Sau đây là hình ảnh đầu vào được phóng to.
+זוהי תמונה מוגדלת של הקלט.
 
-![Ví dụ minh hoạ một chiếc đồng hồ để đọc](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=vi)
+![דוגמה שמציגה שעון לקריאה](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=he)
 
-### Đọc các dấu hiệu trên bảng mạch
+### קריאת סימונים בלוח מעגלים
 
-Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để đọc văn bản trên một vi mạch bảng mạch, cho phép mô hình thu phóng, cắt và xoay hình ảnh khi cần.
+בדוגמה הבאה אפשר לראות איך משתמשים בהרצת קוד כדי לקרוא טקסט בשבב של לוח מעגלים, וכך המודל יכול לבצע זום, לחתוך ולסובב את התמונה לפי הצורך.
 
 ### Python
 
@@ -607,13 +607,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Sau đây là hình ảnh đầu vào được phóng to.
+זוהי תמונה מוגדלת של הקלט.
 
-![Ví dụ minh hoạ một chiếc đồng hồ để đọc](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=vi)
+![דוגמה שמציגה שעון לקריאה](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=he)
 
-### Chú thích hình ảnh
+### הערה לתמונה
 
-Ví dụ sau đây minh hoạ cách sử dụng tính năng thực thi mã để chú thích một hình ảnh (ví dụ: vẽ mũi tên cho hướng dẫn xử lý) và trả về hình ảnh đã sửa đổi.
+בדוגמה הבאה אפשר לראות איך משתמשים בהרצת קוד כדי להוסיף הערות לתמונה (למשל, ציור של חצים להוראות סילוק) ולהחזיר את התמונה ששונתה.
 
 ### Python
 
@@ -651,11 +651,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Sau đây là một ví dụ về dữ liệu đầu vào hình ảnh.
+זוהי דוגמה לקלט של תמונה.
 
-![Ví dụ minh hoạ một chiếc đồng hồ để đọc](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=vi)
+![דוגמה שמציגה שעון לקריאה](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=he)
 
-Đầu ra của mô hình sẽ tương tự như sau:
+הפלט של המודל ייראה כך:
 
 ```
 The annotated image shows the suggested disposal locations for the items on the table:
@@ -664,13 +664,15 @@ The annotated image shows the suggested disposal locations for the items on the 
 - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Phối khí
+## תזמור
 
-Gemini Robotics-ER 1.6 có thể thực hiện **lập kế hoạch cho công việc** và suy luận không gian ở cấp độ cao hơn, suy luận các hành động hoặc xác định vị trí tối ưu dựa trên khả năng hiểu ngữ cảnh để điều phối các công việc trong thời gian dài.
+‫Gemini Robotics-ER 1.6 יכול לבצע **תכנון משימות** וחשיבה רציונלית מרחבית ברמה גבוהה יותר, להסיק פעולות או לזהות מיקומים אופטימליים על סמך הבנה הקשרית כדי לתזמן משימות לטווח ארוך.
 
-### Tạo không gian cho máy tính xách tay
+### מפנים מקום למחשב נייד
 
-Ví dụ này minh hoạ cách Gemini Robotics-ER có thể suy luận về một không gian. Câu lệnh yêu cầu mô hình xác định đối tượng nào cần được di chuyển để tạo khoảng trống cho một mục khác.
+בדוגמה הזו אפשר לראות איך Gemini Robotics-ER מנתח את המרחב. ההנחיה
+מבקשת מהמודל לזהות איזה אובייקט צריך להזיז כדי ליצור
+מקום לפריט אחר.
 
 ### Python
 
@@ -708,7 +710,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Phản hồi chứa toạ độ 2D của đối tượng trả lời câu hỏi của người dùng, trong trường hợp này, đối tượng cần di chuyển để nhường chỗ cho máy tính xách tay.
+התגובה מכילה קואורדינטה דו-ממדית של האובייקט שנותן מענה לשאלה של המשתמש. במקרה הזה, האובייקט שצריך להזיז כדי לפנות מקום למחשב נייד.
 
 ```
 [
@@ -716,11 +718,11 @@ Phản hồi chứa toạ độ 2D của đối tượng trả lời câu hỏi 
 ]
 ```
 
-![Ví dụ minh hoạ đối tượng cần di chuyển cho một đối tượng khác](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=vi)
+![דוגמה שמראה איזה אובייקט צריך להעביר כדי שאובייקט אחר](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=he)
 
-### Chuẩn bị bữa trưa
+### אריזת ארוחת צהריים
 
-Mô hình này cũng có thể cung cấp hướng dẫn cho các tác vụ nhiều bước và chỉ đến các đối tượng có liên quan cho từng bước. Ví dụ này cho thấy cách mô hình lên kế hoạch cho một loạt các bước để đóng gói một túi đựng bữa trưa.
+המודל יכול גם לספק הוראות למשימות מרובות שלבים ולהצביע על אובייקטים רלוונטיים לכל שלב. בדוגמה הזו אפשר לראות איך המודל מתכנן סדרה של שלבים לאריזת ארוחת צהריים בתיק.
 
 ### Python
 
@@ -759,13 +761,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-Câu trả lời cho câu lệnh này là một bộ hướng dẫn từng bước về cách đóng gói một túi đựng bữa trưa từ dữ liệu đầu vào là hình ảnh.
+התשובה להנחיה הזו היא סדרה של הוראות מפורטות לאריזת תיק לארוחת צהריים על סמך קלט התמונה.
 
-**Hình ảnh đầu vào**
+**תמונת קלט**
 
-![Hình ảnh hộp đựng bữa trưa và các vật phẩm cần bỏ vào hộp](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=vi)
+![תמונה של קופסת אוכל ופריטים שאפשר להכניס לתוכה](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=he)
 
-**Đầu ra của mô hình**
+**פלט המודל**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -788,15 +790,15 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-### Gọi một API robot tuỳ chỉnh
+### קריאה ל-API של רובוט מותאם אישית
 
-Ví dụ này minh hoạ việc điều phối tác vụ bằng một API robot tuỳ chỉnh. Thư viện này giới thiệu một API mô phỏng được thiết kế cho hoạt động chọn và đặt. Việc cần làm là nhặt một khối màu xanh dương và đặt vào một chiếc bát màu cam:
+בדוגמה הזו מוצגת תזמור משימות באמצעות API של רובוט בהתאמה אישית. הוא כולל API מדומה שנועד לפעולת הרמה והנחה. המשימה היא להרים קובייה כחולה ולהניח אותה בקערה בצבע כתום:
 
-![Hình ảnh khối và bát](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=vi)
+![תמונה של הבלוק והקערה](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=he)
 
-Tương tự như các ví dụ khác trên trang này, mã có thể chạy đầy đủ có trong [Sổ tay về robot](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+בדומה לדוגמאות האחרות בדף הזה, קוד מלא שניתן להפעלה זמין ב[ספר המתכונים בנושא רובוטיקה](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-Bước đầu tiên là xác định vị trí của cả hai mục bằng câu lệnh sau:
+השלב הראשון הוא לאתר את שני הפריטים באמצעות ההנחיה הבאה:
 
 ### Python
 
@@ -809,7 +811,7 @@ prompt = """
           """
 ```
 
-Phản hồi của mô hình bao gồm toạ độ được chuẩn hoá của khối và bát:
+התשובה של המודל כוללת את הקואורדינטות המנורמלות של הבלוק והקערה:
 
 ```
 [
@@ -818,7 +820,7 @@ Phản hồi của mô hình bao gồm toạ độ được chuẩn hoá của k
 ]
 ```
 
-Ví dụ này sử dụng API robot mô phỏng sau:
+בדוגמה הזו נעשה שימוש ב-API מדומה של רובוט:
 
 ### Python
 
@@ -833,7 +835,7 @@ def returnToOrigin():
   print("Returning to origin pose")
 ```
 
-Bước tiếp theo là gọi một chuỗi các hàm API với logic cần thiết để thực thi hành động. Câu lệnh sau đây bao gồm nội dung mô tả về API robot mà mô hình nên sử dụng khi điều phối tác vụ này.
+השלב הבא הוא הפעלת רצף של פונקציות API עם הלוגיקה הנדרשת לביצוע הפעולה. ההנחיה הבאה כוללת תיאור של ה-API של הרובוט שהמודל צריך להשתמש בו כדי לתזמן את המשימה הזו.
 
 ### Python
 
@@ -877,7 +879,7 @@ prompt = f"""
 """
 ```
 
-Sau đây là kết quả đầu ra có thể có của mô hình dựa trên câu lệnh và API robot mô phỏng. Đầu ra bao gồm quy trình suy nghĩ của mô hình và các nhiệm vụ mà mô hình đã lên kế hoạch. Nó cũng cho thấy đầu ra của các lệnh gọi hàm rô-bốt mà mô hình đã sắp xếp theo trình tự.
+בדוגמה הבאה מוצג פלט אפשרי של המודל על סמך ההנחיה ו-API של רובוט מדומה. הפלט כולל את תהליך החשיבה של המודל ואת המשימות שהוא תכנן כתוצאה מכך. מוצג גם הפלט של קריאות לפונקציות של הרובוט שהמודל יצר להן רצף.
 
 ```
 Reasoning: To perform the pick and place operation, I will first move the
@@ -977,71 +979,71 @@ moving to coordinates: -247, 90, 15
 Returning to origin pose
 ```
 
-## Các phương pháp hay nhất
+## שיטות מומלצות
 
-Để tối ưu hoá hiệu suất và độ chính xác của các ứng dụng robot, bạn cần phải hiểu cách tương tác hiệu quả với mô hình Gemini. Phần này trình bày các phương pháp hay nhất và chiến lược chính để tạo câu lệnh, xử lý dữ liệu trực quan và cấu trúc hoá các tác vụ nhằm đạt được kết quả đáng tin cậy nhất.
+כדי לבצע אופטימיזציה של הביצועים והדיוק של אפליקציות רובוטיקה, חשוב להבין איך ליצור אינטראקציה יעילה עם מודל Gemini. בקטע הזה מפורטות שיטות מומלצות ואסטרטגיות מרכזיות ליצירת הנחיות, לטיפול בנתונים חזותיים ולבניית משימות כדי להשיג את התוצאות הכי אמינות.
 
-1. Sử dụng ngôn từ rõ ràng và đơn giản.
+1. הקפידו על שפה ברורה ופשוטה.
 
-   - **Sử dụng ngôn ngữ tự nhiên**: Mô hình Gemini được thiết kế để hiểu ngôn ngữ tự nhiên, đàm thoại. Hãy xây dựng câu lệnh theo cách rõ ràng về mặt ngữ nghĩa và phản ánh cách một người sẽ tự nhiên đưa ra chỉ dẫn.
-   - **Sử dụng thuật ngữ hằng ngày**: Chọn ngôn ngữ thông thường, hằng ngày thay vì biệt ngữ kỹ thuật hoặc chuyên ngành. Nếu mô hình không phản hồi một thuật ngữ cụ thể như mong đợi, hãy thử diễn đạt lại bằng một từ đồng nghĩa phổ biến hơn.
-2. Tối ưu hoá dữ liệu đầu vào trực quan.
+   - **משתמשים בשפה טבעית**: מודל Gemini נועד להבין שפה טבעית, כמו בשיחה רגילה. כדאי לנסח את ההנחיות בצורה ברורה מבחינה סמנטית, שתשקף את האופן שבו אדם ייתן הוראות באופן טבעי.
+   - **שימוש בטרמינולוגיה יומיומית**: עדיף להשתמש בשפה יומיומית רגילה ולא בסלנג טכני או מקצועי. אם המודל לא מגיב למונח מסוים כמו שציפיתם, נסו לנסח אותו מחדש באמצעות מילה נרדפת נפוצה יותר.
+2. אופטימיזציה של הקלט החזותי.
 
-   - **Phóng to để xem chi tiết**: Khi xử lý các đối tượng nhỏ hoặc khó phân biệt trong một bức ảnh rộng, hãy dùng chức năng khung hình giới hạn để tách riêng đối tượng mà bạn quan tâm. Sau đó, bạn có thể cắt hình ảnh theo lựa chọn này và gửi hình ảnh mới, tập trung vào mô hình để phân tích chi tiết hơn.
-   - **Thử nghiệm với ánh sáng và màu sắc**: Cảm nhận của mô hình có thể bị ảnh hưởng bởi điều kiện ánh sáng khó khăn và độ tương phản màu kém.
-3. Chia nhỏ các vấn đề phức tạp thành các bước nhỏ hơn. Bằng cách giải quyết từng bước nhỏ riêng lẻ, bạn có thể hướng dẫn mô hình đạt được kết quả chính xác và thành công hơn.
-4. Cải thiện độ chính xác thông qua sự đồng thuận. Đối với những tác vụ đòi hỏi độ chính xác cao, bạn có thể truy vấn mô hình nhiều lần bằng cùng một câu lệnh. Bằng cách tính trung bình các kết quả trả về, bạn có thể đạt được "sự đồng thuận" thường chính xác và đáng tin cậy hơn.
+   - **הגדלת התצוגה כדי לראות פרטים**: כשמנתחים אובייקטים קטנים או שקשה להבחין בהם בצילום רחב, אפשר להשתמש בפונקציית תיבת תוחמת כדי לבודד את האובייקט הרצוי. אחר כך אפשר לחתוך את התמונה לפי האזור הזה ולשלוח את התמונה החדשה והממוקדת למודל כדי לקבל ניתוח מפורט יותר.
+   - **נסו לשחק עם התאורה והצבעים**: תנאי תאורה מאתגרים וניגודיות צבעים נמוכה יכולים להשפיע על התפיסה של המודל.
+3. כדאי לפצל בעיות מורכבות לכמה שלבים קטנים. אם תתייחסו לכל שלב קטן בנפרד, תוכלו להנחות את המודל להגיע לתוצאה מדויקת ומוצלחת יותר.
+4. שיפור הדיוק באמצעות קונצנזוס. למשימות שדורשות רמת דיוק גבוהה, אפשר לשלוח שאילתה למודל כמה פעמים עם אותה הנחיה. חישוב ממוצע של התוצאות שמתקבלות מאפשר להגיע ל "הסכמה" שהיא לרוב מדויקת ואמינה יותר.
 
-## Các điểm hạn chế
+## מגבלות
 
-Hãy cân nhắc những hạn chế sau đây khi phát triển bằng Gemini Robotics-ER 1.6:
+כשמפתחים באמצעות Gemini Robotics-ER 1.6, חשוב להביא בחשבון את המגבלות הבאות:
 
-- **Trạng thái xem trước:** Mô hình hiện đang ở trạng thái **Xem trước**. Các API và chức năng có thể thay đổi và có thể không phù hợp với các ứng dụng quan trọng trong quá trình sản xuất nếu không được kiểm thử kỹ lưỡng.
-- **Độ trễ:** Các truy vấn phức tạp, dữ liệu đầu vào có độ phân giải cao hoặc `thinking_budget` trên diện rộng có thể dẫn đến thời gian xử lý tăng lên.
-- **Ảo tưởng:** Giống như mọi mô hình ngôn ngữ lớn, Gemini Robotics-ER 1.6 đôi khi có thể "ảo tưởng" hoặc cung cấp thông tin không chính xác, đặc biệt là đối với những câu lệnh mơ hồ hoặc đầu vào nằm ngoài phạm vi phân phối.
-- **Phụ thuộc vào chất lượng câu lệnh:** Chất lượng đầu ra của mô hình phụ thuộc rất nhiều vào độ rõ ràng và tính cụ thể của câu lệnh đầu vào. Câu lệnh mơ hồ hoặc có cấu trúc kém có thể dẫn đến kết quả không tối ưu.
-- **Chi phí điện toán:** Việc chạy mô hình, đặc biệt là với dữ liệu đầu vào là video hoặc `thinking_budget` có độ phân giải cao, sẽ tiêu tốn tài nguyên điện toán và phát sinh chi phí.
-  Hãy xem trang [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) để biết thêm thông tin chi tiết.
-- **Loại dữ liệu đầu vào:** Xem các chủ đề sau để biết thông tin chi tiết về hạn chế đối với từng chế độ.
-  - [Đầu vào hình ảnh](https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi#technical-details-image)
-  - [Đầu vào video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#supported-formats)
-  - [Đầu vào âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi#supported-formats)
+- **סטטוס התצוגה המקדימה:** המודל נמצא כרגע ב**תצוגה מקדימה**. יכול להיות שיהיו שינויים בממשקי ה-API וביכולות, ולכן יכול להיות שהם לא יתאימו לאפליקציות קריטיות לייצור בלי בדיקה יסודית.
+- **זמן אחזור:** שאילתות מורכבות, קלט ברזולוציה גבוהה או `thinking_budget` נרחב יכולים להוביל לזמני עיבוד ארוכים יותר.
+- **הזיות:** כמו כל המודלים הגדולים של שפה, Gemini Robotics-ER 1.6 יכול לפעמים "להזות" או לספק מידע שגוי, במיוחד כשמזינים לו הנחיות מעורפלות או נתונים שלא תואמים את הנתונים שעליהם הוא אומן.
+- **תלות באיכות ההנחיה:** איכות הפלט של המודל תלויה מאוד בבהירות ובספציפיות של ההנחיה. הנחיות מעורפלות או לא מובְנות עלולות להוביל לתוצאות לא אופטימליות.
+- **עלות החישוב:** הפעלת המודל, במיוחד עם נתוני וידאו או עם `thinking_budget` גבוה, צורכת משאבי מחשוב וגוררת עלויות.
+  פרטים נוספים מופיעים בדף [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he).
+- **סוגי קלט:** בקישורים הבאים מפורטות המגבלות של כל מצב.
+  - [הוספת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he#technical-details-image)
+  - [קלט של סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he#supported-formats)
+  - [הוספת אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he#supported-formats)
 
-## Thông báo về quyền riêng tư
+## הודעת פרטיות
 
-Bạn xác nhận rằng các mô hình được đề cập trong tài liệu này ("Mô hình robot") tận dụng dữ liệu video và âm thanh để vận hành và di chuyển phần cứng theo hướng dẫn của bạn. Do đó, bạn có thể vận hành Các mô hình robot sao cho Các mô hình robot sẽ thu thập dữ liệu của những người có thể nhận dạng, chẳng hạn như dữ liệu về giọng nói, hình ảnh và dữ liệu về hình ảnh khuôn mặt ("Dữ liệu cá nhân"). Nếu chọn vận hành Các mô hình robot theo cách thu thập Dữ liệu cá nhân, bạn đồng ý rằng bạn sẽ không cho phép bất kỳ cá nhân nào có thể nhận dạng tương tác hoặc xuất hiện trong khu vực xung quanh Các mô hình robot, trừ phi và cho đến khi những cá nhân có thể nhận dạng đó được thông báo đầy đủ và đồng ý với việc Google có thể cung cấp và sử dụng Dữ liệu cá nhân của họ như được nêu trong Điều khoản dịch vụ bổ sung của Gemini API tại [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=vi) ("Điều khoản"), kể cả theo phần "Cách Google sử dụng dữ liệu của bạn". Bạn sẽ đảm bảo rằng thông báo đó cho phép thu thập và sử dụng dữ liệu cá nhân như được nêu trong Điều khoản, đồng thời bạn sẽ nỗ lực một cách hợp lý về phương diện thương mại để giảm thiểu việc thu thập và phân phối dữ liệu cá nhân bằng cách sử dụng các kỹ thuật như làm mờ khuôn mặt và vận hành Mô hình robot ở những khu vực không có người có thể nhận dạng trong phạm vi có thể thực hiện được.
+אתם מאשרים שהמודלים שמצוינים במסמך הזה ('מודלים של רובוטיקה') משתמשים בנתוני וידאו ואודיו כדי לפעול ולהזיז את החומרה בהתאם להוראות שלכם. לכן, יכול להיות שתפעילו את המודלים של הרובוטיקה כך שהם יאספו נתונים מאנשים שאפשר לזהות, כמו נתוני קול, תמונות ודמיון ("מידע אישי"). אם תבחרו להפעיל את מודלי הרובוטיקה באופן שיאסוף מידע אישי, אתם מסכימים שלא תאפשרו לאנשים שניתן לזהות אותם ליצור אינטראקציה עם מודלי הרובוטיקה או להיות נוכחים באזור שמסביבם, אלא אם ועד שאנשים כאלה יקבלו הודעה מספקת על כך שהמידע האישי שלהם עשוי להימסר ל-Google ולשמש אותה כפי שמפורט בתנאים והגבלות נוספים למתן שירות של Gemini API שזמינים בכתובת [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=he) (התנאים), כולל בהתאם לקטע שכותרתו 'איך Google משתמשת בנתונים שלך'. תדאגו שההודעה תאפשר איסוף ושימוש במידע אישי כפי שמפורט בתנאים, ותפעלו באופן סביר מבחינה מסחרית כדי לצמצם את האיסוף וההפצה של מידע אישי באמצעות טכניקות כמו טשטוש פנים והפעלת מודלים רובוטיים באזורים שלא מכילים אנשים שניתן לזהות, במידת האפשר.
 
-## Giá
+## תמחור
 
-Để biết thông tin chi tiết về giá và các khu vực có tính năng này, hãy tham khảo trang [định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
+מידע מפורט על התמחור והאזורים הזמינים מופיע בדף [התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## Phiên bản mô hình
+## גרסאות המודלים
 
-### Robotics-ER 1.6 (Bản xem trước)
+### גרסת טרום-השקה (Preview) של Robotics-ER 1.6
 
-| Thuộc tính | Mô tả |
+| נכס | תיאור |
 | --- | --- |
-| id\_cardMã kiểu máy | `gemini-robotics-er-1.6-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản, hình ảnh, video, âm thanh  **Đầu ra**  Văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072  **Giới hạn mã thông báo đầu ra**  65.536 |
-| handymanChức năng | **Tạo âm thanh**  Không được hỗ trợ  **Batch API**  Được hỗ trợ  **Lưu vào bộ nhớ đệm**  Được hỗ trợ  **Thực thi mã**  Được hỗ trợ  **Sử dụng máy tính**  Được hỗ trợ  **Tìm kiếm tệp**  Được hỗ trợ  **Suy luận linh hoạt**  Được hỗ trợ  **Gọi hàm**  Được hỗ trợ  **Kết nối với Google Maps**  Được hỗ trợ  **Tạo hình ảnh**  Không được hỗ trợ  **Live API**  Không được hỗ trợ  **Suy luận mức độ ưu tiên**  Được hỗ trợ  **Tìm trong phần liên kết thực tế**  Được hỗ trợ  **Đầu ra có cấu trúc**  Được hỗ trợ  **Tư duy**  Được hỗ trợ  **Bối cảnh URL**  Được hỗ trợ |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Xem trước: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 12 năm 2025 |
-| cognition\_2Điểm cắt kiến thức | Tháng 1 năm 2025 |
+| id\_cardקוד מודל | `gemini-robotics-er-1.6-preview` |
+| saveסוגי נתונים נתמכים | **קלטים**  טקסט, תמונות, סרטונים, אודיו  **פלט**  טקסט |
+| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  131,072  **מגבלת אסימונים בפלט**  65,536 |
+| handymanיכולות | **יצירת אודיו**  לא נתמך  ‫**Batch API**  נתמך  **שמירת נתונים במטמון**  נתמך  **ביצוע קוד**  נתמך  **שימוש במחשב**  נתמך  **חיפוש קבצים**  נתמך  **הסקת מסקנות גמישה**  נתמך  **בקשה להפעלת פונקציה**  נתמך  **עיגון בעזרת מפות Google**  נתמך  **יצירת תמונות**  לא נתמך  ‫**Live API**  לא נתמך  **היקש בעדיפות גבוהה**  נתמך  **חיפוש עם עיגון בנתונים**  נתמך  **פלטים מובְנים**  נתמך  **תהליך החשיבה**  נתמך  **הקשר של כתובת ה-URL**  נתמך |
+| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - תצוגה מקדימה: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthהעדכון האחרון | דצמבר 2025 |
+| cognition\_2תאריך סף הידע | ינואר 2025 |
 
-## Các bước tiếp theo
+## השלבים הבאים
 
-- Khám phá các khả năng khác và tiếp tục thử nghiệm nhiều câu lệnh và dữ liệu đầu vào để khám phá thêm các ứng dụng cho Gemini Robotics-ER 1.6.
-  Hãy xem [Colab về cách bắt đầu sử dụng Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) để biết thêm ví dụ.
-- Tìm hiểu về cách các mô hình Gemini Robotics được xây dựng chú trọng đến sự an toàn, hãy truy cập vào [trang an toàn về robot của Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=vi).
-- Đọc thông tin cập nhật mới nhất về các mô hình Gemini Robotics trên [trang đích của Gemini Robotics](https://deepmind.google/robotics?hl=vi).
+- כדאי לנסות יכולות אחרות ולהמשיך להתנסות בהנחיות ובקלט שונים כדי לגלות עוד שימושים ב-Gemini Robotics-ER 1.6.
+  דוגמאות נוספות זמינות ב-[Colab לתחילת העבודה עם רובוטיקה](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+- מידע על האופן שבו נבנו מודלים של Gemini Robotics תוך התחשבות בבטיחות זמין [בדף בנושא בטיחות רובוטיקה של Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=he).
+- אפשר לקרוא על העדכונים האחרונים במודלים של Gemini Robotics ב[דף הנחיתה של Gemini Robotics](https://deepmind.google/robotics?hl=he).
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-05-13 UTC.
+עדכון אחרון: 2026-05-13 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-13 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-13 (שעון UTC)."],[],[]]

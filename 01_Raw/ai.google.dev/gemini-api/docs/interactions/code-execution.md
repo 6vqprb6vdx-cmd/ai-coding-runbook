@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=pt-BR
-fetched_at: 2026-05-18T13:01:52.828091+00:00
+fetched_at: 2026-05-25T13:06:08.788511+00:00
 title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -30,13 +30,12 @@ Para ativar a execução de código, configure a ferramenta de execução de có
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What is the sum of the first 50 prime numbers? "
           "Generate and run code for the calculation, and make sure you get all 50.",
     tools=[{"type": "code_execution"}]
@@ -56,13 +55,12 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: "What is the sum of the first 50 prime numbers? " +
            "Generate and run code for the calculation, and make sure you get all 50.",
     tools: [{ type: "code_execution" }]
@@ -86,13 +84,12 @@ for (const step of interaction.steps) {
 ### REST
 
 ```
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -H "Api-Revision: 2026-05-20" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
     "tools": [{"type": "code_execution"}]
 }'
@@ -174,7 +171,6 @@ A execução de código com imagens é oficialmente compatível com o Gemini 3 F
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 import requests
 import base64
@@ -187,7 +183,7 @@ image_bytes = requests.get(image_path).content
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {"type": "image", "data": base64.b64encode(image_bytes).decode('\utf-8'), "mime_type": "image/jpeg"},
         {"type": "text", "text": "Zoom into the expression pedals and tell me how many pedals are there?"}
@@ -201,7 +197,6 @@ for step in interaction.steps:
             if content_block.type == "text":
                 print(content_block.text)
             elif content_block.type == "image":
-                # Display generated image
                 display(Image.open(io.BytesIO(base64.b64decode(content_block.data))))
     elif step.type == "code_execution_call":
         print(step.arguments.code)
@@ -212,21 +207,18 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 async function main() {
   const client = new GoogleGenAI({});
 
-  // 1. Prepare Image Data
   const imageUrl = "https://goo.gle/instrument-img";
   const response = await fetch(imageUrl);
   const imageArrayBuffer = await response.arrayBuffer();
   const base64ImageData = Buffer.from(imageArrayBuffer).toString('base64');
 
-  // 2. Call the API with Code Execution enabled
   const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
       {
         type: "image",
@@ -238,7 +230,6 @@ async function main() {
     tools: [{ type: "code_execution" }]
   });
 
-  // 3. Process the response (Text, Code, and Execution Results)
   for (const step of interaction.steps) {
     if (step.type === "model_output") {
       for (const contentBlock of step.content) {
@@ -261,7 +252,7 @@ main();
 
 ```
 IMG_URL="https://goo.gle/instrument-img"
-MODEL="gemini-3-flash-preview"
+MODEL="gemini-3.5-flash"
 
 MIME_TYPE=$(curl -sIL "$IMG_URL" | grep -i '^content-type:' | awk -F ': ' '{print $2}' | sed 's/\r$//' | head -n 1)
 if [[ -z "$MIME_TYPE" || ! "$MIME_TYPE" == image/* ]]; then
@@ -282,7 +273,7 @@ jq -n \
   --rawfile b64 image_b64.txt \
   --arg mime "$MIME_TYPE" \
   '{
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: [
       {type: "image", data: $b64, mime_type: $mime},
       {type: "text", text: "Zoom into the expression pedals and tell me how many pedals are there?"}
@@ -290,7 +281,6 @@ jq -n \
     tools: [{type: "code_execution"}]
   }' > payload.json
 
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
@@ -305,22 +295,19 @@ Você também pode usar a execução de código como parte de uma conversa multi
 ### Python
 
 ```
-# This will only work for SDK newer than 2.0.0
 from google import genai
 
 client = genai.Client()
 
-# First turn
 interaction1 = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="I have a math question for you.",
     tools=[{"type": "code_execution"}]
 )
-print(interaction1.steps[-1].content[0].text)
+print(interaction1.output_text)
 
-# Second turn - follow-up with code execution
 interaction2 = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     previous_interaction_id=interaction1.id,
     input="What is the sum of the first 50 prime numbers? "
           "Generate and run code for the calculation, and make sure you get all 50.",
@@ -341,22 +328,19 @@ for step in interaction2.steps:
 ### JavaScript
 
 ```
-// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
 const client = new GoogleGenAI({});
 
-// First turn
 const interaction1 = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: "I have a math question for you.",
     tools: [{ type: "code_execution" }]
 });
-console.log(interaction1.steps.at(-1).content[0].text);
+console.log(interaction1.output_text);
 
-// Second turn - follow-up with code execution
 const interaction2 = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     previous_interaction_id: interaction1.id,
     input: "What is the sum of the first 50 prime numbers? " +
            "Generate and run code for the calculation, and make sure you get all 50.",
@@ -382,13 +366,12 @@ for (const step of interaction2.steps) {
 
 ```
 # First turn
-# Specifies the API revision to avoid breaking changes when they become default
 RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -H "Api-Revision: 2026-05-20" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "I have a math question for you.",
     "tools": [{"type": "code_execution"}]
 }')
@@ -396,13 +379,12 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
 INTERACTION_ID=$(echo $RESPONSE1 | jq -r '.id')
 
 # Second turn with previous_interaction_id
-# Specifies the API revision to avoid breaking changes when they become default
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -H "Api-Revision: 2026-05-20" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "previous_interaction_id": "'"$INTERACTION_ID"'",
     "input": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
     "tools": [{"type": "code_execution"}]
@@ -534,8 +516,8 @@ Envie comentários
 
 Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última atualização 2026-05-12 UTC.
+Última atualização 2026-05-19 UTC.
 
 Quer enviar seu feedback?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-12 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]

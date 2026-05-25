@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ja
-fetched_at: 2026-05-18T13:07:35.699695+00:00
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=tr
+fetched_at: 2026-05-25T12:59:56.140202+00:00
 title: "Get started with Gemini Live API using the Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-フィードバックを送信
+Geri bildirim gönderin
 
 # Get started with Gemini Live API using the Google GenAI SDK
 
-Gemini Live API を使用すると、Gemini モデルとのリアルタイムの双方向インタラクションが可能になります。音声、動画、テキストの入力とネイティブ音声出力をサポートしています。このガイドでは、サーバーで Google GenAI SDK を使用して API と統合する方法について説明します。
+Gemini Live API, Gemini modelleriyle gerçek zamanlı ve çift yönlü etkileşime olanak tanır. Ses, video ve metin girişlerinin yanı sıra doğal ses çıkışlarını destekler. Bu kılavuzda, sunucunuzda Google GenAI SDK'sını kullanarak API ile nasıl entegrasyon yapacağınız açıklanmaktadır.
 
-[Google AI Studio で Live API を試すmic](https://aistudio.google.com/live?hl=ja)
-[GitHub からサンプルアプリをクローンするcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[コーディング エージェントのスキルを使用するterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ja)
+[Google AI Studio'da Live API'yi deneyinmic](https://aistudio.google.com/live?hl=tr)
+[Örnek uygulamayı GitHub'dan klonlayıncode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Kodlama aracısı becerilerini kullanınterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
 
-## 概要
+## Genel Bakış
 
-Gemini Live API は、リアルタイム通信に WebSocket を使用します。`google-genai` SDK は、これらの接続を管理するための高レベルの非同期インターフェースを提供します。
+Gemini Live API, anlık iletişim için WebSocket'leri kullanır. `google-genai` SDK, bu bağlantıları yönetmek için üst düzey bir eşzamansız arayüz sağlar.
 
-クラウド セキュリティの主な概念には、
+Temel kavramlar:
 
-- **セッション**: モデルへの永続的な接続。
-- **Config**: モダリティ（音声/テキスト）、音声、システム指示を設定します。
-- **リアルタイム入力**: 音声フレームと動画フレームを Blob として送信します。
+- **Oturum**: Modele kalıcı bağlantı.
+- **Yapılandırma**: Formatları (ses/metin), sesi ve sistem talimatlarını ayarlama.
+- **Anlık Giriş**: Ses ve video karelerini blob olarak gönderme.
 
-## Live API への接続
+## Live API'ye bağlanma
 
-API キーを使用して Live API セッションを開始します。
+API anahtarıyla Live API oturumu başlatma:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## テキストを送信しています
+## Kısa mesaj gönderiliyor
 
-テキストは、`send_realtime_input`（Python）または `sendRealtimeInput`（JavaScript）を使用して送信できます。
+Metin, `send_realtime_input` (Python) veya `sendRealtimeInput` (JavaScript) kullanılarak gönderilebilir.
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## 音声を送信する
+## Ses gönderme
 
-音声は RAW PCM データ（RAW 16 ビット PCM 音声、16 kHz、リトル エンディアン）として送信する必要があります。
+Ses, ham PCM verileri (ham 16 bit PCM ses, 16 kHz, little-endian) olarak gönderilmelidir.
 
 ### Python
 
@@ -143,11 +143,11 @@ session.sendRealtimeInput({
 });
 ```
 
-クライアント デバイス（ブラウザなど）から音声を取得する方法の例については、[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70) のエンドツーエンドの例をご覧ください。
+İstemci cihazdan (ör. tarayıcı) ses alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70)'daki uçtan uca örneğe bakın.
 
-## 動画を送信しています
+## Video gönderiliyor
 
-動画フレームは、特定のフレームレート（最大 1 フレーム / 秒）で個々の画像（JPEG や PNG など）として送信されます。
+Video kareleri, belirli bir kare hızında (saniyede en fazla 1 kare) ayrı resimler (ör. JPEG veya PNG) olarak gönderilir.
 
 ### Python
 
@@ -173,11 +173,11 @@ session.sendRealtimeInput({
 });
 ```
 
-クライアント デバイス（ブラウザなど）から動画を取得する方法の例については、[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120) のエンドツーエンドの例をご覧ください。
+Videoyu istemci cihazdan (ör. tarayıcı) alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120)'daki uçtan uca örneğe bakın.
 
-## 音声を受信する
+## Ses alma
 
-モデルの音声応答は、データのチャンクとして受信されます。
+Modelin sesli yanıtları veri parçaları olarak alınır.
 
 ### Python
 
@@ -205,11 +205,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-[サーバーで音声を受信](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98)して[ブラウザで再生](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174)する方法については、GitHub のサンプルアプリをご覧ください。
+[Sunucunuzda sesi nasıl alacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) ve [tarayıcıda nasıl çalacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174) öğrenmek için GitHub'daki örnek uygulamaya bakın.
 
-## テキストを受信しています
+## Kısa mesaj alınıyor
 
-ユーザー入力とモデル出力の両方の文字起こしがサーバー コンテンツで利用できます。
+Hem kullanıcı girişi hem de model çıkışı için transkriptler sunucu içeriğinde mevcuttur.
 
 ### Python
 
@@ -236,9 +236,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## ツール呼び出しの処理
+## Araç çağrılarını işleme
 
-この API はツール呼び出し（関数呼び出し）をサポートしています。モデルがツール呼び出しをリクエストした場合は、関数を実行してレスポンスを返す必要があります。
+API, araç çağrısını (işlev çağrısı) destekler. Model bir araç çağrısı istediğinde işlevi yürütmeniz ve yanıtı geri göndermeniz gerekir.
 
 ### Python
 
@@ -279,20 +279,20 @@ if (response.toolCall) {
 }
 ```
 
-## 次のステップ
+## Sırada ne var?
 
-- 音声検出やネイティブ音声機能など、主な機能と構成については、Live API の[機能](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja)ガイドをご覧ください。
-- [ツールの使用](https://ai.google.dev/gemini-api/docs/live-tools?hl=ja)ガイドを読んで、Live API をツールや関数呼び出しと統合する方法を確認します。
-- 長時間にわたる会話を管理するには、[セッション管理](https://ai.google.dev/gemini-api/docs/live-session?hl=ja)ガイドをご覧ください。
-- [クライアントとサーバー間の](#implementation-approach)アプリケーションで安全な認証を行うには、[エフェメラル トークン](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ja)のガイドをご覧ください。
-- 基盤となる WebSockets API について詳しくは、[WebSockets API リファレンス](https://ai.google.dev/api/live?hl=ja)をご覧ください。
+- Konuşma Etkinliği Algılama ve yerel ses özellikleri de dahil olmak üzere temel özellikler ve yapılandırmalar için Live API [Özellikleri](https://ai.google.dev/gemini-api/docs/live-guide?hl=tr) kılavuzunun tamamını okuyun.
+- Live API'yi araçlarla ve işlev çağırmayla nasıl entegre edeceğinizi öğrenmek için [Araç kullanımı](https://ai.google.dev/gemini-api/docs/live-tools?hl=tr) kılavuzunu okuyun.
+- Uzun süren görüşmeleri yönetmek için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-session?hl=tr) kılavuzunu okuyun.
+- [İstemciden sunucuya](#implementation-approach) uygulamalarda güvenli kimlik doğrulama için [Geçici jetonlar](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=tr) kılavuzunu okuyun.
+- Temel alınan WebSockets API hakkında daha fazla bilgi için [WebSockets API referansı](https://ai.google.dev/api/live?hl=tr) başlıklı makaleyi inceleyin.
 
-フィードバックを送信
+Geri bildirim gönderin
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最終更新日 2026-05-13 UTC。
+Son güncelleme tarihi: 2026-05-13 UTC.
 
-ご意見をお聞かせください
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-13 UTC。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-13 UTC."],[],[]]

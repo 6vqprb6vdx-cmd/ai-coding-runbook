@@ -1,94 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=pt-BR
-fetched_at: 2026-05-18T13:07:23.659999+00:00
-title: "Guia de in\u00edcio r\u00e1pido do OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ja
+fetched_at: 2026-05-25T13:02:38.572184+00:00
+title: "OAuth \u306b\u3088\u308b\u8a8d\u8a3c\u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envie comentários
+フィードバックを送信
 
-# Guia de início rápido do OAuth
+# OAuth による認証のクイックスタート
 
-A maneira mais fácil de autenticar a API Gemini é configurar uma chave de API, conforme
-descrito no [guia de início rápido da API Gemini](https://ai.google.dev/gemini-api/docs/quickstart?hl=pt-br). Se você
-precisar de controles de acesso mais rigorosos, use o OAuth. Este guia vai ajudar você a configurar a autenticação com OAuth.
+Gemini API への認証の最も簡単な方法は、
+[Gemini API クイックスタート](https://ai.google.dev/gemini-api/docs/quickstart?hl=ja)の説明に従って API キーを構成することです。より厳格なアクセス制御が必要な場合は、代わりに OAuth を使用できます。このガイドでは、OAuth を使用して認証を設定する方法について説明します。
 
-Este guia usa uma abordagem de autenticação simplificada adequada para um ambiente de teste. Para um ambiente de produção, saiba mais sobre [autenticação e autorização](https://developers.google.com/workspace/guides/auth-overview?hl=pt-br) antes de [escolher as credenciais de acesso](https://developers.google.com/workspace/guides/create-credentials?hl=pt-br#choose_the_access_credential_that_is_right_for_you) adequadas para seu app.
+このガイドでは、テスト環境に適した簡素化された認証方法を使用します。[[本番環境の場合は、アプリに適したアクセス認証情報を選択する前に、認証と認可について学習してください。](https://developers.google.com/workspace/guides/auth-overview?hl=ja)](https://developers.google.com/workspace/guides/create-credentials?hl=ja#choose_the_access_credential_that_is_right_for_you)
 
-## Objetivos
+## 目標
 
-- Configurar seu projeto na nuvem para OAuth
-- Configurar as credenciais padrão do aplicativo
-- Gerenciar credenciais no seu programa em vez de usar `gcloud auth`
+- OAuth 用にクラウド プロジェクトを設定する
+- アプリケーションのデフォルト認証情報を設定する
+- `gcloud auth` を使用する代わりに、プログラムで認証情報を管理する
 
-## Pré-requisitos
+## 前提条件
 
-Para executar este guia de início rápido, você precisa de:
+このクイックスタートを実行するには、次のものが必要です。
 
-- [Um projeto do Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=pt-br).
-- [Uma instalação local da CLI gcloud](https://cloud.google.com/sdk/docs/install?hl=pt-br)
+- [Google Cloud プロジェクト](https://developers.google.com/workspace/guides/create-project?hl=ja)
+- [gcloud CLI のローカル インストール](https://cloud.google.com/sdk/docs/install?hl=ja)
 
-## Configurar seu projeto na nuvem
+## クラウド プロジェクトを設定する
 
-Para concluir este guia de início rápido, primeiro configure seu projeto na nuvem.
+このクイックスタートを完了するには、まず Cloud プロジェクトを設定する必要があります。
 
-### 1. Ativar a API
+### 1. API を有効にする
 
-Antes de usar as APIs do Google, é necessário ativá-las em um projeto na nuvem do Google.
+Google API を使用する前に、Google Cloud プロジェクトで API を有効にする必要があります。
 
-- No console do Google Cloud, ative a API Generative Language do Google.
+- Google Cloud コンソールで、Google Generative Language API を有効にします。
 
-  [Ativar a API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=pt-br)
+  [API を有効にする](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ja)
 
-### 2. Configurar a tela de permissão OAuth
+### 2. OAuth 同意画面を構成する
 
-Em seguida, configure a tela de permissão OAuth do projeto e adicione você mesmo como um usuário de teste. Se você já concluiu esta etapa para seu projeto na nuvem, pule para a próxima seção.
+次に、プロジェクトの OAuth 同意画面を構成し、テストユーザーとして自分を追加します。Cloud プロジェクトでこの手順をすでに完了している場合は、次のセクションに進んでください。
 
-1. No console do Google Cloud, acesse **Menu** >
-   **Plataforma de autenticação do Google** > **Visão geral**.
+1. Google Cloud コンソールで、**メニュー** > **Google Auth Platform** > [**概要**] に移動します。
 
-   [Acessar a plataforma Google Auth](https://console.developers.google.com/auth/overview?hl=pt-br)
-2. Preencha o formulário de configuração do projeto e defina o tipo de usuário como **Externo** na seção **Público-alvo**.
-3. Preencha o restante do formulário, aceite os termos da Política de Dados do Usuário e clique em
-   **Criar**.
-4. Por enquanto, você pode pular a adição de escopos e clicar em **Salvar e continuar**. No
-   futuro, ao criar um app para uso fora da sua organização do Google Workspace, você precisará adicionar e verificar os escopos de autorização que seu
-   app exige.
-5. Adicione usuários de teste:
+   [Google Auth Platform に移動](https://console.developers.google.com/auth/overview?hl=ja)
+2. プロジェクト構成フォームに記入し、[**対象ユーザー**] セクションでユーザータイプを [**外部**] に設定します。
+3. フォームの残りの部分を入力し、ユーザーデータに関するポリシーの条項に同意して、[**作成**] をクリックします。
+4. ここでは、スコープの追加をスキップして、[**保存して次へ**] をクリックします。今後、Google Workspace 組織外で使用するアプリを作成する場合は、アプリに必要な認可スコープを追加して確認する必要があります。
+5. テストユーザーを追加します。
 
-   1. Acesse a [página "Público-alvo"](https://console.developers.google.com/auth/audience?hl=pt-br) da plataforma de autenticação do Google.
-   2. Em **Usuários de teste**, clique em **Adicionar usuários**.
-   3. Insira seu endereço de e-mail e os outros usuários de teste autorizados. Depois, clique em **Salvar**.
+   1. Google Auth Platform の
+      [[対象ユーザー] ページ](https://console.developers.google.com/auth/audience?hl=ja)に移動します。
+   2. [**テストユーザー**] で [**ユーザーを追加**] をクリックします。
+   3. メールアドレスと他の承認済みテストユーザーを入力し、[**保存**] をクリックします。
 
-### 3. Autorizar credenciais para um aplicativo para computador
+### 3. デスクトップ アプリケーションの認証情報を承認する
 
-Para fazer a autenticação como usuário final e acessar os dados do usuário no app, crie um ou mais IDs do cliente OAuth 2.0. Um ID do cliente é usado para identificar um único app nos servidores OAuth do Google. Se o app for executado em várias plataformas,
-crie um ID do cliente separado para cada uma delas.
+エンドユーザーとして認証を行い、アプリ内でユーザーデータにアクセスするには、1 つ以上の OAuth 2.0 クライアント ID を作成する必要があります。クライアント ID は、Google の OAuth サーバーで個々のアプリを識別するために使用します。アプリが複数のプラットフォームで実行される場合は、プラットフォームごとに個別のクライアント ID を作成する必要があります。
 
-1. No console do Google Cloud, acesse **Menu** > **Plataforma de autenticação do Google** >
-   **Clientes**.
+1. Google Cloud コンソールで、**メニュー** > **Google Auth Platform** > [**クライアント**] に移動します。
 
-   [Acessar "Credenciais"](https://console.developers.google.com/auth/clients?hl=pt-br)
-2. Clique em **Criar cliente**.
-3. Clique em **Tipo de aplicativo** > **App para computador**.
-4. No campo **Nome**, digite um nome para a credencial. Esse nome é mostrado apenas no console do Google Cloud.
-5. Clique em **Criar**. A tela "Cliente OAuth criado" aparece, mostrando seu novo
-   ID do cliente e chave secreta do cliente.
-6. Clique em **OK**. A credencial recém-criada aparece em **IDs do cliente OAuth 2.0**.
-7. Clique no botão de download para salvar o arquivo JSON. Ele será salvo como `client_secret_<identifier>.json`. Renomeie-o como `client_secret.json` e mova para o diretório de trabalho.
+   [[認証情報] に移動](https://console.developers.google.com/auth/clients?hl=ja)
+2. [**クライアントの作成**] をクリックします。
+3. [**アプリケーション タイプ**] > [**デスクトップ アプリ**] をクリックします。
+4. [**名前**] フィールドに、認証情報の名前を入力します。この名前は Google Cloud コンソールにのみ表示されます。
+5. [**作成**] をクリックします。[OAuth クライアントを作成しました] 画面が表示され、新しいクライアント ID とクライアント シークレットが表示されます。
+6. [**OK**] をクリックします。新しく作成した認証情報が [**OAuth 2.0 クライアント ID**] に表示されます。
+7. ダウンロード ボタンをクリックして JSON ファイルを保存します。
+   `client_secret_<identifier>.json` として保存されます。名前を `client_secret.json`
+   に変更して、作業ディレクトリに移動します。
 
-## Configurar o Application Default Credentials
+## アプリケーションのデフォルト認証情報を設定する
 
-Para converter o arquivo `client_secret.json` em credenciais utilizáveis, transmita o local dele ao argumento `--client-id-file` do comando `gcloud auth application-default login`.
+`client_secret.json` ファイルを使用可能な認証情報に変換するには、その場所を `gcloud auth application-default login` コマンドの `--client-id-file` 引数に渡します。
 
 ```
 gcloud auth application-default login \
@@ -96,10 +91,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-A configuração simplificada do projeto neste tutorial aciona uma caixa de diálogo **"O Google ainda não verificou este app"**. Isso é normal. Escolha **"Continuar"**.
+このチュートリアルの簡素化されたプロジェクト設定では、[**"Google はこのアプリを確認していません"**] ダイアログが表示されます。これは正常です、[**続行**]を選択します。
 
-Isso coloca o token resultante em um local conhecido para que ele possa ser acessado
-pelo `gcloud` ou pelas bibliotecas de cliente.
+これにより、結果のトークンが既知の場所に配置され、`gcloud` またはクライアント ライブラリからアクセスできるようになります。
 
 ```` ```
 gcloud auth application-default login   
@@ -110,11 +104,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-Depois que você define o Application Default Credentials (ADC), as bibliotecas de cliente na maioria das linguagens precisam de pouca ou nenhuma ajuda para encontrá-los.
+アプリケーションのデフォルト認証情報（ADC）を設定すると、ほとんどの言語のクライアント ライブラリは、最小限の操作で認証情報を検索できます。
 
 ### Curl
 
-A maneira mais rápida de testar se isso está funcionando é usar o curl para acessar a API REST:
+これが機能していることをテストする最も簡単な方法は、curl を使用して REST API にアクセスすることです。
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -127,13 +121,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Em Python, as bibliotecas de cliente encontram as credenciais automaticamente:
+Python では、クライアント ライブラリが自動的に検索します。
 
 ```
 pip install google-genai
 ```
 
-Um script mínimo para testar isso pode ser:
+テスト用の最小限のスクリプトは次のとおりです。
 
 ```
 from google import genai
@@ -142,31 +136,30 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## Próximas etapas
+## 次のステップ
 
-Se isso estiver funcionando, você poderá tentar a
-[recuperação semântica nos seus dados de texto](https://ai.google.dev/docs/semantic_retriever?hl=pt-br).
+これが機能したら、テキストデータで
+[セマンティック検索](https://ai.google.dev/docs/semantic_retriever?hl=ja)を試すことができます。
 
-## Gerenciar credenciais por conta própria [Python]
+## 認証情報を自分で管理する [Python]
 
-Em muitos casos, você não terá o comando `gcloud` disponível para criar o token de acesso do ID do cliente (`client_secret.json`). O Google fornece bibliotecas em várias linguagens para que você gerencie esse processo no seu app. Esta seção demonstra o processo em Python. Existem exemplos equivalentes desse tipo de procedimento para outras linguagens na [documentação da API Drive](https://developers.google.com/drive/api/quickstart/python?hl=pt-br).
+多くの場合、クライアント ID（`client_secret.json`）からアクセス トークンを作成するために `gcloud` コマンドを使用できません。Google は、アプリ内でそのプロセスを管理できるように、多くの言語でライブラリを提供しています。このセクションでは、Python でのプロセスについて説明します。他の言語での同様の手順の例については、
+[Drive API のドキュメント](https://developers.google.com/drive/api/quickstart/python?hl=ja)をご覧ください。
 
-### 1. Instalar as bibliotecas necessárias
+### 1. 必要なライブラリをインストールする
 
-Instale a biblioteca de cliente do Google para Python e a biblioteca de cliente do Gemini.
+Python 用の Google クライアント ライブラリと Gemini クライアント ライブラリをインストールします。
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. Escrever o gerenciador de credenciais
+### 2. 認証情報マネージャーを作成する
 
-Para minimizar o número de cliques nas telas de autorização,
-crie um arquivo chamado `load_creds.py` no diretório de trabalho para
-armazenar em cache um arquivo `token.json` que pode ser reutilizado mais tarde ou atualizado se expirar.
+認証画面を何度もクリックする必要がないように、作業ディレクトリに `load_creds.py` というファイルを作成します。このファイルは、後で再利用できる `token.json` ファイルをキャッシュします。有効期限が切れた場合は更新されます。
 
-Comece com o código a seguir para converter o arquivo `client_secret.json` em um token que pode ser usado com `genai.configure`:
+次のコードから始めて、`client_secret.json` ファイルを `genai.configure` で使用できるトークンに変換します。
 
 ```
 import os.path
@@ -203,9 +196,9 @@ def load_creds():
     return creds
 ```
 
-### 3. Escrever seu programa
+### 3. プログラムを作成する
 
-Agora crie seu `script.py`:
+次に、`script.py` を作成します。
 
 ```
 import pprint
@@ -220,28 +213,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. Executar o programa
+### 4. プログラムを実行する
 
-No diretório de trabalho, execute a amostra:
+作業ディレクトリで、サンプルを実行します。
 
 ```
 python script.py
 ```
 
-Na primeira vez que você executar o script, ele vai abrir uma janela do navegador e pedir que você autorize o acesso.
+スクリプトを初めて実行すると、ブラウザ ウィンドウが開き、アクセス権の承認を求められます。
 
-1. Se você ainda não estiver conectado à sua Conta do Google, será solicitado a fazer login. Se você tiver feito login em várias contas, **selecione a
-   conta que você definiu como "Conta de teste" ao configurar o projeto.**
-2. As informações de autorização são armazenadas no sistema de arquivos. Assim, na próxima vez que você executar o exemplo de código, não será necessário fazer a autorização.
+1. Google アカウントにログインしていない場合は、ログインを求められます。複数のアカウントにログインしている場合は、**プロジェクトの構成時に [テスト アカウント] として設定したアカウントを選択してください。**
+2. 認可情報はファイル システムに保存されるため、次回サンプルコードを実行するときに認可を求められることはありません。
 
-Você configurou a autenticação.
+認証の設定が完了しました。
 
-Envie comentários
+フィードバックを送信
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última atualização 2026-04-29 UTC.
+最終更新日 2026-04-29 UTC。
 
-Quer enviar seu feedback?
+ご意見をお聞かせください
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

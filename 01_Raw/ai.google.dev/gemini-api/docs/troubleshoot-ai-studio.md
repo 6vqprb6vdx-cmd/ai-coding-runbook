@@ -1,53 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=ja
-fetched_at: 2026-05-18T13:11:26.672693+00:00
-title: "Google AI Studio \u306e\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pt-BR
+fetched_at: 2026-05-25T13:01:23.322732+00:00
+title: "Resolver problemas do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-フィードバックを送信
+Envie comentários
 
-# Google AI Studio のトラブルシューティング
+# Resolver problemas do Google AI Studio
 
-このページでは、Google AI Studio で問題が発生した場合のトラブルシューティングのヒントを紹介します。
+Nesta página, você encontra sugestões para resolver problemas do Google AI Studio.
 
-## 403 アクセス制限エラーについて
+## Entender os erros de acesso restrito 403
 
-[403 アクセス制限エラーが表示される場合は、
-利用規約](https://ai.google.dev/terms?hl=ja)に準拠しない方法で Google AI Studio を使用しています。一般的な理由の一つに、
-サポートされている[リージョン](https://ai.google.dev/available_regions?hl=ja)にいないことが挙げられます。
+Se você encontrar um erro 403 de acesso restrito, significa que está usando o Google AI Studio de uma forma que não segue os [Termos de Serviço](https://ai.google.dev/terms?hl=pt-br). Um motivo comum é que você não está em uma [região aceita](https://ai.google.dev/available_regions?hl=pt-br).
 
-## Google AI Studio で「コンテンツなし」というレスポンスを解決する
+## Resolver respostas de "Sem conteúdo" no Google AI Studio
 
-コンテンツが何らかの理由でブロックされると、warning **コンテンツなし** メッセージが
-Google AI Studio に表示されます。詳細を確認するには、
-[**コンテンツなし**] にポインタを合わせて、
-warning [**安全性**] をクリックします。
+Uma mensagem warning **Sem conteúdo** aparece no
+Google AI Studio se o conteúdo for bloqueado por qualquer motivo. Para mais detalhes, passe o ponteiro sobre **Nenhum conteúdo** e clique em warning **Segurança**.
 
-[[[安全設定が原因でレスポンスがブロックされ、ユースケースの安全上のリスクを考慮した場合は、安全設定を変更して返されるレスポンスに影響を与えることができます。](https://ai.google.dev/docs/safety_setting?hl=ja)](https://ai.google.dev/docs/safety_guidance?hl=ja)](https://ai.google.dev/docs/safety_setting?hl=ja#safety_settings_in_makersuite)
+Se a resposta foi bloqueada devido às [configurações de segurança](https://ai.google.dev/docs/safety_setting?hl=pt-br) e você considerou os [riscos de segurança](https://ai.google.dev/docs/safety_guidance?hl=pt-br) para seu caso de uso, é possível modificar as [configurações de segurança](https://ai.google.dev/docs/safety_setting?hl=pt-br#safety_settings_in_makersuite) para influenciar a resposta retornada.
 
-安全設定が原因でレスポンスがブロックされなかった場合、クエリまたは
-レスポンスが[利用規約](https://ai.google.dev/terms?hl=ja)に違反しているか、サポートされていない可能性があります。
+Se a resposta foi bloqueada, mas não devido às configurações de segurança, a consulta ou
+resposta pode violar os [Termos de Serviço](https://ai.google.dev/terms?hl=pt-br) ou não ser compatível.
 
-## トークンの使用量と上限を確認する
+## Verificar o uso e os limites de tokens
 
-プロンプトを開くと、画面下部の [**テキスト プレビュー**] ボタンに、プロンプトのコンテンツに使用されている現在のトークン数と、使用されているモデルの最大トークン数が表示されます。
+Quando um comando está aberto, o botão **Prévia do texto** na parte de baixo da tela mostra os tokens atuais usados para o conteúdo do comando e a contagem máxima de tokens do modelo em uso.
 
-フィードバックを送信
+Envie comentários
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最終更新日 2026-04-29 UTC。
+Última atualização 2026-04-29 UTC.
 
-ご意見をお聞かせください
+Quer enviar seu feedback?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

@@ -1,55 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=hi
-fetched_at: 2026-05-18T13:11:23.689545+00:00
-title: "Gemini API \u0932\u093e\u0907\u092c\u094d\u0930\u0947\u0930\u0940 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=ja
+fetched_at: 2026-05-25T13:01:25.774708+00:00
+title: "Gemini API \u30e9\u30a4\u30d6\u30e9\u30ea \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-सुझाव भेजें
+フィードバックを送信
 
-# Gemini API लाइब्रेरी
+# Gemini API ライブラリ
 
-Gemini API का इस्तेमाल करके ऐप्लिकेशन बनाने के लिए, हम **Google GenAI SDK** का इस्तेमाल करने का सुझाव देते हैं.
-ये आधिकारिक तौर पर इस्तेमाल के लिए तैयार लाइब्रेरी हैं. इन्हें हम सबसे ज़्यादा इस्तेमाल की जाने वाली भाषाओं के लिए बनाते हैं और इनका रखरखाव करते हैं. ये [सामान्य तौर पर उपलब्ध हैं](https://ai.google.dev/gemini-api/docs/libraries?hl=hi#new-libraries) और इनका इस्तेमाल हमारे सभी आधिकारिक दस्तावेज़ों और उदाहरणों में किया जाता है.
+Gemini API を使用して構築する場合は、**Google GenAI SDK** を使用することをおすすめします。これらは、多くの一般的な言語向けに Google が開発、保守しているプロダクション レディな公式ライブラリです。これらは[一般提供](https://ai.google.dev/gemini-api/docs/libraries?hl=ja#new-libraries)されており、すべての公式ドキュメントと例で使用されています。
 
-अगर आपने Gemini API का इस्तेमाल पहले कभी नहीं किया है, तो इसे इस्तेमाल करने के लिए हमारी [क्विकस्टार्ट गाइड](https://ai.google.dev/gemini-api/docs/quickstart?hl=hi) पढ़ें.
+Gemini API を初めて使用する場合は、[クイックスタート ガイド](https://ai.google.dev/gemini-api/docs/quickstart?hl=ja)に沿って開始してください。
 
-## भाषा से जुड़ी सहायता और इंस्टॉलेशन
+## 言語サポートとインストール
 
-Google GenAI SDK, Python, JavaScript/TypeScript, Go, और Java भाषाओं के लिए उपलब्ध है. पैकेज मैनेजर का इस्तेमाल करके, हर भाषा की लाइब्रेरी इंस्टॉल की जा सकती है. इसके अलावा, ज़्यादा जानकारी के लिए, उनकी GitHub रिपॉज़िटरी पर जाएं:
+Google GenAI SDK は、Python、JavaScript/TypeScript、Go、Java の各言語で使用できます。各言語のライブラリは、パッケージ マネージャーを使用してインストールできます。また、GitHub リポジトリにアクセスして、さらに詳しく調べることもできます。
 
 ### Python
 
-- लाइब्रेरी: [`google-genai`](https://pypi.org/project/google-genai)
-- GitHub डेटा स्टोर करने की जगह: [googleapis/python-genai](https://github.com/googleapis/python-genai)
-- इंस्टॉलेशन: `pip install google-genai`
+- ライブラリ: [`google-genai`](https://pypi.org/project/google-genai)
+- GitHub リポジトリ: [googleapis/python-genai](https://github.com/googleapis/python-genai)
+- インストール: `pip install google-genai`
 
 ### JavaScript
 
-- लाइब्रेरी: [`@google/genai`](https://www.npmjs.com/package/@google/genai)
-- GitHub रिपॉज़िटरी: [googleapis/js-genai](https://github.com/googleapis/js-genai)
-- इंस्टॉलेशन: `npm install @google/genai`
+- ライブラリ: [`@google/genai`](https://www.npmjs.com/package/@google/genai)
+- GitHub リポジトリ: [googleapis/js-genai](https://github.com/googleapis/js-genai)
+- インストール: `npm install @google/genai`
 
-### ऐप पर जाएं
+### Go
 
-- लाइब्रेरी: [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
-- GitHub रिपॉज़िटरी: [googleapis/go-genai](https://github.com/googleapis/go-genai)
-- इंस्टॉलेशन: `go get google.golang.org/genai`
+- ライブラリ: [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
+- GitHub リポジトリ: [googleapis/go-genai](https://github.com/googleapis/go-genai)
+- インストール: `go get google.golang.org/genai`
 
 ### Java
 
-- लाइब्रेरी: `google-genai`
-- GitHub रिपॉज़िटरी: [googleapis/java-genai](https://github.com/googleapis/java-genai)
-- इंस्टॉल करना: अगर Maven का इस्तेमाल किया जा रहा है, तो अपनी डिपेंडेंसी में यह जानकारी जोड़ें:
+- ライブラリ: `google-genai`
+- GitHub リポジトリ: [googleapis/java-genai](https://github.com/googleapis/java-genai)
+- インストール: Maven を使用している場合は、次のものを依存関係に追加します。
 
 ```
 <dependencies>
@@ -63,43 +62,41 @@ Google GenAI SDK, Python, JavaScript/TypeScript, Go, और Java भाषाओ
 
 ### C#
 
-- लाइब्रेरी: `Google.GenAI`
-- GitHub डेटा स्टोर करने की जगह: [googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
-- इंस्टॉलेशन: `dotnet add package Google.GenAI`
+- ライブラリ: `Google.GenAI`
+- GitHub リポジトリ: [googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
+- インストール: `dotnet add package Google.GenAI`
 
-## सामान्य रूप से उपलब्ध
+## 一般提供
 
-मई 2025 तक, Google GenAI SDK, सामान्य रूप से उपलब्ध (जीए) हो गया है. यह सभी प्लैटफ़ॉर्म पर उपलब्ध है. साथ ही, Gemini API को ऐक्सेस करने के लिए, इन लाइब्रेरी का इस्तेमाल करने का सुझाव दिया जाता है.
-ये स्टेबल होते हैं. साथ ही, प्रोडक्शन में इस्तेमाल करने के लिए पूरी तरह से काम करते हैं. इसके अलावा, इन्हें लगातार अपडेट किया जाता है.
-इनसे आपको नई सुविधाओं का ऐक्सेस मिलता है. साथ ही, ये Gemini के साथ काम करने पर सबसे अच्छी परफ़ॉर्मेंस देते हैं.
+2025 年 5 月の時点で、Google GenAI SDK はサポートされているすべてのプラットフォームで一般提供（GA）に達しており、Gemini API にアクセスするための推奨ライブラリとなっています。安定しており、本番環境での使用が完全にサポートされ、積極的にメンテナンスされています。最新の機能を利用でき、Gemini と連携して最高のパフォーマンスを発揮します。
 
-अगर हमारी किसी लेगसी लाइब्रेरी का इस्तेमाल किया जा रहा है, तो हमारा सुझाव है कि आप माइग्रेट करें. इससे आपको नई सुविधाओं का ऐक्सेस मिलेगा. साथ ही, Gemini के साथ काम करते समय आपको बेहतर परफ़ॉर्मेंस मिलेगी. ज़्यादा जानकारी के लिए, [लेगसी लाइब्रेरी](https://ai.google.dev/gemini-api/docs/libraries?hl=hi#previous-sdks) सेक्शन देखें.
+以前のライブラリのいずれかを使用している場合は、移行して最新の機能にアクセスし、Gemini で最高のパフォーマンスを実現することを強くおすすめします。詳細については、[レガシー ライブラリ](https://ai.google.dev/gemini-api/docs/libraries?hl=ja#previous-sdks)のセクションをご覧ください。
 
-## लेगसी लाइब्रेरी और माइग्रेशन
+## レガシー ライブラリと移行
 
-अगर हमारी किसी लेगसी लाइब्रेरी का इस्तेमाल किया जा रहा है, तो हमारा सुझाव है कि आप [नई लाइब्रेरी पर माइग्रेट करें](https://ai.google.dev/gemini-api/docs/migrate?hl=hi).
+以前のライブラリを使用している場合は、[新しいライブラリに移行する](https://ai.google.dev/gemini-api/docs/migrate?hl=ja)ことをおすすめします。
 
-लेगसी लाइब्रेरी से, नई सुविधाओं (जैसे कि [लाइव एपीआई](https://ai.google.dev/gemini-api/docs/live?hl=hi) और [Veo](https://ai.google.dev/gemini-api/docs/video?hl=hi)) का ऐक्सेस नहीं मिलता. साथ ही, ये 30 नवंबर, 2025 से काम नहीं करेंगी.
+以前のライブラリでは、最新の機能（[Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) や [Veo](https://ai.google.dev/gemini-api/docs/video?hl=ja) など）にアクセスできません。また、2025 年 11 月 30 日をもって非推奨となります。
 
-हर लेगसी लाइब्रेरी के लिए, सहायता की स्थिति अलग-अलग होती है. इसके बारे में यहां दी गई टेबल में बताया गया है:
+各レガシー ライブラリのサポート ステータスは次の表のとおりです。
 
-| भाषा | लेगसी लाइब्रेरी | सहायता का स्टेटस | सुझाई गई लाइब्रेरी |
+| 言語 | 以前のライブラリ | サポート状況 | 推奨ライブラリ |
 | --- | --- | --- | --- |
-| **Python** | `google-generativeai` | इसकी देखभाल नहीं की जा रही है | `google-genai` |
-| **JavaScript/TypeScript** | `@google/generativeai` | इसकी देखभाल नहीं की जा रही है | `@google/genai` |
-| **Go** | `google.golang.org/generative-ai` | इसकी देखभाल नहीं की जा रही है | `google.golang.org/genai` |
-| **Dart और Flutter** | `google_generative_ai` | इसकी देखभाल नहीं की जा रही है | [Genkit Dart](https://genkit.dev/docs/dart/get-started/) या [Firebase AI Logic](https://pub.dev/packages/firebase_ai) का इस्तेमाल करना |
-| **Swift** | `generative-ai-swift` | इसकी देखभाल नहीं की जा रही है | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=hi) का इस्तेमाल करना |
-| **Android** | `generative-ai-android` | इसकी देखभाल नहीं की जा रही है | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=hi) का इस्तेमाल करना |
+| **Python** | `google-generativeai` | 積極的にメンテナンスされていない | `google-genai` |
+| **JavaScript/TypeScript** | `@google/generativeai` | 積極的にメンテナンスされていない | `@google/genai` |
+| **Go** | `google.golang.org/generative-ai` | 積極的にメンテナンスされていない | `google.golang.org/genai` |
+| **Dart と Flutter** | `google_generative_ai` | 積極的にメンテナンスされていない | [Genkit Dart](https://genkit.dev/docs/dart/get-started/) または [Firebase AI Logic](https://pub.dev/packages/firebase_ai) を使用する |
+| **Swift** | `generative-ai-swift` | 積極的にメンテナンスされていない | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=ja) を使用する |
+| **Android** | `generative-ai-android` | 積極的にメンテナンスされていない | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=ja) を使用する |
 
-**Java डेवलपर के लिए ध्यान दें:** Gemini API के लिए, Google की ओर से उपलब्ध कराया गया कोई लेगसी Java SDK टूल नहीं था. इसलिए, Google की पिछली लाइब्रेरी से माइग्रेट करने की ज़रूरत नहीं है. [भाषा से जुड़ी सहायता और इंस्टॉलेशन](#install) सेक्शन में जाकर, सीधे नई लाइब्रेरी का इस्तेमाल शुरू किया जा सकता है.
+**Java デベロッパー向けの注:** Gemini API 用の Google 提供の以前の Java SDK は存在しないため、以前の Google ライブラリからの移行は必要ありません。[言語サポートとインストール](#install) セクションで、新しいライブラリを直接使用できます。
 
-सुझाव भेजें
+フィードバックを送信
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-आखिरी बार 2026-05-13 (UTC) को अपडेट किया गया.
+最終更新日 2026-05-13 UTC。
 
-क्या आपको हमें और कुछ बताना है?
+ご意見をお聞かせください
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-13 (UTC) को अपडेट किया गया."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-13 UTC。"],[],[]]

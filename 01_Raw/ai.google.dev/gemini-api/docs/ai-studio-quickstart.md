@@ -1,80 +1,94 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja
-fetched_at: 2026-05-18T13:05:45.996844+00:00
-title: "Google AI Studio \u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419
+fetched_at: 2026-05-25T13:02:44.987956+00:00
+title: "Gu\u00eda de inicio r\u00e1pido de Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-フィードバックを送信
+Enviar comentarios
 
-# Google AI Studio のクイックスタート
+# Guía de inicio rápido de Google AI Studio
 
-[Google AI Studio](https://aistudio.google.com/?hl=ja) を使用すると、さまざまなプロンプトでモデルを簡単に試すことができます。構築の準備ができたら、[Get code] を選択し、好みのプログラミング言語で [Gemini API](https://ai.google.dev/gemini-api/docs/quickstart?hl=ja) の使用を開始できます。
+[Google AI Studio](https://aistudio.google.com/?hl=es-419) te permite probar rápidamente
+modelos y experimentar con diferentes instrucciones. Cuando estés listo para compilar, puedes seleccionar "Obtener código" y tu lenguaje de programación preferido para usar la [API de Gemini](https://ai.google.dev/gemini-api/docs/quickstart?hl=es-419).
 
-## プロンプトと設定
+## Instrucciones y configuración
 
-Google AI Studio には、さまざまなユースケース向けに設計されたプロンプト用のインターフェースが複数用意されています。このガイドでは、会話機能の構築に使用される**チャット プロンプト**について説明します。このプロンプト手法では、複数の入力とレスポンスのターンを使用して出力を生成できます。詳しくは、[以下のチャット プロンプトの例](#chat_example)をご覧ください。他にも、**リアルタイム ストリーミング**、**動画生成**などのオプションがあります。
+Google AI Studio proporciona varias interfaces para las instrucciones que están diseñadas para diferentes casos de uso. En esta guía, se abordan las **instrucciones de chat**, que se usan para crear
+experiencias conversacionales. Esta técnica de instrucciones permite varios turnos de entrada
+y respuesta para generar resultados. Puedes obtener más información con nuestro
+[ejemplo de instrucción de chat a continuación](#chat_example).
+Otras opciones incluyen **transmisión en tiempo real**, **generación de video** y
+mucho más.
 
-AI Studio には、**実行設定**パネルも用意されています。このパネルでは、[モデル パラメータ](https://ai.google.dev/docs/prompting-strategies?hl=ja#model-parameters)、[安全設定](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ja)を調整したり、[構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)、[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)、[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)、[グラウンディング](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)などのツールをオンにしたりできます。
+AI Studio también proporciona el panel **Configuración de ejecución**, en el que puedes realizar
+ajustes en los [parámetros del modelo](https://ai.google.dev/docs/prompting-strategies?hl=es-419#model-parameters),
+la [configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) y activar herramientas como el [resultado estructurado](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419), la [llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419), la [ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419) y la [fundamentación](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419).
 
-## チャット プロンプトの例: カスタム チャット アプリケーションを構築する
+## Ejemplo de instrucción de chat: Compila una aplicación de chat personalizada
 
-[Gemini](https://gemini.google.com/?hl=ja) などの汎用 chatbot を使用したことがある場合は、生成 AI モデルがオープンエンドのダイアログにどれほど強力であるかを直接体験したことがあるでしょう。汎用チャットボットは便利ですが、特定のユースケースに合わせて調整する必要があることがよくあります。
+Si usaste un chatbot de uso general como
+[Gemini](https://gemini.google.com/?hl=es-419), experimentaste de primera mano lo potentes que pueden ser los modelos de IA
+generativa para el diálogo abierto. Si bien estos chatbots de uso general son útiles, a menudo deben adaptarse para casos de uso particulares.
 
-たとえば、自社製品に関する会話のみをサポートするカスタマー サービス chatbot を構築するとします。特定のトーンやスタイルで話す chatbot を作成したい場合があります。たとえば、ジョークをたくさん言う bot、詩人のように韻を踏む bot、回答に絵文字をたくさん使う bot などです。
+Por ejemplo, tal vez quieras compilar un chatbot de atención al cliente que solo admita conversaciones sobre el producto de una empresa. Es posible que quieras compilar un chatbot que hable con un tono o estilo en particular: un bot que cuente muchos chistes, rime como un poeta o use muchos emojis en sus respuestas.
 
-この例では、Google AI Studio を使用して、木星の衛星の 1 つであるエウロパに住むエイリアンのように会話するフレンドリーなチャットボットを構築する方法を示します。
+En este ejemplo, se muestra cómo usar Google AI Studio para compilar un chatbot amigable que se comunica como si fuera un extraterrestre que vive en una de las lunas de Júpiter, Europa.
 
-### ステップ 1 - チャット プロンプトを作成する
+### Paso 1: Crea una instrucción de chat
 
-chatbot を構築するには、ユーザーと chatbot の間のやり取りの例を提供して、モデルが求める回答を提供できるようにする必要があります。
+Para compilar un chatbot, debes proporcionar ejemplos de interacciones entre un usuario y el chatbot para guiar al modelo para que proporcione las respuestas que buscas.
 
-チャット プロンプトを作成するには:
+Para crear una instrucción de chat, haz lo siguiente:
 
-1. [Google AI Studio](https://aistudio.google.com/?hl=ja) を開きます。**Playground** はデフォルトで開いており、新しいチャット プロンプトが表示されます。
-2. 右上にある [**実行設定**] tune をクリックしてパネルを開き、[[**システム指示**](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#system-instructions)] 入力フィールドを見つけます。次の内容をテキスト入力フィールドに貼り付けます。
+1. Abre [Google AI Studio](https://aistudio.google.com/?hl=es-419). El **Playground** se abrirá de forma predeterminada con una nueva instrucción de chat.
+2. Haz clic en **Configuración de ejecución** tune en la esquina superior derecha
+   para expandir el panel y ubica el
+   [**Instrucciones del sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#system-instructions)
+   campo de entrada. Pega lo siguiente en el campo de entrada de texto:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-システム指示を追加したら、モデルとチャットしてアプリケーションのテストを開始します。
+Después de agregar las instrucciones del sistema, comienza a probar tu aplicación chateando con el modelo:
 
-1. [**Type something...**] とラベルの付いたテキスト入力ボックスに、ユーザーがする可能性のある質問や観察結果を入力します。次に例を示します。
+1. En el cuadro de entrada de texto con la etiqueta **Escribe algo...**, ingresa una pregunta u
+   observación que un usuario podría hacer. Por ejemplo:
 
-   **ユーザー:**
+   **Usuario:**
 
    ```
    What's the weather like?
    ```
-2. [**実行**] ボタンをクリックして、chatbot からレスポンスを取得します。レスポンスは次のようになります。
+2. Haz clic en el botón **Ejecutar** para obtener una respuesta del chatbot. Esta respuesta puede ser similar a la siguiente:
 
-   **モデル:**
+   **Modelo:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
    yes? A curious concept from worlds with thick gas veils...
    ```
 
-   （gemini-2.5-pro）
+   (gemini-2.5-pro)
 
-### ステップ 2 - ボットのチャット機能を強化する
+### Paso 2: Enséñale a tu bot a chatear mejor
 
-1 つの指示で、基本的なエウロパのエイリアン チャットボットを作成できました。ただし、1 つの指示だけでは、モデルのレスポンスの一貫性と品質を確保するのに十分でない場合があります。具体的な指示がないと、天気に関する質問に対するモデルの回答は非常に長くなる傾向があり、独自の解釈が加わる可能性があります。
+Si proporcionas una sola instrucción, puedes compilar un chatbot básico de extraterrestre de Europa. Sin embargo, una sola instrucción puede no ser suficiente para garantizar la coherencia y la calidad en las respuestas del modelo. Sin instrucciones más específicas, la respuesta del modelo a una pregunta sobre el clima tiende a ser muy larga y puede tener su propia opinión.
 
-システム指示に追加して、chatbot のトーンをカスタマイズします。
+Para personalizar el tono de tu chatbot, agrega lo siguiente a las instrucciones del sistema:
 
-1. 新しいチャット プロンプトを開始するか、同じプロンプトを使用します。システム指示は、チャット セッションの開始後に変更できます。
-2. [**システム指示**] セクションで、既存の指示を次のように変更します。
+1. Inicia una nueva instrucción de chat o usa la misma. Las instrucciones del sistema se pueden modificar después de que se inicia la sesión de chat.
+2. En la sección **Instrucciones del sistema**, cambia las instrucciones que ya tienes por las siguientes:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -82,9 +96,9 @@ chatbot を構築するには、ユーザーと chatbot の間のやり取りの
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. 質問（`What's the weather like?`）を再入力し、[**実行**] ボタンをクリックします。新しいチャットを開始していない場合、回答は次のようになります。
+3. Vuelve a ingresar tu pregunta (`What's the weather like?`) y haz clic en el botón **Ejecutar**. Si no iniciaste un chat nuevo, tu respuesta podría verse así:
 
-   **モデル:**
+   **Modelo:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -93,25 +107,27 @@ chatbot を構築するには、ユーザーと chatbot の間のやり取りの
    (that's your Jupiter!)...
    ```
 
-   （gemini-2.5-pro）
+   (gemini-2.5-pro)
 
-このアプローチを使用すると、chatbot にさらに深みを追加できます。質問を追加したり、回答を編集したりして、チャットボットの品質を高めます。手順の追加や変更を続け、チャットボットの動作がどのように変化するかをテストします。
+Puedes usar este enfoque para agregar profundidad adicional al chatbot. Haz más preguntas, edita las respuestas y mejora la calidad de tu chatbot. Sigue agregando o modificando las instrucciones y prueba cómo cambian el comportamiento de tu chatbot.
 
-### ステップ 3 - 次のステップ
+### Paso 3: Próximos pasos
 
-他のプロンプト タイプと同様に、プロンプトのプロトタイプが完成したら、[**コードを取得**] ボタンを使用してコーディングを開始するか、プロンプトを保存して後で作業したり、他のユーザーと共有したりできます。
+Al igual que con los otros tipos de instrucciones, una vez que hayas creado un prototipo de tu instrucción a tu satisfacción, puedes usar el botón **Obtener código** para comenzar a programar o guardar la instrucción para trabajar en ella más adelante y compartirla con otras personas.
 
-## 関連情報
+## Lecturas adicionales
 
-- コードに進む準備ができたら、[API クイックスタート](https://ai.google.dev/gemini-api/docs/quickstart?hl=ja)をご覧ください。
-- より良いプロンプトを作成する方法については、[プロンプト設計のガイドライン](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ja)をご覧ください。
+- Si estás listo para pasar al código, consulta los [inicios rápidos
+  de la API](https://ai.google.dev/gemini-api/docs/quickstart?hl=es-419).
+- Para obtener información sobre cómo crear mejores instrucciones, consulta los [lineamientos
+  de diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
 
-フィードバックを送信
+Enviar comentarios
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-最終更新日 2026-05-12 UTC。
+Última actualización: 2026-05-12 (UTC)
 
-ご意見をお聞かせください
+¿Quieres brindar más información?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-12 UTC。"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-12 (UTC)"],[],[]]

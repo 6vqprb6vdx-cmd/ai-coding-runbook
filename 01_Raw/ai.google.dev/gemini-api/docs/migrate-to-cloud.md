@@ -1,42 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=zh-CN
-fetched_at: 2026-05-18T13:05:49.659427+00:00
-title: "Gemini Developer API \u4e0e Gemini Enterprise Agent Platform \u7684\u5bf9\u6bd4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=ar
+fetched_at: 2026-05-25T13:02:58.518701+00:00
+title: "\u202bGemini Developer API \u0645\u0642\u0627\u0631\u0646\u0629\u064b \u0628\u0645\u0646\u0635\u0629 \u0648\u0643\u064a\u0644 Gemini Enterprise \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-发送反馈
+إرسال ملاحظات
 
-# Gemini Developer API 与 Gemini Enterprise Agent Platform 的对比
+# ‫Gemini Developer API مقارنةً بمنصة وكيل Gemini Enterprise
 
-使用 Gemini 开发生成式 AI 解决方案时，Google 提供两种 API 产品：
-[Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=zh-cn) 和 [Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=zh-cn)。
+عند تطوير حلول الذكاء الاصطناعي التوليدي باستخدام Gemini، تقدّم Google منتجَين من واجهات برمجة التطبيقات:
+[Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=ar) و[Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=ar).
 
-Gemini Developer API 提供最快的路径来构建、生产化和扩缩由 Gemini 提供支持的应用。大多数开发者都应使用 Gemini Developer API，除非需要特定的企业控制。
+توفّر Gemini Developer API أسرع طريقة لإنشاء التطبيقات المستندة إلى Gemini وتجهيزها للإصدار العلني وتوسيع نطاقها. يجب أن يستخدم معظم المطوّرين Gemini Developer API ما لم تكن هناك حاجة إلى عناصر تحكّم خاصة بالمؤسسات.
 
-Gemini Enterprise Agent Platform 提供了一个全面的生态系统，其中包含企业就绪型功能和服务，用于构建和部署由 Google Cloud Platform 提供支持的生成式 AI 应用。
+توفّر Gemini Enterprise Agent Platform نظامًا شاملاً يتضمّن ميزات وخدمات جاهزة للمؤسسات من أجل إنشاء تطبيقات الذكاء الاصطناعي التوليدي ونشرها، استنادًا إلى Google Cloud Platform.
 
-我们最近简化了在这些服务之间迁移的过程。现在，您可以通过统一的
-[Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn)访问 Gemini
-Developer API 和 Gemini Enterprise Agent Platform API。
+لقد بسّطنا مؤخرًا عملية نقل البيانات بين هاتين الخدمتَين. يمكن الآن الوصول إلى كلّ من Gemini
+Developer API وGemini Enterprise Agent Platform API من خلال حزمة
+[Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) الموحّدة.
 
-## 代码比较
+## مقارنة الرموز البرمجية
 
-此页面并排比较了 Gemini Developer API 和 Gemini Enterprise Agent Platform 文本生成快速入门的代码。
+تحتوي هذه الصفحة على مقارنات جنبًا إلى جنب بين الرموز البرمجية في أدلة البدء السريع لكلّ من Gemini Developer API وGemini Enterprise Agent Platform لإنشاء النصوص.
 
 ### Python
 
-您可以通过 `google-genai` 库访问 Gemini Developer API 和 Gemini Enterprise Agent Platform 服务。如需了解如何安装 `google-genai`，请参阅 [库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn) 页面
-。
+يمكنك الوصول إلى كلّ من Gemini Developer API وGemini Enterprise Agent Platform من خلال مكتبة `google-genai`. راجِع صفحة [المكتبات](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) للاطّلاع على تعليمات حول كيفية تثبيت `google-genai`.
 
 ### Gemini Developer API
 
@@ -46,7 +45,7 @@ from google import genai
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents="Explain how AI works in a few words"
+    model="gemini-3.5-flash", contents="Explain how AI works in a few words"
 )
 print(response.text)
 ```
@@ -61,14 +60,15 @@ client = genai.Client(
 )
 
 response = client.models.generate_content(
-    model="gemini-3-flash-preview", contents="Explain how AI works in a few words"
+    model="gemini-3.5-flash", contents="Explain how AI works in a few words"
 )
 print(response.text)
 ```
 
-### JavaScript 和 TypeScript
+### JavaScript وTypeScript
 
-您可以通过 `@google/genai` 库访问 Gemini Developer API 和 Gemini Enterprise Agent Platform 服务。如需了解如何安装 `@google/genai`，请参阅 [库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn) 页面。
+يمكنك الوصول إلى كلّ من Gemini Developer API وGemini Enterprise Agent Platform من خلال مكتبة `@google/genai`. راجِع صفحة [المكتبات](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) للاطّلاع على تعليمات حول كيفية
+تثبيت `@google/genai`.
 
 ### Gemini Developer API
 
@@ -79,7 +79,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: "Explain how AI works in a few words",
   });
   console.log(response.text);
@@ -100,7 +100,7 @@ const ai = new GoogleGenAI({
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     contents: "Explain how AI works in a few words",
   });
   console.log(response.text);
@@ -109,9 +109,10 @@ async function main() {
 main();
 ```
 
-### Go
+### انتقال
 
-您可以通过 `google.golang.org/genai` 库访问 Gemini Developer API 和 Gemini Enterprise Agent Platform 服务。如需了解如何安装 `google.golang.org/genai`，请参阅 [库](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-cn)页面。
+يمكنك الوصول إلى كلّ من Gemini Developer API وGemini Enterprise Agent Platform من خلال مكتبة `google.golang.org/genai`. راجِع صفحة [المكتبات](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) للاطّلاع على تعليمات حول كيفية
+تثبيت `google.golang.org/genai`.
 
 ### Gemini Developer API
 
@@ -135,7 +136,7 @@ func main() {
   }
 
   // Call the GenerateContent method.
-  result, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", genai.Text("Tell me about New York?"), nil)
+  result, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", genai.Text("Tell me about New York?"), nil)
 
 }
 ```
@@ -167,55 +168,52 @@ func main() {
   })
 
   // Call the GenerateContent method.
-  result, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", genai.Text("Tell me about New York?"), nil)
+  result, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", genai.Text("Tell me about New York?"), nil)
 
 }
 ```
 
-### 其他用例和平台
+### حالات الاستخدام والمنصات الأخرى
 
-如需了解其他平台和用例，请参阅 [Gemini Developer API 文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
-和 [Gemini Enterprise Agent Platform 文档](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=zh-cn)
-中特定于用例的指南。
+راجِع الأدلة الخاصة بحالات الاستخدام في [مستندات Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=ar)
+و[مستندات Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=ar)
+للاطّلاع على المنصات وحالات الاستخدام الأخرى.
 
-## 迁移注意事项
+## اعتبارات نقل البيانات
 
-迁移时：
+عند نقل البيانات:
 
-- 您需要使用 Google Cloud 服务账号进行身份验证。如需了解详情，请参阅 [Gemini Enterprise Agent Platform 文档](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=zh-cn)
-  。
-- 您可以使用现有的 Google Cloud 项目
-  （即用于生成 API 密钥的项目），也可以
-  [创建新的 Google Cloud 项目](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=zh-cn)。
-- Gemini Developer API 和 Gemini Enterprise Agent Platform API 支持的区域可能有所不同。请参阅 Google Cloud 上的生成式 AI 支持的区域列表
-  。
-- 您在 Google AI Studio 中创建的任何模型都需要在 Gemini Enterprise Agent Platform 中重新训练。
+- عليك استخدام حسابات خدمة Google Cloud للمصادقة. راجِع [مستندات Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=ar)
+  لمزيد من المعلومات.
+- يمكنك استخدام مشروعك الحالي على Google Cloud
+  (المشروع نفسه الذي استخدمته لإنشاء مفتاح واجهة برمجة التطبيقات) أو يمكنك
+  [إنشاء مشروع جديد على Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ar).
+- قد تختلف المناطق المتوافقة بين Gemini Developer API وGemini Enterprise Agent Platform API. [راجِع قائمة المناطق المتوافقة مع الذكاء الاصطناعي التوليدي على Google Cloud.](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=ar)
+- يجب إعادة تدريب أي نماذج أنشأتها في Google AI Studio في Gemini Enterprise Agent Platform.
 
-如果您不再需要使用 Gemini Developer API 的 Gemini API 密钥，请遵循安全性最佳实践并将其删除。
+إذا لم تعُد بحاجة إلى استخدام مفتاح Gemini API لـ Gemini Developer API، اتّبِع أفضل الممارسات الأمنية واحذفه.
 
-如需删除 API 密钥，请执行以下操作：
+لحذف مفتاح واجهة برمجة التطبيقات:
 
-1. 打开
-   [Google Cloud API 凭据](https://console.cloud.google.com/apis/credentials?hl=zh-cn)
-   页面。
-2. 找到您要删除的 API 密钥，然后点击**操作** 图标。
-3. 选择**删除 API 密钥** 。
-4. 在**删除凭据**模态框中，选择**删除**。
+1. [افتح صفحة بيانات اعتماد Google Cloud API.](https://console.cloud.google.com/apis/credentials?hl=ar)
+2. ابحث عن مفتاح واجهة برمجة التطبيقات الذي تريد حذفه وانقر على رمز **الإجراءات**.
+3. انقر على **حذف مفتاح واجهة برمجة التطبيقات**.
+4. في النافذة المنبثقة **حذف بيانات الاعتماد** ، انقر على **حذف**.
 
-   删除 API 密钥的操作需要几分钟时间才能生效。生效后，任何使用已删除的 API 密钥的流量都将遭到拒绝。
+   يستغرق نشر حذف مفتاح واجهة برمجة التطبيقات بضع دقائق. بعد اكتمال عملية النشر، يتم رفض أي زيارات تستخدم مفتاح واجهة برمجة التطبيقات المحذوف.
 
-## 后续步骤
+## الخطوات التالية
 
-- 如需详细了解 Gemini Enterprise Agent Platform 上的生成式 AI 解决方案，请参阅
-  [Gemini Enterprise Agent Platform 上的生成式 AI 概览](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/multimodal/overview?hl=zh-cn)
-  。
+- راجِع
+  [نظرة عامة على الذكاء الاصطناعي التوليدي على Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/multimodal/overview?hl=ar)
+  لمزيد من المعلومات حول حلول الذكاء الاصطناعي التوليدي على Gemini Enterprise Agent Platform.
 
-发送反馈
+إرسال ملاحظات
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最后更新时间 (UTC)：2026-05-13。
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-需要向我们提供更多信息？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-13。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

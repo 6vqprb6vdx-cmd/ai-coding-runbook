@@ -1,65 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=pt-BR
-fetched_at: 2026-05-18T13:01:30.207506+00:00
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ar
+fetched_at: 2026-05-25T13:05:06.835720+00:00
 title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envie comentários
+إرسال ملاحظات
 
-# O armazenamento em cache de contexto
+# التخزين المؤقت للسياق
 
-Em um fluxo de trabalho de IA típico, você pode transmitir os mesmos tokens de entrada várias vezes para um modelo. A API Gemini oferece dois mecanismos de armazenamento em cache diferentes:
+في سير عمل الذكاء الاصطناعي النموذجي، قد يتم تمرير رموز الإدخال نفسها بشكل متكرر إلى أحد النماذج. توفّر Gemini API آليتَي تخزين مؤقت مختلفتَين:
 
-- Armazenamento em cache implícito (ativado automaticamente nos modelos do Gemini 2.5 e mais recentes, sem garantia de economia de custos)
-- Armazenamento em cache explícito (pode ser ativado manualmente na maioria dos modelos, com garantia de economia de custos)
+- التخزين المؤقت الضمني (مفعَّل تلقائيًا في Gemini 2.5 والنماذج الأحدث، ولا يضمن توفير التكاليف)
+- التخزين المؤقت الصريح (يمكن تفعيله يدويًا في معظم النماذج، ويضمن توفير التكاليف)
 
-O armazenamento em cache explícito é útil nos casos em que você quer garantir a economia de custos, mas com algum trabalho extra do desenvolvedor.
+يكون التخزين المؤقت الصريح مفيدًا في الحالات التي تريد فيها ضمان توفير التكاليف، ولكن مع بعض العمل الإضافي من جانب المطوّر.
 
-## Armazenamento em cache implícito
+## التخزين المؤقت الضمني
 
-O armazenamento em cache implícito é ativado por padrão para todos os modelos do Gemini 2.5 e mais recentes. Transmitimos automaticamente a economia de custos se a solicitação atingir os caches. Não é necessário fazer nada para ativar isso. A contagem mínima de tokens de entrada para o armazenamento em cache de contexto está listada na tabela a seguir para cada modelo:
+يكون التخزين المؤقت الضمني مفعَّلاً تلقائيًا لجميع نماذج Gemini 2.5 والنماذج الأحدث. ونحن نمرّر تلقائيًا وفورات التكاليف إذا كان طلبك يطابق البيانات المخزّنة مؤقتًا. وليس عليك اتّخاذ أي إجراء لتفعيل هذه الميزة. يتم إدراج الحد الأدنى لعدد رموز الإدخال للتخزين المؤقت للسياق في الجدول التالي لكل نموذج:
 
-| Modelo | Limite mínimo de tokens |
+| الطراز | الحد الأدنى لعدد الرموز |
 | --- | --- |
-| Pré-lançamento do Gemini 3 Flash | 1024 |
-| Pré-lançamento do Gemini 3 Pro | 4096 |
+| Gemini 3.5 Flash | 1024 |
+| Gemini 3 Pro Preview | 4096 |
 | Gemini 2.5 Flash | 1024 |
 | Gemini 2.5 Pro | 4096 |
 
-Para aumentar a chance de um acerto de cache implícito:
+لزيادة فرصة مطابقة البيانات المخزّنة مؤقتًا ضمنيًا:
 
-- Tente colocar conteúdos grandes e comuns no início do comando
-- Tente enviar solicitações com prefixo semelhante em um curto período
+- حاوِل وضع المحتويات الكبيرة والشائعة في بداية طلبك
+- حاوِل إرسال الطلبات التي تتضمّن بادئة مشابهة خلال فترة زمنية قصيرة
 
-É possível conferir o número de tokens que foram acertos de cache no campo `usage_metadata` do objeto de resposta.
+يمكنك الاطّلاع على عدد الرموز التي طابقت البيانات المخزّنة مؤقتًا في حقل `usage_metadata` في عنصر الاستجابة.
 
-## Armazenamento em cache explícito
+## التخزين المؤقت الصريح
 
-Usando o recurso de armazenamento em cache explícito da API Gemini, você pode transmitir algum conteúdo para o modelo uma vez, armazenar os tokens de entrada em cache e, em seguida, consultar os tokens armazenados em cache para solicitações subsequentes. Em determinados volumes, o uso de tokens armazenados em cache é mais barato do que transmitir o mesmo corpus de tokens repetidamente.
+باستخدام ميزة التخزين المؤقت الصريح في Gemini API، يمكنك تمرير بعض المحتوى إلى النموذج مرة واحدة، وتخزين رموز الإدخال مؤقتًا، ثم الإشارة إلى الرموز المخزّنة مؤقتًا للطلبات اللاحقة. عند استخدام كميات معيّنة، تكون تكلفة استخدام الرموز المخزّنة مؤقتًا أقل من تكلفة تمرير مجموعة الرموز نفسها بشكل متكرر.
 
-Ao armazenar um conjunto de tokens em cache, você pode escolher por quanto tempo quer que o cache exista antes que os tokens sejam excluídos automaticamente. Essa duração de armazenamento em cache é chamada de *tempo de vida útil* (TTL, na sigla em inglês). Se não for definido, o TTL será de 1 hora por padrão. O custo do armazenamento em cache depende do tamanho do token de entrada e de quanto tempo você quer que os tokens persistam.
+عند تخزين مجموعة من الرموز مؤقتًا، يمكنك اختيار المدة التي تريد أن تظل فيها البيانات المخزّنة مؤقتًا قبل حذف الرموز تلقائيًا. تُعرف مدة التخزين المؤقت هذه باسم *مدة البقاء* (TTL). إذا لم يتم ضبط مدة البقاء، يتم ضبطها تلقائيًا على ساعة واحدة. تعتمد تكلفة التخزين المؤقت على حجم رمز الإدخال والمدة التي تريد أن تظل فيها الرموز.
 
-Esta seção pressupõe que você instalou um SDK do Gemini (ou tem o curl instalado)
-e configurou uma chave de API, conforme mostrado no
-[início rápido](https://ai.google.dev/gemini-api/docs/quickstart?hl=pt-br).
+يفترض هذا القسم أنّك ثبّت أحد حِزم Gemini SDK (أو ثبّت أداة curl)
+وأنّك ضبطت مفتاح واجهة برمجة التطبيقات، كما هو موضّح في
+[دليل البدء السريع](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
 
-### Gerar conteúdo usando um cache
+### إنشاء محتوى باستخدام ذاكرة تخزين مؤقت
 
 ### Python
 
-O exemplo a seguir mostra como gerar conteúdo usando uma instrução do sistema e um arquivo de vídeo armazenados em cache.
+يوضّح المثال التالي كيفية إنشاء محتوى باستخدام تعليمات نظام مخزّنة مؤقتًا وملف فيديو.
 
-### Vídeos
+### الفيديوهات
 
 ```
 import os
@@ -88,7 +88,7 @@ while video_file.state.name == 'PROCESSING':
 
 print(f'Video processing complete: {video_file.uri}')
 
-model='models/gemini-3-flash-preview'
+model='models/gemini-3.5-flash'
 
 # Create a cache with a 5 minute TTL (300 seconds)
 cache = client.caches.create(
@@ -118,7 +118,7 @@ print(response.usage_metadata)
 print(response.text)
 ```
 
-### PDFs
+### ملفات PDF
 
 ```
 from google import genai
@@ -138,7 +138,7 @@ document = client.files.upload(
   config=dict(mime_type='application/pdf')
 )
 
-model_name = "gemini-3-flash-preview"
+model_name = "gemini-3.5-flash"
 system_instruction = "You are an expert analyzing transcripts."
 
 # Create a cached content object
@@ -166,7 +166,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-O exemplo a seguir mostra como gerar conteúdo usando uma instrução do sistema e um arquivo de texto armazenados em cache.
+يوضّح المثال التالي كيفية إنشاء محتوى باستخدام تعليمات نظام مخزّنة مؤقتًا وملف نصي.
 
 ```
 import {
@@ -184,7 +184,7 @@ async function main() {
   });
   console.log("Uploaded file name:", doc.name);
 
-  const modelName = "gemini-3-flash-preview";
+  const modelName = "gemini-3.5-flash";
   const cache = await ai.caches.create({
     model: modelName,
     config: {
@@ -205,9 +205,9 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
-O exemplo a seguir mostra como gerar conteúdo usando um cache.
+يوضّح المثال التالي كيفية إنشاء محتوى باستخدام ذاكرة تخزين مؤقت.
 
 ```
 package main
@@ -230,7 +230,7 @@ func main() {
         log.Fatal(err)
     }
 
-    modelName := "gemini-3-flash-preview"
+    modelName := "gemini-3.5-flash"
     document, err := client.Files.UploadFromPath(
         ctx,
         "media/a11.txt",
@@ -277,14 +277,14 @@ func main() {
 
 ### REST
 
-O exemplo a seguir mostra como criar um cache e usá-lo para gerar conteúdo.
+يوضّح المثال التالي كيفية إنشاء ذاكرة تخزين مؤقت ثم استخدامها لإنشاء محتوى.
 
-### Vídeos
+### الفيديوهات
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
 echo '{
-  "model": "models/gemini-3-flash-preview",
+  "model": "models/gemini-3.5-flash",
   "contents":[
     {
       "parts":[
@@ -315,7 +315,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/cachedContents?ke
 
 CACHE_NAME=$(cat cache.json | grep '"name":' | cut -d '"' -f 4 | head -n 1)
 
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=$GEMINI_API_KEY" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
 -d '{
       "contents": [
@@ -330,14 +330,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-f
     }'
 ```
 
-### PDFs
+### ملفات PDF
 
 ```
 DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
 DISPLAY_NAME="A11_Mission_Report"
 SYSTEM_INSTRUCTION="You are an expert at analyzing transcripts."
 PROMPT="Please summarize this transcript"
-MODEL="models/gemini-3-flash-preview"
+MODEL="models/gemini-3.5-flash"
 TTL="300s"
 
 # Download the PDF
@@ -428,22 +428,22 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Listar caches
+### عرض قائمة بذاكرات التخزين المؤقت
 
-Não é possível recuperar ou visualizar o conteúdo armazenado em cache, mas é possível recuperar
-metadados de cache (`name`, `model`, `display_name`, `usage_metadata`,
-`create_time`, `update_time` e `expire_time`).
+لا يمكن استرداد المحتوى المخزّن مؤقتًا أو عرضه، ولكن يمكنك استرداد
+البيانات الوصفية لذاكرة التخزين المؤقت (`name`، `model`، `display_name`، `usage_metadata`،
+`create_time`، `update_time`، و`expire_time`).
 
 ### Python
 
-Para listar os metadados de todos os caches enviados, use `CachedContent.list()`:
+لعرض البيانات الوصفية لجميع ذاكرات التخزين المؤقت التي تم تحميلها، استخدِم `CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-Para buscar os metadados de um objeto de cache, se você souber o nome dele, use `get`:
+لاسترداد البيانات الوصفية لعنصر ذاكرة تخزين مؤقت واحد، استخدِم `get` إذا كنت تعرف اسمه:
 
 ```
 client.caches.get(name=name)
@@ -451,7 +451,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-Para listar os metadados de todos os caches enviados, use `GoogleGenAI.caches.list()`:
+لعرض البيانات الوصفية لجميع ذاكرات التخزين المؤقت التي تم تحميلها، استخدِم `GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -466,9 +466,9 @@ while (true) {
 }
 ```
 
-### Go
+### انتقال
 
-O exemplo a seguir lista todos os caches.
+يعرض المثال التالي جميع ذاكرات التخزين المؤقت.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -481,7 +481,7 @@ for _, item := range caches {
 }
 ```
 
-O exemplo a seguir lista caches usando um tamanho de página de 2.
+يعرض المثال التالي ذاكرات التخزين المؤقت باستخدام حجم صفحة يبلغ 2.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -514,13 +514,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### Atualizar um cache
+### تعديل ذاكرة تخزين مؤقت
 
-É possível definir um novo `ttl` ou `expire_time` para um cache. Não é possível mudar mais nada sobre o cache.
+يمكنك ضبط `ttl` أو `expire_time` جديدَين لذاكرة تخزين مؤقت. لا يمكن تغيير أي شيء آخر في ذاكرة التخزين المؤقت.
 
 ### Python
 
-O exemplo a seguir mostra como atualizar o `ttl` de um cache usando `client.caches.update()`.
+يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت باستخدام `client.caches.update()`.
 
 ```
 from google import genai
@@ -534,11 +534,10 @@ client.caches.update(
 )
 ```
 
-Para definir o horário de expiração, ele aceita um objeto `datetime`
-ou uma string de data e hora formatada em ISO (`dt.isoformat()`, como
-`2025-01-27T16:02:36.473528+00:00`). O horário precisa incluir um fuso horário
-(`datetime.utcnow()` não anexa um fuso horário,
-`datetime.now(datetime.timezone.utc)` anexa um fuso horário).
+لضبط وقت انتهاء الصلاحية، سيتم قبول كائن `datetime` أو سلسلة بتنسيق datetime بتنسيق ISO (`dt.isoformat()`، مثل
+`2025-01-27T16:02:36.473528+00:00`). يجب أن يتضمّن الوقت منطقة زمنية
+(`datetime.utcnow()` لا يرفق منطقة زمنية،
+`datetime.now(datetime.timezone.utc)` يرفق منطقة زمنية).
 
 ```
 from google import genai
@@ -558,7 +557,7 @@ client.caches.update(
 
 ### JavaScript
 
-O exemplo a seguir mostra como atualizar o `ttl` de um cache usando `GoogleGenAI.caches.update()`.
+يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت باستخدام `GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -569,9 +568,9 @@ const updatedCache = await ai.caches.update({
 console.log("After update (TTL):", updatedCache);
 ```
 
-### Go
+### انتقال
 
-O exemplo a seguir mostra como atualizar o `TTL` de um cache.
+يوضّح المثال التالي كيفية تعديل `TTL` لذاكرة تخزين مؤقت.
 
 ```
 // Update the TTL (2 hours).
@@ -587,7 +586,7 @@ fmt.Println(cache)
 
 ### REST
 
-O exemplo a seguir mostra como atualizar o `ttl` de um cache.
+يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -595,9 +594,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### Excluir um cache
+### حذف ذاكرة تخزين مؤقت
 
-O serviço de armazenamento em cache oferece uma operação de exclusão para remover manualmente o conteúdo do cache. O exemplo a seguir mostra como excluir um cache:
+توفّر خدمة التخزين المؤقت عملية حذف لإزالة المحتوى يدويًا من ذاكرة التخزين المؤقت. يوضّح المثال التالي كيفية حذف ذاكرة تخزين مؤقت:
 
 ### Python
 
@@ -611,7 +610,7 @@ client.caches.delete(cache.name)
 await ai.caches.delete({ name: cache.name });
 ```
 
-### Go
+### انتقال
 
 ```
 _, err = client.Caches.Delete(ctx, cache.Name, &genai.DeleteCachedContentConfig{})
@@ -627,49 +626,48 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### Armazenamento em cache explícito usando a biblioteca OpenAI
+### التخزين المؤقت الصريح باستخدام مكتبة OpenAI
 
-Se você estiver usando uma [biblioteca OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br), poderá ativar o
-armazenamento em cache explícito usando a propriedade `cached_content` em
-[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br#extra-body).
+إذا كنت تستخدم مكتبة [OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar)، يمكنك تفعيل
+التخزين المؤقت الصريح باستخدام السمة `cached_content` في
+[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=ar#extra-body).
 
-## Quando usar o armazenamento em cache explícito
+## حالات استخدام التخزين المؤقت الصريح
 
-O armazenamento em cache de contexto é particularmente adequado para cenários em que um contexto inicial substancial é referenciado repetidamente por solicitações mais curtas. Use armazenamento em cache de contexto para casos de uso como estes:
+يكون التخزين المؤقت للسياق مناسبًا بشكل خاص للسيناريوهات التي تتم فيها الإشارة بشكل متكرر إلى سياق أولي كبير من خلال طلبات أقصر. ننصحك باستخدام التخزين المؤقت للسياق في حالات الاستخدام التالية:
 
-- Chatbots com instruções [abrangentes do sistema](https://ai.google.dev/gemini-api/docs/system-instructions?hl=pt-br)
-- Análise repetitiva de arquivos de vídeo longos
-- Consultas recorrentes em grandes conjuntos de documentos
-- Análise frequente do repositório de código ou correção de bugs
+- روبوتات الدردشة التي تتضمّن تعليمات نظام [شاملة](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ar)
+- التحليل المتكرر لملفات الفيديو الطويلة
+- الطلبات المتكررة التي يتم إرسالها إلى مجموعات كبيرة من المستندات
+- التحليل المتكرر لمستودع الرموز البرمجية أو إصلاح الأخطاء
 
-### Como o armazenamento em cache explícito reduz os custos
+### كيفية تقليل التكاليف باستخدام التخزين المؤقت الصريح
 
-O armazenamento em cache de contexto é um recurso pago projetado para reduzir os custos. O faturamento é baseado nos seguintes fatores:
+التخزين المؤقت للسياق هو ميزة مدفوعة مصمّمة لتقليل التكلفة. تستند الفوترة إلى العوامل التالية:
 
-1. **Contagem de tokens de cache**:o número de tokens de entrada armazenados em cache, faturados com uma taxa reduzida quando incluído nos comandos subsequentes.
-2. **Duração do armazenamento**:o tempo de armazenamento e cobrança dos tokens em cache (TTL), faturado com base na duração do TTL da contagem de tokens armazenados em cache. Não há limites mínimos ou máximos no TTL.
-3. **Outros fatores**:outras cobranças se aplicam, como tokens de entrada não armazenados em cache e tokens de saída.
+1. **عدد الرموز المخزّنة مؤقتًا:** عدد رموز الإدخال المخزّنة مؤقتًا، والتي يتم تحصيل رسومها بسعر مخفّض عند تضمينها في الطلبات اللاحقة
+2. **مدة التخزين:** المدة التي يتم فيها تخزين الرموز المخزّنة مؤقتًا (مدة البقاء)، والتي يتم تحصيل رسومها استنادًا إلى مدة البقاء لعدد الرموز المخزّنة مؤقتًا ما مِن حدود دنيا أو قصوى لـ "مدة البقاء".
+3. **عوامل أخرى:** يتم تطبيق رسوم أخرى، مثل رموز الإدخال ورموز الإخراج غير المخزّنة مؤقتًا.
 
-Para detalhes de preços atualizados, consulte a página de preços da API Gemini [pricing
-page](https://ai.google.dev/pricing?hl=pt-br). Para saber como contar tokens, consulte o [guia
-de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br).
+للاطّلاع على تفاصيل التسعير الحديثة، يُرجى الرجوع إلى صفحة [تسعير
+Gemini API](https://ai.google.dev/pricing?hl=ar). [للتعرّف على كيفية حساب الرموز، يُرجى الاطّلاع على دليل الرموز.](https://ai.google.dev/gemini-api/docs/tokens?hl=ar)
 
-### Outras considerações
+### اعتبارات أخرى
 
-Considere o seguinte ao usar o armazenamento em cache de contexto:
+يجب مراعاة الاعتبارات التالية عند استخدام التخزين المؤقت للسياق:
 
-- A contagem de tokens de entrada *mínima* para o armazenamento em cache de contexto varia de acordo com o modelo. O *máximo* é o mesmo do modelo em questão. Para mais informações sobre como contar tokens,
-  consulte o [guia de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br)).
-- O modelo não faz distinção entre tokens armazenados em cache e tokens de entrada normais. O conteúdo armazenado em cache é um prefixo do comando.
-- Não há limites de taxa ou uso especiais no armazenamento em cache de contexto. Os limites de taxa padrão para `GenerateContent` se aplicam, e os limites de token incluem tokens armazenados em cache.
-- O número de tokens armazenados em cache é retornado no `usage_metadata` das operações de criação, recebimento e listagem do serviço de cache, e também em `GenerateContent` ao usar o cache.
+- يختلف *الحد الأدنى* لعدد رموز الإدخال للتخزين المؤقت للسياق حسب النموذج. ويكون *الحد الأقصى* هو نفسه الحد الأقصى للنموذج المحدّد. (لمزيد من المعلومات حول حساب الرموز،
+  يُرجى الاطّلاع على دليل [الرموز](https://ai.google.dev/gemini-api/docs/tokens?hl=ar)).
+- لا يميّز النموذج بين الرموز المخزّنة مؤقتًا ورموز الإدخال العادية. المحتوى المخزّن مؤقتًا هو بادئة للطلب.
+- ما مِن حدود خاصة للأسعار أو الاستخدام في ما يتعلق بالتخزين المؤقت للسياق، ويتم تطبيق الحدود القصوى القياسية لعدد الطلبات في `GenerateContent`، وتشمل الحدود القصوى لعدد الرموز الرموز المخزّنة مؤقتًا.
+- يتم عرض عدد الرموز المخزّنة مؤقتًا في `usage_metadata` من عمليات الإنشاء والاسترداد والعرض في خدمة التخزين المؤقت، وأيضًا في `GenerateContent` عند استخدام ذاكرة التخزين المؤقت.
 
-Envie comentários
+إرسال ملاحظات
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última atualização 2026-05-13 UTC.
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Quer enviar seu feedback?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-13 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

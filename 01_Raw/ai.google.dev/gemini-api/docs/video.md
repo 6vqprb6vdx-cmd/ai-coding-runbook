@@ -1,51 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=it
-fetched_at: 2026-05-18T13:08:47.071758+00:00
-title: "Generare video con Veo 3.1 nell'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=tr
+fetched_at: 2026-05-25T12:58:44.317461+00:00
+title: "Gemini API'de Veo 3.1 ile video \u00fcretme \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Invia feedback
+Geri bildirim gönderin
 
-# Generare video con Veo 3.1 nell'API Gemini
+# Gemini API'de Veo 3.1 ile video üretme
 
-> Per scoprire di più sulla comprensione dei video, consulta la guida [Comprensione dei video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it).
+> Video anlama hakkında bilgi edinmek için [Video anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) kılavuzuna bakın.
 
-[Veo 3.1](https://deepmind.google/models/veo/?hl=it) è il modello all'avanguardia di Google
-per la generazione di video di 8 secondi in alta fedeltà a 720p, 1080p o 4K caratterizzati da
-un realismo straordinario e audio generato in modo nativo. Puoi accedere
-a questo modello in modo programmatico utilizzando l'API Gemini. Per scoprire di più sulle varianti del modello Veo disponibili, consulta la sezione [Versioni del modello](#model-versions).
+[Veo 3.1](https://deepmind.google/models/veo/?hl=tr), Google'ın yüksek kaliteli, 8 saniyelik 720p, 1080p veya 4K videolar oluşturmak için kullandığı son teknoloji modelidir. Bu videolar, çarpıcı gerçekçilik ve doğal olarak üretilmiş ses içerir. Bu modele Gemini API'yi kullanarak programatik olarak erişebilirsiniz. Mevcut Veo modeli varyantları hakkında daha fazla bilgi edinmek için [Model Sürümleri](#model-versions) bölümüne bakın.
 
-Veo 3.1 eccelle in un'ampia gamma di stili visivi e cinematografici e introduce
-diverse nuove funzionalità:
+Veo 3.1, çok çeşitli görsel ve sinematik stillerde üstün performans gösterir ve çeşitli yeni özellikler sunar:
 
-- **Video verticali**: scegli tra video orizzontali (`16:9`) e verticali (`9:16`).
-- **Estensione video**: estendi i video generati in precedenza
-  utilizzando Veo.
-- **Generazione specifica per frame**: genera un video specificando il primo e l'ultimo frame.
-- **Indicazioni basate sulle immagini**: utilizza fino a tre immagini di riferimento per guidare
-  i contenuti del video generato.
+- **Dikey videolar**: Yatay (`16:9`) ve dikey (`9:16`) videolar arasından seçim yapın.
+- **Video uzatma**: Daha önce Veo kullanılarak oluşturulan videoları uzatın.
+- **Kareye özgü üretim**: İlk ve son kareleri belirterek video oluşturun.
+- **Resme dayalı yönlendirme**: Üretilen videonuzun içeriğini yönlendirmek için üç adede kadar referans resim kullanın.
 
-Per saperne di più su come scrivere prompt di testo efficaci per la generazione di video,
-consulta la [guida ai prompt di Veo](#prompt-guide).
+Video oluşturmak için etkili metin istemleri yazma hakkında daha fazla bilgi edinmek için [Veo istem rehberini](#prompt-guide) inceleyin.
 
-## Generazione di video da testo
+## Metinden video üretme
 
-Scegli un esempio per scoprire come generare un video con dialoghi, realismo
-cinematografico o animazione creativa:
+Diyalog, sinematik gerçekçilik veya yaratıcı animasyon içeren videolar oluşturmayı öğrenmek için bir örnek seçin:
 
-Dialoghi ed effetti sonori
-Realismo cinematografico
-Animazione creativa
+Diyalog ve Ses Efektleri
+Sinematik Gerçekçilik
+Yaratıcı Animasyon
 
 ### Python
 
@@ -237,10 +229,9 @@ while true; do
 done
 ```
 
-### Controllare le proporzioni
+### En boy oranını kontrol etme
 
-Veo 3.1 ti consente di creare video in formato orizzontale (`16:9`, l'impostazione predefinita) o verticale (`9:16`). Puoi indicare al modello quale vuoi utilizzare utilizzando il parametro
-`aspect_ratio`:
+Veo 3.1 ile yatay (`16:9`, varsayılan ayar) veya dikey (`9:16`) videolar oluşturabilirsiniz. `aspect_ratio` parametresini kullanarak modele hangisini istediğinizi söyleyebilirsiniz:
 
 ### Python
 
@@ -403,15 +394,13 @@ while true; do
 done
 ```
 
-### Controllare la risoluzione
+### Çözünürlüğü kontrol etme
 
-Veo 3.1 può anche generare direttamente video a 720p, 1080p o 4K (4K non disponibile
-per Veo 3.1 Lite).
+Veo 3.1, doğrudan 720p, 1080p veya 4K videolar da oluşturabilir (4K, Veo 3.1 Lite'ta kullanılamaz).
 
-Tieni presente che maggiore è la risoluzione, maggiore sarà la latenza. I video in 4K
-sono anche più costosi (vedi [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#veo-3.1)).
+Çözünürlük ne kadar yüksek olursa gecikme süresinin de o kadar yüksek olacağını unutmayın. 4K videolar da daha pahalıdır (bkz. [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#veo-3.1)).
 
-Anche l'[estensione video](#extending_veo_videos) è limitata ai video a 720p.
+[Video uzantısı](#extending_veo_videos) da 720p videolarla sınırlıdır.
 
 ### Python
 
@@ -574,12 +563,9 @@ while true; do
 done
 ```
 
-## Generazione di video da immagini
+## Görüntüden video üretme
 
-Il seguente codice mostra la generazione di un'immagine utilizzando
-[Gemini 3.1 Flash Image, noto anche come Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=it),
-quindi l'utilizzo di questa immagine come
-frame iniziale per la generazione di un video con Veo 3.1.
+Aşağıdaki kod, [Gemini 3.1 Flash Image (Nano Banana 2)](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) kullanarak görüntü oluşturmayı ve ardından bu görüntüyü Veo 3.1 ile video oluşturmak için başlangıç karesi olarak kullanmayı gösterir.
 
 ### Python
 
@@ -767,18 +753,15 @@ class GenerateVideoFromImage {
 }
 ```
 
-### Utilizzo delle immagini di riferimento
+### Referans resimleri kullanma
 
-Veo 3.1 ora accetta fino a tre immagini di riferimento per guidare i contenuti del video generato. Fornisci immagini di una persona, un personaggio o un prodotto per
-preservare l'aspetto del soggetto nel video di output.
+Veo 3.1, üretilen videonuzun içeriğine yön vermek için artık 3 adede kadar referans görseli kabul ediyor. Çıkış videosunda konuyla ilgili görünümü korumak için bir kişinin, karakterin veya ürünün resimlerini sağlayın.
 
-Ad esempio, utilizzando queste tre immagini generate con
-[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=it) come riferimenti con un
-[prompt ben scritto](#use-reference-images) viene creato il seguente video:
+Örneğin, [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) ile oluşturulan bu üç resmi [iyi yazılmış bir istemle](#use-reference-images) referans olarak kullanarak aşağıdaki video oluşturulur:
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
-| Abito da fenicottero di alta moda con strati di piume rosa e fucsia | Bella donna con capelli scuri e occhi marrone caldo | Occhiali da sole rosa a forma di cuore |
+| Pembe ve fuşya tüylerden oluşan katmanlı, yüksek moda ürünü flamingo elbisesi | Koyu renk saçlı ve sıcak kahverengi gözlü güzel bir kadın | Kaprisli pembe, kalp şeklinde güneş gözlüğü |
 
 ### Python
 
@@ -1006,11 +989,9 @@ while true; do
 done
 ```
 
-### Utilizzo del primo e dell'ultimo frame
+### İlk ve son kareyi kullanma
 
-Veo 3.1 ti consente di creare video utilizzando l'interpolazione o specificando il primo e
-l'ultimo fotogramma del video. Per informazioni su come scrivere prompt di testo efficaci
-per la generazione di video, consulta la [guida ai prompt di Veo](#use-reference-images).
+Veo 3.1, enterpolasyon kullanarak veya videonun ilk ve son karelerini belirterek video oluşturmanıza olanak tanır. Video üretimi için etkili metin istemleri yazma hakkında bilgi edinmek istiyorsanız [Veo istem rehberine](#use-reference-images) bakın.
 
 ### Python
 
@@ -1183,35 +1164,30 @@ done
 
 | `` `first_image` `` | `` `last_image` `` | *veo3.1\_with\_interpolation.mp4* |
 | --- | --- | --- |
-| Una donna spettrale con lunghi capelli bianchi e un abito svolazzante si dondola dolcemente su un&#39;altalena di corda | La donna spettrale scompare dall&#39;altalena | Un video cinematografico e inquietante di una donna misteriosa che scompare da un&#39;altalena nella nebbia |
+| Uzun beyaz saçlı ve akışkan bir elbise giymiş hayaletimsi bir kadın, halatlı salıncakta hafifçe sallanıyor. | Hayalet kadın salıncaktan kayboluyor | Sisli bir havada salıncakta oturan ürkütücü bir kadının kaybolduğu sinematik ve rahatsız edici video |
 
-## Estensione dei video di Veo
+## Veo videolarını uzatma
 
-Utilizza Veo 3.1 per estendere i video che hai generato in precedenza con Veo di 7 secondi
-e fino a 20 volte.
+Daha önce Veo ile oluşturduğunuz videoları 7 saniye ve 20 kata kadar uzatmak için Veo 3.1'i kullanın.
 
-Limitazioni relative al video di input:
+Giriş videosu sınırlamaları:
 
-- I video generati da Veo durano al massimo 141 secondi.
-- L'API Gemini supporta le estensioni video solo per i video generati con Veo.
-- Il video deve provenire da una generazione precedente, ad esempio
-  `operation.response.generated_videos[0].video`
-- I video vengono archiviati per 2 giorni, ma se un video viene utilizzato come riferimento per l'estensione,
-  il timer di archiviazione di 2 giorni viene reimpostato. Puoi estendere solo i video generati
-  o a cui è stato fatto riferimento negli ultimi due giorni.
-- I video di input devono avere una determinata durata, proporzioni e dimensioni:
-  - Proporzioni: 9:16 o 16:9
-  - Risoluzione: 720p
-  - Durata del video: 141 secondi o meno
+- Veo tarafından oluşturulan videolar en fazla 141 saniye uzunluğunda olabilir.
+- Gemini API, yalnızca Veo ile üretilen videolar için video uzantılarını destekler.
+- Video, `operation.response.generated_videos[0].video` gibi önceki nesillerden birine ait olmalıdır.
+- Videolar 2 gün boyunca saklanır. Ancak bir video uzatma için referans olarak kullanılıyorsa 2 günlük saklama süresi sıfırlanır. Yalnızca son iki gün içinde oluşturulan veya referans verilen videoları uzatabilirsiniz.
+- Giriş videolarının belirli bir uzunluğa, en boy oranına ve boyuta sahip olması beklenir:
+  - En-boy oranı: 9:16 veya 16:9
+  - Çözünürlük: 720p
+  - Video uzunluğu: 141 saniye veya daha kısa
 
-L'output dell'estensione è un singolo video che combina il video inserito dall'utente e
-il video esteso generato per un massimo di 148 secondi di video.
+Uzantının çıktısı, kullanıcı giriş videosu ile oluşturulan genişletilmiş videoyu birleştiren ve 148 saniyeye kadar video içeren tek bir videodur.
 
-Questo esempio prende un video generato da Veo, mostrato qui con il prompt originale, e lo estende utilizzando il parametro `video` e un nuovo prompt:
+Bu örnekte, orijinal istemiyle birlikte gösterilen Veo tarafından oluşturulmuş bir video, `video` parametresi ve yeni bir istem kullanılarak genişletiliyor:
 
-| Prompt | Output: `butterfly_video` |
+| İstem | Çıkış: `butterfly_video` |
 | --- | --- |
-| Una farfalla di origami sbatte le ali e vola fuori dalle porte finestre nel giardino. | Una farfalla di origami sbatte le ali e vola fuori dalle porte finestre in giardino. |
+| Origami kelebek kanatlarını çırparak Fransız kapısından bahçeye uçuyor. | Origami kelebek kanatlarını çırparak Fransız kapıdan bahçeye doğru uçuyor. |
 
 ### Python
 
@@ -1387,16 +1363,13 @@ while true; do
 done
 ```
 
-Per informazioni su come scrivere prompt di testo efficaci per la generazione di video, consulta
-la [guida ai prompt di Veo](#extend-prompt).
+Video üretimi için etkili metin istemleri yazma hakkında bilgi edinmek için [Veo istem rehberine](#extend-prompt) bakın.
 
-## Gestione di operazioni asincrone
+## Eşzamansız işlemleri işleme
 
-La generazione di video è un'attività che richiede un'elevata potenza di calcolo. Quando invii una richiesta
-all'API, questa avvia un job a lunga esecuzione e restituisce immediatamente un oggetto `operation`. Devi quindi eseguire il polling finché il video non è pronto, come indicato dallo stato
-`done` impostato su true.
+Video oluşturma, bilgi işlem açısından yoğun bir görevdir. API'ye istek gönderdiğinizde uzun süren bir iş başlatılır ve hemen bir `operation` nesnesi döndürülür. Ardından, `done` durumu doğru olana kadar video hazır olana kadar yoklama yapmanız gerekir.
 
-Il fulcro di questo processo è un ciclo di polling, che controlla periodicamente lo stato del job.
+Bu sürecin temelinde, işin durumunu düzenli olarak kontrol eden bir yoklama döngüsü bulunur.
 
 ### Python
 
@@ -1575,342 +1548,302 @@ while true; do
 done
 ```
 
-## Parametri e specifiche dell'API Veo
+## Veo API parametreleri ve spesifikasyonları
 
-Questi sono i parametri che puoi impostare nella richiesta API per controllare il processo di generazione dei video.
+Bunlar, video oluşturma sürecini kontrol etmek için API isteğinizde ayarlayabileceğiniz parametrelerdir.
 
-| Parametro | Veo 3.1 e Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 e Veo 3 Fast | Veo 2 |
+| Parametre | Veo 3.1 ve Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 ve Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| Istanze | | | | |
-| `prompt`:  la descrizione testuale del video. Supporta i segnali acustici. | `string` | `string` | `string` | `string` |
-| `image`: un'immagine iniziale da animare. | `Image` oggetto | `Image` oggetto | `Image` oggetto | `Image` oggetto |
-| `lastFrame`: l'immagine finale per la transizione di un video di interpolazione. Deve essere utilizzato in combinazione con il parametro `image`. | `Image` oggetto | `Image` oggetto | `Image` oggetto | `Image` oggetto |
-| `referenceImages`: fino a tre immagini da utilizzare come riferimenti di stile e contenuti. | `VideoGenerationReferenceImage` oggetto | `n/a` oggetto | n/a | n/a |
-| `video`:  video da utilizzare per l'estensione video. | `Video` oggetto di una generazione precedente | n/a | n/d | n/a |
-| Parametri | | | | |
-| `aspectRatio`:  le proporzioni del video. | `"16:9"` (predefinito), `"9:16"` | `"16:9"` (predefinito), `"9:16"` | `"16:9"` (predefinito), `"9:16"` | `"16:9"` (predefinito), `"9:16"` |
-| `durationSeconds`:  la durata del video generato. | `"4"`, `"6"`, `"8"`.   *Deve essere "8" quando si utilizzano estensioni, immagini di riferimento o risoluzioni 1080p e 4K* | `"4"`, `"6"`, `"8"`.   *Deve essere "8" quando utilizzi immagini di riferimento o con 1080p* | `"4"`, `"6"`, `"8"`.   *Deve essere "8" quando si utilizzano estensioni, immagini di riferimento o risoluzioni 1080p e 4K* | `"5"`, `"6"`, `"8"` |
-| `personGeneration`:  controlla la generazione di persone. Per le limitazioni regionali, consulta la sezione [Limitazioni](#limitations). | Da testo a video ed estensione: `"allow_all"` solo   Da immagine a video, interpolazione e immagini di riferimento: `"allow_adult"` solo | Da testo a video: `"allow_all"` solo   Da immagine a video, Interpolazione e Immagini di riferimento: `"allow_adult"` solo | Da testo a video: `"allow_all"` solo   Da immagine a video: `"allow_adult"` solo | Da testo a video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Da immagine a video:  `"allow_adult"` e `"dont_allow"` |
-| `resolution`:  la risoluzione del video. | `"720p"` (impostazione predefinita),  `"1080p"` (supporta solo la durata di 8 secondi), `"4k"` (supporta solo la durata di 8 secondi)   *`"720p"` solo per l'estensione* | `"720p"` (impostazione predefinita),  `"1080p"` (supporta solo la durata di 8 secondi) | `"720p"` (impostazione predefinita),  `"1080p"` (supporta solo la durata di 8 secondi), `"4k"` (supporta solo la durata di 8 secondi)   *`"720p"` solo per l'estensione* | Non supportato |
+| Örnekler | | | | |
+| `prompt`: Videonun metin açıklaması. Ses işaretlerini destekler. | `string` | `string` | `string` | `string` |
+| `image`: Animasyon eklenecek ilk resim. | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi |
+| `lastFrame`: Geçiş yapılacak bir enterpolasyon videosunun son resmi. `image` parametresiyle birlikte kullanılmalıdır. | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi |
+| `referenceImages`: Stil ve içerik referansı olarak kullanılacak en fazla üç resim. | `VideoGenerationReferenceImage` nesnesi | `n/a` nesnesi | Yok | Yok |
+| `video`: Video uzantısı için kullanılacak video. | Önceki nesilden `Video` nesne | Yok | Yok | Yok |
+| Parametreler | | | | |
+| `aspectRatio`: Videonun en boy oranı. | `"16:9"` (varsayılan), `"9:16"` | `"16:9"` (varsayılan), `"9:16"` | `"16:9"` (varsayılan), `"9:16"` | `"16:9"` (varsayılan), `"9:16"` |
+| `durationSeconds`: Oluşturulan videonun uzunluğu. | `"4"`, `"6"`, `"8"`.   *Uzantı, referans resimler veya 1080p ve 4K çözünürlükler kullanılırken "8" olmalıdır.* | `"4"`, `"6"`, `"8"`.   *Referans resimler kullanılırken veya 1080p ile "8" olmalıdır* | `"4"`, `"6"`, `"8"`.   *Uzantı, referans resimler veya 1080p ve 4K çözünürlükler kullanılırken "8" olmalıdır.* | `"5"`, `"6"`, `"8"` |
+| `personGeneration`: İnsanların üretilmesini kontrol eder. (Bölgesel kısıtlamalar için [Sınırlamalar](#limitations) bölümüne bakın) | Metinden videoya ve uzantı: `"allow_all"` yalnızca   Görüntüden videoya, ara görüntü ve referans resimler: `"allow_adult"` yalnızca | Metinden videoya: `"allow_all"` yalnızca   Görüntüden videoya, ara görüntü ve referans resimler: `"allow_adult"` yalnızca | Metinden videoya: `"allow_all"` yalnızca   Görüntüden videoya: `"allow_adult"` yalnızca | Metinden video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Resimden video:  `"allow_adult"` ve `"dont_allow"` |
+| `resolution`: Videonun çözünürlüğü. | `"720p"` (varsayılan),  `"1080p"` (yalnızca 8 saniye süreyi destekler), `"4k"` (yalnızca 8 saniye süreyi destekler)   *`"720p"` yalnızca uzantı için* | `"720p"` (varsayılan),  `"1080p"` (yalnızca 8 saniyelik süreyi destekler) | `"720p"` (varsayılan),  `"1080p"` (yalnızca 8 saniye süreyi destekler), `"4k"` (yalnızca 8 saniye süreyi destekler)   *`"720p"` yalnızca uzantı için* | Desteklenmiyor |
 
-Tieni presente che il parametro `seed` è disponibile anche per i modelli Veo 3.
-Non garantisce il determinismo, ma lo migliora leggermente.
+`seed` parametresinin Veo 3 modellerinde de kullanılabildiğini unutmayın.
+Bu, determinizmi garanti etmez ancak biraz iyileştirir.
 
-## Funzionalità del modello
+## Model özellikleri
 
-| Funzionalità | Veo 3.1 e Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 e Veo 3 Fast | Veo 2 |
+| Özellik | Veo 3.1 ve Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 ve Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| **Audio**:  genera audio in modo nativo con il video. | ✔️ Sempre attivo | ✔️ Sempre attivo | ✔️ Sempre attivo | ❌ Solo silenzioso |
-| **Modalità di input**:  il tipo di input utilizzato per la generazione. | Da testo a video, da immagine a video, da video a video | Da testo a video, da immagine a video | Da testo a video, da immagine a video | Da testo a video, da immagine a video |
-| **Risoluzione**:  la risoluzione di output del video. | 720p, 1080p (solo durata di 8 secondi), 4K (solo durata di 8 secondi)  *720p solo quando si utilizza l'estensione video.* | 720p, 1080p (solo 8 secondi) | 720p e 1080p (solo 16:9) | 720p |
-| **Frequenza fotogrammi**:  la frequenza fotogrammi di output del video. | 24 fps | 24 fps | 24 fps | 24 fps |
-| **Durata del video** :la durata del video generato. | 8 secondi, 6 secondi, 4 secondi  *8 secondi solo se la risoluzione è 1080p o 4K o se utilizzi immagini di riferimento* | 8 secondi, 6 secondi, 4 secondi  *8 secondi solo se la risoluzione è 1080p o se vengono utilizzate immagini di riferimento* | 8 secondi | 5-8 secondi |
-| **Video per richiesta**:  numero di video generati per richiesta. | 1 | 1 | 1 | 1 o 2 |
-| **Stato:** Disponibilità del modello | [Anteprima](https://ai.google.dev/gemini-api/docs/models?hl=it#preview) | [Anteprima](https://ai.google.dev/gemini-api/docs/models?hl=it#preview) | [Stabile](https://ai.google.dev/gemini-api/docs/models?hl=it#stable) | [Stabile](https://ai.google.dev/gemini-api/docs/models?hl=it#latest-stable) |
+| **Ses:** Videoyla birlikte doğal ses üretir. | ✔️ Her zaman açık | ✔️ Her zaman açık | ✔️ Her zaman açık | ❌ Yalnızca sessiz |
+| **Giriş biçimleri:** Üretim için kullanılan giriş türü. | Metinden videoya, görüntüden videoya, videodan videoya | Metinden videoya, görüntüden videoya | Metinden videoya, görüntüden videoya | Metinden videoya, görüntüden videoya |
+| **Çözünürlük:** Videonun çıkış çözünürlüğü. | 720p, 1080p (yalnızca 8 saniye uzunluğunda), 4K (yalnızca 8 saniye uzunluğunda)  *Video uzantısı kullanılırken yalnızca 720p.* | 720p, 1080p (yalnızca 8 saniye uzunluğunda) | 720p ve 1080p (yalnızca 16:9) | 720p |
+| **Kare hızı:** Videonun çıkış kare hızı. | 24 fps | 24 fps | 24 fps | 24 fps |
+| **Video süresi:** Oluşturulan videonun uzunluğu. | 8 saniye, 6 saniye, 4 saniye  *Yalnızca 1080p veya 4K ise ya da referans resimler kullanılıyorsa 8 saniye* | 8 saniye, 6 saniye, 4 saniye  *Yalnızca 1080p ise veya referans resimler kullanılıyorsa 8 saniye* | 8 saniye | 5-8 saniye |
+| **İstek başına video sayısı:** İstek başına oluşturulan video sayısı. | 1 | 1 | 1 | 1 veya 2 |
+| **Durum:** Modelin kullanılabilirliği | [Önizleme](https://ai.google.dev/gemini-api/docs/models?hl=tr#preview) | [Önizleme](https://ai.google.dev/gemini-api/docs/models?hl=tr#preview) | [Kararlı](https://ai.google.dev/gemini-api/docs/models?hl=tr#stable) | [Kararlı](https://ai.google.dev/gemini-api/docs/models?hl=tr#latest-stable) |
 
-## Limitazioni
+## Sınırlamalar
 
-- **Latenza delle richieste**: min. 11 secondi; max. 6 minuti (durante le ore di punta).
-- **Limitazioni regionali:** in UE, Regno Unito, Svizzera e MENA, i seguenti
-  sono i valori consentiti per `personGeneration`:
-  - Veo 3 e 3.1: solo `allow_adult`.
-  - Veo 2: `dont_allow` e `allow_adult`. Il valore predefinito è `dont_allow`.
-- **Conservazione dei video**:i video generati vengono memorizzati sul server per 2 giorni,
-  dopodiché vengono rimossi. Per salvare una copia locale, devi scaricare il video entro 2 giorni dalla generazione. I video estesi vengono trattati come video
-  generati di recente.
-- **Filigrana**:i video creati da Veo vengono filigranati utilizzando [SynthID](https://deepmind.google/technologies/synthid/?hl=it), il nostro strumento per l'applicazione di filigrane e l'identificazione dei contenuti generati con l'AI. I video possono essere verificati utilizzando la piattaforma di verifica
-  [SynthID](https://deepmind.google/science/synthid/?hl=it).
-- **Sicurezza**:i video generati vengono sottoposti a filtri di sicurezza e a processi di controllo della memorizzazione che contribuiscono a ridurre i rischi di privacy, copyright e pregiudizi.
-- **Errore audio:** a volte Veo 3.1 impedisce la generazione di un video
-  a causa di filtri di sicurezza o altri problemi di elaborazione dell'audio. Non ti verrà addebitato alcun costo se la generazione del video viene bloccata.
+- **İstek gecikmesi:** En az: 11 saniye; en fazla: 6 dakika (yoğun saatlerde).
+- **Bölgesel sınırlamalar:** AB, Birleşik Krallık, İsviçre ve Orta Doğu ve Kuzey Afrika'daki konumlarda `personGeneration` için izin verilen değerler şunlardır:
+  - Veo 3 ve 3.1: Yalnızca `allow_adult`.
+  - Veo 2: `dont_allow` ve `allow_adult`. Varsayılan değer `dont_allow`'dır.
+- **Video saklama:** Oluşturulan videolar 2 gün boyunca sunucuda saklanır ve ardından kaldırılır. Yerel bir kopya kaydetmek için videonuzu oluşturulduktan sonraki 2 gün içinde indirmeniz gerekir. Uzatılmış videolar, yeni oluşturulmuş videolar olarak kabul edilir.
+- **Filigran:** Veo ile oluşturulan videolar, yapay zekayla üretilen içeriklere filigran ekleyip bu tür içerikleri tespit etmek için kullandığımız [SynthID](https://deepmind.google/technologies/synthid/?hl=tr) ile filigranlanır. Videolar, [SynthID](https://deepmind.google/science/synthid/?hl=tr) doğrulama platformu kullanılarak doğrulanabilir.
+- **Güvenlik:** Oluşturulan videolar, gizlilik, telif hakkı ve önyargı risklerini azaltmaya yardımcı olan güvenlik filtrelerinden ve ezberleme kontrolü süreçlerinden geçirilir.
+- **Ses hatası:** Veo 3.1, güvenlik filtreleri veya sesle ilgili diğer işleme sorunları nedeniyle bazen videonun oluşturulmasını engeller. Videonuzun oluşturulması engellenirse sizden ücret alınmaz.
 
-## Guida ai prompt di Veo
+## Veo istem rehberi
 
-Questa sezione contiene esempi di video che puoi creare utilizzando Veo e mostra come modificare i prompt per produrre risultati diversi.
+Bu bölümde, Veo kullanarak oluşturabileceğiniz videolara dair örnekler yer alır ve istemleri değiştirerek nasıl farklı sonuçlar elde edebileceğiniz gösterilir.
 
-### filtri di sicurezza
+### Güvenlik filtreleri
 
-Veo applica filtri di sicurezza in Gemini per garantire che
-i video generati e le foto caricate non contengano contenuti offensivi.
-I prompt che violano i nostri [termini e linee guida](https://ai.google.dev/gemini-api/docs/usage-policies?hl=it#abuse-monitoring) vengono bloccati.
+Veo, üretilen videolarda ve yüklenen fotoğraflarda rahatsız edici içerik bulunmaması için Gemini'da güvenlik filtreleri uygular.
+[Şartlarımızı ve kurallarımızı](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr#abuse-monitoring) ihlal eden istemler engellenir.
 
-### Nozioni di base sulla scrittura di prompt
+### İstem yazmayla ilgili temel bilgiler
 
-I prompt efficaci sono descrittivi e chiari. Per ottenere il massimo da Veo, inizia
-identificando la tua idea principale, perfezionala aggiungendo parole chiave e modificatori
-e incorpora la terminologia specifica dei video nei prompt.
+İyi istemler açıklayıcı ve nettir. Veo'dan en iyi şekilde yararlanmak için temel fikrinizi belirleyerek başlayın, anahtar kelimeler ve değiştiriciler ekleyerek fikrinizi ayrıntılandırın ve istemlerinize videoya özgü terminolojiyi dahil edin.
 
-Il prompt deve includere i seguenti elementi:
+İsteminizde aşağıdaki öğeler yer almalıdır:
 
-- **Soggetto**: l'oggetto, la persona, l'animale o il paesaggio che vuoi includere nel video, ad esempio *paesaggio urbano*, *natura*, *veicoli* o *cuccioli*.
-- **Azione**: cosa sta facendo il soggetto (ad esempio, *camminare*, *correre* o
-  *girare la testa*).
-- **Stile**: specifica la direzione creativa utilizzando parole chiave specifiche per lo stile cinematografico, ad esempio *fantascienza*, *film horror*, *film noir* o stili di animazione come *cartone animato*.
-- **Posizionamento e movimento della videocamera**: [facoltativo] controlla la posizione
-  e il movimento della videocamera utilizzando termini come *vista aerea*, *altezza degli occhi*, *inquadratura dall'alto*,
-  *carrellata* o *dal basso*.
-- **Composizione**: [facoltativo] come viene inquadrata la scena, ad esempio *campo lungo*,
-  *primo piano*, *inquadratura singola* o *inquadratura doppia*.
-- **Effetti di messa a fuoco e obiettivo**: [facoltativo] utilizza termini come *messa a fuoco ridotta*,
-  *messa a fuoco profonda*, *sfocatura diffusa*, *obiettivo macro* e *obiettivo grandangolare* per ottenere
-  effetti visivi specifici.
-- **Atmosfera**: [facoltativo] come il colore e la luce contribuiscono alla scena,
-  ad esempio *toni del blu*, *notte* o *toni caldi*.
+- **Özne**: Videonuzda olmasını istediğiniz nesne, kişi, hayvan veya manzara (ör. *şehir manzarası*, *doğa*, *araçlar* veya *köpek yavruları*).
+- **İşlem**: Öznenin yaptığı işlem (ör. *yürüme*, *koşma* veya *başını çevirme*).
+- **Stil**: *Bilim kurgu*, *korku filmi*, *kara film* gibi belirli film stili anahtar kelimelerini veya *çizgi film* gibi animasyon stillerini kullanarak reklam öğesi yönünü belirtin.
+- **Kamera konumlandırması ve hareketi**: [İsteğe bağlı] *Kuşbakışı*, *göz hizası*, *yukarıdan çekim*, *dolly çekimi* veya *solucan gözü* gibi terimleri kullanarak kameranın konumunu ve hareketini kontrol edin.
+- **Kompozisyon**: [İsteğe bağlı] Çekimin nasıl kadraja alındığı (ör. *geniş çekim*, *yakın çekim*, *tek çekim* veya *iki kişilik çekim*).
+- **Odak ve lens efektleri**: [İsteğe bağlı] Belirli görsel efektler elde etmek için *sığ odak*, *derin odak*, *Odağı Yumuşat*, *makro lens* ve *geniş açılı lens* gibi terimler kullanın.
+- **Ortam**: [İsteğe bağlı] Renk ve ışığın sahneye katkısı (ör. *mavi tonlar*, *gece* veya *sıcak tonlar*).
 
-#### Altri suggerimenti per scrivere prompt
+#### İstem yazmayla ilgili diğer ipuçları
 
-- **Utilizza un linguaggio descrittivo**: utilizza aggettivi e avverbi per fornire un quadro chiaro a Veo.
-- **Migliora i dettagli del viso**: specifica
-  i dettagli del viso come punto focale della foto, ad esempio utilizzando la parola *ritratto* nel
-  prompt.
+- **Açıklayıcı bir dil kullanın**: Veo'ya net bir resim sunmak için sıfatlar ve zarflar kullanın.
+- **Yüz ayrıntılarını iyileştirin**: İstemde *portre* kelimesini kullanarak yüz ayrıntılarını fotoğrafın odak noktası olarak belirtin.
 
-*Per strategie di prompting più complete, visita la pagina [Introduzione alla
-progettazione dei prompt](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=it).*
+*Daha kapsamlı istem stratejileri için [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) başlıklı makaleyi inceleyin.*
 
-### Richiesta di audio
+### Ses istemi
 
-Puoi fornire a Veo indicazioni per effetti sonori, rumore ambientale e dialoghi.
-Il modello acquisisce le sfumature di questi segnali per generare una colonna sonora sincronizzata.
+Veo'ya ses efektleri, ortam gürültüsü ve diyalog için istemler sağlayabilirsiniz.
+Model, senkronize bir film müziği oluşturmak için bu ipuçlarının nüansını yakalar.
 
-- **Dialogo**:utilizza le virgolette per un discorso specifico. (Esempio: "Questa deve essere la
-  chiave", sussurrò.)
-- **Effetti sonori (SFX):** descrivi esplicitamente i suoni. (Esempio: pneumatici
-  che stridono forte, motore che romba).
-- **Rumore ambientale:** descrivi il paesaggio sonoro dell'ambiente. (Esempio: un leggero,
-  inquietante ronzio risuona in sottofondo.)
+- **Diyalog:** Belirli bir konuşma için tırnak işareti kullanın. (Örnek: "Bu anahtar olmalı," diye mırıldandı.)
+- **Ses efektleri:** Sesleri açıkça tanımlayın. (Örnek: lastiklerin
+  gürültülü bir şekilde gıcırdaması, motorun kükremesi)
+- **Ortam Gürültüsü:** Ortamın ses manzarasını açıklayın. (Örnek: Arka planda hafif ve ürkütücü bir uğultu duyuluyor.)
 
-Questi video mostrano come richiedere la generazione di audio di Veo 3 con livelli di dettaglio crescenti.
+Bu videolarda, Veo 3'ün ses üretme özelliğine artan ayrıntı düzeylerinde istem girme gösterilmektedir.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Più dettagli (dialoghi e atmosfera)** Un'inquadratura ampia di una foresta nebbiosa del Pacifico nord-occidentale. Due escursionisti esausti, un uomo e una donna, si fanno strada tra le felci quando l'uomo si ferma bruscamente, fissando un albero. Primo piano: segni di artigli freschi e profondi sono incisi nella corteccia dell'albero. Uomo: (con la mano sul coltello da caccia) "Questo non è un orso normale". Donna: (voce tesa per la paura, scrutando il bosco) "Allora cos'è?" Una corteccia ruvida, rami che si spezzano, passi sulla terra umida. Un uccello solitario cinguetta. | Due persone nel bosco trovano tracce di un orso. |
-| **Meno dettagli (dialoghi)** Animazione con ritagli di carta. Nuovo bibliotecario: "Dove tenete i libri proibiti?" Vecchio curatore: "No, non lo facciamo. Ci tengono." | Bibliotecari animati che discutono di libri proibiti |
+| **Daha fazla ayrıntı (Diyalog ve ortam)** Sisli bir Pasifik Kuzeybatı ormanının geniş açılı çekimi. Yorgun iki yürüyüşçü (bir kadın ve bir erkek) eğrelti otları arasından geçerken erkek aniden durup bir ağaca bakıyor. Yakın çekim: Ağacın kabuğunda taze ve derin pençe izleri var. Adam: (Av bıçağını tutarak) "Bu sıradan bir ayı değil." Kadın: (Korkuyla sesi titreyerek, ormanı tarayarak) "Peki o zaman bu ne?" Pürüzlü bir kabuk, çıtırdayan dallar, nemli toprağın üzerindeki ayak izleri. Tek bir kuş cıvıldıyor. | Ormanda iki kişi ayı izleriyle karşılaşıyor. |
+| **Daha az ayrıntı (Diyalog)** Kağıt kesme animasyonu. Yeni kütüphaneci: "Yasaklı kitapları nerede saklıyorsunuz?" Eski İçerik Seçici: "Hayır. Onlar bizi korur." | Yasaklı kitapları tartışan animasyonlu kütüphaneciler |
 
-Prova questi prompt per ascoltare l'audio.
-[Prova Veo](https://deepmind.google/models/veo/?hl=it)
+Sesi dinlemek için bu istemleri kendiniz deneyin.
+[Veo'yu deneyin](https://deepmind.google/models/veo/?hl=tr)
 
-### Prompt con immagini di riferimento
+### Referans resimlerle istem oluşturma
 
-Puoi utilizzare una o più immagini come input per guidare i video generati, utilizzando
-le funzionalità di [conversione da immagine a video](https://ai.google.dev/gemini-api/docs/video?hl=it#generate-from-images) di
-Veo. Veo utilizza l'immagine di input come frame iniziale. Seleziona un'immagine
-che si avvicini di più a quella che immagini come prima scena del tuo video per animare
-oggetti di uso quotidiano, dare vita a disegni e dipinti e aggiungere movimento e
-suono a scene naturali.
+Veo'nun [görüntüden videoya](https://ai.google.dev/gemini-api/docs/video?hl=tr#generate-from-images) özelliklerini kullanarak oluşturulan videolarınıza yön vermek için bir veya daha fazla görüntüyü giriş olarak kullanabilirsiniz. Veo, giriş resmini ilk kare olarak kullanır. Günlük nesneleri hareketlendirmek, çizimlere ve tablolara hayat vermek, doğa manzaralarına hareket ve ses eklemek için videonuzun ilk sahnesi olarak düşündüğünüz görüntüye en yakın olanı seçin.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Immagine di input (generata da Nano Banana)** Una macrofotografia iperrealistica di piccoli surfisti in miniatura che cavalcano le onde dell'oceano all'interno di un lavandino rustico in pietra. Un rubinetto in ottone vintage è aperto e crea l'onda perpetua. Surreale, stravagante, illuminazione naturale intensa. | Piccoli surfisti in miniatura che cavalcano le onde dell&#39;oceano all&#39;interno di un lavandino rustico in pietra. |
-| **Video di output (generato da Veo 3.1)** Un video macro surreale e cinematografico. Piccoli surfisti cavalcano onde perpetue e rotolanti all'interno di un lavandino in pietra. Un rubinetto in ottone vintage in funzione genera l'onda infinita. La videocamera si sposta lentamente sulla scena stravagante e illuminata dal sole mentre le figure in miniatura solcano abilmente l'acqua turchese. | Piccoli surfisti che cavalcano le onde in un lavandino. |
+| **Giriş resmi (Nano Banana tarafından oluşturuldu)** Küçük, minyatür sörfçülerin rustik bir taş banyo lavabosunda okyanus dalgalarında sörf yaptığı hiper gerçekçi bir makro fotoğraf. Eski bir pirinç musluk, sürekli sörf sesi çıkararak akıyor. Sürreal, tuhaf, parlak doğal ışıklandırma. | Rustik taş banyo lavabosunda okyanus dalgalarında sörf yapan minik sörfçülerin minyatür görüntüsü. |
+| **Çıkış videosu (Veo 3.1 tarafından oluşturuldu)** Sürrealist, sinematik bir makro video. Küçük sörfçüler, taş bir banyo lavabosunun içindeki sürekli yuvarlanan dalgalarda sörf yapıyor. Çalışan eski bir pirinç musluk, sonsuz sörf dalgaları oluşturuyor. Kamera, minyatür figürler turkuaz rengi suyu ustaca oyarken güneş ışığıyla aydınlatılmış, eğlenceli sahneyi yavaşça tarıyor. | Banyo lavabosundaki dalgaların etrafında dönen minik sörfçüler. |
 
-Veo 3.1 ti consente di [fare riferimento a immagini](https://ai.google.dev/gemini-api/docs/video?hl=it#reference-images) o
-ingredienti per dirigere i contenuti del video
-generato. Fornisci fino a tre immagini di asset di una singola persona, personaggio
-o prodotto. Veo mantiene l'aspetto del soggetto nel video di output.
+Veo 3.1, üretilen videonuzun içeriğini yönlendirmek için [referans görseller](https://ai.google.dev/gemini-api/docs/video?hl=tr#reference-images) veya içerik öğeleri kullanmanıza olanak tanır. Tek bir kişiye, karaktere veya ürüne ait en fazla üç öğe resmi sağlayın. Veo, öznenin görünümünü çıkış videosunda korur.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Immagine di riferimento (generata da Nano Banana)** Una rana pescatrice di acque profonde si nasconde nell'acqua buia e profonda, con i denti scoperti e l'esca luminosa. | Un pesce abissale scuro e luminoso |
-| **Immagine di riferimento (generata da Nano Banana)** Un costume da principessa rosa per bambini completo di bacchetta e tiara, su uno sfondo semplice del prodotto. | Un costume da principessa rosa per bambini |
-| **Video di output (generato da Veo 3.1)** Crea una versione a cartoni animati buffa del pesce che indossa il costume, nuota e agita la bacchetta. | Un pesce abissale che indossa un costume da principessa |
+| **Referans görsel (Nano Banana tarafından oluşturulmuştur)** Derin denizlerde yaşayan bir fenersiler balığı, dişleri açık ve yemi parlayarak karanlık sularda gizleniyor. | Karanlıkta parlayan bir fener balığı |
+| **Referans görsel (Nano Banana tarafından oluşturuldu)** Düz bir ürün arka planı üzerinde, değnek ve taç ile tamamlanmış pembe bir çocuk prenses kostümü. | Çocuğun pembe prenses kostümü |
+| **Çıkış videosu (Veo 3.1 tarafından oluşturuldu)** Kostümlü, yüzen ve asayı sallayan balığın komik bir çizgi film versiyonunu oluştur. | Prenses kostümü giymiş bir fener balığı |
 
-Con Veo 3.1 puoi anche generare video specificando il [primo e l'ultimo
-fotogramma](https://ai.google.dev/gemini-api/docs/video?hl=it#using-first-and-last-video-frames) del video.
+Veo 3.1'i kullanarak videonun [ilk ve son karelerini](https://ai.google.dev/gemini-api/docs/video?hl=tr#using-first-and-last-video-frames) belirterek de video oluşturabilirsiniz.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Prima immagine (generata da Nano Banana)** Un'immagine frontale fotorealistica di alta qualità di un gatto rosso che guida un'auto da corsa cabriolet rossa sulla costa della riviera francese. | Un gatto rosso alla guida di un&#39;auto da corsa cabriolet rossa |
-| **Ultima immagine (generata da Nano Banana)** Mostra cosa succede quando l'auto decolla da una scogliera. | Un gatto rosso alla guida di una decappottabile rossa cade da una scogliera |
-| **Output Video (Generated by Veo 3.1)** (facoltativo) | Un gatto si lancia da una scogliera e decolla |
+| **İlk resim (Nano Banana tarafından üretildi)** Fransız Rivierası kıyısında kırmızı üstü açık yarış arabası kullanan bir zencefil kedinin yüksek kaliteli, fotoğraf gerçekliğinde ön görüntüsü. | Kırmızı üstü açık yarış arabası kullanan zencefil rengi bir kedi |
+| **Son görüntü (Nano Banana tarafından oluşturuldu)** Araba bir uçurumdan kalktığında ne olduğunu göster. | Kırmızı üstü açık arabayı kullanan bir zencefil kedinin uçurumdan düşmesi |
+| **Çıkış videosu (Veo 3.1 tarafından oluşturulur)** İsteğe bağlı | Bir kedi, uçurumdan aşağı araba sürüyor ve havalanıyor |
 
-Questa funzionalità ti offre un controllo preciso sulla composizione della ripresa, consentendoti di definire il fotogramma iniziale e finale. Carica un'immagine o utilizza un frame di una
-generazione video precedente per assicurarti che la scena inizi e si concluda esattamente
-come l'hai immaginata.
+Bu özellik, başlangıç ve bitiş karesini tanımlamanıza olanak tanıyarak çekiminizin kompozisyonu üzerinde hassas kontrol sağlar. Sahnenizin tam olarak hayal ettiğiniz gibi başlayıp sona ermesini sağlamak için bir resim yükleyin veya önceki bir video oluşturma işleminden bir kare kullanın.
 
-### Richiesta di estensione
+### Uzantı isteme
 
-Per [estendere](https://ai.google.dev/gemini-api/docs/video?hl=it#extending_veo_videos) il video generato da Veo con Veo 3.1 (non disponibile per Veo 3.1 Lite), utilizza il video come input insieme a un prompt di testo facoltativo. Estendi finalizza l'ultimo secondo o i 24
-fotogrammi del video e continua l'azione.
+Veo 3.1 ile Veo tarafından oluşturulan videonuzu [uzatmak](https://ai.google.dev/gemini-api/docs/video?hl=tr#extending_veo_videos) için (Veo 3.1 Lite'ta kullanılamaz) videoyu isteğe bağlı bir metin istemiyle birlikte giriş olarak kullanın. Uzatma, videonuzun son 1-2 saniyesini veya 24 karesini tamamlar ve aksiyonu devam ettirir.
 
-Tieni presente che la voce non può essere estesa in modo efficace se non è presente
-nell'ultimo secondo del video.
+Ses, videonun son 1 saniyesinde yoksa etkili bir şekilde uzatılamaz.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Video di input (generato da Veo 3.1)** Il parapendio decolla dalla cima della montagna e inizia a planare sulle montagne che si affacciano sulle valli sottostanti ricoperte di fiori. | Un parapendio decolla dalla cima di una montagna |
-| **Output Video (Generated by Veo 3.1)** Extend this video with the paraglider slowly descending. | Un parapendio decolla dalla cima di una montagna, poi scende lentamente |
+| **Giriş videosu (Veo 3.1 tarafından oluşturuldu)** Yamaç paraşütçüsü dağın tepesinden kalkış yapıyor ve aşağıda çiçeklerle kaplı vadilere bakan dağlardan aşağı doğru süzülmeye başlıyor. | Bir yamaç paraşütçüsü dağın tepesinden kalkıyor |
+| **Çıkış videosu (Veo 3.1 tarafından oluşturuldu)** Bu videoyu, yavaşça alçalan yamaç paraşütüyle uzat. | Bir yamaç paraşütü, dağın tepesinden kalkıyor ve yavaşça aşağı iniyor |
 
-### Prompt e output di esempio
+### Örnek istemler ve çıkış
 
-Questa sezione presenta diversi prompt, evidenziando come i dettagli descrittivi possano
-migliorare il risultato di ogni video.
+Bu bölümde, açıklayıcı ayrıntıların her videonun sonucunu nasıl iyileştirebileceğini vurgulayan çeşitli istemler sunulmaktadır.
 
-#### Ghiaccioli
+#### Buz Saçakları
 
-Questo video mostra come utilizzare gli elementi delle
-[basi per la scrittura dei prompt](#basics) nel prompt.
+Bu videoda, isteminizde [istem yazmayla ilgili temel bilgilerin](#basics) öğelerini nasıl kullanabileceğiniz gösterilmektedir.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| Scatto ravvicinato (composizione) di stalattiti che si sciolgono (soggetto) su una parete rocciosa congelata (contesto) con tonalità fredde di blu (atmosfera), con zoom (movimento della videocamera) che mantiene i dettagli ravvicinati delle gocce d'acqua (azione). | Stalattiti che gocciolano su uno sfondo blu. |
+| Donmuş bir kaya duvarında (bağlam) eriyen buz sarkıtlarının (özne) yakın çekim fotoğrafı (kompozisyon). Su damlalarının (eylem) yakın çekim ayrıntıları korunarak (kamera hareketi) mavi tonlarda (atmosfer) yakınlaştırılmış. | Mavi arka plan üzerinde damlayan buz sarkıtları. |
 
-#### Uomo al telefono
+#### Telefonda konuşan adam
 
-Questi video mostrano come rivedere il prompt con dettagli sempre più specifici per fare in modo che Veo perfezioni l'output in base alle tue preferenze.
+Bu videolarda, Veo'nun çıktıyı istediğiniz gibi iyileştirmesi için isteminizi giderek daha ayrıntılı bilgilerle nasıl revize edebileceğiniz gösterilmektedir.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Meno dettagli** La videocamera si sposta per mostrare il primo piano di un uomo disperato che indossa un impermeabile verde. Sta effettuando una chiamata con un telefono a muro in stile rotativo con una luce verde al neon. Sembra una scena di un film. | Uomo che parla al telefono. |
-| **Maggiori dettagli** Un primo piano cinematografico segue un uomo disperato con un cappotto verde consunto mentre compone un numero su un telefono a disco montato su un muro di mattoni sporco, immerso nel bagliore inquietante di un'insegna al neon verde. La videocamera si avvicina, rivelando la tensione nella mascella e la disperazione incisa sul suo volto mentre fatica a effettuare la chiamata. La profondità di campo ridotta si concentra sulla sua fronte corrugata e sul telefono nero con tasti rotanti, sfocando lo sfondo in un mare di colori al neon e ombre indistinte, creando un senso di urgenza e isolamento. | Uomo che parla al telefono |
+| **Daha az ayrıntı** Kamera, yeşil trençkotlu çaresiz bir adamın yakın çekimini göstermek için hareket ediyor. Çevirmeli tarzda bir duvar telefonunda yeşil neon ışığıyla görüşme yapıyor. Film sahnesi gibi görünüyor. | Telefonda konuşan adam. |
+| **Daha ayrıntılı açıklama** Yakın çekim sinematik bir sahnede, yıpranmış yeşil trençkotlu çaresiz bir adam, yeşil neon tabelanın ürkütücü ışığıyla aydınlatılmış, kirli bir tuğla duvara monte edilmiş çevirmeli bir telefonu çeviriyor. Kamera, adamın çenesindeki gerginliği ve telefonu açmaya çalışırken yüzüne yansıyan çaresizliği göstererek yakınlaşıyor. Alan derinliği düşük olduğu için arka plandaki neon renkler ve belirsiz gölgeler bulanık görünüyor. Bu durum, aciliyet ve yalnızlık hissi yaratıyor. | Telefonda konuşan adam |
 
-#### Leopardo delle nevi
+#### Kar leoparı
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Prompt semplice:** Una creatura carina con pelliccia simile a quella di un leopardo delle nevi cammina in una foresta invernale, rendering in stile cartone animato 3D. | Il leopardo delle nevi è letargico. |
-| **Prompt dettagliato:** crea una breve scena animata in 3D in uno stile cartone animato gioioso. Una simpatica creatura con pelliccia simile a quella del leopardo delle nevi, grandi occhi espressivi e una forma arrotondata e amichevole che danza felice in una foresta invernale fantastica. La scena dovrebbe mostrare alberi arrotondati e innevati, fiocchi di neve che cadono delicatamente e una calda luce solare che filtra tra i rami. I movimenti rimbalzanti della creatura e il suo ampio sorriso devono trasmettere gioia pura. Punta a un tono allegro e commovente con colori vivaci e allegri e animazioni giocose. | Il leopardo delle nevi sta correndo più velocemente. |
+| **Basit istem:** Karda leopar benzeri tüyleri olan sevimli bir yaratık kış ormanında yürüyor, 3D çizgi film tarzında oluştur. | Kar leoparı uyuşuktur. |
+| **Ayrıntılı istem:** Neşeli bir çizgi film tarzında kısa bir 3D animasyon sahnesi oluştur. Kar leoparı gibi tüyleri, büyük ve etkileyici gözleri olan sevimli bir yaratık, dost canlısı ve yuvarlak hatlarıyla kışın büyülü ormanında neşeyle dans ediyor. Sahne; yuvarlak, karla kaplı ağaçlar, yavaşça düşen kar taneleri ve dallar arasından süzülen sıcak güneş ışığı içermeli. Yaratığın zıplayan hareketleri ve kocaman gülümsemesi, saf bir keyif duygusu vermelidir. Parlak ve neşeli renkler ile eğlenceli animasyonlar kullanarak neşeli ve içten bir üslup kullanın. | Kar leoparı daha hızlı koşuyor. |
 
-### Esempi per elementi di scrittura
+### Yazı öğelerine göre örnekler
 
-Questi esempi mostrano come perfezionare i prompt in base a ogni elemento di base.
+Bu örneklerde, istemlerinizi her bir temel öğeye göre nasıl hassaslaştıracağınız gösterilmektedir.
 
-#### Oggetto e contesto
+#### Konu ve bağlam
 
-Specifica il soggetto principale e lo sfondo o l'ambiente (contesto).
+Ana odak noktasını (konu) ve arka planı veya ortamı (bağlam) belirtin.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| Rendering architettonico di un condominio in cemento bianco con forme organiche fluide, che si fondono perfettamente con la vegetazione lussureggiante ed elementi futuristici | Segnaposto. |
-| Un satellite che fluttua nello spazio con la luna e alcune stelle sullo sfondo. | Satellite che fluttua nell&#39;atmosfera. |
+| Yemyeşil bitki örtüsü ve fütüristik öğelerle kusursuz bir şekilde harmanlanan, akışkan organik şekillere sahip beyaz beton bir apartman binasının mimari görseli | Yer tutucu. |
+| Uzayda süzülen bir uydu. Arka planda ay ve bazı yıldızlar görünüyor. | Atmosferde süzülen uydu. |
 
-#### Azione
+#### İşlem
 
-Specifica cosa sta facendo il soggetto (ad es. cammina, corre o gira la testa).
+Öznenin ne yaptığını belirtin (ör. yürüyor, koşuyor veya başını çeviriyor).
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| Un'inquadratura ampia di una donna che cammina lungo la spiaggia, con un'espressione felice e rilassata mentre guarda l'orizzonte al tramonto. | Il tramonto è assolutamente meraviglioso. |
+| Gün batımında ufka doğru mutlu ve rahat bir şekilde yürüyen kadının geniş açılı fotoğrafı. | Gün batımı kesinlikle çok güzel. |
 
-#### Stile
+#### Stil
 
-Aggiungi parole chiave per indirizzare la generazione verso un'estetica specifica (ad es. surreale,
-vintage, futuristico, film noir).
+Üretimi belirli bir estetiğe yönlendirmek için anahtar kelimeler ekleyin (ör. sürreal, vintage, fütüristik, film noir).
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| Stile noir, uomo e donna camminano per strada, mistero, cinematografico, bianco e nero. | Lo stile noir è assolutamente bellissimo. |
+| Kara film tarzında, sokakta yürüyen bir adam ve kadın, gizemli, sinematik, siyah beyaz. | Film noir tarzı kesinlikle çok güzel. |
 
-#### Movimento e composizione della videocamera
+#### Kamera hareketi ve kompozisyon
 
-Specifica come si muove la videocamera (soggettiva, ripresa aerea, ripresa con drone) e
-come viene inquadrata la ripresa (campo lungo, primo piano, inquadratura dal basso).
+Kameranın nasıl hareket edeceğini (öznel çekim, kuşbakışı, takip eden drone görünümü) ve çekimin nasıl kadrajlanacağını (geniş çekim, yakın çekim, alçak açı) belirtin.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| Scatto in soggettiva da un'auto d'epoca che guida sotto la pioggia, Canada di notte, cinematografico. | Il tramonto è assolutamente meraviglioso. |
-| Primissimo piano di un occhio con il riflesso della città. | Il tramonto è assolutamente meraviglioso. |
+| Yağmurda giden bir vintage arabanın bakış açısı çekimi, Kanada'da gece, sinematik. | Gün batımı kesinlikle çok güzel. |
+| Gözün, içinde şehir yansıması olan aşırı yakın çekimi. | Gün batımı kesinlikle çok güzel. |
 
-#### Atmosfera
+#### Ortam
 
-Le tavolozze dei colori e l'illuminazione influenzano l'atmosfera. Prova con termini come "arancione tenue
-toni caldi", "luce naturale", "alba" o "toni freddi del blu".
+Renk paletleri ve aydınlatma, ruh halini etkiler. "Mat turuncu, sıcak tonlar", "doğal ışık", "gündoğumu" veya "soğuk mavi tonlar" gibi terimleri deneyin.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| Primo piano di una ragazza che tiene in braccio un adorabile cucciolo di golden retriever nel parco, luce solare. | Un cucciolo tra le braccia di una bambina. |
-| Primo piano cinematografico di una donna triste che viaggia in autobus sotto la pioggia, con tonalità fredde di blu e un'atmosfera malinconica. | Una donna su un autobus che si sente triste. |
+| Parkta sevimli bir golden retriever yavrusunu tutan kızın yakın çekimi, güneş ışığı. | Küçük bir kızın kollarında bir köpek yavrusu. |
+| Yağmurda otobüste yolculuk eden üzgün bir kadının sinematik yakın çekimi, soğuk mavi tonlar, üzgün ruh hali. | Otobüste üzgün bir şekilde yolculuk yapan kadın. |
 
-### Proporzioni
+### En boy oranları
 
-Veo ti consente di specificare le proporzioni del video.
+Veo, videonuzun en-boy oranını belirtmenize olanak tanır.
 
-| **Prompt** | **Output generato** |
+| **İstem** | **Üretilen çıkış** |
 | --- | --- |
-| **Widescreen (16:9)** Crea un video con una vista di un drone che segue un uomo alla guida di un'auto cabriolet rossa a Palm Springs negli anni '70, con luce solare calda e ombre lunghe. | Un uomo alla guida di un&#39;auto cabriolet rossa a Palm Springs, in stile anni &#39;70. |
-| **Verticale (9:16)** Crea un video che metta in evidenza il movimento fluido di una maestosa cascata hawaiana all'interno di una lussureggiante foresta pluviale. Concentrati sul flusso d'acqua realistico, sul fogliame dettagliato e sull'illuminazione naturale per trasmettere tranquillità. Cattura l'acqua impetuosa, l'atmosfera nebbiosa e la luce del sole che filtra attraverso la fitta chioma degli alberi. Utilizza movimenti della videocamera fluidi e cinematografici per mostrare la cascata e l'ambiente circostante. Punta a un tono tranquillo e realistico, trasportando lo spettatore nella serena bellezza della foresta pluviale hawaiana. | Una maestosa cascata hawaiana in una lussureggiante foresta pluviale. |
+| **Geniş ekran (16:9)** 1970'lerde Palm Springs'te kırmızı üstü açık bir arabayı süren bir adamın takip eden drone görüntüsünü içeren bir video oluştur. Sıcak güneş ışığı, uzun gölgeler. | Palm Springs&#39;te 1970&#39;ler tarzında kırmızı bir üstü açık arabayı süren bir adam. |
+| **Dikey (9:16)** Yemyeşil bir yağmur ormanındaki görkemli bir Hawaii şelalesinin akıcı hareketini vurgulayan bir video oluşturun. Sakinliği yansıtmak için gerçekçi su akışına, ayrıntılı yeşilliklere ve doğal ışıklandırmaya odaklan. Akan suyu, puslu atmosferi ve sık ağaçların arasından süzülen benekli güneş ışığını yakalayın. Şelaleyi ve çevresini göstermek için akıcı ve sinematik kamera hareketleri kullanın. İzleyiciyi Hawaii yağmur ormanının huzurlu güzelliğine götüren, sakin ve gerçekçi bir ton kullanın. | Yemyeşil bir yağmur ormanında muhteşem bir Hawaii şelalesi. |
 
-## Versioni modello
+## Model sürümleri
 
-Per ulteriori dettagli sull'utilizzo specifico dei modelli Veo, consulta la pagina [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#veo-3.1) e [Limiti di frequenza](https://aistudio.google.com/rate-limit?hl=it).
+Veo modeline özgü kullanım ayrıntıları için [Fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#veo-3.1) sayfası ve [Hız sınırları](https://aistudio.google.com/rate-limit?hl=tr) bölümüne göz atın.
 
-### Anteprima di Veo 3.1
+### Veo 3.1 Önizlemesi
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-3.1-generate-preview` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video con audio |
-| Limiti di token\_auto | **Inserimento di testo**  1024 token  **Output video**  1 |
-| calendar\_monthUltimo aggiornamento | Gennaio 2026 |
+| id\_cardModel kodu | **Gemini API**  `veo-3.1-generate-preview` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
+| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
+| calendar\_monthSon güncelleme | Ocak 2026 |
 
-### Anteprima di Veo 3.1 Fast
+### Veo 3.1 Fast Önizlemesi
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-3.1-fast-generate-preview` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video con audio |
-| Limiti di token\_auto | **Inserimento di testo**  1024 token  **Output video**  1 |
-| calendar\_monthUltimo aggiornamento | Gennaio 2026 |
+| id\_cardModel kodu | **Gemini API**  `veo-3.1-fast-generate-preview` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
+| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
+| calendar\_monthSon güncelleme | Ocak 2026 |
 
-### Anteprima di Veo 3.1 Lite
+### Veo 3.1 Lite Önizlemesi
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-3.1-lite-generate-preview` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video con audio |
-| Limiti di token\_auto | **Inserimento di testo**  1024 token  **Output video**  1 |
-| calendar\_monthUltimo aggiornamento | Marzo 2026 |
+| id\_cardModel kodu | **Gemini API**  `veo-3.1-lite-generate-preview` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
+| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
+| calendar\_monthSon güncelleme | Mart 2026 |
 
 ### Veo 3
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-3.0-generate-001` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video con audio |
-| Limiti di token\_auto | **Inserimento di testo**  1024 token  **Output video**  1 |
-| calendar\_monthUltimo aggiornamento | Luglio 2025 |
+| id\_cardModel kodu | **Gemini API**  `veo-3.0-generate-001` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
+| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
+| calendar\_monthSon güncelleme | Temmuz 2025 |
 
 ### Veo 3 Fast
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-3.0-fast-generate-001` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video con audio |
-| Limiti di token\_auto | **Inserimento di testo**  1024 token  **Output video**  1 |
-| calendar\_monthUltimo aggiornamento | Luglio 2025 |
+| id\_cardModel kodu | **Gemini API**  `veo-3.0-fast-generate-001` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
+| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
+| calendar\_monthSon güncelleme | Temmuz 2025 |
 
 ### Veo 2
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-2.0-generate-001` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video |
-| Limiti di token\_auto | **Inserimento di testo**  N/D  **Input immagine**  Qualsiasi risoluzione e proporzione dell'immagine fino a una dimensione del file di 20 MB  **Output video**  Fino a 2 |
-| calendar\_monthUltimo aggiornamento | Aprile 2025 |
+| id\_cardModel kodu | **Gemini API**  `veo-2.0-generate-001` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Video |
+| token\_autoSınırlar | **Metin girişi**  Yok  **Resim girişi**  Dosya boyutu 20 MB'a kadar olan tüm görüntü çözünürlükleri ve en boy oranları  **Çıkış videosu**  2'ye kadar |
+| calendar\_monthSon güncelleme | Nisan 2025 |
 
 ### Veo 2
 
-| Proprietà | Descrizione |
+| Mülk | Açıklama |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `veo-2.0-generate-001` |
-| saveTipi di dati supportati | **Ingresso**  Testo, immagine  **Output**  Video |
-| Limiti di token\_auto | **Inserimento di testo**  N/D  **Input immagine**  Qualsiasi risoluzione e proporzione dell'immagine fino a una dimensione del file di 20 MB  **Output video**  Fino a 2 |
-| calendar\_monthUltimo aggiornamento | Aprile 2025 |
+| id\_cardModel kodu | **Gemini API**  `veo-2.0-generate-001` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Video |
+| token\_autoSınırlar | **Metin girişi**  Yok  **Resim girişi**  Dosya boyutu 20 MB'a kadar olan tüm görüntü çözünürlükleri ve en boy oranları  **Çıkış videosu**  2'ye kadar |
+| calendar\_monthSon güncelleme | Nisan 2025 |
 
-Le versioni di Veo Fast consentono agli sviluppatori di creare video con audio mantenendo
-un'alta qualità e ottimizzando la velocità e i casi d'uso aziendali. Sono ideali per i servizi di backend che generano annunci in modo programmatico, per gli strumenti di test A/B rapidi dei concetti creativi o per le app che devono produrre rapidamente contenuti per i social media.
+Veo Fast sürümleri, geliştiricilerin yüksek kaliteyi koruyarak ve hız ile iş kullanım alanları için optimize ederek sesli videolar oluşturmasına olanak tanır. Reklamları programatik olarak oluşturan arka uç hizmetleri, reklam öğesi konseptlerinin hızlı A/B testi için kullanılan araçlar veya sosyal medya içeriklerini hızlıca üretmesi gereken uygulamalar için idealdir.
 
-## Passaggi successivi
+## Sırada ne var?
 
-- Inizia a utilizzare l'API Veo 3.1 sperimentando in [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=it)
-  e nell'[applet Veo 3.1](https://aistudio.google.com/apps/bundled/veo_studio?hl=it).
-- Scopri come scrivere prompt ancora migliori con la nostra [Introduzione alla progettazione dei prompt](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=it).
+- [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=tr) ve [Veo 3.1 applet](https://aistudio.google.com/apps/bundled/veo_studio?hl=tr)'te denemeler yaparak Veo 3.1 API'yi kullanmaya başlayın.
+- [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) başlıklı makalemizle daha iyi istemler yazmayı öğrenin.
 
-Invia feedback
+Geri bildirim gönderin
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Ultimo aggiornamento 2026-05-13 UTC.
+Son güncelleme tarihi: 2026-05-13 UTC.
 
-Vuoi dirci altro?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-13 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-13 UTC."],[],[]]
