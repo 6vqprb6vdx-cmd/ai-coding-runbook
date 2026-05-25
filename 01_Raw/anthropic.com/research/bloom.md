@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/bloom
-fetched_at: 2026-05-18T12:57:45.814078+00:00
+fetched_at: 2026-05-25T12:53:43.950763+00:00
 title: "Introducing Bloom: an open source tool for automated behavioral evaluations \\ Anthropic"
 ---
 
@@ -45,7 +45,7 @@ Unlike fixed evaluation sets, Bloom produces different scenarios on each run whi
 
 Researchers can extensively configure Bloom's behavior, through choosing models for each stage, adjusting the interactions’ length and modality (i.e., whether to expose tools to the target model, whether to simulate a user), controlling how diverse the evaluation scenarios are, and specifying secondary scoring dimensions, like realism or elicitation difficulty.
 
-**Example outputs from all four stages of the Bloom evaluation pipeline can be viewed [here.](https://claude.ai/redirect/website.v1.e0345b5f-ca26-4247-b992-574f17e0afe9/public/artifacts/cbfddf51-ab0d-45a9-913b-163ae2dd4126)**
+**Example outputs from all four stages of the Bloom evaluation pipeline can be viewed [here.](https://claude.ai/redirect/website.v1.e0136cfe-ea87-4449-8bf6-756a5bddebe0/public/artifacts/cbfddf51-ab0d-45a9-913b-163ae2dd4126)**
 
 ## Validation and trust
 
@@ -98,6 +98,12 @@ Copy
 
 ## Related content
 
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+[Read more](https://www.anthropic.com/research/glasswing-initial-update)
+
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
@@ -109,9 +115,3 @@ Our views on the AI competition between the US and China.
 New research on how we've reduced agentic misalignment.
 
 [Read more](https://www.anthropic.com/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](https://www.anthropic.com/research/natural-language-autoencoders)

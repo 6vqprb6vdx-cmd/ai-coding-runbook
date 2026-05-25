@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/impact-software-development
-fetched_at: 2026-05-18T12:58:23.636067+00:00
+fetched_at: 2026-05-25T12:54:08.820696+00:00
 title: "Anthropic Economic Index: AI's impact on software development \\ Anthropic"
 ---
 
@@ -16,7 +16,7 @@ Jobs that involve computer programming are a small sector of the modern economy,
 
 In our [previous Economic Index research](https://www.anthropic.com/news/the-anthropic-economic-index), we found very disproportionate use of Claude by US workers in computer-related occupations: that is, there were many more conversations with Claude about computer-related tasks than one would predict from the number of people working in relevant jobs. It’s the same in [the educational context](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude): Computer Science degrees—which involve large amounts of coding—show highly disproportionate AI use.
 
-To understand these changes in more detail, we conducted an analysis of 500,000 coding-related interactions across [Claude.ai](http://claude.ai/redirect/website.v1.29d7fee5-1a87-4fc3-ae79-2c044728a099) (the “default” way that most people interact with Claude) and [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) (our new specialist coding “agent” that can independently accomplish chains of complex tasks using a variety of digital tools).
+To understand these changes in more detail, we conducted an analysis of 500,000 coding-related interactions across [Claude.ai](http://claude.ai/redirect/website.v1.e0136cfe-ea87-4449-8bf6-756a5bddebe0) (the “default” way that most people interact with Claude) and [Claude Code](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) (our new specialist coding “agent” that can independently accomplish chains of complex tasks using a variety of digital tools).
 
 We found three key patterns:
 
@@ -122,6 +122,12 @@ Compared to use cases that don’t involve software, software development is mor
 
 ## Related content
 
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+[Read more](https://www.anthropic.com/research/glasswing-initial-update)
+
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
@@ -133,9 +139,3 @@ Our views on the AI competition between the US and China.
 New research on how we've reduced agentic misalignment.
 
 [Read more](https://www.anthropic.com/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](https://www.anthropic.com/research/natural-language-autoencoders)

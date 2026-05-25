@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/reasoning-models-dont-say-think
-fetched_at: 2026-05-18T12:58:49.853412+00:00
+fetched_at: 2026-05-25T12:54:23.108520+00:00
 title: "Reasoning models don't always say what they think \\ Anthropic"
 ---
 
@@ -92,6 +92,12 @@ If you’re interested in pursuing work on Alignment Science, including on Chain
 
 ## Related content
 
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+[Read more](https://www.anthropic.com/research/glasswing-initial-update)
+
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
@@ -103,9 +109,3 @@ Our views on the AI competition between the US and China.
 New research on how we've reduced agentic misalignment.
 
 [Read more](https://www.anthropic.com/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](https://www.anthropic.com/research/natural-language-autoencoders)
