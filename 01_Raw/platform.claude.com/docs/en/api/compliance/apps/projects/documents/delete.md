@@ -1,10 +1,10 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/projects/documents/delete
-fetched_at: 2026-05-11T12:28:44.309097+00:00
+fetched_at: 2026-05-25T12:53:34.064233+00:00
 fetch_method: mintlify_md
 ---
 
-## Delete
+## Delete project document
 
 **delete** `/v1/compliance/apps/projects/documents/{document_id}`
 
@@ -43,4 +43,13 @@ ComplianceProjectDocumentDeleteResponse confirming the deletion
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
     -X DELETE \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "claude_project_document_deleted"
+}
 ```

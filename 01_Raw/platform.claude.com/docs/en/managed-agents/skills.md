@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/skills
-fetched_at: 2026-05-18T12:57:06.915534+00:00
+fetched_at: 2026-05-25T12:53:28.568627+00:00
 fetch_method: mintlify_md
 ---
 
@@ -121,15 +121,14 @@ var agent = await client.Beta.Agents.Create(new()
 });
 ```
 
-```go Go
+```go Go nocheck
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "Financial Analyst",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
-		ID:   "claude-opus-4-7",
-		Type: anthropic.BetaManagedAgentsModelConfigParamsTypeModelConfig,
+		ID: "claude-opus-4-7",
 	},
 	System: anthropic.String("You are a financial analysis agent."),
-	Skills: []anthropic.ManagedAgentsSkillParamUnion{
+	Skills: []anthropic.BetaManagedAgentsSkillParamsUnion{
 		{OfAnthropic: &anthropic.BetaManagedAgentsAnthropicSkillParams{
 			SkillID: "xlsx",
 			Type:    anthropic.BetaManagedAgentsAnthropicSkillParamsTypeAnthropic,
@@ -144,6 +143,7 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
+_ = agent
 ```
 
 ```java Java

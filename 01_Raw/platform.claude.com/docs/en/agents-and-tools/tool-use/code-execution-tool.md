@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool
-fetched_at: 2026-05-18T12:57:05.947523+00:00
+fetched_at: 2026-05-25T12:53:27.606476+00:00
 fetch_method: mintlify_md
 ---
 
@@ -1721,11 +1721,13 @@ When used without these tools, code execution is billed by execution time, track
 Code execution usage is tracked in the response:
 
 ```json
-"usage": {
-  "input_tokens": 105,
-  "output_tokens": 239,
-  "server_tool_use": {
-    "code_execution_requests": 1
+{
+  "usage": {
+    "input_tokens": 105,
+    "output_tokens": 239,
+    "server_tool_use": {
+      "code_execution_requests": 1
+    }
   }
 }
 ```

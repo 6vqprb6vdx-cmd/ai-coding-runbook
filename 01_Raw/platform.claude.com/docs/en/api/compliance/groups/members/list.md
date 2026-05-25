@@ -1,10 +1,10 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/groups/members/list
-fetched_at: 2026-05-11T12:28:43.840387+00:00
+fetched_at: 2026-05-25T12:53:33.467191+00:00
 fetch_method: mintlify_md
 ---
 
-## List
+## List Compliance Group Members
 
 **get** `/v1/compliance/groups/{group_id}/members`
 
@@ -65,4 +65,21 @@ List Compliance Group Members
 ```http
 curl https://api.anthropic.com/v1/compliance/groups/$GROUP_ID/members \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "created_at": "created_at",
+      "email": "email",
+      "updated_at": "updated_at",
+      "user_id": "user_id"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
 ```

@@ -1,10 +1,10 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/organizations/list
-fetched_at: 2026-05-11T12:28:43.554128+00:00
+fetched_at: 2026-05-25T12:53:33.240516+00:00
 fetch_method: mintlify_md
 ---
 
-## List
+## List organizations
 
 **get** `/v1/compliance/organizations`
 
@@ -41,4 +41,18 @@ response would exceed 1,000 organizations.
 ```http
 curl https://api.anthropic.com/v1/compliance/organizations \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "created_at": "created_at",
+      "name": "name",
+      "uuid": "uuid"
+    }
+  ]
+}
 ```

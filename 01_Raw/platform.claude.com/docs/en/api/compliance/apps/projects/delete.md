@@ -1,10 +1,10 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/projects/delete
-fetched_at: 2026-05-11T12:28:44.223513+00:00
+fetched_at: 2026-05-25T12:53:33.895396+00:00
 fetch_method: mintlify_md
 ---
 
-## Delete
+## Delete project
 
 **delete** `/v1/compliance/apps/projects/{project_id}`
 
@@ -54,4 +54,13 @@ NotFoundException: If project doesn't exist or already deleted
 curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
     -X DELETE \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "claude_project_deleted"
+}
 ```

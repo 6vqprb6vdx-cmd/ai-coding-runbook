@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/fast-mode
-fetched_at: 2026-05-18T12:57:05.264358+00:00
+fetched_at: 2026-05-25T12:53:27.145936+00:00
 fetch_method: mintlify_md
 ---
 
@@ -814,7 +814,7 @@ message = create_message_with_fast_fallback(
 - **TTFT:** Fast mode's benefits are focused on output tokens per second (OTPS), not time to first token (TTFT).
 - **Batch API:** Fast mode is not available with the [Batch API](/docs/en/build-with-claude/batch-processing).
 - **Priority Tier:** Fast mode is not available with [Priority Tier](/docs/en/api/service-tiers).
-- **Claude Platform on AWS:** Fast mode is not available on [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws).
+- **Claude Platform on AWS:** Fast mode is not currently available on [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws).
 
 ## Next steps
 
