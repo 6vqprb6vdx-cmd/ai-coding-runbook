@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/manage-claude/claude-code-analytics-api
-fetched_at: 2026-05-18T12:57:07.685284+00:00
+fetched_at: 2026-06-01T19:33:03.932306+00:00
 fetch_method: mintlify_md
 ---
 
@@ -134,7 +134,7 @@ Breakdown of tool action acceptance and rejection rates by tool type:
 
 #### Model breakdown
 For each Claude model used:
-- **model**: Claude model identifier (e.g., `claude-opus-4-7`)
+- **model**: Claude model identifier (e.g., `claude-opus-4-8`)
 - **tokens.input/output**: Input and output token counts for this model
 - **tokens.cache_read/cache_creation**: Cache-related token usage for this model
 - **estimated_cost.amount**: Estimated cost in cents USD for this model
@@ -185,7 +185,7 @@ The API returns data in the following format:
       },
       "model_breakdown": [
         {
-          "model": "claude-opus-4-7",
+          "model": "claude-opus-4-8",
           "tokens": {
             "input": 100000,
             "output": 35000,
