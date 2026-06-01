@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=id
-fetched_at: 2026-05-25T13:06:58.833034+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=hi
+fetched_at: 2026-06-01T19:43:28.903170+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Grounding dengan Google Penelusuran
+# Google Search से सटीक जानकारी पाने की सुविधा
 
-Grounding dengan Google Penelusuran menghubungkan model Gemini ke konten web real-time dan berfungsi dengan semua bahasa yang tersedia. Hal ini memungkinkan Gemini memberikan jawaban yang lebih akurat dan mengutip sumber yang dapat diverifikasi di luar batas pengetahuan.
+Google Search से सटीक जानकारी पाने की सुविधा, Gemini मॉडल को रीयल-टाइम वेब कॉन्टेंट से कनेक्ट करती है. साथ ही, यह सुविधा सभी उपलब्ध भाषाओं में काम करती है. इससे Gemini, ज़्यादा सटीक जवाब दे पाता है. साथ ही, यह अपनी जानकारी की सीमा से बाहर जाकर, पुष्टि किए जा सकने वाले सोर्स का हवाला दे पाता है.
 
-Grounding membantu Anda membangun aplikasi yang dapat:
+सटीक जानकारी पाने की सुविधा की मदद से, ऐसे ऐप्लिकेशन बनाए जा सकते हैं जो:
 
-- **Meningkatkan akurasi faktual:** Mengurangi halusinasi model dengan mendasarkan respons pada informasi dunia nyata.
-- **Mengakses informasi real-time:** Menjawab pertanyaan tentang peristiwa dan topik terbaru.
-- **Memberikan kutipan:** Membangun kepercayaan pengguna dengan menampilkan sumber klaim model.
+- **तथ्यों की सटीक जानकारी दें:** जवाबों को असल दुनिया की जानकारी पर आधारित करके, मॉडल के गलत जवाब देने की समस्या को कम करें.
+- **रीयल-टाइम जानकारी ऐक्सेस करें:** हाल ही में हुई घटनाओं और विषयों के बारे में सवालों के जवाब दें.
+- **रेफ़रंस दें:** मॉडल के दावों के सोर्स दिखाकर, उपयोगकर्ताओं का भरोसा जीतें.
 
 ### Python
 
@@ -73,21 +73,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cara kerja grounding dengan Google Penelusuran
+## Google Search से सटीक जानकारी पाने की सुविधा कैसे काम करती है
 
-Saat Anda mengaktifkan alat `google_search`, model akan menangani seluruh alur kerja penelusuran, pemrosesan, dan pengutipan informasi secara otomatis.
+`google_search` टूल चालू करने पर, मॉडल, जानकारी खोजने, प्रोसेस करने, और उसका हवाला देने से जुड़े पूरे वर्कफ़्लो को अपने-आप मैनेज करता है.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=id)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=hi)
 
-1. **Perintah Pengguna:** Aplikasi Anda mengirimkan perintah pengguna ke Gemini API dengan alat `google_search` yang diaktifkan.
-2. **Analisis Perintah:** Model menganalisis perintah dan menentukan apakah Google Penelusuran dapat meningkatkan jawaban.
-3. **Google Penelusuran:** Jika diperlukan, model akan otomatis membuat satu atau beberapa kueri penelusuran dan menjalankannya.
-4. **Pemrosesan Hasil Penelusuran:** Model memproses hasil penelusuran, mensintesis informasi, dan merumuskan respons.
-5. **Respons yang Didasarkan pada Fakta:** API menampilkan respons akhir yang mudah digunakan dan didasarkan pada hasil penelusuran. Respons ini mencakup jawaban teks model dengan `annotations` inline yang berisi kutipan, serta langkah-langkah `google_search_call` dan `google_search_result` dengan kueri penelusuran dan saran penelusuran.
+1. **उपयोगकर्ता का प्रॉम्प्ट:** आपका ऐप्लिकेशन, `google_search` टूल चालू होने पर, उपयोगकर्ता का प्रॉम्प्ट Gemini API को भेजता है.
+2. **प्रॉम्प्ट का विश्लेषण:** मॉडल, प्रॉम्प्ट का विश्लेषण करता है और यह तय करता है कि Google Search की मदद से जवाब को बेहतर बनाया जा सकता है या नहीं.
+3. **Google Search:** ज़रूरत पड़ने पर, मॉडल अपने-आप एक या एक से ज़्यादा खोज क्वेरी जनरेट करता है और उन्हें एक्ज़ीक्यूट करता है.
+4. **खोज के नतीजों को प्रोसेस करना:** मॉडल, खोज के नतीजों को प्रोसेस करता है, जानकारी को सिंथेसाइज़ करता है, और जवाब तैयार करता है.
+5. **सटीक जानकारी वाला जवाब:** एपीआई, खोज के नतीजों के आधार पर, उपयोगकर्ता के लिए फ़ाइनल और आसान जवाब देता है. इस जवाब में, मॉडल का टेक्स्ट जवाब शामिल होता है. साथ ही, इसमें इनलाइन `annotations` भी शामिल होते हैं, जिनमें रेफ़रंस के साथ-साथ `google_search_call` और `google_search_result` के चरण शामिल होते हैं. इनमें खोज क्वेरी और खोज के सुझाव भी शामिल होते हैं.
 
-## Memahami respons grounding
+## सटीक जानकारी वाले जवाब को समझना
 
-Jika respons berhasil didasarkan pada fakta, output teks model akan menyertakan `annotations` inline langsung di blok konten teks. Anotasi ini memberikan informasi kutipan yang menautkan bagian respons ke sumbernya.
+जवाब के लिए सटीक जानकारी मिलने पर, मॉडल के टेक्स्ट आउटपुट में, टेक्स्ट कॉन्टेंट ब्लॉक पर सीधे तौर पर इनलाइन `annotations` शामिल होते हैं. इन एनोटेशन में, रेफ़रंस की जानकारी दी जाती है. इससे जवाब के हिस्सों को उनके सोर्स से लिंक किया जाता है.
 
 ```
 {
@@ -146,19 +146,21 @@ Jika respons berhasil didasarkan pada fakta, output teks model akan menyertakan 
 }
 ```
 
-Kolom utama dalam respons:
+जवाब में मौजूद मुख्य फ़ील्ड:
 
-- `google_search_call` : Berisi `queries` penelusuran yang dijalankan model.
-- `google_search_result` : Berisi `search_suggestions`, cuplikan HTML untuk merender saran penelusuran di UI Anda. Persyaratan penggunaan lengkap dijelaskan dalam [Persyaratan Layanan](https://ai.google.dev/gemini-api/terms?hl=id#grounding-with-google-search).
-- `text` dengan `annotations` : Jawaban model yang disintesis dengan kutipan inline. Setiap anotasi `url_citation` menautkan segmen teks (ditentukan oleh `start_index` dan `end_index`) ke URL sumber. Hal ini merupakan kunci untuk membuat kutipan inline.
+- `google_search_call` : इसमें, मॉडल की ओर से एक्ज़ीक्यूट की गई खोज `queries` शामिल होती हैं.
+- `google_search_result` : इसमें `search_suggestions` शामिल होते हैं. यह आपके यूज़र इंटरफ़ेस (यूआई) में खोज के सुझाव दिखाने के लिए, एचटीएमएल स्निपेट होता है. इस्तेमाल की पूरी ज़रूरी शर्तें,
+  [सेवा की शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi#grounding-with-google-search) में बताई गई हैं.
+- `text` with `annotations` : मॉडल का सिंथेसाइज़ किया गया जवाब, जिसमें इनलाइन रेफ़रंस शामिल होते हैं. हर `url_citation` एनोटेशन, टेक्स्ट के किसी सेगमेंट (`start_index` और `end_index` से तय किया गया) को सोर्स यूआरएल से लिंक करता है. इनलाइन रेफ़रंस बनाने के लिए, यह ज़रूरी है.
 
-Grounding dengan Google Penelusuran juga dapat digunakan bersama dengan alat konteks [URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=id) untuk mendasarkan respons pada fakta dalam
-data web publik dan URL tertentu yang Anda berikan.
+Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल, [यूआरएल
+कॉन्टेक्स्ट टूल](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi) के साथ भी किया जा सकता है. इससे,
+सार्वजनिक वेब डेटा और आपके दिए गए खास यूआरएल, दोनों के आधार पर जवाब दिए जा सकते हैं.
 
-## Memberikan atribusi sumber dengan kutipan inline
+## इनलाइन रेफ़रंस की मदद से सोर्स को एट्रिब्यूट करना
 
-API menampilkan anotasi `url_citation` inline di blok konten teks, sehingga Anda memiliki kontrol penuh atas cara menampilkan sumber di antarmuka pengguna.
-Setiap anotasi menyertakan `start_index` dan `end_index` untuk mengidentifikasi bagian teks yang dikutip. Berikut cara mengekstrak dan menampilkannya.
+एपीआई, टेक्स्ट कॉन्टेंट ब्लॉक पर इनलाइन `url_citation` एनोटेशन दिखाता है. इससे आपको यह तय करने का पूरा कंट्रोल मिलता है कि आपको अपने यूज़र इंटरफ़ेस (यूआई) में सोर्स कैसे दिखाने हैं.
+हर एनोटेशन में `start_index` और `end_index` शामिल होता है. इससे यह पता चलता है कि यह टेक्स्ट के किस हिस्से का हवाला देता है. इन्हें एक्सट्रैक्ट और दिखाने का तरीका यहां बताया गया है.
 
 ### Python
 
@@ -201,7 +203,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-Output akan menampilkan teks yang diikuti dengan kutipannya:
+आउटपुट में, टेक्स्ट के बाद उसके रेफ़रंस दिखेंगे:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -213,54 +215,51 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Harga
+## कीमत
 
-Saat Anda menggunakan Grounding dengan Google Penelusuran dengan Gemini 3, project Anda akan ditagih untuk setiap kueri penelusuran yang diputuskan untuk dijalankan oleh model. Jika model memutuskan untuk
-menjalankan beberapa kueri penelusuran untuk menjawab satu perintah (misalnya,
-menelusuri `"UEFA Euro 2024 winner"` dan `"Spain vs England Euro 2024 final
-score"` dalam panggilan API yang sama), hal ini akan dihitung sebagai dua penggunaan alat yang dapat ditagih
-untuk permintaan tersebut. Untuk tujuan penagihan, kami mengabaikan kueri penelusuran web kosong saat menghitung kueri unik. Model penagihan ini hanya berlaku untuk model Gemini 3; saat Anda menggunakan grounding penelusuran dengan model Gemini 2.5 atau yang lebih lama, project Anda akan ditagih per perintah.
+Gemini 3 के साथ, Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल करने पर, आपके प्रोजेक्ट से हर उस खोज क्वेरी के लिए शुल्क लिया जाता है जिसे मॉडल एक्ज़ीक्यूट करने का फ़ैसला लेता है. अगर मॉडल, किसी एक प्रॉम्प्ट का जवाब देने के लिए एक से ज़्यादा खोज क्वेरी एक्ज़ीक्यूट करने का फ़ैसला लेता है (उदाहरण के लिए, एक ही एपीआई कॉल में `"UEFA Euro 2024 winner"` और `"Spain vs England Euro 2024 final
+score"` खोजना), तो इस अनुरोध के लिए, टूल के दो बार इस्तेमाल का शुल्क लिया जाएगा. बिलिंग के मकसद से, यूनीक क्वेरी की गिनती करते समय, हम खाली वेब खोज क्वेरी को अनदेखा करते हैं. यह बिलिंग मॉडल सिर्फ़ Gemini 3 मॉडल पर लागू होता है. Gemini 2.5 या उससे पुराने मॉडल के साथ, खोज के लिए सटीक जानकारी पाने की सुविधा का इस्तेमाल करने पर, आपके प्रोजेक्ट से हर प्रॉम्प्ट के लिए शुल्क लिया जाता है.
 
-Untuk mengetahui informasi harga mendetail, lihat halaman harga [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+कीमत की ज़्यादा जानकारी के लिए, [Gemini API की कीमत
+वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) देखें.
 
-## Model yang didukung
+## काम करने वाले मॉडल
 
-Anda dapat menemukan kemampuan lengkap di halaman ringkasan [model
-overview](https://ai.google.dev/gemini-api/docs/models?hl=id).
+मॉडल की पूरी क्षमताओं के बारे में जानने के लिए, [मॉडल
+खास जानकारी](https://ai.google.dev/gemini-api/docs/models?hl=hi) वाला पेज देखें.
 
-| Model | Grounding dengan Google Penelusuran |
+| मॉडल | Google Search से सटीक जानकारी पाने की सुविधा |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| Pratinjau Gambar Gemini 3.1 Flash | ✔️ |
-| Pratinjau Gemini 3.1 Pro | ✔️ |
-| Pratinjau Gambar Gemini 3 Pro | ✔️ |
-| Pratinjau Gemini 3 Flash | ✔️ |
+| Gemini 3.1 Flash Image Preview | ✔️ |
+| Gemini 3.1 Pro Preview | ✔️ |
+| Gemini 3 Pro Image Preview | ✔️ |
+| Gemini 3 Flash Preview | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Kombinasi alat yang didukung
+## टूल के काम करने वाले कॉम्बिनेशन
 
-Anda dapat menggunakan Grounding dengan Google Penelusuran bersama dengan alat lain seperti
-[eksekusi kode](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=id) dan
-[konteks URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=id) untuk mendukung kasus penggunaan
-yang lebih kompleks.
+ज़्यादा मुश्किल इस्तेमाल के उदाहरणों के लिए, Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल,
+[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=hi) और
+[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi) जैसे अन्य टूल के साथ किया जा सकता है.
 
-Model Gemini 3 mendukung kombinasi alat bawaan (seperti Grounding dengan Google Penelusuran) dengan alat kustom (panggilan fungsi). Pelajari lebih lanjut di halaman
-[kombinasi alat](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=id).
+Gemini 3 मॉडल, बिल्ट-इन टूल (जैसे, Google Search से सटीक जानकारी पाने की सुविधा) को कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ इस्तेमाल करने की सुविधा देते हैं. ज़्यादा जानने के लिए,
+[टूल के कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=hi) वाला पेज देखें.
 
-## Langkah berikutnya
+## आगे क्या करना है
 
-- Pelajari alat lain yang tersedia, seperti [Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=id).
-- Pelajari cara menambah perintah dengan URL tertentu menggunakan [alat konteks URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=id).
+- उपलब्ध अन्य टूल के बारे में जानें, जैसे कि [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi).
+- [यूआरएल कॉन्टेक्स्ट टूल का इस्तेमाल करके, खास यूआरएल की मदद से प्रॉम्प्ट को बेहतर बनाने का तरीका जानें.](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-05-19 UTC.
+आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया."],[],[]]

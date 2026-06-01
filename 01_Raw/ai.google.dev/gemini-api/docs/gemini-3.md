@@ -1,36 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-3?hl=th
-fetched_at: 2026-05-25T13:00:13.993471+00:00
-title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/gemini-3?hl=fr
+fetched_at: 2026-06-01T19:35:10.075633+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-# คู่มือนักพัฒนาซอฟต์แวร์ Gemini 3
+# Guide du développeur Gemini 3
 
-Gemini 3 เป็นตระกูลโมเดลที่ชาญฉลาดที่สุดของเราในปัจจุบัน ซึ่งสร้างขึ้นบนพื้นฐานของ
-การให้เหตุผลที่ล้ำสมัย โดยออกแบบมาเพื่อทำให้ไอเดียใดๆ เป็นจริงได้ด้วยการ
-เชี่ยวชาญเวิร์กโฟลว์แบบ Agent การเขียนโค้ดแบบอัตโนมัติ และงานแบบ Multimodal ที่ซับซ้อน
-คู่มือนี้ครอบคลุมฟีเจอร์หลักของกลุ่มผลิตภัณฑ์โมเดล Gemini 3 และวิธีใช้ประโยชน์จากโมเดลนี้ให้ได้มากที่สุด
+Gemini 3 est notre famille de modèles la plus intelligente à ce jour. Elle repose sur une technologie de raisonnement à la pointe du secteur. Il est conçu pour donner vie à toutes vos idées en maîtrisant les workflows agentifs, le codage autonome et les tâches multimodales complexes.
+Ce guide présente les principales fonctionnalités de la famille de modèles Gemini 3 et explique comment en tirer le meilleur parti.
 
-[ลองใช้ Gemini 3.1 Pro เวอร์ชันตัวอย่าง](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=th)
-[ลองใช้ Gemini 3 Flash เวอร์ชันตัวอย่าง](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=th)
-[ลองใช้ Gemini 3.1 Flash-Lite](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-lite&hl=th)
-[ลองใช้ Nano Banana 2](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image-preview&hl=th)
+[Essayer Gemini 3.1 Pro (preview)](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=fr)
+[Essayer Gemini 3 Flash (preview)](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=fr)
+[Essayer Gemini 3.1 Flash-Lite](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-lite&hl=fr)
+[Essayer Nano Banana 2](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image-preview&hl=fr)
 
-สำรวจ[คอลเล็กชันแอป Gemini 3](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=th) เพื่อดูว่าโมเดลจัดการการให้เหตุผลขั้นสูง การเขียนโค้ดอัตโนมัติ และงานมัลติโมดัลที่ซับซ้อนได้อย่างไร
+Découvrez notre [collection d'applications Gemini 3](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=fr) pour voir comment le modèle gère le raisonnement avancé, le codage autonome et les tâches multimodales complexes.
 
-เริ่มต้นใช้งานด้วยโค้ดเพียงไม่กี่บรรทัด
+Commencez avec quelques lignes de code :
 
 ### Python
 
@@ -80,51 +78,45 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## พบกับซีรีส์ Gemini 3
+## Découvrez la gamme Gemini 3
 
-Gemini 3.1 Pro เหมาะที่สุดสำหรับงานที่ซับซ้อนซึ่ง
-ต้องใช้ความรู้เกี่ยวกับโลกในวงกว้างและการให้เหตุผลขั้นสูงในรูปแบบต่างๆ
+Gemini 3.1 Pro est idéal pour les tâches complexes qui nécessitent une vaste connaissance du monde et un raisonnement avancé dans plusieurs modalités.
 
-Gemini 3 Flash เป็นโมเดลซีรีส์ 3 ล่าสุดของเราที่มีความสามารถอันชาญฉลาดระดับ Pro ใน
-ความเร็วและราคาของ Flash
+Gemini 3 Flash est notre dernier modèle de la série 3. Il offre une intelligence de niveau Pro à la vitesse et au prix de Flash.
 
-Nano Banana Pro (หรือที่เรียกว่ารูปภาพ Gemini 3 Pro) คือโมเดลการสร้างรูปภาพคุณภาพสูงสุดของเรา และ Nano Banana 2 (หรือที่เรียกว่ารูปภาพ Gemini 3.1 Flash) คือโมเดลที่มีปริมาณมาก ประสิทธิภาพสูง และมีราคาต่ำกว่า
+Nano Banana Pro (également appelé Gemini 3 Pro Image) est notre modèle de génération d'images de la plus haute qualité. Nano Banana 2 (également appelé Gemini 3.1 Flash Image) est son équivalent à prix plus abordable, qui permet de générer des images en grand volume et de manière très efficace.
 
-Gemini 3.1 Flash-Lite เป็นโมเดลที่ใช้งานได้จริงของเราซึ่งสร้างขึ้นเพื่อโมเดลที่มีประสิทธิภาพด้านต้นทุนและ
-งานที่มีปริมาณมาก
+Gemini 3.1 Flash-Lite est notre modèle de référence conçu pour les tâches volumineuses et économiques.
 
-| รหัสโมเดล | หน้าต่างบริบท (เข้า / ออก) | การตัดข้อมูล | การกำหนดราคา (อินพุต / เอาต์พุต)\* |
+| ID du modèle | Fenêtre de contexte (entrée / sortie) | Date limite des connaissances | Tarification (entrée / sortie)\* |
 | --- | --- | --- | --- |
-| **gemini-3.1-flash-lite** | 1M / 64k | มกราคม 2025 | $0.25 (ข้อความ, รูปภาพ, วิดีโอ), $0.50 (เสียง) / $1.50 |
-| **gemini-3.1-flash-lite-preview** | 1M / 64k | มกราคม 2025 | $0.25 (ข้อความ, รูปภาพ, วิดีโอ), $0.50 (เสียง) / $1.50 |
-| **gemini-3.1-flash-image-preview** | 128k / 32k | มกราคม 2025 | $0.25 (อินพุตข้อความ) / $0.067 (เอาต์พุตรูปภาพ)\*\* |
-| **gemini-3.1-pro-preview** | 1M / 64k | มกราคม 2025 | $2 / $12 (<200,000 โทเค็น)   $4 / $18 (>200,000 โทเค็น) |
-| **gemini-3-flash-preview** | 1M / 64k | มกราคม 2025 | $0.50 / $3 |
-| **gemini-3-pro-image-preview** | 65,000 / 32,000 | มกราคม 2025 | $2 (ป้อนข้อความ) / $0.134 (เอาต์พุตรูปภาพ)\*\* |
+| **gemini-3.1-flash-lite** | 1 M / 64 k | Janv. 2025 | 0,25 $ (texte, image, vidéo), 0,50 $ (audio) / 1,50 $ |
+| **gemini-3.1-flash-image-preview** | 128 000 / 32 000 | Janv. 2025 | 0,25 $ (entrée de texte) / 0,067 $ (sortie d'image)\*\* |
+| **gemini-3.1-pro-preview** | 1 M / 64 k | Janv. 2025 | 2 $ / 12 $ (<200 000 jetons)   4 $ / 18 $ (>200 000 jetons) |
+| **gemini-3-flash-preview** | 1 M / 64 k | Janv. 2025 | 0,50 $ / 3 $ |
+| **gemini-3-pro-image-preview** | 65 000 / 32 000 | Janv. 2025 | 2 $ (entrée de texte) / 0,134 $ (sortie d'image)\*\* |
 
-*\* ราคาต่อโทเค็น 1 ล้านรายการ เว้นแต่จะระบุไว้เป็นอย่างอื่น*
-*\*\* ราคาของรูปภาพจะแตกต่างกันไปตามความละเอียด ดูรายละเอียดได้ที่[หน้าการกำหนดราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th)*
+*\* Sauf indication contraire, les tarifs s'entendent pour 1 million de jetons.*
+*\*\* Le prix des images varie en fonction de la résolution. Pour en savoir plus, consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).*
 
-ดูขีดจำกัด ราคา และข้อมูลเพิ่มเติมโดยละเอียดได้ที่[หน้าโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th)
+Pour en savoir plus sur les limites, les tarifs et d'autres informations, consultez la [page des modèles](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr).
 
-## ฟีเจอร์ใหม่ของ API ใน Gemini 3
+## Nouvelles fonctionnalités de l'API dans Gemini 3
 
-Gemini 3 มีพารามิเตอร์ใหม่ที่ออกแบบมาเพื่อให้ผู้พัฒนาควบคุมเวลาในการตอบสนอง ต้นทุน และความเที่ยงตรงของโมเดลแบบมัลติโมดัลได้มากขึ้น
+Gemini 3 introduit de nouveaux paramètres conçus pour offrir aux développeurs un meilleur contrôle de la latence, du coût et de la fidélité multimodale.
 
-### ระดับการคิด
+### Niveau de réflexion
 
-โมเดลชุด Gemini 3 ใช้การคิดแบบไดนามิกโดยค่าเริ่มต้นเพื่อหาเหตุผลผ่าน
-พรอมต์ คุณสามารถใช้พารามิเตอร์ `thinking_level` ซึ่งควบคุมความลึก**สูงสุด**ของกระบวนการให้เหตุผลภายในของโมเดลก่อนที่จะสร้างคำตอบ Gemini 3 จะถือว่าระดับเหล่านี้เป็นค่าเผื่อสัมพัทธ์สำหรับการคิด
-มากกว่าการรับประกันโทเค็นที่เข้มงวด
+Les modèles de la famille Gemini 3 utilisent par défaut la pensée dynamique pour raisonner à partir des requêtes. Vous pouvez utiliser le paramètre `thinking_level`, qui contrôle la profondeur **maximale** du processus de raisonnement interne du modèle avant qu'il ne produise une réponse. Gemini 3 traite ces niveaux comme des allocations relatives pour la réflexion plutôt que comme des garanties strictes de jetons.
 
-หากไม่ได้ระบุ `thinking_level` ไว้ Gemini 3 จะใช้ `high` เป็นค่าเริ่มต้น หากต้องการให้โมเดลตอบกลับเร็วขึ้นและมีเวลาในการตอบสนองที่ต่ำลงเมื่อไม่จำเป็นต้องใช้การให้เหตุผลที่ซับซ้อน คุณสามารถจำกัดระดับการคิดของโมเดลไว้ที่ `low` ได้
+Si `thinking_level` n'est pas spécifié, Gemini 3 utilisera `high` par défaut. Pour obtenir des réponses plus rapides et à faible latence lorsque le raisonnement complexe n'est pas nécessaire, vous pouvez limiter le niveau de réflexion du modèle à `low`.
 
-| ระดับการคิด | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | คำอธิบาย |
+| Niveau de réflexion | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Description |
 | --- | --- | --- | --- | --- |
-| **`minimal`** | สิ่งที่ทำไม่ได้ | รองรับ (ค่าเริ่มต้น) | สิ่งที่ทำได้ | ตรงกับการตั้งค่า "ไม่ต้องคิด" สำหรับคำค้นหาส่วนใหญ่ โมเดลอาจคิดน้อยมากสำหรับงานการเขียนโค้ดที่ซับซ้อน ลดเวลาในการตอบสนองสำหรับแอปพลิเคชันแชทหรือแอปพลิเคชันที่มีการส่งข้อความปริมาณมาก โปรดทราบว่า `minimal` ไม่รับประกันว่าการคิดจะหยุดทำงาน |
-| **`low`** | สิ่งที่ทำได้ | สิ่งที่ทำได้ | สิ่งที่ทำได้ | ลดเวลาในการตอบสนองและค่าใช้จ่าย เหมาะที่สุดสำหรับการทำตามคำสั่งง่ายๆ แชท หรือแอปพลิเคชันที่มีปริมาณงานสูง |
-| **`medium`** | สิ่งที่ทำได้ | สิ่งที่ทำได้ | สิ่งที่ทำได้ | การคิดที่สมดุลสำหรับงานส่วนใหญ่ |
-| **`high`** | รองรับ (ค่าเริ่มต้น, ไดนามิก) | รองรับ (ไดนามิก) | รองรับ (ค่าเริ่มต้น, ไดนามิก) | เพิ่มความลึกในการให้เหตุผลสูงสุด โมเดลอาจใช้เวลานานขึ้นอย่างมากในการ สร้างโทเค็นเอาต์พุตแรก (ไม่ใช่การคิด) แต่เอาต์พุตจะได้รับการพิจารณาอย่างรอบคอบมากขึ้น |
+| **`minimal`** | Not supported | Accepté (par défaut) | Compatible | Correspond au paramètre "Sans réflexion" pour la plupart des requêtes. Le modèle peut réfléchir très peu pour les tâches de codage complexes. Minimise la latence pour les applications de chat ou à haut débit. Notez que `minimal` ne garantit pas que la réflexion est désactivée. |
+| **`low`** | Compatible | Compatible | Compatible | Minimise la latence et les coûts. Convient mieux aux applications de suivi d'instructions simples, de chat ou à haut débit. |
+| **`medium`** | Compatible | Compatible | Compatible | Réflexion équilibrée pour la plupart des tâches. |
+| **`high`** | Compatible (par défaut, dynamique) | Compatible (dynamique) | Compatible (par défaut, dynamique) | Maximise la profondeur du raisonnement. Le modèle peut mettre beaucoup plus de temps à générer le premier jeton de sortie (autre que le jeton de raisonnement), mais la sortie sera plus soigneusement raisonnée. |
 
 ### Python
 
@@ -184,27 +176,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-### ความละเอียดของสื่อ
+### Résolution des contenus multimédias
 
-Gemini 3 มีการควบคุมการประมวลผลวิชันซิสเต็มแบบหลายรูปแบบอย่างละเอียดผ่านพารามิเตอร์
-`media_resolution` ความละเอียดที่สูงขึ้นจะช่วยปรับปรุงความสามารถของโมเดลในการอ่านข้อความขนาดเล็กหรือระบุรายละเอียดเล็กๆ แต่จะเพิ่มการใช้โทเค็นและเวลาในการตอบสนอง
-พารามิเตอร์ `media_resolution` จะกำหนด**จำนวนโทเค็นสูงสุด
-ที่จัดสรรต่อรูปภาพอินพุตหรือเฟรมวิดีโอ**
+Gemini 3 introduit un contrôle précis du traitement multimodal de la vision à l'aide du paramètre `media_resolution`. Les résolutions plus élevées améliorent la capacité du modèle à lire du texte fin ou à identifier de petits détails, mais augmentent l'utilisation de jetons et la latence.
+Le paramètre `media_resolution` détermine le **nombre maximal de jetons alloués par image ou frame vidéo en entrée**.
 
-ตอนนี้คุณสามารถตั้งค่าความละเอียดเป็น `media_resolution_low`,
-`media_resolution_medium`, `media_resolution_high` หรือ
-`media_resolution_ultra_high` ต่อเสียงประกอบแต่ละรายการหรือทั่วโลก (ผ่าน
-`generation_config`, ความละเอียดสูงพิเศษไม่พร้อมใช้งาน) หากไม่ได้ระบุ
-โมเดลจะใช้ค่าเริ่มต้นที่เหมาะสมตามประเภทสื่อ
+Vous pouvez désormais définir la résolution sur `media_resolution_low`, `media_resolution_medium`, `media_resolution_high` ou `media_resolution_ultra_high` pour chaque partie de contenu multimédia ou globalement (via `generation_config`, la résolution globale n'est pas disponible pour l'ultra haute définition). Si aucune valeur n'est spécifiée, le modèle utilise les valeurs par défaut optimales en fonction du type de support.
 
-**การตั้งค่าที่แนะนำ**
+**Paramètres recommandés**
 
-| ประเภทสื่อ | การตั้งค่าที่แนะนำ | โทเค็นสูงสุด | คำแนะนำในการใช้งาน |
+| Type de support | Réglage recommandé | Nombre maximal de jetons | Conseils d'utilisation |
 | --- | --- | --- | --- |
-| **รูปภาพ** | `media_resolution_high` | 1120 | แนะนำสำหรับงานวิเคราะห์รูปภาพส่วนใหญ่เพื่อให้มั่นใจว่ามีคุณภาพสูงสุด |
-| **PDF** | `media_resolution_medium` | 560 | เหมาะสำหรับการทำความเข้าใจเอกสาร โดยปกติคุณภาพจะอิ่มตัวที่ `medium` การเพิ่มเป็น `high` แทบจะไม่ช่วยปรับปรุงผลลัพธ์ OCR สำหรับเอกสารมาตรฐาน |
-| **วิดีโอ** (ทั่วไป) | `media_resolution_low` (หรือ `media_resolution_medium`) | 70 (ต่อเฟรม) | **หมายเหตุ:** สำหรับวิดีโอ ระบบจะถือว่าการตั้งค่า `low` และ `medium` เหมือนกัน (70 โทเค็น) เพื่อเพิ่มประสิทธิภาพการใช้บริบท ซึ่งเพียงพอสำหรับงานการจดจำและการอธิบายการกระทำส่วนใหญ่ |
-| **วิดีโอ** (มีข้อความจำนวนมาก) | `media_resolution_high` | 280 (ต่อเฟรม) | จำเป็นเฉพาะเมื่อ Use Case เกี่ยวข้องกับการอ่านข้อความหนาแน่น (OCR) หรือรายละเอียดเล็กๆ ภายในเฟรมวิดีโอ |
+| **Images** | `media_resolution_high` | 1120 | Recommandé pour la plupart des tâches d'analyse d'images afin de garantir une qualité maximale. |
+| **PDF** | `media_resolution_medium` | 560 | Optimal pour la compréhension des documents. La qualité atteint généralement son maximum à `medium`. Augmenter la valeur à `high` améliore rarement les résultats de l'OCR pour les documents standards. |
+| **Vidéo** (général) | `media_resolution_low` (ou `media_resolution_medium`) | 70 (par frame) | **Remarque** : Pour les vidéos, les paramètres `low` et `medium` sont traités de manière identique (70 jetons) afin d'optimiser l'utilisation du contexte. Cela suffit pour la plupart des tâches de reconnaissance et de description d'actions. |
+| **Vidéo** (avec beaucoup de texte) | `media_resolution_high` | 280 (par frame) | Obligatoire uniquement lorsque le cas d'utilisation implique la lecture de texte dense (OCR) ou de petits détails dans les images vidéo. |
 
 ### Python
 
@@ -297,65 +283,49 @@ curl "https://generativelanguage.googleapis.com/v1alpha/models/gemini-3.1-pro-pr
   }'
 ```
 
-### อุณหภูมิ
+### Température
 
-สำหรับโมเดล Gemini 3 ทั้งหมด เราขอแนะนำอย่างยิ่งให้คงพารามิเตอร์อุณหภูมิ
-ไว้ที่ค่าเริ่มต้น `1.0`
+Pour tous les modèles Gemini 3, nous vous recommandons vivement de conserver la valeur par défaut du paramètre de température, à savoir `1.0`.
 
-แม้ว่าโมเดลก่อนหน้ามักจะได้รับประโยชน์จากการปรับอุณหภูมิเพื่อควบคุมความคิดสร้างสรรค์เทียบกับความแน่นอน แต่ความสามารถในการให้เหตุผลของ Gemini 3 ได้รับการเพิ่มประสิทธิภาพสำหรับการตั้งค่าเริ่มต้น การเปลี่ยนอุณหภูมิ (ตั้งค่าต่ำกว่า 1.0) อาจ
-ทำให้เกิดลักษณะการทำงานที่ไม่คาดคิด เช่น การวนซ้ำหรือประสิทธิภาพลดลง
-โดยเฉพาะในงานทางคณิตศาสตร์หรือการให้เหตุผลที่ซับซ้อน
+Alors que les modèles précédents bénéficiaient souvent d'un réglage de la température pour contrôler la créativité par rapport au déterminisme, les capacités de raisonnement de Gemini 3 sont optimisées pour le paramètre par défaut. Si vous modifiez la température (en la définissant sur une valeur inférieure à 1.0), vous risquez d'obtenir un comportement inattendu, comme une boucle ou une dégradation des performances, en particulier pour les tâches mathématiques ou de raisonnement complexes.
 
-### ลายเซ็นความคิด
+### Signatures de réflexion
 
-Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)เพื่อ
-รักษาบริบทการให้เหตุผลในการเรียก API ลายเซ็นเหล่านี้คือการแสดงที่เข้ารหัส
-กระบวนการคิดภายในของโมเดล คุณต้องส่งลายเซ็นเหล่านี้กลับไปยังโมเดลในคำขอของคุณตามที่ได้รับมาทุกประการเพื่อให้โมเดล
-ยังคงความสามารถในการให้เหตุผลไว้ได้
+Gemini 3 utilise des [signatures de pensée](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=fr) pour maintenir le contexte de raisonnement lors des appels d'API. Ces signatures sont des représentations chiffrées du processus de réflexion interne du modèle. Pour vous assurer que le modèle conserve ses capacités de raisonnement, vous devez renvoyer ces signatures au modèle dans votre requête exactement telles qu'elles ont été reçues :
 
-- **การเรียกใช้ฟังก์ชัน (เข้มงวด):** API จะบังคับใช้การตรวจสอบที่เข้มงวดกับ "เทิร์นปัจจุบัน" หากไม่มีลายเซ็น ระบบจะแสดงข้อผิดพลาด 400
-- **ข้อความ/แชท:** ระบบไม่ได้บังคับใช้การตรวจสอบอย่างเคร่งครัด แต่การละเว้นลายเซ็นจะทำให้คุณภาพการให้เหตุผลและคำตอบของโมเดลลดลง
-- **การสร้าง/แก้ไขรูปภาพ (เข้มงวด)**: API จะบังคับใช้การตรวจสอบอย่างเข้มงวดกับทุกส่วนของโมเดล รวมถึง `thoughtSignature` หากไม่มีลายเซ็น ระบบจะแสดงข้อผิดพลาด 400
+- **Appel de fonction (strict)** : l'API applique une validation stricte au "tour actuel". Si des signatures manquent, une erreur 400 sera générée.
+- **Texte/Chat** : la validation n'est pas strictement appliquée, mais l'omission des signatures dégradera la qualité du raisonnement et des réponses du modèle.
+- **Génération/Modification d'images (strict)** : l'API applique une validation stricte à toutes les parties du modèle, y compris à `thoughtSignature`. Si des signatures manquent, une erreur 400 sera générée.
 
-#### การเรียกใช้ฟังก์ชัน (การตรวจสอบอย่างเข้มงวด)
+#### Appel de fonction (validation stricte)
 
-เมื่อ Gemini สร้าง `functionCall` จะใช้ `thoughtSignature` เพื่อ
-ประมวลผลเอาต์พุตของเครื่องมืออย่างถูกต้องในรอบถัดไป "เทิร์นปัจจุบัน"
-ประกอบด้วยขั้นตอนทั้งหมดของโมเดล (`functionCall`) และผู้ใช้ (`functionResponse`) ที่
-เกิดขึ้นนับตั้งแต่ข้อความ**ผู้ใช้** `text` มาตรฐานล่าสุด
+Lorsque Gemini génère un `functionCall`, il s'appuie sur le `thoughtSignature` pour traiter correctement la sortie de l'outil au tour suivant. Le "tour actuel" inclut toutes les étapes du modèle (`functionCall`) et de l'utilisateur (`functionResponse`) qui se sont produites depuis le dernier message `text` **Utilisateur** standard.
 
-- **การเรียกใช้ฟังก์ชันเดียว:** ส่วน `functionCall` มีลายเซ็น คุณต้องส่งคืน
-- **การเรียกใช้ฟังก์ชันแบบขนาน:** เฉพาะส่วน `functionCall` แรกในรายการเท่านั้นที่จะมีลายเซ็น คุณต้องส่งคืนชิ้นส่วนตามลำดับที่ได้รับ
-- **หลายขั้นตอน (ตามลำดับ):** หากโมเดลเรียกใช้เครื่องมือ รับผลลัพธ์
-  และเรียกใช้เครื่องมือ*อีก*เครื่องมือหนึ่ง (ภายในเทิร์นเดียวกัน) การเรียกใช้ฟังก์ชัน**ทั้ง 2 รายการ**จะมี
-  ลายเซ็น คุณต้องส่งคืนลายเซ็นที่สะสม**ทั้งหมด**ในประวัติ
+- **Appel de fonction unique** : la partie `functionCall` contient une signature. Vous devez le renvoyer.
+- **Appels de fonction parallèles** : seule la première partie `functionCall` de la liste contient la signature. Vous devez retourner les pièces dans l'ordre exact dans lequel vous les avez reçues.
+- **Multiples étapes (séquentielles)** : si le modèle appelle un outil, reçoit un résultat et appelle *un autre* outil (au cours du même tour), **les deux** appels de fonction ont des signatures. Vous devez renvoyer **toutes** les signatures accumulées dans l'historique.
 
-#### ข้อความและการสตรีม
+#### Texte et streaming
 
-สำหรับการแชทหรือการสร้างข้อความมาตรฐาน ระบบไม่รับประกันการมีอยู่ของลายเซ็น
+Pour la génération de texte ou de chat standard, la présence d'une signature n'est pas garantie.
 
-- **ไม่ใช่การสตรีม**: ส่วนเนื้อหาสุดท้ายของการตอบกลับอาจมี
-  `thoughtSignature` แต่อาจไม่มีเสมอไป หากได้รับอุปกรณ์คืน คุณควรส่งอุปกรณ์กลับเพื่อรักษาประสิทธิภาพที่ดีที่สุด
-- **การสตรีม**: หากมีการสร้างลายเซ็น ลายเซ็นอาจอยู่ในก้อนข้อมูลสุดท้าย
-  ซึ่งมีส่วนข้อความที่ว่างเปล่า ตรวจสอบว่าตัวแยกวิเคราะห์สตรีมของคุณตรวจสอบลายเซ็น
-  แม้ว่าฟิลด์ข้อความจะว่างเปล่าก็ตาม
+- **Non-Streaming** : la partie finale du contenu de la réponse peut contenir un `thoughtSignature`, mais ce n'est pas toujours le cas. Si vous en recevez un, renvoyez-le pour maintenir des performances optimales.
+- **Streaming** : si une signature est générée, elle peut arriver dans un bloc final contenant une partie de texte vide. Assurez-vous que votre analyseur de flux recherche les signatures même si le champ de texte est vide.
 
-#### การสร้างและแก้ไขรูปภาพ
+#### Génération et modification d'images
 
-สำหรับ `gemini-3-pro-image-preview` และ `gemini-3.1-flash-image-preview` ลายเซ็นความคิด มีความสำคัญอย่างยิ่งต่อ การแก้ไขโดยใช้การสนทนา เมื่อขอให้โมเดลแก้ไขรูปภาพ โมเดลจะใช้`thoughtSignature`จากเทิร์นก่อนหน้าเพื่อทำความเข้าใจองค์ประกอบและตรรกะของรูปภาพต้นฉบับ
+Pour `gemini-3-pro-image-preview` et `gemini-3.1-flash-image-preview`, les signatures de pensée sont essentielles pour la modification conversationnelle. Lorsque vous demandez au modèle de modifier une image, il s'appuie sur le `thoughtSignature` du tour précédent pour comprendre la composition et la logique de l'image d'origine.
 
-- **การแก้ไข:** ระบบจะใส่ลายเซ็นในส่วนแรกหลังจากความคิดเห็น
-  ของคำตอบ (`text` หรือ `inlineData`) และในทุกส่วน `inlineData`
-  หลังจากนั้น คุณต้องส่งคืนลายเซ็นทั้งหมดนี้เพื่อหลีกเลี่ยงข้อผิดพลาด
+- **Modification** : les signatures sont garanties dans la première partie après les réflexions de la réponse (`text` ou `inlineData`) et dans chaque partie `inlineData` suivante. Vous devez renvoyer toutes ces signatures pour éviter les erreurs.
 
-#### ตัวอย่างโค้ด
+#### Exemples de code
 
-#### การเรียกใช้ฟังก์ชันแบบหลายขั้นตอน (ตามลำดับ)
+#### Appel de fonction en plusieurs étapes (séquentiel)
 
-ผู้ใช้ถามคำถามที่ต้องทำ 2 ขั้นตอนแยกกัน (ตรวจสอบเที่ยวบิน -> จองแท็กซี่) ในครั้งเดียว   
+L'utilisateur pose une question nécessitant deux étapes distinctes (vérifier le vol > réserver un taxi) en une seule fois.   
   
-**ขั้นตอนที่ 1: โมเดลเรียกใช้เครื่องมือเที่ยวบิน**  
-โมเดลจะแสดงลายเซ็น `<Sig_A>`
+**Étape 1 : Le modèle appelle l'outil de vol.**  
+Le modèle renvoie une signature `<Sig_A>`
 
 ```
 // Model Response (Turn 1, Step 1)
@@ -370,28 +340,28 @@ Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google
   }
 ```
 
-**ขั้นตอนที่ 2: ผู้ใช้ส่งผลการค้นหาเที่ยวบิน**  
-เราต้องส่ง `<Sig_A>` กลับเพื่อรักษาลำดับความคิดของโมเดล
+**Étape 2 : L'utilisateur envoie le résultat du vol**  
+Nous devons renvoyer `<Sig_A>` pour que le modèle puisse poursuivre sa réflexion.
 
 ```
 // User Request (Turn 1, Step 2)
 [
   { "role": "user", "parts": [{ "text": "Check flight AA100..." }] },
-  { 
-    "role": "model", 
+  {
+    "role": "model",
     "parts": [
       { 
-        "functionCall": { "name": "check_flight", "args": {...} }, 
+        "functionCall": { "name": "check_flight", "args": {...} },
         "thoughtSignature": "<Sig_A>" // REQUIRED
-      } 
+      }
     ]
   },
   { "role": "user", "parts": [{ "functionResponse": { "name": "check_flight", "response": {...} } }] }
 ]
 ```
 
-**ขั้นตอนที่ 3: โมเดลเรียกใช้เครื่องมือแท็กซี่**  
-โมเดลจดจำเรื่องเที่ยวบินล่าช้าผ่าน `<Sig_A>` และตัดสินใจจองแท็กซี่ ซึ่งจะสร้างลายเซ็น*ใหม่* `<Sig_B>`
+**Étape 3 : Le modèle appelle l'outil de taxi**  
+Le modèle se souvient du retard du vol grâce à `<Sig_A>` et décide maintenant de réserver un taxi. Il génère une *nouvelle* signature `<Sig_B>`.
 
 ```
 // Model Response (Turn 1, Step 3)
@@ -406,8 +376,8 @@ Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google
 }
 ```
 
-**ขั้นตอนที่ 4: ผู้ใช้ส่งผลแท็กซี่**  
-หากต้องการดำเนินการให้เสร็จสมบูรณ์ คุณต้องส่งทั้งเชนกลับมา ซึ่งได้แก่ `<Sig_A>` และ `<Sig_B>`
+**Étape 4 : L'utilisateur envoie le résultat de la course de taxi**  
+Pour terminer le tour, vous devez renvoyer l'intégralité de la chaîne : `<Sig_A>` ET `<Sig_B>`.
 
 ```
 // User Request (Turn 1, Step 4)
@@ -416,23 +386,23 @@ Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google
   { 
     "role": "model", 
     "parts": [
-       { "functionCall": { "name": "check_flight", ... }, "thoughtSignature": "<Sig_A>" } 
+       { "functionCall": { "name": "check_flight", ... }, "thoughtSignature": "<Sig_A>" }
     ]
   },
   { "role": "user", "parts": [{ "functionResponse": {...} }] },
   { 
     "role": "model", 
     "parts": [
-       { "functionCall": { "name": "book_taxi", ... }, "thoughtSignature": "<Sig_B>" } 
+       { "functionCall": { "name": "book_taxi", ... }, "thoughtSignature": "<Sig_B>" }
     ]
   },
   { "role": "user", "parts": [{ "functionResponse": {...} }] }
 ]
 ```
 
-#### การเรียกใช้ฟังก์ชันแบบคู่ขนาน
+#### Appel de fonction en parallèle
 
-ผู้ใช้ถามว่า "ตรวจสอบสภาพอากาศในปารีสและลอนดอน" โมเดลจะแสดงผลการเรียกใช้ฟังก์ชัน 2 รายการในคำตอบเดียว
+L'utilisateur demande : "Vérifie la météo à Paris et à Londres." Le modèle renvoie deux appels de fonction dans une seule réponse.
 
 ```
 // User Request (Sending Parallel Results)
@@ -472,9 +442,9 @@ Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google
 ]
 ```
 
-#### การให้เหตุผลแบบข้อความ/ในบริบท (ไม่มีการตรวจสอบ)
+#### Texte/Raisonnement dans le contexte (sans validation)
 
-ผู้ใช้ถามคำถามที่ต้องใช้การให้เหตุผลตามบริบทโดยไม่ต้องใช้เครื่องมือภายนอก แม้ว่าจะไม่ได้ตรวจสอบอย่างเข้มงวด แต่การใส่ลายเซ็นจะช่วยให้โมเดลคงห่วงโซ่การให้เหตุผลสำหรับคำถามติดตามผลได้
+L'utilisateur pose une question qui nécessite un raisonnement contextuel sans outils externes. Bien qu'elle ne soit pas strictement validée, l'inclusion de la signature aide le modèle à maintenir la chaîne de raisonnement pour les questions de suivi.
 
 ```
 // User Request (Follow-up question)
@@ -499,9 +469,9 @@ Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google
 ]
 ```
 
-#### การสร้างและแก้ไขรูปภาพ
+#### Génération et retouche d'images
 
-สำหรับการสร้างรูปภาพ ระบบจะตรวจสอบลายเซ็นอย่างเข้มงวด โดยจะปรากฏใน**ส่วนแรก** (ข้อความหรือรูปภาพ) และ**ส่วนรูปภาพทั้งหมดที่ตามมา** และต้องส่งคืนทั้งหมดในรอบถัดไป
+Pour la génération d'images, les signatures sont strictement validées. Elles s'affichent sur la **première partie** (texte ou image) et sur **toutes les parties d'image suivantes**. Tous doivent être renvoyés au prochain tour.
 
 ```
 // Model Response (Turn 1)
@@ -545,18 +515,16 @@ Gemini 3 ใช้[ลายเซ็นความคิด](https://ai.google
 }
 ```
 
-#### การย้ายข้อมูลจากรุ่นอื่นๆ
+#### Migrer depuis d'autres modèles
 
-หากคุณโอนการติดตามการสนทนาจากโมเดลอื่น (เช่น Gemini 2.5) หรือแทรกการเรียกใช้ฟังก์ชันที่กำหนดเองซึ่งไม่ได้สร้างโดย Gemini 3 คุณจะไม่มีลายเซ็นที่ถูกต้อง
+Si vous transférez une trace de conversation depuis un autre modèle (par exemple, Gemini 2.5) ou si vous injectez un appel de fonction personnalisé qui n'a pas été généré par Gemini 3, vous n'aurez pas de signature valide.
 
-หากต้องการข้ามการตรวจสอบอย่างเข้มงวดในสถานการณ์ที่เฉพาะเจาะจงเหล่านี้ ให้ป้อนฟิลด์ด้วยสตริงจำลองที่เฉพาะเจาะจงนี้
-`"thoughtSignature": "context_engineering_is_the_way
-to_go"`
+Pour contourner la validation stricte dans ces scénarios spécifiques, renseignez le champ avec cette chaîne fictive spécifique : `"thoughtSignature": "context_engineering_is_the_way
+to_go"`.
 
-### เอาต์พุตที่มีโครงสร้างด้วยเครื่องมือ
+### Sorties structurées avec des outils
 
-โมเดล Gemini 3 ช่วยให้คุณรวม[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)เข้ากับเครื่องมือในตัวได้ ซึ่งรวมถึง
-[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th), [บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th), [การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th) และ[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+Les modèles Gemini 3 vous permettent de combiner les [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) avec des outils intégrés, y compris l'[ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr), le [contexte d'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr), l'[exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) et l'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
 
 ### Python
 
@@ -662,21 +630,17 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-### การสร้างรูปภาพ
+### Génération d'images
 
-Gemini 3.1 Flash สำหรับรูปภาพและ Gemini 3 Pro สำหรับรูปภาพช่วยให้คุณสร้างและแก้ไขรูปภาพ
-จากพรอมต์ข้อความได้ โดยจะใช้การให้เหตุผลเพื่อ "คิด" ตามพรอมต์ และสามารถดึงข้อมูลแบบเรียลไทม์ เช่น พยากรณ์อากาศหรือแผนภูมิหุ้น ก่อนที่จะใช้การอ้างอิงจาก [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) ก่อนสร้างรูปภาพที่มีความเที่ยงตรงสูง
+Gemini 3.1 Flash Image et Gemini 3 Pro Image vous permettent de générer et de modifier des images à partir de requêtes textuelles. Il utilise le raisonnement pour "réfléchir" à une requête et peut récupérer des données en temps réel (comme des prévisions météo ou des graphiques boursiers) avant d'utiliser l'ancrage [Recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) pour générer des images haute fidélité.
 
-**ความสามารถใหม่และที่ได้รับการปรับปรุง**
+**Nouvelles fonctionnalités et améliorations :**
 
-- **การแสดงข้อความและ 4K:** สร้างข้อความและไดอะแกรมที่คมชัดและอ่านได้ด้วยความละเอียดสูงสุด 2K และ 4K
-- **การสร้างที่อิงตามข้อมูล:** ใช้`google_search`เครื่องมือเพื่อยืนยันข้อเท็จจริงและ
-  สร้างภาพตามข้อมูลในโลกแห่งความเป็นจริง การอ้างอิงด้วย Google *Image*
-  Search พร้อมใช้งานสำหรับ Gemini 3.1 Flash Image
-- **การแก้ไขโดยใช้การสนทนา:** การแก้ไขรูปภาพแบบหลายรอบโดยเพียงแค่ขอให้
-  เปลี่ยนแปลง (เช่น "เปลี่ยนพื้นหลังเป็นพระอาทิตย์ตก") เวิร์กโฟลว์นี้ใช้**ลายเซ็นความคิด**เพื่อรักษาบริบทภาพระหว่างการเลี้ยว
+- **Rendu 4K et de texte** : générez du texte et des schémas nets et lisibles avec des résolutions allant jusqu'à 2K et 4K.
+- **Génération ancrée** : utilisez l'outil `google_search` pour vérifier les faits et générer des images basées sur des informations réelles. L'ancrage avec la recherche d'*images* Google est disponible pour Gemini 3.1 Flash Image.
+- **Retouche conversationnelle** : modification d'images en plusieurs étapes en demandant simplement les modifications souhaitées (par exemple, "Remplace l'arrière-plan par un coucher de soleil"). Ce workflow s'appuie sur les **signatures de pensée** pour préserver le contexte visuel entre les tours de parole.
 
-ดูรายละเอียดทั้งหมดเกี่ยวกับสัดส่วนการแสดงผล เวิร์กโฟลว์การแก้ไข และตัวเลือกการกำหนดค่าได้ใน[คู่มือการสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
+Pour en savoir plus sur les formats, les workflows de modification et les options de configuration, consultez le [guide de génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr).
 
 ### Python
 
@@ -761,25 +725,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image
   }'
 ```
 
-**ตัวอย่างคำตอบ**
+**Exemple de réponse**
 
-![สภาพอากาศ โตเกียว](https://ai.google.dev/static/gemini-api/docs/images/weather-tokyo.jpg?hl=th)
+![Météo Tokyo](https://ai.google.dev/static/gemini-api/docs/images/weather-tokyo.jpg?hl=fr)
 
-### การรันโค้ดด้วยรูปภาพ
+### Exécution de code avec des images
 
-Gemini 3 Flash สามารถมองเห็นเป็นกระบวนการสืบสวนที่ใช้งานได้จริง ไม่ใช่แค่การมองแบบคงที่
-การผสานการให้เหตุผลเข้ากับ[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)ทำให้โมเดลวางแผน จากนั้นเขียนและเรียกใช้โค้ด Python เพื่อซูมเข้า ครอบตัด ใส่คำอธิบายประกอบ หรือปรับแต่งรูปภาพทีละขั้นตอนเพื่ออ้างอิงคำตอบด้วยภาพ
+Gemini 3 Flash peut traiter la vision comme une investigation active, et pas seulement comme un coup d'œil statique. En combinant le raisonnement à l'[exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr), le modèle élabore un plan, puis écrit et exécute du code Python pour faire un zoom avant, recadrer, annoter ou manipuler des images étape par étape afin d'ancrer visuellement ses réponses.
 
-**กรณีการใช้งาน**
+**Cas d'utilisation** :
 
-- **ซูมและตรวจสอบ:** โมเดลจะตรวจหาโดยนัยเมื่อรายละเอียดมีขนาดเล็กเกินไป (เช่น การอ่านมาตรวัดหรือหมายเลขซีเรียลที่อยู่ไกล) และเขียนโค้ดเพื่อครอบตัด และตรวจสอบพื้นที่อีกครั้งที่ความละเอียดสูงขึ้น
-- **คณิตศาสตร์และการลงจุดภาพ:** โมเดลสามารถทำการคำนวณหลายขั้นตอนโดยใช้โค้ด (เช่น การรวมรายการในใบเสร็จ หรือการสร้างแผนภูมิ Matplotlib จากข้อมูลที่ดึงมา)
-- **การอธิบายประกอบรูปภาพ:** โมเดลสามารถวาดลูกศร กรอบล้อม หรือคำอธิบายประกอบอื่นๆ
-  ลงในรูปภาพโดยตรงเพื่อตอบคำถามเชิงพื้นที่ เช่น "ควรวาง
-  รายการนี้ไว้ที่ไหน"
+- **Zoom et inspection** : le modèle détecte implicitement lorsque les détails sont trop petits (par exemple, la lecture d'une jauge ou d'un numéro de série éloignés) et écrit du code pour recadrer et réexaminer la zone à une résolution plus élevée.
+- **Calculs et graphiques visuels** : le modèle peut effectuer des calculs en plusieurs étapes à l'aide de code (par exemple, en additionnant les lignes d'un reçu ou en générant un graphique Matplotlib à partir de données extraites).
+- **Annotation d'images** : le modèle peut dessiner des flèches, des cadres de sélection ou d'autres annotations directement sur les images pour répondre à des questions spatiales comme "Où cet élément doit-il être placé ?".
 
-หากต้องการเปิดใช้การคิดเชิงภาพ ให้กำหนดค่า[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)เป็นเครื่องมือ โมเดลจะใช้
-โค้ดเพื่อปรับแต่งรูปภาพโดยอัตโนมัติเมื่อจำเป็น
+Pour activer la pensée visuelle, configurez l'[exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) en tant qu'outil. Le modèle utilisera automatiquement du code pour manipuler les images si nécessaire.
 
 ### Python
 
@@ -904,15 +864,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-ดูรายละเอียดเพิ่มเติมเกี่ยวกับการเรียกใช้โค้ดด้วยรูปภาพได้ที่[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th#images)
+Pour en savoir plus sur l'exécution de code avec des images, consultez [Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr#images).
 
-### การตอบกลับฟังก์ชันหลายรูปแบบ
+### Réponses de fonction multimodales
 
-[การเรียกใช้ฟังก์ชันแบบมัลติโมดัล](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#multimodal)
-ช่วยให้ผู้ใช้ได้รับคำตอบของฟังก์ชันที่มี
-ออบเจ็กต์มัลติโมดัล ซึ่งช่วยให้ใช้ความสามารถในการเรียกใช้ฟังก์ชัน
-ของโมเดลได้ดียิ่งขึ้น การเรียกใช้ฟังก์ชันมาตรฐานรองรับเฉพาะการตอบกลับฟังก์ชันที่เป็นข้อความ
-เท่านั้น
+L'[appel de fonction multimodal](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#multimodal) permet aux utilisateurs d'obtenir des réponses de fonction contenant des objets multimodaux, ce qui améliore l'utilisation des capacités d'appel de fonction du modèle. L'appel de fonction standard n'accepte que les réponses de fonction textuelles :
 
 ### Python
 
@@ -1153,9 +1109,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-### รวมเครื่องมือในตัวและการเรียกใช้ฟังก์ชัน
+### Combiner des outils intégrés et des appels de fonction
 
-Gemini 3 อนุญาตให้ใช้เครื่องมือในตัว (เช่น Google Search, บริบท URL และ[อื่นๆ](https://ai.google.dev/gemini-api/docs/tools?hl=th)) และเครื่องมือ[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)ที่กำหนดเองในการเรียก API เดียวกัน ซึ่งช่วยให้เวิร์กโฟลว์มีความซับซ้อนมากขึ้น ดูข้อมูลเพิ่มเติมได้ที่หน้า[ชุดเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Gemini 3 permet d'utiliser des outils intégrés (comme la recherche Google, le contexte d'URL et [plus encore](https://ai.google.dev/gemini-api/docs/tools?hl=fr)) et des outils d'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr) personnalisés dans le même appel d'API, ce qui permet des workflows plus complexes. Pour en savoir plus, consultez la page [Combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
 
 ### Python
 
@@ -1297,77 +1253,54 @@ async function run() {
 run();
 ```
 
-## การย้ายข้อมูลจาก Gemini 2.5
+## Migrer depuis Gemini 2.5
 
-Gemini 3 เป็นตระกูลโมเดลที่มีความสามารถมากที่สุดของเราในปัจจุบัน และมีการปรับปรุงทีละขั้น
-เมื่อเทียบกับ Gemini 2.5 เมื่อย้ายข้อมูล ให้พิจารณาสิ่งต่อไปนี้
+Gemini 3 est notre famille de modèles la plus performante à ce jour. Elle offre une amélioration progressive par rapport à Gemini 2.5. Lorsque vous migrez, tenez compte des points suivants :
 
-- **การคิด:** หากก่อนหน้านี้คุณใช้วิศวกรรมพรอมต์ที่ซับซ้อน (เช่น
-  เชนออฟทอท) เพื่อบังคับให้ Gemini 2.5 ให้เหตุผล ให้ลองใช้ Gemini 3 กับ
-  `thinking_level: "high"` และพรอมต์ที่เรียบง่าย
-- **การตั้งค่าอุณหภูมิ:** หากโค้ดที่มีอยู่ตั้งค่าอุณหภูมิอย่างชัดเจน
-  (โดยเฉพาะค่าต่ำสำหรับเอาต์พุตที่แน่นอน) เราขอแนะนำให้นำพารามิเตอร์นี้ออก
-  และใช้ค่าเริ่มต้นของ Gemini 3 ซึ่งคือ 1.0 เพื่อหลีกเลี่ยงปัญหาการวนซ้ำที่อาจเกิดขึ้น
-  หรือประสิทธิภาพที่ลดลงในงานที่ซับซ้อน
-- **การทำความเข้าใจ PDF และเอกสาร:**
-  หากคุณอาศัยลักษณะการทำงานที่เฉพาะเจาะจงสำหรับการแยกวิเคราะห์เอกสารที่มีข้อมูลหนาแน่น ให้ทดสอบการตั้งค่า `media_resolution_high` ใหม่
-  เพื่อให้มั่นใจว่าข้อมูลจะยังคงถูกต้องต่อไป
-- **การใช้โทเค็น:** การย้ายข้อมูลไปใช้ค่าเริ่มต้นของ Gemini 3 อาจ**เพิ่ม**การใช้โทเค็นสำหรับ PDF แต่**ลด**การใช้โทเค็นสำหรับวิดีโอ หากคำขอเกิน
-  หน้าต่างบริบทเนื่องจากความละเอียดเริ่มต้นสูงขึ้น เราขอแนะนำให้
-  ลดความละเอียดของสื่ออย่างชัดเจน
-- **การแบ่งกลุ่มรูปภาพ:** Gemini 3 Pro หรือ Gemini 3 Flash ไม่รองรับความสามารถในการแบ่งกลุ่มรูปภาพ (การแสดงผลมาสก์ระดับพิกเซลสำหรับออบเจ็กต์) สำหรับภาระงานที่ต้องใช้การแบ่งกลุ่มรูปภาพดั้งเดิม เราขอแนะนำให้ใช้ Gemini 2.5 Flash ต่อไปโดยปิดการคิด หรือใช้ [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th)
-- **การใช้คอมพิวเตอร์:** Gemini 3 Pro และ Gemini 3 Flash รองรับ[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th) คุณไม่จำเป็นต้องใช้โมเดลแยกต่างหากเพื่อเข้าถึงเครื่องมือการใช้งานคอมพิวเตอร์ ซึ่งต่างจากซีรีส์ 2.5
-- **การรองรับเครื่องมือ**: ตอนนี้โมเดล Gemini 3 [รองรับการรวมเครื่องมือในตัวเข้ากับการเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)แล้ว นอกจากนี้ โมเดล Gemini 3 ยังรองรับ[การอ้างอิงจาก Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th) ด้วย
+- **Raisonnement** : si vous utilisiez auparavant le prompt engineering complexe (comme la chaîne de pensée) pour forcer Gemini 2.5 à raisonner, essayez Gemini 3 avec `thinking_level: "high"` et des prompts simplifiés.
+- **Paramètres de température** : si votre code existant définit explicitement la température (en particulier sur des valeurs basses pour des résultats déterministes), nous vous recommandons de supprimer ce paramètre et d'utiliser la valeur par défaut de Gemini 3 (1.0) pour éviter d'éventuels problèmes de boucle ou une dégradation des performances pour les tâches complexes.
+- **PDF et compréhension des documents** : si vous vous êtes appuyé sur un comportement spécifique pour l'analyse des documents denses, testez le nouveau paramètre `media_resolution_high` pour vous assurer de la précision continue.
+- **Consommation de jetons** : la migration vers les paramètres par défaut de Gemini 3 peut **augmenter** l'utilisation de jetons pour les PDF, mais la **diminuer** pour les vidéos. Si les requêtes dépassent désormais la fenêtre de contexte en raison de résolutions par défaut plus élevées, nous vous recommandons de réduire explicitement la résolution du contenu multimédia.
+- **Segmentation d'images** : les fonctionnalités de segmentation d'images (qui renvoient des masques au niveau des pixels pour les objets) ne sont pas disponibles dans Gemini 3 Pro ni Gemini 3 Flash. Pour les charges de travail nécessitant une segmentation d'image native, nous vous recommandons de continuer à utiliser Gemini 2.5 Flash avec la fonctionnalité de réflexion désactivée ou [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=fr).
+- **Utilisation de l'ordinateur** : Gemini 3 Pro et Gemini 3 Flash sont compatibles avec l'[utilisation de l'ordinateur](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr). Contrairement à la série 2.5, vous n'avez pas besoin d'utiliser un modèle distinct pour accéder à l'outil Utilisation de l'ordinateur.
+- **Compatibilité avec les outils** : [la combinaison d'outils intégrés avec l'appel de fonction](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr) est désormais compatible avec les modèles Gemini 3. L'[ancrage Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr) est désormais également compatible avec les modèles Gemini 3.
 
-## ความเข้ากันได้กับ OpenAI
+## Compatibilité avec OpenAI
 
-สำหรับผู้ใช้ที่ใช้[เลเยอร์ความเข้ากันได้ของ OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=th)
-ระบบจะแมปพารามิเตอร์มาตรฐาน (`reasoning_effort` ของ OpenAI) กับ
-พารามิเตอร์ที่เทียบเท่าของ Gemini (`thinking_level`) โดยอัตโนมัติ
+Pour les utilisateurs qui utilisent la [couche de compatibilité OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=fr), les paramètres standards (`reasoning_effort` d'OpenAI) sont automatiquement mappés sur les équivalents Gemini (`thinking_level`).
 
-## แนวทางปฏิบัติแนะนำในการเขียนพรอมต์
+## Bonnes pratiques concernant les prompts
 
-Gemini 3 เป็นโมเดลการให้เหตุผล ซึ่งจะเปลี่ยนวิธีที่คุณควรใช้พรอมต์
+Gemini 3 est un modèle de raisonnement, ce qui modifie la façon dont vous devez formuler vos requêtes.
 
-- **วิธีการที่ชัดเจน:** ระบุพรอมต์อินพุตให้กระชับ Gemini 3 ตอบกลับ
-  คำสั่งที่ชัดเจนและตรงไปตรงมาได้ดีที่สุด ซึ่งอาจวิเคราะห์เทคนิควิศวกรรมพรอมต์ (Prompt Engineering) ที่ซับซ้อนหรือมีรายละเอียดมากเกินไปที่ใช้กับโมเดลรุ่นเก่ามากเกินไป
-- **ความละเอียดของเอาต์พุต:** โดยค่าเริ่มต้น Gemini 3 จะมีความละเอียดน้อยกว่าและต้องการ
-  ให้คำตอบที่ตรงประเด็นและมีประสิทธิภาพ หาก Use Case ของคุณต้องใช้บุคลิกที่
-  สนทนาหรือ "ช่างพูด" มากขึ้น คุณต้องชี้นำโมเดลอย่างชัดเจนใน
-  พรอมต์ (เช่น "อธิบายสิ่งนี้ในฐานะผู้ช่วยที่เป็นมิตรและช่างพูด")
-- **การจัดการบริบท:** เมื่อทำงานกับชุดข้อมูลขนาดใหญ่ (เช่น หนังสือทั้งเล่ม ฐานโค้ด หรือวิดีโอยาว) ให้วางคำสั่งหรือคำถามที่เฉพาะเจาะจงไว้ท้ายพรอมต์หลังจากบริบทข้อมูล ยึดการให้เหตุผลของโมเดลกับข้อมูลที่ให้ไว้โดยเริ่มคำถามด้วยวลี เช่น "จากข้อมูลด้านบน..."
+- **Instructions précises** : soyez concis dans vos requêtes. Gemini 3 répond mieux aux instructions directes et claires. Il peut suranalyser les techniques de prompt engineering verbeuses ou trop complexes utilisées pour les anciens modèles.
+- **Niveau de détail des réponses** : par défaut, Gemini 3 est moins bavard et préfère fournir des réponses directes et efficaces. Si votre cas d'utilisation nécessite une personnalité plus conversationnelle ou "bavarde", vous devez orienter explicitement le modèle dans la requête (par exemple, "Explique cela comme un assistant amical et bavard").
+- **Gestion du contexte** : lorsque vous travaillez avec de grands ensembles de données (par exemple, des livres entiers, des bases de code ou de longues vidéos), placez vos instructions ou questions spécifiques à la fin de la requête, après le contexte des données. Ancrez le raisonnement du modèle aux données fournies en commençant votre question par une expression telle que "Sur la base des informations ci-dessus…".
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับกลยุทธ์การออกแบบพรอมต์ได้ใน[คู่มือวิศวกรรมพรอมต์ (Prompt Engineering)](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=th)
+Pour en savoir plus sur les stratégies de conception de requêtes, consultez le [guide sur l'ingénierie des requêtes](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr).
 
-## คำถามที่พบบ่อย
+## Questions fréquentes
 
-1. **การตัดข้อมูลความรู้สำหรับ Gemini 3 คือวันที่เท่าใด** โมเดล Gemini 3 มี
-   ข้อมูลล่าสุด ณ เดือนมกราคม 2025 ดูข้อมูลล่าสุดได้ที่เครื่องมือ[การอ้างอิงการค้นหา](https://ai.google.dev/gemini-api/docs/google-search?hl=th)
-2. **ข้อจำกัดของหน้าต่างบริบทคืออะไร** โมเดล Gemini 3 รองรับหน้าต่างบริบทของอินพุตขนาด 1 ล้าน
-   โทเค็นและเอาต์พุตสูงสุด 64,000 โทเค็น
-3. **Gemini 3 มีแพ็กเกจฟรีไหม** Gemini 3 Flash
-   `gemini-3-flash-preview` และ 3.1 Flash-Lite `gemini-3.1-flash-lite` มี
-   ระดับฟรีใน Gemini API คุณสามารถทดลองใช้ Gemini 3.1 Pro และ 3 Flash ได้ฟรีใน
-   Google AI Studio แต่จะไม่มีระดับฟรีสำหรับ
-   `gemini-3.1-pro-preview` ใน Gemini API
-4. **`thinking_budget` โค้ดเก่าของฉันจะยังใช้งานได้ไหม** ได้ `thinking_budget` ยังคงรองรับการใช้งานกับเวอร์ชันก่อนหน้า แต่เราขอแนะนำให้ย้ายข้อมูลไปยัง `thinking_level` เพื่อให้ได้ประสิทธิภาพที่คาดการณ์ได้มากขึ้น อย่าใช้ทั้ง 2 อย่างในคำขอเดียวกัน
-5. **Gemini 3 รองรับ Batch API ไหม** ได้ Gemini 3 รองรับ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)
-6. **ระบบรองรับการแคชบริบทไหม** ได้ Gemini 3 รองรับ[การแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th)
-7. **Gemini 3 รองรับเครื่องมือใดบ้าง** Gemini 3 รองรับ [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th), [การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th), [การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th), [การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th) และ[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th) นอกจากนี้ยังรองรับ[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)มาตรฐานสำหรับเครื่องมือที่กำหนดเองของคุณเอง
-   และ[ใช้ร่วมกับเครื่องมือในตัว](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
-8. **`gemini-3.1-pro-preview-customtools` คืออะไร** หากคุณใช้ `gemini-3.1-pro-preview` และโมเดลไม่สนใจเครื่องมือที่กำหนดเองของคุณเพื่อใช้คำสั่ง Bash ให้ลองใช้โมเดล `gemini-3.1-pro-preview-customtools` แทน ดูข้อมูลเพิ่มเติมได้[ที่นี่](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th#gemini-31-pro-preview-customtools)
+1. **Quelle est la date limite des connaissances pour Gemini 3 ?** Les modèles Gemini 3 ont une limite de connaissances fixée à janvier 2025. Pour obtenir des informations plus récentes, utilisez l'outil [Search Grounding](https://ai.google.dev/gemini-api/docs/google-search?hl=fr).
+2. **Quelles sont les limites de la fenêtre de contexte ?** Les modèles Gemini 3 sont compatibles avec une fenêtre de contexte d'entrée d'un million de jetons et une sortie de 64 000 jetons maximum.
+3. **Existe-t-il un forfait sans frais pour Gemini 3 ?** Gemini 3 Flash`gemini-3-flash-preview` et Gemini 3.1 Flash-Lite`gemini-3.1-flash-lite` disposent de niveaux sans frais dans l'API Gemini. Vous pouvez essayer Gemini 3.1 Pro et 3 Flash sans frais dans Google AI Studio, mais aucun niveau sans frais n'est disponible pour `gemini-3.1-pro-preview` dans l'API Gemini.
+4. **Mon ancien code `thinking_budget` fonctionnera-t-il toujours ?** Oui, `thinking_budget` est toujours compatible pour des raisons de rétrocompatibilité, mais nous vous recommandons de migrer vers `thinking_level` pour des performances plus prévisibles. Ne les utilisez pas tous les deux dans la même requête.
+5. **Gemini 3 est-il compatible avec l'API Batch ?** Oui, Gemini 3 est compatible avec l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr).
+6. **La mise en cache du contexte est-elle prise en charge ?** Oui, la [mise en cache du contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) est compatible avec Gemini 3.
+7. **Quels outils sont compatibles avec Gemini 3 ?** Gemini 3 est compatible avec la [recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr), l'[ancrage avec Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr), la [recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr), l'[exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) et le [contexte d'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr). Il est également compatible avec l'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr) standard pour vos propres outils personnalisés, [en plus des outils intégrés](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
+8. **Qu'est-ce que `gemini-3.1-pro-preview-customtools` ?** Si vous utilisez `gemini-3.1-pro-preview` et que le modèle ignore vos outils personnalisés au profit des commandes Bash, essayez plutôt le modèle `gemini-3.1-pro-preview-customtools`. [En savoir plus](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr#gemini-31-pro-preview-customtools)
 
-## ขั้นตอนถัดไป
+## Étapes suivantes
 
-- เริ่มต้นใช้งาน [Gemini 3 Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started.ipynb?hl=th#templateParams=%7B%22MODEL_ID%22:+%22gemini-3-pro-preview%22%7D)
-- ดูคำแนะนำเฉพาะสำหรับ Cookbook เกี่ยวกับ[ระดับการคิด](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_thinking_REST.ipynb?hl=th#gemini3)และวิธีย้ายข้อมูลจากงบประมาณการคิดไปยังระดับการคิด
+- Premiers pas avec le [cookbook Gemini 3](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started.ipynb?hl=fr#templateParams=%7B%22MODEL_ID%22:+%22gemini-3-pro-preview%22%7D)
+- Consultez le guide Cookbook dédié aux [niveaux de réflexion](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_thinking_REST.ipynb?hl=fr#gemini3) et découvrez comment migrer du budget de réflexion aux niveaux de réflexion.
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-อัปเดตล่าสุด 2026-05-13 UTC
+Dernière mise à jour le 2026/05/29 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Voulez-vous nous donner plus d'informations ?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-13 UTC"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/29 (UTC)."],[],[]]

@@ -1,34 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=vi
-fetched_at: 2026-05-25T13:03:41.543581+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ko
+fetched_at: 2026-06-01T19:47:25.241795+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-# Ngữ cảnh URL
+# URL 컨텍스트
 
-Công cụ bối cảnh URL cho phép bạn cung cấp thêm bối cảnh cho các mô hình dưới dạng URL. Bằng cách đưa URL vào yêu cầu, mô hình sẽ truy cập vào nội dung của những trang đó (chừng nào đó không phải là loại URL được liệt kê trong [phần hạn chế](#limitations)) để cung cấp thông tin và cải thiện phản hồi của mô hình.
+[URL 컨텍스트 도구를 사용하면 URL 형식으로 모델에 추가 컨텍스트를 제공할 수 있습니다. 요청에 URL을 포함하면 모델은 제한사항 섹션에 나열된 URL 유형이 아닌 경우 해당 페이지의 콘텐츠에 액세스하여 응답에 정보를 제공하고 응답을 개선합니다.](#limitations)
 
-Công cụ ngữ cảnh URL hữu ích cho những tác vụ như sau:
+URL 컨텍스트 도구는 다음과 같은 태스크에 유용합니다.
 
-- **Trích xuất dữ liệu**: Lấy thông tin cụ thể như giá, tên hoặc phát hiện chính từ nhiều URL.
-- **So sánh tài liệu**: Phân tích nhiều báo cáo, bài viết hoặc tệp PDF để xác định điểm khác biệt và theo dõi xu hướng.
-- **Tổng hợp và tạo nội dung**: Kết hợp thông tin từ nhiều URL nguồn để tạo bản tóm tắt, bài đăng trên blog hoặc báo cáo chính xác.
-- **Phân tích mã và tài liệu**: Chỉ đến một kho lưu trữ trên GitHub hoặc tài liệu kỹ thuật để giải thích mã, tạo hướng dẫn thiết lập hoặc trả lời câu hỏi.
+- **데이터 추출**: 여러 URL에서 가격, 이름 또는 주요
+  결과와 같은 특정 정보를 가져옵니다.
+- **문서 비교**: 여러 보고서, 기사 또는 PDF를 분석하여
+  차이점을 파악하고 추세를 추적합니다.
+- **콘텐츠 종합 및 생성**: 여러 소스 URL의 정보를 결합하여 정확한 요약, 블로그 게시물 또는 보고서를 생성합니다.
+- **코드 및 문서 분석**: GitHub 저장소 또는 기술 문서를 가리켜 코드를 설명하거나, 설정 안내를 생성하거나, 질문에 답변합니다.
 
-Ví dụ sau đây cho thấy cách so sánh hai công thức nấu ăn từ các trang web khác nhau.
+다음 예에서는 서로 다른 웹사이트의 두 가지 레시피를 비교하는 방법을 보여줍니다.
 
 ### Python
 
@@ -60,7 +62,7 @@ for step in interaction.steps:
                             print(f"  - {annotation.title}: {annotation.url}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -113,20 +115,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cách hoạt động
+## 작동 방식
 
-Công cụ Bối cảnh URL sử dụng quy trình truy xuất gồm hai bước để cân bằng tốc độ, chi phí và quyền truy cập vào dữ liệu mới. Khi bạn cung cấp một URL, công cụ này sẽ cố gắng tìm nạp nội dung từ bộ nhớ đệm chỉ mục nội bộ trước tiên. Thư mục này đóng vai trò là bộ nhớ đệm được tối ưu hoá cao. Nếu một URL không có trong chỉ mục (ví dụ: nếu đó là một trang rất mới), thì công cụ này sẽ tự động quay lại để thực hiện một lượt tìm nạp trực tiếp.
-Thao tác này truy cập trực tiếp vào URL để truy xuất nội dung của URL đó theo thời gian thực.
+URL 컨텍스트 도구는 2단계 검색 프로세스를 사용하여 속도, 비용, 최신 데이터 액세스의 균형을 맞춥니다. URL을 제공하면 도구는 먼저 내부 색인 캐시에서 콘텐츠를 가져오려고 시도합니다. 이는 고도로 최적화된 캐시 역할을 합니다. URL이 색인에서 제공되지 않는 경우 (예: 매우 새로운 페이지인 경우) 도구는 자동으로 실시간 가져오기를 실행합니다.
+이렇게 하면 URL에 직접 액세스하여 콘텐츠를 실시간으로 가져올 수 있습니다.
 
-## Kết hợp với các công cụ khác
+## 다른 도구와 결합
 
-Bạn có thể kết hợp công cụ bối cảnh URL với các công cụ khác để tạo quy trình làm việc hiệu quả hơn.
+URL 컨텍스트 도구를 다른 도구와 결합하여 더 강력한 워크플로를 만들 수 있습니다.
 
-[Các mô hình Gemini 3](#supported-models) hỗ trợ việc kết hợp các công cụ tích hợp (như URL Context) với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=vi).
+[Gemini 3 모델](#supported-models)은 기본 제공 도구
+(URL 컨텍스트와 같은)를 커스텀 도구 (함수 호출)와 결합하는 것을 지원합니다. 도구 조합
+ 페이지에서 자세히 알아보세요.
 
-### Bám sát nguồn bằng tính năng tìm kiếm
+### 검색을 사용한 그라운딩
 
-Khi cả ngữ cảnh URL và tính năng [Bám sát nguồn bằng Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) đều được bật, mô hình có thể sử dụng các chức năng tìm kiếm của mình để tìm thông tin liên quan trên mạng, sau đó sử dụng công cụ ngữ cảnh URL để hiểu rõ hơn về những trang mà mô hình tìm thấy. Phương pháp này rất hiệu quả đối với những câu lệnh yêu cầu cả tìm kiếm trên diện rộng và phân tích chuyên sâu các trang cụ thể.
+URL 컨텍스트와
+[Google 검색을 사용한 그라운딩](https://ai.google.dev/gemini-api/docs/grounding?hl=ko)이 모두 사용 설정되면
+모델은 검색 기능을 사용하여
+온라인에서 관련 정보를 찾은 다음 URL 컨텍스트 도구를 사용하여
+찾은 페이지를 더 심층적으로 이해할 수 있습니다. 이 접근 방식은 광범위한 검색과 특정 페이지의 심층 분석이 모두 필요한 프롬프트에 유용합니다.
 
 ### Python
 
@@ -152,7 +160,7 @@ for step in interaction.steps:
                 print(content_block.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -200,19 +208,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Hiểu rõ câu trả lời
+## 응답 이해
 
-Khi sử dụng công cụ ngữ cảnh URL, câu trả lời bằng văn bản của mô hình sẽ có chú thích `url_citation` nội tuyến trên khối nội dung văn bản. Mỗi chú thích liên kết một đoạn văn bản phản hồi (thông qua `start_index` và `end_index`) với URL nguồn mà đoạn văn bản đó được lấy từ. Đây là cách chính để hiển thị trích dẫn trong ứng dụng của bạn – hãy xem [ví dụ chính ở trên](#get-started) để biết cách trích xuất các trích dẫn này.
+모델이 URL 컨텍스트 도구를 사용하면 텍스트 응답에 텍스트 콘텐츠 블록에 인라인 `url_citation` 주석이 포함됩니다. 각 주석은 응답 텍스트의 세그먼트를 (`start_index` 및 `end_index`를 통해) 파생된 소스 URL에 연결합니다. 이는 애플리101}케이션에서 인용을 표시하는 기본 방법입니다. 인용을 추출하는 방법은 위의 [기본 예시](#get-started)를 참고하세요.
 
-Phản hồi cũng bao gồm một bước `url_context_result` có siêu dữ liệu về từng lần truy xuất URL (trạng thái, URL đã truy xuất). Điều này chủ yếu hữu ích cho việc gỡ lỗi.
+응답에는 각 URL 검색 시도 (상태, 검색된 URL)에 관한 메타데이터가 포함된 `url_context_result` 단계도 포함됩니다. 이는 주로 디버깅에 유용합니다.
 
-### Kiểm tra an toàn
+### 안전 확인
 
-Hệ thống sẽ kiểm tra nội dung của các URL để xác nhận rằng các URL đó đáp ứng các tiêu chuẩn an toàn. Nếu một URL không vượt qua được bước kiểm tra này, bước `url_context_result` tương ứng sẽ cho thấy `status` của `"unsafe"`.
+시스템은 URL이 안전 표준을 충족하는지 확인하기 위해 URL에 대한 콘텐츠 검토를 수행합니다. URL이 이 검사를 통과하지 못하면 해당
+`url_context_result` 단계에 `status`가 `"unsafe"`로 표시됩니다.
 
-### Số lượng mã thông báo
+### 토큰 수
 
-Nội dung được truy xuất từ các URL mà bạn chỉ định trong câu lệnh sẽ được tính là một phần của mã thông báo đầu vào. Bạn có thể xem số lượng mã thông báo trong đối tượng `usage` của lượt tương tác. Sau đây là một ví dụ:
+프롬프트에 지정한 URL에서 검색된 콘텐츠는 입력 토큰의 일부로 계산됩니다. 상호작용의 `usage` 객체에서 토큰 수를 확인할 수 있습니다. 다음은 그 예시입니다.
 
 ```
 'usage': {
@@ -226,56 +235,59 @@ Nội dung được truy xuất từ các URL mà bạn chỉ định trong câu
 }
 ```
 
-Giá mỗi mã thông báo phụ thuộc vào mô hình được dùng, hãy xem trang [định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) để biết thông tin chi tiết.
+토큰당 가격은 사용된 모델에 따라 다릅니다. 자세한 내용은
+[가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko) 페이지를 참고하세요.
 
-## Mô hình được hỗ trợ
+## 지원되는 모델
 
-| Mô hình | Ngữ cảnh URL |
+| 모델 | URL 컨텍스트 |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
-| [Bản xem trước Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/gemini-3.1-flash-lite-preview?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ |
+| [Gemini 3.1 Pro 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ |
+| [Gemini 3 Flash 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ |
 
-## Các phương pháp hay nhất
+## 권장사항
 
-- **Cung cấp URL cụ thể**: Để có kết quả tốt nhất, hãy cung cấp URL trực tiếp đến nội dung mà bạn muốn mô hình phân tích. Mô hình này sẽ chỉ truy xuất nội dung từ những URL mà bạn cung cấp, chứ không phải nội dung từ các đường liên kết lồng nhau.
-- **Kiểm tra khả năng tiếp cận**: Xác minh rằng các URL bạn cung cấp không dẫn đến những trang yêu cầu đăng nhập hoặc nằm sau tường phí.
-- **Sử dụng URL đầy đủ**: Cung cấp URL đầy đủ, bao gồm cả giao thức (ví dụ: https://www.google.com thay vì chỉ google.com).
+- **특정 URL 제공**: 최상의 결과를 얻으려면 모델이 분석할 콘텐츠의 직접 URL을 제공하세요. 모델은 중첩된 링크의 콘텐츠가 아닌 제공된 URL의 콘텐츠만 검색합니다.
+- **접근성 확인**: 제공하는 URL이 로그인해야 하거나 페이월 뒤에 있는
+  페이지로 연결되지 않는지 확인합니다.
+- **전체 URL 사용**: 프로토콜을 포함한 전체 URL을 제공합니다
+  (예: google.com 대신 https://www.google.com).
 
-## Các điểm hạn chế
+## 제한사항
 
-- Giới hạn yêu cầu: Công cụ này có thể xử lý tối đa 20 URL cho mỗi yêu cầu.
-- Kích thước nội dung URL: Kích thước tối đa cho nội dung được truy xuất từ một URL duy nhất là 34 MB.
-- Khả năng truy cập công khai: Các URL phải truy cập được công khai trên web.
-  Không được hỗ trợ địa chỉ máy chủ cục bộ (ví dụ: localhost, 127.0.0.1), mạng riêng tư và dịch vụ tạo đường hầm (ví dụ: ngrok, pinggy).
-- Chỉ có trong Gemini API: Bối cảnh URL chỉ có trong Gemini API, chứ không có trong Nền tảng tác nhân Gemini Enterprise.
+- 요청 한도: 이 도구는 요청당 최대 20개의 URL을 처리할 수 있습니다.
+- URL 콘텐츠 크기: 단일 URL에서 검색된 콘텐츠의 최대 크기는 34MB입니다.
+- 공개 접근성: URL은 웹에서 공개적으로 액세스할 수 있어야 합니다.
+  localhost 주소 (예: localhost, 127.0.0.1), 비공개 네트워크, 터널링 서비스 (예: ngrok, pinggy)는 지원되지 않습니다.
+- Gemini API만 해당: URL 컨텍스트는 Gemini Enterprise Agent Platform을 통해서가 아니라 Gemini API에서만 사용할 수 있습니다.
 
-### Các loại nội dung được hỗ trợ và không được hỗ trợ
+### 지원되는 콘텐츠 유형과 지원되지 않는 콘텐츠 유형
 
-Công cụ này có thể trích xuất nội dung từ các URL có những loại nội dung sau:
+이 도구는 다음 콘텐츠 유형의 URL에서 콘텐츠를 추출할 수 있습니다.
 
-- Văn bản (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- Hình ảnh (image/png, image/jpeg, image/bmp, image/webp)
+- 텍스트 (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
+- 이미지 (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-Các loại nội dung sau đây **không** được hỗ trợ:
+다음 콘텐츠 유형은 지원되지 **않습니다**.
 
-- Nội dung có tường phí
-- Video trên YouTube (Xem phần [hiểu video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi#youtube) để tìm hiểu cách xử lý URL của YouTube)
-- Các tệp trên Google Workspace như tài liệu hoặc bảng tính trên Google
-- Tệp video và âm thanh
+- 페이월 콘텐츠
+- YouTube 동영상 ([동영상 이해](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=ko#youtube) 참고
+  YouTube URL을 처리하는 방법은)
+- Google Docs 또는 스프레드시트와 같은 Google Workspace 파일
+- 동영상 및 오디오 파일
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Cập nhật lần gần đây nhất: 2026-05-19 UTC.
+최종 업데이트: 2026-05-28(UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+의견을 전달하고 싶나요?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-28(UTC)"],[],[]]

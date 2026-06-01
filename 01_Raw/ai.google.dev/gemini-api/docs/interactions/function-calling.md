@@ -1,34 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-TW
-fetched_at: 2026-05-25T12:59:02.056835+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ko
+fetched_at: 2026-06-01T19:38:43.921655+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-提供意見
+의견 보내기
 
-# 使用 Gemini API 進行函式呼叫
+# Gemini API를 사용한 함수 호출
 
-透過函式呼叫，您可以將模型連結至外部工具和 API。
-模型不會生成文字回覆，而是判斷何時應呼叫特定函式，並提供執行實際動作所需的參數。這項技術可讓模型成為自然語言與現實世界動作和資料之間的橋梁。函式呼叫功能有 3 個主要用途：
+함수 호출을 사용하면 모델을 외부 도구 및 API에 연결할 수 있습니다.
+모델은 텍스트 대답을 생성하는 대신 특정 함수를 호출할 시점을 결정하고 실제 작업을 실행하는 데 필요한 파라미터를 제공합니다.
+이를 통해 모델은 자연어와 실제 작업 및 데이터 간의 브리지 역할을 할 수 있습니다. 함수 호출에는 3가지 주요 사용 사례가 있습니다.
 
-- **擴增知識：**從資料庫、API 和知識庫等外部來源存取資訊。
-- **擴充功能：**使用外部工具執行運算，並擴充模型限制，例如使用計算機或建立圖表。
-- **採取行動：**使用 API 與外部系統互動，例如安排預約、建立發票、傳送電子郵件或控制智慧住宅裝置。
+- **지식 보강:** 데이터베이스, API, 기술 자료와 같은 외부 소스의 정보에 액세스합니다.
+- **기능 확장:** 외부 도구를 사용하여 계산을 수행하고 계산기 사용 또는 차트 생성과 같이 모델의 제한사항을 확장합니다.
+- **작업 수행:** 약속 일정 예약, 인보이스 생성, 이메일 전송, 스마트 홈 기기 제어 등 API를 사용하여 외부 시스템과 상호작용합니다.
 
-取得天氣資訊
-安排會議
-建立圖表
+날씨 확인
+회의 일정 예약
+차트 만들기
 
 ### Python
 
@@ -65,7 +66,7 @@ for step in interaction.steps:
         print(f"Arguments: {step.arguments}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -130,20 +131,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 函式呼叫的運作方式
+## 함수 호출 작동 방식
 
-![函式呼叫總覽](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=zh-tw)
+![함수 호출 개요](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=ko)
 
-函式呼叫是指應用程式、模型和外部函式之間結構化的互動：
+함수 호출은 애플리케이션, 모델, 외부 함수 간의 구조화된 상호작용을 포함합니다.
 
-1. **定義函式宣告：**向模型定義函式的名稱、參數和用途。
-2. **使用函式宣告呼叫 LLM：**將使用者提示連同函式宣告傳送至模型。
-3. **執行函式程式碼 (您的責任)：**模型*不會*自行執行函式，擷取名稱和引數，並在應用程式中執行。
-4. **建立易於理解的回覆：**將結果傳回模型，生成最終的易於理解的回覆。
+1. **함수 선언 정의:** 함수의 이름, 매개변수, 목적을 모델에 정의합니다.
+2. **함수 선언으로 LLM 호출:** 사용자 프롬프트와 함수 선언을 모델에 전송합니다.
+3. **함수 코드 실행 (사용자 책임):** 모델이 함수 자체를 실행*하지 않습니다*. 이름과 인수를 추출하고 애플리케이션에서 실행합니다.
+4. **사용자 친화적인 응답 만들기:** 최종 사용자 친화적인 응답을 위해 결과를 모델에 다시 전송합니다.
 
-這個過程可能會重複多次。模型支援在單一回合中呼叫多個函式 ([平行函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw#parallel_function_calling))，以及依序呼叫 ([組合函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw#compositional_function_calling))。
+이 프로세스는 여러 턴에 걸쳐 반복될 수 있습니다. 모델은 단일 턴에서 여러 함수를 호출하는 [병렬 함수 호출](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ko#parallel_function_calling)과 순차적으로 함수를 호출하는 [구성 함수 호출](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ko#compositional_function_calling)을 지원합니다.
 
-### 步驟 1：定義函式宣告
+### 1단계: 함수 선언 정의
 
 ### Python
 
@@ -174,7 +175,7 @@ def set_light_values(brightness: int, color_temp: str) -> dict:
     return {"brightness": brightness, "colorTemperature": color_temp}
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const setLightValuesTool = {
@@ -196,7 +197,7 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### 步驟 2：使用函式宣告呼叫模型
+### 2단계: 함수 선언으로 모델 호출
 
 ### Python
 
@@ -215,7 +216,7 @@ fc_step = next(s for s in interaction.steps if s.type == "function_call")
 print(fc_step)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -232,7 +233,7 @@ const fcStep = interaction.steps.find(s => s.type === 'function_call');
 console.log(fcStep);
 ```
 
-模型會傳回包含 `type`、`name` 和 `arguments` 的 `function_call` 步驟：
+모델은 `type`, `name`, `arguments`이 포함된 `function_call` 단계를 반환합니다.
 
 ```
 type='function_call'
@@ -240,7 +241,7 @@ name='set_light_values'
 arguments={'color_temp': 'warm', 'brightness': 25}
 ```
 
-### 步驟 3：執行函式
+### 3단계: 함수 실행
 
 ### Python
 
@@ -252,7 +253,7 @@ if fc_step.name == "set_light_values":
     print(f"Function execution result: {result}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const fcStep = interaction.steps.find(s => s.type === 'function_call');
@@ -264,7 +265,7 @@ if (fcStep.name === 'set_light_values') {
 }
 ```
 
-### 步驟 4：將結果傳回模型
+### 4단계: 결과를 모델에 다시 전송
 
 ### Python
 
@@ -286,7 +287,7 @@ final_interaction = client.interactions.create(
 print(final_interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const finalInteraction = await client.interactions.create({
@@ -304,14 +305,14 @@ const finalInteraction = await client.interactions.create({
 console.log(finalInteraction.output_text);
 ```
 
-### 無狀態函式呼叫
+### 스테이트리스 함수 호출
 
-您也可以在無狀態模式中使用函式呼叫，方法是在用戶端管理對話記錄，並設定 `store=false`。
+클라이언트 측에서 대화 기록을 관리하고 `store=false`를 설정하여 상태 비저장 모드에서 함수 호출을 사용할 수도 있습니다.
 
-在無狀態模式中，您必須在每個後續要求的 `input` 欄位中傳遞完整的對話記錄。這份記錄必須包含：
-1. 初始 `user_input` 步驟。
-2. 在第 1 輪中傳回的所有模型生成步驟 (包括 `thought` 和 `function_call` 步驟) 必須與收到的內容完全一致。
-3. 包含已執行函式輸出的 `function_result` 步驟。
+스테이트리스(Stateless) 모드에서는 각 후속 요청의 `input` 필드에 대화의 전체 기록을 전달해야 합니다. 이 기록에는 다음이 포함되어야 합니다.
+1. 초기 `user_input` 단계입니다.
+2. 턴 1에서 반환된 모든 모델 생성 단계 (`thought` 및 `function_call` 단계 포함)가 수신된 그대로입니다.
+3. 실행된 함수의 출력이 포함된 `function_result` 단계
 
 ### Python
 
@@ -359,7 +360,7 @@ final_interaction = client.interactions.create(
 print(final_interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -485,26 +486,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## 函式宣告
+## 함수 선언
 
-函式宣告會以工具形式傳遞，並包含下列項目：
+함수 선언은 도구로 전달되며 다음을 포함합니다.
 
-- `type` (字串)：自訂函式必須為 `"function"`。
-- `name` (字串)：不重複的函式名稱 (使用底線或駝峰式大小寫)。
-- `description` (字串)：清楚說明函式的用途。
-- `parameters` (物件)：函式預期的輸入參數。
-  - `type` (字串)：整體資料類型，例如 `object`。
-  - `properties` (物件)：含有類型和說明的個別參數。
-  - `required` (陣列)：必要參數名稱。
+- `type` (문자열): 맞춤 함수의 경우 `"function"`여야 합니다.
+- `name` (문자열): 고유한 함수 이름 (밑줄 또는 카멜 표기법 사용)
+- `description` (문자열): 함수의 목적에 관한 명확한 설명입니다.
+- `parameters` (객체): 함수가 예상하는 입력 매개변수입니다.
+  - `type` (문자열): `object`과 같은 전체 데이터 유형입니다.
+  - `properties` (객체): 유형과 설명이 있는 개별 매개변수입니다.
+  - `required` (배열): 필수 매개변수 이름입니다.
 
-## 使用思考模型呼叫函式
+## 사고 모델을 사용한 함수 호출
 
-Gemini 3 和 2.5 系列模型會使用內部「思考」程序，提升函式呼叫功能。
-SDK 會自動為您處理[想法簽章](https://ai.google.dev/gemini-api/docs/interactions/thought-signatures?hl=zh-tw)。
+Gemini 3 및 2.5 시리즈 모델은 함수 호출을 개선하는 내부 ['사고'](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ko) 프로세스를 사용합니다.
+SDK는 [생각 서명](https://ai.google.dev/gemini-api/docs/interactions/thought-signatures?hl=ko)을 자동으로 처리합니다.
 
-## 平行函式呼叫
+## 병렬 함수 호출
 
-如果多個函式彼此獨立，可以一次呼叫：
+독립적인 경우 한 번에 여러 함수 호출:
 
 ### Python
 
@@ -531,7 +532,7 @@ for step in interaction.steps:
         print(f"{step.name}({args})")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const powerDiscoBall = { type: 'function', name: 'power_disco_ball', description: 'Powers the disco ball.',
@@ -555,9 +556,9 @@ for (const step of interaction.steps) {
 }
 ```
 
-## 組合式函式呼叫
+## 구성 함수 호출
 
-將多個函式呼叫串聯在一起，處理複雜要求 (例如先取得位置資訊，再取得該位置的天氣資訊)。
+복잡한 요청을 위해 여러 함수 호출을 함께 연결합니다 (예: 먼저 위치를 가져온 다음 해당 위치의 날씨를 가져옴).
 
 ### Python
 
@@ -612,14 +613,14 @@ for step in interaction.steps:
                  print(part.text)
 ```
 
-## 函式呼叫模式
+## 함수 호출 모드
 
-在 `generation_config` 中使用 `tool_choice` 控制模型使用工具的方式：
+`generation_config`에서 `tool_choice`를 사용하여 모델이 도구를 사용하는 방식 제어:
 
-- `auto` (預設)：模型會判斷是否要呼叫函式或直接回覆。
-- `any`：模型一律會預測函式呼叫。
-- `none`：模型不得呼叫函式。
-- `validated` (預先發布版)：模型可確保函式結構定義符合規定。
+- `auto` (기본값): 모델이 함수를 호출할지 아니면 직접 응답할지 결정합니다.
+- `any`: 모델이 항상 함수 호출을 예측하도록 제한됩니다.
+- `none`: 모델이 함수 호출을 실행하는 것이 금지됩니다.
+- `validated` (미리보기): 모델이 함수 스키마 준수를 보장합니다.
 
 ### Python
 
@@ -634,7 +635,7 @@ generation_config = {
 }
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const generation_config = {
@@ -680,9 +681,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 使用多功能工具
+## 멀티 도구 사용
 
-您可以啟用多項工具，在同一項要求中結合內建工具和函式呼叫。Gemini 3 模型可將內建工具與 Interactions 的函式呼叫功能結合使用。傳遞 `previous_interaction_id` 會自動傳遞內建工具環境。
+동일한 요청에서 기본 제공 도구와 함수 호출을 결합하여 여러 도구를 사용 설정할 수 있습니다. Gemini 3 모델은 상호작용에서 기본 제공 도구와 즉시 사용 가능한 함수 호출을 결합할 수 있습니다. `previous_interaction_id`를 전달하면 기본 제공 도구 컨텍스트가 자동으로 순환됩니다.
 
 ### Python
 
@@ -738,7 +739,7 @@ for step in interaction.steps:
         print(interaction_2.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -790,13 +791,13 @@ for (const step of interaction.steps) {
 }
 ```
 
-## 多模態函式回應
+## 멀티모달 함수 응답
 
-如果是 Gemini 3 系列模型，您可以在傳送給模型的回覆函式部分中加入多模態內容。模型可以在下一個回合處理這類多模態內容，進而生成更實用的回覆。
+Gemini 3 시리즈 모델의 경우 모델에 전송하는 함수 응답 부분에 멀티모달 콘텐츠를 포함할 수 있습니다. 모델은 다음 차례에 이 멀티모달 콘텐츠를 처리하여 더 많은 정보를 바탕으로 응답을 생성할 수 있습니다.
 
-如要在函式回應中加入多模態資料，請在 `function_result` 步驟的 `result` 欄位中，將資料加入一或多個內容區塊。每個內容區塊都必須指定 `type` (例如 `"text"`、`"image"`)。
+함수 응답에 멀티모달 데이터를 포함하려면 `function_result` 단계의 `result` 필드에 하나 이상의 콘텐츠 블록으로 포함하세요. 각 콘텐츠 블록은 `type` (예: `"text"`, `"image"`)를 지정해야 합니다.
 
-以下範例說明如何在互動中，將含有圖片資料的函式回應傳回模型：
+다음 예시는 상호작용에서 이미지 데이터가 포함된 함수 응답을 모델에 다시 전송하는 방법을 보여줍니다.
 
 ### Python
 
@@ -837,7 +838,7 @@ final_interaction = client.interactions.create(
 print(final_interaction.output_text)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -897,29 +898,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 使用函式呼叫取得結構化輸出內容
+## 구조화된 출력을 사용한 함수 호출
 
-對於 Gemini 3 系列模型，請將函式呼叫與[結構化輸出](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-tw)結合，確保回覆格式一致。
+Gemini 3 시리즈 모델의 경우 함수 호출을 [구조화된 출력](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ko)과 결합하여 일관된 형식의 응답을 얻으세요.
 
-## 遠端 MCP (Model Context Protocol)
+## 원격 MCP (모델 컨텍스트 프로토콜)
 
-Interactions API 支援連線至遠端 MCP 伺服器，讓模型存取外部工具和服務。您可以在工具設定中提供伺服器 `name` 和 `url`。
+Interactions API는 원격 MCP 서버에 연결하여 모델이 외부 도구 및 서비스에 액세스할 수 있도록 지원합니다. 도구 구성에서 서버 `name` 및 `url`을 제공합니다.
 
-使用遠端 MCP 時，請注意下列限制：
+원격 MCP를 사용할 때는 다음 제약 조건에 유의하세요.
 
-- **伺服器類型**：遠端 MCP 僅適用於可串流的 HTTP 伺服器。系統不支援 SSE (伺服器傳送事件) 伺服器。
-- **模型支援**：遠端 MCP 目前不適用於 Gemini 3 模型。我們即將支援 Gemini 3。
-- **命名**：MCP 伺服器名稱不得包含 `-` 字元。請改用 `snake_case` 伺服器名稱。
+- **서버 유형**: 원격 MCP는 스트리밍 가능 HTTP 서버에서만 작동합니다. SSE (서버 전송 이벤트) 서버는 지원되지 않습니다.
+- **모델 지원**: 현재 원격 MCP는 Gemini 3 모델과 호환되지 않습니다. Gemini 3 지원이 곧 제공될 예정입니다.
+- **이름 지정**: MCP 서버 이름에 `-` 문자가 포함되어서는 안 됩니다. 대신 `snake_case` 서버 이름을 사용하세요.
 
-| 欄位 | 類型 | 必要 | 說明 |
+| 필드 | 유형 | 필수 | 설명 |
 | --- | --- | --- | --- |
-| `type` | `string` | 是 | 必須為 `"mcp_server"`。 |
-| `name` | `string` | 否 | MCP 伺服器的顯示名稱。 |
-| `url` | `string` | 否 | MCP 伺服器端點的完整網址。 |
-| `headers` | `object` | 否 | 以 HTTP 標頭形式傳送至伺服器的鍵值組 (例如驗證權杖)。 |
-| `allowed_tools` | `array` | 否 | 限制代理程式可呼叫伺服器的哪些工具。 |
+| `type` | `string` | 예 | `"mcp_server"`이어야 합니다. |
+| `name` | `string` | 아니요 | MCP 서버의 표시 이름입니다. |
+| `url` | `string` | 아니요 | MCP 서버 엔드포인트의 전체 URL입니다. |
+| `headers` | `object` | 아니요 | 서버에 대한 모든 요청과 함께 HTTP 헤더로 전송되는 키-값 쌍 (예: 인증 토큰)입니다. |
+| `allowed_tools` | `array` | 아니요 | 에이전트가 호출할 수 있는 서버의 도구를 제한합니다. |
 
-### 範例
+### 예
 
 ### Python
 
@@ -942,7 +943,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -984,9 +985,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 串流工具呼叫
+## 도구 호출 스트리밍
 
-使用串流工具時，模型會在串流中產生函式呼叫，做為一連串的 `step.delta` 事件。工具引數可使用 `arguments` 串流為部分引數。您必須彙整這些差異，才能重建完整的工具呼叫，然後執行這些呼叫。
+스트리밍과 함께 도구를 사용하면 모델은 스트림에서 `step.delta` 이벤트 시퀀스로 함수 호출을 생성합니다. 도구 인수는 `arguments`를 사용하여 부분 인수로 스트리밍할 수 있습니다. 이러한 델타를 집계하여 실행하기 전에 전체 도구 호출을 재구성해야 합니다.
 
 ### Python
 
@@ -1058,7 +1059,7 @@ for event in stream:
         print(json.dumps(tool_calls, indent=2))
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1152,29 +1153,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## 最佳做法
+## 권장사항
 
-- **函式和參數說明：**清楚明確。
-- **命名：**使用描述性名稱，且不得包含空格或特殊字元。
-- **嚴格型別：**使用特定型別 (整數、字串、列舉)。
-- **工具選取：**最多啟用 10 到 20 個工具。
-- **提示工程：**提供脈絡和指令。
-- **驗證：**先驗證函式呼叫，再執行。
-- **錯誤處理：**導入完善的錯誤處理機制。
-- **安全性：**為外部 API 使用適當的驗證方式。
+- **함수 및 파라미터 설명:** 명확하고 구체적으로 작성하세요.
+- **이름 지정:** 공백이나 특수문자가 없는 설명적인 이름을 사용합니다.
+- **강한 타이핑:** 구체적인 유형 (정수, 문자열, enum)을 사용합니다.
+- **도구 선택:** 활성 도구 세트를 최대 10~20개로 유지합니다.
+- **프롬프트 엔지니어링:** 컨텍스트와 요청 사항을 제공합니다.
+- **유효성 검사:** 실행 전에 함수 호출을 검증합니다.
+- **오류 처리:** 오류를 효과적으로 처리합니다.
+- **보안:** 외부 API에 적절한 인증을 사용합니다.
 
-## 注意事項和限制
+## 참고사항 및 제한사항
 
-- 僅支援[部分 OpenAPI 結構定義](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=zh-tw#FunctionDeclaration)。
-- 如果是 `any` 模式，API 可能會拒絕過大或深度巢狀結構的結構定義。
-- Python 支援的參數類型有限。
+- [OpenAPI 스키마의 하위 집합](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=ko#FunctionDeclaration)만 지원됩니다.
+- `any` 모드의 경우 API가 매우 크거나 깊이 중첩된 스키마를 거부할 수 있습니다.
+- Python에서 지원되는 매개변수 유형은 제한적입니다.
 
-提供意見
+의견 보내기
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-上次更新時間：2026-05-19 (世界標準時間)。
+최종 업데이트: 2026-05-28(UTC)
 
-想進一步說明嗎？
+의견을 전달하고 싶나요?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-28(UTC)"],[],[]]

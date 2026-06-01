@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja
-fetched_at: 2026-05-25T13:04:51.064753+00:00
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi
+fetched_at: 2026-06-01T19:45:32.402413+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-# 組み込みツールと関数呼び出しを組み合わせる
+# पहले से मौजूद टूल और फ़ंक्शन कॉलिंग को एक साथ इस्तेमाल करना
 
-Gemini では、ツール呼び出しのコンテキスト履歴を保持して公開することで、`google_search` などの[組み込みツール](https://ai.google.dev/gemini-api/docs/tools?hl=ja)と[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)（カスタムツールとも呼ばれます）を 1 回の生成で組み合わせることができます。組み込みツールとカスタムツールの組み合わせにより、複雑なエージェント ワークフローが可能になります。たとえば、モデルは特定のビジネス ロジックを呼び出す前に、リアルタイムのウェブデータに基づいてグラウンディングできます。
+Gemini, [पहले से मौजूद टूल](https://ai.google.dev/gemini-api/docs/tools?hl=hi) (जैसे, `google_search`) और [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) (*कस्टम टूल* भी कहा जाता है) को एक साथ इस्तेमाल करने की अनुमति देता है. इसके लिए, टूल कॉल के कॉन्टेक्स्ट के इतिहास को सेव किया जाता है और उसे दिखाया जाता है. पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन की मदद से, एजेंटिक वर्कफ़्लो को आसानी से पूरा किया जा सकता है. उदाहरण के लिए, मॉडल आपकी खास कारोबारी लॉजिक को कॉल करने से पहले, वेब पर मौजूद रीयल-टाइम डेटा को आधार बना सकता है.
 
-`google_search` とカスタム関数 `getWeather` を使用して、組み込みツールとカスタムツールの組み合わせを有効にする例を次に示します。
+यहां एक उदाहरण दिया गया है, जिसमें `google_search` और कस्टम फ़ंक्शन `getWeather` के साथ, पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन का इस्तेमाल किया गया है:
 
 ### Python
 
@@ -50,23 +50,22 @@ response = client.models.generate_content(
     model="gemini-3.5-flash",
     contents="What is the northernmost city in the United States? What's the weather like there today?",
     config=types.GenerateContentConfig(
-      tools=[
-        types.Tool(
-          google_search=types.ToolGoogleSearch(),  # Built-in tool
-          function_declarations=[getWeather]       # Custom tool
-        ),
-      ],
-      include_server_side_tool_invocations=True
+        tools=[
+            types.Tool(
+                google_search=types.GoogleSearch(),  # Built-in tool
+                function_declarations=[getWeather]       # Custom tool
+            ),
+        ],
+        tool_config=types.ToolConfig(
+            include_server_side_tool_invocations=True
+        )
     ),
 )
-
+function_call_id = None
 for part in response.candidates[0].content.parts:
-    if part.tool_call:
-        print(f"Tool call: {part.tool_call.tool_type} (ID: {part.tool_call.id})")
-    if part.tool_response:
-        print(f"Tool response: {part.tool_response.tool_type} (ID: {part.tool_response.id})")
     if part.function_call:
         print(f"Function call: {part.function_call.name} (ID: {part.function_call.id})")
+        function_call_id = part.function_call.id
 
 # Turn 2: Manually build history to circulate both tool and function context
 history = [
@@ -83,7 +82,7 @@ history = [
             function_response=types.FunctionResponse(
                 name="getWeather",
                 response={"response": "Very cold. 22 degrees Fahrenheit."},
-                id=response.candidates[0].content.parts[2].function_call.id # Match the ID from the function_call
+                id=function_call_id # Match the ID from the function_call
             )
         )]
     )
@@ -93,14 +92,16 @@ response_2 = client.models.generate_content(
     model="gemini-3.5-flash",
     contents=history,
     config=types.GenerateContentConfig(
-      tools=[
-        types.Tool(
-          google_search=types.ToolGoogleSearch(),
-          function_declarations=[getWeather]
-        ),
-      ],
-      # This flag needs to be enabled for built-in tool context circulation and tool combination
-      include_server_side_tool_invocations=True
+        tools=[
+            types.Tool(
+                google_search=types.GoogleSearch(),
+                function_declarations=[getWeather]
+            ),
+        ],
+        # This flag needs to be enabled for built-in tool context circulation and tool combination
+        tool_config=types.ToolConfig(
+            include_server_side_tool_invocations=True
+        )
     ),
 )
 
@@ -153,12 +154,6 @@ async function run() {
     const response1 = result1.response;
 
     for (const part of response1.candidates[0].content.parts) {
-        if (part.toolCall) {
-            console.log(`Tool call: ${part.toolCall.toolType} (ID: ${part.toolCall.id})`);
-        }
-        if (part.toolResponse) {
-            console.log(`Tool response: ${part.toolResponse.toolType} (ID: ${part.toolResponse.id})`);
-        }
         if (part.functionCall) {
             console.log(`Function call: ${part.functionCall.name} (ID: ${part.functionCall.id})`);
         }
@@ -203,7 +198,7 @@ async function run() {
 run();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -272,10 +267,6 @@ func main() {
             if p.Name == "getWeather" {
                 functionCallID = p.ID
             }
-        case genai.ToolCallPart:
-            fmt.Printf("Tool call: %s (ID: %s)\n", p.ToolType, p.ID)
-        case genai.ToolResponsePart:
-            fmt.Printf("Tool response: %s (ID: %s)\n", p.ToolType, p.ID)
         }
     }
 
@@ -396,53 +387,62 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## 仕組み
+## यह कैसे काम करता है
 
-Gemini 3 モデルは、*ツール コンテキストの循環*を使用して、組み込みツールとカスタムツールの組み合わせを可能にします。ツール コンテキストの循環により、組み込みツールのコンテキストを保持して公開し、ターンごとに同じ呼び出しでカスタムツールと共有できます。
+Gemini 3 मॉडल, पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन को इस्तेमाल करने के लिए, *टूल कॉन्टेक्स्ट सर्कुलेशन* का इस्तेमाल करते हैं. टूल कॉन्टेक्स्ट सर्कुलेशन की मदद से, पहले से मौजूद टूल के कॉन्टेक्स्ट को सेव किया जा सकता है और उसे दिखाया जा सकता है. साथ ही, इसे एक ही कॉल में, एक से दूसरी बारी में कस्टम टूल के साथ शेयर किया जा सकता है.
 
-### ツールの組み合わせを有効にする
+### टूल कॉम्बिनेशन की सुविधा चालू करना
 
-- ツール コンテキストの循環を有効にするには、`include_server_side_tool_invocations` フラグを `true` に設定する必要があります。
-- [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#function-declarations) と、使用する組み込みツールを含めて、組み合わせの動作をトリガーします。
-  - `function_declarations` を含めない場合でも、フラグが設定されていれば、ツール コンテキストの循環は、含まれている組み込みツールに対して機能します。
+- टूल कॉन्टेक्स्ट सर्कुलेशन की सुविधा चालू करने के लिए, आपको `include_server_side_tool_invocations` फ़्लैग को `true` पर सेट करना होगा.
+- कॉम्बिनेशन के व्यवहार को ट्रिगर करने के लिए, [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi#function-declarations) को उन
+  पहले से मौजूद टूल के साथ शामिल करें जिनका इस्तेमाल आपको करना है.
+  - अगर आपने `function_declarations` को शामिल नहीं किया है, तब भी फ़्लैग सेट होने पर, टूल कॉन्टेक्स्ट सर्कुलेशन, शामिल किए गए पहले से मौजूद टूल पर काम करेगा.
 
-### API の戻り値
+### एपीआई, इन हिस्सों को दिखाता है
 
-API は、1 つのレスポンスで、組み込みツール呼び出しの `toolCall` 部分と `toolResponse` 部分を返します。関数（カスタムツール）呼び出しの場合、API は `functionCall` 呼び出し部分を返します。ユーザーは次のターンで `functionResponse` 部分を提供します。
+एक ही जवाब में, एपीआई, पहले से मौजूद टूल कॉल के लिए `toolCall` और `toolResponse` के हिस्से दिखाता है. फ़ंक्शन (कस्टम टूल) कॉल के लिए, एपीआई, `functionCall` कॉल का हिस्सा दिखाता है. इसके जवाब में, उपयोगकर्ता अगली बारी में `functionResponse` का हिस्सा देता है.
 
-- `toolCall` と `toolResponse`: API は、サーバーサイドで実行されるツールのコンテキストと、その実行結果を次のターンで保持するために、これらの部分を返します。
-- `functionCall` と `functionResponse`: API は関数呼び出しをユーザーに送信して入力させ、ユーザーは関数レスポンスで結果を返します（これらの部分は Gemini API のすべての[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)で標準であり、ツール組み合わせ機能に固有のものではありません）。
-- （[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)ツールのみ）
-  `executableCode` と `codeExecutionResult`:
-  コード実行ツールを使用する場合、API は `functionCall` と `functionResponse` の代わりに、`executableCode`（実行されるモデルによって生成されたコード）と `codeExecutionResult`（実行可能コードの結果）を返します。
+- `toolCall` और `toolResponse`: एपीआई, इन हिस्सों को इसलिए दिखाता है, ताकि यह पता चल सके कि सर्वर साइड पर कौनसे टूल चलाए गए हैं और उनके नतीजे क्या हैं. इससे अगली बारी में, कॉन्टेक्स्ट को सेव किया जा सकता है.
+- `functionCall` और `functionResponse`: एपीआई, फ़ंक्शन कॉल को उपयोगकर्ता को भेजता है, ताकि वह इसे भर सके. इसके बाद, उपयोगकर्ता, नतीजे को फ़ंक्शन रिस्पॉन्स में वापस भेजता है. ये हिस्से, Gemini API में सभी [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) के लिए स्टैंडर्ड हैं. ये सिर्फ़ टूल कॉम्बिनेशन की सुविधा के लिए यूनीक नहीं हैं.
+- ([सिर्फ़ कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi) टूल)
+  `executableCode` और `codeExecutionResult`:
+  कोड एक्ज़ीक्यूशन टूल का इस्तेमाल करते समय, एपीआई, `functionCall` और
+  `functionResponse` के बजाय, `executableCode` (मॉडल से जनरेट किया गया कोड,
+  जिसे एक्ज़ीक्यूट किया जाना है) और `codeExecutionResult` (एक्ज़ीक्यूटेबल कोड का
+  नतीजा) दिखाता है.
 
-コンテキストを維持してツールを組み合わせられるように、各ターンで、すべての[フィールド](#critical-fields)を含むすべての部分をモデルに返す必要があります。
+कॉन्टेक्स्ट को बनाए रखने और टूल
+कॉम्बिनेशन की सुविधा चालू करने के लिए, आपको हर बारी में मॉडल को सभी हिस्से वापस भेजने होंगे. इनमें शामिल सभी [फ़ील्ड](#critical-fields) भी शामिल होने चाहिए जो उनमें
+हैं.
 
-### 返されたパーツの重要なフィールド
+### दिखाए गए हिस्सों में ज़रूरी फ़ील्ड
 
-[API から返される特定の部分](#api-returns-parts)には、`id`、`tool_type`、`thought_signature` フィールドが含まれます。これらのフィールドは、ツールのコンテキストを維持するために重要です（したがって、ツールの組み合わせにとっても重要です）。後続のリクエストでは、*レスポンスで指定されたとおりに*すべての部分を返す必要があります。
+एपीआई से दिखाए गए कुछ [हिस्सों](#api-returns-parts) में, `id`,
+`tool_type`, और `thought_signature` फ़ील्ड शामिल होंगे. ये फ़ील्ड, टूल कॉन्टेक्स्ट को बनाए रखने के लिए ज़रूरी हैं. इसलिए, ये टूल कॉम्बिनेशन के लिए भी ज़रूरी हैं. आपको अपने अगले अनुरोधों में, *जवाब में दिए गए* सभी हिस्से वापस भेजने होंगे.
 
-- `id`: 呼び出しをレスポンスにマッピングする一意の識別子。`id` は、ツール コンテキストの循環に関係なく、**すべての関数呼び出しレスポンスで設定**されます。API が関数呼び出しで提供するのと同じ `id` を関数レスポンスで提供する*必要があります*。組み込みツールは、ツール呼び出しとツール レスポンスの間で `id` を自動的に共有します。
-  - すべてのツール関連部分に存在: `toolCall`、`toolResponse`、`functionCall`、`functionResponse`、`executableCode`、`codeExecutionResult`
-- `tool_type`: 使用されている特定のツールを識別します。リテラル組み込みツール（`URL_CONTEXT` など）または関数（`getWeather` など）の名前。
-  - `toolCall` パーツと `toolResponse` パーツにあります。
-- `thought_signature`: **API によって返される各部分**に埋め込まれた実際の暗号化コンテキスト。思考シグネチャがないとコンテキストを再構築できません。すべてのターンのすべての部分の思考シグネチャを返さないと、モデルはエラーを返します。
-  - *すべての*パーツにあります。
+- `id`: यह एक यूनीक आइडेंटिफ़ायर है, जो किसी कॉल को उसके जवाब से मैप करता है. `id` , **सभी फ़ंक्शन कॉल के जवाबों पर सेट होता है** . भले ही, टूल कॉन्टेक्स्ट सर्कुलेशन की सुविधा चालू हो या न हो.
+  *आपको फ़ंक्शन रिस्पॉन्स में वही `id` देना होगा
+  जो एपीआई, फ़ंक्शन कॉल में देता है.* पहले से मौजूद टूल, टूल कॉल और टूल रिस्पॉन्स के बीच `id` को अपने-आप शेयर करते हैं.
+  - यह टूल से जुड़े सभी हिस्सों में मौजूद होता है: `toolCall`, `toolResponse`, `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
+- `tool_type`: इससे पता चलता है कि कौनसा टूल इस्तेमाल किया जा रहा है. जैसे, पहले से मौजूद टूल का नाम (उदाहरण के लिए, `URL_CONTEXT`) या फ़ंक्शन का नाम (उदाहरण के लिए, `getWeather`).
+  - यह `toolCall` और `toolResponse` के हिस्सों में मौजूद होता है.
+- `thought_signature`: यह **एपीआई से दिखाए गए हर हिस्से** में एम्बेड किया गया, असल में एनक्रिप्ट किया गया कॉन्टेक्स्ट होता है. थॉट सिग्नेचर के बिना, कॉन्टेक्स्ट को फिर से नहीं बनाया जा सकता. अगर आपने हर बारी में सभी हिस्सों के लिए थॉट सिग्नेचर नहीं दिखाए, तो मॉडल में गड़बड़ी होगी.
+  - यह *सभी* हिस्सों में मौजूद होता है.
 
-### ツール固有のデータ
+### टूल के हिसाब से डेटा
 
-一部の組み込みツールは、ツールタイプに固有のユーザーに表示されるデータ引数を返します。
+कुछ पहले से मौजूद टूल, उपयोगकर्ता को दिखने वाले डेटा आर्ग्युमेंट दिखाते हैं. ये आर्ग्युमेंट, टूल के टाइप के हिसाब से अलग-अलग होते हैं.
 
-| ツール | ユーザーに表示されるツール呼び出し引数（ある場合） | ユーザーに表示されるツール レスポンス（ある場合） |
+| टूल | उपयोगकर्ता को दिखने वाले टूल कॉल आर्ग्युमेंट (अगर कोई हो) | उपयोगकर्ता को दिखने वाला टूल रिस्पॉन्स (अगर कोई हो) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` ブラウジングする URL | `urls_metadata` `retrieved_url`: 閲覧された URL `url_retrieval_status`: 閲覧ステータス |
-| **FILE\_SEARCH** | なし | なし |
+| **URL\_CONTEXT** | `urls` वे यूआरएल जिन्हें ब्राउज़ किया जाना है | `urls_metadata` `retrieved_url`: ब्राउज़ किए गए यूआरएल `url_retrieval_status`: ब्राउज़ करने की स्थिति |
+| **FILE\_SEARCH** | कोई नहीं | कोई नहीं |
 
-## ツール組み合わせリクエスト構造の例
+## टूल कॉम्बिनेशन के अनुरोध की संरचना का उदाहरण
 
-次のリクエスト構造は、「米国最北端の都市はどこですか？」というプロンプトのリクエスト構造を示しています。今日の天気はどうですか？」組み込みの Gemini ツール `google_search` と `code_execution`、カスタム関数 `get_weather` の 3 つのツールを組み合わせたものです。
+अनुरोध की इस संरचना में, प्रॉम्प्ट की संरचना दिखाई गई है: "अमेरिका का सबसे उत्तरी शहर कौनसा है? वहां आज कैसा मौसम है?". इसमें तीन टूल को एक साथ इस्तेमाल किया गया है: Gemini के पहले से मौजूद टूल `google_search` और `code_execution`, और एक कस्टम फ़ंक्शन `get_weather`.
 
 ```
 {
@@ -511,48 +511,52 @@ API は、1 つのレスポンスで、組み込みツール呼び出しの `too
 }
 ```
 
-## トークンと料金
+## टोकन और कीमत
 
-リクエストの `toolCall` 部分と `toolResponse` 部分は `prompt_token_count` にカウントされます。これらのツールの中間ステップは表示され、ユーザーに返されるため、会話履歴の一部となります。これは*リクエスト*の場合のみであり、*レスポンス*には適用されません。
+ध्यान दें कि अनुरोधों में `toolCall` और `toolResponse` के हिस्सों को `prompt_token_count` में गिना जाता है. इंटरमीडिएट टूल के ये चरण अब दिखते हैं और आपको दिखाए जाते हैं. इसलिए, ये बातचीत के इतिहास का हिस्सा होते हैं. यह सिर्फ़
+*अनुरोधों* के लिए लागू होता है, *जवाबों* के लिए नहीं.
 
-Google 検索ツールはこのルールの例外です。Google 検索では、クエリレベルで独自の料金モデルがすでに適用されているため、トークンが二重に課金されることはありません（[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)ページを参照）。
+Google Search टूल, इस नियम का अपवाद है. Google Search, क्वेरी के लेवल पर अपना कीमत मॉडल पहले से ही
+लागू करता है. इसलिए, टोकन के लिए दो बार
+शुल्क नहीं लिया जाता ([कीमत वाला](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज देखें).
 
-詳細については、[トークン](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)のページをご覧ください。
+ज़्यादा जानकारी के लिए, [टोकन](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) वाला पेज पढ़ें.
 
-## 制限事項
+## सीमाएं
 
-- `include_server_side_tool_invocations` フラグが有効の場合、デフォルトで `VALIDATED` モードになります（`AUTO` モードは対象外）
-- `google_search` などの組み込みツールは、位置情報と現在時刻の情報に依存しています。そのため、`system_instruction` または `function_declaration.description` に矛盾する位置情報と時刻情報が含まれている場合、ツール組み合わせ機能が正常に動作しないことがあります。
+- `include_server_side_tool_invocations` फ़्लैग चालू होने पर, डिफ़ॉल्ट रूप से `VALIDATED` मोड का इस्तेमाल करें. `AUTO` मोड काम नहीं करता
+- `google_search` जैसे पहले से मौजूद टूल, जगह और मौजूदा समय की जानकारी पर निर्भर करते हैं. इसलिए, अगर आपके `system_instruction` या `function_declaration.description` में जगह और समय की जानकारी में कोई अंतर है, तो टूल कॉम्बिनेशन की सुविधा शायद ठीक से काम न करे.
 
-## サポートされているツール
+## काम करने वाले टूल
 
-標準のツール コンテキストの循環は、サーバーサイド（組み込み）ツールに適用されます。Code Execution もサーバーサイド ツールですが、コンテキスト循環のための独自の組み込みソリューションがあります。コンピュータ使用と関数呼び出しはクライアントサイドのツールであり、コンテキスト循環の組み込みソリューションも備えています。
+सर्वर-साइड (पहले से मौजूद) टूल पर, टूल कॉन्टेक्स्ट सर्कुलेशन का स्टैंडर्ड तरीका लागू होता है.
+कोड एक्ज़ीक्यूशन भी एक सर्वर-साइड टूल है, लेकिन इसमें कॉन्टेक्स्ट सर्कुलेशन के लिए पहले से मौजूद अपना समाधान है. कंप्यूटर का इस्तेमाल और फ़ंक्शन कॉलिंग, क्लाइंट-साइड टूल हैं. इनमें भी कॉन्टेक्स्ट सर्कुलेशन के लिए पहले से मौजूद समाधान हैं.
 
-| ツール | 実行側 | コンテキストの循環のサポート |
+| टूल | एक्ज़ीक्यूशन साइड | कॉन्टेक्स्ट सर्कुलेशन की सुविधा |
 | --- | --- | --- |
-| [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja) | サーバー側 | サポート対象 |
-| [Google マップ](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja) | サーバー側 | サポート対象 |
-| [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja) | サーバー側 | サポート対象 |
-| [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja) | サーバー側 | サポート対象 |
-| [コードの実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja) | サーバー側 | サポート対象（内蔵、`executableCode` と `codeExecutionResult` の部品を使用） |
-| [コンピュータの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja) | クライアントサイド | サポート対象（内蔵、`functionCall` と `functionResponse` の部品を使用） |
-| [カスタム関数](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja) | クライアントサイド | サポート対象（内蔵、`functionCall` と `functionResponse` の部品を使用） |
+| [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) | सर्वर-साइड | काम करता है |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi) | सर्वर-साइड | काम करता है |
+| [यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi) | सर्वर-साइड | काम करता है |
+| [फ़ाइल खोजें](https://ai.google.dev/gemini-api/docs/file-search?hl=hi) | सर्वर-साइड | काम करता है |
+| [कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi) | सर्वर-साइड | काम करता है (पहले से मौजूद, `executableCode` और `codeExecutionResult` के हिस्सों का इस्तेमाल करता है) |
+| [कंप्यूटर का इस्तेमाल](https://ai.google.dev/gemini-api/docs/computer-use?hl=hi) | क्लाइंट-साइड | काम करता है (पहले से मौजूद, `functionCall` और `functionResponse` के हिस्सों का इस्तेमाल करता है) |
+| [कस्टम फ़ंक्शन](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) | क्लाइंट-साइड | काम करता है (पहले से मौजूद, `functionCall` और `functionResponse` के हिस्सों का इस्तेमाल करता है) |
 
-## 次のステップ
+## आगे क्या करना है
 
-- Gemini API の[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)の詳細を確認する。
-- サポートされているツールを確認します。
-  - [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)
-  - [Google マップ](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)
-  - [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)
-  - [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)
+- Gemini API में [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) के बारे में ज़्यादा जानें.
+- काम करने वाले टूल के बारे में जानें:
+  - [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)
+  - [यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)
+  - [फ़ाइल खोजें](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最終更新日 2026-05-19 UTC。
+आखिरी बार 2026-05-29 (UTC) को अपडेट किया गया.
 
-ご意見をお聞かせください
+क्या आपको हमें और कुछ बताना है?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-29 (UTC) को अपडेट किया गया."],[],[]]

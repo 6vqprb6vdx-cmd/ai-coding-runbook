@@ -1,60 +1,60 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=ar
-fetched_at: 2026-05-25T12:57:13.751147+00:00
-title: "\u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0648\u0645\u0634\u0627\u0631\u0643\u062a\u0647\u0627 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=vi
+fetched_at: 2026-06-01T19:41:28.218107+00:00
+title: "Ghi nh\u1eadt k\u00fd v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-# تسجيل البيانات ومشاركتها
+# Ghi nhật ký và chia sẻ dữ liệu
 
-توضّح هذه الصفحة كيفية تخزين [سجلّات Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ar) وإدارتها، وهي بيانات واجهة برمجة التطبيقات التي يملكها المطوّرون من طلبات بيانات Gemini API المتوافقة للمشاريع التي تم تفعيل الفوترة فيها. تشمل السجلات العملية بأكملها، بدءًا من طلب المستخدم وحتى ردّ النموذج.
+Trang này trình bày cách lưu trữ và quản lý [nhật ký Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi). Đây là dữ liệu API do nhà phát triển sở hữu từ các lệnh gọi Gemini API được hỗ trợ cho những dự án có bật tính năng thanh toán. Nhật ký bao gồm toàn bộ quy trình từ yêu cầu của người dùng đến phản hồi của mô hình.
 
-## 1. البيانات التي يمكن مشاركتها
+## 1. Dữ liệu có thể chia sẻ
 
-بصفتك صاحب مشروع، يمكنك اختيار تفعيل تسجيل طلبات Gemini API لاستخدامك الخاص أو لإرسال الملاحظات ومشاركتها مع Google لمساعدتنا في تحسين نماذجنا باستمرار.
+Là chủ sở hữu dự án, bạn có thể chọn ghi lại các lệnh gọi Gemini API để sử dụng cho mục đích riêng hoặc để gửi ý kiến phản hồi và chia sẻ với Google nhằm giúp chúng tôi không ngừng cải thiện các mô hình của mình.
 
-عند تفعيل تسجيل الأنشطة، يمكنك مساعدتنا في إنشاء أنظمة ذكاء اصطناعي تظل مفيدة للمطوّرين في مختلف المجالات وحالات الاستخدام من خلال اختيار المساهمة بالبيانات التالية لتحسين المنتجات وتدريب النماذج:
+Khi bật tính năng ghi nhật ký, bạn có thể giúp chúng tôi xây dựng các hệ thống AI tiếp tục mang lại giá trị cho các nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng bằng cách chọn đóng góp dữ liệu sau đây để cải thiện sản phẩm và huấn luyện mô hình:
 
-- **مجموعات البيانات:** استخدِم واجهة "السجلات ومجموعات البيانات" في Google AI Studio لاختيار السجلات (الطلبات والردود والبيانات الوصفية وما إلى ذلك) التي تهمّك من مكالمات Gemini API المتوافقة، والتي تمّت المساهمة بها من خلال تضمينها في مجموعات البيانات، مع إمكانية إيقاف المشاركة أثناء إنشاء مجموعة البيانات.
-- **الملاحظات:** عند مراجعة السجلات، يمكنك تقديم ملاحظاتك، بما في ذلك تقييمات "يعجبني" أو "لا يعجبني" وأي تعليقات مكتوبة تقدّمها.
+- **Tập dữ liệu:** Sử dụng giao diện Nhật ký và Tập dữ liệu của Google AI Studio để chọn nhật ký (yêu cầu, phản hồi, siêu dữ liệu, v.v.) mà bạn quan tâm trong các lệnh gọi Gemini API được hỗ trợ; được đóng góp thông qua việc đưa vào tập dữ liệu, với lựa chọn không tham gia trong quá trình tạo tập dữ liệu.
+- **Ý kiến phản hồi:** Khi xem xét nhật ký, bạn có thể đưa ra ý kiến phản hồi, bao gồm cả điểm xếp hạng thích/không thích và mọi bình luận bằng văn bản mà bạn cung cấp.
 
-عند مشاركة مجموعة بيانات مع Google، ستتم معالجة السجلات في مجموعة البيانات هذه، بما في ذلك الطلبات والردود، وفقًا [لبنود](https://developers.google.com/terms?hl=ar) "[الخدمات غير المدفوعة](https://ai.google.dev/gemini-api/terms?hl=ar#data-use-unpaid)"، ما يعني أنّه يمكن استخدام مجموعة البيانات لتطوير وتحسين منتجات Google وخدماتها وتكنولوجيات تعلُّم الآلة، بما في ذلك تحسين نماذجنا وتدريبها. **يُرجى عدم تضمين معلومات شخصية أو حساسة أو سرية.**
+Khi bạn chia sẻ một tập dữ liệu với Google, nhật ký của bạn trong tập dữ liệu đó (bao gồm cả yêu cầu và phản hồi) sẽ được xử lý theo [Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi đối với "[Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid)", tức là tập dữ liệu đó có thể được dùng để phát triển và cải thiện các sản phẩm, dịch vụ và công nghệ học máy của Google, bao gồm cả việc cải thiện và huấn luyện các mô hình của chúng tôi. **Đừng cung cấp thông tin cá nhân, thông tin nhạy cảm hoặc thông tin mật.**
 
-## 2. كيفية استخدامنا لبياناتك
+## 2. Cách chúng tôi sử dụng dữ liệu của bạn
 
-تنتهي صلاحية السجلات تلقائيًا بعد 55 يومًا. ولن تصبح متاحة بعد هذه الفترة. يمكن إنشاء مجموعات بيانات للاحتفاظ بسجلّات الاهتمام أو القيمة بعد هذه الفترة لحالات الاستخدام اللاحقة والمساهمة الاختيارية في تحسينات النموذج. لا تتضمّن السجلات المخزّنة في مجموعات البيانات تواريخ انتهاء صلاحية محدّدة، ولكن يبلغ الحدّ الأقصى التلقائي لمساحة التخزين لكل مشروع 1,000 سجلّ.
+Nhật ký sẽ hết hạn sau 55 ngày theo mặc định. Các mục này sẽ không còn xuất hiện sau khoảng thời gian này. Bạn có thể tạo tập dữ liệu để giữ lại nhật ký về mối quan tâm hoặc giá trị ngoài khoảng thời gian này cho các trường hợp sử dụng tiếp theo và đóng góp không bắt buộc cho việc cải thiện mô hình. Nhật ký được lưu trữ trong tập dữ liệu không có ngày hết hạn đã đặt, tuy nhiên,mỗi dự án có hạn mức lưu trữ mặc định là tối đa 1.000 nhật ký.
 
-بشكلٍ تلقائي، وبما أنّ تسجيل البيانات متاح فقط للمشاريع التي تم تفعيل الفوترة فيها، لا يتم استخدام الطلبات والاستجابات الواردة في السجلّات لتحسين المنتجات أو تطويرها، وذلك وفقًا [لبنود الخدمة](https://developers.google.com/terms?hl=ar) المتعلقة باستخدام البيانات.
+Theo mặc định, vì tính năng ghi nhật ký chỉ có trong các dự án có bật tính năng thanh toán, nên các câu lệnh và câu trả lời trong nhật ký không được dùng để cải thiện hoặc phát triển sản phẩm, theo [Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi về việc sử dụng dữ liệu.
 
-إذا اخترت مشاركة مجموعات بيانات السجلات مع Google، سيتم استخدام مجموعات البيانات هذه كبيانات توضيحية من العالم الحقيقي لفهم تنوّع المجالات والسياقات التي يتم فيها استخدام أنظمة وتطبيقات الذكاء الاصطناعي بشكل أفضل. قد يتم استخدام هذه البيانات لتحسين جودة النماذج، وللمساعدة في تدريب وتقييم النماذج والخدمات المستقبلية. تتم معالجة هذه البيانات وفقًا لبنود استخدام البيانات الخاصة [بالخدمات غير المدفوعة](https://ai.google.dev/gemini-api/terms?hl=ar#data-use-unpaid).
-وبناءً على ذلك، يمكن لفريق المراجعين قراءة مدخلات ومخرجات واجهة برمجة التطبيقات التي تشاركها وإضافة تعليقات توضيحية إليها ومعالجتها. قبل استخدام البيانات لتحسين النماذج، تتّخذ Google خطوات لحماية خصوصية المستخدمين كجزء من هذه العملية. ويشمل ذلك إلغاء ربط هذه البيانات بحساب Google ومفتاح واجهة برمجة التطبيقات ومشروع على السحابة الإلكترونية قبل أن يراها المراجعون أو يضيفوا تعليقات توضيحية إليها.
+Nếu bạn chọn chia sẻ các tập dữ liệu nhật ký với Google, thì những tập dữ liệu đó sẽ được dùng làm dữ liệu minh hoạ thực tế để hiểu rõ hơn về sự đa dạng của các miền và bối cảnh mà hệ thống và ứng dụng AI được dùng. Dữ liệu này có thể được dùng để cải thiện chất lượng mô hình, cũng như cung cấp thông tin cho việc huấn luyện và đánh giá các mô hình và dịch vụ trong tương lai. Dữ liệu này được xử lý theo các điều khoản sử dụng dữ liệu của chúng tôi đối với [Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid).
+Theo đó, nhân viên đánh giá có thể đọc, chú thích và xử lý dữ liệu đầu vào và đầu ra của API mà bạn chia sẻ. Trước khi sử dụng dữ liệu để cải thiện mô hình, Google sẽ thực hiện các bước để bảo vệ quyền riêng tư của người dùng trong quá trình này. Chẳng hạn như huỷ mối liên kết giữa dữ liệu này với Tài khoản Google, khoá API và dự án trên đám mây của bạn trước khi nhân viên đánh giá xem hoặc chú thích dữ liệu đó.
 
-## 3- أذونات البيانات
+## 3. Quyền đối với dữ liệu
 
-من خلال الموافقة على المساهمة ببيانات واجهة برمجة التطبيقات، أنت تؤكّد أنّ لديك الأذونات اللازمة كي تعالج Google البيانات وتستخدمها على النحو الموضّح في هذا المستند. **يُرجى عدم المساهمة بسجلات تتضمّن معلومات حساسة أو سرية أو مملوكة تم الحصول عليها من خلال الخدمة المدفوعة**.
-يشمل الترخيص الذي تمنحه لشركة Google بموجب القسم [إرسال المحتوى](https://developers.google.com/terms?hl=ar#b_submission_of_content) في "بنود الخدمة" لواجهة برمجة التطبيقات أيضًا، بالقدر المطلوب بموجب القانون الساري لاستخدامنا، أي محتوى ترسله إلى "الخدمات" (مثل الطلبات، بما في ذلك تعليمات النظام المرتبطة بها والمحتوى المخزّن مؤقتًا والملفات مثل الصور أو الفيديوهات أو المستندات) وأي ردود تم إنشاؤها.
+Bằng việc chọn đóng góp dữ liệu API, bạn xác nhận rằng bạn có các quyền cần thiết để Google xử lý và sử dụng dữ liệu như mô tả trong tài liệu này. **Vui lòng không đóng góp nhật ký chứa thông tin nhạy cảm, bí mật hoặc độc quyền thu được thông qua dịch vụ có tính phí**.
+Giấy phép mà bạn cấp cho Google theo phần "[Gửi nội dung](https://developers.google.com/terms?hl=vi#b_submission_of_content)" trong Điều khoản API cũng mở rộng (trong phạm vi cần thiết theo luật hiện hành cho mục đích sử dụng của chúng tôi) đối với mọi nội dung (ví dụ: câu lệnh, bao gồm cả hướng dẫn hệ thống liên quan, nội dung được lưu vào bộ nhớ đệm và các tệp như hình ảnh, video hoặc tài liệu) mà bạn gửi cho Dịch vụ và mọi câu trả lời được tạo.
 
-## 4. مشاركة البيانات وتقديم الملاحظات
+## 4. Chia sẻ dữ liệu và ý kiến phản hồi
 
-يمكنك مساعدتنا في تطوير أبحاث الذكاء الاصطناعي وGemini API وGoogle AI Studio من خلال الموافقة على مشاركة بياناتك كأمثلة، ما يتيح لنا تحسين نماذجنا باستمرار في مختلف السياقات وإنشاء أنظمة ذكاء اصطناعي تظل مفيدة للمطوّرين في مختلف المجالات وحالات الاستخدام.
+Bạn có thể giúp chúng tôi thúc đẩy nghiên cứu AI, Gemini API và Google AI Studio bằng cách chọn tham gia chia sẻ dữ liệu của bạn dưới dạng ví dụ. Nhờ đó, chúng tôi có thể liên tục cải thiện các mô hình của mình trong nhiều bối cảnh và xây dựng các hệ thống AI tiếp tục mang lại giá trị cho các nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng.
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+Cập nhật lần gần đây nhất: 2026-06-01 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]

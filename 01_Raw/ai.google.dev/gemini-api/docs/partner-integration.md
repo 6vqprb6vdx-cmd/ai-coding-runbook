@@ -1,143 +1,143 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=vi
-fetched_at: 2026-05-25T13:01:58.180621+00:00
-title: "T\u00edch h\u1ee3p v\u1edbi \u0111\u1ed1i t\u00e1c v\u00e0 th\u01b0 vi\u1ec7n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=fr
+fetched_at: 2026-06-01T19:48:40.989298+00:00
+title: "Int\u00e9grations de partenaires et de biblioth\u00e8ques \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Gửi ý kiến phản hồi
+Envoyer des commentaires
 
-# Tích hợp với đối tác và thư viện
+# Intégrations de partenaires et de bibliothèques
 
-Hướng dẫn này trình bày các chiến lược kiến trúc để xây dựng thư viện, nền tảng và cổng dựa trên Gemini API. Nội dung này trình bày chi tiết những điểm đánh đổi về kỹ thuật giữa việc sử dụng các SDK AI tạo sinh chính thức, Direct API (REST/gRPC) và lớp tương thích OpenAI.
+Ce guide décrit les stratégies architecturales permettant de créer des bibliothèques, des plates-formes et des passerelles sur l'API Gemini. Il décrit en détail les compromis techniques entre l'utilisation des SDK officiels d'IA générative, de l'API Direct (REST/gRPC) et de la couche de compatibilité OpenAI.
 
-Hãy sử dụng hướng dẫn này nếu bạn đang tạo các công cụ cho nhà phát triển khác, chẳng hạn như khung mã nguồn mở, cổng doanh nghiệp hoặc trình tổng hợp SaaS và cần tối ưu hoá để có sự sạch sẽ về phần phụ thuộc, kích thước gói hoặc tính tương đương về tính năng.
+Utilisez ce guide si vous créez des outils pour d'autres développeurs, tels que des frameworks Open Source, des passerelles d'entreprise ou des agrégateurs SaaS, et que vous devez optimiser l'hygiène des dépendances, la taille du bundle ou la parité des fonctionnalités.
 
-## Tích hợp đối tác là gì?
+## Qu'est-ce que l'intégration de partenaires ?
 
-Đối tác là bất kỳ ai xây dựng mối tích hợp giữa Gemini API và nhà phát triển người dùng cuối. Chúng tôi phân loại các đối tác thành 4 kiểu mẫu. Việc xác định loại nào phù hợp nhất với bạn sẽ giúp bạn chọn được đường dẫn tích hợp phù hợp.
+Un partenaire est une personne qui crée une intégration entre l'API Gemini et les développeurs d'utilisateurs finaux. Nous classons les partenaires en quatre archétypes. Identifier celui qui vous correspond le mieux vous aidera à choisir le bon chemin d'intégration.
 
-#### Khung hệ sinh thái
+#### Framework d'écosystème
 
-- **Bạn là ai:** Người duy trì một khung mã nguồn mở (ví dụ: LangChain, LlamaIndex, Spring AI) hoặc các ứng dụng cụ thể theo ngôn ngữ.
-- **Mục tiêu của bạn:** Khả năng tương thích rộng. Bạn muốn thư viện của mình hoạt động trong mọi môi trường mà người dùng chọn mà không gây ra xung đột.
+- **Votre profil** : vous êtes responsable d'un framework Open Source (par exemple, LangChain, LlamaIndex, Spring AI) ou de clients spécifiques à une langue.
+- **Votre objectif** : une compatibilité étendue. Vous souhaitez que votre bibliothèque fonctionne dans n'importe quel environnement choisi par l'utilisateur, sans forcer les conflits.
 
-#### Thời gian chạy và nền tảng biên
+#### Plate-forme d'exécution et de périphérie
 
-- **Bạn là ai:** Nền tảng SaaS, Cổng AI hoặc nhà cung cấp cơ sở hạ tầng đám mây (ví dụ: Vercel, Cloudflare, Zapier) nơi quá trình thực thi mã diễn ra trong môi trường bị hạn chế.
-- **Mục tiêu của bạn:** Hiệu suất. Bạn cần độ trễ thấp, kích thước gói tối thiểu và khởi động nguội nhanh.
+- **Qui êtes-vous ?** Plates-formes SaaS, passerelles d'IA ou fournisseurs d'infrastructure cloud (par exemple, Vercel, Cloudflare, Zapier) où l'exécution du code a lieu dans des environnements restreints.
+- **Votre objectif** : les performances. Vous avez besoin d'une faible latence, d'une taille de bundle minimale et de démarrages à froid rapides.
 
-#### Trang web tổng hợp
+#### Agrégateur
 
-- **Bạn là ai:** Nền tảng, proxy hoặc "Model Gardens" nội bộ giúp chuẩn hoá quyền truy cập của nhiều nhà cung cấp LLM (ví dụ: OpenAI, Anthropic, Google) vào một giao diện duy nhất.
-- **Mục tiêu của bạn:** Tính di động và tính đồng nhất.
+- **Qui êtes-vous ?** Plates-formes, proxys ou "Model Gardens" internes qui normalisent l'accès à de nombreux fournisseurs de LLM différents (par exemple, OpenAI, Anthropic, Google) dans une seule interface.
+- **Votre objectif** : portabilité et uniformité.
 
-#### Cổng doanh nghiệp
+#### Passerelle Enterprise
 
-- **Bạn là ai:** Nhóm Kỹ thuật nền tảng nội bộ tại các công ty lớn, xây dựng "Đường dẫn vàng" cho hàng trăm nhà phát triển nội bộ.
-- **Mục tiêu của bạn:** Tiêu chuẩn hoá, quản trị và xác thực hợp nhất.
+- **Votre profil** : vous faites partie d'une équipe d'ingénierie des plates-formes internes dans une grande entreprise et vous créez des "voies optimales" pour des centaines de développeurs internes.
+- **Votre objectif** : standardisation, gouvernance et authentification unifiée.
 
-## So sánh nhanh
+## Comparaison en un coup d'œil
 
-**Phương pháp hay nhất trên toàn cầu:** Tất cả đối tác phải gửi tiêu đề [`x-goog-api-client` bất kể đường dẫn được chọn.](#client-id)
+**Bonne pratique à l'échelle mondiale** : tous les partenaires doivent envoyer l'[en-tête `x-goog-api-client`](#client-id), quel que soit le chemin choisi.
 
-| Nếu bạn là... | Đường dẫn được đề xuất | Lợi ích chính | Điểm đánh đổi chính | Phương pháp hay nhất |
+| Si vous êtes : | Chemin recommandé | Principal avantage | Compromis clé | Bonne pratique |
 | --- | --- | --- | --- | --- |
-| **Cổng doanh nghiệp, khung hệ sinh thái** | **[SDK AI tạo sinh của Google](#genai-sdk)** | **Tốc độ và sự tương đồng của Nền tảng tác nhân Gemini Enterprise.** Xử lý sẵn các loại, hoạt động xác thực và tính năng phức tạp (ví dụ: tải tệp lên). Di chuyển liền mạch sang Google Cloud. | **Trọng số của phần phụ thuộc.** Các phần phụ thuộc bắc cầu có thể phức tạp và nằm ngoài tầm kiểm soát của bạn. Chỉ hỗ trợ các ngôn ngữ (Python/Node/Go/Java). | **Khoá phiên bản.** Ghim các phiên bản SDK trong hình ảnh cơ sở nội bộ để đảm bảo tính ổn định cho các nhóm. |
-| **Khung hệ sinh thái, nền tảng biên và đơn vị tổng hợp** | **[Direct API](#rest)**  *(REST / gRPC)* | **Không có phần phụ thuộc.** Bạn kiểm soát ứng dụng HTTP và kích thước gói chính xác. Có toàn quyền sử dụng tất cả các tính năng của API và mô hình. | **Chi phí phát triển cao.** Cấu trúc JSON có thể được lồng sâu và yêu cầu quy trình xác thực thủ công cũng như kiểm tra loại nghiêm ngặt. | **Sử dụng thông số kỹ thuật OpenAPI.** Tự động hoá việc tạo kiểu bằng cách sử dụng các thông số kỹ thuật chính thức của chúng tôi thay vì viết chúng theo cách thủ công. |
-| **Trình tổng hợp sử dụng các SDK của OpenAI chỉ yêu cầu quy trình làm việc dựa trên văn bản**  *(Tối ưu hoá khả năng di chuyển cũ)* | **[Khả năng tương thích với OpenAI](#openai)** | **Tính di động tức thì.** Sử dụng lại mã hoặc thư viện hiện có tương thích với OpenAI. | **Giới hạn tính năng.** Có thể bạn sẽ không dùng được các tính năng dành riêng cho từng mẫu xe (Video gốc, Lưu vào bộ nhớ đệm). | **Kế hoạch di chuyển.** Hãy sử dụng tính năng này để xác thực nhanh, nhưng hãy lên kế hoạch nâng cấp lên Direct API để sử dụng đầy đủ tính năng API. |
+| **Passerelle d'entreprise, framework d'écosystème** | **[SDK Google GenAI](#genai-sdk)** | **Parité et rapidité de Gemini Enterprise Agent Platform.** Gestion intégrée des types, de l'authentification et des fonctionnalités complexes (par exemple, l'importation de fichiers). Migration transparente vers Google Cloud. | **Poids de la dépendance** Les dépendances transitives peuvent être complexes et hors de votre contrôle. Limité aux langages compatibles (Python/Node/Go/Java). | **Verrouillez les versions.** Épinglez les versions du SDK dans vos images de base internes pour assurer la stabilité entre les équipes. |
+| **Framework d'écosystème, plates-formes Edge et agrégateurs** | **[API directe](#rest)**  *(REST / gRPC)* | **Aucune dépendance.** Vous contrôlez le client HTTP et la taille exacte du bundle. Accès complet à toutes les fonctionnalités des API et des modèles. | **Frais de développement élevés** : Les structures JSON peuvent être profondément imbriquées et nécessitent une validation manuelle et une vérification des types strictes. | **Utilisez les spécifications OpenAPI.** Automatisez la génération de types à l'aide de nos spécifications officielles au lieu de les écrire à la main. |
+| **Agrégateur utilisant les SDK OpenAI qui ne nécessitent que des workflows basés sur du texte**  *(Optimisation pour la portabilité des anciens systèmes)* | **[Compatibilité avec OpenAI](#openai)** | **Portabilité instantanée** : Réutiliser du code ou des bibliothèques existants compatibles avec OpenAI | **Plafond de caractéristiques** : Il est possible que les fonctionnalités spécifiques au modèle (vidéo native, mise en cache) ne soient pas disponibles. | **Plan de migration.** Utilisez-le pour une validation rapide, mais prévoyez de passer à l'API Direct pour bénéficier de toutes les fonctionnalités de l'API. |
 
-## Tích hợp SDK Google GenAI
+## Intégration du SDK Google GenAI
 
-Đối với các khung, việc triển khai [SDK AI tạo sinh của Google](https://ai.google.dev/gemini-api/docs/libraries?hl=vi) thường là cách đơn giản nhất, vì có ít dòng mã nhất bằng các ngôn ngữ được hỗ trợ.
+Pour les frameworks, l'implémentation du [SDK GenAI Google](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) est souvent la méthode la plus simple, car elle nécessite le moins de lignes de code dans les langages compatibles.
 
-Đối với các nhóm nền tảng nội bộ, sản phẩm chính mà bạn cung cấp thường là "lộ trình vàng" cho phép các kỹ sư sản phẩm làm việc nhanh chóng trong khi tuân thủ các chính sách bảo mật.
+Pour les équipes de plate-forme internes, votre principal livrable est souvent un "chemin d'or" qui permet aux ingénieurs produit d'innover rapidement tout en respectant les règles de sécurité.
 
-**Lợi ích:**
+**Avantages :**
 
-- **Giao diện hợp nhất để di chuyển Nền tảng tác nhân Gemini Enterprise:** Các nhà phát triển nội bộ thường tạo mẫu bằng Khoá API (Gemini API) và triển khai cho Nền tảng tác nhân Gemini Enterprise (IAM) để tuân thủ quy trình sản xuất. SDK sẽ trừu tượng hoá những điểm khác biệt về quy trình xác thực này.
-  Tương tự đối với các khung, bạn có thể triển khai một đường dẫn mã và hỗ trợ 2 nhóm người dùng.
-- **Các tiện ích phía máy khách:** SDK bao gồm các tiện ích thành ngữ giúp giảm mã lặp lại cho các tác vụ phức tạp.
-  - *Ví dụ:* Hỗ trợ trực tiếp các đối tượng hình ảnh `PIL` trong câu lệnh, gọi hàm tự động và các loại toàn diện.
-- **Quyền truy cập vào tính năng từ ngày đầu tiên:** Các tính năng API mới có sẵn tại thời điểm ra mắt thông qua các SDK.
-- **Cải thiện khả năng hỗ trợ tạo mã:** Việc cài đặt SDK cục bộ sẽ hiển thị các định nghĩa về loại và chuỗi tài liệu cho các trợ lý lập trình (ví dụ: Cursor, Copilot).
-  Bối cảnh này giúp cải thiện độ chính xác của quá trình tạo mã so với việc tạo các yêu cầu REST thô.
+- **Interface unifiée pour la migration de Gemini Enterprise Agent Platform** : les développeurs internes créent souvent des prototypes à l'aide de clés API (API Gemini) et les déploient sur Gemini Enterprise Agent Platform (IAM) pour la conformité en production. Le SDK fait abstraction de ces différences d'authentification.
+  De même, pour les frameworks, vous pouvez implémenter un chemin de code et prendre en charge deux ensembles d'utilisateurs.
+- **Assistance côté client** : le SDK inclut des utilitaires idiomatiques qui réduisent le code passe-partout pour les tâches complexes.
+  - *Exemples* : prise en charge des objets image `PIL` directement dans les requêtes, appel de fonction automatique et types complets.
+- **Accès aux fonctionnalités dès le premier jour** : les nouvelles fonctionnalités de l'API sont disponibles au moment du lancement via les SDK.
+- **Prise en charge améliorée de la génération de code** : l'installation locale du SDK expose les définitions de type et les chaînes de documentation aux assistants de codage (par exemple, Cursor et Copilot).
+  Ce contexte améliore la précision de la génération de code par rapport à la génération de requêtes REST brutes.
 
-**Sự đánh đổi:**
+**Le compromis :**
 
-- **Trọng số và độ phức tạp của phần phụ thuộc:** Các SDK có phần phụ thuộc riêng, có thể làm tăng kích thước gói và có khả năng gây ra rủi ro cho chuỗi cung ứng.
-- **Phiên bản:** Các tính năng API mới thường được ghim vào các phiên bản SDK tối thiểu.
-  Bạn có thể cần gửi bản cập nhật cho người dùng để truy cập vào các tính năng hoặc mô hình mới. Trong một số trường hợp, việc này có thể yêu cầu thay đổi các phần phụ thuộc bắc cầu ảnh hưởng đến người dùng của bạn.
-- **Giới hạn về giao thức:** Các SDK chỉ hỗ trợ HTTPS cho API chính và WebSocket (WSS) cho Live API. gRPC không được hỗ trợ khi sử dụng các ứng dụng SDK cấp cao.
-- **Hỗ trợ ngôn ngữ:** Các SDK hỗ trợ các phiên bản ngôn ngữ *hiện tại*. Nếu cần hỗ trợ các phiên bản EOL (ví dụ: Python 3.9), bạn sẽ cần duy trì một nhánh.
+- **Poids et complexité des dépendances** : les SDK ont leurs propres dépendances, ce qui peut augmenter la taille du bundle et potentiellement le risque lié à la chaîne d'approvisionnement.
+- **Gestion des versions** : les nouvelles fonctionnalités de l'API sont souvent associées à des versions minimales du SDK.
+  Vous devrez peut-être envoyer des mises à jour aux utilisateurs pour qu'ils puissent accéder aux nouvelles fonctionnalités ou aux nouveaux modèles. Dans certains cas, cela peut nécessiter des modifications des dépendances transitives qui affectent vos utilisateurs.
+- **Limites de protocole** : les SDK ne sont compatibles qu'avec HTTPS pour l'API principale et WebSockets (WSS) pour l'API Live. gRPC n'est pas compatible avec les clients SDK de haut niveau.
+- **Langues acceptées** : les SDK sont compatibles avec les versions linguistiques *actuelles*. Si vous devez prendre en charge les versions en fin de vie (par exemple, Python 3.9), vous devrez gérer un fork.
 
-**Phương pháp hay nhất:**
+**Bonnes pratiques :**
 
-- **Khoá phiên bản:** Ghim phiên bản SDK trong hình ảnh cơ sở nội bộ để đảm bảo tính ổn định giữa các nhóm.
+- **Verrouillez les versions** : épinglez la version du SDK dans vos images de base internes pour assurer la stabilité entre les équipes.
 
-## Tích hợp API trực tiếp
+## Intégration directe à l'aide de l'API
 
-Nếu đang phân phối một thư viện cho hàng nghìn nhà phát triển, chạy trong một môi trường bị hạn chế hoặc xây dựng một trình tổng hợp yêu cầu các tính năng mới nhất của Gemini, thì bạn có thể cần tích hợp trực tiếp với API bằng cách sử dụng REST hoặc gRPC.
+Si vous distribuez une bibliothèque à des milliers de développeurs, que vous l'exécutez dans un environnement contraint ou que vous créez un agrégateur qui nécessite les fonctionnalités de pointe de Gemini, vous devrez peut-être l'intégrer directement à l'API à l'aide de REST ou de gRPC.
 
-**Lợi ích:**
+**Avantages :**
 
-- **Toàn quyền truy cập vào tính năng:** Không giống như lớp tương thích của OpenAI, việc sử dụng trực tiếp API này sẽ cho phép các tính năng dành riêng cho Gemini, chẳng hạn như tải lên File API, tạo bộ nhớ đệm nội dung và sử dụng Live API hai chiều.
-- **Phụ thuộc tối thiểu:** Trong môi trường mà các phần phụ thuộc nhạy cảm do kích thước hoặc chi phí kiểm tra. Việc sử dụng API trực tiếp thông qua một thư viện chuẩn như `fetch` hoặc thông qua một trình bao bọc như `httpx` sẽ đảm bảo thư viện của bạn vẫn có dung lượng nhỏ.
-- **Không phụ thuộc vào ngôn ngữ:** Đây là đường dẫn duy nhất cho những ngôn ngữ không có trong SDK, chẳng hạn như Rust, PHP và Ruby, vì không có hạn chế về ngôn ngữ.
-- **Hiệu suất:** Direct API không có chi phí khởi tạo, giúp giảm thiểu các lần khởi động nguội trong các hàm không máy chủ.
+- **Accès complet aux fonctionnalités** : contrairement à la couche de compatibilité OpenAI, l'utilisation directe de l'API permet d'accéder à des fonctionnalités spécifiques à Gemini, telles que l'importation dans l'API File, la création de mise en cache de contenu et l'utilisation de l'API Live bidirectionnelle.
+- **Dépendances minimales** : dans un environnement où les dépendances sont sensibles en raison de la taille ou des coûts d'audit. L'utilisation de l'API directement via une bibliothèque standard comme `fetch` ou via un wrapper comme `httpx` garantit que votre bibliothèque reste légère.
+- **Indépendant du langage** : il s'agit de la seule option pour les langages non couverts par les SDK, tels que Rust, PHP et Ruby, car il n'y a aucune restriction de langage.
+- **Performances** : l'API Direct ne présente aucun temps d'initialisation, ce qui minimise les démarrages à froid dans les fonctions sans serveur.
 
-**Sự đánh đổi:**
+**Le compromis :**
 
-- **Triển khai Nền tảng tác nhân Gemini Enterprise theo cách thủ công:** Không giống như SDK, việc sử dụng trực tiếp API sẽ không tự động xử lý các khác biệt về hoạt động xác thực giữa AI Studio (Khoá API) và Nền tảng tác nhân Gemini Enterprise (IAM). Bạn phải triển khai các trình xử lý uỷ quyền riêng biệt nếu muốn hỗ trợ cả hai môi trường.
-- **Không có các loại hoặc trợ giúp gốc:** Bạn không nhận được các thao tác hoàn thành mã hoặc kiểm tra thời gian biên dịch cho các đối tượng yêu cầu, trừ phi bạn tự triển khai chúng. Không có "trợ lý" nào cho ứng dụng (ví dụ: trình chuyển đổi hàm thành giản đồ), vì vậy, bạn phải tự viết logic này theo cách thủ công.
+- **Implémentation manuelle de Gemini Enterprise Agent Platform** : contrairement au SDK, l'utilisation directe de l'API ne gère pas automatiquement les différences d'authentification entre AI Studio (clé API) et Gemini Enterprise Agent Platform (IAM). Vous devez implémenter des gestionnaires d'authentification distincts si vous souhaitez prendre en charge les deux environnements.
+- **Pas de types ni d'assistants natifs** : vous n'obtenez pas de complétion de code ni de vérifications au moment de la compilation pour les objets de requête, sauf si vous les implémentez vous-même. Il n'existe pas d'assistants clients (par exemple, des convertisseurs de fonction en schéma). Vous devez donc écrire cette logique manuellement.
 
-**Phương pháp hay nhất**
+**Bonne pratique**
 
-Chúng tôi cung cấp một quy cách có thể đọc được bằng máy mà bạn có thể dùng để tạo định nghĩa kiểu cho thư viện của mình, giúp bạn không phải viết các định nghĩa đó theo cách thủ công. Tải thông số kỹ thuật xuống trong quá trình xây dựng, tạo các loại và gửi mã đã biên dịch.
+Nous exposons une spécification lisible par machine que vous pouvez utiliser pour générer des définitions de type pour votre bibliothèque, ce qui vous évite de les écrire à la main. Téléchargez la spécification lors du processus de compilation, générez les types et distribuez le code compilé.
 
-- **Điểm cuối:** `https://generativelanguage.googleapis.com/$discovery/OPENAPI3_0`
+- **Point de terminaison** : `https://generativelanguage.googleapis.com/$discovery/OPENAPI3_0`
 
-## Tích hợp OpenAI SDK
+## Intégration du SDK OpenAI
 
-Nếu bạn là một nền tảng ưu tiên giản đồ hợp nhất (OpenAI Chat Completions) hơn các tính năng dành riêng cho mô hình, thì đây là tuyến đường nhanh nhất.
+Si vous êtes une plate-forme qui privilégie un schéma unifié (OpenAI Chat Completions) plutôt que des fonctionnalités spécifiques à un modèle, il s'agit de la méthode la plus rapide.
 
-**Lợi ích:**
+**Avantages :**
 
-- **Ít phức tạp:** Bạn thường có thể thêm tính năng hỗ trợ của Gemini bằng cách thay đổi `baseURL` và `apiKey`. Đây là một cách nhanh chóng để tích hợp các hoạt động triển khai "Tự quản lý khoá", thêm tính năng hỗ trợ Gemini mà không cần viết mã mới.
-- **Các ràng buộc:** Bạn chỉ nên sử dụng đường dẫn này nếu bị hạn chế sử dụng SDK OpenAI và không yêu cầu các tính năng nâng cao của Gemini như File API hoặc thêm hỗ trợ cho các công cụ như Bám sát nguồn bằng Google Tìm kiếm theo cách thủ công.
+- **Faible friction** : vous pouvez souvent ajouter la prise en charge de Gemini en modifiant `baseURL` et `apiKey`. Il s'agit d'un moyen rapide d'intégrer les implémentations "Bring Your Own Key" (Apportez votre propre clé), en ajoutant la prise en charge de Gemini sans écrire de nouveau code.
+- **Contraintes** : Ce chemin n'est recommandé que si vous êtes limité au SDK OpenAI et que vous n'avez pas besoin de fonctionnalités Gemini avancées comme l'API File, ou d'ajouter manuellement la prise en charge d'outils comme l'ancrage avec la recherche Google.
 
-**Sự đánh đổi:**
+**Le compromis :**
 
-- **Giới hạn về tính năng:** Lớp tương thích có những giới hạn đối với các chức năng cốt lõi của Gemini. Các công cụ phía máy chủ hiện có khác nhau giữa các nền tảng và có thể yêu cầu xử lý thủ công để hoạt động với các công cụ Gemini API.
-- **Chi phí dịch thuật:** Vì giản đồ OpenAI không ánh xạ 1:1 với cấu trúc của Gemini, nên việc dựa vào lớp tương thích sẽ gây ra một số điểm phức tạp đòi hỏi thêm công sức triển khai để giải quyết, chẳng hạn như ánh xạ công cụ "tìm kiếm" của người dùng với công cụ phù hợp trên nền tảng.
-  Nếu bạn cần một lượng lớn trường hợp đặc biệt, thì việc sử dụng một SDK hoặc API chuyên dụng cho mỗi nền tảng có thể mang lại nhiều giá trị hơn.
+- **Limites des fonctionnalités** : la couche de compatibilité impose des limites aux capacités Gemini de base. Les outils côté serveur disponibles diffèrent selon les plates-formes et peuvent nécessiter une gestion manuelle pour fonctionner avec les outils de l'API Gemini.
+- **Surcharge de traduction** : comme le schéma OpenAI ne correspond pas exactement à l'architecture de Gemini, le recours à la couche de compatibilité introduit certaines complexités qui nécessitent un travail d'implémentation supplémentaire pour être résolues, comme le mappage d'un outil de "recherche" utilisateur à l'outil de plate-forme approprié.
+  Si vous avez besoin d'un grand nombre de cas particuliers, il peut être plus intéressant d'utiliser un SDK ou une API dédiés pour chaque plate-forme.
 
-**Phương pháp hay nhất**
+**Bonne pratique**
 
-Khi có thể, hãy tích hợp trực tiếp với Gemini API. Tuy nhiên, để có khả năng tương thích tối đa, hãy cân nhắc sử dụng một thư viện nhận biết các nhà cung cấp khác nhau và có thể xử lý việc ánh xạ công cụ và thông báo cho bạn.
+Si possible, intégrez directement l'API Gemini. Toutefois, pour une compatibilité maximale, envisagez d'utiliser une bibliothèque qui connaît les différents fournisseurs et qui peut gérer le mappage des outils et des messages pour vous.
 
-## Phương pháp hay nhất cho tất cả đối tác: nhận dạng khách hàng
+## Bonne pratique pour tous les partenaires : identification du client
 
-Khi gọi Gemini API dưới dạng một nền tảng hoặc thư viện, bạn phải xác định ứng dụng của mình bằng tiêu đề `x-goog-api-client`.
+Lorsque vous appelez l'API Gemini en tant que plate-forme ou bibliothèque, vous devez identifier votre client à l'aide de l'en-tête `x-goog-api-client`.
 
-Điều này cho phép Google xác định các phân khúc lưu lượng truy cập cụ thể của bạn và nếu thư viện của bạn đang tạo ra một mẫu lỗi cụ thể, chúng tôi có thể liên hệ để giúp bạn gỡ lỗi.
+Cela permet à Google d'identifier vos segments de trafic spécifiques. Si votre bibliothèque produit un modèle d'erreur spécifique, nous pouvons vous contacter pour vous aider à le déboguer.
 
-Sử dụng định dạng `company-product/version` (ví dụ: `acme-framework/1.2.0`).
+Utilisez le format `company-product/version` (par exemple, `acme-framework/1.2.0`).
 
-### Ví dụ về cấu hình triển khai
+### Exemples d'intégration
 
-### SDK AI tạo sinh
+### SDK GenAI
 
-Bằng cách cung cấp ứng dụng API, SDK sẽ tự động thêm tiêu đề tuỳ chỉnh của bạn vào tiêu đề nội bộ.
+En fournissant le client API, le SDK ajoute automatiquement votre en-tête personnalisé à ses en-têtes internes.
 
 ```
 from google import genai
@@ -152,7 +152,7 @@ client = genai.Client(
 )
 ```
 
-### Direct API (REST)
+### API directe (REST)
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
@@ -175,18 +175,18 @@ client = OpenAI(
 )
 ```
 
-## Các bước tiếp theo
+## Étapes suivantes
 
-- Truy cập vào [phần tổng quan về thư viện](https://ai.google.dev/gemini-api/docs/libraries?hl=vi) để tìm hiểu về các SDK GenAI
-- Xem [tài liệu tham khảo API](https://ai.google.dev/api?hl=vi)
-- Đọc [hướng dẫn về khả năng tương thích với OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi)
+- Consultez la [présentation de la bibliothèque](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour en savoir plus sur les SDK GenAI.
+- Parcourir la [documentation de référence de l'API](https://ai.google.dev/api?hl=fr)
+- Consultez le [guide de compatibilité OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=fr).
 
-Gửi ý kiến phản hồi
+Envoyer des commentaires
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Cập nhật lần gần đây nhất: 2026-05-19 UTC.
+Dernière mise à jour le 2026/05/19 (UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/19 (UTC)."],[],[]]

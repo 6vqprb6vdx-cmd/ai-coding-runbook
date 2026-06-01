@@ -1,46 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=he
-fetched_at: 2026-05-25T12:57:37.689739+00:00
-title: "\u05ea\u05d2\u05d5\u05d1\u05d5\u05ea \u05dc\u05e4\u05e2\u05d5\u05dc\u05d4 \u05de\u05d0\u05ea\u05e8 \u05d0\u05d7\u05e8 (webhook) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=pt-BR
+fetched_at: 2026-06-01T19:41:45.824366+00:00
+title: "Webhooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-שליחת משוב
+Envie comentários
 
-# תגובות לפעולה מאתר אחר (webhook)
+# Webhooks
 
-תגובות לפעולה מאתר אחר (webhook) מאפשרות ל-Gemini API לשלוח התראות בזמן אמת לשרת שלכם כשפעולות אסינכרוניות או פעולות ארוכות טווח (LRO) מסתיימות. השינוי הזה מייתר את הצורך לדגום את ה-API כדי לקבל עדכוני סטטוס, וכך מקטין את זמן הטעינה ואת התקורה.
+Os webhooks permitem que a API Gemini envie notificações em tempo real ao seu servidor quando operações assíncronas ou de longa duração (LROs, na sigla em inglês) são concluídas. Isso substitui a necessidade de consultar a API para atualizações de status, reduzindo a latência e a sobrecarga.
 
-אפשר להשתמש ב-Webhooks לפעולות כמו משימות [Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=he), [אינטראקציות](https://ai.google.dev/gemini-api/docs/interactions?hl=he) ו[יצירת סרטונים](https://ai.google.dev/gemini-api/docs/video?hl=he).
+Os webhooks estão disponíveis para operações como [jobs em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br),
+[interações](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br) e [geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br).
 
-## איך זה עובד
+## Como funciona
 
-במקום לבצע סקר `GET /operations` שוב ושוב כדי לבדוק אם משימה הסתיימה, אפשר להגדיר Webhooks של Gemini API כדי לשלוח בקשת HTTP POST לכתובת ה-URL של מאזין מיד כשמופעל אירוע.
+Em vez de consultar `GET /operations` repetidamente para verificar se um job foi concluído, você pode configurar os webhooks da API Gemini para enviar uma solicitação HTTP POST ao URL do listener imediatamente após um acionador de evento.
 
-‫Gemini API תומך בשתי דרכים להגדרת ווּבְהוּקים:
+A API Gemini oferece duas maneiras de configurar webhooks:
 
-- ‫[**Static webhooks**](#static-webhooks): נקודות קצה ברמת הפרויקט שהוגדרו באמצעות [Gemini WebhookService API](https://ai.google.dev/api?hl=he). מתאים לשילובים גלובליים (לדוגמה, שליחת התראות ל-Slack, סנכרון של מסד נתונים וכו').
-- [**וווב-הוקים דינמיים**](#dynamic-webhooks): שינויים ברמת הבקשה שמעבירים webhook URL במטען הייעודי (payload) של ההגדרה של קריאה ספציפית למשרות. הסוג הזה אידיאלי לניתוב משימות ספציפיות לנקודות קצה ייעודיות.
+- [**Webhooks estáticos**](#static-webhooks): endpoints no nível do projeto configurados
+  com a API Gemini [WebhookService](https://ai.google.dev/api?hl=pt-br). Indicado para integrações globais (por exemplo, notificar o Slack, sincronizar um banco de dados etc.).
+- [**Webhooks dinâmicos**](#dynamic-webhooks): substituições no nível da solicitação que transmitem um URL do webhook no payload de configuração de uma chamada de jobs específica. Ideal para rotear jobs específicos para endpoints dedicados.
 
-## Webhooks סטטיים
+## Webhooks estáticos
 
-הודעות webhook סטטיות נרשמות ל[פרויקט](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) שלם ומופעלות לכל אירוע תואם.
+Os webhooks estáticos são registrados para um [projeto](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) inteiro e acionados para qualquer evento
+correspondente.
 
-### יצירת webhook
+### Criar um webhook
 
-אפשר ליצור נקודות קצה באמצעות ה-SDK או ה-REST API.
+É possível criar endpoints usando o SDK ou a API REST.
 
-**חשוב**: כשיוצרים webhook, ה-API מחזיר **סוד חתימה**
-**רק פעם אחת**. כדי לאמת חתימות בהמשך, צריך לאחסן את המפתח הזה בצורה מאובטחת (למשל, במשתני הסביבה). אם תאבדו את הסוד לחתימה, תצטרכו [לשנות](#rotate-signing-secret) אותו.
+**IMPORTANTE**: ao criar um webhook, a API retorna um **secret de assinatura**
+**apenas uma vez**. Você precisa armazená-lo com segurança (por exemplo, nas variáveis de ambiente) para verificar as assinaturas mais tarde. Se você perder o secret de assinatura, será necessário
+[rotacioná-lo](#rotate-signing-secret).
 
 ### Python
 
@@ -96,11 +100,12 @@ curl -X POST \
   }'
 ```
 
-פרטים על הגדרת השרת לקבלת נתונים מופיעים בקטע [טיפול בבקשות של webhook](#handle-webhook-requests).
+Para detalhes sobre como configurar o servidor para receber dados, consulte a
+[seção Processar solicitações de webhook](#handle-webhook-requests).
 
-### קבלת webhook
+### Receber um webhook
 
-אחזור פרטים על webhook ספציפי לפי שם המשאב שלו.
+Recupere detalhes sobre um webhook específico pelo nome do recurso.
 
 ### Python
 
@@ -142,9 +147,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### הצגת רשימה של webhooks
+### Listar webhooks
 
-הצגת רשימה של כל ה-webhook שהוגדרו בפרויקט הנוכחי, עם אפשרות להצגה בדפים.
+Liste todos os webhooks configurados para o projeto atual, com paginação opcional.
 
 ### Python
 
@@ -185,9 +190,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### עדכון webhook
+### Atualizar um webhook
 
-עדכון של מאפיינים של webhook קיים, כמו השם לתצוגה, ה-URI של היעד או האירועים שנרשמו.
+Atualize as propriedades de um webhook existente, como o nome de exibição, o URI de destino ou os eventos inscritos.
 
 ### Python
 
@@ -237,9 +242,9 @@ curl -X PATCH \
   }'
 ```
 
-### מחיקת webhook
+### Excluir um webhook
 
-הסרה של נקודת קצה של webhook מהפרויקט. הפעולה הזו תפסיק את העברת האירועים העתידיים לנקודת הקצה הזו.
+Remova um endpoint de webhook do projeto. Isso interrompe as entregas de eventos futuras para esse endpoint.
 
 ### Python
 
@@ -277,11 +282,12 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### סיבוב של סוד חתימה
+### Rotacionar um secret de assinatura
 
-סיבוב של ערך ה-Secret לחתימה של webhook. אתם יכולים להגדיר אם סודות שהיו פעילים בעבר יבוטלו באופן מיידי או אחרי תקופת חסד של 24 שעות.
+Rotacione o secret de assinatura de um webhook. É possível configurar se os secrets ativos anteriormente serão revogados imediatamente ou após um período de carência de 24 horas.
 
-**חשוב**: הסוד החדש לחתימה מוחזר **רק פעם אחת** בזמן הרוטציה. חשוב לשמור אותו במקום בטוח לפני שמעדכנים את לוגיקת האימות.
+**IMPORTANTE**: o novo secret de assinatura é retornado **apenas uma vez** no momento da rotação
+time. Armazene-o com segurança antes de atualizar a lógica de verificação.
 
 ### Python
 
@@ -334,13 +340,14 @@ curl -X POST \
   }'
 ```
 
-### טיפול בבקשות webhook בשרת
+### Processar solicitações de webhook em um servidor
 
-כשמתרחש אירוע שנרשמתם לקבלת עדכונים לגביו, כתובת ה-URL של ה-webhook תקבל בקשת HTTP POST. נקודת הקצה צריכה להגיב עם קוד סטטוס 2xx תוך כמה שניות כדי למנוע ניסיון חוזר. כדי להבטיח את המסירה, Gemini API מבצע אוטומטית ניסיון חוזר של בקשות שנכשלו למשך 24 שעות באמצעות השהיה מעריכית לפני ניסיון חוזר (exponential backoff).
+Quando um evento ao qual você está inscrito acontece, o URL do webhook recebe uma solicitação HTTP POST. O endpoint precisa responder com um código de status 2xx em alguns segundos para evitar uma nova tentativa. Para garantir a entrega, a API Gemini tenta novamente as solicitações com falha automaticamente por 24 horas usando a espera exponencial.
 
-‫Gemini פועל בהתאם למפרט [Standard Webhooks](https://github.com/standard-webhooks/standard-webhooks) לגבי כותרות אבטחה. מאמתים את מטען הנתונים בשרת באמצעות החתימות של הכותרת החתומה והסוד הסטטי לחתימה ששמור אצלכם. מידע על מטען הייעודי זמין בקטע [מעטפת ה-Webhook](#webhook-envelope).
+O Gemini segue rigorosamente a especificação de [webhooks padrão](https://github.com/standard-webhooks/standard-webhooks) para
+cabeçalhos de segurança. Verifique o payload no servidor usando as assinaturas de cabeçalho assinadas e o secret de assinatura estático armazenado. Consulte a seção [Envelope de webhook](#webhook-envelope) para informações sobre o payload.
 
-דוגמה לשימוש ב-Flask בשביל מאזין HTTP:
+Confira um exemplo usando o Flask para o listener HTTP:
 
 ### Python
 
@@ -429,13 +436,14 @@ app.listen(8000, () => {
 });
 ```
 
-## ווּבקוקים דינמיים
+## Webhooks dinâmicos
 
-בעזרת וווב-הוקים דינמיים אפשר לקשר נקודת קצה של וווב-הוק ל**הגדרת בקשה ספציפית**, וזה אידיאלי לתורים של תיאום בין נציגים. ב-webhooks דינמיים נעשה שימוש בחתימות JWKS של מפתח ציבורי אסימטרי במקום בסודות סימטריים.
+Os webhooks dinâmicos permitem vincular um endpoint de webhook a uma **configuração de solicitação
+específica**, ideal para filas de orquestração de agentes. Os webhooks dinâmicos aproveitam as assinaturas JWKS de chave pública assimétrica em vez de secrets simétricos.
 
-### שליחת בקשה דינמית
+### Enviar uma solicitação dinâmica
 
-מוסיפים `webhook_config` כשמפעילים עבודה אסינכרונית (למשל, יצירת Batch).
+Adicione uma `webhook_config` ao acionar um job assíncrono (por exemplo, criar um lote).
 
 ### Python
 
@@ -499,9 +507,10 @@ curl -X POST \
   }'
 ```
 
-### אימות חתימות דינמיות (JWKS)
+### Verificar assinaturas dinâmicas (JWKS)
 
-בקשות דינמיות של webhook פולטות חתימה של JSON Web Token‏ (JWT). המאזין צריך לחלץ את החתימה ולאמת אותה באמצעות [נקודות הקצה של האישור הציבורי של Google](https://www.googleapis.com/oauth2/v3/certs).
+As solicitações de webhook dinâmico emitem uma assinatura JSON Web Token (JWT). O listener
+precisa extrair a assinatura e verificá-la usando os endpoints de certificado público do [Google](https://www.googleapis.com/oauth2/v3/certs).
 
 ### Python
 
@@ -602,11 +611,11 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 });
 ```
 
-## מעטפת webhook
+## Envelope de webhook
 
-כדי למנוע עומס על רוחב הפס, Gemini משתמש במודל **מטען ייעודי דליל** של וווב-הוק כדי להעביר נתונים. במקום קובץ הפלט הגולמי, נשלח snapshot שמכיל פרטי סטטוס ונקודות להפניה לתוצאות.
+Para evitar a congestionamento da largura de banda, os webhooks do Gemini usam um modelo de **payload fino** para entregar dados. As entregas enviam um snapshot que contém detalhes de status e indicadores para resultados, em vez do arquivo de saída bruto.
 
-דוגמה לפורמט של מטען ייעודי (payload):
+Confira um exemplo de formato de payload:
 
 ```
 {
@@ -620,41 +629,42 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 }
 ```
 
-## מידע על קטלוג האירועים
+## Referência do catálogo de eventos
 
-האירועים הבאים מופעלים עבור משימות תומכות:
+Os eventos a seguir são acionados para jobs de suporte:
 
-| סוג אירוע | טריגר | פריט מטען ייעודי (`data`) |
+| Tipo de evento | Gatilho | Item de payload (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | העיבוד הסתיים בהצלחה. | `id`, `output_file_uri` |
-| `batch.cancelled` | המשתמש ביטל את הבקשה | `id` |
-| `batch.expired` | העיבוד של החבילה לא הסתיים תוך 24 שעות | `id` |
-| `batch.failed` | משימה באצווה נכשלה (שגיאת מערכת או שגיאת אימות). | `id`,‏ `error_code`,‏ `error_message` |
-| `interaction.requires_action` | בקשה להפעלת פונקציה, המשתמש צריך לעשות משהו | `id` |
-| `interaction.completed` | הפעולה LRO ב-API של האינטראקציות בוצעה בהצלחה | `id` |
-| `interaction.failed` | הפעולה LRO ב-Interactions API נכשלה (שגיאת מערכת או שגיאת אימות). | `id`,‏ `error_code`,‏ `error_message` |
-| `interaction.cancelled` | בוטלה פעולת LRO בממשק API של אינטראקציות | `id` |
-| `video.generated` | תהליך יצירת הסרטון LRO הושלם. | `id`,‏ `output_file_uri`,‏ `file_name` |
+| `batch.succeeded` | O processamento foi concluído. | `id`, `output_file_uri` |
+| `batch.cancelled` | O usuário cancelou a solicitação | `id` |
+| `batch.expired` | O lote não foi processado (concluído) em um período de 24 horas | `id` |
+| `batch.failed` | Falha no job em lote (erro de sistema ou validação). | `id`, `error_code`, `error_message` |
+| `interaction.requires_action` | Chamada de função, o usuário precisa fazer algo | `id` |
+| `interaction.completed` | LRO na API Interactions foi concluído | `id` |
+| `interaction.failed` | LRO na API Interactions falhou (erro de sistema ou validação). | `id`, `error_code`, `error_message` |
+| `interaction.cancelled` | LRO na API Interactions foi cancelado | `id` |
+| `video.generated` | LRO de geração de vídeo concluído. | `id`, `output_file_uri`, `file_name` |
 
-## שיטות מומלצות
+## Práticas recomendadas
 
-כדי להבטיח פעולה אמינה וניתנת להרחבה:
+Para garantir uma operação confiável e escalonável:
 
-- **בדיקה קפדנית של הגנה מפני שידור חוזר**: כל הבקשות כוללות `webhook-timestamp`
-  כותרת. חשוב תמיד לאמת את חותמת הזמן הזו בשכבת הגדרות השרת כדי לדחות נתוני payload שגילם יותר מ-**5 דקות** (כדי לצמצם את הסיכון למתקפות שידור חוזר).
-- **עיבוד אסינכרוני**: תגובה עם `2xx OK` מיד לאחר זיהוי חתימה תקינה, והוספה לתור של פעולות ניתוח באופן פנימי. זמני המתנה ארוכים של המאזינים יפעילו מחזור של ניסיונות מסירה.
-- **טיפול בהסרת כפילויות**: וווב-הוקים רגילים מספקים 'לפחות פעם אחת'. כדאי להשתמש בכותרת `webhook-id` העקבית כדי לטפל בכפילויות פוטנציאליות בזרימות עם עומס גבוה יותר.
+- **Verificação rigorosa de proteção de repetição**: todas as solicitações têm um `webhook-timestamp`
+  cabeçalho. Sempre valide esse carimbo de data/hora na camada de configuração do servidor para rejeitar payloads com mais de **5 minutos** (para mitigar ataques de repetição).
+- **Processar de forma assíncrona**: responda com `2xx OK` imediatamente após a detecção de uma assinatura válida
+  e coloque as operações de análise na fila internamente. Tempos de espera prolongados do listener vão acionar um ciclo de nova tentativa de entrega.
+- **Processamento de desduplicação**: os webhooks padrão entregam "pelo menos uma vez". Use o cabeçalho `webhook-id` consistente para processar possíveis duplicados em fluxos de congestionamento mais altos.
 
-## מה השלב הבא?
+## A seguir
 
-- ‫[Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=he): שימוש ב-webhook כדי לבצע אוטומציה של נקודות קצה עם נפח גבוה.
+- [API Batch](https://ai.google.dev/gemini-api/docs/batch?hl=pt-br): use webhooks para automatizar endpoints de alto volume.
 
-שליחת משוב
+Envie comentários
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-עדכון אחרון: 2026-05-19 (שעון UTC).
+Última atualização 2026-05-19 UTC.
 
-רוצה לתת לנו משוב?
+Quer enviar seu feedback?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-19 (שעון UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]

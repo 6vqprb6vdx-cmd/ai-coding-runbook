@@ -1,125 +1,147 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=tr
-fetched_at: 2026-05-25T13:07:18.013155+00:00
-title: "G\u00fcvenlik ve do\u011frulukla ilgili rehber \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ar
+fetched_at: 2026-06-01T19:46:16.776294+00:00
+title: "\u0625\u0631\u0634\u0627\u062f\u0627\u062a \u0627\u0644\u0633\u0644\u0627\u0645\u0629 \u0648\u0627\u0644\u062f\u0642\u0629 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-# Güvenlik ve doğrulukla ilgili rehber
+# إرشادات السلامة والدقة
 
-Üretken yapay zeka modelleri güçlü araçlar olsa da sınırlamaları vardır. Çok yönlülükleri ve uygulanabilirlikleri bazen yanlış, taraflı veya rahatsız edici gibi beklenmedik sonuçlara yol açabilir. Bu tür çıkışlardan kaynaklanan zarar riskini sınırlamak için sonradan işleme ve titiz bir manuel değerlendirme gereklidir.
+تعدّ نماذج الذكاء الاصطناعي التوليدي أدوات قوية، ولكنّها ليست خالية من القيود. فقد يؤدي تنوّعها وقابليتها للتطبيق أحيانًا إلى نتائج غير متوقّعة، مثل النتائج غير الدقيقة أو المتحيّزة أو المسيئة. لذلك، من الضروري إجراء معالجة لاحقة وتقييم يدوي دقيق للحدّ من خطر الضرر الناتج عن هذه النتائج.
 
-Gemini API tarafından sağlanan modeller, çok çeşitli üretken yapay zeka ve doğal dil işleme (NLP) uygulamalarında kullanılabilir. Bu işlevler yalnızca Gemini API veya Google AI Studio web uygulaması üzerinden kullanılabilir. Gemini API'yi kullanımınız [Üretken Yapay Zeka Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr) ve [Gemini API Hizmet Şartları](https://ai.google.dev/terms?hl=tr)'na tabidir.
+يمكن استخدام النماذج التي توفّرها Gemini API في مجموعة كبيرة من تطبيقات الذكاء الاصطناعي التوليدي ومعالجة اللغة الطبيعية (NLP). ولا يمكن استخدام هذه
+الوظائف إلا من خلال Gemini API أو تطبيق الويب Google AI Studio. يخضع استخدامك لـ Gemini API أيضًا لـ [سياسة الاستخدام المحظور للذكاء الاصطناعي التوليدي](https://policies.google.com/terms/generative-ai/use-policy?hl=ar) و
+[بنود خدمة Gemini API](https://ai.google.dev/terms?hl=ar).
 
-Büyük dil modellerini (LLM'ler) bu kadar kullanışlı kılan özelliklerden biri, birçok farklı dil görevini ele alabilen yaratıcı araçlar olmalarıdır. Maalesef bu durum, büyük dil modellerinin rahatsız edici, duyarsız veya olgusal olarak yanlış metinler de dahil olmak üzere beklemediğiniz çıktılar üretebileceği anlamına da gelir.
-Ayrıca, bu modellerin inanılmaz çok yönlülüğü, tam olarak ne tür istenmeyen çıktılar üretebileceklerini tahmin etmeyi de zorlaştırır. Gemini API, [Google'ın yapay zeka ilkeleri](https://ai.google/principles/?hl=tr) göz önünde bulundurularak tasarlanmış olsa da bu modelleri sorumlu bir şekilde uygulamak geliştiricilerin sorumluluğundadır. Gemini API, geliştiricilerin güvenli ve sorumlu uygulamalar oluşturmasına yardımcı olmak için yerleşik içerik filtreleme ve 4 zarar boyutunda ayarlanabilir güvenlik ayarları sunar. Daha fazla bilgi edinmek için [güvenlik ayarları](https://ai.google.dev/gemini-api/docs/safety-settings?hl=tr) kılavuzuna bakın. Ayrıca, doğruluk oranını artırmak için Google Arama ile Temellendirme özelliği de sunar. Ancak bu özellik, kullanım alanları daha yaratıcı olan ve bilgi edinmeye yönelik olmayan geliştiriciler için devre dışı bırakılabilir.
+من بين الأسباب التي تجعل النماذج اللغوية الكبيرة (LLMs) مفيدة جدًا أنّها أدوات إبداعية يمكنها معالجة العديد من مهام اللغة المختلفة. ولكن هذا يعني أيضًا أنّ النماذج اللغوية الكبيرة يمكنها إنشاء نتائج غير متوقّعة، بما في ذلك نصوص مسيئة أو غير مراعية أو غير صحيحة من الناحية الواقعية.
+علاوةً على ذلك، إنّ التنوّع المذهل لهذه النماذج هو أيضًا ما يجعل من الصعب توقّع أنواع النتائج غير المرغوب فيها التي قد تنتجها. على الرغم من أنّ
+Gemini API تم تصميمه مع مراعاة [مبادئ الذكاء الاصطناعي من Google](https://ai.google/principles/?hl=ar)، فإنّ مسؤولية تطبيق هذه النماذج بشكل مسؤول تقع على عاتق المطوّرين. لمساعدة المطوّرين في إنشاء تطبيقات آمنة ومسؤولة، يتضمّن Gemini API بعض ميزات فلترة المحتوى المضمّنة بالإضافة إلى إعدادات الأمان القابلة للتعديل على مستوى 4 جوانب من الضرر. [يُرجى الرجوع إلى دليل إعدادات الأمان لمزيد من المعلومات.](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar) توفّر واجهة برمجة التطبيقات أيضًا ميزة Grounding with Google Search التي تم تفعيلها لتحسين الدقة، على الرغم من أنّه يمكن إيقاف هذه الميزة للمطوّرين الذين تكون حالات استخدامهم أكثر إبداعًا ولا تهدف إلى البحث عن المعلومات.
 
-Bu belgenin amacı, LLM'leri kullanırken ortaya çıkabilecek bazı güvenlik risklerini tanıtmak ve yeni güvenlik tasarımı ve geliştirme önerilerini sunmaktır. (Yasa ve yönetmeliklerin de kısıtlamalar getirebileceğini ancak bu tür hususların bu kılavuzun kapsamı dışında olduğunu unutmayın.)
+يهدف هذا المستند إلى تعريفك ببعض المخاطر المتعلقة بالسلامة التي يمكن أن تنشأ عند استخدام النماذج اللغوية الكبيرة، وتقديم توصيات ناشئة بشأن تصميم وتطوير ميزات السلامة. (يُرجى العِلم أنّ القوانين واللوائح قد تفرض أيضًا قيودًا، ولكنّ هذه الاعتبارات خارج نطاق هذا الدليل).
 
-Büyük dil modelleriyle uygulama geliştirirken aşağıdaki adımların uygulanması önerilir:
+يُنصح باتّباع الخطوات التالية عند إنشاء تطبيقات باستخدام النماذج اللغوية الكبيرة:
 
-- Uygulamanızın güvenlik risklerini anlama
-- Güvenlik risklerini azaltmak için düzenlemeler yapma
-- Kullanım alanınıza uygun güvenlik testi yapma
-- Kullanıcılardan geri bildirim isteme ve kullanımı izleme
+- فهم المخاطر المتعلقة بالسلامة في تطبيقك
+- مراعاة التعديلات اللازمة للتخفيف من المخاطر المتعلقة بالسلامة
+- إجراء اختبارات السلامة المناسبة لحالة استخدامك
+- طلب ملاحظات من المستخدمين ومراقبة الاستخدام
 
-Uygulamanız için uygun performansa ulaşana kadar ayarlama ve test aşamaları tekrarlanmalıdır.
+يجب أن تكون مرحلتا التعديل والاختبار متكرّرتَين إلى أن تحقّق الأداء المناسب لتطبيقك.
 
-![Model uygulama döngüsü](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=tr)
+![دورة تنفيذ النموذج](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=ar)
 
-## Uygulamanızın güvenlik risklerini anlama
+## فهم المخاطر المتعلقة بالسلامة في تطبيقك
 
-Bu bağlamda güvenlik, LLM'nin kullanıcılarına zarar vermekten kaçınma yeteneği olarak tanımlanır. Örneğin, toksik dil veya kalıplaşmış düşünceleri teşvik eden içerik oluşturmaktan kaçınma. Gemini API üzerinden kullanılabilen modeller, [Google'ın Yapay Zeka İlkeleri](https://ai.google/principles/?hl=tr) dikkate alınarak tasarlanmıştır ve bu modelleri kullanımınız [Üretken Yapay Zeka Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr)'na tabidir. API, zararlı dil ve nefret söylemi gibi yaygın dil modeli sorunlarını ele almaya yardımcı olmak ve kapsayıcılığı sağlamak, klişelerden kaçınmak için yerleşik güvenlik filtreleri sunar. Ancak her uygulama, kullanıcıları için farklı riskler oluşturabilir. Bu nedenle, uygulama sahibi olarak kullanıcılarınızı ve uygulamanızın neden olabileceği olası zararları bilmekten ve uygulamanızın LLM'leri güvenli ve sorumlu bir şekilde kullanmasını sağlamaktan siz sorumlusunuz.
+في هذا السياق، يُعرَّف الأمان بأنّه قدرة النموذج اللغوي الكبير على تجنُّب إلحاق الضرر بالمستخدمين، مثلاً من خلال تجنُّب إنشاء لغة مسيئة أو محتوى يروّج للصور النمطية. تم تصميم النماذج المتاحة من خلال Gemini API مع
+مراعاة [مبادئ الذكاء الاصطناعي من Google](https://ai.google/principles/?hl=ar)،
+ويخضع استخدامك لها لـ [سياسة الاستخدام المحظور للذكاء الاصطناعي التوليدي](https://policies.google.com/terms/generative-ai/use-policy?hl=ar). توفّر واجهة برمجة التطبيقات فلاتر أمان مضمّنة للمساعدة في معالجة بعض المشاكل الشائعة في النماذج اللغوية، مثل اللغة المسيئة وكلام يحض على الكراهية، والسعي إلى تحقيق الشمولية وتجنُّب الصور النمطية. ومع ذلك، يمكن أن يطرح كل تطبيق مجموعة مختلفة من المخاطر على المستخدمين. لذلك، بصفتك مالك التطبيق، أنت مسؤول عن معرفة المستخدمين والأضرار المحتمَلة التي قد يتسبّب بها تطبيقك، وعن ضمان استخدام تطبيقك للنماذج اللغوية الكبيرة بأمان ومسؤولية.
 
-Bu değerlendirme kapsamında, zarar oluşma olasılığını göz önünde bulundurmalı, ciddiyetini ve azaltma adımlarını belirlemelisiniz. Örneğin, gerçek olaylara dayalı denemeler oluşturan bir uygulamanın, eğlence amaçlı kurgusal hikayeler oluşturan bir uygulamaya kıyasla yanlış bilgilendirmeyi önleme konusunda daha dikkatli olması gerekir. Olası güvenlik risklerini keşfetmeye başlamanın iyi bir yolu, son kullanıcılarınızı ve uygulamanızın sonuçlarından etkilenebilecek diğer kişileri araştırmaktır. Bu, uygulama alanınızdaki en yeni çalışmaları araştırma, kullanıcıların benzer uygulamaları nasıl kullandığını gözlemleme veya kullanıcı çalışması, anket yapma ya da potansiyel kullanıcılarla gayri resmi görüşmeler yapma gibi birçok şekilde olabilir.
+كجزء من هذا التقييم، عليك مراعاة احتمالية حدوث الضرر وتحديد مدى خطورته والخطوات اللازمة للتخفيف منه. على سبيل المثال، يجب أن يكون التطبيق الذي ينشئ مقالات استنادًا إلى أحداث واقعية أكثر حذرًا بشأن تجنُّب المعلومات المضلِّلة، مقارنةً بتطبيق ينشئ قصصًا خيالية لأغراض الترفيه. من الطرق الجيدة لبدء استكشاف المخاطر المحتمَلة المتعلقة بالسلامة إجراء بحث عن المستخدمين النهائيين والمستخدمين الآخرين الذين قد يتأثرون بنتائج تطبيقك. يمكن أن يتخذ هذا أشكالاً عديدة، بما في ذلك البحث عن أحدث الدراسات في مجال تطبيقك، أو مراقبة كيفية استخدام المستخدمين لتطبيقات مشابهة، أو إجراء دراسة أو استطلاع للمستخدمين، أو إجراء مقابلات غير رسمية مع المستخدمين المحتمَلين.
 
-#### Gelişmiş ipuçları
+#### نصائح متقدمة
 
-- Uygulamanız ve amaçlanan kullanımı hakkında hedef kitlenizdeki çeşitli potansiyel kullanıcılarla konuşarak olası riskler hakkında daha geniş bir bakış açısı elde edin ve çeşitlilik ölçütlerini gerektiği gibi ayarlayın.
-- ABD hükümetinin Ulusal Standartlar ve Teknoloji Enstitüsü (NIST) tarafından yayınlanan [Yapay Zeka Risk Yönetimi Çerçevesi](https://www.nist.gov/itl/ai-risk-management-framework), yapay zeka risk yönetimi için daha ayrıntılı rehberlik ve ek öğrenme kaynakları sunar.
-- DeepMind'ın [dil modellerinin neden olabileceği etik ve sosyal zararlar](https://arxiv.org/abs/2112.04359)
-  konusundaki yayını, dil modeli uygulamalarının nasıl zarara yol açabileceğini ayrıntılı olarak açıklıyor.
+- تحدَّث مع مجموعة متنوعة من المستخدمين المحتمَلين ضمن الفئة المستهدَفة عن تطبيقك والغرض المقصود منه للحصول على منظور أوسع بشأن المخاطر المحتمَلة وتعديل معايير التنوّع حسب الحاجة.
+- يوفر [إطار عمل إدارة المخاطر في الذكاء الاصطناعي](https://www.nist.gov/itl/ai-risk-management-framework) الذي أصدره المعهد الوطني للمعايير والتكنولوجيا (NIST) التابع للحكومة الأمريكية إرشادات أكثر تفصيلاً وموارد تعليمية إضافية لإدارة المخاطر في الذكاء الاصطناعي.
+- يصف منشور DeepMind حول
+  [المخاطر الأخلاقية والاجتماعية للضرر الناتج عن النماذج اللغوية](https://arxiv.org/abs/2112.04359)
+  بالتفصيل الطرق التي يمكن أن تتسبّب بها تطبيقات النماذج اللغوية
+  في إلحاق الضرر.
 
-## Güvenlik ve doğruluk risklerini azaltmak için ayarlamalar yapma
+## مراعاة التعديلات اللازمة للتخفيف من المخاطر المتعلقة بالسلامة والدقة
 
-Riskleri anladığınıza göre, bunları nasıl azaltacağınıza karar verebilirsiniz. Hangi risklere öncelik verileceğini ve bunları önlemeye çalışmak için ne kadar çaba göstermeniz gerektiğini belirlemek, bir yazılım projesindeki hataları öncelik sırasına koymaya benzer şekilde kritik bir karardır. Öncelikleri belirledikten sonra en uygun azaltma türlerini düşünmeye başlayabilirsiniz. Genellikle basit değişiklikler fark yaratabilir ve riskleri azaltabilir.
+بعد فهم المخاطر، يمكنك تحديد كيفية التخفيف منها. يُعدّ تحديد المخاطر التي يجب منحها الأولوية ومقدار الإجراءات التي يجب اتّخاذها لمحاولة منعها قرارًا بالغ الأهمية، على غرار تحديد أولويات الأخطاء في مشروع برمجي. بعد تحديد الأولويات، يمكنك البدء في التفكير في أنواع إجراءات التخفيف التي ستكون الأنسب. غالبًا ما يمكن أن تحدث تغييرات بسيطة فرقًا وتحدّ من المخاطر.
 
-Örneğin, bir uygulama tasarlarken şunları göz önünde bulundurun:
+على سبيل المثال، عند تصميم تطبيق، ننصحك بمراعاة ما يلي:
 
-- Uygulama bağlamınızda kabul edilebilir olanı daha iyi yansıtmak için **model çıkışını ayarlama**. Ayarlama, modelin çıkışını daha tahmin edilebilir ve tutarlı hale getirebilir. Bu nedenle, belirli risklerin azaltılmasına yardımcı olabilir.
-- **Daha güvenli çıkışlar sağlayan bir giriş yöntemi sunma** Bir LLM'ye verdiğiniz girişin tam olarak ne olduğu, çıktının kalitesinde fark yaratabilir.
-  Kullanım alanınızda en güvenli şekilde çalışan giriş istemlerini denemek, kullanıcı deneyimini kolaylaştıracak bir deneyim sunmanızı sağlayacağından çabaya değer. Örneğin, kullanıcıların yalnızca bir giriş istemi açılır listesinden seçim yapmasını kısıtlayabilir veya uygulama bağlamınızda güvenli bir şekilde çalıştığını tespit ettiğiniz açıklayıcı ifadeler içeren pop-up öneriler sunabilirsiniz.
-- **Güvenli olmayan girişleri engelleme ve çıkışı kullanıcıya gösterilmeden önce filtreleme** Basit durumlarda, istemlerde veya yanıtlarda güvenli olmayan kelimeleri ya da kelime öbeklerini belirleyip engellemek veya bu tür içeriklerin uzman incelemeciler tarafından manuel olarak değiştirilmesini ya da engellenmesini zorunlu kılmak için engellenenler listeleri kullanılabilir.
-- **Eğitilmiş sınıflandırıcıları kullanarak her istemi olası zararlar veya saldırgan sinyallerle etiketleme.** İsteği değerlendirirken, tespit edilen zarara bağlı olarak farklı stratejiler uygulanabilir. Örneğin, giriş son derece çekişmeli veya kötü amaçlıysa engellenebilir ve bunun yerine önceden hazırlanmış bir yanıt verilebilir.
+- **تعديل مخرجات النموذج** لتعكس بشكل أفضل ما هو مقبول في سياق تطبيقك. يمكن أن يجعل التعديل نتائج النموذج أكثر قابلية للتوقّع والاتساق، وبالتالي يمكن أن يساعد في التخفيف من مخاطر معيّنة.
+- **توفير طريقة إدخال تسهّل الحصول على نتائج أكثر أمانًا.** يمكن أن يؤدي الإدخال الدقيق الذي تقدّمه إلى النموذج اللغوي الكبير إلى إحداث فرق في جودة النتائج.
+  لذلك، ننصحك بتجربة طلبات الإدخال للعثور على ما يحقّق أفضل أداء بأمان في حالة استخدامك، لأنّه يمكنك بعد ذلك توفير تجربة مستخدم تسهّل ذلك. على سبيل المثال، يمكنك منع المستخدمين من الاختيار إلا من قائمة منسدلة لطلبات الإدخال، أو تقديم اقتراحات منبثقة تتضمّن عبارات وصفية تبيّن أنّها تحقّق أداءً آمنًا في سياق تطبيقك.
+- **حظر الإدخالات غير الآمنة وفلترة النتائج قبل عرضها للمستخدم.** في الحالات البسيطة، يمكن استخدام قوائم الحظر لتحديد الكلمات أو العبارات غير الآمنة في الطلبات أو الردود وحظرها، أو مطالبة المراجعين بتعديل هذا المحتوى أو حظره يدويًا.
+- **استخدام المصنّفات المدرَّبة لتصنيف كل طلب على أنّه يتضمّن أضرارًا محتمَلة أو إشارات مخالفة.** يمكن بعد ذلك استخدام استراتيجيات مختلفة حول كيفية معالجة الطلب استنادًا إلى نوع الضرر الذي تم رصده. على سبيل المثال، إذا كان الإدخال مخالفًا أو مسيئًا بشكل واضح، يمكن حظره وعرض ردّ مكتوب مسبقًا بدلاً منه.
 
-  #### İleri düzey ipucu
+  #### نصيحة متقدّمة
 
-  - Sinyaller, çıkışın zararlı olduğunu belirlerse uygulama aşağıdaki seçenekleri kullanabilir:
-    - Hata mesajı veya önceden hazırlanmış çıkış sağlama
-    - Aynı istem bazen farklı çıkışlar ürettiğinden, alternatif bir güvenli çıkış oluşturulması ihtimaline karşı istemi tekrar deneyin.
-- **Kasıtlı kötüye kullanıma karşı koruma önlemleri alma** (ör. her kullanıcıya benzersiz bir kimlik atama ve belirli bir dönemde gönderilebilecek kullanıcı sorgularının hacmine sınır koyma). Diğer bir önlem de olası istem enjeksiyonuna karşı koruma sağlamaya çalışmaktır. SQL enjeksiyonu gibi istem enjeksiyonu da kötü amaçlı kullanıcıların, modelin çıkışını manipüle eden bir giriş istemi tasarlamasına olanak tanır. Örneğin, modele önceki örnekleri yok saymasını söyleyen bir giriş istemi gönderilebilir. Kasıtlı hatalı kullanım hakkında ayrıntılı bilgi için [Üretken Yapay Zeka Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr)'nı inceleyin.
-- **İşlevselliği, doğası gereği daha düşük riskli bir şeye ayarlama.**
-  Kapsamı daha dar olan (ör. metin parçalarından anahtar kelimeler çıkarma) veya daha fazla insan gözetimi olan (ör. bir insan tarafından incelenecek kısa içerik oluşturma) görevler genellikle daha düşük risk taşır. Örneğin, sıfırdan e-posta yanıtı yazmak için uygulama oluşturmak yerine, uygulamayı taslağı genişletmek veya alternatif ifadeler önermekle sınırlayabilirsiniz.
-- **Zararlı içerik güvenlik ayarlarını, zararlı olabilecek yanıtları görme olasılığınızı azaltacak şekilde ayarlama** Gemini API, prototip oluşturma aşamasında ayarlayabileceğiniz güvenlik ayarları sunar. Bu ayarlar, uygulamanızın daha kısıtlayıcı veya daha az kısıtlayıcı bir güvenlik yapılandırması gerektirip gerektirmediğini belirlemenize yardımcı olur. Belirli içerik türlerini kısıtlamak veya bunlara izin vermek için bu ayarları beş filtre kategorisinde ayarlayabilirsiniz. Gemini API aracılığıyla kullanılabilen ayarlanabilir güvenlik ayarları hakkında bilgi edinmek için [güvenlik ayarları kılavuzuna](https://ai.google.dev/gemini-api/docs/safety-settings?hl=tr) bakın.
-- **Google Arama ile Temellendirme'yi etkinleştirerek olası bilgi yanlışlarını veya halüsinasyonları azaltın**. Birçok yapay zeka modelinin deneme aşamasında olduğunu ve olgusal olarak yanlış bilgiler sunabileceğini, halüsinasyonlar üretebileceğini veya başka şekillerde sorunlu çıktılar oluşturabileceğini unutmayın. Google Arama ile Temellendirme özelliği, Gemini modelini gerçek zamanlı web içeriğine bağlar ve mevcut tüm dillerde çalışır. Bu sayede Gemini, daha doğru yanıtlar verebilir ve modellerin son güncel bilgi tarihinin ötesinde doğrulanabilir kaynaklardan alıntı yapabilir.
+  - إذا كانت الإشارات تحدّد أنّ النتائج ضارّة،
+    يمكن أن يستخدم التطبيق الخيارات التالية:
+    - عرض رسالة خطأ أو نتائج مكتوبة مسبقًا
+    - إعادة تجربة الطلب، في حال إنشاء نتيجة آمنة بديلة، لأنّ الطلب نفسه قد يؤدي أحيانًا إلى نتائج مختلفة
+- **وضع إجراءات وقائية ضد إساءة الاستخدام المتعمدة** ، مثل تخصيص معرّف فريد لكل مستخدم وفرض حدّ على عدد طلبات المستخدمين التي يمكن إرسالها في فترة معيّنة. من الإجراءات الوقائية الأخرى محاولة الحماية من إمكانية حقن الطلبات. إنّ حقن الطلبات، على غرار حقن تعليمات برمجية في SQL، هو طريقة يمكن للمستخدمين الضارين من خلالها تصميم طلب إدخال يؤدي إلى التلاعب بنتائج النموذج، مثلاً من خلال إرسال طلب إدخال يطلب من النموذج تجاهُل أي أمثلة سابقة. يُرجى الاطّلاع على
+  [سياسة الاستخدام المحظور للذكاء الاصطناعي التوليدي](https://policies.google.com/terms/generative-ai/use-policy?hl=ar)
+  للحصول على تفاصيل حول إساءة الاستخدام المتعمدة.
+- **تعديل الوظائف لتصبح أقل خطورة بطبيعتها.**
+  غالبًا ما تكون المهام ذات النطاق الأضيق (مثل استخراج الكلمات الرئيسية من فقرات نصية) أو التي تخضع لإشراف بشري أكبر (مثل إنشاء محتوى قصير سيراجعه شخص) أقل خطورة. على سبيل المثال، بدلاً من إنشاء تطبيق لكتابة ردّ على رسالة إلكترونية من البداية، يمكنك بدلاً من ذلك قصر استخدامه على توسيع مخطط أو اقتراح عبارات بديلة.
+- **تعديل إعدادات الأمان للمحتوى الضار لتقليل احتمالية ظهور ردود قد تكون ضارّة.** توفّر Gemini API إعدادات أمان يمكنك تعديلها خلال مرحلة إنشاء النموذج الأولي لتحديد ما إذا كان تطبيقك يتطلب إعدادات أمان أكثر أو أقل تقييدًا. يمكنك تعديل هذه الإعدادات على مستوى خمس فئات من الفلاتر لتقييد أنواع معيّنة من المحتوى أو السماح بها. يُرجى الرجوع إلى [دليل إعدادات الأمان](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar) للتعرّف على
+  إعدادات الأمان القابلة للتعديل المتاحة من خلال Gemini API.
+- **تقليل الأخطاء الواقعية المحتمَلة أو الهلوسات من خلال تفعيل ميزة تحديد المصدر من خلال "بحث Search"**. يُرجى العِلم أنّ العديد من نماذج الذكاء الاصطناعي تجريبية وقد تقدّم معلومات غير دقيقة من الناحية الواقعية أو تهلوس أو تنتج نتائج أخرى إشكالية. تربط ميزة تحديد المصدر من خلال "بحث Search" نموذج Gemini بمحتوى على الويب في الوقت الفعلي وتعمل مع جميع اللغات المتاحة. يسمح ذلك لـ Gemini بتقديم إجابات أكثر دقة والاستشهاد بمصادر يمكن التحقّق منها تتجاوز تاريخ آخر تحديث للبيانات للنماذج.
 
-## Kullanım alanınıza uygun güvenlik testi yapın.
+## إجراء اختبارات السلامة المناسبة لحالة استخدامك
 
-Test etme, sağlam ve güvenli uygulamalar oluşturmanın önemli bir parçasıdır ancak testlerin kapsamı, ölçeği ve stratejileri farklılık gösterir. Örneğin, yalnızca eğlence amaçlı bir haiku oluşturma aracı, hukuk firmaları tarafından yasal belgeleri özetlemek ve sözleşme taslakları hazırlamak için kullanılmak üzere tasarlanmış bir uygulamaya kıyasla daha az ciddi riskler oluşturması muhtemeldir. Ancak haiku oluşturucu daha çeşitli kullanıcılar tarafından kullanılabileceğinden, kötü niyetli girişimler veya istenmeden girilen zararlı girişler daha fazla olabilir. Uygulama bağlamı da önemlidir. Örneğin, herhangi bir işlem yapılmadan önce çıkışları uzmanlar tarafından incelenen bir uygulamanın, aynı uygulamanın bu tür bir gözetim olmadan zararlı çıkışlar üretme olasılığı daha düşük olabilir.
+يُعدّ الاختبار جزءًا أساسيًا من إنشاء تطبيقات قوية وآمنة، ولكن سيختلف مدى الاختبار ونطاقه واستراتيجياته. على سبيل المثال، من المرجّح أن يكون مولّد قصائد الهايكو الذي يهدف إلى الترفيه فقط أقل خطورة من تطبيق مصمّم مثلاً لاستخدامه من قِبل مكاتب المحاماة لتلخيص المستندات القانونية والمساعدة في صياغة العقود. ولكن قد يستخدم مولّد قصائد الهايكو مجموعة أكبر من المستخدمين، ما يعني أنّ احتمالية محاولات المستخدمين الضارين أو حتى إدخال بيانات ضارّة غير مقصودة يمكن أن تكون أكبر. يُعدّ سياق التنفيذ مهمًا أيضًا. على سبيل المثال، قد يُعتبر تطبيق تتم مراجعة نتائجه من قِبل خبراء بشريين قبل اتّخاذ أي إجراء أقل احتمالية لإنتاج نتائج ضارّة من التطبيق نفسه بدون هذا الإشراف.
 
-Nispeten düşük riskli uygulamalar için bile, yayınlamaya hazır olduğunuzdan emin olmadan önce değişiklik yapma ve test etme sürecini birkaç kez tekrarlamanız gerekebilir. Yapay zeka uygulamaları için özellikle iki tür test yararlıdır:
+من الشائع إجراء عدة تكرارات لإجراء تغييرات واختبارها قبل التأكّد من أنّك مستعد للإطلاق، حتى بالنسبة إلى التطبيقات التي تكون منخفضة المخاطر نسبيًا. هناك نوعان من الاختبارات مفيدان بشكل خاص لتطبيقات الذكاء الاصطناعي:
 
-- **Güvenlik karşılaştırması**, uygulamanızın muhtemel kullanım şekli bağlamında güvenli olmayabileceği yolları yansıtan güvenlik metrikleri tasarlamayı ve ardından değerlendirme veri kümelerini kullanarak uygulamanızın bu metriklerde ne kadar iyi performans gösterdiğini test etmeyi içerir. Test etmeden önce güvenlik metriklerinin kabul edilebilir minimum düzeylerini düşünmek iyi bir uygulamadır. Böylece 1) test sonuçlarını bu beklentilere göre değerlendirebilir ve 2) değerlendirme veri kümesini, en çok önem verdiğiniz metrikleri değerlendiren testlere göre toplayabilirsiniz.
+- **قياس الأداء في ما يتعلق بالسلامة** : يتضمّن تصميم مقاييس السلامة التي تعكس الطرق التي يمكن أن يكون بها تطبيقك غير آمن في سياق كيفية استخدامه المحتمَلة، ثم اختبار مدى جودة أداء تطبيقك في ما يتعلق بالمقاييس باستخدام مجموعات بيانات التقييم. من الممارسات الجيدة التفكير في الحد الأدنى من المستويات المقبولة لمقاييس السلامة قبل الاختبار حتى تتمكّن من 1) تقييم نتائج الاختبار مقارنةً بهذه التوقعات و2) جمع مجموعة بيانات التقييم استنادًا إلى الاختبارات التي تقيِّم المقاييس التي تهمّك أكثر.
 
-  #### Gelişmiş ipuçları
+  #### نصائح متقدمة
 
-  - Uygulamanızın bağlamına tam olarak uyması için kendi test veri kümelerinizi insan derecelendirme uzmanlarını kullanarak oluşturmanız gerekeceğinden, "hazır" yaklaşımlara aşırı güvenmekten kaçının.
-  - Birden fazla metriğiniz varsa bir değişiklik bir metrikte iyileşmeye yol açarken başka bir metrikte kötüleşmeye neden olursa nasıl bir denge kuracağınıza karar vermeniz gerekir. Diğer performans mühendisliği çalışmalarında olduğu gibi, değerlendirme kümenizde ortalama performans yerine en kötü durumdaki performansa odaklanmak isteyebilirsiniz.
-- **Çekişmeli test**, uygulamanızı proaktif bir şekilde bozmaya çalışmayı içerir. Amaç, zayıf noktaları belirleyerek uygun şekilde düzeltici adımlar atmanızı sağlamaktır. Saldırgan test, uygulamanız konusunda uzman olan değerlendiricilerden önemli ölçüde zaman/çaba gerektirebilir. Ancak ne kadar çok test yaparsanız sorunları, özellikle de nadiren veya yalnızca uygulamanın tekrar tekrar çalıştırılmasından sonra ortaya çıkan sorunları tespit etme olasılığınız o kadar artar.
+  - يُرجى الحذر من الإفراط في الاعتماد على الأساليب "الجاهزة"، لأنّه من المرجّح أن تحتاج إلى إنشاء مجموعات بيانات الاختبار الخاصة بك باستخدام مقيِّمين بشريين لتناسب سياق تطبيقك تمامًا.
+  - إذا كان لديك أكثر من مقياس واحد، عليك تحديد كيفية الموازنة إذا أدّى تغيير إلى تحسينات في مقياس واحد على حساب مقياس آخر. كما هو الحال مع هندسة الأداء الأخرى، قد ترغب في التركيز على أسوأ أداء في مجموعة التقييم بدلاً من الأداء المتوسّط.
+- **الاختبارات الضارة** : تتضمّن محاولة إيقاف تطبيقك بشكل استباقي. الهدف هو تحديد نقاط الضعف حتى تتمكّن من اتّخاذ خطوات لمعالجتها حسب الاقتضاء. يمكن أن تستغرق الاختبارات الضارة وقتًا وجهدًا كبيرَين من المقيِّمين الذين لديهم خبرة في تطبيقك، ولكن كلما أجريت المزيد من الاختبارات، زادت فرصتك في رصد المشاكل، لا سيّما تلك التي تحدث نادرًا أو بعد عمليات تشغيل متكرّرة للتطبيق فقط.
 
-  - Çekişmeli test, kötü niyetli veya istemeden zararlı girişler sağlandığında nasıl davrandığını öğrenmek amacıyla bir makine öğrenimi modelini sistematik olarak değerlendirme yöntemidir:
-    - Bir girişin kötü amaçlı olabileceği durumlar: Girişin, açıkça güvenli olmayan veya zararlı bir çıkış üretecek şekilde tasarlanması (ör. bir metin oluşturma modelinden belirli bir din hakkında nefret dolu bir söylem oluşturmasını istemek).
-    - Girişin kendisi zararsız olsa da zararlı çıkış ürettiğinde (ör. bir metin oluşturma modelinden belirli bir etnik kökenden olan bir kişiyi tanımlaması istendiğinde ırkçı bir çıkış alınması) giriş istemeden zararlı olur.
-  - Bir saldırı testini standart değerlendirmeden ayıran şey, test için kullanılan verilerin bileşimidir. Saldırgan testler için modelden sorunlu çıkış elde etme olasılığı en yüksek olan test verilerini seçin. Bu, modelin davranışını olası tüm zarar türleri açısından incelemek anlamına gelir. Nadir veya alışılmadık örnekler ve güvenlik politikalarıyla ilgili uç durumlar da buna dahildir. Ayrıca, cümlelerin yapısı, anlamı ve uzunluğu gibi farklı boyutlarında çeşitlilik de içermelidir. Test veri kümesi oluştururken nelere dikkat etmeniz gerektiği hakkında daha fazla bilgi için [Google'ın yapay zekayı sorumlu bir şekilde kullanma
-    ve adaletle ilgili
-    uygulamaları](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=tr) başlıklı makaleyi inceleyebilirsiniz.
+  - الاختبارات الضارة هي طريقة لتقييم نموذج تعلُّم الآلة بشكل منهجي بهدف معرفة كيفية أدائه عند تزويده ببيانات إدخال ضارة أو غير مقصودة:
+    - قد يكون الإدخال ضارًا عندما يكون مصمّمًا بوضوح لإنتاج نتائج غير آمنة أو ضارّة، مثلاً من خلال الطلب من نموذج إنشاء النصوص إنشاء خطاب كراهية عن دين معيّن.
+    - يكون الإدخال غير مقصود عندما يكون الإدخال نفسه غير ضار، ولكنّه ينتج عنه نتائج ضارّة، مثلاً من خلال الطلب من نموذج إنشاء النصوص وصف شخص من عرق معيّن وتلقّي نتائج عنصرية.
+  - ما يميّز الاختبار الضار عن التقييم العادي هو تكوين البيانات المستخدَمة للاختبار. بالنسبة إلى الاختبارات الضارة، اختَر
+    بيانات الاختبار التي من المرجّح أن تؤدي إلى نتائج إشكالية من
+    النموذج. يعني ذلك فحص سلوك النموذج لجميع أنواع الأضرار المحتمَلة، بما في ذلك الأمثلة النادرة أو غير العادية والحالات القصوى ذات الصلة بسياسات السلامة. يجب أن يشمل ذلك أيضًا التنوّع في الجوانب المختلفة للجملة، مثل البنية والمعنى والطول. يمكنك الرجوع إلى [ممارسات الذكاء الاصطناعي المسؤول من Google
+    في
+    ما يتعلق بالإنصاف](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=ar)
+    لمزيد من التفاصيل حول ما يجب مراعاته عند إنشاء مجموعة بيانات اختبار.
 
-    #### Gelişmiş ipuçları
+    #### نصائح متقدمة
 
-    - Uygulamanızı bozmaya çalışmak için geleneksel yöntemde olduğu gibi "kırmızı takımlara" insanları dahil etmek yerine [otomatik testleri](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=tr) kullanın. Otomatik testte "kırmızı takım", test edilen modelden zararlı çıkışlar elde eden giriş metinlerini bulan başka bir dil modelidir.
+    - استخدِم
+      [الاختبارات الآلية](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=ar)
+      بدلاً من الطريقة التقليدية المتمثلة في الاستعانة بمستخدمين في "فرق حمراء"
+      لمحاولة إيقاف تطبيقك. في الاختبارات الآلية، يكون
+      "الفريق الأحمر" نموذجًا لغويًا آخر يعثر على نص إدخال يؤدي إلى نتائج ضارّة من النموذج الذي يتم اختباره.
 
-## Sorunları izleme
+## مراقبة المشاكل
 
-Ne kadar çok test edip azaltırsanız azaltın, mükemmelliği asla garanti edemezsiniz. Bu nedenle, ortaya çıkan sorunları nasıl tespit edeceğinizi ve nasıl ele alacağınızı önceden planlayın. Kullanıcıların geri bildirimlerini paylaşmaları için izlenen bir kanal oluşturmak (ör.beğeni/beğenmeme puanı) ve çeşitli kullanıcılardan proaktif olarak geri bildirim almak için bir kullanıcı çalışması yürütmek yaygın yaklaşımlar arasındadır. Bu yaklaşım, özellikle kullanım kalıpları beklentilerden farklıysa değerlidir.
+مهما كان مقدار الاختبارات وإجراءات التخفيف التي تتّخذها، لا يمكنك ضمان تحقيق الكمال، لذا عليك التخطيط مسبقًا لكيفية رصد المشاكل التي تنشأ والتعامل معها. تشمل الطرق الشائعة إعداد قناة مراقَبة ليشارك المستخدمون ملاحظاتهم (مثل التقييم بإبهام لأعلى أو لأسفل) وإجراء دراسة للمستخدمين لطلب الملاحظات بشكل استباقي من مجموعة متنوعة من المستخدمين، لا سيّما إذا كانت أنماط الاستخدام مختلفة عن التوقعات.
 
-#### Gelişmiş ipuçları
+#### نصائح متقدمة
 
-- Kullanıcılar yapay zeka ürünlerine geri bildirim verdiğinde, bu geri bildirimler yapay zeka performansını ve kullanıcı deneyimini zaman içinde önemli ölçüde iyileştirebilir. Örneğin, istem ayarlama için daha iyi örnekler seçmenize yardımcı olabilir. [Google'ın İnsan ve Yapay Zeka Rehberi](https://pair.withgoogle.com/guidebook/chapters)'ndeki
-  [Geri Bildirim ve Kontrol bölümünde](https://pair.withgoogle.com/chapter/feedback-controls/)
-  geri bildirim mekanizmaları tasarlarken dikkate alınması gereken önemli noktalar vurgulanmaktadır.
+- عندما يقدّم المستخدمون ملاحظات عن منتجات الذكاء الاصطناعي، يمكن أن يؤدي ذلك إلى تحسين أداء الذكاء الاصطناعي
+  وتجربة المستخدم بشكل كبير بمرور الوقت، مثلاً من خلال مساعدتك في اختيار أمثلة أفضل لتعديل الطلبات. يُبرز فصل
+  ["الملاحظات والتحكّم"](https://pair.withgoogle.com/chapter/feedback-controls/)
+  في [دليل "المستخدمون والذكاء الاصطناعي" من Google](https://pair.withgoogle.com/guidebook/chapters)
+  الاعتبارات الرئيسية التي يجب أخذها في الحسبان عند تصميم
+  آليات تقديم الملاحظات.
 
-## Sonraki adımlar
+## الخطوات التالية
 
-- Gemini API'de kullanılabilen ayarlanabilir güvenlik ayarları hakkında bilgi edinmek için [güvenlik ayarları](https://ai.google.dev/gemini-api/docs/safety-settings?hl=tr) kılavuzuna bakın.
-- İlk istemlerinizi yazmaya başlamak için [istemlere giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) bölümüne bakın.
+- يُرجى الرجوع إلى دليل
+  [إعدادات الأمان](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar) للتعرّف على إعدادات الأمان القابلة للتعديل المتاحة من خلال Gemini API.
+- يُرجى الاطّلاع على [مقدّمة عن كتابة الطلبات](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ar) للبدء في كتابة طلباتك الأولى.
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

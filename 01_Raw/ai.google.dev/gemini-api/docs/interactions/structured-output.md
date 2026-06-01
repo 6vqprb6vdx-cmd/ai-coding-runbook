@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-TW
-fetched_at: 2026-05-25T12:56:01.631115+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi
+fetched_at: 2026-06-01T19:39:16.306286+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-提供意見
+Gửi ý kiến phản hồi
 
-# 結構化輸出內容
+# Kết quả có cấu trúc
 
-您可以設定 Gemini 模型，生成符合所提供 JSON 結構定義的回覆。這可確保結果類型安全無虞且可預測，並簡化從非結構化文字中擷取結構化資料的程序。
+Bạn có thể định cấu hình các mô hình Gemini để tạo câu trả lời tuân thủ một JSON Schema được cung cấp. Điều này đảm bảo kết quả có thể dự đoán và an toàn về kiểu, đồng thời đơn giản hoá việc trích xuất dữ liệu có cấu trúc từ văn bản không có cấu trúc.
 
-使用結構化輸出內容非常適合：
+Sử dụng đầu ra có cấu trúc là lựa chọn lý tưởng cho:
 
-- **資料擷取：**從文字中擷取特定資訊，例如姓名和日期。
-- **結構化分類：**將文字分類到預先定義的類別。
-- **代理工作流程：**為工具或 API 產生結構化輸入內容。
+- **Trích xuất dữ liệu:** Lấy thông tin cụ thể như tên và ngày tháng từ văn bản.
+- **Phân loại có cấu trúc:** Phân loại văn bản thành các danh mục được xác định trước.
+- **Quy trình công việc dựa trên tác nhân:** Tạo thông tin đầu vào có cấu trúc cho các công cụ hoặc API.
 
-除了在 REST API 中支援 JSON 結構定義，Google GenAI SDK 也允許使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 定義結構定義。
+Ngoài việc hỗ trợ JSON Schema trong API REST, Google GenAI SDK còn cho phép xác định giản đồ bằng [Pydantic](https://docs.pydantic.dev/latest/) (Python) và [Zod](https://zod.dev/) (JavaScript).
 
-食譜擷取器
-內容審核
-遞迴結構
+Recipe Extractor
+Content Moderation
+Recursive Structures
 
-這個範例說明如何使用基本 JSON 結構定義型別 (例如 `object`、`array`、`string` 和 `integer`)，從文字中擷取結構化資料。
+Ví dụ này minh hoạ cách trích xuất dữ liệu có cấu trúc từ văn bản bằng các loại Giản đồ JSON cơ bản như `object`, `array`, `string` và `integer`.
 
 ### Python
 
@@ -197,7 +197,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**回覆範例：**
+**Ví dụ về câu trả lời:**
 
 ```
 {
@@ -225,9 +225,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## 串流結果
+## Kết quả phát trực tuyến
 
-您可以串流輸出結構化內容，在生成回覆的同時開始處理回覆。串流區塊是有效的局部 JSON 字串，可串連形成最終的 JSON 物件。
+Bạn có thể truyền trực tuyến các đầu ra có cấu trúc, cho phép bạn bắt đầu xử lý phản hồi khi phản hồi đang được tạo. Các khối được truyền trực tuyến là các chuỗi JSON hợp lệ một phần có thể được nối để tạo thành đối tượng JSON cuối cùng.
 
 ### Python
 
@@ -295,14 +295,9 @@ for await (const event of stream) {
 }
 ```
 
-## 使用工具產生結構化輸出內容
+## Đầu ra có cấu trúc bằng các công cụ
 
-Gemini 3 可讓您將結構化輸出內容與內建工具結合，包括
-[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-tw)、
-[網址內容](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)、
-[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)、
-[檔案搜尋](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=zh-tw#structured-output)和
-[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)。
+Gemini 3 cho phép bạn kết hợp Đầu ra có cấu trúc với các công cụ tích hợp, bao gồm [Bám sát nguồn bằng Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=vi), [Ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=vi), [Thực thi mã](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=vi), [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=vi#structured-output) và [Gọi hàm](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=vi).
 
 ### Python
 
@@ -395,79 +390,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 支援 JSON 結構定義
+## Hỗ trợ giản đồ JSON
 
-如要產生 JSON 物件，請使用 `text` 類型的物件 (或包含物件的陣列) 設定 `response_format`，並將其 `mime_type` 設為 `application/json`。結構定義應在 `schema` 欄位中提供。
+Để tạo một đối tượng JSON, hãy định cấu hình `response_format` bằng một đối tượng (hoặc một mảng chứa một đối tượng) thuộc loại `text` và đặt `mime_type` của đối tượng đó thành `application/json`. Bạn nên cung cấp giản đồ trong trường `schema`.
 
-Gemini 的結構化輸出模式支援部分 [JSON 結構定義](https://json-schema.org/)規格。
+Chế độ đầu ra có cấu trúc của Gemini hỗ trợ một phần của quy cách [Giản đồ JSON](https://json-schema.org/).
 
-支援的 `type` 值如下：
+Sau đây là các giá trị được hỗ trợ của `type`:
 
-- **`string`**：文字。
-- **`number`**：適用於浮點數。
-- **`integer`**：適用於整數。
-- **`boolean`**：適用於 true 或 false 值。
-- **`object`**：適用於含有鍵/值組合的結構化資料。
-- **`array`**：適用於項目清單。
-- **`null`**：如要允許屬性為空值，請在型別陣列中加入 `"null"` (例如 `{"type": ["string", "null"]}`)。
+- **`string`**: Đối với văn bản.
+- **`number`**: Đối với số dấu phẩy động.
+- **`integer`**: Đối với số nguyên.
+- **`boolean`**: Đối với giá trị đúng hoặc sai.
+- **`object`**: Đối với dữ liệu có cấu trúc có các cặp khoá-giá trị.
+- **`array`**: Đối với danh sách các mục.
+- **`null`**: Để cho phép một thuộc tính có giá trị rỗng, hãy thêm `"null"` vào mảng loại (ví dụ: `{"type": ["string", "null"]}`).
 
-這些描述性屬性有助於引導模型：
+Những thuộc tính mô tả này giúp hướng dẫn mô hình:
 
-- **`title`**：屬性的簡短說明。
-- **`description`**：房源的詳細說明。
+- **`title`**: Nội dung mô tả ngắn về một tài sản.
+- **`description`**: Nội dung mô tả dài và chi tiết hơn về một cơ sở lưu trú.
 
-### 類型專屬屬性
+### Thuộc tính cụ thể theo loại
 
-**適用於 `object` 值：**
+**Đối với các giá trị `object`:**
 
-- **`properties`**：物件，其中每個鍵都是屬性名稱，每個值都是該屬性的結構定義。
-- **`required`**：字串陣列，列出哪些屬性為必要屬性。
-- **`additionalProperties`**：控制是否允許未列於 `properties` 中的屬性。可以是布林值或結構定義。
+- **`properties`**: Một đối tượng trong đó mỗi khoá là tên thuộc tính và mỗi giá trị là một giản đồ cho thuộc tính đó.
+- **`required`**: Một mảng gồm các chuỗi, liệt kê những thuộc tính bắt buộc.
+- **`additionalProperties`**: Kiểm soát việc có cho phép các thuộc tính không có trong `properties` hay không. Có thể là một boolean hoặc một giản đồ.
 
-**適用於 `string` 值：**
+**Đối với các giá trị `string`:**
 
-- **`enum`**：列出分類工作的一組特定可能字串。
-- **`format`**：指定字串的語法，例如 `date-time`、`date`、`time`。
+- **`enum`**: Liệt kê một tập hợp cụ thể gồm các chuỗi có thể có cho các tác vụ phân loại.
+- **`format`**: Chỉ định cú pháp cho chuỗi, chẳng hạn như `date-time`, `date`, `time`.
 
-**`number` 和 `integer` 值：**
+**Đối với các giá trị `number` và `integer`:**
 
-- **`enum`**：列出特定的一組可能數值。
-- **`minimum`**：最小值 (含)。
-- **`maximum`**：最大值 (含)。
+- **`enum`**: Liệt kê một tập hợp cụ thể gồm các giá trị bằng số có thể có.
+- **`minimum`**: Giá trị tối thiểu bao gồm.
+- **`maximum`**: Giá trị tối đa (bao gồm).
 
-**適用於 `array` 值：**
+**Đối với các giá trị `array`:**
 
-- **`items`**：定義陣列中所有項目的結構定義。
-- **`prefixItems`**：定義前 N 個項目的結構定義清單，允許類似元組的結構。
-- **`minItems`**：陣列中的項目數量下限。
-- **`maxItems`**：陣列中的項目數量上限。
+- **`items`**: Xác định giản đồ cho tất cả các mục trong mảng.
+- **`prefixItems`**: Xác định danh sách giản đồ cho N mục đầu tiên, cho phép các cấu trúc giống như bộ giá trị.
+- **`minItems`**: Số lượng tối thiểu của các mục trong mảng.
+- **`maxItems`**: Số lượng tối đa của các mục trong mảng.
 
-## 結構化輸出內容與函式呼叫
+## Đầu ra có cấu trúc so với gọi hàm
 
-| 功能 | 主要用途 |
+| Tính năng | Trường hợp sử dụng chính |
 | --- | --- |
-| **結構化輸出內容** | **設定最終回覆的格式。**如要讓模型以特定格式*回答*，請使用這項功能。 |
-| **函式呼叫** | **在對話期間採取行動**。如果模型需要*請您*執行工作，才能提供最終答案，請使用這項功能。 |
+| **Đầu ra có cấu trúc** | **Định dạng câu trả lời cuối cùng.** Sử dụng khi bạn muốn *câu trả lời* của mô hình ở một định dạng cụ thể. |
+| **Lệnh gọi hàm** | **Thực hiện hành động trong cuộc trò chuyện.** Sử dụng khi mô hình cần *hỏi bạn* thực hiện một việc trước khi đưa ra câu trả lời cuối cùng. |
 
-## 最佳做法
+## Các phương pháp hay nhất
 
-- **清楚的說明：**使用 `description` 欄位指引模型。
-- **嚴格型別：**使用特定型別 (`integer`、`string`、`enum`)。
-- **提示工程：**明確指出希望模型執行的動作。
-- **驗證：**雖然輸出內容是語法正確的 JSON，但請務必在應用程式中驗證值。
-- **錯誤處理：**針對符合結構定義但語意有誤的輸出內容，導入完善的錯誤處理機制。
+- **Nội dung mô tả rõ ràng:** Sử dụng trường `description` để hướng dẫn mô hình.
+- **Nhập mạnh:** Sử dụng các loại cụ thể (`integer`, `string`, `enum`).
+- **Thiết kế câu lệnh:** Nêu rõ bạn muốn mô hình làm gì.
+- **Xác thực:** Mặc dù đầu ra là JSON có cú pháp chính xác, nhưng bạn luôn phải xác thực các giá trị trong ứng dụng của mình.
+- **Xử lý lỗi:** Triển khai biện pháp xử lý lỗi hữu ích cho các đầu ra tuân thủ giản đồ nhưng không chính xác về mặt ngữ nghĩa.
 
-## 限制
+## Các điểm hạn chế
 
-- **結構定義子集：**並非所有 JSON 結構定義功能都受到支援。
-- **結構定義複雜度：**如果結構定義過大或巢狀結構過深，可能會遭到拒絕。
+- **Tập hợp con giản đồ:** Không phải tính năng nào của Giản đồ JSON cũng được hỗ trợ.
+- **Độ phức tạp của giản đồ:** Những giản đồ quá lớn hoặc có cấu trúc lồng ghép sâu có thể bị từ chối.
 
-提供意見
+Gửi ý kiến phản hồi
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-上次更新時間：2026-05-19 (世界標準時間)。
+Cập nhật lần gần đây nhất: 2026-05-28 UTC.
 
-想進一步說明嗎？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]

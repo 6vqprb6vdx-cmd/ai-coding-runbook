@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl
-fetched_at: 2026-05-25T12:57:58.591598+00:00
-title: "Szybki start z zarz\u0105dzanymi agentami \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-TW
+fetched_at: 2026-06-01T19:38:10.712282+00:00
+title: "\u4ee3\u7ba1\u4ee3\u7406\u7a0b\u5f0f\u5feb\u901f\u5165\u9580\u5c0e\u89bd\u8ab2\u7a0b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Prześlij opinię
+提供意見
 
-# Szybki start z zarządzanymi agentami
+# 代管代理程式快速入門導覽課程
 
-Z tego przewodnika dowiesz się, jak tworzyć i używać zarządzanych agentów w interfejsie Gemini API na przykładzie [agenta Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=pl). Nawiążesz pierwsze połączenie z agentem, będziesz kontynuować wieloetapową rozmowę, przesyłać strumieniowo odpowiedź, pobierać pliki z piaskownicy i pracować z zarządzanym agentem Antigravity.
+本指南將逐步說明如何使用 [Antigravity 代理](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=zh-tw)，在 Gemini API 上建立及使用 Managed Agents。您將進行第一次代理程式呼叫、繼續多輪對話、串流回應、從沙箱下載檔案，以及使用 Antigravity 管理型代理程式。
 
-## Przeprowadź pierwszą interakcję z agentem
+## 執行首次代理互動
 
-Pojedyncze wywołanie [interfejsu Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pl) udostępnia piaskownicę Linuksa, uruchamia pętlę agenta i zwraca wynik. Zdefiniujesz 3 parametry:
+只要呼叫一次 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)，即可佈建 Linux 沙箱、執行代理程式迴圈，並傳回結果。您將定義三項參數：
 
-- Przekaż `agent` jako `"antigravity-preview-05-2026",`, czyli obecną wersję naszego predefiniowanego agenta zarządzanego ogólnego przeznaczenia.
-- Zdefiniuj `environment="remote"`, aby udostępnić nowe, świeże środowisko piaskownicy.
-- Utwórz dane wejściowe, określając, co ma robić agent.
+- 以 `"antigravity-preview-05-2026",` 形式傳遞 `agent`，這是預先定義的通用型受管理代理程式目前版本。
+- 定義 `environment="remote"`，以佈建全新的沙箱環境。
+- 建立輸入內容，定義代理程式要執行的動作。
 
 ### Python
 
@@ -80,16 +80,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Odpowiedź zwraca obiekt `Interaction`. Zapisz `interaction.id` i `interaction.environment_id`, aby kontynuować rozmowę w tym samym środowisku piaskownicy. Użyj `interaction.output_text`, aby uzyskać dostęp do ostatecznej odpowiedzi agenta. `interaction.steps` zawiera listę wszystkich kroków podjętych przez agenta (rozumowanie, wywołania narzędzi, wykonanie kodu);
+回應會傳回 `Interaction` 物件。儲存 `interaction.id` 和 `interaction.environment_id`，即可在同一個沙箱中繼續對話。使用 `interaction.output_text` 存取代理的最終回覆。`interaction.steps` 列出代理執行的每個步驟 (推論、工具呼叫、程式碼執行作業)。
 
-## Kontynuowanie rozmowy (wieloetapowej)
+## 繼續對話 (多輪)
 
-Interfejs API śledzi 2 niezależne wymiary stanu:
+這項 API 會追蹤兩個獨立的狀態維度：
 
-- **Kontekst rozmowy:** historia czatu, ślad rozumowania, korzystanie z narzędzi, używanie `previous_interaction_id`.
-- [**Stan środowiska:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl) pliki, zainstalowane pakiety i stan piaskownicy, przy użyciu `environment`.
+- **對話脈絡：**對話記錄、推論追蹤、工具使用情形、使用 `previous_interaction_id`。
+- [**環境狀態：**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)檔案、已安裝的套件和沙箱狀態，使用 `environment`。
 
-Przekaż oba w odpowiednich miejscach, aby wznowić:
+在各自的位置傳遞這兩項內容，即可繼續：
 
 ### Python
 
@@ -132,20 +132,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Pliki z tury 1 (`fibonacci.txt`) są zachowywane w turze 2. Agent zachowuje też kontekst rozmowy.
+第 1 回合 (`fibonacci.txt`) 的檔案會保留到第 2 回合。專員也會保留對話脈絡。
 
-Możesz je łączyć i dopasowywać niezależnie od siebie:
+您可以獨立混搭下列項目：
 
-- **Wyczyść rozmowę, zachowaj pliki:** pomiń `previous_interaction_id`, przekaż tylko identyfikator środowiska za pomocą `environment`, aby rozpocząć nową rozmowę w tym samym obszarze roboczym.
-- **Zachowaj rozmowę, nowy obszar roboczy:** przekaż `previous_interaction_id`, ustaw `environment="remote"`, aby utworzyć nowe środowisko testowe.
+- **清除對話，保留檔案：**省略 `previous_interaction_id`，只使用 `environment` 傳遞環境 ID，在同一個工作區中展開新的對話。
+- **保留對話，建立新工作區：**傳遞 `previous_interaction_id`，為新的沙箱設定 `environment="remote"`。
 
-### Automatyczne kompresowanie kontekstu
+### 自動壓縮脈絡
 
-W długich rozmowach wieloetapowych historia kroków rozumowania, wywołań narzędzi i zawartości dużych plików może szybko się rozrastać i zajmować dużo miejsca w kontekście. Aby zapobiec błędom związanym z limitem tokenów i utrzymać koncentrację agenta (zapobiec „rozmyciu kontekstu”), interfejs Managed Agents API zawiera natywny krok kompresji kontekstu przy około 135 tys. tokenów. Dzieje się to automatycznie.
+在長時間的多輪對話中，推論步驟、工具呼叫和大型檔案內容的原始記錄可能會快速增長，並消耗大量脈絡空間。為避免發生權杖限制錯誤，並維持代理程式的專注度 (防止「脈絡腐化」)，Managed Agents API 會在權杖數量達到約 135,000 個時，執行原生脈絡壓縮步驟。這個步驟會自動執行。
 
-## Przesyłanie odpowiedzi strumieniowo
+## 逐句顯示回覆
 
-W przypadku długotrwałych zadań możesz przesyłać strumieniowo odpowiedź, aby zobaczyć, jak agent pracuje w czasie rzeczywistym:
+如果是長時間執行的工作，您可以串流回應，即時查看代理程式的工作情形：
 
 ### Python
 
@@ -199,11 +199,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-Strumieniowanie zwraca iterowalną listę zmian kroków, które są przyrostowymi aktualizacjami tekstu, tokenów uzasadnienia i wywołań narzędzi. Więcej informacji o strumieniowaniu odpowiedzi znajdziesz w [przewodniku po strumieniowaniu](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=pl).
+串流會傳回步驟差異的可疊代項目，包括遞增文字、推論詞元和工具呼叫更新。如要進一步瞭解如何串流回應，請參閱[串流指南](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw)。
 
-## Pobieranie plików ze środowiska
+## 從環境下載檔案
 
-Gdy agent tworzy pliki w piaskownicy. Pobierz je za pomocą interfejsu Files API za pomocą bezpośredniego żądania HTTP (nie ma jeszcze metody SDK):
+代理程式在沙箱中建立檔案時。使用 Files API 透過直接 HTTP 要求下載 (目前沒有 SDK 方法)：
 
 ### Python
 
@@ -270,13 +270,13 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/environme
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## Zapisywanie agenta zarządzanego
+## 儲存代管代理程式
 
-W poprzednich krokach użyliśmy domyślnego agenta Antigravity i dostosowaliśmy go w tekście. Po wprowadzeniu zmian w konfiguracji (instrukcje, umiejętności i środowisko) możesz zapisać ją jako zarządzanego agenta. Dzięki temu możesz wywołać go za pomocą identyfikatora bez powtarzania konfiguracji.
+在先前的步驟中，我們使用了預設的 Antigravity 代理程式，並內嵌自訂。完成設定 (指令、技能和環境) 的疊代後，您可以將設定儲存為受管理代理程式。這樣一來，您就能透過 ID 叫用該函式，不必重複設定。
 
-Podczas zapisywania agenta definiujesz `base_environment` (ze źródeł lub przez rozwidlenie istniejącego środowiska). Agent będzie używać tego środowiska w przypadku każdej nowej interakcji.
+儲存代理程式時，您會定義 `base_environment` (來自來源或分叉現有環境)。每次新互動時，代理程式都會使用這個環境。
 
-**Ze źródeł:** zdefiniuj źródła w tekście lub z innych źródeł, takich jak GitHub czy Cloud Storage.
+**從來源：**內嵌定義來源，或從 GitHub 或 Cloud Storage 等其他來源定義。
 
 ### Python
 
@@ -361,9 +361,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## Wywoływanie agenta zarządzanego
+## 叫用代管代理程式
 
-Po zapisaniu zarządzanego agenta możesz go wywołać za pomocą identyfikatora. Każde wywołanie rozwidla środowisko bazowe, więc każde uruchomienie zaczyna się od czystego stanu:
+儲存受管理代理程式後，您就可以透過 ID 叫用該代理程式。每次叫用都會分叉基本環境，因此每次執行都會從乾淨的狀態開始：
 
 ### Python
 
@@ -405,19 +405,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Co dalej?
+## 後續步驟
 
-- [Antigravity Agent:](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl) funkcje, obsługiwane narzędzia, multimodalne wprowadzanie danych, ceny i ograniczenia.
-- [Tworzenie zarządzanych agentów:](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl) rozszerzaj Antigravity o własne instrukcje, umiejętności i dane.
-- [Środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl): źródła, sieci, cykl życia, limity zasobów.
-- [Interfejs API interakcji:](https://ai.google.dev/gemini-api/docs/interactions?hl=pl) podstawowy interfejs API dla modeli i agentów.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)：功能、支援的工具、多模態輸入、價格和限制。
+- [建構受管理代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)：使用您自己的指令、技能和資料擴充 Antigravity。
+- [環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)：來源、網路、生命週期、資源限制。
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)：模型和代理程式的基礎 API。
 
-Prześlij opinię
+提供意見
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Ostatnia aktualizacja: 2026-05-20 UTC.
+上次更新時間：2026-05-20 (世界標準時間)。
 
-Chcesz przekazać coś jeszcze?
+想進一步說明嗎？
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-20 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-20 (世界標準時間)。"],[],[]]

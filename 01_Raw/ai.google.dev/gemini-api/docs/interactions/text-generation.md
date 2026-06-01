@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi
-fetched_at: 2026-05-25T13:01:19.374074+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=hi
+fetched_at: 2026-06-01T19:35:30.360254+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-# Tạo văn bản
+# टेक्स्ट जनरेट करने की सुविधा
 
-Gemini API có thể tạo văn bản đầu ra từ văn bản, hình ảnh, video và âm thanh đầu vào.
+Gemini API, टेक्स्ट, इमेज, वीडियो, और ऑडियो इनपुट से टेक्स्ट आउटपुट जनरेट कर सकता है.
 
-Sau đây là một ví dụ cơ bản:
+यहां एक सामान्य उदाहरण दिया गया है:
 
 ### Python
 
@@ -68,16 +68,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Các SDK AI tạo sinh của Google cung cấp các thuộc tính tiện lợi ngay trên đối tượng `Interaction` được trả về để truy cập vào phản hồi của mô hình.
+Google GenAI SDK, मॉडल के जवाब को ऐक्सेस करने के लिए, लौटाए गए `Interaction` ऑब्जेक्ट पर सीधे तौर पर सुविधाजनक प्रॉपर्टी उपलब्ध कराता है.
 
-Trợ lý phổ biến nhất là **`interaction.output_text`** (String), trả về các khối văn bản cuối cùng trong câu trả lời của mô hình. Nếu phản hồi được chia thành nhiều khối `TextContent` liên tiếp, thì phản hồi đó sẽ tự động kết hợp các khối này.
-Xin lưu ý rằng `.output_text` không bao gồm các khối văn bản trước đó được phân tách bằng nội dung không phải văn bản (chẳng hạn như suy nghĩ, hình ảnh, âm thanh hoặc lệnh gọi công cụ). Đối với các câu trả lời phức tạp hoặc xen kẽ nhiều phương thức, bạn phải lặp lại `steps` theo cách thủ công. Để tìm hiểu thêm về các thuộc tính khác liên quan đến sự thuận tiện của nội dung nghe nhìn, hãy xem phần [Tổng quan về lượt tương tác](https://ai.google.dev/gemini-api/docs/interactions?hl=vi#convenience-properties).
+सबसे आम हेल्पर **`interaction.output_text`** (स्ट्रिंग) है. यह मॉडल के जवाब में मौजूद, टेक्स्ट के आखिरी ब्लॉक दिखाता है. अगर जवाब को एक के बाद एक कई `TextContent` ब्लॉक में बांटा जाता है, तो यह उन्हें अपने-आप जोड़ देता है.
+ध्यान दें कि `.output_text` में, टेक्स्ट के पहले वाले ब्लॉक शामिल नहीं होते. इन्हें, टेक्स्ट के अलावा अन्य कॉन्टेंट (जैसे, विचार, इमेज, ऑडियो या टूल कॉल) से अलग किया जाता है. जटिल या इंटरलीव्ड मल्टीमोडल जवाबों के लिए, इसके बजाय आपको `steps` पर मैन्युअल तरीके से इटरेट करना होगा. अन्य मीडिया की सुविधाजनक प्रॉपर्टी के बारे में ज़्यादा जानने के लिए, [इंटरैक्शन की खास जानकारी](https://ai.google.dev/gemini-api/docs/interactions?hl=hi#convenience-properties) देखें.
 
-## Suy nghĩ cùng Gemini
+## Gemini की मदद से सोच-समझकर जवाब देना
 
-Các mô hình Gemini thường được bật tính năng ["tư duy"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=vi) theo mặc định. Tính năng này cho phép mô hình suy luận trước khi trả lời một yêu cầu.
+Gemini मॉडल में अक्सर ["थिंकिंग"](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=hi)
+की सुविधा डिफ़ॉल्ट रूप से चालू होती है. इससे मॉडल, किसी अनुरोध का जवाब देने से पहले, सोच-समझकर जवाब दे पाता है.
 
-Mỗi mô hình hỗ trợ các cấu hình tư duy khác nhau, giúp bạn kiểm soát chi phí, độ trễ và mức độ thông minh. Để biết thêm thông tin, hãy xem [hướng dẫn tư duy](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=vi#set-budget).
+हर मॉडल, अलग-अलग थिंकिंग कॉन्फ़िगरेशन के साथ काम करता है. इससे आपको लागत, इंतज़ार का समय, और इंटेलिजेंस पर कंट्रोल मिलता है. ज़्यादा जानकारी के लिए, [थिंकिंग गाइड](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=hi#set-budget) देखें.
 
 ### Python
 
@@ -133,9 +134,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Hướng dẫn hệ thống và các cấu hình khác
+## सिस्टम के निर्देश और अन्य कॉन्फ़िगरेशन
 
-Bạn có thể hướng dẫn hành vi của các mô hình Gemini bằng chỉ dẫn hệ thống. Truyền tham số `system_instruction` để định cấu hình hành vi của mô hình.
+सिस्टम के निर्देशों की मदद से, Gemini मॉडल के व्यवहार को गाइड किया जा सकता है. मॉडल के व्यवहार को कॉन्फ़िगर करने के लिए, `system_instruction` पैरामीटर पास करें.
 
 ### Python
 
@@ -186,7 +187,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Bạn cũng có thể ghi đè các tham số tạo mặc định, chẳng hạn như nhiệt độ, bằng cách sử dụng tham số `generation_config`.
+`generation_config` पैरामीटर का इस्तेमाल करके, जनरेशन के डिफ़ॉल्ट पैरामीटर भी बदले जा सकते हैं. जैसे, तापमान.
 
 ### Python
 
@@ -242,11 +243,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Hãy tham khảo [Tài liệu tham khảo Interactions API](https://ai.google.dev/api/interactions-api?hl=vi) để xem danh sách đầy đủ các tham số có thể định cấu hình và nội dung mô tả của các tham số đó.
+कॉन्फ़िगर किए जा सकने वाले पैरामीटर और उनके
+ब्यौरे की पूरी सूची देखने के लिए, [Interactions API का रेफ़रंस](https://ai.google.dev/api/interactions-api?hl=hi)देखें.
 
-## Thông tin đầu vào đa phương thức
+## मल्टीमोडल इनपुट
 
-Gemini API hỗ trợ dữ liệu đầu vào đa phương thức, cho phép bạn kết hợp văn bản với các tệp nội dung nghe nhìn. Ví dụ sau đây minh hoạ cách cung cấp hình ảnh:
+Gemini API, मल्टीमोडल इनपुट के साथ काम करता है. इससे टेक्स्ट को मीडिया फ़ाइलों के साथ जोड़ा जा सकता है. यहां दिया गया उदाहरण, इमेज उपलब्ध कराने का तरीका दिखाता है:
 
 ### Python
 
@@ -322,14 +324,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Để biết các phương thức thay thế để cung cấp hình ảnh và quy trình xử lý hình ảnh nâng cao hơn, hãy xem [hướng dẫn về việc hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=vi).
-API này cũng hỗ trợ các dữ liệu đầu vào và thông tin [văn bản](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi) và [âm thanh](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi).
+इमेज उपलब्ध कराने के अन्य तरीकों और इमेज को बेहतर तरीके से प्रोसेस करने के बारे में जानने के लिए,
+हमारी [इमेज को समझने की गाइड](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=hi) देखें.
+एपीआई, [दस्तावेज़](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=hi), [वीडियो](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=hi), और
+[ऑडियो](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=hi) इनपुट के साथ-साथ, उन्हें समझने की सुविधा भी देता है.
 
-## Hiện câu trả lời theo thời gian thực
+## जवाब स्ट्रीम करना
 
-Theo mặc định, mô hình chỉ trả về phản hồi sau khi toàn bộ quá trình tạo hoàn tất.
+डिफ़ॉल्ट रूप से, मॉडल जनरेशन की पूरी प्रोसेस पूरी होने के बाद ही जवाब देता है.
 
-Để có các hoạt động tương tác mượt mà hơn, hãy sử dụng tính năng truyền trực tuyến để xử lý các khối phản hồi khi chúng được tạo. Để xem hướng dẫn toàn diện về các loại sự kiện, tính năng phát trực tiếp bằng công cụ, suy nghĩ, tác nhân và tạo hình ảnh, hãy xem hướng dẫn chuyên biệt về [Tương tác phát trực tiếp](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=vi).
+बेहतर इंटरैक्शन के लिए, स्ट्रीम करने की सुविधा का इस्तेमाल करें. इससे जवाब के चंक जनरेट होने पर उन्हें मैनेज किया जा सकता है. इवेंट टाइप,
+टूल के साथ स्ट्रीम करने की सुविधा, थिंकिंग, एजेंट, और इमेज जनरेशन के बारे में पूरी जानकारी पाने के लिए, स्ट्रीम करने की सुविधा से जुड़े इंटरैक्शन की खास [गाइड](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=hi)
+देखें.
 
 ### Python
 
@@ -390,9 +396,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## Cuộc trò chuyện nhiều lượt
+## कई राउंड वाली बातचीत
 
-Interactions API hỗ trợ các cuộc trò chuyện nhiều lượt bằng cách liên kết các lượt tương tác với nhau bằng cách sử dụng `previous_interaction_id`. Mỗi lượt là một lượt tương tác riêng biệt và API sẽ tự động quản lý nhật ký trò chuyện.
+Interactions API, `previous_interaction_id` का इस्तेमाल करके, इंटरैक्शन को एक साथ जोड़कर कई राउंड वाली बातचीत की सुविधा देता है. हर राउंड एक अलग इंटरैक्शन होता है. एपीआई, बातचीत के इतिहास को अपने-आप मैनेज करता है.
 
 ### Python
 
@@ -465,7 +471,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Bạn cũng có thể sử dụng tính năng truyền trực tuyến cho các cuộc trò chuyện nhiều lượt bằng cách kết hợp `previous_interaction_id` với các phương thức truyền trực tuyến.
+कई राउंड वाली बातचीत के लिए, स्ट्रीम करने की सुविधा का भी इस्तेमाल किया जा सकता है. इसके लिए, `previous_interaction_id` को स्ट्रीम करने के तरीकों के साथ जोड़ें.
 
 ### Python
 
@@ -550,14 +556,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## Cuộc trò chuyện không trạng thái
+## स्टेटलेस बातचीत
 
-Theo mặc định, Interactions API quản lý trạng thái cuộc trò chuyện phía máy chủ khi bạn sử dụng `previous_interaction_id`. Tuy nhiên, bạn cũng có thể hoạt động ở chế độ không trạng thái bằng cách tự quản lý nhật ký cuộc trò chuyện ở phía máy khách.
+डिफ़ॉल्ट रूप से, Interactions API, `previous_interaction_id` का इस्तेमाल करने पर, बातचीत की स्थिति को सर्वर-साइड पर मैनेज करता है. हालांकि, क्लाइंट साइड पर बातचीत के इतिहास को खुद मैनेज करके, स्टेटलेस मोड में भी काम किया जा सकता है.
 
-Cách sử dụng chế độ không trạng thái:
-1. Đặt `store=false` trong yêu cầu của bạn để chọn không sử dụng bộ nhớ phía máy chủ.
-2. Duy trì nhật ký trò chuyện dưới dạng một mảng **các bước** ở phía máy khách.
-3. Trong các yêu cầu tiếp theo, hãy truyền các bước đã tích luỹ trong trường `input` và thêm lượt tương tác mới của bạn dưới dạng một bước `user_input`.
+स्टेटलेस मोड का इस्तेमाल करने के लिए: 1. सर्वर-साइड स्टोरेज से ऑप्ट आउट करने के लिए, अपने अनुरोध में `store=false` सेट करें.
+2. क्लाइंट साइड पर, बातचीत के इतिहास को **स्टेप** की एक कलेक्शन के तौर पर बनाए रखें.
+3. इसके बाद के अनुरोधों में, इकट्ठा किए गए चरणों को `input` फ़ील्ड में पास करें. साथ ही, अपने नए राउंड को `user_input` स्टेप के तौर पर जोड़ें.
 
 ### Python
 
@@ -680,23 +685,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Mẹo tạo câu lệnh
+## प्रॉम्प्ट के बारे में सलाह
 
-Tham khảo [hướng dẫn về thiết kế câu lệnh](https://ai.google.dev/gemini/docs/prompting-strategies?hl=vi) của chúng tôi để biết các đề xuất về cách khai thác tối đa Gemini.
+Gemini का ज़्यादा से ज़्यादा फ़ायदा पाने के सुझाव पाने के लिए, प्रॉम्प्ट इंजीनियरिंग की हमारी [गाइड](https://ai.google.dev/gemini/docs/prompting-strategies?hl=hi) देखें.
 
-## Bước tiếp theo
+## आगे क्या करना है
 
-- Dùng thử [Gemini trong Google AI Studio](https://aistudio.google.com?hl=vi).
-- Thử nghiệm với [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi) cho các phản hồi tương tự như JSON.
-- Khám phá các khả năng hiểu [hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=vi), [video](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi), [âm thanh](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi) và [tài liệu](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi) của Gemini.
-- Tìm hiểu về [các chiến lược đưa ra câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi#prompt-guide) đa phương thức.
+- Google AI Studio में [Gemini आज़माएं](https://aistudio.google.com?hl=hi).
+- JSON जैसे जवाबों के लिए,
+  [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=hi) के साथ
+  एक्सपेरिमेंट करें.
+- [[[[इमेज, वीडियो, ऑडियो, और दस्तावेज़ को समझने की Gemini की क्षमताओं के बारे में जानें.](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=hi)](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=hi)](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=hi)](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=hi)
+- मल्टीमोडल
+  [फ़ाइल प्रॉम्प्ट करने की रणनीतियों](https://ai.google.dev/gemini-api/docs/interactions/files?hl=hi#prompt-guide) के बारे में जानें.
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-05-19 UTC.
+आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया."],[],[]]

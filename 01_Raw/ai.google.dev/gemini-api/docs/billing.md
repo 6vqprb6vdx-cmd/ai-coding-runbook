@@ -1,375 +1,432 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=ja
-fetched_at: 2026-05-25T13:04:38.225109+00:00
-title: "\u8ab2\u91d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=pt-BR
+fetched_at: 2026-06-01T19:45:42.605757+00:00
+title: "Faturamento \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-フィードバックを送信
+Envie comentários
 
-# 課金
+# Faturamento
 
-このガイドでは、Gemini API のさまざまな課金オプションの概要、課金を有効にして使用状況をモニタリングする方法、課金に関するよくある質問（FAQ）の回答について説明します。
+Este guia oferece uma visão geral das diferentes opções de faturamento da API Gemini, explica como ativar o faturamento e monitorar o uso e fornece respostas para perguntas frequentes sobre o faturamento.
 
-## お支払いと階層について
+## Sobre faturamento e níveis
 
-Gemini API の請求階層は、お支払い履歴に基づいて決まります。
+O faturamento da API Gemini é baseado no seu histórico de pagamentos.
 
-| 使用量ティア | 予選 | [請求ティアの上限](#spend-caps) |
+| Nível de uso | Qualificação | [Limite do nível de faturamento](#spend-caps) |
 | --- | --- | --- |
-| **無料** | [有効なプロジェクト](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)または無料トライアル | なし |
-| **Tier 1** | [有効な請求先アカウントを設定してリンクしている](#setup-billing) | $250 |
-| **Tier 2** | $100 のお支払い + 最初のお支払いが完了してから 3 日 | $2,000 |
-| **Tier 3** | $1,000 のお支払い + 最初のお支払いが完了してから 30 日 | $20,000 ～$100,000 以上 |
+| **Free** (link em francês) | [Projeto ativo](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) ou teste sem custo financeiro | N/A |
+| **Nível 1** | [Configurar e vincular uma conta de faturamento ativa](#setup-billing) | US$ 250,00 |
+| **Nível 2** | Pagamento de US $100 + 3 dias desde o primeiro pagamento bem-sucedido | US$ 2.000 |
+| **Nível 3** | Pago US $1.000 + 30 dias desde o primeiro pagamento bem-sucedido | US$ 20.000 a US$ 100.000 ou mais |
 
-新しいアカウントは無料枠から始まり、Gemini API と AI Studio の[特定のモデル](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)に、モデルの無料枠の[レート上限](https://aistudio.google.com/rate-limit?hl=ja)までアクセスできます。
+As novas contas começam no nível sem custo financeiro, que permite o acesso a [determinados modelos](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) na API Gemini e no AI Studio, até os [limites de taxa](https://aistudio.google.com/rate-limit?hl=pt-br) do nível sem custo financeiro dos modelos.
 
-ビルドモードからアプリケーションを直接デプロイするには、**Google Cloud スターター ティア**を使用します。この階層では、Google Cloud プロジェクトや請求先アカウントを設定せずに、最大 2 つのフルスタック アプリケーションを公開できます。詳細については、[Google AI Studio からのデプロイ](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ja)をご覧ください。詳細については、[Google Cloud スターター ティアのドキュメント](https://docs.cloud.google.com/docs/starter-tier?hl=ja)をご覧ください。
+Para implantar seus aplicativos diretamente do modo de build, use o
+**nível Starter do Google Cloud**. Com esse nível, é possível publicar até dois aplicativos de pilha completa sem configurar um projeto na nuvem do Google ou uma conta de faturamento.
+Consulte [Como fazer a implantação no Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pt-br) para
+detalhes e consulte a [documentação do nível inicial do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br) para mais informações.
 
-**レート上限を引き上げ、高度なモデルにアクセスし、プロンプトとレスポンスが Google プロダクトの改善に使用されないようにするには、[請求先アカウントをリンク](#setup-billing)して[前払い](#prepay)し、有料階層に移行します。\***その後、累計費用とアカウントの利用期間に基づいて上位のティアに移行します。Tier 3 では、[後払い](#postpay)請求に切り替えることができる場合があります。
+Para acessar limites de taxa mais altos, usar modelos avançados e garantir que seus comandos e respostas **não** sejam usados para melhorar os produtos do Google\*, [vincule uma conta de faturamento](#setup-billing) e [faça um pré-pagamento](#prepay) para mudar para os planos pagos.
+Em seguida, você vai passar para níveis mais altos com base no gasto acumulado e na idade da conta. No nível 3, talvez você possa mudar para o faturamento [pós-pago](#postpay).
 
-ティア、レートの上限、請求先アカウントの上限はすべて、[請求先アカウント](#cloud-billing) レベルで決定されます。
+Os níveis, os limites de taxa e os limites máximos da conta de faturamento são determinados no nível da [conta de faturamento](#cloud-billing).
 
-\* *エンタープライズ グレードのデータ プライバシー: 有料サービスのデータ使用について詳しくは、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#data-use-paid)をご覧ください。*
+\* *Privacidade de dados de nível empresarial: para mais informações sobre o uso de dados
+para serviços pagos, consulte os [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#data-use-paid).*
 
-## お支払い情報を設定して有料プランを利用する
+## Configurar o faturamento para acessar o nível pago
 
-プロジェクトを作成して課金を設定するか、既存のプロジェクトをインポートして、[Google AI Studio](https://aistudio.google.com/projects?hl=ja) で有料ティアにアップグレードできます。無料枠から有料枠にアップグレードするには、請求先アカウントをリンクして[前払い](#prepay)を行い、アカウントに 10 ドル以上（または他の通貨での同等額）のクレジットを追加します。
+Você pode criar um projeto e configurar o faturamento ou importar um projeto existente para
+fazer upgrade para o nível pago no [Google AI Studio](https://aistudio.google.com/projects?hl=pt-br).
+Fazer upgrade do nível sem custo financeiro para o nível pago significa vincular uma conta de faturamento e [fazer um pré-pagamento](#prepay) para adicionar um mínimo de US $10 (ou o equivalente em outras moedas) de créditos à sua conta.
 
-1. AI Studio の [[API keys](https://aistudio.google.com/api-keys?hl=ja)] ページ、[[Projects](https://aistudio.google.com/projects?hl=ja)] ページ、または AI Studio の [**Set up billing**] ボタンが表示されている任意の場所に移動します。
-   - 新規ユーザーには、デフォルトで[プロジェクトと API キー](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)が作成されます。
-   - 新しいキーが必要な場合は、[[**API キーを作成**](https://aistudio.google.com/api-keys?hl=ja)] をクリックし、ダイアログに沿ってキーとプロジェクトのペアをテーブルに追加します。
-2. 有料階層にアップグレードする無料枠プロジェクトを見つけ、[*課金階層*] 列の [**課金を設定**] をクリックします。
-3. Google 請求先アカウントをまだ設定したことがない場合:
-   - 利用規約に同意するために、国を選択するよう求められます。
-   - 次に、連絡先情報とお支払い方法を入力または確認して、続行します。
-4. 過去に Google 請求先アカウントを設定したことがある場合:
-   - 既存の請求先アカウントから選択するよう求められます。
-   - 既存のアカウントを使用しない場合は、[**新しい請求先アカウントを追加**] をクリックして、連絡先情報とお支払い方法を入力または確認してから続行します。
-5. 次に、以下のいずれかになります。
-   - 請求先の設定を完了するために最低 $10 の前払いを求められた（つまり、アカウントが[前払い](#prepay)請求プランに自動的に割り当てられている）。
-   - アカウントの[前払い](#prepay)と[後払い](#postpay)のどちらの課金プランにするかを選択します。
-   - 新しい前払いシステムがすべてのユーザーに反映されるまでの間（2026 年 3 月 23 日から）、[後払い](#postpay)のお支払いプランに割り当てられます。
-6. 前払いまたは後払いを選択すると、アカウントの設定が完了します。
+1. Acesse a página [Chaves de API](https://aistudio.google.com/api-keys?hl=pt-br), [Projetos](https://aistudio.google.com/projects?hl=pt-br) ou qualquer lugar em que o botão **Configurar faturamento** apareça no AI Studio.
+   - Por padrão, os novos usuários têm um [projeto e uma chave de API](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) criados para eles.
+   - Se você precisar de uma nova chave, clique em [**Criar chave de API**](https://aistudio.google.com/api-keys?hl=pt-br) e siga a caixa de diálogo para adicionar um par chave-projeto à tabela.
+2. Encontre o projeto do nível sem custo financeiro que você quer fazer upgrade para o nível pago e clique em **Configurar faturamento** na coluna *Nível de faturamento*.
+3. Se você nunca configurou uma conta de faturamento do Google:
+   - Você vai precisar selecionar seu país para concordar com os Termos de Serviço.
+   - Em seguida, preencha ou confirme suas informações de contato e forma de pagamento para continuar.
+4. Se você já configurou contas de faturamento do Google:
+   - Será necessário escolher uma das suas contas de faturamento.
+   - Se não quiser usar nenhuma das suas contas, clique em **Adicionar nova conta de faturamento** e preencha ou confirme suas informações de contato e forma de pagamento para continuar.
+5. Em seguida, você vai:
+   - Foi solicitado que você fizesse um pré-pagamento mínimo de US $10 para concluir a configuração do faturamento (ou seja, sua conta foi atribuída automaticamente ao plano de faturamento [pré-pago](#prepay)).
+   - Escolha entre os planos de faturamento [Pré-pago](#prepay) e [Pós-pago](#postpay) para sua conta.
+   - Atribuído a um plano de faturamento [pós-pago](#postpay) por um período intermediário até que o novo sistema pré-pago seja propagado para todos os usuários (a partir de 23 de março de 2026).
+6. Depois de fazer o pré-pagamento ou selecionar o pós-pago, a configuração da conta será concluída.
 
-### 次の有料プランにアップグレードする
+### Fazer upgrade para o próximo nível pago
 
-すでに有料階層をご利用で、プラン変更の[条件](#about-billing)を満たしている場合は、自動的に次の階層にアップグレードされます（[処理時間](#processing-times)が適用されます）。
+Se você já estiver em um nível pago e atender aos [critérios](#about-billing)
+para uma mudança de plano, vai receber um upgrade automático para o próximo nível
+(sujeito a [tempos de processamento](#processing-times)).
 
-## 課金ステータスを確認する
+## Verificar o status de faturamento
 
-プロジェクトに[請求先アカウントをリンク](#setup-billing)すると、[AI Studio の [お支払い] ページ](https://aistudio.google.com/billing?hl=ja)でステータスをモニタリングできます。無料枠とは異なり、有料枠のステータスは動的です。使用枠はアカウント履歴によって決まりますが、Gemini API は、[前払い](#prepay)クレジット残高がプラスの場合にのみリクエストを処理します。
+Depois de [vincular uma conta de faturamento](#setup-billing) ao seu projeto, você
+pode monitorar o status dela na
+[página de faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br). Ao contrário do nível sem custo financeiro, o status do nível pago é dinâmico. Embora seu nível de uso seja determinado pelo histórico da conta, a API Gemini só vai atender às solicitações se você tiver um saldo de crédito [pré-pago](#prepay) positivo.
 
-[[プロジェクト](https://aistudio.google.com/projects?hl=ja)] ページで、[*課金階層*] 列にプロジェクトの階層とお支払いプランが表示されます。プロジェクトで必要な課金ステータスのアクションは、[*課金ティア*] 列または [*ステータス*] 列に表示されます。
+Na página [Projetos](https://aistudio.google.com/projects?hl=pt-br), é possível
+ver o nível e o plano de faturamento do projeto na coluna *Nível de faturamento*. Todas as ações de status de faturamento que você precisa realizar em um projeto são mostradas nas colunas *Nível de faturamento* ou *Status*:
 
-- プロジェクトに請求先アカウントがリンクされていない場合は、[***請求先アカウントを設定***] をクリックします。
-- プロジェクトに請求先アカウントが関連付けられているが、設定が必要な[前払い](#prepay)のお支払いプランを使用する必要がある場合は、「***前払いを設定する***」
-- 請求先アカウントでクレジットの購入が必要であるにもかかわらず、前払いのお支払いアカウントが設定されていないか、利用可能なクレジット残高がなくなった場合は、「***利用可能なクレジットがありません***」と表示されます。
+- ***Configurar faturamento*** se o projeto não tiver uma conta de faturamento vinculada.
+- ***Configurar pré-pago*** se o projeto tiver uma conta de faturamento anexada, mas precisar usar um plano de faturamento [pré-pago](#prepay) que precisa ser configurado.
+- "***Nenhum crédito disponível***" se a conta de faturamento for necessária para comprar créditos, mas a conta para pagamentos de pré-pagamento não estiver configurada ou o saldo de crédito disponível estiver esgotado.
 
-いずれかのメッセージをクリックして、必要な操作を行います。
+Clique em qualquer uma das mensagens para continuar com as ações necessárias.
 
-## 使用量のモニタリング
+## Monitorar o uso
 
-Gemini API の使用状況は、[Google AI Studio](https://aistudio.google.com/usage?hl=ja) の [**ダッシュボード**] > [**使用量**] でモニタリングできます。
+É possível monitorar o uso da API Gemini no
+[Google AI Studio](https://aistudio.google.com/usage?hl=pt-br) em **Painel** >
+**Uso**.
 
-## お支払いプラン
+## Planos de faturamento
 
-Gemini API と AI Studio の課金プランは、使用料金の支払い時期を決定する 2 つのカテゴリ（前払いと後払い）に分類されます。割り当てられたお支払いプランの確認とお支払い方法の管理は、[AI Studio の課金](https://aistudio.google.com/billing?hl=ja)ページで行うことができます。
+Os planos de faturamento da API Gemini e do AI Studio se enquadram em duas categorias que determinam quando você paga pelo uso: pré-pagamento e pós-pagamento. Você pode verificar seu plano de faturamento atribuído e gerenciar as formas de pagamento na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
 
-### 前払い
+### Pré-pagamento
 
-前払いお支払いプランでは、Gemini API の使用前にプリペイド残高に対するクレジットを購入し、API の使用料金はプリペイド残高から[準リアルタイム](#processing-times)で差し引かれます。プリペイド方式をご利用になるには、アカウントに[クレジットを追加](#buy-credits)するか、[オートチャージ](#auto-reload)を設定します。クレジットを購入した後、未使用のクレジットは 12 か月後に有効期限切れとなり、[後払いアカウントに切り替えた](#postpay)場合を除き、[払い戻しはできません](#refunds)。
+No plano de faturamento pré-pago, você compra créditos para o saldo de pré-pagamento antes de usar a API Gemini, e os custos de uso da API são deduzidos do saldo de crédito pré-pago [quase em tempo real](#processing-times).
+Você pode fazer um pré-pagamento [adicionando créditos](#buy-credits) à sua conta ou configurando a [recarga automática](#auto-reload). Depois da compra, os créditos não usados expiram após 12 meses e [não são reembolsáveis](#refunds), exceto após [mudar para uma conta pós-paga](#postpay).
 
-請求先アカウントのプリペイド クレジット残高が 0 ドルになると、その請求先アカウントにリンクされているすべてのプロジェクトのすべての API キーが同時に機能しなくなります。前払いクレジットは Gemini API の使用料金にのみ適用されます。他の Google Cloud サービスの支払いに使用することはできません。
+Quando o saldo de crédito pré-pago na conta de faturamento chegar a US $0, todas as chaves de API em todos os projetos vinculados a essa conta de faturamento vão parar de funcionar simultaneamente.
+Os créditos pré-pagos se aplicam apenas aos custos de uso da API Gemini. Eles não podem ser usados para pagar por outros serviços do Google Cloud.
 
-新規ユーザーはデフォルトで前払いのお支払いプランになります。前払いと後払いのお支払いプランの導入前に作成されたプロジェクトでは、Gemini API を引き続き使用する前に、[プロジェクトの請求先情報を更新](#verify-billing)する必要がある場合があります。
+Os novos usuários usam o plano de faturamento pré-pago por padrão. Os projetos anteriores à introdução dos planos de faturamento pré-pago e pós-pago talvez precisem [atualizar os detalhes de faturamento do projeto](#verify-billing) antes de continuar usando a API Gemini.
 
-*なお、[請求書発行（オフライン）](https://docs.cloud.google.com/billing/docs/concepts?hl=ja#billing_account_types)アカウントでは前払いをご利用いただけません。*
+*Observe que o pré-pagamento não está disponível para contas [faturadas (ou off-line)](https://docs.cloud.google.com/billing/docs/concepts?hl=pt-br#billing_account_types).*
 
-#### クレジットを購入する
+#### Comprar créditos
 
-Gemini API の使用前にクレジットを手動で購入して、前払いアカウントのクレジット残高にチャージできます。
+Você pode comprar créditos manualmente antes de usar a API Gemini para carregá-los no saldo de crédito da sua conta de pré-pagamento.
 
-クレジットを購入するには、[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)ページに移動して、[**クレジットを購入**] を選択します。最小購入額は 10 米ドルです。前払いできるクレジットの最大額は $5,000 です。
+Para comprar créditos, acesse a página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) e selecione **Comprar créditos**.
+A compra mínima é de US $10. O valor máximo de créditos que você pode pagar antecipadamente é de US$ 5.000.
 
-#### 自動再読み込み
+#### Atualizar automaticamente
 
-オートチャージは、前払いクレジットの残高が少なくなったときに自動的にチャージするオプション機能です。これは、サービスの中断を防ぐのに役立ちます。
+A recarga automática é um recurso opcional que recarrega automaticamente o saldo de crédito pré-pago quando ele está baixo. Isso é útil para evitar interrupções no serviço.
 
-自動補充を設定し、自動補充のステータスを確認するには、[[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)] ページの [*利用可能なクレジット*] カードをご覧ください。[**オートチャージを設定**] または [**オートチャージを管理**] をクリックして、お支払い方法、チャージ額、チャージ支払いをトリガーする最低残高を設定します。
+Você pode configurar a recarga automática e conferir o status dela no card *Créditos disponíveis* na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br). Clique em **Configurar recarga automática** ou
+**Gerenciar recarga automática** para definir sua forma de pagamento, o valor da recarga e o
+saldo mínimo que aciona um pagamento de recarga.
 
-### 後払い
+### Pós-pagamento
 
-後払いお支払いプランでは、Cloud 請求先アカウントに費用が蓄積され、月末に自動的に請求されます。また、アカウントの階層に基づいて自動的に割り当てられた[費用上限](#tier-spend-caps)に費用が達したときにも請求されます。お支払いは、Postpay のお支払いアカウントに登録されているお支払い方法に請求されます。このお支払い方法は、[[AI Studio の課金](https://aistudio.google.com/billing?hl=ja)] ページで管理できます。
+No plano de faturamento pós-pago, sua conta do Cloud Billing acumula custos, e você
+recebe uma cobrança automática no fim do mês ou quando os custos atingem um
+[limite de gastos atribuído automaticamente](#tier-spend-caps) com base no nível da conta.
+O pagamento é cobrado na forma de pagamento vinculada à sua conta de pagamentos pós-pagos, que pode ser gerenciada na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
 
-[Tier 3 の条件](#about-billing)を満たしている場合は、前払いプランから後払いプランに手動で切り替えることができます。プランを変更するには、アカウントが対象になったときに [AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)ページの右上に表示される [**後払いに切り替え**] ボタンをクリックする必要があります。
+Quando você atender aos [critérios do nível 3](#about-billing), poderá
+mudar manualmente do plano pré-pago para o pós-pago. Para mudar de plano, clique no botão **Mudar para pós-pagamento**, que aparece no canto superior direito da página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) quando sua conta se qualifica.
 
-[**お支払い**] ページでは、残高、お支払い期日、過去のお支払いの確認、お支払いの実行、お支払い方法の管理を行うことができます。
+Na página **Faturamento**, você pode conferir seu saldo, datas de vencimento e pagamentos anteriores, além de fazer pagamentos e gerenciar formas de pagamento.
 
-新しいプロジェクトの[お支払い情報を設定](#setup-billing)する際に、後払いの対象となる場合は、[[お支払い情報の設定](#setup-billing)] ダイアログで前払いと後払いを選択できます。
+Ao [configurar o faturamento](#setup-billing) de um novo projeto, se você se qualificar para o pós-pagamento, poderá escolher entre pré-pagamento e pós-pagamento na caixa de diálogo [configuração de faturamento](#setup-billing).
 
-Cloud 請求先アカウントを後払いプランに変更すると、その請求先アカウントにリンクされているすべてのプロジェクトが後払いプランに変更されます。この請求先アカウントを前払いプランに戻すことはできません。プロジェクトを別の料金プランの請求先アカウントに移動して、そのプロジェクトの請求サイクルを変更できます。Cloud ドキュメントの[プロジェクトの課金の管理](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja)をご覧ください。
+Depois de mudar uma conta do Cloud Billing para usar o plano de faturamento pós-pago, todos os projetos vinculados a essa conta também serão mudados para o plano pós-pago. Não é possível mover essa conta de faturamento de volta para o plano de faturamento pré-pago. Você pode
+mover um projeto para uma conta de faturamento com um plano de faturamento diferente para mudar
+o ciclo de cobrança dele. Consulte a documentação do Cloud sobre [gerenciar
+o faturamento de projetos](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br).
 
-後払いの請求サイクルの詳細については、[Cloud Billing のガイド](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja)をご覧ください。
+Saiba mais sobre o ciclo de cobrança pós-pagamento no [guia do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br).
 
-## 利用額上限
+## Limites de gastos
 
-Gemini API は、請求先アカウント階層とプロジェクト レベルの両方で月間の利用額上限をサポートしています。これらの制御は、アカウントを予期しない超過から保護し、サービス可用性を確保するためにエコシステムを保護するように設計されています。
+A API Gemini oferece suporte a limites de gastos mensais nos níveis da conta de faturamento e do projeto. Esses controles foram criados para proteger sua conta contra
+excedentes inesperados e o ecossistema para garantir a disponibilidade do serviço.
 
-*費用の上限は、[請求書発行（オフライン）](https://docs.cloud.google.com/billing/docs/concepts?hl=ja#billing_account_types)アカウントでは使用できません。*
+*Observação: os limites de gastos não estão disponíveis para contas [faturadas (ou off-line)](https://docs.cloud.google.com/billing/docs/concepts?hl=pt-br#billing_account_types).*
 
-### プロジェクトの費用上限
+### Limites de gastos do projeto
 
-AI Studio では、独自の[プロジェクト単位](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)の費用上限を設定できます。これは、同じ請求先アカウントに複数のプロジェクトがあり、各プロジェクトが累積費用上限に十分アクセスできるようにする場合に便利です。
+É possível definir seus próprios limites de gastos [para envolvidos no projeto](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) no AI Studio.
+Isso é útil se você tiver vários projetos na mesma conta de faturamento e quiser garantir que cada um tenha acesso a um limite de gastos cumulativo suficiente.
 
-プロジェクトの編集者、オーナー、管理者の[ロール](https://docs.cloud.google.com/iam/docs/roles-overview?hl=ja)を持つアカウントは、AI Studio の [[費用](https://aistudio.google.com/spend?hl=ja)] ページで、[**月間の費用上限**] > [**費用上限を編集**] の順に選択して、プロジェクトごとに費用上限を設定できます。
+As contas com as [funções](https://docs.cloud.google.com/iam/docs/roles-overview?hl=pt-br) de editor, proprietário ou administrador do projeto podem definir limites de gastos por projeto no AI Studio na página [Gasto](https://aistudio.google.com/spend?hl=pt-br) em **Limite de gastos mensais** > **Editar limite de gastos**.
 
-[プロジェクトを別の請求先アカウントに移動](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#change_the_billing_account_for_a_project)すると、そのプロジェクトに設定した費用の上限は維持されますが、累積費用は新しい請求期間で $0 にリセットされます。
+Para detalhes sobre as permissões específicas do IAM do Google Cloud necessárias para visualizar ou editar limites de gastos e informações de faturamento no AI Studio, consulte o [guia de solução de problemas do AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pt-br#iam-permissions).
 
-[バッチモード](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)の完了では、超過料金が発生する可能性があります。
+Se você [mover um projeto para uma conta de faturamento diferente](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#change_the_billing_account_for_a_project),
+o limite de gastos definido para esse projeto vai persistir, mas os gastos acumulados
+serão redefinidos para US $0 no novo ciclo de faturamento.
 
-AI Studio では、請求データの処理時間が最大 10 分程度遅れることがあります。請求データが処理される前に料金が加算されると、プロジェクトの上限を超える超過料金が発生する可能性があります。
+Tarefas de longa duração, como conclusões no [modo em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br) e sessões de agente, podem gerar excedentes além do limite de gastos do projeto.
 
-### 請求先アカウントの階層の費用上限
+Os tempos de processamento dos dados de faturamento podem ter um atraso de até 10 minutos no AI Studio. Você pode ter excedentes além do limite do projeto se os dados de faturamento não forem processados antes do acúmulo de mais cobranças.
 
-各[ティア](#about-billing)には、月間の費用の上限が設定されています。
+### Limites de gastos por nível da conta de faturamento
 
-| 使用量ティア | 利用額上限 |
+Cada [nível](#about-billing) tem um limite máximo de gasto mensal:
+
+| Nível de uso | Limite de gastos |
 | --- | --- |
-| **無料** | なし |
-| **Tier 1** | $250 |
-| **Tier 2** | $2,000 |
-| **Tier 3** | 20,000 ～ 100,000 ドル |
+| **Free** (link em francês) | N/A |
+| **Nível 1** | US$ 250,00 |
+| **Nível 2** | US$ 2.000 |
+| **Nível 3** | US$ 20.000 a US$ 100.000 |
 
-Gemini API の月間使用量上限は、[請求先アカウント](#cloud-billing)単位で適用されます。デフォルトの上限は事前に設定されていますが、使用量が増加した場合は、[引き上げをリクエスト](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=ja)できます。合計費用は、Gemini API サービスが有効になっているリンクされたすべてのプロジェクトで集計されます。アカウントの合計が階層の上限に達すると、次の請求期間（毎月 1 日）が始まるまで、その請求先アカウントにリンクされているすべてのプロジェクトでサービスが一時停止されます。
+Os limites de uso mensais são obrigatórios para a API Gemini no nível da [conta de faturamento](#cloud-billing). Embora os limites padrão sejam predefinidos, é possível [solicitar um aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=pt-br) para acomodar um uso maior. O gasto total é agregado em todos os projetos vinculados que têm o serviço da API Gemini ativado. Quando o total acumulado da conta atinge o limite do nível, o serviço é pausado para todos os projetos vinculados a essa conta de faturamento até o início do próximo ciclo de faturamento (o primeiro dia de cada mês).
 
-#### 請求先アカウントの費用を評価する
+#### Avaliar os gastos da sua conta de faturamento
 
-過去の月間費用を評価して、新しい[請求先アカウントのティア別費用上限](#tier-spend-caps)が進行中のプロジェクトに影響するかどうかを確認する手順は次のとおりです。
+Para avaliar seus gastos mensais históricos e determinar se os novos [limites de gastos por nível da conta de faturamento](#tier-spend-caps) vão afetar seus projetos em andamento, siga estas etapas:
 
-1. Google Cloud コンソールで、[Cloud 請求先アカウントの [レポート]](https://console.cloud.google.com/billing/reports?hl=ja) ページを表示します。
-   - 請求先アカウントが複数ある場合は、プロンプトが表示されます。このプロンプトで、費用レポートを表示する Cloud 請求先アカウントを選択します。
-2. レポートはデフォルトで、[当月] の [サービス別にグループ化] に設定されています。テーブルの [**サービス**] 列に **Gemini API** が表示され、[**使用料金**] 列に合計費用が表示されます。
-3. Gemini API の使用量に限定した詳細な費用を表示するには、[**グループ条件**] フィルタを [**SKU**] でグループ化するように設定し、[**サービス**] フィルタを [**Gemini API**] に設定します。
-4. [**使用日別の期間**] フィルタを目的の期間に調整して、過去の費用を評価します。
+1. No console do Google Cloud, acesse a página [Relatórios da conta do Cloud Billing](https://console.cloud.google.com/billing/reports?hl=pt-br).
+   - Se você tiver mais de uma conta de faturamento, escolha a conta do Cloud
+     Billing que tem os relatórios de custo que você quer visualizar.
+2. O relatório usa "Agrupar por serviço" como padrão no "Mês atual". Você vai encontrar **API Gemini** na coluna **Serviço** e o gasto total na coluna **Custo de uso** da tabela.
+3. Para ver custos granulares limitados ao uso da API Gemini, defina o filtro **Agrupar por** para **SKU** e o filtro **Serviços** para **API Gemini**.
+4. Ajuste o filtro **Período por data de uso** para o intervalo desejado e avalie seu gasto histórico em um período.
 
-## 処理時間
+## Tempos de processamento
 
-請求シグナルと更新は必ずしもリアルタイムで行われるわけではありません。
+Os indicadores e atualizações de faturamento nem sempre acontecem em tempo real.
 
-- **クレジットの使用量**: 通常、使用料金は数分以内に残高から引き落とされます。
-- **お支払いの確認**: ほとんどのカード支払いは即時に行われますが、お支払い方法によっては（銀行振込など）、清算に数日かかることがあります。サービスは、クレジットの購入が正式に確認された後にのみ再開またはアップグレードされます。
-- **メンバーシップのアップグレード**: お支払いが完了した場合、または[アップグレードの条件](#about-billing)を満たした場合、通常は 10 分以内にメンバーシップがアップグレードされます。
-- **合計費用の内訳グラフ**: [[お支払い](https://aistudio.google.com/billing?hl=ja)] ページと [[費用](https://aistudio.google.com/spend?hl=ja)] ページに表示される合計費用の内訳グラフは、更新に最大 24 時間かかることがあります。
+- **Uso de crédito**: os custos de uso geralmente são descontados do seu saldo em minutos.
+- **Confirmação do pagamento**: embora a maioria dos pagamentos com cartão seja instantânea, algumas formas de pagamento (como transferências bancárias) podem levar vários dias para serem compensadas. Os serviços só são retomados ou atualizados após a confirmação oficial da compra de créditos.
+- **Upgrades de nível**: após um pagamento bem-sucedido ou quando você atende aos [critérios de upgrade](#about-billing), os upgrades de nível geralmente são refletidos em até 10 minutos.
+- **Gráficos de detalhamento do custo total**: os gráficos que mostram o detalhamento do custo total nas páginas [Faturamento](https://aistudio.google.com/billing?hl=pt-br) e [Gasto](https://aistudio.google.com/spend?hl=pt-br) podem levar até 24 horas para serem atualizados.
 
-課金の遅延の可能性について詳しくは、[課金サイクル](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja#delayed-billing)と[トランザクション](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=ja#missing-transactions)のレイテンシに関する Cloud Billing ガイドをご覧ください。
+Leia os guias do Cloud Billing sobre [ciclo de cobrança](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#delayed-billing) e [latências de transação](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=pt-br#missing-transactions) para saber mais sobre possíveis atrasos no faturamento.
 
-## 払い戻し
+## Reembolsos
 
-アカウント タイプの切り替えの場合を除き、**前払い**の請求先アカウントでは払い戻しはできません。
+Não é possível receber reembolsos em contas de faturamento **pré-pagas**, exceto ao mudar de tipo de conta.
 
-**前払いアカウントが後払いアカウント タイプに切り替わる場合**（[条件](#about-billing)を満たし、アカウントを[手動でアップグレード](#postpay)した後）、前払いアカウントは閉鎖され、残りの前払いクレジットは自動的に登録されているお支払い方法に払い戻されます。
+**Quando uma conta pré-paga muda para o tipo pós-pago** (depois que você atende aos [critérios](#about-billing) e [faz upgrade manual](#postpay) da conta), a conta pré-paga é encerrada, e todos os créditos pré-pagos restantes são reembolsados automaticamente para a forma de pagamento registrada.
 
-後払いへのアップグレード以外の理由でプリペイド アカウントを[閉鎖](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=ja#close-a-billing-account)した場合、残りのプリペイド クレジットは失効します。
+Se você [encerrar](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=pt-br#close-a-billing-account) sua conta pré-paga por qualquer motivo que não seja o upgrade para pós-paga, todos os créditos pré-pagos restantes serão perdidos.
 
-購入したクレジットの有効期限は 1 年です。有効期限が切れると、クレジットは没収され、取得できなくなります。
+Os créditos comprados expiram após um ano. Após o vencimento, os créditos são perdidos e não podem ser recuperados.
 
-**後払い**アカウントには、[Google Cloud の払い戻しポリシー](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=ja#request_a_refund)が適用されます。
+As contas **pós-pagamento** seguem a [política de reembolso do Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=pt-br#request_a_refund).
 
-## Cloud 請求先アカウント
+## Contas do Cloud Billing
 
-Gemini API は、課金サービスに [Cloud 請求先アカウント](https://cloud.google.com/billing/docs/concepts?hl=ja)を使用します。これは、[AI Studio で直接設定](#setup-billing)できます。AI Studio を使用すると、費用の追跡、費用の把握、支払いができます。
+A API Gemini usa [contas do Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=pt-br) para serviços de faturamento, que você pode [configurar diretamente no AI Studio](#setup-billing).
+Use o AI Studio para acompanhar os gastos, entender os custos e fazer pagamentos.
 
-階層、レート上限、請求先アカウントの上限はすべて、請求先アカウント レベルで決定されます。
+Os níveis, os limites de taxa e os limites máximos da conta de faturamento são determinados no nível da conta de faturamento.
 
-### プロジェクトと API キー
+### Projetos e chaves de API
 
-Cloud 請求先アカウントにリンクされているすべての[プロジェクト](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)は、請求先アカウントの使用量階層と、関連するレート上限とアカウント上限を継承します。[プロジェクトをある請求先アカウントから別の請求先アカウントに変更](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#change_the_billing_account_for_a_project)すると、その階層、レート上限、アカウント上限が新しい請求先アカウントの階層に切り替わります。
+Todos os [projetos](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) vinculados a uma conta de faturamento do Cloud herdam o nível de uso e os limites de taxa e de conta associados. Se você [mudar um projeto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#change_the_billing_account_for_a_project)
+de uma conta de faturamento para outra, o nível dele e, consequentemente, os limites de taxa e
+os limites da conta vão mudar para o nível da nova conta de faturamento.
 
-請求先アカウントに関連付けられているすべてのプロジェクトの累積費用（すべての Google Cloud プロダクトの費用）とアカウントの有効期間は、その請求先アカウントの[階層の資格要件](#about-billing)の対象となります。
+O gasto cumulativo (em todos os produtos do Google Cloud) e a idade da conta em todos os projetos vinculados a uma conta de faturamento contam para as [qualificações de nível](#about-billing) dessa conta.
 
-[プロジェクトと請求先アカウントのリンクを解除](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#disable_billing_for_a_project)して、無料枠に戻ることができます。
+É possível [desvincular um projeto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
+da conta de faturamento para voltar ao nível sem custo financeiro.
 
-[API キー](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)は、プロジェクト内で生成される認証情報です。独立した課金設定はなく、プロジェクトの階層上限と課金ステータスを継承します。プロジェクト内のすべてのキーの累積使用量は、そのプロジェクトの費用上限と請求先アカウントの合計費用にカウントされます。
+As [chaves de API](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br) são credenciais geradas em um projeto.
+Elas não têm configurações de faturamento independentes. Elas herdam os limites de nível e o status de faturamento do projeto. O uso cumulativo de todas as chaves em um projeto conta para o limite de gastos desse projeto e o gasto total da conta de faturamento.
 
-## よくある質問
+## Perguntas frequentes
 
-以降のセクションでは、よくある質問とその回答について説明します。
+As seções a seguir fornecem respostas para perguntas frequentes.
 
-### 何に対して料金が発生しますか？
+### Por que estou recebendo uma cobrança?
 
-Gemini API の料金は、次の要素に基づいています。
+O preço da API Gemini é baseado no seguinte:
 
-- 入力トークン数
-- 出力トークン数
-- キャッシュに保存されたトークン数
-- キャッシュに保存されたトークンの保存期間
+- Contagem de tokens de entrada
+- Contagem de tokens de saída
+- Contagem de tokens em cache
+- Duração do armazenamento de tokens em cache
 
-料金については、[料金ページ](https://ai.google.dev/pricing?hl=ja)をご覧ください。
+Para informações sobre preços, consulte a [página de preços](https://ai.google.dev/pricing?hl=pt-br).
 
-### 割り当てはどこで確認できますか？
+### Onde posso ver minha cota?
 
-割り当てとシステム上限は [AI Studio](https://aistudio.google.com/usage?hl=ja) で確認できます。
+Você pode conferir sua cota e os limites do sistema no [AI Studio](https://aistudio.google.com/usage?hl=pt-br).
 
-### レート上限の Tier を引き上げるにはどうすればよいですか？また、割り当ての増加をリクエストするにはどうすればよいですか？
+### Como faço para mudar para um nível de limite de taxa mais alto ou solicitar mais cota?
 
-アカウントが次の[階層の要件](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#usage-tiers)を満たすと、割り当てが自動的に増加します。
+Você vai receber mais cota automaticamente quando sua conta atingir os próximos [requisitos de nível](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br#usage-tiers).
 
-### EEA（EU を含む）、英国、スイスで Gemini API を無料で使用できますか？
+### Posso usar a API Gemini sem custo financeiro no EEE (incluindo a UE), no Reino Unido e na Suíça?
 
-はい。無料枠と有料枠は[多くのリージョン](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)でご利用いただけます。
+Sim, oferecemos o nível sem custo financeiro e o nível pago em [várias regiões](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br).
 
-### Gemini API でお支払い情報を設定した場合、Google AI Studio の使用に対して課金されますか？
+### Se eu configurar o faturamento com a API Gemini, vou receber uma cobrança pelo uso do Google AI Studio?
 
-有料機能にアクセスするために有料の API キーをリンクしない限り、AI Studio の使用は無料です。AI Studio の有料プロジェクトの一部として有料 API キーをリンクすると、そのキーの AI Studio の使用量に対して課金されます。各タイプにリンクされているそれぞれの API キーを使用することで、必要に応じて有料ティア プロジェクトと無料ティア プロジェクトを切り替えることができます。
+O uso do AI Studio continua sem custos financeiros, a menos que os usuários vinculem uma chave de API paga para
+acessar recursos pagos.
+Depois de vincular uma chave de API paga como parte de um projeto pago no AI Studio, você vai receber uma cobrança pelo uso do AI Studio com essa chave. Você pode alternar entre projetos do nível pago e projetos do nível sem custo financeiro conforme necessário usando as respectivas chaves de API vinculadas a cada tipo.
 
-### 無料枠を利用している場合、上位の Tier にアップグレードするにはどうすればよいですか？
+### Se eu estiver no nível sem custo financeiro, como faço upgrade para níveis mais altos?
 
-上位の階層にアクセスするには、プロジェクトで課金を設定する必要があります。Google AI Studio で [[**お支払い方法を設定**](#setup-billing)] をクリックします。Cloud 請求先アカウントの選択または作成の手順が表示されます。前払い請求モデルを使用する必要がある場合は、**請求を設定する**プロセスで、Cloud 請求先アカウントにリンクされた前払いアカウントを作成する手順が説明されます。
+Para acessar níveis mais altos, configure o faturamento no seu projeto. Clique em [**Configurar
+faturamento**](#setup-billing) no Google AI Studio. Isso vai orientar você na
+seleção ou criação de uma conta do Cloud Billing. Se você precisar usar o modelo de faturamento pré-pago, o processo **Configurar faturamento** vai orientar você na criação da sua conta pré-paga vinculada à conta do Cloud Billing.
 
-### 無料枠で 100 万個のトークンを使用できますか？
+### Posso usar 1 milhão de tokens no nível sem custo financeiro?
 
-Gemini API の無料枠は、選択したモデルによって異なります。現時点では、次の方法で 100 万トークンのコンテキスト ウィンドウを試すことができます。
+O nível sem custos financeiros da API Gemini varia de acordo com o modelo selecionado. Por enquanto, você
+pode testar a janela de contexto de 1 milhão de tokens das seguintes maneiras:
 
-- Google AI Studio で
-- 一部のモデルでは無料プランをご利用いただけます
-- 後払いプランの場合
+- No Google AI Studio
+- Com planos sem custos financeiros para modelos selecionados
+- Com planos pós-pagos
 
-### 上位（有料）階層にアップグレードした後、無料枠に戻すことはできますか？
+### Posso voltar para o nível sem custo financeiro depois de fazer upgrade para níveis mais altos (pagos)?
 
-無料枠にダウングレードするには、ダウングレードする各プロジェクトで[課金を無効](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#disable_billing_for_a_project)にします。
+Para fazer downgrade para o nível sem custo financeiro, [desative o faturamento](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
+em cada um dos projetos que você quer fazer downgrade.
 
-### 使用しているトークンの数を計算するにはどうすればよいですか？
+### Como posso calcular o número de tokens que estou usando?
 
-[`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=ja#count_tokens) メソッドを使用して、トークン数をカウントします。トークンの詳細については、[トークンガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)をご覧ください。
+Use o método [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=pt-br#count_tokens)
+para contar o número de tokens. Consulte o [guia de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) para saber mais sobre eles.
 
-### AI Studio から最初の Cloud 請求先アカウントに登録した場合でも、Google Cloud の無料トライアルを利用できますか？
+### Se eu me inscrever na minha primeira conta do Cloud Billing pelo AI Studio, ainda vou receber um teste sem custo financeiro do Google Cloud?
 
-初めて Cloud 請求先アカウントに登録すると、[Google Cloud の無料トライアル](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=ja#free-trial)が開始され、$300 の[ウェルカム クレジット](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja#welcome-credits)が付与されます。ただし、これらのクレジットは AI Studio の使用料金の支払いには使用できません。ウェルカム クレジットは、Google Cloud 内の他の対象サービスのお支払いに使用できます（クレジットが消費されるか、有効期限（90 日以内）が切れると、追加の使用料金は自動的に設定済みのお支払い方法に請求されます）。
+Ao se inscrever na sua primeira conta do Cloud Billing, o [teste sem custo financeiro do Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=pt-br#free-trial) começa, e você recebe um [crédito de boas-vindas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#welcome-credits) de US $300.
+No entanto, esses créditos não podem ser usados para pagar pelo uso do AI Studio. Você pode usar o crédito de boas-vindas para pagar por outros serviços qualificados no Google Cloud (observação: depois que esses créditos forem efetivados ou expirarem (em 90 dias), os custos de uso adicionais serão faturados automaticamente na sua forma de pagamento estabelecida).
 
-### Gemini API で Google Cloud ウェルカム クレジットを使用できますか？
+### Posso usar meu crédito de boas-vindas do Google Cloud com a API Gemini?
 
-いいえ。Google Cloud の[ウェルカム クレジット](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja#welcome-credits)または無料トライアル クレジットは、Gemini API または AI Studio には使用できません。
+Não, o [crédito de boas-vindas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#welcome-credits) do Google Cloud ou o crédito do teste sem custo financeiro não podem ser usados na API Gemini ou no AI Studio.
 
-Google Cloud ウェルカム クレジットの対象外になる前にクレジットが付与された場合は、クレジットの有効期限（90 日後）が切れるまで、残りのクレジットを Gemini API と AI Studio で使用できます。
+Se você recebeu um crédito de boas-vindas do Google Cloud antes de ele se tornar inelegível, poderá gastar os créditos restantes na API Gemini e no AI Studio até que eles expirem (após 90 dias).
 
-### Google Cloud の無料トライアルは Gemini API の使用量に適用されますか？
+### O teste sem custo financeiro do Google Cloud se aplica ao uso da API Gemini?
 
-いいえ。2026 年 3 月より、Gemini API の使用料金は [300 ドルの Google Cloud 無料トライアル](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=ja#free-trial) プログラムの対象外となります。
+Não. A partir de março de 2026, os custos de uso da API Gemini serão especificamente excluídos do programa [Teste sem custos financeiros do Google Cloud de US$300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=pt-br#free-trial).
 
-### 請求はどのように処理されますか？
+### Como o faturamento é processado?
 
-Gemini API の請求は、[Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=ja) システムによって処理されます。プロダクト内の Cloud Billing のお支払い情報の設定については、[Cloud Billing のドキュメント](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja)をご覧ください。
+O faturamento da API Gemini é processado pelo sistema de [faturamento do Cloud](https://cloud.google.com/billing/docs/concepts?hl=pt-br). Saiba mais sobre a configuração de faturamento no produto do Cloud Billing na [documentação do Cloud Billing](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br).
 
-### 失敗したリクエストに対して課金されますか？
+### Sou cobrado por solicitações com falha?
 
-リクエストが 400 エラーまたは 500 エラーで失敗した場合、使用されたトークンに対して課金されることはありません。ただし、リクエストは割り当てにカウントされます。
+Se a solicitação falhar com um erro 400 ou 500, não haverá cobrança pelos tokens usados. No entanto, a solicitação ainda será deduzida da sua cota.
 
-### `GetTokens` は課金対象ですか？
+### O `GetTokens` é faturado?
 
-`GetTokens` API に対するリクエストは課金されず、推論割り当てにもカウントされません。
+As solicitações para a API `GetTokens` não são faturadas e não são contabilizadas na cota de inferência.
 
-### 有料の API アカウントを使用している場合、Google AI Studio のデータはどのように処理されますか？
+### Como meus dados do Google AI Studio são tratados se eu tiver uma conta de API paga?
 
-Cloud Billing が有効になっている場合のデータの取り扱いについては、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#paid-services)（「有料サービス」の「Google による使用者のデータの利用方法」を参照）をご覧ください。少なくとも 1 つの API プロジェクトで課金が有効になっている限り、Google AI Studio プロンプトは同じ「有料サービス」の条件で扱われます。これは、[プラン] で「有料」とマークされているプロジェクトがあるかどうかを [Gemini API キーのページ](https://aistudio.google.com/api-keys?hl=ja)で確認できます。
+Consulte os [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#paid-services) para detalhes sobre como os dados são tratados quando o Cloud Billing está ativado (consulte "Como o Google usa seus dados" em "Serviços pagos"). Vale lembrar que seus comandos do Google AI Studio são tratados de acordo com os mesmos termos de "Serviços pagos", desde que pelo menos um projeto de API tenha o faturamento ativado. Para verificar isso, acesse a [página da chave de API Gemini](https://aistudio.google.com/api-keys?hl=pt-br) e confira se há projetos marcados como "Pago" em "Plano".
 
-### 前払い請求とは何ですか？また、前払い請求モデルを使用する必要があるのは誰ですか？
+### O que é o faturamento pré-pago e quem precisa usar esse modelo?
 
-プリペイド課金では、AI Studio の Gemini API のユーザーがクレジットを事前に購入できます。2026 年 3 月 23 日以降、AI Studio の新規ユーザーは、プリペイドお支払いプランへの登録が必要になる場合があります。AI Studio の [[Set up Billing](#setup-billing)] プロセスでは、UI に沿って課金設定フローを進めます。前払いが必須かどうかは、UI に表示されます。
+Com o faturamento pré-pago, os usuários da API Gemini no AI Studio podem comprar créditos na pré-venda.
+A partir de 23 de março de 2026, os novos usuários do AI Studio talvez precisem usar o plano de faturamento pré-pago. Durante o processo de [Configurar faturamento](#setup-billing) do AI Studio, a interface vai orientar você pelo fluxo de configuração de faturamento e indicar se é necessário fazer um pré-pagamento.
 
-### 前払いクレジットを購入するにはどうすればよいですか？また、最小額や最大額はありますか？
+### Como faço para comprar créditos de pré-pagamento? Há um valor mínimo ou máximo?
 
-AI Studio のお支払いページで[クレジットを購入](#buy-credits)できます。購入手続きの際、UI には、お住まいの地域とティアレベルに必要な事前購入額の最小額と、アカウントに一度にチャージできる最大額が表示されます。
+Você pode [comprar créditos](#buy-credits) na página de faturamento do AI Studio. Durante o processo de compra, a interface vai mostrar o valor mínimo de pré-compra necessário para sua região e nível, além de um valor máximo que pode estar na sua conta de uma só vez.
 
-### 必要に応じてクレジットを自動的に購入するように前払いアカウントを設定できますか？
+### Posso configurar minha conta pré-paga para comprar mais créditos automaticamente conforme necessário?
 
-はい。AI Studio の課金設定で[オートチャージ](#auto-reload)を構成することをおすすめします。「トリガー」となるクレジット残高（「残高が 30 ドルを下回った場合」など）と「チャージ額」（「100 ドルを追加」など）を指定します。
+Sim, recomendamos que você configure a [recarga automática](#auto-reload) nas configurações de faturamento do AI Studio. Você especifica um saldo de crédito de "gatilho" (por exemplo, "quando meu saldo ficar abaixo de R $30") e um "valor de recarga" (por exemplo, "adicionar R $100").
 
-### 未使用のクレジットの払い戻しを受けることはできますか？
+### Posso receber um reembolso pelos meus créditos não utilizados?
 
-前払いの API クレジットはすべて 1 年後に期限切れとなり、払い戻しはできません。[前払いアカウントの払い戻しポリシー](#refunds)をご確認ください。
+Todos os créditos de API pré-pagos expiram após um ano e não podem ser reembolsados. Leia a [política de reembolso para contas pré-pagas](#refunds).
 
-### プリペイド クレジットに有効期限はありますか？
+### Meus créditos pré-pagos expiram?
 
-はい。クレジットは購入日から 12 か月後に有効期限が切れます。
+Sim, os créditos expiram 12 meses após a data da compra.
 
-### プリペイド クレジットの残高が $0 になるとどうなりますか？
+### O que acontece quando meu saldo de crédito pré-pago chega a R $0?
 
-その Cloud Billing 先払いアカウントで支払われたすべてのプロジェクトの Gemini API サービスは、追加の料金が発生しないように直ちに停止します。プロジェクトは自動的に無料枠にダウングレードされません。
+Todos os serviços da API Gemini em todos os projetos pagos por essa conta pré-paga do Cloud Billing serão interrompidos imediatamente para evitar mais cobranças. Seus projetos
+não vão passar automaticamente para o nível sem custo financeiro.
 
-現在の有料階層レベルでサービスを復元するには、[追加のクレジットを購入](#buy-credits)する必要があります。クレジットを購入すると、Gemini API を使用できるようになります。クレジット残高が反映されるまで、[遅延](#processing-times)が生じることがあります。
+Para restaurar o serviço no seu nível pago atual, [compre mais créditos](#buy-credits). Depois de comprar créditos, você poderá usar a API Gemini. Pode haver um [atraso](#processing-times) enquanto nossos sistemas são atualizados para refletir seu saldo de crédito.
 
-必要に応じて、無料枠にダウングレードするには、ダウングレードするプロジェクトの[課金を無効](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#disable_billing_for_a_project)にします。
+Opcionalmente, para fazer downgrade para o nível sem custo financeiro, você pode [desativar o faturamento](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
+nos projetos em que você quer fazer downgrade.
 
-### プリペイド クレジットの残高が $0 を超えているのに、使用量が停止したのはなぜですか？
+### Por que meu uso parou mesmo com um saldo de crédito pré-pago maior que R $0?
 
-現在の階層の[使用量上限](#tier-spend-caps)に達した可能性があります。上位のティアに進むにつれて、使用量の上限は自動的に引き上げられます。Gemini API AI Studio の使用状況は、[Cloud 請求先アカウントのステータス](#missed-payment)によっても影響を受ける可能性があります。
+Talvez você tenha atingido o [limite de uso](#tier-spend-caps) do seu nível atual.
+Os limites de uso aumentam automaticamente à medida que você avança para níveis mais altos. O uso da API Gemini no AI Studio também pode ser afetado pelo [status da sua conta do Cloud Billing](#missed-payment).
 
-### プリペイド アカウントのクレジット残高がマイナスになっているのはなぜですか？
+### Por que o saldo de crédito da minha conta pré-paga está negativo?
 
-請求システムと処理システムが複雑なため、クレジットをすべて使用した後に使用量を削減するまでに[遅延](#processing-times)が生じる可能性があります。この超過使用量は、AI Studio の課金ダッシュボードにマイナスのクレジット残高として表示されることがあります。この場合、サービスは一時停止され、マイナス残高は次回のクレジット購入時に差し引かれます。
+Devido à complexidade dos nossos sistemas de faturamento e processamento, pode haver [atrasos](#processing-times) na nossa capacidade de interromper o uso depois que você consumir todos os seus créditos. Esse uso em excesso pode aparecer como um saldo de crédito negativo no painel de faturamento do AI Studio. Se isso acontecer, o serviço será pausado, e o saldo negativo será deduzido da sua próxima compra de crédito.
 
-Gemini API サービスが一時停止しないようにするには、クレジット残高が指定した値を下回ったときに自動的にクレジットを購入する[自動再読み込み](#auto-reload)を設定することをおすすめします。
+Para evitar uma pausa no serviço da API Gemini, recomendamos configurar a [recarga automática](#auto-reload) para comprar mais créditos automaticamente quando o saldo ficar abaixo de um valor especificado.
 
-### 前払いクレジットを Gemini Enterprise Agent Platform などの他の Google Cloud サービスに使用できますか？
+### Posso usar meus créditos pré-pagos em outros serviços do Google Cloud, como a Gemini Enterprise Agent Platform?
 
-いいえ。前払いクレジットは Gemini API の使用に限定されています。使用する他の Google Cloud サービス（Compute、Storage、Gemini Enterprise Agent Platform）は、標準の [Cloud 請求サイクル](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja)で請求されます。
+Não, os créditos de pré-pagamento são estritamente vinculados ao uso da API Gemini. Qualquer
+outro serviço do Google Cloud que você usar (Compute, Storage, Gemini Enterprise Agent Platform) será cobrado usando
+o [ciclo de cobrança do Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br) padrão.
 
-### 後払いプランに切り替えることはできますか？
+### Posso mudar para um plano de faturamento pós-pago?
 
-お支払い履歴を確立し、後払い請求プランの[対象となる階層に達する](#about-billing)と、今後の Gemini API の使用料金をすべて標準の統合 Google Cloud [後払い請求サイクル](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja#view-your-charging-cycle)に移行できます。
+Quando você estabelece um histórico de pagamentos e [atinge um nível qualificado](#about-billing) para o plano de faturamento pós-pago, é possível transferir todos os custos futuros de uso da API Gemini para um [ciclo de cobrança pós-pago](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#view-your-charging-cycle) padrão e consolidado do Google Cloud.
 
-### 後払いに切り替えた場合、前払いクレジットはどうなりますか？
+### O que acontece com meus créditos pré-pagos se eu mudar para o pós-pago?
 
-[後払い](#postpay)にアップグレードすると、Cloud Billing は前払いのお支払いアカウントを閉鎖し、[オートチャージ](#auto-reload)を無効にして、未使用の前払いクレジットを自動的に払い戻します（標準の払い戻し処理時間に従います）。
+Ao fazer upgrade para o [pós-pagamento](#postpay), o Cloud Billing encerra sua conta para pagamentos pré-paga, desativa a [recarga automática](#auto-reload) e reembolsa automaticamente os créditos pré-pagos não utilizados (sujeito ao tempo padrão de processamento de reembolso).
 
-### 現在のプリペイド クレジットの残高と取引履歴はどこで確認できますか？
+### Onde posso ver meu saldo de crédito pré-pago e histórico de transações?
 
-Gemini API の残高管理と取引履歴はすべて、Google AI Studio の [お支払い] タブで直接行う必要があります。
+Todo o gerenciamento de saldo e o histórico de transações da API Gemini precisam ser feitos diretamente na guia "Faturamento" do Google AI Studio.
 
-### 「請求先アカウントの種類が無効であるか、サポートされていません」というエラーが表示されるのはなぜですか？
+### Por que aparece a mensagem "O tipo de conta de faturamento está inativo ou não é compatível"?
 
-選択した請求先アカウントの種類または請求先アカウントのステータスが AI Studio の有料階層の対象でない場合、[AI Studio の [お支払い] ページ](https://aistudio.google.com/billing?hl=ja)でのお支払いの操作がブロックされ、「請求先アカウントの種類が無効またはサポートされていません」というメッセージが表示されることがあります。
+As interações de pagamentos na [página de faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) podem ser bloqueadas e substituídas pela mensagem "O tipo de conta de faturamento está inativo ou não é compatível" se o tipo ou status da conta de faturamento selecionada não for qualificado para o nível pago do AI Studio.
 
-[Cloud Console](https://console.cloud.google.com/billing/?hl=ja) で、お支払いアカウントのステータスを確認します。対象外のタイプとして、*無料トライアル アカウント*があります。この場合は、AI Studio で[課金を有効](#setup-billing)にすると、対象となります。無効な状態の 1 つに [*閉鎖*] があります。この場合は、[アカウントを再開](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=ja)できます。
+Verifique o [Console do Cloud](https://console.cloud.google.com/billing/?hl=pt-br) para conferir o status da sua conta de faturamento. Um tipo inelegível pode ser *Conta de teste sem custo financeiro*. Nesse caso, [ative o faturamento](#setup-billing) no AI Studio para se qualificar. Um estado inativo pode ser *Encerrado*. Nesse caso, é possível [reabrir a conta](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=pt-br).
 
-### Gemini API の使用料金は Google Cloud コンソールに表示されますか？
+### Os custos de uso da API Gemini vão aparecer no console do Google Cloud?
 
-はい。Gemini API の費用は、Cloud 請求先アカウントで支払われる他の Google Cloud サービスの費用とともに、[Cloud Billing コンソール](https://console.cloud.google.com/billing?hl=ja)の[費用管理ページ](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=ja#cost-reports)で確認できます。プリペイド クレジット残高は AI Studio でのみ管理できます。
+Sim, os custos da API Gemini, assim como os custos associados a outros serviços do Google Cloud pagos pela sua conta do Cloud Billing, podem ser consultados nas [páginas de gerenciamento de custos](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=pt-br#cost-reports) no [console do Cloud Billing](https://console.cloud.google.com/billing?hl=pt-br). Observação: só é possível gerenciar seu saldo de crédito pré-pago no AI Studio.
 
-### AI Studio の課金ではクレジットの使用量とともに Gemini API の使用量を確認できますが、Cloud Billing コンソールに表示されません。なぜですか？
+### Por que meu uso da API Gemini não aparece no console do Cloud Billing, mas aparece no faturamento do AI Studio, junto com o consumo dos meus créditos?
 
-Google Cloud と AI Studio は、さまざまな間隔で使用量データを Cloud Billing に報告します。請求システムと処理システムの複雑さにより、サービスの使用と、Cloud Billing に表示される使用量や費用との間に遅延が生じる場合があります。通常、費用の詳細は 1 日以内に確認できますが、24 時間以上かかる場合もあります。遅延請求の詳細については、[Cloud Billing のドキュメント](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja#delayed-billing)をご覧ください。
+O Google Cloud e o AI Studio informam dados de uso ao Cloud Billing em intervalos variados. Devido à complexidade dos nossos sistemas de faturamento e processamento, pode haver um atraso entre o uso dos serviços e a disponibilização do uso e dos custos para visualização no Cloud Billing. Normalmente, os detalhes de custo ficam disponíveis em um dia, mas às vezes podem demorar mais de 24 horas.
+Saiba mais sobre o faturamento atrasado na [documentação do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#delayed-billing).
 
-### 後払い課金サイクルが適用される他の Google Cloud サービスを使用している場合、支払いが遅れるとどうなりますか？
+### Se eu usar outros serviços do Google Cloud com custos sujeitos a um ciclo de cobrança pós-pago, o que acontece se eu não fizer um pagamento?
 
-他の Google Cloud サービスの支払いが滞ると、**利用可能なプリペイド クレジットの残高に関係なく**、AI Studio での Gemini API へのアクセスが一時停止される可能性があります。AI Studio の使用量は Google Cloud 請求先アカウントで管理されます。このアカウントでは、AI Studio の前払い請求と他の Cloud サービスの後払い請求の両方を共有できます。後払い残高に問題があると、そのアカウントに関連付けられているすべてのサービスが停止します。Cloud 請求先アカウントに次のような問題が報告された場合、Gemini API の使用は一時停止されます。
+Se você não pagar por outros serviços do Google Cloud, seu acesso à API Gemini
+no AI Studio poderá ser suspenso, **independente de quantos créditos pré-pagos você tiver
+disponíveis**. O uso do AI Studio é feito por uma conta do Cloud Billing do Google Cloud, que pode compartilhar o faturamento pré-pago do AI Studio e o pós-pago de outros serviços do Cloud. Um problema com seu saldo pós-pago interrompe todos os serviços vinculados a essa
+conta. O uso da API Gemini será suspenso se sua conta do Cloud Billing for sinalizada por problemas como:
 
-- 滞納または延滞中の残高
-- 不承認となったお支払い
-- 無効または有効期限切れのお支払い方法
+- Um saldo em atraso ou vencido
+- Um pagamento recusado
+- Uma forma de pagamento inválida ou expirada
 
-サービスを復元するには、Google Cloud Billing コンソールで[後払いアカウントの問題を解決](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=ja#resolving-declined-payments)する必要があります。問題を解決すると、プリペイドの Gemini API クレジットとサービスに再びアクセスできるようになります。
+Para restaurar o serviço, [resolva o problema da conta pós-paga](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=pt-br#resolving-declined-payments) no console do Google Cloud Billing. Depois de resolver o problema, você vai recuperar o acesso aos seus créditos e serviços pré-pagos da API Gemini.
 
-### 請求に関するサポートはどこで受けられますか？
+### Onde posso receber ajuda com o faturamento?
 
-課金に関するサポートについては、[Cloud Billing サポートを利用する](https://cloud.google.com/support/billing?hl=ja)をご覧ください。
+Para receber ajuda com o faturamento, consulte
+[Receber suporte do Cloud Billing](https://cloud.google.com/support/billing?hl=pt-br).
 
-フィードバックを送信
+Envie comentários
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最終更新日 2026-05-22 UTC。
+Última atualização 2026-05-29 UTC.
 
-ご意見をお聞かせください
+Quer enviar seu feedback?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-22 UTC。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-29 UTC."],[],[]]

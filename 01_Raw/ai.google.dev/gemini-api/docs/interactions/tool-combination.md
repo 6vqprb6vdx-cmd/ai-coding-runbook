@@ -1,30 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=th
-fetched_at: 2026-05-25T13:00:00.294960+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=tr
+fetched_at: 2026-06-01T19:36:37.667983+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# รวมเครื่องมือในตัวและการเรียกฟังก์ชัน
+# Yerleşik araçları ve işlev çağrılarını birleştirme
 
-Gemini อนุญาตให้รวม[เครื่องมือในตัว](https://ai.google.dev/gemini-api/docs/tools?hl=th) เช่น
-`google_search` และ[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th)
-(หรือที่เรียกว่า*เครื่องมือที่กำหนดเอง*) ไว้ในการโต้ตอบครั้งเดียวโดยการเก็บรักษาและแสดง
-ประวัติบริบทของการเรียกเครื่องมือ ชุดค่าผสมของเครื่องมือในตัวและเครื่องมือที่กำหนดเองช่วยให้เวิร์กโฟลว์ของ Agent มีความซับซ้อนมากขึ้น เช่น โมเดลสามารถอ้างอิงข้อมูลเว็บแบบเรียลไทม์ก่อนที่จะเรียกตรรกะทางธุรกิจที่เฉพาะเจาะจงของคุณ
+Gemini, araç çağrılarının bağlam geçmişini koruyup ortaya çıkararak `google_search` gibi [yerleşik araçların](https://ai.google.dev/gemini-api/docs/tools?hl=tr) ve [işlev çağrılarının](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=tr) (*özel araçlar* olarak da bilinir) tek bir etkileşimde birleştirilmesine olanak tanır. Yerleşik ve özel araç kombinasyonları, karmaşık ve etkili iş akışlarına olanak tanır. Örneğin, model, belirli iş mantığınızı çağırmadan önce kendisini gerçek zamanlı web verileriyle temellendirebilir.
 
-ตัวอย่างต่อไปนี้แสดงวิธีเปิดใช้ชุดค่าผสมของเครื่องมือในตัวและเครื่องมือที่กำหนดเองด้วย `google_search` และฟังก์ชันที่กำหนดเอง `getWeather`
+Aşağıda, `google_search` ile yerleşik ve özel araç kombinasyonlarının ve özel bir işlevin `getWeather` etkinleştirildiği bir örnek verilmiştir:
 
 ### Python
 
@@ -146,90 +143,88 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## วิธีการทำงาน
+## İşleyiş şekli
 
-โมเดล Gemini 3 ใช้ *การหมุนเวียนบริบทของเครื่องมือ* เพื่อเปิดใช้ชุดค่าผสมของเครื่องมือในตัวและเครื่องมือที่กำหนดเอง การหมุนเวียนบริบทของเครื่องมือช่วยให้เก็บรักษาและแสดงบริบทของเครื่องมือในตัว รวมถึงแชร์บริบทดังกล่าวกับเครื่องมือที่กำหนดเองในการโต้ตอบเดียวกันได้
+Gemini 3 modelleri, yerleşik ve özel araç kombinasyonlarını etkinleştirmek için *araç bağlamı dolaşımını* kullanır. Araç bağlamı dolaşımı, yerleşik araçların bağlamının korunmasını ve ortaya çıkarılmasını, aynı etkileşimdeki özel araçlarla paylaşılmasını sağlar.
 
-### เปิดใช้ชุดค่าผสมของเครื่องมือ
+### Araç kombinasyonunu etkinleştirme
 
-- ใส่ [`function_declarations`](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th#function-declarations) พร้อมกับเครื่องมือในตัวที่ต้องการใช้เพื่อทริกเกอร์ลักษณะการทำงานของชุดค่าผสม
+- Birleştirme davranışını tetiklemek için kullanmak istediğiniz yerleşik araçlarla birlikte [`function_declarations`](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=tr#function-declarations)'ı ekleyin.
 
-### ขั้นตอนที่ API แสดงผล
+### API ile iade adımları
 
-ในการตอบกลับการโต้ตอบ API จะแสดงผลขั้นตอนแยกต่างหากสำหรับการเรียกเครื่องมือในตัวและการเรียกฟังก์ชัน (เครื่องมือที่กำหนดเอง) ดังนี้
+API, etkileşim yanıtında yerleşik araç çağrıları ve işlev (özel araç) çağrıları için ayrı adımlar döndürür:
 
-- **ขั้นตอนเครื่องมือในตัว**: API จะจัดการขั้นตอนเหล่านี้โดยอัตโนมัติ โดยจะเก็บรักษา
-  บริบทไว้ในแต่ละรอบ
-- **ขั้นตอนการเรียกฟังก์ชัน**: API จะแสดงผลขั้นตอน `function_call` สำหรับฟังก์ชันที่กำหนดเอง
-  คุณต้องรันฟังก์ชันและแสดงผลลัพธ์กลับมา
+- **Yerleşik araç adımları**: API, bu adımları otomatik olarak yönetir ve dönüşler arasında bağlamı korur.
+- **İşlev çağrısı adımları**: API, özel işlevleriniz için `function_call` adım döndürür. İşlevi yürütür ve sonucu geri gönderirsiniz.
 
-### ช่องที่สำคัญในขั้นตอนที่แสดงผล
+### Döndürülen adımlardaki kritik alanlar
 
-ช่องบางช่องในขั้นตอนที่แสดงผลมีความสำคัญต่อการเก็บรักษาบริบทของเครื่องมือและการเปิดใช้ชุดค่าผสมของเครื่องมือ
+Döndürülen adımlardaki belirli alanlar, araç bağlamının korunması ve araç kombinasyonlarının etkinleştirilmesi için kritik öneme sahiptir:
 
-- **`id`**: พบในขั้นตอน `function_call` และ `function_response` ตัวระบุที่ไม่ซ้ำกันซึ่งจับคู่การเรียกกับการตอบกลับ
-- **`signature`**: พบในขั้นตอน `thought` รวมถึงขั้นตอนการเรียกเครื่องมือทั้งหมด (เช่น `function_call`) และขั้นตอนผลลัพธ์ (เช่น `function_response`) สำหรับโมเดล Gemini 3 ขึ้นไป บริบทที่เข้ารหัสนี้จะเปิดใช้**การหมุนเวียนบริบทของเครื่องมือ** ในการโต้ตอบต่างๆ
+- **`id`**: `function_call` ve `function_response` adımlarında bulunur. Bir aramayı yanıtıyla eşleyen benzersiz tanımlayıcı.
+- **`signature`**: `thought` adımlarının yanı sıra Gemini 3 ve sonraki modeller için tüm araç çağrısı (ör. `function_call`) ve sonuç (ör. `function_response`) adımlarında bulunur. Bu şifrelenmiş bağlam, etkileşimler arasında **araç bağlamı dolaşımını** sağlar.
 
-**การจัดการช่องเหล่านี้:**
+**Bu alanları yönetme:**
 
-- **โหมด Stateful (แนะนำ)**: เมื่อคุณใช้ `previous_interaction_id` เซิร์ฟเวอร์จะจัดการทั้งช่อง `id` และ `signature` โดยอัตโนมัติ
-- **โหมด Stateless**: เมื่อจัดการประวัติการสนทนาด้วยตนเอง คุณต้องส่งทั้งช่อง `id` และ `signature` กลับไปยังโมเดลในคำขอที่ตามมาเพื่อตรวจสอบความถูกต้องและเก็บรักษาบริบท SDK อย่างเป็นทางการจะจัดการขั้นตอนนี้โดยอัตโนมัติหากคุณส่งออบเจ็กต์การตอบกลับแบบเต็มกลับไปยังประวัติ
+- **Durumlu Mod (Önerilen)**: `previous_interaction_id` kullandığınızda sunucu hem `id` hem de `signature` alanlarını otomatik olarak işler.
+- **Durum Bilgisiz Mod**: Konuşma geçmişini manuel olarak yönetirken, kimliği doğrulamak ve bağlamı korumak için sonraki isteklerde hem `id` hem de `signature` alanlarını modele geri ilettiğinizden emin olmanız gerekir. Tam yanıt nesnesini geçmişe geri iletirseniz resmi SDK'lar bunu otomatik olarak işler.
 
-### ข้อมูลเฉพาะของเครื่องมือ
+### Araca özgü veriler
 
-เครื่องมือในตัวบางรายการจะแสดงผลอาร์กิวเมนต์ข้อมูลที่ผู้ใช้มองเห็นได้ซึ่งเฉพาะเจาะจงกับประเภทเครื่องมือ
+Bazı yerleşik araçlar, araç türüne özel ve kullanıcı tarafından görülebilen veri bağımsız değişkenleri döndürür.
 
-| เครื่องมือ | อาร์กิวเมนต์การเรียกเครื่องมือที่ผู้ใช้มองเห็นได้ (หากมี) | การตอบกลับของเครื่องมือที่ผู้ใช้มองเห็นได้ (หากมี) |
+| Araç | Kullanıcının görebileceği araç çağrısı bağımsız değişkenleri (varsa) | Kullanıcı tarafından görülebilen araç yanıtı (varsa) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` URL ที่จะเรียกดู | `status`: สถานะการเรียกดู `retrieved_url`: URL ที่เรียกดู |
-| **file\_search** | ไม่มี | ไม่มี |
+| **url\_context** | `urls` Göz atılacak URL'ler | `status`: Göz atma durumu `retrieved_url`: Göz atılan URL'ler |
+| **file\_search** | Yok | Yok |
 
-## โทเค็นและการกำหนดราคา
+## Token'lar ve fiyatlandırma
 
-โปรดทราบว่าระบบจะนับส่วนการเรียกเครื่องมือในตัวในคำขอรวมกับ `prompt_token_count` เนื่องจากตอนนี้คุณสามารถมองเห็นและรับขั้นตอนเครื่องมือระดับกลางเหล่านี้ได้ ขั้นตอนดังกล่าวจึงเป็นส่วนหนึ่งของประวัติการสนทนา กรณีนี้จะเกิดขึ้นกับ
-กรณีสำหรับ *คำขอ* เท่านั้น ไม่ใช่ *การตอบกลับ*
+İsteklerdeki yerleşik araç çağrısı bölümlerinin `prompt_token_count` sınırına dahil edildiğini unutmayın. Bu ara araç adımları artık görünür olduğundan ve size geri döndürüldüğünden sohbet geçmişinin bir parçasıdır. Bu durum yalnızca *istekler* için geçerlidir, *yanıtlar* için geçerli değildir.
 
-เครื่องมือ Google Search เป็นข้อยกเว้นของกฎนี้ Google Search ใช้โมเดลการกำหนดราคาของตัวเองในระดับคําค้นหาอยู่แล้ว ดังนั้นระบบจึงไม่คิดค่าบริการโทเค็นซ้ำ (ดูหน้า [การกำหนดราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th))
+Google Arama aracı bu kuralın istisnasıdır. Google Arama, sorgu düzeyinde kendi fiyatlandırma modelini zaten uyguladığından jetonlar iki kez ücretlendirilmez ([Fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) sayfasına bakın).
 
-อ่านข้อมูลเพิ่มเติมได้ในหน้า[โทเค็น](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=th)
+Daha fazla bilgi için [Parçalar](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=tr) sayfasını okuyun.
 
-## ข้อจำกัด
+## Sınırlamalar
 
-- ตั้งค่าเป็นโหมด `validated` โดยค่าเริ่มต้น (ไม่รองรับโหมด `auto`) เมื่อเปิดใช้การหมุนเวียนบริบทของเครื่องมือ
-- เครื่องมือในตัว เช่น `google_search` อาศัยข้อมูลตำแหน่งและเวลาปัจจุบัน ดังนั้นหาก `system_instruction` หรือ `function_declaration.description` มีข้อมูลตำแหน่งและเวลาที่ไม่สอดคล้องกัน ฟีเจอร์ชุดค่าผสมของเครื่องมืออาจทำงานได้ไม่ดี
+- Araç bağlamı dolaşımı etkinleştirildiğinde varsayılan olarak `validated` modu kullanılır (`auto` modu desteklenmez).
+- `google_search` gibi yerleşik araçlar konum ve mevcut saat bilgilerini kullandığından `system_instruction` veya `function_declaration.description` cihazınızda çakışan konum ve saat bilgileri varsa araç kombinasyonu özelliği iyi çalışmayabilir.
 
-## เครื่องมือที่รองรับ
+## Desteklenen araçlar
 
-การหมุนเวียนบริบทของเครื่องมือมาตรฐานใช้ได้กับเครื่องมือฝั่งเซิร์ฟเวอร์ (ในตัว)
-การรันโค้ดก็เป็นเครื่องมือฝั่งเซิร์ฟเวอร์เช่นกัน แต่มีโซลูชันในตัวสำหรับการหมุนเวียนบริบท การใช้คอมพิวเตอร์และการเรียกฟังก์ชันเป็นเครื่องมือฝั่งไคลเอ็นต์ และมีโซลูชันในตัวสำหรับการหมุนเวียนบริบทด้วย
+Standart araç bağlamı dolaşımı, sunucu tarafı (yerleşik) araçlar için geçerlidir.
+Kod Yürütme de sunucu tarafı bir araçtır ancak bağlam dolaşımı için kendi yerleşik çözümüne sahiptir. Bilgisayar Kullanımı ve işlev çağırma, istemci tarafı araçlardır.
+Ayrıca bağlam dolaşımı için yerleşik çözümleri vardır.
 
-| เครื่องมือ | ฝั่งการดำเนินการ | การรองรับการหมุนเวียนบริบท |
+| Araç | Yürütme tarafı | Bağlam Dolaşımı Desteği |
 | --- | --- | --- |
-| [Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=th) | ฝั่งเซิร์ฟเวอร์ | รองรับ |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=th) | ฝั่งเซิร์ฟเวอร์ | รองรับ |
-| [บริบท URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=th) | ฝั่งเซิร์ฟเวอร์ | รองรับ |
-| [การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=th) | ฝั่งเซิร์ฟเวอร์ | รองรับ |
-| [การรันโค้ด](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=th) | ฝั่งเซิร์ฟเวอร์ | รองรับ (ในตัว ใช้ขั้นตอน `code_execution` และ `code_execution_result`) |
-| [การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=th) | ฝั่งไคลเอ็นต์ | รองรับ (ในตัว ใช้ขั้นตอน `function_call` และ `function_response`) |
-| [ฟังก์ชันที่กำหนดเอง](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th) | ฝั่งไคลเอ็นต์ | รองรับ (ในตัว ใช้ขั้นตอน `function_call` และ `function_response`) |
+| [Google Arama](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=tr) | Sunucu tarafı | Destekleniyor |
+| [Google Haritalar](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=tr) | Sunucu tarafı | Destekleniyor |
+| [URL Bağlamı](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=tr) | Sunucu tarafı | Destekleniyor |
+| [Dosya Arama](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=tr) | Sunucu tarafı | Destekleniyor |
+| [Kod Yürütme](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=tr) | Sunucu tarafı | Desteklenir (yerleşik, `code_execution` ve `code_execution_result` adımları kullanılır) |
+| [Bilgisayar Kullanımı](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=tr) | İstemci tarafı | Desteklenir (yerleşik, `function_call` ve `function_response` adımları kullanılır) |
+| [Özel işlevler](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=tr) | İstemci tarafı | Desteklenir (yerleşik, `function_call` ve `function_response` adımları kullanılır) |
 
-## ขั้นตอนถัดไป
+## Sırada ne var?
 
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th)ใน Gemini API
-- สำรวจเครื่องมือที่รองรับ
-  - [Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=th)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=th)
-  - [บริบท URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=th)
-  - [การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=th)
+- Gemini API'deki [işlev çağrısı](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=tr) hakkında daha fazla bilgi edinin.
+- Desteklenen araçları keşfedin:
+  - [Google Arama](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=tr)
+  - [Google Haritalar](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=tr)
+  - [URL Bağlamı](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=tr)
+  - [Dosya Arama](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-05-19 UTC
+Son güncelleme tarihi: 2026-06-01 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-19 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-01 UTC."],[],[]]

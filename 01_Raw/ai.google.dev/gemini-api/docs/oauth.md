@@ -1,89 +1,95 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ja
-fetched_at: 2026-05-25T13:02:38.572184+00:00
-title: "OAuth \u306b\u3088\u308b\u8a8d\u8a3c\u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=id
+fetched_at: 2026-06-01T19:48:09.557434+00:00
+title: "Panduan memulai Authentication dengan OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-フィードバックを送信
+Kirim masukan
 
-# OAuth による認証のクイックスタート
+# Panduan memulai Authentication dengan OAuth
 
-Gemini API への認証の最も簡単な方法は、
-[Gemini API クイックスタート](https://ai.google.dev/gemini-api/docs/quickstart?hl=ja)の説明に従って API キーを構成することです。より厳格なアクセス制御が必要な場合は、代わりに OAuth を使用できます。このガイドでは、OAuth を使用して認証を設定する方法について説明します。
+Cara termudah untuk melakukan autentikasi ke Gemini API adalah dengan mengonfigurasi kunci API, seperti yang
+dijelaskan dalam [panduan memulai Gemini API](https://ai.google.dev/gemini-api/docs/quickstart?hl=id). Jika memerlukan kontrol akses yang lebih ketat, Anda dapat menggunakan OAuth. Panduan ini akan membantu Anda menyiapkan autentikasi dengan OAuth.
 
-このガイドでは、テスト環境に適した簡素化された認証方法を使用します。[[本番環境の場合は、アプリに適したアクセス認証情報を選択する前に、認証と認可について学習してください。](https://developers.google.com/workspace/guides/auth-overview?hl=ja)](https://developers.google.com/workspace/guides/create-credentials?hl=ja#choose_the_access_credential_that_is_right_for_you)
+Panduan ini menggunakan pendekatan autentikasi yang disederhanakan dan sesuai untuk lingkungan pengujian. Untuk lingkungan produksi, pelajari
+tentang
+[autentikasi dan otorisasi](https://developers.google.com/workspace/guides/auth-overview?hl=id)
+sebelum
+[memilih kredensial akses](https://developers.google.com/workspace/guides/create-credentials?hl=id#choose_the_access_credential_that_is_right_for_you)
+yang sesuai untuk aplikasi Anda.
 
-## 目標
+## Tujuan
 
-- OAuth 用にクラウド プロジェクトを設定する
-- アプリケーションのデフォルト認証情報を設定する
-- `gcloud auth` を使用する代わりに、プログラムで認証情報を管理する
+- Menyiapkan project cloud untuk OAuth
+- Menyiapkan kredensial default aplikasi
+- Mengelola kredensial dalam program Anda, bukan menggunakan `gcloud auth`
 
-## 前提条件
+## Prasyarat
 
-このクイックスタートを実行するには、次のものが必要です。
+Untuk menjalankan panduan memulai ini, Anda memerlukan:
 
-- [Google Cloud プロジェクト](https://developers.google.com/workspace/guides/create-project?hl=ja)
-- [gcloud CLI のローカル インストール](https://cloud.google.com/sdk/docs/install?hl=ja)
+- [Project Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=id)
+- [Penginstalan lokal gcloud CLI](https://cloud.google.com/sdk/docs/install?hl=id)
 
-## クラウド プロジェクトを設定する
+## Menyiapkan project cloud
 
-このクイックスタートを完了するには、まず Cloud プロジェクトを設定する必要があります。
+Untuk menyelesaikan panduan memulai ini, Anda harus menyiapkan project Cloud terlebih dahulu.
 
-### 1. API を有効にする
+### 1. Mengaktifkan API
 
-Google API を使用する前に、Google Cloud プロジェクトで API を有効にする必要があります。
+Sebelum menggunakan Google API, Anda harus mengaktifkannya di project Google Cloud.
 
-- Google Cloud コンソールで、Google Generative Language API を有効にします。
+- Di konsol Google Cloud, aktifkan Google Generative Language API.
 
-  [API を有効にする](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ja)
+  [Mengaktifkan API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=id)
 
-### 2. OAuth 同意画面を構成する
+### 2. Mengonfigurasi layar izin OAuth
 
-次に、プロジェクトの OAuth 同意画面を構成し、テストユーザーとして自分を追加します。Cloud プロジェクトでこの手順をすでに完了している場合は、次のセクションに進んでください。
+Selanjutnya, konfigurasikan layar izin OAuth project dan tambahkan diri Anda sebagai pengguna pengujian. Jika Anda telah menyelesaikan langkah ini untuk project Cloud, lewati ke bagian berikutnya.
 
-1. Google Cloud コンソールで、**メニュー** > **Google Auth Platform** > [**概要**] に移動します。
+1. Di konsol Google Cloud, buka **Menu** > **Google Auth platform** > **Overview**.
 
-   [Google Auth Platform に移動](https://console.developers.google.com/auth/overview?hl=ja)
-2. プロジェクト構成フォームに記入し、[**対象ユーザー**] セクションでユーザータイプを [**外部**] に設定します。
-3. フォームの残りの部分を入力し、ユーザーデータに関するポリシーの条項に同意して、[**作成**] をクリックします。
-4. ここでは、スコープの追加をスキップして、[**保存して次へ**] をクリックします。今後、Google Workspace 組織外で使用するアプリを作成する場合は、アプリに必要な認可スコープを追加して確認する必要があります。
-5. テストユーザーを追加します。
+   [Buka Google Auth platform](https://console.developers.google.com/auth/overview?hl=id)
+2. Isi formulir konfigurasi project dan tetapkan jenis pengguna ke **External** di bagian **Audience**.
+3. Isi bagian formulir lainnya, setujui persyaratan Kebijakan Data Pengguna, lalu klik **Create**.
+4. Untuk saat ini, Anda dapat melewati penambahan cakupan dan mengklik **Save and Continue**. Pada masa mendatang, saat membuat aplikasi untuk digunakan di luar organisasi Google Workspace, Anda harus menambahkan dan memverifikasi cakupan otorisasi yang diperlukan aplikasi Anda.
+5. Tambahkan pengguna pengujian:
 
-   1. Google Auth Platform の
-      [[対象ユーザー] ページ](https://console.developers.google.com/auth/audience?hl=ja)に移動します。
-   2. [**テストユーザー**] で [**ユーザーを追加**] をクリックします。
-   3. メールアドレスと他の承認済みテストユーザーを入力し、[**保存**] をクリックします。
+   1. Buka halaman
+      [Audience](https://console.developers.google.com/auth/audience?hl=id) di
+      Google Auth platform.
+   2. Di bagian **Test users**, klik **Add users**.
+   3. Masukkan alamat email Anda dan pengguna pengujian resmi lainnya, lalu klik **Save**.
 
-### 3. デスクトップ アプリケーションの認証情報を承認する
+### 3. Mengotorisasi kredensial untuk aplikasi desktop
 
-エンドユーザーとして認証を行い、アプリ内でユーザーデータにアクセスするには、1 つ以上の OAuth 2.0 クライアント ID を作成する必要があります。クライアント ID は、Google の OAuth サーバーで個々のアプリを識別するために使用します。アプリが複数のプラットフォームで実行される場合は、プラットフォームごとに個別のクライアント ID を作成する必要があります。
+Untuk melakukan autentikasi sebagai pengguna akhir dan mengakses data pengguna di aplikasi, Anda harus membuat satu atau beberapa Client ID OAuth 2.0. Client ID digunakan untuk mengidentifikasi aplikasi tunggal ke server OAuth Google. Jika aplikasi Anda berjalan di beberapa platform, Anda harus membuat client ID terpisah untuk setiap platform.
 
-1. Google Cloud コンソールで、**メニュー** > **Google Auth Platform** > [**クライアント**] に移動します。
+1. Di konsol Google Cloud, buka **Menu** > **Google Auth platform** > **Clients**.
 
-   [[認証情報] に移動](https://console.developers.google.com/auth/clients?hl=ja)
-2. [**クライアントの作成**] をクリックします。
-3. [**アプリケーション タイプ**] > [**デスクトップ アプリ**] をクリックします。
-4. [**名前**] フィールドに、認証情報の名前を入力します。この名前は Google Cloud コンソールにのみ表示されます。
-5. [**作成**] をクリックします。[OAuth クライアントを作成しました] 画面が表示され、新しいクライアント ID とクライアント シークレットが表示されます。
-6. [**OK**] をクリックします。新しく作成した認証情報が [**OAuth 2.0 クライアント ID**] に表示されます。
-7. ダウンロード ボタンをクリックして JSON ファイルを保存します。
-   `client_secret_<identifier>.json` として保存されます。名前を `client_secret.json`
-   に変更して、作業ディレクトリに移動します。
+   [Buka Kredensial](https://console.developers.google.com/auth/clients?hl=id)
+2. Klik **Create Client**.
+3. Klik **Application type** > **Desktop app**.
+4. Di kolom **Name**, ketik nama untuk kredensial tersebut. Nama ini hanya ditampilkan di konsol Google Cloud.
+5. Klik **Create**. Layar pembuatan klien OAuth akan muncul, yang menampilkan Client ID dan Rahasia klien baru Anda.
+6. Klik **OK**. Kredensial yang baru dibuat akan muncul di bagian **OAuth 2.0 Client IDs.**
+7. Klik tombol download untuk menyimpan file JSON. File akan disimpan sebagai
+   `client_secret_<identifier>.json`, dan ganti namanya menjadi `client_secret.json`
+   lalu pindahkan ke direktori kerja Anda.
 
-## アプリケーションのデフォルト認証情報を設定する
+## Menyiapkan Kredensial Default Aplikasi
 
-`client_secret.json` ファイルを使用可能な認証情報に変換するには、その場所を `gcloud auth application-default login` コマンドの `--client-id-file` 引数に渡します。
+Untuk mengonversi file `client_secret.json` menjadi kredensial yang dapat digunakan, teruskan lokasinya ke argumen `--client-id-file` perintah `gcloud auth application-default login`.
 
 ```
 gcloud auth application-default login \
@@ -91,11 +97,12 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-このチュートリアルの簡素化されたプロジェクト設定では、[**"Google はこのアプリを確認していません"**] ダイアログが表示されます。これは正常です、[**続行**]を選択します。
+Penyiapan project yang disederhanakan dalam tutorial ini akan memicu dialog **"Google hasn't
+verified this app."**. Ini normal, pilih **"continue"**.
 
-これにより、結果のトークンが既知の場所に配置され、`gcloud` またはクライアント ライブラリからアクセスできるようになります。
+Tindakan ini akan menempatkan token yang dihasilkan di lokasi yang diketahui sehingga dapat diakses oleh `gcloud` atau library klien.
 
-```` ```
+`gcloud --version````` ```
 gcloud auth application-default login   
 
     --no-browser
@@ -104,11 +111,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-アプリケーションのデフォルト認証情報（ADC）を設定すると、ほとんどの言語のクライアント ライブラリは、最小限の操作で認証情報を検索できます。
+Setelah Anda menyiapkan Kredensial Default Aplikasi (ADC), library klien dalam sebagian besar bahasa hanya memerlukan sedikit atau tidak memerlukan bantuan untuk menemukannya.
 
 ### Curl
 
-これが機能していることをテストする最も簡単な方法は、curl を使用して REST API にアクセスすることです。
+Cara tercepat untuk menguji apakah kredensial ini berfungsi adalah dengan menggunakannya untuk mengakses REST API menggunakan curl:
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -121,13 +128,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Python では、クライアント ライブラリが自動的に検索します。
+Di Python, library klien akan menemukannya secara otomatis:
 
 ```
 pip install google-genai
 ```
 
-テスト用の最小限のスクリプトは次のとおりです。
+Skrip minimal untuk mengujinya mungkin adalah:
 
 ```
 from google import genai
@@ -136,30 +143,29 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## 次のステップ
+## Langkah berikutnya
 
-これが機能したら、テキストデータで
-[セマンティック検索](https://ai.google.dev/docs/semantic_retriever?hl=ja)を試すことができます。
+Jika berhasil, Anda siap mencoba
+[Pengambilan semantik pada data teks](https://ai.google.dev/docs/semantic_retriever?hl=id).
 
-## 認証情報を自分で管理する [Python]
+## Mengelola kredensial sendiri [Python]
 
-多くの場合、クライアント ID（`client_secret.json`）からアクセス トークンを作成するために `gcloud` コマンドを使用できません。Google は、アプリ内でそのプロセスを管理できるように、多くの言語でライブラリを提供しています。このセクションでは、Python でのプロセスについて説明します。他の言語での同様の手順の例については、
-[Drive API のドキュメント](https://developers.google.com/drive/api/quickstart/python?hl=ja)をご覧ください。
+Dalam banyak kasus, Anda tidak akan memiliki perintah `gcloud` untuk membuat token akses dari Client ID (`client_secret.json`). Google menyediakan library dalam banyak bahasa untuk memungkinkan Anda mengelola proses tersebut dalam aplikasi. Bagian ini menunjukkan prosesnya, dalam Python. [Ada contoh prosedur semacam ini yang setara, untuk bahasa lain, yang tersedia dalam dokumentasi Drive API](https://developers.google.com/drive/api/quickstart/python?hl=id)
 
-### 1. 必要なライブラリをインストールする
+### 1. Menginstal library yang diperlukan
 
-Python 用の Google クライアント ライブラリと Gemini クライアント ライブラリをインストールします。
+Instal library klien Google untuk Python, dan library klien Gemini.
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. 認証情報マネージャーを作成する
+### 2. Menulis pengelola kredensial
 
-認証画面を何度もクリックする必要がないように、作業ディレクトリに `load_creds.py` というファイルを作成します。このファイルは、後で再利用できる `token.json` ファイルをキャッシュします。有効期限が切れた場合は更新されます。
+Untuk meminimalkan jumlah klik yang harus Anda lakukan di layar otorisasi, buat file bernama `load_creds.py` di direktori kerja Anda untuk menyimpan file `token.json` dalam cache yang dapat digunakan kembali nanti, atau diperbarui jika masa berlakunya habis.
 
-次のコードから始めて、`client_secret.json` ファイルを `genai.configure` で使用できるトークンに変換します。
+Mulai dengan kode berikut untuk mengonversi file `client_secret.json` menjadi token yang dapat digunakan dengan `genai.configure`:
 
 ```
 import os.path
@@ -196,9 +202,9 @@ def load_creds():
     return creds
 ```
 
-### 3. プログラムを作成する
+### 3. Menulis program Anda
 
-次に、`script.py` を作成します。
+Sekarang buat `script.py`:
 
 ```
 import pprint
@@ -213,27 +219,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. プログラムを実行する
+### 4. Menjalankan program Anda
 
-作業ディレクトリで、サンプルを実行します。
+Di direktori kerja Anda, jalankan contoh:
 
 ```
 python script.py
 ```
 
-スクリプトを初めて実行すると、ブラウザ ウィンドウが開き、アクセス権の承認を求められます。
+Saat pertama kali Anda menjalankan skrip, skrip akan membuka jendela browser dan meminta Anda untuk mengotorisasi akses.
 
-1. Google アカウントにログインしていない場合は、ログインを求められます。複数のアカウントにログインしている場合は、**プロジェクトの構成時に [テスト アカウント] として設定したアカウントを選択してください。**
-2. 認可情報はファイル システムに保存されるため、次回サンプルコードを実行するときに認可を求められることはありません。
+1. Jika belum login ke Akun Google, Anda akan diminta login. Jika Anda login ke beberapa akun, **pastikan untuk memilih akun yang Anda tetapkan sebagai "Akun Pengujian" saat mengonfigurasi project Anda.**
+2. Informasi otorisasi disimpan dalam sistem file, sehingga saat Anda menjalankan kode contoh pada lain waktu, Anda tidak akan diminta otorisasi.
 
-認証の設定が完了しました。
+Anda telah berhasil menyiapkan autentikasi.
 
-フィードバックを送信
+Kirim masukan
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最終更新日 2026-04-29 UTC。
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-ご意見をお聞かせください
+Ada masukan untuk kami?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

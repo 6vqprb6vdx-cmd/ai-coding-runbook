@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=pl
-fetched_at: 2026-05-25T13:03:24.803955+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=ko
+fetched_at: 2026-06-01T19:49:00.244775+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Prześlij opinię
+의견 보내기
 
-# Rozdzielczość multimediów
+# 미디어 해상도
 
-Parametr `media_resolution` określa, jak interfejs Gemini API przetwarza dane wejściowe multimediów, takie jak obrazy, filmy i dokumenty PDF, poprzez określenie **maksymalnej liczby tokenów** przydzielonych do danych wejściowych multimediów. Umożliwia to zrównoważenie jakości odpowiedzi z opóźnieniem i kosztem. Więcej informacji o różnych ustawieniach, wartościach domyślnych i ich odpowiednikach w postaci tokenów znajdziesz w sekcji [Liczba tokenów](#token-counts).
+`media_resolution` 매개변수는 미디어 입력에 할당된 **최대 토큰 수** 를 결정하여 이미지, 동영상, PDF 문서와 같은 미디어 입력을 Gemini API가 처리하는 방식을 제어하므로 응답 품질과 지연 시간 및 비용 간의 균형을 맞출 수 있습니다. 다양한 설정, 기본값, 토큰과의 상호 관계는 [토큰 수](#token-counts) 섹션을 참고하세요.
 
-Możesz skonfigurować rozdzielczość multimediów dla poszczególnych obiektów multimedialnych (elementów treści) w swojej prośbie (tylko Gemini 3).
+요청 내에서 개별 미디어 객체 (콘텐츠 항목)의 미디어 해상도를 구성할 수 있습니다 (Gemini 3만 해당).
 
-## Rozdzielczość multimediów dla poszczególnych elementów treści (tylko Gemini 3)
+## 콘텐츠 항목별 미디어 해상도 (Gemini 3만 해당)
 
-Gemini 3 umożliwia ustawienie rozdzielczości multimediów dla poszczególnych obiektów multimedialnych w żądaniu, co pozwala na precyzyjną optymalizację wykorzystania tokenów. W jednym żądaniu możesz łączyć różne poziomy rozdzielczości. Na przykład możesz użyć wysokiej rozdzielczości w przypadku złożonego diagramu, a niskiej w przypadku prostego obrazu kontekstowego.
+Gemini 3을 사용하면 요청 내에서 개별 미디어 객체의 미디어 해상도를 설정하여 토큰 사용을 세부적으로 최적화할 수 있습니다. 단일 요청에서 해상도 수준을 혼합할 수 있습니다. 예를 들어 복잡한 다이어그램에는 고해상도를 사용하고 간단한 컨텍스트 이미지에는 저해상도를 사용합니다.
 
 ### Python
 
@@ -104,69 +104,69 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Dostępne wartości rozdzielczości
+## 사용 가능한 해상도 값
 
-Interfejs Gemini API określa te poziomy rozdzielczości multimediów:
+Gemini API는 미디어 해상도에 대해 다음 수준을 정의합니다.
 
-- `unspecified`: ustawienie domyślne. Liczba tokenów na tym poziomie znacznie różni się w przypadku Gemini 3 i starszych modeli Gemini.
-- `low`: mniejsza liczba tokenów, co skutkuje szybszym przetwarzaniem i niższymi kosztami, ale mniejszą ilością szczegółów.
-- `medium`: równowaga między szczegółowością, kosztem i opóźnieniem.
-- `high`: większa liczba tokenów, która zapewnia modelowi więcej szczegółów do pracy, ale wiąże się z większym czasem oczekiwania i kosztem.
-- `ultra_high` (Tylko w przypadku poszczególnych elementów treści): najwyższa liczba tokenów, wymagana w określonych przypadkach użycia, np. w przypadku [korzystania z komputera](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=pl).
+- `unspecified`: 기본 설정입니다. 이 수준의 토큰 수는 Gemini 3과 이전 Gemini 모델 간에 크게 다릅니다.
+- `low`: 토큰 수가 적어 처리 속도가 빠르고 비용이 저렴하지만 세부정보가 적습니다.
+- `medium`: 세부정보, 비용, 지연 시간 간의 균형입니다.
+- `high`: 토큰 수가 많아 모델이 사용할 수 있는 세부정보가 많지만 지연 시간과 비용이 증가합니다.
+- `ultra_high` (콘텐츠 항목당만 해당): 토큰 수가 가장 많으며 [컴퓨터 사용](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=ko)과 같은 특정 사용 사례에 필요합니다.
 
-Pamiętaj, że `high` zapewnia optymalną wydajność w większości przypadków użycia.
+`high`는 대부분의 사용 사례에서 최적의 성능을 제공합니다.
 
-Dokładna liczba tokenów wygenerowanych na każdym z tych poziomów zależy zarówno od **typu multimediów** (obraz, film, PDF), jak i od **wersji modelu**.
+이러한 각 수준에 대해 생성되는 정확한 토큰 수는 **미디어 유형** (이미지, 동영상, PDF)과 **모델 버전** 에 따라 다릅니다.
 
-## Liczba tokenów
+## 토큰 수
 
-W tabelach poniżej znajdziesz podsumowanie przybliżonej liczby tokenów dla każdej wartości `media_resolution` i każdego typu multimediów w poszczególnych rodzinach modeli.
+아래 표에는 모델 계열별로 각 `media_resolution` 값과 미디어 유형에 대한 대략적인 토큰 수가 요약되어 있습니다.
 
-**Modele Gemini 3**
+**Gemini 3 모델**
 
-| MediaResolution | Obraz | Wideo | PDF |
+| MediaResolution | 이미지 | 동영상 | PDF |
 | --- | --- | --- | --- |
-| `unspecified` (wartość domyślna) | 1120 | 70 | 560 |
-| `low` | 280 | 70 | 280 znaków + tekst natywny |
-| `medium` | 560 | 70 | 560 + tekst natywny |
-| `high` | 1120 | 280 | 1120 + tekst natywny |
-| `ultra_high` | 2240 | Nie dotyczy | Nie dotyczy |
+| `unspecified` (기본값) | 1120 | 70 | 560 |
+| `low` | 280 | 70 | 280 + 기본 텍스트 |
+| `medium` | 560 | 70 | 560 + 기본 텍스트 |
+| `high` | 1120 | 280 | 1,120 + 기본 텍스트 |
+| `ultra_high` | 2240 | 해당 사항 없음 | 해당 사항 없음 |
 
-## Wybór odpowiedniej rozdzielczości
+## 적합한 해상도 선택하기
 
-- **Domyślna (`unspecified`):** zacznij od domyślnej. Jest on dostosowany do większości typowych przypadków użycia, aby zapewnić dobrą równowagę między jakością, opóźnieniem i kosztem.
-- **`low`:** używaj w sytuacjach, w których najważniejsze są koszty i czas oczekiwania, a szczegółowość ma mniejsze znaczenie.
-- **`medium` / `high`:** zwiększ rozdzielczość, gdy zadanie wymaga zrozumienia skomplikowanych szczegółów w multimediach. Jest to często potrzebne w przypadku złożonej analizy wizualnej, odczytywania wykresów lub zrozumienia gęstych dokumentów.
-- **`ultra_high`** – dostępny tylko w przypadku ustawienia dotyczącego poszczególnych elementów treści. Zalecany w przypadku konkretnych zastosowań, takich jak korzystanie z komputera, lub gdy testy wykazują wyraźną poprawę w porównaniu z `high`.
-- **Sterowanie poszczególnymi elementami treści (Gemini 3):** optymalizuje wykorzystanie tokenów. Na przykład w prompcie z wieloma obrazami użyj elementu `high` w przypadku złożonego diagramu, a elementu `low` lub `medium` w przypadku prostszych obrazów kontekstowych.
+- **기본값 (`unspecified`):** 기본값으로 시작합니다. 가장 일반적인 사용 사례에서 품질, 지연 시간, 비용 간의 균형을 맞추도록 조정됩니다.
+- **`low`:** 비용과 지연 시간이 가장 중요하고 세부정보가 덜 중요한 시나리오에 사용합니다.
+- **`medium` / `high`:** 태스크에서 미디어 내의 복잡한 세부정보를 이해해야 하는 경우 해상도를 높입니다. 이는 복잡한 시각적 분석, 차트 읽기 또는 밀도 높은 문서 이해에 필요한 경우가 많습니다.
+- **`ultra_high`** - 콘텐츠 항목별 설정에만 사용할 수 있습니다. 컴퓨터 사용과 같은 특정 사용 사례 또는 테스트에서 `high`보다 명확한 개선이 확인되는 경우에 권장됩니다.
+- **콘텐츠 항목별 제어 (Gemini 3):** 토큰 사용을 최적화합니다. 예를 들어 이미지가 여러 개 포함된 프롬프트에서 복잡한 다이어그램에는 `high`를 사용하고 더 간단한 컨텍스트 이미지에는 `low` 또는 `medium`을 사용합니다.
 
-**Zalecane ustawienia**
+**권장 설정**
 
-Poniżej znajdziesz listę zalecanych ustawień rozdzielczości multimediów dla każdego obsługiwanego typu multimediów.
+다음은 지원되는 각 미디어 유형에 권장되는 미디어 해상도 설정을 나열한 것입니다.
 
-| Typ mediów | Zalecane ustawienie | Maksymalna liczba tokenów | Wytyczne dotyczące użytkowania |
+| 미디어 유형 | 권장 설정 | 최대 토큰 수 | 사용 안내 |
 | --- | --- | --- | --- |
-| **Obrazy** | `high` | 1120 | Zalecane w przypadku większości zadań związanych z analizą obrazów, aby zapewnić maksymalną jakość. |
-| **PDF** | `medium` | 560 | Optymalne do analizy dokumentów; jakość zwykle osiąga maksymalny poziom przy wartości `medium`. Zwiększenie do `high` rzadko poprawia wyniki OCR w przypadku standardowych dokumentów. |
-| **Wideo** (ogólne) | `low` (lub `medium`) | 70 (na klatkę) | **Uwaga:** w przypadku filmów ustawienia `low` i `medium` są traktowane identycznie (70 tokenów), aby zoptymalizować wykorzystanie kontekstu. Jest to wystarczające w przypadku większości zadań związanych z rozpoznawaniem i opisywaniem działań. |
-| **Film** (z dużą ilością tekstu) | `high` | 280 (na klatkę) | Wymagane tylko wtedy, gdy przypadek użycia obejmuje odczytywanie gęstego tekstu (OCR) lub drobnych szczegółów w klatkach wideo. |
+| **이미지** | `high` | 1120 | 최대 품질을 보장하기 위해 대부분의 이미지 분석 작업에 권장됩니다. |
+| **PDF** | `medium` | 560 | 문서 이해에 최적입니다. 품질은 일반적으로 `medium`에서 포화됩니다. `high`로 늘려도 표준 문서의 OCR 결과가 개선되는 경우는 거의 없습니다. |
+| **동영상** (일반) | `low` (또는 `medium`) | 70 (프레임당) | **참고:** 동영상의 경우 컨텍스트 사용을 최적화하기 위해 `low` 및 `medium` 설정이 동일하게 처리됩니다 (70개 토큰). 이는 대부분의 동작 인식 및 설명 작업에 충분합니다. |
+| **동영상** (텍스트가 많은 경우) | `high` | 280 (프레임당) | 사용 사례에 밀도 높은 텍스트 (OCR) 또는 동영상 프레임 내의 작은 세부정보를 읽는 것이 포함되는 경우에만 필요합니다. |
 
-Zawsze testuj i oceniaj wpływ różnych ustawień rozdzielczości na aplikację, aby znaleźć najlepszy kompromis między jakością, opóźnieniem i kosztem.
+항상 다양한 해상도 설정이 애플리케이션에 미치는 영향을 테스트하고 평가하여 품질, 지연 시간, 비용 간의 최적의 절충점을 찾으세요.
 
-## Podsumowanie zgodności wersji
+## 버전 호환성 요약
 
-- Ustawianie `resolution` w przypadku poszczególnych elementów treści jest **dostępne tylko w modelach Gemini 3**.
+- 개별 콘텐츠 항목에 `resolution`을 설정하는 것은 **Gemini 3 모델에만 해당** 됩니다.
 
-## Dalsze kroki
+## 다음 단계
 
-- Więcej informacji o możliwościach multimodalnych interfejsu Gemini API znajdziesz w przewodnikach dotyczących [rozpoznawania obrazów](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=pl), [rozumienia filmów](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=pl) i [rozumienia dokumentów](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=pl).
+- [이미지 이해](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=ko), [동영상 이해](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=ko), [문서 이해](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=ko) 가이드에서 Gemini API의 멀티모달 기능에 대해 자세히 알아보세요.
 
-Prześlij opinię
+의견 보내기
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Ostatnia aktualizacja: 2026-05-19 UTC.
+최종 업데이트: 2026-05-28(UTC)
 
-Chcesz przekazać coś jeszcze?
+의견을 전달하고 싶나요?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-19 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-28(UTC)"],[],[]]

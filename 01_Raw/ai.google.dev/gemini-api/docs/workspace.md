@@ -1,50 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=zh-CN
-fetched_at: 2026-05-25T12:56:33.771616+00:00
-title: "\u4f7f\u7528\u60a8\u7684 Workspace \u5e10\u53f7\u8bbf\u95ee Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=fr
+fetched_at: 2026-06-01T19:39:30.394137+00:00
+title: "Acc\u00e9der \u00e0 Google AI Studio avec votre compte Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-发送反馈
+Envoyer des commentaires
 
-# 使用您的 Workspace 帐号访问 Google AI Studio
+# Accéder à Google AI Studio avec votre compte Workspace
 
-所有 [Google Workspace](https://workspace.google.com?hl=zh-cn) 用户默认都有权访问 AI Studio。如果您是 Workspace 用户，并且想要开始使用 AI Studio，请参阅 [AI Studio 快速入门](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=zh-cn)。
+Par défaut, tous les utilisateurs [Google Workspace](https://workspace.google.com?hl=fr) ont accès à AI
+Studio. Si vous êtes un utilisateur Workspace et que vous souhaitez commencer à utiliser
+AI Studio, consultez le
+[guide de démarrage rapide d'AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=fr).
 
-## 问题排查
+## Dépannage
 
-如果您的 Google Workspace 账号无法访问 AI Studio，您可能会看到类似以下内容的错误消息：
+Si l'accès à AI Studio est désactivé pour votre compte Google Workspace, vous verrez peut-être une erreur semblable à la suivante :
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-如果您认为自己应该有权访问 AI Studio，请与您的 Workspace 管理员联系。
+Si vous pensez que vous devriez avoir accès à AI Studio, contactez votre administrateur Workspace.
 
-## 为 Workspace 用户启用 AI Studio
+## Activer AI Studio pour les utilisateurs Workspace
 
-作为 Google Workspace 管理员，您可以控制哪些用户可以使用 AI Studio：
+En tant qu'administrateur Google Workspace, vous pouvez contrôler qui utilise AI Studio :
 
-- 默认情况下，AI Studio 在所有版本中都处于启用状态。
-- 您可以为不同组织部门或同一组织部门中的一组用户停用或启用 AI Studio。
-- Google Workspace 教育版：未满 18 周岁的用户无法通过其 Google Workspace 教育版账号使用 AI Studio。即使 AI Studio 设置处于开启状态，也是如此。如需了解详情，请参阅[按年龄控制对 Google 服务的使用权限](https://support.google.com/a/answer/10651918?hl=zh-cn)。
+- AI Studio est activé par défaut pour toutes les éditions.
+- Vous pouvez activer ou désactiver AI Studio pour des ensembles d'utilisateurs dans des unités organisationnelles ou au sein de celles-ci.
+- Éditions Google Workspace for Education : les utilisateurs de moins de 18 ans ne sont pas autorisés à utiliser AI Studio avec leur compte Google Workspace for Education, même si le paramètre AI Studio est activé. Pour en savoir plus, consultez [Contrôler l'accès aux services Google selon l'
+  âge](https://support.google.com/a/answer/10651918?hl=fr).
 
-如需为组织中的用户启用或停用 AI Studio，请参阅[为用户启用或停用 Google AI Studio](https://support.google.com/a/answer/15004095?hl=zh-cn)。
+Pour activer ou désactiver AI Studio pour les utilisateurs de votre organisation, consultez
+[Activer ou désactiver Google AI Studio pour les utilisateurs](https://support.google.com/a/answer/15004095?hl=fr).
 
-发送反馈
+Envoyer des commentaires
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-最后更新时间 (UTC)：2026-04-29。
+Dernière mise à jour le 2026/04/29 (UTC).
 
-需要向我们提供更多信息？
+Voulez-vous nous donner plus d'informations ?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

@@ -1,135 +1,147 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=he
-fetched_at: 2026-05-25T13:04:00.126085+00:00
-title: "\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea \u05dc-Android \u05d1-Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=th
+fetched_at: 2026-06-01T19:49:06.055874+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e2d\u0e1b Android \u0e43\u0e19 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-שליחת משוב
+ส่งความคิดเห็น
 
-# פיתוח אפליקציות ל-Android ב-Google AI Studio
+# สร้างแอป Android ใน Google AI Studio
 
-‫Google AI Studio מאפשר לכם ליצור אפליקציות מקוריות ל-Android מהנחיה בשפה טבעית. מתארים את האפליקציה שרוצים ליצור, ו[סוכן Antigravity](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=he#antigravity-agent) יוצר פרויקט מלא של Kotlin ו-[Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=he). בדפדפן, אפשר לראות תצוגה מקדימה של האפליקציה באמולטור Android מבוסס-דפדפן, להתקין אותה במכשיר פיזי ולפרסם אותה לבדיקה.
+Google AI Studio ช่วยให้คุณสร้างแอป Android แบบเนทีฟจากพรอมต์ภาษาธรรมชาติได้ อธิบายแอปที่คุณต้องการ แล้ว[Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=th#antigravity-agent)
+จะสร้างโปรเจ็กต์ Kotlin และ [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=th)
+ที่สมบูรณ์ จากเบราว์เซอร์ คุณสามารถดูตัวอย่างแอปในโปรแกรมจำลอง Android ที่ใช้เบราว์เซอร์ ติดตั้งแอปในอุปกรณ์จริง และเผยแพร่แอปเพื่อทดสอบ
 
-## שנתחיל?
+## เริ่มต้นใช้งาน
 
-כדי להתחיל לפתח אפליקציה ל-Android:
+วิธีเริ่มสร้างแอป Android
 
-1. עוברים אל [מצב בנייה](https://aistudio.google.com/apps?hl=he) ב-Google AI Studio באמצעות חלונית הניווט הימנית.
-2. בוחרים באפשרות **Android** מתוך בורר הפלטפורמות.
-3. כותבים הנחיה שמתארת את האפליקציה שרוצים ליצור (לדוגמה, *"צור טבלה לחלוקת משימות יומית עם אחסון מקומי"* או *"צור מחשבון פשוט"*).
-4. הסוכן יוצר את הפרויקט ומפעיל אותו באמולטור Android מבוסס-דפדפן.
+1. ไปที่[โหมดสร้าง](https://aistudio.google.com/apps?hl=th)ใน Google AI Studio โดยใช้แผงการนำทางด้านซ้าย
+2. เลือก **Android** จากเครื่องมือเลือกแพลตฟอร์ม
+3. ป้อนพรอมต์ที่อธิบายแอปที่คุณต้องการสร้าง (เช่น *"สร้างเครื่องมือติดตามงานประจำวันด้วยพื้นที่เก็บข้อมูลในเครื่อง"* หรือ *"สร้างเครื่องคิดเลขอย่างง่าย"*)
+4. Agent จะสร้างโปรเจ็กต์และเปิดใช้ในโปรแกรมจำลอง Android บนเบราว์เซอร์
 
-לאחר מכן תוכלו לבצע איטרציות באפליקציה באמצעות חלונית הצ'אט, בדיוק כמו בחוויית השימוש באינטרנט. הסוכן מנהל את כל הקבצים בפרויקט Android ומפיץ את השינויים בבסיס הקוד.
+จากนั้นคุณจะทำซ้ำแอปโดยใช้แผงแชทได้เช่นเดียวกับประสบการณ์การใช้งานบนเว็บ
+Agent จะจัดการไฟล์ทั้งหมดในโปรเจ็กต์ Android และเผยแพร่
+การเปลี่ยนแปลงในฐานของโค้ด
 
-## אמולטור Android מבוסס-דפדפן
+## โปรแกรมจำลอง Android บนเบราว์เซอร์
 
-אמולטור Android פועל כולו בענן ומוזרם לדפדפן שלכם.
-אין צורך להתקין את Android SDK,‏ Android Studio או אמולטור מקומי.
+โปรแกรมจำลอง Android ทำงานในระบบคลาวด์ทั้งหมดและสตรีมไปยังเบราว์เซอร์ของคุณ
+คุณไม่จำเป็นต้องติดตั้ง Android SDK, Android Studio หรือโปรแกรมจำลองในเครื่อง
 
-האמולטור מספק:
+โปรแกรมจำลองมีฟีเจอร์ต่อไปนี้
 
-- **סימולציה של מכשיר כמו Pixel**: הקשה, גלילה ואינטראקציה עם האפליקציה בדיוק כמו במכשיר אמיתי.
-- **תמיכה בסיבוב**: מעבר בין כיוון לאורך לבין כיוון לרוחב.
-- **תצוגה מקדימה בזמן אמת**: כשהסוכן מבצע שינויים בקוד, האפליקציה נוצרת מחדש והאמולטור מתרענן באופן אוטומטי.
+- **การจำลองอุปกรณ์ที่คล้าย Pixel**: แตะ เลื่อน และโต้ตอบกับแอป
+  เหมือนกับในอุปกรณ์จริง
+- **รองรับการหมุน**: สลับระหว่างการวางแนวตั้งและแนวนอน
+- **การแสดงตัวอย่างแบบเรียลไทม์**: เมื่อเอเจนต์ทำการเปลี่ยนแปลงโค้ด แอปจะสร้างใหม่และ
+  โปรแกรมจำลองจะรีเฟรชโดยอัตโนมัติ
 
-### מגבלות של אמולטורים
+### ข้อจำกัดของโปรแกรมจำลอง
 
-האמולטור מבוסס-הדפדפן לא תומך בכל תכונות החומרה. התכונות הבאות לא זמינות באמולטור:
+โปรแกรมจำลองที่ใช้เบราว์เซอร์ไม่รองรับฟีเจอร์ฮาร์ดแวร์ทั้งหมด สิ่งต่อไปนี้ไม่พร้อมใช้งานในโปรแกรมจำลอง
 
-- צילום במצלמה
-- ‫NFC ו-Bluetooth
-- ‫GPS (המיקום מדומה)
-- ‫Google Play Services (כניסה באמצעות חשבון Google, מפות ותכונות אחרות של Play Services פועלות במכשיר אמיתי אבל לא באמולטור)
+- การจับภาพด้วยกล้องและรูปภาพ
+- NFC และบลูทูธ
+- GPS (จำลองตำแหน่ง)
+- บริการ Google Play (Google Sign-In, Maps และฟีเจอร์อื่นๆ ของบริการ Play
+  จะทำงานในอุปกรณ์จริง แต่ไม่ทำงานในโปรแกรมจำลอง)
 
-## התקנה במכשיר עם ADB
+## ติดตั้งในอุปกรณ์ที่มี ADB
 
-אפשר להתקין את קובץ ה-APK שנוצר ישירות במכשיר Android פיזי שמחובר למחשב באמצעות USB. הפעולה הזו מתבצעת באמצעות [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=he) כדי ליצור תקשורת עם המכשיר דרך הדפדפן. אין צורך בהתקנת ADB מקומית.
+คุณติดตั้ง APK ที่สร้างขึ้นโดยตรงบนอุปกรณ์ Android จริงที่เชื่อมต่อกับคอมพิวเตอร์ผ่าน USB ได้ ซึ่งใช้ [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=th) เพื่อสื่อสารกับอุปกรณ์ผ่านเบราว์เซอร์ ไม่จำเป็นต้องติดตั้ง ADB ในเครื่อง
 
-### דרישות מוקדמות
+### ข้อกำหนดเบื้องต้น
 
-- דפדפן Chrome או Edge שתומך ב-WebUSB.
-- מכשיר Android שבו מופעלות האפשרויות [למפתחים וניפוי באגים ב-USB](https://developer.android.com/studio/debug/dev-options?hl=he).
-- כבל USB שמחבר את המכשיר למחשב.
+- เบราว์เซอร์ Chrome หรือ Edge ที่รองรับ WebUSB
+- อุปกรณ์ Android ที่เปิดใช้[ตัวเลือกสำหรับนักพัฒนาแอปและการแก้ไขข้อบกพร่อง USB](https://developer.android.com/studio/debug/dev-options?hl=th)
+- สาย USB ที่เชื่อมต่ออุปกรณ์กับคอมพิวเตอร์
 
-### התקנת האפליקציה במכשיר
+### ติดตั้งแอปในอุปกรณ์
 
-1. בחלונית התצוגה המקדימה, לוחצים על **התקנה במכשיר**.
-2. בוחרים את מכשיר Android מבורר מכשירי ה-USB בדפדפן.
-3. קובץ ה-APK מועבר ומוגדר במכשיר.
-4. האפליקציה תופעל אוטומטית.
+1. คลิก**ติดตั้งในอุปกรณ์**ในแผงแสดงตัวอย่าง
+2. เลือกอุปกรณ์ Android จากเครื่องมือเลือกอุปกรณ์ USB ของเบราว์เซอร์
+3. ระบบจะโอนและติดตั้ง APK ในอุปกรณ์
+4. แอปจะเปิดขึ้นโดยอัตโนมัติ
 
-## פרסום בחנות Play
+## เผยแพร่ไปยัง Play Store
 
-אתם יכולים לפרסם את האפליקציה ל-Android במסלול הבדיקות הפנימיות של [Google Play Console](https://play.google.com/console?hl=he), שמאפשר לכם להפיץ את האפליקציה ל-100 בודקים לכל היותר.
+คุณสามารถเผยแพร่แอป Android ไปยังแทร็กการทดสอบภายในของ [Google Play Console](https://play.google.com/console?hl=th) ซึ่งจะช่วยให้คุณจัดจำหน่ายแอปไปยังผู้ทดสอบได้สูงสุด 100 คน
 
-### דרישות מוקדמות
+### ข้อกำหนดเบื้องต้น
 
-- [חשבון פיתוח ב-Google Play](https://play.google.com/console/signup?hl=he) (כרוך בתשלום חד-פעמי של דמי רישום בסך 25$).
-- פרופיל מפתח מלא ב-Play Console.
+- [บัญชีนักพัฒนาแอป Google Play](https://play.google.com/console/signup?hl=th)
+  (ต้องชำระค่าลงทะเบียน $25 แบบครั้งเดียว)
+- โปรไฟล์นักพัฒนาแอปที่กรอกข้อมูลครบถ้วนใน Play Console
 
-### פרסום האפליקציה
+### เผยแพร่แอป
 
-1. פותחים את **ההגדרות > פרסום** ב-Google AI Studio.
-2. לוחצים על **פרסום בחנות Play**.
-3. מאמתים את החשבון באמצעות חשבון הפיתוח ב-Google Play.
-4. ‫AI Studio חותם על ה-APK, יוצר את דף האפליקציה בחנות (או מעלה גרסה חדשה) ומפרסם אותה במסלול הבדיקה הפנימית.
-5. מקבלים קישור שאפשר לשתף עם הבודקים.
+1. เปิด**การตั้งค่า > เผยแพร่**ใน Google AI Studio
+2. คลิก**เผยแพร่ไปยัง Play Store**
+3. ตรวจสอบสิทธิ์ด้วยบัญชีนักพัฒนาแอป Google Play
+4. AI Studio จะลงนามใน APK, สร้างข้อมูลแอป (หรืออัปโหลดเวอร์ชันใหม่)
+   และเผยแพร่ไปยังแทร็กการทดสอบภายใน
+5. คุณจะได้รับลิงก์เพื่อแชร์กับผู้ทดสอบ
 
-‫AI Studio מנהל את חתימת ה-APK באופן אוטומטי באמצעות מאגר מפתחות מנוהל. אפשר להתאים אישית את דף האפליקציה (סמל, צילומי מסך, תיאור) בשלב מאוחר יותר ב-Play Console.
+AI Studio จะจัดการการลงนาม APK โดยอัตโนมัติโดยใช้ที่เก็บคีย์ที่จัดการ คุณปรับแต่งข้อมูลแอป (ไอคอน ภาพหน้าจอ คำอธิบาย) ได้ในภายหลังใน Play Console
 
-## מה נוצר
+## สิ่งที่สร้างขึ้น
 
-כשמבצעים build של אפליקציית Android, הסוכן יוצר פרויקט רגיל מבוסס Gradle עם המבנה הבא:
+เมื่อคุณสร้างแอป Android เอเจนต์จะสร้างโปรเจ็กต์มาตรฐานที่ใช้ Gradle โดยมีโครงสร้างดังนี้
 
-- **תצורת ה-build**: קובצי `build.gradle.kts` (ברמת הפרויקט והאפליקציה) באמצעות Kotlin DSL.
-- **שכבת ממשק המשתמש**: רכיבי [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=he) עם עיצוב [Material 3](https://m3.material.io/).
-- **ארכיטקטורה**: ארכיטקטורה של פעילות יחידה עם ViewModels וסוגי נתונים.
-- **משאבים**: `AndroidManifest.xml`, drawables, strings ומשאבים אחרים של Android.
+- **การกำหนดค่าบิลด์**: ไฟล์ `build.gradle.kts` (ระดับโปรเจ็กต์และแอป)
+  โดยใช้ Kotlin DSL
+- **เลเยอร์ UI**: คอมโพเนนต์ [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=th) ที่มีธีม [Material 3](https://m3.material.io/)
+- **สถาปัตยกรรม**: สถาปัตยกรรมแบบกิจกรรมเดียวที่มี ViewModel และคลาสข้อมูล
+- **ทรัพยากร**: `AndroidManifest.xml`, Drawable, สตริง และทรัพยากรอื่นๆ ของ Android
 
-הסוכן מנהל באופן אוטומטי את התלויות של Gradle, ומוסיף חבילות ממאגרי Maven ו-Google לפי הצורך.
+เอเจนต์จะจัดการทรัพยากร Dependency ของ Gradle โดยอัตโนมัติ และเพิ่มแพ็กเกจจากที่เก็บ Maven
+และ Google ตามที่จำเป็น
 
-אפשר לראות ולערוך את הקוד שנוצר באמצעות הכרטיסייה **קוד** בחלונית התצוגה המקדימה. כדי להמשיך בפיתוח ב-Android Studio, מורידים את הפרויקט כ**קובץ ZIP**.
+คุณดูและแก้ไขโค้ดที่สร้างขึ้นได้โดยใช้แท็บ**โค้ด**ในแผงแสดงตัวอย่าง
+หากต้องการพัฒนาต่อใน Android Studio ให้ดาวน์โหลดโปรเจ็กต์เป็น**ไฟล์ ZIP**
 
-## מגבלות
+## ข้อจำกัด
 
-יש מגבלות על פיתוח אפליקציות ל-Android ב-AI Studio:
+การสร้างแอป Android ใน AI Studio มีข้อจำกัดต่อไปนี้
 
-### מגבלות פלטפורמה
+### ข้อจำกัดของแพลตฟอร์ม
 
-- **בצד הלקוח בלבד**: אפליקציות ל-Android לא כוללות רכיב בצד השרת.
-  תכונות שדורשות זמן ריצה של שרת (ניהול סודות, משחק מרובה משתתפים, Firebase, ממשקי API של Google Workspace) לא זמינות.
-- **ארכיטקטורה של פעילות יחידה**: נתמכים רק פרויקטים עם פעילות יחידה ומודול יחיד.
-- **Jetpack Compose בלבד**: האפליקציות משתמשות ב-Kotlin וב-Jetpack Compose. אין תמיכה בפריסות של Java ו-XML.
-- **אין NDK או קוד Native**: אין תמיכה בקוד C ו-C++‎.
-- **אין Wear OS או Android TV**: יש תמיכה רק בטלפונים ובטאבלטים.
+- **ฝั่งไคลเอ็นต์เท่านั้น**: แอป Android ไม่มีคอมโพเนนต์ฝั่งเซิร์ฟเวอร์
+  ฟีเจอร์ที่ต้องใช้รันไทม์ของเซิร์ฟเวอร์ (การจัดการลับ, ผู้เล่นหลายคน,
+  Firebase, Google Workspace API) จะไม่พร้อมใช้งาน
+- **สถาปัตยกรรมแบบกิจกรรมเดียว**: รองรับเฉพาะโปรเจ็กต์แบบกิจกรรมเดียวและโมดูลเดียว
+- **Jetpack Compose เท่านั้น**: แอปใช้ Kotlin และ Jetpack Compose ไม่รองรับเลย์เอาต์ Java และ XML
+- **ไม่มี NDK หรือโค้ดแบบเนทีฟ**: ไม่รองรับโค้ด C และ C++
+- **ไม่มี Wear OS หรือ Android TV**: รองรับเฉพาะรูปแบบของโทรศัพท์และแท็บเล็ต
 
-### מגבלות על ייצוא
+### ข้อจำกัดในการส่งออก
 
-- **הורדה כקובץ ZIP בלבד**: אפשר להוריד את הפרויקט כקובץ ZIP. ייצוא ל-GitHub
-  עדיין לא זמין בפרויקטים ל-Android.
+- **ดาวน์โหลด ZIP เท่านั้น**: คุณสามารถดาวน์โหลดโปรเจ็กต์เป็นไฟล์ ZIP ได้ การส่งออก GitHub ยังไม่พร้อมให้บริการสำหรับโปรเจ็กต์ Android
 
-## המאמרים הבאים
+## ขั้นตอนถัดไป
 
-- [פיתוח אפליקציות ב-Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=he)
-- [פיתוח אפליקציות פול סטאק](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=he) (אינטרנט)
-- אפשר לראות דוגמאות ב[גלריית האפליקציות](https://aistudio.google.com/apps?source=showcase&hl=he).
+- [สร้างแอปใน Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=th)
+- [การพัฒนาแอปแบบ Full Stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=th) (เว็บ)
+- ดูตัวอย่างได้ใน [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=th)
 
-שליחת משוב
+ส่งความคิดเห็น
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-עדכון אחרון: 2026-05-19 (שעון UTC).
+อัปเดตล่าสุด 2026-05-19 UTC
 
-רוצה לתת לנו משוב?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-19 (שעון UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-19 UTC"],[],[]]

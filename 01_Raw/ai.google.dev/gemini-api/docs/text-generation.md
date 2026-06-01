@@ -1,26 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=ar
-fetched_at: 2026-05-25T13:06:48.140387+00:00
-title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419
+fetched_at: 2026-06-01T19:44:07.472609+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-# إنشاء النص
+# Generación de texto
 
-يمكن لواجهة برمجة التطبيقات Gemini API إنشاء نصوص من النصوص والصور والفيديوهات والمحتوى الصوتي التي يتم إدخالها.
+La API de Gemini puede generar texto a partir de entradas de texto, imágenes, video y audio.
 
-في ما يلي مثال أساسي:
+Este es un ejemplo básico:
 
 ### Python
 
@@ -85,7 +86,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -124,7 +125,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -159,12 +160,13 @@ function main() {
 }
 ```
 
-## التفكير مع Gemini
+## Razonamiento con Gemini
 
-تكون ميزة ["التفكير"](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) مفعّلة تلقائيًا في نماذج Gemini، ما يتيح للنموذج الاستدلال قبل الرد على الطلب.
+Los modelos de Gemini suelen tener habilitado el ["razonamiento"](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) de forma predeterminada
+lo que les permite razonar antes de responder a una solicitud.
 
-يتوافق كل نموذج مع إعدادات مختلفة للتفكير، ما يمنحك التحكّم في التكلفة ووقت الاستجابة والذكاء. لمزيد من التفاصيل، يُرجى الاطّلاع على
-[دليل التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#set-budget).
+Cada modelo admite diferentes configuraciones de razonamiento, lo que te permite controlar el costo, la latencia y la inteligencia. Para obtener más detalles, consulta la
+[guía de razonamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419#set-budget).
 
 ### Python
 
@@ -244,7 +246,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -296,7 +298,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -336,10 +338,11 @@ function main() {
 }
 ```
 
-## تعليمات النظام والإعدادات الأخرى
+## Instrucciones del sistema y otras configuraciones
 
-يمكنك توجيه سلوك نماذج Gemini باستخدام تعليمات النظام. لإجراء ذلك،
-مرِّر عنصر [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig).
+Puedes guiar el comportamiento de los modelos de Gemini con instrucciones del sistema. Para ello,
+pasa un [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+objeto.
 
 ### Python
 
@@ -415,7 +418,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -469,7 +472,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -511,7 +514,9 @@ function main() {
 }
 ```
 
-يتيح لك الكائن [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig) أيضًا تجاهل مَعلمات الإنشاء التلقائية، مثل [درجة العشوائية](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig).
+El [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+objeto también te permite anular los parámetros de generación predeterminados, como la
+[temperatura](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig).
 
 ### Python
 
@@ -594,7 +599,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -644,7 +649,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ge
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -687,12 +692,13 @@ function main() {
 }
 ```
 
-يُرجى الرجوع إلى [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig)
-في مرجع واجهة برمجة التطبيقات للحصول على قائمة كاملة بالمَعلمات القابلة للإعداد وأوصافها.
+Consulta [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+en nuestra referencia de la API para obtener una lista completa de los parámetros configurables y sus
+descripciones.
 
-## إدخالات متعددة الوسائط
+## Entradas multimodales
 
-تتيح Gemini API إدخال بيانات متعددة الوسائط، ما يسمح لك بدمج النصوص مع ملفات الوسائط. يوضّح المثال التالي كيفية تقديم صورة:
+La API de Gemini admite entradas multimodales, lo que te permite combinar texto con archivos multimedia. En el siguiente ejemplo, se muestra cómo proporcionar una imagen:
 
 ### Python
 
@@ -788,7 +794,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -853,7 +859,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   -d "@$TEMP_JSON"
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -900,14 +906,17 @@ function getImageData(url) {
 }
 ```
 
-للاطّلاع على طرق بديلة لتوفير الصور ومعالجة أكثر تقدّمًا للصور، يُرجى الاطّلاع على [دليل فهم الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar).
-تتيح واجهة برمجة التطبيقات أيضًا إدخال [المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar) و[الفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar) و[الملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar) وفهمها.
+Para conocer métodos alternativos para proporcionar imágenes y un procesamiento de imágenes más avanzado,
+consulta nuestra [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
+La API también admite la comprensión y las entradas de [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419), [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419) y [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
 
-## عرض الردود تدريجيًا
+## Respuestas de transmisión
 
-تعرض النماذج تلقائيًا ردًا بعد اكتمال عملية الإنشاء بأكملها.
+De forma predeterminada, el modelo devuelve una respuesta solo después de que se completa todo el
+proceso de generación.
 
-للحصول على تفاعلات أكثر سلاسة، استخدِم البث لتلقّي مثيلات [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerateContentResponse) بشكل تدريجي أثناء إنشائها.
+Para obtener interacciones más fluidas, usa la transmisión para recibir [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse) instancias de forma incremental
+a medida que se generan.
 
 ### Python
 
@@ -979,7 +988,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1026,7 +1035,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:s
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1061,9 +1070,9 @@ function main() {
 }
 ```
 
-## المحادثات المتعدّدة الجولات (المحادثة)
+## Conversaciones de varios turnos (chat)
 
-توفر حِزم SDK وظائف لجمع عدة جولات من الطلبات والردود في محادثة، ما يمنحك طريقة سهلة لتتبُّع سجلّ المحادثات.
+Nuestros SDKs proporcionan funcionalidad para recopilar varias rondas de instrucciones y respuestas en un chat, lo que te brinda una forma sencilla de hacer un seguimiento del historial de conversaciones.
 
 ### Python
 
@@ -1154,7 +1163,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -1223,7 +1232,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ge
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1271,7 +1280,7 @@ function main() {
 }
 ```
 
-يمكن أيضًا استخدام البث للمحادثات المتعددة الجولات.
+La transmisión también se puede usar para conversaciones de varios turnos.
 
 ### Python
 
@@ -1371,7 +1380,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -1442,7 +1451,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:st
   }'
 ```
 
-### برمجة التطبيقات
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1490,23 +1499,28 @@ function main() {
 }
 ```
 
-## نصائح حول الطلبات
+## Sugerencias para escribir instrucciones
 
-يمكنك الرجوع إلى [دليل هندسة الطلبات](https://ai.google.dev/gemini/docs/prompting-strategies?hl=ar) للحصول على اقتراحات حول كيفية الاستفادة إلى أقصى حدّ من Gemini.
+Consulta nuestra [guía de ingeniería de instrucciones](https://ai.google.dev/gemini/docs/prompting-strategies?hl=es-419) para
+obtener sugerencias sobre cómo aprovechar al máximo Gemini.
 
-## الخطوات التالية
+## ¿Qué sigue?
 
-- جرِّب [Gemini في Google AI Studio](https://aistudio.google.com?hl=ar).
-- جرِّب [المخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar) للحصول على ردود شبيهة بتنسيق JSON.
-- استكشِف إمكانات Gemini في فهم [الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar) و[الفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar) و[الملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar) و[المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar).
-- [مزيد من المعلومات حول استراتيجيات طلب الملفات](https://ai.google.dev/gemini-api/docs/files?hl=ar#prompt-guide)
+- Prueba [Gemini en Google AI Studio](https://aistudio.google.com?hl=es-419).
+- Experimenta con [resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) para
+  obtener respuestas similares a JSON.
+- Explora las capacidades de comprensión de [imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419),
+  [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419), [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
+  y [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419) de Gemini.
+- Obtén información sobre las estrategias de instrucciones de archivos multimodales
+  .
 
-إرسال ملاحظات
+Enviar comentarios
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
+Última actualización: 2026-05-19 (UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+¿Quieres brindar más información?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-19 (UTC)"],[],[]]

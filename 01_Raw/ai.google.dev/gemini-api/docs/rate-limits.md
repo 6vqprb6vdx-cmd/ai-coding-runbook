@@ -1,192 +1,186 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-CN
-fetched_at: 2026-05-25T12:58:05.734405+00:00
-title: "\u901f\u7387\u9650\u5236 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=tr
+fetched_at: 2026-06-01T19:37:32.040592+00:00
+title: "H\u0131z s\u0131n\u0131rlar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-发送反馈
+Geri bildirim gönderin
 
-# 速率限制
+# Hız sınırları
 
-速率限制用于规范您在给定时间范围内可以向 Gemini API 发出的请求数。这些限制有助于确保公平使用、防范滥用行为，并帮助所有用户维持系统性能。
+Hız sınırları, belirli bir zaman aralığında Gemini API'ye gönderebileceğiniz isteklerin sayısını düzenler. Bu sınırlar, adil kullanımı sürdürmeye, kötüye kullanıma karşı korumaya ve sistem performansını tüm kullanıcılar için korumaya yardımcı olur.
 
-[在 AI Studio 中查看有效的速率限制](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=zh-cn)
+[AI Studio'da etkin hız sınırlarınızı görüntüleme](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=tr)
 
-## 速率限制的运作方式
+## Sıklık sınırlarının işleyiş şekli
 
-速率限制通常从以下三个维度进行衡量：
+Hız sınırları genellikle üç boyutta ölçülür:
 
-- 每分钟请求数 (**RPM**)
-- 每分钟 token 数（输入）(**TPM**)
-- 每日请求数 (**RPD**)
+- Dakikada istek sayısı (**RPM**)
+- Dakikada jeton sayısı (giriş) (**TPM**)
+- Günlük istek sayısı (**RPD**)
 
-我们会根据每项限制评估您的用量，如果超出任何一项限制，系统都会触发速率限制错误。例如，如果您的 RPM 限制为 20，那么在一分钟内发出 21 个请求会导致错误，即使您没有超出 TPM 或其他限制也是如此。
+Kullanımınız her sınıra göre değerlendirilir ve herhangi bir sınırı aşmanız durumunda sıklık sınırı hatası tetiklenir. Örneğin, RPM sınırınız 20 ise TPM veya diğer sınırlarınızı aşmamış olsanız bile bir dakika içinde 21 istekte bulunmanız hataya neden olur.
 
-速率限制是按项目应用，而不是按 API 密钥应用。每日请求数 (**RPD**) 配额会在美国太平洋时间零点重置。
+Hız sınırları API anahtarı başına değil, proje başına uygulanır. Günlük istek sayısı (**RPD**) kotaları, Pasifik saatine göre gece yarısında sıfırlanır.
 
-限制因所使用的具体模型而异，并且某些限制仅适用于特定模型。例如，每分钟图片数 (IPM) 仅针对能够生成图片的模型 (Nano Banana) 计算，但从概念上讲与 TPM 类似。其他模型可能具有每日 token 数限制 (TPD)。
+Sınırlar, kullanılan modele göre değişir ve bazı sınırlar yalnızca belirli modeller için geçerlidir. Örneğin, dakikadaki görüntü sayısı (IPM) yalnızca görüntü oluşturabilen modeller (Nano Banana) için hesaplanır ancak kavramsal olarak TPM'ye benzer. Diğer modellerde günlük jeton sınırı (TPD) olabilir.
 
-对于实验性模型和预览版模型，速率限制更为严格。
+Deneysel ve önizleme modellerinde hız sınırları daha kısıtlıdır.
 
-## 使用层级
+## Kullanım katmanları
 
-速率限制与项目的使用层级相关联。随着 API 用量和支出的增加，您将自动升级到更高的层级，并获得更高的速率限制。
+Hız sınırları, projenin kullanım katmanına bağlıdır. API kullanımınız ve harcamanız arttıkça, hız sınırları artırılmış daha yüksek bir katmana otomatik olarak yükseltilirsiniz.
 
-第 2 层级和第 3 层级的资格条件基于与您的项目关联的结算账号在 Google Cloud 服务（包括但不限于 Gemini API）上的累计总支出。
+2. ve 3. katmanların şartları, projenize bağlı faturalandırma hesabı için Google Cloud hizmetlerine (Gemini API dahil ancak bununla sınırlı olmamak üzere) yapılan toplam harcamaya göre belirlenir.
 
-| 使用层级 | 资格条件 | [结算层级上限](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn#tier-spend-caps) |
+| Kullanım katmanı | Eleme | [Faturalandırma katmanı sınırı](https://ai.google.dev/gemini-api/docs/billing?hl=tr#tier-spend-caps) |
 | --- | --- | --- |
-| **免费** | [有效项目](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-cn#google-cloud-projects)或免费试用 | 不适用 |
-| **第 1 层级** | [设置并关联有效的结算账号](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn#setup-billing) | $250 |
-| **第 2 层级** | 已支付 $100 + 首次成功付款后 3 天 | $2,000 |
-| **第 3 层级** | 已支付 $1,000 + 首次成功付款后 30 天 | $20,000 - $100,000+ |
+| **Ücretsiz** | [Etkin proje](https://ai.google.dev/gemini-api/docs/api-key?hl=tr#google-cloud-projects) veya ücretsiz deneme | Yok |
+| **1. Katman** | [Etkin bir faturalandırma hesabı oluşturma ve bağlama](https://ai.google.dev/gemini-api/docs/billing?hl=tr#setup-billing) | 250 ABD Doları |
+| **2. Katman** | 100 ABD doları + ilk başarılı ödemeden itibaren 3 gün | 2.000 ABD doları |
+| **3. Katman** | 1.000 ABD doları ödenmiş olmalı ve ilk başarılı ödemeden itibaren 30 gün geçmiş olmalıdır. | 20.000 ABD doları - 100.000 ABD doları ve üzeri |
 
-虽然满足所述资格条件通常足以获得批准，但在极少数情况下，我们可能会根据审核过程中发现的其他因素拒绝升级请求。
+Belirtilen yeterlilik ölçütlerini karşılamak genellikle onay için yeterli olsa da nadir durumlarda, inceleme süreci sırasında belirlenen diğer faktörlere bağlı olarak yükseltme isteği reddedilebilir.
 
-此系统有助于为所有用户维护 Gemini API 平台的安全性和完整性。
+Bu sistem, Gemini API platformunun tüm kullanıcılar için güvenliğini ve bütünlüğünü korumaya yardımcı olur.
 
-## Gemini API 速率限制
+## Gemini API hız sınırları
 
-速率限制取决于多种因素（例如您的使用层级），您可以在 Google AI Studio 中查看。随着您的层级和账号状态随时间变化，您的速率限制将自动更新。
+Hız sınırları, kullanım katmanınız gibi çeşitli faktörlere bağlıdır ve Google AI Studio'da görüntülenebilir. Zaman içinde katmanınız ve hesap durumunuz değiştikçe hız sınırlarınız otomatik olarak güncellenir.
 
-[在 AI Studio 中查看有效的速率限制](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=zh-cn)
+[AI Studio'da etkin hız sınırlarınızı görüntüleme](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=tr)
 
-指定的速率限制无法保证，实际容量可能会有所不同。
+Belirtilen sıklık sınırları garanti edilmez ve gerçek kapasite farklılık gösterebilir.
 
-## 优先级推理速率限制
+## Öncelik çıkarımı sıklık sınırları
 
-[优先级](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)消耗有自己的速率
-限制，即使消耗量计入整体互动流量
-速率限制也是如此。**默认速率限制为：每个模型和层级的 [标准速率限制](https://aistudio.google.com/rate-limit?hl=zh-cn) 的 0.3 倍**
+[Öncelikli](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr) tüketim, genel etkileşimli trafik hızı sınırlarına dahil edilse de kendi hız sınırlarına sahiptir. **Varsayılan sıklık sınırları: Her model ve katman için [standart sıklık sınırının](https://aistudio.google.com/rate-limit?hl=tr) 0,3 katı**
 
-## 批量 API 速率限制
+## Batch API hız sınırları
 
-[批量 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn) 请求有自己的速率
-限制，与非批量 API 调用分开。
+[Toplu API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr) istekleri, toplu olmayan API çağrılarından ayrı olarak kendi hız sınırlarına tabidir.
 
-- **并发批量请求数**： 100
-- **输入文件大小限制**： 2GB
-- **文件存储空间限制**： 20GB
-- **每个模型加入队列的 token 数**： **批量加入队列的 token 数** 表列出了针对给定模型，所有有效批量作业可以加入队列进行批量处理的最大 token 数。
+- **Eşzamanlı toplu istek sayısı:** 100
+- **Giriş dosyasının boyut sınırı:** 2 GB
+- **Dosya depolama alanı sınırı:** 20 GB
+- **Model başına sıralanan jetonlar:** **Toplu iş için sıralanan jetonlar** tablosunda, belirli bir model için tüm etkin toplu işlerinizde toplu işleme için sıralanabilecek maksimum jeton sayısı listelenir.
 
-### 第 1 层级
+### Katman 1
 
-| 模型 | 批量加入队列的 token 数 |
+| Model | Toplu olarak sıraya alınan jetonlar |
 | --- | --- |
-| 文本输出模型 | | | | |
+| Metin çıkışı modelleri | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro 预览版 | 5,000,000 |
-| Gemini 3.1 Flash-Lite | 10,000,000 |
-| Gemini 3.1 Flash-Lite 预览版 | 10,000,000 |
-| Gemini 3.5 Flash | 3,000,000 |
-| Gemini 3.5 Flash | 3,000,000 |
-| Gemini 2.5 Pro | 5,000,000 |
-| Gemini 2.5 Pro TTS | 25,000 |
-| Gemini 2.5 Flash | 3,000,000 |
-| Gemini 2.5 Flash 预览版 | 3,000,000 |
-| Gemini 2.5 Flash Image 预览版 | 3,000,000 |
-| Gemini 2.5 Flash TTS | 100,000 |
-| Gemini 2.5 Flash-Lite | 10,000,000 |
-| Gemini 2.5 Flash-Lite 预览版 | 10,000,000 |
-| Gemini 2.0 Flash | 10,000,000 |
-| Gemini 2.0 Flash Image | 3,000,000 |
-| Gemini 2.0 Flash-Lite | 10,000,000 |
-| 多模态生成模型 | | | | |
-| Gemini 3.1 Flash Image 预览版 🍌 | 1,000,000 |
-| Gemini 3 Pro Image 预览版 🍌 | 2,000,000 |
-| 嵌入模型 | | | | |
-| Gemini Embedding | 500,000 |
+| Gemini 3.1 Pro Önizlemesi | 5.000.000 |
+| Gemini 3.1 Flash-Lite | 10.000.000 |
+| Gemini 3.1 Flash-Lite Önizlemesi | 10.000.000 |
+| Gemini 3.5 Flash | 3.000.000 |
+| Gemini 3.5 Flash | 3.000.000 |
+| Gemini 2.5 Pro | 5.000.000 |
+| Gemini 2.5 Pro TTS | 25.000 |
+| Gemini 2.5 Flash | 3.000.000 |
+| Gemini 2.5 Flash Önizlemesi | 3.000.000 |
+| Gemini 2.5 Flash Image Önizlemesi | 3.000.000 |
+| Gemini 2.5 Flash TTS | 100.000 |
+| Gemini 2.5 Flash-Lite | 10.000.000 |
+| Gemini 2.5 Flash-Lite Önizlemesi | 10.000.000 |
+| Gemini 2.0 Flash | 10.000.000 |
+| Gemini 2.0 Flash Görüntüsü | 3.000.000 |
+| Gemini 2.0 Flash-Lite | 10.000.000 |
+| Çok formatlı üretken modeller | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | 1.000.000 |
+| Gemini 3 Pro Görüntü Önizlemesi 🍌 | 2.000.000 |
+| Yerleştirme modelleri | | | | |
+| Gemini Embedding | 500.000 |
 
-### 第 2 层级
+### Katman 2
 
-| 模型 | 批量加入队列的 token 数 |
+| Model | Toplu olarak sıraya alınan jetonlar |
 | --- | --- |
-| 文本输出模型 | | | | |
+| Metin çıkışı modelleri | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro 预览版 | 500,000,000 |
-| Gemini 3.1 Flash-Lite | 500,000,000 |
-| Gemini 3.1 Flash-Lite 预览版 | 500,000,000 |
-| Gemini 3.5 Flash | 400,000,000 |
-| Gemini 3.5 Flash | 400,000,000 |
-| Gemini 2.5 Pro | 500,000,000 |
-| Gemini 2.5 Pro TTS | 100,000 |
-| Gemini 2.5 Flash | 400,000,000 |
-| Gemini 2.5 Flash 预览版 | 400,000,000 |
-| Gemini 2.5 Flash Image 预览版 | 400,000,000 |
-| Gemini 2.5 Flash TTS | 100,000 |
-| Gemini 2.5 Flash-Lite | 500,000,000 |
-| Gemini 2.5 Flash-Lite 预览版 | 500,000,000 |
-| Gemini 2.0 Flash | 1,000,000,000 |
-| Gemini 2.0 Flash Image | 400,000,000 |
-| Gemini 2.0 Flash-Lite | 1,000,000,000 |
-| 多模态生成模型 | | | | |
-| Gemini 3.1 Flash Image 预览版 🍌 | 250,000,000 |
-| Gemini 3 Pro Image 预览版 🍌 | 270,000,000 |
-| 嵌入模型 | | | | |
-| Gemini Embedding | 5,000,000 |
+| Gemini 3.1 Pro Önizlemesi | 500.000.000 |
+| Gemini 3.1 Flash-Lite | 500.000.000 |
+| Gemini 3.1 Flash-Lite Önizlemesi | 500.000.000 |
+| Gemini 3.5 Flash | 400.000.000 |
+| Gemini 3.5 Flash | 400.000.000 |
+| Gemini 2.5 Pro | 500.000.000 |
+| Gemini 2.5 Pro TTS | 100.000 |
+| Gemini 2.5 Flash | 400.000.000 |
+| Gemini 2.5 Flash Önizlemesi | 400.000.000 |
+| Gemini 2.5 Flash Image Önizlemesi | 400.000.000 |
+| Gemini 2.5 Flash TTS | 100.000 |
+| Gemini 2.5 Flash-Lite | 500.000.000 |
+| Gemini 2.5 Flash-Lite Önizlemesi | 500.000.000 |
+| Gemini 2.0 Flash | 1.000.000.000 |
+| Gemini 2.0 Flash Görüntüsü | 400.000.000 |
+| Gemini 2.0 Flash-Lite | 1.000.000.000 |
+| Çok formatlı üretken modeller | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | 250.000.000 |
+| Gemini 3 Pro Görüntü Önizlemesi 🍌 | 270.000.000 |
+| Yerleştirme modelleri | | | | |
+| Gemini Embedding | 5.000.000 |
 
-### 第 3 层级
+### 3. Katman
 
-| 模型 | 批量加入队列的 token 数 |
+| Model | Toplu olarak sıraya alınan jetonlar |
 | --- | --- |
-| 文本输出模型 | | | | |
+| Metin çıkışı modelleri | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro 预览版 | 1,000,000,000 |
-| Gemini 3.1 Flash-Lite | 1,000,000,000 |
-| Gemini 3.1 Flash-Lite 预览版 | 1,000,000,000 |
-| Gemini 3.5 Flash | 1,000,000,000 |
-| Gemini 3.5 Flash | 1,000,000,000 |
-| Gemini 2.5 Pro | 1,000,000,000 |
-| Gemini 2.5 Pro TTS | 1,000,000 |
-| Gemini 2.5 Flash | 1,000,000,000 |
-| Gemini 2.5 Flash 预览版 | 1,000,000,000 |
-| Gemini 2.5 Flash Image 预览版 | 1,000,000,000 |
-| Gemini 2.5 Flash TTS | 4,000,000 |
-| Gemini 2.5 Flash-Lite | 1,000,000,000 |
-| Gemini 2.5 Flash-Lite 预览版 | 1,000,000,000 |
-| Gemini 2.0 Flash | 5,000,000,000 |
-| Gemini 2.0 Flash Image | 1,000,000,000 |
-| Gemini 2.0 Flash-Lite | 5,000,000,000 |
-| 多模态生成模型 | | | | |
-| Gemini 3.1 Flash Image 预览版 🍌 | 750,000,000 |
-| Gemini 3 Pro Image 预览版 🍌 | 1,000,000,000 |
-| 嵌入模型 | | | | |
-| Gemini Embedding | 10,000,000 |
+| Gemini 3.1 Pro Önizlemesi | 1.000.000.000 |
+| Gemini 3.1 Flash-Lite | 1.000.000.000 |
+| Gemini 3.1 Flash-Lite Önizlemesi | 1.000.000.000 |
+| Gemini 3.5 Flash | 1.000.000.000 |
+| Gemini 3.5 Flash | 1.000.000.000 |
+| Gemini 2.5 Pro | 1.000.000.000 |
+| Gemini 2.5 Pro TTS | 1.000.000 |
+| Gemini 2.5 Flash | 1.000.000.000 |
+| Gemini 2.5 Flash Önizlemesi | 1.000.000.000 |
+| Gemini 2.5 Flash Image Önizlemesi | 1.000.000.000 |
+| Gemini 2.5 Flash TTS | 4.000.000 |
+| Gemini 2.5 Flash-Lite | 1.000.000.000 |
+| Gemini 2.5 Flash-Lite Önizlemesi | 1.000.000.000 |
+| Gemini 2.0 Flash | 5.000.000.000 |
+| Gemini 2.0 Flash Görüntüsü | 1.000.000.000 |
+| Gemini 2.0 Flash-Lite | 5.000.000.000 |
+| Çok formatlı üretken modeller | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | 750.000.000 |
+| Gemini 3 Pro Görüntü Önizlemesi 🍌 | 1.000.000.000 |
+| Yerleştirme modelleri | | | | |
+| Gemini Embedding | 10.000.000 |
 
-## 如何升级到下一层级
+## Bir sonraki katmana yükseltme
 
-如需从免费层级过渡到付费层级，您必须先
-[在 AI Studio 中设置结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
+Ücretsiz katmandan ücretli bir katmana geçmek için önce [AI Studio'da faturalandırmayı ayarlamanız](https://ai.google.dev/gemini-api/docs/billing?hl=tr) gerekir.
 
-项目满足[指定条件](#usage-tiers)后，系统会
-自动将其升级到下一层级。从免费层级升级到第 1 层级通常会立即生效，后续层级升级将在 10 分钟内生效。如需查看您的层级，请前往 AI Studio 中的“[项目](https://aistudio.google.com/projects?hl=zh-cn)”页面。
+Projeniz [belirtilen ölçütleri](#usage-tiers) karşıladığında otomatik olarak bir sonraki katmana yükseltilir. Ücretsiz katmandan 1. katmana yükseltmeler genellikle anında, sonraki katman yükseltmeleri ise 10 dakika içinde geçerlilik kazanır. Katmanlarınızı kontrol etmek için AI Studio'da [Projeler sayfasına](https://aistudio.google.com/projects?hl=tr) gidin.
 
-## 申请提高速率限制
+## Oran sınırı artışı isteme
 
-每个模型变体都有关联的速率限制（每分钟请求数，RPM）。
-如需详细了解这些速率限制，请参阅
-[AI Studio 速率限制](https://aistudio.google.com/rate-limit?hl=zh-cn)页面。
+Her model varyasyonunun ilişkili bir sıklık sınırı (dakikadaki istek sayısı, RPM) vardır.
+Bu hız sınırlarıyla ilgili ayrıntılar için [AI Studio Hız Sınırı](https://aistudio.google.com/rate-limit?hl=tr) sayfasına bakın.
 
-[申请提高付费层级的速率限制](https://forms.gle/ETzX94k8jf7iSotH9)
+[Ücretli katman için istek oranı sınırı artışı isteme](https://forms.gle/ETzX94k8jf7iSotH9)
 
-我们无法保证会提高您的速率限制，但我们会尽力审核您的申请。
+Hız sınırınızı artıracağımız konusunda garanti veremeyiz ancak isteğinizi incelemek için elimizden geleni yapacağız.
 
-发送反馈
+Geri bildirim gönderin
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最后更新时间 (UTC)：2026-05-19。
+Son güncelleme tarihi: 2026-05-28 UTC.
 
-需要向我们提供更多信息？
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-19。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-28 UTC."],[],[]]

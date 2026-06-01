@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar
-fetched_at: 2026-05-25T13:02:14.747224+00:00
-title: "\u0627\u0644\u0628\u064a\u0626\u0627\u062a \u0641\u064a \u0627\u0644\u0648\u0643\u0644\u0627\u0621 \u0627\u0644\u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-CN
+fetched_at: 2026-06-01T19:48:57.504917+00:00
+title: "\u53d7\u7ba1\u4ee3\u7406\u4e2d\u7684\u73af\u5883 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-إرسال ملاحظات
+发送反馈
 
-# البيئات في الوكلاء المُدارين
+# 受管代理中的环境
 
-البيئات هي صناديق حماية مُدارة في Linux تمنح الوكلاء مكانًا معزولاً لتنفيذ الرموز البرمجية والاحتفاظ بالملفات. وهي منفصلة عن سياق التفاعل، لذا يمكنك إعادة استخدام البيئة نفسها في تفاعلات متعددة أو البدء من جديد في أي وقت.
+环境是受管理的 Linux 沙盒，可为智能体提供一个隔离的位置来执行代码和保留文件。它们与互动上下文分离，因此您可以在多个互动中重复使用同一环境，也可以随时重新开始。
 
-يوضّح المثال التالي كيفية إنشاء تفاعل مع بيئة بعيدة جديدة واسترداد رقم تعريفها:
+以下示例演示了如何使用新的远程环境创建互动并检索其 ID：
 
 ### Python
 
@@ -68,17 +68,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## المَعلمة `environment`
+## `environment` 参数
 
-تقبل المَعلمة `environment` ثلاثة أشكال:
+`environment` 参数接受三种形式：
 
-| النموذج | مثال | حالات الاستخدام |
+| 姿势 | 示例 | 适用情形 |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | توفير صندوق حماية جديد |
-| رقم تعريف البيئة | `environment="env_abc123"` | إعادة استخدام صندوق حماية حالي مع جميع ملفاته وحِزمه |
-| كائن الإعداد | `environment={...}` | توفير صندوق حماية جديد مع مصادر أو قواعد شبكة أو كليهما |
+| `"remote"` | `environment="remote"` | 预配新的沙盒。 |
+| 环境 ID | `environment="env_abc123"` | 重复使用包含所有文件和软件包的现有沙盒。 |
+| 配置对象 | `environment={...}` | 预配包含来源、网络规则或两者的新沙盒。 |
 
-توضّح الأمثلة التالية الطرق الثلاث لاستخدام المَعلمة `environment`.
+以下示例演示了使用 `environment` 参数的三种方式。
 
 ### Python
 
@@ -209,10 +209,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## ضبط بيئة
+## 配置环境
 
-إحدى طرق إعداد بيئة هي إخبار الوكيل بما تحتاج إلى تثبيته.
-يتولّى الوكيل حلّ التبعيات وتحديد المشاكل وحلّها. بعد أن تصبح البيئة جاهزة، احفظ `environment_id` وأعِد استخدامه.
+设置环境的一种方法是告知智能体需要安装的内容。它会处理依赖项解析和问题排查。环境准备就绪后，保存 `environment_id` 并重复使用。
 
 ### Python
 
@@ -290,15 +289,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### الربط من مصدر
+### 从来源装载
 
-إذا كنت تعرف الملفات التي يحتاجها الوكيل بالضبط، يمكنك ربطها في طلب واحد بدلاً من تكرار العملية. يقبل كائن إعداد `environment` مصفوفة `sources` تتضمّن ثلاثة أنواع:
+如果您确切知道智能体需要哪些文件，请在一次调用中装载这些文件，而不是进行迭代。`environment` 配置对象接受包含三种类型的 `sources` 数组：
 
-| نوع المصدر | قيمة `type` | الوصف | الحدّ |
+| 来源类型 | `type` 值 | 说明 | 限制 |
 | --- | --- | --- | --- |
-| مستودع Git | `repository` | يستنسخ مستودعًا من عنوان URL إلى صندوق الحماية في `target`. | 500 ميغابايت |
-| Cloud Storage | `gcs` | ينسخ ملفًا أو دليلًا من Cloud Storage إلى صندوق الحماية في `target`. | 2 غيغابايت |
-| محتوى مضمّن | `inline` | يكتب محتوى نصيًا خامًا في ملف في صندوق الحماية في `target`. | 1 ميغابايت لكل ملف، و2 ميغابايت إجمالاً |
+| Git 代码库 | `repository` | 将代码库从网址克隆到 `target` 处的沙盒中。 | 500 MB |
+| Cloud Storage | `gcs` | 将文件或目录从 Cloud Storage 复制到 `target` 处的沙盒中。 | 2 GB |
+| 内嵌内容 | `inline` | 将原始文本内容写入 `target` 处的沙盒中的文件。 | 每个文件 1 MB，总共 2 MB |
 
 ### Python
 
@@ -404,16 +403,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-يمكنك الجمع بين الطريقتَين: ربط المصادر المعروفة بشكلٍ إعلاني، ثم تكرار العملية باستخدام تفاعلات المتابعة لتثبيت الحِزم أو تشغيل النصوص البرمجية للإعداد. لا يمكنك ضبط الجذر (`/`) كهدف عند إضافة مصدر مخصّص، ويجب دائمًا تحديد دليل فرعي.
+您可以结合使用这两种方法：以声明方式装载已知来源，然后通过后续互动进行迭代以安装软件包或运行设置脚本。添加自定义来源时，您无法将根目录 (`/`) 设置为目标，必须始终指定子目录。
 
-### المصادر الخاصة
+### 私有来源
 
-يمكنك أيضًا التنزيل من مستودعات Github الخاصة أو حِزم Cloud Storage الخاصة عن طريق إضافة بيانات الاعتماد في إعدادات الشبكة:
+您还可以通过在网络配置中添加凭据，从私有 GitHub 代码库或私有 Cloud Storage 存储分区下载内容：
 
-بالنسبة إلى **مستودعات Git الخاصة**، استخدِم `Basic` المصادقة مع
-[رمز الوصول الشخصي في GitHub
-(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-يمكنك ترميز الرمز المميّز باستخدام `x-oauth-basic` كاسم المستخدم:
+对于**私有 Git 代码库**，请使用`Basic`身份验证以及您的
+[GitHub 个人访问令牌
+(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)。
+使用 `x-oauth-basic` 作为用户名对令牌进行编码：
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -519,7 +518,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-بالنسبة إلى **حِزم Cloud Storage الخاصة**، استخدِم رمزًا مميّزًا عاديًا من نوع OAuth 2.0 Bearer:
+对于**私有 Cloud Storage 存储分区**，请使用标准 OAuth 2.0 不记名令牌：
 
 ```
 gcloud auth print-access-token
@@ -625,25 +624,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## البرامج المثبَّتة مسبقًا
+## 预装软件
 
-يعمل صندوق الحماية على Ubuntu ويأتي مع أوقات تشغيل وحِزم شائعة مثبَّتة مسبقًا. يمكن للوكيل تثبيت حِزم إضافية في وقت التشغيل باستخدام `pip
-install` أو `npm install`. تظل الحِزم المثبَّتة أثناء التفاعل محفوظة عند إعادة استخدام `environment_id` نفسه.
+沙盒在 Ubuntu 上运行，并预装了运行时和常用软件包。智能体可以在运行时使用 `pip
+install` 或 `npm install` 安装其他软件包。当您重复使用同一 `environment_id` 时，在互动期间安装的软件包会保留。
 
-| الفئة | الحِزم المثبَّتة مسبقًا |
+| 类别 | 预装软件包 |
 | --- | --- |
-| **أدوات UNIX** | `curl` و`wget` و`git` و`rsync` و`unzip` و`ripgrep` و`fd-find` و`gawk` و`bc` و`tree` و`which` و`lsof` و`htop` و`jq` و`iproute2` و`procps` و`gcloud CLI` |
-| **Python 3.12** | `numpy` و`pandas` و`requests` و`google-genai` و`beautifulsoup4` و`pyyaml` و`ast-grep-cli` |
-| **Node.js 22** | `create-next-app` و`create-vite` و`typescript` |
+| **UNIX 工具** | `curl`、`wget`、`git`、`rsync`、`unzip`、`ripgrep`、`fd-find`、`gawk`、`bc`、`tree`、`which`、`lsof`、`htop`、`jq`、`iproute2`、`procps`、`gcloud CLI` |
+| **Python 3.12** | `numpy`、`pandas`、`requests`、`google-genai`、`beautifulsoup4`、`pyyaml`、`ast-grep-cli` |
+| **Node.js 22** | `create-next-app`、`create-vite`、`typescript` |
 
-## إعدادات الشبكة
+## 网络配置
 
-تتضمّن البيئات تلقائيًا إمكانية الوصول إلى الشبكة الصادرة بدون أي قيود. استخدِم الحقل `network` لحظر الزيارات الصادرة إلى نطاقات معيّنة. تحدّد كل قاعدة `domain` وكائن `transform` اختياريًا لإضافة عناوين إلى الطلبات المطابقة. يمكن أن تكون هذه العناوين فريدة لكل تفاعل، ويمكنك تعديلها للبيئة نفسها.
+默认情况下，环境具有不受限制的出站网络访问权限。使用 `network` 字段将出站流量限制为特定网域。每条规则都指定一个 `domain` 和一个可选的 `transform` 对象，以将标头注入到匹配的请求中。这些标头对于每次互动可以是唯一的，并且您可以为同一环境更新这些标头。
 
-| الحقل | النوع | الوصف |
+| 字段 | 类型 | 说明 |
 | --- | --- | --- |
-| `domain` | `string` | النطاق المطلوب مطابقته استخدِم اسم مضيف مطابقًا أو `*` لجميع النطاقات. |
-| `transform` | `object` | كائن يحتوي على أزواج مفتاح/قيمة مسطّحة تمثّل العناوين المطلوب إضافتها إلى الطلبات المطابقة، مثلاً `{"Authorization": "Bearer ..."}`. |
+| `domain` | `string` | 要匹配的网域。使用确切的主机名或 `*` 来指定所有网域。 |
+| `transform` | `object` | 包含扁平键值对的对象，这些键值对表示要注入到匹配请求中的标头，例如 `{"Authorization": "Bearer ..."}`。 |
 
 ### Python
 
@@ -733,15 +732,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-عند ضبط قائمة مسموح بها، لا يُسمح إلا بالطلبات الموجّهة إلى النطاقات المُدرَجة بشكلٍ صريح. يمكنك استخدام أحرف البدل لمطابقة النطاقات الفرعية (مثلاً، `{"domain":
-"*.example.com"}`)، ولكن يُرجى العِلم أنّ ذلك لا يطابق النطاق الرئيسي
-`example.com`، الذي يجب إضافته بشكلٍ منفصل. للسماح بجميع الزيارات الأخرى، مثل
-توجيه النطاقات غير المُدرَجة بدون إضافة عناوين، أضِف `{"domain": "*"}` كإدخال
-شامل.
+设置许可名单后，系统仅允许向明确列出的网域发出请求。您可以使用通配符来匹配子网域（例如 `{"domain":
+"*.example.com"}`），但请注意，这不会匹配根域名
+`example.com`，您必须单独添加该域名。如需允许所有其他流量（例如在不注入标头的情况下路由未列出的网域），请添加 `{"domain": "*"}` 作为全能条目。
 
-### بيانات الاعتماد
+### 凭据
 
-يمكنك إضافة بيانات اعتماد ليستخدمها وكيلك عن طريق إضافة عمليات تحويل العناوين. يتم إدخال بيانات الاعتماد في عناوين HTTP المعنيّة من خلال وكيل الخروج، ولا يتم عرضها مطلقًا داخل صندوق الحماية كمتغيّرات بيئية أو ملفات.
+您可以通过添加标头转换来添加凭据，供智能体使用。凭据由出站代理注入到相应的 HTTP 标头中，它们绝不会作为环境变量或文件在沙盒内公开。
 
 ### Python
 
@@ -835,9 +832,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### إيقاف إمكانية الوصول إلى الشبكة
+### 停用网络访问权限
 
-لحظر جميع إمكانية الوصول إلى الشبكة الصادرة، اضبط `network` على `disabled`:
+如需阻止所有出站网络访问，请将 `network` 设置为 `disabled`：
 
 ### Python
 
@@ -894,21 +891,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## دورة حياة البيئة
+## 环境生命周期
 
-تتّبِع البيئات دورة الحياة التالية:
+环境遵循以下生命周期：
 
-| الحالة | السلوك |
+| 状态 | 行为 |
 | --- | --- |
-| **تم الإنشاء** | يتم توفيرها عندما يحدّد أحد التفاعلات `environment: "remote"` أو كائن إعداد. |
-| **نشطة** | تكون قيد التشغيل أثناء تقدّم التفاعل. |
-| **غير مستخدَم من قِبل أي برنامج حاليًا** | يتم أخذ لقطة تلقائية وإيقافها بعد 15 دقيقة من عدم النشاط. |
-| **بلا إنترنت** | يتم الاحتفاظ بها لمدة 7 أيام منذ آخر نشاط. يمكن استئنافها عن طريق تمرير رقم تعريفها. |
-| **تم الحذف** | تمت إزالتها من النظام. |
+| **已创建** | 当互动指定 `environment: "remote"` 或配置对象时，系统会预配环境。 |
+| **有效** | 在互动进行期间运行。 |
+| **空闲** | 闲置 15 分钟后，系统会自动创建快照并停止环境。 |
+| **离线** | 自上次使用以来保留 7 天。可以通过传递其 ID 来恢复。 |
+| **已删除** | 从系统中移除。 |
 
-## تنزيل الملفات من البيئة
+## 从环境下载文件
 
-ينشئ الوكيل ملفات داخل صندوق الحماية أثناء التنفيذ. يمكنك تنزيل لقطة البيئة الكاملة كملف tar باستخدام Files API:
+智能体在执行期间会在沙盒内创建文件。您可以使用 Files API 将完整环境快照下载为 tar 文件：
 
 ### Python
 
@@ -1004,41 +1001,40 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## الأسعار والمراجع
+## 价格和资源
 
-تعمل كل بيئة مع تخصيصات موارد ثابتة:
+每个环境都以固定的资源分配运行：
 
-| المورد | القيمة |
+| 资源 | 值 |
 | --- | --- |
-| **وحدة المعالجة المركزية** | 4 أنوية |
-| **الذاكرة** | 16 غيغابايت |
+| **CPU** | 4 核 |
+| **内存** | 16 GB |
 
-**لا يتم تحصيل رسوم** مقابل حوسبة البيئة (وحدة المعالجة المركزية والذاكرة وتنفيذ صندوق الحماية) خلال فترة المعاينة. راجِع
-[الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#pricing-for-agents) لمعرفة
-تكاليف الرموز المميّزة للوكيل.
+在预览版期间，环境计算（CPU、内存、沙盒执行）**不收费** 。如需了解
+智能体令牌费用，请参阅[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#pricing-for-agents)。
 
-## القيود
+## 限制
 
-- **حالة المعاينة:** البيئات والوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
-- **حجم المصدر المضمّن:** يقتصر حجم المصادر المضمّنة على 1 ميغابايت لكل ملف، و2 ميغابايت إجمالاً لجميع الملفات.
-- **حجم المصدر**: يقتصر حجم مستودعات Git على 500 ميغابايت ومستودعات Cloud Storage على 2 غيغابايت.
-- **بدء تشغيل البيئة:** يستغرق توفير بيئة جديدة ما يصل إلى 5 ثوانٍ تقريبًا. قد يؤدي استخدام مستودعات مصادر كبيرة إلى زيادة هذا الوقت.
-- **تنسيقات الملفات المتوافقة:** يقتصر الوكيل حاليًا على قراءة الملفات النصية وملفات الصور. ولا تتوفّر بعد إمكانية قراءة الملفات الثنائية.
-- **لا يمكن الربط من الجذر:** لا يمكنك ضبط الجذر (`/`) كهدف عند إضافة مصدر مخصّص، ويجب دائمًا تحديد دليل فرعي.
+- **预览版状态** ：环境和受管理的智能体处于预览版阶段。功能和架构可能会发生变化。
+- **内嵌来源大小** ：内嵌来源限制为每个文件 1 MB，所有文件总共 2 MB。
+- **来源大小**：Git 代码库限制为 500 MB，Cloud Storage 代码库限制为 2 GB。
+- **环境启动** ：预配新环境最多需要约 5 秒。大型来源代码库可能会增加此时间。
+- **文件支持** ：智能体目前只能读取文本文件和图片文件。尚不支持二进制文件。
+- **无法从根目录装载** ：添加自定义来源时，您无法将根目录 (`/`) 设置为目标，必须始终指定子目录。
 
-## الخطوات التالية
+## 后续步骤
 
-- [نظرة عامة على الوكلاء](https://ai.google.dev/gemini-api/docs/agents?hl=ar): تعرَّف على المفاهيم الأساسية للوكلاء المُدارين.
-- [دليل البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): ابدأ في إنشاء محادثات متعددة الأدوار وبث المحتوى.
-- [وكيل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): استكشِف الإمكانات والأدوات والأسعار للوكيل التلقائي.
-- [إنشاء وكلاء مخصّصين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar): حدِّد الوكلاء الخاصين بك باستخدام `AGENTS.md` و`SKILL.md`.
+- [智能体概览](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn)：了解受管理的智能体的核心概念。
+- [快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)：开始构建多轮对话和流式传输。
+- [Antigravity 智能体](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-cn)：探索默认智能体的功能、工具和价格。
+- [构建自定义智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)：使用 `AGENTS.md` 和 `SKILL.md` 定义您自己的智能体。
 
-إرسال ملاحظات
+发送反馈
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-تاريخ التعديل الأخير: 2026-05-20 (حسب التوقيت العالمي المتفَّق عليه)
+最后更新时间 (UTC)：2026-05-20。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+需要向我们提供更多信息？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-20 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-20。"],[],[]]

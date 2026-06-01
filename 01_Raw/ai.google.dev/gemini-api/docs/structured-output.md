@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=it
-fetched_at: 2026-05-25T13:03:41.699293+00:00
-title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ko
+fetched_at: 2026-06-01T19:48:50.341982+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=it)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Invia feedback
+의견 보내기
 
-# Output strutturati
+# 구조화된 출력
 
-Puoi configurare i modelli Gemini in modo che generino risposte conformi a uno schema JSON fornito. In questo modo, i risultati sono prevedibili e type-safe e l'estrazione di dati strutturati da testo non strutturato è più semplice.
+제공된 JSON 스키마를 준수하는 응답을 생성하도록 Gemini 모델을 구성할 수 있습니다. 이렇게 하면 예측 가능하고 유형이 안전한 결과를 얻을 수 있으며 구조화되지 않은 텍스트에서 구조화된 데이터를 추출하는 작업이 간소화됩니다.
 
-L'utilizzo di output strutturati è ideale per:
+구조화된 출력은 다음과 같은 경우에 사용하는 것이 좋습니다.
 
-- **Estrazione dei dati:** estrai informazioni specifiche, come nomi e date, dal testo.
-- **Classificazione strutturata:** classifica il testo in categorie predefinite.
-- **Flussi di lavoro agentici:** genera input strutturati per strumenti o API.
+- **데이터 추출:** 텍스트에서 이름, 날짜와 같은 특정 정보를 가져옵니다.
+- **구조화된 분류:** 텍스트를 사전 정의된 카테고리로 분류합니다.
+- **에이전트 워크플로:** 도구 또는 API의 구조화된 입력을 생성합니다.
 
-Oltre a supportare lo schema JSON nell'API REST, gli SDK Google GenAI
-semplificano la definizione degli schemi utilizzando
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) e
-[Zod](https://zod.dev/) (JavaScript).
+Google GenAI SDK를 사용하면 REST API에서 JSON 스키마를 지원하는 것 외에도
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) 및
+[Zod](https://zod.dev/) (JavaScript)를 사용하여 스키마를 쉽게 정의할 수 있습니다.
 
-Recipe Extractor
-Content Moderation
-Recursive Structures
+레시피 추출기
+콘텐츠 검토
+재귀 구조
 
-Questo esempio mostra come estrarre dati strutturati dal testo utilizzando i tipi di schema JSON di base come `object`, `array`, `string` e `integer`.
+이 예에서는 `object`, `array`, `string`, `integer`와 같은 기본 JSON 스키마 유형을 사용하여 텍스트에서 구조화된 데이터를 추출하는 방법을 보여줍니다.
 
 ### Python
 
@@ -129,7 +129,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### Vai
+### Go
 
 ```
 package main
@@ -266,7 +266,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**Esempio di risposta:**
+**응답 예시:**
 
 ```
 {
@@ -321,11 +321,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-## Streaming
+## 스트리밍
 
-Puoi eseguire lo streaming degli output strutturati, il che ti consente di iniziare a elaborare la risposta durante la generazione, senza dover attendere il completamento dell'intero output. In questo modo, le prestazioni percepite della tua applicazione possono migliorare.
+구조화된 출력을 스트리밍할 수 있습니다. 이렇게 하면 전체 출력이 완료될 때까지 기다리지 않고 출력이 생성되는 대로 응답 처리를 시작할 수 있습니다. 이렇게 하면 애플리케이션의 인식 성능을 개선할 수 있습니다.
 
-I blocchi in streaming saranno stringhe JSON parziali valide, che possono essere concatenate per formare l'oggetto JSON finale completo.
+스트리밍된 청크는 유효한 부분 JSON 문자열이며, 이를 연결하여 최종적인 완전한 JSON 객체를 형성할 수 있습니다.
 
 ### Python
 
@@ -381,14 +381,14 @@ for await (const chunk of stream) {
 }
 ```
 
-## Output strutturati con gli strumenti
+## 도구를 사용한 구조화된 출력
 
-Gemini 3 ti consente di combinare gli output strutturati con gli strumenti integrati, tra cui
-[Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it),
-[contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it),
-[esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it),
-[ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it#structured-output) e
-[chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
+Gemini 3를 사용하면 구조화된 출력을 Google 검색을 사용한 그라운딩
+,
+[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko),
+[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko),
+[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko#structured-output), 및
+[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)과 같은 기본 제공 도구와 결합할 수 있습니다.
 
 ### Python
 
@@ -493,101 +493,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## Supporto dello schema JSON
+## JSON 스키마 지원
 
-Per generare un oggetto JSON, imposta `response_format` nella configurazione di generazione. Lo schema deve essere uno schema [JSON valido](https://json-schema.org/) che descriva il formato di output desiderato.
+JSON 객체를 생성하려면 생성 구성에서 `response_format`을 설정합니다. 스키마는 원하는 출력 형식을 설명하는 유효한 [JSON 스키마](https://json-schema.org/)여야 합니다.
 
-Il modello genererà quindi una risposta che è una stringa JSON sintatticamente valida che corrisponde allo schema fornito. Quando utilizzi gli output strutturati, il modello produce gli output nello stesso ordine delle chiavi nello schema.
+그러면 모델이 제공된 스키마와 일치하는 구문상 유효한 JSON 문자열인 응답을 생성합니다. 구조화된 출력을 사용하면 모델이 스키마의 키와 동일한 순서로 출력을 생성합니다.
 
-La modalità di output strutturato di Gemini supporta un sottoinsieme della specifica dello schema [JSON](https://json-schema.org).
+Gemini의 구조화된 출력 모드는 [JSON 스키마](https://json-schema.org) 사양의 하위 집합을 지원합니다.
 
-Sono supportati i seguenti valori di `type`:
+다음 `type` 값이 지원됩니다.
 
-- **`string`**: per il testo.
-- **`number`**: per i numeri in virgola mobile.
-- **`integer`**: per i numeri interi.
-- **`boolean`**: per i valori true/false.
-- **`object`**: per i dati strutturati con coppie chiave-valore.
-- **`array`**: per gli elenchi di elementi.
-- **`null`**: per consentire a una proprietà di essere null, includi `"null"` nell'array di tipi (ad es. `{"type": ["string", "null"]}`).
+- **`string`**: 텍스트용
+- **`number`**: 부동 소수점 숫자용
+- **`integer`**: 정수용
+- **`boolean`**: true/false 값용
+- **`object`**: 키-값 쌍이 있는 구조화된 데이터용
+- **`array`**: 항목 목록용
+- **`null`**: 속성이 null이 되도록 허용하려면 유형 배열에 `"null"`을 포함합니다 (예: `{"type": ["string", "null"]}`).
 
-Queste proprietà descrittive aiutano a guidare il modello:
+이러한 설명 속성은 모델을 안내하는 데 도움이 됩니다.
 
-- **`title`**: una breve descrizione di una proprietà.
-- **`description`**: una descrizione più lunga e dettagliata di una proprietà.
+- **`title`**: 속성에 대한 간단한 설명입니다.
+- **`description`**: 속성에 대한 더 길고 자세한 설명입니다.
 
-### Proprietà specifiche del tipo
+### 유형별 속성
 
-**Per i valori `object`:**
+**`object` 값의 경우:**
 
-- **`properties`**: un oggetto in cui ogni chiave è un nome di proprietà e ogni valore è uno schema per quella proprietà.
-- **`required`**: un array di stringhe che elenca le proprietà obbligatorie.
-- **`additionalProperties`**: controlla se le proprietà non elencate in `properties` sono consentite. Può essere un valore booleano o uno schema.
+- **`properties`**: 각 키가 속성 이름이고 각 값이 해당 속성의 스키마인 객체입니다.
+- **`required`**: 필수 속성을 나열하는 문자열 배열입니다.
+- **`additionalProperties`**: `properties`에 나열되지 않은 속성이 허용되는지 여부를 제어합니다. 불리언 또는 스키마일 수 있습니다.
 
-**Per i valori `string`:**
+**`string` 값의 경우:**
 
-- **`enum`**: elenca un insieme specifico di stringhe possibili per le attività di classificazione.
-- **`format`**: specifica una sintassi per la stringa, ad esempio `date-time`, `date`, `time`.
+- **`enum`**: 분류 작업에 사용할 수 있는 특정 문자열 집합을 나열합니다.
+- **`format`**: `date-time`, `date`, `time`과 같은 문자열의 구문을 지정합니다.
 
-**Per i valori `number` e `integer`:**
+**`number` 및 `integer` 값의 경우:**
 
-- **`enum`**: elenca un insieme specifico di valori numerici possibili.
-- **`minimum`**: il valore inclusivo minimo.
-- **`maximum`**: il valore inclusivo massimo.
+- **`enum`**: 가능한 숫자 값의 특정 집합을 나열합니다.
+- **`minimum`**: 최소 포함 값입니다.
+- **`maximum`**: 최대 포함 값입니다.
 
-**Per i valori `array`:**
+**`array` 값의 경우:**
 
-- **`items`**: definisce lo schema per tutti gli elementi dell'array.
-- **`prefixItems`**: definisce un elenco di schemi per i primi N elementi, consentendo strutture simili a tuple.
-- **`minItems`**: il numero minimo di elementi nell'array.
-- **`maxItems`**: il numero massimo di elementi nell'array.
+- **`items`**: 배열의 모든 항목에 대한 스키마를 정의합니다.
+- **`prefixItems`**: 첫 번째 N개 항목의 스키마 목록을 정의하여 튜플과 유사한 구조를 허용합니다.
+- **`minItems`**: 배열의 최소 항목 수입니다.
+- **`maxItems`**: 배열의 최대 항목 수입니다.
 
-## Supporto del modello
+## 모델 지원
 
-I seguenti modelli supportano l'output strutturato:
+다음 모델은 구조화된 출력을 지원합니다.
 
-| Modello | Output strutturati |
+| 모델 | 구조화된 출력 |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro (anteprima) | ✔️ |
+| Gemini 3.1 Pro 프리뷰 | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite (anteprima) | ✔️ |
+| Gemini 3.1 Flash-Lite 프리뷰 | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* Tieni presente che Gemini 2.0 richiede un elenco esplicito `propertyOrdering` all'interno dell'input JSON per definire la struttura preferita. Puoi trovare un esempio in questo [cookbook](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
+*\* Gemini 2.0에서는 선호하는 구조를 정의하기 위해 JSON 입력 내에 명시적인 `propertyOrdering` 목록이 필요합니다. 이 [쿡북](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)에서 예를 확인할 수 있습니다.*
 
-## Output strutturati e chiamate di funzione
+## 구조화된 출력과 함수 호출
 
-Sia gli output strutturati sia le chiamate di funzione utilizzano schemi JSON, ma hanno scopi diversi:
+구조화된 출력과 함수 호출은 모두 JSON 스키마를 사용하지만 서로 다른 용도로 사용됩니다.
 
-| Funzionalità | Caso d'uso primario |
+| 기능 | 주된 사용 사례 |
 | --- | --- |
-| **Output strutturati** | **Formattazione della risposta finale all'utente.** Utilizza questa opzione quando vuoi che la *risposta* del modello sia in un formato specifico (ad es. estrazione di dati da un documento da salvare in un database). |
-| **Chiamate di funzione** | **Esecuzione di azioni durante la conversazione.** Utilizza questa opzione quando il modello deve *chiederti* di eseguire un'attività (ad es. "ottieni le condizioni meteorologiche attuali") prima di poter fornire una risposta finale. |
+| **구조화된 출력** | **사용자에게 최종 응답의 형식을 지정합니다.** 모델의 *대답* 이 특정 형식 (예: 데이터베이스에 저장할 문서에서 데이터 추출)으로 되어야 하는 경우에 사용합니다. |
+| **함수 호출** | **대화 중에 작업을 실행합니다.** 모델이 최종 대답을 제공하기 전에 작업을 실행하도록 *요청* 해야 하는 경우 (예: '현재 날씨 가져오기')에 사용합니다. |
 
-## Best practice
+## 권장사항
 
-- **Descrizioni chiare:** utilizza il campo `description` nello schema per fornire istruzioni chiare al modello su cosa rappresenta ogni proprietà. Questo è fondamentale per guidare l'output del modello.
-- **Digitazione forte:** utilizza tipi specifici (`integer`, `string`, `enum`) quando possibile. Se un parametro ha un insieme limitato di valori validi, utilizza un `enum`.
-- **Prompt engineering:** indica chiaramente nel prompt cosa vuoi che il modello faccia. Ad esempio, "Estrai le seguenti informazioni dal testo..." o "Classifica questo feedback in base allo schema fornito...".
-- **Convalida:** anche se l'output strutturato garantisce un JSON sintatticamente corretto, non garantisce che i valori siano semanticamente corretti. Convalida sempre l'output finale nel codice dell'applicazione prima di utilizzarlo.
-- **Gestione degli errori:** implementa una gestione degli errori efficace nella tua applicazione per gestire correttamente i casi in cui l'output del modello, sebbene conforme allo schema, potrebbe non soddisfare i requisiti della logica di business.
+- **명확한 설명:** 스키마의 `description` 필드를 사용하여 각 속성이 나타내는 내용을 모델에 명확하게 안내합니다. 이는 모델의 출력을 안내하는 데 매우 중요합니다.
+- **강력한 유형 지정:** 가능하면 항상 특정 유형 (`integer`, `string`, `enum`)을 사용합니다. 매개변수에 유효한 값의 집합이 제한되어 있는 경우 `enum`을 사용합니다.
+- **프롬프트 엔지니어링:** 모델이 수행해야 하는 작업을 프롬프트에 명확하게 명시합니다. 예를 들어 '텍스트에서 다음 정보를 추출하세요.' 또는 '제공된 스키마에 따라 이 의견을 분류하세요.'
+- **유효성 검사:** 구조화된 출력은 구문상 올바른 JSON을 보장하지만 값이 의미상 올바른지는 보장하지 않습니다. 항상 애플리케이션 코드에서 최종 출력을 검증한 후 사용하세요.
+- **오류 처리:** 스키마를 준수하지만 비즈니스 로직 요구사항을 충족하지 못할 수 있는 모델의 출력을 원활하게 관리할 수 있도록 애플리케이션에 강력한 오류 처리를 구현합니다.
 
-## Limitazioni
+## 제한사항
 
-- **Sottoinsieme dello schema:** non tutte le funzionalità della specifica dello schema JSON sono supportate. Il modello ignora le proprietà non supportate.
-- **Complessità dello schema:** l'API potrebbe rifiutare schemi molto grandi o con nidificazione profonda. Se riscontri errori, prova a semplificare lo schema abbreviando i nomi delle proprietà, riducendo la nidificazione o limitando il numero di vincoli.
+- **스키마 하위 집합:** JSON 스키마 사양의 모든 기능이 지원되는 것은 아닙니다. 모델은 지원되지 않는 속성을 무시합니다.
+- **스키마 복잡성:** API는 매우 크거나 깊게 중첩된 스키마를 거부할 수 있습니다. 오류가 발생하면 속성 이름을 줄이거나, 중첩을 줄이거나, 제약조건 수를 제한하여 스키마를 간소화해 보세요.
 
-Invia feedback
+의견 보내기
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Ultimo aggiornamento 2026-05-19 UTC.
+최종 업데이트: 2026-05-19(UTC)
 
-Vuoi dirci altro?
+의견을 전달하고 싶나요?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-19 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]

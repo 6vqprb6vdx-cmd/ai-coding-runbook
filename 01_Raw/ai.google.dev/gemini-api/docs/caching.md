@@ -1,65 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ar
-fetched_at: 2026-05-25T13:05:06.835720+00:00
-title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ko
+fetched_at: 2026-06-01T19:44:22.259640+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-إرسال ملاحظات
+의견 보내기
 
-# التخزين المؤقت للسياق
+# 컨텍스트 캐싱이
 
-في سير عمل الذكاء الاصطناعي النموذجي، قد يتم تمرير رموز الإدخال نفسها بشكل متكرر إلى أحد النماذج. توفّر Gemini API آليتَي تخزين مؤقت مختلفتَين:
+일반적인 AI 워크플로에서는 동일한 입력 토큰을 모델에 반복해서 전달할 수 있습니다. Gemini API는 다음과 같은 두 가지 캐싱 메커니즘을 제공합니다.
 
-- التخزين المؤقت الضمني (مفعَّل تلقائيًا في Gemini 2.5 والنماذج الأحدث، ولا يضمن توفير التكاليف)
-- التخزين المؤقت الصريح (يمكن تفعيله يدويًا في معظم النماذج، ويضمن توفير التكاليف)
+- 암시적 캐싱 (Gemini 2.5 이상 모델에서 자동으로 사용 설정되며 비용 절감 보장 없음)
+- 명시적 캐싱 (대부분의 모델에서 수동으로 사용 설정 가능, 비용 절감 보장)
 
-يكون التخزين المؤقت الصريح مفيدًا في الحالات التي تريد فيها ضمان توفير التكاليف، ولكن مع بعض العمل الإضافي من جانب المطوّر.
+명시적 캐싱은 비용 절감을 보장하되 개발자 작업을 추가하려는 경우에 유용합니다.
 
-## التخزين المؤقت الضمني
+## 암시적 캐싱
 
-يكون التخزين المؤقت الضمني مفعَّلاً تلقائيًا لجميع نماذج Gemini 2.5 والنماذج الأحدث. ونحن نمرّر تلقائيًا وفورات التكاليف إذا كان طلبك يطابق البيانات المخزّنة مؤقتًا. وليس عليك اتّخاذ أي إجراء لتفعيل هذه الميزة. يتم إدراج الحد الأدنى لعدد رموز الإدخال للتخزين المؤقت للسياق في الجدول التالي لكل نموذج:
+모든 Gemini 2.5 이상 모델의 경우 암시적 캐싱이 기본적으로 사용 설정됩니다. 요청이 캐시에 적중되면 비용 절감이 자동으로 적용됩니다. 이를 사용 설정하기 위해 별도로 조치를 취하실 필요는 없습니다. 컨텍스트 캐싱의 최소 입력 토큰 수는 각 모델에 대해 다음 표에 나와 있습니다.
 
-| الطراز | الحد الأدنى لعدد الرموز |
+| 모델 | 최소 토큰 한도 |
 | --- | --- |
 | Gemini 3.5 Flash | 1024 |
-| Gemini 3 Pro Preview | 4096 |
+| Gemini 3 Pro 프리뷰 | 4096 |
 | Gemini 2.5 Flash | 1024 |
 | Gemini 2.5 Pro | 4096 |
 
-لزيادة فرصة مطابقة البيانات المخزّنة مؤقتًا ضمنيًا:
+암시적 캐시 적중 가능성을 높이려면 다음 안내를 따르세요.
 
-- حاوِل وضع المحتويات الكبيرة والشائعة في بداية طلبك
-- حاوِل إرسال الطلبات التي تتضمّن بادئة مشابهة خلال فترة زمنية قصيرة
+- 프롬프트 시작 부분에 크고 공통적인 콘텐츠를 배치해 보세요.
+- 짧은 시간 내에 유사한 프리픽스를 가진 요청을 전송합니다.
 
-يمكنك الاطّلاع على عدد الرموز التي طابقت البيانات المخزّنة مؤقتًا في حقل `usage_metadata` في عنصر الاستجابة.
+응답 객체의 `usage_metadata` 필드에서 캐시 적중된 토큰 수를 확인할 수 있습니다.
 
-## التخزين المؤقت الصريح
+## 명시적 캐싱
 
-باستخدام ميزة التخزين المؤقت الصريح في Gemini API، يمكنك تمرير بعض المحتوى إلى النموذج مرة واحدة، وتخزين رموز الإدخال مؤقتًا، ثم الإشارة إلى الرموز المخزّنة مؤقتًا للطلبات اللاحقة. عند استخدام كميات معيّنة، تكون تكلفة استخدام الرموز المخزّنة مؤقتًا أقل من تكلفة تمرير مجموعة الرموز نفسها بشكل متكرر.
+Gemini API 명시적 캐싱 기능을 사용하면 콘텐츠를 모델에 한 번 전달하고 입력 토큰을 캐시한 다음 후속 요청에서 캐시된 토큰을 참조할 수 있습니다. 특정 볼륨에서는 캐시된 토큰을 사용하는 것이 동일한 코퍼스 토큰을 반복적으로 전달하는 것보다 비용이 저렴합니다.
 
-عند تخزين مجموعة من الرموز مؤقتًا، يمكنك اختيار المدة التي تريد أن تظل فيها البيانات المخزّنة مؤقتًا قبل حذف الرموز تلقائيًا. تُعرف مدة التخزين المؤقت هذه باسم *مدة البقاء* (TTL). إذا لم يتم ضبط مدة البقاء، يتم ضبطها تلقائيًا على ساعة واحدة. تعتمد تكلفة التخزين المؤقت على حجم رمز الإدخال والمدة التي تريد أن تظل فيها الرموز.
+토큰 집합을 캐시할 때 토큰이 자동으로 삭제되기 전에 캐시가 유지될 기간을 선택할 수 있습니다. 이 캐싱 기간을 *TTL (수명)*이라고 합니다. 설정하지 않으면 TTL은 기본적으로 1시간입니다. 캐싱 비용은 입력 토큰 크기와 토큰을 유지하려는 기간에 따라 달라집니다.
 
-يفترض هذا القسم أنّك ثبّت أحد حِزم Gemini SDK (أو ثبّت أداة curl)
-وأنّك ضبطت مفتاح واجهة برمجة التطبيقات، كما هو موضّح في
-[دليل البدء السريع](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
+이 섹션에서는 [빠른 시작](https://ai.google.dev/gemini-api/docs/quickstart?hl=ko)에 표시된 대로 Gemini SDK를 설치했거나 curl이 설치되어 있고 API 키를 구성했다고 가정합니다.
 
-### إنشاء محتوى باستخدام ذاكرة تخزين مؤقت
+### 캐시를 사용하여 콘텐츠 생성
 
 ### Python
 
-يوضّح المثال التالي كيفية إنشاء محتوى باستخدام تعليمات نظام مخزّنة مؤقتًا وملف فيديو.
+다음 예시에서는 캐시된 시스템 안내와 동영상 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
-### الفيديوهات
+### 동영상
 
 ```
 import os
@@ -118,7 +117,7 @@ print(response.usage_metadata)
 print(response.text)
 ```
 
-### ملفات PDF
+### PDF
 
 ```
 from google import genai
@@ -164,9 +163,9 @@ print(f'{response.usage_metadata=}')
 print('\n\n', response.text)
 ```
 
-### JavaScript
+### 자바스크립트
 
-يوضّح المثال التالي كيفية إنشاء محتوى باستخدام تعليمات نظام مخزّنة مؤقتًا وملف نصي.
+다음 예시에서는 캐시된 시스템 명령어와 텍스트 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
 ```
 import {
@@ -205,9 +204,9 @@ async function main() {
 await main();
 ```
 
-### انتقال
+### Go
 
-يوضّح المثال التالي كيفية إنشاء محتوى باستخدام ذاكرة تخزين مؤقت.
+다음 예에서는 캐시를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
 ```
 package main
@@ -277,9 +276,9 @@ func main() {
 
 ### REST
 
-يوضّح المثال التالي كيفية إنشاء ذاكرة تخزين مؤقت ثم استخدامها لإنشاء محتوى.
+다음 예에서는 캐시를 만든 다음 이를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
-### الفيديوهات
+### 동영상
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -330,7 +329,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
     }'
 ```
 
-### ملفات PDF
+### PDF
 
 ```
 DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
@@ -428,30 +427,28 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### عرض قائمة بذاكرات التخزين المؤقت
+### 캐시 나열
 
-لا يمكن استرداد المحتوى المخزّن مؤقتًا أو عرضه، ولكن يمكنك استرداد
-البيانات الوصفية لذاكرة التخزين المؤقت (`name`، `model`، `display_name`، `usage_metadata`،
-`create_time`، `update_time`، و`expire_time`).
+캐시된 콘텐츠를 가져오거나 볼 수는 없지만 캐시 메타데이터 (`name`, `model`, `display_name`, `usage_metadata`, `create_time`, `update_time`, `expire_time`)는 가져올 수 있습니다.
 
 ### Python
 
-لعرض البيانات الوصفية لجميع ذاكرات التخزين المؤقت التي تم تحميلها، استخدِم `CachedContent.list()`:
+업로드된 모든 캐시의 메타데이터를 나열하려면 `CachedContent.list()`를 사용합니다.
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-لاسترداد البيانات الوصفية لعنصر ذاكرة تخزين مؤقت واحد، استخدِم `get` إذا كنت تعرف اسمه:
+캐시 객체의 이름을 알고 있는 경우 하나의 캐시 객체의 메타데이터를 가져오려면 `get`를 사용하세요.
 
 ```
 client.caches.get(name=name)
 ```
 
-### JavaScript
+### 자바스크립트
 
-لعرض البيانات الوصفية لجميع ذاكرات التخزين المؤقت التي تم تحميلها، استخدِم `GoogleGenAI.caches.list()`:
+업로드된 모든 캐시의 메타데이터를 나열하려면 `GoogleGenAI.caches.list()`를 사용합니다.
 
 ```
 console.log("My caches:");
@@ -466,9 +463,9 @@ while (true) {
 }
 ```
 
-### انتقال
+### Go
 
-يعرض المثال التالي جميع ذاكرات التخزين المؤقت.
+다음 예에서는 모든 캐시를 나열합니다.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -481,7 +478,7 @@ for _, item := range caches {
 }
 ```
 
-يعرض المثال التالي ذاكرات التخزين المؤقت باستخدام حجم صفحة يبلغ 2.
+다음 예에서는 페이지 크기가 2인 캐시를 나열합니다.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -514,13 +511,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### تعديل ذاكرة تخزين مؤقت
+### 캐시 업데이트
 
-يمكنك ضبط `ttl` أو `expire_time` جديدَين لذاكرة تخزين مؤقت. لا يمكن تغيير أي شيء آخر في ذاكرة التخزين المؤقت.
+캐시의 새 `ttl` 또는 `expire_time`를 설정할 수 있습니다. 캐시에 관한 다른 사항은 변경할 수 없습니다.
 
 ### Python
 
-يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت باستخدام `client.caches.update()`.
+다음 예는 `client.caches.update()`을 사용하여 캐시의 `ttl`를 업데이트하는 방법을 보여줍니다.
 
 ```
 from google import genai
@@ -534,10 +531,7 @@ client.caches.update(
 )
 ```
 
-لضبط وقت انتهاء الصلاحية، سيتم قبول كائن `datetime` أو سلسلة بتنسيق datetime بتنسيق ISO (`dt.isoformat()`، مثل
-`2025-01-27T16:02:36.473528+00:00`). يجب أن يتضمّن الوقت منطقة زمنية
-(`datetime.utcnow()` لا يرفق منطقة زمنية،
-`datetime.now(datetime.timezone.utc)` يرفق منطقة زمنية).
+만료 시간을 설정하려면 `datetime` 객체 또는 ISO 형식의 날짜/시간 문자열 (`dt.isoformat()`, `2025-01-27T16:02:36.473528+00:00` 등)을 허용합니다. 시간에는 시간대가 포함되어야 합니다(`datetime.utcnow()`에는 시간대가 연결되지 않고 `datetime.now(datetime.timezone.utc)`에는 시간대가 연결됨).
 
 ```
 from google import genai
@@ -555,9 +549,9 @@ client.caches.update(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
-يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت باستخدام `GoogleGenAI.caches.update()`.
+다음 예는 `GoogleGenAI.caches.update()`을 사용하여 캐시의 `ttl`를 업데이트하는 방법을 보여줍니다.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -568,9 +562,9 @@ const updatedCache = await ai.caches.update({
 console.log("After update (TTL):", updatedCache);
 ```
 
-### انتقال
+### Go
 
-يوضّح المثال التالي كيفية تعديل `TTL` لذاكرة تخزين مؤقت.
+다음 예는 캐시의 `TTL`를 업데이트하는 방법을 보여줍니다.
 
 ```
 // Update the TTL (2 hours).
@@ -586,7 +580,7 @@ fmt.Println(cache)
 
 ### REST
 
-يوضّح المثال التالي كيفية تعديل `ttl` لذاكرة تخزين مؤقت.
+다음 예는 캐시의 `ttl`를 업데이트하는 방법을 보여줍니다.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -594,9 +588,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### حذف ذاكرة تخزين مؤقت
+### 캐시 삭제
 
-توفّر خدمة التخزين المؤقت عملية حذف لإزالة المحتوى يدويًا من ذاكرة التخزين المؤقت. يوضّح المثال التالي كيفية حذف ذاكرة تخزين مؤقت:
+캐싱 서비스는 캐시에서 콘텐츠를 수동으로 삭제하는 삭제 작업을 제공합니다. 다음 예는 캐시를 삭제하는 방법을 보여줍니다.
 
 ### Python
 
@@ -604,13 +598,13 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 client.caches.delete(cache.name)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 await ai.caches.delete({ name: cache.name });
 ```
 
-### انتقال
+### Go
 
 ```
 _, err = client.Caches.Delete(ctx, cache.Name, &genai.DeleteCachedContentConfig{})
@@ -626,48 +620,44 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### التخزين المؤقت الصريح باستخدام مكتبة OpenAI
+### OpenAI 라이브러리를 사용한 명시적 캐싱
 
-إذا كنت تستخدم مكتبة [OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar)، يمكنك تفعيل
-التخزين المؤقت الصريح باستخدام السمة `cached_content` في
-[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=ar#extra-body).
+[OpenAI 라이브러리](https://ai.google.dev/gemini-api/docs/openai?hl=ko)를 사용하는 경우 [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=ko#extra-body)에서 `cached_content` 속성을 사용하여 명시적 캐싱을 사용 설정할 수 있습니다.
 
-## حالات استخدام التخزين المؤقت الصريح
+## 명시적 캐싱을 사용해야 하는 경우
 
-يكون التخزين المؤقت للسياق مناسبًا بشكل خاص للسيناريوهات التي تتم فيها الإشارة بشكل متكرر إلى سياق أولي كبير من خلال طلبات أقصر. ننصحك باستخدام التخزين المؤقت للسياق في حالات الاستخدام التالية:
+컨텍스트 캐싱은 짧은 요청에서 상당한 양의 초기 컨텍스트를 반복적으로 참조하는 시나리오에 특히 적합합니다. 다음과 같은 사용 사례에 컨텍스트 캐싱을 사용하는 것이 좋습니다.
 
-- روبوتات الدردشة التي تتضمّن تعليمات نظام [شاملة](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ar)
-- التحليل المتكرر لملفات الفيديو الطويلة
-- الطلبات المتكررة التي يتم إرسالها إلى مجموعات كبيرة من المستندات
-- التحليل المتكرر لمستودع الرموز البرمجية أو إصلاح الأخطاء
+- 다양한 [시스템 안내](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ko)를 제공하는 챗봇
+- 긴 동영상 파일 반복 분석
+- 대규모 문서 세트에 대해 반복 쿼리
+- 빈번한 코드 저장소 분석 또는 버그 수정
 
-### كيفية تقليل التكاليف باستخدام التخزين المؤقت الصريح
+### 명시적 캐싱으로 비용을 절감하는 방법
 
-التخزين المؤقت للسياق هو ميزة مدفوعة مصمّمة لتقليل التكلفة. تستند الفوترة إلى العوامل التالية:
+컨텍스트 캐싱은 비용을 절감하기 위해 설계된 유료 기능입니다. 다음 요소를 기준으로 결제가 청구됩니다.
 
-1. **عدد الرموز المخزّنة مؤقتًا:** عدد رموز الإدخال المخزّنة مؤقتًا، والتي يتم تحصيل رسومها بسعر مخفّض عند تضمينها في الطلبات اللاحقة
-2. **مدة التخزين:** المدة التي يتم فيها تخزين الرموز المخزّنة مؤقتًا (مدة البقاء)، والتي يتم تحصيل رسومها استنادًا إلى مدة البقاء لعدد الرموز المخزّنة مؤقتًا ما مِن حدود دنيا أو قصوى لـ "مدة البقاء".
-3. **عوامل أخرى:** يتم تطبيق رسوم أخرى، مثل رموز الإدخال ورموز الإخراج غير المخزّنة مؤقتًا.
+1. **캐시 토큰 수:** 캐시된 입력 토큰 수로, 후속 프롬프트에 포함될 경우 할인된 요율로 청구됩니다.
+2. **스토리지 기간:** 캐시된 토큰이 저장되는 시간 (TTL)으로, 캐시된 토큰 수의 TTL 기간을 기준으로 청구됩니다. TTL에는 최소 또는 최대 경계가 없습니다.
+3. **기타 요인:** 캐시되지 않은 입력 토큰 및 출력 토큰과 같은 기타 요인에 다른 요금이 청구됩니다.
 
-للاطّلاع على تفاصيل التسعير الحديثة، يُرجى الرجوع إلى صفحة [تسعير
-Gemini API](https://ai.google.dev/pricing?hl=ar). [للتعرّف على كيفية حساب الرموز، يُرجى الاطّلاع على دليل الرموز.](https://ai.google.dev/gemini-api/docs/tokens?hl=ar)
+최신 가격 책정 세부정보는 Gemini API [가격 책정 페이지](https://ai.google.dev/pricing?hl=ko)를 참고하세요. 토큰 수를 계산하는 방법을 알아보려면 [토큰 가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.
 
-### اعتبارات أخرى
+### 추가 고려사항
 
-يجب مراعاة الاعتبارات التالية عند استخدام التخزين المؤقت للسياق:
+컨텍스트 캐싱을 사용할 때는 다음 사항을 고려하세요.
 
-- يختلف *الحد الأدنى* لعدد رموز الإدخال للتخزين المؤقت للسياق حسب النموذج. ويكون *الحد الأقصى* هو نفسه الحد الأقصى للنموذج المحدّد. (لمزيد من المعلومات حول حساب الرموز،
-  يُرجى الاطّلاع على دليل [الرموز](https://ai.google.dev/gemini-api/docs/tokens?hl=ar)).
-- لا يميّز النموذج بين الرموز المخزّنة مؤقتًا ورموز الإدخال العادية. المحتوى المخزّن مؤقتًا هو بادئة للطلب.
-- ما مِن حدود خاصة للأسعار أو الاستخدام في ما يتعلق بالتخزين المؤقت للسياق، ويتم تطبيق الحدود القصوى القياسية لعدد الطلبات في `GenerateContent`، وتشمل الحدود القصوى لعدد الرموز الرموز المخزّنة مؤقتًا.
-- يتم عرض عدد الرموز المخزّنة مؤقتًا في `usage_metadata` من عمليات الإنشاء والاسترداد والعرض في خدمة التخزين المؤقت، وأيضًا في `GenerateContent` عند استخدام ذاكرة التخزين المؤقت.
+- 컨텍스트 캐싱의 *최소* 입력 토큰 수는 모델에 따라 다릅니다. *최댓값*은 지정된 모델의 최댓값과 동일합니다. 토큰 수에 대한 자세한 내용은 [토큰 가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.
+- 모델은 캐시된 토큰과 일반 입력 토큰을 구분하지 않습니다. 캐시된 콘텐츠는 프롬프트의 접두사입니다.
+- 컨텍스트 캐싱에는 특별한 요금이나 사용량 한도가 없습니다. `GenerateContent`의 표준 요금 한도가 적용되며 토큰 한도에는 캐시된 토큰이 포함됩니다.
+- 캐시된 토큰 수는 캐시 서비스의 생성, 가져오기, 목록 작업의 `usage_metadata`와 캐시를 사용할 때 `GenerateContent`에 반환됩니다.
 
-إرسال ملاحظات
+의견 보내기
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
+최종 업데이트: 2026-05-19(UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+의견을 전달하고 싶나요?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]

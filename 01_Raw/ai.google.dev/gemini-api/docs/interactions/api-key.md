@@ -1,139 +1,143 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/api-key?hl=id
-fetched_at: 2026-05-25T13:03:49.029262+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/api-key?hl=de
+fetched_at: 2026-06-01T19:48:36.779003+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Kirim masukan
+Feedback geben
 
-# Menggunakan kunci Gemini API
+# Gemini API-Schlüssel verwenden
 
-Untuk menggunakan Gemini API, Anda memerlukan kunci API. Halaman ini menguraikan cara membuat dan mengelola kunci di Google AI Studio serta cara menyiapkan lingkungan untuk menggunakannya dalam kode Anda.
+Für die Verwendung der Gemini API benötigen Sie einen API-Schlüssel. Auf dieser Seite wird beschrieben, wie Sie Ihre Schlüssel in Google AI Studio erstellen und verwalten und wie Sie Ihre Umgebung einrichten, um sie in Ihrem Code zu verwenden.
 
-[Membuat atau melihat Kunci Gemini API](https://aistudio.google.com/app/apikey?hl=id)
+[Gemini API-Schlüssel erstellen oder ansehen](https://aistudio.google.com/app/apikey?hl=de)
 
-## Kunci API
+## API-Schlüssel
 
-Anda dapat membuat dan mengelola semua Kunci Gemini API dari halaman
-[Google AI Studio](https://aistudio.google.com/app/apikey?hl=id) **Kunci API**.
+Sie können alle Ihre Gemini API-Schlüssel auf der
+[Google AI Studio](https://aistudio.google.com/app/apikey?hl=de) **API-Schlüssel**-Seite erstellen und verwalten.
 
-Setelah memiliki kunci API, Anda memiliki opsi berikut untuk terhubung ke Gemini API:
+Sobald Sie einen API-Schlüssel haben, haben Sie die folgenden Möglichkeiten, eine Verbindung zur Gemini API herzustellen:
 
-- [Menetapkan kunci API sebagai variabel lingkungan](#set-api-env-var)
-- [Memberikan kunci API secara eksplisit](#provide-api-key-explicitly)
+- [API-Schlüssel als Umgebungsvariable festlegen](#set-api-env-var)
+- [API-Schlüssel explizit angeben](#provide-api-key-explicitly)
 
-Untuk pengujian awal, Anda dapat meng-hardcode kunci API, tetapi hal ini hanya boleh bersifat sementara karena tidak aman. Anda dapat menemukan contoh untuk meng-hardcode kunci API
-di bagian [Memberikan kunci API secara eksplisit](#provide-api-key-explicitly).
+Für erste Tests können Sie einen API-Schlüssel fest codieren. Dies sollte jedoch nur vorübergehend erfolgen, da es nicht sicher ist. Beispiele für die Festcodierung des API
+Schlüssels finden Sie im Abschnitt [API-Schlüssel explizit angeben](#provide-api-key-explicitly).
 
-## Project Google Cloud
+## Google Cloud-Projekte
 
-[Project Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=id)
-sangat penting untuk menggunakan layanan Google Cloud (seperti Gemini API),
-mengelola penagihan, dan mengontrol kolaborator serta izin. Google AI Studio menyediakan antarmuka ringan ke project Google Cloud Anda.
+[Google Cloud-Projekte](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=de)
+sind unerlässlich für die Verwendung von Google Cloud-Diensten (z. B. der Gemini API),
+die Verwaltung der Abrechnung und die Steuerung von Mitbearbeitern und Berechtigungen. Google AI Studio bietet eine einfache Benutzeroberfläche für Ihre Google Cloud-Projekte.
 
-Jika belum membuat project, Anda harus membuat project baru atau mengimpor project dari Google Cloud ke Google AI Studio. Halaman **Project** di Google AI Studio akan menampilkan semua kunci yang memiliki izin yang memadai untuk menggunakan Gemini API. Lihat bagian [mengimpor project](#import-projects) untuk mengetahui petunjuknya.
+Wenn Sie noch keine Projekte erstellt haben, müssen Sie entweder ein neues Projekt erstellen oder eines aus Google Cloud in Google AI Studio importieren. Auf der Seite **Projekte** in Google AI Studio werden alle Schlüssel angezeigt, die über die erforderliche Berechtigung zur Verwendung der Gemini API verfügen. Eine Anleitung finden Sie im Abschnitt [Projekte importieren](#import-projects).
 
-### Project default
+### Standardprojekt
 
-Untuk pengguna baru, setelah menyetujui Persyaratan Layanan, Google AI Studio akan membuat Project Google Cloud dan Kunci API default, untuk kemudahan penggunaan. Anda dapat mengganti nama project ini di Google AI Studio dengan membuka tampilan **Project** di **Dasbor**, mengklik tombol setelan 3 titik di samping project, dan memilih **Ganti nama project**. Pengguna yang sudah ada, atau pengguna yang sudah memiliki Akun Google Cloud tidak akan memiliki project default yang dibuat.
+Für neue Nutzer erstellt Google AI Studio nach dem Akzeptieren der Nutzungsbedingungen ein Standard-Google Cloud-Projekt und einen API-Schlüssel, um die Verwendung zu erleichtern. Sie können dieses
+Projekt in Google AI Studio umbenennen. Rufen Sie dazu im
+**Dashboard** die Ansicht **Projekte** auf, klicken Sie neben einem Projekt auf die Schaltfläche mit den drei Punkten und
+wählen Sie **Projekt umbenennen** aus. Für bestehende Nutzer oder Nutzer, die bereits Google Cloud-Konten haben, wird kein Standardprojekt erstellt.
 
-## Mengimpor project
+## Projekte importieren
 
-Setiap kunci Gemini API dikaitkan dengan project Google Cloud. Secara default, Google AI Studio tidak menampilkan semua Project Cloud Anda. Anda harus mengimpor project yang diinginkan dengan menelusuri nama atau project ID di dialog **Impor Project**. Untuk melihat daftar lengkap project yang dapat Anda akses, buka Konsol Cloud.
+Jeder Gemini API-Schlüssel ist mit einem Google Cloud-Projekt verknüpft. Standardmäßig werden in Google AI Studio nicht alle Ihre Cloud-Projekte angezeigt. Sie müssen die gewünschten Projekte importieren, indem Sie im Dialogfeld **Projekte importieren** nach dem Namen oder der Projekt-ID suchen. Eine vollständige Liste der Projekte, auf die Sie Zugriff haben, finden Sie in der Cloud Console.
 
-Jika belum mengimpor project, ikuti langkah-langkah berikut untuk mengimpor project Google Cloud dan membuat kunci:
+Wenn Sie noch keine Projekte importiert haben, führen Sie die folgenden Schritte aus, um ein Google Cloud-Projekt zu importieren und einen Schlüssel zu erstellen:
 
-1. Buka [Google AI Studio](https://aistudio.google.com?hl=id).
-2. Buka **Dasbor** dari panel sisi kiri.
-3. Pilih **Project**.
-4. Pilih tombol **Impor project** di halaman **Project**.
-5. Telusuri dan pilih project Google Cloud yang ingin Anda impor, lalu pilih tombol **Impor**.
+1. Rufen Sie [Google AI Studio](https://aistudio.google.com?hl=de) auf.
+2. Öffnen Sie das **Dashboard** über die linke Seitenleiste.
+3. Wählen Sie **Projekte** aus.
+4. Wählen Sie auf der Seite **Projekte** die Schaltfläche **Projekte importieren** aus.
+5. Suchen Sie nach dem Google Cloud-Projekt, das Sie importieren möchten, wählen Sie es aus und klicken Sie auf die Schaltfläche **Importieren**.
 
-Setelah project diimpor, buka halaman **Kunci API** dari menu **Dasbor** dan buat kunci API di project yang baru saja Anda impor.
+Nachdem ein Projekt importiert wurde, rufen Sie im Menü **Dashboard** die Seite **API-Schlüssel** auf und erstellen Sie einen API-Schlüssel in dem gerade importierten Projekt.
 
-## Batasan
+## Beschränkungen
 
-Berikut adalah batasan pengelolaan kunci API dan project Google Cloud di Google AI Studio.
+Die folgenden Beschränkungen gelten für die Verwaltung von API-Schlüsseln und Google Cloud-Projekten in Google AI Studio.
 
-- Anda dapat membuat maksimum 10 project sekaligus dari halaman **Project** Google AI Studio.
-- Anda dapat memberi nama dan mengganti nama project serta kunci.
-- Halaman **Kunci API** dan **Project** menampilkan maksimum 100 kunci dan 50 project.
-- Hanya kunci API yang tidak memiliki batasan, atau dibatasi ke Generative Language API yang ditampilkan.
+- Sie können maximal 10 Projekte gleichzeitig auf der Google AI Studio-Seite **Projekte** erstellen.
+- Sie können Projekte und Schlüssel benennen und umbenennen.
+- Auf den Seiten **API-Schlüssel** und **Projekte** werden maximal 100 Schlüssel und 50 Projekte angezeigt.
+- Es werden nur API-Schlüssel angezeigt, die keine Einschränkungen haben oder auf die Generative Language API beschränkt sind.
 
-Untuk akses pengelolaan tambahan ke project Anda, termasuk mengubah dan
-membatasi kunci API, buka
-[halaman kredensial Konsol Google Cloud](https://console.cloud.google.com/apis/credentials?hl=id).
-Di Konsol Cloud, Anda dapat memilih project, mengklik kunci API yang ada, lalu membatasinya ke **Generative Language API**.
+Für zusätzlichen Verwaltungszugriff auf Ihre Projekte, einschließlich des Änderns und
+Einschränkens von API-Schlüsseln, rufen Sie die
+[Seite Anmeldedaten in der Google Cloud Console auf](https://console.cloud.google.com/apis/credentials?hl=de).
+In der Cloud Console können Sie Ihr Projekt auswählen, auf einen vorhandenen API-Schlüssel klicken und ihn dann auf die **Generative Language API** beschränken.
 
-## Menetapkan kunci API sebagai variabel lingkungan
+## API-Schlüssel als Umgebungsvariable festlegen
 
-Jika Anda menetapkan variabel lingkungan `GEMINI_API_KEY` atau `GOOGLE_API_KEY`, kunci API akan otomatis diambil oleh klien saat menggunakan salah satu
-[library Gemini API](https://ai.google.dev/gemini-api/docs/libraries?hl=id). Sebaiknya tetapkan hanya satu dari variabel tersebut, tetapi jika keduanya ditetapkan, `GOOGLE_API_KEY` akan diprioritaskan.
+Wenn Sie die Umgebungsvariable `GEMINI_API_KEY` oder `GOOGLE_API_KEY` festlegen, wird der
+API-Schlüssel automatisch vom Client übernommen, wenn Sie eine der
+[Gemini API-Bibliotheken](https://ai.google.dev/gemini-api/docs/libraries?hl=de) verwenden. Es wird empfohlen, nur eine dieser Variablen festzulegen. Wenn beide festgelegt sind, hat `GOOGLE_API_KEY` Vorrang.
 
-Jika menggunakan REST API, atau JavaScript di browser, Anda harus memberikan kunci API secara eksplisit.
+Wenn Sie die REST API oder JavaScript im Browser verwenden, müssen Sie den API-Schlüssel explizit angeben.
 
-Berikut cara menetapkan kunci API secara lokal sebagai variabel lingkungan `GEMINI_API_KEY` dengan sistem operasi yang berbeda.
+So legen Sie Ihren API-Schlüssel lokal als Umgebungsvariable `GEMINI_API_KEY` mit verschiedenen Betriebssystemen fest:
 
-### Linux/macOS - Bash
+### Linux/macOS – Bash
 
-Bash adalah konfigurasi terminal Linux dan macOS yang umum. Anda dapat memeriksa apakah memiliki file konfigurasi untuknya dengan menjalankan perintah berikut:
+Bash ist eine gängige Terminalkonfiguration für Linux und macOS. Sie können prüfen, ob Sie eine Konfigurationsdatei dafür haben, indem Sie den folgenden Befehl ausführen:
 
 ```
 ~/.bashrc
 ```
 
-Jika responsnya adalah "No such file or directory", Anda harus membuat file ini dan membukanya dengan menjalankan perintah berikut, atau menggunakan `zsh`:
+Wenn die Antwort „No such file or directory“ lautet, müssen Sie diese Datei erstellen und öffnen, indem Sie die folgenden Befehle ausführen oder `zsh` verwenden:
 
 ```
 touch ~/.bashrc
 open ~/.bashrc
 ```
 
-Selanjutnya, Anda harus menetapkan kunci API dengan menambahkan perintah ekspor berikut:
+Als Nächstes müssen Sie Ihren API-Schlüssel festlegen, indem Sie den folgenden Exportbefehl hinzufügen:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Setelah menyimpan file, terapkan perubahan dengan menjalankan:
+Nachdem Sie die Datei gespeichert haben, übernehmen Sie die Änderungen mit folgendem Befehl:
 
 ```
 source ~/.bashrc
 ```
 
-### macOS - Zsh
+### macOS – Zsh
 
-Zsh adalah konfigurasi terminal Linux dan macOS yang umum. Anda dapat memeriksa apakah memiliki file konfigurasi untuknya dengan menjalankan perintah berikut:
+Zsh ist eine gängige Terminalkonfiguration für Linux und macOS. Sie können prüfen, ob Sie eine Konfigurationsdatei dafür haben, indem Sie den folgenden Befehl ausführen:
 
 ```
 ~/.zshrc
 ```
 
-Jika responsnya adalah "No such file or directory", Anda harus membuat file ini dan membukanya dengan menjalankan perintah berikut, atau menggunakan `bash`:
+Wenn die Antwort „No such file or directory“ lautet, müssen Sie diese Datei erstellen und öffnen, indem Sie die folgenden Befehle ausführen oder `bash` verwenden:
 
 ```
 touch ~/.zshrc
 open ~/.zshrc
 ```
 
-Selanjutnya, Anda harus menetapkan kunci API dengan menambahkan perintah ekspor berikut:
+Als Nächstes müssen Sie Ihren API-Schlüssel festlegen, indem Sie den folgenden Exportbefehl hinzufügen:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Setelah menyimpan file, terapkan perubahan dengan menjalankan:
+Nachdem Sie die Datei gespeichert haben, übernehmen Sie die Änderungen mit folgendem Befehl:
 
 ```
 source ~/.zshrc
@@ -141,23 +145,23 @@ source ~/.zshrc
 
 ### Windows
 
-1. Telusuri "Environment Variables" di kotak penelusuran.
-2. Pilih untuk mengubah **System Settings**. Anda mungkin harus mengonfirmasi bahwa Anda ingin melakukannya.
-3. Dalam dialog setelan sistem, klik tombol berlabel **Environment Variables**.
-4. Di bagian **User variables** (untuk pengguna saat ini) atau **System variables** (berlaku untuk semua pengguna yang menggunakan mesin), klik **New...**
-5. Tentukan nama variabel sebagai `GEMINI_API_KEY`. Tentukan Kunci Gemini API Anda sebagai nilai variabel.
-6. Klik **OK** untuk menerapkan perubahan.
-7. Buka sesi terminal baru (cmd atau Powershell) untuk mendapatkan variabel baru.
+1. Suchen Sie in der Suchleiste nach „Umgebungsvariablen“.
+2. Wählen Sie aus, die **Systemeinstellungen** zu ändern. Möglicherweise müssen Sie bestätigen, dass Sie dies tun möchten.
+3. Klicken Sie im Dialogfeld „Systemeinstellungen“ auf die Schaltfläche **Umgebungsvariablen**.
+4. Klicken Sie entweder unter **Benutzervariablen** (für den aktuellen Nutzer) oder **Systemvariablen** (gilt für alle Nutzer des Computers) auf **Neu...**.
+5. Geben Sie `GEMINI_API_KEY` als Variablennamen an. Geben Sie Ihren Gemini API-Schlüssel als Variablenwert an.
+6. Klicken Sie auf **OK** , um die Änderungen zu übernehmen.
+7. Öffnen Sie eine neue Terminalsitzung (cmd oder PowerShell), um die neue Variable zu erhalten.
 
-## Memberikan kunci API secara eksplisit
+## API-Schlüssel explizit angeben
 
-Dalam beberapa kasus, Anda mungkin ingin memberikan kunci API secara eksplisit. Contoh:
+In einigen Fällen möchten Sie möglicherweise explizit einen API-Schlüssel angeben. Beispiel:
 
-- Anda melakukan panggilan API sederhana dan lebih suka meng-hardcode kunci API.
-- Anda menginginkan kontrol eksplisit tanpa harus mengandalkan penemuan otomatis variabel lingkungan oleh library Gemini API
-- Anda menggunakan lingkungan yang tidak mendukung variabel lingkungan (misalnya, web) atau Anda melakukan panggilan REST.
+- Sie führen einen einfachen API-Aufruf aus und bevorzugen es, den API-Schlüssel fest zu codieren.
+- Sie möchten explizite Kontrolle, ohne auf die automatische Erkennung von Umgebungsvariablen durch die Gemini API-Bibliotheken angewiesen zu sein.
+- Sie verwenden eine Umgebung, in der Umgebungsvariablen nicht unterstützt werden (z. B. Web), oder Sie führen REST-Aufrufe aus.
 
-Di bawah ini adalah contoh cara memberikan kunci API secara eksplisit menggunakan Interactions API:
+Im Folgenden finden Sie Beispiele dafür, wie Sie einen API-Schlüssel explizit mit der Interactions API angeben können:
 
 ### Python
 
@@ -167,7 +171,7 @@ from google import genai
 client = genai.Client(api_key="YOUR_API_KEY")
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash", 
+    model="gemini-3.5-flash",
     input="Explain how AI works in a few words"
 )
 print(interaction.output_text)
@@ -205,55 +209,62 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Menjaga keamanan kunci API
+## API-Schlüssel schützen
 
-Perlakukan kunci Gemini API Anda seperti sandi. Jika kunci tersebut disusupi, orang lain dapat menggunakan kuota project Anda, dikenai biaya (jika penagihan diaktifkan), dan mengakses data pribadi Anda, seperti file.
+Behandeln Sie Ihren Gemini API-Schlüssel wie ein Passwort. Wenn er kompromittiert wird, können andere das Kontingent Ihres Projekts verwenden, Gebühren verursachen (wenn die Abrechnung aktiviert ist) und auf Ihre privaten Daten wie Dateien zugreifen.
 
-### Aturan keamanan penting
+### Wichtige Sicherheitsregeln
 
-- **Jaga kerahasiaan kunci**: Kunci API untuk Gemini dapat mengakses data sensitif yang bergantung pada
-  aplikasi Anda.
+- **Schlüssel vertraulich behandeln**: API-Schlüssel für Gemini können auf vertrauliche Daten zugreifen, von denen Ihre
+  Anwendung abhängt.
 
-  - **Jangan pernah meng-commit kunci API ke kontrol sumber.** Jangan check in kunci API Anda ke sistem kontrol versi seperti Git.
-  - **Jangan pernah menampilkan kunci API di sisi klien.** Jangan gunakan kunci API Anda secara langsung di aplikasi web atau seluler dalam produksi. Kunci dalam kode sisi klien (termasuk library JavaScript/TypeScript dan panggilan REST) dapat diekstrak.
-- **Batasi akses**: Batasi penggunaan kunci API ke alamat IP, perujuk HTTP, atau aplikasi Android/iOS tertentu jika memungkinkan.
-- **Batasi penggunaan**: Aktifkan hanya API yang diperlukan untuk setiap kunci.
-- **Lakukan audit rutin**: Audit kunci API Anda secara rutin dan putar kunci tersebut
-  secara berkala.
+  - **API-Schlüssel niemals in die Quellcodeverwaltung einchecken.** Checken Sie Ihren API-Schlüssel nicht in Versionsverwaltungssysteme wie Git ein.
+  - **API-Schlüssel niemals clientseitig preisgeben.** Verwenden Sie Ihren API-Schlüssel nicht direkt in Web- oder mobilen Apps in der Produktion. Schlüssel in clientseitigem Code (einschließlich unserer JavaScript-/TypeScript-Bibliotheken und REST-Aufrufe) können extrahiert werden.
+- **Zugriff einschränken**: Beschränken Sie die Verwendung von API-Schlüsseln nach Möglichkeit auf bestimmte IP-Adressen, HTTP
+  Verweis-URLs oder Android-/iOS-Apps.
+- **Verwendung einschränken**: Aktivieren Sie für jeden Schlüssel nur die erforderlichen APIs.
+- **Regelmäßige Audits durchführen**: Prüfen Sie Ihre API-Schlüssel regelmäßig und rotieren Sie sie
+  in regelmäßigen Abständen.
 
-### Praktik terbaik
+### Best Practices
 
-- **Gunakan panggilan sisi server dengan kunci API** Cara paling aman untuk menggunakan kunci API adalah dengan memanggil Gemini API dari aplikasi sisi server tempat kunci dapat dijaga kerahasiaannya.
-- **Gunakan token sementara untuk akses sisi klien (khusus Live API):** Untuk akses sisi klien langsung ke Live API, Anda dapat menggunakan token sementara. Token ini memiliki risiko keamanan yang lebih rendah dan dapat cocok untuk penggunaan produksi. Tinjau
-  [panduan token sementara](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=id) untuk mengetahui informasi selengkapnya.
-- **Pertimbangkan untuk menambahkan batasan pada kunci Anda:** Anda dapat membatasi izin kunci
-  dengan menambahkan [batasan kunci API](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=id#add-api-restrictions).
-  Tindakan ini akan meminimalkan potensi kerusakan jika kunci bocor.
+- **Serverseitige Aufrufe mit API-Schlüsseln verwenden** : Die sicherste Möglichkeit, Ihren API-Schlüssel zu verwenden, besteht darin, die Gemini API von einer serverseitigen Anwendung aufzurufen, in der der Schlüssel vertraulich behandelt werden kann.
+- **Kurzlebige Tokens für den clientseitigen Zugriff verwenden (nur Live API)** : Für den direkten clientseitigen Zugriff auf die Live API können Sie kurzlebige Tokens verwenden. Sie bergen geringere Sicherheitsrisiken und können für die Produktion geeignet sein. Weitere Informationen finden Sie im Leitfaden zu
+  [kurzlebigen Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=de).
+- **Einschränkungen für den Schlüssel hinzufügen**:Sie können die Berechtigungen eines Schlüssels einschränken
+  indem Sie [API-Schlüsseleinschränkungen](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=de#add-api-restrictions) hinzufügen.
+  So werden potenzielle Schäden minimiert, wenn der Schlüssel jemals offengelegt wird.
 
-Untuk beberapa praktik terbaik umum, Anda juga dapat meninjau
-[artikel dukungan ini](https://support.google.com/googleapi/answer/6310037?hl=id).
+Einige allgemeine Best Practices finden Sie auch in diesem
+[Hilfeartikel](https://support.google.com/googleapi/answer/6310037?hl=de).
 
-## Memecahkan masalah pembuatan kunci API
+## Fehlerbehebung bei der Erstellung von API-Schlüsseln
 
-Di Google AI Studio, tombol **Buat kunci API** mungkin tampak tidak tersedia, dengan
-pesan: "*Anda tidak memiliki izin untuk membuat kunci dalam project ini*".
+In Google AI Studio ist die Schaltfläche **API-Schlüssel erstellen** möglicherweise nicht verfügbar und es wird
+die folgende Meldung angezeigt: "*Sie sind nicht berechtigt, in diesem Projekt einen Schlüssel zu erstellen*".
 
-Hal ini terjadi jika Anda tidak memiliki izin yang diperlukan dalam project untuk membuat kunci baru:
+Dies tritt auf, wenn Sie nicht die erforderlichen Berechtigungen im Projekt haben, um einen neuen Schlüssel zu generieren:
 
-- **`resourcemanager.projects.get`**: Memungkinkan AI Studio memverifikasi keberadaan project.
-- **`apikeys.keys.create`**: Memungkinkan pembuatan kunci API itu sendiri.
-- **`serviceusage.services.enable`**: Diperlukan untuk memastikan Gemini API aktif di project.
+- **`resourcemanager.projects.get`**: Ermöglicht AI Studio, die Existenz des Projekts zu überprüfen.
+- **`apikeys.keys.create`**: Ermöglicht die Generierung des API-Schlüssels selbst.
+- **`serviceusage.services.enable`**: Erforderlich, um sicherzustellen, dass die Gemini API im Projekt aktiv ist.
+- **`iam.serviceAccounts.create`**: Für jeden neuen API-Schlüssel ist jetzt ein verknüpftes
+  [Dienstkonto](https://docs.cloud.google.com/docs/authentication/api-keys?hl=de#api-keys-bound-sa)erforderlich,
+  das bei der Erstellung des API-Schlüssels generiert wird.
+- **`iam.serviceAccountApiKeyBindings.create`**: Erforderlich, um das neu erstellte Dienstkonto an den API-Schlüssel zu binden.
 
-Untuk memperbaiki izin Anda, minta admin project, atau admin organisasi Anda jika project tersebut milik [organisasi](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=id), untuk memberi Anda peran dengan izin yang tercantum di atas (seperti Editor Project atau peran kustom).
+Um Ihre Berechtigungen zu korrigieren, bitten Sie Ihren Projektadministrator oder den Administrator Ihrer Organisation (wenn das Projekt zu einer [Organisation](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=de) gehört), Ihnen eine Rolle mit den oben aufgeführten Berechtigungen zu gewähren (z. B. Projektbearbeiter oder eine benutzerdefinierte Rolle).
 
-Jika tidak memiliki akses administratif ke project, Anda dapat membuat project baru yang tidak terkait dengan organisasi untuk membuat kunci.
+Wenn Sie keinen Administratorzugriff auf ein Projekt haben, können Sie ein neues Projekt erstellen, das nicht mit einer Organisation verknüpft ist, um Ihre Schlüssel zu generieren.
 
-Kirim masukan
+Eine vollständige Liste der IAM-Berechtigungen, die für alle Google AI Studio-Funktionen erforderlich sind (z. B. Nutzung, Ratenbegrenzungen oder Abrechnung), finden Sie im [Leitfaden zur Fehlerbehebung in AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=de#iam-permissions).
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Feedback geben
 
-Terakhir diperbarui pada 2026-05-19 UTC.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Ada masukan untuk kami?
+Zuletzt aktualisiert: 2026-05-29 (UTC).
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]
+Haben Sie Feedback für uns?
+
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-05-29 (UTC)."],[],[]]

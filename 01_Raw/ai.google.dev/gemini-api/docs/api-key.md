@@ -1,139 +1,132 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=ko
-fetched_at: 2026-05-25T13:02:25.590218+00:00
-title: "Gemini API \ud0a4 \uc0ac\uc6a9 \u00a0|\u00a0 Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=vi
+fetched_at: 2026-06-01T19:47:56.422598+00:00
+title: "S\u1eed d\u1ee5ng kho\u00e1 API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# Gemini API 키 사용
+# Sử dụng khoá API Gemini
 
-Gemini API를 사용하려면 API 키가 필요합니다. 이 페이지에서는 Google AI Studio에서 키를 만들고 관리하는 방법과 코드에서 키를 사용하도록 환경을 설정하는 방법을 설명합니다.
+Để sử dụng Gemini API, bạn cần có khoá API. Trang này trình bày cách tạo và quản lý khoá trong Google AI Studio, cũng như cách thiết lập môi trường để sử dụng các khoá đó trong mã của bạn.
 
-[Gemini API 키 만들기 또는 보기](https://aistudio.google.com/app/apikey?hl=ko)
+[Tạo hoặc xem khoá Gemini API](https://aistudio.google.com/app/apikey?hl=vi)
 
-## API 키
+## Khoá API
 
-[Google AI Studio](https://aistudio.google.com/app/apikey?hl=ko) **API 키** 페이지에서 모든 Gemini API 키를 만들고 관리할 수 있습니다.
+Bạn có thể tạo và quản lý tất cả khoá Gemini API trên trang [Khoá API của **Google AI Studio**](https://aistudio.google.com/app/apikey?hl=vi).
 
-API 키가 있으면 Gemini API에 연결하는 다음과 같은 옵션이 있습니다.
+Sau khi có khoá API, bạn có thể kết nối với Gemini API theo những cách sau:
 
-- [API 키를 환경 변수로 설정](#set-api-env-var)
-- [API 키를 명시적으로 제공](#provide-api-key-explicitly)
+- [Đặt khoá API làm biến môi trường](#set-api-env-var)
+- [Cung cấp khoá API một cách rõ ràng](#provide-api-key-explicitly)
 
-초기 테스트의 경우 API 키를 하드코딩할 수 있지만 안전하지 않으므로 일시적으로만 하드코딩해야 합니다. API
-키를 하드코딩하는 예는 [API 키를 명시적으로 제공](#provide-api-key-explicitly) 섹션에서 확인할 수 있습니다.
+Đối với hoạt động kiểm thử ban đầu, bạn có thể mã hoá cứng một khoá API, nhưng đây chỉ là giải pháp tạm thời vì không an toàn. Bạn có thể tìm thấy các ví dụ về việc mã hoá cứng khoá API trong phần [Cung cấp khoá API một cách rõ ràng](#provide-api-key-explicitly).
 
-## Google Cloud 프로젝트
+## Dự án trên Google Cloud
 
-[Google Cloud 프로젝트](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ko)
-는 Gemini API와 같은 Google Cloud 서비스를 사용하고,
-결제를 관리하고, 공동작업자와 권한을 제어하는 데 기본이 됩니다. Google AI Studio는 Google Cloud 프로젝트에 대한 경량 인터페이스를 제공합니다.
+[Dự án Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=vi) là yếu tố cơ bản để sử dụng các dịch vụ của Google Cloud (chẳng hạn như Gemini API), quản lý việc thanh toán và kiểm soát cộng tác viên cũng như quyền. Google AI Studio cung cấp một giao diện đơn giản cho các dự án của bạn trên Google Cloud.
 
-아직 프로젝트를 만들지 않은 경우 새 프로젝트를 만들거나 Google Cloud에서 Google AI Studio로 프로젝트를 가져와야 합니다. Google AI Studio의 **프로젝트** 페이지에는 Gemini API를 사용할 수 있는 충분한 권한이 있는 모든 키가 표시됩니다. 자세한 내용은 [프로젝트 가져오기](#import-projects) 섹션을 참고하세요.
+Nếu chưa tạo dự án nào, bạn phải tạo một dự án mới hoặc nhập một dự án từ Google Cloud vào Google AI Studio. Trang **Dự án** trong Google AI Studio sẽ hiển thị tất cả các khoá có đủ quyền sử dụng Gemini API. Hãy tham khảo phần [nhập dự án](#import-projects) để biết hướng dẫn.
 
-### 기본 프로젝트
+### Dự án mặc định
 
-신규 사용자의 경우 서비스 약관에 동의하면 Google AI Studio에서 사용 편의를 위해 기본 Google Cloud 프로젝트와 API 키를 생성합니다. Google AI Studio에서 이
-프로젝트의 이름을 바꾸려면 **프로젝트** 뷰로 이동하여
-**대시보드**의 프로젝트 옆에 있는 점 3개 설정 버튼을 클릭하고
-**프로젝트 이름 바꾸기**를 선택합니다. 기존 사용자 또는 이미 Google Cloud 계정이 있는 사용자는 기본 프로젝트가 생성되지 않습니다.
+Đối với người dùng mới, sau khi chấp nhận Điều khoản dịch vụ, Google AI Studio sẽ tạo một Dự án Google Cloud và Khoá API mặc định để người dùng dễ dàng sử dụng. Bạn có thể đổi tên dự án này trong Google AI Studio bằng cách chuyển đến chế độ xem **Projects** (Dự án) trong **Dashboard** (Trang tổng quan), nhấp vào nút cài đặt có biểu tượng 3 dấu chấm bên cạnh một dự án rồi chọn **Rename project** (Đổi tên dự án). Người dùng hiện tại hoặc người dùng đã có Tài khoản Google Cloud sẽ không có dự án mặc định được tạo.
 
-## 프로젝트 가져오기
+## Nhập dự án
 
-각 Gemini API 키는 Google Cloud 프로젝트와 연결됩니다. 기본적으로 Google AI Studio는 모든 Cloud 프로젝트를 표시하지 않습니다. **프로젝트 가져오기** 대화상자에서 이름 또는 프로젝트 ID를 검색하여 원하는 프로젝트를 가져와야 합니다. 액세스할 수 있는 프로젝트의 전체 목록을 보려면 Cloud Console을 방문하세요.
+Mỗi khoá API Gemini đều được liên kết với một dự án trên Google Cloud. Theo mặc định, Google AI Studio không hiển thị tất cả Dự án trên đám mây của bạn. Bạn phải nhập các dự án mình muốn bằng cách tìm tên hoặc mã dự án trong hộp thoại **Nhập dự án**. Để xem danh sách đầy đủ các dự án mà bạn có quyền truy cập, hãy truy cập vào Cloud Console.
 
-아직 가져온 프로젝트가 없는 경우 다음 단계에 따라 Google Cloud 프로젝트를 가져오고 키를 만드세요.
+Nếu bạn chưa nhập dự án nào, hãy làm theo các bước sau để nhập một dự án trên Google Cloud và tạo khoá:
 
-1. [Google AI Studio](https://aistudio.google.com?hl=ko)로 이동합니다.
-2. 왼쪽 측면 패널에서 **대시보드** 를 엽니다.
-3. **프로젝트** 를 선택합니다.
-4. **프로젝트** 페이지에서 **프로젝트 가져오기** 버튼을 선택합니다.
-5. 가져오려는 Google Cloud 프로젝트를 검색하고 선택한 후 **가져오기** 버튼을 선택합니다.
+1. Truy cập vào [Google AI Studio](https://aistudio.google.com?hl=vi).
+2. Mở **Trang tổng quan** trong bảng điều khiển bên trái.
+3. Chọn **Dự án**.
+4. Chọn nút **Nhập dự án** trên trang **Dự án**.
+5. Tìm và chọn dự án trên đám mây của Google Cloud mà bạn muốn nhập, rồi chọn nút **Nhập**.
 
-프로젝트를 가져온 후 **대시보드** 메뉴에서 **API 키** 페이지로 이동하여 방금 가져온 프로젝트에서 API 키를 만듭니다.
+Sau khi nhập một dự án, hãy chuyển đến trang **API Keys** (Khoá API) trong trình đơn **Dashboard** (Trang tổng quan) rồi tạo một khoá API trong dự án mà bạn vừa nhập.
 
-## 제한사항
+## Các điểm hạn chế
 
-다음은 Google AI Studio에서 API 키와 Google Cloud 프로젝트를 관리할 때의 제한사항입니다.
+Sau đây là những hạn chế khi quản lý khoá API và dự án Google Cloud trong Google AI Studio.
 
-- Google AI Studio **프로젝트** 페이지에서 한 번에 최대 10개의 프로젝트를 만들 수 있습니다.
-- 프로젝트와 키의 이름을 지정하고 이름을 바꿀 수 있습니다.
-- **API 키** 및 **프로젝트** 페이지에는 최대 100개의 키와 50개의 프로젝트가 표시됩니다.
-- 제한이 없거나 Generative Language API로 제한된 API 키만 표시됩니다.
+- Bạn có thể tạo tối đa 10 dự án cùng một lúc trên trang **Dự án** của Google AI Studio.
+- Bạn có thể đặt tên và đổi tên dự án cũng như khoá.
+- Trang **Khoá API** và **Dự án** hiển thị tối đa 100 khoá và 50 dự án.
+- Chỉ những khoá API không có quy tắc hạn chế hoặc bị hạn chế đối với Generative Language API mới xuất hiện.
 
-API 키 수정 및 제한을 비롯한 프로젝트에 대한 추가 관리 액세스 권한을 얻으려면 [Google Cloud 콘솔 사용자 인증 정보 페이지](https://console.cloud.google.com/apis/credentials?hl=ko)를 방문하세요.
-Cloud Console에서 프로젝트를 선택하고 기존 API 키를 클릭한 후 **Generative Language API** 로 제한할 수 있습니다.
+Để có thêm quyền quản lý đối với các dự án của bạn, bao gồm cả việc sửa đổi và hạn chế khoá API, hãy truy cập vào [trang thông tin xác thực của Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=vi).
+Trong Cloud Console, bạn có thể chọn dự án của mình, nhấp vào một khoá API hiện có, rồi hạn chế khoá đó đối với **Generative Language API**.
 
-## API 키를 환경 변수로 설정
+## Đặt khoá API làm biến môi trường
 
-환경 변수 `GEMINI_API_KEY` 또는 `GOOGLE_API_KEY`를 설정하면
-API 키가
-[Gemini API 라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko) 중 하나를 사용할 때 클라이언트에서 자동으로 선택됩니다. 이러한 변수 중 하나만 설정하는 것이 좋지만 둘 다 설정된 경우 `GOOGLE_API_KEY`가 우선합니다.
+Nếu bạn đặt biến môi trường `GEMINI_API_KEY` hoặc `GOOGLE_API_KEY`, khoá API sẽ tự động được ứng dụng chọn khi sử dụng một trong các [thư viện Gemini API](https://ai.google.dev/gemini-api/docs/libraries?hl=vi). Bạn chỉ nên đặt một trong các biến đó, nhưng nếu đặt cả hai, thì `GOOGLE_API_KEY` sẽ được ưu tiên.
 
-REST API 또는 브라우저의 JavaScript를 사용하는 경우 API 키를 명시적으로 제공해야 합니다.
+Nếu đang sử dụng API REST hoặc JavaScript trên trình duyệt, bạn sẽ cần cung cấp khoá API một cách rõ ràng.
 
-다음은 다양한 운영체제에서 API 키를 로컬에서 환경 변수 `GEMINI_API_KEY`로 설정하는 방법입니다.
+Sau đây là cách bạn có thể đặt khoá API cục bộ làm biến môi trường `GEMINI_API_KEY` bằng các hệ điều hành khác nhau.
 
-### Linux/macOS - Bash
+### Linux/macOS – Bash
 
-Bash는 일반적인 Linux 및 macOS 터미널 구성입니다. 다음 명령어를 실행하여 구성 파일이 있는지 확인할 수 있습니다.
+Bash là một cấu hình thiết bị đầu cuối phổ biến trên Linux và macOS. Bạn có thể kiểm tra xem mình có tệp cấu hình cho ứng dụng đó hay không bằng cách chạy lệnh sau:
 
 ```
 ~/.bashrc
 ```
 
-응답이 'No such file or directory'인 경우 다음 명령어를 실행하여 이 파일을 만들고 열거나 `zsh`를 사용해야 합니다.
+Nếu phản hồi là "No such file or directory" (Không có tệp hoặc thư mục như vậy), bạn sẽ cần tạo tệp này và mở tệp bằng cách chạy các lệnh sau hoặc sử dụng `zsh`:
 
 ```
 touch ~/.bashrc
 open ~/.bashrc
 ```
 
-다음으로 내보내기 명령어를 추가하여 API 키를 설정해야 합니다.
+Tiếp theo, bạn cần đặt khoá API bằng cách thêm lệnh xuất sau:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-파일을 저장한 후 다음을 실행하여 변경사항을 적용합니다.
+Sau khi lưu tệp, hãy áp dụng các thay đổi bằng cách chạy:
 
 ```
 source ~/.bashrc
 ```
 
-### macOS - Zsh
+### macOS – Zsh
 
-Zsh는 일반적인 Linux 및 macOS 터미널 구성입니다. 다음 명령어를 실행하여 구성 파일이 있는지 확인할 수 있습니다.
+Zsh là một cấu hình phổ biến của thiết bị đầu cuối Linux và macOS. Bạn có thể kiểm tra xem mình có tệp cấu hình cho ứng dụng đó hay không bằng cách chạy lệnh sau:
 
 ```
 ~/.zshrc
 ```
 
-응답이 'No such file or directory'인 경우 다음 명령어를 실행하여 이 파일을 만들고 열거나 `bash`를 사용해야 합니다.
+Nếu phản hồi là "No such file or directory" (Không có tệp hoặc thư mục như vậy), bạn sẽ cần tạo tệp này và mở tệp bằng cách chạy các lệnh sau hoặc sử dụng `bash`:
 
 ```
 touch ~/.zshrc
 open ~/.zshrc
 ```
 
-다음으로 내보내기 명령어를 추가하여 API 키를 설정해야 합니다.
+Tiếp theo, bạn cần đặt khoá API bằng cách thêm lệnh xuất sau:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-파일을 저장한 후 다음을 실행하여 변경사항을 적용합니다.
+Sau khi lưu tệp, hãy áp dụng các thay đổi bằng cách chạy:
 
 ```
 source ~/.zshrc
@@ -141,23 +134,23 @@ source ~/.zshrc
 
 ### Windows
 
-1. 검색창에서 '환경 변수'를 검색합니다.
-2. **시스템 설정** 을 수정하도록 선택합니다. 이 작업을 수행할지 확인해야 할 수도 있습니다.
-3. 시스템 설정 대화상자에서 **환경 변수** 라는 버튼을 클릭합니다.
-4. **사용자 변수** (현재 사용자의 경우) 또는 **시스템 변수** (머신을 사용하는 모든 사용자에게 적용)에서 **새로 만들기...** 를 클릭합니다.
-5. 변수 이름을 `GEMINI_API_KEY`로 지정합니다. Gemini API 키를 변수 값으로 지정합니다.
-6. **확인** 을 클릭하여 변경사항을 적용합니다.
-7. 새 터미널 세션 (cmd 또는 Powershell)을 열어 새 변수를 가져옵니다.
+1. Tìm "Environment Variables" (Biến môi trường) trong thanh tìm kiếm.
+2. Chọn sửa đổi **Cài đặt hệ thống**. Bạn có thể phải xác nhận rằng bạn muốn thực hiện việc này.
+3. Trong hộp thoại cài đặt hệ thống, hãy nhấp vào nút có nhãn **Environment Variables** (Biến môi trường).
+4. Trong mục **User variables** (Biến người dùng) (dành cho người dùng hiện tại) hoặc **System variables** (Biến hệ thống) (áp dụng cho tất cả người dùng sử dụng máy), hãy nhấp vào **New...** (Mới...)
+5. Chỉ định tên biến là `GEMINI_API_KEY`. Chỉ định Khoá Gemini API làm giá trị biến.
+6. Nhấp vào **OK** để áp dụng các thay đổi.
+7. Mở một phiên thiết bị đầu cuối mới (cmd hoặc Powershell) để lấy biến mới.
 
-## API 키를 명시적으로 제공
+## Cung cấp khoá API một cách rõ ràng
 
-경우에 따라 API 키를 명시적으로 제공할 수 있습니다. 예를 들면 다음과 같습니다.
+Trong một số trường hợp, bạn có thể muốn cung cấp khoá API một cách rõ ràng. Ví dụ:
 
-- 간단한 API 호출을 실행하고 API 키를 하드코딩하는 것을 선호합니다.
-- Gemini API 라이브러리에서 환경 변수를 자동으로 검색하는 데 의존하지 않고 명시적으로 제어하고 싶습니다.
-- 환경 변수가 지원되지 않는 환경(예: 웹)을 사용하거나 REST 호출을 실행합니다.
+- Bạn đang thực hiện một lệnh gọi API đơn giản và muốn mã hoá khoá API.
+- Bạn muốn kiểm soát rõ ràng mà không cần dựa vào tính năng tự động phát hiện các biến môi trường của thư viện Gemini API
+- Bạn đang sử dụng một môi trường không hỗ trợ các biến môi trường (ví dụ: web) hoặc bạn đang thực hiện các lệnh gọi REST.
 
-다음은 API 키를 명시적으로 제공하는 방법의 예입니다.
+Dưới đây là ví dụ về cách bạn có thể cung cấp khoá API một cách rõ ràng:
 
 ### Python
 
@@ -225,7 +218,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 package com.example;
@@ -268,97 +261,87 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## API 키를 안전하게 보호
+## Bảo mật khoá API
 
-Gemini API 키를 비밀번호처럼 취급하세요. 키가 손상되면 다른 사용자가 프로젝트의 할당량을 사용하고, 결제가 사용 설정된 경우 요금이 발생하며, 파일과 같은 비공개 데이터에 액세스할 수 있습니다.
+Hãy coi khoá Gemini API như một mật khẩu. Nếu bị xâm nhập, những người khác có thể sử dụng hạn mức của dự án, phát sinh phí (nếu bạn bật tính năng thanh toán) và truy cập vào dữ liệu riêng tư của bạn, chẳng hạn như tệp.
 
-### 중요한 보안 규칙
+### Quy tắc bảo mật quan trọng
 
-- **키를 비공개로 유지**: Gemini용 API 키는 애플리케이션이 의존하는 민감한 정보에 액세스할 수 있습니다.
+- **Giữ bí mật các khoá**: Khoá API cho Gemini có thể truy cập vào dữ liệu nhạy cảm mà ứng dụng của bạn phụ thuộc vào.
 
-  - **소스 제어에 API 키를 커밋하지 마세요.** Git과 같은 버전 제어 시스템에 API 키를 체크인하지 마세요.
-  - **API 키를 클라이언트 측에서 노출하지 마세요.** 프로덕션에서 웹 또는 모바일 앱에서 API 키를 직접 사용하지 마세요. 클라이언트 측 코드의 키(JavaScript/TypeScript 라이브러리 및 REST 호출 포함)는 추출될 수 있습니다.
-- **액세스 제한**: 가능한 경우 API 키 사용을 특정 IP 주소, HTTP
-  리퍼러 또는 Android/iOS 앱으로 제한합니다.
-- **사용 제한**: 각 키에 필요한 API만 사용 설정합니다.
-- **정기적으로 감사 실행**: API 키를 정기적으로 감사하고 주기적으로 순환합니다.
+  - **Tuyệt đối không chuyển khoá API vào tính năng kiểm soát nguồn.** Đừng kiểm tra khoá API của bạn trong các hệ thống kiểm soát phiên bản như Git.
+  - **Tuyệt đối không để lộ khoá API ở phía máy khách.** Không sử dụng trực tiếp khoá API trong các ứng dụng web hoặc di động đang hoạt động. Các khoá trong mã phía máy khách (bao gồm cả thư viện JavaScript/TypeScript và lệnh gọi REST) có thể được trích xuất.
+- **Hạn chế quyền truy cập**: Hạn chế việc sử dụng khoá API ở các địa chỉ IP, HTTP referrer hoặc ứng dụng Android/iOS cụ thể (nếu có thể).
+- **Hạn chế việc sử dụng**: Chỉ bật những API cần thiết cho mỗi khoá.
+- **Thực hiện kiểm tra thường xuyên**: Thường xuyên kiểm tra và định kỳ xoay vòng các khoá API.
 
-### 권장사항
+### Các phương pháp hay nhất
 
-- **API 키로 서버 측 호출 사용** API 키를 사용하는 가장 안전한 방법은 키를 비공개로 유지할 수 있는 서버 측 애플리케이션에서 Gemini API를 호출하는 것입니다.
-- **클라이언트 측 액세스에 임시 토큰 사용 (Live API만 해당):** Live API에 직접 클라이언트 측 액세스하려면 임시 토큰을 사용할 수 있습니다. 보안 위험이 낮고 프로덕션에 적합할 수 있습니다. 자세한 내용은
-  [임시 토큰](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ko) 가이드를 검토하세요.
-- **키에 제한사항 추가 고려:** API 키 제한사항을 추가하여 키의 권한을 제한할 수 있습니다
-  [API 키 제한사항](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=ko#add-api-restrictions)을 추가하여.
-  이렇게 하면 키가 유출되더라도 잠재적인 피해를 최소화할 수 있습니다.
+- **Sử dụng các lệnh gọi phía máy chủ bằng khoá API** Cách an toàn nhất để sử dụng khoá API là gọi Gemini API từ một ứng dụng phía máy chủ, nơi khoá có thể được giữ bí mật.
+- **Sử dụng mã thông báo tạm thời để truy cập phía máy khách (chỉ Live API):** Để truy cập trực tiếp vào Live API phía máy khách, bạn có thể sử dụng mã thông báo tạm thời. Chúng có rủi ro bảo mật thấp hơn và có thể phù hợp để sử dụng trong bản phát hành chính thức. Hãy xem hướng dẫn về [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=vi) để biết thêm thông tin.
+- **Cân nhắc việc thêm các quy tắc hạn chế đối với khoá:** Bạn có thể giới hạn các quyền của khoá bằng cách thêm [các quy tắc hạn chế đối với khoá API](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=vi#add-api-restrictions).
+  Điều này giúp giảm thiểu thiệt hại tiềm ẩn nếu khoá bị rò rỉ.
 
-일반적인 권장사항은 이
-[지원 도움말](https://support.google.com/googleapi/answer/6310037?hl=ko)을 참조하세요.
+Để biết một số phương pháp hay nhất chung, bạn cũng có thể xem [bài viết hỗ trợ](https://support.google.com/googleapi/answer/6310037?hl=vi) này.
 
-## 제한되지 않은 API 키 보호
+## Bảo mật khoá API không bị hạn chế
 
-제한되지 않은 API 키는 악의적인 행위자와 무단 사용에 취약합니다. 보안 강화를 위해 2026년 6월 19일부터 Gemini API에서 제한되지 않은 트래픽 키 지원을 중단합니다.
+Khoá API không bị hạn chế rất dễ bị kẻ xấu lợi dụng và sử dụng trái phép. Kể từ ngày 19 tháng 6 năm 2026, để cải thiện tính bảo mật, Gemini API sẽ ngừng hỗ trợ các khoá lưu lượng truy cập không hạn chế.
 
-**즉, 조치를 취하지 않으면 Gemini API 요청이 실패합니다.**
+**Điều này có nghĩa là các yêu cầu của bạn đối với Gemini API sẽ không thành công nếu bạn không thực hiện hành động.**
 
-Gemini API를 중단 없이 계속 사용하려면 트래픽 키를 보호하세요.
-제한사항을 추가하여
-[AI Studio](https://aistudio.google.com/api-keys?hl=ko)에서.
+Để tiếp tục sử dụng Gemini API mà không bị gián đoạn, hãy bảo mật các khoá lưu lượng truy cập bằng cách thêm các quy tắc hạn chế trong [AI Studio](https://aistudio.google.com/api-keys?hl=vi).
 
-[aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=ko)에서 API 키가 제한되지 않을 때 알림 배너가 표시됩니다. 제한되지 않은 키와 지난 90일간의 서비스 사용량을 확인할 수 있습니다.
+Trong [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=vi), bạn sẽ thấy một biểu ngữ thông báo cho bạn khi khoá API không bị hạn chế. Bạn có thể xem những khoá không bị hạn chế và mức sử dụng dịch vụ trong 90 ngày qua.
 
-제한되지 않은 키의 경우 다음 중 하나를 선택해야 합니다.
+Đối với các khoá không hạn chế, bạn cần chọn một trong những lựa chọn sau:
 
-- Gemini API에만 키를 사용합니다.
-- Gemini API가 아닌 용도로 키를 사용합니다.
+- Chỉ sử dụng khoá cho Gemini API.
+- Sử dụng khoá này cho mục đích không phải là Gemini API.
 
-### Gemini API로만 키 제한
+### Hạn chế để chỉ sử dụng khoá cho Gemini API
 
-Gemini API로만 키를 제한하려면
-[AI Studio](https://aistudio.google.com/api-keys?hl=ko)에서
-**Gemini API로 제한** 버튼을 클릭하여 키를 보호하세요.
+Nếu chỉ muốn hạn chế khoá cho Gemini API, hãy bảo mật khoá trong [AI Studio](https://aistudio.google.com/api-keys?hl=vi) bằng cách nhấp vào nút **Hạn chế cho Gemini API**.
 
-### Gemini API가 아닌 용도로 키 제한
+### Hạn chế khoá để sử dụng cho các API không phải Gemini
 
-Gemini API가 아닌 용도로 키를 제한하려면 다음 단계를 따르세요.
+Nếu bạn muốn hạn chế việc sử dụng khoá cho các API không phải Gemini:
 
-1. Google Cloud 콘솔 사용자 인증 정보 페이지를 방문합니다.
-2. 프로젝트가 올바르게 선택되었는지 확인합니다.
-3. API 키를 선택합니다.
-4. **API 제한사항** 드롭다운을 펼치고 API 키에 서비스 제한사항을 적용합니다.
+1. Truy cập vào [trang thông tin đăng nhập của Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=vi).
+2. Đảm bảo bạn đã chọn đúng dự án.
+3. Chọn một khoá API.
+4. Mở rộng trình đơn thả xuống **API restrictions** (Hạn chế cho API) rồi áp dụng các quy tắc hạn chế về dịch vụ cho khoá API.
 
-기존 제한사항 또는 새로 추가된 제한사항이 있는 키를 수정하려면
-다음
-[Google Cloud 콘솔](https://console.cloud.google.com/apis/credentials?hl=ko)을 방문하세요.
+Nếu bạn muốn sửa đổi các khoá có hạn chế hiện tại hoặc mới thêm, hãy truy cập vào [Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=vi).
 
-## 차단된 키
+## Khoá bị chặn
 
-2026년 5월 7일부터 Gemini API는 장기간 휴면 상태인 제한되지 않은 API 키를 차단합니다. 이러한 사용자에게는
-[aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=ko)에 키에 대한
-**차단됨** 태그가 표시되며 Gemini API를 계속 사용하려면
-새 키를 생성하거나 제한된 대체 키를 사용해야 합니다.
+Kể từ ngày 7 tháng 5 năm 2026, Gemini API sẽ chặn các khoá API không bị hạn chế và không hoạt động trong một thời gian dài. Những người dùng này sẽ thấy thẻ **Bị chặn** cho khoá của họ trên [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=vi) và cần tạo khoá mới hoặc sử dụng khoá bị hạn chế thay thế để tiếp tục dùng Gemini API.
 
-## API 키 생성 문제 해결
+## Khắc phục sự cố khi tạo khoá API
 
-Google AI Studio에서 **API 키 만들기** 버튼이 사용할 수 없는 상태로 표시되고
-"*이 프로젝트에서 키를 만들 권한이 없습니다*"라는 메시지가 표시될 수 있습니다.
+Trong Google AI Studio, nút **Tạo khoá API** có thể không hoạt động và xuất hiện thông báo: "*Bạn không có quyền tạo khoá trong dự án này*".
 
-이 문제는 새 키를 생성하는 데 필요한 권한이 프로젝트 내에 없을 때 발생합니다.
+Lỗi này xảy ra khi bạn không có các quyền cần thiết trong dự án để tạo khoá mới:
 
-- **`resourcemanager.projects.get`**: AI Studio에서 프로젝트의 존재를 확인할 수 있습니다.
-- **`apikeys.keys.create`**: API 키 자체를 생성할 수 있습니다.
-- **`serviceusage.services.enable`**: 프로젝트에서 Gemini API가 활성 상태인지 확인하는 데 필요합니다.
+- **`resourcemanager.projects.get`**: Cho phép AI Studio xác minh sự tồn tại của dự án.
+- **`apikeys.keys.create`**: Cho phép tạo chính khoá API.
+- **`serviceusage.services.enable`**: Bắt buộc để đảm bảo Gemini API đang hoạt động trên dự án.
+- **`iam.serviceAccounts.create`**: Mỗi khoá API mới hiện đều yêu cầu một [tài khoản dịch vụ](https://docs.cloud.google.com/docs/authentication/api-keys?hl=vi#api-keys-bound-sa) được liên kết, được tạo khi tạo khoá API.
+- **`iam.serviceAccountApiKeyBindings.create`**: Bắt buộc để liên kết tài khoản dịch vụ mới tạo với khoá API.
 
-권한을 수정하려면 프로젝트 관리자 또는 프로젝트가 [조직](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ko)에 속한 경우 조직 관리자에게 위에 나열된 권한이 있는 역할 (예: 프로젝트 편집자 또는 맞춤 역할)을 부여해 달라고 요청하세요.
+Để sửa quyền, hãy yêu cầu quản trị viên dự án hoặc quản trị viên của tổ chức (nếu dự án thuộc về một [tổ chức](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=vi)) cấp cho bạn một vai trò có các quyền nêu trên (chẳng hạn như vai trò Người chỉnh sửa dự án hoặc vai trò tùy chỉnh).
 
-프로젝트에 대한 관리 액세스 권한이 없는 경우 조직과 연결되지 않은 새 프로젝트를 만들어 키를 생성할 수 있습니다.
+Nếu không có quyền quản trị đối với một dự án, bạn có thể tạo một dự án mới không liên kết với tổ chức để tạo khoá.
 
-의견 보내기
+Để xem danh sách đầy đủ các quyền IAM cần thiết cho tất cả tính năng của Google AI Studio (chẳng hạn như xem mức sử dụng, hạn mức hoặc thông tin thanh toán), hãy xem [hướng dẫn khắc phục sự cố của AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=vi#iam-permissions).
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Gửi ý kiến phản hồi
 
-최종 업데이트: 2026-05-19(UTC)
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-의견을 전달하고 싶나요?
+Cập nhật lần gần đây nhất: 2026-05-29 UTC.
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+Bạn muốn chia sẻ thêm với chúng tôi?
+
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-29 UTC."],[],[]]

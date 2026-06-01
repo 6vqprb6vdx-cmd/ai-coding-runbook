@@ -1,150 +1,151 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=vi
-fetched_at: 2026-05-25T13:03:01.668040+00:00
-title: "H\u01b0\u1edbng d\u1eabn kh\u1eafc ph\u1ee5c s\u1ef1 c\u1ed1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=es-419
+fetched_at: 2026-06-01T19:47:45.874082+00:00
+title: "Gu\u00eda de soluci\u00f3n de problemas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Hướng dẫn khắc phục sự cố
+# Guía de solución de problemas
 
-Hãy dùng hướng dẫn này để chẩn đoán và giải quyết các vấn đề thường gặp khi bạn gọi Gemini API. Bạn có thể gặp phải vấn đề từ dịch vụ phụ trợ Gemini API hoặc SDK ứng dụng. Các SDK ứng dụng của chúng tôi được tạo nguồn mở trong các kho lưu trữ sau:
+Usa esta guía para diagnosticar y resolver problemas comunes que surgen cuando llamas a la API de Gemini. Es posible que encuentres problemas en el servicio de backend de la API de Gemini o en los SDKs de cliente. Nuestros SDKs para clientes son de código abierto y se encuentran en los siguientes repositorios:
 
 - [python-genai](https://github.com/googleapis/python-genai)
 - [js-genai](https://github.com/googleapis/js-genai)
 - [go-genai](https://github.com/googleapis/go-genai)
 
-Nếu bạn gặp vấn đề về khoá API, hãy xác minh rằng bạn đã thiết lập khoá API đúng cách theo [hướng dẫn thiết lập khoá API](https://ai.google.dev/gemini-api/docs/api-key?hl=vi).
+Si tienes problemas con la clave de API, verifica que la hayas configurado correctamente según la [guía de configuración de la clave de API](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419).
 
-## Mã lỗi dịch vụ phụ trợ của Gemini API
+## Códigos de error del servicio de backend de la API de Gemini
 
-Bảng sau đây liệt kê các mã lỗi thường gặp ở phần phụ trợ mà bạn có thể gặp phải, cùng với nội dung giải thích về nguyên nhân và các bước khắc phục sự cố:
+En la siguiente tabla, se enumeran los códigos de error de backend comunes que puedes encontrar, junto con explicaciones de sus causas y pasos para solucionar problemas:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Mã HTTP** | **Trạng thái** | **Nội dung mô tả** | **Ví dụ** | **Giải pháp** |
-| 400 | INVALID\_ARGUMENT | Nội dung yêu cầu có định dạng không chính xác. | Có lỗi chính tả hoặc thiếu trường bắt buộc trong yêu cầu của bạn. | Hãy xem [Tài liệu tham khảo API](https://ai.google.dev/api?hl=vi) để biết định dạng yêu cầu, ví dụ và các phiên bản được hỗ trợ. Việc sử dụng các tính năng của phiên bản API mới hơn với một điểm cuối cũ hơn có thể gây ra lỗi. |
-| 400 | FAILED\_PRECONDITION | Bậc miễn phí của Gemini API chưa được cung cấp ở quốc gia của bạn. Vui lòng bật tính năng thanh toán cho dự án của bạn trong Google AI Studio. | Bạn đang đưa ra yêu cầu ở một khu vực không được hỗ trợ cấp miễn phí và bạn chưa bật tính năng thanh toán cho dự án của mình trong Google AI Studio. | Để sử dụng Gemini API, bạn cần thiết lập một gói có tính phí bằng [Google AI Studio](https://aistudio.google.com/app/apikey?hl=vi). |
-| 403 | PERMISSION\_DENIED | Khoá API của bạn không có các quyền cần thiết. | Bạn đang sử dụng sai khoá API; bạn đang cố gắng sử dụng một mô hình đã điều chỉnh mà không trải qua [quy trình xác thực thích hợp](https://ai.google.dev/gemini-api/docs/model-tuning?hl=vi). | Kiểm tra để đảm bảo bạn đã đặt khoá API và có quyền truy cập phù hợp. Đồng thời, hãy nhớ thực hiện quy trình xác thực thích hợp để sử dụng các mô hình được điều chỉnh. |
-| 404 | NOT\_FOUND | Không tìm thấy tài nguyên được yêu cầu. | Không tìm thấy tệp hình ảnh, âm thanh hoặc video được đề cập trong yêu cầu của bạn. | Kiểm tra xem tất cả [các tham số trong yêu cầu của bạn có hợp lệ](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=vi#check-api) đối với phiên bản API của bạn hay không. |
-| 429 | RESOURCE\_EXHAUSTED | Bạn đã vượt quá giới hạn tần suất yêu cầu. | Bạn đang gửi quá nhiều yêu cầu mỗi phút bằng Gemini API cấp miễn phí. | Xác minh rằng bạn đang nằm trong [giới hạn về tốc độ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi) của mô hình. [Yêu cầu tăng hạn mức](https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi#request-rate-limit-increase) nếu cần. |
-| 500 | NỘI BỘ | Đã xảy ra lỗi không mong muốn với Google. | Bối cảnh đầu vào của bạn quá dài. | Kiểm tra [trang trạng thái của Gemini API](https://aistudio.google.com/status?hl=vi) để biết mọi sự cố đang diễn ra. Giảm ngữ cảnh đầu vào hoặc tạm thời chuyển sang một mô hình khác (ví dụ: từ Gemini 2.5 Pro sang Gemini 2.5 Flash) để xem có hiệu quả không. Hoặc đợi một lát rồi thử lại yêu cầu. Nếu vấn đề vẫn tiếp diễn sau khi bạn thử lại, vui lòng báo cáo vấn đề đó bằng nút **Gửi ý kiến phản hồi** trong Google AI Studio. |
-| 503 | KHÔNG CÓ | Dịch vụ có thể tạm thời bị quá tải hoặc ngừng hoạt động. | Dịch vụ này tạm thời hết dung lượng. | Kiểm tra [trang trạng thái của Gemini API](https://aistudio.google.com/status?hl=vi) để biết mọi sự cố đang diễn ra. Tạm thời chuyển sang một mô hình khác (ví dụ: từ Gemini 2.5 Pro sang Gemini 2.5 Flash) để xem vấn đề có được giải quyết hay không. Hoặc đợi một lát rồi thử lại yêu cầu. Nếu vấn đề vẫn tiếp diễn sau khi bạn thử lại, vui lòng báo cáo vấn đề đó bằng nút **Gửi ý kiến phản hồi** trong Google AI Studio. |
-| 504 | DEADLINE\_EXCEEDED | Dịch vụ không thể hoàn tất quá trình xử lý trong thời hạn. | Câu lệnh (hoặc bối cảnh) của bạn quá lớn nên không thể xử lý kịp thời. | Đặt "thời gian chờ" dài hơn trong yêu cầu của ứng dụng để tránh gặp phải lỗi này. |
+| **Código HTTP** | **Estado** | **Descripción** | **Ejemplo** | **Solución** |
+| 400 | INVALID\_ARGUMENT | El cuerpo de la solicitud tiene un formato incorrecto. | Hay un error de escritura o falta un campo obligatorio en tu solicitud. | Consulta la [referencia de la API](https://ai.google.dev/api?hl=es-419) para conocer el formato de la solicitud, los ejemplos y las versiones compatibles. Usar funciones de una versión de API más reciente con un extremo anterior puede causar errores. |
+| 400 | FAILED\_PRECONDITION | El nivel gratuito de la API de Gemini no está disponible en tu país. Habilita la facturación en tu proyecto de Google AI Studio. | Estás realizando una solicitud en una región en la que no se admite el nivel gratuito y no habilitaste la facturación en tu proyecto en Google AI Studio. | Para usar la API de Gemini, deberás configurar un plan pagado con [Google AI Studio](https://aistudio.google.com/app/apikey?hl=es-419). |
+| 403 | PERMISSION\_DENIED | Tu clave de API no tiene los permisos necesarios. | Estás usando la clave de API incorrecta o intentas usar un modelo ajustado sin pasar por la [autenticación adecuada](https://ai.google.dev/gemini-api/docs/model-tuning?hl=es-419). | Verifica que tu clave de API esté configurada y tenga el acceso correcto. Además, asegúrate de realizar la autenticación adecuada para usar los modelos ajustados. |
+| 404 | NOT\_FOUND | No se encontró el recurso solicitado. | No se encontró un archivo de imagen, audio o video al que se hace referencia en tu solicitud. | Verifica si todos los [parámetros de tu solicitud son válidos](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=es-419#check-api) para tu versión de la API. |
+| 429 | RESOURCE\_EXHAUSTED | Superaste el límite de frecuencia. | Estás enviando demasiadas solicitudes por minuto con el nivel gratuito de la API de Gemini. | Verifica que estés dentro del [límite de frecuencia](https://ai.google.dev/gemini-api/docs/rate-limits?hl=es-419) del modelo. [Solicita un aumento de la cuota](https://ai.google.dev/gemini-api/docs/rate-limits?hl=es-419#request-rate-limit-increase) si es necesario. |
+| 499 | CANCELADO | La operación se canceló (por lo general, la cancela el emisor). | El cliente cerró la conexión antes de que la API pudiera terminar de responder. | Verifica si tu cliente o infraestructura de red están cerrando la conexión de forma prematura (p.ej., debido a un tiempo de espera del cliente). |
+| 500 | INTERNAL | Se produjo un error inesperado en Google. | El contexto de entrada es demasiado largo. | Consulta la [página de estado de la API de Gemini](https://aistudio.google.com/status?hl=es-419) para ver si hay incidentes en curso. Reduce el contexto de entrada o cambia temporalmente a otro modelo (p.ej., de Gemini 2.5 Pro a Gemini 2.5 Flash) y comprueba si funciona. O bien espera un momento y vuelve a intentarlo. Si el problema persiste después de volver a intentarlo, infórmalo con el botón **Enviar comentarios** en Google AI Studio. |
+| 503 | NO DISPONIBLE | Es posible que el servicio esté inactivo o temporalmente sobrecargado. | El servicio se está quedando sin capacidad temporalmente. | Consulta la [página de estado de la API de Gemini](https://aistudio.google.com/status?hl=es-419) para ver si hay incidentes en curso. Cambia temporalmente a otro modelo (p.ej., de Gemini 2.5 Pro a Gemini 2.5 Flash) y observa si funciona. O bien espera un momento y vuelve a intentarlo. Si el problema persiste después de volver a intentarlo, infórmalo con el botón **Enviar comentarios** en Google AI Studio. |
+| 504 | DEADLINE\_EXCEEDED | El servicio no puede terminar el procesamiento dentro de la fecha límite. | Tu instrucción (o contexto) es demasiado grande para procesarse a tiempo. | Establece un "tiempo de espera" más largo en la solicitud del cliente para evitar este error. |
 
-## Kiểm tra các lệnh gọi API để tìm lỗi tham số mô hình
+## Verifica si hay errores en los parámetros del modelo en tus llamadas a la API
 
-Xác minh rằng các thông số mô hình của bạn nằm trong các giá trị sau:
+Verifica que los parámetros del modelo se encuentren dentro de los siguientes valores:
 
 |  |  |
 | --- | --- |
-| **Tham số mô hình** | **Giá trị (phạm vi)** |
-| Số lượng đề xuất | 1-8 (số nguyên) |
-| Nhiệt độ | 0.0 – 1.0 |
-| Số mã thông báo đầu ra tối đa | Sử dụng [trang mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi) để xác định số lượng mã thông báo tối đa cho mô hình mà bạn đang sử dụng. |
-| TopP | 0.0 – 1.0 |
+| **Parámetro del modelo** | **Valores (rango)** |
+| Recuento de candidatos | 1 a 8 (número entero) |
+| Temperatura | 0.0-1.0 |
+| Cantidad máxima de tokens de salida | Usa la [página de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419) para determinar la cantidad máxima de tokens del modelo que usas. |
+| TopP | 0.0-1.0 |
 
-Ngoài việc kiểm tra các giá trị tham số, hãy đảm bảo rằng bạn đang sử dụng [phiên bản API](https://ai.google.dev/gemini-api/docs/api-versions?hl=vi) chính xác (ví dụ: `/v1` hoặc `/v1beta`) và mô hình hỗ trợ các tính năng bạn cần. Ví dụ: nếu một tính năng đang ở bản phát hành Beta, thì tính năng đó sẽ chỉ có trong phiên bản API `/v1beta`.
+Además de verificar los valores de los parámetros, asegúrate de usar la [versión de la API](https://ai.google.dev/gemini-api/docs/api-versions?hl=es-419) correcta (p.ej., `/v1` o `/v1beta`) y el modelo que admite las funciones que necesitas. Por ejemplo, si una función está en versión beta, solo estará disponible en la versión de la API de `/v1beta`.
 
-## Kiểm tra xem bạn có đúng mẫu không
+## Comprueba si tienes el modelo correcto
 
-Xác minh rằng bạn đang sử dụng một mô hình được hỗ trợ có trong [trang mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi) của chúng tôi.
+Verifica que estés usando un modelo compatible que se encuentre en nuestra [página de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419).
 
-## Độ trễ cao hơn hoặc mức sử dụng mã thông báo cao hơn với các mô hình 2.5
+## Mayor latencia o uso de tokens con los modelos 2.5
 
-Nếu bạn nhận thấy độ trễ hoặc mức sử dụng mã thông báo cao hơn với các mô hình 2.5 Flash và Pro, thì có thể là do các mô hình này **được bật tính năng suy nghĩ theo mặc định** để nâng cao chất lượng. Nếu đang ưu tiên tốc độ hoặc cần giảm thiểu chi phí, bạn có thể điều chỉnh hoặc tắt tính năng này.
+Si observas una mayor latencia o uso de tokens con los modelos 2.5 Flash y Pro, esto puede deberse a que vienen con la **función de pensamiento habilitada de forma predeterminada** para mejorar la calidad. Si priorizas la velocidad o necesitas minimizar los costos, puedes ajustar o inhabilitar el pensamiento.
 
-Hãy tham khảo [trang suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#set-budget) để biết hướng dẫn và mã mẫu.
+Consulta la [página de sugerencias](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419#set-budget) para obtener orientación y código de muestra.
 
-## Vấn đề an toàn
+## Problemas de seguridad
 
-Nếu bạn thấy một câu lệnh bị chặn do chế độ cài đặt an toàn trong lệnh gọi API, hãy xem xét câu lệnh đó theo các bộ lọc mà bạn đã đặt trong lệnh gọi API.
+Si ves que se bloqueó una instrucción debido a un parámetro de configuración de seguridad en la llamada a la API, revisa la instrucción en relación con los filtros que estableciste en la llamada a la API.
 
-Nếu bạn thấy `BlockedReason.OTHER`, thì có thể truy vấn hoặc câu trả lời đó vi phạm [điều khoản dịch vụ](https://ai.google.dev/terms?hl=vi) hoặc không được hỗ trợ.
+Si ves `BlockedReason.OTHER`, es posible que la búsqueda o la respuesta incumplan las [condiciones del servicio](https://ai.google.dev/terms?hl=es-419) o que no se admitan.
 
-## Vấn đề về việc đọc thuộc lòng
+## Problema de recitación
 
-Nếu thấy mô hình ngừng tạo đầu ra do lý do TRÍ NHỚ LẠI, thì điều này có nghĩa là đầu ra của mô hình có thể giống với một số dữ liệu nhất định. Để khắc phục vấn đề này, hãy cố gắng tạo câu lệnh / bối cảnh độc đáo nhất có thể và sử dụng nhiệt độ cao hơn.
+Si ves que el modelo deja de generar resultados debido al motivo de RECITACIÓN, significa que el resultado del modelo puede parecerse a ciertos datos. Para solucionar este problema, intenta que la instrucción o el contexto sean lo más únicos posible y usa una temperatura más alta.
 
-## Vấn đề về mã thông báo lặp lại
+## Problema de tokens repetitivos
 
-Nếu bạn thấy các mã thông báo đầu ra lặp lại, hãy thử các đề xuất sau để giảm hoặc loại bỏ chúng.
+Si ves tokens de salida repetidos, prueba las siguientes sugerencias para reducirlos o eliminarlos.
 
-| Mô tả | Nguyên nhân | Giải pháp thay thế được đề xuất |
+| Descripción | Causa | Solución alternativa sugerida |
 | --- | --- | --- |
-| Dấu gạch ngang lặp lại trong bảng Markdown | Điều này có thể xảy ra khi nội dung của bảng quá dài vì mô hình cố gắng tạo một bảng Markdown được căn chỉnh trực quan. Tuy nhiên, việc căn chỉnh trong Markdown là không cần thiết để hiển thị chính xác. | Thêm hướng dẫn vào câu lệnh để cung cấp cho mô hình các nguyên tắc cụ thể về việc tạo bảng đánh dấu. Cung cấp ví dụ tuân thủ các nguyên tắc đó. Bạn cũng có thể thử điều chỉnh nhiệt độ. Để tạo mã hoặc đầu ra có cấu trúc cao như bảng Markdown, nhiệt độ cao đã cho thấy hiệu quả hơn (>= 0,8).  Sau đây là một ví dụ về bộ nguyên tắc mà bạn có thể thêm vào câu lệnh để ngăn chặn vấn đề này:     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
-| Mã thông báo lặp lại trong bảng Markdown | Tương tự như dấu gạch ngang lặp lại, điều này xảy ra khi mô hình cố gắng căn chỉnh nội dung của bảng một cách trực quan. Bạn không cần phải căn chỉnh trong Markdown để hiển thị chính xác. | - Hãy thử thêm các chỉ dẫn như sau vào câu lệnh hệ thống:      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - Hãy thử điều chỉnh nhiệt độ. Nhiệt độ cao hơn (>= 0,8) thường giúp loại bỏ các đoạn văn lặp lại hoặc trùng lặp trong đầu ra. |
-| Ký tự xuống dòng lặp lại (`\n`) trong đầu ra có cấu trúc | Khi đầu vào mô hình chứa unicode hoặc các dãy ký tự thoát như `\u` hoặc `\t`, điều này có thể dẫn đến việc lặp lại các dòng mới. | - Kiểm tra và thay thế các chuỗi thoát bị cấm bằng ký tự UTF-8 trong câu lệnh. Ví dụ: chuỗi thoát `\u` trong các ví dụ JSON có thể khiến mô hình sử dụng các chuỗi đó trong đầu ra của mô hình. - Hướng dẫn mô hình về các ký tự thoát được phép. Thêm một chỉ dẫn hệ thống như sau:      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
-| Văn bản lặp lại khi sử dụng đầu ra có cấu trúc | Khi đầu ra của mô hình có thứ tự khác cho các trường so với giản đồ có cấu trúc đã xác định, điều này có thể dẫn đến việc lặp lại văn bản. | - Đừng chỉ định thứ tự của các trường trong câu lệnh. - Đặt tất cả các trường đầu ra là bắt buộc. |
-| Gọi công cụ lặp lại | Điều này có thể xảy ra nếu mô hình mất ngữ cảnh của những suy nghĩ trước đó và/hoặc gọi một điểm cuối không có sẵn mà mô hình buộc phải gọi. | Hướng dẫn mô hình duy trì trạng thái trong quá trình suy nghĩ. Thêm nội dung này vào cuối hướng dẫn hệ thống:    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
-| Văn bản lặp lại không thuộc đầu ra có cấu trúc | Điều này có thể xảy ra nếu mô hình bị kẹt ở một yêu cầu mà mô hình không thể giải quyết. | - Nếu bạn bật tính năng tư duy, hãy tránh đưa ra các chỉ dẫn rõ ràng về cách suy nghĩ để giải quyết một vấn đề trong hướng dẫn. Chỉ yêu cầu kết quả cuối cùng. - Hãy thử nhiệt độ cao hơn >= 0,8. - Thêm hướng dẫn như "Hãy súc tích", "Đừng lặp lại" hoặc "Chỉ đưa ra câu trả lời một lần". |
+| Guiones repetidos en tablas de Markdown | Esto puede ocurrir cuando el contenido de la tabla es largo, ya que el modelo intenta crear una tabla de Markdown alineada visualmente. Sin embargo, la alineación en Markdown no es necesaria para el procesamiento correcto. | Agrega instrucciones en tu instrucción para darle al modelo lineamientos específicos para generar tablas de Markdown. Proporciona ejemplos que sigan esos lineamientos. También puedes intentar ajustar la temperatura. Para generar código o resultados muy estructurados, como tablas de Markdown, se ha demostrado que una temperatura alta funciona mejor (≥ 0.8).  A continuación, se incluye un ejemplo de un conjunto de lineamientos que puedes agregar a tu instrucción para evitar este problema:     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
+| Tokens repetidos en tablas de Markdown | Al igual que con los guiones repetidos, esto ocurre cuando el modelo intenta alinear visualmente el contenido de la tabla. La alineación en Markdown no es necesaria para el procesamiento correcto. | - Intenta agregar instrucciones como las siguientes a tu instrucción del sistema:      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - Intenta ajustar la temperatura. Las temperaturas más altas (≥ 0.8) suelen ayudar a eliminar las repeticiones o la duplicación en el resultado. |
+| Saltos de línea repetidos (`\n`) en el resultado estructurado | Cuando la entrada del modelo contiene secuencias de escape o Unicode, como `\u` o `\t`, puede generar saltos de línea repetidos. | - Verifica y reemplaza las secuencias de escape prohibidas por caracteres UTF-8 en tu instrucción. Por ejemplo, la secuencia de escape `\u` de tus ejemplos de JSON puede hacer que el modelo también la use en su resultado. - Indica al modelo los escapes permitidos. Agrega una instrucción del sistema como esta:      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
+| Texto repetido con salida estructurada | Cuando el resultado del modelo tiene un orden diferente para los campos que el esquema estructurado definido, esto puede generar texto repetido. | - No especifiques el orden de los campos en tu instrucción. - Haz que todos los campos de salida sean obligatorios. |
+| Llamadas a herramientas repetitivas | Esto puede ocurrir si el modelo pierde el contexto de pensamientos anteriores o llama a un extremo no disponible al que se ve obligado a llamar. | Indícale al modelo que mantenga el estado dentro de su proceso de pensamiento. Agrega lo siguiente al final de las instrucciones del sistema:    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
+| Texto repetitivo que no forma parte de la salida estructurada | Esto puede ocurrir si el modelo se atasca en una solicitud que no puede resolver. | - Si el pensamiento está activado, evita dar órdenes explícitas sobre cómo pensar en un problema en las instrucciones. Solo pide el resultado final. - Prueba con una temperatura más alta, mayor o igual a 0.8. - Agrega instrucciones como "Sé conciso", "No te repitas" o "Proporciona la respuesta una sola vez". |
 
-## Khoá API bị chặn hoặc không hoạt động
+## Claves de API bloqueadas o que no funcionan
 
-Phần này mô tả cách kiểm tra xem khoá Gemini API của bạn có bị chặn hay không và cách xử lý vấn đề này.
+En esta sección, se describe cómo verificar si tu clave de la API de Gemini está bloqueada y qué hacer al respecto.
 
-### Tìm hiểu lý do khiến khoá bị chặn
+### Comprende por qué se bloquean las llaves
 
-Chúng tôi đã xác định được một lỗ hổng bảo mật khiến một số khoá API có thể đã bị lộ công khai. Để bảo vệ dữ liệu của bạn và ngăn chặn hành vi truy cập trái phép, chúng tôi đã chủ động chặn những khoá bị rò rỉ đã biết này truy cập vào Gemini API.
+Identificamos una vulnerabilidad por la que algunas claves de API podrían haberse expuesto públicamente. Para proteger tus datos y evitar el acceso no autorizado, bloqueamos de forma proactiva el acceso a la API de Gemini de estas claves filtradas conocidas.
 
-### Xác nhận xem các khoá của bạn có bị ảnh hưởng hay không
+### Confirma si tus llaves están afectadas
 
-Nếu biết khoá của mình đã bị lộ, bạn sẽ không thể sử dụng khoá đó với Gemini API nữa. Bạn có thể sử dụng [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=vi) để xem có khoá API nào của bạn bị chặn gọi Gemini API hay không và tạo khoá mới. Bạn cũng có thể thấy lỗi sau đây được trả về khi cố gắng sử dụng các khoá này:
+Si se sabe que se filtró tu clave, ya no podrás usarla con la API de Gemini. Puedes usar [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=es-419) para ver si alguna de tus claves de API está bloqueada para llamar a la API de Gemini y generar claves nuevas. También es posible que veas el siguiente error cuando intentes usar estas claves:
 
 ```
 Your API key was reported as leaked. Please use another API key.
 ```
 
-### Hành động đối với khoá API bị chặn
+### Acción para las claves de API bloqueadas
 
-Bạn nên tạo khoá API mới cho các mối liên kết tích hợp Gemini API bằng [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=vi). Bạn nên xem xét kỹ các phương pháp quản lý khoá API để đảm bảo khoá mới của bạn được bảo mật và không bị lộ ra công khai.
+Debes generar nuevas claves de API para tus integraciones de la API de Gemini con [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=es-419). Te recomendamos que revises tus prácticas de administración de claves de API para asegurarte de que las claves nuevas estén protegidas y no se expongan públicamente.
 
-### Các khoản phí ngoài dự kiến do lỗ hổng
+### Cargos inesperados debido a vulnerabilidades
 
-[Gửi yêu cầu hỗ trợ về việc thanh toán](https://console.cloud.google.com/support/chat?hl=vi).
-Nhóm thanh toán của chúng tôi đang xử lý vấn đề này và chúng tôi sẽ thông báo cho bạn ngay khi có thông tin cập nhật.
+[Envía un caso de asistencia para la facturación](https://console.cloud.google.com/support/chat?hl=es-419).
+Nuestro equipo de facturación está trabajando en este problema y te comunicaremos las actualizaciones lo antes posible.
 
-### Các biện pháp bảo mật của Google đối với khoá bị rò rỉ
+### Medidas de seguridad de Google para las claves filtradas
 
-**Nếu khoá API của tôi bị lộ, thì Google sẽ giúp bảo vệ tài khoản của tôi khỏi tình trạng vượt quá chi phí và hành vi sai trái như thế nào?**
+**¿Cómo me ayudará Google a proteger mi cuenta del abuso y el exceso de costos si se filtran mis claves de API?**
 
-- Chúng tôi đang tiến tới việc phát hành khoá API khi bạn yêu cầu một khoá mới bằng [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=vi). Theo mặc định, khoá này sẽ chỉ giới hạn ở Google AI Studio và không chấp nhận khoá từ các dịch vụ khác.
-  Điều này sẽ giúp ngăn chặn mọi trường hợp sử dụng khoá chéo ngoài ý muốn.
-- Chúng tôi sẽ chặn các khoá API bị rò rỉ và được dùng với Gemini API theo mặc định, giúp ngăn chặn hành vi sai trái về chi phí và dữ liệu ứng dụng của bạn.
-- Bạn có thể xem trạng thái của khoá API trong [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=vi) và chúng tôi sẽ chủ động liên hệ với bạn khi phát hiện khoá API của bạn bị lộ để bạn có thể hành động ngay lập tức.
+- Estamos trabajando para emitir claves de API cuando solicites una nueva con [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=es-419), que, de forma predeterminada, se limitará solo a Google AI Studio y no aceptará claves de otros servicios.
+  Esto ayudará a evitar el uso no deseado de teclas cruzadas.
+- De forma predeterminada, bloqueamos las claves de API que se filtran y se usan con la API de Gemini, lo que ayuda a evitar el abuso de los costos y los datos de tu aplicación.
+- Podrás encontrar el estado de tus claves de API en [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=es-419), y trabajaremos para comunicarnos de forma proactiva cuando identifiquemos que se filtraron tus claves de API para que tomes medidas de inmediato.
 
-## Cải thiện đầu ra của mô hình
+## Mejora el resultado del modelo
 
-Để có kết quả đầu ra chất lượng cao hơn từ mô hình, hãy thử viết các câu lệnh có cấu trúc hơn. Trang [hướng dẫn thiết kế câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi) giới thiệu một số khái niệm, chiến lược và phương pháp hay nhất cơ bản để giúp bạn bắt đầu.
+Para obtener resultados de mayor calidad, explora la escritura de instrucciones más estructuradas. En la página de la [guía de ingeniería de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=es-419), se presentan algunos conceptos básicos, estrategias y prácticas recomendadas para comenzar.
 
-## Tìm hiểu về giới hạn mã thông báo
+## Información sobre los límites de tokens
 
-Hãy đọc [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) của chúng tôi để hiểu rõ hơn về cách tính mã thông báo và hạn mức của mã thông báo.
+Lee nuestra [Guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) para comprender mejor cómo contar tokens y sus límites.
 
-## Vấn đề đã biết
+## Problemas conocidos
 
-- API này chỉ hỗ trợ một số ngôn ngữ chọn lọc. Việc gửi câu lệnh bằng các ngôn ngữ không được hỗ trợ có thể tạo ra những câu trả lời không mong muốn hoặc thậm chí bị chặn. Xem [các ngôn ngữ được hỗ trợ](https://ai.google.dev/gemini-api/docs/models?hl=vi#supported-languages) để biết thông tin cập nhật.
+- La API solo admite una cantidad de idiomas seleccionados. Si envías instrucciones en idiomas no admitidos, es posible que se generen respuestas inesperadas o incluso bloqueadas. Consulta los [idiomas disponibles](https://ai.google.dev/gemini-api/docs/models?hl=es-419#supported-languages) para ver las actualizaciones.
 
-## Báo cáo lỗi
+## Informa un error
 
-Tham gia thảo luận trên [diễn đàn nhà phát triển AI của Google](https://discuss.ai.google.dev?hl=vi) nếu bạn có thắc mắc.
+Si tienes preguntas, únete al debate en el [foro para desarrolladores de IA de Google](https://discuss.ai.google.dev?hl=es-419).
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Cập nhật lần gần đây nhất: 2026-04-30 UTC.
+Última actualización: 2026-05-28 (UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+¿Quieres brindar más información?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-30 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-28 (UTC)"],[],[]]

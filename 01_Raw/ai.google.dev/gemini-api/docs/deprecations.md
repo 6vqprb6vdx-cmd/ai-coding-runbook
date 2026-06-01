@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/deprecations?hl=ja
-fetched_at: 2026-05-25T13:00:04.482682+00:00
+fetched_at: 2026-06-01T19:35:56.283018+00:00
 title: "Gemini \u306e\u975e\u63a8\u5968 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,23 +18,25 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 # Gemini の非推奨
 
-このページでは、Gemini API の[安定版（GA）](https://ai.google.dev/gemini-api/docs/models?hl=ja#stable)モデルと[プレビュー版](https://ai.google.dev/gemini-api/docs/models?hl=ja#preview)モデルの既知の非推奨スケジュールを示します。「**非推奨**」とは、モデルのサポートが終了し、近い将来に「**シャットダウン**」されることをお知らせするものです。モデルが「**シャットダウン**」されると、完全にオフになり、エンドポイントは使用できなくなります。
+このページでは、Gemini API の[安定版（一般提供）](https://ai.google.dev/gemini-api/docs/models?hl=ja#stable)モデルと[プレビュー版](https://ai.google.dev/gemini-api/docs/models?hl=ja#preview)モデルの既知の非推奨スケジュールを示します。「**非推奨**」とは、モデルのサポートが終了し、近い将来に「**シャットダウン**」されることをお知らせするものです。モデルが「**シャットダウン**」されると、完全にオフになり、エンドポイントは使用できなくなります。
 
-非推奨の発表は[リリースノート](https://ai.google.dev/gemini-api/docs/changelog?hl=ja)のページで行われ、発表された最も早いシャットダウン日はこのページで追跡されます。すでにシャットダウンされているモデルは、背景がグレーで表示されます。
+非推奨の発表は[リリースノート](https://ai.google.dev/gemini-api/docs/changelog?hl=ja)のページで行われ、発表された最も早いシャットダウン日はこのページで追跡されます。すでにシャットダウンされているモデルは、背景がグレーで示されます。
 
 ## Gemini 3 モデル
 
 | **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
 | `gemini-3.5-flash` | 2026 年 5 月 19 日 | 提供終了日は未発表 |  |
+| `gemini-3.1-flash-image` | 2026 年 5 月 28 日 | 提供終了日は未発表 |  |
+| `gemini-3-pro-image` | 2026 年 5 月 28 日 | 提供終了日は未発表 |  |
 | `gemini-3.1-flash-lite` | 2026 年 5 月 7 日 | 2027 年 5 月 7 日 |  |
 | モデルをプレビュー | | | |
-| `gemini-3.1-flash-lite-preview` | 2026 年 3 月 3 日 | 2026 年 5 月 25 日 | `gemini-3.1-flash-lite` |
-| `gemini-3.1-flash-image-preview` | 2026 年 2 月 26 日 | 提供終了日は未発表 |  |
+| `gemini-3.1-flash-image-preview` | 2026 年 2 月 26 日 | 2026 年 6 月 25 日 | `gemini-3.1-flash-image` |
 | `gemini-3.1-pro-preview` | 2026 年 2 月 19 日 | 提供終了日は未発表 |  |
-| `gemini-3-pro-image-preview` | 2025 年 11 月 20 日 | 提供終了日は未発表 |  |
+| `gemini-3-pro-image-preview` | 2025 年 11 月 20 日 | 2026 年 6 月 25 日 | `gemini-3-pro-image` |
 | `gemini-3-flash-preview` | 2025 年 12 月 17 日 | 提供終了日は未発表 | `gemini-3.5-flash` |
 | `gemini-3-pro-preview` | 2025 年 11 月 18 日 | 2026 年 3 月 9 日 | `gemini-3.1-pro-preview` |
+| `gemini-3.1-flash-lite-preview` | 2026 年 3 月 3 日 | 2026 年 5 月 25 日 | `gemini-3.1-flash-lite` |
 
 ## Gemini 2.5 Pro モデル
 
@@ -63,10 +65,10 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 | **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-2.0-flash` | 2025 年 2 月 5 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash` |
-| `gemini-2.0-flash-001` | 2025 年 2 月 5 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash` |
-| `gemini-2.0-flash-lite` | 2025 年 2 月 25 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash-lite` |
-| `gemini-2.0-flash-lite-001` | 2025 年 2 月 25 日 | 2026 年 6 月 1 日 | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash` | 2025 年 2 月 5 日 | 2026 年 6 月 1 日 | `gemini-3.5-flash` |
+| `gemini-2.0-flash-001` | 2025 年 2 月 5 日 | 2026 年 6 月 1 日 | `gemini-3.5-flash` |
+| `gemini-2.0-flash-lite` | 2025 年 2 月 25 日 | 2026 年 6 月 1 日 | `gemini-3.1-flash-lite` |
+| `gemini-2.0-flash-lite-001` | 2025 年 2 月 25 日 | 2026 年 6 月 1 日 | `gemini-3.1-flash-lite` |
 | モデルをプレビュー | | | |
 | `gemini-2.0-flash-preview-image-generation` | 2025 年 5 月 7 日 | 2025 年 11 月 14 日 | `gemini-2.5-flash-image` |
 | `gemini-2.0-flash-lite-preview` | 2025 年 2 月 5 日 | 2025 年 12 月 9 日 | `gemini-2.5-flash-lite` |
@@ -95,13 +97,13 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 | **モデル** | **リリース日** | **提供終了日** | **推奨される交換** |
 | --- | --- | --- | --- |
-| `gemini-embedding-001` | 2025 年 7 月 14 日 | 2026 年 7 月 14 日 |  |
-| `text-embedding-004` | 2024 年 4 月 9 日 | 2026 年 1 月 14 日 | `gemini-embedding-001` |
+| `gemini-embedding-001` | 2025 年 7 月 14 日 | 2026 年 7 月 14 日 | `gemini-embedding-2` |
+| `text-embedding-004` | 2024 年 4 月 9 日 | 2026 年 1 月 14 日 | `gemini-embedding-2` |
 | モデルをプレビュー | | | |
-| `embedding-001` | 2024 年 4 月 9 日 | 2025 年 10 月 30 日 | `gemini-embedding-001` |
-| `embedding-gecko-001` |  | 2025 年 10 月 30 日 | `gemini-embedding-001` |
-| `gemini-embedding-exp` |  | 2025 年 10 月 30 日 | `gemini-embedding-001` |
-| `gemini-embedding-exp-03-07` |  | 2025 年 10 月 30 日 | `gemini-embedding-001` |
+| `embedding-001` | 2024 年 4 月 9 日 | 2025 年 10 月 30 日 | `gemini-embedding-2` |
+| `embedding-gecko-001` |  | 2025 年 10 月 30 日 | `gemini-embedding-2` |
+| `gemini-embedding-exp` |  | 2025 年 10 月 30 日 | `gemini-embedding-2` |
+| `gemini-embedding-exp-03-07` |  | 2025 年 10 月 30 日 | `gemini-embedding-2` |
 
 ## Imagen モデル
 
@@ -149,8 +151,8 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最終更新日 2026-05-19 UTC。
+最終更新日 2026-06-01 UTC。
 
 ご意見をお聞かせください
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-01 UTC。"],[],[]]

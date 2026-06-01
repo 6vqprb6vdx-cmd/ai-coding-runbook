@@ -1,45 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=ar
-fetched_at: 2026-05-25T13:05:01.347155+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=fr
+fetched_at: 2026-06-01T19:43:33.970102+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-# إنشاء محتوى باستخدام تكنولوجيا تحويل النص إلى كلام (TTS)
+# Génération de synthèse vocale
 
-يمكن لواجهة Gemini API تحويل النص إلى صوت أحادي أو متعدّد المتحدثين باستخدام إمكانات تحويل النص إلى كلام (TTS) في Gemini.
-يمكن *[التحكّم](#controllable)* في عملية إنشاء الصوت باستخدام ميزة "تحويل النص إلى كلام"، ما يعني أنّه يمكنك استخدام اللغة الطبيعية لتنظيم التفاعلات وتحديد *الأسلوب* و*اللهجة* و*السرعة* و*النبرة* في الصوت.
+L'API Gemini peut transformer une entrée de texte en contenu audio à une ou plusieurs voix à l'aide des fonctionnalités de génération de synthèse vocale (TTS) de Gemini.
+La génération de synthèse vocale (TTS) est *[contrôlable](#controllable)*, ce qui signifie que vous pouvez utiliser le langage naturel pour structurer les interactions et guider le *style*, l'*accent*, le *rythme* et le *ton* de l'audio.
 
-تختلف إمكانية تحويل النص إلى كلام عن إمكانية إنشاء الكلام المقدَّمة من خلال
-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)، وهي مصمَّمة لتوفير تجربة تفاعلية
-للمحتوى الصوتي غير المنظَّم، وللمدخلات والمخرجات المتعددة الوسائط. في حين أنّ واجهة Live API تتفوّق في سياقات المحادثات الديناميكية، تم تصميم خدمة تحويل النص إلى كلام من خلال Gemini API لتناسب السيناريوهات التي تتطلّب تلاوة نصية دقيقة مع إمكانية التحكّم بدقة في الأسلوب والصوت، مثل إنشاء البودكاست أو الكتب المسموعة.
+La fonctionnalité TTS diffère de la génération vocale fournie par l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr), qui est conçue pour les entrées et sorties audio interactives, non structurées et multimodales. Alors que l'API Live excelle dans les contextes conversationnels dynamiques, la synthèse vocale via l'API Gemini est conçue pour les scénarios qui nécessitent une récitation exacte du texte avec un contrôle précis du style et du son, comme la génération de podcasts ou de livres audio.
 
-يوضّح لك هذا الدليل كيفية إنشاء محتوى صوتي يتضمّن متحدثًا واحدًا أو عدة متحدثين من نص.
+Ce guide explique comment générer de l'audio à un ou plusieurs locuteurs à partir de texte.
 
-## قبل البدء
+## Avant de commencer
 
-تأكَّد من استخدام أحد أنواع نماذج Gemini 2.5 التي تتضمّن ميزة تحويل النص إلى كلام (TTS) من Gemini، كما هو موضّح في قسم [النماذج المتوافقة](https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=ar#supported-models). للحصول على أفضل النتائج، حدِّد النموذج الأنسب لحالة الاستخدام المحدّدة.
+Assurez-vous d'utiliser une variante du modèle Gemini 2.5 avec les fonctionnalités de synthèse vocale Gemini, comme indiqué dans la section [Modèles compatibles](https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=fr#supported-models). Pour obtenir des résultats optimaux, réfléchissez au modèle qui correspond le mieux à votre cas d'utilisation spécifique.
 
-قد يكون من المفيد [اختبار نماذج تحويل النص إلى كلام في Gemini 2.5 في AI Studio]
+Vous trouverez peut-être utile de [tester les modèles Gemini 2.5 TTS dans AI Studio].
 
-## تحويل النص إلى كلام بصوت شخص واحد
+## Synthèse vocale à un seul locuteur
 
-لتحويل النص إلى صوت متحدث واحد، اضبط طريقة الرد على "صوت"، وأرسِل عنصر `speech_config` مع اسم صوت.
-عليك اختيار اسم صوت من [الأصوات الجاهزة](#voices).
+Pour convertir du texte en audio à une seule voix, définissez la modalité de réponse sur "audio" et transmettez un objet `speech_config` avec un nom de voix.
+Vous devrez choisir un nom de voix parmi les [voix de sortie](#voices) prédéfinies.
 
-يحفظ هذا المثال الصوت الناتج من النموذج في ملف موجي:
+Cet exemple enregistre le contenu audio généré par le modèle dans un fichier WAV :
 
 ### Python
 
@@ -139,14 +137,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-يمكنك استرداد بيانات الصوت التي تم إنشاؤها باستخدام السمة `interaction.output_audio`
-التي تعرض آخر مقطع صوتي تم إنشاؤه. للحصول على تفاصيل حول سمات الراحة، يُرجى الاطّلاع على [نظرة عامة على التفاعلات](https://ai.google.dev/gemini-api/docs/interactions?hl=ar#convenience-properties).
+Vous pouvez récupérer les données audio générées à l'aide de la propriété `interaction.output_audio`, qui renvoie le dernier bloc audio généré. Pour en savoir plus sur les propriétés pratiques, consultez [Présentation des interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=fr#convenience-properties).
 
-## تحويل النص إلى كلام لعدة متحدثين
+## Synthèse vocale multilocuteur
 
-بالنسبة إلى الصوت المتعدّد المصادر، ستحتاج إلى كائن `multi_speaker_voice_config` يتضمّن كل مكبّر صوت (بحد أقصى 2) تم ضبطه على أنّه `speaker_voice_config`.
-عليك تحديد كل `speaker` باستخدام الأسماء نفسها المستخدَمة في
-[الطلب](#controllable):
+Pour l'audio multi-locuteurs, vous aurez besoin d'un objet `multi_speaker_voice_config` avec chaque locuteur (jusqu'à deux) configuré en tant que `speaker_voice_config`.
+Vous devez définir chaque `speaker` avec les mêmes noms que ceux utilisés dans le [prompt](#controllable) :
 
 ### Python
 
@@ -258,11 +254,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## التحكّم في أسلوب الكلام باستخدام الطلبات
+## Contrôler le style de parole avec des requêtes
 
-يمكنك التحكّم في الأسلوب والنبرة واللهجة والسرعة باستخدام طلبات باللغة الطبيعية
-لكلّ من ميزة تحويل النص إلى كلام بصوت متحدث واحد وبأصوات متحدثين متعددين.
-على سبيل المثال، في طلب يتضمّن متحدثًا واحدًا، يمكنك قول:
+Vous pouvez contrôler le style, le ton, l'accent et le rythme à l'aide de requêtes en langage naturel pour la synthèse vocale à une ou plusieurs voix.
+Par exemple, dans une requête à un seul locuteur, vous pouvez dire :
 
 ```
 Say in an spooky whisper:
@@ -270,7 +265,7 @@ Say in an spooky whisper:
 Something wicked this way comes"
 ```
 
-في طلب يتضمّن عدة متحدثين، قدِّم إلى النموذج اسم كل متحدث والنص المقابل. يمكنك أيضًا تقديم إرشادات لكل متحدث على حدة:
+Dans une requête à plusieurs locuteurs, fournissez au modèle le nom de chaque locuteur et la transcription correspondante. Vous pouvez également fournir des conseils pour chaque enceinte individuellement :
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -279,11 +274,11 @@ Speaker1: So... what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-جرِّب استخدام [خيار صوتي](#voices) يتوافق مع النمط أو المشاعر التي تريد التعبير عنها، وذلك للتأكيد عليها بشكل أكبر. في الطلب السابق، على سبيل المثال، قد يؤكّد صوت *إنسيلادوس* المتهدّج على حالتَي "التعب" و"الملل"، بينما قد تتناسب نبرة *بوك* المبهجة مع حالتَي "الحماس" و"السعادة".
+Essayez d'utiliser une [option vocale](#voices) qui correspond au style ou à l'émotion que vous souhaitez transmettre, pour l'accentuer encore plus. Dans la requête précédente, par exemple, le ton haletant d'*Encelade* peut mettre l'accent sur les mots"fatigué " et"ennuyé", tandis que le ton enjoué de *Puck* peut compléter les mots "enthousiaste" et "heureux".
 
-## إنشاء طلب لتحويل النص إلى صوت
+## Générer un prompt pour convertir un texte en audio
 
-تنتج نماذج تحويل النص إلى كلام محتوًى صوتيًا فقط، ولكن يمكنك استخدام [نماذج أخرى](https://ai.google.dev/gemini-api/docs/models?hl=ar) لإنشاء نص أولاً، ثم تمرير هذا النص إلى نموذج تحويل النص إلى كلام لقراءته بصوت مرتفع.
+Les modèles TTS ne génèrent que de l'audio, mais vous pouvez utiliser [d'autres modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr) pour générer d'abord une transcription, puis la transmettre au modèle TTS pour qu'il la lise à voix haute.
 
 ### Python
 
@@ -343,128 +338,125 @@ const ttsInteraction = await client.interactions.create({
 await main();
 ```
 
-## خيارات الصوت
+## Options vocales
 
-تتيح نماذج "تحويل النص إلى كلام" 30 خيارًا صوتيًا في الحقل `voice_name`:
+Les modèles TTS sont compatibles avec les 30 options vocales suivantes dans le champ `voice_name` :
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** -- *ساطع* | **Puck** -- *مفعم بالحيوية* | **Charon** -- *مفيدة* |
-| **كوريا** -- *شركة* | **Fenrir** -- *متحمّس* | **Leda** -- *Youthful* |
-| **Orus** -- *شركة* | **Aoede** -- *Breezy* | **Callirrhoe** -- *مريح* |
-| **Autonoe** -- *Bright* | ‫**Enceladus** -- *Breathy* | **Iapetus** -- *Clear* |
-| **Umbriel**: *شخصية سهلة* | **الجبهة** -- *ناعم* | **Despina** -- *Smooth* |
-| **Erinome** -- *محو* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *مفيدة* |
-| **Laomedeia** -- *Upbeat* | **Achernar** -- *Soft* | **Alnilam** -- *الشركة* |
-| **Schedar** -- *Even* | **Gacrux** -- *محتوى للبالغين* | **Pulcherrima** -- *إعادة توجيه* |
-| **Achird** -- *ودود* | **Zubenelgenubi** -- *غير رسمي* | ‫**Vindemiatrix** -- *لطيف* |
-| **Sadachbia** -- *مفعم بالحيوية* | **Sadaltager** -- *مُلمّ* | **سولفات** -- *دافئ* |
+| **Zephyr** : *Lumineux* | **Puck** : *Upbeat* | **Charon** : *Contenu informatif* |
+| **Kore** : *Ferme* | **Fenrir** : *excitabilité* | **Leda** : *Jeune* |
+| **Orus** : *cabinet d'avocats* | **Aoede** : *Breezy* | **Callirrhoe** : *tranquille* |
+| **Autonoe** : *Lumineux* | **Enceladus** : *Souffle* | **Iapetus** : *Effacer* |
+| **Umbriel** : *décontracté* | **Algieba** : *Smooth* | **Despina** : *Lisse* |
+| **Erinome** : *dégagé* | **Algenib** : *Graveleux* | **Rasalgethi** : *informatif* |
+| **Laomedeia** : *Upbeat* | **Achernar** : *Soft* | **Alnilam** : *Ferme* |
+| **Schedar** : *Even* | **Gacrux** : *Contenu réservé aux adultes* | **Pulcherrima** : *franche* |
+| **Achird** : *amical* | **Zubenelgenubi** : *Décontracté* | **Vindemiatrix** : *Doux* |
+| **Sadachbia** : *Lively* | **Sadaltager** : *connaissances* | **Sulafat** : *chaude* |
 
-يمكنك الاستماع إلى جميع خيارات الصوت في
+Vous pouvez écouter toutes les options vocales dans
 
-## اللغات المتاحة
+## Langues disponibles
 
-ترصد نماذج تحويل النص إلى كلام لغة الإدخال تلقائيًا. تتوفّر اللغات التالية:
+Les modèles TTS détectent automatiquement la langue d'entrée. Voici les langues disponibles :
 
-| اللغة | رمز BCP-47 | اللغة | رمز BCP-47 |
+| Langue | Code BCP-47 | Langue | Code BCP-47 |
 | --- | --- | --- | --- |
-| العربية | ar | الفلبينية | fil |
-| البنغالية | bn | الفنلندية | fi |
-| الهولندية | nl | الغليشيانية | gl |
-| الإنجليزية | en | الجورجية | ka |
-| الفرنسية | fr | اليونانية | el |
-| الألمانية | de | الغوجاراتية | gu |
-| الهندية | hi | الكريولية الهايتية | ht |
-| الإندونيسية | id | العبرية | هو |
-| الإيطالية | it | الهنغارية | hu |
-| اليابانية | ja | الأيسلندية | هو |
-| الكورية | ko | الجافانية | jv |
-| المراثية | mr | الكانادا | kn |
-| البولندية | pl | الكونكانية | kok |
-| البرتغالية | pt | لاو | lo |
-| الرومانية | ro | اللاتينية | la |
-| الروسية | ru | اللاتفية | lv |
-| الإسبانية | es | الليتوانية | lt |
-| التاميلية | ta | اللوكسمبورغية | لبنان |
-| التيلوغوية | te | المقدونية | mk |
-| التايلاندية | th | المايثيلي | mai |
-| التركية | tr | الملغاشية | مليغرام |
-| الأوكرانية | uk | الماليزية | مللي ثانية |
-| الفيتنامية | vi | المالايالامية | ml |
-| الأفريقانية | af | المنغولية | mn |
-| الألبانية | sq | النيبالية | ne |
-| الأمهرية | am | النرويجية، بوكمال | nb |
-| الأرمينية | hy | النرويجية، نينورسك | nn |
-| الأذربيجانية | az | الأوديا | أو |
-| الباسك | eu | البشتو | ps |
-| البيلاروسية | be | الفارسية | fa |
-| البلغارية | bg | البنجابية | pa |
-| البورمية | my | الصربية | sr |
-| الكتالانية | ca | السندية | دقة عادية |
-| السيبيوانية | ceb | السنهالية | si |
-| الصينية، المندرينية | cmn | السلوفاكية | sk |
-| الكرواتية | ساعة | السلوفينية | sl |
-| التشيكية | cs | السواحيلية | sw |
-| الدانماركية | da | السويدية | sv |
-| الإستونية | et | الأوردية | ur |
+| Arabe | ar | Tagalog | fil |
+| Bengali | bn | Finnois | fi |
+| Néerlandais | nl | Galicien | gl |
+| Anglais | en | Géorgien | ka |
+| Français | fr | Grec | el |
+| Allemand | de | Gujarati | gu |
+| Hindi | hi | Créole haïtien | ht |
+| Indonésien | id | Hébreu | il |
+| Italien | it | Hongrois | hu |
+| Japonais | ja | Islandais | est |
+| Coréen | ko | Javanais | jv |
+| Marathi | mr | Kannada | kn |
+| Polonais | pl | Konkani | kok |
+| Portugais | pt | Laotien | lo |
+| Roumain | ro | Latino | la |
+| Russe | ru | Letton | lv |
+| Espagnol | es | Lituanien | lt |
+| Tamoul | ta | Luxembourgeois | lb |
+| Télougou | te | Macédonien | mk |
+| Thaï | th | Maithili | mai |
+| Turc | tr | Malgache | mg |
+| Ukrainien | uk | Malaisien | ms |
+| Vietnamien | vi | Malayalam | ml |
+| Afrikaans | af | Mongol | mn |
+| Albanais | sq | Népalais | ne |
+| Amharique | am | Norvégien (bokmål) | nb |
+| Arménien | hy | Norvégien, Nynorsk | nn |
+| Azéri | az | Odia | ou |
+| Basque | eu | Pachtô | ps |
+| Biélorusse | be | Persan | fa |
+| Bulgare | bg | Panjabi | pa |
+| Birman | my | Serbe | sr |
+| Catalan | ca | Sindhî | sd |
+| Cebuano | ceb | Cingalais | si |
+| Chinois (mandarin) | cmn | Slovaque | sk |
+| Croate | h | Slovène | sl |
+| Tchèque | cs | Swahili | sw |
+| Danois | da | Suédois | sv |
+| Estonien | et | Urdu | ur |
 
-## النماذج المتوافقة
+## Modèles compatibles
 
-| الطراز | متحدّث واحد | ميزة "المتحدثون المتعدّدون" |
+| Modèle | Locuteur unique | Multihaut-parleur |
 | --- | --- | --- |
-| [معاينة ميزة تحويل النص إلى كلام في Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ar) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=ar) | ✔️ | ✔️ |
-| [إصدار تجريبي من ميزة "تحويل النص إلى كلام" في Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ar) | ✔️ | ✔️ |
+| [Aperçu de la synthèse vocale Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=fr) | ✔️ | ✔️ |
+| [TTS Gemini 2.5 Flash (preview)](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=fr) | ✔️ | ✔️ |
+| [TTS Gemini 2.5 Pro (preview)](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=fr) | ✔️ | ✔️ |
 
-## دليل كتابة الطلبات
+## Guide sur les requêtes
 
-يتميّز نموذج **الإنشاء الصوتي المدمج لتحويل النص إلى كلام (TTS) من Gemini** عن نماذج تحويل النص إلى كلام التقليدية باستخدام نموذج لغوي كبير يعرف ***ليس فقط ما يجب قوله، بل أيضًا كيفية قوله***.
+Le modèle **Gemini Native Audio Generation Text-to-Speech (TTS)** se distingue des modèles TTS classiques en utilisant un grand modèle de langage qui sait ***non seulement quoi dire, mais aussi comment le dire***.
 
-يمكنك اعتبار الطلب المتقدّم بمثابة تعليمات نظامية يقدّمها المستخدم للنموذج لكي يتّبعها. وهي طريقة لتزويد النموذج بمزيد من السياق والتحكّم في الأداء.
+Vous pouvez considérer une requête avancée comme une instruction système que le modèle doit suivre. Il s'agit d'un moyen de donner plus de contexte au modèle et de contrôler ses performances.
 
-للاستفادة من هذه الإمكانية، يمكن للمستخدمين التفكير في أنفسهم كمدراء يضبطون مشهدًا ليؤديه ممثل صوتي افتراضي. لإنشاء طلب، ننصحك بمراعاة المكوّنات التالية: **الملف الصوتي** الذي يحدّد الهوية الأساسية للشخصية ونمطها، و**وصف المشهد** الذي يحدّد البيئة المادية و"الأجواء" العاطفية، و**ملاحظات المخرج** التي تقدّم إرشادات أكثر دقة بشأن الأداء من حيث الأسلوب واللهجة والتحكّم في السرعة.
+Pour débloquer cette fonctionnalité, les utilisateurs peuvent se considérer comme des réalisateurs qui mettent en scène un talent vocal virtuel. Pour créer une requête, nous vous recommandons de tenir compte des éléments suivants : un **profil audio** qui définit l'identité et l'archétype du personnage, une **description de la scène** qui établit l'environnement physique et l'ambiance émotionnelle, et des **notes du réalisateur** qui offrent des conseils plus précis sur le style, l'accent et le rythme.
 
-من خلال تقديم تعليمات دقيقة، مثل لهجة إقليمية محددة أو ميزات لغوية غير لفظية معيّنة (مثل التنفس بصوت عالٍ) أو وتيرة معيّنة، يمكن للمستخدمين الاستفادة من قدرة النموذج على فهم السياق لإنشاء أداء صوتي ديناميكي وطبيعي ومعبّر. للحصول على أفضل أداء، ننصح بأن تتطابق **النصوص** مع الطلبات الإخراجية، *بحيث يتطابق "من يقول ذلك"* مع *"ماذا يُقال"* و*"كيف يُقال".*
+En fournissant des instructions nuancées, comme un accent régional précis, des caractéristiques paralinguistiques spécifiques (par exemple, un souffle) ou un rythme, les utilisateurs peuvent tirer parti de la conscience du contexte du modèle pour générer des performances audio très dynamiques, naturelles et expressives. Pour des performances optimales, nous vous recommandons d'aligner les **transcriptions** et les consignes de mise en scène, *afin que "qui le dit"* corresponde à *"ce qui est dit"* et à *"comment c'est dit"*.
 
-الغرض من هذا الدليل هو تقديم توجيهات أساسية وإثارة الأفكار عند تطوير تجارب صوتية باستخدام ميزة "تحويل النص إلى صوت" في Gemini. نحن متحمّسون لرؤية إبداعاتك.
+L'objectif de ce guide est de vous fournir des instructions de base et de vous donner des idées pour développer des expériences audio à l'aide de la génération audio Gemini TTS. Nous avons hâte de découvrir vos créations !
 
-### علامات صوتية
+### Tags audio
 
-العلامات هي معدِّلات مضمّنة، مثل `[whispers]` أو `[laughs]`، تمنحك تحكّمًا دقيقًا في العرض. يمكنك استخدامها لتغيير نبرة الصوت وسرعته
-والإحساس العاطفي في سطر أو قسم من النص. يمكنك أيضًا استخدامها
-لإضافة عبارات اعتراضية وبعض الأصوات غير اللفظية الأخرى إلى الأداء، مثل
-`[cough]` أو `[sighs]` أو `[gasp]`.
+Les balises sont des modificateurs intégrés tels que `[whispers]` ou `[laughs]` qui vous permettent de contrôler précisément la diffusion. Vous pouvez les utiliser pour modifier le ton, le rythme et l'ambiance émotionnelle d'une ligne ou d'une section de la transcription. Vous pouvez également les utiliser pour ajouter des interjections et quelques autres sons non verbaux à la performance, comme `[cough]`, `[sighs]` ou `[gasp]`.
 
-لا تتوفّر قائمة شاملة بالعلامات التي تعمل وتلك التي لا تعمل، وننصحك بتجربة مشاعر وتعبيرات مختلفة لمعرفة كيف يتغيّر الناتج.
+Il n'existe pas de liste exhaustive des tags qui fonctionnent ou non. Nous vous recommandons de tester différentes émotions et expressions pour voir comment le résultat change.
 
-إذا لم تكن النسخة مكتوبة باللغة الإنجليزية، ننصحك باستخدام علامات صوتية باللغة الإنجليزية للحصول على أفضل النتائج.
+Si votre transcription n'est pas en anglais, nous vous recommandons d'utiliser quand même des balises audio en anglais pour obtenir de meilleurs résultats.
 
-**استخدام علامات صوتية مبتكرة**
+**Soyez créatif avec les tags audio**
 
-لعرض نوع التغيّر الذي يمكن الحصول عليه باستخدام علامات الصوت، إليك مجموعة من الأمثلة التي تعبّر عن المعنى نفسه، ولكن يختلف العرض استنادًا إلى العلامات المستخدَمة.
+Pour vous montrer le type de variabilité que vous pouvez obtenir avec les tags audio, voici un ensemble d'exemples qui disent tous la même chose, mais dont la diffusion change en fonction des tags utilisés.
 
-يمكنك تغيير طريقة إلقاء الكلام من خلال إضافة علامات في بداية السطر لجعل المتحدث يبدو متحمسًا أو متضايقًا أو مترددًا:
+Vous pouvez modifier l'intonation de la voix en ajoutant des tags au début d'une ligne pour que le locuteur soit enthousiaste, ennuyé ou réticent :
 
-- `[excitedly]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام، ويمكنني التحدّث بطرق مختلفة. كيف يمكنني مساعدتك اليوم؟
-- `[bored]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
-- `[reluctantly]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
+- `[excitedly]` Bonjour, je suis un nouveau modèle de synthèse vocale et je peux dire les choses de différentes manières. Que puis-je faire pour vous ?
+- `[bored]` Bonjour, je suis un nouveau modèle de synthèse vocale…
+- `[reluctantly]` Bonjour, je suis un nouveau modèle de synthèse vocale…
 
-يمكن أيضًا استخدام العلامات لتغيير سرعة التسليم أو لدمج السرعة مع التأكيد:
+Les balises peuvent également être utilisées pour modifier le rythme de la diffusion ou pour combiner le rythme et l'emphase :
 
-- `[very fast]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
-- `[very slow]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
-- `[sarcastically, one painfully slow word at a time]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
+- `[very fast]` Bonjour, je suis un nouveau modèle de synthèse vocale…
+- `[very slow]` Bonjour, je suis un nouveau modèle de synthèse vocale…
+- `[sarcastically, one painfully slow word at a time]` Bonjour, je suis un nouveau modèle de synthèse vocale…
 
-يمكنك أيضًا التحكّم بدقة في أقسام معيّنة، ما يعني أنّه يمكنك الهمس بجزء والصراخ بجزء آخر.
+Vous pouvez également contrôler précisément certaines sections, ce qui signifie que vous pouvez chuchoter une partie et crier une autre.
 
-- `[whispers]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام، `[shouting]` ويمكنني التحدّث بطرق مختلفة. `[whispers]` كيف يمكنني مساعدتك اليوم؟
+- `[whispers]` Bonjour, je suis un nouveau modèle de synthèse vocale, `[shouting]` et je peux dire les choses de différentes manières. `[whispers]` Que puis-je faire pour vous ?
 
-يمكنك أيضًا تجربة أي فكرة إبداعية تريدها:
+Vous pouvez également tester n'importe quelle idée créative :
 
-- `[like a cartoon dog]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
-- `[like dracula]` مرحبًا، أنا نموذج جديد لتحويل النص إلى كلام…
+- `[like a cartoon dog]` Bonjour, je suis un nouveau modèle de synthèse vocale…
+- `[like dracula]` Bonjour, je suis un nouveau modèle de synthèse vocale…
 
-تشمل العلامات الشائعة الاستخدام ما يلي:
+Voici quelques-uns des tags communément utilisés :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -473,23 +465,20 @@ await main();
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-تتيح لك العلامات التحكّم بسرعة في عرض نص الفيديو. ولمزيد من التحكّم، يمكنك دمجها مع طلب سياقي لتحديد النبرة العامة
-والأسلوب العام للأغنية.
+Les balises vous permettent de contrôler rapidement la diffusion de votre transcription. Pour encore plus de contrôle, vous pouvez les combiner avec une invite de contexte afin de définir le ton et l'ambiance générale de la performance.
 
-### بنية الطلب
+### Structure des requêtes
 
-يتضمّن نص الطلب الفعّال بشكل مثالي العناصر التالية التي تتكامل معًا
-لتحقيق أداء رائع:
+Une requête robuste inclut idéalement les éléments suivants qui, ensemble, permettent d'obtenir d'excellentes performances :
 
-- **الملف الصوتي**: يحدّد شخصية الصوت، ويحدد هوية الشخصية ونمطها وأي خصائص أخرى، مثل العمر والخلفية وما إلى ذلك.
-- **المشهد**: يضبط المشهد. يصف هذا الحقل البيئة المادية والأجواء.
-- **ملاحظات المخرج**: إرشادات الأداء التي يمكنك من خلالها تحديد التعليمات المهمة التي يجب أن يراعيها الممثل الافتراضي. وتشمل الأمثلة
-  الأسلوب والتنفس والسرعة والتعبير واللهجة.
-- **مثال على السياق**: يوفّر هذا الخيار نقطة بداية سياقية للنموذج، ما يتيح للممثل الافتراضي الدخول إلى المشهد الذي أعددته بشكل طبيعي.
-- **النص**: النص الذي سينطقه النموذج. للحصول على أفضل أداء، تذكَّر أنّ موضوع النص وأسلوب الكتابة يجب أن يكونا مرتبطَين بالتعليمات التي تقدّمها.
-- **علامات الصوت**: هي معدِّلات يمكنك إضافتها إلى نص لتغيير طريقة عرض جزء من النص، مثل `[whispers]` أو `[shouting]`.
+- **Profil audio** : établit une personnalité pour la voix, en définissant une identité, un archétype et toute autre caractéristique comme l'âge, l'origine, etc.
+- **Scène** : plante le décor. Décrit à la fois l'environnement physique et l'ambiance.
+- **Notes du réalisateur** : conseils sur les performances qui vous permettent de déterminer les instructions importantes que votre talent virtuel doit prendre en compte. Par exemple, le style, la respiration, le rythme, l'articulation et l'accent.
+- **Exemple de contexte** : fournit au modèle un point de départ contextuel, de sorte que votre acteur virtuel entre naturellement dans la scène que vous avez configurée.
+- **Transcription** : texte que le modèle va lire à voix haute. Pour des performances optimales, n'oubliez pas que le thème et le style d'écriture de la transcription doivent correspondre aux instructions que vous donnez.
+- **Balises audio** : modificateurs que vous pouvez insérer dans une transcription pour modifier la façon dont cette partie du texte est lue (par exemple, `[whispers]` ou `[shouting]`).
 
-مثال على الطلب الكامل:
+Exemple de requête complète :
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -527,18 +516,18 @@ there pretending to work... stop it. Seriously, I see you. Turn this up!
 We've got the project roadmap landing in three, two... let's go!
 ```
 
-### استراتيجيات مفصّلة لتوجيه الطلبات
+### Stratégies de requête détaillées
 
-قسِّم كل عنصر من عناصر الطلب على النحو التالي:
+Décomposons chaque élément de la requête :
 
-#### ملف تعريف الصوت
+#### Profil audio
 
-صف بإيجاز سمات الشخصية.
+Décrivez brièvement le personnage.
 
-- **الاسم:** يساعد إعطاء شخصيتك اسمًا في ترسيخ النموذج وتحسين الأداء. لذا، يُرجى الإشارة إلى الشخصية بالاسم عند تحديد المشهد والسياق.
-- **الدور:** تمثّل هذه السمة الهوية الأساسية والنموذج الأصلي للشخصية التي تظهر في المشهد، مثل منسّق موسيقى في الراديو أو مقدّم بودكاست أو مراسل إخباري وما إلى ذلك.
+- **Nom**. Donner un nom à votre personnage permet d'ancrer le modèle et de renforcer les performances. Faites référence au personnage par son nom lorsque vous définissez la scène et le contexte.
+- **Rôle**. Identité et archétype principaux du personnage dans la scène (par exemple, DJ radio, podcasteur, journaliste, etc.).
 
-أمثلة:
+Exemples :
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -550,11 +539,11 @@ We've got the project roadmap landing in three, two... let's go!
 ## "The Beauty Influencer"
 ```
 
-#### منظر
+#### Scene
 
-حدِّد سياق المشهد، بما في ذلك الموقع الجغرافي والمزاج والتفاصيل البيئية التي تحدّد النبرة والأجواء. صِف ما يحدث حول الشخصية وتأثيره عليها. يوفّر المشهد السياق البيئي للتفاعل بأكمله، ويوجه الأداء التمثيلي بطريقة طبيعية دقيقة.
+Définissez le contexte de la scène, y compris le lieu, l'ambiance et les détails environnementaux qui établissent le ton et l'atmosphère. Décris ce qui se passe autour du personnage et comment cela l'affecte. La scène fournit le contexte environnemental pour l'ensemble de l'interaction et guide le jeu d'acteur de manière subtile et naturelle.
 
-أمثلة:
+Exemples :
 
 ```
 ## THE SCENE: The London Studio
@@ -573,15 +562,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### ملاحظات المخرجين
+#### Notes du réalisateur
 
-يتضمّن هذا القسم المهم إرشادات محدّدة بشأن الأداء. يمكنك تخطّي جميع العناصر الأخرى، ولكن ننصحك بتضمين هذا العنصر.
+Cette section essentielle inclut des conseils spécifiques sur les performances. Vous pouvez ignorer tous les autres éléments, mais nous vous recommandons d'inclure celui-ci.
 
-حدِّد فقط ما هو مهم للأداء، مع الحرص على عدم المبالغة في التحديد. سيؤدي وضع عدد كبير جدًا من القواعد الصارمة إلى الحدّ من إبداع النماذج وقد يؤدي إلى تراجع الأداء. وازِن بين وصف الدور والمشهد وقواعد الأداء المحدّدة.
+Définissez uniquement ce qui est important pour les performances, en veillant à ne pas trop spécifier. Si vous définissez trop de règles strictes, vous limiterez la créativité des modèles et risquez d'obtenir des performances moins bonnes. Équilibrez la description du rôle et de la scène avec les règles de performance spécifiques.
 
-إنّ التوجيهات الأكثر شيوعًا هي **الأسلوب والوتيرة واللهجة**، ولكن النموذج لا يقتصر على هذه التوجيهات ولا يتطلّبها. يمكنك تضمين تعليمات مخصّصة لتغطية أي تفاصيل إضافية مهمة لأدائك، ويمكنك تقديم التفاصيل بقدر ما يلزم.
+Les instructions les plus courantes sont **Style, Rythme et Accent**, mais le modèle n'est pas limité à celles-ci et ne les exige pas. N'hésitez pas à inclure des instructions personnalisées pour couvrir tous les détails supplémentaires importants pour vos performances, et à fournir autant ou aussi peu de détails que nécessaire.
 
-على سبيل المثال:
+Exemple :
 
 ```
 ### DIRECTOR'S NOTES
@@ -594,13 +583,13 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**النمط:**
+**Style :**
 
-يضبط هذا الحقل نبرة الكلام الذي يتم إنشاؤه وأسلوبه. يمكنك تضمين كلمات مثل "مبهج" أو "نشيط" أو "مسترخٍ" أو "ملل" وما إلى ذلك لتوجيه الأداء. استخدِم أسلوبًا وصفيًا وقدِّم أكبر قدر ممكن من التفاصيل اللازمة: *"حماس معدٍ. إنّ عبارة "يجب أن يشعر المستمع بأنّه يشارك في حدث ضخم ومثير"* أفضل من عبارة *"نشيط وحماسي".*
+Définit le ton et le style de la voix générée. Indiquez des adjectifs comme "joyeux", "énergique", "détendu", "ennuyé", etc. pour guider la performance. Soyez descriptif et fournissez autant de détails que nécessaire : *"Enthousiasme contagieux. L'auditeur doit avoir l'impression de faire partie d'un événement communautaire passionnant et de grande envergure."* est plus efficace que *"énergique et enthousiaste".*
 
-يمكنك حتى تجربة عبارات شائعة في مجال التعليق الصوتي، مثل "ابتسامة صوتية". يمكنك إضافة أي عدد تريده من خصائص الأنماط.
+Vous pouvez même essayer des termes populaires dans le secteur de la voix off, comme "sourire vocal". Vous pouvez superposer autant de caractéristiques de style que vous le souhaitez.
 
-أمثلة:
+Exemples :
 
 Simple Emotion
 
@@ -611,7 +600,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-مزيد من العمق
+Plus de profondeur
 
 ```
 DIRECTORS NOTES
@@ -620,7 +609,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-متقدّم
+Complexe
 
 ```
 DIRECTORS NOTES
@@ -631,11 +620,11 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**اللهجة:**
+**Accent :**
 
-وصف النبرة المحدّدة كلّما كانت التفاصيل أكثر، كانت النتائج أفضل. على سبيل المثال، استخدِم "*لهجة إنجليزية بريطانية كما تُسمع في كرويدون، إنجلترا*" بدلاً من "*لهجة بريطانية*".
+Décrivez l'accent sélectionné. Plus vous serez précis, meilleurs seront les résultats. Par exemple, utilisez *accent anglais britannique tel qu'il est parlé à Croydon, en Angleterre* au lieu de *accent britannique*.
 
-أمثلة:
+Exemples :
 
 ```
 ### DIRECTORS NOTES
@@ -651,13 +640,13 @@ Accent: Jaz is a from Brixton, London
 ...
 ```
 
-**معدّل تسجيل مرات الظهور:**
+**Rythme**
 
-الوتيرة الإجمالية وتفاوت الوتيرة في جميع أنحاء المقطوعة
+Rythme global et variations de rythme tout au long de la pièce.
 
-أمثلة:
+Exemples :
 
-بسيط
+Simple
 
 ```
 ### DIRECTORS NOTES
@@ -666,7 +655,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-مزيد من التفاصيل
+Plus de profondeur
 
 ```
 ### DIRECTORS NOTES
@@ -675,7 +664,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-متقدّم
+Complexe
 
 ```
 ### DIRECTORS NOTES
@@ -684,44 +673,39 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-**تجربة الميزة**
+**Essayer**
 
-جرِّب بعض هذه الأمثلة بنفسك على
-[تطبيق تحويل النص إلى كلام](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=ar) ودَع
-Gemini يضعك في مقعد المخرج. إليك بعض النصائح التي يجب وضعها في الاعتبار لتقديم أداء صوتي رائع:
+Essayez vous-même certains de ces exemples dans l'[application TTS](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=fr) et laissez Gemini vous mettre dans le fauteuil du réalisateur. Voici quelques conseils pour obtenir des performances vocales de qualité :
 
-- تذكَّر أن تحافظ على تماسك الطلب بأكمله، فالنص والإخراج يسيران جنبًا إلى جنب لتقديم أداء رائع.
-- لا تشعر بأنّك مضطر إلى وصف كل شيء، ففي بعض الأحيان، يساعد منح النموذج مساحة لملء الفراغات في الحفاظ على طبيعية النص. (تمامًا مثل الممثل الموهوب)
-- إذا واجهت صعوبة في كتابة نص أو أداء أغنية، يمكن أن يساعدك Gemini في ذلك.
+- N'oubliez pas de veiller à la cohérence de l'ensemble du prompt : le script et la mise en scène vont de pair pour créer une performance de qualité.
+- Ne vous sentez pas obligé de tout décrire. Parfois, laisser au modèle la possibilité de combler les lacunes contribue à la fluidité. (Tout comme un acteur talentueux)
+- Si vous êtes bloqué, demandez à Gemini de vous aider à rédiger votre script ou à préparer votre prestation.
 
-## القيود
+## Limites
 
-- يمكن لنماذج تحويل النص إلى كلام تلقّي مدخلات نصية فقط وإنشاء مخرجات صوتية.
-- تبلغ [نافذة السياق](https://ai.google.dev/gemini-api/docs/long-context?hl=ar) في جلسة تحويل النص إلى كلام 32 ألف رمز مميّز.
-- راجِع قسم [اللغات](https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=ar#languages) لمعرفة اللغات المتاحة.
-- لا تتيح ميزة "تحويل النص إلى كلام" البث.
+- Les modèles TTS ne peuvent recevoir que des entrées de texte et générer des sorties audio.
+- Une session TTS a une limite de [fenêtre de contexte](https://ai.google.dev/gemini-api/docs/long-context?hl=fr) de 32 000 jetons.
+- Consultez la section [Langues](https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=fr#languages) pour connaître les langues disponibles.
+- La synthèse vocale n'est pas compatible avec le streaming.
 
-تنطبق القيود التالية تحديدًا عند استخدام نموذج Gemini 3.1 Flash
-TTS Preview لإنشاء الكلام:
+Les contraintes suivantes s'appliquent spécifiquement lorsque vous utilisez le modèle Gemini 3.1 Flash TTS Preview pour générer de la parole :
 
-- **عدم تطابق الصوت مع تعليمات الطلب:** قد لا يتطابق الناتج الذي يقدّمه النموذج دائمًا مع الصوت الذي تم اختياره، ما يؤدي إلى اختلاف الصوت عن المتوقع. لتجنُّب عدم تطابق النبرات (مثل صوت رجل عميق يحاول التحدث مثل فتاة صغيرة)، تأكَّد من أنّ النبرة والسياق المكتوبَين في الطلب يتوافقان بشكل طبيعي مع الملف الشخصي للمتحدث المحدّد.
-- **جودة النتائج الأطول:** قد تبدأ جودة الكلام واتساقه في التدهور مع النتائج التي تزيد مدتها عن بضع دقائق. ننصحك بتقسيم النصوص إلى أجزاء أصغر.
-- **عرض رموز نصية بشكل متقطّع:** يعرض النموذج أحيانًا رموزًا نصية بدلاً من رموز صوتية، ما يؤدي إلى تعذّر تنفيذ الطلب على الخادم وظهور الخطأ `500`. بما أنّ هذا يحدث بشكل عشوائي في نسبة صغيرة جدًا من الطلبات، عليك تنفيذ منطق إعادة المحاولة التلقائي في تطبيقك للتعامل مع هذه الحالات.
-- **الرفض الخاطئ لمصنّف الطلبات:** قد لا تؤدي الطلبات الغامضة إلى تشغيل مصنّف تركيب الكلام، ما يؤدي إلى رفض الطلب (`PROHIBITED_CONTENT`) أو جعل النموذج يقرأ تعليمات الأسلوب وملاحظات المخرج بصوت عالٍ. يمكنك التحقّق من صحة الطلبات من خلال إضافة مقدمة واضحة
-  تطلب من النموذج تركيب الكلام، وتحديد موضع بدء
-  النص المكتوب الفعلي بوضوح.
+- **Incohérence de la voix avec les instructions du prompt** : la sortie du modèle ne correspond pas toujours strictement à la voix sélectionnée, ce qui peut entraîner un son différent de celui attendu. Pour éviter les tons discordants (par exemple, une voix masculine grave qui tente de parler comme une jeune fille), assurez-vous que le ton et le contexte de votre requête écrite correspondent naturellement au profil du locuteur sélectionné.
+- **Qualité des sorties plus longues** : la qualité et la cohérence de la voix peuvent commencer à se dégrader pour les sorties générées de plus de quelques minutes. Nous vous recommandons de diviser vos transcriptions en plus petits passages.
+- **Retour occasionnel de jetons de texte** : le modèle renvoie parfois des jetons de texte au lieu de jetons audio, ce qui entraîne l'échec de la requête par le serveur avec une erreur `500`. Comme cela se produit de manière aléatoire dans un très faible pourcentage de requêtes, vous devez implémenter une logique de nouvelle tentative automatisée dans votre application pour les gérer.
+- **Rejets incorrects du classificateur de requêtes** : il est possible que les requêtes vagues ne déclenchent pas le classificateur de synthèse vocale, ce qui entraîne un rejet de la requête (`PROHIBITED_CONTENT`) ou amène le modèle à lire à voix haute vos instructions de style et vos notes de mise en scène. Validez vos invites en ajoutant un préambule clair indiquant au modèle de synthétiser la parole, et en indiquant explicitement où commence la transcription réelle.
 
-## الخطوات التالية
+## Étape suivante
 
-- توفّر [واجهة برمجة التطبيقات Live](https://ai.google.dev/gemini-api/docs/live?hl=ar) من Gemini خيارات تفاعلية لإنشاء الصوت يمكنك دمجها مع وسائط أخرى.
-- للتعرّف على كيفية التعامل مع *مدخلات* الصوت، يُرجى الانتقال إلى دليل [فهم الصوت](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ar).
+- L'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr) de Gemini propose des options de génération audio interactives que vous pouvez entrelacer avec d'autres modalités.
+- Pour savoir comment utiliser les *entrées* audio, consultez le guide [Compréhension audio](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=fr).
 
-إرسال ملاحظات
+Envoyer des commentaires
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
+Dernière mise à jour le 2026/05/28 (UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Voulez-vous nous donner plus d'informations ?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/28 (UTC)."],[],[]]

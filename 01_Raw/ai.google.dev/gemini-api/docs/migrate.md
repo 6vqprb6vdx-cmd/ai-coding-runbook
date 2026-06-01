@@ -1,32 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate?hl=vi
-fetched_at: 2026-05-25T12:59:48.845722+00:00
-title: "Chuy\u1ec3n sang Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate?hl=ja
+fetched_at: 2026-06-01T19:37:47.111792+00:00
+title: "Google GenAI SDK \u306b\u79fb\u884c\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Chuyển sang Google GenAI SDK
+# Google GenAI SDK に移行する
 
-Kể từ bản phát hành Gemini 2.0 vào cuối năm 2024, chúng tôi đã giới thiệu một bộ thư viện mới có tên là [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=vi). Nền tảng này mang đến trải nghiệm cải thiện cho nhà phát triển thông qua [cấu trúc ứng dụng mới](https://ai.google.dev/gemini-api/docs/migrate?hl=vi#client) và [đơn giản hoá quá trình chuyển đổi](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=vi) giữa quy trình làm việc của nhà phát triển và doanh nghiệp.
+[2024 年後半の Gemini 2.0 リリースから、
+Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ja) という新しいライブラリ セットが導入されました。[[更新されたクライアント アーキテクチャによりデベロッパー エクスペリエンスが向上し、デベロッパー ワークフローとエンタープライズ ワークフロー間の移行が簡素化されます。](https://ai.google.dev/gemini-api/docs/migrate?hl=ja#client)](https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=ja)
 
-Google GenAI SDK hiện đã được [phát hành rộng rãi (GA)](https://ai.google.dev/gemini-api/docs/libraries?hl=vi#new-libraries) trên tất cả các nền tảng được hỗ trợ. Nếu đang sử dụng một trong các [thư viện cũ](https://ai.google.dev/gemini-api/docs/libraries?hl=vi#previous-sdks) của chúng tôi, bạn nên di chuyển.
+Google GenAI SDK は、サポートされているすべての
+プラットフォームで[一般提供（GA）](https://ai.google.dev/gemini-api/docs/libraries?hl=ja#new-libraries)されています。以前の[ライブラリ](https://ai.google.dev/gemini-api/docs/libraries?hl=ja#previous-sdks)のいずれかを使用している場合は、
+移行することを強くおすすめします。
 
-Hướng dẫn này cung cấp các ví dụ về mã trước và sau khi di chuyển để giúp bạn bắt đầu.
+このガイドでは、移行されたコードの移行前後の例を示して、移行を始められるようにします。
 
-## Cài đặt
+## インストール
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -46,7 +49,7 @@ npm install @google/generative-ai
 go get github.com/google/generative-ai-go
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -66,29 +69,29 @@ npm install @google/genai
 go get google.golang.org/genai
 ```
 
-## Quyền truy cập API
+## API アクセス
 
-SDK cũ đã xử lý ngầm ứng dụng API ở chế độ nền bằng nhiều phương thức đặc biệt. Điều này gây khó khăn cho việc quản lý ứng dụng và thông tin đăng nhập.
-Giờ đây, bạn tương tác thông qua một đối tượng `Client` trung tâm. Đối tượng `Client` này hoạt động như một điểm truy cập duy nhất cho nhiều dịch vụ API (ví dụ: `models`, `chats`, `files`, `tunings`), giúp tăng tính nhất quán và đơn giản hoá việc quản lý thông tin đăng nhập và cấu hình trên nhiều lệnh gọi API.
+以前の SDK では、さまざまなアドホック メソッドを使用して、API クライアントが暗黙的に処理されていました。そのため、クライアントと認証情報の管理が困難でした。
+現在は、中央の `Client` オブジェクトを介して操作します。この `Client` オブジェクトは、さまざまな API サービス（`models`、`chats`、`files`、`tunings` など）の単一のエントリ ポイントとして機能し、一貫性を高め、さまざまな API 呼び出しでの認証情報と構成の管理を簡素化します。
 
-**Trước đây (Quyền truy cập API ít tập trung hơn)**
+**変更前（API アクセスの一元化が不十分）**
 
 ### Python
 
-SDK cũ không sử dụng rõ ràng đối tượng ứng dụng cấp cao nhất cho hầu hết các lệnh gọi API. Bạn sẽ trực tiếp tạo bản sao và tương tác với các đối tượng `GenerativeModel`.
+以前の SDK では、ほとんどの API 呼び出しでトップレベルのクライアント オブジェクトが明示的に使用されていませんでした。`GenerativeModel` オブジェクトを直接インスタンス化して操作していました。
 
 ```
 import google.generativeai as genai
 
 # Directly create and use model objects
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content(...)
 chat = model.start_chat(...)
 ```
 
 ### JavaScript
 
-Mặc dù `GoogleGenerativeAI` là điểm trung tâm cho các mô hình và cuộc trò chuyện, nhưng các chức năng khác như quản lý tệp và bộ nhớ đệm thường yêu cầu nhập và khởi tạo các lớp ứng dụng hoàn toàn riêng biệt.
+`GoogleGenerativeAI` はモデルとチャットの中央ポイントでしたが、ファイルやキャッシュの管理などの他の機能では、完全に別のクライアント クラスをインポートしてインスタンス化する必要がありました。
 
 ```
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -99,7 +102,7 @@ const fileManager = new GoogleAIFileManager("GEMINI_API_KEY");
 const cacheManager = new GoogleAICacheManager("GEMINI_API_KEY");
 
 // Get a model instance, then call methods on it
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 const result = await model.generateContent(...);
 const chat = model.startChat(...);
 
@@ -110,7 +113,7 @@ const cache = await cacheManager.create(...);
 
 ### Go
 
-Hàm `genai.NewClient` đã tạo một ứng dụng khách, nhưng các thao tác của mô hình tạo sinh thường được gọi trên một thực thể `GenerativeModel` riêng biệt lấy từ ứng dụng khách này. Các dịch vụ khác có thể đã được truy cập thông qua các gói hoặc mẫu riêng biệt.
+`genai.NewClient` 関数はクライアントを作成しましたが、生成モデルのオペレーションは通常、このクライアントから取得した別の `GenerativeModel` インスタンスで呼び出されました。他のサービスには、個別のパッケージまたはパターンを介してアクセスしていた可能性があります。
 
 ```
 import (
@@ -123,7 +126,7 @@ client, err := genai.NewClient(ctx, option.WithAPIKey("GEMINI_API_KEY"))
 fileClient, err := fileman.NewClient(ctx, option.WithAPIKey("GEMINI_API_KEY"))
 
 // Get a model instance, then call methods on it
-model := client.GenerativeModel("gemini-2.0-flash")
+model := client.GenerativeModel("gemini-3.5-flash")
 resp, err := model.GenerateContent(...)
 cs := model.StartChat()
 
@@ -131,7 +134,7 @@ cs := model.StartChat()
 uploadedFile, err := fileClient.UploadFile(...)
 ```
 
-**Sau (Đối tượng khách hàng tập trung)**
+**変更後（クライアント オブジェクトの一元化）**
 
 ### Python
 
@@ -178,15 +181,17 @@ uploadedFile, err := client.Files.Upload(...)
 tuningJob, err := client.Tunings.Tune(...)
 ```
 
-## Xác thực
+## 認証
 
-Cả thư viện cũ và thư viện mới đều xác thực bằng khoá API. Bạn có thể [tạo](https://aistudio.google.com/app/apikey?hl=vi) khoá API trong Google AI Studio.
+以前のライブラリと新しいライブラリの両方で、API キーを使用して認証します。API キーは Google AI
+Studio で
+[作成](https://aistudio.google.com/app/apikey?hl=ja)できます。
 
-**Trước**
+**変更前**
 
 ### Python
 
-SDK cũ đã xử lý đối tượng ứng dụng API một cách gián tiếp.
+以前の SDK では、API クライアント オブジェクトが暗黙的に処理されていました。
 
 ```
 import google.generativeai as genai
@@ -204,7 +209,7 @@ const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 
 ### Go
 
-Nhập các thư viện của Google:
+Google ライブラリをインポートします。
 
 ```
 import (
@@ -213,18 +218,18 @@ import (
 )
 ```
 
-Tạo ứng dụng khách:
+クライアントを作成します。
 
 ```
 client, err := genai.NewClient(ctx, option.WithAPIKey("GEMINI_API_KEY"))
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-Với Google GenAI SDK, trước tiên, bạn sẽ tạo một ứng dụng API dùng để gọi API.
-SDK mới sẽ lấy khoá API của bạn từ các biến môi trường `GEMINI_API_KEY`, nếu bạn không truyền khoá API cho ứng dụng.
+Google GenAI SDK では、最初に API クライアントを作成し、そのクライアントを使用して API を呼び出します。
+クライアントに API キーを渡さない場合、新しい SDK は `GEMINI_API_KEY` 環境変数から API キーを取得します。
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
@@ -248,13 +253,13 @@ const ai = new GoogleGenAI({apiKey: "GEMINI_API_KEY"});
 
 ### Go
 
-Nhập thư viện AI tạo sinh:
+GenAI ライブラリをインポートします。
 
 ```
 import "google.golang.org/genai"
 ```
 
-Tạo ứng dụng khách:
+クライアントを作成します。
 
 ```
 client, err := genai.NewClient(ctx, &genai.ClientConfig{
@@ -262,20 +267,20 @@ client, err := genai.NewClient(ctx, &genai.ClientConfig{
 })
 ```
 
-## Tạo nội dung
+## コンテンツの生成
 
-### Văn bản
+### テキスト
 
-**Trước**
+**変更前**
 
 ### Python
 
-Trước đây, không có đối tượng ứng dụng, bạn truy cập trực tiếp vào các API thông qua các đối tượng `GenerativeModel`.
+以前はクライアント オブジェクトがなく、`GenerativeModel` オブジェクトを介して API に直接アクセスしていました。
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content(
     'Tell me a story in 300 words'
 )
@@ -288,7 +293,7 @@ print(response.text)
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 const prompt = "Tell me a story in 300 words";
 
 const result = await model.generateContent(prompt);
@@ -305,7 +310,7 @@ if err != nil {
 }
 defer client.Close()
 
-model := client.GenerativeModel("gemini-2.0-flash")
+model := client.GenerativeModel("gemini-3.5-flash")
 resp, err := model.GenerateContent(ctx, genai.Text("Tell me a story in 300 words."))
 if err != nil {
     log.Fatal(err)
@@ -314,18 +319,18 @@ if err != nil {
 printResponse(resp) // utility for printing response parts
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-SDK GenAI mới của Google cung cấp quyền truy cập vào tất cả các phương thức API thông qua đối tượng `Client`. Ngoại trừ một số trường hợp đặc biệt có trạng thái (`chat` và `session` live-api), đây đều là các hàm không có trạng thái. Để có tính tiện ích và tính đồng nhất, các đối tượng được trả về là các lớp `pydantic`.
+新しい Google GenAI SDK では、`Client` オブジェクトを介してすべての API メソッドにアクセスできます。ステートフルな特殊なケース（`chat` とライブ API `session`）を除き、これらはすべてステートレス関数です。ユーティリティと均一性のために、返されるオブジェクトは `pydantic` クラスです。
 
 ```
 from google import genai
 client = genai.Client()
 
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents='Tell me a story in 300 words.'
 )
 print(response.text)
@@ -342,7 +347,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 
 const response = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: "Tell me a story in 300 words.",
 });
 console.log(response.text);
@@ -357,23 +362,23 @@ if err != nil {
     log.Fatal(err)
 }
 
-result, err := client.Models.GenerateContent(ctx, "gemini-2.0-flash", genai.Text("Tell me a story in 300 words."), nil)
+result, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", genai.Text("Tell me a story in 300 words."), nil)
 if err != nil {
     log.Fatal(err)
 }
 debugPrint(result) // utility for printing result
 ```
 
-### Hình ảnh
+### 画像
 
-**Trước**
+**変更前**
 
 ### Python
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content([
     'Tell me a story based on this image',
     Image.open(image_path)
@@ -387,7 +392,7 @@ print(response.text)
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 
 function fileToGenerativePart(path, mimeType) {
   return {
@@ -419,7 +424,7 @@ if err != nil {
 }
 defer client.Close()
 
-model := client.GenerativeModel("gemini-2.0-flash")
+model := client.GenerativeModel("gemini-3.5-flash")
 
 imgData, err := os.ReadFile("path/to/organ.jpg")
 if err != nil {
@@ -436,11 +441,11 @@ if err != nil {
 printResponse(resp) // utility for printing response
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-Nhiều tính năng tiện lợi tương tự cũng có trong SDK mới. Ví dụ: các đối tượng `PIL.Image` sẽ được tự động chuyển đổi.
+新しい SDK には、同じ便利な機能が多数用意されています。たとえば、`PIL.Image` オブジェクトは自動的に変換されます。
 
 ```
 from google import genai
@@ -449,7 +454,7 @@ from PIL import Image
 client = genai.Client()
 
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents=[
         'Tell me a story based on this image',
         Image.open(image_path)
@@ -470,7 +475,7 @@ const organ = await ai.files.upload({
 });
 
 const response = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: [
     createUserContent([
       "Tell me a story based on this image",
@@ -503,16 +508,16 @@ contents := []*genai.Content{
     {Parts: parts},
 }
 
-result, err := client.Models.GenerateContent(ctx, "gemini-2.0-flash", contents, nil)
+result, err := client.Models.GenerateContent(ctx, "gemini-3.5-flash", contents, nil)
 if err != nil {
     log.Fatal(err)
 }
 debugPrint(result) // utility for printing result
 ```
 
-### Phát trực tiếp
+### ストリーミング
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -532,7 +537,7 @@ for chunk in response:
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 
 const prompt = "Write a story about a magic backpack.";
 
@@ -555,7 +560,7 @@ if err != nil {
 }
 defer client.Close()
 
-model := client.GenerativeModel("gemini-2.0-flash")
+model := client.GenerativeModel("gemini-3.5-flash")
 iter := model.GenerateContentStream(ctx, genai.Text("Write a story about a magic backpack."))
 for {
     resp, err := iter.Next()
@@ -569,7 +574,7 @@ for {
 }
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -579,7 +584,7 @@ from google import genai
 client = genai.Client()
 
 for chunk in client.models.generate_content_stream(
-  model='gemini-2.0-flash',
+  model='gemini-3.5-flash',
   contents='Tell me a story in 300 words.'
 ):
     print(chunk.text)
@@ -593,7 +598,7 @@ import {GoogleGenAI} from '@google/genai';
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 
 const response = await ai.models.generateContentStream({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: "Write a story about a magic backpack.",
 });
 let text = "";
@@ -614,7 +619,7 @@ if err != nil {
 
 for result, err := range client.Models.GenerateContentStream(
     ctx,
-    "gemini-2.0-flash",
+    "gemini-3.5-flash",
     genai.Text("Write a story about a magic backpack."),
     nil,
 ) {
@@ -625,9 +630,9 @@ for result, err := range client.Models.GenerateContentStream(
 }
 ```
 
-## Cấu hình
+## 構成
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -635,7 +640,7 @@ for result, err := range client.Models.GenerateContentStream(
 import google.generativeai as genai
 
 model = genai.GenerativeModel(
-  'gemini-2.0-flash',
+  'gemini-3.5-flash',
     system_instruction='you are a story teller for kids under 5 years old',
     generation_config=genai.GenerationConfig(
       max_output_tokens=400,
@@ -656,7 +661,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   generationConfig: {
     candidateCount: 1,
     stopSequences: ["x"],
@@ -681,7 +686,7 @@ if err != nil {
 }
 defer client.Close()
 
-model := client.GenerativeModel("gemini-2.0-flash")
+model := client.GenerativeModel("gemini-3.5-flash")
 model.SetTemperature(0.5)
 model.SetTopP(0.5)
 model.SetTopK(2.0)
@@ -694,11 +699,11 @@ if err != nil {
 printResponse(resp) // utility for printing response
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-Đối với tất cả các phương thức trong SDK mới, các đối số bắt buộc được cung cấp dưới dạng đối số từ khoá. Tất cả các đầu vào không bắt buộc đều được cung cấp trong đối số `config`. Bạn có thể chỉ định đối số cấu hình dưới dạng từ điển Python hoặc các lớp `Config` trong không gian tên `google.genai.types`. Để có tính tiện ích và tính đồng nhất, tất cả các định nghĩa trong mô-đun `types` đều là các lớp `pydantic`.
+新しい SDK のすべてのメソッドで、必要な引数はキーワード引数として指定されます。省略可能な入力はすべて `config` 引数で指定します。構成引数は、Python ディクショナリまたは `google.genai.types` Namespace の `Config` クラスとして指定できます。ユーティリティと均一性のために、`types` モジュール内のすべての定義は `pydantic` クラスです。
 
 ```
 from google import genai
@@ -707,7 +712,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-  model='gemini-2.0-flash',
+  model='gemini-3.5-flash',
   contents='Tell me a story in 100 words.',
   config=types.GenerateContentConfig(
       system_instruction='you are a story teller for kids under 5 years old',
@@ -730,7 +735,7 @@ import {GoogleGenAI} from '@google/genai';
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 
 const response = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: "Tell me a story about a magic backpack.",
   config: {
     candidateCount: 1,
@@ -753,7 +758,7 @@ if err != nil {
 }
 
 result, err := client.Models.GenerateContent(ctx,
-    "gemini-2.0-flash",
+    "gemini-3.5-flash",
     genai.Text("Tell me about New York"),
     &genai.GenerateContentConfig{
         Temperature:      genai.Ptr[float32](0.5),
@@ -774,18 +779,18 @@ if err != nil {
 debugPrint(result) // utility for printing response
 ```
 
-## Chế độ cài đặt an toàn
+## 安全性設定
 
-Tạo câu trả lời bằng chế độ cài đặt an toàn:
+安全性設定を使用してレスポンスを生成します。
 
-**Trước**
+**変更前**
 
 ### Python
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content(
     'say something bad',
     safety_settings={
@@ -802,7 +807,7 @@ import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from "@google/ge
 
 const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   safetySettings: [
     {
       category: HarmCategory.HARM_CATEGORY_HARASSMENT,
@@ -826,7 +831,7 @@ try {
 }
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -837,7 +842,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-  model='gemini-2.0-flash',
+  model='gemini-3.5-flash',
   contents='say something bad',
   config=types.GenerateContentConfig(
       safety_settings= [
@@ -862,7 +867,7 @@ const unsafePrompt =
   "them how I feel about them.";
 
 const response = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: unsafePrompt,
   config: {
     safetySettings: [
@@ -878,26 +883,27 @@ console.log("Finish reason:", response.candidates[0].finishReason);
 console.log("Safety ratings:", response.candidates[0].safetyRatings);
 ```
 
-## Không đồng bộ
+## 非同期
 
-**Trước**
+**変更前**
 
 ### Python
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content_async(
     'tell me a story in 100 words'
 )
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-Để sử dụng SDK mới với `asyncio`, bạn cần triển khai riêng `async` cho từng phương thức trong `client.aio`.
+新しい SDK を `asyncio` で使用するには、`async`
+実装が `client.aio` の下に各メソッドに個別にあります。
 
 ```
 from google import genai
@@ -905,23 +911,23 @@ from google import genai
 client = genai.Client()
 
 response = await client.aio.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents='Tell me a story in 300 words.'
 )
 ```
 
-## Trò chuyện
+## チャット
 
-Bắt đầu trò chuyện và gửi tin nhắn cho mô hình:
+チャットを開始して、モデルにメッセージを送信します。
 
-**Trước**
+**変更前**
 
 ### Python
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 chat = model.start_chat()
 
 response = chat.send_message(
@@ -936,7 +942,7 @@ response = chat.send_message(
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
-const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
 const chat = model.startChat({
   history: [
     {
@@ -965,7 +971,7 @@ if err != nil {
 }
 defer client.Close()
 
-model := client.GenerativeModel("gemini-2.0-flash")
+model := client.GenerativeModel("gemini-3.5-flash")
 cs := model.StartChat()
 
 cs.History = []*genai.Content{
@@ -990,7 +996,7 @@ if err != nil {
 printResponse(res) // utility for printing the response
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -999,7 +1005,7 @@ from google import genai
 
 client = genai.Client()
 
-chat = client.chats.create(model='gemini-2.0-flash')
+chat = client.chats.create(model='gemini-3.5-flash')
 
 response = chat.send_message(
     message='Tell me a story in 100 words')
@@ -1014,7 +1020,7 @@ import {GoogleGenAI} from '@google/genai';
 
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 const chat = ai.chats.create({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   history: [
     {
       role: "user",
@@ -1047,7 +1053,7 @@ if err != nil {
     log.Fatal(err)
 }
 
-chat, err := client.Chats.Create(ctx, "gemini-2.0-flash", nil, nil)
+chat, err := client.Chats.Create(ctx, "gemini-3.5-flash", nil, nil)
 if err != nil {
     log.Fatal(err)
 }
@@ -1065,9 +1071,9 @@ if err != nil {
 debugPrint(result) // utility for printing result
 ```
 
-## Gọi hàm
+## 関数呼び出し
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1086,7 +1092,7 @@ def get_current_weather(location: str) -> str:
     return "23C"
 
 model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash",
+    model_name="gemini-3.5-flash",
     tools=[get_current_weather]
 )
 
@@ -1094,11 +1100,11 @@ response = model.generate_content("What is the weather in San Francisco?")
 function_call = response.candidates[0].parts[0].function_call
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-Trong SDK mới, lệnh gọi hàm tự động là chế độ mặc định. Tại đây, bạn có thể tắt tính năng này.
+新しい SDK では、自動関数呼び出しがデフォルトです。ここでは、無効にします。
 
 ```
 from google import genai
@@ -1117,7 +1123,7 @@ def get_current_weather(location: str) -> str:
     return "23C"
 
 response = client.models.generate_content(
-  model='gemini-2.0-flash',
+  model='gemini-3.5-flash',
   contents="What is the weather like in Boston?",
   config=types.GenerateContentConfig(
       tools=[get_current_weather],
@@ -1128,13 +1134,13 @@ response = client.models.generate_content(
 function_call = response.candidates[0].content.parts[0].function_call
 ```
 
-### Tự động gọi hàm
+### 自動関数呼び出し
 
-**Trước**
+**変更前**
 
 ### Python
 
-SDK cũ chỉ hỗ trợ chức năng gọi tự động trong cuộc trò chuyện. Trong SDK mới, đây là hành vi mặc định trong `generate_content`.
+以前の SDK では、チャットでの自動関数呼び出しのみがサポートされていました。新しい SDK では、`generate_content` でこれがデフォルトの動作です。
 
 ```
 import google.generativeai as genai
@@ -1143,7 +1149,7 @@ def get_current_weather(city: str) -> str:
     return "23C"
 
 model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash",
+    model_name="gemini-3.5-flash",
     tools=[get_current_weather]
 )
 
@@ -1152,7 +1158,7 @@ chat = model.start_chat(
 result = chat.send_message("What is the weather in San Francisco?")
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1165,7 +1171,7 @@ def get_current_weather(city: str) -> str:
     return "23C"
 
 response = client.models.generate_content(
-  model='gemini-2.0-flash',
+  model='gemini-3.5-flash',
   contents="What is the weather like in Boston?",
   config=types.GenerateContentConfig(
       tools=[get_current_weather]
@@ -1173,11 +1179,11 @@ response = client.models.generate_content(
 )
 ```
 
-## Thực thi mã
+## コードの実行
 
-Thực thi mã là một công cụ cho phép mô hình tạo mã Python, kích hoạt mã đó và trả về kết quả.
+コード実行は、モデルが Python コードを生成して実行し、結果を返すことができるツールです。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1185,7 +1191,7 @@ Thực thi mã là một công cụ cho phép mô hình tạo mã Python, kích 
 import google.generativeai as genai
 
 model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash",
+    model_name="gemini-3.5-flash",
     tools="code_execution"
 )
 
@@ -1201,7 +1207,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   tools: [{ codeExecution: {} }],
 });
 
@@ -1214,7 +1220,7 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1225,7 +1231,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents='What is the sum of the first 50 prime numbers? Generate and run '
             'code for the calculation, and make sure you get all 50.',
     config=types.GenerateContentConfig(
@@ -1242,7 +1248,7 @@ import {GoogleGenAI} from '@google/genai';
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 
 const response = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: `Write and execute code that calculates the sum of the first 50 prime numbers.
             Ensure that only the executable code and its resulting output are generated.`,
 });
@@ -1258,25 +1264,27 @@ console.log("-".repeat(80));
 console.log("\n", response.text);
 ```
 
-## Tìm trong phần liên kết thực tế
+## 検索によるグラウンディング
 
-`GoogleSearch` (Gemini>=2.0) và `GoogleSearchRetrieval` (Gemini < 2.0) là những công cụ cho phép mô hình truy xuất dữ liệu công khai trên web để làm cơ sở, do Google cung cấp.
+`GoogleSearch`（Gemini>=2.0）と `GoogleSearchRetrieval`（Gemini < 2.0）は
+Google を利用して、モデルがグラウンディング用の一般公開ウェブデータを取得できるようにする
+ツールです。
 
-**Trước**
+**変更前**
 
 ### Python
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content(
     contents="what is the Google stock price?",
     tools='google_search_retrieval'
 )
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1287,7 +1295,7 @@ from google.genai import types
 client = genai.Client()
 
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents='What is the Google stock price?',
     config=types.GenerateContentConfig(
         tools=[
@@ -1299,15 +1307,17 @@ response = client.models.generate_content(
 )
 ```
 
-## Nội dung phản hồi JSON
+## JSON レスポンス
 
-Tạo câu trả lời ở định dạng JSON.
+JSON 形式で回答を生成します。
 
-**Trước**
+**変更前**
 
 ### Python
 
-Bằng cách chỉ định một `response_schema` và đặt `response_mime_type="application/json"`, người dùng có thể hạn chế mô hình tạo ra một phản hồi `JSON` theo một cấu trúc nhất định.
+`response_schema` を指定して
+`response_mime_type="application/json"` を設定することで、ユーザーはモデルが
+`JSON` レスポンスを生成するように制約できます。
 
 ```
 import google.generativeai as genai
@@ -1323,7 +1333,7 @@ class CountryInfo(typing.TypedDict):
     official_language: str
     total_area_sq_mi: int
 
-model = genai.GenerativeModel(model_name="gemini-2.0-flash")
+model = genai.GenerativeModel(model_name="gemini-3.5-flash")
 result = model.generate_content(
     "Give me information of the United States",
     generation_config=genai.GenerationConfig(
@@ -1357,7 +1367,7 @@ const schema = {
 };
 
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   generationConfig: {
     responseMimeType: "application/json",
     responseSchema: schema,
@@ -1370,11 +1380,11 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
-SDK mới sử dụng các lớp `pydantic` để cung cấp giản đồ (mặc dù bạn có thể truyền `genai.types.Schema` hoặc `dict` tương đương). Khi có thể, SDK sẽ phân tích cú pháp JSON được trả về và trả về kết quả trong `response.parsed`. Nếu bạn cung cấp một lớp `pydantic` làm giản đồ, SDK sẽ chuyển đổi `JSON` đó thành một thực thể của lớp.
+新しい SDK では、`pydantic` クラスを使用してスキーマを提供します（`genai.types.Schema` または同等の `dict` を渡すこともできます）。可能であれば、SDK は返された JSON を解析し、結果を `response.parsed` で返します。スキーマとして `pydantic` クラスを指定した場合、SDK はその `JSON` をクラスのインスタンスに変換します。
 
 ```
 from google import genai
@@ -1393,7 +1403,7 @@ class CountryInfo(BaseModel):
     total_area_sq_mi: int
 
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents='Give me information of the United States.',
     config={
         'response_mime_type': 'application/json',
@@ -1411,7 +1421,7 @@ import {GoogleGenAI} from '@google/genai';
 
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 const response = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: "List a few popular cookie recipes.",
   config: {
     responseMimeType: "application/json",
@@ -1431,13 +1441,13 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-## Tệp
+## ファイル
 
-### Tải lên
+### アップロード
 
-Tải tệp lên:
+ファイルをアップロードします。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1453,7 +1463,7 @@ pathlib.Path('a11.txt').write_text(response.text)
 
 file = genai.upload_file(path='a11.txt')
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.generate_content([
     'Can you summarize this file:',
     my_file
@@ -1461,7 +1471,7 @@ response = model.generate_content([
 print(response.text)
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1480,7 +1490,7 @@ pathlib.Path('a11.txt').write_text(response.text)
 my_file = client.files.upload(file='a11.txt')
 
 response = client.models.generate_content(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents=[
         'Can you summarize this file:',
         my_file
@@ -1489,11 +1499,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Liệt kê và nhận
+### 一覧表示と取得
 
-Liệt kê các tệp đã tải lên và nhận một tệp đã tải lên có tên tệp:
+アップロードしたファイルの一覧を表示し、ファイル名でアップロードしたファイルを取得します。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1506,7 +1516,7 @@ for file in genai.list_files():
 file = genai.get_file(name=file.name)
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1520,11 +1530,11 @@ for file in client.files.list():
 file = client.files.get(name=file.name)
 ```
 
-### Xoá
+### 削除
 
-Xoá tệp:
+ファイルを削除します。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1538,7 +1548,7 @@ dummy_file = genai.upload_file(path='dummy.txt')
 file = genai.delete_file(name=dummy_file.name)
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1554,11 +1564,11 @@ dummy_file = client.files.upload(file='dummy.txt')
 response = client.files.delete(name=dummy_file.name)
 ```
 
-## Lưu ngữ cảnh vào bộ nhớ đệm
+## コンテキストのキャッシュ保存
 
-Tính năng lưu nội dung vào bộ nhớ đệm theo ngữ cảnh cho phép người dùng truyền nội dung đến mô hình một lần, lưu các mã thông báo đầu vào vào bộ nhớ đệm, sau đó tham chiếu đến các mã thông báo đã lưu vào bộ nhớ đệm trong các lệnh gọi tiếp theo để giảm chi phí.
+コンテキストのキャッシュ保存を使用すると、コンテンツをモデルに 1 回渡して入力トークンをキャッシュに保存し、後続の呼び出しでキャッシュに保存されたトークンを参照してコストを削減できます。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1578,7 +1588,7 @@ document = genai.upload_file(path="a11.txt")
 
 # Create cache
 apollo_cache = caching.CachedContent.create(
-    model="gemini-2.0-flash-001",
+    model="gemini-3.5-flash",
     system_instruction="You are an expert at analyzing transcripts.",
     contents=[document],
 )
@@ -1604,7 +1614,7 @@ const uploadResult = await fileManager.uploadFile("path/to/a11.txt", {
 });
 
 const cacheResult = await cacheManager.create({
-  model: "models/gemini-2.0-flash",
+  model: "models/gemini-3.5-flash",
   contents: [
     {
       role: "user",
@@ -1630,7 +1640,7 @@ const result = await model.generateContent(
 console.log(result.response.text());
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1658,7 +1668,7 @@ pathlib.Path('a11.txt').write_text(response.text)
 document = client.files.upload(file='a11.txt')
 
 # Create cache
-model='gemini-2.0-flash-001'
+model='gemini-3.5-flash'
 apollo_cache = client.caches.create(
       model=model,
       config={
@@ -1689,7 +1699,7 @@ const document = await ai.files.upload({
   config: { mimeType: "text/plain" },
 });
 console.log("Uploaded file name:", document.name);
-const modelName = "gemini-2.0-flash";
+const modelName = "gemini-3.5-flash";
 
 const contents = [
   createUserContent(createPartFromUri(document.uri, document.mimeType)),
@@ -1712,18 +1722,18 @@ const response = await ai.models.generateContent({
 console.log("Response text:", response.text);
 ```
 
-## Đếm mã thông báo
+## トークンのカウント
 
-Đếm số lượng mã thông báo trong một yêu cầu.
+リクエスト内のトークン数をカウントします。
 
-**Trước**
+**変更前**
 
 ### Python
 
 ```
 import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-2.0-flash')
+model = genai.GenerativeModel('gemini-3.5-flash')
 response = model.count_tokens(
     'The quick brown fox jumps over the lazy dog.')
 ```
@@ -1735,7 +1745,7 @@ response = model.count_tokens(
 
  const genAI = new GoogleGenerativeAI("GEMINI_API_KEY");
  const model = genAI.getGenerativeModel({
-   model: "gemini-2.0-flash",
+   model: "gemini-3.5-flash",
  });
 
  // Count tokens in a prompt without calling text generation.
@@ -1758,7 +1768,7 @@ response = model.count_tokens(
  // { promptTokenCount: 11, candidatesTokenCount: 124, totalTokenCount: 135 }
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1768,7 +1778,7 @@ from google import genai
 client = genai.Client()
 
 response = client.models.count_tokens(
-    model='gemini-2.0-flash',
+    model='gemini-3.5-flash',
     contents='The quick brown fox jumps over the lazy dog.',
 )
 ```
@@ -1781,23 +1791,23 @@ import {GoogleGenAI} from '@google/genai';
 const ai = new GoogleGenAI({ apiKey: "GEMINI_API_KEY" });
 const prompt = "The quick brown fox jumps over the lazy dog.";
 const countTokensResponse = await ai.models.countTokens({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: prompt,
 });
 console.log(countTokensResponse.totalTokens);
 
 const generateResponse = await ai.models.generateContent({
-  model: "gemini-2.0-flash",
+  model: "gemini-3.5-flash",
   contents: prompt,
 });
 console.log(generateResponse.usageMetadata);
 ```
 
-## Tạo hình ảnh
+## 画像を生成
 
-Tạo hình ảnh:
+画像を生成します。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1816,7 +1826,7 @@ gen_images = imagen.generate_images(
 )
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1841,11 +1851,11 @@ for n, image in enumerate(gen_images.generated_images):
         image.image.image_bytes)
 ```
 
-## Nhúng nội dung
+## コンテンツの埋め込み
 
-Tạo vectơ nhúng nội dung.
+コンテンツ エンベディングを生成します。
 
-**Trước**
+**変更前**
 
 ### Python
 
@@ -1873,7 +1883,7 @@ const result = await model.embedContent("Hello world!");
 console.log(result.embedding);
 ```
 
-**Sau**
+**変更後**
 
 ### Python
 
@@ -1903,12 +1913,12 @@ const result = await ai.models.embedContent({
 console.log(result.embeddings);
 ```
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-05-13 UTC.
+最終更新日 2026-06-01 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-13 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-01 UTC。"],[],[]]

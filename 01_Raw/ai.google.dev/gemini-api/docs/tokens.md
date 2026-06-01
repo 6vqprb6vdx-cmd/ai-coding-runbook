@@ -1,68 +1,72 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=pt-BR
-fetched_at: 2026-05-25T13:04:17.453834+00:00
-title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=th
+fetched_at: 2026-06-01T19:45:02.245079+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Envie comentários
+ส่งความคิดเห็น
 
-# Entender e contar tokens
+# ทำความเข้าใจและนับโทเค็น
 
-O Gemini e outros modelos de IA generativa processam entradas e saídas em uma granularidade chamada *token*.
+Gemini และโมเดล Generative AI อื่นๆ จะประมวลผลอินพุตและเอาต์พุตในระดับความละเอียดที่เรียกว่า *โทเค็น*
 
-**Para modelos do Gemini, um token equivale a cerca de quatro caracteres.
-100 tokens equivalem a cerca de 60 a 80 palavras em inglês.**
+**สำหรับโมเดล Gemini โทเค็น 1 รายการจะเทียบเท่ากับอักขระประมาณ 4 ตัว
+และโทเค็น 100 รายการจะเทียบเท่ากับคำภาษาอังกฤษประมาณ 60-80 คำ**
 
-## Sobre tokens
+## เกี่ยวกับโทเค็น
 
-Os tokens podem ser caracteres únicos, como `z`, ou palavras inteiras, como `cat`. Palavras longas são divididas em vários tokens. O conjunto de todos os tokens usados pelo modelo é chamado de vocabulário, e o processo de dividir o texto em tokens é chamado de *tokenização*.
+โทเค็นอาจเป็นอักขระเดียว เช่น `z` หรือคำทั้งคำ เช่น `cat` โดยคำยาวๆ จะถูกแบ่งออกเป็นโทเค็นหลายรายการ ชุดโทเค็นทั้งหมดที่โมเดลใช้เรียกว่าคำศัพท์ และกระบวนการแยกข้อความออกเป็นโทเค็นเรียกว่า *การทำโทเค็น*
 
-Quando o faturamento está ativado, o [custo de uma chamada para a API Gemini](https://ai.google.dev/pricing?hl=pt-br) é determinado em parte pelo número de tokens de entrada e saída. Por isso, saber como contar tokens pode ser útil.
+เมื่อเปิดใช้การเรียกเก็บเงิน ระบบจะกำหนด[ต้นทุนของการเรียกใช้ Gemini API](https://ai.google.dev/pricing?hl=th) โดย
+พิจารณาจากจำนวนโทเค็นอินพุตและเอาต์พุตเป็นส่วนหนึ่ง ดังนั้นการรู้วิธี
+นับโทเค็นจึงอาจเป็นประโยชน์
 
-Você pode testar a contagem de tokens no nosso Colab.
+คุณลองนับโทเค็นใน Colab ของเราได้
 
 |  |  |  |
 | --- | --- | --- |
-| [Ver em ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | [Testar um notebook do Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=pt-br) | [Conferir o notebook no GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=pt-br) |
+| [ดูใน ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | [ลองใช้ Colab Notebook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=th) | [ดู Notebook ใน GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=th) |
 
-## Contar tokens
+## นับโทเค็น
 
-Todas as entradas e saídas da API Gemini são tokenizadas, incluindo texto, arquivos de imagem e outras modalidades que não são de texto.
+ระบบจะทำโทเค็นอินพุตและเอาต์พุตทั้งหมดของ Gemini API ซึ่งรวมถึงข้อความ ไฟล์รูปภาพ และโมดัลอื่นๆ ที่ไม่ใช่ข้อความ
 
-É possível contar tokens das seguintes maneiras:
+คุณนับโทเค็นได้ด้วยวิธีต่อไปนี้
 
-- **Chame [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=pt-br) com a entrada da solicitação.**  
-   Isso retorna o número total de tokens *apenas na entrada*. Você pode fazer essa chamada antes de enviar a entrada para o modelo e verificar o tamanho das solicitações.
-- **Use o atributo `usage_metadata` no objeto `response` depois de
-  chamar `generate_content`.**  
-   Isso retorna o número total de tokens em *entrada e saída*: `total_token_count`.  
-   Ele
-  também retorna as contagens de tokens da entrada e da saída separadamente: `prompt_token_count` (tokens de entrada) e `candidates_token_count`
-  (tokens de saída).
+- **เรียกใช้ [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=th) ด้วยอินพุต
+  ของคำขอ**  
+   ซึ่งจะแสดงผลจำนวนโทเค็นทั้งหมดใน *อินพุตเท่านั้น* คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนส่งอินพุตไปยังโมเดลเพื่อตรวจสอบขนาดของคำขอ
+- **ใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` หลังจาก
+  เรียกใช้ `generate_content`**  
+   ซึ่งจะแสดงผลจำนวนโทเค็นทั้งหมดใน
+  *ทั้งอินพุตและเอาต์พุต*: `total_token_count`.  
+   นอกจากนี้ยังแสดงผลจำนวนโทเค็นของอินพุตและเอาต์พุตแยกกันด้วย ได้แก่ `prompt_token_count` (โทเค็นอินพุต) และ `candidates_token_count` (โทเค็นเอาต์พุต)
 
-  Se você estiver usando um [modelo de raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br), os tokens usados durante o processo de raciocínio serão retornados em `thoughts_token_count`. Se você estiver usando o [armazenamento em cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br), a contagem de tokens armazenados em cache estará em `cached_content_token_count`.
+  หากคุณใช้โมเดล[การคิด
+  ระบบจะแสดงผลโทเค็นที่ใช้ระหว่างกระบวนการคิด
+  ใน `thoughts_token_count`](https://ai.google.dev/gemini-api/docs/thinking?hl=th) และหากคุณใช้
+  [การแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th) จำนวนโทเค็นที่แคชไว้จะอยู่ใน `cached_content_token_count`
 
-### Contar tokens de texto
+### นับโทเค็นข้อความ
 
-Se você chamar `count_tokens` com uma entrada somente de texto, ele vai retornar a contagem de tokens do texto *apenas na entrada* (`total_tokens`). É possível fazer essa chamada antes de chamar `generate_content` para verificar o tamanho das solicitações.
+หากคุณเรียกใช้ `count_tokens` ด้วยอินพุตที่เป็นข้อความเท่านั้น ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นของข้อความใน *อินพุตเท่านั้น* (`total_tokens`) คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนเรียกใช้ `generate_content` เพื่อตรวจสอบขนาดของคำขอ
 
-Outra opção é chamar `generate_content` e usar o atributo `usage_metadata`
-no objeto `response` para receber o seguinte:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `generate_content` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- As contagens de tokens separadas da entrada (`prompt_token_count`), do conteúdo em cache (`cached_content_token_count`) e da saída (`candidates_token_count`).
-- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
-- O número total de tokens *na entrada e na saída*
-  (`total_token_count`)
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
 ### Python
 
@@ -137,21 +141,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Contar tokens multiturno (chat)
+### นับโทเค็นแบบหลายรอบ (แชท)
 
-Se você chamar `count_tokens` com o histórico de chat, ele vai retornar a contagem total de tokens do texto de cada função no chat (`total_tokens`).
+หากคุณเรียกใช้ `count_tokens` ด้วยประวัติการแชท ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นทั้งหมดของข้อความจากแต่ละบทบาทในการแชท (`total_tokens`)
 
-Outra opção é chamar `send_message` e usar o atributo `usage_metadata`
-no objeto `response` para receber o seguinte:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `send_message` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- As contagens separadas de tokens da entrada (`prompt_token_count`), do conteúdo
-  em cache (`cached_content_token_count`) e da saída
-  (`candidates_token_count`)
-- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
-- O número total de tokens *na entrada e na saída*
-  (`total_token_count`)
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
-Para entender o tamanho da sua próxima conversa, adicione-a ao histórico ao chamar `count_tokens`.
+หากต้องการทราบขนาดของรอบการสนทนาถัดไป คุณต้องเพิ่มรอบการสนทนาถัดไปลงในประวัติเมื่อเรียกใช้ `count_tokens`
 
 ### Python
 
@@ -277,37 +277,32 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Contar tokens multimodais
+### นับโทเค็นแบบหลายโมดัล
 
-Todas as entradas da API Gemini são tokenizadas, incluindo texto, arquivos de imagem e outras modalidades não textuais. Confira os principais pontos sobre a tokenização de entradas multimodais durante o processamento pela API Gemini:
+ระบบจะทำโทเค็นอินพุตทั้งหมดของ Gemini API ซึ่งรวมถึงข้อความ ไฟล์รูปภาพ และโมดัลอื่นๆ ที่ไม่ใช่ข้อความ โปรดทราบประเด็นสำคัญระดับสูงต่อไปนี้เกี่ยวกับการทำโทเค็นอินพุตแบบหลายโมดัลระหว่างการประมวลผลโดย Gemini API
 
-- Entradas de imagem com ambas as dimensões <=384 pixels são contadas como
-  258 tokens. Imagens maiores em uma ou ambas as dimensões são cortadas e dimensionadas conforme
-  necessário em blocos de 768 x 768 pixels, cada um contado como 258 tokens.
-- Os arquivos de vídeo e áudio são convertidos em tokens nas seguintes taxas fixas: vídeo a 263 tokens por segundo e áudio a 32 tokens por segundo.
+- ระบบจะนับอินพุตรูปภาพที่มีขนาดทั้ง 2 ด้าน <=384 พิกเซลเป็น 258 โทเค็น ส่วนรูปภาพที่มีขนาดใหญ่กว่าในด้านใดด้านหนึ่งหรือทั้ง 2 ด้าน ระบบจะครอบตัดและปรับขนาดตามความจำเป็นให้เป็นไทล์ขนาด 768x768 พิกเซล โดยจะนับแต่ละไทล์เป็น 258 โทเค็น
+- ระบบจะแปลงไฟล์วิดีโอและเสียงเป็นโทเค็นในอัตราคงที่ต่อไปนี้ วิดีโอที่ 263 โทเค็นต่อวินาที และเสียงที่ 32 โทเค็นต่อวินาที
 
-#### Resoluções de mídia
+#### ความละเอียดของสื่อ
 
-Os [modelos do Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3) introduzem um controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. O parâmetro
-`media_resolution` determina o
-**número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
-Resoluções mais altas melhoram a capacidade do modelo de ler textos pequenos ou identificar detalhes, mas aumentam o uso de tokens e a latência.
+[โมเดล Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-3) มีการควบคุมแบบละเอียดเกี่ยวกับการประมวลผลวิชันซิสเต็มแบบหลายโมดัลด้วยพารามิเตอร์ `media_resolution` พารามิเตอร์ `media_resolution` จะกำหนด**จำนวนโทเค็นสูงสุดที่จัดสรรต่อรูปภาพอินพุตหรือเฟรมวิดีโอ**
+ความละเอียดที่สูงขึ้นจะช่วยเพิ่มความสามารถของโมเดลในการอ่านข้อความขนาดเล็กหรือระบุรายละเอียดเล็กๆ แต่จะเพิ่มการใช้โทเค็นและเวลาในการตอบสนอง
 
-Para mais detalhes sobre o parâmetro e como ele pode afetar os cálculos de token, consulte o guia de [resolução de mídia](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br).
+ดูรายละเอียดเพิ่มเติมเกี่ยวกับพารามิเตอร์และวิธีที่พารามิเตอร์นี้อาจส่งผลต่อการคำนวณโทเค็นได้ที่
+คู่มือ[ความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/media-resolution?hl=th)
 
-#### Arquivos de imagem
+#### ไฟล์ภาพ
 
-Se você chamar `count_tokens` com uma entrada de texto e imagem, ele vai retornar a contagem combinada de tokens do texto e da imagem *apenas na entrada* (`total_tokens`). Você pode fazer essa chamada antes de chamar `generate_content` para verificar o tamanho das suas solicitações. Você também pode chamar `count_tokens` no texto e no arquivo separadamente.
+หากคุณเรียกใช้ `count_tokens` ด้วยอินพุตที่เป็นข้อความและรูปภาพ ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นรวมของข้อความและรูปภาพใน *อินพุตเท่านั้น* (`total_tokens`) คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนเรียกใช้ `generate_content` เพื่อตรวจสอบขนาดของคำขอ นอกจากนี้ คุณยังเรียกใช้ `count_tokens` กับข้อความและไฟล์แยกกันได้ด้วย
 
-Outra opção é chamar `generate_content` e usar o atributo `usage_metadata`
-no objeto `response` para receber o seguinte:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `generate_content` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- As contagens de tokens separadas da entrada (`prompt_token_count`), do conteúdo em cache (`cached_content_token_count`) e da saída (`candidates_token_count`).
-- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
-- O número total de tokens *na entrada e na saída*
-  (`total_token_count`)
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
-Exemplo que usa uma imagem enviada da API File:
+ตัวอย่างที่ใช้รูปภาพที่อัปโหลดจาก File API
 
 ### Python
 
@@ -407,7 +402,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Exemplo que fornece a imagem como dados inline:
+ตัวอย่างที่แสดงรูปภาพเป็นข้อมูลแบบอินไลน์
 
 ### Python
 
@@ -504,21 +499,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### Arquivos de vídeo ou áudio
+#### ไฟล์วิดีโอหรือเสียง
 
-O áudio e o vídeo são convertidos em tokens nas seguintes taxas fixas:
+ระบบจะแปลงเสียงและวิดีโอแต่ละรายการเป็นโทเค็นในอัตราคงที่ต่อไปนี้
 
-- Vídeo: 263 tokens por segundo
-- Áudio: 32 tokens por segundo
+- วิดีโอ: 263 โทเค็นต่อวินาที
+- เสียง: 32 โทเค็นต่อวินาที
 
-Se você chamar `count_tokens` com uma entrada de texto e vídeo/áudio, ele vai retornar a contagem combinada de tokens do texto e do arquivo de vídeo/áudio *apenas na entrada* (`total_tokens`). Você pode fazer essa chamada antes de chamar `generate_content` para verificar o tamanho das suas solicitações. Também é possível chamar `count_tokens` no texto e no arquivo separadamente.
+หากคุณเรียกใช้ `count_tokens` ด้วยอินพุตที่เป็นข้อความและวิดีโอ/เสียง ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นรวมของข้อความและไฟล์วิดีโอ/เสียงใน *อินพุตเท่านั้น* (`total_tokens`) คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนเรียกใช้ `generate_content` เพื่อตรวจสอบขนาดของคำขอ นอกจากนี้ คุณยังเรียกใช้ `count_tokens` กับข้อความและไฟล์แยกกันได้ด้วย
 
-Outra opção é chamar `generate_content` e usar o atributo `usage_metadata`
-no objeto `response` para receber o seguinte:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `generate_content` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- As contagens de tokens separadas da entrada (`prompt_token_count`), do conteúdo em cache (`cached_content_token_count`) e da saída (`candidates_token_count`).
-- A contagem de tokens para o processo de raciocínio (`thoughts_token_count`)
-- O número total de tokens *na entrada e na saída* (`total_token_count`).
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
 ### Python
 
@@ -643,9 +637,11 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-## Janelas de contexto
+## หน้าต่างบริบท
 
-Os modelos disponíveis na API Gemini têm janelas de contexto medidas em tokens. A janela de contexto define a quantidade de entrada que você pode fornecer e a quantidade de saída que o modelo pode gerar. Para determinar o tamanho da janela de contexto, chame o [endpoint `models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=pt-br) ou consulte a [documentação de modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
+โมเดลที่พร้อมใช้งานผ่าน Gemini API มีหน้าต่างบริบทที่วัดเป็นโทเค็น หน้าต่างบริบทจะกำหนดปริมาณอินพุตที่คุณระบุได้และปริมาณเอาต์พุตที่โมเดลสร้างได้ คุณสามารถกำหนดขนาดของ
+หน้าต่างบริบทได้โดยการเรียกใช้ปลายทาง [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=th)
+หรือดูใน[เอกสารประกอบของโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
 
 ### Python
 
@@ -690,12 +686,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Envie comentários
+ส่งความคิดเห็น
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última atualização 2026-05-19 UTC.
+อัปเดตล่าสุด 2026-06-01 UTC
 
-Quer enviar seu feedback?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]

@@ -1,38 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/quickstart?hl=he
-fetched_at: 2026-05-25T13:02:02.722332+00:00
-title: "\u05d4\u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05de\u05ea\u05d7\u05d9\u05dc\u05d9\u05dd \u05e9\u05dc Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/quickstart?hl=id
+fetched_at: 2026-06-01T19:47:42.456581+00:00
+title: "Panduan memulai Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-# המדריך למתחילים של Gemini API
+# Panduan memulai Gemini API
 
-במדריך למתחילים הזה מוסבר איך להתקין את [הספריות](https://ai.google.dev/gemini-api/docs/libraries?hl=he) שלנו, לשלוח את הבקשה הראשונה, להזרים תשובות, ליצור שיחות מרובות שלבים ולהשתמש בכלים באמצעות השיטה הרגילה `generateContent`.
+Panduan memulai ini menunjukkan cara menginstal
+[library](https://ai.google.dev/gemini-api/docs/libraries?hl=id) kami dan membuat permintaan pertama, melakukan streaming
+respons, membuat percakapan multi-giliran, dan menggunakan alat menggunakan metode standar
+`generateContent`.
 
-## לפני שמתחילים
+## Sebelum memulai
 
-כדי להשתמש ב-Gemini API, צריך מפתח API לאימות הבקשות, לאכיפת מגבלות אבטחה ולמעקב אחר השימוש בחשבון.
+Untuk menggunakan Gemini API, Anda harus memiliki kunci API untuk mengautentikasi permintaan, menerapkan batas keamanan, dan melacak penggunaan ke akun Anda.
 
-כדי להתחיל, אפשר ליצור אחד ב-AI Studio בחינם:
+Buat satu di AI Studio secara gratis untuk memulai:
 
-[יצירת מפתח Gemini API](https://aistudio.google.com/app/apikey?hl=he)
+[Membuat Kunci Gemini API](https://aistudio.google.com/app/apikey?hl=id)
 
-## התקנה של Google GenAI SDK
+## Menginstal Google GenAI SDK
 
 ### Python
 
-באמצעות [Python 3.9 ואילך](https://www.python.org/downloads/), מתקינים את [החבילה `google-genai`](https://pypi.org/project/google-genai/) באמצעות [פקודת pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) הבאה:
+Dengan menggunakan [Python 3.9+](https://www.python.org/downloads/), instal paket
+[`google-genai` menggunakan](https://pypi.org/project/google-genai/)
+perintah
+[pip berikut](https://packaging.python.org/en/latest/tutorials/installing-packages/):
 
 ```
 pip install -q -U google-genai
@@ -40,15 +46,20 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-באמצעות [Node.js v18+‎](https://nodejs.org/en/download/package-manager), מתקינים את [Google Gen AI SDK ל-TypeScript ול-JavaScript](https://www.npmjs.com/package/@google/genai) באמצעות [פקודת npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) הבאה:
+Dengan menggunakan [Node.js v18+](https://nodejs.org/en/download/package-manager),
+instal
+[Google Gen AI SDK untuk TypeScript dan JavaScript](https://www.npmjs.com/package/@google/genai)
+menggunakan
+[perintah npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) berikut:
 
 ```
 npm install @google/genai
 ```
 
-## יצירת טקסט
+## Membuat teks
 
-משתמשים ב-`models.generate_content` method כדי [ליצור תשובת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he).
+Gunakan metode `models.generate_content` untuk
+[membuat respons teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id).
 
 ### Python
 
@@ -104,9 +115,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## הצגת התשובות באופן שוטף
+## Melakukan streaming respons
 
-כברירת מחדל, המודל מחזיר תשובה רק אחרי שתהליך היצירה כולו מסתיים. כדי לקבל חוויה מהירה ואינטראקטיבית יותר, אתם יכולים [להזרים את התשובה](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#stream) בחלקים בזמן שהיא נוצרת.
+Secara default, model hanya menampilkan respons setelah seluruh proses pembuatan selesai. Untuk pengalaman yang lebih cepat dan interaktif, Anda dapat
+[melakukan streaming potongan respons](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#stream) saat
+dibuat.
 
 ### Python
 
@@ -158,11 +171,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:s
   }'
 ```
 
-## שיחות עם זיכרון
+## Percakapan multi-giliran
 
-בשיחות עם זיכרון, ערכות ה-SDK מספקות `chats`עזר עם שמירת מצב
-כדי ליצור [חוויית שיחה עם זיכרון](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#chat)
-שמנהלת אוטומטית את היסטוריית השיחות.
+Untuk percakapan multi-giliran, SDK menyediakan helper `chats` stateful untuk
+membuat [pengalaman chat multi-giliran](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#chat)
+yang otomatis mengelola histori percakapan.
 
 ### Python
 
@@ -218,9 +231,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## שימוש בכלים
+## Menggunakan alat
 
-להרחיב את היכולות של המודל על ידי [הצגת תשובות שמבוססות על חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) כדי לגשת לתוכן אינטרנט בזמן אמת. המודל מחליט באופן אוטומטי מתי לבצע חיפוש, מריץ שאילתות ומנסח תשובה.
+Perluas kemampuan model dengan
+[melakukan grounding respons dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+untuk mengakses konten web real-time. Model secara otomatis menentukan kapan harus menelusuri, menjalankan kueri, dan mensintesis respons.
 
 ### Python
 
@@ -307,20 +322,27 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-‫Gemini API תומך גם בכלים מובנים אחרים:
+Gemini API juga mendukung alat bawaan lainnya:
 
-- **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**:
-  מאפשרת למודל לכתוב ולהריץ קוד Python כדי לפתור בעיות מתמטיות מורכבות.
-- **[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he)**: מאפשר להשתמש בכתובות URL ספציפיות של דפי אינטרנט שאתם מספקים כדי להנחות את התשובות.
-- **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**: מאפשר להעלות קבצים ולבסס את התשובות על התוכן שלהם באמצעות חיפוש סמנטי.
-- **[מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)**: מאפשרת להשתמש בנתוני מיקום כדי להציג תשובות מבוססות-מיקום ולחפש מקומות, מסלולים ומפות.
-- **[שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he)**: מאפשר למודל ליצור אינטראקציה עם מסך מחשב וירטואלי, מקלדת ועכבר כדי לבצע משימות.
+- **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**:
+  Memungkinkan model menulis dan menjalankan kode Python untuk memecahkan masalah matematika yang kompleks.
+- **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**: Memungkinkan Anda
+  melakukan grounding respons di URL halaman web tertentu yang Anda berikan.
+- **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**: Memungkinkan Anda
+  mengupload file dan melakukan grounding respons dalam kontennya menggunakan penelusuran semantik.
+- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**: Memungkinkan Anda
+  melakukan grounding respons dalam data lokasi dan menelusuri tempat, rute, dan
+  peta.
+- **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**: Memungkinkan
+  model berinteraksi dengan layar komputer virtual, keyboard, dan mouse untuk
+  melakukan tugas.
 
-## הפעלת פונקציות מותאמות אישית
+## Memanggil fungsi kustom
 
-משתמשים ב**[בקשות להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)** כדי לחבר מודלים לכלים ולממשקי API בהתאמה אישית. המודל קובע מתי להפעיל את הפונקציה ומחזיר `functionCall` בתשובה כדי שהאפליקציה תבצע אותה.
+Gunakan **[panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)** untuk menghubungkan
+model ke alat dan API kustom Anda. Model menentukan kapan harus memanggil fungsi Anda dan menampilkan `functionCall` dalam respons untuk dijalankan oleh aplikasi Anda.
 
-בדוגמה הזו מוגדרת פונקציית רמת אקראיות מדומה ונבדק אם המודל רוצה להפעיל אותה.
+Contoh ini mendeklarasikan fungsi suhu tiruan dan memeriksa apakah model ingin memanggilnya.
 
 ### Python
 
@@ -482,25 +504,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## המאמרים הבאים
+## Langkah berikutnya
 
-אחרי שהתחלתם להשתמש ב-Gemini API, כדאי לעיין במדריכים הבאים כדי ליצור אפליקציות מתקדמות יותר:
+Setelah Anda memulai Gemini API, pelajari panduan berikut untuk membuat aplikasi yang lebih canggih:
 
-- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he)
-- [יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)
-- [הבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he)
-- [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)
-- [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
-- [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he)
-- [הקשר רחב](https://ai.google.dev/gemini-api/docs/long-context?hl=he)
-- [הטמעות](https://ai.google.dev/gemini-api/docs/embeddings?hl=he)
+- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id)
+- [Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)
+- [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id)
+- [Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)
+- [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+- [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+- [Konteks panjang](https://ai.google.dev/gemini-api/docs/long-context?hl=id)
+- [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-עדכון אחרון: 2026-05-19 (שעון UTC).
+Terakhir diperbarui pada 2026-06-01 UTC.
 
-רוצה לתת לנו משוב?
+Ada masukan untuk kami?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-19 (שעון UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-01 UTC."],[],[]]

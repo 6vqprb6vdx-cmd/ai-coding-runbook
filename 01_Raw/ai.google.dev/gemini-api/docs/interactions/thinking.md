@@ -1,38 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ko
-fetched_at: 2026-05-25T13:05:19.986381+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=th
+fetched_at: 2026-06-01T19:44:45.620419+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-# Gemini가 생각 중
+# การคิดของ Gemini
 
-[Gemini 3 및 2.5 시리즈 모델](https://ai.google.dev/gemini-api/docs/models?hl=ko)은 추론 및 다단계 계획 수립 능력을 크게 향상시키는 '사고 과정'을 사용하므로 코딩, 고급 수학, 데이터 분석과 같은 복잡한 작업에 매우 효과적입니다.
+โมเดลในซีรีส์ [Gemini 3 และ 2.5](https://ai.google.dev/gemini-api/docs/models?hl=th) ใช้
+"กระบวนการคิด" ซึ่งช่วยปรับปรุงความสามารถในการใช้เหตุผลและการวางแผนหลายขั้นตอนได้อย่างมาก
+ทำให้โมเดลมีประสิทธิภาพสูงสำหรับงานที่ซับซ้อน เช่น
+การเขียนโค้ด คณิตศาสตร์ขั้นสูง และการวิเคราะห์ข้อมูล
 
-사고 모델을 사용하면 Gemini가 대답하기 전에 내부적으로 추론합니다. Interactions API는 `thought` 단계, 즉 `steps` 배열의 함수 호출, 사용자 입력 또는 모델 출력과 함께 시간순으로 표시되는 전용 단계를 통해 이 추론을 표시합니다.
+เมื่อคุณใช้โมเดลการคิด Gemini จะใช้เหตุผลภายในก่อนที่จะตอบ Interactions API จะแสดงเหตุผลนี้ผ่านขั้นตอน `thought` ซึ่งเป็นขั้นตอนเฉพาะที่ปรากฏตามลำดับเวลาควบคู่ไปกับการเรียกใช้ฟังก์ชัน อินพุตของผู้ใช้ หรือเอาต์พุตของโมเดลในอาร์เรย์ `steps`
 
-모든 사고 단계에는 다음 두 필드가 포함됩니다.
+ขั้นตอนการคิดแต่ละขั้นตอนจะมี 2 ช่อง ดังนี้
 
-| 필드 | 필수 | 설명 |
+| ช่อง | ต้องระบุ | คำอธิบาย |
 | --- | --- | --- |
-| `signature` | ✅ 예 | 모델의 내부 추론 상태의 암호화된 표현입니다. 모델이 최소한의 추론을 수행하는 경우에도 항상 표시됩니다. |
-| `summary` | ❌ 아니요 | 추론을 요약하는 콘텐츠 (텍스트 및/또는 이미지) 배열입니다. [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=ko) 구성, 모델이 충분한 추론을 수행했는지, 콘텐츠 유형에 따라 비어 있을 수 있습니다 (예: 이미지 잠재 변수에는 텍스트 요약이 없을 수 있음). |
+| `signature` | ✅ ใช่ | การแสดงการเข้ารหัสของสถานะการใช้เหตุผลภายในของโมเดล จะปรากฏอยู่เสมอ แม้ว่าโมเดลจะใช้เหตุผลเพียงเล็กน้อยก็ตาม |
+| `summary` | ❌ ไม่ | อาร์เรย์ของเนื้อหา (ข้อความและ/หรือรูปภาพ) ที่สรุปการใช้เหตุผล อาจว่างเปล่า ทั้งนี้ขึ้นอยู่กับการกำหนดค่า [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=th) โมเดลใช้การให้เหตุผลเพียงพอหรือไม่ หรือประเภทเนื้อหา (เช่น รูปภาพที่ซ่อนอยู่อาจไม่มีข้อมูลสรุปที่เป็นข้อความ) |
 
-## 생각과의 상호작용
+## การโต้ตอบกับการคิด
 
-사고 모델과의 상호작용을 시작하는 것은 다른 상호작용 요청과 유사합니다. `model` 필드에 [사고 지원 모델](#thinking-levels) 중 하나를 지정합니다.
+การเริ่มการโต้ตอบกับโมเดลการคิดจะคล้ายกับคำขอการโต้ตอบอื่นๆ ระบุหนึ่งใน [โมเดลที่รองรับการคิด](#thinking-levels) ในช่อง `model` ดังนี้
 
 ### Python
 
@@ -48,7 +51,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -75,10 +78,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 생각 요약
+## ข้อมูลสรุปการคิด
 
-사고 요약은 모델의 내부 추론 프로세스에 대한 인사이트를 제공합니다.
-기본적으로 최종 출력만 반환됩니다. `thinking_summaries`로 생각 요약을 사용 설정할 수 있습니다.
+ข้อมูลสรุปการคิดจะให้ข้อมูลเชิงลึกเกี่ยวกับกระบวนการให้เหตุผลภายในของโมเดล
+โดยค่าเริ่มต้น ระบบจะแสดงเฉพาะเอาต์พุตสุดท้าย คุณสามารถเปิดใช้ข้อมูลสรุปการคิดด้วย `thinking_summaries` ได้ดังนี้
 
 ### Python
 
@@ -111,7 +114,7 @@ for step in interaction.steps:
                 print()
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -161,23 +164,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-다음과 같은 경우 생각 블록에는 **요약이 없는 서명만** 포함될 수 있습니다.
+บล็อกการคิดอาจมี**เฉพาะลายเซ็นที่ไม่มีข้อมูลสรุป** ในกรณีต่อไปนี้
 
-- 모델이 요약을 생성할 만큼 충분히 추론하지 않은 간단한 요청
-- `thinking_summaries: "none"`: 요약이 명시적으로 사용 중지된 경우
-- 이미지와 같은 특정 생각 콘텐츠 유형에는 텍스트 요약이 없을 수 있습니다.
+- คำขออย่างง่ายที่โมเดลใช้เหตุผลไม่เพียงพอที่จะสร้างข้อมูลสรุป
+- `thinking_summaries: "none"` ซึ่งปิดใช้ข้อมูลสรุปอย่างชัดแจ้ง
+- เนื้อหาการคิดบางประเภท เช่น รูปภาพ อาจไม่มีข้อมูลสรุปที่เป็นข้อความ
 
-`summary`이 비어 있거나 없는 경우 코드는 항상 사고 블록을 처리해야 합니다.
+โค้ดของคุณควรจัดการบล็อกการคิดที่ `summary` ว่างเปล่าหรือไม่มีอยู่เสมอ
 
-## 사고를 포함한 스트리밍
+## การสตรีมพร้อมการคิด
 
-생성 중에 스트리밍을 사용하여 증분 생각 요약을 수신합니다.
-사고 블록은 두 가지 고유한 델타 유형과 함께 서버 전송 이벤트 (SSE)를 사용하여 전송됩니다.
+ใช้การสตรีมเพื่อรับข้อมูลสรุปการคิดแบบเพิ่มทีละน้อยระหว่างการสร้าง
+ระบบจะแสดงบล็อกการคิดโดยใช้ Server-Sent Events (SSE) ที่มีเดลต้า 2 ประเภทที่แตกต่างกัน ดังนี้
 
-| 델타 유형 | 포함 | 전송 시점 |
+| ประเภทเดลต้า | มี | เวลาที่ส่ง |
 | --- | --- | --- |
-| `thought_summary` | 텍스트 또는 이미지 요약 콘텐츠 | 증분 요약이 포함된 하나 이상의 델타 |
-| `thought_signature` | 암호화 서명 | `step.stop` 전의 마지막 델타 |
+| `thought_summary` | เนื้อหาข้อมูลสรุปที่เป็นข้อความหรือรูปภาพ | เดลต้าอย่างน้อย 1 รายการที่มีข้อมูลสรุปแบบเพิ่มทีละน้อย |
+| `thought_signature` | ลายเซ็นการเข้ารหัส | เดลต้าสุดท้ายก่อน `step.stop` |
 
 ### Python
 
@@ -221,7 +224,7 @@ for event in stream:
             answer += event.delta.text
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -280,7 +283,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-스트리밍 응답은 서버 전송 이벤트 (SSE)를 사용하며 다음과 같이 단계와 이벤트로 구성됩니다.
+การตอบสนองแบบสตรีมมิงใช้ Server-Sent Events (SSE) และประกอบด้วยขั้นตอนและเหตุการณ์ เช่น
 
 ```
 event: interaction.created
@@ -311,18 +314,18 @@ event: done
 data: [DONE]
 ```
 
-## 사고 제어
+## การควบคุมการคิด
 
-Gemini 모델은 기본적으로 동적 사고를 수행하여 요청의 복잡성에 따라 추론 노력의 양을 자동으로 조정합니다. `thinking_level` 매개변수를 사용하여 이 동작을 제어할 수 있습니다.
+โมเดล Gemini จะคิดแบบไดนามิกโดยค่าเริ่มต้น ซึ่งจะปรับความพยายามในการใช้เหตุผลโดยอัตโนมัติตามความซับซ้อนของคำขอ คุณสามารถควบคุมลักษณะการทำงานนี้ได้โดยใช้พารามิเตอร์ `thinking_level`
 
-| 모델 | 기본 사고방식 | 지원되는 수준 |
+| โมเดล | การคิดเริ่มต้น | ระดับที่รองรับ |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | 사용 설정 (높음) | 낮음, 중간, 높음 |
-| gemini-3-flash-preview | 사용 설정 (높음) | 최소, 낮음, 중간, 높음 |
-| gemini-3-pro-preview | 켜짐 (높음) | 낮음, 높음 |
-| gemini-2.5-pro | 사용 | 낮음, 중간, 높음 |
-| gemini-2.5-flash | 사용 | 낮음, 중간, 높음 |
-| gemini-2.5-flash-lite | 사용 안함 | 낮음, 중간, 높음 |
+| gemini-3.1-pro-preview | เปิด (สูง) | ต่ำ ปานกลาง สูง |
+| gemini-3-flash-preview | เปิด (สูง) | ต่ำมาก ต่ำ ปานกลาง สูง |
+| gemini-3-pro-preview | เปิด (สูง) | ต่ำ สูง |
+| gemini-2.5-pro | เปิด | ต่ำ ปานกลาง สูง |
+| gemini-2.5-flash | เปิด | ต่ำ ปานกลาง สูง |
+| gemini-2.5-flash-lite | ปิด | ต่ำ ปานกลาง สูง |
 
 ### Python
 
@@ -341,7 +344,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -374,27 +377,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 생각 서명
+## ลายเซ็นการคิด
 
-사고 서명은 모델의 내부 추론을 암호화한 표현입니다. 멀티턴 상호작용 전반에서 추론 연속성을 유지해야 합니다.
+ลายเซ็นการคิดเป็นการแสดงการเข้ารหัสของการใช้เหตุผลภายในของโมเดล คุณต้องใช้ลายเซ็นเหล่านี้เพื่อรักษาความต่อเนื่องของการใช้เหตุผลในการโต้ตอบหลายรอบ
 
-Interactions API를 사용하면 `generateContent` API보다 훨씬 간단하게 생각 서명을 처리할 수 있습니다.
+Interactions API ช่วยให้การจัดการลายเซ็นการคิดง่ายกว่า `generateContent` API มาก
 
-### 상태 저장 모드 (권장)
+### โหมด Stateful (แนะนำ)
 
-기본적으로 상태 저장 모드에서 Interactions API를 사용하면 (`store: true`를 설정하고 후속 턴에서 `previous_interaction_id`를 전달) 서버에서 모든 생각 블록과 서명을 포함한 대화 상태를 자동으로 관리합니다. 이 모드에서는 서명과 관련하여 아무것도 할 필요가 없습니다. 서버 측에서 완전히 처리됩니다.
+โดยค่าเริ่มต้น เมื่อคุณใช้ Interactions API ในโหมด Stateful (โดยตั้งค่า `store: true` และส่ง `previous_interaction_id` ในรอบถัดไป) เซิร์ฟเวอร์จะจัดการสถานะการสนทนาโดยอัตโนมัติ ซึ่งรวมถึงบล็อกการคิดและลายเซ็นทั้งหมด ในโหมดนี้ คุณไม่จำเป็นต้องดำเนินการใดๆ เกี่ยวกับลายเซ็น เนื่องจากระบบจะจัดการลายเซ็นทั้งหมดในฝั่งเซิร์ฟเวอร์
 
-### 스테이트리스 모드
+### โหมด Stateless
 
-대화 상태를 직접 관리하고 (스테이트리스 모드) 각 요청에서 입력 및 출력의 전체 기록을 전달하는 경우:
+หากคุณจัดการสถานะการสนทนาด้วยตนเอง (โหมด Stateless) และส่งประวัติอินพุตและเอาต์พุตทั้งหมดในแต่ละคำขอ คุณต้องดำเนินการดังนี้
 
-- 항상 모델에서 수신한 그대로 모든 `thought` 블록을 다시 전송**해야 합니다**(MUST).
-- 모델이 추론을 계속하는 데 필요한 서명이 포함되어 있으므로 기록에서 사고 블록을 삭제하거나 수정해서는 **안 됩니다**.
-- 세션 내에서 모델을 전환할 때도 이전 모델의 사고 블록을 다시 전송해야 합니다. 백엔드에서 호환성을 관리합니다.
+- คุณ**ต้อง** ส่งบล็อก `thought` ทั้งหมดอีกครั้งตามที่ได้รับจากโมเดลทุกประการ
+- คุณ**ไม่ควร** นำบล็อกการคิดออกจากประวัติหรือแก้ไขบล็อกการคิด เนื่องจากบล็อกการคิดมีลายเซ็นที่โมเดลต้องใช้เพื่อใช้เหตุผลต่อไป
+- เมื่อเปลี่ยนโมเดลภายในเซสชัน คุณควรส่งบล็อกการคิดของโมเดลก่อนหน้าอีกครั้ง แบ็กเอนด์จะจัดการความเข้ากันได้
 
-## 가격 책정
+## ราคา
 
-사고가 사용 설정된 경우 대답 가격은 출력 토큰과 사고 토큰의 합계입니다. 생성된 사고 토큰의 총수는 `total_thought_tokens` 필드에서 확인할 수 있습니다.
+เมื่อเปิดการคิด ราคาการตอบสนองจะเป็นผลรวมของโทเค็นเอาต์พุตและโทเค็นการคิด คุณสามารถดูจำนวนโทเค็นการคิดทั้งหมดที่สร้างขึ้นได้จากช่อง `total_thought_tokens`
 
 ### Python
 
@@ -403,39 +406,41 @@ print("Thoughts tokens:", interaction.usage.total_thought_tokens)
 print("Output tokens:", interaction.usage.total_output_tokens)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-사고 모델은 최종 대답의 품질을 개선하기 위해 전체 사고를 생성한 다음 [요약](#summaries)을 출력하여 사고 과정에 대한 통계를 제공합니다. 가격은 API에서 요약만 출력되더라도 모델이 생성해야 하는 전체 생각 토큰을 기준으로 합니다.
+โมเดลการคิดจะสร้างการคิดแบบเต็มเพื่อปรับปรุงคุณภาพของการตอบสนองสุดท้าย
+แล้วแสดงข้อมูลสรุปเพื่อแสดงข้อมูลเชิงลึกเกี่ยวกับกระบวนการคิด
+ราคาจะอิงตามโทเค็นการคิดแบบเต็มที่โมเดลต้องสร้าง แม้ว่า API จะแสดงเฉพาะข้อมูลสรุปก็ตาม
 
-토큰에 관한 자세한 내용은 [토큰 수 계산](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=ko) 가이드를 참고하세요.
+ดูข้อมูลเพิ่มเติมเกี่ยวกับโทเค็นได้ในคู่มือ[การนับโทเค็น](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=th)
 
-## 권장사항
+## แนวทางปฏิบัติแนะนำ
 
-다음 가이드라인에 따라 사고 모델을 효율적으로 사용하세요.
+ใช้โมเดลการคิดอย่างมีประสิทธิภาพโดยทำตามหลักเกณฑ์ต่อไปนี้
 
-- **추론 검토**: 생각 요약을 분석하여 실패를 이해하고 프롬프트를 개선합니다.
-- **사고 예산 관리**: 토큰을 절약하기 위해 긴 출력의 경우 모델이 생각을 덜 하도록 프롬프트를 작성합니다.
-- **간단한 작업**: 사실 검색 또는 분류에 최소한의 사고를 사용합니다 (예: 'DeepMind는 어디에서 설립되었어?').
-- **적당한 작업**: 개념 비교 또는 창의적인 추론 (예: 전기 자동차와 하이브리드 자동차 비교)에는 기본 사고를 사용합니다.
-- **복잡한 작업**: 고급 코딩, 수학 또는 다단계 계획 (예: AIME 수학 문제 풀기)을 위해 최대한의 사고력을 사용합니다.
+- **ตรวจสอบการใช้เหตุผล**: วิเคราะห์ข้อมูลสรุปการคิดเพื่อทำความเข้าใจข้อผิดพลาดและปรับปรุงพรอมต์
+- **ควบคุมงบประมาณการคิด**: แจ้งให้โมเดลคิดน้อยลงสำหรับเอาต์พุตที่ยาวเพื่อประหยัดโทเค็น
+- **งานง่ายๆ**: ใช้การคิดน้อยที่สุดสำหรับการดึงข้อมูลข้อเท็จจริงหรือการจัดประเภท (เช่น "DeepMind ก่อตั้งขึ้นที่ไหน")
+- **งานปานกลาง**: ใช้การคิดเริ่มต้นเพื่อเปรียบเทียบแนวคิดหรือการใช้เหตุผลเชิงสร้างสรรค์ (เช่น เปรียบเทียบรถยนต์ไฟฟ้าและรถยนต์ไฮบริด)
+- **งานที่ซับซ้อน**: ใช้การคิดสูงสุดสำหรับการเขียนโค้ด คณิตศาสตร์ หรือการวางแผนหลายขั้นตอนขั้นสูง (เช่น แก้ปัญหาคณิตศาสตร์ AIME)
 
-## 다음 단계
+## ขั้นตอนถัดไป
 
-- [텍스트 생성](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ko): 기본 텍스트 응답
-- [함수 호출](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ko): 도구에 연결
-- [Gemini 3 가이드](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=ko): 모델별 기능
+- [การสร้างข้อความ](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=th): การตอบสนองที่เป็นข้อความพื้นฐาน
+- [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th): เชื่อมต่อกับเครื่องมือ
+- [คู่มือ Gemini 3](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=th): ฟีเจอร์เฉพาะของโมเดล
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-05-19(UTC)
+อัปเดตล่าสุด 2026-06-01 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]

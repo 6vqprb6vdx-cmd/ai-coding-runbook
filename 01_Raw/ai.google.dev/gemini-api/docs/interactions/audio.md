@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=ko
-fetched_at: 2026-05-25T13:07:07.099271+00:00
-title: "Gemini Interactions API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=it
+fetched_at: 2026-06-01T19:43:51.502405+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-의견 보내기
+Invia feedback
 
-# 오디오 이해
+# Comprensione dell'audio
 
-Gemini는 오디오 입력을 분석하여 텍스트 응답을 생성할 수 있습니다.
+Gemini può analizzare l'input audio e generare risposte di testo.
 
 ### Python
 
@@ -45,7 +45,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -92,22 +92,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 개요
+## Panoramica
 
-Gemini는 오디오 입력을 분석하고 이해하여 텍스트 응답을 생성할 수 있으므로 다음과 같은 사용 사례가 가능합니다.
+Gemini può analizzare e comprendere l'input audio e generare risposte di testo,
+consentendo casi d'uso come:
 
-- 오디오 콘텐츠에 대해 설명, 요약 또는 질문에 대한 답변
-- 자막 생성 및 번역 (음성 텍스트 변환)
-- 화자 분할 (서로 다른 화자 식별)
-- 음성 및 음악의 감정 감지
-- 타임스탬프를 사용하여 특정 세그먼트 분석
+- Descrivere, riassumere o rispondere a domande sui contenuti audio
+- Trascrizione e traduzione (conversione della voce in testo)
+- Diarizzazione degli interlocutori (identificazione di diversi interlocutori)
+- Rilevamento delle emozioni nel parlato e nella musica
+- Analizzare segmenti specifici con timestamp
 
-실시간 음성 및 동영상 상호작용은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
-실시간 스크립트 작성을 지원하는 전용 음성 텍스트 변환 모델의 경우 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ko)를 사용하세요.
+Per interazioni vocali e video in tempo reale, consulta l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+Per modelli di conversione della voce in testo dedicati con supporto per la trascrizione in tempo reale,
+utilizza l'[API Google Cloud Speech-to-Text](https://cloud.google.com/speech-to-text?hl=it).
 
-## 음성을 텍스트로 변환
+## Trascrivere la voce in testo
 
-이 예에서는 [구조화된 출력](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ko)을 사용하여 타임스탬프, 화자 분리, 감정 감지가 포함된 음성을 텍스트로 변환하고, 번역하고, 요약하는 방법을 보여줍니다.
+Questo esempio mostra come trascrivere, tradurre e riassumere un discorso con
+timestamp, diarizzazione degli oratori e rilevamento delle emozioni utilizzando
+[output strutturati](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=it).
 
 ### Python
 
@@ -167,7 +171,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -266,18 +270,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![다국어 오디오 스크립트 작성 Gemini 앱](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ko)
+![Un&#39;app Gemini per la trascrizione audio multilingue](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=it)
 
-## 입력 오디오
+## Audio di input
 
-다음과 같은 방법으로 오디오 데이터를 제공할 수 있습니다.
+Puoi fornire i dati audio nei seguenti modi:
 
-- 요청하기 전에 [오디오 파일을 업로드](#upload-audio)하세요.
-- 요청과 함께 [인라인 오디오 데이터를 전달](#inline-audio)합니다.
+- [Carica un file audio](#upload-audio) prima di effettuare una richiesta.
+- [Trasmetti i dati audio incorporati](#inline-audio) con la richiesta.
 
-### 오디오 파일 업로드
+### Caricare un file audio
 
-20MB보다 큰 파일에는 [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ko)를 사용합니다.
+Utilizza l'[API Files](https://ai.google.dev/gemini-api/docs/interactions/files?hl=it) per i file di dimensioni superiori a 20 MB.
 
 ### Python
 
@@ -302,7 +306,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -349,9 +353,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 오디오 데이터를 인라인으로 전달
+### Trasmettere i dati audio in linea
 
-총 요청 크기가 20MB 미만인 작은 오디오 파일의 경우:
+Per i file audio di piccole dimensioni con una dimensione totale della richiesta inferiore a 20 MB:
 
 ### Python
 
@@ -378,7 +382,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -432,13 +436,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-인라인 오디오 데이터 관련 참고사항:
-\* 최대 요청 크기는 총 20MB입니다 (프롬프트 및 모든 파일 포함).
-\* 재사용하려면 대신 [파일을 업로드](#upload-audio)하세요.
+Note sui dati audio incorporati:
+\* La dimensione massima della richiesta è di 20 MB totali (inclusi prompt e tutti i file)
+\* Per il riutilizzo, [carica il file](#upload-audio)
 
-## 스크립트 받기
+## Ottenere una trascrizione
 
-스크립트를 받으려면 프롬프트에 요청하세요.
+Per ottenere una trascrizione, chiedila nel prompt:
 
 ### Python
 
@@ -457,7 +461,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await client.interactions.create({
@@ -474,9 +478,9 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## 타임스탬프 참고
+## Fare riferimento ai timestamp
 
-`MM:SS` 형식을 사용하여 특정 섹션을 참조합니다.
+Utilizza il formato `MM:SS` per fare riferimento a sezioni specifiche:
 
 ### Python
 
@@ -494,7 +498,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await client.interactions.create({
@@ -506,9 +510,9 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## 토큰 집계
+## Contare i token
 
-오디오 파일의 토큰 수 계산:
+Contare i token in un file audio:
 
 ### Python
 
@@ -520,7 +524,7 @@ response = client.models.count_tokens(
 print(response)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const response = await client.models.countTokens({
@@ -532,7 +536,7 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## 지원되는 오디오 형식
+## Formati audio supportati
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -541,28 +545,28 @@ console.log(response.totalTokens);
 - OGG Vorbis - `audio/ogg`
 - FLAC - `audio/flac`
 
-## 오디오에 대한 기술 세부정보
+## Dettagli tecnici sull'audio
 
-- **토큰**: 오디오 초당 토큰 32개 (1분 = 토큰 1,920개)
-- **비언어적 소리**: Gemini는 비언어적 소리 (새소리, 사이렌 등)를 이해합니다.
-- **최대 길이**: 프롬프트당 오디오 9시간 30분
-- **해상도**: 16Kbps로 다운샘플링됨
-- **채널**: 다중 채널 오디오가 단일 채널로 결합됨
+- **Token**: 32 token al secondo di audio (1 minuto = 1920 token)
+- **Non vocali**: Gemini comprende i suoni non vocali (canti di uccelli, sirene e così via).
+- **Durata massima**: 9,5 ore di audio per prompt
+- **Risoluzione**: sottocampionata a 16 Kbps
+- **Canali**: audio multicanale combinato in un unico canale
 
-## 다음 단계
+## Passaggi successivi
 
-- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=ko): 오디오 파일 업로드 및 관리
-- [시스템 요청 사항](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ko#system-instructions):
-  모델 동작 맞춤설정
-- [구조화된 출력](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=ko):
-  JSON 형식으로 스크립트 결과 가져오기
+- [API Files](https://ai.google.dev/gemini-api/docs/interactions/files?hl=it): carica e gestisci i file audio
+- [Istruzioni di sistema](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=it#system-instructions):
+  Personalizza il comportamento del modello
+- [Output strutturato](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=it):
+  Ottieni i risultati della trascrizione in formato JSON
 
-의견 보내기
+Invia feedback
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-최종 업데이트: 2026-05-19(UTC)
+Ultimo aggiornamento 2026-05-28 UTC.
 
-의견을 전달하고 싶나요?
+Vuoi dirci altro?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-28 UTC."],[],[]]

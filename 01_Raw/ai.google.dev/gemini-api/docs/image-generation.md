@@ -1,112 +1,103 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=th
-fetched_at: 2026-05-25T13:06:27.280356+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-TW
+fetched_at: 2026-06-01T19:46:14.704480+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-ส่งความคิดเห็น
+提供意見
 
-# การสร้างรูปภาพด้วย Nano Banana
+# Nano Banana 圖像生成功能
 
-พรอมต์เพื่อสร้างต้นแบบแอปที่ทำงานได้อย่างเต็มรูปแบบและมี UI ที่สมบูรณ์
-และดู Nano Banana 2 ที่ผสานรวมกับเครื่องมือ ข้อมูล และระบบนิเวศ Gemini
-ในโลกแห่งความเป็นจริง ทั้งหมดนี้ก่อนที่จะเขียนโค้ดแม้แต่บรรทัดเดียว
+透過提示詞製作功能齊全、UI 完整的應用程式原型，並瞭解 Nano Banana 2 如何整合實際工具、資料和 Gemini 生態系統。完全不用編寫程式碼。
 
-- [ลองใช้แอป Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=th)
-- หรือสร้างเองจากพรอมต์
+- [試用 Nano Banana 2 應用程式](https://aistudio.google.com/apps/bundled/pet_passport?hl=zh-tw)
+- 你也可以根據提示詞自行建立：
 
-- ![นิตยสาร](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
-  ![ลอนดอน](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![คืนค่า](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![กล้วย](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-- ![นิตยสาร](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![雜誌](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![倫敦](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  ![restore](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![香蕉](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+- ![雜誌](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  สร้างโดย Nano Banana 2
+  由 Nano Banana 2 生成
 
-  **พรอมต์:** "รูปภาพหน้าปกนิตยสารแบบมัน หน้าปกสีน้ำเงินเรียบๆ มีคำว่า Nano Banana ตัวหนาขนาดใหญ่ ข้อความอยู่ในแบบอักษร Serif และเต็มมุมมอง ไม่มีข้อความอื่น ด้านหน้าข้อความมีภาพบุคคลในชุดเดรสเรียบหรูและมินิมอล โดยเธอถือหมายเลข 2 อย่างสนุกสนาน ซึ่งเป็นจุดโฟกัส
+  **提示詞：**「一張亮面雜誌封面的相片，藍色極簡封面上有醒目的大字『Nano Banana』。文字採用有襯線字體，並填滿檢視畫面。請勿加入任何其他文字。文字前方有一張人像照，照片中的人穿著簡約俐落的洋裝。她俏皮地拿著數字 2，這也是畫面的焦點。
     
-  ใส่หมายเลขฉบับและวันที่ "ก.พ. 2026" ไว้ที่มุมพร้อมกับบาร์โค้ด นิตยสารวางอยู่บนชั้นวางติดกับผนังสีส้มที่ฉาบปูนภายในร้านค้าของดีไซเนอร์
+  在角落放上期號和「2026 年 2 月」日期，以及條碼。雜誌放在設計師商店內，橘色牆壁旁的架子上。
 
-  สร้าง[ภาพถ่ายสินค้าแบบมืออาชีพ](#4_product_mockups_commercial_photography)ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=th)
-- ![ลอนดอน](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-tw) 中製作[專業產品照片](#4_product_mockups_commercial_photography)
+- ![倫敦](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  สร้างโดย Nano Banana Pro
+  由 Nano Banana Pro 生成
 
-  **พรอมต์:** "นำเสนอฉากการ์ตูน 3 มิติขนาดเล็กแบบไอโซเมตริกจากมุมมองด้านบน 45° ที่ชัดเจนของลอนดอน โดยมีสถานที่สำคัญและองค์ประกอบทางสถาปัตยกรรมที่โดดเด่นที่สุด ใช้พื้นผิวที่นุ่มนวลและละเอียดพร้อมวัสดุ PBR ที่สมจริง รวมถึงแสงและเงาที่นุ่มนวลและสมจริง ผสานรวมสภาพอากาศปัจจุบันเข้ากับสภาพแวดล้อมของเมืองโดยตรงเพื่อสร้างบรรยากาศที่สมจริง ใช้การจัดองค์ประกอบที่เรียบง่ายและสะอาดตาโดยมีพื้นหลังสีทึบแบบนุ่ม ที่ด้านบนตรงกลาง ให้วางชื่อ "ลอนดอน" เป็นข้อความตัวหนาขนาดใหญ่ ไอคอนสภาพอากาศที่โดดเด่นไว้ใต้ชื่อ จากนั้นวางวันที่ (ข้อความขนาดเล็ก) และอุณหภูมิ (ข้อความขนาดกลาง) ข้อความทั้งหมดต้องอยู่ตรงกลางโดยมีระยะห่างที่สอดคล้องกัน และอาจซ้อนทับส่วนบนของอาคารเล็กน้อย"
+  **提示詞：**「呈現清楚的 45 度俯視等角迷你 3D 卡通場景，以倫敦為主題，並包含最具代表性的地標和建築元素。使用柔和精緻的紋理、逼真的 PBR 材質，以及柔和逼真的光線和陰影。將當下的天氣狀況直接整合到城市環境中，營造身歷其境的氛圍。使用簡潔的構圖，並搭配柔和的純色背景。在畫面正中央頂端，以粗體文字大字顯示「倫敦」標題，下方是顯眼的氣象圖示，接著是日期 (小字) 和溫度 (中字)。所有文字都必須置中，間距一致，且可稍微重疊建築物頂端。"
 
-  ดูข้อมูลเพิ่มเติมเกี่ยวกับ[การอ้างอิงจาก Search](#use-with-grounding) และลองใช้ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=th)
-- ![เควตซัล](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  進一步瞭解[搜尋基準建立功能](#use-with-grounding)，並在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-tw) 中試用
+- ![格查爾](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  สร้างโดย Nano Banana 2
+  由 Nano Banana 2 生成
 
-  **พรอมต์:** "ใช้การค้นหารูปภาพเพื่อค้นหารูปภาพที่ถูกต้องของนกเควทซัลที่สวยงาม สร้างวอลเปเปอร์ขนาด 3:2 ที่สวยงามของนกตัวนี้ โดยใช้การไล่ระดับสีจากบนลงล่างตามธรรมชาติและองค์ประกอบที่เรียบง่าย"
+  **提示：**「使用圖片搜尋功能，找出大鳳頭綠咬鵑的準確圖片。以 3:2 的比例製作這隻鳥的精美桌布，並採用由上而下的自然漸層，以及極簡的構圖。
 
-  ใช้การอ้างอิง[การค้นหารูปภาพ](#image-search)ของ Google กับ Nano Banana 2 ลองใช้ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=th)
-- ![กล้วย](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  使用 Google [圖片搜尋](#image-search)，搭配 Nano Banana 2 進行基礎搜尋。前往 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-tw) 試用
+- ![香蕉](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  สร้างโดย Nano Banana Pro
+  由 Nano Banana Pro 生成
 
-  **พรอมต์:** "ใส่โลโก้นี้ในโฆษณาระดับไฮเอนด์สำหรับน้ำหอมกลิ่นกล้วย โลโก้ผสานรวมเข้ากับขวดได้อย่างลงตัว"
+  **提示：**「將這個標誌放在香蕉香味的高檔香水廣告上。標誌與瓶身完美整合。」
 
-  ลองใช้[การคงรายละเอียดที่มีความเที่ยงตรงสูง](#5_high-fidelity_detail_preservation)ของ Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=th)
-- ![ร้านกาแฟ](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-tw) 試用 Nano Banana 的[高保真細節保留功能](#5_high-fidelity_detail_preservation)
+- ![咖啡廳](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  สร้างโดย Nano Banana Pro
+  由 Nano Banana Pro 生成
 
-  **พรอมต์:** "รูปภาพฉากในชีวิตประจำวันที่คาเฟ่ที่วุ่นวายซึ่งเสิร์ฟอาหารเช้า ในเบื้องหน้าเป็นชายหนุ่มในการ์ตูนที่มีผมสีน้ำเงิน คนหนึ่งเป็นภาพร่างดินสอ อีกคนเป็นตัวละครดินน้ำมัน"
+  **提示：**「一張早餐咖啡廳的日常場景照片，前景是藍髮動漫男子，其中一人是鉛筆素描，另一人是黏土動畫人物"
 
-  ทดลองใช้[สไตล์ศิลปะ](#3_style_transfer)ต่างๆ ด้วย Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=th)
-- ![บทความ](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-tw) 中使用 Nano Banana 實驗不同[藝術風格](#3_style_transfer)
+- ![冠詞](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  สร้างโดย Nano Banana Pro
+  由 Nano Banana Pro 生成
 
-  **พรอมต์:** "ใช้ Search เพื่อดูว่าการเปิดตัว Gemini 3 Flash ได้รับการตอบรับอย่างไร ใช้ข้อมูลนี้เพื่อเขียนบทความสั้นๆ เกี่ยวกับเรื่องนี้ (พร้อมหัวข้อ) ส่งคืนรูปภาพของบทความตามที่ปรากฏในนิตยสารแบบมันที่เน้นการออกแบบ เป็นรูปภาพของหน้าเดียวที่พับอยู่ ซึ่งแสดงบทความเกี่ยวกับ Gemini 3 Flash รูปภาพหลัก 1 รูป บรรทัดแรกในแบบอักษร Serif"
+  **提示：**「請使用搜尋功能，瞭解 Gemini 3 Flash 發布後獲得的評價。請根據這些資訊撰寫一篇簡短的文章 (附上標題)。請傳回文章的相片，呈現出設計精美的光面雜誌風格。這張相片顯示一頁對折的紙張，上面是關於 Gemini 3 Flash 的文章。一張主頁橫幅相片。使用襯線字體顯示標題。
 
-  สร้าง[ข้อความที่ถูกต้อง](#3_accurate_text_in_images)จาก[การค้นหา](#use-with-grounding) ลองใช้ Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=th)
-- ![สุนัข](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  從[搜尋](#use-with-grounding)生成[準確的文字](#3_accurate_text_in_images)。在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-tw) 中試用 Nano Banana
+- ![狗](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  สร้างโดย Nano Banana Pro
+  由 Nano Banana Pro 生成
 
-  **พรอมต์:** "ไอคอนที่แสดงสุนัขน่ารัก พื้นหลังเป็นสีขาว สร้างไอคอนในสไตล์ 3 มิติที่มีสีสันและจับต้องได้ ไม่มีข้อความ"
+  **提示：**「代表可愛小狗的圖示。背景為白色。以色彩豐富的觸覺 3D 風格製作圖示。沒有文字。"
 
-  สร้าง[ไอคอน สติกเกอร์ และชิ้นงาน](#2_stylized_illustrations_stickers)ด้วย Nano Banana ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing%2Csearch_grounding&hl=th)
-- ![ไอโซเมตริก](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-tw) 中使用 Nano Banana 製作[圖示、貼圖和素材資源](#2_stylized_illustrations_stickers)
+- ![等距](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  สร้างโดย Nano Banana 2
+  由 Nano Banana 2 生成
 
-  **พรอมต์:** "สร้างรูปภาพที่เป็นไอโซเมตริกอย่างสมบูรณ์ นี่ไม่ใช่ภาพขนาดเล็ก แต่เป็นภาพที่ถ่ายซึ่งมีลักษณะเป็นไอโซเมตริกอย่างสมบูรณ์แบบ เป็นรูปภาพของสวนสมัยใหม่ที่สวยงาม มีสระว่ายน้ำขนาดใหญ่รูปเลข 2 และคำว่า "Nano Banana 2"
+  **提示：**「製作完全等距的相片。這不是微縮模型，而是剛好以完美等角拍攝的相片。這張相片是美麗的現代花園，圖片中有一座大型 2 字形泳池，以及「Nano Banana 2」字樣。
 
-  ลอง[การสร้างรูปภาพที่สมจริง](#1_photorealistic_scenes)ใน [AI Studio](https://aistudio.google.com/apps?features=chat_based_image_editing&hl=th)
+  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-tw) 中試用[擬真圖片生成](#1_photorealistic_scenes)功能
 
-**Nano Banana** คือชื่อของความสามารถในการสร้างรูปภาพดั้งเดิมของ Gemini
-Gemini สามารถสร้างและประมวลผลรูปภาพแบบสนทนา
-ด้วยข้อความ รูปภาพ หรือทั้ง 2 อย่างรวมกัน ซึ่งช่วยให้คุณสร้าง แก้ไข และ
-ทำซ้ำภาพด้วยการควบคุมที่ไม่เคยมีมาก่อน
+**Nano Banana** 是 Gemini 原生圖像生成功能的名稱。
+Gemini 可透過對話互動生成及處理圖像，並支援文字、圖像或圖文組合。自由創作、編輯和反覆調整視覺內容，享有前所未有的掌控力。
 
-Nano Banana หมายถึงโมเดล 3 รายการที่แตกต่างกันซึ่งพร้อมใช้งานใน Gemini API ดังนี้
+Nano Banana 是指 Gemini API 中提供的三種不同模型：
 
-- **Nano Banana 2**: โมเดล[ตัวอย่างรูปภาพ Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=th) (`gemini-3.1-flash-image-preview`) โมเดลนี้เป็นโมเดลที่มีประสิทธิภาพสูงเทียบเท่ากับรูปภาพ Gemini 3 Pro ซึ่งได้รับการเพิ่มประสิทธิภาพเพื่อความเร็วและกรณีการใช้งานของนักพัฒนาซอฟต์แวร์ที่มีปริมาณมาก
-- **Nano Banana Pro**: โมเดล[ตัวอย่างรูปภาพ Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=th)
-  (`gemini-3-pro-image-preview`) โมเดลนี้ออกแบบมาเพื่อการผลิตชิ้นงานระดับมืออาชีพ
-  โดยใช้การให้เหตุผลขั้นสูง ("การคิด") เพื่อทำตามคำสั่งที่ซับซ้อน
-  และแสดงข้อความที่มีความเที่ยงตรงสูง
-- **Nano Banana**: โมเดล[รูปภาพ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=th)
-  (`gemini-2.5-flash-image`) โมเดลนี้ออกแบบมาเพื่อความเร็วและ
-  ประสิทธิภาพ โดยปรับให้เหมาะกับงานที่มีปริมาณมากและมีเวลาในการตอบสนองต่ำ
+- **Nano Banana 2**：[Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=zh-tw) 模型 (`gemini-3.1-flash-image`)。這個模型是 Gemini 3.1 Pro Image 的高效率對應模型，專為速度和大量開發人員使用案例而最佳化。
+- **Nano Banana Pro**：[Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-tw) 模型 (`gemini-3-pro-image`)。這個模型專為製作專業資產而設計，可運用進階推論 (「思考」) 功能，遵循複雜的指令並算繪高保真度的文字。
+- **Nano Banana**：[Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=zh-tw) 模型 (`gemini-2.5-flash-image`)。這個模型專為速度和效率而設計，適合處理大量低延遲的工作。
 
-รูปภาพที่สร้างขึ้นทั้งหมดจะมี[ลายน้ำ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=th)
+所有生成的圖片都會加上 [SynthID 浮水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-tw)。
 
-## การสร้างรูปภาพ (การเปลี่ยนข้อความเป็นรูปภาพ)
+## 生成圖像 (文字轉圖像)
 
 ### Python
 
@@ -119,7 +110,7 @@ client = genai.Client()
 
 prompt = ("Create a picture of a nano banana dish in a fancy restaurant with a Gemini theme")
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=[prompt],
 )
 
@@ -145,7 +136,7 @@ async function main() {
     "Create a picture of a nano banana dish in a fancy restaurant with a Gemini theme";
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     contents: prompt,
   });
   for (const part of response.candidates[0].content.parts) {
@@ -186,7 +177,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.1-flash-image-preview",
+      "gemini-3.1-flash-image",
       genai.Text("Create a picture of a nano banana dish in a " +
                  " fancy restaurant with a Gemini theme"),
   )
@@ -224,7 +215,7 @@ public class TextToImage {
           .build();
 
       GenerateContentResponse response = client.models.generateContent(
-          "gemini-3.1-flash-image-preview",
+          "gemini-3.1-flash-image",
           "Create a picture of a nano banana dish in a fancy restaurant with a Gemini theme",
           config);
 
@@ -243,11 +234,47 @@ public class TextToImage {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class TextToImage {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "Create a picture of a nano banana dish in a fancy restaurant with a Gemini theme" }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("generated_image.png", imageBytes);
+                Console.WriteLine("Image saved as generated_image.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -259,16 +286,15 @@ curl -s -X POST \
   }'
 ```
 
-## การแก้ไขรูปภาพ (ข้อความและรูปภาพเป็นรูปภาพ)
+## 圖像編輯 (文字和圖像轉圖像)
 
-**โปรดทราบ**: โปรดตรวจสอบว่าคุณมีสิทธิ์ที่จำเป็นสำหรับรูปภาพใดก็ตามที่คุณอัปโหลด
-อย่าสร้างเนื้อหาที่ละเมิดสิทธิของผู้อื่น รวมถึงวิดีโอหรือรูปภาพที่หลอกลวง คุกคาม หรือเป็นอันตราย การใช้บริการ Generative AI นี้เป็นไปตาม[นโยบายการใช้งานที่ไม่อนุญาต](https://policies.google.com/terms/generative-ai/use-policy?hl=th)ของเรา
+**提醒**：請確認您具備必要權限，可使用上傳的所有圖像。
+請勿生成侵犯他人權利的內容，包括欺騙、騷擾或傷害他人的影片或圖像。使用這項生成式 AI 服務時，須遵守《[使用限制政策](https://policies.google.com/terms/generative-ai/use-policy?hl=zh-tw)》。
 
-ระบุรูปภาพและใช้พรอมต์ข้อความเพื่อเพิ่ม นำออก หรือแก้ไของค์ประกอบ
-เปลี่ยนสไตล์ หรือปรับการไล่ระดับสี
+提供圖片並使用文字提示新增、移除或修改元素、變更風格，或調整色彩分級。
 
-ตัวอย่างต่อไปนี้แสดงการอัปโหลดรูปภาพที่เข้ารหัส `base64`
-สำหรับรูปภาพหลายรายการ เพย์โหลดขนาดใหญ่ และประเภท MIME ที่รองรับ โปรดดูหน้า[การทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
+以下範例說明如何上傳 `base64` 編碼的圖片。
+如要瞭解多張圖片、較大的酬載和支援的 MIME 類型，請參閱「[圖片理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)」頁面。
 
 ### Python
 
@@ -287,7 +313,7 @@ prompt = (
 image = Image.open("/path/to/cat_image.png")
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=[prompt, image],
 )
 
@@ -325,7 +351,7 @@ async function main() {
   ];
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     contents: prompt,
   });
   for (const part of response.candidates[0].content.parts) {
@@ -383,7 +409,7 @@ func main() {
 
  result, _ := client.Models.GenerateContent(
      ctx,
-     "gemini-3.1-flash-image-preview",
+     "gemini-3.1-flash-image",
      contents,
  )
 
@@ -422,7 +448,7 @@ public class TextAndImageToImage {
           .build();
 
       GenerateContentResponse response = client.models.generateContent(
-          "gemini-3.1-flash-image-preview",
+          "gemini-3.1-flash-image",
           Content.fromParts(
               Part.fromText("""
                   Create a picture of my cat eating a nano-banana in
@@ -449,11 +475,51 @@ public class TextAndImageToImage {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class TextAndImageToImage {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "Create a picture of my cat eating a nano-banana in a fancy restaurant under the Gemini constellation" },
+            new Part
+            {
+                FileData = new FileData { FileUri = "file:///path/to/cat_image.png" }
+            }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("gemini_generated_image.png", imageBytes);
+                Console.WriteLine("Image saved as gemini_generated_image.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d "{
@@ -471,10 +537,9 @@ curl -s -X POST \
     }"
 ```
 
-### การแต่งภาพแบบหลายรอบ
+### 多輪圖像編輯
 
-สร้างและแก้ไขรูปภาพต่อไปด้วยการสนทนา การแชทหรือการสนทนาแบบหลายรอบเป็นวิธีที่แนะนำในการทำซ้ำรูปภาพ ตัวอย่างต่อไปนี้
-แสดงพรอมต์เพื่อสร้างอินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสง
+繼續透過對話生成及編輯圖像。建議使用對話或多輪對話功能，反覆編輯圖像。以下範例顯示生成光合作用資訊圖表的提示。
 
 ### Python
 
@@ -485,7 +550,7 @@ from google.genai import types
 client = genai.Client()
 
 chat = client.chats.create(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     config=types.GenerateContentConfig(
         response_modalities=['TEXT', 'IMAGE'],
         tools=[{"google_search": {}}]
@@ -512,7 +577,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const chat = ai.chats.create({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     config: {
       responseModalities: ['TEXT', 'IMAGE'],
       tools: [{googleSearch: {}}],
@@ -560,7 +625,7 @@ func main() {
     }
     defer client.Close()
 
-    model := client.GenerativeModel("gemini-3.1-flash-image-preview")
+    model := client.GenerativeModel("gemini-3.1-flash-image")
     model.GenerationConfig = &pb.GenerationConfig{
         ResponseModalities: []pb.ResponseModality{genai.Text, genai.Image},
     }
@@ -618,7 +683,7 @@ public class MultiturnImageEditing {
               .build())
           .build();
 
-      Chat chat = client.chats.create("gemini-3.1-flash-image-preview", config);
+      Chat chat = client.chats.create("gemini-3.1-flash-image", config);
 
       GenerateContentResponse response = chat.sendMessage("""
           Create a vibrant infographic that explains photosynthesis
@@ -645,11 +710,52 @@ public class MultiturnImageEditing {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class MultiturnImageEditing {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "Create a vibrant infographic that explains photosynthesis as if it were a recipe for a plant's favorite food. Show the \"ingredients\" (sunlight, water, CO2) and the \"finished dish\" (sugar/energy). The style should be like a page from a colorful kids' cookbook, suitable for a 4th grader." }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "TEXT", "IMAGE" },
+            Tools = new List<Tool> { new Tool { GoogleSearch = new GoogleSearch() } }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("photosynthesis.png", imageBytes);
+                Console.WriteLine("Image saved as photosynthesis.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -665,11 +771,11 @@ curl -s -X POST \
   }'
 ```
 
-![อินโฟกราฟิกที่ AI สร้างขึ้นเกี่ยวกับการสังเคราะห์ด้วยแสง](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=th)
+![AI 生成的光合作用資訊圖表](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=zh-tw)
 
-อินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสงที่ AI สร้างขึ้น
+關於光合作用的 AI 生成資訊圖表
 
-จากนั้นคุณสามารถใช้แชทเดียวกันเพื่อเปลี่ยนภาษาในกราฟิกเป็นภาษาสเปน
+接著，您可以在同一個對話中，將圖片上的文字改為西班牙文。
 
 ### Python
 
@@ -783,11 +889,56 @@ for (Part part : response.parts()) {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class MultiturnImageEditingSpanish {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "Update this infographic to be in Spanish. Do not change any other elements of the image." }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "TEXT", "IMAGE" },
+            ImageConfig = new ImageConfig
+            {
+                AspectRatio = "16:9",
+                ImageSize = "2K"
+            }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("photosynthesis_spanish.png", imageBytes);
+                Console.WriteLine("Image saved as photosynthesis_spanish.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -818,40 +969,31 @@ curl -s -X POST \
   }'
 ```
 
-![อินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสงที่ AI สร้างขึ้นเป็นภาษาสเปน](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=th)
+![以西班牙文呈現的光合作用 AI 生成資訊圖表](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=zh-tw)
 
-อินโฟกราฟิกเกี่ยวกับกระบวนการสังเคราะห์แสงที่ AI สร้างขึ้นเป็นภาษาสเปน
+以西班牙文生成光合作用的資訊圖表
 
-## ฟีเจอร์ใหม่ในโมเดลรูปภาพ Gemini 3
+## 全新 Gemini 3 Image 模型
 
-Gemini 3 มีโมเดลการสร้างและแก้ไขรูปภาพที่ล้ำสมัย รูปภาพ Gemini 3.1
-Flash ได้รับการเพิ่มประสิทธิภาพเพื่อความเร็วและกรณีการใช้งานที่มีปริมาณสูง ส่วนรูปภาพ Gemini 3
-Pro ได้รับการเพิ่มประสิทธิภาพเพื่อการผลิตชิ้นงานระดับมืออาชีพ
-ออกแบบมาเพื่อจัดการเวิร์กโฟลว์ที่ท้าทายที่สุดผ่านการให้เหตุผลขั้นสูง
-จึงทำงานได้ดีในงานสร้างสรรค์และการแก้ไขที่ซับซ้อนแบบหลายรอบ
+Gemini 3 提供最先進的圖像生成和編輯模型，Gemini 3.1 Flash Image 經過最佳化處理，速度快且適合大量使用，而 Gemini 3 Pro Image 則經過最佳化處理，適合製作專業素材。這類模型具備進階推論能力，可處理最困難的工作流程，擅長執行複雜的多輪建立和修改工作。
 
-- **เอาต์พุตความละเอียดสูง**: ความสามารถในการสร้างภาพความละเอียด 1K, 2K และ 4K ในตัว
-  - **รูปภาพ Gemini 3.1 Flash** เพิ่มความละเอียด 512 (0.5K) ที่เล็กลง
-- **การแสดงข้อความขั้นสูง**: สามารถสร้างข้อความที่อ่านได้และมีสไตล์สำหรับ
-  อินโฟกราฟิก เมนู ไดอะแกรม และชิ้นงานทางการตลาด
-- **การเชื่อมต่อแหล่งข้อมูลกับ Google Search**: โมเดลสามารถใช้ Google Search เป็นเครื่องมือเพื่อยืนยันข้อเท็จจริงและสร้างภาพตามข้อมูลแบบเรียลไทม์ (เช่น แผนที่สภาพอากาศปัจจุบัน แผนภูมิหุ้น เหตุการณ์ล่าสุด)
-  - **รูปภาพ Gemini 3.1 Flash** เพิ่มการผสานรวมการเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับ Google รูปภาพควบคู่ไปกับ Web Search
-- **โหมดการคิด**: โมเดลใช้กระบวนการ "การคิด" เพื่อให้เหตุผลผ่านพรอมต์ที่ซับซ้อน
-  โดยจะสร้าง "ภาพความคิด" ชั่วคราว (มองเห็นได้ในแบ็กเอนด์
-  แต่ไม่มีการเรียกเก็บเงิน) เพื่อปรับแต่งองค์ประกอบก่อนที่จะสร้างเอาต์พุตคุณภาพสูง
-  ขั้นสุดท้าย
-- **รูปภาพอ้างอิงสูงสุด 14 รูป**: ตอนนี้คุณสามารถผสมรูปภาพอ้างอิงได้สูงสุด 14 รูปเพื่อสร้างรูปภาพสุดท้าย
-- **สัดส่วนภาพใหม่**: ตัวอย่างรูปภาพ Gemini 3.1 Flash เพิ่ม[สัดส่วนภาพ](#aspect_ratios_and_image_size) 1:4, 4:1, 1:8 และ 8:1
+- **高解析度輸出**：內建 1K、2K 和 4K 視覺效果生成功能。
+  - **Gemini 3.1 Flash Image** 新增較小的 512 (0.5K) 解析度。
+- **進階文字算繪**：可為資訊圖表、選單、圖表和行銷資產生成易讀的風格化文字。
+- **以 Google 搜尋強化事實基礎**：模型可使用 Google 搜尋做為工具，根據即時資料驗證事實並生成圖像 (例如目前的天氣地圖、股票圖表、近期活動)。
+  - **Gemini 3.1 Flash Image** 除了整合 Google 網頁搜尋，也整合了以 Google 搜尋強化事實基礎的 Google 圖片搜尋。
+- **思考模式**：模型會運用「思考」程序，推論複雜的提示。這項功能會生成臨時的「想法圖像」(顯示在後端，但不會收費)，以改善構圖，然後再生成最終的高品質輸出內容。
+- **最多 14 張參考圖像**：現在最多可混合 14 張參考圖像，生成最終圖像。
+- **新增顯示比例**：Gemini 3.1 Flash Image 新增 1:4、4:1、1:8 和 8:1 [顯示比例](#aspect_ratios_and_image_size)。
 
-### ใช้รูปภาพอ้างอิงได้สูงสุด 14 รูป
+### 最多可使用 14 張參考圖片
 
-โมเดลรูปภาพของ Gemini 3 ช่วยให้คุณผสมรูปภาพอ้างอิงได้สูงสุด 14 รูป รูปภาพทั้ง 14 รูป
-อาจมีลักษณะต่อไปนี้
+Gemini 3 圖像模型最多可混合 14 張參考圖片。這 14 張圖片可包括：
 
-| เวอร์ชันตัวอย่างของรูปภาพ Gemini 3.1 Flash | ตัวอย่างรูปภาพ Gemini 3 Pro |
+| Gemini 3.1 Flash Image | Gemini 3.1 Pro Image |
 | --- | --- |
-| รูปภาพวัตถุที่มีความเที่ยงตรงสูงสูงสุด 10 ภาพที่จะรวมไว้ในรูปภาพสุดท้าย | รูปภาพวัตถุที่มีความเที่ยงตรงสูงสูงสุด 6 ภาพที่จะรวมไว้ในรูปภาพสุดท้าย |
-| รูปภาพตัวละครสูงสุด 4 รูปเพื่อรักษาความสอดคล้องของตัวละคร | รูปภาพตัวละครสูงสุด 5 รูปเพื่อรักษาความสอดคล้องของตัวละคร |
+| 最多 10 張高保真物件圖片，可加入最終圖片 | 最多 6 張高保真物件圖片，可加入最終圖片 |
+| 最多 4 張角色圖片，確保角色一致性 | 最多 5 張角色圖片，確保角色一致性 |
 
 ### Python
 
@@ -867,7 +1009,7 @@ resolution = "2K" # "512", "1K", "2K", "4K"
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=[
         prompt,
         Image.open('person1.png'),
@@ -939,7 +1081,7 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-    model: 'gemini-3.1-flash-image-preview',
+    model: 'gemini-3.1-flash-image',
     contents: contents,
     config: {
       responseModalities: ['TEXT', 'IMAGE'],
@@ -990,7 +1132,7 @@ func main() {
     }
     defer client.Close()
 
-    model := client.GenerativeModel("gemini-3.1-flash-image-preview")
+    model := client.GenerativeModel("gemini-3.1-flash-image")
     model.GenerationConfig = &pb.GenerationConfig{
         ResponseModalities: []pb.ResponseModality{genai.Text, genai.Image},
         ImageConfig: &pb.ImageConfig{
@@ -1065,7 +1207,7 @@ public class GroupPhoto {
           .build();
 
       GenerateContentResponse response = client.models.generateContent(
-          "gemini-3.1-flash-image-preview",
+          "gemini-3.1-flash-image",
           Content.fromParts(
               Part.fromText("An office group photo of these people, they are making funny faces."),
               Part.fromBytes(Files.readAllBytes(Path.of("person1.png")), "image/png"),
@@ -1090,11 +1232,61 @@ public class GroupPhoto {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class GroupPhoto {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "An office group photo of these people, they are making funny faces." },
+            new Part { FileData = new FileData { FileUri = "file:///person1.png" } },
+            new Part { FileData = new FileData { FileUri = "file:///person2.png" } },
+            new Part { FileData = new FileData { FileUri = "file:///person3.png" } },
+            new Part { FileData = new FileData { FileUri = "file:///person4.png" } },
+            new Part { FileData = new FileData { FileUri = "file:///person5.png" } }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "TEXT", "IMAGE" },
+            ImageConfig = new ImageConfig
+            {
+                AspectRatio = "5:4",
+                ImageSize = "2K"
+            }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("office.png", imageBytes);
+                Console.WriteLine("Image saved as office.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -d "{
@@ -1120,17 +1312,15 @@ curl -s -X POST \
     }"
 ```
 
-![รูปภาพกลุ่มในออฟฟิศที่ AI สร้างขึ้น](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=th)
+![AI 生成的辦公室合照](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=zh-tw)
 
-รูปภาพกลุ่มในออฟฟิศที่ AI สร้างขึ้น
+AI 生成的辦公室團體照
 
-### การเชื่อมต่อแหล่งข้อมูลกับ Google Search
+### 以 Google 搜尋建立基準
 
-ใช้[เครื่องมือ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) เพื่อสร้างรูปภาพ
-โดยอิงตามข้อมูลแบบเรียลไทม์ เช่น พยากรณ์อากาศ แผนภูมิหุ้น หรือ
-เหตุการณ์ล่าสุด
+使用 [Google 搜尋工具](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)，根據天氣預報、股票圖表或近期活動等即時資訊生成圖片。
 
-โปรดทราบว่าเมื่อใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ร่วมกับการสร้างรูปภาพ ระบบจะไม่ส่งผลการค้นหาตามรูปภาพไปยังโมเดลการสร้าง และจะยกเว้นออกจากคำตอบ (ดู[การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพ](#image-search))
+請注意，使用「以 Google 搜尋強化事實基礎」進行圖像生成時，系統不會將圖片搜尋結果傳遞至生成模型，且會將其排除在回覆內容之外 (請參閱[以 Google 搜尋建立圖片基準](#image-search))。
 
 ### Python
 
@@ -1142,7 +1332,7 @@ aspect_ratio = "16:9" # "1:1","1:4","1:8","2:3","3:2","3:4","4:1","4:3","4:5","5
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=prompt,
     config=types.GenerateContentConfig(
         response_modalities=['Text', 'Image'],
@@ -1173,7 +1363,7 @@ async function main() {
   const resolution = '2K';
 
 const response = await ai.models.generateContent({
-    model: 'gemini-3.1-flash-image-preview',
+    model: 'gemini-3.1-flash-image',
     contents: prompt,
     config: {
       responseModalities: ['TEXT', 'IMAGE'],
@@ -1233,7 +1423,7 @@ public class SearchGrounding {
           .build();
 
       GenerateContentResponse response = client.models.generateContent(
-          "gemini-3.1-flash-image-preview", """
+          "gemini-3.1-flash-image", """
               Visualize the current weather forecast for the next 5 days
               in San Francisco as a clean, modern weather chart.
               Add a visual on what I should wear each day
@@ -1255,11 +1445,56 @@ public class SearchGrounding {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class SearchGrounding {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "Visualize the current weather forecast for the next 5 days in San Francisco as a clean, modern weather chart. Add a visual on what I should wear each day" }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "TEXT", "IMAGE" },
+            ImageConfig = new ImageConfig
+            {
+                AspectRatio = "16:9"
+            },
+            Tools = new List<Tool> { new Tool { GoogleSearch = new GoogleSearch() } }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("weather.png", imageBytes);
+                Console.WriteLine("Image saved as weather.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1274,25 +1509,22 @@ curl -s -X POST \
   }'
 ```
 
-![แผนภูมิสภาพอากาศ 5 วันที่ AI สร้างขึ้นสำหรับซานฟรานซิสโก](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=th)
+![舊金山五日天氣預報圖表 (AI 生成)](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=zh-tw)
 
-แผนภูมิสภาพอากาศ 5 วันสำหรับซานฟรานซิสโกที่ AI สร้างขึ้น
+舊金山五天天氣圖表 (AI 生成)
 
-การตอบกลับจะมี `groundingMetadata` ซึ่งมีช่องที่จำเป็นต่อไปนี้
+回應會包含 `groundingMetadata`，其中含有下列必填欄位：
 
-- **`searchEntryPoint`**: มี HTML และ CSS เพื่อแสดงผลคำแนะนำในการค้นหาที่จำเป็น
-- **`groundingChunks`**: แสดงแหล่งที่มาบนเว็บ 3 อันดับแรกที่ใช้เป็นพื้นฐานสำหรับรูปภาพที่สร้างขึ้น
+- **`searchEntryPoint`**：包含 HTML 和 CSS，可轉譯必要的搜尋建議。
+- **`groundingChunks`**：傳回用於生成圖片的前 3 個網路來源
 
-### การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพ (3.1 Flash)
+### 以 Google 搜尋強化事實基礎，用於圖片 (3.1 Flash)
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพช่วยให้โมเดลใช้รูปภาพบนเว็บที่ดึงข้อมูลผ่าน Google Search เป็นบริบทภาพสำหรับการสร้างรูปภาพได้ การค้นหารูปภาพเป็น
-การค้นหาประเภทใหม่ภายในเครื่องมือการอ้างอิงด้วย Google Search ที่มีอยู่
-ซึ่งทำงานควบคู่ไปกับ[การค้นเว็บ](#use-with-grounding)มาตรฐาน
+以 Google 搜尋強化事實基礎來生成圖像時，模型會使用透過 Google 搜尋擷取的網路圖片，做為圖像生成的視覺背景。圖片搜尋是現有「以 Google 搜尋強化事實基礎」工具中的新搜尋類型，可與標準的[Google 網頁搜尋](#use-with-grounding)並用。
 
-หากต้องการเปิดใช้การค้นหารูปภาพ ให้กำหนดค่าเครื่องมือ `googleSearch` ในคำขอ API
-และระบุ `imageSearch` ภายในออบเจ็กต์ `searchTypes` คุณใช้ฟีเจอร์ค้นหารูปภาพแยกกันหรือใช้ร่วมกับฟีเจอร์ค้นหาเว็บก็ได้
+如要啟用圖片搜尋功能，請在 API 要求中設定 `googleSearch` 工具，並在 `searchTypes` 物件中指定 `imageSearch`。圖片搜尋可以單獨使用，也可以與網頁搜尋搭配使用。
 
-โปรดทราบว่าคุณไม่สามารถใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Search สำหรับรูปภาพเพื่อค้นหาบุคคลได้
+請注意，以 Google 搜尋強化事實基礎功能無法用於搜尋人物。
 
 ### Python
 
@@ -1303,7 +1535,7 @@ prompt = "A detailed painting of a Timareta butterfly resting on a flower"
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=prompt,
     config=types.GenerateContentConfig(
         response_modalities=["IMAGE"],
@@ -1335,7 +1567,7 @@ async function main() {
   const prompt = "A detailed painting of a Timareta butterfly resting on a flower";
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     contents: prompt,
     config: {
       responseModalities: ["IMAGE"],
@@ -1383,7 +1615,7 @@ func main() {
   }
   defer client.Close()
 
-  model := client.GenerativeModel("gemini-3.1-flash-image-preview")
+  model := client.GenerativeModel("gemini-3.1-flash-image")
   model.Tools = []*pb.Tool{
     {
       GoogleSearch: &pb.GoogleSearch{
@@ -1410,11 +1642,104 @@ func main() {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.GoogleSearch;
+import com.google.genai.types.ImageSearch;
+import com.google.genai.types.SearchTypes;
+import com.google.genai.types.Tool;
+import com.google.genai.types.WebSearch;
+
+import java.io.IOException;
+
+public class ImageSearchGrounding {
+  public static void main(String[] args) throws IOException {
+
+    try (Client client = new Client()) {
+      GenerateContentConfig config = GenerateContentConfig.builder()
+          .responseModalities("IMAGE")
+          .tools(Tool.builder()
+              .googleSearch(GoogleSearch.builder()
+                  .searchTypes(SearchTypes.builder()
+                      .webSearch(WebSearch.builder().build())
+                      .imageSearch(ImageSearch.builder().build())
+                      .build())
+                  .build())
+              .build())
+          .build();
+
+      GenerateContentResponse response = client.models.generateContent(
+          "gemini-3.1-flash-image",
+          "A detailed painting of a Timareta butterfly resting on a flower",
+          config);
+
+      if (response.candidates().isPresent() && !response.candidates().get().isEmpty()) {
+        var candidate = response.candidates().get().get(0);
+        if (candidate.groundingMetadata().isPresent() && candidate.groundingMetadata().get().searchEntryPoint().isPresent()) {
+          System.out.println(candidate.groundingMetadata().get().searchEntryPoint().get().renderedContent().orElse(""));
+        }
+      }
+    }
+  }
+}
+```
+
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+public class ImageSearchGrounding {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "A detailed painting of a Timareta butterfly resting on a flower" }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "IMAGE" },
+            Tools = new List<Tool>
+            {
+                new Tool
+                {
+                    GoogleSearch = new GoogleSearch
+                    {
+                        SearchTypes = new SearchTypes
+                        {
+                            WebSearch = new WebSearch(),
+                            ImageSearch = new ImageSearch()
+                        }
+                    }
+                }
+            }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        if (candidate.GroundingMetadata != null && candidate.GroundingMetadata.SearchEntryPoint != null) {
+            Console.WriteLine(candidate.GroundingMetadata.SearchEntryPoint.RenderedContent);
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1426,36 +1751,275 @@ curl -s -X POST \
   }'
 ```
 
-**ข้อกำหนดในการแสดงผล**
+**螢幕規定**
 
-เมื่อใช้การค้นหารูปภาพภายใน การเชื่อมต่อแหล่งข้อมูลกับ Google Search คุณต้องปฏิบัติตามเงื่อนไขต่อไปนี้
+使用「以 Google 搜尋強化事實基礎」功能時，如要使用圖片搜尋，必須遵守下列條件：
 
-- **การระบุแหล่งที่มา**: คุณต้องระบุลิงก์ไปยังหน้าเว็บที่มีรูปภาพต้นฉบับ ("หน้าที่มีรูปภาพ" ไม่ใช่ไฟล์รูปภาพเอง) ในลักษณะที่ผู้ใช้จะจดจำได้ว่าเป็นลิงก์
-- **การนำทางโดยตรง**: หากเลือกแสดงรูปภาพต้นฉบับด้วย คุณต้องระบุเส้นทางแบบคลิกเดียวโดยตรงจากรูปภาพต้นฉบับไปยังหน้าเว็บต้นฉบับที่มีรูปภาพนั้น การติดตั้งใช้งานอื่นๆ ที่ทำให้การเข้าถึงหน้าเว็บแหล่งที่มาของผู้ใช้ปลายทางล่าช้าหรือซับซ้อน รวมถึงแต่ไม่จำกัดเพียงเส้นทางแบบหลายคลิกหรือการใช้โปรแกรมดูรูปภาพขั้นกลาง จะไม่ได้รับอนุญาต
+- **來源出處**：你必須提供含有來源圖片的網頁連結 (「含有圖片的網頁」，而非圖片檔案本身)，且使用者可辨識為連結。
+- **直接導覽**：如果選擇顯示來源圖片，必須提供從來源圖片到所含來源網頁的直接單點路徑。任何會延遲或阻礙使用者存取來源網頁的實作方式皆不允許，包括但不限於任何多重點擊路徑，或使用中繼圖片檢視器。
 
-**การตอบกลับ**
+**回應**
 
-สำหรับคำตอบที่อิงตามข้อมูลจริงโดยใช้การค้นหารูปภาพ API จะให้การระบุแหล่งที่มาที่ชัดเจน
-และข้อมูลเมตาเพื่อลิงก์เอาต์พุตกับแหล่งที่มาที่ได้รับการยืนยัน ฟิลด์หลักในออบเจ็กต์
-`groundingMetadata` มีดังนี้
+對於使用圖片搜尋結果為基準的回覆，API 會提供清楚的歸因和中繼資料，將輸出內容連結至經過驗證的來源。`groundingMetadata` 物件中的主要欄位包括：
 
-- **`imageSearchQueries`**: คำค้นหาที่เฉพาะเจาะจงซึ่งโมเดลใช้สำหรับบริบทภาพ (การค้นหารูปภาพ)
-- **`groundingChunks`**: มีข้อมูลแหล่งที่มาสำหรับผลการค้นหาที่ดึงข้อมูล
-  สำหรับแหล่งที่มาของรูปภาพ ระบบจะแสดงผลเป็น URL เปลี่ยนเส้นทางโดยใช้ประเภทก้อนข้อมูลรูปภาพใหม่
-  โดยส่วนนี้ประกอบด้วย
+- **`imageSearchQueries`**：模型用於視覺內容 (圖片搜尋) 的特定查詢。
+- **`groundingChunks`**：包含擷取結果的來源資訊。如果是圖片來源，系統會使用新的圖片區塊類型，以重新導向網址的形式傳回。這段內容包括：
 
-  - **`uri`**: URL ของหน้าเว็บสำหรับการระบุแหล่งที่มา (หน้า Landing Page)
-  - **`image_uri`**: URL ของรูปภาพโดยตรง
-- **`groundingSupports`**: ระบุการแมปที่เฉพาะเจาะจงซึ่งลิงก์เนื้อหาที่สร้างขึ้น
-  กับแหล่งที่มาของการอ้างอิงที่เกี่ยวข้องในก้อนข้อมูล
-- **`searchEntryPoint`**: มีชิป "Google Search" ที่มี HTML และ CSS ที่เป็นไปตามข้อกำหนดเพื่อแสดงผลคำแนะนำในการค้นหา
+  - **`uri`**：用於歸因的網頁網址 (到達網頁)。
+  - **`image_uri`**：圖片的直接網址。
+- **`groundingSupports`**：提供具體的對應，將生成的內容連結至相關的引用來源。
+- **`searchEntryPoint`**：包含「Google 搜尋」晶片，內含符合規定的 HTML 和 CSS，可顯示搜尋建議。
 
-### สร้างรูปภาพที่มีความละเอียดสูงสุด 4K
+### 從影片生成圖片 (3.1 Flash)
 
-โมเดลรูปภาพ Gemini 3 จะสร้างรูปภาพขนาด 1K โดยค่าเริ่มต้น แต่ก็สามารถแสดงรูปภาพขนาด 2K, 4K และ 512 (0.5K) (รูปภาพ Gemini 3.1 Flash เท่านั้น) ได้เช่นกัน หากต้องการสร้างชิ้นงานที่มีความละเอียดสูงขึ้น
-ให้ระบุ `image_size` ใน `generation_config`
+影片轉圖像功能可使用影片內容做為多模態參考，生成新圖像。這項功能可製作高品質的影片縮圖、電影海報、摘要資訊圖表，或以影片場景為靈感的新作品。
 
-คุณต้องใช้ตัว "K" พิมพ์ใหญ่ (เช่น 1K, 2K, 4K) ค่า `512` ไม่ได้ใช้คำต่อท้าย "K" พารามิเตอร์ตัวพิมพ์เล็ก (เช่น 1k) จะถูกปฏิเสธ
+生成圖片時，模型會分析影片影格的內容 (最多可達模型輸入權杖限制的 131,072 個權杖)，擷取視覺主題和重要事件，然後搭配文字提示合成輸出圖片。
+
+您可以直接在 API 要求中傳遞公開的 [YouTube 網址](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw#youtube)，也可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳本機影片檔案。
+
+### Python
+
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client()
+
+# Pass a public YouTube video URL as part of the contents
+response = client.models.generate_content(
+    model="gemini-3.1-flash-image",
+    contents=[
+        types.Part(
+          file_data=types.FileData(file_uri="https://www.youtube.com/watch?v=UTdfxFyOQTI"),
+          video_metadata=types.VideoMetadata(fps=0.5)
+        ),
+        "Can you create an infographics that explains what this video is about?"
+    ]
+)
+
+# Save the generated image part
+for part in response.parts:
+    if part.inline_data is not None:
+        image = part.as_image()
+        image.save("video_poster.png")
+        print("Image saved as video_poster.png")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import * as fs from "node:fs";
+
+async function main() {
+  const ai = new GoogleGenAI({});
+
+  const response = await ai.models.generateContent({
+    model: "gemini-3.1-flash-image",
+    contents: [
+      {
+        fileData: {
+          fileUri: "https://www.youtube.com/watch?v=UTdfxFyOQTI",
+        },
+        videoMetadata: {
+          fps: 0.5
+        }
+      },
+      { text: "Can you create an infographics that explains what this video is about?" }
+    ]
+  });
+
+  for (const part of response.candidates[0].content.parts) {
+    if (part.inlineData) {
+      const imageData = part.inlineData.data;
+      const buffer = Buffer.from(imageData, "base64");
+      fs.writeFileSync("video_poster.png", buffer);
+      console.log("Image saved as video_poster.png");
+    }
+  }
+}
+
+main();
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+    "os"
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    videoPart := genai.NewPartFromURI("https://www.youtube.com/watch?v=UTdfxFyOQTI", "video/mp4")
+    videoPart.VideoMetadata = &genai.VideoMetadata{FPS: genai.Ptr(0.5)}
+
+    parts := []*genai.Part{
+        videoPart,
+        genai.NewPartFromText("Can you create an infographics that explains what this video is about?"),
+    }
+
+    contents := []*genai.Content{
+        genai.NewContentFromParts(parts, genai.RoleUser),
+    }
+
+    result, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-3.1-flash-image",
+        contents,
+        nil,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    for _, part := range result.Candidates[0].Content.Parts {
+        if part.InlineData != nil {
+            imageBytes := part.InlineData.Data
+            _ = os.WriteFile("video_poster.png", imageBytes, 0644)
+            log.Println("Image saved as video_poster.png")
+        }
+    }
+}
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.Content;
+import com.google.genai.types.FileData;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Part;
+import com.google.genai.types.VideoMetadata;
+import com.google.common.collect.ImmutableList;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class VideoToImage {
+  public static void main(String[] args) throws IOException {
+
+    try (Client client = new Client()) {
+      Part videoPart = Part.builder()
+          .fileData(FileData.builder()
+              .fileUri("https://www.youtube.com/watch?v=UTdfxFyOQTI")
+              .build())
+          .videoMetadata(VideoMetadata.builder()
+              .fps(0.5)
+              .build())
+          .build();
+
+      Part textPart = Part.builder()
+          .text("Can you create an infographics that explains what this video is about?")
+          .build();
+
+      GenerateContentResponse response = client.models.generateContent(
+          "gemini-3.1-flash-image",
+          Content.builder()
+              .role("user")
+              .parts(ImmutableList.of(videoPart, textPart))
+              .build());
+
+      for (Part part : response.parts()) {
+        if (part.inlineData().isPresent()) {
+          var blob = part.inlineData().get();
+          if (blob.data().isPresent()) {
+            Files.write(Paths.get("video_poster.png"), blob.data().get());
+            System.out.println("Image saved as video_poster.png");
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### C#
+
+```
+using Google.GenAI;
+using Google.GenAI.Types;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class VideoToImage {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part
+            {
+                FileData = new FileData { FileUri = "https://www.youtube.com/watch?v=UTdfxFyOQTI" },
+                VideoMetadata = new VideoMetadata { Fps = 0.5 }
+            },
+            new Part { Text = "Can you create an infographics that explains what this video is about?" }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("video_poster.png", imageBytes);
+                Console.WriteLine("Image saved as video_poster.png");
+            }
+        }
+    }
+  }
+}
+```
+
+### REST
+
+```
+curl -s -X POST \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "contents": [{
+      "parts": [
+        {
+          "file_data": {
+            "file_uri": "https://www.youtube.com/watch?v=UTdfxFyOQTI"
+          },
+          "video_metadata": {
+            "fps": 0.5
+          }
+        },
+        {"text": "Can you create an infographics that explains what this video is about?"}
+      ]
+    }]
+  }'
+```
+
+![根據 YouTube 影片生成 AI 資訊圖表](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=zh-tw)
+
+從 YouTube 影片生成 AI 資訊圖表
+
+### 生成最高 4K 解析度的圖片
+
+Gemini 3 圖像模型預設會生成 1K 圖片，但也能輸出 2K、4K 和 512 (0.5K) 圖片 (僅限 Gemini 3.1 Flash Image)。如要產生高解析度素材資源，請在 `generation_config` 中指定 `image_size`。
+
+必須使用大寫的「K」(例如 1K、2K、4K)。`512` 值不會使用「K」後置字元。系統會拒絕小寫參數 (例如 1k)。
 
 ### Python
 
@@ -1470,7 +2034,7 @@ resolution = "1K" # "512", "1K", "2K", "4K"
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=prompt,
     config=types.GenerateContentConfig(
         response_modalities=['TEXT', 'IMAGE'],
@@ -1501,7 +2065,7 @@ async function main() {
   const resolution = '1K';
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3.1-flash-image-preview',
+    model: 'gemini-3.1-flash-image',
     contents: prompt,
     config: {
       responseModalities: ['TEXT', 'IMAGE'],
@@ -1552,7 +2116,7 @@ func main() {
     }
     defer client.Close()
 
-    model := client.GenerativeModel("gemini-3.1-flash-image-preview")
+    model := client.GenerativeModel("gemini-3.1-flash-image")
     model.GenerationConfig = &pb.GenerationConfig{
         ResponseModalities: []pb.ResponseModality{genai.Text, genai.Image},
         ImageConfig: &pb.ImageConfig{
@@ -1608,7 +2172,7 @@ public class HiRes {
             .build();
 
         GenerateContentResponse response = client.models.generateContent(
-            "gemini-3.1-flash-image-preview", """
+            "gemini-3.1-flash-image", """
               Da Vinci style anatomical sketch of a dissected Monarch butterfly.
               Detailed drawings of the head, wings, and legs on textured
               parchment with notes in English.
@@ -1630,11 +2194,56 @@ public class HiRes {
 }
 ```
 
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class HiRes {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "Da Vinci style anatomical sketch of a dissected Monarch butterfly. Detailed drawings of the head, wings, and legs on textured parchment with notes in English." }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "TEXT", "IMAGE" },
+            ImageConfig = new ImageConfig
+            {
+                AspectRatio = "1:1",
+                ImageSize = "1K"
+            }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("butterfly.png", imageBytes);
+                Console.WriteLine("Image saved as butterfly.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1649,20 +2258,19 @@ curl -s -X POST \
   }'
 ```
 
-ต่อไปนี้เป็นตัวอย่างรูปภาพที่สร้างขึ้นจากพรอมต์นี้
+以下是根據這項提示生成的圖片範例：
 
-![ภาพร่างกายวิภาคสไตล์ดาวินชีที่ AI สร้างขึ้นของผีเสื้อจักรพรรดิที่ผ่าตัด](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=th)
+![AI 生成的達文西風格解剖圖，描繪解剖後的帝王斑蝶。](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=zh-tw)
 
-ภาพร่างกายวิภาคของผีเสื้อจักรพรรดิที่ผ่าตัดแล้วในสไตล์ของดาวินชีซึ่ง AI สร้างขึ้น
+AI 生成的達文西風格解剖帝王蝶草圖。
 
-### กระบวนการคิด
+### 思考過程
 
-โมเดลรูปภาพ Gemini 3 เป็นโมเดลการคิดที่ใช้กระบวนการให้เหตุผล ("การคิด") สำหรับพรอมต์ที่ซับซ้อน ฟีเจอร์นี้เปิดใช้อยู่โดยค่าเริ่มต้นและ
-ปิดใช้ใน API ไม่ได้ ดูข้อมูลเพิ่มเติมเกี่ยวกับกระบวนการคิดได้ที่คำแนะนำ[การคิดของ Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+Gemini 3 圖像模型是思考型模型，會使用推論程序 (「思考」) 處理複雜的提示。這項功能預設為啟用，且無法在 API 中停用。如要進一步瞭解思考過程，請參閱 [Gemini 思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)指南。
 
-โมเดลจะสร้างรูปภาพชั่วคราวสูงสุด 2 รูปเพื่อทดสอบองค์ประกอบและตรรกะ รูปภาพสุดท้ายในส่วน "กำลังคิด" คือรูปภาพสุดท้ายที่แสดงผล
+模型最多會生成兩張暫時圖片，測試構圖和邏輯。「思考」中的最後一張圖片也是最終轉譯圖片。
 
-คุณสามารถดูความคิดที่นำไปสู่การสร้างรูปภาพสุดท้ายได้
+你可以查看生成最終圖像的過程。
 
 ### Python
 
@@ -1692,13 +2300,48 @@ for (const part of response.candidates[0].content.parts) {
 }
 ```
 
-#### การควบคุมระดับการคิด
+### Java
 
-รูปภาพ Gemini 3.1 Flash ช่วยให้คุณควบคุมปริมาณการคิดของโมเดล เพื่อรักษาสมดุลระหว่างคุณภาพและเวลาในการตอบสนองได้ ค่าเริ่มต้น `thinkingLevel` คือ `minimal`
-และระดับที่รองรับคือ `minimal` และ `high` การตั้งค่า `thinkingLevel` เป็น `minimal` จะให้การตอบสนองที่มีเวลาในการตอบสนองต่ำที่สุด โปรดทราบว่า
-การคิดขั้นต่ำไม่ได้หมายความว่าโมเดลจะไม่คิดเลย
+```
+for (Part part : response.parts()) {
+  if (part.thought().orElse(false)) {
+    if (part.text().isPresent()) {
+      System.out.println(part.text().get());
+    } else if (part.inlineData().isPresent()) {
+      var blob = part.inlineData().get();
+      if (blob.data().isPresent()) {
+        Files.write(Paths.get("image.png"), blob.data().get());
+        System.out.println("Image saved as image.png");
+      }
+    }
+  }
+}
+```
 
-คุณสามารถเพิ่มบูลีน `includeThoughts` เพื่อกำหนดว่าจะแสดงความคิดที่โมเดลสร้างขึ้นในการตอบกลับหรือซ่อนไว้
+### C#
+
+```
+foreach (var candidate in response.Candidates) {
+    foreach (var part in candidate.Content.Parts) {
+        if (part.Thought) {
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("image.png", imageBytes);
+                Console.WriteLine("Image saved as image.png");
+            }
+        }
+    }
+}
+```
+
+#### 控管思考程度
+
+使用 Gemini 3.1 Flash Image 時，你可以控制模型思考的程度，在品質和延遲之間取得平衡。預設 `thinkingLevel` 為 `minimal`，支援的層級為 `minimal` 和 `high`。將 `thinkingLevel` 設為 `minimal` 可獲得延遲時間最短的回應。請注意，
+「最少思考」並不代表模型完全不思考。
+
+您可以新增 `includeThoughts` 布林值，決定是否要在回覆中傳回模型生成的想法，或保持隱藏。
 
 ### Python
 
@@ -1706,7 +2349,7 @@ for (const part of response.candidates[0].content.parts) {
 from google import genai
 
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents="A futuristic city built inside a giant glass bottle floating in space",
     config=types.GenerateContentConfig(
         response_modalities=["IMAGE"],
@@ -1737,7 +2380,7 @@ async function main() {
   const ai = new GoogleGenAI({});
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     contents: "A futuristic city built inside a giant glass bottle floating in space",
     config: {
       responseModalities: ["IMAGE"],
@@ -1788,7 +2431,7 @@ func main() {
     }
     defer client.Close()
 
-    model := client.GenerativeModel("gemini-3.1-flash-image-preview")
+    model := client.GenerativeModel("gemini-3.1-flash-image")
     model.GenerationConfig = &pb.GenerationConfig{
         ResponseModalities: []pb.ResponseModality{genai.Image},
         ThinkingConfig: &pb.ThinkingConfig{
@@ -1819,11 +2462,110 @@ func main() {
 }
 ```
 
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateContentConfig;
+import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Part;
+import com.google.genai.types.ThinkingConfig;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class ThinkingLevels {
+  public static void main(String[] args) throws IOException {
+
+    try (Client client = new Client()) {
+      GenerateContentConfig config = GenerateContentConfig.builder()
+          .responseModalities("IMAGE")
+          .thinkingConfig(ThinkingConfig.builder()
+              .thinkingLevel("High")
+              .includeThoughts(true)
+              .build())
+          .build();
+
+      GenerateContentResponse response = client.models.generateContent(
+          "gemini-3.1-flash-image",
+          "A futuristic city built inside a giant glass bottle floating in space",
+          config);
+
+      for (Part part : response.parts()) {
+        if (part.thought().orElse(false)) {
+          // Skip outputting thoughts
+          continue;
+        }
+        if (part.text().isPresent()) {
+          System.out.println(part.text().get());
+        } else if (part.inlineData().isPresent()) {
+          var blob = part.inlineData().get();
+          if (blob.data().isPresent()) {
+            Files.write(Paths.get("image.png"), blob.data().get());
+            System.out.println("Image saved as image.png");
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### C#
+
+```
+using Google.GenAI;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+public class ThinkingLevels {
+  public static async Task Main(string[] args) {
+    var client = new Client();
+
+    var response = await client.Models.GenerateContentAsync(
+        model: "gemini-3.1-flash-image",
+        contents: new List<Part>
+        {
+            new Part { Text = "A futuristic city built inside a giant glass bottle floating in space" }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "IMAGE" },
+            ThinkingConfig = new ThinkingConfig
+            {
+                ThinkingLevel = "High",
+                IncludeThoughts = true
+            }
+        }
+    );
+
+    foreach (var candidate in response.Candidates) {
+        foreach (var part in candidate.Content.Parts) {
+            if (part.Thought) {
+                // Skip outputting thoughts
+                continue;
+            }
+            if (part.Text != null) {
+                Console.WriteLine(part.Text);
+            } else if (part.InlineData != null) {
+                var imageBytes = Convert.FromBase64String(part.InlineData.Data);
+                await File.WriteAllBytesAsync("image.png", imageBytes);
+                Console.WriteLine("Image saved as image.png");
+            }
+        }
+    }
+  }
+}
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -1838,24 +2580,19 @@ curl -s -X POST \
   }'
 ```
 
-โปรดทราบว่าระบบจะเรียกเก็บเงินสำหรับโทเค็นการคิดไม่ว่า `includeThoughts` จะ
-ตั้งค่าเป็น `true` หรือ `false` เนื่องจาก[กระบวนการคิด](#thinking-process)จะเกิดขึ้นเสมอ
-โดยค่าเริ่มต้นไม่ว่าคุณจะดูกระบวนการนี้หรือไม่ก็ตาม
+請注意，無論 `includeThoughts` 設為 `true` 或 `false`，系統都會收取思考權杖費用，因為無論您是否查看，系統預設都會進行[思考程序](#thinking-process)。
 
-#### ลายเซ็นความคิด
+#### 思想特徵
 
-ลายเซ็นความคิดคือการแสดงที่เข้ารหัสของกระบวนการคิดภายในของโมเดล และใช้เพื่อรักษาบริบทการให้เหตุผลในการโต้ตอบแบบหลายรอบ คำตอบทั้งหมดจะมี`thought_signature`
-ฟิลด์ โดยทั่วไปแล้ว หากคุณได้รับลายเซ็นความคิดในคำตอบของโมเดล คุณควรส่งลายเซ็นกลับไปตามที่ได้รับเมื่อส่งประวัติการสนทนาในรอบถัดไป การไม่เผยแพร่ลายเซ็นความคิด
-อาจทำให้การตอบกลับไม่สำเร็จ ดูคำอธิบายเพิ่มเติมเกี่ยวกับลายเซ็นโดยรวมได้ในเอกสารประกอบเกี่ยวกับ[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)
+思想簽章是模型內部思考過程的加密表示法，用於在多輪互動中保留推理脈絡。所有回應都包含 `thought_signature` 欄位。一般來說，如果在模型回覆中收到想法簽章，您應該在下一個回合傳送對話記錄時，完全按照收到的內容傳回該簽章。如果無法傳送思維簽章，可能會導致回應失敗。如要進一步瞭解簽章，請參閱[思想簽章](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw)說明文件。
 
-วิธีการทำงานของลายเซ็นความคิดมีดังนี้
+思想簽章的運作方式如下：
 
-- `inline_data` ส่วนทั้งหมดที่มีรูปภาพ`mimetype`ซึ่งเป็นส่วนหนึ่งของการตอบกลับ
-  ควรมีลายเซ็น
-- หากมีข้อความบางส่วนที่ตอนต้น (ก่อนรูปภาพ) ทันทีหลังจากความคิดเห็น ข้อความส่วนแรกควรมีลายเซ็นด้วย
-- หาก`inline_data`ชิ้นส่วนที่มีรูปภาพ`mimetype`เป็นส่วนหนึ่งของความคิด ระบบจะไม่ใส่ลายเซ็น
+- 回覆中所有含有圖片 `mimetype` 的 `inline_data` 部分都應有簽章。
+- 如果想法之後緊接著有文字部分 (在任何圖片之前)，第一個文字部分也應包含簽名。
+- 如果`inline_data`含有圖片的`mimetype`部分是想法的一部分，就不會有簽名。
 
-โค้ดต่อไปนี้แสดงตัวอย่างตำแหน่งที่รวมลายเซ็นความคิด
+以下程式碼範例顯示包含想法簽章的位置：
 
 ```
 [
@@ -1915,217 +2652,184 @@ curl -s -X POST \
 ]
 ```
 
-## โหมดการสร้างรูปภาพอื่นๆ
+## 其他圖像生成模式
 
-Gemini รองรับโหมดการโต้ตอบกับรูปภาพอื่นๆ ตามโครงสร้างพรอมต์และบริบท ซึ่งรวมถึง
+Gemini 支援其他圖像互動模式，具體取決於提示結構和情境，包括：
 
-- **ข้อความเป็นรูปภาพและข้อความ (แทรกสลับ):** แสดงรูปภาพพร้อมข้อความที่เกี่ยวข้อง
-  - ตัวอย่างพรอมต์: "สร้างสูตรปาเอญ่าพร้อมภาพประกอบ"
-- **รูปภาพและข้อความเป็นรูปภาพและข้อความ (แทรกสลับ)**: ใช้รูปภาพและข้อความที่ป้อนเพื่อสร้างรูปภาพและข้อความใหม่ที่เกี่ยวข้อง
-  - ตัวอย่างพรอมต์: (พร้อมรูปภาพห้องที่มีเฟอร์นิเจอร์) "โซฟาสีอื่นจะเข้ากับพื้นที่ของฉันไหม อัปเดตรูปภาพได้ไหม"
+- **文字生成圖片和文字 (交錯)：**輸出圖片和相關文字。
+  - 提示範例：「Generate an illustrated recipe for a paella.」(生成西班牙海鮮飯的插圖食譜)。
+- **圖片和文字轉圖片和文字 (交錯)**：使用輸入的圖片和文字，建立新的相關圖片和文字。
+  - 提示範例：(附上擺設家具的房間圖片)「我的空間還適合什麼顏色的沙發？可以更新圖片嗎？」
 
-## สร้างรูปภาพเป็นชุด
+## 批次生成圖片
 
-หากต้องการสร้างรูปภาพจำนวนมาก ให้ใช้ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th) คุณจะได้รับ[ขีดจำกัดอัตรา](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th)ที่สูงขึ้น
-เพื่อแลกกับการดำเนินการที่ใช้เวลาไม่เกิน
-24 ชั่วโมง
+如需產生大量圖片，可以使用[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)。你可換取更高的[速率限制](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-tw)，但須等待最多 24 小時。
 
-ดู[เอกสารประกอบการสร้างรูปภาพด้วย Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th#image-generation) และ[สูตรการใช้งาน](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=th)
-เพื่อดูตัวอย่างรูปภาพและโค้ดของ Batch API
+請參閱[批次 API 圖片生成說明文件](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw#image-generation)和[食譜](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=zh-tw)，瞭解批次 API 圖片範例和程式碼。
 
-## คำแนะนำและกลยุทธ์ในการเขียนพรอมต์
+## 提示撰寫指南和策略
 
-การสร้างรูปภาพอย่างเชี่ยวชาญเริ่มต้นด้วยหลักการพื้นฐานข้อเดียว
+如要精通圖像生成，首先要掌握一項基本原則：
 
-> **อธิบายฉาก อย่าเพียงแค่แสดงรายการคีย์เวิร์ด**
-> จุดแข็งหลักของโมเดลคือความเข้าใจภาษาอย่างลึกซึ้ง ย่อหน้าแบบบรรยาย
-> ที่อธิบายรายละเอียดจะสร้างรูปภาพที่ดีขึ้นและสอดคล้องกันมากกว่า
-> รายการคำที่ไม่ได้เชื่อมต่อกันเกือบทุกครั้ง
+> **描述場景，不要只列出關鍵字。**
+> 這項模型的核心優勢在於深入理解語言，與不相關的字詞清單相比，敘事性描述段落幾乎都能產生更優質、更連貫的圖片。
 
-### พรอมต์สำหรับการสร้างรูปภาพ
+### 生成圖片的提示
 
-กลยุทธ์ต่อไปนี้จะช่วยให้คุณสร้างพรอมต์ที่มีประสิทธิภาพเพื่อ
-สร้างรูปภาพที่คุณต้องการได้อย่างแม่นยำ
+下列策略可協助您建立有效的提示，生成所需圖片。
 
-#### การถ่ายภาพ
+#### 攝影
 
-หากต้องการรูปภาพที่สมจริง ให้ใช้คำศัพท์เกี่ยวกับการถ่ายภาพ ระบุมุมกล้อง ประเภทเลนส์
-แสง และรายละเอียดเล็กๆ น้อยๆ เพื่อนำโมเดลไปสู่ผลลัพธ์ที่สมจริง
+如要生成真實感十足的圖片，請使用攝影術語。提及相機角度、鏡頭類型、光線和細節，引導模型生成寫實結果。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| ภาพถ่ายระยะใกล้ของช่างเซรามิกชาวญี่ปุ่นสูงอายุที่มีริ้วรอยลึกที่เกิดจากแสงแดดและรอยยิ้มที่อบอุ่นและรู้ทัน เขากำลังตรวจสอบชามชาที่เพิ่งเคลือบอย่างละเอียด ฉากหลังคือเวิร์กช็อปแบบเรียบง่ายที่สว่างไสวด้วยแสงแดด ฉากนี้มีแสงนุ่มนวลในช่วงเวลาแสงสีทองส่องผ่านหน้าต่าง ซึ่งช่วยขับเน้นพื้นผิวที่ละเอียดของดินเหนียว ถ่ายด้วยเลนส์ภาพบุคคล 85 มม. ทำให้ได้พื้นหลังที่เบลออย่างนุ่มนวล (โบเก้) ให้บรรยากาศโดยรวมดูสงบและเชี่ยวชาญ การวางแนวตั้ง | ช่างปั้นเซรามิกชาวญี่ปุ่นสูงวัย |
+| 相片：一位年長的日本陶藝家，臉上刻滿歲月的痕跡，面帶溫暖的微笑，他正在仔細檢查剛上釉的茶碗。場景是陽光充足的鄉村風工作室。柔和的黃金時刻光線從窗戶灑落，照亮整個場景，凸顯黏土的細緻紋理。使用 85mm 人像鏡頭拍攝，呈現柔和模糊的背景 (散景)。整體氛圍寧靜且充滿大師風範。直向。 | 年長的日本陶藝家 |
 
-#### ภาพวาดและสติกเกอร์ที่มีสไตล์
+#### 風格插畫和貼紙
 
-หากต้องการสร้างสติกเกอร์ ไอคอน หรือชิ้นงาน ให้ระบุสไตล์อย่างชัดเจนและขอ
-พื้นหลังสีขาว
+如要製作貼紙、圖示或素材資源，請明確指定風格並要求白色背景。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| สติกเกอร์สไตล์คาวาอี้ของแพนด้าแดงที่มีความสุขสวมหมวกไม้ไผ่ใบเล็ก มันกำลังแทะใบไผ่สีเขียว การออกแบบมีโครงร่างที่ชัดเจนและสะอาดตา การแรเงาแบบเซลที่เรียบง่าย และชุดสีที่สดใส พื้นหลังต้องเป็นสีขาว | สติกเกอร์แพนด้าแดงคาวาอี้ |
+| 可愛風格的貼紙，一隻戴著小竹帽的開心紅熊貓。正在啃食綠色竹葉。設計特色是簡潔大膽的輪廓、簡單的賽璐珞陰影，以及鮮豔的色調。背景必須為白色。 | 可愛的小熊貓貼紙 |
 
-#### ข้อความที่ถูกต้องในรูปภาพ
+#### 圖片中的文字準確
 
-Gemini ทำงานได้ดีในการแสดงข้อความ ระบุข้อความ รูปแบบแบบอักษร
-(เชิงพรรณนา) และการออกแบบโดยรวมให้ชัดเจน ใช้ตัวอย่างรูปภาพของ Gemini 3 Pro สำหรับ
-การผลิตชิ้นงานระดับมืออาชีพ
+Gemini 擅長算繪文字，清楚說明文字、字型樣式 (描述性) 和整體設計。使用 Gemini 3.1 Pro Image 製作專業素材。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| สร้างโลโก้ที่ทันสมัยและเรียบง่ายสำหรับร้านกาแฟชื่อ "The Daily Grind" ข้อความควรอยู่ในแบบอักษร Sans-Serif ที่สะอาดตาและตัวหนา รูปแบบสีเป็นขาวดำ ใส่โลโก้ในวงกลม ใช้เมล็ดกาแฟอย่างชาญฉลาด | โลโก้ร้านกาแฟ |
+| 為名為「The Daily Grind」的咖啡廳設計現代極簡風格的標誌。文字應使用簡潔的粗體 Sans Serif 字型。色彩配置為黑白。將標誌放在圓圈中。善用咖啡豆。 | 咖啡店標誌 |
 
-#### ภาพจำลองผลิตภัณฑ์และการถ่ายภาพเชิงพาณิชย์
+#### 產品模擬和商業攝影
 
-เหมาะอย่างยิ่งสำหรับการสร้างภาพผลิตภัณฑ์ที่สะอาดตาและดูเป็นมืออาชีพสำหรับอีคอมเมิร์ซ การโฆษณา หรือการสร้างแบรนด์
+非常適合為電子商務、廣告或品牌宣傳製作乾淨俐落的專業產品照片。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| ภาพถ่ายผลิตภัณฑ์ความละเอียดสูงที่จัดแสงในสตูดิโอของแก้วกาแฟเซรามิกแบบมินิมอลสีดำด้าน วางอยู่บนพื้นผิวคอนกรีตขัดเงา การจัดแสงเป็นแบบซอฟต์บ็อกซ์ 3 จุดที่ออกแบบมาเพื่อสร้างไฮไลต์ที่นุ่มนวลและกระจายแสง รวมถึงขจัดเงาที่แข็งกระด้าง มุมกล้องเป็นภาพมุมสูงเล็กน้อยที่ 45 องศาเพื่อแสดงให้เห็นถึงเส้นสายที่สะอาดตา สมจริงสุดๆ โดยเน้นที่ไอน้ำที่ลอยขึ้นจากกาแฟ รูปภาพสี่เหลี่ยมจัตุรัส | ภาพผลิตภัณฑ์แก้วกาแฟมัคเซรามิก |
+| 高解析度攝影棚產品照：霧面黑色極簡陶瓷咖啡杯，放在拋光混凝土表面上。燈光是三點柔光箱設定，旨在營造柔和的漫射高光，並消除強烈陰影。攝影機角度略為抬高，以 45 度拍攝，展現俐落線條。極度逼真，並清楚呈現咖啡冒出的蒸氣。正方形圖片。 | 陶瓷咖啡杯產品照 |
 
-#### ดีไซน์เรียบง่ายและพื้นที่ว่างทางลบ
+#### 極簡風和負空間設計
 
-เหมาะอย่างยิ่งสำหรับการสร้างพื้นหลังสำหรับเว็บไซต์ งานนำเสนอ หรือสื่อการตลาด
-ที่จะมีการวางซ้อนข้อความ
+非常適合用於建立網站、簡報或行銷素材的背景，並在上面疊加文字。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| ภาพองค์ประกอบแบบมินิมอลที่มีใบเมเปิลสีแดงที่บอบบางเพียงใบเดียววางอยู่ด้านขวาล่างของเฟรม พื้นหลังเป็นผืนผ้าใบสีขาวนวลที่ว่างเปล่าและกว้างใหญ่ ทำให้เกิดพื้นที่ว่างเชิงลบที่สำคัญสำหรับข้อความ แสงนุ่มๆ กระจายจากด้านซ้ายบน รูปภาพสี่เหลี่ยมจัตุรัส | ดีไซน์เรียบง่ายพร้อมใบเมเปิลสีแดง |
+| 極簡構圖，畫面右下角有一片精緻的紅楓葉。背景是廣闊的米白色空白畫布，為文字創造出大量的負空間。左上角柔和的漫射光源。正方形圖片。 | 極簡設計，搭配紅楓葉 |
 
-#### ภาพต่อเนื่อง (แผงการ์ตูน / สตอรีบอร์ด)
+#### 連續圖像 (漫畫格 / 分鏡腳本)
 
-สร้างความสอดคล้องของตัวละครและคำอธิบายฉากเพื่อสร้างแผงสำหรับ
-การเล่าเรื่องด้วยภาพ หากต้องการความแม่นยำของข้อความและความสามารถในการเล่าเรื่อง พรอมต์เหล่านี้จะทำงานได้ดีที่สุดกับ Gemini 3 Pro และตัวอย่างรูปภาพ Gemini 3.1 Flash
+以角色一致性和場景描述為基礎，建立視覺故事的面板。如要確保文字準確度和敘事能力，建議使用 Gemini 3.1 Pro 和 Gemini 3.1 Flash Image。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพที่ป้อน:**  ผู้ชายใส่แว่นสีขาว   รูปภาพอินพุต   **พรอมต์:** สร้างการ์ตูน 3 ช่องในสไตล์ศิลปะแบบฟิล์มนัวร์ที่สมจริงด้วยหมึกสีขาวดำที่มีคอนทราสต์สูง ใส่ตัวละครในฉากตลก | แผงการ์ตูนนัวร์สุดหดหู่ |
+| **輸入圖片：**  戴著白色眼鏡的男子   輸入圖片   **提示詞：**製作 3 格漫畫，採用粗獷的黑色電影藝術風格，並使用對比強烈的黑白墨水。將角色置於幽默的場景中。 | 寫實黑色漫畫面板 |
 
-#### การเชื่อมต่อแหล่งข้อมูลกับ Google Search
+#### 以 Google 搜尋建立基準
 
-ใช้ Google Search เพื่อสร้างรูปภาพตามข้อมูลล่าสุดหรือข้อมูลแบบเรียลไทม์
-ซึ่งจะเป็นประโยชน์สำหรับข่าวสาร สภาพอากาศ และหัวข้ออื่นๆ ที่ต้องอัปเดตอยู่เสมอ
+使用 Google 搜尋，根據近期或即時資訊生成圖片。
+這項功能適用於新聞、天氣和其他時效性主題。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| สร้างกราฟิกเรียบง่ายแต่มีสไตล์ของการแข่งขันของอาร์เซนอลเมื่อคืนในแชมเปียนส์ลีก | กราฟิกคะแนนฟุตบอลของอาร์เซนอล |
+| 製作昨晚阿森納在歐洲冠軍聯賽的賽事圖表，風格簡單但時尚 | 兵工廠足球賽得分圖 |
 
-### พรอมต์สำหรับการแก้ไขรูปภาพ
+### 編輯圖片的提示
 
-ตัวอย่างเหล่านี้แสดงวิธีระบุรูปภาพพร้อมกับพรอมต์ข้อความสำหรับการ
-แก้ไข การจัดองค์ประกอบ และการโอนสไตล์
+這些範例說明如何提供圖片和文字提示，以進行編輯、構圖和風格轉移。
 
-#### การเพิ่มและนำองค์ประกอบออก
+#### 新增及移除元素
 
-ระบุรูปภาพและอธิบายการเปลี่ยนแปลง โมเดลจะตรงกับสไตล์ แสง และมุมมองของรูปภาพต้นฉบับ
+提供圖片並說明想做的變更。模型會與原始圖片的風格、光線和透視效果相符。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพที่ป้อน:**  ภาพเหมือนจริงของแมวขิงขนปุย...   รูปภาพอินพุต   **พรอมต์:** โปรดเพิ่มหมวกพ่อมดถักขนาดเล็กบนศีรษะของแมวจากรูปภาพที่ให้มา ทำให้ดูเหมือนว่าวัตถุวางอยู่สบายๆ และเข้ากับแสงนุ่มๆ ของรูปภาพ | แมวใส่หมวกพ่อมด |
+| **輸入圖片：**  一張擬真圖片：一隻毛茸茸的薑黃色貓咪...   輸入圖片   **提示：**請使用我提供的貓咪圖片，在貓咪頭上加上一頂小小的針織魔法師帽。讓虛擬人偶看起來舒適地坐著，並與相片的柔和光線相符。 | 戴巫師帽的貓 |
 
-#### การแก้ไขจุดบกพร่องในภาพ (การมาสก์เชิงความหมาย)
+#### 局部重繪 (語意遮罩)
 
-กำหนด "มาสก์" ในลักษณะการสนทนาเพื่อแก้ไขส่วนใดส่วนหนึ่งของรูปภาพโดย
-ไม่แตะต้องส่วนอื่นๆ
+以對話方式定義「遮罩」，編輯圖像的特定部分，其餘部分則保持不變。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพที่ป้อน:**  ภาพมุมกว้างของห้องนั่งเล่นสมัยใหม่ที่มีแสงสว่างเพียงพอ...   รูปภาพอินพุต   **พรอมต์:** ใช้รูปภาพห้องนั่งเล่นที่ให้มา เปลี่ยนเฉพาะโซฟาสีน้ำเงินให้เป็นโซฟาเชสเตอร์ฟิลด์หนังสีน้ำตาลสไตล์วินเทจ ส่วนอื่นๆ ของห้องจะยังคงเดิม รวมถึงหมอนบนโซฟาและแสงสว่าง | ห้องนั่งเล่นที่มีโซฟาหนังสีน้ำตาล |
+| **輸入圖片：**  遠景照：明亮的現代客廳...   輸入圖片   **提示：**使用提供的客廳圖片，只將藍色沙發換成復古的棕色皮革切斯特菲爾德沙發。保持房間其他部分不變，包括沙發上的枕頭和燈光。 | 客廳，附棕色皮沙發 |
 
-#### การถ่ายโอนสไตล์
+#### 風格轉換
 
-ส่งรูปภาพและขอให้โมเดลสร้างเนื้อหาของรูปภาพนั้นใหม่ใน
-สไตล์ศิลปะที่แตกต่างกัน
+提供圖片，要求模型以不同藝術風格重新創作內容。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพที่ป้อน:**  ภาพถ่ายความละเอียดสูงที่สมจริงของถนนในเมืองที่วุ่นวาย...   รูปภาพอินพุต   **พรอมต์:** เปลี่ยนภาพถ่ายถนนในเมืองสมัยใหม่ที่ให้มาในตอนกลางคืนให้เป็นสไตล์ศิลปะของ "Starry Night" ของวินเซนต์ แวน โก๊ะ คงองค์ประกอบเดิมของอาคารและรถยนต์ไว้ แต่แสดงผลองค์ประกอบทั้งหมดด้วยการปัดแปรงแบบอิมพาสโตที่หมุนวนและจานสีที่น่าทึ่งของสีน้ำเงินเข้มและสีเหลืองสด | ถนนในเมืองในสไตล์ &quot;ราตรีประดับดาว&quot; |
+| **輸入圖片：**  一張高解析度擬真照片，內容是熱鬧的城市街道...   輸入圖片   **提示：**將提供的現代城市街道夜景相片，轉換成梵谷《星夜》的藝術風格。保留建築物和車輛的原始構圖，但以旋轉的厚塗筆觸和深藍色與亮黃色的戲劇性調色盤，呈現所有元素。 | 星夜風格的城市街道 |
 
-#### การจัดองค์ประกอบขั้นสูง: การรวมรูปภาพหลายรูป
+#### 進階合成：合併多張圖片
 
-ระบุรูปภาพหลายรูปเป็นบริบทเพื่อสร้างฉากคอมโพสิตใหม่ ซึ่งเหมาะสำหรับภาพจำลองผลิตภัณฑ์หรือภาพคอลลาจที่สร้างสรรค์
+提供多張圖片做為情境，建立新的複合場景。這項功能非常適合製作產品模型或創意拼貼。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพอินพุต:**  รูปภาพที่ถ่ายอย่างมืออาชีพของชุดเดรสฤดูร้อนลายดอกไม้สีน้ำเงิน...   อินพุต 1: ชุดเดรส   ภาพเต็มตัวของผู้หญิงที่มัดผมเป็นมวย...   อินพุต 2: นางแบบ   **พรอมต์:** สร้างภาพถ่ายแฟชั่นอีคอมเมิร์ซแบบมืออาชีพ นำชุดเดรสลายดอกไม้สีน้ำเงินจากรูปภาพแรกมาให้ผู้หญิงในรูปภาพที่ 2 สวมใส่ สร้างภาพเต็มตัวที่สมจริงของผู้หญิงที่สวมชุด โดยปรับแสงและเงาให้เข้ากับสภาพแวดล้อมภายนอก | ภาพถ่ายอีคอมเมิร์ซแฟชั่น |
+| **輸入圖片：**  專業攝影師拍攝的藍色花卉夏季洋裝照片...   輸入 1：洋裝   全身照：一名女子將頭髮綁成髮髻，...   輸入 2：模特兒   **提示：**製作專業的電子商務時尚相片。將第一張圖片中的藍色花卉洋裝，套用在第二張圖片中的女性身上。生成穿著洋裝的女子全身照，並調整光影，配合戶外環境。 | 時尚電子商務拍攝 |
 
-#### การคงรายละเอียดที่มีความเที่ยงตรงสูง
+#### 保留高保真細節
 
-โปรดอธิบายรายละเอียดที่สำคัญ (เช่น ใบหน้าหรือโลโก้) อย่างละเอียดพร้อมกับคำขอแก้ไข เพื่อให้ระบบเก็บรายละเอียดดังกล่าวไว้ในระหว่างการแก้ไข
+為確保編輯時保留重要細節 (例如臉部或標誌)，請詳細說明這些細節和編輯要求。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพอินพุต:**  ภาพหน้าตรงแบบมืออาชีพของผู้หญิงผมสีน้ำตาลและตาสีฟ้า...   อินพุต 1: ผู้หญิง   โลโก้เรียบง่ายทันสมัยที่มีตัวอักษร &quot;G&quot; และ &quot;A&quot;...   อินพุต 2: โลโก้   **พรอมต์:** ใช้รูปภาพแรกของผู้หญิงผมสีน้ำตาล ตาสีฟ้า และมีสีหน้าเป็นกลาง เพิ่มโลโก้จากรูปภาพที่ 2 ลงบนเสื้อยืดสีดำของเธอ ตรวจสอบว่าใบหน้าและลักษณะของสตรีไม่เปลี่ยนแปลงโดยสิ้นเชิง โลโก้ควรดูเหมือนพิมพ์ลงบนเนื้อผ้าอย่างเป็นธรรมชาติตามรอยพับของเสื้อ | ผู้หญิงใส่เสื้อยืดที่มีโลโก้ |
+| **輸入圖片：**  棕髮藍眼女性的專業形象照...   輸入 1：女性   簡單的現代風標誌，包含「G」和「A」字母...   輸入 2：標誌   **提示：**拍攝第一張相片，相片中的女子留著棕髮、有藍色眼睛，表情平淡。將第二張圖片中的標誌加到她穿的黑色 T 恤上。請確保女性的臉部和特徵完全不變。標誌應看起來像是自然印在布料上，並隨著襯衫的摺疊而彎曲。 | 穿著印有標誌 T 恤的女性 |
 
-#### ทำให้มีชีวิตชีวา
+#### 讓某個事物活起來
 
-อัปโหลดภาพร่างหรือภาพวาดคร่าวๆ แล้วขอให้โมเดลปรับแต่งให้เป็นรูปภาพที่เสร็จสมบูรณ์
+上傳草圖或手繪圖，要求模型將其精修成完成的圖片。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพที่ป้อน:**  ภาพร่างรถยนต์   ภาพร่างคร่าวๆ ของรถยนต์   **พรอมต์:** เปลี่ยนภาพร่างดินสอหยาบๆ ของรถยนต์แห่งอนาคตนี้ให้เป็นภาพถ่ายที่สวยงามของรถยนต์ต้นแบบที่เสร็จสมบูรณ์ในโชว์รูม คงเส้นสายที่โฉบเฉี่ยวและรูปลักษณ์ที่ต่ำจากภาพร่างไว้ แต่เพิ่มสีน้ำเงินเมทัลลิกและแสงขอบล้อสีนีออน | ภาพถ่ายรถแนวคิดที่ขัดเงา |
+| **輸入圖片：**  汽車草圖   汽車的草圖   **提示：**將這張未來汽車的鉛筆草圖，變成展示間中概念車的精美照片。保留草圖中的俐落線條和低調外觀，但加入金屬藍色塗裝和霓虹燈環繞照明。 | 概念車的精修相片 |
 
-#### ความสอดคล้องของตัวละคร: มุมมอง 360 องศา
+#### 角色一致性：360 度全景圖片
 
-คุณสร้างมุมมอง 360 องศาของตัวละครได้โดยการป้อนพรอมต์ซ้ำๆ เพื่อให้ได้มุมที่แตกต่างกัน
-เพื่อผลลัพธ์ที่ดีที่สุด ให้ใส่รูปภาพที่สร้างไว้ก่อนหน้านี้ในพรอมต์ถัดไปเพื่อรักษาความสอดคล้องกัน สำหรับท่าทางที่ซับซ้อน ให้ใส่
-รูปภาพอ้างอิงของท่าทางที่ต้องการ
+您可以透過反覆提示不同角度，生成角色的 360 度視角。為獲得最佳效果，請在後續提示中加入先前生成的圖片，以維持一致性。如要生成複雜姿勢，請附上所需姿勢的參考圖像。
 
-| **พรอมต์** | **เอาต์พุตที่ได้** |
+| **提示** | **生成內容** |
 | --- | --- |
-| **รูปภาพที่ป้อน:**  อินพุตต้นฉบับของชายที่สวมแว่นสีขาว   รูปภาพต้นฉบับ   **พรอมต์:** ภาพถ่ายสตูดิโอของชายคนนี้บนพื้นหลังสีขาว โดยหันข้างไปทางขวา | เอาต์พุตของชายใส่แว่นสีขาวที่มองไปทางขวา   ชายสวมแว่นสีขาวมองไปทางขวา   เอาต์พุตของชายใส่แว่นสีขาวที่มองไปข้างหน้า   ชายสวมแว่นสีขาวมองไปข้างหน้า |
+| **輸入圖片：**  戴白色眼鏡的男子原始輸入內容   原始圖片   **提示：**這名男子在白色背景前拍攝的攝影棚肖像照，側臉朝向右側 | 輸出結果：戴著白色眼鏡並向右看的男子   戴著白色眼鏡的男性向右看   戴著白色眼鏡的男子向前看   戴著白色眼鏡的男性向前看 |
 
-### แนวทางปฏิบัติแนะนำ
+### 最佳做法
 
-หากต้องการยกระดับผลลัพธ์จากดีเป็นยอดเยี่ยม ให้ใช้กลยุทธ์ระดับมืออาชีพเหล่านี้ในเวิร์กโฟลว์
+如要讓成果更上一層樓，請在工作流程中加入這些專業策略。
 
-- **ระบุรายละเอียดให้มากที่สุด:** ยิ่งคุณให้รายละเอียดมากเท่าไหร่ คุณก็จะยิ่งควบคุมได้มากขึ้นเท่านั้น
-  แทนที่จะใช้คำว่า "ชุดเกราะแฟนตาซี" ให้อธิบายว่า "ชุดเกราะเพลทของเอลฟ์ที่ตกแต่งอย่างงดงาม สลักลายใบไม้สีเงิน มีคอเสื้อสูงและเกราะไหล่รูปปีกเหยี่ยว"
-- **ระบุบริบทและเจตนา:** อธิบาย*วัตถุประสงค์*ของรูปภาพ ความเข้าใจบริบทของ
-  โมเดลจะมีผลต่อเอาต์พุตสุดท้าย เช่น "สร้างโลโก้สำหรับแบรนด์ผลิตภัณฑ์ดูแลผิวระดับไฮเอนด์ที่เน้นความเรียบง่าย" จะให้ผลลัพธ์ที่ดีกว่า เพียงแค่ "สร้างโลโก้"
-- **ทำซ้ำและปรับแต่ง:** อย่าคาดหวังว่าจะได้รูปภาพที่สมบูรณ์แบบตั้งแต่ครั้งแรก ใช้
-  ลักษณะการสนทนาของโมเดลเพื่อทำการเปลี่ยนแปลงเล็กๆ น้อยๆ ติดตามด้วยพรอมต์ เช่น "ดีมาก แต่ช่วยปรับแสงให้ดูอบอุ่นขึ้นหน่อยได้ไหม" หรือ
-  "คงทุกอย่างไว้เหมือนเดิม แต่เปลี่ยนสีหน้าของตัวละครให้ดู
-  จริงจังมากขึ้น"
-- **ใช้คำสั่งแบบทีละขั้นตอน:** สำหรับฉากที่ซับซ้อนซึ่งมีองค์ประกอบจำนวนมาก ให้แบ่งพรอมต์ออกเป็นขั้นตอน "ก่อนอื่น ให้สร้างพื้นหลังเป็นป่าที่เงียบสงบและมีหมอก
-  ในตอนเช้า จากนั้นเพิ่มแท่นบูชาหินโบราณที่ปกคลุมด้วยมอสไว้ที่ด้านหน้า
-  สุดท้าย ให้วางดาบเรืองแสงเล่มเดียวไว้บนแท่นบูชา"
-- **ใช้ "พรอมต์เชิงลบเชิงความหมาย":** แทนที่จะพูดว่า "ไม่มีรถ" ให้อธิบาย
-  ฉากที่ต้องการในเชิงบวกว่า "ถนนที่ว่างเปล่าและรกร้างไม่มีร่องรอย
-  การจราจร"
-- **ควบคุมกล้อง:** ใช้ภาษาที่เกี่ยวข้องกับการถ่ายภาพและภาพยนตร์เพื่อควบคุม
-  องค์ประกอบ คำอย่าง `wide-angle shot`, `macro shot`, `low-angle
-  perspective`
+- **具體說明：**提供的細節越多，你對生成結果的掌控權就越大。請描述「奇幻盔甲」，而不是直接輸入這個詞：「華麗的精靈板甲，刻有銀葉圖案，高領，肩甲形狀像獵鷹翅膀。」
+- **提供背景資訊和意圖：**說明圖片的*用途*。模型對背景資訊的理解程度會影響最終輸出內容。舉例來說，「為高檔極簡護膚品牌設計標誌」比「設計標誌」能產生更出色的結果。
+- **反覆測試及修正：**別期望第一次就能生成完美圖片。運用模型的對話性質進行小幅變更。接著輸入「這很棒，但可以讓光線暖一點嗎？」或「維持所有設定，但將角色的表情改為更嚴肅。」等提示。
+- **使用逐步指示：**如果場景複雜且包含許多元素，請將提示分成多個步驟。「首先，請在黎明時分，製作一片寧靜、霧氣瀰漫的森林背景。接著，在前景中加入長滿青苔的古老石祭壇。最後，將一把發光的劍放在祭壇上。」
+- **使用「語意負面提示」：**不要說「沒有車輛」，而是正面描述想要的場景：「空蕩蕩的荒涼街道，沒有任何交通跡象」。
+- **控制攝影機：**使用攝影和電影語言控制構圖。例如`wide-angle shot`、`macro shot`、`low-angle
+  perspective`。
 
-## ข้อจำกัด
+## 限制
 
-- เพื่อประสิทธิภาพสูงสุด ให้ใช้ภาษาต่อไปนี้ EN, ar-EG, de-DE, es-MX,
-  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN
-- การสร้างรูปภาพไม่รองรับอินพุตเสียงหรือวิดีโอ
-- โมเดลจะไม่สร้างรูปภาพตามจำนวนที่ผู้ใช้ขออย่างชัดเจนเสมอไป
-- `gemini-2.5-flash-image` ทำงานได้ดีที่สุดเมื่อมีรูปภาพเป็นอินพุตไม่เกิน 3 รูป ส่วน
-  `gemini-3-pro-image-preview` รองรับรูปภาพ 5 รูปที่มีความเที่ยงตรงสูง และรองรับรูปภาพทั้งหมดไม่เกิน
-  14 รูป `gemini-3.1-flash-image-preview` รองรับความคล้ายคลึงของตัวละครได้สูงสุด 4 ตัวและคุณภาพของออบเจ็กต์ได้สูงสุด 10 รายการในเวิร์กโฟลว์เดียว
-- เมื่อสร้างข้อความสำหรับรูปภาพ Gemini จะทำงานได้ดีที่สุดหากคุณสร้างข้อความก่อน แล้วจึงขอรูปภาพที่มีข้อความนั้น
-- `gemini-3.1-flash-image-preview` ขณะนี้การเชื่อมต่อแหล่งข้อมูลกับ Google Search ไม่รองรับการใช้รูปภาพของผู้คนในโลกแห่งความเป็นจริงจากการค้นหาบนเว็บ
-- รูปภาพที่สร้างขึ้นทั้งหมดจะมี[ลายน้ำ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=th)
+- 如要獲得最佳效能，請使用下列語言：英文、ar-EG、de-DE、es-MX、fr-FR、hi-IN、id-ID、it-IT、ja-JP、ko-KR、pt-BR、ru-RU、ua-UA、vi-VN、zh-CN。
+- 圖像生成功能不支援音訊或影片輸入內容。
+- 模型不一定會輸出使用者明確要求的確切圖片數量。
+- `gemini-2.5-flash-image` 最多可輸入 3 張圖片，`gemini-3-pro-image` 則支援 5 張高保真度圖片，最多可輸入 14 張圖片。`gemini-3.1-flash-image` 支援最多 4 個字元的字元相似度，以及單一工作流程中最多 10 個物件的保真度。
+- 為圖片生成文字時，建議先生成文字，然後要求提供含有該文字的圖片，這樣 Gemini 的效果最好。
+- `gemini-3.1-flash-image`目前，以 Google 搜尋強化事實基礎時，不支援使用網路搜尋中的人物真實圖像。
+- 所有生成的圖片都會加上 [SynthID 浮水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-tw)。
 
-## การกำหนดค่าที่ไม่บังคับ
+## 選用設定
 
-คุณเลือกกำหนดค่ารูปแบบการตอบกลับและสัดส่วนภาพของเอาต์พุตของโมเดลได้ในฟิลด์ `config` ของการเรียกใช้ `generate_content`
+您可以在 `generate_content` 呼叫的 `config` 欄位中，視需要設定模型輸出內容的回應模式和長寬比。
 
-### ประเภทเอาต์พุต
+### 輸出類型
 
-โมเดลจะแสดงคำตอบเป็นข้อความและรูปภาพโดยค่าเริ่มต้น
-(เช่น `response_modalities=['Text', 'Image']`)
-คุณกำหนดค่าคำตอบให้แสดงเฉพาะรูปภาพโดยไม่มีข้อความได้โดยใช้
-`response_modalities=['Image']`
+模型預設會傳回文字和圖片回應 (即 `response_modalities=['Text', 'Image']`)。您可以設定回應只傳回圖片，不含文字，方法是使用 `response_modalities=['Image']`。
 
 ### Python
 
 ```
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=[prompt],
     config=types.GenerateContentConfig(
         response_modalities=['Image']
@@ -2137,7 +2841,7 @@ response = client.models.generate_content(
 
 ```
 const response = await ai.models.generateContent({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     contents: prompt,
     config: {
         responseModalities: ['Image']
@@ -2150,7 +2854,7 @@ const response = await ai.models.generateContent({
 ```
 result, _ := client.Models.GenerateContent(
     ctx,
-    "gemini-3.1-flash-image-preview",
+    "gemini-3.1-flash-image",
     genai.Text("Create a picture of a nano banana dish in a " +
                 " fancy restaurant with a Gemini theme"),
     &genai.GenerateContentConfig{
@@ -2163,18 +2867,31 @@ result, _ := client.Models.GenerateContent(
 
 ```
 response = client.models.generateContent(
-    "gemini-3.1-flash-image-preview",
+    "gemini-3.1-flash-image",
     prompt,
     GenerateContentConfig.builder()
         .responseModalities("IMAGE")
         .build());
 ```
 
+### C#
+
+```
+var response = await client.Models.GenerateContentAsync(
+    model: "gemini-3.1-flash-image",
+    contents: new List<Part> { new Part { Text = prompt } },
+    config: new GenerateContentConfig
+    {
+        ResponseModalities = new List<string> { "IMAGE" }
+    }
+);
+```
+
 ### REST
 
 ```
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -2189,11 +2906,10 @@ curl -s -X POST \
   }'
 ```
 
-### สัดส่วนภาพและขนาดรูปภาพ
+### 顯示比例和圖片大小
 
-โดยค่าเริ่มต้น โมเดลจะจับคู่ขนาดรูปภาพเอาต์พุตกับขนาดของรูปภาพอินพุต หรือสร้างสี่เหลี่ยมจัตุรัส 1:1
-คุณควบคุมสัดส่วนของรูปภาพเอาต์พุตได้โดยใช้ฟิลด์ `aspect_ratio`
-ในส่วน `response_format` ในคำขอการตอบกลับ ซึ่งแสดงที่นี่
+模型預設會將輸出圖片大小設為與輸入圖片相同，否則會生成 1:1 的正方形。
+您可以使用回應要求中 `response_format` 下方的 `aspect_ratio` 欄位，控制輸出圖片的顯示比例，如下所示：
 
 ### Python
 
@@ -2207,9 +2923,9 @@ response = client.models.generate_content(
     )
 )
 
-# For gemini-3.1-flash-image-preview and gemini-3-pro-image-preview
+# For gemini-3.1-flash-image and gemini-3-pro-image
 response = client.models.generate_content(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     contents=[prompt],
     config=types.GenerateContentConfig(
         response_format={"image": {aspect_ratio: "16:9",                 image_size: "2K",}}
@@ -2233,9 +2949,9 @@ const response = await ai.models.generateContent({
     }
   });
 
-// For gemini-3.1-flash-image-preview and gemini-3-pro-image-preview
+// For gemini-3.1-flash-image and gemini-3-pro-image
 const response_gemini3 = await ai.models.generateContent({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     contents: prompt,
     config: {
       responseFormat: {
@@ -2264,10 +2980,10 @@ result, _ := client.Models.GenerateContent(
     }
   )
 
-// For gemini-3.1-flash-image-preview and gemini-3-pro-image-preview
+// For gemini-3.1-flash-image and gemini-3-pro-image
 result_gemini3, _ := client.Models.GenerateContent(
     ctx,
-    "gemini-3.1-flash-image-preview",
+    "gemini-3.1-flash-image",
     genai.Text("Create a picture of a nano banana dish in a " +
                 " fancy restaurant with a Gemini theme"),
     &genai.GenerateContentConfig{
@@ -2292,9 +3008,9 @@ response = client.models.generateContent(
             .build())
         .build());
 
-// For gemini-3.1-flash-image-preview and gemini-3-pro-image-preview
+// For gemini-3.1-flash-image and gemini-3-pro-image
 response_gemini3 = client.models.generateContent(
-    "gemini-3.1-flash-image-preview",
+    "gemini-3.1-flash-image",
     prompt,
     GenerateContentConfig.builder()
         .imageConfig(ImageConfig.builder()
@@ -2304,12 +3020,43 @@ response_gemini3 = client.models.generateContent(
         .build());
 ```
 
+### C#
+
+```
+// For gemini-2.5-flash-image
+var response = await client.Models.GenerateContentAsync(
+    model: "gemini-2.5-flash-image",
+    contents: new List<Part> { new Part { Text = prompt } },
+    config: new GenerateContentConfig
+    {
+        ImageConfig = new ImageConfig
+        {
+            AspectRatio = "16:9"
+        }
+    }
+);
+
+// For gemini-3.1-flash-image and gemini-3-pro-image
+var response_gemini3 = await client.Models.GenerateContentAsync(
+    model: "gemini-3.1-flash-image",
+    contents: new List<Part> { new Part { Text = prompt } },
+    config: new GenerateContentConfig
+    {
+        ImageConfig = new ImageConfig
+        {
+            AspectRatio = "16:9",
+            ImageSize = "2K"
+        }
+    }
+);
+```
+
 ### REST
 
 ```
 # For gemini-2.5-flash-image
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2327,9 +3074,9 @@ curl -s -X POST \
     }
   }'
 
-# For gemini-3-pro-image-preview
+# For gemini-3-pro-image
 curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-image-preview:generateContent" \
+  "https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-image:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -2349,13 +3096,13 @@ curl -s -X POST \
   }'
 ```
 
-อัตราส่วนต่างๆ ที่พร้อมใช้งานและขนาดของรูปภาพที่สร้างขึ้นแสดงอยู่ในตารางต่อไปนี้
+下表列出可用的比例和生成的圖片大小：
 
-### 3.1 ตัวอย่างรูปภาพ Flash
+### 3.1 Flash Image
 
-| สัดส่วนภาพ | ความละเอียด 512 | 0.5K โทเค็น | ความละเอียดระดับ 1K | โทเค็น 1,000 รายการ | ความละเอียดระดับ 2K | 2,000 โทเค็น | ความละเอียดระดับ 4K | 4,000 โทเค็น |
+| 顯示比例 | 512 解析度 | 500 個權杖 | 1K 解析度 | 1,000 個權杖 | 2K 解析度 | 2,000 個權杖 | 4K 解析度 | 4,000 個權杖 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
+| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048 x 2048 | 1680 | 4096x4096 | 2520 |
 | **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
 | **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
 | **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
@@ -2370,11 +3117,11 @@ curl -s -X POST \
 | **16:9** | 688x384 | 747 | 1376x768 | 1120 | 2752x1536 | 1680 | 5504x3072 | 2520 |
 | **21:9** | 792x168 | 747 | 1584x672 | 1120 | 3168x1344 | 1680 | 6336x2688 | 2520 |
 
-### ตัวอย่างรูปภาพ 3 Pro
+### 3.1 Pro Image
 
-| สัดส่วนภาพ | ความละเอียดระดับ 1K | โทเค็น 1,000 รายการ | ความละเอียดระดับ 2K | 2,000 โทเค็น | ความละเอียดระดับ 4K | 4,000 โทเค็น |
+| 顯示比例 | 1K 解析度 | 1,000 個權杖 | 2K 解析度 | 2,000 個權杖 | 4K 解析度 | 4,000 個權杖 |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4096x4096 | 2000 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
 | **3:2** | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
 | **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
@@ -2385,9 +3132,9 @@ curl -s -X POST \
 | **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
 | **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
 
-### รูปภาพ Gemini 2.5 Flash
+### Gemini 2.5 Flash Image
 
-| สัดส่วนภาพ | ความละเอียด | โทเค็น |
+| 顯示比例 | 解析度 | 符記數 |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
 | 2:3 | 832x1248 | 1290 |
@@ -2400,36 +3147,32 @@ curl -s -X POST \
 | 16:9 | 1344x768 | 1290 |
 | 21:9 | 1536x672 | 1290 |
 
-## การเลือกโมเดล
+## 多種模型供您選擇
 
-เลือกโมเดลที่เหมาะกับกรณีการใช้งานของคุณมากที่สุด
+選擇最適合特定用途的模型。
 
-- **ตัวอย่างรูปภาพ Gemini 3.1 Flash (ตัวอย่าง Nano Banana 2)** ควรเป็นโมเดลการสร้างรูปภาพที่คุณเลือกใช้ เนื่องจากมีประสิทธิภาพและความอัจฉริยะรอบด้านที่ดีที่สุด รวมถึงความสมดุลระหว่างต้นทุนกับเวลาในการตอบสนอง ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.1-flash-image-preview)และ[ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image-preview?hl=th)ของโมเดล
-- **ตัวอย่างรูปภาพ Gemini 3 Pro (ตัวอย่าง Nano Banana Pro)** ออกแบบมาสำหรับ
-  การผลิตชิ้นงานระดับมืออาชีพและคำสั่งที่ซับซ้อน โมเดลนี้มี การเชื่อมต่อแหล่งข้อมูลจากโลกแห่งความเป็นจริงโดยใช้ Google Search, กระบวนการ "การคิด" เริ่มต้นที่ ปรับแต่งองค์ประกอบก่อนการสร้าง และสร้างรูปภาพที่มีความละเอียดสูงสุด 4K ได้ ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3-pro-image-preview)และ[ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=th)ของโมเดล
-- **รูปภาพ Gemini 2.5 Flash (Nano Banana)** ออกแบบมาเพื่อความเร็วและ
-  ประสิทธิภาพ โมเดลนี้ได้รับการเพิ่มประสิทธิภาพสำหรับงานที่มีปริมาณมากและมีเวลาในการตอบสนองต่ำ และสร้างรูปภาพที่ความละเอียด 1024 พิกเซล ดูรายละเอียดเพิ่มเติมได้ที่หน้า[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-2.5-flash-image)และ[ความสามารถ](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=th)ของโมเดล
+- **Gemini 3.1 Flash Image (Nano Banana 2)** 是您圖像生成模型的首選，因為它在效能、智慧、成本和延遲之間取得最佳平衡。詳情請參閱模型[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.1-flash-image)和[功能](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=zh-tw)頁面。
+- **Gemini 3.1 Pro Image (Nano Banana Pro)** 專為專業資產製作和複雜指令而設計。這個模型會使用 Google 搜尋功能做為基準，並在生成圖像前進行預設的「思考」程序，以修正構圖，還能生成最高 4K 解析度的圖像。詳情請參閱模型[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3-pro-image)和[功能](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-tw)頁面。
+- **Gemini 2.5 Flash Image (Nano Banana)** 的設計宗旨是速度和效率。這個模型經過最佳化，可處理大量低延遲工作，並生成 1024 像素的圖片。詳情請參閱模型[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-2.5-flash-image)和[功能](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=zh-tw)頁面。
 
-### กรณีที่ควรใช้ Imagen
+### Imagen 的適用時機
 
-นอกเหนือจากการใช้ความสามารถในการสร้างรูปภาพในตัวของ Gemini แล้ว คุณยังเข้าถึง [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=th) ซึ่งเป็นโมเดลการสร้างรูปภาพเฉพาะของเราผ่าน Gemini API ได้ด้วย
+除了使用 Gemini 內建的圖像生成功能，您也可以透過 Gemini API 存取專門的圖像生成模型 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-tw)。
 
-Imagen 4 ควรเป็นโมเดลที่คุณเลือกใช้เมื่อเริ่มสร้างรูปภาพด้วย Imagen เลือก Imagen 4 Ultra สำหรับกรณีการใช้งานขั้นสูง
-หรือเมื่อต้องการรูปภาพคุณภาพดีที่สุด (โปรดทราบว่าสร้างได้ครั้งละ 1 รูปเท่านั้น)
+開始使用 Imagen 生成圖像時，建議優先選擇 Imagen 4。如要處理進階用途或需要最佳圖片品質，請選擇 Imagen 4 Ultra (請注意，一次只能生成一張圖片)。
 
-## ขั้นตอนถัดไป
+## 後續步驟
 
-- ดูตัวอย่างและโค้ดตัวอย่างเพิ่มเติมได้ใน[คู่มือ Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=th)
-- ดู[คู่มือ Veo](https://ai.google.dev/gemini-api/docs/video?hl=th) เพื่อดูวิธีสร้าง
-  วิดีโอด้วย Gemini API
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับโมเดล Gemini ได้ที่[โมเดล Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th)
+- 如需更多範例和程式碼範例，請參閱[食譜指南](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=zh-tw)。
+- 請參閱 [Veo 指南](https://ai.google.dev/gemini-api/docs/video?hl=zh-tw)，瞭解如何使用 Gemini API 生成影片。
+- 如要進一步瞭解 Gemini 模型，請參閱「[Gemini 模型](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw)」。
 
-ส่งความคิดเห็น
+提供意見
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-อัปเดตล่าสุด 2026-05-13 UTC
+上次更新時間：2026-05-28 (世界標準時間)。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+想進一步說明嗎？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-13 UTC"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-28 (世界標準時間)。"],[],[]]

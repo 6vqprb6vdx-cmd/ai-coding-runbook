@@ -1,75 +1,92 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=pl
-fetched_at: 2026-05-25T13:06:55.754062+00:00
-title: "Trwa\u0142y agent AI z\u00a0Gemini i\u00a0Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=id
+fetched_at: 2026-06-01T19:44:55.210115+00:00
+title: "Agen AI yang andal dengan Gemini dan Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Prześlij opinię
+Kirim masukan
 
-# Trwały agent AI z Gemini i Temporal
+# Agen AI yang andal dengan Gemini dan Temporal
 
-Ten samouczek przeprowadzi Cię przez proces tworzenia pętli agentowej w [stylu ReAct](https://arxiv.org/abs/2210.03629), która do rozumowania używa interfejsu Gemini API, a do trwałości – [Temporal](https://temporal.io/).
-Pełny kod źródłowy tego samouczka jest dostępny na [GitHub](https://github.com/temporal-community/durable-react-agent-gemini).
+Tutorial ini memandu Anda membangun loop agentik
+[gaya ReAct](https://arxiv.org/abs/2210.03629) yang menggunakan
+Gemini API untuk penalaran dan [Temporal](https://temporal.io/) untuk ketahanan.
+Kode sumber lengkap untuk tutorial ini tersedia di
+[GitHub](https://github.com/temporal-community/durable-react-agent-gemini).
 
-Agent może wywoływać narzędzia, np. wyszukiwać alerty pogodowe lub lokalizować adres IP, i będzie to robić, dopóki nie uzyska wystarczającej ilości informacji, aby odpowiedzieć.
+Agen dapat memanggil alat, seperti mencari tahu peringatan cuaca atau melakukan geolokasi alamat IP, dan akan melakukan loop hingga memiliki informasi yang cukup untuk merespons.
 
-Od typowej wersji demonstracyjnej agenta różni się ona **trwałością**. Każde wywołanie LLM, każde wywołanie narzędzia i każdy krok pętli agenta jest utrwalany przez Temporal. Jeśli proces ulegnie awarii, sieć zostanie odłączona lub interfejs API przekroczy limit czasu, Temporal automatycznie ponowi próbę i wznowi działanie od ostatniego ukończonego kroku. Nie utracisz historii rozmów ani nie powtórzysz nieprawidłowo wywołań narzędzi.
+Yang membedakan demo ini dengan demo agen biasa adalah **daya tahan**. Setiap panggilan LLM, setiap pemanggilan alat, dan setiap langkah loop agentik dipertahankan oleh Temporal. Jika proses mengalami error, jaringan terputus, atau API mengalami waktu tunggu habis, Temporal akan otomatis mencoba lagi dan melanjutkan dari langkah terakhir yang selesai. Tidak ada histori percakapan yang hilang, dan tidak ada panggilan alat yang diulang secara tidak benar.
 
-## Architektura
+## Arsitektur
 
-Architektura składa się z 3 części:
+Arsitektur ini terdiri dari tiga bagian:
 
-- **Przepływ pracy:** pętla agenta, która zarządza logiką wykonywania.
-- **Aktywności:** poszczególne jednostki pracy (wywołania LLM, wywołania narzędzi), które Temporal sprawia, że są trwałe.
-- **Proces roboczy:** proces, który wykonuje przepływy pracy i działania.
+- **Alur kerja:** Loop agentic yang mengatur logika eksekusi.
+- **Aktivitas:** Unit tugas individual (panggilan LLM, panggilan alat) yang
+  dibuat Temporal menjadi tahan lama.
+- **Worker:** Proses yang menjalankan alur kerja dan aktivitas.
 
-W tym przykładzie umieścisz wszystkie 3 elementy w jednym pliku (`durable_agent_worker.py`). W rzeczywistym wdrożeniu rozdzielisz je, aby uzyskać różne korzyści związane z wdrażaniem i skalowalnością. Kod, który dostarcza prompta do agenta, umieścisz w drugim pliku (`start_workflow.py`).
+Dalam contoh ini, Anda akan menempatkan ketiga bagian ini dalam satu file
+(`durable_agent_worker.py`). Dalam penerapan di dunia nyata, Anda akan memisahkannya
+untuk memungkinkan berbagai keuntungan deployment dan skalabilitas. Anda akan menempatkan
+kode yang memberikan perintah ke agen dalam file kedua
+(`start_workflow.py`).
 
-## Wymagania wstępne
+## Prasyarat
 
-Aby skorzystać z tego przewodnika, potrzebujesz:
+Untuk menyelesaikan panduan ini, Anda memerlukan:
 
-- Klucz interfejsu Gemini API. Możesz go utworzyć bezpłatnie w [Google AI Studio](https://aistudio.google.com/apikey?hl=pl).
-- [Python](https://www.python.org/downloads/) w wersji 3.10 lub nowszej.
-- [Temporal CLI](https://docs.temporal.io/cli) do uruchamiania lokalnego serwera programistycznego.
+- Kunci Gemini API. Anda dapat membuatnya secara gratis di
+  [Google AI Studio](https://aistudio.google.com/apikey?hl=id).
+- [Python](https://www.python.org/downloads/) versi 3.10 atau yang lebih baru.
+- [Temporal CLI](https://docs.temporal.io/cli) untuk menjalankan server pengembangan lokal.
 
-## Konfiguracja
+## Penyiapan
 
-Zanim zaczniesz, upewnij się, że na Twoim komputerze działa [serwer programistyczny Temporal](https://docs.temporal.io/cli#start-dev-server):
+Sebelum memulai, pastikan Anda memiliki
+[server pengembangan Temporal](https://docs.temporal.io/cli#start-dev-server)
+yang berjalan secara lokal:
 
 ```
 temporal server start-dev
 ```
 
-Następnie zainstaluj wymagane zależności:
+Selanjutnya, instal dependensi yang diperlukan:
 
 ```
 pip install temporalio google-genai httpx pydantic python-dotenv
 ```
 
-Utwórz w katalogu projektu plik `.env` z kluczem interfejsu Gemini API. Klucz interfejsu API możesz uzyskać w [Google AI Studio](https://aistudio.google.com/apikey?hl=pl).
+Buat file `.env` di direktori project Anda dengan kunci Gemini API Anda. Anda
+dapat memperoleh kunci API dari
+[Google AI Studio](https://aistudio.google.com/apikey?hl=id).
 
 ```
 echo "GOOGLE_API_KEY=your-api-key-here" > .env
 ```
 
-## Implementacja
+## Penerapan
 
-W dalszej części tego samouczka omówimy `durable_agent_worker.py` od góry do dołu, budując agenta krok po kroku. Utwórz plik i postępuj zgodnie z instrukcjami.
+Bagian selanjutnya dari tutorial ini akan membahas `durable_agent_worker.py` dari atas ke
+bawah, dengan membangun bagian agen selangkah demi selangkah. Buat file dan ikuti langkah-langkahnya.
 
-### Importowanie i konfigurowanie piaskownicy
+### Penyiapan impor dan sandbox
 
-Zacznij od importów, które muszą być zdefiniowane z góry. Blok `workflow.unsafe.imports_passed_through()` informuje piaskownicę przepływu pracy Temporal, że niektóre moduły mogą przechodzić bez ograniczeń. Jest to konieczne, ponieważ kilka bibliotek (zwłaszcza `httpx`, która jest podklasą `urllib.request.Request`) używa wzorców, które w innych okolicznościach zostałyby zablokowane przez piaskownicę.
+Mulailah dengan impor yang harus ditentukan di awal. Blok
+`workflow.unsafe.imports_passed_through()` memberi tahu sandbox alur kerja Temporal untuk mengizinkan modul tertentu melewati tanpa batasan. Hal ini
+diperlukan karena beberapa library (terutama `httpx`, yang merupakan subclass
+`urllib.request.Request`) menggunakan pola yang akan diblokir oleh sandbox.
 
 ```
 from temporalio import workflow
@@ -84,9 +101,10 @@ with workflow.unsafe.imports_passed_through():
     from google.genai import types
 ```
 
-### Instrukcje systemowe
+### Petunjuk sistem
 
-Następnie zdefiniuj osobowość agenta. Instrukcje systemowe informują model, jak ma się zachowywać. Ten agent ma odpowiadać w formie haiku, gdy nie są potrzebne żadne narzędzia.
+Selanjutnya, tentukan kepribadian agen. Petunjuk sistem memberi tahu model cara
+berperilaku. Agen ini diinstruksikan untuk merespons dalam bentuk haiku jika tidak ada alat yang diperlukan.
 
 ```
 SYSTEM_INSTRUCTIONS = """
@@ -97,9 +115,11 @@ If no tools are needed, respond in haikus.
 """
 ```
 
-### Definicje narzędzi
+### Definisi alat
 
-Teraz zdefiniuj narzędzia, z których może korzystać agent. Każde narzędzie to funkcja asynchroniczna z opisowym ciągiem dokumentacyjnym. Narzędzia, które przyjmują parametry, używają modelu Pydantic jako pojedynczego argumentu. Jest to sprawdzona metoda Temporal, która zapewnia stabilność sygnatur aktywności w miarę dodawania pól opcjonalnych.
+Sekarang tentukan alat yang dapat digunakan agen. Setiap alat adalah fungsi asinkron dengan
+docstring deskriptif. Alat yang menggunakan parameter menggunakan model Pydantic sebagai
+satu-satunya argumennya. Ini adalah praktik terbaik Temporal yang menjaga tanda tangan aktivitas tetap stabil saat Anda menambahkan kolom opsional dari waktu ke waktu.
 
 ```
 import json
@@ -128,7 +148,7 @@ async def get_weather_alerts(request: GetWeatherAlertsRequest) -> str:
         return json.dumps(response.json())
 ```
 
-Następnie zdefiniuj narzędzia do geolokalizacji adresów IP:
+Selanjutnya, tentukan alat untuk geolokasi alamat IP:
 
 ```
 class GetLocationRequest(BaseModel):
@@ -157,10 +177,11 @@ async def get_location_info(request: GetLocationRequest) -> str:
         return f"{result['city']}, {result['regionName']}, {result['country']}"
 ```
 
-### Rejestr narzędzi
+### Registri alat
 
-Następnie utwórz rejestr, który mapuje nazwy narzędzi na funkcje obsługi. Funkcja
-`get_tools()` generuje obiekty `FunctionDeclaration` zgodne z Gemini z obiektów wywoływalnych za pomocą `FunctionDeclaration.from_callable_with_api_option()`.
+Selanjutnya, buat registry yang memetakan nama alat ke fungsi pengendali. Fungsi
+`get_tools()` menghasilkan objek `FunctionDeclaration` yang kompatibel dengan Gemini
+dari yang dapat dipanggil menggunakan `FunctionDeclaration.from_callable_with_api_option()`.
 
 ```
 from typing import Any, Awaitable, Callable
@@ -198,11 +219,14 @@ def get_tools() -> types.Tool:
     )
 ```
 
-### Aktywność LLM
+### Aktivitas LLM
 
-Teraz zdefiniuj aktywność, która wywołuje interfejs Gemini API. `GeminiChatRequest` i `GeminiChatResponse` definiują umowę.
+Sekarang, tentukan aktivitas yang memanggil Gemini API. Class data `GeminiChatRequest` dan
+`GeminiChatResponse` menentukan kontrak.
 
-Wyłączysz automatyczne wywoływanie funkcji, aby wywołanie modelu LLM i wywołanie narzędzia były traktowane jako oddzielne zadania, co zwiększy trwałość agenta. Wyłączysz też wbudowane ponawianie prób w pakiecie SDK (`attempts=1`), ponieważ Temporal trwale obsługuje ponawianie prób.
+Anda akan menonaktifkan panggilan fungsi otomatis sehingga pemanggilan LLM dan
+pemanggilan alat ditangani sebagai tugas terpisah, sehingga meningkatkan ketahanan agen
+Anda. Anda juga akan menonaktifkan percobaan ulang bawaan SDK (`attempts=1`) karena Temporal menangani percobaan ulang secara andal.
 
 ```
 import os
@@ -278,11 +302,14 @@ async def generate_content(request: GeminiChatRequest) -> GeminiChatResponse:
     )
 ```
 
-### Aktywność narzędzia dynamicznego
+### Aktivitas alat dinamis
 
-Następnie zdefiniuj aktywność, która wykonuje narzędzia. Korzysta z funkcji dynamicznej aktywności Temporal: moduł obsługi narzędzia (funkcja wywoływalna) jest pobierany z rejestru narzędzi za pomocą funkcji `get_handler`. Dzięki temu można definiować różne rodzaje agentów, podając po prostu inny zestaw narzędzi i instrukcji systemowych. W przypadku przepływu pracy implementującego pętlę agenta nie trzeba wprowadzać żadnych zmian.
+Selanjutnya, tentukan aktivitas yang menjalankan alat. Hal ini menggunakan fitur aktivitas dinamis Temporal: pengendali alat (dapat dipanggil) diperoleh dari registry alat melalui fungsi `get_handler`. Hal ini memungkinkan berbagai agen ditentukan hanya dengan menyediakan serangkaian alat dan petunjuk sistem yang berbeda; alur kerja yang menerapkan loop agen tidak memerlukan perubahan.
 
-Działanie sprawdza sygnaturę modułu obsługi, aby określić sposób przekazywania argumentów. Jeśli moduł obsługi oczekuje modelu Pydantic, obsługuje zagnieżdżony format danych wyjściowych generowany przez Gemini (np. `{"request": {"state": "CA"}}` zamiast płaskiego `{"state": "CA"}`).
+Aktivitas memeriksa tanda tangan handler untuk menentukan cara meneruskan
+argumen. Jika handler mengharapkan model Pydantic, handler akan menangani format output bertingkat
+yang dihasilkan Gemini (misalnya, `{"request": {"state": "CA"}}`, bukan
+`{"state": "CA"}` datar).
 
 ```
 import inspect
@@ -322,12 +349,14 @@ async def dynamic_tool_activity(args: Sequence[RawValue]) -> dict:
     return result
 ```
 
-### Przepływ pracy w pętli agentowej
+### Alur kerja agentic loop
 
-Masz już wszystkie elementy potrzebne do ukończenia tworzenia agenta. Klasa `AgentWorkflow`
-implementuje przepływ pracy zawierający pętlę agenta. W tej pętli model LLM jest wywoływany za pomocą działania (co sprawia, że jest trwały), jego dane wyjściowe są sprawdzane, a jeśli model LLM wybrał narzędzie, jest ono wywoływane za pomocą funkcji `dynamic_tool_activity`.
+Sekarang Anda memiliki semua bagian untuk menyelesaikan pembuatan agen. Class `AgentWorkflow`
+menerapkan alur kerja yang berisi loop agen. Dalam loop tersebut, LLM
+dipanggil melalui aktivitas (sehingga tahan lama), output diperiksa, dan jika
+alat telah dipilih oleh LLM, alat tersebut dipanggil melalui `dynamic_tool_activity`.
 
-W tym prostym agencie w stylu ReAct, gdy model LLM zdecyduje, że nie będzie używać narzędzia, pętla jest uznawana za zakończoną i zwracany jest ostateczny wynik modelu LLM.
+Dalam agen gaya ReAct sederhana ini, setelah LLM memilih untuk tidak menggunakan alat, loop dianggap selesai dan hasil LLM akhir akan ditampilkan.
 
 ```
 from datetime import timedelta
@@ -395,13 +424,14 @@ class AgentWorkflow:
         return result
 ```
 
-Pętla agenta jest w pełni trwała. Jeśli po kilku iteracjach pętli proces roboczy agenta ulegnie awarii, Temporal wznowi działanie dokładnie w miejscu, w którym zostało przerwane, bez konieczności ponownego wywoływania już wykonanych wywołań LLM ani wywołań narzędzi.
+Loop agentik sepenuhnya tahan lama. Jika pekerja agen mengalami error setelah beberapa iterasi melalui loop, Temporal akan melanjutkan tepat dari tempat terakhir tanpa perlu memanggil kembali pemanggilan LLM atau pemanggilan alat yang sudah dieksekusi.
 
-### Uruchamianie instancji roboczej
+### Startup pekerja
 
-Na koniec połącz wszystko przewodami. Chociaż kod implementuje niezbędną logikę biznesową w sposób, który sprawia, że wydaje się on działać w ramach jednego procesu, użycie Temporal sprawia, że jest to system oparty na zdarzeniach (a konkretnie na źródłach zdarzeń), w którym komunikacja między przepływem pracy a aktywnościami odbywa się za pomocą wiadomości dostarczanych przez Temporal.
+Terakhir, hubungkan semuanya. Meskipun kode mengimplementasikan logika bisnis yang diperlukan dengan cara yang membuatnya tampak berjalan dalam satu proses, penggunaan Temporal menjadikannya sistem berbasis peristiwa (khususnya, berbasis sumber peristiwa) yang komunikasi antara alur kerja dan aktivitasnya terjadi melalui pesan yang disediakan oleh Temporal.
 
-Instancja robocza Temporal łączy się z usługą Temporal i działa jako harmonogram zadań przepływu pracy i aktywności. Proces roboczy rejestruje przepływ pracy i oba działania, a następnie zaczyna nasłuchiwać zadań.
+Worker Temporal terhubung ke layanan Temporal dan bertindak sebagai penjadwal untuk
+tugas alur kerja dan aktivitas. Worker mendaftarkan alur kerja dan kedua aktivitas, lalu mulai memproses tugas.
 
 ```
 import asyncio
@@ -440,9 +470,12 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Skrypt klienta
+## Skrip klien
 
-Utwórz skrypt klienta (`start_workflow.py`). Wysyła on zapytanie i czeka na wynik. Zwróć uwagę, że łączy się on z tą samą kolejką zadań, do której odwołuje się skrypt `start_workflow` agenta. Skrypt wysyła do tej kolejki zadanie przepływu pracy z promptem użytkownika, co inicjuje wykonanie agenta.
+Buat skrip klien (`start_workflow.py`). Skrip ini mengirimkan kueri dan menunggu
+hasilnya. Perhatikan bahwa skrip ini terhubung ke antrean tugas yang sama yang dirujuk di pekerja
+agen—skrip `start_workflow` mengirimkan tugas alur kerja dengan perintah
+pengguna ke antrean tugas tersebut, sehingga memulai eksekusi agen.
 
 ```
 import asyncio
@@ -472,29 +505,33 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Uruchom agenta
+## Menjalankan agen
 
-Jeśli jeszcze tego nie zrobisz, uruchom serwer programistyczny Temporal:
+Jika Anda belum melakukannya, mulai server pengembangan Temporal:
 
 ```
 temporal server start-dev
 ```
 
-W nowym oknie terminala uruchom proces roboczy agenta:
+Di jendela terminal baru, mulai pekerja agen:
 
 ```
 python -m durable_agent_worker
 ```
 
-W trzecim oknie terminala prześlij zapytanie do agenta:
+Di jendela terminal ketiga, kirimkan kueri ke agen Anda:
 
 ```
 python -m start_workflow "are there any weather alerts for where I am?"
 ```
 
-Zwróć uwagę na dane wyjściowe w terminalu `durable_agent_worker`, które pokazują działania wykonywane w każdej iteracji pętli agenta. LLM może spełnić prośbę użytkownika, wywołując serię dostępnych narzędzi. Wykonane kroki możesz zobaczyć w interfejsie Temporal pod adresem `http://localhost:8233/namespaces/default/workflows`.
+Perhatikan output di terminal `durable_agent_worker` yang menunjukkan
+tindakan yang terjadi di setiap iterasi loop agentik. LLM dapat
+memenuhi permintaan pengguna dengan memanggil serangkaian alat yang tersedia. Anda dapat
+melihat langkah-langkah yang dijalankan melalui UI Temporal di
+`http://localhost:8233/namespaces/default/workflows`.
 
-Wypróbuj kilka różnych promptów, aby zobaczyć uzasadnienie agenta i narzędzia do połączeń:
+Coba beberapa perintah berbeda untuk melihat alasan agen dan alat panggilan:
 
 ```
 python -m start_workflow "are there any weather alerts for New York?"
@@ -503,64 +540,68 @@ python -m start_workflow "what is my ip address?"
 python -m start_workflow "tell me a joke"
 ```
 
-Ostatni prompt nie wymaga żadnych narzędzi, więc agent odpowiada w formie haiku na podstawie `SYSTEM_INSTRUCTIONS`.
+Perintah terakhir tidak memerlukan alat apa pun, jadi agen merespons dalam bentuk haiku berdasarkan `SYSTEM_INSTRUCTIONS`.
 
-## Testowanie trwałości (opcjonalnie)
+## Menguji daya tahan (Opsional)
 
-Korzystanie z Temporal zapewnia płynne działanie agenta w przypadku awarii. Możesz to sprawdzić za pomocą 2 różnych eksperymentów.
+Membangun di Temporal memastikan agen Anda dapat mengatasi kegagalan dengan lancar. Anda dapat
+mengujinya menggunakan dua eksperimen yang berbeda.
 
-### Symulowanie awarii sieci
+### Menyimulasikan pemadaman jaringan
 
-W tym teście tymczasowo wyłączysz połączenie komputera z internetem, prześlesz przepływ pracy, zobaczysz, jak Temporal automatycznie ponawia próbę, a następnie przywrócisz sieć, aby sprawdzić, czy wszystko wróci do normy.
+Dalam pengujian ini, Anda akan menonaktifkan koneksi internet komputer Anda untuk sementara, mengirimkan alur kerja, melihat Temporal mencoba lagi secara otomatis, lalu memulihkan jaringan untuk melihat pemulihannya.
 
-1. Odłącz urządzenie od internetu (np. wyłącz Wi-Fi).
-2. Prześlij przepływ pracy:
+1. Putuskan koneksi komputer Anda dari internet (misalnya, nonaktifkan Wi-Fi Anda).
+2. Mengirimkan alur kerja:
 
    ```
    python -m start_workflow "tell me a joke"
    ```
-3. Sprawdź interfejs Temporal (`http://localhost:8233`). Zobaczysz, że aktywność LLM się nie powiodła, a Temporal automatycznie zarządza ponownymi próbami w tle.
-4. Połącz się ponownie z internetem.
-5. Następna automatyczna próba ponowienia zakończy się powodzeniem i uzyska dostęp do interfejsu Gemini API, a terminal wyświetli ostateczny wynik.
+3. Periksa UI Temporal (`http://localhost:8233`). Anda akan melihat aktivitas LLM gagal dan Temporal secara otomatis mengelola percobaan ulang di latar belakang.
+4. Hubungkan kembali ke internet.
+5. Percobaan ulang otomatis berikutnya akan berhasil menjangkau Gemini API, dan terminal Anda akan mencetak hasil akhir.
 
-### Przetrwanie awarii instancji roboczej
+### Bertahan dari error worker
 
-W tym teście zabijesz instancję roboczą w trakcie wykonywania i ponownie ją uruchomisz. Temporal odtwarza historię przepływu pracy (źródło zdarzeń) i wznawia działanie od ostatniej ukończonej aktywności – wywołania LLM i wywołania narzędzi, które zostały już wykonane, nie są powtarzane.
+Dalam pengujian ini, Anda akan menghentikan pekerja di tengah eksekusi dan memulainya kembali. Pemutaran ulang temporal
+memutar ulang histori alur kerja (sumber peristiwa) dan melanjutkan dari aktivitas
+terakhir yang diselesaikan—pemanggilan LLM dan panggilan alat yang sudah diselesaikan tidak diulang.
 
-1. Aby dać sobie czas na zakończenie działania worker, otwórz `durable_agent_worker.py` i tymczasowo usuń komentarz z wiersza `await asyncio.sleep(10)` w pętli `AgentWorkflow`
+1. Untuk memberi diri Anda waktu untuk menghentikan pekerja, buka `durable_agent_worker.py` dan
+   hapus sementara komentar `await asyncio.sleep(10)` di dalam loop `AgentWorkflow`
    `run`.
-2. Uruchom ponownie instancję roboczą:
+2. Mulai ulang pekerja:
 
    ```
    python -m durable_agent_worker
    ```
-3. Prześlij zapytanie, które uruchamia kilka narzędzi:
+3. Mengirimkan kueri yang memicu beberapa alat:
 
    ```
    python -m start_workflow "are there any weather alerts where I am?"
    ```
-4. Zakończ proces roboczy w dowolnym momencie przed jego ukończeniem (`Ctrl-C` w terminalu roboczym lub za pomocą `kill %1`, jeśli proces jest uruchomiony w tle).
-5. Uruchom ponownie instancję roboczą:
+4. Hentikan proses pekerja kapan saja sebelum selesai (`Ctrl-C` di terminal pekerja, atau menggunakan `kill %1` jika berjalan di latar belakang).
+5. Mulai ulang pekerja:
 
    ```
    python -m durable_agent_worker
    ```
 
-Temporal odtwarza historię przepływu pracy. Wywołania LLM i narzędzi, które zostały już ukończone, **nie** są wykonywane ponownie – ich wyniki są natychmiast odtwarzane z historii (dziennika zdarzeń). Przepływ pracy zostanie zakończony.
+Temporal memutar ulang histori alur kerja. Panggilan LLM dan pemanggilan alat yang telah selesai **tidak** dieksekusi ulang—hasilnya langsung diputar ulang dari histori (log peristiwa). Alur kerja berhasil diselesaikan.
 
-## Dodatkowe zasoby
+## Aset lainnya
 
-- [Dokumentacja czasowa](https://docs.temporal.io/)
+- [Dokumentasi temporal](https://docs.temporal.io/)
 - [Temporal Python SDK](https://docs.temporal.io/develop/python)
-- [Pakiet SDK Google GenAI](https://googleapis.github.io/python-genai/)
-- [Kod źródłowy tego samouczka](https://github.com/temporal-community/durable-react-agent-gemini)
+- [Google GenAI SDK](https://googleapis.github.io/python-genai/)
+- [Kode sumber untuk tutorial ini](https://github.com/temporal-community/durable-react-agent-gemini)
 
-Prześlij opinię
+Kirim masukan
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ostatnia aktualizacja: 2026-05-19 UTC.
+Terakhir diperbarui pada 2026-05-19 UTC.
 
-Chcesz przekazać coś jeszcze?
+Ada masukan untuk kami?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-19 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]

@@ -1,80 +1,96 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=ar
-fetched_at: 2026-05-25T13:03:09.843718+00:00
-title: "Gemini generateContent API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=id
+fetched_at: 2026-06-01T19:48:24.065360+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-# استخدام الكمبيوتر
+# Penggunaan Komputer
 
-تتيح لك ميزة "استخدام الكمبيوتر" إنشاء وكلاء للتحكّم في المتصفّح يتفاعلون مع المهام وينفّذونها آليًا. باستخدام لقطات الشاشة، يمكن للنموذج "رؤية" شاشة الكمبيوتر و "التصرف" من خلال إنشاء إجراءات معيّنة في واجهة المستخدم، مثل نقرات الماوس وإدخالات لوحة المفاتيح. على غرار ميزة &quot;استدعاء الدالة&quot;، عليك كتابة الرمز البرمجي للتطبيق من جهة العميل لتلقّي إجراءات &quot;استخدام الكمبيوتر&quot; وتنفيذها.
+Penggunaan Komputer memungkinkan Anda membuat agen kontrol browser yang berinteraksi dengan dan mengotomatiskan tugas. Dengan menggunakan screenshot, model dapat "melihat" layar komputer, dan "bertindak" dengan membuat tindakan UI tertentu seperti klik mouse dan input keyboard. Mirip dengan panggilan fungsi, Anda perlu menulis kode aplikasi sisi klien untuk menerima dan mengeksekusi tindakan Penggunaan Komputer.
 
-باستخدام أداة "استخدام الكمبيوتر"، يمكنك إنشاء وكلاء تنفيذ يمكنهم إجراء ما يلي:
+Dengan Penggunaan Komputer, Anda dapat membuat agen yang:
 
-- أتمتة إدخال البيانات المتكرّر أو ملء النماذج على المواقع الإلكترونية
-- إجراء اختبار آلي لتطبيقات الويب وتفاعلات المستخدمين
-- إجراء بحث على مواقع إلكترونية مختلفة (مثل جمع معلومات عن المنتجات وأسعارها ومراجعاتها من مواقع التجارة الإلكترونية لاتخاذ قرار بشأن الشراء)
+- Mengotomatiskan entri data atau pengisian formulir yang berulang di situs.
+- Melakukan pengujian otomatis aplikasi web dan alur pengguna
+- Melakukan riset di berbagai situs (misalnya, mengumpulkan informasi produk, harga, dan ulasan dari situs e-commerce untuk membantu pengambilan keputusan pembelian)
 
-أسهل طريقة لاختبار إمكانية "استخدام الكمبيوتر" هي من خلال [التنفيذ المرجعي](https://github.com/google/computer-use-preview/) أو [بيئة العرض التوضيحي في Browserbase](http://gemini.browserbase.com).
+Cara termudah untuk menguji kemampuan Penggunaan Komputer adalah melalui [implementasi
+referensi](https://github.com/google/computer-use-preview/) atau
+[lingkungan demo Browserbase](http://gemini.browserbase.com).
 
-## طريقة عمل ميزة "استخدام الكمبيوتر"
+## Cara kerja Penggunaan Komputer
 
-لإنشاء وكيل للتحكّم في المتصفّح باستخدام نموذج "استخدام الكمبيوتر"، عليك تنفيذ حلقة وكيل تنفّذ ما يلي:
+Untuk membuat agen kontrol browser dengan model Penggunaan Komputer, terapkan loop agen yang melakukan hal berikut:
 
-1. [**إرسال طلب إلى النموذج**](#send-request)
+1. [**Mengirim permintaan ke model**](#send-request)
 
-   - أضِف أداة &quot;استخدام الكمبيوتر&quot; وأي دوال مخصّصة يحدّدها المستخدم أو دوال مستبعَدة إلى طلب بيانات من واجهة برمجة التطبيقات (API).
-   - قدِّم طلب المستخدم إلى نموذج "استخدام الكمبيوتر".
-2. [**تلقّي ردّ النموذج**](#model-response)
+   - Tambahkan alat Penggunaan Komputer dan secara opsional fungsi yang ditentukan pengguna kustom atau fungsi yang dikecualikan ke permintaan API Anda.
+   - Berikan perintah pada model Penggunaan Komputer dengan permintaan pengguna.
+2. [**Menerima respons model**](#model-response)
 
-   - يحلّل نموذج "استخدام الكمبيوتر" طلب المستخدم ولقطة الشاشة، ثم ينشئ ردًا يتضمّن `function_call` مقترحًا يمثّل إجراءً في واجهة المستخدم (مثل "النقر على الإحداثية (س، ص)" أو "كتابة النص"). للاطّلاع على وصف لجميع إجراءات واجهة المستخدم التي يتيحها نموذج استخدام الكمبيوتر، يُرجى الانتقال إلى [الإجراءات المتاحة](#supported-actions).
-   - قد تتضمّن استجابة واجهة برمجة التطبيقات أيضًا السمة `safety_decision` من نظام أمان داخلي يتحقّق من الإجراء المقترَح الذي سيتّخذه النموذج. يصنّف هذا
-     `safety_decision` الإجراء على النحو التالي:
-     - **عادي / مسموح به:** يُعتبر الإجراء آمنًا. وقد يتم تمثيل ذلك أيضًا بعدم توفّر أي `safety_decision`.
-     - **يتطلّب تأكيدًا (`require_confirmation`):** النموذج على وشك تنفيذ إجراء
-       قد يكون محفوفًا بالمخاطر (مثل النقر على "بانر ملفات تعريف الارتباط").
-3. [**تنفيذ الإجراء الذي تم تلقّيه**](#execute-actions)
+   - Model Penggunaan Komputer menganalisis permintaan dan screenshot pengguna, lalu membuat respons yang mencakup `function_call` yang disarankan yang merepresentasikan tindakan UI (misalnya, "klik di koordinat (x,y)" atau "ketik 'text'"). Untuk deskripsi semua tindakan UI yang didukung oleh model Penggunaan Komputer, lihat [Tindakan yang didukung](#supported-actions).
+   - Respons API juga dapat menyertakan `safety_decision` dari sistem keamanan internal yang memeriksa tindakan yang diusulkan model. `safety_decision` ini mengklasifikasikan tindakan sebagai:
+     - **Reguler / diizinkan:** Tindakan ini dianggap aman. Hal ini juga dapat
+       ditunjukkan dengan tidak adanya `safety_decision`.
+     - **Memerlukan konfirmasi (`require_confirmation`):** Model akan melakukan tindakan
+       yang mungkin berisiko (misalnya, mengklik "banner setuju cookie").
+3. [**Menjalankan tindakan yang diterima**](#execute-actions)
 
-   - يتلقّى الرمز البرمجي من جهة العميل `function_call` وأي `safety_decision` مصاحب.
-     - **عادي / مسموح به:** إذا كان `safety_decision` يشير إلى عادي/مسموح به (أو إذا لم يكن هناك `safety_decision`)، يمكن أن ينفّذ الرمز البرمجي من جهة العميل `function_call` المحدّد في بيئتك المستهدَفة (مثل متصفّح الويب).
-     - **يتطلّب تأكيدًا:** إذا كان `safety_decision` يشير إلى أنّه يتطلّب تأكيدًا، يجب أن يطلب تطبيقك من المستخدم النهائي تأكيدًا قبل تنفيذ `function_call`. إذا أكّد المستخدم، يمكنك المتابعة لتنفيذ الإجراء. إذا رفض المستخدم، لا تنفِّذ الإجراء.
-4. [**تسجيل حالة البيئة الجديدة**](#capture-state)
+   - Kode sisi klien Anda menerima `function_call` dan `safety_decision` yang menyertainya.
+     - **Reguler / diizinkan:** Jika `safety_decision` menunjukkan reguler/diizinkan (atau jika tidak ada `safety_decision`), kode sisi klien Anda dapat mengeksekusi `function_call` yang ditentukan di lingkungan target Anda (misalnya, browser web).
+     - **Memerlukan konfirmasi:** Jika `safety_decision` menunjukkan
+       memerlukan konfirmasi, aplikasi Anda harus meminta konfirmasi dari pengguna akhir
+       sebelum menjalankan `function_call`. Jika pengguna
+       mengonfirmasi, lanjutkan untuk menjalankan tindakan. Jika pengguna menolak, jangan
+       jalankan tindakan.
+4. [**Merekam status lingkungan baru**](#capture-state)
 
-   - إذا تم تنفيذ الإجراء، يلتقط عميلك لقطة شاشة جديدة لواجهة المستخدم الرسومية وعنوان URL الحالي لإرسالهما مرة أخرى إلى نموذج &quot;استخدام الكمبيوتر&quot; كجزء من `function_response`.
-   - إذا حظر نظام الأمان إجراءً أو رفض المستخدم تأكيده، قد يرسل تطبيقك نوعًا مختلفًا من الملاحظات إلى النموذج أو ينهي التفاعل.
+   - Jika tindakan telah dieksekusi, klien Anda akan mengambil screenshot baru GUI dan URL saat ini untuk dikirim kembali ke model Penggunaan Komputer sebagai bagian dari `function_response`.
+   - Jika tindakan diblokir oleh sistem keamanan atau konfirmasi ditolak oleh
+     pengguna, aplikasi Anda dapat mengirimkan bentuk masukan yang berbeda ke
+     model atau mengakhiri interaksi.
 
-تتكرّر هذه العملية بدءًا من الخطوة 2، حيث يستخدم النموذج لقطة الشاشة الجديدة والهدف الحالي لاقتراح الإجراء التالي. تستمر الحلقة إلى أن يتم إكمال المهمة أو يحدث خطأ أو يتم إنهاء العملية (على سبيل المثال، بسبب استجابة أمان "حظر" أو قرار المستخدم).
+Proses ini berulang dari langkah 2 dengan model yang menggunakan screenshot baru dan sasaran yang sedang berlangsung untuk menyarankan tindakan berikutnya. Loop berlanjut
+hingga tugas selesai, terjadi error, atau proses dihentikan
+(misalnya, karena respons keamanan "blokir" atau keputusan pengguna).
 
-![نظرة عامة حول استخدام الكمبيوتر](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=ar)
+![Penggunaan Komputer
+Gambaran umum](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=id)
 
-## كيفية تنفيذ ميزة "استخدام الكمبيوتر"
+## Cara menerapkan Penggunaan Komputer
 
-قبل استخدام أداة &quot;استخدام الكمبيوتر&quot;، عليك إعداد ما يلي:
+Sebelum membangun dengan alat Penggunaan Komputer, Anda harus menyiapkan hal-hal berikut:
 
-- **بيئة التنفيذ الآمنة:** لأسباب تتعلّق بالأمان، يجب تشغيل وكيل &quot;استخدام الكمبيوتر&quot; في بيئة آمنة ومراقَبة (مثل جهاز افتراضي في وضع الحماية أو حاوية أو ملف شخصي مخصّص للمتصفّح مع أذونات محدودة).
-- **معالج الإجراءات من جهة العميل:** عليك تنفيذ منطق من جهة العميل لتنفيذ الإجراءات التي ينشئها النموذج والتقاط لقطات شاشة للبيئة بعد كل إجراء.
+- **Lingkungan eksekusi yang aman:** Untuk alasan keamanan, Anda harus menjalankan agen Penggunaan Komputer di lingkungan yang aman dan terkontrol (misalnya, mesin virtual sandbox, penampung, atau profil browser khusus dengan izin terbatas).
+- **Handler tindakan sisi klien:** Anda harus menerapkan logika sisi klien
+  untuk menjalankan tindakan yang dihasilkan oleh model dan
+  mengambil screenshot lingkungan setelah setiap tindakan.
 
-تستخدِم الأمثلة الواردة في هذا القسم متصفّحًا كبيئة تنفيذ، وتستخدِم [Playwright](https://playwright.dev/) كأداة معالجة للإجراءات من جهة العميل. لتشغيل هذه النماذج، يجب تثبيت التبعيات اللازمة وتهيئة مثيل متصفّح Playwright.
+Contoh di bagian ini menggunakan browser sebagai lingkungan eksekusi dan [Playwright](https://playwright.dev/) sebagai pengendali tindakan sisi klien. Untuk
+menjalankan contoh ini, Anda harus menginstal dependensi yang diperlukan dan melakukan inisialisasi instance browser
+Playwright.
 
-#### تثبيت Playwright
+#### Menginstal Playwright
 
 ```
     pip install google-genai playwright
     playwright install chromium
 ```
 
-#### تهيئة مثيل متصفّح Playwright
+#### Lakukan inisialisasi instance browser Playwright
 
 ```
     from playwright.sync_api import sync_playwright
@@ -102,22 +118,24 @@ Google uses AI technology to translate content into your preferred language. AI 
     # will be used in the steps below.
 ```
 
-يتضمّن قسم [استخدام الدوال المخصّصة التي يحدّدها المستخدم](#custom-functions) نموذج رمز برمجي لتوسيع نطاق الاستخدام ليشمل بيئة Android.
+Kode contoh untuk memperluas ke lingkungan Android disertakan di bagian [Menggunakan fungsi yang ditentukan pengguna kustom](#custom-functions).
 
-### 1. إرسال طلب إلى النموذج
+### 1. Mengirim permintaan ke model
 
-أضِف أداة "استخدام الكمبيوتر" إلى طلب واجهة برمجة التطبيقات وأرسِل طلبًا إلى النموذج
-يتضمّن هدف المستخدم. يجب استخدام أحد الطُرز المتوافقة مع ميزة "استخدام الكمبيوتر"، وإلا سيظهر لك خطأ:
+Tambahkan alat Penggunaan Komputer ke permintaan API Anda dan kirim perintah ke model
+yang menyertakan tujuan pengguna. Anda harus menggunakan salah satu model yang didukung Penggunaan Komputer atau Anda akan mendapatkan error:
 
 - `gemini-2.5-computer-use-preview-10-2025`
 - `gemini-3-flash-preview`
 
-يمكنك أيضًا إضافة المَعلمات الاختيارية التالية:
+Anda juga dapat menambahkan parameter berikut secara opsional:
 
-- **الإجراءات المستبعَدة:** إذا كانت هناك أي إجراءات من قائمة [إجراءات واجهة المستخدم المتوافقة](#supported-actions) لا تريد أن يتّخذها النموذج، حدِّد هذه الإجراءات على أنّها `excluded_predefined_functions`.
-- **الدوال المعرَّفة من قِبل المستخدم:** بالإضافة إلى أداة "استخدام الكمبيوتر"، قد تحتاج إلى تضمين دوال مخصّصة معرَّفة من قِبل المستخدم.
+- **Tindakan yang dikecualikan:** Jika ada tindakan dari daftar [Tindakan UI yang didukung](#supported-actions) yang tidak ingin Anda lakukan oleh model, tentukan tindakan ini sebagai `excluded_predefined_functions`.
+- **Fungsi yang ditentukan pengguna:** Selain alat Penggunaan Komputer, Anda mungkin ingin menyertakan fungsi kustom yang ditentukan pengguna.
 
-يُرجى العِلم أنّه لا حاجة إلى تحديد حجم العرض عند إرسال طلب، إذ يتوقّع النموذج إحداثيات البكسل التي تم تغيير حجمها لتناسب ارتفاع الشاشة وعرضها.
+Perhatikan bahwa tidak perlu menentukan ukuran layar saat mengirimkan permintaan;
+model memprediksi koordinat piksel yang diskalakan ke tinggi dan lebar
+layar.
 
 ### Python
 
@@ -169,14 +187,17 @@ response = client.models.generate_content(
 print(response)
 ```
 
-للاطّلاع على مثال يتضمّن دوال مخصّصة، راجِع [استخدام دوال مخصّصة](#custom-functions).
+Untuk contoh dengan fungsi kustom, lihat [Menggunakan fungsi
+yang ditentukan pengguna kustom](#custom-functions).
 
-### 2. تلقّي ردّ النموذج
+### 2. Menerima respons model
 
-عند تفعيل أداة "استخدام الكمبيوتر"، سيردّ النموذج برمز `FunctionCalls` واحد أو أكثر إذا رأى أنّ إكمال المهمة يتطلّب اتّخاذ إجراءات في واجهة المستخدم.
-تتيح أداة "استخدام الكمبيوتر" تنفيذ عدة وظائف بالتوازي، ما يعني أنّ النموذج يمكنه عرض عدة إجراءات في رد واحد.
+Jika alat Penggunaan Komputer diaktifkan, model akan merespons dengan satu atau beberapa
+`FunctionCalls` jika menentukan bahwa tindakan UI diperlukan untuk menyelesaikan tugas.
+Penggunaan Komputer mendukung panggilan fungsi paralel, yang berarti model dapat menampilkan
+beberapa tindakan dalam satu giliran.
 
-في ما يلي مثال على ردّ النموذج.
+Berikut adalah contoh respons model.
 
 ```
 {
@@ -201,16 +222,19 @@ print(response)
 }
 ```
 
-### 3- تنفيذ الإجراءات التي تم تلقّيها
+### 3. Menjalankan tindakan yang diterima
 
-يجب أن يحلّل الرمز البرمجي لتطبيقك استجابة النموذج، وينفّذ الإجراءات، ويجمع النتائج.
+Kode aplikasi Anda perlu mengurai respons model, menjalankan tindakan, dan mengumpulkan hasilnya.
 
-تستخرج عيّنة الرمز البرمجي أدناه طلبات الدوال من استجابة نموذج &quot;استخدام الكمبيوتر&quot;، وتحوّلها إلى إجراءات يمكن تنفيذها باستخدام Playwright.
-يُخرج النموذج إحداثيات عادية (0-999) بغض النظر عن أبعاد الصورة المدخلة، لذا فإنّ جزءًا من خطوة الترجمة هو تحويل هذه الإحداثيات العادية مرة أخرى إلى قيم البكسل الفعلية.
+Contoh kode di bawah mengekstrak panggilan fungsi dari respons model Penggunaan Komputer, dan menerjemahkannya menjadi tindakan yang dapat dieksekusi dengan Playwright.
+Model menghasilkan koordinat yang dinormalisasi (0-999) terlepas dari dimensi gambar input, sehingga bagian dari langkah terjemahan adalah mengonversi kembali koordinat yang dinormalisasi ini ke nilai piksel sebenarnya.
 
-حجم الشاشة المقترَح للاستخدام مع نموذج &quot;استخدام الكمبيوتر&quot; هو (1440, 900). سيعمل النموذج مع أي دقة، ولكن قد تتأثر جودة النتائج.
+Ukuran layar yang direkomendasikan untuk digunakan dengan model Penggunaan Komputer adalah (1440, 900). Model ini akan berfungsi dengan resolusi apa pun, meskipun kualitas hasilnya dapat terpengaruh.
 
-يُرجى العِلم أنّ هذا المثال يتضمّن فقط عملية التنفيذ الخاصة بإجراءات واجهة المستخدم الثلاثة الأكثر شيوعًا: `open_web_browser` و`click_at` و`type_text_at`. بالنسبة إلى حالات الاستخدام في مرحلة الإنتاج، عليك تنفيذ جميع إجراءات واجهة المستخدم الأخرى من قائمة [الإجراءات المتوافقة](#supported-actions) ما لم تُضِفها بشكل صريح كـ `excluded_predefined_functions`.
+Perhatikan bahwa contoh ini hanya mencakup penerapan untuk 3 tindakan UI yang paling umum: `open_web_browser`, `click_at`, dan `type_text_at`. Untuk
+kasus penggunaan produksi, Anda harus menerapkan semua tindakan UI lainnya dari daftar
+[Tindakan yang didukung](#supported-actions) kecuali jika Anda menambahkannya secara eksplisit sebagai
+`excluded_predefined_functions`.
 
 ### Python
 
@@ -275,9 +299,11 @@ def execute_function_calls(candidate, page, screen_width, screen_height):
     return results
 ```
 
-### 4. تسجيل حالة البيئة الجديدة
+### 4. Merekam status lingkungan baru
 
-بعد تنفيذ الإجراءات، أرسِل نتيجة تنفيذ الدالة إلى النموذج ليتمكّن من استخدام هذه المعلومات لإنشاء الإجراء التالي. في حال تنفيذ إجراءات متعددة (مكالمات متوازية)، عليك إرسال `FunctionResponse` لكل إجراء في رد المستخدم التالي.
+Setelah menjalankan tindakan, kirim hasil eksekusi fungsi kembali ke model agar model dapat menggunakan informasi ini untuk membuat tindakan berikutnya. Jika
+beberapa tindakan (panggilan paralel) dijalankan, Anda harus mengirim
+`FunctionResponse` untuk setiap tindakan dalam giliran pengguna berikutnya.
 
 ### Python
 
@@ -303,15 +329,15 @@ def get_function_responses(page, results):
     return function_responses
 ```
 
-## إنشاء حلقة وكيل
+## Membangun loop agen
 
-لتفعيل التفاعلات المتعدّدة الخطوات، ادمِج الخطوات الأربع من قسم [كيفية تنفيذ ميزة "استخدام الكمبيوتر"](#implement-computer-use) في حلقة.
-تذكَّر إدارة سجلّ المحادثات بشكل صحيح من خلال إضافة ردود النموذج وردود الدالة.
+Untuk mengaktifkan interaksi multi-langkah, gabungkan empat langkah dari bagian [Cara menerapkan Penggunaan Komputer](#implement-computer-use) ke dalam loop.
+Jangan lupa untuk mengelola histori percakapan dengan benar dengan menambahkan respons model dan respons fungsi Anda.
 
-لتشغيل عينة التعليمات البرمجية هذه، عليك إجراء ما يلي:
+Untuk menjalankan contoh kode ini, Anda harus:
 
-- ثبِّت [التبعيات اللازمة في Playwright](#expandable-1).
-- حدِّد الدوال المساعدة من الخطوتين [(3) تنفيذ الإجراءات المستلَمة](#execute-actions) و[(4) تسجيل حالة البيئة الجديدة](#capture-state).
+- Instal [dependensi Playwright yang diperlukan](#expandable-1).
+- Tentukan fungsi helper dari langkah [(3) Jalankan tindakan yang diterima](#execute-actions) dan [(4) Ambil status lingkungan baru](#capture-state).
 
 ### Python
 
@@ -404,9 +430,9 @@ finally:
     playwright.stop()
 ```
 
-## استخدام دوال مخصّصة من تحديد المستخدم
+## Menggunakan fungsi kustom yang ditentukan pengguna
 
-يمكنك اختياريًا تضمين دوال مخصّصة يحدّدها المستخدم في طلبك لتوسيع وظائف النموذج. يعدّل المثال أدناه نموذج &quot;استخدام الكمبيوتر&quot; وأداته ليناسبا حالات الاستخدام على الأجهزة الجوّالة من خلال تضمين إجراءات مخصّصة يحدّدها المستخدم، مثل `open_app` و`long_press_at` و`go_home`، مع استبعاد الإجراءات الخاصة بالمتصفح. يمكن للنموذج استدعاء هذه الدوال المخصّصة بذكاء إلى جانب إجراءات واجهة المستخدم العادية لإكمال المهام في بيئات غير المتصفّح.
+Secara opsional, Anda dapat menyertakan fungsi kustom yang ditentukan pengguna dalam permintaan untuk memperluas fungsi model. Contoh di bawah mengadaptasi model dan alat Penggunaan Komputer untuk kasus penggunaan seluler dengan menyertakan tindakan kustom yang ditentukan pengguna seperti `open_app`, `long_press_at`, dan `go_home`, sekaligus mengecualikan tindakan khusus browser. Model dapat memanggil fungsi kustom ini secara cerdas bersama dengan tindakan UI standar untuk menyelesaikan tugas di lingkungan non-browser.
 
 ### Python
 
@@ -522,32 +548,36 @@ response = client.models.generate_content(
 print(response)
 ```
 
-## إجراءات واجهة المستخدم المتوافقة
+## Tindakan UI yang didukung
 
-يمكن للنموذج طلب تنفيذ إجراءات واجهة المستخدم التالية من خلال `FunctionCall`. يجب أن ينفّذ الرمز البرمجي من جهة العميل منطق التنفيذ لهذه الإجراءات. يمكنك الاطّلاع على [التنفيذ المرجعي](https://github.com/google/computer-use-preview) للحصول على أمثلة.
+Model dapat meminta tindakan UI berikut melalui
+`FunctionCall`. Kode sisi klien Anda harus menerapkan logika eksekusi untuk
+tindakan ini. Lihat [implementasi
+referensi](https://github.com/google/computer-use-preview) untuk
+contoh.
 
-| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) | مثال على استدعاء الدالة |
+| Command Name | Deskripsi | Argumen (dalam Panggilan Fungsi) | Contoh Panggilan Fungsi |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | يفتح متصفّح الويب. | بدون | `{"name": "open_web_browser", "args": {}}` |
-| **wait\_5\_seconds** | توقف التنفيذ مؤقتًا لمدة 5 ثوانٍ للسماح بتحميل المحتوى الديناميكي أو إكمال الصور المتحركة. | بدون | `{"name": "wait_5_seconds", "args": {}}` |
-| **go\_back** | للانتقال إلى الصفحة السابقة في سجلّ المتصفّح | بدون | `{"name": "go_back", "args": {}}` |
-| **go\_forward** | ينتقِل إلى الصفحة التالية في سجلّ المتصفّح. | بدون | `{"name": "go_forward", "args": {}}` |
-| **search** | ينتقِل إلى الصفحة الرئيسية لمحرّك البحث التلقائي (مثل Google). مفيد لبدء مهمة بحث جديدة. | بدون | `{"name": "search", "args": {}}` |
-| **navigate** | ينقل المتصفّح مباشرةً إلى عنوان URL المحدّد. | ‫`url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | النقرات في إحداثيات معيّنة على صفحة الويب تستند قيمتَي x وy إلى شبكة 1000x1000 ويتم تغيير حجمهما ليناسب أبعاد الشاشة. | ‫`y`: عدد صحيح (من 0 إلى 999)، `x`: عدد صحيح (من 0 إلى 999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
-| **hover\_at** | يحرك مؤشر الماوس إلى إحداثية معيّنة على صفحة الويب. مفيدة لعرض القوائم الفرعية، ويستند المحوران x وy إلى شبكة 1000x1000. | ‫`y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | يكتب نصًا في إحداثيات معيّنة، ويتم تلقائيًا محو الحقل أولاً والضغط على مفتاح ENTER بعد الكتابة، ولكن يمكن إيقاف هذه الإعدادات. تستند الإحداثيات x وy إلى شبكة 1000x1000. | ‫`y`: عدد صحيح (0-999)، `x`: عدد صحيح (0-999)، `text`: سلسلة، `press_enter`: قيمة منطقية (اختيارية، القيمة التلقائية هي True)، `clear_before_typing`: قيمة منطقية (اختيارية، القيمة التلقائية هي True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination** | اضغط على مفاتيح لوحة المفاتيح أو مجموعات المفاتيح، مثل "Control+C" أو "Enter". مفيد لتنفيذ إجراءات (مثل إرسال نموذج باستخدام مفتاح "Enter") أو عمليات الحافظة. | ‫`keys`: str (مثل 'enter' أو 'control+c'). | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
-| **scroll\_document** | تنقل صفحة الويب بأكملها "للأعلى" أو "للأسفل" أو "لليسار" أو "لليمين" | `direction`: str ("up" أو "down" أو "left" أو "right") | `{"name": "scroll_document", "args": {"direction": "down"}}` |
-| **scroll\_at** | تؤدي هذه السمة إلى تمرير عنصر أو مساحة معيّنة في الإحداثيات (x, y) في الاتجاه المحدّد بمقدار معيّن. تستند الإحداثيات والمقدار (القيمة التلقائية هي 800) إلى شبكة 1000x1000. | `y`: عدد صحيح (0-999)، `x`: عدد صحيح (0-999)، `direction`: سلسلة (up أو down أو left أو right)، `magnitude`: عدد صحيح (0-999، اختياري، القيمة التلقائية 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
-| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية (x, y) ويسقطه في إحداثيات الوجهة (destination\_x, destination\_y). تستند جميع الإحداثيات إلى شبكة 1000x1000. | `y`: عدد صحيح (0-999)، `x`: عدد صحيح (0-999)، `destination_y`: عدد صحيح (0-999)، `destination_x`: عدد صحيح (0-999) | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
+| **open\_web\_browser** | Membuka browser web. | Tidak ada | `{"name": "open_web_browser", "args": {}}` |
+| **wait\_5\_seconds** | Menjeda eksekusi selama 5 detik untuk memungkinkan konten dinamis dimuat atau animasi selesai. | Tidak ada | `{"name": "wait_5_seconds", "args": {}}` |
+| **go\_back** | Membuka halaman sebelumnya dalam histori browser. | Tidak ada | `{"name": "go_back", "args": {}}` |
+| **go\_forward** | Membuka halaman berikutnya dalam histori browser. | Tidak ada | `{"name": "go_forward", "args": {}}` |
+| **search** | Membuka halaman beranda mesin telusur default (misalnya, Google). Berguna untuk memulai tugas penelusuran baru. | Tidak ada | `{"name": "search", "args": {}}` |
+| **navigate** | Membuka URL yang ditentukan secara langsung di browser. | `url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Mengklik pada koordinat tertentu di halaman web. Nilai x dan y didasarkan pada petak 1000x1000 dan diskalakan ke dimensi layar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
+| **hover\_at** | Mengarahkan kursor ke koordinat tertentu di halaman web. Berguna untuk menampilkan sub-menu. x dan y didasarkan pada petak 1000x1000. | `y`: int (0-999) `x`: int (0-999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Mengetik teks pada koordinat tertentu, secara default menghapus kolom terlebih dahulu dan menekan ENTER setelah mengetik, tetapi tindakan ini dapat dinonaktifkan. x dan y didasarkan pada petak 1000x1000. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (Opsional, default Benar), `clear_before_typing`: bool (Opsional, default Benar) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
+| **key\_combination** | Tekan tombol atau kombinasi tombol keyboard, seperti "Control+C" atau "Enter". Berguna untuk memicu tindakan (seperti mengirimkan formulir dengan "Enter") atau operasi papan klip. | `keys`: str (misalnya, 'enter', 'control+c'). | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
+| **scroll\_document** | Men-scroll seluruh halaman web "ke atas", "ke bawah", "ke kiri", atau "ke kanan". | `direction`: str ("up", "down", "left", atau "right") | `{"name": "scroll_document", "args": {"direction": "down"}}` |
+| **scroll\_at** | Men-scroll elemen atau area tertentu pada koordinat (x, y) ke arah yang ditentukan dengan besaran tertentu. Koordinat dan besaran (default 800) didasarkan pada petak 1000x1000. | `y`: int (0-999), `x`: int (0-999), `direction`: str ("up", "down", "left", "right"), `magnitude`: int (0-999, Opsional, default 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
+| **drag\_and\_drop** | Menarik elemen dari koordinat awal (x, y) dan meletakkannya di koordinat tujuan (destination\_x, destination\_y). Semua koordinat didasarkan pada petak 1000x1000. | `y`: int (0-999), `x`: int (0-999), `destination_y`: int (0-999), `destination_x`: int (0-999) | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
 
-## السلامة والأمان
+## Keselamatan dan keamanan
 
-### تأكيد قرار الأمان
+### Mengonfirmasi keputusan keamanan
 
-استنادًا إلى الإجراء، قد يتضمّن ردّ النموذج أيضًا
-`safety_decision` من نظام أمان داخلي يتحقّق من الإجراء المقترَح الذي سيتّخذه النموذج.
+Bergantung pada tindakan, respons model juga dapat menyertakan
+`safety_decision` dari sistem keamanan internal yang memeriksa tindakan yang diusulkan model.
 
 ```
 {
@@ -574,10 +604,14 @@ print(response)
 }
 ```
 
-إذا كانت قيمة `safety_decision` هي `require_confirmation`، عليك أن تطلب من المستخدم النهائي تأكيد الإجراء قبل المتابعة. بموجب
-[بنود الخدمة](https://ai.google.dev/gemini-api/terms?hl=ar)، لا يُسمح لك بتجاهل طلبات التأكيد من خلال إدخال رمز التحقق.
+Jika `safety_decision` adalah `require_confirmation`, Anda harus meminta pengguna akhir untuk mengonfirmasi sebelum melanjutkan pelaksanaan tindakan. Berdasarkan
+[persyaratan layanan](https://ai.google.dev/gemini-api/terms?hl=id), Anda tidak diizinkan
+melewati permintaan konfirmasi manusia.
 
-تطلب عينة التعليمات البرمجية هذه من المستخدم النهائي تأكيد الإجراء قبل تنفيذه. إذا لم يؤكّد المستخدم الإجراء، سيتم إيقاف التكرار. إذا أكّد المستخدم الإجراء، سيتم تنفيذه وسيتم وضع العلامة `True` على الحقل `safety_acknowledgement`.
+Contoh kode ini meminta konfirmasi pengguna akhir sebelum menjalankan
+tindakan. Jika pengguna tidak mengonfirmasi tindakan, loop akan berakhir. Jika
+pengguna mengonfirmasi tindakan, tindakan akan dijalankan dan
+kolom `safety_acknowledgement` ditandai sebagai `True`.
 
 ### Python
 
@@ -615,7 +649,7 @@ def execute_function_calls(candidate, page, screen_width, screen_height):
         # ... Execute function call and append to results ...
 ```
 
-في حال موافقة المستخدم، يجب تضمين إقرار السلامة في `FunctionResponse`.
+Jika pengguna mengonfirmasi, Anda harus menyertakan konfirmasi keselamatan dalam `FunctionResponse` Anda.
 
 ### Python
 
@@ -636,26 +670,31 @@ function_response_parts.append(
        )
 ```
 
-### أفضل الممارسات المتعلّقة بالأمان
+### Praktik terbaik keamanan
 
-إنّ استخدام الكمبيوتر هو أداة جديدة تنطوي على مخاطر جديدة يجب أن ينتبه إليها المطوّرون، وهي:
+Penggunaan Komputer adalah alat baru yang menimbulkan risiko baru yang harus diperhatikan oleh developer:
 
-- **المحتوى غير الموثوق به وعمليات الخداع:** أثناء محاولة النموذج تحقيق هدف المستخدم، قد يعتمد على مصادر غير موثوق بها للحصول على المعلومات والتعليمات من الشاشة. على سبيل المثال، إذا كان هدف المستخدم هو شراء هاتف Pixel وواجه النموذج عملية احتيال بعنوان "احصل على هاتف Pixel مجانًا إذا أكملت استطلاعًا"، هناك احتمال أن يكمل النموذج الاستطلاع.
-- **إجراءات غير مقصودة في بعض الأحيان:** قد يسيء النموذج فهم هدف المستخدم أو محتوى صفحة الويب، ما يؤدي إلى اتخاذ إجراءات غير صحيحة، مثل النقر على الزر الخطأ أو ملء النموذج الخطأ. وقد يؤدي ذلك إلى تعذُّر تنفيذ المهام أو استخراج البيانات.
-- **انتهاكات السياسات:** يمكن توجيه إمكانات واجهة برمجة التطبيقات، سواء عن قصد أو عن غير قصد، نحو أنشطة تنتهك سياسات Google ([سياسة الاستخدام المحظور للذكاء الاصطناعي التوليدي](https://policies.google.com/terms/generative-ai/use-policy?hl=ar) و[بنود الخدمة الإضافية الخاصة بواجهة Gemini API](https://ai.google.dev/gemini-api/terms?hl=ar)). ويشمل ذلك الإجراءات التي قد تتداخل مع سلامة النظام أو تعرّض الأمان للخطر أو تتجاوز إجراءات الأمان أو تتحكّم في الأجهزة الطبية أو غير ذلك.
+- **Konten yang tidak tepercaya & penipuan:** Saat mencoba mencapai tujuan pengguna, model mungkin mengandalkan sumber informasi dan petunjuk yang tidak tepercaya dari layar. Misalnya, jika sasaran pengguna adalah membeli ponsel Pixel dan model menemukan penipuan "Pixel Gratis jika Anda menyelesaikan survei", ada kemungkinan model akan menyelesaikan survei.
+- **Tindakan yang tidak disengaja sesekali:** Model dapat salah menafsirkan tujuan pengguna atau konten halaman web, sehingga menyebabkan model melakukan tindakan yang salah seperti mengklik tombol yang salah atau mengisi formulir yang salah. Hal ini dapat menyebabkan kegagalan tugas atau
+  ekstraksi data.
+- **Pelanggaran kebijakan:** Kemampuan API dapat diarahkan, baik
+  secara sengaja maupun tidak sengaja, ke aktivitas yang melanggar kebijakan
+  Google ([Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id) dan
+  [Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id). Hal ini mencakup tindakan yang dapat mengganggu integritas sistem, membahayakan keamanan, melewati langkah-langkah keamanan, mengontrol perangkat medis, dll.
 
-لمعالجة هذه المخاطر، يمكنك اتّخاذ تدابير السلامة التالية واتّباع أفضل الممارسات:
+Untuk mengatasi risiko ini, Anda dapat menerapkan langkah-langkah keamanan dan praktik terbaik berikut:
 
-1. **المشاركة البشرية (HITL):**
+1. **Human-in-the-Loop (HITL):**
 
-   - **تنفيذ تأكيد المستخدم:** عندما تشير استجابة السلامة إلى
-     `require_confirmation`، عليك تنفيذ تأكيد المستخدم قبل
-     التنفيذ. راجِع [الإقرار بقرار السلامة](#safety-decisions) للاطّلاع على نموذج الرمز.
-   - **تقديم تعليمات أمان مخصّصة:** بالإضافة إلى عمليات التحقّق المضمّنة التي تتطلّب تأكيدًا من المستخدم، يمكن للمطوّرين اختياريًا إضافة [تعليمات نظام](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#system-instructions) مخصّصة تفرض سياسات الأمان الخاصة بهم، إما لحظر إجراءات معيّنة يتّخذها النموذج أو لطلب تأكيد من المستخدم قبل أن يتّخذ النموذج إجراءات معيّنة لا يمكن التراجع عنها. في ما يلي مثال على تعليمات مخصّصة لنظام الأمان يمكنك تضمينها عند التفاعل مع النموذج.
+   - **Terapkan konfirmasi pengguna:** Jika respons keamanan menunjukkan
+     `require_confirmation`, Anda harus menerapkan konfirmasi pengguna sebelum
+     eksekusi. Lihat [Mengonfirmasi keputusan keamanan](#safety-decisions) untuk
+     contoh kode.
+   - **Memberikan petunjuk keamanan kustom:** Selain pemeriksaan konfirmasi pengguna bawaan, developer dapat secara opsional menambahkan [petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions) kustom yang menerapkan kebijakan keamanan mereka sendiri, baik untuk memblokir tindakan model tertentu atau mewajibkan konfirmasi pengguna sebelum model melakukan tindakan tidak dapat diubah yang berisiko tinggi. Berikut adalah contoh instruksi sistem keamanan kustom yang dapat Anda sertakan saat berinteraksi dengan model.
 
-     #### أمثلة على تعليمات السلامة
+     #### Contoh petunjuk keselamatan
 
-     اضبط قواعد الأمان المخصّصة كتعليمات نظام:
+     Tetapkan aturan keamanan kustom Anda sebagai petunjuk sistem:
 
      ```
          ## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**
@@ -743,42 +782,46 @@ function_response_parts.append(
          - User confirmation
          - When the task is complete or you have enough information to respond to the user
      ```
-2. **بيئة التنفيذ الآمنة:** شغِّل الوكيل في بيئة آمنة ومحمية
-   للحدّ من تأثيره المحتمل (مثل جهاز افتراضي (VM) محمي، أو حاوية (مثل Docker)، أو ملف شخصي مخصّص للمتصفّح بأذونات محدودة).
-3. **تنقية المدخلات:** يجب تنقية جميع النصوص التي ينشئها المستخدمون في الطلبات للحد من خطر التعليمات غير المقصودة أو هجمات حقن الطلبات. هذه الطبقة مفيدة للأمان، ولكنّها لا تحلّ محل بيئة التنفيذ الآمنة.
-4. **ضوابط المحتوى:** استخدِم الضوابط و[واجهات برمجة التطبيقات الخاصة بأمان المحتوى](https://ai.google.dev/gemma/docs/shieldgemma?hl=ar) لتقييم مدخلات المستخدمين ومدخلات الأدوات ومخرجاتها، وردّ الوكيل من حيث الملاءمة، ورصد عمليات حقن الطلبات، ورصد عمليات تجاوز القيود.
-5. **القوائم المسموح بها والقوائم المحظورة:** استخدِم آليات فلترة للتحكّم في الأماكن التي يمكن للنموذج الانتقال إليها والإجراءات التي يمكنه اتّخاذها. تُعدّ القائمة المحظورة التي تتضمّن المواقع الإلكترونية المحظورة نقطة بداية جيدة، بينما تكون القائمة المسموح بها الأكثر تقييدًا أكثر أمانًا.
-6. **إمكانية تتبّع البيانات وتسجيل البيانات:** احتفِظ بسجلات مفصّلة لتصحيح الأخطاء والتدقيق والاستجابة للحوادث. على العميل تسجيل الطلبات، ولقطات الشاشة، والإجراءات التي تقترحها النماذج (function\_call)، وردود الأمان، وجميع الإجراءات التي ينفّذها العميل في النهاية.
-7. **إدارة البيئة:** تأكَّد من اتساق بيئة واجهة المستخدم الرسومية.
-   يمكن أن تؤدي النوافذ المنبثقة أو الإشعارات أو التغييرات غير المتوقّعة في التنسيق إلى إرباك النموذج. ابدأ من حالة معروفة ونظيفة لكل مهمة جديدة إذا أمكن ذلك.
+2. **Lingkungan eksekusi yang aman:** Jalankan agen Anda di lingkungan sandbox yang aman untuk membatasi potensi dampaknya (misalnya, Virtual machine (VM) dalam sandbox, container (misalnya, Docker), atau profil browser khusus dengan izin terbatas).
+3. **Pembersihan input:** Bersihkan semua teks buatan pengguna dalam perintah untuk
+   memitigasi risiko perintah yang tidak diinginkan atau injeksi perintah. Ini adalah lapisan keamanan yang berguna, tetapi bukan pengganti lingkungan eksekusi yang aman.
+4. **Batasan konten:** Gunakan batasan dan [API keamanan konten](https://ai.google.dev/gemma/docs/shieldgemma?hl=id) untuk mengevaluasi input pengguna, input dan output alat, respons agen untuk kesesuaian, injeksi perintah, dan deteksi pelarian dari batasan.
+5. **Daftar yang diizinkan dan daftar yang tidak diizinkan:** Terapkan mekanisme pemfilteran untuk mengontrol
+   ke mana model dapat membuka dan apa yang dapat dilakukannya. Daftar situs yang tidak diizinkan
+   adalah titik awal yang baik, sementara daftar yang diizinkan yang lebih ketat
+   bahkan lebih aman.
+6. **Observabilitas dan logging:** Pertahankan log mendetail untuk proses debug, audit, dan respons insiden. Klien Anda harus mencatat perintah, screenshot, tindakan yang disarankan model (function\_call), respons keamanan, dan semua tindakan yang akhirnya dieksekusi oleh klien.
+7. **Pengelolaan lingkungan:** Pastikan lingkungan GUI konsisten.
+   Pop-up, notifikasi, atau perubahan tata letak yang tidak terduga dapat membingungkan model. Mulai dari status bersih yang diketahui untuk setiap tugas baru jika memungkinkan.
 
-## إصدارات النماذج
+## Versi model
 
-يُرجى العِلم أنّ `gemini-3-flash-preview` يتضمّن ميزة
-مدمجة لاستخدام الكمبيوتر، ولن تحتاج إلى نموذج منفصل للوصول إلى الأداة.
+Perhatikan bahwa `gemini-3-flash-preview` memiliki dukungan bawaan untuk Penggunaan Komputer; Anda tidak memerlukan model terpisah untuk mengakses alat ini.
 
-| الموقع | الوصف |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardرمز النموذج | **Gemini API**  `gemini-2.5-computer-use-preview-10-2025` |
-| saveأنواع البيانات المتوافقة | **الإدخال**  صورة، نص  **الناتج**  نص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  128,000  **الحد الأقصى لعدد الرموز المميزة في الناتج**  64,000 |
-| 123الإصدارات | لمزيد من التفاصيل، يُرجى الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions).  - معاينة: `gemini-2.5-computer-use-preview-10-2025` |
-| calendar\_monthآخر تعديل | أكتوبر 2025 |
+| Kode model id\_card | **Gemini API**  `gemini-2.5-computer-use-preview-10-2025` |
+| saveJenis data yang didukung | **Input**  Gambar, teks  **Output**  Teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  128.000  **Batas token output**  64.000 |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-2.5-computer-use-preview-10-2025` |
+| calendar\_monthPembaruan terbaru | Oktober 2025 |
 
-## الخطوات التالية
+## Langkah berikutnya
 
-- جرِّب استخدام الكمبيوتر في [بيئة العرض التوضيحي Browserbase](http://gemini.browserbase.com).
-- يمكنك الاطّلاع على [التنفيذ المرجعي](https://github.com/google/computer-use-preview) للحصول على مثال على الرمز.
-- مزيد من المعلومات حول أدوات Gemini API الأخرى:
-  - [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
-  - [تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)
+- Bereksperimen dengan Penggunaan Komputer di lingkungan [demo Browserbase](http://gemini.browserbase.com).
+- Lihat [Implementasi
+  referensi](https://github.com/google/computer-use-preview) untuk contoh
+  kode.
+- Pelajari alat Gemini API lainnya:
+  - [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+  - [Melakukan grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/grounding?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
+Terakhir diperbarui pada 2026-06-01 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Ada masukan untuk kami?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-01 UTC."],[],[]]

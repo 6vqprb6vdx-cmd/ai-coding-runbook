@@ -1,130 +1,130 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api?hl=he
-fetched_at: 2026-05-25T12:58:08.583196+00:00
-title: "Gemini Live API overview \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api?hl=ko
+fetched_at: 2026-06-01T19:36:13.304410+00:00
+title: "Gemini Live API \uac1c\uc694 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-שליחת משוב
+의견 보내기
 
-# Gemini Live API overview
+# Gemini Live API 개요
 
-‫Live API מאפשר אינטראקציות קוליות וחזותיות בזמן אמת עם Gemini, עם זמן טעינה נמוך. היא מעבדת זרמים רציפים של אודיו, תמונות וטקסט כדי לספק תשובות מיידיות בדיבור שנשמע טבעי, וכך ליצור חוויה טבעית של שיחה למשתמשים.
+Live API는 Gemini와의 지연 시간이 짧은 실시간 음성 및 시각 상호작용을 지원합니다. 연속적인 오디오, 이미지, 텍스트 스트림을 처리하여 즉각적이고 사람과 유사한 음성 대답을 제공하므로 사용자에게 자연스러운 대화형 환경을 제공합니다.
 
-![סקירה כללית על Live API](https://ai.google.dev/static/gemini-api/docs/images/live-api-overview.png?hl=he)
+![Live API 개요](https://ai.google.dev/static/gemini-api/docs/images/live-api-overview.png?hl=ko)
 
-[אפשר לנסות את Live API ב-Google AI Studiomic](https://aistudio.google.com/live?hl=he)
-[אפשר לשכפל אפליקציות לדוגמה מ-GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[אפשר להשתמש במיומנויות של סוכן תכנותterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=he)
+[Google AI Studio에서 Live API 사용해 보기mic](https://aistudio.google.com/live?hl=ko)
+[GitHub에서 예시 앱 클론code](https://github.com/google-gemini/gemini-live-api-examples)
+[코딩 에이전트 기술 사용terminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ko)
 
-## תרחישים לדוגמה
+## 사용 사례
 
-אפשר להשתמש ב-Live API כדי ליצור סוכנים קוליים בזמן אמת למגוון תעשיות, כולל:
+Live API를 사용하여 다음을 비롯한 다양한 업계의 실시간 음성 에이전트를 빌드할 수 있습니다.
 
-- **מסחר אלקטרוני וקמעונאות:** עוזרים לקניות שמציעים המלצות מותאמות אישית וסוכני תמיכה שמטפלים בבעיות של לקוחות.
-- **גיימינג:** דמויות אינטראקטיביות שאי אפשר לשחק איתן (NPC), עוזרים במשחק ותרגום בזמן אמת של תוכן במשחק.
-- **ממשקי דור חדש:** חוויות שכוללות קול ווידאו ברובוטיקה, במשקפיים חכמים ובכלי רכב.
-- **שירותי בריאות:** עוזרים בתחום הבריאות לתמיכה במטופלים ולחינוך שלהם.
-- **שירותים פיננסיים:** יועצים מבוססי-AI לניהול כספים ולייעוץ בנושא השקעות.
-- ‫**Education:** מורים ומלווים ללמידה מבוססי-AI שמספקים הדרכה ומשוב בהתאמה אישית.
+- **전자상거래 및 소매:** 맞춤형 추천을 제공하는 쇼핑 어시스턴트와 고객 문제를 해결하는 지원 에이전트
+- **게임:** 대화형 논플레이어 캐릭터(NPC), 인게임 도움말 어시스턴트, 인게임 콘텐츠의 실시간 번역
+- **차세대 인터페이스:** 로봇 공학, 스마트 글라스, 차량에서 음성 및 동영상 지원 환경
+- **의료:** 환자 지원 및 교육을 위한 건강 도우미
+- **금융 서비스:** 자산 관리 및 투자 안내를 위한 AI 자문가
+- **교육:** 맞춤형 안내와 의견을 제공하는 AI 멘토 및 학습자 도우미
 
-## תכונות עיקריות
+## 주요 특징
 
-ממשק API בזמן אמת מציע מגוון רחב של תכונות ליצירת סוכנים קוליים חזקים:
+Live API는 강력한 음성 에이전트를 빌드하기 위한 포괄적인 기능 세트를 제공합니다.
 
-- [**תמיכה רב-לשונית**](https://ai.google.dev/gemini-api/docs/live-guide?hl=he#supported-languages):
-  אפשר לנהל שיחות ב-70 שפות נתמכות.
-- [**התפרצות לשיחה**](https://ai.google.dev/gemini-api/docs/live-guide?hl=he#interruptions):
-  המשתמשים יכולים לקטוע את המודל בכל שלב כדי ליצור אינטראקציות דינמיות.
-- [**שימוש בכלים**](https://ai.google.dev/gemini-api/docs/live-tools?hl=he):
-  משלב כלים כמו קריאה לפונקציות וחיפוש Google כדי ליצור אינטראקציות דינמיות.
-- [**תמלולי אודיו**](https://ai.google.dev/gemini-api/docs/live-guide?hl=he#audio-transcription):
-  מספק תמלילי טקסט של קלט של משתמשים והפלט מהמודל.
-- [**אודיו פרואקטיבי**](https://ai.google.dev/gemini-api/docs/live-guide?hl=he#proactive-audio):
-  מאפשר לכם לקבוע מתי המודל יגיב ובאילו הקשרים.
-- [**שיחה מותאמת-רגש**](https://ai.google.dev/gemini-api/docs/live-guide?hl=he#affective-dialog):
-  התאמת סגנון התגובה והטון שלהם לביטוי הקלט של המשתמש.
+- [**다국어 지원**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#supported-languages):
+  지원되는 70개 언어로 대화할 수 있습니다.
+- [**통화 참여**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#interruptions):
+  사용자는 언제든지 모델을 중단하여 응답형 상호작용을 할 수 있습니다.
+- [**도구 사용**](https://ai.google.dev/gemini-api/docs/live-tools?hl=ko):
+  함수 호출 및 Google 검색과 같은 도구를 통합하여 역동적인 상호작용을 지원합니다.
+- [**오디오 스크립트 작성**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#audio-transcription):
+  사용자 입력과 모델 출력의 텍스트 스크립트를 제공합니다.
+- [**능동적 오디오**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#proactive-audio):
+  모델이 응답하는 시점과 컨텍스트를 제어할 수 있습니다.
+- [**공감형 대화**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#affective-dialog):
+  사용자의 입력 표현에 맞게 대답 스타일과 어조를 조정합니다.
 
-## מפרטים טכניים
+## 기술 사양
 
-בטבלה הבאה מפורטות המפרטים הטכניים של Live API:
+다음 표에는 Live API의 기술 사양이 나와 있습니다.
 
-| קטגוריה | פרטים |
+| 카테고리 | 세부정보 |
 | --- | --- |
-| אופני קלט | אודיו (אודיו PCM גולמי של 16 ביט, 16kHz, little-endian), תמונות (JPEG <= 1FPS), טקסט |
-| אופנויות פלט | אודיו (אודיו PCM גולמי של 16 ביט, 24kHz, ‏ little-endian) |
-| פרוטוקול | חיבור WebSocket (WSS) עם שמירת מצב |
+| 입력 모달리티 | 오디오 (원시 16비트 PCM 오디오, 16kHz, 리틀 엔디안), 이미지 (JPEG <= 1FPS), 텍스트 |
+| 출력 모달리티 | 오디오 (원시 16비트 PCM 오디오, 24kHz, 리틀 엔디안) |
+| 프로토콜 | 스테이트풀 WebSocket 연결(WSS) |
 
-## בחירת גישת הטמעה
+## 구현 접근 방식 선택
 
-כשמשלבים עם Live API, צריך לבחור אחת מהגישות הבאות להטמעה:
+Live API와 통합할 때는 다음 구현 접근 방식 중 하나를 선택해야 합니다.
 
-- **שרת לשרת**: הקצה העורפי מתחבר ל-Live API באמצעות [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). בדרך כלל, הלקוח שולח נתוני שידור (אודיו, וידאו, טקסט) לשרת, והשרת מעביר אותם ל-Live API.
-- **לקוח לשרת**: קוד הקצה הקדמי מתחבר ישירות ל-Live API באמצעות [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) כדי להזרים נתונים, בלי לעבור דרך הקצה העורפי.
+- **서버 간**: 백엔드가 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)를 사용하여 Live API에 연결됩니다. 일반적으로 클라이언트는 스트림 데이터 (오디오, 동영상, 텍스트)를 서버로 전송하고 서버는 이를 Live API로 전달합니다.
+- **클라이언트-서버**: 프런트엔드 코드가 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)을 사용하여 Live API에 직접 연결하여 데이터를 스트리밍하고 백엔드를 우회합니다.
 
-## שנתחיל?
+## 시작하기
 
-בוחרים את המדריך שמתאים לסביבת הפיתוח שלכם:
+개발 환경에 맞는 가이드를 선택합니다.
 
-Server-to-server
+서버 간
 
-### [מדריך ל-GenAI SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=he)
+### [생성형 AI SDK 튜토리얼](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ko)
 
-מתחברים ל-Gemini Live API באמצעות GenAI SDK כדי ליצור אפליקציה מולטי-מודאלית בזמן אמת עם קצה עורפי של Python.
+생성형 AI SDK를 사용하여 Gemini Live API에 연결하여 Python 백엔드로 실시간 멀티모달 애플리케이션을 빌드합니다.
 
-לקוח לשרת
+클라이언트-서버
 
-### [WebSocket tutorial](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=he)
+### [WebSocket 튜토리얼](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=ko)
 
-אפשר להתחבר ל-Gemini Live API באמצעות WebSockets כדי ליצור אפליקציה מולטי-מודאלית בזמן אמת עם ממשק קצה ב-JavaScript וטוקנים זמניים.
+WebSocket을 사용하여 Gemini Live API에 연결하여 JavaScript 프런트엔드와 일회성 토큰으로 실시간 멀티모달 애플리케이션을 빌드합니다.
 
-Agent development kit
+에이전트 개발 키트
 
-### [מדריך ל-ADK](https://google.github.io/adk-docs/streaming/)
+### [ADK 튜토리얼](https://google.github.io/adk-docs/streaming/)
 
-יצירת סוכן ושימוש ב-Agent Development Kit (ערכה לפיתוח סוכנים) Streaming כדי לאפשר תקשורת קולית ווידאו.
+에이전트를 만들고 에이전트 개발 키트(ADK) 스트리밍을 사용하여 음성 및 영상 커뮤니케이션을 사용 설정합니다.
 
-## שילובים עם שותפים
+## 파트너 연동
 
-כדי לייעל את הפיתוח של אפליקציות אודיו ווידאו בזמן אמת, אפשר להשתמש בשילוב של צד שלישי שתומך ב-API של Gemini Live באמצעות WebRTC או WebSockets.
+실시간 오디오 및 동영상 앱의 개발을 간소화하려면 WebRTC 또는 WebSocket을 통해 Gemini Live API를 지원하는 서드 파티 통합을 사용하면 됩니다.
 
 [LiveKit
 
-איך משתמשים ב-Gemini Live API עם סוכני LiveKit.](https://docs.livekit.io/agents/models/realtime/plugins/gemini/)
-[Pipecat by Daily
+LiveKit 에이전트와 함께 Gemini Live API를 사용합니다.](https://docs.livekit.io/agents/models/realtime/plugins/gemini/)
+[Daily의 Pipecat
 
-איך יוצרים צ'אט בוט מבוסס-AI בזמן אמת באמצעות Gemini Live ו-Pipecat.](https://docs.pipecat.ai/guides/features/gemini-live)
-[Fishjam by Software Mansion
+Gemini Live 및 Pipecat을 사용하여 실시간 AI 챗봇을 만드세요.](https://docs.pipecat.ai/guides/features/gemini-live)
+[Software Mansion의 Fishjam
 
-יצירת אפליקציות לסטרימינג בשידור חי של וידאו ואודיו באמצעות Fishjam.](https://docs.fishjam.io/tutorials/gemini-live-integration)
-[סוכני Vision לפי זרם
+Fishjam으로 라이브 동영상 및 오디오 스트리밍 애플리케이션을 만드세요.](https://docs.fishjam.io/tutorials/gemini-live-integration)
+[스트림의 Vision Agents
 
-פיתוח אפליקציות AI לשיחות קוליות ולווידאו בזמן אמת באמצעות סוכני Vision.](https://visionagents.ai/integrations/gemini)
+Vision Agent로 실시간 음성 및 동영상 AI 애플리케이션을 빌드하세요.](https://visionagents.ai/integrations/gemini)
 [Voximplant
 
-אפשר לחבר שיחות נכנסות ויוצאות ל-Live API באמצעות Voximplant.](https://voximplant.com/products/gemini-client)
+Voximplant를 사용하여 인바운드 및 아웃바운드 통화를 Live API에 연결합니다.](https://voximplant.com/products/gemini-client)
 [Agora
 
-פיתוח אפליקציות AI בממשק שיחה בזמן אמת באמצעות Agora.](https://docs.agora.io/en/conversational-ai/models/mllm/gemini)
+Agora로 실시간 대화형 AI 애플리케이션을 빌드하세요.](https://docs.agora.io/en/conversational-ai/models/mllm/gemini)
 [Firebase AI SDK
 
-מתחילים להשתמש ב-Gemini Live API באמצעות Firebase AI Logic.](https://firebase.google.com/docs/ai-logic/live-api?api=dev&hl=he)
+Firebase AI Logic을 사용하여 Gemini Live API를 시작하세요.](https://firebase.google.com/docs/ai-logic/live-api?api=dev&hl=ko)
 
-שליחת משוב
+의견 보내기
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+최종 업데이트: 2026-06-01(UTC)
 
-רוצה לתת לנו משוב?
+의견을 전달하고 싶나요?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-01(UTC)"],[],[]]

@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=tr
-fetched_at: 2026-05-25T12:58:44.317461+00:00
-title: "Gemini API'de Veo 3.1 ile video \u00fcretme \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=hi
+fetched_at: 2026-06-01T19:38:27.459605+00:00
+title: "Gemini API \u092e\u0947\u0902 Veo 3.1 \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0935\u0940\u0921\u093f\u092f\u094b \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Geri bildirim gönderin
+सुझाव भेजें
 
-# Gemini API'de Veo 3.1 ile video üretme
+# Gemini API में Veo 3.1 की मदद से वीडियो जनरेट करना
 
-> Video anlama hakkında bilgi edinmek için [Video anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) kılavuzuna bakın.
+> वीडियो को समझने की सुविधा के बारे में जानने के लिए, [वीडियो को समझना](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi) गाइड देखें.
 
-[Veo 3.1](https://deepmind.google/models/veo/?hl=tr), Google'ın yüksek kaliteli, 8 saniyelik 720p, 1080p veya 4K videolar oluşturmak için kullandığı son teknoloji modelidir. Bu videolar, çarpıcı gerçekçilik ve doğal olarak üretilmiş ses içerir. Bu modele Gemini API'yi kullanarak programatik olarak erişebilirsiniz. Mevcut Veo modeli varyantları hakkında daha fazla bilgi edinmek için [Model Sürümleri](#model-versions) bölümüne bakın.
+[Veo 3.1](https://deepmind.google/models/veo/?hl=hi), Google का सबसे बेहतरीन मॉडल है. इसकी मदद से, 8 सेकंड के 720 पिक्सल, 1080 पिक्सल या 4K वीडियो जनरेट किए जा सकते हैं. ये वीडियो, असल ज़िंदगी के अनुभव और नेटिव ऑडियो के साथ शानदार दिखते हैं. Gemini API का इस्तेमाल करके, इस मॉडल को प्रोग्राम के हिसाब से ऐक्सेस किया जा सकता है. Veo मॉडल के उपलब्ध वैरिएंट के बारे में ज़्यादा जानने के लिए, [मॉडल के वर्शन](#model-versions) सेक्शन देखें.
 
-Veo 3.1, çok çeşitli görsel ve sinematik stillerde üstün performans gösterir ve çeşitli yeni özellikler sunar:
+Veo 3.1, विज़ुअल और सिनमैटिक स्टाइल की कई तरह की फ़ाइलों को बेहतर तरीके से प्रोसेस कर सकता है. साथ ही, इसमें कई नई सुविधाएं जोड़ी गई हैं:
 
-- **Dikey videolar**: Yatay (`16:9`) ve dikey (`9:16`) videolar arasından seçim yapın.
-- **Video uzatma**: Daha önce Veo kullanılarak oluşturulan videoları uzatın.
-- **Kareye özgü üretim**: İlk ve son kareleri belirterek video oluşturun.
-- **Resme dayalı yönlendirme**: Üretilen videonuzun içeriğini yönlendirmek için üç adede kadar referans resim kullanın.
+- **पोर्ट्रेट वीडियो**: लैंडस्केप (`16:9`) और पोर्ट्रेट (`9:16`) वीडियो में से कोई एक चुनें.
+- **वीडियो एक्सटेंशन**: Veo का इस्तेमाल करके पहले जनरेट किए गए वीडियो को बड़ा करें.
+- **फ़्रेम के हिसाब से वीडियो जनरेट करना**: पहला और आखिरी फ़्रेम तय करके वीडियो जनरेट करें.
+- **इमेज के आधार पर निर्देश देना**: जनरेट किए गए वीडियो के कॉन्टेंट के बारे में निर्देश देने के लिए, ज़्यादा से ज़्यादा तीन रेफ़रंस इमेज का इस्तेमाल करें.
 
-Video oluşturmak için etkili metin istemleri yazma hakkında daha fazla bilgi edinmek için [Veo istem rehberini](#prompt-guide) inceleyin.
+वीडियो जनरेट करने के लिए, असरदार टेक्स्ट प्रॉम्प्ट लिखने के बारे में ज़्यादा जानने के लिए, [Veo की प्रॉम्प्ट गाइड](#prompt-guide) देखें
 
-## Metinden video üretme
+## टेक्स्ट से वीडियो जनरेट करने की सुविधा
 
-Diyalog, sinematik gerçekçilik veya yaratıcı animasyon içeren videolar oluşturmayı öğrenmek için bir örnek seçin:
+डायलॉग, सिनमैटिक रियलिज़्म या क्रिएटिव ऐनिमेशन वाला वीडियो जनरेट करने का तरीका जानने के लिए, कोई उदाहरण चुनें:
 
-Diyalog ve Ses Efektleri
-Sinematik Gerçekçilik
-Yaratıcı Animasyon
+डायलॉग और साउंड इफ़ेक्ट
+सिनेमैटिक रियलिज़्म
+क्रिएटिव ऐनिमेशन
 
 ### Python
 
@@ -101,7 +101,7 @@ ai.files.download({
 console.log(`Generated video saved to dialogue_example.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -229,9 +229,10 @@ while true; do
 done
 ```
 
-### En boy oranını kontrol etme
+### आस्पेक्ट रेशियो कंट्रोल करना
 
-Veo 3.1 ile yatay (`16:9`, varsayılan ayar) veya dikey (`9:16`) videolar oluşturabilirsiniz. `aspect_ratio` parametresini kullanarak modele hangisini istediğinizi söyleyebilirsiniz:
+Veo 3.1 की मदद से, लैंडस्केप (`16:9`, डिफ़ॉल्ट सेटिंग) या पोर्ट्रेट
+(`9:16`) वीडियो बनाए जा सकते हैं. `aspect_ratio` पैरामीटर का इस्तेमाल करके, मॉडल को यह बताया जा सकता है कि आपको कौनसा मॉडल चाहिए:
 
 ### Python
 
@@ -299,7 +300,7 @@ ai.files.download({
 console.log(`Generated video saved to pizza_making.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -394,13 +395,13 @@ while true; do
 done
 ```
 
-### Çözünürlüğü kontrol etme
+### रिज़ॉल्यूशन कंट्रोल करना
 
-Veo 3.1, doğrudan 720p, 1080p veya 4K videolar da oluşturabilir (4K, Veo 3.1 Lite'ta kullanılamaz).
+Veo 3.1, सीधे तौर पर 720 पिक्सल, 1080 पिक्सल या 4K रिज़ॉल्यूशन वाले वीडियो भी जनरेट कर सकता है. हालांकि, Veo 3.1 Lite में 4K रिज़ॉल्यूशन वाला वीडियो जनरेट करने की सुविधा उपलब्ध नहीं है.
 
-Çözünürlük ne kadar yüksek olursa gecikme süresinin de o kadar yüksek olacağını unutmayın. 4K videolar da daha pahalıdır (bkz. [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#veo-3.1)).
+ध्यान दें कि रिज़ॉल्यूशन जितना ज़्यादा होगा, इंतज़ार का समय उतना ही ज़्यादा होगा. 4K वीडियो की कीमत भी ज़्यादा होती है ([कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#veo-3.1) देखें).
 
-[Video uzantısı](#extending_veo_videos) da 720p videolarla sınırlıdır.
+[वीडियो एक्सटेंशन](#extending_veo_videos) भी सिर्फ़ 720 पिक्सल वाले वीडियो के लिए उपलब्ध है.
 
 ### Python
 
@@ -468,7 +469,7 @@ ai.files.download({
 console.log(`Generated video saved to 4k_grand_canyon.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -563,9 +564,9 @@ while true; do
 done
 ```
 
-## Görüntüden video üretme
+## इमेज से वीडियो जनरेट करने की सुविधा
 
-Aşağıdaki kod, [Gemini 3.1 Flash Image (Nano Banana 2)](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) kullanarak görüntü oluşturmayı ve ardından bu görüntüyü Veo 3.1 ile video oluşturmak için başlangıç karesi olarak kullanmayı gösterir.
+यहाँ दिए गए कोड में, [Gemini 3.1 Flash Image यानी Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) का इस्तेमाल करके इमेज जनरेट करने का तरीका दिखाया गया है. इसके बाद, उस इमेज को Veo 3.1 की मदद से वीडियो जनरेट करने के लिए शुरुआती फ़्रेम के तौर पर इस्तेमाल किया गया है.
 
 ### Python
 
@@ -646,7 +647,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3_with_image_input.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -753,15 +754,15 @@ class GenerateVideoFromImage {
 }
 ```
 
-### Referans resimleri kullanma
+### रेफ़रंस इमेज का इस्तेमाल करना
 
-Veo 3.1, üretilen videonuzun içeriğine yön vermek için artık 3 adede kadar referans görseli kabul ediyor. Çıkış videosunda konuyla ilgili görünümü korumak için bir kişinin, karakterin veya ürünün resimlerini sağlayın.
+Veo 3.1 अब जनरेट किए गए वीडियो के कॉन्टेंट के लिए, ज़्यादा से ज़्यादा तीन रेफ़रंस इमेज स्वीकार करता है. किसी व्यक्ति, किरदार या प्रॉडक्ट की इमेज दें, ताकि आउटपुट वीडियो में विषय की उपस्थिति को बनाए रखा जा सके.
 
-Örneğin, [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) ile oluşturulan bu üç resmi [iyi yazılmış bir istemle](#use-reference-images) referans olarak kullanarak aşağıdaki video oluşturulur:
+उदाहरण के लिए, [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) से जनरेट की गई इन तीन इमेज को रेफ़रंस के तौर पर इस्तेमाल करके, [अच्छी तरह से लिखा गया प्रॉम्प्ट](#use-reference-images) डालने पर, यह वीडियो बनता है:
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
-| Pembe ve fuşya tüylerden oluşan katmanlı, yüksek moda ürünü flamingo elbisesi | Koyu renk saçlı ve sıcak kahverengi gözlü güzel bir kadın | Kaprisli pembe, kalp şeklinde güneş gözlüğü |
+| फ़्लेमिंगो के डिज़ाइन वाली हाई-फ़ैशन ड्रेस. इसमें गुलाबी और फ़्यूशिया रंग के पंखों की कई लेयर हैं | गहरे रंग के बालों और चमकदार भूरी आंखों वाली खूबसूरत महिला | दिल के आकार वाला गुलाबी चश्मा |
 
 ### Python
 
@@ -862,7 +863,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3.1_with_reference_images.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -989,9 +990,9 @@ while true; do
 done
 ```
 
-### İlk ve son kareyi kullanma
+### पहले और आखिरी फ़्रेम का इस्तेमाल करना
 
-Veo 3.1, enterpolasyon kullanarak veya videonun ilk ve son karelerini belirterek video oluşturmanıza olanak tanır. Video üretimi için etkili metin istemleri yazma hakkında bilgi edinmek istiyorsanız [Veo istem rehberine](#use-reference-images) bakın.
+Veo 3.1 की मदद से, इंटरपोलेशन का इस्तेमाल करके वीडियो बनाए जा सकते हैं. इसके अलावा, वीडियो के पहले और आखिरी फ़्रेम भी तय किए जा सकते हैं. वीडियो जनरेट करने के लिए, असरदार टेक्स्ट प्रॉम्प्ट लिखने के बारे में जानकारी पाने के लिए, [Veo की प्रॉम्प्ट गाइड](#use-reference-images) देखें.
 
 ### Python
 
@@ -1062,7 +1063,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3.1_with_interpolation.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1164,30 +1165,31 @@ done
 
 | `` `first_image` `` | `` `last_image` `` | *veo3.1\_with\_interpolation.mp4* |
 | --- | --- | --- |
-| Uzun beyaz saçlı ve akışkan bir elbise giymiş hayaletimsi bir kadın, halatlı salıncakta hafifçe sallanıyor. | Hayalet kadın salıncaktan kayboluyor | Sisli bir havada salıncakta oturan ürkütücü bir kadının kaybolduğu sinematik ve rahatsız edici video |
+| एक भूतिया महिला के लंबे सफ़ेद बाल हैं और उसने बहने वाली ड्रेस पहनी है. वह रस्सी वाली झूला पर धीरे-धीरे झूल रही है | भूतिया महिला झूले से गायब हो जाती है | कोहरे में झूलते हुए, एक डरावनी महिला के गायब होने का सिनेमैटिक और डरावना वीडियो |
 
-## Veo videolarını uzatma
+## Veo की मदद से जनरेट किए गए वीडियो की अवधि बढ़ाना
 
-Daha önce Veo ile oluşturduğunuz videoları 7 saniye ve 20 kata kadar uzatmak için Veo 3.1'i kullanın.
+Veo 3.1 का इस्तेमाल करके, Veo से जनरेट किए गए वीडियो की अवधि को 7 सेकंड तक बढ़ाया जा सकता है. ऐसा ज़्यादा से ज़्यादा 20 बार किया जा सकता है.
 
-Giriş videosu sınırlamaları:
+इनपुट वीडियो से जुड़ी सीमाएं:
 
-- Veo tarafından oluşturulan videolar en fazla 141 saniye uzunluğunda olabilir.
-- Gemini API, yalnızca Veo ile üretilen videolar için video uzantılarını destekler.
-- Video, `operation.response.generated_videos[0].video` gibi önceki nesillerden birine ait olmalıdır.
-- Videolar 2 gün boyunca saklanır. Ancak bir video uzatma için referans olarak kullanılıyorsa 2 günlük saklama süresi sıfırlanır. Yalnızca son iki gün içinde oluşturulan veya referans verilen videoları uzatabilirsiniz.
-- Giriş videolarının belirli bir uzunluğa, en boy oranına ve boyuta sahip olması beklenir:
-  - En-boy oranı: 9:16 veya 16:9
-  - Çözünürlük: 720p
-  - Video uzunluğu: 141 saniye veya daha kısa
+- Veo से जनरेट किए गए वीडियो की अवधि सिर्फ़ 141 सेकंड तक हो सकती है.
+- Gemini API, सिर्फ़ Veo से जनरेट किए गए वीडियो के लिए वीडियो एक्सटेंशन की सुविधा देता है.
+- वीडियो, पिछली जनरेशन का होना चाहिए. जैसे,
+  `operation.response.generated_videos[0].video`
+- वीडियो दो दिनों तक सेव रहते हैं. हालांकि, अगर किसी वीडियो का इस्तेमाल एक्सटेंशन के लिए किया जाता है, तो उसे सेव रखने का दो दिन का टाइमर रीसेट हो जाता है. सिर्फ़ उन वीडियो की अवधि बढ़ाई जा सकती है जिन्हें पिछले दो दिनों में जनरेट किया गया हो या जिनका रेफ़रंस दिया गया हो.
+- इनपुट वीडियो की अवधि, आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात), और डाइमेंशन तय होने चाहिए:
+  - आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात): 9:16 या 16:9
+  - रिज़ॉल्यूशन: 720 पिक्सल
+  - वीडियो की अवधि: 141 सेकंड या इससे कम
 
-Uzantının çıktısı, kullanıcı giriş videosu ile oluşturulan genişletilmiş videoyu birleştiren ve 148 saniyeye kadar video içeren tek bir videodur.
+एक्सटेंशन का आउटपुट एक वीडियो होता है. इसमें उपयोगकर्ता के इनपुट वीडियो और जनरेट किए गए एक्सटेंड किए गए वीडियो को मिलाकर, ज़्यादा से ज़्यादा 148 सेकंड का वीडियो बनाया जाता है.
 
-Bu örnekte, orijinal istemiyle birlikte gösterilen Veo tarafından oluşturulmuş bir video, `video` parametresi ve yeni bir istem kullanılarak genişletiliyor:
+इस उदाहरण में, Veo से जनरेट किए गए वीडियो का इस्तेमाल किया गया है. इसे यहां इसके ओरिजनल प्रॉम्प्ट के साथ दिखाया गया है. साथ ही, `video` पैरामीटर और नए प्रॉम्प्ट का इस्तेमाल करके, इसे बढ़ाया गया है:
 
-| İstem | Çıkış: `butterfly_video` |
+| प्रॉम्प्ट | आउटपुट: `butterfly_video` |
 | --- | --- |
-| Origami kelebek kanatlarını çırparak Fransız kapısından bahçeye uçuyor. | Origami kelebek kanatlarını çırparak Fransız kapıdan bahçeye doğru uçuyor. |
+| ऑरिगामी तितली अपने पंख फड़फड़ाती है और फ़्रेंच दरवाज़ों से उड़कर बगीचे में चली जाती है. | ऑरिगेमी बटरफ़्लाई अपने पंख फड़फड़ाती है और फ़्रेंच दरवाज़ों से उड़कर बगीचे में चली जाती है. |
 
 ### Python
 
@@ -1260,7 +1262,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3.1_extension.mp4`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1363,13 +1365,13 @@ while true; do
 done
 ```
 
-Video üretimi için etkili metin istemleri yazma hakkında bilgi edinmek için [Veo istem rehberine](#extend-prompt) bakın.
+वीडियो जनरेट करने के लिए, असरदार टेक्स्ट प्रॉम्प्ट लिखने के बारे में जानकारी पाने के लिए, [Veo की प्रॉम्प्ट गाइड](#extend-prompt) देखें.
 
-## Eşzamansız işlemleri işleme
+## एसिंक्रोनस कार्रवाइयों को हैंडल करना
 
-Video oluşturma, bilgi işlem açısından yoğun bir görevdir. API'ye istek gönderdiğinizde uzun süren bir iş başlatılır ve hemen bir `operation` nesnesi döndürülür. Ardından, `done` durumu doğru olana kadar video hazır olana kadar yoklama yapmanız gerekir.
+वीडियो जनरेट करने के लिए, काफ़ी कंप्यूटेशनल पावर की ज़रूरत होती है. एपीआई को अनुरोध भेजने पर, यह लंबे समय तक चलने वाला जॉब शुरू करता है और तुरंत `operation` ऑब्जेक्ट दिखाता है. इसके बाद, आपको तब तक पोल करना होगा, जब तक वीडियो तैयार नहीं हो जाता. इसकी जानकारी, `done` स्टेटस के सही होने से मिलती है.
 
-Bu sürecin temelinde, işin durumunu düzenli olarak kontrol eden bir yoklama döngüsü bulunur.
+इस प्रोसेस का मुख्य हिस्सा पोलिंग लूप है. यह लूप, समय-समय पर जॉब के स्टेटस की जांच करता है.
 
 ### Python
 
@@ -1426,7 +1428,7 @@ while (!operation.done) {
 // ... process and download your video ...
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1548,302 +1550,302 @@ while true; do
 done
 ```
 
-## Veo API parametreleri ve spesifikasyonları
+## Veo API के पैरामीटर और खास बातें
 
-Bunlar, video oluşturma sürecini kontrol etmek için API isteğinizde ayarlayabileceğiniz parametrelerdir.
+ये ऐसे पैरामीटर हैं जिन्हें एपीआई के अनुरोध में सेट किया जा सकता है. इससे वीडियो जनरेट करने की प्रोसेस को कंट्रोल किया जा सकता है.
 
-| Parametre | Veo 3.1 ve Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 ve Veo 3 Fast | Veo 2 |
+| पैरामीटर | Veo 3.1 और Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 और Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| Örnekler | | | | |
-| `prompt`: Videonun metin açıklaması. Ses işaretlerini destekler. | `string` | `string` | `string` | `string` |
-| `image`: Animasyon eklenecek ilk resim. | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi |
-| `lastFrame`: Geçiş yapılacak bir enterpolasyon videosunun son resmi. `image` parametresiyle birlikte kullanılmalıdır. | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi | `Image` nesnesi |
-| `referenceImages`: Stil ve içerik referansı olarak kullanılacak en fazla üç resim. | `VideoGenerationReferenceImage` nesnesi | `n/a` nesnesi | Yok | Yok |
-| `video`: Video uzantısı için kullanılacak video. | Önceki nesilden `Video` nesne | Yok | Yok | Yok |
-| Parametreler | | | | |
-| `aspectRatio`: Videonun en boy oranı. | `"16:9"` (varsayılan), `"9:16"` | `"16:9"` (varsayılan), `"9:16"` | `"16:9"` (varsayılan), `"9:16"` | `"16:9"` (varsayılan), `"9:16"` |
-| `durationSeconds`: Oluşturulan videonun uzunluğu. | `"4"`, `"6"`, `"8"`.   *Uzantı, referans resimler veya 1080p ve 4K çözünürlükler kullanılırken "8" olmalıdır.* | `"4"`, `"6"`, `"8"`.   *Referans resimler kullanılırken veya 1080p ile "8" olmalıdır* | `"4"`, `"6"`, `"8"`.   *Uzantı, referans resimler veya 1080p ve 4K çözünürlükler kullanılırken "8" olmalıdır.* | `"5"`, `"6"`, `"8"` |
-| `personGeneration`: İnsanların üretilmesini kontrol eder. (Bölgesel kısıtlamalar için [Sınırlamalar](#limitations) bölümüne bakın) | Metinden videoya ve uzantı: `"allow_all"` yalnızca   Görüntüden videoya, ara görüntü ve referans resimler: `"allow_adult"` yalnızca | Metinden videoya: `"allow_all"` yalnızca   Görüntüden videoya, ara görüntü ve referans resimler: `"allow_adult"` yalnızca | Metinden videoya: `"allow_all"` yalnızca   Görüntüden videoya: `"allow_adult"` yalnızca | Metinden video:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   Resimden video:  `"allow_adult"` ve `"dont_allow"` |
-| `resolution`: Videonun çözünürlüğü. | `"720p"` (varsayılan),  `"1080p"` (yalnızca 8 saniye süreyi destekler), `"4k"` (yalnızca 8 saniye süreyi destekler)   *`"720p"` yalnızca uzantı için* | `"720p"` (varsayılan),  `"1080p"` (yalnızca 8 saniyelik süreyi destekler) | `"720p"` (varsayılan),  `"1080p"` (yalnızca 8 saniye süreyi destekler), `"4k"` (yalnızca 8 saniye süreyi destekler)   *`"720p"` yalnızca uzantı için* | Desteklenmiyor |
+| इंस्टेंस | | | | |
+| `prompt`: वीडियो के बारे में टेक्स्ट में दी गई जानकारी. इसमें ऑडियो क्यू की सुविधा काम करती है. | `string` | `string` | `string` | `string` |
+| `image`: ऐनिमेट करने के लिए शुरुआती इमेज. | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट |
+| `lastFrame`: इंटरपोलेशन वीडियो के लिए, ट्रांज़िशन करने वाली फ़ाइनल इमेज. इसका इस्तेमाल `image` पैरामीटर के साथ किया जाना चाहिए. | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट |
+| `referenceImages`: स्टाइल और कॉन्टेंट के रेफ़रंस के तौर पर इस्तेमाल करने के लिए, ज़्यादा से ज़्यादा तीन इमेज. | `VideoGenerationReferenceImage` ऑब्जेक्ट | `n/a` ऑब्जेक्ट | लागू नहीं | लागू नहीं |
+| `video`: वीडियो एक्सटेंशन के लिए इस्तेमाल किया जाने वाला वीडियो. | पिछली जनरेशन का `Video` ऑब्जेक्ट | लागू नहीं | लागू नहीं | लागू नहीं |
+| पैरामीटर | | | | |
+| `aspectRatio`: वीडियो का आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात). | `"16:9"` (डिफ़ॉल्ट), `"9:16"` | `"16:9"` (डिफ़ॉल्ट), `"9:16"` | `"16:9"` (डिफ़ॉल्ट), `"9:16"` | `"16:9"` (डिफ़ॉल्ट), `"9:16"` |
+| `durationSeconds`: जनरेट किए गए वीडियो की अवधि. | `"4"`, `"6"`, `"8"`.   *एक्सटेंशन, रेफ़रंस इमेज या 1080 पिक्सल और 4K रिज़ॉल्यूशन का इस्तेमाल करते समय, इसकी वैल्यू "8" होनी चाहिए* | `"4"`, `"6"`, `"8"`.   *रेफ़रंस इमेज या 1080 पिक्सल का इस्तेमाल करते समय, "8" पर सेट होना चाहिए* | `"4"`, `"6"`, `"8"`.   *एक्सटेंशन, रेफ़रंस इमेज या 1080 पिक्सल और 4K रिज़ॉल्यूशन का इस्तेमाल करते समय, इसकी वैल्यू "8" होनी चाहिए* | `"5"`, `"6"`, `"8"` |
+| `personGeneration`: इससे लोगों की इमेज जनरेट करने की सुविधा को कंट्रोल किया जाता है. (देश/इलाके के हिसाब से पाबंदियों के बारे में जानने के लिए, [सीमाएं](#limitations) देखें) | टेक्स्ट से वीडियो और एक्सटेंशन: `"allow_all"` सिर्फ़   इमेज से वीडियो, इंटरपोलेशन, और रेफ़रंस इमेज: `"allow_adult"` सिर्फ़ | टेक्स्ट से वीडियो बनाने की सुविधा: `"allow_all"` सिर्फ़   इमेज से वीडियो बनाने की सुविधा, इंटरपोलेशन, और रेफ़रंस इमेज: `"allow_adult"` सिर्फ़ | टेक्स्ट से वीडियो बनाने की सुविधा: `"allow_all"` सिर्फ़   इमेज से वीडियो बनाने की सुविधा: `"allow_adult"` सिर्फ़ | टेक्स्ट को वीडियो में बदलने की सुविधा:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   इमेज को वीडियो में बदलने की सुविधा:  `"allow_adult"`, और `"dont_allow"` |
+| `resolution`: वीडियो का रिज़ॉल्यूशन. | `"720p"` (डिफ़ॉल्ट),  `"1080p"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है), `"4k"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है)   *`"720p"` सिर्फ़ एक्सटेंशन के लिए* | `"720p"` (डिफ़ॉल्ट),  `"1080p"` (सिर्फ़ आठ सेकंड तक काम करता है) | `"720p"` (डिफ़ॉल्ट),  `"1080p"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है), `"4k"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है)   *`"720p"` सिर्फ़ एक्सटेंशन के लिए* | प्रिंटर इस डिवाइस के साथ काम नहीं करता है |
 
-`seed` parametresinin Veo 3 modellerinde de kullanılabildiğini unutmayın.
-Bu, determinizmi garanti etmez ancak biraz iyileştirir.
+ध्यान दें कि `seed` पैरामीटर, Veo 3 मॉडल के लिए भी उपलब्ध है.
+इससे यह गारंटी नहीं मिलती कि नतीजे एक जैसे होंगे, लेकिन इससे नतीजे कुछ हद तक एक जैसे हो जाते हैं.
 
-## Model özellikleri
+## मॉडल की सुविधाएं
 
-| Özellik | Veo 3.1 ve Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 ve Veo 3 Fast | Veo 2 |
+| सुविधा | Veo 3.1 और Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 और Veo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| **Ses:** Videoyla birlikte doğal ses üretir. | ✔️ Her zaman açık | ✔️ Her zaman açık | ✔️ Her zaman açık | ❌ Yalnızca sessiz |
-| **Giriş biçimleri:** Üretim için kullanılan giriş türü. | Metinden videoya, görüntüden videoya, videodan videoya | Metinden videoya, görüntüden videoya | Metinden videoya, görüntüden videoya | Metinden videoya, görüntüden videoya |
-| **Çözünürlük:** Videonun çıkış çözünürlüğü. | 720p, 1080p (yalnızca 8 saniye uzunluğunda), 4K (yalnızca 8 saniye uzunluğunda)  *Video uzantısı kullanılırken yalnızca 720p.* | 720p, 1080p (yalnızca 8 saniye uzunluğunda) | 720p ve 1080p (yalnızca 16:9) | 720p |
-| **Kare hızı:** Videonun çıkış kare hızı. | 24 fps | 24 fps | 24 fps | 24 fps |
-| **Video süresi:** Oluşturulan videonun uzunluğu. | 8 saniye, 6 saniye, 4 saniye  *Yalnızca 1080p veya 4K ise ya da referans resimler kullanılıyorsa 8 saniye* | 8 saniye, 6 saniye, 4 saniye  *Yalnızca 1080p ise veya referans resimler kullanılıyorsa 8 saniye* | 8 saniye | 5-8 saniye |
-| **İstek başına video sayısı:** İstek başına oluşturulan video sayısı. | 1 | 1 | 1 | 1 veya 2 |
-| **Durum:** Modelin kullanılabilirliği | [Önizleme](https://ai.google.dev/gemini-api/docs/models?hl=tr#preview) | [Önizleme](https://ai.google.dev/gemini-api/docs/models?hl=tr#preview) | [Kararlı](https://ai.google.dev/gemini-api/docs/models?hl=tr#stable) | [Kararlı](https://ai.google.dev/gemini-api/docs/models?hl=tr#latest-stable) |
+| **ऑडियो:** यह वीडियो के साथ ऑडियो जनरेट करता है. | ✔️ हमेशा चालू रखें | ✔️ हमेशा चालू रखें | ✔️ हमेशा चालू रखें | ❌ सिर्फ़ साइलेंट |
+| **इनपुट मोडेलिटी:** जनरेट करने के लिए इस्तेमाल किए गए इनपुट का टाइप. | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड, और वीडियो से वीडियो बनाने वाला मोड | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड |
+| **रिज़ॉल्यूशन:** वीडियो का आउटपुट रिज़ॉल्यूशन. | 720 पिक्सल, 1080 पिक्सल (सिर्फ़ आठ सेकंड की अवधि), 4K (सिर्फ़ आठ सेकंड की अवधि)  *वीडियो एक्सटेंशन का इस्तेमाल करते समय, सिर्फ़ 720 पिक्सल.* | 720 पिक्सल, 1080 पिक्सल (सिर्फ़ आठ सेकंड की अवधि) | 720 पिक्सल और 1080 पिक्सल (सिर्फ़ 16:9) | 720 पिक्सल |
+| **फ़्रेम रेट:** वीडियो का आउटपुट फ़्रेम रेट. | 24fps | 24fps | 24fps | 24fps |
+| **वीडियो की अवधि:** जनरेट किए गए वीडियो की अवधि. | 8 सेकंड, 6 सेकंड, 4 सेकंड  *1080 पिक्सल या 4K रिज़ॉल्यूशन या रेफ़रंस इमेज का इस्तेमाल करने पर ही 8 सेकंड* | 8 सेकंड, 6 सेकंड, 4 सेकंड  *सिर्फ़ 1080 पिक्सल या रेफ़रंस इमेज का इस्तेमाल करने पर 8 सेकंड* | 8 सेकंड | 5 से 8 सेकंड |
+| **हर अनुरोध पर वीडियो:** हर अनुरोध पर जनरेट किए गए वीडियो की संख्या. | 1 | 1 | 1 | 1 या 2 |
+| **स्टेटस:** मॉडल की उपलब्धता | [झलक देखें](https://ai.google.dev/gemini-api/docs/models?hl=hi#preview) | [झलक देखें](https://ai.google.dev/gemini-api/docs/models?hl=hi#preview) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=hi#stable) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=hi#latest-stable) |
 
-## Sınırlamalar
+## सीमाएं
 
-- **İstek gecikmesi:** En az: 11 saniye; en fazla: 6 dakika (yoğun saatlerde).
-- **Bölgesel sınırlamalar:** AB, Birleşik Krallık, İsviçre ve Orta Doğu ve Kuzey Afrika'daki konumlarda `personGeneration` için izin verilen değerler şunlardır:
-  - Veo 3 ve 3.1: Yalnızca `allow_adult`.
-  - Veo 2: `dont_allow` ve `allow_adult`. Varsayılan değer `dont_allow`'dır.
-- **Video saklama:** Oluşturulan videolar 2 gün boyunca sunucuda saklanır ve ardından kaldırılır. Yerel bir kopya kaydetmek için videonuzu oluşturulduktan sonraki 2 gün içinde indirmeniz gerekir. Uzatılmış videolar, yeni oluşturulmuş videolar olarak kabul edilir.
-- **Filigran:** Veo ile oluşturulan videolar, yapay zekayla üretilen içeriklere filigran ekleyip bu tür içerikleri tespit etmek için kullandığımız [SynthID](https://deepmind.google/technologies/synthid/?hl=tr) ile filigranlanır. Videolar, [SynthID](https://deepmind.google/science/synthid/?hl=tr) doğrulama platformu kullanılarak doğrulanabilir.
-- **Güvenlik:** Oluşturulan videolar, gizlilik, telif hakkı ve önyargı risklerini azaltmaya yardımcı olan güvenlik filtrelerinden ve ezberleme kontrolü süreçlerinden geçirilir.
-- **Ses hatası:** Veo 3.1, güvenlik filtreleri veya sesle ilgili diğer işleme sorunları nedeniyle bazen videonun oluşturulmasını engeller. Videonuzun oluşturulması engellenirse sizden ücret alınmaz.
+- **अनुरोध में लगने वाला समय:** कम से कम: 11 सेकंड; ज़्यादा से ज़्यादा: 6 मिनट (पीक आवर्स के दौरान).
+- **क्षेत्र के हिसाब से पाबंदियां:** ईयू, यूके, स्विट्ज़रलैंड, और मध्य-पूर्व और उत्तरी अफ़्रीका के देशों में, `personGeneration` के लिए ये वैल्यू इस्तेमाल की जा सकती हैं:
+  - Veo 3 और 3.1: सिर्फ़ `allow_adult`.
+  - Veo 2: `dont_allow` और `allow_adult`. डिफ़ॉल्ट वैल्यू `dont_allow` है.
+- **वीडियो सेव करने की अवधि:** जनरेट किए गए वीडियो, सर्वर पर दो दिनों तक सेव रहते हैं. इसके बाद, उन्हें हटा दिया जाता है. स्थानीय कॉपी सेव करने के लिए, आपको वीडियो जनरेट होने के दो दिनों के अंदर उसे डाउनलोड करना होगा. बढ़ाए गए वीडियो को नए वीडियो के तौर पर माना जाता है.
+- **वॉटरमार्किंग:** Veo से बनाए गए वीडियो में [SynthID](https://deepmind.google/technologies/synthid/?hl=hi) का इस्तेमाल करके वॉटरमार्क लगाया जाता है. यह वॉटरमार्क लगाने और एआई से बनाए गए कॉन्टेंट की पहचान करने वाला हमारा टूल है. [SynthID](https://deepmind.google/science/synthid/?hl=hi) की मदद से, वीडियो की पुष्टि की जा सकती है.
+- **सुरक्षा:** जनरेट किए गए वीडियो, सुरक्षा फ़िल्टर और याद रखने की जांच करने वाली प्रोसेस से गुज़रते हैं. इससे निजता, कॉपीराइट, और भेदभाव के जोखिमों को कम करने में मदद मिलती है.
+- **ऑडियो से जुड़ी गड़बड़ी:** कभी-कभी Veo 3.1, वीडियो जनरेट करने से रोक सकता है. ऐसा सुरक्षा फ़िल्टर या ऑडियो को प्रोसेस करने से जुड़ी अन्य समस्याओं की वजह से होता है. अगर वीडियो जनरेट करने की सुविधा ब्लॉक कर दी जाती है, तो आपसे कोई शुल्क नहीं लिया जाएगा.
 
-## Veo istem rehberi
+## Veo के लिए प्रॉम्प्ट से जुड़ी गाइड
 
-Bu bölümde, Veo kullanarak oluşturabileceğiniz videolara dair örnekler yer alır ve istemleri değiştirerek nasıl farklı sonuçlar elde edebileceğiniz gösterilir.
+इस सेक्शन में, Veo का इस्तेमाल करके बनाए जा सकने वाले वीडियो के उदाहरण दिए गए हैं. साथ ही, इसमें अलग-अलग नतीजे पाने के लिए, प्रॉम्प्ट में बदलाव करने का तरीका बताया गया है.
 
-### Güvenlik filtreleri
+### सेफ़्टी फ़िल्टर
 
-Veo, üretilen videolarda ve yüklenen fotoğraflarda rahatsız edici içerik bulunmaması için Gemini'da güvenlik filtreleri uygular.
-[Şartlarımızı ve kurallarımızı](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr#abuse-monitoring) ihlal eden istemler engellenir.
+Veo, Gemini के सभी वर्शन पर सुरक्षा फ़िल्टर लागू करता है. इससे यह पक्का करने में मदद मिलती है कि जनरेट किए गए वीडियो और अपलोड की गई फ़ोटो में आपत्तिजनक कॉन्टेंट न हो.
+ऐसे प्रॉम्प्ट को ब्लॉक कर दिया जाता है जिनसे [हमारी शर्तों और दिशा-निर्देशों](https://ai.google.dev/gemini-api/docs/usage-policies?hl=hi#abuse-monitoring) का उल्लंघन होता है.
 
-### İstem yazmayla ilgili temel bilgiler
+### प्रॉम्प्ट लिखने के बारे में बुनियादी जानकारी
 
-İyi istemler açıklayıcı ve nettir. Veo'dan en iyi şekilde yararlanmak için temel fikrinizi belirleyerek başlayın, anahtar kelimeler ve değiştiriciler ekleyerek fikrinizi ayrıntılandırın ve istemlerinize videoya özgü terminolojiyi dahil edin.
+अच्छे प्रॉम्प्ट में, साफ़ तौर पर जानकारी दी जाती है. Veo का ज़्यादा से ज़्यादा फ़ायदा पाने के लिए, सबसे पहले अपने मुख्य आइडिया की पहचान करें. इसके बाद, कीवर्ड और मॉडिफ़ायर जोड़कर अपने आइडिया को बेहतर बनाएं. साथ ही, अपने प्रॉम्प्ट में वीडियो से जुड़ी शब्दावली शामिल करें.
 
-İsteminizde aşağıdaki öğeler yer almalıdır:
+आपके प्रॉम्प्ट में ये एलिमेंट शामिल होने चाहिए:
 
-- **Özne**: Videonuzda olmasını istediğiniz nesne, kişi, hayvan veya manzara (ör. *şehir manzarası*, *doğa*, *araçlar* veya *köpek yavruları*).
-- **İşlem**: Öznenin yaptığı işlem (ör. *yürüme*, *koşma* veya *başını çevirme*).
-- **Stil**: *Bilim kurgu*, *korku filmi*, *kara film* gibi belirli film stili anahtar kelimelerini veya *çizgi film* gibi animasyon stillerini kullanarak reklam öğesi yönünü belirtin.
-- **Kamera konumlandırması ve hareketi**: [İsteğe bağlı] *Kuşbakışı*, *göz hizası*, *yukarıdan çekim*, *dolly çekimi* veya *solucan gözü* gibi terimleri kullanarak kameranın konumunu ve hareketini kontrol edin.
-- **Kompozisyon**: [İsteğe bağlı] Çekimin nasıl kadraja alındığı (ör. *geniş çekim*, *yakın çekim*, *tek çekim* veya *iki kişilik çekim*).
-- **Odak ve lens efektleri**: [İsteğe bağlı] Belirli görsel efektler elde etmek için *sığ odak*, *derin odak*, *Odağı Yumuşat*, *makro lens* ve *geniş açılı lens* gibi terimler kullanın.
-- **Ortam**: [İsteğe bağlı] Renk ve ışığın sahneye katkısı (ör. *mavi tonlar*, *gece* veya *sıcak tonlar*).
+- **सब्जेक्ट**: वह ऑब्जेक्ट, व्यक्ति, जानवर या सीनरी जो आपको अपने वीडियो में चाहिए. जैसे, *शहर का नज़ारा*, *प्रकृति*, *वाहन* या *पिल्ले*.
+- **कार्रवाई**: किरदार क्या कर रहा है. उदाहरण के लिए, *चलना*, *दौड़ना* या *सिर घुमाना*.
+- **स्टाइल**: फ़िल्म की स्टाइल से जुड़े कीवर्ड का इस्तेमाल करके, क्रिएटिव डायरेक्शन के बारे में बताएं. जैसे, *साइंस फ़िक्शन*, *हॉरर फ़िल्म*, *फ़िल्म नॉयर* या ऐनिमेशन वाली स्टाइल, जैसे कि *कार्टून*.
+- **कैमरे की पोज़िशन और मोशन**: [ज़रूरी नहीं] *ऊपर से लिया गया व्यू*, *आंख के लेवल से लिया गया व्यू*, *ऊपर से लिया गया शॉट*, *डॉली शॉट* या *नीचे से लिया गया व्यू* जैसे शब्दों का इस्तेमाल करके, कैमरे की जगह और मूवमेंट को कंट्रोल करें.
+- **कंपोज़िशन**: [ज़रूरी नहीं] शॉट को कैसे फ़्रेम किया गया है. जैसे, *वाइड शॉट*, *क्लोज़-अप*, *सिंगल-शॉट* या *टू-शॉट*.
+- **फ़ोकस और लेंस इफ़ेक्ट**: [ज़रूरी नहीं] खास विज़ुअल इफ़ेक्ट पाने के लिए, *शैलो फ़ोकस*, *डीप फ़ोकस*, *सॉफ़्ट फ़ोकस*, *मैक्रो लेंस*, और *वाइड-ऐंगल लेंस* जैसे शब्दों का इस्तेमाल करें.
+- **ऐम्बियंस**: [ज़रूरी नहीं] सीन को बेहतर बनाने में रंग और रोशनी की क्या भूमिका है. जैसे, *ब्लू टोन*, *रात* या *वॉर्म टोन*.
 
-#### İstem yazmayla ilgili diğer ipuçları
+#### प्रॉम्प्ट लिखने के बारे में ज़्यादा सलाह
 
-- **Açıklayıcı bir dil kullanın**: Veo'ya net bir resim sunmak için sıfatlar ve zarflar kullanın.
-- **Yüz ayrıntılarını iyileştirin**: İstemde *portre* kelimesini kullanarak yüz ayrıntılarını fotoğrafın odak noktası olarak belirtin.
+- **ज़्यादा जानकारी देने वाली भाषा का इस्तेमाल करें**: Veo को साफ़ तौर पर जानकारी देने के लिए, विशेषण और क्रियाविशेषण का इस्तेमाल करें.
+- **चेहरे की बारीकियों को बेहतर बनाएं**: फ़ोटो में चेहरे की बारीकियों को हाइलाइट करने के लिए, प्रॉम्प्ट में *पोर्ट्रेट* शब्द का इस्तेमाल करें.
 
-*Daha kapsamlı istem stratejileri için [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) başlıklı makaleyi inceleyin.*
+*प्रॉम्प्ट लिखने की ज़्यादा रणनीतियों के लिए, [प्रॉम्प्ट डिज़ाइन करने के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=hi) पर जाएं.*
 
-### Ses istemi
+### ऑडियो के लिए प्रॉम्प्ट करना
 
-Veo'ya ses efektleri, ortam gürültüsü ve diyalog için istemler sağlayabilirsiniz.
-Model, senkronize bir film müziği oluşturmak için bu ipuçlarının nüansını yakalar.
+Veo को साउंड इफ़ेक्ट, आस-पास के शोर, और डायलॉग के लिए निर्देश दिए जा सकते हैं.
+मॉडल, इन संकेतों की बारीकियों को समझकर, एक साथ चलने वाला साउंडट्रैक जनरेट करता है.
 
-- **Diyalog:** Belirli bir konuşma için tırnak işareti kullanın. (Örnek: "Bu anahtar olmalı," diye mırıldandı.)
-- **Ses efektleri:** Sesleri açıkça tanımlayın. (Örnek: lastiklerin
-  gürültülü bir şekilde gıcırdaması, motorun kükremesi)
-- **Ortam Gürültüsü:** Ortamın ses manzarasını açıklayın. (Örnek: Arka planda hafif ve ürkütücü bir uğultu duyuluyor.)
+- **डायलॉग:** किसी खास स्पीच के लिए कोटेशन का इस्तेमाल करें. (उदाहरण: "यह कुंजी होनी चाहिए," वह धीरे से बोला.)
+- **साउंड इफ़ेक्ट (एसएफ़एक्स):** आवाज़ों के बारे में साफ़ तौर पर बताएं. (उदाहरण: टायर के ज़ोर से घिसटने की आवाज़, इंजन के तेज़ आवाज़ करने की आवाज़.)
+- **आस-पास की आवाज़:** आस-पास की आवाज़ों के बारे में बताएं. (उदाहरण: बैकग्राउंड में हल्की, डरावनी आवाज़ सुनाई दे रही है.)
 
-Bu videolarda, Veo 3'ün ses üretme özelliğine artan ayrıntı düzeylerinde istem girme gösterilmektedir.
+इन वीडियो में, Veo 3 को ऑडियो जनरेट करने के लिए प्रॉम्प्ट देने का तरीका दिखाया गया है. इनमें प्रॉम्प्ट में दी गई जानकारी के लेवल को धीरे-धीरे बढ़ाया गया है.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Daha fazla ayrıntı (Diyalog ve ortam)** Sisli bir Pasifik Kuzeybatı ormanının geniş açılı çekimi. Yorgun iki yürüyüşçü (bir kadın ve bir erkek) eğrelti otları arasından geçerken erkek aniden durup bir ağaca bakıyor. Yakın çekim: Ağacın kabuğunda taze ve derin pençe izleri var. Adam: (Av bıçağını tutarak) "Bu sıradan bir ayı değil." Kadın: (Korkuyla sesi titreyerek, ormanı tarayarak) "Peki o zaman bu ne?" Pürüzlü bir kabuk, çıtırdayan dallar, nemli toprağın üzerindeki ayak izleri. Tek bir kuş cıvıldıyor. | Ormanda iki kişi ayı izleriyle karşılaşıyor. |
-| **Daha az ayrıntı (Diyalog)** Kağıt kesme animasyonu. Yeni kütüphaneci: "Yasaklı kitapları nerede saklıyorsunuz?" Eski İçerik Seçici: "Hayır. Onlar bizi korur." | Yasaklı kitapları tartışan animasyonlu kütüphaneciler |
+| **ज़्यादा जानकारी (डायलॉग और माहौल)** पैसिफ़िक नॉर्थवेस्ट के धुंधले जंगल का वाइड शॉट. थके हुए दो हाइकर, एक पुरुष और एक महिला, फ़र्न के बीच से गुज़र रहे हैं. अचानक पुरुष रुक जाता है और एक पेड़ को देखने लगता है. क्लोज़-अप: पेड़ की छाल पर ताज़े और गहरे पंजे के निशान दिख रहे हैं. आदमी: (शिकार के लिए इस्तेमाल होने वाले चाकू पर हाथ रखकर) "यह कोई आम भालू नहीं है." महिला: (डर से उसकी आवाज़ तेज़ हो जाती है, वह जंगल को स्कैन करती है) "तो फिर यह क्या है?" खुरदरी छाल, टूटी हुई टहनियां, और गीली मिट्टी पर पैरों के निशान. एक पक्षी चहचहा रहा है. | जंगल में दो लोगों को भालू के पैरों के निशान दिखते हैं. |
+| **कम जानकारी (डायलॉग)** पेपर कट-आउट ऐनिमेशन. नई लाइब्रेरियन: "आपने पाबंदी वाली किताबें कहाँ रखी हैं?" पुराना क्यूरेटर: "हम ऐसा नहीं करते. वे हमें." | ऐनिमेशन वाली लाइब्रेरियन, पाबंदी वाली किताबों के बारे में बातचीत कर रही हैं |
 
-Sesi dinlemek için bu istemleri kendiniz deneyin.
-[Veo'yu deneyin](https://deepmind.google/models/veo/?hl=tr)
+ऑडियो सुनने के लिए, इन प्रॉम्प्ट को खुद आज़माएं!
+[Veo आज़माएँ](https://deepmind.google/models/veo/?hl=hi)
 
-### Referans resimlerle istem oluşturma
+### रेफ़रंस इमेज के साथ प्रॉम्प्ट देना
 
-Veo'nun [görüntüden videoya](https://ai.google.dev/gemini-api/docs/video?hl=tr#generate-from-images) özelliklerini kullanarak oluşturulan videolarınıza yön vermek için bir veya daha fazla görüntüyü giriş olarak kullanabilirsiniz. Veo, giriş resmini ilk kare olarak kullanır. Günlük nesneleri hareketlendirmek, çizimlere ve tablolara hayat vermek, doğa manzaralarına hareket ve ses eklemek için videonuzun ilk sahnesi olarak düşündüğünüz görüntüye en yakın olanı seçin.
+Veo की [इमेज से वीडियो](https://ai.google.dev/gemini-api/docs/video?hl=hi#generate-from-images) बनाने की सुविधाओं का इस्तेमाल करके, जनरेट किए गए वीडियो के लिए एक या उससे ज़्यादा इमेज को इनपुट के तौर पर इस्तेमाल किया जा सकता है. Veo, इनपुट इमेज को शुरुआती फ़्रेम के तौर पर इस्तेमाल करता है. ऐसी इमेज चुनें जो आपके वीडियो के पहले सीन से मिलती-जुलती हो. इससे आपको रोज़मर्रा की चीज़ों को ऐनिमेट करने, ड्रॉइंग और पेंटिंग को जीवंत बनाने, और कुदरती नज़ारों में मूवमेंट और आवाज़ जोड़ने में मदद मिलेगी.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Giriş resmi (Nano Banana tarafından oluşturuldu)** Küçük, minyatür sörfçülerin rustik bir taş banyo lavabosunda okyanus dalgalarında sörf yaptığı hiper gerçekçi bir makro fotoğraf. Eski bir pirinç musluk, sürekli sörf sesi çıkararak akıyor. Sürreal, tuhaf, parlak doğal ışıklandırma. | Rustik taş banyo lavabosunda okyanus dalgalarında sörf yapan minik sörfçülerin minyatür görüntüsü. |
-| **Çıkış videosu (Veo 3.1 tarafından oluşturuldu)** Sürrealist, sinematik bir makro video. Küçük sörfçüler, taş bir banyo lavabosunun içindeki sürekli yuvarlanan dalgalarda sörf yapıyor. Çalışan eski bir pirinç musluk, sonsuz sörf dalgaları oluşturuyor. Kamera, minyatür figürler turkuaz rengi suyu ustaca oyarken güneş ışığıyla aydınlatılmış, eğlenceli sahneyi yavaşça tarıyor. | Banyo lavabosundaki dalgaların etrafında dönen minik sörfçüler. |
+| **इनपुट इमेज (Nano Banana से जनरेट की गई)** यह एक हाइपररियलिस्टिक मैक्रो फ़ोटो है. इसमें छोटे-छोटे सर्फ़र को, पत्थर के बने बाथटब में समुद्र की लहरों पर सर्फ़िंग करते हुए दिखाया गया है. पीतल का एक पुराना नल चल रहा है, जिससे लगातार पानी गिर रहा है. अनोखी, काल्पनिक, और नैचुरल लाइटिंग वाली इमेज. | पत्थर के बने बाथटब में, छोटे-छोटे सर्फ़र समुद्र की लहरों पर सर्फ़िंग कर रहे हैं. |
+| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** एक शानदार, सिनमैटिक मैक्रो वीडियो. पत्थर के बाथरूम सिंक में, छोटे-छोटे सर्फ़र लगातार उठने वाली लहरों पर सर्फ़िंग कर रहे हैं. पीतल का पुराना नल चालू होने पर, पानी लगातार गिरता रहता है. कैमरा धीरे-धीरे घूमते हुए, धूप वाले अनोखे सीन को दिखाता है. इसमें छोटी-छोटी आकृतियां, नीले पानी को कुशलता से काटती हुई दिखती हैं. | बाथरूम के सिंक में, छोटी-छोटी लहरों के चारों ओर घूमते हुए छोटे-छोटे सर्फ़र. |
 
-Veo 3.1, üretilen videonuzun içeriğini yönlendirmek için [referans görseller](https://ai.google.dev/gemini-api/docs/video?hl=tr#reference-images) veya içerik öğeleri kullanmanıza olanak tanır. Tek bir kişiye, karaktere veya ürüne ait en fazla üç öğe resmi sağlayın. Veo, öznenin görünümünü çıkış videosunda korur.
+Veo 3.1 की मदद से, जनरेट किए गए वीडियो के कॉन्टेंट के लिए [रेफ़रंस इमेज](https://ai.google.dev/gemini-api/docs/video?hl=hi#reference-images) या इंग्रेडिएंट इस्तेमाल किए जा सकते हैं. किसी एक व्यक्ति, किरदार या प्रॉडक्ट की ज़्यादा से ज़्यादा तीन ऐसेट इमेज उपलब्ध कराएं. Veo, आउटपुट वीडियो में विषय की उपस्थिति को बनाए रखता है.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Referans görsel (Nano Banana tarafından oluşturulmuştur)** Derin denizlerde yaşayan bir fenersiler balığı, dişleri açık ve yemi parlayarak karanlık sularda gizleniyor. | Karanlıkta parlayan bir fener balığı |
-| **Referans görsel (Nano Banana tarafından oluşturuldu)** Düz bir ürün arka planı üzerinde, değnek ve taç ile tamamlanmış pembe bir çocuk prenses kostümü. | Çocuğun pembe prenses kostümü |
-| **Çıkış videosu (Veo 3.1 tarafından oluşturuldu)** Kostümlü, yüzen ve asayı sallayan balığın komik bir çizgi film versiyonunu oluştur. | Prenses kostümü giymiş bir fener balığı |
+| **रेफ़रंस इमेज (Nano Banana से जनरेट की गई)** गहरे समुद्र में रहने वाली ऐंग्लरफ़िश, गहरे पानी में छिपी हुई है. उसके दाँत बाहर निकले हुए हैं और चारा चमक रहा है. | गहरी और चमकती हुई ऐंगलर मछली |
+| **रेफ़रंस इमेज (Nano Banana की मदद से जनरेट की गई)** एक बच्ची के लिए गुलाबी रंग का प्रिंसेस कॉस्ट्यूम. इसमें एक छड़ी और ताज भी शामिल है. इसे प्रॉडक्ट के सादे बैकग्राउंड पर दिखाया गया है. | गुलाबी रंग की राजकुमारी की पोशाक पहने हुए बच्चे की तस्वीर |
+| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** मछली का एक मज़ेदार कार्टून वर्शन बनाओ. इसमें मछली को कॉस्ट्यूम पहने हुए, तैरते हुए, और छड़ी को घुमाते हुए दिखाया गया हो. | राजकुमारी की पोशाक पहने हुए ऐंगलर मछली |
 
-Veo 3.1'i kullanarak videonun [ilk ve son karelerini](https://ai.google.dev/gemini-api/docs/video?hl=tr#using-first-and-last-video-frames) belirterek de video oluşturabilirsiniz.
+Veo 3.1 का इस्तेमाल करके, वीडियो के [पहले और आखिरी फ़्रेम](https://ai.google.dev/gemini-api/docs/video?hl=hi#using-first-and-last-video-frames) के बारे में बताकर भी वीडियो जनरेट किए जा सकते हैं.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **İlk resim (Nano Banana tarafından üretildi)** Fransız Rivierası kıyısında kırmızı üstü açık yarış arabası kullanan bir zencefil kedinin yüksek kaliteli, fotoğraf gerçekliğinde ön görüntüsü. | Kırmızı üstü açık yarış arabası kullanan zencefil rengi bir kedi |
-| **Son görüntü (Nano Banana tarafından oluşturuldu)** Araba bir uçurumdan kalktığında ne olduğunu göster. | Kırmızı üstü açık arabayı kullanan bir zencefil kedinin uçurumdan düşmesi |
-| **Çıkış videosu (Veo 3.1 tarafından oluşturulur)** İsteğe bağlı | Bir kedi, uçurumdan aşağı araba sürüyor ve havalanıyor |
+| **पहली इमेज (Nano Banana ने जनरेट की है)** यह असल सी दिखने वाली, अच्छी क्वालिटी की इमेज है. इसमें एक अदरक के रंग की बिल्ली को फ़्रेंच रिवेरा के तट पर, लाल रंग की कन्वर्टिबल रेसिंग कार चलाते हुए दिखाया गया है. | लाल रंग की कन्वर्टिबल रेसिंग कार चलाते हुए अदरक के रंग की बिल्ली |
+| **आखिरी इमेज (Nano Banana ने जनरेट की है)** दिखाओ कि जब कार किसी चट्टान से उड़ती है, तो क्या होता है. | लाल रंग की कन्वर्टिबल कार चलाते हुए, अदरक के रंग की बिल्ली का चट्टान से गिरना |
+| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** ज़रूरी नहीं | बिल्ली, चट्टान से कूदकर उड़ती हुई |
 
-Bu özellik, başlangıç ve bitiş karesini tanımlamanıza olanak tanıyarak çekiminizin kompozisyonu üzerinde hassas kontrol sağlar. Sahnenizin tam olarak hayal ettiğiniz gibi başlayıp sona ermesini sağlamak için bir resim yükleyin veya önceki bir video oluşturma işleminden bir kare kullanın.
+इस सुविधा की मदद से, आपको अपने शॉट की कंपोज़िशन पर सटीक कंट्रोल मिलता है. इसके लिए, आपको शुरुआती और आखिरी फ़्रेम तय करने का विकल्प मिलता है. कोई इमेज अपलोड करें या वीडियो जनरेट करने के लिए पहले इस्तेमाल किए गए किसी फ़्रेम का इस्तेमाल करें. इससे यह पक्का किया जा सकेगा कि आपका सीन ठीक उसी तरह शुरू और खत्म हो जैसा आपने सोचा था.
 
-### Uzantı isteme
+### एक्सटेंशन के लिए प्रॉम्प्ट करना
 
-Veo 3.1 ile Veo tarafından oluşturulan videonuzu [uzatmak](https://ai.google.dev/gemini-api/docs/video?hl=tr#extending_veo_videos) için (Veo 3.1 Lite'ta kullanılamaz) videoyu isteğe bağlı bir metin istemiyle birlikte giriş olarak kullanın. Uzatma, videonuzun son 1-2 saniyesini veya 24 karesini tamamlar ve aksiyonu devam ettirir.
+Veo 3.1 की मदद से, Veo से जनरेट किए गए वीडियो की अवधि [बढ़ाने](https://ai.google.dev/gemini-api/docs/video?hl=hi#extending_veo_videos) के लिए, वीडियो को इनपुट के तौर पर इस्तेमाल करें. साथ ही, चाहें, तो टेक्स्ट प्रॉम्प्ट भी इस्तेमाल करें. यह सुविधा, Veo 3.1 Lite के लिए उपलब्ध नहीं है. एक्सटेंड सुविधा, आपके वीडियो के आखिरी सेकंड या 24 फ़्रेम को फ़ाइनल करती है और ऐक्शन को जारी रखती है.
 
-Ses, videonun son 1 saniyesinde yoksa etkili bir şekilde uzatılamaz.
+ध्यान दें कि अगर वीडियो के आखिरी एक सेकंड में आवाज़ नहीं है, तो उसे असरदार तरीके से नहीं बढ़ाया जा सकता.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Giriş videosu (Veo 3.1 tarafından oluşturuldu)** Yamaç paraşütçüsü dağın tepesinden kalkış yapıyor ve aşağıda çiçeklerle kaplı vadilere bakan dağlardan aşağı doğru süzülmeye başlıyor. | Bir yamaç paraşütçüsü dağın tepesinden kalkıyor |
-| **Çıkış videosu (Veo 3.1 tarafından oluşturuldu)** Bu videoyu, yavaşça alçalan yamaç paraşütüyle uzat. | Bir yamaç paraşütü, dağın tepesinden kalkıyor ve yavaşça aşağı iniyor |
+| **इनपुट वीडियो (Veo 3.1 से जनरेट किया गया)** पैराग्लाइडर, पहाड़ की चोटी से उड़ान भरता है और नीचे फूलों से ढकी घाटियों के ऊपर से उड़ता है. | पहाड़ की चोटी से उड़ान भरता पैराग्लाइडर |
+| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** इस वीडियो को आगे बढ़ाओ. इसमें पैराग्लाइडर को धीरे-धीरे नीचे उतरते हुए दिखाओ. | पहाड़ की चोटी से पैराग्लाइडर उड़ान भरता है और फिर धीरे-धीरे नीचे उतरता है |
 
-### Örnek istemler ve çıkış
+### प्रॉम्प्ट और आउटपुट के उदाहरण
 
-Bu bölümde, açıklayıcı ayrıntıların her videonun sonucunu nasıl iyileştirebileceğini vurgulayan çeşitli istemler sunulmaktadır.
+इस सेक्शन में कई प्रॉम्प्ट दिए गए हैं. इनमें बताया गया है कि ज़्यादा जानकारी देने से, हर वीडियो की परफ़ॉर्मेंस को कैसे बेहतर बनाया जा सकता है.
 
-#### Buz Saçakları
+#### आइसिकल्स
 
-Bu videoda, isteminizde [istem yazmayla ilgili temel bilgilerin](#basics) öğelerini nasıl kullanabileceğiniz gösterilmektedir.
+इस वीडियो में दिखाया गया है कि प्रॉम्प्ट में [प्रॉम्प्ट लिखने की बुनियादी बातों](#basics) का इस्तेमाल कैसे किया जा सकता है.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| Donmuş bir kaya duvarında (bağlam) eriyen buz sarkıtlarının (özne) yakın çekim fotoğrafı (kompozisyon). Su damlalarının (eylem) yakın çekim ayrıntıları korunarak (kamera hareketi) mavi tonlarda (atmosfer) yakınlaştırılmış. | Mavi arka plan üzerinde damlayan buz sarkıtları. |
+| बर्फ़ की दीवार (कॉन्टेक्स्ट) पर पिघलती हुई बर्फ़ की नोक (सब्जेक्ट) का क्लोज़-अप शॉट (कंपोज़िशन). इसमें ठंडे नीले रंग (माहौल) का इस्तेमाल किया गया है. साथ ही, पानी की बूंदों (ऐक्शन) का क्लोज़-अप दिखाने के लिए, ज़ूम इन (कैमरा मोशन) किया गया है. | नीले बैकग्राउंड पर टपकती हुई बर्फ़ की नुकीली लकीरें. |
 
-#### Telefonda konuşan adam
+#### फ़ोन पर बात करता हुआ आदमी
 
-Bu videolarda, Veo'nun çıktıyı istediğiniz gibi iyileştirmesi için isteminizi giderek daha ayrıntılı bilgilerle nasıl revize edebileceğiniz gösterilmektedir.
+इन वीडियो में दिखाया गया है कि ज़्यादा से ज़्यादा जानकारी देकर, प्रॉम्प्ट को कैसे बेहतर बनाया जा सकता है. इससे Veo, आपकी पसंद के मुताबिक आउटपुट जनरेट कर पाएगा.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Daha az ayrıntı** Kamera, yeşil trençkotlu çaresiz bir adamın yakın çekimini göstermek için hareket ediyor. Çevirmeli tarzda bir duvar telefonunda yeşil neon ışığıyla görüşme yapıyor. Film sahnesi gibi görünüyor. | Telefonda konuşan adam. |
-| **Daha ayrıntılı açıklama** Yakın çekim sinematik bir sahnede, yıpranmış yeşil trençkotlu çaresiz bir adam, yeşil neon tabelanın ürkütücü ışığıyla aydınlatılmış, kirli bir tuğla duvara monte edilmiş çevirmeli bir telefonu çeviriyor. Kamera, adamın çenesindeki gerginliği ve telefonu açmaya çalışırken yüzüne yansıyan çaresizliği göstererek yakınlaşıyor. Alan derinliği düşük olduğu için arka plandaki neon renkler ve belirsiz gölgeler bulanık görünüyor. Bu durum, aciliyet ve yalnızlık hissi yaratıyor. | Telefonda konuşan adam |
+| **कम जानकारी** कैमरा डॉली करके, हरे ट्रेंच कोट पहने हुए एक परेशान आदमी का क्लोज़ अप दिखाया गया है. वह रोटरी स्टाइल वाले वॉल फ़ोन पर कॉल कर रहा है. बैकग्राउंड में ग्रीन नियॉन लाइट दिख रही है. यह किसी फ़िल्म के सीन की तरह लग रहा है. | फ़ोन पर बात करता हुआ आदमी. |
+| **ज़्यादा जानकारी** सिनेमैटिक क्लोज़-अप शॉट में, हरे रंग का पुराना ट्रेंच कोट पहने हुए एक परेशान आदमी को दिखाया गया है. वह ईंट की दीवार पर लगे रोटरी फ़ोन पर किसी को कॉल कर रहा है. दीवार पर लगे हरे रंग के नियॉन साइन की वजह से, दीवार पर अजीब सी रोशनी पड़ रही है. कैमरा धीरे-धीरे ज़ूम इन होता है. इससे पता चलता है कि कॉल करने के लिए संघर्ष करते समय, उसके जबड़े में तनाव है और उसके चेहरे पर निराशा दिख रही है. फ़ोटो में फ़ील्ड की कम गहराई की वजह से, उसकी झुर्रियों वाली भौंह और काले रंग के रोटरी फ़ोन पर फ़ोकस किया गया है. साथ ही, बैकग्राउंड को नियॉन रंगों और धुंधली परछाइयों में ब्लर किया गया है. इससे, जल्दबाज़ी और अकेलेपन का एहसास होता है. | फ़ोन पर बात करता हुआ आदमी |
 
-#### Kar leoparı
+#### स्नो लेपर्ड
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Basit istem:** Karda leopar benzeri tüyleri olan sevimli bir yaratık kış ormanında yürüyor, 3D çizgi film tarzında oluştur. | Kar leoparı uyuşuktur. |
-| **Ayrıntılı istem:** Neşeli bir çizgi film tarzında kısa bir 3D animasyon sahnesi oluştur. Kar leoparı gibi tüyleri, büyük ve etkileyici gözleri olan sevimli bir yaratık, dost canlısı ve yuvarlak hatlarıyla kışın büyülü ormanında neşeyle dans ediyor. Sahne; yuvarlak, karla kaplı ağaçlar, yavaşça düşen kar taneleri ve dallar arasından süzülen sıcak güneş ışığı içermeli. Yaratığın zıplayan hareketleri ve kocaman gülümsemesi, saf bir keyif duygusu vermelidir. Parlak ve neşeli renkler ile eğlenceli animasyonlar kullanarak neşeli ve içten bir üslup kullanın. | Kar leoparı daha hızlı koşuyor. |
+| **आसान प्रॉम्प्ट:** हिम तेंदुए की तरह दिखने वाला एक प्यारा जीव सर्दियों के जंगल में चल रहा है. इसे 3D कार्टून स्टाइल में रेंडर किया गया है. | स्नो लेपर्ड सुस्त है. |
+| **ज़्यादा जानकारी वाला प्रॉम्प्ट:** खुशहाल कार्टून स्टाइल में, 3D एनिमेशन वाला एक छोटा सीन बनाओ. एक प्यारा सा जीव, जिसके शरीर पर हिम तेंदुए जैसा फ़र है. उसकी बड़ी-बड़ी आंखें हैं और वह गोल-मटोल है. वह सर्दियों के एक खूबसूरत जंगल में खुशी से घूम रहा है. सीन में, बर्फ़ से ढके गोल पेड़, धीरे-धीरे गिरते बर्फ़ के टुकड़े, और पेड़ों की शाखाओं के बीच से आती हुई धूप दिखनी चाहिए. जीव के उछलते हुए मूवमेंट और चौड़ी मुस्कान से, उसकी खुशी का पता चलना चाहिए. वीडियो में खुशनुमा और दिल को छू लेने वाला टोन इस्तेमाल करें. साथ ही, इसमें चटख और खुशनुमा रंगों के साथ-साथ मज़ेदार ऐनिमेशन का इस्तेमाल करें. | स्नो लेपर्ड तेज़ी से दौड़ रहा है. |
 
-### Yazı öğelerine göre örnekler
+### लिखने के एलिमेंट के हिसाब से उदाहरण
 
-Bu örneklerde, istemlerinizi her bir temel öğeye göre nasıl hassaslaştıracağınız gösterilmektedir.
+इन उदाहरणों में, हर बुनियादी एलिमेंट के हिसाब से अपने प्रॉम्प्ट को बेहतर बनाने का तरीका बताया गया है.
 
-#### Konu ve bağlam
+#### विषय और कॉन्टेक्स्ट
 
-Ana odak noktasını (konu) ve arka planı veya ortamı (bağlam) belirtin.
+मुख्य फ़ोकस (विषय) और बैकग्राउंड या एनवायरमेंट (संदर्भ) के बारे में बताएं.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| Yemyeşil bitki örtüsü ve fütüristik öğelerle kusursuz bir şekilde harmanlanan, akışkan organik şekillere sahip beyaz beton bir apartman binasının mimari görseli | Yer tutucu. |
-| Uzayda süzülen bir uydu. Arka planda ay ve bazı yıldızlar görünüyor. | Atmosferde süzülen uydu. |
+| सफ़ेद कंक्रीट से बनी अपार्टमेंट बिल्डिंग की आर्किटेक्चरल रेंडरिंग. इसमें बहती हुई ऑर्गेनिक शेप हैं, जो हरे-भरे पेड़-पौधों और आधुनिक तत्वों के साथ पूरी तरह से घुलमिल जाती हैं | प्लेसहोल्डर. |
+| आउटर स्पेस में तैरता हुआ एक सैटेलाइट. बैकग्राउंड में चांद और कुछ तारे दिख रहे हैं. | वायुमंडल में तैरता हुआ सैटलाइट. |
 
-#### İşlem
+#### कार्रवाई
 
-Öznenin ne yaptığını belirtin (ör. yürüyor, koşuyor veya başını çeviriyor).
+बताएं कि विषय क्या कर रहा है. जैसे, चलना, दौड़ना या सिर घुमाना.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| Gün batımında ufka doğru mutlu ve rahat bir şekilde yürüyen kadının geniş açılı fotoğrafı. | Gün batımı kesinlikle çok güzel. |
+| एक महिला को बीच पर चलते हुए दिखाया गया है. वह सूर्यास्त के समय, क्षितिज की ओर देख रही है. वह खुश और सुकून में दिख रही है. | यहां सूर्यास्त का नज़ारा बहुत खूबसूरत होता है. |
 
-#### Stil
+#### शैली
 
-Üretimi belirli bir estetiğe yönlendirmek için anahtar kelimeler ekleyin (ör. sürreal, vintage, fütüristik, film noir).
+कीवर्ड जोड़कर, जनरेट की गई इमेज को किसी खास स्टाइल में बदला जा सकता है. जैसे, अतियथार्थवादी,
+विंटेज, भविष्य की झलक, फ़िल्म नॉयर.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| Kara film tarzında, sokakta yürüyen bir adam ve kadın, gizemli, sinematik, siyah beyaz. | Film noir tarzı kesinlikle çok güzel. |
+| ब्लैक ऐंड व्हाइट फ़िल्म नॉयर स्टाइल में बनी इमेज. इसमें एक पुरुष और महिला को सड़क पर चलते हुए दिखाया गया है. इमेज में रहस्यमयी माहौल है और इसे सिनमैटिक स्टाइल में बनाया गया है. | ब्लैक ऐंड व्हाइट फ़िल्म का स्टाइल वाकई बहुत शानदार है. |
 
-#### Kamera hareketi ve kompozisyon
+#### कैमरे का मोशन और कंपोज़िशन
 
-Kameranın nasıl hareket edeceğini (öznel çekim, kuşbakışı, takip eden drone görünümü) ve çekimin nasıl kadrajlanacağını (geniş çekim, yakın çekim, alçak açı) belirtin.
+बताएं कि कैमरा कैसे मूव करता है (पीओवी शॉट, एरियल व्यू, ट्रैकिंग ड्रोन व्यू) और शॉट को कैसे फ़्रेम किया जाता है (वाइड शॉट, क्लोज़-अप, लो ऐंगल).
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| Yağmurda giden bir vintage arabanın bakış açısı çekimi, Kanada'da gece, sinematik. | Gün batımı kesinlikle çok güzel. |
-| Gözün, içinde şehir yansıması olan aşırı yakın çekimi. | Gün batımı kesinlikle çok güzel. |
+| बारिश में चलती हुई विंटेज कार से लिया गया पीओवी शॉट, कनाडा में रात के समय का नज़ारा, सिनमैटिक. | यहां सूर्यास्त का नज़ारा बहुत खूबसूरत होता है. |
+| आंख का क्लोज़-अप, जिसमें शहर की झलक दिख रही है. | यहां सूर्यास्त का नज़ारा बहुत खूबसूरत होता है. |
 
-#### Ortam
+#### माहौल
 
-Renk paletleri ve aydınlatma, ruh halini etkiler. "Mat turuncu, sıcak tonlar", "doğal ışık", "gündoğumu" veya "soğuk mavi tonlar" gibi terimleri deneyin.
+कलर पैलेट और लाइटिंग से मूड पर असर पड़ता है. "शांत नारंगी रंग के गर्म टोन," "नैचुरल लाइट," "सूर्योदय," या "ठंडे नीले रंग के टोन" जैसे शब्दों का इस्तेमाल करके देखें.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| Parkta sevimli bir golden retriever yavrusunu tutan kızın yakın çekimi, güneş ışığı. | Küçük bir kızın kollarında bir köpek yavrusu. |
-| Yağmurda otobüste yolculuk eden üzgün bir kadının sinematik yakın çekimi, soğuk mavi tonlar, üzgün ruh hali. | Otobüste üzgün bir şekilde yolculuk yapan kadın. |
+| पार्क में एक लड़की की क्लोज़-अप इमेज. उसने अपनी गोद में गोल्डन रिट्रीवर नस्ल के प्यारे पिल्ले को पकड़ा हुआ है. इमेज में सूरज की रोशनी दिख रही है. | एक पिल्ला, जिसे एक छोटी लड़की ने अपनी बाहों में पकड़ा हुआ है. |
+| बारिश में बस में बैठी दुखी महिला का सिनमैटिक क्लोज़-अप शॉट. इसमें ठंडे नीले रंग के टोन और उदास माहौल दिखाया गया है. | बस में बैठी एक महिला की इमेज, जो दुखी दिख रही हो. |
 
-### En boy oranları
+### आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात)
 
-Veo, videonuzun en-boy oranını belirtmenize olanak tanır.
+Veo की मदद से, वीडियो के लिए आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) तय किया जा सकता है.
 
-| **İstem** | **Üretilen çıkış** |
+| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
 | --- | --- |
-| **Geniş ekran (16:9)** 1970'lerde Palm Springs'te kırmızı üstü açık bir arabayı süren bir adamın takip eden drone görüntüsünü içeren bir video oluştur. Sıcak güneş ışığı, uzun gölgeler. | Palm Springs&#39;te 1970&#39;ler tarzında kırmızı bir üstü açık arabayı süren bir adam. |
-| **Dikey (9:16)** Yemyeşil bir yağmur ormanındaki görkemli bir Hawaii şelalesinin akıcı hareketini vurgulayan bir video oluşturun. Sakinliği yansıtmak için gerçekçi su akışına, ayrıntılı yeşilliklere ve doğal ışıklandırmaya odaklan. Akan suyu, puslu atmosferi ve sık ağaçların arasından süzülen benekli güneş ışığını yakalayın. Şelaleyi ve çevresini göstermek için akıcı ve sinematik kamera hareketleri kullanın. İzleyiciyi Hawaii yağmur ormanının huzurlu güzelliğine götüren, sakin ve gerçekçi bir ton kullanın. | Yemyeşil bir yağmur ormanında muhteşem bir Hawaii şelalesi. |
+| **वाइडस्क्रीन (16:9)** 1970 के दशक में, पाम स्प्रिंग्स में लाल रंग की कन्वर्टिबल कार चलाते हुए एक व्यक्ति का वीडियो बनाओ. वीडियो में ड्रोन से ट्रैक किए गए व्यक्ति का व्यू दिखाना है. वीडियो में हल्की धूप और लंबी परछाइयां दिखानी हैं. | पाम स्प्रिंग्स में, 1970 के दशक के स्टाइल में लाल रंग की कन्वर्टिबल कार चलाते हुए एक व्यक्ति. |
+| **पोर्ट्रेट (9:16)** एक वीडियो बनाओ. इसमें हवाई के शानदार झरने के पानी को हरी-भरी बारिश वाली वनस्पति के बीच से बहते हुए दिखाया गया हो. पानी के फ़्लो को असली जैसा दिखाओ. साथ ही, पत्तियों को बारीकी से दिखाओ और नैचुरल लाइटिंग का इस्तेमाल करो, ताकि शांति का माहौल दिखे. तेज़ी से बहते पानी, धुंधले माहौल, और घने पत्तों से छनकर आती हुई धूप को कैप्चर करो. झरने और उसके आस-पास की जगहों को दिखाने के लिए, कैमरे को धीरे-धीरे और फ़िल्मी अंदाज़ में घुमाएं. वीडियो में शांत और असली टोन का इस्तेमाल करें, ताकि देखने वाले को हवाई के वर्षावन की शांत सुंदरता का अनुभव हो सके. | हवाई के हरे-भरे वर्षावन में मौजूद शानदार झरना. |
 
-## Model sürümleri
+## मॉडल के वर्शन
 
-Veo modeline özgü kullanım ayrıntıları için [Fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#veo-3.1) sayfası ve [Hız sınırları](https://aistudio.google.com/rate-limit?hl=tr) bölümüne göz atın.
+Veo मॉडल के इस्तेमाल से जुड़ी ज़्यादा जानकारी के लिए, [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#veo-3.1) पेज और [दर की सीमाएं](https://aistudio.google.com/rate-limit?hl=hi) देखें.
 
-### Veo 3.1 Önizlemesi
+### Veo 3.1 की झलक
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-3.1-generate-preview` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
-| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
-| calendar\_monthSon güncelleme | Ocak 2026 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-3.1-generate-preview` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
+| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
+| calendar\_monthनया अपडेट | जनवरी 2026 |
 
-### Veo 3.1 Fast Önizlemesi
+### Veo 3.1 Fast Preview
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-3.1-fast-generate-preview` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
-| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
-| calendar\_monthSon güncelleme | Ocak 2026 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-3.1-fast-generate-preview` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
+| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
+| calendar\_monthनया अपडेट | जनवरी 2026 |
 
-### Veo 3.1 Lite Önizlemesi
+### Veo 3.1 Lite की झलक
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-3.1-lite-generate-preview` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
-| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
-| calendar\_monthSon güncelleme | Mart 2026 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-3.1-lite-generate-preview` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
+| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
+| calendar\_monthनया अपडेट | मार्च 2026 |
 
 ### Veo 3
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-3.0-generate-001` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
-| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
-| calendar\_monthSon güncelleme | Temmuz 2025 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-3.0-generate-001` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
+| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
+| calendar\_monthनया अपडेट | जुलाई 2025 |
 
 ### Veo 3 Fast
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-3.0-fast-generate-001` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Sesli video |
-| token\_autoSınırlar | **Metin girişi**  1.024 jeton  **Çıkış videosu**  1 |
-| calendar\_monthSon güncelleme | Temmuz 2025 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-3.0-fast-generate-001` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
+| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
+| calendar\_monthनया अपडेट | जुलाई 2025 |
 
 ### Veo 2
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-2.0-generate-001` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Video |
-| token\_autoSınırlar | **Metin girişi**  Yok  **Resim girişi**  Dosya boyutu 20 MB'a kadar olan tüm görüntü çözünürlükleri ve en boy oranları  **Çıkış videosu**  2'ye kadar |
-| calendar\_monthSon güncelleme | Nisan 2025 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-2.0-generate-001` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  वीडियो |
+| token\_autoकी सीमाएं | **टेक्स्ट इनपुट**  लागू नहीं  **इमेज इनपुट**  किसी भी इमेज का रिज़ॉल्यूशन और आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) 20 एमबी तक हो सकता है  **आउटपुट वीडियो**  ज़्यादा से ज़्यादा 2 |
+| calendar\_monthनया अपडेट | अप्रैल 2025 |
 
 ### Veo 2
 
-| Mülk | Açıklama |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `veo-2.0-generate-001` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Video |
-| token\_autoSınırlar | **Metin girişi**  Yok  **Resim girişi**  Dosya boyutu 20 MB'a kadar olan tüm görüntü çözünürlükleri ve en boy oranları  **Çıkış videosu**  2'ye kadar |
-| calendar\_monthSon güncelleme | Nisan 2025 |
+| id\_cardमॉडल कोड | **Gemini API**  `veo-2.0-generate-001` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  वीडियो |
+| token\_autoकी सीमाएं | **टेक्स्ट इनपुट**  लागू नहीं  **इमेज इनपुट**  किसी भी इमेज का रिज़ॉल्यूशन और आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) 20 एमबी तक हो सकता है  **आउटपुट वीडियो**  ज़्यादा से ज़्यादा 2 |
+| calendar\_monthनया अपडेट | अप्रैल 2025 |
 
-Veo Fast sürümleri, geliştiricilerin yüksek kaliteyi koruyarak ve hız ile iş kullanım alanları için optimize ederek sesli videolar oluşturmasına olanak tanır. Reklamları programatik olarak oluşturan arka uç hizmetleri, reklam öğesi konseptlerinin hızlı A/B testi için kullanılan araçlar veya sosyal medya içeriklerini hızlıca üretmesi gereken uygulamalar için idealdir.
+Veo Fast के वर्शन की मदद से डेवलपर, साउंड वाले वीडियो बना सकते हैं. साथ ही, अच्छी क्वालिटी वाले वीडियो जनरेट कर सकते हैं. इसके अलावा, कम समय में वीडियो जनरेट करने और कारोबार से जुड़े इस्तेमाल के मामलों के लिए वीडियो ऑप्टिमाइज़ कर सकते हैं. ये एपीआई, इन कामों के लिए सबसे सही हैं: बैकएंड सेवाएं जो प्रोग्राम के हिसाब से विज्ञापन जनरेट करती हैं, क्रिएटिव कॉन्सेप्ट की तेज़ी से A/B टेस्टिंग करने वाले टूल या ऐसे ऐप्लिकेशन जिन्हें सोशल मीडिया के लिए तुरंत कॉन्टेंट जनरेट करना होता है.
 
-## Sırada ne var?
+## आगे क्या करना है
 
-- [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=tr) ve [Veo 3.1 applet](https://aistudio.google.com/apps/bundled/veo_studio?hl=tr)'te denemeler yaparak Veo 3.1 API'yi kullanmaya başlayın.
-- [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) başlıklı makalemizle daha iyi istemler yazmayı öğrenin.
+- [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=hi) और [Veo 3.1 ऐप्लेट](https://aistudio.google.com/apps/bundled/veo_studio?hl=hi) में एक्सपेरिमेंट करके, Veo 3.1 API का इस्तेमाल शुरू करें.
+- [प्रॉम्प्ट डिज़ाइन के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=hi) लेख पढ़कर, और भी बेहतर प्रॉम्प्ट लिखने का तरीका जानें.
 
-Geri bildirim gönderin
+सुझाव भेजें
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Son güncelleme tarihi: 2026-05-13 UTC.
+आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-13 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl
-fetched_at: 2026-05-25T12:56:42.822107+00:00
+fetched_at: 2026-06-01T19:40:19.240289+00:00
 title: "Elastyczne wnioskowanie \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,7 +18,7 @@ Prześlij opinię
 
 # Elastyczne wnioskowanie
 
-Gemini Flex API to warstwa wnioskowania, która oferuje 50% obniżkę kosztów w porównaniu ze stawkami standardowymi w zamian za zmienne opóźnienie i dostępność bez gwarancji. Jest przeznaczona do zbiorów zadań, które są odporne na opóźnienia i wymagają przetwarzania synchronicznego, ale nie potrzebują wydajności w czasie rzeczywistym, jaką zapewnia standardowy interfejs API.
+Gemini Flex API to warstwa wnioskowania, która oferuje 50% obniżkę kosztów w porównaniu ze stawkami standardowymi w zamian za zmienne opóźnienie i dostępność bez gwarancji. Jest ona przeznaczona do zbiorów zadań tolerujących opóźnienia, które wymagają przetwarzania synchronicznego, ale nie potrzebują wydajności w czasie rzeczywistym, jaką zapewnia standardowy interfejs API.
 
 ## Jak korzystać z Flex
 
@@ -116,31 +116,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 ## Jak działa wnioskowanie Flex
 
 Wnioskowanie Gemini Flex wypełnia lukę między standardowym interfejsem API a 24-godzinnym
-czasem realizacji interfejsu [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl). Wykorzystuje moc obliczeniową poza godzinami szczytu, którą można „zrzucać”, aby zapewnić ekonomiczne rozwiązanie do zadań wykonywanych w tle i sekwencyjnych przepływów pracy.
+czasem realizacji interfejsu [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl). Wykorzystuje ono moc obliczeniową poza godzinami szczytu, którą można „zrzucać”, aby zapewnić ekonomiczne rozwiązanie do zadań wykonywanych w tle i sekwencyjnych przepływów pracy.
 
 | Funkcja | Flex | Priorytet | Standardowe | Wsad |
 | --- | --- | --- | --- | --- |
-| **Ceny** | 50% rabatu | 75–100% więcej niż w przypadku wersji Standard | Bilet normalny | 50% rabatu |
-| **Czas oczekiwania** | Minuty (docelowo 1–15 min) | Niski (sekundy) | Sekundy do minut | Do 24 godzin |
+| **Ceny** | 50% rabatu | 75–100% więcej niż w przypadku warstwy standardowej | Bilet normalny | 50% rabatu |
+| **Opóźnienie** | Minuty (docelowo 1–15 min) | Niskie (sekundy) | Sekundy do minut | Do 24 godzin |
 | **Niezawodność** | Bez gwarancji (możliwość zrzucania) | Wysoka (bez możliwości zrzucania) | Wysoka / średnio wysoka | Wysoka (w przypadku przepustowości) |
 | **Interfejs** | Synchroniczna | Synchroniczna | Synchroniczna | Asynchroniczny |
 
 ### Główne korzyści
 
-- **Oszczędność kosztów**: znaczne oszczędności w przypadku ocen innych niż produkcyjne, agentów działających w tle i wzbogacania danych.
-- **Niewielkie utrudnienia**: nie musisz zarządzać obiektami wsadowymi, identyfikatorami zadań ani sondowaniem. Wystarczy, że dodasz jeden parametr do istniejących żądań.
+- **Oszczędność kosztów**: znaczne oszczędności w przypadku ocen nieprodukcyjnych, agentów działających w tle i wzbogacania danych.
+- **Niewielkie utrudnienia**: nie trzeba zarządzać obiektami wsadowymi, identyfikatorami zadań ani sondowaniem. Wystarczy dodać jeden parametr do istniejących żądań.
 - **Synchroniczne przepływy pracy**: idealne do sekwencyjnych łańcuchów interfejsów API, w których kolejne żądanie zależy od wyniku poprzedniego, co sprawia, że jest bardziej elastyczne niż w przypadku przepływów pracy agentów.
 
 ### Przypadki użycia
 
-- **Oceny offline**: przeprowadzanie testów regresji lub rankingów „LLM-as-a-judge”.
+- **Oceny offline**: przeprowadzanie testów regresyjnych lub tworzenie tabel wyników „LLM-as-a-judge”.
 - **Agenci działający w tle**: zadania sekwencyjne, takie jak aktualizacje CRM, tworzenie profili czy moderowanie treści, w których dopuszczalne są kilkuminutowe opóźnienia.
 - **Badania z ograniczonym budżetem**: eksperymenty akademickie, które wymagają dużej liczby tokenów przy ograniczonym budżecie.
 
 ### Ograniczenia liczby żądań
 
-Ruch związany z wnioskowaniem Flex wlicza się do ogólnych [limitów liczby żądań](https://aistudio.google.com/rate-limit?hl=pl). Nie
-oferuje on rozszerzonych limitów liczby żądań, takich jak interfejs [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl).
+Ruch związany z wnioskowaniem Flex wlicza się do ogólnych [limitów liczby żądań](https://aistudio.google.com/rate-limit?hl=pl). Nie oferuje on
+rozszerzonych limitów liczby żądań, takich jak [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl).
 
 ### Możliwość zrzucania
 
@@ -151,12 +151,14 @@ Ruch Flex jest traktowany z niższym priorytetem. Jeśli nastąpi wzrost ruchu s
 
 Gdy pojemność Flex jest niedostępna lub system jest przeciążony, interfejs API zwraca standardowe kody błędów:
 
-- **Błąd 503 (usługa niedostępna):** system jest obecnie w pełni wykorzystany.
+- **Błąd 503 (usługa niedostępna):** system jest obecnie zajęty.
 - **429 Zbyt wiele żądań**: przekroczenie limitów liczby żądań lub wyczerpanie zasobów.
 
 ### Odpowiedzialność klienta
 
-- **Brak rezerwy po stronie serwera**: aby zapobiec nieoczekiwanym opłatom, system nie będzie automatycznie uaktualniać żądania Flex do warstwy standardowej, jeśli pojemność Flex jest pełna.
+- **Brak rezerwowego serwera**: aby zapobiec nieoczekiwanym opłatom, system nie będzie
+  automatycznie uaktualniać żądania Flex do warstwy standardowej, jeśli pojemność Flex jest
+  pełna.
 - **Ponowne próby**: musisz zaimplementować własną logikę ponawiania prób po stronie klienta z wzrastającym czasem do ponowienia.
 - **Limity czasu**: ponieważ żądania Flex mogą znajdować się w kolejce, zalecamy
   zwiększenie limitów czasu po stronie klienta do co najmniej 10 minut, aby uniknąć przedwczesnego
@@ -164,9 +166,9 @@ Gdy pojemność Flex jest niedostępna lub system jest przeciążony, interfejs 
 
 ## Dostosowywanie limitów czasu
 
-Limity czasu dla poszczególnych żądań możesz skonfigurować w przypadku interfejsu REST API i bibliotek klienta, a limity czasu globalne – tylko w przypadku korzystania z bibliotek klienta.
+Limity czasu dla poszczególnych żądań możesz skonfigurować w przypadku interfejsu REST API i bibliotek klienta, a limity czasu globalnego – tylko w przypadku korzystania z bibliotek klienta.
 
-Zawsze upewnij się, że limit czasu po stronie klienta obejmuje zamierzony limit czasu oczekiwania serwera (np. 600 s lub więcej w przypadku kolejek oczekiwania Flex). Pakiety SDK oczekują wartości limitu czasu w milisekundach.
+Zawsze upewnij się, że limit czasu po stronie klienta obejmuje zamierzony limit czasu serwera (np. 600 s lub więcej w przypadku kolejek oczekiwania Flex). Pakiety SDK oczekują wartości limitu czasu w milisekundach.
 
 ### Limity czasu dla poszczególnych żądań
 
@@ -336,7 +338,7 @@ Podczas wykonywania wywołań REST możesz kontrolować limity czasu za pomocą 
  }'
 ```
 
-### Limity czasu globalne
+### Limity czasu globalnego
 
 Jeśli chcesz, aby wszystkie wywołania interfejsu API wykonywane za pomocą konkretnej instancji `genai.Client` (tylko biblioteki klienta) miały domyślny limit czasu, możesz skonfigurować go podczas inicjowania klienta za pomocą `http_options` i `genai.types.HttpOptions`.
 
@@ -487,7 +489,7 @@ await main();
 
 ## Wdrażanie ponownych prób
 
-Ponieważ Flex jest zrzucany i kończy się błędami 503, oto przykład opcjonalnego wdrożenia logiki ponawiania prób, aby kontynuować nieudane żądania:
+Ponieważ Flex można zrzucać i kończy się błędem 503, oto przykład opcjonalnego wdrożenia logiki ponawiania prób, aby kontynuować nieudane żądania:
 
 ### Python
 
@@ -642,7 +644,6 @@ Wnioskowanie Flex obsługują te modele:
 | --- | --- |
 | [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) | ✔️ |
 | [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=pl) | ✔️ |
 | [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | ✔️ |
 | [Gemini 3 Flash (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
 | [Gemini 3 Pro Image (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=pl) | ✔️ |
@@ -653,7 +654,7 @@ Wnioskowanie Flex obsługują te modele:
 
 ## Co dalej?
 
-Przeczytaj o innych opcjach [wnioskowania i optymalizacji](https://ai.google.dev/gemini-api/docs/optimization?hl=pl) Gemini:
+Więcej informacji o innych opcjach [wnioskowania i optymalizacji](https://ai.google.dev/gemini-api/docs/optimization?hl=pl) Gemini:
 
 - [Wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) zapewniające bardzo małe opóźnienie.
 - [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl) do przetwarzania asynchronicznego w ciągu 24 godzin.
@@ -663,8 +664,8 @@ Prześlij opinię
 
 O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Ostatnia aktualizacja: 2026-05-19 UTC.
+Ostatnia aktualizacja: 2026-05-28 UTC.
 
 Chcesz przekazać coś jeszcze?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-19 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-28 UTC."],[],[]]
