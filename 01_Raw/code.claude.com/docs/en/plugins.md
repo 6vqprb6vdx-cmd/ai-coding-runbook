@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/plugins
-fetched_at: 2026-05-25T12:53:28.452503+00:00
+fetched_at: 2026-06-01T19:33:10.198397+00:00
 fetch_method: mintlify_md
 ---
 
@@ -176,6 +176,18 @@ You've successfully created and tested a plugin with these key components:
 <Tip>
   The `--plugin-dir` flag is useful for development and testing. When you're ready to share your plugin with others, see [Create and distribute a plugin marketplace](/en/plugin-marketplaces).
 </Tip>
+
+## Develop a plugin in your skills directory
+
+Instead of passing `--plugin-dir` on every launch, you can keep a plugin in your skills directory and have Claude Code load it automatically. `claude plugin init` scaffolds one:
+
+```bash theme={null}
+claude plugin init my-tool
+```
+
+This creates `~/.claude/skills/my-tool/` with a `.claude-plugin/plugin.json` manifest and a starter `SKILL.md`. On the next session it loads as `my-tool@skills-dir` with no marketplace or install step.
+
+For the auto-load rules, personal vs. project scope, the workspace-trust requirement, and how to update or remove one, see [Skills-directory plugins](/en/plugins-reference#skills-directory-plugins).
 
 ## Plugin structure overview
 

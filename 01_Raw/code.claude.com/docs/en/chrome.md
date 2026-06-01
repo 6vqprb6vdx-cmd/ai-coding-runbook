@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/chrome
-fetched_at: 2026-05-11T12:28:31.803106+00:00
+fetched_at: 2026-06-01T19:33:05.930238+00:00
 fetch_method: mintlify_md
 ---
 
@@ -68,7 +68,7 @@ Before using Claude Code with Chrome, you need:
   </Step>
 </Steps>
 
-Run `/chrome` at any time to check the connection status, manage permissions, or reconnect the extension.
+Run `/chrome` at any time to check the connection status, manage permissions, reconnect the extension, or choose which connected browser to use. If more than one browser is connected when a browser action starts, Claude prompts you to pick one.
 
 For VS Code, see [browser automation in VS Code](/en/vs-code#automate-browser-tasks-with-chrome).
 
