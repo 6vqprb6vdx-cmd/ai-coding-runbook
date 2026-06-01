@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning
-fetched_at: 2026-05-25T12:54:09.917121+00:00
+fetched_at: 2026-06-01T19:34:39.199632+00:00
 title: "Measuring Faithfulness in Chain-of-Thought Reasoning \\ Anthropic"
 ---
 
@@ -18,6 +18,12 @@ Large language models (LLMs) perform better when they produce step-by-step, “C
 
 ## Related content
 
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+[Read more](https://www.anthropic.com/research/coding-agents-social-sciences)
+
 ### Project Glasswing: An initial update
 
 An early update on what we've learned from Project Glasswing.
@@ -29,9 +35,3 @@ An early update on what we've learned from Project Glasswing.
 Our views on the AI competition between the US and China.
 
 [Read more](https://www.anthropic.com/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](https://www.anthropic.com/research/teaching-claude-why)

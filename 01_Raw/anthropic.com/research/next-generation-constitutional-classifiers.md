@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/next-generation-constitutional-classifiers
-fetched_at: 2026-05-25T12:54:15.404306+00:00
+fetched_at: 2026-06-01T19:34:42.143286+00:00
 title: "Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks \\ Anthropic"
 ---
 
@@ -67,6 +67,12 @@ For more details about the Constitutional Classifiers++ method, see the [full pa
 
 ## Related content
 
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+[Read more](https://www.anthropic.com/research/coding-agents-social-sciences)
+
 ### Project Glasswing: An initial update
 
 An early update on what we've learned from Project Glasswing.
@@ -78,9 +84,3 @@ An early update on what we've learned from Project Glasswing.
 Our views on the AI competition between the US and China.
 
 [Read more](https://www.anthropic.com/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](https://www.anthropic.com/research/teaching-claude-why)

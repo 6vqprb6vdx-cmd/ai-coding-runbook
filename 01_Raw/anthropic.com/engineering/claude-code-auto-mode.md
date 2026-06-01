@@ -1,14 +1,14 @@
 ---
 source_url: https://www.anthropic.com/engineering/claude-code-auto-mode
-fetched_at: 2026-05-11T12:29:13.700018+00:00
-title: "Claude Code auto mode: a safer way to skip permissions \\ Anthropic"
+fetched_at: 2026-06-01T19:33:14.351201+00:00
+title: "How we built Claude Code auto mode: a safer way to skip permissions \\ Anthropic"
 ---
 
 [Engineering at Anthropic](https://www.anthropic.com/engineering)
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/590360609ccdf39715a8ec6916b52447dcb31f16-1000x1000.svg)
 
-# Claude Code auto mode: a safer way to skip permissions
+# How we built Claude Code auto mode: a safer way to skip permissions
 
 Published Mar 25, 2026
 
