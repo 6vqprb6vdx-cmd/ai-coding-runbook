@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/memory_stores/create
-fetched_at: 2026-06-01T19:33:05.903698+00:00
+fetched_at: 2026-06-08T14:52:44.648993+00:00
 fetch_method: mintlify_md
 ---
 
@@ -18,7 +18,7 @@ Create a memory store
 
   - `string`
 
-  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 23 more`
 
     - `"message-batches-2024-09-24"`
 
@@ -71,8 +71,6 @@ Create a memory store
     - `"cache-diagnosis-2026-04-07"`
 
     - `"thinking-token-count-2026-05-13"`
-
-    - `"mid-conversation-system-2026-04-07"`
 
 ### Body Parameters
 

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls
-fetched_at: 2026-06-01T19:33:02.167449+00:00
+fetched_at: 2026-06-08T14:52:38.686024+00:00
 fetch_method: mintlify_md
 ---
 
@@ -89,6 +89,10 @@ This is correct:
 
 If you receive an error like "tool_use ids were found without tool_result blocks immediately after", check that your tool results are formatted correctly.
 </Note>
+
+<Warning>
+Tool results often carry content from sources outside your control: web pages, inbound email, user uploads, third-party APIs. Treat that content as untrusted: an attacker who can influence it may embed instructions that try to redirect Claude (indirect prompt injection). Keep untrusted content inside `tool_result` blocks rather than `system` prompts or plain user `text` blocks, and see [Mitigate jailbreaks and prompt injections](/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks#indirect-prompt-injection) for further hardening.
+</Warning>
 
 <section title="Example of successful tool result">
 

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/organizations
-fetched_at: 2026-05-25T12:53:33.211344+00:00
+fetched_at: 2026-06-08T14:52:47.666343+00:00
 fetch_method: mintlify_md
 ---
 
@@ -90,9 +90,6 @@ curl https://api.anthropic.com/v1/compliance/organizations \
 **get** `/v1/compliance/organizations/{org_uuid}/users`
 
 List current user members of an organization.
-
-Returns:
-List of user members with pagination info
 
 ### Path Parameters
 

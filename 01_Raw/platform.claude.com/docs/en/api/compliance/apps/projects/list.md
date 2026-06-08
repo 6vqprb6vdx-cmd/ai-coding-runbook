@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/projects/list
-fetched_at: 2026-05-25T12:53:33.845569+00:00
+fetched_at: 2026-06-08T14:52:48.404602+00:00
 fetch_method: mintlify_md
 ---
 
@@ -91,7 +91,11 @@ are sorted chronologically (time ascending) by created_at.
 
   - `user: object { id, email_address }`
 
-    User information for project creator.
+    The user who created a project or project document.
+
+    Fields that reference this type are null when the creator's account has
+    been deleted or the creator is no longer a member of any organization
+    under the parent organization.
 
     - `id: string`
 

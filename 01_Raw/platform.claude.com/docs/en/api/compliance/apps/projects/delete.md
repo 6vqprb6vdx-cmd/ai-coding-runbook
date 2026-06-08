@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/projects/delete
-fetched_at: 2026-05-25T12:53:33.895396+00:00
+fetched_at: 2026-06-08T14:52:48.375918+00:00
 fetch_method: mintlify_md
 ---
 
@@ -18,13 +18,6 @@ Hard-deletes the project and all its associated data including:
 - Sync sources
 
 Project must have no attached chats - returns 409 if chats exist.
-
-Returns:
-ClaudeProjectDeleteResponse confirming the deletion
-
-Raises:
-ConflictException: If project has chats attached
-NotFoundException: If project doesn't exist or already deleted
 
 ### Path Parameters
 
