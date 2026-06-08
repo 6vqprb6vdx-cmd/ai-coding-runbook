@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/teaching-claude-why
-fetched_at: 2026-06-01T19:35:02.326210+00:00
+fetched_at: 2026-06-08T14:54:04.073335+00:00
 title: "Teaching Claude why \\ Anthropic"
 ---
 
@@ -114,6 +114,10 @@ We are optimistic about further efforts to discover alignment failures in curren
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -125,9 +129,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)

@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/reasoning-models-dont-say-think
-fetched_at: 2026-06-01T19:34:53.884283+00:00
+fetched_at: 2026-06-08T14:54:00.846605+00:00
 title: "Reasoning models don't always say what they think \\ Anthropic"
 ---
 
@@ -92,6 +92,10 @@ If you’re interested in pursuing work on Alignment Science, including on Chain
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -103,9 +107,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)

@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/evaluating-and-mitigating-discrimination-in-language-model-decisions
-fetched_at: 2026-06-01T19:34:19.308457+00:00
+fetched_at: 2026-06-08T14:53:48.829031+00:00
 title: "Evaluating and Mitigating Discrimination in Language Model Decisions \\ Anthropic"
 ---
 
@@ -22,6 +22,10 @@ As language models (LMs) advance, interest is growing in applying them to high-s
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -33,9 +37,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)

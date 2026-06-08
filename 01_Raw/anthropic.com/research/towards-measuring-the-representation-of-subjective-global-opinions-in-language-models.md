@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/towards-measuring-the-representation-of-subjective-global-opinions-in-language-models
-fetched_at: 2026-06-01T19:35:10.298605+00:00
+fetched_at: 2026-06-08T14:54:04.809794+00:00
 title: "Towards Measuring the Representation of Subjective Global Opinions in Language Models \\ Anthropic"
 ---
 
@@ -18,6 +18,10 @@ Large language models (LLMs) may not equitably represent diverse global perspect
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -29,9 +33,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)

@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/trustworthy-agents
-fetched_at: 2026-06-01T19:35:14.754241+00:00
+fetched_at: 2026-06-08T14:54:05.796772+00:00
 title: "Trustworthy agents in practice \\ Anthropic"
 ---
 
@@ -77,6 +77,10 @@ Agents will reshape how people work, and whether that happens on a foundation th
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -88,9 +92,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)

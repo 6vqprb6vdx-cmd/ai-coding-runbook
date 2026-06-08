@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/measuring-agent-autonomy
-fetched_at: 2026-06-01T19:34:37.749316+00:00
+fetched_at: 2026-06-08T14:53:59.451695+00:00
 title: "Measuring AI agent autonomy in practice \\ Anthropic"
 ---
 
@@ -251,6 +251,10 @@ On the empirical side, [Kapoor et al. (2024)](https://arxiv.org/abs/2407.01502) 
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -262,9 +266,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)

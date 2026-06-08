@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/in-context-learning-and-induction-heads
-fetched_at: 2026-06-01T19:34:27.152708+00:00
+fetched_at: 2026-06-08T14:53:53.228878+00:00
 title: "In-context Learning and Induction Heads \\ Anthropic"
 ---
 
@@ -14,6 +14,10 @@ Mar 8, 2022
 
 ## Related content
 
+### Making Claude a chemist
+
+[Read more](https://www.anthropic.com/research/making-claude-a-chemist)
+
 ### Coding agents in the social sciences
 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
@@ -25,9 +29,3 @@ Results from a survey of 1,260 social scientists about AI and coding agent use.
 An early update on what we've learned from Project Glasswing.
 
 [Read more](https://www.anthropic.com/research/glasswing-initial-update)
-
-### 2028: Two scenarios for global AI leadership
-
-Our views on the AI competition between the US and China.
-
-[Read more](https://www.anthropic.com/research/2028-ai-leadership)
