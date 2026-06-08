@@ -1,132 +1,132 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=vi
-fetched_at: 2026-06-01T19:47:56.422598+00:00
-title: "S\u1eed d\u1ee5ng kho\u00e1 API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=zh-TW
+fetched_at: 2026-06-08T15:08:34.532697+00:00
+title: "\u4f7f\u7528 Gemini API \u91d1\u9470 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Gửi ý kiến phản hồi
+提供意見
 
-# Sử dụng khoá API Gemini
+# 使用 Gemini API 金鑰
 
-Để sử dụng Gemini API, bạn cần có khoá API. Trang này trình bày cách tạo và quản lý khoá trong Google AI Studio, cũng như cách thiết lập môi trường để sử dụng các khoá đó trong mã của bạn.
+如要使用 Gemini API，請取得 API 金鑰。本頁面說明如何在 Google AI Studio 中建立及管理金鑰，以及如何設定環境，以便在程式碼中使用金鑰。
 
-[Tạo hoặc xem khoá Gemini API](https://aistudio.google.com/app/apikey?hl=vi)
+[建立或查看 Gemini API 金鑰](https://aistudio.google.com/app/apikey?hl=zh-tw)
 
-## Khoá API
+## API 金鑰
 
-Bạn có thể tạo và quản lý tất cả khoá Gemini API trên trang [Khoá API của **Google AI Studio**](https://aistudio.google.com/app/apikey?hl=vi).
+您可以在 [Google AI Studio](https://aistudio.google.com/app/apikey?hl=zh-tw) 的「API Keys」(API 金鑰) 頁面中，建立及管理所有 Gemini API 金鑰。
 
-Sau khi có khoá API, bạn có thể kết nối với Gemini API theo những cách sau:
+取得 API 金鑰後，您可以透過下列方式連線至 Gemini API：
 
-- [Đặt khoá API làm biến môi trường](#set-api-env-var)
-- [Cung cấp khoá API một cách rõ ràng](#provide-api-key-explicitly)
+- [將 API 金鑰設為環境變數](#set-api-env-var)
+- [明確提供 API 金鑰](#provide-api-key-explicitly)
 
-Đối với hoạt động kiểm thử ban đầu, bạn có thể mã hoá cứng một khoá API, nhưng đây chỉ là giải pháp tạm thời vì không an toàn. Bạn có thể tìm thấy các ví dụ về việc mã hoá cứng khoá API trong phần [Cung cấp khoá API một cách rõ ràng](#provide-api-key-explicitly).
+進行初步測試時，您可以將 API 金鑰寫死在程式碼中，但這只是暫時做法，因為並不安全。如需以硬式編碼方式提供 API 金鑰的範例，請參閱「[明確提供 API 金鑰](#provide-api-key-explicitly)」一節。
 
-## Dự án trên Google Cloud
+## Google Cloud 專案
 
-[Dự án Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=vi) là yếu tố cơ bản để sử dụng các dịch vụ của Google Cloud (chẳng hạn như Gemini API), quản lý việc thanh toán và kiểm soát cộng tác viên cũng như quyền. Google AI Studio cung cấp một giao diện đơn giản cho các dự án của bạn trên Google Cloud.
+[Google Cloud 專案](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=zh-tw)是使用 Google Cloud 服務 (例如 Gemini API)、管理帳單，以及控管協作者和權限的基本要件。Google AI Studio 提供 Google Cloud 專案的輕量型介面。
 
-Nếu chưa tạo dự án nào, bạn phải tạo một dự án mới hoặc nhập một dự án từ Google Cloud vào Google AI Studio. Trang **Dự án** trong Google AI Studio sẽ hiển thị tất cả các khoá có đủ quyền sử dụng Gemini API. Hãy tham khảo phần [nhập dự án](#import-projects) để biết hướng dẫn.
+如果您尚未建立任何專案，必須建立新專案，或是從 Google Cloud 匯入專案至 Google AI Studio。Google AI Studio 的「專案」頁面會顯示所有有權使用 Gemini API 的金鑰。如需操作說明，請參閱「[匯入專案](#import-projects)」一節。
 
-### Dự án mặc định
+### 預設專案
 
-Đối với người dùng mới, sau khi chấp nhận Điều khoản dịch vụ, Google AI Studio sẽ tạo một Dự án Google Cloud và Khoá API mặc định để người dùng dễ dàng sử dụng. Bạn có thể đổi tên dự án này trong Google AI Studio bằng cách chuyển đến chế độ xem **Projects** (Dự án) trong **Dashboard** (Trang tổng quan), nhấp vào nút cài đặt có biểu tượng 3 dấu chấm bên cạnh một dự án rồi chọn **Rename project** (Đổi tên dự án). Người dùng hiện tại hoặc người dùng đã có Tài khoản Google Cloud sẽ không có dự án mặc định được tạo.
+新使用者接受服務條款後，Google AI Studio 會建立預設的 Google Cloud 專案和 API 金鑰，方便使用。如要在 Google AI Studio 中重新命名這個專案，請前往「資訊主頁」的「專案」檢視畫面，按一下專案旁邊的 3 點設定按鈕，然後選擇「重新命名專案」。現有使用者或已擁有 Google Cloud 帳戶的使用者，不會建立預設專案。
 
-## Nhập dự án
+## 匯入專案
 
-Mỗi khoá API Gemini đều được liên kết với một dự án trên Google Cloud. Theo mặc định, Google AI Studio không hiển thị tất cả Dự án trên đám mây của bạn. Bạn phải nhập các dự án mình muốn bằng cách tìm tên hoặc mã dự án trong hộp thoại **Nhập dự án**. Để xem danh sách đầy đủ các dự án mà bạn có quyền truy cập, hãy truy cập vào Cloud Console.
+每個 Gemini API 金鑰都與 Google Cloud 專案相關聯。根據預設，Google AI Studio 不會顯示所有 Cloud 專案。您必須在「匯入專案」對話方塊中搜尋名稱或專案 ID，匯入所需專案。如要查看您有權存取的完整專案清單，請前往 Cloud Console。
 
-Nếu bạn chưa nhập dự án nào, hãy làm theo các bước sau để nhập một dự án trên Google Cloud và tạo khoá:
+如果尚未匯入任何專案，請按照下列步驟匯入 Google Cloud 專案並建立金鑰：
 
-1. Truy cập vào [Google AI Studio](https://aistudio.google.com?hl=vi).
-2. Mở **Trang tổng quan** trong bảng điều khiển bên trái.
-3. Chọn **Dự án**.
-4. Chọn nút **Nhập dự án** trên trang **Dự án**.
-5. Tìm và chọn dự án trên đám mây của Google Cloud mà bạn muốn nhập, rồi chọn nút **Nhập**.
+1. 前往 [Google AI Studio](https://aistudio.google.com?hl=zh-tw)。
+2. 開啟左側面板中的「資訊主頁」。
+3. 選取「專案」。
+4. 在「專案」頁面中，選取「匯入專案」按鈕。
+5. 搜尋並選取要匯入的 Google Cloud 雲端專案，然後選取「匯入」按鈕。
 
-Sau khi nhập một dự án, hãy chuyển đến trang **API Keys** (Khoá API) trong trình đơn **Dashboard** (Trang tổng quan) rồi tạo một khoá API trong dự án mà bạn vừa nhập.
+匯入專案後，請前往「資訊主頁」選單的「API 金鑰」頁面，在剛匯入的專案中建立 API 金鑰。
 
-## Các điểm hạn chế
+## 限制
 
-Sau đây là những hạn chế khi quản lý khoá API và dự án Google Cloud trong Google AI Studio.
+在 Google AI Studio 中管理 API 金鑰和 Google Cloud 專案時，有以下限制。
 
-- Bạn có thể tạo tối đa 10 dự án cùng một lúc trên trang **Dự án** của Google AI Studio.
-- Bạn có thể đặt tên và đổi tên dự án cũng như khoá.
-- Trang **Khoá API** và **Dự án** hiển thị tối đa 100 khoá và 50 dự án.
-- Chỉ những khoá API không có quy tắc hạn chế hoặc bị hạn chế đối với Generative Language API mới xuất hiện.
+- 您一次最多可以從 Google AI Studio 的「專案」頁面建立 10 個專案。
+- 您可以命名及重新命名專案和金鑰。
+- 「API 金鑰」和「專案」頁面最多會顯示 100 個金鑰和 50 個專案。
+- 系統只會顯示未設限的 API 金鑰，或是僅限於 Generative Language API 的金鑰。
 
-Để có thêm quyền quản lý đối với các dự án của bạn, bao gồm cả việc sửa đổi và hạn chế khoá API, hãy truy cập vào [trang thông tin xác thực của Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=vi).
-Trong Cloud Console, bạn có thể chọn dự án của mình, nhấp vào một khoá API hiện có, rồi hạn chế khoá đó đối với **Generative Language API**.
+如要取得專案的額外管理存取權，包括修改及限制 API 金鑰，請前往 [Google Cloud 控制台憑證頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
+在 Cloud 控制台中，您可以選取專案、按一下現有 API 金鑰，然後將其限制為 **Generative Language API**。
 
-## Đặt khoá API làm biến môi trường
+## 將 API 金鑰設為環境變數
 
-Nếu bạn đặt biến môi trường `GEMINI_API_KEY` hoặc `GOOGLE_API_KEY`, khoá API sẽ tự động được ứng dụng chọn khi sử dụng một trong các [thư viện Gemini API](https://ai.google.dev/gemini-api/docs/libraries?hl=vi). Bạn chỉ nên đặt một trong các biến đó, nhưng nếu đặt cả hai, thì `GOOGLE_API_KEY` sẽ được ưu tiên.
+如果您設定環境變數 `GEMINI_API_KEY` 或 `GOOGLE_API_KEY`，使用 [Gemini API 程式庫](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw)時，用戶端會自動擷取 API 金鑰。建議只設定其中一個變數，但如果兩個都設定，系統會優先採用 `GOOGLE_API_KEY`。
 
-Nếu đang sử dụng API REST hoặc JavaScript trên trình duyệt, bạn sẽ cần cung cấp khoá API một cách rõ ràng.
+如果您使用 REST API 或瀏覽器上的 JavaScript，則需要明確提供 API 金鑰。
 
-Sau đây là cách bạn có thể đặt khoá API cục bộ làm biến môi trường `GEMINI_API_KEY` bằng các hệ điều hành khác nhau.
+以下說明如何在不同作業系統中，將 API 金鑰在本機設為環境變數 `GEMINI_API_KEY`。
 
-### Linux/macOS – Bash
+### Linux/macOS - Bash
 
-Bash là một cấu hình thiết bị đầu cuối phổ biến trên Linux và macOS. Bạn có thể kiểm tra xem mình có tệp cấu hình cho ứng dụng đó hay không bằng cách chạy lệnh sau:
+Bash 是常見的 Linux 和 macOS 終端機設定。執行下列指令，即可檢查是否有設定檔：
 
 ```
 ~/.bashrc
 ```
 
-Nếu phản hồi là "No such file or directory" (Không có tệp hoặc thư mục như vậy), bạn sẽ cần tạo tệp này và mở tệp bằng cách chạy các lệnh sau hoặc sử dụng `zsh`:
+如果回應為「No such file or directory」，您需要建立這個檔案，並執行下列指令來開啟檔案，或使用 `zsh`：
 
 ```
 touch ~/.bashrc
 open ~/.bashrc
 ```
 
-Tiếp theo, bạn cần đặt khoá API bằng cách thêm lệnh xuất sau:
+接著，您需要新增下列匯出指令，設定 API 金鑰：
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Sau khi lưu tệp, hãy áp dụng các thay đổi bằng cách chạy:
+儲存檔案後，請執行下列指令來套用變更：
 
 ```
 source ~/.bashrc
 ```
 
-### macOS – Zsh
+### macOS - Zsh
 
-Zsh là một cấu hình phổ biến của thiết bị đầu cuối Linux và macOS. Bạn có thể kiểm tra xem mình có tệp cấu hình cho ứng dụng đó hay không bằng cách chạy lệnh sau:
+Zsh 是常見的 Linux 和 macOS 終端機設定。執行下列指令，即可檢查是否有設定檔：
 
 ```
 ~/.zshrc
 ```
 
-Nếu phản hồi là "No such file or directory" (Không có tệp hoặc thư mục như vậy), bạn sẽ cần tạo tệp này và mở tệp bằng cách chạy các lệnh sau hoặc sử dụng `bash`:
+如果回應為「No such file or directory」，您需要建立這個檔案，並執行下列指令來開啟檔案，或使用 `bash`：
 
 ```
 touch ~/.zshrc
 open ~/.zshrc
 ```
 
-Tiếp theo, bạn cần đặt khoá API bằng cách thêm lệnh xuất sau:
+接著，您需要新增下列匯出指令，設定 API 金鑰：
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Sau khi lưu tệp, hãy áp dụng các thay đổi bằng cách chạy:
+儲存檔案後，請執行下列指令來套用變更：
 
 ```
 source ~/.zshrc
@@ -134,23 +134,23 @@ source ~/.zshrc
 
 ### Windows
 
-1. Tìm "Environment Variables" (Biến môi trường) trong thanh tìm kiếm.
-2. Chọn sửa đổi **Cài đặt hệ thống**. Bạn có thể phải xác nhận rằng bạn muốn thực hiện việc này.
-3. Trong hộp thoại cài đặt hệ thống, hãy nhấp vào nút có nhãn **Environment Variables** (Biến môi trường).
-4. Trong mục **User variables** (Biến người dùng) (dành cho người dùng hiện tại) hoặc **System variables** (Biến hệ thống) (áp dụng cho tất cả người dùng sử dụng máy), hãy nhấp vào **New...** (Mới...)
-5. Chỉ định tên biến là `GEMINI_API_KEY`. Chỉ định Khoá Gemini API làm giá trị biến.
-6. Nhấp vào **OK** để áp dụng các thay đổi.
-7. Mở một phiên thiết bị đầu cuối mới (cmd hoặc Powershell) để lấy biến mới.
+1. 在搜尋列中搜尋「環境變數」。
+2. 選擇修改「系統設定」。你可能需要確認是否要執行這項操作。
+3. 在系統設定對話方塊中，按一下標示為「環境變數」的按鈕。
+4. 在「使用者變數」 (適用於目前使用者) 或「系統變數」 (適用於使用該機器的所有使用者) 下方，按一下「新增...」
+5. 將變數名稱指定為 `GEMINI_API_KEY`。將 Gemini API 金鑰指定為變數值。
+6. 按一下「確定」套用變更。
+7. 開啟新的終端機工作階段 (cmd 或 Powershell)，取得新變數。
 
-## Cung cấp khoá API một cách rõ ràng
+## 明確提供 API 金鑰
 
-Trong một số trường hợp, bạn có thể muốn cung cấp khoá API một cách rõ ràng. Ví dụ:
+在某些情況下，您可能需要明確提供 API 金鑰。例如：
 
-- Bạn đang thực hiện một lệnh gọi API đơn giản và muốn mã hoá khoá API.
-- Bạn muốn kiểm soát rõ ràng mà không cần dựa vào tính năng tự động phát hiện các biến môi trường của thư viện Gemini API
-- Bạn đang sử dụng một môi trường không hỗ trợ các biến môi trường (ví dụ: web) hoặc bạn đang thực hiện các lệnh gọi REST.
+- 您要進行簡單的 API 呼叫，並偏好對 API 金鑰進行硬式編碼。
+- 您想要明確控制，不必依賴 Gemini API 程式庫自動探索環境變數
+- 您使用的環境不支援環境變數 (例如網頁)，或是您正在發出 REST 呼叫。
 
-Dưới đây là ví dụ về cách bạn có thể cung cấp khoá API một cách rõ ràng:
+以下是明確提供 API 金鑰的範例：
 
 ### Python
 
@@ -261,87 +261,86 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Bảo mật khoá API
+## 妥善保管 API 金鑰
 
-Hãy coi khoá Gemini API như một mật khẩu. Nếu bị xâm nhập, những người khác có thể sử dụng hạn mức của dự án, phát sinh phí (nếu bạn bật tính năng thanh toán) và truy cập vào dữ liệu riêng tư của bạn, chẳng hạn như tệp.
+請妥善保管 Gemini API 金鑰，如同密碼一般。如果遭到入侵，他人就能使用專案配額、產生費用 (如果已啟用帳單)，以及存取私人資料 (例如檔案)。
 
-### Quy tắc bảo mật quan trọng
+### 重大安全性規則
 
-- **Giữ bí mật các khoá**: Khoá API cho Gemini có thể truy cập vào dữ liệu nhạy cảm mà ứng dụng của bạn phụ thuộc vào.
+- **確保金鑰機密性**：Gemini 的 API 金鑰可能會存取應用程式所依附的機密資料。
 
-  - **Tuyệt đối không chuyển khoá API vào tính năng kiểm soát nguồn.** Đừng kiểm tra khoá API của bạn trong các hệ thống kiểm soát phiên bản như Git.
-  - **Tuyệt đối không để lộ khoá API ở phía máy khách.** Không sử dụng trực tiếp khoá API trong các ứng dụng web hoặc di động đang hoạt động. Các khoá trong mã phía máy khách (bao gồm cả thư viện JavaScript/TypeScript và lệnh gọi REST) có thể được trích xuất.
-- **Hạn chế quyền truy cập**: Hạn chế việc sử dụng khoá API ở các địa chỉ IP, HTTP referrer hoặc ứng dụng Android/iOS cụ thể (nếu có thể).
-- **Hạn chế việc sử dụng**: Chỉ bật những API cần thiết cho mỗi khoá.
-- **Thực hiện kiểm tra thường xuyên**: Thường xuyên kiểm tra và định kỳ xoay vòng các khoá API.
+  - **切勿將 API 金鑰提交至原始碼控管系統。**請勿在 Git 等版本管控系統中登錄 API 金鑰。
+  - **請勿在用戶端公開 API 金鑰。**請勿直接在正式版網頁或行動應用程式中使用 API 金鑰。用戶端程式碼中的金鑰 (包括我們的 JavaScript/TypeScript 程式庫和 REST 呼叫) 可以擷取。
+- **限制存取權**：盡可能將 API 金鑰的使用限制在特定 IP 位址、HTTP 參照網址或 Android/iOS 應用程式。
+- **限制使用**：只為每個金鑰啟用必要的 API。
+- **定期稽核**：定期稽核 API 金鑰，並定期輪替。
 
-### Các phương pháp hay nhất
+### 最佳做法
 
-- **Sử dụng các lệnh gọi phía máy chủ bằng khoá API** Cách an toàn nhất để sử dụng khoá API là gọi Gemini API từ một ứng dụng phía máy chủ, nơi khoá có thể được giữ bí mật.
-- **Sử dụng mã thông báo tạm thời để truy cập phía máy khách (chỉ Live API):** Để truy cập trực tiếp vào Live API phía máy khách, bạn có thể sử dụng mã thông báo tạm thời. Chúng có rủi ro bảo mật thấp hơn và có thể phù hợp để sử dụng trong bản phát hành chính thức. Hãy xem hướng dẫn về [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=vi) để biết thêm thông tin.
-- **Cân nhắc việc thêm các quy tắc hạn chế đối với khoá:** Bạn có thể giới hạn các quyền của khoá bằng cách thêm [các quy tắc hạn chế đối với khoá API](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=vi#add-api-restrictions).
-  Điều này giúp giảm thiểu thiệt hại tiềm ẩn nếu khoá bị rò rỉ.
+- **使用 API 金鑰進行伺服器端呼叫**：使用 API 金鑰最安全的方式，是從伺服器端應用程式呼叫 Gemini API，這樣金鑰就能保密。
+- **使用臨時權杖進行用戶端存取 (僅限 Live API)：**如要直接從用戶端存取 Live API，可以使用臨時權杖。這些版本安全性風險較低，適合用於正式環境。詳情請參閱「[臨時權杖](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=zh-tw)」指南。
+- **考慮為金鑰新增限制：**您可以新增 [API 金鑰限制](https://cloud.google.com/api-keys/docs/add-restrictions-api-keys?hl=zh-tw#add-api-restrictions)，藉此限制金鑰的權限。這麼做可將金鑰外洩時的潛在損害降到最低。
 
-Để biết một số phương pháp hay nhất chung, bạn cũng có thể xem [bài viết hỗ trợ](https://support.google.com/googleapi/answer/6310037?hl=vi) này.
+如需一般最佳做法，請參閱這篇[說明文章](https://support.google.com/googleapi/answer/6310037?hl=zh-tw)。
 
-## Bảo mật khoá API không bị hạn chế
+## 保護未設限的 API 金鑰
 
-Khoá API không bị hạn chế rất dễ bị kẻ xấu lợi dụng và sử dụng trái phép. Kể từ ngày 19 tháng 6 năm 2026, để cải thiện tính bảo mật, Gemini API sẽ ngừng hỗ trợ các khoá lưu lượng truy cập không hạn chế.
+未設限的 API 金鑰容易遭到惡意人士和未授權使用者濫用。為提升安全性，自 2026 年 6 月 19 日起，Gemini API 將停止支援無限制流量金鑰。
 
-**Điều này có nghĩa là các yêu cầu của bạn đối với Gemini API sẽ không thành công nếu bạn không thực hiện hành động.**
+**也就是說，如果您未採取行動，Gemini API 要求就會失敗。**
 
-Để tiếp tục sử dụng Gemini API mà không bị gián đoạn, hãy bảo mật các khoá lưu lượng truy cập bằng cách thêm các quy tắc hạn chế trong [AI Studio](https://aistudio.google.com/api-keys?hl=vi).
+如要繼續使用 Gemini API，請前往 [AI Studio](https://aistudio.google.com/api-keys?hl=zh-tw) 新增限制，確保流量金鑰安全無虞。
 
-Trong [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=vi), bạn sẽ thấy một biểu ngữ thông báo cho bạn khi khoá API không bị hạn chế. Bạn có thể xem những khoá không bị hạn chế và mức sử dụng dịch vụ trong 90 ngày qua.
+在 [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=zh-tw) 中，系統會在 API 金鑰未設限時顯示通知橫幅。您可以查看哪些金鑰不受限制，以及過去 90 天的服務用量。
 
-Đối với các khoá không hạn chế, bạn cần chọn một trong những lựa chọn sau:
+如為不受限制的按鍵，請選擇下列其中一項：
 
-- Chỉ sử dụng khoá cho Gemini API.
-- Sử dụng khoá này cho mục đích không phải là Gemini API.
+- 金鑰只能用於 Gemini API。
+- 將金鑰用於非 Gemini API。
 
-### Hạn chế để chỉ sử dụng khoá cho Gemini API
+### 將金鑰限制在僅限 Gemini API
 
-Nếu chỉ muốn hạn chế khoá cho Gemini API, hãy bảo mật khoá trong [AI Studio](https://aistudio.google.com/api-keys?hl=vi) bằng cách nhấp vào nút **Hạn chế cho Gemini API**.
+如要將金鑰限制為僅適用於 Gemini API，請在 [AI Studio](https://aistudio.google.com/api-keys?hl=zh-tw) 中按一下「Restrict to Gemini API」(僅限 Gemini API) 按鈕，確保金鑰安全無虞。
 
-### Hạn chế khoá để sử dụng cho các API không phải Gemini
+### 限制金鑰只能用於非 Gemini API
 
-Nếu bạn muốn hạn chế việc sử dụng khoá cho các API không phải Gemini:
+如要限制金鑰，避免用於非 Gemini API：
 
-1. Truy cập vào [trang thông tin đăng nhập của Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=vi).
-2. Đảm bảo bạn đã chọn đúng dự án.
-3. Chọn một khoá API.
-4. Mở rộng trình đơn thả xuống **API restrictions** (Hạn chế cho API) rồi áp dụng các quy tắc hạn chế về dịch vụ cho khoá API.
+1. 前往 [Google Cloud 控制台憑證頁面](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
+2. 確認已選取正確的專案。
+3. 選取 API 金鑰。
+4. 展開「API 限制」下拉式選單，然後對 API 金鑰套用服務限制。
 
-Nếu bạn muốn sửa đổi các khoá có hạn chế hiện tại hoặc mới thêm, hãy truy cập vào [Google Cloud Console](https://console.cloud.google.com/apis/credentials?hl=vi).
+如要修改現有或新加入限制的金鑰，請前往 [Google Cloud 控制台](https://console.cloud.google.com/apis/credentials?hl=zh-tw)。
 
-## Khoá bị chặn
+## 已封鎖的鍵
 
-Kể từ ngày 7 tháng 5 năm 2026, Gemini API sẽ chặn các khoá API không bị hạn chế và không hoạt động trong một thời gian dài. Những người dùng này sẽ thấy thẻ **Bị chặn** cho khoá của họ trên [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=vi) và cần tạo khoá mới hoặc sử dụng khoá bị hạn chế thay thế để tiếp tục dùng Gemini API.
+2026 年 5 月 7 日起，Gemini API 將封鎖長期閒置的無限制 API 金鑰。這些使用者會在 [aistudio.google.com/api-keys](https://aistudio.google.com/api-keys?hl=zh-tw) 看到金鑰的「已封鎖」標記，必須產生新金鑰或使用其他受限金鑰，才能繼續使用 Gemini API。
 
-## Khắc phục sự cố khi tạo khoá API
+## 排解 API 金鑰建立問題
 
-Trong Google AI Studio, nút **Tạo khoá API** có thể không hoạt động và xuất hiện thông báo: "*Bạn không có quyền tạo khoá trong dự án này*".
+在 Google AI Studio 中，「建立 API 金鑰」按鈕可能無法使用，並顯示「您沒有權限在這個專案中建立金鑰」訊息。
 
-Lỗi này xảy ra khi bạn không có các quyền cần thiết trong dự án để tạo khoá mới:
+如果專案中的權限不足，無法產生新金鑰，就會發生這種情況：
 
-- **`resourcemanager.projects.get`**: Cho phép AI Studio xác minh sự tồn tại của dự án.
-- **`apikeys.keys.create`**: Cho phép tạo chính khoá API.
-- **`serviceusage.services.enable`**: Bắt buộc để đảm bảo Gemini API đang hoạt động trên dự án.
-- **`iam.serviceAccounts.create`**: Mỗi khoá API mới hiện đều yêu cầu một [tài khoản dịch vụ](https://docs.cloud.google.com/docs/authentication/api-keys?hl=vi#api-keys-bound-sa) được liên kết, được tạo khi tạo khoá API.
-- **`iam.serviceAccountApiKeyBindings.create`**: Bắt buộc để liên kết tài khoản dịch vụ mới tạo với khoá API.
+- **`resourcemanager.projects.get`**：允許 AI Studio 驗證專案是否存在。
+- **`apikeys.keys.create`**：允許產生 API 金鑰。
+- **`serviceusage.services.enable`**：必須啟用這項服務，才能確保專案已啟用 Gemini API。
+- **`iam.serviceAccounts.create`**：現在每個新的 API 金鑰都必須連結[服務帳戶](https://docs.cloud.google.com/docs/authentication/api-keys?hl=zh-tw#api-keys-bound-sa)，且該帳戶是在建立 API 金鑰時產生。
+- **`iam.serviceAccountApiKeyBindings.create`**：必須將新建立的服務帳戶繫結至 API 金鑰。
 
-Để sửa quyền, hãy yêu cầu quản trị viên dự án hoặc quản trị viên của tổ chức (nếu dự án thuộc về một [tổ chức](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=vi)) cấp cho bạn một vai trò có các quyền nêu trên (chẳng hạn như vai trò Người chỉnh sửa dự án hoặc vai trò tùy chỉnh).
+如要修正權限，請要求專案管理員 (如果專案隸屬於[機構](https://docs.cloud.google.com/iam/docs/granting-changing-revoking-access?hl=zh-tw)，請要求機構管理員) 授予您具備上述權限的角色 (例如專案編輯者或自訂角色)。
 
-Nếu không có quyền quản trị đối với một dự án, bạn có thể tạo một dự án mới không liên kết với tổ chức để tạo khoá.
+如果您沒有專案的管理員存取權，可以建立不與機構相關聯的新專案，藉此產生金鑰。
 
-Để xem danh sách đầy đủ các quyền IAM cần thiết cho tất cả tính năng của Google AI Studio (chẳng hạn như xem mức sử dụng, hạn mức hoặc thông tin thanh toán), hãy xem [hướng dẫn khắc phục sự cố của AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=vi#iam-permissions).
+如要查看所有 Google AI Studio 功能 (例如查看用量、頻率限制或帳單) 必須具備的 IAM 權限完整清單，請參閱 [AI Studio 疑難排解指南](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=zh-tw#iam-permissions)。
 
-Gửi ý kiến phản hồi
+提供意見
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Cập nhật lần gần đây nhất: 2026-05-29 UTC.
+上次更新時間：2026-05-29 (世界標準時間)。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+想進一步說明嗎？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-29 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-29 (世界標準時間)。"],[],[]]

@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko
-fetched_at: 2026-06-01T19:41:51.071036+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th
+fetched_at: 2026-06-08T14:54:47.221904+00:00
 title: "Gemini 2.5 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
 # Gemini 2.5 Flash
 
-최고의 가격 대비 성능을 갖추었으며 다양한 기능을 제공하는 모델 2.5 Flash는 사고 모델이 필요한 대규모 처리, 짧은 지연 시간, 대용량 작업, 에이전트형 사용 사례에 가장 적합합니다.
+โมเดลที่ดีที่สุดของเราในแง่ของความคุ้มค่า โดยมีความสามารถรอบด้าน 2.5 Flash เหมาะที่สุดสำหรับการประมวลผลขนาดใหญ่ งานที่มีปริมาณมากและใช้เวลาในการตอบสนองต่ำซึ่งต้องใช้การคิด และกรณีการใช้งานแบบ Agent
 
-[Google AI Studio에서 사용해 보기](https://aistudio.google.com?model=gemini-2.5-flash&hl=ko)
+[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=th)
 
 ## gemini-2.5-flash
 
-| 속성 | 설명 |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_card모델 코드 | `gemini-2.5-flash` |
-| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오  **출력**  텍스트 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  1,048,576  **출력 토큰 한도**  65,536 |
-| handyman기능 | **오디오 생성**  지원되지 않음  **Batch API**  지원됨  **캐싱**  지원됨  **코드 실행**  지원됨  **파일 검색**  지원됨  **가변 추론**  지원됨  **함수 호출**  지원됨  **Google 지도 기반 그라운딩**  지원됨  **이미지 생성**  지원되지 않음  **Live API**  지원되지 않음  **우선순위 추론**  지원됨  **검색 그라운딩**  지원됨  **구조화된 출력**  지원됨  **사고**  지원됨  **URL 컨텍스트**  지원됨 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 안정화 버전: `gemini-2.5-flash` - 종료: [`gemini-2.5-flash-preview-09-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-09-2025?hl=ko) |
-| calendar\_month최신 업데이트 | 2025년 6월 |
-| cognition\_2지식 단절 | 2025년 1월 |
+| id\_cardรหัสโมเดล | `gemini-2.5-flash` |
+| saveประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ วิดีโอ เสียง  **เอาต์พุต**  ข้อความ |
+| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  1,048,576  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| handymanความสามารถ | **การสร้างเสียง**  ไม่รองรับ  **Batch API**  สิ่งที่ทำได้  **การแคช**  สิ่งที่ทำได้  **การรันโค้ด**  สิ่งที่ทำได้  **การค้นหาไฟล์**  สิ่งที่ทำได้  **การอนุมานแบบยืดหยุ่น**  สิ่งที่ทำได้  **การเรียกฟังก์ชัน**  สิ่งที่ทำได้  **การเชื่อมต่อแหล่งข้อมูลกับ Google Maps**  สิ่งที่ทำได้  **การสร้างรูปภาพ**  ไม่รองรับ  **Live API**  ไม่รองรับ  **การอนุมานตามลำดับความสำคัญ**  สิ่งที่ทำได้  **การเชื่อมต่อแหล่งข้อมูลของ Search**  สิ่งที่ทำได้  **เอาต์พุตที่มีโครงสร้าง**  สิ่งที่ทำได้  **การคิด**  สิ่งที่ทำได้  **บริบท URL**  สิ่งที่ทำได้ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - เสถียร: `gemini-2.5-flash` - ปิด: [`gemini-2.5-flash-preview-09-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-09-2025?hl=th) |
+| calendar\_monthการอัปเดตล่าสุด | มิถุนายน 2025 |
+| cognition\_2การตัดข้อมูล | มกราคม 2025 |
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-04-29(UTC)
+อัปเดตล่าสุด 2026-04-29 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

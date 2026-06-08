@@ -1,80 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ko
-fetched_at: 2026-06-01T19:42:54.360816+00:00
-title: "Google AI Studio\uc5d0\uc11c \ubc30\ud3ec \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=de
+fetched_at: 2026-06-08T15:07:28.649335+00:00
+title: "\u00dcber Google\u00a0AI Studio bereitstellen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-의견 보내기
+Feedback geben
 
-# Google AI Studio에서 배포
+# Über Google AI Studio bereitstellen
 
-Google AI Studio를 사용하면 빌드 모드에서 바로 풀 스택 애플리케이션을 배포할 수 있습니다. 이를 통해 프로토타입에서 관리되고 확장 가능한 프로덕션 환경으로 빠르게 이동할 수 있습니다.
+Mit Google AI Studio können Sie Ihre Full-Stack-Anwendungen direkt im Build-Modus bereitstellen. So gelangen Sie schnell vom Prototyp zu einer verwalteten, skalierbaren Produktionsumgebung.
 
-## 배포 옵션
+## Bereitstellungsoptionen
 
-AI Studio 빌드 모드에서 애플리케이션을 배포하기 위한 요구사항은 사용하는 등급에 따라 다릅니다.
+Die Anforderungen für die Bereitstellung Ihrer Anwendung im Build-Modus von AI Studio hängen von der verwendeten Stufe ab:
 
-- [**Google Cloud Starter Tier**](https://docs.cloud.google.com/docs/starter-tier?hl=ko): Google Cloud 프로젝트나 결제 계정을 설정하지 않고 최대 2개의 전체 스택 애플리케이션을 게시할 수 있습니다.
-- **표준 배포**: AI Studio 계정에 연결된 Google Cloud 프로젝트가 필요하며 해당 프로젝트에서 결제가 사용 설정되어 있어야 합니다.
+- [**Google Cloud Starter-Stufe**](https://docs.cloud.google.com/docs/starter-tier?hl=de):
+  Sie können bis zu zwei Full-Stack-Anwendungen veröffentlichen, ohne ein
+  Google Cloud-Projekt oder ein Rechnungskonto einzurichten.
+- **Standardbereitstellung**: Erfordert ein Google Cloud-Projekt, das mit Ihrem
+  AI Studio-Konto verknüpft ist, und die aktivierte Abrechnung für dieses Projekt.
 
-## Starter 등급 정보
+## Informationen zur Starter-Stufe
 
-Google Cloud Starter Tier를 사용하면 전체 Google Cloud 환경이나 결제 계정을 설정하지 않고도 Google AI Studio에서 Google Cloud에 애플리케이션을 직접 배포할 수 있습니다.
+Die Google Cloud Starter-Stufe bietet einen optimierten Weg, um Anwendungen direkt aus Google AI Studio in Google Cloud bereitzustellen, ohne eine vollständige Google Cloud-Umgebung oder ein Rechnungskonto einzurichten.
 
-Google AI Studio 배포마다 Cloud Run에 해당 서비스가 생성됩니다. Google AI Studio에서 스타터 등급으로 배포된 서비스에는 다음 제한사항이 적용됩니다.
+Bei jeder Bereitstellung in Google AI Studio wird ein entsprechender Dienst in Cloud Run erstellt. Für Dienste, die in Google AI Studio mit der Starter-Stufe bereitgestellt werden, gelten die folgenden Einschränkungen:
 
-- 최대 2개의 서비스를 배포할 수 있습니다.
-- 서비스가 [단일 Cloud Run 리전](https://docs.cloud.google.com/run/docs/locations?hl=ko)에 배포됩니다.
+- Sie können bis zu zwei Dienste bereitstellen.
+- Ihre Dienste werden in einer
+  [einzigen Cloud Run-Region bereitgestellt](https://docs.cloud.google.com/run/docs/locations?hl=de).
 
-## 시작 단계 등급 배포 단계
+## Bereitstellungsschritte für die Starter-Stufe
 
-빌드 모드에서 앱을 설계한 후 스타터 등급으로 배포합니다.
+Nachdem Sie Ihre App im Build-Modus entworfen haben, stellen Sie sie mit der Starter-Stufe bereit:
 
-1. 오른쪽 상단에 있는 **게시** 버튼을 클릭합니다.
-2. **시작하기**를 클릭합니다.
-3. **앱 게시**를 클릭합니다.
+1. Klicken Sie rechts oben auf die Schaltfläche **Veröffentlichen**.
+2. Klicken Sie auf **Jetzt starten**.
+3. Klicken Sie auf **App veröffentlichen**.
 
-배포가 완료되면 AI Studio에서 라이브 애플리케이션에 액세스할 수 있는 Cloud Run URL을 제공합니다.
+Nach Abschluss der Bereitstellung stellt AI Studio eine Cloud Run-URL bereit, über die Sie auf Ihre Live-Anwendung zugreifen können.
 
-## 표준 배포
+## Standardmäßige Bereitstellung
 
-애플리케이션이 발전함에 따라 Starter 등급을 초과하는 기능(예: 더 높은 할당량, 증가된 컴퓨팅 리소스, Starter 등급에서 사용할 수 없는 기타 Google Cloud 제품)이 필요할 수 있습니다. 이러한 기능을 사용하려면 완전 관리형 Starter 등급 프로젝트를 표준 Google Cloud 프로젝트로 변환하면 됩니다.
+Wenn sich Ihre Anwendungen weiterentwickeln, benötigen Sie möglicherweise Funktionen, die über die Starter-Stufe hinausgehen, z. B. höhere Kontingente, mehr Rechenressourcen oder andere Google Cloud-Produkte, die in der Starter-Stufe nicht verfügbar sind. Um diese Funktionen freizuschalten, können Sie Ihr vollständig verwaltetes Starter-Stufen-Projekt in ein Standard-Google Cloud-Projekt umwandeln.
 
-이렇게 하면 진행 상황을 잃지 않고 원활하게 확장할 수 있습니다. 단계에 따라 [Cloud Billing 계정을 만들고](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=ko#create-new-billing-account), 표준 Google Cloud 서비스 약관을 공식적으로 수락하고, [표준 Google Cloud 프로젝트로 업그레이드](https://docs.cloud.google.com/docs/starter-tier?hl=ko#upgradee)합니다.
-자세한 내용은 [유료 계정 설정](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ko#paid-setup)을 참고하세요.
+So können Sie nahtlos skalieren, ohne Ihre Fortschritte zu verlieren. Folgen Sie der Anleitung, um
+[ein Cloud-Rechnungskonto zu erstellen](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=de#create-new-billing-account), die Standard-Nutzungsbedingungen von Google Cloud formell zu akzeptieren und
+[ein Upgrade auf ein Standard-Google Cloud-Projekt durchzuführen](https://docs.cloud.google.com/docs/starter-tier?hl=de#upgradee).
+Weitere Informationen finden Sie unter
+[Einrichtung für kostenpflichtige Konten](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=de#paid-setup).
 
-결제 등급에 대해 자세히 알아보려면 [결제](https://ai.google.dev/gemini-api/docs/billing?hl=ko)를 참고하세요.
+Weitere Informationen zu Abrechnungsstufen finden Sie unter [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
 
-## 애플리케이션 삭제
+## Anwendung löschen
 
-앱이 더 이상 필요하지 않은 경우 다음 안내에 따라 Google AI Studio에서 삭제할 수 있습니다.
+Wenn Sie Ihre App nicht mehr benötigen, können Sie sie in Google AI Studio löschen. Folgen Sie dazu dieser Anleitung:
 
-1. Google AI Studio에서 [앱 페이지](https://aistudio.google.com/app/apps?hl=ko)로 이동합니다.
-2. 왼쪽 메뉴에서 **앱**을 선택합니다.
-3. 삭제하려는 앱 위로 포인터를 가져갑니다.
-4. 행의 오른쪽에 있는 휴지통 아이콘을 클릭하여 앱을 삭제합니다.
+1. Rufen Sie in Google AI Studio die
+   [Seite „Apps“](https://aistudio.google.com/app/apps?hl=de) auf.
+2. Wählen Sie im Menü auf der linken Seite **Apps** aus.
+3. Bewegen Sie den Mauszeiger auf die App, die Sie löschen möchten.
+4. Klicken Sie rechts neben der Zeile auf das Papierkorbsymbol, um die App zu löschen.
 
-## 다음 단계
+## Nächste Schritte
 
-- [Google Cloud Starter 등급](https://docs.cloud.google.com/docs/starter-tier?hl=ko)에 대해 자세히 알아보세요.
-- Gemini API의 [결제](https://ai.google.dev/gemini-api/docs/billing?hl=ko)에 대해 알아보세요.
+- Weitere Informationen zur
+  [Google Cloud Starter-Stufe](https://docs.cloud.google.com/docs/starter-tier?hl=de).
+- Informationen zur [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de) in der Gemini API
 
-의견 보내기
+Feedback geben
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-최종 업데이트: 2026-05-16(UTC)
+Zuletzt aktualisiert: 2026-05-16 (UTC).
 
-의견을 전달하고 싶나요?
+Haben Sie Feedback für uns?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-16(UTC)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-05-16 (UTC)."],[],[]]

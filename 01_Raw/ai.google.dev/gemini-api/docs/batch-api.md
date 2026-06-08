@@ -1,48 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=id
-fetched_at: 2026-06-01T19:43:46.702604+00:00
-title: "Batch API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=ja
+fetched_at: 2026-06-08T15:04:46.980393+00:00
+title: "\u30d0\u30c3\u30c1 API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Batch API
+# バッチ API
 
-Gemini Batch API dirancang untuk memproses permintaan dalam volume besar
-secara asinkron dengan biaya [50% dari biaya standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
-Target waktu penyelesaian adalah 24 jam, tetapi dalam sebagian besar kasus, waktu penyelesaian jauh lebih cepat.
+Gemini Batch API は、大量のリクエストを非同期で処理するように設計されており、[標準費用の 50%](https://ai.google.dev/gemini-api/docs/pricing?hl=ja) で利用できます。目標の所要時間は 24 時間ですが、ほとんどの場合、はるかに短時間で完了します。
 
-Gunakan Batch API untuk tugas berskala besar dan tidak mendesak seperti pra-pemrosesan data atau menjalankan evaluasi yang tidak memerlukan respons langsung.
+データの前処理や評価の実行など、すぐにレスポンスを必要としない大規模で緊急性のないタスクには、Batch API を使用します。
 
-## Membuat tugas batch
+## バッチジョブの作成
 
-Ada dua cara untuk mengirimkan permintaan Anda di Batch API:
+Batch API でリクエストを送信する方法は次の 2 つです。
 
-- **[Permintaan inline](#inline-requests):** Daftar objek
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) yang disertakan langsung dalam permintaan pembuatan batch Anda. Cara ini cocok untuk batch yang lebih kecil yang menjaga ukuran total permintaan di bawah 20 MB. **Output** yang ditampilkan dari model adalah daftar objek `inlineResponse`.
-- **[File input](#input-file):** File [JSON Lines (JSONL)](https://jsonlines.org/)
-  yang setiap barisnya berisi objek
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) lengkap.
-  Metode ini direkomendasikan untuk permintaan yang lebih besar. **Output** yang ditampilkan dari model adalah file JSONL yang setiap barisnya berupa `GenerateContentResponse` atau objek status.
+- **[インライン リクエスト](#inline-requests):** バッチ作成リクエストに直接含まれる [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトのリスト。これは、リクエストの合計サイズが 20 MB 未満の小さなバッチに適しています。モデルから返される **出力**は、`inlineResponse` オブジェクトのリストです。
+- **[入力ファイル](#input-file):** 各行に完全な [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトが含まれている [JSON Lines（JSONL）](https://jsonlines.org/)ファイル。この方法は、大きなリクエストにおすすめします。モデルから返される**出力**は、各行が `GenerateContentResponse` またはステータス オブジェクトのいずれかである JSONL ファイルです。
 
-### Permintaan inline
+### インライン リクエスト
 
-Untuk permintaan dalam jumlah kecil, Anda dapat langsung menyematkan objek
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) objek
-dalam [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#request-body). Contoh
-berikut memanggil metode
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=id#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-dengan permintaan inline:
+リクエストの数が少ない場合は、[`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#request-body) 内に [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトを直接埋め込むことができます。次の例では、インライン リクエストを使用して [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) メソッドを呼び出します。
 
 ### Python
 
@@ -144,25 +133,22 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }'
 ```
 
-### File input
+### 入力ファイル
 
-Untuk kumpulan permintaan yang lebih besar, siapkan file JSON Lines (JSONL). Setiap baris dalam
-file ini harus berupa objek JSON yang berisi kunci yang ditentukan pengguna dan objek permintaan, dengan permintaan adalah objek
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=id#GenerateContentRequest) yang valid. Kunci yang ditentukan pengguna digunakan dalam respons untuk menunjukkan output mana yang merupakan hasil dari permintaan mana. Misalnya, permintaan dengan kunci yang ditentukan sebagai `request-1` akan memiliki respons yang dianotasi dengan nama kunci yang sama.
+リクエストのセットが大きい場合は、JSON Lines（JSONL）ファイルを用意します。このファイルの各行は、ユーザー定義のキーとリクエスト オブジェクトを含む JSON オブジェクトにする必要があります。リクエストは有効な [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトです。ユーザー定義キーは、どの出力がどのリクエストの結果であるかを示すためにレスポンスで使用されます。たとえば、キーが `request-1` として定義されているリクエストの場合、レスポンスには同じキー名でアノテーションが付けられます。
 
-File ini diupload menggunakan [File API](https://ai.google.dev/gemini-api/docs/files?hl=id). Ukuran file maksimum yang diizinkan untuk file input adalah 2 GB.
+このファイルは、[File API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用してアップロードされます。入力ファイルで許容される最大ファイルサイズは 2 GB です。
 
-Berikut adalah contoh file JSONL. Anda dapat menyimpannya dalam file bernama `my-batch-requests.json`:
+JSONL ファイルの例を次に示します。`my-batch-requests.json` という名前のファイルに保存できます。
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-Mirip dengan permintaan inline, Anda dapat menentukan parameter lain seperti petunjuk sistem, alat, atau konfigurasi lainnya di setiap JSON permintaan.
+インライン リクエストと同様に、各リクエスト JSON でシステム指示、ツール、その他の構成などの他のパラメータを指定できます。
 
-Anda dapat mengupload file ini menggunakan [File API](https://ai.google.dev/gemini-api/docs/files?hl=id) seperti
-yang ditunjukkan dalam contoh berikut. Jika menggunakan input multimodal, Anda dapat mereferensikan file lain yang diupload dalam file JSONL.
+このファイルは、次の例に示すように、[ファイル API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用してアップロードできます。マルチモーダル入力を使用している場合は、JSONL ファイル内で他のアップロードされたファイルを参照できます。
 
 ### Python
 
@@ -283,9 +269,7 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-Contoh berikut memanggil metode
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=id#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-dengan file input yang diupload menggunakan File API:
+次の例では、File API を使用してアップロードされた入力ファイルを使用して [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) メソッドを呼び出します。
 
 ### Python
 
@@ -339,23 +323,17 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }"
 ```
 
-Saat membuat tugas batch, Anda akan mendapatkan nama tugas yang ditampilkan. Gunakan nama ini
-untuk [memantau](#batch-job-status) status tugas serta
-[mengambil hasilnya](#retrieve-batch-results) setelah tugas selesai.
+バッチジョブを作成すると、ジョブ名が返されます。この名前は、ジョブのステータスの[モニタリング](#batch-job-status)と、ジョブの完了後の[結果の取得](#retrieve-batch-results)に使用します。
 
-Berikut adalah contoh output yang berisi nama tugas:
+ジョブ名を含む出力の例を次に示します。
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### Dukungan penyematan batch
+### バッチ エンベディングのサポート
 
-Anda dapat menggunakan Batch API untuk berinteraksi dengan
-[model Penyematan](https://ai.google.dev/gemini-api/docs/embeddings?hl=id) untuk mendapatkan throughput yang lebih tinggi.
-Untuk membuat tugas batch penyematan dengan [permintaan inline](#inline-requests)
-atau [file input](#input-file), gunakan `batches.create_embeddings` API dan
-tentukan model penyematan.
+Batch API を使用すると、スループットの高い [Embeddings モデル](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)を操作できます。[インライン リクエスト](#inline-requests)または[入力ファイル](#input-file)を使用してエンベディング バッチジョブを作成するには、`batches.create_embeddings` API を使用してエンベディング モデルを指定します。
 
 ### Python
 
@@ -403,12 +381,11 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-Baca bagian Penyematan di buku masak [Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
-untuk mengetahui contoh lainnya.
+その他の例については、[バッチ API クックブック](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)のエンベディングのセクションをご覧ください。
 
-### Konfigurasi permintaan
+### リクエストの構成
 
-Anda dapat menyertakan konfigurasi permintaan apa pun yang akan digunakan dalam permintaan non-batch standar. Misalnya, Anda dapat menentukan suhu, petunjuk sistem, atau bahkan meneruskan modalitas lainnya. Contoh berikut menunjukkan contoh permintaan inline yang berisi petunjuk sistem untuk salah satu permintaan:
+標準の非バッチ リクエストで使用するリクエスト構成を含めることができます。たとえば、Temperature やシステム指示を指定したり、他のモダリティを渡したりできます。次の例は、リクエストの 1 つにシステム指示を含むインライン リクエストの例を示しています。
 
 ### Python
 
@@ -436,8 +413,7 @@ inlineRequestsList = [
 ]
 ```
 
-Demikian pula, Anda dapat menentukan alat yang akan digunakan untuk permintaan. Contoh berikut
-menunjukkan permintaan yang mengaktifkan [alat Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id):
+同様に、リクエストに使用するツールを指定できます。次の例は、[Google 検索ツール](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)を有効にするリクエストを示しています。
 
 ### Python
 
@@ -458,8 +434,7 @@ inlineRequestsList = [
 ]
 ```
 
-Anda juga dapat menentukan [output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
-Contoh berikut menunjukkan cara menentukan untuk permintaan batch Anda.
+[構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を指定することもできます。次の例は、バッチ リクエストで指定する方法を示しています。
 
 ### Python
 
@@ -610,7 +585,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-Berikut menunjukkan contoh output tugas ini:
+このジョブの出力例を次に示します。
 
 ```
 --- Response 1 ---
@@ -706,20 +681,18 @@ Berikut menunjukkan contoh output tugas ini:
 ]
 ```
 
-## Memantau status tugas
+## ジョブのステータスをモニタリングする
 
-Gunakan nama operasi yang diperoleh saat membuat tugas batch untuk melakukan polling statusnya.
-Kolom status tugas batch akan menunjukkan statusnya saat ini. Tugas batch dapat berada dalam salah satu status berikut:
+バッチジョブの作成時に取得したオペレーション名を使用して、ステータスをポーリングします。バッチジョブの状態フィールドに、現在のステータスが表示されます。バッチジョブは次のいずれかの状態になります。
 
-- `JOB_STATE_PENDING`: Tugas telah dibuat dan menunggu untuk diproses oleh layanan.
-- `JOB_STATE_RUNNING`: Tugas sedang berlangsung.
-- `JOB_STATE_SUCCEEDED`: Tugas berhasil diselesaikan. Anda kini dapat mengambil hasilnya.
-- `JOB_STATE_FAILED`: Tugas gagal. Periksa detail error untuk mengetahui informasi selengkapnya.
-- `JOB_STATE_CANCELLED`: Tugas dibatalkan oleh pengguna.
-- `JOB_STATE_EXPIRED`: Tugas telah berakhir karena berjalan atau tertunda selama lebih dari 48 jam. Tugas tidak akan memiliki hasil untuk diambil.
-  Anda dapat mencoba mengirimkan tugas lagi atau membagi permintaan menjadi batch yang lebih kecil.
+- `JOB_STATE_PENDING`: ジョブが作成され、サービスによる処理を待機しています。
+- `JOB_STATE_RUNNING`: ジョブは進行中です。
+- `JOB_STATE_SUCCEEDED`: ジョブが正常に完了しました。結果を取得できます。
+- `JOB_STATE_FAILED`: ジョブが失敗しました。詳細については、エラーの詳細を確認してください。
+- `JOB_STATE_CANCELLED`: ユーザーがジョブをキャンセルしました。
+- `JOB_STATE_EXPIRED`: ジョブが 48 時間以上実行中または保留中のため、有効期限が切れました。ジョブの結果は取得されません。ジョブを再送信するか、リクエストを小さなバッチに分割してみてください。
 
-Anda dapat melakukan polling status tugas secara berkala untuk memeriksa penyelesaian.
+ジョブのステータスを定期的にポーリングして、完了を確認できます。
 
 ### Python
 
@@ -785,11 +758,9 @@ try {
 }
 ```
 
-### Polling dan webhook
+### ポーリングと Webhook
 
-**Bosan melakukan polling?** Gemini kini mendukung
-[Webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=id) untuk memproses penyelesaian secara asinkron.
-Daripada terus memanggil `GET / operations`, berlanggananlah ke `batch.succeeded` secara langsung untuk mengizinkan Gemini API mengirimkan notifikasi real-time ke server Anda saat operasi asinkron atau yang berjalan lama selesai.
+**ポーリングにうんざりしていませんか？**Gemini で、完了を非同期で処理するための [Webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=ja) がサポートされるようになりました。`GET / operations` を継続的に呼び出す代わりに、`batch.succeeded` を直接サブスクライブして、非同期オペレーションまたは長時間実行オペレーションが完了したときに Gemini API がリアルタイム通知をサーバーにプッシュできるようにします。
 
 ### Python
 
@@ -841,9 +812,9 @@ curl -X POST \
   }'
 ```
 
-## Mengambil hasil
+## 結果の取得
 
-Setelah status tugas menunjukkan bahwa tugas batch Anda berhasil, hasilnya akan tersedia di kolom `response`.
+ジョブのステータスがバッチジョブの成功を示したら、結果は `response` フィールドで使用可能になります。
 
 ### Python
 
@@ -996,9 +967,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## Mencantumkan tugas batch
+## バッチジョブを一覧表示する
 
-Anda dapat mencantumkan tugas batch terbaru.
+最近のバッチジョブを一覧表示できます。
 
 ### Python
 
@@ -1032,9 +1003,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Membatalkan tugas batch
+## バッチジョブのキャンセル
 
-Anda dapat membatalkan tugas batch yang sedang berlangsung menggunakan namanya. Saat dibatalkan, tugas akan berhenti memproses permintaan baru.
+進行中のバッチジョブは、名前を使用してキャンセルできます。ジョブがキャンセルされると、新しいリクエストの処理が停止します。
 
 ### Python
 
@@ -1063,9 +1034,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## Menghapus tugas batch
+## バッチジョブを削除する
 
-Anda dapat menghapus tugas batch yang ada menggunakan namanya. Saat dihapus, tugas akan berhenti memproses permintaan baru dan dihapus dari daftar tugas batch.
+既存のバッチジョブは、名前を使用して削除できます。ジョブが削除されると、新しいリクエストの処理が停止し、バッチジョブのリストから削除されます。
 
 ### Python
 
@@ -1089,17 +1060,224 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Membuat gambar dalam batch
+## 画像をバッチで生成する
 
-Jika Anda menggunakan [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=id) dan perlu membuat banyak
-gambar, Anda dapat menggunakan Batch API untuk mendapatkan
-[batas frekuensi](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id) yang lebih tinggi dengan waktu penyelesaian hingga
-24 jam.
+[Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) を使用して大量の画像を生成する必要がある場合は、Batch API を使用して、最大 24 時間のターンアラウンドと引き換えに、より高い[レート制限](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja)を取得できます。
 
-Anda dapat menggunakan permintaan inline untuk batch permintaan kecil (di bawah 20 MB) atau file input JSONL untuk batch besar (direkomendasikan untuk pembuatan gambar):
+リクエストの小規模なバッチ（20 MB 未満）には[インライン リクエスト](#inline-requests-images)を使用するか、大規模なバッチ（画像生成に推奨）には [JSONL 入力ファイル](#input-file-images)を使用します。
 
-Permintaan inline
-File input
+### 画像のインライン リクエスト
+
+### Python
+
+```
+import time
+import base64
+import json
+from google import genai
+from google.genai import types
+from PIL import Image
+
+client = genai.Client()
+
+# 1. Create batch job with inline requests
+inline_requests = [
+    {
+        'contents': [{'parts': [{'text': 'A big letter A surrounded by animals starting with the A letter'}]}],
+        'config': {'response_modalities': ['TEXT', 'IMAGE']}
+    },
+    {
+        'contents': [{'parts': [{'text': 'A big letter B surrounded by animals starting with the B letter'}]}],
+        'config': {'response_modalities': ['TEXT', 'IMAGE']}
+    }
+]
+
+inline_batch_job = client.batches.create(
+    model="gemini-3-pro-image-preview",
+    src=inline_requests,
+    config={
+        'display_name': "inlined-image-requests-job-1",
+    },
+)
+
+print(f"Created batch job: {inline_batch_job.name}")
+
+# 2. Monitor job status
+job_name = inline_batch_job.name
+print(f"Polling status for job: {job_name}")
+
+completed_states = set([
+    'JOB_STATE_SUCCEEDED',
+    'JOB_STATE_FAILED',
+    'JOB_STATE_CANCELLED',
+    'JOB_STATE_EXPIRED',
+])
+
+batch_job = client.batches.get(name=job_name) # Initial get
+while batch_job.state.name not in completed_states:
+  print(f"Current state: {batch_job.state.name}")
+  time.sleep(10) # Wait for 10 seconds before polling again
+  batch_job = client.batches.get(name=job_name)
+
+print(f"Job finished with state: {batch_job.state.name}")
+
+# 3. Retrieve results
+if batch_job.state.name == 'JOB_STATE_SUCCEEDED':
+    print("Results are inline:")
+    for i, inline_response in enumerate(batch_job.dest.inlined_responses):
+        print(f"Response {i+1}:")
+        if inline_response.response:
+            for part in inline_response.response.candidates[0].content.parts:
+                if part.text:
+                    print(part.text)
+                elif part.inline_data:
+                    print(f"Image mime type: {part.inline_data.mime_type}")
+                    image = part.as_image()
+                    image.save(f"image_{i+1}.png")
+        elif inline_response.error:
+            print(f"Error: {inline_response.error}")
+elif batch_job.state.name == 'JOB_STATE_FAILED':
+    print(f"Error: {batch_job.error}")
+```
+
+### JavaScript
+
+```
+import {GoogleGenAI} from '@google/genai';
+
+const ai = new GoogleGenAI({});
+
+async function run() {
+    // 1. Create batch job with inline requests
+    const inlinedRequests = [
+        {
+            contents: [{parts: [{text: 'A big letter A surrounded by animals starting with the A letter'}]}],
+            config: {responseModalities: ['TEXT', 'IMAGE']}
+        },
+        {
+            contents: [{parts: [{text: 'A big letter B surrounded by animals starting with the B letter'}]}],
+            config: {responseModalities: ['TEXT', 'IMAGE']}
+        }
+    ]
+
+    const inlineBatchJob = await ai.batches.create({
+        model: 'gemini-3-pro-image-preview',
+        src: inlinedRequests,
+        config: {
+            displayName: 'inlined-image-requests-job-1',
+        }
+    });
+
+    console.log(inlineBatchJob);
+
+    // 2. Monitor job status
+    let batchJob;
+    const completedStates = new Set([
+        'JOB_STATE_SUCCEEDED',
+        'JOB_STATE_FAILED',
+        'JOB_STATE_CANCELLED',
+        'JOB_STATE_EXPIRED',
+    ]);
+
+    try {
+        batchJob = await ai.batches.get({name: inlineBatchJob.name});
+        while (!completedStates.has(batchJob.state)) {
+            console.log(`Current state: ${batchJob.state}`);
+            // Wait for 10 seconds before polling again
+            await new Promise(resolve => setTimeout(resolve, 10000));
+            batchJob = await ai.batches.get({ name: batchJob.name });
+        }
+        console.log(`Job finished with state: ${batchJob.state}`);
+    } catch (error) {
+        console.error(`An error occurred while polling job ${inlineBatchJob.name}:`, error);
+        return;
+    }
+
+    // 3. Retrieve results
+    if (batchJob.state === 'JOB_STATE_SUCCEEDED') {
+        if (batchJob.dest?.inlinedResponses) {
+            console.log("Results are inline:");
+            for (let i = 0; i < batchJob.dest.inlinedResponses.length; i++) {
+                const inlineResponse = batchJob.dest.inlinedResponses[i];
+                console.log(`Response ${i + 1}:`);
+                if (inlineResponse.response) {
+                    for (const part of inlineResponse.response.candidates[0].content.parts) {
+                        if (part.text) {
+                            console.log(part.text);
+                        } else if (part.inlineData) {
+                            console.log(`Image mime type: ${part.inlineData.mimeType}`);
+                        }
+                    }
+                } else if (inlineResponse.error) {
+                    console.error(`Error: ${inlineResponse.error}`);
+                }
+            }
+        } else {
+            console.log("No inline results found.");
+        }
+    } else if (batchJob.state === 'JOB_STATE_FAILED') {
+         console.error(`Error: ${typeof batchJob.error === 'string' ? batchJob.error : batchJob.error.message || JSON.stringify(batchJob.error)}`);
+    }
+}
+run();
+```
+
+### REST
+
+```
+# 1. Create batch job
+printf -v request_data '{
+    "batch": {
+        "display_name": "my-batch-image-requests",
+        "input_config": {
+            "requests": {
+                "requests": [
+                    {
+                        "request": {
+                            "contents": [{"parts": [{"text": "A big letter A surrounded by animals starting with the A letter"}]}],
+                            "generation_config": {"responseModalities": ["TEXT", "IMAGE"]}
+                        },
+                        "metadata": { "key": "request-1" }
+                    },
+                    {
+                        "request": {
+                            "contents": [{"parts": [{"text": "A big letter B surrounded by animals starting with the B letter"}]}],
+                            "generation_config": {"responseModalities": ["TEXT", "IMAGE"]}
+                        },
+                        "metadata": { "key": "request-2" }
+                    }
+                ]
+            }
+        }
+    }
+}'
+curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:batchGenerateContent \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -X POST \
+  -H "Content-Type:application/json" \
+  -d "$request_data" > created_batch.json
+
+BATCH_NAME=$(jq -r '.name' created_batch.json)
+echo "Created batch job: $BATCH_NAME"
+
+# 2. Poll job status until completion by repeating the following command
+# Replace $BATCH_NAME with the name returned above.
+curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type:application/json" > batch_status.json
+
+echo "Current status:"
+jq '.' batch_status.json
+
+# 3. If state is JOB_STATE_SUCCEEDED, retrieve results from batch_status.json
+batch_state=$(jq -r '.state' batch_status.json)
+if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
+    echo "Job succeeded. Results:"
+    jq -r '.dest.inlinedResponses' batch_status.json
+fi
+```
+
+### 画像の入力ファイル
 
 ### Python
 
@@ -1331,48 +1509,31 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## Detail teknis
+## 詳細な技術情報
 
-- **Model yang didukung:** Batch API mendukung berbagai model Gemini.
-  Lihat halaman [Model](https://ai.google.dev/gemini-api/docs/models?hl=id) untuk mengetahui dukungan setiap model
-  terhadap Batch API. Modalitas yang didukung untuk Batch API sama dengan yang didukung di API interaktif (atau non-batch).
-- **Harga:** Penggunaan Batch API dikenai biaya 50% dari biaya API interaktif standar untuk model yang setara. Lihat [halaman harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)
-  untuk mengetahui detailnya. Lihat halaman [batas frekuensi](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id#batch-mode)
-  untuk mengetahui detail batas frekuensi untuk fitur ini.
-- **Tujuan tingkat layanan (SLO):** Tugas batch dirancang untuk diselesaikan dalam waktu penyelesaian 24 jam. Banyak tugas dapat diselesaikan jauh lebih cepat, bergantung pada ukuran dan beban sistem saat ini.
-- **Caching:** [Caching konteks](https://ai.google.dev/gemini-api/docs/caching?hl=id) didukung
-  untuk permintaan batch. Gunakan kembali konten yang di-cache dengan menentukan nama resource `cached_content` dalam konfigurasi setiap permintaan dalam batch Anda.
-  Jika permintaan dalam batch Anda menghasilkan hit cache, Anda akan membayar
-  [tarif caching konteks standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id).
+- **サポートされているモデル:** Batch API は、さまざまな Gemini モデルをサポートしています。各モデルの Batch API のサポートについては、[モデルのページ](https://ai.google.dev/gemini-api/docs/models?hl=ja)をご覧ください。Batch API でサポートされているモダリティは、インタラクティブ（または非バッチ）API でサポートされているものと同じです。
+- **料金:** Batch API の使用料金は、同等のモデルの標準のインタラクティブ API 料金の 50% です。詳細については、[料金ページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)をご覧ください。この機能のレート上限の詳細については、[レート上限のページ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#batch-mode)をご覧ください。
+- **サービスレベル目標（SLO）:** バッチジョブは、24 時間以内のターンアラウンド タイムで完了するように設計されています。ジョブのサイズと現在のシステム負荷によっては、多くのジョブがはるかに早く完了する場合があります。
+- **キャッシュ保存:** バッチ リクエストでは[コンテキスト キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)がサポートされています。バッチ内の個々のリクエストの構成で `cached_content` リソース名を指定して、キャッシュに保存されたコンテンツを再利用します。バッチ内のリクエストがキャッシュ ヒットになった場合、[標準のコンテキスト キャッシュ保存料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)が課金されます。
 
-## Praktik terbaik
+## ベスト プラクティス
 
-- **Gunakan file input untuk permintaan besar:** Untuk permintaan dalam jumlah besar,
-  selalu gunakan metode input file
-  untuk pengelolaan yang lebih baik dan untuk menghindari batas ukuran permintaan untuk
-  panggilan [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=id#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-  itu sendiri. Perhatikan bahwa ada batas ukuran file 2 GB per file input.
-- **Penanganan error:** Periksa `batchStats` untuk `failedRequestCount` setelah tugas selesai. Jika menggunakan output file, analisis setiap baris untuk memeriksa apakah baris tersebut adalah `GenerateContentResponse` atau objek status yang menunjukkan error untuk permintaan tertentu tersebut. Lihat [panduan
-  pemecahan masalah](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=id#error-codes) untuk mengetahui kumpulan lengkap
-  kode error.
-- **Kirim tugas satu kali:** Pembuatan tugas batch tidak bersifat idempoten.
-  Jika Anda mengirimkan permintaan pembuatan yang sama dua kali, dua tugas batch terpisah akan dibuat.
-- **Bagi batch yang sangat besar:** Meskipun target waktu penyelesaian adalah 24 jam, waktu pemrosesan sebenarnya dapat bervariasi berdasarkan beban sistem dan ukuran tugas.
-  Untuk tugas besar, pertimbangkan untuk membaginya menjadi batch yang lebih kecil jika hasil sementara diperlukan lebih cepat.
+- **大きなリクエストには入力ファイルを使用する:** リクエストの数が多い場合は、管理性を高め、[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) 呼び出し自体でリクエスト サイズの上限に達しないように、常にファイル入力メソッドを使用します。入力ファイルあたりのファイルサイズの上限は 2 GB です。
+- **エラー処理:** ジョブの完了後に `batchStats` で `failedRequestCount` を確認します。ファイル出力を使用している場合は、各行を解析して、特定のリクエストのエラーを示す `GenerateContentResponse` またはステータス オブジェクトであるかどうかを確認します。エラーコードの完全なセットについては、[トラブルシューティング ガイド](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja#error-codes)をご覧ください。
+- **ジョブを 1 回送信する:** バッチジョブの作成はべき等ではありません。同じ作成リクエストを 2 回送信すると、2 つの別々のバッチジョブが作成されます。
+- **非常に大きなバッチを分割する:** 目標の処理時間は 24 時間ですが、実際の処理時間はシステム負荷とジョブサイズによって異なる場合があります。大規模なジョブでは、中間結果がすぐに必要な場合は、ジョブを小さなバッチに分割することを検討してください。
 
-## Langkah berikutnya
+## 次のステップ
 
-- Lihat [notebook Batch API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=id)
-  untuk mengetahui contoh lainnya.
-- Lapisan kompatibilitas OpenAI mendukung Batch API. Baca contoh di halaman
-  [Kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id#batch).
+- その他の例については、[Batch API ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=ja)をご覧ください。
+- OpenAI 互換性レイヤは Batch API をサポートしています。[OpenAI の互換性](https://ai.google.dev/gemini-api/docs/openai?hl=ja#batch)のページの例をご覧ください。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-06-01 UTC.
+最終更新日 2026-06-05 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-01 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-05 UTC。"],[],[]]

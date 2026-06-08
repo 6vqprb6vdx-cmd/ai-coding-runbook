@@ -1,69 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=th
-fetched_at: 2026-06-01T19:42:07.767369+00:00
-title: "\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Gemini Live API \u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 WebSockets \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=de
+fetched_at: 2026-06-08T14:56:33.638732+00:00
+title: "Erste Schritte mit der Gemini Live API \u00fcber WebSockets \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-ส่งความคิดเห็น
+Feedback geben
 
-# เริ่มต้นใช้งาน Gemini Live API โดยใช้ WebSockets
+# Erste Schritte mit der Gemini Live API über WebSockets
 
-Gemini Live API ช่วยให้โต้ตอบกับโมเดล Gemini ได้แบบเรียลไทม์และสองทาง โดยรองรับอินพุตเสียง วิดีโอ และข้อความ รวมถึงเอาต์พุตเสียงดั้งเดิม คู่มือนี้อธิบายวิธีผสานรวมกับ API โดยตรงโดยใช้ WebSocket แบบดิบ
+Die Gemini Live API ermöglicht die bidirektionale Interaktion mit Gemini-Modellen in Echtzeit und unterstützt Audio-, Video- und Texteingaben sowie native Audioausgaben. In diesem Leitfaden wird beschrieben, wie Sie die API direkt mit Raw WebSockets einbinden.
 
-[ลองใช้ Live API ใน Google AI Studiomic](https://aistudio.google.com/live?hl=th)
-[Clone the example app from GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
-[Use coding agent skillsterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=th)
+[Live API in Google AI Studio ausprobierenmic](https://aistudio.google.com/live?hl=de)
+[Beispiel-App von GitHub klonencode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
+[Coding-Agent-Skills verwendenterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=de)
 
-## ภาพรวม
+## Übersicht
 
-Gemini Live API ใช้ WebSocket สำหรับการสื่อสารแบบเรียลไทม์ การใช้ API โดยตรงนี้จะเกี่ยวข้องกับการจัดการการเชื่อมต่อ WebSocket และการส่ง/รับข้อความในรูปแบบ JSON ที่เฉพาะเจาะจงซึ่งกำหนดโดย API
+Die Gemini Live API verwendet WebSockets für die Echtzeitkommunikation. Im Gegensatz zur Verwendung eines SDKs müssen Sie bei diesem Ansatz die WebSocket-Verbindung direkt verwalten und Nachrichten in einem bestimmten JSON-Format senden/empfangen, das von der API definiert wird.
 
-แนวคิดหลัก
+Wichtige Konzepte:
 
-- **ปลายทาง WebSocket**: URL ที่เฉพาะเจาะจงเพื่อเชื่อมต่อ
-- **รูปแบบข้อความ**: การสื่อสารทั้งหมดทำผ่านข้อความ JSON ที่เป็นไปตามโครงสร้าง [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentclientmessage) และ [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservermessage)
-- **การจัดการเซสชัน**: คุณมีหน้าที่รับผิดชอบในการรักษาการเชื่อมต่อ WebSocket
+- **WebSocket-Endpunkt**: Die spezifische URL, mit der eine Verbindung hergestellt werden soll.
+- **Nachrichtenformat**: Die gesamte Kommunikation erfolgt über JSON-Nachrichten, die den Strukturen [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentclientmessage) und [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservermessage) entsprechen.
+- **Sitzungsverwaltung**: Sie sind für die Aufrechterhaltung der WebSocket-Verbindung verantwortlich.
 
-## การตรวจสอบสิทธิ์
+## Authentifizierung
 
-ระบบจะจัดการการตรวจสอบสิทธิ์โดยการรวมคีย์ API เป็นพารามิเตอร์การค้นหาใน URL ของ WebSocket
+Die Authentifizierung erfolgt durch Einfügen Ihres API-Schlüssels als Suchparameter in die WebSocket-URL.
 
-รูปแบบปลายทางมีลักษณะดังนี้
+Das Endpunktformat ist:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=YOUR_API_KEY
 ```
 
-แทนที่ `YOUR_API_KEY` ด้วยคีย์ API จริง
+Ersetzen Sie `YOUR_API_KEY` durch Ihren tatsächlichen API-Schlüssel.
 
-## การตรวจสอบสิทธิ์ด้วยโทเค็นชั่วคราว
+## Authentifizierung mit temporären Tokens
 
-หากใช้ [โทเค็นชั่วคราว](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=th) คุณต้องเชื่อมต่อกับปลายทาง `v1alpha`
-โดยต้องส่งโทเค็นชั่วคราวเป็นพารามิเตอร์การค้นหา `access_token`
+Wenn Sie [flüchtige Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=de) verwenden, müssen Sie eine Verbindung zum `v1alpha`-Endpunkt herstellen.
+Das temporäre Token muss als `access_token`-Abfrageparameter übergeben werden.
 
-รูปแบบปลายทางสำหรับคีย์ชั่วคราวมีลักษณะดังนี้
+Das Endpunktformat für sitzungsspezifische Schlüssel lautet:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContentConstrained?access_token={short-lived-token}
 ```
 
-แทนที่ `{short-lived-token}` ด้วยโทเค็นชั่วคราวจริง
+Ersetzen Sie `{short-lived-token}` durch das tatsächliche temporäre Token.
 
-## การเชื่อมต่อกับ Live API
+## Verbindung zur Live API herstellen
 
-หากต้องการเริ่มเซสชันแบบสด ให้สร้างการเชื่อมต่อ WebSocket กับปลายทางที่ตรวจสอบสิทธิ์แล้ว
-ข้อความแรกที่ส่งผ่าน WebSocket ต้องเป็น [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentsetup) ที่มี `config`
-ดูตัวเลือกการกำหนดค่าทั้งหมดได้ที่ข้อมูลอ้างอิง [Live API - WebSockets API](https://ai.google.dev/api/live?hl=th)
+Um eine Live-Sitzung zu starten, stellen Sie eine WebSocket-Verbindung zum authentifizierten Endpunkt her.
+Die erste Nachricht, die über den WebSocket gesendet wird, muss ein [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentsetup) mit dem `config` sein.
+Die vollständigen Konfigurationsoptionen finden Sie in der [Live API – WebSockets API-Referenz](https://ai.google.dev/api/live?hl=de).
 
 ### Python
 
@@ -144,9 +144,9 @@ websocket.onclose = () => {
 };
 ```
 
-## กำลังส่งข้อความ
+## SMS wird gesendet
 
-หากต้องการส่งอินพุตข้อความ ให้สร้างข้อความ [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentrealtimeinput) ที่มีช่อง `text`
+Wenn Sie Texteingaben senden möchten, erstellen Sie eine [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentrealtimeinput)-Nachricht mit dem Feld `text`.
 
 ### Python
 
@@ -185,9 +185,9 @@ function sendTextMessage(text) {
 sendTextMessage("Hello, how are you?");
 ```
 
-## กำลังส่งเสียง
+## Audio senden
 
-ต้องส่งเสียงเป็นข้อมูล PCM แบบดิบ (เสียง PCM แบบดิบ 16 บิต, 16kHz, little-endian) สร้างข้อความ [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentrealtimeinput) ที่มีข้อมูลเสียง `mimeType` มีความสำคัญมาก
+Audio muss als rohe PCM-Daten gesendet werden (rohes 16‑Bit-PCM-Audio, 16 kHz, Little Endian). Erstellen Sie eine [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentrealtimeinput)-Nachricht mit den Audiodaten. Die `mimeType` ist entscheidend.
 
 ### Python
 
@@ -232,12 +232,11 @@ function sendAudioChunk(chunk) {
 // Example usage: sendAudioChunk(audioBuffer);
 ```
 
-ดูตัวอย่างวิธีรับเสียงจากอุปกรณ์ไคลเอ็นต์ (เช่น เบราว์เซอร์)
-ได้ที่ตัวอย่างแบบครบวงจรใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74)
+Ein Beispiel dafür, wie Sie die Audioausgabe vom Clientgerät (z.B. dem Browser) abrufen, finden Sie im End-to-End-Beispiel auf [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74).
 
-## กำลังส่งวิดีโอ
+## Video wird gesendet
 
-ระบบจะส่งเฟรมวิดีโอเป็นรูปภาพแต่ละรูป (เช่น JPEG หรือ PNG) ใช้ `realtimeInput` กับ `Blob` โดยระบุ `mimeType` ที่ถูกต้อง เช่นเดียวกับเสียง
+Videoframes werden als einzelne Bilder (z.B. JPEG oder PNG) gesendet. Verwenden Sie `realtimeInput` mit einem `Blob` und geben Sie das richtige `mimeType` an.
 
 ### Python
 
@@ -282,12 +281,11 @@ function sendVideoFrame(frame, mimeType = 'image/jpeg') {
 // Example usage: sendVideoFrame(jpegBuffer);
 ```
 
-ดูตัวอย่างวิธีรับวิดีโอจากอุปกรณ์ไคลเอ็นต์ (เช่น เบราว์เซอร์)
-ได้ที่ตัวอย่างแบบครบวงจรใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222)
+Ein Beispiel dafür, wie Sie das Video vom Clientgerät (z.B. dem Browser) abrufen, finden Sie im End-to-End-Beispiel auf [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222).
 
-## การรับคำตอบ
+## Antworten erhalten
 
-WebSocket จะส่งข้อความ [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservermessage) กลับมา คุณต้องแยกวิเคราะห์ข้อความ JSON เหล่านี้และจัดการเนื้อหาประเภทต่างๆ
+Der WebSocket sendet [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservermessage)-Nachrichten zurück. Sie müssen diese JSON-Nachrichten parsen und verschiedene Arten von Inhalten verarbeiten.
 
 ### Python
 
@@ -358,11 +356,11 @@ websocket.onmessage = (event) => {
 };
 ```
 
-ดูตัวอย่างวิธีจัดการคำตอบได้ที่ตัวอย่างแบบครบวงจรใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75)
+Ein Beispiel für die Verarbeitung der Antwort finden Sie im End-to-End-Beispiel auf [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75).
 
-## การจัดการการเรียกใช้เครื่องมือ
+## Toolaufrufe verarbeiten
 
-เมื่อโมเดลขอการเรียกใช้เครื่องมือ [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=th#bidigeneratecontentservermessage) จะมีช่อง `toolCall` คุณต้องเรียกใช้ฟังก์ชันในเครื่องและส่งผลลัพธ์กลับไปยัง WebSocket โดยใช้ข้อความ [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=th#bidigeneratecontenttoolresponse)
+Wenn das Modell einen Tool-Aufruf anfordert, enthält [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservermessage) das Feld `toolCall`. Sie müssen die Funktion lokal ausführen und das Ergebnis mit einer [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=de#bidigeneratecontenttoolresponse)-Nachricht an den WebSocket zurücksenden.
 
 ### Python
 
@@ -449,20 +447,20 @@ function handleToolCall(toolCall) {
 // This function is called within websocket.onmessage when a toolCall is detected.
 ```
 
-## ขั้นตอนถัดไป
+## Nächste Schritte
 
-- อ่านคู่มือความสามารถทั้งหมดของ Live API [Capabilities](https://ai.google.dev/gemini-api/docs/live-guide?hl=th) เพื่อดูความสามารถและการกำหนดค่าที่สำคัญ ซึ่งรวมถึงการตรวจจับกิจกรรมเสียงและฟีเจอร์เสียงดั้งเดิม
-- อ่านคู่มือ[การใช้เครื่องมือ](https://ai.google.dev/gemini-api/docs/live-tools?hl=th)เพื่อดูวิธีผสานรวม Live API กับเครื่องมือและการเรียกใช้ฟังก์ชัน
-- อ่านคู่มือ[การจัดการเซสชัน](https://ai.google.dev/gemini-api/docs/live-session?hl=th)เพื่อดูวิธีจัดการการสนทนาที่ใช้เวลานาน
-- อ่านคู่มือ[โทเค็นชั่วคราว](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=th)เพื่อดูวิธีตรวจสอบสิทธิ์อย่างปลอดภัยในแอปพลิเคชัน[ไคลเอ็นต์ถึงเซิร์ฟเวอร์](#implementation-approach)
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ WebSockets API ที่อยู่เบื้องหลังได้ที่[เอกสารอ้างอิง WebSockets API](https://ai.google.dev/api/live?hl=th)
+- Im vollständigen Leitfaden zu den [Funktionen der Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=de) findest du wichtige Funktionen und Konfigurationen, darunter die Spracherkennung und native Audiofunktionen.
+- Im [Leitfaden zur Tool-Nutzung](https://ai.google.dev/gemini-api/docs/live-tools?hl=de) erfahren Sie, wie Sie die Live API in Tools und Funktionsaufrufe einbinden.
+- Im Leitfaden [Sitzungsverwaltung](https://ai.google.dev/gemini-api/docs/live-session?hl=de) finden Sie Informationen zum Verwalten von Unterhaltungen mit langer Ausführungszeit.
+- Lesen Sie den Leitfaden zu [Einmal-Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=de) für die sichere Authentifizierung in [Client-zu-Server](#implementation-approach)-Anwendungen.
+- Weitere Informationen zur zugrunde liegenden WebSockets API finden Sie in der [WebSockets API-Referenz](https://ai.google.dev/api/live?hl=de).
 
-ส่งความคิดเห็น
+Feedback geben
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-อัปเดตล่าสุด 2026-06-01 UTC
+Zuletzt aktualisiert: 2026-06-01 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Haben Sie Feedback für uns?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-01 (UTC)."],[],[]]

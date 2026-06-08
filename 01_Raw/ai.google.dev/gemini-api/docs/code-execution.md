@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=he
-fetched_at: 2026-06-01T19:34:53.021866+00:00
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=vi
+fetched_at: 2026-06-08T14:54:59.257532+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-# הרצת קוד
+# Thực thi mã
 
-‫Gemini API כולל כלי להרצת קוד שמאפשר למודל ליצור ולהריץ קוד Python. לאחר מכן המודל יכול ללמוד באופן איטרטיבי מתוצאות הביצוע של הקוד עד שהוא מגיע לפלט סופי. אתם יכולים להשתמש בהרצת קוד כדי ליצור אפליקציות שמרוויחות מחשיבה רציונלית מבוססת קוד. לדוגמה, אפשר להשתמש בהרצת קוד כדי לפתור משוואות או לעבד טקסט. אפשר גם להשתמש ב[ספריות](#supported-libraries) שכלולות בסביבת ההפעלה של הקוד כדי לבצע משימות ספציפיות יותר.
+Gemini API cung cấp một công cụ thực thi mã cho phép mô hình tạo và chạy mã Python. Sau đó, mô hình có thể học lặp đi lặp lại từ kết quả thực thi mã cho đến khi đạt được kết quả cuối cùng. Bạn có thể sử dụng tính năng thực thi mã để tạo các ứng dụng có lợi từ hoạt động suy luận dựa trên mã. Ví dụ: bạn có thể sử dụng tính năng thực thi mã để giải phương trình hoặc xử lý văn bản. Bạn cũng có thể sử dụng [các thư viện](#supported-libraries) có trong môi trường thực thi mã để thực hiện các tác vụ chuyên biệt hơn.
 
-‫Gemini יכול להריץ קוד ב-Python בלבד. עדיין אפשר לבקש מ-Gemini ליצור קוד בשפה אחרת, אבל המודל לא יכול להשתמש בכלי להרצת קוד כדי להריץ אותו.
+Gemini chỉ có thể thực thi mã bằng Python. Bạn vẫn có thể hỏi Gemini tạo mã bằng một ngôn ngữ khác, nhưng mô hình không thể sử dụng công cụ thực thi mã để chạy mã đó.
 
-## הפעלת ביצוע קוד
+## Bật tính năng thực thi mã
 
-כדי להפעיל את הרצת הקוד, צריך להגדיר את כלי הרצת הקוד במודל. כך המודל יכול ליצור ולהריץ קוד.
+Để bật tính năng thực thi mã, hãy định cấu hình công cụ thực thi mã trên mô hình. Điều này cho phép mô hình tạo và chạy mã.
 
 ### Python
 
@@ -143,7 +143,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-הפלט יכול להיראות כך, אחרי שעיצבנו אותו כדי שיהיה קל לקריאה:
+Đầu ra có thể có dạng như sau (đã được định dạng để dễ đọc):
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,27 +192,27 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-הפלט הזה משלב כמה חלקי תוכן שהמודל מחזיר כשמשתמשים בהרצת קוד:
+Đầu ra này kết hợp một số phần nội dung mà mô hình trả về khi sử dụng tính năng thực thi mã:
 
-- ‫`text`: טקסט מוטבע שנוצר על ידי המודל
-- ‫`executableCode`: קוד שנוצר על ידי המודל ומיועד להרצה
-- `codeExecutionResult`: התוצאה של קוד ההפעלה
+- `text`: Văn bản cùng dòng do mô hình tạo
+- `executableCode`: Mã do mô hình tạo ra nhằm mục đích thực thi
+- `codeExecutionResult`: Kết quả của mã thực thi
 
-מוסכמות השמות של החלקים האלה משתנות בהתאם לשפת התכנות.
+Quy ước đặt tên cho các phần này sẽ khác nhau tuỳ theo ngôn ngữ lập trình.
 
-## הפעלת קוד עם תמונות (Gemini 3)
+## Thực thi mã với hình ảnh (Gemini 3)
 
-מודל Gemini 3 Flash יכול עכשיו לכתוב ולהריץ קוד Python כדי לשנות ולבדוק תמונות באופן פעיל.
+Giờ đây, mô hình Gemini 3 Flash có thể viết và thực thi mã Python để chủ động thao tác và kiểm tra hình ảnh.
 
-**תרחישים לדוגמה**
+**Trường hợp sử dụng**
 
-- **זום ובדיקה**: המודל מזהה באופן מובנה מתי הפרטים קטנים מדי (למשל, קריאת מד מרחק) וכותב קוד לחיתוך ולבדיקה מחדש של האזור ברזולוציה גבוהה יותר.
-- **מתמטיקה ויזואלית**: המודל יכול לבצע חישובים מרובי-שלבים באמצעות קוד (למשל, סיכום פריטים בקבלה).
-- **הערות לתמונות**: המודל יכול להוסיף הערות לתמונות כדי לענות על שאלות, למשל לצייר חצים כדי להראות קשרים.
+- **Thu phóng và kiểm tra**: Mô hình này ngầm phát hiện khi các chi tiết quá nhỏ (ví dụ: đọc một đồng hồ đo ở xa) và viết mã để cắt cũng như kiểm tra lại khu vực ở độ phân giải cao hơn.
+- **Phép tính trực quan**: Mô hình có thể chạy các phép tính nhiều bước bằng cách sử dụng mã (ví dụ: cộng các mục hàng trên biên nhận).
+- **Chú thích hình ảnh**: Mô hình có thể chú thích hình ảnh để trả lời câu hỏi, chẳng hạn như vẽ mũi tên để cho thấy mối quan hệ.
 
-### הפעלת ביצוע קוד באמצעות תמונות
+### Bật tính năng Thực thi mã bằng hình ảnh
 
-החל מ-Gemini 3 Flash, יש תמיכה רשמית בהרצת קוד עם תמונות. כדי להפעיל את ההתנהגות הזו, צריך להפעיל את ההגדרה 'הפעלת קוד ככלי' ואת ההגדרה 'חשיבה'.
+Tính năng Thực thi mã với hình ảnh được hỗ trợ chính thức trong Gemini 3 Flash. Bạn có thể kích hoạt hành vi này bằng cách bật cả tính năng Thực thi mã như một công cụ và Tư duy.
 
 ### Python
 
@@ -427,9 +427,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## איך משתמשים בהרצת קוד בצ'אט
+## Sử dụng tính năng thực thi mã trong cuộc trò chuyện
 
-אפשר גם להשתמש בהרצת קוד כחלק משיחה.
+Bạn cũng có thể sử dụng tính năng thực thi mã trong cuộc trò chuyện.
 
 ### Python
 
@@ -587,73 +587,73 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-## קלט/פלט (I/O)
+## Đầu vào/đầu ra (I/O)
 
-הפעלת קוד תומכת בקלט של קבצים ובפלט של גרפים. בעזרת היכולות האלה של קלט ופלט, אתם יכולים להעלות קובצי CSV וקובצי טקסט, לשאול שאלות לגבי הקבצים ולקבל תשובה שכוללת גרפים של [Matplotlib](https://matplotlib.org/). קבצי הפלט מוחזרים כתמונות מוטמעות בתשובה.
+Hoạt động thực thi mã hỗ trợ đầu vào tệp và đầu ra biểu đồ. Khi sử dụng các khả năng đầu vào và đầu ra này, bạn có thể tải tệp CSV và tệp văn bản lên, đặt câu hỏi về các tệp và nhận được các biểu đồ [Matplotlib](https://matplotlib.org/) được tạo trong câu trả lời. Các tệp đầu ra được trả về dưới dạng hình ảnh cùng dòng trong câu trả lời.
 
-### תמחור של קלט/פלט
+### Giá I/O
 
-כשמשתמשים ב-I/O של ביצוע קוד, התשלום הוא על טוקנים של קלט וטוקנים של פלט:
+Khi sử dụng I/O thực thi mã, bạn sẽ bị tính phí cho mã thông báo đầu vào và mã thông báo đầu ra:
 
-**טוקנים של קלט:**
+**Mã thông báo đầu vào:**
 
-- הנחיה למשתמש
+- Câu lệnh của người dùng
 
-**טוקנים בפלט:**
+**Số mã thông báo đầu ra:**
 
-- קוד שנוצר על ידי המודל
-- פלט של הרצת קוד בסביבת הקוד
-- טוקנים של חשיבה
-- סיכום שנוצר על ידי המודל
+- Mã do mô hình tạo
+- Kết quả thực thi mã trong môi trường mã
+- Mã thông báo tư duy
+- Bản tóm tắt do mô hình tạo
 
-### פרטי I/O
+### Thông tin chi tiết về I/O
 
-כשעובדים עם קלט/פלט של הרצת קוד, חשוב לשים לב לפרטים הטכניים הבאים:
+Khi làm việc với I/O thực thi mã, hãy lưu ý đến các thông tin kỹ thuật sau:
 
-- זמן הריצה המקסימלי של סביבת הקוד הוא 30 שניות.
-- אם סביבת הקוד יוצרת שגיאה, יכול להיות שהמודל יחליט ליצור מחדש את פלט הקוד. המצב הזה יכול לקרות עד 5 פעמים.
-- הגודל המקסימלי של קובץ קלט מוגבל על ידי חלון הטוקנים של המודל. ב-AI Studio, גודל הקובץ המקסימלי של קובץ קלט הוא מיליון טוקנים (בערך 2MB לקובצי טקסט מסוגי הקלט הנתמכים). אם תעלו קובץ גדול מדי, לא תוכלו לשלוח אותו ב-AI Studio.
-- הכי טוב להשתמש בהרצת קוד עם קובצי טקסט ו-CSV.
-- אפשר להעביר את קובץ הקלט בפורמט `part.inlineData` או `part.fileData` (העלאה דרך [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he)), וקובץ הפלט תמיד מוחזר בפורמט `part.inlineData`.
+- Thời gian chạy tối đa của môi trường mã là 30 giây.
+- Nếu môi trường mã tạo ra lỗi, mô hình có thể quyết định tạo lại đầu ra mã. Điều này có thể xảy ra tối đa 5 lần.
+- Kích thước tệp đầu vào tối đa bị giới hạn bởi cửa sổ mã thông báo của mô hình. Trong AI Studio, kích thước tệp đầu vào tối đa là 1 triệu token (khoảng 2 MB đối với tệp văn bản thuộc các loại đầu vào được hỗ trợ). Nếu bạn tải một tệp quá lớn lên, AI Studio sẽ không cho phép bạn gửi tệp đó.
+- Tính năng thực thi mã hoạt động hiệu quả nhất với tệp văn bản và tệp CSV.
+- Bạn có thể truyền tệp đầu vào trong `part.inlineData` hoặc `part.fileData` (tải lên thông qua [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi)) và tệp đầu ra luôn được trả về dưới dạng `part.inlineData`.
 
-## חיוב
+## Thanh toán
 
-אין עלות נוספת על הפעלת ביצוע קוד מ-Gemini API.
-תחויבו לפי התעריף הנוכחי של טוקנים של קלט ופלט, בהתאם למודל Gemini שבו אתם משתמשים.
+Bạn không phải trả thêm phí khi bật tính năng thực thi mã từ Gemini API.
+Bạn sẽ bị tính phí theo mức giá hiện tại của mã thông báo đầu vào và đầu ra dựa trên mô hình Gemini mà bạn đang sử dụng.
 
-ריכזנו כאן כמה דברים נוספים שכדאי לדעת על חיוב על הפעלת קוד:
+Sau đây là một số thông tin khác bạn cần biết về việc tính phí thực thi mã:
 
-- אתם מחויבים רק פעם אחת על טוקני הקלט שאתם מעבירים למודל, ועל טוקני הפלט הסופי שהמודל מחזיר לכם.
-- טוקנים שמייצגים קוד שנוצר נספרים כטוקנים של פלט. הקוד שנוצר יכול לכלול טקסט ופלט מולטי-מודאלי כמו תמונות.
-- תוצאות של הרצת קוד נספרות גם הן כאסימוני פלט.
+- Bạn chỉ bị tính phí một lần cho các mã thông báo đầu vào mà bạn truyền đến mô hình và bạn sẽ bị tính phí cho các mã thông báo đầu ra cuối cùng mà mô hình trả về cho bạn.
+- Các mã thông báo đại diện cho mã được tạo sẽ được tính là mã thông báo đầu ra. Mã được tạo có thể bao gồm văn bản và đầu ra đa phương thức như hình ảnh.
+- Kết quả thực thi mã cũng được tính là mã thông báo đầu ra.
 
-מודל החיוב מוצג בתרשים הבא:
+Mô hình thanh toán được minh hoạ trong sơ đồ sau:
 
-![מודל חיוב על הרצת קוד](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=he)
+![mô hình thanh toán thực thi mã](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=vi)
 
-- החיוב מתבצע לפי התעריף הנוכחי של טוקנים של קלט ופלט, בהתאם למודל Gemini שבו אתם משתמשים.
-- אם Gemini משתמש בהרצת קוד כדי ליצור את התשובה, ההנחיה המקורית, הקוד שנוצר והתוצאה של הקוד שהורץ מסומנים בתווית *intermediate tokens* (טוקנים ביניים) והחיוב עליהם הוא כ*input tokens* (טוקנים של קלט).
-- ‫Gemini יוצר סיכום ומחזיר את הקוד שנוצר, את התוצאה של הקוד שהופעל ואת הסיכום הסופי. הם מחויבים כ*אסימוני פלט*.
-- תגובת ה-API של Gemini כוללת ספירה של אסימוני ביניים, כדי שתדעו למה אתם מקבלים אסימוני קלט נוספים מעבר להנחיה הראשונית.
+- Bạn sẽ bị tính phí theo mức giá hiện tại của mã thông báo đầu vào và đầu ra dựa trên mô hình Gemini mà bạn đang sử dụng.
+- Nếu Gemini sử dụng tính năng thực thi mã khi tạo câu trả lời cho bạn, thì câu lệnh ban đầu, mã được tạo và kết quả của mã đã thực thi sẽ được gắn nhãn là *mã thông báo trung gian* và được tính phí là *mã thông báo đầu vào*.
+- Sau đó, Gemini sẽ tạo bản tóm tắt và trả về mã đã tạo, kết quả của mã đã thực thi và bản tóm tắt cuối cùng. Các mã thông báo này được tính phí dưới dạng *mã thông báo đầu ra*.
+- Gemini API bao gồm số lượng mã thông báo trung gian trong phản hồi API, nhờ đó bạn biết lý do nhận được thêm mã thông báo đầu vào ngoài câu lệnh ban đầu.
 
-## מגבלות
+## Các điểm hạn chế
 
-- המודל יכול רק ליצור ולהריץ קוד. הוא לא יכול להחזיר פריטים אחרים, כמו קובצי מדיה.
-- במקרים מסוימים, הפעלת ביצוע קוד עלולה להוביל לרגרסיות בתחומים אחרים של פלט המודל (לדוגמה, כתיבת סיפור).
-- יש הבדלים בין המודלים השונים ביכולת שלהם להשתמש בהרצת קוד בהצלחה.
+- Mô hình này chỉ có thể tạo và thực thi mã. Phương thức này không thể trả về các cấu phần phần mềm khác như tệp nội dung nghe nhìn.
+- Trong một số trường hợp, việc cho phép thực thi mã có thể dẫn đến sự hồi quy ở các khía cạnh khác của đầu ra của mô hình (ví dụ: viết một câu chuyện).
+- Có một số điểm khác biệt về khả năng sử dụng thành công tính năng thực thi mã của các mô hình.
 
-## שילובים נתמכים של כלים
+## Các cách kết hợp công cụ được hỗ trợ
 
-אפשר לשלב את הכלי להרצת קוד עם [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) כדי להפעיל תרחישי שימוש מורכבים יותר.
+Bạn có thể kết hợp công cụ thực thi mã với tính năng [Dựa trên kết quả của Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) để hỗ trợ các trường hợp sử dụng phức tạp hơn.
 
-מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו הפעלת קוד) עם כלים מותאמים אישית (הפעלת פונקציות). כדי שהשילוב של כלי העריכה יפעל, צריך להעביר בחזרה את השדות `id` ו-`thought_signature`. מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
+Các mô hình Gemini 3 hỗ trợ việc kết hợp các công cụ tích hợp (như Thực thi mã) với các công cụ tuỳ chỉnh (gọi hàm). Bạn phải truyền lại các trường `id` và `thought_signature` để tổ hợp công cụ hoạt động. Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
 
-## ספריות נתמכות
+## Các thư viện được hỗ trợ
 
-סביבת ההפעלה של הקוד כוללת את הספריות הבאות:
+Môi trường thực thi mã bao gồm các thư viện sau:
 
 - attrs
-- שחמט
+- cờ vua
 - contourpy
 - fpdf
 - geopandas
@@ -668,9 +668,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - numpy
 - opencv-python
 - openpyxl
-- מארז
-- פנדות
-- כרית
+- đóng gói ứng dụng
+- gấu trúc
+- cái gối
 - protobuf
 - pylatex
 - pyparsing
@@ -682,29 +682,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - scikit-learn
 - scipy
 - seaborn
-- שש
+- sáu
 - striprtf
 - sympy
-- לרכז בטבלה
+- lập bảng
 - tensorflow
 - toolz
 - xlrd
 
-אי אפשר להתקין ספריות משלכם.
+Bạn không thể cài đặt thư viện của riêng mình.
 
-## המאמרים הבאים
+## Bước tiếp theo
 
-- אפשר לנסות את [הקוד להרצת Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=he).
-- מידע על כלים אחרים של Gemini API:
-  - [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
-  - [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/grounding?hl=he)
+- Hãy thử [Colab thực thi mã](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=vi).
+- Tìm hiểu về các công cụ khác của Gemini API:
+  - [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)
+  - [Dựa trên kết quả của Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-עדכון אחרון: 2026-06-01 (שעון UTC).
+Cập nhật lần gần đây nhất: 2026-06-01 UTC.
 
-רוצה לתת לנו משוב?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-01 (שעון UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]

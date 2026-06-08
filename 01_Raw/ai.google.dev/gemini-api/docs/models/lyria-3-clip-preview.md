@@ -1,49 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=id
-fetched_at: 2026-06-01T19:41:53.757418+00:00
-title: "Pratinjau Klip Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=pt-BR
+fetched_at: 2026-06-08T15:00:19.019420+00:00
+title: "Pr\u00e9via de clipe do Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Kirim masukan
+Envie comentários
 
-# Pratinjau Klip Lyria 3
+# Prévia de clipe do Lyria 3
 
-Lyria 3 Clip Preview adalah model Google yang dioptimalkan untuk menghasilkan klip musik, loop, dan pratinjau singkat. Model ini menghasilkan audio stereo 48 kHz berkualitas tinggi selama 30 detik dari perintah teks atau input gambar.
+A prévia de clipes do Lyria 3 é o modelo do Google otimizado para gerar clipes musicais, loops e prévias curtos. Ele gera áudio estéreo de alta qualidade de 30 segundos e 48 kHz com base em comandos de texto ou entradas de imagem.
 
-[Coba di Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-clip-preview&hl=id)
+[Testar no Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-clip-preview&hl=pt-br)
 
-## Dokumentasi
+## Documentação
 
-Lihat panduan [Pembuatan Musik](https://ai.google.dev/gemini-api/docs/music-generation?hl=id) untuk mengetahui cakupan lengkap
-fitur dan kemampuannya.
+Acesse o guia [Geração de música](https://ai.google.dev/gemini-api/docs/music-generation?hl=pt-br) para conferir a cobertura completa de recursos e funcionalidades.
 
 ## lyria-3-clip-preview
 
-| Properti | Deskripsi |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_cardKode model | `lyria-3-clip-preview` |
-| saveJenis data yang didukung | **Input**  Teks dan Gambar  **Output**  Audio (MP3), Teks (Lirik) |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072 |
-| handymanKemampuan | **Pembuatan audio**  Didukung  **Batch API**  Tidak didukung  **Menyimpan ke cache**  Tidak didukung  **Eksekusi kode**  Tidak didukung  **Penelusuran file**  Tidak didukung  **Panggilan fungsi**  Tidak didukung  **Grounding dengan Google Maps**  Tidak didukung  **Pembuatan gambar**  Tidak didukung  **Live API**  Tidak didukung  **Grounding penelusuran**  Tidak didukung  **Output terstruktur**  Tidak didukung  **Penalaran**  Tidak didukung  **Konteks URL**  Tidak didukung |
-| 123Versi | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `lyria-3-clip-preview` - Pratinjau: `lyria-3-pro-preview` |
-| calendar\_monthPembaruan terbaru | Maret 2026 |
+| Código do modelo id\_card | `lyria-3-clip-preview` |
+| saveTipos de dados aceitos | **Entradas** (link em inglês)  Texto e imagem  **Saída**  Áudio (MP3), texto (letra) |
+| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  131.072 |
+| handymanRecursos | **Geração de áudio**  Compatível  **API Batch**  incompatível  **Armazenamento em cache**  incompatível  **Execução de código**  incompatível  **Pesquisa de arquivos**  incompatível  **Chamadas de função**  incompatível  **Embasamento com o Google Maps**  incompatível  **Geração de imagens**  incompatível  **API Live**  incompatível  **Embasamento da pesquisa**  incompatível  **Saídas estruturadas**  incompatível  **Raciocínio**  incompatível  **Contexto do URL**  incompatível |
+| Versões do 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `lyria-3-clip-preview` - Visualização: `lyria-3-pro-preview` |
+| calendar\_monthÚltima atualização | Março de 2026 |
 
-Kirim masukan
+Envie comentários
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Terakhir diperbarui pada 2026-04-29 UTC.
+Última atualização 2026-04-29 UTC.
 
-Ada masukan untuk kami?
+Quer enviar seu feedback?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

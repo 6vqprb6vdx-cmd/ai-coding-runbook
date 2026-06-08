@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.5-preview?hl=pt-BR
-fetched_at: 2026-06-01T19:48:31.112234+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.5-preview?hl=th
+fetched_at: 2026-06-08T15:05:10.244967+00:00
 title: "Gemini Robotics-ER 1.5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Envie comentários
+ส่งความคิดเห็น
 
 # Gemini Robotics-ER 1.5
 
-O Gemini Robotics-ER 1.5 é um modelo de linguagem de visão (VLM, na sigla em inglês) que traz os recursos de agente do Gemini para a robótica. Ele foi projetado para raciocínio avançado no mundo físico, permitindo que os robôs interpretem dados visuais complexos, realizem raciocínio espacial e planejem ações a partir de comandos de linguagem natural.
+Gemini Robotics-ER 1.5 เป็นโมเดลภาษาภาพ (VLM) ที่นำความสามารถด้าน Agentic AI ของ Gemini มาใช้กับหุ่นยนต์ โดยออกแบบมาเพื่อการให้เหตุผลขั้นสูงในโลกกายภาพ ซึ่งช่วยให้หุ่นยนต์ตีความข้อมูลภาพที่ซับซ้อน ทำการให้เหตุผลเชิงพื้นที่ และวางแผนการดำเนินการจากคำสั่งภาษาธรรมชาติได้
 
-[Testar no Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.5-preview&hl=pt-br)
+[ลองใช้ใน Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.5-preview&hl=th)
 
-## Documentação
+## เอกสารประกอบ
 
-Acesse a página de [robótica](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pt-br) para conferir a cobertura completa
-de recursos e funcionalidades.
+ไปที่หน้า[หุ่นยนต์](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th)เพื่อดูข้อมูลทั้งหมด
+เกี่ยวกับฟีเจอร์และความสามารถ
 
 ## gemini-robotics-er-1.5-preview
 
-| Propriedade | Descrição |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_cardCódigo do modelo | `gemini-robotics-er-1.5-preview` |
-| saveTipos de dados compatíveis | **Entradas (link em inglês)**  Texto, imagens, vídeo, áudio  **Saída**  Texto |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de token de entrada**  1.048.576  **Limite de token de saída**  65.536 |
-| handymanRecursos | **Geração de áudio**  Indisponível  **API em lote**  Indisponível  **Armazenamento em cache**  Indisponível  **Execução de código**  Compatível  **Chamadas de função**  Compatível  **Embasamento com o Google Maps**  Indisponível  **Geração de imagens**  Indisponível  **API Live**  Indisponível  **Embasamento da pesquisa**  Compatível  **Respostas estruturadas**  Compatível  **Raciocínio**  Compatível  **Contexto de URL**  Compatível |
-| 123Versões | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `gemini-robotics-er-1.5-preview` |
-| calendar\_monthAtualização mais recente | Setembro de 2025 |
-| cognition\_2Limite de conhecimento | Janeiro de 2025 |
+| รหัสโมเดล id\_card | `gemini-robotics-er-1.5-preview` |
+| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ วิดีโอ เสียง  **เอาต์พุต**  ข้อความ |
+| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  1,048,576  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| handymanความสามารถ | **การสร้างเสียง**  สิ่งที่ทำไม่ได้  **Batch API**  สิ่งที่ทำไม่ได้  **การแคช**  สิ่งที่ทำไม่ได้  **การรันโค้ด**  สิ่งที่ทำได้  **การเรียกใช้ฟังก์ชัน**  สิ่งที่ทำได้  **การเชื่อมต่อแหล่งข้อมูลกับ Google Maps**  สิ่งที่ทำไม่ได้  **การสร้างรูปภาพ**  สิ่งที่ทำไม่ได้  **Live API**  สิ่งที่ทำไม่ได้  **การเชื่อมต่อแหล่งข้อมูลของ Search**  สิ่งที่ทำได้  **เอาต์พุตที่มีโครงสร้าง**  สิ่งที่ทำได้  **การคิด**  สิ่งที่ทำได้  **บริบทของ URL**  สิ่งที่ทำได้ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `gemini-robotics-er-1.5-preview` |
+| calendar\_monthการอัปเดตล่าสุด | กันยายน 2025 |
+| cognition\_2การตัดข้อมูล | มกราคม 2025 |
 
-Envie comentários
+ส่งความคิดเห็น
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última atualização 2026-04-29 UTC.
+อัปเดตล่าสุด 2026-04-29 UTC
 
-Quer enviar seu feedback?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

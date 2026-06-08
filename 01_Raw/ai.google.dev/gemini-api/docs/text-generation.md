@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419
-fetched_at: 2026-06-01T19:44:07.472609+00:00
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=th
+fetched_at: 2026-06-08T15:04:59.219186+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-# Generación de texto
+# การสร้างข้อความ
 
-La API de Gemini puede generar texto a partir de entradas de texto, imágenes, video y audio.
+Gemini API สามารถสร้างเอาต์พุตข้อความจากอินพุตข้อความ รูปภาพ วิดีโอ และเสียง
 
-Este es un ejemplo básico:
+ตัวอย่างพื้นฐานมีดังนี้
 
 ### Python
 
@@ -160,13 +160,13 @@ function main() {
 }
 ```
 
-## Razonamiento con Gemini
+## การคิดด้วย Gemini
 
-Los modelos de Gemini suelen tener habilitado el ["razonamiento"](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) de forma predeterminada
-lo que les permite razonar antes de responder a una solicitud.
+โมเดล Gemini มักจะเปิดใช้["การคิด"](https://ai.google.dev/gemini-api/docs/thinking?hl=th) โดยค่าเริ่มต้น
+ซึ่งช่วยให้โมเดลใช้เหตุผลก่อนตอบคำขอได้
 
-Cada modelo admite diferentes configuraciones de razonamiento, lo que te permite controlar el costo, la latencia y la inteligencia. Para obtener más detalles, consulta la
-[guía de razonamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419#set-budget).
+แต่ละโมเดลรองรับการกำหนดค่าการคิดที่แตกต่างกัน ซึ่งช่วยให้คุณควบคุม
+ต้นทุน เวลาในการตอบสนอง และความอัจฉริยะได้ ดูรายละเอียดเพิ่มเติมได้ที่[คู่มือการคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#set-budget)
 
 ### Python
 
@@ -338,11 +338,9 @@ function main() {
 }
 ```
 
-## Instrucciones del sistema y otras configuraciones
+## วิธีการของระบบและการกำหนดค่าอื่นๆ
 
-Puedes guiar el comportamiento de los modelos de Gemini con instrucciones del sistema. Para ello,
-pasa un [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
-objeto.
+คุณสามารถกำหนดลักษณะการทำงานของโมเดล Gemini ได้ด้วยคำสั่งของระบบ โดยส่งออบเจ็กต์ [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=th#v1beta.GenerationConfig)
 
 ### Python
 
@@ -514,9 +512,9 @@ function main() {
 }
 ```
 
-El [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
-objeto también te permite anular los parámetros de generación predeterminados, como la
-[temperatura](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig).
+[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=th#v1beta.GenerationConfig)
+ออบเจ็กต์ยังช่วยให้คุณลบล้างพารามิเตอร์การสร้างเริ่มต้นได้ด้วย เช่น
+[อุณหภูมิ](https://ai.google.dev/api/generate-content?hl=th#v1beta.GenerationConfig)
 
 ### Python
 
@@ -692,13 +690,13 @@ function main() {
 }
 ```
 
-Consulta [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
-en nuestra referencia de la API para obtener una lista completa de los parámetros configurables y sus
-descripciones.
+ดูรายการพารามิเตอร์ที่กำหนดค่าได้ทั้งหมดและคำอธิบายของพารามิเตอร์เหล่านั้นได้ที่[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=th#v1beta.GenerationConfig)
+ในเอกสารอ้างอิง API
 
-## Entradas multimodales
+## อินพุตหลายรูปแบบ
 
-La API de Gemini admite entradas multimodales, lo que te permite combinar texto con archivos multimedia. En el siguiente ejemplo, se muestra cómo proporcionar una imagen:
+Gemini API รองรับอินพุตหลายรูปแบบ ซึ่งช่วยให้คุณรวมข้อความกับ
+ไฟล์สื่อได้ ตัวอย่างต่อไปนี้แสดงการระบุรูปภาพ
 
 ### Python
 
@@ -906,17 +904,17 @@ function getImageData(url) {
 }
 ```
 
-Para conocer métodos alternativos para proporcionar imágenes y un procesamiento de imágenes más avanzado,
-consulta nuestra [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
-La API también admite la comprensión y las entradas de [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419), [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419) y [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
+ดูวิธีการอื่นๆ ในการระบุรูปภาพและการประมวลผลรูปภาพขั้นสูงเพิ่มเติมได้ใน[คู่มือการทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
+นอกจากนี้ API ยังรองรับ[เอกสาร](https://ai.google.dev/gemini-api/docs/document-processing?hl=th) [วิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th) และ[เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)
+เป็นอินพุตและทำความเข้าใจ
 
-## Respuestas de transmisión
+## การสตรีมคำตอบ
 
-De forma predeterminada, el modelo devuelve una respuesta solo después de que se completa todo el
-proceso de generación.
+โดยค่าเริ่มต้น โมเดลจะแสดงคำตอบหลังจากกระบวนการสร้าง
+ทั้งหมดเสร็จสมบูรณ์แล้วเท่านั้น
 
-Para obtener interacciones más fluidas, usa la transmisión para recibir [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse) instancias de forma incremental
-a medida que se generan.
+หากต้องการให้การโต้ตอบราบรื่นยิ่งขึ้น ให้ใช้การสตรีมเพื่อรับอินสแตนซ์ [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=th#v1beta.GenerateContentResponse) ทีละรายการ
+เมื่อมีการสร้าง
 
 ### Python
 
@@ -1070,9 +1068,9 @@ function main() {
 }
 ```
 
-## Conversaciones de varios turnos (chat)
+## การสนทนาหลายรอบ (แชท)
 
-Nuestros SDKs proporcionan funcionalidad para recopilar varias rondas de instrucciones y respuestas en un chat, lo que te brinda una forma sencilla de hacer un seguimiento del historial de conversaciones.
+SDK ของเรามีฟังก์ชันการทำงานในการรวบรวมพรอมต์และคำตอบหลายรอบไว้ในแชท ซึ่งช่วยให้คุณติดตามประวัติการสนทนาได้ง่าย
 
 ### Python
 
@@ -1280,7 +1278,7 @@ function main() {
 }
 ```
 
-La transmisión también se puede usar para conversaciones de varios turnos.
+นอกจากนี้ยังใช้การสตรีมสำหรับการสนทนาแบบหลายรอบได้ด้วย
 
 ### Python
 
@@ -1499,28 +1497,25 @@ function main() {
 }
 ```
 
-## Sugerencias para escribir instrucciones
+## เคล็ดลับการเขียนพรอมต์
 
-Consulta nuestra [guía de ingeniería de instrucciones](https://ai.google.dev/gemini/docs/prompting-strategies?hl=es-419) para
-obtener sugerencias sobre cómo aprovechar al máximo Gemini.
+โปรดดู[คู่มือวิศวกรรมพรอมต์](https://ai.google.dev/gemini/docs/prompting-strategies?hl=th)เพื่อดูคำแนะนำในการใช้ประโยชน์จาก Gemini ให้ได้มากที่สุด
 
-## ¿Qué sigue?
+## ขั้นตอนถัดไป
 
-- Prueba [Gemini en Google AI Studio](https://aistudio.google.com?hl=es-419).
-- Experimenta con [resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) para
-  obtener respuestas similares a JSON.
-- Explora las capacidades de comprensión de [imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419),
-  [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419), [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
-  y [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419) de Gemini.
-- Obtén información sobre las estrategias de instrucciones de archivos multimodales
-  .
+- ลองใช้ [Gemini ใน Google AI Studio](https://aistudio.google.com?hl=th)
+- ทดลองใช้[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)สำหรับคำตอบที่คล้ายกับ JSON
+- สำรวจความสามารถในการทำความเข้าใจ[รูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th)
+  [วิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th) [เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)
+  และ[เอกสาร](https://ai.google.dev/gemini-api/docs/document-processing?hl=th)ของ Gemini
+- ดูข้อมูลเกี่ยวกับ[กลยุทธ์การแจ้งไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide)แบบมัลติโมดัล
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última actualización: 2026-05-19 (UTC)
+อัปเดตล่าสุด 2026-05-19 UTC
 
-¿Quieres brindar más información?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-19 (UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-19 UTC"],[],[]]

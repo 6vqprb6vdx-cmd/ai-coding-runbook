@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=tr
-fetched_at: 2026-06-01T19:35:46.016211+00:00
-title: "Yerle\u015ftirmeler \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=he
+fetched_at: 2026-06-08T14:54:32.003584+00:00
+title: "\u05d4\u05d8\u05de\u05e2\u05d5\u05ea \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Geri bildirim gönderin
+שליחת משוב
 
-# Yerleştirmeler
+# הטמעות
 
-Gemini API, metin, resim, video ve diğer içerikler için yerleştirmeler oluşturmak üzere yerleştirme modelleri sunar. Elde edilen bu yerleştirmeler daha sonra semantik arama, sınıflandırma ve kümeleme gibi görevlerde kullanılabilir. Bu sayede, anahtar kelime tabanlı yaklaşımlara kıyasla daha doğru ve bağlamdan bağımsız sonuçlar elde edilebilir.
+‫Gemini API מציע מודלים של הטמעה ליצירת הטמעות של טקסט, תמונות, סרטונים ותוכן אחר. אפשר להשתמש בהטמעות שמתקבלות למשימות כמו חיפוש סמנטי, סיווג ואשכול, וכך לקבל תוצאות מדויקות יותר שמתחשבות בהקשר, בהשוואה לגישות שמבוססות על מילות מפתח.
 
-En yeni model olan `gemini-embedding-2`, Gemini API'deki ilk çok formatlı yerleştirme modelidir. Metin, resim, video, ses ve dokümanları birleştirilmiş bir yerleştirme alanına eşleyerek 100'den fazla dilde farklı formatlarda arama, sınıflandırma ve kümeleme yapılmasını sağlar. Daha fazla bilgi edinmek için [çok formatlı yerleştirmeler bölümüne](#multimodal) bakın. Yalnızca metin içeren kullanım alanlarında `gemini-embedding-001` kullanılmaya devam eder.
+המודל האחרון, `gemini-embedding-2`, הוא מודל ההטמעה המולטי-מודאלי הראשון ב-Gemini API. הוא ממפה טקסט, תמונות, סרטונים, אודיו ומסמכים למרחב הטמעה מאוחד, ומאפשר חיפוש, סיווג וקיבוץ חוצי-אופנים ביותר מ-100 שפות. מידע נוסף זמין [בקטע בנושא הטמעות מולטימודאליות](#multimodal). לתרחישי שימוש של טקסט בלבד, `gemini-embedding-001` עדיין זמין.
 
-Veriyle artırılmış üretim (RAG) sistemleri oluşturmak, yapay zeka ürünlerinin yaygın kullanım alanlarından biridir. Gömme işlemleri, model çıkışlarını önemli ölçüde iyileştirerek doğruluk, tutarlılık ve bağlamsal zenginlik açısından daha iyi sonuçlar elde edilmesini sağlar. Yönetilen bir RAG çözümü kullanmayı tercih ederseniz RAG'yi yönetmeyi kolaylaştıran ve daha uygun maliyetli hale getiren [Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr) aracını geliştirdik.
+יצירת מערכות Retrieval Augmented Generation (יצירה משולבת-אחזור, RAG) היא תרחיש שימוש נפוץ במוצרי AI. הטמעות ממלאות תפקיד מרכזי בשיפור משמעותי של התפוקות של המודל, עם דיוק עובדתי משופר, קוהרנטיות ועושר הקשרי. אם אתם מעדיפים להשתמש בפתרון RAG מנוהל, יצרנו את הכלי [חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he), שמקל על ניהול RAG ומוזיל את העלויות.
 
-## Yerleştirilmiş öğeler oluşturma
+## יצירת הטמעות
 
-Metin yerleştirmeleri oluşturmak için `embedContent` yöntemini kullanın:
+משתמשים ב-method‏ `embedContent` כדי ליצור הטמעות טקסט:
 
 ### Python
 
@@ -120,28 +120,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## Performansı artırmak için görev türünü belirtin
+## ציון סוג המשימה לשיפור הביצועים
 
-Sınıflandırmadan belge aramaya kadar çeşitli görevler için gömmeleri kullanabilirsiniz. Doğru görev türünü belirtmek, yerleştirmelerin amaçlanan ilişkiler için optimize edilmesine yardımcı olarak doğruluğu ve verimliliği en üst düzeye çıkarır.
+אפשר להשתמש בהטמעות למגוון רחב של משימות, מסיווג ועד לחיפוש מסמכים. הגדרת סוג המשימה הנכון עוזרת לבצע אופטימיזציה של ההטמעות כדי להשיג את קשרי הגומלין הרצויים, וכך למקסם את הדיוק והיעילות.
 
-### Embeddings 2 ile görev türleri
+### סוגי משימות עם Embeddings 2
 
-`gemini-embedding-2` içeren yalnızca metin görevlerinde, isteminize görev talimatını eklemenizi önemle tavsiye ederiz. Bu işlem, sorguyu ve dokümanı doğru görev önekiyle biçimlendirerek yapılabilir.
+במשימות שמבוססות על טקסט בלבד עם `gemini-embedding-2`, מומלץ מאוד להוסיף את הוראות המשימה בהנחיה. כדי לעשות את זה, צריך לעצב את השאילתה ואת המסמך עם קידומת המשימה הנכונה.
 
-Aşağıdaki tablolarda, `gemini-embedding-2` modelini kullanarak simetrik ve asimetrik kullanım alanları için sorguların ve dokümanların nasıl biçimlendirileceğine dair örnekler gösterilmektedir.
+בטבלאות הבאות מוצגות דוגמאות לפורמט של שאילתות ומסמכים לתרחישי שימוש סימטריים ואסימטריים באמצעות מודל `gemini-embedding-2`.
 
-**Alma kullanım alanları (Asimetrik biçim)**
+**תרחישים לדוגמה לאחזור (פורמט אסימטרי)**
 
-Asimetrik kullanım alanlarında, sorguya görev önekini ekleyin ve yerleştirmek ile almak istediğiniz içerik için belge yapısını uygulayın.
+בתרחישי שימוש אסימטריים, מוסיפים את קידומת המשימה לשאילתה ומחילים את מבנה המסמך על התוכן שרוצים להטמיע ולאחזר.
 
-| Kullanım alanı | Sorgu yapısı | Belge yapısı |
+| תרחיש שימוש | מבנה השאילתה | מבנה המסמך |
 | --- | --- | --- |
-| Arama sorgusu | `task: search result | query: {content}` | `title: {title} | text: {content}` Başlık yoksa `title: none` kullanın. |
-| Soru yanıtlama | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
-| Doğruluk kontrolü | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
-| Kod alma | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
+| שאילתת חיפוש | `task: search result | query: {content}` | `title: {title} | text: {content}` אם אין כותרת, משתמשים בערך `title: none`. |
+| מענה לשאלות | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
+| בדיקת עובדות | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
+| אחזור קוד | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
 
-**Kullanım örneği**
+**דוגמה לשימוש**
 
 ### Python
 
@@ -160,17 +160,17 @@ def prepare_document(content, title=None):
     return f"title: {title} | text: {content}"
 ```
 
-**Tek girişli kullanım alanları (Simetrik biçim)**
+**תרחישי שימוש עם קלט יחיד (פורמט סימטרי)**
 
-Simetrik kullanım alanlarında, aynı görev için sorgu ve belgede aynı biçimlendirmeyi kullanın.
+בתרחישי שימוש סימטריים, צריך להשתמש באותו פורמט לשאילתה ולמסמך עבור אותה משימה.
 
-| Kullanım alanı | Giriş yapısı |
+| תרחיש שימוש | מבנה הקלט |
 | --- | --- |
-| Sınıflandırma | `task: classification | query: {content}` |
-| Kümeleme | `task: clustering | query: {content}` |
-| Semantik benzerlik | `task: sentence similarity | query: {content}` Arama veya alma için kullanmayın. Semantik metin benzerliği için tasarlanmıştır. |
+| סיווג | `task: classification | query: {content}` |
+| סידור באשכול | `task: clustering | query: {content}` |
+| דמיון סמנטי | `task: sentence similarity | query: {content}` אין להשתמש בזה לחיפוש או לאחזור. היא מיועדת לדמיון סמנטי בין טקסטים. |
 
-**Kullanım örneği**
+**דוגמה לשימוש**
 
 ### Python
 
@@ -182,13 +182,13 @@ def prepare_query_and_document(content):
     return f'task: classification | query: {content}'
 ```
 
-Görevlerin tutarlı bir şekilde kullanılması önemlidir. Örneğin, dokümanlar `f'task: classification | query: {content}'` ile yerleştirilmişse sorgu da bu görev biçimine göre yerleştirilmelidir.
+חשוב להשתמש במשימה באופן עקבי. לדוגמה, אם מסמכים מוטמעים באמצעות `f'task: classification | query: {content}'`, השאילתה צריכה להיות מוטמעת גם היא לפי פורמט המשימה הזה.
 
-### Yerleştirme 1 ile görev türleri
+### סוגי משימות עם הטמעות 1
 
-`gemini-embedding-001` için `embedContent` yönteminde `task_type` değerini belirtebilirsiniz. Desteklenen görev türlerinin tam listesi için [Desteklenen görev türleri](#supported-task-types) tablosuna bakın.
+בפרמטר `gemini-embedding-001`, אפשר לציין את `task_type` בשיטה `embedContent`. רשימה מלאה של סוגי המשימות הנתמכים זמינה בטבלה [סוגי המשימות הנתמכים](#supported-task-types).
 
-Aşağıdaki örnekte, `SEMANTIC_SIMILARITY` kullanarak metin dizelerinin anlam olarak ne kadar benzer olduğunu nasıl kontrol edebileceğiniz gösterilmektedir.
+בדוגמה הבאה אפשר לראות איך משתמשים ב-`SEMANTIC_SIMILARITY` כדי לבדוק עד כמה מחרוזות טקסט דומות מבחינת המשמעות.
 
 ### Python
 
@@ -350,28 +350,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-0
     }'
 ```
 
-Kod snippet'leri çalıştırıldığında farklı metin parçalarının birbirine ne kadar benzediğini gösterir.
+קטעי הקוד יראו עד כמה חלקי הטקסט השונים דומים זה לזה כשהם יופעלו.
 
-#### Desteklenen görev türleri
+#### סוגי המשימות הנתמכים
 
-`gemini-embedding-001` için desteklenen görev türleri:
+סוגי המשימות הנתמכים ב-`gemini-embedding-001`:
 
-| Görev türü | Açıklama | Örnekler |
+| סוג המשימה | תיאור | דוגמאות |
 | --- | --- | --- |
-| **SEMANTIC\_SIMILARITY** | Metin benzerliğini değerlendirmek için optimize edilmiş yerleştirmeler. | Öneri sistemleri, yinelenen öğe algılama |
-| **SINIFLANDIRMA** | Metinleri önceden ayarlanmış etiketlere göre sınıflandırmak için optimize edilmiş gömmeler. | Duygu analizi, spam yakalama |
-| **KÜMELEME** (CLUSTERING) | Metinleri benzerliklerine göre kümelemek için optimize edilmiş gömmeler. | Belge düzenleme, pazar araştırması, anormallik algılama |
-| **RETRIEVAL\_DOCUMENT** | Doküman arama için optimize edilmiş yerleştirmeler. | Arama için makaleleri, kitapları veya web sayfalarını dizine ekleme |
-| **RETRIEVAL\_QUERY** | Genel arama sorguları için optimize edilmiş gömmeler. Sorgular için `RETRIEVAL_QUERY`, alınacak dokümanlar için `RETRIEVAL_DOCUMENT` kullanın. | Özel arama ağı |
-| **CODE\_RETRIEVAL\_QUERY** | Doğal dil sorgularına dayalı kod bloklarının alınması için optimize edilmiş gömmeler. Sorgular için `CODE_RETRIEVAL_QUERY`, alınacak kod blokları için `RETRIEVAL_DOCUMENT` kullanın. | Kod önerileri ve arama |
-| **QUESTION\_ANSWERING** | Soru-cevap sistemindeki sorular için yerleştirmeler. Bu yerleştirmeler, soruyu yanıtlayan belgeleri bulmak üzere optimize edilmiştir. Sorular için `QUESTION_ANSWERING`, alınacak belgeler için `RETRIEVAL_DOCUMENT` kullanın. | Chatbox |
-| **FACT\_VERIFICATION** | Doğrulanması gereken ifadeler için yerleştirmeler. İfadeyi destekleyen veya çürüten kanıtlar içeren belgelerin alınması için optimize edilmiştir. Hedef metin için `FACT_VERIFICATION`, alınacak dokümanlar için `RETRIEVAL_DOCUMENT` kullanın. | Otomatik doğruluk kontrolü sistemleri |
+| **SEMANTIC\_SIMILARITY** | הטמעות שעברו אופטימיזציה להערכת הדמיון בין טקסטים. | מערכות המלצות, זיהוי כפילויות |
+| **CLASSIFICATION** | הטמעות שעברו אופטימיזציה לסיווג טקסטים לפי תוויות מוגדרות מראש. | ניתוח סנטימנטים, זיהוי ספאם |
+| **CLUSTERING** | הטמעות שעברו אופטימיזציה לקיבוץ טקסטים על סמך הדמיון ביניהם. | ארגון מסמכים, מחקר שוק, זיהוי אנומליות |
+| **RETRIEVAL\_DOCUMENT** | הטמעות שעברו אופטימיזציה לחיפוש מסמכים. | יצירת אינדקס של מאמרים, ספרים או דפי אינטרנט לחיפוש. |
+| **RETRIEVAL\_QUERY** | הטמעות שעברו אופטימיזציה לשאילתות חיפוש כלליות. משתמשים ב-`RETRIEVAL_QUERY` לשאילתות וב-`RETRIEVAL_DOCUMENT` למסמכים לאחזור. | חיפוש בהתאמה אישית |
+| **CODE\_RETRIEVAL\_QUERY** | ‫Embeddings שעברו אופטימיזציה לאחזור של בלוקים של קוד על סמך שאילתות בשפה טבעית. משתמשים ב-`CODE_RETRIEVAL_QUERY` לחיפושים וב-`RETRIEVAL_DOCUMENT` לבלוקים של קוד שאותם רוצים לאחזר. | הצעות קוד וחיפוש |
+| **QUESTION\_ANSWERING** | הטמעה של שאלות במערכת למתן תשובות לשאלות, שעברה אופטימיזציה למציאת מסמכים שכוללים תשובה לשאלה. משתמשים ב-`QUESTION_ANSWERING` לשאלות וב-`RETRIEVAL_DOCUMENT` למסמכים שרוצים לאחזר. | תיבת צ'אט |
+| **FACT\_VERIFICATION** | הטמעה של הצהרות שצריך לאמת, עם אופטימיזציה לאחזור מסמכים שמכילים הוכחות שתומכות בהצהרה או מפריכות אותה. משתמשים ב-`FACT_VERIFICATION` לטקסט היעד וב-`RETRIEVAL_DOCUMENT` למסמכים שאותם רוצים לאחזר | מערכות אוטומטיות לבדיקת עובדות |
 
-## Yerleştirme boyutunu kontrol etme
+## שליטה בגודל ההטמעה
 
-Hem `gemini-embedding-001` hem de `gemini-embedding-2`, bir modele aynı verilerin faydalı, daha basit sürümleri olan başlangıç segmentlerine (veya öneklere) sahip yüksek boyutlu yerleştirmeleri öğrenmeyi öğreten Matryoshka Representation Learning (MRL) tekniği kullanılarak eğitilir.
+המודלים `gemini-embedding-001` ו-`gemini-embedding-2` מאומנים באמצעות טכניקת Matryoshka Representation Learning ‏ (MRL), שמלמדת מודל ללמוד הטמעות רב-ממדיות עם פלחים ראשוניים (או קידומות) שגם הם שימושיים, וגרסאות פשוטות יותר של אותם נתונים.
 
-Çıkış yerleştirme vektörünün boyutunu kontrol etmek için `output_dimensionality` parametresini kullanın. Daha küçük bir çıkış boyutu seçmek, depolama alanından tasarruf etmenizi ve sonraki uygulamalar için hesaplama verimliliğini artırmanızı sağlayabilir. Bu sırada kaliteden çok az ödün verilir. Her iki model de varsayılan olarak 3072 boyutlu bir yerleştirme çıktısı verir. Ancak depolama alanından tasarruf etmek için kaliteyi düşürmeden daha küçük bir boyuta kısaltabilirsiniz. 768, 1536 veya 3072 çıkış boyutlarını kullanmanızı öneririz.
+משתמשים בפרמטר `output_dimensionality` כדי לשלוט בגודל של וקטור ההטמעה של הפלט. בחירה של ממד פלט קטן יותר יכולה לחסוך מקום באחסון ולשפר את יעילות החישוב עבור אפליקציות במורד הזרם, בלי לפגוע באיכות. כברירת מחדל, שני המודלים יוצרים הטמעה תלת-ממדית בגודל 3,072, אבל אפשר לקצץ אותה לגודל קטן יותר בלי לפגוע באיכות כדי לחסוך במקום באחסון. מומלץ להשתמש בממדי פלט של 768,‏ 1,536 או 3,072.
 
 ### Python
 
@@ -468,17 +468,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-emb
     }'
 ```
 
-Kod snippet'inden örnek çıkış:
+פלט לדוגמה מקטע הקוד:
 
 ```
 Length of embedding: 768
 ```
 
-## Daha küçük boyutlarda kaliteyi sağlama
+## שמירה על האיכות במאפיינים קטנים יותר
 
-Varsayılan 3.072 boyutlu yerleştirmeler her zaman normalleştirilirken Gemini Embedding 2, kesilmiş boyutları (ör. 768, 1.536) da otomatik olarak normalleştirir. Bu sayede, semantik benzerliğin büyüklük yerine vektör yönü üzerinden hesaplanması sağlanır ve kutudan çıkar çıkmaz daha doğru sonuçlar elde edilir.
+בעוד שהטמעות של 3,072 מימדים שמוגדרות כברירת מחדל תמיד עוברות נורמליזציה, גם הטמעות של Gemini Embedding 2 עם מימדים קטומים (למשל, 768,‏ 1,536) עוברות נורמליזציה אוטומטית. כך מובטח שהדמיון הסמנטי יחושב באמצעות כיוון הווקטור ולא באמצעות הגודל שלו, והתוצאות יהיו מדויקות יותר כבר מההתחלה.
 
-**Eski Modeller**: `gemini-embedding-001` kullanıyorsanız 3072 olmayan boyutları aşağıdaki şekilde manuel olarak normalleştirmeniz gerekir:
+**מודלים ישנים יותר**: אם אתם משתמשים ב-`gemini-embedding-001`, אתם צריכים לבצע נורמליזציה ידנית של מימדים שאינם 3072 באופן הבא:
 
 ### Python
 
@@ -494,45 +494,45 @@ print(f"Normed embedding length: {len(normed_embedding)}")
 print(f"Norm of normed embedding: {np.linalg.norm(normed_embedding):.6f}") # Should be very close to 1
 ```
 
-Bu kod snippet'inden alınan örnek çıkış:
+פלט לדוגמה מקטע הקוד הזה:
 
 ```
 Normed embedding length: 768
 Norm of normed embedding: 1.000000
 ```
 
-Aşağıdaki tabloda, farklı boyutlar için yerleştirmelerde en çok tercih edilen bir karşılaştırma ölçütü olan MTEB puanları gösterilmektedir. Sonuç, performansın kesinlikle yerleştirme boyutunun büyüklüğüne bağlı olmadığını ve daha düşük boyutların, daha yüksek boyutlu benzerleriyle karşılaştırılabilir puanlar elde ettiğini gösteriyor.
+בטבלה הבאה מוצגים ציוני MTEB, מדד נפוץ להשוואה בין הטמעה של מאפיינים שונים. חשוב לציין שהתוצאה מראה שהביצועים לא קשורים באופן ישיר לגודל של ממד ההטמעה, וממדים נמוכים יותר השיגו ציונים שדומים לאלה של הממדים הגבוהים יותר.
 
-| MRL Boyutu | MTEB Puanı (Gemini Embedding 001) |
+| מאפיין MRL | ציון MTEB‏ (Gemini Embedding 001) |
 | --- | --- |
-| 2048 | 68,16 |
-| 1536 | 68,17 |
-| 768 | 67,99 |
-| 512 | 67,55 |
-| 256 | 66,19 |
-| 128 | 63,31 |
+| 2048 | 68.16 |
+| 1536 | 68.17 |
+| 768 | ‪67.99 |
+| 512 | 67.55 |
+| 256 | 66.19 |
+| 128 | 63.31 |
 
-## Çok formatlı yerleştirmeler
+## הטמעות מולטי-מודאליות
 
-`gemini-embedding-2` modeli, çok formatlı girişi destekler. Bu sayede metnin yanı sıra resim, video, ses ve belge içeriklerini de yerleştirebilirsiniz. Tüm yöntemler aynı yerleştirme alanına eşlenir. Bu sayede, yöntemler arası arama ve karşılaştırma yapılabilir.
+מודל `gemini-embedding-2` תומך בקלט מולטי-מודאלי, כך שאפשר להטמיע תמונות, סרטונים, אודיו ותוכן מסמכים לצד טקסט. כל המודלים ממופים לאותו מרחב הטמעה, מה שמאפשר חיפוש והשוואה בין מודלים שונים.
 
-### Desteklenen yöntemler ve sınırlar
+### מגבלות וסוגים נתמכים
 
-Genel maksimum giriş jetonu sınırı 8.192 jetondur.
+המגבלה הכוללת על מספר האסימונים בקלט היא 8,192 אסימונים.
 
-| Yöntem | Özellikler ve sınırlar |
+| אופן השימוש | מפרטים ומגבלות |
 | --- | --- |
-| **Metin** | En fazla 8.192 jetonu destekler. |
-| **Resim** | İstek başına en fazla 6 resim. Desteklenen biçimler: PNG, JPEG. |
-| **Ses** | Maksimum süre 180 saniyedir. Desteklenen biçimler: MP3, WAV. |
-| **Video** | Maksimum süre 120 saniyedir. Desteklenen biçimler: MP4, MOV. Desteklenen codec'ler: H264, H265, AV1, VP9.  Sistem, video başına en fazla 32 kare işler: Kısa videolar (≤32 sn) 1 FPS'de örneklenirken daha uzun videolar 32 kareye eşit şekilde örneklenir. Ses parçaları, video dosyalarında işlenmez. |
-| **Belgeler (PDF)** | İstek başına en fazla 1 dosya (6 sayfaya kadar). |
+| **טקסט** | תמיכה בעד 8,192 טוקנים. |
+| **תמונה** | עד 6 תמונות לכל בקשה. פורמטים נתמכים: PNG, ‏ JPEG. |
+| **אודיו** | משך הזמן המקסימלי הוא 180 שניות. הפורמטים הנתמכים: MP3, ‏ WAV. |
+| **סרטון** | משך הזמן המקסימלי הוא 120 שניות. הפורמטים הנתמכים: MP4, ‏ MOV. קודקים נתמכים: H264, ‏ H265, ‏ AV1, ‏ VP9.  המערכת מעבדת עד 32 פריימים לכל סרטון: סרטונים קצרים (עד 32 שניות) נדגמים בקצב של פרים אחד לשנייה, ואילו סרטונים ארוכים יותר נדגמים באופן אחיד עד 32 פריימים. לא מתבצע עיבוד של טראקים של אודיו בקובצי וידאו. |
+| **מסמכים (PDF)** | כל בקשה יכולה לכלול קובץ אחד בלבד, עד 6 עמודים. |
 
-### Resimleri yerleştirme
+### הטמעת תמונות
 
-Aşağıdaki örnekte, `gemini-embedding-2` kullanarak resmin nasıl yerleştirileceği gösterilmektedir.
+בדוגמה הבאה אפשר לראות איך מטמיעים תמונה באמצעות `gemini-embedding-2`.
 
-Resimler, satır içi veri olarak veya [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr) üzerinden yüklenen dosyalar olarak sağlanabilir.
+אפשר לספק תמונות כנתונים מוטבעים או כקבצים שהועלו דרך [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
 ### Python
 
@@ -606,15 +606,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### Yerleştirme toplama
+### צבירה של הטמעות
 
-Çok formatlı içeriklerle çalışırken girişinizi nasıl yapılandırdığınız, yerleştirme çıkışını etkiler:
+כשעובדים עם תוכן מולטימודאלי, מבנה הקלט משפיע על פלט ההטמעה:
 
-- **Birden fazla bölüm (toplu):** Doğrudan `contents` parametresine birden fazla giriş eklemek, tüm girişler için toplu bir yerleştirme oluşturur.
-- **Birden fazla `Content` nesne (ayrı):** Her girişi bir `Content` nesnesine sarmalayıp `contents` parametresinde iletmek, her giriş için ayrı yerleştirmeler döndürür.
-- **Gönderi düzeyinde temsil:** Birden fazla medya öğesi içeren sosyal medya gönderileri gibi karmaşık nesneler için, tutarlı bir gönderi düzeyinde temsil oluşturmak üzere ayrı yerleştirmeleri (örneğin, ortalama alarak) toplamanızı öneririz.
+- **כמה חלקים (מצטברים):** אם מוסיפים כמה קלטים ישירות לפרמטר `contents`, נוצרת הטמעה מצטברת אחת לכל הקלטים.
+- **כמה אובייקטים של `Content` (נפרדים):** אם עוטפים כל קלט באובייקט `Content` ומעבירים אותם בפרמטר `contents`, המערכת מחזירה הטבעות נפרדות לכל רשומה.
+- **ייצוג ברמת הפוסט:** לאובייקטים מורכבים כמו פוסטים ברשתות החברתיות עם כמה פריטי מדיה, מומלץ לצבור הטבעות נפרדות (למשל, באמצעות חישוב ממוצע) כדי ליצור ייצוג קוהרנטי ברמת הפוסט.
 
-Aşağıdaki örnekte, metin ve resim girişi için tek bir toplu yerleştirmenin nasıl oluşturulacağı gösterilmektedir. `contents` parametresine birden fazla giriş eklemeniz yeterlidir:
+בדוגמה הבאה מוצג איך ליצור הטמעה מצטברת אחת לטקסט ולתמונות. פשוט מוסיפים כמה ערכים לפרמטר `contents`:
 
 ### Python
 
@@ -700,7 +700,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-Diğer yandan, `contents` parametresinin içinde `Content` nesnelerini kullanırsanız ayrı yerleştirmeler döndürülür. Bu örnekte, tek bir yerleştirme çağrısında birden fazla yerleştirme oluşturulur:
+לעומת זאת, אם משתמשים באובייקטים `Content` בתוך הפרמטר `contents`, הפונקציה מחזירה הטבעות נפרדות. בדוגמה הזו נוצרות כמה הטמעות בקריאה אחת להטמעה:
 
 ### Python
 
@@ -791,11 +791,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### Ses yerleştirme
+### הטמעת אודיו
 
-Aşağıdaki örnekte, `gemini-embedding-2` kullanarak ses dosyasının nasıl yerleştirileceği gösterilmektedir.
+בדוגמה הבאה אפשר לראות איך מטמיעים קובץ אודיו באמצעות `gemini-embedding-2`.
 
-Ses dosyaları, satır içi veri olarak veya [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr) aracılığıyla yüklenen dosyalar olarak sağlanabilir.
+אפשר לספק קובצי אודיו כנתונים מוטבעים או כקבצים שהועלו דרך [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
 ### Python
 
@@ -869,11 +869,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### Video yerleştirme
+### הטמעה של סרטון
 
-Aşağıdaki örnekte, `gemini-embedding-2` kullanarak videonun nasıl yerleştirileceği gösterilmektedir.
+בדוגמה הבאה אפשר לראות איך מטמיעים סרטון באמצעות `gemini-embedding-2`.
 
-Videolar, satır içi veri olarak veya [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr) aracılığıyla yüklenen dosyalar olarak sağlanabilir.
+אפשר לספק סרטונים כנתונים מוטבעים או כקבצים שהועלו דרך [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
 ### Python
 
@@ -947,29 +947,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-120 saniyeden uzun videoları yerleştirmeniz gerekiyorsa videoyu çakışan segmentlere ayırıp bu segmentleri ayrı ayrı yerleştirebilirsiniz.
+אם אתם צריכים להטמיע סרטונים שאורכם גדול מ-120 שניות, אתם יכולים לחלק את הסרטון לקטעים חופפים ולהטמיע כל קטע בנפרד.
 
-### Dokümanları yerleştirme
+### הטמעת מסמכים
 
-PDF biçimindeki dokümanlar doğrudan yerleştirilebilir. Model, her sayfanın görsel ve metin içeriğini işler.
+אפשר להטמיע מסמכים בפורמט PDF ישירות. המודל מעבד את התוכן החזותי והטקסטואלי של כל דף.
 
-PDF'ler, satır içi veri olarak veya [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr) aracılığıyla yüklenen dosyalar olarak sağlanabilir.
+אפשר לספק קובצי PDF כנתונים מוטבעים או כקבצים שהועלו דרך [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
-#### Model, PDF'leri nasıl işler?
+#### איך המודל מעבד קובצי PDF
 
-Bir PDF'yi yerleştirdiğinizde model, belgeyi hem görsel hem de metin özelliklerini kullanarak işler:
+כשמטמיעים קובץ PDF, המודל מעבד את המסמך באמצעות תכונות ויזואליות וטקסטואליות:
 
-- **Görsel gösterim:** Model, her sayfayı resim olarak oluşturur. Bu işlem, sayfa başına **258 jeton** tüketir.
-- **Metin çıkarma:** Model, belgedeki metni çıkarır. **Yerel PDF'ler** (dijital metin içerenler) için model, metni doğrudan ayıklar. **Taranmış PDF'lerde** (metin resimleri içeren) metni ayıklamak için model otomatik olarak optik karakter tanıma (OCR) gerçekleştirir.
+- **ייצוג חזותי:** המודל מעבד כל דף כתמונה, וזה צורך **258 טוקנים** לכל דף.
+- **חילוץ טקסט:** המודל מחלץ טקסט מהמסמך. במקרה של **קובצי PDF מקוריים** (שמכילים טקסט דיגיטלי), המודל מחלץ את הטקסט ישירות. במקרה של **קובצי PDF סרוקים** (שמכילים תמונות של טקסט), המודל מפעיל באופן אוטומטי זיהוי תווים אופטי (OCR) כדי לחלץ את הטקסט.
 
-Bir PDF'nin toplam jeton sayısını hesaplamak için görsel jetonları (sayfa başına 258) metin jetonlarına ekleyin. Girişleriniz,modelin **8.192 jeton sınırını** (tüm yöntemlerde geçerlidir) aşmamalıdır. Sistem, bu sınırı aşan girişleri sessizce keser.
+כדי לחשב את המספר הכולל של הטוקנים בקובץ PDF, מוסיפים את הטוקנים החזותיים (258 לכל דף) לטוקנים של הטקסט. הקלט שלכם צריך להיות במסגרת **המגבלה של 8,192 טוקנים של המודל** (משותפת לכל סוגי הקלט). המערכת קוטעת בשקט קלטים שחורגים מהמגבלה הזו.
 
-#### PDF sınırları
+#### מגבלות על קובצי PDF
 
-- **İstek başına dosya sayısı:** En fazla 1 PDF dosyası gönderebilirsiniz.
-- **Sayfa sınırı:** Dosya başına en fazla 6 sayfa gönderebilirsiniz. En iyi kalite için PDF başına 1 sayfa kullanmanızı önemle tavsiye ederiz.
+- **קבצים לכל בקשה:** אפשר לשלוח קובץ PDF אחד לכל היותר.
+- **מגבלת דפים:** אפשר לשלוח עד 6 דפים לכל קובץ. כדי להשיג את האיכות הכי טובה, מומלץ מאוד להשתמש בדף אחד לכל קובץ PDF.
 
-Aşağıdaki örnekte, `gemini-embedding-2` kullanarak PDF'nin nasıl yerleştirileceği gösterilmektedir:
+בדוגמה הבאה אפשר לראות איך מטמיעים קובץ PDF באמצעות `gemini-embedding-2`:
 
 ### Python
 
@@ -1043,92 +1043,91 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## Kullanım alanları
+## תרחישים לדוגמה
 
-Metin yerleştirmeleri, aşağıdakiler gibi çeşitli yaygın yapay zeka kullanım alanları için çok önemlidir:
+הטמעות של טקסט חיוניות למגוון תרחישי שימוש נפוצים ב-AI, כמו:
 
-- **Veriyle artırılmış üretim (RAG):** Gömme, alakalı bilgileri alıp bir modelin bağlamına dahil ederek oluşturulan metnin kalitesini artırır.
-- **Bilgi alma:** Giriş metni verildiğinde, semantik olarak en benzer metni veya belgeleri arayın.
+- **יצירה משולבת-אחזור (RAG):** הטמעות משפרות את האיכות של הטקסט שנוצר על ידי אחזור ושילוב של מידע רלוונטי בהקשר של מודל.
+- **אחזור מידע:** חיפוש הטקסט או המסמכים הכי דומים מבחינה סמנטית בהינתן קטע טקסט כקלט.
 
-  [Belge arama eğitimitask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
-- **Aramada yeniden sıralama**: İlk sonuçları sorguya göre anlamsal olarak puanlayarak en alakalı öğelere öncelik verin.
+  [הדרכה לחיפוש מסמכיםtask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
+- **דירוג מחדש של תוצאות החיפוש**: מתן עדיפות לפריטים הרלוונטיים ביותר על ידי ניתוח סמנטי של התוצאות הראשוניות בהשוואה לשאילתה.
 
-  [Arama sonuçlarını yeniden sıralama eğitimitask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
-- **Anormallik algılama:** Yerleştirme gruplarını karşılaştırmak, gizli trendleri veya aykırı değerleri belirlemeye yardımcı olabilir.
+  [מדריך לדירוג מחדש של תוצאות חיפושtask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
+- **זיהוי אנומליות:** השוואה בין קבוצות של הטמעות יכולה לעזור לזהות מגמות נסתרות או חריגות.
 
-  [Anormallik algılama eğitimibubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
-- **Sınıflandırma:** Metni içeriğine göre otomatik olarak kategorilere ayırın (ör. duygu analizi veya spam algılama).
+  [הדרכה בנושא זיהוי אנומליותbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
+- **סיווג:** סיווג אוטומטי של טקסט על סמך התוכן שלו, כמו ניתוח סנטימנטים או זיהוי ספאם
 
-  [Sınıflandırma eğitimitoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
-- **Kümeleme:** Yerleştirmelerinizin kümelerini ve görselleştirmelerini oluşturarak karmaşık ilişkileri etkili bir şekilde kavrayın.
+  [מדריך לסיווגtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
+- **אשכולות:** כדי להבין ביעילות קשרים מורכבים, אפשר ליצור אשכולות והדמיות של ההטמעות.
 
-  [Kümeleme görselleştirme eğitimibubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
+  [מדריך לתצוגה חזותית של אשכולותbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
 
-## Yerleştirilmiş öğeleri depolama
+## אחסון הטמעות
 
-Yerleştirmeleri üretime alırken yüksek boyutlu yerleştirmeleri verimli bir şekilde depolamak, dizine eklemek ve almak için **vektör veritabanlarını** kullanmak yaygın bir uygulamadır. Google Cloud, bu amaçla kullanılabilecek yönetilen veri hizmetleri sunar. Bu hizmetler arasında [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/BUILD/vector-search-2?hl=tr), [BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=tr), [AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=tr) ve [Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=tr) yer alır.
+כשמעבירים הטמעות לסביבת ייצור, נהוג להשתמש ב**מסדי נתונים וקטוריים** כדי לאחסן, ליצור אינדקס ולאחזר הטמעות רב-ממדיות בצורה יעילה. ‫Google Cloud מציע שירותי נתונים מנוהלים שאפשר להשתמש בהם למטרה הזו, כולל [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/BUILD/vector-search-2?hl=he),‏ [BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=he), ‏ [AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=he) ו-[Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=he).
 
-Aşağıdaki eğitimlerde, Gemini Embedding ile diğer üçüncü taraf vektör veritabanlarının nasıl kullanılacağı gösterilmektedir.
+במדריכים הבאים מוסבר איך להשתמש במסדי נתונים אחרים של וקטורים של צד שלישי עם Gemini Embedding.
 
-- [ChromaDB eğitimleribolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
-- [QDrant eğitimleribolt](https://qdrant.tech/documentation/embeddings/gemini/)
-- [Weaviate eğitimleribolt](https://docs.weaviate.io/weaviate/model-providers/google)
-- [Pinecone eğitimleribolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
+- [ChromaDB tutorialsbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
+- [מדריכים ל-QDrantbolt](https://qdrant.tech/documentation/embeddings/gemini/)
+- [מדריכים ל-Weaviatebolt](https://docs.weaviate.io/weaviate/model-providers/google)
+- [מדריכים של Pineconebolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
 
-## Model sürümleri
+## גרסאות המודלים
 
 ### Gemini Embedding 2
 
-| Mülk | Açıklama |
+| נכס | תיאור |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `gemini-embedding-2` |
-| saveDesteklenen veri türleri | **Giriş**  Metin, resim, video, ses, PDF  **Çıkış**  Metin yerleştirmeleri |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  8.192  **Çıkış boyutu**  Esnek, desteklenen boyutlar: 128 - 3072, Önerilen boyutlar: 768, 1536, 3072 |
-| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Kararlı: `gemini-embedding-2` |
-| calendar\_monthSon güncelleme | Nisan 2026 |
+| id\_cardקוד המודל | ‫**Gemini API**  `gemini-embedding-2` |
+| saveסוגי נתונים נתמכים | **קלט**  טקסט, תמונה, סרטון, אודיו, PDF  **פלט**  הטמעות של טקסט |
+| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  ‫8,192  **גודל מאפיין הפלט**  גמיש, תומך בערכים: 128 עד 3072, מומלץ: 768, ‏ 1536, ‏ 3072 |
+| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-embedding-2` |
+| calendar\_monthהעדכון האחרון | אפריל 2026 |
 
 ### Gemini Embedding
 
-| Mülk | Açıklama |
+| נכס | תיאור |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `gemini-embedding-001` |
-| saveDesteklenen veri türleri | **Giriş**  Metin  **Çıkış**  Metin yerleştirmeleri |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  2.048  **Çıkış boyutu**  Esnek, desteklenen boyutlar: 128 - 3072, Önerilen boyutlar: 768, 1536, 3072 |
-| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Kararlı: `gemini-embedding-001` |
-| calendar\_monthSon güncelleme | Haziran 2025 |
+| id\_cardקוד המודל | ‫**Gemini API**  `gemini-embedding-001` |
+| saveסוגי נתונים נתמכים | **קלט**  טקסט  **פלט**  הטמעות של טקסט |
+| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  2,048  **גודל מאפיין הפלט**  גמיש, תומך בערכים: 128 עד 3072, מומלץ: 768, ‏ 1536, ‏ 3072 |
+| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-embedding-001` |
+| calendar\_monthהעדכון האחרון | יוני 2025 |
 
-Desteği sonlandırılan Embeddings modelleri için [Desteği Sonlandırılanlar](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr) sayfasını ziyaret edin.
+למידע על מודלים של הטמעות שהוצאו משימוש, אפשר לעבור לדף [הוצאות משימוש](https://ai.google.dev/gemini-api/docs/deprecations?hl=he).
 
-## gemini-embedding-001'den taşıma
+## העברה מ-gemini-embedding-001
 
-`gemini-embedding-001` ile `gemini-embedding-2` arasındaki yerleştirme alanları **uyumlu değildir**. Bu nedenle, bir model tarafından oluşturulan yerleştirmeleri doğrudan diğer model tarafından oluşturulan yerleştirmelerle karşılaştıramazsınız. `gemini-embedding-2` sürümüne yükseltiyorsanız mevcut verilerinizin tamamını yeniden yerleştirmeniz gerekir.
+הרווחים להטמעה בין `gemini-embedding-001` ל-`gemini-embedding-2` **לא תואמים**. כלומר, אי אפשר להשוות ישירות בין הטמעות שנוצרו על ידי מודל אחד לבין הטמעות שנוצרו על ידי המודל השני. אם אתם משדרגים ל-`gemini-embedding-2`, אתם צריכים להטמיע מחדש את כל הנתונים הקיימים.
 
-Uyumsuzluğun yanı sıra iki model arasında dikkat çekici başka farklılıklar da vardır:
+בנוסף לחוסר התאימות, יש עוד כמה הבדלים חשובים בין שני המודלים:
 
-- **Görev türü belirtimi:** `gemini-embedding-001` ile `task_type` parametresini kullanarak görev türünü belirtirsiniz (ör. `SEMANTIC_SIMILARITY`, `RETRIEVAL_DOCUMENT`). `gemini-embedding-2` ile `task_type` parametresi desteklenmez. Bunun yerine, yalnızca metin içeren görevler için görev talimatlarını doğrudan isteme eklemelisiniz. Farklı kullanım alanları için istemleri nasıl biçimlendireceğinizle ilgili ayrıntılar için [Embeddings 2 ile görev türleri](#task-types-embeddings-2) başlıklı makaleyi inceleyin.
-- **Yerleştirme toplama:** `gemini-embedding-001`, giriş listesindeki her dize için ayrı yerleştirmeler oluşturur. Buna karşılık,
-  `gemini-embedding-2` birden fazla giriş (ör. metin ve resimler) doğrudan tek bir istekte sağlandığında tek bir toplu yerleştirme oluşturur. Ayrı girişler için ayrı yerleştirmeler oluşturmak üzere her girişi bir `Content` nesnesine sarmalayın veya [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr#batch-embedding)'yi kullanın. Daha fazla bilgi için [Yerleştirme toplama](#embedding-aggregation) bölümüne bakın.
-- **Normalleştirme:** 3.072'den az boyutlu yerleştirmeler istemek için `output_dimensionality` kullanırsanız `gemini-embedding-2`, bu kısaltılmış yerleştirmeleri otomatik olarak normalleştirir. `gemini-embedding-001` ile 3072 dışında kalan boyutlar için manuel normalleştirme yapmanız gerekir. Ayrıntılar için [Daha küçük boyutlarda kaliteyi sağlama](#quality-for-smaller-dimensions) başlıklı makaleyi inceleyin.
+- **ציון סוג המשימה:** ב-`gemini-embedding-001`, מציינים את סוג המשימה באמצעות הפרמטר `task_type` (לדוגמה, `SEMANTIC_SIMILARITY`,‏ `RETRIEVAL_DOCUMENT`). ב-`gemini-embedding-2`, הפרמטר `task_type` לא נתמך. במקום זאת, צריך לכלול את הוראות המשימה ישירות בהנחיה למשימות של טקסט בלבד. במאמר [סוגי משימות עם Embeddings 2](#task-types-embeddings-2) מוסבר איך לנסח הנחיות לתרחישי שימוש שונים.
+- **צבירת הטמעות:** `gemini-embedding-001` יוצר הטמעות נפרדות לכל מחרוזת ברשימת הקלטים. לעומת זאת, כשמספקים כמה קלטים (כמו טקסט ותמונות) ישירות בבקשה אחת, `gemini-embedding-2` יוצר הטמעה אחת מצטברת. כדי ליצור הטמעות נפרדות עבור כל קלט, צריך לעטוף כל קלט באובייקט `Content` או להשתמש ב-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he#batch-embedding). מידע נוסף זמין במאמר בנושא [Embedding aggregation](#embedding-aggregation).
+- **נרמול:** אם משתמשים ב-`output_dimensionality` כדי לבקש הטמעות עם פחות מ-3,072 ממדים, `gemini-embedding-2` מנרמל אוטומטית את ההטמעות החלקיות האלה. ב-`gemini-embedding-001`, צריך לבצע נרמול ידני למאפיינים שאינם 3072. פרטים נוספים זמינים במאמר בנושא [איך לשמור על איכות התמונות כשמשנים את המידות שלהן](#quality-for-smaller-dimensions).
 
-## Toplu yerleştirmeler
+## הטמעות באצווה
 
-Gecikme sorun değilse Gemini Embeddings modellerini [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr#batch-embedding) ile kullanmayı deneyin. Bu sayede, varsayılan yerleştirme fiyatının% 50'siyle çok daha yüksek işleme hızı elde edilebilir.
-Başlangıçla ilgili örnekleri [Toplu API yemek kitabında](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb) bulabilirsiniz.
+אם זמן האחזור לא חשוב לכם, נסו להשתמש במודלים של Gemini Embeddings עם [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he#batch-embedding). השינוי הזה מאפשר תפוקה גבוהה בהרבה במחיר שמהווה 50% ממחיר ברירת המחדל של Embedding.
+אפשר למצוא דוגמאות לאופן השימוש ב-API לפעולות מקובצות ב[מדריך המתכונים של Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
 
-## Sorumlu kullanım bildirimi
+## הודעה על שימוש אחראי
 
-Yeni içerikler oluşturan üretken yapay zeka modellerinin aksine, Gemini Embedding modeli yalnızca giriş verilerinizin biçimini sayısal bir gösterime dönüştürmek için tasarlanmıştır. Google, giriş verilerinizin biçimini istenen sayısal biçime dönüştüren bir yerleştirme modeli sağlamaktan sorumlu olsa da kullanıcılar, girdikleri veriler ve ortaya çıkan yerleştirmelerle ilgili tüm sorumluluğu üstlenir. Gemini Embedding modelini kullanarak, yüklediğiniz tüm içeriklerle ilgili gerekli haklara sahip olduğunuzu onaylarsınız. Başkalarının fikri mülkiyet veya gizlilik haklarını ihlal eden içerikler üretmeyin. Bu hizmeti kullanımınız [Yasaklanan Kullanım Politikamıza](https://policies.google.com/terms/generative-ai/use-policy?hl=tr) ve [Google'ın Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'na tabidir.
+בניגוד למודלים של AI גנרטיבי שיוצרים תוכן חדש, מודל ההטמעה של Gemini נועד רק להמיר את הפורמט של נתוני הקלט לייצוג מספרי. ‫Google אחראית לספק מודל הטמעה שממיר את הפורמט של נתוני הקלט לפורמט המספרי המבוקש, אבל המשתמשים אחראים באופן מלא לנתונים שהם מזינים ולהטמעות שמתקבלות. השימוש במודל Gemini Embedding מבטא את האישור שלכם לכך שיש לכם את הזכויות הנדרשות על התוכן שאתם מעלים. אסור ליצור תוכן שמפר את זכויות הקניין הרוחני או זכויות הפרטיות של אחרים. השימוש בשירות הזה כפוף [למדיניות שלנו בנושא שימוש אסור](https://policies.google.com/terms/generative-ai/use-policy?hl=he) ו[לתנאים ולהגבלות של Google](https://ai.google.dev/gemini-api/terms?hl=he).
 
-## Yerleştirmelerle geliştirmeye başlama
+## מתחילים ליצור הטמעות
 
-Model özelliklerini keşfetmek ve yerleştirmelerinizi nasıl özelleştirip görselleştireceğinizi öğrenmek için [yerleştirme hızlı başlangıç not defterine](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) göz atın.
+כדאי לעיין [במדריך למתחילים בנושא הטמעות (embeddings)](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) כדי להכיר את היכולות של המודל וללמוד איך להתאים אישית את ההטמעות ולהציג אותן בצורה ויזואלית.
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-05-29 UTC.
+עדכון אחרון: 2026-05-29 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-29 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-29 (שעון UTC)."],[],[]]

@@ -1,49 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko
-fetched_at: 2026-06-01T19:36:03.305514+00:00
-title: "Gemini 3 Flash \ud504\ub9ac\ubdf0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr
+fetched_at: 2026-06-08T14:57:43.362816+00:00
+title: "Gemini 3 Flash \u00d6nizlemesi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-의견 보내기
+Geri bildirim gönderin
 
-# Gemini 3 Flash 프리뷰
+# Gemini 3 Flash Önizlemesi
 
-멀티모달 이해 부분에서 세계 최고 수준의 모델이자 Google의 가장 강력한 에이전트형 및 바이브 코딩 모델로, 최첨단 추론을 기반으로 더 풍부한 시각화와 더 심층적인 상호작용을 제공합니다.
+Çok formatlı anlama konusunda dünyanın en iyi modeli olan Gemini 3, gelişmiş mantık yürütme altyapısıyla geliştirilmiştir. Ayrıca en güçlü ajan tabanlı ve sezgisel kodlama modelimiz olmasının yanı sıra görselleştirmeleri ve etkileşimleri de daha üst seviyeye taşır.
 
-[Google AI Studio에서 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=ko)
+[Google AI Studio'da deneme](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=tr)
 
-## 문서
+## Belgeler
 
-[Gemini 3 개발자 가이드](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ko) 페이지에서 기능과 기능에 관한 전체 내용을 확인하세요.
+Özellikler ve işlevler hakkında kapsamlı bilgi için [Gemini 3 Geliştirici Kılavuzu](https://ai.google.dev/gemini-api/docs/gemini-3?hl=tr) sayfasını ziyaret edin.
 
 ## gemini-3-flash-preview
 
-| 속성 | 설명 |
+| Mülk | Açıklama |
 | --- | --- |
-| id\_card모델 코드 | `gemini-3-flash-preview` |
-| save 지원 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오, PDF  **출력**  텍스트 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  1,048,576  **출력 토큰 한도**  65,536 |
-| handyman기능 | **오디오 생성**  지원되지 않음  **Batch API**  지원됨  **캐싱**  지원됨  **코드 실행**  지원됨  **컴퓨터 사용**  지원됨  **파일 검색**  지원됨  **유연한 추론**  지원됨  **함수 호출**  지원됨  **Google 지도 그라운딩**  지원됨  **이미지 생성**  지원되지 않음  **Live API**  지원되지 않음  **우선순위 추론**  지원됨  **검색 그라운딩**  지원됨  **구조화된 출력**  지원됨  **사고**  지원됨  **URL 컨텍스트**  지원됨 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - `Preview: gemini-3-flash-preview` |
-| calendar\_month최신 업데이트 | 2025년 12월 |
-| cognition\_2지식 단절 | 2025년 1월 |
+| id\_cardModel kodu | `gemini-3-flash-preview` |
+| saveDesteklenen veri türleri | **Girişler**  Metin, resim, video, ses ve PDF  **Çıkış**  Metin |
+| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  1.048.576  **Çıkış jetonu sınırı**  65.536 |
+| handymanÖzellikler | **Ses üretimi**  Desteklenmiyor  **Batch API**  Destekleniyor  **Önbelleğe alma**  Destekleniyor  **Kod yürütme**  Destekleniyor  **Bilgisayar kullanımı**  Destekleniyor  **Dosya arama**  Destekleniyor  **Esnek çıkarım**  Destekleniyor  **İşlev çağırma**  Destekleniyor  **Google Haritalar ile Temellendirme**  Destekleniyor  **Görüntü üretme**  Desteklenmiyor  **Live API**  Desteklenmiyor  **Öncelik çıkarımı**  Destekleniyor  **Arama temellendirme**  Destekleniyor  **Yapılandırılmış çıkışlar**  Destekleniyor  **Düşünme** (Thinking)  Destekleniyor  **URL bağlamı**  Destekleniyor |
+| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - `Preview: gemini-3-flash-preview` |
+| calendar\_monthSon güncelleme | Aralık 2025 |
+| cognition\_2Son güncel bilgi tarihi | Ocak 2025 |
 
-의견 보내기
+Geri bildirim gönderin
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-최종 업데이트: 2026-04-29(UTC)
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-의견을 전달하고 싶나요?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

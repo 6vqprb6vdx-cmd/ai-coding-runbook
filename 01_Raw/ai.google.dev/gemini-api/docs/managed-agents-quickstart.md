@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-TW
-fetched_at: 2026-06-01T19:38:10.712282+00:00
-title: "\u4ee3\u7ba1\u4ee3\u7406\u7a0b\u5f0f\u5feb\u901f\u5165\u9580\u5c0e\u89bd\u8ab2\u7a0b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id
+fetched_at: 2026-06-08T15:01:26.646333+00:00
+title: "Panduan Memulai Agen Terkelola \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-提供意見
+Kirim masukan
 
-# 代管代理程式快速入門導覽課程
+# Panduan Memulai Agen Terkelola
 
-本指南將逐步說明如何使用 [Antigravity 代理](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=zh-tw)，在 Gemini API 上建立及使用 Managed Agents。您將進行第一次代理程式呼叫、繼續多輪對話、串流回應、從沙箱下載檔案，以及使用 Antigravity 管理型代理程式。
+Panduan ini akan memandu Anda membuat dan menggunakan Agen Terkelola di Gemini API, menggunakan [agen Antigravitasi](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=id). Anda akan melakukan panggilan agen pertama, melanjutkan percakapan bolak-balik, melakukan streaming respons, mendownload file dari sandbox, dan menggunakan agen terkelola Antigravity.
 
-## 執行首次代理互動
+## Menjalankan interaksi agen pertama Anda
 
-只要呼叫一次 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)，即可佈建 Linux 沙箱、執行代理程式迴圈，並傳回結果。您將定義三項參數：
+Satu panggilan ke [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id) menyediakan sandbox Linux, menjalankan loop agen, dan menampilkan hasilnya. Anda akan menentukan tiga parameter:
 
-- 以 `"antigravity-preview-05-2026",` 形式傳遞 `agent`，這是預先定義的通用型受管理代理程式目前版本。
-- 定義 `environment="remote"`，以佈建全新的沙箱環境。
-- 建立輸入內容，定義代理程式要執行的動作。
+- Teruskan `agent` sebagai `"antigravity-preview-05-2026",` yang merupakan versi saat ini dari agen terkelola tujuan umum dan yang telah ditentukan sebelumnya.
+- Tentukan `environment="remote"`, untuk menyediakan lingkungan sandbox baru yang bersih.
+- Buat input, yang menentukan tindakan yang Anda inginkan dari agen.
 
 ### Python
 
@@ -80,16 +80,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-回應會傳回 `Interaction` 物件。儲存 `interaction.id` 和 `interaction.environment_id`，即可在同一個沙箱中繼續對話。使用 `interaction.output_text` 存取代理的最終回覆。`interaction.steps` 列出代理執行的每個步驟 (推論、工具呼叫、程式碼執行作業)。
+Respons menampilkan objek `Interaction`. Simpan `interaction.id` dan `interaction.environment_id` untuk melanjutkan percakapan di sandbox yang sama. Gunakan `interaction.output_text` untuk mengakses respons akhir agen. `interaction.steps` mencantumkan setiap langkah yang dilakukan agen (penalaran, panggilan alat, eksekusi kode).
 
-## 繼續對話 (多輪)
+## Lanjutkan percakapan (multi-giliran)
 
-這項 API 會追蹤兩個獨立的狀態維度：
+API melacak dua dimensi status independen:
 
-- **對話脈絡：**對話記錄、推論追蹤、工具使用情形、使用 `previous_interaction_id`。
-- [**環境狀態：**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)檔案、已安裝的套件和沙箱狀態，使用 `environment`。
+- **Konteks percakapan:** histori chat, jejak penalaran, penggunaan alat, menggunakan `previous_interaction_id`.
+- [**Status lingkungan:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) file, paket yang diinstal, dan status sandbox, menggunakan `environment`.
 
-在各自的位置傳遞這兩項內容，即可繼續：
+Teruskan keduanya di tempatnya masing-masing untuk melanjutkan:
 
 ### Python
 
@@ -132,20 +132,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-第 1 回合 (`fibonacci.txt`) 的檔案會保留到第 2 回合。專員也會保留對話脈絡。
+File dari giliran 1 (`fibonacci.txt`) tetap ada di giliran 2. Agen juga mempertahankan konteks percakapan.
 
-您可以獨立混搭下列項目：
+Anda dapat memadupadankan hal-hal ini secara terpisah:
 
-- **清除對話，保留檔案：**省略 `previous_interaction_id`，只使用 `environment` 傳遞環境 ID，在同一個工作區中展開新的對話。
-- **保留對話，建立新工作區：**傳遞 `previous_interaction_id`，為新的沙箱設定 `environment="remote"`。
+- **Hapus percakapan, simpan file:** Hilangkan `previous_interaction_id`, hanya teruskan ID lingkungan menggunakan `environment` untuk percakapan baru di ruang kerja yang sama.
+- **Lanjutkan percakapan, ruang kerja baru:** Teruskan `previous_interaction_id`, tetapkan `environment="remote"` untuk sandbox baru.
 
-### 自動壓縮脈絡
+### Pemadatan konteks otomatis
 
-在長時間的多輪對話中，推論步驟、工具呼叫和大型檔案內容的原始記錄可能會快速增長，並消耗大量脈絡空間。為避免發生權杖限制錯誤，並維持代理程式的專注度 (防止「脈絡腐化」)，Managed Agents API 會在權杖數量達到約 135,000 個時，執行原生脈絡壓縮步驟。這個步驟會自動執行。
+Dalam percakapan multi-turn yang berjalan lama, histori mentah langkah-langkah penalaran, panggilan alat, dan konten file besar dapat berkembang dengan cepat dan menggunakan ruang konteks yang signifikan. Untuk mencegah error batas token dan mempertahankan fokus agen (mencegah "context rot"), Managed Agents API menampilkan langkah pemadatan konteks native pada sekitar 135 ribu token. Hal ini terjadi secara otomatis.
 
-## 逐句顯示回覆
+## Streaming respons
 
-如果是長時間執行的工作，您可以串流回應，即時查看代理程式的工作情形：
+Untuk tugas yang berjalan lama, Anda dapat melakukan streaming respons untuk melihat pekerjaan agen secara real time:
 
 ### Python
 
@@ -199,11 +199,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-串流會傳回步驟差異的可疊代項目，包括遞增文字、推論詞元和工具呼叫更新。如要進一步瞭解如何串流回應，請參閱[串流指南](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw)。
+Streaming menampilkan iterable delta langkah, yang merupakan teks inkremental, token penalaran, dan update panggilan alat. Pelajari lebih lanjut cara melakukan streaming respons di [panduan Streaming](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=id).
 
-## 從環境下載檔案
+## Mendownload file dari lingkungan
 
-代理程式在沙箱中建立檔案時。使用 Files API 透過直接 HTTP 要求下載 (目前沒有 SDK 方法)：
+Saat agen membuat file di dalam sandbox. Download menggunakan Files API dengan permintaan HTTP langsung (belum ada metode SDK):
 
 ### Python
 
@@ -270,13 +270,13 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/environme
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## 儲存代管代理程式
+## Menyimpan agen terkelola
 
-在先前的步驟中，我們使用了預設的 Antigravity 代理程式，並內嵌自訂。完成設定 (指令、技能和環境) 的疊代後，您可以將設定儲存為受管理代理程式。這樣一來，您就能透過 ID 叫用該函式，不必重複設定。
+Pada langkah sebelumnya, kita menggunakan agen Antigravity default dan menyesuaikannya secara inline. Setelah melakukan iterasi pada konfigurasi (petunjuk, kemampuan, dan lingkungan), Anda dapat menyimpannya sebagai agen terkelola. Dengan begitu, Anda dapat memanggilnya berdasarkan ID tanpa mengulangi konfigurasi.
 
-儲存代理程式時，您會定義 `base_environment` (來自來源或分叉現有環境)。每次新互動時，代理程式都會使用這個環境。
+Saat menyimpan agen, Anda menentukan `base_environment` (baik dari sumber atau dengan membuat cabang lingkungan yang ada). Agen akan menggunakan lingkungan ini untuk setiap interaksi baru.
 
-**從來源：**內嵌定義來源，或從 GitHub 或 Cloud Storage 等其他來源定義。
+**Dari sumber:** Tentukan sumber secara inline, atau dari sumber lain seperti GitHub atau Cloud Storage.
 
 ### Python
 
@@ -361,9 +361,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## 叫用代管代理程式
+## Memanggil agen terkelola
 
-儲存受管理代理程式後，您就可以透過 ID 叫用該代理程式。每次叫用都會分叉基本環境，因此每次執行都會從乾淨的狀態開始：
+Setelah menyimpan agen terkelola, Anda dapat memanggilnya berdasarkan ID. Setiap pemanggilan membuat cabang lingkungan dasar, sehingga setiap eksekusi dimulai dengan bersih:
 
 ### Python
 
@@ -405,19 +405,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 後續步驟
+## Langkah berikutnya
 
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)：功能、支援的工具、多模態輸入、價格和限制。
-- [建構受管理代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)：使用您自己的指令、技能和資料擴充 Antigravity。
-- [環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)：來源、網路、生命週期、資源限制。
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw)：模型和代理程式的基礎 API。
+- [Agen Antigravitasi](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id): kemampuan, alat yang didukung, input multimodal, harga, dan batasan.
+- [Membangun Agen Terkelola](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id): perluas Antigravity dengan petunjuk, keterampilan, dan data Anda sendiri.
+- [Lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id): sumber, jaringan, siklus proses, batas resource.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id): API pokok untuk model dan agen.
 
-提供意見
+Kirim masukan
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-上次更新時間：2026-05-20 (世界標準時間)。
+Terakhir diperbarui pada 2026-05-20 UTC.
 
-想進一步說明嗎？
+Ada masukan untuk kami?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-20 (世界標準時間)。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-20 UTC."],[],[]]

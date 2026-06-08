@@ -1,51 +1,53 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=es-419
-fetched_at: 2026-06-01T19:46:27.605932+00:00
-title: "Versi\u00f3n preliminar de Gemini 3.1 Flash TTS (texto a voz) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ko
+fetched_at: 2026-06-08T15:06:59.331734+00:00
+title: "Gemini 3.1 Flash TTS (\ud14d\uc2a4\ud2b8 \uc74c\uc131 \ubcc0\ud658) \ud504\ub9ac\ubdf0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Enviar comentarios
+의견 보내기
 
-# Versión preliminar de Gemini 3.1 Flash TTS (texto a voz)
+# Gemini 3.1 Flash TTS (텍스트 음성 변환) 프리뷰
 
-El modelo Gemini 3.1 Flash TTS Preview proporciona una potente generación de voz con baja latencia y resultados naturales, instrucciones controlables y nuevas etiquetas de audio expresivas para un control preciso de la narración.
+Gemini 3.1 Flash TTS Preview 모델은 자연스러운 출력, 조작 가능한 프롬프트, 정확한 내레이션 제어를 위한 새로운 표현 오디오 태그를 통해 강력하고 지연 시간이 짧은 음성 생성을 제공합니다.
 
-[Probar en Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-tts-preview&hl=es-419)
+[Google AI Studio에서 사용해 보기](https://aistudio.google.com?model=gemini-3.1-flash-tts-preview&hl=ko)
 
-## Documentación
+## 문서
 
-El modelo Gemini 3.1 Flash TTS Preview presenta [etiquetas de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419#transcript-tags) expresivas para controlar la narración, así como mejoras generales en la naturalidad, la capacidad de control y la capacidad multilingüe.
+Gemini 3.1 Flash TTS Preview 모델은 내레이션을 제어하기 위한 표현 [오디오 태그](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko#transcript-tags)
+와 자연스러움,
+제어 가능성, 다국어 지원을 전반적으로 개선합니다.
 
-Visita la guía de [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419) para obtener una cobertura completa de las funciones y capacidades.
+기능 및 기능에 대한 전체 내용은 [텍스트 음성 변환](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko) 가이드를 참고하세요.
 
 ## gemini-3.1-flash-tts-preview
 
-| Propiedad | Descripción |
+| 속성 | 설명 |
 | --- | --- |
-| Código del modelo id\_card | `gemini-3.1-flash-tts-preview` |
-| saveTipos de datos admitidos | **Entradas**  Texto  **Resultado**  Audio |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  8,192  **Límite de tokens de salida**  16,384 |
-| handymanFunciones | **Generación de audio**  Admitido  **API de Batch**  Admitido  **Almacenamiento en caché**  No compatible  **Ejecución de código**  No compatible  **Búsqueda de archivos**  No compatible  **Llamada a función**  No compatible  **Fundamentación con Google Maps**  No compatible  **Generación de imágenes**  No compatible  **API de Live**  No compatible  **Fundamentación con la Búsqueda**  No compatible  **Resultados estructurados**  No compatible  **Pensamiento**  No compatible  **Contexto de la URL**  No compatible |
-| Versiones 123 | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - `gemini-3.1-flash-tts-preview` |
-| calendar\_monthÚltima actualización | Abril de 2026 |
-| Fecha límite de conocimiento de calendar\_month | Enero de 2025 |
+| id\_card모델 코드 | `gemini-3.1-flash-tts-preview` |
+| save지원되는 데이터 유형 | **입력**  텍스트  **출력**  오디오 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  8,192  **출력 토큰 한도**  16,384 |
+| handyman기능 | **오디오 생성**  지원됨  **Batch API**  지원됨  **캐싱**  지원되지 않음  **코드 실행**  지원되지 않음  **파일 검색**  지원되지 않음  **함수 호출**  지원되지 않음  **Google 지도 기반 그라운딩**  지원되지 않음  **이미지 생성**  지원되지 않음  **Live API**  지원되지 않음  **검색 그라운딩**  지원되지 않음  **구조화된 출력**  지원되지 않음  **사고**  지원되지 않음  **URL 컨텍스트**  지원되지 않음 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - `gemini-3.1-flash-tts-preview` |
+| calendar\_month최신 업데이트 | 2026년 4월 |
+| calendar\_month지식 단절 | 2025년 1월 |
 
-Enviar comentarios
+의견 보내기
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última actualización: 2026-04-29 (UTC)
+최종 업데이트: 2026-04-29(UTC)
 
-¿Quieres brindar más información?
+의견을 전달하고 싶나요?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

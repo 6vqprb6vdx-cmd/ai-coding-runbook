@@ -1,44 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/quickstart?hl=id
-fetched_at: 2026-06-01T19:47:42.456581+00:00
-title: "Panduan memulai Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/quickstart?hl=hi
+fetched_at: 2026-06-08T14:59:00.159414+00:00
+title: "Gemini API \u0915\u094d\u0935\u093f\u0915\u0938\u094d\u091f\u093e\u0930\u094d\u091f \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Panduan memulai Gemini API
+# Gemini API क्विकस्टार्ट
 
-Panduan memulai ini menunjukkan cara menginstal
-[library](https://ai.google.dev/gemini-api/docs/libraries?hl=id) kami dan membuat permintaan pertama, melakukan streaming
-respons, membuat percakapan multi-giliran, dan menggunakan alat menggunakan metode standar
-`generateContent`.
+इस क्विकस्टार्ट गाइड में, हमारी [लाइब्रेरी](https://ai.google.dev/gemini-api/docs/libraries?hl=hi) इंस्टॉल करने और पहला अनुरोध करने का तरीका बताया गया है. साथ ही, इसमें जवाब स्ट्रीम करने, कई बार बातचीत करने, और स्टैंडर्ड `generateContent` तरीके का इस्तेमाल करके टूल इस्तेमाल करने का तरीका बताया गया है.
 
-## Sebelum memulai
+## शुरू करने से पहले
 
-Untuk menggunakan Gemini API, Anda harus memiliki kunci API untuk mengautentikasi permintaan, menerapkan batas keamanan, dan melacak penggunaan ke akun Anda.
+Gemini API का इस्तेमाल करने के लिए, आपके पास एक एपीआई पासकोड होना चाहिए. इससे आपके अनुरोधों की पुष्टि की जा सकेगी, सुरक्षा से जुड़ी सीमाओं को लागू किया जा सकेगा, और आपके खाते के इस्तेमाल को ट्रैक किया जा सकेगा.
 
-Buat satu di AI Studio secara gratis untuk memulai:
+शुरू करने के लिए, AI Studio पर मुफ़्त में एक प्रोजेक्ट बनाएं:
 
-[Membuat Kunci Gemini API](https://aistudio.google.com/app/apikey?hl=id)
+[Gemini API पासकोड बनाना](https://aistudio.google.com/app/apikey?hl=hi)
 
-## Menginstal Google GenAI SDK
+## Google GenAI SDK इंस्टॉल करना
 
 ### Python
 
-Dengan menggunakan [Python 3.9+](https://www.python.org/downloads/), instal paket
-[`google-genai` menggunakan](https://pypi.org/project/google-genai/)
-perintah
-[pip berikut](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+[Python 3.9 या इसके बाद के वर्शन](https://www.python.org/downloads/) का इस्तेमाल करके, [`google-genai` पैकेज](https://pypi.org/project/google-genai/) इंस्टॉल करें. इसके लिए, यहां दी गई [pip कमांड](https://packaging.python.org/en/latest/tutorials/installing-packages/) का इस्तेमाल करें:
 
 ```
 pip install -q -U google-genai
@@ -46,20 +40,15 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-Dengan menggunakan [Node.js v18+](https://nodejs.org/en/download/package-manager),
-instal
-[Google Gen AI SDK untuk TypeScript dan JavaScript](https://www.npmjs.com/package/@google/genai)
-menggunakan
-[perintah npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) berikut:
+[Node.js v18+](https://nodejs.org/en/download/package-manager) का इस्तेमाल करके, [TypeScript और JavaScript के लिए Google Gen AI SDK](https://www.npmjs.com/package/@google/genai) इंस्टॉल करें. इसके लिए, यहां दी गई [npm कमांड](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) का इस्तेमाल करें:
 
 ```
 npm install @google/genai
 ```
 
-## Membuat teks
+## टेक्स्ट जनरेट करना
 
-Gunakan metode `models.generate_content` untuk
-[membuat respons teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id).
+`models.generate_content` तरीके का इस्तेमाल करके, [टेक्स्ट वाला जवाब जनरेट करें](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi).
 
 ### Python
 
@@ -115,11 +104,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Melakukan streaming respons
+## जवाब स्ट्रीम करें
 
-Secara default, model hanya menampilkan respons setelah seluruh proses pembuatan selesai. Untuk pengalaman yang lebih cepat dan interaktif, Anda dapat
-[melakukan streaming potongan respons](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#stream) saat
-dibuat.
+डिफ़ॉल्ट रूप से, मॉडल जवाब सिर्फ़ तब देता है, जब जनरेट करने की पूरी प्रोसेस पूरी हो जाती है. तेज़ी से और ज़्यादा इंटरैक्टिव अनुभव पाने के लिए, जवाब जनरेट होने के साथ-साथ, [जवाब के हिस्सों को स्ट्रीम किया जा सकता है](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#stream).
 
 ### Python
 
@@ -171,11 +158,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:s
   }'
 ```
 
-## Percakapan multi-giliran
+## एक से ज़्यादा बार बातचीत करने की सुविधा
 
-Untuk percakapan multi-giliran, SDK menyediakan helper `chats` stateful untuk
-membuat [pengalaman chat multi-giliran](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#chat)
-yang otomatis mengelola histori percakapan.
+एक से ज़्यादा बार बातचीत करने की सुविधा के लिए, एसडीके एक स्टेटफ़ुल `chats` हेल्पर उपलब्ध कराते हैं. इससे [एक से ज़्यादा बार बातचीत करने की सुविधा](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#chat) बनाई जा सकती है. यह सुविधा, बातचीत के इतिहास को अपने-आप मैनेज करती है.
 
 ### Python
 
@@ -231,11 +216,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Menggunakan alat
+## टूल इस्तेमाल करना
 
-Perluas kemampuan model dengan
-[melakukan grounding respons dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-untuk mengakses konten web real-time. Model secara otomatis menentukan kapan harus menelusuri, menjalankan kueri, dan mensintesis respons.
+मॉडल की क्षमताओं को बेहतर बनाएं. इसके लिए, [Google Search से मिले नतीजों के आधार पर जवाब जनरेट करें](https://ai.google.dev/gemini-api/docs/google-search?hl=hi), ताकि रीयल-टाइम में वेब कॉन्टेंट ऐक्सेस किया जा सके. मॉडल अपने-आप यह तय करता है कि कब खोजना है, क्वेरी को पूरा करना है, और जवाब जनरेट करना है.
 
 ### Python
 
@@ -322,27 +305,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-Gemini API juga mendukung alat bawaan lainnya:
+Gemini API में पहले से मौजूद अन्य टूल भी काम करते हैं:
 
-- **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**:
-  Memungkinkan model menulis dan menjalankan kode Python untuk memecahkan masalah matematika yang kompleks.
-- **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**: Memungkinkan Anda
-  melakukan grounding respons di URL halaman web tertentu yang Anda berikan.
-- **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**: Memungkinkan Anda
-  mengupload file dan melakukan grounding respons dalam kontennya menggunakan penelusuran semantik.
-- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**: Memungkinkan Anda
-  melakukan grounding respons dalam data lokasi dan menelusuri tempat, rute, dan
-  peta.
-- **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**: Memungkinkan
-  model berinteraksi dengan layar komputer virtual, keyboard, dan mouse untuk
-  melakukan tugas.
+- **[कोड को एक्ज़ीक्यूट करना](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi)**:
+  इस सुविधा की मदद से, मॉडल को गणित की मुश्किल समस्याओं को हल करने के लिए Python कोड लिखने और उसे चलाने की अनुमति मिलती है.
+- **[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)**: इसकी मदद से, जवाबों को उन वेब पेज यूआरएल के हिसाब से तैयार किया जा सकता है जिन्हें आपने उपलब्ध कराया है.
+- **[फ़ाइल खोज](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)**: इसकी मदद से, फ़ाइलें अपलोड की जा सकती हैं. साथ ही, सिमैंटिक सर्च का इस्तेमाल करके, उनके कॉन्टेंट में जवाब खोजे जा सकते हैं.
+- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)**: इसकी मदद से, जगह की जानकारी के डेटा के आधार पर जवाब पाए जा सकते हैं. साथ ही, जगहों, दिशा-निर्देशों, और मैप को खोजा जा सकता है.
+- **[कंप्यूटर का इस्तेमाल करना](https://ai.google.dev/gemini-api/docs/computer-use?hl=hi)**: इसकी मदद से मॉडल, वर्चुअल कंप्यूटर स्क्रीन, कीबोर्ड, और माउस के साथ इंटरैक्ट करके टास्क पूरे कर सकता है.
 
-## Memanggil fungsi kustom
+## कस्टम फ़ंक्शन कॉल करना
 
-Gunakan **[panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)** untuk menghubungkan
-model ke alat dan API kustom Anda. Model menentukan kapan harus memanggil fungsi Anda dan menampilkan `functionCall` dalam respons untuk dijalankan oleh aplikasi Anda.
+अपने कस्टम टूल और एपीआई से मॉडल कनेक्ट करने के लिए, **[फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)** का इस्तेमाल करें. मॉडल यह तय करता है कि आपकी फ़ंक्शन को कब कॉल करना है. साथ ही, आपके ऐप्लिकेशन को लागू करने के लिए, जवाब में `functionCall` दिखाता है.
 
-Contoh ini mendeklarasikan fungsi suhu tiruan dan memeriksa apakah model ingin memanggilnya.
+इस उदाहरण में, तापमान का एक मॉक फ़ंक्शन तय किया गया है. साथ ही, यह जांच की गई है कि मॉडल इसे कॉल करना चाहता है या नहीं.
 
 ### Python
 
@@ -504,25 +480,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Langkah berikutnya
+## आगे क्या करना है
 
-Setelah Anda memulai Gemini API, pelajari panduan berikut untuk membuat aplikasi yang lebih canggih:
+अब आपने Gemini API का इस्तेमाल शुरू कर दिया है. ज़्यादा बेहतर ऐप्लिकेशन बनाने के लिए, यहाँ दी गई गाइड पढ़ें:
 
-- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id)
-- [Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)
-- [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id)
-- [Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)
-- [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-- [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-- [Konteks panjang](https://ai.google.dev/gemini-api/docs/long-context?hl=id)
-- [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id)
+- [टेक्स्ट जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi)
+- [इमेज जनरेट करना](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)
+- [इमेज की बारीक़ी से पहचान](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi)
+- [सोच रहा है](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)
+- [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)
+- [Google Search से सटीक जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)
+- [ज़्यादा कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/long-context?hl=hi)
+- [एम्बेडिंग](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-06-01 UTC.
+आखिरी बार 2026-06-01 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-01 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-01 (UTC) को अपडेट किया गया."],[],[]]

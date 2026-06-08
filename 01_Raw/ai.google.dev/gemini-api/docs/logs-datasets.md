@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ko
-fetched_at: 2026-06-01T19:43:14.346194+00:00
+fetched_at: 2026-06-08T14:55:10.444716+00:00
 title: "\ub85c\uadf8 \ubc0f \ub370\uc774\ud130 \uc138\ud2b8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

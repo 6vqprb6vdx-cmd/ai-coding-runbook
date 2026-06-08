@@ -1,39 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi
-fetched_at: 2026-06-01T19:39:16.306286+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=pt-BR
+fetched_at: 2026-06-08T14:57:23.805507+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-# Kết quả có cấu trúc
+# Respostas estruturadas
 
-Bạn có thể định cấu hình các mô hình Gemini để tạo câu trả lời tuân thủ một JSON Schema được cung cấp. Điều này đảm bảo kết quả có thể dự đoán và an toàn về kiểu, đồng thời đơn giản hoá việc trích xuất dữ liệu có cấu trúc từ văn bản không có cấu trúc.
+É possível configurar os modelos do Gemini para gerar respostas que sigam um esquema JSON fornecido. Isso garante resultados previsíveis e seguros de tipo e simplifica
+a extração de dados estruturados de texto não estruturado.
 
-Sử dụng đầu ra có cấu trúc là lựa chọn lý tưởng cho:
+Usar respostas estruturadas é ideal para:
 
-- **Trích xuất dữ liệu:** Lấy thông tin cụ thể như tên và ngày tháng từ văn bản.
-- **Phân loại có cấu trúc:** Phân loại văn bản thành các danh mục được xác định trước.
-- **Quy trình công việc dựa trên tác nhân:** Tạo thông tin đầu vào có cấu trúc cho các công cụ hoặc API.
+- **Extração de dados**:extrai informações específicas, como nomes e datas, de um texto.
+- **Classificação estruturada**:classifique textos em categorias predefinidas.
+- **Fluxos de trabalho agênticos**:gere entradas estruturadas para ferramentas ou APIs.
 
-Ngoài việc hỗ trợ JSON Schema trong API REST, Google GenAI SDK còn cho phép xác định giản đồ bằng [Pydantic](https://docs.pydantic.dev/latest/) (Python) và [Zod](https://zod.dev/) (JavaScript).
+Além de oferecer suporte ao esquema JSON na API REST, os SDKs de IA generativa do Google
+permitem definir esquemas usando
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) e
+[Zod](https://zod.dev/) (JavaScript).
 
-Recipe Extractor
-Content Moderation
-Recursive Structures
+## Exemplos de saída estruturada
 
-Ví dụ này minh hoạ cách trích xuất dữ liệu có cấu trúc từ văn bản bằng các loại Giản đồ JSON cơ bản như `object`, `array`, `string` và `integer`.
+### Extrator de receitas
+
+Este exemplo demonstra como extrair dados estruturados de texto usando tipos básicos de
+esquema JSON, como `object`, `array`, `string` e `integer`.
 
 ### Python
 
@@ -197,7 +202,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Ví dụ về câu trả lời:**
+**Exemplo de resposta:**
 
 ```
 {
@@ -225,9 +230,318 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Kết quả phát trực tuyến
+### Moderação de conteúdo
 
-Bạn có thể truyền trực tuyến các đầu ra có cấu trúc, cho phép bạn bắt đầu xử lý phản hồi khi phản hồi đang được tạo. Các khối được truyền trực tuyến là các chuỗi JSON hợp lệ một phần có thể được nối để tạo thành đối tượng JSON cuối cùng.
+Este exemplo mostra `anyOf` para esquemas condicionais e `enum` para classificação, permitindo que a estrutura de saída varie com base no conteúdo.
+
+### Python
+
+```
+from google import genai
+from pydantic import BaseModel, Field
+from typing import Union, Literal
+
+class SpamDetails(BaseModel):
+    reason: str = Field(description="The reason why the content is considered spam.")
+    spam_type: Literal["phishing", "scam", "unsolicited promotion", "other"] = Field(description="The type of spam.")
+
+class NotSpamDetails(BaseModel):
+    summary: str = Field(description="A brief summary of the content.")
+    is_safe: bool = Field(description="Whether the content is safe for all audiences.")
+
+class ModerationResult(BaseModel):
+    decision: Union[SpamDetails, NotSpamDetails]
+
+client = genai.Client()
+
+prompt = """
+Please moderate the following content and provide a decision.
+Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
+"""
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input=prompt,
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": ModerationResult.model_json_schema()
+    },
+)
+
+result = ModerationResult.model_validate_json(interaction.output_text)
+print(result)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import * as z from "zod";
+
+const moderationResultJsonSchema = {
+  type: "object",
+  properties: {
+    decision: {
+      anyOf: [
+        {
+          type: "object",
+          title: "SpamDetails",
+          description: "Details for content classified as spam.",
+          properties: {
+            reason: { type: "string", description: "The reason why the content is considered spam." },
+            spam_type: { type: "string", enum: ["phishing", "scam", "unsolicited promotion", "other"], description: "The type of spam." }
+          },
+          required: ["reason", "spam_type"]
+        },
+        {
+          type: "object",
+          title: "NotSpamDetails",
+          description: "Details for content classified as not spam.",
+          properties: {
+            summary: { type: "string", description: "A brief summary of the content." },
+            is_safe: { type: "boolean", description: "Whether the content is safe for all audiences." }
+          },
+          required: ["summary", "is_safe"]
+        }
+      ]
+    }
+  },
+  required: ["decision"]
+};
+
+const moderationResultSchema = z.fromJSONSchema(moderationResultJsonSchema);
+
+const client = new GoogleGenAI({});
+
+const prompt = `
+Please moderate the following content and provide a decision.
+Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
+`;
+
+const interaction = await client.interactions.create({
+  model: "gemini-3.5-flash",
+  input: prompt,
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: moderationResultJsonSchema
+  },
+});
+
+const result = moderationResultSchema.parse(JSON.parse(interaction.output_text));
+console.log(result);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H 'Content-Type: application/json' \
+    -H "Api-Revision: 2026-05-20" \
+    -d '{
+      "model": "gemini-3.5-flash",
+      "input": "Please moderate the following content and provide a decision.\nContent: '\''Congratulations! You have won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'\''",
+      "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "title": "SpamDetails",
+                  "description": "Details for content classified as spam.",
+                  "properties": {
+                    "reason": { "type": "string", "description": "The reason why the content is considered spam." },
+                    "spam_type": { "type": "string", "enum": ["phishing", "scam", "unsolicited promotion", "other"], "description": "The type of spam." }
+                  },
+                  "required": ["reason", "spam_type"]
+                },
+                {
+                  "type": "object",
+                  "title": "NotSpamDetails",
+                  "description": "Details for content classified as not spam.",
+                  "properties": {
+                    "summary": { "type": "string", "description": "A brief summary of the content." },
+                    "is_safe": { "type": "boolean", "description": "Whether the content is safe for all audiences." }
+                  },
+                  "required": ["summary", "is_safe"]
+                }
+              ]
+            }
+          },
+          "required": ["decision"]
+        }
+      }
+      }
+    }'
+```
+
+**Exemplo de resposta:**
+
+```
+{
+  "decision": {
+    "reason": "The content is an unsolicited prize notification attempting to trick the user into clicking a suspicious link.",
+    "spam_type": "scam"
+  }
+}
+```
+
+### Estruturas recursivas
+
+Este exemplo ilustra como definir um esquema recursivo, como um
+organograma.
+
+### Python
+
+```
+from google import genai
+from pydantic import BaseModel, Field
+from typing import List
+
+class Employee(BaseModel):
+    """Represents an employee in an organization."""
+    name: str
+    employee_id: int
+    reports: List["Employee"] = Field(
+        default_factory=list,
+        description="A list of employees reporting to this employee."
+    )
+
+client = genai.Client()
+
+prompt = """
+Generate an organization chart for a small team.
+The manager is Alice, who manages Bob and Charlie. Bob manages David.
+"""
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input=prompt,
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": Employee.model_json_schema()
+    },
+)
+
+employee = Employee.model_validate_json(interaction.output_text)
+print(employee)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import * as z from "zod";
+
+const employeeJsonSchema = {
+  type: "object",
+  properties: {
+    name: { type: "string" },
+    employee_id: { type: "integer" },
+    reports: {
+      type: "array",
+      description: "A list of employees reporting to this employee.",
+      items: {
+        "$ref": "#"
+      }
+    }
+  },
+  required: ["name", "employee_id", "reports"]
+};
+
+const employeeSchema = z.fromJSONSchema(employeeJsonSchema);
+
+const client = new GoogleGenAI({});
+
+const prompt = `
+Generate an organization chart for a small team.
+The manager is Alice, who manages Bob and Charlie. Bob manages David.
+`;
+
+const interaction = await client.interactions.create({
+  model: "gemini-3.5-flash",
+  input: prompt,
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: employeeJsonSchema
+  },
+});
+
+const employee = employeeSchema.parse(JSON.parse(interaction.output_text));
+console.log(employee);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H 'Content-Type: application/json' \
+    -H "Api-Revision: 2026-05-20" \
+    -d '{
+      "model": "gemini-3.5-flash",
+      "input": "Generate an organization chart for a small team.\nThe manager is Alice, who manages Bob and Charlie. Bob manages David.",
+      "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "employee_id": { "type": "integer" },
+            "reports": {
+              "type": "array",
+              "description": "A list of employees reporting to this employee.",
+              "items": {
+                "$ref": "#"
+              }
+            }
+          },
+          "required": ["name", "employee_id", "reports"]
+        }
+      }
+      }
+    }'
+```
+
+**Exemplo de resposta:**
+
+```
+{
+  "name": "Alice",
+  "employee_id": 101,
+  "reports": [
+    {
+      "name": "Bob",
+      "employee_id": 102,
+      "reports": [
+        {
+          "name": "David",
+          "employee_id": 104,
+          "reports": []
+        }
+      ]
+    },
+    {
+      "name": "Charlie",
+      "employee_id": 103,
+      "reports": []
+    }
+  ]
+}
+```
+
+## Resultados de streaming
+
+É possível transmitir saídas estruturadas, permitindo que você comece a processar a resposta à medida que ela é gerada. Os blocos transmitidos são strings JSON parciais válidas que podem ser concatenadas para formar o objeto JSON final.
 
 ### Python
 
@@ -295,9 +609,13 @@ for await (const event of stream) {
 }
 ```
 
-## Đầu ra có cấu trúc bằng các công cụ
+## Saídas estruturadas com ferramentas
 
-Gemini 3 cho phép bạn kết hợp Đầu ra có cấu trúc với các công cụ tích hợp, bao gồm [Bám sát nguồn bằng Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=vi), [Ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=vi), [Thực thi mã](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=vi), [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=vi#structured-output) và [Gọi hàm](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=vi).
+Com o Gemini 3, você pode combinar saídas estruturadas com ferramentas integradas, incluindo
+[Embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=pt-br),
+[Contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br),
+[Execução de código](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=pt-br), [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=pt-br#structured-output) e
+[Chamada de função](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=pt-br).
 
 ### Python
 
@@ -390,79 +708,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Hỗ trợ giản đồ JSON
+## Suporte a esquemas JSON
 
-Để tạo một đối tượng JSON, hãy định cấu hình `response_format` bằng một đối tượng (hoặc một mảng chứa một đối tượng) thuộc loại `text` và đặt `mime_type` của đối tượng đó thành `application/json`. Bạn nên cung cấp giản đồ trong trường `schema`.
+Para gerar um objeto JSON, configure `response_format` com um objeto (ou uma matriz que contenha um objeto) do tipo `text` e defina `mime_type` como `application/json`. O esquema precisa ser fornecido no campo `schema`.
 
-Chế độ đầu ra có cấu trúc của Gemini hỗ trợ một phần của quy cách [Giản đồ JSON](https://json-schema.org/).
+O modo de saída estruturada do Gemini é compatível com um subconjunto da especificação do [esquema JSON](https://json-schema.org/).
 
-Sau đây là các giá trị được hỗ trợ của `type`:
+Os seguintes valores de `type` são aceitos:
 
-- **`string`**: Đối với văn bản.
-- **`number`**: Đối với số dấu phẩy động.
-- **`integer`**: Đối với số nguyên.
-- **`boolean`**: Đối với giá trị đúng hoặc sai.
-- **`object`**: Đối với dữ liệu có cấu trúc có các cặp khoá-giá trị.
-- **`array`**: Đối với danh sách các mục.
-- **`null`**: Để cho phép một thuộc tính có giá trị rỗng, hãy thêm `"null"` vào mảng loại (ví dụ: `{"type": ["string", "null"]}`).
+- **`string`**: para texto.
+- **`number`**: para números de ponto flutuante.
+- **`integer`**: para números inteiros.
+- **`boolean`**: para valores verdadeiro ou falso.
+- **`object`**: para dados estruturados com pares de chave-valor.
+- **`array`**: para listas de itens.
+- **`null`**: para permitir que uma propriedade seja nula, inclua `"null"` na matriz de tipos (por exemplo, `{"type": ["string", "null"]}`).
 
-Những thuộc tính mô tả này giúp hướng dẫn mô hình:
+Essas propriedades descritivas ajudam a orientar o modelo:
 
-- **`title`**: Nội dung mô tả ngắn về một tài sản.
-- **`description`**: Nội dung mô tả dài và chi tiết hơn về một cơ sở lưu trú.
+- **`title`**: uma breve descrição de uma propriedade.
+- **`description`**: uma descrição mais longa e detalhada de uma propriedade.
 
-### Thuộc tính cụ thể theo loại
+### Propriedades específicas do tipo
 
-**Đối với các giá trị `object`:**
+**Para valores de `object`:**
 
-- **`properties`**: Một đối tượng trong đó mỗi khoá là tên thuộc tính và mỗi giá trị là một giản đồ cho thuộc tính đó.
-- **`required`**: Một mảng gồm các chuỗi, liệt kê những thuộc tính bắt buộc.
-- **`additionalProperties`**: Kiểm soát việc có cho phép các thuộc tính không có trong `properties` hay không. Có thể là một boolean hoặc một giản đồ.
+- **`properties`**: um objeto em que cada chave é um nome de propriedade e cada valor é um esquema para essa propriedade.
+- **`required`**: uma matriz de strings que lista quais propriedades são obrigatórias.
+- **`additionalProperties`**: controla se as propriedades não listadas em `properties` são permitidas. Pode ser um booleano ou um esquema.
 
-**Đối với các giá trị `string`:**
+**Para valores de `string`:**
 
-- **`enum`**: Liệt kê một tập hợp cụ thể gồm các chuỗi có thể có cho các tác vụ phân loại.
-- **`format`**: Chỉ định cú pháp cho chuỗi, chẳng hạn như `date-time`, `date`, `time`.
+- **`enum`**: lista um conjunto específico de strings possíveis para tarefas de classificação.
+- **`format`**: especifica uma sintaxe para a string, como `date-time`, `date`, `time`.
 
-**Đối với các giá trị `number` và `integer`:**
+**Para valores de `number` e `integer`:**
 
-- **`enum`**: Liệt kê một tập hợp cụ thể gồm các giá trị bằng số có thể có.
-- **`minimum`**: Giá trị tối thiểu bao gồm.
-- **`maximum`**: Giá trị tối đa (bao gồm).
+- **`enum`**: lista um conjunto específico de valores numéricos possíveis.
+- **`minimum`**: o valor mínimo inclusivo.
+- **`maximum`**: o valor máximo inclusivo.
 
-**Đối với các giá trị `array`:**
+**Para valores de `array`:**
 
-- **`items`**: Xác định giản đồ cho tất cả các mục trong mảng.
-- **`prefixItems`**: Xác định danh sách giản đồ cho N mục đầu tiên, cho phép các cấu trúc giống như bộ giá trị.
-- **`minItems`**: Số lượng tối thiểu của các mục trong mảng.
-- **`maxItems`**: Số lượng tối đa của các mục trong mảng.
+- **`items`**: define o esquema de todos os itens na matriz.
+- **`prefixItems`**: define uma lista de esquemas para os primeiros N itens, permitindo estruturas semelhantes a tuplas.
+- **`minItems`**: o número mínimo de itens na matriz.
+- **`maxItems`**: o número máximo de itens na matriz.
 
-## Đầu ra có cấu trúc so với gọi hàm
+## Saídas estruturadas x chamada de função
 
-| Tính năng | Trường hợp sử dụng chính |
+| Recurso | Caso de uso principal |
 | --- | --- |
-| **Đầu ra có cấu trúc** | **Định dạng câu trả lời cuối cùng.** Sử dụng khi bạn muốn *câu trả lời* của mô hình ở một định dạng cụ thể. |
-| **Lệnh gọi hàm** | **Thực hiện hành động trong cuộc trò chuyện.** Sử dụng khi mô hình cần *hỏi bạn* thực hiện một việc trước khi đưa ra câu trả lời cuối cùng. |
+| **Saídas estruturadas** | **Formatar a resposta final**: use quando quiser que a *resposta* do modelo esteja em um formato específico. |
+| **Chamada de função** | **Realizar ações durante a conversa**: use quando o modelo precisar *pedir* para você realizar uma tarefa antes de dar uma resposta final. |
 
-## Các phương pháp hay nhất
+## Práticas recomendadas
 
-- **Nội dung mô tả rõ ràng:** Sử dụng trường `description` để hướng dẫn mô hình.
-- **Nhập mạnh:** Sử dụng các loại cụ thể (`integer`, `string`, `enum`).
-- **Thiết kế câu lệnh:** Nêu rõ bạn muốn mô hình làm gì.
-- **Xác thực:** Mặc dù đầu ra là JSON có cú pháp chính xác, nhưng bạn luôn phải xác thực các giá trị trong ứng dụng của mình.
-- **Xử lý lỗi:** Triển khai biện pháp xử lý lỗi hữu ích cho các đầu ra tuân thủ giản đồ nhưng không chính xác về mặt ngữ nghĩa.
+- **Descrições claras**:use o campo `description` para orientar o modelo.
+- **Tipagem forte**:use tipos específicos (`integer`, `string`, `enum`).
+- **Engenharia de comando**:indique claramente o que você quer que o modelo faça.
+- **Validação**:embora a saída seja um JSON sintaticamente correto, sempre valide os valores no seu aplicativo.
+- **Tratamento de erros**:implemente um tratamento de erros robusto para saídas compatíveis com o esquema, mas semanticamente incorretas.
 
-## Các điểm hạn chế
+## Limitações
 
-- **Tập hợp con giản đồ:** Không phải tính năng nào của Giản đồ JSON cũng được hỗ trợ.
-- **Độ phức tạp của giản đồ:** Những giản đồ quá lớn hoặc có cấu trúc lồng ghép sâu có thể bị từ chối.
+- **Subconjunto de esquema**:nem todos os recursos do esquema JSON são compatíveis.
+- **Complexidade do esquema**:esquemas muito grandes ou aninhados podem ser rejeitados.
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Cập nhật lần gần đây nhất: 2026-05-28 UTC.
+Última atualização 2026-06-05 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Quer enviar seu feedback?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-05 UTC."],[],[]]

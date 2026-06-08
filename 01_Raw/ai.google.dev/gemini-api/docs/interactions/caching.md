@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/caching?hl=pl
-fetched_at: 2026-06-01T19:47:16.912678+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/caching?hl=es-419
+fetched_at: 2026-06-08T15:08:08.191413+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Prześlij opinię
+Enviar comentarios
 
-# Buforowanie kontekstu
+# El almacenamiento de contexto en caché
 
-W typowym procesie AI możesz wielokrotnie przekazywać te same tokeny wejściowe do modelu. Interfejs Gemini API oferuje niejawne buforowanie, które optymalizuje wydajność i koszty.
+En un flujo de trabajo de IA típico, es posible que pases los mismos tokens de entrada una y otra vez a un modelo. La API de Gemini ofrece almacenamiento en caché implícito para optimizar el rendimiento y los costos.
 
-## Niejawne buforowanie
+## Almacenamiento en caché implícito
 
-Niejawne buforowanie jest domyślnie włączone w przypadku wszystkich modeli Gemini 2.5 i nowszych. Jeśli Twoje żądanie trafi do pamięci podręcznej, automatycznie przekażemy Ci oszczędności. Aby włączyć tę funkcję, nie musisz nic robić. Minimalna liczba tokenów wejściowych w przypadku buforowania kontekstu jest podana w tabeli poniżej dla każdego modelu:
+El almacenamiento en caché implícito está habilitado de forma predeterminada para todos los modelos de Gemini 2.5 y versiones posteriores. Pasamos automáticamente los ahorros de costos si tu solicitud alcanza las cachés. No es necesario que hagas nada para habilitar esta función. El recuento mínimo de tokens de entrada para el almacenamiento en caché de contexto se indica en la siguiente tabla para cada modelo:
 
-| Model | Minimalny limit tokenów |
+| Modelo | Límite mínimo de tokens |
 | --- | --- |
-| Gemini 3.5 Flash | 1024 |
-| Gemini 3 Pro (wersja testowa) | 4096 |
-| Gemini 2.5 Flash | 1024 |
-| Gemini 2.5 Pro | 4096 |
+| Gemini 3.5 Flash | 4096 |
+| Versión preliminar de Gemini 3.1 Pro | 4096 |
+| Gemini 2.5 Flash | 2048 |
+| Gemini 2.5 Pro | 2048 |
 
-Aby zwiększyć szansę na trafienie w niejawnej pamięci podręcznej:
+Para aumentar las posibilidades de un acierto de caché implícito, haz lo siguiente:
 
-- Spróbuj umieścić duże i popularne treści na początku prompta.
-- Spróbuj wysyłać żądania z podobnym prefiksem w krótkim czasie.
+- Intenta colocar contenido grande y común al comienzo de tu instrucción.
+- Intenta enviar solicitudes con un prefijo similar en un período breve.
 
-Liczbę tokenów, które zostały trafione do pamięci podręcznej, możesz sprawdzić w polu `usage_metadata` (Python) lub `usageMetadata` (JavaScript) obiektu odpowiedzi.
+Puedes ver la cantidad de tokens que fueron aciertos de caché en el campo `usage_metadata` (Python) o `usageMetadata` (JavaScript) del objeto de respuesta.
 
-Prześlij opinię
+Enviar comentarios
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Ostatnia aktualizacja: 2026-05-28 UTC.
+Última actualización: 2026-06-02 (UTC)
 
-Chcesz przekazać coś jeszcze?
+¿Quieres brindar más información?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-28 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-02 (UTC)"],[],[]]

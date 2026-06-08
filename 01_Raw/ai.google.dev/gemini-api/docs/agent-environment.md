@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-CN
-fetched_at: 2026-06-01T19:48:57.504917+00:00
-title: "\u53d7\u7ba1\u4ee3\u7406\u4e2d\u7684\u73af\u5883 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja
+fetched_at: 2026-06-08T14:55:25.699928+00:00
+title: "\u30de\u30cd\u30fc\u30b8\u30c9 \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u74b0\u5883 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-发送反馈
+フィードバックを送信
 
-# 受管代理中的环境
+# マネージド エージェントの環境
 
-环境是受管理的 Linux 沙盒，可为智能体提供一个隔离的位置来执行代码和保留文件。它们与互动上下文分离，因此您可以在多个互动中重复使用同一环境，也可以随时重新开始。
+環境はマネージド Linux サンドボックスであり、エージェントがコードを実行してファイルを永続化するための隔離された場所を提供します。環境はインタラクション コンテキストから切り離されているため、複数のインタラクションで同じ環境を再利用したり、いつでも最初からやり直したりできます。
 
-以下示例演示了如何使用新的远程环境创建互动并检索其 ID：
+次の例は、新しいリモート環境でインタラクションを作成してその ID を取得する方法を示しています。
 
 ### Python
 
@@ -68,17 +68,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## `environment` 参数
+## `environment` パラメータ
 
-`environment` 参数接受三种形式：
+`environment` パラメータは、次の 3 つの形式を受け入れます。
 
-| 姿势 | 示例 | 适用情形 |
+| フォーム | 例 | 使用する場面 |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | 预配新的沙盒。 |
-| 环境 ID | `environment="env_abc123"` | 重复使用包含所有文件和软件包的现有沙盒。 |
-| 配置对象 | `environment={...}` | 预配包含来源、网络规则或两者的新沙盒。 |
+| `"remote"` | `environment="remote"` | 新しいサンドボックスをプロビジョニングする。 |
+| 環境 ID | `environment="env_abc123"` | すべてのファイルとパッケージを含む既存のサンドボックスを再利用する。 |
+| 構成オブジェクト | `environment={...}` | ソース、ネットワーク ルール、またはその両方を使用して新しいサンドボックスをプロビジョニングする。 |
 
-以下示例演示了使用 `environment` 参数的三种方式。
+次の例は、`environment` パラメータを使用する 3 つの方法を示しています。
 
 ### Python
 
@@ -209,9 +209,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 配置环境
+## 環境を構成する
 
-设置环境的一种方法是告知智能体需要安装的内容。它会处理依赖项解析和问题排查。环境准备就绪后，保存 `environment_id` 并重复使用。
+環境を設定する方法の一つは、インストールする必要があるものをエージェントに伝えることです。依存関係の解決とトラブルシューティングを処理します。環境の準備ができたら、`environment_id` を保存して再利用します。
 
 ### Python
 
@@ -289,15 +289,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 从来源装载
+### ソースからマウントする
 
-如果您确切知道智能体需要哪些文件，请在一次调用中装载这些文件，而不是进行迭代。`environment` 配置对象接受包含三种类型的 `sources` 数组：
+エージェントに必要なファイルがわかっている場合は、反復処理を行うのではなく、1 回の呼び出しでマウントします。`environment` 構成オブジェクトは、次の 3 つのタイプの `sources` 配列を受け入れます。
 
-| 来源类型 | `type` 值 | 说明 | 限制 |
+| ソースタイプ | `type` 値 | 説明 | 上限 |
 | --- | --- | --- | --- |
-| Git 代码库 | `repository` | 将代码库从网址克隆到 `target` 处的沙盒中。 | 500 MB |
-| Cloud Storage | `gcs` | 将文件或目录从 Cloud Storage 复制到 `target` 处的沙盒中。 | 2 GB |
-| 内嵌内容 | `inline` | 将原始文本内容写入 `target` 处的沙盒中的文件。 | 每个文件 1 MB，总共 2 MB |
+| Git リポジトリ | `repository` | URL から `target` のサンドボックスにリポジトリのクローンを作成します。 | 500 MB |
+| Cloud Storage | `gcs` | Cloud Storage から `target` のサンドボックスにファイルまたはディレクトリをコピーします。 | 2 GB |
+| インライン コンテンツ | `inline` | `target` のサンドボックス内のファイルに未加工のテキスト コンテンツを書き込みます。 | 1 ファイルあたり 1 MB、合計 2 MB |
 
 ### Python
 
@@ -403,16 +403,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-您可以结合使用这两种方法：以声明方式装载已知来源，然后通过后续互动进行迭代以安装软件包或运行设置脚本。添加自定义来源时，您无法将根目录 (`/`) 设置为目标，必须始终指定子目录。
+両方のアプローチを組み合わせることができます。既知のソースを宣言的にマウントし、フォローアップ インタラクションで反復処理を行ってパッケージをインストールするか、設定スクリプトを実行します。カスタムソースを追加するときにルート（`/`）をターゲットとして設定することはできません。常にサブディレクトリを指定する必要があります。
 
-### 私有来源
+### プライベート ソース
 
-您还可以通过在网络配置中添加凭据，从私有 GitHub 代码库或私有 Cloud Storage 存储分区下载内容：
+ネットワーク構成に認証情報を追加することで、プライベート Github リポジトリまたはプライベート Cloud Storage バケットからダウンロードすることもできます。
 
-对于**私有 Git 代码库**，请使用`Basic`身份验证以及您的
-[GitHub 个人访问令牌
-(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)。
-使用 `x-oauth-basic` 作为用户名对令牌进行编码：
+**プライベート Git リポジトリ**の場合は、`Basic` 認証を使用して
+[GitHub 個人アクセス トークン
+（PAT）](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)を使用します。
+トークンをエンコードするには、ユーザー名として `x-oauth-basic` を使用します。
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -518,7 +518,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-对于**私有 Cloud Storage 存储分区**，请使用标准 OAuth 2.0 不记名令牌：
+**プライベート Cloud Storage バケット** の場合は、標準の OAuth 2.0 署名なしトークンを使用します。
 
 ```
 gcloud auth print-access-token
@@ -624,25 +624,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 预装软件
+## プリインストールされているソフトウェア
 
-沙盒在 Ubuntu 上运行，并预装了运行时和常用软件包。智能体可以在运行时使用 `pip
-install` 或 `npm install` 安装其他软件包。当您重复使用同一 `environment_id` 时，在互动期间安装的软件包会保留。
+サンドボックスは Ubuntu で実行され、ランタイムと一般的なパッケージがプリインストールされています。エージェントは、`pip
+install` または `npm install` を使用して、実行時に追加のパッケージをインストールできます。インタラクション中にインストールされたパッケージは、同じ `environment_id` を再利用するときに保持されます。
 
-| 类别 | 预装软件包 |
+| カテゴリ | プリインストールされているパッケージ |
 | --- | --- |
-| **UNIX 工具** | `curl`、`wget`、`git`、`rsync`、`unzip`、`ripgrep`、`fd-find`、`gawk`、`bc`、`tree`、`which`、`lsof`、`htop`、`jq`、`iproute2`、`procps`、`gcloud CLI` |
+| **UNIX ツール** | `curl`、`wget`、`git`、`rsync`、`unzip`、`ripgrep`、`fd-find`、`gawk`、`bc`、`tree`、`which`、`lsof`、`htop`、`jq`、`iproute2`、`procps`、`gcloud CLI` |
 | **Python 3.12** | `numpy`、`pandas`、`requests`、`google-genai`、`beautifulsoup4`、`pyyaml`、`ast-grep-cli` |
 | **Node.js 22** | `create-next-app`、`create-vite`、`typescript` |
 
-## 网络配置
+## ネットワークの構成
 
-默认情况下，环境具有不受限制的出站网络访问权限。使用 `network` 字段将出站流量限制为特定网域。每条规则都指定一个 `domain` 和一个可选的 `transform` 对象，以将标头注入到匹配的请求中。这些标头对于每次互动可以是唯一的，并且您可以为同一环境更新这些标头。
+デフォルトでは、環境には無制限の下り（外向き）ネットワーク アクセスがあります。`network` フィールドを使用して、下り（外向き）トラフィックを特定のドメインに制限します。各ルールでは、一致するリクエストにヘッダーを挿入する `domain` とオプションの `transform` オブジェクトを指定します。これらのヘッダーはインタラクションごとに一意にすることができ、同じ環境で更新できます。
 
-| 字段 | 类型 | 说明 |
+| フィールド | タイプ | 説明 |
 | --- | --- | --- |
-| `domain` | `string` | 要匹配的网域。使用确切的主机名或 `*` 来指定所有网域。 |
-| `transform` | `object` | 包含扁平键值对的对象，这些键值对表示要注入到匹配请求中的标头，例如 `{"Authorization": "Bearer ..."}`。 |
+| `domain` | `string` | 一致するドメイン。正確なホスト名を使用するか、すべてのドメインに `*` を使用します。 |
+| `transform` | `object` | 一致するリクエストに挿入するヘッダーを表すフラットな Key-Value ペアを含むオブジェクト（例: `{"Authorization": "Bearer ..."}`）。 |
 
 ### Python
 
@@ -732,13 +732,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-设置许可名单后，系统仅允许向明确列出的网域发出请求。您可以使用通配符来匹配子网域（例如 `{"domain":
-"*.example.com"}`），但请注意，这不会匹配根域名
-`example.com`，您必须单独添加该域名。如需允许所有其他流量（例如在不注入标头的情况下路由未列出的网域），请添加 `{"domain": "*"}` 作为全能条目。
+許可リストが設定されている場合、明示的にリストされたドメインへのリクエストのみが許可されます。ワイルドカードを使用してサブドメインを照合できます（例: `{"domain":
+"*.example.com"}`）。ただし、ルートドメイン
+`example.com` は照合されません。これは別途追加する必要があります。挿入されたヘッダーのないリストにないドメインのルーティングなど、他のすべてのトラフィックを許可するには、`{"domain": "*"}`を
+キャッチオール エントリとして追加します。
 
-### 凭据
+### 認証情報
 
-您可以通过添加标头转换来添加凭据，供智能体使用。凭据由出站代理注入到相应的 HTTP 标头中，它们绝不会作为环境变量或文件在沙盒内公开。
+ヘッダー変換を追加して、エージェントが使用する認証情報を追加できます。認証情報は下り（外向き）プロキシによってそれぞれの HTTP ヘッダーに挿入され、環境変数やファイルとしてサンドボックス内に公開されることはありません。
 
 ### Python
 
@@ -832,9 +833,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 停用网络访问权限
+### ネットワーク アクセスを無効にする
 
-如需阻止所有出站网络访问，请将 `network` 设置为 `disabled`：
+すべての下り（外向き）ネットワーク アクセスをブロックするには、`network` を `disabled` に設定します。
 
 ### Python
 
@@ -891,21 +892,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 环境生命周期
+## 環境のライフサイクル
 
-环境遵循以下生命周期：
+環境は次のライフサイクルに従います。
 
-| 状态 | 行为 |
+| 州 | 行動 |
 | --- | --- |
-| **已创建** | 当互动指定 `environment: "remote"` 或配置对象时，系统会预配环境。 |
-| **有效** | 在互动进行期间运行。 |
-| **空闲** | 闲置 15 分钟后，系统会自动创建快照并停止环境。 |
-| **离线** | 自上次使用以来保留 7 天。可以通过传递其 ID 来恢复。 |
-| **已删除** | 从系统中移除。 |
+| **作成日** | インタラクションで `environment: "remote"` または構成オブジェクトが指定されたときにプロビジョニングされます。 |
+| **有効** | インタラクションの進行中に実行されます。 |
+| **アイドル状態** | 15 分間操作がないと、自動スナップショットが作成され、停止します。 |
+| **オフライン** | 最後にアクティブになってから 7 日間保持されます。ID を渡すことで再開できます。 |
+| **削除しました** | システムから削除されました。 |
 
-## 从环境下载文件
+## 環境からファイルをダウンロードする
 
-智能体在执行期间会在沙盒内创建文件。您可以使用 Files API 将完整环境快照下载为 tar 文件：
+エージェントは実行中にサンドボックス内にファイルを作成します。Files API を使用して、環境スナップショット全体を tar ファイルとしてダウンロードできます。
 
 ### Python
 
@@ -1001,40 +1002,40 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## 价格和资源
+## 料金とリソース
 
-每个环境都以固定的资源分配运行：
+各環境は、固定リソース割り当てで実行されます。
 
-| 资源 | 值 |
+| リソース | 値 |
 | --- | --- |
-| **CPU** | 4 核 |
-| **内存** | 16 GB |
+| **CPU** | 4 コア |
+| **メモリ** | 16 GB |
 
-在预览版期间，环境计算（CPU、内存、沙盒执行）**不收费** 。如需了解
-智能体令牌费用，请参阅[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#pricing-for-agents)。
+プレビュー期間中は、環境コンピューティング（CPU、メモリ、サンドボックス実行）は**課金されません** 。エージェント トークンの費用については、
+[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#pricing-for-agents)をご覧ください。
 
-## 限制
+## 制限事項
 
-- **预览版状态** ：环境和受管理的智能体处于预览版阶段。功能和架构可能会发生变化。
-- **内嵌来源大小** ：内嵌来源限制为每个文件 1 MB，所有文件总共 2 MB。
-- **来源大小**：Git 代码库限制为 500 MB，Cloud Storage 代码库限制为 2 GB。
-- **环境启动** ：预配新环境最多需要约 5 秒。大型来源代码库可能会增加此时间。
-- **文件支持** ：智能体目前只能读取文本文件和图片文件。尚不支持二进制文件。
-- **无法从根目录装载** ：添加自定义来源时，您无法将根目录 (`/`) 设置为目标，必须始终指定子目录。
+- **プレビュー ステータス:** 環境とマネージド エージェントはプレビュー版です。機能とスキーマは変更される可能性があります。
+- **インライン ソースのサイズ:** インライン ソースは、1 ファイルあたり 1 MB、すべてのファイルで合計 2 MB に制限されています。
+- **ソースサイズ**: Git リポジトリは 500 MB、Cloud Storage リポジトリは 2 GB に制限されています。
+- **環境の起動:** 新しい環境のプロビジョニングには最大 5 秒かかります。ソース リポジトリが大きいと、この時間が長くなる可能性があります。
+- **ファイルのサポート:** 現在、エージェントはテキスト ファイルと画像ファイルの読み取りに制限されています。バイナリ ファイルのサポートはまだ利用できません。
+- **ルートからのマウント不可:** カスタムソースを追加するときにルート（`/`）をターゲットとして設定することはできません。常にサブディレクトリを指定する必要があります。
 
-## 后续步骤
+## 次のステップ
 
-- [智能体概览](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn)：了解受管理的智能体的核心概念。
-- [快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)：开始构建多轮对话和流式传输。
-- [Antigravity 智能体](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-cn)：探索默认智能体的功能、工具和价格。
-- [构建自定义智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)：使用 `AGENTS.md` 和 `SKILL.md` 定义您自己的智能体。
+- [エージェントの概要](https://ai.google.dev/gemini-api/docs/agents?hl=ja): マネージド エージェントの基本コンセプトについて学習する。
+- [クイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja): 複数ターンの会話とストリーミングで構築を開始する。
+- [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja): デフォルト エージェントの機能、ツール、料金を確認する。
+- [カスタム エージェントの構築](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ja): `AGENTS.md` と `SKILL.md` を使用して独自のエージェントを定義する。
 
-发送反馈
+フィードバックを送信
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最后更新时间 (UTC)：2026-05-20。
+最終更新日 2026-05-20 UTC。
 
-需要向我们提供更多信息？
+ご意見をお聞かせください
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-20。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-20 UTC。"],[],[]]

@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=th
-fetched_at: 2026-06-01T19:36:06.778919+00:00
-title: "Gemini 3.1 Flash-Lite (\u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e19\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=de
+fetched_at: 2026-06-08T14:55:07.687626+00:00
+title: "Gemini\u00a03.1 Flash-Lite (Vorabversion) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-ส่งความคิดเห็น
+Feedback geben
 
-# Gemini 3.1 Flash-Lite (เวอร์ชันตัวอย่าง)
+# Gemini 3.1 Flash-Lite (Vorabversion)
 
 ## gemini-3.1-flash-lite-preview
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardModel | `gemini-3.1-flash-lite-preview` |
-| ประเภทข้อมูลที่รองรับ save | **อินพุต**  ข้อความ รูปภาพ วิดีโอ เสียง และ PDF  **เอาต์พุต**  ข้อความ |
-| token\_autotoken\_auto[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  1,048,576  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
-| handymanCapabilities | **การสร้างเสียง**  ไม่รองรับ  **Batch API**  สิ่งที่ทำได้  **การแคช**  สิ่งที่ทำได้  **การรันโค้ด**  สิ่งที่ทำได้  **การใช้คอมพิวเตอร์**  ไม่รองรับ  **การค้นหาไฟล์**  สิ่งที่ทำได้  **การอนุมานแบบยืดหยุ่น**  สิ่งที่ทำได้  **การเรียกฟังก์ชัน**  สิ่งที่ทำได้  **การเชื่อมต่อแหล่งข้อมูลกับ Google Maps**  สิ่งที่ทำได้  **การสร้างรูปภาพ**  ไม่รองรับ  **Live API**  ไม่รองรับ  **การอนุมานตามลำดับความสำคัญ**  สิ่งที่ทำได้  **การเชื่อมต่อแหล่งข้อมูลของ Search**  สิ่งที่ทำได้  **เอาต์พุตที่มีโครงสร้าง**  สิ่งที่ทำได้  **การคิด**  สิ่งที่ทำได้  **บริบท URL**  สิ่งที่ทำได้ |
-| 123Versions | อ่าน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)เพื่อดูรายละเอียดเพิ่มเติม  - *ปิดตัวลง*: `gemini-3.1-flash-lite-preview` |
-| calendar\_monthการอัปเดตล่าสุด | มีนาคม 2026 |
-| cognition\_2การตัดข้อมูล | มกราคม 2025 |
+| id\_cardModellcode | `gemini-3.1-flash-lite-preview` |
+| saveUnterstützte Datentypen | **Eingaben**  Text, Bild, Video, Audio und PDF  **Ausgabe**  Text |
+| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Tokenlimit für Eingaben**  1.048.576  **Tokenlimit für Ausgaben**  65.536 |
+| handymanFunktionen | **Audiogenerierung**  Nicht unterstützt  **Batch API**  Unterstützt  **Caching**  Unterstützt  **Codeausführung**  Unterstützt  **Computerverwendung**  Nicht unterstützt  **Dateisuche**  Unterstützt  **Flex-Inferenz**  Unterstützt  **Funktionsaufrufe**  Unterstützt  **Fundierung mit Google Maps**  Unterstützt  **Bildgenerierung**  Nicht unterstützt  **Live API**  Nicht unterstützt  **Prioritätsinferenz**  Unterstützt  **Suchfundierung**  Unterstützt  **Strukturierte Ausgaben**  Unterstützt  **Überlegung**  Unterstützt  **URL-Kontext**  Unterstützt |
+| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - *Herunterfahren*: `gemini-3.1-flash-lite-preview` |
+| calendar\_monthLetzte Aktualisierung | März 2026 |
+| cognition\_2Wissensstand | Januar 2025 |
 
-ส่งความคิดเห็น
+Feedback geben
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-อัปเดตล่าสุด 2026-05-28 UTC
+Zuletzt aktualisiert: 2026-05-28 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Haben Sie Feedback für uns?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-28 UTC"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-05-28 (UTC)."],[],[]]

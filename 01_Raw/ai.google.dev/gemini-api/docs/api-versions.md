@@ -1,49 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=vi
-fetched_at: 2026-06-01T19:44:10.421983+00:00
-title: "Gi\u1ea3i th\u00edch v\u1ec1 c\u00e1c phi\u00ean b\u1ea3n API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=he
+fetched_at: 2026-06-08T15:03:38.404269+00:00
+title: "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d2\u05e8\u05e1\u05d0\u05d5\u05ea API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu tham khảo API](https://ai.google.dev/api?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [הפניית API](https://ai.google.dev/api?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Giải thích về các phiên bản API
+# הסבר על גרסאות API
 
-Tài liệu này cung cấp thông tin tổng quan cấp cao về sự khác biệt giữa các phiên bản `v1`
-và `v1beta` của Gemini API.
+במסמך הזה מפורטת סקירה כללית של ההבדלים בין גרסאות Gemini API‏: `v1` ו-`v1beta`.
 
-- **v1**: Phiên bản ổn định của API. Các tính năng trong phiên bản ổn định được hỗ trợ đầy đủ trong suốt vòng đời của phiên bản lớn. Nếu có bất kỳ thay đổi có thể gây lỗi nào, thì phiên bản lớn tiếp theo của API sẽ được tạo và phiên bản hiện có sẽ không được dùng nữa sau một khoảng thời gian hợp lý.
-  Bạn có thể đưa các thay đổi không gây lỗi vào API mà không cần thay đổi phiên bản chính.
-- **v1beta**: Phiên bản này bao gồm các tính năng ban đầu có thể đang trong quá trình phát triển và có thể bị thay đổi gây lỗi. Ngoài ra, không có gì đảm bảo rằng các tính năng trong phiên bản Beta sẽ chuyển sang phiên bản ổn định. **Nếu bạn cần tính ổn định trong môi trường thực tế và không thể chấp nhận rủi ro về các thay đổi gây lỗi, thì bạn không nên sử dụng phiên bản này trong quá trình sản xuất.**
+- ‫**v1**: גרסה יציבה של ה-API. התכונות בגרסה היציבה נתמכות באופן מלא לאורך חיי הגרסה הראשית. אם יש שינויים שעלולים לשבור את התאימות לאחור, ניצור את הגרסה הראשית הבאה של ה-API ונוציא משימוש את הגרסה הקיימת אחרי תקופה סבירה.
+  יכול להיות שיוכנסו שינויים ב-API שלא ישפיעו על התפקוד בלי לשנות את הגרסה הראשית.
+- ‫**v1beta**: הגרסה הזו כוללת תכונות מוקדמות שעשויות להיות בשלבי פיתוח, והן כפופות לשינויים שעלולים לגרום לכשלים. בנוסף, אין ערובה לכך שהתכונות בגרסת הבטא יעברו לגרסה היציבה. **אם אתם צריכים יציבות בסביבת הייצור שלכם ולא יכולים להסתכן בשינויים שעלולים לשבור את המערכת, אל תשתמשו בגרסה הזו בסביבת הייצור.**
 
-| Tính năng | v1 | v1beta |
+| תכונה | v1 | v1beta |
 | --- | --- | --- |
-| Tạo nội dung – Chỉ nhập văn bản |  |  |
-| Tạo nội dung – Nhập văn bản và hình ảnh |  |  |
-| Tạo nội dung – Xuất văn bản |  |  |
-| Tạo nội dung – Cuộc trò chuyện nhiều lượt (trò chuyện) |  |  |
-| Tạo nội dung – Lệnh gọi hàm |  |  |
-| Tạo nội dung – Phát trực tuyến |  |  |
-| Nhúng nội dung – Chỉ nhập văn bản |  |  |
-| Tạo câu trả lời |  |  |
-| Công cụ truy xuất ngữ nghĩa |  |  |
-| API Tương tác |  |  |
+| יצירת תוכן – קלט טקסט בלבד |  |  |
+| יצירת תוכן – קלט של טקסט ותמונה |  |  |
+| יצירת תוכן – פלט טקסט |  |  |
+| יצירת תוכן – שיחות עם זיכרון (צ'אט) |  |  |
+| יצירת תוכן – קריאות לפונקציות |  |  |
+| יצירת תוכן – סטרימינג |  |  |
+| הטמעת תוכן – הזנה של טקסט בלבד |  |  |
+| יצירת תשובה |  |  |
+| מאחזר סמנטי |  |  |
+| Interactions API |  |  |
 
-- – Được hỗ trợ
-- – Sẽ không bao giờ được hỗ trợ
+- ‫ – נתמך
+- ‫ – לא תהיה תמיכה לעולם
 
-## Định cấu hình phiên bản API trong SDK
+## הגדרת גרסת API ב-SDK
 
-SDK Gemini API mặc định là `v1beta`, nhưng bạn có thể chỉ định phiên bản một cách rõ ràng bằng cách đặt phiên bản API như trong mẫu mã sau:
+ערכות ה-SDK של Gemini API מוגדרות כברירת מחדל לגרסה `v1beta`, אבל אפשר לציין גרסאות באופן מפורש על ידי הגדרת גרסת ה-API כמו בדוגמת הקוד הבאה:
 
 ### Python
 
@@ -94,12 +93,12 @@ curl "https://generativelanguage.googleapis.com/v1/models/gemini-3.5-flash:gener
    }'
 ```
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-05-28 UTC.
+עדכון אחרון: 2026-05-28 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]

@@ -1,100 +1,93 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=th
-fetched_at: 2026-06-01T19:36:55.761344+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e1e\u0e34\u0e48\u0e21\u0e1b\u0e23\u0e30\u0e2a\u0e34\u0e17\u0e18\u0e34\u0e20\u0e32\u0e1e\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e2d\u0e19\u0e38\u0e21\u0e32\u0e19 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=de
+fetched_at: 2026-06-08T14:56:28.754903+00:00
+title: "Gemini API\u00a0\u2013 Optimierung und Inferenz \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-ส่งความคิดเห็น
+Feedback geben
 
-# การเพิ่มประสิทธิภาพและการอนุมาน Gemini API
+# Gemini API – Optimierung und Inferenz
 
-Gemini API มีกลไกการเพิ่มประสิทธิภาพที่หลากหลายเพื่อช่วยให้คุณรักษาสมดุลระหว่างความเร็ว ต้นทุน และความน่าเชื่อถือตามความต้องการของภาระงานที่เฉพาะเจาะจง
-ไม่ว่าคุณจะสร้างบ็อตสนทนาแบบเรียลไทม์หรือเรียกใช้ไปป์ไลน์การประมวลผลข้อมูลแบบออฟไลน์ที่มีปริมาณมาก การเลือกกระบวนทัศน์ที่เหมาะสมจะช่วยลดต้นทุนหรือเพิ่มประสิทธิภาพได้อย่างมาก
+Die Gemini API bietet eine Vielzahl von Optimierungsmechanismen, mit denen Sie Geschwindigkeit, Kosten und Zuverlässigkeit je nach den spezifischen Anforderungen Ihrer Arbeitslasten ausbalancieren können.
+Ob Sie nun Konversationsbots in Echtzeit entwickeln oder umfangreiche Pipelines zur Offline-Datenverarbeitung ausführen – die Wahl des richtigen Paradigmas kann die Kosten erheblich senken oder die Leistung steigern.
 
-| ฟีเจอร์ | มาตรฐาน | พับ | ลำดับความสำคัญ | กลุ่ม | กำลังแคช |
+| Funktion | Standard | Flex | Priorität | Batch | Caching |
 | --- | --- | --- | --- | --- | --- |
-| **การกำหนดราคา** | ราคาเต็ม | ส่วนลด 50% | มากกว่ามาตรฐาน 75% ถึง 100% | ส่วนลด 50% | ส่วนลด 90% + พื้นที่เก็บข้อมูลโทเค็นตามสัดส่วน |
-| **เวลาในการตอบสนอง** | วินาทีถึงนาที | นาที (เป้าหมาย 1-15 นาที) | วินาที | สูงสุด 24 ชั่วโมง | เวลาที่ได้รับโทเค็นแรกเร็วขึ้น |
-| **ความน่าเชื่อถือ** | สูง / สูงปานกลาง | ดีที่สุดเท่าที่ทำได้ (ลดภาระได้) | สูง (ไม่หลุดร่วง) | สูง (สำหรับปริมาณงาน) | ไม่มี |
-| **อินเทอร์เฟซ** | พร้อมกัน | พร้อมกัน | พร้อมกัน | อะซิงโครนัส | สถานะที่บันทึกไว้ |
-| **Use Case ที่ดีที่สุด** | เวิร์กโฟลว์การสมัครทั่วไป | เชนแบบลำดับที่ไม่เร่งด่วน | แอปที่พร้อมใช้งานและแอปที่ผู้ใช้มองเห็น | ชุดข้อมูลขนาดใหญ่ การประเมินแบบออฟไลน์ | การค้นหาที่เกิดซ้ำในไฟล์เดียวกัน |
+| **Preise** | Standardpreis | 50% Rabatt | 75% bis 100% mehr als Standard | 50% Rabatt | 90% Rabatt + anteilige Speicherung von Tokens |
+| **Latenz** | Sekunden bis Minuten | Minuten (Ziel: 1–15 Minuten) | Sekunden | Bis zu 24 Stunden | Schnellere Zeit bis zum ersten Token |
+| **Zuverlässigkeit** | Hoch / Mittel bis hoch | Best-Effort-Ansatz (kann verworfen werden) | Hoch (kann nicht verworfen werden) | Hoch (für Durchsatz) | – |
+| **Schnittstelle** | Synchron | Synchron | Synchron | Asynchron | Gespeicherter Status |
+| **Bester Anwendungsfall** | Allgemeine Anwendungs-Workflows | Nicht dringende sequenzielle Ketten | Produktions- und nutzerorientierte Apps | Umfangreiche Datasets, Offline-Bewertungen | Wiederkehrende Abfragen derselben Datei |
 
-## ระดับการให้บริการการอนุมาน (ซิงโครนัส)
+## Dienststufen für die Inferenz (synchron)
 
-คุณสามารถสลับระหว่างการรับส่งข้อมูลแบบซิงโครนัสที่เพิ่มประสิทธิภาพด้านความน่าเชื่อถือและการรับส่งข้อมูลแบบซิงโครนัสที่เพิ่มประสิทธิภาพด้านต้นทุน
-ได้โดยส่งพารามิเตอร์ `service_tier` ในการเรียกการสร้างมาตรฐาน
+Sie können zwischen zuverlässigkeitsoptimiertem und kostenoptimiertem synchronem Traffic wechseln, indem Sie den Parameter `service_tier` in Ihren Standardgenerierungsaufrufen übergeben.
 
-### การอนุมานมาตรฐาน (ค่าเริ่มต้น)
+### Standardinferenz (Standardeinstellung)
 
-ระดับมาตรฐานเป็นตัวเลือกเริ่มต้นสำหรับการสร้างเนื้อหาตามลำดับ
-โดยจะให้เวลาในการตอบกลับตามปกติโดยไม่ต้องเสียค่าธรรมเนียมเพิ่มเติมหรือรอคิวนาน
+Die Standardstufe ist die Standardoption für die sequenzielle Contentgenerierung.
+Sie bietet normale Reaktionszeiten ohne zusätzliche Aufschläge oder lange Warteschlangen.
 
-- **ความน่าเชื่อถือ:** ความสำคัญระดับมาตรฐาน
-- **ราคา:** ราคามาตรฐาน
-- **เหมาะสำหรับ:** แอปพลิเคชันแบบโต้ตอบส่วนใหญ่ที่ใช้ในชีวิตประจำวัน
+- **Zuverlässigkeit**:Standardkritikalität
+- **Preis**:Standardpreise
+- **Am besten geeignet für**:Die meisten interaktiven Alltagsanwendungen
 
-### การอนุมานที่มีลำดับความสำคัญ (เพิ่มประสิทธิภาพเวลาในการตอบสนอง)
+### Prioritätsinferenz (latenzoptimiert)
 
-[ลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)จะกำหนดเส้นทางการประมวลผลคำขอของคุณไปยังคิวการประมวลผลที่มีความสำคัญสูง
-การเข้าชมนี้เป็นแบบไม่สามารถลดทอนได้ (ไม่ถูกแทนที่ด้วยระดับอื่นๆ) และมีความน่าเชื่อถือสูงสุด หากคุณเกินขีดจำกัดลำดับความสำคัญแบบไดนามิก ระบบจะลดระดับคำขอเป็นการประมวลผลแบบมาตรฐานอย่างเหมาะสมแทนที่จะล้มเหลวพร้อมข้อผิดพลาด
+[Prioritätsverarbeitung](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de) leitet Ihre Anfragen
+an Rechenwarteschlangen mit hoher Kritikalität weiter.
+Dieser Traffic kann nicht verworfen werden (wird nie von anderen Stufen unterbrochen) und bietet die höchste Zuverlässigkeit. Wenn Sie die dynamischen Prioritätslimits überschreiten, wird die Anfrage vom System auf die Standardverarbeitung herabgestuft, anstatt dass ein Fehler auftritt.
 
-- **ความน่าเชื่อถือ:** ความสำคัญสูงสุด
-- **ราคา:** สูงกว่าราคามาตรฐาน 75% ถึง 100%
-- **เหมาะสำหรับ:** แชทบอทสำหรับลูกค้า การตรวจจับการฉ้อโกงแบบเรียลไทม์ และ
-  ผู้ช่วยแบบเรียลไทม์ที่สำคัญต่อธุรกิจ
+- **Zuverlässigkeit**:Höchste Kritikalität
+- **Preis**:75% bis 100% über den Standardpreisen
+- **Am besten geeignet für**:Kunden-Chatbots, Betrugserkennung in Echtzeit und geschäftskritische Copiloten
 
-### การอนุมานแบบยืดหยุ่น (เพิ่มประสิทธิภาพด้านต้นทุน)
+### Flexible Inferenz (kostenoptimiert)
 
-[การอนุมานแบบยืดหยุ่น](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)ให้ส่วนลด 50% เมื่อเทียบกับอัตรามาตรฐานโดยใช้
-ความสามารถในการประมวลผลแบบออฟพีคตามโอกาส ระบบจะประมวลผลคำขอแบบ
-ซิงโครนัส ซึ่งหมายความว่าคุณไม่จำเป็นต้องเขียนโค้ดใหม่เพื่อจัดการออบเจ็กต์แบบกลุ่ม
-เนื่องจากเป็นทราฟิกที่ "ลด" ได้ ระบบจึงอาจหยุดคำขอชั่วคราวหากระบบ
-พบว่ามีการเพิ่มขึ้นของทราฟิกมาตรฐาน
+[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de) bietet einen Rabatt von 50% im Vergleich zu den Standardpreisen, da opportunistische Rechenkapazität außerhalb der Spitzenzeiten genutzt wird. Anfragen werden synchron verarbeitet. Sie müssen also keinen Code umschreiben, um Batchobjekte zu verwalten.
+Da es sich um „verwerfbaren“ Traffic handelt, können Anfragen unterbrochen werden, wenn im System Standard-Trafficspitzen auftreten.
 
-- **ความน่าเชื่อถือ:** ความสำคัญที่สามารถลดได้แบบไม่รับประกัน
-- **ราคา:** 50% ของราคามาตรฐาน (เรียกเก็บเงินต่อโทเค็น)
-- **เหมาะสำหรับ:** เวิร์กโฟลว์ของเอเจนต์แบบหลายขั้นตอนที่การเรียกใช้ N+1 ขึ้นอยู่กับ
-  เอาต์พุตของการเรียกใช้ N, การอัปเดต CRM ในเบื้องหลัง และการประเมินแบบออฟไลน์
+- **Zuverlässigkeit**:Nicht garantierte, verwerfbare Kritikalität
+- **Preis**:50% der Standardpreise (Abrechnung pro Token)
+- **Am besten geeignet für**:Mehrstufige Agenten-Workflows, bei denen der Aufruf N+1 von der Ausgabe des Aufrufs N abhängt, CRM-Updates im Hintergrund und Offline-Bewertungen
 
-## Batch API (แบบกลุ่ม แบบไม่พร้อมกัน)
+## Batch API (Bulk, asynchron)
 
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th) ออกแบบมาเพื่อประมวลผลคำขอจำนวนมากแบบไม่พร้อมกันที่ 50% ของต้นทุนมาตรฐาน
-คุณส่งคำขอเป็นพจนานุกรมในบรรทัด
-หรือใช้ไฟล์อินพุต JSONL (สูงสุด 2 GB) ก็ได้ โดยจะประมวลผลคำขอโดยใช้คิวที่มีปริมาณงานเบื้องหลังที่มีเวลาในการตอบกลับเป้าหมาย 24 ชั่วโมง
+[Die Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de) wurde entwickelt, um große Mengen
+von Anfragen asynchron zu
+50% der Standardkosten zu verarbeiten. Sie können Anfragen entweder als Inline-Wörterbücher oder mit einer JSONL-Eingabedatei (bis zu 2 GB) senden. Anfragen werden mit Hintergrund-Durchsatzwarteschlangen mit einer Zielbearbeitungszeit von 24 Stunden verarbeitet.
 
-- **ความน่าเชื่อถือ:** สามารถทิ้งได้ แต่มีระบบลองใหม่และระบบคิวอัตโนมัติ 24 ชั่วโมง
-- **ราคา:** 50% ของราคามาตรฐาน
-- **เหมาะสำหรับ:** การประมวลผลล่วงหน้าของชุดข้อมูลขนาดใหญ่ การเรียกใช้ชุดการทดสอบการถดถอยเป็นระยะ และการสร้างรูปภาพหรือการฝังจำนวนมาก
+- **Zuverlässigkeit**:Verwerfbar, aber mit automatischen Wiederholungen und Warteschlangensystem nach 24 Stunden
+- **Preis**:50% der Standardpreise
+- **Am besten geeignet für**:Vorverarbeitung großer Datasets, Ausführung regelmäßiger Regressionstest-Suites und Generierung großer Mengen von Bildern oder Einbettungen
 
-## การแคชบริบท (ประหยัดอินพุต)
+## Kontext-Caching (Einsparungen bei der Eingabe)
 
-[การแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th)จะใช้เมื่อคำขอที่สั้นกว่าอ้างอิงบริบทเริ่มต้นที่สำคัญซ้ำๆ
+[Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) wird verwendet, wenn in kürzeren Anfragen wiederholt auf einen umfangreichen anfänglichen
+Kontext verwiesen wird.
 
-- **การแคชโดยนัย:** เปิดใช้โดยอัตโนมัติใน Gemini 2.5 และโมเดลที่ใหม่กว่า
-  ระบบจะส่งต่อการประหยัดต้นทุนหากคำขอของคุณตรงกับแคชที่มีอยู่โดยอิงตาม
-  คำนำหน้าพรอมต์ทั่วไป
-- **การแคชอย่างชัดเจน:** คุณสร้างออบเจ็กต์แคชด้วยตนเองโดยมี Time-To-Live (TTL) ที่เฉพาะเจาะจงได้
-  เมื่อสร้างแล้ว คุณจะอ้างอิงโทเค็นที่แคชไว้สำหรับคำขอในภายหลังเพื่อหลีกเลี่ยงการส่งเพย์โหลดคลังเดียวกันซ้ำๆ
-- **ราคา:** เรียกเก็บเงินตามจำนวนโทเค็นแคชและระยะเวลาการจัดเก็บ (TTL)
-- **เหมาะสำหรับ:** แชทบอทที่มีคำสั่งของระบบที่ครอบคลุม การวิเคราะห์ซ้ำๆ
-  ของไฟล์วิดีโอขนาดยาว หรือการค้นหาชุดเอกสารขนาดใหญ่
+- **Implizites Caching**:Automatisch für Gemini 2.5 und neuere Modelle aktiviert
+  Das System gibt Kosteneinsparungen weiter, wenn Ihre Anfrage vorhandene Caches auf Grundlage gängiger Prompt-Präfixe trifft.
+- **Explizites Caching**:Sie können manuell ein Cache-Objekt mit einer bestimmten Gültigkeitsdauer (Time-To-Live, TTL) erstellen. Nach der Erstellung können Sie für nachfolgende Anfragen auf die im Cache gespeicherten Tokens verweisen, um nicht immer wieder dieselbe Korpusnutzlast zu übergeben.
+- **Preis**:Abrechnung basierend auf der Anzahl der Cache-Tokens und der Speicherdauer (TTL)
+- **Am besten geeignet für**:Chatbots mit ausführlichen Systemanweisungen, wiederholte Analysen langer Videodateien oder Abfragen großer Dokumentgruppen
 
-ส่งความคิดเห็น
+Feedback geben
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-อัปเดตล่าสุด 2026-04-29 UTC
+Zuletzt aktualisiert: 2026-04-29 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Haben Sie Feedback für uns?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

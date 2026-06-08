@@ -1,41 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ko
-fetched_at: 2026-06-01T19:48:50.341982+00:00
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ar
+fetched_at: 2026-06-08T15:01:23.016878+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-의견 보내기
+إرسال ملاحظات
 
-# 구조화된 출력
+# مُخرجات منظَّمة
 
-제공된 JSON 스키마를 준수하는 응답을 생성하도록 Gemini 모델을 구성할 수 있습니다. 이렇게 하면 예측 가능하고 유형이 안전한 결과를 얻을 수 있으며 구조화되지 않은 텍스트에서 구조화된 데이터를 추출하는 작업이 간소화됩니다.
+يمكنك ضبط نماذج Gemini لإنشاء ردود تتوافق مع مخطط JSON الذي تقدّمه. يضمن ذلك الحصول على نتائج متوقّعة وآمنة من ناحية النوع، ويُسهّل استخراج البيانات المنظَّمة من النصوص غير المنظَّمة.
 
-구조화된 출력은 다음과 같은 경우에 사용하는 것이 좋습니다.
+يُعد استخدام المُخرجات المنظَّمة مثاليًا في الحالات التالية:
 
-- **데이터 추출:** 텍스트에서 이름, 날짜와 같은 특정 정보를 가져옵니다.
-- **구조화된 분류:** 텍스트를 사전 정의된 카테고리로 분류합니다.
-- **에이전트 워크플로:** 도구 또는 API의 구조화된 입력을 생성합니다.
+- **استخراج البيانات:** استخراج معلومات محدّدة، مثل الأسماء والتواريخ، من النص
+- **التصنيف المنظَّم:** تصنيف النص ضِمن فئات محدَّدة مسبقًا
+- **سير العمل المستند إلى الوكلاء:** إنشاء مدخلات منظَّمة للأدوات أو واجهات برمجة التطبيقات
 
-Google GenAI SDK를 사용하면 REST API에서 JSON 스키마를 지원하는 것 외에도
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) 및
-[Zod](https://zod.dev/) (JavaScript)를 사용하여 스키마를 쉽게 정의할 수 있습니다.
+بالإضافة إلى إتاحة استخدام JSON Schema في REST API، تُسهّل حِزم تطوير البرامج (SDK) من Google GenAI
+تحديد المخططات باستخدام
+[Pydantic](https://docs.pydantic.dev/latest/) (في Python) و
+[Zod](https://zod.dev/) (في JavaScript).
 
-레시피 추출기
-콘텐츠 검토
-재귀 구조
+## أمثلة على المُخرجات المنظَّمة
 
-이 예에서는 `object`, `array`, `string`, `integer`와 같은 기본 JSON 스키마 유형을 사용하여 텍스트에서 구조화된 데이터를 추출하는 방법을 보여줍니다.
+### مستخرِج الوصفات
+
+يوضِّح هذا المثال كيفية استخراج البيانات المنظَّمة من النص باستخدام أنواع JSON Schema الأساسية، مثل `object` و`array` و`string` و`integer`.
 
 ### Python
 
@@ -129,7 +130,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -266,7 +267,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**응답 예시:**
+**مثال على الردّ:**
 
 ```
 {
@@ -321,11 +322,432 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-## 스트리밍
+### الإشراف على المحتوى
 
-구조화된 출력을 스트리밍할 수 있습니다. 이렇게 하면 전체 출력이 완료될 때까지 기다리지 않고 출력이 생성되는 대로 응답 처리를 시작할 수 있습니다. 이렇게 하면 애플리케이션의 인식 성능을 개선할 수 있습니다.
+يعرض هذا المثال `anyOf` للمخططات الشرطية و`enum` للتصنيف، ما يسمح بتغيير بنية الإخراج استنادًا إلى المحتوى.
 
-스트리밍된 청크는 유효한 부분 JSON 문자열이며, 이를 연결하여 최종적인 완전한 JSON 객체를 형성할 수 있습니다.
+### Python
+
+```
+from google import genai
+from pydantic import BaseModel, Field
+from typing import Union, Literal
+
+class SpamDetails(BaseModel):
+    reason: str = Field(description="The reason why the content is considered spam.")
+    spam_type: Literal["phishing", "scam", "unsolicited promotion", "other"] = Field(description="The type of spam.")
+
+class NotSpamDetails(BaseModel):
+    summary: str = Field(description="A brief summary of the content.")
+    is_safe: bool = Field(description="Whether the content is safe for all audiences.")
+
+class ModerationResult(BaseModel):
+    decision: Union[SpamDetails, NotSpamDetails]
+
+client = genai.Client()
+
+prompt = """
+Please moderate the following content and provide a decision.
+Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
+"""
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=prompt,
+    config={
+        "response_format": {"text": {"mime_type": "application/json", "schema": ModerationResult.model_json_schema()}},
+    },
+)
+
+result = ModerationResult.model_validate_json(response.text)
+print(result)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import { z } from "zod";
+import { zodToJsonSchema } from "zod-to-json-schema";
+
+const spamDetailsSchema = z.object({
+  reason: z.string().describe("The reason why the content is considered spam."),
+  spam_type: z.enum(["phishing", "scam", "unsolicited promotion", "other"]).describe("The type of spam."),
+});
+
+const notSpamDetailsSchema = z.object({
+  summary: z.string().describe("A brief summary of the content."),
+  is_safe: z.boolean().describe("Whether the content is safe for all audiences."),
+});
+
+const moderationResultSchema = z.object({
+  decision: z.union([spamDetailsSchema, notSpamDetailsSchema]),
+});
+
+const ai = new GoogleGenAI({});
+
+const prompt = `
+Please moderate the following content and provide a decision.
+Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
+`;
+
+const response = await ai.models.generateContent({
+  model: "gemini-3.5-flash",
+  contents: prompt,
+  config: {
+    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(moderationResultSchema) } },
+  },
+});
+
+const result = moderationResultSchema.parse(JSON.parse(response.text));
+console.log(result);
+```
+
+### انتقال
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := `
+  Please moderate the following content and provide a decision.
+  Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
+  `
+    config := &genai.GenerateContentConfig{
+        ResponseMIMEType: "application/json",
+        ResponseJsonSchema: map[string]any{
+            "type": "object",
+            "properties": map[string]any{
+                "decision": map[string]any{
+                    "anyOf": []map[string]any{
+                        {
+                            "type":        "object",
+                            "title":       "SpamDetails",
+                            "description": "Details for content classified as spam.",
+                            "properties": map[string]any{
+                                "reason": map[string]any{
+                                    "type":        "string",
+                                    "description": "The reason why the content is considered spam.",
+                                },
+                                "spam_type": map[string]any{
+                                    "type":        "string",
+                                    "enum":        []string{"phishing", "scam", "unsolicited promotion", "other"},
+                                    "description": "The type of spam.",
+                                },
+                            },
+                            "required": []string{"reason", "spam_type"},
+                        },
+                        {
+                            "type":        "object",
+                            "title":       "NotSpamDetails",
+                            "description": "Details for content classified as not spam.",
+                            "properties": map[string]any{
+                                "summary": map[string]any{
+                                    "type":        "string",
+                                    "description": "A brief summary of the content.",
+                                },
+                                "is_safe": map[string]any{
+                                    "type":        "boolean",
+                                    "description": "Whether the content is safe for all audiences.",
+                                },
+                            },
+                            "required": []string{"summary", "is_safe"},
+                        },
+                    },
+                },
+            },
+            "required": []string{"decision"},
+        },
+    }
+
+    result, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-3.5-flash",
+        genai.Text(prompt),
+        config,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(result.Text())
+}
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+      "contents": [{
+        "parts":[
+          { "text": "Please moderate the following content and provide a decision.\nContent: ''Congratulations! You have won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com''" }
+        ]
+      }],
+      "generationConfig": {
+        "responseFormat": {
+          "text": {
+            "mimeType": "application/json",
+            "schema": {
+          "type": "object",
+          "properties": {
+            "decision": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "title": "SpamDetails",
+                  "description": "Details for content classified as spam.",
+                  "properties": {
+                    "reason": { "type": "string", "description": "The reason why the content is considered spam." },
+                    "spam_type": { "type": "string", "enum": ["phishing", "scam", "unsolicited promotion", "other"], "description": "The type of spam." }
+          }
+        }
+      },
+                   "required": ["reason", "spam_type"]
+                 },
+                 {
+                   "type": "object",
+                   "title": "NotSpamDetails",
+                   "description": "Details for content classified as not spam.",
+                   "properties": {
+                     "summary": { "type": "string", "description": "A brief summary of the content." },
+                     "is_safe": { "type": "boolean", "description": "Whether the content is safe for all audiences." }
+                   },
+                   "required": ["summary", "is_safe"]
+                 }
+               ]
+             }
+           },
+           "required": ["decision"]
+         }
+       }
+     }'
+ ```
+
+**Example Response:**
+
+```json
+{
+"decision": {
+ "reason": "The content is an unsolicited prize notification attempting to trick the user into clicking a suspicious link.",
+ "spam_type": "scam"
+}
+}
+```
+
+### البِنى المتكرّرة
+
+يوضِّح هذا المثال كيفية تحديد مخطط متكرّر، مثل مخطط تنظيمي.
+
+### Python
+
+```
+from google import genai
+from pydantic import BaseModel, Field
+from typing import List
+
+class Employee(BaseModel):
+    """Represents an employee in an organization."""
+    name: str
+    employee_id: int
+    reports: List["Employee"] = Field(
+        default_factory=list,
+        description="A list of employees reporting to this employee."
+    )
+
+client = genai.Client()
+
+prompt = """
+Generate an organization chart for a small team.
+The manager is Alice, who manages Bob and Charlie. Bob manages David.
+"""
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents=prompt,
+    config={
+        "response_format": {"text": {"mime_type": "application/json", "schema": Employee.model_json_schema()}},
+    },
+)
+
+employee = Employee.model_validate_json(response.text)
+print(employee)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import { z } from "zod";
+import { zodToJsonSchema } from "zod-to-json-schema";
+
+const employeeSchema = z.object({
+  name: z.string(),
+  employee_id: z.number().int(),
+  reports: z.lazy(() => z.array(employeeSchema)).describe("A list of employees reporting to this employee."),
+});
+
+const ai = new GoogleGenAI({});
+
+const prompt = `
+Generate an organization chart for a small team.
+The manager is Alice, who manages Bob and Charlie. Bob manages David.
+`;
+
+const response = await ai.models.generateContent({
+  model: "gemini-3.5-flash",
+  contents: prompt,
+  config: {
+    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(employeeSchema) } },
+  },
+});
+
+const employee = employeeSchema.parse(JSON.parse(response.text));
+console.log(employee);
+```
+
+### انتقال
+
+```
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := `
+  Generate an organization chart for a small team.
+  The manager is Alice, who manages Bob and Charlie. Bob manages David.
+  `
+    config := &genai.GenerateContentConfig{
+        ResponseMIMEType: "application/json",
+        ResponseJsonSchema: map[string]any{
+            "type": "object",
+            "properties": map[string]any{
+                "name":        map[string]any{"type": "string"},
+                "employee_id": map[string]any{"type": "integer"},
+                "reports": map[string]any{
+                    "type":        "array",
+                    "description": "A list of employees reporting to this employee.",
+                    "items": map[string]any{
+                        "$ref": "#",
+                    },
+                },
+            },
+            "required": []string{"name", "employee_id", "reports"},
+        },
+    }
+
+    result, err := client.Models.GenerateContent(
+        ctx,
+        "gemini-3.5-flash",
+        genai.Text(prompt),
+        config,
+    )
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println(result.Text())
+}
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H 'Content-Type: application/json' \
+    -X POST \
+    -d '{
+      "contents": [{
+        "parts":[
+          { "text": "Generate an organization chart for a small team.\nThe manager is Alice, who manages Bob and Charlie. Bob manages David." }
+        ]
+      }],
+      "generationConfig": {
+        "responseFormat": {
+          "text": {
+            "mimeType": "application/json",
+            "schema": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "employee_id": { "type": "integer" },
+            "reports": {
+              "type": "array",
+              "description": "A list of employees reporting to this employee.",
+              "items": {
+                "$ref": "#"
+              }
+          }
+        }
+      }
+          },
+          "required": ["name", "employee_id", "reports"]
+        }
+      }
+    }'
+```
+
+**مثال على الردّ:**
+
+```
+{
+  "name": "Alice",
+  "employee_id": 101,
+  "reports": [
+    {
+      "name": "Bob",
+      "employee_id": 102,
+      "reports": [
+        {
+          "name": "David",
+          "employee_id": 104,
+          "reports": []
+        }
+      ]
+    },
+    {
+      "name": "Charlie",
+      "employee_id": 103,
+      "reports": []
+    }
+  ]
+}
+```
+
+## البث
+
+يمكنك بث المُخرجات المنظَّمة، ما يسمح لك ببدء معالجة الردّ أثناء إنشائه، بدون الحاجة إلى الانتظار حتى اكتمال الإخراج بالكامل. يمكن أن يؤدي ذلك إلى تحسين الأداء المتصوَّر لتطبيقك.
+
+ستكون الأجزاء التي يتم بثها عبارة عن سلاسل JSON جزئية صالحة، ويمكن ربطها لتشكيل كائن JSON النهائي الكامل.
 
 ### Python
 
@@ -381,14 +803,14 @@ for await (const chunk of stream) {
 }
 ```
 
-## 도구를 사용한 구조화된 출력
+## المُخرجات المنظَّمة مع الأدوات
 
-Gemini 3를 사용하면 구조화된 출력을 Google 검색을 사용한 그라운딩
-,
-[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko),
-[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko),
-[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko#structured-output), 및
-[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)과 같은 기본 제공 도구와 결합할 수 있습니다.
+يتيح لك Gemini 3 الجمع بين المُخرجات المنظَّمة والأدوات المضمّنة، بما في ذلك
+[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)،
+[URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)،
+[Code Execution](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)،
+[File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=ar#structured-output)، و
+[Function Calling](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar).
 
 ### Python
 
@@ -493,101 +915,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## JSON 스키마 지원
+## إتاحة استخدام JSON Schema
 
-JSON 객체를 생성하려면 생성 구성에서 `response_format`을 설정합니다. 스키마는 원하는 출력 형식을 설명하는 유효한 [JSON 스키마](https://json-schema.org/)여야 합니다.
+لإنشاء كائن JSON، اضبط `response_format` في إعدادات الإنشاء. يجب أن يكون المخطط [JSON Schema](https://json-schema.org/) صالحًا يصف تنسيق الإخراج المطلوب.
 
-그러면 모델이 제공된 스키마와 일치하는 구문상 유효한 JSON 문자열인 응답을 생성합니다. 구조화된 출력을 사용하면 모델이 스키마의 키와 동일한 순서로 출력을 생성합니다.
+سينشئ النموذج بعد ذلك ردًا عبارة عن سلسلة JSON صالحة من الناحية النحوية وتتطابق مع المخطط المقدَّم. عند استخدام المُخرجات المنظَّمة، سينتج النموذج مُخرجات بالترتيب نفسه الذي تظهر به المفاتيح في المخطط.
 
-Gemini의 구조화된 출력 모드는 [JSON 스키마](https://json-schema.org) 사양의 하위 집합을 지원합니다.
+يتيح وضع المُخرجات المنظَّمة في Gemini استخدام مجموعة فرعية من مواصفات [JSON Schema](https://json-schema.org).
 
-다음 `type` 값이 지원됩니다.
+القيم التالية لـ `type` متاحة:
 
-- **`string`**: 텍스트용
-- **`number`**: 부동 소수점 숫자용
-- **`integer`**: 정수용
-- **`boolean`**: true/false 값용
-- **`object`**: 키-값 쌍이 있는 구조화된 데이터용
-- **`array`**: 항목 목록용
-- **`null`**: 속성이 null이 되도록 허용하려면 유형 배열에 `"null"`을 포함합니다 (예: `{"type": ["string", "null"]}`).
+- **`string`**: للنص
+- **`number`**: لأرقام النقطة العائمة.
+- **`integer`**: للأرقام الصحيحة
+- **`boolean`**: لقيمتَي "صحيح" و"خطأ"
+- **`object`**: للبيانات المنظَّمة التي تتضمّن أزواجًا من القيم والمفاتيح
+- **`array`**: لقوائم العناصر
+- **`null`**: للسماح بأن تكون قيمة السمة فارغة، أدرِج `"null"` في مصفوفة النوع (مثل `{"type": ["string", "null"]}`).
 
-이러한 설명 속성은 모델을 안내하는 데 도움이 됩니다.
+تساعد هذه السمات الوصفية في توجيه النموذج:
 
-- **`title`**: 속성에 대한 간단한 설명입니다.
-- **`description`**: 속성에 대한 더 길고 자세한 설명입니다.
+- **`title`**: وصف قصير لسمة
+- **`description`**: وصف أطول وأكثر تفصيلاً لسمة
 
-### 유형별 속성
+### السمات الخاصة بالنوع
 
-**`object` 값의 경우:**
+**لقيم `object`:**
 
-- **`properties`**: 각 키가 속성 이름이고 각 값이 해당 속성의 스키마인 객체입니다.
-- **`required`**: 필수 속성을 나열하는 문자열 배열입니다.
-- **`additionalProperties`**: `properties`에 나열되지 않은 속성이 허용되는지 여부를 제어합니다. 불리언 또는 스키마일 수 있습니다.
+- **`properties`**: كائن يكون فيه كل مفتاح اسم سمة وكل قيمة مخططًا لتلك السمة
+- **`required`**: مصفوفة من السلاسل، تسرد السمات الإلزامية
+- **`additionalProperties`**: تتحكّم في ما إذا كان مسموحًا بالسمات غير المدرَجة في `properties` يمكن أن تكون قيمة هذه السمة منطقية أو مخططًا.
 
-**`string` 값의 경우:**
+**لقيم `string`:**
 
-- **`enum`**: 분류 작업에 사용할 수 있는 특정 문자열 집합을 나열합니다.
-- **`format`**: `date-time`, `date`, `time`과 같은 문자열의 구문을 지정합니다.
+- **`enum`**: تسرد مجموعة محدّدة من السلاسل المحتمَلة لمهام التصنيف
+- **`format`**: تحدّد بنية السلسلة، مثل `date-time` أو `date` أو `time`
 
-**`number` 및 `integer` 값의 경우:**
+**لقيمتَي `number` و`integer`:**
 
-- **`enum`**: 가능한 숫자 값의 특정 집합을 나열합니다.
-- **`minimum`**: 최소 포함 값입니다.
-- **`maximum`**: 최대 포함 값입니다.
+- **`enum`**: تسرد مجموعة محدّدة من القيم الرقمية المحتمَلة
+- **`minimum`**: الحد الأدنى للقيمة (بما في ذلك الحد الأدنى)
+- **`maximum`**: الحد الأقصى للقيمة (بما في ذلك الحد الأقصى)
 
-**`array` 값의 경우:**
+**لقيم `array`:**
 
-- **`items`**: 배열의 모든 항목에 대한 스키마를 정의합니다.
-- **`prefixItems`**: 첫 번째 N개 항목의 스키마 목록을 정의하여 튜플과 유사한 구조를 허용합니다.
-- **`minItems`**: 배열의 최소 항목 수입니다.
-- **`maxItems`**: 배열의 최대 항목 수입니다.
+- **`items`**: تحدّد المخطط لجميع العناصر في المصفوفة
+- **`prefixItems`**: تحدّد قائمة بالمخططات لأول N عنصر، ما يسمح ببِنى تشبه الصفوف
+- **`minItems`**: الحد الأدنى لعدد العناصر في المصفوفة
+- **`maxItems`**: الحد الأقصى لعدد العناصر في المصفوفة
 
-## 모델 지원
+## النماذج المتاحة
 
-다음 모델은 구조화된 출력을 지원합니다.
+تتيح النماذج التالية استخدام المُخرجات المنظَّمة:
 
-| 모델 | 구조화된 출력 |
+| الطراز | مُخرجات منظَّمة |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro 프리뷰 | ✔️ |
+| Gemini 3.1 Pro Preview | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite 프리뷰 | ✔️ |
+| Gemini 3.1 Flash-Lite Preview | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* Gemini 2.0에서는 선호하는 구조를 정의하기 위해 JSON 입력 내에 명시적인 `propertyOrdering` 목록이 필요합니다. 이 [쿡북](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)에서 예를 확인할 수 있습니다.*
+*\* يُرجى العِلم أنّ Gemini 2.0 يتطلب قائمة `propertyOrdering` صريحة ضِمن إدخال JSON لتحديد البنية المفضّلة. يمكنك الاطّلاع على مثال في دليل الطبخ هذا* .
 
-## 구조화된 출력과 함수 호출
+## المُخرجات المنظَّمة مقابل استدعاء الدوال
 
-구조화된 출력과 함수 호출은 모두 JSON 스키마를 사용하지만 서로 다른 용도로 사용됩니다.
+يستخدم كلٌّ من المُخرجات المنظَّمة واستدعاء الدوال مخططات JSON، ولكنّهما يخدمان أغراضًا مختلفة:
 
-| 기능 | 주된 사용 사례 |
+| الميزة | حالة الاستخدام الأساسية |
 | --- | --- |
-| **구조화된 출력** | **사용자에게 최종 응답의 형식을 지정합니다.** 모델의 *대답* 이 특정 형식 (예: 데이터베이스에 저장할 문서에서 데이터 추출)으로 되어야 하는 경우에 사용합니다. |
-| **함수 호출** | **대화 중에 작업을 실행합니다.** 모델이 최종 대답을 제공하기 전에 작업을 실행하도록 *요청* 해야 하는 경우 (예: '현재 날씨 가져오기')에 사용합니다. |
+| **مُخرجات منظَّمة** | **تنسيق الردّ النهائي للمستخدم** استخدِم هذه الميزة عندما تريد أن يكون *ردّ* النموذج بتنسيق معيّن (مثل استخراج البيانات من مستند لحفظها في قاعدة بيانات). |
+| **استدعاء الدوال** | **اتخاذ إجراء أثناء المحادثة** استخدِم هذه الميزة عندما يحتاج النموذج إلى *أن يطلب منك* تنفيذ مهمة (مثل "الحصول على حالة الطقس الحالية") قبل أن يتمكّن من تقديم إجابة نهائية. |
 
-## 권장사항
+## أفضل الممارسات
 
-- **명확한 설명:** 스키마의 `description` 필드를 사용하여 각 속성이 나타내는 내용을 모델에 명확하게 안내합니다. 이는 모델의 출력을 안내하는 데 매우 중요합니다.
-- **강력한 유형 지정:** 가능하면 항상 특정 유형 (`integer`, `string`, `enum`)을 사용합니다. 매개변수에 유효한 값의 집합이 제한되어 있는 경우 `enum`을 사용합니다.
-- **프롬프트 엔지니어링:** 모델이 수행해야 하는 작업을 프롬프트에 명확하게 명시합니다. 예를 들어 '텍스트에서 다음 정보를 추출하세요.' 또는 '제공된 스키마에 따라 이 의견을 분류하세요.'
-- **유효성 검사:** 구조화된 출력은 구문상 올바른 JSON을 보장하지만 값이 의미상 올바른지는 보장하지 않습니다. 항상 애플리케이션 코드에서 최종 출력을 검증한 후 사용하세요.
-- **오류 처리:** 스키마를 준수하지만 비즈니스 로직 요구사항을 충족하지 못할 수 있는 모델의 출력을 원활하게 관리할 수 있도록 애플리케이션에 강력한 오류 처리를 구현합니다.
+- **الأوصاف الواضحة:** استخدِم الحقل `description` في المخطط لتقديم تعليمات واضحة للنموذج بشأن ما تمثله كل سمة. هذا أمر بالغ الأهمية لتوجيه إخراج النموذج.
+- **النوع القوي:** استخدِم أنواعًا محدّدة (`integer` و`string` و`enum`) كلما أمكن ذلك. إذا كانت المَعلمة تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم `enum`.
+- **هندسة الطلبات:** وضِّح في طلبك ما تريد أن يفعله النموذج. على سبيل المثال، "استخرِج المعلومات التالية من النص..." أو "صنِّف هذه الملاحظات وفقًا للمخطط المقدَّم...".
+- **التحقّق من الصحة:** على الرغم من أنّ المُخرجات المنظَّمة تضمن أن يكون JSON صحيحًا من الناحية النحوية، فإنّها لا تضمن أن تكون القيم صحيحة من الناحية الدلالية. يجب دائمًا التحقّق من صحة الإخراج النهائي في الرمز البرمجي لتطبيقك قبل استخدامه.
+- **معالجة الأخطاء:** نفِّذ عملية معالجة أخطاء قوية في تطبيقك لإدارة الحالات التي قد لا يفي فيها إخراج النموذج، على الرغم من توافقه مع المخطط، بمتطلبات منطق عملك.
 
-## 제한사항
+## القيود
 
-- **스키마 하위 집합:** JSON 스키마 사양의 모든 기능이 지원되는 것은 아닙니다. 모델은 지원되지 않는 속성을 무시합니다.
-- **스키마 복잡성:** API는 매우 크거나 깊게 중첩된 스키마를 거부할 수 있습니다. 오류가 발생하면 속성 이름을 줄이거나, 중첩을 줄이거나, 제약조건 수를 제한하여 스키마를 간소화해 보세요.
+- **المجموعة الفرعية من المخططات:** لا تتوفّر جميع ميزات مواصفات JSON Schema. يتجاهل النموذج السمات غير المتاحة.
+- **تعقيد المخطط:** قد ترفض واجهة برمجة التطبيقات المخططات الكبيرة جدًا أو المتداخلة بشكل كبير. إذا واجهتك أخطاء، حاوِل تبسيط المخطط من خلال تقصير أسماء السمات أو تقليل مستوى التداخل أو الحدّ من عدد القيود.
 
-의견 보내기
+إرسال ملاحظات
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-최종 업데이트: 2026-05-19(UTC)
+تاريخ التعديل الأخير: 2026-06-05 (حسب التوقيت العالمي المتفَّق عليه)
 
-의견을 전달하고 싶나요?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-05 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

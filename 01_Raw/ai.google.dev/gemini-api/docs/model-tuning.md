@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=pt-BR
-fetched_at: 2026-06-01T19:46:30.183144+00:00
-title: "Como fazer ajustes com a API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=he
+fetched_at: 2026-06-08T15:06:04.018737+00:00
+title: "\u05db\u05d5\u05d5\u05e0\u05d5\u05df \u05d1\u05e2\u05d6\u05e8\u05ea Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
 
-Envie comentários
+שליחת משוב
 
-# Como fazer ajustes com a API Gemini
+# כוונון בעזרת Gemini API
 
-Com a descontinuação do Gemini 1.5 Flash-001 em maio de 2025, não teremos mais um modelo disponível que ofereça suporte ao ajuste fino na API Gemini ou no AI Studio, mas ele é compatível com a [plataforma de agentes do Gemini Enterprise](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=pt-br).
+במאי 2025, הוצאנו משימוש את Gemini 1.5 Flash-001, ולכן אין לנו יותר מודל זמין שתומך בשיפור הדיוק ב-Gemini API או ב-AI Studio, אבל הוא נתמך ב-[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=he).
 
-Não temos planos imediatos para oferecer suporte ao ajuste refinado, mas gostaríamos de [saber sua opinião no fórum de desenvolvedores](https://discuss.ai.google.dev/c/gemini-api/4?hl=pt-br) se esse recurso for importante para seu caso de uso.
+אין לנו תוכניות מיידיות להוספת תמיכה בשיפור הדיוק, אבל נשמח [לשמוע ממך בפורום למפתחים](https://discuss.ai.google.dev/c/gemini-api/4?hl=he) אם שיפור הדיוק חשוב לתרחיש השימוש שלך.
 
-Envie comentários
+שליחת משוב
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última atualização 2026-04-29 UTC.
+עדכון אחרון: 2026-04-29 (שעון UTC).
 
-Quer enviar seu feedback?
+רוצה לתת לנו משוב?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

@@ -1,32 +1,29 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=th
-fetched_at: 2026-06-01T19:41:15.504817+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=id
+fetched_at: 2026-06-08T14:55:17.814663+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-ส่งความคิดเห็น
+Kirim masukan
 
-# การอนุมานแบบยืดหยุ่น
+# Inferensi fleksibel
 
-Gemini Flex API เป็นระดับการอนุมานที่ช่วยลดต้นทุนได้ 50% เมื่อเทียบกับอัตรามาตรฐาน โดยแลกกับการตอบสนองที่ผันแปรและความพร้อมใช้งาน
-ตามความพยายามอย่างเต็มที่ ออกแบบมาสำหรับภาระงานที่ยอมรับเวลาในการตอบสนองได้ซึ่งต้องมีการประมวลผลแบบ
-ซิงโครนัส แต่ไม่จำเป็นต้องใช้ประสิทธิภาพแบบเรียลไทม์ของ
-API มาตรฐาน
+Gemini Flex API adalah tingkat inferensi yang menawarkan pengurangan biaya sebesar 50% dibandingkan dengan tarif standar, sebagai imbalan atas latensi variabel dan ketersediaan upaya terbaik. API ini dirancang untuk beban kerja yang toleran terhadap latensi yang memerlukan pemrosesan sinkron, tetapi tidak memerlukan performa real-time dari API standar.
 
-## วิธีใช้ Flex
+## Cara menggunakan Flex
 
-หากต้องการใช้ระดับ Flex ให้ระบุ `service_tier` เป็น `flex` ในคำขอ โดยค่าเริ่มต้น คำขอจะใช้ระดับมาตรฐานหากละเว้นช่องนี้
+Untuk menggunakan tingkat Flex, tentukan `service_tier` sebagai `flex` dalam permintaan Anda. Secara default, permintaan menggunakan tingkat standar jika kolom ini tidak diisi.
 
 ### Python
 
@@ -82,61 +79,63 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## วิธีการทำงานของการอนุมาน Flex
+## Cara kerja inferensi Flex
 
-การอนุมาน Gemini Flex ช่วยลดช่องว่างระหว่าง API มาตรฐานกับเวลาในการตอบกลับ 24 ชั่วโมงของ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th) โดยจะใช้ความสามารถในการประมวลผลในช่วงนอกเวลาทําการที่ "ลดได้" เพื่อมอบโซลูชันที่คุ้มค่าสําหรับงานเบื้องหลังและเวิร์กโฟลว์แบบลําดับ
+Inferensi Gemini Flex menjembatani kesenjangan antara API standar dan waktu penyelesaian 24 jam [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id). Layanan ini memanfaatkan kapasitas komputasi di luar jam sibuk yang dapat dihentikan untuk memberikan solusi hemat biaya bagi tugas latar belakang dan alur kerja berurutan.
 
-| ฟีเจอร์ | พับ | ลำดับความสำคัญ | มาตรฐาน | กลุ่ม |
+| Fitur | Lipat | Prioritas | Standar | Batch |
 | --- | --- | --- | --- | --- |
-| **การกำหนดราคา** | ส่วนลด 50% | มากกว่ารุ่น Standard 75-100% | ตั๋วราคาเต็ม | ส่วนลด 50% |
-| **เวลาในการตอบสนอง** | นาที (เป้าหมาย 1-15 นาที) | ต่ำ (วินาที) | วินาทีถึงนาที | สูงสุด 24 ชั่วโมง |
-| **ความน่าเชื่อถือ** | ดีที่สุดเท่าที่ทำได้ (ลดภาระได้) | สูง (ไม่หลุดร่วง) | สูง / สูงปานกลาง | สูง (สำหรับปริมาณงาน) |
-| **อินเทอร์เฟซ** | ซิงโครนัส | ซิงโครนัส | ซิงโครนัส | แบบอะซิงโครนัส |
+| **Harga** | Diskon 50% | 75-100% lebih banyak daripada Standard | Harga penuh | Diskon 50% |
+| **Latensi** | Menit (target 1–15 menit) | Rendah (Detik) | Detik ke menit | Hingga 24 jam |
+| **Keandalan** | Upaya terbaik (Dapat Dihapus) | Tinggi (Tidak dapat dilepas) | Tinggi / Sedang-tinggi | Tinggi (untuk throughput) |
+| **Antarmuka** | Sinkron | Sinkron | Sinkron | Asinkron |
 
-### ประโยชน์สำคัญ
+### Manfaat utama
 
-- **ประสิทธิภาพด้านต้นทุน**: ประหยัดค่าใช้จ่ายได้อย่างมากสำหรับการประเมินที่ไม่ใช่การผลิต, เอเจนต์พื้นหลัง และการเพิ่มคุณค่าของข้อมูล
-- **ใช้งานง่าย**: เพียงเพิ่มพารามิเตอร์เดียวลงในคำขอที่มีอยู่
-- **เวิร์กโฟลว์แบบซิงโครนัส**: เหมาะสำหรับเชน API แบบลำดับที่คำขอถัดไปขึ้นอยู่กับเอาต์พุตของคำขอก่อนหน้า ซึ่งทำให้มีความยืดหยุ่นมากกว่า Batch สำหรับเวิร์กโฟลว์ของเอเจนต์
+- **Efisiensi biaya**: Penghematan yang signifikan untuk evaluasi non-produksi, agen latar belakang, dan pengayaan data.
+- **Gesekan rendah**: Cukup tambahkan satu parameter ke permintaan yang ada.
+- **Alur kerja sinkron**: Ideal untuk rangkaian API berurutan di mana permintaan berikutnya bergantung pada output permintaan sebelumnya, sehingga lebih fleksibel daripada Batch untuk alur kerja agentik.
 
-### กรณีการใช้งาน
+### Kasus penggunaan
 
-- **การประเมินแบบออฟไลน์**: การเรียกใช้การทดสอบการถดถอยหรือลีดเดอร์บอร์ด "LLM ในฐานะผู้พิพากษา"
-- **ตัวแทนเบื้องหลัง**: งานตามลำดับ เช่น การอัปเดต CRM การสร้างโปรไฟล์ หรือการกลั่นกรองเนื้อหาที่ยอมรับความล่าช้าได้
-- **การวิจัยที่ถูกจำกัดด้วยงบประมาณ**: การทดลองทางวิชาการที่ต้องใช้โทเค็นจำนวนมากโดยมีงบประมาณจำกัด
+- **Evaluasi offline**: Menjalankan pengujian regresi atau papan peringkat "LLM sebagai juri".
+- **Agen latar belakang**: Tugas berurutan seperti pembaruan CRM, pembuatan profil, atau moderasi konten yang dapat ditunda beberapa menit.
+- **Riset dengan anggaran terbatas**: Eksperimen akademis yang memerlukan volume token tinggi dengan anggaran terbatas.
 
-### ขีดจำกัดอัตรา
+### Batas kapasitas
 
-การเข้าชมการอนุมานแบบยืดหยุ่นจะนับรวมใน[ขีดจำกัดอัตรา](https://aistudio.google.com/rate-limit?hl=th)ทั่วไปของคุณ โดยจะไม่มีขีดจำกัดอัตราเพิ่มเติมเหมือนกับ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)
+Traffic inferensi fleksibel dihitung dalam [batas kapasitas](https://aistudio.google.com/rate-limit?hl=id) umum Anda; tidak
+menawarkan batas kapasitas yang diperluas seperti [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id).
 
-### ความจุที่ลดลงได้
+### Kapasitas yang dapat dikurangi
 
-ระบบจะถือว่าการเข้าชมแบบยืดหยุ่นมีความสำคัญต่ำกว่า หากมีการเข้าชมมาตรฐานเพิ่มขึ้นอย่างรวดเร็ว ระบบอาจขัดจังหวะหรือนำคำขอ Flex ออกเพื่อให้มั่นใจว่ามีพื้นที่ว่างสำหรับผู้ใช้ที่มีลำดับความสำคัญสูง หากกำลังมองหาการอนุมานที่มีลำดับความสำคัญสูง ให้ดู[การอนุมานที่มีลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=th)
+Traffic fleksibel diperlakukan dengan prioritas yang lebih rendah. Jika terjadi lonjakan traffic standar, permintaan Fleksibel dapat didahulukan atau dikeluarkan untuk memastikan kapasitas bagi pengguna prioritas tinggi. Jika Anda mencari inferensi prioritas tinggi, lihat
+[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=id)
 
-### รหัสข้อผิดพลาด
+### Kode error
 
-เมื่อความจุแบบยืดหยุ่นไม่พร้อมใช้งานหรือระบบมีปริมาณการใช้งานสูง API จะ
-แสดงรหัสข้อผิดพลาดมาตรฐาน
+Jika kapasitas Flex tidak tersedia atau sistem mengalami kemacetan, API akan
+menampilkan kode error standar:
 
-- **503 ไม่พร้อมให้บริการ**: ขณะนี้ระบบมีผู้ใช้เต็มแล้ว
-- **429 มีคำขอมากเกินไป**: ขีดจำกัดอัตราหรือทรัพยากรหมด
+- **503 Layanan Tidak Tersedia**: Sistem saat ini sudah mencapai batas kapasitas.
+- **429 Too Many Requests**: Batas frekuensi atau kehabisan resource.
 
-### ความรับผิดชอบของลูกค้า
+### Tanggung jawab klien
 
-- **ไม่มีการสำรองข้อมูลฝั่งเซิร์ฟเวอร์**: เพื่อป้องกันการเรียกเก็บเงินที่ไม่คาดคิด ระบบจะไม่
-  อัปเกรดคำขอ Flex เป็นระดับมาตรฐานโดยอัตโนมัติหากความจุของ Flex เต็ม
-- **การลองใหม่**: คุณต้องใช้ตรรกะการลองใหม่ฝั่งไคลเอ็นต์ของคุณเองด้วย
-  Exponential Backoff
-- **การหมดเวลา**: เนื่องจากคำขอ Flex อาจอยู่ในคิว เราจึงแนะนำให้
-  เพิ่มการหมดเวลาฝั่งไคลเอ็นต์เป็น 10 นาทีขึ้นไปเพื่อหลีกเลี่ยงการปิด
-  การเชื่อมต่อก่อนเวลา
+- **Tidak ada penggantian sisi server**: Untuk mencegah biaya yang tidak terduga, sistem tidak akan otomatis mengupgrade permintaan Flex ke paket Standar jika kapasitas Flex penuh.
+- **Percobaan ulang**: Anda harus menerapkan logika percobaan ulang sisi klien sendiri dengan
+  backoff eksponensial.
+- **Waktu tunggu**: Karena permintaan Flex mungkin berada dalam antrean, sebaiknya
+  perpanjang waktu tunggu sisi klien menjadi 10 menit atau lebih untuk menghindari penutupan
+  koneksi sebelum waktunya.
 
-## ปรับกรอบเวลาหมดเวลา
+## Menyesuaikan periode tunggu
 
-คุณสามารถกำหนดค่าการหมดเวลาต่อคำขอสำหรับ REST API และไลบรารีของไคลเอ็นต์ได้
-ตรวจสอบเสมอว่าการหมดเวลาฝั่งไคลเอ็นต์ครอบคลุมช่วงเวลาที่เซิร์ฟเวอร์ตั้งใจรอ (เช่น 600 วินาทีขึ้นไปสำหรับคิวรอแบบยืดหยุ่น) SDK คาดหวังค่าการหมดเวลาเป็นมิลลิวินาที
+Anda dapat mengonfigurasi waktu tunggu per permintaan untuk REST API dan library klien.
+Selalu pastikan waktu tunggu sisi klien Anda mencakup periode waktu tunggu server yang diinginkan (misalnya, 600 detik+ untuk antrean tunggu Flex). SDK mengharapkan nilai waktu tunggu dalam
+milidetik.
 
-### การหมดเวลาต่อคำขอ
+### Waktu tunggu per permintaan
 
 ### Python
 
@@ -177,9 +176,9 @@ async function main() {
 await main();
 ```
 
-## ใช้การลองใหม่
+## Menerapkan percobaan ulang
 
-เนื่องจาก Flex สามารถลดขนาดได้และจะล้มเหลวพร้อมข้อผิดพลาด 503 ต่อไปนี้คือตัวอย่างการใช้ตรรกะการลองใหม่โดยไม่บังคับเพื่อดำเนินการต่อกับคำขอที่ไม่สำเร็จ
+Karena Flex dapat dilepas dan gagal dengan error 503, berikut contoh penerapan logika percobaan ulang secara opsional untuk melanjutkan permintaan yang gagal:
 
 ### Python
 
@@ -258,36 +257,36 @@ async function main() {
 await main();
 ```
 
-## ราคา
+## Harga
 
-การอนุมานแบบยืดหยุ่นมีราคาอยู่ที่ 50% ของ [API มาตรฐาน](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
-และเรียกเก็บเงินต่อโทเค็น
+Inferensi fleksibel dihargai 50% dari [API standar](https://ai.google.dev/gemini-api/docs/pricing?hl=id)
+dan ditagih per token.
 
-## โมเดลที่รองรับ
+## Model yang didukung
 
-รุ่นต่อไปนี้รองรับการอนุมานแบบยืดหยุ่น
+Model berikut mendukung inferensi Flex:
 
-| รุ่น | การอนุมานแบบยืดหยุ่น |
+| Model | Inferensi fleksibel |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
-| [ตัวอย่าง Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
-| [ตัวอย่าง Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=id) | ✔️ |
+| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=id) | ✔️ |
+| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=id) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=id) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=id) | ✔️ |
 
-## ขั้นตอนถัดไป
+## Langkah berikutnya
 
-- [การอนุมานลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=th)สำหรับเวลาในการตอบสนองต่ำมาก
-- [โทเค็น](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=th): ทำความเข้าใจโทเค็น
+- [Inferensi prioritas](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=id) untuk latensi ultra-rendah.
+- [Token](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=id): Pahami token.
 
-ส่งความคิดเห็น
+Kirim masukan
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-อัปเดตล่าสุด 2026-05-28 UTC
+Terakhir diperbarui pada 2026-05-28 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Ada masukan untuk kami?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-28 UTC"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-28 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ko
-fetched_at: 2026-06-01T19:44:22.259640+00:00
+fetched_at: 2026-06-08T15:00:15.586169+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -17,46 +17,47 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 의견 보내기
 
-# 컨텍스트 캐싱이
+# 컨텍스트 캐싱
 
-일반적인 AI 워크플로에서는 동일한 입력 토큰을 모델에 반복해서 전달할 수 있습니다. Gemini API는 다음과 같은 두 가지 캐싱 메커니즘을 제공합니다.
+일반적인 AI 워크플로에서는 동일한 입력 토큰을 모델에 반복적으로 전달할 수 있습니다. Gemini API는 다음과 같은 두 가지 캐싱 메커니즘을 제공합니다.
 
 - 암시적 캐싱 (Gemini 2.5 이상 모델에서 자동으로 사용 설정되며 비용 절감 보장 없음)
-- 명시적 캐싱 (대부분의 모델에서 수동으로 사용 설정 가능, 비용 절감 보장)
+- 명시적 캐싱 (대부분의 모델에서 수동으로 사용 설정할 수 있으며 비용 절감 보장)
 
 명시적 캐싱은 비용 절감을 보장하되 개발자 작업을 추가하려는 경우에 유용합니다.
 
 ## 암시적 캐싱
 
-모든 Gemini 2.5 이상 모델의 경우 암시적 캐싱이 기본적으로 사용 설정됩니다. 요청이 캐시에 적중되면 비용 절감이 자동으로 적용됩니다. 이를 사용 설정하기 위해 별도로 조치를 취하실 필요는 없습니다. 컨텍스트 캐싱의 최소 입력 토큰 수는 각 모델에 대해 다음 표에 나와 있습니다.
+암시적 캐싱은 모든 Gemini 2.5 이상 모델에서 기본적으로 사용 설정됩니다. 요청이 캐시에 적중하면 비용 절감 효과가 자동으로 전달됩니다. 이를 사용 설정하기 위해 수행해야 할 작업은 없습니다. 컨텍스트 캐싱의 최소 입력 토큰 수는 각 모델의 다음 표에 나와 있습니다.
 
 | 모델 | 최소 토큰 한도 |
 | --- | --- |
-| Gemini 3.5 Flash | 1024 |
-| Gemini 3 Pro 프리뷰 | 4096 |
-| Gemini 2.5 Flash | 1024 |
-| Gemini 2.5 Pro | 4096 |
+| Gemini 3.5 Flash | 4096 |
+| Gemini 3.1 Pro 프리뷰 | 4096 |
+| Gemini 2.5 Flash | 2048 |
+| Gemini 2.5 Pro | 2048 |
 
 암시적 캐시 적중 가능성을 높이려면 다음 안내를 따르세요.
 
 - 프롬프트 시작 부분에 크고 공통적인 콘텐츠를 배치해 보세요.
-- 짧은 시간 내에 유사한 프리픽스를 가진 요청을 전송합니다.
+- 짧은 시간 내에 유사한 프리픽스를 가진 요청을 전송해 보세요.
 
 응답 객체의 `usage_metadata` 필드에서 캐시 적중된 토큰 수를 확인할 수 있습니다.
 
 ## 명시적 캐싱
 
-Gemini API 명시적 캐싱 기능을 사용하면 콘텐츠를 모델에 한 번 전달하고 입력 토큰을 캐시한 다음 후속 요청에서 캐시된 토큰을 참조할 수 있습니다. 특정 볼륨에서는 캐시된 토큰을 사용하는 것이 동일한 코퍼스 토큰을 반복적으로 전달하는 것보다 비용이 저렴합니다.
+Gemini API 명시적 캐싱 기능을 사용하면 콘텐츠를 모델에 한 번 전달하고 입력 토큰을 캐시한 후 후속 요청에서 캐시된 토큰을 참조할 수 있습니다. 특정 볼륨에서 캐시된 토큰을 사용하는 것이 동일한 토큰 코퍼스를 반복적으로 전달하는 것보다 비용이 저렴합니다.
 
-토큰 집합을 캐시할 때 토큰이 자동으로 삭제되기 전에 캐시가 유지될 기간을 선택할 수 있습니다. 이 캐싱 기간을 *TTL (수명)*이라고 합니다. 설정하지 않으면 TTL은 기본적으로 1시간입니다. 캐싱 비용은 입력 토큰 크기와 토큰을 유지하려는 기간에 따라 달라집니다.
+토큰 세트를 캐시할 때 토큰이 자동으로 삭제되기 전에 캐시가 유지될 기간을 선택할 수 있습니다. 이 캐싱 기간을 *TTL (수명)* 이라고 합니다. 설정하지 않으면 TTL 기본값은 1시간입니다. 캐싱 비용은 입력 토큰 크기와 토큰을 유지하려는 기간에 따라 다릅니다.
 
-이 섹션에서는 [빠른 시작](https://ai.google.dev/gemini-api/docs/quickstart?hl=ko)에 표시된 대로 Gemini SDK를 설치했거나 curl이 설치되어 있고 API 키를 구성했다고 가정합니다.
+이 섹션에서는 빠른 시작에 표시된 대로 Gemini SDK를 설치했거나 curl이 설치되어 있고
+API 키를 구성했다고 가정합니다.
 
 ### 캐시를 사용하여 콘텐츠 생성
 
 ### Python
 
-다음 예시에서는 캐시된 시스템 안내와 동영상 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+다음 예시에서는 캐시된 시스템 안내 및 동영상 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
 ### 동영상
 
@@ -163,9 +164,9 @@ print(f'{response.usage_metadata=}')
 print('\n\n', response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
-다음 예시에서는 캐시된 시스템 명령어와 텍스트 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+다음 예시에서는 캐시된 시스템 안내 및 텍스트 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
 ```
 import {
@@ -206,7 +207,7 @@ await main();
 
 ### Go
 
-다음 예에서는 캐시를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+다음 예시에서는 캐시를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
 ```
 package main
@@ -276,7 +277,7 @@ func main() {
 
 ### REST
 
-다음 예에서는 캐시를 만든 다음 이를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+다음 예시에서는 캐시를 만든 후 이를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
 
 ### 동영상
 
@@ -429,26 +430,28 @@ echo jq ".candidates[].content.parts[].text" response.json
 
 ### 캐시 나열
 
-캐시된 콘텐츠를 가져오거나 볼 수는 없지만 캐시 메타데이터 (`name`, `model`, `display_name`, `usage_metadata`, `create_time`, `update_time`, `expire_time`)는 가져올 수 있습니다.
+캐시된 콘텐츠를 가져오거나 볼 수는 없지만
+캐시 메타데이터 (`name`, `model`, `display_name`, `usage_metadata`,
+`create_time`, `update_time`, `expire_time`)는 가져올 수 있습니다.
 
 ### Python
 
-업로드된 모든 캐시의 메타데이터를 나열하려면 `CachedContent.list()`를 사용합니다.
+업로드된 모든 캐시의 메타데이터를 나열하려면 `CachedContent.list()`를 사용하세요.
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-캐시 객체의 이름을 알고 있는 경우 하나의 캐시 객체의 메타데이터를 가져오려면 `get`를 사용하세요.
+이름을 알고 있는 경우 하나의 캐시 객체의 메타데이터를 가져오려면 `get`을 사용하세요.
 
 ```
 client.caches.get(name=name)
 ```
 
-### 자바스크립트
+### JavaScript
 
-업로드된 모든 캐시의 메타데이터를 나열하려면 `GoogleGenAI.caches.list()`를 사용합니다.
+업로드된 모든 캐시의 메타데이터를 나열하려면 `GoogleGenAI.caches.list()`를 사용하세요.
 
 ```
 console.log("My caches:");
@@ -465,7 +468,7 @@ while (true) {
 
 ### Go
 
-다음 예에서는 모든 캐시를 나열합니다.
+다음 예시에서는 모든 캐시를 나열합니다.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -478,7 +481,7 @@ for _, item := range caches {
 }
 ```
 
-다음 예에서는 페이지 크기가 2인 캐시를 나열합니다.
+다음 예시에서는 페이지 크기가 2인 캐시를 나열합니다.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -513,11 +516,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMIN
 
 ### 캐시 업데이트
 
-캐시의 새 `ttl` 또는 `expire_time`를 설정할 수 있습니다. 캐시에 관한 다른 사항은 변경할 수 없습니다.
+캐시에 새 `ttl` 또는 `expire_time`을 설정할 수 있습니다. 캐시에 대한 다른 변경사항은 지원되지 않습니다.
 
 ### Python
 
-다음 예는 `client.caches.update()`을 사용하여 캐시의 `ttl`를 업데이트하는 방법을 보여줍니다.
+다음 예시에서는 `client.caches.update()`를 사용하여 캐시의 `ttl`을 업데이트하는 방법을 보여줍니다.
 
 ```
 from google import genai
@@ -531,7 +534,11 @@ client.caches.update(
 )
 ```
 
-만료 시간을 설정하려면 `datetime` 객체 또는 ISO 형식의 날짜/시간 문자열 (`dt.isoformat()`, `2025-01-27T16:02:36.473528+00:00` 등)을 허용합니다. 시간에는 시간대가 포함되어야 합니다(`datetime.utcnow()`에는 시간대가 연결되지 않고 `datetime.now(datetime.timezone.utc)`에는 시간대가 연결됨).
+만료 시간을 설정하려면 `datetime` 객체
+또는 ISO 형식의 datetime 문자열 (`dt.isoformat()`,
+`2025-01-27T16:02:36.473528+00:00`과 같은)을 허용합니다. 시간에는 시간대가 포함되어야 합니다
+(`datetime.utcnow()`는 시간대를 연결하지 않지만
+`datetime.now(datetime.timezone.utc)`는 시간대를 연결함).
 
 ```
 from google import genai
@@ -549,9 +556,9 @@ client.caches.update(
 )
 ```
 
-### 자바스크립트
+### JavaScript
 
-다음 예는 `GoogleGenAI.caches.update()`을 사용하여 캐시의 `ttl`를 업데이트하는 방법을 보여줍니다.
+다음 예시에서는 `GoogleGenAI.caches.update()`를 사용하여 캐시의 `ttl`을 업데이트하는 방법을 보여줍니다.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -564,7 +571,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-다음 예는 캐시의 `TTL`를 업데이트하는 방법을 보여줍니다.
+다음 예시에서는 캐시의 `TTL`을 업데이트하는 방법을 보여줍니다.
 
 ```
 // Update the TTL (2 hours).
@@ -580,7 +587,7 @@ fmt.Println(cache)
 
 ### REST
 
-다음 예는 캐시의 `ttl`를 업데이트하는 방법을 보여줍니다.
+다음 예시에서는 캐시의 `ttl`을 업데이트하는 방법을 보여줍니다.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -590,7 +597,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 
 ### 캐시 삭제
 
-캐싱 서비스는 캐시에서 콘텐츠를 수동으로 삭제하는 삭제 작업을 제공합니다. 다음 예는 캐시를 삭제하는 방법을 보여줍니다.
+캐싱 서비스는 캐시에서 콘텐츠를 수동으로 삭제하는 삭제 작업을 제공합니다. 다음 예시에서는 캐시를 삭제하는 방법을 보여줍니다.
 
 ### Python
 
@@ -598,7 +605,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 client.caches.delete(cache.name)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 await ai.caches.delete({ name: cache.name });
@@ -622,9 +629,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key
 
 ### OpenAI 라이브러리를 사용한 명시적 캐싱
 
-[OpenAI 라이브러리](https://ai.google.dev/gemini-api/docs/openai?hl=ko)를 사용하는 경우 [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=ko#extra-body)에서 `cached_content` 속성을 사용하여 명시적 캐싱을 사용 설정할 수 있습니다.
+[OpenAI 라이브러리를 사용하는 경우  속성을 사용하여 명시적 캐싱을 사용 설정할 수 있습니다.](https://ai.google.dev/gemini-api/docs/openai?hl=ko#extra-body)`cached_content``extra_body`
 
-## 명시적 캐싱을 사용해야 하는 경우
+## 명시적 캐싱을 사용하는 경우
 
 컨텍스트 캐싱은 짧은 요청에서 상당한 양의 초기 컨텍스트를 반복적으로 참조하는 시나리오에 특히 적합합니다. 다음과 같은 사용 사례에 컨텍스트 캐싱을 사용하는 것이 좋습니다.
 
@@ -641,23 +648,26 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key
 2. **스토리지 기간:** 캐시된 토큰이 저장되는 시간 (TTL)으로, 캐시된 토큰 수의 TTL 기간을 기준으로 청구됩니다. TTL에는 최소 또는 최대 경계가 없습니다.
 3. **기타 요인:** 캐시되지 않은 입력 토큰 및 출력 토큰과 같은 기타 요인에 다른 요금이 청구됩니다.
 
-최신 가격 책정 세부정보는 Gemini API [가격 책정 페이지](https://ai.google.dev/pricing?hl=ko)를 참고하세요. 토큰 수를 계산하는 방법을 알아보려면 [토큰 가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.
+최신 가격 책정 세부정보는 Gemini API [pricing
+page](https://ai.google.dev/pricing?hl=ko)를 참조하세요. 토큰 수를 집계하는 방법을 알아보려면 [토큰
+가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.
 
 ### 추가 고려사항
 
-컨텍스트 캐싱을 사용할 때는 다음 사항을 고려하세요.
+컨텍스트 캐싱을 사용할 때는 다음 고려사항에 유의하세요.
 
-- 컨텍스트 캐싱의 *최소* 입력 토큰 수는 모델에 따라 다릅니다. *최댓값*은 지정된 모델의 최댓값과 동일합니다. 토큰 수에 대한 자세한 내용은 [토큰 가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.
-- 모델은 캐시된 토큰과 일반 입력 토큰을 구분하지 않습니다. 캐시된 콘텐츠는 프롬프트의 접두사입니다.
-- 컨텍스트 캐싱에는 특별한 요금이나 사용량 한도가 없습니다. `GenerateContent`의 표준 요금 한도가 적용되며 토큰 한도에는 캐시된 토큰이 포함됩니다.
-- 캐시된 토큰 수는 캐시 서비스의 생성, 가져오기, 목록 작업의 `usage_metadata`와 캐시를 사용할 때 `GenerateContent`에 반환됩니다.
+- 컨텍스트 캐싱의 *최소* 입력 토큰 수는 모델에 따라 다릅니다. *최대* 는 지정된 모델의 최대값과 동일합니다. (토큰 집계에 대한 자세한 내용은
+  [토큰 가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.)
+- 모델은 캐시된 토큰과 일반 입력 토큰을 구분하지 않습니다. 캐시된 콘텐츠는 프롬프트의 프리픽스입니다.
+- 컨텍스트 캐싱에는 특별한 요율 또는 사용량 제한이 없습니다. `GenerateContent`의 표준 요율 제한이 적용되며 토큰 한도에는 캐시된 토큰이 포함됩니다.
+- 캐시된 토큰 수는 캐시 서비스의 생성, 가져오기, 나열 작업의 `usage_metadata`와 캐시를 사용할 때 `GenerateContent`에서 반환됩니다.
 
 의견 보내기
 
 달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-최종 업데이트: 2026-05-19(UTC)
+최종 업데이트: 2026-06-02(UTC)
 
 의견을 전달하고 싶나요?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-02(UTC)"],[],[]]

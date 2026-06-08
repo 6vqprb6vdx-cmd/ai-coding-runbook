@@ -1,36 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=th
-fetched_at: 2026-06-01T19:44:41.431151+00:00
+source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=es-419
+fetched_at: 2026-06-08T14:54:39.413611+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-# ค้นหาไฟล์
+# Búsqueda de archivos
 
-Gemini API ช่วยให้ Retrieval Augmented Generation ("RAG") ทำงานได้ผ่านเครื่องมือค้นหาไฟล์ การค้นหาไฟล์จะนำเข้า แบ่ง และจัดทำดัชนีข้อมูลของคุณเพื่อ
-ให้ดึงข้อมูลที่เกี่ยวข้องได้อย่างรวดเร็วตามพรอมต์ที่ระบุ จากนั้นระบบจะใช้ข้อมูลที่ดึงมานี้เป็นบริบทสำหรับโมเดล ซึ่งจะช่วยให้โมเดล
-ให้คำตอบที่ถูกต้องและเกี่ยวข้องมากขึ้นได้ การค้นหาไฟล์ยังสามารถ
-มอบความสามารถแบบหลายรูปแบบด้วยการฝังข้อความที่รองรับโดย
-`gemini-embedding-001` และการฝังรูปภาพ/แบบหลายรูปแบบที่รองรับโดย `gemini-embedding-2`
+La API de Gemini habilita la generación mejorada por recuperación ("RAG") a través de la herramienta de búsqueda de archivos. La Búsqueda de archivos importa, divide en fragmentos y, luego, indexa tus datos para permitir la recuperación rápida de información pertinente según una instrucción proporcionada. Luego, esta información recuperada se usa como contexto para el modelo, lo que le permite proporcionar respuestas más precisas y pertinentes. La búsqueda de archivos también puede proporcionar capacidades multimodales con incorporaciones de texto compatibles con `gemini-embedding-001` y con incorporaciones de imágenes o multimodales compatibles con `gemini-embedding-2`.
 
-การจัดเก็บไฟล์และการสร้างการฝังในเวลาที่ทำการค้นหาไม่มีค่าใช้จ่าย และคุณจะชำระเงินเฉพาะสำหรับการสร้างการฝังเมื่อจัดทำดัชนีไฟล์เป็นครั้งแรกและค่าโทเค็นอินพุต / เอาต์พุตของโมเดล Gemini ปกติ
-กระบวนทัศน์การเรียกเก็บเงินแบบใหม่นี้ทำให้เครื่องมือค้นหาไฟล์สร้างและปรับขนาดได้ง่ายขึ้นและคุ้มค่ากว่าเดิม ดูรายละเอียดได้ที่ส่วน[ราคา](#pricing)
+El almacenamiento de archivos y la generación de embeddings en el momento de la búsqueda son gratuitos, y solo pagarás por crear embeddings cuando indexes tus archivos por primera vez y por el costo normal de los tokens de entrada y salida del modelo de Gemini. Este nuevo paradigma de facturación hace que la herramienta de búsqueda de archivos sea más fácil y rentable de desarrollar y escalar. Consulta la sección de [precios](#pricing) para obtener más detalles.
 
-## อัปโหลดไปยังร้านค้า File Search โดยตรง
+## Subir directamente a la tienda de File Search
 
-ตัวอย่างนี้แสดงวิธีอัปโหลดไฟล์ไปยัง[ที่เก็บไฟล์ค้นหา](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-media.uploadtofilesearchstore)โดยตรง
+En este ejemplo, se muestra cómo subir directamente un archivo al [almacén de búsqueda de archivos](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-media.uploadtofilesearchstore):
 
 ### Python
 
@@ -127,11 +122,11 @@ async function run() {
 run();
 ```
 
-ดูข้อมูลเพิ่มเติมได้ที่เอกสารอ้างอิง API สำหรับ [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-media.uploadtofilesearchstore)
+Consulta la referencia de la API de [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-media.uploadtofilesearchstore) para obtener más información.
 
-## การนำเข้าไฟล์
+## Importación de archivos
 
-หรือจะอัปโหลดไฟล์ที่มีอยู่แล้ว[นำเข้าไปยังที่เก็บการค้นหาไฟล์](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-filesearchstores.importfile)ก็ได้ โดยทำดังนี้
+También puedes subir un archivo existente y [importarlo a tu tienda de búsqueda de archivos](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -229,13 +224,11 @@ async function run() {
 run();
 ```
 
-ดูข้อมูลเพิ่มเติมได้ที่เอกสารอ้างอิง API สำหรับ [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-filesearchstores.importfile)
+Consulta la referencia de la API de [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-filesearchstores.importfile) para obtener más información.
 
-## การกำหนดค่าการแบ่งกลุ่ม
+## Configuración de fragmentación
 
-เมื่อนำเข้าไฟล์ไปยังที่เก็บข้อมูลการค้นหาไฟล์ ระบบจะแบ่งไฟล์ออกเป็น
-หลายๆ ชิ้น ฝัง จัดทำดัชนี และอัปโหลดไปยังที่เก็บข้อมูลการค้นหาไฟล์โดยอัตโนมัติ หากต้องการควบคุมกลยุทธ์การแบ่งกลุ่มให้มากขึ้น คุณสามารถระบุการตั้งค่า [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=th#request-body_5)
-เพื่อกำหนดจำนวนโทเค็นสูงสุดต่อกลุ่มและจำนวนโทเค็นที่ทับซ้อนกันสูงสุดได้
+Cuando importas un archivo a un almacén de File Search, se divide automáticamente en fragmentos, se incorpora, se indexa y se sube a tu almacén de File Search. Si necesitas más control sobre la estrategia de fragmentación, puedes especificar un parámetro de configuración [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#request-body_5) para establecer una cantidad máxima de tokens por fragmento y una cantidad máxima de tokens superpuestos.
 
 ### Python
 
@@ -294,54 +287,35 @@ while (!operation.done) {
 console.log("Custom chunking complete.");
 ```
 
-หากต้องการใช้ที่เก็บข้อมูลการค้นหาไฟล์ ให้ส่งเป็นเครื่องมือไปยังเมธอด `generateContent`
-ดังที่แสดงในตัวอย่าง[อัปโหลด](#upload)และ[นำเข้า](#importing-files)
+Para usar tu almacén de File Search, pásala como una herramienta al método `generateContent`, como se muestra en los ejemplos de [Upload](#upload) y [Import](#importing-files).
 
-## วิธีการทำงาน
+## Cómo funciona
 
-การค้นหาไฟล์ใช้เทคนิคที่เรียกว่าการค้นหาเชิงความหมายเพื่อค้นหาข้อมูลที่เกี่ยวข้องกับพรอมต์ของผู้ใช้ การค้นหาเชิงความหมาย จะเข้าใจความหมายและบริบทของคำค้นหา ซึ่งแตกต่างจากการค้นหาตามคีย์เวิร์ดมาตรฐาน
+La Búsqueda de archivos usa una técnica llamada búsqueda semántica para encontrar información pertinente para la instrucción del usuario. A diferencia de la búsqueda estándar basada en palabras clave, la búsqueda semántica comprende el significado y el contexto de tu búsqueda.
 
-เมื่อนำเข้าไฟล์ ระบบจะแปลงไฟล์เป็นตัวแทนเชิงตัวเลขที่เรียกว่า
-[การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th) ซึ่งจะบันทึกความหมายเชิงความหมายของ
-เนื้อหาที่อัปโหลด โดยระบบจะจัดเก็บการฝังเหล่านี้ไว้ในฐานข้อมูลการค้นหาไฟล์เฉพาะ
-เมื่อคุณทำการค้นหา ระบบจะแปลงการค้นหานั้นเป็น Embedding ด้วย จากนั้นระบบจะ
-ทำการค้นหาไฟล์เพื่อค้นหาเอกสารที่คล้ายกันและเกี่ยวข้องมากที่สุด
-จากที่เก็บข้อมูลการค้นหาไฟล์
+Cuando importas un archivo, se convierte en representaciones numéricas llamadas [embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419), que capturan el significado semántico del contenido subido. Estos embeddings se almacenan en una base de datos especializada de File Search.
+Cuando haces una búsqueda, esta también se convierte en un embedding. Luego, el sistema realiza una búsqueda de archivos para encontrar los fragmentos de documentos más similares y relevantes del almacén de búsqueda de archivos.
 
-ไม่มี Time To Live (TTL) สำหรับการฝัง
-โดยจะยังคงอยู่จนกว่าจะถูกลบด้วยตนเองหรือเมื่อเลิกใช้งานโมเดล แต่ระบบจะลบไฟล์หลังจากผ่านไป 48 ชั่วโมง
+No hay un tiempo de actividad (TTL) para las incorporaciones; estas persisten hasta que se borran de forma manual o cuando el modelo deja de estar disponible. Sin embargo, los archivos se borran después de 48 horas.
 
-ขั้นตอนการใช้ File Search
-`uploadToFileSearchStore` API มีดังนี้
+A continuación, se detalla el proceso para usar la API de File Search `uploadToFileSearchStore`:
 
-1. **สร้างที่เก็บข้อมูลการค้นหาไฟล์**: ที่เก็บข้อมูลการค้นหาไฟล์มีข้อมูลที่ประมวลผลแล้วจากไฟล์ ซึ่งเป็นคอนเทนเนอร์แบบถาวรสำหรับ Embedding ที่การค้นหาเชิงความหมายจะทำงานด้วย
-2. **อัปโหลดไฟล์และนำเข้าไปยังร้านค้า File Search**: อัปโหลดไฟล์พร้อมกัน
-   และนำเข้าผลลัพธ์ไปยังร้านค้า File Search ซึ่งจะสร้าง`File`ออบเจ็กต์ชั่วคราว ซึ่งเป็นข้อมูลอ้างอิงถึงเอกสารดิบ จากนั้นระบบจะแบ่งข้อมูลออกเป็นส่วนๆ แปลงเป็นข้อมูลฝังสำหรับการค้นหาไฟล์ และจัดทำดัชนี `File`
-   ระบบจะลบออบเจ็กต์หลังจาก 48 ชั่วโมง ในขณะที่ข้อมูลที่นำเข้าสู่ที่เก็บการค้นหาไฟล์
-   จะได้รับการจัดเก็บอย่างไม่มีกำหนดจนกว่าคุณจะเลือกให้ลบ
-3. **ค้นหาด้วยการค้นหาไฟล์**: สุดท้ายนี้ คุณใช้เครื่องมือ `FileSearch` ในการโทร `generateContent` ในการกำหนดค่าเครื่องมือ คุณจะระบุ
-   `FileSearchRetrievalResource`ซึ่งชี้ไปยัง `FileSearchStore` ที่ต้องการ
-   ค้นหา ซึ่งจะบอกโมเดลให้ทำการค้นหาเชิงความหมายในที่เก็บข้อมูลการค้นหาไฟล์นั้นๆ เพื่อค้นหาข้อมูลที่เกี่ยวข้องมาใช้เป็นพื้นฐานในการตอบ
+1. **Crea un almacén de File Search**: Un almacén de File Search contiene los datos procesados de tus archivos. Es el contenedor persistente para los embeddings en los que operará la búsqueda semántica.
+2. **Sube un archivo y, luego, impórtalo a un almacén de File Search**: Sube un archivo y, luego, importa los resultados a tu almacén de File Search de forma simultánea. Esto crea un objeto `File` temporal, que es una referencia a tu documento sin procesar. Luego, esos datos se dividen en fragmentos, se convierten en incorporaciones de File Search y se indexan. El objeto `File` se borra después de 48 horas, mientras que los datos importados al almacén de File Search se almacenan de forma indefinida hasta que decidas borrarlos.
+3. **Consulta con la Búsqueda de archivos**: Por último, usas la herramienta `FileSearch` en una llamada `generateContent`. En la configuración de la herramienta, especificas un `FileSearchRetrievalResource`, que apunta al `FileSearchStore` que deseas buscar. Esto le indica al modelo que realice una búsqueda semántica en ese almacén específico de la Búsqueda de archivos para encontrar información pertinente que fundamente su respuesta.
 
-![กระบวนการจัดทำดัชนีและการค้นหาของเครื่องมือค้นหาไฟล์](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=th)
+![El proceso de indexación y búsqueda de la Búsqueda de archivos](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=es-419)
 
-กระบวนการจัดทำดัชนีและการค้นหาของ File Search
+El proceso de indexación y consulta de la Búsqueda de archivos
 
-ในแผนภาพนี้ เส้นประจาก*เอกสาร*ไปยัง*โมเดลการฝัง*
-(ใช้ [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=th))
-แสดงถึง `uploadToFileSearchStore` API (ข้าม*ที่เก็บไฟล์*)
-หรือการใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th) เพื่อสร้างแยกกัน
-แล้วนำเข้าไฟล์จะย้ายกระบวนการจัดทำดัชนีจาก *Documents* ไปยัง
-*File storage* แล้วจึงไปยัง *Embedding model*
+En este diagrama, la línea punteada que va de *Documentos* a *Modelo de incorporación* (con [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419)) representa la API de `uploadToFileSearchStore` (que omite *Almacenamiento de archivos*).
+De lo contrario, usar la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419) para crear y, luego, importar archivos por separado traslada el proceso de indexación de *Documents* a *File storage* y, luego, a *Embedding model*.
 
-## File Search stores
+## Almacenes de búsqueda de archivos
 
-ที่เก็บการค้นหาไฟล์คือคอนเทนเนอร์สำหรับการฝังเอกสาร แม้ว่าระบบจะลบไฟล์ดิบที่อัปโหลดผ่าน File API หลังจาก 48 ชั่วโมง แต่ข้อมูลที่นำเข้าไปยังที่เก็บข้อมูลการค้นหาไฟล์จะจัดเก็บไว้เรื่อยๆ จนกว่าคุณจะลบด้วยตนเอง คุณสามารถ
-สร้างที่เก็บการค้นหาไฟล์หลายรายการเพื่อจัดระเบียบเอกสารได้
-`FileSearchStore` API ช่วยให้คุณสร้าง แสดงรายการ รับ และลบเพื่อจัดการร้านค้า
-การค้นหาไฟล์ได้ ชื่อร้านค้าของ File Search จะมีขอบเขตทั่วโลก
+Un almacén de File Search es un contenedor para tus embeddings de documentos. Si bien los archivos sin procesar que se suben a través de la API de File se borran después de 48 horas, los datos que se importan a un almacén de File Search se almacenan de forma indefinida hasta que los borres de forma manual. Puedes crear varios almacenes de File Search para organizar tus documentos. La API de `FileSearchStore` te permite crear, enumerar, obtener y borrar para administrar tus tiendas de búsqueda de archivos. Los nombres de la tienda de la Búsqueda de archivos tienen un alcance global.
 
-ตัวอย่างวิธีจัดการร้านค้าที่ค้นหาไฟล์มีดังนี้
+Estos son algunos ejemplos de cómo administrar tus tiendas de búsqueda de archivos:
 
 ### Python
 
@@ -400,11 +374,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123?key=${GEMINI_API_KEY}"
 ```
 
-## เอกสารการค้นหาไฟล์
+## Documentos de búsqueda de archivos
 
-คุณจัดการเอกสารแต่ละรายการในที่เก็บไฟล์ได้ด้วย API [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=th) เพื่อ`list`เอกสารแต่ละรายการ
-ในที่เก็บการค้นหาไฟล์ `get`ข้อมูลเกี่ยวกับเอกสาร และ`delete`เอกสาร
-ตามชื่อ
+Puedes administrar documentos individuales en tus almacenes de archivos con la API de [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=es-419) para `list` cada documento en un almacén de búsqueda de archivos, `get` información sobre un documento y `delete` un documento por nombre.
 
 ### Python
 
@@ -447,9 +419,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents/my_doc?key=${GEMINI_API_KEY}"
 ```
 
-## ข้อมูลเมตาของไฟล์
+## Metadatos de archivos
 
-คุณสามารถเพิ่มข้อมูลเมตาที่กำหนดเองลงในไฟล์เพื่อช่วยกรองไฟล์หรือให้บริบทเพิ่มเติมได้ ข้อมูลเมตาคือชุดคู่คีย์-ค่า
+Puedes agregar metadatos personalizados a tus archivos para filtrarlos o proporcionar contexto adicional. Los metadatos son un conjunto de pares clave-valor.
 
 ### Python
 
@@ -479,8 +451,7 @@ let operation = await ai.fileSearchStores.importFile({
 });
 ```
 
-ซึ่งจะมีประโยชน์เมื่อคุณมีเอกสารหลายฉบับในที่เก็บการค้นหาไฟล์และต้องการ
-ค้นหาเฉพาะชุดย่อยของเอกสารเหล่านั้น
+Esto es útil cuando tienes varios documentos en un almacén de Búsqueda de archivos y quieres buscar solo un subconjunto de ellos.
 
 ### Python
 
@@ -545,17 +516,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 cat response.json
 ```
 
-ดูคำแนะนำในการใช้ไวยากรณ์ตัวกรองรายการสำหรับ `metadata_filter` ได้ที่ [google.aip.dev/160](https://google.aip.dev/160)
+Puedes encontrar orientación para implementar la sintaxis del filtro de lista para `metadata_filter` en [google.aip.dev/160](https://google.aip.dev/160).
 
-## การค้นหาไฟล์หลายรูปแบบ
+## Búsqueda de archivos multimodal
 
-การค้นหาไฟล์แบบมัลติโมดัลช่วยให้คุณฝังและค้นหารูปภาพได้โดยตรง
-ซึ่งจะช่วยให้แอปพลิเคชัน RAG แบบมัลติโมดัลมีความสมบูรณ์ยิ่งขึ้น
+La búsqueda de archivos multimodal te permite incorporar y buscar imágenes de forma nativa, lo que habilita aplicaciones de RAG multimodales enriquecidas.
 
-### กำหนดค่าโมเดลการฝัง
+### Configura el modelo de embedding
 
-เมื่อสร้าง `FileSearchStore` คุณต้องลบล้างโมเดลการฝังข้อความเท่านั้นเริ่มต้นเพื่อใช้โมเดลแบบมัลติโมดัล ใช้ `models/gemini-embedding-2` เพื่อ
-ประมวลผลทั้งข้อความและรูปภาพ
+Cuando creas un `FileSearchStore`, debes anular el modelo de incorporación predeterminado solo para texto y usar un modelo multimodal. Usa `models/gemini-embedding-2` para procesar texto e imágenes.
 
 ### Python
 
@@ -590,21 +559,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### อัปโหลดรูปภาพ
+### Sube imágenes
 
-หลังจากสร้างร้านค้าด้วยโมเดลการฝังแบบมัลติโมดัลแล้ว คุณจะอัปโหลดไฟล์รูปภาพได้โดยตรงโดยใช้ API การอัปโหลดเดียวกันที่อธิบายไว้ใน[อัปโหลดไปยังร้านค้าการค้นหาไฟล์โดยตรง](#upload)หรือ[การนำเข้าไฟล์](#importing-files)
+Después de crear el almacén con un modelo de incorporación multimodal, puedes subir archivos de imagen directamente con las mismas APIs de carga que se describen en [Cómo subir archivos directamente al almacén de File Search](#upload) o [Cómo importar archivos](#importing-files).
 
-**ข้อกำหนดเกี่ยวกับไฟล์รูปภาพ:**
+**Requisitos de los archivos de imagen:**
 
-- ไฟล์รูปภาพต้องมีความละเอียดไม่เกิน 4K x 4K พิกเซล
-- รูปแบบที่รองรับ ได้แก่ PNG, JPEG
+- Los archivos de imagen deben tener una resolución máxima de 4K x 4K píxeles.
+- Los formatos admitidos son PNG y JPEG.
 
-## การอ้างอิง
+## Citas
 
-เมื่อคุณใช้การค้นหาไฟล์ คำตอบของโมเดลอาจมีการอ้างอิงที่ระบุส่วนของเอกสารที่คุณอัปโหลดซึ่งใช้ในการสร้างคำตอบ ซึ่งจะช่วยในการตรวจสอบข้อเท็จจริงและการยืนยัน
+Cuando usas la Búsqueda de archivos, la respuesta del modelo puede incluir citas que especifican qué partes de los documentos que subiste se usaron para generar la respuesta. Esto ayuda con la verificación de datos.
 
-คุณเข้าถึงข้อมูลการอ้างอิงได้ผ่าน`grounding_metadata`แอตทริบิวต์
-ของคำตอบ
+Puedes acceder a la información de la cita a través del atributo `grounding_metadata` de la respuesta.
 
 ### Python
 
@@ -618,16 +586,12 @@ print(response.candidates[0].grounding_metadata)
 console.log(JSON.stringify(response.candidates?.[0]?.groundingMetadata, null, 2));
 ```
 
-ดูข้อมูลโดยละเอียดเกี่ยวกับโครงสร้างของข้อมูลเมตาการกราวด์ได้ที่
-ตัวอย่างใน[สูตรการค้นหาไฟล์](https://github.com/google-gemini/cookbook/blob/main/quickstarts/File_Search.ipynb)
-หรือ[ส่วนการกราวด์ของเอกสารการกราวด์ด้วย Google
-Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th#attributing_sources_with_inline_citations)
+Para obtener información detallada sobre la estructura de los metadatos de fundamentación, consulta los ejemplos en el [recetario de File Search](https://github.com/google-gemini/cookbook/blob/main/quickstarts/File_Search.ipynb) o [la sección de fundamentación de la documentación de Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419#attributing_sources_with_inline_citations).
 
-### หมายเลขหน้า
+### Números de página
 
-เมื่อใช้การค้นหาไฟล์กับเอกสารที่มีหน้า (เช่น PDF) คำตอบของโมเดลอาจมีหมายเลขหน้าที่พบข้อมูล
-คุณเข้าถึงข้อมูลนี้ได้ผ่านแอตทริบิวต์ `page_number` ของ
-`retrieved_context`
+Cuando usas la Búsqueda de archivos con documentos que tienen páginas (como los PDF), la respuesta del modelo puede incluir el número de página en el que se encontró la información.
+Puedes acceder a esta información a través del atributo `page_number` del objeto `retrieved_context`.
 
 ### Python
 
@@ -649,13 +613,11 @@ for (const chunk of groundingMetadata.groundingChunks) {
 }
 ```
 
-### การอ้างอิงสื่อ
+### Citas de medios
 
-เมื่อโมเดลอ้างอิงก้อนข้อมูลรูปภาพในระหว่างการสร้าง API จะแสดงการอ้างอิงในข้อมูลเมตาการเชื่อมโยงที่มี `media_id` คุณใช้รหัสนี้เพื่อดาวน์โหลดก้อนข้อมูลรูปภาพที่โมเดลอ้างอิงได้ `media_id`นี้
-จะคงอยู่ในการเรียกค้นหาหลายครั้ง ซึ่งช่วยให้คุณเรียก
-รูปภาพเดียวกันหรือแคชรูปภาพโดยใช้รหัสได้อย่างน่าเชื่อถือ
+Cuando el modelo hace referencia a un fragmento de imagen durante la generación, la API devuelve una cita en los metadatos de fundamentación que incluye un `media_id`. Puedes usar este ID para descargar el fragmento de imagen exacto al que hizo referencia el modelo. Este `media_id` persiste en varias llamadas de búsqueda, lo que te permite recuperar de forma confiable la misma imagen o almacenarla en caché con el ID.
 
-ข้อมูลโค้ดต่อไปนี้เป็นตัวอย่างการตอบกลับ REST
+El siguiente fragmento es un ejemplo de respuesta de REST:
 
 ```
 "groundingMetadata": {
@@ -671,8 +633,7 @@ for (const chunk of groundingMetadata.groundingChunks) {
 }
 ```
 
-ข้อมูลโค้ดต่อไปนี้แสดงวิธีดึงข้อมูล `media_id` และ
-ดาวน์โหลดสื่อ
+En los siguientes fragmentos de código, se muestra cómo recuperar el objeto `media_id` y descargar el contenido multimedia:
 
 ### Python
 
@@ -708,11 +669,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## ข้อมูลเมตาที่กำหนดเองในข้อมูลพื้นฐาน
+## Metadatos personalizados en los datos de fundamentación
 
-หากเพิ่มข้อมูลเมตาที่กำหนดเองลงในไฟล์ คุณจะเข้าถึงข้อมูลเมตาดังกล่าวได้ใน
-ข้อมูลเมตาพื้นฐานของคำตอบของโมเดล ซึ่งมีประโยชน์สำหรับการส่งบริบทเพิ่มเติม (เช่น URL, หมายเลขหน้า หรือผู้เขียน) จากเอกสารต้นฉบับไปยังตรรกะของแอปพลิเคชัน `grounding_chunk` แต่ละรายการใน
-`retrieved_context` จะมีข้อมูลเมตาที่กำหนดเองนี้
+Si agregaste metadatos personalizados a tus archivos, puedes acceder a ellos en los metadatos de fundamentación de la respuesta del modelo. Esto es útil para pasar contexto adicional (como URLs, números de página o autores) de tus documentos fuente a la lógica de tu aplicación. Cada `grounding_chunk` en `retrieved_context` contiene estos metadatos personalizados.
 
 ### Python
 
@@ -805,9 +764,9 @@ groundingMetadata.groundingChunks.forEach((chunk) => {
 }
 ```
 
-## เอาต์พุตที่มีโครงสร้าง
+## Resultados estructurados
 
-ตั้งแต่โมเดล Gemini 3 เป็นต้นไป คุณจะใช้เครื่องมือค้นหาไฟล์ร่วมกับ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)ได้
+A partir de los modelos de Gemini 3, puedes combinar la herramienta de búsqueda de archivos con [resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419).
 
 ### Python
 
@@ -905,28 +864,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## โมเดลที่รองรับ
+## Modelos compatibles
 
-รุ่นต่อไปนี้รองรับการค้นหาไฟล์
+Los siguientes modelos admiten la Búsqueda de archivos:
 
-| รุ่น | ค้นหาไฟล์ |
+| Modelo | Búsqueda de archivos |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
-| [ตัวอย่าง Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=th) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
-| [ตัวอย่าง Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
 
-## ชุดเครื่องมือที่รองรับ
+## Combinaciones de herramientas compatibles
 
-โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การค้นหาไฟล์) กับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ที่หน้า[ชุดเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Los modelos de Gemini 3 admiten la combinación de herramientas integradas (como la Búsqueda de archivos) con herramientas personalizadas (llamadas a funciones). Obtén más información en la página de [combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
 
-## ประเภทไฟล์ที่สนับสนุน
+## Tipos de archivos admitidos
 
-การค้นหาไฟล์รองรับรูปแบบไฟล์หลากหลายรูปแบบตามที่ระบุไว้ในส่วนต่อไปนี้
+La Búsqueda de archivos admite una amplia variedad de formatos de archivo, que se indican en las siguientes secciones.
 
-### ประเภทไฟล์แอปพลิเคชัน
+### Tipos de archivos de aplicación
 
 - `application/dart`
 - `application/ecmascript`
@@ -959,7 +918,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - `application/xml`
 - `application/zip`
 
-### ประเภทไฟล์ข้อความ
+### Tipos de archivos de texto
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -1118,41 +1077,40 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## ข้อจำกัด
+## Limitaciones
 
-- **Live API:** ไม่รองรับการค้นหาไฟล์ใน
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
-- **เครื่องมือไม่รองรับ:** ขณะนี้การค้นหาไฟล์ใช้ร่วมกับเครื่องมืออื่นๆ ไม่ได้ เช่น [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th), [บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th) เป็นต้น
+- **API en vivo:** La búsqueda de archivos no es compatible con la [API en vivo](https://ai.google.dev/gemini-api/docs/live?hl=es-419).
+- **Incompatibilidad de la herramienta:** Por el momento, la Búsqueda de archivos no se puede combinar con otras herramientas, como [Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419), [Contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419), etcétera.
 
-### ขีดจำกัดอัตรา
+### Límites de frecuencia
 
-File Search API มีขีดจำกัดต่อไปนี้เพื่อบังคับใช้ความเสถียรของบริการ
+La API de File Search tiene los siguientes límites para garantizar la estabilidad del servicio:
 
-- **ขนาดไฟล์สูงสุด / ขีดจำกัดต่อเอกสาร**: 100 MB
-- **ขนาดรวมของที่เก็บข้อมูลการค้นหาไฟล์ของโปรเจ็กต์** (อิงตามระดับผู้ใช้)
-  - **ฟรี**: 1 GB
-  - **ระดับ 1**: 10 GB
-  - **ระดับ 2**: 100 GB
-  - **ระดับ 3**: 1 TB
-- **คำแนะนำ**: จำกัดขนาดของที่เก็บข้อมูลการค้นหาไฟล์แต่ละรายการให้ต่ำกว่า 20 GB เพื่อให้มั่นใจว่าเวลาในการดึงข้อมูลจะเหมาะสมที่สุด
+- **Límite de tamaño de archivo o por documento**: 100 MB
+- **Tamaño total de los almacenamientos de la Búsqueda de archivos del proyecto** (según el nivel del usuario):
+  - **Gratis**: 1 GB
+  - **Nivel 1**: 10 GB
+  - **Nivel 2**: 100 GB
+  - **Nivel 3**: 1 TB
+- **Recomendación**: Limita el tamaño de cada almacén de File Search a menos de 20 GB para garantizar latencias de recuperación óptimas.
 
-## ราคา
+## Precios
 
-- ระบบจะเรียกเก็บเงินค่า Embedding จากคุณในเวลาที่จัดทำดัชนีตาม[ราคา Embedding](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-embedding-2) ที่มีอยู่
-- โดยไม่มีค่าใช้จ่าย
-- การฝังเวลาการค้นหาไม่มีค่าใช้จ่าย
-- ระบบจะเรียกเก็บเงินสำหรับโทเค็นเอกสารที่ดึงมาเป็น[โทเค็นบริบท](https://ai.google.dev/gemini-api/docs/tokens?hl=th)ปกติ
+- Se te cobrarán los precios de las [incorporaciones existentes](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#gemini-embedding-2) en el momento de la indexación.
+- El almacenamiento no tiene costo.
+- Los embeddings de tiempo de consulta no tienen costo.
+- Los tokens de documentos recuperados se cobran como [tokens de contexto](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) normales.
 
-## ขั้นตอนถัดไป
+## ¿Qué sigue?
 
-- ไปที่เอกสารอ้างอิง API สำหรับ[ที่เก็บการค้นหาไฟล์](https://ai.google.dev/api/file-search/file-search-stores?hl=th)และ[เอกสาร](https://ai.google.dev/api/file-search/documents?hl=th)การค้นหาไฟล์
+- Visita la referencia de la API de [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419) y [Documents](https://ai.google.dev/api/file-search/documents?hl=es-419) de File Search.
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-อัปเดตล่าสุด 2026-05-28 UTC
+Última actualización: 2026-06-05 (UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+¿Quieres brindar más información?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-28 UTC"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-05 (UTC)"],[],[]]

@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=es-419
-fetched_at: 2026-06-01T19:37:55.978759+00:00
-title: "Versi\u00f3n preliminar de Lyria 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=vi
+fetched_at: 2026-06-08T15:03:20.504550+00:00
+title: "Lyria 3 Pro (B\u1ea3n d\u00f9ng th\u1eed) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-# Versión preliminar de Lyria 3 Pro
+# Lyria 3 Pro (Bản dùng thử)
 
-La versión preliminar de Lyria 3 Pro es el modelo insignia de generación de música de Google. Está optimizado para generar canciones completas con una coherencia estructural compleja, incluidos varios versos, estribillos y puentes. Genera audio estéreo de alta calidad a 48 kHz a partir de instrucciones de texto o entradas de imágenes.
+Lyria 3 Pro Preview là mô hình tạo nhạc hàng đầu của Google. Mô hình này được tối ưu hoá để tạo các bài hát có thời lượng đầy đủ với cấu trúc phức tạp, bao gồm nhiều đoạn thơ, điệp khúc và đoạn chuyển. Mô hình này tạo ra âm thanh nổi 48 kHz chất lượng cao từ câu lệnh dạng văn bản hoặc dữ liệu đầu vào là hình ảnh.
 
-[Probar en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=es-419)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=vi)
 
-## Documentación
+## Tài liệu
 
-Visita la guía de [Generación de música](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419) para obtener una cobertura completa de las funciones y capacidades.
+Hãy xem hướng dẫn về [Tính năng tạo nhạc](https://ai.google.dev/gemini-api/docs/music-generation?hl=vi) để biết thông tin đầy đủ về các tính năng và chức năng.
 
 ## lyria-3-pro-preview
 
-| Propiedad | Descripción |
+| Thuộc tính | Mô tả |
 | --- | --- |
-| Código del modelo id\_card | `lyria-3-clip-preview` |
-| saveTipos de datos admitidos | **Entradas**  Texto e imagen  **Resultado**  Audio (MP3), texto (letras) |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  131,072 |
-| handymanFunciones | **Generación de audio**  Admitido  **API de Batch**  No compatible  **Almacenamiento en caché**  No compatible  **Ejecución de código**  No compatible  **Búsqueda de archivos**  No compatible  **Llamada a función**  No compatible  **Fundamentación con Google Maps**  No compatible  **Generación de imágenes**  No compatible  **API de Live**  No compatible  **Fundamentación con la Búsqueda**  No compatible  **Resultados estructurados**  No compatible  **Pensamiento**  No compatible  **Contexto de la URL**  No compatible |
-| Versiones 123 | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Vista previa: `lyria-3-clip-preview` - Vista previa: `lyria-3-pro-preview` |
-| calendar\_monthÚltima actualización | Marzo de 2026 |
+| id\_cardMã kiểu máy | `lyria-3-clip-preview` |
+| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản và hình ảnh  **Đầu ra**  Âm thanh (MP3), Văn bản (Lời bài hát) |
+| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072 |
+| handymanChức năng | **Tạo âm thanh**  Được hỗ trợ  **Batch API**  Không được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Gọi hàm**  Không được hỗ trợ  **Kết nối với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Không được hỗ trợ  **Live API**  Không được hỗ trợ  **Tìm trong phần liên kết thực tế**  Không được hỗ trợ  **Đầu ra có cấu trúc**  Không được hỗ trợ  **Tư duy**  Không được hỗ trợ  **Bối cảnh URL**  Không được hỗ trợ |
+| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Xem trước: `lyria-3-clip-preview` - Xem trước: `lyria-3-pro-preview` |
+| calendar\_monthThông tin cập nhật mới nhất | Tháng 3 năm 2026 |
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última actualización: 2026-04-29 (UTC)
+Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
-¿Quieres brindar más información?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

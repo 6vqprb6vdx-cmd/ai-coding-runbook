@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=hi
-fetched_at: 2026-06-01T19:43:28.903170+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=he
+fetched_at: 2026-06-08T14:54:54.266081+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-सुझाव भेजें
+שליחת משוב
 
-# Google Search से सटीक जानकारी पाने की सुविधा
+# עיגון באמצעות חיפוש Google
 
-Google Search से सटीक जानकारी पाने की सुविधा, Gemini मॉडल को रीयल-टाइम वेब कॉन्टेंट से कनेक्ट करती है. साथ ही, यह सुविधा सभी उपलब्ध भाषाओं में काम करती है. इससे Gemini, ज़्यादा सटीक जवाब दे पाता है. साथ ही, यह अपनी जानकारी की सीमा से बाहर जाकर, पुष्टि किए जा सकने वाले सोर्स का हवाला दे पाता है.
+עיגון באמצעות חיפוש Google מחבר את מודל Gemini לתוכן אינטרנט בזמן אמת, והוא פועל בכל השפות הזמינות. כך Gemini יכול לספק תשובות מדויקות יותר ולצטט מקורות שאפשר לאמת, גם אם הם פורסמו אחרי תאריך סף הידע שלו.
 
-सटीक जानकारी पाने की सुविधा की मदद से, ऐसे ऐप्लिकेशन बनाए जा सकते हैं जो:
+ההארקה עוזרת לכם ליצור אפליקציות שיכולות:
 
-- **तथ्यों की सटीक जानकारी दें:** जवाबों को असल दुनिया की जानकारी पर आधारित करके, मॉडल के गलत जवाब देने की समस्या को कम करें.
-- **रीयल-टाइम जानकारी ऐक्सेस करें:** हाल ही में हुई घटनाओं और विषयों के बारे में सवालों के जवाब दें.
-- **रेफ़रंस दें:** मॉडल के दावों के सोर्स दिखाकर, उपयोगकर्ताओं का भरोसा जीतें.
+- **שיפור הדיוק העובדתי:** כדי לצמצם את ההזיות של המודל, התשובות מבוססות על מידע מהעולם האמיתי.
+- **גישה למידע בזמן אמת:** מענה לשאלות על אירועים ונושאים עדכניים.
+- **לספק ציטוטים:** כדי לבנות את אמון המשתמשים, כדאי להציג את המקורות של הטענות של המודל.
 
 ### Python
 
@@ -73,21 +73,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Google Search से सटीक जानकारी पाने की सुविधा कैसे काम करती है
+## איך עיגון באמצעות חיפוש Google פועל
 
-`google_search` टूल चालू करने पर, मॉडल, जानकारी खोजने, प्रोसेस करने, और उसका हवाला देने से जुड़े पूरे वर्कफ़्लो को अपने-आप मैनेज करता है.
+כשמפעילים את הכלי `google_search`, המודל מטפל בכל תהליך העבודה של חיפוש, עיבוד וציטוט מידע באופן אוטומטי.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=hi)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=he)
 
-1. **उपयोगकर्ता का प्रॉम्प्ट:** आपका ऐप्लिकेशन, `google_search` टूल चालू होने पर, उपयोगकर्ता का प्रॉम्प्ट Gemini API को भेजता है.
-2. **प्रॉम्प्ट का विश्लेषण:** मॉडल, प्रॉम्प्ट का विश्लेषण करता है और यह तय करता है कि Google Search की मदद से जवाब को बेहतर बनाया जा सकता है या नहीं.
-3. **Google Search:** ज़रूरत पड़ने पर, मॉडल अपने-आप एक या एक से ज़्यादा खोज क्वेरी जनरेट करता है और उन्हें एक्ज़ीक्यूट करता है.
-4. **खोज के नतीजों को प्रोसेस करना:** मॉडल, खोज के नतीजों को प्रोसेस करता है, जानकारी को सिंथेसाइज़ करता है, और जवाब तैयार करता है.
-5. **सटीक जानकारी वाला जवाब:** एपीआई, खोज के नतीजों के आधार पर, उपयोगकर्ता के लिए फ़ाइनल और आसान जवाब देता है. इस जवाब में, मॉडल का टेक्स्ट जवाब शामिल होता है. साथ ही, इसमें इनलाइन `annotations` भी शामिल होते हैं, जिनमें रेफ़रंस के साथ-साथ `google_search_call` और `google_search_result` के चरण शामिल होते हैं. इनमें खोज क्वेरी और खोज के सुझाव भी शामिल होते हैं.
+1. **הנחיית משתמש:** האפליקציה שולחת הנחיית משתמש ל-Gemini API עם הכלי `google_search` מופעל.
+2. **ניתוח ההנחיה:** המודל מנתח את ההנחיה וקובע אם חיפוש ב-Google יכול לשפר את התשובה.
+3. **חיפוש Google:** אם צריך, המודל יוצר באופן אוטומטי שאילתת חיפוש אחת או יותר ומריץ אותן.
+4. **עיבוד תוצאות החיפוש:** המודל מעבד את תוצאות החיפוש, מסנתז את המידע ומנסח תשובה.
+5. **תשובה מבוססת:** ה-API מחזיר תשובה סופית וידידותית למשתמש שמבוססת על תוצאות החיפוש. התשובה הזו כוללת את התשובה הטקסטואלית של המודל עם `annotations` מוטבעות שמכילות את הציטוטים, וגם את השלבים `google_search_call` ו-`google_search_result` עם שאילתות החיפוש וההצעות לחיפוש.
 
-## सटीक जानकारी वाले जवाब को समझना
+## הסבר על תגובת ההארקה
 
-जवाब के लिए सटीक जानकारी मिलने पर, मॉडल के टेक्स्ट आउटपुट में, टेक्स्ट कॉन्टेंट ब्लॉक पर सीधे तौर पर इनलाइन `annotations` शामिल होते हैं. इन एनोटेशन में, रेफ़रंस की जानकारी दी जाती है. इससे जवाब के हिस्सों को उनके सोर्स से लिंक किया जाता है.
+כשמקרקעים תשובה בהצלחה, פלט הטקסט של המודל כולל `annotations` מוטבע ישירות בגוש התוכן של הטקסט. ההערות האלה
+כוללות פרטי ציטוט שמקשרים בין חלקים בתשובה לבין המקורות שלהם.
 
 ```
 {
@@ -146,21 +147,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-जवाब में मौजूद मुख्य फ़ील्ड:
+שדות המפתח בתגובה:
 
-- `google_search_call` : इसमें, मॉडल की ओर से एक्ज़ीक्यूट की गई खोज `queries` शामिल होती हैं.
-- `google_search_result` : इसमें `search_suggestions` शामिल होते हैं. यह आपके यूज़र इंटरफ़ेस (यूआई) में खोज के सुझाव दिखाने के लिए, एचटीएमएल स्निपेट होता है. इस्तेमाल की पूरी ज़रूरी शर्तें,
-  [सेवा की शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi#grounding-with-google-search) में बताई गई हैं.
-- `text` with `annotations` : मॉडल का सिंथेसाइज़ किया गया जवाब, जिसमें इनलाइन रेफ़रंस शामिल होते हैं. हर `url_citation` एनोटेशन, टेक्स्ट के किसी सेगमेंट (`start_index` और `end_index` से तय किया गया) को सोर्स यूआरएल से लिंक करता है. इनलाइन रेफ़रंस बनाने के लिए, यह ज़रूरी है.
+- ‫`google_search_call` : מכיל את החיפוש `queries` שהמודל ביצע.
+- ‫`google_search_result` : מכיל את `search_suggestions`, קטע HTML להצגת הצעות לחיפוש בממשק המשתמש. דרישות השימוש המלאות מפורטות [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-search).
+- `text` עם `annotations` : התשובה המסונתזת של המודל עם ציטוטים מוטבעים. כל הערה `url_citation` מקשרת פלח טקסט (מוגדר על ידי `start_index` ו-`end_index`) לכתובת URL של מקור. זהו המפתח ליצירת ציטוטים בתוך הטקסט.
 
-Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल, [यूआरएल
-कॉन्टेक्स्ट टूल](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi) के साथ भी किया जा सकता है. इससे,
-सार्वजनिक वेब डेटा और आपके दिए गए खास यूआरएल, दोनों के आधार पर जवाब दिए जा सकते हैं.
+אפשר גם להשתמש בעיגון באמצעות חיפוש Google בשילוב עם [כלי ההקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he) כדי לעגן את התשובות גם בנתונים ציבוריים באינטרנט וגם בכתובות ה-URL הספציפיות שאתם מספקים.
 
-## इनलाइन रेफ़रंस की मदद से सोर्स को एट्रिब्यूट करना
+## שיוך מקורות באמצעות ציטוטים מוטמעים
 
-एपीआई, टेक्स्ट कॉन्टेंट ब्लॉक पर इनलाइन `url_citation` एनोटेशन दिखाता है. इससे आपको यह तय करने का पूरा कंट्रोल मिलता है कि आपको अपने यूज़र इंटरफ़ेस (यूआई) में सोर्स कैसे दिखाने हैं.
-हर एनोटेशन में `start_index` और `end_index` शामिल होता है. इससे यह पता चलता है कि यह टेक्स्ट के किस हिस्से का हवाला देता है. इन्हें एक्सट्रैक्ट और दिखाने का तरीका यहां बताया गया है.
+ממשק ה-API מחזיר הערות `url_citation` משולבות בתוכן של בלוק הטקסט,
+כך שאתם יכולים לשלוט באופן מלא באופן שבו המקורות מוצגים בממשק המשתמש.
+כל הערה כוללת את התגים `start_index` ו-`end_index` כדי לזהות את החלק בטקסט שהיא מצטטת. כך מחלצים ומציגים אותם.
 
 ### Python
 
@@ -203,7 +202,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-आउटपुट में, टेक्स्ट के बाद उसके रेफ़रंस दिखेंगे:
+הפלט יציג את הטקסט ואחריו את הציטוטים שלו:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -215,51 +214,46 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## कीमत
+## תמחור
 
-Gemini 3 के साथ, Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल करने पर, आपके प्रोजेक्ट से हर उस खोज क्वेरी के लिए शुल्क लिया जाता है जिसे मॉडल एक्ज़ीक्यूट करने का फ़ैसला लेता है. अगर मॉडल, किसी एक प्रॉम्प्ट का जवाब देने के लिए एक से ज़्यादा खोज क्वेरी एक्ज़ीक्यूट करने का फ़ैसला लेता है (उदाहरण के लिए, एक ही एपीआई कॉल में `"UEFA Euro 2024 winner"` और `"Spain vs England Euro 2024 final
-score"` खोजना), तो इस अनुरोध के लिए, टूल के दो बार इस्तेमाल का शुल्क लिया जाएगा. बिलिंग के मकसद से, यूनीक क्वेरी की गिनती करते समय, हम खाली वेब खोज क्वेरी को अनदेखा करते हैं. यह बिलिंग मॉडल सिर्फ़ Gemini 3 मॉडल पर लागू होता है. Gemini 2.5 या उससे पुराने मॉडल के साथ, खोज के लिए सटीक जानकारी पाने की सुविधा का इस्तेमाल करने पर, आपके प्रोजेक्ट से हर प्रॉम्प्ट के लिए शुल्क लिया जाता है.
+כשמשתמשים ב-עיגון באמצעות חיפוש Google עם Gemini 3, הפרויקט מחויב על כל שאילתת חיפוש שהמודל מחליט להריץ. אם המודל מחליט להריץ כמה שאילתות חיפוש כדי לענות על הנחיה אחת (לדוגמה, חיפוש של `"UEFA Euro 2024 winner"` ושל `"Spain vs England Euro 2024 final
+score"` באותה קריאה ל-API), זה נחשב כשני שימושים מחויבים בכלי עבור הבקשה הזו. לצורך חיוב, אנחנו מתעלמים משאילתות חיפוש אינטרנט ריקות כשסופרים שאילתות ייחודיות. מודל החיוב הזה רלוונטי רק למודלים של Gemini 3. כשמשתמשים בהארקה של חיפוש עם Gemini 2.5 או מודלים ישנים יותר, החיוב על הפרויקט הוא לפי הנחיה.
 
-कीमत की ज़्यादा जानकारी के लिए, [Gemini API की कीमत
-वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) देखें.
+למידע מפורט על התמחור, אפשר לעיין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## काम करने वाले मॉडल
+## מודלים נתמכים
 
-मॉडल की पूरी क्षमताओं के बारे में जानने के लिए, [मॉडल
-खास जानकारी](https://ai.google.dev/gemini-api/docs/models?hl=hi) वाला पेज देखें.
+אפשר למצוא את כל היכולות בדף [סקירה כללית של המודל](https://ai.google.dev/gemini-api/docs/models?hl=he).
 
-| मॉडल | Google Search से सटीक जानकारी पाने की सुविधा |
+| מודל | עיגון באמצעות חיפוש Google |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash Image Preview | ✔️ |
-| Gemini 3.1 Pro Preview | ✔️ |
-| Gemini 3 Pro Image Preview | ✔️ |
-| Gemini 3 Flash Preview | ✔️ |
-| Gemini 2.5 Pro | ✔️ |
-| Gemini 2.5 Flash | ✔️ |
+| תצוגה מקדימה של תמונות ב-Gemini 3.1 Flash | ✔️ |
+| ‫Gemini 3.1 Pro Preview | ✔️ |
+| תצוגה מקדימה של תמונות ב-Gemini 3 Pro | ✔️ |
+| ‫Gemini 3 Flash Preview | ✔️ |
+| Gemini ‎2.5 Pro | ✔️ |
+| Gemini ‎2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini 2.0 Flash | ✔️ |
+| Gemini ‎2.0 Flash | ✔️ |
 
-## टूल के काम करने वाले कॉम्बिनेशन
+## שילובים נתמכים של כלים
 
-ज़्यादा मुश्किल इस्तेमाल के उदाहरणों के लिए, Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल,
-[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=hi) और
-[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi) जैसे अन्य टूल के साथ किया जा सकता है.
+אפשר להשתמש בעיגון באמצעות חיפוש Google בשילוב עם כלים אחרים כמו [הרצת קוד](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=he) ו[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he) כדי להפעיל תרחישי שימוש מורכבים יותר.
 
-Gemini 3 मॉडल, बिल्ट-इन टूल (जैसे, Google Search से सटीक जानकारी पाने की सुविधा) को कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ इस्तेमाल करने की सुविधा देते हैं. ज़्यादा जानने के लिए,
-[टूल के कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=hi) वाला पेज देखें.
+מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו עיגון באמצעות חיפוש Google) עם כלים בהתאמה אישית (קריאה לפונקציה). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=he).
 
-## आगे क्या करना है
+## המאמרים הבאים
 
-- उपलब्ध अन्य टूल के बारे में जानें, जैसे कि [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi).
-- [यूआरएल कॉन्टेक्स्ट टूल का इस्तेमाल करके, खास यूआरएल की मदद से प्रॉम्प्ट को बेहतर बनाने का तरीका जानें.](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi)
+- אפשר לקרוא על כלים זמינים אחרים, כמו [הפעלת פונקציות](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=he).
+- [כאן](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he) מוסבר איך להוסיף לתיאור כתובות URL ספציפיות באמצעות הכלי 'הוספת הקשר של כתובת URL'.
 
-सुझाव भेजें
+שליחת משוב
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया.
+עדכון אחרון: 2026-05-28 (שעון UTC).
 
-क्या आपको हमें और कुछ बताना है?
+רוצה לתת לנו משוב?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]

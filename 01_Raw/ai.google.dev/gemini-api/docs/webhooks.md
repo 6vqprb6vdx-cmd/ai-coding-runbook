@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=pt-BR
-fetched_at: 2026-06-01T19:41:45.824366+00:00
-title: "Webhooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=ja
+fetched_at: 2026-06-08T15:01:46.304924+00:00
+title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envie comentários
+フィードバックを送信
 
-# Webhooks
+# Webhook
 
-Os webhooks permitem que a API Gemini envie notificações em tempo real ao seu servidor quando operações assíncronas ou de longa duração (LROs, na sigla em inglês) são concluídas. Isso substitui a necessidade de consultar a API para atualizações de status, reduzindo a latência e a sobrecarga.
+Webhook を使用すると、非同期オペレーションまたは長時間実行オペレーション（LRO）が完了したときに、Gemini API
+からサーバーにリアルタイム通知をプッシュできます。これにより、API
+にステータス更新をポーリングする必要がなくなり、レイテンシとオーバーヘッドが削減されます。
 
-Os webhooks estão disponíveis para operações como [jobs em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br),
-[interações](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br) e [geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br).
+Webhook は、[バッチ](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)ジョブ、
+[インタラクション](https://ai.google.dev/gemini-api/docs/interactions?hl=ja)、[動画生成](https://ai.google.dev/gemini-api/docs/video?hl=ja)などのオペレーションで使用できます。
 
-## Como funciona
+## 仕組み
 
-Em vez de consultar `GET /operations` repetidamente para verificar se um job foi concluído, você pode configurar os webhooks da API Gemini para enviar uma solicitação HTTP POST ao URL do listener imediatamente após um acionador de evento.
+ジョブが完了したかどうかを確認するために `GET /operations` を繰り返しポーリングする代わりに、イベント トリガーが発生するとすぐに HTTP POST リクエストをリスナー URL に送信するように Gemini API Webhook を構成できます。
 
-A API Gemini oferece duas maneiras de configurar webhooks:
+Gemini API では、Webhook を構成する次の 2 つの方法がサポートされています。
 
-- [**Webhooks estáticos**](#static-webhooks): endpoints no nível do projeto configurados
-  com a API Gemini [WebhookService](https://ai.google.dev/api?hl=pt-br). Indicado para integrações globais (por exemplo, notificar o Slack, sincronizar um banco de dados etc.).
-- [**Webhooks dinâmicos**](#dynamic-webhooks): substituições no nível da solicitação que transmitem um URL do webhook no payload de configuração de uma chamada de jobs específica. Ideal para rotear jobs específicos para endpoints dedicados.
+- [**静的 Webhook**](#static-webhooks): Gemini [WebhookService API](https://ai.google.dev/api?hl=ja) で構成されたプロジェクト レベルのエンドポイント。グローバル統合（Slack への通知、データベースの同期など）に適しています。
+- [**動的 Webhook**](#dynamic-webhooks): 特定のジョブ呼び出しの構成ペイロードで
+  Webhook URL を渡すリクエストレベルのオーバーライド。特定のジョブを専用のエンドポイントにルーティングする場合に最適です。
 
-## Webhooks estáticos
+## 静的 Webhook
 
-Os webhooks estáticos são registrados para um [projeto](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) inteiro e acionados para qualquer evento
-correspondente.
+[静的 Webhook はプロジェクト全体に登録され、一致するイベントが発生するとトリガーされます。](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)
 
-### Criar um webhook
+### Webhook を作成する
 
-É possível criar endpoints usando o SDK ou a API REST.
+エンドポイントは、SDK または REST API を使用して作成できます。
 
-**IMPORTANTE**: ao criar um webhook, a API retorna um **secret de assinatura**
-**apenas uma vez**. Você precisa armazená-lo com segurança (por exemplo, nas variáveis de ambiente) para verificar as assinaturas mais tarde. Se você perder o secret de assinatura, será necessário
-[rotacioná-lo](#rotate-signing-secret).
+**重要**: Webhook を作成すると、API は**署名シークレット**
+**一度だけ**返します。後で署名を確認するために、この情報を安全に保存する必要があります（環境変数など）。署名シークレットを紛失した場合は、
+[ローテーション](#rotate-signing-secret)する必要があります。
 
 ### Python
 
@@ -100,12 +101,12 @@ curl -X POST \
   }'
 ```
 
-Para detalhes sobre como configurar o servidor para receber dados, consulte a
-[seção Processar solicitações de webhook](#handle-webhook-requests).
+データを受信するようにサーバーを設定する方法については、
+[Webhook リクエストを処理する](#handle-webhook-requests)をご覧ください。
 
-### Receber um webhook
+### Webhook を取得する
 
-Recupere detalhes sobre um webhook específico pelo nome do recurso.
+リソース名で特定の Webhook の詳細を取得します。
 
 ### Python
 
@@ -147,9 +148,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Listar webhooks
+### Webhook を一覧表示する
 
-Liste todos os webhooks configurados para o projeto atual, com paginação opcional.
+現在のプロジェクトで構成されているすべての Webhook を一覧表示します。ページ分割は省略可能です。
 
 ### Python
 
@@ -190,9 +191,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Atualizar um webhook
+### Webhook を更新する
 
-Atualize as propriedades de um webhook existente, como o nome de exibição, o URI de destino ou os eventos inscritos.
+表示名、ターゲット URI、登録済みイベントなど、既存の Webhook のプロパティを更新します。
 
 ### Python
 
@@ -242,9 +243,9 @@ curl -X PATCH \
   }'
 ```
 
-### Excluir um webhook
+### Webhook を削除する
 
-Remova um endpoint de webhook do projeto. Isso interrompe as entregas de eventos futuras para esse endpoint.
+プロジェクトから Webhook エンドポイントを削除します。これにより、そのエンドポイントへの今後のイベント配信が停止します。
 
 ### Python
 
@@ -282,12 +283,11 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Rotacionar um secret de assinatura
+### 署名シークレットをローテーションする
 
-Rotacione o secret de assinatura de um webhook. É possível configurar se os secrets ativos anteriormente serão revogados imediatamente ou após um período de carência de 24 horas.
+Webhook の署名シークレットをローテーションします。以前に有効だったシークレットをすぐに取り消すか、24 時間の猶予期間後に取り消すかを構成できます。
 
-**IMPORTANTE**: o novo secret de assinatura é retornado **apenas uma vez** no momento da rotação
-time. Armazene-o com segurança antes de atualizar a lógica de verificação.
+**重要**: ローテーション時に新しい署名シークレットが**一度だけ**返されます。検証ロジックを更新する前に、安全に保存してください。
 
 ### Python
 
@@ -340,14 +340,14 @@ curl -X POST \
   }'
 ```
 
-### Processar solicitações de webhook em um servidor
+### サーバーで Webhook リクエストを処理する
 
-Quando um evento ao qual você está inscrito acontece, o URL do webhook recebe uma solicitação HTTP POST. O endpoint precisa responder com um código de status 2xx em alguns segundos para evitar uma nova tentativa. Para garantir a entrega, a API Gemini tenta novamente as solicitações com falha automaticamente por 24 horas usando a espera exponencial.
+登録しているイベントが発生すると、Webhook URL は HTTP POST リクエストを受信します。再試行を回避するには、エンドポイントが数秒以内に 2xx ステータス コードで応答する必要があります。配信を確実に行うため、Gemini API は指数バックオフを使用して、失敗したリクエストを 24 時間自動的に再試行します。
 
-O Gemini segue rigorosamente a especificação de [webhooks padrão](https://github.com/standard-webhooks/standard-webhooks) para
-cabeçalhos de segurança. Verifique o payload no servidor usando as assinaturas de cabeçalho assinadas e o secret de assinatura estático armazenado. Consulte a seção [Envelope de webhook](#webhook-envelope) para informações sobre o payload.
+Gemini は、セキュリティ ヘッダーの
+[標準 Webhook](https://github.com/standard-webhooks/standard-webhooks) 仕様に厳密に準拠しています。署名付きヘッダーの署名と保存されている静的署名シークレットを使用して、サーバー上のペイロードを確認します。ペイロード情報については、[Webhook エンベロープ](#webhook-envelope)をご覧ください。
 
-Confira um exemplo usando o Flask para o listener HTTP:
+HTTP リスナーに Flask を使用する例を次に示します。
 
 ### Python
 
@@ -436,14 +436,15 @@ app.listen(8000, () => {
 });
 ```
 
-## Webhooks dinâmicos
+## 動的 Webhook
 
-Os webhooks dinâmicos permitem vincular um endpoint de webhook a uma **configuração de solicitação
-específica**, ideal para filas de orquestração de agentes. Os webhooks dinâmicos aproveitam as assinaturas JWKS de chave pública assimétrica em vez de secrets simétricos.
+動的 Webhook を使用すると、Webhook エンドポイントを **特定のリクエスト
+構成**にバインドできます。これは、エージェント オーケストレーション キューに最適です。動的 Webhook は、対称シークレットではなく、非対称公開鍵
+JWKS 署名を利用します。
 
-### Enviar uma solicitação dinâmica
+### 動的リクエストを送信する
 
-Adicione uma `webhook_config` ao acionar um job assíncrono (por exemplo, criar um lote).
+非同期ジョブ（バッチの作成など）をトリガーするときに `webhook_config` を追加します。
 
 ### Python
 
@@ -507,10 +508,9 @@ curl -X POST \
   }'
 ```
 
-### Verificar assinaturas dinâmicas (JWKS)
+### 動的署名（JWKS）を確認する
 
-As solicitações de webhook dinâmico emitem uma assinatura JSON Web Token (JWT). O listener
-precisa extrair a assinatura e verificá-la usando os endpoints de certificado público do [Google](https://www.googleapis.com/oauth2/v3/certs).
+動的 Webhook リクエストは、JSON ウェブトークン（JWT）署名を発行します。リスナーは署名を抽出し、[Google の公開証明書エンドポイントを使用して検証する必要があります。](https://www.googleapis.com/oauth2/v3/certs)
 
 ### Python
 
@@ -611,11 +611,11 @@ app.post('/gemini-webhook-dynamic', (req, res) => {
 });
 ```
 
-## Envelope de webhook
+## Webhook エンベロープ
 
-Para evitar a congestionamento da largura de banda, os webhooks do Gemini usam um modelo de **payload fino** para entregar dados. As entregas enviam um snapshot que contém detalhes de status e indicadores para resultados, em vez do arquivo de saída bruto.
+帯域幅の輻輳を回避するため、Gemini Webhook は**シン ペイロード** モデルを使用してデータを配信します。配信では、元の出力ファイルではなく、ステータスの詳細と結果へのポインタを含むスナップショットが送信されます。
 
-Confira um exemplo de formato de payload:
+ペイロード形式の例を次に示します。
 
 ```
 {
@@ -629,42 +629,42 @@ Confira um exemplo de formato de payload:
 }
 ```
 
-## Referência do catálogo de eventos
+## イベント カタログのリファレンス
 
-Os eventos a seguir são acionados para jobs de suporte:
+サポートされているジョブでは、次のイベントがトリガーされます。
 
-| Tipo de evento | Gatilho | Item de payload (`data`) |
+| イベントの種類 | トリガー | ペイロード アイテム（`data`） |
 | --- | --- | --- |
-| `batch.succeeded` | O processamento foi concluído. | `id`, `output_file_uri` |
-| `batch.cancelled` | O usuário cancelou a solicitação | `id` |
-| `batch.expired` | O lote não foi processado (concluído) em um período de 24 horas | `id` |
-| `batch.failed` | Falha no job em lote (erro de sistema ou validação). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Chamada de função, o usuário precisa fazer algo | `id` |
-| `interaction.completed` | LRO na API Interactions foi concluído | `id` |
-| `interaction.failed` | LRO na API Interactions falhou (erro de sistema ou validação). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | LRO na API Interactions foi cancelado | `id` |
-| `video.generated` | LRO de geração de vídeo concluído. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | 処理が正常に完了しました。 | `id`、`output_file_uri` |
+| `batch.cancelled` | ユーザーがリクエストをキャンセルしました | `id` |
+| `batch.expired` | バッチが 24 時間以内に処理（完了）されませんでした | `id` |
+| `batch.failed` | バッチジョブが失敗しました（システム エラーまたは検証エラー）。 | `id`、`error_code`、`error_message` |
+| `interaction.requires_action` | 関数呼び出し。ユーザーが操作する必要があります | `id` |
+| `interaction.completed` | インタラクション API の LRO が成功しました | `id` |
+| `interaction.failed` | インタラクション API の LRO が失敗しました（システム エラーまたは検証エラー）。 | `id`、`error_code`、`error_message` |
+| `interaction.cancelled` | インタラクション API の LRO がキャンセルされました | `id` |
+| `video.generated` | 動画生成 LRO が完了しました。 | `id`、`output_file_uri`、`file_name` |
 
-## Práticas recomendadas
+## ベスト プラクティス
 
-Para garantir uma operação confiável e escalonável:
+信頼性が高くスケーラブルなオペレーションを確保するには:
 
-- **Verificação rigorosa de proteção de repetição**: todas as solicitações têm um `webhook-timestamp`
-  cabeçalho. Sempre valide esse carimbo de data/hora na camada de configuração do servidor para rejeitar payloads com mais de **5 minutos** (para mitigar ataques de repetição).
-- **Processar de forma assíncrona**: responda com `2xx OK` imediatamente após a detecção de uma assinatura válida
-  e coloque as operações de análise na fila internamente. Tempos de espera prolongados do listener vão acionar um ciclo de nova tentativa de entrega.
-- **Processamento de desduplicação**: os webhooks padrão entregam "pelo menos uma vez". Use o cabeçalho `webhook-id` consistente para processar possíveis duplicados em fluxos de congestionamento mais altos.
+- **厳格なリプレイ保護チェック**: すべてのリクエストに `webhook-timestamp`
+  ヘッダーが含まれます。サーバー構成レイヤでこのタイムスタンプを常に検証し、**5 分** より古いペイロードを拒否します（リプレイ攻撃を軽減するため）。
+- **非同期で処理する**: 有効な
+  署名が検出されたらすぐに `2xx OK` で応答し、解析オペレーションを内部でキューに登録します。リスナーの保持時間が長すぎると、配信の再試行サイクルがトリガーされます。
+- **重複排除処理**: 標準の Webhook は「少なくとも 1 回」配信します。一貫した `webhook-id` ヘッダーを使用して、輻輳の多いフローで発生する可能性のある重複を処理します。
 
-## A seguir
+## 次のステップ
 
-- [API Batch](https://ai.google.dev/gemini-api/docs/batch?hl=pt-br): use webhooks para automatizar endpoints de alto volume.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch?hl=ja): Webhook を使用して、大量のエンドポイントを自動化します。
 
-Envie comentários
+フィードバックを送信
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última atualização 2026-05-19 UTC.
+最終更新日 2026-05-19 UTC。
 
-Quer enviar seu feedback?
+ご意見をお聞かせください
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

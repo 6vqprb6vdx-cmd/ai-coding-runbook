@@ -1,59 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=th
-fetched_at: 2026-06-01T19:37:59.630431+00:00
-title: "\u0e41\u0e2a\u0e14\u0e07\u0e04\u0e27\u0e32\u0e21\u0e04\u0e34\u0e14\u0e40\u0e2b\u0e47\u0e19 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=zh-TW
+fetched_at: 2026-06-08T15:08:38.158395+00:00
+title: "\u610f\u898b\u56de\u994b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-ส่งความคิดเห็น
+提供意見
 
-# แสดงความคิดเห็น
+# 意見回饋
 
-## การลงคะแนนเสียงเพื่อแสดงความชอบในหน้า
+## 內嵌偏好設定投票
 
-ใน Google AI Studio คุณอาจเห็นการเปรียบเทียบคำตอบ 2 แบบที่แตกต่างกันสำหรับพรอมต์ของคุณแบบเคียงข้างกันเป็นครั้งคราว ซึ่งเป็นส่วนหนึ่งของระบบการลงคะแนนเสียงเพื่อแสดงความชอบในหน้า ระบบจะขอให้คุณเลือกคำตอบที่ชอบ ซึ่งจะช่วยให้เราเข้าใจว่าเอาต์พุตของโมเดลใดที่ผู้ใช้เห็นว่ามีประโยชน์มากที่สุด
+在 Google AI Studio 中，您有時可能會看到兩個不同回覆的並排比較。這是我們「內嵌偏好投票」系統的一部分。系統會請你選擇偏好的回覆。這有助於我們瞭解使用者認為哪些模型輸出內容最實用。
 
-### ที่มาของโปรเจ็กต์นี้
+### 為什麼要推出這項計畫？
 
-เราทำงานอย่างต่อเนื่องเพื่อปรับปรุงโมเดลและบริการ AI ของเรา ความคิดเห็นของคุณ
-ผ่านการลงคะแนนเสียงเพื่อแสดงความชอบในหน้าจะช่วยเราในการให้บริการ ปรับปรุง และพัฒนาผลิตภัณฑ์และบริการของ Google
-รวมถึงเทคโนโลยีแมชชีนเลิร์นนิง โดยเป็นไปตาม
-[ข้อกำหนดในการให้บริการเพิ่มเติมของ Gemini API](https://ai.google.dev/gemini-api/terms?hl=th) และ
-[นโยบายความเป็นส่วนตัว](https://policies.google.com/privacy?hl=th) ซึ่งรวมถึงฟีเจอร์ ผลิตภัณฑ์ และบริการสำหรับองค์กรของ Google
+我們會持續改善 AI 模型和服務。我們將根據您透過內嵌偏好選項投票功能提供的意見，提供、改善及開發 Google 產品、服務和機器學習技術，包括 Google 的企業功能、產品和服務，並遵守《[Gemini API 附加服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw)》和《[隱私權政策](https://policies.google.com/privacy?hl=zh-tw)》。
 
-### ข้อมูลใดที่รวมอยู่ในความคิดเห็น
+### 意見回饋包含哪些資料？
 
-เราจะรวบรวมข้อมูลบางอย่างเมื่อคุณเข้าร่วมการลงคะแนนเสียงเพื่อแสดงความชอบในหน้า เพื่อให้เราตัดสินใจเกี่ยวกับโมเดลได้อย่างรอบด้าน ดังนี้
+為確保模型決策有依據，我們會在您參與「內嵌偏好投票」時收集特定資料：
 
-- **พรอมต์และคำตอบ:** เราจะบันทึกพรอมต์และคำตอบทั้งหมด รวมถึงเนื้อหาที่อัปโหลดในการสนทนาที่คุณส่งความคิดเห็น นอกจากนี้ เรายังบันทึกตัวเลือกคำตอบ 2 รายการที่คุณเลือก ซึ่งจะช่วยให้เราเข้าใจบริบทของความชอบของคุณ
-- **คะแนนเสียง:** เราจะบันทึกคำตอบที่คุณชอบ ซึ่งเป็นข้อมูลหลักของความคิดเห็นที่เราเก็บรวบรวม
-- **รายละเอียดการใช้งาน:** ซึ่งรวมถึงข้อมูลเกี่ยวกับโมเดลที่สร้างคำตอบ รวมถึงรายละเอียดทางเทคนิคและการดำเนินงานอื่นๆ เกี่ยวกับการใช้งานฟีเจอร์นี้
+- **提示和回覆：**我們會記錄您提交意見回饋的對話中，所有提示和回覆，包括上傳的內容。我們也會記錄您選取的兩個回應選項。這有助於我們瞭解你的偏好設定脈絡。
+- **你的投票：**我們會記錄你比較喜歡哪個回覆。這是我們收集意見回饋的核心目標。
+- **使用情況詳細資料：**包括生成回覆的模型資訊，以及您使用這項功能的其他技術和作業細節。
 
-### ความเป็นส่วนตัวของคุณ
+### 你的隱私權
 
-เราให้ความสำคัญกับข้อมูลส่วนตัวของคุณเป็นอย่างยิ่ง Google จะทำตามขั้นตอนเพื่อปกป้องความเป็นส่วนตัวของคุณในกระบวนการนี้ ซึ่งรวมถึงการยกเลิกการเชื่อมต่อข้อมูลนี้กับบัญชี Google, คีย์ API และโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของคุณก่อนที่ผู้รีวิวจะเห็นหรือใส่คำอธิบายประกอบ **โปรดอย่าส่งความคิดเห็นเกี่ยวกับการสนทนาที่มีข้อมูลที่ละเอียดอ่อน ข้อมูลที่เป็นความลับ หรือข้อมูลส่วนบุคคล**
+Google 十分重視您的隱私權。過程中，Google 會採取適當措施來保護您的隱私。包括在審查員查看或標註這類資料前，將資料與 Google 帳戶、API 金鑰和雲端專案解除連結。**請勿針對包含敏感、機密或個人資訊的對話提交意見回饋。**
 
-### การเลือกไม่ใช้
+### 選擇不採用
 
-คุณจะมีตัวเลือกให้ข้ามการลงคะแนนเสียงเพื่อแสดงความชอบในหน้าเมื่อปรากฏขึ้น
+系統顯示「內嵌偏好設定投票」時，您可以選擇略過。
 
-ขอขอบคุณที่ช่วยเราปรับปรุง Google AI Studio
+感謝你協助我們改善 Google AI Studio！
 
-ส่งความคิดเห็น
+提供意見
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-อัปเดตล่าสุด 2026-04-29 UTC
+上次更新時間：2026-04-29 (世界標準時間)。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+想進一步說明嗎？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]

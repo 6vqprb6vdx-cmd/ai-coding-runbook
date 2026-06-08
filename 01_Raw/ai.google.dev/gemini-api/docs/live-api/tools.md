@@ -1,48 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=pt-BR
-fetched_at: 2026-06-01T19:48:02.495917+00:00
-title: "Uso da ferramenta com a API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-CN
+fetched_at: 2026-06-08T15:07:49.630082+00:00
+title: "\u4f7f\u7528 Live API \u7684\u5de5\u5177 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Envie comentários
+发送反馈
 
-# Uso da ferramenta com a API Live
+# 使用 Live API 的工具
 
-O uso de ferramentas permite que a API Live vá além da conversa, realizando ações no mundo real e extraindo contexto externo, mantendo uma conexão em tempo real.
-É possível definir ferramentas como [chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)
-e [a Pesquisa Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pt-br) com a API Live.
+借助工具，Live API 不仅能进行对话，还能在保持实时连接的同时，在现实世界中执行操作并提取外部背景信息。
+您可以使用 Live API 定义工具，例如[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)和 [Google 搜索](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
 
-## Visão geral das ferramentas compatíveis
+## 受支持的工具概览
 
-Confira uma breve visão geral das ferramentas disponíveis para modelos da API Live:
+以下简要介绍了适用于 Live API 模型的工具：
 
-| Ferramenta | Pré-lançamento do Gemini 3.1 Flash Live | Pré-lançamento do Gemini 2.5 Flash Live |
+| 工具 | Gemini 3.1 Flash Live 预览版 | Gemini 2.5 Flash 实时预览版 |
 | --- | --- | --- |
-| **Pesquisa** | Compatível | Compatível |
-| **Chamadas de função** | Compatível (somente síncrono) | Compatível (síncrono e [assíncrono](#async-function-calling)) |
-| **Google Maps** | Indisponível | Indisponível |
-| **Execução de código** | Indisponível | Indisponível |
-| **Contexto de URL** | Indisponível | Indisponível |
+| **搜索** | 支持 | 支持 |
+| **函数调用** | 支持（仅限同步） | 支持（同步和[异步](#async-function-calling)） |
+| **Google 地图** | 不受支持 | 不受支持 |
+| **代码执行** | 不受支持 | 不受支持 |
+| **网址上下文** | 不受支持 | 不受支持 |
 
-## Chamadas de função
+## 函数调用
 
-A API Live oferece suporte a chamadas de função, assim como solicitações normais de geração de conteúdo. As chamadas de função permitem que a API Live interaja com dados e programas externos, aumentando muito o que seus aplicativos podem realizar.
+与常规内容生成请求一样，Live API 也支持函数调用。函数调用功能可让 Live API 与外部数据和程序进行交互，从而大幅提升应用的功能。
 
-É possível definir declarações de função como parte da configuração da sessão.
-Depois de receber chamadas de ferramenta, o cliente precisa responder com uma lista de objetos `FunctionResponse` usando o método `session.send_tool_response`.
+您可以将会话配置定义为函数声明的一部分。
+在收到工具调用后，客户端应使用 `session.send_tool_response` 方法返回 `FunctionResponse` 对象列表。
 
-Consulte o [tutorial de chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) para saber
-mais.
+如需了解详情，请参阅[函数调用教程](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
 
 ### Python
 
@@ -219,13 +217,13 @@ async function main() {
 main();
 ```
 
-Com um único comando, o modelo pode gerar várias chamadas de função e o código necessário para encadear as saídas. Esse código é executado em um ambiente de sandbox, gerando mensagens [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontenttoolcall) subsequentes.
+根据单个提示，模型可以生成多个函数调用以及将这些函数的输出串联所需的代码。此代码在沙盒环境中执行，生成后续的 [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=zh-cn#bidigeneratecontenttoolcall) 消息。
 
-## Chamadas de função assíncronas
+## 异步函数调用
 
-As chamadas de função são executadas sequencialmente por padrão, o que significa que a execução é pausada até que os resultados de cada chamada de função estejam disponíveis. Isso garante o processamento sequencial, o que significa que não será possível continuar interagindo com o modelo enquanto as funções estiverem em execução.
+函数调用默认按顺序执行，这意味着执行会暂停，直到每个函数调用的结果可用为止。这可确保按顺序处理，也就是说，在运行函数时，您将无法继续与模型互动。
 
-Se você não quiser bloquear a conversa, peça ao modelo para executar as funções de forma assíncrona. Para fazer isso, primeiro adicione um `behavior` às definições de função:
+如果您不想阻塞对话，可以告知模型异步运行函数。为此，您首先需要向函数定义添加 `behavior`：
 
 ### Python
 
@@ -249,16 +247,13 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` garante que a função seja executada de forma assíncrona enquanto você continua interagindo com o modelo.
+`NON-BLOCKING` 可确保函数异步运行，同时您还可以继续与模型互动。
 
-Em seguida, é necessário informar ao modelo como se comportar quando ele receber o `FunctionResponse` usando o parâmetro `scheduling`. Ele pode:
+然后，您需要使用 `scheduling` 参数告知模型在收到 `FunctionResponse` 时应如何运行。它可以：
 
-- Interromper o que está fazendo e informar imediatamente sobre a resposta recebida
-  (`scheduling="INTERRUPT"`),
-- Aguardar até terminar o que está fazendo no momento
-  (`scheduling="WHEN_IDLE"`),
-- Ou não fazer nada e usar esse conhecimento mais tarde na discussão
-  (`scheduling="SILENT"`)
+- 中断其正在执行的操作，并立即告知您收到的回答 (`scheduling="INTERRUPT"`)，
+- 等待其完成当前正在执行的操作 (`scheduling="WHEN_IDLE"`)，
+- 或者什么都不做，稍后在讨论中使用这些知识 (`scheduling="SILENT"`)
 
 ### Python
 
@@ -290,10 +285,9 @@ const functionResponse = {
 }
 ```
 
-## Embasamento com a Pesquisa Google
+## 使用 Google 搜索建立依据
 
-É possível ativar o embasamento com a Pesquisa Google como parte da configuração da sessão. Isso aumenta a precisão da API Live e evita alucinações. Consulte o [tutorial de embasamento](https://ai.google.dev/gemini-api/docs/grounding?hl=pt-br) para
-saber mais.
+您可以在会话配置中启用“依托 Google 搜索进行接地”功能。这有助于提高 Live API 的准确性并防止出现幻觉。如需了解详情，请参阅[建立依据教程](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
 
 ### Python
 
@@ -452,9 +446,9 @@ async function main() {
 main();
 ```
 
-## Como combinar várias ferramentas
+## 组合使用多种工具
 
-É possível combinar várias ferramentas na API Live, aumentando ainda mais os recursos do aplicativo:
+您可以在 Live API 中组合使用多种工具，从而进一步提升应用的功能：
 
 ### Python
 
@@ -502,19 +496,17 @@ const config = {
 // ... remaining model call
 ```
 
-## A seguir
+## 后续步骤
 
-- Confira mais exemplos de uso de ferramentas com a API Live no
-  [manual de uso de ferramentas](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=pt-br).
-- Confira a história completa sobre recursos e configurações no
-  [guia de recursos da API Live](https://ai.google.dev/gemini-api/docs/live-guide?hl=pt-br).
+- 如需查看更多将工具与 Live API 搭配使用的示例，请参阅[工具使用实战宝典](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=zh-cn)。
+- 如需全面了解功能和配置，请参阅 [Live API 功能指南](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-cn)。
 
-Envie comentários
+发送反馈
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Última atualização 2026-06-01 UTC.
+最后更新时间 (UTC)：2026-06-01。
 
-Quer enviar seu feedback?
+需要向我们提供更多信息？
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-01。"],[],[]]

@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=vi
-fetched_at: 2026-06-01T19:43:12.121289+00:00
-title: "T\u1ea1o nh\u1ea1c b\u1eb1ng Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419
+fetched_at: 2026-06-08T14:58:56.000968+00:00
+title: "Genera m\u00fasica con Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Tạo nhạc bằng Lyria 3
+# Genera música con Lyria 3
 
-Lyria 3 là nhóm mô hình tạo nhạc của Google, có sẵn thông qua Gemini API. Với Lyria 3, bạn có thể tạo âm thanh nổi chất lượng cao ở tần số 44, 1 kHz từ câu lệnh văn bản hoặc từ hình ảnh. Các mô hình này mang đến sự nhất quán về cấu trúc, bao gồm giọng hát, lời bài hát có dấu thời gian và bản phối nhạc cụ hoàn chỉnh.
+Lyria 3 es la familia de modelos de generación de música de Google, disponible a través de la API de Gemini. Con Lyria 3, puedes generar audio estéreo de alta calidad a 44.1 kHz a partir de instrucciones de texto o imágenes. Estos modelos ofrecen coherencia estructural, incluidas las voces, las letras sincronizadas y los arreglos instrumentales completos.
 
-Nhóm mô hình Lyria 3 bao gồm 2 mô hình:
+La familia Lyria 3 incluye dos modelos:
 
-| Mô hình | Mã kiểu máy | Phù hợp nhất cho | Thời lượng | Đầu ra |
+| Modelo | ID de modelo | Ideal para | Duración | Salida |
 | --- | --- | --- | --- | --- |
-| **Đoạn video Lyria 3** | `lyria-3-clip-preview` | Đoạn video ngắn, video lặp lại, bản xem trước | 30 giây | MP3 |
-| **Lyria 3 Pro** | `lyria-3-pro-preview` | Bài hát có thời lượng đầy đủ với các đoạn, điệp khúc, cầu nối | Vài phút (có thể kiểm soát thông qua câu lệnh) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips cortos, bucles y adelantos | 30 segundos | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | Canciones completas con versos, estribillos y puentes | Unos minutos (se puede controlar con la instrucción) | MP3 |
 
-Bạn có thể sử dụng cả hai mô hình này bằng phương thức `generateContent` tiêu chuẩn và [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi) mới, hỗ trợ đầu vào đa phương thức (văn bản và hình ảnh) và tạo ra âm thanh **âm thanh nổi có độ trung thực cao 44,1 kHz**.
+Ambos modelos se pueden usar con el método `generateContent` estándar y la nueva [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=es-419), admiten entradas multimodales (texto e imágenes) y producen audio **estéreo de alta fidelidad de 44.1 kHz**.
 
-## Tạo đoạn nhạc
+## Genera un clip musical
 
-Mô hình Lyria 3 Clip luôn tạo một đoạn video dài **30 giây**. Để tạo một đoạn video, hãy gọi phương thức `generateContent` bằng một câu lệnh dạng văn bản. Phản hồi luôn bao gồm lời bài hát và cấu trúc bài hát được tạo cùng với âm thanh.
+El modelo Lyria 3 Clip siempre genera un clip de **30 segundos**. Para generar un clip, llama al método `generateContent` con una instrucción de texto. La respuesta siempre incluye la letra y la estructura de la canción generadas junto con el audio.
 
 ### Python
 
@@ -212,9 +212,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## Tạo bài hát có thời lượng đầy đủ
+## Genera una canción completa
 
-Sử dụng mô hình `lyria-3-pro-preview` để tạo các bài hát dài từ một đến hai phút. Mô hình Pro hiểu rõ cấu trúc âm nhạc và có thể tạo ra các bản nhạc có các đoạn, điệp khúc và cầu nối riêng biệt. Bạn có thể điều chỉnh thời lượng bằng cách chỉ định thời lượng trong câu lệnh (ví dụ: "tạo một bài hát dài 2 phút") hoặc bằng cách sử dụng [dấu thời gian](#timing) để xác định cấu trúc.
+Usa el modelo `lyria-3-pro-preview` para generar canciones de larga duración que duren un par de minutos. El modelo Pro comprende la estructura musical y puede crear composiciones con versos, estribillos y puentes distintos. Puedes influir en la duración especificándola en la instrucción (p.ej., "Crea una canción de 2 minutos") o usando [marcas de tiempo](#timing) para definir la estructura.
 
 ### Python
 
@@ -289,9 +289,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## Chọn định dạng đầu ra
+## Selecciona el formato de salida
 
-Theo mặc định, các mô hình Lyria 3 tạo âm thanh ở định dạng **MP3**. Đối với Lyria 3 Pro, bạn cũng có thể yêu cầu đầu ra ở định dạng **WAV** bằng cách đặt `response_format` trong `generationConfig`.
+De forma predeterminada, los modelos de Lyria 3 generan audio en formato **MP3**. En el caso de Lyria 3 Pro, también puedes solicitar el resultado en formato **WAV** configurando `response_format` en `generationConfig`.
 
 ### Python
 
@@ -384,9 +384,9 @@ curl -s -X POST \
   }'
 ```
 
-## Phân tích cú pháp phản hồi
+## Analiza la respuesta
 
-Phản hồi của Lyria 3 có nhiều phần. Các phần văn bản chứa lời bài hát được tạo hoặc nội dung mô tả bằng JSON về cấu trúc bài hát. Các phần có `inline_data` chứa các byte âm thanh.
+La respuesta de Lyria 3 contiene varias partes. Las partes de texto contienen la letra generada o una descripción en formato JSON de la estructura de la canción. Las partes con `inline_data` contienen los bytes de audio.
 
 ### Python
 
@@ -512,9 +512,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## Tạo nhạc từ hình ảnh
+## Genera música a partir de imágenes
 
-Lyria 3 hỗ trợ dữ liệu đầu vào đa phương thức – bạn có thể cung cấp tối đa **10 hình ảnh** cùng với câu lệnh văn bản và mô hình sẽ sáng tác nhạc dựa trên nội dung trực quan.
+Lyria 3 admite entradas multimodales: puedes proporcionar hasta **10 imágenes** junto con tu instrucción de texto, y el modelo compondrá música inspirada en el contenido visual.
 
 ### Python
 
@@ -635,9 +635,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## Cung cấp lời bài hát tuỳ chỉnh
+## Proporciona letras personalizadas
 
-Bạn có thể tự viết lời bài hát và đưa lời bài hát đó vào câu lệnh. Sử dụng các thẻ phần như `[Verse]`, `[Chorus]` và `[Bridge]` để giúp mô hình hiểu cấu trúc bài hát:
+Puedes escribir tu propia letra e incluirla en la instrucción. Usa etiquetas de sección, como `[Verse]`, `[Chorus]` y `[Bridge]`, para ayudar al modelo a comprender la estructura de la canción:
 
 ### Python
 
@@ -816,9 +816,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## Kiểm soát thời gian và cấu trúc
+## Controla la sincronización y la estructura
 
-Bạn có thể chỉ định chính xác những gì xảy ra tại các thời điểm cụ thể trong bài hát bằng cách sử dụng dấu thời gian. Việc này rất hữu ích để kiểm soát thời điểm nhạc cụ bắt đầu, thời điểm lời bài hát được chuyển và cách bài hát tiến triển:
+Puedes especificar exactamente lo que sucede en momentos específicos de la canción con marcas de tiempo. Esto es útil para controlar cuándo entran los instrumentos, cuándo se entregan las letras y cómo progresa la canción:
 
 ### Python
 
@@ -933,9 +933,9 @@ curl -s -X POST \
   }'
 ```
 
-## Tạo bản nhạc không lời
+## Genera pistas instrumentales
 
-Đối với nhạc nền, nhạc trò chơi hoặc bất kỳ trường hợp sử dụng nào không yêu cầu giọng hát, bạn có thể yêu cầu mô hình tạo ra các bản nhạc chỉ có nhạc cụ:
+Para la música de fondo, las bandas sonoras de juegos o cualquier caso de uso en el que no se requieran voces, puedes indicarle al modelo que produzca pistas solo instrumentales:
 
 ### Python
 
@@ -1005,9 +1005,9 @@ curl -s -X POST \
   }'
 ```
 
-## Tạo nhạc bằng nhiều ngôn ngữ
+## Genera música en diferentes idiomas
 
-Lyria 3 tạo lời bài hát bằng ngôn ngữ trong câu lệnh của bạn. Để tạo một bài hát có lời bằng tiếng Pháp, hãy viết câu lệnh bằng tiếng Pháp. Mô hình này điều chỉnh phong cách giọng nói và cách phát âm cho phù hợp với ngôn ngữ.
+Lyria 3 genera letras en el idioma de tu instrucción. Para generar una canción con letra en francés, escribe la instrucción en ese idioma. El modelo adapta su estilo vocal y pronunciación para que coincidan con el idioma.
 
 ### Python
 
@@ -1082,15 +1082,14 @@ curl -s -X POST \
   }'
 ```
 
-## Trí tuệ của mô hình
+## Inteligencia del modelo
 
-Lyria 3 phân tích quy trình tạo câu lệnh của bạn, trong đó mô hình suy luận thông qua cấu trúc âm nhạc (đoạn giới thiệu, đoạn thơ, điệp khúc, đoạn chuyển, v.v.) dựa trên câu lệnh của bạn.
-Việc này diễn ra trước khi âm thanh được tạo và đảm bảo tính nhất quán về cấu trúc cũng như tính nhạc.
+Lyria 3 analiza el proceso de tu instrucción, en el que el modelo razona a través de la estructura musical (introducción, estrofa, coro, puente, etc.) según tu instrucción.
+Esto sucede antes de que se genere el audio y garantiza la coherencia estructural y la musicalidad.
 
-## Interactions API
+## API de Interactions
 
-Bạn có thể sử dụng các mô hình Lyria 3 với [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi) (API Tương tác);
-đây là một giao diện hợp nhất để tương tác với các mô hình và tác nhân Gemini. Thư viện này đơn giản hoá việc quản lý trạng thái và các tác vụ chạy trong thời gian dài cho các trường hợp sử dụng phức tạp có nhiều phương thức.
+Puedes usar los modelos de Lyria 3 con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=es-419), una interfaz unificada para interactuar con modelos y agentes de Gemini. Simplifica la administración del estado y las tareas de larga duración para casos de uso multimodales complejos.
 
 ### Python
 
@@ -1152,75 +1151,75 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Hướng dẫn đặt câu lệnh
+## Guía de instrucciones
 
-Câu lệnh của bạn có thể đơn giản như "một bài hát dân ca về những chú mèo dễ thương tránh vũng nước, giọng nữ và tiếng mưa", hoặc chi tiết và có cấu trúc như:
+Tu instrucción puede ser tan simple como "una canción folclórica sobre gatos lindos que evitan charcos, voces femeninas y el ruido de la lluvia", o algo detallado y estructurado como lo siguiente:
 
-> Một bản nhạc synth-pop mang phong cách thập niên 1980 với nhịp điệu mạnh mẽ, tiếng đàn synthesizer vang vọng và một điệp khúc bắt tai, đầy cảm hứng. Bài hát phải mang hơi hướng hoài cổ pha lẫn hiện đại, gợi nhớ đến những bản nhạc pop kinh điển của thập niên 80, nhưng được sản xuất theo phong cách hiện đại. Nhịp độ phải sôi động và có thể nhảy theo, khoảng 120 BPM, có cấu trúc rõ ràng giữa đoạn thơ và điệp khúc, cùng một đoạn nhạc không lời bắt tai. Lời bài hát nói về cảm giác chuẩn bị cho một bữa tiệc.
+> Una pista synth-pop de estilo de los años 80 con un ritmo potente, sintetizadores brillantes y un coro pegadizo y épico. La canción debe tener un estilo retrofuturista, que recuerde a los éxitos pop clásicos de los 80, con un toque moderno en la producción. El tempo debe ser alegre y bailable, alrededor de 120 BPM, con una estructura clara de verso y estribillo, y un gancho instrumental memorable. La letra trata sobre la sensación de prepararse para una fiesta.
 
-Cả câu lệnh đơn giản và phức tạp đều có thể mang lại kết quả tốt. Bạn nên thử nghiệm những mẹo này để tìm ra cách phù hợp nhất với mình.
+Las instrucciones simples y complejas pueden brindarte buenos resultados. Te recomendamos que pruebes estas sugerencias para encontrar lo que mejor te funcione.
 
-### Thể loại
+### Género
 
-Bắt đầu câu lệnh bằng thể loại nhạc bạn muốn, chẳng hạn như hip hop, rock và rap. Bạn có thể chỉ định nhiều thể loại:
+Comienza tu instrucción con el género musical que deseas, como hip hop, rock y rap. Puedes especificar una combinación de géneros:
 
-- Sự kết hợp giữa metal và rap
-- Kết hợp giữa death metal và opera
-- Một bản nhạc cổ điển có các yếu tố âm thanh điện tử
-- Nhạc dance điện tử (EDM) hiện đại kết hợp với nhạc Europop
+- Una fusión de metal y rap
+- Una combinación de death metal y ópera
+- Una pieza clásica con elementos electrónicos de zumbido
+- Música dance electrónica (EDM) moderna mezclada con Europop
 
-Bạn cũng có thể kết hợp một kỷ nguyên:
+También puedes incorporar una época:
 
-- Nhạc hip-hop đầu thập niên 90
-- Nhạc pop Pháp theo phong cách yé-yé thập niên 60
-- Thử nghiệm với nhạc điện tử vào những năm 80
-- Nhạc pop đại chúng thập niên 2000
+- Hip hop de principios de los 90
+- Pop francés ye-yé de los años 60
+- Experimentación electrónica de los 80
+- Pop mainstream de los 2000
 
-Nếu bạn yêu cầu các thể loại hoặc biến thể theo khu vực cụ thể, chẳng hạn như "nhạc techno Berlin" hoặc "nhạc hyphy vùng Vịnh", mô hình sẽ cố gắng nắm bắt được bản chất đó, nhưng không phải lúc nào cũng chính xác.
+Si le pides que genere géneros personalizados o variantes regionales, como "tecno de Berlín" o "hyphy del Área de la Bahía", el modelo intentará captar esa esencia, pero es posible que no siempre lo logre.
 
-### Nhạc cụ
+### Instrumentos
 
-Theo mặc định, Lyria 3 sẽ tạo các bài hát có nhạc cụ và công cụ mà bạn mong đợi cho thể loại đó. Bạn không cần phải đưa ra chỉ dẫn cụ thể.
+De forma predeterminada, Lyria 3 creará canciones con los instrumentos y las herramientas que esperarías para el género. No es necesario que seas prescriptivo.
 
-Tuy nhiên, một bản nhạc dance sẽ không có kèn saxophone trừ phi bạn yêu cầu. Vì vậy, nếu muốn có một bản độc tấu saxophone, bạn cần phải yêu cầu Gemini tạo:
+Sin embargo, una pista de baile no incluirá un saxofón a menos que lo pidas. Por lo tanto, si quieres un solo de saxofón, debes indicarlo en la instrucción:
 
-> Một bản nhạc dance với nhịp điệu mạnh mẽ, âm thanh điện tử lấp lánh và một điệp khúc bắt tai, đầy cảm hứng. Một đoạn solo saxophone sẽ xuất hiện trong phần chuyển tiếp.
+> Una pista de baile con un ritmo constante, sintetizadores brillantes y un coro pegadizo y épico. Un solo de saxofón debería entrar durante el puente.
 
-Câu lệnh của bạn có thể bao gồm các nhạc cụ cụ thể, âm thanh của chúng và cách chúng tương tác với nhau. Bạn có thể sử dụng sự kết hợp này để tạo ra một số tâm trạng hoặc kết cấu nhất định:
+Tu instrucción puede incluir instrumentos específicos, cómo suenan y cómo interactúan entre sí. Puedes usar esta combinación para crear ciertos estados de ánimo o texturas:
 
-- Một đường bassline méo mó, bẩn thỉu đối lập với tiếng hi-hat sạch sẽ, sắc nét
-- Âm nền ấm áp của đàn synthesizer analog vang lên dưới tiếng đàn guitar mộc mạc, gần gũi
-- Một bức tường âm thanh được tạo ra từ nhiều lớp guitar mờ, với giọng hát bị chôn vùi, xa xôi
+- Una línea de bajo sucia y distorsionada que lucha contra platillos hi-hat limpios y nítidos
+- Pads de sintetizador analógico cálidos que se expanden bajo una guitarra acústica íntima y limpia
+- Una pared de sonido creada por varias capas de guitarras difusas, con voces distantes y enterradas
 
-### Cấu trúc bài hát
+### Estructura de la canción
 
-Bạn có thể phác thảo tiến trình của một bài hát trong câu lệnh. Sử dụng mũi tên hoặc danh sách để xác định quy trình:
+Puedes describir la progresión de una canción en tu instrucción. Usa flechas o una lista para definir el flujo:
 
 - `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
   `[Bridge]` -> `[Outro]`
-- Bắt đầu bằng đoạn nhạc piano nhẹ nhàng, chuyển sang một đoạn nhạc mạnh mẽ, rồi đột ngột im lặng, sau đó bùng nổ vào đoạn điệp khúc.
+- Comienza con una introducción de piano suave, aumenta el volumen en el verso, haz un silencio y, luego, explota en el coro.
 
-Bạn cũng có thể chỉ định cách mức năng lượng thay đổi giữa các phần này:
+También puedes especificar cómo cambian los niveles de energía entre estas secciones:
 
-- Tạo cao trào ở đoạn tiền điệp khúc, sau đó giảm âm lượng xuống mức im lặng trước khi điệp khúc bùng nổ
-- Tăng dần âm lượng trong suốt bài hát, thêm từng nhạc cụ một cho đến khi tạo ra một bức tường âm thanh hỗn loạn
-- Ngừng đột ngột sau đoạn chuyển, tiếp theo là một đoạn điệp khúc hát chay
+- Genera tensión en el pre-estribillo y, luego, baja el volumen hasta el silencio antes de un estribillo masivo y explosivo.
+- Crescendo gradual a lo largo de la canción, en el que se agrega un instrumento a la vez hasta formar una caótica pared de sonido
+- Detención repentina después del puente, seguida de un coro a capela
 
-Bạn cũng có thể đưa ra câu lệnh về thời điểm chính xác mà bạn muốn một việc gì đó xảy ra:
+También puedes indicar la hora exacta en la que quieres que suceda algo:
 
-- Tạo hiệu ứng tăng dần đến đoạn thả ở giây thứ 12
-- Có người nói "gì" mỗi 2 giây
-- Đoạn điệp khúc bắt đầu ở giây thứ 22
+- Llega a la caída a los 12 s.
+- Alguien dice "¿qué?" cada 2 segundos
+- El coro comienza a los 22 s.
 
-### Lời nhạc
+### Letra
 
-Giọng hát và lời bài hát được tạo theo mặc định. Bạn có thể cung cấp lời bài hát của riêng mình, yêu cầu không có lời bài hát (hoặc chỉ có nhạc không lời) hoặc định hướng việc tạo lời bài hát theo hướng bạn muốn.
+Las voces y las letras se generan de forma predeterminada. Puedes proporcionar tu propia letra, pedir que no haya letra (o que sea instrumental) o dirigir la generación de la letra en la dirección que desees.
 
-Lời bài hát sẽ bằng ngôn ngữ mà bạn viết câu lệnh. Bạn cũng có thể yêu cầu viết lời bài hát bằng một ngôn ngữ khác, chẳng hạn như "Viết lời bài hát bằng tiếng Pháp".
+La letra estará en el idioma en el que escribas la instrucción. También puedes pedir que la letra esté en otro idioma, como "Escribe la letra en francés".
 
-#### Sử dụng lời bài hát của riêng bạn
+#### Cómo usar tus propias letras
 
-Để cung cấp lời bài hát của riêng bạn cho mô hình, hãy thêm lời bài hát vào câu lệnh bằng tiền tố "Lời bài hát:":
+Para darle al modelo tu propia letra, inclúyela en la instrucción con el prefijo "Letra:":
 
 ```
 Lyrics:
@@ -1237,51 +1236,51 @@ Go with the flow
 ...
 ```
 
-Bạn có thể thêm tiêu đề phần vào đầu các phần của bài hát, chẳng hạn như `[Intro]`, `[Verse 1]`, `[Pre-chorus]`, `[Chorus]` và `[Outro]`.
+Puedes agregar un prefijo a partes de la canción con títulos de sección como `[Intro]`, `[Verse 1]`, `[Pre-chorus]`, `[Chorus]` y `[Outro]`.
 
-Nếu muốn một từ hoặc dòng được lặp lại, chẳng hạn như tiếng vọng hoặc giọng hát bè, bạn có thể đặt từ hoặc dòng đó trong dấu ngoặc đơn: "Let's go (go)".
+Si quieres que se repita una palabra o línea, como un eco o con coristas, puedes incluirla entre paréntesis: "Vamos (vamos)".
 
-#### Đưa ra câu lệnh để mô hình viết lời bài hát
+#### Cómo indicarle al modelo que escriba letras
 
-Nếu muốn Lyria 3 viết lời bài hát cho bạn, tốt nhất là bạn nên đưa thông tin chi tiết về nội dung của lời bài hát vào câu lệnh. Nếu không, mô hình sẽ cần suy luận một chủ đề từ câu lệnh về nhạc của bạn và chủ đề đó có thể không phải là chủ đề bạn muốn.
+Si quieres que Lyria 3 escriba la letra por ti, lo mejor es que incluyas detalles sobre el tema de la letra en tu instrucción. De lo contrario, el modelo deberá inferir un tema a partir de tu instrucción musical, y es posible que no sea lo que deseas.
 
-> Lời bài hát nói về tình yêu đã mất và nỗi đau của sự thất tình. Bài hát này là nỗi hoài niệm của một ca sĩ về mối quan hệ trong quá khứ và những kỷ niệm ùa về.
+> La letra trata sobre el amor perdido y el dolor del desamor. La cantante recuerda una relación pasada y los recuerdos que vuelven a su mente.
 
-Nếu bạn muốn có một điệp khúc lặp lại, hãy yêu cầu trong câu lệnh:
+Si quieres un coro que se repita, te recomendamos que lo pidas en la instrucción:
 
-> Lời bài hát nói về tình yêu đã mất và nỗi đau của sự thất tình. Bài hát này là nỗi hoài niệm của một ca sĩ về mối tình đã qua và những kỷ niệm ùa về. Điệp khúc mạnh mẽ tập trung vào việc vượt qua nỗi đau và tiếp tục bước tiếp.
+> La letra trata sobre el amor perdido y el dolor del desamor. La cantante recuerda una relación pasada y los recuerdos que vuelven a su mente. Un coro potente se enfoca en superar el dolor y seguir adelante.
 
-Lyria 3 sẽ tự động điều chỉnh cấu trúc của lời bài hát theo loại nhạc mà bạn yêu cầu, nhưng bạn cũng có thể nhấn mạnh lại điều này trong câu lệnh. Ví dụ:
+Lyria 3 dirigirá automáticamente la estructura de la letra hacia el tipo de música que solicites, pero también puedes volver a enfatizar esto en tu instrucción. Por ejemplo:
 
-> Một bản nhạc EDM lặp đi lặp lại cùng một cụm từ tràn đầy năng lượng.
+> Una pista de EDM que repite la misma frase enérgica una y otra vez.
 
-Bạn cũng có thể yêu cầu các hiệu ứng giọng hát không phải là lời bài hát, chẳng hạn như:
+También puedes solicitar efectos vocales que no sean estrictamente letras, por ejemplo:
 
-- Một đoạn nhạc mẫu lặp lại trong một bộ phim có câu "Tôi không thể tin được!" xuyên suốt bài hát
-- Một bản nhạc techno tràn đầy năng lượng, ngay trước khi nhạc giảm âm lượng, âm thanh dừng lại và một giọng nói nhỏ vang lên "Tôi không biết mình đang làm gì ở đây", sau đó nhạc giảm âm lượng.
-- Bài hát bắt đầu bằng một cuộc trò chuyện về việc các bộ phim trong thập niên 90 hay hơn ngày nay. Sau đó, bài hát chuyển sang một bài hát pop.
+- Una muestra repetitiva de una película dice "¡No puedo creerlo!" a lo largo de la canción.
+- Una pista de tecno de alta energía. Justo antes del drop, se detiene el sonido y una voz pequeña dice "No sé qué hago aquí", y luego comienza la música.
+- La canción comienza con una conversación sobre las películas de los 90, que eran mejores que las de hoy. Luego, la pista continúa con una canción pop.
 
-### Vocals
+### Canto
 
-Bạn có thể đưa ra câu lệnh về cách bạn muốn lời bài hát được cung cấp. Để có kết quả tốt nhất, hãy chỉ định một hồ sơ chi tiết về ca sĩ, bao gồm giới tính, âm sắc và quãng giọng.
+Puedes indicar cómo quieres que se entregue la letra. Para obtener los mejores resultados, especifica un perfil detallado del cantante que incluya el género, el timbre y el rango vocal.
 
-- **Nữ cao**: Âm sắc trong trẻo, tinh khiết, linh hoạt và cao vút. Có khả năng hát những nốt cao bằng giọng huýt sáo với chất giọng thoáng, có hơi.
-- **Nữ trung**: Giọng trầm ấm, dày và khàn. Giọng khàn khàn, có chút giọng chiên trứng, đầy cảm xúc và vang vọng.
-- **Nam cao**: Tươi sáng, mạnh mẽ và tràn đầy năng lượng. Âm sắc trẻ trung, hơi khàn, nổi bật trong bản phối với giọng hát cao đầy nội lực.
-- **Nam trung**: Trầm, ngọt ngào và mượt mà như nhung. Giọng ngực vang vọng, êm dịu và du dương.
-- **Weathered Rocker (Nam)**: Giọng khàn và gai góc với âm sắc thô ráp, gợi nhớ đến nhạc grunge của thập niên 90. Phạm vi trên bị căng cho cường độ cảm xúc.
+- **Soprano femenina**: Timbre claro y cristalino con una calidad ágil y elevada. Es capaz de alcanzar notas altas silbantes con una textura aireada y respirada.
+- **Alto femenino**: Rango inferior rico, cálido y ronco. Timbre ahumado con un toque de fry vocal, conmovedor y resonante.
+- **Tenor masculino**: Brillante, penetrante y enérgico. Timbre juvenil con un ligero borde nasal que se destaca en la mezcla con una gran potencia de belting.
+- **Barítono masculino**: Profundo, dulce y suave como el terciopelo. Voz de pecho resonante con una interpretación suave y melódica.
+- **Weathered Rocker (hombre)**: Rasposa y texturizada con un timbre áspero, que recuerda al grunge de los 90. Rango superior forzado para la intensidad emocional.
 
-### Các tham số khác của câu lệnh
+### Otros parámetros de la instrucción
 
-Bạn cũng có thể thêm các tham số này để tinh chỉnh câu lệnh hơn nữa:
+También puedes incluir estos parámetros para definir mejor tu instrucción:
 
-- **Khoá/Gam**: Nêu rõ một khoá nhạc (ví dụ: "in G major", "D minor").
-- **Tâm trạng và bầu không khí**: Sử dụng tính từ mô tả (ví dụ: "hoài niệm", "mạnh mẽ", "siêu thực", "mơ màng").
-- **Thời lượng**: Mô hình Đoạn trích luôn tạo ra các đoạn trích dài 30 giây. Đối với mô hình Pro, hãy chỉ định độ dài mong muốn trong câu lệnh (ví dụ: "tạo một bài hát dài 2 phút") hoặc dùng dấu thời gian để kiểm soát thời lượng.
+- **Tonalidad/Escala**: Especifica una tonalidad musical (p.ej., "en sol mayor", "re menor").
+- **Estado de ánimo y atmósfera**: Usa adjetivos descriptivos (p.ej., "nostálgico", "agresivo", "etéreo", "soñador").
+- **Duración**: El modelo de Clip siempre produce clips de 30 segundos. En el caso del modelo Pro, especifica la duración deseada en tu instrucción (p.ej., "crea una canción de 2 minutos") o usa marcas de tiempo para controlar la duración.
 
-### Câu lệnh mẫu
+### Ejemplos de instrucciones
 
-Sau đây là một số ví dụ về câu lệnh hiệu quả:
+Estos son algunos ejemplos de instrucciones eficaces:
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -1291,37 +1290,37 @@ Sau đây là một số ví dụ về câu lệnh hiệu quả:
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## Các phương pháp hay nhất
+## Prácticas recomendadas
 
-- **Lặp lại với Đoạn video trước.** Sử dụng mô hình `lyria-3-clip-preview` nhanh hơn để thử nghiệm các câu lệnh trước khi tạo một hình ảnh dài bằng `lyria-3-pro-preview`.
-- **Mô tả cụ thể.** Câu lệnh mơ hồ sẽ tạo ra kết quả chung chung. Đề cập đến nhạc cụ, số nhịp/phút, khoá nhạc, tâm trạng và cấu trúc để có kết quả tốt nhất.
-- **Sử dụng thẻ phần.** Thẻ `[Verse]`, `[Chorus]`, `[Bridge]` giúp mô hình có cấu trúc rõ ràng để tuân theo.
-- **Tách lời bài hát khỏi hướng dẫn.** Khi cung cấp lời bài hát tuỳ chỉnh, hãy tách biệt rõ ràng lời bài hát đó với hướng dẫn về chỉ dẫn âm nhạc.
+- **Primero, itera con Clip.** Usa el modelo `lyria-3-clip-preview` más rápido para experimentar con instrucciones antes de generar una versión completa con `lyria-3-pro-preview`.
+- **Sea específico.** Las instrucciones vagas producen resultados genéricos. Menciona los instrumentos, los BPM, la clave, el estado de ánimo y la estructura para obtener el mejor resultado.
+- **Usa etiquetas de sección.** Las etiquetas `[Verse]`, `[Chorus]` y `[Bridge]` le brindan al modelo una estructura clara que debe seguir.
+- **Separa la letra de las instrucciones.** Cuando proporciones letras personalizadas, sepáralas claramente de las instrucciones de dirección musical.
 
-## Các điểm hạn chế
+## Limitaciones
 
-- **An toàn**: Tất cả câu lệnh đều được bộ lọc an toàn kiểm tra. Những câu lệnh kích hoạt bộ lọc sẽ bị chặn. Quy định này áp dụng cho cả những câu lệnh yêu cầu giọng nói của một nghệ sĩ cụ thể hoặc việc tạo ra lời bài hát có bản quyền.
-- **Tạo hình mờ**: Tất cả âm thanh được tạo đều có [thuỷ vân âm thanh SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi) để nhận dạng. Hình mờ này không thể nhận thấy bằng tai thường và không ảnh hưởng đến trải nghiệm nghe.
-- **Chỉnh sửa nhiều lượt**: Tính năng tạo nhạc là một quy trình một lượt.
-  Phiên bản Lyria 3 hiện tại không được hỗ trợ việc chỉnh sửa lặp đi lặp lại hoặc tinh chỉnh một đoạn video được tạo thông qua nhiều câu lệnh.
-- **Độ dài**: Mô hình Đoạn video luôn tạo ra các đoạn video dài 30 giây. Mô hình Pro tạo ra các bài hát có thời lượng vài phút; thời lượng chính xác có thể bị ảnh hưởng thông qua câu lệnh của bạn.
-- **Tính xác định**: Kết quả có thể khác nhau giữa các lệnh gọi, ngay cả khi dùng cùng một câu lệnh.
+- **Seguridad**: Todos los mensajes se verifican con filtros de seguridad. Se bloquearán las instrucciones que activen los filtros. Esto incluye las instrucciones que solicitan voces de artistas específicos o la generación de letras protegidas por derechos de autor.
+- **Marcas de agua**: Todo el audio generado incluye una [marca de agua de audio de SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=es-419) para su identificación. Esta marca de agua es imperceptible para el oído humano y no afecta la experiencia de escucha.
+- **Edición en varios turnos**: La generación de música es un proceso de un solo turno.
+  En la versión actual de Lyria 3, no se admite la edición iterativa ni el perfeccionamiento de un clip generado a través de múltiples instrucciones.
+- **Duración**: El modelo de Clip siempre genera clips de 30 segundos. El modelo Pro genera canciones que duran un par de minutos. La duración exacta se puede determinar con la instrucción.
+- **Determinismo**: Los resultados pueden variar entre llamadas, incluso con la misma instrucción.
 
-## Bước tiếp theo
+## ¿Qué sigue?
 
-- Kiểm tra [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) của các mô hình Lyria 3,
-- Thử [tạo nhạc trực tuyến theo thời gian thực](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi) bằng Lyria RealTime,
-- Tạo các cuộc trò chuyện có nhiều người nói bằng [các mô hình TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi),
-- Khám phá cách tạo [hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) hoặc [video](https://ai.google.dev/gemini-api/docs/video?hl=vi),
-- Tìm hiểu cách Gemini có thể [hiểu tệp âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi),
-- Trò chuyện theo thời gian thực với Gemini bằng [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
+- Consulta los [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) de los modelos de Lyria 3.
+- Prueba la [generación de música en tiempo real](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419) con Lyria RealTime.
+- Generar conversaciones con varios oradores con los [modelos de TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)
+- Descubre cómo generar [imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) o [videos](https://ai.google.dev/gemini-api/docs/video?hl=es-419).
+- Descubre cómo Gemini puede [comprender archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
+- Mantén una conversación en tiempo real con Gemini usando la [API de Live](https://ai.google.dev/gemini-api/docs/live?hl=es-419).
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Cập nhật lần gần đây nhất: 2026-06-01 UTC.
+Última actualización: 2026-06-01 (UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+¿Quieres brindar más información?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-01 (UTC)"],[],[]]

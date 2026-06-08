@@ -1,432 +1,469 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=pt-BR
-fetched_at: 2026-06-01T19:45:42.605757+00:00
-title: "Faturamento \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=id
+fetched_at: 2026-06-08T15:01:33.183333+00:00
+title: "Penagihan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Faturamento
+# Penagihan
 
-Este guia oferece uma visão geral das diferentes opções de faturamento da API Gemini, explica como ativar o faturamento e monitorar o uso e fornece respostas para perguntas frequentes sobre o faturamento.
+Panduan ini memberikan ringkasan berbagai opsi penagihan Gemini API, menjelaskan cara mengaktifkan penagihan dan memantau penggunaan, serta memberikan jawaban atas pertanyaan umum (FAQ) tentang penagihan.
 
-## Sobre faturamento e níveis
+## Tentang penagihan dan tingkat
 
-O faturamento da API Gemini é baseado no seu histórico de pagamentos.
+Penagihan untuk Gemini API didasarkan pada histori pembayaran Anda.
 
-| Nível de uso | Qualificação | [Limite do nível de faturamento](#spend-caps) |
+| Tingkat penggunaan | Kualifikasi | [Batas tingkat penagihan](#spend-caps) |
 | --- | --- | --- |
-| **Free** (link em francês) | [Projeto ativo](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) ou teste sem custo financeiro | N/A |
-| **Nível 1** | [Configurar e vincular uma conta de faturamento ativa](#setup-billing) | US$ 250,00 |
-| **Nível 2** | Pagamento de US $100 + 3 dias desde o primeiro pagamento bem-sucedido | US$ 2.000 |
-| **Nível 3** | Pago US $1.000 + 30 dias desde o primeiro pagamento bem-sucedido | US$ 20.000 a US$ 100.000 ou mais |
+| **Gratis** | [Project aktif](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) atau uji coba gratis | T/A |
+| **Tingkat 1** | [Menyiapkan dan menautkan akun penagihan yang aktif](#setup-billing) | $250 |
+| **Tingkat 2** | Dibayar $100 + 3 hari sejak pembayaran pertama yang berhasil | $2.000 |
+| **Tingkat 3** | Membayar $1.000 + 30 hari sejak pembayaran pertama yang berhasil | $20.000 - $100.000+ |
 
-As novas contas começam no nível sem custo financeiro, que permite o acesso a [determinados modelos](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) na API Gemini e no AI Studio, até os [limites de taxa](https://aistudio.google.com/rate-limit?hl=pt-br) do nível sem custo financeiro dos modelos.
+Akun baru dimulai dengan Paket Gratis, yang memungkinkan akses ke [model tertentu](https://ai.google.dev/gemini-api/docs/pricing?hl=id) di Gemini API dan AI Studio, hingga [batas kecepatan](https://aistudio.google.com/rate-limit?hl=id) paket gratis model.
 
-Para implantar seus aplicativos diretamente do modo de build, use o
-**nível Starter do Google Cloud**. Com esse nível, é possível publicar até dois aplicativos de pilha completa sem configurar um projeto na nuvem do Google ou uma conta de faturamento.
-Consulte [Como fazer a implantação no Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pt-br) para
-detalhes e consulte a [documentação do nível inicial do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br) para mais informações.
+Untuk men-deploy aplikasi langsung dari mode Build, Anda dapat menggunakan
+**Paket Pemula Google Cloud**. Paket ini memungkinkan Anda memublikasikan hingga 2 aplikasi
+full stack tanpa menyiapkan project Google Cloud atau akun penagihan.
+Lihat [Men-deploy dari Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=id) untuk mengetahui
+detailnya dan lihat [dokumentasi Paket Pemula Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=id) untuk mengetahui informasi selengkapnya.
 
-Para acessar limites de taxa mais altos, usar modelos avançados e garantir que seus comandos e respostas **não** sejam usados para melhorar os produtos do Google\*, [vincule uma conta de faturamento](#setup-billing) e [faça um pré-pagamento](#prepay) para mudar para os planos pagos.
-Em seguida, você vai passar para níveis mais altos com base no gasto acumulado e na idade da conta. No nível 3, talvez você possa mudar para o faturamento [pós-pago](#postpay).
+Untuk mengakses batas frekuensi yang lebih tinggi, menggunakan model lanjutan, dan memastikan perintah dan respons Anda **tidak** digunakan untuk meningkatkan kualitas produk Google\*, Anda dapat [menautkan akun penagihan](#setup-billing) dan [Membayar di Muka](#prepay) untuk beralih ke Paket Berbayar.
+Kemudian, Anda akan berpindah ke tingkat yang lebih tinggi berdasarkan pembelanjaan kumulatif dan usia akun. Di Tingkat 3, Anda mungkin memiliki opsi untuk beralih ke penagihan [pascabayar](#postpay).
 
-Os níveis, os limites de taxa e os limites máximos da conta de faturamento são determinados no nível da [conta de faturamento](#cloud-billing).
+Tingkatan, batas frekuensi, dan batas akun penagihan ditentukan di tingkat [akun
+penagihan](#cloud-billing).
 
-\* *Privacidade de dados de nível empresarial: para mais informações sobre o uso de dados
-para serviços pagos, consulte os [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#data-use-paid).*
+\* *Privasi data tingkat perusahaan: Untuk mengetahui informasi selengkapnya tentang penggunaan data untuk layanan berbayar, lihat [Persyaratan Layanan](https://ai.google.dev/gemini-api/terms?hl=id#data-use-paid).*
 
-## Configurar o faturamento para acessar o nível pago
+## Menyiapkan penagihan untuk mengakses Paket Berbayar
 
-Você pode criar um projeto e configurar o faturamento ou importar um projeto existente para
-fazer upgrade para o nível pago no [Google AI Studio](https://aistudio.google.com/projects?hl=pt-br).
-Fazer upgrade do nível sem custo financeiro para o nível pago significa vincular uma conta de faturamento e [fazer um pré-pagamento](#prepay) para adicionar um mínimo de US $10 (ou o equivalente em outras moedas) de créditos à sua conta.
+Anda dapat membuat project dan menyiapkan penagihan, atau mengimpor project yang ada, untuk mengupgrade ke Tingkat Berbayar di [Google AI Studio](https://aistudio.google.com/projects?hl=id).
+Mengupgrade dari Tingkat Gratis ke Tingkat Berbayar berarti menautkan akun penagihan
+dan [membayar di muka](#prepay) untuk menambahkan kredit minimal $10 (atau setara dalam mata uang lain) ke akun Anda.
 
-1. Acesse a página [Chaves de API](https://aistudio.google.com/api-keys?hl=pt-br), [Projetos](https://aistudio.google.com/projects?hl=pt-br) ou qualquer lugar em que o botão **Configurar faturamento** apareça no AI Studio.
-   - Por padrão, os novos usuários têm um [projeto e uma chave de API](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) criados para eles.
-   - Se você precisar de uma nova chave, clique em [**Criar chave de API**](https://aistudio.google.com/api-keys?hl=pt-br) e siga a caixa de diálogo para adicionar um par chave-projeto à tabela.
-2. Encontre o projeto do nível sem custo financeiro que você quer fazer upgrade para o nível pago e clique em **Configurar faturamento** na coluna *Nível de faturamento*.
-3. Se você nunca configurou uma conta de faturamento do Google:
-   - Você vai precisar selecionar seu país para concordar com os Termos de Serviço.
-   - Em seguida, preencha ou confirme suas informações de contato e forma de pagamento para continuar.
-4. Se você já configurou contas de faturamento do Google:
-   - Será necessário escolher uma das suas contas de faturamento.
-   - Se não quiser usar nenhuma das suas contas, clique em **Adicionar nova conta de faturamento** e preencha ou confirme suas informações de contato e forma de pagamento para continuar.
-5. Em seguida, você vai:
-   - Foi solicitado que você fizesse um pré-pagamento mínimo de US $10 para concluir a configuração do faturamento (ou seja, sua conta foi atribuída automaticamente ao plano de faturamento [pré-pago](#prepay)).
-   - Escolha entre os planos de faturamento [Pré-pago](#prepay) e [Pós-pago](#postpay) para sua conta.
-   - Atribuído a um plano de faturamento [pós-pago](#postpay) por um período intermediário até que o novo sistema pré-pago seja propagado para todos os usuários (a partir de 23 de março de 2026).
-6. Depois de fazer o pré-pagamento ou selecionar o pós-pago, a configuração da conta será concluída.
+1. Buka halaman [kunci API](https://aistudio.google.com/api-keys?hl=id) AI Studio, halaman
+   [Project](https://aistudio.google.com/projects?hl=id), atau tempat mana pun Anda melihat tombol
+   **Siapkan penagihan** di AI Studio.
+   - Pengguna baru akan memiliki [project dan kunci API](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) yang dibuat untuk mereka secara default.
+   - Jika Anda memerlukan kunci baru, klik [**Buat kunci API**](https://aistudio.google.com/api-keys?hl=id)
+     dan ikuti dialog untuk menambahkan pasangan kunci-project ke tabel.
+2. Temukan project Tingkat Gratis yang ingin Anda upgrade ke Tingkat Berbayar, lalu klik
+   **Siapkan penagihan** di kolom *Tingkat Penagihan*.
+3. Jika Anda belum pernah menyiapkan akun penagihan Google sebelumnya:
+   - Anda akan diminta untuk memilih negara Anda guna menyetujui Persyaratan Layanan.
+   - Kemudian, isi atau konfirmasi informasi kontak dan metode pembayaran Anda untuk melanjutkan.
+4. Jika Anda telah menyiapkan akun penagihan Google di masa lalu:
+   - Anda akan diminta memilih dari akun penagihan yang sudah ada.
+   - Jika Anda tidak ingin menggunakan salah satu akun yang ada, klik **Tambahkan akun penagihan baru**, lalu isi atau konfirmasi informasi kontak dan metode pembayaran Anda untuk melanjutkan.
+5. Selanjutnya, Anda akan:
+   - Diminta untuk membayar di muka minimal Rp100.000 untuk menyelesaikan penyiapan penagihan (artinya akun Anda ditetapkan secara otomatis ke paket penagihan [Prabayar](#prepay)),
+   - Diberi pilihan antara paket penagihan [Prabayar](#prepay) dan [Pascabayar](#postpay)
+     untuk akun Anda.
+   - Ditetapkan ke paket penagihan [Pasca Bayar](#postpay) untuk periode sementara
+     hingga sistem Prabayar baru diterapkan kepada semua pengguna (mulai 23 Maret 2026).
+6. Setelah memilih Prabayar atau Pascabayar, penyiapan akun Anda selesai.
 
-### Fazer upgrade para o próximo nível pago
+### Melakukan upgrade ke tingkat berbayar berikutnya
 
-Se você já estiver em um nível pago e atender aos [critérios](#about-billing)
-para uma mudança de plano, vai receber um upgrade automático para o próximo nível
-(sujeito a [tempos de processamento](#processing-times)).
+Jika Anda sudah menggunakan paket berbayar dan memenuhi [kriteria](#about-billing)
+untuk perubahan paket, Anda akan otomatis diupgrade ke paket berikutnya
+(tunduk pada [waktu pemrosesan](#processing-times)).
 
-## Verificar o status de faturamento
+## Memverifikasi status penagihan
 
-Depois de [vincular uma conta de faturamento](#setup-billing) ao seu projeto, você
-pode monitorar o status dela na
-[página de faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br). Ao contrário do nível sem custo financeiro, o status do nível pago é dinâmico. Embora seu nível de uso seja determinado pelo histórico da conta, a API Gemini só vai atender às solicitações se você tiver um saldo de crédito [pré-pago](#prepay) positivo.
+Setelah [menautkan akun penagihan](#setup-billing) ke project, Anda dapat memantau statusnya di [halaman Penagihan AI Studio](https://aistudio.google.com/billing?hl=id). Tidak seperti tingkat gratis, status tingkat berbayar bersifat dinamis; meskipun tingkat penggunaan Anda ditentukan oleh histori akun, Gemini API hanya akan melayani permintaan jika Anda memiliki saldo kredit [Prabayar](#prepay) yang positif.
 
-Na página [Projetos](https://aistudio.google.com/projects?hl=pt-br), é possível
-ver o nível e o plano de faturamento do projeto na coluna *Nível de faturamento*. Todas as ações de status de faturamento que você precisa realizar em um projeto são mostradas nas colunas *Nível de faturamento* ou *Status*:
+Di halaman [Project](https://aistudio.google.com/projects?hl=id), Anda dapat
+melihat tingkat dan paket penagihan project di kolom *Tingkat Penagihan*. Tindakan status penagihan yang mungkin perlu Anda lakukan untuk project ditampilkan di kolom *Tingkat Penagihan* atau *Status*:
 
-- ***Configurar faturamento*** se o projeto não tiver uma conta de faturamento vinculada.
-- ***Configurar pré-pago*** se o projeto tiver uma conta de faturamento anexada, mas precisar usar um plano de faturamento [pré-pago](#prepay) que precisa ser configurado.
-- "***Nenhum crédito disponível***" se a conta de faturamento for necessária para comprar créditos, mas a conta para pagamentos de pré-pagamento não estiver configurada ou o saldo de crédito disponível estiver esgotado.
+- "***Siapkan penagihan***" jika project tidak memiliki akun penagihan yang terkait.
+- "***Siapkan Prabayar***" jika project sudah memiliki akun penagihan yang terlampir, tetapi
+  diwajibkan untuk menggunakan paket penagihan [Prabayar](#prepay) yang perlu disiapkan.
+- "***Tidak ada kredit yang tersedia***" jika akun penagihan diwajibkan untuk membeli
+  kredit, tetapi akun pembayaran Prabayar belum disiapkan atau saldo kredit
+  yang tersedia telah habis.
 
-Clique em qualquer uma das mensagens para continuar com as ações necessárias.
+Klik salah satu pesan untuk melanjutkan tindakan yang diperlukan.
 
-## Monitorar o uso
+## Memantau penggunaan
 
-É possível monitorar o uso da API Gemini no
-[Google AI Studio](https://aistudio.google.com/usage?hl=pt-br) em **Painel** >
-**Uso**.
+Anda dapat memantau penggunaan Gemini API di
+[Google AI Studio](https://aistudio.google.com/usage?hl=id) di **Dasbor** >
+**Penggunaan**.
 
-## Planos de faturamento
+## Paket penagihan
 
-Os planos de faturamento da API Gemini e do AI Studio se enquadram em duas categorias que determinam quando você paga pelo uso: pré-pagamento e pós-pagamento. Você pode verificar seu plano de faturamento atribuído e gerenciar as formas de pagamento na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
+Paket penagihan untuk Gemini API dan AI Studio terbagi dalam dua kategori yang menentukan waktu pembayaran penggunaan: Prabayar dan Pascabayar. Anda dapat memeriksa paket penagihan yang ditetapkan dan mengelola metode pembayaran di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id).
 
-### Pré-pagamento
+### Prabayar
 
-No plano de faturamento pré-pago, você compra créditos para o saldo de pré-pagamento antes de usar a API Gemini, e os custos de uso da API são deduzidos do saldo de crédito pré-pago [quase em tempo real](#processing-times).
-Você pode fazer um pré-pagamento [adicionando créditos](#buy-credits) à sua conta ou configurando a [recarga automática](#auto-reload). Depois da compra, os créditos não usados expiram após 12 meses e [não são reembolsáveis](#refunds), exceto após [mudar para uma conta pós-paga](#postpay).
+Dalam paket penagihan Prabayar, Anda membeli kredit untuk saldo prabayar sebelum penggunaan Gemini API, dan biaya penggunaan API akan dipotong dari saldo kredit Prabayar [hampir secara real-time](#processing-times).
+Anda dapat membayar di muka dengan [menambahkan kredit](#buy-credits) ke akun, atau menyiapkan [isi ulang otomatis](#auto-reload). Setelah kredit dibeli, kredit yang tidak digunakan akan berakhir setelah 12 bulan dan [tidak dapat dikembalikan dananya](#refunds), kecuali setelah [beralih ke akun Pascabayar](#postpay).
 
-Quando o saldo de crédito pré-pago na conta de faturamento chegar a US $0, todas as chaves de API em todos os projetos vinculados a essa conta de faturamento vão parar de funcionar simultaneamente.
-Os créditos pré-pagos se aplicam apenas aos custos de uso da API Gemini. Eles não podem ser usados para pagar por outros serviços do Google Cloud.
+Saat saldo kredit Prabayar di akun penagihan Anda mencapai $0, semua kunci API di
+semua project yang ditautkan ke akun penagihan tersebut akan berhenti berfungsi secara bersamaan.
+Kredit prabayar hanya berlaku untuk biaya penggunaan Gemini API; Anda tidak dapat menggunakannya untuk membayar layanan Google Cloud lainnya.
 
-Os novos usuários usam o plano de faturamento pré-pago por padrão. Os projetos anteriores à introdução dos planos de faturamento pré-pago e pós-pago talvez precisem [atualizar os detalhes de faturamento do projeto](#verify-billing) antes de continuar usando a API Gemini.
+Pengguna baru secara default menggunakan paket penagihan Prabayar. Project yang ada sebelum
+pengenalan paket penagihan Prabayar dan Pascabayar mungkin perlu [memperbarui
+detail penagihan project](#verify-billing) sebelum melanjutkan penggunaan Gemini
+API.
 
-*Observe que o pré-pagamento não está disponível para contas [faturadas (ou off-line)](https://docs.cloud.google.com/billing/docs/concepts?hl=pt-br#billing_account_types).*
+*Perhatikan bahwa Prabayar tidak tersedia untuk akun [Dengan invoice (atau Offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=id#billing_account_types)*.
 
-#### Comprar créditos
+#### Membeli kredit
 
-Você pode comprar créditos manualmente antes de usar a API Gemini para carregá-los no saldo de crédito da sua conta de pré-pagamento.
+Anda dapat membeli kredit secara manual sebelum penggunaan Gemini API untuk memuatnya ke saldo kredit akun Prabayar.
 
-Para comprar créditos, acesse a página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) e selecione **Comprar créditos**.
-A compra mínima é de US $10. O valor máximo de créditos que você pode pagar antecipadamente é de US$ 5.000.
+Untuk membeli poin, buka halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id), lalu pilih **Beli poin**.
+Pembelian minimum adalah $10. Jumlah maksimum kredit yang dapat Anda bayar di muka adalah $5.000.
 
-#### Atualizar automaticamente
+#### Muat ulang otomatis
 
-A recarga automática é um recurso opcional que recarrega automaticamente o saldo de crédito pré-pago quando ele está baixo. Isso é útil para evitar interrupções no serviço.
+Isi ulang otomatis adalah fitur opsional yang otomatis mengisi ulang saldo kredit Prabayar Anda saat saldo hampir habis. Hal ini berguna untuk mencegah gangguan layanan.
 
-Você pode configurar a recarga automática e conferir o status dela no card *Créditos disponíveis* na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br). Clique em **Configurar recarga automática** ou
-**Gerenciar recarga automática** para definir sua forma de pagamento, o valor da recarga e o
-saldo mínimo que aciona um pagamento de recarga.
+Anda dapat menyiapkan isi ulang otomatis dan melihat status isi ulang otomatis di kartu *Kredit tersedia* di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id). Klik **Siapkan isi ulang otomatis** atau **Kelola isi ulang otomatis** untuk menetapkan metode pembayaran, jumlah isi ulang, dan saldo minimum yang memicu pembayaran isi ulang.
 
-### Pós-pagamento
+#### Batas pengisian otomatis bulanan
 
-No plano de faturamento pós-pago, sua conta do Cloud Billing acumula custos, e você
-recebe uma cobrança automática no fim do mês ou quando os custos atingem um
-[limite de gastos atribuído automaticamente](#tier-spend-caps) com base no nível da conta.
-O pagamento é cobrado na forma de pagamento vinculada à sua conta de pagamentos pós-pagos, que pode ser gerenciada na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
+Batas isi ulang otomatis bulanan tersedia untuk pengguna Prabayar dan membantu mencegah biaya tak terduga dari isi ulang otomatis kredit yang sering.
+Gunakan fitur ini untuk menetapkan batas maksimum pengisian ulang otomatis dalam satu siklus penagihan. Setelah jumlah total isi ulang otomatis dalam siklus penagihan mencapai batas ini, sistem akan menonaktifkan isi ulang otomatis hingga awal bulan berikutnya. Pembayaran satu kali yang Anda lakukan secara manual tidak mengurangi batas ini.
 
-Quando você atender aos [critérios do nível 3](#about-billing), poderá
-mudar manualmente do plano pré-pago para o pós-pago. Para mudar de plano, clique no botão **Mudar para pós-pagamento**, que aparece no canto superior direito da página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) quando sua conta se qualifica.
+Untuk menetapkan batas pengisian otomatis bulanan saat isi ulang otomatis diaktifkan:
 
-Na página **Faturamento**, você pode conferir seu saldo, datas de vencimento e pagamentos anteriores, além de fazer pagamentos e gerenciar formas de pagamento.
+1. Buka halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id).
+2. Klik **Kelola isi ulang otomatis**.
+3. Perluas bagian **Batas Bulanan** dan masukkan batas bulanan maksimum untuk isi ulang otomatis.
+4. Klik **Simpan**.
 
-Ao [configurar o faturamento](#setup-billing) de um novo projeto, se você se qualificar para o pós-pagamento, poderá escolher entre pré-pagamento e pós-pagamento na caixa de diálogo [configuração de faturamento](#setup-billing).
+### Pascabayar
 
-Depois de mudar uma conta do Cloud Billing para usar o plano de faturamento pós-pago, todos os projetos vinculados a essa conta também serão mudados para o plano pós-pago. Não é possível mover essa conta de faturamento de volta para o plano de faturamento pré-pago. Você pode
-mover um projeto para uma conta de faturamento com um plano de faturamento diferente para mudar
-o ciclo de cobrança dele. Consulte a documentação do Cloud sobre [gerenciar
-o faturamento de projetos](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br).
+Dalam paket penagihan Pascabayar, akun Penagihan Cloud Anda mengakumulasi biaya dan Anda akan ditagih secara otomatis di akhir bulan, atau saat biaya Anda mencapai [batas pembelanjaan yang ditetapkan secara otomatis](#tier-spend-caps) berdasarkan tingkat akun Anda. Pembayaran ditagih ke metode pembayaran yang terlampir pada akun pembayaran Pascabayar Anda, yang dapat Anda kelola di halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id).
 
-Saiba mais sobre o ciclo de cobrança pós-pagamento no [guia do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br).
+Setelah memenuhi [kriteria Tingkat 3](#about-billing), Anda dapat
+beralih secara manual dari paket Prabayar ke Pascabayar. Untuk mengubah paket, Anda harus
+mengklik tombol **Beralih ke pascabayar** yang muncul di kanan atas
+halaman [Penagihan AI Studio](https://aistudio.google.com/billing?hl=id) saat akun Anda memenuhi syarat.
 
-## Limites de gastos
+Kemudian, di halaman **Penagihan**, Anda dapat melihat saldo, tanggal jatuh tempo, dan pembayaran sebelumnya, serta melakukan pembayaran dan mengelola metode pembayaran.
 
-A API Gemini oferece suporte a limites de gastos mensais nos níveis da conta de faturamento e do projeto. Esses controles foram criados para proteger sua conta contra
-excedentes inesperados e o ecossistema para garantir a disponibilidade do serviço.
+Saat [menyiapkan penagihan](#setup-billing) untuk project baru, jika memenuhi syarat untuk Pascabayar, Anda akan memiliki opsi untuk memilih antara Prabayar dan Pascabayar dalam dialog [konfigurasi penagihan](#setup-billing).
 
-*Observação: os limites de gastos não estão disponíveis para contas [faturadas (ou off-line)](https://docs.cloud.google.com/billing/docs/concepts?hl=pt-br#billing_account_types).*
+Setelah Anda mengalihkan akun Penagihan Cloud untuk menggunakan paket penagihan Pasca Bayar, semua project yang ditautkan ke akun penagihan tersebut akan dialihkan ke paket Pasca Bayar. Anda
+tidak dapat memindahkan akun penagihan tersebut kembali ke paket penagihan Prabayar. Anda dapat
+memindahkan project ke akun penagihan dengan paket penagihan yang berbeda untuk mengubah
+siklus penagihan untuk project tersebut; buka dokumentasi Cloud tentang [mengelola
+penagihan untuk project](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id).
 
-### Limites de gastos do projeto
+Anda dapat mempelajari lebih lanjut siklus penagihan Pascabayar dalam [panduan Penagihan Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id).
 
-É possível definir seus próprios limites de gastos [para envolvidos no projeto](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) no AI Studio.
-Isso é útil se você tiver vários projetos na mesma conta de faturamento e quiser garantir que cada um tenha acesso a um limite de gastos cumulativo suficiente.
+## Batas pembelanjaan
 
-As contas com as [funções](https://docs.cloud.google.com/iam/docs/roles-overview?hl=pt-br) de editor, proprietário ou administrador do projeto podem definir limites de gastos por projeto no AI Studio na página [Gasto](https://aistudio.google.com/spend?hl=pt-br) em **Limite de gastos mensais** > **Editar limite de gastos**.
+Gemini API mendukung batas pembelanjaan bulanan di tingkat project dan tingkat akun penagihan. Kontrol ini dirancang untuk melindungi akun Anda dari tagihan yang tidak terduga dan ekosistem untuk memastikan ketersediaan layanan.
 
-Para detalhes sobre as permissões específicas do IAM do Google Cloud necessárias para visualizar ou editar limites de gastos e informações de faturamento no AI Studio, consulte o [guia de solução de problemas do AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pt-br#iam-permissions).
+*Perhatikan bahwa batas pembelanjaan tidak tersedia untuk akun [Dengan invoice (atau Offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=id#billing_account_types).*
 
-Se você [mover um projeto para uma conta de faturamento diferente](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#change_the_billing_account_for_a_project),
-o limite de gastos definido para esse projeto vai persistir, mas os gastos acumulados
-serão redefinidos para US $0 no novo ciclo de faturamento.
+### Batas pembelanjaan project
 
-Tarefas de longa duração, como conclusões no [modo em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br) e sessões de agente, podem gerar excedentes além do limite de gastos do projeto.
+Anda dapat menetapkan batas pembelanjaan [level project](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) sendiri di AI Studio.
+Hal ini berguna jika Anda memiliki beberapa project dalam akun penagihan yang sama dan ingin memastikan setiap project memiliki akses ke batas pembelanjaan kumulatif yang cukup.
 
-Os tempos de processamento dos dados de faturamento podem ter um atraso de até 10 minutos no AI Studio. Você pode ter excedentes além do limite do projeto se os dados de faturamento não forem processados antes do acúmulo de mais cobranças.
+Akun dengan [peran](https://docs.cloud.google.com/iam/docs/roles-overview?hl=id) editor, pemilik, atau admin project dapat menetapkan batas pembelanjaan per project di AI Studio pada halaman [Pembelanjaan](https://aistudio.google.com/spend?hl=id)
+di bagian **Batas pembelanjaan bulanan** > **Edit batas pembelanjaan**.
 
-### Limites de gastos por nível da conta de faturamento
+Untuk mengetahui detail tentang izin IAM Google Cloud tertentu yang diperlukan untuk melihat atau mengedit batas pembelanjaan dan informasi penagihan di AI Studio, lihat [panduan pemecahan masalah AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=id#iam-permissions).
 
-Cada [nível](#about-billing) tem um limite máximo de gasto mensal:
+Jika Anda [memindahkan project ke akun penagihan lain](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#change_the_billing_account_for_a_project),
+batas pembelanjaan yang telah Anda tetapkan untuk project tersebut akan tetap ada, tetapi pembelanjaan yang terakumulasi akan direset menjadi $0 untuk siklus penagihan baru.
 
-| Nível de uso | Limite de gastos |
+Tugas yang berjalan lama seperti penyelesaian [mode batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=id) dan sesi agen dapat menimbulkan biaya tambahan di luar batas pembelanjaan project Anda.
+
+Waktu pemrosesan data penagihan di AI Studio dapat tertunda hingga sekitar 10 menit. Anda mungkin mengalami penggunaan berlebih di luar batas project jika data penagihan belum diproses sebelum biaya lainnya terakumulasi.
+
+### Batas pembelanjaan tingkat akun penagihan
+
+Setiap [tingkatan](#about-billing) memiliki batas pembelanjaan bulanan maksimum:
+
+| Tingkat penggunaan | Batas pembelanjaan |
 | --- | --- |
-| **Free** (link em francês) | N/A |
-| **Nível 1** | US$ 250,00 |
-| **Nível 2** | US$ 2.000 |
-| **Nível 3** | US$ 20.000 a US$ 100.000 |
+| **Gratis** | T/A |
+| **Tingkat 1** | $250 |
+| **Tingkat 2** | $2.000 |
+| **Tingkat 3** | $20.000 - $100.000 |
 
-Os limites de uso mensais são obrigatórios para a API Gemini no nível da [conta de faturamento](#cloud-billing). Embora os limites padrão sejam predefinidos, é possível [solicitar um aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=pt-br) para acomodar um uso maior. O gasto total é agregado em todos os projetos vinculados que têm o serviço da API Gemini ativado. Quando o total acumulado da conta atinge o limite do nível, o serviço é pausado para todos os projetos vinculados a essa conta de faturamento até o início do próximo ciclo de faturamento (o primeiro dia de cada mês).
+Batas penggunaan bulanan diterapkan untuk Gemini API di tingkat [akun penagihan](#cloud-billing). Meskipun batas default telah ditetapkan, Anda dapat [meminta
+peningkatan](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=id)
+untuk mengakomodasi penggunaan yang lebih tinggi. Total pembelanjaan digabungkan di semua project tertaut yang mengaktifkan layanan Gemini API. Setelah total akun kumulatif mencapai batas tingkat, layanan akan dijeda untuk semua project yang ditautkan ke akun penagihan tersebut hingga awal siklus penagihan berikutnya (tanggal 1 setiap bulan).
 
-#### Avaliar os gastos da sua conta de faturamento
+#### Mengevaluasi pembelanjaan akun penagihan Anda
 
-Para avaliar seus gastos mensais históricos e determinar se os novos [limites de gastos por nível da conta de faturamento](#tier-spend-caps) vão afetar seus projetos em andamento, siga estas etapas:
+Untuk mengevaluasi pembelanjaan bulanan historis Anda guna menentukan apakah [batas pembelanjaan tingkat Akun Penagihan](#tier-spend-caps) yang baru akan memengaruhi project yang sedang berjalan, ikuti langkah-langkah berikut:
 
-1. No console do Google Cloud, acesse a página [Relatórios da conta do Cloud Billing](https://console.cloud.google.com/billing/reports?hl=pt-br).
-   - Se você tiver mais de uma conta de faturamento, escolha a conta do Cloud
-     Billing que tem os relatórios de custo que você quer visualizar.
-2. O relatório usa "Agrupar por serviço" como padrão no "Mês atual". Você vai encontrar **API Gemini** na coluna **Serviço** e o gasto total na coluna **Custo de uso** da tabela.
-3. Para ver custos granulares limitados ao uso da API Gemini, defina o filtro **Agrupar por** para **SKU** e o filtro **Serviços** para **API Gemini**.
-4. Ajuste o filtro **Período por data de uso** para o intervalo desejado e avalie seu gasto histórico em um período.
+1. Di konsol Google Cloud, lihat halaman [Laporan akun Penagihan Cloud](https://console.cloud.google.com/billing/reports?hl=id) Anda.
+   - Jika Anda memiliki lebih dari satu akun penagihan, saat diminta, pilih akun Penagihan Cloud yang ingin Anda lihat laporan biayanya.
+2. Secara default, laporan akan "Dikelompokkan menurut Layanan" pada "Bulan ini". Anda akan melihat **Gemini API** di kolom **Layanan** dan total pembelanjaan di kolom **Biaya penggunaan** dalam tabel.
+3. Untuk melihat biaya terperinci yang terbatas pada penggunaan Gemini API, tetapkan filter **Kelompokkan menurut**
+   untuk mengelompokkan menurut **SKU**, dan filter **Layanan** ke **Gemini API**.
+4. Sesuaikan filter **Rentang waktu menurut tanggal penggunaan** ke rentang yang diinginkan untuk mengevaluasi pembelanjaan historis Anda dalam suatu periode.
 
-## Tempos de processamento
+## Waktu pemrosesan
 
-Os indicadores e atualizações de faturamento nem sempre acontecem em tempo real.
+Sinyal dan pembaruan penagihan tidak selalu terjadi secara real time.
 
-- **Uso de crédito**: os custos de uso geralmente são descontados do seu saldo em minutos.
-- **Confirmação do pagamento**: embora a maioria dos pagamentos com cartão seja instantânea, algumas formas de pagamento (como transferências bancárias) podem levar vários dias para serem compensadas. Os serviços só são retomados ou atualizados após a confirmação oficial da compra de créditos.
-- **Upgrades de nível**: após um pagamento bem-sucedido ou quando você atende aos [critérios de upgrade](#about-billing), os upgrades de nível geralmente são refletidos em até 10 minutos.
-- **Gráficos de detalhamento do custo total**: os gráficos que mostram o detalhamento do custo total nas páginas [Faturamento](https://aistudio.google.com/billing?hl=pt-br) e [Gasto](https://aistudio.google.com/spend?hl=pt-br) podem levar até 24 horas para serem atualizados.
+- **Penggunaan kredit**: Biaya penggunaan biasanya ditarik dari saldo Anda dalam beberapa menit.
+- **Konfirmasi pembayaran**: Meskipun sebagian besar pembayaran kartu dilakukan secara instan, beberapa metode pembayaran (seperti transfer bank) mungkin memerlukan waktu beberapa hari untuk diproses. Layanan hanya dilanjutkan atau di-upgrade setelah pembelian kredit dikonfirmasi secara resmi.
+- **Upgrade tingkat**: Setelah pembayaran berhasil, atau saat Anda memenuhi
+  [kriteria upgrade](#about-billing), upgrade tingkat biasanya akan ditampilkan dalam waktu 10
+  menit.
+- **Grafik perincian Total Biaya**: Grafik yang menampilkan perincian total biaya di halaman [Penagihan](https://aistudio.google.com/billing?hl=id) dan halaman [Pembelanjaan](https://aistudio.google.com/spend?hl=id) dapat memerlukan waktu hingga 24 jam untuk diperbarui.
 
-Leia os guias do Cloud Billing sobre [ciclo de cobrança](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#delayed-billing) e [latências de transação](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=pt-br#missing-transactions) para saber mais sobre possíveis atrasos no faturamento.
+Baca panduan Penagihan Cloud tentang [siklus penagihan](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id#delayed-billing) dan latensi [transaksi](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=id#missing-transactions) untuk mempelajari lebih lanjut potensi keterlambatan penagihan.
 
-## Reembolsos
+## Pengembalian dana
 
-Não é possível receber reembolsos em contas de faturamento **pré-pagas**, exceto ao mudar de tipo de conta.
+Pengembalian dana tidak diizinkan untuk akun penagihan **Prabayar**, kecuali saat beralih jenis akun.
 
-**Quando uma conta pré-paga muda para o tipo pós-pago** (depois que você atende aos [critérios](#about-billing) e [faz upgrade manual](#postpay) da conta), a conta pré-paga é encerrada, e todos os créditos pré-pagos restantes são reembolsados automaticamente para a forma de pagamento registrada.
+**Saat akun Prabayar beralih ke jenis akun Pascabayar** (setelah Anda
+memenuhi [kriteria](#about-billing) dan [mengupgrade akun secara manual](#postpay)
+Anda), akun Prabayar akan ditutup dan sisa kredit prabayar
+akan otomatis dikembalikan dananya ke metode pembayaran yang tercatat.
 
-Se você [encerrar](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=pt-br#close-a-billing-account) sua conta pré-paga por qualquer motivo que não seja o upgrade para pós-paga, todos os créditos pré-pagos restantes serão perdidos.
+Jika Anda [menutup](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=id#close-a-billing-account)
+akun Prabayar karena alasan apa pun selain mengupgrade ke Pasca Bayar, sisa kredit prabayar akan hangus.
 
-Os créditos comprados expiram após um ano. Após o vencimento, os créditos são perdidos e não podem ser recuperados.
+Masa berlaku kredit yang dibeli akan berakhir setelah 1 tahun. Setelah masa berlaku berakhir, kredit akan hangus dan tidak dapat diambil.
 
-As contas **pós-pagamento** seguem a [política de reembolso do Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=pt-br#request_a_refund).
+Akun **Pasca-bayar** mengikuti [kebijakan pengembalian dana Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=id#request_a_refund).
 
-## Contas do Cloud Billing
+## Akun Penagihan Cloud
 
-A API Gemini usa [contas do Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=pt-br) para serviços de faturamento, que você pode [configurar diretamente no AI Studio](#setup-billing).
-Use o AI Studio para acompanhar os gastos, entender os custos e fazer pagamentos.
+Gemini API menggunakan [akun Penagihan Cloud](https://cloud.google.com/billing/docs/concepts?hl=id) untuk layanan penagihan, yang dapat Anda [siapkan langsung di AI Studio](#setup-billing).
+Anda dapat menggunakan AI Studio untuk melacak pembelanjaan, memahami biaya, dan melakukan pembayaran.
 
-Os níveis, os limites de taxa e os limites máximos da conta de faturamento são determinados no nível da conta de faturamento.
+Tingkatan, batas frekuensi, dan batas akun penagihan ditentukan di tingkat akun penagihan.
 
-### Projetos e chaves de API
+### Project dan kunci API
 
-Todos os [projetos](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) vinculados a uma conta de faturamento do Cloud herdam o nível de uso e os limites de taxa e de conta associados. Se você [mudar um projeto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#change_the_billing_account_for_a_project)
-de uma conta de faturamento para outra, o nível dele e, consequentemente, os limites de taxa e
-os limites da conta vão mudar para o nível da nova conta de faturamento.
+Semua [project](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) yang ditautkan ke akun Penagihan Cloud akan mewarisi tingkat penggunaan dan batas tarif serta batas akun yang terkait dengan akun penagihan tersebut. Jika Anda [mengubah project](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#change_the_billing_account_for_a_project)
+dari satu akun penagihan ke akun penagihan lain, tingkatnya, dan selanjutnya batas kecepatan serta
+batas akun, akan beralih ke tingkat akun penagihan baru.
 
-O gasto cumulativo (em todos os produtos do Google Cloud) e a idade da conta em todos os projetos vinculados a uma conta de faturamento contam para as [qualificações de nível](#about-billing) dessa conta.
+Pembelanjaan kumulatif (untuk semua produk Google Cloud) dan usia akun di semua project yang terkait dengan akun penagihan dihitung untuk [kualifikasi tingkat](#about-billing) akun penagihan tersebut.
 
-É possível [desvincular um projeto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
-da conta de faturamento para voltar ao nível sem custo financeiro.
+Anda dapat [membatalkan tautan project](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#disable_billing_for_a_project)
+dari akun penagihannya untuk kembali ke paket gratis.
 
-As [chaves de API](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br) são credenciais geradas em um projeto.
-Elas não têm configurações de faturamento independentes. Elas herdam os limites de nível e o status de faturamento do projeto. O uso cumulativo de todas as chaves em um projeto conta para o limite de gastos desse projeto e o gasto total da conta de faturamento.
+[Kunci API](https://ai.google.dev/gemini-api/docs/api-key?hl=id) adalah kredensial yang dibuat di dalam project.
+Project ini tidak memiliki setelan penagihan independen; project ini mewarisi batas tingkat dan
+status penagihan project. Penggunaan kumulatif dari semua kunci dalam project dihitung dalam batas pembelanjaan project tersebut dan total pembelanjaan akun penagihan.
 
-## Perguntas frequentes
+## Pertanyaan umum (FAQ)
 
-As seções a seguir fornecem respostas para perguntas frequentes.
+Bagian berikut memberikan jawaban atas pertanyaan umum (FAQ).
 
-### Por que estou recebendo uma cobrança?
+### Apa yang ditagih kepada saya?
 
-O preço da API Gemini é baseado no seguinte:
+Harga Gemini API didasarkan pada hal berikut:
 
-- Contagem de tokens de entrada
-- Contagem de tokens de saída
-- Contagem de tokens em cache
-- Duração do armazenamento de tokens em cache
+- Jumlah token input
+- Jumlah token output
+- Jumlah token yang di-cache
+- Durasi penyimpanan token yang di-cache
 
-Para informações sobre preços, consulte a [página de preços](https://ai.google.dev/pricing?hl=pt-br).
+Untuk mengetahui informasi harga, lihat [Halaman harga](https://ai.google.dev/pricing?hl=id).
 
-### Onde posso ver minha cota?
+### Di mana saya dapat melihat kuota saya?
 
-Você pode conferir sua cota e os limites do sistema no [AI Studio](https://aistudio.google.com/usage?hl=pt-br).
+Anda dapat melihat kuota dan batas sistem di
+[AI Studio](https://aistudio.google.com/usage?hl=id).
 
-### Como faço para mudar para um nível de limite de taxa mais alto ou solicitar mais cota?
+### Bagaimana cara beralih ke tingkat batas frekuensi panggilan yang lebih tinggi, atau meminta lebih banyak kuota?
 
-Você vai receber mais cota automaticamente quando sua conta atingir os próximos [requisitos de nível](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br#usage-tiers).
+Anda akan otomatis mendapatkan lebih banyak kuota saat akun Anda mencapai
+[persyaratan tingkat](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id#usage-tiers) berikutnya.
 
-### Posso usar a API Gemini sem custo financeiro no EEE (incluindo a UE), no Reino Unido e na Suíça?
+### Dapatkah saya menggunakan Gemini API secara gratis di EEA (termasuk Uni Eropa), Inggris Raya, dan Swiss?
 
-Sim, oferecemos o nível sem custo financeiro e o nível pago em [várias regiões](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br).
+Ya, kami menyediakan paket gratis dan paket berbayar di [banyak region](https://ai.google.dev/gemini-api/docs/available-regions?hl=id).
 
-### Se eu configurar o faturamento com a API Gemini, vou receber uma cobrança pelo uso do Google AI Studio?
+### Jika saya menyiapkan penagihan dengan Gemini API, apakah saya akan ditagih untuk penggunaan Google AI Studio?
 
-O uso do AI Studio continua sem custos financeiros, a menos que os usuários vinculem uma chave de API paga para
-acessar recursos pagos.
-Depois de vincular uma chave de API paga como parte de um projeto pago no AI Studio, você vai receber uma cobrança pelo uso do AI Studio com essa chave. Você pode alternar entre projetos do nível pago e projetos do nível sem custo financeiro conforme necessário usando as respectivas chaves de API vinculadas a cada tipo.
+Penggunaan AI Studio tetap tanpa biaya kecuali jika pengguna menautkan kunci API berbayar untuk
+mengakses fitur berbayar.
+Setelah Anda menautkan kunci API berbayar sebagai bagian dari project berbayar di AI Studio, Anda akan ditagih untuk penggunaan AI Studio untuk kunci tersebut. Anda dapat beralih antara project Tingkat Berbayar dan project Tingkat Gratis sesuai kebutuhan dengan menggunakan kunci API masing-masing yang ditautkan ke setiap jenis.
 
-### Se eu estiver no nível sem custo financeiro, como faço upgrade para níveis mais altos?
+### Jika saya menggunakan Paket Gratis, bagaimana cara mengupgrade ke paket yang lebih tinggi?
 
-Para acessar níveis mais altos, configure o faturamento no seu projeto. Clique em [**Configurar
-faturamento**](#setup-billing) no Google AI Studio. Isso vai orientar você na
-seleção ou criação de uma conta do Cloud Billing. Se você precisar usar o modelo de faturamento pré-pago, o processo **Configurar faturamento** vai orientar você na criação da sua conta pré-paga vinculada à conta do Cloud Billing.
+Untuk mengakses tingkat yang lebih tinggi, Anda harus menyiapkan penagihan di project Anda. Klik [**Siapkan
+penagihan**](#setup-billing) di Google AI Studio. Tindakan ini akan memandu Anda memilih atau membuat akun Penagihan Cloud. Jika Anda diwajibkan menggunakan model penagihan prabayar, proses **Siapkan penagihan** akan memandu Anda melalui proses pembuatan akun Prabayar yang ditautkan ke akun Penagihan Cloud Anda.
 
-### Posso usar 1 milhão de tokens no nível sem custo financeiro?
+### Dapatkah saya menggunakan 1 juta token dalam paket gratis?
 
-O nível sem custos financeiros da API Gemini varia de acordo com o modelo selecionado. Por enquanto, você
-pode testar a janela de contexto de 1 milhão de tokens das seguintes maneiras:
+Paket gratis untuk Gemini API berbeda-beda berdasarkan model yang dipilih. Untuk saat ini, Anda
+dapat mencoba jendela konteks 1 juta token dengan cara berikut:
 
-- No Google AI Studio
-- Com planos sem custos financeiros para modelos selecionados
-- Com planos pós-pagos
+- Di Google AI Studio
+- Dengan paket tanpa biaya untuk model tertentu
+- Dengan paket pascabayar
 
-### Posso voltar para o nível sem custo financeiro depois de fazer upgrade para níveis mais altos (pagos)?
+### Dapatkah saya kembali ke Paket Gratis setelah melakukan upgrade ke paket yang lebih tinggi (berbayar)?
 
-Para fazer downgrade para o nível sem custo financeiro, [desative o faturamento](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
-em cada um dos projetos que você quer fazer downgrade.
+Untuk melakukan downgrade ke Paket Gratis, Anda dapat [menonaktifkan penagihan](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#disable_billing_for_a_project)
+di setiap project yang ingin Anda downgrade.
 
-### Como posso calcular o número de tokens que estou usando?
+### Bagaimana cara menghitung jumlah token yang saya gunakan?
 
-Use o método [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=pt-br#count_tokens)
-para contar o número de tokens. Consulte o [guia de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) para saber mais sobre eles.
+Gunakan metode [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=id#count_tokens)
+untuk menghitung jumlah token. Lihat [Panduan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mempelajari token lebih lanjut.
 
-### Se eu me inscrever na minha primeira conta do Cloud Billing pelo AI Studio, ainda vou receber um teste sem custo financeiro do Google Cloud?
+### Jika saya mendaftar ke akun Penagihan Cloud pertama saya melalui AI Studio, apakah saya tetap akan mendapatkan Uji Coba Gratis Google Cloud?
 
-Ao se inscrever na sua primeira conta do Cloud Billing, o [teste sem custo financeiro do Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=pt-br#free-trial) começa, e você recebe um [crédito de boas-vindas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#welcome-credits) de US $300.
-No entanto, esses créditos não podem ser usados para pagar pelo uso do AI Studio. Você pode usar o crédito de boas-vindas para pagar por outros serviços qualificados no Google Cloud (observação: depois que esses créditos forem efetivados ou expirarem (em 90 dias), os custos de uso adicionais serão faturados automaticamente na sua forma de pagamento estabelecida).
+Saat Anda mendaftar ke akun Penagihan Cloud pertama Anda, [Uji Coba Gratis Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=id#free-trial) Anda akan dimulai dan Anda akan mendapatkan [Kredit selamat datang](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id#welcome-credits) senilai $300.
+Namun, kredit tersebut tidak dapat digunakan untuk membayar penggunaan AI Studio. Anda dapat menggunakan Kredit selamat datang untuk membayar layanan lain yang memenuhi syarat dalam Google Cloud (perhatikan bahwa setelah kredit tersebut digunakan atau habis masa berlakunya (dalam waktu 90 hari), biaya penggunaan tambahan akan otomatis ditagih ke metode pembayaran yang telah Anda tetapkan).
 
-### Posso usar meu crédito de boas-vindas do Google Cloud com a API Gemini?
+### Dapatkah saya menggunakan kredit Selamat Datang Google Cloud dengan Gemini API?
 
-Não, o [crédito de boas-vindas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#welcome-credits) do Google Cloud ou o crédito do teste sem custo financeiro não podem ser usados na API Gemini ou no AI Studio.
+Tidak, [kredit Selamat datang](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id#welcome-credits) Google Cloud atau kredit uji coba gratis tidak dapat digunakan untuk Gemini API atau AI Studio.
 
-Se você recebeu um crédito de boas-vindas do Google Cloud antes de ele se tornar inelegível, poderá gastar os créditos restantes na API Gemini e no AI Studio até que eles expirem (após 90 dias).
+Jika Anda diberi kredit selamat datang Google Cloud sebelum kredit tersebut tidak memenuhi syarat, Anda diizinkan untuk membelanjakan sisa kredit Anda di Gemini API dan AI Studio hingga kredit tersebut berakhir (setelah 90 hari).
 
-### O teste sem custo financeiro do Google Cloud se aplica ao uso da API Gemini?
+### Apakah Uji Coba Gratis Google Cloud berlaku untuk penggunaan Gemini API?
 
-Não. A partir de março de 2026, os custos de uso da API Gemini serão especificamente excluídos do programa [Teste sem custos financeiros do Google Cloud de US$300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=pt-br#free-trial).
+Tidak, mulai Maret 2026, biaya penggunaan Gemini API secara khusus tidak termasuk dalam program [Uji Coba Gratis Google Cloud senilai$300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=id#free-trial).
 
-### Como o faturamento é processado?
+### Bagaimana penagihan ditangani?
 
-O faturamento da API Gemini é processado pelo sistema de [faturamento do Cloud](https://cloud.google.com/billing/docs/concepts?hl=pt-br). Saiba mais sobre a configuração de faturamento no produto do Cloud Billing na [documentação do Cloud Billing](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br).
+Penagihan untuk Gemini API ditangani oleh sistem [Penagihan Cloud](https://cloud.google.com/billing/docs/concepts?hl=id). Pelajari konfigurasi penagihan Cloud dalam produk di [dokumentasi Penagihan Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=id).
 
-### Sou cobrado por solicitações com falha?
+### Apakah saya dikenai biaya untuk permintaan yang gagal?
 
-Se a solicitação falhar com um erro 400 ou 500, não haverá cobrança pelos tokens usados. No entanto, a solicitação ainda será deduzida da sua cota.
+Jika permintaan Anda gagal dengan error 400 atau 500, Anda tidak akan ditagih untuk token yang digunakan. Namun, permintaan tersebut tetap akan mengurangi kuota Anda.
 
-### O `GetTokens` é faturado?
+### Apakah `GetTokens` ditagih?
 
-As solicitações para a API `GetTokens` não são faturadas e não são contabilizadas na cota de inferência.
+Permintaan ke API `GetTokens` tidak ditagih, dan tidak mengurangi kuota inferensi.
 
-### Como meus dados do Google AI Studio são tratados se eu tiver uma conta de API paga?
+### Bagaimana penanganan data Google AI Studio saya jika saya memiliki akun API berbayar?
 
-Consulte os [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#paid-services) para detalhes sobre como os dados são tratados quando o Cloud Billing está ativado (consulte "Como o Google usa seus dados" em "Serviços pagos"). Vale lembrar que seus comandos do Google AI Studio são tratados de acordo com os mesmos termos de "Serviços pagos", desde que pelo menos um projeto de API tenha o faturamento ativado. Para verificar isso, acesse a [página da chave de API Gemini](https://aistudio.google.com/api-keys?hl=pt-br) e confira se há projetos marcados como "Pago" em "Plano".
+Lihat [Persyaratan layanan](https://ai.google.dev/gemini-api/terms?hl=id#paid-services) untuk mengetahui detail tentang cara data ditangani saat Penagihan Cloud diaktifkan (lihat "Cara Google Menggunakan Data Anda" di bagian "Layanan Berbayar"). Perhatikan bahwa perintah Google AI Studio Anda diperlakukan berdasarkan persyaratan "Layanan Berbayar" yang sama selama setidaknya 1 project API mengaktifkan penagihan, yang dapat Anda validasi di [halaman kunci API Gemini](https://aistudio.google.com/api-keys?hl=id) jika Anda melihat project yang ditandai sebagai "Berbayar" di bagian "Paket".
 
-### O que é o faturamento pré-pago e quem precisa usar esse modelo?
+### Apa itu penagihan prabayar dan siapa yang wajib menggunakan model penagihan prabayar?
 
-Com o faturamento pré-pago, os usuários da API Gemini no AI Studio podem comprar créditos na pré-venda.
-A partir de 23 de março de 2026, os novos usuários do AI Studio talvez precisem usar o plano de faturamento pré-pago. Durante o processo de [Configurar faturamento](#setup-billing) do AI Studio, a interface vai orientar você pelo fluxo de configuração de faturamento e indicar se é necessário fazer um pré-pagamento.
+Penagihan prabayar memungkinkan pengguna Gemini API di AI Studio membeli kredit di muka.
+Mulai 23 Maret 2026, pengguna baru AI Studio mungkin diwajibkan untuk menggunakan paket penagihan Prabayar. Selama proses [Siapkan Penagihan](#setup-billing) AI Studio, UI akan memandu Anda melalui alur penyiapan penagihan dan akan menunjukkan apakah Anda diwajibkan untuk melakukan prabayar.
 
-### Como faço para comprar créditos de pré-pagamento? Há um valor mínimo ou máximo?
+### Bagaimana cara membeli kredit Prabayar, dan apakah ada jumlah minimum atau maksimum?
 
-Você pode [comprar créditos](#buy-credits) na página de faturamento do AI Studio. Durante o processo de compra, a interface vai mostrar o valor mínimo de pré-compra necessário para sua região e nível, além de um valor máximo que pode estar na sua conta de uma só vez.
+Anda dapat [membeli poin](#buy-credits) di halaman Penagihan AI Studio. Selama
+proses pembelian, UI akan memberikan jumlah pembelian di muka minimum yang
+diperlukan untuk wilayah dan tingkat Anda, serta jumlah maksimum yang dapat
+ada di akun Anda dalam satu waktu.
 
-### Posso configurar minha conta pré-paga para comprar mais créditos automaticamente conforme necessário?
+### Dapatkah saya mengonfigurasi akun Prabayar untuk otomatis membeli lebih banyak kredit sesuai kebutuhan?
 
-Sim, recomendamos que você configure a [recarga automática](#auto-reload) nas configurações de faturamento do AI Studio. Você especifica um saldo de crédito de "gatilho" (por exemplo, "quando meu saldo ficar abaixo de R $30") e um "valor de recarga" (por exemplo, "adicionar R $100").
+Ya, sebaiknya Anda mengonfigurasi [pemuatan ulang otomatis](#auto-reload) di setelan Penagihan AI Studio. Anda menentukan saldo kredit "pemicu" (misalnya, "jika saldo saya kurang dari Rp300.000") dan "nilai isi ulang" (misalnya, "tambahkan Rp1.000.000").
 
-### Posso receber um reembolso pelos meus créditos não utilizados?
+### Dapatkah saya membatasi jumlah pengisian ulang otomatis?
 
-Todos os créditos de API pré-pagos expiram após um ano e não podem ser reembolsados. Leia a [política de reembolso para contas pré-pagas](#refunds).
+Ya, pengguna Prabayar dapat menetapkan [Batas Isi Ulang Otomatis Bulanan](#monthly-auto-charge-limit)
+dalam widget **Isi Ulang Otomatis**. Jika total jumlah isi ulang otomatis dalam siklus penagihan mencapai batas ini, sistem akan menonaktifkan isi ulang otomatis hingga bulan berikutnya. Pembelian kredit manual tidak diperhitungkan dalam batas ini.
 
-### Meus créditos pré-pagos expiram?
+### Bisakah saya mendapatkan pengembalian dana untuk kredit yang tidak saya gunakan?
 
-Sim, os créditos expiram 12 meses após a data da compra.
+Semua kredit API prabayar akan habis masa berlakunya setelah 1 tahun dan tidak dapat dikembalikan. Baca
+[kebijakan pengembalian dana untuk akun Prabayar](#refunds).
 
-### O que acontece quando meu saldo de crédito pré-pago chega a R $0?
+### Apakah masa berlaku kredit prabayar saya akan berakhir?
 
-Todos os serviços da API Gemini em todos os projetos pagos por essa conta pré-paga do Cloud Billing serão interrompidos imediatamente para evitar mais cobranças. Seus projetos
-não vão passar automaticamente para o nível sem custo financeiro.
+Ya, masa berlaku kredit akan berakhir 12 bulan setelah tanggal pembeliannya.
 
-Para restaurar o serviço no seu nível pago atual, [compre mais créditos](#buy-credits). Depois de comprar créditos, você poderá usar a API Gemini. Pode haver um [atraso](#processing-times) enquanto nossos sistemas são atualizados para refletir seu saldo de crédito.
+### Apa yang terjadi jika saldo kredit prabayar saya mencapai Rp0?
 
-Opcionalmente, para fazer downgrade para o nível sem custo financeiro, você pode [desativar o faturamento](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
-nos projetos em que você quer fazer downgrade.
+Semua layanan Gemini API di semua project yang dibayar oleh akun Prabayar Penagihan Cloud tersebut akan segera dihentikan untuk mencegah timbulnya biaya lebih lanjut. Project Anda tidak otomatis di-downgrade ke Tingkat Gratis.
 
-### Por que meu uso parou mesmo com um saldo de crédito pré-pago maior que R $0?
+Untuk memulihkan layanan di tingkat Berbayar saat ini, Anda harus [membeli
+kredit tambahan](#buy-credits). Setelah membeli kredit, Anda akan dapat menggunakan Gemini API. Perhatikan bahwa mungkin ada [keterlambatan](#processing-times) saat sistem kami diperbarui untuk menampilkan saldo kredit Anda.
 
-Talvez você tenha atingido o [limite de uso](#tier-spend-caps) do seu nível atual.
-Os limites de uso aumentam automaticamente à medida que você avança para níveis mais altos. O uso da API Gemini no AI Studio também pode ser afetado pelo [status da sua conta do Cloud Billing](#missed-payment).
+Jika ingin melakukan downgrade ke Paket Gratis, Anda dapat [menonaktifkan penagihan](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=id#disable_billing_for_a_project)
+pada project yang ingin di-downgrade.
 
-### Por que o saldo de crédito da minha conta pré-paga está negativo?
+### Mengapa penggunaan saya berhenti meskipun saldo kredit Prabayar saya lebih besar dari Rp0?
 
-Devido à complexidade dos nossos sistemas de faturamento e processamento, pode haver [atrasos](#processing-times) na nossa capacidade de interromper o uso depois que você consumir todos os seus créditos. Esse uso em excesso pode aparecer como um saldo de crédito negativo no painel de faturamento do AI Studio. Se isso acontecer, o serviço será pausado, e o saldo negativo será deduzido da sua próxima compra de crédito.
+Anda mungkin telah mencapai [batas penggunaan](#tier-spend-caps) untuk tingkat saat ini.
+Batas penggunaan akan meningkat secara otomatis saat Anda naik ke tingkat yang lebih tinggi. Penggunaan Gemini API AI Studio Anda juga dapat terpengaruh karena [status akun Penagihan Cloud Anda](#missed-payment).
 
-Para evitar uma pausa no serviço da API Gemini, recomendamos configurar a [recarga automática](#auto-reload) para comprar mais créditos automaticamente quando o saldo ficar abaixo de um valor especificado.
+### Mengapa saldo kredit akun Prabayar saya negatif?
 
-### Posso usar meus créditos pré-pagos em outros serviços do Google Cloud, como a Gemini Enterprise Agent Platform?
+Karena kompleksitas sistem penagihan dan pemrosesan kami, mungkin ada [keterlambatan](#processing-times) dalam kemampuan kami untuk menghentikan penggunaan setelah Anda menggunakan semua kredit. Penggunaan berlebih ini mungkin muncul sebagai saldo kredit negatif di dasbor penagihan AI Studio. Jika hal ini terjadi, layanan Anda akan dijeda, dan saldo negatif Anda akan dipotong dari pembelian kredit berikutnya.
 
-Não, os créditos de pré-pagamento são estritamente vinculados ao uso da API Gemini. Qualquer
-outro serviço do Google Cloud que você usar (Compute, Storage, Gemini Enterprise Agent Platform) será cobrado usando
-o [ciclo de cobrança do Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br) padrão.
+Untuk menghindari jeda pada layanan Gemini API, sebaiknya siapkan
+[isi ulang otomatis](#auto-reload) untuk membeli lebih banyak kredit secara otomatis saat saldo kredit Anda kurang dari nilai yang Anda tentukan.
 
-### Posso mudar para um plano de faturamento pós-pago?
+### Dapatkah saya menggunakan kredit Prabayar untuk layanan Google Cloud lainnya, seperti Gemini Enterprise Agent Platform?
 
-Quando você estabelece um histórico de pagamentos e [atinge um nível qualificado](#about-billing) para o plano de faturamento pós-pago, é possível transferir todos os custos futuros de uso da API Gemini para um [ciclo de cobrança pós-pago](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#view-your-charging-cycle) padrão e consolidado do Google Cloud.
+Tidak, kredit Prabayar hanya dapat digunakan untuk penggunaan Gemini API. Layanan Google Cloud lainnya yang Anda gunakan (Compute, Storage, Gemini Enterprise Agent Platform) ditagih menggunakan [siklus penagihan Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id) standar.
 
-### O que acontece com meus créditos pré-pagos se eu mudar para o pós-pago?
+### Dapatkah saya beralih ke paket penagihan Pascabayar?
 
-Ao fazer upgrade para o [pós-pagamento](#postpay), o Cloud Billing encerra sua conta para pagamentos pré-paga, desativa a [recarga automática](#auto-reload) e reembolsa automaticamente os créditos pré-pagos não utilizados (sujeito ao tempo padrão de processamento de reembolso).
+Saat Anda membuat histori pembayaran dan [mencapai tingkat yang memenuhi syarat](#about-billing) untuk paket penagihan Pasca Bayar, Anda dapat memilih untuk mentransisikan semua biaya penggunaan Gemini API di masa mendatang ke [siklus penagihan Pasca Bayar](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id#view-your-charging-cycle) Google Cloud standar yang digabungkan.
 
-### Onde posso ver meu saldo de crédito pré-pago e histórico de transações?
+### Apa yang terjadi pada kredit prabayar saya jika saya beralih ke Pascabayar?
 
-Todo o gerenciamento de saldo e o histórico de transações da API Gemini precisam ser feitos diretamente na guia "Faturamento" do Google AI Studio.
+Saat Anda mengupgrade ke [Pasca Bayar](#postpay), Penagihan Cloud akan menutup akun pembayaran Prabayar Anda, menonaktifkan [isi ulang otomatis](#auto-reload), dan secara otomatis mengembalikan dana kredit Prabayar yang tidak digunakan kepada Anda (tunduk pada waktu pemrosesan pengembalian dana standar).
 
-### Por que aparece a mensagem "O tipo de conta de faturamento está inativo ou não é compatível"?
+### Di mana saya dapat melihat saldo kredit Prabayar dan histori transaksi saat ini?
 
-As interações de pagamentos na [página de faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) podem ser bloqueadas e substituídas pela mensagem "O tipo de conta de faturamento está inativo ou não é compatível" se o tipo ou status da conta de faturamento selecionada não for qualificado para o nível pago do AI Studio.
+Semua pengelolaan saldo dan histori transaksi untuk Gemini API harus dilakukan langsung di tab Penagihan Google AI Studio.
 
-Verifique o [Console do Cloud](https://console.cloud.google.com/billing/?hl=pt-br) para conferir o status da sua conta de faturamento. Um tipo inelegível pode ser *Conta de teste sem custo financeiro*. Nesse caso, [ative o faturamento](#setup-billing) no AI Studio para se qualificar. Um estado inativo pode ser *Encerrado*. Nesse caso, é possível [reabrir a conta](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=pt-br).
+### Mengapa saya melihat pesan "Jenis akun penagihan tidak aktif atau tidak didukung"?
 
-### Os custos de uso da API Gemini vão aparecer no console do Google Cloud?
+Interaksi pembayaran di [halaman Penagihan AI Studio](https://aistudio.google.com/billing?hl=id) dapat diblokir dan diganti dengan pesan "Jenis akun penagihan tidak aktif atau tidak didukung" jika jenis akun penagihan atau status akun penagihan yang Anda pilih tidak memenuhi syarat untuk Paket Berbayar di AI Studio.
 
-Sim, os custos da API Gemini, assim como os custos associados a outros serviços do Google Cloud pagos pela sua conta do Cloud Billing, podem ser consultados nas [páginas de gerenciamento de custos](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=pt-br#cost-reports) no [console do Cloud Billing](https://console.cloud.google.com/billing?hl=pt-br). Observação: só é possível gerenciar seu saldo de crédito pré-pago no AI Studio.
+Periksa [Konsol Cloud](https://console.cloud.google.com/billing/?hl=id) untuk melihat status akun penagihan Anda. Salah satu jenis yang tidak memenuhi syarat adalah *Akun uji coba gratis*. Dalam hal ini, Anda dapat [mengaktifkan penagihan](#setup-billing) di AI Studio agar memenuhi syarat. Salah satu status tidak aktif adalah *Ditutup*, dalam hal ini Anda dapat [membuka kembali akun](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=id).
 
-### Por que meu uso da API Gemini não aparece no console do Cloud Billing, mas aparece no faturamento do AI Studio, junto com o consumo dos meus créditos?
+### Apakah biaya penggunaan Gemini API saya akan muncul di konsol Google Cloud?
 
-O Google Cloud e o AI Studio informam dados de uso ao Cloud Billing em intervalos variados. Devido à complexidade dos nossos sistemas de faturamento e processamento, pode haver um atraso entre o uso dos serviços e a disponibilização do uso e dos custos para visualização no Cloud Billing. Normalmente, os detalhes de custo ficam disponíveis em um dia, mas às vezes podem demorar mais de 24 horas.
-Saiba mais sobre o faturamento atrasado na [documentação do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#delayed-billing).
+Ya, biaya Gemini API, beserta biaya yang terkait dengan layanan Google Cloud lainnya yang dibayar oleh akun Penagihan Cloud Anda, dapat dilihat di [halaman Pengelolaan biaya](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=id#cost-reports) di [konsol Penagihan Cloud](https://console.cloud.google.com/billing?hl=id). Perhatikan
+bahwa Anda hanya dapat mengelola saldo kredit Prabayar di AI Studio.
 
-### Se eu usar outros serviços do Google Cloud com custos sujeitos a um ciclo de cobrança pós-pago, o que acontece se eu não fizer um pagamento?
+### Mengapa Penggunaan Gemini API saya tidak muncul di Konsol Penagihan Cloud, padahal saya dapat melihatnya di Penagihan AI Studio, beserta penggunaan kredit saya?
 
-Se você não pagar por outros serviços do Google Cloud, seu acesso à API Gemini
-no AI Studio poderá ser suspenso, **independente de quantos créditos pré-pagos você tiver
-disponíveis**. O uso do AI Studio é feito por uma conta do Cloud Billing do Google Cloud, que pode compartilhar o faturamento pré-pago do AI Studio e o pós-pago de outros serviços do Cloud. Um problema com seu saldo pós-pago interrompe todos os serviços vinculados a essa
-conta. O uso da API Gemini será suspenso se sua conta do Cloud Billing for sinalizada por problemas como:
+Google Cloud dan AI Studio melaporkan data penggunaan ke Penagihan Cloud pada berbagai interval. Karena kompleksitas sistem penagihan dan pemrosesan kami, Anda mungkin melihat jeda antara penggunaan layanan dengan saat penggunaan dan biaya dapat dilihat di Penagihan Cloud. Biasanya, detail biaya Anda tersedia dalam satu hari, tetapi terkadang dapat memerlukan waktu lebih dari 24 jam.
+Pelajari lebih lanjut penagihan tertunda di [dokumentasi Penagihan Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=id#delayed-billing).
 
-- Um saldo em atraso ou vencido
-- Um pagamento recusado
-- Uma forma de pagamento inválida ou expirada
+### Jika saya menggunakan layanan Google Cloud lainnya dengan biaya yang tunduk pada siklus penagihan Pasca Bayar, apa yang terjadi jika saya terlambat membayar?
 
-Para restaurar o serviço, [resolva o problema da conta pós-paga](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=pt-br#resolving-declined-payments) no console do Google Cloud Billing. Depois de resolver o problema, você vai recuperar o acesso aos seus créditos e serviços pré-pagos da API Gemini.
+Keterlambatan pembayaran untuk layanan Google Cloud lainnya dapat menangguhkan akses Gemini API Anda di AI Studio, **terlepas dari jumlah kredit prabayar yang tersedia**. Penggunaan AI Studio didukung oleh akun Penagihan Google Cloud, yang dapat menggunakan penagihan Prabayar untuk AI Studio dan penagihan Pascabayar untuk layanan Cloud lainnya. Masalah pada saldo Pascabayar Anda menghentikan semua layanan yang terkait dengan akun tersebut. Penggunaan Gemini API Anda akan ditangguhkan jika akun Penagihan Cloud Anda ditandai karena masalah seperti:
 
-### Onde posso receber ajuda com o faturamento?
+- Saldo tunggakan atau terutang
+- Pembayaran yang ditolak
+- Metode pembayaran tidak valid atau sudah tidak berlaku
 
-Para receber ajuda com o faturamento, consulte
-[Receber suporte do Cloud Billing](https://cloud.google.com/support/billing?hl=pt-br).
+Untuk memulihkan layanan, Anda harus [menyelesaikan masalah akun Pasca Bayar](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=id#resolving-declined-payments) di konsol Penagihan Google Cloud. Setelah menyelesaikan masalah tersebut, Anda akan mendapatkan kembali akses ke kredit dan layanan Gemini API Prabayar.
 
-Envie comentários
+### Di mana saya bisa mendapatkan bantuan terkait penagihan?
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Untuk mendapatkan bantuan terkait penagihan, lihat
+[Mendapatkan dukungan penagihan Cloud](https://cloud.google.com/support/billing?hl=id).
 
-Última atualização 2026-05-29 UTC.
+Kirim masukan
 
-Quer enviar seu feedback?
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-29 UTC."],[],[]]
+Terakhir diperbarui pada 2026-06-05 UTC.
+
+Ada masukan untuk kami?
+
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-05 UTC."],[],[]]

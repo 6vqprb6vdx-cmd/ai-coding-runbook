@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi
-fetched_at: 2026-06-01T19:42:34.746989+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=de
+fetched_at: 2026-06-08T14:59:52.453838+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Gửi ý kiến phản hồi
+Feedback geben
 
-# Hiểu tài liệu
+# Verständnis von Dokumenten
 
-Các mô hình Gemini có thể xử lý tài liệu ở định dạng PDF, sử dụng thị giác tự nhiên để hiểu toàn bộ ngữ cảnh của tài liệu. Điều này không chỉ dừng lại ở việc trích xuất văn bản mà còn cho phép Gemini:
+Gemini-Modelle können Dokumente im PDF-Format verarbeiten und dabei die native Vision nutzen, um den gesamten Dokumentkontext zu erfassen. Das geht über die reine Textextraktion hinaus und ermöglicht Gemini Folgendes:
 
-- Phân tích và diễn giải nội dung, bao gồm văn bản, hình ảnh, sơ đồ, biểu đồ và bảng, ngay cả trong các tài liệu dài lên đến 1.000 trang.
-- Trích xuất thông tin thành các định dạng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi).
-- Tóm tắt và trả lời câu hỏi dựa trên cả yếu tố hình ảnh và văn bản trong tài liệu.
-- Chuyển nội dung tài liệu thành văn bản (ví dụ: sang HTML), giữ nguyên bố cục và định dạng để sử dụng trong các ứng dụng tiếp theo.
+- Inhalte wie Text, Bilder, Diagramme, Grafiken und Tabellen analysieren und interpretieren, auch in langen Dokumenten mit bis zu 1.000 Seiten.
+- Informationen in [strukturierte Ausgabeformate](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=de) extrahieren.
+- Dokumente zusammenfassen und Fragen dazu beantworten, basierend auf visuellen und textlichen Elementen.
+- Dokumentinhalte transkribieren (z.B. in HTML), wobei Layouts und Formatierung beibehalten werden, damit sie in nachgelagerten Anwendungen verwendet werden können.
 
-Bạn cũng có thể truyền các tài liệu không phải là PDF theo cách tương tự, nhưng Gemini sẽ coi các tài liệu đó là văn bản thông thường, do đó sẽ loại bỏ ngữ cảnh như biểu đồ hoặc định dạng.
+Sie können auch Nicht-PDF-Dokumente auf dieselbe Weise übergeben, aber Gemini betrachtet sie als normalen Text, wodurch Kontext wie Diagramme oder Formatierung verloren geht.
 
-## Truyền dữ liệu PDF nội tuyến
+## PDF-Daten inline übergeben
 
-Bạn có thể truyền dữ liệu PDF cùng dòng trong yêu cầu. Phương thức này phù hợp nhất với các tài liệu nhỏ hơn hoặc quy trình xử lý tạm thời mà bạn không cần tham chiếu tệp trong các yêu cầu tiếp theo. Bạn nên sử dụng [Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi#large-pdfs) cho các tài liệu lớn hơn mà bạn cần tham khảo trong các lượt tương tác nhiều lượt để cải thiện độ trễ của yêu cầu và giảm mức sử dụng băng thông.
+Sie können PDF-Daten inline in der Anfrage übergeben. Diese Methode eignet sich am besten für kleinere Dokumente oder für die temporäre Verarbeitung, wenn Sie in nachfolgenden Anfragen nicht auf die Datei verweisen müssen. Für größere Dokumente, auf die Sie in Interaktionen mit mehreren Durchgängen verweisen müssen, empfehlen wir die Verwendung der [Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=de#large-pdfs), um die Anfragelatenz zu verbessern und die Bandbreitennutzung zu reduzieren.
 
-Ví dụ sau đây cho thấy cách truyền dữ liệu PDF cùng dòng:
+Das folgende Beispiel zeigt, wie Sie PDF-Daten inline übergeben:
 
 ### Python
 
@@ -118,7 +118,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Bạn cũng có thể tải một tệp PDF trên máy lên để xử lý:
+Sie können auch eine lokale PDF-Datei zur Verarbeitung hochladen:
 
 ### Python
 
@@ -169,13 +169,13 @@ async function main() {
 main();
 ```
 
-## Tải tệp PDF lên bằng Files API
+## PDFs mit der Files API hochladen
 
-Bạn nên sử dụng Files API cho các tệp lớn hơn hoặc khi bạn dự định dùng lại một tài liệu trong nhiều yêu cầu. Điều này giúp cải thiện độ trễ của yêu cầu và giảm mức sử dụng băng thông bằng cách tách việc tải tệp lên khỏi các yêu cầu về mô hình.
+Wir empfehlen die Verwendung der Files API für größere Dateien oder wenn Sie ein Dokument in mehreren Anfragen wiederverwenden möchten. Dadurch wird die Anfrage-Latenz verbessert und die Bandbreitennutzung reduziert, da der Dateiupload von den Modellanfragen entkoppelt wird.
 
-### Tệp PDF lớn từ URL
+### Große PDFs aus URLs
 
-Sử dụng File API để đơn giản hoá việc tải lên và xử lý các tệp PDF lớn từ URL:
+Mit der File API können Sie große PDF-Dateien über URLs einfacher hochladen und verarbeiten:
 
 ### Python
 
@@ -329,7 +329,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### Các tệp PDF lớn được lưu trữ trên thiết bị
+### Lokal gespeicherte große PDFs
 
 ### Python
 
@@ -450,7 +450,7 @@ echo
 jq ".steps[-1].content[0].text" response.json
 ```
 
-Bạn có thể xác minh rằng API đã lưu trữ thành công tệp được tải lên và lấy siêu dữ liệu của tệp đó bằng cách gọi [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=vi). Chỉ có `name` (và theo đó là `uri`) là duy nhất.
+Sie können prüfen, ob die API die hochgeladene Datei erfolgreich gespeichert hat, und die zugehörigen Metadaten abrufen, indem Sie [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=de) aufrufen. Nur die `name` (und damit auch die `uri`) sind eindeutig.
 
 ### Python
 
@@ -482,9 +482,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Truyền nhiều tệp PDF
+## Mehrere PDFs übergeben
 
-Gemini API có thể xử lý nhiều tài liệu PDF (tối đa 1.000 trang) trong một yêu cầu duy nhất, miễn là kích thước kết hợp của các tài liệu và câu lệnh văn bản nằm trong cửa sổ ngữ cảnh của mô hình.
+Die Gemini API kann mehrere PDF-Dokumente (bis zu 1.000 Seiten) in einer einzigen Anfrage verarbeiten, sofern die kombinierte Größe der Dokumente und des Text-Prompts innerhalb des Kontextfensters des Modells liegt.
 
 ### Python
 
@@ -676,48 +676,48 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## Chi tiết kỹ thuật
+## Technische Details
 
-Gemini hỗ trợ tệp PDF có kích thước tối đa 50 MB hoặc 1.000 trang. Giới hạn này áp dụng cho cả dữ liệu nội tuyến và nội dung tải lên bằng Files API. Mỗi trang tài liệu tương đương với 258 mã thông báo.
+Gemini unterstützt PDF-Dateien mit einer Größe von bis zu 50 MB oder 1.000 Seiten. Dieses Limit gilt sowohl für Inline-Daten als auch für Uploads über die Files API. Jede Dokumentseite entspricht 258 Tokens.
 
-Mặc dù không có giới hạn cụ thể về số lượng pixel trong một tài liệu ngoài [cửa sổ ngữ cảnh](https://ai.google.dev/gemini-api/docs/long-context?hl=vi) của mô hình, nhưng các trang lớn hơn sẽ được thu nhỏ xuống độ phân giải tối đa là 3072 x 3072 trong khi vẫn giữ nguyên tỷ lệ khung hình ban đầu, còn các trang nhỏ hơn sẽ được phóng to lên 768 x 768 pixel. Không có mức giảm chi phí cho các trang có kích thước nhỏ hơn, ngoài băng thông hoặc cải thiện hiệu suất cho các trang có độ phân giải cao hơn.
+Abgesehen vom [Kontextfenster](https://ai.google.dev/gemini-api/docs/long-context?hl=de) des Modells gibt es keine spezifischen Beschränkungen für die Anzahl der Pixel in einem Dokument. Größere Seiten werden jedoch auf eine maximale Auflösung von 3072 × 3072 herunterskaliert, wobei ihr ursprüngliches Seitenverhältnis beibehalten wird. Kleinere Seiten werden auf 768 × 768 Pixel hochskaliert. Bei Seiten mit geringerer Größe gibt es keine Kostensenkung, außer bei der Bandbreite. Bei Seiten mit höherer Auflösung gibt es keine Leistungssteigerung.
 
-### Mô hình Gemini 3
+### Gemini 3-Modelle
 
-Gemini 3 giới thiệu chế độ kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Giờ đây, bạn có thể đặt độ phân giải thành thấp, trung bình hoặc cao cho từng phần nội dung nghe nhìn. Với việc bổ sung này, quy trình xử lý tài liệu PDF đã được cập nhật:
+Mit Gemini 3 wird die multimodale Bildverarbeitung durch den Parameter `media_resolution` detaillierter gesteuert. Sie können die Auflösung jetzt für jeden einzelnen Medienteil auf „Niedrig“, „Mittel“ oder „Hoch“ festlegen. Durch diese Ergänzung wurde die Verarbeitung von PDF-Dokumenten aktualisiert:
 
-1. **Bao gồm văn bản gốc:** Văn bản được nhúng nguyên bản trong tệp PDF sẽ được trích xuất và cung cấp cho mô hình.
-2. **Báo cáo về việc thanh toán và mã thông báo:**
-   - Bạn **không bị tính phí** cho các token bắt nguồn từ **văn bản gốc** được trích xuất trong tệp PDF.
-   - Trong phần `usage_metadata` của phản hồi API, các mã thông báo được tạo từ việc xử lý các trang PDF (dưới dạng hình ảnh) hiện được tính theo phương thức `IMAGE` chứ không phải phương thức `DOCUMENT` riêng biệt như trong một số phiên bản trước.
+1. **Einbeziehung von nativem Text**:Text, der nativ in die PDF-Datei eingebettet ist, wird extrahiert und dem Modell zur Verfügung gestellt.
+2. **Abrechnung und Token-Berichte**:
+   - Für Tokens, die aus dem extrahierten **nativen Text** in PDFs stammen, **werden keine Gebühren berechnet**.
+   - Im Abschnitt `usage_metadata` der API-Antwort werden Tokens, die durch die Verarbeitung von PDF-Seiten (als Bilder) generiert wurden, jetzt unter der Modalität `IMAGE` gezählt und nicht wie in einigen früheren Versionen unter einer separaten Modalität `DOCUMENT`.
 
-### Các loại tài liệu
+### Dokumenttypen
 
-Về mặt kỹ thuật, bạn có thể truyền các loại MIME khác để hiểu tài liệu, chẳng hạn như TXT, Markdown, HTML, XML, v.v. Tuy nhiên, tính năng thị giác tài liệu ***chỉ hiểu được PDF một cách có ý nghĩa***. Các loại khác sẽ được trích xuất dưới dạng văn bản thuần tuý và mô hình sẽ không thể diễn giải những gì chúng ta thấy trong quá trình hiển thị các tệp đó. Mọi thông tin cụ thể về loại tệp như biểu đồ, sơ đồ, thẻ HTML, định dạng Markdown, v.v. sẽ bị mất.
+Technisch gesehen können Sie andere MIME-Typen für die Dokumentanalyse übergeben, z. B. TXT, Markdown, HTML, XML usw. Die Dokumentanalyse ***versteht jedoch nur PDFs***. Andere Typen werden als reiner Text extrahiert und das Modell kann nicht interpretieren, was in der Darstellung dieser Dateien zu sehen ist. Alle dateitypspezifischen Elemente wie Diagramme, HTML-Tags und Markdown-Formatierung gehen verloren.
 
-Để tìm hiểu về các phương thức nhập tệp khác, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=vi).
+Informationen zu anderen Methoden für die Dateieingabe finden Sie im Leitfaden [Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=de).
 
-### Các phương pháp hay nhất
+### Best Practices
 
-Để có kết quả tốt nhất:
+Für optimale Ergebnisse:
 
-- Xoay các trang theo đúng hướng trước khi tải lên.
-- Tránh các trang bị mờ.
-- Nếu sử dụng một trang duy nhất, hãy đặt câu lệnh văn bản sau trang.
+- Drehen Sie die Seiten vor dem Hochladen in die richtige Ausrichtung.
+- Vermeiden Sie unscharfe Seiten.
+- Wenn Sie eine einzelne Seite verwenden, platzieren Sie den Text-Prompt nach der Seite.
 
-## Bước tiếp theo
+## Nächste Schritte
 
-Để tìm hiểu thêm, hãy xem các tài nguyên sau:
+Weitere Informationen finden Sie in den folgenden Ressourcen:
 
-- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
-- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều hướng hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
+- [Strategien für Dateiprompts](https://ai.google.dev/gemini-api/docs/interactions/files?hl=de#prompt-guide): Die Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch bekannt als multimodale Prompts.
+- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=de#system-instructions): Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren spezifischen Anforderungen und Anwendungsfällen steuern.
 
-Gửi ý kiến phản hồi
+Feedback geben
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Cập nhật lần gần đây nhất: 2026-06-01 UTC.
+Zuletzt aktualisiert: 2026-06-01 (UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Haben Sie Feedback für uns?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-01 (UTC)."],[],[]]

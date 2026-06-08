@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=vi
-fetched_at: 2026-06-01T19:41:28.218107+00:00
+fetched_at: 2026-06-08T15:05:48.382436+00:00
 title: "Ghi nh\u1eadt k\u00fd v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

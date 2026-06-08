@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=zh-CN
-fetched_at: 2026-06-01T19:41:48.409408+00:00
-title: "Gemini Embedding 2 \u6a21\u578b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=ko
+fetched_at: 2026-06-08T14:56:53.888843+00:00
+title: "Gemini Embedding 2 \ubaa8\ub378 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-发送反馈
+의견 보내기
 
-# Gemini Embedding 2 模型
+# Gemini Embedding 2 모델
 
-我们的第一个多模态嵌入模型，可将文本、图片、视频、音频和 PDF 高效地映射到单个统一的嵌入空间中。Gemini Embedding 2
-模型最适合跨模态语义搜索、文档检索和推荐系统，这些系统需要在大型多模态数据集中进行快速、可扩缩的相似度计算。
+텍스트, 이미지, 동영상, 오디오, PDF를 단일 통합 임베딩 공간으로 효율적으로 숫자 매핑하는 첫 번째 멀티모달 임베딩 모델입니다. Gemini Embedding 2 모델은 대규모 멀티모달 데이터 세트에서 빠르고 확장 가능한 유사성 계산이 필요한 교차 모달 시맨틱 검색, 문서 검색, 추천 시스템에 가장 적합합니다.
 
-## 文档
+## 문서
 
-如需全面了解功能，请访问[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)页面。
+[임베딩](https://ai.google.dev/gemini-api/docs/embeddings?hl=ko) 페이지에서 기능 및 기능의 전체 내용을 확인하세요.
 
 ## gemini-embedding-2
 
-| 属性 | 说明 |
+| 속성 | 설명 |
 | --- | --- |
-| id\_card模型代码 | **Gemini API**  `gemini-embedding-2` |
-| save支持的数据类型 | **输入**  文本、图片、视频、音频、PDF  **输出**  文本嵌入 |
-| token\_auto | **输入令牌限制**  8192  **输出维度大小**  灵活，支持：128 - 3072，推荐：768、1536、3072 |
-| 123版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 稳定版：`gemini-embedding-2` |
-| calendar\_month最后更新时间 | 2026 年 4 月 |
+| id\_card모델 코드 | **Gemini API**  `gemini-embedding-2` |
+| save 지원 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오, PDF  **출력**  텍스트 임베딩 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  8,192  **출력 측정기준 크기**  유연함, 지원: 128~3072, 권장: 768, 1536, 3072 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 안정화 버전: `gemini-embedding-2` |
+| calendar\_month최신 업데이트 | 2026년 4월 |
 
-发送反馈
+의견 보내기
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-最后更新时间 (UTC)：2026-04-29。
+최종 업데이트: 2026-04-29(UTC)
 
-需要向我们提供更多信息？
+의견을 전달하고 싶나요?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

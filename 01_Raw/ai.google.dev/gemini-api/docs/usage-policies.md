@@ -1,70 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=ja
-fetched_at: 2026-06-01T19:47:13.080812+00:00
-title: "\u4e0d\u6b63\u884c\u70ba\u306e\u76e3\u8996 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=pl
+fetched_at: 2026-06-08T15:02:37.649250+00:00
+title: "Monitorowanie nadu\u017cy\u0107 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-フィードバックを送信
+Prześlij opinię
 
-# 不正行為の監視
+# Monitorowanie nadużyć
 
-Google は、AI の責任ある開発と使用に取り組んでいます。Gemini API
-の安全性と完全性を確保するため、これらのポリシー ガイドラインを作成しました。
-Gemini API を使用すると、以下のガイドライン、[Gemini API
-追加利用規約](https://ai.google.dev/gemini-api/terms?hl=ja)、生成 AI の[使用禁止
-に関するポリシー](https://policies.google.com/terms/generative-ai/use-policy?hl=ja)に同意したものと見なされます。
+Google zobowiązuje się do odpowiedzialnego rozwijania i wykorzystywania AI. Aby zapewnić bezpieczeństwo i integralność interfejsu Gemini API, stworzyliśmy te wytyczne dotyczące zasad.
+Korzystając z Gemini API, akceptujesz te wytyczne, [Dodatkowe warunki korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/terms?hl=pl) oraz [zasady dotyczące niedozwolonych zastosowań generatywnej AI](https://policies.google.com/terms/generative-ai/use-policy?hl=pl).
 
-## 不正使用のモニタリング方法
+## Jak monitorujemy nadużycia
 
-Google のトラスト＆セーフティ チームは、自動プロセスと手動プロセスを組み合わせて、Gemini API と Google AI Studio の不正使用の可能性を検出し、ポリシーを適用しています。
+Aby egzekwować nasze zasady, zespół Google ds. bezpieczeństwa i zaufania stosuje połączenie procesów automatycznych i ręcznych do wykrywania potencjalnych nadużyć Gemini API i Google AI Studio.
 
-- **自動検出:** 自動システムは、ヘイトスピーチ、ハラスメント、露骨な性的コンテンツ、危険なコンテンツなど、禁止されている使用に関するポリシーに違反していないか API の使用状況をスキャンします。
-- **手動検出:** プロジェクトで不審なアクティビティが継続的に発生している場合は、Google の権限のある担当者による手動レビューの対象となることがあります。
+- **Automatyczne wykrywanie:** automatyczne systemy skanują wykorzystanie interfejsu API pod kątem naruszeń zasad dotyczących zabronionego użytkowania, takich jak szerzenie nienawiści, nękanie, treści o charakterze jednoznacznie seksualnym i treści niebezpieczne.
+- **Wykrywanie ręczne:** jeśli w projekcie stale występuje podejrzana aktywność, może on zostać oznaczony do ręcznej weryfikacji przez upoważnionych pracowników Google.
 
-## データの取り扱い方法
+## Jak postępujemy z danymi
 
-Google は、サービスの安全性とセキュリティを維持するため、禁止されている使用に関するポリシーの違反を検出して防止する目的で、また、法律や規制で義務付けられている開示を行うために、以下のデータを 55 日間保持します。
+Google przechowuje poniższe dane przez 55 dni w celu wykrywania naruszeń zasad niedozwolonego użytkowania i zapobiegania im, aby zapewnić bezpieczeństwo Usług, oraz w celu spełnienia wymaganych obowiązków prawnych i regulacyjnych:
 
-- **プロンプト:** API に送信するテキスト プロンプト。
-- **コンテキスト情報:** プロンプトとともに提供する追加のコンテキスト。
-- **出力:** Gemini API によって生成されたレスポンス。
+- **Prompty:** prompty tekstowe przesyłane do interfejsu API.
+- **Informacje kontekstowe:** dodatkowy kontekst, który podajesz w promptach.
+- **Dane wyjściowe:** odpowiedzi wygenerowane przez interfejs Gemini API.
 
-## 潜在的な問題の調査方法
+## Jak sprawdzamy potencjalne problemy
 
-上記の安全フィルタと不正使用検出システムによってプロンプトまたはモデル出力にフラグが設定された場合、Google の権限のある従業員が、事前定義されたガイドラインとポリシーに基づいて、フラグが設定されたコンテンツを評価し、分類または判定を確認または修正することがあります。データへのアクセスは、社内のガバナンス評価およびレビュー管理プラットフォームを通じて、Google の権限のある従業員のみが行うことができます。不正使用のモニタリングのためにデータが記録される場合、そのデータはポリシーの適用とポリシー違反の防止のみを目的として使用されます。
-ポリシーの適用に特化した AI / ML モデル以外の AI / ML モデルのトレーニングやファインチューニングには使用されません。
+Gdy filtry bezpieczeństwa i systemy wykrywania nadużyć opisane powyżej oznaczą prompty lub wyniki modelu, upoważnieni pracownicy Google mogą ocenić oznaczone treści i potwierdzić lub poprawić klasyfikację lub decyzję na podstawie wcześniej określonych wytycznych i zasad. Dostęp do danych w celu weryfikacji przez człowieka mogą uzyskać wyłącznie upoważnieni pracownicy Google za pomocą wewnętrznej platformy do oceny zarządzania i weryfikacji. Dane rejestrowane na potrzeby monitorowania nadużyć są używane wyłącznie do egzekwowania zasad i zapobiegania ich naruszeniom.
+Nie są one używane do trenowania ani dopracowywania żadnych modeli AI/ML poza tymi, które są używane
+specjalnie do egzekwowania zasad.
 
-## ポリシー遵守への取り組み
+## Pomagamy Ci w zapewnieniu zgodności z zasadami
 
-Gemini の使用が Google のポリシーに準拠していない場合、Google は次の措置を講じることがあります。
+Jeśli korzystanie z Gemini nie będzie zgodne z naszymi zasadami, możemy podjąć następujące kroki:
 
-- **連絡:** Google は、お客様のユースケースを把握し、使用状況をポリシーに準拠させる方法を検討するため、メールでご連絡することがあります。
-- **一時的な使用量上限:** Google は Gemini API へのアクセスを制限することがあります。
-- **一時的な停止:** Google は Gemini API へのアクセスを一時的に停止することがあります。
-- **アカウントの閉鎖:** 最終手段として、重大な違反があった場合、Google は Gemini API やその他の Google サービスへのアクセスを永久に閉鎖することがあります。
+- **Skontaktujemy się z Tobą:** możemy skontaktować się z Tobą przez e-mail, aby poznać Twój przypadek użycia i sprawdzić, jak dostosować Twoje korzystanie z usługi do zasad.
+- **Tymczasowe limity wykorzystania:** możemy ograniczyć Twój dostęp do Gemini API.
+- **Tymczasowe zawieszenie:** możemy tymczasowo wstrzymać Twój dostęp do interfejsu Gemini API.
+- **Zamknięcie konta:** w przypadku poważnych naruszeń możemy w ostateczności trwale zablokować Ci dostęp do Gemini API i innych usług Google.
 
-停止またはアカウントの閉鎖について Google からご連絡する場合は、異議申し立てを行うためのリンクも提供します。
+Jeśli skontaktujemy się z Tobą w sprawie zawieszenia lub zamknięcia konta, podamy też link, za pomocą którego możesz złożyć odwołanie.
 
-## スコープ
+## Zakres
 
-これらのポリシー ガイドラインは、Gemini API と AI Studio の使用に適用されます。
+Te wytyczne dotyczące zasad obowiązują w przypadku korzystania z Gemini API i AI Studio.
 
-フィードバックを送信
+Prześlij opinię
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-最終更新日 2026-04-29 UTC。
+Ostatnia aktualizacja: 2026-04-29 UTC.
 
-ご意見をお聞かせください
+Chcesz przekazać coś jeszcze?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

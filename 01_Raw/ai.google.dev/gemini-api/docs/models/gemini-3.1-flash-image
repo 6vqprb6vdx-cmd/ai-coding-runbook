@@ -1,63 +1,61 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=th
-fetched_at: 2026-06-01T19:35:50.085605+00:00
-title: "\u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi
+fetched_at: 2026-06-08T15:02:06.608234+00:00
+title: "H\u00ecnh \u1ea3nh Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# รูปภาพ Gemini 3.1 Flash
+# Hình ảnh Gemini 3.1 Flash
 
-**Nano Banana 2** ให้บริการการสร้างรูปภาพคุณภาพสูงและการแก้ไขแบบสนทนาในราคาที่เข้าถึงได้และมีความหน่วงต่ำ โดยเป็นโมเดลที่มีประสิทธิภาพสูงเทียบเท่ากับ [Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-image?hl=th) ซึ่งได้รับการปรับให้เหมาะกับกรณีการใช้งานของนักพัฒนาแอปที่ต้องการความเร็วและ
-ปริมาณมาก
+**Nano Banana 2** cung cấp tính năng tạo ảnh chất lượng cao và chỉnh sửa đàm thoại với mức giá phổ thông và độ trễ thấp. Đây là phiên bản có hiệu suất cao của [Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-image?hl=vi), được tối ưu hoá cho tốc độ và các trường hợp sử dụng của nhà phát triển với khối lượng lớn.
 
-**การปรับปรุงที่สำคัญมีดังนี้**
+**Nội dung cập nhật chính:**
 
-- ตัวเลือกความละเอียดเอาต์พุตใหม่
-  - รองรับ 0.5K, 2K และ 4K ใหม่ โดยค่าเริ่มต้นคือ 1K
-- การเชื่อมต่อแหล่งข้อมูลของ Search สำหรับการค้นหารูปภาพใหม่
-  - ผสานรวมผลการค้นหาทั้งข้อความและรูปภาพเพื่อแจ้งข้อมูลการสร้างด้วยข้อมูลเว็บแบบเรียลไทม์
-  - รองรับการเปิดหรือปิดฟีเจอร์ "กำลังคิด"
-- สัดส่วนภาพใหม่ 1:4, 4:1, 1:8 และ 8:1
-- ปรับปรุงการยึดมั่นในสัดส่วนภาพ
-- ปรับปรุงคุณภาพและความสอดคล้องของรูปภาพ
-- ปรับปรุงการแสดงข้อความ i18n
+- Các lựa chọn mới về độ phân giải đầu ra:
+  - Hỗ trợ mới cho 0,5K, 2K và 4K, mặc định là 1K
+- Tính năng mới về việc xác định vị trí trong Tìm kiếm bằng hình ảnh:
+  - Tích hợp cả kết quả tìm kiếm bằng văn bản và hình ảnh để cung cấp thông tin cho quá trình tạo nội dung bằng dữ liệu web theo thời gian thực
+  - Có hỗ trợ khi bật hoặc tắt tính năng Suy nghĩ
+- Tỷ lệ khung hình mới 1:4, 4:1, 1:8 và 8:1
+- Cải thiện việc tuân thủ tỷ lệ khung hình
+- Cải thiện chất lượng và tính nhất quán của hình ảnh
+- Cải thiện khả năng kết xuất văn bản theo ngôn ngữ cụ thể
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=th)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=vi)
 
-## เอกสารประกอบ
+## Tài liệu
 
-ไปที่หน้า[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)เพื่อดู
-ฟีเจอร์และความสามารถทั้งหมด
+Truy cập trang [Tạo ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) để xem thông tin đầy đủ về các tính năng và chức năng.
 
 ## gemini-3.1-flash-image
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| Thuộc tính | Mô tả |
 | --- | --- |
-| id\_cardรหัสโมเดล | `gemini-3.1-flash-image` |
-| saveประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความและรูปภาพ / PDF  **เอาต์พุต**  รูปภาพและข้อความ |
-| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  131,072  **ขีดจำกัดโทเค็นเอาต์พุต**  32,768 |
-| handymanความสามารถ | **การสร้างเสียง**  ไม่รองรับ  **Batch API**  สิ่งที่ทำได้  **การแคช**  ไม่รองรับ  **การรันโค้ด**  ไม่รองรับ  **การค้นหาไฟล์**  ไม่รองรับ  **การเรียกฟังก์ชัน**  ไม่รองรับ  **การเชื่อมต่อแหล่งข้อมูลกับ Google Maps**  ไม่รองรับ  **การสร้างรูปภาพ**  สิ่งที่ทำได้  **Live API**  ไม่รองรับ  **การเชื่อมต่อแหล่งข้อมูลของ Search**  สิ่งที่ทำได้  **เอาต์พุตที่มีโครงสร้าง**  ไม่รองรับ  **กำลังคิด**  สิ่งที่ทำได้  **บริบท URL**  ไม่รองรับ |
-| 123เวอร์ชัน | อ่าน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)เพื่อดูรายละเอียดเพิ่มเติม  - เสถียร: `gemini-3.1-flash-image` |
-| calendar\_monthการอัปเดตล่าสุด | กุมภาพันธ์ 2026 |
-| cognition\_2ขีดจำกัดความรู้ | มกราคม 2025 |
+| id\_cardMã kiểu máy | `gemini-3.1-flash-image` |
+| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản và hình ảnh / PDF  **Đầu ra**  Hình ảnh và văn bản |
+| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072  **Giới hạn mã thông báo đầu ra**  32.768 |
+| handymanChức năng | **Tạo âm thanh**  Không được hỗ trợ  **Batch API**  Được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Gọi hàm**  Không được hỗ trợ  **Kết nối với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Được hỗ trợ  **Live API**  Không được hỗ trợ  **Tìm trong phần liên kết thực tế**  Được hỗ trợ  **Đầu ra có cấu trúc**  Không được hỗ trợ  **Tư duy**  Được hỗ trợ  **Bối cảnh URL**  Không được hỗ trợ |
+| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Ổn định: `gemini-3.1-flash-image` |
+| calendar\_monthThông tin cập nhật mới nhất | Tháng 2 năm 2026 |
+| cognition\_2Điểm cắt kiến thức | Tháng 1 năm 2025 |
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-อัปเดตล่าสุด 2026-05-28 UTC
+Cập nhật lần gần đây nhất: 2026-05-28 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-28 UTC"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]

@@ -1,43 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=hi
-fetched_at: 2026-06-01T19:38:27.459605+00:00
-title: "Gemini API \u092e\u0947\u0902 Veo 3.1 \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0935\u0940\u0921\u093f\u092f\u094b \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=ar
+fetched_at: 2026-06-08T15:05:39.127236+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Veo 3.1 \u0641\u064a Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-सुझाव भेजें
+إرسال ملاحظات
 
-# Gemini API में Veo 3.1 की मदद से वीडियो जनरेट करना
+# إنشاء فيديوهات باستخدام Veo 3.1 في Gemini API
 
-> वीडियो को समझने की सुविधा के बारे में जानने के लिए, [वीडियो को समझना](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi) गाइड देखें.
+> للتعرّف على ميزة "فهم الفيديو"، يُرجى الاطّلاع على دليل [فهم الفيديو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar).
 
-[Veo 3.1](https://deepmind.google/models/veo/?hl=hi), Google का सबसे बेहतरीन मॉडल है. इसकी मदद से, 8 सेकंड के 720 पिक्सल, 1080 पिक्सल या 4K वीडियो जनरेट किए जा सकते हैं. ये वीडियो, असल ज़िंदगी के अनुभव और नेटिव ऑडियो के साथ शानदार दिखते हैं. Gemini API का इस्तेमाल करके, इस मॉडल को प्रोग्राम के हिसाब से ऐक्सेस किया जा सकता है. Veo मॉडल के उपलब्ध वैरिएंट के बारे में ज़्यादा जानने के लिए, [मॉडल के वर्शन](#model-versions) सेक्शन देखें.
+‫[Veo 3.1](https://deepmind.google/models/veo/?hl=ar) هو نموذج Google الأكثر تطوّرًا لإنشاء فيديوهات عالية الدقة مدتها 8 ثوانٍ وبدقة 720p أو 1080p أو 4k، وتتميّز بمستوى واقعية مذهل ومحتوى صوتي تم إنشاؤه بشكل أصلي. يمكنك الوصول إلى هذا النموذج آليًا باستخدام Gemini API. لمزيد من المعلومات حول
+خيارات نماذج Veo المتاحة، يُرجى الاطّلاع على قسم [إصدارات النماذج](#model-versions).
 
-Veo 3.1, विज़ुअल और सिनमैटिक स्टाइल की कई तरह की फ़ाइलों को बेहतर तरीके से प्रोसेस कर सकता है. साथ ही, इसमें कई नई सुविधाएं जोड़ी गई हैं:
+يتفوّق Veo 3.1 في مجموعة كبيرة من الأساليب المرئية والسينمائية، ويقدّم عدة إمكانات جديدة:
 
-- **पोर्ट्रेट वीडियो**: लैंडस्केप (`16:9`) और पोर्ट्रेट (`9:16`) वीडियो में से कोई एक चुनें.
-- **वीडियो एक्सटेंशन**: Veo का इस्तेमाल करके पहले जनरेट किए गए वीडियो को बड़ा करें.
-- **फ़्रेम के हिसाब से वीडियो जनरेट करना**: पहला और आखिरी फ़्रेम तय करके वीडियो जनरेट करें.
-- **इमेज के आधार पर निर्देश देना**: जनरेट किए गए वीडियो के कॉन्टेंट के बारे में निर्देश देने के लिए, ज़्यादा से ज़्यादा तीन रेफ़रंस इमेज का इस्तेमाल करें.
+- **الفيديوهات العمودية**: اختَر بين الفيديوهات الأفقية (`16:9`) والعمودية (`9:16`).
+- **إضافة مدة الفيديو**: تتيح إضافة مدة إلى الفيديوهات التي تم إنشاؤها سابقًا باستخدام Veo.
+- **إنشاء فيديو محدّد الإطار**: يمكنك إنشاء فيديو من خلال تحديد الإطارَين الأول والأخير.
+- **تحديد المسار الإبداعي استنادًا إلى الصور**: استخدِموا ما يصل إلى ثلاث صور مرجعية لتحديد محتوى الفيديو الذي تريدون إنشاؤه.
 
-वीडियो जनरेट करने के लिए, असरदार टेक्स्ट प्रॉम्प्ट लिखने के बारे में ज़्यादा जानने के लिए, [Veo की प्रॉम्प्ट गाइड](#prompt-guide) देखें
+لمزيد من المعلومات حول كتابة طلبات نصية فعالة لإنشاء الفيديوهات، يُرجى الاطّلاع على [دليل كتابة طلبات Veo](#prompt-guide).
 
-## टेक्स्ट से वीडियो जनरेट करने की सुविधा
+## إنشاء فيديو من نص
 
-डायलॉग, सिनमैटिक रियलिज़्म या क्रिएटिव ऐनिमेशन वाला वीडियो जनरेट करने का तरीका जानने के लिए, कोई उदाहरण चुनें:
+توضّح الأمثلة التالية كيف يمكنك إنشاء فيديو يتضمّن [حوارًا](#dialoque) أو [مشاهد سينمائية واقعية](#realism) أو [رسومًا متحركة إبداعية](#style):
 
-डायलॉग और साउंड इफ़ेक्ट
-सिनेमैटिक रियलिज़्म
-क्रिएटिव ऐनिमेशन
+### الحوار والمؤثرات الصوتية
 
 ### Python
 
@@ -81,7 +80,7 @@ A man murmurs, 'This must be it. That's the secret code.' The woman looks at him
 
 let operation = await ai.models.generateVideos({
     model: "veo-3.1-generate-preview",
-    prompt: prompt,
+    prompt=prompt,
 });
 
 // Poll the operation status until the video is ready.
@@ -101,7 +100,7 @@ ai.files.download({
 console.log(`Generated video saved to dialogue_example.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -149,7 +148,7 @@ func main() {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -229,10 +228,387 @@ while true; do
 done
 ```
 
-### आस्पेक्ट रेशियो कंट्रोल करना
+### الواقعية السينمائية
 
-Veo 3.1 की मदद से, लैंडस्केप (`16:9`, डिफ़ॉल्ट सेटिंग) या पोर्ट्रेट
-(`9:16`) वीडियो बनाए जा सकते हैं. `aspect_ratio` पैरामीटर का इस्तेमाल करके, मॉडल को यह बताया जा सकता है कि आपको कौनसा मॉडल चाहिए:
+### Python
+
+```
+import time
+from google import genai
+from google.genai import types
+
+client = genai.Client()
+
+prompt = """Drone shot following a classic red convertible driven by a man along a winding coastal road at sunset, waves crashing against the rocks below.
+The convertible accelerates fast and the engine roars loudly."""
+
+operation = client.models.generate_videos(
+    model="veo-3.1-generate-preview",
+    prompt=prompt,
+)
+
+# Poll the operation status until the video is ready.
+while not operation.done:
+    print("Waiting for video generation to complete...")
+    time.sleep(10)
+    operation = client.operations.get(operation)
+
+# Download the generated video.
+generated_video = operation.response.generated_videos[0]
+client.files.download(file=generated_video.video)
+generated_video.video.save("realism_example.mp4")
+print("Generated video saved to realism_example.mp4")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const prompt = `Drone shot following a classic red convertible driven by a man along a winding coastal road at sunset, waves crashing against the rocks below.
+The convertible accelerates fast and the engine roars loudly.`;
+
+let operation = await ai.models.generateVideos({
+    model: "veo-3.1-generate-preview",
+    prompt: prompt,
+});
+
+// Poll the operation status until the video is ready.
+while (!operation.done) {
+    console.log("Waiting for video generation to complete...")
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    operation = await ai.operations.getVideosOperation({
+        operation: operation,
+    });
+}
+
+// Download the generated video.
+ai.files.download({
+    file: operation.response.generatedVideos[0].video,
+    downloadPath: "realism_example.mp4",
+});
+console.log(`Generated video saved to realism_example.mp4`);
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+    "os"
+    "time"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := `Drone shot following a classic red convertible driven by a man along a winding coastal road at sunset, waves crashing against the rocks below.
+  The convertible accelerates fast and the engine roars loudly.`
+
+    operation, _ := client.Models.GenerateVideos(
+        ctx,
+        "veo-3.1-generate-preview",
+        prompt,
+        nil,
+        nil,
+    )
+
+    // Poll the operation status until the video is ready.
+    for !operation.Done {
+    log.Println("Waiting for video generation to complete...")
+        time.Sleep(10 * time.Second)
+        operation, _ = client.Operations.GetVideosOperation(ctx, operation, nil)
+    }
+
+    // Download the generated video.
+    video := operation.Response.GeneratedVideos[0]
+    client.Files.Download(ctx, video.Video, nil)
+    fname := "realism_example.mp4"
+    _ = os.WriteFile(fname, video.Video.VideoBytes, 0644)
+    log.Printf("Generated video saved to %s\n", fname)
+}
+```
+
+### جافا
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateVideosOperation;
+import com.google.genai.types.Video;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+class GenerateVideoFromText {
+  public static void main(String[] args) throws Exception {
+    Client client = new Client();
+
+    String prompt = "Drone shot following a classic red convertible driven by a man along a winding coastal road at sunset, waves crashing against the rocks below.\n" +
+"The convertible accelerates fast and the engine roars loudly.";
+
+    GenerateVideosOperation operation =
+        client.models.generateVideos("veo-3.1-generate-preview", prompt, null, null);
+
+    // Poll the operation status until the video is ready.
+    while (!operation.done().isPresent() || !operation.done().get()) {
+      System.out.println("Waiting for video generation to complete...");
+      Thread.sleep(10000);
+      operation = client.operations.getVideosOperation(operation, null);
+    }
+
+    // Download the generated video.
+    Video video = operation.response().get().generatedVideos().get().get(0).video().get();
+    Path path = Paths.get("realism_example.mp4");
+    client.files.download(video, path.toString(), null);
+    if (video.videoBytes().isPresent()) {
+      Files.write(path, video.videoBytes().get());
+      System.out.println("Generated video saved to realism_example.mp4");
+    }
+  }
+}
+```
+
+### REST
+
+```
+# Note: This script uses jq to parse the JSON response.
+# GEMINI API Base URL
+BASE_URL="https://generativelanguage.googleapis.com/v1beta"
+
+# Send request to generate video and capture the operation name into a variable.
+operation_name=$(curl -s "${BASE_URL}/models/veo-3.1-generate-preview:predictLongRunning" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -X "POST" \
+  -d '{
+    "instances": [{
+        "prompt": "Drone shot following a classic red convertible driven by a man along a winding coastal road at sunset, waves crashing against the rocks below. The convertible accelerates fast and the engine roars loudly."
+      }
+    ]
+  }' | jq -r .name)
+
+# Poll the operation status until the video is ready
+while true; do
+  # Get the full JSON status and store it in a variable.
+  status_response=$(curl -s -H "x-goog-api-key: $GEMINI_API_KEY" "${BASE_URL}/${operation_name}")
+
+  # Check the "done" field from the JSON stored in the variable.
+  is_done=$(echo "${status_response}" | jq .done)
+
+  if [ "${is_done}" = "true" ]; then
+    # Extract the download URI from the final response.
+    video_uri=$(echo "${status_response}" | jq -r '.response.generateVideoResponse.generatedSamples[0].video.uri')
+    echo "Downloading video from: ${video_uri}"
+
+    # Download the video using the URI and API key and follow redirects.
+    curl -L -o realism_example.mp4 -H "x-goog-api-key: $GEMINI_API_KEY" "${video_uri}"
+    break
+  fi
+  # Wait for 5 seconds before checking again.
+  sleep 10
+done
+```
+
+### صورة متحركة إبداعية
+
+### Python
+
+```
+import time
+from google import genai
+
+client = genai.Client()
+prompt = "A whimsical stop-motion animation of a tiny robot tending to a garden of glowing mushrooms on a miniature planet."
+
+operation = client.models.generate_videos(
+    model="veo-3.1-generate-preview",
+    prompt=prompt,
+)
+
+# Poll the operation status until the video is ready.
+while not operation.done:
+    print("Waiting for video generation to complete...")
+    time.sleep(10)
+    operation = client.operations.get(operation)
+
+# Download the generated video.
+generated_video = operation.response.generated_videos[0]
+client.files.download(file=generated_video.video)
+generated_video.video.save("style_example.mp4")
+print("Generated video saved to style_example.mp4")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const prompt = "A whimsical stop-motion animation of a tiny robot tending to a garden of glowing mushrooms on a miniature planet.";
+
+let operation = await ai.models.generateVideos({
+    model: "veo-3.1-generate-preview",
+    prompt: prompt,
+});
+
+// Poll the operation status until the video is ready.
+while (!operation.done) {
+    console.log("Waiting for video generation to complete...")
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    operation = await ai.operations.getVideosOperation({
+        operation: operation,
+    });
+}
+
+// Download the generated video.
+ai.files.download({
+    file: operation.response.generatedVideos[0].video,
+    downloadPath: "style_example.mp4",
+});
+console.log(`Generated video saved to style_example.mp4`);
+```
+
+### Go
+
+```
+package main
+
+import (
+    "context"
+    "log"
+    "os"
+    "time"
+
+    "google.golang.org/genai"
+)
+
+func main() {
+    ctx := context.Background()
+    client, err := genai.NewClient(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    prompt := `A whimsical stop-motion animation of a tiny robot tending to a garden of glowing mushrooms on a miniature planet.`
+
+    operation, _ := client.Models.GenerateVideos(
+        ctx,
+        "vveo-3.1-generate-preview",
+        prompt,
+        nil,
+        nil,
+    )
+
+    // Poll the operation status until the video is ready.
+    for !operation.Done {
+    log.Println("Waiting for video generation to complete...")
+        time.Sleep(10 * time.Second)
+        operation, _ = client.Operations.GetVideosOperation(ctx, operation, nil)
+    }
+
+    // Download the generated video.
+    video := operation.Response.GeneratedVideos[0]
+    client.Files.Download(ctx, video.Video, nil)
+    fname := "style_example.mp4"
+    _ = os.WriteFile(fname, video.Video.VideoBytes, 0644)
+    log.Printf("Generated video saved to %s\n", fname)
+}
+```
+
+### جافا
+
+```
+import com.google.genai.Client;
+import com.google.genai.types.GenerateVideosOperation;
+import com.google.genai.types.Video;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+class GenerateVideoFromText {
+  public static void main(String[] args) throws Exception {
+    Client client = new Client();
+
+    String prompt = "A whimsical stop-motion animation of a tiny robot tending to a garden of glowing mushrooms on a miniature planet.";
+
+    GenerateVideosOperation operation =
+        client.models.generateVideos("veo-3.1-generate-preview", prompt, null, null);
+
+    // Poll the operation status until the video is ready.
+    while (!operation.done().isPresent() || !operation.done().get()) {
+      System.out.println("Waiting for video generation to complete...");
+      Thread.sleep(10000);
+      operation = client.operations.getVideosOperation(operation, null);
+    }
+
+    // Download the generated video.
+    Video video = operation.response().get().generatedVideos().get().get(0).video().get();
+    Path path = Paths.get("style_example.mp4");
+    client.files.download(video, path.toString(), null);
+    if (video.videoBytes().isPresent()) {
+      Files.write(path, video.videoBytes().get());
+      System.out.println("Generated video saved to style_example.mp4");
+    }
+  }
+}
+```
+
+### REST
+
+```
+# Note: This script uses jq to parse the JSON response.
+# GEMINI API Base URL
+BASE_URL="https://generativelanguage.googleapis.com/v1beta"
+
+# Send request to generate video and capture the operation name into a variable.
+operation_name=$(curl -s "${BASE_URL}/models/veo-3.1-generate-preview:predictLongRunning" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -X "POST" \
+  -d '{
+    "instances": [{
+        "prompt": "A whimsical stop-motion animation of a tiny robot tending to a garden of glowing mushrooms on a miniature planet."
+      }
+    ]
+  }' | jq -r .name)
+
+# Poll the operation status until the video is ready
+while true; do
+  # Get the full JSON status and store it in a variable.
+  status_response=$(curl -s -H "x-goog-api-key: $GEMINI_API_KEY" "${BASE_URL}/${operation_name}")
+
+  # Check the "done" field from the JSON stored in the variable.
+  is_done=$(echo "${status_response}" | jq .done)
+
+  if [ "${is_done}" = "true" ]; then
+    # Extract the download URI from the final response.
+    video_uri=$(echo "${status_response}" | jq -r '.response.generateVideoResponse.generatedSamples[0].video.uri')
+    echo "Downloading video from: ${video_uri}"
+
+    # Download the video using the URI and API key and follow redirects.
+    curl -L -o style_example.mp4 -H "x-goog-api-key: $GEMINI_API_KEY" "${video_uri}"
+    break
+  fi
+  # Wait for 5 seconds before checking again.
+  sleep 10
+done
+```
+
+## التحكّم في نسبة العرض إلى الارتفاع
+
+يتيح لك Veo 3.1 إنشاء فيديوهات بالوضع الأفقي (`16:9`، وهو الإعداد التلقائي) أو الوضع العمودي (`9:16`). يمكنك إخبار النموذج بالوضع الذي تريده باستخدام المَعلمة `aspect_ratio`:
 
 ### Python
 
@@ -300,7 +676,7 @@ ai.files.download({
 console.log(`Generated video saved to pizza_making.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -395,13 +771,13 @@ while true; do
 done
 ```
 
-### रिज़ॉल्यूशन कंट्रोल करना
+## التحكّم في درجة الدقة
 
-Veo 3.1, सीधे तौर पर 720 पिक्सल, 1080 पिक्सल या 4K रिज़ॉल्यूशन वाले वीडियो भी जनरेट कर सकता है. हालांकि, Veo 3.1 Lite में 4K रिज़ॉल्यूशन वाला वीडियो जनरेट करने की सुविधा उपलब्ध नहीं है.
+يمكن لنموذج Veo 3.1 أيضًا إنشاء فيديوهات بدقة 720p أو 1080p أو 4k مباشرةً (لا تتوفّر دقة 4k في Veo 3.1 Lite).
 
-ध्यान दें कि रिज़ॉल्यूशन जितना ज़्यादा होगा, इंतज़ार का समय उतना ही ज़्यादा होगा. 4K वीडियो की कीमत भी ज़्यादा होती है ([कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#veo-3.1) देखें).
+يُرجى العِلم أنّه كلما زادت درجة الدقة، زاد وقت الاستجابة. كما أنّ تكلفة الفيديوهات بدقة 4K أعلى (يُرجى الاطّلاع على [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#veo-3.1)).
 
-[वीडियो एक्सटेंशन](#extending_veo_videos) भी सिर्फ़ 720 पिक्सल वाले वीडियो के लिए उपलब्ध है.
+[إضافة الفيديو](#extending_veo_videos) مقتصرة أيضًا على الفيديوهات بدقة 720p.
 
 ### Python
 
@@ -469,7 +845,7 @@ ai.files.download({
 console.log(`Generated video saved to 4k_grand_canyon.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -564,9 +940,12 @@ while true; do
 done
 ```
 
-## इमेज से वीडियो जनरेट करने की सुविधा
+## إنشاء فيديو من صورة
 
-यहाँ दिए गए कोड में, [Gemini 3.1 Flash Image यानी Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) का इस्तेमाल करके इमेज जनरेट करने का तरीका दिखाया गया है. इसके बाद, उस इमेज को Veo 3.1 की मदद से वीडियो जनरेट करने के लिए शुरुआती फ़्रेम के तौर पर इस्तेमाल किया गया है.
+يوضّح الرمز التالي كيفية إنشاء صورة باستخدام
+[Gemini 3.1 Flash Image، المعروف أيضًا باسم Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)،
+ثم استخدام هذه الصورة كإطار
+بدائي لإنشاء فيديو باستخدام Veo 3.1.
 
 ### Python
 
@@ -647,7 +1026,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3_with_image_input.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -709,7 +1088,7 @@ func main() {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -754,15 +1133,17 @@ class GenerateVideoFromImage {
 }
 ```
 
-### रेफ़रंस इमेज का इस्तेमाल करना
+### استخدام الصور المرجعية
 
-Veo 3.1 अब जनरेट किए गए वीडियो के कॉन्टेंट के लिए, ज़्यादा से ज़्यादा तीन रेफ़रंस इमेज स्वीकार करता है. किसी व्यक्ति, किरदार या प्रॉडक्ट की इमेज दें, ताकि आउटपुट वीडियो में विषय की उपस्थिति को बनाए रखा जा सके.
+يقبل الإصدار 3.1 من Veo الآن ما يصل إلى 3 صور مرجعية لتوجيه محتوى الفيديو الذي يتم إنشاؤه، ويمكنك تقديم صور لشخص أو شخصية أو منتج للحفاظ على مظهر العنصر في الفيديو الناتج.
 
-उदाहरण के लिए, [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi) से जनरेट की गई इन तीन इमेज को रेफ़रंस के तौर पर इस्तेमाल करके, [अच्छी तरह से लिखा गया प्रॉम्प्ट](#use-reference-images) डालने पर, यह वीडियो बनता है:
+على سبيل المثال، يؤدي استخدام هذه الصور الثلاث التي تم إنشاؤها باستخدام
+[Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) كصور مرجعية مع
+[طلب مكتوب بشكل جيد](#use-reference-images) إلى إنشاء الفيديو التالي:
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
-| फ़्लेमिंगो के डिज़ाइन वाली हाई-फ़ैशन ड्रेस. इसमें गुलाबी और फ़्यूशिया रंग के पंखों की कई लेयर हैं | गहरे रंग के बालों और चमकदार भूरी आंखों वाली खूबसूरत महिला | दिल के आकार वाला गुलाबी चश्मा |
+| فستان فلامنغو عصري مزيّن بطبقات من الريش الوردي والأرجواني | امرأة جميلة بشعر داكن وعينين بنيتين دافئتين | نظارات شمسية وردية اللون على شكل قلب |
 
 ### Python
 
@@ -863,7 +1244,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3.1_with_reference_images.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -990,9 +1371,9 @@ while true; do
 done
 ```
 
-### पहले और आखिरी फ़्रेम का इस्तेमाल करना
+### استخدام الإطارين الأول والأخير
 
-Veo 3.1 की मदद से, इंटरपोलेशन का इस्तेमाल करके वीडियो बनाए जा सकते हैं. इसके अलावा, वीडियो के पहले और आखिरी फ़्रेम भी तय किए जा सकते हैं. वीडियो जनरेट करने के लिए, असरदार टेक्स्ट प्रॉम्प्ट लिखने के बारे में जानकारी पाने के लिए, [Veo की प्रॉम्प्ट गाइड](#use-reference-images) देखें.
+يتيح لك Veo 3.1 إنشاء فيديوهات باستخدام الاستيفاء أو تحديد الإطار الأول والأخير من الفيديو. للحصول على معلومات حول كتابة طلبات نصية فعّالة لإنشاء الفيديوهات، راجِع [دليل طلبات Veo](#use-reference-images).
 
 ### Python
 
@@ -1063,7 +1444,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3.1_with_interpolation.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1165,31 +1546,31 @@ done
 
 | `` `first_image` `` | `` `last_image` `` | *veo3.1\_with\_interpolation.mp4* |
 | --- | --- | --- |
-| एक भूतिया महिला के लंबे सफ़ेद बाल हैं और उसने बहने वाली ड्रेस पहनी है. वह रस्सी वाली झूला पर धीरे-धीरे झूल रही है | भूतिया महिला झूले से गायब हो जाती है | कोहरे में झूलते हुए, एक डरावनी महिला के गायब होने का सिनेमैटिक और डरावना वीडियो |
+| امرأة شبحية ذات شعر أبيض طويل وفستان فضفاض تتأرجح برفق على أرجوحة حبل | اختفاء المرأة الشبحية من الأرجوحة | فيديو سينمائي مخيف لامرأة غريبة تختفي من أرجوحة في الضباب |
 
-## Veo की मदद से जनरेट किए गए वीडियो की अवधि बढ़ाना
+## إطالة مدة فيديوهات Veo
 
-Veo 3.1 का इस्तेमाल करके, Veo से जनरेट किए गए वीडियो की अवधि को 7 सेकंड तक बढ़ाया जा सकता है. ऐसा ज़्यादा से ज़्यादा 20 बार किया जा सकता है.
+استخدِم Veo 3.1 لتمديد الفيديوهات التي أنشأتها سابقًا باستخدام Veo لمدة 7 ثوانٍ
+وما يصل إلى 20 مرة.
 
-इनपुट वीडियो से जुड़ी सीमाएं:
+القيود المفروضة على فيديوهات الإدخال:
 
-- Veo से जनरेट किए गए वीडियो की अवधि सिर्फ़ 141 सेकंड तक हो सकती है.
-- Gemini API, सिर्फ़ Veo से जनरेट किए गए वीडियो के लिए वीडियो एक्सटेंशन की सुविधा देता है.
-- वीडियो, पिछली जनरेशन का होना चाहिए. जैसे,
-  `operation.response.generated_videos[0].video`
-- वीडियो दो दिनों तक सेव रहते हैं. हालांकि, अगर किसी वीडियो का इस्तेमाल एक्सटेंशन के लिए किया जाता है, तो उसे सेव रखने का दो दिन का टाइमर रीसेट हो जाता है. सिर्फ़ उन वीडियो की अवधि बढ़ाई जा सकती है जिन्हें पिछले दो दिनों में जनरेट किया गया हो या जिनका रेफ़रंस दिया गया हो.
-- इनपुट वीडियो की अवधि, आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात), और डाइमेंशन तय होने चाहिए:
-  - आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात): 9:16 या 16:9
-  - रिज़ॉल्यूशन: 720 पिक्सल
-  - वीडियो की अवधि: 141 सेकंड या इससे कम
+- يمكن أن تصل مدة الفيديوهات التي تم إنشاؤها بواسطة Veo إلى 141 ثانية فقط.
+- تتيح Gemini API إطالة مدة الفيديوهات التي تم إنشاؤها بواسطة Veo فقط.
+- يجب أن يكون الفيديو من جيل سابق، مثل `operation.response.generated_videos[0].video`
+- يتم تخزين الفيديوهات لمدة يومَين، ولكن إذا تمت الإشارة إلى فيديو لتمديد مدته، تتم إعادة ضبط موقّت التخزين الذي يبلغ يومَين. يمكنك فقط إطالة مدة الفيديوهات التي تم إنشاؤها أو الرجوع إليها خلال آخر يومَين.
+- يجب أن تتوفّر في الفيديوهات المدخلة مدة ونسبة عرض إلى ارتفاع وسمات معيّنة:
+  - نسبة العرض إلى الارتفاع: 9:16 أو 16:9
+  - درجة الدقة: 720p
+  - مدة الفيديو: 141 ثانية أو أقل
 
-एक्सटेंशन का आउटपुट एक वीडियो होता है. इसमें उपयोगकर्ता के इनपुट वीडियो और जनरेट किए गए एक्सटेंड किए गए वीडियो को मिलाकर, ज़्यादा से ज़्यादा 148 सेकंड का वीडियो बनाया जाता है.
+تنتج الإضافة فيديو واحدًا يجمع بين الفيديو الذي أدخله المستخدم والفيديو الموسّع الذي تم إنشاؤه، وذلك لمدة تصل إلى 148 ثانية.
 
-इस उदाहरण में, Veo से जनरेट किए गए वीडियो का इस्तेमाल किया गया है. इसे यहां इसके ओरिजनल प्रॉम्प्ट के साथ दिखाया गया है. साथ ही, `video` पैरामीटर और नए प्रॉम्प्ट का इस्तेमाल करके, इसे बढ़ाया गया है:
+يأخذ هذا المثال فيديو من إنشاء Veo، كما هو موضّح هنا مع الطلب الأصلي، ويوسّعه باستخدام المَعلمة `video` وطلب جديد:
 
-| प्रॉम्प्ट | आउटपुट: `butterfly_video` |
+| الطلب | الناتج: `butterfly_video` |
 | --- | --- |
-| ऑरिगामी तितली अपने पंख फड़फड़ाती है और फ़्रेंच दरवाज़ों से उड़कर बगीचे में चली जाती है. | ऑरिगेमी बटरफ़्लाई अपने पंख फड़फड़ाती है और फ़्रेंच दरवाज़ों से उड़कर बगीचे में चली जाती है. |
+| فراشة أوريغامي ترفرف بجناحيها وتطير من الأبواب الفرنسية إلى الحديقة. | فراشة مصنوعة من الأوريغامي ترفرف بجناحيها وتطير من الأبواب الزجاجية إلى الحديقة. |
 
 ### Python
 
@@ -1262,7 +1643,7 @@ ai.files.download({
 console.log(`Generated video saved to veo3.1_extension.mp4`);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1365,13 +1746,13 @@ while true; do
 done
 ```
 
-वीडियो जनरेट करने के लिए, असरदार टेक्स्ट प्रॉम्प्ट लिखने के बारे में जानकारी पाने के लिए, [Veo की प्रॉम्प्ट गाइड](#extend-prompt) देखें.
+للحصول على معلومات حول كتابة طلبات نصية فعّالة لإنشاء الفيديوهات، يُرجى الاطّلاع على [دليل كتابة طلبات Veo](#extend-prompt).
 
-## एसिंक्रोनस कार्रवाइयों को हैंडल करना
+## التعامل مع العمليات غير المتزامنة
 
-वीडियो जनरेट करने के लिए, काफ़ी कंप्यूटेशनल पावर की ज़रूरत होती है. एपीआई को अनुरोध भेजने पर, यह लंबे समय तक चलने वाला जॉब शुरू करता है और तुरंत `operation` ऑब्जेक्ट दिखाता है. इसके बाद, आपको तब तक पोल करना होगा, जब तक वीडियो तैयार नहीं हो जाता. इसकी जानकारी, `done` स्टेटस के सही होने से मिलती है.
+تتطلّب عملية إنشاء الفيديو قدرًا كبيرًا من الحسابات. وعند إرسال طلب إلى واجهة برمجة التطبيقات، تبدأ مهمة طويلة الأمد ويتم على الفور عرض عنصر `operation`. عليك بعد ذلك إجراء استطلاع إلى أن يصبح الفيديو جاهزًا، ويتم الإشارة إلى ذلك من خلال ضبط حالة `done` على "صحيح".
 
-इस प्रोसेस का मुख्य हिस्सा पोलिंग लूप है. यह लूप, समय-समय पर जॉब के स्टेटस की जांच करता है.
+تتمحور هذه العملية حول حلقة استطلاع تتحقّق بشكل دوري من حالة المهمة.
 
 ### Python
 
@@ -1428,7 +1809,7 @@ while (!operation.done) {
 // ... process and download your video ...
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1469,7 +1850,7 @@ func main() {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1550,302 +1931,308 @@ while true; do
 done
 ```
 
-## Veo API के पैरामीटर और खास बातें
+## مواصفات ومَعلمات Veo API
 
-ये ऐसे पैरामीटर हैं जिन्हें एपीआई के अनुरोध में सेट किया जा सकता है. इससे वीडियो जनरेट करने की प्रोसेस को कंट्रोल किया जा सकता है.
+في ما يلي المَعلمات التي يمكنك ضبطها في طلب بيانات من واجهة برمجة التطبيقات للتحكّم في عملية إنشاء الفيديو.
 
-| पैरामीटर | Veo 3.1 और Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 और Veo 3 Fast | Veo 2 |
+| المَعلمة | ‫Veo 3.1 وVeo 3.1 Fast | Veo 3.1 Lite | ‫Veo 3 وVeo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| इंस्टेंस | | | | |
-| `prompt`: वीडियो के बारे में टेक्स्ट में दी गई जानकारी. इसमें ऑडियो क्यू की सुविधा काम करती है. | `string` | `string` | `string` | `string` |
-| `image`: ऐनिमेट करने के लिए शुरुआती इमेज. | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट |
-| `lastFrame`: इंटरपोलेशन वीडियो के लिए, ट्रांज़िशन करने वाली फ़ाइनल इमेज. इसका इस्तेमाल `image` पैरामीटर के साथ किया जाना चाहिए. | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट | `Image` ऑब्जेक्ट |
-| `referenceImages`: स्टाइल और कॉन्टेंट के रेफ़रंस के तौर पर इस्तेमाल करने के लिए, ज़्यादा से ज़्यादा तीन इमेज. | `VideoGenerationReferenceImage` ऑब्जेक्ट | `n/a` ऑब्जेक्ट | लागू नहीं | लागू नहीं |
-| `video`: वीडियो एक्सटेंशन के लिए इस्तेमाल किया जाने वाला वीडियो. | पिछली जनरेशन का `Video` ऑब्जेक्ट | लागू नहीं | लागू नहीं | लागू नहीं |
-| पैरामीटर | | | | |
-| `aspectRatio`: वीडियो का आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात). | `"16:9"` (डिफ़ॉल्ट), `"9:16"` | `"16:9"` (डिफ़ॉल्ट), `"9:16"` | `"16:9"` (डिफ़ॉल्ट), `"9:16"` | `"16:9"` (डिफ़ॉल्ट), `"9:16"` |
-| `durationSeconds`: जनरेट किए गए वीडियो की अवधि. | `"4"`, `"6"`, `"8"`.   *एक्सटेंशन, रेफ़रंस इमेज या 1080 पिक्सल और 4K रिज़ॉल्यूशन का इस्तेमाल करते समय, इसकी वैल्यू "8" होनी चाहिए* | `"4"`, `"6"`, `"8"`.   *रेफ़रंस इमेज या 1080 पिक्सल का इस्तेमाल करते समय, "8" पर सेट होना चाहिए* | `"4"`, `"6"`, `"8"`.   *एक्सटेंशन, रेफ़रंस इमेज या 1080 पिक्सल और 4K रिज़ॉल्यूशन का इस्तेमाल करते समय, इसकी वैल्यू "8" होनी चाहिए* | `"5"`, `"6"`, `"8"` |
-| `personGeneration`: इससे लोगों की इमेज जनरेट करने की सुविधा को कंट्रोल किया जाता है. (देश/इलाके के हिसाब से पाबंदियों के बारे में जानने के लिए, [सीमाएं](#limitations) देखें) | टेक्स्ट से वीडियो और एक्सटेंशन: `"allow_all"` सिर्फ़   इमेज से वीडियो, इंटरपोलेशन, और रेफ़रंस इमेज: `"allow_adult"` सिर्फ़ | टेक्स्ट से वीडियो बनाने की सुविधा: `"allow_all"` सिर्फ़   इमेज से वीडियो बनाने की सुविधा, इंटरपोलेशन, और रेफ़रंस इमेज: `"allow_adult"` सिर्फ़ | टेक्स्ट से वीडियो बनाने की सुविधा: `"allow_all"` सिर्फ़   इमेज से वीडियो बनाने की सुविधा: `"allow_adult"` सिर्फ़ | टेक्स्ट को वीडियो में बदलने की सुविधा:  `"allow_all"`, `"allow_adult"`, `"dont_allow"`   इमेज को वीडियो में बदलने की सुविधा:  `"allow_adult"`, और `"dont_allow"` |
-| `resolution`: वीडियो का रिज़ॉल्यूशन. | `"720p"` (डिफ़ॉल्ट),  `"1080p"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है), `"4k"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है)   *`"720p"` सिर्फ़ एक्सटेंशन के लिए* | `"720p"` (डिफ़ॉल्ट),  `"1080p"` (सिर्फ़ आठ सेकंड तक काम करता है) | `"720p"` (डिफ़ॉल्ट),  `"1080p"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है), `"4k"` (सिर्फ़ आठ सेकंड की अवधि के लिए काम करता है)   *`"720p"` सिर्फ़ एक्सटेंशन के लिए* | प्रिंटर इस डिवाइस के साथ काम नहीं करता है |
+| إطارات مبعثَرة | | | | |
+| ‫`prompt`: الوصف النصي للفيديو، ويتوافق مع الإشارات الصوتية. | `string` | `string` | `string` | `string` |
+| `image`: صورة أولية لتحريكها | العنصر `Image` | العنصر `Image` | العنصر `Image` | العنصر `Image` |
+| ‫`lastFrame`: الصورة النهائية التي سيتم الانتقال إليها في فيديو الاستيفاء يجب استخدامها مع المَعلمة `image`. | العنصر `Image` | العنصر `Image` | العنصر `Image` | العنصر `Image` |
+| ‫`referenceImages`: ما يصل إلى ثلاث صور لاستخدامها كمرجع للأسلوب والمحتوى | العنصر `VideoGenerationReferenceImage` | العنصر `n/a` | لا تنطبق | لا تنطبق |
+| ‫`video`: الفيديو الذي سيتم استخدامه لإضافة الفيديو | عنصر `Video` من جيل سابق | لا تنطبق | لا تنطبق | لا تنطبق |
+| المعلمات | | | | |
+| ‫`aspectRatio`: تمثّل نسبة العرض إلى الارتفاع للفيديو. | ‫`"16:9"` (تلقائي)، `"9:16"` | ‫`"16:9"` (تلقائي)، `"9:16"` | ‫`"16:9"` (تلقائي)، `"9:16"` | ‫`"16:9"` (تلقائي)، `"9:16"` |
+| ‫`durationSeconds`: مدة الفيديو الذي تم إنشاؤه. | `"4"`، `"6"`، `"8"`.   *يجب أن تكون القيمة "8" عند استخدام الإضافة أو الصور المرجعية أو مع دقة 1080p و4K* | `"4"`، `"6"`، `"8"`.   *يجب أن تكون القيمة "8" عند استخدام الصور المرجعية أو مع دقة 1080p* | `"4"`، `"6"`، `"8"`.   *يجب أن تكون القيمة "8" عند استخدام الإضافة أو الصور المرجعية أو مع دقة 1080p و4K* | ‫`"5"`، `"6"`، `"8"` |
+| `personGeneration`:  يتحكّم في إنشاء صور تتضمّن أشخاصًا. (يُرجى الاطّلاع على [القيود](#limitations) لمعرفة القيود المفروضة على المناطق) | تحويل النص إلى فيديو وتوسيع الفيديو: `"allow_all"` فقط   تحويل الصور إلى فيديو، والتحويل بين الصور، والصور المرجعية: `"allow_adult"` فقط | تحويل النص إلى فيديو: `"allow_all"` فقط   تحويل الصور إلى فيديوهات، والتحويل بين الصور، والصور المرجعية: `"allow_adult"` فقط | تحويل النص إلى فيديو: `"allow_all"` فقط   تحويل الصورة إلى فيديو: `"allow_adult"` فقط | تحويل النص إلى فيديو:  `"allow_all"` و`"allow_adult"` و`"dont_allow"`   تحويل الصور إلى فيديو:  `"allow_adult"` و`"dont_allow"` |
+| استبدِل `resolution`  بدرجة دقة الفيديو. | ‫`"720p"` (الإعداد التلقائي)،  `"1080p"` (يتيح مدة 8 ثوانٍ فقط)، `"4k"` (يتيح مدة 8 ثوانٍ فقط)   *`"720p"` للإضافة فقط* | ‫`"720p"` (تلقائي)،  `"1080p"` (يتيح مدة 8 ثوانٍ فقط) | ‫`"720p"` (الإعداد التلقائي)،  `"1080p"` (يتيح مدة 8 ثوانٍ فقط)، `"4k"` (يتيح مدة 8 ثوانٍ فقط)   *`"720p"` للإضافة فقط* | غير متوافقة |
 
-ध्यान दें कि `seed` पैरामीटर, Veo 3 मॉडल के लिए भी उपलब्ध है.
-इससे यह गारंटी नहीं मिलती कि नतीजे एक जैसे होंगे, लेकिन इससे नतीजे कुछ हद तक एक जैसे हो जाते हैं.
+يُرجى العِلم أنّ المَعلمة `seed` متاحة أيضًا لنماذج Veo 3، وهي لا تضمن الحتمية، ولكنّها تحسّنها قليلاً.
 
-## मॉडल की सुविधाएं
+## ميزات النموذج
 
-| सुविधा | Veo 3.1 और Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 और Veo 3 Fast | Veo 2 |
+| الميزة | ‫Veo 3.1 وVeo 3.1 Fast | Veo 3.1 Lite | ‫Veo 3 وVeo 3 Fast | Veo 2 |
 | --- | --- | --- | --- | --- |
-| **ऑडियो:** यह वीडियो के साथ ऑडियो जनरेट करता है. | ✔️ हमेशा चालू रखें | ✔️ हमेशा चालू रखें | ✔️ हमेशा चालू रखें | ❌ सिर्फ़ साइलेंट |
-| **इनपुट मोडेलिटी:** जनरेट करने के लिए इस्तेमाल किए गए इनपुट का टाइप. | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड, और वीडियो से वीडियो बनाने वाला मोड | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड | टेक्स्ट से वीडियो बनाने वाला मोड, इमेज से वीडियो बनाने वाला मोड |
-| **रिज़ॉल्यूशन:** वीडियो का आउटपुट रिज़ॉल्यूशन. | 720 पिक्सल, 1080 पिक्सल (सिर्फ़ आठ सेकंड की अवधि), 4K (सिर्फ़ आठ सेकंड की अवधि)  *वीडियो एक्सटेंशन का इस्तेमाल करते समय, सिर्फ़ 720 पिक्सल.* | 720 पिक्सल, 1080 पिक्सल (सिर्फ़ आठ सेकंड की अवधि) | 720 पिक्सल और 1080 पिक्सल (सिर्फ़ 16:9) | 720 पिक्सल |
-| **फ़्रेम रेट:** वीडियो का आउटपुट फ़्रेम रेट. | 24fps | 24fps | 24fps | 24fps |
-| **वीडियो की अवधि:** जनरेट किए गए वीडियो की अवधि. | 8 सेकंड, 6 सेकंड, 4 सेकंड  *1080 पिक्सल या 4K रिज़ॉल्यूशन या रेफ़रंस इमेज का इस्तेमाल करने पर ही 8 सेकंड* | 8 सेकंड, 6 सेकंड, 4 सेकंड  *सिर्फ़ 1080 पिक्सल या रेफ़रंस इमेज का इस्तेमाल करने पर 8 सेकंड* | 8 सेकंड | 5 से 8 सेकंड |
-| **हर अनुरोध पर वीडियो:** हर अनुरोध पर जनरेट किए गए वीडियो की संख्या. | 1 | 1 | 1 | 1 या 2 |
-| **स्टेटस:** मॉडल की उपलब्धता | [झलक देखें](https://ai.google.dev/gemini-api/docs/models?hl=hi#preview) | [झलक देखें](https://ai.google.dev/gemini-api/docs/models?hl=hi#preview) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=hi#stable) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=hi#latest-stable) |
+| **الصوت:** يتم إنشاء الصوت بشكل أصلي مع الفيديو. | ✔️ قيد التشغيل دائمًا | ✔️ قيد التشغيل دائمًا | ✔️ قيد التشغيل دائمًا | ❌ الوضع الصامت فقط |
+| **طُرق الإدخال:** تمثّل نوع الإدخال المستخدَم في عملية الإنشاء. | تحويل النص إلى فيديو، وتحويل الصورة إلى فيديو، وتعديل الفيديو | تحويل النص إلى فيديو والصورة إلى فيديو | تحويل النص إلى فيديو والصورة إلى فيديو | تحويل النص إلى فيديو والصورة إلى فيديو |
+| **درجة الدقة:** هي درجة دقة الفيديو الناتج. | ‫720p و1080p (لمدة 8 ثوانٍ فقط) و4k (لمدة 8 ثوانٍ فقط)  *720p فقط عند استخدام إضافة الفيديو* | ‫720p و1080p (لمدة 8 ثوانٍ فقط) | ‫720p و1080p (بنسبة عرض إلى ارتفاع 16:9 فقط) | 720 بكسل |
+| **معدّل عرض الإطارات:** يشير إلى معدّل عرض الإطارات للفيديو. | 24 إطارًا في الثانية | 24 إطارًا في الثانية | 24 إطارًا في الثانية | 24 إطارًا في الثانية |
+| **مدة الفيديو:** هي مدة الفيديو الذي تم إنشاؤه. | 8 ثوانٍ أو 6 ثوانٍ أو 4 ثوانٍ  *8 ثوانٍ فقط إذا كانت الدقة 1080p أو 4k أو إذا كنت تستخدم صورًا مرجعية* | ‫8 ثوانٍ أو 6 ثوانٍ أو 4 ثوانٍ  *8 ثوانٍ فقط إذا كانت الدقة 1080p أو إذا كنت تستخدم صورًا مرجعية* | 8 ثوانٍ | ‫5 إلى 8 ثوانٍ |
+| **الفيديوهات لكل طلب:** عدد الفيديوهات التي يتم إنشاؤها لكل طلب | 1 | 1 | 1 | 1 أو 2 |
+| **الحالة:** مدى توفّر النموذج | [معاينة](https://ai.google.dev/gemini-api/docs/models?hl=ar#preview) | [معاينة](https://ai.google.dev/gemini-api/docs/models?hl=ar#preview) | [مستقر](https://ai.google.dev/gemini-api/docs/models?hl=ar#stable) | [مستقر](https://ai.google.dev/gemini-api/docs/models?hl=ar#latest-stable) |
 
-## सीमाएं
+## القيود
 
-- **अनुरोध में लगने वाला समय:** कम से कम: 11 सेकंड; ज़्यादा से ज़्यादा: 6 मिनट (पीक आवर्स के दौरान).
-- **क्षेत्र के हिसाब से पाबंदियां:** ईयू, यूके, स्विट्ज़रलैंड, और मध्य-पूर्व और उत्तरी अफ़्रीका के देशों में, `personGeneration` के लिए ये वैल्यू इस्तेमाल की जा सकती हैं:
-  - Veo 3 और 3.1: सिर्फ़ `allow_adult`.
-  - Veo 2: `dont_allow` और `allow_adult`. डिफ़ॉल्ट वैल्यू `dont_allow` है.
-- **वीडियो सेव करने की अवधि:** जनरेट किए गए वीडियो, सर्वर पर दो दिनों तक सेव रहते हैं. इसके बाद, उन्हें हटा दिया जाता है. स्थानीय कॉपी सेव करने के लिए, आपको वीडियो जनरेट होने के दो दिनों के अंदर उसे डाउनलोड करना होगा. बढ़ाए गए वीडियो को नए वीडियो के तौर पर माना जाता है.
-- **वॉटरमार्किंग:** Veo से बनाए गए वीडियो में [SynthID](https://deepmind.google/technologies/synthid/?hl=hi) का इस्तेमाल करके वॉटरमार्क लगाया जाता है. यह वॉटरमार्क लगाने और एआई से बनाए गए कॉन्टेंट की पहचान करने वाला हमारा टूल है. [SynthID](https://deepmind.google/science/synthid/?hl=hi) की मदद से, वीडियो की पुष्टि की जा सकती है.
-- **सुरक्षा:** जनरेट किए गए वीडियो, सुरक्षा फ़िल्टर और याद रखने की जांच करने वाली प्रोसेस से गुज़रते हैं. इससे निजता, कॉपीराइट, और भेदभाव के जोखिमों को कम करने में मदद मिलती है.
-- **ऑडियो से जुड़ी गड़बड़ी:** कभी-कभी Veo 3.1, वीडियो जनरेट करने से रोक सकता है. ऐसा सुरक्षा फ़िल्टर या ऑडियो को प्रोसेस करने से जुड़ी अन्य समस्याओं की वजह से होता है. अगर वीडियो जनरेट करने की सुविधा ब्लॉक कर दी जाती है, तो आपसे कोई शुल्क नहीं लिया जाएगा.
+- **وقت استجابة الطلب:** الحدّ الأدنى: 11 ثانية، الحدّ الأقصى: 6 دقائق (خلال ساعات الذروة)
+- **القيود الإقليمية:** في مواقع الاتحاد الأوروبي والمملكة المتحدة وسويسرا ومنطقة الشرق الأوسط وشمال أفريقيا، القيم المسموح بها لـ `personGeneration` هي:
+  - ‫Veo 3 و3.1: `allow_adult` فقط
+  - ‫Veo 2: `dont_allow` و`allow_adult` القيمة التلقائية هي `dont_allow`.
+- **الاحتفاظ بالفيديوهات:** يتم تخزين الفيديوهات التي تم إنشاؤها على الخادم لمدة يومَين، وبعد ذلك تتم إزالتها. لحفظ نسخة محلية، عليك تنزيل الفيديو في غضون يومَين من إنشائه. ويتم التعامل مع الفيديوهات الموسّعة على أنّها فيديوهات تم إنشاؤها حديثًا.
+- **وضع العلامات المائية:** يتم وضع علامات مائية على الفيديوهات التي ينشئها Veo باستخدام [SynthID](https://deepmind.google/technologies/synthid/?hl=ar)، وهي أداتنا لوضع العلامات المائية والتعرّف على المحتوى من إنشاء الذكاء الاصطناعي، ويمكن التحقّق من الفيديوهات باستخدام منصة التحقّق [SynthID](https://deepmind.google/science/synthid/?hl=ar).
+- **الأمان:** تخضع الفيديوهات من إنشاء الذكاء الاصطناعي إلى فلاتر الأمان وعمليات التحقّق من الحفظ في الذاكرة التي تساعد في الحدّ من مخاطر الخصوصية وحقوق الطبع والنشر والتحيّز.
+- **خطأ في الصوت:** في بعض الأحيان، سيمنع Veo 3.1 إنشاء فيديو بسبب فلاتر السلامة أو مشاكل أخرى في معالجة الصوت، ولن يتم تحصيل أي رسوم منك إذا تم حظر إنشاء الفيديو.
 
-## Veo के लिए प्रॉम्प्ट से जुड़ी गाइड
+## دليل كتابة الطلبات في Veo
 
-इस सेक्शन में, Veo का इस्तेमाल करके बनाए जा सकने वाले वीडियो के उदाहरण दिए गए हैं. साथ ही, इसमें अलग-अलग नतीजे पाने के लिए, प्रॉम्प्ट में बदलाव करने का तरीका बताया गया है.
+يحتوي هذا القسم على أمثلة للفيديوهات التي يمكنك إنشاؤها باستخدام Veo، ويوضّح لك كيفية تعديل الطلبات للحصول على نتائج مختلفة.
 
-### सेफ़्टी फ़िल्टर
+### فلاتر السلامة
 
-Veo, Gemini के सभी वर्शन पर सुरक्षा फ़िल्टर लागू करता है. इससे यह पक्का करने में मदद मिलती है कि जनरेट किए गए वीडियो और अपलोड की गई फ़ोटो में आपत्तिजनक कॉन्टेंट न हो.
-ऐसे प्रॉम्प्ट को ब्लॉक कर दिया जाता है जिनसे [हमारी शर्तों और दिशा-निर्देशों](https://ai.google.dev/gemini-api/docs/usage-policies?hl=hi#abuse-monitoring) का उल्लंघन होता है.
+تطبّق Veo فلاتر الأمان على جميع منتجات Gemini للمساعدة في ضمان عدم احتواء الفيديوهات التي يتم إنشاؤها والصور التي يتم تحميلها على محتوى مسيء.
+يتم حظر الطلبات التي تنتهك [الأحكام والإرشادات](https://ai.google.dev/gemini-api/docs/usage-policies?hl=ar#abuse-monitoring).
 
-### प्रॉम्प्ट लिखने के बारे में बुनियादी जानकारी
+### أساسيات كتابة الطلبات
 
-अच्छे प्रॉम्प्ट में, साफ़ तौर पर जानकारी दी जाती है. Veo का ज़्यादा से ज़्यादा फ़ायदा पाने के लिए, सबसे पहले अपने मुख्य आइडिया की पहचान करें. इसके बाद, कीवर्ड और मॉडिफ़ायर जोड़कर अपने आइडिया को बेहतर बनाएं. साथ ही, अपने प्रॉम्प्ट में वीडियो से जुड़ी शब्दावली शामिल करें.
+يجب أن تكون الطلبات جيدة الوصف وواضحة. للاستفادة إلى أقصى حدّ من Veo، ابدأ بتحديد فكرتك الأساسية، ثم حسِّنها من خلال إضافة كلمات رئيسية ومعدِّلات، وأدرِج مصطلحات خاصة بالفيديو في طلباتك.
 
-आपके प्रॉम्प्ट में ये एलिमेंट शामिल होने चाहिए:
+يجب تضمين العناصر التالية في الطلب:
 
-- **सब्जेक्ट**: वह ऑब्जेक्ट, व्यक्ति, जानवर या सीनरी जो आपको अपने वीडियो में चाहिए. जैसे, *शहर का नज़ारा*, *प्रकृति*, *वाहन* या *पिल्ले*.
-- **कार्रवाई**: किरदार क्या कर रहा है. उदाहरण के लिए, *चलना*, *दौड़ना* या *सिर घुमाना*.
-- **स्टाइल**: फ़िल्म की स्टाइल से जुड़े कीवर्ड का इस्तेमाल करके, क्रिएटिव डायरेक्शन के बारे में बताएं. जैसे, *साइंस फ़िक्शन*, *हॉरर फ़िल्म*, *फ़िल्म नॉयर* या ऐनिमेशन वाली स्टाइल, जैसे कि *कार्टून*.
-- **कैमरे की पोज़िशन और मोशन**: [ज़रूरी नहीं] *ऊपर से लिया गया व्यू*, *आंख के लेवल से लिया गया व्यू*, *ऊपर से लिया गया शॉट*, *डॉली शॉट* या *नीचे से लिया गया व्यू* जैसे शब्दों का इस्तेमाल करके, कैमरे की जगह और मूवमेंट को कंट्रोल करें.
-- **कंपोज़िशन**: [ज़रूरी नहीं] शॉट को कैसे फ़्रेम किया गया है. जैसे, *वाइड शॉट*, *क्लोज़-अप*, *सिंगल-शॉट* या *टू-शॉट*.
-- **फ़ोकस और लेंस इफ़ेक्ट**: [ज़रूरी नहीं] खास विज़ुअल इफ़ेक्ट पाने के लिए, *शैलो फ़ोकस*, *डीप फ़ोकस*, *सॉफ़्ट फ़ोकस*, *मैक्रो लेंस*, और *वाइड-ऐंगल लेंस* जैसे शब्दों का इस्तेमाल करें.
-- **ऐम्बियंस**: [ज़रूरी नहीं] सीन को बेहतर बनाने में रंग और रोशनी की क्या भूमिका है. जैसे, *ब्लू टोन*, *रात* या *वॉर्म टोन*.
+- **الموضوع**: يشير إلى الشيء أو الشخص أو الحيوان أو المشهد الذي تريد تضمينه في الفيديو، مثل *مناظر المدينة* أو *الطبيعة* أو *المركبات* أو *الجراء*.
+- **النشاط**: النشاط الذي يؤديه الشخص/العنصر محور التركيز (مثل *المشي* أو *الجري* أو *تحريك الرأس*).
+- **الأسلوب**: حدِّد التوجيه الإبداعي باستخدام كلمات رئيسية خاصة بأسلوب الفيلم، مثل *الخيال العلمي* أو *فيلم رعب* أو *فيلم جريمة* أو أساليب الرسوم المتحركة مثل *الرسوم الكرتونية*.
+- **موضع الكاميرا وحركتها**: [اختياري] يمكنك التحكّم في موضع الكاميرا وحركتها باستخدام عبارات مثل *منظر جوي* أو *منظر من مستوى العين* أو *لقطة من الأعلى* أو *لقطة متحركة* أو *منظر من الأسفل*.
+- **التركيب**: [اختياري] يصف كيفية تأطير اللقطة، مثل *لقطة واسعة* أو *لقطة مقرَّبة* أو *لقطة فردية* أو *لقطة مزدوجة*.
+- **التركيز وتأثيرات العدسة**: [اختياري] استخدِم عبارات مثل *تركيز سطحي* و*تركيز عميق* و*تركيز ناعم* و*عدسة ماكرو* و*عدسة بزاوية عريضة* لتحقيق تأثيرات بصرية معيّنة.
+- **طابع التباين العام**: [اختياري] يصف كيف تساهم الألوان والإضاءة في المشهد،
+  مثل *درجات الأزرق* أو *الليل* أو *درجات الألوان الدافئة*.
 
-#### प्रॉम्प्ट लिखने के बारे में ज़्यादा सलाह
+#### المزيد من النصائح لكتابة الطلبات
 
-- **ज़्यादा जानकारी देने वाली भाषा का इस्तेमाल करें**: Veo को साफ़ तौर पर जानकारी देने के लिए, विशेषण और क्रियाविशेषण का इस्तेमाल करें.
-- **चेहरे की बारीकियों को बेहतर बनाएं**: फ़ोटो में चेहरे की बारीकियों को हाइलाइट करने के लिए, प्रॉम्प्ट में *पोर्ट्रेट* शब्द का इस्तेमाल करें.
+- **استخدام لغة وصفية**: استخدِم الصفات والأحوال لتقديم صورة واضحة لـ Veo.
+- **تحسين تفاصيل الوجه**: حدِّد تفاصيل الوجه كبؤرة تركيز الصورة، مثلاً باستخدام الكلمة *صورة شخصية* في الطلب.
 
-*प्रॉम्प्ट लिखने की ज़्यादा रणनीतियों के लिए, [प्रॉम्प्ट डिज़ाइन करने के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=hi) पर जाएं.*
+*للحصول على استراتيجيات أكثر شمولاً لإنشاء الطلبات، يمكنك الانتقال إلى [مقدمة حول
+تصميم الطلبات](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ar).*
 
-### ऑडियो के लिए प्रॉम्प्ट करना
+### طلب الإذن بالوصول إلى الصوت
 
-Veo को साउंड इफ़ेक्ट, आस-पास के शोर, और डायलॉग के लिए निर्देश दिए जा सकते हैं.
-मॉडल, इन संकेतों की बारीकियों को समझकर, एक साथ चलने वाला साउंडट्रैक जनरेट करता है.
+يمكنكم تزويد Veo بإشارات للمؤثرات الصوتية والضوضاء المحيطة والحوار.
+يلتقط النموذج الفروق الدقيقة في هذه الإشارات لإنشاء مقطع صوتي متزامن.
 
-- **डायलॉग:** किसी खास स्पीच के लिए कोटेशन का इस्तेमाल करें. (उदाहरण: "यह कुंजी होनी चाहिए," वह धीरे से बोला.)
-- **साउंड इफ़ेक्ट (एसएफ़एक्स):** आवाज़ों के बारे में साफ़ तौर पर बताएं. (उदाहरण: टायर के ज़ोर से घिसटने की आवाज़, इंजन के तेज़ आवाज़ करने की आवाज़.)
-- **आस-पास की आवाज़:** आस-पास की आवाज़ों के बारे में बताएं. (उदाहरण: बैकग्राउंड में हल्की, डरावनी आवाज़ सुनाई दे रही है.)
+- **الحوار:** استخدِم علامات الاقتباس للإشارة إلى كلام محدّد. (مثال: "يجب أن يكون هذا هو المفتاح"، همس).
+- **المؤثرات الصوتية:** يجب وصف الأصوات بوضوح. (مثال: إطارات
+  تصرخ بصوت عالٍ، محرك يزمجر.)
+- **الضوضاء المحيطة:** وصف المشهد الصوتي للبيئة (مثال: يتردد صدى همهمة خافتة ومخيفة في الخلفية.)
 
-इन वीडियो में, Veo 3 को ऑडियो जनरेट करने के लिए प्रॉम्प्ट देने का तरीका दिखाया गया है. इनमें प्रॉम्प्ट में दी गई जानकारी के लेवल को धीरे-धीरे बढ़ाया गया है.
+تعرض هذه الفيديوهات كيفية تقديم طلبات إلى Veo 3 لإنشاء محتوى صوتي بمستويات تفصيلية متزايدة.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **ज़्यादा जानकारी (डायलॉग और माहौल)** पैसिफ़िक नॉर्थवेस्ट के धुंधले जंगल का वाइड शॉट. थके हुए दो हाइकर, एक पुरुष और एक महिला, फ़र्न के बीच से गुज़र रहे हैं. अचानक पुरुष रुक जाता है और एक पेड़ को देखने लगता है. क्लोज़-अप: पेड़ की छाल पर ताज़े और गहरे पंजे के निशान दिख रहे हैं. आदमी: (शिकार के लिए इस्तेमाल होने वाले चाकू पर हाथ रखकर) "यह कोई आम भालू नहीं है." महिला: (डर से उसकी आवाज़ तेज़ हो जाती है, वह जंगल को स्कैन करती है) "तो फिर यह क्या है?" खुरदरी छाल, टूटी हुई टहनियां, और गीली मिट्टी पर पैरों के निशान. एक पक्षी चहचहा रहा है. | जंगल में दो लोगों को भालू के पैरों के निशान दिखते हैं. |
-| **कम जानकारी (डायलॉग)** पेपर कट-आउट ऐनिमेशन. नई लाइब्रेरियन: "आपने पाबंदी वाली किताबें कहाँ रखी हैं?" पुराना क्यूरेटर: "हम ऐसा नहीं करते. वे हमें." | ऐनिमेशन वाली लाइब्रेरियन, पाबंदी वाली किताबों के बारे में बातचीत कर रही हैं |
+| **مزيد من التفاصيل (حوار وأجواء)** لقطة واسعة لغابة ضبابية في شمال غرب المحيط الهادئ. يتوغّل رجل وامرأة منهكان في الغابة بين نباتات السرخس، ثم يتوقف الرجل فجأةً وينظر إلى شجرة. لقطة مقرّبة: تظهر على لحاء الشجرة آثار مخالب حديثة وعميقة. الرجل: (يضع يده على سكين الصيد) "هذا ليس دبًا عاديًا". المرأة: (صوتها يرتجف خوفًا، وتنظر إلى الغابة) "إذًا ما هو؟" صوت لحاء خشن، وأغصان تتكسّر، وخطوات على الأرض الرطبة، وتغريدة عصفور وحيد. | شخصان في الغابة يصادفان آثارًا لدب |
+| **تفاصيل أقل (حوار)** صورة متحركة بتأثير الورق المقصوص أمين مكتبة جديد: "أين تحتفظون بالكتب المحظورة؟" المنظّم السابق: "لا، لا نفعل ذلك. إنّها تحتفظ بها". | أمينتا مكتبة كرتونيتان تناقشان الكتب المحظورة |
 
-ऑडियो सुनने के लिए, इन प्रॉम्प्ट को खुद आज़माएं!
-[Veo आज़माएँ](https://deepmind.google/models/veo/?hl=hi)
+جرِّب هذه الطلبات بنفسك للاستماع إلى الصوت!
+[تجربة Veo](https://deepmind.google/models/veo/?hl=ar)
 
-### रेफ़रंस इमेज के साथ प्रॉम्प्ट देना
+### توجيه الطلبات باستخدام الصور المرجعية
 
-Veo की [इमेज से वीडियो](https://ai.google.dev/gemini-api/docs/video?hl=hi#generate-from-images) बनाने की सुविधाओं का इस्तेमाल करके, जनरेट किए गए वीडियो के लिए एक या उससे ज़्यादा इमेज को इनपुट के तौर पर इस्तेमाल किया जा सकता है. Veo, इनपुट इमेज को शुरुआती फ़्रेम के तौर पर इस्तेमाल करता है. ऐसी इमेज चुनें जो आपके वीडियो के पहले सीन से मिलती-जुलती हो. इससे आपको रोज़मर्रा की चीज़ों को ऐनिमेट करने, ड्रॉइंग और पेंटिंग को जीवंत बनाने, और कुदरती नज़ारों में मूवमेंट और आवाज़ जोड़ने में मदद मिलेगी.
+يمكنك استخدام صورة واحدة أو أكثر كمدخلات لتوجيه الفيديوهات التي يتم إنشاؤها، وذلك باستخدام إمكانات [تحويل الصور إلى فيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar#generate-from-images) في Veo. تستخدم Veo الصورة المُدخَلة كإطار أولي. اختَر صورة
+قريبة من المشهد الأول الذي تتخيّله لفيديوك، ثم حرِّك
+الأغراض اليومية، واجعل الرسومات واللوحات الفنية تنبض بالحياة، وأضِف الحركة
+والصوت إلى مشاهد الطبيعة.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **इनपुट इमेज (Nano Banana से जनरेट की गई)** यह एक हाइपररियलिस्टिक मैक्रो फ़ोटो है. इसमें छोटे-छोटे सर्फ़र को, पत्थर के बने बाथटब में समुद्र की लहरों पर सर्फ़िंग करते हुए दिखाया गया है. पीतल का एक पुराना नल चल रहा है, जिससे लगातार पानी गिर रहा है. अनोखी, काल्पनिक, और नैचुरल लाइटिंग वाली इमेज. | पत्थर के बने बाथटब में, छोटे-छोटे सर्फ़र समुद्र की लहरों पर सर्फ़िंग कर रहे हैं. |
-| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** एक शानदार, सिनमैटिक मैक्रो वीडियो. पत्थर के बाथरूम सिंक में, छोटे-छोटे सर्फ़र लगातार उठने वाली लहरों पर सर्फ़िंग कर रहे हैं. पीतल का पुराना नल चालू होने पर, पानी लगातार गिरता रहता है. कैमरा धीरे-धीरे घूमते हुए, धूप वाले अनोखे सीन को दिखाता है. इसमें छोटी-छोटी आकृतियां, नीले पानी को कुशलता से काटती हुई दिखती हैं. | बाथरूम के सिंक में, छोटी-छोटी लहरों के चारों ओर घूमते हुए छोटे-छोटे सर्फ़र. |
+| **الصورة المصدر (من إنشاء Nano Banana)** صورة ماكرو فائقة الواقعية لراكبي أمواج صغار جدًا يركبون أمواج المحيط داخل حوض حمام حجري ريفي. صنبور نحاسي قديم يتدفق منه الماء، ما يؤدي إلى إنشاء موجة دائمة. صورة سريالية غريبة الأطوار بإضاءة طبيعية ساطعة | راكبو أمواج مصغّرون يركبون أمواج المحيط داخل حوض حمّام حجري ريفي |
+| **فيديو الناتج (من إنشاء Veo 3.1)** فيديو سينمائي كلّي بجودة عالية يركب راكبو أمواج صغار أمواجًا متواصلة ومتدفقة داخل حوض حمام حجري. تنتج الأمواج المتواصلة عن صنبور نحاسي قديم مفتوح. تتحرّك الكاميرا ببطء عبر المشهد الغريب والمضاء بنور الشمس بينما تنحت المجسّمات الصغيرة المياه الفيروزية بمهارة. | متزلجون على الأمواج صغار الحجم يلتفون حول الأمواج في حوض حمام |
 
-Veo 3.1 की मदद से, जनरेट किए गए वीडियो के कॉन्टेंट के लिए [रेफ़रंस इमेज](https://ai.google.dev/gemini-api/docs/video?hl=hi#reference-images) या इंग्रेडिएंट इस्तेमाल किए जा सकते हैं. किसी एक व्यक्ति, किरदार या प्रॉडक्ट की ज़्यादा से ज़्यादा तीन ऐसेट इमेज उपलब्ध कराएं. Veo, आउटपुट वीडियो में विषय की उपस्थिति को बनाए रखता है.
+يتيح لك Veo 3.1 [الاستناد إلى صور](https://ai.google.dev/gemini-api/docs/video?hl=ar#reference-images) أو مكونات لتوجيه محتوى الفيديو الذي يتم إنشاؤه، ويمكنك تقديم ما يصل إلى ثلاث صور أصول لشخص واحد أو شخصية واحدة أو منتج واحد، مع العلم أنّ Veo يحافظ على مظهر الموضوع في الفيديو الناتج.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **रेफ़रंस इमेज (Nano Banana से जनरेट की गई)** गहरे समुद्र में रहने वाली ऐंग्लरफ़िश, गहरे पानी में छिपी हुई है. उसके दाँत बाहर निकले हुए हैं और चारा चमक रहा है. | गहरी और चमकती हुई ऐंगलर मछली |
-| **रेफ़रंस इमेज (Nano Banana की मदद से जनरेट की गई)** एक बच्ची के लिए गुलाबी रंग का प्रिंसेस कॉस्ट्यूम. इसमें एक छड़ी और ताज भी शामिल है. इसे प्रॉडक्ट के सादे बैकग्राउंड पर दिखाया गया है. | गुलाबी रंग की राजकुमारी की पोशाक पहने हुए बच्चे की तस्वीर |
-| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** मछली का एक मज़ेदार कार्टून वर्शन बनाओ. इसमें मछली को कॉस्ट्यूम पहने हुए, तैरते हुए, और छड़ी को घुमाते हुए दिखाया गया हो. | राजकुमारी की पोशाक पहने हुए ऐंगलर मछली |
+| **الصورة المرجعية (من إنشاء Nano Banana)** سمكة أبو الشص في المياه العميقة المظلمة، وأسنانها مكشوفة والطعم يضيء. | سمكة صيّاد داكنة ومتوهجة |
+| **الصورة المرجعية (تم إنشاؤها باستخدام Nano Banana)** زي أميرة باللون الوردي للأطفال مزوّد بعصا سحرية وتاج، على خلفية منتج عادية | زي أميرة وردي للأطفال |
+| **فيديو الناتج (من إنشاء Veo 3.1)** أنشئ نسخة كرتونية مضحكة من السمكة وهي ترتدي الزي وتسبح وتلوّح بالعصا السحرية. | سمكة أبو الشص ترتدي زي أميرة |
 
-Veo 3.1 का इस्तेमाल करके, वीडियो के [पहले और आखिरी फ़्रेम](https://ai.google.dev/gemini-api/docs/video?hl=hi#using-first-and-last-video-frames) के बारे में बताकर भी वीडियो जनरेट किए जा सकते हैं.
+باستخدام Veo 3.1، يمكنك أيضًا إنشاء فيديوهات من خلال تحديد [الإطارَين الأول والأخير](https://ai.google.dev/gemini-api/docs/video?hl=ar#using-first-and-last-video-frames) للفيديو.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **पहली इमेज (Nano Banana ने जनरेट की है)** यह असल सी दिखने वाली, अच्छी क्वालिटी की इमेज है. इसमें एक अदरक के रंग की बिल्ली को फ़्रेंच रिवेरा के तट पर, लाल रंग की कन्वर्टिबल रेसिंग कार चलाते हुए दिखाया गया है. | लाल रंग की कन्वर्टिबल रेसिंग कार चलाते हुए अदरक के रंग की बिल्ली |
-| **आखिरी इमेज (Nano Banana ने जनरेट की है)** दिखाओ कि जब कार किसी चट्टान से उड़ती है, तो क्या होता है. | लाल रंग की कन्वर्टिबल कार चलाते हुए, अदरक के रंग की बिल्ली का चट्टान से गिरना |
-| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** ज़रूरी नहीं | बिल्ली, चट्टान से कूदकर उड़ती हुई |
+| **الصورة الأولى (تم إنشاؤها باستخدام Nano Banana)** صورة أمامية واقعية عالية الجودة لقطة زنجبيلية تقود سيارة سباق حمراء مكشوفة على ساحل الريفييرا الفرنسية | هرّ زنجبيلي يقود سيارة سباق حمراء مكشوفة |
+| **آخر صورة (تم إنشاؤها بواسطة Nano Banana)** عرض ما يحدث عندما تنطلق السيارة من منحدر | قطة زنجبيلية تقود سيارة حمراء مكشوفة وتسقط من منحدر |
+| **فيديو الناتج (تم إنشاؤه بواسطة Veo 3.1)** اختياري | قطة تقود سيارة من منحدر وتطير |
 
-इस सुविधा की मदद से, आपको अपने शॉट की कंपोज़िशन पर सटीक कंट्रोल मिलता है. इसके लिए, आपको शुरुआती और आखिरी फ़्रेम तय करने का विकल्प मिलता है. कोई इमेज अपलोड करें या वीडियो जनरेट करने के लिए पहले इस्तेमाल किए गए किसी फ़्रेम का इस्तेमाल करें. इससे यह पक्का किया जा सकेगा कि आपका सीन ठीक उसी तरह शुरू और खत्म हो जैसा आपने सोचा था.
+تمنحك هذه الميزة تحكّمًا دقيقًا في تركيبة اللقطة من خلال السماح لك بتحديد إطارَي البداية والنهاية. حمِّل صورة أو استخدِم إطارًا من فيديو تم إنشاؤه سابقًا للتأكّد من أنّ المشهد يبدأ وينتهي تمامًا كما تتخيّله.
 
-### एक्सटेंशन के लिए प्रॉम्प्ट करना
+### تقديم طلبات للإضافة
 
-Veo 3.1 की मदद से, Veo से जनरेट किए गए वीडियो की अवधि [बढ़ाने](https://ai.google.dev/gemini-api/docs/video?hl=hi#extending_veo_videos) के लिए, वीडियो को इनपुट के तौर पर इस्तेमाल करें. साथ ही, चाहें, तो टेक्स्ट प्रॉम्प्ट भी इस्तेमाल करें. यह सुविधा, Veo 3.1 Lite के लिए उपलब्ध नहीं है. एक्सटेंड सुविधा, आपके वीडियो के आखिरी सेकंड या 24 फ़्रेम को फ़ाइनल करती है और ऐक्शन को जारी रखती है.
+[لتمديد](https://ai.google.dev/gemini-api/docs/video?hl=ar#extending_veo_videos) الفيديو الذي أنشأته باستخدام Veo من خلال Veo 3.1 (غير متاح في Veo 3.1 Lite)، استخدِم الفيديو كمدخل مع طلب نصي اختياري. يُنهي خيار "تمديد الفيديو" الثانية الأخيرة أو 24 لقطة من الفيديو ويواصل تصوير المَشهد.
 
-ध्यान दें कि अगर वीडियो के आखिरी एक सेकंड में आवाज़ नहीं है, तो उसे असरदार तरीके से नहीं बढ़ाया जा सकता.
+يُرجى العِلم أنّه لا يمكن تمديد الصوت بشكل فعال إذا لم يكن متوفّرًا في آخر ثانية من الفيديو.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **इनपुट वीडियो (Veo 3.1 से जनरेट किया गया)** पैराग्लाइडर, पहाड़ की चोटी से उड़ान भरता है और नीचे फूलों से ढकी घाटियों के ऊपर से उड़ता है. | पहाड़ की चोटी से उड़ान भरता पैराग्लाइडर |
-| **आउटपुट वीडियो (Veo 3.1 से जनरेट किया गया)** इस वीडियो को आगे बढ़ाओ. इसमें पैराग्लाइडर को धीरे-धीरे नीचे उतरते हुए दिखाओ. | पहाड़ की चोटी से पैराग्लाइडर उड़ान भरता है और फिर धीरे-धीरे नीचे उतरता है |
+| **الفيديو المصدر (من إنشاء Veo 3.1)** ينطلق المظلّي من أعلى الجبل ويبدأ بالتحليق فوق الجبال المطلة على الوديان المغطاة بالزهور أدناه. | طائرة شراعية تقلع من أعلى جبل |
+| **فيديو الناتج (من إنشاء Veo 3.1)** أريد فيديو أطول يظهر فيه الشخص وهو يهبط ببطء بالمظلة الشراعية. | مظلّي يقفز من أعلى جبل ثم ينزل ببطء |
 
-### प्रॉम्प्ट और आउटपुट के उदाहरण
+### أمثلة على الطلبات والنتائج
 
-इस सेक्शन में कई प्रॉम्प्ट दिए गए हैं. इनमें बताया गया है कि ज़्यादा जानकारी देने से, हर वीडियो की परफ़ॉर्मेंस को कैसे बेहतर बनाया जा सकता है.
+يعرض هذا القسم عدة طلبات، مع تسليط الضوء على كيف يمكن للتفاصيل الوصفية أن تحسّن نتيجة كل فيديو.
 
-#### आइसिकल्स
+#### دلالة جليدية
 
-इस वीडियो में दिखाया गया है कि प्रॉम्प्ट में [प्रॉम्प्ट लिखने की बुनियादी बातों](#basics) का इस्तेमाल कैसे किया जा सकता है.
+يوضّح هذا الفيديو كيف يمكنك استخدام عناصر
+[أساسيات كتابة الطلبات](#basics) في طلبك.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| बर्फ़ की दीवार (कॉन्टेक्स्ट) पर पिघलती हुई बर्फ़ की नोक (सब्जेक्ट) का क्लोज़-अप शॉट (कंपोज़िशन). इसमें ठंडे नीले रंग (माहौल) का इस्तेमाल किया गया है. साथ ही, पानी की बूंदों (ऐक्शन) का क्लोज़-अप दिखाने के लिए, ज़ूम इन (कैमरा मोशन) किया गया है. | नीले बैकग्राउंड पर टपकती हुई बर्फ़ की नुकीली लकीरें. |
+| لقطة مقرّبة (تركيب) لقطع جليد ذائبة (الموضوع) على جدار صخري متجمّد (السياق) بألوان زرقاء باردة (الأجواء)، مع تكبير الصورة (حركة الكاميرا) والحفاظ على تفاصيل مقرّبة لقطرات الماء (الحركة). | نوازل جليدية تتساقط منها المياه على خلفية زرقاء |
 
-#### फ़ोन पर बात करता हुआ आदमी
+#### رجل يتحدث على الهاتف
 
-इन वीडियो में दिखाया गया है कि ज़्यादा से ज़्यादा जानकारी देकर, प्रॉम्प्ट को कैसे बेहतर बनाया जा सकता है. इससे Veo, आपकी पसंद के मुताबिक आउटपुट जनरेट कर पाएगा.
+توضّح هذه الفيديوهات كيف يمكنك تعديل طلبك بإضافة المزيد من التفاصيل المحدّدة لكي تحسّن Veo الناتج بما يتوافق مع تفضيلاتك.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **कम जानकारी** कैमरा डॉली करके, हरे ट्रेंच कोट पहने हुए एक परेशान आदमी का क्लोज़ अप दिखाया गया है. वह रोटरी स्टाइल वाले वॉल फ़ोन पर कॉल कर रहा है. बैकग्राउंड में ग्रीन नियॉन लाइट दिख रही है. यह किसी फ़िल्म के सीन की तरह लग रहा है. | फ़ोन पर बात करता हुआ आदमी. |
-| **ज़्यादा जानकारी** सिनेमैटिक क्लोज़-अप शॉट में, हरे रंग का पुराना ट्रेंच कोट पहने हुए एक परेशान आदमी को दिखाया गया है. वह ईंट की दीवार पर लगे रोटरी फ़ोन पर किसी को कॉल कर रहा है. दीवार पर लगे हरे रंग के नियॉन साइन की वजह से, दीवार पर अजीब सी रोशनी पड़ रही है. कैमरा धीरे-धीरे ज़ूम इन होता है. इससे पता चलता है कि कॉल करने के लिए संघर्ष करते समय, उसके जबड़े में तनाव है और उसके चेहरे पर निराशा दिख रही है. फ़ोटो में फ़ील्ड की कम गहराई की वजह से, उसकी झुर्रियों वाली भौंह और काले रंग के रोटरी फ़ोन पर फ़ोकस किया गया है. साथ ही, बैकग्राउंड को नियॉन रंगों और धुंधली परछाइयों में ब्लर किया गया है. इससे, जल्दबाज़ी और अकेलेपन का एहसास होता है. | फ़ोन पर बात करता हुआ आदमी |
+| **تفاصيل أقل** تتحرّك الكاميرا على دولاب لعرض لقطة مقرّبة لرجل يائس يرتدي معطفًا أخضر. يُجري مكالمة على هاتف مثبت على الحائط بقرص دوار مع ضوء نيون أخضر. يبدو وكأنه مشهد من فيلم. | رجل يتحدث على الهاتف |
+| **مزيد من التفاصيل** لقطة سينمائية مقرّبة تظهر فيها صورة رجل يائس يرتدي معطفًا أخضر قديمًا وهو يتصل بهاتف بقرص دوار مثبّت على جدار من الطوب الخشن، وتظهر إضاءة نيون خضراء مخيفة. تتحرك الكاميرا إلى الأمام، وتكشف عن التوتر في فكّه واليأس الذي يظهر على وجهه وهو يحاول إجراء المكالمة. تُركّز زاوية التقاط الصورة القريبة على جبينه المقطّب وهاتفه الأسود ذي القرص الدوّار، مع تمويه الخلفية لتظهر كبحر من ألوان النيون والظلال غير الواضحة، ما يخلق إحساسًا بالاستعجال والعزلة. | رجل يتحدث على الهاتف |
 
-#### स्नो लेपर्ड
+#### نمر الثلج
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **आसान प्रॉम्प्ट:** हिम तेंदुए की तरह दिखने वाला एक प्यारा जीव सर्दियों के जंगल में चल रहा है. इसे 3D कार्टून स्टाइल में रेंडर किया गया है. | स्नो लेपर्ड सुस्त है. |
-| **ज़्यादा जानकारी वाला प्रॉम्प्ट:** खुशहाल कार्टून स्टाइल में, 3D एनिमेशन वाला एक छोटा सीन बनाओ. एक प्यारा सा जीव, जिसके शरीर पर हिम तेंदुए जैसा फ़र है. उसकी बड़ी-बड़ी आंखें हैं और वह गोल-मटोल है. वह सर्दियों के एक खूबसूरत जंगल में खुशी से घूम रहा है. सीन में, बर्फ़ से ढके गोल पेड़, धीरे-धीरे गिरते बर्फ़ के टुकड़े, और पेड़ों की शाखाओं के बीच से आती हुई धूप दिखनी चाहिए. जीव के उछलते हुए मूवमेंट और चौड़ी मुस्कान से, उसकी खुशी का पता चलना चाहिए. वीडियो में खुशनुमा और दिल को छू लेने वाला टोन इस्तेमाल करें. साथ ही, इसमें चटख और खुशनुमा रंगों के साथ-साथ मज़ेदार ऐनिमेशन का इस्तेमाल करें. | स्नो लेपर्ड तेज़ी से दौड़ रहा है. |
+| **طلب بسيط:** مخلوق لطيف بفرو يشبه فراء النمر الثلجي يمشي في غابة شتوية، صورة بنمط الرسوم المتحركة الثلاثية الأبعاد. | فهد الثلج خامل. |
+| **طلب مفصّل:** أنشِئ مشهدًا قصيرًا ثلاثي الأبعاد بأسلوب كرتوني مبهج. يجب أن يظهر فيه مخلوق لطيف ذو فرو يشبه فراء النمر الثلجي وعينان كبيرتان معبّرتان وشكل ودود مستدير يرقص بسعادة في غابة شتوية خيالية. يجب أن يتضمّن المشهد أشجارًا مستديرة مغطاة بالثلوج ورقاقات ثلج تتساقط برفق وأشعة الشمس الدافئة تتخلّل الأغصان. يجب أن تعكس حركات المخلوق المرحة وابتسامته العريضة سعادة خالصة. يجب أن يكون المشهد مبهجًا ومؤثرًا، وأن يتضمّن ألوانًا زاهية ومبهجة وصورًا متحركة مرحة. | النمر الثلجي يركض بسرعة أكبر. |
 
-### लिखने के एलिमेंट के हिसाब से उदाहरण
+### أمثلة حسب عناصر الكتابة
 
-इन उदाहरणों में, हर बुनियादी एलिमेंट के हिसाब से अपने प्रॉम्प्ट को बेहतर बनाने का तरीका बताया गया है.
+توضّح لك هذه الأمثلة كيفية تحسين طلباتك باستخدام كل عنصر أساسي.
 
-#### विषय और कॉन्टेक्स्ट
+#### الموضوع والسياق
 
-मुख्य फ़ोकस (विषय) और बैकग्राउंड या एनवायरमेंट (संदर्भ) के बारे में बताएं.
+حدِّد محور التركيز الرئيسي (الموضوع) والخلفية أو البيئة (السياق).
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| सफ़ेद कंक्रीट से बनी अपार्टमेंट बिल्डिंग की आर्किटेक्चरल रेंडरिंग. इसमें बहती हुई ऑर्गेनिक शेप हैं, जो हरे-भरे पेड़-पौधों और आधुनिक तत्वों के साथ पूरी तरह से घुलमिल जाती हैं | प्लेसहोल्डर. |
-| आउटर स्पेस में तैरता हुआ एक सैटेलाइट. बैकग्राउंड में चांद और कुछ तारे दिख रहे हैं. | वायुमंडल में तैरता हुआ सैटलाइट. |
+| تصميم معماري لمبنى سكني أبيض من الخرسانة بأشكال عضوية متدفقة، يمتزج بسلاسة مع المساحات الخضراء المورقة والعناصر المستقبلية | عنصر نائب |
+| قمر صناعي يطفو في الفضاء الخارجي مع القمر وبعض النجوم في الخلفية | قمر صناعي يطفو في الغلاف الجوي |
 
-#### कार्रवाई
+#### الإجراء
 
-बताएं कि विषय क्या कर रहा है. जैसे, चलना, दौड़ना या सिर घुमाना.
+حدِّد النشاط الذي يؤديه الشخص/العنصر محور التركيز (مثل المشي أو الجري أو تحريك الرأس).
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| एक महिला को बीच पर चलते हुए दिखाया गया है. वह सूर्यास्त के समय, क्षितिज की ओर देख रही है. वह खुश और सुकून में दिख रही है. | यहां सूर्यास्त का नज़ारा बहुत खूबसूरत होता है. |
+| لقطة واسعة لامرأة تمشي على طول الشاطئ، تبدو سعيدة ومرتاحة وهي تنظر إلى الأفق عند غروب الشمس | منظر الغروب جميل للغاية. |
 
-#### शैली
+#### النمط
 
-कीवर्ड जोड़कर, जनरेट की गई इमेज को किसी खास स्टाइल में बदला जा सकता है. जैसे, अतियथार्थवादी,
-विंटेज, भविष्य की झलक, फ़िल्म नॉयर.
+أضِف كلمات رئيسية لتوجيه عملية الإنشاء نحو أسلوب جمالي معيّن (مثل السريالية أو الطراز القديم أو المستقبلية أو أفلام الجريمة).
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| ब्लैक ऐंड व्हाइट फ़िल्म नॉयर स्टाइल में बनी इमेज. इसमें एक पुरुष और महिला को सड़क पर चलते हुए दिखाया गया है. इमेज में रहस्यमयी माहौल है और इसे सिनमैटिक स्टाइल में बनाया गया है. | ब्लैक ऐंड व्हाइट फ़िल्म का स्टाइल वाकई बहुत शानदार है. |
+| أسلوب أفلام النوار، رجل وامرأة يسيران في الشارع، غموض، سينمائي، بالأبيض والأسود | النمط السينمائي المظلم جميل للغاية. |
 
-#### कैमरे का मोशन और कंपोज़िशन
+#### حركة الكاميرا والتكوين
 
-बताएं कि कैमरा कैसे मूव करता है (पीओवी शॉट, एरियल व्यू, ट्रैकिंग ड्रोन व्यू) और शॉट को कैसे फ़्रेम किया जाता है (वाइड शॉट, क्लोज़-अप, लो ऐंगल).
+حدِّد طريقة تحرّك الكاميرا (لقطة من منظور الشخص الأول، لقطة جوية، لقطة من طائرة بدون طيار تتبع الهدف) وطريقة تأطير اللقطة (لقطة واسعة، لقطة مقرَّبة، زاوية منخفضة).
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| बारिश में चलती हुई विंटेज कार से लिया गया पीओवी शॉट, कनाडा में रात के समय का नज़ारा, सिनमैटिक. | यहां सूर्यास्त का नज़ारा बहुत खूबसूरत होता है. |
-| आंख का क्लोज़-अप, जिसमें शहर की झलक दिख रही है. | यहां सूर्यास्त का नज़ारा बहुत खूबसूरत होता है. |
+| لقطة من وجهة نظر راكب في سيارة قديمة تقود في المطر، كندا في الليل، أسلوب سينمائي | منظر الغروب جميل للغاية. |
+| لقطة مقرّبة جدًا لعين تنعكس فيها المدينة | منظر الغروب جميل للغاية. |
 
-#### माहौल
+#### الأجواء
 
-कलर पैलेट और लाइटिंग से मूड पर असर पड़ता है. "शांत नारंगी रंग के गर्म टोन," "नैचुरल लाइट," "सूर्योदय," या "ठंडे नीले रंग के टोन" जैसे शब्दों का इस्तेमाल करके देखें.
+تؤثر لوحات الألوان والإضاءة في طابع الصورة، لذا جرِّب عبارات مثل "درجات اللون البرتقالي الهادئة" أو "الإضاءة الطبيعية" أو "شروق الشمس" أو "درجات اللون الأزرق الباردة".
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| पार्क में एक लड़की की क्लोज़-अप इमेज. उसने अपनी गोद में गोल्डन रिट्रीवर नस्ल के प्यारे पिल्ले को पकड़ा हुआ है. इमेज में सूरज की रोशनी दिख रही है. | एक पिल्ला, जिसे एक छोटी लड़की ने अपनी बाहों में पकड़ा हुआ है. |
-| बारिश में बस में बैठी दुखी महिला का सिनमैटिक क्लोज़-अप शॉट. इसमें ठंडे नीले रंग के टोन और उदास माहौल दिखाया गया है. | बस में बैठी एक महिला की इमेज, जो दुखी दिख रही हो. |
+| لقطة مقرّبة لفتاة تحمل جروًا لطيفًا من سلالة غولدن ريتريفر في الحديقة، مع تسليط ضوء الشمس | جرو بين ذراعي فتاة صغيرة |
+| لقطة سينمائية مقرّبة لامرأة حزينة تركب حافلة تحت المطر، مع درجات اللون الأزرق الباردة، وأجواء حزينة | امرأة تركب حافلة وتشعر بالحزن |
 
-### आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात)
+### نِسب العرض إلى الارتفاع
 
-Veo की मदद से, वीडियो के लिए आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) तय किया जा सकता है.
+تتيح لك أداة Veo تحديد نسبة العرض إلى الارتفاع للفيديو.
 
-| **प्रॉम्प्ट** | **जनरेट किया गया आउटपुट** |
+| **الطلب** | **المخرجات المولَّدة** |
 | --- | --- |
-| **वाइडस्क्रीन (16:9)** 1970 के दशक में, पाम स्प्रिंग्स में लाल रंग की कन्वर्टिबल कार चलाते हुए एक व्यक्ति का वीडियो बनाओ. वीडियो में ड्रोन से ट्रैक किए गए व्यक्ति का व्यू दिखाना है. वीडियो में हल्की धूप और लंबी परछाइयां दिखानी हैं. | पाम स्प्रिंग्स में, 1970 के दशक के स्टाइल में लाल रंग की कन्वर्टिबल कार चलाते हुए एक व्यक्ति. |
-| **पोर्ट्रेट (9:16)** एक वीडियो बनाओ. इसमें हवाई के शानदार झरने के पानी को हरी-भरी बारिश वाली वनस्पति के बीच से बहते हुए दिखाया गया हो. पानी के फ़्लो को असली जैसा दिखाओ. साथ ही, पत्तियों को बारीकी से दिखाओ और नैचुरल लाइटिंग का इस्तेमाल करो, ताकि शांति का माहौल दिखे. तेज़ी से बहते पानी, धुंधले माहौल, और घने पत्तों से छनकर आती हुई धूप को कैप्चर करो. झरने और उसके आस-पास की जगहों को दिखाने के लिए, कैमरे को धीरे-धीरे और फ़िल्मी अंदाज़ में घुमाएं. वीडियो में शांत और असली टोन का इस्तेमाल करें, ताकि देखने वाले को हवाई के वर्षावन की शांत सुंदरता का अनुभव हो सके. | हवाई के हरे-भरे वर्षावन में मौजूद शानदार झरना. |
+| **شاشة عريضة (16:9)** أنشئ فيديو يظهر فيه رجل يقود سيارة حمراء مكشوفة في بالم سبرينغز في السبعينيات، مع لقطة من طائرة بدون طيار، وضوء الشمس الدافئ، وظلال طويلة. | رجل يقود سيارة حمراء مكشوفة في بالم سبرينغز، بأسلوب السبعينيات |
+| **الوضع العمودي (9:16)** أنشئ فيديو يسلّط الضوء على الحركة السلسة لشلال هاواي المهيب داخل غابة مطيرة مورقة. ركِّز على تدفّق المياه الواقعي وأوراق الشجر المفصّلة والإضاءة الطبيعية لنقل إحساس بالهدوء. التقط صورًا للمياه المتدفقة والأجواء الضبابية وأشعة الشمس المتخلّلة لأوراق الشجر الكثيفة. استخدِم حركات كاميرا سينمائية سلسة لعرض الشلال والمناطق المحيطة به. يجب أن يكون الأسلوب هادئًا وواقعيًا، وينقل المشاهد إلى الجمال الهادئ للغابات المطيرة في هاواي. | شلال مهيب في هاواي يقع في غابة مطيرة كثيفة |
 
-## मॉडल के वर्शन
+## إصدارات النموذج
 
-Veo मॉडल के इस्तेमाल से जुड़ी ज़्यादा जानकारी के लिए, [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#veo-3.1) पेज और [दर की सीमाएं](https://aistudio.google.com/rate-limit?hl=hi) देखें.
+يمكنك الاطّلاع على صفحة [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#veo-3.1) و[حدود المعدّل](https://aistudio.google.com/rate-limit?hl=ar) للحصول على مزيد من التفاصيل حول استخدام نموذج Veo.
 
-### Veo 3.1 की झलक
+### Veo 3.1 Preview
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-3.1-generate-preview` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
-| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
-| calendar\_monthनया अपडेट | जनवरी 2026 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-3.1-generate-preview` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة  **الناتج**  فيديو مع صوت |
+| token\_autoالحدود | **إدخال النص**  ‫1,024 رمزًا مميّزًا  **فيديو الناتج**  1 |
+| calendar\_monthآخر تعديل | يناير 2026 |
 
 ### Veo 3.1 Fast Preview
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-3.1-fast-generate-preview` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
-| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
-| calendar\_monthनया अपडेट | जनवरी 2026 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-3.1-fast-generate-preview` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة  **الناتج**  فيديو مع صوت |
+| token\_autoالحدود | **إدخال النص**  ‫1,024 رمزًا مميّزًا  **فيديو الناتج**  1 |
+| calendar\_monthآخر تعديل | يناير 2026 |
 
-### Veo 3.1 Lite की झलक
+### Veo 3.1 Lite Preview
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-3.1-lite-generate-preview` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
-| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
-| calendar\_monthनया अपडेट | मार्च 2026 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-3.1-lite-generate-preview` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  النص والصورة  **الناتج**  فيديو مع صوت |
+| token\_autoالحدود | **إدخال النص**  ‫1,024 رمزًا مميّزًا  **فيديو الناتج**  1 |
+| calendar\_monthآخر تعديل | مارس 2026 |
 
 ### Veo 3
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-3.0-generate-001` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
-| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
-| calendar\_monthनया अपडेट | जुलाई 2025 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-3.0-generate-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة  **الناتج**  فيديو مع صوت |
+| token\_autoالحدود | **إدخال النص**  ‫1,024 رمزًا مميّزًا  **فيديو الناتج**  1 |
+| calendar\_monthآخر تعديل | يوليو 2025 |
 
 ### Veo 3 Fast
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-3.0-fast-generate-001` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  ऑडियो वाला वीडियो |
-| token\_auto की सीमाएं | **टेक्स्ट इनपुट**  1,024 टोकन  **आउटपुट वीडियो**  1 |
-| calendar\_monthनया अपडेट | जुलाई 2025 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-3.0-fast-generate-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة  **الناتج**  فيديو مع صوت |
+| token\_autoالحدود | **إدخال النص**  ‫1,024 رمزًا مميّزًا  **فيديو الناتج**  1 |
+| calendar\_monthآخر تعديل | يوليو 2025 |
 
 ### Veo 2
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-2.0-generate-001` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  वीडियो |
-| token\_autoकी सीमाएं | **टेक्स्ट इनपुट**  लागू नहीं  **इमेज इनपुट**  किसी भी इमेज का रिज़ॉल्यूशन और आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) 20 एमबी तक हो सकता है  **आउटपुट वीडियो**  ज़्यादा से ज़्यादा 2 |
-| calendar\_monthनया अपडेट | अप्रैल 2025 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-2.0-generate-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  النص والصورة  **الناتج**  فيديو |
+| token\_autoالحدود | **إدخال النص**  لا ينطبق  **إدخال الصورة**  أي درجة دقة ونسبة عرض إلى ارتفاع للصورة بحجم ملف يصل إلى 20 ميغابايت  **فيديو الناتج**  ما يصل إلى 2 |
+| calendar\_monthآخر تعديل | أبريل 2025 |
 
 ### Veo 2
 
-| प्रॉपर्टी | ब्यौरा |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `veo-2.0-generate-001` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  वीडियो |
-| token\_autoकी सीमाएं | **टेक्स्ट इनपुट**  लागू नहीं  **इमेज इनपुट**  किसी भी इमेज का रिज़ॉल्यूशन और आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) 20 एमबी तक हो सकता है  **आउटपुट वीडियो**  ज़्यादा से ज़्यादा 2 |
-| calendar\_monthनया अपडेट | अप्रैल 2025 |
+| id\_cardرمز النموذج | **Gemini API**  `veo-2.0-generate-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  النص والصورة  **الناتج**  فيديو |
+| token\_autoالحدود | **إدخال النص**  لا ينطبق  **إدخال الصورة**  أي درجة دقة ونسبة عرض إلى ارتفاع للصورة بحجم ملف يصل إلى 20 ميغابايت  **فيديو الناتج**  ما يصل إلى 2 |
+| calendar\_monthآخر تعديل | أبريل 2025 |
 
-Veo Fast के वर्शन की मदद से डेवलपर, साउंड वाले वीडियो बना सकते हैं. साथ ही, अच्छी क्वालिटी वाले वीडियो जनरेट कर सकते हैं. इसके अलावा, कम समय में वीडियो जनरेट करने और कारोबार से जुड़े इस्तेमाल के मामलों के लिए वीडियो ऑप्टिमाइज़ कर सकते हैं. ये एपीआई, इन कामों के लिए सबसे सही हैं: बैकएंड सेवाएं जो प्रोग्राम के हिसाब से विज्ञापन जनरेट करती हैं, क्रिएटिव कॉन्सेप्ट की तेज़ी से A/B टेस्टिंग करने वाले टूल या ऐसे ऐप्लिकेशन जिन्हें सोशल मीडिया के लिए तुरंत कॉन्टेंट जनरेट करना होता है.
+تتيح إصدارات Veo Fast للمطوّرين إنشاء فيديوهات مع صوت مع الحفاظ على جودة عالية وتحسين السرعة وحالات الاستخدام التجاري. وهي مثالية للخدمات الخلفية التي تنشئ الإعلانات آليًا، أو الأدوات التي تتيح إجراء اختبارات أ/ب بسرعة للمفاهيم الإبداعية، أو التطبيقات التي تحتاج إلى إنشاء محتوى بسرعة على وسائل التواصل الاجتماعي.
 
-## आगे क्या करना है
+## الخطوات التالية
 
-- [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=hi) और [Veo 3.1 ऐप्लेट](https://aistudio.google.com/apps/bundled/veo_studio?hl=hi) में एक्सपेरिमेंट करके, Veo 3.1 API का इस्तेमाल शुरू करें.
-- [प्रॉम्प्ट डिज़ाइन के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=hi) लेख पढ़कर, और भी बेहतर प्रॉम्प्ट लिखने का तरीका जानें.
+- يمكنك البدء باستخدام واجهة برمجة التطبيقات Veo 3.1 من خلال تجربة [Veo Quickstart Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=ar)
+  و[تطبيق Veo 3.1 الصغير](https://aistudio.google.com/apps/bundled/veo_studio?hl=ar).
+- تعرَّف على كيفية كتابة طلبات أفضل من خلال [مقدمة حول تصميم الطلبات](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ar).
 
-सुझाव भेजें
+إرسال ملاحظات
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया.
+تاريخ التعديل الأخير: 2026-06-05 (حسب التوقيت العالمي المتفَّق عليه)
 
-क्या आपको हमें और कुछ बताना है?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-28 (UTC) को अपडेट किया गया."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-05 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

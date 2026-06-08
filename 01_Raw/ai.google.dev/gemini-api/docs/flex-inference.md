@@ -1,28 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl
-fetched_at: 2026-06-01T19:40:19.240289+00:00
-title: "Elastyczne wnioskowanie \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=th
+fetched_at: 2026-06-08T15:06:10.255508+00:00
+title: "\u0e01\u0e32\u0e23\u0e2d\u0e19\u0e38\u0e21\u0e32\u0e19\u0e41\u0e1a\u0e1a\u0e22\u0e37\u0e14\u0e2b\u0e22\u0e38\u0e48\u0e19 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-# Elastyczne wnioskowanie
+# การอนุมานแบบยืดหยุ่น
 
-Gemini Flex API to warstwa wnioskowania, która oferuje 50% obniżkę kosztów w porównaniu ze stawkami standardowymi w zamian za zmienne opóźnienie i dostępność bez gwarancji. Jest ona przeznaczona do zbiorów zadań tolerujących opóźnienia, które wymagają przetwarzania synchronicznego, ale nie potrzebują wydajności w czasie rzeczywistym, jaką zapewnia standardowy interfejs API.
+Gemini Flex API เป็นระดับการอนุมานที่ช่วยลดต้นทุนได้ 50% เมื่อเทียบกับอัตรามาตรฐาน โดยแลกกับการตอบสนองที่ผันแปรและความพร้อมใช้งาน
+ตามความพยายามอย่างเต็มที่ ออกแบบมาสำหรับภาระงานที่ยอมรับเวลาในการตอบสนองได้ซึ่งต้องมีการประมวลผลแบบ
+ซิงโครนัส แต่ไม่จำเป็นต้องใช้ประสิทธิภาพแบบเรียลไทม์ของ
+API มาตรฐาน
 
-## Jak korzystać z Flex
+## วิธีใช้ Flex
 
-Aby korzystać z warstwy Flex, w treści żądania określ `service_tier` jako `flex`. Jeśli to pole zostanie pominięte, żądania będą domyślnie korzystać z warstwy standardowej.
+หากต้องการใช้ระดับ Flex ให้ระบุ `service_tier` เป็น `flex` ใน
+เนื้อหาคำขอ โดยค่าเริ่มต้น คำขอจะใช้ระดับมาตรฐานหากละเว้นช่องนี้
 
 ### Python
 
@@ -113,64 +117,63 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## Jak działa wnioskowanie Flex
+## วิธีการทำงานของการอนุมาน Flex
 
-Wnioskowanie Gemini Flex wypełnia lukę między standardowym interfejsem API a 24-godzinnym
-czasem realizacji interfejsu [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl). Wykorzystuje ono moc obliczeniową poza godzinami szczytu, którą można „zrzucać”, aby zapewnić ekonomiczne rozwiązanie do zadań wykonywanych w tle i sekwencyjnych przepływów pracy.
+การอนุมาน Gemini Flex ช่วยลดช่องว่างระหว่าง API มาตรฐานกับเวลาในการตอบกลับ 24 ชั่วโมงของ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th) โดยจะใช้ความสามารถในการประมวลผลในช่วงนอกเวลาทําการที่ "ลดได้" เพื่อมอบโซลูชันที่คุ้มค่าสําหรับงานเบื้องหลังและเวิร์กโฟลว์แบบลําดับ
 
-| Funkcja | Flex | Priorytet | Standardowe | Wsad |
+| ฟีเจอร์ | พับ | ลำดับความสำคัญ | มาตรฐาน | กลุ่ม |
 | --- | --- | --- | --- | --- |
-| **Ceny** | 50% rabatu | 75–100% więcej niż w przypadku warstwy standardowej | Bilet normalny | 50% rabatu |
-| **Opóźnienie** | Minuty (docelowo 1–15 min) | Niskie (sekundy) | Sekundy do minut | Do 24 godzin |
-| **Niezawodność** | Bez gwarancji (możliwość zrzucania) | Wysoka (bez możliwości zrzucania) | Wysoka / średnio wysoka | Wysoka (w przypadku przepustowości) |
-| **Interfejs** | Synchroniczna | Synchroniczna | Synchroniczna | Asynchroniczny |
+| **การกำหนดราคา** | ส่วนลด 50% | มากกว่ารุ่น Standard 75-100% | ตั๋วราคาเต็ม | ส่วนลด 50% |
+| **เวลาในการตอบสนอง** | นาที (เป้าหมาย 1-15 นาที) | ต่ำ (วินาที) | วินาทีถึงนาที | สูงสุด 24 ชั่วโมง |
+| **ความน่าเชื่อถือ** | ดีที่สุดเท่าที่ทำได้ (ลดภาระได้) | สูง (ไม่หลุดร่วง) | สูง / สูงปานกลาง | สูง (สำหรับปริมาณงาน) |
+| **อินเทอร์เฟซ** | ซิงโครนัส | ซิงโครนัส | ซิงโครนัส | แบบอะซิงโครนัส |
 
-### Główne korzyści
+### ประโยชน์สำคัญ
 
-- **Oszczędność kosztów**: znaczne oszczędności w przypadku ocen nieprodukcyjnych, agentów działających w tle i wzbogacania danych.
-- **Niewielkie utrudnienia**: nie trzeba zarządzać obiektami wsadowymi, identyfikatorami zadań ani sondowaniem. Wystarczy dodać jeden parametr do istniejących żądań.
-- **Synchroniczne przepływy pracy**: idealne do sekwencyjnych łańcuchów interfejsów API, w których kolejne żądanie zależy od wyniku poprzedniego, co sprawia, że jest bardziej elastyczne niż w przypadku przepływów pracy agentów.
+- **ประสิทธิภาพด้านต้นทุน**: ประหยัดค่าใช้จ่ายได้อย่างมากสำหรับการประเมินที่ไม่ใช่การผลิต, เอเจนต์พื้นหลัง และการเพิ่มคุณค่าของข้อมูล
+- **ใช้งานง่าย**: ไม่ต้องจัดการออบเจ็กต์แบบกลุ่ม รหัสงาน หรือการสำรวจ เพียงเพิ่มพารามิเตอร์เดียวลงในคำขอที่มีอยู่
+- **เวิร์กโฟลว์แบบซิงโครนัส**: เหมาะสำหรับเชน API แบบลำดับที่คำขอถัดไปขึ้นอยู่กับเอาต์พุตของคำขอก่อนหน้า ซึ่งทำให้มีความยืดหยุ่นมากกว่า Batch สำหรับเวิร์กโฟลว์ของเอเจนต์
 
-### Przypadki użycia
+### กรณีการใช้งาน
 
-- **Oceny offline**: przeprowadzanie testów regresyjnych lub tworzenie tabel wyników „LLM-as-a-judge”.
-- **Agenci działający w tle**: zadania sekwencyjne, takie jak aktualizacje CRM, tworzenie profili czy moderowanie treści, w których dopuszczalne są kilkuminutowe opóźnienia.
-- **Badania z ograniczonym budżetem**: eksperymenty akademickie, które wymagają dużej liczby tokenów przy ograniczonym budżecie.
+- **การประเมินแบบออฟไลน์**: การเรียกใช้การทดสอบการถดถอยหรือลีดเดอร์บอร์ด "LLM ในฐานะผู้พิพากษา"
+- **ตัวแทนเบื้องหลัง**: งานตามลำดับ เช่น การอัปเดต CRM การสร้างโปรไฟล์ หรือการกลั่นกรองเนื้อหาที่ยอมรับความล่าช้าได้
+- **การวิจัยที่ถูกจำกัดด้วยงบประมาณ**: การทดลองทางวิชาการที่ต้องใช้โทเค็นจำนวนมากโดยมีงบประมาณจำกัด
 
-### Ograniczenia liczby żądań
+### ขีดจำกัดอัตรา
 
-Ruch związany z wnioskowaniem Flex wlicza się do ogólnych [limitów liczby żądań](https://aistudio.google.com/rate-limit?hl=pl). Nie oferuje on
-rozszerzonych limitów liczby żądań, takich jak [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl).
+การเข้าชมการอนุมานแบบยืดหยุ่นจะนับรวมใน[ขีดจำกัดอัตรา](https://aistudio.google.com/rate-limit?hl=th)ทั่วไปของคุณ โดยจะไม่มีขีดจำกัดอัตราเพิ่มเติมเหมือนกับ [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)
 
-### Możliwość zrzucania
+### ความจุที่ลดลงได้
 
-Ruch Flex jest traktowany z niższym priorytetem. Jeśli nastąpi wzrost ruchu standardowego, żądania Flex mogą zostać wywłaszczone lub usunięte, aby zapewnić pojemność dla użytkowników o wysokim priorytecie. Jeśli szukasz wnioskowania o wysokim priorytecie, sprawdź
-[wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl)
+ระบบจะถือว่าการเข้าชมแบบยืดหยุ่นมีความสำคัญต่ำกว่า หากมีการเข้าชมมาตรฐานเพิ่มขึ้นอย่างรวดเร็ว ระบบอาจขัดจังหวะหรือนำคำขอ Flex ออกเพื่อให้มั่นใจว่ามีพื้นที่ว่างสำหรับผู้ใช้ที่มีลำดับความสำคัญสูง หากกำลังมองหาการอนุมานที่มีลำดับความสำคัญสูง ให้ดู[การอนุมานที่มีลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)
 
-### Kody błędów
+### รหัสข้อผิดพลาด
 
-Gdy pojemność Flex jest niedostępna lub system jest przeciążony, interfejs API zwraca standardowe kody błędów:
+เมื่อความจุแบบยืดหยุ่นไม่พร้อมใช้งานหรือระบบมีปริมาณการใช้งานสูง API จะ
+แสดงรหัสข้อผิดพลาดมาตรฐาน
 
-- **Błąd 503 (usługa niedostępna):** system jest obecnie zajęty.
-- **429 Zbyt wiele żądań**: przekroczenie limitów liczby żądań lub wyczerpanie zasobów.
+- **503 ไม่พร้อมให้บริการ**: ขณะนี้ระบบมีผู้ใช้เต็มแล้ว
+- **429 มีคำขอมากเกินไป**: ขีดจำกัดอัตราหรือทรัพยากรหมด
 
-### Odpowiedzialność klienta
+### ความรับผิดชอบของลูกค้า
 
-- **Brak rezerwowego serwera**: aby zapobiec nieoczekiwanym opłatom, system nie będzie
-  automatycznie uaktualniać żądania Flex do warstwy standardowej, jeśli pojemność Flex jest
-  pełna.
-- **Ponowne próby**: musisz zaimplementować własną logikę ponawiania prób po stronie klienta z wzrastającym czasem do ponowienia.
-- **Limity czasu**: ponieważ żądania Flex mogą znajdować się w kolejce, zalecamy
-  zwiększenie limitów czasu po stronie klienta do co najmniej 10 minut, aby uniknąć przedwczesnego
-  zamknięcia połączenia.
+- **ไม่มีการสำรองข้อมูลฝั่งเซิร์ฟเวอร์**: เพื่อป้องกันการเรียกเก็บเงินที่ไม่คาดคิด ระบบจะไม่
+  อัปเกรดคำขอ Flex เป็นระดับมาตรฐานโดยอัตโนมัติหากความจุของ Flex เต็ม
+- **การลองใหม่**: คุณต้องใช้ตรรกะการลองใหม่ฝั่งไคลเอ็นต์ของคุณเองด้วย
+  Exponential Backoff
+- **การหมดเวลา**: เนื่องจากคำขอ Flex อาจอยู่ในคิว เราจึงแนะนำให้
+  เพิ่มการหมดเวลาฝั่งไคลเอ็นต์เป็น 10 นาทีขึ้นไปเพื่อหลีกเลี่ยงการปิด
+  การเชื่อมต่อก่อนเวลา
 
-## Dostosowywanie limitów czasu
+## ปรับกรอบเวลาหมดเวลา
 
-Limity czasu dla poszczególnych żądań możesz skonfigurować w przypadku interfejsu REST API i bibliotek klienta, a limity czasu globalnego – tylko w przypadku korzystania z bibliotek klienta.
+คุณสามารถกำหนดค่าการหมดเวลาต่อคำขอสำหรับ REST API และไลบรารีของไคลเอ็นต์
+และการหมดเวลาส่วนกลางได้เมื่อใช้ไลบรารีของไคลเอ็นต์เท่านั้น
 
-Zawsze upewnij się, że limit czasu po stronie klienta obejmuje zamierzony limit czasu serwera (np. 600 s lub więcej w przypadku kolejek oczekiwania Flex). Pakiety SDK oczekują wartości limitu czasu w milisekundach.
+ตรวจสอบเสมอว่าการหมดเวลาฝั่งไคลเอ็นต์ครอบคลุมช่วงเวลาที่เซิร์ฟเวอร์ตั้งใจรอ (เช่น 600 วินาทีขึ้นไปสำหรับคิวรอแบบยืดหยุ่น) SDK คาดหวังค่าการหมดเวลาเป็นมิลลิวินาที
 
-### Limity czasu dla poszczególnych żądań
+### การหมดเวลาต่อคำขอ
 
 ### Python
 
@@ -317,12 +320,13 @@ func main() {
 
 ### REST
 
-Podczas wykonywania wywołań REST możesz kontrolować limity czasu za pomocą kombinacji nagłówków HTTP i opcji `curl`:
+เมื่อทำการเรียก REST คุณจะควบคุมการหมดเวลาได้โดยใช้ส่วนหัว HTTP
+และ`curl` ตัวเลือกต่อไปนี้ร่วมกัน
 
-- **Nagłówek `X-Server-Timeout` (limit czasu po stronie serwera):** ten nagłówek sugeruje preferowany czas oczekiwania (domyślnie 600 s) dla serwera Gemini API. Serwer będzie próbował go przestrzegać, ale nie jest to gwarantowane. Wartość powinna być podana w sekundach.
-- **`--max-time` w `curl` (limit czasu po stronie klienta)**: opcja `curl --max-time
-  <seconds>` ustawia twardy limit całkowitego czasu (w sekundach), przez jaki `curl`
-  będzie czekać na zakończenie całej operacji. Jest to zabezpieczenie po stronie klienta.
+- ส่วนหัว **`X-Server-Timeout` (การหมดเวลาฝั่งเซิร์ฟเวอร์)**: ส่วนหัวนี้แนะนำระยะเวลาการหมดเวลาที่ต้องการ (ค่าเริ่มต้นคือ 600 วินาที) ให้กับเซิร์ฟเวอร์ Gemini API เซิร์ฟเวอร์ จะพยายามปฏิบัติตามคำขอนี้ แต่ก็ไม่รับประกันว่าจะทำได้ ค่าควรเป็นวินาที
+- **`--max-time` ใน `curl` (การหมดเวลาฝั่งไคลเอ็นต์)**: ตัวเลือก `curl --max-time
+  <seconds>` จะกำหนดขีดจำกัดที่แน่นอนสำหรับเวลาทั้งหมด (เป็นวินาที) ที่ `curl`
+  จะรอให้การดำเนินการทั้งหมดเสร็จสมบูรณ์ นี่คือการป้องกันฝั่งไคลเอ็นต์
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -338,9 +342,11 @@ Podczas wykonywania wywołań REST możesz kontrolować limity czasu za pomocą 
  }'
 ```
 
-### Limity czasu globalnego
+### การหมดเวลาทั่วโลก
 
-Jeśli chcesz, aby wszystkie wywołania interfejsu API wykonywane za pomocą konkretnej instancji `genai.Client` (tylko biblioteki klienta) miały domyślny limit czasu, możesz skonfigurować go podczas inicjowania klienta za pomocą `http_options` i `genai.types.HttpOptions`.
+หากต้องการให้การเรียก API ทั้งหมดที่ทำผ่านอินสแตนซ์ `genai.Client` ที่เฉพาะเจาะจง
+(เฉพาะไลบรารีของไคลเอ็นต์) มีการหมดเวลาเริ่มต้น คุณสามารถกำหนดค่านี้ได้เมื่อ
+เริ่มต้นไคลเอ็นต์โดยใช้ `http_options` และ `genai.types.HttpOptions`
 
 ### Python
 
@@ -487,9 +493,9 @@ await main();
  }
 ```
 
-## Wdrażanie ponownych prób
+## ใช้การลองใหม่
 
-Ponieważ Flex można zrzucać i kończy się błędem 503, oto przykład opcjonalnego wdrożenia logiki ponawiania prób, aby kontynuować nieudane żądania:
+เนื่องจาก Flex สามารถลดขนาดได้และจะล้มเหลวพร้อมข้อผิดพลาด 503 ต่อไปนี้คือตัวอย่างการใช้ตรรกะการลองใหม่โดยไม่บังคับเพื่อดำเนินการต่อกับคำขอที่ไม่สำเร็จ
 
 ### Python
 
@@ -631,41 +637,41 @@ print(response.text)
  }
 ```
 
-## Ceny
+## ราคา
 
-Wnioskowanie Flex jest wyceniane na 50% [standardowego interfejsu API](https://ai.google.dev/gemini-api/docs/pricing?hl=pl)
-i rozliczane za token.
+การอนุมานแบบยืดหยุ่นมีราคาอยู่ที่ 50% ของ [API มาตรฐาน](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
+และเรียกเก็บเงินต่อโทเค็น
 
-## Obsługiwane modele
+## โมเดลที่รองรับ
 
-Wnioskowanie Flex obsługują te modele:
+รุ่นต่อไปนี้รองรับการอนุมานแบบยืดหยุ่น
 
-| Model | Wnioskowanie Flex |
+| รุ่น | การอนุมานแบบยืดหยุ่น |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | ✔️ |
-| [Gemini 3 Flash (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
-| [Gemini 3 Pro Image (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=pl) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
+| [ตัวอย่าง Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
+| [ตัวอย่าง Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
+| [ตัวอย่างรูปภาพ Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=th) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
+| [รูปภาพ Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=th) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
 
-## Co dalej?
+## ขั้นตอนถัดไป
 
-Więcej informacji o innych opcjach [wnioskowania i optymalizacji](https://ai.google.dev/gemini-api/docs/optimization?hl=pl) Gemini:
+อ่านเกี่ยวกับตัวเลือก[การอนุมานและการเพิ่มประสิทธิภาพ](https://ai.google.dev/gemini-api/docs/optimization?hl=th)อื่นๆ ของ Gemini
 
-- [Wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) zapewniające bardzo małe opóźnienie.
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl) do przetwarzania asynchronicznego w ciągu 24 godzin.
-- [Buforowanie kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl) w celu zmniejszenia kosztów tokenów wejściowych.
+- [การอนุมานลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)สำหรับเวลาในการตอบสนองต่ำมาก
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th) สำหรับการประมวลผลแบบไม่พร้อมกันภายใน 24 ชั่วโมง
+- [การแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th)เพื่อลดต้นทุนโทเค็นอินพุต
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ostatnia aktualizacja: 2026-05-28 UTC.
+อัปเดตล่าสุด 2026-05-28 UTC
 
-Chcesz przekazać coś jeszcze?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-28 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-05-28 UTC"],[],[]]

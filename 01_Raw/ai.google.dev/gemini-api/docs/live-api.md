@@ -1,130 +1,134 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api?hl=ko
-fetched_at: 2026-06-01T19:36:13.304410+00:00
-title: "Gemini Live API \uac1c\uc694 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api?hl=th
+fetched_at: 2026-06-08T15:05:44.550396+00:00
+title: "\u0e20\u0e32\u0e1e\u0e23\u0e27\u0e21\u0e02\u0e2d\u0e07 Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-# Gemini Live API 개요
+# ภาพรวมของ Gemini Live API
 
-Live API는 Gemini와의 지연 시간이 짧은 실시간 음성 및 시각 상호작용을 지원합니다. 연속적인 오디오, 이미지, 텍스트 스트림을 처리하여 즉각적이고 사람과 유사한 음성 대답을 제공하므로 사용자에게 자연스러운 대화형 환경을 제공합니다.
+Live API ช่วยให้โต้ตอบด้วยเสียงและภาพกับ Gemini แบบเรียลไทม์ที่มีเวลาในการตอบสนองต่ำ โดยจะประมวลผลสตรีมเสียง รูปภาพ และข้อความอย่างต่อเนื่องเพื่อส่งเสียงตอบกลับแบบเรียลไทม์ที่เหมือนกับเสียงพูดของมนุษย์ ซึ่งจะสร้างประสบการณ์การสนทนาที่เป็นธรรมชาติให้กับผู้ใช้
 
-![Live API 개요](https://ai.google.dev/static/gemini-api/docs/images/live-api-overview.png?hl=ko)
+![ภาพรวม Live API](https://ai.google.dev/static/gemini-api/docs/images/live-api-overview.png?hl=th)
 
-[Google AI Studio에서 Live API 사용해 보기mic](https://aistudio.google.com/live?hl=ko)
-[GitHub에서 예시 앱 클론code](https://github.com/google-gemini/gemini-live-api-examples)
-[코딩 에이전트 기술 사용terminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ko)
+[ลองใช้ Live API ใน Google AI Studiomic](https://aistudio.google.com/live?hl=th)
+[โคลนแอปตัวอย่างจาก GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[ใช้ทักษะของ Agent ในการเขียนโค้ดterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=th)
 
-## 사용 사례
+## กรณีการใช้งาน
 
-Live API를 사용하여 다음을 비롯한 다양한 업계의 실시간 음성 에이전트를 빌드할 수 있습니다.
+คุณสามารถใช้ Live API เพื่อสร้าง Agent ที่โต้ตอบด้วยเสียงแบบเรียลไทม์สำหรับอุตสาหกรรมต่างๆ ได้แก่
 
-- **전자상거래 및 소매:** 맞춤형 추천을 제공하는 쇼핑 어시스턴트와 고객 문제를 해결하는 지원 에이전트
-- **게임:** 대화형 논플레이어 캐릭터(NPC), 인게임 도움말 어시스턴트, 인게임 콘텐츠의 실시간 번역
-- **차세대 인터페이스:** 로봇 공학, 스마트 글라스, 차량에서 음성 및 동영상 지원 환경
-- **의료:** 환자 지원 및 교육을 위한 건강 도우미
-- **금융 서비스:** 자산 관리 및 투자 안내를 위한 AI 자문가
-- **교육:** 맞춤형 안내와 의견을 제공하는 AI 멘토 및 학습자 도우미
+- **อีคอมเมิร์ซและการค้าปลีก:** ผู้ช่วยช็อปปิ้งที่ให้คำแนะนำที่ปรับให้เหมาะกับแต่ละบุคคลและ Agent ฝ่ายสนับสนุนที่แก้ไขปัญหาของลูกค้า
+- **เกม:** ตัวละครที่ไม่ใช่ผู้เล่น (NPC) แบบอินเทอร์แอกทีฟ ผู้ช่วยในเกม และการแปลเนื้อหาในเกมแบบเรียลไทม์
+- **อินเทอร์เฟซยุคใหม่:** ประสบการณ์ที่ใช้เสียงและวิดีโอได้ในหุ่นยนต์ แว่นตาอัจฉริยะ และยานพาหนะ
+- **การดูแลสุขภาพ:** เพื่อนร่วมดูแลสุขภาพเพื่อสนับสนุนและให้ความรู้แก่ผู้ป่วย
+- **บริการทางการเงิน:** ที่ปรึกษา AI สำหรับการจัดการความมั่งคั่งและคำแนะนำด้านการลงทุน
+- **การศึกษา:** ครูฝึก AI และเพื่อนร่วมเรียนที่ให้คำแนะนำและข้อเสนอแนะที่ปรับให้เหมาะกับแต่ละบุคคล
 
-## 주요 특징
+## ฟีเจอร์หลัก
 
-Live API는 강력한 음성 에이전트를 빌드하기 위한 포괄적인 기능 세트를 제공합니다.
+Live API มีชุดฟีเจอร์ที่ครอบคลุมสำหรับการสร้าง Agent ที่โต้ตอบด้วยเสียงที่มีประสิทธิภาพ ได้แก่
 
-- [**다국어 지원**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#supported-languages):
-  지원되는 70개 언어로 대화할 수 있습니다.
-- [**통화 참여**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#interruptions):
-  사용자는 언제든지 모델을 중단하여 응답형 상호작용을 할 수 있습니다.
-- [**도구 사용**](https://ai.google.dev/gemini-api/docs/live-tools?hl=ko):
-  함수 호출 및 Google 검색과 같은 도구를 통합하여 역동적인 상호작용을 지원합니다.
-- [**오디오 스크립트 작성**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#audio-transcription):
-  사용자 입력과 모델 출력의 텍스트 스크립트를 제공합니다.
-- [**능동적 오디오**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#proactive-audio):
-  모델이 응답하는 시점과 컨텍스트를 제어할 수 있습니다.
-- [**공감형 대화**](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#affective-dialog):
-  사용자의 입력 표현에 맞게 대답 스타일과 어조를 조정합니다.
+- [**รองรับหลายภาษา**](https://ai.google.dev/gemini-api/docs/live-guide?hl=th#supported-languages):
+  สนทนาในภาษาที่รองรับ 70 ภาษา
+- [**Barge-in**](https://ai.google.dev/gemini-api/docs/live-guide?hl=th#interruptions):
+  ผู้ใช้สามารถขัดจังหวะโมเดลได้ทุกเมื่อเพื่อการโต้ตอบที่ตอบสนอง
+- [**การใช้เครื่องมือ**](https://ai.google.dev/gemini-api/docs/live-tools?hl=th):
+  ผสานรวมเครื่องมือต่างๆ เช่น การเรียกใช้ฟังก์ชันและการค้นหาของ Google เพื่อการโต้ตอบแบบไดนามิก
+- [**การถอดเสียง**](https://ai.google.dev/gemini-api/docs/live-guide?hl=th#audio-transcription):
+  ให้ข้อความถอดเสียงทั้งข้อมูลจากผู้ใช้และเอาต์พุตโมเดล
+- [**เสียงเชิงรุก**](https://ai.google.dev/gemini-api/docs/live-guide?hl=th#proactive-audio):
+  ให้คุณควบคุมได้ว่าโมเดลจะตอบกลับเมื่อใดและในบริบทใด
+- [**การโต้ตอบที่สะท้อนถึงความรู้สึก**](https://ai.google.dev/gemini-api/docs/live-guide?hl=th#affective-dialog):
+  ปรับรูปแบบและน้ำเสียงในการตอบกลับให้ตรงกับคำพูดของผู้ใช้
 
-## 기술 사양
+## ข้อกำหนดทางเทคนิค
 
-다음 표에는 Live API의 기술 사양이 나와 있습니다.
+ตารางต่อไปนี้แสดงข้อกำหนดทางเทคนิคของ Live API
 
-| 카테고리 | 세부정보 |
+| หมวดหมู่ | รายละเอียด |
 | --- | --- |
-| 입력 모달리티 | 오디오 (원시 16비트 PCM 오디오, 16kHz, 리틀 엔디안), 이미지 (JPEG <= 1FPS), 텍스트 |
-| 출력 모달리티 | 오디오 (원시 16비트 PCM 오디오, 24kHz, 리틀 엔디안) |
-| 프로토콜 | 스테이트풀 WebSocket 연결(WSS) |
+| รูปแบบอินพุต | เสียง (เสียง PCM แบบดิบ 16 บิต, 16kHz, little-endian), รูปภาพ (JPEG <= 1FPS), ข้อความ |
+| รูปแบบเอาต์พุต | เสียง (เสียง PCM แบบดิบ 16 บิต, 24kHz, little-endian) |
+| โปรโตคอล | การเชื่อมต่อ WebSocket แบบมีสถานะ (WSS) |
 
-## 구현 접근 방식 선택
+## เลือกวิธีการนำไปใช้งาน
 
-Live API와 통합할 때는 다음 구현 접근 방식 중 하나를 선택해야 합니다.
+เมื่อผสานรวมกับ Live API คุณจะต้องเลือกวิธีการนำไปใช้งานวิธีใดวิธีหนึ่งต่อไปนี้
 
-- **서버 간**: 백엔드가 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)를 사용하여 Live API에 연결됩니다. 일반적으로 클라이언트는 스트림 데이터 (오디오, 동영상, 텍스트)를 서버로 전송하고 서버는 이를 Live API로 전달합니다.
-- **클라이언트-서버**: 프런트엔드 코드가 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)을 사용하여 Live API에 직접 연결하여 데이터를 스트리밍하고 백엔드를 우회합니다.
+- **เซิร์ฟเวอร์ต่อเซิร์ฟเวอร์**: แบ็กเอนด์ของคุณจะเชื่อมต่อกับ Live API โดยใช้
+  [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) โดยปกติแล้ว ไคลเอ็นต์จะส่งข้อมูลสตรีม (เสียง วิดีโอ ข้อความ) ไปยังเซิร์ฟเวอร์ ซึ่งจะส่งต่อข้อมูลไปยัง Live API
+- **ไคลเอ็นต์ต่อเซิร์ฟเวอร์**: โค้ดส่วนหน้าจะเชื่อมต่อกับ Live API โดยตรง
+  โดยใช้ [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) เพื่อสตรีมข้อมูล โดยข้ามแบ็กเอนด์
 
-## 시작하기
+## เริ่มต้นใช้งาน
 
-개발 환경에 맞는 가이드를 선택합니다.
+เลือกคำแนะนำที่ตรงกับสภาพแวดล้อมในการพัฒนาซอฟต์แวร์ของคุณ
 
-서버 간
+เซิร์ฟเวอร์ต่อเซิร์ฟเวอร์
 
-### [생성형 AI SDK 튜토리얼](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ko)
+### [บทแนะนำเกี่ยวกับ GenAI SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=th)
 
-생성형 AI SDK를 사용하여 Gemini Live API에 연결하여 Python 백엔드로 실시간 멀티모달 애플리케이션을 빌드합니다.
+เชื่อมต่อกับ Gemini Live API โดยใช้ GenAI SDK เพื่อสร้างแอปพลิเคชันมัลติโมดัลแบบเรียลไทม์ด้วยแบ็กเอนด์ Python
 
-클라이언트-서버
+ไคลเอ็นต์ต่อเซิร์ฟเวอร์
 
-### [WebSocket 튜토리얼](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=ko)
+### [บทแนะนำเกี่ยวกับ WebSocket](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=th)
 
-WebSocket을 사용하여 Gemini Live API에 연결하여 JavaScript 프런트엔드와 일회성 토큰으로 실시간 멀티모달 애플리케이션을 빌드합니다.
+เชื่อมต่อกับ Gemini Live API โดยใช้ WebSocket เพื่อสร้างแอปพลิเคชันหลายรูปแบบแบบเรียลไทม์ด้วยฟรอนท์เอนด์ JavaScript และโทเค็นชั่วคราว
 
-에이전트 개발 키트
+ชุดเครื่องมือพัฒนา Agent
 
-### [ADK 튜토리얼](https://google.github.io/adk-docs/streaming/)
+### [บทแนะนำเกี่ยวกับ ADK](https://google.github.io/adk-docs/streaming/)
 
-에이전트를 만들고 에이전트 개발 키트(ADK) 스트리밍을 사용하여 음성 및 영상 커뮤니케이션을 사용 설정합니다.
+สร้าง Agent และใช้การสตรีมชุดเครื่องมือพัฒนา Agent (ADK) เพื่อเปิดใช้การสื่อสารด้วยเสียงและวิดีโอ
 
-## 파트너 연동
+## การผสานรวมพาร์ทเนอร์
 
-실시간 오디오 및 동영상 앱의 개발을 간소화하려면 WebRTC 또는 WebSocket을 통해 Gemini Live API를 지원하는 서드 파티 통합을 사용하면 됩니다.
+คุณสามารถใช้
+การผสานรวมของบุคคลที่สามที่รองรับ Gemini Live
+API ผ่าน WebRTC หรือ WebSocket เพื่อเพิ่มประสิทธิภาพการพัฒนาแอปเสียงและวิดีโอแบบเรียลไทม์
 
 [LiveKit
 
-LiveKit 에이전트와 함께 Gemini Live API를 사용합니다.](https://docs.livekit.io/agents/models/realtime/plugins/gemini/)
-[Daily의 Pipecat
+ใช้ Gemini Live API กับ LiveKit Agent](https://docs.livekit.io/agents/models/realtime/plugins/gemini/)
+[Pipecat by Daily
 
-Gemini Live 및 Pipecat을 사용하여 실시간 AI 챗봇을 만드세요.](https://docs.pipecat.ai/guides/features/gemini-live)
-[Software Mansion의 Fishjam
+สร้างแชทบอต AI แบบเรียลไทม์โดยใช้ Gemini Live และ Pipecat](https://docs.pipecat.ai/guides/features/gemini-live)
+[Fishjam by Software Mansion
 
-Fishjam으로 라이브 동영상 및 오디오 스트리밍 애플리케이션을 만드세요.](https://docs.fishjam.io/tutorials/gemini-live-integration)
-[스트림의 Vision Agents
+สร้างแอปพลิเคชันการสตรีมวิดีโอสดและเสียงด้วย Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration)
+[Vision Agents by Stream
 
-Vision Agent로 실시간 음성 및 동영상 AI 애플리케이션을 빌드하세요.](https://visionagents.ai/integrations/gemini)
+สร้างแอปพลิเคชัน AI ที่โต้ตอบด้วยเสียงและวิดีโอแบบเรียลไทม์ด้วย Vision Agents](https://visionagents.ai/integrations/gemini)
 [Voximplant
 
-Voximplant를 사용하여 인바운드 및 아웃바운드 통화를 Live API에 연결합니다.](https://voximplant.com/products/gemini-client)
+เชื่อมต่อสายเรียกเข้าและสายโทรออกกับ Live API ด้วย Voximplant](https://voximplant.com/products/gemini-client)
 [Agora
 
-Agora로 실시간 대화형 AI 애플리케이션을 빌드하세요.](https://docs.agora.io/en/conversational-ai/models/mllm/gemini)
+สร้างแอปพลิเคชัน AI สำหรับการสนทนาแบบเรียลไทม์ด้วย Agora](https://docs.agora.io/en/conversational-ai/models/mllm/gemini)
 [Firebase AI SDK
 
-Firebase AI Logic을 사용하여 Gemini Live API를 시작하세요.](https://firebase.google.com/docs/ai-logic/live-api?api=dev&hl=ko)
+เริ่มต้นใช้งาน Gemini Live API โดยใช้ Firebase AI Logic](https://firebase.google.com/docs/ai-logic/live-api?api=dev&hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-06-01(UTC)
+อัปเดตล่าสุด 2026-06-01 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-01(UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]

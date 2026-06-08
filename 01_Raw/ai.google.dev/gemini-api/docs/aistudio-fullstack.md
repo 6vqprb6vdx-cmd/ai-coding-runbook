@@ -1,198 +1,182 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=it
-fetched_at: 2026-06-01T19:42:46.217937+00:00
-title: "Sviluppare app full-stack in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=ar
+fetched_at: 2026-06-08T15:03:31.113486+00:00
+title: "\u062a\u0637\u0648\u064a\u0631 \u062a\u0637\u0628\u064a\u0642\u0627\u062a \u0645\u062a\u0643\u0627\u0645\u0644\u0629 \u0641\u064a Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-# Sviluppare app full-stack in Google AI Studio
+# تطوير تطبيقات متكاملة في Google AI Studio
 
-Google AI Studio ora supporta lo sviluppo full-stack, consentendoti di creare
-applicazioni che vanno oltre i prototipi lato client. Con un runtime lato server, puoi gestire i segreti, connetterti ad API esterne e creare esperienze multiplayer in tempo reale.
+يتيح Google AI Studio الآن تطوير التطبيقات المتكاملة، ما يمكّنك من إنشاء تطبيقات تتجاوز النماذج الأولية من جهة العميل. باستخدام وقت التشغيل من جهة الخادم، يمكنك إدارة الأسرار والربط بواجهات برمجة التطبيقات الخارجية وإنشاء تجارب متعددة اللاعبين في الوقت الفعلي.
 
-## Runtime lato server
+## وقت التشغيل من جهة الخادم
 
-Le applicazioni Google AI Studio ora possono includere un componente lato server (Node.js).
-In questo modo potrai:
+يمكن أن تتضمّن تطبيقات Google AI Studio الآن مكوّنًا من جهة الخادم (Node.js).
+ويتيح لك هذا ما يلي:
 
-- **Esegui logica lato server**: esegui codice che non deve essere esposto al client.
-- **Accedere ai pacchetti npm**: l'[agente antigravità](https://antigravity.google/docs/agent?hl=it)
-  può installare e utilizzare pacchetti del vasto ecosistema npm.
-- **Gestisci i secret**: utilizza in modo sicuro chiavi API e credenziali.
+- **تنفيذ منطق من جهة الخادم**: يمكنك تشغيل رمز لا يجب عرضه للعميل.
+- **الوصول إلى حِزم npm**: يمكن لـ [Antigravity Agent](https://antigravity.google/docs/agent?hl=ar)
+  تثبيت الحِزم واستخدامها من نظام npm المتكامل.
+- **التعامل مع الأسرار**: يمكنك استخدام مفاتيح واجهة برمجة التطبيقات وبيانات الاعتماد بأمان.
 
-### Utilizzare i pacchetti npm
+### استخدام حِزم npm
 
-Non devi eseguire manualmente `npm install`. Basta chiedere all'agente di aggiungere una funzionalità che richiede un pacchetto e l'agente gestirà l'installazione e l'importazione.
+لست بحاجة إلى تشغيل `npm install` يدويًا. ما عليك سوى أن تطلب من Agent إضافة وظيفة تتطلّب حزمة، وسيتولّى تثبيتها واستيرادها.
 
-**Esempio**: > "Utilizza `axios` per recuperare i dati dall'API esterna."
+**مثال**: > "استخدِم `axios` لجلب البيانات من واجهة برمجة التطبيقات الخارجية".
 
-## Gestire i secret in modo sicuro
+## إدارة الأسرار بأمان
 
-Con la gestione del codice e dei secret lato server, ora puoi creare app che interagiscono con il mondo.
+باستخدام الرمز من جهة الخادم وإدارة الأسرار، يمكنك الآن إنشاء تطبيقات تتفاعل مع العالم.
 
-### Chiave API Gemini
+### مفتاح Gemini API
 
-Quando crei una nuova app che utilizza l'API Gemini, AI Studio configura automaticamente la tua `GEMINI_API_KEY` come secret lato server, senza richiedere alcuna configurazione manuale. Puoi visualizzare questa chiave nel riquadro **Secret** delle Impostazioni. Le chiamate all'API Gemini della tua app vengono effettuate dal codice lato server utilizzando questa chiave, quindi non viene mai esposta nel browser.
+عند إنشاء تطبيق جديد يستخدم Gemini API، يضبط AI Studio تلقائيًا `GEMINI_API_KEY` كسر من جهة الخادم، بدون الحاجة إلى الإعداد اليدوي. يمكنك عرض هذا المفتاح في لوحة **الأسرار** ضِمن "الإعدادات". يتم إجراء طلبات Gemini API في تطبيقك من الرمز من جهة الخادم باستخدام هذا المفتاح، لذا لا يتم عرضه مطلقًا في المتصفّح.
 
-### Chiavi API di terze parti
+### مفاتيح واجهات برمجة التطبيقات الخارجية
 
-Per altri servizi, puoi aggiungere le chiavi API manualmente:
+بالنسبة إلى الخدمات الأخرى، يمكنك إضافة مفاتيح واجهة برمجة التطبيقات يدويًا:
 
-- **API di terze parti**: connettiti a servizi come Stripe, SendGrid o API REST personalizzate.
-- **Database**: connettiti a database esterni (ad es. tramite Supabase, Firebase o MongoDB Atlas) per conservare i dati oltre la sessione.
+- **واجهات برمجة التطبيقات الخارجية**: يمكنك الربط بخدمات مثل Stripe أو SendGrid أو واجهات برمجة تطبيقات REST المخصّصة.
+- **قواعد البيانات**: يمكنك الربط بقواعد بيانات خارجية (مثل Supabase أو Firebase أو
+  MongoDB Atlas) للاحتفاظ بالبيانات بعد انتهاء الجلسة.
 
-Quando crei app reali, spesso devi connetterti a servizi di terze parti
-(come Twilio, Slack o database) che richiedono chiavi API. Puoi aggiungere le chiavi
-manualmente seguendo questi passaggi:
+عند إنشاء تطبيقات واقعية، غالبًا ما تحتاج إلى الربط بخدمات خارجية (مثل Twilio أو Slack أو قواعد البيانات) تتطلّب مفاتيح واجهة برمجة التطبيقات. يمكنك إضافة المفاتيح يدويًا باتّباع الخطوات التالية:
 
-1. **Aggiungi un secret**: vai al menu **Impostazioni** in Google AI Studio e cerca la sezione Secret.
-2. **Memorizza la chiave**: aggiungi qui le tue chiavi API o i tuoi token segreti.
-3. **Accesso nel codice**: l'agente può scrivere codice lato server che accede a questi
-   segreti in modo sicuro (in genere tramite variabili di ambiente), assicurandosi che non vengano
-   mai esposti al browser lato client.
+1. **إضافة سر**: انتقِل إلى قائمة **الإعدادات** في Google AI Studio وابحث
+   عن قسم "الأسرار".
+2. **تخزين المفتاح**: أضِف مفاتيح واجهة برمجة التطبيقات أو الرموز السرية هنا.
+3. **الوصول في الرمز**: يمكن لـ Agent كتابة رمز من جهة الخادم يصل إلى هذه
+   الأسرار بأمان (عادةً من خلال متغيّرات البيئة)، ما يضمن عدم عرضها مطلقًا في المتصفّح من جهة العميل.
 
-Se necessario, l'agente
-mostrerà anche una scheda nella chat che ti chiede di aggiungere le chiavi ogni volta che è necessario un nuovo secret
-o quando viene rilevata una nuova chiave nelle variabili di ambiente del progetto.
+عند الحاجة، سيُظهر Agent أيضًا بطاقة في المحادثة تطلب منك إضافة المفاتيح كلما كان هناك سر جديد مطلوب أو عند رصد مفتاح جديد في متغيّرات البيئة للمشروع.
 
-### Integrazione di Firebase per database e autenticazione
+### التكامل مع Firebase لقاعدة البيانات والمصادقة
 
-Google AI Studio ora semplifica l'aggiunta di un database o dell'autenticazione alla tua
-app tramite un'
-[integrazione di Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=it).
-L'agente Antigravity può eseguire il provisioning e configurare automaticamente i seguenti servizi:
+يسهّل Google AI Studio الآن إضافة قاعدة بيانات أو مصادقة إلى تطبيقك
+من خلال
+[التكامل مع Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=ar).
+يمكن لـ Antigravity Agent توفير الخدمات التالية وإعدادها لك تلقائيًا:
 
-- **Database Firestore**: un database cloud NoSQL flessibile e scalabile per archiviare
-  e sincronizzare i dati per lo sviluppo lato client e lato server.
-- **Firebase Authentication**: consente agli utenti di accedere in modo sicuro alla tua
-  applicazione utilizzando i flussi "Accedi con Google".
+- **قاعدة بيانات Firestore**: هي قاعدة بيانات NoSQL مرنة وقابلة للتوسّع في السحابة الإلكترونية لتخزين
+  البيانات ومزامنتها من أجل التطوير من جهة العميل ومن جهة الخادم.
+- **مصادقة Firebase**: تتيح للمستخدمين تسجيل الدخول بأمان إلى
+  تطبيقك باستخدام مسارات "تسجيل الدخول باستخدام حساب Google".
 
-Basta chiedere all'agente di "aggiungere un database alla mia app" o di "configurare Google Sign-in".
-L'agente gestirà la configurazione e la generazione del codice necessarie.
+ما عليك سوى أن تطلب من Agent "إضافة قاعدة بيانات إلى تطبيقي" أو "إعداد ميزة تسجيل الدخول باستخدام حساب Google"، وسيتولّى إعداد التكوين اللازم وإنشاء الرمز لك.
 
-Firebase ti consente di iniziare senza costi e, se vuoi, di eseguire lo scale-up con un account a pagamento
-quando hai bisogno di una quota maggiore o di utilizzare funzionalità a pagamento.
+تتيح لك Firebase البدء مجانًا، ويمكنك اختياريًا التوسّع باستخدام حساب مدفوع عندما تكون مستعدًا للحصول على حصة أكبر أو لاستخدام الميزات المدفوعة.
 
-## API Google Workspace
+## واجهات برمجة التطبيقات في Google Workspace
 
-Google AI Studio ti consente di creare app che si connettono alle API Google Workspace, in modo che i tuoi utenti possano lavorare con i loro dati reali: email, fogli di lavoro, documenti, eventi di calendario e altro ancora, tutto all'interno della tua app. Non è più necessario configurare un progetto Google Cloud, configurare OAuth o gestire manualmente l'API.
+يتيح لك Google AI Studio إنشاء تطبيقات تتصل بواجهات برمجة التطبيقات في Google Workspace، ما يسمح للمستخدمين بالعمل على بياناتهم الحقيقية: الرسائل الإلكترونية وجداول البيانات والمستندات وأحداث التقويم وغير ذلك، كل ذلك ضِمن تطبيقك. لم يعُد عليك إعداد مشروع على السحابة الإلكترونية في Google Cloud أو ضبط OAuth أو إدارة واجهة برمجة التطبيقات يدويًا.
 
-### Come funziona
+### آلية العمل
 
-Puoi aggiungere un'integrazione di Workspace in due modi:
+يمكنك إضافة عملية تكامل مع Workspace بطريقتَين:
 
-- **Descrivilo nel riquadro della chat**: basta dire all'agente cosa vuoi nel riquadro della chat in basso. Ad esempio, *"Crea un tracker delle spese che registri le ricevute nel mio foglio Google"* o *"Crea una dashboard che riepiloghi i miei messaggi Gmail non letti"*.
-- **Seleziona dal riquadro delle integrazioni**: apri il riquadro **Integrazioni** nella barra laterale destra della modalità di creazione e attiva l'app Workspace che vuoi connettere.
+- **وصفها في لو1حة المحادثة**: ما عليك سوى إخبار Agent بما تريده في لوحة المحادثة في أسفل الصفحة. على سبيل المثال، *"أنشئ أداة لتتبُّع النفقات تسجِّل الإيصالات في "جدول بيانات Google""* أو *"أنشئ لوحة بيانات تلخّص رسائل Gmail غير المقروءة."*
+- **الاختيار من لوحة عمليات التكامل**: افتح لوحة **عمليات التكامل** في الشريط الجانبي الأيسر من وضع "الإنشاء" وفعِّل تطبيق Workspace الذي تريد ربطه.
 
-Quando aggiungi un'app Workspace, AI Studio esegue automaticamente le seguenti operazioni:
+عند إضافة تطبيق Workspace، يتولّى AI Studio تلقائيًا ما يلي:
 
-1. Collega l'API Google necessaria per la tua app.
-2. Genera il codice lato server per chiamare l'API.
-3. Aggiunge un flusso sicuro di "Accedi con Google" in modo che gli utenti finali della tua app possano autorizzare l'accesso ai propri dati.
+1. ربط واجهة برمجة تطبيقات Google اللازمة بتطبيقك
+2. إنشاء الرمز من جهة الخادم لاستدعاء واجهة برمجة التطبيقات
+3. إضافة مسار آمن "لتسجيل الدخول باستخدام حساب Google" حتى يتمكّن المستخدمون النهائيون لتطبيقك من منح الإذن بالوصول إلى بياناتهم
 
-### App supportate
+### التطبيقات المتوافقة
 
-Sono disponibili le seguenti app Google Workspace:
+تتوفّر تطبيقات Google Workspace التالية:
 
-| App | Cosa puoi creare |
+| التطبيق | ما يمكنك إنشاؤه |
 | --- | --- |
-| Google Calendar | Leggere, creare e gestire eventi e calendari |
-| Google Chat | Leggere e interagire con conversazioni e spazi di gruppo |
-| Documenti Google | Creare, leggere, aggiornare e formattare documenti |
-| Google Drive | Organizzare, cercare e gestire file e cartelle |
-| Moduli Google | Creare sondaggi, aggiornare le domande e recuperare le risposte |
-| Gmail | Leggere, inviare e gestire i contenuti delle email |
-| Google Keep | Gestire note, elenchi e allegati |
-| Google Meet | Pianificare e gestire le videochiamate |
-| Contatti | Sincronizzare e gestire i contatti |
-| Fogli Google | Leggere, scrivere e formattare i dati del foglio di lavoro |
-| Presentazioni Google | Creare e modificare presentazioni |
-| Google Tasks | Creare, gestire e organizzare le attività |
+| تقويم Google | قراءة الأحداث والتقاويم وإنشاؤها وإدارتها |
+| Google Chat | قراءة المحادثات والمساحات الجماعية والتفاعل معها |
+| مستندات Google | إنشاء المستندات وقراءتها وتعديلها وتنسيقها |
+| Google Drive | تنظيم الملفات والمجلدات والبحث عنها وإدارتها |
+| نماذج Google | إنشاء الاستطلاعات وتعديل الأسئلة واسترداد الردود |
+| Gmail | قراءة محتوى البريد الإلكتروني وإرساله وإدارته |
+| Google Keep | إدارة الملاحظات والقوائم والمرفقات |
+| Google Meet | جدولة مكالمات الفيديو وإدارتها |
+| جهات الاتصال | مزامنة جهات الاتصال وإدارتها |
+| جداول بيانات Google | قراءة بيانات جدول البيانات وكتابتها وتنسيقها |
+| العروض التقديمية من Google | إنشاء العروض التقديمية وتعديلها |
+| مهام Google | إنشاء المهام وإدارتها وتنظيمها |
 
-### Autenticazione e autorizzazioni
+### المصادقة والأذونات
 
-In qualità di builder, non devi configurare i client OAuth, gestire le credenziali
-o configurare un progetto Google Cloud. AI Studio gestisce tutto questo per te.
+بصفتك منشئ التطبيق، لست بحاجة إلى ضبط عملاء OAuth أو إدارة بيانات الاعتماد أو إعداد مشروع على السحابة الإلكترونية من Google. يتولّى AI Studio كل ذلك نيابةً عنك.
 
-Le app con le API Workspace integrate utilizzano "Accedi con Google" per autenticare
-gli utenti finali. Quando un utente apre la tua app, gli viene chiesto di accedere e concedere
-le autorizzazioni specifiche di cui la tua app ha bisogno (ad esempio, l'accesso in sola lettura al
-calendario o la possibilità di modificare un foglio di lavoro). La tua app accede solo ai dati della persona che la utilizza. Ogni utente autorizza l'accesso al proprio account.
+تستخدم التطبيقات التي تتضمّن واجهات برمجة تطبيقات Workspace ميزة "تسجيل الدخول باستخدام حساب Google" لمصادقة المستخدمين النهائيين. عندما يفتح المستخدم تطبيقك، يُطلب منه تسجيل الدخول ومنح الأذونات المحدّدة التي يحتاجها تطبيقك (على سبيل المثال، الوصول للقراءة فقط إلى تقويمه أو إمكانية تعديل جدول بيانات). لا يصل تطبيقك إلا إلى بيانات الشخص الذي يستخدمه. يمنح كل مستخدم الإذن بالوصول إلى حسابه.
 
-### Prompt di esempio
+### أمثلة على الطلبات
 
-Ecco alcune idee per iniziare a utilizzare le integrazioni di Workspace:
+في ما يلي بعض الأفكار للبدء باستخدام عمليات التكامل مع Workspace:
 
-- *"Crea un'app che legga il mio Google Calendar e crei bozze di email di preparazione in
-  Gmail per ogni riunione".*
-- *"Crea uno strumento che prenda un documento Google e generi un riepilogo di 5 slide
-  in Presentazioni Google."*
-- *"Crea un monitoraggio delle spese in cui carico una ricevuta, Gemini estrae i
-  dettagli e registra una nuova riga nel mio Foglio Google."*
+- *"أنشئ تطبيقًا يقرأ تقويم Google ويُنشئ مسودات رسائل إلكترونية تحضيرية في
+  Gmail لكل اجتماع."*
+- *"أنشئ أداة تأخذ مستند Google وتُنشئ عرضًا تقديميًا ملخّصًا من 5 شرائح
+  في "العروض التقديمية من Google"."*
+- *"أنشئ أداة لتتبُّع النفقات، حيث يمكنني تحميل إيصال، ويستخرج Gemini
+  التفاصيل، ويسجِّل صفًا جديدًا في "جدول بيانات Google"."*
 
-### Configura OAuth
+### إعداد OAuth
 
-Un caso d'uso chiave per la gestione dei secret è la configurazione di OAuth per connettersi ad altri
-siti web o app. Quando il prompt include istruzioni su come connettersi a un'app di terze parti che richiede l'autenticazione OAuth, l'agente fornirà istruzioni su come configurare OAuth per l'applicazione. Queste istruzioni
-includeranno gli URL di callback necessari per configurare l'applicazione OAuth.
-Puoi trovare gli URL di callback anche nella sezione **Integrazioni** nel pannello Impostazioni.
+إحدى حالات الاستخدام الرئيسية لإدارة الأسرار هي إعداد OAuth للربط بمواقع إلكترونية أو تطبيقات أخرى. عندما يتضمّن طلبك تعليمات حول الربط بتطبيق خارجي يتطلّب مصادقة OAuth، سيقدّم Agent تعليمات حول كيفية إعداد OAuth لهذا التطبيق. ستتضمّن هذه التعليمات عناوين URL الضرورية لردّ الاتصال لضبط تطبيق OAuth.
+يمكنك أيضًا العثور على عناوين URL لردّ الاتصال ضِمن **عمليات التكامل** في لوحة "الإعدادات".
 
-## Creare esperienze multigiocatore
+## إنشاء تجارب متعددة اللاعبين
 
-Il runtime full-stack attiva le funzionalità di collaborazione in tempo reale.
+يتيح وقت التشغيل المتكامل ميزات التعاون في الوقت الفعلي.
 
-- **Stato in tempo reale**: puoi chiedere all'agente di creare funzionalità come "una chat live", "una lavagna collaborativa" o "un gioco multiplayer".
-- **Sessioni sincronizzate**: il server gestisce lo stato, consentendo a più utenti
-  di interagire con la stessa istanza dell'applicazione in tempo reale.
+- **الحالة في الوقت الفعلي**: يمكنك أن تطلب من الوكيل إنشاء ميزات مثل "محادثة مباشرة" أو "لوحة بيضاء تعاونية" أو "لعبة متعددة اللاعبين".
+- **الجلسات المتزامنة**: يدير الخادم الحالة، ما يسمح لعدة مستخدمين
+  بالتفاعل مع مثيل التطبيق نفسه في الوقت الفعلي.
 
-**Esempio di prompt**: > "Crea un gioco multiplayer in cui i giocatori possono vedere i cursori
-degli altri."
+**مثال على الطلب**: > "اجعل هذه اللعبة متعددة اللاعبين حيث يمكن للاعبين رؤية مؤشرات بعضهم
+البعض."
 
-### Suggerimenti per testare le app multiplayer
+### نصائح لاختبار التطبيقات متعددة اللاعبين
 
-Puoi testare la modalità multigiocatore in due modi prima di eseguire il deployment dell'app.
+يمكنك اختبار وضع اللعب المتعدد بطريقتَين قبل نشر تطبيقك.
 
-1. Apri l'app in modalità di creazione di Google AI Studio in più schede. Quando
-   sviluppi in modalità Build, la tua app si trova in un container di sviluppo. L'apertura dell'app in più schede ti consentirà di simulare più giocatori che utilizzano la tua app.
-2. Condividi l'app con altri utilizzando il menu **Condividi** in alto a destra.
-   Poi utilizza l'**URL condiviso** della scheda **Integrazioni**
-   del menu **Condividi** per utilizzare l'app con i giocatori con cui l'hai condivisa.
+1. افتح تطبيقك في وضع "الإنشاء" في Google AI Studio في علامات تبويب متعددة. عند التطوير في وضع "الإنشاء"، يكون تطبيقك في حاوية تطوير. سيسمح لك فتح التطبيق في علامات تبويب متعددة بمحاكاة عدة لاعبين يستخدمون تطبيقك.
+2. شارك التطبيق مع مستخدمين آخرين باستخدام قائمة **مشاركة** في أعلى يسار الشاشة، ثم استخدِم **عنوان URL الذي تمت مشاركته** من علامة التبويب **عمليات التكامل** في قائمة **مشاركة** لاستخدام التطبيق مع اللاعبين الذين شاركت تطبيقك معهم.
 
-## Best practice
+## أفضل الممارسات
 
-- **Chiamate API Gemini**: il tuo `GEMINI_API_KEY` viene configurato automaticamente come
-  secret lato server. Esegui chiamate all'API Gemini dal codice lato server utilizzando
-  questa chiave. Puoi visualizzarlo nel riquadro **Secret**.
-- **Sicurezza dei secret**: utilizza sempre Secret Manager per le chiavi sensibili.
-  Non codificarli mai nei file.
-- **Separazione delle responsabilità**: mantieni la logica dell'interfaccia utente nel framework lato client
-  (React/Angular) e la logica di business/gestione dei dati lato server.
-- **Gestione degli errori**: assicurati che il codice lato server gestisca in modo efficace gli errori
-  delle chiamate API esterne per evitare arresti anomali dell'app.
+- **طلبات Gemini API**: يتم ضبط `GEMINI_API_KEY` تلقائيًا كسر من جهة
+  الخادم. يمكنك إجراء طلبات Gemini API من الرمز من جهة الخادم باستخدام هذا المفتاح. يمكنك عرضه في لوحة **الأسرار**.
+- **أمان الأسرار**: استخدِم دائمًا مدير الأسرار للمفاتيح الحسّاسة.
+  لا تضعها مطلقًا في الرمز البرمجي لملفاتك.
+- **فصل الاهتمامات**: احتفِظ بمنطق واجهة المستخدم في إطار عمل من جهة العميل
+  (React/Angular) ومنطق النشاط التجاري/معالجة البيانات من جهة الخادم.
+- **معالجة الأخطاء**: تأكَّد من أنّ الرمز من جهة الخادم يعالج الأخطاء بشكل فعّال
+  من طلبات واجهة برمجة التطبيقات الخارجية لمنع تعطُّل التطبيق.
 
-## Passaggi successivi
+## الخطوات التالية:
 
-- [Creare app in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it)
-- [Deployment da Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=it)
-- [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=it)
+- [إنشاء التطبيقات في Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=ar)
+- [النشر من Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ar)
+- [معرض التطبيقات](https://aistudio.google.com/apps?source=showcase&hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ultimo aggiornamento 2026-05-19 UTC.
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Vuoi dirci altro?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-19 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

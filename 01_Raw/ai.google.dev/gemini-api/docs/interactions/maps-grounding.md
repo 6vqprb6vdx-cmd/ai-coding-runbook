@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=ar
-fetched_at: 2026-06-01T19:43:22.085641+00:00
-title: "\u0627\u0644\u0627\u0633\u062a\u0646\u0627\u062f \u0625\u0644\u0649 \"\u062e\u0631\u0627\u0626\u0637 Google\" \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=zh-CN
+fetched_at: 2026-06-08T14:57:28.180693+00:00
+title: "\u4f9d\u6258 Google \u5730\u56fe\u8fdb\u884c\u63a5\u5730 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-إرسال ملاحظات
+发送反馈
 
-# الاستناد إلى "خرائط Google"
+# 依托 Google 地图进行接地
 
-يربط استخدام "خرائط Google" كمصدر الإمكانات الإنشائية لـ Gemini مع البيانات الغنية والحقيقية والحديثة في "خرائط Google". تتيح هذه الميزة للمطوّرين دمج وظائف تستند إلى الموقع الجغرافي بسهولة في تطبيقاتهم. عندما يتضمّن طلب المستخدم سياقًا مرتبطًا ببيانات "خرائط Google"، يستفيد نموذج Gemini من "خرائط Google" لتقديم إجابات دقيقة ومحدّثة تستند إلى الحقائق وذات صلة بالموقع الجغرافي أو المنطقة العامة التي حدّدها المستخدم.
+Grounding with Google Maps 可将 Gemini 的生成功能与 Google 地图丰富、真实且最新的数据联系起来。借助此功能，开发者可以轻松将位置感知功能融入到自己的应用中。当用户查询的上下文与 Google 地图数据相关时，Gemini 模型会利用 Google 地图提供与用户指定位置或大致区域相关的真实且最新的答案。
 
-- **ردود دقيقة تستند إلى الموقع الجغرافي:** يمكنك الاستفادة من بيانات "خرائط Google" الشاملة والحديثة للردّ على الطلبات الخاصة بموقع جغرافي معيّن.
-- **تخصيص محسَّن:** يمكنك تخصيص الاقتراحات والمعلومات استنادًا إلى المواقع الجغرافية التي يقدّمها المستخدمون.
+- **准确的位置感知回答**： 利用 Google 地图广泛且最新的数据来处理特定地理位置的查询。
+- **增强的个性化体验**： 根据用户提供的位置定制推荐内容和信息。
 
-## البدء
+## 开始使用
 
-يوضِّح هذا المثال كيفية دمج ميزة "استخدام خرائط Google كمصدر" في تطبيقك لتقديم ردود دقيقة تستند إلى الموقع الجغرافي لطلبات المستخدمين. يطلب الطلب اقتراحات محلية مع موقع جغرافي اختياري للمستخدم، ما يتيح لنموذج Gemini استخدام بيانات "خرائط Google".
+此示例演示了如何将 Grounding with Google Maps 集成到您的应用中，以便针对用户查询提供准确的位置感知回答。提示会要求提供本地推荐内容，并提供可选的用户位置，以便 Gemini 模型使用 Google 地图数据。
 
 ### Python
 
@@ -120,39 +120,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## آلية عمل ميزة "تحديد المصدر باستخدام خرائط Google"
+## Grounding with Google Maps 的工作原理
 
-تدمج ميزة استخدام "خرائط Google" كمصدر واجهة Gemini API مع منظومة Google Geo المتكاملة باستخدام Maps API كمصدر لتحديد المصدر. عندما يتضمّن طلب المستخدم سياقًا جغرافيًا، يمكن لنموذج Gemini استدعاء أداة "تحديد المصدر باستخدام خرائط Google". بعد ذلك، يمكن للنموذج إنشاء ردود تستند إلى بيانات "خرائط Google" ذات الصلة بالموقع الجغرافي المقدَّم.
+Grounding with Google Maps 功能使用 Google 地图 API 作为接地来源，将 Gemini API 与 Google 地理生态系统集成在一起。当用户的查询包含地理位置上下文时，Gemini 模型可以调用“依托 Google 地图进行接地”工具。然后，模型可以生成基于与所提供位置相关的 Google 地图数据的回答。
 
-تتضمّن العملية عادةً ما يلي:
+该过程通常涉及以下步骤：
 
-1. **طلب المستخدم:** يرسل المستخدم طلبًا إلى تطبيقك، وقد يتضمّن سياقًا جغرافيًا (مثل "مقاهي بالقرب مني" أو "متاحف في سان فرانسيسكو").
-2. **استدعاء الأداة:** يستدعي نموذج Gemini أداة "استخدام "خرائط Google" كمصدر" بعد التعرّف على الغرض الجغرافي من الطلب. يمكن تزويد هذه الأداة اختياريًا بـ
-   و `latitude` و `longitude`. الأداة هي أداة بحث نصي وتعمل بطريقة مشابهة للبحث على "خرائط Google"، حيث ستستخدم الطلبات المحلية ("بالقرب مني") الإحداثيات، بينما من غير المرجّح أن تتأثر الطلبات المحدّدة أو غير المحلية بالموقع الجغرافي الصريح.
-3. **استرجاع البيانات:** تطلب خدمة "استخدام "خرائط Google" كمصدر" معلومات ذات صلة من "خرائط Google" (مثل الأماكن والمراجعات والصور والعناوين وساعات العمل).
-4. **الإنشاء المستند إلى المصدر:** يتم استخدام بيانات "خرائط Google" التي تم استرجاعها لتوجيه ردّ نموذج Gemini، ما يضمن الدقة والصلة بالحقائق.
-5. **الردّ والشروح التوضيحية:** يعرض النموذج ردًا نصيًا يتضمّن شروحًا توضيحية مضمّنة ترتبط بمصادر "خرائط Google"، ما يتيح للمطوّرين عرض الاقتباسات.
+1. **用户查询**： 用户向您的应用提交查询，其中可能包含地理位置上下文（例如“我附近的咖啡店”“旧金山的博物馆”）。
+2. **工具调用**： Gemini 模型识别出地理位置意图，并调用“Grounding with Google Maps”工具。您可以选择性地为该工具提供用户的 `latitude` 和 `longitude`。该工具是一个文本搜索工具，其行为与在 Google 地图上搜索类似，即本地查询（“我附近”）将使用坐标，而特定或非本地查询不太可能受到明确位置的影响。
+3. **数据检索**： Grounding with Google Maps 服务会查询 Google 地图以获取相关信息（例如地点、评价、照片、地址、营业时间）。
+4. **接地生成**： 检索到的 Google 地图数据用于为 Gemini 模型的回答提供信息，确保事实准确性和相关性。
+5. **回答和注解**： 模型会返回文本回答，其中包含指向 Google 地图来源的内嵌注解，以便开发者显示引用。
 
-## أسباب استخدام ميزة "استخدام خرائط Google كمصدر" والحالات التي يجب استخدامها فيها
+## 为何以及何时使用 Grounding with Google Maps
 
-يُعدّ استخدام "خرائط Google" كمصدر مثاليًا للتطبيقات التي تتطلّب معلومات دقيقة وحديثة وخاصة بموقع جغرافي معيّن. وهي تحسّن تجربة المستخدم من خلال تقديم محتوى ذي صلة ومخصّص يستند إلى قاعدة بيانات "خرائط Google" الشاملة التي تضم أكثر من 250 مليون مكان في جميع أنحاء العالم.
+Grounding with Google Maps 功能非常适合需要准确、最新且特定于位置的信息的应用。它通过提供相关且个性化的内容来提升用户体验，这些内容由 Google 地图在全球范围内超过 2.5 亿个地点的庞大数据库提供支持。
 
-عليك استخدام ميزة "استخدام "خرائط Google" كمصدر" عندما يحتاج تطبيقك إلى ما يلي:
+当您的应用需要执行以下操作时，您应使用 Grounding with Google Maps 功能：
 
-- تقديم ردود كاملة ودقيقة على الأسئلة الجغرافية المحدّدة
-- إنشاء أدلة محلية ومخطّطات رحلات محادثة
-- اقتراح أماكن مهمة استنادًا إلى الموقع الجغرافي وتفضيلات المستخدم، مثل المطاعم أو المتاجر
-- إنشاء تجارب تستند إلى الموقع الجغرافي للخدمات الاجتماعية أو خدمات البيع بالتجزئة أو خدمات توصيل الطعام
+- 针对特定地理位置的问题提供完整且准确的回答。
+- 构建对话式行程规划工具和本地指南。
+- 根据位置和用户偏好（例如餐厅或商店）推荐地图注点。
+- 为社交、零售或外卖服务打造位置感知体验。
 
-يتميّز استخدام "خرائط Google" كمصدر في حالات الاستخدام التي تكون فيها القرب والبيانات الحالية الدقيقة مهمة، مثل العثور على "أفضل مقهى بالقرب مني" أو الحصول على الاتجاهات.
+在需要考虑邻近度和最新事实数据的用例中，“依托 Google 地图进行接地”功能表现出色，例如查找“我附近最好的咖啡店”或获取路线。
 
-## حالات الاستخدام
+## 使用场景
 
-تتيح ميزة استخدام "خرائط Google" كمصدر مجموعة متنوعة من حالات الاستخدام التي تستند إلى الموقع الجغرافي.
+Grounding with Google Maps 支持各种位置感知用例。
 
-### التعامل مع الأسئلة الخاصة بمكان معيّن
+### 处理特定地点的问题
 
-يمكنك طرح أسئلة مفصّلة حول مكان معيّن للحصول على إجابات استنادًا إلى مراجعات مستخدمي Google وبيانات "خرائط Google" الأخرى.
+详细询问特定地点，以根据 Google 用户评价和其他 Google 地图数据获取答案。
 
 ### Python
 
@@ -225,9 +224,9 @@ async function main() {
 main();
 ```
 
-### توفير ميزة التخصيص المستندة إلى الموقع الجغرافي
+### 提供基于位置的个性化体验
 
-يمكنك الحصول على اقتراحات مخصّصة لتفضيلات المستخدم ومنطقة جغرافية معيّنة.
+获取根据用户偏好和特定地理区域量身定制的推荐内容。
 
 ### Python
 
@@ -300,9 +299,9 @@ async function main() {
 main();
 ```
 
-### المساعدة في تخطيط برنامج الرحلة
+### 协助规划行程
 
-يمكنك إنشاء خطط لعدة أيام تتضمّن الاتجاهات والمعلومات حول مواقع جغرافية مختلفة، ما يجعلها مثالية لتطبيقات السفر.
+生成包含路线和各种地点信息的行程计划，非常适合旅行应用。
 
 ### Python
 
@@ -368,97 +367,97 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## متطلبات استخدام الخدمة
+## 服务使用要求
 
-يصف هذا القسم متطلبات استخدام خدمة "تحديد المصدر باستخدام خرائط Google".
+本部分介绍了“依托 Google 地图进行接地”功能的服务使用要求。
 
-### إعلام المستخدم بشأن استخدام مصادر "خرائط Google"
+### 告知用户 Google 地图来源的使用情况
 
-مع كل نتيجة مستندة إلى "خرائط Google"، ستتلقّى شروحًا توضيحية للمصدر في فقرات المحتوى الخاصة بخطوة `model_output` التي تدعم كل ردّ. يتم عرض البيانات الوصفية التالية:
+对于每个 Google 地图接地结果，您都会在 `model_output` 步骤的内容块中收到来源注解，这些注解支持每个回答。系统会返回以下元数据：
 
-- عنوان URL للمصدر
-- الاسم
+- 源网址
+- name
 
-عند عرض نتائج ميزة "استخدام "خرائط Google" كمصدر"، عليك تحديد مصادر "خرائط Google" المرتبطة وإعلام المستخدمين بما يلي:
+在展示 Grounding with Google Maps 的结果时，您必须指定关联的 Google 地图来源，并告知用户以下信息：
 
-- يجب أن تظهر مصادر "خرائط Google" مباشرةً بعد المحتوى الذي تم إنشاؤه والذي تستنده إليه المصادر. يُشار أيضًا إلى هذا المحتوى الذي تم إنشاؤه باسم "النتيجة المستندة إلى خرائط Google".
-- يجب أن تكون مصادر "خرائط Google" قابلة للعرض خلال تفاعل واحد مع المستخدم.
+- Google 地图来源必须紧跟在来源支持的生成内容之后。此类生成的内容也称为 Google 地图接地结果。
+- Google 地图来源必须在一次用户互动中可见。
 
-### عرض مصادر "خرائط Google" مع روابط "خرائط Google"
+### 使用 Google 地图链接显示 Google 地图来源
 
-بالنسبة إلى كل شرح توضيحي للمصدر، يجب إنشاء معاينة للرابط وفقًا للمتطلبات التالية:
+对于每个来源注解，必须按照以下要求生成链接预览：
 
-- يجب تحديد مصدر كل بيانات "خرائط Google" باتّباع إرشادات تحديد المصدر النصي في "خرائط Google"
-  .
-- يجب عرض اسم المصدر المقدَّم في الردّ.
-- يجب الانتقال إلى المصدر باستخدام الـ `url` من الشرح التوضيحي.
+- 请按照 Google 地图文本
+  [提供方指南](#maps-attribution-guidelines)，将每项来源归属至 Google 地图。
+- 显示回答中提供的来源名称。
+- 使用注解中的 `url` 链接到来源。
 
-### إرشادات تحديد المصدر النصي في "خرائط Google"
+### Google 地图文本提供方指南
 
-عند تحديد مصادر "خرائط Google" في النص، اتّبِع الإرشادات التالية:
+在文本中将来源归属至 Google 地图时，请遵循以下准则：
 
-- لا تعدِّل النص "خرائط Google" بأي شكل من الأشكال:
-  - لا تغيِّر حالة الأحرف في "خرائط Google".
-  - لا تنقل "خرائط Google" إلى أسطر متعددة.
-  - لا تترجِم "خرائط Google" إلى لغة أخرى.
-  - امنع المتصفّحات من ترجمة "خرائط Google" باستخدام سمة HTML ‏translate="no".
+- 请勿以任何方式修改 Google 地图文本：
+  - 请勿更改 Google 地图的大小写。
+  - 请勿将 Google 地图换行到多行。
+  - 请勿将 Google 地图本地化为其他语言。
+  - 使用 HTML 属性 translate="no" 阻止浏览器翻译 Google 地图。
 
-لمزيد من المعلومات عن بعض مزوّدي بيانات "خرائط Google" وشروط الترخيص الخاصة بهم
-، اطّلِع على [الإشعارات القانونية في "خرائط Google" وGoogle Earth](https://www.google.com/help/legalnotices_maps/?hl=ar).
+如需详细了解部分 Google 地图数据提供商及其
+许可条款，请参阅 [Google 地图和 Google 地球法律声明](https://www.google.com/help/legalnotices_maps/?hl=zh-cn)。
 
-## أفضل الممارسات
+## 最佳做法
 
-- **تحديد موقع المستخدم:** للحصول على الردود الأكثر صلة وتخصيصًا،
-  عليك دائمًا تضمين `latitude` و `longitude` في إعدادات أداة `google_maps` عندما يكون موقع المستخدم معروفًا.
-- **إعلام المستخدمين النهائيين:** عليك إعلام المستخدمين النهائيين بوضوح بأنّه يتم استخدام بيانات "خرائط Google" للإجابة عن طلباتهم، خاصةً عند تفعيل الأداة.
-- **إيقاف الأداة عند عدم الحاجة إليها:** تكون ميزة "استخدام "خرائط Google" كمصدر" غير مفعّلة تلقائيًا. عليك تفعيلها فقط (`"tools": [{"type": "google_maps"}]`) عندما يتضمّن الطلب سياقًا جغرافيًا واضحًا، وذلك لتحسين الأداء والتكلفة.
+- **提供用户位置**： 为了获得最相关且个性化的回答，请务必在知道用户位置的情况下，在 `google_maps` 工具配置中添加 `latitude` 和 `longitude`。
+- **告知最终用户**： 明确告知最终用户，系统正在使用 Google 地图数据来回答他们的查询，尤其是在启用该工具时。
+- **在不需要时关闭**： Grounding with Google Maps 默认处于关闭状态。只有当查询具有
+  明确的地理位置上下文时，才启用该功能 (`"tools": [{"type": "google_maps"}]`)，以优化性能和费用。
 
-## القيود
+## 限制
 
-- لا تتيح ميزة استخدام "خرائط Google" كمصدر حاليًا استخدام الطلبات والردود إلا باللغة الإنجليزية.
-- قد لا تتوفّر الأداة في بعض المناطق.
-- قد تختلف النتائج استنادًا إلى دقة الموقع الجغرافي وبيانات "خرائط Google" المتاحة.
-- **النطاق الجغرافي:** تتوفّر ميزة "استخدام "خرائط Google" كمصدر" على مستوى العالم.
-- **الحالة التلقائية:** تكون أداة "استخدام "خرائط Google" كمصدر" غير مفعّلة تلقائيًا.
-  عليك تفعيلها صراحةً في طلبات البيانات من واجهة برمجة التطبيقات.
+- Grounding with Google Maps 目前仅支持英语提示和回答。
+- 该工具可能并非在所有地区都可用。
+- 结果可能会因位置准确性和可用的 Google 地图数据而异。
+- **地理范围**： Grounding with Google Maps 在全球范围内可用。
+- **默认状态**： “依托 Google 地图进行接地”工具默认处于关闭状态。
+  您必须在 API 请求中明确启用该工具。
 
-## التسعير وحدود المعدّل
+## 价格和速率限制
 
-يستند تسعير ميزة "استخدام خرائط Google كمصدر" إلى الطلبات. يبلغ المعدّل الحالي **25 دولارًا أمريكيًا لكل 1,000 طلب مستند إلى المصدر**. يتضمّن المستوى المجاني أيضًا ما يصل إلى 500 طلب في اليوم. لا يتم احتساب الطلب ضمن الحصة إلا عندما يعرض الطلب بنجاح نتيجة واحدة على الأقل مستندة إلى "خرائط Google" (أي نتائج تحتوي على مصدر واحد على الأقل من "خرائط Google"). إذا تم إرسال طلبات متعددة إلى "خرائط Google" من طلب واحد، يتم احتسابها كطلب واحد ضمن حدّ المعدّل.
+Grounding with Google Maps 的价格取决于查询。目前的费率为 **25 美元 / 1,000 个接地提示** 。免费层级每天最多可提供 500 个请求。只有当提示成功返回至少一个 Google 地图接地结果（即包含至少一个 Google 地图来源的结果）时，请求才会计入配额。如果从单个请求向 Google 地图发送多个查询，则会计入速率限制中的一个请求。
 
-للحصول على معلومات مفصّلة عن الأسعار، اطّلِع على [صفحة أسعار Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=ar).
+如需详细了解价格信息，请参阅 [Gemini API 价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
 
-## النماذج المتوافقة
+## 支持的模型
 
-تتيح النماذج التالية ميزة "استخدام خرائط Google كمصدر":
+以下模型支持 Grounding with Google Maps：
 
-| الطراز | استخدام "خرائط Google" كمصدر |
+| 模型 | Grounding with Google Maps |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
-| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
-| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
-| [‫Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
 
-## مجموعات الأدوات المتوافقة
+## 支持的工具组合
 
-تتيح نماذج Gemini 3 الجمع بين الأدوات المضمّنة (مثل ميزة "تحديد المصدر باستخدام خرائط Google") والأدوات المخصّصة (استدعاء الدوال). يمكنك الاطّلاع على مزيد من المعلومات في صفحة
-[مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=ar).
+Gemini 3 模型支持将内置工具（例如“依托 Google 地图进行接地”）与自定义工具（函数调用）相结合。如需了解详情，请参阅
+[工具组合](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=zh-cn)页面。
 
-## الخطوات التالية
+## 后续步骤
 
-- تعرَّف على الأدوات الأخرى [المتاحة](https://ai.google.dev/gemini-api/docs/tools?hl=ar).
-- لمزيد من المعلومات عن أفضل ممارسات الذكاء الاصطناعي المسؤول وفلاتر الأمان في Gemini API
-  ، اطّلِع على [دليل إعدادات الأمان](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar).
+- 了解其他[可用工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-cn)。
+- 如需详细了解 Responsible AI 最佳实践和 Gemini API 的安全
+  过滤器，请参阅 [安全设置指南](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-cn)。
 
-إرسال ملاحظات
+发送反馈
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
+最后更新时间 (UTC)：2026-06-01。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+需要向我们提供更多信息？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-01。"],[],[]]

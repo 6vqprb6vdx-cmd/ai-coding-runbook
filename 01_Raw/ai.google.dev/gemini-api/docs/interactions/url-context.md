@@ -1,36 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ko
-fetched_at: 2026-06-01T19:47:25.241795+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he
+fetched_at: 2026-06-08T14:59:06.481262+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-의견 보내기
+שליחת משוב
 
-# URL 컨텍스트
+# ההקשר של כתובת ה-URL
 
-[URL 컨텍스트 도구를 사용하면 URL 형식으로 모델에 추가 컨텍스트를 제공할 수 있습니다. 요청에 URL을 포함하면 모델은 제한사항 섹션에 나열된 URL 유형이 아닌 경우 해당 페이지의 콘텐츠에 액세스하여 응답에 정보를 제공하고 응답을 개선합니다.](#limitations)
+הכלי 'הקשר של כתובת URL' מאפשר לכם לספק למודלים הקשר נוסף בצורה של כתובות URL. אם תכללו כתובות URL בבקשה, המודל יוכל לגשת לתוכן מהדפים האלה (כל עוד כתובת ה-URL לא שייכת לסוג שמופיע [בקטע המגבלות](#limitations)) כדי לשפר את התשובה שלו.
 
-URL 컨텍스트 도구는 다음과 같은 태스크에 유용합니다.
+הכלי 'הקשר של כתובת URL' שימושי למשימות כמו:
 
-- **데이터 추출**: 여러 URL에서 가격, 이름 또는 주요
-  결과와 같은 특정 정보를 가져옵니다.
-- **문서 비교**: 여러 보고서, 기사 또는 PDF를 분석하여
-  차이점을 파악하고 추세를 추적합니다.
-- **콘텐츠 종합 및 생성**: 여러 소스 URL의 정보를 결합하여 정확한 요약, 블로그 게시물 또는 보고서를 생성합니다.
-- **코드 및 문서 분석**: GitHub 저장소 또는 기술 문서를 가리켜 코드를 설명하거나, 설정 안내를 생성하거나, 질문에 답변합니다.
+- **חילוץ נתונים**: שליפת מידע ספציפי כמו מחירים, שמות או ממצאים מרכזיים מכמה כתובות URL.
+- **השוואת מסמכים**: ניתוח של כמה דוחות, מאמרים או קובצי PDF כדי לזהות הבדלים ולעקוב אחרי מגמות.
+- **סינתזה ויצירת תוכן**: שילוב מידע מכמה כתובות URL של מקורות כדי ליצור סיכומים מדויקים, פוסטים בבלוג או דוחות.
+- **ניתוח קוד ומסמכים**: אפשר להפנות למאגר GitHub או למסמכים טכניים כדי לקבל הסבר על קוד, ליצור הוראות הגדרה או לקבל תשובות לשאלות.
 
-다음 예에서는 서로 다른 웹사이트의 두 가지 레시피를 비교하는 방법을 보여줍니다.
+בדוגמה הבאה אפשר לראות איך משווים בין שני מתכונים מאתרים שונים.
 
 ### Python
 
@@ -62,7 +60,7 @@ for step in interaction.steps:
                             print(f"  - {annotation.title}: {annotation.url}")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -115,26 +113,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 작동 방식
+## איך זה עובד
 
-URL 컨텍스트 도구는 2단계 검색 프로세스를 사용하여 속도, 비용, 최신 데이터 액세스의 균형을 맞춥니다. URL을 제공하면 도구는 먼저 내부 색인 캐시에서 콘텐츠를 가져오려고 시도합니다. 이는 고도로 최적화된 캐시 역할을 합니다. URL이 색인에서 제공되지 않는 경우 (예: 매우 새로운 페이지인 경우) 도구는 자동으로 실시간 가져오기를 실행합니다.
-이렇게 하면 URL에 직접 액세스하여 콘텐츠를 실시간으로 가져올 수 있습니다.
+הכלי 'הקשר כתובת ה-URL' משתמש בתהליך אחזור דו-שלבי כדי לאזן בין מהירות, עלות וגישה לנתונים עדכניים. כשמספקים כתובת URL, הכלי מנסה קודם לשלוף את התוכן ממטמון אינדקס פנימי. הוא פועל כמטמון שעבר אופטימיזציה גבוהה. אם כתובת URL לא זמינה באינדקס (למשל, אם מדובר בדף חדש מאוד), הכלי יחזור אוטומטית לאחזור של הגרסה הפעילה.
+הכלי ניגש ישירות לכתובת ה-URL כדי לאחזר את התוכן שלה בזמן אמת.
 
-## 다른 도구와 결합
+## שילוב עם כלים אחרים
 
-URL 컨텍스트 도구를 다른 도구와 결합하여 더 강력한 워크플로를 만들 수 있습니다.
+אפשר לשלב את הכלי להקשר של כתובת URL עם כלים אחרים כדי ליצור תהליכי עבודה יעילים יותר.
 
-[Gemini 3 모델](#supported-models)은 기본 제공 도구
-(URL 컨텍스트와 같은)를 커스텀 도구 (함수 호출)와 결합하는 것을 지원합니다. 도구 조합
- 페이지에서 자세히 알아보세요.
+[מודלים של Gemini 3](#supported-models) תומכים בשילוב של כלים מובנים (כמו הקשר של כתובת URL) עם כלים מותאמים אישית (הפעלת פונקציות). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=he).
 
-### 검색을 사용한 그라운딩
+### עיגון בנתונים באמצעות חיפוש
 
-URL 컨텍스트와
-[Google 검색을 사용한 그라운딩](https://ai.google.dev/gemini-api/docs/grounding?hl=ko)이 모두 사용 설정되면
-모델은 검색 기능을 사용하여
-온라인에서 관련 정보를 찾은 다음 URL 컨텍스트 도구를 사용하여
-찾은 페이지를 더 심층적으로 이해할 수 있습니다. 이 접근 방식은 광범위한 검색과 특정 페이지의 심층 분석이 모두 필요한 프롬프트에 유용합니다.
+אם מפעילים גם את ההגדרה 'הקשר של כתובת ה-URL' וגם את ההגדרה [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/grounding?hl=he), המודל יכול להשתמש ביכולות החיפוש שלו כדי למצוא מידע רלוונטי באינטרנט, ואז להשתמש בכלי 'הקשר של כתובת ה-URL' כדי לקבל הבנה מעמיקה יותר של הדפים שהוא מוצא. הגישה הזו יעילה במיוחד להנחיות שדורשות חיפוש רחב וניתוח מעמיק של דפים ספציפיים.
 
 ### Python
 
@@ -160,7 +152,7 @@ for step in interaction.steps:
                 print(content_block.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -208,20 +200,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 응답 이해
+## הסבר על התשובה
 
-모델이 URL 컨텍스트 도구를 사용하면 텍스트 응답에 텍스트 콘텐츠 블록에 인라인 `url_citation` 주석이 포함됩니다. 각 주석은 응답 텍스트의 세그먼트를 (`start_index` 및 `end_index`를 통해) 파생된 소스 URL에 연결합니다. 이는 애플리101}케이션에서 인용을 표시하는 기본 방법입니다. 인용을 추출하는 방법은 위의 [기본 예시](#get-started)를 참고하세요.
+כשהמודל משתמש בכלי ההקשר של כתובת ה-URL, תשובת הטקסט שלו כוללת הערות מוטבעות
+`url_citation` בבלוק התוכן של הטקסט. כל הערה מקשרת קטע של טקסט התשובה (באמצעות `start_index` ו-`end_index`) לכתובת ה-URL של המקור שממנו הוא נלקח. זו הדרך העיקרית להצגת ציטוטים באפליקציה שלכם. [בדוגמה הראשית שלמעלה](#get-started) מוסבר איך לחלץ אותם.
 
-응답에는 각 URL 검색 시도 (상태, 검색된 URL)에 관한 메타데이터가 포함된 `url_context_result` 단계도 포함됩니다. 이는 주로 디버깅에 유용합니다.
+התגובה כוללת גם שלב `url_context_result` עם מטא-נתונים לגבי כל ניסיון לאחזור כתובת URL (סטטוס, כתובת URL שאוחזרה). האפשרות הזו שימושית בעיקר לניפוי באגים.
 
-### 안전 확인
+### בדיקות אבטחה
 
-시스템은 URL이 안전 표준을 충족하는지 확인하기 위해 URL에 대한 콘텐츠 검토를 수행합니다. URL이 이 검사를 통과하지 못하면 해당
-`url_context_result` 단계에 `status`가 `"unsafe"`로 표시됩니다.
+המערכת מבצעת בדיקה של כתובות ה-URL כדי לוודא שהן עומדות בתקני הבטיחות. אם כתובת URL נכשלת בבדיקה הזו, בשלב `url_context_result` המתאים יוצג `status` עם הערך `"unsafe"`.
 
-### 토큰 수
+### ספירת הטוקנים
 
-프롬프트에 지정한 URL에서 검색된 콘텐츠는 입력 토큰의 일부로 계산됩니다. 상호작용의 `usage` 객체에서 토큰 수를 확인할 수 있습니다. 다음은 그 예시입니다.
+התוכן שאוחזר מכתובות ה-URL שציינתם בהנחיה נספר כחלק מאסימוני הקלט. אפשר לראות את מספר האסימונים באובייקט `usage` של האינטראקציה. לדוגמה:
 
 ```
 'usage': {
@@ -235,59 +227,56 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-토큰당 가격은 사용된 모델에 따라 다릅니다. 자세한 내용은
-[가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko) 페이지를 참고하세요.
+המחיר לכל טוקן תלוי במודל שבו משתמשים. פרטים נוספים זמינים בדף [התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## 지원되는 모델
+## מודלים נתמכים
 
-| 모델 | URL 컨텍스트 |
+| מודל | ההקשר של כתובת ה-URL |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ |
-| [Gemini 3.1 Pro 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ |
-| [Gemini 3 Flash 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ |
+| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Pro (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
+| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
 
-## 권장사항
+## שיטות מומלצות
 
-- **특정 URL 제공**: 최상의 결과를 얻으려면 모델이 분석할 콘텐츠의 직접 URL을 제공하세요. 모델은 중첩된 링크의 콘텐츠가 아닌 제공된 URL의 콘텐츠만 검색합니다.
-- **접근성 확인**: 제공하는 URL이 로그인해야 하거나 페이월 뒤에 있는
-  페이지로 연결되지 않는지 확인합니다.
-- **전체 URL 사용**: 프로토콜을 포함한 전체 URL을 제공합니다
-  (예: google.com 대신 https://www.google.com).
+- **צריך לספק כתובות URL ספציפיות**: כדי לקבל את התוצאות הטובות ביותר, צריך לספק כתובות URL ישירות לתוכן שרוצים שהמודל ינתח. המודל יאחזר תוכן רק מכתובות ה-URL שתספקו, ולא מקישורים מוטמעים.
+- **בודקים את הנגישות**: מוודאים שכתובות ה-URL שציינתם לא מובילות לדפים שנדרשת בהם התחברות או שהם נמצאים מאחורי חומת תשלום.
+- **שימוש בכתובת ה-URL המלאה**: צריך לציין את כתובת ה-URL המלאה, כולל הפרוטוקול (למשל, https://www.google.com ולא רק google.com).
 
-## 제한사항
+## מגבלות
 
-- 요청 한도: 이 도구는 요청당 최대 20개의 URL을 처리할 수 있습니다.
-- URL 콘텐츠 크기: 단일 URL에서 검색된 콘텐츠의 최대 크기는 34MB입니다.
-- 공개 접근성: URL은 웹에서 공개적으로 액세스할 수 있어야 합니다.
-  localhost 주소 (예: localhost, 127.0.0.1), 비공개 네트워크, 터널링 서비스 (예: ngrok, pinggy)는 지원되지 않습니다.
-- Gemini API만 해당: URL 컨텍스트는 Gemini Enterprise Agent Platform을 통해서가 아니라 Gemini API에서만 사용할 수 있습니다.
+- מגבלת בקשות: הכלי יכול לעבד עד 20 כתובות URL לכל בקשה.
+- גודל התוכן של כתובת URL: הגודל המקסימלי של תוכן שאוחזר מכתובת URL יחידה הוא 34MB.
+- נגישות לכולם: כתובות ה-URL צריכות להיות נגישות לכולם באינטרנט.
+  אין תמיכה בכתובות localhost (לדוגמה, localhost,‏ 127.0.0.1), ברשתות פרטיות ובשירותי מנהור (לדוגמה, ngrok,‏ pinggy).
+- ‫Gemini API בלבד: הקשר של כתובת ה-URL זמין רק ב-Gemini API, ולא דרך Gemini Enterprise Agent Platform.
 
-### 지원되는 콘텐츠 유형과 지원되지 않는 콘텐츠 유형
+### סוגי תוכן נתמכים ולא נתמכים
 
-이 도구는 다음 콘텐츠 유형의 URL에서 콘텐츠를 추출할 수 있습니다.
+הכלי יכול לחלץ תוכן מכתובות URL עם סוגי התוכן הבאים:
 
-- 텍스트 (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- 이미지 (image/png, image/jpeg, image/bmp, image/webp)
-- PDF (application/pdf)
+- טקסט (text/html, application/json, text/plain, text/xml, text/css,
+  text/javascript , text/csv, text/rtf)
+- תמונה (image/png, ‏ image/jpeg, ‏ image/bmp, ‏ image/webp)
+- ‫PDF (application/pdf)
 
-다음 콘텐츠 유형은 지원되지 **않습니다**.
+סוגי התוכן הבאים **לא** נתמכים:
 
-- 페이월 콘텐츠
-- YouTube 동영상 ([동영상 이해](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=ko#youtube) 참고
-  YouTube URL을 처리하는 방법은)
-- Google Docs 또는 스프레드시트와 같은 Google Workspace 파일
-- 동영상 및 오디오 파일
+- תוכן שזמין רק לאחר תשלום
+- סרטונים ב-YouTube (במאמר בנושא [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=he#youtube) מוסבר איך לעבד כתובות URL של סרטונים ב-YouTube)
+- קבצים ב-Google Workspace, כמו מסמכים או גיליונות אלקטרוניים של Google
+- קובצי וידאו ואודיו
 
-의견 보내기
+שליחת משוב
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-최종 업데이트: 2026-05-28(UTC)
+עדכון אחרון: 2026-05-28 (שעון UTC).
 
-의견을 전달하고 싶나요?
+רוצה לתת לנו משוב?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-28(UTC)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]

@@ -1,45 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=pt-BR
-fetched_at: 2026-06-01T19:47:10.517804+00:00
-title: "An\u00e1lise de suporte ao cliente com o Gemini e a CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=ja
+fetched_at: 2026-06-08T15:03:12.725249+00:00
+title: "Gemini \u3068 CrewAI \u3092\u4f7f\u7528\u3057\u305f\u30ab\u30b9\u30bf\u30de\u30fc \u30b5\u30dd\u30fc\u30c8\u306e\u5206\u6790 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envie comentários
+フィードバックを送信
 
-# Análise de suporte ao cliente com o Gemini e a CrewAI
+# Gemini と CrewAI を使用したカスタマー サポートの分析
 
-[CrewAI](https://docs.crewai.com/introduction) é um framework para orquestrar
-agentes de IA autônomos que colaboram para alcançar metas complexas. Ele permite
-definir agentes especificando papéis, metas e histórias de fundo e, em seguida, definir tarefas
-para eles.
+[CrewAI](https://docs.crewai.com/introduction) は、連携して複雑な目標を達成する自律型 AI エージェントをオーケストレートするためのフレームワークです。ロール、目標、バックストーリーを指定してエージェントを定義し、タスクを定義できます。
 
-Este exemplo demonstra como criar um sistema multiagente para analisar dados de suporte ao cliente para identificar problemas e propor melhorias de processo usando o Gemini 3 Flash, gerando um relatório destinado a ser lido por um diretor de operações (COO).
+この例では、Gemini 3 Flash を使用して、カスタマー サポート データを分析して問題を特定し、プロセス改善を提案するマルチエージェント システムを構築する方法を示します。このシステムは、最高執行責任者（COO）が読むことを想定したレポートを生成します。
 
-O guia mostra como criar uma "equipe" de agentes de IA que podem realizar as seguintes tarefas:
+このガイドでは、次のタスクを実行できる AI エージェントの「クルー」を作成する方法について説明します。
 
-1. Buscar e analisar dados de suporte ao cliente (simulados neste exemplo).
-2. Identificar problemas recorrentes e gargalos de processo.
-3. Sugerir melhorias práticas.
-4. Compilar as descobertas em um relatório conciso adequado para um COO.
+1. カスタマー サポート データを取得して分析します（この例ではシミュレートされています）。
+2. 繰り返し発生する問題とプロセスのボトルネックを特定します。
+3. 具体的な改善案を提案します。
+4. 調査結果を COO に適した簡潔なレポートにまとめます。
 
-Você precisa de uma chave da API Gemini. Se ainda não tiver, você pode [conseguir uma no
-Google AI Studio](https://aistudio.google.com/app/apikey?hl=pt-br).
+Gemini API キーが必要です。キーがない場合は、[Google AI Studio で取得](https://aistudio.google.com/app/apikey?hl=ja)できます。
 
 ```
 pip install "crewai[tools]"
 ```
 
-Defina a chave da API Gemini como uma variável de ambiente chamada `GEMINI_API_KEY` e configure o CrewAI para usar o modelo do Gemini.
+Gemini API キーを `GEMINI_API_KEY` という名前の環境変数として設定し、Gemini モデルを使用するように CrewAI を構成します。
 
 ```
 import os
@@ -54,15 +50,13 @@ gemini_llm = LLM(
 )
 ```
 
-## Definir componentes
+## コンポーネントを定義する
 
-Crie aplicativos do CrewAI usando **ferramentas**, **agentes**, **tarefas** e a
-**equipe**. As seções a seguir explicam cada um desses componentes.
+**ツール**、**エージェント**、**タスク**、**クルー**自体を使用して CrewAI アプリケーションを構築します。以降のセクションでは、これらの各コンポーネントについて説明します。
 
-### Ferramentas
+### ツール
 
-As ferramentas são recursos que os agentes podem usar para interagir com o mundo externo ou realizar ações específicas. Aqui, você define uma ferramenta de marcador de posição para simular a busca de dados de suporte ao cliente. Em um aplicativo real, você se conectaria a um banco de dados, API ou sistema de arquivos. Para mais informações sobre ferramentas, consulte o [guia de ferramentas
-do CrewAI](https://docs.crewai.com/concepts/tools).
+ツールは、エージェントが外部とやり取りしたり、特定のアクションを実行したりするために使用できる機能です。ここでは、カスタマー サポート データの取得をシミュレートするプレースホルダ ツールを定義します。実際のアプリケーションでは、データベース、API、ファイル システムに接続します。ツールの詳細については、[CrewAI ツールガイド](https://docs.crewai.com/concepts/tools)をご覧ください。
 
 ```
 from crewai.tools import BaseTool
@@ -92,10 +86,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### Agentes
+### エージェント
 
-Os agentes são os trabalhadores de IA individuais na sua equipe. Cada agente tem um `role`, `goal`, `backstory`, `llm` atribuído e `tools` opcionais. Para mais
-informações sobre agentes, consulte o [guia de agentes do CrewAI](https://docs.crewai.com/concepts/agents).
+エージェントは、クルー内の個々の AI ワーカーです。各エージェントには、特定の `role`、`goal`、`backstory`、割り当てられた `llm`、省略可能な `tools` があります。エージェントの詳細については、[CrewAI エージェントのガイド](https://docs.crewai.com/concepts/agents)をご覧ください。
 
 ```
 from crewai import Agent
@@ -142,10 +135,9 @@ report_writer = Agent(
 )
 ```
 
-### Tarefas
+### タスク
 
-As tarefas definem as atribuições específicas para os agentes. Cada tarefa tem uma `description`, `expected_output` e é atribuída a um `agent`. As tarefas são executadas sequencialmente por padrão e incluem o contexto da tarefa anterior. Para mais
-informações sobre tarefas, consulte o [guia de tarefas do CrewAI](https://docs.crewai.com/concepts/tasks).
+タスクは、エージェントの具体的な割り当てを定義します。各タスクには `description` と `expected_output` があり、`agent` に割り当てられます。タスクはデフォルトで順番に実行され、前のタスクのコンテキストが含まれます。タスクの詳細については、[CrewAI タスクガイド](https://docs.crewai.com/concepts/tasks)をご覧ください。
 
 ```
 from crewai import Task
@@ -204,9 +196,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Gangue
+### Crew
 
-A `Crew` reúne os agentes e as tarefas, definindo o processo de fluxo de trabalho (como "sequencial").
+`Crew` は、エージェントとタスクをまとめ、ワークフロー プロセス（「順次」など）を定義します。
 
 ```
 from crewai import Crew, Process
@@ -219,9 +211,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## Executar a equipe
+## クルーを実行する
 
-Por fim, inicie a execução da equipe com as entradas necessárias.
+最後に、必要な入力を使用してクルーの実行を開始します。
 
 ```
 # Start the crew's work
@@ -235,19 +227,17 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-O script será executado. O `Data Analyst` vai usar a ferramenta, o `Process
-Optimizer` vai analisar as descobertas e o `Report Writer` vai compilar o
-relatório final, que será impresso no console. A configuração `verbose=True` mostra o processo de pensamento detalhado e as ações de cada agente.
+スクリプトが実行されます。`Data Analyst` はツールを使用し、`Process
+Optimizer` は調査結果を分析し、`Report Writer` は最終レポートをコンパイルしてコンソールに出力します。`verbose=True` 設定では、各エージェントの詳細な思考プロセスとアクションが表示されます。
 
-Para saber mais sobre o CrewAI, confira a [introdução
-do CrewAI](https://docs.crewai.com/introduction).
+CrewAI の詳細については、[CrewAI の概要](https://docs.crewai.com/introduction)をご覧ください。
 
-Envie comentários
+フィードバックを送信
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última atualização 2026-05-19 UTC.
+最終更新日 2026-05-19 UTC。
 
-Quer enviar seu feedback?
+ご意見をお聞かせください
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]

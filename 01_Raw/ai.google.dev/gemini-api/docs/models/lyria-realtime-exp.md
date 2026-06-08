@@ -1,47 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=hi
-fetched_at: 2026-06-01T19:43:54.735876+00:00
-title: "Lyria RealTime \u090f\u0915\u094d\u0938\u092a\u0947\u0930\u093f\u092e\u0947\u0902\u091f \u0915\u0947 \u0924\u094c\u0930 \u092a\u0930 \u0909\u092a\u0932\u092c\u094d\u0927 \u0939\u0948 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=zh-CN
+fetched_at: 2026-06-08T15:02:29.890523+00:00
+title: "Lyria RealTime \u5b9e\u9a8c\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-सुझाव भेजें
+发送反馈
 
-# Lyria RealTime एक्सपेरिमेंट के तौर पर उपलब्ध है
+# Lyria RealTime 实验版
 
-यह एक्सपेरिमेंट के तौर पर उपलब्ध एक इंजन है. इसका इस्तेमाल, संगीत को बेहतर तरीके से सिंथेसाइज़ करने के लिए किया जाता है. इसमें ऑडियो कॉन्टेंट जनरेट करने और उसे बदलने के लिए नई सुविधाएं मिलती हैं. Lyria RealTime, एआई की मदद से गाना लिखने, यूनीक इंस्ट्रुमेंटल जनरेट करने, और क्रिएटिव ऑडियो वर्कफ़्लो के लिए सबसे अच्छा है. इसके लिए, धुन और लय पर पूरा कंट्रोल होना ज़रूरी है. इसमें वोकल नहीं होते.
+一款用于高保真音乐合成的实验性引擎，可提供创新功能来生成和转换音频内容。Lyria RealTime 非常适合需要对旋律和节奏进行深度控制的 AI 辅助歌曲创作、独特的乐器生成和创意音频工作流程，且不包含人声。
 
-[Lyria RealTime को आज़माएँ](https://deepmind.google/models/lyria/lyria-realtime/?hl=hi)
+[试用 Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=zh-cn)
 
-## दस्तावेज़
+## 文档
 
-सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए, [रीयलटाइम में संगीत जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=hi) वाले पेज पर जाएं.
+如需全面了解功能和功能，请访问[实时音乐生成](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)页面。
 
 ## lyria-realtime-exp
 
-| प्रॉपर्टी | ब्यौरा |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `lyria-realtime-exp` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट (वज़न वाले प्रॉम्प्ट)  **आउटपुट**  ऑडियो (रॉ 16-बिट पीसीएम) |
-| token\_autoस्ट्रीमिंग की सीमाएं | **सैंपल लेने की दर**  48kHz (स्टीरियो)  **कंट्रोल के इंतज़ार का समय**  ज़्यादा से ज़्यादा दो सेकंड |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - एक्सपेरिमेंट के तौर पर उपलब्ध: `lyria-realtime-exp` |
-| calendar\_monthनया अपडेट | मई 2025 |
+| id\_card 模型代码 | **Gemini API**  `lyria-realtime-exp` |
+| 保存支持的数据类型 | **输入**  文本（加权提示）  **输出**  音频（原始 16 位 PCM） |
+| token\_auto直播限制 | **采样率**  48kHz（立体声）  **控制延迟**  最长 2 秒 |
+| 123 版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 实验性：`lyria-realtime-exp` |
+| calendar\_month最新更新 | 2025 年 5 月 |
 
-सुझाव भेजें
+发送反馈
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
+最后更新时间 (UTC)：2026-04-29。
 
-क्या आपको हमें और कुछ बताना है?
+需要向我们提供更多信息？
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]

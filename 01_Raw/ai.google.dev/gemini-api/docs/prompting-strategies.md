@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pl
-fetched_at: 2026-06-01T19:37:03.866109+00:00
+fetched_at: 2026-06-08T14:57:46.757335+00:00
 title: "Strategie projektowania prompt\u00f3w \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

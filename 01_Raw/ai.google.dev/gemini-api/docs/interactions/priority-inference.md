@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=he
-fetched_at: 2026-06-01T19:39:22.059489+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=tr
+fetched_at: 2026-06-08T14:54:41.821903+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-שליחת משוב
+Geri bildirim gönderin
 
-# הסקת עדיפות
+# Öncelik çıkarımı
 
-‫Gemini Priority API הוא רמה של הסקת מסקנות (inference) בתשלום, שמיועדת לעומסי עבודה קריטיים לעסק שדורשים זמן אחזור נמוך ואמינות גבוהה ביותר, במחיר פרימיום. תעבורת נתונים ברמת עדיפות גבוהה מקבלת עדיפות על פני תעבורת נתונים ב-API רגיל וברמת Flex.
+Gemini Priority API, daha düşük gecikme süresi ve en yüksek güvenilirlik gerektiren, işletme açısından kritik iş yükleri için tasarlanmış premium bir çıkarım katmanıdır. Bu katman, premium fiyat noktasında sunulur. Öncelikli katman trafiğine, standart API ve esnek katman trafiğine göre öncelik verilir.
 
-הסקת מסקנות לפי עדיפות זמינה בכל נקודות הקצה של Interactions API.
+Öncelikli çıkarım, Etkileşimler API uç noktalarında kullanılabilir.
 
-## איך משתמשים בעדיפות
+## Öncelik özelliğini kullanma
 
-כדי להשתמש ברמת העדיפות Priority, מגדירים את השדה `service_tier` בבקשה לערך `priority`. אם לא מציינים את המסלול בשדה, ברירת המחדל היא המסלול הרגיל.
+Öncelikli katmanı kullanmak için isteğinizdeki `service_tier` alanını `priority` olarak ayarlayın. Alan atlanırsa varsayılan katman standarttır.
 
 ### Python
 
@@ -86,75 +86,75 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## איך פועל הסקת העדיפות
+## Öncelikli çıkarımın işleyiş şekli
 
-ההסקה לפי עדיפות מעבירה בקשות לתורים של מחשוב ברמת קריטיות גבוהה, ומציעה ביצועים מהירים וצפויים לאפליקציות שפונות למשתמשים. המנגנון העיקרי שלו הוא שדרוג לאחור בצד השרת לעיבוד רגיל של תנועה שחורגת מהמגבלות הדינמיות, כדי להבטיח את יציבות האפליקציה במקום לגרום לכשל בבקשה.
+Öncelikli çıkarım, istekleri yüksek önem dereceli bilgi işlem kuyruklarına yönlendirerek kullanıcıya yönelik uygulamalar için tahmin edilebilir ve hızlı performans sunar. Bu özelliğin temel mekanizması, dinamik sınırları aşan trafik için sunucu tarafında standart işleme sorunsuz bir şekilde geçiş yaparak isteği başarısız kılmak yerine uygulamanın kararlılığını sağlamaktır.
 
-| תכונה | עדיפות | רגיל | שרירים של סלע | Batch |
+| Özellik | Öncelik | Standart | Yaratıcılığınızı | Toplu |
 | --- | --- | --- | --- | --- |
-| **תמחור** | ‫75% עד 100% יותר מבתוכנית Standard | מחיר מלא | הנחה של 50% | הנחה של 50% |
-| **זמן אחזור** | שניות | שניות לדקות | דקות (יעד של 15-1 דקות) | עד 24 שעות |
-| **אמינות** | גבוהה (לא ניתן להסרה) | גבוהה / בינונית-גבוהה | ללא התחייבות (ניתן להשמטה) | גבוהה (לתפוקה) |
-| **ממשק** | סינכרוני | סינכרוני | סינכרוני | אסינכרוני |
+| **Fiyatlandırma** | Standart'tan% 75-100 daha fazla | Tam fiyat | %50 indirim | %50 indirim |
+| **Gecikme** | Saniye | Saniyelerden dakikalara | Dakikalar (1-15 dakika hedef) | En fazla 24 saat |
+| **Güvenilirlik** | Yüksek (tüy dökmeyen) | Yüksek / Biraz yüksek | En iyi sonuç (Sheddable) | Yüksek (işleme hızı için) |
+| **Arayüz** | Eşzamanlı | Eşzamanlı | Eşzamanlı | Eşzamansız |
 
-### יתרונות עיקריים
+### Temel avantajlar
 
-- **זמן אחזור נמוך**: מיועד לזמני תגובה של שנייה אחת עבור כלים אינטראקטיביים של AI שפונים למשתמשים.
-- **אמינות גבוהה**: התנועה מטופלת ברמת קריטיות גבוהה ביותר, ואין אפשרות להפחית אותה.
-- **הורדה הדרגתית של רמת השירות**: אם יש עליות פתאומיות בתנועה שחורגות מהמגבלות הדינמיות, רמת השירות יורדת אוטומטית לרמה רגילה לצורך עיבוד, במקום שהעיבוד ייכשל. כך נמנעים שיבושים בשירות.
-- **הפעלה חלקה**: משתמש באותה שיטת `create` סינכרון כמו בתוכניות הרגילה והגמישה.
+- **Düşük gecikme**: Etkileşimli, kullanıcıya yönelik yapay zeka araçları için saniyelik yanıt süreleri sunacak şekilde tasarlanmıştır.
+- **Yüksek güvenilirlik**: Trafik en yüksek öncelik seviyesinde ele alınır ve kesinlikle bırakılmaz.
+- **Kontrollü azalma**: Dinamik sınırları aşan trafik artışları, başarısız olmak yerine işleme için otomatik olarak Standart katmanına düşürülür ve hizmet kesintileri önlenir.
+- **Kolaylık**: Standart ve Flex katmanlarıyla aynı senkron `create` yöntemi kullanılır.
 
-### תרחישים לדוגמה
+### Kullanım alanları
 
-עיבוד בעדיפות גבוהה הוא פתרון אידיאלי לתהליכי עבודה קריטיים לעסק שבהם הביצועים והאמינות הם בעלי חשיבות עליונה.
+Öncelikli işleme, performans ve güvenilirliğin en önemli olduğu, işletme açısından kritik iş akışları için idealdir.
 
-- **אפליקציות אינטראקטיביות מבוססות-AI**: צ'אטבוטים וטייסים וירטואליים לשירות לקוחות, שבהם המשתמשים משלמים מחיר פרימיום ומצפים לתשובות מהירות ועקביות.
-- **מנועי החלטות בזמן אמת**: מערכות שנדרשים בהן תוצאות מהימנות עם זמן אחזור נמוך, כמו תעדוף כרטיסים בשידור חי או זיהוי הונאות.
-- **תכונות ללקוחות פרימיום**: מפתחים שצריכים להבטיח יעדים גבוהים יותר למדידת רמת השירות (SLO) ללקוחות משלמים.
+- **Etkileşimli yapay zeka uygulamaları**: Kullanıcıların premium ödeme yaptığı ve hızlı, tutarlı yanıtlar beklediği müşteri hizmetleri sohbet botları ve yardımcı pilotlar.
+- **Anlık karar motorları**: Canlı bilet önceliklendirme veya sahtekarlık tespiti gibi yüksek güvenilirlik ve düşük gecikme süresi gerektiren sistemler.
+- **Premium müşteri özellikleri**: Ücretli müşteriler için daha yüksek hizmet düzeyi hedefleri (SLO'lar) garanti etmesi gereken geliştiriciler.
 
-### מגבלות קצב
+### Hız sınırları
 
-לצריכה בעדיפות יש מגבלות קצב משלה, גם אם הצריכה נספרת במסגרת [מגבלות הקצב הכוללות של תנועה אינטראקטיבית](https://aistudio.google.com/rate-limit?hl=he). מגבלות ברירת המחדל על קצב הבקשות להסקת עדיפות הן **0.3x ממגבלת הקצב הרגילה עבור מודל או רמת שירות**
+Öncelikli tüketim, [genel etkileşimli trafik hızı sınırlarına](https://aistudio.google.com/rate-limit?hl=tr) dahil edilse de kendi hız sınırlarına sahiptir. Öncelikli çıkarım için varsayılan sıklık sınırları **Model / Katman için standart sıklık sınırının 0,3 katıdır**.
 
-### לוגיקה של שדרוג לאחור
+### Kontrollü sürüm düşürme mantığı
 
-אם יש עומס ומתרחשת חריגה ממגבלות העדיפות, בקשות שחורגות מהמגבלות **משודרגות אוטומטית בצורה חלקה** לעיבוד רגיל במקום להיכשל עם שגיאה 503 או 429. בקשות ששודרגו לאחור יחויבו בתעריף הרגיל, ולא בתעריף הפרימיום של Priority.
+Yoğunluk nedeniyle öncelik sınırları aşılırsa taşma istekleri, 503 veya 429 hatasıyla başarısız olmak yerine **otomatik olarak ve sorunsuz bir şekilde** standart işleme düşürülür. Düşürülmüş istekler, öncelikli premium oran üzerinden değil, standart oran üzerinden faturalandırılır.
 
-### באחריות הלקוח
+### Müşterinin sorumluluğu
 
-- **מעקב אחר תגובות**: מפתחים צריכים לעקוב אחר `x-gemini-service-tier`
-  הכותרת בתגובת ה-API כדי לזהות אם הבקשות משודרגות לעיתים קרובות ל`standard`.
-- **ניסיונות חוזרים**: לקוחות צריכים להטמיע לוגיקה של ניסיונות חוזרים או השהיה מעריכית לפני ניסיון חוזר (exponential backoff) לשגיאות רגילות, כמו `DEADLINE_EXCEEDED`.
+- **Yanıt izleme**: Geliştiriciler, isteklerin sık sık `x-gemini-service-tier`
+  düşürülüp düşürülmediğini tespit etmek için API yanıtındaki `standard` başlığını izlemelidir.
+- **Yeniden denemeler**: İstemciler, `DEADLINE_EXCEEDED` gibi standart hatalar için yeniden deneme mantığı/eksponansiyel geri yükleme uygulamalıdır.
 
-## תמחור
+## Fiyatlandırma
 
-המחיר של הסקת עדיפות גבוה ב-75% עד 100% מהמחיר של [ה-API הרגיל](https://ai.google.dev/gemini-api/docs/pricing?hl=he), והחיוב הוא לפי טוקן.
+Öncelikli çıkarım, [standart API](https://ai.google.dev/gemini-api/docs/pricing?hl=tr)'den% 75-100 daha yüksek bir fiyata sunulur ve jeton başına faturalandırılır.
 
-## מודלים נתמכים
+## Desteklenen modeller
 
-המודלים הבאים תומכים בהסקת מסקנות בעדיפות גבוהה:
+Aşağıdaki modellerde öncelikli çıkarım desteklenir:
 
-| מודל | הסקת עדיפות |
+| Model | Öncelik çıkarımı |
 | --- | --- |
-| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Pro (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
-| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | ✔️ |
+| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
 
-## המאמרים הבאים
+## Sırada ne var?
 
-- [הסקת מסקנות גמישה](https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=he) לצורך צמצום עלויות.
-- [טוקנים](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=he): הסבר על טוקנים.
+- Maliyet azaltımı için [esnek çıkarım](https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=tr).
+- [Jetonlar](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=tr): Jetonları anlayın.
 
-שליחת משוב
+Geri bildirim gönderin
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-עדכון אחרון: 2026-05-28 (שעון UTC).
+Son güncelleme tarihi: 2026-05-28 UTC.
 
-רוצה לתת לנו משוב?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-28 UTC."],[],[]]

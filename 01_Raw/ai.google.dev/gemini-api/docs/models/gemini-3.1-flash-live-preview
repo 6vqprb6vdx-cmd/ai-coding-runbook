@@ -1,65 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi
-fetched_at: 2026-06-01T19:46:48.418238+00:00
-title: "B\u1ea3n xem tr\u01b0\u1edbc Gemini 3.1 Flash Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ko
+fetched_at: 2026-06-08T15:03:01.853591+00:00
+title: "Gemini 3.1 Flash \uc2e4\uc2dc\uac04 \ubbf8\ub9ac\ubcf4\uae30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-# Bản xem trước Gemini 3.1 Flash Live
+# Gemini 3.1 Flash 실시간 미리보기
 
-Gemini 3.1 Flash Live Preview là mô hình âm thanh sang âm thanh có độ trễ thấp, được tối ưu hoá cho các ứng dụng AI tương tác bằng giọng nói và đối thoại theo thời gian thực, có khả năng phát hiện sắc thái âm thanh, độ chính xác về số và nhận thức đa phương thức.
+Gemini 3.1 Flash Live Preview는 음성 우선 AI 애플리케이션과 실시간 대화에 최적화된 짧은 지연 시간의 오디오-오디오 모델로, 음향 뉘앙스 감지, 숫자 정밀도, 멀티모달 인식 기능을 갖추고 있습니다.
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/live?model=gemini-3.1-flash-live-preview&hl=vi)
+[Google AI Studio에서 사용해 보기](https://aistudio.google.com/live?model=gemini-3.1-flash-live-preview&hl=ko)
 
-## Tài liệu
+## 문서
 
-Hãy truy cập vào hướng dẫn về [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi) để xem toàn bộ các tính năng và chức năng.
+기능 및 기능에 관한 전체 내용은 [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko) 가이드를 참고하세요.
 
 ## gemini-3.1-flash-live-preview
 
-| Thuộc tính | Mô tả |
+| 속성 | 설명 |
 | --- | --- |
-| id\_cardMã kiểu máy | `gemini-3.1-flash-live-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản, hình ảnh, âm thanh, video  **Đầu ra**  Văn bản và âm thanh |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072  **Giới hạn mã thông báo đầu ra**  65.536 |
-| handymanChức năng | **Tạo âm thanh**  Được hỗ trợ  **Batch API**  Không được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Gọi hàm**  Được hỗ trợ  **Kết nối với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Không được hỗ trợ  **Live API**  Được hỗ trợ  **Tìm trong phần liên kết thực tế**  Được hỗ trợ  **Đầu ra có cấu trúc**  Không được hỗ trợ  **Tư duy**  Được hỗ trợ  **Bối cảnh URL**  Không được hỗ trợ |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Xem trước: `gemini-3.1-flash-live-preview` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 3 năm 2026 |
-| cognition\_2Điểm cắt kiến thức | Tháng 1 năm 2025 |
+| id\_card모델 코드 | `gemini-3.1-flash-live-preview` |
+| save 지원 데이터 유형 | **입력**  텍스트, 이미지, 오디오, 동영상  **출력**  텍스트 및 오디오 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  131,072  **출력 토큰 한도**  65,536 |
+| handyman기능 | **오디오 생성**  지원됨  **Batch API**  지원되지 않음  **캐싱**  지원되지 않음  **코드 실행**  지원되지 않음  **파일 검색**  지원되지 않음  **함수 호출**  지원됨  **Google 지도 그라운딩**  지원되지 않음  **이미지 생성**  지원되지 않음  **Live API**  지원됨  **검색 그라운딩**  지원됨  **구조화된 출력**  지원되지 않음  **사고**  지원됨  **URL 컨텍스트**  지원되지 않음 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `gemini-3.1-flash-live-preview` |
+| calendar\_month최신 업데이트 | 2026년 3월 |
+| cognition\_2지식 단절 | 2025년 1월 |
 
-## Di chuyển từ Gemini 2.5 Flash Live
+## Gemini 2.5 Flash Live에서 이전
 
-Gemini 3.1 Flash Live Preview được tối ưu hoá cho các cuộc trò chuyện theo thời gian thực với độ trễ thấp.
-Khi di chuyển từ `gemini-2.5-flash-native-audio-preview-12-2025`, hãy cân nhắc những điều sau:
+Gemini 3.1 Flash Live Preview는 짧은 지연 시간의 실시간 대화에 최적화되어 있습니다.
+`gemini-2.5-flash-native-audio-preview-12-2025`에서 이전할 때는 다음 사항을 고려하세요.
 
-- **Chuỗi mô hình**: Cập nhật chuỗi mô hình từ `gemini-2.5-flash-native-audio-preview-12-2025` thành `gemini-3.1-flash-live-preview`.
-- **Cấu hình suy nghĩ**: Gemini 3.1 sử dụng `thinkingLevel` (với các chế độ cài đặt như `minimal`, `low`, `medium` và `high`) thay vì `thinkingBudget`.
-  Chế độ mặc định là `minimal` để tối ưu hoá cho độ trễ thấp nhất. Xem phần [Cân nhắc các cấp và ngân sách](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets).
-- **Sự kiện trên máy chủ**: Giờ đây, một sự kiện [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservercontent) có thể chứa nhiều phần nội dung cùng lúc (ví dụ: các đoạn âm thanh và bản chép lời). Cập nhật mã để xử lý tất cả các phần trong mỗi sự kiện nhằm tránh bỏ lỡ nội dung.
-- **Nội dung của ứng dụng**: `send_client_content` chỉ được hỗ trợ để gieo hạt nhật ký ngữ cảnh ban đầu (yêu cầu đặt [`initial_history_in_client_content`](https://ai.google.dev/api/live?hl=vi#HistoryConfig) trong [`history_config`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentSetup)). Sử dụng [`send_realtime_input`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentrealtimeinput) để gửi nội dung cập nhật văn bản trong cuộc trò chuyện. Xem [Bản cập nhật nội dung gia tăng](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi#incremental-updates).
-- **Phạm vi phủ sóng**: Mặc định là [`TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`](https://ai.google.dev/api/live?hl=vi#turncoverage) thay vì `TURN_INCLUDES_ONLY_ACTIVITY`. Lượt phản hồi của mô hình hiện bao gồm hoạt động âm thanh đã phát hiện và tất cả các khung hình video. Nếu ứng dụng của bạn hiện đang gửi một luồng khung hình video liên tục, bạn có thể muốn cập nhật ứng dụng để chỉ gửi khung hình video khi có hoạt động âm thanh nhằm tránh phát sinh thêm chi phí.
-- **Gọi hàm không đồng bộ**: Chưa được hỗ trợ. Chỉ có thể gọi hàm đồng bộ. Mô hình sẽ không bắt đầu phản hồi cho đến khi bạn gửi phản hồi của công cụ. Xem phần [Gọi hàm không đồng bộ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi#async-function-calling).
-- **Âm thanh chủ động và đối thoại cảm xúc**: Các tính năng này chưa được hỗ trợ trong Gemini 3.1 Flash Live. Xoá mọi cấu hình cho các tính năng này khỏi mã của bạn. Xem [Âm thanh chủ động](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi#proactive-audio) và [Đoạn hội thoại cảm xúc](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi#affective-dialog).
+- **모델 문자열**: 모델 문자열을 `gemini-2.5-flash-native-audio-preview-12-2025`에서 `gemini-3.1-flash-live-preview`로 업데이트합니다.
+- **사고 모델 구성**: Gemini 3.1은 `thinkingBudget` 대신 `thinkingLevel` (`minimal`, `low`, `medium`, `high` 등의 설정 포함)을 사용합니다.
+  기본값은 가장 짧은 지연 시간을 위해 최적화된 `minimal`입니다. [사고 모델 수준 및 예산](https://ai.google.dev/gemini-api/docs/thinking?hl=ko#levels-budgets)을 참고하세요.
+- **서버 이벤트**: 이제 단일 [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=ko#bidigeneratecontentservercontent) 이벤트에 여러 콘텐츠 부분이 동시에 포함될 수 있습니다 (예: 오디오 청크 및 스크립트). 콘텐츠가 누락되지 않도록 각 이벤트의 모든 부분을 처리하도록 코드를 업데이트합니다.
+- **클라이언트 콘텐츠**: `send_client_content`는 초기 컨텍스트 기록 시딩에만 지원됩니다 ([`history_config`](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup)에서 [`initial_history_in_client_content`](https://ai.google.dev/api/live?hl=ko#HistoryConfig) 설정 필요). 대화 중에 텍스트 업데이트를 전송하려면 [`send_realtime_input`](https://ai.google.dev/api/live?hl=ko#bidigeneratecontentrealtimeinput)를 사용하세요. [증분 콘텐츠 업데이트](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#incremental-updates)를 참고하세요.
+- **Turn coverage**: `TURN_INCLUDES_ONLY_ACTIVITY` 대신 [`TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`](https://ai.google.dev/api/live?hl=ko#turncoverage)이 기본값입니다. 이제 모델의 턴에 감지된 오디오 활동과 모든 동영상 프레임이 포함됩니다. 현재 애플리케이션에서 동영상 프레임을 지속적으로 전송하는 경우 추가 비용이 발생하지 않도록 오디오 활동이 있을 때만 동영상 프레임을 전송하도록 애플리케이션을 업데이트하는 것이 좋습니다.
+- **비동기 함수 호출**: 아직 지원되지 않습니다. 함수 호출은 동기식으로만 지원됩니다. 도구 응답을 전송할 때까지 모델은 응답을 시작하지 않습니다. [비동기 함수 호출](https://ai.google.dev/gemini-api/docs/live-tools?hl=ko#async-function-calling)을 참고하세요.
+- **사전 대응 오디오 및 정서적 대화**: 이러한 기능은 아직 Gemini 3.1 Flash Live에서 지원되지 않습니다. 코드에서 이러한 기능의 구성을 삭제합니다. [능동적 오디오](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#proactive-audio) 및 [공감형 대화](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#affective-dialog)를 참고하세요.
 
-Để biết thông tin so sánh chi tiết về các tính năng, hãy xem bảng [So sánh mô hình](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi#model-comparison) trong hướng dẫn về các chức năng.
+자세한 기능 비교는 기능 가이드의 [모델 비교](https://ai.google.dev/gemini-api/docs/live-guide?hl=ko#model-comparison) 표를 참고하세요.
 
-Gửi ý kiến phản hồi
+의견 보내기
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+최종 업데이트: 2026-04-29(UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+의견을 전달하고 싶나요?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

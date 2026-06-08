@@ -1,43 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=vi
-fetched_at: 2026-06-01T19:40:43.050406+00:00
-title: "M\u00e3 th\u00f4ng b\u00e1o t\u1ea1m th\u1eddi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=he
+fetched_at: 2026-06-08T14:58:20.312183+00:00
+title: "\u05d0\u05e1\u05d9\u05de\u05d5\u05e0\u05d9\u05dd \u05d6\u05de\u05e0\u05d9\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Mã thông báo tạm thời
+# אסימונים זמניים
 
-Mã thông báo tạm thời là mã thông báo xác thực có thời hạn ngắn để truy cập vào Gemini API thông qua [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Chúng được thiết kế để tăng cường bảo mật khi bạn kết nối trực tiếp từ thiết bị của người dùng đến API (một cách triển khai [từ ứng dụng đến máy chủ](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach)). Giống như khoá API tiêu chuẩn, bạn có thể trích xuất mã thông báo tạm thời từ các ứng dụng phía máy khách, chẳng hạn như trình duyệt web hoặc ứng dụng di động. Tuy nhiên, vì mã thông báo tạm thời hết hạn nhanh chóng và có thể bị hạn chế, nên chúng giúp giảm đáng kể các rủi ro bảo mật trong môi trường thực tế. Bạn nên sử dụng các khoá này khi truy cập trực tiếp vào Live API từ các ứng dụng phía máy khách để tăng cường tính bảo mật của khoá API.
+אסימונים זמניים הם אסימוני אימות לטווח קצר שמאפשרים גישה ל-Gemini API דרך [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). הם נועדו לשפר את האבטחה כשמתחברים ישירות ממכשיר של משתמש ל-API (הטמעה של [לקוח לשרת](https://ai.google.dev/gemini-api/docs/live?hl=he#implementation-approach)). בדומה למפתחות API רגילים, אפשר לחלץ טוקנים זמניים מאפליקציות בצד הלקוח, כמו דפדפני אינטרנט או אפליקציות לנייד. אבל מכיוון שאסימונים זמניים פוקעים במהירות ואפשר להגביל אותם, הם מפחיתים באופן משמעותי את סיכוני האבטחה בסביבת ייצור. מומלץ להשתמש בהם כשניגשים ישירות ל-Live API מאפליקציות בצד הלקוח, כדי לשפר את האבטחה של מפתחות ה-API.
 
-## Cách hoạt động của mã thông báo tạm thời
+## איך פועלים טוקנים זמניים
 
-Sau đây là cách hoạt động của mã thông báo tạm thời ở cấp độ tổng quát:
+כך פועלים טוקנים זמניים ברמה גבוהה:
 
-1. Ứng dụng khách của bạn (ví dụ: ứng dụng web) xác thực bằng phụ trợ.
-2. Phần phụ trợ của bạn yêu cầu một mã thông báo tạm thời từ dịch vụ cung cấp của Gemini API.
-3. Gemini API phát hành một mã thông báo ngắn hạn.
-4. Phụ trợ của bạn sẽ gửi mã thông báo này đến máy khách để kết nối WebSocket với Live API. Bạn có thể thực hiện việc này bằng cách thay thế khoá API bằng một mã thông báo tạm thời.
-5. Sau đó, ứng dụng sẽ sử dụng mã thông báo này như thể đó là một khoá API.
+1. הלקוח (לדוגמה, אפליקציית אינטרנט) עובר אימות עם ה-Backend.
+2. הבקשות של ה-Backend מקבלות טוקן זמני משירות ההקצאה של Gemini API.
+3. ‫Gemini API מנפיק אסימון לטווח קצר.
+4. הקצה העורפי שולח את האסימון ללקוח לחיבורי WebSocket ל-Live
+   API. כדי לעשות את זה, צריך להחליף את מפתח ה-API באסימון זמני.
+5. לאחר מכן הלקוח משתמש באסימון כאילו היה מפתח API.
 
-![Tổng quan về mã thông báo tạm thời](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=vi)
+![סקירה כללית על טוקנים זמניים](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=he)
 
-Điều này giúp tăng cường bảo mật vì ngay cả khi được trích xuất, mã thông báo cũng chỉ tồn tại trong thời gian ngắn, không giống như khoá API tồn tại trong thời gian dài được triển khai phía máy khách. Vì ứng dụng gửi dữ liệu trực tiếp đến Gemini, nên điều này cũng giúp cải thiện độ trễ và tránh việc các máy chủ phụ trợ của bạn cần phải làm trung gian cho dữ liệu theo thời gian thực.
+השימוש באסימון משפר את האבטחה, כי גם אם הוא מחולץ, תוקף האסימון הוא לזמן קצר, בניגוד למפתח API לטווח ארוך שמוטמע בצד הלקוח. מכיוון שהלקוח שולח נתונים ישירות אל Gemini, זה גם משפר את זמן האחזור ומונע את הצורך בשרתי קצה עורפיים (back-end) שיעבירו את הנתונים בזמן אמת.
 
-## Tạo mã thông báo tạm thời
+## יצירת טוקן זמני
 
-Sau đây là một ví dụ đơn giản về cách lấy mã thông báo tạm thời từ Gemini.
-Theo mặc định, bạn sẽ có 1 phút để bắt đầu các phiên Live API mới bằng mã thông báo từ yêu cầu này (`newSessionExpireTime`) và 30 phút để gửi tin nhắn qua kết nối đó (`expireTime`).
+הנה דוגמה פשוטה שמראה איך לקבל מ-Gemini טוקן זמני.
+כברירת מחדל, יש לכם דקה אחת להתחיל סשנים חדשים של Live API באמצעות הטוקן מהבקשה הזו (`newSessionExpireTime`), ו-30 דקות לשלוח הודעות דרך החיבור הזה (`expireTime`).
 
 ### Python
 
@@ -82,10 +83,10 @@ const token = await client.authTokens.create({
   });
 ```
 
-Để biết các quy tắc ràng buộc về giá trị `expireTime`, giá trị mặc định và các quy cách trường khác, hãy xem [Tài liệu tham khảo API](https://ai.google.dev/api/live?hl=vi#ephemeral-auth-tokens).
-Trong khoảng thời gian `expireTime`, bạn sẽ cần [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=vi#session-resumption) kết nối lại cuộc gọi sau mỗi 10 phút (bạn có thể thực hiện việc này bằng cùng một mã thông báo ngay cả khi `uses: 1`).
+ב[הפניית ה-API](https://ai.google.dev/api/live?hl=he#ephemeral-auth-tokens) מפורטים אילוצים, ערכי ברירת מחדל ומפרטים אחרים של השדה `expireTime`.
+במהלך `expireTime` פרק הזמן הזה, תצטרכו [`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=he#session-resumption) להתחבר מחדש לשיחה כל 10 דקות (אפשר לעשות זאת עם אותו אסימון גם אם `uses: 1`).
 
-Bạn cũng có thể khoá mã thông báo tạm thời đối với một nhóm cấu hình. Điều này có thể hữu ích để cải thiện hơn nữa tính bảo mật của ứng dụng và giữ các chỉ dẫn hệ thống ở phía máy chủ.
+אפשר גם לנעול טוקן זמני לקבוצה של הגדרות. האפשרות הזו יכולה להיות שימושית לשיפור נוסף של האבטחה באפליקציה ולשמירה על הוראות המערכת בצד השרת.
 
 ### Python
 
@@ -143,13 +144,13 @@ const token = await client.authTokens.create({
 // You'll need to pass the value under token.name back to your client to use it
 ```
 
-Bạn cũng có thể khoá một nhóm nhỏ các trường, hãy xem [tài liệu về SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields) để biết thêm thông tin.
+אפשר גם לנעול קבוצת משנה של שדות. מידע נוסף זמין ב[מסמכי התיעוד של ה-SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields).
 
-## Kết nối với Live API bằng mã thông báo tạm thời
+## התחברות ל-Live API באמצעות טוקן זמני
 
-Sau khi có mã thông báo tạm thời, bạn có thể sử dụng mã thông báo này như thể đó là một khoá API (nhưng hãy nhớ rằng mã thông báo này chỉ hoạt động với API trực tiếp và chỉ với phiên bản `v1alpha` của API).
+אחרי שמקבלים אסימון זמני, משתמשים בו כאילו היה מפתח API (אבל חשוב לזכור שהוא פועל רק עם ה-API הפעיל, ורק עם גרסה `v1alpha` של ה-API).
 
-Việc sử dụng mã thông báo tạm thời chỉ có giá trị khi triển khai các ứng dụng tuân theo phương pháp [triển khai từ máy khách đến máy chủ](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach).
+השימוש בטוקנים זמניים מוסיף ערך רק כשפורסים אפליקציות שפועלות לפי גישת [הטמעה מלקוח לשרת](https://ai.google.dev/gemini-api/docs/live?hl=he#implementation-approach).
 
 ### JavaScript
 
@@ -179,29 +180,29 @@ async function main() {
 main();
 ```
 
-Hãy xem bài viết [Làm quen với Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) để biết thêm ví dụ.
+דוגמאות נוספות מופיעות במאמר [תחילת העבודה עם Live API](https://ai.google.dev/gemini-api/docs/live?hl=he).
 
-## Các phương pháp hay nhất
+## שיטות מומלצות
 
-- Đặt thời hạn hết hạn ngắn bằng cách sử dụng tham số `expire_time`.
-- Mã thông báo hết hạn, yêu cầu khởi động lại quy trình cấp phép.
-- Xác minh quy trình xác thực an toàn cho phụ trợ của riêng bạn. Mã thông báo tạm thời sẽ chỉ an toàn như phương thức xác thực phụ trợ của bạn.
-- Nhìn chung, hãy tránh sử dụng mã thông báo tạm thời cho các kết nối từ phụ trợ đến Gemini, vì đường dẫn này thường được coi là an toàn.
+- מגדירים משך תפוגה קצר באמצעות הפרמטר `expire_time`.
+- תוקף האסימונים פג, ולכן צריך להפעיל מחדש את תהליך ההקצאה.
+- צריך לאמת אימות מאובטח לשרת העורפי שלכם. האבטחה של טוקנים זמניים תהיה זהה לזו של שיטת האימות של ה-Backend.
+- בדרך כלל, מומלץ להימנע משימוש בטוקנים זמניים לחיבורים בין קצה העורפי ל-Gemini, כי הנתיב הזה נחשב בדרך כלל למאובטח.
 
-## Các điểm hạn chế
+## מגבלות
 
-Hiện tại, mã thông báo tạm thời chỉ tương thích với [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
+בשלב הזה, טוקנים זמניים תואמים רק ל-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=he).
 
-## Bước tiếp theo
+## המאמרים הבאים
 
-- Hãy đọc phần [tài liệu tham khảo API](https://ai.google.dev/api/live?hl=vi#ephemeral-auth-tokens) về mã thông báo tạm thời để biết thêm thông tin.
+- מידע נוסף על טוקנים זמניים זמין [במאמר בנושא Live API](https://ai.google.dev/api/live?hl=he#ephemeral-auth-tokens).
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-05-29 UTC.
+עדכון אחרון: 2026-05-29 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-29 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-29 (שעון UTC)."],[],[]]

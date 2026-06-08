@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr
-fetched_at: 2026-06-01T19:41:08.756806+00:00
-title: "Antigravity Agent \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pl
+fetched_at: 2026-06-08T15:03:35.713622+00:00
+title: "Agent Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Geri bildirim gönderin
+Prześlij opinię
 
-# Antigravity Agent
+# Agent Antigravity
 
-Antigravity ajanı, Gemini API'de genel amaçlı olarak yönetilen bir ajandır. Tek bir API çağrısı, Google tarafından barındırılan kendi güvenli Linux sanal alanınızda akıl yürüten, kod yürüten, dosyaları yöneten ve web'de gezinmenizi sağlayan bir aracı sunar.
+Agent Antigravity to zarządzany agent do zwykłych obciążeń w interfejsie Gemini API. Pojedyncze wywołanie interfejsu API zapewnia dostęp do agenta, który rozumuje, wykonuje kod, zarządza plikami i przegląda internet w bezpiecznym środowisku Linux Sandbox hostowanym przez Google.
 
-Gemini 3.5 Flash tarafından desteklenir ve Antigravity IDE ile aynı koşum takımını kullanır. [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=tr) ve [Google AI Studio](https://aistudio.google.com?hl=tr) üzerinden kullanılabilir.
+Jest oparty na modelu Gemini 3.5 Flash i korzysta z tego samego środowiska co Antigravity IDE. Dostępne w ramach [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pl) i [Google AI Studio](https://aistudio.google.com?hl=pl).
 
 ### Python
 
@@ -68,29 +68,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Özellikler
+## Uprawnienia
 
-Her çağrı, bir Linux sanal alanı sağlayabilir ve araç kullanma döngüsünü başlatabilir. Aracı, görev tamamlanana kadar plan yapar, harekete geçer, sonuçları gözlemler ve tekrarlar.
+Każde wywołanie może udostępnić piaskownicę systemu Linux i rozpocząć pętlę używania narzędzi. Agent planuje, działa, obserwuje wyniki i powtarza te czynności, aż zadanie zostanie wykonane.
 
-- **Kod yürütme:** Bash, Python ve Node.js komutlarını çalıştırın. Paketleri yükleyin, testleri çalıştırın ve uygulamalar oluşturun.
-- **Dosya yönetimi:** Korumalı alandaki dosyaları okuma, yazma, düzenleme, arama ve listeleme. Dosyalar, etkileşimler arasında korunur.
-- **Web erişimi:** Veriler için Google Arama ve URL getirme.
-- **Bağlam sıkıştırma:** Bağlamı kaybetmeden veya jeton sınırlarına ulaşmadan uzun süren, çok turlu oturumları desteklemek için otomatik bağlam sıkıştırma (~135 bin jetonda tetiklenir).
+- **Wykonywanie kodu:** uruchamiaj polecenia Bash, Python i Node.js. instalować pakiety, przeprowadzać testy i tworzyć aplikacje.
+- **Zarządzanie plikami:** odczytywanie, zapisywanie, edytowanie, wyszukiwanie i wyświetlanie listy plików w piaskownicy. Pliki są zachowywane podczas interakcji.
+- **Dostęp do internetu:** wyszukiwanie w Google i pobieranie adresów URL w celu uzyskania danych.
+- **Kompaktowanie kontekstu:** automatyczne kompaktowanie kontekstu (wyzwalane przy około 135 tys. tokenów) w celu obsługi długotrwałych sesji wieloetapowych bez utraty kontekstu i przekraczania limitów tokenów.
 
-Çok turlu kullanım ve yayın için [Hızlı Başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr) bölümüne bakın.
+Więcej informacji o korzystaniu z wielu tur i transmitowaniu znajdziesz w [krótkim wprowadzeniu](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl).
 
-## Desteklenen araçlar
+## Obsługiwane narzędzia
 
-Varsayılan olarak, temsilci `code_execution`, `google_search` ve `url_context` uygulamalarına erişebilir. `environment` parametresini belirttiğinizde dosya sistemi araçları otomatik olarak etkinleştirilir. Varsayılan grubu özelleştirirken veya kısıtlarken yalnızca `tools` parametresini belirtmeniz gerekir.
+Domyślnie agent ma dostęp do `code_execution`, `google_search` i `url_context`. Narzędzia systemu plików są włączane automatycznie, gdy określisz parametr `environment`. Parametr `tools` musisz podać tylko wtedy, gdy dostosowujesz lub ograniczasz domyślny zestaw.
 
-| Araç | Değer türü | Açıklama |
+| Narzędzie | Wpisz wartość | Opis |
 | --- | --- | --- |
-| Kod Yürütme | `code_execution` | stdout/stderr yakalama ile kabuk komutlarını (bash, Python, Node) çalıştırın. |
-| Google Arama | `google_search` | Herkese açık web'de arama yapın. |
-| URL Bağlamı | `url_context` | Web sayfalarını getirme ve okuma |
-| Dosya sistemi | *(`environment` üzerinden etkinleştirilir)* | Korumalı alanda dosyaları okuma, yazma, düzenleme, arama ve listeleme Ayrı bir araç türü yoktur. `environment` ayarlandığında otomatik olarak etkinleştirilir. |
+| Wykonanie kodu | `code_execution` | Uruchamiaj polecenia powłoki (bash, Python, Node) z przechwytywaniem stdout/stderr. |
+| Wyszukiwarka Google | `google_search` | wyszukiwać w sieci publicznej, |
+| Kontekst adresu URL | `url_context` | pobierać i odczytywać strony internetowe, |
+| System plików | *(włączone za pomocą `environment`)* | odczytywać, zapisywać, edytować, wyszukiwać i wyświetlać listę plików w piaskownicy; Nie ma oddzielnego typu narzędzia. Jest włączany automatycznie, gdy ustawiona jest opcja `environment`. |
 
-Aracı belirli araçlarla sınırlamak için yalnızca ihtiyacınız olanları iletin:
+Aby ograniczyć agenta do określonych narzędzi, przekaż tylko te, których potrzebujesz:
 
 ### Python
 
@@ -150,9 +150,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Çok formatlı giriş
+## Wielomodalne wprowadzanie danych
 
-Antigravity aracısı, çok formatlı girişleri destekler. Şu anda yalnızca `text` ve `image` girişleri desteklenmektedir. Resimler satır içi Base64 kodlu dizeler (`data`) olarak sağlanmalıdır.
+Agent Antigravity obsługuje dane wejściowe multimodalne. Obecnie obsługiwane są tylko dane wejściowe `text` i `image`. Obrazy muszą być podane jako ciągi tekstowe zakodowane w formacie base64 (`data`).
 
 ### Python
 
@@ -226,69 +226,69 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## Aracıyı özelleştirme
+## Dostosowywanie agenta
 
-Antigravity aracısını talimatlarını, araçlarını ve ortamını özelleştirerek genişletebilirsiniz. Aracı, özelleştirme için dosya sistemi tabanlı bir yaklaşımı destekler: Talimatlar ve beceriler için `AGENTS.md` gibi dosyaları doğrudan korumalı alana `.agents/skills/` altında bağlayabilir veya yapılandırmayı etkileşim sırasında satır içi olarak iletebilirsiniz. Yapılandırmanızı satır içi olarak yineleyebilir ve hazır olduğunuzda yönetilen bir aracı olarak kaydedebilirsiniz.
+Możesz rozszerzyć możliwości agenta Antigravity, dostosowując jego instrukcje, narzędzia i środowisko. Agent obsługuje natywne dla systemu plików podejście do dostosowywania: możesz zamontować pliki, takie jak `AGENTS.md`, zawierające instrukcje i umiejętności w `.agents/skills/` bezpośrednio w piaskownicy lub przekazać konfigurację w linii w momencie interakcji. Możesz iteracyjnie zmieniać konfigurację w tekście, a potem zapisać ją jako agenta zarządzanego, gdy będzie gotowa.
 
-Özel aracıların nasıl oluşturulacağıyla ilgili tüm ayrıntılar için [Yönetilen Aracıları Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr) başlıklı makaleyi inceleyin.
+Szczegółowe informacje o tworzeniu niestandardowych agentów znajdziesz w artykule [Building Managed Agents](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl) (Tworzenie zarządzanych agentów).
 
-## Ortam
+## Środowiska
 
-Her çağrı, bir Linux sanal alanı oluşturur veya yeniden kullanır. `environment` parametresi üç biçimde olabilir:
+Każde wywołanie tworzy lub ponownie wykorzystuje piaskownicę systemu Linux. Parametr `environment` może przyjmować 3 formy:
 
-| Form | Açıklama |
+| Formularz | Opis |
 | --- | --- |
-| `"remote"` | Varsayılan ayarlarla yeni bir korumalı alan sağlayın. |
-| `"env_abc123"` | Tüm dosyaları ve durumu koruyarak mevcut bir ortamı kimliğe göre yeniden kullanın. |
-| `{...}` | Özel kaynaklar ve ağ kurallarıyla tam `EnvironmentConfig` |
+| `"remote"` | Utwórz nową piaskownicę z ustawieniami domyślnymi. |
+| `"env_abc123"` | Użyj ponownie istniejącego środowiska według identyfikatora, zachowując wszystkie pliki i stan. |
+| `{...}` | Pełna `EnvironmentConfig` z niestandardowymi źródłami i regułami sieciowymi. |
 
-Kaynaklar (Git, GCS, satır içi), ağ, yaşam döngüsü ve kaynak sınırları hakkında ayrıntılı bilgi için [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) başlıklı makaleyi inceleyin.
+Szczegółowe informacje o źródłach (Git, GCS, wbudowane), sieciach, cyklu życia i limitach zasobów znajdziesz w sekcji [Środowiska](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl).
 
-## Kullanılabilirlik ve fiyatlandırma
+## Dostępność i ceny
 
-Antigravity aracısı, Google AI Studio'daki [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=tr) ve Gemini API üzerinden önizleme olarak kullanılabilir.
+Agent Antigravity jest dostępny w wersji podglądowej w ramach [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pl) w Google AI Studio i Gemini API.
 
-Fiyatlandırma, temel Gemini model jetonlarına ve aracının kullandığı araçlara dayalı [kullandıkça öde modeline](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#pricing-for-agents) göre belirlenir. Tek bir çıktı üreten standart bir sohbet isteğinin aksine, Antigravity etkileşimi, aracı tabanlı bir iş akışıdır. Tek bir istek, muhakeme, araç yürütme, kod çalıştırma ve dosya yönetimi gibi işlemleri içeren bağımsız bir döngüyü tetikler.
+Ceny są oparte na [modelu płatności według wykorzystania](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#pricing-for-agents), który zależy od tokenów bazowego modelu Gemini i narzędzi używanych przez agenta. W przeciwieństwie do standardowego żądania czatu, które generuje pojedynczy wynik, interakcja Antigravity to przepływ pracy oparty na agentach. Pojedyncze żądanie wywołuje autonomiczne pętle rozumowania, wykonywania narzędzi, uruchamiania kodu i zarządzania plikami.
 
-### Tahmini maliyetler
+### Szacunkowy koszt
 
-Maliyetler, görevin karmaşıklığına göre değişir. Aracı, kaç araç çağrısı, kod yürütme ve dosya işlemi gerektiğini bağımsız olarak belirler. Aşağıdaki tahminler, çalıştırmalara dayanmaktadır.
+Koszty zależą od złożoności zadania. Pracownik obsługi klienta samodzielnie określa, ile wywołań narzędzi, wykonań kodu i operacji na plikach jest potrzebnych. Poniższe szacunki są oparte na przebiegach.
 
-| Görev kategorisi | Giriş jetonları | Çıkış jetonları | Normal maliyet |
+| Kategoria zadania | Tokeny wejściowe | Tokeny wyjściowe | Typowy koszt |
 | --- | --- | --- | --- |
-| **Araştırma ve bilgi sentezi** | 100 bin - 500 bin | 10 bin-40 bin | 0,30-1,00 ABD doları |
-| **Doküman ve içerik oluşturma** | 100 bin - 500 bin | 15.000-50.000 | 0,30-1,30 ABD doları |
-| **Süreç ve sistem tasarımı** | 100 bin - 400 bin | 10.000-30.000 | 0,25-0,80 ABD doları |
-| **Veri işleme ve analiz** | 300.000-3.000.000 | 30 bin - 150 bin | 0,70-3,25 ABD doları |
+| **Badania i synteza informacji** | 100 tys.–500 tys. | 10–40 tys. | 0,30–1,00 USD |
+| **Generowanie dokumentów i treści** | 100 tys.–500 tys. | 15–50 tys. | 0,30–1,30 PLN |
+| **Projektowanie procesów i systemów** | 100–400 tys. | 10–30 tys. | 0,25–0,80 USD |
+| **Przetwarzanie i analiza danych** | 300 tys.–3 mln | 30 tys.–150 tys. | 0,70–3,25 PLN |
 
-Giriş jetonlarının% 50-70'i genellikle önbelleğe alınır. Çok sayıda araç çağrısı içeren karmaşık aracı iş akışları, tek bir etkileşimde 3-5 milyon jeton biriktirebilir ve maliyeti yaklaşık 5 ABD dolarına kadar çıkabilir.
+Zwykle w pamięci podręcznej jest przechowywanych 50–70% tokenów wejściowych. Złożone przepływy pracy agenta z wieloma wywołaniami narzędzi mogą w ramach jednej interakcji zgromadzić 3–5 mln tokenów, co wiąże się z kosztem do 5 USD.
 
-Önizleme döneminde **ortam işlem** (CPU, bellek, korumalı alan yürütme) için **ücret alınmaz**.
+**Obliczenia środowiskowe** (procesor, pamięć, wykonywanie w piaskownicy) **nie są rozliczane** w okresie wersji testowej.
 
-## Sınırlamalar
+## Ograniczenia
 
-- **Önizleme durumu:** Antigravity aracısı ve Etkileşimler API'si önizleme aşamasındadır. Özellikler ve şemalar değişebilir.
-- **Desteklenmeyen oluşturma yapılandırması:** Aşağıdaki parametreler desteklenmez ve 400 hatası döndürür: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
-- **Yapılandırılmış çıkış:** Antigravity aracısı, yapılandırılmış çıkışları desteklemez.
-- **Kullanılamayan araçlar:** `file_search`, `computer_use`, `google_maps`, `function_calling` ve `mcp` henüz desteklenmemektedir.
-- **Dosya sistemi aracı:** Şu anda dosya sistemi aracı yok. Bu, `environment`'nın bir parçasıdır.
-- **Arka plan:** Temsilci, `background=True` kullanımını desteklemiyor ve `store=True` gerektiriyor.
-- **Desteklenmeyen çok formatlı türler.** Ses, video ve doküman girişleri şu anda desteklenmemektedir. Yalnızca metin ve resimlere izin verilir.
+- **Stan wersji testowej:** agent Antigravity i interfejs Interactions API są dostępne w wersji testowej. Funkcje i schematy mogą ulec zmianie.
+- **Nieobsługiwana konfiguracja generowania:** te parametry nie są obsługiwane i zwracają błąd 400: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
+- **Uporządkowane dane wyjściowe:** agent Antigravity nie obsługuje uporządkowanych danych wyjściowych.
+- **Niedostępne narzędzia:** `file_search`, `computer_use`, `google_maps`, `function_calling` i `mcp` nie są jeszcze obsługiwane.
+- **Narzędzie systemu plików:** obecnie nie ma narzędzia systemu plików. Jest ona częścią `environment`.
+- **Informacje:** agent nie obsługuje `background=True` i wymaga `store=True`.
+- **Nieobsługiwane typy multimodalne.** Dane wejściowe w postaci audio, wideo i dokumentów nie są obecnie obsługiwane. Dozwolone są tylko tekst i obraz.
 
-## Sırada ne var?
+## Co dalej?
 
-- [Hızlı başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr): Çok turlu görüşmeler ve akış.
-- [Özel Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): Özel talimatlar, beceriler ve ajanları kaydetme.
-- [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): korumalı alan yapılandırması, kaynaklar, ağ iletişimi.
-- [Deep Research Agent](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=tr): Uzun araştırma görevleri.
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=tr): Temel API.
+- [Szybki start:](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pl) rozmowy wieloetapowe i streaming.
+- [Tworzenie agentów niestandardowych:](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pl) instrukcje niestandardowe, umiejętności i zapisywanie agentów.
+- [Środowiska:](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pl) konfiguracja piaskownicy, źródła, sieć.
+- [Agent Deep Research:](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=pl) zadania badawcze o dłuższej formie.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=pl): bazowy interfejs API.
 
-Geri bildirim gönderin
+Prześlij opinię
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Son güncelleme tarihi: 2026-05-20 UTC.
+Ostatnia aktualizacja: 2026-05-20 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Chcesz przekazać coś jeszcze?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-20 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-20 UTC."],[],[]]

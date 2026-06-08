@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=he
-fetched_at: 2026-06-01T19:45:23.465340+00:00
-title: "\u05de\u05e2\u05d1\u05e8 \u05dc-Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=vi
+fetched_at: 2026-06-08T14:58:09.662721+00:00
+title: "Di chuy\u1ec3n sang Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-# מעבר ל-Interactions API
+# Di chuyển sang Interactions API
 
-המדריך הזה יעזור לכם לעבור מ-`generateContent` API אל Interactions API.
+Hướng dẫn này giúp bạn di chuyển từ API `generateContent` sang Interactions API.
 
-‫Interactions API הוא הממשק הסטנדרטי לפיתוח באמצעות Gemini. הוא מותאם לתהליכי עבודה סוכניים, לניהול מצב בצד השרת ולשיחות מורכבות עם כמה מצבים וכמה תפניות, ובמקביל תומך באופן מלא בבקשות פשוטות ללא שמירת מצב עם תפנית אחת. למרות ש-`generateContent` עדיין נתמך באופן מלא, אנחנו ממליצים להשתמש ב-Interactions API לכל פיתוח חדש.
+Interactions API là giao diện tiêu chuẩn để tạo ứng dụng bằng Gemini. Nền tảng này được tối ưu hoá cho quy trình công việc dựa trên tác nhân, quản lý trạng thái phía máy chủ và các cuộc trò chuyện phức tạp nhiều lượt, nhiều phương thức, đồng thời vẫn hỗ trợ đầy đủ các yêu cầu đơn giản một lượt không trạng thái. Mặc dù `generateContent` vẫn được hỗ trợ đầy đủ, nhưng bạn nên sử dụng Interactions API cho mọi hoạt động phát triển mới.
 
-### למה כדאי לעבור?
+### Tại sao nên di chuyển?
 
-‫Interactions API מספק דרך מובנית ועוצמתית יותר לבנות עם Gemini:
+Interactions API cung cấp một cách thức có cấu trúc và mạnh mẽ hơn để tạo ứng dụng bằng Gemini:
 
-- **ניהול היסטוריה בצד השרת**: תהליכים פשוטים יותר של שיחות מרובות תורות באמצעות `previous_interaction_id`. השרת מפעיל את המצב כברירת מחדל (`store=true`), אבל אפשר להגדיר התנהגות ללא מצב על ידי הגדרת `store=false`.
-- **שלבי ביצוע שניתן לצפות בהם**: שלבים מוקלדים מקלים על ניפוי באגים בתהליכים מורכבים ועל הצגת ממשק משתמש לאירועים ביניים (כמו מחשבות או ווידג'טים של חיפוש).
-- **מיועד לתהליכי עבודה אג'נטיים**: תמיכה מובנית בשימוש בכלי רב-שלבי, בתזמור ובזרימות מורכבות של חשיבה רציונלית באמצעות שלבי ביצוע מוקלדים.
-- **משימות ארוכות ברקע**: תמיכה בהעברת פעולות שדורשות הרבה זמן, כמו Deep Think ו-Deep Research, לתהליכים ברקע באמצעות `background=true`.
+- **Quản lý nhật ký phía máy chủ**: Đơn giản hoá các quy trình nhiều lượt thông qua `previous_interaction_id`. Theo mặc định, máy chủ sẽ bật trạng thái (`store=true`), nhưng bạn có thể chọn hành vi không trạng thái bằng cách đặt `store=false`.
+- **Các bước thực thi có thể quan sát**: Các bước được nhập giúp bạn dễ dàng gỡ lỗi các luồng phức tạp và hiển thị giao diện người dùng cho các sự kiện trung gian (chẳng hạn như suy nghĩ hoặc tiện ích tìm kiếm).
+- **Được xây dựng cho quy trình công việc có tác nhân**: Hỗ trợ nguyên bản cho việc sử dụng công cụ nhiều bước, điều phối và quy trình suy luận phức tạp thông qua các bước thực thi được nhập.
+- **Các thao tác dài hạn và thao tác ở chế độ nền**: Hỗ trợ chuyển các thao tác tốn nhiều thời gian như Deep Think và Deep Research sang các quy trình ở chế độ nền bằng cách sử dụng `background=true`.
 
-## קלט/פלט בסיסי
+## Đầu vào/đầu ra cơ bản
 
-בקטע הזה נסביר איך להעביר בקשה פשוטה ליצירת טקסט.
+Phần này cho biết cách di chuyển một yêu cầu tạo văn bản đơn giản.
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-‫`generateContent` API הוא בלי שמירת מצב ומחזיר את התגובה ישירות. מבנה התגובה עוטף את הפלט ברשימה של `candidates`, שכל אחד מהם מכיל `content` עם רשימה של `parts` לניתוח.
+API `generateContent` không trạng thái và trả về phản hồi trực tiếp. Cấu trúc phản hồi bao bọc đầu ra trong một danh sách `candidates`, mỗi danh sách chứa `content` với một danh sách `parts` để phân tích cú pháp.
 
 ### Python
 
@@ -105,10 +105,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-‫Interactions API מחזיר משאב אינטראקציה מאוחסן עם `steps`ציר זמן. אפשר לבדוק את המערך `steps` באופן ידני כדי למצוא אירועים ביניים, אבל ערכות ה-SDK של GenAI מבית Google מספקות מאפיינים נוחים ישירות באובייקט `Interaction` שמוחזר כדי לגשת לפלט הסופי.
+Interactions API trả về một tài nguyên tương tác đã lưu trữ với dòng thời gian `steps`. Mặc dù bạn có thể kiểm tra mảng `steps` theo cách thủ công để tìm các sự kiện trung gian, nhưng các SDK AI tạo sinh của Google cung cấp các thuộc tính tiện lợi ngay trên đối tượng `Interaction` được trả về để truy cập vào đầu ra cuối cùng.
 
-מאפיין הנוחות הנפוץ ביותר הוא **`.output_text`** (מחרוזת), שבאמצעותו אפשר לחלץ ולצרף באופן אוטומטי בלוקים עוקבים של `TextContent` בסוף התשובה של המודל. השיטה הזו מתאימה לתשובות פשוטות, אבל היא לא כוללת בלוקים קודמים של טקסט שמפריד ביניהם תוכן שאינו טקסט (כמו מחשבות, תמונות, אודיו או קריאות לכלים). לתשובות מורכבות או משולבות
-ממגוון סוגים, צריך להשתמש בשיטה `steps` באופן ידני.
+Thuộc tính tiện lợi phổ biến nhất là **`.output_text`** (Chuỗi), tự động trích xuất và kết hợp các khối `TextContent` liên tiếp ở cuối phản hồi của mô hình. Mặc dù hoạt động hoàn hảo đối với các câu trả lời đơn giản, nhưng tính năng này không bao gồm các khối văn bản trước đó được phân tách bằng nội dung không phải văn bản (chẳng hạn như suy nghĩ, hình ảnh, âm thanh hoặc lệnh gọi công cụ). Đối với các phản hồi đa phương thức phức tạp hoặc xen kẽ, bạn phải lặp lại `steps` theo cách thủ công.
 
 ### Python
 
@@ -180,17 +179,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## שיחות עם זיכרון
+## Cuộc trò chuyện nhiều lượt
 
-ה-Interactions API מאחסן אינטראקציות כברירת מחדל, ומאפשר ניהול מצב בצד השרת לשיחות מרובות תפניות.
+Theo mặc định, Interactions API lưu trữ các lượt tương tác, cho phép quản lý trạng thái phía máy chủ cho các cuộc trò chuyện nhiều lượt.
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-ב-`generateContent`, צריך לנהל את היסטוריית השיחות באופן ידני באמצעות מערך `contents` או כלי עזר לצ'אט בצד הלקוח.
+Trong `generateContent`, bạn phải quản lý nhật ký trò chuyện theo cách thủ công bằng cách sử dụng mảng `contents` hoặc một trình trợ giúp trò chuyện phía máy khách.
 
 ### Python
 
-**שימוש בכלי העזר לצ'אט (מומלץ)**
+**Sử dụng trợ lý trò chuyện (nên dùng)**
 
 ```
 from google import genai
@@ -205,7 +204,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**ניהול ההיסטוריה באופן ידני**
+**Quản lý nhật ký theo cách thủ công**
 
 ```
 from google import genai
@@ -233,7 +232,7 @@ print(response.text)
 
 ### JavaScript
 
-**שימוש בכלי העזר לצ'אט (מומלץ)**
+**Sử dụng trợ lý trò chuyện (nên dùng)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -248,7 +247,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**ניהול ההיסטוריה באופן ידני**
+**Quản lý nhật ký theo cách thủ công**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -300,9 +299,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-ה-API של האינטראקציות מנהל את המצב בשרת. כדי להמשיך שיחה, מציינים את `previous_interaction_id`.
+Interactions API quản lý trạng thái trên máy chủ. Bạn tiếp tục cuộc trò chuyện bằng cách tham chiếu đến `previous_interaction_id`.
 
 ### Python
 
@@ -395,13 +394,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## קלטים מרובי מצבים
+## Thông tin đầu vào đa phương thức
 
-שני ממשקי ה-API תומכים בקלט מולטי-מודאלי (טקסט, תמונות, סרטונים וכו').
+Cả hai API này đều hỗ trợ dữ liệu đầu vào đa phương thức (văn bản, hình ảnh, video, v.v.).
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-ב-`generateContent`, מעבירים רשימה של `parts` במערך `contents`. התגובה מחזירה פלט ב-`parts` של המועמד הראשון.
+Trong `generateContent`, bạn truyền một danh sách `parts` trong mảng `contents`. Phản hồi trả về đầu ra trong `parts` của đề xuất đầu tiên.
 
 ### Python
 
@@ -464,9 +463,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-ב-API של אינטראקציות, מעבירים מערך לשדה `input`. כדי לאחזר את תוכן הפלט, מאתרים את השלב `model_output` בציר הזמן.
+Trong Interactions API, bạn sẽ truyền một mảng đến trường `input`. Bạn truy xuất nội dung đầu ra bằng cách tìm bước `model_output` trong dòng thời gian.
 
 ### Python
 
@@ -574,13 +573,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## פלט מובנה
+## Đầu ra có cấu trúc
 
-כדי שהמודל יחזיר JSON שתואם לסכימה ספציפית, צריך להגדיר את פורמט התגובה.
+Để mô hình trả về JSON khớp với một giản đồ cụ thể, hãy định cấu hình định dạng phản hồi.
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-ב-`generateContent`, מגדירים את פורמט הפלט באמצעות השדה `response_format` שמוטמע באובייקט `generationConfig`.
+Trong `generateContent`, bạn định cấu hình định dạng đầu ra bằng cách sử dụng trường `response_format` được lồng bên trong đối tượng `generationConfig`.
 
 ### Python
 
@@ -662,9 +661,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-ב-Interactions API, אמצעי הבקרה של פורמט הפלט עוברים למערך `response_format` ברמה העליונה.
+Trong Interactions API, các chế độ kiểm soát định dạng đầu ra sẽ chuyển sang mảng `response_format` cấp cao nhất.
 
 ### Python
 
@@ -776,13 +775,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## יצירה מולטי-מודאלית
+## Tạo nội dung đa phương thức
 
-כשיוצרים תוכן במודאליות שאינה טקסט (כמו תמונות או אודיו), ההבדל העיקרי הוא במבנה התשובה של המדיה שנוצרה.
+Khi tạo nội dung ở các phương thức ngoài văn bản (chẳng hạn như hình ảnh hoặc âm thanh), điểm khác biệt chính là cách câu trả lời cấu trúc nội dung nghe nhìn được tạo.
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-ב-`generateContent`, התשובה מחזירה מדיה שנוצרה ישירות ב-`parts` של המועמד, בדרך כלל כנתוני base64 ב-`inlineData`.
+Trong `generateContent`, phản hồi sẽ trả về nội dung nghe nhìn được tạo trực tiếp trong `parts` của đề xuất, thường là dưới dạng dữ liệu base64 trong `inlineData`.
 
 ```
 # Response structure concept
@@ -807,9 +806,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-ב-Interactions API, מדיה שנוצרה מופיעה כפריטים נפרדים במערך `content` של שלב `model_output` בציר הזמן, תוך שמירה על הרצף הכרונולוגי של האינטראקציה.
+Trong Interactions API, nội dung nghe nhìn được tạo sẽ xuất hiện dưới dạng các mục riêng biệt trong mảng `content` của bước `model_output` trong dòng thời gian, duy trì dòng thời gian của lượt tương tác.
 
 ```
 # Response structure concept
@@ -835,15 +834,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-כך ניתוח התגובה יהיה עקבי עם האופן שבו קלטים ופלט טקסט מטופלים – כל דבר הוא שלב בציר הזמן.
+Điều này giúp quá trình phân tích cú pháp phản hồi nhất quán với cách xử lý dữ liệu đầu vào và đầu ra văn bản – mọi thứ đều là một bước trong dòng thời gian.
 
-## כלים בצד השרת
+## Công cụ phía máy chủ
 
-‫Gemini תומך בכלים מובנים בצד השרת, כמו עיגון נתונים של חיפוש Google. ההבדל העיקרי הוא באופן שבו התשובה מייצגת את הפעלת הכלי.
+Gemini hỗ trợ các công cụ phía máy chủ tích hợp sẵn như cơ chế liên kết thực tế của Google Tìm kiếm. Điểm khác biệt chính là cách phản hồi thể hiện quá trình thực thi công cụ.
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-ב-`generateContent`, הכלים בצד השרת הם ברובם אטומים. מפעילים את הכלי ומקבלים תשובה סופית עם אובייקט `groundingMetadata` נפרד. חשוב לציין שהציטוטים לא מוצגים בתוך הטקסט, אלא `groundingSupports` נעשה שימוש באינדקסים של התווים כדי למפות את קטעי הטקסט בחזרה למקורות באינטרנט ב-`groundingChunks`.
+Trong `generateContent`, các công cụ phía máy chủ phần lớn đều không rõ ràng. Bạn bật công cụ này và nhận được câu trả lời cuối cùng bằng một đối tượng `groundingMetadata` riêng biệt. Điều quan trọng là các trích dẫn không nằm trên cùng một dòng; `groundingSupports` sử dụng chỉ mục ký tự để ánh xạ các đoạn văn bản trở lại nguồn trên web trong `groundingChunks`.
 
 ### Python
 
@@ -951,11 +950,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-ב-Interactions API, כלים בצד השרת מספקים שקיפות מלאה של ציר הזמן. ה-API מתעד את הקריאה ואת התוצאה כביצועים נפרדים `steps` (`google_search_call` ו-`google_search_result`), וחושף בדיוק אילו נתונים המודל אחזר.
+Trong Interactions API, các công cụ phía máy chủ cung cấp thông tin minh bạch đầy đủ về dòng thời gian. API này ghi lại lệnh gọi và kết quả dưới dạng `steps` thực thi riêng biệt (`google_search_call` và `google_search_result`), cho biết chính xác dữ liệu mà mô hình đã truy xuất.
 
-בנוסף, ה-API מחזיר ציטוטים **בגוף הטקסט**. במקום למפות אינדקסים מאובייקט מטא-נתונים נפרד, פריט הטקסט בשלב `model_output` מכיל מערך `annotations` משלו שמקושר ישירות למקור.
+Ngoài ra, API này trả về các trích dẫn **nội tuyến**. Thay vì ánh xạ các chỉ mục từ một đối tượng siêu dữ liệu riêng biệt, mục văn bản trong bước `model_output` chứa mảng `annotations` riêng liên kết trực tiếp đến nguồn.
 
 ### Python
 
@@ -1066,13 +1065,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## בקשה להפעלת פונקציה
+## Gọi hàm
 
-גם המבנה של קריאות לפונקציות והתוצאות שלהן השתנה כדי להתאים לסכימת השלבים.
+Cấu trúc của các lệnh gọi hàm và kết quả cũng đã thay đổi để phù hợp với giản đồ Steps.
 
-### לפני (`generateContent`)
+### Trước (`generateContent`)
 
-ב-`generateContent`, התגובה מחזירה קריאות לפונקציות בתוך המועמדים.
+Trong `generateContent`, phản hồi sẽ trả về các lệnh gọi hàm trong số các đề xuất.
 
 ### Python
 
@@ -1206,9 +1205,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-עכשיו, קריאות לכלים ותוצאות הן שלבים נפרדים בציר הזמן.
+Lệnh gọi công cụ và kết quả hiện là các bước riêng biệt trong dòng thời gian.
 
 ### Python
 
@@ -1393,15 +1392,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## סטרימינג
+## Phát trực tiếp
 
-ההבדל העיקרי בסטרימינג הוא שב-Interactions API משתמשים באותה נקודת קצה עם `"stream": true` בגוף הבקשה, בעוד שב-`generateContent` API נדרשה קריאה לנקודת קצה ייעודית (`:streamGenerateContent`).
+Điểm khác biệt chính trong tính năng phát trực tuyến là Interactions API sử dụng cùng một điểm cuối với `"stream": true` trong phần nội dung yêu cầu, trong khi `generateContent` API yêu cầu gọi một điểm cuối chuyên dụng (`:streamGenerateContent`).
 
-בנוסף, אירועים בסטרימינג משתמשים עכשיו בסוגים מיוחדים כדי לעקוב אחרי מחזור החיים של האינטראקציה ואחרי שלבי הביצוע לאורך ציר הזמן.
+Ngoài ra, các sự kiện truyền phát trực tiếp hiện sử dụng các loại chuyên biệt để theo dõi vòng đời tương tác và theo dõi các bước thực thi dọc theo dòng thời gian.
 
-### לפני (`generateContentStream`)
+### Trước (`generateContentStream`)
 
-ב-`generateContent`, אתם צורכים זרם של חלקי תגובה.
+Với `generateContent`, bạn sẽ sử dụng một luồng các khối phản hồi.
 
 ### Python
 
@@ -1455,9 +1454,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### אחרי (Interactions API)
+### Sau (Interactions API)
 
-ב-Interactions API, הסטרימינג משתמש ב-Server-Sent Events ‏ (SSE) ובסוגים מיוחדים של דלתא כדי לייצג שלבי ביצוע בזמן שהם מתרחשים.
+Trong Interactions API, tính năng truyền phát trực tiếp sử dụng Server-Sent Events (SSE) và các loại delta chuyên biệt để biểu thị các bước thực thi khi chúng xảy ra.
 
 ### Python
 
@@ -1527,13 +1526,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### כלים לסטרימינג וקריאות לפונקציות
+### Các công cụ phát trực tuyến và lệnh gọi hàm
 
-התנהגות הכלים בסטרימינג השתנתה באופן משמעותי מגרסה `generateContent` כדי לספק שליטה מפורטת יותר ושקיפות רבה יותר.
+Cách các công cụ hoạt động trong luồng đã thay đổi đáng kể so với `generateContent` để cung cấp khả năng kiểm soát và khả năng hiển thị chi tiết hơn.
 
-#### לפני (`generateContent`)
+#### Trước (`generateContent`)
 
-עם `generateContent`, קריאות לפונקציות של סטרימינג מגיעות בשלמותן בחלק אחד. לא הייתה אפשרות לראות את הטיעונים שנוצרו בזמן אמת, ולכן הפונקציה לבדיקת תקינות פשוט בדקה אם האובייקט `functionCall` שלם.
+Với `generateContent`, các lệnh gọi hàm truyền trực tuyến sẽ hoàn tất trong một khối duy nhất. Bạn không thể thấy các đối số được tạo theo thời gian thực, vì vậy trình xử lý chỉ cần kiểm tra xem có đối tượng `functionCall` hoàn chỉnh hay không.
 
 ### Python
 
@@ -1597,9 +1596,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### ‫After (Interactions API)
+#### Sau (Interactions API)
 
-ה-Interactions API מעביר את הארגומנטים של בקשה להפעלת פונקציה כזרם של אירועים, תו אחר תו, כ-`arguments`. מחזור החיים המלא של הכלי – מחשבה, קריאה, תוצאה ופלט – מתרחש כסדרה של שלבים נפרדים.
+Interactions API truyền trực tuyến các đối số lệnh gọi hàm từng ký tự dưới dạng các sự kiện `arguments`. Toàn bộ vòng đời của công cụ (suy nghĩ, lệnh gọi, kết quả và đầu ra) diễn ra dưới dạng một loạt các bước riêng biệt.
 
 ### Python
 
@@ -1744,12 +1743,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-עדכון אחרון: 2026-06-01 (שעון UTC).
+Cập nhật lần gần đây nhất: 2026-06-01 UTC.
 
-רוצה לתת לנו משוב?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-01 (שעון UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]

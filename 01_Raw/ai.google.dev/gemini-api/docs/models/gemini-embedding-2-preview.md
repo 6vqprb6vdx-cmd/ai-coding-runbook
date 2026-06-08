@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=vi
-fetched_at: 2026-06-01T19:35:25.096192+00:00
-title: "M\u00f4 h\u00ecnh Gemini Embedding 2 Preview \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2-preview?hl=pl
+fetched_at: 2026-06-08T15:00:02.398408+00:00
+title: "Model Gemini Embedding 2 (wersja testowa) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
 
-Gửi ý kiến phản hồi
+Prześlij opinię
 
-# Mô hình Gemini Embedding 2 Preview
+# Model Gemini Embedding 2 (wersja testowa)
 
-Mô hình nhúng đa phương thức đầu tiên của chúng tôi, cung cấp tính năng ánh xạ số hiệu quả cho văn bản, hình ảnh, video, âm thanh và tệp PDF vào một không gian nhúng hợp nhất duy nhất. Mô hình Gemini Embedding 2 phù hợp nhất cho việc tìm kiếm ngữ nghĩa đa phương thức, truy xuất tài liệu và các hệ thống đề xuất cần tính toán nhanh chóng, có khả năng mở rộng độ tương tự trên các tập dữ liệu đa phương thức lớn.
+Nasz pierwszy model osadzania multimodalnego, który zapewnia wydajne mapowanie numeryczne tekstu, obrazów, filmów, dźwięku i plików PDF w jednej ujednoliconej przestrzeni osadzania. Model Gemini Embedding 2 najlepiej sprawdza się w przypadku wielomodalnego wyszukiwania semantycznego, wyszukiwania dokumentów i systemów rekomendacji, które wymagają szybkich i skalowalnych obliczeń podobieństwa w przypadku dużych wielomodalnych zbiorów danych.
 
-## Tài liệu
+## Dokumentacja
 
-Hãy truy cập trang [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi) để xem đầy đủ các tính năng và chức năng.
+Więcej informacji o funkcjach i możliwościach znajdziesz na stronie [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pl).
 
 ## gemini-embedding-2-preview
 
-| Thuộc tính | Mô tả |
+| Właściwość | Opis |
 | --- | --- |
-| id\_cardMã mô hình | **Gemini API**  `gemini-embedding-2-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Input**  Văn bản, hình ảnh, video, âm thanh, tệp PDF  **Đầu ra**  Vectơ nhúng văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  8.192  **Kích thước phương diện đầu ra**  Linh hoạt, hỗ trợ: 128 – 3072, Đề xuất: 768, 1536, 3072 |
-| 123Phiên bản | Hãy đọc các [mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm chi tiết.  - Bản dùng thử: `gemini-embedding-2-preview` |
-| calendar\_monthNội dung cập nhật mới nhất | Tháng 3 năm 2026 |
+| id\_cardKod modelu | **Gemini API**  `gemini-embedding-2-preview` |
+| saveObsługiwane typy danych | **Wejście**  Tekst, obraz, film, dźwięk, PDF  **Dane wyjściowe**  Wektory dystrybucyjne tekstu |
+| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  8192  **Rozmiar wymiaru wyjściowego**  Elastyczny, obsługuje wartości od 128 do 3072. Zalecane wartości: 768, 1536, 3072. |
+| 123Wersje | Więcej informacji znajdziesz w [wzorcach wersji modelu](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#model-versions).  - Podgląd: `gemini-embedding-2-preview` |
+| calendar\_monthOstatnia aktualizacja | Marzec 2026 r. |
 
-Gửi ý kiến phản hồi
+Prześlij opinię
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+Ostatnia aktualizacja: 2026-04-29 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Chcesz przekazać coś jeszcze?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

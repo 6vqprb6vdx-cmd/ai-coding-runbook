@@ -1,62 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=de
-fetched_at: 2026-06-01T19:38:33.820683+00:00
-title: "Coding-Assistenten mit Gemini MCP und Skills einrichten \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=id
+fetched_at: 2026-06-08T15:03:42.715145+00:00
+title: "Menyiapkan asisten coding Anda dengan Gemini MCP dan Keterampilan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Coding-Assistenten mit Gemini MCP und Skills einrichten
+# Menyiapkan asisten coding Anda dengan Gemini MCP dan Keterampilan
 
-KI-Programmierassistenten sind leistungsstark, haben aber auch Einschränkungen: Die Trainingsdaten sind auf ein bestimmtes Datum begrenzt und enthalten keine neuen API-Funktionen und ‑Änderungen. Ohne Zugriff auf die Gemini-spezifische Dokumentation schlagen KI-Agenten möglicherweise generische Muster anstelle optimierter Ansätze vor.
+Asisten coding AI sangat canggih, tetapi memiliki batasan—data pelatihan terhenti pada tanggal tertentu, sehingga tidak ada fitur dan perubahan API baru. Tanpa akses ke dokumentasi khusus Gemini, agen mungkin menyarankan pola umum, bukan pendekatan yang dioptimalkan.
 
-Damit Ihr Programmierassistent immer auf dem neuesten Stand der sich weiterentwickelnden Gemini API und ihrer empfohlenen Verwendung ist, empfehlen wir, den **Gemini Docs MCP** einzurichten und Ihre Umgebung mit **Gemini API-Skills** zu erweitern. Diese Tools können zwar unabhängig voneinander verwendet werden, sind aber so konzipiert, dass sie zusammenarbeiten, um eine vollständige Abdeckung zu bieten.
+Untuk memastikan asisten coding Anda selalu menggunakan Gemini API yang terus berkembang dan penggunaan yang direkomendasikan, sebaiknya siapkan **Gemini Docs MCP** dan tingkatkan lingkungan Anda dengan **Gemini API Skills**. Meskipun alat ini dapat digunakan secara independen, alat ini dirancang untuk bekerja sama guna memberikan cakupan lengkap.
 
-## Gemini Docs MCP verbinden
+## Menghubungkan Gemini Docs MCP
 
-Gemini hostet einen öffentlichen MCP-Server (Model Context Protocol) unter `https://gemini-api-docs-mcp.dev`. Wenn Sie Ihren Programmieragenten mit diesem Server verbinden, haben alle Abfragen Zugriff auf die neuesten APIs, Codeupdates und Beispiele für optimale Konfigurationen.
+Gemini menghosting server Model Context Protocol (MCP) publik di `https://gemini-api-docs-mcp.dev`. Menghubungkan agen coding Anda ke server ini akan memastikan bahwa semua kueri memiliki akses ke API terbaru, update kode, dan contoh konfigurasi optimal.
 
-Führen Sie den folgenden Befehl im Terminal Ihres Agenten oder im Stammverzeichnis des Projekts aus, um den Server zu installieren:
+Jalankan perintah berikut di terminal agen atau root project untuk menginstal server:
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-Dieser Server fügt eine Funktion `search_documentation` hinzu, mit der Ihr Agent Echtzeit-API-Definitionen und Integrationsmuster aus den offiziellen Gemini-Dokumentationsdateien abrufen kann.
+Server ini menambahkan fungsi `search_documentation` yang dapat digunakan agen Anda untuk mengambil definisi API real-time dan pola integrasi dari file dokumentasi Gemini resmi.
 
-## API-Entwicklungs-Skills hinzufügen
+## Menambahkan Keterampilan Pengembangan API
 
-Die Skills enthalten **integrierte Regeln und Best Practices** (z. B. die Erzwingung der richtigen SDK- und aktuellen Modellversionen) direkt im Kontext Ihres Assistenten. Der Skill funktioniert mit dem Gemini Docs MCP-Dienst zusammen: Wenn Sie beide installiert haben, verwendet der Skill den MCP-Dienst für die Dokumentation. Auch ohne installierten MCP ruft er `llms.txt` als Fallback von `ai.google.dev` ab.
+Keterampilan ini menyediakan **aturan dan praktik terbaik bawaan** (seperti menerapkan SDK yang benar dan versi model saat ini) langsung dalam konteks asisten Anda. Keterampilan ini berfungsi bersama dengan layanan Gemini Docs MCP: Jika Anda menginstal keduanya, keterampilan ini akan menggunakan layanan MCP untuk dokumentasi, tetapi meskipun tanpa MCP terinstal, keterampilan ini akan mengambil `llms.txt` dari `ai.google.dev` sebagai penggantian.
 
-Verwenden Sie eines der folgenden unterstützten Tools, um diese Skills zu installieren. Installationsanleitungen für beide Tools finden Sie unter jedem Skill-Modul:
+Untuk menginstal keterampilan ini, Anda dapat menggunakan salah satu alat yang didukung berikut. Petunjuk penginstalan untuk keduanya disediakan di bawah setiap modul keterampilan:
 
-- **[skills.sh](https://skills.sh)**: Empfohlen. Der offene Standard für portierbare Agentenverhaltensweisen.
+- **[skills.sh](https://skills.sh)**: Direkomendasikan. Standar terbuka untuk perilaku agen portabel.
 - **[Context7](https://context7.com)**
 
 ### gemini-api-dev
 
-Der grundlegende Skill für die Gemini-Entwicklung für allgemeine Zwecke. Dieser Skill bietet Dokumentation und Best Practices für folgende Bereiche:
+Keterampilan dasar untuk pengembangan Gemini tujuan umum. Keterampilan ini menyediakan dokumentasi dan praktik terbaik untuk:
 
-- Prompt-Routing zu aktuellen Modellen (z.B. Gemini 3.1 Pro/Flash) und Vermeidung veralteter Modelle
-- Multimodale Prompts, Funktionsaufrufe, strukturierte Ausgaben und gängige Integrationsmuster
+- Perutean perintah ke model saat ini (misalnya, Gemini 3.1 Pro/Flash) dan menghindari model yang tidak digunakan lagi
+- Perintah multimodal, panggilan fungsi, output terstruktur, dan pola integrasi umum
 
-#### Mit skills.sh installieren
+#### Menginstal dengan skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 ```
 
-#### Mit Context7 installieren
+#### Menginstal dengan Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
@@ -64,19 +64,19 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
 
 ### gemini-live-api-dev
 
-Skill zum Erstellen von konversationellen KI-Anwendungen in Echtzeit mit der Gemini Live API. Dieser Skill bietet Dokumentation und Best Practices für folgende Bereiche:
+Keterampilan untuk membangun aplikasi AI percakapan real-time dengan Gemini Live API. Keterampilan ini menyediakan dokumentasi dan praktik terbaik untuk:
 
-- WebSocket-Verbindungen für Streaming mit niedriger Latenz
-- Streaming von Audio, Video und Text
-- Erkennung von Sprachaktivitäten und Unterstützung für das Unterbrechen von Sprachausgaben
+- Koneksi WebSocket untuk streaming latensi rendah
+- Streaming audio, video, dan teks
+- Deteksi aktivitas suara dan dukungan barge-in
 
-#### Mit skills.sh installieren
+#### Menginstal dengan skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 ```
 
-#### Mit Context7 installieren
+#### Menginstal dengan Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
@@ -84,88 +84,88 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
 
 ### gemini-interactions-api
 
-Skill zum Erstellen von Apps mit der
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=de). Die Interactions API ist eine einheitliche Schnittstelle für die Interaktion mit Gemini-Modellen und ‑Agenten, die für agentische Anwendungen entwickelt wurde. Dieser Skill umfasst folgende Bereiche:
+Keterampilan untuk membangun aplikasi dengan
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id). Interactions API adalah antarmuka terpadu untuk berinteraksi dengan model dan agen Gemini, yang dirancang untuk aplikasi agentic. Keterampilan ini mencakup:
 
-- Textgenerierung, mehrstufiger Chat und Streaming
-- Funktionsaufrufe, strukturierte Ausgaben und Bildgenerierung
-- Hintergrundausführung und Deep Research-Agenten
-- Serverseitige Verwaltung des Konversationsstatus
-- SDK-Muster für Python und TypeScript
+- Pembuatan teks, chat multi-giliran, dan streaming
+- Panggilan fungsi, output terstruktur, dan pembuatan gambar
+- Eksekusi latar belakang dan agen Deep Research
+- Pengelolaan status percakapan sisi server
+- Pola Python dan TypeScript SDK
 
-#### Mit skills.sh installieren
+#### Menginstal dengan skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
 ```
 
-#### Mit Context7 installieren
+#### Menginstal dengan Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-interactions-api
 ```
 
-## Installation prüfen
+## Memverifikasi penginstalan
 
-Bestätigen Sie nach der Installation, dass Ihr Programmierassistent eine Verbindung zum Gemini Docs MCP-Server herstellen und Ihre installierten Skills verwenden kann.
+Setelah menginstal, pastikan asisten coding Anda dapat terhubung ke server Gemini Docs MCP dan menggunakan keterampilan yang telah diinstal.
 
-### 1. Agentenverhalten prüfen
+### 1. Memverifikasi perilaku agen
 
-Am zuverlässigsten können Sie das überprüfen, indem Sie Ihrem Agenten eine technische Frage zur Gemini API stellen.
+Cara paling andal untuk memverifikasi adalah dengan mengajukan pertanyaan teknis tentang Gemini API kepada agen Anda.
 
-**Prompt** : „Wie verwende ich Kontext-Caching mit der Gemini API?“
+**Perintah:** "How do I use context caching with the Gemini API?"
 
-Eine erfolgreiche Einrichtung hat folgende Auswirkungen:
+Penyiapan yang berhasil akan:
 
-- **Genaue Codeausgabe**: Verweist auf bestimmte Gemini-Methoden wie `cacheContent` oder `cachedContents.create` von den neuesten Endpunkten.
-- **Verwendung des MCP-Tools**: Zeigt, dass eine Verbindung zum **Gemini Docs MCP-Server** besteht oder dass das Tool `search_documentation` zum Abrufen von Daten verwendet wird.
-- **Aufruf geladener Skills**: Zeigt einen Hinweis, dass „Skill: gemini-api-dev wird verwendet“ (wenn ein sekundärer Wrapper verwendet wird).
+- **Menyediakan kode yang akurat**: Merujuk metode Gemini tertentu seperti `cacheContent` atau `cachedContents.create` dari endpoint terbaru.
+- **Menggunakan Alat MCP**: Menunjukkan bahwa alat ini terhubung ke **Server Gemini Docs MCP** atau menggunakan alat `search_documentation` untuk mengambil data.
+- **Memanggil keterampilan yang dimuat**: Menampilkan indikator bahwa keterampilan ini "Using skill: gemini-api-dev" (jika mengandalkan wrapper sekunder).
 
-### 2. Manifeste und Tools prüfen
+### 2. Memverifikasi manifestasi &alat
 
-Wenn der Agent eine allgemeine oder generische Antwort gibt, verwenden Sie die spezifischen Discovery- oder Statusbefehle für Ihre Umgebung, um zu prüfen, ob der Docs MCP oder Skill in den Arbeitsspeicher geladen wurde.
+Jika agen memberikan jawaban umum, gunakan perintah Discovery atau Status tertentu untuk lingkungan Anda guna memverifikasi bahwa Docs MCP atau keterampilan dimuat ke dalam memori.
 
-| Umgebung | MCP-Überprüfung | Skill-Überprüfung |
+| Lingkungan | Verifikasi MCP | Verifikasi Keterampilan |
 | --- | --- | --- |
-| **Claude Code** | Geben Sie `/mcp` im Terminal ein, um aktive Server und `search_documentation`-Tools aufzurufen. | Geben Sie `/skills` im Terminal ein, um alle aktiven Manifeste aufzulisten. |
-| **Cursor** | Rufen Sie **Einstellungen > Funktionen > MCP** auf. Prüfen Sie, ob der Server „Verbunden“ ist. | Öffnen Sie **Einstellungen > Regeln**. Prüfen Sie, ob der Skill unter „Agent entscheidet“ angezeigt wird. |
-| **Antigravity** | Prüfen Sie in der Seitenleiste **Anpassungen > Verbindungen** den MCP-Status. | Geben Sie `/skills list` ein oder prüfen Sie die Seitenleiste **Anpassungen > Regeln**. |
-| **Gemini CLI** | Führen Sie `gemini mcp list` aus oder verwenden Sie `/mcp list`. | Führen Sie `gemini skills list` aus oder verwenden Sie den Slash-Befehl `/skills` in der Sitzung. |
-| **Copilot** | Geben Sie `@gemini /mcp` ein, um aktive Daten-Connectors aufzulisten. | Geben Sie `@gemini /skills` (oder `/skills`) ein, um aktive Erweiterungen aufzurufen. |
+| **Claude Code** | Ketik `/mcp` di terminal untuk melihat server aktif dan alat `search_documentation`. | Ketik `/skills` di terminal untuk mencantumkan semua manifes aktif. |
+| **Cursor** | Buka **Settings > Features > MCP**. Pastikan server "Connected". | Buka **Settings > Rules**. Pastikan keterampilan muncul di bagian "Agent Decides". |
+| **Antigravity** | Periksa sidebar **Customizations > Connections** untuk mengetahui status MCP. | Ketik `/skills list` atau periksa sidebar **Customizations > Rules**. |
+| **Gemini CLI** | Jalankan `gemini mcp list` atau gunakan `/mcp list`. | Jalankan `gemini skills list` atau gunakan perintah garis miring `/skills` dalam sesi. |
+| **Copilot** | Ketik `@gemini /mcp` untuk mencantumkan konektor data aktif. | Ketik `@gemini /skills` (atau `/skills`) untuk melihat ekstensi aktif. |
 
-## Fehlerbehebung
+## Pemecahan masalah
 
-Wenn Ihr Agent nur allgemeine Informationen liefert oder Gemini-spezifische Methoden nicht erkennt, prüfen Sie Folgendes:
+Jika agen Anda hanya memberikan informasi umum atau gagal mengenali metode khusus Gemini, periksa hal berikut:
 
-### Agent hat den Skill nicht erkannt
+### Agen tidak menemukan keterampilan
 
-Die meisten Agenten indexieren Skills nur beim Start.
+Sebagian besar agen mengindeks keterampilan hanya saat startup.
 
-**Lösung**:Starten Sie Ihre IDE (Cursor/VS Code) vollständig neu oder beenden Sie Ihren terminalbasierten Agenten (Claude Code) und öffnen Sie ihn noch einmal.
+**Perbaikan:** Mulai ulang IDE (Cursor/VS Code) sepenuhnya atau keluar dan buka kembali agen berbasis terminal (Claude Code).
 
-### Globaler vs. lokaler Konflikt
+### Konflik global vs. lokal
 
-Wenn Sie die Installation mit dem Flag `--global` ausgeführt haben, ignoriert Ihr Agent dieses möglicherweise zugunsten projektspezifischer Regeln.
+Jika Anda menginstal dengan flag `--global`, agen Anda mungkin mengabaikannya dan lebih memilih aturan khusus project.
 
-**Lösung**:Installieren Sie den Skill direkt im Stammverzeichnis Ihres Projekts ohne das globale Flag:
+**Perbaikan:** Coba instal keterampilan langsung ke root project Anda tanpa flag global:
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev
 ```
 
-## Ressourcen
+## Resource
 
-- [Gemini API-Skills auf GitHub](https://github.com/google-gemini/gemini-skills)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=de)
-- [Quickstart](https://ai.google.dev/gemini-api/docs/quickstart?hl=de)
-- [Bibliotheken](https://ai.google.dev/gemini-api/docs/libraries?hl=de)
+- [Keterampilan Gemini API di GitHub](https://github.com/google-gemini/gemini-skills)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id)
+- [Panduan memulai](https://ai.google.dev/gemini-api/docs/quickstart?hl=id)
+- [Perpustakaan](https://ai.google.dev/gemini-api/docs/libraries?hl=id)
 
-Feedback geben
+Kirim masukan
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Zuletzt aktualisiert: 2026-04-29 (UTC).
+Terakhir diperbarui pada 2026-04-29 UTC.
 
-Haben Sie Feedback für uns?
+Ada masukan untuk kami?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-04-29 UTC."],[],[]]

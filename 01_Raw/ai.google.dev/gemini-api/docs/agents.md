@@ -1,100 +1,100 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agents?hl=vi
-fetched_at: 2026-06-01T19:34:47.521825+00:00
-title: "T\u1ed5ng quan v\u1ec1 nh\u00e2n vi\u00ean h\u1ed7 tr\u1ee3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agents?hl=zh-TW
+fetched_at: 2026-06-08T14:59:59.216364+00:00
+title: "\u4ee3\u7406\u7a0b\u5f0f\u7e3d\u89bd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Gửi ý kiến phản hồi
+提供意見
 
-# Tổng quan về nhân viên hỗ trợ
+# 代理程式總覽
 
-Các tác nhân được quản lý trên Gemini API cung cấp cho bạn một bộ công cụ tác nhân có thể định cấu hình. Một lệnh gọi API duy nhất sẽ cung cấp một hộp cát Linux, nơi tác nhân suy luận, thực thi mã, quản lý tệp và duyệt web một cách tự động.
+Gemini API 的代管代理程式提供可設定的代理程式架構。只要呼叫單一 API，即可佈建 Linux 沙箱，讓代理自主推論、執行程式碼、管理檔案及瀏覽網頁。
 
 [rocket\_launch
 
-Bắt đầu nhanh
+快速入門導覽課程
 
-Thực hiện cuộc gọi đầu tiên cho tác nhân, truyền trực tuyến các câu trả lời và tạo tác nhân tuỳ chỉnh.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi)
+進行第一次代理呼叫、串流回應，以及建構自訂代理。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)
 [smart\_toy
 
-Tác nhân Antigravity
+Antigravity 代理程式
 
-Các chức năng, công cụ, chế độ nhập đa phương thức và giá của tác nhân mặc định.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi)
+預設代理程式的功能、工具、多模態輸入和定價。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)
 [experiment
 
-Tác nhân trong AI Studio
+AI Studio 中的代理
 
-Sân chơi trực quan để tạo nguyên mẫu cho các tác nhân mà không cần viết mã.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=vi)
+視覺化測試區，可設計代理程式原型，完全不必編寫程式碼。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw)
 
-## Các tác nhân được quản lý có sẵn
+## 可用的受管理代理程式
 
-- **[Tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi)**: Tác nhân được quản lý đa năng dựa trên Gemini 3.5 Flash. Chạy mã, quản lý tệp và tìm kiếm trên web trong một hộp cát Linux an toàn do Google lưu trữ. Bạn có thể mở rộng Gemini bằng các hướng dẫn, kỹ năng và dữ liệu của riêng mình để [xây dựng một tác nhân tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi).
-- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi)**: Tác nhân nghiên cứu tự động lập kế hoạch, thực hiện và tổng hợp các nhiệm vụ nghiên cứu nhiều bước cho các trường hợp sử dụng như phân tích thị trường, thẩm định và đánh giá tài liệu.
+- **[Antigravity 代理](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)**：一般用途
+  受管理代理，採用 Gemini 3.5 Flash 技術。在 Google 代管的安全 Linux 沙箱中執行程式碼、管理檔案及搜尋網路。您可以加入自己的指令、技能和資料來擴充功能，[建構自訂代理程式](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)。
+- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)**：自主研究代理，可規劃、執行及整合多步驟研究工作，適用於市場分析、盡職調查和文獻回顧等用途。
 
-## Bảo mật và các phương pháp hay nhất
+## 安全性與最佳做法
 
-Mọi tác nhân đều chạy trong một môi trường hộp cát được cách ly ở cấp hệ điều hành.
-Theo mặc định, hộp cát có quyền truy cập không hạn chế vào mạng bên ngoài. Bạn có thể hạn chế hoặc tắt quyền truy cập vào mạng bằng danh sách cho phép.
+每個代理程式都會在沙箱環境中執行，並在 OS 層級隔離。根據預設，沙箱的傳出網路存取權不受限制。您可以使用許可清單限制或停用網路存取權。
 
-### Quyền truy cập mạng
+### 網路存取
 
-Theo mặc định, các môi trường có quyền truy cập mạng đi không hạn chế. Sử dụng danh sách cho phép `network` để hạn chế lưu lượng truy cập đi đến các miền cụ thể hoặc mẫu ký tự đại diện. Để biết thông tin chi tiết về cấu hình, hãy xem [Danh sách cho phép mạng](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=vi#network_allow_list) (AI Studio) hoặc [Quy tắc mạng](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi#with_network_rules) (API).
+根據預設，環境具有不受限制的輸出網路存取權。使用`network`許可清單將輸出流量限制在特定網域或萬用字元模式。如需設定詳情，請參閱「[網路允許清單](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw#network_allow_list)」(AI Studio) 或「[網路規則](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw#with_network_rules)」(API)。
 
-### Công cụ và API bên ngoài
+### 外部工具和 API
 
-Bạn có thể kết nối các công cụ và API bên ngoài để mở rộng phạm vi hoạt động của trợ lý. Chỉ sử dụng các công cụ từ các nguồn đáng tin cậy và giới hạn quyền ở mức tối thiểu cần thiết. Thông tin đăng nhập có thể được chèn một cách an toàn thông qua các biến đổi tiêu đề proxy truyền dữ liệu ra và không bao giờ bị lộ trong hộp cát. Tác nhân có thể sử dụng mọi thông tin đăng nhập mà tác nhân có quyền truy cập, vì vậy, bạn chỉ nên cung cấp thông tin đăng nhập mà bạn sẵn sàng cấp toàn bộ phạm vi.
+您可以連結外部工具和 API，擴充代理程式功能。請只使用信任來源的工具，並將權限範圍設為最低必要權限。憑證可透過輸出 Proxy 標頭轉換安全地注入，且絕不會在沙箱中公開。代理程式可以使用有權存取的任何憑證，因此請只提供您願意授予完整範圍的憑證。
 
-- Sử dụng tài khoản dịch vụ hoặc khoá API có đặc quyền tối thiểu.
-- Ưu tiên mã thông báo có thời gian tồn tại ngắn hơn khoá có thời gian tồn tại dài.
-- Chỉ cung cấp thông tin đăng nhập mà bạn sẵn sàng cấp toàn bộ phạm vi.
-- Thay đổi thông tin xác thực theo lịch trình đều đặn.
+- 使用最低權限的服務帳戶或 API 金鑰。
+- 建議使用短期有效權杖，而非長期有效金鑰。
+- 請只提供您願意授予完整範圍的憑證。
+- 定期輪替憑證。
 
-Để biết thông tin chi tiết về cách định cấu hình các phép biến đổi tiêu đề, hãy xem phần [Thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#credentials).
+如要進一步瞭解如何設定標頭轉換，請參閱「[憑證](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#credentials)」。
 
-### Sự giám sát của con người
+### 專人監督
 
-Luôn xác minh kết quả (mã được tạo, các phép biến đổi dữ liệu, thay đổi cấu hình) trước khi triển khai, đặc biệt là đối với những tác vụ sửa đổi dữ liệu hoặc tương tác với các hệ thống bên ngoài.
+部署前請務必驗證輸出內容 (生成的程式碼、資料轉換、設定變更)，尤其是會修改資料或與外部系統互動的工作。
 
-## Giá
+## 定價
 
-Các tác nhân được quản lý sử dụng [mô hình trả tiền theo mức dùng](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) dựa trên số lượng token của mô hình Gemini và mức sử dụng công cụ. Một lượt tương tác có thể kích hoạt nhiều vòng lặp suy luận, thường tiêu thụ từ 100.000 đến 3.000.000 mã thông báo. Bạn sẽ **không bị tính phí** cho tài nguyên điện toán môi trường trong thời gian dùng thử. Xem [chi phí ước tính](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#availability-and-pricing) cho từng phần công việc.
+受管理代理程式採用[即付即用模式](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#pricing-for-agents)，費用取決於 Gemini 模型權杖和工具用量。單一互動可能會觸發多個推理迴圈，通常會耗用 10 萬到 300 萬個權杖。預先發布版**不會收取**環境運算費用。查看各項工作的[預估費用](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#availability-and-pricing)。
 
-## Giới hạn
+## 限制
 
-| Hạn mức | Mô tả |
+| 限制 | 說明 |
 | --- | --- |
-| **Vòng đời môi trường** | Các môi trường sẽ bị xoá vĩnh viễn sau 7 ngày không hoạt động. |
-| **Tắt máy ảo** | Các VM sẽ tắt sau một khoảng thời gian ngắn không hoạt động để tiết kiệm tài nguyên. Yêu cầu tiếp theo sẽ khôi phục trạng thái (với một lần khởi động nguội). |
-| **Phần mềm cài đặt sẵn** | Môi trường dựa trên Ubuntu có Python 3.12 và Node.js 22. Để biết thêm thông tin về hình ảnh cơ sở của môi trường, hãy xem phần [Phần mềm được cài đặt sẵn](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#pre-installed-software). |
-| **Số nhân viên tối đa** | Bạn có thể có tối đa 1.000 nhân viên hỗ trợ được quản lý. |
+| **環境生命週期** | 環境閒置 7 天後就會永久刪除。 |
+| **VM 關機** | VM 閒置一段時間後會關機，以節省資源。下一個要求會還原狀態 (冷啟動)。 |
+| **預先安裝的軟體** | 以 Ubuntu 為基礎的環境，搭載 Python 3.12 和 Node.js 22。如要進一步瞭解環境的基礎映像檔，請參閱「[預先安裝的軟體](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#pre-installed-software)」。 |
+| **最多代理程式** | 最多可有 1,000 個受管理代理程式。 |
 
-## Khung tác nhân
+## 代理架構
 
-Bạn cũng có thể tạo tác nhân bằng Gemini thông qua các khung và SDK sau:
+您也可以使用下列架構和 SDK，透過 Gemini 建構代理程式：
 
-- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=vi): Xây dựng các luồng ứng dụng phức tạp, có trạng thái và hệ thống đa tác nhân bằng cách sử dụng cấu trúc đồ thị.
-- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=vi): Kết nối các tác nhân Gemini với dữ liệu riêng tư của bạn để có quy trình làm việc nâng cao bằng RAG.
-- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=vi): Điều phối các tác nhân AI tự động, cộng tác và đóng vai.
-- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=vi): Xây dựng giao diện người dùng và tác nhân dựa trên AI bằng JavaScript/TypeScript.
-- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/): Một khung mã nguồn mở để xây dựng và điều phối các tác nhân AI có khả năng tương tác.
-- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=vi): Xây dựng các tác nhân AI tự động bằng cách sử dụng cùng các công cụ, vòng lặp tác nhân và tính năng quản lý bối cảnh hỗ trợ Google Antigravity, có thể lập trình bằng Python.
+- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=zh-tw)：使用圖表結構建構具狀態的複雜應用程式流程和多代理系統。
+- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=zh-tw)：將 Gemini 代理程式連結至私人資料，以利 RAG 增強型工作流程。
+- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=zh-tw)：自動調度管理角色扮演的自主式 AI 代理，進行協作。
+- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=zh-tw)：在 JavaScript/TypeScript 中建構 AI 輔助的使用者介面和代理程式。
+- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/)：開放原始碼框架，用於建構及自動調度可互通的 AI 代理。
+- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=zh-tw)：使用與 Google Antigravity 相同的工具、代理程式迴圈和環境管理功能，以 Python 建構自主式 AI 代理程式。
 
-Gửi ý kiến phản hồi
+提供意見
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Cập nhật lần gần đây nhất: 2026-05-20 UTC.
+上次更新時間：2026-05-20 (世界標準時間)。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+想進一步說明嗎？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-20 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-20 (世界標準時間)。"],[],[]]
