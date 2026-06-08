@@ -1,5 +1,21 @@
 # Changelog
 
+## 6.42.0 (2026-06-03)
+
+Full Changelog: [v6.41.0...v6.42.0](https://github.com/openai/openai-node/compare/v6.41.0...v6.42.0)
+
+### Features
+
+* **api:** responses.moderation and chat_completions.moderation ([6d8f592](https://github.com/openai/openai-node/commit/6d8f592d6aec5487684723b75137629a12225d29))
+
+## 6.41.0 (2026-06-01)
+
+Full Changelog: [v6.40.0...v6.41.0](https://github.com/openai/openai-node/compare/v6.40.0...v6.41.0)
+
+### Features
+
+* **api:** Add Amazon Bedrock Responses support ([#1899](https://github.com/openai/openai-node/issues/1899)) ([535b045](https://github.com/openai/openai-node/commit/535b045c9b614eabeb1324c51f401149570a4382))
+
 ## 6.40.0 (2026-06-01)
 
 Full Changelog: [v6.39.1...v6.40.0](https://github.com/openai/openai-node/compare/v6.39.1...v6.40.0)
@@ -1252,7 +1268,7 @@ Full Changelog: [v5.0.0...v5.0.1](https://github.com/openai/openai-node/compare/
 
 ## 5.0.0 (2025-05-29)
 
-This release migrates from node-fetch to builtin fetch, for full release notes see [MIGRATION.md](https://github.com/openai/openai-node/blob/master/MIGRATION.md).
+This release migrates from node-fetch to builtin fetch, for full release notes see [MIGRATION.md](https://github.com/openai/openai-node/blob/main/MIGRATION.md).
 
 Full Changelog: [v5.0.0-alpha.0...v5.0.0](https://github.com/openai/openai-node/compare/v5.0.0-alpha.0...v5.0.0)
 
