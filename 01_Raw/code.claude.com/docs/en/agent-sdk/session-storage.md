@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/agent-sdk/session-storage
-fetched_at: 2026-05-25T12:53:27.599429+00:00
+fetched_at: 2026-06-15T06:15:31.671165+00:00
 fetch_method: mintlify_md
 ---
 
@@ -151,6 +151,8 @@ The SDK ships an `InMemorySessionStore` for development and testing. The example
   asyncio.run(main())
   ```
 </CodeGroup>
+
+The second query prints a summary of the files from the first query, which shows the agent resumed with full context from the store.
 
 ## Write your own adapter
 

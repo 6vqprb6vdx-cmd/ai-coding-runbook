@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/agent-sdk/streaming-output
-fetched_at: 2026-06-08T14:52:30.626523+00:00
+fetched_at: 2026-06-15T06:15:31.898114+00:00
 fetch_method: mintlify_md
 ---
 
@@ -103,6 +103,7 @@ Both contain raw Claude API events, not accumulated text. You need to extract an
     parent_tool_use_id: string | null;
     uuid: UUID;
     session_id: string;
+    ttft_ms?: number; // Time to first token in ms, present only on message_start events
   };
   ```
 </CodeGroup>

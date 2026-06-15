@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/tools-reference
-fetched_at: 2026-06-08T14:52:39.324652+00:00
+fetched_at: 2026-06-15T06:15:40.813846+00:00
 fetch_method: mintlify_md
 ---
 
@@ -321,6 +321,10 @@ What tools do you have access to?
 ```
 
 Claude gives a conversational summary. For exact MCP tool names, run `/mcp`.
+
+<Note>
+  The [advisor tool](/en/advisor) is a [server tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/advisor-tool) that the API runs, rather than a tool that Claude Code implements. It has no name you can reference in permission rules or hook matchers.
+</Note>
 
 ## See also
 
