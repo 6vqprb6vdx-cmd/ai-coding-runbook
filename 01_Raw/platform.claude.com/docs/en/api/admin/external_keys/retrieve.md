@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/external_keys/retrieve
-fetched_at: 2026-06-08T14:52:46.807808+00:00
+fetched_at: 2026-06-15T06:15:35.696742+00:00
 fetch_method: mintlify_md
 ---
 
@@ -97,7 +97,7 @@ Retrieve a single external key config in the caller's organization by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/external_keys/$EXTERNAL_KEY_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/usage_report/retrieve_messages
-fetched_at: 2026-05-25T12:53:32.805396+00:00
+fetched_at: 2026-06-15T06:15:35.857360+00:00
 fetch_method: mintlify_md
 ---
 
@@ -249,7 +249,7 @@ Get Messages Usage Report
 ```http
 curl https://api.anthropic.com/v1/organizations/usage_report/messages \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

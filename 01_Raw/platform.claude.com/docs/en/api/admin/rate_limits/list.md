@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/rate_limits/list
-fetched_at: 2026-05-25T12:53:32.906334+00:00
+fetched_at: 2026-06-15T06:15:36.053185+00:00
 fetch_method: mintlify_md
 ---
 
@@ -93,7 +93,7 @@ and contains the set of limiter values that apply to it.
 ```http
 curl https://api.anthropic.com/v1/organizations/rate_limits \
     -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/list
-fetched_at: 2026-05-25T12:53:32.978670+00:00
+fetched_at: 2026-06-15T06:15:36.881273+00:00
 fetch_method: mintlify_md
 ---
 
@@ -90,7 +90,7 @@ archived tunnels are excluded unless `include_archived` is set.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response

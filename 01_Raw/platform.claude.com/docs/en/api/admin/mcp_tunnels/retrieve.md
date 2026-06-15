@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/mcp_tunnels/retrieve
-fetched_at: 2026-05-25T12:53:32.898669+00:00
+fetched_at: 2026-06-15T06:15:36.758709+00:00
 fetch_method: mintlify_md
 ---
 
@@ -65,7 +65,7 @@ Retrieve a single tunnel in the caller's organization by ID.
 ```http
 curl https://api.anthropic.com/v1/organizations/tunnels/$TUNNEL_ID \
     -H 'anthropic-version: 2023-06-01' \
-    -H "Authorization: Bearer $ANTHROPIC_WIF_BEARER_TOKEN"
+    -H "Authorization: Bearer $ANTHROPIC_OAUTH_TOKEN"
 ```
 
 #### Response
