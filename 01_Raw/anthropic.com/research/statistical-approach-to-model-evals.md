@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/statistical-approach-to-model-evals
-fetched_at: 2026-06-08T14:54:10.056340+00:00
+fetched_at: 2026-06-15T06:16:44.002593+00:00
 title: "A statistical approach to model evaluations \\ Anthropic"
 ---
 
@@ -89,6 +89,10 @@ Statistics is the science of measurement in the presence of noise. Evals present
 
 ## Related content
 
+### Paving the way for agents in biology
+
+[Read more](https://www.anthropic.com/research/agents-in-biology)
+
 ### Making Claude a chemist
 
 [Read more](https://www.anthropic.com/research/making-claude-a-chemist)
@@ -98,9 +102,3 @@ Statistics is the science of measurement in the presence of noise. Evals present
 Results from a survey of 1,260 social scientists about AI and coding agent use.
 
 [Read more](https://www.anthropic.com/research/coding-agents-social-sciences)
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-[Read more](https://www.anthropic.com/research/glasswing-initial-update)

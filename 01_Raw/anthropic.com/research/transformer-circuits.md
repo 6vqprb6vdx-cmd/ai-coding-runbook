@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/transformer-circuits
-fetched_at: 2026-06-08T14:54:05.681448+00:00
+fetched_at: 2026-06-15T06:16:56.436562+00:00
 title: "Reflections on Qualitative Research \\ Anthropic"
 ---
 
@@ -16,6 +16,10 @@ This note offers some opinionated thoughts on why interpretability research may 
 
 ## Related content
 
+### Paving the way for agents in biology
+
+[Read more](https://www.anthropic.com/research/agents-in-biology)
+
 ### Making Claude a chemist
 
 [Read more](https://www.anthropic.com/research/making-claude-a-chemist)
@@ -25,9 +29,3 @@ This note offers some opinionated thoughts on why interpretability research may 
 Results from a survey of 1,260 social scientists about AI and coding agent use.
 
 [Read more](https://www.anthropic.com/research/coding-agents-social-sciences)
-
-### Project Glasswing: An initial update
-
-An early update on what we've learned from Project Glasswing.
-
-[Read more](https://www.anthropic.com/research/glasswing-initial-update)
