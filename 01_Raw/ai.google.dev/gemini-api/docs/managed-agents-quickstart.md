@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id
-fetched_at: 2026-06-08T15:01:26.646333+00:00
-title: "Panduan Memulai Agen Terkelola \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi
+fetched_at: 2026-06-15T06:18:45.844454+00:00
+title: "H\u01b0\u1edbng d\u1eabn nhanh v\u1ec1 Managed Agents \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Panduan Memulai Agen Terkelola
+# Hướng dẫn nhanh về Managed Agents
 
-Panduan ini akan memandu Anda membuat dan menggunakan Agen Terkelola di Gemini API, menggunakan [agen Antigravitasi](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=id). Anda akan melakukan panggilan agen pertama, melanjutkan percakapan bolak-balik, melakukan streaming respons, mendownload file dari sandbox, dan menggunakan agen terkelola Antigravity.
+Hướng dẫn này sẽ hướng dẫn bạn cách tạo và sử dụng Tác nhân được quản lý trên Gemini API, bằng cách sử dụng [tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=vi). Bạn sẽ thực hiện cuộc gọi đầu tiên cho trợ lý, tiếp tục cuộc trò chuyện nhiều lượt, truyền trực tuyến phản hồi, tải tệp xuống từ hộp cát và làm việc với trợ lý được quản lý Antigravity.
 
-## Menjalankan interaksi agen pertama Anda
+## Chạy lượt tương tác đầu tiên với nhân viên hỗ trợ
 
-Satu panggilan ke [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id) menyediakan sandbox Linux, menjalankan loop agen, dan menampilkan hasilnya. Anda akan menentukan tiga parameter:
+Một lệnh gọi duy nhất đến [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi) sẽ cung cấp một hộp cát Linux, chạy vòng lặp tác nhân và trả về kết quả. Bạn sẽ xác định 3 tham số:
 
-- Teruskan `agent` sebagai `"antigravity-preview-05-2026",` yang merupakan versi saat ini dari agen terkelola tujuan umum dan yang telah ditentukan sebelumnya.
-- Tentukan `environment="remote"`, untuk menyediakan lingkungan sandbox baru yang bersih.
-- Buat input, yang menentukan tindakan yang Anda inginkan dari agen.
+- Truyền `agent` dưới dạng `"antigravity-preview-05-2026",`. Đây là phiên bản hiện tại của tác nhân được quản lý đa năng và xác định trước của chúng tôi.
+- Xác định `environment="remote"` để cung cấp một môi trường hộp cát mới và sạch.
+- Tạo một đầu vào, xác định những việc bạn muốn tác nhân thực hiện.
 
 ### Python
 
@@ -80,16 +80,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Respons menampilkan objek `Interaction`. Simpan `interaction.id` dan `interaction.environment_id` untuk melanjutkan percakapan di sandbox yang sama. Gunakan `interaction.output_text` untuk mengakses respons akhir agen. `interaction.steps` mencantumkan setiap langkah yang dilakukan agen (penalaran, panggilan alat, eksekusi kode).
+Phản hồi trả về một đối tượng `Interaction`. Lưu trữ `interaction.id` và `interaction.environment_id` để tiếp tục cuộc trò chuyện trong cùng một hộp cát. Sử dụng `interaction.output_text` để truy cập vào câu trả lời cuối cùng của trợ lý. `interaction.steps` liệt kê từng bước mà tác nhân đã thực hiện (suy luận, lệnh gọi công cụ, thực thi mã).
 
-## Lanjutkan percakapan (multi-giliran)
+## Tiếp tục cuộc trò chuyện (nhiều lượt)
 
-API melacak dua dimensi status independen:
+API này theo dõi 2 phương diện trạng thái độc lập:
 
-- **Konteks percakapan:** histori chat, jejak penalaran, penggunaan alat, menggunakan `previous_interaction_id`.
-- [**Status lingkungan:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) file, paket yang diinstal, dan status sandbox, menggunakan `environment`.
+- **Bối cảnh cuộc trò chuyện:** nhật ký trò chuyện, dấu vết suy luận, việc sử dụng công cụ, sử dụng `previous_interaction_id`.
+- [**Trạng thái môi trường:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi) tệp, các gói đã cài đặt và trạng thái hộp cát, bằng cách sử dụng `environment`.
 
-Teruskan keduanya di tempatnya masing-masing untuk melanjutkan:
+Truyền cả hai vào vị trí tương ứng để tiếp tục:
 
 ### Python
 
@@ -132,20 +132,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-File dari giliran 1 (`fibonacci.txt`) tetap ada di giliran 2. Agen juga mempertahankan konteks percakapan.
+Các tệp từ lượt 1 (`fibonacci.txt`) vẫn tồn tại trong lượt 2. Tác nhân cũng lưu giữ bối cảnh trò chuyện.
 
-Anda dapat memadupadankan hal-hal ini secara terpisah:
+Bạn có thể kết hợp các thành phần này một cách độc lập:
 
-- **Hapus percakapan, simpan file:** Hilangkan `previous_interaction_id`, hanya teruskan ID lingkungan menggunakan `environment` untuk percakapan baru di ruang kerja yang sama.
-- **Lanjutkan percakapan, ruang kerja baru:** Teruskan `previous_interaction_id`, tetapkan `environment="remote"` untuk sandbox baru.
+- **Xoá cuộc trò chuyện, giữ lại tệp:** Bỏ qua `previous_interaction_id`, chỉ truyền mã nhận dạng môi trường bằng `environment` để bắt đầu một cuộc trò chuyện mới trong cùng một không gian làm việc.
+- **Giữ lại cuộc trò chuyện, không gian làm việc mới:** Truyền `previous_interaction_id`, đặt `environment="remote"` cho một hộp cát mới.
 
-### Pemadatan konteks otomatis
+### Tự động nén bối cảnh
 
-Dalam percakapan multi-turn yang berjalan lama, histori mentah langkah-langkah penalaran, panggilan alat, dan konten file besar dapat berkembang dengan cepat dan menggunakan ruang konteks yang signifikan. Untuk mencegah error batas token dan mempertahankan fokus agen (mencegah "context rot"), Managed Agents API menampilkan langkah pemadatan konteks native pada sekitar 135 ribu token. Hal ini terjadi secara otomatis.
+Trong các cuộc trò chuyện kéo dài nhiều lượt, nhật ký thô về các bước suy luận, lệnh gọi công cụ và nội dung tệp lớn có thể nhanh chóng tăng lên và chiếm một lượng lớn không gian bối cảnh. Để ngăn lỗi vượt quá giới hạn mã thông báo và duy trì sự tập trung của tác nhân (ngăn chặn "sự suy giảm ngữ cảnh"), Managed Agents API có một bước nén ngữ cảnh gốc ở khoảng 135.000 mã thông báo. Quy trình này diễn ra tự động.
 
-## Streaming respons
+## Hiện câu trả lời theo thời gian thực
 
-Untuk tugas yang berjalan lama, Anda dapat melakukan streaming respons untuk melihat pekerjaan agen secara real time:
+Đối với các tác vụ chạy trong thời gian dài, bạn có thể truyền trực tuyến phản hồi để xem tác nhân hoạt động theo thời gian thực:
 
 ### Python
 
@@ -199,11 +199,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-Streaming menampilkan iterable delta langkah, yang merupakan teks inkremental, token penalaran, dan update panggilan alat. Pelajari lebih lanjut cara melakukan streaming respons di [panduan Streaming](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=id).
+Truyền trực tuyến trả về một đối tượng có thể lặp lại gồm các delta bước, là văn bản gia tăng, mã thông báo suy luận và thông tin cập nhật về lệnh gọi công cụ. Tìm hiểu thêm về cách truyền trực tuyến các câu trả lời trong [Hướng dẫn truyền trực tuyến](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=vi).
 
-## Mendownload file dari lingkungan
+## Tải tệp xuống từ môi trường
 
-Saat agen membuat file di dalam sandbox. Download menggunakan Files API dengan permintaan HTTP langsung (belum ada metode SDK):
+Khi tác nhân tạo tệp bên trong hộp cát. Tải các tệp này xuống bằng Files API thông qua yêu cầu HTTP trực tiếp (chưa có phương thức SDK):
 
 ### Python
 
@@ -270,13 +270,13 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/environme
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## Menyimpan agen terkelola
+## Lưu tác nhân được quản lý
 
-Pada langkah sebelumnya, kita menggunakan agen Antigravity default dan menyesuaikannya secara inline. Setelah melakukan iterasi pada konfigurasi (petunjuk, kemampuan, dan lingkungan), Anda dapat menyimpannya sebagai agen terkelola. Dengan begitu, Anda dapat memanggilnya berdasarkan ID tanpa mengulangi konfigurasi.
+Trong các bước trước, chúng ta đã sử dụng tác nhân Antigravity mặc định và tuỳ chỉnh tác nhân này theo dòng. Sau khi lặp lại cấu hình (hướng dẫn, kỹ năng và môi trường), bạn có thể lưu cấu hình đó dưới dạng một tác nhân được quản lý. Điều này cho phép bạn gọi nó theo mã nhận dạng mà không cần lặp lại cấu hình.
 
-Saat menyimpan agen, Anda menentukan `base_environment` (baik dari sumber atau dengan membuat cabang lingkungan yang ada). Agen akan menggunakan lingkungan ini untuk setiap interaksi baru.
+Khi lưu một tác nhân, bạn sẽ xác định một `base_environment` (từ các nguồn hoặc bằng cách phân nhánh một môi trường hiện có). Nhân viên hỗ trợ sẽ sử dụng môi trường này cho mọi lượt tương tác mới.
 
-**Dari sumber:** Tentukan sumber secara inline, atau dari sumber lain seperti GitHub atau Cloud Storage.
+**Từ các nguồn:** Xác định các nguồn nội tuyến hoặc từ các nguồn khác như GitHub hoặc Cloud Storage.
 
 ### Python
 
@@ -361,9 +361,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## Memanggil agen terkelola
+## Gọi tác nhân được quản lý
 
-Setelah menyimpan agen terkelola, Anda dapat memanggilnya berdasarkan ID. Setiap pemanggilan membuat cabang lingkungan dasar, sehingga setiap eksekusi dimulai dengan bersih:
+Sau khi lưu một tác nhân được quản lý, bạn có thể gọi tác nhân đó theo mã nhận dạng. Mỗi lệnh gọi sẽ phân nhánh môi trường cơ sở, vì vậy, mọi lượt chạy đều bắt đầu từ đầu:
 
 ### Python
 
@@ -405,19 +405,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Langkah berikutnya
+## Bước tiếp theo
 
-- [Agen Antigravitasi](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id): kemampuan, alat yang didukung, input multimodal, harga, dan batasan.
-- [Membangun Agen Terkelola](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id): perluas Antigravity dengan petunjuk, keterampilan, dan data Anda sendiri.
-- [Lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id): sumber, jaringan, siklus proses, batas resource.
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=id): API pokok untuk model dan agen.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi): các chức năng, công cụ được hỗ trợ, dữ liệu đầu vào đa phương thức, giá và các hạn chế.
+- [Tạo tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi): mở rộng Antigravity bằng các hướng dẫn, kỹ năng và dữ liệu của riêng bạn.
+- [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi): nguồn, mạng, vòng đời, giới hạn tài nguyên.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi): API cơ bản cho các mô hình và tác nhân.
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Terakhir diperbarui pada 2026-05-20 UTC.
+Cập nhật lần gần đây nhất: 2026-05-20 UTC.
 
-Ada masukan untuk kami?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-20 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-20 UTC."],[],[]]

@@ -1,42 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ar
-fetched_at: 2026-06-08T15:01:23.016878+00:00
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-TW
+fetched_at: 2026-06-15T06:19:18.522568+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-إرسال ملاحظات
+提供意見
 
-# مُخرجات منظَّمة
+# 結構化輸出內容
 
-يمكنك ضبط نماذج Gemini لإنشاء ردود تتوافق مع مخطط JSON الذي تقدّمه. يضمن ذلك الحصول على نتائج متوقّعة وآمنة من ناحية النوع، ويُسهّل استخراج البيانات المنظَّمة من النصوص غير المنظَّمة.
+您可以設定 Gemini 模型，生成符合指定 JSON 結構定義的回覆。這項功能可確保結果類型安全無虞，並簡化從非結構化文字中擷取結構化資料的程序。
 
-يُعد استخدام المُخرجات المنظَّمة مثاليًا في الحالات التالية:
+使用結構化輸出內容的理想用途包括：
 
-- **استخراج البيانات:** استخراج معلومات محدّدة، مثل الأسماء والتواريخ، من النص
-- **التصنيف المنظَّم:** تصنيف النص ضِمن فئات محدَّدة مسبقًا
-- **سير العمل المستند إلى الوكلاء:** إنشاء مدخلات منظَّمة للأدوات أو واجهات برمجة التطبيقات
+- **資料擷取：**從文字中擷取特定資訊，例如姓名和日期。
+- **結構化分類：**將文字分類到預先定義的類別。
+- **代理工作流程：**為工具或 API 產生結構化輸入內容。
 
-بالإضافة إلى إتاحة استخدام JSON Schema في REST API، تُسهّل حِزم تطوير البرامج (SDK) من Google GenAI
-تحديد المخططات باستخدام
-[Pydantic](https://docs.pydantic.dev/latest/) (في Python) و
-[Zod](https://zod.dev/) (في JavaScript).
+除了在 REST API 中支援 JSON 結構定義，Google GenAI SDK 也可讓您使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 輕鬆定義結構定義。
 
-## أمثلة على المُخرجات المنظَّمة
+## 結構化輸出範例
 
-### مستخرِج الوصفات
+### 食譜擷取器
 
-يوضِّح هذا المثال كيفية استخراج البيانات المنظَّمة من النص باستخدام أنواع JSON Schema الأساسية، مثل `object` و`array` و`string` و`integer`.
+這個範例說明如何使用基本 JSON 結構定義型別 (例如 `object`、`array`、`string` 和 `integer`)，從文字中擷取結構化資料。
 
 ### Python
 
@@ -130,7 +127,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### انتقال
+### Go
 
 ```
 package main
@@ -267,7 +264,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**مثال على الردّ:**
+**回覆範例：**
 
 ```
 {
@@ -322,9 +319,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### الإشراف على المحتوى
+### 內容審核
 
-يعرض هذا المثال `anyOf` للمخططات الشرطية و`enum` للتصنيف، ما يسمح بتغيير بنية الإخراج استنادًا إلى المحتوى.
+這個範例展示了條件式結構定義的 `anyOf`，以及分類的 `enum`，可根據內容調整輸出結構。
 
 ### Python
 
@@ -403,7 +400,7 @@ const result = moderationResultSchema.parse(JSON.parse(response.text));
 console.log(result);
 ```
 
-### انتقال
+### Go
 
 ```
 package main
@@ -551,9 +548,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### البِنى المتكرّرة
+### 遞迴結構
 
-يوضِّح هذا المثال كيفية تحديد مخطط متكرّر، مثل مخطط تنظيمي.
+這個範例說明如何定義遞迴結構定義，例如機構圖表。
 
 ### Python
 
@@ -622,7 +619,7 @@ const employee = employeeSchema.parse(JSON.parse(response.text));
 console.log(employee);
 ```
 
-### انتقال
+### Go
 
 ```
 package main
@@ -716,7 +713,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**مثال على الردّ:**
+**回覆範例：**
 
 ```
 {
@@ -743,11 +740,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-## البث
+## 串流
 
-يمكنك بث المُخرجات المنظَّمة، ما يسمح لك ببدء معالجة الردّ أثناء إنشائه، بدون الحاجة إلى الانتظار حتى اكتمال الإخراج بالكامل. يمكن أن يؤدي ذلك إلى تحسين الأداء المتصوَّر لتطبيقك.
+您可以串流輸出結構化內容，在生成回應時開始處理，不必等待整個輸出內容完成，有助於提升應用程式的感知效能。
 
-ستكون الأجزاء التي يتم بثها عبارة عن سلاسل JSON جزئية صالحة، ويمكن ربطها لتشكيل كائن JSON النهائي الكامل.
+串流區塊會是有效的局部 JSON 字串，可串連成最終的完整 JSON 物件。
 
 ### Python
 
@@ -803,14 +800,9 @@ for await (const chunk of stream) {
 }
 ```
 
-## المُخرجات المنظَّمة مع الأدوات
+## 使用工具產生結構化輸出內容
 
-يتيح لك Gemini 3 الجمع بين المُخرجات المنظَّمة والأدوات المضمّنة، بما في ذلك
-[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)،
-[URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)،
-[Code Execution](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)،
-[File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=ar#structured-output)، و
-[Function Calling](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar).
+Gemini 3 可讓您將結構化輸出內容與內建工具結合，包括[採用 Google 搜尋建立基準](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)、[網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)、[程式碼執行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)、[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw#structured-output)和[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
 
 ### Python
 
@@ -915,101 +907,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## إتاحة استخدام JSON Schema
+## 支援 JSON 結構定義
 
-لإنشاء كائن JSON، اضبط `response_format` في إعدادات الإنشاء. يجب أن يكون المخطط [JSON Schema](https://json-schema.org/) صالحًا يصف تنسيق الإخراج المطلوب.
+如要產生 JSON 物件，請在產生設定中設定 `response_format`。結構定義必須是有效的 [JSON 結構定義](https://json-schema.org/)，用於說明所需的輸出格式。
 
-سينشئ النموذج بعد ذلك ردًا عبارة عن سلسلة JSON صالحة من الناحية النحوية وتتطابق مع المخطط المقدَّم. عند استخدام المُخرجات المنظَّمة، سينتج النموذج مُخرجات بالترتيب نفسه الذي تظهر به المفاتيح في المخطط.
+模型接著會生成符合所提供結構定義的語法有效 JSON 字串。使用結構化輸出內容時，模型會按照結構定義中鍵的順序產生輸出內容。
 
-يتيح وضع المُخرجات المنظَّمة في Gemini استخدام مجموعة فرعية من مواصفات [JSON Schema](https://json-schema.org).
+Gemini 的結構化輸出模式支援 [JSON 結構定義](https://json-schema.org)規格的子集。
 
-القيم التالية لـ `type` متاحة:
+支援的 `type` 值如下：
 
-- **`string`**: للنص
-- **`number`**: لأرقام النقطة العائمة.
-- **`integer`**: للأرقام الصحيحة
-- **`boolean`**: لقيمتَي "صحيح" و"خطأ"
-- **`object`**: للبيانات المنظَّمة التي تتضمّن أزواجًا من القيم والمفاتيح
-- **`array`**: لقوائم العناصر
-- **`null`**: للسماح بأن تكون قيمة السمة فارغة، أدرِج `"null"` في مصفوفة النوع (مثل `{"type": ["string", "null"]}`).
+- **`string`**：文字。
+- **`number`**：適用於浮點數。
+- **`integer`**：適用於整數。
+- **`boolean`**：適用於 true/false 值。
+- **`object`**：適用於含有鍵/值組合的結構化資料。
+- **`array`**：適用於項目清單。
+- **`null`**：如要允許屬性為空值，請在型別陣列中加入 `"null"` (例如 `{"type": ["string", "null"]}`)。
 
-تساعد هذه السمات الوصفية في توجيه النموذج:
+這些描述性屬性有助於引導模型：
 
-- **`title`**: وصف قصير لسمة
-- **`description`**: وصف أطول وأكثر تفصيلاً لسمة
+- **`title`**：屬性的簡短說明。
+- **`description`**：房源的詳細說明。
 
-### السمات الخاصة بالنوع
+### 類型專屬屬性
 
-**لقيم `object`:**
+**適用於 `object` 值：**
 
-- **`properties`**: كائن يكون فيه كل مفتاح اسم سمة وكل قيمة مخططًا لتلك السمة
-- **`required`**: مصفوفة من السلاسل، تسرد السمات الإلزامية
-- **`additionalProperties`**: تتحكّم في ما إذا كان مسموحًا بالسمات غير المدرَجة في `properties` يمكن أن تكون قيمة هذه السمة منطقية أو مخططًا.
+- **`properties`**：物件，其中每個鍵都是屬性名稱，每個值都是該屬性的結構定義。
+- **`required`**：字串陣列，列出哪些屬性為必要屬性。
+- **`additionalProperties`**：控制是否允許未列於 `properties` 中的屬性。可以是布林值或結構定義。
 
-**لقيم `string`:**
+**適用於 `string` 值：**
 
-- **`enum`**: تسرد مجموعة محدّدة من السلاسل المحتمَلة لمهام التصنيف
-- **`format`**: تحدّد بنية السلسلة، مثل `date-time` أو `date` أو `time`
+- **`enum`**：列出分類工作的一組特定可能字串。
+- **`format`**：指定字串的語法，例如 `date-time`、`date`、`time`。
 
-**لقيمتَي `number` و`integer`:**
+**`number` 和 `integer` 值：**
 
-- **`enum`**: تسرد مجموعة محدّدة من القيم الرقمية المحتمَلة
-- **`minimum`**: الحد الأدنى للقيمة (بما في ذلك الحد الأدنى)
-- **`maximum`**: الحد الأقصى للقيمة (بما في ذلك الحد الأقصى)
+- **`enum`**：列出特定的一組可能數值。
+- **`minimum`**：最小值 (含)。
+- **`maximum`**：最大值 (含)。
 
-**لقيم `array`:**
+**適用於 `array` 值：**
 
-- **`items`**: تحدّد المخطط لجميع العناصر في المصفوفة
-- **`prefixItems`**: تحدّد قائمة بالمخططات لأول N عنصر، ما يسمح ببِنى تشبه الصفوف
-- **`minItems`**: الحد الأدنى لعدد العناصر في المصفوفة
-- **`maxItems`**: الحد الأقصى لعدد العناصر في المصفوفة
+- **`items`**：定義陣列中所有項目的結構定義。
+- **`prefixItems`**：定義前 N 個項目的結構定義清單，允許使用類似元組的結構。
+- **`minItems`**：陣列中的項目數量下限。
+- **`maxItems`**：陣列中的項目數量上限。
 
-## النماذج المتاحة
+## 模型支援
 
-تتيح النماذج التالية استخدام المُخرجات المنظَّمة:
+以下模型支援結構化輸出內容：
 
-| الطراز | مُخرجات منظَّمة |
+| 模型 | 結構化輸出內容 |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro Preview | ✔️ |
+| Gemini 3.1 Pro 預先發布版 | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite Preview | ✔️ |
+| Gemini 3.1 Flash-Lite 預先發布版 | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* يُرجى العِلم أنّ Gemini 2.0 يتطلب قائمة `propertyOrdering` صريحة ضِمن إدخال JSON لتحديد البنية المفضّلة. يمكنك الاطّلاع على مثال في دليل الطبخ هذا* .
+*\* 請注意，Gemini 2.0 需要在 JSON 輸入內容中明確列出 `propertyOrdering`，才能定義偏好的結構。如需範例，請參閱這份[教戰手冊](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb)。*
 
-## المُخرجات المنظَّمة مقابل استدعاء الدوال
+## 結構化輸出內容與函式呼叫
 
-يستخدم كلٌّ من المُخرجات المنظَّمة واستدعاء الدوال مخططات JSON، ولكنّهما يخدمان أغراضًا مختلفة:
+結構化輸出內容和函式呼叫都會使用 JSON 結構定義，但用途各不相同：
 
-| الميزة | حالة الاستخدام الأساسية |
+| 功能 | 主要用途 |
 | --- | --- |
-| **مُخرجات منظَّمة** | **تنسيق الردّ النهائي للمستخدم** استخدِم هذه الميزة عندما تريد أن يكون *ردّ* النموذج بتنسيق معيّن (مثل استخراج البيانات من مستند لحفظها في قاعدة بيانات). |
-| **استدعاء الدوال** | **اتخاذ إجراء أثناء المحادثة** استخدِم هذه الميزة عندما يحتاج النموذج إلى *أن يطلب منك* تنفيذ مهمة (مثل "الحصول على حالة الطقس الحالية") قبل أن يتمكّن من تقديم إجابة نهائية. |
+| **結構化輸出內容** | **將最終回覆格式化，再傳送給使用者。**如要讓模型以特定格式*回覆* (例如從文件擷取資料並儲存至資料庫)，請使用這項功能。 |
+| **函式呼叫** | **在對話期間採取行動：**如果模型需要*要求您*執行工作 (例如「取得目前天氣」)，才能提供最終答案，請使用這項功能。 |
 
-## أفضل الممارسات
+## 最佳做法
 
-- **الأوصاف الواضحة:** استخدِم الحقل `description` في المخطط لتقديم تعليمات واضحة للنموذج بشأن ما تمثله كل سمة. هذا أمر بالغ الأهمية لتوجيه إخراج النموذج.
-- **النوع القوي:** استخدِم أنواعًا محدّدة (`integer` و`string` و`enum`) كلما أمكن ذلك. إذا كانت المَعلمة تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم `enum`.
-- **هندسة الطلبات:** وضِّح في طلبك ما تريد أن يفعله النموذج. على سبيل المثال، "استخرِج المعلومات التالية من النص..." أو "صنِّف هذه الملاحظات وفقًا للمخطط المقدَّم...".
-- **التحقّق من الصحة:** على الرغم من أنّ المُخرجات المنظَّمة تضمن أن يكون JSON صحيحًا من الناحية النحوية، فإنّها لا تضمن أن تكون القيم صحيحة من الناحية الدلالية. يجب دائمًا التحقّق من صحة الإخراج النهائي في الرمز البرمجي لتطبيقك قبل استخدامه.
-- **معالجة الأخطاء:** نفِّذ عملية معالجة أخطاء قوية في تطبيقك لإدارة الحالات التي قد لا يفي فيها إخراج النموذج، على الرغم من توافقه مع المخطط، بمتطلبات منطق عملك.
+- **清楚的說明：**在結構定義中使用 `description` 欄位，向模型清楚說明每個屬性代表的意義，這對引導模型輸出內容至關重要。
+- **嚴格型別：**盡可能使用特定型別 (`integer`、`string`、`enum`)。如果參數的有效值有限，請使用 `enum`。
+- **提示工程：**在提示中清楚說明您希望模型執行的動作。例如：「從這段文字中擷取下列資訊...」或「根據提供的結構定義，將這則意見回饋分類...」。
+- **驗證：**結構化輸出內容可確保 JSON 語法正確，但無法保證值在語意上正確無誤。請務必先在應用程式程式碼中驗證最終輸出內容，再加以使用。
+- **錯誤處理：**在應用程式中導入健全的錯誤處理機制，妥善管理模型輸出內容符合結構定義，但可能不符合商業邏輯要求的情況。
 
-## القيود
+## 限制
 
-- **المجموعة الفرعية من المخططات:** لا تتوفّر جميع ميزات مواصفات JSON Schema. يتجاهل النموذج السمات غير المتاحة.
-- **تعقيد المخطط:** قد ترفض واجهة برمجة التطبيقات المخططات الكبيرة جدًا أو المتداخلة بشكل كبير. إذا واجهتك أخطاء، حاوِل تبسيط المخطط من خلال تقصير أسماء السمات أو تقليل مستوى التداخل أو الحدّ من عدد القيود.
+- **結構定義子集：**系統僅支援部分 JSON 結構定義規格功能。模型會忽略不支援的屬性。
+- **結構定義複雜度：**API 可能會拒絕過大或深度巢狀結構的結構定義。如果發生錯誤，請嘗試縮短屬性名稱、減少巢狀結構或限制條件數量，簡化結構定義。
 
-إرسال ملاحظات
+提供意見
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاريخ التعديل الأخير: 2026-06-05 (حسب التوقيت العالمي المتفَّق عليه)
+上次更新時間：2026-06-05 (世界標準時間)。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+想進一步說明嗎？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-05 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-05 (世界標準時間)。"],[],[]]

@@ -1,151 +1,147 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=id
-fetched_at: 2026-06-08T14:58:47.029852+00:00
-title: "Membangun Aplikasi Android di Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=it
+fetched_at: 2026-06-15T06:22:54.618599+00:00
+title: "Crea app per Android in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Kirim masukan
+Invia feedback
 
-# Membangun Aplikasi Android di Google AI Studio
+# Crea app per Android in Google AI Studio
 
-Google AI Studio memungkinkan Anda membuat aplikasi Android native dari perintah bahasa alami. Deskripsikan aplikasi yang Anda inginkan, dan
-[Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=id#antigravity-agent)
-akan membuat project Kotlin dan [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=id)
-yang lengkap. Dari browser, Anda dapat melihat pratinjau aplikasi di emulator Android berbasis browser, menginstalnya di perangkat fisik, dan memublikasikannya untuk pengujian.
+Google AI Studio ti consente di creare app Android native da un prompt in linguaggio naturale. Descrivi l'app che vuoi e l'
+[agente Antigravity](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it#antigravity-agent)
+genera un progetto completo in Kotlin e [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=it). Dal browser, puoi visualizzare l'anteprima dell'app in un emulatore Android basato su browser, installarla su un dispositivo fisico e pubblicarla per i test.
 
-## Mulai
+## Inizia
 
-Untuk mulai membuat aplikasi Android:
+Per iniziare a creare un'app per Android:
 
-1. Buka [mode Build](https://aistudio.google.com/apps?hl=id) di Google AI Studio menggunakan panel navigasi kiri.
-2. Pilih **Android** dari pemilih platform.
-3. Masukkan perintah yang menjelaskan aplikasi yang ingin Anda buat (misalnya, *"Buat pelacak tugas harian dengan penyimpanan lokal"* atau *"Buat kalkulator sederhana"*).
-4. Agen akan membuat project dan meluncurkannya di emulator Android berbasis browser.
+1. Vai alla [modalità di creazione](https://aistudio.google.com/apps?hl=it) in Google AI Studio utilizzando il pannello di navigazione a sinistra.
+2. Seleziona **Android** dal selettore della piattaforma.
+3. Inserisci un prompt che descriva l'app che vuoi creare (ad es. *"Crea un tracker delle attività giornaliere con spazio di archiviazione locale"* o *"Crea una Calcolatrice semplice"*).
+4. L'agente genera il progetto e lo avvia nell'emulatore Android basato su browser.
 
-Kemudian, Anda dapat melakukan iterasi pada aplikasi menggunakan panel chat, seperti pengalaman web. Agen mengelola semua file di project Android Anda dan menyebarkan perubahan di seluruh codebase.
+Puoi quindi eseguire l'iterazione sull'app utilizzando il riquadro della chat, proprio come nell'esperienza web. L'agente gestisce tutti i file del progetto Android e propaga le modifiche nel codebase.
 
-## Emulator Android berbasis browser
+## Emulatore Android basato su browser
 
-Emulator Android berjalan sepenuhnya di cloud dan di-streaming ke browser Anda.
-Anda tidak perlu menginstal Android SDK, Android Studio, atau emulator lokal.
+L'emulatore Android viene eseguito interamente nel cloud e viene trasmesso in streaming al browser.
+Non è necessario installare l'SDK Android, Android Studio o un emulatore locale.
 
-Emulator menyediakan:
+L'emulatore fornisce:
 
-- **Simulasi perangkat seperti Pixel**: ketuk, scroll, dan berinteraksi dengan aplikasi Anda
-  seperti di perangkat sungguhan.
-- **Dukungan rotasi**: beralih antara orientasi potret dan lanskap.
-- **Pratinjau langsung**: saat agen membuat perubahan kode, aplikasi akan di-build ulang dan
-  emulator akan dimuat ulang secara otomatis.
+- **Simulazione di un dispositivo simile a Pixel**: tocca, scorri e interagisci con l'app
+  come su un dispositivo reale.
+- **Supporto della rotazione**: passa dall'orientamento verticale a quello orizzontale.
+- **Anteprima live**: quando l'agente apporta modifiche al codice, l'app viene ricompilata e
+  l'emulatore si aggiorna automaticamente.
 
-### Batasan emulator
+### Limitazioni dell'emulatore
 
-Emulator berbasis browser tidak mendukung semua fitur hardware. Fitur berikut tidak tersedia di emulator:
+L'emulatore basato su browser non supporta tutte le funzionalità hardware. Le seguenti funzionalità non sono disponibili nell'emulatore:
 
-- Pengambilan gambar dan foto kamera
-- NFC dan Bluetooth
-- GPS (lokasi disimulasikan)
-- Layanan Google Play (fitur Login dengan Google, Maps, dan layanan Play lainnya berfungsi di perangkat sungguhan, tetapi tidak di emulator)
+- Acquisizione di foto e video
+- NFC e Bluetooth
+- GPS (la posizione è simulata)
+- Google Play Services (Accedi con Google, Maps e altre funzionalità di Play Services funzionano su un dispositivo reale, ma non nell'emulatore)
 
-## Menginstal di perangkat dengan ADB
+## Installazione su un dispositivo con ADB
 
-Anda dapat menginstal APK yang di-build langsung di perangkat Android fisik yang terhubung ke komputer menggunakan USB. Tindakan ini menggunakan
-[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=id) untuk
-berkomunikasi dengan perangkat Anda melalui browser. Tidak diperlukan penginstalan ADB lokal.
+Puoi installare l'APK creato direttamente su un dispositivo Android fisico collegato al computer tramite USB. Viene utilizzato
+[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=it) per
+comunicare con il dispositivo tramite il browser. Non è richiesta l'installazione di ADB locale.
 
-### Prasyarat
+### Prerequisiti
 
-- Browser Chrome atau Edge yang mendukung WebUSB.
-- Perangkat Android dengan
-  [Opsi Developer dan Proses Debug USB](https://developer.android.com/studio/debug/dev-options?hl=id)
-  diaktifkan.
-- Kabel USB yang menghubungkan perangkat ke komputer Anda.
+- Un browser Chrome o Edge che supporti WebUSB.
+- Un dispositivo Android con
+  [le opzioni sviluppatore e il debug USB](https://developer.android.com/studio/debug/dev-options?hl=it)
+  attivati.
+- Un cavo USB che collega il dispositivo al computer.
 
-### Menginstal aplikasi di perangkat
+### Installare l'app sul dispositivo
 
-1. Klik **Install on Device** di panel pratinjau.
-2. Pilih perangkat Android Anda dari pemilih perangkat USB browser.
-3. APK akan ditransfer dan diinstal di perangkat Anda.
-4. Aplikasi akan diluncurkan secara otomatis.
+1. Fai clic su **Installa sul dispositivo** nel riquadro di anteprima.
+2. Seleziona il tuo dispositivo Android dal selettore di dispositivi USB del browser.
+3. L'APK viene trasferito e installato sul dispositivo.
+4. L'app si avvia automaticamente.
 
-## Memublikasikan ke Play Store
+## Pubblicazione sul Play Store
 
-Anda dapat memublikasikan aplikasi Android ke jalur pengujian internal
-[Konsol Google Play](https://play.google.com/console?hl=id)
-yang memungkinkan Anda mendistribusikan aplikasi ke maksimal 100 penguji.
+Puoi pubblicare la tua app per Android nel
+[canale di test interno](https://play.google.com/console?hl=it) di
+Google Play Console, che ti consente di distribuire l'app a un massimo di 100 tester.
 
-### Prasyarat
+### Prerequisiti
 
-- Akun Developer [Google Play](https://play.google.com/console/signup?hl=id)
-  (memerlukan biaya pendaftaran satu kali sebesar $25).
-- Profil developer yang telah diisi di Konsol Play.
+- Un [account sviluppatore Google Play](https://play.google.com/console/signup?hl=it)
+  (richiede una commissione di registrazione una tantum di 25 $).
+- Un profilo sviluppatore completato in Play Console.
 
-### Memublikasikan aplikasi
+### Pubblicare l'app
 
-1. Buka **Settings > Publish** di Google AI Studio.
-2. Klik **Publish to Play Store**.
-3. Lakukan autentikasi dengan akun Developer Google Play Anda.
-4. AI Studio menandatangani APK, membuat listingan aplikasi (atau mengupload versi baru), dan memublikasikan ke jalur pengujian internal.
-5. Anda akan menerima link untuk dibagikan kepada penguji.
+1. Apri **Impostazioni > Pubblica** in Google AI Studio.
+2. Fai clic su **Pubblica sul Play Store**.
+3. Esegui l'autenticazione con il tuo account sviluppatore Google Play.
+4. AI Studio firma l'APK, crea la scheda dell'app (o carica una nuova versione) e la pubblica nel canale di test interno.
+5. Riceverai un link da condividere con i tuoi tester.
 
-AI Studio mengelola penandatanganan APK secara otomatis menggunakan keystore terkelola. Anda dapat menyesuaikan listingan aplikasi (ikon, screenshot, deskripsi) nanti di Konsol Play.
+AI Studio gestisce automaticamente la firma dell'APK utilizzando un keystore gestito. Puoi personalizzare la scheda dell'app (icona, screenshot, descrizione) in un secondo momento in Play Console.
 
-## Yang dihasilkan
+## Cosa viene generato
 
-Saat Anda membuat aplikasi Android, agen akan membuat project berbasis Gradle standar dengan struktur berikut:
+Quando crei un'app per Android, l'agente genera un progetto standard basato su Gradle con la seguente struttura:
 
-- **Konfigurasi build**: `build.gradle.kts` file (tingkat project dan aplikasi)
-  menggunakan DSL Kotlin.
-- **Lapisan UI**: [komponen Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=id)
-  dengan tema [Desain Material 3](https://m3.material.io/).
-- **Arsitektur**: arsitektur aktivitas tunggal dengan ViewModel dan class
-  data.
-- **Sumber Daya**: `AndroidManifest.xml`, drawable, string, dan sumber daya Android lainnya.
+- **Configurazione di compilazione**: `build.gradle.kts` file (a livello di progetto e app) che utilizzano Kotlin DSL.
+- **Livello UI**: [componenti](https://developer.android.com/develop/ui/compose?hl=it)
+  Jetpack Compose con temi [Material 3](https://m3.material.io/).
+- **Architettura**: architettura a singola attività con ViewModel e classi di
+  dati.
+- **Risorse**: `AndroidManifest.xml`, elementi disegnabili, stringhe e altre risorse Android.
 
-Agen mengelola dependensi Gradle secara otomatis, menambahkan paket dari repositori Maven dan Google sesuai kebutuhan.
+L'agente gestisce automaticamente le dipendenze di Gradle, aggiungendo i pacchetti dai repository Maven e Google in base alle necessità.
 
-Anda dapat melihat dan mengedit kode yang dihasilkan menggunakan tab **Code** di panel pratinjau. Untuk melanjutkan pengembangan di Android Studio, download project sebagai **file ZIP**.
+Puoi visualizzare e modificare il codice generato utilizzando la scheda **Codice** nel riquadro di anteprima. Per continuare lo sviluppo in Android Studio, scarica il progetto come **file ZIP**.
 
-## Batasan
+## Limitazioni
 
-Pembuatan aplikasi Android di AI Studio memiliki batasan berikut:
+La creazione di app per Android in AI Studio presenta le seguenti limitazioni:
 
-### Batasan platform
+### Limitazioni della piattaforma
 
-- **Hanya sisi klien**: Aplikasi Android tidak menyertakan komponen sisi server.
-  Fitur yang memerlukan runtime server (pengelolaan rahasia, multiplayer, Firebase, Google Workspace API) tidak tersedia.
-- **Arsitektur aktivitas tunggal**: hanya project aktivitas tunggal dan modul tunggal
-  yang didukung.
-- **Hanya Jetpack Compose**: aplikasi menggunakan Kotlin dan Jetpack Compose. Tata letak Java dan XML tidak didukung.
-- **Tidak ada NDK atau kode native**: kode C dan C++ tidak didukung.
-- **Tidak ada Wear OS atau Android TV**: hanya faktor bentuk ponsel dan tablet yang di
-  dukung.
+- **Solo lato client**: le app Android non includono un componente lato server.
+  Le funzionalità che richiedono un runtime del server (gestione dei secret, multigiocatore, Firebase, API Google Workspace) non sono disponibili.
+- **Architettura a singola attività**: sono supportati solo i progetti a singola attività e a singolo modulo.
+- **Solo Jetpack Compose**: le app utilizzano Kotlin e Jetpack Compose. I layout Java e XML non sono supportati.
+- **Nessun NDK o codice nativo**: il codice C e C++ non è supportato.
+- **Nessun Wear OS o Android TV**: sono supportati solo i fattori di forma di smartphone e tablet.
 
-### Batasan ekspor
+### Limitazioni per l'esportazione
 
-- **Hanya download ZIP**: Anda dapat mendownload project sebagai file ZIP. Ekspor GitHub belum tersedia untuk project Android.
+- **Solo download ZIP**: puoi scaricare il progetto come file ZIP. L'esportazione di GitHub non è ancora disponibile per i progetti Android.
 
-## Langkah berikutnya
+## Passaggi successivi
 
-- [Membuat aplikasi di Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=id)
-- [Mengembangkan Aplikasi Full-Stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=id) (web)
-- Lihat contoh di [Galeri Aplikasi](https://aistudio.google.com/apps?source=showcase&hl=id).
+- [Crea app in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it)
+- [Sviluppo di app full-stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=it) (web)
+- Consulta gli esempi nella [Galleria app](https://aistudio.google.com/apps?source=showcase&hl=it).
 
-Kirim masukan
+Invia feedback
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Terakhir diperbarui pada 2026-05-19 UTC.
+Ultimo aggiornamento 2026-05-19 UTC.
 
-Ada masukan untuk kami?
+Vuoi dirci altro?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-19 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he
-fetched_at: 2026-06-08T14:59:06.481262+00:00
+fetched_at: 2026-06-15T06:19:50.474035+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

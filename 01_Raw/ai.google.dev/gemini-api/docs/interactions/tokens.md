@@ -1,46 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=tr
-fetched_at: 2026-06-08T15:04:32.326904+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=pt-BR
+fetched_at: 2026-06-15T06:29:38.693911+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Geri bildirim gönderin
+Envie comentários
 
-# Parçaları anlama ve sayma
+# Entender e contar tokens
 
-Gemini ve diğer üretken yapay zeka modelleri, giriş ve çıkışı *jeton* adı verilen bir ayrıntı düzeyinde işler.
+O Gemini e outros modelos de IA generativa processam a entrada e a saída em uma granularidade chamada *token*.
 
-**Gemini modellerinde bir jeton yaklaşık 4 karaktere eşittir.
-100 jeton yaklaşık 60-80 İngilizce kelimeye eşittir.**
+**Para os modelos Gemini, um token equivale a cerca de quatro caracteres.
+100 tokens equivalem a cerca de 60 a 80 palavras em inglês.**
 
-## Jetonlar hakkında
+## Sobre tokens
 
-Jetonlar, `z` gibi tek karakterler veya `cat` gibi tam kelimeler olabilir. Uzun kelimeler
-birkaç jetona ayrılır. Model tarafından kullanılan tüm jetonlar kümesine kelime dağarcığı, metni jetonlara bölme işlemine ise *jetonlaştırma* adı verilir.
+Os tokens podem ser caracteres únicos, como `z`, ou palavras inteiras, como `cat`. Palavras longas são divididas em vários tokens. O conjunto de todos os tokens usados pelo modelo é chamado de vocabulário, e o processo de dividir o texto em tokens é chamado de *tokenização*.
 
-Faturalandırma etkinleştirildiğinde [Gemini API'ye yapılan bir çağrının maliyeti](https://ai.google.dev/pricing?hl=tr) kısmen giriş ve çıkış jetonlarının sayısına göre belirlenir. Bu nedenle, jetonları nasıl sayacağınızı bilmek faydalı olabilir.
+Quando o faturamento está ativado, o [custo de uma chamada para a API Gemini](https://ai.google.dev/pricing?hl=pt-br) é
+determinado em parte pelo número de tokens de entrada e saída. Portanto, saber como
+contar tokens pode ser útil.
 
-## Parça sayma
+## Contar tokens
 
-Metin, resim dosyaları ve metin dışı diğer formatlar da dahil olmak üzere Gemini API'ye yapılan tüm girişler ve API'den alınan tüm çıkışlar jetonlaştırılır.
+Toda entrada e saída da API Gemini é tokenizada, incluindo texto, arquivos de imagem e outras modalidades não textuais.
 
-Jetonları aşağıdaki şekillerde sayabilirsiniz:
+É possível contar tokens das seguintes maneiras:
 
-- **İsteği girerek `count_tokens` işlevini çağırın.** *Yalnızca girişteki* toplam jeton sayısını döndürür. İsteklerinizin boyutunu kontrol etmek için giriş göndermeden önce bu aramayı yapın.
-- **Etkileşim yanıtında `usage` simgesini kullanın.** Giriş (`total_input_tokens`), çıkış (`total_output_tokens`), düşünme (`total_thought_tokens`), önbelleğe alınmış içerik (`total_cached_tokens`), araç kullanımı (`total_tool_use_tokens`) ve toplam (`total_tokens`) için jeton sayılarını döndürür.
+- **Chame `count_tokens` com a entrada da solicitação.** Retorna o número total de tokens *apenas na entrada*. Faça essa chamada antes de enviar a entrada para verificar o tamanho das solicitações.
+- **Use o `usage` na resposta de interação.** Retorna contagens de tokens para entrada (`total_input_tokens`), saída (`total_output_tokens`), pensamento (`total_thought_tokens`), conteúdo armazenado em cache (`total_cached_tokens`), uso de ferramentas (`total_tool_use_tokens`) e total (`total_tokens`).
 
-### Metin parçalarını sayma
+### Contar tokens de texto
 
 ### Python
 
@@ -101,9 +102,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Çok turlu jetonları sayma
+### Contar tokens de várias rodadas
 
-`previous_interaction_id` kullanarak sohbet geçmişindeki jetonları sayın:
+Conte os tokens no histórico de conversas usando `previous_interaction_id`:
 
 ### Python
 
@@ -149,16 +150,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Çok formatlı jetonları sayma
+### Contar tokens multimodais
 
-Resim, video ve ses dahil olmak üzere Gemini API'ye yapılan tüm girişler jetonlaştırılır.
-Tokenleştirme hakkında önemli noktalar:
+Toda entrada da API Gemini é tokenizada, incluindo imagens, vídeo e áudio.
+Pontos principais sobre a tokenização:
 
-- **Resimler**: Her iki boyutta da ≤384 piksel olan resimler 258 jeton olarak sayılır. Daha büyük resimler, her biri 258 jeton olarak sayılan 768x768 piksellik parçalar halinde döşenir.
-- **Video**: Saniyede 263 jeton
-- **Ses**: Saniyede 32 jeton
+- **Imagens**: imagens ≤384 pixels em ambas as dimensões contam como 258 tokens. Imagens maiores são divididas em blocos de 768 x 768 pixels, cada um contando como 258 tokens.
+- **Vídeo**: 263 tokens por segundo
+- **Áudio**: 32 tokens por segundo
 
-#### Resim jetonları
+#### Tokens de imagem
 
 ### Python
 
@@ -204,7 +205,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**Satır içi veri örneği:**
+**Exemplo de dados inline:**
 
 ### Python
 
@@ -229,7 +230,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Video jetonları
+#### Tokens de vídeo
 
 ### Python
 
@@ -262,7 +263,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Ses jetonları
+#### Tokens de áudio
 
 ### Python
 
@@ -288,9 +289,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Sistem talimatı jetonlarını sayma
+### Contar tokens de instruções do sistema
 
-Sistem talimatları, giriş jetonları kapsamında sayılır:
+As instruções do sistema são contadas como parte dos tokens de entrada:
 
 ### Python
 
@@ -306,9 +307,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Araç parçalarını sayma
+### Contar tokens de ferramentas
 
-Araçlar (işlevler, kod yürütme, Google Arama) da sayılır:
+As ferramentas (funções, execução de código, Pesquisa Google) também são contadas:
 
 ### Python
 
@@ -338,11 +339,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Bağlam penceresi
+## Janela de contexto
 
-Her Gemini modelinin işleyebileceği maksimum jeton sayısı vardır. Bağlam penceresi, giriş ve çıkış jetonlarının birleşik sınırını tanımlar.
+Cada modelo do Gemini tem um número máximo de tokens que pode processar. A janela de contexto define o limite combinado de tokens de entrada e saída.
 
-### Bağlam penceresi boyutunu programatik olarak alma
+### Receber o tamanho da janela de contexto de maneira programática
 
 ### Python
 
@@ -362,20 +363,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-Bağlam penceresi boyutlarını [modeller](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında bulabilirsiniz.
+Encontre os tamanhos da janela de contexto na página de [modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
 
-## Sırada ne var?
+## A seguir
 
-- [Metin oluşturma](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=tr): Oluşturmayla ilgili temel bilgiler
-- [Önbelleğe alma](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=tr): Önbelleğe alma ile maliyetleri azaltma
-- [Fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr): Maliyetleri anlama
+- [Geração de texto](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=pt-br): noções básicas de geração
+- [Armazenamento em cache](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=pt-br): reduzir custos com o armazenamento em cache
+- [Preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br): entender os custos
 
-Geri bildirim gönderin
+Envie comentários
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Son güncelleme tarihi: 2026-06-01 UTC.
+Última atualização 2026-06-01 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Quer enviar seu feedback?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-01 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]

@@ -1,69 +1,53 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/quickstart?hl=th
-fetched_at: 2026-06-08T15:00:32.360526+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Gemini API \u0e2d\u0e22\u0e48\u0e32\u0e07\u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/quickstart?hl=vi
+fetched_at: 2026-06-15T06:18:42.773336+00:00
+title: "B\u1eaft \u0111\u1ea7u s\u1eed d\u1ee5ng Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# การเริ่มต้นใช้งาน Gemini API อย่างรวดเร็ว
+# Bắt đầu sử dụng Interactions API
 
-การเริ่มต้นอย่างรวดเร็วนี้จะแสดงวิธีติดตั้ง[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
-ของเราและส่งคำขอแรก สตรีมคำตอบ สร้างการสนทนาหลายรอบ
-และใช้เครื่องมือ
+Hướng dẫn này giúp bạn bắt đầu sử dụng Gemini API bằng [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi). Bạn sẽ thực hiện lệnh gọi API đầu tiên trong vòng chưa đầy một phút và khám phá tính năng tạo văn bản, hiểu biết đa phương thức, tạo hình ảnh, đầu ra có cấu trúc, công cụ, gọi hàm, tác nhân và thực thi ở chế độ nền.
 
-คุณสามารถใช้ 2 วิธีต่อไปนี้เพื่อส่งคำขอไปยัง Gemini API
+Bạn có thể sử dụng Interactions API thông qua SDK [Python](https://github.com/googleapis/python-genai) và [JavaScript](https://github.com/googleapis/js-genai), cũng như thông qua REST.
 
-- ***(แนะนำ)*** [Interactions API](https://ai.google.dev/api/interactions-api?hl=th) เป็น Primitive ใหม่ที่มีการรองรับในตัวสำหรับการใช้เครื่องมือหลายขั้นตอน การจัดการเป็นกลุ่ม และขั้นตอนการให้เหตุผลที่ซับซ้อนผ่านขั้นตอนการดำเนินการที่พิมพ์ ในอนาคต โมเดลใหม่ๆ นอกเหนือจากตระกูลหลัก รวมถึงความสามารถและเครื่องมือใหม่ๆ ของเอเจนต์จะเปิดตัวใน Interactions API เท่านั้น
-- [`generateContent`](https://ai.google.dev/gemini-api/docs/quickstart?hl=th) มีวิธีสร้างคำตอบแบบไม่เก็บสถานะจากโมเดล แม้ว่าเราจะแนะนำให้ใช้ Interactions API แต่ `generateContent` ก็ได้รับการรองรับอย่างเต็มที่
+## 1. Lấy khoá API
 
-การเริ่มต้นอย่างรวดเร็วเวอร์ชันนี้ใช้ Interactions API เพื่อส่งคำขอไปยัง Gemini API
+Để sử dụng Gemini API, bạn cần có [khoá API](https://ai.google.dev/gemini-api/docs/api-key?hl=vi). Tạo một tài khoản miễn phí để bắt đầu:
 
-## ก่อนเริ่มต้น
+[Tạo khoá Gemini API](https://aistudio.google.com/apikey?hl=vi)
 
-หากต้องการใช้ Gemini API คุณต้องมีคีย์ API เพื่อตรวจสอบสิทธิ์คำขอ บังคับใช้ขีดจำกัดด้านความปลอดภัย และติดตามการใช้งานในบัญชี
+Sau đó, hãy đặt biến này làm biến môi trường:
 
-สร้างคีย์ API ใน AI Studio ฟรีเพื่อเริ่มต้นใช้งาน
+```
+export GEMINI_API_KEY="YOUR_API_KEY"
+```
 
-[สร้างคีย์ Gemini API](https://aistudio.google.com/app/apikey?hl=th)
+## 2. Cài đặt SDK và thực hiện cuộc gọi đầu tiên
 
-## ติดตั้ง Google GenAI SDK
+Cài đặt SDK và tạo văn bản bằng một lệnh gọi API duy nhất.
 
 ### Python
 
-ใช้ [Python 3.9+](https://www.python.org/downloads/) ขึ้นไป แล้วติดตั้งแพ็กเกจ
-[`google-genai` โดยใช้
-[คำสั่ง pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) ต่อไปนี้](https://pypi.org/project/google-genai/)
+Cài đặt SDK:
 
 ```
-pip install -q -U google-genai
+pip install -U google-genai
 ```
 
-### JavaScript
-
-ใช้ [Node.js v18+](https://nodejs.org/en/download/package-manager) แล้วติดตั้ง [Google Gen AI SDK สำหรับ TypeScript และ JavaScript](https://www.npmjs.com/package/@google/genai) โดยใช้ [คำสั่ง npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) ต่อไปนี้:
-
-```
-npm install @google/genai
-```
-
-## สร้างข้อความ
-
-ใช้เมธอด `interactions.create` เพื่อ
-[สร้างคำตอบเป็นข้อความ](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=th)
-
-### Python
+Khởi động ứng dụng và đưa ra yêu cầu:
 
 ```
 from google import genai
@@ -74,34 +58,35 @@ interaction = client.interactions.create(
     model="gemini-3.5-flash",
     input="Explain how AI works in a few words"
 )
-
 print(interaction.output_text)
 ```
 
 ### JavaScript
+
+Cài đặt SDK:
+
+```
+npm install @google/genai
+```
+
+Khởi động ứng dụng và đưa ra yêu cầu:
 
 ```
 import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({});
 
-async function main() {
-  const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
-    input: "Explain how AI works in a few words",
-  });
-
-  console.log(interaction.output_text);
-}
-
-main();
+const interaction = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "Explain how AI works in a few words",
+});
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-curl -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
@@ -111,87 +96,159 @@ curl -X POST \
   }'
 ```
 
-## สตรีมคำตอบ
+**Câu trả lời:**
 
-โดยค่าเริ่มต้น โมเดลจะแสดงคำตอบหลังจากกระบวนการสร้างทั้งหมดเสร็จสมบูรณ์แล้วเท่านั้น หากต้องการประสบการณ์การใช้งานที่รวดเร็วและมีการโต้ตอบมากขึ้น คุณสามารถ
-[สตรีมคำตอบ](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=th)เป็น Chunk ขณะที่ระบบ
-สร้างคำตอบ
+```
+{
+  "id": "v1_ChdpQUFvYXI...",
+  "status": "completed",
+  "usage": {
+    "total_tokens": 197,
+    "total_input_tokens": 8,
+    "total_output_tokens": 12
+  },
+  "created": "2026-06-09T12:01:25Z",
+  "steps": [
+    {
+      "type": "thought",
+      "signature": "EvEFCu4FAQw..."
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "AI learns patterns from data, then uses those patterns to make predictions or decisions on new data."
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash",
+}
+```
+
+Khi sử dụng REST, API sẽ trả về tài nguyên `Interaction` đầy đủ chứa siêu dữ liệu, số liệu thống kê về mức sử dụng và nhật ký từng bước của lượt tương tác.
+
+Mặc dù các SDK này hiển thị toàn bộ phản hồi, nhưng chúng cũng cung cấp các thuộc tính tiện lợi như `interaction.output_text` và `interaction.output_image` để truy cập trực tiếp vào đầu ra cuối cùng. Tìm hiểu thêm về cấu trúc phản hồi trong phần [Tổng quan về các lượt tương tác](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi) hoặc đọc [hướng dẫn tạo văn bản](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi) để biết thông tin chi tiết về hướng dẫn hệ thống và cấu hình tạo.
+
+## 3. Hiện câu trả lời theo thời gian thực
+
+Để có các lượt tương tác mượt mà hơn, hãy truyền trực tuyến phản hồi khi phản hồi được tạo. Mỗi sự kiện `step.delta` sẽ gửi một đoạn văn bản mà bạn có thể hiển thị ngay lập tức.
 
 ### Python
 
 ```
+from google import genai
+
+client = genai.Client()
+
 stream = client.interactions.create(
     model="gemini-3.5-flash",
-    input="Explain how AI works in detail",
+    input="Explain how AI works",
     stream=True
 )
-
 for event in stream:
-    if event.event_type == "step.delta":
-        if event.delta.type == "text":
-            print(event.delta.text, end="", flush=True)
+    print(event)
 ```
 
 ### JavaScript
 
 ```
-async function main() {
-  const stream = await ai.interactions.create({
-    model: "gemini-3.5-flash",
-    input: "Explain how AI works in detail",
-    stream: true,
-  });
+import { GoogleGenAI } from "@google/genai";
 
-  for await (const event of stream) {
-    if (event.event_type === "step.delta") {
-      if (event.delta.type === "text") {
-        process.stdout.write(event.delta.text);
-      }
-    }
-  }
+const ai = new GoogleGenAI({});
+
+const stream = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "Explain how AI works",
+  stream: true,
+});
+
+for await (const event of stream) {
+  console.log(event);
 }
-
-main();
 ```
 
 ### REST
 
 ```
-# Use alt=sse for streaming
-curl -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -H "Api-Revision: 2026-05-20" \
   --no-buffer \
   -d '{
     "model": "gemini-3.5-flash",
-    "input": "Explain how AI works in detail",
+    "input": "Explain how AI works",
     "stream": true
   }'
 ```
 
-## การสนทนาหลายรอบ
+Khi truyền phát trực tiếp, máy chủ sẽ phản hồi bằng một luồng sự kiện do máy chủ gửi (SSE). Mỗi sự kiện bao gồm một loại và dữ liệu JSON.
 
-Gemini API มีการรองรับในตัวสำหรับการสร้าง
-[การสนทนาหลายรอบ](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=th#multi-turn-conversations)
-เพียงส่ง `id` ที่ได้รับจากการโต้ตอบครั้งก่อนเป็นพารามิเตอร์
-`previous_interaction_id` แล้วเซิร์ฟเวอร์จะจัดการ
-ประวัติการสนทนาโดยอัตโนมัติ
+**Câu trả lời:**
+
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_Chd...","status":"in_progress","model":"gemini-3.5-flash"},"event_type":"interaction.created"}
+
+event: step.start
+data: {"index":0,"step":{"type":"thought"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":0,"delta":{"signature":"EvEFCu4F...","type":"thought_signature"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
+
+event: step.start
+data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":"AI ","type":"text"},"event_type":"step.delta"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":"works ","type":"text"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
+```
+
+Để xem chi tiết về cách xử lý các sự kiện truyền phát trực tiếp và các loại delta, hãy xem [hướng dẫn về các hoạt động truyền phát trực tiếp](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=vi).
+
+## 4. Cuộc trò chuyện nhiều lượt
+
+Interactions API hỗ trợ các cuộc trò chuyện nhiều lượt với 2 phương pháp:
+
+- **Có trạng thái (nên dùng)**: Tiếp tục cuộc trò chuyện trên máy chủ bằng cách sử dụng `previous_interaction_id`. Phù hợp với hầu hết các quy trình trò chuyện và quy trình dựa trên tác nhân, trong đó bạn muốn máy chủ quản lý nhật ký và tối ưu hoá việc lưu vào bộ nhớ đệm.
+- **Không trạng thái**: Quản lý nhật ký cuộc trò chuyện trên ứng dụng bằng cách truyền tất cả các lượt trước đó (bao gồm cả suy nghĩ và các bước sử dụng công cụ của mô hình trung gian) trong mỗi yêu cầu.
+
+### Có trạng thái (nên dùng)
+
+Xâu chuỗi các lượt tương tác bằng cách truyền `previous_interaction_id`. Máy chủ sẽ quản lý toàn bộ nhật ký trò chuyện cho bạn.
 
 ### Python
 
 ```
+from google import genai
+
+client = genai.Client()
+
+# Server-side state (recommended)
 interaction1 = client.interactions.create(
     model="gemini-3.5-flash",
-    input="I have 2 dogs in my house."
+    input="I have 2 dogs in my house.",
 )
 print("Response 1:", interaction1.output_text)
 
 interaction2 = client.interactions.create(
     model="gemini-3.5-flash",
     input="How many paws are in my house?",
-    previous_interaction_id=interaction1.id
+    previous_interaction_id=interaction1.id,
 )
 print("Response 2:", interaction2.output_text)
 ```
@@ -199,73 +256,575 @@ print("Response 2:", interaction2.output_text)
 ### JavaScript
 
 ```
-async function main() {
-  const interaction1 = await ai.interactions.create({
-    model: "gemini-3-flash-preview",
-    input: "I have 2 dogs in my house.",
-  });
-  console.log("Response 1:", interaction1.output_text);
+import { GoogleGenAI } from "@google/genai";
 
-  const interaction2 = await ai.interactions.create({
-    model: "gemini-3-flash-preview",
-    input: "How many paws are in my house?",
-    previous_interaction_id: interaction1.id,
-  });
-  console.log("Response 2:", interaction2.output_text);
-}
+const ai = new GoogleGenAI({});
 
-main();
+// Server-side state (recommended)
+const interaction1 = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "I have 2 dogs in my house.",
+});
+console.log("Response 1:", interaction1.output_text);
+
+const interaction2 = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "How many paws are in my house?",
+  previous_interaction_id: interaction1.id,
+});
+console.log("Response 2:", interaction2.output_text);
 ```
 
 ### REST
 
 ```
-# Turn 1: Start the conversation
-RESPONSE1=$(curl -s -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/interactions" \
-  -H "Api-Revision: 2026-05-20" \
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "I have 2 dogs in my house."
   }')
 
-# Extract the interaction ID
 INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
+echo "Interaction 1 ID: $INTERACTION_ID"
 
-# Turn 2: Continue the conversation
-curl -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/interactions" \
-  -H "Api-Revision: 2026-05-20" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -d "{
-    \"model\": \"gemini-3-flash-preview\",
-    \"input\": \"How many paws are in my house?\",
-    \"previous_interaction_id\": \"$INTERACTION_ID\"
-  }"
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "How many paws are in my house?",
+    "previous_interaction_id": "'$INTERACTION_ID'"
+  }'
 ```
 
-## ใช้เครื่องมือ
+### Không có trạng thái
 
-ขยายความสามารถของโมเดลโดย
-[การเชื่อมต่อแหล่งข้อมูลคำตอบกับ Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=th)
-เพื่อเข้าถึงเนื้อหาเว็บแบบเรียลไทม์ โมเดลจะตัดสินใจโดยอัตโนมัติว่าจะค้นหาเมื่อใด ดำเนินการค้นหา และสังเคราะห์คำตอบพร้อมการอ้างอิง
-
-ตัวอย่างต่อไปนี้แสดงวิธีเปิดใช้ Google Search
+Đặt `store=false` và quản lý nhật ký trò chuyện ở phía máy khách. Bạn phải giữ nguyên và gửi lại tất cả các bước do mô hình tạo (bao gồm cả các bước `thought` và `function_call`) đúng như đã nhận.
 
 ### Python
 
 ```
+from google import genai
+
+client = genai.Client()
+
+history = [
+    {
+        "type": "user_input",
+        "content": [{"type": "text", "text": "I have 2 dogs in my house."}]
+    }
+]
+
+interaction1 = client.interactions.create(
+    model="gemini-3.5-flash",
+    store=False,
+    input=history
+)
+print("Response 1:", interaction1.steps[-1].content[0].text)
+
+for step in interaction1.steps:
+    history.append(step.model_dump())
+
+history.append({
+    "type": "user_input",
+    "content": [{"type": "text", "text": "How many paws are in my house?"}]
+})
+
+interaction2 = client.interactions.create(
+    model="gemini-3.5-flash",
+    store=False,
+    input=history
+)
+print("Response 2:", interaction2.steps[-1].content[0].text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const history = [
+  {
+    type: "user_input",
+    content: [{ type: "text", text: "I have 2 dogs in my house." }]
+  }
+];
+
+const interaction1 = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  store: false,
+  input: history
+});
+console.log("Response 1:", interaction1.steps.at(-1).content[0].text);
+
+history.push(...interaction1.steps);
+
+history.push({
+  type: "user_input",
+  content: [{ type: "text", text: "How many paws are in my house?" }]
+});
+
+const interaction2 = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  store: false,
+  input: history
+});
+console.log("Response 2:", interaction2.steps.at(-1).content[0].text);
+```
+
+### REST
+
+```
+# Turn 1: Send with store: false
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "store": false,
+    "input": [
+      {
+        "type": "user_input",
+        "content": "I have 2 dogs in my house."
+      }
+    ]
+  }')
+
+MODEL_STEPS=$(echo "$RESPONSE1" | jq '.steps')
+
+# Turn 2: Build full history
+HISTORY=$(jq -n \
+  --argjson first_input '[{"type": "user_input", "content": "I have 2 dogs in my house."}]' \
+  --argjson model_steps "$MODEL_STEPS" \
+  --argjson second_input '[{"type": "user_input", "content": "How many paws are in my house?"}]' \
+  '$first_input + $model_steps + $second_input')
+
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d "{
+    \"model\": \"gemini-3.5-flash\",
+    \"store\": false,
+    \"input\": $HISTORY
+  }"
+```
+
+**Câu trả lời:**
+
+```
+{
+  "id": "v2_Chd...",
+  "status": "completed",
+  "usage": {
+    "total_tokens": 240,
+    "total_input_tokens": 60,
+    "total_output_tokens": 20
+  },
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "There are 8 paws in your house. 2 dogs \u00d7 4 paws = 8 paws."
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash"
+}
+```
+
+Lần tương tác thứ hai sẽ trả về một đối tượng phản hồi hoàn chỉnh chỉ bao gồm các bước mới, nhưng dựa trên ngữ cảnh của lượt tương tác trước đó. Tìm hiểu thêm về cách duy trì trạng thái trong [hướng dẫn về cuộc trò chuyện nhiều lượt](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi#multi-turn-conversations) hoặc khám phá [chế độ không trạng thái](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi#stateless-conversations) để quản lý nhật ký phía máy khách.
+
+## 5. Hiểu đa phương thức
+
+Các mô hình Gemini có thể hiểu được hình ảnh, âm thanh, video và tài liệu một cách tự nhiên. Truyền nội dung nghe nhìn cùng với văn bản trong một yêu cầu duy nhất.
+
+### Python
+
+```
+import base64
+from google import genai
+
+client = genai.Client()
+
+# Load a local image
+with open("sample.jpg", "rb") as f:
+    image_bytes = f.read()
+image_b64 = base64.b64encode(image_bytes).decode("utf-8")
+
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
+    input=[
+        {"type": "text", "text": "Compare this local image and this remote audio file."},
+        {
+            "type": "image",
+            "data": image_b64,
+            "mime_type": "image/jpeg"
+        },
+        {
+            "type": "audio",
+            "uri": "https://storage.googleapis.com/generativeai-downloads/data/sample.mp3",
+            "mime_type": "audio/mp3"
+        }
+    ]
+)
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import fs from "fs";
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+// Load a local image
+const imageBytes = fs.readFileSync("sample.jpg");
+const imageB64 = imageBytes.toString("base64");
+
+const interaction = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: [
+    { type: "text", text: "Compare this local image and this remote audio file." },
+    {
+      type: "image",
+      data: imageB64,
+      mime_type: "image/jpeg"
+    },
+    {
+      type: "audio",
+      uri: "https://storage.googleapis.com/generativeai-downloads/data/sample.mp3",
+      mime_type: "audio/mp3"
+    }
+  ],
+});
+console.log(interaction.output_text);
+```
+
+### REST
+
+```
+# Base64-encode local image
+BASE64_IMAGE=$(base64 -w 0 sample.jpg)
+
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -H "x-goog-api-key: $GEMINI_API_KEY"   -H 'Content-Type: application/json'   -H "Api-Revision: 2026-05-20"   -d '{
+    "model": "gemini-3.5-flash",
+    "input": [
+      {
+        "type": "text",
+        "text": "Compare this local image and this remote audio file."
+      },
+      {
+        "type": "image",
+        "data": "'$BASE64_IMAGE'",
+        "mime_type": "image/jpeg"
+      },
+      {
+        "type": "audio",
+        "uri": "https://storage.googleapis.com/generativeai-downloads/data/sample.mp3",
+        "mime_type": "audio/mp3"
+      }
+    ]
+  }'
+```
+
+**Câu trả lời:**
+
+```
+{
+  "id": "v1_Chd...",
+  "status": "completed",
+  "usage": {
+    "total_tokens": 300
+  },
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "The local image displays a pipe organ while the remote audio file is a sample MP3 clip..."
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash",
+}
+```
+
+Khám phá cách truyền tệp hình ảnh, video và âm thanh trong [hướng dẫn về việc hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=vi).
+
+[hearing
+
+Hiểu được âm thanh
+
+Chép lời, tóm tắt hoặc trả lời câu hỏi về tệp âm thanh.](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi)
+[videocam
+
+Hiểu video
+
+Phân tích nội dung video, xác định vị trí của các sự kiện và mô tả các hành động.](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=vi)
+[description
+
+Xử lý tài liệu
+
+Trích xuất thông tin từ tệp PDF và các định dạng tài liệu khác.](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi)
+
+## 6. Tạo nội dung đa phương thức
+
+Gemini có thể tạo hình ảnh một cách tự nhiên bằng cách sử dụng mô hình tạo ảnh [Nano Banana](https://ai.google.dev/gemini-api/docs/interactions/image-generation?hl=vi).
+
+### Python
+
+```
+import base64
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.1-flash-image",
+    input="Generate an image of a futuristic city skyline at sunset",
+)
+
+with open("generated_image.png", "wb") as f:
+    f.write(base64.b64decode(interaction.output_image.data))
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import * as fs from "node:fs";
+
+const ai = new GoogleGenAI({});
+
+const interaction = await ai.interactions.create({
+  model: "gemini-3.1-flash-image",
+  input: "Generate an image of a futuristic city skyline at sunset",
+});
+
+const generatedImage = interaction.output_image;
+if (generatedImage) {
+  const buffer = Buffer.from(generatedImage.data, "base64");
+  fs.writeFileSync("generated_image.png", buffer);
+}
+```
+
+### REST
+
+```
+curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.1-flash-image",
+    "input": [
+      {"type": "text", "text": "Generate an image of a futuristic city skyline at sunset"}
+    ]
+  }'
+```
+
+**Câu trả lời:**
+
+```
+{
+  "id": "v1_Chd...",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "image",
+          "data": "BASE64_ENCODED_IMAGE",
+          "mime_type": "image/png"
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.1-flash-image",
+}
+```
+
+Khi tạo một hình ảnh, mô hình sẽ trả về dữ liệu hình ảnh được mã hoá bằng base64 trong một bước trong mảng `steps`, cũng như thông qua thuộc tính tiện lợi `output_image`. Hãy xem [hướng dẫn tạo hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-generation?hl=vi) để tìm hiểu về tỷ lệ khung hình, cách chỉnh sửa hình ảnh và nguồn tham khảo.
+
+[record\_voice\_over
+
+Tạo lời nói
+
+Tạo lời nói biểu cảm của nhiều người nói bằng công nghệ chuyển văn bản sang lời nói Gemini 3.1 Flash.](https://ai.google.dev/gemini-api/docs/interactions/speech-generation?hl=vi)
+[music\_note
+
+Tạo nhạc
+
+Tạo đoạn video ngắn và bài hát có thời lượng đầy đủ bằng Lyria 3.](https://ai.google.dev/gemini-api/docs/interactions/music-generation?hl=vi)
+
+## 7. Sử dụng đầu ra có cấu trúc
+
+Định cấu hình mô hình để trả về JSON phù hợp với giản đồ mà bạn xác định. Đầu ra có cấu trúc hoạt động với [Pydantic](https://docs.pydantic.dev/latest/) (Python) và [Zod](https://zod.dev/) (JavaScript).
+
+### Python
+
+```
+from google import genai
+from pydantic import BaseModel, Field
+from typing import List, Optional
+
+class Recipe(BaseModel):
+    recipe_name: str = Field(description="Name of the recipe.")
+    ingredients: List[str] = Field(description="List of ingredients.")
+    prep_time_minutes: Optional[int] = Field(description="Prep time in minutes.")
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Give me a recipe for banana bread",
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": Recipe.model_json_schema()
+    },
+)
+
+recipe = Recipe.model_validate_json(interaction.output_text)
+print(recipe)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+import * as z from "zod";
+
+const ai = new GoogleGenAI({});
+
+const recipeJsonSchema = {
+  type: "object",
+  properties: {
+    recipe_name: { type: "string", description: "Name of the recipe." },
+    ingredients: {
+      type: "array",
+      items: { type: "string" },
+      description: "List of ingredients."
+    },
+    prep_time_minutes: {
+      type: "integer",
+      description: "Prep time in minutes."
+    }
+  },
+  required: ["recipe_name", "ingredients"]
+};
+
+const recipeSchema = z.fromJSONSchema(recipeJsonSchema);
+
+const interaction = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "Give me a recipe for banana bread",
+  response_format: {
+    type: "text",
+    mime_type: "application/json",
+    schema: recipeJsonSchema
+  },
+});
+
+const recipe = recipeSchema.parse(JSON.parse(interaction.output_text));
+console.log(recipe);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Give me a recipe for banana bread",
+    "response_format": {
+      "type": "text",
+      "mime_type": "application/json",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "recipe_name": { "type": "string", "description": "Name of the recipe." },
+          "ingredients": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "List of ingredients."
+          },
+          "prep_time_minutes": {
+            "type": "integer",
+            "description": "Prep time in minutes."
+          }
+        },
+        "required": ["recipe_name", "ingredients"]
+      }
+    }
+  }'
+```
+
+**Câu trả lời:**
+
+```
+{
+  "id": "v1_Chd...",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"recipe_name\": \"Classic Banana Bread\",\n  \"ingredients\": [\n    \"3 ripe bananas, mashed\",\n    \"1/3 cup melted butter\",\n    \"3/4 cup sugar\",\n    \"1 egg, beaten\",\n    \"1 teaspoon vanilla extract\",\n    \"1 teaspoon baking soda\",\n    \"Pinch of salt\",\n    \"1.5 cups all-purpose flour\"\n  ],\n  \"prep_time_minutes\": 15\n}"
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash",
+}
+```
+
+Khối văn bản đầu ra chứa một chuỗi JSON hợp lệ tuân thủ chính xác giản đồ được yêu cầu. Để tìm hiểu cách xác định các cấu trúc phức tạp hơn và lược đồ đệ quy, hãy xem [hướng dẫn về đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi).
+
+## 8. Sử dụng công cụ
+
+Dựa vào thông tin theo thời gian thực trên Google Tìm kiếm để đưa ra câu trả lời. API này tự động tìm kiếm, xử lý kết quả và trả về trích dẫn.
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
     input="Who won the euro 2024?",
     tools=[{"type": "google_search"}]
 )
 
 print(interaction.output_text)
 
+# Print citations
 for step in interaction.steps:
     if step.type == "model_output":
         for content_block in step.content:
@@ -273,83 +832,150 @@ for step in interaction.steps:
                 print("\nCitations:")
                 for annotation in content_block.annotations:
                     if annotation.type == "url_citation":
-                        print(f"  - [{annotation.title}]({annotation.url})")
+                        print(f"  [{annotation.title}]({annotation.url})")
 ```
 
 ### JavaScript
 
 ```
-async function main() {
-  const interaction = await ai.interactions.create({
-    model: "gemini-3-flash-preview",
-    input: "Who won the euro 2024?",
-    tools: [{ type: "google_search" }]
-  });
+import { GoogleGenAI } from "@google/genai";
 
-  console.log(interaction.output_text);
+const ai = new GoogleGenAI({});
 
-  for (const step of interaction.steps) {
-    if (step.type === 'model_output') {
-      for (const contentBlock of step.content) {
-        if (contentBlock.type === 'text' && contentBlock.annotations) {
-          console.log("\nCitations:");
-          for (const annotation of contentBlock.annotations) {
-            if (annotation.type === 'url_citation') {
-              console.log(`  - [${annotation.title}](${annotation.url})`);
-            }
+const interaction = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "Who won the euro 2024?",
+  tools: [{ type: "google_search" }]
+});
+
+console.log(interaction.output_text);
+
+// Print citations
+for (const step of interaction.steps) {
+  if (step.type === "model_output") {
+    for (const contentBlock of step.content) {
+      if (contentBlock.type === "text" && contentBlock.annotations) {
+        console.log("\nCitations:");
+        for (const annotation of contentBlock.annotations) {
+          if (annotation.type === "url_citation") {
+            console.log(`  [${annotation.title}](${annotation.url})`);
           }
         }
       }
     }
   }
 }
-
-main();
 ```
 
 ### REST
 
 ```
-curl -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/interactions" \
-  -H "Api-Revision: 2026-05-20" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Who won the euro 2024?",
     "tools": [{"type": "google_search"}]
   }'
 ```
 
-นอกจากนี้ Gemini API ยังรองรับเครื่องมืออื่นๆ ในตัวด้วย ดังนี้
+**Câu trả lời:**
 
-- **[การดำเนินการโค้ด](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=th)**:
-  ช่วยให้โมเดลเขียนและเรียกใช้โค้ด Python เพื่อแก้ปัญหาทางคณิตศาสตร์ที่ซับซ้อน
-- **[บริบท URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=th)**: ช่วยให้คุณ
-  เชื่อมต่อแหล่งข้อมูลคำตอบกับ URL ของหน้าเว็บที่เฉพาะเจาะจงที่คุณระบุ
-- **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=th)**: ช่วยให้คุณ
-  อัปโหลดไฟล์และเชื่อมต่อแหล่งข้อมูลคำตอบกับเนื้อหาของไฟล์โดยใช้การค้นหาเชิงความหมาย
-- **[Google Maps](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=th)**: ช่วยให้คุณ
-  เชื่อมต่อแหล่งข้อมูลคำตอบกับข้อมูลสถานที่ และค้นหาสถานที่ เส้นทาง และ
-  แผนที่
-- **[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=th)**: ช่วยให้
-  โมเดลโต้ตอบกับหน้าจอ แป้นพิมพ์ และเมาส์ของคอมพิวเตอร์เสมือนเพื่อ
-  ทำงานต่างๆ
+```
+{
+  "id": "v1_Chd...",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "thought",
+      "signature": "EvEFCu4F..."
+    },
+    {
+      "type": "google_search_call",
+      "arguments": {
+        "queries": ["UEFA Euro 2024 winner"]
+      }
+    },
+    {
+      "type": "google_search_result",
+      "call_id": "search_001",
+      "result": [
+        {
+          "search_suggestions": "<!-- HTML and CSS search widget -->"
+        }
+      ]
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "Spain won Euro 2024, defeating England 2-1 in the final.",
+          "annotations": [
+            {
+              "type": "url_citation",
+              "url": "https://www.uefa.com/euro2024",
+              "title": "uefa.com",
+              "start_index": 0,
+              "end_index": 56
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash",
+}
+```
 
-## เรียกฟังก์ชันที่กำหนดเอง
+Các bước tìm kiếm được trình bày chi tiết trong nhật ký tương tác và kết quả cuối cùng bao gồm các trích dẫn nội dòng trỏ đến các nguồn trên web.
 
-ใช้**[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th)**
-เพื่อเชื่อมต่อโมเดลกับเครื่องมือและ API ที่กำหนดเอง โมเดลจะกำหนดเวลาที่จะเรียกฟังก์ชันและแสดงขั้นตอน `function_call` พร้อมอาร์กิวเมนต์เพื่อให้แอปพลิเคชันของคุณดำเนินการ
+Bạn có thể tìm hiểu cách trích xuất thông tin trích dẫn từ kết quả tìm kiếm trong [hướng dẫn về cơ sở dữ liệu của Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=vi) hoặc xem cách kết hợp nhiều công cụ trong [hướng dẫn kết hợp công cụ](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=vi).
 
-ตัวอย่างนี้ประกาศฟังก์ชันอุณหภูมิจำลองและตรวจสอบว่าโมเดลต้องการเรียกฟังก์ชันนี้หรือไม่
+[code
+
+Thực thi mã
+
+Chạy mã Python trong môi trường Borg hộp cát bảo mật.](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=vi)
+[link
+
+Bối cảnh URL
+
+Truyền trực tiếp các URL trang web công khai để đưa ra câu trả lời dựa trên nội dung trang web.](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=vi)
+[search
+
+Tìm kiếm tệp
+
+Lập chỉ mục và tìm kiếm trong các tài liệu và tệp đa phương tiện đã tải lên.](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=vi)
+[map
+
+Google Maps
+
+Cung cấp câu trả lời dựa trên dữ liệu vị trí và không gian địa lý thực tế.](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=vi)
+[computer
+
+Sử dụng máy tính
+
+Tự động hoá trình duyệt và tương tác trên màn hình.](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=vi)
+
+## 9. Gọi hàm riêng của bạn
+
+Tính năng gọi hàm cho phép bạn kết nối mô hình với mã của mình. Bạn khai báo tên và các tham số của hàm, mô hình sẽ quyết định thời điểm gọi hàm và trả về các đối số có cấu trúc, đồng thời bạn sẽ thực thi hàm cục bộ và gửi kết quả trở lại.
+
+### Có trạng thái (nên dùng)
 
 ### Python
 
 ```
 import json
+from google import genai
 
-weather_function = {
+client = genai.Client()
+
+weather_tool = {
     "type": "function",
     "name": "get_current_temperature",
     "description": "Gets the current temperature for a given location.",
@@ -365,101 +991,152 @@ weather_function = {
     },
 }
 
-interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
-    input="What's the temperature in London?",
-    tools=[weather_function],
-)
+available_functions = {
+    "get_current_temperature": lambda location: {
+        "location": location, "temperature": "22", "unit": "celsius"
+    },
+}
 
-fc_step = None
-for step in interaction.steps:
-    if step.type == "function_call":
-        fc_step = step
+user_input = "What is the temperature in London?"
+previous_id = None
+
+while True:
+    interaction = client.interactions.create(
+        model="gemini-3.5-flash",
+        input=user_input,
+        tools=[weather_tool],
+        previous_interaction_id=previous_id,
+    )
+
+    function_results = []
+    for step in interaction.steps:
+        if step.type == "function_call":
+            result = available_functions[step.name](**step.arguments)
+            print(f"Called {step.name}({step.arguments}) → {result}")
+            function_results.append({
+                "type": "function_result",
+                "name": step.name,
+                "call_id": step.id,
+                "result": [{"type": "text", "text": json.dumps(result)}],
+            })
+
+    if not function_results:
         break
 
-if fc_step:
-    print(f"Model requested function: {fc_step.name} with args {fc_step.arguments}")
+    user_input = function_results
+    previous_id = interaction.id
 
-    mock_result = {"temperature": "15C", "condition": "Cloudy"}
-
-    final_interaction = client.interactions.create(
-        model="gemini-3-flash-preview",
-        input=[
-            {
-                "type": "function_result",
-                "name": fc_step.name,
-                "call_id": fc_step.id,
-                "result": [{"type": "text", "text": json.dumps(mock_result)}],
-            }
-        ],
-        tools=[weather_function],
-        previous_interaction_id=interaction.id,
-    )
-    print("Final Response:", final_interaction.output_text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-async function main() {
-  const weatherFunction = {
-    type: 'function',
-    name: 'get_current_temperature',
-    description: 'Gets the current temperature for a given location.',
-    parameters: {
-      type: 'object',
-      properties: {
-        location: {
-          type: 'string',
-          description: 'The city name, e.g. San Francisco',
-        },
-      },
-      required: ['location'],
-    },
-  };
+import { GoogleGenAI } from "@google/genai";
 
-  const interaction = await ai.interactions.create({
-    model: 'gemini-3-flash-preview',
-    input: "What's the temperature in London?",
-    tools: [weatherFunction],
+const ai = new GoogleGenAI({});
+
+const weatherTool = {
+  type: "function",
+  name: "get_current_temperature",
+  description: "Gets the current temperature for a given location.",
+  parameters: {
+    type: "object",
+    properties: {
+      location: {
+        type: "string",
+        description: "The city name, e.g. San Francisco",
+      },
+    },
+    required: ["location"],
+  },
+};
+
+const availableFunctions = {
+  get_current_temperature: ({ location }) => ({
+    location, temperature: "22", unit: "celsius"
+  }),
+};
+
+let input = "What is the temperature in London?";
+let previousId = null;
+let interaction;
+
+while (true) {
+  interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input,
+    tools: [weatherTool],
+    previous_interaction_id: previousId,
   });
 
-  const fcStep = interaction.steps.find(s => s.type === 'function_call');
-  if (fcStep) {
-    console.log(`Model requested function: ${fcStep.name}`);
-
-    const mockResult = { temperature: "15C", condition: "Cloudy" };
-
-    const finalInteraction = await ai.interactions.create({
-      model: 'gemini-3-flash-preview',
-      input: [{
-        type: 'function_result',
-        name: fcStep.name,
-        call_id: fcStep.id,
-        result: [{ type: 'text', text: JSON.stringify(mockResult) }]
-      }],
-      tools: [weatherFunction],
-      previous_interaction_id: interaction.id,
-    });
-
-    console.log("Final Response:", finalInteraction.output_text);
+  const functionResults = [];
+  for (const step of interaction.steps) {
+    if (step.type === "function_call") {
+      const result = availableFunctions[step.name](step.arguments);
+      console.log(`Called ${step.name}(${JSON.stringify(step.arguments)}) →`, result);
+      functionResults.push({
+        type: "function_result",
+        name: step.name,
+        call_id: step.id,
+        result: [{ type: "text", text: JSON.stringify(result) }],
+      });
+    }
   }
+
+  if (functionResults.length === 0) break;
+
+  input = functionResults;
+  previousId = interaction.id;
 }
 
-main();
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-curl -X POST \
-  "https://generativelanguage.googleapis.com/v1beta/interactions" \
-  -H "Api-Revision: 2026-05-20" \
+# Turn 1: Send prompt with function declaration
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Content-Type: application/json" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
   -d '{
-    "model": "gemini-3-flash-preview",
-    "input": "What'\''s the temperature in London?",
+    "model": "gemini-3.5-flash",
+    "input": "What is the temperature in London?",
+    "tools": [{
+      "type": "function",
+      "name": "get_current_temperature",
+      "description": "Gets the current temperature for a given location.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {"type": "string", "description": "The city name"}
+        },
+        "required": ["location"]
+      }
+    }]
+  }')
+
+INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
+FC_NAME=$(echo "$RESPONSE1" | jq -r '.steps[] | select(.type=="function_call") | .name')
+FC_ID=$(echo "$RESPONSE1" | jq -r '.steps[] | select(.type=="function_call") | .id')
+echo "Function: $FC_NAME, Call ID: $FC_ID"
+
+# Turn 2: Send function result back
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "previous_interaction_id": "'$INTERACTION_ID'",
+    "input": [{
+      "type": "function_result",
+      "name": "'$FC_NAME'",
+      "call_id": "'$FC_ID'",
+      "result": [{"type": "text", "text": "{\"location\": \"London\", \"temperature\": \"22\", \"unit\": \"celsius\"}"}]
+    }],
     "tools": [{
       "type": "function",
       "name": "get_current_temperature",
@@ -475,25 +1152,498 @@ curl -X POST \
   }'
 ```
 
-## ขั้นตอนถัดไป
+### Không có trạng thái
 
-เมื่อเริ่มต้นใช้งาน Gemini API แล้ว ให้สำรวจคำแนะนำต่อไปนี้เพื่อสร้างแอปพลิเคชันที่ซับซ้อนมากขึ้น
+Bạn cũng có thể sử dụng tính năng gọi hàm ở chế độ không trạng thái bằng cách quản lý nhật ký trò chuyện ở phía máy khách và đặt `store=false`. Ở chế độ không trạng thái, bạn phải truyền toàn bộ nhật ký cuộc trò chuyện trong trường `input` của mỗi yêu cầu tiếp theo. Nhật ký này phải bao gồm:
 
-- [การสร้างข้อความ](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=th)
-- [การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/interactions/image-generation?hl=th)
-- [การทำความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=th)
-- [การคิด](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=th)
-- [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=th)
-- [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=th)
-- [บริบทแบบยาว](https://ai.google.dev/gemini-api/docs/long-context?hl=th)
-- [การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)
+1. Bước `user_input` ban đầu.
+2. Tất cả các bước do mô hình tạo được trả về trong Lượt 1 (bao gồm cả các bước `thought` và `function_call`) chính xác như đã nhận.
+3. Bước `function_result` chứa kết quả của hàm đã thực thi.
 
-ส่งความคิดเห็น
+### Python
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+```
+import json
+from google import genai
 
-อัปเดตล่าสุด 2026-06-01 UTC
+client = genai.Client()
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+weather_tool = {
+    "type": "function",
+    "name": "get_current_temperature",
+    "description": "Gets the current temperature for a given location.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "location": {
+                "type": "string",
+                "description": "The city name, e.g. San Francisco",
+            },
+        },
+        "required": ["location"],
+    },
+}
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]
+available_functions = {
+    "get_current_temperature": lambda location: {
+        "location": location, "temperature": "22", "unit": "celsius"
+    },
+}
+
+history = [
+    {
+        "type": "user_input",
+        "content": [{"type": "text", "text": "What is the temperature in London?"}]
+    }
+]
+
+while True:
+    interaction = client.interactions.create(
+        model="gemini-3.5-flash",
+        store=False,
+        input=history,
+        tools=[weather_tool],
+    )
+
+    function_results = []
+    for step in interaction.steps:
+        history.append(step.model_dump())
+        if step.type == "function_call":
+            result = available_functions[step.name](**step.arguments)
+            print(f"Called {step.name}({step.arguments}) → {result}")
+            fn_result = {
+                "type": "function_result",
+                "name": step.name,
+                "call_id": step.id,
+                "result": [{"type": "text", "text": json.dumps(result)}],
+            }
+            function_results.append(fn_result)
+            history.append(fn_result)
+
+    if not function_results:
+        break
+
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const weatherTool = {
+  type: "function",
+  name: "get_current_temperature",
+  description: "Gets the current temperature for a given location.",
+  parameters: {
+    type: "object",
+    properties: {
+      location: {
+        type: "string",
+        description: "The city name, e.g. San Francisco",
+      },
+    },
+    required: ["location"],
+  },
+};
+
+const availableFunctions = {
+  get_current_temperature: ({ location }) => ({
+    location, temperature: "22", unit: "celsius"
+  }),
+};
+
+const history = [
+  {
+    type: "user_input",
+    content: [{ type: "text", text: "What is the temperature in London?" }]
+  }
+];
+
+let interaction;
+
+while (true) {
+  interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    store: false,
+    input: history,
+    tools: [weatherTool],
+  });
+
+  const functionResults = [];
+  for (const step of interaction.steps) {
+    history.push(step);
+    if (step.type === "function_call") {
+      const result = availableFunctions[step.name](step.arguments);
+      console.log(`Called ${step.name}(${JSON.stringify(step.arguments)}) →`, result);
+      const fnResult = {
+        type: "function_result",
+        name: step.name,
+        call_id: step.id,
+        result: [{ type: "text", text: JSON.stringify(result) }],
+      };
+      functionResults.push(fnResult);
+      history.push(fnResult);
+    }
+  }
+
+  if (functionResults.length === 0) break;
+}
+
+console.log(interaction.output_text);
+```
+
+### REST
+
+```
+# Turn 1: Send request with tools and store: false
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "store": false,
+    "input": [
+      {
+        "type": "user_input",
+        "content": "What is the temperature in London?"
+      }
+    ],
+    "tools": [{
+      "type": "function",
+      "name": "get_current_temperature",
+      "description": "Gets the current temperature for a given location.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {"type": "string", "description": "The city name"}
+        },
+        "required": ["location"]
+      }
+    }]
+  }')
+
+# Extract model steps (thought, function_call)
+MODEL_STEPS=$(echo "$RESPONSE1" | jq '.steps')
+FC_NAME=$(echo "$RESPONSE1" | jq -r '.steps[] | select(.type=="function_call") | .name')
+FC_ID=$(echo "$RESPONSE1" | jq -r '.steps[] | select(.type=="function_call") | .id')
+echo "Function: $FC_NAME, Call ID: $FC_ID"
+
+# Assume local execution returns:
+RESULT="{\"location\": \"London\", \"temperature\": \"22\", \"unit\": \"celsius\"}"
+
+# Reconstruct history for Turn 2
+HISTORY=$(jq -n \
+  --argjson first_input '[{"type": "user_input", "content": "What is the temperature in London?"}]' \
+  --argjson model_steps "$MODEL_STEPS" \
+  --arg fc_name "$FC_NAME" \
+  --arg fc_id "$FC_ID" \
+  --arg result "$RESULT" \
+  '$first_input + $model_steps + [{"type": "function_result", "name": $fc_name, "call_id": $fc_id, "result": [{"type": "text", "text": $result}]}]')
+
+# Turn 2: Send the full history
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d "{
+    \"model\": \"gemini-3.5-flash\",
+    \"store\": false,
+    \"input\": $HISTORY,
+    \"tools\": [{
+      \"type\": \"function\",
+      \"name\": \"get_current_temperature\",
+      \"description\": \"Gets the current temperature for a given location.\",
+      \"parameters\": {
+        \"type\": \"object\",
+        \"properties\": {
+          \"location\": {\"type\": \"string\", \"description\": \"The city name\"}
+        },
+        \"required\": [\"location\"]
+      }
+    }]
+  }"
+```
+
+**Câu trả lời:**
+
+Trong Lượt 1, mô hình sẽ trả về một phản hồi có trạng thái `requires_action` và bước `function_call`:
+
+```
+{
+  "id": "v1_Chd...",
+  "status": "requires_action",
+  "steps": [
+    {
+      "type": "function_call",
+      "id": "call_abc123",
+      "name": "get_current_temperature",
+      "arguments": {
+        "location": "London"
+      }
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash"
+}
+```
+
+Sau khi bạn chạy hàm cục bộ và gửi kết quả (Lượt 2), lượt tương tác hoàn tất cuối cùng sẽ trả về:
+
+```
+{
+  "id": "v1_Chd...",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "function_call",
+      "id": "call_abc123",
+      "name": "get_current_temperature",
+      "arguments": {
+        "location": "London"
+      }
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "The temperature in London is currently 22°C."
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash",
+}
+```
+
+Để biết các tính năng nâng cao như gọi hàm song song hoặc chế độ chọn hàm, hãy xem [hướng dẫn gọi hàm](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=vi).
+
+## 10. Chạy một tác nhân được quản lý
+
+Các tác nhân được quản lý chạy trong một hộp cát từ xa và có quyền truy cập vào các công cụ như thực thi mã và quản lý tệp. Truyền `agent` thay vì `model` và đặt `environment="remote"`.
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    agent="antigravity-preview-05-2026",
+    input="Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents.",
+    environment="remote",
+)
+print(f"Environment: {interaction.environment_id}")
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const interaction = await ai.interactions.create({
+  agent: "antigravity-preview-05-2026",
+  input: "Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents.",
+  environment: "remote",
+});
+console.log(`Environment: ${interaction.environment_id}`);
+console.log(interaction.output_text);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "agent": "antigravity-preview-05-2026",
+    "input": "Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents.",
+    "environment": "remote"
+  }'
+```
+
+Bạn cũng có thể xác định và lưu [các trợ lý tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi) theo hướng dẫn, kỹ năng và nguồn dữ liệu của riêng bạn.
+
+[rocket\_launch
+
+Bắt đầu nhanh
+
+Thực hiện cuộc gọi đầu tiên cho tác nhân, truyền trực tuyến các phản hồi và tạo tác nhân tuỳ chỉnh.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi)
+[smart\_toy
+
+Tác nhân Antigravity
+
+Các chức năng, công cụ, chế độ nhập đa phương thức và giá của tác nhân mặc định.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi)
+[experiment
+
+Tác nhân trong AI Studio
+
+Sân chơi trực quan để tạo nguyên mẫu cho các tác nhân mà không cần viết mã.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=vi)
+
+## 11. Chạy các tác vụ ở chế độ nền
+
+Đặt `background=True` để chạy các tác vụ dài theo cách không đồng bộ. Thăm dò ý kiến về kết quả bằng `interactions.get()`.
+
+### Python
+
+```
+import time
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Write a detailed analysis of the impact of artificial intelligence on modern healthcare.",
+    background=True,
+)
+print(f"Started background task: {interaction.id}")
+print(f"Status: {interaction.status}")
+
+# Poll for completion
+while True:
+    result = client.interactions.get(interaction.id)
+    print(f"Status: {result.status}")
+    if result.status == "completed":
+        print(f"\nResult:\n{result.output_text}")
+        break
+    elif result.status == "failed":
+        print(f"Failed: {result.error}")
+        break
+    time.sleep(5)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const interaction = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "Write a detailed analysis of the impact of artificial intelligence on modern healthcare.",
+  background: true,
+});
+console.log(`Started background task: ${interaction.id}`);
+console.log(`Status: ${interaction.status}`);
+
+// Poll for completion
+while (true) {
+  const result = await ai.interactions.get(interaction.id);
+  console.log(`Status: ${result.status}`);
+  if (result.status === "completed") {
+    console.log(`\nResult:\n${result.output_text}`);
+    break;
+  } else if (result.status === "failed") {
+    console.log(`Failed: ${result.error}`);
+    break;
+  }
+  await new Promise(r => setTimeout(r, 5000));
+}
+```
+
+### REST
+
+```
+# Start a background task
+RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -H "Api-Revision: 2026-05-20" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Write a detailed analysis of the impact of artificial intelligence on modern healthcare.",
+    "background": true
+  }')
+
+INTERACTION_ID=$(echo "$RESPONSE" | jq -r '.id')
+echo "Started background task: $INTERACTION_ID"
+
+# Poll for completion
+while true; do
+  RESULT=$(curl -s "https://generativelanguage.googleapis.com/v1beta/interactions/$INTERACTION_ID" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H "Api-Revision: 2026-05-20")
+  STATUS=$(echo "$RESULT" | jq -r '.status')
+  echo "Status: $STATUS"
+  if [ "$STATUS" = "completed" ]; then
+    echo "$RESULT" | jq -r '.steps[] | select(.type=="model_output") | .content[] | select(.type=="text") | .text'
+    break
+  elif [ "$STATUS" = "failed" ]; then
+    echo "Failed"
+    break
+  fi
+  sleep 5
+done
+```
+
+**Câu trả lời:**
+
+Phản hồi ban đầu sẽ trả về ngay lập tức với trạng thái `in_progress`:
+
+```
+{
+  "id": "v1_abc123",
+  "status": "in_progress",
+  "object": "interaction",
+  "model": "gemini-3.5-flash"
+}
+```
+
+Sau khi tác vụ ở chế độ nền được thực thi hoàn toàn, việc kiểm tra trạng thái tương tác sẽ trả về:
+
+```
+{
+  "id": "v1_abc123",
+  "status": "completed",
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "Artificial intelligence has transformed modern healthcare in several..."
+        }
+      ]
+    }
+  ],
+  "object": "interaction",
+  "model": "gemini-3.5-flash",
+}
+```
+
+Đọc về các mô hình và tác nhân chạy không đồng bộ trong [hướng dẫn thực thi trong nền](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi#background-execution).
+
+## Bước tiếp theo
+
+- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi): Hướng dẫn hệ thống, cấu hình tạo và các mẫu văn bản nâng cao.
+- [Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-generation?hl=vi): Tỷ lệ khung hình, chỉnh sửa hình ảnh và tham chiếu kiểu.
+- [Hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=vi): Phân loại, phát hiện đối tượng và hỏi đáp bằng hình ảnh.
+- [Tư duy](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=vi): Sử dụng phương pháp suy luận theo chuỗi suy nghĩ cho các nhiệm vụ phức tạp.
+- [Gọi hàm](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=vi): Chế độ hàm song song, thành phần và bị hạn chế.
+- [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=vi): Nền tảng, trích dẫn và đề xuất tìm kiếm.
+- [Tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): Các tác nhân được tạo sẵn có chức năng thực thi mã và quản lý tệp.
+- [Deep Research](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=vi): Nghiên cứu nhiều bước một cách tự động, có lập kế hoạch và tổng hợp.
+- [Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi): Giản đồ JSON, enum và định nghĩa loại đệ quy.
+
+Gửi ý kiến phản hồi
+
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+
+Cập nhật lần gần đây nhất: 2026-06-11 UTC.
+
+Bạn muốn chia sẻ thêm với chúng tôi?
+
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-11 UTC."],[],[]]

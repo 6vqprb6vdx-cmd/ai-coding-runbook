@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=vi
-fetched_at: 2026-06-08T14:59:28.108899+00:00
-title: "Market Research Agent (\u0110\u1ea1i l\u00fd nghi\u00ean c\u1ee9u th\u1ecb tr\u01b0\u1eddng) b\u1eb1ng Gemini v\u00e0 AI SDK c\u1ee7a Vercel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=zh-CN
+fetched_at: 2026-06-15T06:19:42.036792+00:00
+title: "Vercel \u57fa\u4e8e Gemini \u548c AI SDK \u6784\u5efa\u7684\u5e02\u573a\u7814\u7a76\u4ee3\u7406 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gửi ý kiến phản hồi
+发送反馈
 
-# Market Research Agent (Đại lý nghiên cứu thị trường) bằng Gemini và AI SDK của Vercel
+# Vercel 基于 Gemini 和 AI SDK 构建的市场研究代理
 
-[AI SDK của Vercel](https://ai-sdk.dev) là một thư viện nguồn mở mạnh mẽ để xây dựng các ứng dụng, giao diện người dùng và tác nhân dựa trên AI bằng TypeScript.
+[Vercel 的 AI SDK](https://ai-sdk.dev) 是一个强大的开源库，可用于在 TypeScript 中构建 AI 赋能的应用、界面和智能体。
 
-Hướng dẫn này sẽ hướng dẫn bạn cách tạo một ứng dụng Node.js bằng TypeScript sử dụng AI SDK để kết nối với Gemini API thông qua [Nhà cung cấp AI tạo sinh của Google](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) và thực hiện phân tích xu hướng thị trường tự động. Ứng dụng cuối cùng sẽ:
+本指南将引导您构建一个使用 TypeScript 的 Node.js 应用，该应用使用 AI SDK 通过 [Google 生成式 AI Provider](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) 连接到 Gemini API，并执行自动化市场趋势分析。最终应用将：
 
-1. Sử dụng Gemini với Google Tìm kiếm để nghiên cứu các xu hướng thị trường hiện tại.
-2. Trích xuất dữ liệu có cấu trúc từ nghiên cứu để tạo biểu đồ.
-3. Kết hợp thông tin nghiên cứu và biểu đồ thành một báo cáo HTML chuyên nghiệp rồi lưu báo cáo đó dưới dạng PDF.
+1. 将 Gemini 与 Google 搜索搭配使用，研究当前的市场趋势。
+2. 从研究中提取结构化数据以生成图表。
+3. 将研究和图表合并为专业的 HTML 报告，并将其另存为 PDF。
 
-## Điều kiện tiên quyết
+## 前提条件
 
-Để hoàn tất hướng dẫn này, bạn cần:
+如需完成本指南，您需要：
 
-- Khoá Gemini API. Bạn có thể tạo một khoá API miễn phí trong [Google AI Studio](https://aistudio.google.com/apikey?hl=vi).
-- [Node.js](https://nodejs.org/en/download) phiên bản 18 trở lên.
-- Một trình quản lý gói, chẳng hạn như `npm`, `pnpm` hoặc `yarn`.
+- Gemini API 密钥。您可以在 [Google AI Studio](https://aistudio.google.com/apikey?hl=zh-cn) 中免费创建 API 密钥。
+- [Node.js](https://nodejs.org/en/download) 18 或更高版本。
+- 软件包管理系统，例如 `npm`、`pnpm` 或 `yarn`。
 
-## Thiết lập ứng dụng
+## 设置应用
 
-Trước tiên, hãy tạo một thư mục mới cho dự án của bạn và khởi động thư mục đó.
+首先，为您的项目创建一个新目录并对其进行初始化。
 
 ### npm
 
@@ -54,7 +54,7 @@ cd market-trend-app
 pnpm init
 ```
 
-### chỉ len
+### 纱线
 
 ```
 mkdir market-trend-app
@@ -62,9 +62,9 @@ cd market-trend-app
 yarn init -y
 ```
 
-### Cài đặt các phần phụ thuộc
+### 安装依赖项
 
-Tiếp theo, hãy cài đặt AI SDK, nhà cung cấp AI tạo sinh của Google và các phần phụ thuộc cần thiết khác.
+接下来，安装 AI SDK、Google 生成式 AI 提供程序和其他必需的依赖项。
 
 ### npm
 
@@ -73,7 +73,7 @@ npm install ai @ai-sdk/google zod
 npm install -D @types/node tsx typescript && npx tsc --init
 ```
 
-Để ngăn lỗi trình biên dịch TypeScript, hãy thêm chú thích vào dòng sau trong `tsconfig.json` đã tạo:
+为防止出现 TypeScript 编译器错误，请在生成的 `tsconfig.json` 中将以下行添加为注释：
 
 ```
 //"verbatimModuleSyntax": true,
@@ -86,20 +86,20 @@ pnpm add ai @ai-sdk/google zod
 pnpm add -D @types/node tsx typescript
 ```
 
-### chỉ len
+### 纱线
 
 ```
 yarn add ai @ai-sdk/google zod
 yarn add -D @types/node tsx typescript && yarn tsc --init
 ```
 
-Để ngăn lỗi trình biên dịch TypeScript, hãy thêm chú thích vào dòng sau trong `tsconfig.json` đã tạo:
+为防止出现 TypeScript 编译器错误，请在生成的 `tsconfig.json` 中将以下行添加为注释：
 
 ```
 //"verbatimModuleSyntax": true,
 ```
 
-Ứng dụng này cũng sẽ sử dụng các gói của bên thứ ba là [Puppeteer](https://pptr.dev/) và [Chart.js](https://www.chartjs.org) để hiển thị biểu đồ và tạo tệp PDF:
+此应用还将使用第三方软件包 [Puppeteer](https://pptr.dev/) 和 [Chart.js](https://www.chartjs.org) 来渲染图表和创建 PDF：
 
 ### npm
 
@@ -115,18 +115,18 @@ pnpm add puppeteer chart.js
 pnpm add -D @types/chart.js
 ```
 
-### chỉ len
+### 纱线
 
 ```
 yarn add puppeteer chart.js
 yarn add -D @types/chart.js
 ```
 
-Gói `puppeteer` yêu cầu chạy một tập lệnh để tải trình duyệt Chromium xuống. Trình quản lý gói có thể yêu cầu bạn phê duyệt, vì vậy, hãy nhớ phê duyệt tập lệnh khi được nhắc.
+`puppeteer` 软件包需要运行脚本才能下载 Chromium 浏览器。您的软件包管理器可能会要求您批准，因此请确保在出现提示时批准脚本。
 
-### Định cấu hình khoá API
+### 配置 API 密钥
 
-Đặt biến môi trường `GOOGLE_GENERATIVE_AI_API_KEY` bằng khoá Gemini API của bạn. Trình cung cấp AI tạo sinh của Google sẽ tự động tìm khoá API của bạn trong biến môi trường này.
+使用 Gemini API 密钥设置 `GOOGLE_GENERATIVE_AI_API_KEY` 环境变量。Google 生成式 AI 提供程序会自动在此环境变量中查找您的 API 密钥。
 
 ### MacOS/Linux
 
@@ -134,17 +134,17 @@ Gói `puppeteer` yêu cầu chạy một tập lệnh để tải trình duyệt
 export GOOGLE_GENERATIVE_AI_API_KEY="YOUR_API_KEY_HERE"
 ```
 
-### Powershell
+### PowerShell
 
 ```
 setx GOOGLE_GENERATIVE_AI_API_KEY "YOUR_API_KEY_HERE"
 ```
 
-## Tạo ứng dụng
+## 打造您的应用
 
-Bây giờ, hãy tạo tệp chính cho ứng dụng của chúng ta. Tạo một tệp mới có tên là `main.ts` trong thư mục dự án của bạn. Bạn sẽ xây dựng logic trong tệp này từng bước.
+现在，我们来创建应用的主文件。在项目目录中创建一个名为 `main.ts` 的新文件。您将在此文件中逐步构建逻辑。
 
-Để kiểm tra nhanh và đảm bảo mọi thứ được thiết lập đúng cách, hãy thêm mã sau vào `main.ts`. Ví dụ cơ bản này sử dụng `generateText` để nhận được câu trả lời đơn giản từ Gemini.
+如需进行快速测试以确保一切设置正确无误，请将以下代码添加到 `main.ts`。此基本示例使用 `generateText` 从 Gemini 获取简单回答。
 
 ```
 import { google } from "@ai-sdk/google";
@@ -162,7 +162,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-Trước khi thêm độ phức tạp, hãy chạy tập lệnh này để xác minh rằng môi trường của bạn được định cấu hình đúng cách. Chạy lệnh sau trong cửa sổ dòng lệnh:
+在添加更多复杂性之前，请运行此脚本以验证您的环境是否已正确配置。在终端中运行以下命令：
 
 ### npm
 
@@ -176,19 +176,19 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### chỉ len
+### 纱线
 
 ```
 yarn tsc && node main.js
 ```
 
-Nếu thiết lập đúng mọi thứ, bạn sẽ thấy câu trả lời của Gemini được in ra bảng điều khiển.
+如果一切设置正确无误，您会在控制台中看到 Gemini 的回答。
 
-## Tiến hành nghiên cứu thị trường bằng Google Tìm kiếm
+## 使用 Google 搜索开展市场调研
 
-Để nhận thông tin mới nhất, bạn có thể bật công cụ [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) cho Gemini. Khi công cụ này hoạt động, mô hình có thể tìm kiếm trên web để trả lời câu lệnh và sẽ trả về các nguồn mà mô hình đã sử dụng.
+如需获取最新信息，您可以为 Gemini 启用 [Google 搜索](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)工具。启用此工具后，模型可以搜索网络来回答提示，并会返回其使用的来源。
 
-Thay thế nội dung của `main.ts` bằng đoạn mã sau để thực hiện bước đầu tiên trong quy trình phân tích.
+将 `main.ts` 的内容替换为以下代码，以执行分析的第一步。
 
 ```
 import { google } from "@ai-sdk/google";
@@ -214,13 +214,13 @@ async function main() {
 main().catch(console.error);
 ```
 
-## Trích xuất dữ liệu biểu đồ
+## 提取图表数据
 
-Tiếp theo, hãy xử lý văn bản nghiên cứu để trích xuất dữ liệu có cấu trúc phù hợp với biểu đồ. Sử dụng hàm `generateObject` của AI SDK cùng với một giản đồ `zod` để xác định cấu trúc dữ liệu chính xác.
+接下来，我们来处理研究文本，提取适合图表的结构化数据。使用 AI SDK 的 `generateObject` 函数以及 `zod` 架构来定义确切的数据结构。
 
-Đồng thời, hãy tạo một hàm trợ giúp để chuyển đổi dữ liệu có cấu trúc này thành một cấu hình mà `Chart.js` có thể hiểu được.
+此外，还要创建一个辅助函数，用于将此结构化数据转换为 `Chart.js` 可以理解的配置。
 
-Thêm mã sau vào `main.ts`. Lưu ý các nội dung nhập mới và "Bước 2" đã thêm.
+将以下代码添加到 `main.ts`。请注意新导入项和新增的“第 2 步”。
 
 ```
 import { google } from "@ai-sdk/google";
@@ -302,12 +302,11 @@ ${marketTrends}
 main().catch(console.error);
 ```
 
-## Tạo báo cáo cuối cùng
+## 生成最终报告
 
-Trong bước cuối cùng, hãy hướng dẫn Gemini đóng vai trò là một chuyên gia viết báo cáo.
-Cung cấp cho Gemini thông tin nghiên cứu thị trường, cấu hình biểu đồ và một bộ hướng dẫn rõ ràng để tạo báo cáo HTML. Sau đó, hãy dùng [Puppeteer](https://pptr.dev/) để kết xuất HTML này và lưu dưới dạng PDF.
+在最后一步中，指示 Gemini 充当专业的报告撰写者。向其提供市场研究、图表配置以及用于构建 HTML 报告的一组明确说明。然后，使用 [Puppeteer](https://pptr.dev/) 渲染此 HTML 并将其另存为 PDF。
 
-Thêm nội dung nhập `puppeteer` cuối cùng và "Bước 3" vào tệp `main.ts`.
+将最终的 `puppeteer` 导入和“步骤 3”添加到 `main.ts` 文件中。
 
 ```
 // ... (imports from previous step)
@@ -368,9 +367,9 @@ async function main() {
 main().catch(console.error);
 ```
 
-## Chạy ứng dụng
+## 运行您的应用
 
-Giờ đây, bạn đã sẵn sàng chạy ứng dụng. Thực thi lệnh sau trong thiết bị đầu cuối:
+您现在可以运行应用了。在终端中执行以下命令：
 
 ### npm
 
@@ -384,33 +383,33 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### chỉ len
+### 纱线
 
 ```
 yarn tsc && node main.js
 ```
 
-Bạn sẽ thấy nhật ký trong thiết bị đầu cuối khi tập lệnh thực hiện từng bước.
-Sau khi hoàn tất, một tệp `report.pdf` chứa thông tin phân tích thị trường sẽ được tạo trong thư mục dự án của bạn.
+当脚本执行每个步骤时，您会在终端中看到日志记录。
+完成后，系统会在项目目录中创建一个包含市场分析的 `report.pdf` 文件。
 
-Dưới đây là 2 trang đầu tiên của một báo cáo PDF mẫu:
+下面显示的是 PDF 报告示例的前两页：
 
-![Báo cáo phân tích thị trường](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=vi)
+![市场分析报告](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=zh-cn)
 
-## Tài nguyên khác
+## 更多资源
 
-Để biết thêm thông tin về cách tạo bằng Gemini và AI SDK, hãy khám phá các tài nguyên sau:
+如需详细了解如何使用 Gemini 和 AI SDK 进行构建，请探索以下资源：
 
-- [Tài liệu về AI SDK](https://ai-sdk.dev/docs)
-- [Tài liệu về AI tạo sinh của Google cho AI SDK](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
-- [Sổ tay AI SDK: Bắt đầu sử dụng Gemini](https://ai-sdk.dev/cookbook/guides/gemini)
+- [AI SDK 文档](https://ai-sdk.dev/docs)
+- [AI SDK Google 生成式 AI 文档](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
+- [AI SDK 食谱：Gemini 使用入门](https://ai-sdk.dev/cookbook/guides/gemini)
 
-Gửi ý kiến phản hồi
+发送反馈
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Cập nhật lần gần đây nhất: 2026-05-19 UTC.
+最后更新时间 (UTC)：2026-05-19。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+需要向我们提供更多信息？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-19。"],[],[]]

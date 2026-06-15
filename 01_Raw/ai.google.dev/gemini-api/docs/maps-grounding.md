@@ -1,34 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-BR
-fetched_at: 2026-06-08T14:59:16.440508+00:00
-title: "Embasamento com o Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he
+fetched_at: 2026-06-15T06:19:47.090465+00:00
+title: "\u05e2\u05d9\u05d2\u05d5\u05df \u05d1\u05e2\u05d6\u05e8\u05ea \u05de\u05e4\u05d5\u05ea Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envie comentários
+שליחת משוב
 
-# Embasamento com o Google Maps
+# עיגון בעזרת מפות Google
 
-O embasamento com o Google Maps conecta os recursos generativos do Gemini aos dados ricos, factuais e atualizados do Google Maps. Com esse recurso, os
-desenvolvedores podem incorporar facilmente funcionalidades com reconhecimento de local aos
-aplicativos. Quando uma consulta do usuário tem um contexto relacionado a dados do Maps, o modelo do Gemini usa o Google Maps para fornecer respostas factuais, atualizadas e relevantes para o local ou a área geral especificada pelo usuário.
+עיגון בעזרת מפות Google מחבר בין היכולות הגנרטיביות של Gemini לבין הנתונים העשירים, העובדתיים והעדכניים של מפות Google. התכונה הזו מאפשרת למפתחים לשלב בקלות באפליקציות שלהם פונקציונליות שמבוססת על מיקום. כששאילתת משתמש מכילה הקשר שקשור לנתוני מפות, מודל Gemini משתמש במפות Google כדי לספק תשובות מדויקות מבחינה עובדתית ועדכניות שרלוונטיות למיקום הספציפי או לאזור הכללי שהמשתמש ציין.
 
-- **Respostas precisas e com reconhecimento de local:** aproveite os dados extensos e atuais do Google Maps para consultas geograficamente específicas.
-- **Personalização aprimorada**:personalize recomendações e informações com base nos locais fornecidos pelo usuário.
+- **תשובות מדויקות שמודעות למיקום:** שימוש בנתונים המקיפים והעדכניים של מפות Google לשאילתות ספציפיות מבחינה גיאוגרפית.
+- **התאמה אישית משופרת:** התאמת ההמלצות והמידע על סמך המיקומים שהמשתמשים סיפקו.
 
-## Primeiros passos
+## שנתחיל?
 
-Este exemplo demonstra como integrar o embasamento com o Google Maps ao seu aplicativo para fornecer respostas precisas e com reconhecimento de local às consultas do usuário. O comando pede recomendações locais com uma localização opcional do usuário, permitindo que o modelo do Gemini use dados do Google Maps.
+בדוגמה הזו אפשר לראות איך לשלב את עיגון בעזרת מפות Google באפליקציה כדי לספק תשובות מדויקות לשאילתות של משתמשים, בהתאם למיקום שלהם. ההנחיה מבקשת המלצות מקומיות עם מיקום משתמש אופציונלי, ומאפשרת למודל Gemini להשתמש בנתונים של מפות Google.
 
 ### Python
 
@@ -130,41 +128,34 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## Como funciona o embasamento com o Google Maps
+## איך עיגון בעזרת מפות Google עובד
 
-O embasamento com o Google Maps integra a API Gemini ao ecossistema do Google Geo usando a API Maps como fonte de embasamento. Quando a consulta de um usuário contém contexto geográfico, o modelo do Gemini pode invocar a ferramenta de embasamento com o Google Maps. Em seguida, o modelo pode gerar respostas com base nos dados do Google Maps relevantes para o local fornecido.
+עיגון בעזרת מפות Google משלב את Gemini API עם המערכת האקולוגית של Google Geo באמצעות Maps API כמקור לעיגון. כששאילתה של משתמש מכילה הקשר גיאוגרפי, מודל Gemini יכול להפעיל את הכלי Grounding עם מפות Google. לאחר מכן המודל יכול ליצור תשובות שמבוססות על נתונים ממפות Google שרלוונטיים למיקום שצוין.
 
-O processo geralmente envolve:
+התהליך כולל בדרך כלל:
 
-1. **Consulta do usuário**:um usuário envia uma consulta ao seu aplicativo, possivelmente
-   incluindo contexto geográfico (por exemplo, "cafés perto de mim", "museus em
-   São Francisco").
-2. **Invocação de ferramenta**:o modelo do Gemini, reconhecendo a intenção geográfica, invoca a ferramenta de embasamento com o Google Maps. Essa ferramenta pode ser fornecida com o `latitude` e o `longitude` do usuário. A ferramenta é de pesquisa textual e funciona de maneira semelhante à pesquisa no Maps. Consultas locais ("perto de mim") usam as coordenadas, enquanto consultas específicas ou não locais provavelmente não são influenciadas pela localização explícita.
-3. **Recuperação de dados**:o serviço de embasamento com o Google Maps consulta o Google Maps para obter informações relevantes (por exemplo, lugares, avaliações, fotos, endereços, horário de funcionamento).
-4. **Geração embasada**:os dados recuperados do Maps são usados para informar a resposta do modelo Gemini, garantindo precisão e relevância factual.
-5. **Resposta**:o modelo retorna uma resposta em texto que inclui citações de fontes do Google Maps.
+1. **שאילתת משתמש:** משתמש שולח שאילתה לאפליקציה שלכם, שיכולה לכלול הקשר גיאוגרפי (לדוגמה, "בתי קפה בקרבתי", "מוזיאונים בסן פרנסיסקו").
+2. **הפעלת כלי:** מודל Gemini, שמזהה את הכוונה הגיאוגרפית, מפעיל את הכלי 'עיגון בעזרת מפות Google'. אפשר לספק לכלי הזה את `latitude` ו-`longitude` של המשתמש. הכלי הוא כלי לחיפוש טקסטואלי, והוא פועל באופן דומה לחיפוש במפות Google. כלומר, שאילתות מקומיות (למשל, 'בקרבתי') ישתמשו בקואורדינטות, בעוד ששאילתות ספציפיות או לא מקומיות לא יושפעו מהמיקום המפורש.
+3. **אחזור נתונים:** שירות עיגון בעזרת מפות Google שולח שאילתות למפות Google כדי לקבל מידע רלוונטי (לדוגמה, מקומות, ביקורות, תמונות, כתובות, שעות פתיחה).
+4. **יצירה מבוססת-קרקע:** נתוני המפות שאוחזרו משמשים ליצירת התשובה של מודל Gemini, כדי להבטיח דיוק עובדתי ורלוונטיות.
+5. **תשובה:** המודל מחזיר תשובה טקסטואלית, שכוללת ציטוטים ממקורות במפות Google.
 
-## Por que e quando usar o Embasamento com o Google Maps
+## למה ומתי כדאי להשתמש בעיגון בעזרת מפות Google
 
-O embasamento com o Google Maps é ideal para aplicativos que exigem informações precisas, atualizadas e específicas de um local. Ele melhora a experiência do usuário
-ao fornecer conteúdo relevante e personalizado com base no extenso banco de dados do Google Maps, que tem mais de 250 milhões de lugares no mundo todo.
+עיגון בעזרת מפות Google מתאים במיוחד לאפליקציות שנדרש בהן מידע מדויק, עדכני וספציפי למיקום. הוא משפר את חוויית המשתמש באמצעות תוכן רלוונטי ומותאם אישית שמבוסס על מסד הנתונים הנרחב של מפות Google, שכולל יותר מ-250 מיליון מקומות ברחבי העולם.
 
-Use o embasamento com o Google Maps quando o aplicativo precisar:
+כדאי להשתמש בעיגון בעזרת מפות Google כשהאפליקציה צריכה:
 
-- Forneça respostas completas e precisas para perguntas específicas de uma região.
-- Crie planejadores de viagens e guias locais de conversa.
-- Recomendar pontos de interesse com base na localização e nas preferências do usuário, como restaurantes ou lojas.
-- Crie experiências com reconhecimento de local para serviços de redes sociais, varejo ou entrega de comida.
+- חשוב לענות על השאלות בצורה מקיפה ומדויקת.
+- פיתוח כלים לשיחה לתכנון טיולים ומדריכים מקומיים.
+- המלצה על נקודות עניין על סמך מיקום והעדפות משתמש, כמו מסעדות או חנויות.
+- ליצור חוויות מבוססות-מיקום לשירותים חברתיים, קמעונאיים או למשלוחי אוכל.
 
-O embasamento com o Google Maps é excelente em casos de uso em que a proximidade e os dados factuais atuais são essenciais, como encontrar o "melhor café perto de mim" ou receber rotas.
+עיגון בעזרת מפות Google מצטיין בתרחישי שימוש שבהם נתונים עדכניים ועובדתיים על קרבה הם קריטיים, כמו חיפוש של "בית הקפה הכי טוב בסביבה שלי" או קבלת הוראות הגעה.
 
-## Métodos e parâmetros da API
+## שיטות ופרמטרים של API
 
-O embasamento com o Google Maps é exposto pela API Gemini como uma ferramenta no método
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=pt-br). Para ativar e configurar
-o embasamento com o Google Maps, inclua um
-objeto [`googleMaps`](https://ai.google.dev/api/caching?hl=pt-br#GoogleMaps) no parâmetro `tools` da sua
-solicitação.
+העיגון בעזרת מפות Google נחשף דרך Gemini API ככלי בשיטה [`generateContent`](https://ai.google.dev/api/generate-content?hl=he). כדי להפעיל ולהגדיר את עיגון בעזרת מפות Google, צריך לכלול אובייקט [`googleMaps`](https://ai.google.dev/api/caching?hl=he#GoogleMaps) בפרמטר `tools` של הבקשה.
 
 ### JSON
 
@@ -179,7 +170,7 @@ solicitação.
 }
 ```
 
-Além disso, a ferramenta permite transmitir o local contextual como `toolConfig`.
+בנוסף, הכלי תומך בהעברת המיקום ההקשרי כ-`toolConfig`.
 
 ### JSON
 
@@ -202,10 +193,10 @@ Além disso, a ferramenta permite transmitir o local contextual como `toolConfig
 }
 ```
 
-### Entender a resposta de embasamento
+### הסבר על התשובה שמתבססת על מידע
 
-Quando uma resposta é fundamentada com dados do Google Maps, ela inclui um campo [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=pt-br#GroundingMetadata).
-Esses dados estruturados são essenciais para verificar declarações e criar uma experiência de citação avançada no aplicativo, além de atender aos requisitos de uso do serviço.
+כשמבססים תגובה על נתונים ממפות Google, התגובה כוללת את השדה [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=he#GroundingMetadata).
+הנתונים המובנים האלה חיוניים לאימות ההצהרות וליצירת חוויית ציטוט עשירה באפליקציה, וגם לעמידה בדרישות השימוש בשירות.
 
 ### JSON
 
@@ -252,22 +243,20 @@ Esses dados estruturados são essenciais para verificar declarações e criar um
 }
 ```
 
-A API Gemini retorna as seguintes informações com o
-[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=pt-br#GroundingMetadata):
+‫Gemini API מחזיר את המידע הבא עם [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=he#GroundingMetadata):
 
-- `groundingChunks`: matriz de objetos que contém as fontes `maps` (`uri`, `placeId` e `title`).
-- `groundingSupports`: matriz de partes para conectar o texto de resposta do modelo às
-  fontes em `groundingChunks`. Cada parte vincula um período de texto (definido por `startIndex` e `endIndex`) a um ou mais `groundingChunkIndices`. Essa é a chave para criar citações inline.
+- ‫`groundingChunks`: מערך של אובייקטים שמכילים את מקורות `maps` (`uri`,‏ `placeId` ו-`title`).
+- ‫`groundingSupports`: מערך של מקטעים לחיבור טקסט התגובה של המודל למקורות ב-`groundingChunks`. כל מקטע מקשר בין טווח טקסט (מוגדר על ידי `startIndex` ו-`endIndex`) לבין `groundingChunkIndices` אחד או יותר. זהו המפתח ליצירת ציטוטים בגוף הטקסט.
 
-Para um snippet de código que mostra como renderizar citações inline em texto, consulte [o exemplo](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br#attributing_sources_with_inline_citations) na documentação de embasamento com a Pesquisa Google.
+לדוגמה של קטע קוד שמראה איך לרנדר ציטוטים מוטבעים בטקסט, ראו [את הדוגמה](https://ai.google.dev/gemini-api/docs/google-search?hl=he#attributing_sources_with_inline_citations) במסמכי ההסבר על עיגון באמצעות חיפוש Google.
 
-## Casos de uso
+## תרחישים לדוגמה
 
-O embasamento com o Google Maps oferece suporte a vários casos de uso com reconhecimento de local. Os exemplos a seguir demonstram como diferentes comandos e parâmetros podem aproveitar o embasamento com o Google Maps. As informações nos Resultados Embasados do Google Maps podem ser diferentes das condições reais.
+העיגון בעזרת מפות Google תומך במגוון תרחישים לדוגמה שמתבססים על מיקום. בדוגמאות הבאות מוסבר איך אפשר להשתמש בהנחיות ובפרמטרים שונים כדי להסתמך על נתונים ממפות Google. המידע בתוצאות המבוססות על עובדות במפות Google עשוי להיות שונה מהמצב בפועל.
 
-### Como lidar com perguntas específicas de um lugar
+### איך עונים על שאלות ספציפיות לגבי מקום
 
-Faça perguntas detalhadas sobre um lugar específico para receber respostas com base nas avaliações dos usuários do Google e em outros dados do Maps.
+אתם יכולים לשאול שאלות מפורטות על מקום ספציפי ולקבל תשובות שמבוססות על ביקורות של משתמשים ב-Google ועל נתונים אחרים במפות Google.
 
 ### Python
 
@@ -373,9 +362,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-### Fornecer personalização com base no local
+### התאמה אישית לפי מיקום
 
-Receber recomendações personalizadas de acordo com as preferências de um usuário e uma área geográfica específica.
+לקבל המלצות שמותאמות להעדפות של משתמש ולאזור גיאוגרפי ספציפי.
 
 ### Python
 
@@ -477,9 +466,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-### Ajuda no planejamento de itinerários
+### עזרה בתכנון מסלול
 
-Gere planos de vários dias com rotas e informações sobre vários locais, perfeito para aplicativos de viagens.
+יצירת תוכניות לכמה ימים עם הוראות הגעה ומידע על מיקומים שונים, מושלם לאפליקציות נסיעות.
 
 ### Python
 
@@ -583,72 +572,71 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## Requisitos de uso do serviço
+## דרישות לשימוש בשירות
 
-Esta seção descreve os requisitos de uso do serviço para o Grounding com o Google Maps.
+בקטע הזה מתוארות דרישות השימוש בשירות Grounding with Google Maps.
 
-### Informar o usuário sobre o uso de fontes do Google Maps
+### לעדכן את המשתמש לגבי השימוש במקורות של מפות Google
 
-Com cada resultado embasado do Google Maps, você recebe fontes em
-`groundingChunks` que apoiam cada resposta. Os seguintes metadados também são retornados:
+לכל תוצאה מבוססת-קרקע במפות Google, תקבלו מקורות בפורמט `groundingChunks` שתומכים בכל תשובה. מוחזרים גם המטא-נתונים הבאים:
 
-- source uri
-- título
-- ID
+- ‫URI במקור
+- title
+- מזהה
 
-Ao apresentar resultados do embasamento com o Google Maps, especifique as fontes associadas do Google Maps e informe aos usuários o seguinte:
+כשמציגים תוצאות של עיגון בעזרת מפות Google, צריך לציין את המקורות המשויכים במפות Google ולעדכן את המשתמשים לגבי הדברים הבאים:
 
-- As fontes do Google Maps precisam aparecer imediatamente após o conteúdo gerado que elas embasam. Esse conteúdo gerado também é chamado de Resultado Embasado do Google Maps.
-- As fontes do Google Maps precisam estar visíveis em uma interação do usuário.
+- המקורות של מפות Google צריכים להופיע מיד אחרי התוכן שנוצר ושנתמך על ידי המקורות. התוכן שנוצר נקרא גם תוצאה מבוססת-קרקע ב-Google Maps.
+- מקורות המידע במפות Google צריכים להיות גלויים באינטראקציה אחת של המשתמש.
 
-### Mostrar fontes do Google Maps com links do Google Maps
+### הצגת מקורות של מפות Google עם קישורים למפות Google
 
-Para cada fonte em `groundingChunks` e em `grounding_chunks.maps.placeAnswerSources.reviewSnippets`, uma prévia de link precisa ser gerada seguindo estes requisitos:
+לכל מקור ב-`groundingChunks` וב-`grounding_chunks.maps.placeAnswerSources.reviewSnippets`, צריך ליצור תצוגה מקדימה של הקישור בהתאם לדרישות הבאות:
 
-- Atribua cada fonte ao Google Maps seguindo as [diretrizes de atribuição](#maps-attribution-guidelines) de texto do Google Maps.
-- Mostra o título da fonte fornecido na resposta.
-- Vincule à fonte usando o `uri` ou `googleMapsUri` da resposta.
+- צריך לשייך כל מקור למפות Google בהתאם [להנחיות לשיוך טקסט](#maps-attribution-guidelines) במפות Google.
+- הצגת שם המקור שסופק בתשובה.
+- מקשרים למקור באמצעות הסמל `uri` או `googleMapsUri` שמופיע בתשובה.
 
-Estas imagens mostram os requisitos mínimos para exibir as fontes e os links do Google Maps.
+בתמונות האלה מוצגות הדרישות המינימליות להצגת המקורות והקישורים למפות Google.
 
-![Comando com resposta mostrando fontes](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=pt-br)
+![הנחיה עם תשובה שכוללת מקורות](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=he)
 
-É possível recolher a visualização das fontes.
+אפשר לכווץ את תצוגת המקורות.
 
-![Comando com resposta e fontes recolhidas](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=pt-br)
+![הנחיה עם תשובה ומקורות במצב מכווץ](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=he)
 
-Opcional: melhore a prévia do link com conteúdo adicional, como:
+אופציונלי: אפשר להוסיף לקישור תצוגה מקדימה עם תוכן נוסף, כמו:
 
-- Um [favicon do Google Maps](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=pt-br) é inserido antes da atribuição de texto do Google Maps.
-- Uma foto do URL de origem (`og:image`).
+- [סמל האתר של מפות Google](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=he)
+  מופיע לפני טקסט השיוך של מפות Google.
+- תמונה מכתובת ה-URL של המקור (`og:image`).
 
-Para mais informações sobre alguns dos nossos provedores de dados do Google Maps e os termos de licença deles, consulte os [avisos legais do Google Maps e do Google Earth](https://www.google.com/help/legalnotices_maps/?hl=pt-br).
+מידע נוסף על חלק מספקי הנתונים של מפות Google ועל תנאי הרישיון שלהם מופיע [בהודעות המשפטיות של מפות Google ו-Google Earth](https://www.google.com/help/legalnotices_maps/?hl=he).
 
-### Diretrizes de atribuição de texto do Google Maps
+### הנחיות לציון מקורות במפות Google
 
-Ao atribuir fontes ao Google Maps em texto, siga estas diretrizes:
+כשמציינים את המקורות במפות Google בטקסט, צריך לפעול לפי ההנחיות הבאות:
 
-- Não modifique o texto do Google Maps de forma alguma:
-  - Não mude a capitalização de Google Maps.
-  - Não quebre o Google Maps em várias linhas.
-  - Não localize o Google Maps para outro idioma.
-  - Impeça que os navegadores traduzam o Google Maps usando o atributo HTML
-    translate="no".
-- Estilize o texto do Google Maps conforme descrito na tabela a seguir:
+- אל תשנו את הטקסט 'מפות Google' בשום צורה:
+  - אל תשנו את האותיות הרישיות של מפות Google.
+  - אל תפצלו את כתובת מפות Google לכמה שורות.
+  - אל תתאימו את מפות Google לשפה אחרת.
+  - כדי למנוע מדפדפנים לתרגם את מפות Google, משתמשים בתכונת ה-HTML‏ translate="no".
+- מעצבים את הטקסט במפות Google לפי ההנחיות שבטבלה הבאה:
 
-| Propriedade | Estilo |
+| נכס | סגנון |
 | --- | --- |
-| `Font family` | Roboto. O carregamento da fonte é opcional. |
-| `Fallback font family` | Qualquer fonte Sans Serif já usada no seu produto ou "Sans-Serif" para invocar a fonte padrão do sistema |
-| `Font style` | Normal |
+| `Font family` | Roboto. טעינת הגופן היא אופציונלית. |
+| `Fallback font family` | כל גופן Sans Serif שמשמש כבר במוצר או Sans-Serif כדי להפעיל את גופן המערכת שמוגדר כברירת מחדל |
+| `Font style` | רגיל |
 | `Font weight` | 400 |
-| `Font color` | Branco, preto (#1F1F1F) ou cinza (#5E5E5E). Mantenha um contraste acessível (4,5:1) em relação ao plano de fundo. |
-| `Font size` | - Tamanho mínimo da fonte: 12 sp - Tamanho máximo da fonte: 16sp - Para saber mais sobre sp, consulte "Unidades de tamanho de fonte" no [site do Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc) (em inglês). |
-| `Spacing` | Normal |
+| `Font color` | לבן, שחור (#1F1F1F) או אפור (#5E5E5E). שמירה על ניגודיות נגישה (4.5:1) ביחס לרקע. |
+| `Font size` | - גודל גופן מינימלי: 12sp - גודל גופן מקסימלי: ‎16sp - מידע על sp זמין במאמר בנושא יחידות של גודל גופן ב[אתר Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
+| `Spacing` | רגיל |
 
-#### CSS de exemplo
+#### דוגמה ל-CSS
 
-O CSS a seguir renderiza o Google Maps com o estilo tipográfico e a cor adequados em um fundo branco ou claro.
+קוד ה-CSS הבא מעבד את מפות Google עם סגנון הטיפוגרפיה והצבע המתאימים על רקע לבן או בהיר.
 
 ### CSS
 
@@ -667,80 +655,74 @@ color: #5e5e5e;
 }
 ```
 
-### ID de lugar e ID da avaliação
+### מזהה מקום ומזהה ביקורת
 
-Os dados do Google Maps incluem ID do lugar e ID da avaliação. Você pode armazenar em cache, armazenar e exportar os seguintes dados de resposta:
+הנתונים של מפות Google כוללים את מזהה המקום ומזהה הביקורת. יכול להיות שתשמרו במטמון, תאחסנו ותייצאו את נתוני התשובות הבאים:
 
 - `placeId`
 - `reviewId`
 
-As restrições contra armazenamento em cache nos Termos do Embasamento com o Google Maps não se aplicam.
+המגבלות נגד שמירה במטמון בתנאים של עיגון בעזרת מפות Google לא חלות.
 
-### Atividade e território proibidos
+### פעילות אסורה ואזור אסור
 
-O embasamento com o Google Maps tem outras restrições para determinados conteúdos e atividades para manter uma plataforma segura e confiável. Além das restrições de uso nos [Termos](https://ai.google.dev/gemini-api/terms?hl=pt-br#grounding-with-google-maps):
+כדי לשמור על פלטפורמה בטוחה ומהימנה, יש הגבלות נוספות על תוכן ופעילויות מסוימים ב-Grounding עם מפות Google. בנוסף להגבלות השימוש שמפורטות ב[תנאים](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-maps):
 
-- Você não vai usar o embasamento com o Google Maps para atividades de alto risco, incluindo serviços de resposta a emergências.
-- Você não vai distribuir nem comercializar seu aplicativo que oferece Grounding com o Google Maps em um Território Vetado. Para mais informações, consulte [Territórios proibidos da Plataforma Google Maps](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=pt-br).
-  A lista de territórios proibidos pode ser atualizada periodicamente.
+- לא תשתמשו ב-עיגון בעזרת מפות Google לפעילויות בסיכון גבוה, כולל שירותי תגובה למקרי חירום.
+- לא תפיצו או תשווקו את האפליקציה שלכם שמציעה Grounding עם מפות Google בשטח אסור. מידע נוסף זמין במאמר בנושא [אזורים אסורים ב-Google Maps Platform](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=he).
+  רשימת הטריטוריות האסורות עשויה להתעדכן מעת לעת.
 
-## Práticas recomendadas
+## שיטות מומלצות
 
-- **Forneça a localização do usuário**:para respostas mais relevantes e personalizadas,
-  sempre inclua `user_location` (latitude e longitude) na configuração
-  `googleMapsGrounding` quando a localização do usuário for conhecida.
-- **Informe os usuários finais**:deixe claro para os usuários finais que os dados do Google Maps estão sendo usados para responder às consultas deles, principalmente quando a ferramenta está ativada.
-- **Monitore a latência**:para aplicativos de conversa, garanta que a latência P95 das respostas fundamentadas permaneça dentro dos limites aceitáveis para manter uma experiência do usuário tranquila.
-- **Desativar quando não for necessário**:o embasamento com o Google Maps fica desativado por padrão. Ative (`"tools": [{"googleMaps": {}}]`) apenas quando uma consulta tiver um contexto geográfico claro para otimizar o desempenho e o custo.
+- **ציון מיקום המשתמש:** כדי לקבל תשובות רלוונטיות ומותאמות אישית, תמיד צריך לכלול את `user_location` (קו הרוחב וקו האורך) בהגדרה של `googleMapsGrounding` כשמיקום המשתמש ידוע.
+- **ליידע את משתמשי הקצה:** חשוב ליידע את משתמשי הקצה בצורה ברורה שהנתונים של מפות Google משמשים למענה על השאילתות שלהם, במיוחד כשהכלי מופעל.
+- **מעקב אחרי זמן האחזור:** באפליקציות שיש בהן ממשק שיחה, חשוב לוודא שזמן האחזור של תגובות מעוגנות (P95) נשאר בתוך סף קביל כדי לשמור על חוויית משתמש חלקה.
+- **השבתה כשלא צריך:** עיגון בעזרת מפות Google מושבת כברירת מחדל. כדי לשפר את הביצועים ולהוזיל עלויות, מפעילים את האפשרות הזו (`"tools": [{"googleMaps": {}}]`) רק כששאילתה כוללת הקשר גיאוגרפי ברור.
 
-## Limitações
+## מגבלות
 
-- **Abrangência geográfica**:o embasamento com o Google Maps está disponível no mundo todo.
-- **Suporte a modelos**:consulte a seção [Modelos compatíveis](#supported-models).
-- **Entradas/saídas multimodais**:no momento, o embasamento com o Google Maps não oferece suporte a entradas ou saídas multimodais além de texto.
-- **Estado padrão**:a ferramenta de embasamento com o Google Maps fica desativada por padrão.
-  É necessário ativar explicitamente nas solicitações de API.
+- **היקף גיאוגרפי:** עיגון בעזרת מפות Google זמין בכל העולם
+- **תמיכה בדגמים:** מידע מופיע בקטע [דגמים נתמכים](#supported-models).
+- **קלט או פלט מרובי-אופנים:** בשלב הזה, ההצמדה למציאות באמצעות מפות Google לא תומכת בקלט או בפלט מרובי-אופנים מעבר לטקסט.
+- **מצב ברירת מחדל:** הכלי 'עיגון בעזרת מפות Google' מושבת כברירת מחדל.
+  צריך להפעיל אותו באופן מפורש בבקשות ל-API.
 
-## Preços e limites de taxa
+## תמחור והגבלות על קצב יצירת הבקשות
 
-O preço do embasamento com o Google Maps é baseado em consultas. A taxa atual é de **US$25 / 1.000 comandos fundamentados**. O nível sem custo financeiro também tem até 500 solicitações por dia disponíveis. Uma solicitação só é contabilizada na cota quando um comando retorna pelo menos um resultado embasado do Google Maps (ou seja, resultados que contêm pelo menos uma fonte do Google Maps). Se várias consultas forem
-enviadas ao Google Maps em uma única solicitação, isso será contabilizado como uma solicitação para o
-limite de taxa.
+התמחור של עיגון בעזרת מפות Google מבוסס על שאילתות. התעריף הנוכחי הוא **25$‎ ל-1,000 הנחיות מבוססות**. בנוסף, בתוכנית ללא תשלום אפשר לשלוח עד 500 בקשות ביום. בקשה נספרת רק במסגרת המכסה אם ההנחיה מחזירה בהצלחה לפחות תוצאה אחת מבוססת-קרקע של מפות Google (כלומר, תוצאות שמכילות לפחות מקור אחד של מפות Google). אם נשלחות כמה שאילתות אל מפות Google מבקשה אחת, הן נספרות כבקשה אחת לצורך חישוב מגבלת הקצב.
 
-Para informações detalhadas sobre preços, consulte a [página de preços da API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+מידע מפורט על התמחור זמין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
 
-## Modelos compatíveis
+## מודלים נתמכים
 
-Os seguintes modelos são compatíveis com o embasamento com o Google Maps:
+המודלים הבאים תומכים בעיגון בעזרת מפות Google:
 
-| Modelo | Embasamento com o Google Maps |
+| מודל | עיגון בעזרת מפות Google |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
+| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Pro (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
+| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
+| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
+| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
 
-## Combinações de ferramentas compatíveis
+## שילובים נתמכים של כלים
 
-Os modelos do Gemini 3 permitem combinar ferramentas integradas (como o embasamento com o Google Maps) e personalizadas (chamada de função). Saiba mais na página de
-[combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
+מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו Grounding עם מפות Google) עם כלים מותאמים אישית (קריאה לפונקציה). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
 
-## A seguir
+## המאמרים הבאים
 
-- Teste o [embasamento com a Pesquisa Google no manual da API Gemini](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=pt-br).
-- Conheça outras [ferramentas disponíveis](https://ai.google.dev/gemini-api/docs/tools?hl=pt-br).
-- Para saber mais sobre as práticas recomendadas de IA responsável e os filtros de segurança da
-  API Gemini, consulte [o guia de configurações de segurança](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pt-br).
+- כדאי לנסות את [המתכון לעיגון באמצעות חיפוש Google ב-Gemini API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=he).
+- [מידע על כלים נוספים](https://ai.google.dev/gemini-api/docs/tools?hl=he)
+- כדי לקבל מידע נוסף על שיטות מומלצות לאתיקה של בינה מלאכותית ועל מסנני הבטיחות של Gemini API, אפשר לעיין [במדריך להגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he).
 
-Envie comentários
+שליחת משוב
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última atualização 2026-06-01 UTC.
+עדכון אחרון: 2026-06-01 (שעון UTC).
 
-Quer enviar seu feedback?
+רוצה לתת לנו משוב?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-01 (שעון UTC)."],[],[]]

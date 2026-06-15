@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=ar
-fetched_at: 2026-06-08T15:05:54.013738+00:00
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=ja
+fetched_at: 2026-06-15T06:27:54.096789+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-إرسال ملاحظات
+フィードバックを送信
 
-# سياق عنوان URL
+# URL コンテキスト
 
-تتيح لك أداة "سياق عنوان URL" تقديم سياق إضافي للنماذج في شكل عناوين URL. من خلال تضمين عناوين URL في طلبك، سيتمكّن النموذج من الوصول إلى المحتوى من تلك الصفحات (ما دام نوع عنوان URL غير مدرَج في [قسم القيود](#limitations)) للاستناد إليه وتحسين رده.
+URL コンテキスト ツールを使用すると、URL の形式でモデルに追加のコンテキストを提供できます。リクエストに URL を含めると、モデルはそれらのページのコンテンツにアクセスし（[制限事項のセクション](#limitations)に記載されている URL タイプでない限り）、レスポンスを形成して強化します。
 
-تفيد أداة سياق عنوان URL في مهام مثل ما يلي:
+URL コンテキスト ツールは、次のようなタスクに役立ちます。
 
-- **استخراج البيانات**: استخراج معلومات معيّنة، مثل الأسعار أو الأسماء أو النتائج الرئيسية، من عناوين URL متعددة
-- **مقارنة المستندات**: يمكنك تحليل تقارير أو مقالات أو ملفات PDF متعددة لتحديد الاختلافات وتتبُّع المؤشرات.
-- **تجميع المحتوى وإنشاؤه**: يمكنك الجمع بين المعلومات من عدة عناوين URL مصدر لإنشاء ملخّصات أو منشورات مدوّنات أو تقارير دقيقة.
-- **تحليل الرموز البرمجية والمستندات**: يمكنك الإشارة إلى مستودع GitHub أو مستندات فنية لشرح الرموز البرمجية أو إنشاء تعليمات الإعداد أو الإجابة عن الأسئلة.
+- **データの抽出**: 複数の URL から価格、名前、主な調査結果などの特定の情報を取得します。
+- **ドキュメントの比較**: 複数のレポート、記事、PDF を分析して、違いを特定し、トレンドを追跡します。
+- **コンテンツの統合と作成**: 複数のソース URL からの情報を組み合わせて、正確な要約、ブログ投稿、レポートを生成します。
+- **コードとドキュメントを分析**: GitHub リポジトリまたは技術ドキュメントを指定して、コードの説明、設定手順の生成、質問への回答を行います。
 
-يوضّح المثال التالي كيفية مقارنة وصفتَي طعام من موقعَين إلكترونيَين مختلفَين.
+次の例は、異なるウェブサイトの 2 つのレシピを比較する方法を示しています。
 
 ### Python
 
@@ -111,20 +111,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 cat result.json
 ```
 
-## آلية العمل
+## 仕組み
 
-تستخدم أداة "سياق عنوان URL" عملية استرجاع من خطوتَين لتحقيق التوازن بين السرعة والتكلفة والوصول إلى البيانات الحديثة. عند تقديم عنوان URL، تحاول الأداة أولاً جلب المحتوى من ذاكرة تخزين مؤقت للفهرس الداخلي. ويعمل ذلك كذاكرة تخزين مؤقت محسّنة للغاية. إذا لم يكن عنوان URL متاحًا في الفهرس (على سبيل المثال، إذا كانت الصفحة جديدة جدًا)، ستعود الأداة تلقائيًا إلى إجراء عملية جلب مباشرة.
-يصل هذا التطبيق مباشرةً إلى عنوان URL لاسترداد محتواه في الوقت الفعلي.
+URL コンテキスト ツールは、速度、コスト、最新データへのアクセスのバランスを取るために、2 段階の取得プロセスを使用します。URL を指定すると、ツールはまず内部インデックス キャッシュからコンテンツを取得しようとします。これは、高度に最適化されたキャッシュとして機能します。URL がインデックス登録されていない場合（たとえば、ページが新しく、まだインデックス登録されていない場合）、このツールは自動的にライブ取得にフォールバックします。これにより、URL に直接アクセスしてコンテンツをリアルタイムで取得します。
 
-## الدمج مع أدوات أخرى
+## 他のツールとの組み合わせ
 
-يمكنك الجمع بين أداة سياق عنوان URL وأدوات أخرى لإنشاء سير عمل أكثر فعالية.
+URL コンテキスト ツールを他のツールと組み合わせて、より強力なワークフローを作成できます。
 
-تتيح [نماذج Gemini 3](#supported-models) إمكانية الجمع بين الأدوات المضمّنة (مثل "سياق عنوان URL") والأدوات المخصّصة (استدعاء الدوال). يمكنك الاطّلاع على مزيد من المعلومات في صفحة [مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
+[Gemini 3 モデル](#supported-models)は、組み込みツール（URL コンテキストなど）とカスタムツール（関数呼び出し）の組み合わせをサポートしています。詳しくは、[ツールの組み合わせ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)のページをご覧ください。
 
-### تحديد المصدر باستخدام "بحث Google"
+### 検索によるグラウンディング
 
-عند تفعيل كلّ من ميزة &quot;السياق من عنوان URL&quot; و[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)، يمكن للنموذج استخدام إمكانات البحث للعثور على معلومات ذات صلة على الإنترنت، ثم استخدام أداة &quot;السياق من عنوان URL&quot; لفهم الصفحات التي يعثر عليها بشكل أكثر تفصيلاً. هذا الأسلوب فعّال مع الطلبات التي تتطلّب بحثًا واسع النطاق وتحليلاً معمّقًا لصفحات معيّنة.
+URL コンテキストと [Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/grounding?hl=ja)の両方が有効になっている場合、モデルは検索機能を使用してオンラインで関連情報を探し、URL コンテキスト ツールを使用して見つけたページをより深く理解できます。このアプローチは、広範な検索と特定のページの詳細な分析の両方を必要とするプロンプトに有効です。
 
 ### Python
 
@@ -209,12 +208,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 cat result.json
 ```
 
-## فهم الردّ
+## レスポンスについて
 
-عندما يستخدم النموذج أداة سياق عنوان URL، يتضمّن الردّ عنصر `url_context_metadata`. يسرد هذا العنصر عناوين URL التي استردّ منها النموذج المحتوى وحالة كل محاولة استرداد، ما يفيد في التحقّق من صحة النتائج وتصحيح الأخطاء.
+モデルが URL コンテキスト ツールを使用すると、レスポンスに `url_context_metadata` オブジェクトが含まれます。このオブジェクトには、モデルがコンテンツを取得した URL と、各取得試行のステータスが一覧表示されます。これは、検証とデバッグに役立ちます。
 
-في ما يلي مثال على هذا الجزء من الرد
-(تم حذف أجزاء من الرد للاختصار):
+レスポンスのその部分の例を次に示します（簡潔にするため、レスポンスの一部は省略しています）。
 
 ```
 {
@@ -246,16 +244,15 @@ cat result.json
 }
 ```
 
-للحصول على تفاصيل كاملة عن هذا العنصر، يُرجى الاطّلاع على
-[مرجع واجهة برمجة التطبيقات `UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=ar#UrlContextMetadata).
+このオブジェクトの詳細については、[`UrlContextMetadata` API リファレンス](https://ai.google.dev/api/generate-content?hl=ja#UrlContextMetadata)をご覧ください。
 
-### عمليات التحقّق من الأمان
+### 安全チェック
 
-يُجري النظام عملية تدقيق في المحتوى على عنوان URL للتأكّد من استيفائه معايير الأمان. إذا لم يجتَز عنوان URL الذي قدّمته عملية التحقّق هذه، سيظهر لك `url_retrieval_status` من `URL_RETRIEVAL_STATUS_UNSAFE`.
+システムは URL が安全基準を満たしていることを確認するため、URL に対してコンテンツ モデレーション チェックを実行します。指定した URL がこのチェックに失敗すると、`url_retrieval_status` は `URL_RETRIEVAL_STATUS_UNSAFE` になります。
 
-### عدد الرموز المميّزة
+### トークン数
 
-يتم احتساب المحتوى الذي يتم استرجاعه من عناوين URL التي تحدّدها في طلبك كجزء من الرموز المميزة للإدخال. يمكنك الاطّلاع على عدد الرموز المميزة لطلبك واستخدام الأدوات في عنصر [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=ar#UsageMetadata) من مخرجات النموذج. في ما يلي مثال على الناتج:
+プロンプトで指定した URL から取得されたコンテンツは、入力トークンの一部としてカウントされます。モデル出力の [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=ja#UsageMetadata) オブジェクトで、プロンプトとツール使用のトークン数を確認できます。出力例を次に示します。
 
 ```
 'usage_metadata': {
@@ -271,63 +268,59 @@ cat result.json
   }
 ```
 
-يعتمد السعر لكل رمز مميز على النموذج المستخدَم، راجِع صفحة
-[الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar) للحصول على التفاصيل.
+トークンあたりの料金は、使用するモデルによって異なります。詳細については、[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)のページをご覧ください。
 
-## النماذج المتوافقة
+## サポートされているモデル
 
-| الطراز | سياق عنوان URL |
+| モデル | URL コンテキスト |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ |
-| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=ar) | ✔️ |
-| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
-| [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja) | ✔️ |
+| [Gemini 3.1 Pro プレビュー版](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=ja) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ja) | ✔️ |
+| [Gemini 3 Flash プレビュー](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ja) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ja) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ja) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ja) | ✔️ |
 
-## أفضل الممارسات
+## ベスト プラクティス
 
-- **تقديم عناوين URL محدّدة**: للحصول على أفضل النتائج، قدِّم عناوين URL مباشرة إلى المحتوى الذي تريد أن يحلّله النموذج. لن يستردّ النموذج المحتوى إلا من عناوين URL التي تقدّمها، وليس من أي محتوى من الروابط المتداخلة.
-- **التحقّق من إمكانية الوصول**: تأكَّد من أنّ عناوين URL التي تقدّمها لا تؤدي إلى صفحات تتطلّب تسجيل الدخول أو تقع خلف حاجز دفع.
-- **استخدام عنوان URL الكامل**: يجب تقديم عنوان URL الكامل، بما في ذلك البروتوكول (مثلاً، https://www.google.com بدلاً من google.com فقط).
+- **特定の URL を指定する**: 最良の結果を得るには、モデルで分析するコンテンツの直接 URL を指定します。モデルは、指定した URL のコンテンツのみを取得し、ネストされたリンクのコンテンツは取得しません。
+- **アクセシビリティを確認する**: 提供した URL が、ログインが必要なページやペイウォールの背後にあるページにリンクしていないことを確認します。
+- **完全な URL を使用する**: プロトコルを含む完全な URL を指定します（例: google.com ではなく https://www.google.com）。
 
-## القيود
+## 制限事項
 
-- لا تتوفّر حاليًا ميزة "استدعاء الدوال": استخدام الأدوات (سياق عنوان URL، وتحديد المصدر باستخدام "بحث Google"، وما إلى ذلك) مع ميزة "استدعاء الدوال".
-- حدّ الطلبات: يمكن للأداة معالجة ما يصل إلى 20 عنوان URL لكل طلب.
-- حجم محتوى عنوان URL: الحد الأقصى لحجم المحتوى الذي يتم استرجاعه من عنوان URL واحد هو 34 ميغابايت.
-- إمكانية الوصول إلى الجميع: يجب أن تكون عناوين URL متاحة للجميع على الويب.
-  لا تتوافق عناوين المضيف المحلي (مثل localhost و127.0.0.1) والشبكات الخاصة وخدمات الأنفاق (مثل ngrok وpinggy).
-- ‫Gemini API فقط: لا تتوفّر ميزة "سياق عنوان URL" إلا في Gemini API، وليس من خلال منصة وكيل Gemini Enterprise.
+- 関数呼び出し: 関数呼び出しでのツール使用（URL コンテキスト、Google 検索によるグラウンディングなど）は現在サポートされていません。
+- リクエストの上限: このツールでは、リクエストごとに最大 20 個の URL を処理できます。
+- URL コンテンツのサイズ: 単一の URL から取得されるコンテンツの最大サイズは 34 MB です。
+- 一般公開されていること: URL は、ウェブ上で一般公開されている必要があります。ローカルホスト アドレス（localhost、127.0.0.1 など）、プライベート ネットワーク、トンネリング サービス（ngrok、pinggy など）はサポートされていません。
+- Gemini API のみ: URL コンテキストは Gemini API でのみ使用できます。Gemini Enterprise Agent Platform では使用できません。
 
-### أنواع المحتوى المتوفّرة وغير المتوفّرة
+### サポートされているコンテンツ タイプとサポートされていないコンテンツ タイプ
 
-يمكن للأداة استخراج المحتوى من عناوين URL التي تتضمّن أنواع المحتوى التالية:
+このツールは、次のコンテンツ タイプの URL からコンテンツを抽出できます。
 
-- نص (text/html أو application/json أو text/plain أو text/xml أو text/css أو
-  text/javascript أو text/csv أو text/rtf)
-- صورة (image/png أو image/jpeg أو image/bmp أو image/webp)
-- ‫PDF (application/pdf)
+- テキスト（text/html、application/json、text/plain、text/xml、text/css、text/javascript、text/csv、text/rtf）
+- 画像（image/png、image/jpeg、image/bmp、image/webp）
+- PDF（application/pdf）
 
-**لا تتوافق أنواع المحتوى التالية:**
+次のコンテンツ タイプはサポートされていません。
 
-- المحتوى المحمي بنظام حظر الاشتراك غير المدفوع
-- فيديوهات YouTube (راجِع مقالة [فهم الفيديو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar#youtube) للتعرّف على كيفية معالجة عناوين URL الخاصة بفيديوهات YouTube)
-- ملفات Google Workspace، مثل مستندات Google أو جداول البيانات
-- ملفات الفيديو والصوت
+- ペイウォール コンテンツ
+- YouTube 動画（YouTube URL の処理方法については、[動画の理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja#youtube)をご覧ください）
+- Google Workspace ファイル（Google ドキュメントやスプレッドシートなど）
+- 動画ファイルと音声ファイル
 
-## الخطوات التالية
+## 次のステップ
 
-- يمكنك الاطّلاع على [كتاب وصفات سياق عنوان URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=ar#url-context)
-  للحصول على المزيد من الأمثلة.
+- その他の例については、[URL コンテキストのクックブック](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=ja#url-context)をご覧ください。
 
-إرسال ملاحظات
+フィードバックを送信
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
+最終更新日 2026-06-01 UTC。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+ご意見をお聞かせください
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-01 UTC。"],[],[]]

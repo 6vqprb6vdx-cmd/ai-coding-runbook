@@ -1,112 +1,112 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-settings?hl=de
-fetched_at: 2026-06-08T14:58:32.627022+00:00
-title: "Sicherheits\u00adeinstellungen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-settings?hl=id
+fetched_at: 2026-06-15T06:23:09.158350+00:00
+title: "Setelan keamanan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Feedback geben
+Kirim masukan
 
-# Sicherheits­einstellungen
+# Setelan keamanan
 
-Die Gemini API bietet Sicherheitseinstellungen, die Sie während der Prototyping-Phase anpassen können, um zu ermitteln, ob Ihre Anwendung eine mehr oder weniger restriktive Sicherheitskonfiguration erfordert. Sie können diese Einstellungen in vier Filterkategorien anpassen, um bestimmte Arten von Inhalten zuzulassen oder zu beschränken.
+Gemini API menyediakan setelan keamanan yang dapat Anda sesuaikan selama tahap pembuatan prototipe untuk menentukan apakah aplikasi Anda memerlukan konfigurasi keamanan yang lebih ketat atau longgar. Anda dapat menyesuaikan setelan ini di empat kategori filter untuk membatasi atau mengizinkan jenis konten tertentu.
 
-In diesem Leitfaden wird beschrieben, wie die Gemini API Sicherheitseinstellungen und ‑filterung handhabt und wie Sie die Sicherheitseinstellungen für Ihre Anwendung ändern können.
+Panduan ini membahas cara Gemini API menangani setelan keamanan dan pemfilteran serta cara Anda dapat mengubah setelan keamanan untuk aplikasi Anda.
 
-## Sicherheitsfilter
+## Filter keamanan
 
-Die anpassbaren Sicherheitsfilter der Gemini API decken die folgenden Kategorien ab:
+Filter keamanan Gemini API yang dapat disesuaikan mencakup kategori berikut:
 
-| Kategorie | Beschreibung |
+| Kategori | Deskripsi |
 | --- | --- |
-| Belästigung | Negative oder schädliche Kommentare, die auf Identität und/oder geschützte Merkmale ausgerichtet sind |
-| Hassrede | Unhöfliche, respektlose oder vulgäre Inhalte. |
-| Sexuell explizite Inhalte | Enthält Verweise auf sexuelle Handlungen oder andere vulgäre Inhalte |
-| Gefährlich | Fördert oder erleichtert schädliche Handlungen oder ermuntert dazu. |
+| Pelecehan | Komentar negatif atau berbahaya yang menargetkan identitas dan/atau atribut yang dilindungi. |
+| Ujaran kebencian | Konten yang kasar, tidak sopan, atau tidak senonoh. |
+| Seksual vulgar | Berisi referensi ke tindakan seksual atau konten cabul lainnya. |
+| Berbahaya | Mempromosikan, memfasilitasi, atau mendorong tindakan berbahaya. |
 
-Diese Kategorien sind in [`HarmCategory`](https://ai.google.dev/api/rest/v1/HarmCategory?hl=de) definiert. Sie können diese Filter verwenden, um die für Ihren Anwendungsfall passenden Einstellungen vorzunehmen. Wenn Sie beispielsweise einen Dialog für ein Videospiel erstellen, halten Sie es aufgrund der Art des Spiels möglicherweise für akzeptabel, mehr Inhalte zuzulassen, die als *gefährlich* eingestuft wurden.
+Kategori ini ditentukan dalam [`HarmCategory`](https://ai.google.dev/api/rest/v1/HarmCategory?hl=id). Anda dapat menggunakan filter ini untuk menyesuaikan konten yang sesuai untuk kasus penggunaan Anda. Misalnya, jika Anda membuat dialog video game, Anda mungkin menganggapnya dapat diterima untuk mengizinkan lebih banyak konten yang diberi rating *Berbahaya* karena sifat game.
 
-Zusätzlich zu den anpassbaren Sicherheitsfiltern bietet die Gemini API integrierte Schutzmaßnahmen gegen grundlegend schädliche Inhalte wie solche, die die Sicherheit von Kindern gefährden.
-Diese Arten von Schäden werden immer blockiert und können nicht angepasst werden.
+Selain filter keamanan yang dapat disesuaikan, Gemini API memiliki perlindungan bawaan terhadap bahaya inti, seperti konten yang membahayakan keselamatan anak.
+Jenis bahaya ini selalu diblokir dan tidak dapat disesuaikan.
 
-### Stufe der Inhaltsfilterung
+### Tingkat pemfilteran keamanan konten
 
-Die Gemini API kategorisiert die Wahrscheinlichkeit, dass Inhalte unsicher sind, als `HIGH`, `MEDIUM`, `LOW` oder `NEGLIGIBLE`.
+Gemini API mengategorikan tingkat probabilitas konten yang tidak aman sebagai `HIGH`, `MEDIUM`, `LOW`, atau `NEGLIGIBLE`.
 
-Die Gemini API blockiert Inhalte basierend auf der Wahrscheinlichkeit, dass Inhalte unsicher sind, nicht auf dem Schweregrad der Probleme. Dies ist wichtig, da einige Inhalte mit geringer Wahrscheinlichkeit unsicher sind, obwohl der Schweregrad des Schadens hoch sein kann. Vergleichen Sie beispielsweise folgende Sätze:
+Gemini API memblokir konten berdasarkan probabilitas konten yang tidak aman, bukan tingkat keparahannya. Hal ini penting untuk dipertimbangkan karena beberapa konten memiliki kemungkinan rendah untuk dianggap tidak aman, meskipun tingkat keparahan bahayanya masih tinggi. Misalnya, membandingkan kalimat:
 
-1. Der Roboter hat mich geboxt.
-2. Der Roboter hat mich in Stücke geschnitten.
+1. Robot itu memukul saya.
+2. Robot itu menebas saya.
 
-Der erste Satz kann eine höhere Wahrscheinlichkeit für unsichere Ergebnisse verursachen, aber Sie können den zweiten Satz in Bezug auf Gewalt einen höheren Schweregrad zuweisen.
-Daher ist es wichtig, dass Sie Tests sorgfältig durchführen und überlegen, welches Maß an Sicherheitsblockaden zur Unterstützung Ihrer wichtigsten Anwendungsfälle erforderlich ist, während gleichzeitig der Schaden für Endnutzer minimiert wird.
+Kalimat pertama dapat menghasilkan probabilitas yang lebih tinggi untuk dianggap tidak aman, tetapi Anda dapat menganggap kalimat kedua sebagai tingkat keparahan yang lebih tinggi dalam hal kekerasan.
+Oleh karena itu, penting bagi Anda untuk menguji dengan cermat dan mempertimbangkan tingkat pemblokiran yang sesuai yang diperlukan untuk mendukung kasus penggunaan utama Anda sekaligus meminimalkan bahaya bagi pengguna akhir.
 
-### Sicherheitsfilterung pro Anfrage
+### Pemfilteran keamanan per permintaan
 
-Sie können die Sicherheitseinstellungen für jede Anfrage an die API anpassen. Wenn Sie eine Anfrage senden, wird der Inhalt analysiert und erhält eine Sicherheitsbewertung. Die Sicherheitsbewertung umfasst sowohl die jeweilige Kategorie als auch die Wahrscheinlichkeit einer Klassifizierung als schädlich. Wenn der Inhalt beispielsweise blockiert wurde, weil die Wahrscheinlichkeit, dass er in der Kategorie der Belästigung unsicher ist, hoch ist, hat die zurückgegebene Sicherheitsbewertung die Kategorie `HARASSMENT` und die Wahrscheinlichkeit für schädliche Inhalte ist auf `HIGH` gesetzt.
+Anda dapat menyesuaikan setelan keamanan untuk setiap permintaan yang Anda buat ke API. Saat Anda membuat permintaan, konten akan dianalisis dan diberi rating keamanan. Rating keamanan mencakup kategori dan probabilitas klasifikasi bahaya. Misalnya, jika konten diblokir karena kategori pelecehan memiliki probabilitas tinggi, rating keamanan yang ditampilkan akan memiliki kategori yang sama dengan `HARASSMENT` dan probabilitas bahaya yang ditetapkan ke `HIGH`.
 
-Aufgrund der inhärenten Sicherheit des Modells sind zusätzliche Filter standardmäßig **deaktiviert**.
-Wenn Sie sie aktivieren, können Sie das System so konfigurieren, dass Inhalte basierend auf der Wahrscheinlichkeit, dass sie unsicher sind, blockiert werden. Das Standardverhalten des Modells deckt die meisten Anwendungsfälle ab. Sie sollten diese Einstellungen also nur anpassen, wenn dies durchgehend für Ihre Anwendung erforderlich ist.
+Karena keamanan bawaan model, filter tambahan **Nonaktif** secara default.
+Jika memilih untuk mengaktifkannya, Anda dapat mengonfigurasi sistem untuk memblokir konten berdasarkan probabilitasnya yang tidak aman. Perilaku model default mencakup sebagian besar kasus penggunaan, sehingga Anda hanya perlu menyesuaikan setelan ini jika secara konsisten diperlukan untuk aplikasi Anda.
 
-In der folgenden Tabelle werden die Blockierungseinstellungen beschrieben, die Sie für jede Kategorie anpassen können. Wenn Sie beispielsweise die Blockierungseinstellung für die Kategorie **Hassrede** auf **Wenige blockieren** setzen, werden alle Inhalte blockiert, die mit hoher Wahrscheinlichkeit Hassrede enthalten. Alles mit einer niedrigeren Wahrscheinlichkeit ist zulässig.
+Tabel berikut menjelaskan setelan blokir yang dapat Anda sesuaikan untuk setiap kategori. Misalnya, jika Anda menetapkan setelan blokir ke **Block few** untuk kategori **Hate speech**, semua konten yang memiliki probabilitas tinggi sebagai konten ujaran kebencian akan diblokir. Namun, konten dengan probabilitas yang lebih rendah akan diizinkan.
 
-| Grenzwert (Google AI Studio) | Grenzwert (API) | Beschreibung |
+| Batas (Google AI Studio) | Batas (API) | Deskripsi |
 | --- | --- | --- |
-| Aus | `OFF` | Sicherheitsfilter deaktivieren |
-| Keine blockieren | `BLOCK_NONE` | Unabhängig von der Wahrscheinlichkeit unsicherer Inhalte immer anzeigen |
-| Wenige blockieren | `BLOCK_ONLY_HIGH` | Blockieren, wenn die Wahrscheinlichkeit für unsichere Inhalte hoch ist |
-| Einige blockieren | `BLOCK_MEDIUM_AND_ABOVE` | Blockieren, wenn die Wahrscheinlichkeit für unsichere Inhalte mittel oder hoch ist |
-| Meiste blockieren | `BLOCK_LOW_AND_ABOVE` | Blockieren, wenn die Wahrscheinlichkeit für unsichere Inhalte niedrig, mittel oder hoch ist |
-| – | `HARM_BLOCK_THRESHOLD_UNSPECIFIED` | Der Grenzwert ist nicht angegeben, nach dem Standardschwellenwert blockieren |
+| Nonaktif | `OFF` | Menonaktifkan filter keamanan |
+| Block none | `BLOCK_NONE` | Selalu tampilkan, terlepas dari probabilitas konten yang tidak aman |
+| Block few | `BLOCK_ONLY_HIGH` | Blokir jika probabilitas konten yang tidak aman tinggi |
+| Block some | `BLOCK_MEDIUM_AND_ABOVE` | Blokir jika probabilitas konten yang tidak aman sedang atau tinggi |
+| Block most | `BLOCK_LOW_AND_ABOVE` | Blokir jika probabilitas konten yang tidak aman rendah, sedang, atau tinggi |
+| T/A | `HARM_BLOCK_THRESHOLD_UNSPECIFIED` | Batas tidak ditentukan, blokir menggunakan batas default |
 
-Wenn der Grenzwert nicht festgelegt ist, ist der Standardgrenzwert für die Blockierung für Gemini 2.5- und 3-Modelle **deaktiviert**.
+Jika batas tidak ditetapkan, batas blokir default adalah **Nonaktif** untuk model Gemini 2.5 dan 3.
 
-Sie können diese Einstellungen für jede Anfrage an den generativen Dienst festlegen.
-Weitere Informationen finden Sie in der [`HarmBlockThreshold`](https://ai.google.dev/api/generate-content?hl=de#harmblockthreshold) API
-Referenz.
+Anda dapat menetapkan setelan ini untuk setiap permintaan yang Anda buat ke layanan generatif.
+Lihat referensi API [`HarmBlockThreshold`](https://ai.google.dev/api/generate-content?hl=id#harmblockthreshold)
+untuk mengetahui detailnya.
 
-### Sicherheitsfeedback
+### Masukan keamanan
 
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=de#method:-models.generatecontent)
-gibt ein
-[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=de#generatecontentresponse) zurück, das
-Sicherheitsfeedback enthält.
+[`generateContent`](https://ai.google.dev/api/generate-content?hl=id#method:-models.generatecontent)
+menampilkan
+[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=id#generatecontentresponse) yang
+menyertakan masukan keamanan.
 
-Prompt-Feedback ist in
-[`promptFeedback`](https://ai.google.dev/api/generate-content?hl=de#promptfeedback) enthalten. Wenn `promptFeedback.blockReason` festgelegt ist, wurde der Inhalt des Prompts blockiert.
+Masukan perintah disertakan dalam
+[`promptFeedback`](https://ai.google.dev/api/generate-content?hl=id#promptfeedback). Jika `promptFeedback.blockReason` ditetapkan, konten perintah akan diblokir.
 
-Feedback zu Antwortkandidaten ist in
-[`Candidate.finishReason`](https://ai.google.dev/api/generate-content?hl=de#candidate) und
-[`Candidate.safetyRatings`](https://ai.google.dev/api/generate-content?hl=de#candidate) enthalten. Wenn Antwortinhalte blockiert wurden und `finishReason` den Wert `SAFETY` hat, können Sie in `safetyRatings` weitere Details finden. Die blockierten Inhalte werden nicht zurückgegeben.
+Masukan kandidat respons disertakan dalam
+[`Candidate.finishReason`](https://ai.google.dev/api/generate-content?hl=id#candidate) dan
+[`Candidate.safetyRatings`](https://ai.google.dev/api/generate-content?hl=id#candidate). Jika konten respons diblokir dan `finishReason` adalah `SAFETY`, Anda dapat memeriksa `safetyRatings` untuk mengetahui detail selengkapnya. Konten yang diblokir tidak akan ditampilkan.
 
-## Sicherheitseinstellungen anpassen
+## Menyesuaikan setelan keamanan
 
-In diesem Abschnitt wird beschrieben, wie Sie die Sicherheitseinstellungen sowohl in Google AI Studio als auch in Ihrem Code anpassen.
+Bagian ini membahas cara menyesuaikan setelan keamanan di Google AI Studio dan dalam kode Anda.
 
 ### Google AI Studio
 
-Sie können die Sicherheitseinstellungen in Google AI Studio anpassen.
+Anda dapat menyesuaikan setelan keamanan di Google AI Studio.
 
-Klicken Sie im Bereich **Laufeinstellungen** unter **Erweiterte Einstellungen** auf **Sicherheitseinstellungen** , um das modale Fenster **Sicherheitseinstellungen ausführen** zu öffnen. In diesem Fenster können Sie mit den Schiebereglern die Stufe der Inhaltsfilterung für jede Sicherheitskategorie anpassen:
+Klik **Safety settings** di bagian **Advanced settings** di panel **Run settings** untuk membuka modal **Run safety settings**. Dalam modal, Anda dapat menggunakan penggeser untuk menyesuaikan tingkat pemfilteran konten per kategori keamanan:
 
-![](https://ai.google.dev/static/gemini-api/docs/images/safety_settings_ui.png?hl=de)
+![](https://ai.google.dev/static/gemini-api/docs/images/safety_settings_ui.png?hl=id)
 
-Wenn Sie eine Anfrage senden (z. B. indem Sie dem Modell eine Frage stellen), wird die warning
-**Inhalt blockiert** angezeigt, wenn der Inhalt der Anfrage blockiert wird. Wenn Sie weitere Details sehen möchten, bewegen Sie den Mauszeiger auf den Text **Inhalt blockiert**. Dort werden die Kategorie und die Wahrscheinlichkeit der Klassifizierung als schädlich angezeigt.
+Saat Anda mengirim permintaan (misalnya, dengan mengajukan pertanyaan kepada model), pesan warning
+**Content blocked** akan muncul jika konten permintaan diblokir. Untuk melihat detail selengkapnya, tahan kursor di teks **Content blocked** untuk melihat kategori dan probabilitas klasifikasi bahaya.
 
-### Codebeispiele
+### Contoh kode
 
-Das folgende Code-Snippet zeigt, wie Sie die Sicherheitseinstellungen in Ihrem `GenerateContent`-Aufruf festlegen. Dadurch wird der Grenzwert für die Kategorie Hassrede (`HARM_CATEGORY_HATE_SPEECH`) festgelegt. Wenn Sie diese Kategorie auf `BLOCK_LOW_AND_ABOVE` setzen, werden alle Inhalte blockiert, die mit niedriger oder höherer Wahrscheinlichkeit Hassrede enthalten. Informationen zu den Grenzwert-Einstellungen finden Sie unter [Sicherheitsfilterung
-pro Anfrage](#safety-filtering-per-request).
+Cuplikan kode berikut menunjukkan cara menetapkan setelan keamanan dalam panggilan `GenerateContent`. Tindakan ini menetapkan batas untuk kategori ujaran kebencian (`HARM_CATEGORY_HATE_SPEECH`). Menetapkan kategori ini ke `BLOCK_LOW_AND_ABOVE` akan memblokir konten apa pun yang memiliki probabilitas rendah atau lebih tinggi sebagai ujaran kebencian. Untuk memahami setelan batas, lihat [Pemfilteran keamanan
+per permintaan](#safety-filtering-per-request).
 
 ### Python
 
@@ -132,7 +132,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -236,27 +236,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-## Nächste Schritte
+## Langkah berikutnya
 
-- Weitere Informationen zur vollständigen API finden Sie in der [API-Referenz](https://ai.google.dev/api?hl=de).
-- In den [Sicherheitsrichtlinien](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de) finden Sie allgemeine Informationen zu Sicherheits
-  aspekten bei der Entwicklung mit LLMs.
-- Weitere Informationen zur Bewertung von Wahrscheinlichkeit und Schweregrad finden Sie im Blog des [Jigsaw
-  Teams](https://developers.perspectiveapi.com/s/about-the-api-score).
-- Weitere Informationen zu den Produkten, die zu Sicherheitslösungen beitragen, z. B. die
+- Lihat [referensi API](https://ai.google.dev/api?hl=id) untuk mempelajari API lengkap lebih lanjut.
+- Tinjau [panduan keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id) untuk melihat pertimbangan keamanan
+  secara umum saat mengembangkan dengan LLM.
+- Pelajari lebih lanjut cara menilai probabilitas versus tingkat keparahan dari tim [Jigsaw](https://developers.perspectiveapi.com/s/about-the-api-score)
+- Pelajari lebih lanjut produk yang berkontribusi pada solusi keamanan seperti
   [Perspective
   API](https://medium.com/jigsaw/reducing-toxicity-in-large-language-models-with-perspective-api-c31c39b7a4d7).
-  \* Mit diesen Sicherheitseinstellungen können Sie einen Klassifikator für schädliche Inhalte
-  erstellen. Ein Beispiel für die [Klassifizierung
-  finden Sie hier,
-  um loszulegen.](https://ai.google.dev/examples/train_text_classifier_embeddings?hl=de)
+  \* Anda dapat menggunakan setelan keamanan ini untuk membuat pengklasifikasi toksisitas. Lihat contoh [klasifikasi
+  untuk
+  memulai](https://ai.google.dev/examples/train_text_classifier_embeddings?hl=id).
 
-Feedback geben
+Kirim masukan
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Zuletzt aktualisiert: 2026-06-01 (UTC).
+Terakhir diperbarui pada 2026-06-01 UTC.
 
-Haben Sie Feedback für uns?
+Ada masukan untuk kami?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-01 (UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-01 UTC."],[],[]]

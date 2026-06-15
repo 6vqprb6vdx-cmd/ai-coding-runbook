@@ -1,36 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=fr
-fetched_at: 2026-06-08T15:06:52.967038+00:00
-title: "Agent de recherche avec Gemini et LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=he
+fetched_at: 2026-06-15T06:29:46.591974+00:00
+title: "\u05e1\u05d5\u05db\u05df \u05de\u05d7\u05e7\u05e8 \u05e2\u05dd Gemini \u05d5-LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envoyer des commentaires
+שליחת משוב
 
-# Agent de recherche avec Gemini et LlamaIndex
+# סוכן מחקר עם Gemini ו-LlamaIndex
 
-LlamaIndex est un framework permettant de créer des agents de connaissances à l'aide de LLM connectés à vos données. Cet exemple vous montre comment créer un workflow multi-agents pour un agent de recherche. Dans LlamaIndex, les [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
-sont les éléments constitutifs des systèmes mono-agent et multi-agents.
+‫LlamaIndex הוא פריימוורק לבניית סוכני ידע באמצעות מודלים גדולים של שפה (LLM) שמחוברים לנתונים שלכם. בדוגמה הזו מוסבר איך ליצור תהליך עבודה עם כמה סוכנים עבור סוכן מחקר. ב-LlamaIndex, ‏ [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
+הם אבני הבניין של סוכנים ומערכות מרובות סוכנים.
 
-Vous avez besoin d'une clé API Gemini. Si vous n'en avez pas encore, vous pouvez [en obtenir une dans Google AI Studio](https://aistudio.google.com/app/apikey?hl=fr).
-Commencez par installer toutes les bibliothèques LlamaIndex requises. LlamaIndex utilise le package `google-genai` en arrière-plan.
+אתם צריכים מפתח Gemini API. אם עדיין אין לכם חשבון, אתם יכולים [ליצור חשבון ב-Google AI Studio](https://aistudio.google.com/apikey?hl=he).
+קודם כול, מתקינים את כל הספריות הנדרשות של LlamaIndex. ‫LlamaIndex משתמש בחבילה `google-genai` מתחת לפני השטח.
 
 ```
 pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai llama-index-tools-google
 ```
 
-## Configurer Gemini dans LlamaIndex
+## הגדרת Gemini ב-LlamaIndex
 
-Le moteur de tout agent LlamaIndex est un LLM qui gère le raisonnement et le traitement du texte. Cet exemple utilise Gemini 3 Flash. Assurez-vous de [définir votre clé API en tant que variable d'environnement](https://ai.google.dev/gemini-api/docs/api-key?hl=fr).
+המנוע של כל סוכן LlamaIndex הוא LLM שמטפל בהסקת מסקנות ובעיבוד טקסט. בדוגמה הזו נשתמש ב-Gemini 3 Flash. חשוב לוודא ש[הגדרתם את מפתח ה-API כמשתנה סביבה](https://ai.google.dev/gemini-api/docs/api-key?hl=he).
 
 ```
 import os
@@ -42,10 +42,11 @@ assert 'GEMINI_API_KEY' in os.environ
 llm = GoogleGenAI(model="gemini-3.5-flash")
 ```
 
-## Outils de compilation
+## כלי בנייה
 
-Les agents utilisent des outils pour interagir avec le monde extérieur, comme effectuer des recherches sur le Web ou stocker des informations. Les [outils de LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/) peuvent être des fonctions Python standards ou être importés à partir de `ToolSpecs` préexistants.
-Gemini est fourni avec un outil intégré pour utiliser la recherche Google, qui est utilisé ici.
+סוכנים משתמשים בכלים כדי ליצור אינטראקציה עם העולם החיצוני, כמו חיפוש באינטרנט או אחסון מידע. [כלים ב-LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
+יכולים להיות פונקציות רגילות של Python, או מיובאים מ-`ToolSpecs` קיימים.
+‫Gemini כולל כלי מובנה לשימוש בחיפוש Google, שבו נעשה שימוש כאן.
 
 ```
 from google.genai import types
@@ -60,21 +61,21 @@ llm_with_search = GoogleGenAI(
 )
 ```
 
-Testez maintenant l'instance LLM avec une requête nécessitant une recherche. Ce guide suppose qu'une boucle d'événements est en cours d'exécution (comme `python -m asyncio` ou Google Colab).
+עכשיו בודקים את מופע ה-LLM באמצעות שאילתה שדורשת חיפוש. במדריך הזה מניחים שקיים לולאת אירועים פעילה (כמו `python -m asyncio` או Google Colab).
 
 ```
 response = await llm_with_search.acomplete("What's the weather like today in Biarritz?")
 print(response)
 ```
 
-L'agent de recherche utilisera des fonctions Python comme outils. Il existe de nombreuses façons de créer un système pour effectuer cette tâche. Dans cet exemple, vous utiliserez les éléments suivants :
+הנציג למחקר ישתמש בפונקציות של Python ככלים. יש הרבה דרכים לבנות מערכת שתבצע את המשימה הזו. בדוגמה הזו, תשתמשו בנתונים הבאים:
 
-1. `search_web` utilise Gemini avec la recherche Google pour rechercher des informations sur le Web concernant le thème donné.
-2. `record_notes` enregistre les recherches trouvées sur le Web dans l'état afin que les autres outils puissent les utiliser.
-3. `write_report` rédige le rapport à l'aide des informations trouvées par `ResearchAgent`.
-4. `review_report` examine le rapport et fournit des commentaires.
+1. ‫`search_web` משתמש ב-Gemini עם חיפוש Google כדי לחפש באינטרנט מידע על הנושא שצוין.
+2. ‫`record_notes` שומר את המחקר שנמצא באינטרנט במצב, כדי שהכלים האחרים יוכלו להשתמש בו.
+3. ‫`write_report` כותב את הדוח באמצעות המידע שנמצא על ידי `ResearchAgent`
+4. ‫`review_report` בודק את הדוח ומספק משוב.
 
-La classe `Context` transmet l'état entre les agents/outils, et chaque agent aura accès à l'état actuel du système.
+המחלקות `Context` מעבירות את המצב בין סוכנים/כלים, ולכל סוכן תהיה גישה למצב הנוכחי של המערכת.
 
 ```
 from llama_index.core.workflow import Context
@@ -109,18 +110,18 @@ async def review_report(ctx: Context, review: str) -> str:
     return "Report reviewed."
 ```
 
-## Créer un assistant multi-agents
+## יצירת עוזר עם כמה סוכנים
 
-Pour créer un système multi-agent, vous devez définir les agents et leurs interactions.
-Votre système comportera trois agents :
+כדי ליצור מערכת מרובת סוכנים, צריך להגדיר את הסוכנים ואת האינטראקציות שלהם.
+במערכת יהיו שלושה סוכנים:
 
-1. Un `ResearchAgent` recherche des informations sur le Web concernant le sujet donné.
-2. Un `WriteAgent` rédige le rapport à l'aide des informations trouvées par le `ResearchAgent`.
-3. Un `ReviewAgent` examine le rapport et fournit des commentaires.
+1. ‫`ResearchAgent` מחפש באינטרנט מידע על הנושא שצוין.
+2. `WriteAgent` כותב את הדוח באמצעות המידע שנמצא על ידי `ResearchAgent`.
+3. `ReviewAgent` בודק את הדוח ומספק משוב.
 
-Cet exemple utilise la classe `AgentWorkflow` pour créer un système multi-agents qui exécutera ces agents dans l'ordre. Chaque agent prend un `system_prompt` qui lui indique ce qu'il doit faire et suggère comment travailler avec les autres agents.
+בדוגמה הזו נעשה שימוש במחלקה `AgentWorkflow` כדי ליצור מערכת מרובת סוכנים שתפעיל את הסוכנים האלה לפי הסדר. כל סוכן מקבל `system_prompt` שמסביר לו מה הוא צריך לעשות, ומציע לו איך לעבוד עם הסוכנים האחרים.
 
-Vous pouvez éventuellement aider votre système multi-agents en spécifiant les autres agents avec lesquels il peut communiquer à l'aide de `can_handoff_to` (sinon, il tentera de le déterminer lui-même).
+אפשר גם לציין אילו סוכנים אחרים יכולים לתקשר עם המערכת מרובת הסוכנים באמצעות `can_handoff_to` (אם לא תציינו, המערכת תנסה להבין את זה בעצמה).
 
 ```
 from llama_index.core.agent.workflow import (
@@ -170,7 +171,7 @@ review_agent = FunctionAgent(
 )
 ```
 
-Les agents sont définis. Vous pouvez maintenant créer le `AgentWorkflow` et l'exécuter.
+הגדרתם את הסוכנים, ועכשיו אתם יכולים ליצור את `AgentWorkflow` ולהפעיל אותו.
 
 ```
 from llama_index.core.agent.workflow import AgentWorkflow
@@ -186,7 +187,7 @@ agent_workflow = AgentWorkflow(
 )
 ```
 
-Pendant l'exécution du workflow, vous pouvez diffuser des événements, des appels d'outils et des mises à jour vers la console.
+במהלך ההרצה של תהליך העבודה, אפשר להזרים אירועים, קריאות לכלים ועדכונים אל המסוף.
 
 ```
 from llama_index.core.agent.workflow import (
@@ -234,7 +235,7 @@ async for event in handler.stream_events():
         print(f"  With arguments: {event.tool_kwargs}")
 ```
 
-Une fois le workflow terminé, vous pouvez imprimer le résultat final du rapport, ainsi que l'état final de l'examen par l'agent.
+אחרי שהתהליך מסתיים, אפשר להדפיס את הפלט הסופי של הדוח, וגם את מצב הבדיקה הסופי של סוכן הבדיקה.
 
 ```
 state = await handler.ctx.store.get("state")
@@ -242,24 +243,24 @@ print("Report Content:\n", state["report_content"])
 print("\n------------\nFinal Review:\n", state["review"])
 ```
 
-## Aller plus loin avec les workflows personnalisés
+## רוצים להשתמש בתהליכי עבודה מותאמים אישית?
 
-Le `AgentWorkflow` est un excellent moyen de se lancer dans les systèmes multi-agents. Mais que faire si vous avez besoin de plus de contrôle ? Vous pouvez créer un workflow de A à Z. Voici quelques raisons pour lesquelles vous pouvez créer votre propre workflow :
+‫`AgentWorkflow` היא דרך מצוינת להתחיל לעבוד עם מערכות מרובות סוכנים. אבל מה קורה אם אתם צריכים יותר שליטה? אתם יכולים לבנות תהליך עבודה מאפס. כמה סיבות ליצירת תהליך עבודה משלכם:
 
-- **Meilleur contrôle du processus** : vous pouvez décider du chemin exact que vos agents doivent suivre. Cela inclut la création de boucles, la prise de décisions à certains moments ou le fait de faire travailler les agents en parallèle sur différentes tâches.
-- **Utilisez des données complexes** : allez au-delà du texte brut. Les workflows personnalisés vous permettent d'utiliser des données plus structurées, comme des objets JSON ou des classes personnalisées, pour vos entrées et sorties.
-- **Travailler avec différents types de contenus multimédias** : créez des agents capables de comprendre et de traiter non seulement du texte, mais aussi des images, du contenu audio et des vidéos.
-- **Planification plus intelligente** : vous pouvez concevoir un workflow qui crée d'abord un plan détaillé avant que les agents ne commencent à travailler. Cela est utile pour les tâches complexes qui nécessitent plusieurs étapes.
-- **Activer l'auto-correction** : créez des agents capables de vérifier leur propre travail. Si le résultat n'est pas satisfaisant, l'agent peut réessayer, créant ainsi une boucle d'amélioration jusqu'à ce que le résultat soit parfait.
+- **יותר שליטה בתהליך**: אתם יכולים להחליט על הנתיב המדויק של הסוכנים שלכם. לדוגמה, ליצור לולאות, לקבל החלטות בנקודות מסוימות או להגדיר סוכנים שיעבדו במקביל על משימות שונות.
+- **שימוש בנתונים מורכבים**: לא להשתמש רק בטקסט פשוט. תהליכי עבודה מותאמים אישית מאפשרים לכם להשתמש בנתונים מובְנים נוספים, כמו אובייקטים מסוג JSON או מחלקות מותאמות אישית, כקלט ופלט.
+- **עבודה עם מדיה מסוגים שונים**: יצירת סוכנים שיכולים להבין ולעבד לא רק טקסט, אלא גם תמונות, אודיו וסרטונים.
+- **תכנון חכם יותר**: אתם יכולים לעצב תהליך עבודה שקודם יוצר תוכנית מפורטת לפני שהסוכנים מתחילים לעבוד. התכונה הזו שימושית למשימות מורכבות שדורשות כמה שלבים.
+- **הפעלת תיקון עצמי**: יצירת סוכנים שיכולים לבדוק את העבודה שלהם. אם הפלט לא מספיק טוב, הסוכן יכול לנסות שוב, וליצור לולאה של שיפורים עד שהתוצאה תהיה מושלמת.
 
-Pour en savoir plus sur les workflows LlamaIndex, consultez la [documentation sur les workflows LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
+מידע נוסף על LlamaIndex Workflows זמין ב[תיעוד של LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
 
-Envoyer des commentaires
+שליחת משוב
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Dernière mise à jour le 2026/05/19 (UTC).
+עדכון אחרון: 2026-06-10 (שעון UTC).
 
-Voulez-vous nous donner plus d'informations ?
+רוצה לתת לנו משוב?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/05/19 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-10 (שעון UTC)."],[],[]]

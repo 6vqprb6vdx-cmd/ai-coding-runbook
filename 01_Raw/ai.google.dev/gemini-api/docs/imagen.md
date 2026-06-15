@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=id
-fetched_at: 2026-06-08T15:07:09.846855+00:00
-title: "Membuat gambar menggunakan Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=ja
+fetched_at: 2026-06-15T06:26:20.275252+00:00
+title: "Imagen \u3092\u4f7f\u7528\u3057\u3066\u753b\u50cf\u3092\u751f\u6210\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Membuat gambar menggunakan Imagen
+# Imagen を使用して画像を生成する
 
-Imagen adalah model pembuatan gambar fidelitas tinggi Google, yang mampu menghasilkan gambar realistis dan berkualitas tinggi dari perintah teks. Semua gambar yang dihasilkan menyertakan watermark SynthID. Untuk mempelajari lebih lanjut varian model Imagen yang tersedia, lihat bagian [Versi model](#model-versions).
+Imagen は、Google の高忠実度画像生成モデルです。テキスト プロンプトからリアルで高品質な画像を生成できます。すべての生成画像には SynthID の透かしが埋め込まれています。使用可能な Imagen モデル バリエーションの詳細については、[モデル バージョン](#model-versions)をご覧ください。
 
-## Membuat gambar menggunakan model Imagen
+## Imagen モデルを使用して画像を生成する
 
-Contoh ini menunjukkan pembuatan gambar dengan [model Imagen](https://deepmind.google/technologies/imagen/?hl=id):
+次の例は、[Imagen モデル](https://deepmind.google/technologies/imagen/?hl=ja)を使用して画像を生成する方法を示しています。
 
 ### Python
 
@@ -132,395 +132,359 @@ curl -X POST \
       }'
 ```
 
-![Gambar buatan AI dari robot yang memegang papan seluncur merah](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=id)
+![赤いスケートボードを持っているロボットの AI 生成画像](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=ja)
 
-Gambar buatan AI dari robot yang memegang papan seluncur merah
+赤いスケートボードを持っているロボットの AI 生成画像
 
-### Konfigurasi Imagen
+### Imagen の構成
 
-Saat ini, Imagen hanya mendukung perintah dalam bahasa Inggris dan parameter berikut:
+Imagen は現在、英語のプロンプトと次のパラメータのみをサポートしています。
 
-- `numberOfImages`: Jumlah gambar yang akan dibuat, dari 1 hingga 4 (inklusif).
-  Defaultnya adalah 4.
-- `imageSize`: Ukuran gambar yang dihasilkan. Fitur ini hanya didukung untuk model Standard dan Ultra. Nilai yang didukung adalah `1K` dan `2K`.
-  Default-nya adalah `1K`.
-- `aspectRatio`: Mengubah rasio aspek gambar yang dihasilkan. Nilai
-  yang didukung adalah `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"`, dan `"16:9"`. Defaultnya adalah
-  `"1:1"`.
-- `personGeneration`: Mengizinkan model membuat gambar orang. Nilai berikut didukung:
+- `numberOfImages`: 生成する画像の数（1 ～ 4）。デフォルトは 4 です。
+- `imageSize`: 生成される画像のサイズ。これは、Standard モデルと Ultra モデルでのみサポートされています。サポートされている値は `1K` と `2K` です。デフォルトは `1K` です。
+- `aspectRatio`: 生成された画像のアスペクト比を変更します。サポートされている値は `"1:1"`、`"3:4"`、`"4:3"`、`"9:16"`、`"16:9"` です。デフォルトは `"1:1"` です。
+- `personGeneration`: モデルが人物の画像を生成できるようにします。次の値を使用できます。
 
-  - `"dont_allow"`: Memblokir pembuatan gambar orang.
-  - `"allow_adult"`: Menghasilkan gambar orang dewasa, tetapi bukan anak-anak. Ini adalah
-    defaultnya.
-  - `"allow_all"`: Menghasilkan gambar yang menyertakan orang dewasa dan anak-anak.
+  - `"dont_allow"`: 人物の画像の生成をブロックします。
+  - `"allow_adult"`: 大人の画像を生成しますが、子供の画像は生成しません。これがデフォルトです。
+  - `"allow_all"`: 大人や子供の画像が生成されます。
 
-## Panduan perintah Imagen
+## Imagen プロンプト ガイド
 
-Bagian panduan Imagen ini menunjukkan cara memodifikasi perintah text-to-image
-dapat menghasilkan hasil yang berbeda, beserta contoh gambar yang dapat Anda buat.
+Imagen ガイドのこのセクションでは、テキスト画像変換プロンプトを変更して異なる結果を生成する方法と、作成できる画像の例について説明します。
 
-### Dasar-dasar penulisan perintah
+### プロンプト作成の基本
 
-Perintah yang baik bersifat deskriptif dan jelas, serta menggunakan kata kunci dan pengubah yang bermakna. Mulailah dengan memikirkan **subjek**, **konteks**, dan **gaya** Anda.
+適切なプロンプトは、説明的で明確であり、意味のあるキーワードと修飾子を使用しています。まず、**主題**、**コンテキスト**、**スタイル**について考えてみましょう。
 
-![Perintah dengan subjek, konteks, dan gaya yang ditekankan](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=id)
+![主題、コンテキスト、スタイルが強調されているプロンプト](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=ja)
 
-Teks gambar: *Sketsa* (**gaya**) dari *gedung apartemen modern*
-(**subjek**) dikelilingi *pilar* (**konteks dan latar belakang**).
+画像のテキスト: モダンなアパート）
+（**主題**）が超高層ビル（**コンテキストと背景**）に囲まれているスケッチ（**スタイル**）。
 
-1. **Subjek**: Hal pertama yang harus dipikirkan dengan perintah apa pun adalah
-   *subjek*: objek, orang, hewan, atau pemandangan yang Anda inginkan gambarnya.
-2. **Konteks dan latar belakang:** Sama pentingnya adalah *latar belakang atau konteks*
-   tempat subjek akan ditempatkan. Coba tempatkan subjek di berbagai
-   latar belakang. Misalnya, studio dengan latar belakang putih, di luar ruangan, atau
-   di dalam ruangan.
-3. **Gaya:** Terakhir, tambahkan gaya gambar yang Anda inginkan. *Gaya* dapat bersifat umum
-   (lukisan, foto, sketsa) atau yang sangat spesifik (lukisan pastel, gambar arang, 3D isometrik). Anda juga dapat menggabungkan gaya.
+1. **主題**: プロンプトについて最初に考えるべきなのは主題、すなわち画像の主体となる物体、人物、動物、風景などです。
+2. **コンテキストと背景:** その主題が配置される背景やコンテキストも同様に重要です。主題をさまざまな背景に置いてみてください。たとえば、スタジオの白い背景、屋外、屋内の環境などです。
+3. **スタイル:** 最後に、希望する画像のスタイルを追加します。スタイルは、概括的なもの（絵画、写真、スケッチ）でも、特定化されたもの（パステル画、木炭画、アイソメトリック 3D）でもかまいません。スタイルを組み合わせることもできます。
 
-Setelah menulis versi pertama perintah, perbaiki perintah Anda dengan menambahkan
-lebih banyak detail hingga Anda mendapatkan gambar yang Anda inginkan. Iterasi itu penting.
-Mulailah dengan menentukan ide inti Anda, lalu sempurnakan dan kembangkan ide inti tersebut hingga gambar yang dihasilkan mendekati visi Anda.
+プロンプトの最初のバージョンを作成したら、目的の画像が得られるまで詳細を追加してプロンプトを改良します。反復処理が重要です。まずコアアイデアを定義し、生成された画像がビジョンに近づくまで、そのコアアイデアを絞り込み、拡張します。
 
 |  |  |  |
 | --- | --- | --- |
-| contoh gambar fotorealistik 1   Perintah: Taman di musim semi di samping danau | gambar contoh fotorealistik 2   Perintah: Taman di musim semi di samping danau, **matahari terbenam di seberang danau, golden hour** | gambar contoh fotorealistik 3   Perintah: Taman di musim semi di samping danau, ***matahari terbenam di seberang danau, golden hour, bunga liar merah*** |
+| フォトリアリスティックなサンプル画像 1   プロンプト: 湖のそばにある春の公園 | フォトリアリスティックなサンプル画像 2   プロンプト: 湖のそばにある春の公園、**湖に沈む夕日、ゴールデン アワー** | フォトリアリスティックなサンプル画像 3   プロンプト: 湖のそばにある春の公園、***湖に沈む夕日、ゴールデン アワー、赤く咲き誇る野生の花*** |
 
-Model Imagen dapat mengubah ide Anda menjadi gambar yang mendetail, baik perintah Anda singkat maupun panjang dan mendetail. Sempurnakan visi Anda melalui perintah iteratif, tambahkan detail hingga Anda mendapatkan hasil yang sempurna.
+Imagen モデルは、プロンプトが短くても、長くて詳細でも、アイデアを詳細な画像に変換できます。反復的なプロンプトを通じてビジョンを絞り込み、完璧な結果が得られるまで詳細を追加します。
 
 |  |  |
 | --- | --- |
-| Perintah singkat memungkinkan Anda membuat gambar dengan cepat.  Contoh perintah singkat Imagen 4   Perintah: foto close-up seorang wanita berusia 20-an, fotografi jalanan, cuplikan film, nuansa hangat oranye lembut | Dengan perintah yang lebih panjang, Anda dapat menambahkan detail spesifik dan membuat gambar.  Contoh perintah panjang Imagen 4   Perintah: foto memukau seorang wanita berusia 20-an yang menggunakan gaya fotografi jalanan. Gambar harus terlihat seperti cuplikan film dengan warna hangat oranye yang redup. |
+| 短いプロンプトを使用すると、画像をすばやく生成できます。  Imagen 4 の短いプロンプトの例   プロンプト: 20 代の女性のクローズアップ写真、ストリート写真、映画のワンシーン、落ち着いたオレンジの暖色調 | 長いプロンプトを使用すると、具体的な詳細を追加して画像を作成できます。  Imagen 4 の長いプロンプトの例   プロンプト: ストリート フォトスタイルを活用した 20 代の女性の魅力的な写真。画像は、オレンジ色の暖色系の落ち着いた色調にし、映画のワンシーンのように見えるようにする必要があります。 |
 
-Saran tambahan untuk penulisan perintah Imagen:
+Imagen プロンプトの作成に関するその他のヒント:
 
-- **Gunakan bahasa deskriptif**: Gunakan kata sifat dan kata keterangan yang mendetail untuk
-  menggambarkan situasi yang jelas bagi Imagen.
-- **Berikan konteks**: Jika perlu, sertakan informasi latar belakang untuk membantu AI memahami.
-- **Merujuk pada artis atau gaya tertentu**: Jika Anda memiliki estetika tertentu, merujuk pada artis atau gerakan seni tertentu dapat membantu.
-- **Gunakan alat prompt engineering**: Pertimbangkan untuk mempelajari alat atau referensi prompt engineering untuk membantu Anda menyempurnakan perintah dan mencapai hasil yang optimal.
-- **Meningkatkan kualitas detail wajah dalam gambar pribadi dan grup Anda**: Tentukan detail wajah sebagai fokus foto (misalnya, gunakan kata "potret" dalam perintah).
+- **わかりやすい表現を使用する**: 具体的な形容詞や副詞を使用して、Imagen の明確な画像を描きます。
+- **コンテキストを提供する**: 必要に応じて、AI の理解を助けるために背景情報を含めます。
+- **特定のアーティストやスタイルを参照する**: 特定の美学を念頭に置いている場合は、特定のアーティストや芸術運動を参照すると役に立ちます。
+- **プロンプト エンジニアリング ツールを使用する**: プロンプトを改良して最適な結果を得るために、プロンプト エンジニアリング ツールやリソースの使用をおすすめします。
+- **個人写真やグループ写真の顔の細部を補正する**: 写真の焦点として顔の細部を指定します（たとえば、プロンプトで「ポートレート」という単語を使用します）。
 
-### Membuat teks dalam gambar
+### 画像内のテキストを生成する
 
-Model Imagen dapat menambahkan teks ke dalam gambar, sehingga membuka lebih banyak kemungkinan pembuatan gambar yang kreatif. Gunakan panduan berikut untuk mendapatkan hasil maksimal dari fitur ini:
+Imagen モデルは画像にテキストを追加できるため、よりクリエイティブな画像生成が可能になります。この機能を最大限に活用するには、次のガイダンスに沿って操作してください。
 
-- **Lakukan iterasi dengan percaya diri**: Anda mungkin harus membuat ulang gambar hingga Anda mendapatkan tampilan yang diinginkan. Integrasi teks Imagen masih dalam tahap pengembangan, dan terkadang beberapa upaya akan memberikan hasil terbaik.
-- **Buat tetap singkat**: Batasi teks hingga 25 karakter atau kurang untuk generasi yang optimal.
-- **Beberapa frasa**: Bereksperimenlah dengan dua atau tiga frasa berbeda untuk
-  memberikan informasi tambahan. Hindari penggunaan lebih dari tiga frasa untuk komposisi yang lebih bersih.
+- **確実に反復処理する**: 目的の外観になるまで画像を再生成しなければならない場合があります。Imagen のテキスト統合は現在も進化しており、複数回試行することで最良の結果が得られることもあります。
+- **テキストを短くする**: 生成を最適化するには、テキストを 25 文字以下に制限します。
+- **複数のフレーズ**: 2 つから 3 つの異なるフレーズをテストして、追加情報を提供します。クリーンな構成にするため、フレーズは 3 つを超えないようにします。
 
-  ![Contoh teks yang dihasilkan Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=id)
+  ![Imagen 4 のテキスト生成の例](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=ja)
 
-  Perintah: Poster dengan teks "Summerland" dalam font tebal sebagai
-  judul, di bawah teks ini terdapat slogan "Summer never felt so good"
-- **Penempatan Panduan**: Meskipun Imagen dapat mencoba memosisikan teks sesuai arahan, terkadang ada variasi. Fitur ini terus ditingkatkan.
-- **Gaya font Inspire**: Tentukan gaya font umum untuk memengaruhi pilihan Imagen secara halus. Jangan mengandalkan replikasi font yang presisi, tetapi harapkan interpretasi kreatif.
-- **Ukuran font**: Tentukan ukuran font atau indikasi ukuran umum (misalnya, *kecil*, *sedang*, *besar*) untuk memengaruhi pembuatan ukuran font.
+  プロンプト: タイトルとして太字のフォントで「Summerland」というテキストが書かれたポスター。このテキストの下には「Summer never felt so good」というスローガンが書かれています
+- **ガイド付き配置**: Imagen は指示どおりにテキストを配置しようとしますが、場合によっては変動が生じることがあります。この機能は継続的に改善されています。
+- **フォント スタイルを引き出す**: 一般的なフォント スタイルを指定して、Imagen の選択に微妙な影響を与えます。正確なフォント レプリケーションに依存せず、クリエイティブな解釈を想定してください。
+- **フォントサイズ**: フォントサイズまたはサイズの一般的な指標（小、中、大など）を指定して、フォントサイズの生成に影響を与えます。
 
-### Parameterisasi perintah
+### プロンプトのパラメータ化
 
-Untuk mengontrol hasil output dengan lebih baik, Anda mungkin merasa terbantu dengan memparameterisasi
-input ke Imagen. Misalnya, Anda ingin pelanggan dapat membuat logo untuk bisnis mereka, dan Anda ingin memastikan logo selalu dibuat dengan latar belakang warna solid. Anda
-juga ingin membatasi opsi yang dapat dipilih klien dari menu.
+出力結果をより適切に制御するには、Imagen への入力をパラメータ化すると便利です。たとえば、お客様がビジネスのロゴを生成できるようにし、ロゴが常に単色の背景で生成されるようにしたいとします。また、クライアントがメニューから選択できるオプションを制限することもできます。
 
-Dalam contoh ini, Anda dapat membuat perintah berparameter yang mirip dengan
-berikut:
+この例では、次のようなパラメータ化されたプロンプトを作成できます。
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-Di antarmuka pengguna kustom Anda, pelanggan dapat memasukkan parameter menggunakan
-menu, dan nilai yang dipilihnya akan mengisi perintah yang diterima Imagen.
+カスタム ユーザー インターフェースでは、ユーザーはメニューを使用してパラメータを入力できます。選択した値が、Imagen が受け取るプロンプトに入力されます。
 
-Contoh:
+次に例を示します。
 
-1. Perintah: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. プロンプト: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Contoh 1 parameterisasi perintah Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=id)
-2. Perintah: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Imagen 4 プロンプトのパラメータ化の例 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=ja)
+2. プロンプト: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Contoh parameterisasi perintah Imagen 4 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=id)
-3. Perintah: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Imagen 4 プロンプトのパラメータ化の例 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=ja)
+3. プロンプト: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Contoh parameterisasi perintah Imagen 4 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=id)
+   ![Imagen 4 プロンプトのパラメータ化の例 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=ja)
 
-### Teknik penulisan perintah lanjutan
+### 高度なプロンプト作成手法
 
-Gunakan contoh berikut untuk membuat perintah yang lebih spesifik berdasarkan atribut
-seperti deskripsi fotografi, bentuk dan bahan, gerakan seni
-historis, dan pengubah kualitas gambar.
+以下の例を使用すると、属性（写真の記述子、形状と素材、歴史的な芸術運動、画質の修飾子など）に基づいて、より具体的なプロンプトを作成できます。
 
-#### Fotografi
+#### 写真
 
-- Perintah menyertakan: *"Foto..."*
+- プロンプトに「...の写真」が含まれる
 
-Untuk menggunakan gaya ini, mulai dengan menggunakan kata kunci yang dengan jelas memberi tahu
-Imagen bahwa Anda mencari foto. Mulailah perintah Anda dengan *"Foto. . ."*. Misalnya:
+このスタイルを使用するには、まず、写真を探していることを Imagen に明確に伝えるキーワードを使用します。プロンプトに「...の写真*​*」と記述します。例を示します。
 
 |  |  |  |
 | --- | --- | --- |
-| contoh gambar fotorealistik 1   Perintah: **Foto** biji kopi di dapur pada permukaan kayu | gambar contoh fotorealistik 2   Perintah: **Foto** cokelat batangan di meja dapur | gambar contoh fotorealistik 3   Perintah: **Foto** bangunan modern dengan latar belakang air |
+| フォトリアリスティックなサンプル画像 1   プロンプト: キッチンで木製のテーブルに置かれたコーヒー豆の**写真** | フォトリアリスティックなサンプル画像 2   プロンプト: キッチン カウンターに置かれた板チョコの**写真** | フォトリアリスティックなサンプル画像 3   プロンプト: 水を背景にしたモダンな建物の**写真** |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-##### Pengubah fotografi
+##### 写真の修飾子
 
-Pada contoh berikut, Anda dapat melihat beberapa pengubah dan parameter khusus fotografi. Anda dapat menggabungkan beberapa pengubah untuk kontrol yang lebih akurat.
+次の例では、写真に固有のいくつかの修飾子とパラメータを見ることができます。複数の修飾子を組み合わせて、より正確に制御できます。
 
-1. **Kedekatan Kamera** - *Jarak dekat, diambil dari jarak jauh*
-
-   |  |  |
-   | --- | --- |
-   | gambar contoh kamera jarak dekat   Perintah: Foto **jarak dekat** biji kopi | gambar contoh kamera yang diperkecil   Perintah: Foto **diperkecil** sekantong kecil biji kopi  di dapur yang berantakan |
-2. **Posisi Kamera** - *dari atas, dari bawah*
+1. **カメラの近接性** - クローズアップ、遠くから撮影
 
    |  |  |
    | --- | --- |
-   | gambar contoh foto dari atas   Perintah: **foto dari atas** kota dengan gedung pencakar langit | contoh gambar tampilan dari bawah   Perintah: Foto kanopi hutan dengan langit biru **dari bawah** |
-3. **Pencahayaan** - *alami, dramatis, hangat, dingin*
+   | クローズアップによるカメラのサンプル画像   プロンプト: コーヒー豆の**クローズアップ**写真 | ズームアウトによるカメラのサンプル画像   プロンプト: 散らかったキッチンに置かれた コーヒー豆の小さな袋の**ズームアウト**写真 |
+2. **カメラの位置** - 空中、下から
 
    |  |  |
    | --- | --- |
-   | gambar contoh pencahayaan alami   Perintah: foto studio kursi berlengan modern, **cahaya alami** | gambar contoh pencahayaan dramatis   Perintah: foto studio kursi berlengan modern, **cahaya dramatis** |
-4. **Setelan Kamera** *- motion blur, soft focus, bokeh, potret*
+   | 空中からの写真のサンプル画像   プロンプト: 高層ビルがそびえる都会の**航空写真** | 下から撮影したサンプル画像   プロンプト: **下から**撮影した青空と林冠の写真 |
+3. **照明** - 自然、ドラマチック、暖かい、寒い
 
    |  |  |
    | --- | --- |
-   | gambar contoh motion blur   Perintah: foto kota dengan gedung pencakar langit dari dalam mobil dengan **motion blur** | gambar contoh soft focus   Perintah: Foto **soft focus** jembatan di kota perkotaan pada malam hari |
-5. **Jenis lensa** - *35 mm, 50 mm, mata ikan, sudut lebar, makro*
+   | 自然光のサンプル画像   プロンプト: モダンなアームチェアのスタジオ写真、**自然光** | ドラマチックな照明のサンプル画像   プロンプト: モダンなアームチェアのスタジオ写真、**ドラマチックな照明** |
+4. **カメラの設定** - モーション ブラー、ソフト フォーカス、ボケ、ポートレート
 
    |  |  |
    | --- | --- |
-   | gambar contoh lensa makro   Perintah: foto daun, **lensa makro** | gambar contoh lensa mata ikan   Perintah: fotografi jalanan, kota new york, **lensa mata ikan** |
-6. **Jenis film** - *hitam dan putih, polaroid*
+   | モーション ブラーのサンプル画像   プロンプト: 高層ビルがそびえる都会を社内から撮影した**モーション ブラー**のある写真 | ソフト フォーカスのサンプル画像   プロンプト: 都会の橋を夜間に撮影した**ソフト フォーカス**の写真 |
+5. **レンズの種類** - 35 mm、50 mm、魚眼、広角、マクロ
 
    |  |  |
    | --- | --- |
-   | gambar sampel foto polaroid   Perintah: **potret polaroid** yang memakai kacamata hitam | gambar contoh foto hitam putih   Perintah: **foto hitam putih** yang memakai kacamata hitam |
+   | マクロレンズのサンプル画像   プロンプト: 葉の写真、**マクロレンズ** | 魚眼レンズのサンプル画像   プロンプト: 街路写真、ニューヨーク市、**魚眼レンズ** |
+6. **フィルムの種類** - モノクロ、ポラロイド
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+   |  |  |
+   | --- | --- |
+   | ポラロイド写真のサンプル画像   プロンプト: サングラスをかけた犬の**ポラロイド ポートレート** | モノクロ写真のサンプル画像   プロンプト: サングラスをかけた犬の**モノクロ写真** |
 
-### Ilustrasi dan seni
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-- Perintah menyertakan: *"painting dari..."*, *"sketch dari..."*
+### イラストとアート
 
-Gaya seni bervariasi mulai dari gaya monokrom seperti sketsa pensil, hingga seni digital
-yang sangat realistis. Misalnya, gambar berikut menggunakan perintah yang sama dengan
-gaya yang berbeda:
+- プロンプトには、「...のpainting」、「...のsketch」という表現を含めます。
 
-*"[art style or creation technique] sedan listrik sporty bersudut dengan
-pencakar langit di latar belakang"*
+アートのスタイルは、鉛筆のスケッチなどのモノクロ スタイルから、ハイパーリアルなデジタルアートまで、多岐にわたります。たとえば、次の画像では、同じプロンプトを異なるスタイルで使用します。
+
+「高層ビルを背景にした、角張ったスポーティな電動セダンの[art style or creation technique]」
 
 |  |  |  |
 | --- | --- | --- |
-| gambar contoh karya seni   Perintah: **Gambar dengan teknik pensil** dari sebuah sudut... | gambar contoh karya seni   Perintah: **Gambar arang** dari sudut... | gambar contoh karya seni   Perintah: **Gambar pensil warna** dari sudut... |
+| アートのサンプル画像   プロンプト: 角張った ... の**技術的な鉛筆画** | アートのサンプル画像   プロンプト: 角張った ... の**木炭画** | アートのサンプル画像   プロンプト: 角張った ... の**色鉛筆画** |
 
 |  |  |  |
 | --- | --- | --- |
-| gambar contoh karya seni   Perintah: **Lukisan pastel** dari sebuah sudut... | gambar contoh karya seni   Perintah: **Seni digital** dari sudut... | gambar contoh karya seni   Perintah: **Art deco (poster)** dari sudut... |
+| アートのサンプル画像   プロンプト: 角張った ... の**パステル画** | アートのサンプル画像   プロンプト: 角張った ... の**デジタルアート** | アートのサンプル画像   プロンプト: 角張った ... の**アールデコ（ポスター）** |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 2.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 2 モデルを使用して生成されました。
 
-##### Bentuk dan bahan
+##### 形状と素材
 
-- Perintah mencakup: *"...terbuat dari..."*, *"...dalam bentuk..."*
+- プロンプトには、「... で作られた ...」、「... の形の ...」という表現を含めます。
 
-Salah satu keunggulan teknologi ini adalah Anda dapat membuat citra yang
-sulit atau tidak mungkin dilakukan. Misalnya, Anda dapat membuat ulang
-logo perusahaan dengan bahan dan tekstur yang berbeda.
+このテクノロジーの強みの一つは、他の方法では困難または不可能な画像を作成できることです。たとえば、さまざまな素材やテクスチャで会社のロゴを再現できます。
 
 |  |  |  |
 | --- | --- | --- |
-| contoh gambar bentuk dan bahan 1   Perintah: tas wol **terbuat dari** keju | contoh gambar bentuk dan bahan 2   Perintah: tabung neon **dalam bentuk** burung | contoh gambar 3 bentuk dan bahan 3   Perintah: kursi berlengan **terbuat dari kertas**, foto studio, gaya origami |
+| 形状と素材のサンプル画像 1   プロンプト: チーズで**作った**ダッフルバッグ | 形状と素材のサンプル画像 2   プロンプト: 鳥の**形の**ネオンチューブ | 形状と素材のサンプル画像 3   プロンプト: **紙で作られた**アームチェア、スタジオ写真、折り紙スタイル |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-#### Referensi seni bersejarah
+#### 歴史的美術品のリファレンス
 
-- Perintah mencakup: *"...dalam gaya..."*
+- プロンプトには、「... スタイルの ...」という表現を含めます。
 
-Gaya tertentu telah menjadi ikon selama bertahun-tahun. Berikut adalah beberapa ide
-lukisan sejarah atau gaya seni yang dapat Anda coba.
+特定のスタイルは、長年の間に象徴的な存在になりました。歴史的絵画やアートのスタイルを試すためのアイデアのいくつかを、以下に紹介します。
 
-*"buat gambar dengan gaya [art period or movement]
-: ladang kincir angin"*
+「[art period or movement]
+ スタイルの画像（風力発電所）を生成」
 
 |  |  |  |
 | --- | --- | --- |
-| gambar contoh impresionisme   Perintah: buat gambar **dengan gaya *lukisan impresionis***: ladang kincir angin | gambar contoh renaisans   Perintah: buat gambar **dengan gaya *lukisan renaisans***: ladang kincir angin | gambar contoh seni pop   Perintah: buat gambar **dengan gaya *seni pop***: ladang kincir angin |
+| 印象派のサンプル画像   プロンプト: 印象派絵画の**スタイルの**画像（風力発電所）を生成 | ルネサンス期のサンプル画像   プロンプト: ルネサンス期絵画の**スタイルの**画像（風力発電所）を生成 | ポップアートのサンプル画像   プロンプト: ポップアート **スタイルの**画像（風力発電所）を生成 |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-#### Pengubah kualitas gambar
+#### 画像品質の修飾子
 
-Kata kunci tertentu dapat memberi tahu model bahwa Anda mencari aset berkualitas tinggi. Contoh pengubah kualitas mencakup hal berikut:
+特定のキーワードから、高品質のアセットを探していることをモデルが認識できます。品質の修飾子の例を次に示します。
 
-- **Pengubah Umum** - *berkualitas tinggi, indah, bergaya*
-- **Foto** - *4K, HDR, Foto Studio*
-- **Seni, Ilustrasi** - *oleh profesional, mendetail*
+- **一般的な修飾子** - 高品質、美しい、図案化された
+- **写真** - 4K、HDR、スタジオ写真
+- **アート、イラスト** - プロが作成した、詳細な
 
-Berikut adalah beberapa contoh perintah tanpa pengubah kualitas dan
-perintah yang sama dengan pengubah kualitas.
+以下に、品質の修飾子を使用しない場合のプロンプトと、同じプロンプトで品質の修飾子を使用したいくつかの例を示します。
 
 |  |  |
 | --- | --- |
-| gambar contoh jagung tanpa pengubah   Perintah (tanpa pengubah kualitas): foto batang jagung | gambar contoh jagung dengan pengubah   Perintah (dengan pengubah kualitas): **Foto 4k HDR yang indah**   dari sebuah foto batang jagung **diambil oleh   fotografer profesional** |
+| 修飾子なしのトウモロコシのサンプル画像   プロンプト（品質の修飾子なし）: トウモロコシの茎の写真 | 修飾子ありのトウモロコシのサンプル画像   プロンプト（品質の修飾子付き）: **4k HDR 美しい**  **プロカメラマンが撮影した** トウモロコシの茎の写真 |
 
-Sumber gambar: Setiap gambar dibuat menggunakan perintah teks yang sesuai dengan model Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-#### Rasio aspek
+#### アスペクト比
 
-Pembuatan gambar Imagen memungkinkan Anda menetapkan lima rasio aspek gambar yang berbeda.
+Imagen の画像生成では、5 つの異なる画像アスペクト比を設定できます。
 
-1. **Persegi** (1:1, default) - Foto persegi standar. Penggunaan umum untuk rasio aspek ini mencakup postingan media sosial.
-2. **Layar penuh** (4:3) - Rasio aspek ini umumnya digunakan dalam media atau film.
-   Dimensi ini juga merupakan dimensi sebagian besar TV lama (non-layar lebar) dan kamera format
-   sedang. Rasio ini menangkap lebih banyak pemandangan secara horizontal (dibandingkan dengan 1:1),
-   sehingga menjadi rasio aspek pilihan untuk fotografi.
+1. **スクエア**（1:1、デフォルト）- 標準の正方形の写真。このアスペクト比の一般的な用途としては、ソーシャル メディアの投稿などがあります。
+2. **全画面**（4:3） - このアスペクト比は、メディアや映画でよく使用されます。また、古い（ワイドスクリーンではない）テレビやミディアム フォーマット カメラでも使用されています。1:1 と比べると、横方向に広いシーンをキャプチャできるため、写真撮影に適したアスペクト比です。
 
    |  |  |
    | --- | --- |
-   | contoh rasio aspek   Perintah: close up jari seorang musisi yang sedang bermain piano, film hitam putih, vintage (rasio aspek 4:3) | contoh rasio aspek   Perintah: Foto studio profesional kentang goreng untuk restoran kelas atas, dengan gaya majalah makanan (rasio aspek 4:3) |
-3. **Layar penuh potret** (3:4) - Ini adalah rasio aspek layar penuh yang diputar 90 derajat. Hal ini memungkinkan Anda merekam lebih banyak adegan secara vertikal dibandingkan dengan rasio aspek 1:1.
+   | アスペクト比の例   プロンプト: ピアノを弾いているミュージシャンの手のアップ、モノクロ フィルム、ヴィンテージ（4:3 のアスペクト比） | アスペクト比の例   プロンプト: 高級レストランのフライドポテトのプロのスタジオ写真, フード雑誌のスタイル（アスペクト比 4:3） |
+3. **縦向き全画面**（3:4） - 全画面のアスペクト比を 90 度回転したもの。1:1 のアスペクト比と比べると、縦方向に広がるシーンをキャプチャできます。
 
    |  |  |
    | --- | --- |
-   | contoh rasio aspek   Perintah: seorang wanita sedang mendaki, close-up sepatu botnya yang tercermin di genangan air, pegunungan besar di latar belakang, dengan gaya iklan, sudut dramatis (rasio aspek 3:4) | contoh rasio aspek   Perintah: foto dari atas sungai yang mengalir ke atas lembah mistis (rasio aspek 3:4) |
-4. **Layar lebar** (16:9) - Rasio ini telah menggantikan 4:3 dan kini menjadi rasio aspek yang paling umum untuk TV, monitor, dan layar ponsel (lanskap).
-   Gunakan rasio aspek ini jika Anda ingin mengambil lebih banyak latar belakang (misalnya, pemandangan indah).
+   | アスペクト比の例   プロンプト: ハイキングをする女性, 水たまりに映るブーツのクローズアップ, 背景に大きな山, 広告スタイル, ドラマチックなアングル（3:4 のアスペクト比） | アスペクト比の例   プロンプト: 神秘的な渓谷を流れる川の空撮（アスペクト比 3:4） |
+4. **ワイドスクリーン**（16:9）- 4:3 に代わって、テレビ、モニター、スマートフォンの画面（横向き）で最も一般的なアスペクト比。風景など、広い背景を撮影する場合に使用します。
 
-   ![contoh rasio aspek](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=id)
+   ![アスペクト比の例](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=ja)
 
-   Perintah: seorang pria yang mengenakan pakaian serba putih
-   duduk di pantai, close up, pencahayaan golden hour (rasio aspek
-   16:9)
-5. **Potret** (9:16) - Rasio ini adalah layar lebar yang diputar. Rasio aspek ini relatif baru dan telah dipopulerkan oleh aplikasi video pendek (misalnya, YouTube Shorts). Gunakan ini untuk objek tinggi dengan orientasi vertikal yang kuat seperti bangunan, pohon, air terjun, atau objek serupa lainnya.
+   プロンプト: 全身白の服を着た男性がビーチに座っている, クローズアップ, ゴールデン アワーの照明（アスペクト比 16:9）
+5. **縦向き**（9:16）- 比率はワイドスクリーンですが、回転しています。これは、ショート動画アプリ（YouTube ショートなど）で普及している比較的新しいアスペクト比です。建物、木、滝など、縦方向に長い対象に使用します。
 
-   ![contoh rasio aspek](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=id)
+   ![アスペクト比の例](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=ja)
 
-   Perintah: rendering digital gedung pencakar langit besar, modern, megah, epik dengan latar belakang matahari terbenam yang indah (rasio aspek 9:16)
+   プロンプト: 巨大な高層ビルのデジタル レンダリング, モダン, 壮大, 壮大な背景に美しい夕日（9:16 のアスペクト比）
 
-#### Gambar fotorealistik
+#### フォトリアリスティックな画像
 
-Model pembuatan gambar versi yang berbeda mungkin menawarkan campuran output artistik dan fotorealistik. Gunakan kata-kata berikut dalam perintah untuk menghasilkan output yang lebih fotorealistik, berdasarkan subjek yang ingin Anda buat.
+画像生成モデルのさまざまなバージョンによって、芸術的な出力とフォトリアリスティックな出力が混在する場合があります。プロンプトで次の表現を使用することで、生成する主題に応じてよりフォトリアリスティックな出力を生成できます。
 
-| Kasus penggunaan | Jenis lensa | Panjang fokus | Detail tambahan |
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
 | --- | --- | --- | --- |
-| Orang (potret) | Geser, zoom | 24-35mm | film hitam putih, Film noir, Kedalaman bidang, duoton (sebutkan dua warna) |
-| Makanan, serangga, tanaman (objek, still life) | Makro | 60-105mm | Detail tinggi, fokus presisi, pencahayaan terkontrol |
-| Olahraga, satwa liar (gerakan) | Zoom telefoto | 100-400mm | Kecepatan shutter cepat, Pelacakan tindakan atau gerakan |
-| Astronomi, lanskap (sudut lebar) | Sudut lebar | 10-24mm | Waktu eksposur panjang, fokus tajam, eksposur panjang, air atau awan yang halus |
+| 人（縦向き） | プライム、ズーム | 24～35mm | モノクロ フィルム、フィルム ノワール、被写界深度、デュオトーン（2 色について言及） |
+| 食品、虫、植物（物体、静物） | マクロ | 60～105mm | 高精細、正確なフォーカス、照明の制御 |
+| スポーツ、野生動物（モーション） | 望遠ズーム | 100～400mm | 高速シャッター スピード、アクションまたは動作のトラッキング |
+| 天体、風景（広角） | 広角 | 10～24mm | 長い露光時間、シャープ フォーカス、長時間露光、滑らかな水や雲 |
 
-##### Potret
+##### ポートレート
 
-| Kasus penggunaan | Jenis lensa | Panjang fokus | Detail tambahan |
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
 | --- | --- | --- | --- |
-| Orang (potret) | Geser, zoom | 24-35mm | film hitam putih, Film noir, Kedalaman bidang, duoton (sebutkan dua warna) |
+| 人（縦向き） | プライム、ズーム | 24～35mm | モノクロ フィルム、フィルム ノワール、被写界深度、デュオトーン（2 色について言及） |
 
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat potret berikut:
+このテーブルから複数のキーワードを使用して、Imagen により次のポートレートを生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi potret | contoh fotografi potret | contoh fotografi potret | contoh fotografi potret |
+| ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 |
 
-Perintah: *Potret wanita, 35 mm, duoton biru dan abu-abu*  
-Model: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| contoh fotografi potret | contoh fotografi potret | contoh fotografi potret | contoh fotografi potret |
-
-Perintah: *Potret wanita 35 mm, film noir*  
-Model: `imagen-4.0-generate-001`
-
-##### Objek
-
-| Kasus penggunaan | Jenis lensa | Panjang fokus | Detail tambahan |
-| --- | --- | --- | --- |
-| Makanan, serangga, tanaman (objek, still life) | Makro | 60-105mm | Detail tinggi, fokus presisi, pencahayaan terkontrol |
-
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat gambar objek berikut:
+プロンプト: 女性、35mm の縦向き、青とグレーのデュオトーン  
+モデル: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi objek | contoh fotografi objek | contoh fotografi objek | contoh fotografi objek |
+| ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 |
 
-Perintah: *daun tanaman prayer, lensa makro, 60 mm*  
-Model: `imagen-4.0-generate-001`
+プロンプト: 女性、35mm 縦向き、フィルム ノワール  
+モデル: `imagen-4.0-generate-001`
+
+##### オブジェクト
+
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
+| --- | --- | --- | --- |
+| 食品、虫、植物（物体、静物） | マクロ | 60～105mm | 高精細、正確なフォーカス、照明の制御 |
+
+このテーブルから複数のキーワードを使用して、Imagen により次のオブジェクト画像を生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi objek | contoh fotografi objek | contoh fotografi objek | contoh fotografi objek |
+| 物体写真の例 | 物体写真の例 | 物体写真の例 | 物体写真の例 |
 
-Perintah: *sepiring pasta, lensa Makro 100 mm*  
-Model: `imagen-4.0-generate-001`
-
-##### Gerakan
-
-| Kasus penggunaan | Jenis lensa | Panjang fokus | Detail tambahan |
-| --- | --- | --- | --- |
-| Olahraga, satwa liar (gerakan) | Zoom telefoto | 100-400mm | Kecepatan shutter cepat, Pelacakan tindakan atau gerakan |
-
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat gambar bergerak berikut:
+プロンプト: 花類、リーフ、60mm  
+モデル: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi gerakan | contoh fotografi gerakan | contoh fotografi gerakan | contoh fotografi gerakan |
+| 物体写真の例 | 物体写真の例 | 物体写真の例 | 物体写真の例 |
 
-Perintah: *touchdown kemenangan, kecepatan rana cepat, pelacakan gerakan*  
-Model: `imagen-4.0-generate-001`
+プロンプト: パスタのプレート、100mm マクロレンズ  
+モデル: `imagen-4.0-generate-001`
+
+##### モーション
+
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
+| --- | --- | --- | --- |
+| スポーツ、野生動物（モーション） | 望遠ズーム | 100～400mm | 高速シャッター スピード、アクションまたは動作のトラッキング |
+
+このテーブルから複数のキーワードを使用して、Imagen により次の動画を生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi gerakan | contoh fotografi gerakan | contoh fotografi gerakan | contoh fotografi gerakan |
+| モーション フォトの例 | モーション フォトの例 | モーション フォトの例 | モーション フォトの例 |
 
-Perintah: *Seekor rusa berlari di hutan, kecepatan shutter cepat, pelacakan gerakan*  
-Model: `imagen-4.0-generate-001`
-
-##### Sudut lebar
-
-| Kasus penggunaan | Jenis lensa | Panjang fokus | Detail tambahan |
-| --- | --- | --- | --- |
-| Astronomi, lanskap (sudut lebar) | Sudut lebar | 10-24mm | Waktu eksposur panjang, fokus tajam, eksposur panjang, air atau awan yang halus |
-
-Dengan menggunakan beberapa kata kunci dari tabel, Imagen dapat membuat gambar sudut lebar berikut:
+プロンプト: 勝利のタッチダウン、高速シャッター スピード、動作トラッキング  
+モデル: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar |
+| モーション フォトの例 | モーション フォトの例 | モーション フォトの例 | モーション フォトの例 |
 
-Perintah: *pegunungan yang luas, lanskap sudut lebar 10 mm*  
-Model: `imagen-4.0-generate-001`
+プロンプト: 森の中を走るシカ、高速シャッター スピード、動作トラッキング  
+モデル: `imagen-4.0-generate-001`
+
+##### 広角
+
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
+| --- | --- | --- | --- |
+| 天体、風景（広角） | 広角 | 10～24mm | 長い露光時間、シャープ フォーカス、長時間露光、滑らかな水や雲 |
+
+このテーブル内の複数のキーワードを使用して、Imagen により次の広角画像を生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar | contoh fotografi sudut lebar |
+| 広角撮影の例 | 広角撮影の例 | 広角撮影の例 | 広角撮影の例 |
 
-Perintah: *foto bulan, fotografi astro, sudut lebar 10 mm*  
-Model: `imagen-4.0-generate-001`
+プロンプト: 広大な山並み、風景、広角 10mm  
+モデル: `imagen-4.0-generate-001`
 
-## Versi model
+|  |  |  |  |
+| --- | --- | --- | --- |
+| 広角撮影の例 | 広角撮影の例 | 広角撮影の例 | 広角撮影の例 |
+
+プロンプト: 月の写真、天体写真、広角 10mm  
+モデル: `imagen-4.0-generate-001`
+
+## モデル バージョン
 
 ### Imagen 4
 
-| Properti | Deskripsi |
+| プロパティ | 説明 |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks  **Output**  Gambar |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  480 token (teks)  **Gambar output**  1 hingga 4 (Ultra/Standard/Cepat) |
-| calendar\_monthPembaruan terbaru | Juni 2025 |
+| id\_cardモデルコード | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| save でサポートされるデータ型 | **入力**  テキスト  **出力**  画像 |
+| token\_autoトークン上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  480 トークン（テキスト）  **出力画像**  1 ～ 4（Ultra/Standard/Fast） |
+| calendar\_month最終更新日 | 2025 年 6 月 |
 
 ### Imagen 3
 
-Model Imagen 3 telah [dinonaktifkan](https://ai.google.dev/gemini-api/docs/deprecations?hl=id).
+Imagen 3 モデルは[シャットダウン](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja)されました。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-05-13 UTC.
+最終更新日 2026-05-13 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-13 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-13 UTC。"],[],[]]

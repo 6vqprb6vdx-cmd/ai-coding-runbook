@@ -1,45 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=pl
-fetched_at: 2026-06-08T15:00:40.581029+00:00
-title: "Interfejs API interakcji: przewodnik po migracji w zwi\u0105zku ze zmianami powoduj\u0105cymi niezgodno\u015b\u0107 (maj 2026\u00a0r.) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=pt-BR
+fetched_at: 2026-06-15T06:20:05.553091+00:00
+title: "API Interactions: guia de migra\u00e7\u00e3o de mudan\u00e7as interruptivas (maio de 2026) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Interfejs API interakcji: przewodnik po migracji w związku ze zmianami powodującymi niezgodność (maj 2026 r.)
+# API Interactions: guia de migração de mudanças interruptivas (maio de 2026)
 
-Interfejs `v1beta` Interactions API wprowadza zmiany powodujące niezgodność wsteczną, które zmieniają strukturę interfejsu API, aby obsługiwać przyszłe funkcje, takie jak sterowanie w trakcie lotu i asynchroniczne wywołania narzędzi. Na tej stronie wyjaśniamy, co się zmienia, i podajemy przykłady kodu przed i po zmianach, aby ułatwić Ci migrację. Istnieją 2 kategorie zmian:
+A API Interactions `v1beta` está introduzindo mudanças interruptivas que reestruturam o formato da API para oferecer suporte a recursos futuros, como direcionamento em tempo real e chamadas de ferramentas assíncronas. Esta página explica o que está mudando e fornece exemplos de código antes e depois para ajudar na migração. Há duas categorias de mudanças:
 
-1. [**Schemat kroków:**](#steps-schema) nowa tablica `steps` zastępuje tablicę `outputs`, zapewniając uporządkowaną oś czasu każdej interakcji.
-2. [**Konfiguracja formatu wyjściowego:**](#output-format-config) nowy polimorficzny
-   `response_format` konsoliduje wszystkie elementy sterujące formatem wyjściowym i usuwa
+1. [**Esquema de etapas**](#steps-schema): uma nova matriz `steps` substitui a matriz
+   `outputs`, fornecendo uma linha do tempo estruturada de cada interação.
+2. [**Configuração do formato de saída**](#output-format-config): um novo polimórfico
+   `response_format` consolida todos os controles de formato de saída e remove
    `response_mime_type`.
 
-Aby zaktualizować integrację, wykonaj czynności opisane w sekcji [Jak przeprowadzić migrację do nowego schematu](#how-to-migrate).
+Siga as etapas em [Como migrar para o novo esquema](#how-to-migrate) para
+atualizar sua integração.
 
-## Najważniejsza zmiana: `outputs` na `steps`
+## Mudança principal: `outputs` para `steps`
 
-Nowy schemat zastępuje tablicę `outputs` tablicą `steps`.
+O novo esquema substitui a matriz `outputs` por uma matriz `steps`.
 
-- **Starsza wersja:** odpowiedzi zwracały płaską tablicę `outputs` zawierającą tylko wygenerowaną przez model treść.
-- **Nowy schemat:** odpowiedzi zwracają tablicę `steps` zawierającą uporządkowane kroki z dyskryminatorami typu.
+- **Legado**: as respostas retornavam uma matriz `outputs` simples que continha apenas o conteúdo gerado do modelo.
+- **Novo esquema**: as respostas retornam uma matriz `steps` que contém etapas estruturadas com discriminadores de tipo.
 
-`POST /interactions` zwraca tylko kroki wyjściowe. `GET /interactions/{id}`
-zwraca pełną oś czasu kroków, w tym początkowy krok `user_input`.
+`POST /interactions` retorna apenas etapas de saída. `GET /interactions/{id}`
+retorna a linha do tempo completa das etapas, incluindo a etapa `user_input` inicial.
 
-### Podstawowe dane wejściowe/wyjściowe (unarne)
+### Entrada/saída básica (unária)
 
-#### Przed (starsza wersja)
+#### Antes (legado)
 
 ### Python
 
@@ -91,7 +93,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### Po aktualizacji (nowy schemat)
+#### Depois (novo esquema)
 
 ### Python
 
@@ -173,11 +175,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### Wywoływanie funkcji
+### Chamadas de função
 
-Struktura żądania pozostaje bez zmian, ale odpowiedź zastępuje płaską treść`outputs` uporządkowanymi krokami.
+A estrutura da solicitação permanece inalterada, mas a resposta substitui o conteúdo `outputs` simples por etapas estruturadas.
 
-#### Przed (starsza wersja)
+#### Antes (legado)
 
 ### Python
 
@@ -222,7 +224,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### Po aktualizacji (nowy schemat)
+#### Depois (novo esquema)
 
 ### Python
 
@@ -270,11 +272,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Narzędzia po stronie serwera
+### Ferramentas do lado do servidor
 
-Narzędzia po stronie serwera (np. wyszukiwarka Google czy wykonywanie kodu) zwracają teraz w tablicy `steps` określone typy kroków. W starszym schemacie te operacje były zwracane jako określone typy treści w tablicy `outputs`, a w nowym schemacie są przenoszone do tablicy `steps`. W przykładach poniżej używamy wyszukiwarki Google.
+As ferramentas do lado do servidor (como a Pesquisa Google ou a execução de código) agora geram tipos de etapas específicos na matriz `steps`. Embora o esquema legado tenha retornado essas operações como tipos de conteúdo específicos na matriz `outputs`, o novo esquema as move para a matriz `steps`. Os exemplos a seguir usam a Pesquisa Google.
 
-#### Przed (starsza wersja)
+#### Antes (legado)
 
 ### Python
 
@@ -348,7 +350,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### Po aktualizacji (nowy schemat)
+#### Depois (novo esquema)
 
 ### Python
 
@@ -434,9 +436,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 ### Streaming
 
-Streaming udostępnia nowe typy zdarzeń:
+O streaming expõe novos tipos de eventos:
 
-#### Nowe typy zdarzeń
+#### Novos tipos de evento
 
 - `interaction.created`
 - `interaction.completed`
@@ -446,22 +448,25 @@ Streaming udostępnia nowe typy zdarzeń:
 - `step.delta`
 - `step.stop`
 
-#### Wycofane typy zdarzeń
+#### Tipos de evento descontinuados
 
-Te starsze typy zdarzeń zostały zastąpione nowymi zdarzeniami wymienionymi powyżej:
+Os seguintes tipos de eventos legados são substituídos pelos novos eventos listados acima:
 
 - `interaction.start` → `interaction.created`
 - `content.start` → `step.start`
 - `content.delta` → `step.delta`
 - `content.stop` → `step.stop`
 - `interaction.complete` → `interaction.completed`
-- `interaction.status_update` → zastąpione przez `interaction.in_progress`, `interaction.requires_action` itp.
+- `interaction.status_update` → substituído por `interaction.in_progress`, `interaction.requires_action` etc.
 
-**Wywoływanie funkcji strumieniowych:** gdy używasz strumieniowania z wywoływaniem funkcji, zdarzenie `step.start` dostarcza nazwę funkcji, a zdarzenia `step.delta` przesyłają argumenty jako częściowe ciągi JSON (za pomocą `arguments_delta`). Aby uzyskać pełne argumenty, musisz zgromadzić te różnice. Różni się to od wywołań binarnych, w których od razu otrzymujesz cały obiekt wywołania funkcji.
+**Chamadas de função de streaming**: quando você usa o streaming com a chamada de função,
+o evento `step.start` entrega o nome da função, e os eventos `step.delta` transmitem
+os argumentos como strings JSON parciais (usando `arguments_delta`). É
+necessário acumular esses deltas para receber os argumentos completos. Isso é diferente das chamadas unárias, em que você recebe o objeto de chamada de função completo de uma só vez.
 
-#### Przykłady
+#### Exemplos
 
-##### Przed (starsza wersja)
+##### Antes (legado)
 
 ### Python
 
@@ -528,7 +533,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### Po aktualizacji (Nowy schemat)
+##### Depois (novo esquema)
 
 ### Python
 
@@ -605,29 +610,32 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### Historia rozmowy bezstanowej
+### Histórico de conversas sem estado
 
-Jeśli zarządzasz historią rozmów ręcznie po stronie klienta (przypadek użycia bezstanowego), musisz zaktualizować sposób łączenia poprzednich tur.
+Se você gerenciar o histórico de conversas manualmente no lado do cliente (caso de uso sem estado), será necessário atualizar a forma como você encadeia as conversas anteriores.
 
-- **Starsze**: deweloperzy często zbierali tablicę `outputs` z odpowiedzi i odsyłali ją w polu `input` w kolejnej turze.
-- **Nowy schemat:** teraz musisz zebrać tablicę `steps` z odpowiedzi i przekazać ją w polu `input` kolejnego żądania, dodając nową turę użytkownika jako krok `user_input`.
+- **Legado**: os desenvolvedores geralmente coletavam a matriz `outputs` das respostas e as enviavam de volta no campo `input` na próxima conversa.
+- **Novo esquema**: agora é necessário coletar a matriz `steps` da resposta e transmiti-la no campo `input` da próxima solicitação, anexando a nova conversa do usuário como uma etapa `user_input`.
 
-## Konfiguracja formatu wyjściowego: `response_format` zmiany
+## Configuração do formato de saída: mudanças em `response_format`
 
-Zaktualizowany interfejs API łączy wszystkie opcje formatu wyjściowego w ujednolicone, polimorficzne pole `response_format`. Centralizuje to konfigurację danych wyjściowych na najwyższym poziomie i sprawia, że `generation_config` koncentruje się na zachowaniu modelu (np. temperaturze, top\_p i procesie myślowym).
+A API atualizada consolida todos os controles de formato de saída em um campo `response_format` unificado e polimórfico. Isso centraliza a configuração de saída no nível superior e mantém `generation_config` focado no comportamento do modelo (como temperatura, top\_p e pensamento).
 
-### Najważniejsze zmiany
+### Mudanças importantes
 
-- **Interfejs API usuwa `response_mime_type`.** Teraz możesz określić typ MIME dla każdego wpisu formatu w sekcji `response_format`.
-- **`response_format` jest teraz obiektem polimorficznym (lub tablicą).** Każdy wpis ma wyróżnik `type` (`text`, `audio`, `image`) i pola specyficzne dla typu. Aby poprosić o wiele trybów wyjściowych, przekaż tablicę wpisów formatu.
-- **`image_config` przenosi się z `generation_config` do `response_format`.**
-  Ustawienia wyjściowe obrazu, takie jak `aspect_ratio` i `image_size`, określasz teraz we wpisie `response_format` z parametrem `"type": "image"`.
+- **A API remove `response_mime_type`.** Agora você especifica o tipo MIME por entrada de formato dentro de `response_format`.
+- **`response_format` agora é um objeto polimórfico (ou matriz).** Cada entrada tem um discriminador de `type` (`text`, `audio`, `image`) e campos específicos do tipo. Para solicitar várias modalidades de saída, transmita uma matriz de entradas de formato.
+- **`image_config` é movido de `generation_config` para `response_format`.**
+  Agora você especifica as configurações de saída de imagem, como `aspect_ratio` e `image_size`
+  em uma entrada `response_format` com `"type": "image"`.
 
-### Uporządkowane dane wyjściowe (JSON)
+### Saída estruturada (JSON)
 
-Nowy schemat usuwa pole `response_mime_type`. Zamiast tego określ typ MIME i schemat JSON w obiekcie `response_format` z wartością `"type": "text"`.
+O novo esquema remove o campo `response_mime_type`. Em vez disso, especifique o
+tipo MIME e o esquema JSON dentro de um `response_format` objeto com
+`"type": "text"`.
 
-#### Przed (starsza wersja)
+#### Antes (legado)
 
 ### Python
 
@@ -683,7 +691,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po aktualizacji (nowy schemat)
+#### Depois (novo esquema)
 
 ### Python
 
@@ -754,11 +762,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### Konfiguracja obrazu
+### Configuração de imagem
 
-Nowy schemat usuwa `image_config` z `generation_config`. Ustawienia wyjściowe obrazu określasz teraz w `response_format` z `"type": "image"`.
+O novo esquema remove `image_config` de `generation_config`. Agora você especifica
+as configurações de saída de imagem em uma entrada `response_format` com `"type": "image"`.
 
-#### Przed (starsza wersja)
+#### Antes (legado)
 
 ### Python
 
@@ -807,7 +816,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po aktualizacji (nowy schemat)
+#### Depois (novo esquema)
 
 ### Python
 
@@ -860,50 +869,52 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-Aby poprosić o wiele trybów wyjściowych (np. tekst i dźwięk), przekaż do funkcji `response_format` tablicę wpisów formatu zamiast pojedynczego obiektu.
+Para solicitar várias modalidades de saída (por exemplo, texto e áudio juntos), transmita uma matriz de entradas de formato para `response_format` em vez de um único objeto.
 
-## Jak przeprowadzić migrację do nowego schematu
+## Como migrar para o novo esquema
 
-### Użytkownicy pakietu SDK
+### Usuários do SDK
 
-Uaktualnij pakiet SDK do najnowszej wersji (Python ≥2.0.0, JavaScript ≥2.0.0). Pakiet SDK automatycznie włącza nowy schemat – nie musisz wprowadzać żadnych zmian w kodzie poza aktualizacją sposobu odczytywania odpowiedzi (patrz przykłady powyżej). Pamiętaj, że w tych wersjach pakietu SDK obsługiwany jest tylko nowy schemat. Starsze wersje pakietu SDK (Python 1.x.x, JavaScript 1.x.x) będą działać do momentu usunięcia starszego schematu **8 czerwca 2026 r.**
+Faça upgrade para a versão mais recente do SDK (Python 2.0.0 e versões posteriores, JavaScript 2.0.0 e versões posteriores). O SDK ativa automaticamente o novo esquema. Não é necessário mudar o código além de atualizar a forma como você lê as respostas (consulte os exemplos acima). Somente o novo esquema é compatível com essas versões do SDK. As versões mais antigas do SDK (Python 1.x.x, JavaScript 1.x.x) vão continuar funcionando até que o esquema legado seja removido em **8 de junho de 2026**.
 
-### Użytkownicy interfejsu API REST
+### Usuários da API REST
 
-Dodaj do żądań nagłówek `Api-Revision: 2026-05-20`, aby już teraz włączyć nowy schemat. Po **26 maja** nowy schemat stanie się domyślnym schematem wszystkich żądań. Możesz tymczasowo zrezygnować z tej funkcji za pomocą `Api-Revision: 2026-05-07` do **8 czerwca**, kiedy interfejs API trwale usunie starszy schemat.
+Adicione o cabeçalho `Api-Revision: 2026-05-20` às suas solicitações para ativar o novo esquema agora. Após **26 de maio**, o novo esquema se torna o padrão para todas as
+solicitações. Você pode desativar temporariamente com `Api-Revision: 2026-05-07`
+até **8 de junho**, quando a API remover permanentemente o esquema legado.
 
-### Oś czasu
+### Cronograma
 
-| Data | Faza | Użytkownicy pakietu SDK | Użytkownicy interfejsu API REST |
+| Data | Fase | Usuários do SDK | Usuários da API REST |
 | --- | --- | --- | --- |
-| **7 maja** | Włącz | Dostępna jest nowa wersja pakietu SDK (Python ≥2.0.0, JS ≥2.0.0). Przejdź na wyższą wersję, aby automatycznie uzyskać nowy schemat. | Aby wyrazić zgodę, dodaj nagłówek `Api-Revision: 2026-05-20`. Domyślne ustawienie pozostaje starsze. |
-| **26 maja** | Domyślne odwrócenie | Jeśli masz już uaktualnioną wersję, nie musisz nic robić. Starsze pakiety SDK (Python 1.x.x, JS 1.x.x) nadal działają, ale zwracają starsze odpowiedzi. | Nowy schemat jest teraz domyślny. Wyślij nagłówek `Api-Revision: 2026-05-07`, aby zrezygnować. |
-| **8 czerwca** | Zachód słońca | Wersje pakietów SDK Python 1.x.x i JS 1.x.x przestaną działać w przypadku wywołań interfejsu Interactions API. | Usunięto starszy schemat interfejsu API interakcji. Nagłówek `Api-Revision` został zignorowany. |
+| **7 de maio** | Ativar | Nova versão do SDK disponível (Python 2.0.0 e versões posteriores, JS 2.0.0 e versões posteriores). Faça upgrade para receber o novo esquema automaticamente. | Adicione o cabeçalho `Api-Revision: 2026-05-20` para ativar. O padrão permanece legado. |
+| **26 de maio** | Inversão padrão | Nenhuma ação necessária se já tiver feito upgrade. Os SDKs mais antigos (Python 1.x.x, JS 1.x.x) ainda funcionam, mas retornam respostas legadas. | O novo esquema agora é o padrão. Envie o cabeçalho `Api-Revision: 2026-05-07` para desativar. |
+| **8 de junho** | Pôr do sol | As versões do SDK Python 1.x.x e JS 1.x.x vão falhar nas chamadas da API Interactions. | Esquema legado removido para a API Interactions. Cabeçalho `Api-Revision` ignorado. |
 
-## Lista kontrolna migracji
+## Lista de verificação de migração
 
-### Schemat kroków (`steps`)
+### Esquema de etapas (`steps`)
 
-- Zaktualizuj kod, aby odczytywać treść odpowiedzi z tablicy `steps` zamiast z `outputs`. [Zobacz przykłady](#basic-unary)
-- Sprawdź, czy kod obsługuje typy kroków `user_input` i `model_output`. [Zobacz przykłady](#basic-unary)
-- (Function Calling) Zaktualizuj kod, aby znaleźć kroki `function_call` w tablicy `steps`. [Zobacz przykłady](#function-calling)
-- (Narzędzia po stronie serwera) Zaktualizuj kod, aby obsługiwał kroki specyficzne dla narzędzia (np. `google_search_call`, `google_search_result`). [Zobacz przykłady](#server-side-tools)
-- (Historia bezstanowa) Zaktualizuj zarządzanie historią, aby przekazywać tablicę `steps` w polu `input` następnego żądania. [Zobacz szczegóły](#stateless-history)
-- (Tylko przesyłanie strumieniowe) Zaktualizuj klienta, aby nasłuchiwał nowych typów zdarzeń SSE (`interaction.created`, `step.delta` itp.). [Zobacz przykłady](#streaming)
+- Atualize o código para ler o conteúdo da resposta da matriz `steps` em vez de `outputs`. [Confira exemplos](#basic-unary).
+- Verifique se o código processa os tipos de etapa `user_input` e `model_output`. [Confira exemplos](#basic-unary).
+- (Chamada de função) Atualize o código para encontrar etapas `function_call` na matriz `steps`. [Confira exemplos](#function-calling).
+- (Ferramentas do lado do servidor) Atualize o código para processar etapas específicas da ferramenta (por exemplo, `google_search_call`, `google_search_result`). [Confira exemplos](#server-side-tools).
+- (Histórico sem estado) Atualize o gerenciamento do histórico para transmitir a matriz `steps` no campo `input` da próxima solicitação. [Confira os detalhes](#stateless-history).
+- (Somente streaming) Atualize o cliente para detectar novos tipos de eventos SSE (`interaction.created`, `step.delta` etc.). [Confira exemplos](#streaming).
 
-### Konfiguracja formatu wyjściowego (`response_format`)
+### Configuração do formato de saída (`response_format`)
 
-- Zastąp `response_mime_type` polem `mime_type` wewnątrz `response_format`. [Zobacz przykłady](#structured-output)
-- Umieść istniejący schemat JSON `response_format` w obiekcie `{"type": "text", "schema": ...}`. [Zobacz przykłady](#structured-output)
-- (Generowanie obrazów) Przenieś `image_config` z kampanii `generation_config` do pozycji `{"type": "image", ...}` w sekcji `response_format`. [Zobacz przykłady](#image-config)
-- (Multimodal) Konwertuj `response_format` z pojedynczego obiektu na tablicę, gdy prosisz o wiele rodzajów danych wyjściowych.
+- Substitua `response_mime_type` por um campo `mime_type` dentro de `response_format`. [Confira exemplos](#structured-output).
+- Inclua o esquema JSON `response_format` atual em um objeto `{"type": "text", "schema": ...}`. [Confira exemplos](#structured-output).
+- (Geração de imagens) Mova `image_config` de `generation_config` para uma entrada `{"type": "image", ...}` em `response_format`. [Confira exemplos](#image-config).
+- (Multimodal) Converta `response_format` de um único objeto para uma matriz ao solicitar várias modalidades de saída.
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-06-01 UTC.
+Última atualização 2026-06-01 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-01 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]

@@ -1,38 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=ko
-fetched_at: 2026-06-08T15:07:20.235030+00:00
-title: "Gemini Developer API\uc640 Gemini Enterprise Agent Platform \ube44\uad50 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=hi
+fetched_at: 2026-06-15T06:25:33.207912+00:00
+title: "Gemini Developer API \u092c\u0928\u093e\u092e Gemini Enterprise Agent Platform \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-의견 보내기
+सुझाव भेजें
 
-# Gemini Developer API와 Gemini Enterprise Agent Platform 비교
+# Gemini Developer API बनाम Gemini Enterprise Agent Platform
 
-Gemini로 생성형 AI 솔루션을 개발할 때 Google에서는 [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=ko)와 [Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=ko)라는 두 가지 API 제품을 제공합니다.
+Gemini की मदद से जनरेटिव एआई के समाधान डेवलप करने के लिए, Google दो एपीआई प्रॉडक्ट उपलब्ध कराता है:
+[Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=hi) और [Gemini Enterprise Agent Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=hi).
 
-Gemini Developer API는 Gemini 기반 애플리케이션을 빌드, 프로덕션화, 확장하는 가장 빠른 방법을 제공합니다. 특정 엔터프라이즈 컨트롤이 필요한 경우가 아니라면 대부분의 개발자는 Gemini 개발자 API를 사용해야 합니다.
+Gemini Developer API की मदद से, Gemini की सुविधाओं वाले ऐप्लिकेशन को तेज़ी से बनाया, प्रोडक्शन में लाया, और स्केल किया जा सकता है. ज़्यादातर डेवलपर को Gemini Developer API का इस्तेमाल करना चाहिए. हालांकि, अगर एंटरप्राइज़ के लिए खास कंट्रोल की ज़रूरत हो, तो Gemini Enterprise Agent Platform API का इस्तेमाल किया जा सकता है.
 
-Gemini Enterprise Agent Platform은 Google Cloud Platform에서 지원하는 생성형 AI 애플리케이션을 빌드하고 배포하기 위한 엔터프라이즈 지원 기능 및 서비스의 포괄적인 생태계를 제공합니다.
+Gemini Enterprise Agent Platform, एंटरप्राइज़ के लिए तैयार सुविधाओं और सेवाओं का एक पूरा इकोसिस्टम उपलब्ध कराता है. इसकी मदद से, Google Cloud Platform पर जनरेटिव एआई के ऐप्लिकेशन बनाए और डिप्लॉय किए जा सकते हैं.
 
-최근 이러한 서비스 간의 마이그레이션이 간소화되었습니다. 이제 통합된 [Google 생성형 AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ko)를 통해 Gemini Developer API와 Gemini Enterprise Agent Platform API에 모두 액세스할 수 있습니다.
+हमने हाल ही में इन सेवाओं के बीच माइग्रेट करने की प्रोसेस को आसान बनाया है. अब Gemini
+Developer API और Gemini Enterprise Agent Platform API, दोनों को unified
+[Google Gen AI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=hi) की मदद से ऐक्सेस किया जा सकता है.
 
-## 코드 비교
+## कोड की तुलना
 
-이 페이지에는 텍스트 생성을 위한 Gemini Developer API와 Gemini Enterprise Agent Platform 빠른 시작의 코드 비교가 나란히 표시되어 있습니다.
+इस पेज पर, टेक्स्ट जनरेट करने के लिए Gemini Developer API और Gemini Enterprise Agent Platform के क्विकस्टार्ट के कोड की तुलना की गई है.
 
 ### Python
 
-`google-genai` 라이브러리를 통해 Gemini Developer API와 Gemini Enterprise Agent Platform 서비스에 모두 액세스할 수 있습니다. `google-genai` 설치 방법에 대한 안내는 [라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko) 페이지를 참고하세요.
+`google-genai` लाइब्रेरी की मदद से, Gemini Developer API और Gemini Enterprise Agent Platform, दोनों की सेवाओं को ऐक्सेस किया जा सकता है. [लाइब्रेरीज़](https://ai.google.dev/gemini-api/docs/libraries?hl=hi) पेज पर
+`google-genai` इंस्टॉल करने के निर्देशों के लिए, देखें.
 
 ### Gemini Developer API
 
@@ -62,9 +66,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript 및 TypeScript
+### JavaScript और TypeScript
 
-`@google/genai` 라이브러리를 통해 Gemini Developer API와 Gemini Enterprise Agent Platform 서비스에 모두 액세스할 수 있습니다. `@google/genai` 설치 방법에 대한 안내는 [라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko) 페이지를 참고하세요.
+`@google/genai` लाइब्रेरी की मदद से, Gemini Developer API और Gemini Enterprise Agent Platform, दोनों की सेवाओं को ऐक्सेस किया जा सकता है. [लाइब्रेरीज़](https://ai.google.dev/gemini-api/docs/libraries?hl=hi) पेज पर, `@google/genai` इंस्टॉल करने के निर्देशों के लिए देखें.
 
 ### Gemini Developer API
 
@@ -107,7 +111,8 @@ main();
 
 ### Go
 
-`google.golang.org/genai` 라이브러리를 통해 Gemini Developer API와 Gemini Enterprise Agent Platform 서비스에 모두 액세스할 수 있습니다. `google.golang.org/genai` 설치 방법에 대한 안내는 [라이브러리](https://ai.google.dev/gemini-api/docs/libraries?hl=ko) 페이지를 참고하세요.
+`google.golang.org/genai` लाइब्रेरी की मदद से, Gemini Developer API और Gemini Enterprise Agent Platform, दोनों की सेवाओं को ऐक्सेस किया जा सकता है. [लाइब्रेरीज़](https://ai.google.dev/gemini-api/docs/libraries?hl=hi) पेज पर
+इंस्टॉल करने के निर्देशों के लिए, `google.golang.org/genai` देखें.
 
 ### Gemini Developer API
 
@@ -168,41 +173,47 @@ func main() {
 }
 ```
 
-### 기타 사용 사례 및 플랫폼
+### इस्तेमाल के अन्य उदाहरण और प्लैटफ़ॉर्म
 
-다른 플랫폼 및 사용 사례는 [Gemini 개발자 API 문서](https://ai.google.dev/gemini-api/docs?hl=ko) 및 [Gemini Enterprise Agent Platform 문서](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=ko)의 사용 사례별 가이드를 참고하세요.
+अन्य प्लैटफ़ॉर्म और इस्तेमाल के उदाहरणों के लिए, [Gemini Developer API के दस्तावेज़](https://ai.google.dev/gemini-api/docs?hl=hi)
+और [Gemini Enterprise Agent Platform के दस्तावेज़](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=hi)
+में, इस्तेमाल के उदाहरणों से जुड़े गाइड देखें.
 
-## 마이그레이션 고려사항
+## माइग्रेशन से जुड़ी ज़रूरी बातें
 
-마이그레이션 시 다음 사항에 유의하세요.
+माइग्रेट करने पर:
 
-- 인증하려면 Google Cloud 서비스 계정을 사용해야 합니다. 자세한 내용은 [Gemini Enterprise Agent Platform 문서](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=ko)를 참고하세요.
-- 기존 Google Cloud 프로젝트(API 키를 생성하는 데 사용한 동일한 프로젝트)를 사용하거나 [새 Google Cloud 프로젝트를 만들](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ko) 수 있습니다.
-- 지원되는 리전은 Gemini Developer API와 Gemini Enterprise Agent Platform API 간에 다를 수 있습니다. [Google Cloud의 생성형 AI가 지원되는 리전](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=ko) 목록을 참고하세요.
-- Google AI Studio에서 만든 모든 모델은 Gemini Enterprise Agent Platform에서 재학습을 거쳐야 합니다.
+- आपको पुष्टि करने के लिए, Google Cloud के सेवा खातों का इस्तेमाल करना होगा. ज़्यादा जानकारी के लिए, [Gemini Enterprise Agent Platform का दस्तावेज़](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=hi)
+  देखें.
+- [आपके पास, मौजूदा Google Cloud प्रोजेक्ट
+  (वही प्रोजेक्ट जिसका इस्तेमाल आपने एपीआई पासकोड जनरेट करने के लिए किया था) का इस्तेमाल करने या नया Google Cloud प्रोजेक्ट](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=hi)बनाने का विकल्प होता है.
+- Gemini Developer API और Gemini Enterprise Agent Platform API के लिए, काम करने वाले इलाकों में फ़र्क़ हो सकता है. Google Cloud पर जनरेटिव एआई के लिए, काम करने वाले इलाकों की सूची देखें
+  .
+- Google AI Studio में बनाए गए सभी मॉडल को, Gemini Enterprise Agent Platform में फिर से ट्रेन करना होगा.
 
-Gemini Developer API에 Gemini API 키를 더 이상 사용할 필요가 없으면 보안 권장사항에 따라 삭제합니다.
+अगर आपको Gemini Developer API के लिए, Gemini API पासकोड का इस्तेमाल नहीं करना है, तो सुरक्षा से जुड़े सबसे सही तरीके अपनाएं और उसे मिटा दें.
 
-API 키를 삭제하는 방법은 다음과 같습니다.
+एपीआई पासकोड मिटाने के लिए:
 
-1. [Google Cloud API 사용자 인증 정보](https://console.cloud.google.com/apis/credentials?hl=ko) 페이지를 엽니다.
-2. 삭제할 API 키를 찾아 **작업** 아이콘을 클릭합니다.
-3. **API 키 삭제**를 선택합니다.
-4. **사용자 인증 정보 삭제** 모달에서 **삭제**를 선택합니다.
+1. [Google Cloud के एपीआई क्रेडेंशियल वाला पेज खोलें.](https://console.cloud.google.com/apis/credentials?hl=hi)
+2. वह एपीआई पासकोड ढूंढें जिसे आपको मिटाना है. इसके बाद, **कार्रवाइयां** आइकॉन पर क्लिक करें.
+3. **एपीआई पासकोड मिटाएं** को चुनें.
+4. **क्रेडेंशियल मिटाएं** वाले मॉडल में, **मिटाएं** को चुनें.
 
-   API 키 삭제가 반영되기까지 몇 분 정도 걸립니다. 키 삭제가
-   완료되면, 삭제된 API 키를 사용하는 모든 트래픽이 거부됩니다.
+   एपीआई पासकोड मिटाने के बाद, इसे सभी जगह से हटाने में कुछ मिनट लगते हैं. सभी जगह से हटाने की प्रोसेस पूरी होने के बाद, मिटाए गए एपीआई पासकोड का इस्तेमाल करने वाले किसी भी ट्रैफ़िक को अस्वीकार कर दिया जाता है.
 
-## 다음 단계
+## अगले चरण
 
-- Gemini Enterprise Agent Platform의 생성형 AI 솔루션에 대해 자세히 알아보려면 [Gemini Enterprise Agent Platform의 생성형 AI 개요](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/multimodal/overview?hl=ko)를 참고하세요.
+- Gemini Enterprise Agent Platform पर जनरेटिव एआई के समाधानों के बारे में ज़्यादा जानने के लिए,
+  [Gemini Enterprise Agent Platform पर जनरेटिव एआई की खास जानकारी](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/multimodal/overview?hl=hi)
+  देखें.
 
-의견 보내기
+सुझाव भेजें
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-최종 업데이트: 2026-05-19(UTC)
+आखिरी बार 2026-05-19 (UTC) को अपडेट किया गया.
 
-의견을 전달하고 싶나요?
+क्या आपको हमें और कुछ बताना है?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-19 (UTC) को अपडेट किया गया."],[],[]]

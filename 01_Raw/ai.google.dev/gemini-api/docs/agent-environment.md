@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja
-fetched_at: 2026-06-08T14:55:25.699928+00:00
-title: "\u30de\u30cd\u30fc\u30b8\u30c9 \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u74b0\u5883 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi
+fetched_at: 2026-06-15T06:24:23.867635+00:00
+title: "M\u00f4i tr\u01b0\u1eddng trong c\u00e1c t\u00e1c nh\u00e2n \u0111\u01b0\u1ee3c qu\u1ea3n l\u00fd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# マネージド エージェントの環境
+# Môi trường trong các tác nhân được quản lý
 
-環境はマネージド Linux サンドボックスであり、エージェントがコードを実行してファイルを永続化するための隔離された場所を提供します。環境はインタラクション コンテキストから切り離されているため、複数のインタラクションで同じ環境を再利用したり、いつでも最初からやり直したりできます。
+Môi trường là các hộp cát Linux được quản lý, cung cấp cho các tác nhân một nơi tách biệt để thực thi mã và duy trì các tệp. Các thành phần này tách biệt với bối cảnh tương tác, vì vậy, bạn có thể sử dụng lại cùng một môi trường cho nhiều lượt tương tác hoặc bắt đầu lại từ đầu bất cứ lúc nào.
 
-次の例は、新しいリモート環境でインタラクションを作成してその ID を取得する方法を示しています。
+Ví dụ sau đây minh hoạ cách tạo một hoạt động tương tác với một môi trường từ xa mới và truy xuất mã nhận dạng của hoạt động đó:
 
 ### Python
 
@@ -68,17 +68,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## `environment` パラメータ
+## Tham số `environment`
 
-`environment` パラメータは、次の 3 つの形式を受け入れます。
+Tham số `environment` chấp nhận 3 dạng:
 
-| フォーム | 例 | 使用する場面 |
+| Biểu mẫu | Ví dụ: | Trường hợp sử dụng |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | 新しいサンドボックスをプロビジョニングする。 |
-| 環境 ID | `environment="env_abc123"` | すべてのファイルとパッケージを含む既存のサンドボックスを再利用する。 |
-| 構成オブジェクト | `environment={...}` | ソース、ネットワーク ルール、またはその両方を使用して新しいサンドボックスをプロビジョニングする。 |
+| `"remote"` | `environment="remote"` | Cung cấp một hộp cát mới. |
+| Mã môi trường | `environment="env_abc123"` | Sử dụng lại một hộp cát hiện có cùng với tất cả tệp và gói của hộp cát đó. |
+| Đối tượng cấu hình | `environment={...}` | Cung cấp một hộp cát mới có nguồn, quy tắc mạng hoặc cả hai. |
 
-次の例は、`environment` パラメータを使用する 3 つの方法を示しています。
+Các ví dụ sau đây minh hoạ 3 cách sử dụng tham số `environment`.
 
 ### Python
 
@@ -209,9 +209,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 環境を構成する
+## Định cấu hình môi trường
 
-環境を設定する方法の一つは、インストールする必要があるものをエージェントに伝えることです。依存関係の解決とトラブルシューティングを処理します。環境の準備ができたら、`environment_id` を保存して再利用します。
+Một cách để thiết lập môi trường là cho tác nhân phần mềm biết những gì bạn cần cài đặt.
+Nó xử lý việc giải quyết phần phụ thuộc và khắc phục sự cố. Sau khi môi trường đã sẵn sàng, hãy lưu `environment_id` và sử dụng lại.
 
 ### Python
 
@@ -289,15 +290,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### ソースからマウントする
+### Gắn từ một nguồn
 
-エージェントに必要なファイルがわかっている場合は、反復処理を行うのではなく、1 回の呼び出しでマウントします。`environment` 構成オブジェクトは、次の 3 つのタイプの `sources` 配列を受け入れます。
+Nếu bạn biết chính xác những tệp mà tác nhân cần, hãy gắn các tệp đó trong một lệnh gọi duy nhất thay vì lặp lại. Đối tượng cấu hình `environment` chấp nhận một mảng `sources` có 3 loại:
 
-| ソースタイプ | `type` 値 | 説明 | 上限 |
+| Loại nguồn | Giá trị `type` | Mô tả | Hạn mức |
 | --- | --- | --- | --- |
-| Git リポジトリ | `repository` | URL から `target` のサンドボックスにリポジトリのクローンを作成します。 | 500 MB |
-| Cloud Storage | `gcs` | Cloud Storage から `target` のサンドボックスにファイルまたはディレクトリをコピーします。 | 2 GB |
-| インライン コンテンツ | `inline` | `target` のサンドボックス内のファイルに未加工のテキスト コンテンツを書き込みます。 | 1 ファイルあたり 1 MB、合計 2 MB |
+| Kho lưu trữ Git | `repository` | Sao chép một kho lưu trữ từ một URL vào hộp cát tại `target`. | 500 MB |
+| Cloud Storage | `gcs` | Sao chép một tệp hoặc thư mục từ Cloud Storage vào hộp cát tại `target`. | 2 GB |
+| Nội dung cùng dòng | `inline` | Ghi nội dung văn bản thô vào một tệp trong hộp cát tại `target`. | 1 MB mỗi tệp, tổng cộng 2 MB |
 
 ### Python
 
@@ -403,16 +404,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-両方のアプローチを組み合わせることができます。既知のソースを宣言的にマウントし、フォローアップ インタラクションで反復処理を行ってパッケージをインストールするか、設定スクリプトを実行します。カスタムソースを追加するときにルート（`/`）をターゲットとして設定することはできません。常にサブディレクトリを指定する必要があります。
+Bạn có thể kết hợp cả hai phương pháp: khai báo các nguồn đã biết, sau đó lặp lại bằng các hoạt động tương tác tiếp theo để cài đặt các gói hoặc chạy tập lệnh thiết lập. Bạn không thể đặt thư mục gốc (`/`) làm mục tiêu khi thêm một nguồn tuỳ chỉnh, bạn phải luôn chỉ định một thư mục con.
 
-### プライベート ソース
+### Nguồn riêng tư
 
-ネットワーク構成に認証情報を追加することで、プライベート Github リポジトリまたはプライベート Cloud Storage バケットからダウンロードすることもできます。
+Bạn cũng có thể tải xuống từ các kho lưu trữ Github riêng tư hoặc các vùng lưu trữ riêng tư trên đám mây bằng cách thêm thông tin đăng nhập vào cấu hình mạng:
 
-**プライベート Git リポジトリ**の場合は、`Basic` 認証を使用して
-[GitHub 個人アクセス トークン
-（PAT）](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)を使用します。
-トークンをエンコードするには、ユーザー名として `x-oauth-basic` を使用します。
+Đối với **kho lưu trữ Git riêng tư**, hãy sử dụng phương thức xác thực `Basic` bằng [Mã thông báo truy cập cá nhân (PAT) của GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+Mã hoá mã thông báo bằng `x-oauth-basic` làm tên người dùng:
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -518,7 +517,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-**プライベート Cloud Storage バケット** の場合は、標準の OAuth 2.0 署名なしトークンを使用します。
+Đối với **các bộ chứa riêng tư trong Cloud Storage**, hãy sử dụng mã thông báo Bearer OAuth 2.0 tiêu chuẩn:
 
 ```
 gcloud auth print-access-token
@@ -624,25 +623,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## プリインストールされているソフトウェア
+## Phần mềm được cài đặt sẵn
 
-サンドボックスは Ubuntu で実行され、ランタイムと一般的なパッケージがプリインストールされています。エージェントは、`pip
-install` または `npm install` を使用して、実行時に追加のパッケージをインストールできます。インタラクション中にインストールされたパッケージは、同じ `environment_id` を再利用するときに保持されます。
+Hộp cát chạy trên Ubuntu và đi kèm với các thời gian chạy và gói chung được cài đặt sẵn. Tác nhân có thể cài đặt các gói bổ sung trong thời gian chạy bằng cách sử dụng `pip
+install` hoặc `npm install`. Các gói được cài đặt trong quá trình tương tác sẽ vẫn tồn tại khi bạn dùng lại cùng một `environment_id`.
 
-| カテゴリ | プリインストールされているパッケージ |
+| Danh mục | Các gói được cài đặt sẵn |
 | --- | --- |
-| **UNIX ツール** | `curl`、`wget`、`git`、`rsync`、`unzip`、`ripgrep`、`fd-find`、`gawk`、`bc`、`tree`、`which`、`lsof`、`htop`、`jq`、`iproute2`、`procps`、`gcloud CLI` |
-| **Python 3.12** | `numpy`、`pandas`、`requests`、`google-genai`、`beautifulsoup4`、`pyyaml`、`ast-grep-cli` |
-| **Node.js 22** | `create-next-app`、`create-vite`、`typescript` |
+| **Công cụ UNIX** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
+| **Python 3.12** | `numpy`, `pandas`, `requests`, `google-genai`, `beautifulsoup4`, `pyyaml`, `ast-grep-cli` |
+| **Node.js 22** | `create-next-app`, `create-vite`, `typescript` |
 
-## ネットワークの構成
+## Cấu hình mạng
 
-デフォルトでは、環境には無制限の下り（外向き）ネットワーク アクセスがあります。`network` フィールドを使用して、下り（外向き）トラフィックを特定のドメインに制限します。各ルールでは、一致するリクエストにヘッダーを挿入する `domain` とオプションの `transform` オブジェクトを指定します。これらのヘッダーはインタラクションごとに一意にすることができ、同じ環境で更新できます。
+Theo mặc định, các môi trường có quyền truy cập mạng đi không hạn chế. Sử dụng trường `network` để hạn chế lưu lượng truy cập đi đến các miền cụ thể. Mỗi quy tắc chỉ định một `domain` và một đối tượng `transform` không bắt buộc để chèn tiêu đề vào các yêu cầu trùng khớp. Các tiêu đề này có thể là duy nhất cho mỗi lượt tương tác và bạn có thể cập nhật chúng cho cùng một môi trường.
 
-| フィールド | タイプ | 説明 |
+| Trường | Loại | Mô tả |
 | --- | --- | --- |
-| `domain` | `string` | 一致するドメイン。正確なホスト名を使用するか、すべてのドメインに `*` を使用します。 |
-| `transform` | `object` | 一致するリクエストに挿入するヘッダーを表すフラットな Key-Value ペアを含むオブジェクト（例: `{"Authorization": "Bearer ..."}`）。 |
+| `domain` | `string` | Miền cần khớp. Sử dụng tên máy chủ chính xác hoặc `*` cho tất cả các miền. |
+| `transform` | `object` | Đối tượng chứa các cặp khoá-giá trị đơn giản đại diện cho các tiêu đề cần chèn vào các yêu cầu khớp, ví dụ: `{"Authorization": "Bearer ..."}`. |
 
 ### Python
 
@@ -732,14 +731,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-許可リストが設定されている場合、明示的にリストされたドメインへのリクエストのみが許可されます。ワイルドカードを使用してサブドメインを照合できます（例: `{"domain":
-"*.example.com"}`）。ただし、ルートドメイン
-`example.com` は照合されません。これは別途追加する必要があります。挿入されたヘッダーのないリストにないドメインのルーティングなど、他のすべてのトラフィックを許可するには、`{"domain": "*"}`を
-キャッチオール エントリとして追加します。
+Khi bạn đặt danh sách cho phép, chỉ những yêu cầu đến các miền được liệt kê rõ ràng mới được phép. Bạn có thể sử dụng ký tự đại diện để so khớp các miền con (ví dụ: `{"domain":
+"*.example.com"}`), nhưng lưu ý rằng ký tự này không so khớp miền gốc `example.com`. Bạn phải thêm miền gốc riêng. Để cho phép tất cả lưu lượng truy cập khác, chẳng hạn như định tuyến các miền không có trong danh sách mà không có tiêu đề được chèn, hãy thêm `{"domain": "*"}` làm mục nhập chung.
 
-### 認証情報
+### Thông tin xác thực
 
-ヘッダー変換を追加して、エージェントが使用する認証情報を追加できます。認証情報は下り（外向き）プロキシによってそれぞれの HTTP ヘッダーに挿入され、環境変数やファイルとしてサンドボックス内に公開されることはありません。
+Bạn có thể thêm thông tin đăng nhập để tác nhân sử dụng bằng cách thêm các phép biến đổi tiêu đề. Thông tin đăng nhập được một proxy truyền dữ liệu ra ngoài chèn vào các tiêu đề HTTP tương ứng, thông tin này không bao giờ được hiển thị bên trong hộp cát dưới dạng các biến môi trường hoặc tệp.
 
 ### Python
 
@@ -833,9 +830,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### ネットワーク アクセスを無効にする
+### Tắt quyền truy cập mạng
 
-すべての下り（外向き）ネットワーク アクセスをブロックするには、`network` を `disabled` に設定します。
+Để chặn tất cả quyền truy cập vào mạng bên ngoài, hãy đặt `network` thành `disabled`:
 
 ### Python
 
@@ -892,21 +889,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 環境のライフサイクル
+## Vòng đời của môi trường
 
-環境は次のライフサイクルに従います。
+Môi trường tuân theo vòng đời sau:
 
-| 州 | 行動 |
+| Tiểu bang | Hành vi |
 | --- | --- |
-| **作成日** | インタラクションで `environment: "remote"` または構成オブジェクトが指定されたときにプロビジョニングされます。 |
-| **有効** | インタラクションの進行中に実行されます。 |
-| **アイドル状態** | 15 分間操作がないと、自動スナップショットが作成され、停止します。 |
-| **オフライン** | 最後にアクティブになってから 7 日間保持されます。ID を渡すことで再開できます。 |
-| **削除しました** | システムから削除されました。 |
+| **Đã tạo** | Được cung cấp khi một lượt tương tác chỉ định `environment: "remote"` hoặc một đối tượng cấu hình. |
+| **Đang hoạt động** | Chạy trong khi đang có một lượt tương tác. |
+| **Không hoạt động** | Tự động chụp nhanh và dừng sau 15 phút không hoạt động. |
+| **Ngoại tuyến** | Được giữ lại trong 7 ngày kể từ lần hoạt động gần đây nhất. Có thể tiếp tục bằng cách truyền mã nhận dạng của nó. |
+| **Đã xoá** | Đã xoá khỏi hệ thống. |
 
-## 環境からファイルをダウンロードする
+## Tải tệp xuống từ môi trường
 
-エージェントは実行中にサンドボックス内にファイルを作成します。Files API を使用して、環境スナップショット全体を tar ファイルとしてダウンロードできます。
+Tác nhân tạo các tệp bên trong hộp cát trong quá trình thực thi. Bạn có thể tải toàn bộ ảnh chụp nhanh môi trường xuống dưới dạng tệp tar bằng Files API:
 
 ### Python
 
@@ -1002,40 +999,39 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## 料金とリソース
+## Giá cả và tài nguyên
 
-各環境は、固定リソース割り当てで実行されます。
+Mỗi môi trường chạy với mức phân bổ tài nguyên cố định:
 
-| リソース | 値 |
+| Tài nguyên | Giá trị |
 | --- | --- |
-| **CPU** | 4 コア |
-| **メモリ** | 16 GB |
+| **CPU** | 4 lõi |
+| **Bộ nhớ** | 16 GB |
 
-プレビュー期間中は、環境コンピューティング（CPU、メモリ、サンドボックス実行）は**課金されません** 。エージェント トークンの費用については、
-[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#pricing-for-agents)をご覧ください。
+Môi trường điện toán (CPU, bộ nhớ, thực thi hộp cát) **không được tính phí** trong thời gian xem trước. Xem phần [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) để biết chi phí mã thông báo của tác nhân.
 
-## 制限事項
+## Các điểm hạn chế
 
-- **プレビュー ステータス:** 環境とマネージド エージェントはプレビュー版です。機能とスキーマは変更される可能性があります。
-- **インライン ソースのサイズ:** インライン ソースは、1 ファイルあたり 1 MB、すべてのファイルで合計 2 MB に制限されています。
-- **ソースサイズ**: Git リポジトリは 500 MB、Cloud Storage リポジトリは 2 GB に制限されています。
-- **環境の起動:** 新しい環境のプロビジョニングには最大 5 秒かかります。ソース リポジトリが大きいと、この時間が長くなる可能性があります。
-- **ファイルのサポート:** 現在、エージェントはテキスト ファイルと画像ファイルの読み取りに制限されています。バイナリ ファイルのサポートはまだ利用できません。
-- **ルートからのマウント不可:** カスタムソースを追加するときにルート（`/`）をターゲットとして設定することはできません。常にサブディレクトリを指定する必要があります。
+- **Trạng thái xem trước:** Môi trường và nhân viên hỗ trợ được quản lý đang ở trạng thái xem trước. Các tính năng và giản đồ có thể thay đổi.
+- **Kích thước nguồn nội tuyến:** Nguồn nội tuyến bị giới hạn ở mức 1 MB cho mỗi tệp và tổng cộng 2 MB cho tất cả các tệp.
+- **Kích thước nguồn**: Kho lưu trữ Git có giới hạn 500 MB và kho lưu trữ Bộ nhớ đám mây có giới hạn 2 GB.
+- **Khởi động môi trường:** Quá trình cung cấp một môi trường mới mất tối đa khoảng 5 giây. Các kho lưu trữ nguồn lớn có thể làm tăng thời gian này.
+- **Hỗ trợ tệp:** Hiện tại, tác nhân chỉ có thể đọc tệp văn bản và hình ảnh. Tính năng hỗ trợ tệp nhị phân hiện chưa được cung cấp.
+- **Không gắn từ thư mục gốc:** Bạn không thể đặt thư mục gốc (`/`) làm đích đến khi thêm một nguồn tuỳ chỉnh, bạn phải luôn chỉ định một thư mục con.
 
-## 次のステップ
+## Bước tiếp theo
 
-- [エージェントの概要](https://ai.google.dev/gemini-api/docs/agents?hl=ja): マネージド エージェントの基本コンセプトについて学習する。
-- [クイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja): 複数ターンの会話とストリーミングで構築を開始する。
-- [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja): デフォルト エージェントの機能、ツール、料金を確認する。
-- [カスタム エージェントの構築](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ja): `AGENTS.md` と `SKILL.md` を使用して独自のエージェントを定義する。
+- [Tổng quan về tác nhân](https://ai.google.dev/gemini-api/docs/agents?hl=vi): Tìm hiểu về các khái niệm cốt lõi của tác nhân được quản lý.
+- [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): Bắt đầu xây dựng bằng các cuộc trò chuyện nhiều lượt và tính năng phát trực tuyến.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi): Khám phá các chức năng, công cụ và giá của tác nhân mặc định.
+- [Tạo tác nhân tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi): Xác định tác nhân của riêng bạn bằng cách sử dụng `AGENTS.md` và `SKILL.md`.
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-05-20 UTC。
+Cập nhật lần gần đây nhất: 2026-05-20 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-20 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-20 UTC."],[],[]]

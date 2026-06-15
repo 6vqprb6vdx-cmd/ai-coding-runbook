@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=he
-fetched_at: 2026-06-08T15:06:04.018737+00:00
+fetched_at: 2026-06-15T06:25:24.954591+00:00
 title: "\u05db\u05d5\u05d5\u05e0\u05d5\u05df \u05d1\u05e2\u05d6\u05e8\u05ea Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

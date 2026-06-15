@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=pt-BR
-fetched_at: 2026-06-08T15:03:17.085049+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ar
+fetched_at: 2026-06-15T06:27:14.877938+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envie comentários
+إرسال ملاحظات
 
-# Raciocínio do Gemini
+# التفكير في Gemini
 
-Os modelos das séries [Gemini 3 e 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pt-br) usam um
-"processo de raciocínio" que melhora significativamente as habilidades de raciocínio e planejamento em várias etapas, tornando-os altamente eficazes para tarefas complexas, como
-programação, matemática avançada e análise de dados.
+تستخدم [نماذج Gemini 3 و2.5 سلسلة](https://ai.google.dev/gemini-api/docs/models?hl=ar)
+"عملية تفكير" تُحسِّن بشكل كبير قدرات الاستدلال والتخطيط المتعدّد الخطوات، ما يجعلها فعّالة للغاية في المهام المعقدة، مثل
+الترميز والرياضيات المتقدّمة وتحليل البيانات.
 
-Quando você usa um modelo de raciocínio, o Gemini raciocina internamente antes de responder. A API Interactions mostra esse raciocínio por meio de etapas `thought`, etapas dedicadas que aparecem cronologicamente ao lado de chamadas de função, entradas do usuário ou saídas do modelo na matriz `steps`.
+عند استخدام نموذج تفكير، يستدلّ Gemini داخليًا قبل الردّ. تعرض Interactions API هذا الاستدلال من خلال خطوات `thought`، وهي خطوات مخصّصة تظهر بترتيب زمني إلى جانب استدعاءات الدوال أو إدخالات المستخدم أو نواتج النموذج في مصفوفة `steps`.
 
-Cada etapa de raciocínio contém dois campos:
+تحتوي كل خطوة تفكير على حقلَين:
 
-| Campo | Obrigatório | Descrição |
+| الحقل | مطلوب أو اختياري | الوصف |
 | --- | --- | --- |
-| `signature` | ✅ Sim | Uma representação criptografada do estado de raciocínio interno do modelo. Sempre presente, mesmo quando o modelo realiza um raciocínio mínimo. |
-| `summary` | ❌ Não | Uma matriz de conteúdo (texto e/ou imagens) que resume o raciocínio. Pode estar vazia dependendo da configuração [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=pt-br), se o modelo realizou raciocínio suficiente ou do tipo de conteúdo (por exemplo, latentes de imagem podem não ter resumos de texto). |
+| `signature` | ✅ نعم | تمثيل مشفّر لحالة الاستدلال الداخلي للنموذج يظهر دائمًا، حتى عندما يُجري النموذج الحد الأدنى من الاستدلال |
+| `summary` | ❌ لا | مصفوفة من المحتوى (نص و/أو صور) تلخّص الاستدلال قد تكون فارغة استنادًا إلى إعداد [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=ar)، أو ما إذا كان النموذج قد أجرى ما يكفي من الاستدلال، أو نوع المحتوى (على سبيل المثال، قد لا تتضمّن الصور الكامنة ملخّصات نصية) |
 
-## Interações com raciocínio
+## التفاعلات مع التفكير
 
-Iniciar uma interação com um modelo de raciocínio é semelhante a qualquer outra solicitação de interação. Especifique um dos [modelos com suporte de raciocínio](#thinking-levels) no campo `model`:
+إنّ بدء تفاعل مع نموذج تفكير مشابه لأيّ طلب تفاعل آخر. حدِّد أحد [النماذج التي تتوافق مع التفكير](#thinking-levels) في الحقل `model`:
 
 ### Python
 
@@ -64,7 +64,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -77,10 +77,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Resumos de raciocínio
+## ملخّصات الأفكار
 
-Os resumos de raciocínio fornecem insights sobre o processo de raciocínio interno do modelo.
-Por padrão, apenas a saída final é retornada. É possível ativar resumos de raciocínio com `thinking_summaries`:
+تقدّم ملخّصات الأفكار إحصاءات عن عملية الاستدلال الداخلي للنموذج.
+لا يتم عرض سوى الناتج النهائي تلقائيًا. يمكنك تفعيل ملخّصات الأفكار باستخدام `thinking_summaries`:
 
 ### Python
 
@@ -147,7 +147,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -163,23 +163,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Um bloco de raciocínio pode conter **apenas uma assinatura sem resumo** nestes casos:
+قد تحتوي كتلة الأفكار **على توقيع فقط بدون ملخّص** في الحالات التالية:
 
-- Solicitações simples, em que o modelo não raciocinou o suficiente para gerar um resumo
-- `thinking_summaries: "none"`, em que os resumos são explicitamente desativados
-- Alguns tipos de conteúdo de raciocínio, como imagens, podem não ter resumos de texto
+- الطلبات البسيطة التي لم يستدلّ فيها النموذج بما يكفي لإنشاء ملخّص
+- `thinking_summaries: "none"`، حيث يتم إيقاف الملخّصات بشكل صريح
+- قد لا تتضمّن أنواع معيّنة من محتوى الأفكار، مثل الصور، ملخّصات نصية
 
-O código sempre precisa processar blocos de raciocínio em que `summary` está vazio ou ausente.
+يجب أن يتعامل الرمز البرمجي دائمًا مع كتل الأفكار التي يكون فيها `summary` فارغًا أو غير متوفّر.
 
-## Streaming com raciocínio
+## البث مع التفكير
 
-Use o streaming para receber resumos de raciocínio incrementais durante a geração.
-Os blocos de raciocínio são entregues usando eventos enviados pelo servidor (SSE, na sigla em inglês) com dois tipos de delta distintos:
+استخدِم البث لتلقّي ملخّصات الأفكار المتزايدة أثناء الإنشاء.
+يتم تسليم كتل الأفكار باستخدام أحداث Server-Sent Events (SSE) مع نوعَين مختلفَين من التغييرات الجزئية:
 
-| Tipo de delta | Contém | Quando o envio é feito |
+| نوع التغيير الجزئي | يحتوي على | وقت إرسال البيانات |
 | --- | --- | --- |
-| `thought_summary` | Conteúdo de resumo de texto ou imagem | Um ou mais deltas com resumo incremental |
-| `thought_signature` | A assinatura criptográfica | o último delta antes de `step.stop` |
+| `thought_summary` | محتوى ملخّص نصي أو صورة | تغيير جزئي واحد أو أكثر مع ملخّص متزايد |
+| `thought_signature` | التوقيع المشفّر | آخر دلتا قبل `step.stop` |
 
 ### Python
 
@@ -264,7 +264,7 @@ for await (const event of stream) {
 }
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -282,7 +282,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-A resposta de streaming usa eventos enviados pelo servidor (SSE) e é composta de etapas e eventos, por exemplo:
+يستخدم الردّ على البث أحداث Server-Sent Events (SSE) ويتألف من خطوات وأحداث، على سبيل المثال:
 
 ```
 event: interaction.created
@@ -313,18 +313,18 @@ event: done
 data: [DONE]
 ```
 
-## Controlar o raciocínio
+## التحكّم في التفكير
 
-Os modelos do Gemini se envolvem no raciocínio dinâmico por padrão, ajustando automaticamente a quantidade de esforço de raciocínio com base na complexidade da solicitação. É possível controlar esse comportamento usando o parâmetro `thinking_level`.
+تستخدم نماذج Gemini التفكير الديناميكي تلقائيًا، ما يؤدي إلى تعديل مقدار جهد الاستدلال تلقائيًا استنادًا إلى مدى تعقيد الطلب. يمكنك التحكّم في هذا السلوك باستخدام المعلمة `thinking_level`.
 
-| Modelo | Raciocínio padrão | Níveis aceitos |
+| الطراز | التفكير التلقائي | المستويات المتوافقة |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | Ativado (alto) | baixo, médio, alto |
-| gemini-3-flash-preview | Ativado (alto) | mínimo, baixo, médio, alto |
-| gemini-3-pro-preview | Ativado (alto) | baixo, alto |
-| gemini-2.5-pro | Ativado | baixo, médio, alto |
-| gemini-2.5-flash | Ativado | baixo, médio, alto |
-| gemini-2.5-flash-lite | Desativado | baixo, médio, alto |
+| gemini-3.1-pro-preview | مفعّل (مرتفع) | منخفض، متوسط، مرتفع |
+| gemini-3-flash-preview | مفعّل (مرتفع) | أدنى، منخفض، متوسط، مرتفع |
+| gemini-3-pro-preview | مفعّل (مرتفع) | منخفض، مرتفع |
+| gemini-2.5-pro | مفعّل | منخفض، متوسط، مرتفع |
+| gemini-2.5-flash | مفعّل | منخفض، متوسط، مرتفع |
+| gemini-2.5-flash-lite | غير مفعّل | منخفض، متوسط، مرتفع |
 
 ### Python
 
@@ -360,7 +360,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### REST
+### راحة
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -376,27 +376,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Assinaturas de raciocínio
+## توقيعات الأفكار
 
-As assinaturas de raciocínio são representações criptografadas do raciocínio interno do modelo. Elas são necessárias para manter a continuidade do raciocínio em interações de várias etapas.
+توقيعات الأفكار هي تمثيلات مشفّرة للاستدلال الداخلي للنموذج. وهي مطلوبة للحفاظ على استمرارية الاستدلال في التفاعلات المتعدّدة الأدوار.
 
-A API Interactions simplifica muito o processamento de assinaturas de raciocínio em comparação com a API `generateContent`.
+تسهّل Interactions API التعامل مع توقيعات الأفكار بشكل كبير مقارنةً بـ `generateContent` API.
 
-### Modo com estado (recomendado)
+### الوضع الذي يحفظ الحالة (مقترَح)
 
-Por padrão, quando você usa a API Interactions no modo com estado (definindo `store: true` e transmitindo o `previous_interaction_id` em turnos subsequentes), o servidor gerencia automaticamente o estado da conversa, incluindo todos os blocos e assinaturas de raciocínio. Nesse modo, você não precisa fazer nada em relação às assinaturas. Elas são processadas totalmente no lado do servidor.
+تلقائيًا، عند استخدام Interactions API في الوضع الذي يحفظ الحالة (من خلال ضبط `store: true` وتمرير `previous_interaction_id` في الأدوار اللاحقة)، يدير الخادم تلقائيًا حالة المحادثة، بما في ذلك جميع كتل الأفكار والتوقيعات. في هذا الوضع، ليس عليك إجراء أيّ شيء بشأن التوقيعات. تتم معالجتها بالكامل على جانب الخادم.
 
-### Modo sem estado
+### الوضع الذي لا يحفظ الحالة
 
-Se você estiver gerenciando o estado da conversa (modo sem estado) e transmitindo o histórico completo de entradas e saídas em cada solicitação:
+إذا كنت تدير حالة المحادثة بنفسك (الوضع الذي لا يحفظ الحالة) وتمرِّر السجلّ الكامل للإدخالات والنواتج في كل طلب:
 
-- Você **PRECISA** sempre reenviar todos os blocos `thought` exatamente como foram recebidos do modelo.
-- Você **NÃO** deve remover ou modificar blocos de raciocínio do histórico, porque eles contêm as assinaturas necessárias para que o modelo continue o raciocínio.
-- Ao mudar de modelo em uma sessão, ainda é necessário reenviar os blocos de raciocínio do modelo anterior. O back-end gerencia a compatibilidade.
+- **يجب** دائمًا إعادة إرسال جميع كتل `thought` تمامًا كما تم استلامها من النموذج.
+- **لا** يجب إزالة كتل الأفكار أو تعديلها من السجلّ، لأنّها تحتوي على التوقيعات المطلوبة ليواصل النموذج استدلاله.
+- عند التبديل بين النماذج ضمن جلسة، يجب أن تظل تعيد إرسال كتل الأفكار الخاصة بالنموذج السابق. تتولّى الأنظمة الخلفية إدارة التوافق.
 
-## Preços
+## الأسعار
 
-Quando o raciocínio está ativado, o preço da resposta é a soma dos tokens de saída e de raciocínio. É possível acessar o número total de tokens de raciocínio gerados no campo `total_thought_tokens`.
+عند تفعيل التفكير، يكون سعر الردّ هو مجموع رموز الإخراج ورموز التفكير. يمكنك الحصول على إجمالي عدد رموز التفكير التي تم إنشاؤها من حقل `total_thought_tokens`.
 
 ### Python
 
@@ -412,34 +412,33 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-Os modelos de raciocínio geram raciocínios completos para melhorar a qualidade da resposta final
-e, em seguida, resumos de saída para fornecer insights sobre o
-processo de raciocínio. O preço é baseado nos tokens de raciocínio completos que o modelo precisa gerar, embora apenas o resumo seja gerado pela API.
+تُنشئ نماذج التفكير أفكارًا كاملة لتحسين جودة الردّ النهائي
+، ثم تعرض [ملخّصات](#summaries) لتقديم إحصاءات عن عملية التفكير. تستند الأسعار إلى رموز التفكير الكاملة التي يحتاج النموذج إلى إنشائها، على الرغم من أنّ واجهة برمجة التطبيقات لا تعرض سوى الملخّص.
 
-Saiba mais sobre tokens no guia [Contagem de tokens](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=pt-br).
+يمكنك الاطّلاع على مزيد من المعلومات عن الرموز في دليل [احتساب الرموز](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=ar).
 
-## Práticas recomendadas
+## أفضل الممارسات
 
-Use modelos de raciocínio de maneira eficiente seguindo estas diretrizes.
+استخدِم نماذج التفكير بكفاءة من خلال اتّباع هذه الإرشادات.
 
-- **Analisar o raciocínio**: analise os resumos de raciocínio para entender falhas e melhorar os comandos.
-- **Controlar o orçamento de raciocínio**: peça ao modelo para pensar menos em saídas longas para economizar tokens.
-- **Tarefas simples**: use o raciocínio mínimo para recuperação de fatos ou classificação (por exemplo, "Onde a DeepMind foi fundada?").
-- **Tarefas moderadas**: use o raciocínio padrão para comparar conceitos ou raciocínio criativo (por exemplo, compare carros elétricos e híbridos).
-- **Tarefas complexas**: use o raciocínio máximo para programação avançada, matemática ou planejamento em várias etapas (por exemplo, resolva problemas de matemática AIME).
+- **مراجعة الاستدلال**: حلِّل ملخّصات الأفكار لفهم حالات الفشل وتحسين الطلبات.
+- **التحكّم في ميزانية التفكير**: اطلب من النموذج التفكير بشكل أقل في النواتج الطويلة لتوفير الرموز.
+- **المهام البسيطة**: استخدِم الحد الأدنى من التفكير لاسترداد الحقائق أو التصنيف (على سبيل المثال، "أين تم تأسيس DeepMind؟").
+- **المهام المتوسّطة**: استخدِم التفكير التلقائي لمقارنة المفاهيم أو الاستدلال الإبداعي (على سبيل المثال، مقارنة السيارات الكهربائية والسيارات الهجينة).
+- **المهام المعقدة**: استخدِم الحد الأقصى من التفكير للترميز المتقدّم أو الرياضيات أو التخطيط المتعدّد الخطوات (على سبيل المثال، حلّ مسائل الرياضيات في مسابقة AIME).
 
-## A seguir
+## الخطوات التالية
 
-- [Geração de texto](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=pt-br): respostas de texto básicas
-- [Chamada de função](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=pt-br): conectar-se a ferramentas
-- [Guia do Gemini 3](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=pt-br): recursos específicos do modelo
+- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ar): الردود النصية الأساسية
+- [استدعاء الدالة](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar): الاتصال بالأدوات
+- [دليل Gemini 3](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=ar): الميزات الخاصة بالنموذج
 
-Envie comentários
+إرسال ملاحظات
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última atualização 2026-06-01 UTC.
+تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
 
-Quer enviar seu feedback?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,31 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=vi
-fetched_at: 2026-06-08T14:54:59.257532+00:00
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=ar
+fetched_at: 2026-06-15T06:24:33.017462+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Thực thi mã
+# تنفيذ الرمز البرمجي
 
-Gemini API cung cấp một công cụ thực thi mã cho phép mô hình tạo và chạy mã Python. Sau đó, mô hình có thể học lặp đi lặp lại từ kết quả thực thi mã cho đến khi đạt được kết quả cuối cùng. Bạn có thể sử dụng tính năng thực thi mã để tạo các ứng dụng có lợi từ hoạt động suy luận dựa trên mã. Ví dụ: bạn có thể sử dụng tính năng thực thi mã để giải phương trình hoặc xử lý văn bản. Bạn cũng có thể sử dụng [các thư viện](#supported-libraries) có trong môi trường thực thi mã để thực hiện các tác vụ chuyên biệt hơn.
+توفّر Gemini API أداة لتنفيذ الرموز البرمجية تتيح للنموذج إنشاء رموز Python البرمجية وتشغيلها. يمكن للنموذج بعد ذلك التعلّم بشكل متكرّر من نتائج تنفيذ الرموز البرمجية إلى أن يصل إلى ناتج نهائي. يمكنك استخدام أداة تنفيذ الرموز البرمجية لإنشاء تطبيقات تستفيد من الاستدلال المستند إلى الرموز البرمجية. على سبيل المثال، يمكنك استخدام أداة تنفيذ الرموز البرمجية لحلّ المعادلات أو معالجة النصوص. يمكنك
+أيضًا استخدام [المكتبات](#supported-libraries) المضمّنة في بيئة تنفيذ الرموز البرمجية
+لإجراء مهام أكثر تخصّصًا.
 
-Gemini chỉ có thể thực thi mã bằng Python. Bạn vẫn có thể hỏi Gemini tạo mã bằng một ngôn ngữ khác, nhưng mô hình không thể sử dụng công cụ thực thi mã để chạy mã đó.
+لا يمكن لـ Gemini تنفيذ الرموز البرمجية إلا بلغة Python. يمكنك مع ذلك أن تطلب من Gemini إنشاء رموز برمجية بلغة أخرى، ولكن لا يمكن للنموذج استخدام أداة تنفيذ الرموز البرمجية لتشغيلها.
 
-## Bật tính năng thực thi mã
+## تفعيل أداة تنفيذ الرموز البرمجية
 
-Để bật tính năng thực thi mã, hãy định cấu hình công cụ thực thi mã trên mô hình. Điều này cho phép mô hình tạo và chạy mã.
+لتفعيل أداة تنفيذ الرموز البرمجية، عليك ضبطها على النموذج. يسمح ذلك للنموذج بإنشاء الرموز البرمجية وتشغيلها.
 
 ### Python
 
@@ -87,7 +89,7 @@ parts.forEach((part) => {
 });
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -143,7 +145,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-Đầu ra có thể có dạng như sau (đã được định dạng để dễ đọc):
+قد يبدو الناتج على النحو التالي، وقد تم تنسيقه ليكون أكثر سهولة في القراءة:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,27 +194,29 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-Đầu ra này kết hợp một số phần nội dung mà mô hình trả về khi sử dụng tính năng thực thi mã:
+يجمع هذا الناتج عدة أجزاء من المحتوى يعرضها النموذج عند استخدام أداة تنفيذ الرموز البرمجية:
 
-- `text`: Văn bản cùng dòng do mô hình tạo
-- `executableCode`: Mã do mô hình tạo ra nhằm mục đích thực thi
-- `codeExecutionResult`: Kết quả của mã thực thi
+- `text`: نص مضمّن من إنشاء النموذج
+- `executableCode`: رمز من إنشاء النموذج يُفترض تنفيذه
+- `codeExecutionResult`: نتيجة الرمز القابل للتنفيذ
 
-Quy ước đặt tên cho các phần này sẽ khác nhau tuỳ theo ngôn ngữ lập trình.
+تختلف اصطلاحات التسمية لهذه الأجزاء حسب لغة البرمجة.
 
-## Thực thi mã với hình ảnh (Gemini 3)
+## تنفيذ الرموز البرمجية باستخدام الصور (Gemini 3)
 
-Giờ đây, mô hình Gemini 3 Flash có thể viết và thực thi mã Python để chủ động thao tác và kiểm tra hình ảnh.
+يمكن الآن لنموذج Gemini 3 Flash كتابة رموز Python البرمجية وتنفيذها لمعالجة الصور وفحصها بشكل نشط.
 
-**Trường hợp sử dụng**
+**حالات الاستخدام**
 
-- **Thu phóng và kiểm tra**: Mô hình này ngầm phát hiện khi các chi tiết quá nhỏ (ví dụ: đọc một đồng hồ đo ở xa) và viết mã để cắt cũng như kiểm tra lại khu vực ở độ phân giải cao hơn.
-- **Phép tính trực quan**: Mô hình có thể chạy các phép tính nhiều bước bằng cách sử dụng mã (ví dụ: cộng các mục hàng trên biên nhận).
-- **Chú thích hình ảnh**: Mô hình có thể chú thích hình ảnh để trả lời câu hỏi, chẳng hạn như vẽ mũi tên để cho thấy mối quan hệ.
+- **التكبير والفحص**: يرصد النموذج ضمنيًا متى تكون التفاصيل صغيرة جدًا (مثل قراءة مقياس بعيد)، ويكتب رمزًا لاقتصاص المنطقة وإعادة فحصها بدقة أعلى.
+- **الرياضيات المرئية**: يمكن للنموذج إجراء عمليات حسابية متعددة الخطوات باستخدام الرمز (مثل
+  جمع بنود في فاتورة).
+- **إضافة تعليقات توضيحية إلى الصور**: يمكن للنموذج إضافة تعليقات توضيحية إلى الصور للإجابة عن الأسئلة، مثل
+  رسم أسهم لإظهار العلاقات.
 
-### Bật tính năng Thực thi mã bằng hình ảnh
+### تفعيل أداة تنفيذ الرموز البرمجية باستخدام الصور
 
-Tính năng Thực thi mã với hình ảnh được hỗ trợ chính thức trong Gemini 3 Flash. Bạn có thể kích hoạt hành vi này bằng cách bật cả tính năng Thực thi mã như một công cụ và Tư duy.
+تتوفّر أداة تنفيذ الرموز البرمجية باستخدام الصور رسميًا في Gemini 3 Flash. يمكنك تفعيل هذا السلوك من خلال تفعيل كل من "تنفيذ الرموز البرمجية" كأداة و"التفكير".
 
 ### Python
 
@@ -301,7 +305,7 @@ async function main() {
 main();
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -427,9 +431,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## Sử dụng tính năng thực thi mã trong cuộc trò chuyện
+## استخدام أداة تنفيذ الرموز البرمجية في المحادثة
 
-Bạn cũng có thể sử dụng tính năng thực thi mã trong cuộc trò chuyện.
+يمكنك أيضًا استخدام أداة تنفيذ الرموز البرمجية كجزء من محادثة.
 
 ### Python
 
@@ -494,7 +498,7 @@ const response = await chat.sendMessage({
 console.log("Chat response:", response.text);
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -587,73 +591,80 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-## Đầu vào/đầu ra (I/O)
+## الإدخال والإخراج
 
-Hoạt động thực thi mã hỗ trợ đầu vào tệp và đầu ra biểu đồ. Khi sử dụng các khả năng đầu vào và đầu ra này, bạn có thể tải tệp CSV và tệp văn bản lên, đặt câu hỏi về các tệp và nhận được các biểu đồ [Matplotlib](https://matplotlib.org/) được tạo trong câu trả lời. Các tệp đầu ra được trả về dưới dạng hình ảnh cùng dòng trong câu trả lời.
+تتيح أداة تنفيذ الرموز البرمجية إدخال الملفات وإخراج الرسوم البيانية. باستخدام إمكانات الإدخال و
+الإخراج هذه، يمكنك تحميل ملفات CSV وملفات نصية وطرح أسئلة حول الـ
+ملفات، وإنشاء رسوم بيانية باستخدام [Matplotlib](https://matplotlib.org/) كجزء
+من الردّ. يتم عرض ملفات الإخراج كصور مضمّنة في الردّ.
 
-### Giá I/O
+### تسعير الإدخال والإخراج
 
-Khi sử dụng I/O thực thi mã, bạn sẽ bị tính phí cho mã thông báo đầu vào và mã thông báo đầu ra:
+عند استخدام إمكانات الإدخال والإخراج في أداة تنفيذ الرموز البرمجية، يتم تحصيل رسوم منك مقابل الرموز المميّزة للإدخال والرموز المميّزة للإخراج:
 
-**Mã thông báo đầu vào:**
+**الرموز المميّزة للإدخال:**
 
-- Câu lệnh của người dùng
+- طلب المستخدم
 
-**Số mã thông báo đầu ra:**
+**الرموز المميّزة للإخراج:**
 
-- Mã do mô hình tạo
-- Kết quả thực thi mã trong môi trường mã
-- Mã thông báo tư duy
-- Bản tóm tắt do mô hình tạo
+- الرمز من إنشاء النموذج
+- ناتج تنفيذ الرمز البرمجي في بيئة الرمز البرمجي
+- الرموز المميّزة للتفكير
+- الملخّص من إنشاء النموذج
 
-### Thông tin chi tiết về I/O
+### تفاصيل الإدخال والإخراج
 
-Khi làm việc với I/O thực thi mã, hãy lưu ý đến các thông tin kỹ thuật sau:
+عند استخدام إمكانات الإدخال والإخراج في أداة تنفيذ الرموز البرمجية، يجب الانتباه إلى التفاصيل الفنية التالية:
 
-- Thời gian chạy tối đa của môi trường mã là 30 giây.
-- Nếu môi trường mã tạo ra lỗi, mô hình có thể quyết định tạo lại đầu ra mã. Điều này có thể xảy ra tối đa 5 lần.
-- Kích thước tệp đầu vào tối đa bị giới hạn bởi cửa sổ mã thông báo của mô hình. Trong AI Studio, kích thước tệp đầu vào tối đa là 1 triệu token (khoảng 2 MB đối với tệp văn bản thuộc các loại đầu vào được hỗ trợ). Nếu bạn tải một tệp quá lớn lên, AI Studio sẽ không cho phép bạn gửi tệp đó.
-- Tính năng thực thi mã hoạt động hiệu quả nhất với tệp văn bản và tệp CSV.
-- Bạn có thể truyền tệp đầu vào trong `part.inlineData` hoặc `part.fileData` (tải lên thông qua [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi)) và tệp đầu ra luôn được trả về dưới dạng `part.inlineData`.
+- الحد الأقصى لوقت تشغيل بيئة الرمز البرمجي هو 30 ثانية.
+- إذا أدت بيئة الرمز البرمجي إلى حدوث خطأ، قد يقرّر النموذج إعادة إنشاء ناتج الرمز البرمجي. ويمكن أن يحدث ذلك ما يصل إلى 5 مرات.
+- يتم تحديد الحد الأقصى لحجم ملف الإدخال من خلال نافذة الرموز المميّزة للنموذج. في AI Studio، يبلغ الحد الأقصى لحجم ملف الإدخال مليون رمز مميّز (حوالي 2 ميغابايت للملفات النصية من أنواع الإدخال المتوافقة). إذا حمّلت ملفًا كبيرًا جدًا، لن يسمح لك AI Studio بإرساله.
+- تعمل أداة تنفيذ الرموز البرمجية بشكل أفضل مع الملفات النصية وملفات CSV.
+- يمكن تمرير ملف الإدخال في `part.inlineData` أو `part.fileData` (الذي يتم تحميله
+  من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar))، ويتم دائمًا عرض ملف الإخراج على أنّه `part.inlineData`.
 
-## Thanh toán
+## الفوترة
 
-Bạn không phải trả thêm phí khi bật tính năng thực thi mã từ Gemini API.
-Bạn sẽ bị tính phí theo mức giá hiện tại của mã thông báo đầu vào và đầu ra dựa trên mô hình Gemini mà bạn đang sử dụng.
+لا يتم تحصيل أي رسوم إضافية مقابل تفعيل أداة تنفيذ الرموز البرمجية من Gemini API.
+سيتم تحصيل رسوم منك بالسعر الحالي للرموز المميّزة للإدخال والإخراج استنادًا إلى نموذج Gemini الذي تستخدمه.
 
-Sau đây là một số thông tin khác bạn cần biết về việc tính phí thực thi mã:
+في ما يلي بعض المعلومات الأخرى التي يجب معرفتها حول الفوترة لتنفيذ الرموز البرمجية:
 
-- Bạn chỉ bị tính phí một lần cho các mã thông báo đầu vào mà bạn truyền đến mô hình và bạn sẽ bị tính phí cho các mã thông báo đầu ra cuối cùng mà mô hình trả về cho bạn.
-- Các mã thông báo đại diện cho mã được tạo sẽ được tính là mã thông báo đầu ra. Mã được tạo có thể bao gồm văn bản và đầu ra đa phương thức như hình ảnh.
-- Kết quả thực thi mã cũng được tính là mã thông báo đầu ra.
+- يتم تحصيل رسوم منك مرة واحدة فقط مقابل الرموز المميّزة للإدخال التي تمرّرها إلى النموذج، ويتم تحصيل رسوم منك مقابل الرموز المميّزة للإخراج النهائي التي يعرضها لك النموذج.
+- يتم احتساب الرموز المميّزة التي تمثّل الرمز البرمجي الذي تم إنشاؤه كرموز مميّزة للإخراج. يمكن أن يشمل الرمز البرمجي الذي تم إنشاؤه نصًا ونتائج متعددة الوسائط، مثل الصور.
+- يتم أيضًا احتساب نتائج تنفيذ الرموز البرمجية كرموز مميّزة للإخراج.
 
-Mô hình thanh toán được minh hoạ trong sơ đồ sau:
+يظهر نموذج الفوترة في الرسم البياني التالي:
 
-![mô hình thanh toán thực thi mã](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=vi)
+![نموذج الفوترة الخاص بتنفيذ الرموز البرمجية](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=ar)
 
-- Bạn sẽ bị tính phí theo mức giá hiện tại của mã thông báo đầu vào và đầu ra dựa trên mô hình Gemini mà bạn đang sử dụng.
-- Nếu Gemini sử dụng tính năng thực thi mã khi tạo câu trả lời cho bạn, thì câu lệnh ban đầu, mã được tạo và kết quả của mã đã thực thi sẽ được gắn nhãn là *mã thông báo trung gian* và được tính phí là *mã thông báo đầu vào*.
-- Sau đó, Gemini sẽ tạo bản tóm tắt và trả về mã đã tạo, kết quả của mã đã thực thi và bản tóm tắt cuối cùng. Các mã thông báo này được tính phí dưới dạng *mã thông báo đầu ra*.
-- Gemini API bao gồm số lượng mã thông báo trung gian trong phản hồi API, nhờ đó bạn biết lý do nhận được thêm mã thông báo đầu vào ngoài câu lệnh ban đầu.
+- سيتم تحصيل رسوم منك بالسعر الحالي للرموز المميّزة للإدخال والإخراج استنادًا إلى نموذج Gemini الذي تستخدمه.
+- إذا استخدم Gemini أداة تنفيذ الرموز البرمجية عند إنشاء ردّك، يتم تصنيف الطلب الأصلي والرمز البرمجي الذي تم إنشاؤه ونتيجة الرمز البرمجي الذي تم تنفيذه على أنّها *رموز مميّزة وسيطة* ويتم تحصيل رسوم منك مقابلها كـ *رموز مميّزة للإدخال*.
+- ينشئ Gemini بعد ذلك ملخّصًا ويعرض الرمز البرمجي الذي تم إنشاؤه ونتيجة الرمز البرمجي الذي تم تنفيذه والملخّص النهائي. ويتم تحصيل رسوم منك مقابل هذه العناصر كـ *رموز مميّزة للإخراج*.
+- تتضمّن Gemini API عدد الرموز المميّزة الوسيطة في الردّ من واجهة برمجة التطبيقات، ما يتيح لك معرفة سبب حصولك على رموز مميّزة إضافية للإدخال بخلاف طلبك الأولي.
 
-## Các điểm hạn chế
+## القيود
 
-- Mô hình này chỉ có thể tạo và thực thi mã. Phương thức này không thể trả về các cấu phần phần mềm khác như tệp nội dung nghe nhìn.
-- Trong một số trường hợp, việc cho phép thực thi mã có thể dẫn đến sự hồi quy ở các khía cạnh khác của đầu ra của mô hình (ví dụ: viết một câu chuyện).
-- Có một số điểm khác biệt về khả năng sử dụng thành công tính năng thực thi mã của các mô hình.
+- لا يمكن للنموذج سوى إنشاء الرموز البرمجية وتنفيذها. ولا يمكنه عرض عناصر أخرى، مثل ملفات الوسائط.
+- في بعض الحالات، يمكن أن يؤدي تفعيل أداة تنفيذ الرموز البرمجية إلى حدوث تراجع في مجالات أخرى من مخرجات النموذج (على سبيل المثال، كتابة قصة).
+- هناك بعض الاختلاف في قدرة النماذج المختلفة على استخدام أداة تنفيذ الرموز البرمجية بنجاح.
 
-## Các cách kết hợp công cụ được hỗ trợ
+## مجموعات الأدوات المتوافقة
 
-Bạn có thể kết hợp công cụ thực thi mã với tính năng [Dựa trên kết quả của Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) để hỗ trợ các trường hợp sử dụng phức tạp hơn.
+يمكن الجمع بين أداة تنفيذ الرموز البرمجية و
+[تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) لـ
+تقديم حالات استخدام أكثر تعقيدًا.
 
-Các mô hình Gemini 3 hỗ trợ việc kết hợp các công cụ tích hợp (như Thực thi mã) với các công cụ tuỳ chỉnh (gọi hàm). Bạn phải truyền lại các trường `id` và `thought_signature` để tổ hợp công cụ hoạt động. Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
+تتيح نماذج Gemini 3 الجمع بين الأدوات المضمّنة (مثل "تنفيذ الرموز البرمجية") والأدوات المخصّصة (استدعاء الدوال). عليك إعادة حقلَي `id` و`thought_signature` لكي يعمل الجمع بين الأدوات. مزيد من المعلومات على صفحة
+[مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar)
 
-## Các thư viện được hỗ trợ
+## المكتبات المتوافقة
 
-Môi trường thực thi mã bao gồm các thư viện sau:
+تتضمّن بيئة تنفيذ الرموز البرمجية المكتبات التالية:
 
 - attrs
-- cờ vua
+- شطرنج
 - contourpy
 - fpdf
 - geopandas
@@ -665,12 +676,12 @@ Môi trường thực thi mã bao gồm các thư viện sau:
 - lxml
 - matplotlib
 - mpmath
-- numpy
+- مكتبة نامبي
 - opencv-python
 - openpyxl
-- đóng gói ứng dụng
-- gấu trúc
-- cái gối
+- حزمة محتوى التطبيق
+- باندا
+- وسادة
 - protobuf
 - pylatex
 - pyparsing
@@ -682,29 +693,29 @@ Môi trường thực thi mã bao gồm các thư viện sau:
 - scikit-learn
 - scipy
 - seaborn
-- sáu
+- ستة
 - striprtf
 - sympy
-- lập bảng
+- tabulate
 - tensorflow
 - toolz
 - xlrd
 
-Bạn không thể cài đặt thư viện của riêng mình.
+لا يمكنك تثبيت مكتباتك الخاصة.
 
-## Bước tiếp theo
+## الخطوات التالية
 
-- Hãy thử [Colab thực thi mã](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=vi).
-- Tìm hiểu về các công cụ khác của Gemini API:
-  - [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)
-  - [Dựa trên kết quả của Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi)
+- جرِّب أداة تنفيذ الرموز البرمجية في Colab.
+- تعرَّف على أدوات Gemini API الأخرى:
+  - [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
+  - [تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-06-01 UTC.
+تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

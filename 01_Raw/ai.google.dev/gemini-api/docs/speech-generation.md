@@ -1,45 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko
-fetched_at: 2026-06-08T14:55:05.084265+00:00
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-TW
+fetched_at: 2026-06-15T06:24:04.777597+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-의견 보내기
+提供意見
 
-# 텍스트 음성 변환 생성 (TTS)
+# 生成文字轉語音檔案 (TTS)
 
-Gemini API는 Gemini 텍스트 음성 변환 (TTS) 생성 기능을 사용하여 텍스트 입력을 단일 화자 또는 다중 화자 오디오로 변환할 수 있습니다.
-텍스트 음성 변환 (TTS) 생성은 *[제어 가능](#controllable)*합니다. 즉, 자연어를 사용하여 상호작용을 구성하고 오디오의 *스타일*, *억양*, *속도*, *어조*를 안내할 수 있습니다.
+Gemini API 可使用 Gemini 文字轉語音 (TTS) 生成功能，將文字輸入內容轉換為單人或多人語音。文字轉語音 (TTS) 生成功能*[可控](#controllable)*，也就是說，你可以使用自然語言建構互動，並引導音訊的*風格*、*口音*、*語速*和*語氣*。
 
-[Google AI Studio에서 사용해 보기](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=ko)
+[在 Google AI Studio 中試用](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=zh-tw)
 
-TTS 기능은 대화형, 구조화되지 않은 오디오, 멀티모달 입력 및 출력을 위해 설계된 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 통해 제공되는 음성 생성과 다릅니다. Live API는 동적 대화 컨텍스트에 탁월하지만 Gemini API를 통한 TTS는 스타일과 사운드를 세부적으로 제어하여 정확한 텍스트 암송이 필요한 시나리오(예: 팟캐스트 또는 오디오북 생성)에 맞게 조정됩니다.
+TTS 功能與[Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 提供的語音生成功能不同，後者專為互動式非結構化音訊，以及多模態輸入和輸出內容而設計。雖然 Live API 非常適合動態對話情境，但 Gemini API 的 TTS 專為需要準確朗讀文字，並精細控制風格和聲音的情境而設計，例如生成 Podcast 或有聲書。
 
-이 가이드에서는 텍스트에서 단일 화자 및 다중 화자 오디오를 생성하는 방법을 보여줍니다.
+本指南說明如何從文字產生單一說話者和多位說話者的音訊。
 
-## 시작하기 전에
+## 事前準備
 
-[지원되는 모델](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko#supported-models) 섹션에 나열된 Gemini 텍스트 음성 변환 (TTS) 기능이 있는 Gemini 모델 변형을 사용해야 합니다. 최적의 결과를 얻으려면 특정 사용 사례에 가장 적합한 모델을 고려하세요.
+請務必使用具備 Gemini 文字轉語音 (TTS) 功能的 Gemini 模型變體，如「[支援的模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#supported-models)」一節所述。為獲得最佳結果，請考慮哪種模型最適合您的特定用途。
 
-빌드를 시작하기 전에 [AI Studio에서 Gemini TTS 모델을 테스트](https://aistudio.google.com/generate-speech?hl=ko)하는 것이 유용할 수 있습니다.
+建議您先[在 AI Studio 中測試 Gemini TTS 模型](https://aistudio.google.com/generate-speech?hl=zh-tw)，再開始建構。
 
-## 단일 화자 TTS
+## 單一說話者文字轉語音
 
-텍스트를 단일 화자 오디오로 변환하려면 응답 모달리티를 'audio'로 설정하고 `VoiceConfig`이 설정된 `SpeechConfig` 객체를 전달합니다.
-사전 빌드된 [출력 음성](#voices)에서 음성 이름을 선택해야 합니다.
+如要將文字轉換為單一說話者音訊，請將回應模式設為「audio」，並傳遞 `VoiceConfig` 已設定的 `SpeechConfig` 物件。你必須從預先建構的[輸出語音](#voices)中選擇語音名稱。
 
-이 예에서는 모델의 출력 오디오를 웨이브 파일에 저장합니다.
+這個範例會將模型的輸出音訊儲存為 Wave 檔案：
 
 ### Python
 
@@ -79,7 +77,7 @@ file_name='out.wav'
 wave_file(file_name, data) # Saves the file to current directory
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import {GoogleGenAI} from '@google/genai';
@@ -162,10 +160,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## 다중 화자 TTS
+## 多位說話者文字轉語音
 
-멀티 스피커 오디오의 경우 각 스피커 (최대 2개)가 `SpeakerVoiceConfig`로 구성된 `MultiSpeakerVoiceConfig` 객체가 필요합니다.
-[프롬프트](#controllable)에 사용된 것과 동일한 이름으로 각 `speaker`를 정의해야 합니다.
+如要使用多說話者音訊，您需要 `MultiSpeakerVoiceConfig` 物件，並將每個說話者 (最多 2 位) 設定為 `SpeakerVoiceConfig`。您必須使用與[提示](#controllable)中相同的名稱定義每個 `speaker`：
 
 ### Python
 
@@ -224,7 +221,7 @@ file_name='out.wav'
 wave_file(file_name, data) # Saves the file to current directory
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import {GoogleGenAI} from '@google/genai';
@@ -339,10 +336,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## 프롬프트로 음성 스타일 제어하기
+## 使用提示控制語音風格
 
-단일 화자 및 다중 화자 TTS 모두에 자연어 프롬프트 또는 [오디오 태그](#transcript-tags)를 사용하여 스타일, 어조, 억양, 속도를 제어할 수 있습니다.
-예를 들어 단일 화자 프롬프트에서는 다음과 같이 말할 수 있습니다.
+無論是單人還是多人 TTS，都可以使用自然語言提示詞或[音訊標記](#transcript-tags)控制風格、語氣、口音和語速。舉例來說，在單一說話者的提示中，你可以說：
 
 ```
 Say in an spooky voice:
@@ -350,7 +346,7 @@ Say in an spooky voice:
 [whisper] Something wicked this way comes"
 ```
 
-여러 화자가 있는 프롬프트에서는 각 화자의 이름과 해당 스크립트를 모델에 제공합니다. 각 스피커에 대해 개별적으로 안내를 제공할 수도 있습니다.
+在多位說話者的提示中，請提供每位說話者的姓名和對應的轉錄稿。你也可以個別為每位揚聲器提供指引：
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -359,11 +355,11 @@ Speaker1: So... [yawn] what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-전달하려는 스타일이나 감정에 해당하는 [음성 옵션](#voices)을 사용하여 이를 더욱 강조해 보세요. 예를 들어 이전 프롬프트에서 *엔셀라두스*의 숨소리는 '피곤함'과 '지루함'을 강조할 수 있고, *퍽*의 경쾌한 어조는 '신남'과 '행복함'을 보완할 수 있습니다.
+試著使用符合你想傳達風格或情緒的[語音選項](#voices)，進一步強調重點。舉例來說，在先前的提示中，*土衛二*的氣音可能強調「疲倦」和「無聊」，而*帕克*的歡快語氣則可與「興奮」和「快樂」相輔相成。
 
-## 오디오로 변환하기 위한 프롬프트 생성
+## 正在生成轉換為語音的提示
 
-TTS 모델은 오디오만 출력하지만 [다른 모델](https://ai.google.dev/gemini-api/docs/models?hl=ko)을 사용하여 먼저 스크립트를 생성한 다음 해당 스크립트를 TTS 모델에 전달하여 소리 내어 읽을 수 있습니다.
+TTS 模型只會輸出音訊，但您可以先使用[其他模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)生成轉錄稿，然後將轉錄稿傳遞至 TTS 模型朗讀。
 
 ### Python
 
@@ -412,7 +408,7 @@ response = client.models.generate_content(
 # ...Code to handle audio output
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -457,121 +453,121 @@ const response = await ai.models.generateContent({
 await main();
 ```
 
-## 음성 옵션
+## 語音選項
 
-TTS 모델은 `voice_name` 필드에서 다음 30가지 음성 옵션을 지원합니다.
+TTS 模型在 `voice_name` 欄位中支援下列 30 個語音選項：
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** -- *Bright* | **Puck** - *경쾌함* | **Charon** - *유용한 정보를 제공함* |
-| **Kore** - *Firm* | **Fenrir** -- *Excitable* | **Leda** - *Youthful* |
-| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe** - *느긋함* |
-| **Autonoe** -- *밝음* | **엔셀라두스** -- *숨소리* | **Iapetus** - *Clear* |
-| **Umbriel**: *느긋함* | **Algieba** -- *Smooth* | **Despina** - *Smooth* |
-| **Erinome** - *맑음* | **Algenib** - *자갈* | **Rasalgethi** - *유용한 정보를 전달함* |
-| **Laomedeia** - *신나는* | **Achernar** - *Soft* | **Alnilam** -- *Firm* |
-| **Schedar** -- *Even* | **Gacrux** -- *성인용* | **Pulcherrima** -- *Forward* |
-| **Achird** - *친근함* | **Zubenelgenubi** - *Casual* | **Vindemiatrix** - *Gentle* |
-| **Sadachbia** - *활기참* | **Sadaltager** -- *지식이 풍부함* | **Sulafat** - *따뜻함* |
+| **Zephyr** - *Bright* | **Puck** - *Upbeat* | **Charon** - *獲得了實用的資訊* |
+| **韓國** - *公司* | **Fenrir** - *興奮* | **Leda** -- *青春* |
+| **Orus** -- *Firm* | **Aoede** - *Breezy* | **Callirrhoe** - *隨和* |
+| **Autonoe** -- *Bright* | **Enceladus** -- *Breathy* | **Iapetus** -- *Clear* |
+| **Umbriel** -- *輕鬆* | **Algieba** - *平滑* | **Despina** -- *Smooth* |
+| **Erinome** -- *Clear* | **Algenib** - *Gravelly* | **Rasalgethi** - *實用資訊* |
+| **Laomedeia** - *Upbeat* | **Achernar** - *柔和* | **Alnilam** - *Firm* |
+| **Schedar** -- *Even* | **Gacrux** - *成人內容* | **Pulcherrima** -- *轉寄* |
+| **Achird** - *Friendly* | **Zubenelgenubi** - *Casual* | **Vindemiatrix** - *Gentle* |
+| **Sadachbia** -- *Lively* | **Sadaltager** - *知識豐富* | **Sulafat** -- *溫暖* |
 
-[AI Studio](https://aistudio.google.com/generate-speech?hl=ko)에서 모든 음성 옵션을 들을 수 있습니다.
+你可以在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-tw) 試聽所有語音選項。
 
-## 지원 언어
+## 支援的語言
 
-TTS 모델은 입력 언어를 자동으로 감지합니다. 지원되는 언어는 다음과 같습니다.
+TTS 模型會自動偵測輸入語言。支援的語言如下：
 
-| 언어 | BCP-47 코드 | 언어 | BCP-47 코드 |
+| 語言 | BCP-47 代碼 | 語言 | BCP-47 代碼 |
 | --- | --- | --- | --- |
-| 아랍어 | ar | 필리핀어 | fil |
-| 벵골어 | bn | 핀란드어 | fi |
-| 네덜란드어 | nl | 갈리시아어 | gl |
-| 영어 | en | 조지아어 | ka |
-| 프랑스어 | fr | 그리스어 | el |
-| 독일어 | de | 구자라트어 | gu |
-| 힌디어 | hi | 아이티 크리올어 | ht |
-| 인도네시아어 | id | 히브리어 | he |
-| 이탈리아어 | it | 헝가리어 | hu |
-| 일본어 | ja | 아이슬란드어 | is |
-| 한국어 | ko | 자바어 | jv |
-| 마라타어 | mr | 칸나다어 | kn |
-| 폴란드어 | pl | 콘칸어 | kok |
-| 포르투갈어 | pt | 라오어 | lo |
-| 루마니아어 | ro | 라틴 | la |
-| 러시아어 | ru | 라트비아어 | lv |
-| 스페인어 | es | 리투아니아어 | lt |
-| 타밀어 | ta | 룩셈부르크어 | lb |
-| 텔루구어 | te | 마케도니아어 | mk |
-| 태국어 | th | 마이틸리어 | mai |
-| 튀르키예어 | tr | 말라가시어 | mg |
-| 우크라이나어 | uk | 말레이어 | ms |
-| 베트남어 | vi | 말라얄람어 | ml |
-| 아프리칸스어 | af | 몽골어 | mn |
-| 알바니아어 | sq | 네팔어 | ne |
-| 암하라어 | am | 노르웨이어(보크말) | nb |
-| 아르메니아어 | hy | 노르웨이어(뉘노르스크) | nn |
-| 아제르바이잔어 | az | 오리야어 | 또는 |
-| 바스크어 | eu | 파슈토어 | ps |
-| 벨라루스어 | be | 페르시아어 | fa |
-| 불가리아어 | bg | 펀자브어 | pa |
-| 버마어 | my | 세르비아어 | sr |
-| 카탈로니아어 | ca | 신드어 | sd |
-| 세부아노어 | ceb | 싱할라어 | si |
-| 중국어, 북경어 | cmn | 슬로바키아어 | sk |
-| 크로아티아어 | 시간 | 슬로베니아어 | sl |
-| 체코어 | cs | 스와힐리어 | sw |
-| 덴마크어 | da | 스웨덴어 | sv |
-| 에스토니아어 | et | 우르두어 | ur |
+| 阿拉伯文 | ar | 菲律賓文 | fil |
+| 孟加拉文 | bn | 芬蘭文 | fi |
+| 荷蘭文 | nl | 加里西亞文 | gl |
+| 英文 | en | 喬治亞文 | ka |
+| 法文 | fr | 希臘文 | el |
+| 德文 | de | 古吉拉特文 | gu |
+| 北印度文 | hi | 海地克里奧爾文 | ht |
+| 印尼文 | id | 希伯來文 | 他 |
+| 義大利文 | it | 匈牙利文 | hu |
+| 日文 | ja | 冰島文 | 為 |
+| 韓文 | ko | 爪哇語 | 爪哇文 |
+| 馬拉地文 | mr | 卡納達文 | kn |
+| 波蘭文 | pl | 貢根文 | kok |
+| 葡萄牙文 | pt | 寮文 | lo |
+| 羅馬尼亞文 | ro | 拉丁 | la |
+| 俄文 | ru | 拉脫維亞文 | lv |
+| 西班牙文 | es | 立陶宛文 | lt |
+| 泰米爾文 | ta | 盧森堡文 | lb |
+| 泰盧固文 | te | 馬其頓文 | mk |
+| 泰文 | th | 邁蒂利文 | mai |
+| 土耳其文 | tr | 馬達加斯加文 | mg |
+| 烏克蘭文 | uk | 馬來文 | 毫秒 |
+| 越南文 | vi | 馬拉雅拉姆文 | ml |
+| 南非荷蘭文 | af | 蒙古文 | mn |
+| 阿爾巴尼亞文 | sq | 尼泊爾文 | ne |
+| 阿姆哈拉文 | am | 挪威文 (巴克摩) | nb |
+| 亞美尼亞文 | hy | 挪威文 (新挪威文) | nn |
+| 亞塞拜然文 | az | 歐利亞文 | 或 |
+| 巴斯克文 | eu | 普什圖文 | ps |
+| 白俄羅斯語 | be | 波斯文 | fa |
+| 保加利亞文 | bg | 旁遮普文 | pa |
+| 緬甸文 | my | 塞爾維亞文 | sr |
+| 加泰隆尼亞文 | ca | 信德文 | sd |
+| 宿霧文 | ceb | 錫蘭文 | si |
+| 中文 (國語) | cmn | 斯洛伐克文 | sk |
+| 克羅埃西亞文 | 時 | 斯洛維尼亞文 | sl |
+| 捷克文 | cs | 史瓦西里文 | sw |
+| 丹麥文 | da | 瑞典文 | sv |
+| 愛沙尼亞文 | et | 烏都文 | ur |
 
-## 지원되는 모델
+## 支援的模型
 
-| 모델 | 단일 화자 | 다중 화자 |
+| 型號 | 單一說話者 | 多位說話者 |
 | --- | --- | --- |
-| [Gemini 3.1 Flash TTS 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ko) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash 프리뷰 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=ko) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro 프리뷰 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ko) | ✔️ | ✔️ |
+| [Gemini 3.1 Flash TTS 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=zh-tw) | ✔️ | ✔️ |
+| [Gemini 2.5 Flash 預先發布版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=zh-tw) | ✔️ | ✔️ |
+| [Gemini 2.5 Pro 預先發布版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=zh-tw) | ✔️ | ✔️ |
 
-## 프롬프트 작성 가이드
+## 提示撰寫指南
 
-**Gemini 네이티브 오디오 생성 텍스트 음성 변환 (TTS)** 모델은 ***무엇을 말해야 하는지뿐만 아니라 어떻게 말해야 하는지도 아는*** 대규모 언어 모델을 사용하여 기존 TTS 모델과 차별화됩니다.
+**Gemini 原生語音生成 Text-to-Speech (TTS)** 模型與傳統 TTS 模型不同，它使用大型語言模型，***不僅知道要說什麼，也知道該怎麼說***。
 
-기본적으로 모델은 스크립트를 기본적으로 해석하고 단어를 전달하는 방법을 결정합니다. 추가 프롬프트가 없는 간단한 스크립트는 자연스럽게 들립니다. 하지만 Gemini TTS에는 이를 제어하는 데 사용할 수 있는 도구도 함께 제공됩니다.
+模型會直接解讀轉錄稿，並決定如何傳達你的話。簡單的轉錄稿不需要額外提示，聽起來也很自然。不過，Gemini TTS 也提供可引導語音生成的工具。
 
-이 가이드의 목적은 오디오 환경을 개발할 때 기본적인 방향을 제시하고 아이디어를 떠올리도록 돕는 것입니다. 먼저 빠른 인라인 제어를 위한 **태그**를 살펴본 다음 전체 성능 방향을 위한 고급 **프롬프트 구조**를 살펴보겠습니다.
+本指南旨在提供基本指引，並在開發音訊體驗時激發創意。我們會先介紹 **標記**，讓您快速進行內嵌控制，然後探討進階的 **提示結構**，全面提升效能。
 
-### 오디오 태그
+### 音訊標記
 
-태그는 `[whispers]` 또는 `[laughs]`과 같은 인라인 수정자로, 게재를 세부적으로 제어할 수 있습니다. 이러한 기능을 사용하여 스크립트의 한 줄 또는 섹션의 어조, 속도, 감정적 분위기를 변경할 수 있습니다. `[cough]`, `[sighs]`, `[gasp]`와 같은 감탄사와 기타 비언어적 소리를 추가하는 데 사용할 수도 있습니다.
+標記是 `[whispers]` 或 `[laughs]` 等內嵌修飾符，可精細控管放送方式。你可以使用這些提示變更轉錄稿中某一行或某個部分的語氣、步調和情緒氛圍。你也可以使用這些音效，在表演中加入感嘆詞和其他非語言聲音，例如 `[cough]`、`[sighs]` 或 `[gasp]`。
 
-작동하는 태그와 작동하지 않는 태그에 관한 전체 목록은 없으므로 다양한 감정과 표현을 실험하여 출력이 어떻게 달라지는지 확인하는 것이 좋습니다.
+我們無法提供標記的完整清單，建議您嘗試使用不同的情緒和表情，看看輸出結果有何變化。
 
-스크립트가 영어로 되어 있지 않은 경우 최상의 결과를 얻으려면 영어 오디오 태그를 사용하는 것이 좋습니다.
+如果轉錄稿不是英文，建議您仍使用英文音訊標記，以獲得最佳結果。
 
-**오디오 태그에 창의성 발휘하기**
+**善用音訊標記**
 
-오디오 태그로 얻을 수 있는 변동성을 보여주기 위해 각각 동일한 내용을 말하지만 사용된 태그에 따라 전달이 달라지는 일련의 예가 있습니다.
+為展現音訊標記可帶來的多樣性，我們提供一系列範例，內容都相同，但傳達方式會因使用的標記而異。
 
-줄 시작 부분에 태그를 추가하여 화자가 신나거나, 지루하거나, 망설이는 것처럼 들리게 하여 전달의 강조를 변경할 수 있습니다.
+你可以在行首加入標記，改變朗讀的強調方式，讓講者顯得興奮、無聊或不情願：
 
-- `[excitedly]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델로, 다양한 방식으로 말할 수 있습니다. 무엇을 도와드릴까요?
-- `[bored]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
-- `[reluctantly]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[excitedly]`你好，我是新的文字轉語音模型，可以透過多種方式說話。你今天想做什麼呢？
+- `[bored]`你好，我是全新的文字轉語音模型…
+- `[reluctantly]`你好，我是全新的文字轉語音模型…
 
-태그를 사용하여 전달 속도를 변경하거나 속도와 강조를 결합할 수도 있습니다.
+標記也可以用來改變朗讀速度，或結合速度和強調：
 
-- `[very fast]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
-- `[very slow]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
-- `[sarcastically, one painfully slow word at a time]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[very fast]`你好，我是全新的文字轉語音模型…
+- `[very slow]`你好，我是全新的文字轉語音模型…
+- `[sarcastically, one painfully slow word at a time]`你好，我是新的文字轉語音模型…
 
-특정 섹션을 정확하게 제어할 수도 있으므로 한 부분은 속삭이고 다른 부분은 소리칠 수 있습니다.
+你也可以精確控制特定段落，例如以氣音說出某個部分，然後大聲說出另一個部分。
 
-- `[whispers]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델인 `[shouting]`입니다. 다양한 방식으로 말할 수 있습니다. `[whispers]` 무엇을 도와드릴까요?
+- `[whispers]`你好，我是新的文字轉語音模型，`[shouting]`可以透過多種方式說話。`[whispers]` 今天需要什麼協助嗎？
 
-원하는 창의적인 아이디어를 실험해 볼 수도 있습니다.
+您也可以嘗試任何創意構想：
 
-- `[like a cartoon dog]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
-- `[like dracula]` 안녕하세요. 저는 새로운 텍스트 음성 변환 모델입니다.
+- `[like a cartoon dog]`你好，我是全新的文字轉語音模型…
+- `[like dracula]`你好，我是全新的文字轉語音模型…
 
-흔히 사용되는 태그는 다음과 같습니다.
+常用的標記包括：
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -580,22 +576,22 @@ TTS 모델은 입력 언어를 자동으로 감지합니다. 지원되는 언어
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-태그를 사용하면 스크립트의 게재를 빠르고 쉽게 제어할 수 있습니다. 더욱 세밀하게 제어하려면 컨텍스트 프롬프트와 결합하여 공연의 전반적인 분위기와 느낌을 설정할 수 있습니다.
+標記可讓你快速輕鬆地控管轉錄稿的傳送方式。如要進一步控制，可以將這些提示與情境提示結合，設定表演的整體基調和氛圍。
 
-### 고급 프롬프트 작성
+### 撰寫進階提示詞
 
-고급 프롬프트는 모델이 따라야 하는 시스템 요청 사항이라고 생각하면 됩니다. 모델에 더 많은 컨텍스트를 제공하고 성능을 제어하는 방법입니다.
+您可以將進階提示視為模型要遵循的系統指令。這項功能可為模型提供更多脈絡，並控管模型效能。
 
-강력한 프롬프트에는 훌륭한 성능을 내기 위해 함께 작동하는 다음 요소가 포함되어야 합니다.
+完善的提示應包含下列元素，共同打造出色的演出：
 
-- **오디오 프로필** - 음성의 페르소나를 설정하여 캐릭터 정체성, 원형, 연령, 배경 등의 기타 특징을 정의합니다.
-- **장면** - 무대를 설정합니다. 물리적 환경과 '분위기'를 모두 설명합니다.
-- **감독의 메모** - 가상 인재가 참고해야 하는 중요한 지침을 분류할 수 있는 성능 가이드입니다. 예로는 스타일, 호흡, 페이싱, 조음, 강세가 있습니다.
-- **샘플 컨텍스트** - 모델에 컨텍스트 기반 시작점을 제공하므로 가상 배우자가 설정한 장면으로 자연스럽게 들어갑니다.
-- **스크립트** - 모델이 말할 텍스트입니다. 최상의 성능을 위해 스크립트 주제와 글쓰기 스타일이 제공하는 방향과 관련이 있어야 합니다.
-- **오디오 태그** - `[whispers]` 또는 `[shouting]`와 같이 텍스트의 해당 부분이 전달되는 방식을 변경하기 위해 스크립트에 넣을 수 있는 수정자입니다.
+- **音訊設定檔** - 為語音建立角色，定義角色身分、原型和任何其他特徵，例如年齡、背景等。
+- **場景**：設定舞台。描述實體環境和「氛圍」。
+- **導演筆記** - 提供成效指引，方便你細分虛擬藝人應注意的重要指示。例如風格、呼吸、節奏、咬字和口音。
+- **情境範例**：為模型提供情境起點，讓虛擬演員自然進入您設定的場景。
+- **轉錄稿**：模型會朗讀的文字。為獲得最佳成效，請注意轉錄稿主題和寫作風格應與你提供的指示相關。
+- **語音標記**：可插入轉錄稿的修飾符，用來變更文字的傳達方式，例如 `[whispers]` 或 `[shouting]`。
 
-전체 프롬프트 예시:
+完整提示範例：
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -634,18 +630,18 @@ just sat there pretending to work... stop it. Seriously, I see you.
 two... let's go!
 ```
 
-### 자세한 프롬프트 작성 전략
+### 詳細的提示策略
 
-프롬프트의 각 요소를 분석해 보겠습니다.
+我們來逐一分析提示的各個元素。
 
-#### 오디오 프로필
+#### 音訊格式設定
 
-캐릭터의 페르소나를 간략하게 설명해 줘.
+簡要描述角色的個性。
 
-- **이름.** 캐릭터에 이름을 지정하면 모델과 긴밀한 연기를 함께 연결하는 데 도움이 됩니다. 장면과 맥락을 설정할 때 이름으로 캐릭터를 언급하세요.
-- **역할** 장면에 등장하는 캐릭터의 핵심 정체성과 원형입니다. 예를 들어 라디오 DJ, 팟캐스터, 뉴스 리포터 등이 있습니다.
+- **名稱**：為角色命名有助於模型掌握角色特徵，並提升效能。設定場景和情境時，請使用角色名稱
+- **角色**：在場景中扮演的角色核心身分和原型，例如電台 DJ、Podcast 創作者、新聞記者等。
 
-예:
+範例：
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -657,11 +653,11 @@ two... let's go!
 ## "The Beauty Influencer"
 ```
 
-#### 장면
+#### 場景
 
-톤과 분위기를 설정하는 위치, 분위기, 환경 세부정보 등 장면의 컨텍스트를 설정합니다. 캐릭터 주변에서 어떤 일이 일어나고 있으며 그 일이 캐릭터에게 어떤 영향을 미치는지 설명해 줘. 장면은 전체 상호작용의 환경 컨텍스트를 제공하고 연기 성능을 미묘하고 유기적인 방식으로 안내합니다.
+設定場景的背景資訊，包括地點、情境和環境細節，以確立基調和氛圍。描述角色周遭發生的情況，以及這些情況對角色的影響。場景會為整個互動提供環境背景資訊，並以細膩自然的方式引導表演。
 
-예:
+範例：
 
 ```
 ## THE SCENE: The London Studio
@@ -680,15 +676,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### 감독 참고사항
+#### 導演附註
 
-이 중요한 섹션에는 구체적인 성능 안내가 포함되어 있습니다. 다른 요소는 모두 건너뛸 수 있지만 이 요소를 포함하는 것이 좋습니다.
+這個重要章節包含具體的成效指引。您可以略過所有其他元素，但建議您加入這個元素。
 
-성능에 중요한 것만 정의하고 과도하게 지정하지 않도록 주의하세요. 엄격한 규칙이 너무 많으면 모델의 창의성이 제한되고 성능이 저하될 수 있습니다. 역할 및 장면 설명과 구체적인 연기 규칙의 균형을 맞춥니다.
+請只定義對效能有重要影響的項目，並小心不要過度指定。如果嚴格規則過多，模型創意就會受到限制，成效也可能因此變差。根據具體的演出規則，平衡角色和場景說明。
 
-가장 일반적인 방향은 **스타일, 페이싱, 악센트**이지만 모델은 이에 국한되지 않으며 이러한 방향이 필요하지도 않습니다. 실적에 중요한 추가 세부정보를 다루는 맞춤 안내를 자유롭게 포함하고 필요한 만큼 자세히 설명하세요.
+最常見的指示是**風格、速度和口音**，但模型不限於這些指示，也不需要這些指示。您可以視需要加入自訂指令，涵蓋對成效有幫助的其他詳細資料，並盡可能詳細說明。
 
-예를 들면 다음과 같습니다.
+例如：
 
 ```
 ### DIRECTOR'S NOTES
@@ -701,15 +697,15 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**스타일:**
+**樣式：**
 
-생성된 음성의 어조와 스타일을 설정합니다. 공연을 안내하기 위해 신남, 활기참, 편안함, 지루함 등을 포함하세요. 자세히 설명하고 필요한 만큼 세부정보를 제공하세요. *'전염성 있는 열정. 청취자가 대규모의 흥미로운 커뮤니티 이벤트에 참여하고 있다는 느낌을 받아야 합니다.'*라는 표현이 *'에너지 넘치고 열정적'*이라는 표현보다 더 효과적입니다.
+設定生成語音的語氣和風格。包括歡快、活力充沛、放鬆、無聊等情緒，引導表演。請盡可能詳細說明，並視需要提供下列資訊：*「熱情洋溢，聽眾應該感覺自己是盛大熱鬧社群活動的一份子。」*比單純說「充滿活力和熱情」*更有效。*
 
-'보컬 스마일'과 같이 성우 업계에서 인기 있는 용어를 사용해 볼 수도 있습니다. 원하는 만큼 스타일 특성을 레이어링할 수 있습니다.
+你甚至可以嘗試配音產業的熱門用語，例如「聲音微笑」。你可以視需要疊加多種風格特徵。
 
-예:
+範例：
 
-Simple Emotion
+簡單情緒
 
 ```
 DIRECTORS NOTES
@@ -718,7 +714,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-더 깊은 심도
+更深入
 
 ```
 DIRECTORS NOTES
@@ -727,7 +723,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-복잡
+複雜
 
 ```
 DIRECTORS NOTES
@@ -738,11 +734,11 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**강조:**
+**口音：**
 
-원하는 억양을 설명합니다. 구체적일수록 더 나은 결과를 얻을 수 있습니다. 예를 들어 '*영국 크로이던에서 들을 수 있는 영국 영어 억양*'을 '*영국 억양*' 대신 사용합니다.
+描述想要的口音，描述得越具體，結果就越符合需求。例如使用「*英國克羅伊登的英語口音*」而非「*英國口音*」。
 
-예:
+範例：
 
 ```
 ### DIRECTORS NOTES
@@ -758,13 +754,13 @@ Accent: Jaz is a DJ from Brixton, London
 ...
 ```
 
-**예산 소진 속도:**
+**使用速度：**
 
-전반적인 페이싱과 곡 전체의 페이스 변화
+整部作品的整體節奏和節奏變化。
 
-예:
+範例：
 
-단순
+簡潔
 
 ```
 ### DIRECTORS NOTES
@@ -773,7 +769,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-더 깊이 있는 정보
+更深入
 
 ```
 ### DIRECTORS NOTES
@@ -782,7 +778,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-복잡
+複雜
 
 ```
 ### DIRECTORS NOTES
@@ -791,9 +787,9 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-#### 스크립트 및 오디오 태그
+#### 轉錄稿和音訊標記
 
-스크립트는 모델이 말할 정확한 단어입니다. 오디오 태그는 대괄호 안에 있는 단어로, 어떤 식으로 말해야 하는지, 어조의 변화, 감탄사를 나타냅니다.
+轉錄稿是模型會說出的確切字詞。音訊標記是方括號中的字詞，表示說話方式、語氣變化或感嘆詞。
 
 ```
 ### TRANSCRIPT
@@ -804,40 +800,40 @@ at that point.
 [cough] Well, [sighs] I guess it doesn't matter now.
 ```
 
-**사용해 보기**
+**歡迎試試**
 
-[AI Studio](https://aistudio.google.com/generate-speech?hl=ko)에서 직접 이러한 예시를 사용해 보고, [TTS 앱](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=ko)을 사용해 보고, Gemini가 감독의 역할을 맡도록 해 보세요. 다음 팁을 참고하여 멋진 보컬 퍼포먼스를 만들어 보세요.
+歡迎在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-tw) 試試這些範例，並使用 [TTS 應用程式](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=zh-tw)，讓 Gemini 帶您體驗導演的樂趣。請參考以下訣竅，錄製出色的歌唱表演：
 
-- 전체 프롬프트가 일관성을 유지해야 합니다. 스크립트와 연출은 훌륭한 공연을 만드는 데 함께 작용합니다.
-- 모든 것을 설명할 필요는 없습니다. 모델이 부족한 부분을 채울 수 있도록 공간을 두면 자연스러움을 유지하는 데 도움이 됩니다. (재능 있는 배우처럼)
-- 막히는 부분이 있다면 Gemini의 도움을 받아 스크립트나 공연을 만들어 보세요.
+- 請務必確保提示內容一致，因為腳本和指示是打造優質表演的關鍵。
+- 不必鉅細靡遺地描述所有內容，有時讓模型填補空白處，反而能產生更自然的結果。(就像才華洋溢的演員)
+- 如果遇到瓶頸，不妨請 Gemini 協助撰寫劇本或演出。
 
-## 제한사항
+## 限制
 
-- TTS 모델은 텍스트 입력만 수신하고 오디오 출력을 생성할 수 있습니다.
-- TTS 세션의 [컨텍스트 윈도우](https://ai.google.dev/gemini-api/docs/long-context?hl=ko) 한도는 32,000개의 토큰입니다.
-- 언어 지원은 [언어](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko#languages) 섹션을 참고하세요.
-- TTS는 스트리밍을 지원하지 않습니다.
+- TTS 模型只能接收文字輸入內容，並生成音訊輸出內容。
+- TTS 工作階段的[脈絡窗口](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw)限制為 3.2 萬個權杖。
+- 如需語言支援資訊，請參閱「[語言](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#languages)」一節。
+- TTS 不支援串流。
 
-음성 생성을 위해 Gemini 3.1 Flash TTS 프리뷰 모델을 사용할 때는 다음 제약 조건이 적용됩니다.
+使用 Gemini 3.1 Flash TTS 預先發布版模型生成語音時，須遵守下列限制：
 
-- **프롬프트 안내와 음성 불일치:** 모델의 출력이 선택한 화자와 항상 엄격하게 일치하지 않아 오디오가 예상과 다르게 들릴 수 있습니다. 톤이 일치하지 않는 경우 (예: 깊은 남성 목소리가 어린 소녀처럼 말하려고 하는 경우)를 방지하려면 프롬프트의 톤과 컨텍스트가 선택한 화자의 프로필과 자연스럽게 일치해야 합니다.
-- **긴 출력의 품질:** 몇 분보다 긴 생성된 출력의 경우 음성 품질과 일관성이 떨어질 수 있습니다. 스크립트를 더 작은 청크로 분할하는 것이 좋습니다.
-- **가끔 텍스트 토큰 반환:** 모델이 오디오 토큰 대신 텍스트 토큰을 반환하여 서버에서 `500` 오류와 함께 요청이 실패하는 경우가 있습니다. 이 오류는 매우 적은 비율의 요청에서 무작위로 발생하므로 애플리케이션에 자동 재시도 로직을 구현하여 이를 처리해야 합니다.
-- **프롬프트 분류기 거짓 거부:** 모호한 프롬프트는 음성 합성 분류기를 트리거하지 못하여 요청이 거부(`PROHIBITED_CONTENT`)되거나 모델이 스타일 지침과 감독의 메모를 소리 내어 읽게 될 수 있습니다. 모델에 음성을 합성하도록 지시하는 명확한 서문을 추가하고 실제 음성 스크립트가 시작되는 위치를 명시적으로 라벨링하여 프롬프트를 검증합니다.
+- **語音與提示指令不一致：**模型輸出內容不一定會完全符合所選的說話者，因此音訊聽起來可能與預期不同。為避免語氣不一致 (例如低沉的男聲試圖模仿年輕女孩的聲音)，請確保提示詞的書面語氣和情境與所選講者的個人資料自然一致。
+- **較長輸出內容的品質：**如果生成的輸出內容超過幾分鐘，語音品質和一致性可能會開始下降。建議將轉錄稿分割成較小的片段。
+- **偶爾會傳回文字權杖：**模型偶爾會傳回文字權杖，而非音訊權杖，導致伺服器因 `500` 錯誤而無法處理要求。由於只有極少數要求會隨機發生這種情況，因此您應在應用程式中導入自動重試邏輯，以處理這些要求。
+- **提示分類器誤拒：**模糊不清的提示詞可能無法觸發語音合成分類器，導致要求遭拒 (`PROHIBITED_CONTENT`)，或導致模型大聲朗讀風格指示和導演筆記。請加入清楚的前言，指示模型合成語音，並明確標示實際語音轉錄稿的開頭，藉此驗證提示。
 
-## 다음 단계
+## 後續步驟
 
-- [오디오 생성 쿡북](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=ko)을 사용해 보세요.
-- Gemini의 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)는 다른 모달리티와 인터리브할 수 있는 대화형 오디오 생성 옵션을 제공합니다.
-- 오디오 *입력* 작업은 [오디오 이해](https://ai.google.dev/gemini-api/docs/audio?hl=ko) 가이드를 참고하세요.
+- 請參閱[音訊生成食譜](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=zh-tw)。
+- Gemini 的 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 提供互動式音訊生成選項，可與其他模態交錯使用。
+- 如要使用音訊*輸入*，請參閱「[音訊理解](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)」指南。
 
-의견 보내기
+提供意見
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-최종 업데이트: 2026-05-19(UTC)
+上次更新時間：2026-05-19 (世界標準時間)。
 
-의견을 전달하고 싶나요?
+想進一步說明嗎？
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-05-19(UTC)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]

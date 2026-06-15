@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=es-419
-fetched_at: 2026-06-08T14:54:39.413611+00:00
+source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=tr
+fetched_at: 2026-06-15T06:21:14.775506+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Enviar comentarios
+Geri bildirim gönderin
 
-# Búsqueda de archivos
+# Dosya Arama
 
-La API de Gemini habilita la generación mejorada por recuperación ("RAG") a través de la herramienta de búsqueda de archivos. La Búsqueda de archivos importa, divide en fragmentos y, luego, indexa tus datos para permitir la recuperación rápida de información pertinente según una instrucción proporcionada. Luego, esta información recuperada se usa como contexto para el modelo, lo que le permite proporcionar respuestas más precisas y pertinentes. La búsqueda de archivos también puede proporcionar capacidades multimodales con incorporaciones de texto compatibles con `gemini-embedding-001` y con incorporaciones de imágenes o multimodales compatibles con `gemini-embedding-2`.
+Gemini API, File Search aracıyla veriyle artırılmış üretim ("RAG") özelliğini etkinleştirir. File Search, sağlanan bir isteme göre alakalı bilgilerin hızlıca alınmasını sağlamak için verilerinizi içe aktarır, parçalara ayırır ve dizine ekler. Daha sonra bu alınan bilgiler, model için bağlam olarak kullanılır. Böylece model, daha doğru ve alakalı yanıtlar verebilir. File Search, `gemini-embedding-001` tarafından desteklenen metin yerleştirmeleri ve `gemini-embedding-2` tarafından desteklenen resim/çok formatlı yerleştirmelerle çok formatlı özellikler de sağlayabilir.
 
-El almacenamiento de archivos y la generación de embeddings en el momento de la búsqueda son gratuitos, y solo pagarás por crear embeddings cuando indexes tus archivos por primera vez y por el costo normal de los tokens de entrada y salida del modelo de Gemini. Este nuevo paradigma de facturación hace que la herramienta de búsqueda de archivos sea más fácil y rentable de desarrollar y escalar. Consulta la sección de [precios](#pricing) para obtener más detalles.
+Sorgu sırasında dosya depolama ve yerleştirme oluşturma ücretsizdir. Yalnızca dosyalarınızı ilk kez indekslediğinizde yerleştirme oluşturma ve normal Gemini modeli giriş / çıkış jetonları için ödeme yaparsınız. Bu yeni faturalandırma paradigması, Dosya Arama Aracı'nın hem daha kolay hem de daha uygun maliyetli bir şekilde oluşturulup ölçeklendirilmesini sağlar. Ayrıntılar için [fiyatlandırma](#pricing) bölümüne bakın.
 
-## Subir directamente a la tienda de File Search
+## Doğrudan Dosya Arama mağazasına yükleme
 
-En este ejemplo, se muestra cómo subir directamente un archivo al [almacén de búsqueda de archivos](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-media.uploadtofilesearchstore):
+Bu örnekte, [dosya arama deposuna](https://ai.google.dev/api/file-search/file-search-stores?hl=tr#method:-media.uploadtofilesearchstore) doğrudan dosya yükleme işlemi gösterilmektedir:
 
 ### Python
 
@@ -122,11 +122,11 @@ async function run() {
 run();
 ```
 
-Consulta la referencia de la API de [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-media.uploadtofilesearchstore) para obtener más información.
+Daha fazla bilgi için [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=tr#method:-media.uploadtofilesearchstore) API referansına bakın.
 
-## Importación de archivos
+## Dosyaları içe aktarma
 
-También puedes subir un archivo existente y [importarlo a tu tienda de búsqueda de archivos](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-filesearchstores.importfile):
+Alternatif olarak, mevcut bir dosyayı yükleyip [dosya arama mağazanıza aktarabilirsiniz](https://ai.google.dev/api/file-search/file-search-stores?hl=tr#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -224,11 +224,11 @@ async function run() {
 run();
 ```
 
-Consulta la referencia de la API de [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#method:-filesearchstores.importfile) para obtener más información.
+Daha fazla bilgi için [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=tr#method:-filesearchstores.importfile) API referansına bakın.
 
-## Configuración de fragmentación
+## Parçalara ayırma yapılandırması
 
-Cuando importas un archivo a un almacén de File Search, se divide automáticamente en fragmentos, se incorpora, se indexa y se sube a tu almacén de File Search. Si necesitas más control sobre la estrategia de fragmentación, puedes especificar un parámetro de configuración [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419#request-body_5) para establecer una cantidad máxima de tokens por fragmento y una cantidad máxima de tokens superpuestos.
+Bir dosyayı Dosya Arama mağazasına aktardığınızda dosya otomatik olarak parçalara ayrılır, yerleştirilir, dizine eklenir ve Dosya Arama mağazanıza yüklenir. Parçalama stratejisi üzerinde daha fazla kontrol sahibi olmak istiyorsanız bir [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=tr#request-body_5) ayarı belirterek parça başına maksimum jeton sayısı ve maksimum sayıda çakışan jeton ayarlayabilirsiniz.
 
 ### Python
 
@@ -287,35 +287,37 @@ while (!operation.done) {
 console.log("Custom chunking complete.");
 ```
 
-Para usar tu almacén de File Search, pásala como una herramienta al método `generateContent`, como se muestra en los ejemplos de [Upload](#upload) y [Import](#importing-files).
+Dosya Arama mağazanızı kullanmak için `generateContent` yöntemine araç olarak iletin. Bu işlem, [Yükleme](#upload) ve [İçe Aktarma](#importing-files) örneklerinde gösterilmiştir.
 
-## Cómo funciona
+## İşleyiş şekli
 
-La Búsqueda de archivos usa una técnica llamada búsqueda semántica para encontrar información pertinente para la instrucción del usuario. A diferencia de la búsqueda estándar basada en palabras clave, la búsqueda semántica comprende el significado y el contexto de tu búsqueda.
+Dosya Arama, kullanıcı istemiyle alakalı bilgileri bulmak için semantik arama adı verilen bir teknik kullanır. Standart anahtar kelime tabanlı aramanın aksine, semantik arama sorgunuzun anlamını ve bağlamını anlar.
 
-Cuando importas un archivo, se convierte en representaciones numéricas llamadas [embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419), que capturan el significado semántico del contenido subido. Estos embeddings se almacenan en una base de datos especializada de File Search.
-Cuando haces una búsqueda, esta también se convierte en un embedding. Luego, el sistema realiza una búsqueda de archivos para encontrar los fragmentos de documentos más similares y relevantes del almacén de búsqueda de archivos.
+İçe aktardığınız dosyalar, yüklenen içeriğin semantik anlamını yakalayan [yerleştirmeler](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr) adı verilen sayısal gösterimlere dönüştürülür. Bu yerleştirmeler, özel bir Dosya Arama veritabanında saklanır.
+Sorgularınız da yerleştirmeye dönüştürülür. Ardından sistem, Dosya Arama deposunda en benzer ve alakalı belge parçalarını bulmak için Dosya Arama işlemi gerçekleştirir.
 
-No hay un tiempo de actividad (TTL) para las incorporaciones; estas persisten hasta que se borran de forma manual o cuando el modelo deja de estar disponible. Sin embargo, los archivos se borran después de 48 horas.
+Yerleştirmeler için geçerlilik süresi (TTL) yoktur. Bu öğeler, manuel olarak silinene veya modelin desteği sonlandırılana kadar kalır. Ancak dosyalar 48 saat sonra silinir.
 
-A continuación, se detalla el proceso para usar la API de File Search `uploadToFileSearchStore`:
+Dosya Arama API'sini kullanma sürecinin dökümünü aşağıda bulabilirsiniz:
+`uploadToFileSearchStore`
 
-1. **Crea un almacén de File Search**: Un almacén de File Search contiene los datos procesados de tus archivos. Es el contenedor persistente para los embeddings en los que operará la búsqueda semántica.
-2. **Sube un archivo y, luego, impórtalo a un almacén de File Search**: Sube un archivo y, luego, importa los resultados a tu almacén de File Search de forma simultánea. Esto crea un objeto `File` temporal, que es una referencia a tu documento sin procesar. Luego, esos datos se dividen en fragmentos, se convierten en incorporaciones de File Search y se indexan. El objeto `File` se borra después de 48 horas, mientras que los datos importados al almacén de File Search se almacenan de forma indefinida hasta que decidas borrarlos.
-3. **Consulta con la Búsqueda de archivos**: Por último, usas la herramienta `FileSearch` en una llamada `generateContent`. En la configuración de la herramienta, especificas un `FileSearchRetrievalResource`, que apunta al `FileSearchStore` que deseas buscar. Esto le indica al modelo que realice una búsqueda semántica en ese almacén específico de la Búsqueda de archivos para encontrar información pertinente que fundamente su respuesta.
+1. **Dosya Arama mağazası oluşturma**: Dosya Arama mağazası, dosyalarınızdaki işlenmiş verileri içerir. Bu, semantik aramanın üzerinde çalışacağı yerleştirmeler için kalıcı kapsayıcıdır.
+2. **Dosya yükleme ve Dosya Arama mağazasına aktarma**: Aynı anda dosya yükleyin ve sonuçları Dosya Arama mağazanıza aktarın. Bu işlem, ham belgenize referans veren geçici bir `File` nesne oluşturur. Bu veriler daha sonra parçalara ayrılır, Dosya Arama yerleştirmelerine dönüştürülür ve dizine eklenir. `File`
+   Nesne 48 saat sonra silinir. Dosya Arama deposuna aktarılan veriler ise siz silmeyi seçene kadar süresiz olarak saklanır.
+3. **Dosya Arama ile sorgu**: Son olarak, `generateContent` görüşmesinde `FileSearch` aracını kullanırsınız. Araç yapılandırmasında, aramak istediğiniz `FileSearchStore` öğesini işaret eden bir `FileSearchRetrievalResource` belirtirsiniz. Bu, modele yanıtını temellendirmek için alakalı bilgileri bulmak üzere söz konusu File Search deposunda anlamsal arama yapmasını söyler.
 
-![El proceso de indexación y búsqueda de la Búsqueda de archivos](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=es-419)
+![Dosya Arama&#39;nın dizine ekleme ve sorgulama süreci](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=tr)
 
-El proceso de indexación y consulta de la Búsqueda de archivos
+Dosya Arama'nın dizine ekleme ve sorgulama süreci
 
-En este diagrama, la línea punteada que va de *Documentos* a *Modelo de incorporación* (con [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419)) representa la API de `uploadToFileSearchStore` (que omite *Almacenamiento de archivos*).
-De lo contrario, usar la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419) para crear y, luego, importar archivos por separado traslada el proceso de indexación de *Documents* a *File storage* y, luego, a *Embedding model*.
+Bu diyagramda, *Documents*'tan *Embedding model*'e ([`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr) kullanılarak) giden noktalı çizgi, `uploadToFileSearchStore` API'yi (*File storage*'ı atlayarak) temsil eder.
+Aksi takdirde, dosyaları ayrı ayrı oluşturup içe aktarmak için [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanmak, dizine ekleme sürecini *Belgeler*'den *Dosya depolama*'ya ve ardından *Yerleştirme modeli*'ne taşır.
 
-## Almacenes de búsqueda de archivos
+## Dosya Arama'yı saklar
 
-Un almacén de File Search es un contenedor para tus embeddings de documentos. Si bien los archivos sin procesar que se suben a través de la API de File se borran después de 48 horas, los datos que se importan a un almacén de File Search se almacenan de forma indefinida hasta que los borres de forma manual. Puedes crear varios almacenes de File Search para organizar tus documentos. La API de `FileSearchStore` te permite crear, enumerar, obtener y borrar para administrar tus tiendas de búsqueda de archivos. Los nombres de la tienda de la Búsqueda de archivos tienen un alcance global.
+File Search mağazası, doküman yerleştirmelerinizin bulunduğu bir kapsayıcıdır. Dosya API'si aracılığıyla yüklenen ham dosyalar 48 saat sonra silinirken, Dosya Arama mağazasına aktarılan veriler, siz manuel olarak silene kadar süresiz olarak saklanır. Dokümanlarınızı düzenlemek için birden fazla Dosya Arama deposu oluşturabilirsiniz. `FileSearchStore` API, dosya arama depolarınızı yönetmek için oluşturma, listeleme, alma ve silme işlemlerini yapmanıza olanak tanır. Dosya Arama mağazası adları küresel kapsamlıdır.
 
-Estos son algunos ejemplos de cómo administrar tus tiendas de búsqueda de archivos:
+Dosya Arama mağazalarınızı nasıl yönetebileceğinize dair bazı örnekleri aşağıda bulabilirsiniz:
 
 ### Python
 
@@ -374,9 +376,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123?key=${GEMINI_API_KEY}"
 ```
 
-## Documentos de búsqueda de archivos
+## Dosya Arama belgeleri
 
-Puedes administrar documentos individuales en tus almacenes de archivos con la API de [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=es-419) para `list` cada documento en un almacén de búsqueda de archivos, `get` información sobre un documento y `delete` un documento por nombre.
+Dosya depolarınızdaki tek tek dokümanları `list`, `get` ve `delete` için [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=tr) API ile yönetebilirsiniz.
 
 ### Python
 
@@ -419,9 +421,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents/my_doc?key=${GEMINI_API_KEY}"
 ```
 
-## Metadatos de archivos
+## Dosya meta verileri
 
-Puedes agregar metadatos personalizados a tus archivos para filtrarlos o proporcionar contexto adicional. Los metadatos son un conjunto de pares clave-valor.
+Dosyalarınızı filtrelemenize yardımcı olması veya ek bağlam bilgisi sağlaması için dosyalarınıza özel meta veriler ekleyebilirsiniz. Meta veriler, anahtar/değer çiftlerinden oluşan bir settir.
 
 ### Python
 
@@ -451,7 +453,7 @@ let operation = await ai.fileSearchStores.importFile({
 });
 ```
 
-Esto es útil cuando tienes varios documentos en un almacén de Búsqueda de archivos y quieres buscar solo un subconjunto de ellos.
+Bu özellik, Dosya Arama deposunda birden fazla dokümanınız olduğunda ve yalnızca bir alt kümede arama yapmak istediğinizde kullanışlıdır.
 
 ### Python
 
@@ -516,15 +518,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 cat response.json
 ```
 
-Puedes encontrar orientación para implementar la sintaxis del filtro de lista para `metadata_filter` en [google.aip.dev/160](https://google.aip.dev/160).
+`metadata_filter` için liste filtresi söz dizimini uygulama ile ilgili yönergeleri [google.aip.dev/160](https://google.aip.dev/160) adresinde bulabilirsiniz.
 
-## Búsqueda de archivos multimodal
+## Çok formatlı dosya arama
 
-La búsqueda de archivos multimodal te permite incorporar y buscar imágenes de forma nativa, lo que habilita aplicaciones de RAG multimodales enriquecidas.
+Çok formatlı dosya arama özelliği, resimleri yerel olarak yerleştirmenize ve aramanıza olanak tanıyarak zengin ve çok formatlı RAG uygulamaları oluşturmanızı sağlar.
 
-### Configura el modelo de embedding
+### Yerleştirme modelini yapılandırma
 
-Cuando creas un `FileSearchStore`, debes anular el modelo de incorporación predeterminado solo para texto y usar un modelo multimodal. Usa `models/gemini-embedding-2` para procesar texto e imágenes.
+`FileSearchStore` oluşturduğunuzda, çok formatlı bir model kullanmak için varsayılan yalnızca metin içeren yerleştirme modelini geçersiz kılmanız gerekir. Hem metinleri hem de resimleri işlemek için `models/gemini-embedding-2` simgesini kullanın.
 
 ### Python
 
@@ -559,20 +561,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### Sube imágenes
+### Resim yükle
 
-Después de crear el almacén con un modelo de incorporación multimodal, puedes subir archivos de imagen directamente con las mismas APIs de carga que se describen en [Cómo subir archivos directamente al almacén de File Search](#upload) o [Cómo importar archivos](#importing-files).
+Çok formatlı yerleştirme modeliyle mağazayı oluşturduktan sonra, [Doğrudan Dosya Arama mağazasına yükleme](#upload) veya [Dosyaları içe aktarma](#importing-files) başlıklı makalelerde açıklanan yükleme API'lerini kullanarak doğrudan resim dosyaları yükleyebilirsiniz.
 
-**Requisitos de los archivos de imagen:**
+**Resim dosyası koşulları:**
 
-- Los archivos de imagen deben tener una resolución máxima de 4K x 4K píxeles.
-- Los formatos admitidos son PNG y JPEG.
+- Resim dosyalarının çözünürlüğü en fazla 4K x 4K piksel olmalıdır.
+- Desteklenen biçimler PNG ve JPEG'dir.
 
-## Citas
+## Alıntılar
 
-Cuando usas la Búsqueda de archivos, la respuesta del modelo puede incluir citas que especifican qué partes de los documentos que subiste se usaron para generar la respuesta. Esto ayuda con la verificación de datos.
+Dosya Arama'yı kullandığınızda modelin yanıtında, yüklenen dokümanlarınızın hangi bölümlerinin yanıtı oluşturmak için kullanıldığını belirten alıntılar yer alabilir. Bu, doğruluk kontrolü ve doğrulama işlemlerine yardımcı olur.
 
-Puedes acceder a la información de la cita a través del atributo `grounding_metadata` de la respuesta.
+Alıntı bilgilerine yanıtın `grounding_metadata` özelliği üzerinden erişebilirsiniz.
 
 ### Python
 
@@ -586,12 +588,14 @@ print(response.candidates[0].grounding_metadata)
 console.log(JSON.stringify(response.candidates?.[0]?.groundingMetadata, null, 2));
 ```
 
-Para obtener información detallada sobre la estructura de los metadatos de fundamentación, consulta los ejemplos en el [recetario de File Search](https://github.com/google-gemini/cookbook/blob/main/quickstarts/File_Search.ipynb) o [la sección de fundamentación de la documentación de Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419#attributing_sources_with_inline_citations).
+Temellendirme meta verilerinin yapısı hakkında ayrıntılı bilgi için [File Search
+cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/File_Search.ipynb)'taki
+örneklere veya [Grounding with Google Search
+dokümanlarındaki temellendirme bölümüne](https://ai.google.dev/gemini-api/docs/google-search?hl=tr#attributing_sources_with_inline_citations) bakın.
 
-### Números de página
+### Sayfa numaraları
 
-Cuando usas la Búsqueda de archivos con documentos que tienen páginas (como los PDF), la respuesta del modelo puede incluir el número de página en el que se encontró la información.
-Puedes acceder a esta información a través del atributo `page_number` del objeto `retrieved_context`.
+Sayfaları olan dokümanlarla (ör. PDF'ler) Dosya Arama'yı kullandığınızda modelin yanıtı, bilgilerin bulunduğu sayfa numarasını içerebilir. Bu bilgilere `retrieved_context` öğesinin `page_number` özelliği üzerinden erişebilirsiniz.
 
 ### Python
 
@@ -613,11 +617,11 @@ for (const chunk of groundingMetadata.groundingChunks) {
 }
 ```
 
-### Citas de medios
+### Medya alıntıları
 
-Cuando el modelo hace referencia a un fragmento de imagen durante la generación, la API devuelve una cita en los metadatos de fundamentación que incluye un `media_id`. Puedes usar este ID para descargar el fragmento de imagen exacto al que hizo referencia el modelo. Este `media_id` persiste en varias llamadas de búsqueda, lo que te permite recuperar de forma confiable la misma imagen o almacenarla en caché con el ID.
+Model, oluşturma sırasında bir resim parçasını referans aldığında API, temellendirme meta verilerinde `media_id` içeren bir alıntı döndürür. Modelin referans verdiği tam görüntü parçasını indirmek için bu<0x0x0A>kimliği kullanabilirsiniz. Bu `media_id`, birden fazla arama çağrısında kalıcıdır. Bu sayede, aynı resmi güvenilir bir şekilde alabilir veya kimliği kullanarak önbelleğe alabilirsiniz.
 
-El siguiente fragmento es un ejemplo de respuesta de REST:
+Aşağıdaki snippet, örnek bir REST yanıtıdır:
 
 ```
 "groundingMetadata": {
@@ -633,7 +637,7 @@ El siguiente fragmento es un ejemplo de respuesta de REST:
 }
 ```
 
-En los siguientes fragmentos de código, se muestra cómo recuperar el objeto `media_id` y descargar el contenido multimedia:
+Aşağıdaki kod snippet'lerinde `media_id` değerinin nasıl alınacağı ve medyanın nasıl indirileceği gösterilmektedir:
 
 ### Python
 
@@ -669,9 +673,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Metadatos personalizados en los datos de fundamentación
+## Temellendirme verilerindeki özel meta veriler
 
-Si agregaste metadatos personalizados a tus archivos, puedes acceder a ellos en los metadatos de fundamentación de la respuesta del modelo. Esto es útil para pasar contexto adicional (como URLs, números de página o autores) de tus documentos fuente a la lógica de tu aplicación. Cada `grounding_chunk` en `retrieved_context` contiene estos metadatos personalizados.
+Dosyalarınıza özel meta veriler eklediyseniz bunlara modelin yanıtının temel meta verilerinden erişebilirsiniz. Bu, kaynak dokümanlarınızdaki ek bağlamları (ör. URL'ler, sayfa numaraları veya yazarlar) uygulama mantığınıza aktarmak için kullanışlıdır. `retrieved_context` içindeki her `grounding_chunk` bu özel meta verileri içerir.
 
 ### Python
 
@@ -764,9 +768,9 @@ groundingMetadata.groundingChunks.forEach((chunk) => {
 }
 ```
 
-## Resultados estructurados
+## Yapılandırılmış çıkış
 
-A partir de los modelos de Gemini 3, puedes combinar la herramienta de búsqueda de archivos con [resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419).
+Gemini 3 modellerinden itibaren, dosya arama aracını [yapılandırılmış çıktılarla](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) birlikte kullanabilirsiniz.
 
 ### Python
 
@@ -864,28 +868,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Modelos compatibles
+## Desteklenen modeller
 
-Los siguientes modelos admiten la Búsqueda de archivos:
+Aşağıdaki modellerde Dosya Arama özelliği desteklenir:
 
-| Modelo | Búsqueda de archivos |
+| Model | Dosya Arama |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) | ✔️ |
+| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=tr) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
 
-## Combinaciones de herramientas compatibles
+## Desteklenen araç kombinasyonları
 
-Los modelos de Gemini 3 admiten la combinación de herramientas integradas (como la Búsqueda de archivos) con herramientas personalizadas (llamadas a funciones). Obtén más información en la página de [combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
+Gemini 3 modelleri, yerleşik araçların (ör. Dosya Arama) özel araçlarla (işlev çağrısı) birlikte kullanılmasını destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
 
-## Tipos de archivos admitidos
+## Desteklenen dosya türleri
 
-La Búsqueda de archivos admite una amplia variedad de formatos de archivo, que se indican en las siguientes secciones.
+Dosya Arama, aşağıdaki bölümlerde listelenen çok çeşitli dosya biçimlerini destekler.
 
-### Tipos de archivos de aplicación
+### Uygulama dosyası türleri
 
 - `application/dart`
 - `application/ecmascript`
@@ -918,7 +922,7 @@ La Búsqueda de archivos admite una amplia variedad de formatos de archivo, que 
 - `application/xml`
 - `application/zip`
 
-### Tipos de archivos de texto
+### Metin dosyası türleri
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -1077,40 +1081,40 @@ La Búsqueda de archivos admite una amplia variedad de formatos de archivo, que 
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## Limitaciones
+## Sınırlamalar
 
-- **API en vivo:** La búsqueda de archivos no es compatible con la [API en vivo](https://ai.google.dev/gemini-api/docs/live?hl=es-419).
-- **Incompatibilidad de la herramienta:** Por el momento, la Búsqueda de archivos no se puede combinar con otras herramientas, como [Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419), [Contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419), etcétera.
+- **Live API:** Dosya Arama, [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'de desteklenmez.
+- **Araç uyumsuzluğu:** Dosya Arama, şu anda [Google Arama ile Temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) ve [URL Bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) gibi diğer araçlarla birlikte kullanılamaz.
 
-### Límites de frecuencia
+### Hız sınırları
 
-La API de File Search tiene los siguientes límites para garantizar la estabilidad del servicio:
+File Search API, hizmet kararlılığını sağlamak için aşağıdaki sınırlara sahiptir:
 
-- **Límite de tamaño de archivo o por documento**: 100 MB
-- **Tamaño total de los almacenamientos de la Búsqueda de archivos del proyecto** (según el nivel del usuario):
-  - **Gratis**: 1 GB
-  - **Nivel 1**: 10 GB
-  - **Nivel 2**: 100 GB
-  - **Nivel 3**: 1 TB
-- **Recomendación**: Limita el tamaño de cada almacén de File Search a menos de 20 GB para garantizar latencias de recuperación óptimas.
+- **Maksimum dosya boyutu / belge başına sınır**: 100 MB
+- **Proje Dosya Arama'nın depoladığı toplam boyut** (kullanıcı katmanına göre):
+  - **Ücretsiz**: 1 GB
+  - **1. katman**: 10 GB
+  - **2. katman**: 100 GB
+  - **3. Katman**: 1 TB
+- **Öneri**: Optimal alma gecikmeleri sağlamak için her bir Dosya Arama deposunun boyutunu 20 GB'ın altında tutun.
 
-## Precios
+## Fiyatlandırma
 
-- Se te cobrarán los precios de las [incorporaciones existentes](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#gemini-embedding-2) en el momento de la indexación.
-- El almacenamiento no tiene costo.
-- Los embeddings de tiempo de consulta no tienen costo.
-- Los tokens de documentos recuperados se cobran como [tokens de contexto](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) normales.
+- Mevcut [yerleştirme fiyatlandırmasına](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-embedding-2) göre, dizine ekleme sırasında yerleştirmeler için ücretlendirilirsiniz.
+- Depolama alanı ücretsizdir.
+- Sorgu zamanı yerleştirmeleri ücretsizdir.
+- Alınan doküman jetonları normal [bağlam jetonları](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) olarak ücretlendirilir.
 
-## ¿Qué sigue?
+## Sırada ne var?
 
-- Visita la referencia de la API de [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=es-419) y [Documents](https://ai.google.dev/api/file-search/documents?hl=es-419) de File Search.
+- [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=tr) ve File Search [Documents](https://ai.google.dev/api/file-search/documents?hl=tr) için API referansını ziyaret edin.
 
-Enviar comentarios
+Geri bildirim gönderin
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Última actualización: 2026-06-05 (UTC)
+Son güncelleme tarihi: 2026-06-05 UTC.
 
-¿Quieres brindar más información?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-05 (UTC)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-05 UTC."],[],[]]

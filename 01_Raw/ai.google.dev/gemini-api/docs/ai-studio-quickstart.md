@@ -1,69 +1,81 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ar
-fetched_at: 2026-06-08T14:57:34.728870+00:00
-title: "\u062f\u0644\u064a\u0644 \u0627\u0644\u0628\u062f\u0621 \u0627\u0644\u0633\u0631\u064a\u0639 \u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=pt-BR
+fetched_at: 2026-06-15T06:22:21.807058+00:00
+title: "Guia de in\u00edcio r\u00e1pido do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-إرسال ملاحظات
+Envie comentários
 
-# دليل البدء السريع لاستخدام Google AI Studio
+# Guia de início rápido do Google AI Studio
 
-تتيح لك أداة [Google AI Studio](https://aistudio.google.com/?hl=ar) تجربة النماذج بسرعة واستخدام طلبات مختلفة. عندما تكون مستعدًا للبدء، يمكنك النقر على "الحصول على الرمز" واختيار لغة البرمجة المفضّلة لديك لاستخدام [Gemini API](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
+[O Google AI Studio](https://aistudio.google.com/?hl=pt-br) permite que você teste rapidamente
+modelos e experimente diferentes comandos. Quando estiver tudo pronto, você
+pode selecionar "Gerar código" e a linguagem de programação de sua preferência para
+usar a [API Gemini](https://ai.google.dev/gemini-api/docs/quickstart?hl=pt-br).
 
-## الطلبات والإعدادات
+## Comandos e configurações
 
-توفّر أداة Google AI Studio عدة واجهات للطلبات مصمَّمة لحالات استخدام مختلفة. يتناول هذا الدليل **طلبات الدردشة** المستخدَمة لإنشاء تجارب حوارية. تسمح تقنية الطلبات هذه بتعدّد مرات إدخال البيانات والردود لإنشاء الناتج. يمكنك الاطّلاع على المزيد من المعلومات من خلال
-[مثال طلب الدردشة أدناه](#chat_example).
-تشمل الخيارات الأخرى **البث المباشر في الوقت الفعلي** و**إنشاء الفيديو** وغير ذلك.
+O Google AI Studio oferece várias interfaces para comandos projetados para diferentes casos de uso. Este guia aborda os **comandos de chat**, usados para criar
+experiências conversacionais. Essa técnica de comando permite várias entradas
+e respostas para gerar a saída. Saiba mais com o nosso
+[exemplo de comando de chat abaixo](#chat_example).
+Outras opções incluem **transmissão em tempo real**, **geração de vídeo** e
+muito mais.
 
-توفّر أداة AI Studio أيضًا لوحة **إعدادات التشغيل**، حيث يمكنك إجراء تعديلات على [مَعلمات النموذج](https://ai.google.dev/docs/prompting-strategies?hl=ar#model-parameters) و[إعدادات الأمان](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar) وتفعيل أدوات مثل [النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar) و[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) و[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) و[الاستناد إلى مصادر خارجية](https://ai.google.dev/gemini-api/docs/grounding?hl=ar).
+O AI Studio também oferece o painel **Configurações de execução**, em que é possível fazer
+ajustes nos [parâmetros do modelo](https://ai.google.dev/docs/prompting-strategies?hl=pt-br#model-parameters),
+[configurações de segurança](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pt-br) e ativar ferramentas como
+[saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br), [chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br), [execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br) e [embasamento](https://ai.google.dev/gemini-api/docs/grounding?hl=pt-br).
 
-## مثال على طلب في Chat: إنشاء تطبيق محادثة مخصّص
+## Exemplo de comando de chat: criar um aplicativo de chat personalizado
 
-إذا سبق لك استخدام روبوت دردشة للأغراض العامة مثل [Gemini](https://gemini.google.com/?hl=ar)، تكون قد جرّبت بنفسك مدى فعالية نماذج الذكاء الاصطناعي التوليدي في الحوارات المفتوحة. على الرغم من أنّ روبوتات الدردشة ذات الأغراض العامة مفيدة، إلا أنّها غالبًا ما تحتاج إلى التكيّف مع حالات استخدام معيّنة.
+Se você já usou um chatbot de uso geral, como o
+[Gemini](https://gemini.google.com/?hl=pt-br), já sabe como os modelos de IA
+generativa podem ser poderosos para diálogos abertos. Embora esses chatbots de uso geral sejam úteis, muitas vezes eles precisam ser personalizados para casos de uso específicos.
 
-على سبيل المثال، قد تريد إنشاء روبوت دردشة لخدمة العملاء يتيح فقط إجراء محادثات حول منتج إحدى الشركات. قد تحتاج إلى إنشاء روبوت دردشة يتحدث بأسلوب أو نبرة معيّنة، مثل روبوت يطلق الكثير من النكات أو يكتب الشعر أو يستخدم الكثير من رموز الإيموجي في ردوده.
+Por exemplo, talvez você queira criar um chatbot de atendimento ao cliente que só ofereça suporte a conversas sobre o produto de uma empresa. Ou um chatbot que fale com um tom ou estilo específico: um bot que faça muitas piadas, rime como um poeta ou use muitos emojis nas respostas.
 
-يوضّح لك هذا المثال كيفية استخدام Google AI Studio لإنشاء روبوت دردشة ودود
-يتواصل كما لو كان كائنًا فضائيًا يعيش على أحد أقمار كوكب المشتري، وهو أوروبا.
+Este exemplo mostra como usar o Google AI Studio para criar um chatbot amigável que se comunica como se fosse um alienígena vivendo em uma das luas de Júpiter, Europa.
 
-### الخطوة 1: إنشاء طلب محادثة
+### Etapa 1: criar um comando de chat
 
-لإنشاء روبوت دردشة، عليك تقديم أمثلة على التفاعلات بين المستخدم وروبوت الدردشة لتوجيه النموذج لتقديم الردود التي تبحث عنها.
+Para criar um chatbot, você precisa fornecer exemplos de interações entre um usuário e o chatbot para orientar o modelo a fornecer as respostas que você procura.
 
-لإنشاء طلب محادثة، اتّبِع الخطوات التالية:
+Para criar um comando de chat:
 
-1. افتح [Google AI Studio](https://aistudio.google.com/?hl=ar). سيتم فتح **Playground** تلقائيًا مع طلب محادثة جديد.
-2. انقر على **إعدادات التشغيل** tune في أعلى يسار الصفحة
-   لتوسيع اللوحة، وابحث عن حقل الإدخال
-   [**تعليمات النظام**](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#system-instructions). الصِق ما يلي في حقل إدخال النص:
+1. Abra o [Google AI Studio](https://aistudio.google.com/?hl=pt-br). O **Playground** será aberto por padrão com um novo comando de chat.
+2. Clique em **Configurações de execução** tune no canto superior direito
+   para expandir o painel e localize o
+   [**Instruções do sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions)
+   campo de entrada. Cole o seguinte no campo de entrada de texto:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-بعد إضافة تعليمات النظام، ابدأ في اختبار تطبيقك من خلال الدردشة مع النموذج:
+Depois de adicionar as instruções do sistema, comece a testar o aplicativo conversando com o modelo:
 
-1. في مربّع إدخال النص الذي يحمل التصنيف **اكتب شيئًا...**، اكتب سؤالاً أو ملاحظة قد يطرحها المستخدم. على سبيل المثال:
+1. Na caixa de entrada de texto com o rótulo **Digite algo...**, digite uma pergunta ou
+   observação que um usuário possa fazer. Por exemplo:
 
-   **المستخدم:**
+   **Usuário:**
 
    ```
    What's the weather like?
    ```
-2. انقر على الزر **تشغيل** للحصول على ردّ من روبوت الدردشة. قد تكون الاستجابة مشابهة لما يلي:
+2. Clique no botão **Executar** para receber uma resposta do chatbot. Essa resposta pode ser algo como:
 
-   **الطراز:**
+   **Modelo:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -72,14 +84,14 @@ Google uses AI technology to translate content into your preferred language. AI 
 
    (gemini-2.5-pro)
 
-### الخطوة 2: تعليم برنامج التتبُّع كيفية إجراء محادثات أفضل
+### Etapa 2: ensinar o bot a conversar melhor
 
-من خلال تقديم تعليمات بسيطة، تمكّنت من إنشاء برنامج دردشة آلي أساسي خاص بالكائنات الفضائية في أوروبا. ومع ذلك، قد لا تكون التعليمات الفردية كافية لضمان الاتساق والجودة في ردود النموذج. بدون تعليمات أكثر تحديدًا، يميل ردّ النموذج على سؤال حول الطقس إلى أن يكون طويلاً جدًا، ويمكن أن يتخذ شكلًا غير متوقّع.
+Ao fornecer uma única instrução, você conseguiu criar um chatbot alienígena básico da Europa. No entanto, uma única instrução pode não ser suficiente para garantir a consistência e a qualidade das respostas do modelo. Sem instruções mais específicas, a resposta do modelo a uma pergunta sobre o clima tende a ser muito longa e pode ter uma mente própria.
 
-خصِّص أسلوب روبوت الدردشة من خلال إضافة ما يلي إلى تعليمات النظام:
+Personalize o tom do chatbot adicionando às instruções do sistema:
 
-1. ابدأ بطلب جديد أو استخدِم الطلب نفسه. يمكن تعديل تعليمات النظام بعد بدء جلسة المحادثة.
-2. في قسم **تعليمات النظام**، غيِّر التعليمات الحالية إلى ما يلي:
+1. Inicie um novo comando de chat ou use o mesmo. As instruções do sistema podem ser modificadas após o início da sessão de chat.
+2. Na seção **Instruções do sistema**, mude as instruções que você já tem para o seguinte:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -87,9 +99,9 @@ Google uses AI technology to translate content into your preferred language. AI 
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. أعِد إدخال سؤالك (`What's the weather like?`) وانقر على الزر **تنفيذ**. إذا لم تبدأ محادثة جديدة، قد يبدو ردّك على النحو التالي:
+3. Digite novamente sua pergunta (`What's the weather like?`) e clique no botão **Executar**. Se você não iniciou um novo chat, sua resposta pode ser parecida com esta:
 
-   **الطراز:**
+   **Modelo:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -100,23 +112,24 @@ Google uses AI technology to translate content into your preferred language. AI 
 
    (gemini-2.5-pro)
 
-يمكنك استخدام هذا الأسلوب لإضافة المزيد من العمق إلى روبوت الدردشة. اطرح المزيد من الأسئلة وعدِّل الإجابات وحسِّن جودة برنامج الدردشة الآلي. تابِع إضافة التعليمات أو تعديلها واختبِر كيف تغيّر سلوك روبوت الدردشة.
+Você pode usar essa abordagem para adicionar mais profundidade ao chatbot. Faça mais perguntas, edite as respostas e melhore a qualidade do chatbot. Continue adicionando ou modificando as instruções e teste como elas mudam o comportamento do chatbot.
 
-### الخطوة 3: الخطوات التالية
+### Etapa 3: próximas etapas
 
-كما هو الحال مع أنواع الطلبات الأخرى، بعد أن تصبح راضيًا عن النموذج الأوّلي لطلبك، يمكنك استخدام الزر **الحصول على الرمز** لبدء الترميز أو حفظ طلبك للعمل عليه لاحقًا ومشاركته مع الآخرين.
+Assim como os outros tipos de comando, depois de criar o protótipo do comando, você pode usar o botão **Gerar código** para começar a programar ou salvar o comando para trabalhar nele mais tarde e compartilhar com outras pessoas.
 
-## محتوى إضافي للقراءة
+## Leitura adicional
 
-- إذا كنت مستعدًا للانتقال إلى الرمز، يمكنك الاطّلاع على [البدايات السريعة لواجهة برمجة التطبيقات](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
-- لمعرفة كيفية صياغة طلبات أفضل، اطّلِع على [إرشادات تصميم الطلبات](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ar).
+- Se você já pode passar para o código, consulte os [guias de início rápido
+  da API](https://ai.google.dev/gemini-api/docs/quickstart?hl=pt-br).
+- Para saber como criar comandos melhores, confira as [diretrizes de design de comandos](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=pt-br).
 
-إرسال ملاحظات
+Envie comentários
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-تاريخ التعديل الأخير: 2026-05-12 (حسب التوقيت العالمي المتفَّق عليه)
+Última atualização 2026-05-12 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Quer enviar seu feedback?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-12 UTC."],[],[]]

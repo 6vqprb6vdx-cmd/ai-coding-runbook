@@ -1,89 +1,86 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=de
-fetched_at: 2026-06-08T15:07:28.649335+00:00
-title: "\u00dcber Google\u00a0AI Studio bereitstellen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ar
+fetched_at: 2026-06-15T06:28:03.615526+00:00
+title: "\u0627\u0644\u0646\u0634\u0631 \u0645\u0646 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Feedback geben
+إرسال ملاحظات
 
-# Über Google AI Studio bereitstellen
+# النشر من Google AI Studio
 
-Mit Google AI Studio können Sie Ihre Full-Stack-Anwendungen direkt im Build-Modus bereitstellen. So gelangen Sie schnell vom Prototyp zu einer verwalteten, skalierbaren Produktionsumgebung.
+يتيح لك Google AI Studio نشر تطبيقاتك المتكاملة مباشرةً من &quot;وضع الإنشاء&quot;. ويوفّر ذلك مسارًا سريعًا من النموذج الأوّلي إلى بيئة إنتاج مُدارة وقابلة للتوسيع.
 
-## Bereitstellungsoptionen
+## خيارات النشر
 
-Die Anforderungen für die Bereitstellung Ihrer Anwendung im Build-Modus von AI Studio hängen von der verwendeten Stufe ab:
+لتنفيذ تطبيقك من &quot;وضع الإنشاء&quot; في AI Studio، تعتمد المتطلبات على الفئة التي تستخدمها:
 
-- [**Google Cloud Starter-Stufe**](https://docs.cloud.google.com/docs/starter-tier?hl=de):
-  Sie können bis zu zwei Full-Stack-Anwendungen veröffentlichen, ohne ein
-  Google Cloud-Projekt oder ein Rechnungskonto einzurichten.
-- **Standardbereitstellung**: Erfordert ein Google Cloud-Projekt, das mit Ihrem
-  AI Studio-Konto verknüpft ist, und die aktivierte Abrechnung für dieses Projekt.
+- [**فئة Google Cloud Starter**](https://docs.cloud.google.com/docs/starter-tier?hl=ar):
+  تتيح لك نشر ما يصل إلى تطبيقَين كاملَي الميزات بدون الحاجة إلى إعداد مشروع على السحابة الإلكترونية أو حساب فوترة على Google Cloud.
+- **عملية النشر العادية**: تتطلّب مشروعًا على Google Cloud مرتبطًا بحسابك على AI Studio وتفعيل الفوترة في هذا المشروع.
 
-## Informationen zur Starter-Stufe
+## لمحة عن "المستوى المبتدئ"
 
-Die Google Cloud Starter-Stufe bietet einen optimierten Weg, um Anwendungen direkt aus Google AI Studio in Google Cloud bereitzustellen, ohne eine vollständige Google Cloud-Umgebung oder ein Rechnungskonto einzurichten.
+توفّر &quot;فئة المبتدئين&quot; في Google Cloud مسارًا مبسطًا لنشر التطبيقات على Google Cloud مباشرةً من Google AI Studio بدون الحاجة إلى إعداد بيئة Google Cloud كاملة أو حساب فوترة.
 
-Bei jeder Bereitstellung in Google AI Studio wird ein entsprechender Dienst in Cloud Run erstellt. Für Dienste, die in Google AI Studio mit der Starter-Stufe bereitgestellt werden, gelten die folgenden Einschränkungen:
+يؤدي كل عملية نشر في Google AI Studio إلى إنشاء خدمة مقابلة في Cloud Run. تنطبق القيود التالية على الخدمات التي يتم نشرها في Google AI Studio باستخدام "حزمة المبتدئين":
 
-- Sie können bis zu zwei Dienste bereitstellen.
-- Ihre Dienste werden in einer
-  [einzigen Cloud Run-Region bereitgestellt](https://docs.cloud.google.com/run/docs/locations?hl=de).
+- يمكنك نشر ما يصل إلى خدمتَين.
+- يتم نشر خدماتك في [منطقة واحدة من مناطق Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=ar).
 
-## Bereitstellungsschritte für die Starter-Stufe
+## خطوات نشر المستوى المبتدئ
 
-Nachdem Sie Ihre App im Build-Modus entworfen haben, stellen Sie sie mit der Starter-Stufe bereit:
+بعد تصميم تطبيقك في "وضع الإنشاء"، يمكنك نشره باستخدام "الفئة المبتدئة" باتّباع الخطوات التالية:
 
-1. Klicken Sie rechts oben auf die Schaltfläche **Veröffentlichen**.
-2. Klicken Sie auf **Jetzt starten**.
-3. Klicken Sie auf **App veröffentlichen**.
+1. انقر على زر **نشر** في أعلى يسار الصفحة.
+2. انقر على **البدء**.
+3. انقر على **نشر التطبيق**.
 
-Nach Abschluss der Bereitstellung stellt AI Studio eine Cloud Run-URL bereit, über die Sie auf Ihre Live-Anwendung zugreifen können.
+بعد اكتمال عملية النشر، يوفّر AI Studio عنوان URL في Cloud Run يمكنك من خلاله الوصول إلى تطبيقك المباشر.
 
-## Standardmäßige Bereitstellung
+## النشر العادي
 
-Wenn sich Ihre Anwendungen weiterentwickeln, benötigen Sie möglicherweise Funktionen, die über die Starter-Stufe hinausgehen, z. B. höhere Kontingente, mehr Rechenressourcen oder andere Google Cloud-Produkte, die in der Starter-Stufe nicht verfügbar sind. Um diese Funktionen freizuschalten, können Sie Ihr vollständig verwaltetes Starter-Stufen-Projekt in ein Standard-Google Cloud-Projekt umwandeln.
+مع تطوّر تطبيقاتك، قد تحتاج إلى إمكانات تتجاوز تلك المتاحة في "الفئة المبتدئة"، مثل حصص أكبر أو موارد حوسبة إضافية أو منتجات أخرى من Google Cloud غير متوفّرة في "الفئة المبتدئة". للاستفادة من هذه الإمكانات، يمكنك تحويل مشروعك في "فئة المبتدئين" المُدارة بالكامل إلى مشروع عادي على Google Cloud.
 
-So können Sie nahtlos skalieren, ohne Ihre Fortschritte zu verlieren. Folgen Sie der Anleitung, um
-[ein Cloud-Rechnungskonto zu erstellen](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=de#create-new-billing-account), die Standard-Nutzungsbedingungen von Google Cloud formell zu akzeptieren und
-[ein Upgrade auf ein Standard-Google Cloud-Projekt durchzuführen](https://docs.cloud.google.com/docs/starter-tier?hl=de#upgradee).
-Weitere Informationen finden Sie unter
-[Einrichtung für kostenpflichtige Konten](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=de#paid-setup).
+يضمن ذلك إمكانية التوسّع بسلاسة بدون فقدان مستوى تقدّمك. اتّبِع الخطوات التالية من أجل
+[إنشاء حساب فوترة على Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=ar#create-new-billing-account)
+والموافقة رسميًا على بنود خدمة Google Cloud العادية
+و[الترقية إلى مشروع Google Cloud عادي](https://docs.cloud.google.com/docs/starter-tier?hl=ar#upgradee).
+لمزيد من المعلومات، يُرجى الاطّلاع على
+[إعداد الحسابات المدفوعة](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ar#paid-setup).
 
-Weitere Informationen zu Abrechnungsstufen finden Sie unter [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
+لمزيد من المعلومات عن فئات الفوترة، يُرجى الاطّلاع على [الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar).
 
-## Anwendung löschen
+## حذف طلبك
 
-Wenn Sie Ihre App nicht mehr benötigen, können Sie sie in Google AI Studio löschen. Folgen Sie dazu dieser Anleitung:
+إذا لم تعُد بحاجة إلى تطبيقك، يمكنك حذفه في Google AI Studio باتّباع التعليمات التالية:
 
-1. Rufen Sie in Google AI Studio die
-   [Seite „Apps“](https://aistudio.google.com/app/apps?hl=de) auf.
-2. Wählen Sie im Menü auf der linken Seite **Apps** aus.
-3. Bewegen Sie den Mauszeiger auf die App, die Sie löschen möchten.
-4. Klicken Sie rechts neben der Zeile auf das Papierkorbsymbol, um die App zu löschen.
+1. في Google AI Studio، انتقِل إلى
+   [صفحة "التطبيقات"](https://aistudio.google.com/app/apps?hl=ar).
+2. في القائمة اليمنى، انقر على **التطبيقات**.
+3. ضع المؤشر فوق التطبيق الذي تريد حذفه.
+4. انقر على رمز سلة المهملات على الجانب الأيسر من الصف لحذف التطبيق.
 
-## Nächste Schritte
+## الخطوات التالية
 
-- Weitere Informationen zur
-  [Google Cloud Starter-Stufe](https://docs.cloud.google.com/docs/starter-tier?hl=de).
-- Informationen zur [Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de) in der Gemini API
+- [مزيد من المعلومات حول "فئة المبتدئين" في Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=ar)
+- [مزيد من المعلومات حول الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar) في Gemini API
 
-Feedback geben
+إرسال ملاحظات
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Zuletzt aktualisiert: 2026-05-16 (UTC).
+تاريخ التعديل الأخير: 2026-05-16 (حسب التوقيت العالمي المتفَّق عليه)
 
-Haben Sie Feedback für uns?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-05-16 (UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-16 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,99 +1,110 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=tr
-fetched_at: 2026-06-08T15:08:10.744258+00:00
-title: "Gemini API ile Ara\u00e7lar\u0131 Kullanma \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=pl
+fetched_at: 2026-06-15T06:27:02.390053+00:00
+title: "Korzystanie z\u00a0narz\u0119dzi za pomoc\u0105 interfejsu Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Geri bildirim gönderin
+Prześlij opinię
 
-# Gemini API ile Araçları Kullanma
+# Korzystanie z narzędzi za pomocą interfejsu Gemini API
 
-Araçlar, Gemini modellerinin yeteneklerini genişleterek dünyada işlem yapmalarını, anlık bilgilere erişmelerini ve karmaşık hesaplama görevlerini gerçekleştirmelerini sağlar. Modeller, hem standart istek-yanıt etkileşimlerinde hem de [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=tr) kullanılarak yapılan gerçek zamanlı akış oturumlarında araçları kullanabilir.
+Narzędzia rozszerzają możliwości modeli Gemini, umożliwiając im podejmowanie działań w świecie rzeczywistym, dostęp do informacji w czasie rzeczywistym i wykonywanie złożonych zadań obliczeniowych. Modele mogą korzystać z narzędzi zarówno w standardowych interakcjach typu żądanie-odpowiedź, jak i
+w sesjach przesyłania strumieniowego w czasie rzeczywistym za pomocą interfejsu [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=pl).
 
-Araçlar, bir modelin sorgulara yanıt vermek için kullanabileceği belirli özelliklerdir (ör. Google Arama veya Kod Yürütme). Gemini API, tümüyle yönetilen bir dizi yerleşik araç sunar. Dilerseniz [Function Calling](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)'i kullanarak özel araçlar da tanımlayabilirsiniz.
+Narzędzia to konkretne funkcje (takie jak wyszukiwarka Google czy wykonywanie kodu), których model może używać do odpowiadania na zapytania. Interfejs Gemini API udostępnia zestaw w pełni
+zarządzanych, wbudowanych narzędzi. Możesz też zdefiniować narzędzia niestandardowe za pomocą [wywoływania
+funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
 
-Çok adımlı, hedefe yönelik sistemler oluşturmak için [Agents
-Overview](https://ai.google.dev/gemini-api/docs/agents?hl=tr) (Temsilcilere Genel Bakış) başlıklı makaleyi inceleyin.
+Aby tworzyć wieloetapowe systemy zorientowane na cel, zapoznaj się z omówieniem [agentów](https://ai.google.dev/gemini-api/docs/agents?hl=pl).
 
-## Kullanılabilir yerleşik araçlar
+## Dostępne narzędzia wbudowane
 
-| Araç | Açıklama | Kullanım Alanları |
+| Narzędzie | Opis | Przypadki użycia |
 | --- | --- | --- |
-| [Google Arama](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) | Halüsinasyonları azaltmak için yanıtları web'deki güncel olaylara ve bilgilere dayandırın. | \- Son olaylarla ilgili soruları yanıtlama   - Çeşitli kaynaklardan alınan bilgilerle gerçekleri doğrulama |
-| [Google Haritalar](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr) | Yerleri bulabilen, yol tarifi alabilen ve zengin yerel bağlam bilgileri sağlayabilen konuma duyarlı asistanlar oluşturun. | \- Birden fazla durak içeren seyahat planları yapma   - Kullanıcı ölçütlerine göre yerel işletmeleri bulma |
-| [Kod Yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr) | Modelin matematik problemlerini çözmek veya verileri doğru şekilde işlemek için Python kodu yazmasına ve çalıştırmasına izin verin. | \- Karmaşık matematik denklemlerini çözme   - Metin verilerini hassas bir şekilde işleme ve analiz etme |
-| [URL Bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) | Modele, belirli web sayfalarındaki veya belgelerdeki içerikleri okuyup analiz etmesini söyleyin. | \- Belirli URL'lere veya dokümanlara göre soruları yanıtlama   - Farklı web sayfalarındaki bilgileri alma |
-| [Bilgisayar Kullanımı (Önizleme)](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr) | Gemini'ın ekranı görüntülemesine ve web tarayıcısı kullanıcı arayüzleriyle etkileşim kurmak için işlemler oluşturmasına izin verin (istemci tarafında yürütme). | \- Tekrarlayan web tabanlı iş akışlarını otomatikleştirme   - Web uygulaması kullanıcı arayüzlerini test etme |
-| [Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr) | Veriyle Artırılmış Üretim'i (RAG) etkinleştirmek için kendi dokümanlarınızı dizine ekleyin ve arayın. | - Teknik kılavuzlarda arama yapma   - Tescilli verilerle ilgili soruları yanıtlama |
+| [Wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) | Uzasadniaj odpowiedzi aktualnymi wydarzeniami i faktami z internetu, aby ograniczyć halucynacje. | \- Odpowiadanie na pytania o bieżące wydarzenia.   \- Weryfikowanie faktów za pomocą różnych źródeł. |
+| [Mapy Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl) | Twórz asystentów rozpoznających lokalizację, którzy mogą znajdować miejsca, wyznaczać trasy i dostarczać bogaty kontekst lokalny. | \- Planowanie tras podróży z wieloma przystankami   \- Znajdowanie lokalnych firm na podstawie kryteriów użytkownika. |
+| [Wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) | Pozwól modelowi pisać i uruchamiać kod w Pythonie, aby rozwiązywać problemy matematyczne lub dokładnie przetwarzać dane. | \- Rozwiązywanie złożonych równań matematycznych   \- Precyzyjne przetwarzanie i analizowanie danych tekstowych |
+| [Kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl) | Poproś model o przeczytanie i przeanalizowanie treści z określonych stron internetowych lub dokumentów. | \- Odpowiadanie na pytania na podstawie konkretnych adresów URL lub dokumentów   \- Pobieranie informacji z różnych stron internetowych. |
+| [Korzystanie z komputera (wersja testowa)](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl) | Zezwól Gemini na wyświetlanie ekranu i generowanie działań w celu interakcji z interfejsami przeglądarek internetowych (wykonywanie po stronie klienta). | \- Automatyzowanie powtarzalnych przepływów pracy w internecie.   \- Testowanie interfejsów aplikacji internetowych. |
+| [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl) | Indeksuj i przeszukuj własne dokumenty, aby włączyć generowanie wspomagane wyszukiwaniem (RAG). | \- Przeszukiwanie podręczników technicznych   \- Odpowiadanie na pytania na podstawie danych zastrzeżonych |
 
-Belirli araçlarla ilişkili maliyetler hakkında ayrıntılı bilgi için [Fiyatlandırma sayfasına](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#pricing_for_tools) bakın.
+Szczegółowe informacje o kosztach związanych z konkretnymi narzędziami znajdziesz na stronie [Cennik](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#pricing_for_tools).
 
-## Araç yürütme nasıl çalışır?
+## Jak działa wykonywanie narzędzi
 
-Araçlar, modelin sohbet sırasında işlem isteğinde bulunmasına olanak tanır. Akış, aracın yerleşik (Google tarafından yönetilen) veya özel (sizin tarafınızdan yönetilen) olmasına bağlı olarak değişir.
+Narzędzia umożliwiają modelowi żądanie działań podczas rozmowy. Przepływ różni się w zależności od tego, czy narzędzie jest wbudowane (zarządzane przez Google) czy niestandardowe (zarządzane przez Ciebie).
 
-### Yerleşik araç akışı
+### Przepływ narzędzia wbudowanego
 
-Yerleşik araçlar (Google Arama, Google Haritalar, URL Bağlamı, Dosya Arama, Kod Yürütme) için tüm süreç tek bir API çağrısı içinde gerçekleşir:
+W przypadku narzędzi wbudowanych (wyszukiwarka Google, Mapy Google, kontekst adresu URL, wyszukiwanie plików, wykonywanie kodu) cały proces odbywa się w ramach jednego wywołania interfejsu API:
 
-1. **Siz** bir istem gönderiyorsunuz: "GOOG'un en son hisse senedi fiyatının karekökü nedir?"
-2. **Gemini**, araçlara ihtiyaç duyduğuna karar verir ve bunları Google'ın sunucularında çalıştırır (ör. hisse senedi fiyatını arar, ardından karekökü hesaplamak için Python kodu çalıştırır).
-3. **Gemini**, araç sonuçlarına dayalı nihai yanıtı geri gönderir.
+1. **Ty** wysyłasz prompta: „Ile wynosi pierwiastek kwadratowy z najnowszej ceny akcji GOOG?”
+2. **Gemini** stwierdza, że potrzebuje narzędzi, i uruchamia je na serwerach Google (np. wyszukuje cenę akcji, a następnie uruchamia kod w Pythonie, aby obliczyć pierwiastek kwadratowy).
+3. **Gemini** odsyła ostateczną odpowiedź opartą na wynikach narzędzia.
 
-### Özel araç akışı (işlev çağırma)
+### Przepływ narzędzia niestandardowego (wywoływanie funkcji)
 
-Özel araçlar ve bilgisayar kullanımı için yürütme işlemini uygulamanız gerçekleştirir:
+W przypadku narzędzi niestandardowych i korzystania z komputera wykonywanie jest obsługiwane przez Twoją aplikację:
 
-1. İşlev (araç) bildirimleriyle birlikte **istem** gönderiyorsunuz.
-2. **Gemini**, belirli bir işlevi (ör. `{"name": "get_order_status", "args": {"order_id": "123"}}`) çağırmak için her zaman benzersiz bir `id` ile birlikte yapılandırılmış JSON gönderebilir.
-3. İşlevi uygulamanızda veya ortamınızda **siz** yürütürsünüz.
-4. İşlev çağrısıyla aynı `id` ile işlev sonuçlarını **siz** Gemini'a geri gönderirsiniz.
-5. **Gemini**, sonuçları kullanarak nihai bir yanıt veya başka bir araç çağrısı oluşturur.
+1. **Ty** wysyłasz prompta wraz z deklaracjami funkcji (narzędzi).
+2. **Gemini** może odesłać uporządkowany kod JSON, aby wywołać konkretną funkcję
+   (np. `{"name": "get_order_status", "args": {"order_id": "123"}}`),
+   zawsze z unikalnym `id`.
+3. **Ty** uruchamiasz funkcję w swojej aplikacji lub środowisku.
+4. **Ty** odsyłasz wyniki funkcji z tym samym `id` co wywołanie funkcji.
+5. **Gemini** używa wyników do wygenerowania ostatecznej odpowiedzi lub innego wywołania narzędzia.
 
-Daha fazla bilgi için [İşlev çağrısı kılavuzunu](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) inceleyin.
+Więcej informacji znajdziesz w [przewodniku po wywoływaniu funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
 
-### Yerleşik ve özel araçları birleştirme akışı
+### Łączenie przepływu narzędzi wbudowanych i niestandardowych
 
-Yerleşik araçları ve özel araçları (işlev çağrıları) birleştiren isteklerde model, farklı ortamlarda yürütmeyi koordine etmek için [araç bağlamı dolaşımını](https://ai.google.dev/gemini-api/docs/toold-combination?hl=tr) kullanır:
+W przypadku żądań, które łączą narzędzia wbudowane i narzędzia niestandardowe (wywołania funkcji), model używa [obiegu kontekstu narzędzia](https://ai.google.dev/gemini-api/docs/toold-combination?hl=pl) do koordynowania wykonywania w różnych środowiskach:
 
-1. **Siz** bir istem gönderip etkinleştirmek istediğiniz yerleşik araçları ve özel işlevleri tanımlayarak kombinasyon desteğini etkinleştirmek için bir işaret ayarlarsınız.
-2. **Gemini**, yerleşik araçları çalıştırır ve herhangi bir istemci tarafı işlev çağrısı oluşturulursa kullanıcıya yanıt verir (önce hangisinin çalıştırılacağı, isteme ve modelin kararına bağlıdır). Aşağıdaki bilgileri içeren bir yanıt gönderir:
-   - Araç çağrısının onayı
-   - Araç yanıtının sonuçları (model iki paralel işlev çağrısı oluşturduysa bu, JSON'dan sonra gelebilir)
-   - İşlevinizi çağırmak için yapılandırılmış JSON
-   - Bağlamı korumak için şifrelenmiş düşünce imzaları
-3. İşlevi uygulamanızda veya ortamınızda **siz** yürütürsünüz.
-4. Gemini'ın yanıtının tüm bölümlerini ve işlev çağrısı sonuçlarınızı **siz** döndürürsünüz.
-5. **Gemini**, birleştirilmiş tüm bağlamı kullanarak son yanıtı oluşturur.
+1. **Ty** wysyłasz prompta i deklarujesz narzędzia wbudowane oraz funkcje niestandardowe, które chcesz włączyć, ustawiając flagę, aby włączyć obsługę kombinacji.
+2. **Gemini** uruchamia narzędzia wbudowane i przekazuje kontrolę użytkownikowi, jeśli zostaną wygenerowane wywołania funkcji po stronie klienta (kolejność zależy od prompta i decyzji modelu). Odsyła odpowiedź zawierającą:
+   - potwierdzenie wywołania narzędzia;
+   - wyniki odpowiedzi narzędzia (mogą one pojawić się po kodzie JSON, jeśli model wygenerował 2 równoległe wywołania funkcji);
+   - uporządkowany kod JSON do wywołania funkcji;
+   - zaszyfrowane sygnatury myśli, aby zachować kontekst.
+3. **Ty** uruchamiasz funkcję w swojej aplikacji lub środowisku.
+4. **Ty** zwracasz wszystkie części odpowiedzi Gemini oraz wyniki wywołania funkcji.
+5. **Gemini** generuje ostateczną odpowiedź, używając całego połączonego kontekstu.
 
-Yerleşik ve özel araç kombinasyonu desteğini etkinleştirme ve bağlam dolaşımı örnekleri hakkında bilgi edinmek için [Araç kombinasyonu kılavuzunu](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) okuyun.
+Aby dowiedzieć się, jak włączyć obsługę łączenia narzędzi wbudowanych i niestandardowych, oraz poznać przykłady obiegu kontekstu, przeczytaj [przewodnik po łączeniu narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
 
-## Yapılandırılmış çıkışlar ve işlev çağırma
+## Uporządkowane dane wyjściowe a wywoływanie funkcji
 
-Gemini, yapılandırılmış çıktılar oluşturmak için iki yöntem sunar. Modelin kendi araçlarınıza veya veri sistemlerinize bağlanarak ara adım atması gerektiğinde [fonksiyon çağrısı](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) özelliğini kullanın. Modelin nihai yanıtının belirli bir şemaya kesinlikle uyması gerektiğinde (ör. özel bir kullanıcı arayüzü oluşturmak için) [Yapılandırılmış Çıkışlar](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr)'ı kullanın.
+Gemini oferuje 2 metody generowania uporządkowanych danych wyjściowych. Używaj [wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) gdy model musi wykonać
+krok pośredni, łącząc się z Twoimi narzędziami lub systemami danych. Używaj
+[uporządkowanych danych wyjściowych](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl), gdy ostateczna odpowiedź modelu musi być ściśle zgodna z określonym schematem, np. w celu renderowania
+niestandardowego interfejsu.
 
-## Araçlarla yapılandırılmış çıkışlar
+## Uporządkowane dane wyjściowe z narzędziami
 
-[Yapılandırılmış Çıkışlar](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr)'ı yerleşik araçlarla birleştirerek harici verilere veya hesaplamalara dayalı model yanıtlarının katı bir şemaya uymaya devam etmesini sağlayabilirsiniz.
+ 
 
-Kod örnekleri için [Araçlarla yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=tr#structured_outputs_with_tools) başlıklı makaleye bakın.
+Możesz łączyć [uporządkowane dane wyjściowe](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) z
+narzędziami wbudowanymi, aby mieć pewność, że odpowiedzi modelu oparte na danych zewnętrznych lub
+obliczeniach nadal będą zgodne z określonym schematem.
 
-Geri bildirim gönderin
+Przykłady kodu znajdziesz w artykule [Uporządkowane dane wyjściowe z narzędziami](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=pl#structured_outputs_with_tools).
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Prześlij opinię
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Ostatnia aktualizacja: 2026-04-29 UTC.
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]
+Chcesz przekazać coś jeszcze?
+
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

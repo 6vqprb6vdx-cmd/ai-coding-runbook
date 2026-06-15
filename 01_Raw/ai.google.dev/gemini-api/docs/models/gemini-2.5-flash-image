@@ -1,49 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=de
-fetched_at: 2026-06-08T14:59:02.405694+00:00
-title: "Gemini\u00a02.5 Flash Image (Nano Banana) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=th
+fetched_at: 2026-06-15T06:19:10.992408+00:00
+title: "\u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e Gemini 2.5 Flash (Nano Banana) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-# Gemini 2.5 Flash Image (Nano Banana)
+# รูปภาพ Gemini 2.5 Flash (Nano Banana)
 
-Unsere beste Engine für die schnelle visuelle Erstellung mit modernster Geschwindigkeit und Effizienz. Gemini 2.5 Flash Image, auch bekannt als Nano Banana, eignet sich am besten für die Generierung großer Mengen, die konversationelle Bildbearbeitung und kreative Workflows mit geringer Latenz, die ein natives multimodales Verständnis erfordern.
+เครื่องมือที่ดีที่สุดของเราสำหรับการสร้างภาพความเร็วสูง ซึ่งมอบความเร็วและประสิทธิภาพที่ล้ำสมัย รูปภาพ Gemini 2.5 Flash หรือที่เรียกว่า Nano Banana เหมาะที่สุด
+สำหรับการสร้างจำนวนมาก การแก้ไขรูปภาพแบบสนทนา และเวิร์กโฟลว์
+การสร้างสรรค์ที่มีเวลาในการตอบสนองต่ำซึ่งต้องใช้ความเข้าใจแบบมัลติโมดัลของระบบ
 
-[In Google AI Studio testen](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=de)
+[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=th)
 
-## Dokumentation
+## เอกสารประกอบ
 
-Im [Leitfaden zur Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) finden Sie alle Funktionen und Möglichkeiten.
+ดูคำแนะนำ[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)เพื่อดูข้อมูลทั้งหมดเกี่ยวกับฟีเจอร์และความสามารถ
 
 ## gemini-2.5-flash-image
 
-| Attribut | Beschreibung |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_cardModellcode | `gemini-2.5-flash-image` |
-| saveUnterstützte Datentypen | **Eingaben**  Bilder und Text  **Ausgabe**  Bilder und Text |
-| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Tokenlimit für Eingaben**  65.536  **Tokenlimit für Ausgaben**  32.768 |
-| handymanFunktionen | **Audioerstellung**  Nicht unterstützt  **Batch API**  Unterstützt  **Caching**  Unterstützt  **Codeausführung**  Nicht unterstützt  **Dateisuche**  Nicht unterstützt  **Flex-Inferenz**  Unterstützt  **Funktionsaufrufe**  Nicht unterstützt  **Fundierung mit Google Maps**  Nicht unterstützt  **Bildgenerierung**  Unterstützt  **Live API**  Nicht unterstützt  **Prioritätsinferenz**  Unterstützt  **Suchfundierung**  Nicht unterstützt  **Strukturierte Ausgaben**  Unterstützt  **Überlegung**  Nicht unterstützt  **URL-Kontext**  Nicht unterstützt |
-| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stable: `gemini-2.5-flash-image` - Veraltet: `gemini-2.5-flash-image-preview` |
-| calendar\_monthLetztes Update | Oktober 2025 |
-| cognition\_2Wissensstichtag | Juni 2025 |
+| รหัสโมเดล id\_card | `gemini-2.5-flash-image` |
+| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  รูปภาพและข้อความ  **เอาต์พุต**  รูปภาพและข้อความ |
+| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  65,536  **ขีดจำกัดโทเค็นเอาต์พุต**  32,768 |
+| handymanความสามารถ | **การสร้างเสียง**  สิ่งที่ทำไม่ได้  **Batch API**  สิ่งที่ทำได้  **การแคช**  สิ่งที่ทำได้  **การรันโค้ด**  ไม่รองรับ  **ค้นหาไฟล์**  ไม่รองรับ  **การอนุมานแบบยืดหยุ่น**  สิ่งที่ทำได้  **การเรียกใช้ฟังก์ชัน**  สิ่งที่ทำไม่ได้  **การเชื่อมต่อแหล่งข้อมูลกับ Google Maps**  สิ่งที่ทำไม่ได้  **การสร้างรูปภาพ**  สิ่งที่ทำได้  **Live API**  ไม่รองรับ  **การอนุมานตามลำดับความสำคัญ**  สิ่งที่ทำได้  **การเชื่อมต่อแหล่งข้อมูลของ Search**  ไม่รองรับ  **เอาต์พุตที่มีโครงสร้าง**  สิ่งที่ทำได้  **การคิด**  ไม่รองรับ  **บริบทของ URL**  สิ่งที่ทำไม่ได้ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - เสถียร: `gemini-2.5-flash-image` - เลิกใช้งาน: `gemini-2.5-flash-image-preview` |
+| calendar\_monthการอัปเดตล่าสุด | ตุลาคม 2025 |
+| cognition\_2การตัดข้อมูล | มิถุนายน 2025 |
 
-Feedback geben
+ส่งความคิดเห็น
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Zuletzt aktualisiert: 2026-04-29 (UTC).
+อัปเดตล่าสุด 2026-04-29 UTC
 
-Haben Sie Feedback für uns?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]

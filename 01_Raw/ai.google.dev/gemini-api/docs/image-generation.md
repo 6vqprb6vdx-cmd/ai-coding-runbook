@@ -1,108 +1,112 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-CN
-fetched_at: 2026-06-08T15:04:17.749812+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=id
+fetched_at: 2026-06-15T06:28:56.899316+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-发送反馈
+Kirim masukan
 
-# Nano Banana 图片生成
+# Pembuatan gambar Nano Banana
 
-通过提示生成可正常运行、界面完整的应用原型，并了解
-Nano Banana 2 如何与实际工具、数据和 Gemini 生态系统集成。在编写任何代码之前。
+Berikan perintah untuk membuat prototipe aplikasi yang berfungsi penuh dan memiliki UI lengkap, serta lihat
+Nano Banana 2 yang terintegrasi dengan alat, data, dan ekosistem Gemini di dunia nyata. Semua itu dilakukan sebelum menulis satu baris kode pun.
 
-- [试用 Nano Banana 2 应用](https://aistudio.google.com/apps/bundled/pet_passport?hl=zh-cn)
-- 或者，您也可以根据提示自行构建：
+- [Mencoba aplikasi Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=id)
+- Atau buat sendiri dari perintah:
 
-- ![杂志](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
-  ![伦敦](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![恢复](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![香蕉](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![咖啡馆](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![冠词](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![狗](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![等距](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![杂志](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![majalah](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  ![pulihkan](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![pisang](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+  ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![artikel](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![anjing](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![isometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![majalah](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  由 Nano Banana 2 生成
+  Dibuat oleh Nano Banana 2
 
-  **提示**：“一张光泽杂志封面的照片，简约的蓝色封面上印有粗体大字‘Nano Banana’。文字采用衬线字体，并填充整个视图。不得包含其他文字。文字前面是一张人像，照片中的人穿着时尚简约的连衣裙。她正俏皮地拿着数字 2，这是画面的焦点。
+  **Perintah:** "Foto sampul majalah glossy, sampul biru minimalis memiliki kata-kata Nano Banana yang besar dan tebal. Teks menggunakan font serif dan mengisi tampilan. Tidak ada teks lain. Di depan teks terdapat potret seseorang yang mengenakan gaun elegan dan minimalis. Dia memegang angka 2 dengan lucu, yang merupakan titik fokus.
     
-  在角落中放置问题编号和“2026 年 2 月”日期，以及条形码。杂志放在设计师商店内一面橙色粉刷墙的架子上。
+  Letakkan nomor masalah dan tanggal "Feb 2026" di sudut bersama dengan kode batang. Majalah tersebut berada di rak di depan dinding yang diplester berwarna oranye, di dalam toko desainer."
 
-  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-cn) 中制作[专业的商品照片](#4_product_mockups_commercial_photography)
-- ![伦敦](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  Buat [foto produk profesional](#4_product_mockups_commercial_photography) di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
+- ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  由 Nano Banana Pro 生成
+  Dibuat oleh Nano Banana Pro
 
-  **提示**：“呈现一个清晰的 45° 俯视角等距微缩 3D 卡通伦敦场景，其中包含伦敦最具代表性的地标和建筑元素。使用柔和精致的纹理、逼真的 PBR 材质以及柔和逼真的光照和阴影。将当前天气状况直接融入城市环境中，营造身临其境的氛围感。使用简洁的极简主义构图，搭配柔和的纯色背景。在顶部中央，放置标题“伦敦”（粗体文字），下方放置醒目的天气图标，然后放置日期（小号文字）和温度（中号文字）。所有文字都必须居中显示，间距一致，并且可能会略微与建筑物顶部重叠。"
+  **Perintah:** "Tampilkan adegan kartun 3D miniatur isometrik yang jelas, dilihat dari atas pada sudut 45°, tentang London, yang menampilkan landmark dan elemen arsitektur paling ikonik di kota tersebut. Gunakan tekstur lembut dan halus dengan material PBR yang realistis serta pencahayaan dan bayangan yang lembut dan tampak nyata. Integrasikan kondisi cuaca saat ini langsung ke lingkungan kota untuk menciptakan suasana atmosfer yang imersif. Gunakan komposisi yang bersih dan minimalis dengan latar belakang warna solid yang lembut. Di bagian tengah atas, tempatkan judul "London" dalam teks tebal besar, ikon cuaca yang terlihat jelas di bawahnya, lalu tanggal (teks kecil) dan suhu (teks sedang). Semua teks harus berada di tengah dengan jarak yang konsisten, dan mungkin sedikit tumpang-tindih dengan bagian atas bangunan."
 
-  详细了解[搜索连接](#use-with-grounding)，并在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-cn) 中试用
-- ![格查尔](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  Pelajari lebih lanjut [perujukan penelusuran](#use-with-grounding) dan coba di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
+- ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  由 Nano Banana 2 生成
+  Dibuat oleh Nano Banana 2
 
-  **提示**：“使用图片搜索功能查找有关华丽绿咬鹃的准确图片。请为这只鸟制作一张精美的 3:2 壁纸，采用自然的自上而下渐变效果，构图简洁。
+  **Perintah:** "Gunakan penelusuran gambar untuk menemukan gambar akurat burung quetzal yang indah. Buat wallpaper 3:2 yang indah dari burung ini, dengan gradien alami dari atas ke bawah dan komposisi minimal."
 
-  将 Google [图片搜索](#image-search)与 Nano Banana 2 结合使用。在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-cn) 中试用
-- ![香蕉](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  Menggunakan perujukan [Penelusuran Gambar](#image-search) Google dengan Nano Banana 2. Coba di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
+- ![pisang](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  由 Nano Banana Pro 生成
+  Dibuat oleh Nano Banana Pro
 
-  **提示**：“将此徽标放在高端香蕉香味香水广告上。该徽标完美融入了瓶身设计。”
+  **Perintah:** "Letakkan logo ini pada iklan kelas atas untuk parfum beraroma pisang. Logo terintegrasi sempurna ke dalam botol."
 
-  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-cn) 中试用 Nano Banana 的[高保真细节保留](#5_high-fidelity_detail_preservation)功能
-- ![咖啡馆](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  Coba [preservasi detail dengan fidelitas tinggi](#5_high-fidelity_detail_preservation) Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
+- ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  由 Nano Banana Pro 生成
+  Dibuat oleh Nano Banana Pro
 
-  **提示**：“一张繁忙的咖啡馆供应早餐的日常场景的照片。前景中是一位蓝发动漫男子，其中一人是铅笔素描，另一人是黏土动画人物
+  **Perintah:** "Foto suasana sehari-hari di kafe ramai yang menyajikan sarapan. Di latar depan ada seorang pria anime berambut biru, salah satu orang adalah sketsa pensil, yang lain adalah orang claymation"
 
-  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-cn) 中使用 Nano Banana 尝试不同的[艺术风格](#3_style_transfer)
-- ![冠词](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  Bereksperimen dengan berbagai [gaya artistik](#3_style_transfer) menggunakan Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
+- ![artikel](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  由 Nano Banana Pro 生成
+  Dibuat oleh Nano Banana Pro
 
-  **提示**：“使用搜索功能查找 Gemini 3 Flash 的发布情况。请使用此信息撰写一篇关于此主题的简短文章（带标题）。返回文章的照片，该照片显示了文章在以设计为重点的精美杂志中的样子。这是一张照片，显示的是一篇关于 Gemini 3 Flash 的文章，照片中只有一页，且已折叠。一张主打照片。衬线字体标题。
+  **Perintah:** "Gunakan penelusuran untuk mengetahui tanggapan terhadap peluncuran Gemini 3 Flash. Gunakan informasi ini untuk menulis artikel singkat tentangnya (dengan judul). Tampilkan foto artikel sebagaimana muncul dalam majalah glossy yang berfokus pada desain. Gambar tersebut adalah foto satu halaman yang dilipat, yang menampilkan artikel tentang Gemini 3 Flash. Satu foto utama. Judul dalam huruf serif."
 
-  根据[搜索](#use-with-grounding)生成[准确的文本](#3_accurate_text_in_images)。在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-cn) 中试用 Nano Banana
-- ![狗](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  Membuat [teks yang akurat](#3_accurate_text_in_images) dari [penelusuran](#use-with-grounding). Coba Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
+- ![anjing](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  由 Nano Banana Pro 生成
+  Dibuat oleh Nano Banana Pro
 
-  **提示**：“一个代表可爱狗狗的图标。背景为白色。以色彩鲜艳且具有触感的 3D 风格制作图标。没有文字。"
+  **Perintah:** "Ikon yang merepresentasikan lucu. Latar belakangnya berwarna putih. Buat ikon dalam gaya 3D yang berwarna-warni dan terasa nyata. Tidak ada teks."
 
-  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=zh-cn) 中使用 Nano Banana 制作[图标、贴纸和素材资源](#2_stylized_illustrations_stickers)
-- ![等距](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  Buat [ikon, stiker, dan aset](#2_stylized_illustrations_stickers) dengan Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
+- ![isometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  由 Nano Banana 2 生成
+  Dibuat oleh Nano Banana 2
 
-  **提示**：“制作一张完全等距的照片。这不是微缩模型，而是一张恰好是完美等距视角的照片。这是一张美丽现代花园的照片。画面中有一个 2 字形的大泳池，以及“Nano Banana 2”字样。
+  **Perintah:** "Buat foto yang isometrik sempurna. Ini bukan miniatur, melainkan foto yang diambil dan kebetulan isometrik sempurna. Ini adalah foto taman modern yang indah. Terdapat kolam renang besar berbentuk 2 dan kata-kata: Nano Banana 2."
 
-  在 [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=zh-cn) 中尝试[生成逼真的图片](#1_photorealistic_scenes)
+  Mencoba [pembuatan gambar fotorealistik](#1_photorealistic_scenes) di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
 
-**Nano Banana** 是 Gemini 原生图片生成功能的名称。
-Gemini 可以通过文本、图片或两者结合的方式以对话方式生成并处理图片。这让您能够以前所未有的精准度创建、修改和迭代视觉内容。
+**Nano Banana** adalah nama untuk kemampuan pembuatan gambar native Gemini.
+Gemini dapat membuat dan memproses gambar melalui percakapan
+dengan teks, gambar, atau kombinasi keduanya. Dengan begitu, Anda dapat membuat, mengedit, dan melakukan iterasi pada visual dengan kontrol yang belum pernah ada sebelumnya.
 
-Nano Banana 是指 Gemini API 中提供的三种不同的模型：
+Nano Banana mengacu pada tiga model berbeda yang tersedia di Gemini API:
 
-- **Nano Banana 2**：[Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=zh-cn) 模型 (`gemini-3.1-flash-image`)。此模型是 Gemini 3.1 Pro Image 的高效版本，针对速度和高容量开发者使用情形进行了优化。
-- **Nano Banana Pro**：[Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-cn) 模型 (`gemini-3-pro-image`)。此模型专为专业资产制作而设计，可利用高级推理（“思考”）功能来遵循复杂的指令并呈现高保真文本。
-- **Nano Banana**：[Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=zh-cn) 模型 (`gemini-2.5-flash-image`)。此模型专为速度和效率而设计，经过优化，可处理海量低延迟任务。
+- **Nano Banana 2**: Model [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=id) (`gemini-3.1-flash-image`). Model ini berfungsi sebagai
+  mitra berefisiensi tinggi untuk Gemini 3.1 Pro Image, yang dioptimalkan untuk kecepatan dan
+  kasus penggunaan developer bervolume tinggi.
+- **Nano Banana Pro**: Model [Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=id)
+  (`gemini-3-pro-image`). Model ini dirancang untuk produksi aset profesional, menggunakan penalaran tingkat lanjut ("Berpikir") untuk mengikuti petunjuk yang kompleks dan merender teks dengan fidelitas tinggi.
+- **Nano Banana**: Model [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=id) (`gemini-2.5-flash-image`). Model ini dirancang untuk kecepatan dan efisiensi, serta dioptimalkan untuk tugas-tugas bervolume tinggi dan latensi rendah.
 
-生成的所有图片都包含 [SynthID 水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-cn)。
+Semua gambar yang dihasilkan menyertakan [watermark SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id).
 
-## 图片生成（文生图）
+## Pembuatan gambar (teks ke gambar)
 
 ### Python
 
@@ -291,15 +295,16 @@ curl -s -X POST \
   }'
 ```
 
-## 图片编辑（文本和图片转图片）
+## Pengeditan gambar (text-and-image-to-image)
 
-**提醒**：请确保您对上传的所有图片均拥有必要权利。
-请勿生成会侵犯他人权利的内容，包括会欺骗、骚扰或伤害他人的视频或图片。使用此生成式 AI 服务时须遵守我们的[《使用限制政策》](https://policies.google.com/terms/generative-ai/use-policy?hl=zh-cn)。
+**Pengingat**: Pastikan Anda memiliki hak yang diperlukan atas gambar apa pun yang Anda upload.
+Jangan membuat konten yang melanggar hak orang lain, termasuk video atau gambar yang menipu, melecehkan, atau membahayakan. Penggunaan layanan AI generatif ini oleh Anda tunduk pada [Kebijakan Penggunaan Terlarang](https://policies.google.com/terms/generative-ai/use-policy?hl=id) kami.
 
-提供图片并使用文本提示添加、移除或修改元素、更改样式或调整色彩分级。
+Berikan gambar dan gunakan perintah teks untuk menambahkan, menghapus, atau mengubah elemen,
+mengubah gaya, atau menyesuaikan gradasi warna.
 
-以下示例演示了如何上传 `base64` 编码的图片。
-如需了解多张图片、更大的载荷和支持的 MIME 类型，请参阅[图片理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-cn)页面。
+Contoh berikut menunjukkan cara mengupload gambar yang dienkode `base64`.
+Untuk beberapa gambar, payload yang lebih besar, dan jenis MIME yang didukung, lihat halaman [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id).
 
 ### Python
 
@@ -542,9 +547,11 @@ curl -s -X POST \
     }"
 ```
 
-### 多轮图片修改
+### Pengeditan gambar multi-turn
 
-继续以对话方式生成和修改图片。建议使用聊天或多轮对话的方式来迭代图片。以下示例展示了生成有关光合作用的信息图表的提示。
+Terus buat dan edit gambar melalui percakapan. Percakapan chat atau multi-giliran
+adalah cara yang direkomendasikan untuk melakukan iterasi pada gambar. Contoh
+berikut menunjukkan perintah untuk membuat infografis tentang fotosintesis.
 
 ### Python
 
@@ -776,11 +783,11 @@ curl -s -X POST \
   }'
 ```
 
-![关于光合作用的 AI 生成的信息图](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=zh-cn)
+![Infografis buatan AI tentang fotosintesis](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=id)
 
-AI 生成的有关光合作用的信息图
+Infografis buatan AI tentang fotosintesis
 
-然后，您可以使用同一对话将图片中的语言更改为西班牙语。
+Kemudian, Anda dapat menggunakan percakapan yang sama untuk mengubah bahasa pada grafik menjadi Spanyol.
 
 ### Python
 
@@ -974,32 +981,32 @@ curl -s -X POST \
   }'
 ```
 
-![AI 生成的西班牙语光合作用信息图](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=zh-cn)
+![Infografis fotosintesis yang dibuat AI dalam bahasa Spanyol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=id)
 
-AI 生成的西班牙语光合作用信息图
+Infografik fotosintesis buatan AI dalam bahasa Spanyol
 
-## Gemini 3 Image 模型的新功能
+## Baru dengan model Gambar Gemini 3
 
-Gemini 3 提供先进的图片生成和编辑模型。Gemini 3.1 Flash Image 针对速度和大规模使用场景进行了优化，而 Gemini 3 Pro Image 针对专业素材制作进行了优化。
-这些模型旨在通过高级推理来应对最具挑战性的工作流程，擅长处理复杂的多轮创建和修改任务。
+Gemini 3 menawarkan model pengeditan dan pembuatan gambar tercanggih. Gemini 3.1 Flash Image dioptimalkan untuk kecepatan dan kasus penggunaan volume tinggi, dan Gemini 3 Pro Image dioptimalkan untuk produksi aset profesional.
+Dirancang untuk menangani alur kerja yang paling menantang melalui penalaran tingkat lanjut, model ini unggul dalam tugas pembuatan dan modifikasi multi-giliran yang kompleks.
 
-- **高分辨率输出**：内置生成 1K、2K 和 4K 视觉内容的能力。
-  - **Gemini 3.1 Flash Image** 新增了较小的 512 像素 (0.5K) 分辨率。
-- **高级文本呈现**：能够为信息图表、菜单、图表和营销素材资源生成清晰易读的风格化文本。
-- **依托 Google 搜索进行接地**：模型可以使用 Google 搜索作为工具来验证事实，并根据实时数据（例如当前天气地图、股票图表、近期活动）生成图像。
-  - **Gemini 3.1 Flash Image** 新增了将依托 Google 搜索进行接地与 Google 图片搜索和 Google 网页搜索相集成的功能。
-- **思考模式**：模型会利用“思考”过程来推理复杂的提示。它会生成临时“构思图片”（在后端可见，但不收费），以在生成最终的高质量输出之前优化构图。
-- **最多 14 张参考图片**：您现在最多可混合使用 14 张参考图片来生成最终图片。
-- **新增宽高比**：Gemini 3.1 Flash Image 新增了 1:4、4:1、1:8 和 8:1 的[宽高比](#aspect_ratios_and_image_size)。
+- **Output resolusi tinggi**: Kemampuan pembuatan bawaan untuk visual 1K, 2K, dan 4K.
+  - **Gemini 3.1 Flash Image** menambahkan resolusi 512 (0,5K) yang lebih kecil.
+- **Rendering teks lanjutan**: Mampu membuat teks yang mudah dibaca dan bergaya untuk infografis, menu, diagram, dan aset pemasaran.
+- **Grounding dengan Google Penelusuran**: Model dapat menggunakan Google Penelusuran sebagai alat untuk memverifikasi fakta dan membuat gambar berdasarkan data real-time (misalnya, peta cuaca saat ini, diagram saham, peristiwa terkini).
+  - **Gemini 3.1 Flash Image** menambahkan integrasi Grounding dengan Google Penelusuran untuk Gambar bersama dengan Penelusuran Web.
+- **Mode penalaran**: Model menggunakan proses "penalaran" untuk menalar perintah yang rumit. Fitur ini menghasilkan "gambar pemikiran" sementara (dapat dilihat di backend, tetapi tidak dikenai biaya) untuk menyempurnakan komposisi sebelum menghasilkan output akhir berkualitas tinggi.
+- **Hingga 14 gambar referensi**: Anda kini dapat menggabungkan hingga 14 gambar referensi untuk menghasilkan gambar akhir.
+- **Rasio aspek baru**: Gemini 3.1 Flash Image menambahkan [rasio aspek](#aspect_ratios_and_image_size) 1:4, 4:1, 1:8, dan 8:1.
 
-### 使用最多 14 张参考图片
+### Menggunakan hingga 14 gambar referensi
 
-借助 Gemini 3 图片模型，您最多可混合使用 14 张参考图片。这 14 张图片可以包含以下内容：
+Model gambar Gemini 3 memungkinkan Anda menggabungkan hingga 14 gambar referensi. 14 gambar ini dapat mencakup:
 
-| Gemini 3.1 Flash Image | Gemini 3.1 Pro Image |
+| Gambar Gemini 3.1 Flash | Gambar Gemini 3.1 Pro |
 | --- | --- |
-| 最多 10 张高保真对象图片，用于添加到最终图片中 | 最多 6 张高保真对象图片，用于包含在最终图片中 |
-| 最多 4 张角色图片，以保持角色一致性 | 最多 5 张角色图片，以保持角色一致性 |
+| Hingga 10 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir | Hingga 6 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir |
+| Hingga 4 gambar karakter untuk mempertahankan konsistensi karakter | Hingga 5 gambar karakter untuk mempertahankan konsistensi karakter |
 
 ### Python
 
@@ -1318,15 +1325,15 @@ curl -s -X POST \
     }"
 ```
 
-![AI 生成的办公室合影](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=zh-cn)
+![Foto grup kantor buatan AI](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=id)
 
-AI 生成的办公室合影
+Foto grup kantor buatan AI
 
-### 依托 Google 搜索进行接地
+### Grounding dengan Google Penelusuran
 
-使用 [Google 搜索工具](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)根据实时信息（例如天气预报、股票图表或近期活动）生成图片。
+Gunakan [alat Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) untuk membuat gambar berdasarkan informasi real-time, seperti prakiraan cuaca, diagram saham, atau peristiwa terkini.
 
-请注意，将“依托 Google 搜索进行接地”与图片生成功能搭配使用时，基于图片的搜索结果不会传递给生成模型，并且会从回答中排除（请参阅[依托 Google 搜索进行图片接地](#image-search)）
+Perhatikan bahwa saat menggunakan Grounding dengan Google Penelusuran untuk pembuatan gambar, hasil penelusuran berbasis gambar tidak diteruskan ke model pembuatan dan dikecualikan dari respons (lihat [Grounding dengan Google Penelusuran untuk gambar](#image-search))
 
 ### Python
 
@@ -1515,22 +1522,24 @@ curl -s -X POST \
   }'
 ```
 
-![AI 生成的旧金山五天天气图表](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=zh-cn)
+![Diagram cuaca lima hari buatan AI untuk San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=id)
 
-旧金山未来五天的天气图表（由 AI 生成）
+Grafik cuaca lima hari yang dibuat AI untuk San Francisco
 
-响应包含 `groundingMetadata`，其中包含以下必需字段：
+Respons mencakup `groundingMetadata` yang berisi kolom wajib
+berikut:
 
-- **`searchEntryPoint`**：包含用于呈现所需搜索建议的 HTML 和 CSS。
-- **`groundingChunks`**：返回用于为生成的图片提供依据的前 3 个网络来源
+- **`searchEntryPoint`**: Berisi HTML dan CSS untuk merender saran penelusuran
+  yang diperlukan.
+- **`groundingChunks`**: Menampilkan 3 sumber web teratas yang digunakan untuk merujuk gambar yang dihasilkan
 
-### 依托 Google 图片搜索进行接地 (3.1 Flash)
+### Grounding dengan Google Penelusuran untuk Gambar (3.1 Flash)
 
-依托 Google 搜索进行接地功能允许模型使用通过 Google 搜索检索到的网络图片作为图片生成的视觉上下文。图片搜索是“依托 Google 搜索进行接地”工具中的一种新搜索类型，可与标准[网页搜索](#use-with-grounding)配合使用。
+Penelusuran dengan Google Penelusuran untuk gambar memungkinkan model menggunakan gambar web yang diambil melalui Google Penelusuran sebagai konteks visual untuk pembuatan gambar. Penelusuran Gambar adalah jenis penelusuran baru dalam alat Perujukan dengan Google Penelusuran yang sudah ada, yang berfungsi bersama [Penelusuran Web](#use-with-grounding) standar.
 
-如需启用图片搜索，请在 API 请求中配置 `googleSearch` 工具，并在 `searchTypes` 对象中指定 `imageSearch`。图片搜索可以单独使用，也可以与网页搜索一起使用。
+Untuk mengaktifkan Penelusuran Gambar, konfigurasikan alat `googleSearch` dalam permintaan API Anda dan tentukan `imageSearch` dalam objek `searchTypes`. Penelusuran Gambar dapat digunakan secara terpisah atau bersama dengan Penelusuran Web.
 
-请注意，依托 Google 搜索进行接地以搜索图片的功能无法用于搜索人物。
+Perhatikan bahwa Perujukan dengan Google Penelusuran untuk gambar tidak dapat digunakan untuk menelusuri orang.
 
 ### Python
 
@@ -1757,33 +1766,43 @@ curl -s -X POST \
   }'
 ```
 
-**展示要求**
+**Persyaratan tampilan**
 
-在“依托 Google 搜索进行接地”中使用图片搜索时，您必须遵守以下条件：
+Saat Anda menggunakan Penelusuran Gambar dalam Grounding dengan Google Penelusuran, Anda harus mematuhi
+persyaratan berikut:
 
-- **来源信息提供**：您必须以用户能够识别为链接的方式，提供指向包含来源图片的网页（“包含网页”，而非图片文件本身）的链接。
-- **直接导航**：如果您还选择显示来源图片，则必须提供从来源图片到其所在来源网页的直接单点点击路径。任何其他延迟或抽象化最终用户对源网页的访问的实现方式（包括但不限于任何多点击路径或使用中间图片查看器）均不允许。
+- **Atribusi sumber**: Anda harus memberikan link ke halaman web yang berisi
+  gambar sumber (bukan file gambar itu sendiri, melainkan "halaman yang berisi") dengan
+  cara yang akan dikenali pengguna sebagai link.
+- **Navigasi langsung**: Jika Anda juga memilih untuk menampilkan gambar sumber, Anda
+  harus menyediakan jalur sekali klik langsung dari gambar sumber ke
+  halaman web sumber yang memuatnya. Implementasi lain yang menunda atau mengabstraksi
+  akses pengguna akhir ke halaman web sumber, termasuk tetapi tidak terbatas pada
+  jalur multi-klik atau penggunaan penampil gambar perantara, tidak
+  diizinkan.
 
-**答案**
+**Respons**
 
-对于使用图片搜索的有依据的回答，该 API 会提供清晰的提供方信息和元数据，以将其输出内容与经过验证的来源相关联。`groundingMetadata` 对象中的关键字段包括：
+Untuk respons berbasis penelusuran gambar, API memberikan atribusi dan metadata yang jelas untuk menautkan outputnya ke sumber terverifikasi. Kolom utama dalam objek
+`groundingMetadata` meliputi:
 
-- **`imageSearchQueries`**：模型用于视觉上下文（图片搜索）的具体查询。
-- **`groundingChunks`**：包含检索到的结果的来源信息。
-  对于图片来源，这些内容将使用新的图片块类型作为重定向网址返回。此块包含：
+- **`imageSearchQueries`**: Kueri spesifik yang digunakan oleh model untuk konteks visual (penelusuran gambar).
+- **`groundingChunks`**: Berisi informasi sumber untuk hasil yang diambil.
+  Untuk sumber gambar, URL ini akan ditampilkan sebagai URL pengalihan menggunakan jenis chunk gambar baru. Chunk ini mencakup:
 
-  - **`uri`**：用于提供提供方信息的网页网址（着陆页）。
-  - **`image_uri`**：直接图片网址。
-- **`groundingSupports`**：提供具体映射，将生成的内容与块中的相关引用来源相关联。
-- **`searchEntryPoint`**：包含“Google 搜索”芯片，其中包含符合要求的 HTML 和 CSS，用于呈现搜索建议。
+  - **`uri`**: URL halaman web untuk atribusi (halaman landing).
+  - **`image_uri`**: URL gambar langsung.
+- **`groundingSupports`**: Memberikan pemetaan spesifik yang menautkan konten yang dihasilkan ke sumber kutipan yang relevan dalam potongan.
+- **`searchEntryPoint`**: Mencakup chip "Google Penelusuran" yang berisi HTML dan CSS yang sesuai untuk merender Saran Penelusuran.
 
-### 视频转图片生成 (3.1 Flash)
+### Pembuatan gambar dari video (3.1 Flash)
 
-借助视频到图片生成功能，您可以将视频的上下文作为多模态参考，生成新图片。这对于创建高质量的视频缩略图、电影海报、摘要信息图表或受视频场景启发的新作品非常有用。
+Pembuatan gambar dari video memungkinkan Anda membuat gambar baru menggunakan konteks video sebagai referensi multimodal. Fitur ini berguna untuk membuat thumbnail video berkualitas tinggi, poster sinematik, infografis ringkasan, atau karya seni baru yang terinspirasi dari adegan video.
 
-在生成过程中，模型会分析上下文中的视频帧（最多可分析 131,072 个 token，这是模型的输入 token 限制），以提取视觉主题和关键事件，然后将这些信息与您的文本提示一起用于合成输出图片。
+Selama pembuatan, model menganalisis frame video dalam konteks (hingga batas token input model
+sebanyak 131.072 token) untuk mengekstrak tema visual dan peristiwa utama, lalu menggunakannya bersama perintah teks Anda untuk menyintesis gambar output.
 
-您可以在 API 请求中直接传递公开的 [YouTube 网址](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-cn#youtube)，也可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 上传本地视频文件。
+Anda dapat meneruskan [URL YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id#youtube) publik secara langsung dalam permintaan API atau mengupload file video lokal menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
 ### Python
 
@@ -2018,15 +2037,15 @@ curl -s -X POST \
   }'
 ```
 
-![根据 YouTube 视频生成的 AI 信息图](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=zh-cn)
+![Infografis buatan AI dari video YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=id)
 
-根据 YouTube 视频生成的 AI 信息图
+Infografis buatan AI dari video YouTube
 
-### 生成分辨率最高为 4K 的图片
+### Membuat gambar dengan resolusi hingga 4K
 
-Gemini 3 图片模型默认生成 1K 图片，但也可以输出 2K、4K 和 512 (0.5K)（仅限 Gemini 3.1 Flash Image）图片。如需生成更高分辨率的素材资源，请在 `generation_config` 中指定 `image_size`。
+Model gambar Gemini 3 membuat 1.000 gambar secara default, tetapi juga dapat menghasilkan gambar 2K, 4K, dan 512 (0,5K) (khusus Gemini 3.1 Flash Image). Untuk membuat aset dengan resolusi lebih tinggi, tentukan `image_size` di `generation_config`.
 
-您必须使用大写“K”（例如 1K、2K、4K）。`512` 值未使用“K”后缀。系统会拒绝小写参数（例如 1k）。
+Anda harus menggunakan huruf besar 'K' (mis. 1K, 2K, 4K). Nilai `512` tidak menggunakan akhiran 'K'. Parameter huruf kecil (misalnya, 1k) akan ditolak.
 
 ### Python
 
@@ -2265,19 +2284,20 @@ curl -s -X POST \
   }'
 ```
 
-以下是根据此提示生成的示例图片：
+Berikut adalah contoh gambar yang dihasilkan dari perintah ini:
 
-![AI 生成的达芬奇风格的解剖帝王蝶的解剖图。](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=zh-cn)
+![Sketsa anatomi gaya Da Vinci yang dibuat AI dari kupu-kupu Raja yang dibedah.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=id)
 
-AI 生成的达芬奇风格的解剖君主斑蝶的解剖草图。
+Sketsa anatomi gaya Da Vinci buatan AI dari kupu-kupu Raja yang dibedah.
 
-### 思维过程
+### Proses Berpikir
 
-Gemini 3 图片模型是思考型模型，可针对复杂提示使用推理流程（“思考”）。此功能默认处于启用状态，并且无法在 API 中停用。如需详细了解思考过程，请参阅 [Gemini 思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)指南。
+Model gambar Gemini 3 adalah model pemikiran yang menggunakan proses penalaran ("Penalaran") untuk perintah yang kompleks. Fitur ini diaktifkan secara default dan
+tidak dapat dinonaktifkan di API. Untuk mempelajari lebih lanjut proses berpikir, lihat panduan [Proses Berpikir Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
 
-模型最多会生成两张临时图片，以测试构图和逻辑。“思考”中的最后一张图片也是最终渲染的图片。
+Model ini menghasilkan hingga dua gambar sementara untuk menguji komposisi dan logika. Gambar terakhir dalam Proses berpikir juga merupakan gambar akhir yang dirender.
 
-您可以查看生成最终图片所依据的想法。
+Anda dapat memeriksa pemikiran yang menghasilkan gambar akhir.
 
 ### Python
 
@@ -2343,11 +2363,14 @@ foreach (var candidate in response.Candidates) {
 }
 ```
 
-#### 控制思考等级
+#### Mengontrol tingkat penalaran
 
-借助 Gemini 3.1 Flash Image，您可以控制模型使用的思考量，以平衡质量和延迟时间。默认 `thinkingLevel` 为 `minimal`，支持的级别为 `minimal` 和 `high`。将 `thinkingLevel` 设置为 `minimal` 可提供延迟时间最短的响应。请注意，最少思考并不意味着模型完全不思考。
+Dengan Gemini 3.1 Flash Image, Anda dapat mengontrol jumlah pemikiran yang digunakan model untuk menyeimbangkan kualitas dan latensi. `thinkingLevel` default adalah `minimal`,
+dan tingkat yang didukung adalah `minimal` dan `high`. Menetapkan
+`thinkingLevel` ke `minimal` memberikan respons latensi terendah. Perhatikan bahwa
+pemikiran minimal tidak berarti model tidak menggunakan pemikiran sama sekali.
 
-您可以添加 `includeThoughts` 布尔值来确定模型生成的想法是否在回答中返回，还是保持隐藏状态。
+Anda dapat menambahkan boolean `includeThoughts` untuk menentukan apakah pemikiran yang dihasilkan model ditampilkan dalam respons, atau tetap tersembunyi.
 
 ### Python
 
@@ -2586,19 +2609,25 @@ curl -s -X POST \
   }'
 ```
 
-请注意，无论 `includeThoughts` 设置为 `true` 还是 `false`，系统都会对思考令牌收费，因为无论您是否查看思考过程，系统默认情况下始终会进行[思考过程](#thinking-process)。
+Perhatikan bahwa token pemikiran ditagih terlepas dari apakah `includeThoughts`
+ditetapkan ke `true` atau `false`, karena [proses pemikiran](#thinking-process) selalu
+terjadi secara default, terlepas dari apakah Anda melihat prosesnya atau tidak.
 
-#### 思考签名
+#### Tanda Tangan Pikiran
 
-思考签名是模型内部思考过程的加密表示形式，用于在多轮互动中保留推理上下文。所有响应都包含 `thought_signature` 字段。一般来说，如果您在模型响应中收到思考签名，则应在下一轮对话中发送对话历史记录时，完全按收到的原样将其传递回去。未能循环使用思想签名可能会导致响应失败。如需详细了解签名，请参阅[思想签名](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-cn)文档。
+Tanda tangan pemikiran adalah representasi terenkripsi dari
+proses pemikiran internal model dan digunakan untuk mempertahankan konteks penalaran
+di seluruh interaksi multi-giliran. Semua respons mencakup kolom `thought_signature`. Sebagai aturan umum, jika Anda menerima tanda tangan pemikiran dalam respons model, Anda harus meneruskannya kembali persis seperti yang diterima saat mengirimkan histori percakapan pada giliran berikutnya. Kegagalan dalam menyebarkan tanda tangan pemikiran dapat menyebabkan respons gagal. Lihat dokumentasi [tanda tangan pemikiran](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=id)
+untuk penjelasan selengkapnya tentang tanda tangan secara keseluruhan.
 
-思考签名的运作方式如下：
+Berikut cara kerja tanda tangan pikiran:
 
-- 所有包含图片 `mimetype` 的 `inline_data` 部分（属于响应的一部分）都应具有签名。
-- 如果想法之后（在任何图片之前）紧跟着一些文字部分，则第一个文字部分也应包含签名。
-- 如果包含图片 `mimetype` 的 `inline_data` 部分是想法的一部分，则不会有签名。
+- Semua bagian `inline_data` dengan gambar `mimetype` yang merupakan bagian dari respons harus memiliki tanda tangan.
+- Jika ada beberapa bagian teks di awal (sebelum gambar apa pun) tepat setelah
+  pemikiran, bagian teks pertama juga harus memiliki tanda tangan.
+- Jika bagian `inline_data` dengan gambar `mimetype` adalah bagian dari pemikiran, bagian tersebut tidak akan memiliki tanda tangan.
 
-以下代码展示了包含意念签名的示例：
+Kode berikut menunjukkan contoh tempat tanda tangan pemikiran disertakan:
 
 ```
 [
@@ -2658,178 +2687,190 @@ curl -s -X POST \
 ]
 ```
 
-## 其他图片生成模式
+## Mode pembuatan gambar lainnya
 
-Gemini 还支持其他基于提示结构和上下文的图片互动模式，包括：
+Gemini mendukung mode interaksi gambar lainnya berdasarkan struktur dan konteks perintah, termasuk:
 
-- **文生图和文本（交织）**：输出包含相关文本的图片。
-  - 提示示例：“生成一份图文并茂的海鲜饭食谱。”
-- **图片和文本转图片和文本（交织）**：使用输入图片和文本创建新的相关图片和文本。
-  - 提示示例：（附带一张带家具的房间的照片）“我的空间还适合放置哪些颜色的沙发？你能更新一下图片吗？”
+- **Teks ke gambar dan teks (disisipkan):** Menghasilkan gambar dengan teks terkait.
+  - Contoh perintah: "Buat resep paella bergambar."
+- **Gambar dan teks ke gambar dan teks (berselang-seling)**: Menggunakan gambar dan teks input untuk membuat gambar dan teks baru yang terkait.
+  - Contoh perintah: (Dengan gambar ruangan yang dilengkapi perabot) "Sofa warna apa lagi yang cocok untuk ruangan saya? Bisakah Anda memperbarui gambar tersebut?"
 
-## 批量生成图片
+## Membuat gambar secara batch
 
-如果您需要生成大量图片，可以使用[批量 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)。您可以获得更高的[速率限制](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-cn)，但需要等待最长 24 小时才能获得回复。
+Jika Anda perlu membuat banyak gambar, Anda dapat menggunakan
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id). Anda akan mendapatkan [batas frekuensi panggilan API](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id) yang lebih tinggi dengan waktu penyelesaian hingga 24 jam.
 
-如需查看 Batch API 图片示例和代码，请参阅 [Batch API 图片生成文档](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn#image-generation)和[实用指南](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=zh-cn)。
+Periksa [dokumentasi pembuatan gambar Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id#image-generation) dan [cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=id) untuk contoh dan kode gambar Batch API.
 
-## 提示指南和策略
+## Panduan dan strategi penulisan perintah
 
-要掌握图片生成，首先要了解一个基本原则：
+Menguasai pembuatan gambar dimulai dengan satu prinsip mendasar:
 
-> **描述场景，而不仅仅是列出关键字。**
-> 该模型的核心优势在于其深厚的语言理解能力。与一连串不相关的字词相比，叙述性、描述性段落几乎总是能生成更好、更连贯的图片。
+> **Deskripsikan suasananya, jangan hanya mencantumkan kata kunci.**
+> Kekuatan inti model ini adalah pemahaman bahasanya yang mendalam. Paragraf naratif dan deskriptif hampir selalu menghasilkan gambar yang lebih baik dan lebih koheren daripada daftar kata-kata yang tidak terhubung.
 
-### 用于生成图片的提示
+### Perintah untuk membuat gambar
 
-以下策略将帮助您创建有效的提示，从而生成您想要的图片。
+Strategi berikut akan membantu Anda membuat perintah yang efektif untuk
+membuat gambar yang Anda inginkan.
 
-#### 摄影
+#### Fotografi
 
-对于逼真的图片，请使用摄影术语。提及拍摄角度、镜头类型、光线和细节，引导模型生成逼真的结果。
+Untuk gambar yang realistis, gunakan istilah fotografi. Sebutkan sudut kamera, jenis lensa, pencahayaan, dan detail kecil untuk memandu model menghasilkan gambar yang realistis.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| 一张特写照片，照片中一位年长的日本陶艺家脸上布满被阳光刻蚀的深深皱纹，露出温暖而会心的微笑。他正在仔细检查一个刚上过釉的茶碗。场景是他的乡村风格、阳光充足的工作室。柔和的黄金时段光线透过窗户照亮了整个场景，凸显了黏土的细腻质感。使用 85 毫米人像镜头拍摄，营造出柔和的模糊背景（焦外成像）。整体氛围宁静而富有大师风范。竖向纵向。 | 日本老年陶艺家 |
+| Foto potret jarak dekat seorang pembuat keramik Jepang lanjut usia dengan kerutan dalam yang disebabkan oleh paparan sinar matahari dan senyum hangat yang penuh makna. Dia sedang memeriksa mangkuk teh yang baru di-glazur dengan cermat. Latarnya adalah bengkelnya yang sederhana dan bermandikan sinar matahari. Adegan diterangi oleh cahaya lembut golden hour yang masuk melalui jendela, menyoroti tekstur halus tanah liat. Diambil dengan lensa potret 85 mm, sehingga menghasilkan latar belakang yang lembut dan buram (bokeh). Suasana keseluruhannya tenang dan mengagumkan. Orientasi potret vertikal. | Pembuat keramik Jepang lansia |
 
-#### 风格化插图和贴纸
+#### Ilustrasi dan stiker bergaya
 
-如需创建贴纸、图标或素材资源，请明确说明样式并要求使用白色背景。
+Untuk membuat stiker, ikon, atau aset, sebutkan gaya secara eksplisit dan minta latar belakang putih.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| 一张卡哇伊风格的贴纸，上面是一只戴着小竹帽的快乐小熊猫。它正在啃食一片绿色的竹叶。设计采用醒目、简洁的轮廓、简单的赛璐珞着色和鲜艳的色调。背景必须为白色。 | 可爱的小熊猫贴纸 |
+| Stiker bergaya kawaii panda merah yang tampak gembira dan mengenakan topi bambu kecil. Ia sedang mengunyah daun bambu hijau. Desainnya menampilkan garis luar yang tebal dan rapi, shading cel sederhana, serta palet warna yang cerah. Latar belakang harus berwarna putih. | Stiker panda merah kawaii |
 
-#### 图片中的文字准确无误
+#### Teks yang akurat dalam gambar
 
-Gemini 在渲染文本方面表现出色。清楚说明文字、字体样式（描述性）和整体设计。使用 Gemini 3.1 Pro Image 进行专业资源制作。
+Gemini unggul dalam merender teks. Jelaskan teks, gaya font (secara deskriptif), dan desain keseluruhan. Gunakan Gemini 3.1 Pro Image untuk produksi aset profesional.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| 为一家名为“The Daily Grind”的咖啡店设计一个现代简约的徽标。文字应采用清晰的粗体无衬线字体。配色方案为黑白色。将徽标放在圆圈中。巧妙地使用咖啡豆。 | 咖啡店徽标 |
+| Buat logo modern dan minimalis untuk kedai kopi bernama 'The Daily Grind'. Teks harus menggunakan font sans-serif yang rapi dan tebal. Skema warnanya hitam dan putih. Letakkan logo di dalam lingkaran. Gunakan biji kopi dengan cara yang cerdas. | Logo kedai kopi |
 
-#### 产品模型和商业摄影
+#### Mockup produk dan fotografi komersial
 
-非常适合为电子商务、广告或品牌宣传拍摄清晰专业的商品照片。
+Sempurna untuk membuat foto produk yang bersih dan profesional untuk e-commerce, iklan, atau branding.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| 一张高分辨率的摄影棚级商品照片，展示一款哑光黑色的极简陶瓷咖啡杯，摆放在抛光混凝土表面上。采用三点柔光箱布光法，旨在营造柔和漫射的高光效果，并消除刺眼的阴影。拍摄角度略微抬高，为 45 度，以展示其简洁的线条。超逼真，清晰聚焦于咖啡中升腾的蒸汽。方形图片。 | 陶瓷咖啡杯产品照 |
+| Foto produk cangkir kopi keramik minimalis berwarna hitam matte dengan pencahayaan studio dan resolusi tinggi, yang diletakkan di atas permukaan beton yang dipoles. Pencahayaannya adalah penyiapan softbox tiga titik yang dirancang untuk menciptakan sorotan lembut dan tersebar serta menghilangkan bayangan yang tajam. Sudut kamera adalah bidikan 45 derajat yang sedikit ditinggikan untuk menampilkan garis-garisnya yang bersih. Sangat realistis, dengan fokus tajam pada uap yang mengepul dari kopi. Gambar persegi. | Foto produk mug kopi keramik |
 
-#### 极简主义和负空间设计
+#### Desain minimalis dan ruang negatif
 
-非常适合用于为网站、演示文稿或营销材料创建背景，以便在其中叠加文字。
+Sangat cocok untuk membuat latar belakang situs, presentasi, atau materi pemasaran yang akan ditumpuk dengan teks.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| 极简主义构图，画面右下角放置了一片精致的红枫叶。背景是一张广阔的米白色空白画布，为文字留出了大量留白空间。柔和的漫射光线从左上角照射下来。方形图片。 | 极简设计，带有红枫叶 |
+| Komposisi minimalis yang menampilkan satu daun mapel merah yang halus di posisi kanan bawah bingkai. Latar belakangnya adalah kanvas putih pudar yang luas dan kosong, sehingga menciptakan ruang negatif yang signifikan untuk teks. Pencahayaan lembut dan tersebar dari kiri atas. Gambar persegi. | Desain minimalis dengan daun maple merah |
 
-#### 连续艺术（漫画分格 / 故事板）
+#### Seni berurutan (Panel komik / Storyboard)
 
-以角色一致性和场景描述为基础，为视觉故事讲述创建分格。为了确保文本准确性和叙事能力，这些提示最适合搭配 Gemini 3.1 Pro 和 Gemini 3.1 Flash Image 使用。
+Membangun konsistensi karakter dan deskripsi adegan untuk membuat panel penceritaan visual. Untuk akurasi dengan teks dan kemampuan bercerita, perintah ini paling cocok dengan Gemini 3.1 Pro dan Gemini 3.1 Flash Image.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  戴着白色眼镜的男士   输入图片   **提示**：创作一幅三格漫画，采用粗犷的黑色电影艺术风格，使用高对比度的黑白墨水。将角色置于幽默的场景中。 | 粗犷的黑色漫画分格 |
+| **Input gambar:**  Pria berkacamata putih   Input gambar   **Perintah:** Buat komik 3 panel dengan gaya seni noir yang berani, dengan tinta hitam putih yang kontras. Tempatkan karakter dalam adegan lucu. | Panel komik noir yang suram |
 
-#### 依托 Google 搜索进行接地
+#### Grounding dengan Google Penelusuran
 
-使用 Google 搜索根据最新信息或实时信息生成图片。
-这对于新闻、天气和其他时效性主题非常有用。
+Gunakan Google Penelusuran untuk membuat gambar berdasarkan informasi terbaru atau real-time.
+Hal ini berguna untuk berita, cuaca, dan topik lain yang sensitif terhadap waktu.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| 制作一张简单但时尚的图片，内容是昨晚阿森纳在欧冠联赛中的比赛 | 阿森纳足球得分图表 |
+| Buat grafik sederhana namun bergaya untuk pertandingan Arsenal semalam di Liga Champions | Grafik skor pertandingan Arsenal |
 
-### 用于修改图片的提示
+### Perintah untuk mengedit gambar
 
-以下示例展示了如何提供图片以及文本提示，以进行编辑、构图和风格迁移。
+Contoh ini menunjukkan cara memberikan gambar bersama perintah teks Anda untuk
+pengeditan, komposisi, dan transfer gaya.
 
-#### 添加和移除元素
+#### Menambahkan dan menghapus elemen
 
-提供图片并描述您的更改。模型将与原始图片的风格、光线和透视效果保持一致。
+Berikan gambar dan deskripsikan perubahan yang Anda inginkan. Model akan cocok dengan gaya, pencahayaan, dan perspektif gambar asli.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  一张照片般逼真的图片，画面中是一只毛茸茸的姜黄色猫...   输入图片   **提示**：请使用我提供的猫的图片，在其头上添加一顶针织的小巫师帽。让它看起来坐得很舒服，并且与照片的柔和光线相匹配。 | 戴着巫师帽的猫 |
+| **Input gambar:**  Gambar fotorealistik kucing oranye berbulu lebat...   Input gambar   **Perintah:** Menggunakan gambar kucing saya yang disediakan, tambahkan topi penyihir kecil rajutan di kepalanya. Buat agar terlihat duduk dengan nyaman dan sesuai dengan pencahayaan lembut pada foto. | Kucing dengan topi penyihir |
 
-#### 局部重绘（语义遮盖）
+#### Lukisan (Masking semantik)
 
-通过对话定义“蒙版”，修改图片的特定部分，同时保持其余部分不变。
+Tentukan "masker" secara percakapan untuk mengedit bagian tertentu dari gambar tanpa mengubah bagian lainnya.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  广角镜头：一间光线充足的现代客厅...   输入图片   **提示**：使用提供的客厅图片，将蓝色沙发更改为复古棕色皮革切斯特菲尔德沙发。保持房间的其余部分（包括沙发上的枕头和照明）不变。 | 配有棕色真皮沙发的起居室 |
+| **Input gambar:**  Bidikan lebar ruang tamu modern yang terang...   Input gambar   **Perintah:** Dengan menggunakan gambar ruang tamu yang disediakan, ubah hanya sofa biru menjadi sofa chesterfield kulit cokelat bergaya vintage. Biarkan bagian ruangan lainnya, termasuk bantal di sofa dan pencahayaan, tidak berubah. | Ruang tamu dengan sofa kulit cokelat |
 
-#### 风格迁移
+#### Transfer gaya
 
-提供一张图片，并要求模型以不同的艺术风格重现其内容。
+Berikan gambar dan minta model untuk membuat ulang kontennya dalam gaya artistik yang berbeda.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  一张逼真的高分辨率照片，画面中是一条繁忙的城市街道...   输入图片   **提示**：将提供的现代城市街道夜景照片转换为文森特·梵高的《星月夜》的艺术风格。保留建筑物和汽车的原始构图，但使用漩涡状的厚涂笔触和深蓝色与亮黄色组成的鲜明调色板来渲染所有元素。 | 《星夜》风格的城市街道 |
+| **Input gambar:**  Foto fotorealistik beresolusi tinggi jalan kota yang ramai...   Input gambar   **Perintah:** Ubah foto jalan kota modern di malam hari yang diberikan menjadi gaya artistik 'Starry Night' karya Vincent van Gogh. Pertahankan komposisi asli bangunan dan mobil, tetapi render semua elemen dengan sapuan kuas impasto yang berputar-putar dan palet dramatis warna biru tua dan kuning cerah. | Jalan kota dalam gaya Starry Night |
 
-#### 高级合成：组合多张图片
+#### Komposisi lanjutan: Menggabungkan beberapa gambar
 
-提供多张图片作为上下文，以创建新的合成场景。此功能非常适合制作产品模型或创意拼贴画。
+Berikan beberapa gambar sebagai konteks untuk membuat adegan komposit baru. Fitur ini sangat cocok untuk membuat mockup produk atau kolase kreatif.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  一张专业拍摄的照片，照片中是一件蓝色碎花夏季连衣裙...   输入 1：连衣裙   全身照：一位女性头发盘成发髻，...   输入 2：模特   **提示**：制作一张专业的电子商务时尚照片。将第一张图片中的蓝色碎花连衣裙取出来，让第二张图片中的女子穿上。生成一张写实风格的全身照，照片中的女性穿着这件连衣裙，光线和阴影已调整为与户外环境相匹配。 | 时尚电子商务照片 |
+| **Gambar input:**  Foto profesional gaun musim panas bermotif bunga biru...   Input 1: Gaun   Foto seluruh tubuh seorang perempuan dengan rambut dicepol...   Input 2: Model   **Perintah:** Buat foto fashion e-commerce profesional. Ambil gaun bermotif bunga biru dari gambar pertama dan biarkan wanita dari gambar kedua memakainya. Buat foto realistis seluruh tubuh perempuan yang mengenakan gaun, dengan pencahayaan dan bayangan yang disesuaikan agar sesuai dengan lingkungan luar ruangan. | Foto e-commerce fashion |
 
-#### 高保真细节保留
+#### Mempertahankan detail fidelitas tinggi
 
-为确保在编辑过程中保留关键细节（例如面部或徽标），请在编辑请求中详细描述这些细节。
+Untuk memastikan detail penting (seperti wajah atau logo) dipertahankan selama pengeditan, deskripsikan detail tersebut secara mendalam bersama dengan permintaan pengeditan Anda.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  一张专业头像，照片中的女性留着棕色头发，有着蓝色眼睛…   输入 1：女性   一个简单的现代徽标，包含字母“G”和“A”...   输入 2：徽标   **提示**：拍摄第一张照片，照片中的女性留着棕色头发，有着蓝色眼睛，面部表情平静。将第二张图片中的徽标添加到她的黑色 T 恤上。确保女性的面部和特征完全保持不变。徽标应看起来像是自然印在面料上，并贴合衬衫的褶皱。 | 身穿带徽标 T 恤的女性 |
+| **Gambar input:**  Foto profesional seorang wanita dengan rambut cokelat dan mata biru...   Input 1: Wanita   Logo sederhana dan modern dengan huruf &#39;G&#39; dan &#39;A&#39;...   Input 2: Logo   **Perintah:** Ambil gambar pertama wanita dengan rambut cokelat, mata biru, dan ekspresi netral. Tambahkan logo dari gambar kedua ke kaus hitamnya. Pastikan wajah dan fitur wanita tersebut tetap tidak berubah sama sekali. Logo harus terlihat seperti dicetak secara alami pada kain, mengikuti lipatan baju. | Perempuan dengan logo di kaus |
 
-#### 让事物生动起来
+#### Menghidupkan sesuatu
 
-上传草图或简笔画，然后让模型将其优化为成品图片。
+Upload sketsa atau gambar kasar dan minta model untuk menyempurnakannya menjadi gambar akhir.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  汽车草图   汽车的粗略草图   **提示**：将这幅未来汽车的粗略铅笔素描变成展厅中成品概念车的精美照片。保留草图中的流畅线条和低调外观，但添加金属蓝色油漆和霓虹灯轮圈照明。 | 概念车的精美照片 |
+| **Input gambar:**  Sketsa mobil   Sketsa kasar mobil   **Perintah:** Ubah sketsa pensil kasar mobil futuristik ini menjadi foto akhir konsep mobil yang sudah jadi di showroom. Pertahankan garis ramping dan profil rendah dari sketsa, tetapi tambahkan cat biru metalik dan pencahayaan pelek neon. | Foto mobil konsep yang dipoles |
 
-#### 角色一致性：360 度全景
+#### Konsistensi karakter: Tampilan 360
 
-您可以迭代提示不同的角度，从而生成角色的 360 度视图。为获得最佳效果，请在后续提示中添加之前生成的图片，以保持一致性。对于复杂的姿势，请添加所需姿势的参考图片。
+Anda dapat membuat tampilan karakter 360 derajat dengan memberikan perintah secara berulang untuk sudut yang berbeda. Untuk hasil terbaik, sertakan gambar yang dibuat sebelumnya dalam perintah berikutnya untuk menjaga konsistensi. Untuk pose yang rumit, sertakan gambar referensi pose yang diinginkan.
 
-| **提示** | **生成的输出** |
+| **Perintah** | **Output yang dihasilkan** |
 | --- | --- |
-| **输入图片**：  戴白色眼镜的男士的原始输入内容   原始图片   **提示**：一张以白色为背景的男士摄影棚肖像，侧面朝向右侧 | 一位戴着白色眼镜的男士看向右侧的输出   戴白色眼镜的男士看向右侧   一位戴着白色眼镜的男士向前看的输出图片   戴白色眼镜的男士看向前方 |
+| **Input gambar:**  Input asli seorang pria berkacamata putih   Gambar asli   **Perintah:** Foto studio pria ini dengan latar belakang putih, dari samping menghadap ke kanan | Output seorang pria berkacamata putih yang melihat ke kanan   Pria berkacamata putih melihat ke kanan   Output seorang pria berkacamata putih yang melihat ke depan   Pria berkacamata putih melihat ke depan |
 
-### 最佳做法
+### Praktik Terbaik
 
-如需将效果从“好”提升到“出色”，请将以下专业策略融入您的工作流程。
+Untuk meningkatkan hasil dari baik menjadi luar biasa, masukkan strategi profesional berikut ke dalam alur kerja Anda.
 
-- **具体化**：您提供的信息越详细，对输出结果的掌控程度就越高。与其使用“奇幻盔甲”，不如具体描述为“华丽的精灵板甲，蚀刻着银叶图案，带有高领和猎鹰翅膀形状的肩甲”。
-- **提供上下文和意图**：说明图片的*用途*。模型对上下文的理解会影响最终输出。例如，“为高端极简护肤品牌设计徽标”的效果要好于“设计徽标”。
-- **迭代和优化**：不要指望第一次尝试就能生成完美的图片。利用模型的对话特性进行小幅更改。然后，您可以继续发出提示，例如“效果不错，但能让光线更暖一些吗？”或“保持所有内容不变，但让角色的表情更严肃一些。”
-- **使用分步指令**：对于包含许多元素的复杂场景，请将提示拆分为多个步骤。“首先，创建一个宁静、薄雾弥漫的黎明森林的背景。然后，在前景中添加一个长满苔藓的古老石制祭坛。最后，将一把发光的剑放在祭坛顶部。”
-- **使用“语义负面提示”**：不要说“没有汽车”，而是通过说“一条没有交通迹象的空旷、荒凉的街道”来正面描述所需的场景。
-- **控制镜头**：使用摄影和电影语言来控制构图。例如`wide-angle shot`、`macro shot`、`low-angle
-  perspective`等字词。
+- **Buat Perintah yang Sangat Spesifik:** Semakin detail informasi yang Anda berikan, semakin besar kontrol yang Anda miliki. Daripada "armor fantasi", deskripsikan: "armor pelat elf yang indah, diukir dengan pola daun perak, dengan kerah tinggi dan pelindung bahu berbentuk seperti sayap elang".
+- **Berikan Konteks dan Maksud:** Jelaskan *tujuan* gambar. Pemahaman model tentang konteks akan memengaruhi output akhir. Misalnya, "Buat logo untuk merek perawatan kulit kelas atas yang minimalis" akan memberikan hasil yang lebih baik daripada hanya "Buat logo".
+- **Lakukan Iterasi dan Tingkatkan Kualitas:** Jangan mengharapkan gambar yang sempurna pada percobaan pertama. Gunakan sifat percakapan model untuk melakukan perubahan kecil. Lanjutkan dengan perintah seperti, "Bagus, tapi bisakah kamu membuat pencahayaannya sedikit lebih hangat?" atau "Biarkan semuanya sama, tapi ubah ekspresi karakter menjadi lebih serius".
+- **Gunakan Petunjuk Langkah demi Langkah:** Untuk adegan kompleks dengan banyak elemen, pecah perintah Anda menjadi beberapa langkah. "Pertama, buat latar belakang hutan berkabut yang tenang saat fajar. Kemudian, di latar depan, tambahkan altar batu kuno yang tertutup lumut.
+  Terakhir, letakkan pedang tunggal yang bercahaya di atas altar."
+- **Gunakan "Perintah Negatif Semantik":** Daripada mengatakan "tidak ada mobil", deskripsikan
+  adegan yang diinginkan secara positif: "jalan yang kosong dan sepi tanpa tanda-tanda
+  lalu lintas".
+- **Mengontrol Kamera:** Gunakan bahasa fotografi dan sinematik untuk mengontrol komposisi. Istilah seperti `wide-angle shot`, `macro shot`, `low-angle
+  perspective`.
 
-## 限制
+## Batasan
 
-- 为获得最佳性能，请使用以下语言：英语、ar-EG、de-DE、es-MX、fr-FR、hi-IN、id-ID、it-IT、ja-JP、ko-KR、pt-BR、ru-RU、ua-UA、vi-VN、zh-CN。
-- 图片生成不支持音频或视频输入。
-- 模型不一定会生成用户明确要求的确切数量的图片输出。
-- `gemini-2.5-flash-image` 最多可接受 3 张图片作为输入，而 `gemini-3-pro-image` 可支持 5 张高保真图片，总共最多可接受 14 张图片。`gemini-3.1-flash-image` 支持在单一工作流中保持多达 4 个角色的相似度，并保持多达 10 个物体的细节保真度。
-- 在为图片生成文本时，如果先生成文本，再要求生成包含该文本的图片，Gemini 的效果会最佳。
-- `gemini-3.1-flash-image` 目前，依托 Google 搜索进行接地不支持使用来自网页搜索的真实人物图片。
-- 生成的所有图片都包含 [SynthID 水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-cn)。
+- Untuk performa terbaik, gunakan bahasa berikut: EN, ar-EG, de-DE, es-MX,
+  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
+- Pembuatan gambar tidak mendukung input audio atau video.
+- Model tidak akan selalu mengikuti jumlah output gambar persis yang diminta pengguna secara eksplisit.
+- `gemini-2.5-flash-image` berfungsi paling baik dengan maksimal 3 gambar sebagai input, sedangkan
+  `gemini-3-pro-image` mendukung 5 gambar dengan fidelitas tinggi, dan total hingga
+  14 gambar. `gemini-3.1-flash-image` mendukung kemiripan karakter hingga 4 karakter dan kualitas hingga 10 objek dalam satu alur kerja.
+- Saat membuat teks untuk gambar, Gemini akan berfungsi paling baik jika Anda membuat teks terlebih dahulu, lalu meminta gambar dengan teks tersebut.
+- `gemini-3.1-flash-image` Saat ini, perujukan dengan Google Penelusuran tidak mendukung penggunaan gambar orang dari dunia nyata dari penelusuran web.
+- Semua gambar yang dihasilkan menyertakan [watermark SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id).
 
-## 可选配置
+## Konfigurasi opsional
 
-您可以选择在 `generate_content` 调用的 `config` 字段中配置模型输出的响应模态和宽高比。
+Anda dapat secara opsional mengonfigurasi modalitas respons dan rasio aspek output model di kolom `config` panggilan `generate_content`.
 
-### 输出类型
+### Jenis output
 
-默认情况下，模型会返回文本和图片响应（即 `response_modalities=['Text', 'Image']`）。您可以使用 `response_modalities=['Image']` 将响应配置为仅返回图片而不返回文本。
+Model secara default menampilkan respons teks dan gambar
+(yaitu `response_modalities=['Text', 'Image']`).
+Anda dapat mengonfigurasi respons agar hanya menampilkan gambar tanpa teks menggunakan
+`response_modalities=['Image']`.
 
 ### Python
 
@@ -2912,9 +2953,11 @@ curl -s -X POST \
   }'
 ```
 
-### 宽高比和图片大小
+### Rasio aspek dan ukuran gambar
 
-默认情况下，模型会使输出图片的大小与输入图片的大小保持一致，否则会生成 1:1 的正方形图片。您可以使用响应请求中 `response_format` 下的 `aspect_ratio` 字段来控制输出图片的宽高比，如下所示：
+Secara default, model akan mencocokkan ukuran gambar output dengan ukuran gambar input Anda, atau menghasilkan persegi 1:1.
+Anda dapat mengontrol rasio aspek gambar output menggunakan kolom `aspect_ratio`
+di bagian `response_format` dalam permintaan respons, seperti yang ditunjukkan di sini:
 
 ### Python
 
@@ -3101,13 +3144,14 @@ curl -s -X POST \
   }'
 ```
 
-下表列出了可用的不同宽高比以及生成的图片大小：
+Berbagai rasio yang tersedia dan ukuran gambar yang dihasilkan tercantum dalam
+tabel berikut:
 
-### 3.1 Flash 映像
+### 3.1 Gambar Flash
 
-| 宽高比 | 512 分辨率 | 500 个 token | 1K 分辨率 | 1,000 个 token | 2K 分辨率 | 2,000 个 token | 4K 分辨率 | 4,000 个 token |
+| Rasio aspek | Resolusi 512 | 0,5 ribu token | Resolusi 1K | 1.000 token | Resolusi 2K | 2.000 token | Resolusi 4K | 4K token |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048 x 2048 | 1680 | 4096x4096 | 2520 |
+| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
 | **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
 | **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
 | **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
@@ -3124,9 +3168,9 @@ curl -s -X POST \
 
 ### 3.1 Pro Image
 
-| 宽高比 | 1K 分辨率 | 1,000 个 token | 2K 分辨率 | 2,000 个 token | 4K 分辨率 | 4,000 个 token |
+| Rasio aspek | Resolusi 1K | 1.000 token | Resolusi 2K | 2.000 token | Resolusi 4K | 4K token |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4096x4096 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
 | **3:2** | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
 | **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
@@ -3137,9 +3181,9 @@ curl -s -X POST \
 | **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
 | **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
 
-### Gemini 2.5 Flash 图片
+### Gambar Gemini 2.5 Flash
 
-| 宽高比 | 分辨率 | 令牌 |
+| Rasio aspek | Resolusi | Token |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
 | 2:3 | 832x1248 | 1290 |
@@ -3152,32 +3196,37 @@ curl -s -X POST \
 | 16:9 | 1344x768 | 1290 |
 | 21:9 | 1536x672 | 1290 |
 
-## 模型选择
+## Pemilihan model
 
-选择最适合您的特定使用场景的模型。
+Pilih model yang paling sesuai untuk kasus penggunaan spesifik Anda.
 
-- **Gemini 3.1 Flash Image (Nano Banana 2)** 应该是您的首选图片生成模型，因为它在性能和智能方面表现出色，并且在成本和延迟方面也达到了平衡。如需了解详情，请参阅模型[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-3.1-flash-image)和[功能](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=zh-cn)页面。
-- **Gemini 3.1 Pro Image (Nano Banana Pro)** 专为专业资源制作和复杂指令而设计。该模型具有以下特点：使用 Google 搜索进行现实世界接地、默认的“思考”流程（在生成之前优化构图），并且可以生成分辨率高达 4K 的图片。如需了解详情，请参阅模型[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-3-pro-image)和[功能](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-cn)页面。
-- **Gemini 2.5 Flash Image (Nano Banana)** 旨在实现速度和效率。此模型经过优化，可处理大批量、低延迟的任务，并生成 1024 像素分辨率的图片。如需了解详情，请参阅模型[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-2.5-flash-image)和[功能](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=zh-cn)页面。
+- **Gemini 3.1 Flash Image (Nano Banana 2)** harus menjadi model pembuatan gambar pilihan Anda, karena memiliki performa dan kecerdasan terbaik secara keseluruhan dengan keseimbangan biaya dan latensi yang optimal. Lihat halaman [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.1-flash-image) dan [kemampuan](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=id) model untuk mengetahui detail selengkapnya.
+- **Gemini 3.1 Pro Image (Nano Banana Pro)** dirancang untuk
+  produksi aset profesional dan petunjuk yang kompleks. Model ini memiliki
+  pengetahuan dunia nyata menggunakan Google Penelusuran, proses "Berpikir" default yang
+  memperbaiki komposisi sebelum pembuatan, dan dapat menghasilkan gambar dengan resolusi
+  hingga 4K. Lihat halaman [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3-pro-image) dan [kemampuan](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=id) model untuk mengetahui detail selengkapnya.
+- **Gemini 2.5 Flash Image (Nano Banana)** dirancang untuk kecepatan dan efisiensi. Model ini dioptimalkan untuk tugas bervolume tinggi dan latensi rendah serta membuat gambar dengan resolusi 1024 piksel. Lihat halaman [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-2.5-flash-image) dan
+  [kemampuan](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=id) model untuk mengetahui detail selengkapnya.
 
-### 何时使用 Imagen
+### Kapan menggunakan Imagen
 
-除了使用 Gemini 的内置图片生成功能外，您还可以通过 Gemini API 访问我们专业的图片生成模型 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-cn)。
+Selain menggunakan kemampuan pembuatan gambar bawaan Gemini, Anda juga dapat mengakses [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=id), model pembuatan gambar khusus kami, melalui Gemini API.
 
-如果您刚开始使用 Imagen 生成图片，Imagen 4 应该是您的首选模型。如果需要处理高级用例或需要最佳图片质量，请选择 Imagen 4 Ultra（请注意，该模型一次只能生成一张图片）。
+Imagen 4 harus menjadi model pilihan Anda saat mulai membuat gambar dengan Imagen. Pilih Imagen 4 Ultra untuk kasus penggunaan lanjutan atau saat Anda memerlukan kualitas gambar terbaik (perhatikan bahwa Imagen 4 Ultra hanya dapat membuat satu gambar dalam satu waktu).
 
-## 后续步骤
+## Langkah berikutnya
 
-- 如需查看更多示例和代码示例，请参阅[食谱指南](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=zh-cn)。
-- 查看 [Veo 指南](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)，了解如何使用 Gemini API 生成视频。
-- 如需详细了解 Gemini 模型，请参阅 [Gemini 模型](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn)。
+- Temukan contoh dan sampel kode lainnya di [panduan cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=id).
+- Lihat [panduan Veo](https://ai.google.dev/gemini-api/docs/video?hl=id) untuk mempelajari cara membuat video dengan Gemini API.
+- Untuk mempelajari model Gemini lebih lanjut, lihat [Model Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id).
 
-发送反馈
+Kirim masukan
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最后更新时间 (UTC)：2026-05-28。
+Terakhir diperbarui pada 2026-05-28 UTC.
 
-需要向我们提供更多信息？
+Ada masukan untuk kami?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-05-28。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-28 UTC."],[],[]]

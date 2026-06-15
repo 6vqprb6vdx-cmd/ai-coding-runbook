@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=es-419
-fetched_at: 2026-06-08T15:07:53.014335+00:00
+fetched_at: 2026-06-15T06:27:47.390027+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

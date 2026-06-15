@@ -1,48 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=he
-fetched_at: 2026-06-08T15:03:38.404269+00:00
-title: "\u05d4\u05e1\u05d1\u05e8 \u05e2\u05dc \u05d2\u05e8\u05e1\u05d0\u05d5\u05ea API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=pl
+fetched_at: 2026-06-15T06:27:07.996282+00:00
+title: "Om\u00f3wienie wersji interfejsu API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [הפניית API](https://ai.google.dev/api?hl=he)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumentacja API](https://ai.google.dev/api?hl=pl)
 
-שליחת משוב
+Prześlij opinię
 
-# הסבר על גרסאות API
+# Omówienie wersji interfejsu API
 
-במסמך הזה מפורטת סקירה כללית של ההבדלים בין גרסאות Gemini API‏: `v1` ו-`v1beta`.
+Ten dokument zawiera ogólne omówienie różnic między wersjami `v1`
+i `v1beta` interfejsu Gemini API.
 
-- ‫**v1**: גרסה יציבה של ה-API. התכונות בגרסה היציבה נתמכות באופן מלא לאורך חיי הגרסה הראשית. אם יש שינויים שעלולים לשבור את התאימות לאחור, ניצור את הגרסה הראשית הבאה של ה-API ונוציא משימוש את הגרסה הקיימת אחרי תקופה סבירה.
-  יכול להיות שיוכנסו שינויים ב-API שלא ישפיעו על התפקוד בלי לשנות את הגרסה הראשית.
-- ‫**v1beta**: הגרסה הזו כוללת תכונות מוקדמות שעשויות להיות בשלבי פיתוח, והן כפופות לשינויים שעלולים לגרום לכשלים. בנוסף, אין ערובה לכך שהתכונות בגרסת הבטא יעברו לגרסה היציבה. **אם אתם צריכים יציבות בסביבת הייצור שלכם ולא יכולים להסתכן בשינויים שעלולים לשבור את המערכת, אל תשתמשו בגרסה הזו בסביבת הייצור.**
+- **v1**: stabilna wersja interfejsu API. Funkcje w stabilnej wersji są w pełni obsługiwane przez cały okres istnienia głównej wersji. Jeśli wystąpią niezgodne zmiany, zostanie utworzona następna główna wersja interfejsu API, a dotychczasowa wersja zostanie wycofana po rozsądnym czasie.
+  W interfejsie API mogą zostać wprowadzone zmiany, które nie powodują niezgodności, bez zmiany głównej wersji.
+- **v1beta**: ta wersja zawiera wczesne funkcje, które mogą być w trakcie opracowywania i mogą ulec niezgodnym zmianom. Nie ma też gwarancji, że funkcje w wersji beta zostaną przeniesione do wersji stabilnej. **Jeśli w środowisku produkcyjnym wymagana jest stabilność i nie możesz sobie pozwolić na niezgodne zmiany, nie używaj tej wersji w środowisku produkcyjnym.**
 
-| תכונה | v1 | v1beta |
+| Funkcja | v1 | v1beta |
 | --- | --- | --- |
-| יצירת תוכן – קלט טקסט בלבד |  |  |
-| יצירת תוכן – קלט של טקסט ותמונה |  |  |
-| יצירת תוכן – פלט טקסט |  |  |
-| יצירת תוכן – שיחות עם זיכרון (צ'אט) |  |  |
-| יצירת תוכן – קריאות לפונקציות |  |  |
-| יצירת תוכן – סטרימינג |  |  |
-| הטמעת תוכן – הזנה של טקסט בלבד |  |  |
-| יצירת תשובה |  |  |
-| מאחזר סמנטי |  |  |
-| Interactions API |  |  |
+| Generowanie treści – dane wejściowe zawierające tylko tekst |  |  |
+| Generowanie treści – dane wejściowe zawierające tekst i obraz |  |  |
+| Generowanie treści – dane wyjściowe zawierające tekst |  |  |
+| Generowanie treści – rozmowy wieloetapowe (czat) |  |  |
+| Generowanie treści – wywołania funkcji |  |  |
+| Generowanie treści – przesyłanie strumieniowe |  |  |
+| Osadzanie treści – dane wejściowe zawierające tylko tekst |  |  |
+| Generowanie odpowiedzi |  |  |
+| Wyszukiwarka semantyczna |  |  |
+| Interfejs Interactions API |  |  |
 
-- ‫ – נתמך
-- ‫ – לא תהיה תמיכה לעולם
+- – Obsługiwane
+- \– Nigdy nie będzie obsługiwane
 
-## הגדרת גרסת API ב-SDK
+## Konfigurowanie wersji interfejsu API w pakiecie SDK
 
-ערכות ה-SDK של Gemini API מוגדרות כברירת מחדל לגרסה `v1beta`, אבל אפשר לציין גרסאות באופן מפורש על ידי הגדרת גרסת ה-API כמו בדוגמת הקוד הבאה:
+Pakiety SDK interfejsu Gemini API domyślnie używają wersji `v1beta`, ale możesz wyraźnie określić wersje, ustawiając wersję interfejsu API, jak pokazano w tym przykładowym kodzie:
 
 ### Python
 
@@ -93,12 +94,12 @@ curl "https://generativelanguage.googleapis.com/v1/models/gemini-3.5-flash:gener
    }'
 ```
 
-שליחת משוב
+Prześlij opinię
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-עדכון אחרון: 2026-05-28 (שעון UTC).
+Ostatnia aktualizacja: 2026-05-28 UTC.
 
-רוצה לתת לנו משוב?
+Chcesz przekazać coś jeszcze?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-05-28 UTC."],[],[]]

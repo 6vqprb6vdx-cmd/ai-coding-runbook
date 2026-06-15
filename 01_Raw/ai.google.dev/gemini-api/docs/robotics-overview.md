@@ -1,50 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=es-419
-fetched_at: 2026-06-08T15:03:08.844484+00:00
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=tr
+fetched_at: 2026-06-15T06:26:29.863390+00:00
 title: "Gemini Robotics-ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Enviar comentarios
+Geri bildirim gönderin
 
 # Gemini Robotics-ER 1.6
 
-Gemini Robotics-ER 1.6 es un modelo de lenguaje visual (VLM) que aporta las capacidades de agente de Gemini a la robótica. Está diseñado para el razonamiento avanzado en el mundo físico, lo que permite a los robots interpretar datos visuales complejos, realizar razonamiento espacial y planificar acciones a partir de comandos en lenguaje natural.
+Gemini Robotics-ER 1.6, Gemini'ın ajan tabanlı yeteneklerini robotik alanına taşıyan bir görsel-dil modelidir (VLM). Fiziksel dünyada gelişmiş akıl yürütme için tasarlanmıştır. Robotların karmaşık görsel verileri yorumlamasına, uzamsal akıl yürütme yapmasına ve doğal dil komutlarından eylemler planlamasına olanak tanır.
 
-Ten en cuenta que, si usabas Gemini Robotics-ER 1.5, puedes comenzar a usar el modelo 1.6 reemplazando el nombre del modelo de `model="gemini-robotics-er-1.5-preview"` a `model="gemini-robotics-er-1.6-preview"` en la llamada a la API.
+Gemini Robotics-ER 1.5 kullanıyorsanız API çağrısında model adını `model="gemini-robotics-er-1.5-preview"` yerine `model="gemini-robotics-er-1.6-preview"` olarak değiştirerek 1.6 modelini kullanmaya başlayabilirsiniz.
 
-Funciones y beneficios clave:
+Temel özellikler ve avantajlar:
 
-- **Mayor autonomía:** Los robots pueden razonar, adaptarse y responder a los cambios en entornos abiertos.
-- **Interacción en lenguaje natural:** Facilita el uso de los robots, ya que permite asignar tareas complejas con lenguaje natural.
-- **Organización de tareas:** Descompone los comandos de lenguaje natural en subtareas y se integra con los controladores y comportamientos existentes del robot para completar tareas a largo plazo.
-- **Capacidades versátiles:** Ubica e identifica objetos, comprende las relaciones entre objetos, planifica agarres y trayectorias, e interpreta escenas dinámicas.
+- **Gelişmiş özerklik:** Robotlar, açık uçlu ortamlardaki değişikliklere akıl yürüterek, uyum sağlayarak ve yanıt vererek tepki verebilir.
+- **Doğal dil etkileşimi:** Doğal dil kullanarak karmaşık görev atamaları yapmayı mümkün kılarak robotların kullanımını kolaylaştırır.
+- **Görev düzenleme:** Doğal dil komutlarını alt görevlere ayırır ve uzun vadeli görevleri tamamlamak için mevcut robot denetleyicileri ve davranışlarıyla entegre olur.
+- **Çok yönlü özellikler:** Nesneleri bulup tanımlar, nesne ilişkilerini anlar, tutma ve yörünge planları yapar ve dinamik sahneleri yorumlar.
 
-En este documento, se describe [qué hace el modelo](#how-it-works) y se muestran varios [ejemplos](#standard-spatial-reasoning) que destacan sus capacidades de agente.
+Bu belgede, [modelin ne yaptığı](#how-it-works) açıklanmakta ve modelin [örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler aracılığıyla örnekler](#standard-spatial-reasoning) aracılığı
 
-Si quieres comenzar de inmediato, puedes probar el modelo en Google AI Studio.
+Hemen kullanmaya başlamak isterseniz modeli Google AI Studio'da deneyebilirsiniz.
 
-[Probar en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=es-419)
+[Google AI Studio'da deneme](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=tr)
 
-## Seguridad
+## Güvenlik
 
-Si bien Gemini Robotics-ER 1.6 se creó teniendo en cuenta la seguridad, es tu responsabilidad mantener un entorno seguro alrededor del robot. Los modelos de IA generativa pueden cometer errores, y los robots físicos pueden causar daños. La seguridad es una prioridad, y hacer que los modelos de IA generativa sean seguros cuando se usan con la robótica del mundo real es un área activa y fundamental de nuestra investigación. Para obtener más información, visita la [página de seguridad de robótica de Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=es-419).
+Gemini Robotics-ER 1.6 güvenliğe öncelik verilerek geliştirilmiş olsa da robotun etrafında güvenli bir ortam sağlamak sizin sorumluluğunuzdadır. Üretken yapay zeka modelleri hata yapabilir ve fiziksel robotlar hasara neden olabilir. Güvenlik bizim için önceliklidir. Üretken yapay zeka modellerinin gerçek dünyadaki robotik uygulamalarda güvenli bir şekilde kullanılmasını sağlamak, araştırmalarımızın aktif ve kritik bir alanıdır. Daha fazla bilgi edinmek için [Google DeepMind robotik güvenlik sayfasını](https://deepmind.google/models/gemini-robotics/safety?hl=tr) ziyaret edin.
 
-## Primeros pasos: Cómo encontrar objetos en una escena
+## Başlangıç: Sahnedeki nesneleri bulma
 
-En el siguiente ejemplo, se muestra un caso de uso común de la robótica. Muestra cómo pasar una imagen y una instrucción de texto al modelo con el método [`generateContent`](https://ai.google.dev/api/generate-content?hl=es-419#method:-models.generatecontent) para obtener una lista de objetos identificados con sus correspondientes puntos 2D.
-El modelo devuelve puntos para los elementos que identificó en una imagen, y muestra sus etiquetas y coordenadas 2D normalizadas.
+Aşağıdaki örnekte, yaygın bir robotik kullanım alanı gösterilmektedir. [`generateContent`](https://ai.google.dev/api/generate-content?hl=tr#method:-models.generatecontent) yöntemini kullanarak modele bir resim ve metin isteminin nasıl iletileceği gösterilmektedir. Bu yöntem, tanımlanan nesnelerin listesini ilgili 2D noktalarıyla birlikte döndürür. Model, bir resimde tanımladığı öğelerin noktalarını döndürürken normalleştirilmiş 2D koordinatlarını ve etiketlerini de döndürür.
 
-Puedes usar este resultado con una API de robótica o llamar a un modelo de visión-lenguaje-acción (VLA) o cualquier otra función definida por el usuario de terceros para generar acciones que un robot pueda realizar.
+Bu çıkışı bir robotik API ile kullanabilir veya bir robotun gerçekleştireceği işlemleri oluşturmak için bir Vision-Language-Action (VLA) modeli ya da diğer üçüncü taraf kullanıcı tanımlı işlevleri çağırabilirsiniz.
 
 ### Python
 
@@ -119,7 +118,7 @@ curl -X POST \
   }'
 ```
 
-El resultado será un array JSON que contiene objetos, cada uno con un `point` (coordenadas `[y, x]` normalizadas) y un `label` que identifica el objeto.
+Çıktı, her biri `point` (normalleştirilmiş `[y, x]` koordinatları) ve nesneyi tanımlayan bir `label` içeren nesnelerden oluşan bir JSON dizisi olacaktır.
 
 ### JSON
 
@@ -138,43 +137,43 @@ El resultado será un array JSON que contiene objetos, cada uno con un `point` (
 ]
 ```
 
-En la siguiente imagen, se muestra un ejemplo de cómo se pueden mostrar estos puntos:
+Aşağıdaki resimde, bu noktaların nasıl gösterilebileceğine dair bir örnek verilmiştir:
 
-![Un ejemplo que muestra los puntos de los objetos en una imagen](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=es-419)
+![Resimdeki nesnelerin noktalarını gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=tr)
 
-## Cómo funciona
+## İşleyiş şekli
 
-Gemini Robotics-ER 1.6 permite que tus robots contextualicen y trabajen en el mundo físico con comprensión espacial. Toma imágenes, videos y audio como entrada, y usa instrucciones en lenguaje natural para hacer lo siguiente:
+Gemini Robotics-ER 1.6, robotlarınızın uzamsal anlayışı kullanarak fiziksel dünyada bağlam oluşturmasına ve çalışmasına olanak tanır. Resim/video/ses girişini ve doğal dil istemlerini kullanarak:
 
-- **Comprender objetos y el contexto de la escena**: Identifica objetos y explica su relación con la escena, incluidas sus posibilidades de interacción.
-- **Comprender las instrucciones de las tareas**: Interpreta las tareas indicadas en lenguaje natural, como "encuentra la banana".
-- **Razonamiento espacial y temporal**: Comprende secuencias de acciones y cómo los objetos interactúan con una escena a lo largo del tiempo.
-- **Proporciona resultados estructurados**: Muestra coordenadas (puntos o cuadros delimitadores) que representan las ubicaciones de los objetos.
+- **Nesneleri ve sahne bağlamını anlama**: Nesneleri ve sahneyle ilişkilerini (kullanım olanakları dahil) tanımlar.
+- **Görev talimatlarını anlama**: Doğal dilde verilen görevleri yorumlar (ör. "muz nerede?").
+- **Uzamsal ve zamansal olarak akıl yürütme**: Eylem dizilerini ve nesnelerin zaman içinde bir sahneyle nasıl etkileşimde bulunduğunu anlama.
+- **Yapılandırılmış çıkış sağlama**: Nesne konumlarını temsil eden koordinatları (noktalar veya sınırlayıcı kutular) döndürür.
 
-Esto permite que los robots "vean" y "comprendan" su entorno de forma programática.
+Bu sayede robotlar, çevrelerini programatik olarak "görebilir" ve "anlayabilir".
 
-Gemini Robotics-ER 1.6 también es agentic, lo que significa que puede desglosar tareas complejas (como "pon la manzana en el tazón") en subtareas para coordinar tareas a largo plazo:
+Gemini Robotics-ER 1.6, karmaşık görevleri ("elmaları kaseye koy" gibi) alt görevlere ayırarak uzun vadeli görevleri yönetebilen bir aracıdır:
 
-- **Secuenciación de subtareas**: Descompone los comandos en una secuencia lógica de pasos.
-- **Llamadas a funciones o ejecución de código**: Ejecuta pasos llamando a tus funciones o herramientas de robot existentes, o bien ejecutando código generado.
+- **Alt görevleri sıralama**: Komutları mantıksal bir adım sırasına ayırır.
+- **İşlev çağrıları/Kod yürütme**: Mevcut robot işlevlerinizi/araçlarınızı çağırarak veya oluşturulan kodu yürüterek adımları uygular.
 
-Obtén más información sobre cómo funciona la llamada a funciones con Gemini en la [página Llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=es-419#how-it-works).
+Gemini ile işlev çağrısının nasıl çalıştığı hakkında daha fazla bilgiyi [İşlev Çağrısı sayfasında](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=tr#how-it-works) bulabilirsiniz.
 
-### Cómo usar el presupuesto de pensamiento con Gemini Robotics-ER 1.6
+### Gemini Robotics-ER 1.6 ile düşünme bütçesini kullanma
 
-Gemini Robotics-ER 1.6 tiene un presupuesto de razonamiento flexible que te permite controlar las compensaciones entre la latencia y la precisión. Para las tareas de comprensión espacial, como la detección de objetos, el modelo puede lograr un alto rendimiento con un presupuesto de pensamiento pequeño. Las tareas de razonamiento más complejas, como el conteo y la estimación de peso, se benefician de un mayor presupuesto de pensamiento. Esto te permite equilibrar la necesidad de respuestas de baja latencia con resultados de alta precisión para tareas más desafiantes.
+Gemini Robotics-ER 1.6, gecikme ve doğruluk arasındaki dengeyi kontrol etmenizi sağlayan esnek bir düşünme bütçesine sahiptir. Nesne algılama gibi mekansal anlama görevlerinde model, küçük bir düşünme bütçesiyle yüksek performans elde edebilir. Sayma ve ağırlık tahmini gibi daha karmaşık akıl yürütme görevleri, daha büyük bir düşünme bütçesinden yararlanır. Bu sayede, daha zorlu görevlerde düşük gecikmeli yanıtlar ile yüksek doğruluklu sonuçlar arasında denge kurabilirsiniz.
 
-Para obtener más información sobre los presupuestos de pensamiento, consulta la página de capacidades principales de [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419).
+Düşünme bütçeleri hakkında daha fazla bilgi edinmek için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) temel özellikleri sayfasını inceleyin.
 
-## Razonamiento espacial estándar
+## Standart mekansal akıl yürütme
 
-En los siguientes ejemplos, se muestran tareas de **percepción robótica** y razonamiento espacial con instrucciones en lenguaje natural, desde señalar y encontrar objetos en una imagen hasta planificar trayectorias. Para simplificar, los fragmentos de código de estos ejemplos se redujeron para mostrar solo la instrucción y la llamada a la API de `generate_content`.
+Aşağıdaki örneklerde, doğal dil istemlerini kullanarak **robotik algılama** ve uzamsal akıl yürütme ile ilgili görevler gösterilmektedir. Bu görevler, bir resimde nesneleri işaretleme ve bulmadan yörünge planlamaya kadar uzanır. Basitlik için bu örneklerdeki kod snippet'leri yalnızca istemi ve `generate_content` API'ye yapılan çağrıyı gösterecek şekilde azaltılmıştır.
 
-Puedes encontrar el código ejecutable completo y ejemplos adicionales en el [recetario de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Çalıştırılabilir kodun tamamı ve ek örnekleri [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'ta bulabilirsiniz.
 
-### Cómo apuntar a objetos
+### Nesneleri işaret etme
 
-Señalar y encontrar objetos en imágenes o fotogramas de video es un caso de uso común para los modelos de lenguaje y visión (VLMs) en robótica. En el siguiente ejemplo, se le pide al modelo que encuentre objetos específicos dentro de una imagen y muestre sus coordenadas.
+Görüntülerdeki veya video karelerindeki nesneleri işaretleme ve bulma, robotik alanında görme ve dil modellerinin (VLMs) yaygın bir kullanım alanıdır. Aşağıdaki örnekte, modelden bir görüntüdeki belirli nesneleri bulup koordinatlarını döndürmesi isteniyor.
 
 ### Python
 
@@ -222,7 +221,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-El resultado sería similar al ejemplo de introducción, un JSON que contiene las coordenadas de los objetos encontrados y sus etiquetas.
+Çıkış, başlangıç örneğine benzer şekilde, bulunan nesnelerin koordinatlarını ve etiketlerini içeren bir JSON olacaktır.
 
 ```
 [
@@ -236,9 +235,9 @@ El resultado sería similar al ejemplo de introducción, un JSON que contiene la
 ]
 ```
 
-![Un ejemplo que muestra los puntos de los objetos identificados en una imagen](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=es-419)
+![Bir resimde tanımlanan nesnelerin noktalarını gösteren örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=tr)
 
-Usa la siguiente instrucción para solicitarle al modelo que interprete categorías abstractas, como "fruta", en lugar de objetos específicos y que ubique todas las instancias en la imagen.
+Modelden belirli nesneler yerine "meyve" gibi soyut kategorileri yorumlamasını ve resimdeki tüm örnekleri bulmasını istemek için aşağıdaki istemi kullanın.
 
 ### Python
 
@@ -251,13 +250,13 @@ prompt = f"""
         [y, x] format normalized to 0-1000."""
 ```
 
-Visita la página [Comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419) para conocer otras técnicas de procesamiento de imágenes.
+Diğer görüntü işleme teknikleri için [görüntü yorumlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr) sayfasını ziyaret edin.
 
-### Cómo hacer un seguimiento de objetos en un video
+### Videodaki nesneleri izleme
 
-Gemini Robotics-ER 1.6 también puede analizar fotogramas de video para hacer un seguimiento de los objetos a lo largo del tiempo. Consulta [Entradas de video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419#supported-formats) para obtener una lista de los formatos de video compatibles.
+Gemini Robotics-ER 1.6, nesneleri zaman içinde takip etmek için video karelerini de analiz edebilir. Desteklenen video biçimlerinin listesi için [Video girişleri](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr#supported-formats) bölümüne bakın.
 
-A continuación, se muestra la instrucción base que se usa para encontrar objetos específicos en cada fotograma que analiza el modelo:
+Aşağıdaki temel istem, modelin analiz ettiği her karede belirli nesneleri bulmak için kullanılır:
 
 ### Python
 
@@ -281,17 +280,17 @@ base_prompt = f"""
   """
 ```
 
-El resultado muestra un lápiz y una laptop que se rastrean en los fotogramas del video.
+Çıkışta, video karelerinde takip edilen bir kalem ve dizüstü bilgisayar gösteriliyor.
 
-![Un ejemplo que muestra objetos rastreados a través de fotogramas en un GIF](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=es-419)
+![Bir GIF&#39;teki kareler aracılığıyla izlenen nesneleri gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=tr)
 
-Para ver el código ejecutable completo, consulta el [recetario de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Çalıştırılabilir kodun tamamı için [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'a (Robotik yemek kitabı) bakın.
 
-### Detección de objetos y cuadros delimitadores
+### Nesne algılama ve sınırlayıcı kutular
 
-Además de puntos únicos, el modelo también puede devolver cuadros de límite 2D, lo que proporciona una región rectangular que encierra un objeto.
+Model, tek noktaların yanı sıra 2D sınırlayıcı kutular da döndürebilir. Bu kutular, bir nesneyi çevreleyen dikdörtgen bir bölge sağlar.
 
-En este ejemplo, se solicitan cuadros de límite 2D para objetos identificables sobre una mesa. Se le indica al modelo que limite el resultado a 25 objetos y que nombre varias instancias de forma única.
+Bu örnekte, bir masanın üzerindeki tanımlanabilir nesneler için 2 boyutlu sınırlayıcı kutular isteniyor. Modele, çıkışı 25 nesneyle sınırlaması ve birden fazla örneği benzersiz şekilde adlandırması talimatı veriliyor.
 
 ### Python
 
@@ -334,18 +333,19 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-A continuación, se muestran las casillas que devolvió el modelo.
+Aşağıda, modelden döndürülen kutular gösterilmektedir.
 
-![Ejemplo que muestra los cuadros de límite de los objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=es-419)
+![Bulunan nesnelerin sınırlayıcı kutularını gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=tr)
 
-Para ver el código ejecutable completo, consulta el [recetario de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
-La página [Comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419) también incluye ejemplos adicionales de tareas visuales, como la detección de objetos y ejemplos de cuadros delimitadores.
+Çalıştırılabilir kodun tamamı için [Robotics
+cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'a bakın.
+[Görüntü anlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr) sayfasında, nesne algılama ve sınırlayıcı kutu örnekleri gibi görsel görevlerle ilgili ek örnekler de yer alır.
 
-### Trayectorias
+### Yörüngeler
 
-Gemini Robotics-ER 1.6 puede generar secuencias de puntos que definen una trayectoria, lo que resulta útil para guiar el movimiento del robot.
+Gemini Robotics-ER 1.6, robot hareketini yönlendirmek için yararlı olan bir yörüngeyi tanımlayan nokta dizileri oluşturabilir.
 
-En este ejemplo, se solicita una trayectoria para mover un lápiz rojo a un organizador, incluido el punto de partida y una serie de puntos intermedios.
+Bu örnekte, başlangıç noktası ve bir dizi ara nokta dahil olmak üzere kırmızı bir kalemi bir düzenleyiciye taşımak için bir yörünge isteniyor.
 
 ### Python
 
@@ -387,7 +387,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-La respuesta es un conjunto de coordenadas que describen la trayectoria del camino que debe seguir el lápiz rojo para completar la tarea de moverlo sobre el organizador:
+Yanıt, kırmızı kalemin düzenleyicinin üzerine taşıma görevini tamamlamak için izlemesi gereken yolun yörüngesini açıklayan bir dizi koordinattır:
 
 ```
 [
@@ -410,15 +410,15 @@ La respuesta es un conjunto de coordenadas que describen la trayectoria del cami
 ]
 ```
 
-![Un ejemplo que muestra la trayectoria planificada](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=es-419)
+![Planlanan yörüngeyi gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=tr)
 
-## Capacidades de agente
+## Ajan tabanlı yetenekler
 
-En los siguientes ejemplos, se demuestra el **razonamiento robótico** avanzado con las capacidades de agente del modelo, específicamente la **ejecución de código**. En estas situaciones, el modelo puede decidir escribir y ejecutar código de Python para manipular imágenes (por ejemplo, acercar, recortar o rotar) para resolver ambigüedades o mejorar la precisión antes de responder.
+Aşağıdaki örneklerde, modelin **kod yürütme** gibi ajan tabanlı yeteneklerini kullanarak gelişmiş **robotik akıl yürütme** gösterilmektedir. Bu senaryolarda model, belirsizlikleri gidermek veya yanıt vermeden önce doğruluğu artırmak için görüntüleri değiştirmek (ör. yakınlaştırma, kırpma veya döndürme) üzere Python kodu yazıp yürütmeye karar verebilir.
 
-### Detección de objetos (zoom y recorte)
+### Nesne algılama (yakınlaştırma ve kırpma)
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para acercar y recortar una imagen y obtener una vista más clara cuando se detectan objetos y se devuelven cuadros delimitadores.
+Aşağıdaki örnekte, nesneleri algılarken ve sınırlayıcı kutuları döndürürken daha net bir görünüm için kodu yürütme özelliğini kullanarak bir resmi nasıl yakınlaştırıp kırpacağınız gösterilmektedir.
 
 ### Python
 
@@ -457,7 +457,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-El resultado del modelo sería similar al siguiente:
+Model çıkışı aşağıdaki gibi olur:
 
 ```
 [
@@ -469,13 +469,13 @@ El resultado del modelo sería similar al siguiente:
 ]
 ```
 
-A continuación, se muestran las casillas que devolvió el modelo.
+Aşağıda, modelden döndürülen kutular gösterilmektedir.
 
-![Ejemplo que muestra los cuadros de límite de los objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=es-419)
+![Bulunan nesnelerin sınırlayıcı kutularını gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=tr)
 
-### Lectura de un medidor analógico y aplicación de lógica
+### Analog bir göstergeyi okuma ve mantık uygulama
 
-En el siguiente ejemplo, se muestra cómo usar el modelo para leer un medidor analógico y realizar cálculos de tiempo. Utiliza una instrucción del sistema para aplicar un formato de salida JSON.
+Aşağıdaki örnekte, modeli kullanarak analog bir ölçüm cihazını okuma ve zaman hesaplamaları yapma gösterilmektedir. JSON çıkışını zorunlu kılmak için sistem talimatı kullanılır.
 
 ### Python
 
@@ -512,11 +512,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestra un ejemplo de entrada de imagen.
+Aşağıda örnek bir resim girişi verilmiştir.
 
-![Un ejemplo que muestra un reloj para leer](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=es-419)
+![Okumak için saat gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=tr)
 
-El resultado del modelo sería similar al siguiente:
+Model çıkışı aşağıdaki gibi olur:
 
 ```
 Time Response:  {
@@ -525,9 +525,9 @@ Time Response:  {
  }
 ```
 
-### Cómo medir fluidos en un recipiente
+### Bir kaptaki sıvıyı ölçme
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para leer un medidor y calcular el nivel de líquido como porcentaje.
+Aşağıdaki örnekte, bir ölçüm cihazını okumak ve sıvı seviyesini yüzde olarak hesaplamak için kod yürütmenin nasıl kullanılacağı gösterilmektedir.
 
 ### Python
 
@@ -567,13 +567,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestra la imagen de entrada ampliada.
+Aşağıda, girişin yakınlaştırılmış resmi gösterilmektedir.
 
-![Un ejemplo que muestra un reloj para leer](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=es-419)
+![Okumak için saat gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=tr)
 
-### Cómo leer las marcas en una placa de circuito
+### Devre kartındaki işaretleri okuma
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para leer texto en un chip de placa de circuito, lo que permite que el modelo acerque, recorte y rote la imagen según sea necesario.
+Aşağıdaki örnekte, bir devre kartı çipindeki metni okumak için kod yürütmenin nasıl kullanılacağı gösterilmektedir. Bu sayede model, görüntüyü gerektiği gibi yakınlaştırabilir, kırpabilir ve döndürebilir.
 
 ### Python
 
@@ -607,13 +607,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestra la imagen de entrada ampliada.
+Aşağıda, girişin yakınlaştırılmış resmi gösterilmektedir.
 
-![Un ejemplo que muestra un reloj para leer](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=es-419)
+![Okumak için saat gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=tr)
 
-### Anotación de imágenes
+### Resim ek açıklaması
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para anotar una imagen (p.ej., dibujar flechas para indicar instrucciones de descarte) y devolver la imagen modificada.
+Aşağıdaki örnekte, kod yürütme özelliğinin bir resmi açıklama eklemek (ör. imha talimatları için ok çizme) ve değiştirilmiş resmi döndürmek için nasıl kullanılacağı gösterilmektedir.
 
 ### Python
 
@@ -651,11 +651,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestra un ejemplo de entrada de imagen.
+Aşağıda örnek bir resim girişi verilmiştir.
 
-![Un ejemplo que muestra un reloj para leer](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=es-419)
+![Okumak için saat gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=tr)
 
-El resultado del modelo sería similar al siguiente:
+Model çıkışı aşağıdaki gibi olur:
 
 ```
 The annotated image shows the suggested disposal locations for the items on the table:
@@ -664,13 +664,13 @@ The annotated image shows the suggested disposal locations for the items on the 
 - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Organización
+## Düzenleme
 
-Gemini Robotics-ER 1.6 puede realizar **planificación de tareas** y razonamiento espacial de nivel superior, inferir acciones o identificar ubicaciones óptimas en función de la comprensión contextual para coordinar tareas a largo plazo.
+Gemini Robotics-ER 1.6, **görev planlama** ve daha üst düzeyde mekansal akıl yürütme işlemlerini gerçekleştirebilir. Ayrıca, uzun vadeli görevleri yönetmek için bağlamsal anlayışa dayalı olarak eylemleri çıkarabilir veya en uygun konumları belirleyebilir.
 
-### Cómo hacer espacio para una laptop
+### Dizüstü bilgisayar için yer açma
 
-En este ejemplo, se muestra cómo Gemini Robotics-ER puede razonar sobre un espacio. La instrucción le pide al modelo que identifique qué objeto se debe mover para crear espacio para otro elemento.
+Bu örnekte, Gemini Robotics-ER'ın bir alan hakkında nasıl akıl yürütebileceği gösterilmektedir. İstemde, başka bir öğe için yer açmak üzere hangi nesnenin taşınması gerektiği soruluyor.
 
 ### Python
 
@@ -708,7 +708,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-La respuesta contiene una coordenada 2D del objeto que responde la pregunta del usuario, en este caso, el objeto que se debe mover para dejar espacio para una laptop.
+Yanıtta, kullanıcının sorusunu yanıtlayan nesnenin 2 boyutlu koordinatı yer alır. Bu örnekte, dizüstü bilgisayara yer açmak için taşınması gereken nesne söz konusudur.
 
 ```
 [
@@ -716,11 +716,11 @@ La respuesta contiene una coordenada 2D del objeto que responde la pregunta del 
 ]
 ```
 
-![Un ejemplo que muestra qué objeto se debe mover para otro objeto](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=es-419)
+![Başka bir nesne için hangi nesnenin taşınması gerektiğini gösteren örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=tr)
 
-### Cómo preparar un almuerzo
+### Öğle Yemeği Hazırlama
 
-El modelo también puede proporcionar instrucciones para tareas de varios pasos y señalar objetos relevantes para cada paso. En este ejemplo, se muestra cómo el modelo planifica una serie de pasos para empacar una bolsa de almuerzo.
+Model, çok adımlı görevlerle ilgili talimatlar da verebilir ve her adım için ilgili nesneleri gösterebilir. Bu örnekte, modelin bir öğle yemeği çantasını hazırlamak için bir dizi adımı nasıl planladığı gösterilmektedir.
 
 ### Python
 
@@ -759,13 +759,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-La respuesta a esta instrucción es un conjunto de instrucciones paso a paso sobre cómo empacar una bolsa de almuerzo a partir de la entrada de imagen.
+Bu istemin yanıtı, resim girişinden yola çıkarak öğle yemeği çantasını nasıl hazırlayacağınızla ilgili adım adım talimatlar içerir.
 
-**Imagen de entrada**
+**Giriş resmi**
 
-![Imagen de una lonchera y elementos para poner en ella](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=es-419)
+![Yemek kutusu ve içine konulacak öğelerin resmi](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=tr)
 
-**Salida del modelo**
+**Model çıkışı**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -788,15 +788,15 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-### Cómo llamar a una API de robot personalizada
+### Özel bir robot API'sini çağırma
 
-En este ejemplo, se muestra la orquestación de tareas con una API de robot personalizada. Se presenta una API simulada diseñada para una operación de recoger y colocar. La tarea consiste en recoger un bloque azul y colocarlo en un tazón naranja:
+Bu örnekte, özel bir robot API'si ile görev düzenleme gösterilmektedir. Bu kitapta, seçme ve yerleştirme işlemi için tasarlanmış bir sahte API tanıtılmaktadır. Görev, mavi bir bloğu alıp turuncu bir kaseye yerleştirmektir:
 
-![Imagen del bloque y el tazón](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=es-419)
+![Blok ve kase resmi](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=tr)
 
-Al igual que en los otros ejemplos de esta página, el código ejecutable completo está disponible en el [recetario de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Bu sayfadaki diğer örneklere benzer şekilde, çalıştırılabilir kodun tamamını [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'ta bulabilirsiniz.
 
-El primer paso es ubicar ambos elementos con la siguiente instrucción:
+İlk adımda, aşağıdaki istemi kullanarak her iki öğeyi de bulun:
 
 ### Python
 
@@ -809,7 +809,7 @@ prompt = """
           """
 ```
 
-La respuesta del modelo incluye las coordenadas normalizadas del bloque y el tazón:
+Model yanıtı, blok ve kâsenin normalleştirilmiş koordinatlarını içerir:
 
 ```
 [
@@ -818,7 +818,7 @@ La respuesta del modelo incluye las coordenadas normalizadas del bloque y el taz
 ]
 ```
 
-En este ejemplo, se usa la siguiente API de robot simulado:
+Bu örnekte aşağıdaki sahte robot API'si kullanılmaktadır:
 
 ### Python
 
@@ -833,7 +833,7 @@ def returnToOrigin():
   print("Returning to origin pose")
 ```
 
-El siguiente paso es llamar a una secuencia de funciones de la API con la lógica necesaria para ejecutar la acción. La siguiente instrucción incluye una descripción de la API del robot que el modelo debe usar cuando coordine esta tarea.
+Bir sonraki adım, işlemi yürütmek için gerekli mantığı içeren bir API işlevleri dizisini çağırmaktır. Aşağıdaki istemde, modelin bu görevi düzenlerken kullanması gereken robot API'sinin açıklaması yer almaktadır.
 
 ### Python
 
@@ -877,7 +877,7 @@ prompt = f"""
 """
 ```
 
-A continuación, se muestra un posible resultado del modelo basado en la instrucción y la API del robot simulado. El resultado incluye el proceso de pensamiento del modelo y las tareas que planificó como resultado. También muestra el resultado de las llamadas a funciones del robot que el modelo secuenció.
+Aşağıda, isteme ve sahte robot API'sine dayalı olarak modelin olası bir çıkışı gösterilmektedir. Çıkış, modelin düşünce sürecini ve bunun sonucunda planladığı görevleri içerir. Ayrıca, modelin birlikte sıraladığı robot işlevi çağrılarının çıkışını da gösterir.
 
 ```
 Reasoning: To perform the pick and place operation, I will first move the
@@ -977,71 +977,71 @@ moving to coordinates: -247, 90, 15
 Returning to origin pose
 ```
 
-## Prácticas recomendadas
+## En iyi uygulamalar
 
-Para optimizar el rendimiento y la precisión de tus aplicaciones de robótica, es fundamental que comprendas cómo interactuar con el modelo de Gemini de manera eficaz. En esta sección, se describen las prácticas recomendadas y las estrategias clave para crear instrucciones, manejar datos visuales y estructurar tareas con el objetivo de obtener los resultados más confiables.
+Robotik uygulamalarınızın performansını ve doğruluğunu optimize etmek için Gemini modeliyle etkili bir şekilde nasıl etkileşim kuracağınızı anlamanız çok önemlidir. Bu bölümde, istem oluşturma, görsel verileri işleme ve görevleri yapılandırma ile ilgili en iyi uygulamalar ve temel stratejiler özetlenmektedir. Bu sayede en güvenilir sonuçlar elde edilebilir.
 
-1. Usa un lenguaje claro y sencillo.
+1. Açık ve basit bir dil kullanın.
 
-   - **Usa lenguaje natural**: El modelo de Gemini está diseñado para comprender el lenguaje natural y conversacional. Estructura tus instrucciones de una manera semánticamente clara y que refleje cómo una persona daría instrucciones de forma natural.
-   - **Usa terminología cotidiana**: Opta por un lenguaje común y cotidiano en lugar de jerga técnica o especializada. Si el modelo no responde como se espera a un término en particular, intenta reformularlo con un sinónimo más común.
-2. Optimiza la entrada visual.
+   - **Doğal dili kullanın**: Gemini modeli, doğal ve sohbet tarzındaki dili anlamak için tasarlanmıştır. İstemlerinizi, semantik olarak net olacak ve bir kişinin doğal olarak talimat vereceği şekilde yapılandırın.
+   - **Günlük hayatta kullanılan terimleri tercih edin**: Teknik veya uzmanlık alanına özgü jargon yerine günlük hayatta kullanılan, yaygın bir dil tercih edin. Model, belirli bir terime beklendiği gibi yanıt vermiyorsa daha yaygın bir eş anlamlı kelime kullanarak yeniden ifade etmeyi deneyin.
+2. Görsel girişi optimize edin.
 
-   - **Acercar para ver detalles**: Cuando trabajes con objetos pequeños o difíciles de discernir en una toma más amplia, usa una función de cuadro delimitador para aislar el objeto de interés. Luego, puedes recortar la imagen según esta selección y enviar la nueva imagen enfocada al modelo para obtener un análisis más detallado.
-   - **Experimenta con la iluminación y el color**: La percepción del modelo puede verse afectada por condiciones de iluminación difíciles y un contraste de color deficiente.
-3. Desglosa los problemas complejos en pasos más pequeños. Si abordas cada paso más pequeño de forma individual, puedes guiar al modelo hacia un resultado más preciso y exitoso.
-4. Mejora la precisión a través del consenso: Para las tareas que requieren un alto grado de precisión, puedes consultar el modelo varias veces con la misma instrucción. Al promediar los resultados devueltos, puedes llegar a un "consenso" que suele ser más preciso y confiable.
+   - **Ayrıntı için yakınlaştırma**: Küçük olan veya daha geniş bir çekimde ayırt edilmesi zor olan nesnelerle uğraşırken ilgilenilen nesneyi izole etmek için sınırlayıcı kutu işlevini kullanın. Ardından, görüntüyü bu seçime göre kırpabilir ve daha ayrıntılı bir analiz için yeni, odaklanmış görüntüyü modele gönderebilirsiniz.
+   - **Işık ve renklerle denemeler yapın**: Modelin algısı, zorlu ışık koşullarından ve düşük renk kontrastından etkilenebilir.
+3. Karmaşık sorunları daha küçük adımlara ayırın. Her küçük adımı ayrı ayrı ele alarak modeli daha hassas ve başarılı bir sonuca yönlendirebilirsiniz.
+4. Uzlaşma yoluyla doğruluğu artırın. Yüksek düzeyde hassasiyet gerektiren görevler için modele aynı istemle birden fazla kez sorgu gönderebilirsiniz. Döndürülen sonuçların ortalamasını alarak genellikle daha doğru ve güvenilir olan bir "uzlaşma"ya varabilirsiniz.
 
-## Limitaciones
+## Sınırlamalar
 
-Ten en cuenta las siguientes limitaciones cuando desarrolles con Gemini Robotics-ER 1.6:
+Gemini Robotics-ER 1.6 ile geliştirme yaparken aşağıdaki sınırlamaları göz önünde bulundurun:
 
-- **Estado de la versión preliminar:** Actualmente, el modelo se encuentra en **versión preliminar**. Las APIs y las capacidades pueden cambiar, y es posible que no sean adecuadas para aplicaciones críticas para la producción sin pruebas exhaustivas.
-- **Latencia:** Las consultas complejas, las entradas de alta resolución o los `thinking_budget` extensos pueden aumentar los tiempos de procesamiento.
-- **Alucinaciones:** Al igual que todos los modelos de lenguaje grandes, Gemini Robotics-ER 1.6 puede "alucinar" ocasionalmente o proporcionar información incorrecta, especialmente para instrucciones ambiguas o entradas fuera de la distribución.
-- **Dependencia de la calidad de la instrucción:** La calidad del resultado del modelo depende en gran medida de la claridad y la especificidad de la instrucción de entrada. Las instrucciones vagas o mal estructuradas pueden generar resultados subóptimos.
-- **Costo de procesamiento:** Ejecutar el modelo, en especial con entradas de video o un valor de `thinking_budget` alto, consume recursos de procesamiento y genera costos.
-  Consulta la página [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) para obtener más detalles.
-- **Tipos de entrada:** Consulta los siguientes temas para obtener detalles sobre las limitaciones de cada modo.
-  - [Entradas de imagen](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419#technical-details-image)
-  - [Entradas de video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419#supported-formats)
-  - [Entradas de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419#supported-formats)
+- **Önizleme durumu:** Model şu anda **önizleme** aşamasındadır. API'ler ve özellikler değişebilir. Ayrıca, kapsamlı testler yapılmadan üretime kritik uygulamalar için uygun olmayabilir.
+- **Gecikme:** Karmaşık sorgular, yüksek çözünürlüklü girişler veya kapsamlı `thinking_budget`, işlem sürelerinin uzamasına neden olabilir.
+- **Halüsinasyonlar:** Tüm büyük dil modelleri gibi Gemini Robotics-ER 1.6 da zaman zaman "halüsinasyon" görebilir veya yanlış bilgi verebilir. Bu durum özellikle belirsiz istemlerde ya da dağıtım dışı girişlerde görülür.
+- **İstem kalitesine bağlılık:** Modelin çıktısının kalitesi, giriş isteminin netliğine ve özgünlüğüne büyük ölçüde bağlıdır. Belirsiz veya kötü yapılandırılmış istemler, ideal olmayan sonuçlara yol açabilir.
+- **Hesaplama maliyeti:** Özellikle video girişleriyle veya yüksek `thinking_budget` ile modeli çalıştırmak, hesaplama kaynaklarını tüketir ve maliyetlere neden olur.
+  Daha fazla bilgi için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) sayfasına bakın.
+- **Giriş türleri:** Her moddaki sınırlamalarla ilgili ayrıntılar için aşağıdaki konuları inceleyin.
+  - [Resim girişleri](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr#technical-details-image)
+  - [Video girişleri](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr#supported-formats)
+  - [Ses girişleri](https://ai.google.dev/gemini-api/docs/audio?hl=tr#supported-formats)
 
-## Aviso de privacidad
+## Gizlilik Uyarısı
 
-Reconoces que los modelos a los que se hace referencia en este documento (los "Modelos de Robótica") aprovechan los datos de audio y video para operar y mover tu hardware de acuerdo con tus instrucciones. Por lo tanto, es posible que opere los Modelos de Robótica de manera tal que estos recopilen datos de personas identificables, como datos de voz, imágenes y similitud ("Datos Personales"). Si decides operar los Modelos Robóticos de una manera que recopile Datos Personales, aceptas que no permitirás que ninguna persona identificable interactúe con los Modelos Robóticos ni esté presente en el área que los rodea, a menos que y hasta que se les haya notificado de manera suficiente y hayan dado su consentimiento para que Google pueda proporcionar y usar sus Datos Personales según se describe en las Condiciones del Servicio Adicionales de la API de Gemini que se encuentran en [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=es-419) (las "Condiciones"), incluso de acuerdo con la sección titulada "Cómo usa Google tus datos". Te asegurarás de que dicho aviso permita la recopilación y el uso de Datos Personales según se describe en las Condiciones, y realizarás esfuerzos comercialmente razonables para minimizar la recopilación y distribución de Datos Personales con técnicas como el desenfoque de rostros y el funcionamiento de los Modelos de Robótica en áreas que no contengan personas identificables en la medida en que sea posible.
+Bu belgede referans verilen modellerin ("Robotik Modeller") çalışmak ve donanımınızı talimatlarınıza uygun şekilde hareket ettirmek için video ve ses verilerinden yararlandığını kabul edersiniz. Bu nedenle, Robotik Modelleri, tanımlanabilir kişilerden elde edilen veriler (ör. ses, görüntü ve benzerlik verileri ("Kişisel Veriler")) Robotik Modeller tarafından toplanacak şekilde çalıştırabilirsiniz. Robotik Modelleri Kişisel Veri toplayacak şekilde çalıştırmayı seçerseniz, bu tür tanımlanabilir kişilerin, Kişisel Verilerinin [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=tr) adresinde bulunan Gemini API Ek Hizmet Şartları'nda ("Şartlar") belirtildiği şekilde Google'a sağlanabileceği ve Google tarafından kullanılabileceği konusunda yeterince bilgilendirilip onay vermediği sürece Robotik Modellerle etkileşime girmesine veya Robotik Modellerin bulunduğu alanın çevresinde bulunmasına izin vermeyeceğinizi kabul edersiniz. Bu durum, "Google Verilerinizi Nasıl Kullanır?" başlıklı bölüm uyarınca da geçerlidir. Bu tür bir bildirimin, Şartlar'da belirtildiği şekilde Kişisel Verilerin toplanmasına ve kullanılmasına izin vermesini sağlayacak ve yüz bulanıklaştırma gibi teknikler kullanarak ve Robotik Modelleri, tanımlanabilir kişilerin bulunmadığı alanlarda çalıştırarak Kişisel Verilerin toplanmasını ve dağıtılmasını mümkün olduğunca en aza indirmek için ticari olarak makul çabayı göstereceksiniz.
 
-## Precios
+## Fiyatlandırma
 
-Para obtener información detallada sobre los precios y las regiones disponibles, consulta la página de [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419).
+Fiyatlandırma ve kullanılabilir bölgeler hakkında ayrıntılı bilgi için [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) sayfasına bakın.
 
-## Versiones del modelo
+## Model sürümleri
 
-### Vista previa de Robotics-ER 1.6
+### Robotics-ER 1.6 Önizlemesi
 
-| Propiedad | Descripción |
+| Mülk | Açıklama |
 | --- | --- |
-| Código del modelo id\_card | `gemini-robotics-er-1.6-preview` |
-| saveTipos de datos admitidos | **Entradas**  Texto, imágenes, video y audio  **Resultado**  Texto |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  131,072  **Límite de tokens de salida**  65,536 |
-| handymanFunciones | **Generación de audio**  No compatible  **API de Batch**  Admitido  **Almacenamiento en caché**  Admitido  **Ejecución de código**  Admitido  **Uso de la computadora**  Admitido  **Búsqueda de archivos**  Admitido  **Inferencia flexible**  Admitido  **Llamada a función**  Admitido  **Fundamentación con Google Maps**  Admitido  **Generación de imágenes**  No compatible  **API de Live**  No compatible  **Inferencia de prioridad**  Admitido  **Fundamentación con la Búsqueda**  Admitido  **Resultados estructurados**  Admitido  **Pensamiento**  Admitido  **Contexto de la URL**  Admitido |
-| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Vista previa: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthÚltima actualización | Diciembre de 2025 |
-| cognition\_2Fecha límite de conocimiento | Enero de 2025 |
+| id\_cardModel kodu | `gemini-robotics-er-1.6-preview` |
+| saveDesteklenen veri türleri | **Girişler**  Metin, resim, video, ses  **Çıkış**  Metin |
+| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  131.072  **Çıkış jetonu sınırı**  65.536 |
+| handymanÖzellikler | **Ses üretme**  Desteklenmiyor  **Batch API**  Destekleniyor  **Önbelleğe alma**  Destekleniyor  **Kod yürütme**  Destekleniyor  **Bilgisayar kullanımı**  Destekleniyor  **Dosya arama**  Destekleniyor  **Esnek çıkarım**  Destekleniyor  **İşlev çağırma**  Destekleniyor  **Google Haritalar ile Temellendirme**  Destekleniyor  **Görüntü üretme**  Desteklenmiyor  **Live API**  Desteklenmiyor  **Öncelik çıkarımı**  Destekleniyor  **Arama temellendirme**  Destekleniyor  **Yapılandırılmış çıkışlar**  Destekleniyor  **Düşünme** (Thinking)  Destekleniyor  **URL bağlamı**  Destekleniyor |
+| 123Sürümler | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Önizleme: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthSon güncelleme | Aralık 2025 |
+| cognition\_2Son güncel bilgi tarihi | Ocak 2025 |
 
-## Próximos pasos
+## Sonraki adımlar
 
-- Explora otras capacidades y sigue experimentando con diferentes instrucciones y entradas para descubrir más aplicaciones de Gemini Robotics-ER 1.6.
-  Consulta el [instructivo de Colab para comenzar a usar la robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) para obtener más ejemplos.
-- Obtén más información sobre cómo se crearon los modelos de Gemini Robotics teniendo en cuenta la seguridad en la [página de seguridad de robótica de Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=es-419).
-- Lee sobre las actualizaciones más recientes de los modelos de Gemini Robotics en la [página de destino de Gemini Robotics](https://deepmind.google/robotics?hl=es-419).
+- Diğer özellikleri keşfedin ve Gemini Robotics-ER 1.6'nın daha fazla uygulamasını keşfetmek için farklı istemler ve girişlerle denemeler yapmaya devam edin.
+  Daha fazla örnek için [Robotics getting started colab](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) (Robotik ile Başlangıç Colab) başlıklı makaleyi inceleyin.
+- Gemini Robotics modellerinin güvenlik göz önünde bulundurularak nasıl geliştirildiği hakkında bilgi edinmek için [Google DeepMind Robotics Güvenliği sayfasına](https://deepmind.google/models/gemini-robotics/safety?hl=tr) gidin.
+- Gemini Robotics modellerindeki en son güncellemeler hakkında bilgi edinmek için [Gemini Robotics açılış sayfasına](https://deepmind.google/robotics?hl=tr) göz atın.
 
-Enviar comentarios
+Geri bildirim gönderin
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Última actualización: 2026-06-04 (UTC)
+Son güncelleme tarihi: 2026-06-04 UTC.
 
-¿Quieres brindar más información?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-04 (UTC)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-04 UTC."],[],[]]

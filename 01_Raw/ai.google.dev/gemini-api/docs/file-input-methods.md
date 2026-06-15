@@ -1,31 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja
-fetched_at: 2026-06-08T15:02:35.089652+00:00
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-TW
+fetched_at: 2026-06-15T06:17:21.618006+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# ファイル入力方法
+# 檔案輸入方式
 
-このガイドでは、Gemini API にリクエストを行う際に、画像、音声、動画、ドキュメントなどのメディア ファイルを含めるさまざまな方法について説明します。
-新しい方法は、
-Batch、Interactions、Live API
-など、すべての Gemini API エンドポイントでサポートされています。適切な方法を選択するかどうかは、ファイルのサイズ、データの現在の保存場所、ファイルの利用頻度によって異なります。
+本指南說明向 Gemini API 提出要求時，可採用哪些方式加入圖片、音訊、影片和文件等媒體檔案。所有 Gemini API 端點都支援這些新方法，包括 Batch、Interactions 和 Live API。選擇合適的方法取決於檔案大小、資料目前的儲存位置，以及您預計使用檔案的頻率。
 
-入力としてファイルを含める最も簡単な方法は、ローカル ファイルを読み取ってプロンプトに含めることです。次の例は、ローカルの PDF ファイルを読み取る方法を示しています。この方法では、PDF は 50 MB に制限されます。ファイル入力の種類と制限の完全なリストについては、
-[入力方法の比較表](#method-comparison)をご覧ください。
+如要將檔案做為輸入內容，最簡單的方法是讀取本機檔案，然後將檔案納入提示詞。以下範例說明如何讀取本機 PDF 檔案。透過這個方法上傳的 PDF 檔案大小不得超過 50 MB。如需檔案輸入類型和限制的完整清單，請參閱「[輸入法比較表](#method-comparison)」。
 
 ### Python
 
@@ -114,26 +110,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## 入力方法の比較
+## 輸入法比較
 
-次の表に、各入力方法とファイルの制限、最適なユースケースを比較します。ファイルのサイズ制限は、ファイルの種類と、ファイルの処理に使用されるモデル/トークナイザーによって異なる場合があります。
+下表比較各種輸入方式的檔案限制和最佳用途。請注意，檔案大小上限可能會因檔案類型和用於處理檔案的模型/分詞器而異。
 
-| メソッド | 最適な用途 | 最大ファイルサイズ | 永続性 |
+| 方法 | 適用情境 | 檔案大小上限 | 持續性 |
 | --- | --- | --- | --- |
-| **インライン データ** | クイック テスト、小容量ファイル、リアルタイム アプリケーション。 | リクエスト/ペイロードあたり 100 MB  （**PDF の場合は 50 MB**） | なし（すべてのリクエストとともに送信） |
-| **File API アップロード** | 大容量ファイル、複数回使用されるファイル。 | ファイルあたり 2 GB、  プロジェクトあたり最大 20 GB | 48 時間 |
-| **File API GCS URI 登録** | Google Cloud Storage にすでに保存されている大容量ファイル、複数回使用されるファイル。 | ファイルあたり 2 GB、ストレージの全体的な制限なし | なし（リクエストごとに取得）。1 回の登録で最大 30 日間アクセスできます。 |
-| **外部 URL** | 再アップロードせずに、公開データまたはクラウド バケット（AWS、Azure、GCS）内のデータ。 | リクエスト/ペイロードあたり 100 MB | なし（リクエストごとに取得） |
+| **內嵌資料** | 快速測試、小型檔案、即時應用程式。 | 每個要求/酬載 100 MB   (PDF 檔案為 **50 MB**) | 無 (隨每個要求傳送) |
+| **檔案 API 上傳** | 大型檔案、多次使用的檔案。 | 每個檔案 2 GB， 每個專案最多 20 GB | 48 小時 |
+| **File API GCS URI 註冊** | 已存放在 Google Cloud Storage 的大型檔案、多次使用的檔案。 | 每個檔案 2 GB，沒有總儲存空間限制 | 無 (系統會根據要求擷取)。一次註冊最多可存取 30 天。 |
+| **外部網址** | 公用資料或雲端儲存空間 (AWS、Azure、GCS) 中的資料，不必重新上傳。 | 每個要求/酬載 100 MB | 無 (每次要求都會擷取) |
 
-## インライン データ
+## 內嵌資料
 
-小容量ファイル（100 MB 未満、PDF の場合は 50 MB）の場合は、リクエスト ペイロードでデータを直接渡すことができます。これは、クイック テストや、リアルタイムの一時的なデータを処理するアプリケーションに最適な方法です。データは、Base64 エンコードされた文字列として提供することも、ローカル ファイルを直接読み取ることもできます。
+如果是較小的檔案 (小於 100 MB，PDF 檔案則小於 50 MB)，您可以直接在要求酬載中傳遞資料。這是最簡單的方法，適用於快速測試或處理即時暫時性資料的應用程式。您可以提供 base64 編碼字串形式的資料，也可以直接讀取本機檔案。
 
-ローカル ファイルからの読み取りの例については、このページの冒頭の例をご覧ください。
+如需從本機檔案讀取的範例，請參閱本頁開頭的範例。
 
-### URL から取得する
+### 從網址擷取
 
-URL からファイルを取得し、バイトに変換して入力に含めることもできます。
+您也可以從網址擷取檔案、轉換為位元組，然後納入輸入內容。
 
 ### Python
 
@@ -237,11 +233,11 @@ jq ".candidates[].content.parts[].text" response.json
 
 ## Gemini File API
 
-File API は、大容量ファイル（最大 2 GB）や、複数のリクエストで使用するファイルを対象としています。
+File API 適用於較大的檔案 (最多 2 GB)，或您打算在多項要求中使用的檔案。
 
-### 標準のファイル アップロード
+### 標準檔案上傳
 
-ローカル ファイルを Gemini API にアップロードします。この方法でアップロードされたファイルは一時的に保存され（48 時間）、モデルによる効率的な取得のために処理されます。
+將本機檔案上傳至 Gemini API。以這種方式上傳的檔案會暫時儲存 (48 小時)，並經過處理，方便模型有效率地擷取內容。
 
 ### Python
 
@@ -348,47 +344,43 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Google Cloud Storage ファイルを登録する
+### 註冊 Google Cloud Storage 檔案
 
-データがすでに Google Cloud Storage に保存されている場合は、ダウンロードして再アップロードする必要はありません。File API で直接登録できます。
+如果資料已儲存在 Google Cloud Storage，就不需要下載並重新上傳。您可以直接透過 File API 註冊。
 
-1. 各バケットへの**サービス エージェント** のアクセス権を付与する
+1. 授予**服務代理**每個 bucket 的存取權
 
-   1. Google Cloud プロジェクトで Gemini API を有効にします。
-   2. サービス エージェントを作成します。
+   1. 在 Google Cloud 專案中啟用 Gemini API。
+   2. 建立服務代理：
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. ストレージ バケットを読み取るための**Gemini API サービス エージェントの権限を付与** します。
+   3. **授予 Gemini API 服務代理讀取儲存空間 bucket 的權限**。
 
-      ユーザーは、使用する特定のストレージ バケットに対して、このサービス エージェントに `Storage Object Viewer`
-      [IAM ロール](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=ja#storage.objectViewer)
-      を割り当てる必要があります。
+      使用者必須在打算使用的特定儲存空間 bucket 中，為這個服務代理指派 `Storage Object Viewer`
+      [IAM 角色](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=zh-tw#storage.objectViewer)。
 
-   このアクセス権はデフォルトでは期限切れになりませんが、いつでも変更できます。[Google Cloud Storage IAM SDK
-   コマンドを使用して権限を付与することも
-   できます。](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=ja)
-2. サービスを認証する
+   這項存取權預設不會過期，但隨時可以變更。您也可以使用 [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=zh-tw) 指令授予權限。
+2. 驗證服務
 
-   **前提条件**
+   **必要條件**
 
-   - API を有効にする
-   - 適切な権限が付与されたサービス アカウント/エージェントを作成する。
+   - 啟用 API
+   - 建立具備適當權限的服務帳戶/代理程式。
 
-   まず、ストレージ オブジェクト閲覧者の権限を持つサービスとして認証する必要があります。この処理は、ファイル管理コードが実行される環境によって異なります。
+   您必須先以具備 Storage 物件檢視者權限的服務身分進行驗證。這取決於檔案管理程式碼的執行環境。
 
-   **Google Cloud の外部**
+   **Google Cloud 以外**
 
-   デスクトップなど、Google Cloud の外部からコードを実行している場合は、次の手順で Google Cloud コンソールからアカウント認証情報をダウンロードします。
+   如果您的程式碼是在 Google Cloud 以外的位置 (例如桌面) 執行，請按照下列步驟，從 Google Cloud 控制台下載帳戶憑證：
 
-   1. [サービス アカウント コンソール](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=ja)に移動する
-   2. 関連するサービス アカウントを選択する
-   3. [**鍵**] タブを選択し、[**鍵を追加、新しい鍵を作成**] を選択する
-   4. [**JSON**] 鍵タイプを選択し、ファイルがダウンロードされたパソコン上の場所をメモする。
+   1. 瀏覽至[服務帳戶控制台](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=zh-tw)
+   2. 選取相關服務帳戶
+   3. 選取「金鑰」分頁，然後依序選擇「新增金鑰」和「建立新的金鑰」
+   4. 選擇「JSON」金鑰類型，並記下檔案下載到電腦的位置。
 
-   詳細については、[サービス アカウント キー
-   の管理](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=ja)に関する Google Cloud の公式ドキュメントをご覧ください。
+   詳情請參閱 Google Cloud 官方說明文件，瞭解如何[管理服務帳戶金鑰](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=zh-tw)。
 
-   次に、次のコマンドを使用して認証します。これらのコマンドは、サービス アカウント ファイルが現在のディレクトリにあり、`service-account.json` という名前であることを前提としています。
+   然後使用下列指令進行驗證。這些指令假設您的服務帳戶檔案位於目前目錄中，且名為 `service-account.json`。
 
    ### Python
 
@@ -434,15 +426,13 @@ jq ".candidates[].content.parts[].text" response.json
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **Google Cloud**
+   **在 Google Cloud 中**
 
-   [[Cloud Run 関数や Compute Engine インスタンスを使用して Google Cloud で直接実行している場合は、暗黙的な認証情報がありますが、適切なスコープを付与するために再認証する必要があります。](https://cloud.google.com/functions?hl=ja)](https://cloud.google.com/products/compute?hl=ja)
+   如果您直接在 Google Cloud 中執行 (例如使用 [Cloud Run 函式](https://cloud.google.com/functions?hl=zh-tw)或 [Compute Engine 執行個體](https://cloud.google.com/products/compute?hl=zh-tw))，您會擁有隱含憑證，但需要重新驗證，才能授予適當的範圍。
 
    ### Python
 
-   このコードは、Cloud Run や Compute Engine など、
-   [アプリケーションのデフォルト認証情報](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ja)
-   を自動的に取得できる環境でサービスが実行されていることを想定しています。
+   這段程式碼預期服務會在可自動取得[應用程式預設憑證](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=zh-tw)的環境中執行，例如 Cloud Run 或 Compute Engine。
 
    ```
    import google.auth
@@ -457,9 +447,7 @@ jq ".candidates[].content.parts[].text" response.json
 
    ### JavaScript
 
-   このコードは、Cloud Run や Compute Engine など、
-   [アプリケーションのデフォルト認証情報](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ja)
-   を自動的に取得できる環境でサービスが実行されていることを想定しています。
+   這段程式碼預期服務會在可自動取得[應用程式預設憑證](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=zh-tw)的環境中執行，例如 Cloud Run 或 Compute Engine。
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -474,17 +462,15 @@ jq ".candidates[].content.parts[].text" response.json
 
    ### CLI
 
-   これはインタラクティブなコマンドです。Compute Engine などのサービスでは、構成レベルで実行中のサービスにスコープをアタッチできます。例については、[ユーザー管理サービス
-   のドキュメント](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=ja#using)
-   をご覧ください。
+   這項指令是互動式指令，對於 Compute Engine 等服務，您可以在設定層級將範圍附加至執行中的服務。如需範例，請參閱[使用者自行管理的服務文件](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=zh-tw#using)。
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. ファイル登録（Files API）
+3. 檔案註冊 (Files API)
 
-   Files API を使用してファイルを登録し、Gemini API で直接使用できる Files API パスを生成します。
+   使用 Files API 註冊檔案，並產生可直接在 Gemini API 中使用的 Files API 路徑。
 
    ### Python
 
@@ -529,14 +515,11 @@ jq ".candidates[].content.parts[].text" response.json
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## 外部 HTTP / 署名付き URL
+## 外部 HTTP / 已簽章網址
 
-一般公開されている HTTPS URL または事前署名付き URL（
-[S3 事前署名付き
-URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)
-および Azure SAS と互換性あり）を生成リクエストで直接渡すことができます。Gemini API は、処理中にコンテンツを安全に取得します。これは、再アップロードしたくない最大 100 MB のファイルに最適です。
+您可以在生成要求中直接傳遞可公開存取的 HTTPS 網址或預先簽署的網址 (與 [S3 預先簽署的網址](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html)和 Azure SAS 相容)。Gemini API 會在處理期間安全地擷取內容。如果檔案大小不超過 100 MB，且您不想重新上傳，這個方法就非常適合。
 
-`file_uri` フィールドで URL を使用すると、公開 URL または署名付き URL を入力として使用できます。
+您可以使用「URLs」(網址) `file_uri` 欄位中的網址，以公開或已簽署的網址做為輸入內容。
 
 ### Python
 
@@ -610,20 +593,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
         }'
 ```
 
-### ユーザー補助
+### 無障礙設定
 
-指定した URL が、ログインが必要なページや有料コンテンツのページにリンクしていないことを確認します。非公開データベースの場合は、適切なアクセス権と有効期限を持つ署名付き URL を作成してください。
+確認提供的網址不會導向需要登入或位於付費牆後的網頁。如果是私人資料庫，請務必建立具備正確存取權限和有效期限的經簽署網址。
 
-### 安全チェック
+### 安全檢查
 
-システムは、URL が安全性とポリシーの基準（オプトアウトされていないコンテンツや有料コンテンツなど）を満たしていることを確認するため、URL に対してコンテンツ モデレーション チェックを実行します。指定した URL がこのチェックに失敗すると、`url_retrieval_status` が `URL_RETRIEVAL_STATUS_UNSAFE` になります。
+系統會對網址執行內容審核檢查，確認網址符合安全和政策標準 (例如未停用及設有付費牆的內容)。如果提供的網址未通過這項檢查，您會收到`url_retrieval_status`的`URL_RETRIEVAL_STATUS_UNSAFE`。
 
-### サポートされているコンテンツの種類
+### 支援的內容類型
 
-サポートされているファイル形式と制限の一覧は、最初のガイダンスとして提供されており、包括的なものではありません。サポートされているタイプの有効なセットは変更される可能性があり、使用する特定のモデルとトークナイザーのバージョンによって異なります。サポートされていないタイプを使用すると、エラーが発生します。
-また、現在、これらのファイル形式のコンテンツ取得は、一般公開されている URL のみをサポートしています。
+這份支援的檔案類型和限制清單僅為初步指引，並未涵蓋所有項目。支援的有效型別組合可能會變更，且會因使用的特定模型和權杖化工具版本而異。如果類型不受支援，系統會顯示錯誤訊息。此外，目前僅支援可公開存取的網址，才能擷取這些檔案類型的內容。
 
-#### テキスト ファイル形式
+#### 文字檔案類型
 
 - `text/html`
 - `text/css`
@@ -633,19 +615,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - `text/rtf`
 - `text/javascript`
 
-#### アプリケーション ファイル形式
+#### 應用程式檔案類型
 
 - `application/json`
 - `application/pdf`
 
-#### 画像ファイル形式
+#### 圖片檔案類型
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### 動画ファイル形式
+#### 影片檔案類型
 
 - `video/mp4`
 - `video/mpeg`
@@ -657,40 +639,35 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - `video/wmv`
 - `video/3gpp`
 
-## ベスト プラクティス
+## 最佳做法
 
-- **適切な方法を選択する:** 小容量の一時的なファイルにはインライン データを使用します。
-  大容量ファイルや頻繁に使用するファイルには File API を使用します。すでにオンラインでホストされているデータには外部 URL を使用します。
-- **MIME タイプを指定する:** 適切な処理を行うため、ファイルデータの正しい MIME タイプを常に指定してください。
-- **エラーを処理する:** ネットワーク障害、ファイル アクセスの問題、API エラーなどの潜在的な問題を管理するため、コードにエラー処理を実装します。
-- **GCS 権限を管理する:** GCS 登録を使用する場合は、特定のバケットに対して必要な `Storage Object Viewer` ロールのみを Gemini API サービス エージェントに付与します。
-- **署名付き URL のセキュリティ:** 署名付き URL に適切な有効期限と制限付き権限があることを確認します。
+- **選擇合適的方法：**針對小型暫時性檔案使用內嵌資料。如要處理較大或經常使用的檔案，請使用 File API。使用外部網址，
+  取得已在線上代管的資料。
+- **指定 MIME 類型：**請務必為檔案資料提供正確的 MIME 類型，確保系統能正確處理。
+- **處理錯誤：**在程式碼中實作錯誤處理機制，管理網路連線失敗、檔案存取問題或 API 錯誤等潛在問題。
+- **管理 GCS 權限：**使用 GCS 註冊時，請只在特定值區中授予 Gemini API 服務代理必要的 `Storage Object Viewer` 角色。
+- **經簽署的網址安全性：**請確保經簽署的網址的到期時間適當，且權限有限。
 
-## 制限事項
+## 限制
 
-- ファイルのサイズ制限は、方法（[比較表](#method-comparison)を参照）
-  とファイルの種類によって異なります。
-- インライン データを使用すると、リクエスト ペイロードのサイズが増加します。
-- File API アップロードは一時的なもので、48 時間後に期限切れになります。
-- 外部 URL の取得は、ペイロードあたり 100 MB に制限され、特定のコンテンツ タイプをサポートしています。
-- Google Cloud Storage 登録には、適切な IAM 設定と OAuth トークン管理が必要です。
+- 檔案大小上限會因方法 (請參閱[比較表](#method-comparison)) 和檔案類型而異。
+- 內嵌資料會增加要求酬載大小。
+- File API 上傳的檔案為暫時性質，會在 48 小時後失效。
+- 每個酬載的外部網址擷取上限為 100 MB，且支援特定內容類型。
+- 如要註冊 Google Cloud Storage，必須正確設定 IAM 和 OAuth 權杖管理。
 
-## 次のステップ
+## 後續步驟
 
-- [Google AI Studio](http://aistudio.google.com/?hl=ja) を使用して、独自のマルチモーダル プロンプトを作成してみましょう。
-- プロンプトにファイルを含める方法については、
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=ja)、
-  [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=ja)、および
-  [Document processing](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja) の処理ガイドをご覧ください。
-- サンプリング パラメータの調整など、プロンプト設計の詳細については、
-  [プロンプト戦略](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=ja)ガイドをご覧ください。
+- 使用 [Google AI Studio](http://aistudio.google.com/?hl=zh-tw) 撰寫自己的多模態提示。
+- 如要瞭解如何在提示中加入檔案，請參閱「[Vision](https://ai.google.dev/gemini-api/docs/vision?hl=zh-tw)」、「[Audio](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)」和「[Document processing](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)」指南。
+- 如要進一步瞭解如何設計提示 (例如微調取樣參數)，請參閱「[提示策略](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=zh-tw)」指南。
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-06-01 UTC。
+上次更新時間：2026-06-01 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-01 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-01 (世界標準時間)。"],[],[]]

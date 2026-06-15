@@ -1,61 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=tr
-fetched_at: 2026-06-08T14:55:41.779376+00:00
-title: "Gemini Developer API'de veri saklama s\u00fcresi yoktur \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=pt-BR
+fetched_at: 2026-06-15T06:23:18.399221+00:00
+title: "Reten\u00e7\u00e3o de dados zero na API Gemini Developer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Geri bildirim gönderin
+Envie comentários
 
-# Gemini Developer API'de veri saklama süresi yoktur
+# Retenção de dados zero na API Gemini Developer
 
-Bu sayfada, Gemini Developer API'sinde genellikle "sıfır veri saklama" olarak adlandırılan özellik hakkında ayrıntılı bilgiler verilmektedir.
+Esta página descreve detalhes do que é comumente chamado de "retenção de dados zero"
+na API Gemini Developer.
 
-## Eğitim kısıtlaması
+## Restrição de treinamento
 
-[Gemini API Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'nda belirtildiği gibi, Ücretli Hizmetler'i kullandığınızda Google, ürünlerimizi iyileştirmek için istemlerinizi (ilişkili sistem talimatları, önbelleğe alınmış içerik ve resim, video veya belge gibi dosyalar dahil) ya da yanıtlarınızı kullanmaz. Ücretli Hizmetler [burada](https://ai.google.dev/gemini-api/terms?hl=tr#paid-services) tanımlanmıştır.
+Conforme descrito nos [Termos de Serviço da API Gemini](https://ai.google.dev/gemini-api/terms?hl=pt-br), quando você usa Serviços pagos, o Google não usa seus comandos (incluindo instruções do sistema associadas, conteúdo em cache e arquivos como imagens, vídeos ou documentos) nem respostas para melhorar nossos produtos. Os Serviços pagos estão definidos [aqui](https://ai.google.dev/gemini-api/terms?hl=pt-br#paid-services).
 
-## Müşteri verilerini saklama ve sıfır veri saklama hedefine ulaşma
+## Retenção de dados do cliente e como alcançar a retenção zero de dados
 
-Müşteri verileri genellikle aşağıdaki senaryo ve koşullarda sınırlı süreler boyunca saklanır. Veri saklama süresinin sıfır olması için müşterilerin bu alanların her birinde belirli işlemleri yapması veya belirli özelliklerden kaçınması gerekir:
+Os dados dos clientes são retidos por períodos limitados nos seguintes cenários e condições. Para alcançar a retenção zero de dados, os clientes precisam realizar ações específicas ou evitar recursos específicos em cada uma destas áreas:
 
-- **Kötüye kullanım izleme için istem günlüğü**: [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'nda belirtildiği gibi, Ücretli Hizmetler için Google, [Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr)'nın ihlallerini tespit etmek amacıyla istemleri ve yanıtları sınırlı bir süre boyunca kaydeder. Belirli bir proje için ZDR isteğiniz onaylandığında, tüm kullanıcı içeriği (istemler ve yanıtlar) ve tanımlanabilir meta veriler (ör. IP adresleri ve Google Hesabı kimlikleri) günlüğe kaydetmeden önce temizlenir. Elde edilen kayıt, temizlenmiş olarak işaretlenir ve tanımlanabilir kullanıcı verisi içermez. Bu sayede, Gemini Enterprise Agent Platform Zero Data Retention ile eşitlik sağlanır.
-- **Google Arama ile temellendirme**: [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr#grounding-with-google-search)'nda belirtildiği gibi Google, temellendirilmiş sonuçlar ve arama önerileri oluşturmak amacıyla istemleri, bağlamsal bilgileri ve oluşturulan çıkışları otuz (30) gün boyunca saklar.
-  Bu depolanmış bilgiler, temellendirmeyi destekleyen sistemlerin hata ayıklaması ve test edilmesi için kullanılabilir. **Google Arama ile Temellendirme'yi kullanıyorsanız bu bilgilerin depolanmasını devre dışı bırakmanın bir yolu yoktur.**
-- **Google Haritalar ile temellendirme**: [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'nda belirtildiği gibi Google, temellendirilmiş sonuçlar oluşturmak amacıyla istemleri, bağlamsal bilgileri ve oluşturulan çıkışları otuz (30) gün boyunca saklar. Bu saklanan bilgiler yalnızca güvenilirlik mühendisliği için (ör. hizmet sorunları durumunda hata ayıklama) kullanılabilir.
-  **Google Haritalar ile Temellendirme'yi kullanıyorsanız bu bilgilerin depolanmasını devre dışı bırakmanın bir yolu yoktur.**
-- **Interactions API**: Interactions API, çok turlu etkileşimleri etkinleştirmek için bir görüşmenin etkin durumunu yönetir. **Etkileşimler API'si, varsayılan olarak durum depolamayı etkinleştirir**. Veri ayak izinin sıfır olmasını sağlamak için varsayılan durum tutma özelliğini devre dışı bırakmak üzere API isteklerinizde `store` parametresini açıkça `false` olarak ayarlamanız gerekir.
-- **Live API**: Bu durum bilgisi olan API, görüşme durumunu saklayarak gerçek zamanlı yeniden bağlantıya olanak tanır. Veri saklama süresini sıfıra indirmek için **SessionResumptionConfig'i yapılandırmayın**. Oturum tanıtıcısı oluşturulursa sohbet durumu (metin, ses ve video dahil) 24 saate kadar saklanır.
-- **File API Storage**: File API, kullanıcıların büyük öğeler yüklemesine olanak tanır.
-  Dosyalar, kullanıcı tarafından silinene veya süreleri dolana kadar hareketsiz olarak saklanır.
-  File API'nin kullanımı ZDR günlüğünden bağımsızdır. Kullanıcıların sıfır veri ayak izi sağlamak için dosyaları manuel olarak silmesi gerekir.
-- **Açık Bağlam Önbelleğe Alma**: Kullanıcılar, `cached_content` alanını kullanarak büyük veri kümelerini (ör. uzun videolar veya belge kitaplıkları) manuel olarak önbelleğe alabilir. Bu isteklerin günlükleri ZDR bırakma politikalarına uygun olsa da önbelleğe alınan bağlamın kendisi kullanıcı tanımlı bir `ttl` veya `expire_time` ile depolanır. Mutlak sıfır veri ayak izi elde etmek için cached\_content özelliğini kullanmayın.
-- **Örtülü Bellek İçi Önbelleğe Alma**: Gemini modelleri, geliştiriciler için gecikmeyi ve maliyeti azaltmak amacıyla verileri varsayılan olarak bellek içinde önbelleğe alır. Bu veriler kesinlikle RAM'de (aktif olmayan durumda değil) bulunur, proje düzeyinde izole edilir ve 24 saatlik bir TTL'ye sahiptir.
-  **Bu, sıfır veri saklama politikasını ihlal etmez.**
+- **Registro de prompts para monitoramento de abuso**: conforme descrito nos [Termos adicionais de serviço da API Gemini](https://ai.google.dev/gemini-api/terms?hl=pt-br), para Serviços Pagos, o Google registra prompts e respostas por um período limitado apenas para detectar violações da [Política de uso proibido](https://policies.google.com/terms/generative-ai/use-policy?hl=pt-br). Quando seu pedido de ZDR para um projeto específico é aprovado, todo o conteúdo do usuário (comandos e respostas) e metadados identificáveis (como endereços IP e IDs de Conta do Google) são apagados antes da geração de registros. O registro resultante é marcado como higienizado e não contém dados identificáveis do usuário, garantindo a paridade com a retenção de dados zero da plataforma do agente do Gemini Enterprise.
+- **Embasamento com a Pesquisa Google**: conforme descrito nos [Termos de Serviço adicionais da API Gemini](https://ai.google.dev/gemini-api/terms?hl=pt-br#grounding-with-google-search), o Google armazena comandos, informações contextuais e resultados gerados por 30 dias para criar resultados embasados e sugestões de pesquisa.
+  Essas informações armazenadas podem ser usadas para depuração e teste de sistemas
+  que oferecem suporte ao embasamento. **Não é possível desativar o armazenamento dessas informações se você usa o Embasamento com a Pesquisa Google.**
+- **Embasamento com o Google Maps**: conforme descrito nos [Termos de Serviço adicionais da API Gemini](https://ai.google.dev/gemini-api/terms?hl=pt-br), o Google armazena comandos, informações contextuais e resultados gerados por 30 dias para criar resultados embasados. Essas informações armazenadas só podem ser usadas para engenharia de confiabilidade, como depuração em caso de problemas no serviço.
+  **Não é possível desativar o armazenamento dessas informações se você usa o embasamento com o Google Maps.**
+- **API Interactions**: gerencia o estado ativo de uma conversa para permitir turnos de várias rodadas. **Por padrão, a API Interactions
+  ativa o armazenamento de estado**. Para garantir uma pegada de dados zero, defina explicitamente o parâmetro `store` como `false` nas solicitações de API para desativar a retenção de estado padrão.
+- **API Live**: essa API com estado permite a reconexão em tempo real armazenando o estado da conversa. Para alcançar retenção de dados zero, **não configure
+  SessionResumptionConfig**. Se um identificador de sessão for gerado, o estado da conversa (incluindo texto, áudio e vídeo) será retido por até 24 horas.
+- **Armazenamento da API File**: a API File permite que os usuários façam upload de recursos grandes.
+  Os arquivos são armazenados em repouso até serem excluídos pelo usuário ou expirarem.
+  O uso da API File é independente do registro do ZDR. Os usuários precisam excluir arquivos manualmente para garantir uma pegada de dados zero.
+- **Cache de contexto explícito**: os usuários podem armazenar em cache manualmente conjuntos de dados grandes (por exemplo, vídeos longos ou bibliotecas de documentos) usando o campo `cached_content`. Embora os registros dessas solicitações sigam as políticas de descarte de ZDR, o contexto armazenado em cache é armazenado com um `ttl` ou `expire_time` definido pelo usuário. Para alcançar uma pegada de dados zero absoluta, não use o recurso cached\_content.
+- **Armazenamento em cache implícito na memória**: por padrão, os modelos do Gemini armazenam dados em cache na memória para reduzir a latência e o custo para os desenvolvedores. Esses dados ficam estritamente na RAM (não em repouso), são isolados no nível do projeto e têm um TTL de 24 horas.
+  **Isso não viola a retenção zero de dados.**
 
-## Sırada ne var?
+## A seguir
 
-- [Üretken Yapay Zeka Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr) hakkında bilgi edinin.
-- [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'nı inceleyin.
-- Kurumsal düzeyde, self servis ZDR kontrolleri gerekiyorsa [Gemini Enterprise Ajan Platformu
-  Sıfır Veri Saklama
-  rehberine](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention?hl=tr) bakın.
+- Saiba mais sobre a [Política de uso proibido da IA generativa](https://policies.google.com/terms/generative-ai/use-policy?hl=pt-br).
+- Leia os [Termos adicionais de serviço da API Gemini](https://ai.google.dev/gemini-api/terms?hl=pt-br).
+- Se você precisar de controles de ZDR de nível empresarial e autoatendimento, consulte o [guia da plataforma de agentes do Gemini Enterprise
+  retenção de dados zero](https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/zero-data-retention?hl=pt-br).
 
-Geri bildirim gönderin
+Envie comentários
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Son güncelleme tarihi: 2026-05-28 UTC.
+Última atualização 2026-05-28 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Quer enviar seu feedback?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-28 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-28 UTC."],[],[]]

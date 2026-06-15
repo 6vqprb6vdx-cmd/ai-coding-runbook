@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=tr
-fetched_at: 2026-06-08T15:03:47.330308+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi
+fetched_at: 2026-06-15T06:29:53.361096+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# Ses yorumlama
+# Hiểu được âm thanh
 
-Gemini, ses girişini analiz edip metin yanıtları oluşturabilir.
+Gemini có thể phân tích dữ liệu đầu vào bằng âm thanh và tạo câu trả lời bằng văn bản.
 
 ### Python
 
@@ -92,22 +92,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Genel Bakış
+## Tổng quan
 
-Gemini, ses girişini analiz edip anlayabilir ve metin yanıtları oluşturabilir. Bu sayede aşağıdaki gibi kullanım alanları ortaya çıkar:
+Gemini có thể phân tích và hiểu dữ liệu đầu vào âm thanh, đồng thời tạo câu trả lời bằng văn bản, cho phép các trường hợp sử dụng như:
 
-- Ses içeriğini açıklama, özetleme veya ses içeriğiyle ilgili soruları yanıtlama
-- Metne dönüştürme ve çeviri (konuşmayı metne dönüştürme)
-- Konuşmacı ayırma (farklı konuşmacıları tanımlama)
-- Konuşma ve müzikte duygu algılama
-- Zaman damgalarıyla belirli segmentleri analiz etme
+- Mô tả, tóm tắt hoặc trả lời câu hỏi về nội dung âm thanh
+- Chép lời và dịch (lời nói thành văn bản)
+- Phân tách người nói (xác định những người nói khác nhau)
+- Phát hiện cảm xúc trong lời nói và âm nhạc
+- Phân tích các phân đoạn cụ thể bằng dấu thời gian
 
-Anlık ses ve video etkileşimleri için [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr)'ye bakın.
-Gerçek zamanlı transkripsiyonu destekleyen özel konuşmayı metne dönüştürme modelleri için [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=tr)'yi kullanın.
+Để biết thông tin về các hoạt động tương tác bằng giọng nói và video theo thời gian thực, hãy xem [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
+Đối với các mô hình chuyển lời nói thành văn bản chuyên dụng có hỗ trợ tính năng phiên âm theo thời gian thực, hãy sử dụng [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=vi).
 
-## Konuşmayı metne dönüştürme
+## Chuyển lời nói thành văn bản
 
-Bu örnekte, [yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=tr) kullanarak konuşmayı zaman damgaları, konuşmacı ayrımı ve duygu algılama ile nasıl metne dönüştüreceğiniz, çevireceğiniz ve özetleyeceğiniz gösterilmektedir.
+Ví dụ này cho thấy cách chép lời, dịch và tóm tắt lời nói bằng dấu thời gian, phân biệt người nói và phát hiện cảm xúc bằng cách sử dụng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi).
 
 ### Python
 
@@ -266,18 +266,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Çok dilli sesli transkripsiyon Gemini uygulaması](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=tr)
+![Ứng dụng Gemini có tính năng chuyển âm thanh thành văn bản bằng nhiều ngôn ngữ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=vi)
 
-## Giriş sesi
+## Đầu vào âm thanh
 
-Ses verilerini aşağıdaki şekillerde sağlayabilirsiniz:
+Bạn có thể cung cấp dữ liệu âm thanh theo những cách sau:
 
-- İstek göndermeden önce [ses dosyası yükleyin](#upload-audio).
-- İstekle birlikte [satır içi ses verilerini iletin](#inline-audio).
+- [Tải tệp âm thanh lên](#upload-audio) trước khi gửi yêu cầu.
+- [Truyền dữ liệu âm thanh nội tuyến](#inline-audio) bằng yêu cầu.
 
-### Ses dosyası yükleme
+### Tải tệp âm thanh lên
 
-20 MB'tan büyük dosyalar için [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=tr)'yi kullanın.
+Sử dụng [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi) cho các tệp lớn hơn 20 MB.
 
 ### Python
 
@@ -349,9 +349,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Ses verilerini satır içi olarak iletme
+### Truyền dữ liệu âm thanh cùng dòng
 
-Toplam istek boyutu 20 MB'tan küçük olan ses dosyaları için:
+Đối với các tệp âm thanh nhỏ có tổng kích thước yêu cầu dưới 20 MB:
 
 ### Python
 
@@ -432,13 +432,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Satır içi ses verileriyle ilgili notlar:
-\* Maksimum istek boyutu toplam 20 MB'tır (istemler ve tüm dosyalar dahil).
-\* Yeniden kullanmak için [dosyayı yükleyin](#upload-audio).
+Lưu ý về dữ liệu âm thanh nội tuyến:
+\* Tổng kích thước yêu cầu tối đa là 20 MB (bao gồm cả câu lệnh và tất cả các tệp)
+\* Để sử dụng lại, hãy [tải tệp lên](#upload-audio) thay vì sử dụng dữ liệu âm thanh nội tuyến
 
-## Transkript alma
+## Lấy bản chép lời
 
-Transkript almak için istemde transkript isteyin:
+Để nhận bản chép lời, hãy yêu cầu trong câu lệnh:
 
 ### Python
 
@@ -474,9 +474,9 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## Zaman damgalarına bakın
+## Tham khảo dấu thời gian
 
-Belirli bölümlere referans vermek için `MM:SS` biçimini kullanın:
+Sử dụng định dạng `MM:SS` để tham chiếu đến các phần cụ thể:
 
 ### Python
 
@@ -506,9 +506,9 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## Parça sayma
+## Đếm mã thông báo
 
-Ses dosyasındaki jetonları sayma:
+Đếm số mã thông báo trong một tệp âm thanh:
 
 ### Python
 
@@ -532,37 +532,35 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## Desteklenen ses biçimleri
+## Định dạng âm thanh được hỗ trợ
 
-- WAV - `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
-- AAC - `audio/aac`
-- OGG Vorbis - `audio/ogg`
-- FLAC - `audio/flac`
+- WAV – `audio/wav`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
+- AAC – `audio/aac`
+- OGG Vorbis – `audio/ogg`
+- FLAC – `audio/flac`
 
-## Sesle ilgili teknik ayrıntılar
+## Thông tin kỹ thuật về âm thanh
 
-- **Jetonlar**: Saniyede 32 jeton (1 dakika = 1.920 jeton)
-- **Konuşma dışı sesler**: Gemini, konuşma dışı sesleri (kuş sesi, siren vb.) anlar.
-- **Maksimum uzunluk**: İstek başına 9,5 saatlik ses
-- **Çözünürlük**: 16 kbps'ye düşürülür.
-- **Kanallar**: Çok kanallı ses, tek kanalda birleştirilir.
+- **Mã thông báo**: 32 mã thông báo cho mỗi giây âm thanh (1 phút = 1.920 mã thông báo)
+- **Âm thanh không phải lời nói**: Gemini hiểu được âm thanh không phải lời nói (tiếng chim hót, tiếng còi báo động, v.v.)
+- **Độ dài tối đa**: 9,5 giờ âm thanh cho mỗi câu lệnh
+- **Độ phân giải**: Giảm xuống còn 16 Kbps
+- **Kênh**: Âm thanh đa kênh kết hợp thành một kênh
 
-## Sırada ne var?
+## Bước tiếp theo
 
-- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=tr): Ses dosyalarını yükleme ve yönetme
-- [Sistem talimatları](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=tr#system-instructions):
-  Model davranışını özelleştirme
-- [Yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=tr):
-  JSON biçiminde transkripsiyon sonuçları alma
+- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi): Tải lên và quản lý tệp âm thanh
+- [Hướng dẫn cho hệ thống](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=vi#system-instructions): Tuỳ chỉnh hành vi của mô hình
+- [Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=vi): Nhận kết quả phiên âm ở định dạng JSON
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Son güncelleme tarihi: 2026-05-28 UTC.
+Cập nhật lần gần đây nhất: 2026-05-28 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-28 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]

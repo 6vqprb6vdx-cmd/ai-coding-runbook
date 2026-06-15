@@ -1,28 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/openai?hl=pt-BR
-fetched_at: 2026-06-08T14:59:53.369191+00:00
-title: "Compatibilidade com o OpenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/openai?hl=vi
+fetched_at: 2026-06-15T06:20:34.124016+00:00
+title: "Kh\u1ea3 n\u0103ng t\u01b0\u01a1ng th\u00edch v\u1edbi OpenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-# Compatibilidade com o OpenAI
+# Khả năng tương thích với OpenAI
 
-Os modelos do Gemini podem ser acessados usando as bibliotecas OpenAI (Python e TypeScript /
-JavaScript) com a API REST. Para isso, atualize três linhas de código
-e use sua [chave da API Gemini](https://aistudio.google.com/apikey?hl=pt-br). Se você
-ainda não usa as bibliotecas OpenAI, recomendamos chamar a
-[API Gemini diretamente](https://ai.google.dev/gemini-api/docs/quickstart?hl=pt-br).
+Bạn có thể truy cập vào các mô hình Gemini bằng cách sử dụng các thư viện OpenAI (Python và TypeScript/Javascript) cùng với API REST, bằng cách cập nhật 3 dòng mã và sử dụng [khoá Gemini API](https://aistudio.google.com/apikey?hl=vi). Nếu chưa sử dụng thư viện OpenAI, bạn nên gọi [Gemini API trực tiếp](https://ai.google.dev/gemini-api/docs/quickstart?hl=vi).
 
 ### Python
 
@@ -93,19 +89,17 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-O que mudou? Apenas três linhas.
+Điều gì đã thay đổi? Chỉ có 3 dòng!
 
-- **`api_key="GEMINI_API_KEY"`**: substitua "`GEMINI_API_KEY`" pela sua chave da API Gemini, que pode ser encontrada no [Google AI Studio](https://aistudio.google.com?hl=pt-br).
-- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** Isto informa à biblioteca OpenAI para enviar solicitações ao endpoint de API Gemini em vez do URL padrão.
-- **`model="gemini-3.5-flash"`**: escolha um modelo do Gemini compatível.
+- **`api_key="GEMINI_API_KEY"`**: Thay thế "`GEMINI_API_KEY`" bằng khoá Gemini API thực tế của bạn. Bạn có thể lấy khoá này trong [Google AI Studio](https://aistudio.google.com?hl=vi).
+- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** Lệnh này yêu cầu thư viện OpenAI gửi các yêu cầu đến điểm cuối Gemini API thay vì URL mặc định.
+- **`model="gemini-3.5-flash"`**: Chọn một mô hình Gemini tương thích
 
-## Pensando
+## Tư duy
 
-Os modelos do Gemini são treinados para resolver problemas complexos, o que leva a um raciocínio significativamente melhor. A API Gemini vem com [parâmetros
-de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) que oferecem controle refinado
-sobre o quanto o modelo vai pensar.
+Các mô hình Gemini được huấn luyện để suy nghĩ thấu đáo về những vấn đề phức tạp, từ đó cải thiện đáng kể khả năng suy luận. Gemini API đi kèm với [các tham số tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) giúp bạn kiểm soát chi tiết mức độ tư duy của mô hình.
 
-Diferentes modelos do Gemini têm configurações de raciocínio diferentes. Confira como eles são mapeados para os esforços de raciocínio da OpenAI:
+Các mô hình Gemini khác nhau có cấu hình suy luận khác nhau. Bạn có thể xem cách các mô hình này tương ứng với nỗ lực suy luận của OpenAI như sau:
 
 | `reasoning_effort` (OpenAI) | `thinking_level` (Gemini 3.1 Pro) | `thinking_level` (Gemini 3.1 Flash-Lite) | `thinking_level` (Gemini 3 Flash) | `thinking_budget` (Gemini 2.5) |
 | --- | --- | --- | --- | --- |
@@ -114,11 +108,9 @@ Diferentes modelos do Gemini têm configurações de raciocínio diferentes. Con
 | `medium` | `medium` | `medium` | `medium` | `8,192` |
 | `high` | `high` | `high` | `high` | `24,576` |
 
-Se nenhum `reasoning_effort` for especificado, o Gemini usará o
-nível [padrão](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#levels) ou [orçamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#set-budget) do modelo.
+Nếu bạn không chỉ định `reasoning_effort`, Gemini sẽ sử dụng [cấp](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels) hoặc [ngân sách](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#set-budget) mặc định của mô hình.
 
-Se você quiser desativar o pensamento, defina `reasoning_effort` como `"none"` para
-modelos 2.5. O raciocínio não pode ser desativado para modelos Gemini 2.5 Pro ou 3.
+Nếu muốn tắt tính năng tư duy, bạn có thể đặt `reasoning_effort` thành `"none"` cho các mô hình 2.5. Bạn không thể tắt tính năng suy luận cho các mô hình Gemini 2.5 Pro hoặc 3.
 
 ### Python
 
@@ -192,11 +184,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-Os modelos de pensamento do Gemini também produzem [resumos de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#summaries).
-Você pode usar o [`extra_body`](#extra-body) campo para incluir campos do Gemini
-na sua solicitação.
+Các mô hình tư duy của Gemini cũng tạo ra [bản tóm tắt suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#summaries).
+Bạn có thể sử dụng trường [`extra_body`](#extra-body) để đưa các trường Gemini vào yêu cầu của mình.
 
-Como `reasoning_effort` e `thinking_level`/`thinking_budget` têm funcionalidades sobrepostas, eles não podem ser usados ao mesmo tempo.
+Xin lưu ý rằng `reasoning_effort` và `thinking_level`/`thinking_budget` có chức năng trùng lặp, nên bạn không thể sử dụng chúng cùng một lúc.
 
 ### Python
 
@@ -272,11 +263,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
       }'
 ```
 
-O Gemini 3 oferece suporte à compatibilidade com a OpenAI para assinaturas de pensamento em APIs de conclusão de chat. Confira o exemplo completo na página de [assinaturas de pensamento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pt-br#openai).
+Gemini 3 hỗ trợ khả năng tương thích với OpenAI cho chữ ký tư duy trong các API hoàn thành cuộc trò chuyện. Bạn có thể xem ví dụ đầy đủ trên trang [chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi#openai).
 
-## Streaming
+## Phát trực tiếp
 
-A API Gemini oferece suporte a [respostas de streaming](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=pt-br#generate-a-text-stream).
+Gemini API hỗ trợ [truyền trực tuyến câu trả lời](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=vi#generate-a-text-stream).
 
 ### Python
 
@@ -355,10 +346,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
     }'
 ```
 
-## Chamadas de função
+## Gọi hàm
 
-As chamadas de função facilitam a obtenção de saídas de dados estruturados de
-modelos generativos e têm [suporte na API Gemini](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=pt-br).
+Tính năng gọi hàm giúp bạn dễ dàng nhận được dữ liệu có cấu trúc từ các mô hình tạo sinh và được [hỗ trợ trong Gemini API](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=vi).
 
 ### Python
 
@@ -489,10 +479,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
 }'
 ```
 
-## Compreensão de imagens
+## Hiểu hình ảnh
 
-Os modelos do Gemini são multimodais nativos e oferecem o melhor desempenho da categoria em
-[muitas tarefas comuns de visão](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br).
+Các mô hình Gemini có khả năng đa phương thức tự nhiên và mang lại hiệu suất tốt nhất trong số các mô hình cùng loại đối với [nhiều tác vụ thị giác phổ biến](https://ai.google.dev/gemini-api/docs/vision?hl=vi).
 
 ### Python
 
@@ -621,9 +610,9 @@ bash -c '
 '
 ```
 
-## Gerar uma imagem
+## Tạo một hình ảnh
 
-Gere uma imagem usando `gemini-2.5-flash-image` ou `gemini-3-pro-image-preview`. Os parâmetros aceitos incluem `prompt`, `model`, `n`, `size`, e `response_format`. Outros parâmetros não listados aqui ou na seção [`extra_body`](#extra-body) serão ignorados silenciosamente pela camada de compatibilidade.
+Tạo hình ảnh bằng `gemini-2.5-flash-image` hoặc `gemini-3-pro-image-preview`. Các thông số được hỗ trợ bao gồm `prompt`, `model`, `n`, `size` và `response_format`. Mọi thông số khác không có trong danh sách này hoặc trong phần [`extra_body`](#extra-body) sẽ bị lớp tương thích bỏ qua một cách âm thầm.
 
 ### Python
 
@@ -690,12 +679,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/images/generations
       }'
 ```
 
-## Gerar um vídeo
+## Tạo video
 
-Gere um vídeo usando `veo-3.1-generate-preview` pelo endpoint `/v1/videos` compatível com o Sora. Os parâmetros de nível superior aceitos são `prompt` e `model`. Outros parâmetros, como `duration_seconds`, `image` e `aspect_ratio`, precisam ser transmitidos com `extra_body`. Consulte a seção [`extra_body`](#extra-body)
-para conferir todos os parâmetros disponíveis.
+Tạo video bằng `veo-3.1-generate-preview` thông qua điểm cuối `/v1/videos` tương thích với Sora. Các tham số cấp cao nhất được hỗ trợ là `prompt` và `model`. Bạn phải truyền các tham số bổ sung như `duration_seconds`, `image` và `aspect_ratio` bằng `extra_body`. Xem phần [`extra_body`](#extra-body) để biết tất cả các tham số có sẵn.
 
-A geração de vídeo é uma operação de longa duração que retorna um ID de operação que pode ser pesquisado para conclusão.
+Tạo video là một thao tác thực hiện lâu và trả về một mã thao tác mà bạn có thể thăm dò để biết trạng thái hoàn tất.
 
 ### Python
 
@@ -750,9 +738,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos" \
   -F "prompt=A cinematic drone shot of a waterfall"
 ```
 
-### Verificar o status do vídeo
+### Kiểm tra trạng thái video
 
-A geração de vídeo é assíncrona. Use `GET /v1/videos/{id}` para pesquisar o status e recuperar o URL do vídeo final quando ele estiver concluído:
+Quá trình tạo video diễn ra không đồng bộ. Sử dụng `GET /v1/videos/{id}` để thăm dò trạng thái và truy xuất URL cuối cùng của video khi hoàn tất:
 
 ### Python
 
@@ -816,9 +804,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos/VIDEO_ID" \
   -H "Authorization: Bearer $GEMINI_API_KEY"
 ```
 
-## Compreensão de áudio
+## Hiểu được âm thanh
 
-Analisar a entrada de áudio:
+Phân tích đầu vào âm thanh:
 
 ### Python
 
@@ -931,9 +919,9 @@ bash -c '
 '
 ```
 
-## Resposta estruturada
+## Đầu ra có cấu trúc
 
-Os modelos do Gemini podem gerar objetos JSON em qualquer [estrutura que você definir](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
+Các mô hình Gemini có thể xuất các đối tượng JSON theo [cấu trúc mà bạn xác định](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi).
 
 ### Python
 
@@ -994,10 +982,9 @@ const event = completion.choices[0].message.parsed;
 console.log(event);
 ```
 
-## Embeddings
+## Mục nhúng
 
-Os embeddings de texto medem a relação entre strings de texto e podem ser gerados
-usando a [API Gemini](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br). Você pode usar `gemini-embedding-2-preview` para embeddings multimodais ou `gemini-embedding-001` para embeddings somente de texto.
+Vectơ nhúng văn bản đo lường mức độ liên quan của các chuỗi văn bản và có thể được tạo bằng [Gemini API](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi). Bạn có thể dùng `gemini-embedding-2-preview` cho các mục nhúng đa phương thức hoặc `gemini-embedding-001` cho các mục nhúng chỉ có văn bản.
 
 ### Python
 
@@ -1051,23 +1038,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/embeddings" \
   }'
 ```
 
-## API Batch
+## Batch API
 
-É possível criar [jobs em lote](https://ai.google.dev/gemini-api/docs/batch-mode?hl=pt-br), enviá-los e verificar
-o status deles usando a biblioteca OpenAI.
+Bạn có thể tạo [công việc hàng loạt](https://ai.google.dev/gemini-api/docs/batch-mode?hl=vi), gửi công việc và kiểm tra trạng thái của công việc bằng thư viện OpenAI.
 
-Você precisa preparar o arquivo JSONL no formato de entrada da OpenAI. Exemplo:
+Bạn sẽ cần chuẩn bị tệp JSONL ở định dạng đầu vào của OpenAI. Ví dụ:
 
 ```
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.5-flash", "messages": [{"role": "user", "content": "Tell me a one-sentence joke."}]}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.5-flash", "messages": [{"role": "user", "content": "Why is the sky blue?"}]}}
 ```
 
-A compatibilidade da OpenAI para lote oferece suporte à criação de um lote, ao monitoramento do status do job e à visualização dos resultados do lote.
+Khả năng tương thích với OpenAI cho Batch hỗ trợ việc tạo một lô, giám sát trạng thái công việc và xem kết quả lô.
 
-No momento, a compatibilidade para upload e download está indisponível. Em vez disso, o
-exemplo a seguir usa o cliente `genai` para fazer upload e download
-[de arquivos](https://ai.google.dev/gemini-api/docs/files?hl=pt-br), da mesma forma que ao usar a API Gemini [Batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=pt-br#input-file).
+Hiện tại, chúng tôi chưa hỗ trợ khả năng tương thích cho việc tải lên và tải xuống. Thay vào đó, ví dụ sau đây sử dụng ứng dụng `genai` để tải lên và tải xuống [tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi), giống như khi sử dụng [Batch API](https://ai.google.dev/gemini-api/docs/batch-mode?hl=vi#input-file) của Gemini.
 
 ### Python
 
@@ -1113,7 +1097,7 @@ for line in file_content.splitlines():
     print(line)
 ```
 
-O SDK da OpenAI também oferece suporte à [geração de embeddings com a API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br#batch-embeddings). Para fazer isso, troque o campo `endpoint` do método `create` por um endpoint de embeddings, bem como as chaves `url` e `model` no arquivo JSONL:
+SDK OpenAI cũng hỗ trợ [tạo các mục nhúng bằng Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi#batch-embeddings). Để thực hiện việc này, hãy thay đổi trường `endpoint` của phương thức `create` thành một điểm cuối nhúng, cũng như các khoá `url` và `model` trong tệp JSONL:
 
 ```
 # JSONL file using embeddings model and endpoint
@@ -1130,12 +1114,11 @@ batch = openai_client.batches.create(
 )
 ```
 
-Consulte a seção [Geração de embeddings em lote](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb)
-do manual de compatibilidade da OpenAI para conferir um exemplo completo.
+Hãy xem phần [Tạo nhiều vectơ nhúng cùng lúc](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb) trong sổ tay tương thích của OpenAI để biết ví dụ hoàn chỉnh.
 
-## Inferência flexível e prioritária
+## Suy luận linh hoạt và ưu tiên
 
-A API Gemini corresponde ao parâmetro `service_tier` da OpenAI no nome e na lógica, aplicando limites e direcionando o tráfego normalmente para os níveis de inferência flexível e prioritária.
+API Gemini có tên và logic tương ứng với tham số `service_tier` của OpenAI, đồng thời thực thi các giới hạn và chuyển hướng lưu lượng truy cập một cách hiệu quả cho cả các cấp suy luận Linh hoạt và Ưu tiên.
 
 ### Python
 
@@ -1158,38 +1141,38 @@ completion = client.chat.completions.create(
 print(completion)
 ```
 
-Quando não é atribuído explicitamente, `service_tier` é definido como `standard`, equivalente a `default` para a OpenAI.
-Saiba mais sobre os níveis de inferência na documentação de [otimização](https://ai.google.dev/gemini-api/docs/optimization?hl=pt-br).
+Khi không được chỉ định rõ ràng, `service_tier` sẽ mặc định là `standard`, tương đương với `default` đối với OpenAI.
+Tìm hiểu thêm về các cấp suy luận trong tài liệu [Tối ưu hoá](https://ai.google.dev/gemini-api/docs/optimization?hl=vi).
 
-## Ativar recursos do Gemini com `extra_body`
+## Bật các tính năng của Gemini bằng `extra_body`
 
-Há vários recursos com suporte do Gemini que não estão disponíveis nos modelos da OpenAI, mas podem ser ativados usando o campo `extra_body`.
+Có một số tính năng được Gemini hỗ trợ nhưng không có trong các mô hình OpenAI. Tuy nhiên, bạn có thể bật các tính năng này bằng cách sử dụng trường `extra_body`.
 
-| Parâmetro | Tipo | Endpoint | Descrição |
+| Tham số | Loại | Điểm cuối | Mô tả |
 | --- | --- | --- | --- |
-| **`cached_content`** | Texto | Chat | Corresponde ao cache de conteúdo geral do Gemini. |
-| **`thinking_config`** | Objeto | Chat | Corresponde ao ThinkingConfig do Gemini. |
-| **`aspect_ratio`** | Texto | Imagens | Proporção de saída (por exemplo, `"16:9"`, `"1:1"`, `"9:16"`). |
-| **`generation_config`** | Objeto | Imagens | Objeto de configuração de geração do Gemini (por exemplo, `{"responseModalities": ["IMAGE"], "candidateCount": 2}`). |
-| **`safety_settings`** | Lista | Imagens | Filtros de limite de segurança personalizados (por exemplo, `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`). |
-| **`tools`** | Lista | Imagens | Ativa o embasamento (por exemplo, `[{"google_search": {}}]`). Somente para `gemini-3-pro-image-preview`. |
-| **`aspect_ratio`** | Texto | Vídeo | Dimensões do vídeo de saída (`16:9` para paisagem, `9:16` para retrato). Mapeia de `size` se não for especificado. |
-| **`resolution`** | Texto | Vídeo | Resolução de saída (`720p`, `1080p`, `4K`). Observação: `1080p` e `4K` acionam o pipeline de upsampler. |
-| **`duration_seconds`** | Número inteiro | Vídeo | Duração da geração (valores: `4`, `6`, `8`). Precisa ser `8` ao usar `reference_images`, interpolação ou extensão. |
-| **`frame_rate`** | Texto | Vídeo | Frame rate para saída de vídeo (por exemplo, `"24"`). |
-| **`input_reference`** | Texto | Vídeo | Entrada de referência para geração de vídeo. |
-| **`extend_video_id`** | Texto | Vídeo | ID de um vídeo existente a ser estendido. |
-| **`negative_prompt`** | Texto | Vídeo | Itens a serem excluídos (por exemplo, `"shaky camera"`). |
-| **`seed`** | Número inteiro | Vídeo | Número inteiro para geração determinística. |
-| **`style`** | Texto | Vídeo | Estilo visual (`cinematic` padrão, `creative` para otimização de mídia social). |
-| **`person_generation`** | Texto | Vídeo | Controla a geração de pessoas (`allow_adult`, `allow_all`, `dont_allow`). |
-| **`reference_images`** | Lista | Vídeo | Até três imagens para referência de estilo/personagem (recursos base64). |
-| **`image`** | Texto | Vídeo | Imagem de entrada inicial codificada em base64 para condicionar a geração de vídeo. |
-| **`last_frame`** | Objeto | Vídeo | Imagem final para interpolação (requer `image` como primeiro frame). |
+| **`cached_content`** | Văn bản | Trò chuyện | Tương ứng với bộ nhớ đệm nội dung chung của Gemini. |
+| **`thinking_config`** | Đối tượng | Trò chuyện | Tương ứng với ThinkingConfig của Gemini. |
+| **`aspect_ratio`** | Văn bản | Hình ảnh | Tỷ lệ khung hình đầu ra (ví dụ: `"16:9"`, `"1:1"`, `"9:16"`). |
+| **`generation_config`** | Đối tượng | Hình ảnh | Đối tượng cấu hình tạo của Gemini (ví dụ: `{"responseModalities": ["IMAGE"], "candidateCount": 2}`). |
+| **`safety_settings`** | Danh sách | Hình ảnh | Bộ lọc ngưỡng an toàn tuỳ chỉnh (ví dụ: `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`). |
+| **`tools`** | Danh sách | Hình ảnh | Cho phép căn cứ (ví dụ: `[{"google_search": {}}]`). Chỉ dành cho `gemini-3-pro-image-preview`. |
+| **`aspect_ratio`** | Văn bản | Video | Kích thước của video đầu ra (`16:9` cho chế độ ngang, `9:16` cho chế độ dọc). Bản đồ từ `size` nếu không được chỉ định. |
+| **`resolution`** | Văn bản | Video | Độ phân giải đầu ra (`720p`, `1080p`, `4K`). Lưu ý: `1080p` và `4K` kích hoạt quy trình tăng độ phân giải. |
+| **`duration_seconds`** | Số nguyên | Video | Độ dài của thế hệ (giá trị: `4`, `6`, `8`). Phải là `8` khi sử dụng `reference_images`, nội suy hoặc phần mở rộng. |
+| **`frame_rate`** | Văn bản | Video | Tốc độ khung hình cho video đầu ra (ví dụ: `"24"`). |
+| **`input_reference`** | Văn bản | Video | Đầu vào tham chiếu để tạo video. |
+| **`extend_video_id`** | Văn bản | Video | Mã nhận dạng của video hiện có cần mở rộng. |
+| **`negative_prompt`** | Văn bản | Video | Các mục cần loại trừ (ví dụ: `"shaky camera"`). |
+| **`seed`** | Số nguyên | Video | Số nguyên để tạo một cách xác định. |
+| **`style`** | Văn bản | Video | Kiểu hiển thị (`cinematic` mặc định, `creative` được tối ưu hoá cho mạng xã hội). |
+| **`person_generation`** | Văn bản | Video | Kiểm soát việc tạo hình ảnh về con người (`allow_adult`, `allow_all`, `dont_allow`). |
+| **`reference_images`** | Danh sách | Video | Tối đa 3 hình ảnh tham khảo về phong cách/nhân vật (thành phần base64). |
+| **`image`** | Văn bản | Video | Hình ảnh đầu vào ban đầu được mã hoá Base64 để điều kiện hoá quá trình tạo video. |
+| **`last_frame`** | Đối tượng | Video | Hình ảnh cuối cùng để nội suy (yêu cầu `image` làm khung hình đầu tiên). |
 
-### Exemplo usando `extra_body`
+### Ví dụ sử dụng `extra_body`
 
-Confira um exemplo de como usar `extra_body` para definir `cached_content`:
+Sau đây là một ví dụ về cách dùng `extra_body` để đặt `cached_content`:
 
 ### Python
 
@@ -1227,9 +1210,9 @@ for chunk in stream:
     print(chunk.usage.to_dict())
 ```
 
-## Listar modelos
+## Liệt kê các mô hình
 
-Confira uma lista de modelos do Gemini disponíveis:
+Xem danh sách các mô hình Gemini hiện có:
 
 ### Python
 
@@ -1273,9 +1256,9 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models \
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## Recuperar um modelo
+## Truy xuất một mô hình
 
-Recupere um modelo do Gemini:
+Truy xuất mô hình Gemini:
 
 ### Python
 
@@ -1316,23 +1299,22 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models/gemini-3.5-f
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## Limitações atuais
+## Các điểm hạn chế hiện tại
 
-O suporte às bibliotecas OpenAI ainda está na versão Beta enquanto estendemos o suporte a recursos.
+Chúng tôi vẫn đang trong giai đoạn thử nghiệm đối với các thư viện OpenAI trong khi mở rộng phạm vi hỗ trợ tính năng.
 
-Se você tiver dúvidas sobre os parâmetros aceitos, os próximos recursos ou encontrar
-problemas para começar a usar o Gemini, participe do nosso [fórum de desenvolvedores](https://discuss.ai.google.dev/c/gemini-api/4?hl=pt-br).
+Nếu bạn có thắc mắc về các tham số được hỗ trợ, các tính năng sắp ra mắt hoặc gặp phải bất kỳ vấn đề nào khi bắt đầu sử dụng Gemini, hãy tham gia [Diễn đàn dành cho nhà phát triển](https://discuss.ai.google.dev/c/gemini-api/4?hl=vi) của chúng tôi.
 
-## A seguir
+## Bước tiếp theo
 
-Teste nosso [colab de compatibilidade com a OpenAI](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=pt-br) para conferir exemplos mais detalhados.
+Hãy thử [Colab tương thích với OpenAI](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=vi) của chúng tôi để xem các ví dụ chi tiết hơn.
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última atualização 2026-05-19 UTC.
+Cập nhật lần gần đây nhất: 2026-05-19 UTC.
 
-Quer enviar seu feedback?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]

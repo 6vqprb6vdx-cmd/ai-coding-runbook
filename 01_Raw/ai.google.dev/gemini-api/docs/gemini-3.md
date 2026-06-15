@@ -1,34 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-3?hl=ko
-fetched_at: 2026-06-08T15:00:53.338539+00:00
+source_url: https://ai.google.dev/gemini-api/docs/gemini-3?hl=pl
+fetched_at: 2026-06-15T06:20:25.530806+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-의견 보내기
+Prześlij opinię
 
-# Gemini 3 개발자 가이드
+# Przewodnik dla deweloperów Gemini 3
 
-Gemini 3는 최첨단 추론을 기반으로 구축된, 현재까지 가장 지능적인 모델 제품군입니다. 이 모델은 에이전트형 워크플로, 자율 코딩, 복잡한 멀티모달 작업을 정교하게 처리하여 어떠한 아이디어든 실현할 수 있도록 설계되었습니다.
-이 가이드에서는 Gemini 3 모델 계열의 주요 기능과 이를 최대한 활용하는 방법을 설명합니다.
+Gemini 3 to nasza najinteligentniejsza rodzina modeli, która została zbudowana na bazie najnowocześniejszego rozumowania. Została zaprojektowana tak, aby realizować każdy pomysł dzięki opanowaniu przepływów pracy agentów, autonomicznego kodowania i złożonych zadań multimodalnych. Ten przewodnik zawiera najważniejsze funkcje rodziny modeli Gemini 3 i informacje o tym, jak w pełni wykorzystać jej możliwości.
 
-[Gemini 3.1 Pro 프리뷰 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ko)
-[Gemini 3 Flash 프리뷰 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=ko)
-[Gemini 3.1 Flash-Lite 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-lite&hl=ko)
-[Nano Banana 2 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image-preview&hl=ko)
+[Wypróbuj wersję podglądową Gemini 3.1 Pro](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=pl)
+[Wypróbuj wersję podglądową Gemini 3 Flash](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=pl)
+[Wypróbuj Gemini 3.1 Flash-Lite](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-lite&hl=pl)
+[Wypróbuj Nano Banana 2](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image-preview&hl=pl)
 
-[Gemini 3 앱 컬렉션](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=ko)을 살펴보고 모델이 고급 추론, 자율 코딩, 복잡한 멀티모달 작업을 처리하는 방법을 확인하세요.
+Zapoznaj się z naszą [kolekcją aplikacji Gemini 3](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=pl), aby zobaczyć, jak model radzi sobie z zaawansowanym wnioskowaniem, autonomicznym kodowaniem i złożonymi zadaniami multimodalnymi.
 
-다음과 같이 몇 줄의 코드로 시작하세요.
+Aby rozpocząć, wystarczy kilka wierszy kodu:
 
 ### Python
 
@@ -45,7 +44,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -78,45 +77,45 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## Gemini 3 시리즈 소개
+## Poznaj serię Gemini 3
 
-Gemini 3.1 Pro는 다양한 모달리티에 걸쳐 광범위한 세계 지식과 고급 추론이 필요한 복잡한 작업에 가장 적합합니다.
+Gemini 3.1 Pro najlepiej sprawdza się w przypadku złożonych zadań, które wymagają szerokiej wiedzy o świecie i zaawansowanego wnioskowania w różnych trybach.
 
-Gemini 3 Flash는 최신 3시리즈 모델로, Flash의 속도와 가격으로 Pro 수준의 인텔리전스를 제공합니다.
+Gemini 3 Flash to nasz najnowszy model z serii 3, który zapewnia inteligencję na poziomie Pro przy szybkości i cenie Flash.
 
-Nano Banana Pro (Gemini 3 Pro Image라고도 함)는 Google의 최고 품질 이미지 생성 모델이며, Nano Banana 2 (Gemini 3.1 Flash Image라고도 함)는 대량, 고효율, 저가형 모델입니다.
+Nano Banana Pro (znany też jako Gemini 3 Pro Image) to nasz model do generowania obrazów o najwyższej jakości, a Nano Banana 2 (znany też jako Gemini 3.1 Flash Image) to odpowiednik o dużej wydajności i niższej cenie.
 
-Gemini 3.1 Flash-Lite는 비용 효율적인 모델과 대용량 작업을 위해 빌드된 워크호스 모델입니다.
+Gemini 3.1 Flash-Lite to nasz model do pracy, stworzony z myślą o niskich kosztach i dużej liczbie zadań.
 
-| 모델 ID | 컨텍스트 윈도우 (내 / 외부) | 지식 단절 | 가격 책정 (입력 / 출력)\* |
+| Identyfikator modelu | Okno kontekstu (wejście / wyjście) | Granica wiedzy | Ceny (dane wejściowe / wyjściowe)\* |
 | --- | --- | --- | --- |
-| **gemini-3.1-flash-lite** | 1백만 / 64,000 | 2025년 1월 | $0.25 (텍스트, 이미지, 동영상), $0.50 (오디오) / $1.50 |
-| **gemini-3.1-flash-image-preview** | 128,000 / 32,000 | 2025년 1월 | $0.25 (텍스트 입력) / $0.067 (이미지 출력)\*\* |
-| **gemini-3.1-pro-preview** | 1백만 / 64,000 | 2025년 1월 | 2달러 / 12달러 (<200,000개 토큰)   4달러 / 18달러 (>200,000개 토큰) |
-| **gemini-3-flash-preview** | 1백만 / 64,000 | 2025년 1월 | $0.50 / $3 |
-| **gemini-3-pro-image-preview** | 65,000 / 32,000 | 2025년 1월 | $2 (텍스트 입력) / $0.134 (이미지 출력)\*\* |
+| **gemini-3.1-flash-lite** | 1 M / 64 k | Styczeń 2025 r. | 0,25 USD (tekst, obraz, film), 0,50 USD (dźwięk) / 1,50 USD |
+| **gemini-3.1-flash-image-preview** | 128 tys. / 32 tys. | Styczeń 2025 r. | 0,25 USD (wpisywanie tekstu) / 0,067 USD (generowanie obrazów)\*\* |
+| **gemini-3.1-pro-preview** | 1 M / 64 k | Styczeń 2025 r. | 2 USD / 12 USD (<200 tys. tokenów)   4 USD / 18 USD (>200 tys. tokenów) |
+| **gemini-3-flash-preview** | 1 M / 64 k | Styczeń 2025 r. | 0,50 USD / 3 USD |
+| **gemini-3-pro-image-preview** | 65 tys. / 32 tys. | Styczeń 2025 r. | 2 USD (wpisywanie tekstu) / 0,134 USD (generowanie obrazu)\*\* |
 
-*\* 별도로 명시되지 않는 한 가격은 토큰 100만 개당 가격입니다.*
-*\*\* 이미지 가격은 해상도에 따라 다릅니다. 자세한 내용은 [가격 책정 페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)를 참고하세요.*
+*\* Ceny dotyczą 1 miliona tokenów, chyba że zaznaczono inaczej.*
+*\*\* Ceny obrazów różnią się w zależności od rozdzielczości. Szczegółowe informacje znajdziesz na [stronie z cennikiem](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).*
 
-자세한 한도, 가격 책정, 추가 정보는 [모델 페이지](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko)를 참고하세요.
+Szczegółowe limity, cennik i dodatkowe informacje znajdziesz na [stronie modeli](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl).
 
-## Gemini 3의 새로운 API 기능
+## Nowe funkcje interfejsu API w Gemini 3
 
-Gemini 3는 개발자가 지연 시간, 비용, 멀티모달 충실도를 더 세밀하게 제어할 수 있도록 설계된 새로운 파라미터를 도입합니다.
+Gemini 3 wprowadza nowe parametry, które zapewniają deweloperom większą kontrolę nad latencją, kosztami i wiernością multimodalną.
 
-### 사고 수준
+### Poziom myślenia
 
-Gemini 3 시리즈 모델은 기본적으로 동적 사고를 사용하여 프롬프트를 통해 추론합니다. 대답을 생성하기 전에 모델의 내부 추론 프로세스의 **최대** 깊이를 제어하는 `thinking_level` 파라미터를 사용할 수 있습니다. Gemini 3는 이러한 수준을 엄격한 토큰 보장이 아닌 사고를 위한 상대적 허용치로 취급합니다.
+Modele z serii Gemini 3 domyślnie korzystają z myślenia dynamicznego, aby analizować prompty. Możesz użyć parametru `thinking_level`, który kontroluje **maksymalną** głębokość wewnętrznego procesu rozumowania modelu przed wygenerowaniem odpowiedzi. Gemini 3 traktuje te poziomy jako względne limity myślenia, a nie ścisłe gwarancje tokenów.
 
-`thinking_level`이 지정되지 않은 경우 Gemini 3의 기본값은 `high`입니다. 복잡한 추론이 필요하지 않은 경우 더 빠르고 지연 시간이 짧은 대답을 위해 모델의 사고 수준을 `low`로 제한할 수 있습니다.
+Jeśli nie podasz wartości `thinking_level`, Gemini 3 domyślnie przyjmie wartość `high`. Aby uzyskać szybsze odpowiedzi o mniejszych opóźnieniach, gdy nie jest wymagane złożone rozumowanie, możesz ograniczyć poziom myślenia modelu do `low`.
 
-| 사고 수준 | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | 설명 |
+| Poziom myślenia | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Opis |
 | --- | --- | --- | --- | --- |
-| **`minimal`** | 지원되지 않음 | 지원됨 (기본값) | 지원됨 | 대부분의 질문에 대해 '생각하지 않음' 설정과 일치합니다. 모델이 복잡한 코딩 작업에 대해 매우 최소한으로 생각할 수 있습니다. 채팅 또는 높은 처리량 애플리케이션의 지연 시간을 최소화합니다. `minimal`는 생각하기가 꺼져 있음을 보장하지 않습니다. |
-| **`low`** | 지원됨 | 지원됨 | 지원됨 | 지연 시간과 비용을 최소화합니다. 간단한 지시 수행, 채팅 또는 고처리량 애플리케이션에 가장 적합합니다. |
-| **`medium`** | 지원됨 | 지원됨 | 지원됨 | 대부분의 작업에 균형 잡힌 사고를 제공합니다. |
-| **`high`** | 지원됨 (기본값, 동적) | 지원됨 (동적) | 지원됨 (기본값, 동적) | 추론 깊이를 극대화합니다. 모델이 첫 번째 (사고가 아닌) 출력 토큰에 도달하는 데 시간이 더 오래 걸릴 수 있지만, 출력은 더 신중하게 추론됩니다. |
+| **`minimal`** | Nieobsługiwane | Obsługiwane (domyślnie) | Obsługiwane | W przypadku większości zapytań odpowiada ustawieniu „bez myślenia”. W przypadku złożonych zadań związanych z kodowaniem model może myśleć w bardzo ograniczonym zakresie. Minimalizuje opóźnienia w przypadku aplikacji do czatu lub aplikacji o wysokiej przepustowości. Pamiętaj, że `minimal` nie gwarantuje, że myślenie jest wyłączone. |
+| **`low`** | Obsługiwane | Obsługiwane | Obsługiwane | Minimalizuje opóźnienie i koszty. Najlepiej sprawdza się w przypadku prostych instrukcji, czatów i aplikacji o wysokiej przepustowości. |
+| **`medium`** | Obsługiwane | Obsługiwane | Obsługiwane | Zrównoważone myślenie w przypadku większości zadań. |
+| **`high`** | Obsługiwane (domyślne, dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Zwiększa głębokość rozumowania. Model może potrzebować znacznie więcej czasu, aby wygenerować pierwszy token wyjściowy (niebędący tokenem myślenia), ale wynik będzie bardziej przemyślany. |
 
 ### Python
 
@@ -137,7 +136,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -176,21 +175,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-### 미디어 해상도
+### Rozdzielczość multimediów
 
-Gemini 3는 `media_resolution` 파라미터를 통해 멀티모달 비전 처리에 대한 세밀한 제어 기능을 제공합니다. 해상도가 높을수록 모델이 작은 텍스트를 읽거나 세부 요소를 식별하는 능력을 향상시키지만, 토큰 사용량과 지연 시간이 증가합니다.
-`media_resolution` 파라미터는 **입력 이미지 또는 동영상 프레임당 할당되는 최대 토큰 수**를 결정합니다.
+Gemini 3 wprowadza szczegółową kontrolę nad przetwarzaniem obrazu multimodalnego za pomocą parametru `media_resolution`. Wyższe rozdzielczości zwiększają zdolność modelu do odczytywania drobnego tekstu lub rozpoznawania małych szczegółów, ale zwiększają wykorzystanie tokenów i opóźnienia.
+Parametr `media_resolution` określa **maksymalną liczbę tokenów
+przydzielonych do każdego obrazu wejściowego lub klatki filmu**.
 
-이제 해상도를 각 미디어 파트별로 `media_resolution_low`, `media_resolution_medium`, `media_resolution_high`, `media_resolution_ultra_high`로 설정하거나 `generation_config`를 통해 전역적으로 설정할 수 있습니다 (울트라 하이는 전역적으로 설정할 수 없음). 지정하지 않으면 모델은 미디어 유형에 따라 최적의 기본값을 사용합니다.
+Możesz teraz ustawić rozdzielczość na `media_resolution_low`, `media_resolution_medium`, `media_resolution_high` lub `media_resolution_ultra_high` dla poszczególnych treści nagranych lub globalnie (za pomocą parametru `generation_config`, który nie jest dostępny w przypadku rozdzielczości ultra high). Jeśli nie określisz rozdzielczości, model użyje optymalnych ustawień domyślnych na podstawie typu zawartości.
 
-**권장 설정**
+**Zalecane ustawienia**
 
-| 미디어 유형 | 권장 설정 | 최대 토큰 수 | 사용 안내 |
+| Typ mediów | Zalecane ustawienie | Maksymalna liczba tokenów | Wytyczne dotyczące użytkowania |
 | --- | --- | --- | --- |
-| **이미지** | `media_resolution_high` | 1120 | 최대 품질을 보장하기 위해 대부분의 이미지 분석 작업에 권장됩니다. |
-| **PDF** | `media_resolution_medium` | 560 | 문서 이해에 최적화되어 있으며 품질은 일반적으로 `medium`에서 포화됩니다. `high`로 늘려도 표준 문서의 OCR 결과가 개선되는 경우는 거의 없습니다. |
-| **동영상** (일반) | `media_resolution_low` (또는 `media_resolution_medium`) | 70 (프레임당) | **참고:** 동영상의 경우 컨텍스트 사용을 최적화하기 위해 `low` 및 `medium` 설정이 동일하게 (70개 토큰) 처리됩니다. 이는 대부분의 동작 인식 및 설명 작업에 충분합니다. |
-| **동영상** (텍스트 중심) | `media_resolution_high` | 280 (프레임당) | 사용 사례에 밀도 높은 텍스트 (OCR) 또는 동영상 프레임 내의 작은 세부정보를 읽는 작업이 포함된 경우에만 필요합니다. |
+| **Obrazy** | `media_resolution_high` | 1120 | Zalecane w przypadku większości zadań związanych z analizą obrazów, aby zapewnić maksymalną jakość. |
+| **Pliki PDF** | `media_resolution_medium` | 560 | Optymalny do analizy dokumentów; jakość zwykle osiąga maksymalny poziom przy wartości `medium`. Zwiększenie do `high` rzadko poprawia wyniki OCR w przypadku standardowych dokumentów. |
+| **Wideo** (ogólne) | `media_resolution_low` (lub `media_resolution_medium`) | 70 (na klatkę) | **Uwaga:** w przypadku filmów ustawienia `low` i `medium` są traktowane identycznie (70 tokenów), aby zoptymalizować wykorzystanie kontekstu. Jest to wystarczające w przypadku większości zadań związanych z rozpoznawaniem i opisywaniem działań. |
+| **Film** (z dużą ilością tekstu) | `media_resolution_high` | 280 (na klatkę) | Wymagane tylko wtedy, gdy przypadek użycia obejmuje odczytywanie gęstego tekstu (OCR) lub drobnych szczegółów w klatkach wideo. |
 
 ### Python
 
@@ -223,7 +223,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -283,49 +283,49 @@ curl "https://generativelanguage.googleapis.com/v1alpha/models/gemini-3.1-pro-pr
   }'
 ```
 
-### 온도
+### Temperatura
 
-모든 Gemini 3 모델의 경우 온도 파라미터를 기본값인 `1.0`으로 유지할 것을 적극 권장합니다.
+W przypadku wszystkich modeli Gemini 3 zdecydowanie zalecamy pozostawienie parametru temperatury na domyślnej wartości `1.0`.
 
-이전 모델에서는 창의성과 결정성 간 균형을 위해 온도 조정이 도움이 되었지만, Gemini 3의 추론 기능은 기본 설정에 최적화되어 있습니다. 온도를 변경하여 (1.0 미만으로 설정) 복잡한 수학적 또는 추론 작업에서 루핑이나 성능 저하와 같은 예기치 않은 동작이 발생할 수 있습니다.
+W przypadku poprzednich modeli dostosowywanie temperatury często pomagało kontrolować kreatywność i determinizm, ale w przypadku Gemini 3 funkcje rozumowania są zoptymalizowane pod kątem ustawienia domyślnego. Zmiana temperatury (ustawienie poniżej 1,0) może prowadzić do nieoczekiwanych zachowań, takich jak zapętlanie lub pogorszenie wydajności, szczególnie w przypadku złożonych zadań matematycznych lub wymagających rozumowania.
 
-### 생각 서명
+### Podpisy myśli
 
-Gemini 3는 [사고 서명](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ko)을 사용하여 API 호출 전반에서 추론 컨텍스트를 유지합니다. 이러한 서명은 모델의 내부 사고 과정을 암호화한 표현입니다. 모델이 추론 기능을 유지하도록 하려면 요청에서 이러한 서명을 수신된 그대로 모델에 다시 반환해야 합니다.
+Gemini 3 używa [sygnatur myśli](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pl), aby zachować kontekst rozumowania w wywołaniach interfejsu API. Są to zaszyfrowane reprezentacje wewnętrznego procesu myślowego modelu. Aby model zachował swoje możliwości rozumowania, musisz zwrócić te sygnatury do modelu w żądaniu dokładnie w takiej postaci, w jakiej zostały otrzymane:
 
-- **함수 호출 (엄격):** API는 '현재 턴'에 엄격한 유효성 검사를 적용합니다. 서명이 누락되면 400 오류가 발생합니다.
-- **텍스트/채팅:** 유효성 검사가 엄격하게 적용되지는 않지만 서명을 누락하면 모델의 추론 및 대답 품질이 저하됩니다.
-- **이미지 생성/편집 (엄격)**: API는 `thoughtSignature`을 포함한 모든 모델 부분에 엄격한 검증을 적용합니다. 서명이 누락되면 400 오류가 발생합니다.
+- **Wywoływanie funkcji (ścisłe):** interfejs API wymusza ścisłą weryfikację w przypadku „bieżącej tury”. Brakujące podpisy spowodują błąd 400.
+- **Tekst/czat:** weryfikacja nie jest ściśle egzekwowana, ale pominięcie sygnatur obniży jakość rozumowania i odpowiedzi modelu.
+- **Generowanie/edytowanie obrazów (ścisłe):** interfejs API wymusza ścisłą weryfikację wszystkich części modelu, w tym `thoughtSignature`. Brakujące podpisy spowodują błąd 400.
 
-#### 함수 호출 (엄격한 검증)
+#### Wywoływanie funkcji (ścisła weryfikacja)
 
-Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다음 턴에서 도구의 출력을 올바르게 처리합니다. '현재 턴'에는 마지막 표준 **User** `text` 메시지 이후에 발생한 모든 모델 (`functionCall`) 및 사용자 (`functionResponse`) 단계가 포함됩니다.
+Gdy Gemini generuje `functionCall`, korzysta z `thoughtSignature`, aby prawidłowo przetworzyć dane wyjściowe narzędzia w następnej turze. „Obecna tura” obejmuje wszystkie kroki wykonane przez model (`functionCall`) i użytkownika (`functionResponse`) od ostatniej standardowej wiadomości **użytkownika** `text`.
 
-- **단일 함수 호출:** `functionCall` 부분에 서명이 포함됩니다. 반환해야 합니다.
-- **병렬 함수 호출:** 목록의 첫 번째 `functionCall` 부분에만 서명이 포함됩니다. 부품은 받은 순서대로 정확하게 반품해야 합니다.
-- **다단계 (순차적):** 모델이 도구를 호출하고, 결과를 수신하고, (동일한 턴 내에서) *다른* 도구를 호출하는 경우 **두** 함수 호출에 서명이 있습니다. 기록에 누적된 **모든** 서명을 반환해야 합니다.
+- **Pojedyncze wywołanie funkcji:** część `functionCall` zawiera sygnaturę. Musisz go zwrócić.
+- **Równoległe wywołania funkcji:** tylko pierwsza część `functionCall` na liście będzie zawierać sygnaturę. Musisz zwrócić części w dokładnie takiej samej kolejności, w jakiej zostały otrzymane.
+- **Wielokrokowe (sekwencyjne):** jeśli model wywołuje narzędzie, otrzymuje wynik i wywołuje *inne* narzędzie (w ramach tej samej tury), **oba** wywołania funkcji mają sygnatury. Musisz zwrócić **wszystkie** zgromadzone sygnatury w historii.
 
-#### 텍스트 및 스트리밍
+#### Tekst i streaming
 
-표준 채팅 또는 텍스트 생성의 경우 서명이 포함된다고 보장할 수 없습니다.
+W przypadku standardowego czatu lub generowania tekstu obecność podpisu nie jest gwarantowana.
 
-- **스트리밍되지 않음**: 대답의 최종 콘텐츠 부분에 `thoughtSignature`이 포함될 수 있지만 항상 포함되는 것은 아닙니다. 반환된 경우 최상의 성능을 유지하기 위해 다시 보내야 합니다.
-- **스트리밍**: 서명이 생성되면 빈 텍스트 부분이 포함된 최종 청크에 도착할 수 있습니다. 텍스트 필드가 비어 있더라도 스트림 파서가 서명을 확인하도록 합니다.
+- **Non-Streaming**: ostatnia część treści odpowiedzi może zawierać znak `thoughtSignature`, ale nie zawsze jest on obecny. Jeśli zostanie zwrócony, należy go odesłać, aby zachować najwyższą skuteczność.
+- **Streaming:** jeśli sygnatura zostanie wygenerowana, może pojawić się w ostatnim bloku, który zawiera pustą część tekstową. Upewnij się, że parser strumienia sprawdza sygnatury nawet wtedy, gdy pole tekstowe jest puste.
 
-#### 이미지 생성 및 수정
+#### Generowanie i edytowanie obrazów
 
-`gemini-3-pro-image-preview` 및 `gemini-3.1-flash-image-preview`의 경우 생각 서명이 대화 기반 수정에 매우 중요합니다. 모델에 이미지를 수정해 달라고 요청하면 이전 턴의 `thoughtSignature`를 사용하여 원본 이미지의 구성과 논리를 이해합니다.
+W przypadku `gemini-3-pro-image-preview` i `gemini-3.1-flash-image-preview` podpisy myślowe mają kluczowe znaczenie w edytowaniu w trybie konwersacyjnym. Gdy poprosisz model o zmodyfikowanie obrazu, będzie on korzystać z `thoughtSignature` z poprzedniej tury, aby zrozumieć kompozycję i logikę oryginalnego obrazu.
 
-- **편집:** 서명은 대답의 생각 (`text` 또는 `inlineData`) 이후의 첫 번째 부분과 모든 후속 `inlineData` 부분에 보장됩니다. 오류를 방지하려면 이러한 서명을 모두 반환해야 합니다.
+- **Edytowanie:** podpisy są gwarantowane w pierwszej części po przemyśleniach w odpowiedzi (`text` lub `inlineData`) i w każdej kolejnej części `inlineData`. Aby uniknąć błędów, musisz zwrócić wszystkie te podpisy.
 
-#### 코드 예시
+#### Przykłady kodu
 
-#### 다단계 함수 호출 (순차적)
+#### Wieloetapowe wywoływanie funkcji (sekwencyjne)
 
-사용자가 한 번에 두 단계 (항공편 확인 -> 택시 예약)가 필요한 질문을 합니다.   
+Użytkownik zadaje pytanie wymagające wykonania 2 osobnych czynności (sprawdzenie lotu –> rezerwacja taksówki) w jednym kroku.   
   
-**1단계: 모델이 항공편 도구를 호출합니다.**  
-모델이 서명 `<Sig_A>`를 반환합니다.
+**Krok 1. Model wywołuje narzędzie do wyszukiwania lotów.**  
+Model zwraca sygnaturę `<Sig_A>`
 
 ```
 // Model Response (Turn 1, Step 1)
@@ -340,8 +340,8 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
   }
 ```
 
-**2단계: 사용자가 항공편 결과를 전송함**  
-모델의 사고 흐름을 유지하려면 `<Sig_A>`를 다시 전송해야 합니다.
+**Krok 2. Użytkownik wysyła wynik wyszukiwania lotu**  
+Aby zachować tok myślenia modelu, musimy odesłać `<Sig_A>`.
 
 ```
 // User Request (Turn 1, Step 2)
@@ -360,8 +360,8 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
 ]
 ```
 
-**3단계: 모델이 택시 도구를 호출함**  
-모델은 `<Sig_A>`를 통해 항공편 지연을 기억하고 이제 택시를 예약하기로 결정합니다. *새* 서명 `<Sig_B>`를 생성합니다.
+**Krok 3. Model wywołuje narzędzie do zamawiania taksówek**  
+Model zapamiętuje opóźnienie lotu za pomocą `<Sig_A>` i decyduje się zamówić taksówkę. Wygeneruje to *nowy* podpis `<Sig_B>`.
 
 ```
 // Model Response (Turn 1, Step 3)
@@ -376,8 +376,8 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
 }
 ```
 
-**4단계: 사용자가 택시 결과를 보냄**  
-턴을 완료하려면 `<Sig_A>` 및 `<Sig_B>` 전체 체인을 다시 보내야 합니다.
+**Krok 4. Użytkownik wysyła wynik taksówki**  
+Aby zakończyć turę, musisz odesłać cały łańcuch: `<Sig_A>` I `<Sig_B>`.
 
 ```
 // User Request (Turn 1, Step 4)
@@ -400,9 +400,9 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
 ]
 ```
 
-#### 병렬 함수 호출
+#### Równoległe wywoływanie funkcji
 
-사용자가 '파리와 런던의 날씨를 확인해 줘'라고 요청합니다. 모델이 하나의 대답에 두 개의 함수 호출을 반환합니다.
+Użytkownik pyta: „Sprawdź pogodę w Paryżu i Londynie”. Model zwraca 2 wywołania funkcji w jednej odpowiedzi.
 
 ```
 // User Request (Sending Parallel Results)
@@ -442,9 +442,9 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
 ]
 ```
 
-#### 텍스트/컨텍스트 내 추론 (검증 없음)
+#### Tekst/uzasadnienie w kontekście (bez weryfikacji)
 
-사용자가 외부 도구 없이 컨텍스트 내 추론이 필요한 질문을 합니다. 엄격하게 검증되지는 않지만 서명을 포함하면 모델이 후속 질문에 대한 추론 체인을 유지하는 데 도움이 됩니다.
+Użytkownik zadaje pytanie, które wymaga wnioskowania w kontekście bez użycia narzędzi zewnętrznych. Chociaż nie jest to ściśle weryfikowane, dołączenie podpisu pomaga modelowi utrzymać ciąg rozumowania w przypadku pytań uzupełniających.
 
 ```
 // User Request (Follow-up question)
@@ -469,9 +469,9 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
 ]
 ```
 
-#### 이미지 생성 및 편집
+#### Generowanie i edytowanie obrazów
 
-이미지 생성의 경우 서명이 엄격하게 검증됩니다. **첫 번째 부분** (텍스트 또는 이미지)과 **이후의 모든 이미지 부분**에 표시됩니다. 다음 턴에 모두 반환해야 합니다.
+W przypadku generowania obrazów podpisy są ściśle weryfikowane. Wyświetlają się w **pierwszej części** (tekst lub obraz) i **wszystkich kolejnych częściach obrazu**. Wszystkie muszą zostać zwrócone w następnej turze.
 
 ```
 // Model Response (Turn 1)
@@ -515,16 +515,16 @@ Gemini가 `functionCall`를 생성할 때 `thoughtSignature`를 사용하여 다
 }
 ```
 
-#### 다른 모델에서 이전
+#### Migracja z innych modeli
 
-다른 모델 (예: Gemini 2.5)에서 대화 추적을 트랜스퍼하거나 Gemini 3에서 생성되지 않은 맞춤 함수 호출을 삽입하는 경우 유효한 서명이 없습니다.
+Jeśli przenosisz ślad rozmowy z innego modelu (np. Gemini 2.5) lub wstawiasz niestandardowe wywołanie funkcji, które nie zostało wygenerowane przez Gemini 3, nie będziesz mieć prawidłowego podpisu.
 
-이러한 특정 시나리오에서 엄격한 유효성 검사를 우회하려면 필드를 다음 특정 더미 문자열로 채우세요. `"thoughtSignature": "context_engineering_is_the_way
+Aby pominąć ścisłą weryfikację w tych konkretnych scenariuszach, wypełnij pole tym konkretnym ciągiem znaków: `"thoughtSignature": "context_engineering_is_the_way
 to_go"`
 
-### 도구를 사용한 구조화된 출력
+### Uporządkowane dane wyjściowe z narzędziami
 
-Gemini 3 모델을 사용하면 [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)을 [Google 검색을 사용한 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko), [URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko), [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko), [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)과 같은 기본 제공 도구와 결합할 수 있습니다.
+Modele Gemini 3 umożliwiają łączenie [danych wyjściowych o ustrukturyzowanej formie](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) z wbudowanymi narzędziami, takimi jak [powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl), [kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl), [wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) i [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
 
 ### Python
 
@@ -557,7 +557,7 @@ result = MatchResult.model_validate_json(response.text)
 print(result)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -630,17 +630,17 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-### 이미지 생성
+### Generowanie obrazów
 
-Gemini 3.1 Flash Image와 Gemini 3 Pro Image를 사용하면 텍스트 프롬프트에서 이미지를 생성하고 편집할 수 있습니다. 추론을 사용하여 프롬프트를 '생각'하고 [Google 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko) 그라운딩을 사용하기 전에 날씨 예보나 주식 차트와 같은 실시간 데이터를 가져와 고화질 이미지를 생성할 수 있습니다.
+Gemini 3.1 Flash Image i Gemini 3 Pro Image umożliwiają generowanie i edytowanie obrazów na podstawie promptów tekstowych. Wykorzystuje rozumowanie, aby „przemyśleć” prompt, i może pobierać dane w czasie rzeczywistym, takie jak prognozy pogody czy wykresy giełdowe, a następnie korzystać z [wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl), aby generować obrazy o wysokiej jakości.
 
-**새로운 기능 및 개선된 기능:**
+**Nowe i ulepszone funkcje:**
 
-- **4K 및 텍스트 렌더링:** 최대 2K 및 4K 해상도로 선명하고 읽기 쉬운 텍스트와 다이어그램을 생성합니다.
-- **그라운딩된 생성:** `google_search` 도구를 사용하여 사실을 확인하고 실제 정보를 기반으로 이미지를 생성합니다. Gemini 3.1 Flash Image에서 Google *이미지* 검색을 사용한 그라운딩을 사용할 수 있습니다.
-- **대화 기반 수정:** 변경사항을 요청하는 간단한 질문 (예: '배경을 일몰로 바꿔줘')을 통해 멀티턴 이미지 편집 이 워크플로는 **사고 서명**을 사용하여 턴 간에 시각적 컨텍스트를 유지합니다.
+- **Renderowanie tekstu i rozdzielczość 4K:** generuj wyraźny i czytelny tekst oraz diagramy w rozdzielczości do 2K i 4K.
+- **Generowanie na podstawie źródeł:** użyj `google_search` narzędzia, aby weryfikować fakty i generować obrazy na podstawie informacji ze świata rzeczywistego. Powiązanie ze źródłem informacji przy użyciu wyszukiwarki *grafiki* Google jest dostępne w przypadku Gemini 3.1 Flash Image.
+- **Edytowanie w trybie konwersacyjnym:** wieloetapowa edycja obrazów za pomocą prostych poleceń (np. „Zmień tło na zachód słońca”). Ten przepływ pracy wykorzystuje **sygnatury myśli**, aby zachować kontekst wizualny między turami.
 
-종횡비, 편집 워크플로, 구성 옵션에 관한 자세한 내용은 [이미지 생성 가이드](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)를 참고하세요.
+Szczegółowe informacje o proporcjach obrazu, przepływach pracy związanych z edycją i opcjach konfiguracji znajdziesz w [przewodniku po generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
 
 ### Python
 
@@ -667,7 +667,7 @@ if image_parts:
     image.show()
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -725,21 +725,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image
   }'
 ```
 
-**응답 예시**
+**Przykładowa odpowiedź**
 
-![도쿄 날씨](https://ai.google.dev/static/gemini-api/docs/images/weather-tokyo.jpg?hl=ko)
+![Pogoda w Tokio](https://ai.google.dev/static/gemini-api/docs/images/weather-tokyo.jpg?hl=pl)
 
-### 이미지를 사용한 코드 실행
+### Wykonywanie kodu z obrazami
 
-Gemini 3 Flash는 시각을 정적인 시선이 아닌 적극적인 조사로 취급할 수 있습니다. 추론과 [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)을 결합하여 모델은 계획을 수립한 다음 Python 코드를 작성하고 실행하여 이미지를 단계별로 확대, 자르기, 주석 추가 또는 조작하여 대답을 시각적으로 뒷받침합니다.
+Gemini 3 Flash może traktować wizję jako aktywne badanie, a nie tylko statyczne spojrzenie. Łącząc rozumowanie z [wykonywaniem kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl), model formułuje plan, a następnie pisze i wykonuje kod w Pythonie, aby krok po kroku powiększać, przycinać, dodawać adnotacje lub w inny sposób manipulować obrazami, aby wizualnie uzasadnić swoje odpowiedzi.
 
-**사용 사례:**
+**Możesz na przykład:**
 
-- **확대 및 검사:** 모델은 세부정보가 너무 작을 때 (예: 멀리 있는 게이지 또는 일련번호를 읽는 경우) 이를 암시적으로 감지하고 영역을 잘라 더 높은 해상도로 다시 검사하는 코드를 작성합니다.
-- **시각적 수학 및 플로팅:** 모델은 코드를 사용하여 다단계 계산을 실행할 수 있습니다 (예: 영수증의 항목 합계 또는 추출된 데이터에서 Matplotlib 차트 생성).
-- **이미지 주석:** 모델이 이미지에 직접 화살표, 경계 상자 또는 기타 주석을 그려 '이 항목은 어디에 있어야 하나요?'와 같은 공간 관련 질문에 답변할 수 있습니다.
+- **Powiększanie i sprawdzanie:** model automatycznie wykrywa, kiedy szczegóły są zbyt małe (np. odczytywanie odległego wskaźnika lub numeru seryjnego) i generuje kod, aby przyciąć i ponownie zbadać obszar w wyższej rozdzielczości.
+- **Wizualne obliczenia matematyczne i wykresy:** model może wykonywać wieloetapowe obliczenia za pomocą kodu (np. sumować pozycje na paragonie lub generować wykres Matplotlib na podstawie wyodrębnionych danych).
+- **Adnotacje do obrazów:** model może rysować strzałki, ramki ograniczające lub inne adnotacje bezpośrednio na obrazach, aby odpowiadać na pytania dotyczące przestrzeni, np. „Gdzie powinien znajdować się ten produkt?”.
 
-시각적 사고를 사용 설정하려면 [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)을 도구로 구성하세요. 모델은 필요할 때 코드를 사용하여 이미지를 조작합니다.
+Aby włączyć myślenie wizualne, skonfiguruj [wywoływanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) jako narzędzie. W razie potrzeby model automatycznie użyje kodu do manipulowania obrazami.
 
 ### Python
 
@@ -778,7 +778,7 @@ for part in response.candidates[0].content.parts:
         display(Image.open(io.BytesIO(part.as_image().image_bytes)))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -864,11 +864,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-이미지를 사용한 코드 실행에 관한 자세한 내용은 [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko#images)을 참고하세요.
+Więcej informacji o wykonywaniu kodu z obrazami znajdziesz w sekcji [Wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl#images).
 
-### 멀티모달 함수 응답
+### Odpowiedzi funkcji multimodalnych
 
-[멀티모달 함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#multimodal)을 사용하면 사용자 함수 응답에 멀티모달 객체를 포함할 수 있어 모델의 함수 호출 기능을 더욱 효과적으로 활용할 수 있습니다. 표준 함수 호출은 텍스트 기반 함수 응답만 지원합니다.
+[Wywoływanie funkcji multimodalnych](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#multimodal)
+umożliwia użytkownikom uzyskiwanie odpowiedzi funkcji zawierających
+obiekty multimodalne, co pozwala na lepsze wykorzystanie możliwości wywoływania funkcji
+modelu. Standardowe wywołanie funkcji obsługuje tylko odpowiedzi funkcji oparte na tekście:
 
 ### Python
 
@@ -960,7 +963,7 @@ response_2 = client.models.generate_content(
 print(f"\nFinal model response: {response_2.text}")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI, Type } from '@google/genai';
@@ -1109,9 +1112,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-pre
   }'
 ```
 
-### 기본 제공 도구와 함수 호출 결합
+### Łączenie wbudowanych narzędzi i wywoływania funkcji
 
-Gemini 3에서는 동일한 API 호출에서 기본 제공 도구 (예: Google 검색, URL 컨텍스트, [기타](https://ai.google.dev/gemini-api/docs/tools?hl=ko))와 맞춤 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko) 도구를 사용할 수 있어 더 복잡한 워크플로가 가능합니다. [도구 조합](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko) 페이지에서 자세히 알아보세요.
+Gemini 3 umożliwia korzystanie z wbudowanych narzędzi (takich jak wyszukiwarka Google, kontekst adresu URL i [inne](https://ai.google.dev/gemini-api/docs/tools?hl=pl)) oraz niestandardowych narzędzi do [wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) w ramach tego samego wywołania interfejsu API, co pozwala na bardziej złożone przepływy pracy. Więcej informacji znajdziesz na stronie [kombinacje narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
 
 ### Python
 
@@ -1253,57 +1256,56 @@ async function run() {
 run();
 ```
 
-## Gemini 2.5에서 마이그레이션
+## Przenoszenie danych z Gemini 2.5
 
-Gemini 3는 현재까지 가장 강력한 모델 제품군이며 Gemini 2.5에 비해 단계적으로 개선되었습니다. 마이그레이션할 때는 다음 사항을 고려하세요.
+Gemini 3 to nasza najbardziej zaawansowana rodzina modeli, która zapewnia stopniową poprawę w porównaniu z Gemini 2.5. Podczas migracji weź pod uwagę te kwestie:
 
-- **사고:** 이전에 복잡한 프롬프트 엔지니어링 (예: 사고의 연쇄)을 사용하여 Gemini 2.5가 추론하도록 강제한 경우 `thinking_level: "high"` 및 단순화된 프롬프트로 Gemini 3를 사용해 보세요.
-- **온도 설정:** 기존 코드에서 온도를 명시적으로 설정하고 있다면(특히 결정적 출력을 위해 낮은 값으로 설정한 경우), 해당 파라미터를 삭제하고 Gemini 3의 기본값인 1.0을 사용하는 것이 좋습니다. 이는 복잡한 작업에서 잠재적인 루핑 문제나 성능 저하를 방지하는 위함입니다.
-- **PDF 및 문서 이해:**
-  밀도 높은 문서 파싱을 위해 특정 동작에 의존하고 있었다면, 정확도를 유지하기 위해 새로운 `media_resolution_high` 설정을 테스트해 보세요.
-- **토큰 소비량:** Gemini 3 기본값으로 마이그레이션하면 PDF의 토큰 사용량은 **증가**할 수 있지만 동영상의 토큰 사용량은 **감소**할 수 있습니다. 기본 해상도 상승으로 인해 요청이 컨텍스트 윈도우를 초과한다면 미디어 해상도를 명시적으로 낮추는 것이 좋습니다.
-- **이미지 분할:** 이미지 분할 기능 (객체의 픽셀 수준 마스크 반환)은 Gemini 3 Pro 또는 Gemini 3 Flash에서 지원되지 않습니다. 기본 이미지 분할이 필요한 워크로드의 경우, 사고를 끈 상태의 Gemini 2.5 Flash 또는 [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ko)을 계속 사용하는 것이 좋습니다.
-- **컴퓨터 사용:** Gemini 3 Pro 및 Gemini 3 Flash는 [컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)을 지원합니다. 2.5 시리즈와 달리 Computer Use 도구에 액세스하기 위해 별도의 모델을 사용할 필요가 없습니다.
-- **도구 지원**: 이제 Gemini 3 모델에서 [내장 도구와 함수 호출을 결합](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko)할 수 있습니다. 이제 Gemini 3 모델에서도 [지도 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)이 지원됩니다.
-- **후보 수**: Gemini 3 모델은 `candidateCount > 1`를 지원하지 않습니다.
-  이 매개변수를 `1`보다 큰 값으로 설정하면 400 오류가 반환됩니다.
+- **Model myślący:** jeśli wcześniej używasz złożonych promptów (np. łańcucha myśli), aby zmusić Gemini 2.5 do wyciągania wniosków, wypróbuj Gemini 3 z `thinking_level: "high"` i uproszczonymi promptami.
+- **Ustawienia temperatury:** jeśli Twój dotychczasowy kod wyraźnie ustawia temperaturę (zwłaszcza na niskie wartości w przypadku deterministycznych wyników), zalecamy usunięcie tego parametru i użycie domyślnej wartości 1,0 w przypadku Gemini 3, aby uniknąć potencjalnych problemów z zapętlaniem lub pogorszenia wydajności w przypadku złożonych zadań.
+- **Rozumienie plików PDF i dokumentów:** jeśli w przypadku analizowania dokumentów o dużej gęstości informacji korzystasz z określonego działania, przetestuj nowe ustawienie `media_resolution_high`, aby zapewnić dalszą dokładność.
+- **Zużycie tokenów:** przejście na domyślne ustawienia Gemini 3 może **zwiększyć** zużycie tokenów w przypadku plików PDF, ale **zmniejszyć** zużycie tokenów w przypadku filmów. Jeśli żądania przekraczają teraz okno kontekstu z powodu wyższych domyślnych rozdzielczości, zalecamy wyraźne zmniejszenie rozdzielczości multimediów.
+- **Segmentacja obrazu:** funkcje segmentacji obrazu (zwracanie masek obiektów na poziomie pikseli) nie są obsługiwane w modelach Gemini 3 Pro ani Gemini 3 Flash. W przypadku zadań wymagających natywnej segmentacji obrazu zalecamy dalsze korzystanie z modelu Gemini 2.5 Flash z wyłączoną funkcją modelu myślącego lub z modelu [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pl).
+- **Korzystanie z komputera:** Gemini 3 Pro i Gemini 3 Flash obsługują [korzystanie z komputera](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl). W przeciwieństwie do serii 2.5 nie musisz używać osobnego modelu, aby uzyskać dostęp do narzędzia Computer Use.
+- **Obsługa narzędzi:** [łączenie wbudowanych narzędzi z wywoływaniem funkcji](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl) jest teraz obsługiwane w przypadku modeli Gemini 3. [Uziemienie w Mapach](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl) jest teraz obsługiwane również w przypadku modeli Gemini 3.
+- **Liczba kandydatów:** modele Gemini 3 nie obsługują `candidateCount > 1`.
+  Ustawienie tego parametru na wartość większą niż `1` spowoduje zwrócenie błędu 400.
 
-## OpenAI 호환성
+## Zgodność z OpenAI
 
-[OpenAI 호환성 레이어](https://ai.google.dev/gemini-api/docs/openai?hl=ko)를 사용하는 경우 표준 파라미터 (OpenAI의 `reasoning_effort`)는 Gemini (`thinking_level`)에 상응하는 파라미터로 자동 매핑됩니다.
+W przypadku użytkowników korzystających z [warstwy zgodności OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl) standardowe parametry (`reasoning_effort` OpenAI) są automatycznie mapowane na odpowiedniki w Gemini (`thinking_level`).
 
-## 프롬프트 권장사항
+## Sprawdzone metody dotyczące promptów
 
-Gemini 3는 추론 모델이므로 프롬프트 작성 방식에도 변화가 필요합니다.
+Gemini 3 to model rozumowania, który zmienia sposób, w jaki należy formułować prompty.
 
-- **정확한 지시:** 입력 프롬프트는 간결하게 작성하세요. Gemini 3는 직접적이고 명확한 지시에 가장 잘 반응합니다. 이전 모델에서 사용되던 장황하거나 지나치게 복잡한 프롬프트 엔지니어링 기법은 과분석을 유발할 수 있습니다.
-- **출력 장황도:** 기본적으로 Gemini 3는 덜 장황하며, 직접적이고 효율적인 답변을 제공하는 것을 선호합니다. 보다 대화형이거나 "수다스러운" 스타일의 응답이 필요하다면, 프롬프트에서 명시적으로 모델을 유도해야 합니다 (예: "친근하고 말이 많은 조수처럼 설명해 주세요").
-- **컨텍스트 관리:** 대규모 데이터 세트 (예: 전체 책, 코드베이스 또는 긴 동영상)로 작업할 때는 데이터 컨텍스트 뒤에 프롬프트 끝에 특정 요청 사항이나 질문을 배치하세요. '위의 정보를 바탕으로...'와 같은 문구로 질문을 시작하여 모델의 추론을 제공된 데이터에 고정합니다.
+- **Precyzyjne instrukcje:** używaj zwięzłych promptów. Gemini 3 najlepiej reaguje na bezpośrednie i jasne instrukcje. Może nadmiernie analizować rozbudowane lub zbyt złożone techniki tworzenia promptów, które były używane w przypadku starszych modeli.
+- **Poziom szczegółowości odpowiedzi:** domyślnie Gemini 3 jest mniej rozbudowany i woli udzielać bezpośrednich, zwięzłych odpowiedzi. Jeśli Twój przypadek użycia wymaga bardziej konwersacyjnej lub „gadatliwej” osobowości, musisz wyraźnie nakierować model w prompcie (np. „Wyjaśnij to jako przyjazny, rozmowny asystent”).
+- **Zarządzanie kontekstem:** podczas pracy z dużymi zbiorami danych (np. całymi książkami, bazami kodu lub długimi filmami) umieszczaj konkretne instrukcje lub pytania na końcu promptu, po kontekście danych. Zakotwicz rozumowanie modelu w dostarczonych danych, zaczynając pytanie od frazy takiej jak „Na podstawie powyższych informacji…”.
 
-[프롬프트 엔지니어링 가이드](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ko)에서 프롬프트 설계 전략에 대해 자세히 알아보세요.
+Więcej informacji o strategiach projektowania promptów znajdziesz w [przewodniku po inżynierii promptów](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pl).
 
-## FAQ
+## Najczęstsze pytania
 
-1. **Gemini 3의 지식 단절 시점은 언제인가요?** Gemini 3 모델의 지식 단절 시점은 2025년 1월입니다. 최신 정보를 확인하려면 [그라운딩 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko) 도구를 사용하세요.
-2. **컨텍스트 윈도우 한도는 어떻게 되나요?** Gemini 3 모델은 최대 100만 토큰의 입력 컨텍스트 윈도우와 최대 64,000의 토큰 출력을 지원합니다.
-3. **Gemini 3에 무료 등급이 있나요?** Gemini 3 Flash `gemini-3-flash-preview` 및 3.1 Flash-Lite `gemini-3.1-flash-lite`에는 Gemini API의 무료 등급이 있습니다. Google AI Studio에서 Gemini 3.1 Pro와 3 Flash를 무료로 사용해 볼 수 있지만 Gemini API의 `gemini-3.1-pro-preview`에는 무료 등급이 없습니다.
-4. **이전 `thinking_budget` 코드가 계속 작동하나요?** 예, `thinking_budget`는 이전 버전과의 호환성을 위해 계속 지원되지만 더 예측 가능한 성능을 위해 `thinking_level`로 마이그레이션하는 것이 좋습니다. 동일한 요청에서 두 가지를 모두 사용하지 마세요.
-5. **Gemini 3는 Batch API를 지원하나요?** 예, Gemini 3는 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)를 지원합니다.
-6. **컨텍스트 캐싱이 지원되나요?** 예, Gemini 3에서는 [컨텍스트 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)이 지원됩니다.
-7. **Gemini 3에서 지원되는 도구는 무엇인가요?** Gemini 3는 [Google 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko), [Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko), [파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko), [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko), [URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)를 지원합니다. 또한 자체 맞춤 도구와 [기본 제공 도구와의 조합](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko)을 위한 표준 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)도 지원합니다.
-8. **`gemini-3.1-pro-preview-customtools`이란 무엇인가요?** `gemini-3.1-pro-preview`를 사용하고 있는데 모델이 bash 명령어를 선호하여 맞춤 도구를 무시하는 경우 `gemini-3.1-pro-preview-customtools` 모델을 대신 사용해 보세요. 자세한 내용은 [여기](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko#gemini-31-pro-preview-customtools)를 참고하세요.
+1. **Jaka jest granica wiedzy w przypadku Gemini 3?** Modele Gemini 3 mają granicę wiedzy w styczniu 2025 r. Aby uzyskać najnowsze informacje, skorzystaj z narzędzia [Search Grounding](https://ai.google.dev/gemini-api/docs/google-search?hl=pl).
+2. **Jakie są limity okna kontekstu?** Modele Gemini 3 obsługują okno kontekstu o pojemności 1 miliona tokenów i do 64 tys. tokenów wyjściowych.
+3. **Czy jest dostępny bezpłatny poziom Gemini 3?** Gemini 3 Flash`gemini-3-flash-preview` i 3.1 Flash-Lite`gemini-3.1-flash-lite` mają bezpłatne poziomy w Gemini API. Możesz bezpłatnie wypróbować Gemini 3.1 Pro i 3 Flash w Google AI Studio, ale w Gemini API nie ma bezpłatnego poziomu dla`gemini-3.1-pro-preview`.
+4. **Czy mój stary kod `thinking_budget` będzie nadal działać?** Tak, `thinking_budget` jest nadal obsługiwane ze względu na zgodność z wcześniejszymi rozwiązaniami, ale zalecamy przejście na `thinking_level`, aby uzyskać bardziej przewidywalną skuteczność. Nie używaj obu tych parametrów w tym samym żądaniu.
+5. **Czy Gemini 3 obsługuje interfejs Batch API?** Tak, Gemini 3 obsługuje [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl).
+6. **Czy buforowanie kontekstu jest obsługiwane?** Tak, [pamięć podręczna kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl) jest obsługiwana w przypadku Gemini 3.
+7. **Które narzędzia są obsługiwane w Gemini 3?** Gemini 3 obsługuje [wyszukiwarkę Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl), [powiązanie ze źródłem informacji przy użyciu Map Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl), [wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl), [wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) i [kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl). Obsługuje też standardowe [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) w przypadku własnych narzędzi niestandardowych i [w połączeniu z narzędziami wbudowanymi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+8. **Czym jest `gemini-3.1-pro-preview-customtools`?** Jeśli używasz modelu `gemini-3.1-pro-preview`, a on ignoruje Twoje niestandardowe narzędzia na rzecz poleceń bash, spróbuj użyć modelu `gemini-3.1-pro-preview-customtools`. Więcej informacji znajdziesz [tutaj](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl#gemini-31-pro-preview-customtools).
 
-## 다음 단계
+## Dalsze kroki
 
-- [Gemini 3 Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started.ipynb?hl=ko#templateParams=%7B%22MODEL_ID%22:+%22gemini-3-pro-preview%22%7D) 시작하기
-- [사고 수준](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_thinking_REST.ipynb?hl=ko#gemini3) 및 사고 예산에서 사고 수준으로 이전하는 방법에 관한 전용 Cookbook 가이드를 확인하세요.
+- Pierwsze kroki z [Gemini 3 Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started.ipynb?hl=pl#templateParams=%7B%22MODEL_ID%22:+%22gemini-3-pro-preview%22%7D)
+- Zapoznaj się z przewodnikiem Cookbook dotyczącym [poziomów myślenia](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_thinking_REST.ipynb?hl=pl#gemini3) i przejścia z budżetu na myślenie na poziomy myślenia.
 
-의견 보내기
+Prześlij opinię
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-최종 업데이트: 2026-06-04(UTC)
+Ostatnia aktualizacja: 2026-06-04 UTC.
 
-의견을 전달하고 싶나요?
+Chcesz przekazać coś jeszcze?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-04(UTC)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-04 UTC."],[],[]]

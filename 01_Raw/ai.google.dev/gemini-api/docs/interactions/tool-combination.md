@@ -1,28 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=hi
-fetched_at: 2026-06-08T15:08:29.438606+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=ar
+fetched_at: 2026-06-15T06:26:48.530839+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-सुझाव भेजें
+إرسال ملاحظات
 
-# पहले से मौजूद टूल और फ़ंक्शन कॉल करने की सुविधा को एक साथ इस्तेमाल करना
+# الجمع بين الأدوات المضمّنة واستدعاء الدوال
 
-Gemini में, [पहले से मौजूद टूल](https://ai.google.dev/gemini-api/docs/tools?hl=hi) (जैसे, `google_search`) और [फ़ंक्शन कॉल करने की सुविधा](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi) (
-जिसे *कस्टम टूल* भी कहा जाता है) को एक साथ इस्तेमाल किया जा सकता है. इसके लिए, टूल कॉल के कॉन्टेक्स्ट के इतिहास को सेव और दिखाया जाता है. पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन की मदद से, एजेंटिक वर्कफ़्लो बनाए जा सकते हैं. जैसे, मॉडल, आपकी खास कारोबार की लॉजिक को कॉल करने से पहले, वेब पर मौजूद रीयल-टाइम डेटा के आधार पर जानकारी दे सकता है.
+يتيح Gemini الجمع بين [الأدوات المضمّنة](https://ai.google.dev/gemini-api/docs/tools?hl=ar)، مثل `google_search`، و[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar) (المعروفة أيضًا باسم *الأدوات المخصّصة*) في تفاعل واحد من خلال الاحتفاظ بسجلّ سياق استدعاءات الأدوات وعرضه. تتيح مجموعات الأدوات المضمّنة والمخصّصة إمكانية إنشاء سير عمل معقّد يعتمد على الذكاء الاصطناعي، حيث يمكن للنموذج، على سبيل المثال، الاستناد إلى بيانات الويب في الوقت الفعلي قبل استدعاء منطق عملك المحدّد.
 
-यहां एक उदाहरण दिया गया है, जिसमें `google_search` और कस्टम फ़ंक्शन `getWeather` के साथ, पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन का इस्तेमाल किया गया है:
+في ما يلي مثال يتيح استخدام توليفات الأدوات المضمّنة والمخصّصة مع `google_search` ودالة مخصّصة `getWeather`:
 
 ### Python
 
@@ -144,92 +143,90 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## यह कैसे काम करता है
+## آلية العمل
 
-Gemini 3 मॉडल, पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन को इस्तेमाल करने के लिए, *टूल कॉन्टेक्स्ट सर्कुलेशन* का इस्तेमाल करते हैं. टूल कॉन्टेक्स्ट सर्कुलेशन की मदद से, पहले से मौजूद टूल के कॉन्टेक्स्ट को सेव और दिखाया जा सकता है. साथ ही, इसे एक ही इंटरैक्शन में कस्टम टूल के साथ शेयर किया जा सकता है.
+تستخدم نماذج Gemini 3 *تداول سياق الأدوات* لتفعيل مجموعات الأدوات المضمّنة والمخصّصة. تتيح ميزة "تداول سياق الأداة" الحفاظ على سياق الأدوات المضمّنة وعرضه ومشاركته مع الأدوات المخصّصة في التفاعل نفسه.
 
-### टूल के कॉम्बिनेशन की सुविधा चालू करना
+### تفعيل دمج الأدوات
 
-- कॉम्बिनेशन के व्यवहार को ट्रिगर करने के लिए, [`function_declarations`](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi#function-declarations) को उन पहले से मौजूद टूल के साथ शामिल करें जिनका आपको इस्तेमाल करना है, along
+- أدرِج [`function_declarations`](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar#function-declarations) مع الأدوات المضمّنة التي تريد استخدامها لتفعيل السلوك المجمّع.
 
-### एपीआई, चरण दिखाता है
+### الخطوات التي تعرضها واجهة برمجة التطبيقات
 
-इंटरैक्शन के जवाब में, एपीआई, पहले से मौजूद टूल कॉल और फ़ंक्शन (कस्टम टूल) कॉल के लिए अलग-अलग चरण दिखाता है:
+في ردّ التفاعل، تعرض واجهة برمجة التطبيقات خطوات منفصلة لطلبات البيانات من الأدوات المضمّنة وطلبات البيانات من الدوال (الأدوات المخصّصة):
 
-- **पहले से मौजूद टूल के चरण**: एपीआई इन्हें अपने-आप मैनेज करता है. साथ ही, हर चरण में
-  कॉन्टेक्स्ट को सेव रखता है.
-- **फ़ंक्शन कॉल के चरण**: एपीआई, आपके
-  कस्टम फ़ंक्शन के लिए `function_call` चरण दिखाता है. आपको फ़ंक्शन को लागू करना होता है और उसका नतीजा वापस देना होता है.
+- **خطوات الأداة المضمّنة**: تدير واجهة برمجة التطبيقات هذه الخطوات تلقائيًا، مع الحفاظ على السياق في كل خطوة.
+- **خطوات استدعاء الدوال**: تعرض واجهة برمجة التطبيقات `function_call` خطوة لدوالك المخصّصة. يمكنك تنفيذ الدالة وتقديم النتيجة مرة أخرى.
 
-### जवाब में मिले चरणों में ज़रूरी फ़ील्ड
+### الحقول المهمة في الخطوات التي تم عرضها
 
-जवाब में मिले चरणों में कुछ फ़ील्ड, टूल के कॉन्टेक्स्ट को बनाए रखने और टूल के कॉम्बिनेशन को चालू करने के लिए ज़रूरी होते हैं:
+تُعدّ بعض الحقول في الخطوات التي يتم إرجاعها ضرورية للحفاظ على سياق الأداة وإتاحة استخدام مجموعات من الأدوات:
 
-- **`id`**: यह `function_call` और `function_response` चरणों में मौजूद होता है. यह एक यूनीक आइडेंटिफ़ायर होता है, जो किसी कॉल को उसके जवाब से मैप करता है.
-- **`signature`**: यह `thought` चरणों के साथ-साथ, Gemini 3 या इसके बाद के मॉडल के लिए, सभी टूल कॉल (जैसे, `function_call`) और नतीजे (जैसे, `function_response`) चरणों में मौजूद होता है. एनक्रिप्ट किया गया यह कॉन्टेक्स्ट, इंटरैक्शन के दौरान **टूल कॉन्टेक्स्ट सर्कुलेशन** की सुविधा चालू करता है.
+- **`id`**: تظهر في الخطوتَين `function_call` و`function_response`. معرّف فريد يربط طلبًا بردّه.
+- **`signature`**: تظهر في خطوات `thought`، بالإضافة إلى جميع خطوات طلب الأداة (مثل `function_call`) ونتيجتها (مثل `function_response`) لنماذج Gemini 3 والإصدارات الأحدث. يتيح هذا السياق المشفّر **تداول سياق الأداة** في جميع التفاعلات.
 
-**इन फ़ील्ड को मैनेज करना:**
+**إدارة هذه الحقول:**
 
-- **स्टेटफ़ुल मोड (सुझाया गया)**: `previous_interaction_id` का इस्तेमाल करने पर, सर्वर, `id` और `signature` दोनों फ़ील्ड को अपने-आप हैंडल करता है.
-- **स्टेटलेस मोड**: बातचीत के इतिहास को मैन्युअल तरीके से मैनेज करते समय, आपको यह पक्का करना होगा कि पुष्टि करने और कॉन्टेक्स्ट को बनाए रखने के लिए, बाद के अनुरोधों में मॉडल को `id` और `signature` दोनों फ़ील्ड पास किए जाएं. अगर आपने जवाब के पूरे ऑब्जेक्ट को इतिहास में पास किया है, तो आधिकारिक SDK इसे अपने-आप हैंडल करते हैं.
+- **الوضع ذو الحالة (مُقترَح)**: عند استخدام `previous_interaction_id`، يعالج الخادم تلقائيًا الحقلَين `id` و`signature`.
+- **وضع عدم الاحتفاظ بالحالة**: عند إدارة سجلّ المحادثات يدويًا، يجب التأكّد من إعادة تمرير الحقلَين `id` و`signature` إلى النموذج في الطلبات اللاحقة للتحقّق من صحة البيانات والحفاظ على السياق. تتعامل حِزم SDK الرسمية مع ذلك تلقائيًا إذا أرسلت عنصر الردّ الكامل إلى السجلّ.
 
-### टूल के हिसाब से डेटा
+### البيانات الخاصة بالأداة
 
-कुछ पहले से मौजूद टूल, उपयोगकर्ता को दिखने वाले डेटा आर्ग्युमेंट दिखाते हैं. ये आर्ग्युमेंट, टूल के टाइप के हिसाब से अलग-अलग होते हैं.
+تعرض بعض الأدوات المضمّنة وسيطات بيانات مرئية للمستخدم خاصة بنوع الأداة.
 
-| टूल | उपयोगकर्ता को दिखने वाले टूल कॉल आर्ग्युमेंट (अगर कोई हो) | उपयोगकर्ता को दिखने वाला टूल रिस्पॉन्स (अगर कोई हो) |
+| الأداة | وسيطات استدعاء الأداة المرئية للمستخدم (إن وُجدت) | ردّ الأداة المرئي للمستخدم (إن وُجد) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` URLs to be browsed | `status`: Browse status `retrieved_url`: URLs browsed |
-| **file\_search** | कोई नहीं | कोई नहीं |
+| **url\_context** | `urls` عناوين URL التي سيتم تصفّحها | ‫`status`: حالة التصفّح `retrieved_url`: عناوين URL التي تم تصفّحها |
+| **file\_search** | بدون | بدون |
 
-## टोकन और कीमत
+## الرموز المميزة والأسعار
 
-ध्यान दें कि अनुरोधों में, पहले से मौजूद टूल कॉल के हिस्सों को `prompt_token_count` में गिना जाता है. अब ये इंटरमीडिएट टूल चरण दिखते हैं और आपको वापस मिलते हैं. इसलिए, ये बातचीत के इतिहास का हिस्सा होते हैं. यह सिर्फ़
-*अनुरोधों* के लिए लागू होता है, *जवाबों* के लिए नहीं.
+يُرجى العِلم أنّ أجزاء طلبات استدعاء الأدوات المضمّنة يتم احتسابها ضمن
+`prompt_token_count`. بما أنّ خطوات الأدوات الوسيطة هذه أصبحت مرئية
+ويتم إرجاعها إليك، فهي تشكّل جزءًا من سجلّ المحادثات. ينطبق ذلك على *الطلبات* فقط، وليس على *الردود*.
 
-Google Search टूल, इस नियम का अपवाद है. Google Search, क्वेरी के लेवल पर अपना कीमत मॉडल पहले से ही
-लागू करता है. इसलिए, टोकन के लिए दो बार
-शुल्क नहीं लिया जाता ([कीमत वाला](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज देखें).
+تُستثنى أداة "بحث Google" من هذه القاعدة. يستخدم محرّك بحث Google نموذج التسعير الخاص به على مستوى طلب البحث، لذا لن يتم تحصيل رسوم مضاعفة مقابل الرموز المميزة (راجِع صفحة [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)).
 
-ज़्यादा जानकारी के लिए, [टोकन](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=hi) वाला पेज पढ़ें.
+يمكنك الاطّلاع على صفحة [الرموز المميزة](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=ar) للحصول على مزيد من المعلومات.
 
-## सीमाएं
+## القيود
 
-- टूल कॉन्टेक्स्ट सर्कुलेशन की सुविधा चालू होने पर, डिफ़ॉल्ट रूप से `validated` मोड का इस्तेमाल किया जाता है. `auto` मोड काम नहीं करता.
-- `google_search` जैसे पहले से मौजूद टूल, जगह और मौजूदा समय की जानकारी पर निर्भर करते हैं. इसलिए, अगर आपके `system_instruction` या `function_declaration.description` में, जगह और समय की जानकारी में कोई गड़बड़ी है, तो टूल के कॉम्बिनेशन की सुविधा ठीक से काम नहीं कर सकती.
+- يتم ضبط الوضع التلقائي على `validated` (الوضع `auto` غير متاح) عند تفعيل ميزة "تداول سياق الأداة".
+- تعتمد الأدوات المضمّنة، مثل `google_search`، على معلومات الموقع الجغرافي والوقت الحالي، لذا إذا كان `system_instruction` أو `function_declaration.description` يتضمّن معلومات متضاربة حول الموقع الجغرافي والوقت، قد لا تعمل ميزة دمج الأدوات بشكل جيد.
 
-## इन टूल पर पासकी का इस्तेमाल किया जा सकता है
+## الأدوات المتوافقة
 
-सर्वर-साइड (पहले से मौजूद) टूल पर, टूल कॉन्टेक्स्ट सर्कुलेशन का स्टैंडर्ड तरीका लागू होता है.
-कोड चलाने की सुविधा भी सर्वर-साइड टूल है, लेकिन इसमें कॉन्टेक्स्ट सर्कुलेशन के लिए, पहले से मौजूद अपना समाधान है. कंप्यूटर के इस्तेमाल और फ़ंक्शन कॉल करने की सुविधा, क्लाइंट-साइड टूल हैं. इनमें भी कॉन्टेक्स्ट सर्कुलेशन के लिए, पहले से मौजूद समाधान हैं.
+يتم تطبيق تداول سياق الأداة العادي على الأدوات من جهة الخادم (المضمّنة).
+&quot;تنفيذ التعليمات البرمجية&quot; هي أيضًا أداة من جهة الخادم، ولكنّها تتضمّن حلاً مدمجًا خاصًا بها لتداول السياق. إنّ استخدام الكمبيوتر واستدعاء الدوال هما أداتان من جهة العميل،
+وتتضمّنان أيضًا حلولاً مدمجة لتداول السياق.
 
-| टूल | निष्पादन की जगह | कॉन्टेक्स्ट सर्कुलेशन की सुविधा |
+| الأداة | جهة التنفيذ | إتاحة تداول السياق |
 | --- | --- | --- |
-| [Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=hi) | सर्वर-साइड | उपलब्ध |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=hi) | सर्वर-साइड | उपलब्ध |
-| [यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi) | सर्वर-साइड | उपलब्ध |
-| [फ़ाइल सर्च](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=hi) | सर्वर-साइड | उपलब्ध |
-| [कोड चलाने की सुविधा](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=hi) | सर्वर-साइड | उपलब्ध (पहले से मौजूद, `code_execution` और `code_execution_result` चरणों का इस्तेमाल करता है) |
-| [कंप्यूटर का इस्तेमाल](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=hi) | क्लाइंट-साइड | उपलब्ध (पहले से मौजूद, `function_call` और `function_response` चरणों का इस्तेमाल करता है) |
-| [कस्टम फ़ंक्शन](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi) | क्लाइंट-साइड | उपलब्ध (पहले से मौजूद, `function_call` और `function_response` चरणों का इस्तेमाल करता है) |
+| [بحث Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=ar) | من جهة الخادم | متاح |
+| [خرائط Google](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=ar) | من جهة الخادم | متاح |
+| [سياق عنوان URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ar) | من جهة الخادم | متاح |
+| [البحث عن الملفات](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=ar) | من جهة الخادم | متاح |
+| [تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=ar) | من جهة الخادم | متوافق (مضمّن، يستخدم الخطوتَين `code_execution` و`code_execution_result`) |
+| [استخدام الكمبيوتر](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=ar) | من جهة العميل | متوافق (مضمّن، يستخدم الخطوتَين `function_call` و`function_response`) |
+| [الدوال المخصّصة](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar) | من جهة العميل | متوافق (مضمّن، يستخدم الخطوتَين `function_call` و`function_response`) |
 
-## आगे क्या करना है
+## الخطوات التالية
 
-- Gemini API में, [फ़ंक्शन कॉल करने की सुविधा](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi) के बारे में ज़्यादा जानें.
-- इन टूल के बारे में जानें:
-  - [Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=hi)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=hi)
-  - [यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=hi)
-  - [फ़ाइल सर्च](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=hi)
+- [مزيد من المعلومات حول ميزة "استدعاء الدوال"](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar) في Gemini API
+- استكشاف الأدوات المتوافقة:
+  - [بحث Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=ar)
+  - [خرائط Google](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=ar)
+  - [سياق عنوان URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=ar)
+  - [البحث عن الملفات](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=ar)
 
-सुझाव भेजें
+إرسال ملاحظات
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-आखिरी बार 2026-06-01 (UTC) को अपडेट किया गया.
+تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
 
-क्या आपको हमें और कुछ बताना है?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-01 (UTC) को अपडेट किया गया."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

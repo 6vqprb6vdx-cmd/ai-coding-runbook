@@ -1,44 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=pt-BR
-fetched_at: 2026-06-08T14:57:23.805507+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=he
+fetched_at: 2026-06-15T06:22:51.455970+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envie comentários
+שליחת משוב
 
-# Respostas estruturadas
+# פלטים מובנים
 
-É possível configurar os modelos do Gemini para gerar respostas que sigam um esquema JSON fornecido. Isso garante resultados previsíveis e seguros de tipo e simplifica
-a extração de dados estruturados de texto não estruturado.
+אתם יכולים להגדיר את מודלי Gemini כך שיפיקו תשובות בהתאם לסכימת JSON שסיפקתם. כך אפשר להבטיח תוצאות צפויות ובטוחות מבחינת סוג הנתונים, ולפשט את תהליך החילוץ של נתונים מובנים מטקסט לא מובנה.
 
-Usar respostas estruturadas é ideal para:
+שימוש בפלט מובנה מתאים במיוחד למקרים הבאים:
 
-- **Extração de dados**:extrai informações específicas, como nomes e datas, de um texto.
-- **Classificação estruturada**:classifique textos em categorias predefinidas.
-- **Fluxos de trabalho agênticos**:gere entradas estruturadas para ferramentas ou APIs.
+- **חילוץ נתונים:** חילוץ מידע ספציפי כמו שמות ותאריכים מטקסט.
+- **סיווג מובנה:** סיווג טקסט לקטגוריות מוגדרות מראש.
+- **תהליכי עבודה מבוססי-סוכן:** יצירת קלט מובנה לכלים או לממשקי API.
 
-Além de oferecer suporte ao esquema JSON na API REST, os SDKs de IA generativa do Google
-permitem definir esquemas usando
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) e
-[Zod](https://zod.dev/) (JavaScript).
+בנוסף לתמיכה בסכימת JSON ב-API בארכיטקטורת REST, ערכות ה-SDK של Google GenAI מאפשרות להגדיר סכימות באמצעות [Pydantic](https://docs.pydantic.dev/latest/) (Python) ו-[Zod](https://zod.dev/) (JavaScript).
 
-## Exemplos de saída estruturada
+## דוגמאות לפלט מובנה
 
-### Extrator de receitas
+### כלי לחילוץ מתכונים
 
-Este exemplo demonstra como extrair dados estruturados de texto usando tipos básicos de
-esquema JSON, como `object`, `array`, `string` e `integer`.
+בדוגמה הזו מוסבר איך לחלץ נתונים מובנים מטקסט באמצעות סוגים בסיסיים של סכימת JSON, כמו `object`, `array`, `string` ו-`integer`.
 
 ### Python
 
@@ -202,7 +197,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**דוגמה לתשובה:**
 
 ```
 {
@@ -230,9 +225,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Moderação de conteúdo
+### ניהול תוכן
 
-Este exemplo mostra `anyOf` para esquemas condicionais e `enum` para classificação, permitindo que a estrutura de saída varie com base no conteúdo.
+בדוגמה הזו מוצגים `anyOf` לסכימות מותנות ו-`enum` לסיווג, כדי לאפשר למבנה הפלט להשתנות בהתאם לתוכן.
 
 ### Python
 
@@ -381,7 +376,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**דוגמה לתשובה:**
 
 ```
 {
@@ -392,10 +387,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Estruturas recursivas
+### מבנים רקורסיביים
 
-Este exemplo ilustra como definir um esquema recursivo, como um
-organograma.
+בדוגמה הזו אפשר לראות איך מגדירים סכימה רקורסיבית כמו תרשים ארגוני.
 
 ### Python
 
@@ -512,7 +506,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**דוגמה לתשובה:**
 
 ```
 {
@@ -539,9 +533,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Resultados de streaming
+## תוצאות סטרימינג
 
-É possível transmitir saídas estruturadas, permitindo que você comece a processar a resposta à medida que ela é gerada. Os blocos transmitidos são strings JSON parciais válidas que podem ser concatenadas para formar o objeto JSON final.
+אפשר להזרים פלט מובנה, וכך להתחיל לעבד את התשובה בזמן שהיא נוצרת. החלקים שמוזרמים הם מחרוזות JSON חלקיות תקינות שאפשר לשרשר כדי ליצור את אובייקט ה-JSON הסופי.
 
 ### Python
 
@@ -609,13 +603,9 @@ for await (const event of stream) {
 }
 ```
 
-## Saídas estruturadas com ferramentas
+## פלט מובנה עם כלים
 
-Com o Gemini 3, você pode combinar saídas estruturadas com ferramentas integradas, incluindo
-[Embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=pt-br),
-[Contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br),
-[Execução de código](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=pt-br), [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=pt-br#structured-output) e
-[Chamada de função](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=pt-br).
+‫Gemini 3 מאפשר לכם לשלב פלט מובנה עם כלים מובנים, כולל [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=he),‏ [URL Context](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he),‏ [Code Execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=he),‏ [File Search](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=he#structured-output) ו-[Function Calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=he).
 
 ### Python
 
@@ -708,79 +698,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Suporte a esquemas JSON
+## תמיכה בסכימת JSON
 
-Para gerar um objeto JSON, configure `response_format` com um objeto (ou uma matriz que contenha um objeto) do tipo `text` e defina `mime_type` como `application/json`. O esquema precisa ser fornecido no campo `schema`.
+כדי ליצור אובייקט JSON, מגדירים את `response_format` עם אובייקט (או מערך שמכיל אובייקט) מסוג `text` ומגדירים את `mime_type` שלו לערך `application/json`. צריך לספק את הסכימה בשדה `schema`.
 
-O modo de saída estruturada do Gemini é compatível com um subconjunto da especificação do [esquema JSON](https://json-schema.org/).
+מצב הפלט המובנה של Gemini תומך בחלק ממפרט [JSON Schema](https://json-schema.org/).
 
-Os seguintes valores de `type` são aceitos:
+יש תמיכה בערכים הבאים של `type`:
 
-- **`string`**: para texto.
-- **`number`**: para números de ponto flutuante.
-- **`integer`**: para números inteiros.
-- **`boolean`**: para valores verdadeiro ou falso.
-- **`object`**: para dados estruturados com pares de chave-valor.
-- **`array`**: para listas de itens.
-- **`null`**: para permitir que uma propriedade seja nula, inclua `"null"` na matriz de tipos (por exemplo, `{"type": ["string", "null"]}`).
+- ‫**`string`**: לטקסט.
+- ‫**`number`**: למספרים בשיטת נקודה צפה.
+- ‫**`integer`**: למספרים שלמים.
+- ‫**`boolean`**: לערכים True או False.
+- ‫**`object`**: לנתונים מובְנים עם צמדי מפתח/ערך.
+- ‫**`array`**: לרשימות של פריטים.
+- ‫**`null`**: כדי לאפשר שמאפיין יהיה null, צריך לכלול את `"null"` במערך הסוגים (לדוגמה, `{"type": ["string", "null"]}`).
 
-Essas propriedades descritivas ajudam a orientar o modelo:
+מאפייני התיאור האלה עוזרים להנחות את המודל:
 
-- **`title`**: uma breve descrição de uma propriedade.
-- **`description`**: uma descrição mais longa e detalhada de uma propriedade.
+- ‫**`title`**: תיאור קצר של מאפיין.
+- **`description`**: תיאור ארוך ומפורט יותר של נכס.
 
-### Propriedades específicas do tipo
+### מאפיינים ספציפיים לסוג
 
-**Para valores de `object`:**
+**לערכים של `object`:**
 
-- **`properties`**: um objeto em que cada chave é um nome de propriedade e cada valor é um esquema para essa propriedade.
-- **`required`**: uma matriz de strings que lista quais propriedades são obrigatórias.
-- **`additionalProperties`**: controla se as propriedades não listadas em `properties` são permitidas. Pode ser um booleano ou um esquema.
+- ‫**`properties`**: אובייקט שבו כל מפתח הוא שם מאפיין וכל ערך הוא סכימה של המאפיין הזה.
+- ‫**`required`**: מערך של מחרוזות שמפרט את המאפיינים שחובה להגדיר.
+- ‫**`additionalProperties`**: קובעת אם מותר להשתמש בנכסים שלא מופיעים ב-`properties`. יכול להיות ערך בוליאני או סכמה.
 
-**Para valores de `string`:**
+**לערכים של `string`:**
 
-- **`enum`**: lista um conjunto específico de strings possíveis para tarefas de classificação.
-- **`format`**: especifica uma sintaxe para a string, como `date-time`, `date`, `time`.
+- ‫**`enum`**: רשימה של קבוצה ספציפית של מחרוזות אפשריות למשימות סיווג.
+- ‫**`format`**: מציין תחביר למחרוזת, כמו `date-time`, ‏`date`, ‏`time`.
 
-**Para valores de `number` e `integer`:**
+**לערכים `number` ו-`integer`:**
 
-- **`enum`**: lista um conjunto específico de valores numéricos possíveis.
-- **`minimum`**: o valor mínimo inclusivo.
-- **`maximum`**: o valor máximo inclusivo.
+- ‫**`enum`**: רשימה של קבוצה ספציפית של ערכים נומריים אפשריים.
+- ‫**`minimum`**: ערך המינימום כולל.
+- ‫**`maximum`**: הערך המקסימלי כולל.
 
-**Para valores de `array`:**
+**לערכים של `array`:**
 
-- **`items`**: define o esquema de todos os itens na matriz.
-- **`prefixItems`**: define uma lista de esquemas para os primeiros N itens, permitindo estruturas semelhantes a tuplas.
-- **`minItems`**: o número mínimo de itens na matriz.
-- **`maxItems`**: o número máximo de itens na matriz.
+- ‫**`items`**: הגדרת הסכימה של כל הפריטים במערך.
+- ‫**`prefixItems`**: מגדיר רשימה של סכימות עבור הפריטים הראשונים, ומאפשר מבנים דמויי-tuple.
+- ‫**`minItems`**: המספר המינימלי של פריטים במערך.
+- ‫**`maxItems`**: המספר המקסימלי של פריטים במערך.
 
-## Saídas estruturadas x chamada de função
+## פלט מובנה לעומת קריאה להפעלת פונקציות
 
-| Recurso | Caso de uso principal |
+| תכונה | תרחיש שימוש ראשי |
 | --- | --- |
-| **Saídas estruturadas** | **Formatar a resposta final**: use quando quiser que a *resposta* do modelo esteja em um formato específico. |
-| **Chamada de função** | **Realizar ações durante a conversa**: use quando o modelo precisar *pedir* para você realizar uma tarefa antes de dar uma resposta final. |
+| **פלט מובנה** | **עיצוב התשובה הסופית.** משתמשים בה כשרוצים ש*התשובה* של המודל תהיה בפורמט מסוים. |
+| **בקשה להפעלת פונקציה** | **ביצוע פעולות במהלך שיחה** משתמשים בה כשהמודל צריך *לבקש מכם* לבצע משימה לפני שהוא מספק תשובה סופית. |
 
-## Práticas recomendadas
+## שיטות מומלצות
 
-- **Descrições claras**:use o campo `description` para orientar o modelo.
-- **Tipagem forte**:use tipos específicos (`integer`, `string`, `enum`).
-- **Engenharia de comando**:indique claramente o que você quer que o modelo faça.
-- **Validação**:embora a saída seja um JSON sintaticamente correto, sempre valide os valores no seu aplicativo.
-- **Tratamento de erros**:implemente um tratamento de erros robusto para saídas compatíveis com o esquema, mas semanticamente incorretas.
+- **תיאורים ברורים:** השתמשו בשדה `description` כדי להנחות את המודל.
+- **הקלדה חזקה:** שימוש בסוגים ספציפיים (`integer`, ‏ `string`, ‏ `enum`).
+- **הנדסת הנחיות:** חשוב להצהיר בבירור מה אתם רוצים שהמודל יעשה.
+- **אימות:** למרות שהפלט הוא קובץ JSON עם תחביר תקין, תמיד צריך לאמת את הערכים באפליקציה.
+- **טיפול בשגיאות:** צריך להטמיע טיפול בשגיאות כדי לטפל בפלט שעומד בדרישות הסכימה אבל לא נכון מבחינה סמנטית.
 
-## Limitações
+## מגבלות
 
-- **Subconjunto de esquema**:nem todos os recursos do esquema JSON são compatíveis.
-- **Complexidade do esquema**:esquemas muito grandes ou aninhados podem ser rejeitados.
+- **קבוצת משנה של סכימה:** לא כל התכונות של סכימת JSON נתמכות.
+- **מורכבות הסכימה:** יכול להיות שסכימות גדולות מאוד או כאלה עם קינון עמוק יידחו.
 
-Envie comentários
+שליחת משוב
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última atualização 2026-06-05 UTC.
+עדכון אחרון: 2026-06-05 (שעון UTC).
 
-Quer enviar seu feedback?
+רוצה לתת לנו משוב?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-05 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-05 (שעון UTC)."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/changelog?hl=ja
-fetched_at: 2026-06-08T14:57:53.320422+00:00
+fetched_at: 2026-06-15T06:23:21.729480+00:00
 title: "\u30ea\u30ea\u30fc\u30b9\u30ce\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

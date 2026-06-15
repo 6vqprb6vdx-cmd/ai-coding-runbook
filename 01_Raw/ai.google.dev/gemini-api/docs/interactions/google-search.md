@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=he
-fetched_at: 2026-06-08T14:54:54.266081+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-TW
+fetched_at: 2026-06-15T06:24:50.715949+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-שליחת משוב
+提供意見
 
-# עיגון באמצעות חיפוש Google
+# 以 Google 搜尋建立基準
 
-עיגון באמצעות חיפוש Google מחבר את מודל Gemini לתוכן אינטרנט בזמן אמת, והוא פועל בכל השפות הזמינות. כך Gemini יכול לספק תשובות מדויקות יותר ולצטט מקורות שאפשר לאמת, גם אם הם פורסמו אחרי תאריך סף הידע שלו.
+如果啟用「以 Google 搜尋強化事實基礎」功能，Gemini 模型就能連結至即時網路內容，並支援所有可用語言。Gemini 就能提供更準確的答案，並引用知識截點以外的可驗證來源。
 
-ההארקה עוזרת לכם ליצור אפליקציות שיכולות:
+基礎化可協助您建構的應用程式：
 
-- **שיפור הדיוק העובדתי:** כדי לצמצם את ההזיות של המודל, התשובות מבוססות על מידע מהעולם האמיתי.
-- **גישה למידע בזמן אמת:** מענה לשאלות על אירועים ונושאים עדכניים.
-- **לספק ציטוטים:** כדי לבנות את אמון המשתמשים, כדאי להציג את המקורות של הטענות של המודל.
+- **提高事實準確度：**根據真實資訊生成回覆，減少模型幻覺。
+- **取得即時資訊：**回答近期事件和主題相關問題。
+- **提供引文：**顯示模型聲明的來源，贏得使用者信任。
 
 ### Python
 
@@ -73,22 +73,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## איך עיגון באמצעות חיפוש Google פועל
+## 如何運用 Google 搜尋強化事實基礎
 
-כשמפעילים את הכלי `google_search`, המודל מטפל בכל תהליך העבודה של חיפוש, עיבוד וציטוט מידע באופן אוטומטי.
+啟用 `google_search` 工具後，模型會自動處理搜尋、處理及引用資訊的整個工作流程。
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=he)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=zh-tw)
 
-1. **הנחיית משתמש:** האפליקציה שולחת הנחיית משתמש ל-Gemini API עם הכלי `google_search` מופעל.
-2. **ניתוח ההנחיה:** המודל מנתח את ההנחיה וקובע אם חיפוש ב-Google יכול לשפר את התשובה.
-3. **חיפוש Google:** אם צריך, המודל יוצר באופן אוטומטי שאילתת חיפוש אחת או יותר ומריץ אותן.
-4. **עיבוד תוצאות החיפוש:** המודל מעבד את תוצאות החיפוש, מסנתז את המידע ומנסח תשובה.
-5. **תשובה מבוססת:** ה-API מחזיר תשובה סופית וידידותית למשתמש שמבוססת על תוצאות החיפוש. התשובה הזו כוללת את התשובה הטקסטואלית של המודל עם `annotations` מוטבעות שמכילות את הציטוטים, וגם את השלבים `google_search_call` ו-`google_search_result` עם שאילתות החיפוש וההצעות לחיפוש.
+1. **使用者提示：**應用程式會將使用者的提示傳送至 Gemini API，並啟用 `google_search` 工具。
+2. **提示分析：**模型會分析提示，判斷 Google 搜尋是否能提升回覆品質。
+3. **Google 搜尋：**模型會視需要自動生成一或多個搜尋查詢並執行。
+4. **處理搜尋結果：**模型會處理搜尋結果、整合資訊並擬定回覆。
+5. **根據搜尋結果生成的回覆：**API 會根據搜尋結果，傳回最終的易讀回覆。這項回覆包含模型提供的文字答案，以及內含引文的 `annotations`，還有 `google_search_call` 和 `google_search_result` 步驟，其中包含搜尋查詢和搜尋建議。
 
-## הסבר על תגובת ההארקה
+## 瞭解基礎回應
 
-כשמקרקעים תשובה בהצלחה, פלט הטקסט של המודל כולל `annotations` מוטבע ישירות בגוש התוכן של הטקסט. ההערות האלה
-כוללות פרטי ציטוט שמקשרים בין חלקים בתשובה לבין המקורות שלהם.
+如果模型成功根據資訊來源生成回應，文字輸出內容會直接在文字內容區塊中加入 `annotations`。這些註解會提供引文資訊，將回覆內容的各個部分連結至來源。
 
 ```
 {
@@ -147,19 +146,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-שדות המפתח בתגובה:
+回應中的主要欄位：
 
-- ‫`google_search_call` : מכיל את החיפוש `queries` שהמודל ביצע.
-- ‫`google_search_result` : מכיל את `search_suggestions`, קטע HTML להצגת הצעות לחיפוש בממשק המשתמש. דרישות השימוש המלאות מפורטות [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-search).
-- `text` עם `annotations` : התשובה המסונתזת של המודל עם ציטוטים מוטבעים. כל הערה `url_citation` מקשרת פלח טקסט (מוגדר על ידי `start_index` ו-`end_index`) לכתובת URL של מקור. זהו המפתח ליצירת ציטוטים בתוך הטקסט.
+- `google_search_call`：包含模型執行的搜尋`queries`。
+- `google_search_result`：包含 `search_suggestions`，這是用於在 UI 中顯示搜尋建議的 HTML 片段。完整使用規定詳見《[服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#grounding-with-google-search)》。
+- `text`，並附上 `annotations`：模型合成的答案，內含引文。每個 `url_citation` 註解都會將文字區段 (由 `start_index` 和 `end_index` 定義) 連結至來源網址。這是建構內文引文的關鍵。
 
-אפשר גם להשתמש בעיגון באמצעות חיפוש Google בשילוב עם [כלי ההקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he) כדי לעגן את התשובות גם בנתונים ציבוריים באינטרנט וגם בכתובות ה-URL הספציפיות שאתם מספקים.
+您也可以搭配[網址內容工具](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)使用以 Google 搜尋強化事實基礎，以公開網路資料和您提供的特定網址做為回覆的基準。
 
-## שיוך מקורות באמצעות ציטוטים מוטמעים
+## 使用內嵌引文註明出處
 
-ממשק ה-API מחזיר הערות `url_citation` משולבות בתוכן של בלוק הטקסט,
-כך שאתם יכולים לשלוט באופן מלא באופן שבו המקורות מוצגים בממשק המשתמש.
-כל הערה כוללת את התגים `start_index` ו-`end_index` כדי לזהות את החלק בטקסט שהיא מצטטת. כך מחלצים ומציגים אותם.
+API 會在文字內容區塊中傳回內嵌`url_citation`註解，讓您完全掌控在使用者介面中顯示來源的方式。每則註解都會包含 `start_index` 和 `end_index`，指出註解引用的文字部分。以下說明如何擷取及顯示這些資料。
 
 ### Python
 
@@ -202,7 +199,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-הפלט יציג את הטקסט ואחריו את הציטוטים שלו:
+輸出內容會顯示文字和引文：
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -214,46 +211,46 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## תמחור
+## 定價
 
-כשמשתמשים ב-עיגון באמצעות חיפוש Google עם Gemini 3, הפרויקט מחויב על כל שאילתת חיפוש שהמודל מחליט להריץ. אם המודל מחליט להריץ כמה שאילתות חיפוש כדי לענות על הנחיה אחת (לדוגמה, חיפוש של `"UEFA Euro 2024 winner"` ושל `"Spain vs England Euro 2024 final
-score"` באותה קריאה ל-API), זה נחשב כשני שימושים מחויבים בכלי עבור הבקשה הזו. לצורך חיוב, אנחנו מתעלמים משאילתות חיפוש אינטרנט ריקות כשסופרים שאילתות ייחודיות. מודל החיוב הזה רלוונטי רק למודלים של Gemini 3. כשמשתמשים בהארקה של חיפוש עם Gemini 2.5 או מודלים ישנים יותר, החיוב על הפרויקט הוא לפי הנחיה.
+在 Gemini 3 中使用「以 Google 搜尋強化事實基礎」功能時，系統會針對模型執行的每項搜尋查詢向專案收費。如果模型決定執行多個搜尋查詢來回答單一提示 (例如在同一個 API 呼叫中搜尋 `"UEFA Euro 2024 winner"` 和 `"Spain vs England Euro 2024 final
+score"`)，則該要求會計為兩次工具使用次數。為計費起見，計算不重複查詢時，我們會忽略空白的網路搜尋查詢。這項計費模式僅適用於 Gemini 3 模型；如果您使用 Gemini 2.5 或更舊的模型進行搜尋基礎作業，系統會依提示向專案收費。
 
-למידע מפורט על התמחור, אפשר לעיין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
+如需詳細的定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
 
-## מודלים נתמכים
+## 支援的模型
 
-אפשר למצוא את כל היכולות בדף [סקירה כללית של המודל](https://ai.google.dev/gemini-api/docs/models?hl=he).
+如要瞭解完整功能，請前往[模型總覽](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)頁面。
 
-| מודל | עיגון באמצעות חיפוש Google |
+| 型號 | 以 Google 搜尋建立基準 |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| תצוגה מקדימה של תמונות ב-Gemini 3.1 Flash | ✔️ |
-| ‫Gemini 3.1 Pro Preview | ✔️ |
-| תצוגה מקדימה של תמונות ב-Gemini 3 Pro | ✔️ |
-| ‫Gemini 3 Flash Preview | ✔️ |
-| Gemini ‎2.5 Pro | ✔️ |
-| Gemini ‎2.5 Flash | ✔️ |
+| Gemini 3.1 Flash Image 預先發布版 | ✔️ |
+| Gemini 3.1 Pro 預先發布版 | ✔️ |
+| Gemini 3 Pro Image 預先發布版 | ✔️ |
+| Gemini 3 Flash 預先發布版 | ✔️ |
+| Gemini 2.5 Pro | ✔️ |
+| Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini ‎2.0 Flash | ✔️ |
+| Gemini 2.0 Flash | ✔️ |
 
-## שילובים נתמכים של כלים
+## 支援的工具組合
 
-אפשר להשתמש בעיגון באמצעות חיפוש Google בשילוב עם כלים אחרים כמו [הרצת קוד](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=he) ו[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he) כדי להפעיל תרחישי שימוש מורכבים יותר.
+您可以搭配使用「以 Google 搜尋強化事實基礎」功能與其他工具，例如[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)和[網址內容](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)，以支援更複雜的用途。
 
-מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו עיגון באמצעות חיפוש Google) עם כלים בהתאמה אישית (קריאה לפונקציה). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=he).
+Gemini 3 模型支援結合內建工具 (例如使用 Google 搜尋建立基準) 和自訂工具 (函式呼叫)。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=zh-tw)」頁面。
 
-## המאמרים הבאים
+## 後續步驟
 
-- אפשר לקרוא על כלים זמינים אחרים, כמו [הפעלת פונקציות](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=he).
-- [כאן](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he) מוסבר איך להוסיף לתיאור כתובות URL ספציפיות באמצעות הכלי 'הוספת הקשר של כתובת URL'.
+- 瞭解其他可用工具，例如[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)。
+- 瞭解如何使用[網址內容工具](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)，在提示中加入特定網址。
 
-שליחת משוב
+提供意見
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-עדכון אחרון: 2026-05-28 (שעון UTC).
+上次更新時間：2026-05-28 (世界標準時間)。
 
-רוצה לתת לנו משוב?
+想進一步說明嗎？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-28 (世界標準時間)。"],[],[]]

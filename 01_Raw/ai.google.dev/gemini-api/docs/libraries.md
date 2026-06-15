@@ -1,57 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=it
-fetched_at: 2026-06-08T15:07:36.371323+00:00
-title: "Librerie API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=ja
+fetched_at: 2026-06-15T06:26:17.470344+00:00
+title: "Gemini API \u30e9\u30a4\u30d6\u30e9\u30ea \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-# Librerie API Gemini
+# Gemini API ライブラリ
 
-Quando crei con l'API Gemini, ti consigliamo di utilizzare l'**SDK Google GenAI**.
-Si tratta di librerie ufficiali e pronte per la produzione che sviluppiamo e gestiamo
-per i linguaggi più diffusi. Sono in [disponibilità generale](https://ai.google.dev/gemini-api/docs/libraries?hl=it#new-libraries) e vengono utilizzati in tutta la nostra documentazione ed esempi ufficiali.
+Gemini API を使用して構築する場合は、**Google GenAI SDK** を使用することをおすすめします。これらは、多くの一般的な言語向けに Google が開発、保守しているプロダクション レディな公式ライブラリです。これらは[一般提供](https://ai.google.dev/gemini-api/docs/libraries?hl=ja#new-libraries)されており、Google のすべての公式ドキュメントと例で使用されています。
 
-Se non hai mai utilizzato l'API Gemini, segui la nostra [guida rapida](https://ai.google.dev/gemini-api/docs/quickstart?hl=it) per iniziare.
+Gemini API を初めて使用する場合は、[クイックスタート ガイド](https://ai.google.dev/gemini-api/docs/quickstart?hl=ja)に沿って開始してください。
 
-## Supporto delle lingue e installazione
+## 言語サポートとインストール
 
-L'SDK Google GenAI è disponibile per i linguaggi Python, JavaScript/TypeScript, Go e Java. Puoi installare la libreria di ogni lingua utilizzando i gestori di pacchetti
-o visitare i relativi repository GitHub per ulteriori informazioni:
+Google GenAI SDK は、Python、JavaScript/TypeScript、Go、Java の各言語で使用できます。各言語のライブラリは、パッケージ マネージャーを使用してインストールできます。また、GitHub リポジトリにアクセスして、さらに詳しく調べることもできます。
 
 ### Python
 
-- Libreria: [`google-genai`](https://pypi.org/project/google-genai)
-- Repository GitHub: [googleapis/python-genai](https://github.com/googleapis/python-genai)
-- Installazione: `pip install google-genai`
+- ライブラリ: [`google-genai`](https://pypi.org/project/google-genai)
+- GitHub リポジトリ: [googleapis/python-genai](https://github.com/googleapis/python-genai)
+- インストール: `pip install google-genai`
 
 ### JavaScript
 
-- Libreria: [`@google/genai`](https://www.npmjs.com/package/@google/genai)
-- Repository GitHub: [googleapis/js-genai](https://github.com/googleapis/js-genai)
-- Installazione: `npm install @google/genai`
+- ライブラリ: [`@google/genai`](https://www.npmjs.com/package/@google/genai)
+- GitHub リポジトリ: [googleapis/js-genai](https://github.com/googleapis/js-genai)
+- インストール: `npm install @google/genai`
 
 ### Go
 
-- Libreria: [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
-- Repository GitHub: [googleapis/go-genai](https://github.com/googleapis/go-genai)
-- Installazione: `go get google.golang.org/genai`
+- ライブラリ: [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
+- GitHub リポジトリ: [googleapis/go-genai](https://github.com/googleapis/go-genai)
+- インストール: `go get google.golang.org/genai`
 
 ### Java
 
-- Libreria: `google-genai`
-- Repository GitHub: [googleapis/java-genai](https://github.com/googleapis/java-genai)
-- Installazione: se utilizzi Maven, aggiungi quanto segue alle dipendenze:
+- ライブラリ: `google-genai`
+- GitHub リポジトリ: [googleapis/java-genai](https://github.com/googleapis/java-genai)
+- インストール: Maven を使用している場合は、次のものを依存関係に追加します。
 
 ```
 <dependencies>
@@ -65,50 +62,41 @@ o visitare i relativi repository GitHub per ulteriori informazioni:
 
 ### C#
 
-- Libreria: `Google.GenAI`
-- Repository GitHub: [googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
-- Installazione: `dotnet add package Google.GenAI`
+- ライブラリ: `Google.GenAI`
+- GitHub リポジトリ: [googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
+- インストール: `dotnet add package Google.GenAI`
 
-## Disponibilità generale
+## 一般提供
 
-A partire da maggio 2025, l'SDK Google GenAI ha raggiunto la disponibilità generale (GA) su
-tutte le piattaforme supportate e sono le librerie consigliate per accedere all'API Gemini.
-Sono stabili, completamente supportati per l'uso in produzione e vengono gestiti attivamente.
-Forniscono l'accesso alle funzionalità più recenti e offrono le migliori prestazioni con Gemini.
+2025 年 5 月の時点で、Google GenAI SDK はサポートされているすべてのプラットフォームで一般提供（GA）に達しており、Gemini API にアクセスするための推奨ライブラリとなっています。安定しており、本番環境での使用が完全にサポートされ、積極的にメンテナンスされています。最新の機能を利用でき、Gemini と連携して最高のパフォーマンスを発揮します。
 
-Se utilizzi una delle nostre librerie legacy,
-ti consigliamo vivamente di eseguire la migrazione per poter accedere alle funzionalità più recenti e
-ottenere le migliori prestazioni quando lavori con Gemini. Per ulteriori informazioni, consulta la sezione [Librerie legacy](https://ai.google.dev/gemini-api/docs/libraries?hl=it#previous-sdks).
+以前のライブラリのいずれかを使用している場合は、移行して最新の機能にアクセスし、Gemini で最高のパフォーマンスを実現することを強くおすすめします。詳細については、[レガシー ライブラリ](https://ai.google.dev/gemini-api/docs/libraries?hl=ja#previous-sdks)のセクションをご覧ください。
 
-## Librerie legacy e migrazione
+## レガシー ライブラリと移行
 
-Se utilizzi una delle nostre librerie legacy, ti consigliamo di [eseguire la migrazione alle nuove librerie](https://ai.google.dev/gemini-api/docs/migrate?hl=it).
+以前のライブラリを使用している場合は、[新しいライブラリに移行する](https://ai.google.dev/gemini-api/docs/migrate?hl=ja)ことをおすすめします。
 
-Le librerie legacy non forniscono l'accesso alle funzionalità recenti (come
-l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it) e [Veo](https://ai.google.dev/gemini-api/docs/video?hl=it)) e sono
-ritirate a partire dal 30 novembre 2025.
+以前のライブラリでは、最新の機能（[Live API](https://ai.google.dev/gemini-api/docs/live?hl=ja) や [Veo](https://ai.google.dev/gemini-api/docs/video?hl=ja) など）にアクセスできません。また、2025 年 11 月 30 日をもって非推奨となります。
 
-Lo stato di supporto di ogni libreria precedente varia, come descritto in dettaglio nella tabella seguente:
+各レガシー ライブラリのサポート ステータスは次の表のとおりです。
 
-| Lingua | Libreria legacy | Stato del supporto | Raccolta consigliata |
+| 言語 | 以前のライブラリ | サポート状況 | 推奨ライブラリ |
 | --- | --- | --- | --- |
-| **Python** | `google-generativeai` | Non più sviluppato attivamente | `google-genai` |
-| **JavaScript/TypeScript** | `@google/generativeai` | Non più sviluppato attivamente | `@google/genai` |
-| **Go** | `google.golang.org/generative-ai` | Non più sviluppato attivamente | `google.golang.org/genai` |
-| **Dart e Flutter** | `google_generative_ai` | Non più sviluppato attivamente | Utilizza [Genkit Dart](https://genkit.dev/docs/dart/get-started/) o [Firebase AI Logic](https://pub.dev/packages/firebase_ai) |
-| **Swift** | `generative-ai-swift` | Non più sviluppato attivamente | Utilizza [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=it) |
-| **Android** | `generative-ai-android` | Non più sviluppato attivamente | Utilizza [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=it) |
+| **Python** | `google-generativeai` | 積極的にメンテナンスされていない | `google-genai` |
+| **JavaScript/TypeScript** | `@google/generativeai` | 積極的にメンテナンスされていない | `@google/genai` |
+| **Go** | `google.golang.org/generative-ai` | 積極的にメンテナンスされていない | `google.golang.org/genai` |
+| **Dart と Flutter** | `google_generative_ai` | 積極的にメンテナンスされていない | [Genkit Dart](https://genkit.dev/docs/dart/get-started/) または [Firebase AI Logic](https://pub.dev/packages/firebase_ai) を使用する |
+| **Swift** | `generative-ai-swift` | 積極的にメンテナンスされていない | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=ja) を使用する |
+| **Android** | `generative-ai-android` | 積極的にメンテナンスされていない | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=ja) を使用する |
 
-**Nota per gli sviluppatori Java**:non esisteva un SDK Java fornito da Google precedente per l'API Gemini, quindi non è necessaria la migrazione da una libreria Google precedente. Puoi
-iniziare direttamente con la nuova libreria nella sezione
-[Supporto e installazione delle lingue](#install).
+**Java デベロッパー向けの注:** Gemini API 用の Google 提供の以前の Java SDK は存在しないため、以前の Google ライブラリからの移行は必要ありません。[言語サポートとインストール](#install) セクションで、新しいライブラリを直接使用できます。
 
-Invia feedback
+フィードバックを送信
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ultimo aggiornamento 2026-05-28 UTC.
+最終更新日 2026-05-28 UTC。
 
-Vuoi dirci altro?
+ご意見をお聞かせください
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-05-28 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-28 UTC。"],[],[]]

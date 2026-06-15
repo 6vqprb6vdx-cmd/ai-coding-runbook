@@ -1,67 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=ar
-fetched_at: 2026-06-08T14:59:24.241621+00:00
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=he
+fetched_at: 2026-06-15T06:18:03.516753+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-إرسال ملاحظات
+שליחת משוב
 
-# فهم الرموز المميزة وعدّها
+# הסבר על אסימונים ואיך סופרים אותם
 
-تعالج نماذج الذكاء الاصطناعي التوليدي، مثل Gemini، المدخلات والمخرجات بدقة
-تُعرف باسم *الرمز المميز*.
+‫Gemini ומודלים אחרים של AI גנרטיבי מעבדים קלט ופלט ברמת פירוט שנקראת *טוקן*.
 
-**في نماذج Gemini، يعادل الرمز المميز الواحد حوالي 4 أحرف، ويعادل 100 رمز مميز حوالي 60 إلى 80 كلمة باللغة الإنجليزية.**
+**במודלים של Gemini, טוקן שווה בערך ל-4 תווים.
+‫100 טוקנים שווים לכ-60-80 מילים באנגלית.**
 
-## لمحة عن الرموز المميزة
+## מידע על טוקנים
 
-يمكن أن تكون الرموز المميّزة أحرفًا مفردة مثل `z` أو كلمات كاملة مثل `cat`، ويتم تقسيم الكلمات الطويلة إلى عدة رموز مميّزة. وتُعرف مجموعة كل الرموز المميّزة التي يستخدمها النموذج باسم المفردات، وتُعرف عملية تقسيم النص إلى رموز مميّزة باسم *التقطيع إلى رموز مميّزة*.
+טוקנים יכולים להיות תווים בודדים כמו `z` או מילים שלמות כמו `cat`. מילים ארוכות מחולקות לכמה טוקנים. קבוצת כל הטוקנים שבהם נעשה שימוש במודל נקראת אוצר מילים, והתהליך של פיצול טקסט לטוקנים נקרא *טוקניזציה*.
 
-عند تفعيل الفوترة، يتم تحديد [تكلفة طلب البيانات من Gemini API](https://ai.google.dev/pricing?hl=ar) جزئيًا من خلال عدد الرموز المميزة للإدخال والإخراج، لذا قد يكون من المفيد معرفة كيفية عدّ الرموز المميزة.
+כשמופעל חיוב, [העלות של קריאה ל-Gemini API](https://ai.google.dev/pricing?hl=he) נקבעת בין היתר לפי מספר האסימונים של הקלט והפלט, ולכן כדאי לדעת איך לספור אסימונים.
 
-يمكنك تجربة احتساب الرموز المميزة في Colab.
+אתם יכולים לנסות לספור טוקנים ב-Colab שלנו.
 
 |  |  |  |
 | --- | --- | --- |
-| [عرض على ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | [تجربة ورقة ملاحظات Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ar) | [عرض ورقة الملاحظات على GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=ar) |
+| [לצפייה באתר ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | [ניסיון של נוטבוק של Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) | [הצגת ה-notebook ב-GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) |
 
-## عدد الرموز المميزة
+## ספירת טוקנים
 
-يتم تحويل جميع البيانات المدخلة إلى Gemini API والناتجة عنها إلى رموز مميزة، بما في ذلك النصوص وملفات الصور وغيرها من الوسائط غير النصية.
+כל הקלט ל-Gemini API והפלט ממנו עוברים טוקניזציה, כולל טקסט, קובצי תמונות וסוגים אחרים של נתונים שאינם טקסט.
 
-يمكنك احتساب الرموز المميزة بالطرق التالية:
+אפשר לספור טוקנים בדרכים הבאות:
 
-- **استدعِ الدالة [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=ar) مع إدخال الطلب.**  
-   تعرض هذه الدالة إجمالي عدد الرموز المميزة في *الإدخال فقط*. يمكنك إجراء هذه المكالمة قبل إرسال الإدخال إلى النموذج للتحقّق من حجم طلباتك.
-- **استخدِم السمة `usage_metadata` في العنصر `response` بعد استدعاء `generate_content`.**  
-   تعرض هذه السمة إجمالي عدد الرموز المميزة في *كلّ من الإدخال والإخراج*: `total_token_count`.  
-   وتعرض أيضًا عدد الرموز المميزة للإدخال والإخراج بشكل منفصل: `prompt_token_count` (رموز الإدخال) و`candidates_token_count` (رموز الإخراج).
+- **מתקשרים אל [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=he) עם הקלט של הבקשה.**  
+   הפונקציה הזו מחזירה את המספר הכולל של הטוקנים *בקלט בלבד*. אפשר להתקשר אליה לפני ששולחים את הקלט למודל כדי לבדוק את הגודל של הבקשות.
+- **משתמשים במאפיין `usage_metadata` באובייקט `response` אחרי הקריאה ל-`generate_content`.**  
+   הפעולה הזו מחזירה את המספר הכולל של הטוקנים ב*קלט ובפלט*: `total_token_count`.  
+   היא גם מחזירה את ספירת הטוקנים של הקלט והפלט בנפרד: `prompt_token_count` (טוקנים של הקלט) ו-`candidates_token_count` (טוקנים של הפלט).
 
-  إذا كنت تستخدم [نموذجًا
-  للتفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)، سيتم عرض الرموز المميزة المستخدَمة أثناء عملية التفكير في `thoughts_token_count`. وفي حال استخدام
-  [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar)، سيكون عدد الرموز المميزة المخزّنة مؤقتًا في `cached_content_token_count`.
+  אם אתם משתמשים ב[מודל חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he), הטוקנים שנעשה בהם שימוש במהלך תהליך החשיבה מוחזרים ב-`thoughts_token_count`. אם אתם משתמשים ב[שמירת נתונים במטמון לפי הקשר](https://ai.google.dev/gemini-api/docs/caching?hl=he), מספר האסימונים שנשמרו במטמון יופיע ב-`cached_content_token_count`.
 
-### احتساب الرموز المميّزة للنص
+### ספירת טוקנים של טקסט
 
-إذا طلبت `count_tokens` باستخدام إدخال نصي فقط، ستعرض عدد الرموز المميزة للنص *في الإدخال فقط* (`total_tokens`). يمكنك إجراء هذا الطلب قبل طلب `generate_content` للتحقّق من حجم طلباتك.
+אם מתקשרים אל `count_tokens` עם קלט טקסט בלבד, הפונקציה מחזירה את מספר הטוקנים של הטקסט *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל `count_tokens` לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות.
 
-هناك خيار آخر وهو الاتصال بـ `generate_content` ثم استخدام السمة `usage_metadata`
-في الكائن `response` للحصول على ما يلي:
+אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- عدد الرموز المميزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الطلب والرد*
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
   (`total_token_count`)
 
 ### Python
@@ -137,19 +135,19 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### احتساب الرموز المميزة للمحادثات المتعددة الجولات
+### ספירת טוקנים של שיחות עם זיכרון
 
-إذا طلبت من `count_tokens` عرض سجلّ المحادثة، سيعرض إجمالي عدد الرموز المميزة للنص من كل دور في المحادثة (`total_tokens`).
+אם מתקשרים אל `count_tokens` עם היסטוריית הצ'אט, הפונקציה מחזירה את המספר הכולל של הטוקנים בטקסט מכל תפקיד בצ'אט (`total_tokens`).
 
-هناك خيار آخر وهو الاتصال بـ `send_message` ثم استخدام السمة `usage_metadata`
-في الكائن `response` للحصول على ما يلي:
+אפשרות נוספת היא להתקשר אל `send_message` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- عدد الرموز المميزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الطلب والرد*
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
   (`total_token_count`)
 
-لمعرفة حجم الدور التالي في المحادثة، عليك إلحاقه بالسجلّ عند طلب `count_tokens`.
+כדי להבין מה יהיה גודל התגובה הבאה בשיחה, צריך לצרף אותה להיסטוריה כשמתקשרים אל `count_tokens`.
 
 ### Python
 
@@ -275,33 +273,34 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### احتساب الرموز المميّزة المتعددة الوسائط
+### ספירת טוקנים מולטי-מודאליים
 
-يتم تحويل جميع المدخلات إلى رموز مميزة في Gemini API، بما في ذلك النصوص وملفات الصور وغيرها من الوسائط غير النصية. في ما يلي النقاط الرئيسية العالية المستوى حول تحويل الإدخال المتعدّد الوسائط إلى رموز مميزة أثناء معالجته من خلال Gemini API:
+כל הקלט ל-Gemini API עובר טוקניזציה, כולל טקסט, קובצי תמונות ומודאליות אחרות שאינן טקסט. חשוב לשים לב לנקודות העיקריות הבאות לגבי טוקניזציה של קלט מולטי-מודאלי במהלך העיבוד על ידי Gemini API:
 
-- يتم احتساب مدخلات الصور التي يقل فيها كلا البُعدين عن 384 بكسل أو يساويهما على أنّها 258 رمزًا مميزًا. يتم اقتصاص الصور الأكبر حجمًا في أحد البُعدَين أو كليهما وتغيير حجمها حسب الحاجة إلى مربّعات بحجم 768 × 768 بكسل، ويتم احتساب كل مربّع على أنّه 258 رمزًا مميزًا.
-- يتم تحويل ملفات الفيديو والصوت إلى رموز مميزة بالأسعار الثابتة التالية:
-  الفيديو: 263 رمزًا مميزًا في الثانية، والصوت: 32 رمزًا مميزًا في الثانية.
+- תמונות קלט ששני הממדים שלהן הם ‎<=384 פיקסלים נספרות כ-258 טוקנים. תמונות שגדולות יותר באחד מהממדים או בשניהם נחתכות ומשנות את הגודל לפי הצורך לאריחים בגודל ‎768x768 פיקסלים, וכל אחת מהן נספרת כ-258 טוקנים.
+- קובצי וידאו ואודיו מומרים לטוקנים בשיעורים הקבועים הבאים:
+  וידאו ב-263 טוקנים לשנייה ואודיו ב-32 טוקנים לשנייה.
 
-#### درجات دقة الوسائط
+#### רזולוציות מדיה
 
-تتيح [نماذج Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=ar#gemini-3) التحكّم بشكل دقيق في معالجة الصور المتعددة الوسائط باستخدام المَعلمة `media_resolution`. وتحدّد المَعلمة `media_resolution` **الحد الأقصى لعدد الرموز المميزة المخصّصة لكل صورة إدخال أو إطار فيديو.** وتؤدي الدقة الأعلى إلى تحسين قدرة النموذج على قراءة النصوص الدقيقة أو تحديد التفاصيل الصغيرة، ولكنها تزيد من استخدام الرموز المميزة ووقت الاستجابة.
+[מודלים של Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=he#gemini-3) מציגים שליטה מדויקת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונה או פריים של סרטון קלט.**
+רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
 
-لمزيد من التفاصيل حول المَعلمة وكيفية تأثيرها في احتساب الرموز المميّزة، راجِع دليل [دقة الوسائط](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ar).
+לפרטים נוספים על הפרמטר ועל האופן שבו הוא יכול להשפיע על חישובי האסימון, אפשר לעיין במדריך בנושא [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he).
 
-#### ملفات الصور
+#### קובצי תמונות
 
-إذا طلبت `count_tokens` باستخدام نص وصورة كمدخلات، سيعرض عدد الرموز المميزة المجمّعة للنص والصورة *في المدخلات فقط* (`total_tokens`). يمكنك إجراء هذا الطلب قبل طلب `generate_content` للتحقّق من حجم طلباتك. يمكنك أيضًا استدعاء `count_tokens` بشكل اختياري على النص والملف بشكل منفصل.
+אם קוראים לפונקציה `count_tokens` עם קלט של טקסט ותמונה, היא מחזירה את מספר הטוקנים המשולב של הטקסט והתמונה *בקלט בלבד* (`total_tokens`). אפשר לקרוא לפונקציה הזו לפני שקוראים לפונקציה `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם לקרוא ל-`count_tokens` על הטקסט ועל הקובץ בנפרד.
 
-هناك خيار آخر وهو الاتصال بـ `generate_content` ثم استخدام السمة `usage_metadata`
-في الكائن `response` للحصول على ما يلي:
+אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- عدد الرموز المميزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كل من الطلب والرد*
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
   (`total_token_count`)
 
-مثال يستخدم صورة تم تحميلها من File API:
+דוגמה לשימוש בתמונה שהועלתה מ-File API:
 
 ### Python
 
@@ -401,7 +400,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-مثال يقدّم الصورة كبيانات مضمّنة:
+דוגמה שבה התמונה מסופקת כנתונים מוטבעים:
 
 ### Python
 
@@ -498,26 +497,21 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### ملفات الفيديو أو الصوت
+#### קובצי וידאו או אודיו
 
-يتم تحويل الصوت والفيديو إلى رموز مميزة بالأسعار الثابتة التالية:
+ההמרה של אודיו ווידאו לטוקנים מתבצעת לפי השיעורים הקבועים הבאים:
 
-- الفيديو: 263 رمزًا مميزًا في الثانية
-- الصوت: 32 رمزًا مميزًا في الثانية
+- סרטון: 263 טוקנים לשנייה
+- אודיו: 32 טוקנים לשנייה
 
-إذا اتصلت بـ `count_tokens` باستخدام إدخال نصي وفيديو/صوتي، سيعرض لك
-عدد الرموز المميزة المجمّع للنص وملف الفيديو/الصوت *في الإدخال فقط*
-(`total_tokens`). يمكنك إجراء هذا الاتصال قبل الاتصال بـ `generate_content`
-للتحقّق من حجم طلباتك. يمكنك أيضًا الاتصال بـ `count_tokens` بشكل اختياري
-على النص والملف بشكل منفصل.
+אם מתקשרים אל `count_tokens` עם קלט של טקסט וסרטון או אודיו, הפונקציה מחזירה את מספר הטוקנים המשולב של הטקסט ושל קובץ הווידאו או האודיו *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל הפונקציה הזו לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם להפעיל את `count_tokens` על הטקסט ועל הקובץ בנפרד.
 
-هناك خيار آخر وهو الاتصال بـ `generate_content` ثم استخدام السمة `usage_metadata`
-في الكائن `response` للحصول على ما يلي:
+אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
+באובייקט `response` כדי לקבל את הפרטים הבאים:
 
-- عدد الرموز المميزة المنفصلة للإدخال (`prompt_token_count`) والمحتوى المخزّن مؤقتًا (`cached_content_token_count`) والإخراج (`candidates_token_count`)
-- عدد الرموز المميّزة لعملية التفكير (`thoughts_token_count`)
-- إجمالي عدد الرموز المميّزة في *كلّ من الطلب والرد*
-  (`total_token_count`)
+- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
+- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
+- המספר הכולל של הטוקנים *גם בקלט וגם בפלט* (`total_token_count`).
 
 ### Python
 
@@ -642,9 +636,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### عدّ الرموز المميّزة للأفكار
+### ספירת טוקנים של מחשבות
 
-عند تفعيل ميزة "التفكير"، يكون سعر الردّ هو مجموع الرموز المميزة للناتج والرموز المميزة للتفكير. يمكنك استرداد إجمالي عدد الرموز المميزة التي تم إنشاؤها من الحقل `thoughtsTokenCount` (أو ما يعادله في حزمة تطوير البرامج (SDK)).
+כשמפעילים את התכונה 'מעמיק', התמחור של התשובה הוא סכום הטוקנים של הפלט והטוקנים של התכונה 'מעמיק'. אפשר לאחזר את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `thoughtsTokenCount` (או מהמקבילה ב-SDK).
 
 ### Python
 
@@ -670,13 +664,13 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-تنشئ نماذج التفكير أفكارًا كاملة لتحسين جودة الردّ النهائي، ثم تعرض [ملخّصات](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#summaries) لتقديم نظرة ثاقبة على عملية التفكير. وبالتالي، تستند الأسعار في واجهة برمجة التطبيقات إلى الرموز المميزة للأفكار الكاملة التي ينشئها النموذج لإنشاء ملخّص، حتى لو كانت واجهة برمجة التطبيقات تعرض الملخّص فقط.
+מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז מפיקים [סיכומים](https://ai.google.dev/gemini-api/docs/thinking?hl=he#summaries) כדי לספק תובנות לגבי תהליך החשיבה. לכן, התמחור של ה-API מבוסס על האסימונים של כל המחשבות שהמודל יוצר כדי ליצור סיכום, גם אם ה-API מוציא רק את הסיכום.
 
-يمكنك الاطّلاع على مزيد من المعلومات حول كيفية ضبط مدة التفكير في دليل [مدة تفكير Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=ar).
+במדריך [Gemini thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he) (תהליך החשיבה של Gemini) אפשר לקרוא מידע נוסף על הגדרת תהליך החשיבה.
 
-## قدرات الاستيعاب
+## חלונות הקשר
 
-تتضمّن النماذج المتاحة من خلال Gemini API قدرات استيعاب يتم قياسها بالرموز المميّزة. تحدّد قدرة الاستيعاب حجم الإدخال الذي يمكنك تقديمه وحجم الإخراج الذي يمكن للنموذج إنشاؤه. يمكنك تحديد حجم قدرة الاستيعاب من خلال استدعاء نقطة النهاية [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=ar) أو الرجوع إلى [مستندات النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
+למודלים שזמינים דרך Gemini API יש חלונות הקשר שנמדדים בטוקנים. חלון ההקשר מגדיר כמה קלט אפשר לספק וכמה פלט המודל יכול ליצור. אפשר לקבוע את הגודל של חלון ההקשר על ידי קריאה לנקודת הקצה [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=he) או על ידי עיון ב[מסמכי התיעוד של המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
 
 ### Python
 
@@ -721,12 +715,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-إرسال ملاحظات
+שליחת משוב
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-تاريخ التعديل الأخير: 2026-06-04 (حسب التوقيت العالمي المتفَّق عليه)
+עדכון אחרון: 2026-06-04 (שעון UTC).
 
-هل تريد مشاركة ملاحظاتك معنا؟
+רוצה לתת לנו משוב?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-04 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-04 (שעון UTC)."],[],[]]

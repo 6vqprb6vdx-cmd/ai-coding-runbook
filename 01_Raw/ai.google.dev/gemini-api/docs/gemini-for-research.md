@@ -1,34 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ja
-fetched_at: 2026-06-08T15:04:21.199212+00:00
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ar
+fetched_at: 2026-06-15T06:26:32.368219+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
 
-# Gemini for Research で発見を加速する
+# تسريع عملية الاكتشاف باستخدام "Gemini في البحث"
 
-[Gemini API キーを取得する](https://aistudio.google.com/apikey?hl=ja)
+[الحصول على مفتاح Gemini API](https://aistudio.google.com/apikey?hl=ar)
 
-Gemini モデルは、さまざまな分野の基礎研究を進めるために使用できます。Gemini を調査に活用する方法は次のとおりです。
+يمكن استخدام نماذج Gemini لتطوير الأبحاث الأساسية في مختلف المجالات.
+في ما يلي بعض الطرق التي يمكنك من خلالها استكشاف Gemini لإجراء بحثك:
 
-- **モデルの出力を分析して制御する**: 詳細な分析を行うために、`CitationMetadata` などのツールを使用して、モデルによって生成されたレスポンス候補を調べることができます。`responseSchema`、`topP`、`topK` などのモデル生成と出力のオプションを構成することもできます。[詳細](https://ai.google.dev/api/generate-content?hl=ja)
-- **マルチモーダル入力**: Gemini は画像、音声、動画を処理できるため、さまざまなエキサイティングな研究分野を開拓できます。[詳細](https://ai.google.dev/gemini-api/docs/vision?hl=ja)
-- **長いコンテキスト機能**: Gemini 3.0 Flash と Pro には 100 万トークンのコンテキスト ウィンドウが搭載されています。[詳細](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)
-- **Grow with Google**: API と Google AI Studio を通じて Gemini モデルにすばやくアクセスし、本番環境のユースケースに活用できます。Google Cloud ベースのプラットフォームをお探しの場合は、Gemini Enterprise Agent Platform で追加のサポート インフラストラクチャを利用できます。
+- **تحليل نواتج النموذج والتحكّم فيها**: لإجراء المزيد من التحليلات، يمكنك فحص الردود المقترَحة التي أنشأها النموذج باستخدام أدوات مثل `CitationMetadata`. يمكنك أيضًا ضبط خيارات لإنشاء النماذج والمخرجات، مثل `responseSchema` و`topP` و`topK`. [مزيد من المعلومات](https://ai.google.dev/api/generate-content?hl=ar)
+- **المدخلات المتعددة الوسائط**: يمكن لـ Gemini معالجة الصور والمقاطع الصوتية والفيديوهات، ما يتيح مجموعة كبيرة من طرق البحث الشيّقة. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/vision?hl=ar)
+- **القدرة على استيعاب معلومات كثيرة**: يتضمّن كل من Gemini 3.0 Flash وPro قدرة استيعاب تصل إلى مليون رمز مميّز. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/long-context?hl=ar)
+- **Grow with Google**: يمكنك الوصول بسرعة إلى نماذج Gemini من خلال واجهة برمجة التطبيقات وGoogle AI Studio لحالات الاستخدام في الإنتاج. إذا كنت تبحث عن منصة مستندة إلى Google Cloud، يمكن أن توفّر لك منصة Gemini Enterprise Agent Platform بنية أساسية إضافية داعمة.
 
-学術研究を支援し、最先端の研究を推進するため、Google は [Gemini Academic Program](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ja#gemini-academic-program) を通じて、科学者や学術研究者に Gemini API クレジットへのアクセスを提供しています。
+لدعم الأبحاث الأكاديمية وتعزيز الأبحاث المتطوّرة، تتيح Google للعلماء والباحثين الأكاديميين إمكانية الوصول إلى أرصدة Gemini API من خلال [برنامج Gemini الأكاديمي](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ar#gemini-academic-program).
 
-## Gemini を使ってみる
+## بدء استخدام Gemini
 
-Gemini API と Google AI Studio を使用すると、Google の最新モデルの利用を開始し、アイデアをスケーラブルなアプリケーションに変えることができます。
+تساعدك واجهة Gemini API وGoogle AI Studio في بدء العمل باستخدام أحدث نماذج Google وتحويل أفكارك إلى تطبيقات قابلة للتوسّع.
 
 ### Python
 
@@ -76,36 +77,38 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
    }'
 ```
 
-## 注目の学術関係者
+## الأكاديميون المميزون
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=ja)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=ar)
 
-「私たちの研究では、Gemini を視覚言語モデル（VLM）として、さまざまな環境におけるそのエージェントの動作を堅牢性と安全性の観点から調査しています。これまでのところ、VLM エージェントがコンピュータ タスクを実行する際のポップアップ ウィンドウなどの妨害に対する Gemini の堅牢性を評価し、Gemini を活用してソーシャル インタラクション、時間的イベント、動画入力に基づくリスク要因を分析してきました。」
+"يبحث فريقنا في Gemini كنموذج لغة مرئية (VLM) وسلوكياته المستقلة في بيئات متنوعة من منظورَي المتانة والأمان. حتى الآن، قيّمنا مدى فعالية Gemini في التعامل مع عوامل التشتيت، مثل النوافذ المنبثقة، عندما تنفّذ برامج VLM مهام على الكمبيوتر، واستفدنا من Gemini في تحليل التفاعل الاجتماعي والأحداث الزمنية وعوامل الخطر استنادًا إلى إدخال الفيديو".
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=ja)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=ar)
 
-Gemini Pro と Flash は、長いコンテキスト ウィンドウを備えており、オープン ボキャブラリー モバイル マニピュレーション プロジェクトである OK-Robot で活用されています。Gemini を使用すると、ロボットの「メモリ」（この場合は、ロボットが長期間の動作中に取得した過去の観測データ）に対して、複雑な自然言語クエリとコマンドを実行できます。Mahi Shafiullah と私は、Gemini を使用して、ロボットが現実世界で実行できるコードにタスクを分解しています。」
+لقد ساعدنا Gemini Pro وFlash، بفضل نافذة السياق الطويلة الخاصة بهما، في مشروعنا OK-Robot، وهو مشروع مفتوح المصدر للتحكّم في الأجهزة الجوّالة. يتيح Gemini تنفيذ طلبات وأوامر معقّدة باللغة الطبيعية استنادًا إلى "ذاكرة" الروبوت، أي الملاحظات السابقة التي سجّلها الروبوت خلال مدة تشغيل طويلة. أنا و"ماهي شافي الله" نستخدم Gemini أيضًا لتقسيم المهام إلى رموز برمجية يمكن للروبوت تنفيذها في العالم الحقيقي".
 
-## Gemini アカデミック プログラム
+## برنامج Gemini الأكاديمي
 
-[サポートされている国](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)の認定学術研究者（教員、スタッフ、博士課程の学生など）は、研究プロジェクトで Gemini API クレジットとより高いレート制限を利用するために申請できます。このサポートにより、科学実験のスループットが向上し、研究が進歩します。
+يمكن للباحثين الأكاديميين المؤهّلين (مثل أعضاء هيئة التدريس والموظفين وطلاب الدكتوراه) في [البلدان
+المؤهّلة](https://ai.google.dev/gemini-api/docs/available-regions?hl=ar) تقديم طلب للحصول على رصيد في Gemini API وحدود استخدام أعلى لمشاريعهم البحثية. يتيح هذا الدعم إنتاجية أعلى للتجارب العلمية ويساهم في تطوير الأبحاث.
 
-特に、次のセクションの研究分野に関心がありますが、さまざまな科学分野からの応募を歓迎します。
+نحن مهتمون بشكل خاص بمجالات البحث الواردة في القسم التالي،
+ولكن نرحّب بطلبات المشاركة من مختلف التخصصات العلمية:
 
-- **評価とベンチマーク**: 事実性、安全性、指示の遵守、推論、計画などの分野で強力なパフォーマンス シグナルを提供できる、コミュニティで承認された評価方法。
-- **人類に利益をもたらす科学的発見の加速**: 希少疾患や顧みられない病気、実験生物学、材料科学、持続可能性などの分野を含む、学際的な科学研究における AI の潜在的な応用。
-- **エンボディメントとインタラクション**: 大規模言語モデルを活用して、エンボディド AI、アンビエント インタラクション、ロボティクス、人間とコンピュータのインタラクションの分野における新しいインタラクションを調査します。
-- **新機能**: 推論と計画を強化するために必要な新しいエージェント機能を検討し、推論中に機能を拡張する方法（Gemini Flash の活用など）を検討します。
-- **マルチモーダルなインタラクションと理解**: さまざまなタスクにわたる分析、推論、計画のためのマルチモーダル基盤モデルのギャップと機会を特定します。
+- **التقييمات والمقاييس**: طُرق تقييم يوافق عليها المنتدى ويمكن أن تقدّم إشارة أداء قوية في مجالات مثل الدقة والسلامة واتّباع التعليمات والاستدلال والتخطيط.
+- **تسريع الاكتشافات العلمية بما يعود بالنفع على البشرية**: التطبيقات المحتملة للذكاء الاصطناعي في الأبحاث العلمية المتعددة التخصصات، بما في ذلك مجالات مثل الأمراض النادرة والمهملة، وعلم الأحياء التجريبي، وعلم المواد، والاستدامة
+- **التجسيد والتفاعلات**: استخدام النماذج اللغوية الكبيرة لاستكشاف تفاعلات جديدة في مجالات الذكاء الاصطناعي المجسَّد والتفاعلات المحيطة والروبوتات والتفاعل بين الإنسان والحاسوب
+- **الإمكانات الناشئة**: استكشاف إمكانات جديدة تتطلّبها إمكانات بالذكاء الاصطناعي الوكيل لتحسين الاستدلال والتخطيط، وكيفية توسيع نطاق الإمكانات أثناء الاستنتاج (مثل استخدام Gemini Flash).
+- **التفاعل والفهم المتعدّد الوسائط**: تحديد الثغرات والفرص في النماذج الأساسية المتعدّدة الوسائط لإجراء التحليلات والاستدلال والتخطيط في مجموعة متنوعة من المهام
 
-対象: 有効な教育機関または学術研究機関に所属する個人（教員、研究者など）のみが申請できます。API へのアクセスとクレジットの付与および削除は、Google の裁量により行われます。お申し込みは毎月審査されます。
+الأهلية: يمكن فقط للأفراد (أعضاء هيئة التدريس أو الباحثين أو ما يعادلهم) التابعين لمؤسسة أكاديمية صالحة أو مؤسسة بحثية أكاديمية تقديم طلب. يُرجى العِلم أنّه سيتم منح إذن الوصول إلى واجهة برمجة التطبيقات والائتمانات وإزالتها وفقًا لتقدير Google. نراجع الطلبات شهريًا.
 
-### Gemini API を使用して調査を開始する
+### بدء البحث باستخدام Gemini API
 
-[今すぐ申し込む](https://forms.gle/HMviQstU8PxC5iCt5)
+[تقديم طلب الآن](https://forms.gle/HMviQstU8PxC5iCt5)
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-05-19 UTC。
+تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-19 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

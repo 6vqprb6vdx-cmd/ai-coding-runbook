@@ -1,38 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=de
-fetched_at: 2026-06-08T14:59:52.453838+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=th
+fetched_at: 2026-06-15T06:18:15.119649+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Feedback geben
+ส่งความคิดเห็น
 
-# Verständnis von Dokumenten
+# การทำความเข้าใจเอกสาร
 
-Gemini-Modelle können Dokumente im PDF-Format verarbeiten und dabei die native Vision nutzen, um den gesamten Dokumentkontext zu erfassen. Das geht über die reine Textextraktion hinaus und ermöglicht Gemini Folgendes:
+โมเดล Gemini สามารถประมวลผลเอกสารในรูปแบบ PDF โดยใช้
+Vision ดั้งเดิมเพื่อทำความเข้าใจบริบทของเอกสารทั้งฉบับ ซึ่งจะช่วยให้ Gemini ทำสิ่งต่อไปนี้ได้
+นอกเหนือจากการดึงข้อความ
 
-- Inhalte wie Text, Bilder, Diagramme, Grafiken und Tabellen analysieren und interpretieren, auch in langen Dokumenten mit bis zu 1.000 Seiten.
-- Informationen in [strukturierte Ausgabeformate](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=de) extrahieren.
-- Dokumente zusammenfassen und Fragen dazu beantworten, basierend auf visuellen und textlichen Elementen.
-- Dokumentinhalte transkribieren (z.B. in HTML), wobei Layouts und Formatierung beibehalten werden, damit sie in nachgelagerten Anwendungen verwendet werden können.
+- วิเคราะห์และตีความเนื้อหา รวมถึงข้อความ รูปภาพ แผนภาพ
+  แผนภูมิ และตาราง แม้ในเอกสารขนาดยาวที่มีมากถึง 1,000 หน้า
+- ดึงข้อมูลลงในรูปแบบ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=th)
+- สรุปและตอบคำถามโดยอิงตามทั้งองค์ประกอบภาพและข้อความ
+  ในเอกสาร
+- ถอดเสียงเนื้อหาเอกสาร (เช่น เป็น HTML) โดยคงเลย์เอาต์และการจัดรูปแบบไว้เพื่อใช้ในแอปพลิเคชันดาวน์สตรีม
 
-Sie können auch Nicht-PDF-Dokumente auf dieselbe Weise übergeben, aber Gemini betrachtet sie als normalen Text, wodurch Kontext wie Diagramme oder Formatierung verloren geht.
+นอกจากนี้ คุณยังส่งเอกสารที่ไม่ใช่ PDF ในลักษณะเดียวกันได้ แต่ Gemini จะเห็นเอกสารเหล่านั้นเป็นข้อความปกติ ซึ่งจะไม่มีบริบท เช่น แผนภูมิหรือการจัดรูปแบบ
 
-## PDF-Daten inline übergeben
+## การส่งข้อมูล PDF แบบอินไลน์
 
-Sie können PDF-Daten inline in der Anfrage übergeben. Diese Methode eignet sich am besten für kleinere Dokumente oder für die temporäre Verarbeitung, wenn Sie in nachfolgenden Anfragen nicht auf die Datei verweisen müssen. Für größere Dokumente, auf die Sie in Interaktionen mit mehreren Durchgängen verweisen müssen, empfehlen wir die Verwendung der [Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=de#large-pdfs), um die Anfragelatenz zu verbessern und die Bandbreitennutzung zu reduzieren.
+คุณส่งข้อมูล PDF แบบอินไลน์ในคำขอได้ วิธีนี้เหมาะที่สุดสำหรับเอกสารขนาดเล็กหรือการประมวลผลชั่วคราวซึ่งคุณไม่จำเป็นต้องอ้างอิงไฟล์ในคำขอที่ตามมา เราขอแนะนำให้ใช้
+[Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=th#large-pdfs)
+สำหรับเอกสารขนาดใหญ่ที่คุณต้องอ้างอิงในการโต้ตอบแบบหลายรอบเพื่อ
+ปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์
 
-Das folgende Beispiel zeigt, wie Sie PDF-Daten inline übergeben:
+ตัวอย่างต่อไปนี้แสดงวิธีส่งข้อมูล PDF ในบรรทัด
 
 ### Python
 
@@ -118,7 +125,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Sie können auch eine lokale PDF-Datei zur Verarbeitung hochladen:
+นอกจากนี้ คุณยังอัปโหลดไฟล์ PDF ในเครื่องเพื่อประมวลผลได้ด้วย โดยทำดังนี้
 
 ### Python
 
@@ -169,13 +176,13 @@ async function main() {
 main();
 ```
 
-## PDFs mit der Files API hochladen
+## การอัปโหลด PDF โดยใช้ Files API
 
-Wir empfehlen die Verwendung der Files API für größere Dateien oder wenn Sie ein Dokument in mehreren Anfragen wiederverwenden möchten. Dadurch wird die Anfrage-Latenz verbessert und die Bandbreitennutzung reduziert, da der Dateiupload von den Modellanfragen entkoppelt wird.
+เราขอแนะนำให้คุณใช้ Files API สำหรับไฟล์ขนาดใหญ่หรือเมื่อต้องการนำเอกสารกลับมาใช้ซ้ำในคำขอหลายรายการ ซึ่งจะช่วยปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์ด้วยการแยกการอัปโหลดไฟล์ออกจากคำขอโมเดล
 
-### Große PDFs aus URLs
+### PDF ขนาดใหญ่จาก URL
 
-Mit der File API können Sie große PDF-Dateien über URLs einfacher hochladen und verarbeiten:
+ใช้ File API เพื่อลดความซับซ้อนในการอัปโหลดและประมวลผลไฟล์ PDF ขนาดใหญ่จาก URL โดยทำดังนี้
 
 ### Python
 
@@ -329,7 +336,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### Lokal gespeicherte große PDFs
+### PDF ขนาดใหญ่ที่จัดเก็บไว้ในเครื่อง
 
 ### Python
 
@@ -450,7 +457,8 @@ echo
 jq ".steps[-1].content[0].text" response.json
 ```
 
-Sie können prüfen, ob die API die hochgeladene Datei erfolgreich gespeichert hat, und die zugehörigen Metadaten abrufen, indem Sie [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=de) aufrufen. Nur die `name` (und damit auch die `uri`) sind eindeutig.
+คุณสามารถยืนยันว่า API จัดเก็บไฟล์ที่อัปโหลดเรียบร้อยแล้วและรับข้อมูลเมตาของไฟล์ได้โดยการเรียกใช้ [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=th) มีเพียง `name`
+(และ `uri`) เท่านั้นที่ไม่ซ้ำกัน
 
 ### Python
 
@@ -482,9 +490,11 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Mehrere PDFs übergeben
+## ส่ง PDF หลายไฟล์
 
-Die Gemini API kann mehrere PDF-Dokumente (bis zu 1.000 Seiten) in einer einzigen Anfrage verarbeiten, sofern die kombinierte Größe der Dokumente und des Text-Prompts innerhalb des Kontextfensters des Modells liegt.
+Gemini API สามารถประมวลผลเอกสาร PDF หลายรายการ (สูงสุด 1, 000 หน้า)
+ในคำขอเดียวได้ ตราบใดที่ขนาดรวมของเอกสารและพรอมต์ข้อความ
+ยังคงอยู่ภายในหน้าต่างบริบทของโมเดล
 
 ### Python
 
@@ -676,48 +686,55 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## Technische Details
+## รายละเอียดทางเทคนิค
 
-Gemini unterstützt PDF-Dateien mit einer Größe von bis zu 50 MB oder 1.000 Seiten. Dieses Limit gilt sowohl für Inline-Daten als auch für Uploads über die Files API. Jede Dokumentseite entspricht 258 Tokens.
+Gemini รองรับไฟล์ PDF ที่มีขนาดไม่เกิน 50 MB หรือ 1,000 หน้า ขีดจํากัดนี้มีผล
+ทั้งกับข้อมูลแบบอินไลน์และการอัปโหลดผ่าน Files API หน้าเอกสารแต่ละหน้าจะเท่ากับโทเค็น 258 รายการ
 
-Abgesehen vom [Kontextfenster](https://ai.google.dev/gemini-api/docs/long-context?hl=de) des Modells gibt es keine spezifischen Beschränkungen für die Anzahl der Pixel in einem Dokument. Größere Seiten werden jedoch auf eine maximale Auflösung von 3072 × 3072 herunterskaliert, wobei ihr ursprüngliches Seitenverhältnis beibehalten wird. Kleinere Seiten werden auf 768 × 768 Pixel hochskaliert. Bei Seiten mit geringerer Größe gibt es keine Kostensenkung, außer bei der Bandbreite. Bei Seiten mit höherer Auflösung gibt es keine Leistungssteigerung.
+แม้จะไม่มีขีดจำกัดที่เฉพาะเจาะจงสำหรับจำนวนพิกเซลในเอกสารนอกเหนือจาก[หน้าต่างบริบท](https://ai.google.dev/gemini-api/docs/long-context?hl=th)ของโมเดล แต่ระบบจะปรับขนาดหน้าเว็บที่ใหญ่ขึ้นให้มีความละเอียดสูงสุด 3072 x 3072 โดยยังคงอัตราส่วนเดิมไว้ ส่วนหน้าเว็บที่เล็กลงจะได้รับการปรับขนาดเป็น 768 x 768 พิกเซล ไม่มีการลดต้นทุนสำหรับหน้าเว็บที่มีขนาดเล็กลงนอกเหนือจากแบนด์วิดท์ หรือการปรับปรุงประสิทธิภาพสำหรับหน้าเว็บที่มีความละเอียดสูงขึ้น
 
-### Gemini 3-Modelle
+### โมเดล Gemini 3
 
-Mit Gemini 3 wird die multimodale Bildverarbeitung durch den Parameter `media_resolution` detaillierter gesteuert. Sie können die Auflösung jetzt für jeden einzelnen Medienteil auf „Niedrig“, „Mittel“ oder „Hoch“ festlegen. Durch diese Ergänzung wurde die Verarbeitung von PDF-Dokumenten aktualisiert:
+Gemini 3 มีการควบคุมแบบละเอียดเกี่ยวกับการประมวลผลวิสัยทัศน์แบบมัลติโมดอลด้วยพารามิเตอร์ `media_resolution`
+ตอนนี้คุณสามารถตั้งค่าความละเอียดเป็นต่ำ ปานกลาง หรือสูงสำหรับสื่อแต่ละส่วนได้แล้ว การเพิ่มฟีเจอร์นี้จะอัปเดตการประมวลผลเอกสาร PDF ดังนี้
 
-1. **Einbeziehung von nativem Text**:Text, der nativ in die PDF-Datei eingebettet ist, wird extrahiert und dem Modell zur Verfügung gestellt.
-2. **Abrechnung und Token-Berichte**:
-   - Für Tokens, die aus dem extrahierten **nativen Text** in PDFs stammen, **werden keine Gebühren berechnet**.
-   - Im Abschnitt `usage_metadata` der API-Antwort werden Tokens, die durch die Verarbeitung von PDF-Seiten (als Bilder) generiert wurden, jetzt unter der Modalität `IMAGE` gezählt und nicht wie in einigen früheren Versionen unter einer separaten Modalität `DOCUMENT`.
+1. **การรวมข้อความดั้งเดิม:** ระบบจะดึงข้อความที่ฝังอยู่ใน PDF
+   และส่งให้โมเดล
+2. **การเรียกเก็บเงินและการรายงานโทเค็น:**
+   - ระบบ**ไม่เรียกเก็บเงิน**สำหรับโทเค็นที่มาจาก**ข้อความดั้งเดิม**ที่ดึงออกมาใน PDF
+   - ในส่วน `usage_metadata` ของการตอบกลับของ API ตอนนี้ระบบจะนับโทเค็นที่สร้างขึ้น
+     จากการประมวลผลหน้า PDF (เป็นรูปภาพ) ภายใต้รูปแบบ `IMAGE`
+     ไม่ใช่รูปแบบ `DOCUMENT` แยกต่างหากเหมือนในบางเวอร์ชันก่อนหน้า
 
-### Dokumenttypen
+### ประเภทเอกสาร
 
-Technisch gesehen können Sie andere MIME-Typen für die Dokumentanalyse übergeben, z. B. TXT, Markdown, HTML, XML usw. Die Dokumentanalyse ***versteht jedoch nur PDFs***. Andere Typen werden als reiner Text extrahiert und das Modell kann nicht interpretieren, was in der Darstellung dieser Dateien zu sehen ist. Alle dateitypspezifischen Elemente wie Diagramme, HTML-Tags und Markdown-Formatierung gehen verloren.
+ในทางเทคนิค คุณสามารถส่ง MIME ประเภทอื่นๆ สำหรับการทำความเข้าใจเอกสารได้ เช่น TXT, Markdown, HTML, XML ฯลฯ อย่างไรก็ตาม Document Vision ***จะเข้าใจเฉพาะ PDF เท่านั้น*** ส่วนไฟล์ประเภทอื่นๆ จะได้รับการแยกเป็นข้อความธรรมดา และโมเดล
+จะไม่สามารถตีความสิ่งที่เห็นในการแสดงผลไฟล์เหล่านั้นได้ รายละเอียดของประเภทไฟล์ เช่น แผนภูมิ ไดอะแกรม แท็ก HTML การจัดรูปแบบ Markdown ฯลฯ จะหายไป
 
-Informationen zu anderen Methoden für die Dateieingabe finden Sie im Leitfaden [Methoden für die Dateieingabe](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=de).
+ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ ได้ที่คู่มือ[วิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=th)
 
-### Best Practices
+### แนวทางปฏิบัติแนะนำ
 
-Für optimale Ergebnisse:
+เพื่อผลลัพธ์ที่ดีที่สุด ให้ทำดังนี้
 
-- Drehen Sie die Seiten vor dem Hochladen in die richtige Ausrichtung.
-- Vermeiden Sie unscharfe Seiten.
-- Wenn Sie eine einzelne Seite verwenden, platzieren Sie den Text-Prompt nach der Seite.
+- หมุนหน้าให้เป็นการวางแนวที่ถูกต้องก่อนอัปโหลด
+- หลีกเลี่ยงหน้าเว็บที่เบลอ
+- หากใช้หน้าเดียว ให้วางพรอมต์ข้อความไว้หลังหน้า
 
-## Nächste Schritte
+## ขั้นตอนถัดไป
 
-Weitere Informationen finden Sie in den folgenden Ressourcen:
+ดูข้อมูลเพิ่มเติมได้ที่แหล่งข้อมูลต่อไปนี้
 
-- [Strategien für Dateiprompts](https://ai.google.dev/gemini-api/docs/interactions/files?hl=de#prompt-guide): Die Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch bekannt als multimodale Prompts.
-- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=de#system-instructions): Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren spezifischen Anforderungen und Anwendungsfällen steuern.
+- [กลยุทธ์การเขียนพรอมต์ด้วยไฟล์](https://ai.google.dev/gemini-api/docs/interactions/files?hl=th#prompt-guide): Gemini API รองรับการเขียนพรอมต์ด้วยข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ ซึ่งเรียกอีกอย่างว่าการเขียนพรอมต์แบบหลายรูปแบบ
+- [คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=th#system-instructions):
+  คำสั่งของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตามความต้องการและกรณีการใช้งานเฉพาะของคุณได้
 
-Feedback geben
+ส่งความคิดเห็น
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Zuletzt aktualisiert: 2026-06-01 (UTC).
+อัปเดตล่าสุด 2026-06-01 UTC
 
-Haben Sie Feedback für uns?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-01 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]
