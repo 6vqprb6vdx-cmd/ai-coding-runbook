@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi
-fetched_at: 2026-06-15T06:20:44.693296+00:00
+fetched_at: 2026-06-22T06:32:00.914545+00:00
 title: "H\u01b0\u1edbng d\u1eabn v\u1ec1 \u0111\u1ed9 an to\u00e0n v\u00e0 t\u00ednh x\u00e1c th\u1ef1c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

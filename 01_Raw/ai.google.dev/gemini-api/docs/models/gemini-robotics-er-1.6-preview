@@ -1,49 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=he
-fetched_at: 2026-06-15T06:17:32.378805+00:00
-title: "Gemini Robotics-ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=pl
+fetched_at: 2026-06-22T06:31:30.646977+00:00
+title: "Gemini Robotics-ER\u00a01.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-שליחת משוב
+Prześlij opinię
 
-# Gemini Robotics-ER 1.6
+# Gemini Robotics-ER 1.6
 
-‫Gemini Robotics-ER 1.6 הוא מודל ראייה ושפה (VLM) שמביא את יכולות ה-AI האקטיבי של Gemini לרובוטיקה. הוא מיועד לחשיבה רציונלית משופרת בעולם הפיזי, ומאפשר לרובוטים לפרש נתונים חזותיים מורכבים, לבצע חשיבה רציונלית מרחבית ולתכנן פעולות מפקודות בשפה טבעית.
+Gemini Robotics-ER 1.6 to model wizualno-językowy (VLM), który wykorzystuje funkcje agenta Gemini w robotyce. Został on zaprojektowany z myślą o zaawansowanym wnioskowaniu w świecie fizycznym, dzięki czemu roboty mogą interpretować złożone dane wizualne, przeprowadzać rozumowanie przestrzenne i planować działania na podstawie poleceń w języku naturalnym.
 
-[לניסיון ב-Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=he)
+[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=pl)
 
-## מאמרי עזרה
+## Dokumentacja
 
-ב[דף בנושא רובוטיקה](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he) אפשר לקרוא על כל התכונות והיכולות.
+Więcej informacji o funkcjach i możliwościach znajdziesz na stronie [Robotyka](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pl).
 
 ## gemini-robotics-er-1.6-preview
 
-| נכס | תיאור |
+| Właściwość | Opis |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-robotics-er-1.6-preview` |
-| saveסוגי נתונים נתמכים | **קלטים**  טקסט, תמונות, סרטונים, אודיו  **פלט**  טקסט |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  131,072  **מגבלת אסימונים בפלט**  65,536 |
-| handymanיכולות | **יצירת אודיו**  לא נתמך  ‫**Batch API**  נתמך  **שמירת נתונים במטמון**  נתמך  **ביצוע קוד**  נתמך  **שימוש במחשב**  נתמך  **חיפוש קבצים**  נתמך  **הסקת מסקנות גמישה**  נתמך  **בקשה להפעלת פונקציה**  נתמך  **עיגון בעזרת מפות Google**  נתמך  **יצירת תמונות**  לא נתמך  ‫**Live API**  לא נתמך  **היקש בעדיפות גבוהה**  נתמך  **חיפוש עם עיגון בנתונים**  נתמך  **פלטים מובְנים**  נתמך  **תהליך החשיבה**  נתמך  **הקשר של כתובת ה-URL**  נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - תצוגה מקדימה: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthהעדכון האחרון | דצמבר 2025 |
-| cognition\_2תאריך סף הידע | ינואר 2025 |
+| id\_cardKod modelu | `gemini-robotics-er-1.6-preview` |
+| saveObsługiwane typy danych | **Dane wejściowe**  Tekst, obrazy, filmy, dźwięk  **Dane wyjściowe**  Tekst |
+| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  131 072  **Limit tokenów wyjściowych**  65 536 |
+| handymanUprawnienia | **Generowanie dźwięku**  Nieobsługiwane  **Batch API**  Obsługiwane  **Zapisywanie w pamięci podręcznej**  Obsługiwane  **Wykonanie kodu**  Obsługiwane  **Korzystanie z komputera**  Obsługiwane  **Wyszukiwanie plików**  Obsługiwane  **Elastyczne wnioskowanie**  Obsługiwane  **Wywoływanie funkcji**  Obsługiwane  **Powiązanie ze źródłem informacji przy użyciu Map Google**  Obsługiwane  **Generowanie obrazów**  Nieobsługiwane  **Live API**  Nieobsługiwane  **Wnioskowanie o priorytecie**  Obsługiwane  **Szukaj groundingu**  Obsługiwane  **Ustrukturyzowane dane wyjściowe**  Obsługiwane  **Myślenie**  Obsługiwane  **Kontekst adresu URL**  Obsługiwane |
+| 123Wersje | Więcej informacji znajdziesz w [wzorcach wersji modelu](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#model-versions).  - Podgląd: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthOstatnia aktualizacja | Grudzień 2025 r. |
+| cognition\_2Granica wiedzy | Styczeń 2025 r. |
 
-שליחת משוב
+Prześlij opinię
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-עדכון אחרון: 2026-04-30 (שעון UTC).
+Ostatnia aktualizacja: 2026-04-30 UTC.
 
-רוצה לתת לנו משוב?
+Chcesz przekazać coś jeszcze?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-30 (שעון UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-30 UTC."],[],[]]

@@ -1,43 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-TW
-fetched_at: 2026-06-15T06:24:04.777597+00:00
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi
+fetched_at: 2026-06-22T06:25:50.895695+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-提供意見
+Gửi ý kiến phản hồi
 
-# 生成文字轉語音檔案 (TTS)
+# Tạo lời nói từ văn bản (TTS)
 
-Gemini API 可使用 Gemini 文字轉語音 (TTS) 生成功能，將文字輸入內容轉換為單人或多人語音。文字轉語音 (TTS) 生成功能*[可控](#controllable)*，也就是說，你可以使用自然語言建構互動，並引導音訊的*風格*、*口音*、*語速*和*語氣*。
+Gemini API có thể chuyển đổi văn bản đầu vào thành âm thanh của một hoặc nhiều người nói bằng cách sử dụng các chức năng tạo văn bản thành lời nói (TTS) của Gemini.
+Bạn có thể *[kiểm soát](#controllable)* quá trình tạo văn bản sang lời nói (TTS). Tức là bạn có thể sử dụng ngôn ngữ tự nhiên để cấu trúc các lượt tương tác và hướng dẫn *phong cách*, *giọng*, *tốc độ* và *giọng điệu* của âm thanh.
 
-[在 Google AI Studio 中試用](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=zh-tw)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com/apps/bundled/voice-library?showPreview=truew&hl=vi)
 
-TTS 功能與[Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 提供的語音生成功能不同，後者專為互動式非結構化音訊，以及多模態輸入和輸出內容而設計。雖然 Live API 非常適合動態對話情境，但 Gemini API 的 TTS 專為需要準確朗讀文字，並精細控制風格和聲音的情境而設計，例如生成 Podcast 或有聲書。
+Khả năng TTS khác với khả năng tạo lời nói được cung cấp thông qua [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi). Live API được thiết kế cho âm thanh tương tác, không có cấu trúc, cũng như đầu vào và đầu ra đa phương thức. Mặc dù Live API vượt trội trong các ngữ cảnh đàm thoại linh hoạt, nhưng TTS thông qua Gemini API được điều chỉnh cho phù hợp với những trường hợp yêu cầu đọc chính xác văn bản với khả năng kiểm soát chi tiết về phong cách và âm thanh, chẳng hạn như tạo podcast hoặc sách nói.
 
-本指南說明如何從文字產生單一說話者和多位說話者的音訊。
+Hướng dẫn này trình bày cách tạo âm thanh một người nói và nhiều người nói từ văn bản.
 
-## 事前準備
+## Trước khi bắt đầu
 
-請務必使用具備 Gemini 文字轉語音 (TTS) 功能的 Gemini 模型變體，如「[支援的模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#supported-models)」一節所述。為獲得最佳結果，請考慮哪種模型最適合您的特定用途。
+Đảm bảo bạn sử dụng một biến thể mô hình Gemini có các chức năng chuyển văn bản sang lời nói (TTS) của Gemini, như được liệt kê trong phần [Các mô hình được hỗ trợ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi#supported-models). Để có kết quả tối ưu, hãy cân nhắc xem mô hình nào phù hợp nhất với trường hợp sử dụng cụ thể của bạn.
 
-建議您先[在 AI Studio 中測試 Gemini TTS 模型](https://aistudio.google.com/generate-speech?hl=zh-tw)，再開始建構。
+Bạn nên [kiểm thử các mô hình TTS của Gemini trong AI Studio](https://aistudio.google.com/generate-speech?hl=vi) trước khi bắt đầu xây dựng.
 
-## 單一說話者文字轉語音
+## TTS một người nói
 
-如要將文字轉換為單一說話者音訊，請將回應模式設為「audio」，並傳遞 `VoiceConfig` 已設定的 `SpeechConfig` 物件。你必須從預先建構的[輸出語音](#voices)中選擇語音名稱。
+Để chuyển văn bản thành âm thanh của một người nói, hãy đặt phương thức phản hồi thành "audio" và truyền một đối tượng `SpeechConfig` có `VoiceConfig` được đặt.
+Bạn sẽ cần chọn tên giọng nói trong số các [giọng nói đầu ra](#voices) được tạo sẵn.
 
-這個範例會將模型的輸出音訊儲存為 Wave 檔案：
+Ví dụ này lưu âm thanh đầu ra từ mô hình vào một tệp sóng:
 
 ### Python
 
@@ -160,9 +162,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## 多位說話者文字轉語音
+## TTS nhiều giọng nói
 
-如要使用多說話者音訊，您需要 `MultiSpeakerVoiceConfig` 物件，並將每個說話者 (最多 2 位) 設定為 `SpeakerVoiceConfig`。您必須使用與[提示](#controllable)中相同的名稱定義每個 `speaker`：
+Đối với âm thanh nhiều loa, bạn sẽ cần một đối tượng `MultiSpeakerVoiceConfig` có mỗi loa (tối đa 2) được định cấu hình dưới dạng `SpeakerVoiceConfig`.
+Bạn sẽ cần xác định từng `speaker` bằng các tên giống nhau được dùng trong [lệnh](#controllable):
 
 ### Python
 
@@ -336,9 +339,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-t
 ffmpeg -f s16le -ar 24000 -ac 1 -i out.pcm out.wav
 ```
 
-## 使用提示控制語音風格
+## Kiểm soát kiểu giọng nói bằng câu lệnh
 
-無論是單人還是多人 TTS，都可以使用自然語言提示詞或[音訊標記](#transcript-tags)控制風格、語氣、口音和語速。舉例來說，在單一說話者的提示中，你可以說：
+Bạn có thể kiểm soát phong cách, giọng điệu, ngữ điệu và tốc độ bằng cách sử dụng câu lệnh bằng ngôn ngữ tự nhiên hoặc [thẻ âm thanh](#transcript-tags) cho cả TTS một người nói và nhiều người nói.
+Ví dụ: trong câu lệnh có một người nói, bạn có thể nói:
 
 ```
 Say in an spooky voice:
@@ -346,7 +350,7 @@ Say in an spooky voice:
 [whisper] Something wicked this way comes"
 ```
 
-在多位說話者的提示中，請提供每位說話者的姓名和對應的轉錄稿。你也可以個別為每位揚聲器提供指引：
+Trong một câu lệnh có nhiều người nói, hãy cung cấp cho mô hình tên của từng người nói và bản chép lời tương ứng. Bạn cũng có thể cung cấp hướng dẫn cho từng người nói riêng lẻ:
 
 ```
 Make Speaker1 sound tired and bored, and Speaker2 sound excited and happy:
@@ -355,11 +359,11 @@ Speaker1: So... [yawn] what's on the agenda today?
 Speaker2: You're never going to guess!
 ```
 
-試著使用符合你想傳達風格或情緒的[語音選項](#voices)，進一步強調重點。舉例來說，在先前的提示中，*土衛二*的氣音可能強調「疲倦」和「無聊」，而*帕克*的歡快語氣則可與「興奮」和「快樂」相輔相成。
+Hãy thử dùng [lựa chọn giọng nói](#voices) tương ứng với phong cách hoặc cảm xúc mà bạn muốn truyền tải để nhấn mạnh hơn nữa. Ví dụ: trong câu lệnh trước, giọng nói của *Enceladus* có thể nhấn mạnh cảm xúc "mệt mỏi" và "buồn chán", trong khi giọng điệu vui vẻ của *Puck* có thể bổ sung cho cảm xúc "hào hứng" và "vui vẻ".
 
-## 正在生成轉換為語音的提示
+## Tạo câu lệnh để chuyển đổi thành âm thanh
 
-TTS 模型只會輸出音訊，但您可以先使用[其他模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)生成轉錄稿，然後將轉錄稿傳遞至 TTS 模型朗讀。
+Các mô hình TTS chỉ xuất âm thanh, nhưng bạn có thể dùng [các mô hình khác](https://ai.google.dev/gemini-api/docs/models?hl=vi) để tạo bản chép lời trước, sau đó truyền bản chép lời đó đến mô hình TTS để đọc to.
 
 ### Python
 
@@ -453,121 +457,215 @@ const response = await ai.models.generateContent({
 await main();
 ```
 
-## 語音選項
+## Tạo lời nói trực tuyến
 
-TTS 模型在 `voice_name` 欄位中支援下列 30 個語音選項：
+Bạn có thể phát trực tuyến âm thanh được tạo trong khi mô hình đang tạo âm thanh. Điều này hữu ích trong việc giảm độ trễ cảm nhận.
+
+### Python
+
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client()
+
+response_stream = client.models.generate_content_stream(
+   model="gemini-3.1-flash-tts-preview",
+   contents="Say cheerfully: Have a wonderful day!",
+   config=types.GenerateContentConfig(
+      response_modalities=["AUDIO"],
+      speech_config=types.SpeechConfig(
+         voice_config=types.VoiceConfig(
+            prebuilt_voice_config=types.PrebuiltVoiceConfig(
+               voice_name='Kore',
+            )
+         )
+      ),
+   )
+)
+
+for chunk in response_stream:
+   try:
+      data = chunk.candidates[0].content.parts[0].inline_data.data
+      # data contains raw PCM bytes (24kHz, 1-channel, 16-bit)
+      # Process the audio chunk (e.g., play it or write to a file)
+   except (IndexError, AttributeError):
+      pass
+```
+
+### JavaScript
+
+```
+import {GoogleGenAI} from '@google/genai';
+
+async function main() {
+   const ai = new GoogleGenAI({});
+
+   const responseStream = await ai.models.generateContentStream({
+      model: "gemini-3.1-flash-tts-preview",
+      contents: [{ parts: [{ text: 'Say cheerfully: Have a wonderful day!' }] }],
+      config: {
+            responseModalities: ['AUDIO'],
+            speechConfig: {
+               voiceConfig: {
+                  prebuiltVoiceConfig: { voiceName: 'Kore' },
+               },
+            },
+      },
+   });
+
+   for await (const chunk of responseStream) {
+      const data = chunk.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+      if (data) {
+         const audioBuffer = Buffer.from(data, 'base64');
+         // Process the audio buffer
+      }
+   }
+}
+await main();
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-tts-preview:streamGenerateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+        "contents": [{
+          "parts":[{
+            "text": "Say cheerfully: Have a wonderful day!"
+          }]
+        }],
+        "generationConfig": {
+          "responseModalities": ["AUDIO"],
+          "speechConfig": {
+            "voiceConfig": {
+              "prebuiltVoiceConfig": {
+                "voiceName": "Kore"
+              }
+            }
+          }
+        }
+    }'
+```
+
+## Lựa chọn giọng nói
+
+Các mô hình TTS hỗ trợ 30 lựa chọn giọng nói sau đây trong trường `voice_name`:
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** - *Bright* | **Puck** - *Upbeat* | **Charon** - *獲得了實用的資訊* |
-| **韓國** - *公司* | **Fenrir** - *興奮* | **Leda** -- *青春* |
-| **Orus** -- *Firm* | **Aoede** - *Breezy* | **Callirrhoe** - *隨和* |
-| **Autonoe** -- *Bright* | **Enceladus** -- *Breathy* | **Iapetus** -- *Clear* |
-| **Umbriel** -- *輕鬆* | **Algieba** - *平滑* | **Despina** -- *Smooth* |
-| **Erinome** -- *Clear* | **Algenib** - *Gravelly* | **Rasalgethi** - *實用資訊* |
-| **Laomedeia** - *Upbeat* | **Achernar** - *柔和* | **Alnilam** - *Firm* |
-| **Schedar** -- *Even* | **Gacrux** - *成人內容* | **Pulcherrima** -- *轉寄* |
-| **Achird** - *Friendly* | **Zubenelgenubi** - *Casual* | **Vindemiatrix** - *Gentle* |
-| **Sadachbia** -- *Lively* | **Sadaltager** - *知識豐富* | **Sulafat** -- *溫暖* |
+| **Zephyr** – *Tươi sáng* | **Puck** – *Rộn ràng* | **Charon** – *Cung cấp nhiều thông tin* |
+| **Kore** – *Firm* | **Fenrir** – *Dễ kích động* | **Leda** – *Trẻ trung* |
+| **Orus** – *Firm* | **Aoede** – *Breezy* | **Callirrhoe** – *Dễ chịu* |
+| **Autonoe** – *Sáng* | **Enceladus** – *Breathy* | **Iapetus** – *Rõ ràng* |
+| **Umbriel** – *Dễ tính* | **Algieba** – *Làm mịn* | **Despina** – *Smooth* |
+| **Erinome** – *Clear* | **Algenib** – *Khàn* | **Rasalgethi** – *Cung cấp nhiều thông tin* |
+| **Laomedeia** – *Rộn ràng* | **Achernar** – *Dịu êm* | **Alnilam** – *Firm* |
+| **Schedar** – *Even* | **Gacrux** – *Người trưởng thành* | **Pulcherrima** – *Chuyển tiếp* |
+| **Achird** – *Thân thiện* | **Zubenelgenubi** – *Bình thường* | **Vindemiatrix** – *Dịu dàng* |
+| **Sadachbia** – *Lively* | **Sadaltager** – *Hiểu biết* | **Sulafat** – *Ấm* |
 
-你可以在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-tw) 試聽所有語音選項。
+Bạn có thể nghe tất cả các lựa chọn về giọng nói trong [AI Studio](https://aistudio.google.com/generate-speech?hl=vi).
 
-## 支援的語言
+## Ngôn ngữ được hỗ trợ
 
-TTS 模型會自動偵測輸入語言。支援的語言如下：
+Các mô hình TTS tự động phát hiện ngôn ngữ đầu vào. Các ngôn ngữ sau đây được hỗ trợ:
 
-| 語言 | BCP-47 代碼 | 語言 | BCP-47 代碼 |
+| Ngôn ngữ | Mã BCP-47 | Ngôn ngữ | Mã BCP-47 |
 | --- | --- | --- | --- |
-| 阿拉伯文 | ar | 菲律賓文 | fil |
-| 孟加拉文 | bn | 芬蘭文 | fi |
-| 荷蘭文 | nl | 加里西亞文 | gl |
-| 英文 | en | 喬治亞文 | ka |
-| 法文 | fr | 希臘文 | el |
-| 德文 | de | 古吉拉特文 | gu |
-| 北印度文 | hi | 海地克里奧爾文 | ht |
-| 印尼文 | id | 希伯來文 | 他 |
-| 義大利文 | it | 匈牙利文 | hu |
-| 日文 | ja | 冰島文 | 為 |
-| 韓文 | ko | 爪哇語 | 爪哇文 |
-| 馬拉地文 | mr | 卡納達文 | kn |
-| 波蘭文 | pl | 貢根文 | kok |
-| 葡萄牙文 | pt | 寮文 | lo |
-| 羅馬尼亞文 | ro | 拉丁 | la |
-| 俄文 | ru | 拉脫維亞文 | lv |
-| 西班牙文 | es | 立陶宛文 | lt |
-| 泰米爾文 | ta | 盧森堡文 | lb |
-| 泰盧固文 | te | 馬其頓文 | mk |
-| 泰文 | th | 邁蒂利文 | mai |
-| 土耳其文 | tr | 馬達加斯加文 | mg |
-| 烏克蘭文 | uk | 馬來文 | 毫秒 |
-| 越南文 | vi | 馬拉雅拉姆文 | ml |
-| 南非荷蘭文 | af | 蒙古文 | mn |
-| 阿爾巴尼亞文 | sq | 尼泊爾文 | ne |
-| 阿姆哈拉文 | am | 挪威文 (巴克摩) | nb |
-| 亞美尼亞文 | hy | 挪威文 (新挪威文) | nn |
-| 亞塞拜然文 | az | 歐利亞文 | 或 |
-| 巴斯克文 | eu | 普什圖文 | ps |
-| 白俄羅斯語 | be | 波斯文 | fa |
-| 保加利亞文 | bg | 旁遮普文 | pa |
-| 緬甸文 | my | 塞爾維亞文 | sr |
-| 加泰隆尼亞文 | ca | 信德文 | sd |
-| 宿霧文 | ceb | 錫蘭文 | si |
-| 中文 (國語) | cmn | 斯洛伐克文 | sk |
-| 克羅埃西亞文 | 時 | 斯洛維尼亞文 | sl |
-| 捷克文 | cs | 史瓦西里文 | sw |
-| 丹麥文 | da | 瑞典文 | sv |
-| 愛沙尼亞文 | et | 烏都文 | ur |
+| Tiếng Ả Rập | ar | Tiếng Philippines | fil |
+| Tiếng Bangla | bn | Tiếng Phần Lan | fi |
+| Tiếng Hà Lan | nl | Tiếng Galicia | gl |
+| Tiếng Anh | vi | Tiếng Gruzia | ka |
+| Tiếng Pháp | fr | Tiếng Hy Lạp | el |
+| Tiếng Đức | de | Tiếng Gujarat | gu |
+| Tiếng Hindi | hi | Tiếng Creole ở Haiti | ht |
+| Tiếng Indonesia | id | Tiếng Do Thái | hi hi |
+| Tiếng Ý | it | Tiếng Hungary | hu |
+| Tiếng Nhật | ja | Tiếng Iceland | is |
+| Tiếng Hàn | ko | Tiếng Java | jv |
+| Tiếng Marathi | mr | Tiếng Kannada | kn |
+| Tiếng Ba Lan | pl | Tiếng Konkani | kok |
+| Tiếng Bồ Đào Nha | pt | Tiếng Lào | lo |
+| Tiếng Rumani | ro | Latinh | la |
+| Tiếng Nga | ru | Tiếng Latvia | lv |
+| Tiếng Tây Ban Nha | es | Tiếng Lithuania | lt |
+| Tiếng Tamil | ta | Tiếng Luxembourg | lb |
+| Tiếng Telugu | te | Tiếng Macedonia | mk |
+| Tiếng Thái | th | Tiếng Maithili | mai |
+| Tiếng Thổ Nhĩ Kỳ | tr | Tiếng Malagasy | mg |
+| Tiếng Ukraina | uk | Tiếng Malay | ms |
+| Tiếng Việt | vi | Tiếng Malayalam | ml |
+| Tiếng Hà Lan ở Nam Phi | af | Tiếng Mông Cổ | mn |
+| Tiếng Albania | sq | Tiếng Nepal | ne |
+| Tiếng Amhara | sáng | Tiếng Na Uy, Bokmål | nb |
+| Tiếng Armenia | hy | Tiếng Na Uy, Nynorsk | nn |
+| Tiếng Azerbaijan | az | Tiếng Odia | hoặc |
+| Tiếng Basque | eu | Tiếng Pashto | ps |
+| Tiếng Belarus | be | Persian | fa |
+| Tiếng Bungary | bg | Tiếng Punjab | pa |
+| Tiếng Myanmar | my | Tiếng Serbia | sr |
+| Tiếng Catalan | ca | Tiếng Sindh | sd |
+| Tiếng Cebuano | ceb | Tiếng Sinhala | si |
+| Tiếng Trung, tiếng Quan thoại | cmn | Tiếng Slovak | sk |
+| Croatian | giờ | Tiếng Slovenia | sl |
+| Tiếng Séc | cs | Tiếng Swahili | sw |
+| Tiếng Đan Mạch | da | Tiếng Thuỵ Điển | sv |
+| Tiếng Estonia | et | Tiếng Urdu | ur |
 
-## 支援的模型
+## Mô hình được hỗ trợ
 
-| 型號 | 單一說話者 | 多位說話者 |
+| Mô hình | Loa đơn | Nhiều người nói |
 | --- | --- | --- |
-| [Gemini 3.1 Flash TTS 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=zh-tw) | ✔️ | ✔️ |
-| [Gemini 2.5 Flash 預先發布版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=zh-tw) | ✔️ | ✔️ |
-| [Gemini 2.5 Pro 預先發布版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=zh-tw) | ✔️ | ✔️ |
+| [Bản xem trước tính năng chuyển văn bản sang lời nói của Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=vi) | ✔️ | ✔️ |
+| [Bản xem trước Gemini 2.5 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=vi) | ✔️ | ✔️ |
+| [TTS của Gemini 2.5 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=vi) | ✔️ | ✔️ |
 
-## 提示撰寫指南
+## Hướng dẫn đặt câu lệnh
 
-**Gemini 原生語音生成 Text-to-Speech (TTS)** 模型與傳統 TTS 模型不同，它使用大型語言模型，***不僅知道要說什麼，也知道該怎麼說***。
+Mô hình **Tạo âm thanh gốc cho tính năng Chuyển văn bản sang lời nói (TTS) của Gemini** khác biệt với các mô hình TTS truyền thống bằng cách sử dụng một mô hình ngôn ngữ lớn, ***không chỉ biết nội dung cần nói mà còn biết cách nói***.
 
-模型會直接解讀轉錄稿，並決定如何傳達你的話。簡單的轉錄稿不需要額外提示，聽起來也很自然。不過，Gemini TTS 也提供可引導語音生成的工具。
+Ngay từ đầu, mô hình sẽ diễn giải bản chép lời một cách tự nhiên và xác định cách bạn nên truyền tải lời nói. Bản chép lời đơn giản mà không cần thêm câu lệnh nghe có vẻ tự nhiên. Tuy nhiên, Gemini TTS cũng đi kèm với các công cụ mà bạn có thể dùng để điều hướng.
 
-本指南旨在提供基本指引，並在開發音訊體驗時激發創意。我們會先介紹 **標記**，讓您快速進行內嵌控制，然後探討進階的 **提示結構**，全面提升效能。
+Mục đích của hướng dẫn này là đưa ra hướng dẫn cơ bản và khơi gợi ý tưởng khi phát triển trải nghiệm âm thanh. Chúng ta sẽ bắt đầu với **Thẻ** để kiểm soát nhanh nội dung, sau đó khám phá **Cấu trúc câu lệnh** nâng cao để có hướng dẫn đầy đủ về hiệu suất.
 
-### 音訊標記
+### Thẻ âm thanh
 
-標記是 `[whispers]` 或 `[laughs]` 等內嵌修飾符，可精細控管放送方式。你可以使用這些提示變更轉錄稿中某一行或某個部分的語氣、步調和情緒氛圍。你也可以使用這些音效，在表演中加入感嘆詞和其他非語言聲音，例如 `[cough]`、`[sighs]` 或 `[gasp]`。
+Thẻ là các đối tượng sửa đổi nội dòng như `[whispers]` hoặc `[laughs]` giúp bạn kiểm soát chi tiết việc truyền tải. Bạn có thể dùng thẻ để thay đổi giọng điệu, nhịp độ và cảm xúc của một dòng hoặc đoạn trong bản chép lời. Bạn cũng có thể dùng thẻ để thêm từ cảm thán và một số âm thanh phi ngôn từ khác vào bản diễn giải, chẳng hạn như `[cough]`, `[sighs]` hoặc `[gasp]`.
 
-我們無法提供標記的完整清單，建議您嘗試使用不同的情緒和表情，看看輸出結果有何變化。
+Không có danh sách đầy đủ về những thẻ hoạt động và không hoạt động. Bạn nên thử nghiệm với nhiều cảm xúc và biểu cảm để xem kết quả thay đổi như thế nào.
 
-如果轉錄稿不是英文，建議您仍使用英文音訊標記，以獲得最佳結果。
+Nếu bản chép lời không phải bằng tiếng Anh, để đạt được kết quả tốt nhất, bạn vẫn nên sử dụng thẻ âm thanh bằng tiếng Anh.
 
-**善用音訊標記**
+**Sáng tạo với thẻ âm thanh**
 
-為展現音訊標記可帶來的多樣性，我們提供一系列範例，內容都相同，但傳達方式會因使用的標記而異。
+Để cho thấy mức độ đa dạng mà bạn có thể đạt được với thẻ âm thanh, sau đây là một bộ ví dụ. Mỗi ví dụ đều nói cùng một điều, nhưng cách truyền tải sẽ thay đổi dựa trên thẻ được sử dụng.
 
-你可以在行首加入標記，改變朗讀的強調方式，讓講者顯得興奮、無聊或不情願：
+Bạn có thể thay đổi mức độ nhấn mạnh của nội dung bằng cách thêm thẻ vào đầu dòng để khiến người nói cảm thấy hào hứng, buồn chán hoặc miễn cưỡng:
 
-- `[excitedly]`你好，我是新的文字轉語音模型，可以透過多種方式說話。你今天想做什麼呢？
-- `[bored]`你好，我是全新的文字轉語音模型…
-- `[reluctantly]`你好，我是全新的文字轉語音模型…
+- `[excitedly]` Xin chào, tôi là một mô hình chuyển văn bản sang lời nói mới và có thể nói theo nhiều cách. Hôm nay tôi có thể giúp gì cho bạn?
+- `[bored]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[reluctantly]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
 
-標記也可以用來改變朗讀速度，或結合速度和強調：
+Bạn cũng có thể dùng thẻ để thay đổi tốc độ truyền tải hoặc kết hợp tốc độ với điểm nhấn:
 
-- `[very fast]`你好，我是全新的文字轉語音模型…
-- `[very slow]`你好，我是全新的文字轉語音模型…
-- `[sarcastically, one painfully slow word at a time]`你好，我是新的文字轉語音模型…
+- `[very fast]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[very slow]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[sarcastically, one painfully slow word at a time]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
 
-你也可以精確控制特定段落，例如以氣音說出某個部分，然後大聲說出另一個部分。
+Bạn cũng có thể kiểm soát chính xác các phần cụ thể, tức là bạn có thể nói thì thầm một phần và hét lên một phần khác.
 
-- `[whispers]`你好，我是新的文字轉語音模型，`[shouting]`可以透過多種方式說話。`[whispers]` 今天需要什麼協助嗎？
+- `[whispers]` Xin chào, tôi là một mô hình chuyển văn bản sang lời nói mới, `[shouting]` và tôi có thể nói theo nhiều cách khác nhau. `[whispers]` Hôm nay tôi có thể giúp gì cho bạn
 
-您也可以嘗試任何創意構想：
+Bạn cũng có thể thử nghiệm mọi ý tưởng sáng tạo mà bạn muốn:
 
-- `[like a cartoon dog]`你好，我是全新的文字轉語音模型…
-- `[like dracula]`你好，我是全新的文字轉語音模型…
+- `[like a cartoon dog]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
+- `[like dracula]` Chào bạn, tôi là một mô hình chuyển văn bản sang lời nói mới…
 
-常用的標記包括：
+Các thẻ thường dùng bao gồm:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -576,22 +674,22 @@ TTS 模型會自動偵測輸入語言。支援的語言如下：
 | `[mischievously]` | `[panicked]` | `[sarcastic]` | `[serious]` |
 | `[shouting]` | `[tired]` | `[trembling]` | `[whispers]` |
 
-標記可讓你快速輕鬆地控管轉錄稿的傳送方式。如要進一步控制，可以將這些提示與情境提示結合，設定表演的整體基調和氛圍。
+Thẻ giúp bạn kiểm soát việc phân phối bản chép lời một cách nhanh chóng và dễ dàng. Để có thêm quyền kiểm soát, bạn có thể kết hợp các yếu tố này với một câu lệnh theo bối cảnh để đặt tông giọng và cảm xúc tổng thể của bản nhạc.
 
-### 撰寫進階提示詞
+### Câu lệnh nâng cao
 
-您可以將進階提示視為模型要遵循的系統指令。這項功能可為模型提供更多脈絡，並控管模型效能。
+Bạn có thể coi câu lệnh nâng cao là một chỉ dẫn hệ thống để mô hình tuân theo. Đây là cách để cung cấp cho mô hình nhiều bối cảnh và quyền kiểm soát hơn đối với hiệu suất.
 
-完善的提示應包含下列元素，共同打造出色的演出：
+Một câu lệnh hiệu quả lý tưởng sẽ bao gồm các yếu tố sau đây kết hợp với nhau để tạo ra hiệu suất tuyệt vời:
 
-- **音訊設定檔** - 為語音建立角色，定義角色身分、原型和任何其他特徵，例如年齡、背景等。
-- **場景**：設定舞台。描述實體環境和「氛圍」。
-- **導演筆記** - 提供成效指引，方便你細分虛擬藝人應注意的重要指示。例如風格、呼吸、節奏、咬字和口音。
-- **情境範例**：為模型提供情境起點，讓虛擬演員自然進入您設定的場景。
-- **轉錄稿**：模型會朗讀的文字。為獲得最佳成效，請注意轉錄稿主題和寫作風格應與你提供的指示相關。
-- **語音標記**：可插入轉錄稿的修飾符，用來變更文字的傳達方式，例如 `[whispers]` 或 `[shouting]`。
+- **Hồ sơ âm thanh** – Thiết lập một nhân vật cho giọng nói, xác định danh tính, nguyên mẫu và mọi đặc điểm khác của nhân vật như độ tuổi, bối cảnh, v.v.
+- **Cảnh** – Tạo bối cảnh. Mô tả cả môi trường vật chất và "bầu không khí".
+- **Ghi chú của đạo diễn** – Hướng dẫn về hiệu suất, nơi bạn có thể phân tích những chỉ dẫn quan trọng mà tài năng ảo cần lưu ý. Ví dụ: phong cách, hơi thở, tốc độ, cách phát âm và giọng điệu.
+- **Bối cảnh mẫu** – Cung cấp cho mô hình một điểm xuất phát theo bối cảnh, nhờ đó diễn viên ảo của bạn sẽ xuất hiện một cách tự nhiên trong cảnh mà bạn thiết lập.
+- **Bản chép lời** – Văn bản mà mô hình sẽ đọc. Để đạt hiệu suất tốt nhất, hãy nhớ rằng chủ đề và phong cách viết của bản chép lời phải tương quan với chỉ dẫn mà bạn đưa ra.
+- **Thẻ âm thanh** – Các đối tượng sửa đổi mà bạn có thể đưa vào bản chép lời để thay đổi cách truyền tải phần văn bản đó, chẳng hạn như `[whispers]` hoặc `[shouting]`.
 
-完整提示範例：
+Ví dụ về câu lệnh đầy đủ:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -630,18 +728,18 @@ just sat there pretending to work... stop it. Seriously, I see you.
 two... let's go!
 ```
 
-### 詳細的提示策略
+### Chiến lược đưa ra câu lệnh chi tiết
 
-我們來逐一分析提示的各個元素。
+Hãy cùng phân tích từng thành phần của câu lệnh.
 
-#### 音訊格式設定
+#### Cấu hình âm thanh
 
-簡要描述角色的個性。
+Mô tả ngắn gọn về hình tượng của nhân vật.
 
-- **名稱**：為角色命名有助於模型掌握角色特徵，並提升效能。設定場景和情境時，請使用角色名稱
-- **角色**：在場景中扮演的角色核心身分和原型，例如電台 DJ、Podcast 創作者、新聞記者等。
+- **Tên**  Đặt tên cho nhân vật sẽ giúp mô hình và hiệu suất chặt chẽ hơn, Hãy gọi nhân vật bằng tên khi thiết lập cảnh và bối cảnh
+- **Vai trò.** Bản sắc và nguyên mẫu cốt lõi của nhân vật đang xuất hiện trong cảnh. Ví dụ: DJ đài phát thanh, người làm podcast, phóng viên tin tức, v.v.
 
-範例：
+Ví dụ:
 
 ```
 # AUDIO PROFILE: Jaz R.
@@ -653,11 +751,11 @@ two... let's go!
 ## "The Beauty Influencer"
 ```
 
-#### 場景
+#### Scene
 
-設定場景的背景資訊，包括地點、情境和環境細節，以確立基調和氛圍。描述角色周遭發生的情況，以及這些情況對角色的影響。場景會為整個互動提供環境背景資訊，並以細膩自然的方式引導表演。
+Thiết lập bối cảnh cho cảnh, bao gồm cả vị trí, tâm trạng và các chi tiết về môi trường để tạo ra tông giọng và cảm xúc. Mô tả những gì đang xảy ra xung quanh nhân vật và cách những sự kiện đó ảnh hưởng đến nhân vật. Khung cảnh cung cấp bối cảnh môi trường cho toàn bộ hoạt động tương tác và hướng dẫn diễn xuất một cách tinh tế và tự nhiên.
 
-範例：
+Ví dụ:
 
 ```
 ## THE SCENE: The London Studio
@@ -676,15 +774,15 @@ deadened by plush velvet curtains and a heavy rug, but there is a
 distinct "proximity effect."
 ```
 
-#### 導演附註
+#### Ghi chú của đạo diễn
 
-這個重要章節包含具體的成效指引。您可以略過所有其他元素，但建議您加入這個元素。
+Phần quan trọng này bao gồm hướng dẫn cụ thể về hiệu suất. Bạn có thể bỏ qua tất cả các phần tử khác, nhưng bạn nên đưa phần tử này vào.
 
-請只定義對效能有重要影響的項目，並小心不要過度指定。如果嚴格規則過多，模型創意就會受到限制，成效也可能因此變差。根據具體的演出規則，平衡角色和場景說明。
+Chỉ xác định những gì quan trọng đối với hiệu suất, cẩn thận để không chỉ định quá mức. Quá nhiều quy tắc nghiêm ngặt sẽ hạn chế khả năng sáng tạo của các mô hình và có thể dẫn đến hiệu suất kém hơn. Cân bằng vai trò và nội dung mô tả cảnh với các quy tắc diễn xuất cụ thể.
 
-最常見的指示是**風格、速度和口音**，但模型不限於這些指示，也不需要這些指示。您可以視需要加入自訂指令，涵蓋對成效有幫助的其他詳細資料，並盡可能詳細說明。
+Các hướng dẫn phổ biến nhất là **Phong cách, tốc độ và giọng điệu**, nhưng mô hình không giới hạn ở những hướng dẫn này và cũng không yêu cầu phải có những hướng dẫn này. Bạn có thể thoải mái thêm hướng dẫn tuỳ chỉnh để trình bày mọi thông tin bổ sung quan trọng đối với hiệu suất của bạn, đồng thời cung cấp nhiều hoặc ít thông tin chi tiết tuỳ theo nhu cầu.
 
-例如：
+Ví dụ:
 
 ```
 ### DIRECTOR'S NOTES
@@ -697,15 +795,15 @@ delivery influencers use in short form videos.
 Accent: Southern california valley girl from Laguna Beach |
 ```
 
-**樣式：**
+**Kiểu:**
 
-設定生成語音的語氣和風格。包括歡快、活力充沛、放鬆、無聊等情緒，引導表演。請盡可能詳細說明，並視需要提供下列資訊：*「熱情洋溢，聽眾應該感覺自己是盛大熱鬧社群活動的一份子。」*比單純說「充滿活力和熱情」*更有效。*
+Đặt âm điệu và phong cách cho lời nói được tạo. Hãy thêm những thông tin như sôi động, tràn đầy năng lượng, thư giãn, buồn chán, v.v. để hướng dẫn hiệu suất. Hãy mô tả và cung cấp nhiều thông tin chi tiết nhất có thể: *"Nhiệt tình truyền cảm hứng. Người nghe nên cảm thấy như họ là một phần của một sự kiện cộng đồng lớn và thú vị."* sẽ hiệu quả hơn so với việc chỉ nói *"đầy năng lượng và nhiệt huyết".*
 
-你甚至可以嘗試配音產業的熱門用語，例如「聲音微笑」。你可以視需要疊加多種風格特徵。
+Bạn thậm chí có thể thử các thuật ngữ phổ biến trong ngành lồng tiếng, chẳng hạn như "nụ cười trong giọng nói". Bạn có thể xếp lớp bao nhiêu đặc điểm về kiểu dáng tuỳ thích.
 
-範例：
+Ví dụ:
 
-簡單情緒
+Cảm xúc đơn giản
 
 ```
 DIRECTORS NOTES
@@ -714,7 +812,7 @@ Style: Frustrated and angry developer who can't get the build to run.
 ...
 ```
 
-更深入
+Độ sâu lớn hơn
 
 ```
 DIRECTORS NOTES
@@ -723,7 +821,7 @@ Style: Sassy GenZ beauty YouTuber, who mostly creates content for YouTube Shorts
 ...
 ```
 
-複雜
+Phức tạp
 
 ```
 DIRECTORS NOTES
@@ -734,11 +832,11 @@ always raised to keep the tone bright, sunny, and explicitly inviting.
 elongated vowels on excitement words (e.g., "Beauuutiful morning").
 ```
 
-**口音：**
+**Giọng:**
 
-描述想要的口音，描述得越具體，結果就越符合需求。例如使用「*英國克羅伊登的英語口音*」而非「*英國口音*」。
+Mô tả giọng nói bạn muốn. Bạn càng trình bày cụ thể thì kết quả càng tốt. Ví dụ: sử dụng "*Giọng tiếng Anh Anh như nghe thấy ở Croydon, Anh*" thay vì "*Giọng Anh*".
 
-範例：
+Ví dụ:
 
 ```
 ### DIRECTORS NOTES
@@ -754,13 +852,13 @@ Accent: Jaz is a DJ from Brixton, London
 ...
 ```
 
-**使用速度：**
+**Nhịp độ:**
 
-整部作品的整體節奏和節奏變化。
+Nhịp độ tổng thể và sự thay đổi nhịp độ trong suốt bản nhạc.
 
-範例：
+Ví dụ:
 
-簡潔
+Đơn giản
 
 ```
 ### DIRECTORS NOTES
@@ -769,7 +867,7 @@ Pacing: Speak as fast as possible
 ...
 ```
 
-更深入
+Độ sâu lớn hơn
 
 ```
 ### DIRECTORS NOTES
@@ -778,7 +876,7 @@ Pacing: Speaks at a faster, energetic pace, keeping up with fast paced music.
 ...
 ```
 
-複雜
+Phức tạp
 
 ```
 ### DIRECTORS NOTES
@@ -787,9 +885,9 @@ Pacing: The "Drift": The tempo is incredibly slow and liquid. Words bleed into e
 ...
 ```
 
-#### 轉錄稿和音訊標記
+#### Bản chép lời và thẻ âm thanh
 
-轉錄稿是模型會說出的確切字詞。音訊標記是方括號中的字詞，表示說話方式、語氣變化或感嘆詞。
+Bản chép lời là những từ chính xác mà mô hình sẽ nói. Thẻ âm thanh là một từ trong dấu ngoặc vuông cho biết cách nói một nội dung nào đó, sự thay đổi về giọng điệu hoặc một câu cảm thán.
 
 ```
 ### TRANSCRIPT
@@ -800,40 +898,40 @@ at that point.
 [cough] Well, [sighs] I guess it doesn't matter now.
 ```
 
-**歡迎試試**
+**Hãy thử**
 
-歡迎在 [AI Studio](https://aistudio.google.com/generate-speech?hl=zh-tw) 試試這些範例，並使用 [TTS 應用程式](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=zh-tw)，讓 Gemini 帶您體驗導演的樂趣。請參考以下訣竅，錄製出色的歌唱表演：
+Hãy tự mình thử một số ví dụ này trên [AI Studio](https://aistudio.google.com/generate-speech?hl=vi), dùng thử [Ứng dụng TTS](http://aistudio.google.com/app/apps/bundled/synergy_intro?hl=vi) của chúng tôi và để Gemini giúp bạn trở thành đạo diễn. Hãy ghi nhớ những mẹo sau để có màn trình diễn thanh nhạc tuyệt vời:
 
-- 請務必確保提示內容一致，因為腳本和指示是打造優質表演的關鍵。
-- 不必鉅細靡遺地描述所有內容，有時讓模型填補空白處，反而能產生更自然的結果。(就像才華洋溢的演員)
-- 如果遇到瓶頸，不妨請 Gemini 協助撰寫劇本或演出。
+- Hãy nhớ giữ cho toàn bộ câu lệnh nhất quán – kịch bản và chỉ đạo phải đi đôi với nhau để tạo ra một màn trình diễn tuyệt vời.
+- Bạn không cần phải mô tả mọi thứ, đôi khi việc cho phép mô hình tự điền vào chỗ trống sẽ giúp tạo ra hình ảnh tự nhiên hơn. (Giống như một diễn viên tài năng)
+- Nếu bạn cảm thấy bế tắc, hãy nhờ Gemini giúp bạn soạn kịch bản hoặc dàn dựng màn trình diễn.
 
-## 限制
+## Các điểm hạn chế
 
-- TTS 模型只能接收文字輸入內容，並生成音訊輸出內容。
-- TTS 工作階段的[脈絡窗口](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw)限制為 3.2 萬個權杖。
-- 如需語言支援資訊，請參閱「[語言](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#languages)」一節。
-- TTS 不支援串流。
+- Các mô hình TTS chỉ có thể nhận dữ liệu đầu vào là văn bản và tạo dữ liệu đầu ra là âm thanh.
+- Một phiên TTS có giới hạn [cửa sổ ngữ cảnh](https://ai.google.dev/gemini-api/docs/long-context?hl=vi) là 32.000 token.
+- Xem phần [Ngôn ngữ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi#languages) để biết thông tin về ngôn ngữ được hỗ trợ.
+- TTS không hỗ trợ truyền trực tuyến cho các mô hình cũ hơn phiên bản 3.1 (TTS hỗ trợ truyền trực tuyến cho `gemini-3.1-flash-tts-preview` trở lên).
 
-使用 Gemini 3.1 Flash TTS 預先發布版模型生成語音時，須遵守下列限制：
+Các ràng buộc sau đây chỉ áp dụng khi bạn dùng mô hình Gemini 3.1 Flash TTS Preview để tạo lời nói:
 
-- **語音與提示指令不一致：**模型輸出內容不一定會完全符合所選的說話者，因此音訊聽起來可能與預期不同。為避免語氣不一致 (例如低沉的男聲試圖模仿年輕女孩的聲音)，請確保提示詞的書面語氣和情境與所選講者的個人資料自然一致。
-- **較長輸出內容的品質：**如果生成的輸出內容超過幾分鐘，語音品質和一致性可能會開始下降。建議將轉錄稿分割成較小的片段。
-- **偶爾會傳回文字權杖：**模型偶爾會傳回文字權杖，而非音訊權杖，導致伺服器因 `500` 錯誤而無法處理要求。由於只有極少數要求會隨機發生這種情況，因此您應在應用程式中導入自動重試邏輯，以處理這些要求。
-- **提示分類器誤拒：**模糊不清的提示詞可能無法觸發語音合成分類器，導致要求遭拒 (`PROHIBITED_CONTENT`)，或導致模型大聲朗讀風格指示和導演筆記。請加入清楚的前言，指示模型合成語音，並明確標示實際語音轉錄稿的開頭，藉此驗證提示。
+- **Giọng nói không nhất quán với hướng dẫn trong câu lệnh:** Đầu ra của mô hình không phải lúc nào cũng hoàn toàn khớp với người nói đã chọn, khiến âm thanh khác với dự kiến. Để tránh giọng điệu không phù hợp (chẳng hạn như giọng nam trầm cố gắng nói như một cô gái trẻ), hãy đảm bảo giọng điệu và ngữ cảnh bằng văn bản của câu lệnh phù hợp một cách tự nhiên với hồ sơ của người nói được chọn.
+- **Chất lượng của đầu ra dài hơn:** Chất lượng và tính nhất quán của lời nói có thể bắt đầu giảm sút đối với đầu ra được tạo có thời lượng dài hơn vài phút. Bạn nên chia bản chép lời thành các phần nhỏ hơn.
+- **Thỉnh thoảng trả về mã thông báo văn bản:** Đôi khi, mô hình trả về mã thông báo văn bản thay vì mã thông báo âm thanh, khiến máy chủ không thực hiện được yêu cầu và trả về lỗi `500`. Vì điều này xảy ra ngẫu nhiên trong một tỷ lệ rất nhỏ các yêu cầu, bạn nên triển khai logic thử lại tự động trong ứng dụng của mình để xử lý những yêu cầu này.
+- **Trường hợp trình phân loại câu lệnh từ chối nhầm:** Các câu lệnh mơ hồ có thể không kích hoạt được trình phân loại tổng hợp lời nói, dẫn đến yêu cầu bị từ chối (`PROHIBITED_CONTENT`) hoặc khiến mô hình đọc to hướng dẫn về phong cách và ghi chú của đạo diễn. Xác thực câu lệnh của bạn bằng cách thêm một phần mở đầu rõ ràng hướng dẫn mô hình tổng hợp lời nói và gắn nhãn rõ ràng nơi bắt đầu bản chép lời thực tế.
 
-## 後續步驟
+## Bước tiếp theo
 
-- 請參閱[音訊生成食譜](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=zh-tw)。
-- Gemini 的 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 提供互動式音訊生成選項，可與其他模態交錯使用。
-- 如要使用音訊*輸入*，請參閱「[音訊理解](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)」指南。
+- Hãy thử [sách hướng dẫn tạo âm thanh](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_TTS.ipynb?hl=vi).
+- [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) của Gemini cung cấp các lựa chọn tạo âm thanh tương tác mà bạn có thể xen kẽ với các phương thức khác.
+- Để tìm hiểu cách xử lý *đầu vào* âm thanh, hãy xem hướng dẫn [Hiểu âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi).
 
-提供意見
+Gửi ý kiến phản hồi
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-上次更新時間：2026-05-19 (世界標準時間)。
+Cập nhật lần gần đây nhất: 2026-06-19 UTC.
 
-想進一步說明嗎？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]

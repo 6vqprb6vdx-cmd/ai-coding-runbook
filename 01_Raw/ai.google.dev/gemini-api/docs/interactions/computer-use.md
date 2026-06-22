@@ -1,80 +1,118 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=hi
-fetched_at: 2026-06-15T06:21:28.653488+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/computer-use
+fetched_at: 2026-06-22T06:25:07.025266+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+# Computer Use
 
-सुझाव भेजें
+Computer Use lets you build browser control agents that interact
+with and automate tasks. Using screenshots, the model can "see" a computer
+screen, and "act" by generating specific UI actions like mouse clicks and
+keyboard inputs. Similar to function calling, you need to write the client-side
+application code to receive and execute the Computer Use actions.
 
-# कंप्यूटर का इस्तेमाल
+With Computer Use, you can build agents that:
 
-कंप्यूटर का इस्तेमाल करने की सुविधा की मदद से, ब्राउज़र कंट्रोल करने वाले ऐसे एजेंट बनाए जा सकते हैं जो टास्क को ऑटोमेट करते हैं और उनके साथ इंटरैक्ट करते हैं. स्क्रीनशॉट का इस्तेमाल करके, मॉडल कंप्यूटर की स्क्रीन को "देख" सकता है. साथ ही, माउस क्लिक और कीबोर्ड इनपुट जैसे यूज़र इंटरफ़ेस (यूआई) ऐक्शन जनरेट करके "कार्रवाई" कर सकता है. फ़ंक्शन कॉलिंग की तरह ही, आपको कंप्यूटर का इस्तेमाल करने की सुविधा से जुड़ी कार्रवाइयां पाने और उन्हें लागू करने के लिए, क्लाइंट-साइड ऐप्लिकेशन कोड लिखना होगा.
+- Automate repetitive data entry or form filling on websites.
+- Perform automated testing of web applications and user flows
+- Conduct research across various websites (e.g., gathering product
+  information, prices, and reviews from ecommerce sites to inform a purchase)
 
-कंप्यूटर के इस्तेमाल की सुविधा की मदद से, ऐसे एजेंट बनाए जा सकते हैं जो:
+The easiest way to test the Computer Use capability is through the [reference
+implementation](https://github.com/google/computer-use-preview/) or
+[Browserbase demo environment](http://gemini.browserbase.com).
 
-- वेबसाइटों पर बार-बार डेटा डालने या फ़ॉर्म भरने की प्रोसेस को अपने-आप होने की सुविधा चालू करें.
-- वेब ऐप्लिकेशन और उपयोगकर्ता फ़्लो की ऑटोमेटेड टेस्टिंग करना
-- अलग-अलग वेबसाइटों पर रिसर्च करना. जैसे, खरीदारी करने से पहले ई-कॉमर्स साइटों से प्रॉडक्ट की जानकारी, कीमतें, और समीक्षाएं इकट्ठा करना
+## How Computer Use works
 
-कंप्यूटर इस्तेमाल करने की सुविधा को टेस्ट करने का सबसे आसान तरीका, [रेफ़रंस इंप्लीमेंटेशन](https://github.com/google/computer-use-preview/) या [Browserbase का डेमो एनवायरमेंट](http://gemini.browserbase.com) है.
+To build a browser control agent with the Computer Use model, implement
+an agent loop that does the following:
 
-## कंप्यूटर के इस्तेमाल की सुविधा कैसे काम करती है
+1. [**Send a request to the model**](#send-request)
 
-कंप्यूटर इस्तेमाल करने वाले मॉडल की मदद से, ब्राउज़र कंट्रोल करने वाला एजेंट बनाने के लिए, एजेंट लूप लागू करें. यह लूप ये काम करता है:
+   - Add the Computer Use tool and optionally any custom user-defined
+     functions or excluded functions to your API request.
+   - Prompt the Computer Use model with the user's request.
+2. [**Receive the model response**](#model-response)
 
-1. [**मॉडल को अनुरोध भेजना**](#send-request)
+   - The Computer Use model analyzes the user request and screenshot, and
+     generates a response which includes a suggested `function_call`
+     representing a UI action (e.g., "click at coordinate (x,y)" or "type
+     'text'"). For a description of all UI actions supported by the Computer
+     Use model, see [Supported actions](#supported-actions).
+   - The API response may also include a `safety_decision` from an internal
+     safety system that checks the model's proposed action. This
+     `safety_decision` classifies the action as:
+     - **Regular / allowed:** The action is considered safe. This may also
+       be represented by no `safety_decision` being present.
+     - **Requires confirmation (`require_confirmation`):** The model is about to
+       perform an action
+       that may be risky (e.g., clicking on an "accept cookie banner").
+3. [**Execute the received action**](#execute-actions)
 
-   - अपने एपीआई अनुरोध में, कंप्यूटर इस्तेमाल करने से जुड़ा टूल जोड़ें. साथ ही, चाहें तो उपयोगकर्ता की ओर से तय किए गए कस्टम फ़ंक्शन या हटाए गए फ़ंक्शन भी जोड़ें.
-   - उपयोगकर्ता के अनुरोध के साथ, कंप्यूटर के इस्तेमाल से जुड़े मॉडल को प्रॉम्प्ट करें.
-2. [**मॉडल से जवाब पाना**](#model-response)
+   - Your client-side code receives the `function_call` and any accompanying
+     `safety_decision`.
+     - **Regular / allowed:** If the `safety_decision` indicates regular /
+       allowed (or if no `safety_decision` is present), your client-side
+       code can execute the specified `function_call` in your target
+       environment (e.g., a web browser).
+     - **Requires confirmation:** If the `safety_decision` indicates
+       requires confirmation, your application must prompt the end-user for
+       confirmation before executing the `function_call`. If the user
+       confirms, proceed to execute the action. If the user denies, don't
+       execute the action.
+4. [**Capture the new environment state**](#capture-state)
 
-   - कंप्यूटर इस्तेमाल करने से जुड़ा मॉडल, उपयोगकर्ता के अनुरोध और स्क्रीनशॉट का विश्लेषण करता है. इसके बाद, एक जवाब जनरेट करता है. इसमें यूज़र इंटरफ़ेस (यूआई) से जुड़ी कार्रवाई को दिखाने वाला `function_call` शामिल होता है. जैसे, "कोऑर्डिनेट (x,y) पर क्लिक करें" या "'text' टाइप करें". कंप्यूटर इस्तेमाल करने से जुड़े मॉडल के साथ काम करने वाली यूज़र इंटरफ़ेस (यूआई) से जुड़ी सभी कार्रवाइयों के बारे में जानने के लिए, [काम करने वाली कार्रवाइयां](#supported-actions) देखें.
-   - एपीआई से मिले जवाब में, इंटरनल सुरक्षा सिस्टम से मिला `safety_decision` भी शामिल हो सकता है. यह सिस्टम, मॉडल की सुझाई गई कार्रवाई की जांच करता है. यह `safety_decision`, कार्रवाई को इस तरह से कैटगरी में बांटता है:
-     - **सामान्य / अनुमति है:** इस कार्रवाई को सुरक्षित माना जाता है. ऐसा भी हो सकता है कि कोई `safety_decision` मौजूद न हो.
-     - **पुष्टि करना ज़रूरी है (`require_confirmation`):** मॉडल ऐसी कार्रवाई करने वाला है
-       जो जोखिम भरी हो सकती है (जैसे, "कुकी स्वीकार करें" बैनर पर क्लिक करना).
-3. [**कार्रवाई को पूरा करना**](#execute-actions)
+   - If the action has been executed, your client captures a new screenshot
+     of the GUI and the current URL to send back to the Computer Use model as
+     part of a `function_result`.
+   - If an action was blocked by the safety system or denied confirmation by
+     the user, your application might send a different form of feedback to
+     the model or end the interaction.
 
-   - आपके क्लाइंट-साइड कोड को `function_call` और उससे जुड़ा कोई भी `safety_decision` मिलता है.
-     - **सामान्य / अनुमति है:** अगर `safety_decision` का मतलब सामान्य / अनुमति है या कोई `safety_decision` मौजूद नहीं है, तो क्लाइंट-साइड कोड, टारगेट एनवायरमेंट (जैसे, वेब ब्राउज़र) में तय किए गए `function_call` को लागू कर सकता है.
-     - **पुष्टि करना ज़रूरी है:** अगर `safety_decision` से पता चलता है कि पुष्टि करना ज़रूरी है, तो आपका ऐप्लिकेशन `function_call` को लागू करने से पहले, उपयोगकर्ता से पुष्टि करने के लिए कहेगा. अगर उपयोगकर्ता पुष्टि करता है, तो कार्रवाई पूरी करें. अगर उपयोगकर्ता अनुमति नहीं देता है, तो कार्रवाई न करें.
-4. [**नए एनवायरमेंट की स्थिति कैप्चर करना**](#capture-state)
+This process repeats from step 2 with the model using the new
+screenshot and the ongoing goal to suggest the next action. The loop continues
+until the task is completed, an error occurs, or the process is terminated
+(e.g., due to a "block" safety response or user decision).
 
-   - अगर कार्रवाई पूरी हो गई है, तो आपका क्लाइंट, जीयूआई और मौजूदा यूआरएल का नया स्क्रीनशॉट कैप्चर करता है. इसके बाद, इसे `function_result` के हिस्से के तौर पर, Computer Use मॉडल को वापस भेजता है.
-   - अगर सुरक्षा सिस्टम ने किसी कार्रवाई को ब्लॉक कर दिया है या उपयोगकर्ता ने पुष्टि करने से मना कर दिया है, तो हो सकता है कि आपका ऐप्लिकेशन, मॉडल को अलग तरह का सुझाव/राय/शिकायत भेजे या बातचीत खत्म कर दे.
+![Computer Use
+overview](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png)
 
-यह प्रोसेस, दूसरे चरण से फिर शुरू होती है. इसमें मॉडल, नए स्क्रीनशॉट और मौजूदा लक्ष्य का इस्तेमाल करके अगली कार्रवाई का सुझाव देता है.यह लूप तब तक जारी रहता है, जब तक टास्क पूरा नहीं हो जाता, कोई गड़बड़ी नहीं होती या प्रोसेस बंद नहीं हो जाती. जैसे, सुरक्षा से जुड़े "ब्लॉक" जवाब या उपयोगकर्ता के फ़ैसले की वजह से.
+## How to implement Computer Use
 
-![कंप्यूटर के इस्तेमाल की खास जानकारी](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=hi)
+Before building with the Computer Use tool you will need to set up the
+following:
 
-## कंप्यूटर के इस्तेमाल की सुविधा कैसे लागू करें
+- **Secure execution environment:** For safety reasons, you should run your
+  Computer Use agent in a secure and controlled environment (e.g., a sandboxed
+  virtual machine, a container, or a dedicated browser profile with limited
+  permissions).
+- **Client-side action handler:** You will need to implement client-side logic
+  to execute the actions generated by the model and
+  capture screenshots of the environment after each action.
 
-कंप्यूटर के इस्तेमाल से जुड़ी सुविधा का इस्तेमाल करके ऐप्लिकेशन बनाने से पहले, आपको ये सेट अप करने होंगे:
+The examples in this section use a browser as the execution environment
+and [Playwright](https://playwright.dev/) as the client-side action handler. To
+run these samples you must install the necessary dependencies and initialize a
+Playwright browser instance:
 
-- **सुरक्षित एक्ज़ीक्यूशन एनवायरमेंट:** सुरक्षा की वजहों से, आपको कंप्यूटर इस्तेमाल करने वाले एजेंट को सुरक्षित और कंट्रोल किए गए एनवायरमेंट में चलाना चाहिए. जैसे, सैंडबॉक्स की गई वर्चुअल मशीन, कंटेनर या सीमित अनुमतियों वाली ब्राउज़र प्रोफ़ाइल.
-- **क्लाइंट-साइड ऐक्शन हैंडलर:** आपको क्लाइंट-साइड लॉजिक लागू करना होगा, ताकि मॉडल से जनरेट किए गए ऐक्शन को लागू किया जा सके. साथ ही, हर ऐक्शन के बाद एनवायरमेंट के स्क्रीनशॉट कैप्चर किए जा सकें.
-
-इस सेक्शन में दिए गए उदाहरणों में, ब्राउज़र को एक्ज़ीक्यूशन एनवायरमेंट के तौर पर और [Playwright](https://playwright.dev/) को क्लाइंट-साइड ऐक्शन हैंडलर के तौर पर इस्तेमाल किया गया है. इन सैंपल को चलाने के लिए, आपको ज़रूरी डिपेंडेंसी इंस्टॉल करनी होंगी. साथ ही, Playwright ब्राउज़र इंस्टेंस को शुरू करना होगा:
-
-### 0. Playwright इंस्टॉल करना
+### 0. Install Playwright
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-### 0. Playwright ब्राउज़र इंस्टेंस शुरू करना
+### 0. Initialize Playwright browser instance
 
 ```
 from playwright.sync_api import sync_playwright
@@ -102,22 +140,30 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-Android एनवायरमेंट के लिए, एक्सटेंड करने का सैंपल कोड [उपयोगकर्ता की ओर से तय किए गए कस्टम फ़ंक्शन इस्तेमाल करना](#custom-functions) सेक्शन में शामिल है.
+Sample code for extending to an Android
+environment is included in the [Using custom user-defined
+functions](#custom-functions) section.
 
-### 1. मॉडल को अनुरोध भेजना
+### 1. Send a request to the model
 
-अपने एपीआई अनुरोध में, कंप्यूटर का इस्तेमाल करने वाले टूल को जोड़ें. साथ ही, मॉडल को ऐसा प्रॉम्प्ट भेजें जिसमें उपयोगकर्ता का लक्ष्य शामिल हो. आपको कंप्यूटर का इस्तेमाल करने वाले टूल के साथ काम करने वाले किसी एक मॉडल का इस्तेमाल करना होगा. ऐसा न करने पर, आपको गड़बड़ी का मैसेज मिलेगा:
+Add the Computer Use tool to your API request and send a prompt to the model
+that includes the user's goal. You must use one of the Computer Use supported
+models or you will get an error:
 
 - `gemini-2.5-computer-use-preview-10-2025`
 - `gemini-3-flash-preview`
 
-इसके अलावा, ये पैरामीटर भी जोड़े जा सकते हैं:
+You can also optionally add the following parameters:
 
-- **छोड़ी गई कार्रवाइयां:** अगर आपको [यूज़र इंटरफ़ेस (यूआई) पर की जा सकने वाली कार्रवाइयों](#supported-actions) की सूची में से कुछ कार्रवाइयां मॉडल से नहीं करानी हैं, तो उन कार्रवाइयों को `excluded_predefined_functions` के तौर पर मार्क करें.
-- **उपयोगकर्ता के तय किए गए फ़ंक्शन:** कंप्यूटर के इस्तेमाल से जुड़ी जानकारी देने वाले टूल के अलावा, आपके पास उपयोगकर्ता के तय किए गए कस्टम फ़ंक्शन शामिल करने का विकल्प होता है.
+- **Excluded actions:** If there are any actions from the list of [Supported
+  UI actions](#supported-actions) that you don't want the model to take,
+  specify these actions as `excluded_predefined_functions`.
+- **User-defined functions:** In addition to the Computer Use tool, you may
+  want to include custom user-defined functions.
 
-ध्यान दें कि अनुरोध करते समय, डिसप्ले साइज़ के बारे में बताना ज़रूरी नहीं है;
-मॉडल, स्क्रीन की ऊंचाई और चौड़ाई के हिसाब से पिक्सेल कोऑर्डिनेट का अनुमान लगाता है.
+Note that there is no need to specify the display size when issuing a request;
+the model predicts pixel coordinates scaled to the height and width of the
+screen.
 
 ### Python
 
@@ -144,13 +190,17 @@ interaction = client.interactions.create(
 print(interaction)
 ```
 
-कस्टम फ़ंक्शन के उदाहरण के लिए, [कस्टम फ़ंक्शन इस्तेमाल करना](#custom-functions) लेख पढ़ें.
+For an example with custom functions, see [Using custom
+user-defined functions](#custom-functions).
 
-### 2. मॉडल से जवाब पाना
+### 2. Receive the model response
 
-कंप्यूटर का इस्तेमाल करने की सुविधा चालू होने पर, मॉडल एक या उससे ज़्यादा `function_call` चरणों में जवाब देगा. ऐसा तब होगा, जब उसे लगेगा कि टास्क पूरा करने के लिए यूज़र इंटरफ़ेस (यूआई) से जुड़ी कार्रवाइयां ज़रूरी हैं. कंप्यूटर का इस्तेमाल करने की सुविधा, एक साथ कई फ़ंक्शन कॉल करने की सुविधा के साथ काम करती है. इसका मतलब है कि मॉडल, एक ही बार में कई कार्रवाइयां कर सकता है.
+When the Computer Use tool is enabled, the model will respond with one or more
+`function_call` steps if it determines UI actions are needed to complete the task.
+Computer Use supports parallel function calling, meaning the model can return
+multiple actions in a single turn.
 
-यहां मॉडल के जवाब का एक उदाहरण दिया गया है.
+Here is an example model response.
 
 ```
 {
@@ -178,15 +228,26 @@ print(interaction)
 }
 ```
 
-### 3. मिली हुई कार्रवाइयों को लागू करना
+### 3. Execute the received actions
 
-आपके ऐप्लिकेशन कोड को मॉडल के जवाब को पार्स करना होगा, कार्रवाइयां करनी होंगी, और नतीजे इकट्ठा करने होंगे.
+Your application code needs to parse the model response, execute the actions,
+and collect the results.
 
-यहां दिए गए उदाहरण कोड में, Computer Use मॉडल के जवाब से फ़ंक्शन कॉल निकाले गए हैं. साथ ही, उन्हें ऐसी कार्रवाइयों में बदला गया है जिन्हें Playwright की मदद से पूरा किया जा सकता है. मॉडल, इनपुट इमेज के डाइमेंशन के बावजूद, सामान्य किए गए कोऑर्डिनेट (0-999) आउटपुट करता है. इसलिए, अनुवाद के चरण में इन सामान्य किए गए कोऑर्डिनेट को वापस पिक्सल की असल वैल्यू में बदला जाता है.
+The following example code extracts function calls from the Computer Use model
+response, and translates them into actions that can be executed with Playwright.
+The model outputs normalized coordinates (0-999) regardless of the input image
+dimensions, so part of the translation step is converting these normalized
+coordinates back to actual pixel values.
 
-कंप्यूटर इस्तेमाल करने वाले मॉडल के साथ इस्तेमाल करने के लिए, स्क्रीन का सुझाया गया साइज़ (1440, 900) है. यह मॉडल किसी भी रिज़ॉल्यूशन के साथ काम करेगा. हालांकि, इससे नतीजों की क्वालिटी पर असर पड़ सकता है.
+The recommended screen size for use
+with the Computer Use model is (1440, 900). The model will work with any
+resolution, though the quality of the results may be impacted.
 
-ध्यान दें कि इस उदाहरण में, सिर्फ़ तीन सबसे सामान्य यूज़र इंटरफ़ेस (यूआई) कार्रवाइयों को लागू करने के बारे में बताया गया है: `open_web_browser`, `click_at`, और `type_text_at`. प्रोडक्शन के इस्तेमाल के उदाहरणों के लिए, आपको [कार्रवाइयों के साथ काम करने वाले यूज़र इंटरफ़ेस (यूआई) एलिमेंट](#supported-actions) की सूची में मौजूद अन्य सभी यूज़र इंटरफ़ेस (यूआई) कार्रवाइयों को लागू करना होगा. ऐसा तब तक करना होगा, जब तक कि उन्हें `excluded_predefined_functions` के तौर पर साफ़ तौर पर न जोड़ दिया जाए.
+Note that this example only includes the implementation for the 3 most common
+UI actions: `open_web_browser`, `click_at`, and `type_text_at`. For
+production use cases, you will need to implement all other UI actions from the
+[Supported actions](#supported-actions) list unless you explicitly add them as
+`excluded_predefined_functions`.
 
 ### Python
 
@@ -250,9 +311,12 @@ def execute_function_calls(interaction, page, screen_width, screen_height):
     return results
 ```
 
-### 4. नए एनवायरमेंट की स्थिति कैप्चर करना
+### 4. Capture the new environment state
 
-कार्रवाइयां पूरी होने के बाद, फ़ंक्शन के नतीजे को मॉडल को वापस भेजें, ताकि वह इस जानकारी का इस्तेमाल करके अगली कार्रवाई जनरेट कर सके. अगर एक साथ कई कार्रवाइयां (पैरलल कॉल) की गई हैं, तो आपको उपयोगकर्ता के अगले टर्न में हर कार्रवाई के लिए `function_result` भेजना होगा.
+After executing the actions, send the result of the function execution back to
+the model so it can use this information to generate the next action. If
+multiple actions (parallel calls) were executed, you must send a
+`function_result` for each one in the subsequent user turn.
 
 ### Python
 
@@ -284,15 +348,20 @@ def get_function_responses(page, results):
     return function_responses
 ```
 
-## एजेंट लूप बनाना
+## Build an agent loop
 
-एक से ज़्यादा चरणों वाले इंटरैक्शन को चालू करने के लिए, [कंप्यूटर के इस्तेमाल को लागू करने का तरीका](#implement-computer-use) सेक्शन में दिए गए चार चरणों को एक लूप में जोड़ें.
-बातचीत के इतिहास को सही तरीके से मैनेज करना न भूलें. इसके लिए, मॉडल के जवाब और फ़ंक्शन के जवाब, दोनों को जोड़ें.
+To enable multi-step interactions, combine the four steps from the [How to
+implement Computer Use](#implement-computer-use) section into a loop.
+Remember to manage the conversation history correctly by appending both model
+responses and your function responses.
 
-इस कोड सैंपल को चलाने के लिए, आपको ये काम करने होंगे:
+To run this code sample you need to:
 
-- [Playwright की ज़रूरी डिपेंडेंसी](#implement-computer-use) इंस्टॉल करें.
-- [(3) मिले हुए ऐक्शन लागू करें](#execute-actions) और [(4) नए एनवायरमेंट की स्थिति कैप्चर करें](#capture-state) चरणों में दिए गए हेल्पर फ़ंक्शन तय करें.
+- Install the [necessary Playwright
+  dependencies](#implement-computer-use).
+- Define the helper functions from steps [(3) Execute the received
+  actions](#execute-actions) and [(4) Capture the new environment
+  state](#capture-state).
 
 ### Python
 
@@ -385,9 +454,15 @@ finally:
     playwright.stop()
 ```
 
-## उपयोगकर्ता के तय किए गए कस्टम फ़ंक्शन का इस्तेमाल करना
+## Using custom user-defined functions
 
-मॉडल की सुविधाओं को बढ़ाने के लिए, अपने अनुरोध में उपयोगकर्ता के तय किए गए कस्टम फ़ंक्शन शामिल किए जा सकते हैं. हालांकि, ऐसा करना ज़रूरी नहीं है. यहाँ दिए गए उदाहरण में, कंप्यूटर के इस्तेमाल से जुड़े मॉडल और टूल को मोबाइल के इस्तेमाल के उदाहरणों के हिसाब से बनाया गया है. इसमें उपयोगकर्ता की ओर से तय की गई कस्टम कार्रवाइयाँ शामिल की गई हैं. जैसे, `open_app`, `long_press_at`, और `go_home`. वहीं, ब्राउज़र के हिसाब से की जाने वाली कार्रवाइयों को शामिल नहीं किया गया है. यह मॉडल, ब्राउज़र के बाहर के एनवायरमेंट में टास्क पूरे करने के लिए, स्टैंडर्ड यूज़र इंटरफ़ेस (यूआई) कार्रवाइयों के साथ-साथ इन कस्टम फ़ंक्शन को भी कॉल कर सकता है.
+You can optionally include custom user-defined functions in your request to
+extend the functionality of the model. The following example adapts the Computer Use
+model and tool for mobile use cases by including custom user-defined actions
+like `open_app`, `long_press_at`, and `go_home`, while excluding
+browser-specific actions. The model can intelligently call these custom
+functions alongside standard UI actions to complete tasks in non-browser
+environments.
 
 ### Python
 
@@ -475,32 +550,37 @@ interaction = client.interactions.create(
 print(interaction)
 ```
 
-## यूज़र इंटरफ़ेस (यूआई) पर की जा सकने वाली कार्रवाइयां
+## Supported UI actions
 
-मॉडल, `function_call` का इस्तेमाल करके, यूज़र इंटरफ़ेस (यूआई) से जुड़ी इन कार्रवाइयों का अनुरोध कर सकता है. आपके क्लाइंट-साइड कोड को इन कार्रवाइयों के लिए, एक्ज़ीक्यूशन लॉजिक लागू करना होगा. उदाहरणों के लिए, [रेफ़रंस
-इंपलीमेंटेशन](https://github.com/google/computer-use-preview) देखें.
+The model can request the following UI actions using a
+`function_call`. Your client-side code must implement the execution logic for
+these actions. See the [reference
+implementation](https://github.com/google/computer-use-preview) for
+examples.
 
-| कमांड का नाम | ब्यौरा | आर्ग्युमेंट (फ़ंक्शन कॉल में) | फ़ंक्शन कॉल का उदाहरण |
+| Command Name | Description | Arguments (in Function Call) | Example Function Call |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | इससे वेब ब्राउज़र खुलता है. | कोई नहीं | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | यह कुकी, पांच सेकंड के लिए स्क्रिप्ट को रोक देती है, ताकि डाइनैमिक कॉन्टेंट लोड हो सके या एनिमेशन पूरा हो सके. | कोई नहीं | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | यह कुकी, ब्राउज़र के इतिहास में पिछले पेज पर ले जाती है. | कोई नहीं | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | ब्राउज़र के इतिहास में अगले पेज पर ले जाता है. | कोई नहीं | `{"name": "go_forward", "arguments": {}}` |
-| **search** | यह डिफ़ॉल्ट सर्च इंजन के होम पेज (जैसे, Google) पर जाता है. यह नई खोज शुरू करने के लिए काम का है. | कोई नहीं | `{"name": "search", "arguments": {}}` |
-| **नेविगेट करें** | यह ब्राउज़र को सीधे तौर पर दिए गए यूआरएल पर ले जाता है. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | वेब पेज पर किसी खास कोऑर्डिनेट पर हुए क्लिक. x और y वैल्यू, 1000x1000 ग्रिड पर आधारित होती हैं. इन्हें स्क्रीन के डाइमेंशन के हिसाब से स्केल किया जाता है. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | यह वेबपेज पर किसी खास जगह पर माउस को घुमाता है. यह सब-मेन्यू दिखाने के लिए काम आता है. x और y, 1000x1000 ग्रिड पर आधारित होते हैं. | `y`: int (0-999) `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | यह कमांड, किसी खास कोऑर्डिनेट पर टेक्स्ट टाइप करती है. डिफ़ॉल्ट रूप से, यह कमांड पहले फ़ील्ड को मिटाती है और फिर टाइप करने के बाद ENTER दबाती है. हालांकि, इन कार्रवाइयों को बंद किया जा सकता है. x और y, 1000x1000 ग्रिड पर आधारित होते हैं. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (ज़रूरी नहीं, डिफ़ॉल्ट रूप से True पर सेट है), `clear_before_typing`: bool (ज़रूरी नहीं, डिफ़ॉल्ट रूप से True पर सेट है) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination** | कीबोर्ड के बटन या उनके कॉम्बिनेशन दबाएं. जैसे, "Control+C" या "Enter". कार्रवाइयों को ट्रिगर करने (जैसे, "Enter" दबाकर फ़ॉर्म सबमिट करना) या क्लिपबोर्ड की कार्रवाइयों के लिए उपयोगी है. | `keys`: str (e.g. 'enter', 'control+c'). | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | इससे पूरे वेबपेज को "ऊपर", "नीचे", "बाएं" या "दाएं" की ओर स्क्रोल किया जाता है. | `direction`: str ("up", "down", "left" या "right") | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | यह फ़ंक्शन, किसी एलिमेंट या जगह को तय की गई दिशा में, तय की गई दूरी तक स्क्रोल करता है. कोऑर्डिनेट और मैग्नीट्यूड (डिफ़ॉल्ट रूप से 800), 1000x1000 ग्रिड पर आधारित होते हैं. | `y`: int (0-999), `x`: int (0-999), `direction`: str ("up", "down", "left", "right"), `magnitude`: int (0-999, Optional, default 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
-| **drag\_and\_drop** | यह फ़ंक्शन, किसी एलिमेंट को शुरुआती कोऑर्डिनेट (x, y) से खींचकर, डेस्टिनेशन कोऑर्डिनेट (destination\_x, destination\_y) पर छोड़ता है. सभी कोऑर्डिनेट, 1000x1000 ग्रिड पर आधारित होते हैं. | `y`: int (0-999), `x`: int (0-999), `destination_y`: int (0-999), `destination_x`: int (0-999) | `{"name": "drag_and_drop", "arguments": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
+| **open\_web\_browser** | Opens the web browser. | None | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | Pauses execution for 5 seconds to allow dynamic content to load or animations to complete. | None | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | Navigates to the previous page in the browser's history. | None | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | Navigates to the next page in the browser's history. | None | `{"name": "go_forward", "arguments": {}}` |
+| **search** | Navigates to the default search engine's homepage (e.g., Google). Useful for starting a new search task. | None | `{"name": "search", "arguments": {}}` |
+| **navigate** | Navigates the browser directly to the specified URL. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Clicks at a specific coordinate on the webpage. The x and y values are based on a 1000x1000 grid and are scaled to the screen dimensions. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | Hovers the mouse at a specific coordinate on the webpage. Useful for revealing sub-menus. x and y are based on a 1000x1000 grid. | `y`: int (0-999) `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Types text at a specific coordinate, defaults to clearing the field first and pressing ENTER after typing, but these can be disabled. x and y are based on a 1000x1000 grid. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (Optional, default True), `clear_before_typing`: bool (Optional, default True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
+| **key\_combination** | Press keyboard keys or combinations, such as "Control+C" or "Enter". Useful for triggering actions (like submitting a form with "Enter") or clipboard operations. | `keys`: str (e.g. 'enter', 'control+c'). | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | Scrolls the entire webpage "up", "down", "left", or "right". | `direction`: str ("up", "down", "left", or "right") | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | Scrolls a specific element or area at coordinate (x, y) in the specified direction by a certain magnitude. Coordinates and magnitude (default 800) are based on a 1000x1000 grid. | `y`: int (0-999), `x`: int (0-999), `direction`: str ("up", "down", "left", "right"), `magnitude`: int (0-999, Optional, default 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
+| **drag\_and\_drop** | Drags an element from a starting coordinate (x, y) and drops it at a destination coordinate (destination\_x, destination\_y). All coordinates are based on a 1000x1000 grid. | `y`: int (0-999), `x`: int (0-999), `destination_y`: int (0-999), `destination_x`: int (0-999) | `{"name": "drag_and_drop", "arguments": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
 
-## सुरक्षा और बचाव
+## Safety and security
 
-### सुरक्षा से जुड़े फ़ैसले को स्वीकार करना
+### Acknowledge safety decision
 
-कार्रवाई के आधार पर, मॉडल के जवाब में `safety_decision` भी शामिल हो सकता है. यह एक इंटरनल सुरक्षा सिस्टम से मिलता है. यह सिस्टम, मॉडल की सुझाई गई कार्रवाई की जांच करता है.
+Depending on the action, the model response might also include a
+`safety_decision` from an internal safety system that checks the model's
+proposed action.
 
 ```
 {
@@ -530,9 +610,15 @@ print(interaction)
 }
 ```
 
-अगर `safety_decision` `require_confirmation` है, तो आपको कार्रवाई करने से पहले, उपयोगकर्ता से पुष्टि करने के लिए कहना होगा. [सेवा की शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi) के मुताबिक, आपको यह अनुमति नहीं है कि आप पुष्टि करने के लिए, इंसान के तौर पर की गई कार्रवाई के अनुरोधों को अनदेखा करें.
+If the `safety_decision` is `require_confirmation`, you must
+ask the end user to confirm before proceeding with executing the action. Per the
+[terms of service](https://ai.google.dev/gemini-api/terms), you are not allowed
+to bypass requests for human confirmation.
 
-इस कोड सैंपल में, कार्रवाई करने से पहले उपयोगकर्ता से पुष्टि करने के लिए कहा जाता है. अगर उपयोगकर्ता कार्रवाई की पुष्टि नहीं करता है, तो लूप बंद हो जाता है. अगर उपयोगकर्ता कार्रवाई की पुष्टि करता है, तो कार्रवाई पूरी हो जाती है और `safety_acknowledgement` फ़ील्ड को `True` के तौर पर मार्क कर दिया जाता है.
+This code sample prompts the end-user for confirmation before executing the
+action. If the user does not confirm the action, the loop terminates. If the
+user confirms the action, the action is executed and the
+`safety_acknowledgement` field is marked as `True`.
 
 ### Python
 
@@ -570,7 +656,8 @@ def execute_function_calls(interaction, page, screen_width, screen_height):
         # ... Execute function call and append to results ...
 ```
 
-अगर उपयोगकर्ता पुष्टि करता है, तो आपको अपने `function_result` में सुरक्षा से जुड़ी सहमति शामिल करनी होगी.
+If the user confirms, you must include the safety acknowledgement in
+your `function_result`.
 
 ```
 ```python
@@ -597,24 +684,50 @@ function_responses.append({
 ```
 ```
 
-### सुरक्षा के सबसे सही तरीके
+### Safety best practices
 
-कंप्यूटर का इस्तेमाल एक नया टूल है. इससे नए जोखिम पैदा होते हैं. डेवलपर को इनके बारे में पता होना चाहिए:
+Computer Use is a novel tool that presents new risks that developers should be
+mindful of:
 
-- **भरोसेमंद न होने वाला कॉन्टेंट और धोखाधड़ी:** मॉडल, उपयोगकर्ता के लक्ष्य को पूरा करने की कोशिश करता है. इसलिए, वह स्क्रीन पर मौजूद जानकारी और निर्देशों के लिए, भरोसेमंद न होने वाले सोर्स पर भरोसा कर सकता है. उदाहरण के लिए, अगर उपयोगकर्ता का लक्ष्य Pixel फ़ोन खरीदना है और मॉडल को "सर्वे पूरा करने पर मुफ़्त में Pixel पाएं" वाला कोई घोटाला मिलता है, तो इस बात की कुछ संभावना है कि मॉडल सर्वे पूरा कर देगा.
-- **कभी-कभी अनचाही कार्रवाइयां:** मॉडल, उपयोगकर्ता के लक्ष्य या वेबपेज के कॉन्टेंट की गलत व्याख्या कर सकता है. इससे वह गलत कार्रवाइयां कर सकता है. जैसे, गलत बटन पर क्लिक करना या गलत फ़ॉर्म भरना. इससे टास्क पूरे नहीं हो पाते या डेटा चोरी हो सकता है.
-- **नीति का उल्लंघन:** एपीआई की क्षमताओं का इस्तेमाल, जान-बूझकर या अनजाने में ऐसी गतिविधियों के लिए किया जा सकता है जो Google की नीतियों का उल्लंघन करती हैं. जैसे, [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) और [Gemini API की सेवा की अतिरिक्त शर्तें](https://ai.google.dev/gemini-api/terms?hl=hi). इसमें ऐसी कार्रवाइयां शामिल हैं जो किसी सिस्टम की अखंडता में रुकावट डाल सकती हैं, सुरक्षा से समझौता कर सकती हैं, सुरक्षा उपायों को दरकिनार कर सकती हैं, चिकित्सा उपकरणों को कंट्रोल कर सकती हैं वगैरह.
+- **Untrusted content & scams:** As the model tries to achieve the user's
+  goal, it may rely on untrustworthy sources of information and instructions
+  from the screen. For example, if the user's goal is to purchase a Pixel
+  phone and the model encounters a "Free-Pixel if you complete a survey" scam,
+  there is some chance that the model will complete the survey.
+- **Occasional unintended actions:** The model can misinterpret a user's goal
+  or webpage content, causing it to take incorrect actions like clicking the
+  wrong button or filling the wrong form. This can lead to failed tasks or
+  data exfiltration.
+- **Policy violations:** The API's capabilities could be directed, either
+  intentionally or unintentionally, toward activities that violate Google's
+  policies ([Gen AI Prohibited Use
+  Policy](https://policies.google.com/terms/generative-ai/use-policy) and the
+  [Gemini API Additional Terms of
+  Service](https://ai.google.dev/gemini-api/terms). This includes actions that
+  could interfere with a system's integrity, compromise security, bypass
+  security measures,
+  control medical devices, etc.
 
-इन जोखिमों से बचने के लिए, सुरक्षा से जुड़े ये उपाय और सबसे सही तरीके अपनाए जा सकते हैं:
+To address these risks, you can implement the following safety measures and best
+practices:
 
-1. **ह्यूमन-इन-द-लूप (एचआईटीएल):**
+1. **Human-in-the-Loop (HITL):**
 
-   - **उपयोगकर्ता से पुष्टि कराएं:** अगर सुरक्षा से जुड़ी प्रतिक्रिया में `require_confirmation` दिखता है, तो आपको कार्रवाई करने से पहले उपयोगकर्ता से पुष्टि करानी होगी. सैंपल कोड के लिए, [सुरक्षा से जुड़े फ़ैसले की पुष्टि करना](#safety-decisions) लेख पढ़ें.
-   - **सुरक्षा से जुड़े कस्टम निर्देश देना:** उपयोगकर्ता की पुष्टि करने के लिए, पहले से मौजूद जांचों के अलावा डेवलपर के पास यह विकल्प होता है कि वे [सिस्टम के लिए कस्टम निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions) जोड़ें. इससे, वे अपनी सुरक्षा नीतियों को लागू कर सकते हैं. ऐसा इसलिए किया जाता है, ताकि मॉडल की कुछ कार्रवाइयों को ब्लॉक किया जा सके या मॉडल के कुछ ऐसे फ़ैसलों के लिए उपयोगकर्ता की पुष्टि ज़रूरी हो जिन्हें बदला नहीं जा सकता. मॉडल के साथ इंटरैक्ट करते समय, यहां सिस्टम के लिए कस्टम निर्देश का एक उदाहरण दिया गया है.
+   - **Implement user confirmation:** When the safety response indicates
+     `require_confirmation`, you must implement user confirmation before
+     execution. See [Acknowledge safety decision](#safety-decisions) for
+     sample code.
+   - **Provide custom safety instructions:** In addition to the built-in user
+     confirmation checks, developers may optionally add a custom [system
+     instruction](https://ai.google.dev/gemini-api/docs/text-generation#system-instructions)
+     that enforces their own safety policies, either to block certain model
+     actions or require user confirmation before the model takes certain
+     high-stakes irreversible actions. Here is an example of a custom safety
+     system instruction you may include when interacting with the model.
 
-     **सुरक्षा से जुड़े निर्देशों का उदाहरण:**
+     **Example safety instructions:**
 
-     सिस्टम के निर्देश के तौर पर, सुरक्षा से जुड़े अपने नियम सेट करें:
+     Set your custom safety rules as a system instruction:
 
      ```
      ## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**
@@ -702,41 +815,60 @@ function_responses.append({
      - User confirmation
      - When the task is complete or you have enough information to respond to the user
      ```
-2. **सुरक्षित एक्ज़ीक्यूशन एनवायरमेंट:** अपने एजेंट को सुरक्षित, सैंडबॉक्स वाले एनवायरमेंट में चलाएं, ताकि उसके संभावित असर को कम किया जा सके. उदाहरण के लिए, सैंडबॉक्स वाली वर्चुअल मशीन (वीएम), कंटेनर (जैसे, Docker) या सीमित अनुमतियों वाली ब्राउज़र प्रोफ़ाइल.
-3. **इनपुट सैनिटाइज़ेशन:** प्रॉम्प्ट में मौजूद, उपयोगकर्ता के जनरेट किए गए सभी टेक्स्ट को सैनिटाइज़ करें. इससे अनचाहे निर्देशों या प्रॉम्प्ट इंजेक्शन के जोखिम को कम किया जा सकता है. यह सुरक्षा की एक मददगार लेयर है. हालांकि, यह सुरक्षित एक्ज़ीक्यूशन एनवायरमेंट का विकल्प नहीं है.
-4. **कॉन्टेंट से जुड़े दिशा-निर्देश:** दिशा-निर्देशों और [कॉन्टेंट की सुरक्षा से जुड़े एपीआई](https://ai.google.dev/gemma/docs/shieldgemma?hl=hi) का इस्तेमाल करके, इन चीज़ों का आकलन करें: उपयोगकर्ता के इनपुट, टूल के इनपुट और आउटपुट, एजेंट के जवाब की उपयुक्तता, प्रॉम्प्ट इंजेक्शन, और जेलब्रेक का पता लगाना.
-5. **अनुमति वाली और बिना अनुमति वाली सूचियां:** फ़िल्टर करने के तरीकों को लागू करें, ताकि यह कंट्रोल किया जा सके कि मॉडल किन वेबसाइटों पर जा सकता है और क्या कर सकता है. प्रतिबंधित वेबसाइटों की बिना अनुमति वाली सूची से शुरुआत करना अच्छा विकल्प है. हालांकि, अनुमति वाली सूची को ज़्यादा पाबंदियों के साथ इस्तेमाल करना ज़्यादा सुरक्षित होता है.
-6. **निगरानी और लॉगिंग:** डीबग करने, ऑडिट करने, और सुरक्षा से जुड़े मामलों पर कार्रवाई करने के लिए, लॉग की पूरी जानकारी बनाए रखें. आपके क्लाइंट को प्रॉम्प्ट, स्क्रीनशॉट, मॉडल की सुझाई गई कार्रवाइयां (function\_call), सुरक्षा से जुड़े जवाब, और क्लाइंट की ओर से की गई सभी कार्रवाइयों को लॉग करना चाहिए.
-7. **एनवायरमेंट मैनेजमेंट:** पक्का करें कि जीयूआई एनवायरमेंट एक जैसा हो.
-   अचानक दिखने वाले पॉप-अप, सूचनाएं या लेआउट में होने वाले बदलावों से मॉडल को समझने में मुश्किल हो सकती है. अगर हो सके, तो हर नए काम के लिए, जानी-पहचानी और साफ़-सुथरी स्थिति से शुरुआत करें.
+2. **Secure execution environment:** Run your agent in a secure, sandboxed
+   environment to limit its potential impact (e.g., A sandboxed virtual machine
+   (VM), a container (e.g., Docker), or a dedicated browser profile with limited
+   permissions).
+3. **Input sanitization:** Sanitize all user-generated text in prompts to
+   mitigate the risk of unintended instructions or prompt injection. This is a
+   helpful layer of security, but not a replacement for a secure execution
+   environment.
+4. **Content guardrails:** Use guardrails and [content safety
+   APIs](https://ai.google.dev/gemma/docs/shieldgemma) to evaluate user inputs,
+   tool input and output, an agent's response for appropriateness, prompt
+   injection, and jailbreak detection.
+5. **Allowlists and blocklists:** Implement filtering mechanisms to control
+   where the model can navigate and what it can do. A blocklist of prohibited
+   websites is a good starting point, while a more restrictive allowlist is
+   even more secure.
+6. **Observability and logging:** Maintain detailed logs for debugging,
+   auditing, and incident response. Your client should log prompts,
+   screenshots, model-suggested actions (function\_call), safety responses, and
+   all actions ultimately executed by the client.
+7. **Environment management:** Ensure the GUI environment is consistent.
+   Unexpected pop-ups, notifications, or changes in layout can confuse the
+   model. Start from a known, clean state for each new task if possible.
 
-## मॉडल के वर्शन
+## Model versions
 
-ध्यान दें कि `gemini-3-flash-preview` में कंप्यूटर के इस्तेमाल की सुविधा पहले से मौजूद है. इस टूल को ऐक्सेस करने के लिए, आपको किसी अलग मॉडल की ज़रूरत नहीं है.
+Note that `gemini-3-flash-preview` has built-in
+support for Computer Use; you do not need a separate model to access the tool.
 
-| प्रॉपर्टी | ब्यौरा |
+| Property | Description |
 | --- | --- |
-| id\_cardमॉडल कोड | **Gemini API**  `gemini-2.5-computer-use-preview-10-2025` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  इमेज, टेक्स्ट  **आउटपुट**  टेक्स्ट |
-| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  128,000  **आउटपुट टोकन की सीमा**  64,000 |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - झलक देखें: `gemini-2.5-computer-use-preview-10-2025` |
-| calendar\_monthनया अपडेट | अक्टूबर 2025 |
+| id\_cardModel code | **Gemini API**  `gemini-2.5-computer-use-preview-10-2025` |
+| saveSupported data types | **Input**  Image, text  **Output**  Text |
+| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens) | **Input token limit**  128,000  **Output token limit**  64,000 |
+| 123Versions | Read the [model version patterns](https://ai.google.dev/gemini-api/docs/models/gemini#model-versions) for more details.  - Preview: `gemini-2.5-computer-use-preview-10-2025` |
+| calendar\_monthLatest update | October 2025 |
 
-## आगे क्या करना है
+## What's next
 
-- [Browserbase के डेमो एनवायरमेंट](http://gemini.browserbase.com) में, कंप्यूटर के इस्तेमाल से जुड़े एक्सपेरिमेंट करें.
-- उदाहरण के लिए, कोड देखने के लिए [रेफ़रंस
-  लागू करने का तरीका](https://github.com/google/computer-use-preview) देखें.
-- Gemini API के अन्य टूल के बारे में जानें:
-  - [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=hi)
-  - [Google Search से सटीक जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=hi)
+- Experiment with Computer Use in the [Browserbase demo
+  environment](http://gemini.browserbase.com).
+- Check out the [Reference
+  implementation](https://github.com/google/computer-use-preview) for example
+  code.
+- Learn about other Gemini API tools:
+  - [Function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling)
+  - [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search)
 
-सुझाव भेजें
+Send feedback
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-आखिरी बार 2026-06-05 (UTC) को अपडेट किया गया.
+Last updated 2026-06-18 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Need to tell us more?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-05 (UTC) को अपडेट किया गया."],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

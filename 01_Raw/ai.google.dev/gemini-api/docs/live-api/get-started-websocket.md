@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=pl
-fetched_at: 2026-06-15T06:22:19.697364+00:00
+fetched_at: 2026-06-22T06:24:21.618927+00:00
 title: "Pierwsze kroki z interfejsem Gemini Live API za pomoc\u0105 protoko\u0142u WebSocket \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

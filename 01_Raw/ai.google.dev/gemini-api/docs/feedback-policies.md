@@ -1,60 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=pt-BR
-fetched_at: 2026-06-15T06:26:50.922573+00:00
-title: "Feedback \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=pl
+fetched_at: 2026-06-22T06:27:13.686307+00:00
+title: "Prze\u015blij opini\u0119 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Envie comentários
+Prześlij opinię
 
-# Feedback
+# Prześlij opinię
 
-## Votação de preferência in-line
+## Głosowanie na preferencje w tekście
 
-No Google AI Studio, você pode encontrar uma comparação lado a lado de duas respostas diferentes ao seu comando. Isso faz parte do nosso sistema de votação de preferência in-line. Vamos pedir para você escolher a resposta que prefere. Isso nos ajuda a entender quais saídas de modelo os usuários consideram mais úteis.
+W Google AI Studio możesz czasami zobaczyć porównanie dwóch różnych odpowiedzi na Twój prompt. Jest to część naszego systemu głosowania na preferencje w tekście. Poprosimy Cię o wybranie odpowiedzi, którą wolisz. Pomoże nam to zrozumieć, które wyniki modelu są najbardziej przydatne dla użytkowników.
 
-### Por que estamos fazendo isso?
+### Dlaczego oferujemy tę usługę?
 
-Trabalhamos constantemente para melhorar nossos modelos e serviços de IA. Seu feedback
-na votação de preferência in-line nos ajuda a oferecer, melhorar e desenvolver produtos e serviços do Google
-e tecnologias de aprendizado de máquina, incluindo recursos, produtos e serviços empresariais do Google
-, de acordo com os
-[Termos Adicionais de Serviço da API Gemini](https://ai.google.dev/gemini-api/terms?hl=pt-br) e a
-[Política de Privacidade](https://policies.google.com/privacy?hl=pt-br).
+Nieustannie pracujemy nad ulepszaniem naszych modeli i usług AI. Twoja opinia
+w ramach głosowania na preferencje w tekście pomaga nam udostępniać, ulepszać i rozwijać usługi Google
+oraz technologie uczenia maszynowego, w tym funkcje, produkty i usługi Google dla przedsiębiorstw, zgodnie z
+[dodatkowymi warunkami korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/terms?hl=pl) i
+[Polityką prywatności](https://policies.google.com/privacy?hl=pl).
 
-### Quais dados estão incluídos no feedback?
+### Jakie dane są uwzględniane w opinii?
 
-Para tomar decisões informadas sobre nossos modelos, coletamos alguns dados quando você participa da votação de preferência in-line:
+Aby podejmować świadome decyzje dotyczące naszych modeli, zbieramy określone dane, gdy bierzesz udział w głosowaniu na preferencje w tekście:
 
-- **Comandos e respostas**:gravamos todos os comandos e respostas, incluindo qualquer conteúdo enviado, na conversa sobre a qual você enviou feedback. Também gravamos as duas opções de resposta que você selecionou. Isso nos ajuda a entender o contexto da sua preferência.
-- **Seu voto**:gravamos qual resposta você preferiu. Esse é o principal feedback que estamos coletando.
-- **Detalhes de uso**:isso inclui informações sobre qual modelo gerou a resposta e outros detalhes técnicos e operacionais sobre seu uso desse recurso.
+- **Prompty i odpowiedzi:** rejestrujemy wszystkie prompty i odpowiedzi, w tym przesłane treści, w rozmowie, w której przesłano opinię. Rejestrujemy też 2 opcje odpowiedzi, które zostały wybrane. Pomaga nam to zrozumieć kontekst Twoich preferencji.
+- **Twój głos:** rejestrujemy, którą odpowiedź wolisz. Jest to główna część zbieranej przez nas opinii.
+- **Szczegóły użytkowania:** obejmują informacje o tym, który model wygenerował odpowiedź, oraz inne szczegóły techniczne i operacyjne dotyczące korzystania z tej funkcji.
 
-### Sua privacidade
+### Twoja prywatność
 
-Levamos sua privacidade a sério. O Google toma medidas para proteger sua privacidade como parte desse processo. Isso inclui desconectar esses dados da sua Conta do Google, da chave de API e do projeto na nuvem antes que os revisores os vejam ou façam anotações. **Não envie feedback sobre conversas que incluam informações sensíveis, confidenciais ou pessoais.**
+Szanujemy Twoją prywatność. W ramach tego procesu Google podejmuje odpowiednie działania, aby chronić Twoją prywatność. Obejmuje to odłączanie tych danych od Twojego konta Google, klucza API i projektu w chmurze, zanim weryfikatorzy je zobaczą lub opatrzą adnotacjami. **Nie przesyłaj opinii o rozmowach, które zawierają informacje wrażliwe, poufne lub osobiste.**
 
-### Como desativar
+### Wyłączenie funkcji
 
-Você pode pular a votação de preferência in-line quando ela aparecer.
+Gdy pojawi się głosowanie na preferencje w tekście, możesz je pominąć.
 
-Agradecemos por nos ajudar a melhorar o Google AI Studio.
+Dziękujemy za pomoc w ulepszaniu Google AI Studio.
 
-Envie comentários
+Prześlij opinię
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Última atualização 2026-04-29 UTC.
+Ostatnia aktualizacja: 2026-04-29 UTC.
 
-Quer enviar seu feedback?
+Chcesz przekazać coś jeszcze?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]

@@ -1,43 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=th
-fetched_at: 2026-06-15T06:25:01.049878+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi
+fetched_at: 2026-06-22T06:24:39.273355+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# การทำความเข้าใจรูปภาพ
+# Hiểu hình ảnh
 
-โมเดล Gemini ถูกสร้างขึ้นตั้งแต่เริ่มต้นให้เป็นแบบหลายรูปแบบ ซึ่งช่วยให้สามารถทำงานประมวลผลรูปภาพและคอมพิวเตอร์วิชันได้หลากหลาย รวมถึงแต่ไม่จำกัดเพียงการใส่คำบรรยายรูปภาพ การจัดหมวดหมู่ และการตอบคำถามเกี่ยวกับภาพโดยไม่ต้องฝึกโมเดลแมชชีนเลิร์นนิงเฉพาะทาง
+Các mô hình Gemini được xây dựng từ đầu theo hướng đa phương thức, mở ra nhiều nhiệm vụ xử lý hình ảnh và thị giác máy tính, bao gồm nhưng không giới hạn ở việc tạo chú thích cho hình ảnh, phân loại và trả lời câu hỏi bằng hình ảnh mà không cần phải huấn luyện các mô hình học máy chuyên biệt.
 
-นอกจากความสามารถแบบหลายรูปแบบทั่วไปแล้ว โมเดล Gemini ยังมีความ
-**แม่นยำที่เพิ่มขึ้น** สำหรับกรณีการใช้งานเฉพาะ เช่น [การตรวจหาออบเจ็กต์](#object-detection) ผ่านการฝึกเพิ่มเติม
+Ngoài các khả năng đa phương thức chung, các mô hình Gemini còn mang đến **độ chính xác cao hơn** cho các trường hợp sử dụng cụ thể như [phát hiện đối tượng](#object-detection), thông qua quá trình huấn luyện bổ sung.
 
-## การส่งรูปภาพไปยัง Gemini
+## Truyền hình ảnh cho Gemini
 
-คุณสามารถระบุรูปภาพเป็นอินพุตไปยัง Gemini ได้ 2 วิธี ดังนี้
+Bạn có thể cung cấp hình ảnh làm dữ liệu đầu vào cho Gemini bằng 2 phương thức:
 
-- [การส่งข้อมูลรูปภาพแบบอินไลน์](#inline-image): เหมาะสำหรับไฟล์ขนาดเล็ก (ขนาดคำขอทั้งหมด
-  ไม่เกิน 20 MB รวมถึงพรอมต์)
-- [การอัปโหลดรูปภาพโดยใช้ File API](#upload-image): แนะนำสำหรับไฟล์ขนาดใหญ่หรือสำหรับการ
-  นำรูปภาพไปใช้ซ้ำในคำขอหลายรายการ
+- [Truyền dữ liệu hình ảnh nội tuyến](#inline-image): Phù hợp với các tệp nhỏ hơn (tổng kích thước yêu cầu nhỏ hơn 20 MB, bao gồm cả câu lệnh).
+- [Tải hình ảnh lên bằng File API](#upload-image): Nên dùng cho các tệp lớn hơn hoặc để dùng lại hình ảnh trong nhiều yêu cầu.
 
-### การส่งข้อมูลรูปภาพแบบอินไลน์
+### Truyền dữ liệu hình ảnh cùng dòng
 
-คุณสามารถส่งข้อมูลรูปภาพแบบอินไลน์ในคำขอไปยัง `generateContent` ได้ โดยระบุข้อมูลรูปภาพเป็นสตริงที่เข้ารหัส Base64 หรืออ่านไฟล์ในเครื่องโดยตรง (ขึ้นอยู่กับภาษา)
+Bạn có thể truyền dữ liệu hình ảnh nội dòng trong yêu cầu đến `generateContent`. Bạn có thể cung cấp dữ liệu hình ảnh dưới dạng chuỗi được mã hoá Base64 hoặc bằng cách đọc trực tiếp các tệp cục bộ (tuỳ thuộc vào ngôn ngữ).
 
-ตัวอย่างต่อไปนี้แสดงวิธีอ่านรูปภาพจากไฟล์ในเครื่องและส่งไปยัง `generateContent` API เพื่อประมวลผล
+Ví dụ sau đây cho thấy cách đọc hình ảnh từ một tệp cục bộ và truyền hình ảnh đó đến API `generateContent` để xử lý.
 
 ### Python
 
@@ -145,7 +142,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }' 2> /dev/null
 ```
 
-นอกจากนี้ คุณยังดึงรูปภาพจาก URL แปลงเป็นไบต์ และส่งไปยัง `generateContent` ได้ตามที่แสดงในตัวอย่างต่อไปนี้
+Bạn cũng có thể tìm nạp hình ảnh từ một URL, chuyển đổi hình ảnh đó thành byte và truyền đến `generateContent` như trong các ví dụ sau.
 
 ### Python
 
@@ -287,9 +284,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }' 2> /dev/null
 ```
 
-### การอัปโหลดรูปภาพโดยใช้ File API
+### Tải hình ảnh lên bằng File API
 
-หากต้องการใช้ไฟล์ขนาดใหญ่หรือใช้ไฟล์รูปภาพเดียวกันซ้ำๆ ให้ใช้ Files API โค้ดต่อไปนี้จะอัปโหลดไฟล์รูปภาพ แล้วใช้ไฟล์ดังกล่าวในการเรียก `generateContent` ดูข้อมูลเพิ่มเติมและตัวอย่างได้ใน[คู่มือ Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)สำหรับ
+Đối với các tệp lớn hoặc để có thể sử dụng cùng một tệp hình ảnh nhiều lần, hãy sử dụng Files API. Mã sau đây tải một tệp hình ảnh lên, sau đó dùng tệp đó trong một lệnh gọi đến `generateContent`. Hãy xem [hướng dẫn về Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) để biết thêm thông tin và ví dụ.
 
 ### Python
 
@@ -434,9 +431,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## การใช้พรอมต์ที่มีรูปภาพหลายรูป
+## Đưa ra câu lệnh bằng nhiều hình ảnh
 
-คุณสามารถระบุรูปภาพหลายรูปในพรอมต์เดียวได้โดยใส่ออบเจ็กต์ `Part` ของรูปภาพหลายรายการในอาร์เรย์ `contents` ซึ่งอาจเป็นข้อมูลแบบอินไลน์ (ไฟล์ในเครื่องหรือ URL) และการอ้างอิง File API ผสมกัน
+Bạn có thể cung cấp nhiều hình ảnh trong một câu lệnh bằng cách thêm nhiều đối tượng hình ảnh `Part` vào mảng `contents`. Đây có thể là sự kết hợp giữa dữ liệu nội tuyến (tệp cục bộ hoặc URL) và các tham chiếu đến File API.
 
 ### Python
 
@@ -621,9 +618,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## การตรวจจับออบเจ็กต์
+## Phát hiện đối tượng
 
-โมเดลได้รับการฝึกให้ตรวจหาออบเจ็กต์ในรูปภาพและรับพิกัดกรอบล้อมรอบ พิกัดจะปรับขนาดเป็น [0, 1000] โดยอิงตามขนาดรูปภาพ คุณต้องปรับขนาดพิกัดเหล่านี้ตามขนาดรูปภาพเดิม
+Các mô hình được huấn luyện để phát hiện các đối tượng trong một hình ảnh và lấy toạ độ hộp giới hạn của các đối tượng đó. Toạ độ, so với kích thước hình ảnh, tỷ lệ thành [0, 1000]. Bạn cần giảm tỷ lệ các toạ độ này dựa trên kích thước hình ảnh gốc.
 
 ### Python
 
@@ -823,83 +820,77 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }' 2> /dev/null
 ```
 
-ดูตัวอย่างเพิ่มเติมได้ใน Notebook ต่อไปนี้ใน [Gemini Cookbook](https://github.com/google-gemini/cookbook):
+Để xem thêm ví dụ, hãy tham khảo các sổ tay sau trong [Sổ tay về Gemini](https://github.com/google-gemini/cookbook):
 
-- [Notebook ความเข้าใจเชิงพื้นที่ 2 มิติ](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=th)
-- [Notebook การชี้เชิงพื้นที่ 3 มิติแบบทดลอง](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=th)
+- [Sổ tay về khả năng nhận biết không gian 2D](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=vi)
+- [Sổ ghi chú thử nghiệm về thao tác trỏ 3D](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=vi)
 
-## รูปแบบรูปภาพที่รองรับ
+## Định dạng hình ảnh được hỗ trợ
 
-Gemini รองรับประเภท MIME ของรูปแบบรูปภาพต่อไปนี้
+Gemini hỗ trợ các loại MIME sau đây cho định dạng hình ảnh:
 
-- PNG - `image/png`
-- JPEG - `image/jpeg`
-- WebP - `image/webp`
-- HEIC - `image/heic`
-- HEIF - `image/heif`
+- PNG – `image/png`
+- JPEG – `image/jpeg`
+- WEBP – `image/webp`
+- HEIC – `image/heic`
+- HEIF – `image/heif`
 
-ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ ได้ในคู่มือ
-[วิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
+Để tìm hiểu về các phương thức nhập tệp khác, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
 
-## ความสามารถ
+## Tính năng
 
-โมเดล Gemini ทุกเวอร์ชันเป็นแบบหลายรูปแบบและสามารถใช้ในงานประมวลผลรูปภาพและคอมพิวเตอร์วิทัศน์ได้หลากหลาย ซึ่งรวมถึงแต่ไม่จำกัดเพียงคำอธิบายภาพ การตอบคำถามเกี่ยวกับภาพ การจัดหมวดหมู่รูปภาพ และการตรวจจับออบเจ็กต์
+Tất cả các phiên bản mô hình Gemini đều là mô hình đa phương thức và có thể được sử dụng trong nhiều tác vụ xử lý hình ảnh và thị giác máy tính, bao gồm nhưng không giới hạn ở việc tạo chú thích cho hình ảnh, trả lời câu hỏi bằng hình ảnh, phân loại hình ảnh và phát hiện đối tượng.
 
-Gemini สามารถลดความจำเป็นในการใช้โมเดลแมชชีนเลิร์นนิงเฉพาะทางได้ ทั้งนี้ขึ้นอยู่กับข้อกำหนดด้านคุณภาพและประสิทธิภาพ
+Gemini có thể giảm nhu cầu sử dụng các mô hình học máy chuyên biệt, tuỳ thuộc vào yêu cầu về chất lượng và hiệu suất của bạn.
 
-โมเดลเวอร์ชันล่าสุดได้รับการฝึกมาโดยเฉพาะเพื่อปรับปรุงความแม่นยำของงานเฉพาะทาง นอกเหนือจากความสามารถทั่วไป เช่น [การตรวจจับออบเจ็กต์](#object-detection)ที่ได้รับการปรับปรุง
+Các phiên bản mô hình mới nhất được huấn luyện cụ thể để cải thiện độ chính xác của các tác vụ chuyên biệt ngoài các chức năng chung, chẳng hạn như tính năng [phát hiện đối tượng](#object-detection) nâng cao.
 
-## ข้อจำกัดและข้อมูลทางเทคนิคที่สำคัญ
+## Các hạn chế và thông tin kỹ thuật chính
 
-### ขีดจำกัดของไฟล์
+### Giới hạn về tệp
 
-โมเดล Gemini รองรับไฟล์รูปภาพสูงสุด 3,600 ไฟล์ต่อคำขอ
+Các mô hình Gemini hỗ trợ tối đa 3.600 tệp hình ảnh cho mỗi yêu cầu.
 
-### การคำนวณโทเค็น
+### Cách tính số token
 
-- 258 โทเค็นหากทั้ง 2 มิติมีขนาด <= 384 พิกเซล
-  รูปภาพขนาดใหญ่จะถูกแบ่งเป็นรูปภาพขนาด 768x768 พิกเซล ซึ่งแต่ละรูปภาพใช้โทเค็น 258 รายการ
+- 258 mã thông báo nếu cả hai chiều đều <= 384 pixel.
+  Các hình ảnh lớn hơn được chia thành các ô có kích thước 768x768 pixel, mỗi ô có giá 258 mã thông báo.
 
-สูตรคร่าวๆ สำหรับการคำนวณจำนวนรูปภาพมีดังนี้
+Công thức sơ bộ để tính số lượng ô như sau:
 
-- คำนวณขนาดหน่วยครอบตัดซึ่งมีค่าประมาณ floor(min(width, height) / 1.5)
-- หารแต่ละมิติด้วยขนาดหน่วยครอบตัด แล้วคูณกันเพื่อหาจำนวนรูปภาพ
+- Tính kích thước đơn vị cắt, xấp xỉ bằng: floor(min(width, height) / 1.5).
+- Chia từng phương diện cho kích thước đơn vị cắt và nhân với nhau để có số lượng ô.
 
-ตัวอย่างเช่น รูปภาพขนาด 960x540 จะมีขนาดหน่วยครอบตัด 360 หารแต่ละมิติด้วย 360 และจำนวนรูปภาพคือ 3 \* 2 = 6
+Ví dụ: đối với hình ảnh có kích thước 960x540, kích thước đơn vị cắt sẽ là 360. Chia mỗi chiều cho 360 và số lượng ô là 3 \* 2 = 6.
 
-### ความละเอียดของสื่อ
+### Độ phân giải của nội dung nghe nhìn
 
-Gemini 3 มีการควบคุมแบบละเอียดเกี่ยวกับการประมวลผลภาพแบบหลายรูปแบบด้วยพารามิเตอร์ `media_resolution` พารามิเตอร์ `media_resolution` จะกำหนด**จำนวนโทเค็นสูงสุดที่จัดสรรต่อรูปภาพอินพุตหรือเฟรมวิดีโอ**
-ความละเอียดที่สูงขึ้นจะช่วยเพิ่มความสามารถของโมเดลในการอ่านข้อความขนาดเล็กหรือระบุรายละเอียดเล็กๆ แต่จะเพิ่มการใช้โทเค็นและเวลาในการตอบสนอง
+Gemini 3 giới thiệu khả năng kiểm soát chi tiết đối với quy trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
+Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
 
-ดูรายละเอียดเพิ่มเติมเกี่ยวกับพารามิเตอร์และวิธีที่พารามิเตอร์นี้อาจส่งผลต่อการคำนวณโทเค็นได้ใน
-ดู[คู่มือความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/media-resolution?hl=th)
+Để biết thêm thông tin về tham số này và mức độ ảnh hưởng của tham số này đến việc tính toán mã thông báo, hãy xem hướng dẫn về [độ phân giải của nội dung nghe nhìn](https://ai.google.dev/gemini-api/docs/media-resolution?hl=vi).
 
-## เคล็ดลับและแนวทางปฏิบัติแนะนำ
+## Mẹo và phương pháp hay nhất
 
-- ตรวจสอบว่ารูปภาพหมุนอย่างถูกต้อง
-- ใช้รูปภาพที่ชัดเจนและไม่เบลอ
-- เมื่อใช้รูปภาพเดียวที่มีข้อความ ให้วางพรอมต์ข้อความ *หลัง* ส่วนรูปภาพในอาร์เรย์ `contents`
+- Xác minh rằng hình ảnh được xoay đúng cách.
+- Sử dụng hình ảnh rõ ràng, không bị mờ.
+- Khi sử dụng một hình ảnh có văn bản, hãy đặt câu lệnh dạng văn bản *sau* phần hình ảnh trong mảng `contents`.
 
-## ขั้นตอนถัดไป
+## Bước tiếp theo
 
-คู่มือนี้แสดงวิธีอัปโหลดไฟล์รูปภาพและสร้างเอาต์พุตข้อความจากอินพุตรูปภาพ ดูข้อมูลเพิ่มเติมได้จากแหล่งข้อมูลต่อไปนี้
+Hướng dẫn này cho bạn biết cách tải tệp hình ảnh lên và tạo đầu ra văn bản từ đầu vào hình ảnh. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th): ดูข้อมูลเพิ่มเติมเกี่ยวกับการอัปโหลดและจัดการไฟล์เพื่อใช้กับ Gemini
-- [คำแนะนำของระบบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions):
-  คำแนะนำของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตาม
-  ความต้องการและกรณีการใช้งานที่เฉพาะเจาะจง
-- [กลยุทธ์การเขียนพรอมต์กับไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide): Gemini API รองรับการเขียนพรอมต์กับข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ หรือที่เรียกว่าการเขียนพรอมต์แบบหลายรูปแบบ
-- [คำแนะนำด้านความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=th): บางครั้งโมเดล Generative
-  AI จะสร้างเอาต์พุตที่ไม่คาดคิด เช่น เอาต์พุตที่ไม่ถูกต้อง
-  มีอคติ หรือไม่เหมาะสม การประมวลผลภายหลังและการประเมินโดยเจ้าหน้าที่เป็นสิ่งสำคัญในการจำกัดความเสี่ยงที่จะเกิดอันตรายจากเอาต์พุตดังกล่าว
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi): Tìm hiểu thêm về cách tải lên và quản lý tệp để sử dụng với Gemini.
+- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều chỉnh hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
+- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
+- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Hậu xử lý và đánh giá của con người là những yếu tố cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-อัปเดตล่าสุด 2026-06-11 UTC
+Cập nhật lần gần đây nhất: 2026-06-19 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-11 UTC"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]

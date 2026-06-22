@@ -1,32 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=pt-BR
-fetched_at: 2026-06-15T06:20:13.266001+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/file-search
+fetched_at: 2026-06-22T06:32:29.110534+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+# File Search
 
-Envie comentários
+The Gemini API enables Retrieval Augmented Generation ("RAG") through the File
+Search tool. File Search imports, chunks, and indexes your data to
+enable fast retrieval of relevant information based on a provided prompt. This
+retrieved information is then used as context for the model, allowing it to
+provide more accurate and relevant answers. File search is also able to
+provide multimodal capabilities with text embeddings supported by
+`gemini-embedding-001`, and image/multimodal embedding supported by `gemini-embedding-2`.
 
-# Pesquisa de arquivos
+File storage and embedding generation at query time is free, and you'll only pay
+for creating embeddings when you first index your files and the normal Gemini
+model input / output tokens cost. This new billing paradigm makes the File
+Search Tool both easier and more cost-effective to build and scale with. See
+[pricing](#pricing) section for details.
 
-A API Gemini permite a geração aumentada por recuperação (RAG) com a ferramenta de pesquisa de arquivos. A Pesquisa de arquivos importa, divide e indexa seus dados para permitir a recuperação rápida de informações relevantes com base em um comando fornecido. Essas informações recuperadas são usadas como contexto para o modelo, permitindo que ele forneça respostas mais precisas e relevantes. A pesquisa de arquivos também pode oferecer recursos multimodais com embeddings de texto compatíveis com `gemini-embedding-001` e embeddings de imagem/multimodais compatíveis com `gemini-embedding-2`.
+## Directly upload to File Search store
 
-O armazenamento de arquivos e a geração de embeddings no momento da consulta são sem custo financeiro. Você só paga pela criação de embeddings quando indexa seus arquivos pela primeira vez e pelo custo normal dos tokens de entrada / saída do modelo do Gemini. Esse novo paradigma de faturamento torna a ferramenta de pesquisa de arquivos mais fácil e econômica de criar e dimensionar. Consulte a seção de [preços](#pricing) para detalhes.
-
-## Fazer upload diretamente para o repositório da Pesquisa de arquivos
-
-Este exemplo mostra como fazer upload direto de um arquivo para o
-[repositório de pesquisa de arquivos](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-media.uploadtofilesearchstore):
+This example shows how to directly upload a file to the
+[file search store](https://ai.google.dev/api/file-search/file-search-stores#method:-media.uploadtofilesearchstore):
 
 ### Python
 
@@ -136,11 +142,11 @@ async function run() {
 run();
 ```
 
-Consulte a referência da API para [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-media.uploadtofilesearchstore) para mais informações.
+Check the API reference for [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores#method:-media.uploadtofilesearchstore) for more information.
 
-## Como importar arquivos
+## Importing files
 
-Como alternativa, você pode fazer upload de um arquivo e [importar para o repositório de pesquisa de arquivos](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-filesearchstores.importfile):
+Alternatively, you can upload an existing file and [import it to your file search store](https://ai.google.dev/api/file-search/file-search-stores#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -238,11 +244,16 @@ async function run() {
 run();
 ```
 
-Consulte a referência da API para [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-filesearchstores.importfile) para mais informações.
+Check the API reference for [`importFile`](https://ai.google.dev/api/file-search/file-search-stores#method:-filesearchstores.importfile) for more information.
 
-## Configuração de divisão
+## Chunking configuration
 
-Quando você importa um arquivo para um repositório de pesquisa de arquivos, ele é automaticamente dividido em partes, incorporado, indexado e enviado para o repositório de pesquisa de arquivos. Se você precisar de mais controle sobre a estratégia de divisão em partes, especifique uma configuração [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#request-body_5) para definir um número máximo de tokens por parte e um número máximo de tokens sobrepostos.
+When you import a file into a File Search store, it's automatically broken down
+into chunks, embedded, indexed, and uploaded to your File Search store. If you
+need more control over the chunking strategy, you can specify a
+[`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores#request-body_5) setting
+to set a maximum number of tokens per chunk and maximum number of overlapping
+tokens.
 
 ### Python
 
@@ -301,39 +312,65 @@ while (!operation.done) {
 console.log("Custom chunking complete.");
 ```
 
-Para usar o armazenamento da Pesquisa de arquivos, transmita-o como uma ferramenta para o método `interactions.create`, conforme mostrado nos exemplos de [Upload](#upload) e [Importação](#importing-files).
+To use your File Search store, pass it as a tool to the `interactions.create`
+method, as shown in the [Upload](#upload) and [Import](#importing-files) examples.
 
-## Como funciona
+## How it works
 
-A Pesquisa de arquivos usa uma técnica chamada pesquisa semântica para encontrar informações relevantes para o comando do usuário. Ao contrário da pesquisa padrão baseada em palavras-chave, a pesquisa semântica entende o significado e o contexto da sua consulta.
+File Search uses a technique called semantic search to find information relevant
+to the user prompt. Unlike standard keyword-based search, semantic search
+understands the meaning and context of your query.
 
-Quando você importa um arquivo, ele é convertido em representações numéricas chamadas [embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br), que capturam o significado semântico do conteúdo enviado. Esses embeddings são armazenados em um banco de dados especializado da Pesquisa de arquivos.
-Quando você faz uma consulta, ela também é convertida em um embedding. Em seguida, o sistema realiza uma pesquisa de arquivos para encontrar os trechos de documentos mais semelhantes e relevantes no repositório de pesquisa de arquivos.
+When you import a file, it's converted into numerical representations called
+[embeddings](https://ai.google.dev/gemini-api/docs/embeddings), which capture the semantic meaning of
+the uploaded content. These embeddings are stored in a specialized File Search database.
+When you make a query, it's also converted into an embedding. Then the system
+performs a File Search to find the most similar and relevant document chunks
+from the File Search store.
 
-Não há um Time To Live (TTL) para incorporações. Elas persistem até serem excluídas manualmente ou quando o modelo é descontinuado. No entanto, os arquivos são excluídos após 48 horas.
+There is no Time To Live (TTL) for embeddings;
+they persist until manually deleted, or when the model is deprecated. Files,
+however, are deleted after 48 hours.
 
-Confira um detalhamento do processo para usar a API File Search
-`uploadToFileSearchStore`:
+Here's a breakdown of the process for using the File Search
+`uploadToFileSearchStore` API:
 
-1. **Crie um repositório de pesquisa de arquivos**: um repositório de pesquisa de arquivos contém os dados processados dos seus arquivos. É o contêiner persistente para os embeddings em que a pesquisa semântica vai operar.
-2. **Fazer upload de um arquivo e importar para um repositório da Pesquisa de arquivos**: faça upload de um arquivo e importe os resultados para o repositório da Pesquisa de arquivos ao mesmo tempo. Isso cria um objeto `File` temporário, que é uma referência ao seu documento bruto. Esses dados são divididos em partes, convertidos em embeddings da pesquisa de arquivos e indexados. O objeto `File`
-   é excluído após 48 horas, enquanto os dados importados para o repositório
-   da Pesquisa de arquivos são armazenados indefinidamente até que você os exclua.
-3. **Consulta com a Pesquisa de arquivos**: por fim, use a ferramenta `FileSearch` em uma chamada `generateContent`. Na configuração da ferramenta, especifique um
-   `FileSearchRetrievalResource`, que aponta para o `FileSearchStore` que você quer
-   pesquisar. Isso instrui o modelo a realizar uma pesquisa semântica no repositório específico da Pesquisa de arquivos para encontrar informações relevantes e embasar a resposta.
+1. **Create a File Search store**: A File Search store contains the processed
+   data from your files. It's the persistent container for the embeddings that the
+   semantic search will operate on.
+2. **Upload a file and import into a File Search store**: Simultaneously upload
+   a file and import the results into your File Search store. This creates a
+   temporary `File` object, which is a reference to your raw document. That data is
+   then chunked, converted into File Search embeddings, and indexed. The `File`
+   object gets deleted after 48 hours, while the data imported into the File Search
+   store will be stored indefinitely until you choose to delete it.
+3. **Query with File Search**: Finally, you use the `FileSearch` tool in a
+   `generateContent` call. In the tool configuration, you specify a
+   `FileSearchRetrievalResource`, which points to the `FileSearchStore` you want to
+   search. This tells the model to perform a semantic search on that specific
+   File Search store to find relevant information to ground its response.
 
-![O processo de indexação e consulta da Pesquisa de arquivos](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=pt-br)
+![The indexing and querying process of File Search](https://ai.google.dev/static/gemini-api/docs/images/File-search.png)
 
-O processo de indexação e consulta da Pesquisa de arquivos
+The indexing and querying process of File Search
 
-Neste diagrama, a linha pontilhada de *Documentos* para *Modelo de incorporação* (usando [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br)) representa a API `uploadToFileSearchStore` (ignorando *Armazenamento de arquivos*). Caso contrário, usar a [API Files](https://ai.google.dev/gemini-api/docs/interactions/files?hl=pt-br) para criar e importar arquivos separadamente move o processo de indexação de *Documentos* para *Armazenamento de arquivos* e, em seguida, para *Modelo de incorporação*.
+In this diagram, the dotted line from *Documents* to *Embedding model*
+(using [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings))
+represents the `uploadToFileSearchStore` API (bypassing *File storage*).
+Otherwise, using the [Files API](https://ai.google.dev/gemini-api/docs/interactions/files) to separately create
+and then import files moves the indexing process from *Documents* to
+*File storage* and then to *Embedding model*.
 
-## Armazenamentos da Pesquisa de arquivos
+## File Search stores
 
-Um repositório de pesquisa de arquivos é um contêiner para seus embeddings de documentos. Embora os arquivos brutos enviados pela API File sejam excluídos após 48 horas, os dados importados para um repositório de pesquisa de arquivos são armazenados indefinidamente até que você os exclua manualmente. É possível criar vários repositórios de pesquisa de arquivos para organizar seus documentos. A API `FileSearchStore` permite criar, listar, receber e excluir para gerenciar seus repositórios de pesquisa de arquivos. Os nomes dos repositórios de pesquisa de arquivos têm escopo global.
+A File Search store is a container for your document embeddings. While raw files
+uploaded through the File API are deleted after 48 hours, the data imported into
+a File Search store is stored indefinitely until you manually delete it. You can
+create multiple File Search stores to organize your documents. The
+`FileSearchStore` API lets you create, list, get, and delete to manage your file
+search stores. File Search store names are globally scoped.
 
-Confira alguns exemplos de como gerenciar suas lojas de pesquisa de arquivos:
+Here are some examples of how to manage your File Search stores:
 
 ### Python
 
@@ -392,12 +429,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123?key=${GEMINI_API_KEY}"
 ```
 
-## Documentos da pesquisa de arquivos
+## File Search documents
 
-É possível gerenciar documentos individuais nos seus repositórios de arquivos com a
-API [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=pt-br) para `list` cada documento
-em um repositório de pesquisa de arquivos, `get` informações sobre um documento e `delete` um
-documento por nome.
+You can manage individual documents in your file stores with the
+[File Search Documents](https://ai.google.dev/api/file-search/documents) API to `list` each document
+in a file search store, `get` information about a document, and `delete` a
+document by name.
 
 ### Python
 
@@ -440,9 +477,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents/my_doc?key=${GEMINI_API_KEY}&force=true"
 ```
 
-## Metadados do arquivo
+## File metadata
 
-É possível adicionar metadados personalizados aos arquivos para ajudar a filtrá-los ou fornecer mais contexto. Os metadados são um conjunto de pares de chave-valor.
+You can add custom metadata to your files to help filter them or provide
+additional context. Metadata is a set of key-value pairs.
 
 ### Python
 
@@ -474,7 +512,8 @@ let operation = await ai.fileSearchStores.importFile({
 });
 ```
 
-Isso é útil quando você tem vários documentos em um repositório da Pesquisa de arquivos e quer pesquisar apenas um subconjunto deles.
+This is useful when you have multiple documents in a File Search store and want
+to search only a subset of them.
 
 ### Python
 
@@ -541,16 +580,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 cat response.json
 ```
 
-As orientações sobre a implementação da sintaxe de filtro de lista para `metadata_filter` podem ser encontradas em [google.aip.dev/160](https://google.aip.dev/160).
+Guidance on implementing list filter syntax for `metadata_filter` can be found
+at [google.aip.dev/160](https://google.aip.dev/160)
 
-## Pesquisa de arquivos multimodal
+## Multimodal File Search
 
-Com a pesquisa de arquivos multimodal, é possível incorporar e pesquisar imagens de forma nativa, o que permite aplicativos de RAG multimodais e avançados.
+Multimodal File Search lets you to natively embed and search through images,
+enabling rich, multimodal RAG applications.
 
-### Configurar o modelo de embedding
+### Configure the embedding model
 
-Ao criar um `FileSearchStore`, é necessário substituir o modelo de embedding padrão somente de texto para usar um modelo multimodal. Use `models/gemini-embedding-2` para
-processar textos e imagens.
+When you create a `FileSearchStore`, you must override the default text-only
+embedding model to use a multimodal model. Use `models/gemini-embedding-2` to
+process both text and images.
 
 ### Python
 
@@ -585,20 +627,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### Fazer upload de imagens
+### Upload images
 
-Depois de criar o repositório com um modelo de incorporação multimodal, você pode fazer upload de arquivos de imagem diretamente usando as mesmas APIs de upload descritas em [Fazer upload diretamente para o repositório da Pesquisa de arquivos](#upload) ou [Importar arquivos](#importing-files).
+After you create the store with a multimodal embedding model, you can upload
+image files directly using the same upload APIs described in
+[Directly upload to File Search store](#upload) or [Importing files](#importing-files).
 
-**Requisitos de arquivo de imagem:**
+**Image file requirements:**
 
-- Os arquivos de imagem precisam ter resolução de até 4K x 4K pixels.
-- Os formatos aceitos são PNG e JPEG.
+- Image files must be at most 4K x 4K pixels in resolution.
+- Supported formats are PNG, JPEG.
 
-## Citações
+## Citations
 
-Ao usar a Pesquisa de arquivos, a resposta do modelo pode incluir citações que especificam quais partes dos documentos enviados foram usadas para gerar a resposta. Isso ajuda na checagem de fatos e na verificação.
+When you use File Search, the model's response may include citations that
+specify which parts of your uploaded documents were used to generate the
+answer. This helps with fact-checking and verification.
 
-Você pode acessar as informações de citação pelo atributo `annotations` nos blocos `content` da etapa `model_output` da resposta.
+You can access citation information through the `annotations` attribute inside the `model_output` step's `content` blocks of the response.
 
 ### Python
 
@@ -624,13 +670,15 @@ for (const step of interaction.steps) {
 }
 ```
 
-Para informações detalhadas sobre a estrutura das citações, consulte a
-[referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br#Resource:FileCitation).
+For detailed information on the structure of the citations, see the
+[API reference for Interactions](https://ai.google.dev/api/interactions-api#Resource:FileCitation).
 
-### Números de página
+### Page numbers
 
-Quando você usa a Pesquisa de arquivos com documentos que têm páginas (como PDFs), a resposta do modelo pode incluir o número da página em que as informações foram encontradas.
-É possível acessar essas informações usando o atributo `page_number` de uma anotação `file_citation`.
+When you use File Search with documents that have pages (such as PDFs), the
+model's response may include the page number where the information was found.
+You can access this information through the `page_number` attribute of a
+`file_citation` annotation.
 
 ### Python
 
@@ -662,11 +710,15 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Citações de mídia
+### Media citations
 
-Quando o modelo faz referência a um trecho de imagem durante a geração, a API retorna uma anotação do tipo `file_citation` nas anotações que incluem um `media_id`. Use esse ID para baixar o trecho de imagem exato a que o modelo fez referência. Esse `media_id` é persistente em várias chamadas de pesquisa, o que permite recuperar de forma confiável a mesma imagem ou armazená-la em cache usando o ID.
+When the model references an image chunk during generation, the API returns an
+annotation of type `file_citation` in the annotations that includes a `media_id`. You can use this
+ID to download the exact image chunk the model referenced. This `media_id` is
+persistent across multiple search calls, which lets you reliably retrieve
+the same image or cache it using the ID.
 
-O snippet a seguir é um exemplo de etapa de resposta REST:
+The following snippet is an example REST response step:
 
 ```
 {
@@ -687,8 +739,8 @@ O snippet a seguir é um exemplo de etapa de resposta REST:
 }
 ```
 
-Os snippets de código a seguir demonstram como recuperar o `media_id` e
-baixar a mídia:
+The following code snippets demonstrate how to retrieve the `media_id` and
+download the media:
 
 ### Python
 
@@ -731,10 +783,13 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Metadados personalizados
+## Custom metadata
 
-Se você adicionou metadados personalizados aos seus arquivos, é possível acessá-los nas anotações da resposta do modelo. Isso é útil para transmitir contexto adicional (como URLs, números de página ou autores) dos documentos de origem para a lógica do aplicativo. Cada anotação de citação do tipo `file_citation`
-contém esses metadados personalizados.
+If you have added custom metadata to your files, you can access it in the
+annotations of the model's response. This is useful for passing
+additional context (like URLs, page numbers, or authors) from your source
+documents to your application logic. Each citation annotation of type `file_citation`
+contains this custom metadata.
 
 ### Python
 
@@ -815,9 +870,10 @@ for step in interaction.steps:
 }
 ```
 
-## Resposta estruturada
+## Structured output
 
-A partir dos modelos do Gemini 3, é possível combinar a ferramenta de pesquisa de arquivos com [saídas estruturadas](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=pt-br).
+Starting with Gemini 3 models, you can combine file search tool with
+[structured outputs](https://ai.google.dev/gemini-api/docs/interactions/structured-output).
 
 ### Python
 
@@ -913,29 +969,31 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Modelos compatíveis
+## Supported models
 
-Os seguintes modelos são compatíveis com a Pesquisa de arquivos:
+The following models support File Search:
 
-| Modelo | Pesquisa de arquivos |
+| Model | File Search |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite) | ✔️ |
 
-## Combinações de ferramentas compatíveis
+## Supported tool combinations
 
-Os modelos do Gemini 3 permitem combinar ferramentas integradas (como a Pesquisa de arquivos) com ferramentas personalizadas (chamada de função). Saiba mais na página de
-[combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
+Gemini 3 models support combining built-in tools (like File Search) with custom
+tools (function calling). Learn more on the
+[tool combinations](https://ai.google.dev/gemini-api/docs/tool-combination) page.
 
-## Tipos de arquivo compatíveis
+## Supported file types
 
-A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados nas seções a seguir.
+File Search supports a wide range of file formats, listed in the following
+sections.
 
-### Tipos de arquivo de aplicativo
+### Application file types
 
 - `application/dart`
 - `application/ecmascript`
@@ -968,7 +1026,7 @@ A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados 
 - `application/xml`
 - `application/zip`
 
-### Tipos de arquivos de texto
+### Text file types
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -1127,40 +1185,45 @@ A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados 
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## Limitações
+## Limitations
 
-- **API Live**:a Pesquisa de arquivos não é compatível com a [API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br).
-- **Incompatibilidade de ferramentas**:no momento, a Pesquisa de arquivos não pode ser combinada com outras ferramentas, como [Embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=pt-br), [Contexto de URL](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=pt-br) etc.
+- **Live API:** File Search is not supported in the
+  [Live API](https://ai.google.dev/gemini-api/docs/live).
+- **Tool incompatibility:** File Search cannot be combined with other tools
+  like [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search),
+  [URL Context](https://ai.google.dev/gemini-api/docs/interactions/url-context), etc. at this time.
 
-### Limites de taxas
+### Rate limits
 
-A API File Search tem os seguintes limites para garantir a estabilidade do serviço:
+The File Search API has the following limits to enforce service stability:
 
-- **Tamanho máximo do arquivo / limite por documento**: 100 MB
-- **Tamanho total dos armazenamentos da Pesquisa de arquivos do projeto** (com base no nível do usuário):
-  - **Sem custo financeiro**: 1 GB
-  - **Nível 1**: 10 GB
-  - **Nível 2**: 100 GB
-  - **Nível 3**: 1 TB
-- **Recomendação**: limite o tamanho de cada repositório de pesquisa de arquivos para menos de 20 GB e garanta latências de recuperação ideais.
+- **Maximum file size / per document limit**: 100 MB
+- **Total size of project File Search stores** (based on user tier):
+  - **Free**: 1 GB
+  - **Tier 1**: 10 GB
+  - **Tier 2**: 100 GB
+  - **Tier 3**: 1 TB
+- **Recommendation**: Limit the size of each File Search store to under 20 GB to ensure optimal retrieval latencies.
 
-## Preços
+## Pricing
 
-- Você recebe uma cobrança por incorporações no momento da indexação com base nos [preços de incorporação](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-embedding-2) atuais.
-- O armazenamento não tem custo financeiro.
-- Os embeddings de tempo de consulta não têm custo financeiro.
-- Os tokens de documentos recuperados são cobrados como [tokens de contexto](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=pt-br) normais.
+- You are charged for embeddings at indexing time based on existing
+  [embeddings pricing](https://ai.google.dev/gemini-api/docs/pricing#gemini-embedding-2).
+- Storage is free of charge.
+- Query time embeddings are free of charge.
+- Retrieved document tokens are charged as regular
+  [context tokens](https://ai.google.dev/gemini-api/docs/interactions/tokens).
 
-## A seguir
+## What's next
 
-- Acesse a referência da API para [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br) e [Documents](https://ai.google.dev/api/file-search/documents?hl=pt-br) da Pesquisa de arquivos.
+- Visit the API reference for [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores) and File Search [Documents](https://ai.google.dev/api/file-search/documents).
 
-Envie comentários
+Send feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Última atualização 2026-06-05 UTC.
+Last updated 2026-06-18 UTC.
 
-Quer enviar seu feedback?
+Need to tell us more?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-05 UTC."],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

@@ -1,193 +1,256 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-TW
-fetched_at: 2026-06-15T06:19:08.482765+00:00
-title: "\u4e92\u52d5 API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/interactions-overview
+fetched_at: 2026-06-22T06:32:29.241130+00:00
+title: "Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+# Interactions API
 
-提供意見
+The **Interactions API** is the new recommended standard for building with Gemini. It is optimized for agentic workflows, server-side state management, and complex multi-modal, multi-turn conversations. The original [`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation) API remains fully supported.
 
-# 互動 API
+## Why use the Interactions API?
 
-**Interactions API** 是使用 Gemini 建構應用程式時，我們建議採用的新標準。這項 API 專為代理工作流程、伺服器端狀態管理，以及複雜的多模態多輪對話而設計。原始的 [`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw) API 仍完全支援。
+- **Server-side history management**: Simplified multi-turn flows via `previous_interaction_id`. The server enables state by default (`store=true`), but you can opt into stateless behavior by setting `store=false`.
+- **Observable execution steps**: Typed steps make it easy to debug complex flows and render UI for intermediate events (like thoughts or search widgets).
+- **Built for agentic workflows**: Native support for multi-step tool use, orchestration, and complex reasoning flows through typed execution steps.
+- **Long-running and background tasks**: Supports offloading time-intensive
+  operations to background processes using `background=true`. This is
+  supported for both models (such as
+  [Deep Think](https://ai.google.dev/gemini-api/docs/interactions/thinking)) and agents (such as
+  [Deep Research](https://ai.google.dev/gemini-api/docs/interactions/deep-research)).
+- **Access to new models and capabilities**: Going forward, new models beyond the core mainline family, along with new agentic capabilities and tools, will launch exclusively on the Interactions API.
 
-## 為什麼要使用 Interactions API？
+**Use the Interactions API** if you're starting a new project, building agentic applications, or need server-side conversation management. **Use [`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation)** if you have an existing integration that works for your needs, or if you require a feature that is [not yet available](#limitations) in the Interactions API, such as the Batch API or explicit caching.
 
-- **伺服器端記錄管理**：透過 `previous_interaction_id` 簡化多輪對話流程。伺服器預設會啟用狀態 (`store=true`)，但您可以設定 `store=false`，選擇無狀態行為。
-- **可觀察的執行步驟**：輸入步驟可輕鬆偵錯複雜流程，並為中繼事件 (例如想法或搜尋小工具) 算繪 UI。
-- **專為代理工作流程打造**：透過型別執行步驟，原生支援多步驟工具使用、自動調度管理和複雜的推論流程。
-- **長期執行的工作和背景工作**：支援使用 `background=true` 將耗時的作業轉移至背景程序。這項功能支援模型 (例如「Deep Think」) 和代理程式 (例如「Deep Research」)。
-- **使用新模型和功能**：未來，除了核心主線系列之外，新的模型以及新的代理能力和工具，都只會在 Interactions API 上推出。
+## Get started
 
-**如果您要啟動新專案、建構代理程式應用程式，或需要伺服器端對話管理功能，請**使用 Interactions API**。如果您有符合需求的現有整合項目，或需要 Interactions API [尚未提供的功能](#limitations) (例如 Batch API 或明確快取)，請使用 [`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw)**。
+- **Set up your coding agent**: Connect to the **Gemini Docs MCP** and install
+  the `gemini-interactions-api` skill to give your assistant direct access to
+  the latest developer docs and best practices.
+  [Set up your coding agent →](https://ai.google.dev/gemini-api/docs/coding-agents)
+- **Migrate from `generateContent`**: If you have an existing integration,
+  follow the [Migration Guide](https://ai.google.dev/gemini-api/docs/migrate-to-interactions) to
+  transition to the Interactions API.
+- **Try the quickstart**: Get started with a minimal working example in the
+  [Interactions API quickstart](https://ai.google.dev/gemini-api/docs/interactions/quickstart).
 
-## 開始使用
+### Feature Guides
 
-- **設定程式設計代理**：連線至 **Gemini 文件 MCP** 並安裝 `gemini-interactions-api` 技能，讓助理直接存取最新的開發人員文件和最佳做法。[設定程式設計代理 →](https://ai.google.dev/gemini-api/docs/coding-agents?hl=zh-tw)
-- **從 `generateContent` 遷移**：如果您已整合，請按照[遷移指南](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=zh-tw)的說明，改用 Interactions API。
-- **試用快速入門導覽課程**：透過[互動式 API 快速入門導覽課程](https://ai.google.dev/gemini-api/docs/interactions/quickstart?hl=zh-tw)，開始使用最簡單的運作範例。
+Explore the specific capabilities of the Interactions API through these guides. You can use the toggle on these pages to switch between generateContent and Interactions API:
 
-### 功能指南
+- [Text generation](https://ai.google.dev/gemini-api/docs/interactions/text-generation)
+- [Image generation](https://ai.google.dev/gemini-api/docs/interactions/image-generation)
+- [Image understanding](https://ai.google.dev/gemini-api/docs/interactions/image-understanding)
+- [Audio understanding](https://ai.google.dev/gemini-api/docs/interactions/audio)
+- [Video understanding](https://ai.google.dev/gemini-api/docs/interactions/video-understanding)
+- [Document processing](https://ai.google.dev/gemini-api/docs/interactions/document-processing)
+- [Function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling)
+- [Structured output](https://ai.google.dev/gemini-api/docs/interactions/structured-output)
+- [Deep Research Agent](https://ai.google.dev/gemini-api/docs/interactions/deep-research)
+- [Flex inference](https://ai.google.dev/gemini-api/docs/interactions/flex-inference)
+- [Priority inference](https://ai.google.dev/gemini-api/docs/interactions/priority-inference)
+- [Streaming](https://ai.google.dev/gemini-api/docs/interactions/streaming)
 
-請參閱這些指南，瞭解 Interactions API 的具體功能。您可以在這些頁面使用切換按鈕，在 generateContent 和 Interactions API 之間切換：
+## How the Interactions API works
 
-- [生成文字](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw)
-- [圖像生成](https://ai.google.dev/gemini-api/docs/interactions/image-generation?hl=zh-tw)
-- [圖像解讀](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=zh-tw)
-- [音訊理解](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=zh-tw)
-- [影片理解](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=zh-tw)
-- [文件處理](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=zh-tw)
-- [函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)
-- [結構化輸出內容](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-tw)
-- [Deep Research 代理](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=zh-tw)
-- [Flex 推論](https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=zh-tw)
-- [優先推論](https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=zh-tw)
-- [串流](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw)
+The Interactions API centers around a core resource: the [**`Interaction`**](https://ai.google.dev/api/interactions-api#Resource:Interaction). An `Interaction` represents a complete turn in a conversation or task. It acts as a session record, containing the entire history of an interaction as a chronological sequence of **execution steps**. These steps include model thoughts, server-side or client-side tool calls and results (like `function_call` and `function_result`), and the final `model_output`. The stored resource (retrieved via `interactions.get`) also includes `user_input` steps for full context, though the `interactions.create` response only returns model-generated steps.
 
-## Interactions API 的運作方式
+When you make a call to
+[`interactions.create`](https://ai.google.dev/api/interactions-api#CreateInteraction), you are
+creating a new `Interaction` resource.
 
-Interactions API 的核心資源是 [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=zh-tw#Resource:Interaction)。`Interaction` 代表對話或工作中的完整回合，可做為工作階段記錄，內含互動的完整記錄，以 **執行步驟**的時間順序排列。這些步驟包括模型想法、伺服器端或用戶端工具呼叫和結果 (例如 `function_call` 和 `function_result`)，以及最終的 `model_output`。儲存的資源 (透過 `interactions.get` 擷取) 也包含 `user_input` 步驟，可提供完整脈絡，但 `interactions.create` 回應只會傳回模型產生的步驟。
+### Access outputs with SDK convenience properties
 
-呼叫 [`interactions.create`](https://ai.google.dev/api/interactions-api?hl=zh-tw#CreateInteraction) 時，您會建立新的 `Interaction` 資源。
+While the Interactions API returns a structured timeline of execution steps
+(such as thoughts, search queries, and function calls), you don't need to
+manually traverse the steps to get the final model response.
 
-### 使用 SDK 便利屬性存取輸出內容
+The Google GenAI SDKs provide convenience properties directly
+on the returned `Interaction` object to access the outputs for different
+modalities:
 
-雖然 Interactions API 會傳回執行步驟的結構化時間軸 (例如想法、搜尋查詢和函式呼叫)，但您不需要手動遍歷這些步驟，即可取得最終模型回應。
-
-Google GenAI SDK 會在傳回的 `Interaction` 物件上直接提供便利屬性，方便您存取不同模態的輸出內容：
-
-| SDK 便利屬性 | 傳回類型 | 說明 |
+| SDK convenience property | Return Type | Description |
 | --- | --- | --- |
-| **`interaction.output_text`** | 字串 | 傳回模型回覆中的最後一個文字區塊。如果回覆內容分散在多個連續的 `TextContent` 區塊中，系統會自動合併這些區塊。不包括以非文字內容 (例如想法、圖片、音訊或工具呼叫) 分隔的先前文字區塊。如為複雜或交錯的多模態回覆，您必須手動疊代 `steps`。 |
-| **`interaction.output_image`** | ImageContent 或 `None` | 傳回模型在目前要求中生成的最後一個圖片區塊。 |
-| **`interaction.output_audio`** | AudioContent 或 `None` | 傳回模型在目前要求中生成的最後一個音訊區塊。 |
+| **`interaction.output_text`** | String | Returns the last text blocks in the model's response. If the response is split across multiple consecutive `TextContent` blocks, it automatically joins them. It does not include earlier text blocks separated by non-text content (such as thoughts, images, audio, or tool calls). For complex or interleaved multimodal responses, you must manually iterate over `steps` instead. |
+| **`interaction.output_image`** | ImageContent or `None` | Returns the last image block generated by the model in the current request. |
+| **`interaction.output_audio`** | AudioContent or `None` | Returns the last audio block generated by the model in the current request. |
 
-如要進行進階用途 (例如算繪中間思考程序、檢查逐步工具呼叫或偵錯)，您仍可手動檢查及遍歷原始 `interaction.steps` 時間軸。
+For advanced use cases—such as rendering intermediate thinking processes,
+inspecting step-by-step tool calls, or debugging—you can still inspect and
+traverse the raw `interaction.steps` timeline manually.
 
-### 伺服器端狀態管理
+### Server-side state management
 
-您可以在後續呼叫中使用 `previous_interaction_id` 參數，藉此使用已完成互動的 `id` 繼續對話。伺服器會使用這組 ID 擷取對話記錄，因此您不必重新傳送完整的對話記錄。
+You can use the `id` of a completed interaction in a subsequent call using the
+`previous_interaction_id` parameter to continue the conversation. The server
+uses this ID to retrieve the conversation history, saving you from having to
+resend the entire chat history.
 
-`previous_interaction_id` 參數只會使用 `previous_interaction_id` 保留對話記錄 (輸入和輸出內容)。其他參數為**互動範圍**，且僅適用於目前產生的特定互動：
+The `previous_interaction_id` parameter preserves only the conversation history (inputs and outputs)
+using `previous_interaction_id`. The other parameters are **interaction-scoped**
+and apply only to the specific interaction you are currently generating:
 
 - `tools`
 - `system_instruction`
-- `generation_config` (包括 `thinking_level`、`temperature` 等)
+- `generation_config` (including `thinking_level`, `temperature`, etc.)
 
-也就是說，如要套用這些參數，您必須在每次新互動中重新指定。這項伺服器端狀態管理功能為選用功能，您也可以在無狀態模式下運作，方法是在每個要求中傳送完整的對話記錄。
+This means you must re-specify these parameters in each new interaction if you
+want them to apply. This server-side state management is optional; you can also
+operate in stateless mode by sending the full conversation history in each
+request.
 
-### 背景執行
+### Background execution
 
-如要長時間執行工作，可以在要求中設定 `background=true`，在背景執行互動。這項功能支援以下兩種情況：
+For long-running tasks, you can run interactions in the background by setting
+`background=true` in your request. This is supported for both:
 
-- **模型**：適用於處理時間較長的工作，例如使用[思考](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-tw)功能的工作。
-- **代理**：長時間執行的代理工作流程 (例如[Deep Research](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=zh-tw)) 必須使用代理。
+- **Models**: Useful for tasks that take longer to process, such as those
+  using [thinking](https://ai.google.dev/gemini-api/docs/interactions/thinking).
+- **Agents**: Required for long-running agent workflows like
+  [Deep Research](https://ai.google.dev/gemini-api/docs/interactions/deep-research).
 
-在背景執行時：
+When running in the background:
 
-- 您必須設定 `store=true` (預設值)，因為系統需要儲存互動資源，方便您日後擷取。
-- 對 `interactions.create` 的初始呼叫會立即傳回狀態為 `in_progress` 的結果。
-- 您可以透過互動 ID 呼叫 `interactions.get`，擷取互動狀態和結果，也可以設定[網頁掛鉤](https://ai.google.dev/gemini-api/docs/interactions/webhooks?hl=zh-tw)，在互動完成時接收通知。
-- 您也可以[串流](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw#streaming-background)互動內容，接收進度更新。
+- You must set `store=true` (the default) because the system needs to
+  store the interaction resource so you can retrieve it later.
+- The initial call to `interactions.create` returns immediately with a status
+  of `in_progress`.
+- You can retrieve the status and results of the interaction by calling
+  `interactions.get` with the interaction ID, or by configuring
+  [webhooks](https://ai.google.dev/gemini-api/docs/interactions/webhooks) to receive notifications
+  when the interaction completes.
+- You can also
+  [stream](https://ai.google.dev/gemini-api/docs/interactions/streaming#streaming-background) the
+  interaction to receive progress updates.
 
-### 資料儲存與保留
+### Data storage and retention
 
-根據預設，API 會儲存所有 Interaction 物件 (`store=true`)，以簡化伺服器端狀態管理功能 (使用 `previous_interaction_id`)、背景執行作業 (使用 `background=true`) 和觀測能力用途的使用。
+By default, the API stores all Interaction objects (`store=true`) in order to
+simplify use of server-side state management features (with
+`previous_interaction_id`), background execution (using `background=true`) and
+observability purposes.
 
-- **付費層級**：系統會保留互動記錄 **55 天**。
-- **免費方案**：系統會保留互動記錄 **1 天**。
+- **Paid Tier**: The system retains interactions for **55 days**.
+- **Free Tier**: The system retains interactions for **1 day**.
 
-如果不希望系統執行上述作業，可以在要求中`store=false`。這項控制項與狀態管理功能無關，您可以選擇不儲存任何互動。不過請注意，`store=false` 與 `background=true` 不相容，且會禁止在後續回合使用 `previous_interaction_id`。
+If you don't want this, you can
+set `store=false` in your request. This control is separate from state
+management; you can opt out of storage for any interaction. However, note that
+`store=false` is incompatible with `background=true` and prevents using
+`previous_interaction_id` for subsequent turns.
 
-您隨時可以使用 [API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw)中的刪除方法，刪除儲存的互動記錄。只有在知道互動 ID 的情況下，才能刪除互動記錄。
+You can delete stored interactions at any time using the delete method found in
+the [API Reference](https://ai.google.dev/api/interactions-api). You can only delete interactions if
+you know the interaction ID.
 
-超過保留期限後，系統會自動刪除資料。
+After the retention period expires, your data will be
+deleted automatically.
 
-系統會根據[條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw)處理 Interaction 物件。
+The system processes Interaction objects according to the [terms](https://ai.google.dev/gemini-api/terms).
 
-## 最佳做法
+## Best practices
 
-- **快取命中率**：使用 `previous_interaction_id` 繼續對話時，系統可以更輕鬆地運用對話記錄的隱含快取，進而提升效能並降低費用。
-- **混合互動**：您可以在對話中彈性混合搭配使用 Agent 和模型互動。舉例來說，您可以先使用 Deep Research 代理等專用代理收集初始資料，然後使用標準 Gemini 模型執行後續工作，例如摘要或重新格式化，並使用 `previous_interaction_id` 連結這些步驟。
+- **Cache hit rate**: Using `previous_interaction_id` to continue
+  conversations allows the system to more easily utilize implicit caching for
+  the conversation history, which improves performance and reduces costs.
+- **Mixing interactions**: You have the flexibility to mix and match Agent and
+  Model interactions within a conversation. For example, you can use a
+  specialized agent, like the Deep Research agent, for initial data
+  collection, and then use a standard Gemini model for follow-up tasks such as
+  summarizing or reformatting, linking these steps with the
+  `previous_interaction_id`.
 
-## 支援的模型和代理程式
+## Supported models & agents
 
-| 模型名稱 | 類型 | 模型 ID |
+| Model Name | Type | Model ID |
 | --- | --- | --- |
-| Gemini 3.5 Flash | 模型 | `gemini-3.5-flash` |
-| Gemini 3.1 Flash-Lite | 模型 | `gemini-3.1-flash-lite` |
-| Gemini 3.1 Pro 預先發布版 | 模型 | `gemini-3.1-pro-preview` |
-| Gemini 3 Flash 預先發布版 | 模型 | `gemini-3-flash-preview` |
-| Gemini 2.5 Pro | 模型 | `gemini-2.5-pro` |
-| Gemini 2.5 Flash | 模型 | `gemini-2.5-flash` |
-| Gemini 2.5 Flash-lite | 模型 | `gemini-2.5-flash-lite` |
-| Lyria 3 剪輯片段預覽 | 模型 | `lyria-3-clip-preview` |
-| Lyria 3 Pro 預先發布版 | 模型 | `lyria-3-pro-preview` |
-| Deep Research 預先發布版 | 代理 | `deep-research-pro-preview-12-2025` |
-| Deep Research 預先發布版 | 代理 | `deep-research-preview-04-2026` |
-| Deep Research 預先發布版 | 代理 | `deep-research-max-preview-04-2026` |
+| Gemini 3.5 Flash | Model | `gemini-3.5-flash` |
+| Gemini 3.1 Flash-Lite | Model | `gemini-3.1-flash-lite` |
+| Gemini 3.1 Pro Preview | Model | `gemini-3.1-pro-preview` |
+| Gemini 3 Flash Preview | Model | `gemini-3-flash-preview` |
+| Gemini 2.5 Pro | Model | `gemini-2.5-pro` |
+| Gemini 2.5 Flash | Model | `gemini-2.5-flash` |
+| Gemini 2.5 Flash-lite | Model | `gemini-2.5-flash-lite` |
+| Lyria 3 Clip Preview | Model | `lyria-3-clip-preview` |
+| Lyria 3 Pro Preview | Model | `lyria-3-pro-preview` |
+| Deep Research Preview | Agent | `deep-research-pro-preview-12-2025` |
+| Deep Research Preview | Agent | `deep-research-preview-04-2026` |
+| Deep Research Preview | Agent | `deep-research-max-preview-04-2026` |
 
-## SDK
+## SDKs
 
-您可以使用最新版的 Google GenAI SDK，存取 Interactions API。
+You can use latest version of the Google GenAI SDKs in order to access
+Interactions API.
 
-- 在 Python 中，這是 `1.55.0` 版本之後的 `google-genai` 套件。
-- 在 JavaScript 中，這是 `1.33.0` 版本以上的 `@google/genai` 套件。
+- On Python, this is `google-genai` package from `1.55.0` version onwards.
+- On JavaScript, this is `@google/genai` package from `1.33.0` version
+  onwards.
 
-如要進一步瞭解如何安裝 SDK，請參閱「[程式庫](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw)」頁面。
+You can learn more about how to install the SDKs on
+[Libraries](https://ai.google.dev/gemini-api/docs/libraries) page.
 
-## 限制
+## Limitations
 
-- **Beta 版狀態**：Interactions API 目前為 Beta 版/預覽版。功能和結構定義可能會變更。
-- **遠端 MCP**：Gemini 3 不支援遠端 MCP，但這項功能即將推出。
+- **Beta status**: The Interactions API is in beta/preview. Features and
+  schemas may change.
+- **Remote MCP**: Gemini 3 does not support remote MCP, this is coming soon.
 
-[`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw) API 支援下列功能，但 Interactions API **尚未提供**這些功能：
+The following features are supported by the
+[`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation) API but are **not yet
+available** in the Interactions API:
 
-- **[影片中繼資料](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=zh-tw)**：`video_metadata` 欄位，用於設定剪輯間隔和自訂影格速率，以利瞭解影片內容。
-- **[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)**
-- **[自動函式呼叫 (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=zh-tw#automatic_function_calling_python_only)**
-- **[明確快取](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=zh-tw)**：請注意，伺服器端隱含快取可透過 `previous_interaction_id` 在 Interactions API 中使用。
+- **[Video metadata](https://ai.google.dev/gemini-api/docs/interactions/video-understanding)**: The `video_metadata` field, used to set clipping
+  intervals and custom frame rates for video understanding.
+- **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api)**
+- **[Automatic function calling (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting#automatic_function_calling_python_only)**
+- **[Explicit caching](https://ai.google.dev/gemini-api/docs/interactions/caching)**: Note that server-side implicit caching is available in the Interactions API
+  via `previous_interaction_id`.
 
-## 破壞性變更
+## Breaking changes
 
-目前 Interactions API 處於早期 Beta 版階段。我們會根據實際使用情況和開發人員意見回饋，積極開發及改良 API 功能、資源結構定義和 SDK 介面。因此**可能會發生重大變更**。
+The Interactions API is currently in an early beta stage. We are actively
+developing and refining the API capabilities, resource schemas, and SDK
+interfaces based on real-world usage and developer feedback. As a result, **breaking changes may occur**.
 
-現有的破壞性變更：
+Existing breaking changes:
 
-- **步驟結構定義**：新的步驟陣列會取代輸出陣列，提供每個互動回合的結構化時間軸。
+- **Steps schema**: A new steps array replaces the outputs array, providing a structured timeline of each interaction turn.
 
-如要瞭解最近的重大變更，以及如何遷移，請參閱「[重大變更遷移指南 (2026 年 5 月)](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-tw)」。
+To learn about the most recent breaking change and understand how to migrate, see [Breaking changes migration guide (May 2026)](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026).
 
-其他可能的更新包括輸入和輸出內容的結構定義、SDK 方法簽章和物件結構，以及特定功能行為的變更。
+Other potential updates may include changes to schemas for input and output, SDK method signatures and object structures, specific feature behaviors.
 
-對於實際工作負載，您應繼續使用標準 [`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw) API。這仍是穩定部署作業的建議做法，我們也會持續積極開發及維護。
+For production workloads, you should continue to use the standard
+[`generateContent`](https://ai.google.dev/gemini-api/docs/interactions/text-generation) API. It remains the
+recommended path for stable deployments, and we will continue to actively develop and maintain it.
 
-## 意見回饋
+## Feedback
 
-您的意見回饋對 Interactions API 的開發至關重要。歡迎前往 [Google AI 開發人員社群論壇](https://discuss.ai.google.dev/c/gemini-api/4?hl=zh-tw)分享想法、回報錯誤或要求功能。
+Your feedback is critical to the development of the Interactions API.
+Share your thoughts, report bugs, or request features on our
+[Google AI Developer Community Forum](https://discuss.ai.google.dev/c/gemini-api/4).
 
-## 後續步驟
+## What's next
 
-- 請試用 [Interactions API 快速入門筆記本](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=zh-tw)。
-- 瞭解如何使用[串流互動](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw)即時處理回覆。
-- 進一步瞭解 [Gemini Deep Research 代理程式](https://ai.google.dev/gemini-api/docs/interactions/deep-research?hl=zh-tw)。
+- Try the [Interactions API quickstart notebook](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb).
+- Learn about [Streaming interactions](https://ai.google.dev/gemini-api/docs/interactions/streaming) for real-time response handling.
+- Learn more about the [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/interactions/deep-research).
 
-提供意見
+Send feedback
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-上次更新時間：2026-06-08 (世界標準時間)。
+Last updated 2026-06-18 UTC.
 
-想進一步說明嗎？
+Need to tell us more?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-08 (世界標準時間)。"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

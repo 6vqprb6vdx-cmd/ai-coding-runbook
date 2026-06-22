@@ -1,32 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=th
-fetched_at: 2026-06-15T06:24:47.840788+00:00
-title: "\u0e01\u0e32\u0e23\u0e2d\u0e49\u0e32\u0e07\u0e2d\u0e34\u0e07\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07\u0e14\u0e49\u0e27\u0e22 Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions/maps-grounding
+fetched_at: 2026-06-22T06:24:01.672515+00:00
+title: "Grounding with Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+# Grounding with Google Maps
 
-ส่งความคิดเห็น
+Grounding with Google Maps connects the generative capabilities of Gemini with
+the rich, factual, and up-to-date data of Google Maps. This feature enables
+developers to easily incorporate location-aware functionality into their
+applications. When a user query has a context related to Maps data, the Gemini
+model leverages Google Maps to provide factually accurate and fresh answers that
+are relevant to the user's specified location or general area.
 
-# การอ้างอิงตำแหน่งด้วย Google Maps
+- **Accurate, location-aware responses:** Leverage Google Maps' extensive and
+  current data for geographically specific queries.
+- **Enhanced personalization:** Tailor recommendations and information based
+  on user-provided locations.
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะเชื่อมต่อความสามารถในการสร้างเนื้อหาของ Gemini กับข้อมูลที่สมบูรณ์ เป็นข้อเท็จจริง และเป็นข้อมูลล่าสุดของ Google Maps ฟีเจอร์นี้ช่วยให้นักพัฒนาแอปสามารถรวมฟังก์ชันการทำงานที่รับรู้ตำแหน่งลงในแอปพลิเคชันของตนได้อย่างง่ายดาย เมื่อคำค้นหาของผู้ใช้มีบริบทที่เกี่ยวข้องกับข้อมูล Maps โมเดล Gemini จะใช้ประโยชน์จาก Google Maps เพื่อให้คำตอบที่เป็นข้อเท็จจริงและเป็นข้อมูลล่าสุดซึ่งเกี่ยวข้องกับสถานที่ที่ผู้ใช้ระบุหรือพื้นที่ทั่วไป
+## Get started
 
-- **คำตอบที่ถูกต้องและรับรู้ตำแหน่ง:** ใช้ประโยชน์จากข้อมูลที่ครอบคลุมและเป็นปัจจุบันของ Google Maps สำหรับคำค้นหาที่เฉพาะเจาะจงทางภูมิศาสตร์
-- **การปรับเปลี่ยนในแบบของผู้ใช้ที่ดียิ่งขึ้น:** ปรับแต่งคำแนะนำและข้อมูลตามสถานที่ที่ผู้ใช้ระบุ
-
-## เริ่มต้นใช้งาน
-
-ตัวอย่างนี้แสดงวิธีผสานรวมการเชื่อมต่อแหล่งข้อมูลกับ Google Maps เข้ากับแอปพลิเคชันของคุณเพื่อให้คำตอบที่ถูกต้องและรับรู้ตำแหน่งสำหรับคำค้นหาของผู้ใช้ พรอมต์จะขอคำแนะนำในพื้นที่พร้อมสถานที่ของผู้ใช้ที่ไม่บังคับ ซึ่งช่วยให้โมเดล Gemini ใช้ข้อมูล Google Maps ได้
+This example demonstrates how to integrate Grounding with Google Maps into your
+application to provide accurate, location-aware responses to user queries. The
+prompt asks for local recommendations with an optional user location, enabling
+the Gemini model to use Google Maps data.
 
 ### Python
 
@@ -120,39 +126,62 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## วิธีการทำงานของการเชื่อมต่อแหล่งข้อมูลกับ Google Maps
+## How Grounding with Google Maps works
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะผสานรวม Gemini API กับระบบนิเวศ Google Geo โดยใช้ Maps API เป็นแหล่งข้อมูล เมื่อคำค้นหาของผู้ใช้มีบริบททางภูมิศาสตร์ โมเดล Gemini จะเรียกใช้เครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Maps ได้ จากนั้นโมเดลจะสร้างคำตอบโดยอิงตามข้อมูล Google Maps ที่เกี่ยวข้องกับสถานที่ที่ระบุ
+Grounding with Google Maps integrates the Gemini API with the Google Geo
+ecosystem by using the Maps API as a grounding source. When a user's query
+contains geographical context, the Gemini model can invoke the Grounding with
+Google Maps tool. The model can then generate responses grounded in Google Maps
+data relevant to the provided location.
 
-โดยปกติกระบวนการจะมีลักษณะดังนี้
+The process typically involves:
 
-1. **คำค้นหาของผู้ใช้:** ผู้ใช้ส่งคำค้นหาไปยังแอปพลิเคชันของคุณ ซึ่งอาจมีบริบททางภูมิศาสตร์ (เช่น "ร้านกาแฟใกล้ฉัน" "พิพิธภัณฑ์ในซานฟรานซิสโก")
-2. **การเรียกใช้เครื่องมือ:** โมเดล Gemini จะเรียกใช้เครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Maps เมื่อรับรู้ถึงความตั้งใจทางภูมิศาสตร์ คุณอาจระบุ `latitude` และ `longitude` ของผู้ใช้ให้กับเครื่องมือนี้ได้
-   เครื่องมือนี้เป็นเครื่องมือค้นหาข้อความและทำงานคล้ายกับการค้นหาใน Maps โดยคำค้นหาในพื้นที่ ("ใกล้ฉัน") จะใช้พิกัด ส่วนคำค้นหาที่เฉพาะเจาะจงหรือไม่ใช่ในพื้นที่นั้นมีแนวโน้มที่จะไม่ได้รับผลกระทบจากสถานที่ที่ระบุ
-3. **การดึงข้อมูล:** บริการการเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะค้นหาข้อมูลที่เกี่ยวข้องจาก Google Maps (เช่น สถานที่ รีวิว รูปภาพ ที่อยู่ เวลาทำการ)
-4. **การสร้างเนื้อหาโดยอิงตามแหล่งข้อมูล:** ระบบจะใช้ข้อมูล Maps ที่ดึงมาเพื่อแจ้งคำตอบของโมเดล Gemini เพื่อให้มั่นใจในความถูกต้องของข้อเท็จจริงและความเกี่ยวข้อง
-5. **คำตอบและคำอธิบายประกอบ:** โมเดลจะแสดงคำตอบเป็นข้อความพร้อมคำอธิบายประกอบแบบอินไลน์ที่ลิงก์ไปยังแหล่งข้อมูล Google Maps ซึ่งช่วยให้นักพัฒนาแอปแสดงการอ้างอิงได้
+1. **User query:** A user submits a query to your application, potentially
+   including geographical context (e.g., "coffee shops near me," "museums in
+   San Francisco").
+2. **Tool invocation:** The Gemini model, recognizing the geographical intent,
+   invokes the Grounding with Google Maps tool. This tool can optionally be
+   provided with the user's `latitude` and `longitude`. The tool is a textual
+   search tool and behaves similarly to searching on Maps, in that local
+   queries ("near me") will use the coordinates, while specific or non-local
+   queries are unlikely to be influenced by the explicit location.
+3. **Data retrieval:** The Grounding with Google Maps service queries Google
+   Maps for relevant information (e.g., places, reviews, photos, addresses,
+   opening hours).
+4. **Grounded generation:** The retrieved Maps data is used to inform the
+   Gemini model's response, ensuring factual accuracy and relevance.
+5. **Response & annotations:** The model returns a text response with inline
+   annotations linking to Google Maps sources, allowing developers to
+   display citations.
 
-## เหตุผลและเวลาที่ควรใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Maps
+## Why and when to use Grounding with Google Maps
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Maps เหมาะอย่างยิ่งสำหรับแอปพลิเคชันที่ต้องใช้ข้อมูลที่ถูกต้อง เป็นข้อมูลล่าสุด และเฉพาะเจาะจงสถานที่ ฟีเจอร์นี้ช่วยยกระดับประสบการณ์การใช้งานของผู้ใช้ด้วยการแสดงเนื้อหาที่เกี่ยวข้องและปรับเปลี่ยนในแบบของผู้ใช้ ซึ่งได้รับการสนับสนุนจากฐานข้อมูลที่ครอบคลุมของ Google Maps ที่มีสถานที่มากกว่า 250 ล้านแห่งทั่วโลก
+Grounding with Google Maps is ideal for applications that require accurate,
+up-to-date, and location-specific information. It enhances the user experience
+by providing relevant and personalized content backed by Google Maps' extensive
+database of over 250 million places worldwide.
 
-คุณควรใช้การเชื่อมต่อแหล่งข้อมูลกับ Google Maps เมื่อแอปพลิเคชันของคุณต้องทำสิ่งต่อไปนี้
+You should use Grounding with Google Maps when your application needs to:
 
-- ให้คำตอบที่สมบูรณ์และถูกต้องสำหรับคำถามที่เฉพาะเจาะจงทางภูมิศาสตร์
-- สร้างเครื่องมือวางแผนการเดินทางและไกด์นำเที่ยวในพื้นที่แบบสนทนา
-- แนะนำจุดที่น่าสนใจตามสถานที่และความชอบของผู้ใช้ เช่น ร้านอาหารหรือร้านค้า
-- สร้างประสบการณ์ที่รับรู้ตำแหน่งสำหรับบริการโซเชียลมีเดีย บริการค้าปลีก หรือบริการจัดส่งอาหาร
+- Provide complete and accurate responses to geo-specific questions.
+- Build conversational trip planners and local guides.
+- Recommend points of interest based on
+  location and user preferences like restaurants or shops.
+- Create location-aware experiences for social, retail, or food delivery
+  services.
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Maps เหมาะอย่างยิ่งสำหรับกรณีการใช้งานที่ระยะทางและข้อมูลข้อเท็จจริงปัจจุบันมีความสำคัญอย่างยิ่ง เช่น การค้นหา "ร้านกาแฟที่ดีที่สุดใกล้ฉัน" หรือการดูเส้นทาง
+Grounding with Google Maps excels in use cases where proximity and current
+factual data are critical, such as finding the "best coffee shop near me" or
+getting directions.
 
-## กรณีการใช้งาน
+## Use cases
 
-การเชื่อมต่อแหล่งข้อมูลกับ Google Maps รองรับกรณีการใช้งานที่รับรู้ตำแหน่งได้หลากหลาย
+Grounding with Google Maps supports a variety of location-aware use cases.
 
-### การจัดการคำถามที่เฉพาะเจาะจงสถานที่
+### Handling place-specific questions
 
-ถามคำถามโดยละเอียดเกี่ยวกับสถานที่ที่เฉพาะเจาะจงเพื่อรับคำตอบโดยอิงตามรีวิวของผู้ใช้ Google และข้อมูล Maps อื่นๆ
+Ask detailed questions about a specific place to get answers based on Google
+user reviews and other Maps data.
 
 ### Python
 
@@ -225,9 +254,10 @@ async function main() {
 main();
 ```
 
-### การปรับเปลี่ยนในแบบของผู้ใช้ตามสถานที่
+### Providing location-based personalization
 
-รับคำแนะนำที่ปรับให้เหมาะกับความชอบของผู้ใช้และพื้นที่ทางภูมิศาสตร์ที่เฉพาะเจาะจง
+Get recommendations tailored to a user's preferences and a specific geographical
+area.
 
 ### Python
 
@@ -300,9 +330,10 @@ async function main() {
 main();
 ```
 
-### การช่วยเหลือในการวางแผนการเดินทาง
+### Assisting with itinerary planning
 
-สร้างแผนการเดินทางหลายวันพร้อมเส้นทางและข้อมูลเกี่ยวกับสถานที่ต่างๆ ซึ่งเหมาะสำหรับแอปพลิเคชันการเดินทาง
+Generate multi-day plans with directions and information about various
+locations, perfect for travel applications.
 
 ### Python
 
@@ -368,96 +399,117 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## ข้อกำหนดในการใช้งานบริการ
+## Service usage requirements
 
-ส่วนนี้อธิบายข้อกำหนดในการใช้งานบริการสำหรับการเชื่อมต่อแหล่งข้อมูลกับ Google Maps
+This section describes the service usage requirements for Grounding with Google
+Maps.
 
-### แจ้งให้ผู้ใช้ทราบเกี่ยวกับการใช้แหล่งข้อมูล Google Maps
+### Inform the user about the use of Google Maps sources
 
-ผลลัพธ์แต่ละรายการที่อิงตามแหล่งข้อมูล Google Maps จะมีคำอธิบายประกอบแหล่งข้อมูลในบล็อกเนื้อหาของขั้นตอน `model_output` ที่รองรับคำตอบแต่ละรายการ ระบบจะแสดงข้อมูลเมตาดังต่อไปนี้
+With each Google Maps Grounded result, you'll receive source annotations on
+the `model_output` step's content blocks that support each response. The following metadata is
+returned:
 
-- URL ต้นทาง
-- ชื่อ
+- source url
+- name
 
-เมื่อแสดงผลลัพธ์จากการเชื่อมต่อแหล่งข้อมูลกับ Google Maps คุณต้องระบุแหล่งข้อมูล Google Maps ที่เกี่ยวข้องและแจ้งให้ผู้ใช้ทราบดังต่อไปนี้
+When presenting results from Grounding with Google Maps, you must specify the
+associated Google Maps sources, and inform your users of the following:
 
-- แหล่งข้อมูล Google Maps ต้องอยู่ต่อจากเนื้อหาที่สร้างขึ้นซึ่งแหล่งข้อมูลรองรับโดยทันที เนื้อหาที่สร้างขึ้นนี้เรียกอีกอย่างว่าผลลัพธ์ที่อิงตามแหล่งข้อมูล Google Maps
-- แหล่งข้อมูล Google Maps ต้องดูได้ภายใน 1 การโต้ตอบของผู้ใช้
+- The Google Maps sources must immediately follow the generated content that
+  the sources support. This generated content is also referred to as Google
+  Maps Grounded Result.
+- The Google Maps sources must be viewable within one user interaction.
 
-### แสดงแหล่งข้อมูล Google Maps พร้อมลิงก์ Google Maps
+### Display Google Maps sources with Google Maps links
 
-คำอธิบายประกอบแหล่งข้อมูลแต่ละรายการต้องสร้างตัวอย่างลิงก์ตามข้อกำหนดต่อไปนี้
+For each source annotation, a link preview must
+be generated following these requirements:
 
-- ระบุแหล่งที่มาแต่ละรายการเป็น Google Maps ตามหลักเกณฑ์การระบุแหล่งที่มาด้วยข้อความของ Google Maps
-- แสดงชื่อแหล่งข้อมูลที่ระบุไว้ในคำตอบ
-- ลิงก์ไปยังแหล่งข้อมูลโดยใช้ `url` จากคำอธิบายประกอบ
+- Attribute each source to Google Maps following the Google Maps text
+  [attribution guidelines](#maps-attribution-guidelines).
+- Display the source name provided in the response.
+- Link to the source using the `url` from the annotation.
 
-### หลักเกณฑ์การระบุแหล่งที่มาด้วยข้อความของ Google Maps
+### Google Maps text attribution guidelines
 
-เมื่อระบุแหล่งที่มาเป็น Google Maps ในข้อความ ให้ทำตามหลักเกณฑ์ต่อไปนี้
+When you attribute sources to Google Maps in text, follow these guidelines:
 
-- อย่าแก้ไขข้อความ Google Maps ในลักษณะใดๆ ดังนี้
-  - อย่าเปลี่ยนการใช้อักษรตัวพิมพ์ใหญ่ของ Google Maps
-  - อย่าขึ้นบรรทัดใหม่สำหรับ Google Maps
-  - อย่าแปล Google Maps เป็นภาษาอื่น
-  - ป้องกันไม่ให้เบราว์เซอร์แปล Google Maps โดยใช้แอตทริบิวต์ HTML translate="no"
+- Don't modify the text Google Maps in any way:
+  - Don't change the capitalization of Google Maps.
+  - Don't wrap Google Maps onto multiple lines.
+  - Don't localize Google Maps into another language.
+  - Prevent browsers from translating Google Maps by using the HTML
+    attribute translate="no".
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับผู้ให้บริการข้อมูล Google Maps บางรายและ
-ข้อกำหนดสิทธิ์การใช้งานได้ที่ [ประกาศทางกฎหมายของ Google Maps และ Google Earth](https://www.google.com/help/legalnotices_maps/?hl=th)
+For more information about some of our Google Maps data providers and their
+license terms, see the [Google Maps and Google Earth legal notices](https://www.google.com/help/legalnotices_maps/).
 
-## แนวทางปฏิบัติแนะนำ
+## Best practices
 
-- **ระบุสถานที่ของผู้ใช้:** เพื่อให้ได้คำตอบที่เกี่ยวข้องมากที่สุดและปรับเปลี่ยนในแบบของผู้ใช้
-  ระบุ `latitude` และ `longitude` ในการกำหนดค่าเครื่องมือ `google_maps` เสมอเมื่อทราบสถานที่ของผู้ใช้
-- **แจ้งผู้ใช้ปลายทาง:** แจ้งให้ผู้ใช้ปลายทางทราบอย่างชัดเจนว่าระบบกำลังใช้ข้อมูล Google Maps เพื่อตอบคำค้นหาของผู้ใช้ โดยเฉพาะอย่างยิ่งเมื่อเปิดใช้เครื่องมือ
-- **ปิดใช้เมื่อไม่จำเป็น:** การเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะปิดอยู่โดยค่าเริ่มต้น ให้เปิดใช้ (`"tools": [{"type": "google_maps"}]`) เฉพาะเมื่อคำค้นหามี
-  บริบททางภูมิศาสตร์ที่ชัดเจน เพื่อเพิ่มประสิทธิภาพและลดค่าใช้จ่าย
+- **Provide user location:** For the most relevant and personalized responses,
+  always include the `latitude` and `longitude` in your `google_maps` tool configuration when the user's location is known.
+- **Inform End-Users:** Clearly inform your end-users that Google Maps
+  data is being used to answer their queries, especially when the tool is
+  enabled.
+- **Toggle Off When Not Needed:** Grounding with Google Maps is off by
+  default. Only enable it (`"tools": [{"type": "google_maps"}]`) when a query has a
+  clear geographical context, to optimize performance and cost.
 
-## ข้อจำกัด
+## Limitations
 
-- ปัจจุบันการเชื่อมต่อแหล่งข้อมูลกับ Google Maps รองรับเฉพาะพรอมต์และคำตอบเป็นภาษาอังกฤษเท่านั้น
-- เครื่องมือนี้อาจไม่พร้อมให้บริการในบางภูมิภาค
-- ผลลัพธ์อาจแตกต่างกันไปตามความแม่นยำของสถานที่และข้อมูล Maps ที่มี
-- **ขอบเขตทางภูมิศาสตร์:** การเชื่อมต่อแหล่งข้อมูลกับ Google Maps พร้อมให้บริการทั่วโลก
-- **สถานะเริ่มต้น:** เครื่องมือการเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะปิดอยู่โดยค่าเริ่มต้น
-  คุณต้องเปิดใช้เครื่องมือนี้อย่างชัดเจนในคำขอ API
+- Grounding with Google Maps currently only supports English language prompts
+  and responses.
+- The tool may not be available in all regions.
+- Results may vary based on location accuracy and available Maps data.
+- **Geographical Scope:** Grounding with Google Maps is globally available.
+- **Default State:** The Grounding with Google Maps tool is off by default.
+  You must explicitly enable it in your API requests.
 
-## การกำหนดราคาและขีดจำกัดอัตรา
+## Pricing and rate limits
 
-การกำหนดราคาการเชื่อมต่อแหล่งข้อมูลกับ Google Maps จะอิงตามคำค้นหา อัตราปัจจุบันคือ **$25 / 1,000 พรอมต์ที่อิงตามแหล่งข้อมูล** นอกจากนี้ ระดับฟรียังมีคำขอให้ใช้ได้สูงสุด 500 รายการต่อวัน ระบบจะนับคำขอรวมในโควต้าก็ต่อเมื่อพรอมต์แสดงผลลัพธ์ที่อิงตามแหล่งข้อมูล Google Maps อย่างน้อย 1 รายการ (เช่น ผลลัพธ์ที่มีแหล่งข้อมูล Google Maps อย่างน้อย 1 แหล่ง) หากส่งคำค้นหาหลายรายการไปยัง Google Maps จากคำขอเดียว ระบบจะนับเป็น 1 คำขอตามขีดจำกัดอัตรา
+Grounding with Google Maps pricing is based on queries. The current rate is
+**$25 / 1K grounded prompts**. The free tier also has up to 500 requests per day
+available. A request is only counted towards the quota when
+a prompt successfully returns at least one Google Maps grounded result (i.e.,
+results containing at least one Google Maps source). If multiple queries are
+sent to Google Maps from a single request, it counts as one request towards the
+rate limit.
 
-ดูข้อมูลการกำหนดราคารายละเอียดได้ที่หน้าการกำหนดราคา [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
+For detailed pricing information, see the [Gemini API pricing page](https://ai.google.dev/gemini-api/docs/pricing).
 
-## โมเดลที่รองรับ
+## Supported models
 
-โมเดลต่อไปนี้รองรับการเชื่อมต่อแหล่งข้อมูลกับ Google Maps
+The following models support Grounding with Google Maps:
 
-| โมเดล | การเชื่อมต่อแหล่งข้อมูลกับ Google Maps |
+| Model | Grounding with Google Maps |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
-| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite) | ✔️ |
 
-## ชุดค่าผสมของเครื่องมือที่รองรับ
+## Supported tool combinations
 
-โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การเชื่อมต่อแหล่งข้อมูลกับ Google Maps) กับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ในหน้า
-[ชุดค่าผสมของเครื่องมือ](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=th)
+Gemini 3 models support combining built-in tools (like Grounding with Google
+Maps) with custom tools (function calling). Learn more on the
+[tool combinations](https://ai.google.dev/gemini-api/docs/interactions/tool-combination) page.
 
-## ขั้นตอนถัดไป
+## What's next
 
-- ดูข้อมูลเกี่ยวกับเครื่องมืออื่นๆ ที่[พร้อมให้บริการ](https://ai.google.dev/gemini-api/docs/tools?hl=th)
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับแนวทางปฏิบัติแนะนำด้าน AI ที่มีความรับผิดชอบและตัวกรองความปลอดภัยของ Gemini API ได้ใน[คู่มือการตั้งค่าความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-settings?hl=th)
+- Learn about other [available tools](https://ai.google.dev/gemini-api/docs/tools).
+- To learn more about responsible AI best practices and Gemini API's safety
+  filters, see [the Safety settings guide](https://ai.google.dev/gemini-api/docs/safety-settings).
 
-ส่งความคิดเห็น
+Send feedback
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-อัปเดตล่าสุด 2026-06-01 UTC
+Last updated 2026-06-18 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Need to tell us more?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

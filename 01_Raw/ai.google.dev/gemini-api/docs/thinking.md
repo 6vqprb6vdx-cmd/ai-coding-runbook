@@ -1,31 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=vi
-fetched_at: 2026-06-15T06:21:01.924472+00:00
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=id
+fetched_at: 2026-06-22T06:32:20.160993+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-# Gemini đang suy nghĩ
+# Penalaran Gemini
 
-[Các mô hình thuộc dòng Gemini 3 và 2.5](https://ai.google.dev/gemini-api/docs/models?hl=vi) sử dụng một "quy trình tư duy" nội bộ giúp cải thiện đáng kể khả năng suy luận và lập kế hoạch nhiều bước, khiến các mô hình này trở nên hiệu quả cao đối với các nhiệm vụ phức tạp như lập trình, toán học nâng cao và phân tích dữ liệu.
+Model seri [Gemini 3 dan 2.5](https://ai.google.dev/gemini-api/docs/models?hl=id) menggunakan
+"proses penalaran" internal yang meningkatkan kemampuan penalaran dan perencanaan multi-langkah secara signifikan, sehingga sangat efektif untuk tugas kompleks seperti
+coding, matematika tingkat lanjut, dan analisis data.
 
-Hướng dẫn này cho bạn biết cách khai thác khả năng tư duy của Gemini bằng Gemini API.
+Panduan ini menunjukkan cara menggunakan kemampuan penalaran Gemini menggunakan Gemini API.
 
-## Tạo nội dung bằng tư duy
+## Membuat konten dengan penalaran
 
-Việc bắt đầu một yêu cầu bằng mô hình tư duy cũng tương tự như mọi yêu cầu tạo nội dung khác. Điểm khác biệt chính nằm ở việc chỉ định một trong các [mô hình có hỗ trợ tư duy](#supported-models) trong trường `model`, như minh hoạ trong ví dụ [tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#text-input) sau đây:
+Memulai permintaan dengan model penalaran mirip dengan permintaan pembuatan konten lainnya. Perbedaan utamanya terletak pada penentuan salah satu
+[model dengan dukungan penalaran](#supported-models) di kolom `model`, seperti yang
+ditunjukkan dalam contoh [pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#text-input) berikut:
 
 ### Python
 
@@ -113,13 +117,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
  ```
 ```
 
-## Tóm tắt suy nghĩ
+## Ringkasan penalaran
 
-Bản tóm tắt suy nghĩ là phiên bản tóm tắt về những suy nghĩ thô của mô hình và cung cấp thông tin chi tiết về quy trình suy luận nội bộ của mô hình. Xin lưu ý rằng các cấp độ và ngân sách tư duy áp dụng cho suy nghĩ thô của mô hình chứ không áp dụng cho bản tóm tắt suy nghĩ.
+Ringkasan penalaran adalah versi ringkasan dari penalaran mentah model dan menawarkan insight tentang proses penalaran internal model. Perhatikan bahwa tingkat dan anggaran penalaran berlaku untuk penalaran mentah model, bukan untuk ringkasan penalaran.
 
-Bạn có thể bật tính năng tóm tắt suy nghĩ bằng cách đặt `includeThoughts` thành `true` trong cấu hình yêu cầu. Sau đó, bạn có thể truy cập vào bản tóm tắt bằng cách lặp lại `parts` của tham số `response` và kiểm tra boolean `thought`.
+Anda dapat mengaktifkan ringkasan penalaran dengan menetapkan `includeThoughts` ke `true` dalam konfigurasi permintaan. Kemudian, Anda dapat mengakses ringkasan dengan melakukan iterasi melalui `parts` parameter `response`, dan memeriksa boolean `thought`.
 
-Dưới đây là ví dụ minh hoạ cách bật và truy xuất bản tóm tắt suy nghĩ mà không cần truyền trực tuyến, trả về một bản tóm tắt suy nghĩ cuối cùng duy nhất cùng với phản hồi:
+Berikut adalah contoh yang menunjukkan cara mengaktifkan dan mengambil ringkasan penalaran tanpa streaming, yang menampilkan satu ringkasan penalaran akhir dengan respons:
 
 ### Python
 
@@ -229,7 +233,7 @@ func main() {
 }
 ```
 
-Sau đây là ví dụ về cách sử dụng tính năng suy nghĩ bằng cách phát trực tuyến, tính năng này sẽ trả về các bản tóm tắt tăng dần, liên tục trong quá trình tạo:
+Berikut adalah contoh penggunaan penalaran dengan streaming, yang menampilkan ringkasan inkremental bergulir selama pembuatan:
 
 ### Python
 
@@ -382,25 +386,25 @@ func main() {
 }
 ```
 
-## Tư duy kiểm soát
+## Mengontrol penalaran
 
-Theo mặc định, các mô hình Gemini tham gia vào quá trình tư duy linh hoạt bằng cách tự động điều chỉnh mức độ nỗ lực suy luận dựa trên độ phức tạp của yêu cầu của người dùng.
-Tuy nhiên, nếu có những hạn chế cụ thể về độ trễ hoặc yêu cầu mô hình tham gia vào quá trình suy luận sâu hơn bình thường, thì bạn có thể tuỳ ý sử dụng các tham số để kiểm soát hành vi suy nghĩ.
+Model Gemini melakukan penalaran dinamis secara default, dan otomatis menyesuaikan jumlah upaya penalaran berdasarkan kompleksitas permintaan pengguna.
+Namun, jika Anda memiliki batasan latensi tertentu atau mengharuskan model melakukan penalaran yang lebih mendalam dari biasanya, Anda dapat menggunakan parameter secara opsional untuk mengontrol perilaku penalaran.
 
-### Cấp độ tư duy (Gemini 3)
+### Tingkat penalaran (Gemini 3)
 
-Tham số `thinkingLevel` (nên dùng cho các mô hình Gemini 3 trở lên) cho phép bạn kiểm soát hành vi suy luận.
+Parameter `thinkingLevel`, yang direkomendasikan untuk model Gemini 3 dan yang lebih baru, memungkinkan Anda mengontrol perilaku penalaran.
 
-Bảng sau đây trình bày chi tiết các chế độ cài đặt `thinkingLevel` cho từng loại mô hình:
+Tabel berikut menjelaskan setelan `thinkingLevel` untuk setiap jenis model:
 
-| Cấp độ tư duy | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Gemini 3.5 Flash | Mô tả |
+| Tingkat Penalaran | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Gemini 3.5 Flash | Deskripsi |
 | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | Không được hỗ trợ | Được hỗ trợ (Mặc định) | Được hỗ trợ | Được hỗ trợ | Phù hợp với chế độ cài đặt "không suy nghĩ" cho hầu hết các cụm từ tìm kiếm. Mô hình có thể tư duy rất ít cho các nhiệm vụ lập trình phức tạp. Giảm thiểu độ trễ cho các ứng dụng trò chuyện hoặc ứng dụng có thông lượng cao. Xin lưu ý rằng `minimal` không đảm bảo rằng tính năng suy nghĩ đã tắt. |
-| **`low`** | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Giảm thiểu độ trễ và chi phí. Phù hợp nhất với các ứng dụng tuân theo hướng dẫn đơn giản, trò chuyện hoặc có thông lượng cao. |
-| **`medium`** | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ (Mặc định) | Tư duy cân bằng cho hầu hết các nhiệm vụ. |
-| **`high`** | Được hỗ trợ (Mặc định, Động) | Được hỗ trợ (Động) | Được hỗ trợ (Mặc định, Động) | Được hỗ trợ (Động) | Tối đa hoá độ sâu suy luận. Mô hình có thể mất nhiều thời gian hơn đáng kể để đạt được mã thông báo đầu tiên (không phải mã thông báo tư duy), nhưng đầu ra sẽ được suy luận cẩn thận hơn. |
+| **`minimal`** | Tidak didukung | Didukung (Default) | Didukung | Didukung | Cocok dengan setelan "tanpa penalaran" untuk sebagian besar kueri. Model mungkin berpikir sangat minimal untuk tugas coding yang kompleks. Meminimalkan latensi untuk aplikasi chat atau throughput tinggi. Perhatikan, `minimal` tidak menjamin bahwa penalaran dinonaktifkan. |
+| **`low`** | Didukung | Didukung | Didukung | Didukung | Meminimalkan latensi dan biaya. Paling cocok untuk aplikasi chat, throughput tinggi, atau mengikuti petunjuk sederhana. |
+| **`medium`** | Didukung | Didukung | Didukung | Didukung (Default) | Penalaran seimbang untuk sebagian besar tugas. |
+| **`high`** | Didukung (Default, Dinamis) | Didukung (Dinamis) | Didukung (Default, Dinamis) | Didukung (Dinamis) | Memaksimalkan kedalaman penalaran. Model mungkin memerlukan waktu yang jauh lebih lama untuk mencapai token output pertama (non-penalaran), tetapi output akan lebih dipertimbangkan dengan cermat. |
 
-Ví dụ sau đây cho thấy cách thiết lập cấp độ tư duy.
+Contoh berikut menunjukkan cara menetapkan tingkat penalaran.
 
 ### Python
 
@@ -503,28 +507,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }'
 ```
 
-Bạn không thể tắt tính năng suy nghĩ cho Gemini 3.1 Pro. Gemini 3 Flash và Flash-Lite cũng không hỗ trợ tắt hoàn toàn tính năng tư duy, nhưng chế độ cài đặt `minimal` có nghĩa là mô hình có thể sẽ không tư duy (mặc dù vẫn có khả năng).
-Nếu bạn không chỉ định mức độ tư duy, Gemini sẽ sử dụng mức độ tư duy mặc định của các mô hình Gemini 3 (ví dụ: `"high"` cho Gemini 3.1 Pro và `"medium"` cho Gemini 3.5 Flash).
+Anda tidak dapat menonaktifkan penalaran untuk Gemini 3.1 Pro. Gemini 3 Flash dan Flash-Lite juga tidak mendukung penalaran nonaktif penuh, tetapi setelan `minimal` berarti model kemungkinan tidak akan berpikir (meskipun masih berpotensi).
+Jika Anda tidak menentukan tingkat penalaran, Gemini akan menggunakan tingkat penalaran default model Gemini 3 (misalnya, `"high"` untuk Gemini 3.1 Pro, dan `"medium"` untuk Gemini 3.5 Flash).
 
-Các mô hình Gemini 2.5 không hỗ trợ `thinkingLevel`; thay vào đó, hãy sử dụng `thinkingBudget`.
+Model seri Gemini 2.5 tidak mendukung `thinkingLevel`; gunakan `thinkingBudget`.
 
-### Ngân sách tư duy
+### Anggaran penalaran
 
-Tham số `thinkingBudget` (ra mắt cùng với dòng Gemini 2.5) hướng dẫn mô hình về số lượng mã thông báo tư duy cụ thể cần sử dụng để suy luận.
+Parameter `thinkingBudget`, yang diperkenalkan dengan seri Gemini 2.5, memandu model tentang jumlah token penalaran tertentu yang akan digunakan untuk penalaran.
 
-Sau đây là thông tin chi tiết về cấu hình `thinkingBudget` cho từng loại mô hình.
-Bạn có thể tắt tính năng suy nghĩ bằng cách đặt `thinkingBudget` thành 0.
-Việc đặt `thinkingBudget` thành -1 sẽ bật **tư duy linh hoạt**, tức là mô hình sẽ điều chỉnh ngân sách dựa trên độ phức tạp của yêu cầu.
+Berikut adalah detail konfigurasi `thinkingBudget` untuk setiap jenis model.
+Anda dapat menonaktifkan penalaran dengan menetapkan `thinkingBudget` ke 0.
+Menetapkan `thinkingBudget` ke -1 akan mengaktifkan **penalaran dinamis**, yang berarti model akan menyesuaikan anggaran berdasarkan kompleksitas permintaan.
 
-| Mô hình | Chế độ cài đặt mặc định (Chưa đặt ngân sách suy nghĩ) | Phạm vi | Tắt tính năng suy nghĩ | Bật tư duy linh hoạt |
+| Model | Setelan default (Anggaran penalaran tidak ditetapkan) | Rentang | Nonaktifkan penalaran | Aktifkan penalaran dinamis |
 | --- | --- | --- | --- | --- |
-| **2.5 Pro** | Tư duy linh hoạt | `128` đến `32768` | Không áp dụng: Không tắt được tính năng suy nghĩ | `thinkingBudget = -1` (Mặc định) |
-| **2.5 Flash** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
-| **2.5 Flash Preview** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
-| **2.5 Flash Lite** | Mô hình không suy nghĩ | `512` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **2.5 Flash Lite Preview** | Mô hình không suy nghĩ | `512` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **Robotics-ER 1.6 Preview** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
-| **2.5 Flash Bản xem trước âm thanh gốc trực tiếp (tháng 9 năm 2025)** | Tư duy linh hoạt | `0` đến `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Mặc định) |
+| **2.5 Pro** | Penalaran dinamis | `128` hingga `32768` | T/A: Tidak dapat menonaktifkan penalaran | `thinkingBudget = -1` (Default) |
+| **2.5 Flash** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
+| **2.5 Flash Preview** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
+| **2.5 Flash Lite** | Model tidak berpikir | `512` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite Preview** | Model tidak berpikir | `512` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 Preview** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
+| **2.5 Flash Live Native Audio Preview (09-2025)** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
 
 ### Python
 
@@ -639,28 +643,33 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-Tuỳ thuộc vào câu lệnh, mô hình có thể vượt quá hoặc không đạt được hạn mức token.
+Bergantung pada perintah, model mungkin meluap atau kekurangan anggaran token.
 
-## Chữ ký của suy nghĩ
+## Tanda tangan penalaran
 
-Gemini API không lưu giữ trạng thái, vì vậy mô hình này xử lý độc lập mọi yêu cầu API và không có quyền truy cập vào ngữ cảnh suy nghĩ từ các lượt tương tác trước đó trong các lượt tương tác nhiều lượt.
+Gemini API bersifat stateless, sehingga model memperlakukan setiap permintaan API secara independen dan tidak memiliki akses ke konteks penalaran dari giliran sebelumnya dalam interaksi multi-giliran.
 
-Để duy trì bối cảnh tư duy trong các lượt tương tác nhiều lượt, Gemini trả về chữ ký tư duy. Đây là các biểu thị được mã hoá của quy trình tư duy nội bộ của mô hình.
+Untuk mengaktifkan pemeliharaan konteks penalaran di seluruh interaksi multi-giliran, Gemini menampilkan tanda tangan penalaran, yang merupakan representasi terenkripsi dari proses penalaran internal model.
 
-- **Các mô hình Gemini 2.5** trả về chữ ký suy nghĩ khi bạn bật tính năng suy nghĩ và yêu cầu bao gồm [lệnh gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#thinking), cụ thể là [khai báo hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-2).
-- **Các mô hình Gemini 3** có thể trả về chữ ký suy nghĩ cho tất cả các loại [phần](https://ai.google.dev/api/caching?hl=vi#Part).
-  Bạn nên luôn truyền tất cả chữ ký trở lại như đã nhận, nhưng đây là *yêu cầu bắt buộc* đối với chữ ký gọi hàm. Hãy đọc trang [Chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để tìm hiểu thêm.
+- **Model Gemini 2.5** menampilkan tanda tangan penalaran saat penalaran diaktifkan dan
+  permintaan menyertakan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#thinking),
+  khususnya [deklarasi fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#step-2).
+- **Model Gemini 3** dapat menampilkan tanda tangan penalaran untuk semua jenis [bagian](https://ai.google.dev/api/caching?hl=id#Part).
+  Sebaiknya selalu teruskan semua tanda tangan seperti yang diterima, tetapi hal ini *diperlukan* untuk tanda tangan panggilan fungsi. Baca halaman
+  [Tanda Tangan Penalaran](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=id) untuk
+  mempelajari lebih lanjut.
 
-Những hạn chế khác về việc sử dụng cần cân nhắc khi gọi hàm bao gồm:
+Batasan penggunaan lainnya yang perlu dipertimbangkan dengan panggilan fungsi mencakup:
 
-- Chữ ký được trả về từ mô hình trong các phần khác của phản hồi, ví dụ: gọi hàm hoặc các phần văn bản.
-  [Trả về toàn bộ câu trả lời](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-4) cùng với tất cả các phần cho mô hình trong các lượt tiếp theo.
-- Đừng nối các phần có chữ ký với nhau.
-- Không được hợp nhất một phần có chữ ký với một phần không có chữ ký.
+- Tanda tangan ditampilkan dari model dalam bagian lain dalam respons, misalnya panggilan fungsi atau bagian teks.
+  [Teruskan seluruh respons](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#step-4)
+  dengan semua bagian kembali ke model pada giliran berikutnya.
+- Jangan menggabungkan bagian dengan tanda tangan.
+- Jangan menggabungkan satu bagian dengan tanda tangan dengan bagian lain tanpa tanda tangan.
 
-## Giá
+## Harga
 
-Khi tính năng suy nghĩ được bật, giá phản hồi là tổng số mã thông báo đầu ra và mã thông báo suy nghĩ. Bạn có thể lấy tổng số mã thông báo tư duy đã tạo từ trường `thoughtsTokenCount`.
+Saat penalaran diaktifkan, harga respons adalah jumlah token output dan token penalaran. Anda dapat memperoleh jumlah total token penalaran yang dihasilkan dari kolom `thoughtsTokenCount`.
 
 ### Python
 
@@ -686,54 +695,57 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Các mô hình tư duy tạo ra những suy nghĩ hoàn chỉnh để cải thiện chất lượng của câu trả lời cuối cùng, sau đó đưa ra [bản tóm tắt](#summaries) để cung cấp thông tin chi tiết về quy trình tư duy. Vì vậy, giá được tính dựa trên số lượng mã thông báo đầy đủ mà mô hình cần tạo để tạo bản tóm tắt, mặc dù chỉ có bản tóm tắt được xuất ra từ API.
+Model penalaran menghasilkan penalaran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](#summaries) output untuk memberikan insight tentang proses penalaran. Jadi, harga didasarkan pada token penalaran lengkap yang perlu dihasilkan model untuk membuat ringkasan, meskipun hanya ringkasan yang dihasilkan dari API.
 
-Bạn có thể tìm hiểu thêm về mã thông báo trong hướng dẫn [Đếm mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
+Anda dapat mempelajari token lebih lanjut di [panduan Penghitungan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id).
 
-## Các phương pháp hay nhất
+## Praktik terbaik
 
-Phần này bao gồm một số hướng dẫn để sử dụng hiệu quả các mô hình tư duy.
-Như thường lệ, việc làm theo [hướng dẫn và các phương pháp hay nhất về câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi) sẽ giúp bạn đạt được kết quả tốt nhất.
+Bagian ini mencakup beberapa panduan untuk menggunakan model penalaran secara efisien.
+Seperti biasa, mengikuti [panduan perintah dan praktik terbaik](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id) kami akan memberikan hasil terbaik.
 
-### Gỡ lỗi và định hướng
+### Proses debug dan pengarahan
 
-- **Xem xét suy luận**: Khi bạn không nhận được câu trả lời như mong đợi từ các mô hình tư duy, bạn có thể phân tích kỹ lưỡng bản tóm tắt suy nghĩ của Gemini.
-  Bạn có thể xem cách AI phân tích nhiệm vụ và đi đến kết luận, đồng thời sử dụng thông tin đó để điều chỉnh cho phù hợp với kết quả mong muốn.
-- **Đưa ra hướng dẫn về suy luận**: Nếu muốn nhận được kết quả đặc biệt dài, bạn có thể đưa ra hướng dẫn trong câu lệnh để hạn chế [lượng tư duy](#set-budget) mà mô hình sử dụng. Điều này cho phép bạn dành nhiều mã thông báo đầu ra hơn cho câu trả lời của mình.
+- **Tinjau penalaran**: Jika Anda tidak mendapatkan respons yang diharapkan dari model penalaran, Anda dapat menganalisis ringkasan penalaran Gemini dengan cermat.
+  Anda dapat melihat cara model memecah tugas dan mencapai kesimpulannya, serta menggunakan informasi tersebut untuk mengoreksi hasil yang benar.
+- **Berikan Panduan dalam Penalaran**: Jika Anda mengharapkan output yang sangat panjang, sebaiknya berikan panduan dalam perintah untuk membatasi
+  [jumlah penalaran](#set-budget) yang digunakan model. Hal ini memungkinkan Anda mencadangkan lebih banyak output token untuk respons.
 
-### Độ phức tạp của nhiệm vụ
+### Kompleksitas tugas
 
-- **Nhiệm vụ dễ dàng (Có thể TẮT tính năng tư duy):** Đối với những yêu cầu đơn giản không đòi hỏi khả năng suy luận phức tạp, chẳng hạn như truy xuất thông tin thực tế hoặc phân loại, thì không cần tư duy. Ví dụ:
-  - "DeepMind được thành lập ở đâu?"
-  - "Email này có yêu cầu tổ chức cuộc họp hay chỉ cung cấp thông tin?"
-- **Các tác vụ trung bình (Mặc định/Cần suy nghĩ):** Nhiều yêu cầu phổ biến sẽ được hưởng lợi từ mức độ xử lý từng bước hoặc hiểu biết sâu sắc hơn. Gemini có thể linh hoạt sử dụng khả năng tư duy cho các tác vụ như:
-  - So sánh quá trình quang hợp và quá trình trưởng thành.
-  - So sánh và đối chiếu xe điện và xe lai điện.
-- **Nhiệm vụ khó (Khả năng tư duy tối đa):** Đối với những thử thách thực sự phức tạp, chẳng hạn như giải các bài toán phức tạp hoặc nhiệm vụ lập trình, bạn nên đặt ngân sách tư duy cao. Những loại tác vụ này đòi hỏi mô hình phải sử dụng toàn bộ khả năng suy luận và lập kế hoạch, thường liên quan đến nhiều bước nội bộ trước khi đưa ra câu trả lời. Ví dụ:
-  - Giải bài toán 1 trong AIME 2025: Tìm tổng của tất cả các cơ số nguyên b > 9 sao cho 17b là ước số của 97b.
-  - Viết mã Python cho một ứng dụng web trực quan hoá dữ liệu thị trường chứng khoán theo thời gian thực, bao gồm cả xác thực người dùng. Hãy làm cho nó hiệu quả nhất có thể.
+- **Tugas Mudah (Penalaran dapat DINONAKTIFKAN):** Untuk permintaan sederhana yang tidak memerlukan penalaran kompleks, seperti pengambilan atau klasifikasi fakta, penalaran tidak diperlukan. Contohnya mencakup:
+  - "Di mana DeepMind didirikan?"
+  - "Apakah email ini meminta rapat atau hanya memberikan informasi?"
+- **Tugas Sedang (Default/Beberapa Penalaran):** Banyak permintaan umum yang diuntungkan dari pemrosesan langkah demi langkah atau pemahaman yang lebih mendalam. Gemini dapat menggunakan kemampuan penalaran secara fleksibel untuk tugas seperti:
+  - Membuat analogi fotosintesis dan tumbuh dewasa.
+  - Membandingkan dan membedakan mobil listrik dan mobil hybrid.
+- **Tugas Sulit (Kemampuan Penalaran Maksimum):** Untuk tantangan yang benar-benar kompleks, seperti menyelesaikan soal matematika yang kompleks atau tugas coding, sebaiknya tetapkan anggaran penalaran yang tinggi. Jenis tugas ini mengharuskan model untuk menggunakan kemampuan penalaran dan perencanaan penuh, yang sering kali melibatkan banyak langkah internal sebelum memberikan jawaban. Contohnya mencakup:
+  - Menyelesaikan soal 1 di AIME 2025: Temukan jumlah semua basis bilangan bulat b > 9 untuk
+    yang 17b adalah pembagi 97b.
+  - Menulis kode Python untuk aplikasi web yang memvisualisasikan data pasar saham real-time, termasuk autentikasi pengguna. Buat seefisien mungkin.
 
-## Các mô hình, công cụ và chức năng được hỗ trợ
+## Model, alat, dan kemampuan yang didukung
 
-Các tính năng tư duy được hỗ trợ trên tất cả các mô hình thuộc dòng 3 và 2.5.
-Bạn có thể tìm thấy tất cả các chức năng của mô hình trên trang [tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+Fitur penalaran didukung di semua model seri 3 dan 2.5.
+Anda dapat menemukan semua kemampuan model di
+[halaman ringkasan model](https://ai.google.dev/gemini-api/docs/models?hl=id).
 
-Các mô hình tư duy hoạt động với tất cả các công cụ và tính năng của Gemini. Điều này cho phép các mô hình tương tác với các hệ thống bên ngoài, thực thi mã hoặc truy cập thông tin theo thời gian thực, kết hợp kết quả vào quá trình suy luận và phản hồi cuối cùng của chúng.
+Model penalaran berfungsi dengan semua alat dan kemampuan Gemini. Hal ini memungkinkan model berinteraksi dengan sistem eksternal, menjalankan kode, atau mengakses informasi real-time, yang menggabungkan hasilnya ke dalam penalaran dan respons akhir.
 
-Bạn có thể thử các ví dụ về cách sử dụng công cụ với mô hình tư duy trong [Thinking cookbook][Colab].
+Anda dapat mencoba contoh penggunaan alat dengan model penalaran di [Buku resep penalaran][Colab].
 
-## Tiếp theo là gì?
+## Apa langkah selanjutnya?
 
-- Thông tin về phạm vi hỗ trợ có trong hướng dẫn [Khả năng tương thích với OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi#thinking) của chúng tôi.
+- Cakupan penalaran tersedia di panduan [Kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id#thinking).
 
 [Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Cập nhật lần gần đây nhất: 2026-06-04 UTC.
+Terakhir diperbarui pada 2026-06-19 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Ada masukan untuk kami?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-04 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-19 UTC."],[],[]]

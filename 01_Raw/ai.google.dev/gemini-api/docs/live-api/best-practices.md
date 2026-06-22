@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=it
-fetched_at: 2026-06-15T06:21:23.630010+00:00
+fetched_at: 2026-06-22T06:24:58.728947+00:00
 title: "Best practice per l'API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

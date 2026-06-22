@@ -1,47 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=pt-BR
-fetched_at: 2026-06-15T06:29:38.693911+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/tokens
+fetched_at: 2026-06-22T06:30:13.748207+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+# Understand and count tokens
 
-Envie comentários
+Gemini and other generative AI models process input and output at a granularity
+called a *token*.
 
-# Entender e contar tokens
+**For Gemini models, a token is equivalent to about 4 characters.
+100 tokens is equal to about 60-80 English words.**
 
-O Gemini e outros modelos de IA generativa processam a entrada e a saída em uma granularidade chamada *token*.
+## About tokens
 
-**Para os modelos Gemini, um token equivale a cerca de quatro caracteres.
-100 tokens equivalem a cerca de 60 a 80 palavras em inglês.**
+Tokens can be single characters like `z` or whole words like `cat`. Long words
+are broken up into several tokens. The set of all tokens used by the model is
+called the vocabulary, and the process of splitting text into tokens is called
+*tokenization*.
 
-## Sobre tokens
+When billing is enabled, the [cost of a call to the Gemini API](https://ai.google.dev/pricing) is
+determined in part by the number of input and output tokens, so knowing how to
+count tokens can be helpful.
 
-Os tokens podem ser caracteres únicos, como `z`, ou palavras inteiras, como `cat`. Palavras longas são divididas em vários tokens. O conjunto de todos os tokens usados pelo modelo é chamado de vocabulário, e o processo de dividir o texto em tokens é chamado de *tokenização*.
+## Count tokens
 
-Quando o faturamento está ativado, o [custo de uma chamada para a API Gemini](https://ai.google.dev/pricing?hl=pt-br) é
-determinado em parte pelo número de tokens de entrada e saída. Portanto, saber como
-contar tokens pode ser útil.
+All input to and output from the Gemini API is tokenized, including text, image
+files, and other non-text modalities.
 
-## Contar tokens
+You can count tokens in the following ways:
 
-Toda entrada e saída da API Gemini é tokenizada, incluindo texto, arquivos de imagem e outras modalidades não textuais.
+- **Call `count_tokens` with the input of the request.** Returns the total
+  number of tokens in *the input only*. Make this call before sending input
+  to check the size of your requests.
+- **Use the `usage` on the interaction response.** Returns token
+  counts for input (`total_input_tokens`), output (`total_output_tokens`),
+  thinking (`total_thought_tokens`), cached content
+  (`total_cached_tokens`), tool use (`total_tool_use_tokens`),
+  and total (`total_tokens`).
 
-É possível contar tokens das seguintes maneiras:
-
-- **Chame `count_tokens` com a entrada da solicitação.** Retorna o número total de tokens *apenas na entrada*. Faça essa chamada antes de enviar a entrada para verificar o tamanho das solicitações.
-- **Use o `usage` na resposta de interação.** Retorna contagens de tokens para entrada (`total_input_tokens`), saída (`total_output_tokens`), pensamento (`total_thought_tokens`), conteúdo armazenado em cache (`total_cached_tokens`), uso de ferramentas (`total_tool_use_tokens`) e total (`total_tokens`).
-
-### Contar tokens de texto
+### Count text tokens
 
 ### Python
 
@@ -102,9 +109,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Contar tokens de várias rodadas
+### Count multi-turn tokens
 
-Conte os tokens no histórico de conversas usando `previous_interaction_id`:
+Count tokens across conversation history using `previous_interaction_id`:
 
 ### Python
 
@@ -150,16 +157,17 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Contar tokens multimodais
+### Count multimodal tokens
 
-Toda entrada da API Gemini é tokenizada, incluindo imagens, vídeo e áudio.
-Pontos principais sobre a tokenização:
+All input to the Gemini API is tokenized, including images, video, and audio.
+Key points about tokenization:
 
-- **Imagens**: imagens ≤384 pixels em ambas as dimensões contam como 258 tokens. Imagens maiores são divididas em blocos de 768 x 768 pixels, cada um contando como 258 tokens.
-- **Vídeo**: 263 tokens por segundo
-- **Áudio**: 32 tokens por segundo
+- **Images**: Images ≤384 pixels in both dimensions count as 258 tokens. Larger
+  images are tiled into 768x768 pixel tiles, each counting as 258 tokens.
+- **Video**: 263 tokens per second
+- **Audio**: 32 tokens per second
 
-#### Tokens de imagem
+#### Image tokens
 
 ### Python
 
@@ -205,7 +213,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**Exemplo de dados inline:**
+**Inline data example:**
 
 ### Python
 
@@ -230,7 +238,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Tokens de vídeo
+#### Video tokens
 
 ### Python
 
@@ -263,7 +271,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Tokens de áudio
+#### Audio tokens
 
 ### Python
 
@@ -289,9 +297,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Contar tokens de instruções do sistema
+### Count system instruction tokens
 
-As instruções do sistema são contadas como parte dos tokens de entrada:
+System instructions are counted as part of the input tokens:
 
 ### Python
 
@@ -307,9 +315,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Contar tokens de ferramentas
+### Count tool tokens
 
-As ferramentas (funções, execução de código, Pesquisa Google) também são contadas:
+Tools (functions, code execution, Google Search) are also counted:
 
 ### Python
 
@@ -339,11 +347,12 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Janela de contexto
+## Context window
 
-Cada modelo do Gemini tem um número máximo de tokens que pode processar. A janela de contexto define o limite combinado de tokens de entrada e saída.
+Each Gemini model has a maximum number of tokens it can handle. The context
+window defines the combined limit of input and output tokens.
 
-### Receber o tamanho da janela de contexto de maneira programática
+### Get context window size programmatically
 
 ### Python
 
@@ -363,20 +372,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-Encontre os tamanhos da janela de contexto na página de [modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
+Find context window sizes on the [models](https://ai.google.dev/gemini-api/docs/models) page.
 
-## A seguir
+## What's next
 
-- [Geração de texto](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=pt-br): noções básicas de geração
-- [Armazenamento em cache](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=pt-br): reduzir custos com o armazenamento em cache
-- [Preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br): entender os custos
+- [Text generation](https://ai.google.dev/gemini-api/docs/interactions/text-generation): Generation basics
+- [Caching](https://ai.google.dev/gemini-api/docs/interactions/caching): Reduce costs with caching
+- [Pricing](https://ai.google.dev/gemini-api/docs/pricing): Understand costs
 
-Envie comentários
+Send feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Última atualização 2026-06-01 UTC.
+Last updated 2026-06-18 UTC.
 
-Quer enviar seu feedback?
+Need to tell us more?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

@@ -1,41 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=he
-fetched_at: 2026-06-15T06:23:59.257428+00:00
+source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=vi
+fetched_at: 2026-06-22T06:25:06.538015+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-# מה חדש ב-Gemini 3.5 Flash
+# Tính năng mới trong Gemini 3.5 Flash
 
-‫Gemini 3.5 Flash **זמין לכלל המשתמשים (GA)**, יציב ומוכן לשימוש בהיקף נרחב בסביבת ייצור. הוא המודל הכי חכם שלנו בסדרת Flash, והוא מספק ביצועים מתקדמים ועקביים בביצוע משימות על ידי סוכנים, בכתיבת קוד ובמשימות ארוכות טווח, בקנה מידה גדול.
+Gemini 3.5 Flash đã **phát hành rộng rãi (GA)**, ổn định và sẵn sàng để sử dụng trong sản xuất quy mô lớn. Là mô hình Flash thông minh nhất của chúng tôi, Gemini 3.5 Flash mang lại hiệu suất vượt trội bền vững trong việc thực thi tác vụ, lập trình và các nhiệm vụ dài hạn ở quy mô lớn.
 
-במדריך הזה מופיע סקירה כללית של השיפורים, השינויים ב-API והנחיות להעברה של Gemini 3.5 Flash.
+Hướng dẫn này cung cấp thông tin tổng quan về các điểm cải tiến, thay đổi về API và hướng dẫn di chuyển cho Gemini 3.5 Flash.
 
-## המודל החדש
+## Mô hình mới
 
-| מודל | מזהה דגם | תיאור |
+| Mô hình | Mã kiểu máy | Mô tả |
 | --- | --- | --- |
-| Gemini 3.5 Flash | `gemini-3.5-flash` | המודל הכי חכם שלנו, שמספק ביצועים מתקדמים באופן עקבי במשימות שקשורות לסוכנים ולקידוד. |
+| Gemini 3.5 Flash | `gemini-3.5-flash` | Mô hình thông minh nhất của chúng tôi, mang lại hiệu suất vượt trội trong các tác vụ liên quan đến tác nhân và lập trình. |
 
-‫Gemini 3.5 Flash תומך בחלון הקשר של מיליון טוקנים, ב-65,000 טוקנים מקסימליים של פלט, במודל מעמיק ובאותו סט של כלים ותכונות פלטפורמה כמו Gemini 3 Flash. בשלב הזה, אין תמיכה ב[שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he).
+Gemini 3.5 Flash hỗ trợ cửa sổ ngữ cảnh 1M mã thông báo, tối đa 65.000 mã thông báo đầu ra, khả năng suy nghĩ và cùng một bộ công cụ cũng như các tính năng nền tảng như Gemini 3 Flash. [Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi) hiện không được hỗ trợ.
 
-למפרטים מלאים, אפשר לעיין [בסקירת המודלים](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he). למידע על מחירים, אפשר לעיין [בדף המחירים](https://ai.google.dev/gemini-api/docs/pricing?hl=he#gemini-3.5-flash).
+Để biết đầy đủ thông số kỹ thuật, hãy xem [tổng quan về các mô hình](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi).
+Để biết giá, hãy xem [trang giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.5-flash).
 
-## מדריך למתחילים
+## Bắt đầu nhanh
 
-כל הדוגמאות במדריך הזה משתמשות ב-GenerateContent API. יש גם תמיכה ב-Interactions API, ואותן אפשרויות הגדרה והמלצות רלוונטיות גם לגביו.
+Tất cả ví dụ trong hướng dẫn này đều sử dụng GenerateContent API. API Tương tác cũng được hỗ trợ; các lựa chọn và đề xuất về cấu hình tương tự cũng được áp dụng.
 
 ### Python
 
@@ -83,41 +84,39 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## מה חדש
+## Tính năng mới
 
-- ‫**ביצועים מתקדמים לאורך זמן:** מודל Flash הכי חכם שלנו, שעבר אופטימיזציה למשימות של סוכנים ולכתיבת קוד בהיקף נרחב.
-- **ביצוע על ידי סוכנים:** פריסת סוכני משנה, פתרון בעיות ולולאות מהירות של סוכנים בהיקף נרחב.
-- **תכנות:** מחזורי תכנות איטרטיביים, בדיקה מהירה ויצירת אב טיפוס כדי לבדוק נתיבים חלופיים ולחקור פתרונות באופן דינמי.
-- **טווח ארוך:** תהליכי עבודה מרובי-שלבים ושימוש בכלי AI בהיקף נרחב.
-- **שמירת מחשבות:** המודל שומר על שלבי הביניים של הנימוקים באופן אוטומטי לאורך שיחות מרובות. אין צורך לבצע שינויים ב-API.
-- **רמת המאמץ החדשה שמוגדרת כברירת מחדל:** רמת המאמץ שמוגדרת כברירת מחדל השתנתה מ-`high` ל-`medium`. פרטים נוספים זמינים במאמר בנושא [רמת המאמץ החדשה שמוגדרת כברירת מחדל](#default-effort-level).
-- **שיפורים ב`low`:** `low` משופר משמעותית בכל הנוגע לקוד ולמשימות שדורשות פחות שלבים, ומציע איכות גבוהה עם חביון ועלות נמוכים יותר.
-- **גרסת GA:** מודל יציב לשימוש בהפקה בהיקף גדול.
+- **Hiệu suất vượt trội bền vững:** Mô hình Flash thông minh nhất của chúng tôi, được tối ưu hoá cho các tác vụ lập trình và tác nhân ở quy mô lớn.
+- **Thực thi dựa trên tác nhân:** Triển khai tác nhân phụ, giải quyết vấn đề và các vòng lặp dựa trên tác nhân nhanh chóng trên quy mô lớn.
+- **Lập trình:** Các chu kỳ lập trình lặp đi lặp lại, khám phá nhanh và tạo mẫu để kiểm thử các đường dẫn thay thế và khám phá các giải pháp một cách linh hoạt.
+- **Dài hạn:** Quy trình làm việc nhiều bước và sử dụng công cụ ở quy mô lớn.
+- **Lưu giữ suy nghĩ:** Mô hình tự động duy trì quá trình suy luận trung gian trong các cuộc trò chuyện nhiều lượt. Không cần thay đổi API.
+- **Mức độ nỗ lực mặc định mới:** Mức độ nỗ lực tư duy mặc định đã thay đổi từ `high` thành `medium`. Hãy xem phần [Mức độ nỗ lực mặc định mới](#default-effort-level) để biết thông tin chi tiết.
+- **Cải thiện khả năng tư duy của `low`:** Giờ đây, `low` đã được cải thiện đáng kể cho mã và các tác vụ dựa trên tác nhân đòi hỏi ít bước hơn, mang lại chất lượng cao với độ trễ và chi phí thấp hơn.
+- **Bản phát hành GA:** Mô hình ổn định để sử dụng trong sản xuất trên quy mô lớn.
 
-### בחירת המודל הנכון של Flash
+### Chọn mô hình Flash phù hợp
 
-‫Gemini 3.5 Flash הוא מודל ה-Flash הכי חכם ומתקדם שלנו. עם זאת,
-יכול להיות שלתרחישי שימוש שונים יהיו דרישות שונות לגבי עלות וזמן אחזור.
+Gemini 3.5 Flash là mô hình Flash thông minh và mạnh mẽ nhất của chúng tôi. Tuy nhiên, các trường hợp sử dụng khác nhau có thể có các yêu cầu khác nhau về chi phí và độ trễ.
 
-- ‫**Gemini 3.1 Flash-Lite**: למשימות בהיקף גדול שלא דורשות את עומק החשיבה הרציונלית המשופרת של 3.5 Flash, מומלץ להשתמש ב-[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he).
-  זהו מודל יציב לטווח ארוך שעבר אופטימיזציה ליעילות. פרטים נוספים זמינים [במדריך למפתחים בנושא Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he#developer_guide).
-- ‫**Gemini 3 Flash (גרסת טרום-השקה):** אנחנו ממליצים לעבור ל-3.5 Flash כדי ליהנות מיציבות של זמינות כללית ומחשיבה רציונלית משופרת, אבל [Gemini 3 Flash (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) עדיין זמין למפתחים שרוצים להמשיך לבצע בדיקות באמצעות מודל טרום-ההשקה.
+- **Gemini 3.1 Flash-Lite**: Đối với những nhiệm vụ có khối lượng lớn, chi phí thấp và không yêu cầu khả năng suy luận chuyên sâu của mô hình 3.5 Flash, bạn nên sử dụng [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi).
+  Đây là một mô hình ổn định, lâu dài và được tối ưu hoá để đạt được hiệu quả. Hãy xem [hướng dẫn dành cho nhà phát triển Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi#developer_guide) để biết thêm thông tin chi tiết.
+- **Gemini 3 Flash (Bản dùng thử)**: Mặc dù bạn nên chuyển sang 3.5 Flash để có độ ổn định và khả năng suy luận tốt hơn, nhưng [Gemini 3 Flash (Bản dùng thử)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) vẫn được cung cấp cho những nhà phát triển muốn tiếp tục thử nghiệm với mô hình dùng thử này.
 
-## שינויים התנהגותיים
+## Thay đổi về hành vi
 
-### רמת המאמץ החדשה שמוגדרת כברירת מחדל: `medium`
+### Mức độ nỗ lực mặc định mới: `medium`
 
-מאמץ החשיבה שמוגדר כברירת מחדל הוא עכשיו **`medium`**, במקום `high` בגרסת טרום-ההשקה של Gemini 3 Flash. `medium` מניב תוצאות טובות מאוד במגוון רחב של משימות, והוא מהיר ומשתלם יותר. לבעיות מורכבות, `high`
-ההנחיה מעודדת את המודל לחשוב לעומק.
+Giờ đây, mức độ nỗ lực tư duy mặc định là **`medium`**, thay đổi từ `high` trong bản dùng thử Gemini 3 Flash. `medium` mang lại kết quả rất tốt trong nhiều loại nhiệm vụ, đồng thời nhanh hơn và tiết kiệm chi phí hơn. Đối với các vấn đề phức tạp, `high` khuyến khích mô hình tư duy sâu sắc hơn.
 
-| רמת המאמץ | מתי להשתמש? |
+| Mức độ nỗ lực | Trường hợp sử dụng |
 | --- | --- |
-| `minimal` | אופטימיזציה למהירות תגובה. תרחישי שימוש דומים לצ'אט, תשובות עובדתיות מהירות, קריאות פשוטות יותר לכלים. |
-| `low` | קוד ומשימות שדורשות פחות זמן אחזור ופחות שלבים. מתאים גם למשימות ניתוח וכתיבה שדורשות חשיבה. |
-| **`medium` (ברירת מחדל)** | **האיכות הכי טובה לרוב המשימות. מומלץ לשימוש בקוד מורכב ולתרחישי שימוש של סוכנים.** |
-| `high` | ממקסמת את היכולת של המודל לחשוב ולהשתמש בכלים. הכי מתאים לחשיבה רציונלית מורכבת, למתמטיקה קשה ולמשימות הכי מסובכות של קוד או סוכנים. מאפשרת חשיבה מעמיקה ושימוש בפונקציות. |
+| `minimal` | Tối ưu hoá để tăng tốc độ phản hồi. Các trường hợp sử dụng tương tự như trò chuyện, câu trả lời nhanh về thông tin thực tế, lệnh gọi công cụ đơn giản hơn. |
+| `low` | Mã và các tác vụ dựa trên tác nhân đòi hỏi độ trễ thấp hơn và ít bước hơn. Cũng phù hợp với các nhiệm vụ phân tích và viết lách đòi hỏi tư duy. |
+| **`medium` (mặc định)** | **Chất lượng tốt nhất cho hầu hết các tác vụ. Được đề xuất cho các trường hợp sử dụng phức tạp về mã và tác nhân.** |
+| `high` | Tối đa hoá khả năng suy nghĩ và sử dụng các công cụ của mô hình. Lý tưởng cho các nhiệm vụ suy luận phức tạp, giải toán khó và các nhiệm vụ khó nhất về mã hoặc tác nhân. Cho phép mở rộng suy nghĩ và gọi hàm. |
 
-כדי לעקוף את ברירת המחדל, מגדירים את `thinking_level` בקובץ ההגדרות:
+Để ghi đè giá trị mặc định, hãy đặt `thinking_level` trong cấu hình của bạn:
 
 ### Python
 
@@ -180,40 +179,38 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-בטבלה הבאה מוצגות רמות החשיבה שנתמכות בכל מודל:
+Bảng sau đây cho biết những cấp độ tư duy được hỗ trợ cho mỗi mô hình:
 
-| רמת ההעמקה | Gemini 3.5 Flash | ‫Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | תיאור |
+| Cấp độ tư duy | Gemini 3.5 Flash | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Mô tả |
 | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | נתמך | לא נתמך | נתמך (ברירת מחדל) | נתמך | מתאים להגדרה 'ללא חשיבה' ברוב השאילתות. הערה: `minimal` לא מבטיח שהחשיבה מושבתת, יכול להיות שהמודל יבצע נימוקים מינימליים מאוד למשימות מורכבות. |
-| **`low`** | נתמך | נתמך | נתמך | נתמך | מצמצם את זמן האחזור ואת העלות. |
-| **`medium`** | נתמך (ברירת מחדל) | נתמך | נתמך | נתמך | חשיבה מאוזנת לרוב המשימות. |
-| **`high`** | נתמך (דינמי) | נתמך (ברירת מחדל, דינמי) | נתמך (דינמי) | נתמך (ברירת מחדל, דינמי) | העומק המקסימלי של החשיבה הרציונלית. |
+| **`minimal`** | Được hỗ trợ | Không được hỗ trợ | Được hỗ trợ (Mặc định) | Được hỗ trợ | Phù hợp với chế độ cài đặt "không suy nghĩ" cho hầu hết các cụm từ tìm kiếm. Xin lưu ý rằng `minimal` không đảm bảo rằng tính năng suy nghĩ sẽ tắt, mô hình có thể suy luận rất ít cho các tác vụ phức tạp. |
+| **`low`** | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Giảm thiểu độ trễ và chi phí. |
+| **`medium`** | Được hỗ trợ (Mặc định) | Được hỗ trợ | Được hỗ trợ | Được hỗ trợ | Tư duy cân bằng cho hầu hết các nhiệm vụ. |
+| **`high`** | Được hỗ trợ (Động) | Được hỗ trợ (Mặc định, Động) | Được hỗ trợ (Động) | Được hỗ trợ (Mặc định, Động) | Tối đa hoá độ sâu suy luận. |
 
-### שימור מחשבות
+### Bảo tồn ý tưởng
 
-המודל שומר על שלבי הביניים של החשיבה הרציונלית באופן אוטומטי בשיחות מרובות תורות. כשההקשר של החשיבה הרציונלית מופיע בהיסטוריית השיחות, הוא נשמר גם בהמשך, וכך משפר את הביצועים במשימות מורכבות שכוללות כמה שלבים, כמו ניפוי באגים איטרטיבי וארגון הקוד מחדש. לא נדרשים שינויים ב-API:
+Mô hình này tự động duy trì suy luận trung gian trong các cuộc trò chuyện nhiều lượt. Khi có trong nhật ký trò chuyện, ngữ cảnh suy luận sẽ được chuyển tiếp, giúp cải thiện hiệu suất đối với các tác vụ phức tạp gồm nhiều bước như gỡ lỗi lặp đi lặp lại và tái cấu trúc mã. Không cần thay đổi API:
 
-- ‫**Interactions API**: המחשבות כבר נשמרות אוטומטית. אין שינוי בהתנהגות.
-- ‫**GenerateContent API**: החל מ-Gemini 3.5 Flash, המודל משתמש בהקשר של חשיבה רציונלית מכל התורות הקודמות, אם חתימות של מחשבות מופיעות בהיסטוריית השיחות. כדי להפעיל את האפשרות הזו, צריך להעביר את היסטוריית השיחות המלאה והלא משתנה (כולל [חתימות המחשבה](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he)) ב-`contents`.
-  ה-SDKs מטפלים בזה באופן אוטומטי.
+- **Interactions API**: Suy nghĩ đã được tự động lưu giữ. Không có thay đổi nào về hành vi.
+- **GenerateContent API**: Bắt đầu từ Gemini 3.5 Flash, mô hình này sử dụng ngữ cảnh suy luận từ tất cả các lượt trước đó khi chữ ký suy nghĩ xuất hiện trong nhật ký cuộc trò chuyện. Để bật tính năng này, hãy truyền toàn bộ nhật ký cuộc trò chuyện chưa được sửa đổi (bao gồm cả [chữ ký suy nghĩ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi)) trong `contents`. Các SDK sẽ tự động xử lý việc này.
 
-## עדכוני פרמטרים ושיטות מומלצות ב-Gemini 3.x
+## Thông tin cập nhật về tham số và các phương pháp hay nhất trong Gemini 3.x
 
-ההגבלות הבאות חלות על **כל המודלים של Gemini 3.x**, כולל Gemini 3.5 Flash.
+Những điều sau đây áp dụng cho **tất cả các mô hình Gemini 3.x**, bao gồm cả Gemini 3.5 Flash.
 
-- **`temperature`, `top_p`, `top_k`**: מומלץ מאוד לא לשנות את ערכי ברירת המחדל. יכולות החשיבה הרציונלית של Gemini 3 מותאמות להגדרות ברירת המחדל.
-- במקום זאת, צריך להשתמש ב-`thinking_level`.`thinking_budget`
-- **התאמה של תגובות לקריאות לפונקציות**: הערכים `id`, `name` ומספר התגובות
-  צריכים להיות זהים לקריאות הקודמות.
-- **תשובות פונקציה מולטי-מודאליות**: כוללות תוכן מולטי-מודאלי בתוך תשובת הפונקציה, ולא מחוצה לה.
-- **הוראות בגוף התשובות של הפונקציות**: מצורפות לטקסט של תשובת הפונקציה, ולא כחלקים נפרדים.
-- **הפחתת קריאות מיותרות לכלים**: כדי להפחית את מספר הקריאות לכלים בתהליכי עבודה של סוכנים, אפשר להשתמש ברמות חשיבה נמוכות יותר או להתנסות בהוראות מערכת.
+- **`temperature`, `top_p`, `top_k`**: bạn không nên thay đổi các giá trị mặc định. Khả năng suy luận của Gemini 3 được tối ưu hoá cho các chế độ cài đặt mặc định.
+- Sử dụng `thinking_level` thay vì `thinking_budget`.
+- **So khớp phản hồi lệnh gọi hàm**: `id`, `name` và số lượng phản hồi phải khớp với các lệnh gọi trước đó.
+- **Phản hồi bằng hàm đa phương thức**: bao gồm nội dung đa phương thức bên trong phản hồi bằng hàm, chứ không phải bên ngoài.
+- **Hướng dẫn nội tuyến trong câu trả lời của hàm**: thêm vào văn bản câu trả lời của hàm, chứ không phải là các phần riêng biệt.
+- **Giảm số lượng lệnh gọi công cụ không cần thiết**: Sử dụng các cấp độ tư duy thấp hơn hoặc thử nghiệm với các chỉ dẫn hệ thống để giảm số lượng lệnh gọi công cụ trong quy trình làm việc dựa trên tác nhân.
 
-בקטעים הבאים מוסבר איך לעדכן את הקוד.
+Hãy xem các phần bên dưới để biết cách cập nhật mã.
 
-### פרמטרים של דגימה (לא מומלץ יותר)
+### Tham số lấy mẫu (không còn được đề xuất)
 
-לא מומלץ יותר להשתמש בפרמטרים `temperature`, `top_p` ו-`top_k` בכל המודלים של Gemini 3.x. יכולות החשיבה הרציונלית של Gemini 3 מותאמות להגדרות ברירת המחדל. **צריך להסיר את הפרמטרים האלה מכל הבקשות.**
+`temperature`, `top_p` và `top_k` không còn được đề xuất cho tất cả các mô hình Gemini 3.x. Khả năng suy luận của Gemini 3 được tối ưu hoá cho các chế độ cài đặt mặc định. **Xoá các tham số này khỏi tất cả các yêu cầu.**
 
 ```
 # ⚠️ Remove these parameters (not recommended)
@@ -224,11 +221,11 @@ config = types.GenerateContentConfig(
 )
 ```
 
-כדי להבטיח דטרמיניזם, מומלץ להגדיר הוראה למערכת עם כללים מפורשים לתרחיש השימוש הספציפי שלכם.
+Để đảm bảo tính xác định, bạn nên xác định một chỉ dẫn hệ thống có các quy tắc rõ ràng cho trường hợp sử dụng cụ thể của mình.
 
-### ‫`thinking_budget` (לא מומלץ יותר)
+### `thinking_budget` (không nên dùng nữa)
 
-לא מומלץ יותר להשתמש בפרמטר `thinking_budget` של מספר גולמי בכל המודלים של Gemini 3.x. במקום זאת, צריך להשתמש ב-enum של מחרוזת `thinking_level`.
+Thông số `thinking_budget` bằng số thô không còn được đề xuất trên tất cả các mô hình Gemini 3.x. Thay vào đó, hãy sử dụng enum chuỗi `thinking_level`.
 
 ```
 # ⚠️ Before (not recommended)
@@ -242,17 +239,17 @@ config = types.GenerateContentConfig(
 )
 ```
 
-הערכים האפשריים: `minimal`,‏ `low`,‏ `medium` (ברירת מחדל) ו-`high`.
+Các giá trị có thể là: `minimal`, `low`, `medium` (mặc định) và `high`.
 
-### בקשה להפעלת פונקציה: התאמה מדויקת של תשובות
+### Gọi hàm: so khớp phản hồi nghiêm ngặt
 
-ממשק ה-API של האינטראקציות כבר מחזיר שגיאה אם יש אי התאמה בתגובות של הפונקציות. ה-API של GenerateContent עדיין לא מחזיר שגיאה, אבל תגובות לא תואמות גורמות למודל להחזיר תגובות ריקות עם `finish_reason: STOP` ברוב המקרים. חשוב להקפיד על המוסכמות הבאות:
+Interactions API đã báo lỗi về các phản hồi hàm không khớp. API GenerateContent hiện chưa báo lỗi, nhưng các phản hồi không khớp sẽ khiến mô hình trả về các phản hồi trống có `finish_reason: STOP` trong hầu hết các trường hợp. Luôn tuân thủ các quy ước sau:
 
-| דרישה | פרטים |
+| Yêu cầu | Thông tin chi tiết |
 | --- | --- |
-| `id` כלול | כל `FunctionResponse` חייב לכלול את `id` מה-`FunctionCall` המתאים |
-| משחק `name` | הערך של `name` בתגובה צריך להיות זהה לערך של `name` בשיחה |
-| ספירת התאמות | מחזירים בדיוק `FunctionResponse` אחד לכל `FunctionCall` שהתקבל |
+| Đã tính `id` | Mỗi `FunctionResponse` phải bao gồm `id` từ `FunctionCall` tương ứng |
+| Ván `name` | `name` trong phản hồi phải khớp với `name` trong lệnh gọi |
+| Số lượng trùng khớp | Trả về chính xác một `FunctionResponse` cho mỗi `FunctionCall` nhận được |
 
 ### Python
 
@@ -314,9 +311,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### תשובות של פונקציות רב-אופניות
+### Phản hồi của hàm đa phương thức
 
-לעתים קרובות אנחנו רואים לקוחות שמספקים תמונות מחוץ לתגובה של הפונקציה. הדבר עלול להוביל להתנהגות לא צפויה של המודל (למשל, חשיפת מחשבות) ולתוצאות באיכות נמוכה יותר. במקום זאת, פועלים לפי ההמלצה ב[מסמכי ה-API של תשובות לפונקציות מרובות מצבים](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=he#multimodal) וכוללים תוכן מרובה מצבים בחלקי התשובה של הפונקציה ששולחים למודל. המודל יכול לעבד את התוכן הרב-מודאלי הזה בתור הבא כדי לספק תשובה מושכלת יותר.
+Chúng tôi thường thấy các ứng dụng cung cấp hình ảnh bên ngoài phản hồi của hàm. Điều này có thể dẫn đến hành vi không mong muốn của mô hình (ví dụ: rò rỉ suy nghĩ) và dẫn đến kết quả đầu ra có chất lượng thấp hơn. Thay vào đó, hãy làm theo đề xuất trong [tài liệu về Multimodal Function Responses API](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=vi#multimodal) và đưa nội dung đa phương thức vào các phần phản hồi của hàm mà bạn gửi đến mô hình. Mô hình có thể xử lý nội dung đa phương thức này trong lượt tiếp theo để đưa ra câu trả lời có nhiều thông tin hơn.
 
 ### Python
 
@@ -369,10 +366,9 @@ const finalResponse = await ai.models.generateContent({
 });
 ```
 
-### הוראות מוטמעות בתשובות של פונקציות
+### Hướng dẫn cùng dòng trong câu trả lời của hàm
 
-לעתים קרובות אנחנו רואים לקוחות שמספקים הוראות נוספות יחד עם תגובות לפונקציות
-כ`Parts`. זה עלול להוביל להתנהגות לא צפויה של המודל (למשל, דליפת מחשבות) ולפלט באיכות נמוכה יותר. במקום זאת, מוסיפים את ההוראות הנוספות לסוף הטקסט של תגובת הפונקציה, כשהן מופרדות בשתי שורות חדשות.
+Chúng tôi thường thấy các ứng dụng cung cấp thêm hướng dẫn cùng với các phản hồi của hàm dưới dạng `Parts` tiếp theo. Điều này có thể dẫn đến hành vi không mong muốn của mô hình (ví dụ: rò rỉ thông tin) và dẫn đến kết quả đầu ra có chất lượng thấp hơn. Thay vào đó, hãy thêm mọi hướng dẫn bổ sung vào cuối văn bản phản hồi của hàm, cách nhau bằng hai dòng mới.
 
 ### Python
 
@@ -423,102 +419,96 @@ const finalResponse = await ai.models.generateContent({
 });
 ```
 
-### הפחתת קריאות מיותרות לכלים
+### Giảm các lệnh gọi công cụ không cần thiết
 
-אם אתם נתקלים בשימוש מוגזם בקריאות לכלים, יש שתי טכניקות שיעזרו לכם לצמצם את השימוש הזה:
+Nếu bạn gặp phải tình trạng sử dụng quá nhiều lệnh gọi công cụ, thì có 2 kỹ thuật giúp giảm thiểu tình trạng này:
 
-1. **מתחילים בהפחתת רמת החשיבה** (`medium`,‏ `low` או `minimal`):
-   רמות חשיבה גבוהות יותר מעודדות את המודל להשתמש ביותר כלים כדי לחקור ולאמת, ולכן הורדת הרמה יכולה להפחית את השימוש בכלים.
-2. **הוספת הוראה למערכת:** אם השימוש המוגזם נמשך אחרי שינוי רמת החשיבה, כדאי להוסיף הנחיה שמגבילה את השימוש בכלי. לדוגמה:
+1. **Bắt đầu bằng cách giảm mức độ tư duy** (`medium`, `low` hoặc `minimal`): Mức độ tư duy cao hơn sẽ khuyến khích mô hình sử dụng nhiều công cụ hơn để khám phá và xác minh, vì vậy, việc giảm mức độ này có thể giảm số lần gọi công cụ.
+2. **Thêm một chỉ dẫn hệ thống:** Nếu tình trạng sử dụng quá mức vẫn tiếp diễn sau khi điều chỉnh mức độ tư duy, hãy cân nhắc sử dụng một câu lệnh hạn chế việc sử dụng công cụ. Ví dụ:
 
    ```
    You have a limited action budget of <n> tool calls. Use them efficiently.
    ```
 
-## רשימת משימות להעברה
+## Danh sách kiểm tra cho quy trình di chuyển
 
-### העברה מגרסת טרום-השקה של Gemini 3 Flash
+### Di chuyển từ Gemini 3 Flash (Bản xem trước)
 
-- עדכון שם הדגם: `gemini-3-flash-preview` ← `gemini-3.5-flash`
-- כדאי לעיין בתמחור. Gemini 3.5 Flash יקר יותר מ-Gemini 3 Flash Preview. אם תרחיש השימוש שלכם רגיש מאוד לעלויות, כדאי לשקול מעבר ל-[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) במקום זאת. פרטים נוספים זמינים [בדף התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he#gemini-3.5-flash).
-- מסירים את `temperature`,‏ `top_p` ו-`top_k` מההגדרה (לא מומלץ יותר).
-- מחליפים את `thinking_budget` ב-`thinking_level`.
-- הוספת `id` ו-`name` תואם לכל החלקים של `FunctionResponse`.
-- בודקים את ההנחיות. מאמץ ברירת המחדל השתנה מ-`high` → `medium`. צריך לבדוק את האיכות, המהירות והעלות.
-- התכונה 'שמירת מחשבות' מופעלת עכשיו כברירת מחדל. ההקשר של הנימוקים נשמר בין תורות, מה שמשפר את הביצועים אבל עשוי להגדיל את השימוש בטוקנים.
-- צמצום הקריאות המיותרות לכלים: מתחילים בצמצום רמת החשיבה (`medium`,‏ `low` או `minimal`); מוסיפים הוראה למערכת כדי להגביל את השימוש בכלים אם השימוש המוגזם נמשך.
-- בשלב הזה, [שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he) לא נתמך ב-Gemini 3.5
-  Flash. כדי להשתמש בעומסי עבודה של שימוש במחשב, צריך להמשיך להשתמש בגרסת הטרום-השקה של Gemini 3
-  Flash.
+- Cập nhật tên mô hình: `gemini-3-flash-preview` → `gemini-3.5-flash`
+- Xem lại giá. Gemini 3.5 Flash có giá cao hơn Gemini 3 Flash (Bản dùng thử). Nếu trường hợp sử dụng của bạn rất nhạy cảm về chi phí, hãy cân nhắc việc di chuyển sang [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi). Hãy xem [trang giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.5-flash) để biết thông tin chi tiết.
+- Xoá `temperature`, `top_p`, `top_k` khỏi cấu hình của bạn (không còn được đề xuất nữa).
+- Thay thế `thinking_budget` với `thinking_level`.
+- Thêm `id` và `name` tương ứng vào tất cả các phần `FunctionResponse`.
+- Kiểm thử câu lệnh. Đã thay đổi mức độ nỗ lực mặc định từ `high` → `medium`; xác minh chất lượng, tốc độ và chi phí.
+- Tính năng lưu giữ suy nghĩ hiện được bật theo mặc định. Ngữ cảnh suy luận được chuyển tiếp qua các lượt, giúp cải thiện hiệu suất nhưng có thể làm tăng mức sử dụng mã thông báo.
+- Giảm số lượng lệnh gọi công cụ không cần thiết: bắt đầu bằng cách giảm mức độ suy nghĩ (`medium`, `low` hoặc `minimal`); thêm một chỉ dẫn hệ thống để hạn chế việc sử dụng công cụ nếu tình trạng sử dụng quá mức vẫn tiếp diễn.
+- [Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi) hiện không được hỗ trợ trong Gemini 3.5 Flash. Đối với khối lượng công việc Sử dụng máy tính, hãy tiếp tục sử dụng Gemini 3 Flash Preview.
 
-### העברה מ-Gemini 2.5
+### Di chuyển từ Gemini 2.5
 
-כל מה שצוין למעלה, וגם:
+Tất cả các phương án trên, cộng thêm:
 
-- מפשטים את ההנחיות. אם השתמשתם בטכניקת הנחיה של שרשור מחשבות כדי לאלץ את המודל להסיק מסקנות, נסו להשתמש ב-`thinking_level: "medium"` או ב-`"high"` עם הנחיות פשוטות יותר.
-- בודקים עומסי עבודה של קובצי PDF ומדיה. אם הסתמכתם על התנהגות ספציפית של ניתוח מסמכים צפופים, כדאי לבדוק את ההגדרה `media_resolution_high` כדי לוודא שהדיוק נשמר. יכול להיות שמעבר להגדרות ברירת המחדל של Gemini 3 יגרום לעלייה בשימוש בטוקנים בקובצי PDF, אבל לירידה בשימוש בטוקנים בסרטונים. אם הבקשות חורגות מחלון ההקשר, צריך להקטין את הערך של `media_resolution` באופן מפורש. פרטים נוספים זמינים במאמר בנושא [רזולוציית מדיה](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he).
-- [משתמשים בכמה כלים ביחד](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
-  אפשר להשתמש בחיפוש Google, בהקשר של כתובת URL, בהרצת קוד ובפונקציות בהתאמה אישית
-  באותה בקשה.
-- אם משתמשים בתשובות של פונקציות מולטי-מודאליות, צריך להעביר את התוכן המולטי-מודאלי בתוך חלקי התשובה של הפונקציה, ולא לצדם.
-- אם משתמשים בהוראות מוטבעות עם תשובות לפונקציות, צריך להוסיף אותן לטקסט של התשובה לפונקציה, מופרדות בשתי שורות חדשות, ולא כחלקים נפרדים.
-- מודל Gemini 3.x לא תומך בפילוח תמונות. למשימות פילוח, אפשר להמשיך להשתמש ב-Gemini 2.5 Flash עם השבתת המצב 'חשיבה', או ב-[Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he).
-- הסרה של `candidate_count` מההגדרה (לא נתמך ב-Gemini 3.x)
+- Đơn giản hoá câu lệnh. Nếu bạn đã sử dụng kỹ thuật thiết kế câu lệnh theo chuỗi suy luận để buộc suy luận, hãy thử `thinking_level: "medium"` hoặc `"high"` bằng các câu lệnh đơn giản hơn.
+- Kiểm thử tải PDF và nội dung nghe nhìn. Nếu bạn dựa vào hành vi cụ thể để phân tích cú pháp tài liệu dày đặc, hãy kiểm tra chế độ cài đặt `media_resolution_high` để đảm bảo độ chính xác liên tục. Việc di chuyển sang chế độ mặc định Gemini 3 cũng có thể làm tăng mức sử dụng mã thông báo cho tệp PDF nhưng giảm mức sử dụng mã thông báo cho video; nếu các yêu cầu vượt quá cửa sổ ngữ cảnh, hãy giảm rõ ràng `media_resolution`. Hãy xem tài liệu về [độ phân giải của nội dung nghe nhìn](https://ai.google.dev/gemini-api/docs/media-resolution?hl=vi) để biết thông tin chi tiết.
+- Tận dụng [việc sử dụng kết hợp các công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
+  Bạn có thể sử dụng Google Tìm kiếm, ngữ cảnh URL, hoạt động thực thi mã và các hàm tuỳ chỉnh trong cùng một yêu cầu.
+- Nếu sử dụng câu trả lời đa phương thức của hàm, hãy di chuyển nội dung đa phương thức vào bên trong các phần câu trả lời của hàm, chứ không phải bên cạnh các phần đó.
+- Nếu sử dụng hướng dẫn nội tuyến với các phản hồi của hàm, hãy thêm hướng dẫn đó vào văn bản phản hồi của hàm, cách nhau bằng hai dòng mới, chứ không phải là các phần riêng biệt.
+- Gemini 3.x không hỗ trợ tính năng phân đoạn hình ảnh. Đối với các khối lượng công việc phân đoạn, hãy tiếp tục sử dụng Gemini 2.5 Flash khi tắt chế độ tư duy hoặc [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=vi).
+- Xoá `candidate_count` khỏi cấu hình (không được hỗ trợ trong Gemini 3.x)
 
-## תכונות של Gemini 3 למשפחה
+## Các tính năng dành cho gia đình của Gemini 3
 
-‫Gemini 3.5 Flash כולל את כל היכולות של משפחת Gemini 3, למעט שימוש במחשב.
-תכונות שהוצגו ב-Gemini 3 וזמינות גם בגרסה הנוכחית:
+Gemini 3.5 Flash kế thừa tất cả các chức năng của nhóm mô hình Gemini 3, ngoại trừ chức năng Sử dụng máy tính.
+Các tính năng được giới thiệu trong Gemini 3 và vẫn được duy trì:
 
-- [**חשיבה**](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**:** הקשר של החשיבה הרציונלית מוצפן ונשמר בכל הקריאות ל-API. אוטומטי ב-Interactions API; משתמע ב-GenerateContent.
-- [**פלט מובנה באמצעות כלים**](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)**:** אפשר לשלב את מצב JSON עם כלים מובנים (חיפוש, הקשר של כתובת URL, הרצת קוד, קריאה לפונקציה).
-- [**תגובות של פונקציות מולטי-מודאליות**](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#multimodal)**:** החזרת תמונות, אודיו ומדיה אחרת בתוצאות של בקשות להפעלת פונקציות.
-- [**הרצת קוד עם תמונות**](https://ai.google.dev/gemini-api/docs/code-execution?hl=he#images)**:** הרצת קוד שמעבד ומפיק תמונות.
-- [**שימוש משולב בכלים**](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he)**:** שימוש בכלים מובנים ובקריאות לפונקציות מותאמות אישית באותה בקשה.
-- [**רזולוציית מדיה**](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he)**:**
-  שליטה מדויקת בהקצאת טוקנים לקלט של תמונות, סרטונים וקובצי PDF.
-  מודלים של Gemini 3 תומכים בהגדרות רזולוציה לכל פריט תוכן (`low`,‏ `medium`, ‏ `high`, ‏ `ultra_high`) להנחיות עם רמות דיוק שונות.
-- [**חתימות של מחשבות**](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he)**:**
-  ייצוגים מוצפנים של ההיגיון הפנימי של המודל. נדרש לשימוש בפונקציות בשיחה מרובת תפניות. מנוהל אוטומטית על ידי ערכות ה-SDK הרשמיות.
+- [**Tư duy**](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)**:** Bối cảnh suy luận được mã hoá vẫn được giữ nguyên trong các lệnh gọi API. Tự động trong Interactions API; ngầm trong GenerateContent.
+- [**Đầu ra có cấu trúc bằng các công cụ**](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi)**:** Kết hợp chế độ JSON với các công cụ tích hợp (Tìm kiếm, bối cảnh URL, thực thi mã, gọi hàm).
+- [**Phản hồi bằng hàm đa phương thức**](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#multimodal)**:** Trả về hình ảnh, âm thanh và nội dung nghe nhìn khác trong kết quả lệnh gọi hàm.
+- [**Thực thi mã bằng hình ảnh**](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi#images)**:** Thực thi mã xử lý và tạo hình ảnh.
+- [**Kết hợp sử dụng công cụ**](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi)**:** Sử dụng các công cụ tích hợp và tính năng gọi hàm tuỳ chỉnh trong cùng một yêu cầu.
+- [**Độ phân giải của nội dung nghe nhìn**](https://ai.google.dev/gemini-api/docs/media-resolution?hl=vi)**:**
+  Kiểm soát chi tiết việc phân bổ mã thông báo cho dữ liệu đầu vào là hình ảnh, video và PDF.
+  Các mô hình Gemini 3 hỗ trợ chế độ cài đặt độ phân giải theo từng mục nội dung (`low`, `medium`, `high`, `ultra_high`) cho các câu lệnh có độ trung thực hỗn hợp.
+- [**Chữ ký suy nghĩ**](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi)**:**
+  Biểu thị được mã hoá về quá trình suy luận nội bộ của mô hình. Bắt buộc đối với chức năng gọi nhiều lượt; được các SDK chính thức quản lý tự động.
 
-## שיטות מומלצות לכתיבת הנחיות
+## Các phương pháp hay nhất để đưa ra câu lệnh
 
-מודלים של Gemini 3.x הם מודלים של חשיבה רציונלית, ולכן צריך לשנות את ההנחיות שנותנים להם.
+Các mô hình Gemini 3.x là mô hình suy luận, điều này thay đổi cách bạn nên đưa ra câu lệnh.
 
-- **הנחיות מדויקות:** חשוב להיות תמציתיים. מודלים של Gemini 3.x מגיבים בצורה הטובה ביותר להנחיות ישירות וברורות. טכניקות מפורטות או מורכבות של ניסוח הנחיות שנועדו למודלים ישנים יותר עלולות לגרום למודל לבצע ניתוח יתר.
-- **פירוט הפלט:** כברירת מחדל, Gemini 3.x פחות מפורט ומעדיף תשובות ישירות ויעילות. אם התרחיש לדוגמה שלכם מחייב טון שיחה, צריך להנחות את המודל במפורש בהנחיה (לדוגמה, "תסביר את זה כאילו אתה עוזר ידידותי ופטפטן").
-- **ניהול הקשר:** כשעובדים עם מערכי נתונים גדולים (כמו ספרים שלמים, בסיסי קוד או סרטונים ארוכים), כדאי למקם את ההוראות או השאלות הספציפיות בסוף ההנחיה, אחרי הקשר של הנתונים. כדי לעגן את החשיבה הרציונלית של המודל, מתחילים את השאלה בניסוח כמו "בהתבסס על המידע שלמעלה...".
+- **Hướng dẫn chính xác:** Trình bày ngắn gọn. Gemini 3.x phản hồi tốt nhất khi nhận được chỉ dẫn trực tiếp và rõ ràng. Các kỹ thuật thiết kế câu lệnh phức tạp hoặc dài dòng được thiết kế cho các mô hình cũ có thể khiến mô hình phân tích quá mức.
+- **Mức độ chi tiết của đầu ra:** Theo mặc định, Gemini 3.x ít chi tiết hơn và ưu tiên câu trả lời trực tiếp, hiệu quả. Nếu trường hợp sử dụng của bạn yêu cầu giọng điệu trò chuyện, hãy hướng dẫn mô hình một cách rõ ràng trong câu lệnh (ví dụ: "Giải thích điều này như một trợ lý thân thiện, hay trò chuyện").
+- **Quản lý bối cảnh:** Khi làm việc với các tập dữ liệu lớn (chẳng hạn như toàn bộ sách, cơ sở mã hoặc video dài), hãy đặt hướng dẫn hoặc câu hỏi cụ thể của bạn ở cuối câu lệnh, sau bối cảnh dữ liệu. Cố định lập luận của mô hình bằng cách bắt đầu câu hỏi bằng một cụm từ như "Dựa trên thông tin trước đó...".
 
-מידע נוסף על אסטרטגיות לעיצוב הנחיות זמין ב[מדריך להנדסת הנחיות](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he).
+Tìm hiểu thêm về các chiến lược thiết kế câu lệnh trong [hướng dẫn kỹ thuật tạo câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi).
 
-## מגבלות
+## Các điểm hạn chế
 
-- מודל Gemini 3.x לא תומך בפילוח תמונות. למשימות פילוח, אפשר להמשיך להשתמש ב-Gemini 2.5 Flash עם השבתת המצב 'חשיבה', או ב-[Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he).
+- Gemini 3.x không hỗ trợ tính năng phân đoạn hình ảnh. Đối với các khối lượng công việc phân đoạn, hãy tiếp tục sử dụng Gemini 2.5 Flash khi tắt chế độ tư duy hoặc [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=vi).
 
-## שאלות נפוצות
+## Câu hỏi thường gặp
 
-1. **מהו תאריך סף הידע של Gemini 3.5 Flash?** ל-Gemini 3.5 Flash יש תאריך סף ידע של ינואר 2025. כדי לקבל מידע עדכני יותר, אפשר להשתמש בכלי [הארקה של חיפוש](https://ai.google.dev/gemini-api/docs/google-search?hl=he).
-2. **מהן המגבלות של חלון ההקשר?** ‫Gemini 3.5 Flash תומך בחלון הקשר של מיליון טוקנים ובפלט של עד 65,000 טוקנים.
-3. **האם קוד `thinking_budget` הישן שלי עדיין יעבוד?** כן, `thinking_budget`
-   עדיין נתמך לצורך תאימות לאחור, אבל מומלץ לעבור אל
-   `thinking_level` כדי לקבל ביצועים צפויים יותר. אל תשתמשו בשניהם באותה בקשה.
-4. **האם Gemini 3.5 Flash תומך ב-Batch API?** כן. פרטים נוספים זמינים במדריך בנושא [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he).
-5. **האם יש תמיכה בשמירת נתונים במטמון לפי הקשר?** כן, יש תמיכה ב[שמירת מטמון של הקשר](https://ai.google.dev/gemini-api/docs/caching?hl=he).
-6. **אילו כלים נתמכים?** ‫Gemini 3.5 Flash תומך ב[חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he), ב[הצגת מידע מבוסס-מיקום באמצעות מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he), ב[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he), ב[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he), ב[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he) וב[קריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) רגילה, כולל [שימוש משולב בכלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
-   ‫[Computer Use](https://ai.google.dev/gemini-api/docs/computer-use?hl=he) **לא** נתמך ב-Gemini 3.5 Flash.
+1. **Điểm cắt kiến thức của Gemini 3.5 Flash là khi nào?** Gemini 3.5 Flash có điểm cắt kiến thức là tháng 1 năm 2025. Để biết thông tin mới nhất, hãy sử dụng công cụ [Tìm kiếm thông tin cơ sở](https://ai.google.dev/gemini-api/docs/google-search?hl=vi).
+2. **Hạn mức cửa sổ ngữ cảnh là bao nhiêu?** Gemini 3.5 Flash hỗ trợ cửa sổ ngữ cảnh đầu vào 1 triệu token và tối đa 65.000 token đầu ra.
+3. **Mã `thinking_budget` cũ của tôi có còn hoạt động không?** Có, `thinking_budget` vẫn được hỗ trợ để đảm bảo khả năng tương thích ngược, nhưng bạn nên di chuyển sang `thinking_level` để có hiệu suất dễ dự đoán hơn. Đừng sử dụng cả hai trong cùng một yêu cầu.
+4. **Gemini 3.5 Flash có hỗ trợ Batch API không?** Có. Hãy xem hướng dẫn về [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) để biết thông tin chi tiết.
+5. **Context Caching có được hỗ trợ không?** Có, [Tính năng lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) được hỗ trợ.
+6. **Những công cụ nào được hỗ trợ?** Gemini 3.5 Flash hỗ trợ [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi), [Kết nối với Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi), [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi), [Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi), [Ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi) và [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) tiêu chuẩn, bao gồm cả [sử dụng công cụ kết hợp](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
+   Gemini 3.5 Flash **không** hỗ trợ tính năng [Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi).
 
-## השלבים הבאים
+## Các bước tiếp theo
 
-- מידע נוסף על אסטרטגיות לעיצוב הנחיות זמין ב[מדריך להנדסת הנחיות](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he).
-- [איך מתחילים להשתמש ב-Gemini 3 Cookbook](https://github.com/google-gemini/cookbook)
-- [מידע על אופטימיזציה והסקת מסקנות ב-Gemini API](https://ai.google.dev/gemini-api/docs/optimization?hl=he)
+- Tìm hiểu thêm về các chiến lược thiết kế câu lệnh trong [hướng dẫn kỹ thuật tạo câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi).
+- Làm quen với [Gemini 3 Cookbook](https://github.com/google-gemini/cookbook)
+- Tìm hiểu về [hoạt động tối ưu hoá và suy luận của Gemini API](https://ai.google.dev/gemini-api/docs/optimization?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-עדכון אחרון: 2026-06-04 (שעון UTC).
+Cập nhật lần gần đây nhất: 2026-06-19 UTC.
 
-רוצה לתת לנו משוב?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-04 (שעון UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]

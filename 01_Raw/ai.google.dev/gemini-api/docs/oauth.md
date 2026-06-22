@@ -1,88 +1,90 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ko
-fetched_at: 2026-06-15T06:28:19.811604+00:00
-title: "OAuth\ub97c \ud1b5\ud55c \uc778\uc99d \ube60\ub978 \uc2dc\uc791 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=hi
+fetched_at: 2026-06-22T06:28:35.892873+00:00
+title: "OAuth \u0915\u094d\u0935\u093f\u0915\u0938\u094d\u091f\u093e\u0930\u094d\u091f \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u092a\u0941\u0937\u094d\u091f\u093f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-의견 보내기
+सुझाव भेजें
 
-# OAuth를 통한 인증 빠른 시작
+# OAuth क्विकस्टार्ट की मदद से पुष्टि करना
 
-[Gemini API에 인증하는 가장 쉬운 방법은 Gemini API 빠른 시작에 설명된 대로 API 키를 구성하는 것입니다.](https://ai.google.dev/gemini-api/docs/quickstart?hl=ko) 더 엄격한 액세스 제어가 필요한 경우 OAuth를 대신 사용할 수 있습니다. 이 가이드는 OAuth를 사용하여 인증을 설정하는 데 도움이 됩니다.
+Gemini API में पुष्टि करने का सबसे आसान तरीका, एपीआई पासकोड को कॉन्फ़िगर करना है. इसके बारे में [Gemini API के क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/quickstart?hl=hi) में बताया गया है. अगर आपको ऐक्सेस कंट्रोल को ज़्यादा पाबंदियों के साथ लागू करना है, तो OAuth का इस्तेमाल करें. इस गाइड की मदद से, OAuth के ज़रिए पुष्टि करने की सुविधा सेट अप की जा सकती है.
 
-이 가이드에서는 테스트 환경에 적합한 간소화된 인증 접근 방식을 사용합니다. [[프로덕션 환경의 경우 앱에 적합한 액세스 사용자 인증 정보를 선택하기 전에 인증 및 승인에 대해 알아보세요.](https://developers.google.com/workspace/guides/auth-overview?hl=ko)](https://developers.google.com/workspace/guides/create-credentials?hl=ko#choose_the_access_credential_that_is_right_for_you)
+इस गाइड में, पुष्टि करने का आसान तरीका बताया गया है. यह टेस्टिंग एनवायरमेंट के लिए सही है. प्रोडक्शन एनवायरमेंट के लिए, अपने ऐप्लिकेशन के हिसाब से सही [ऐक्सेस क्रेडेंशियल चुनने
+से पहले](https://developers.google.com/workspace/guides/create-credentials?hl=hi#choose_the_access_credential_that_is_right_for_you), [पुष्टि करने और अनुमति देने
+के बारे में](https://developers.google.com/workspace/guides/auth-overview?hl=hi) जानें.
 
-## 목표
+## मकसद
 
-- OAuth용 클라우드 프로젝트 설정
-- 애플리케이션 기본 사용자 인증 정보 설정
-- `gcloud auth`를 사용하는 대신 프로그램에서 사용자 인증 정보 관리
+- OAuth के लिए अपना क्लाउड प्रोजेक्ट सेट अप करना
+- application-default-credentials सेट अप करना
+- `gcloud auth` का इस्तेमाल करने के बजाय, अपने प्रोग्राम में क्रेडेंशियल मैनेज करना
 
-## 기본 요건
+## ज़रूरी शर्तें
 
-이 빠른 시작을 실행하려면 다음이 필요합니다.
+इस क्विकस्टार्ट को चलाने के लिए, आपको इनकी ज़रूरत होगी:
 
-- [Google Cloud 프로젝트](https://developers.google.com/workspace/guides/create-project?hl=ko)
-- [gcloud CLI의 로컬 설치](https://cloud.google.com/sdk/docs/install?hl=ko)
+- [Google Cloud प्रोजेक्ट](https://developers.google.com/workspace/guides/create-project?hl=hi)
+- [gcloud सीएलआई का लोकल इंस्टॉलेशन](https://cloud.google.com/sdk/docs/install?hl=hi)
 
-## 클라우드 프로젝트 설정
+## अपना क्लाउड प्रोजेक्ट सेट अप करना
 
-이 빠른 시작을 완료하려면 먼저 Cloud 프로젝트를 설정해야 합니다.
+इस क्विकस्टार्ट को पूरा करने के लिए, आपको सबसे पहले अपना Cloud प्रोजेक्ट सेट अप करना होगा.
 
-### 1. API 사용 설정
+### 1. एपीआई चालू करना
 
-Google API를 사용하려면 먼저 Google Cloud 프로젝트에서 API를 사용 설정해야 합니다.
+Google API का इस्तेमाल करने से पहले, आपको उन्हें Google Cloud प्रोजेक्ट में चालू करना होगा.
 
-- Google Cloud 콘솔에서 Google Generative Language API를 사용 설정합니다.
+- Google Cloud console में, Google Generative Language API चालू करें.
 
-  [API 사용 설정](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ko)
+  [एपीआई चालू करना](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=hi)
 
-### 2. OAuth 동의 화면 구성
+### 2. उस स्क्रीन को कॉन्फ़िगर करना जहां OAuth के लिए सहमति दी जाती है
 
-다음으로 프로젝트의 OAuth 동의 화면을 구성하고 자신을 테스트 사용자로 추가합니다. Cloud 프로젝트에서 이 단계를 이미 완료했다면 다음 섹션으로 건너뛰세요.
+इसके बाद, प्रोजेक्ट की उस स्क्रीन को कॉन्फ़िगर करें जहां OAuth के लिए सहमति दी जाती है. साथ ही, खुद को टेस्टर के तौर पर जोड़ें. अगर आपने अपने Cloud प्रोजेक्ट के लिए यह चरण पहले ही पूरा कर लिया है, तो अगले सेक्शन पर जाएं.
 
-1. Google Cloud 콘솔에서 **메뉴** > **Google 인증 플랫폼** > **개요** 로 이동합니다.
+1. Google Cloud console में, **मेन्यू** >
+   **Google Auth platform** > **खास जानकारी** पर जाएं.
 
-   [Google 인증 플랫폼으로 이동](https://console.developers.google.com/auth/overview?hl=ko)
-2. 프로젝트 구성 양식을 작성하고 **잠재고객** 섹션에서 사용자 유형을 **외부** 로 설정합니다.
-3. 양식의 나머지 부분을 작성하고 사용자 데이터 정책 약관에 동의한 후 **만들기** 를 클릭합니다.
-4. 지금은 범위를 추가하지 않아도 되며 **저장하고 계속하기** 를 클릭합니다. 나중에 Google Workspace 조직 외부에서 사용할 앱을 만들 때는 앱에 필요한 승인 범위를 추가하고 확인해야 합니다.
-5. 테스트 사용자 추가:
+   [Google Auth प्लैटफ़ॉर्म पर जाएं](https://console.developers.google.com/auth/overview?hl=hi)
+2. प्रोजेक्ट कॉन्फ़िगरेशन फ़ॉर्म भरें. इसके बाद, **Audience** सेक्शन में जाकर, उपयोगकर्ता का टाइप **External** पर सेट करें.
+3. फ़ॉर्म में बाकी जानकारी भरें. इसके बाद, उपयोगकर्ता के डेटा से जुड़ी नीति की शर्तों को स्वीकार करें. इसके बाद, **बनाएं** पर क्लिक करें.
+4. फ़िलहाल, स्कोप जोड़ने की प्रोसेस को स्किप किया जा सकता है. इसके बाद, **सेव करें और जारी रखें** पर क्लिक करें. आने वाले समय में, जब आपको अपने Google Workspace संगठन के बाहर इस्तेमाल करने के लिए कोई ऐप्लिकेशन बनाना हो, तब आपको उन अनुमति के दायरे को जोड़ना और उनकी पुष्टि करनी होगी जिनकी आपके ऐप्लिकेशन को ज़रूरत है.
+5. टेस्ट यूज़र जोड़ें:
 
-   1. Google 인증 플랫폼의
-      [잠재고객 페이지](https://console.developers.google.com/auth/audience?hl=ko)로 이동합니다.
-   2. ****\*\*테스트 사용자\*\* 에서 \*\*사용자 추가\*\* 를 클릭합니다.****
-   3. 이메일 주소와 기타 승인된 테스트 사용자를 입력한 후 **저장** 을 클릭합니다.
+   1. Google Auth प्लैटफ़ॉर्म के [ऑडियंस पेज](https://console.developers.google.com/auth/audience?hl=hi) पर जाएं.
+   2. **टेस्ट उपयोगकर्ता** में जाकर, **उपयोगकर्ता जोड़ें** पर क्लिक करें.
+   3. अपना ईमेल पता और टेस्ट करने वाले अन्य ज़्यादाृत उपयोगकर्ताओं का ईमेल पता डालें. इसके बाद, **सेव करें** पर क्लिक करें.
 
-### 3. 데스크톱 애플리케이션의 사용자 인증 정보 승인
+### 3. डेस्कटॉप ऐप्लिकेशन के लिए क्रेडेंशियल को अनुमति देना
 
-최종 사용자로 인증하고 앱에서 사용자 데이터에 액세스하려면 OAuth 2.0 클라이언트 ID를 하나 이상 만들어야 합니다. 클라이언트 ID는 Google OAuth 서버에서 단일 앱을 식별하는 데 사용됩니다. 앱이 여러 플랫폼에서 실행되는 경우 각 플랫폼에 대해 별도의 클라이언트 ID를 만들어야 합니다.
+असली उपयोगकर्ता के तौर पर पुष्टि करने और अपने ऐप्लिकेशन में उपयोगकर्ता का डेटा ऐक्सेस करने के लिए, आपको एक या उससे ज़्यादा OAuth 2.0 क्लाइंट आईडी बनाने होंगे. क्लाइंट आईडी का इस्तेमाल, Google के OAuth सर्वर पर किसी एक ऐप्लिकेशन की पहचान करने के लिए किया जाता है. अगर आपका ऐप्लिकेशन कई प्लैटफ़ॉर्म पर चलता है, तो आपको हर प्लैटफ़ॉर्म के लिए अलग क्लाइंट आईडी बनाना होगा.
 
-1. Google Cloud 콘솔에서 **메뉴** > **Google 인증 플랫폼** > **클라이언트** 로 이동합니다.
+1. Google Cloud Console में, **मेन्यू** > **Google Auth platform** >
+   **क्लाइंट** पर जाएं.
 
-   [사용자 인증 정보로 이동](https://console.developers.google.com/auth/clients?hl=ko)
-2. **클라이언트 만들기** 를 클릭합니다.
-3. **애플리케이션 유형** > **데스크톱 앱** 을 클릭합니다.
-4. **이름** 필드에 사용자 인증 정보의 이름을 입력합니다. 이 이름은 Google Cloud 콘솔에만 표시됩니다.
-5. **만들기** 를 클릭합니다. OAuth 클라이언트 생성됨 화면이 표시되고 여기에 새 클라이언트 ID와 클라이언트 보안 비밀번호가 표시됩니다.
-6. **확인** 을 클릭합니다. 새로 만든 사용자 인증 정보가 **OAuth 2.0 클라이언트 ID** 아래에 표시됩니다.
-7. 다운로드 버튼을 클릭하여 JSON 파일을 저장합니다. 파일은
-   `client_secret_<identifier>.json`으로 저장되며 이름을 `client_secret.json`
-   으로 바꾸고 작업 디렉터리로 이동합니다.
+   [क्रेडेंशियल पर जाएं](https://console.developers.google.com/auth/clients?hl=hi)
+2. **क्लाइंट बनाएं** पर क्लिक करें.
+3. **ऐप्लिकेशन का टाइप** > **डेस्कटॉप ऐप्लिकेशन** पर क्लिक करें.
+4. **नाम** फ़ील्ड में, क्रेडेंशियल के लिए कोई नाम टाइप करें. यह नाम सिर्फ़
+   Google Cloud Console में दिखता है.
+5. **बनाएं** पर क्लिक करें. OAuth क्लाइंट बनाया गया स्क्रीन दिखेगी. इसमें आपका नया क्लाइंट आईडी और क्लाइंट सीक्रेट दिखेगा.
+6. **ठीक है** पर क्लिक करें. नया क्रेडेंशियल, **OAuth 2.0 क्लाइंट आईडी** में दिखता है.
+7. JSON फ़ाइल सेव करने के लिए, डाउनलोड बटन पर क्लिक करें. इसे `client_secret_<identifier>.json` के तौर पर सेव किया जाएगा. इसके बाद, इसका नाम बदलकर `client_secret.json` कर दें और इसे अपनी वर्किंग डायरेक्ट्री में ले जाएं.
 
-## 애플리케이션 기본 사용자 인증 정보 설정
+## ऐप्लिकेशन के डिफ़ॉल्ट क्रेडेंशियल सेट अप करना
 
-`client_secret.json` 파일을 사용 가능한 사용자 인증 정보로 변환하려면 해당 위치를 `gcloud auth application-default login` 명령어의 `--client-id-file` 인수에 전달합니다.
+`client_secret.json` फ़ाइल को इस्तेमाल किए जा सकने वाले क्रेडेंशियल में बदलने के लिए, `gcloud auth application-default login` कमांड के `--client-id-file` आर्ग्युमेंट में इसकी जगह की जानकारी पास करें.
 
 ```
 gcloud auth application-default login \
@@ -90,10 +92,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-이 가이드의 간소화된 프로젝트 설정은 **"Google에서
-이 앱을 확인하지 않았습니다."** 대화상자를 트리거합니다. 이는 정상적인 현상이므로 **"계속"**을 선택합니다.
+इस ट्यूटोरियल में, प्रोजेक्ट को आसानी से सेट अप करने की सुविधा दी गई है. इससे **"Google ने इस ऐप्लिकेशन की पुष्टि नहीं की है."** डायलॉग ट्रिगर होता है. यह सामान्य है. **"जारी रखें"** को चुनें.
 
-이렇게 하면 결과 토큰이 잘 알려진 위치에 배치되므로 `gcloud` 또는 클라이언트 라이브러리에서 액세스할 수 있습니다.
+इससे, नतीजा देने वाला टोकन एक जानी-पहचानी जगह पर रखा जाता है, ताकि इसे `gcloud` या क्लाइंट लाइब्रेरी से ऐक्सेस किया जा सके.
 
 ```` ```
 gcloud auth application-default login   
@@ -104,11 +105,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-애플리케이션 기본 사용자 인증 정보 (ADC)를 설정하면 대부분의 언어에서 클라이언트 라이브러리가 이를 찾는 데 최소한의 도움만 필요합니다.
+ऐप्लिकेशन के डिफ़ॉल्ट क्रेडेंशियल (एडीसी) सेट करने के बाद, ज़्यादातर भाषाओं में क्लाइंट लाइब्रेरी को उन्हें ढूंढने के लिए बहुत कम या किसी भी मदद की ज़रूरत नहीं होती.
 
 ### Curl
 
-이 기능이 작동하는지 테스트하는 가장 빠른 방법은 curl을 사용하여 REST API에 액세스하는 것입니다.
+यह सुविधा काम कर रही है या नहीं, यह जांचने का सबसे तेज़ तरीका है कि curl का इस्तेमाल करके, REST API को ऐक्सेस किया जाए:
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -121,13 +122,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Python에서 클라이언트 라이브러리는 자동으로 이를 찾아야 합니다.
+Python में, क्लाइंट लाइब्रेरी को ये क्रेडेंशियल अपने-आप मिल जाने चाहिए:
 
 ```
 pip install google-genai
 ```
 
-테스트를 위한 최소 스크립트는 다음과 같습니다.
+इसे टेस्ट करने के लिए, यह छोटी स्क्रिप्ट इस्तेमाल की जा सकती है:
 
 ```
 from google import genai
@@ -136,30 +137,28 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## 다음 단계
+## अगले चरण
 
-작동하는 경우 텍스트 데이터에서
-[시맨틱 검색을 시도할 수 있습니다](https://ai.google.dev/docs/semantic_retriever?hl=ko).
+अगर यह काम कर रहा है, तो अब [अपने टेक्स्ट डेटा पर सिमैंटिक रिट्रीवल](https://ai.google.dev/docs/semantic_retriever?hl=hi) आज़माएं.
 
-## 사용자 인증 정보 직접 관리 [Python]
+## क्रेडेंशियल खुद मैनेज करना [Python]
 
-대부분의 경우 클라이언트 ID (`client_secret.json`)에서 액세스 토큰을 만드는 데 사용할 수 있는 `gcloud` 명령어가 없습니다. Google은 앱 내에서 이 프로세스를 관리할 수 있도록 여러 언어로 라이브러리를 제공합니다. 이 섹션에서는 Python에서 이 프로세스를 보여줍니다. 다른 언어의 경우 이와 유사한 절차의 예가
-[Drive API 문서](https://developers.google.com/drive/api/quickstart/python?hl=ko)에 나와 있습니다.
+कई मामलों में, आपके पास क्लाइंट आईडी (`client_secret.json`) से ऐक्सेस टोकन बनाने के लिए, `gcloud` कमांड उपलब्ध नहीं होगी. Google, कई भाषाओं में लाइब्रेरी उपलब्ध कराता है, ताकि आप अपने ऐप्लिकेशन में उस प्रोसेस को मैनेज कर सकें. इस सेक्शन में, Python में प्रोसेस के बारे में बताया गया है. इस तरह की प्रक्रिया के मिलते-जुलते उदाहरण, अन्य भाषाओं के लिए भी उपलब्ध हैं. इन्हें [Drive API के दस्तावेज़](https://developers.google.com/drive/api/quickstart/python?hl=hi) में देखा जा सकता है
 
-### 1. 필요한 라이브러리 설치
+### 1. ज़रूरी लाइब्रेरी इंस्टॉल करना
 
-Python용 Google 클라이언트 라이브러리와 Gemini 클라이언트 라이브러리를 설치합니다.
+Python के लिए Google क्लाइंट लाइब्रेरी और Gemini क्लाइंट लाइब्रेरी इंस्टॉल करें.
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. 사용자 인증 정보 관리자 작성
+### 2. क्रेडेंशियल मैनेजर के बारे में लिखें
 
-승인 화면을 클릭해야 하는 횟수를 최소화하려면 작업 디렉터리에 `load_creds.py`라는 파일을 만들어 나중에 재사용하거나 만료된 경우 새로고침할 수 있는 `token.json` 파일을 캐시합니다.
+बार-बार अनुमति देने वाली स्क्रीन पर क्लिक करने से बचने के लिए, अपनी वर्किंग डायरेक्ट्री में `load_creds.py` नाम की फ़ाइल बनाएं. इससे `load_creds.py` फ़ाइल को कैश किया जा सकेगा, ताकि बाद में इसका फिर से इस्तेमाल किया जा सके. अगर यह फ़ाइल खत्म हो जाती है, तो इसे रीफ़्रेश किया जा सकता है.`token.json`
 
-다음 코드를 사용하여 `client_secret.json` 파일을 `genai.configure`에서 사용할 수 있는 토큰으로 변환합니다.
+`client_secret.json` फ़ाइल को `genai.configure` के साथ इस्तेमाल किए जा सकने वाले टोकन में बदलने के लिए, इस कोड का इस्तेमाल करें:
 
 ```
 import os.path
@@ -196,9 +195,9 @@ def load_creds():
     return creds
 ```
 
-### 3. 프로그램 작성
+### 3. अपना प्रोग्राम लिखना
 
-이제 `script.py`를 만듭니다.
+अब अपना `script.py` बनाएं:
 
 ```
 import pprint
@@ -213,27 +212,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. 프로그램 실행
+### 4. प्रोग्राम चलाएं
 
-작업 디렉터리에서 다음 샘플을 실행합니다.
+अपनी वर्किंग डायरेक्ट्री में, सैंपल चलाएं:
 
 ```
 python script.py
 ```
 
-스크립트를 처음 실행하면 브라우저 창이 열리고 액세스 권한을 부여하라는 메시지가 표시됩니다.
+स्क्रिप्ट को पहली बार चलाने पर, यह एक ब्राउज़र विंडो खोलती है और आपसे ऐक्सेस की अनुमति देने के लिए कहती है.
 
-1. 아직 Google 계정에 로그인하지 않았으면 로그인하라는 메시지가 표시됩니다. 여러 계정에 로그인되어 있는 경우 **프로젝트를 구성할 때 '테스트 계정'으로 설정한 계정을 선택해야 합니다.**
-2. 승인 정보가 파일 시스템에 저장되므로 다음에 샘플 코드를 실행할 때는 승인하라는 메시지가 표시되지 않습니다.
+1. अगर आपने Google खाते में पहले से साइन इन नहीं किया है, तो आपको साइन इन करने के लिए कहा जाएगा. अगर आपने एक से ज़्यादा खातों में साइन इन किया हुआ है, तो **अपने प्रोजेक्ट को कॉन्फ़िगर करते समय, उस खाते को ज़रूर चुनें जिसे आपने "टेस्ट खाता" के तौर पर सेट किया है.**
+2. अनुमति से जुड़ी जानकारी फ़ाइल सिस्टम में सेव होती है. इसलिए, अगली बार सैंपल कोड चलाने पर, आपको अनुमति देने के लिए नहीं कहा जाएगा.
 
-인증을 설정했습니다.
+आपने पुष्टि करने की सुविधा को सेटअप कर लिया है.
 
-의견 보내기
+सुझाव भेजें
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-최종 업데이트: 2026-04-29(UTC)
+आखिरी बार 2026-06-19 (UTC) को अपडेट किया गया.
 
-의견을 전달하고 싶나요?
+क्या आपको हमें और कुछ बताना है?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-19 (UTC) को अपडेट किया गया."],[],[]]

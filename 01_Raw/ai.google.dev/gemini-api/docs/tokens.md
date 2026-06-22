@@ -1,66 +1,71 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=he
-fetched_at: 2026-06-15T06:18:03.516753+00:00
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=vi
+fetched_at: 2026-06-22T06:32:24.796648+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-# הסבר על אסימונים ואיך סופרים אותם
+# Tìm hiểu và đếm mã thông báo
 
-‫Gemini ומודלים אחרים של AI גנרטיבי מעבדים קלט ופלט ברמת פירוט שנקראת *טוקן*.
+Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào và đầu ra ở mức độ chi tiết được gọi là *mã thông báo*.
 
-**במודלים של Gemini, טוקן שווה בערך ל-4 תווים.
-‫100 טוקנים שווים לכ-60-80 מילים באנגלית.**
+**Đối với các mô hình Gemini, một mã thông báo tương đương với khoảng 4 ký tự.
+100 mã thông báo tương đương với khoảng 60 – 80 từ tiếng Anh.**
 
-## מידע על טוקנים
+## Giới thiệu về mã thông báo
 
-טוקנים יכולים להיות תווים בודדים כמו `z` או מילים שלמות כמו `cat`. מילים ארוכות מחולקות לכמה טוקנים. קבוצת כל הטוקנים שבהם נעשה שימוש במודל נקראת אוצר מילים, והתהליך של פיצול טקסט לטוקנים נקרא *טוקניזציה*.
+Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả mã thông báo mà mô hình sử dụng được gọi là từ vựng và quá trình chia văn bản thành mã thông báo được gọi là *phân tách thành mã thông báo*.
 
-כשמופעל חיוב, [העלות של קריאה ל-Gemini API](https://ai.google.dev/pricing?hl=he) נקבעת בין היתר לפי מספר האסימונים של הקלט והפלט, ולכן כדאי לדעת איך לספור אסימונים.
+Khi tính năng thanh toán được bật, [chi phí cho một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) được
+xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách
+đếm mã thông báo có thể hữu ích.
 
-אתם יכולים לנסות לספור טוקנים ב-Colab שלנו.
+Bạn có thể thử đếm mã thông báo trong Colab của chúng tôi.
 
 |  |  |  |
 | --- | --- | --- |
-| [לצפייה באתר ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | [ניסיון של נוטבוק של Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) | [הצגת ה-notebook ב-GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=he) |
+| [Xem trên ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | [Thử sổ tay Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=vi) | [Xem sổ tay trên GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=vi) |
 
-## ספירת טוקנים
+## Đếm mã thông báo
 
-כל הקלט ל-Gemini API והפלט ממנו עוברים טוקניזציה, כולל טקסט, קובצי תמונות וסוגים אחרים של נתונים שאינם טקסט.
+Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được phân tách thành mã thông báo, bao gồm văn bản, tệp hình ảnh và các phương thức không phải văn bản khác.
 
-אפשר לספור טוקנים בדרכים הבאות:
+Bạn có thể đếm mã thông báo theo những cách sau:
 
-- **מתקשרים אל [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=he) עם הקלט של הבקשה.**  
-   הפונקציה הזו מחזירה את המספר הכולל של הטוקנים *בקלט בלבד*. אפשר להתקשר אליה לפני ששולחים את הקלט למודל כדי לבדוק את הגודל של הבקשות.
-- **משתמשים במאפיין `usage_metadata` באובייקט `response` אחרי הקריאה ל-`generate_content`.**  
-   הפעולה הזו מחזירה את המספר הכולל של הטוקנים ב*קלט ובפלט*: `total_token_count`.  
-   היא גם מחזירה את ספירת הטוקנים של הקלט והפלט בנפרד: `prompt_token_count` (טוקנים של הקלט) ו-`candidates_token_count` (טוקנים של הפלט).
+- **Gọi [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=vi) bằng dữ liệu đầu vào
+  của yêu cầu.**  
+   Hàm này trả về tổng số mã thông báo trong *dữ liệu đầu vào*. Bạn có thể thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào đến mô hình để kiểm tra kích thước của yêu cầu.
+- **Sử dụng thuộc tính `usage_metadata` trên đối tượng `response` sau khi
+  gọi `generate_content`.**  
+   Hàm này trả về tổng số
+  mã thông báo trong *cả dữ liệu đầu vào và đầu ra*: `total_token_count`.  
+   Hàm này cũng trả về số lượng mã thông báo của dữ liệu đầu vào và đầu ra riêng biệt: `prompt_token_count` (mã thông báo đầu vào) và `candidates_token_count` (mã thông báo đầu ra).
 
-  אם אתם משתמשים ב[מודל חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he), הטוקנים שנעשה בהם שימוש במהלך תהליך החשיבה מוחזרים ב-`thoughts_token_count`. אם אתם משתמשים ב[שמירת נתונים במטמון לפי הקשר](https://ai.google.dev/gemini-api/docs/caching?hl=he), מספר האסימונים שנשמרו במטמון יופיע ב-`cached_content_token_count`.
+  Nếu bạn đang sử dụng mô hình [tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi), thì các mã thông báo được dùng trong quá trình tư duy
+  sẽ được trả về trong `thoughts_token_count`. Và nếu bạn đang sử dụng
+  [tính năng lưu vào bộ nhớ đệm theo ngữ cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi), thì số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ nằm trong `cached_content_token_count`.
 
-### ספירת טוקנים של טקסט
+### Đếm mã thông báo văn bản
 
-אם מתקשרים אל `count_tokens` עם קלט טקסט בלבד, הפונקציה מחזירה את מספר הטוקנים של הטקסט *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל `count_tokens` לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות.
+Nếu bạn gọi `count_tokens` bằng dữ liệu đầu vào chỉ có văn bản, thì hàm này sẽ trả về số lượng mã thông báo của văn bản trong *dữ liệu đầu vào* (`total_tokens`). Bạn có thể thực hiện lệnh gọi này trước khi gọi `generate_content` để kiểm tra kích thước của yêu cầu.
 
-אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Một lựa chọn khác là gọi `generate_content`, sau đó sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận các thông tin sau:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
-  (`total_token_count`)
+- Số lượng mã thông báo riêng biệt của dữ liệu đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và dữ liệu đầu ra (`candidates_token_count`)
+- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
+- Tổng số mã thông báo trong *cả dữ liệu đầu vào và đầu ra* (`total_token_count`)
 
 ### Python
 
@@ -135,19 +140,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### ספירת טוקנים של שיחות עם זיכרון
+### Đếm mã thông báo nhiều lượt (trò chuyện)
 
-אם מתקשרים אל `count_tokens` עם היסטוריית הצ'אט, הפונקציה מחזירה את המספר הכולל של הטוקנים בטקסט מכל תפקיד בצ'אט (`total_tokens`).
+Nếu bạn gọi `count_tokens` bằng nhật ký trò chuyện, thì hàm này sẽ trả về tổng số mã thông báo của văn bản từ từng vai trò trong cuộc trò chuyện (`total_tokens`).
 
-אפשרות נוספת היא להתקשר אל `send_message` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Một lựa chọn khác là gọi `send_message`, sau đó sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận các thông tin sau:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
-  (`total_token_count`)
+- Số lượng mã thông báo riêng biệt của dữ liệu đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và dữ liệu đầu ra (`candidates_token_count`)
+- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
+- Tổng số mã thông báo trong *cả dữ liệu đầu vào và đầu ra* (`total_token_count`)
 
-כדי להבין מה יהיה גודל התגובה הבאה בשיחה, צריך לצרף אותה להיסטוריה כשמתקשרים אל `count_tokens`.
+Để biết lượt trò chuyện tiếp theo của bạn sẽ có kích thước bao nhiêu, bạn cần thêm lượt trò chuyện đó vào nhật ký khi gọi `count_tokens`.
 
 ### Python
 
@@ -273,34 +276,33 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### ספירת טוקנים מולטי-מודאליים
+### Đếm mã thông báo đa phương thức
 
-כל הקלט ל-Gemini API עובר טוקניזציה, כולל טקסט, קובצי תמונות ומודאליות אחרות שאינן טקסט. חשוב לשים לב לנקודות העיקריות הבאות לגבי טוקניזציה של קלט מולטי-מודאלי במהלך העיבוד על ידי Gemini API:
+Tất cả dữ liệu đầu vào cho Gemini API đều được phân tách thành mã thông báo, bao gồm văn bản, tệp hình ảnh và các phương thức không phải văn bản khác. Hãy lưu ý những điểm chính ở cấp cao sau đây về việc phân tách thành mã thông báo của dữ liệu đầu vào đa phương thức trong quá trình xử lý bằng Gemini API:
 
-- תמונות קלט ששני הממדים שלהן הם ‎<=384 פיקסלים נספרות כ-258 טוקנים. תמונות שגדולות יותר באחד מהממדים או בשניהם נחתכות ומשנות את הגודל לפי הצורך לאריחים בגודל ‎768x768 פיקסלים, וכל אחת מהן נספרת כ-258 טוקנים.
-- קובצי וידאו ואודיו מומרים לטוקנים בשיעורים הקבועים הבאים:
-  וידאו ב-263 טוקנים לשנייה ואודיו ב-32 טוקנים לשנייה.
+- Dữ liệu đầu vào hình ảnh có cả hai kích thước <= 384 pixel được tính là 258 mã thông báo. Hình ảnh có kích thước lớn hơn ở một hoặc cả hai chiều sẽ được cắt và điều chỉnh tỷ lệ khi cần thành các ô 768x768 pixel, mỗi ô được tính là 258 mã thông báo.
+- Tệp video và âm thanh được chuyển đổi thành mã thông báo theo các tỷ lệ cố định sau: video ở mức 263 mã thông báo mỗi giây và âm thanh ở mức 32 mã thông báo mỗi giây.
 
-#### רזולוציות מדיה
+#### Độ phân giải của tệp nghe nhìn
 
-[מודלים של Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=he#gemini-3) מציגים שליטה מדויקת בעיבוד של ראייה מולטימודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **המספר המקסימלי של טוקנים שמוקצים לכל תמונה או פריים של סרטון קלט.**
-רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
+[Các mô hình Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=vi#gemini-3) giới thiệu khả năng kiểm soát chi tiết đối với
+quá trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi hình ảnh đầu vào hoặc khung video.**
+Độ phân giải cao hơn giúp mô hình đọc được văn bản chi tiết hoặc xác định các chi tiết nhỏ, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
 
-לפרטים נוספים על הפרמטר ועל האופן שבו הוא יכול להשפיע על חישובי האסימון, אפשר לעיין במדריך בנושא [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/media-resolution?hl=he).
+Để biết thêm thông tin chi tiết về tham số này và cách tham số này có thể tác động đến việc tính toán mã thông báo,
+hãy xem hướng dẫn về [độ phân giải của tệp nghe nhìn](https://ai.google.dev/gemini-api/docs/media-resolution?hl=vi).
 
-#### קובצי תמונות
+#### Tệp hình ảnh
 
-אם קוראים לפונקציה `count_tokens` עם קלט של טקסט ותמונה, היא מחזירה את מספר הטוקנים המשולב של הטקסט והתמונה *בקלט בלבד* (`total_tokens`). אפשר לקרוא לפונקציה הזו לפני שקוראים לפונקציה `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם לקרוא ל-`count_tokens` על הטקסט ועל הקובץ בנפרד.
+Nếu bạn gọi `count_tokens` bằng dữ liệu đầu vào văn bản và hình ảnh, thì hàm này sẽ trả về số lượng mã thông báo kết hợp của văn bản và hình ảnh trong *dữ liệu đầu vào* (`total_tokens`). Bạn có thể thực hiện lệnh gọi này trước khi gọi `generate_content` để kiểm tra kích thước của yêu cầu. Bạn cũng có thể tuỳ ý gọi `count_tokens` trên văn bản và tệp riêng biệt.
 
-אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Một lựa chọn khác là gọi `generate_content`, sau đó sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận các thông tin sau:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט*
-  (`total_token_count`)
+- Số lượng mã thông báo riêng biệt của dữ liệu đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và dữ liệu đầu ra (`candidates_token_count`)
+- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
+- Tổng số mã thông báo trong *cả dữ liệu đầu vào và đầu ra* (`total_token_count`)
 
-דוגמה לשימוש בתמונה שהועלתה מ-File API:
+Ví dụ sử dụng hình ảnh đã tải lên từ File API:
 
 ### Python
 
@@ -400,7 +402,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-דוגמה שבה התמונה מסופקת כנתונים מוטבעים:
+Ví dụ cung cấp hình ảnh dưới dạng dữ liệu nội tuyến:
 
 ### Python
 
@@ -497,21 +499,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### קובצי וידאו או אודיו
+#### Tệp video hoặc âm thanh
 
-ההמרה של אודיו ווידאו לטוקנים מתבצעת לפי השיעורים הקבועים הבאים:
+Âm thanh và video được chuyển đổi thành mã thông báo theo các tỷ lệ cố định sau:
 
-- סרטון: 263 טוקנים לשנייה
-- אודיו: 32 טוקנים לשנייה
+- Video: 263 mã thông báo mỗi giây
+- Âm thanh: 32 mã thông báo mỗi giây
 
-אם מתקשרים אל `count_tokens` עם קלט של טקסט וסרטון או אודיו, הפונקציה מחזירה את מספר הטוקנים המשולב של הטקסט ושל קובץ הווידאו או האודיו *בקלט בלבד* (`total_tokens`). אפשר להתקשר אל הפונקציה הזו לפני שמתקשרים אל `generate_content` כדי לבדוק את גודל הבקשות. אפשר גם להפעיל את `count_tokens` על הטקסט ועל הקובץ בנפרד.
+Nếu bạn gọi `count_tokens` bằng dữ liệu đầu vào văn bản và video/âm thanh, thì hàm này sẽ trả về số lượng mã thông báo kết hợp của văn bản và tệp video/âm thanh trong *dữ liệu đầu vào* (`total_tokens`). Bạn có thể thực hiện lệnh gọi này trước khi gọi `generate_content` để kiểm tra kích thước của yêu cầu. Bạn cũng có thể tuỳ ý gọi `count_tokens` trên văn bản và tệp riêng biệt.
 
-אפשרות נוספת היא להתקשר אל `generate_content` ואז להשתמש במאפיין `usage_metadata`
-באובייקט `response` כדי לקבל את הפרטים הבאים:
+Một lựa chọn khác là gọi `generate_content`, sau đó sử dụng thuộc tính `usage_metadata` trên đối tượng `response` để nhận các thông tin sau:
 
-- מספר הטוקנים הנפרד של הקלט (`prompt_token_count`), התוכן שנשמר במטמון (`cached_content_token_count`) והפלט (`candidates_token_count`)
-- מספר הטוקנים בתהליך החשיבה (`thoughts_token_count`)
-- המספר הכולל של הטוקנים *גם בקלט וגם בפלט* (`total_token_count`).
+- Số lượng mã thông báo riêng biệt của dữ liệu đầu vào (`prompt_token_count`), nội dung được lưu vào bộ nhớ đệm (`cached_content_token_count`) và dữ liệu đầu ra (`candidates_token_count`)
+- Số lượng mã thông báo cho quá trình tư duy (`thoughts_token_count`)
+- Tổng số mã thông báo trong *cả dữ liệu đầu vào và đầu ra* (`total_token_count`).
 
 ### Python
 
@@ -636,9 +637,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### ספירת טוקנים של מחשבות
+### Đếm mã thông báo tư duy
 
-כשמפעילים את התכונה 'מעמיק', התמחור של התשובה הוא סכום הטוקנים של הפלט והטוקנים של התכונה 'מעמיק'. אפשר לאחזר את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `thoughtsTokenCount` (או מהמקבילה ב-SDK).
+Khi bạn bật tính năng tư duy, giá phản hồi là tổng số mã thông báo đầu ra và mã thông báo tư duy. Bạn có thể truy xuất tổng số mã thông báo tư duy đã tạo từ trường `thoughtsTokenCount` (hoặc SDK tương đương).
 
 ### Python
 
@@ -664,13 +665,15 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז מפיקים [סיכומים](https://ai.google.dev/gemini-api/docs/thinking?hl=he#summaries) כדי לספק תובנות לגבי תהליך החשיבה. לכן, התמחור של ה-API מבוסס על האסימונים של כל המחשבות שהמודל יוצר כדי ליצור סיכום, גם אם ה-API מוציא רק את הסיכום.
+Các mô hình tư duy tạo ra các ý tưởng đầy đủ để cải thiện chất lượng của phản hồi cuối cùng, sau đó đưa ra [bản tóm tắt](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#summaries) để cung cấp thông tin chi tiết về quá trình tư duy. Vì vậy, API dựa trên giá của các mã thông báo tư duy đầy đủ mà mô hình tạo ra để tạo bản tóm tắt, mặc dù API chỉ đưa ra bản tóm tắt.
 
-במדריך [Gemini thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=he) (תהליך החשיבה של Gemini) אפשר לקרוא מידע נוסף על הגדרת תהליך החשיבה.
+Bạn có thể tìm hiểu thêm về cách định cấu hình tính năng tư duy trong hướng dẫn tư duy của [Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=vi).
 
-## חלונות הקשר
+## Cửa sổ ngữ cảnh
 
-למודלים שזמינים דרך Gemini API יש חלונות הקשר שנמדדים בטוקנים. חלון ההקשר מגדיר כמה קלט אפשר לספק וכמה פלט המודל יכול ליצור. אפשר לקבוע את הגודל של חלון ההקשר על ידי קריאה לנקודת הקצה [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=he) או על ידי עיון ב[מסמכי התיעוד של המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
+Các mô hình có sẵn thông qua Gemini API có cửa sổ ngữ cảnh được đo bằng mã thông báo. Cửa sổ ngữ cảnh xác định số lượng dữ liệu đầu vào mà bạn có thể cung cấp và số lượng dữ liệu đầu ra mà mô hình có thể tạo. Bạn có thể xác định kích thước của
+cửa sổ ngữ cảnh bằng cách gọi điểm cuối [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=vi)
+hoặc bằng cách xem trong [tài liệu về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
 
 ### Python
 
@@ -715,12 +718,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-עדכון אחרון: 2026-06-04 (שעון UTC).
+Cập nhật lần gần đây nhất: 2026-06-19 UTC.
 
-רוצה לתת לנו משוב?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-04 (שעון UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]

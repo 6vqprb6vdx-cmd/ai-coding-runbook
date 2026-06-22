@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-BR
-fetched_at: 2026-06-15T06:19:05.805071+00:00
+source_url: https://ai.google.dev/gemini-api/docs/media-resolution?hl=id
+fetched_at: 2026-06-22T06:31:13.557746+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Resolução da mídia
+# Resolusi media
 
-O parâmetro `media_resolution` controla como a API Gemini processa entradas de mídia, como imagens, vídeos e documentos PDF, determinando o **número máximo de tokens** alocados para entradas de mídia. Assim, é possível equilibrar a qualidade da resposta com a latência e o custo. Para conferir diferentes configurações, valores padrão e como eles correspondem a tokens, consulte a seção [Contagem de tokens](#token-counts).
+Parameter `media_resolution` mengontrol cara Gemini API memproses input media seperti gambar, video, dan dokumen PDF dengan menentukan **jumlah maksimum token** yang dialokasikan untuk input media, sehingga Anda dapat menyeimbangkan kualitas respons dengan latensi dan biaya. Untuk mengetahui setelan yang berbeda, nilai default, dan korespondensinya dengan token, lihat bagian [Jumlah token](#token-counts).
 
-É possível configurar a resolução da mídia de duas maneiras:
+Anda dapat mengonfigurasi resolusi media dengan dua cara:
 
-- [Por parte](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br#per-part-media-resolution) (somente Gemini 3)
-- [Globalmente](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br#global-media-resolution) para uma solicitação `generateContent` inteira (todos os modelos multimodais)
+- [Per bagian](https://ai.google.dev/gemini-api/docs/media-resolution?hl=id#per-part-media-resolution) (hanya Gemini 3)
+- [Secara global](https://ai.google.dev/gemini-api/docs/media-resolution?hl=id#global-media-resolution) untuk seluruh permintaan `generateContent` (semua model multimodal)
 
-## Resolução de mídia por parte (somente Gemini 3)
+## Resolusi media per bagian (hanya Gemini 3)
 
-Com o Gemini 3, é possível definir a resolução de mídia para objetos individuais na sua solicitação, oferecendo uma otimização refinada do uso de tokens. É possível misturar níveis de resolução em uma única solicitação. Por exemplo, use alta resolução para um diagrama complexo e baixa resolução para uma imagem contextual simples. Essa configuração substitui qualquer configuração global de uma parte específica. Para conferir as configurações padrão, consulte a seção [Contagem de tokens](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br#token-counts).
+Gemini 3 memungkinkan Anda menetapkan resolusi media untuk setiap objek media dalam permintaan, sehingga menawarkan pengoptimalan penggunaan token yang mendetail. Anda dapat menggabungkan tingkat resolusi dalam satu permintaan. Misalnya, menggunakan resolusi tinggi untuk diagram yang kompleks dan resolusi rendah untuk gambar kontekstual yang sederhana. Setelan ini menggantikan konfigurasi global untuk bagian tertentu. Untuk mengetahui setelan default, lihat bagian [Jumlah token](https://ai.google.dev/gemini-api/docs/media-resolution?hl=id#token-counts).
 
 ### Python
 
@@ -131,10 +131,10 @@ curl -s -X POST \
   -d @request.json
 ```
 
-## Resolução de mídia global
+## Resolusi media global
 
-É possível definir uma resolução padrão para todas as partes de mídia em uma solicitação usando o
-`GenerationConfig`. Isso é compatível com todos os modelos multimodais. Se uma solicitação incluir configurações globais e [por parte](https://ai.google.dev/gemini-api/docs/media-resolution?hl=pt-br#per-part-media-resolution), a configuração por parte terá precedência para esse item específico.
+Anda dapat menetapkan resolusi default untuk semua bagian media dalam permintaan menggunakan `GenerationConfig`. Hal ini didukung oleh semua model multimodal. Jika permintaan
+menyertakan setelan global dan [per bagian](https://ai.google.dev/gemini-api/docs/media-resolution?hl=id#per-part-media-resolution), setelan per bagian akan diprioritaskan untuk item tertentu tersebut.
 
 ### Python
 
@@ -202,85 +202,85 @@ curl -s -X POST \
   }'
 ```
 
-## Valores de resolução disponíveis
+## Nilai resolusi yang tersedia
 
-A API Gemini define os seguintes níveis de resolução de mídia:
+Gemini API menentukan tingkat berikut untuk resolusi media:
 
-- `MEDIA_RESOLUTION_UNSPECIFIED`: a configuração padrão. A contagem de tokens para
-  esse nível varia muito entre o Gemini 3 e os modelos anteriores do Gemini.
-- `MEDIA_RESOLUTION_LOW`: menor contagem de tokens, resultando em processamento mais rápido e custo menor, mas com menos detalhes.
-- `MEDIA_RESOLUTION_MEDIUM`: um equilíbrio entre detalhes, custo e latência.
-- `MEDIA_RESOLUTION_HIGH`: contagem de tokens mais alta, fornecendo mais detalhes para o modelo trabalhar, mas com aumento da latência e do custo.
-- `MEDIA_RESOLUTION_ULTRA_HIGH` (por parte): contagem máxima de tokens, necessária para casos de uso específicos, como [uso de computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br).
+- `MEDIA_RESOLUTION_UNSPECIFIED`: Setelan default. Jumlah token untuk tingkat ini sangat bervariasi antara Gemini 3 dan model Gemini sebelumnya.
+- `MEDIA_RESOLUTION_LOW`: Jumlah token lebih rendah, sehingga menghasilkan pemrosesan yang lebih cepat dan biaya yang lebih rendah, tetapi dengan detail yang lebih sedikit.
+- `MEDIA_RESOLUTION_MEDIUM`: Keseimbangan antara detail, biaya, dan latensi.
+- `MEDIA_RESOLUTION_HIGH`: Jumlah token lebih tinggi, memberikan lebih banyak detail untuk digunakan model, dengan mengorbankan peningkatan latensi dan biaya.
+- `MEDIA_RESOLUTION_ULTRA_HIGH` (Hanya per bagian): Jumlah token tertinggi, diperlukan untuk kasus penggunaan tertentu seperti [penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id).
 
-Observação: o `MEDIA_RESOLUTION_HIGH` oferece o desempenho ideal para a maioria dos casos de uso.
+Perhatikan bahwa `MEDIA_RESOLUTION_HIGH` memberikan performa optimal untuk sebagian besar kasus penggunaan.
 
-O número exato de tokens gerados para cada um desses níveis depende do **tipo de mídia** (imagem, vídeo, PDF) e da **versão do modelo**.
+Jumlah token yang dihasilkan untuk setiap tingkat ini bergantung pada **jenis media** (Gambar, Video, PDF) dan **versi model**.
 
-## Contagem de tokens
+## Jumlah token
 
-As tabelas abaixo resumem as contagens aproximadas de tokens para cada valor de `media_resolution` e tipo de mídia por família de modelos.
+Tabel di bawah merangkum perkiraan jumlah token untuk setiap nilai `media_resolution` dan jenis media per kelompok model.
 
-**Modelos do Gemini 3**
+**Model Gemini 3**
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| **MediaResolution** | **Imagem** | **Vídeo** | **PDF** |
-| `MEDIA_RESOLUTION_UNSPECIFIED` (padrão) | 1120 | 70 | 560 |
-| `MEDIA_RESOLUTION_LOW` | 280 | 70 | 280 + texto nativo |
-| `MEDIA_RESOLUTION_MEDIUM` | 560 | 70 | 560 + texto nativo |
-| `MEDIA_RESOLUTION_HIGH` | 1120 | 280 | 1120 + texto nativo |
-| `MEDIA_RESOLUTION_ULTRA_HIGH` | 2240 | N/A | N/A |
+| **MediaResolution** | **Gambar** | **Video** | **PDF** |
+| `MEDIA_RESOLUTION_UNSPECIFIED` (Default) | 1120 | 70 | 560 |
+| `MEDIA_RESOLUTION_LOW` | 280 | 70 | 280 + Teks Native |
+| `MEDIA_RESOLUTION_MEDIUM` | 560 | 70 | 560 + Teks Native |
+| `MEDIA_RESOLUTION_HIGH` | 1120 | 280 | 1120 + Teks Native |
+| `MEDIA_RESOLUTION_ULTRA_HIGH` | 2240 | T/A | T/A |
 
-**Modelos do Gemini 2.5**
+**Model Gemini 2.5**
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **MediaResolution** | **Imagem** | **Vídeo** | **PDF (digitalizado)** | **PDF (nativo)** |
-| `MEDIA_RESOLUTION_UNSPECIFIED` (padrão) | 256 + Pan & Scan (~2048) | 256 | 256 + OCR | 256 + texto nativo |
-| `MEDIA_RESOLUTION_LOW` | 64 | 64 | 64 + OCR | 64 + texto nativo |
-| `MEDIA_RESOLUTION_MEDIUM` | 256 | 256 | 256 + OCR | 256 + texto nativo |
-| `MEDIA_RESOLUTION_HIGH` | 256 + Pan & Scan | 256 | 256 + OCR | 256 + texto nativo |
+| **MediaResolution** | **Gambar** | **Video** | **PDF (Dipindai)** | **PDF (Native)** |
+| `MEDIA_RESOLUTION_UNSPECIFIED` (Default) | 256 + Geser &Pindai (~2048) | 256 | 256 + OCR | 256 + Teks Native |
+| `MEDIA_RESOLUTION_LOW` | 64 | 64 | 64 + OCR | 64 + Teks Native |
+| `MEDIA_RESOLUTION_MEDIUM` | 256 | 256 | 256 + OCR | 256 + Teks Native |
+| `MEDIA_RESOLUTION_HIGH` | 256 + Geser &Pindai | 256 | 256 + OCR | 256 + Teks Native |
 
-## Como escolher a resolução certa
+## Memilih resolusi yang tepat
 
-- **Padrão (`UNSPECIFIED`)**: comece com o padrão. Ele é ajustado para um bom equilíbrio entre qualidade, latência e custo nos casos de uso mais comuns.
-- **`LOW`**:use em cenários em que o custo e a latência são fundamentais e o detalhe refinado é menos importante.
-- **`MEDIUM` / `HIGH`**:aumente a resolução quando a tarefa exigir a compreensão de detalhes complexos na mídia. Isso geralmente é necessário para análises visuais complexas, leitura de gráficos ou compreensão de documentos densos.
-- **`ULTRA HIGH`**: disponível apenas para a configuração por parte. Recomendado para casos de uso específicos, como uso de computador ou quando os testes mostram uma melhoria clara em relação ao `HIGH`.
-- **Controle por parte (Gemini 3)**: otimiza o uso de tokens. Por exemplo, em um comando com várias imagens, use `HIGH` para um diagrama complexo e `LOW` ou `MEDIUM` para imagens contextuais mais simples.
+- **Default (`UNSPECIFIED`):** Mulai dengan setelan default. Setelan ini disesuaikan untuk keseimbangan kualitas, latensi, dan biaya yang baik untuk sebagian besar kasus penggunaan umum.
+- **`LOW`:** Gunakan untuk skenario saat biaya dan latensi sangat penting, dan detail yang mendetail kurang penting.
+- **`MEDIUM` / `HIGH`:** Tingkatkan resolusi saat tugas memerlukan pemahaman detail yang rumit dalam media. Hal ini sering diperlukan untuk analisis visual yang kompleks, pembacaan diagram, atau pemahaman dokumen yang padat.
+- **`ULTRA HIGH`** - Hanya tersedia untuk setelan per bagian. Direkomendasikan untuk kasus penggunaan tertentu seperti penggunaan komputer atau saat pengujian menunjukkan peningkatan yang jelas dibandingkan `HIGH`.
+- **Kontrol per bagian (Gemini 3):** Mengoptimalkan penggunaan token. Misalnya, dalam perintah dengan beberapa gambar, gunakan `HIGH` untuk diagram yang kompleks dan `LOW` atau `MEDIUM` untuk gambar kontekstual yang lebih sederhana.
 
-**Configurações recomendadas**
+**Setelan yang direkomendasikan**
 
-Confira abaixo as configurações de resolução de mídia recomendadas para cada tipo de mídia compatível.
+Berikut adalah setelan resolusi media yang direkomendasikan untuk setiap jenis media yang didukung.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| **Tipo de mídia** | **Configuração recomendada** | **Máximo de tokens** | **Orientações de uso** |
-| **Imagens** | `MEDIA_RESOLUTION_HIGH` | 1120 | Recomendado para a maioria das tarefas de análise de imagens para garantir a qualidade máxima. |
-| **PDFs** | `MEDIA_RESOLUTION_MEDIUM` | 560 | Ideal para compreensão de documentos. A qualidade geralmente satura em `medium`. Aumentar para `high` raramente melhora os resultados do OCR em documentos padrão. |
-| **Vídeo** (Geral) | `MEDIA_RESOLUTION_LOW` (ou `MEDIA_RESOLUTION_MEDIUM`) | 70 (por frame) | **Observação**:para vídeo, as configurações `low` e `medium` são tratadas de forma idêntica (70 tokens) para otimizar o uso do contexto. Isso é suficiente para a maioria das tarefas de reconhecimento e descrição de ações. |
-| **Vídeo** (com muito texto) | `MEDIA_RESOLUTION_HIGH` | 280 (por frame) | Obrigatório apenas quando o caso de uso envolve a leitura de texto denso (OCR) ou pequenos detalhes em frames de vídeo. |
+| **Jenis Media** | **Setelan yang Direkomendasikan** | **Token Maksimum** | **Panduan Penggunaan** |
+| **Gambar** | `MEDIA_RESOLUTION_HIGH` | 1120 | Direkomendasikan untuk sebagian besar tugas analisis gambar guna memastikan kualitas maksimum. |
+| **PDF** | `MEDIA_RESOLUTION_MEDIUM` | 560 | Optimal untuk pemahaman dokumen; kualitas biasanya mencapai titik jenuh pada `medium`. Meningkatkan ke `high` jarang meningkatkan hasil OCR untuk dokumen standar. |
+| **Video** (Umum) | `MEDIA_RESOLUTION_LOW` (atau `MEDIA_RESOLUTION_MEDIUM`) | 70 (per frame) | **Catatan:** Untuk video, setelan `low` dan `medium` diperlakukan secara identik (70 token) untuk mengoptimalkan penggunaan konteks. Hal ini cukup untuk sebagian besar tugas pengenalan dan deskripsi tindakan. |
+| **Video** (Banyak Teks) | `MEDIA_RESOLUTION_HIGH` | 280 (per frame) | Hanya diperlukan jika kasus penggunaan melibatkan pembacaan teks padat (OCR) atau detail kecil dalam frame video. |
 
-Sempre teste e avalie o impacto de diferentes configurações de resolução no seu aplicativo específico para encontrar o melhor equilíbrio entre qualidade, latência e custo.
+Selalu uji dan evaluasi dampak setelan resolusi yang berbeda pada aplikasi spesifik Anda untuk menemukan kompromi terbaik antara kualitas, latensi, dan biaya.
 
-## Resumo da compatibilidade de versões
+## Ringkasan kompatibilitas versi
 
-- O tipo enumerado `MediaResolution` está disponível para todos os modelos que aceitam entrada de mídia.
-- As contagens de tokens associadas a cada nível de enumeração **são diferentes** entre os modelos do Gemini 3 e as versões anteriores do Gemini.
-- A definição de `media_resolution` em objetos `Part` individuais é **exclusiva dos
-  modelos do Gemini 3**.
+- Enum `MediaResolution` tersedia untuk semua model yang mendukung input media.
+- Jumlah token yang terkait dengan setiap tingkat enum **berbeda** antara model Gemini 3 dan versi Gemini sebelumnya.
+- Menetapkan `media_resolution` pada setiap objek `Part` **khusus untuk model Gemini 3**.
 
-## Próximas etapas
+## Langkah berikutnya
 
-- Saiba mais sobre os recursos multimodais da API Gemini nos guias de [compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br), [compreensão de vídeos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br) e [compreensão de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br).
+- Pelajari lebih lanjut kemampuan multimodal Gemini API dalam panduan
+  [pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id), [pemahaman video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id) dan
+  [pemahaman dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-05-19 UTC.
+Terakhir diperbarui pada 2026-06-19 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-19 UTC."],[],[]]

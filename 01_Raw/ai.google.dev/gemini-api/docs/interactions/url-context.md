@@ -1,34 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=he
-fetched_at: 2026-06-15T06:19:50.474035+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/url-context
+fetched_at: 2026-06-22T06:32:23.972334+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+# URL context
 
-שליחת משוב
+The URL context tool lets you provide additional context to the models in the
+form of URLs. By including URLs in your request, the model will access
+the content from those pages (as long as it's not a URL type listed in the
+[limitations section](#limitations)) to inform
+and enhance its response.
 
-# ההקשר של כתובת ה-URL
+The URL context tool is useful for tasks like the following:
 
-הכלי 'הקשר של כתובת URL' מאפשר לכם לספק למודלים הקשר נוסף בצורה של כתובות URL. אם תכללו כתובות URL בבקשה, המודל יוכל לגשת לתוכן מהדפים האלה (כל עוד כתובת ה-URL לא שייכת לסוג שמופיע [בקטע המגבלות](#limitations)) כדי לשפר את התשובה שלו.
+- **Extract Data**: Pull specific info like prices, names, or key
+  findings from multiple URLs.
+- **Compare Documents**: Analyze multiple reports, articles, or PDFs to
+  identify differences and track trends.
+- **Synthesize & Create Content**: Combine information from several source
+  URLs to generate accurate summaries, blog posts, or reports.
+- **Analyze Code & Docs**: Point to a GitHub repository or technical
+  documentation to explain code, generate setup instructions, or answer
+  questions.
 
-הכלי 'הקשר של כתובת URL' שימושי למשימות כמו:
-
-- **חילוץ נתונים**: שליפת מידע ספציפי כמו מחירים, שמות או ממצאים מרכזיים מכמה כתובות URL.
-- **השוואת מסמכים**: ניתוח של כמה דוחות, מאמרים או קובצי PDF כדי לזהות הבדלים ולעקוב אחרי מגמות.
-- **סינתזה ויצירת תוכן**: שילוב מידע מכמה כתובות URL של מקורות כדי ליצור סיכומים מדויקים, פוסטים בבלוג או דוחות.
-- **ניתוח קוד ומסמכים**: אפשר להפנות למאגר GitHub או למסמכים טכניים כדי לקבל הסבר על קוד, ליצור הוראות הגדרה או לקבל תשובות לשאלות.
-
-בדוגמה הבאה אפשר לראות איך משווים בין שני מתכונים מאתרים שונים.
+The following example shows how to compare two recipes from different websites.
 
 ### Python
 
@@ -60,7 +65,7 @@ for step in interaction.steps:
                             print(f"  - {annotation.title}: {annotation.url}")
 ```
 
-### JavaScript
+### Javascript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -113,20 +118,32 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## איך זה עובד
+## How it works
 
-הכלי 'הקשר כתובת ה-URL' משתמש בתהליך אחזור דו-שלבי כדי לאזן בין מהירות, עלות וגישה לנתונים עדכניים. כשמספקים כתובת URL, הכלי מנסה קודם לשלוף את התוכן ממטמון אינדקס פנימי. הוא פועל כמטמון שעבר אופטימיזציה גבוהה. אם כתובת URL לא זמינה באינדקס (למשל, אם מדובר בדף חדש מאוד), הכלי יחזור אוטומטית לאחזור של הגרסה הפעילה.
-הכלי ניגש ישירות לכתובת ה-URL כדי לאחזר את התוכן שלה בזמן אמת.
+The URL Context tool uses a two-step retrieval process to
+balance speed, cost, and access to fresh data. When you provide a URL, the tool
+first attempts to fetch the content from an internal index cache. This acts as a
+highly optimized cache. If a URL is not available in the index (for example, if
+it's a very new page), the tool automatically falls back to do a live fetch.
+This directly accesses the URL to retrieve its content in real-time.
 
-## שילוב עם כלים אחרים
+## Combining with other tools
 
-אפשר לשלב את הכלי להקשר של כתובת URL עם כלים אחרים כדי ליצור תהליכי עבודה יעילים יותר.
+You can combine the URL context tool with other tools to create more powerful
+workflows.
 
-[מודלים של Gemini 3](#supported-models) תומכים בשילוב של כלים מובנים (כמו הקשר של כתובת URL) עם כלים מותאמים אישית (הפעלת פונקציות). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=he).
+[Gemini 3 models](#supported-models) support combining built-in tools
+(like URL Context) with custom tools (function calling). Learn more on the
+[tool combinations](https://ai.google.dev/gemini-api/docs/interactions/tool-combination) page.
 
-### עיגון בנתונים באמצעות חיפוש
+### Grounding with search
 
-אם מפעילים גם את ההגדרה 'הקשר של כתובת ה-URL' וגם את ההגדרה [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/grounding?hl=he), המודל יכול להשתמש ביכולות החיפוש שלו כדי למצוא מידע רלוונטי באינטרנט, ואז להשתמש בכלי 'הקשר של כתובת ה-URL' כדי לקבל הבנה מעמיקה יותר של הדפים שהוא מוצא. הגישה הזו יעילה במיוחד להנחיות שדורשות חיפוש רחב וניתוח מעמיק של דפים ספציפיים.
+When both URL context and
+[Grounding with Google Search](https://ai.google.dev/gemini-api/docs/grounding) are enabled,
+the model can use its search capabilities to find
+relevant information online and then use the URL context tool to get a more
+in-depth understanding of the pages it finds. This approach is powerful for
+prompts that require both broad searching and deep analysis of specific pages.
 
 ### Python
 
@@ -152,7 +169,7 @@ for step in interaction.steps:
                 print(content_block.text)
 ```
 
-### JavaScript
+### Javascript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -200,20 +217,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## הסבר על התשובה
+## Understanding the response
 
-כשהמודל משתמש בכלי ההקשר של כתובת ה-URL, תשובת הטקסט שלו כוללת הערות מוטבעות
-`url_citation` בבלוק התוכן של הטקסט. כל הערה מקשרת קטע של טקסט התשובה (באמצעות `start_index` ו-`end_index`) לכתובת ה-URL של המקור שממנו הוא נלקח. זו הדרך העיקרית להצגת ציטוטים באפליקציה שלכם. [בדוגמה הראשית שלמעלה](#get-started) מוסבר איך לחלץ אותם.
+When the model uses the URL context tool, its text response includes inline
+`url_citation` annotations on the text content block. Each annotation links a
+segment of the response text (via `start_index` and `end_index`) to the source
+URL it was derived from. This is the primary way to surface citations in your
+application — see the [main example above](#get-started) for how to extract them.
 
-התגובה כוללת גם שלב `url_context_result` עם מטא-נתונים לגבי כל ניסיון לאחזור כתובת URL (סטטוס, כתובת URL שאוחזרה). האפשרות הזו שימושית בעיקר לניפוי באגים.
+The response also includes a `url_context_result` step with metadata about each
+URL retrieval attempt (status, retrieved URL). This is mainly useful for
+debugging.
 
-### בדיקות אבטחה
+### Safety checks
 
-המערכת מבצעת בדיקה של כתובות ה-URL כדי לוודא שהן עומדות בתקני הבטיחות. אם כתובת URL נכשלת בבדיקה הזו, בשלב `url_context_result` המתאים יוצג `status` עם הערך `"unsafe"`.
+The system performs a content moderation check on URLs to confirm
+they meet safety standards. If a URL fails this check, the corresponding
+`url_context_result` step will show a `status` of `"unsafe"`.
 
-### ספירת הטוקנים
+### Token count
 
-התוכן שאוחזר מכתובות ה-URL שציינתם בהנחיה נספר כחלק מאסימוני הקלט. אפשר לראות את מספר האסימונים באובייקט `usage` של האינטראקציה. לדוגמה:
+The content retrieved from the URLs you specify in your prompt is counted
+as part of the input tokens. You can see the token count in the
+`usage` object of the interaction. The following is an example:
 
 ```
 'usage': {
@@ -227,56 +253,66 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-המחיר לכל טוקן תלוי במודל שבו משתמשים. פרטים נוספים זמינים בדף [התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
+Price per token depends on the model used, see the
+[pricing](https://ai.google.dev/gemini-api/docs/pricing) page for details.
 
-## מודלים נתמכים
+## Supported models
 
-| מודל | ההקשר של כתובת ה-URL |
+| Model | URL Context |
 | --- | --- |
-| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Pro (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
-| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite) | ✔️ |
 
-## שיטות מומלצות
+## Best Practices
 
-- **צריך לספק כתובות URL ספציפיות**: כדי לקבל את התוצאות הטובות ביותר, צריך לספק כתובות URL ישירות לתוכן שרוצים שהמודל ינתח. המודל יאחזר תוכן רק מכתובות ה-URL שתספקו, ולא מקישורים מוטמעים.
-- **בודקים את הנגישות**: מוודאים שכתובות ה-URL שציינתם לא מובילות לדפים שנדרשת בהם התחברות או שהם נמצאים מאחורי חומת תשלום.
-- **שימוש בכתובת ה-URL המלאה**: צריך לציין את כתובת ה-URL המלאה, כולל הפרוטוקול (למשל, https://www.google.com ולא רק google.com).
+- **Provide specific URLs**: For the best results, provide direct URLs to the
+  content you want the model to analyze. The model will only retrieve content
+  from the URLs you provide, not any content from nested links.
+- **Check for accessibility**: Verify that the URLs you provide don't lead to
+  pages that require a login or are behind a paywall.
+- **Use the complete URL**: Provide the full URL, including the protocol
+  (e.g., https://www.google.com instead of just google.com).
 
-## מגבלות
+## Limitations
 
-- מגבלת בקשות: הכלי יכול לעבד עד 20 כתובות URL לכל בקשה.
-- גודל התוכן של כתובת URL: הגודל המקסימלי של תוכן שאוחזר מכתובת URL יחידה הוא 34MB.
-- נגישות לכולם: כתובות ה-URL צריכות להיות נגישות לכולם באינטרנט.
-  אין תמיכה בכתובות localhost (לדוגמה, localhost,‏ 127.0.0.1), ברשתות פרטיות ובשירותי מנהור (לדוגמה, ngrok,‏ pinggy).
-- ‫Gemini API בלבד: הקשר של כתובת ה-URL זמין רק ב-Gemini API, ולא דרך Gemini Enterprise Agent Platform.
+- Request limit: The tool can process up to 20 URLs per request.
+- URL content size: The maximum size for content retrieved from a single
+  URL is 34MB.
+- Public accessibility: The URLs must be publicly accessible on the web.
+  Localhost addresses (e.g., localhost, 127.0.0.1), private networks, and
+  tunneling services (e.g., ngrok, pinggy) are not supported.
+- Gemini API only: URL Context is only available in the Gemini API, not through
+  Gemini Enterprise Agent Platform.
 
-### סוגי תוכן נתמכים ולא נתמכים
+### Supported and unsupported content types
 
-הכלי יכול לחלץ תוכן מכתובות URL עם סוגי התוכן הבאים:
+The tool can extract content from URLs with the following content types:
 
-- טקסט (text/html, application/json, text/plain, text/xml, text/css,
+- Text (text/html, application/json, text/plain, text/xml, text/css,
   text/javascript , text/csv, text/rtf)
-- תמונה (image/png, ‏ image/jpeg, ‏ image/bmp, ‏ image/webp)
-- ‫PDF (application/pdf)
+- Image (image/png, image/jpeg, image/bmp, image/webp)
+- PDF (application/pdf)
 
-סוגי התוכן הבאים **לא** נתמכים:
+The following content types are **not** supported:
 
-- תוכן שזמין רק לאחר תשלום
-- סרטונים ב-YouTube (במאמר בנושא [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=he#youtube) מוסבר איך לעבד כתובות URL של סרטונים ב-YouTube)
-- קבצים ב-Google Workspace, כמו מסמכים או גיליונות אלקטרוניים של Google
-- קובצי וידאו ואודיו
+- Paywalled content
+- YouTube videos (See
+  [video understanding](https://ai.google.dev/gemini-api/docs/interactions/video-understanding#youtube) to learn
+  how to process YouTube URLs)
+- Google workspace files like Google docs or spreadsheets
+- Video and audio files
 
-שליחת משוב
+Send feedback
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-עדכון אחרון: 2026-05-28 (שעון UTC).
+Last updated 2026-06-18 UTC.
 
-רוצה לתת לנו משוב?
+Need to tell us more?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

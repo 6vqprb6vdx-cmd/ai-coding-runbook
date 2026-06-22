@@ -1,31 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-TW
-fetched_at: 2026-06-15T06:24:50.715949+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=pl
+fetched_at: 2026-06-22T06:26:47.768427+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+# Grounding with Google Search
 
-提供意見
+Grounding with Google Search connects the Gemini model to real-time web content
+and works with all available languages. This allows
+Gemini to provide more accurate answers and cite verifiable sources beyond its
+knowledge cutoff.
 
-# 以 Google 搜尋建立基準
+Grounding helps you build applications that can:
 
-如果啟用「以 Google 搜尋強化事實基礎」功能，Gemini 模型就能連結至即時網路內容，並支援所有可用語言。Gemini 就能提供更準確的答案，並引用知識截點以外的可驗證來源。
-
-基礎化可協助您建構的應用程式：
-
-- **提高事實準確度：**根據真實資訊生成回覆，減少模型幻覺。
-- **取得即時資訊：**回答近期事件和主題相關問題。
-- **提供引文：**顯示模型聲明的來源，贏得使用者信任。
+- **Increase factual accuracy:** Reduce model hallucinations by basing
+  responses on real-world information.
+- **Access real-time information:** Answer questions about recent events and
+  topics.
+- **Provide citations:** Build user trust by showing the sources for the
+  model's claims.
 
 ### Python
 
@@ -73,21 +75,32 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 如何運用 Google 搜尋強化事實基礎
+## How grounding with Google Search works
 
-啟用 `google_search` 工具後，模型會自動處理搜尋、處理及引用資訊的整個工作流程。
+When you enable the `google_search` tool, the model handles the entire workflow
+of searching, processing, and citing information automatically.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=zh-tw)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png)
 
-1. **使用者提示：**應用程式會將使用者的提示傳送至 Gemini API，並啟用 `google_search` 工具。
-2. **提示分析：**模型會分析提示，判斷 Google 搜尋是否能提升回覆品質。
-3. **Google 搜尋：**模型會視需要自動生成一或多個搜尋查詢並執行。
-4. **處理搜尋結果：**模型會處理搜尋結果、整合資訊並擬定回覆。
-5. **根據搜尋結果生成的回覆：**API 會根據搜尋結果，傳回最終的易讀回覆。這項回覆包含模型提供的文字答案，以及內含引文的 `annotations`，還有 `google_search_call` 和 `google_search_result` 步驟，其中包含搜尋查詢和搜尋建議。
+1. **User Prompt:** Your application sends a user's prompt to the Gemini API
+   with the `google_search` tool enabled.
+2. **Prompt Analysis:** The model analyzes the prompt and determines if a
+   Google Search can improve the answer.
+3. **Google Search:** If needed, the model automatically generates one or
+   multiple search queries and executes them.
+4. **Search Results Processing:** The model processes the search results,
+   synthesizes the information, and formulates a response.
+5. **Grounded Response:** The API returns a final, user-friendly response that
+   is grounded in the search results. This response includes the model's text
+   answer with inline `annotations` containing the citations, as well as
+   `google_search_call` and `google_search_result` steps with the search
+   queries and search suggestions.
 
-## 瞭解基礎回應
+## Understanding the grounding response
 
-如果模型成功根據資訊來源生成回應，文字輸出內容會直接在文字內容區塊中加入 `annotations`。這些註解會提供引文資訊，將回覆內容的各個部分連結至來源。
+When a response is successfully grounded, the model's text output includes
+inline `annotations` directly on the text content block. These annotations
+provide citation information linking parts of the response to their sources.
 
 ```
 {
@@ -146,17 +159,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-回應中的主要欄位：
+The key fields in the response:
 
-- `google_search_call`：包含模型執行的搜尋`queries`。
-- `google_search_result`：包含 `search_suggestions`，這是用於在 UI 中顯示搜尋建議的 HTML 片段。完整使用規定詳見《[服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#grounding-with-google-search)》。
-- `text`，並附上 `annotations`：模型合成的答案，內含引文。每個 `url_citation` 註解都會將文字區段 (由 `start_index` 和 `end_index` 定義) 連結至來源網址。這是建構內文引文的關鍵。
+- `google_search_call` : Contains the search `queries` the model executed.
+- `google_search_result` : Contains `search_suggestions`, an HTML snippet
+  for rendering search suggestions in your UI. Full usage requirements are
+  detailed in the [Terms of Service](https://ai.google.dev/gemini-api/terms#grounding-with-google-search).
+- `text` with `annotations` : The model's synthesized answer with inline
+  citations. Each `url_citation` annotation links a text segment (defined
+  by `start_index` and `end_index`) to a source URL. This is the key to
+  building inline citations.
 
-您也可以搭配[網址內容工具](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)使用以 Google 搜尋強化事實基礎，以公開網路資料和您提供的特定網址做為回覆的基準。
+Grounding with Google Search can also be used in combination with the [URL
+context tool](https://ai.google.dev/gemini-api/docs/interactions/url-context) to ground responses in
+both public web data and the specific URLs you provide.
 
-## 使用內嵌引文註明出處
+## Attributing sources with inline citations
 
-API 會在文字內容區塊中傳回內嵌`url_citation`註解，讓您完全掌控在使用者介面中顯示來源的方式。每則註解都會包含 `start_index` 和 `end_index`，指出註解引用的文字部分。以下說明如何擷取及顯示這些資料。
+The API returns inline `url_citation` annotations on the text content block,
+giving you complete control over how you display sources in your user interface.
+Each annotation includes `start_index` and `end_index` to identify which part
+of the text it cites. Here's how to extract and display them.
 
 ### Python
 
@@ -199,7 +222,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-輸出內容會顯示文字和引文：
+The output will show the text followed by its citations:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -211,46 +234,60 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## 定價
+## Pricing
 
-在 Gemini 3 中使用「以 Google 搜尋強化事實基礎」功能時，系統會針對模型執行的每項搜尋查詢向專案收費。如果模型決定執行多個搜尋查詢來回答單一提示 (例如在同一個 API 呼叫中搜尋 `"UEFA Euro 2024 winner"` 和 `"Spain vs England Euro 2024 final
-score"`)，則該要求會計為兩次工具使用次數。為計費起見，計算不重複查詢時，我們會忽略空白的網路搜尋查詢。這項計費模式僅適用於 Gemini 3 模型；如果您使用 Gemini 2.5 或更舊的模型進行搜尋基礎作業，系統會依提示向專案收費。
+When you use Grounding with Google Search with Gemini 3, your project is billed
+for each search query that the model decides to execute. If the model decides to
+execute multiple search queries to answer a single prompt (for example,
+searching for `"UEFA Euro 2024 winner"` and `"Spain vs England Euro 2024 final
+score"` within the same API call), this counts as two billable uses of the tool
+for that request. For billing purposes, we ignore the empty web search queries
+when counting unique queries. This billing model only applies to Gemini 3
+models; when you use search grounding with Gemini 2.5 or older models, your
+project is billed per prompt.
 
-如需詳細的定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
+For detailed pricing information, see the [Gemini API pricing
+page](https://ai.google.dev/gemini-api/docs/pricing).
 
-## 支援的模型
+## Supported models
 
-如要瞭解完整功能，請前往[模型總覽](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)頁面。
+You can find full capabilities on the [model
+overview](https://ai.google.dev/gemini-api/docs/models) page.
 
-| 型號 | 以 Google 搜尋建立基準 |
+| Model | Grounding with Google Search |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash Image 預先發布版 | ✔️ |
-| Gemini 3.1 Pro 預先發布版 | ✔️ |
-| Gemini 3 Pro Image 預先發布版 | ✔️ |
-| Gemini 3 Flash 預先發布版 | ✔️ |
+| Gemini 3.1 Flash Image Preview | ✔️ |
+| Gemini 3.1 Pro Preview | ✔️ |
+| Gemini 3 Pro Image Preview | ✔️ |
+| Gemini 3 Flash Preview | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## 支援的工具組合
+## Supported tool combinations
 
-您可以搭配使用「以 Google 搜尋強化事實基礎」功能與其他工具，例如[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)和[網址內容](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)，以支援更複雜的用途。
+You can use Grounding with Google Search with other tools like
+[code execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution) and
+[URL context](https://ai.google.dev/gemini-api/docs/interactions/url-context) to power more complex
+use cases.
 
-Gemini 3 模型支援結合內建工具 (例如使用 Google 搜尋建立基準) 和自訂工具 (函式呼叫)。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=zh-tw)」頁面。
+Gemini 3 models support combining built-in tools (like Grounding with
+Google Search) with custom tools (function calling). Learn more on the
+[tool combinations](https://ai.google.dev/gemini-api/docs/interactions/tool-combination) page.
 
-## 後續步驟
+## What's next
 
-- 瞭解其他可用工具，例如[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)。
-- 瞭解如何使用[網址內容工具](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)，在提示中加入特定網址。
+- Learn about other available tools, like [Function Calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling).
+- Learn how to augment prompts with specific URLs using the [URL context tool](https://ai.google.dev/gemini-api/docs/interactions/url-context).
 
-提供意見
+Send feedback
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-上次更新時間：2026-05-28 (世界標準時間)。
+Last updated 2026-06-18 UTC.
 
-想進一步說明嗎？
+Need to tell us more?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-28 (世界標準時間)。"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

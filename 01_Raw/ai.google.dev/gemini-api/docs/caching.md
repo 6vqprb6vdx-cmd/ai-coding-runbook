@@ -1,65 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ko
-fetched_at: 2026-06-15T06:17:30.312291+00:00
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=zh-CN
+fetched_at: 2026-06-22T06:33:50.163123+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-의견 보내기
+发送反馈
 
-# 컨텍스트 캐싱
+# 上下文缓存
 
-일반적인 AI 워크플로에서는 동일한 입력 토큰을 모델에 반복적으로 전달할 수 있습니다. Gemini API는 다음과 같은 두 가지 캐싱 메커니즘을 제공합니다.
+在典型的 AI 工作流程中，您可能会反复将相同的输入令牌传递给模型。Gemini API 提供两种不同的缓存机制：
 
-- 암시적 캐싱 (Gemini 2.5 이상 모델에서 자동으로 사용 설정되며 비용 절감 보장 없음)
-- 명시적 캐싱 (대부분의 모델에서 수동으로 사용 설정할 수 있으며 비용 절감 보장)
+- 隐式缓存（在 Gemini 2.5 及更新型号上自动启用，不保证节省费用）
+- 显式缓存（可在大多数模型上手动启用，保证节省费用）
 
-명시적 캐싱은 비용 절감을 보장하되 개발자 작업을 추가하려는 경우에 유용합니다.
+如果您想保证节省费用，但需要增加一些开发者工作，那么显式缓存就很有用。
 
-## 암시적 캐싱
+## 隐式缓存
 
-암시적 캐싱은 모든 Gemini 2.5 이상 모델에서 기본적으로 사용 설정됩니다. 요청이 캐시에 적중하면 비용 절감 효과가 자동으로 전달됩니다. 이를 사용 설정하기 위해 수행해야 할 작업은 없습니다. 컨텍스트 캐싱의 최소 입력 토큰 수는 각 모델의 다음 표에 나와 있습니다.
+默认情况下，所有 Gemini 2.5 及更新型号均已启用隐式缓存。如果您的请求命中缓存，我们会自动为您节省费用。您无需执行任何操作即可启用此功能。下表列出了每种型号的上下文缓存所需的最低输入令牌数量：
 
-| 모델 | 최소 토큰 한도 |
+| 模型 | 最低 token 限制 |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| Gemini 3.1 Pro 프리뷰 | 4096 |
+| Gemini 3 Pro 预览版 | 4096 |
 | Gemini 2.5 Flash | 2048 |
 | Gemini 2.5 Pro | 2048 |
 
-암시적 캐시 적중 가능성을 높이려면 다음 안내를 따르세요.
+如要提高隐式缓存命中的几率，可以：
 
-- 프롬프트 시작 부분에 크고 공통적인 콘텐츠를 배치해 보세요.
-- 짧은 시간 내에 유사한 프리픽스를 가진 요청을 전송해 보세요.
+- 尝试将较大且常见的内容放置在提示的开头
+- 尝试在短时间内发送具有相似前缀的请求
 
-응답 객체의 `usage_metadata` 필드에서 캐시 적중된 토큰 수를 확인할 수 있습니다.
+您可以在回答对象的 `usage_metadata` 字段中查看缓存命中的 token 数量。
 
-## 명시적 캐싱
+## 显式缓存
 
-Gemini API 명시적 캐싱 기능을 사용하면 콘텐츠를 모델에 한 번 전달하고 입력 토큰을 캐시한 후 후속 요청에서 캐시된 토큰을 참조할 수 있습니다. 특정 볼륨에서 캐시된 토큰을 사용하는 것이 동일한 토큰 코퍼스를 반복적으로 전달하는 것보다 비용이 저렴합니다.
+借助 Gemini API 的显式缓存功能，您可以将某些内容传递给模型一次，缓存输入 token，然后在后续请求中引用缓存的 token。在达到一定量时，使用缓存的 token 比反复传递相同的 token 语料库更经济实惠。
 
-토큰 세트를 캐시할 때 토큰이 자동으로 삭제되기 전에 캐시가 유지될 기간을 선택할 수 있습니다. 이 캐싱 기간을 *TTL (수명)* 이라고 합니다. 설정하지 않으면 TTL 기본값은 1시간입니다. 캐싱 비용은 입력 토큰 크기와 토큰을 유지하려는 기간에 따라 다릅니다.
+缓存一组令牌时，您可以选择缓存的保留时长，系统会在令牌到期时自动将其删除。此缓存时长称为*存留时间* (TTL)。如果未设置，TTL 默认为 1 小时。缓存费用取决于输入令牌大小以及您希望令牌保留多长时间。
 
-이 섹션에서는 빠른 시작에 표시된 대로 Gemini SDK를 설치했거나 curl이 설치되어 있고
-API 키를 구성했다고 가정합니다.
+本部分假定您已安装 Gemini SDK（或已安装 curl），并且已配置 API 密钥，如[快速入门](https://ai.google.dev/gemini-api/docs/quickstart?hl=zh-cn)中所述。
 
-### 캐시를 사용하여 콘텐츠 생성
+### 使用缓存生成内容
 
 ### Python
 
-다음 예시에서는 캐시된 시스템 안내 및 동영상 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+以下示例展示了如何使用缓存的系统指令和视频文件生成内容。
 
-### 동영상
+### 视频
 
 ```
 import os
@@ -166,7 +165,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-다음 예시에서는 캐시된 시스템 안내 및 텍스트 파일을 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+以下示例展示了如何使用缓存的系统指令和文本文件生成内容。
 
 ```
 import {
@@ -207,7 +206,7 @@ await main();
 
 ### Go
 
-다음 예시에서는 캐시를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+以下示例展示了如何使用缓存生成内容。
 
 ```
 package main
@@ -277,9 +276,9 @@ func main() {
 
 ### REST
 
-다음 예시에서는 캐시를 만든 후 이를 사용하여 콘텐츠를 생성하는 방법을 보여줍니다.
+以下示例展示了如何创建缓存，然后使用该缓存生成内容。
 
-### 동영상
+### 视频
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -428,22 +427,20 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### 캐시 나열
+### 列出缓存
 
-캐시된 콘텐츠를 가져오거나 볼 수는 없지만
-캐시 메타데이터 (`name`, `model`, `display_name`, `usage_metadata`,
-`create_time`, `update_time`, `expire_time`)는 가져올 수 있습니다.
+您无法检索或查看缓存的内容，但可以检索缓存元数据（`name`、`model`、`display_name`、`usage_metadata`、`create_time`、`update_time` 和 `expire_time`）。
 
 ### Python
 
-업로드된 모든 캐시의 메타데이터를 나열하려면 `CachedContent.list()`를 사용하세요.
+如需列出所有已上传缓存的元数据，请使用 `CachedContent.list()`：
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-이름을 알고 있는 경우 하나의 캐시 객체의 메타데이터를 가져오려면 `get`을 사용하세요.
+如需提取一个缓存对象的元数据（如果您知道其名称），请使用 `get`：
 
 ```
 client.caches.get(name=name)
@@ -451,7 +448,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-업로드된 모든 캐시의 메타데이터를 나열하려면 `GoogleGenAI.caches.list()`를 사용하세요.
+如需列出所有已上传缓存的元数据，请使用 `GoogleGenAI.caches.list()`：
 
 ```
 console.log("My caches:");
@@ -468,7 +465,7 @@ while (true) {
 
 ### Go
 
-다음 예시에서는 모든 캐시를 나열합니다.
+以下示例列出了所有缓存。
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -481,7 +478,7 @@ for _, item := range caches {
 }
 ```
 
-다음 예시에서는 페이지 크기가 2인 캐시를 나열합니다.
+以下示例列出了缓存，并将页面大小设置为 2。
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -514,13 +511,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### 캐시 업데이트
+### 更新缓存
 
-캐시에 새 `ttl` 또는 `expire_time`을 설정할 수 있습니다. 캐시에 대한 다른 변경사항은 지원되지 않습니다.
+您可以为缓存设置新的 `ttl` 或 `expire_time`。不支持更改缓存的其他任何方面。
 
 ### Python
 
-다음 예시에서는 `client.caches.update()`를 사용하여 캐시의 `ttl`을 업데이트하는 방법을 보여줍니다.
+以下示例展示了如何使用 `client.caches.update()` 更新缓存的 `ttl`。
 
 ```
 from google import genai
@@ -534,11 +531,7 @@ client.caches.update(
 )
 ```
 
-만료 시간을 설정하려면 `datetime` 객체
-또는 ISO 형식의 datetime 문자열 (`dt.isoformat()`,
-`2025-01-27T16:02:36.473528+00:00`과 같은)을 허용합니다. 시간에는 시간대가 포함되어야 합니다
-(`datetime.utcnow()`는 시간대를 연결하지 않지만
-`datetime.now(datetime.timezone.utc)`는 시간대를 연결함).
+如需设置过期时间，该方法将接受 `datetime` 对象或 ISO 格式的日期时间字符串（`dt.isoformat()`，例如 `2025-01-27T16:02:36.473528+00:00`）。您的时间必须包含时区（`datetime.utcnow()` 不附加时区，`datetime.now(datetime.timezone.utc)` 附加时区）。
 
 ```
 from google import genai
@@ -558,7 +551,7 @@ client.caches.update(
 
 ### JavaScript
 
-다음 예시에서는 `GoogleGenAI.caches.update()`를 사용하여 캐시의 `ttl`을 업데이트하는 방법을 보여줍니다.
+以下示例展示了如何使用 `GoogleGenAI.caches.update()` 更新缓存的 `ttl`。
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -571,7 +564,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-다음 예시에서는 캐시의 `TTL`을 업데이트하는 방법을 보여줍니다.
+以下示例展示了如何更新缓存的 `TTL`。
 
 ```
 // Update the TTL (2 hours).
@@ -587,7 +580,7 @@ fmt.Println(cache)
 
 ### REST
 
-다음 예시에서는 캐시의 `ttl`을 업데이트하는 방법을 보여줍니다.
+以下示例展示了如何更新缓存的 `ttl`。
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -595,9 +588,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### 캐시 삭제
+### 删除缓存
 
-캐싱 서비스는 캐시에서 콘텐츠를 수동으로 삭제하는 삭제 작업을 제공합니다. 다음 예시에서는 캐시를 삭제하는 방법을 보여줍니다.
+缓存服务提供了一种删除操作，用于手动从缓存中移除内容。以下示例展示了如何删除缓存：
 
 ### Python
 
@@ -627,47 +620,44 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### OpenAI 라이브러리를 사용한 명시적 캐싱
+### 使用 OpenAI 库进行显式缓存
 
-[OpenAI 라이브러리를 사용하는 경우  속성을 사용하여 명시적 캐싱을 사용 설정할 수 있습니다.](https://ai.google.dev/gemini-api/docs/openai?hl=ko#extra-body)`cached_content``extra_body`
+如果您使用的是 [OpenAI 库](https://ai.google.dev/gemini-api/docs/openai?hl=zh-cn)，则可以使用 [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=zh-cn#extra-body) 上的 `cached_content` 属性启用显式缓存。
 
-## 명시적 캐싱을 사용하는 경우
+## 何时使用显式缓存
 
-컨텍스트 캐싱은 짧은 요청에서 상당한 양의 초기 컨텍스트를 반복적으로 참조하는 시나리오에 특히 적합합니다. 다음과 같은 사용 사례에 컨텍스트 캐싱을 사용하는 것이 좋습니다.
+上下文缓存特别适合较短的请求重复引用大量初始上下文的场景。例如，对于以下使用场景，可以考虑使用上下文缓存：
 
-- 다양한 [시스템 안내](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ko)를 제공하는 챗봇
-- 긴 동영상 파일 반복 분석
-- 대규모 문서 세트에 대해 반복 쿼리
-- 빈번한 코드 저장소 분석 또는 버그 수정
+- 有大量[系统指令](https://ai.google.dev/gemini-api/docs/system-instructions?hl=zh-cn)的聊天机器人
+- 对较长的视频文件进行的重复分析
+- 针对大型文档集的定期查询
+- 频繁的代码库分析或 bug 修复
 
-### 명시적 캐싱으로 비용을 절감하는 방법
+### 显式缓存如何降低费用
 
-컨텍스트 캐싱은 비용을 절감하기 위해 설계된 유료 기능입니다. 다음 요소를 기준으로 결제가 청구됩니다.
+虽然上下文缓存是一项付费功能，但它的目的是为了降低费用。结算取决于以下因素：
 
-1. **캐시 토큰 수:** 캐시된 입력 토큰 수로, 후속 프롬프트에 포함될 경우 할인된 요율로 청구됩니다.
-2. **스토리지 기간:** 캐시된 토큰이 저장되는 시간 (TTL)으로, 캐시된 토큰 수의 TTL 기간을 기준으로 청구됩니다. TTL에는 최소 또는 최대 경계가 없습니다.
-3. **기타 요인:** 캐시되지 않은 입력 토큰 및 출력 토큰과 같은 기타 요인에 다른 요금이 청구됩니다.
+1. **缓存词元数**：缓存的输入词元数，如果相同的词元在后续提示中被重复使用，则按折扣费率计费。
+2. **存储时长**：所缓存词元的存储时长 (TTL)，按缓存词元数量的 TTL 时长计费。TTL 没有下限或上限。
+3. **其他因素**：可能还会产生其他费用，例如非缓存输入词元和输出词元的费用。
 
-최신 가격 책정 세부정보는 Gemini API [pricing
-page](https://ai.google.dev/pricing?hl=ko)를 참조하세요. 토큰 수를 집계하는 방법을 알아보려면 [토큰
-가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.
+如需了解最新的价格详情，请参阅 Gemini API [价格页面](https://ai.google.dev/pricing?hl=zh-cn)。如需了解如何计算令牌，请参阅[令牌指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn)。
 
-### 추가 고려사항
+### 其他注意事项
 
-컨텍스트 캐싱을 사용할 때는 다음 고려사항에 유의하세요.
+使用上下文缓存时，请注意以下事项：
 
-- 컨텍스트 캐싱의 *최소* 입력 토큰 수는 모델에 따라 다릅니다. *최대* 는 지정된 모델의 최대값과 동일합니다. (토큰 집계에 대한 자세한 내용은
-  [토큰 가이드](https://ai.google.dev/gemini-api/docs/tokens?hl=ko)를 참고하세요.)
-- 모델은 캐시된 토큰과 일반 입력 토큰을 구분하지 않습니다. 캐시된 콘텐츠는 프롬프트의 프리픽스입니다.
-- 컨텍스트 캐싱에는 특별한 요율 또는 사용량 제한이 없습니다. `GenerateContent`의 표준 요율 제한이 적용되며 토큰 한도에는 캐시된 토큰이 포함됩니다.
-- 캐시된 토큰 수는 캐시 서비스의 생성, 가져오기, 나열 작업의 `usage_metadata`와 캐시를 사용할 때 `GenerateContent`에서 반환됩니다.
+- 上下文缓存的*最低*输入词元数因模型而异。*最高*输入词元数与相应模型的最高输入词元数相同。（如需详细了解如何计算词元数，请参阅[词元指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn)）。
+- 模型不会区分缓存的令牌和常规输入令牌。缓存的内容是提示的前缀。
+- 上下文缓存没有特殊费率或使用限制；`GenerateContent` 的标准费率限制适用，令牌限制包括缓存的令牌。
+- 缓存令牌的数量在缓存服务的创建、获取和列出操作的 `usage_metadata` 中返回，在使用缓存时也会在 `GenerateContent` 中返回。
 
-의견 보내기
+发送反馈
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-최종 업데이트: 2026-06-02(UTC)
+最后更新时间 (UTC)：2026-06-19。
 
-의견을 전달하고 싶나요?
+需要向我们提供更多信息？
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-02(UTC)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-19。"],[],[]]

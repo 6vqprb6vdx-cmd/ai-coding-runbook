@@ -1,80 +1,106 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=tr
-fetched_at: 2026-06-15T06:22:29.277243+00:00
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=it
+fetched_at: 2026-06-22T06:24:09.244913+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Bilgisayar Kullanımı
+# Uso del computer
 
-Bilgisayar Kullanımı, görevlerle etkileşime giren ve görevleri otomatikleştiren tarayıcı kontrol temsilcileri oluşturmanıza olanak tanır. Model, ekran görüntülerini kullanarak bilgisayar ekranını "görebilir" ve fare tıklamaları ile klavye girişleri gibi belirli kullanıcı arayüzü işlemleri oluşturarak "hareket edebilir". İşlev çağrısına benzer şekilde, Bilgisayar Kullanımı işlemlerini almak ve yürütmek için istemci tarafı uygulama kodunu yazmanız gerekir.
+L'utilizzo del computer ti consente di creare agenti di controllo del browser che interagiscono
+con le attività e le automatizzano. Utilizzando gli screenshot, il modello può "vedere" lo schermo di un computer e "agire" generando azioni specifiche della UI, come clic del mouse e input da tastiera. Analogamente alla chiamata di funzione, devi scrivere il codice dell'applicazione lato client per ricevere ed eseguire le azioni di utilizzo del computer.
 
-Bilgisayar Kullanımı ile şu özellikleri içeren temsilciler oluşturabilirsiniz:
+Con Utilizzo del computer, puoi creare agenti che:
 
-- Web sitelerinde tekrarlayan veri girişini veya form doldurma işlemlerini otomatikleştirin.
-- Web uygulamalarının ve kullanıcı akışlarının otomatik testini gerçekleştirme
-- Çeşitli web sitelerinde araştırma yapma (ör. satın alma işlemi hakkında bilgi vermek için e-ticaret sitelerinden ürün bilgileri, fiyatlar ve yorumlar toplama)
+- Automatizza l'inserimento di dati ripetitivi o la compilazione di moduli sui siti web.
+- Esegui test automatici di applicazioni web e flussi utente
+- Eseguire ricerche su vari siti web (ad es. raccogliere informazioni, prezzi e recensioni sui prodotti da siti di e-commerce per informare un acquisto)
 
-Bilgisayar Kullanımı özelliğini test etmenin en kolay yolu [referans uygulama](https://github.com/google/computer-use-preview/) veya [Browserbase demo ortamı](http://gemini.browserbase.com) üzerinden test etmektir.
+Il modo più semplice per testare la funzionalità Utilizzo del computer è tramite l'[implementazione
+di riferimento](https://github.com/google/computer-use-preview/) o
+l'[ambiente demo Browserbase](http://gemini.browserbase.com).
 
-## Bilgisayar Kullanımı nasıl çalışır?
+## Come funziona Uso del computer
 
-Bilgisayar Kullanımı modeliyle bir tarayıcı kontrolü aracısı oluşturmak için aşağıdakileri yapan bir aracı döngüsü uygulayın:
+Per creare un agente di controllo del browser con il modello Utilizzo del computer, implementa
+un ciclo dell'agente che esegue le seguenti operazioni:
 
-1. [**Modele istek gönderme**](#send-request)
+1. [**Invia una richiesta al modello**](#send-request)
 
-   - Bilgisayar Kullanımı aracını ve isteğe bağlı olarak özel kullanıcı tanımlı işlevleri veya hariç tutulan işlevleri API isteğinize ekleyin.
-   - Bilgisayar Kullanımı modeline kullanıcının isteğini girin.
-2. [**Model yanıtını alma**](#model-response)
+   - Aggiungi lo strumento Utilizzo del computer ed eventualmente qualsiasi funzione personalizzata definita dall'utente
+     o funzione esclusa alla tua richiesta API.
+   - Richiedi al modello Computer Use la richiesta dell'utente.
+2. [**Ricevere la risposta del modello**](#model-response)
 
-   - Bilgisayar Kullanımı modeli, kullanıcı isteğini ve ekran görüntüsünü analiz eder ve bir kullanıcı arayüzü işlemini temsil eden önerilen `function_call`'ı içeren bir yanıt oluşturur (ör. "(x,y) koordinatına tıklayın" veya "metin yazın"). Bilgisayar Kullanımı modeli tarafından desteklenen tüm kullanıcı arayüzü işlemlerinin açıklaması için [Desteklenen işlemler](#supported-actions) başlıklı makaleyi inceleyin.
-   - API yanıtı, modelin önerdiği işlemi kontrol eden dahili bir güvenlik sisteminden gelen `safety_decision` de içerebilir. Bu
-     `safety_decision` işlemi şu şekilde sınıflandırır:
-     - **Normal / izin verilen:** İşlem güvenli olarak kabul edilir. Bu durum, `safety_decision` simgesinin olmamasıyla da gösterilebilir.
-     - **Onay gerektiriyor (`require_confirmation`):** Model, riskli olabilecek bir işlem (ör. "çerez banner'ını kabul et" seçeneğini tıklama) gerçekleştirmek üzere.
-3. [**Alınan işlemi yürütün**](#execute-actions)
+   - Il modello di utilizzo del computer analizza la richiesta e lo screenshot dell'utente e genera una risposta che include un `function_call` suggerito che rappresenta un'azione dell'interfaccia utente (ad es. "fai clic sulla coordinata (x,y)" o "digita "testo""). Per una descrizione di tutte le azioni dell'interfaccia utente supportate dal modello di utilizzo del computer, consulta [Azioni supportate](#supported-actions).
+   - La risposta dell'API può includere anche un `safety_decision` di un sistema
+     di sicurezza interno che controlla l'azione proposta dal modello. Questo
+     `safety_decision` classifica l'azione come:
+     - **Regolare / consentita**:l'azione è considerata sicura. Ciò può anche
+       essere rappresentato dall'assenza di `safety_decision`.
+     - **Richiede conferma (`require_confirmation`)**: il modello sta per eseguire un'azione
+       che potrebbe essere rischiosa (ad es. fare clic su un "banner dei cookie").
+3. [**Esegui l'azione ricevuta**](#execute-actions)
 
-   - İstemci tarafı kodunuz `function_call` ve beraberindeki `safety_decision` değerlerini alır.
-     - **Normal / izin verilen:** `safety_decision` normal/izin verilen olarak belirtilmişse (veya `safety_decision` yoksa) istemci tarafı kodunuz, hedef ortamınızda (ör. bir web tarayıcısı) belirtilen `function_call`'ı yürütebilir.
-     - **Onay gerektirir:** `safety_decision`, onay gerektirdiğini gösteriyorsa uygulamanızın `function_call`'ı yürütmeden önce son kullanıcıdan onay istemesi gerekir. Kullanıcı onaylarsa işlemi yürütmeye devam edin. Kullanıcı reddederse işlemi yürütmeyin.
-4. [**Yeni ortam durumunu yakalama**](#capture-state)
+   - Il codice lato client riceve `function_call` e qualsiasi `safety_decision`
+     di accompagnamento.
+     - **Regolare / consentito**:se `safety_decision` indica regolare/consentito (o se non è presente alcun `safety_decision`), il codice lato client può eseguire `function_call` specificato nell'ambiente di destinazione (ad es. un browser web).
+     - **Richiede conferma**:se `safety_decision` indica
+       richiede conferma, la tua applicazione deve chiedere all'utente finale
+       la conferma prima di eseguire `function_call`. Se l'utente
+       conferma, procedi con l'esecuzione dell'azione. Se l'utente nega l'autorizzazione, non
+       eseguire l'azione.
+4. [**Acquisire il nuovo stato dell'ambiente**](#capture-state)
 
-   - İşlem yürütüldüyse istemciniz, `function_response` kapsamında Bilgisayar Kullanımı modeline geri göndermek için GUI'nin ve mevcut URL'nin yeni bir ekran görüntüsünü alır.
-   - Bir işlem güvenlik sistemi tarafından engellendiyse veya kullanıcı tarafından onaylanmadıysa uygulamanız modele farklı bir geri bildirim biçimi gönderebilir ya da etkileşimi sonlandırabilir.
+   - Se l'azione è stata eseguita, il client acquisisce una nuova schermata
+     della GUI e l'URL corrente da inviare al modello Computer Use come
+     parte di un `function_response`.
+   - Se un'azione è stata bloccata dal sistema di sicurezza o la conferma è stata negata dall'utente, l'applicazione potrebbe inviare un altro tipo di feedback al modello o terminare l'interazione.
 
-Bu işlem, sonraki işlemi önermek için yeni ekran görüntüsünü ve devam eden hedefi kullanan modelle 2. adımdan itibaren tekrarlanır. Döngü, görev tamamlanana, bir hata oluşana veya işlem sonlandırılana kadar (ör. "engelleme" güvenlik yanıtı veya kullanıcı kararı nedeniyle) devam eder.
+Questo processo si ripete dal passaggio 2 con il modello che utilizza la nuova
+istantanea e l'obiettivo in corso per suggerire l'azione successiva. Il ciclo continua
+finché l'attività non viene completata, si verifica un errore o il processo viene terminato
+(ad esempio a causa di una risposta di sicurezza "blocca" o di una decisione dell'utente).
 
-![Bilgisayar Kullanımına Genel Bakış](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=tr)
+![Panoramica dell&#39;uso del computer](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=it)
 
-## Bilgisayar Kullanımı nasıl uygulanır?
+## Come implementare l'uso del computer
 
-Bilgisayar Kullanımı aracıyla oluşturmaya başlamadan önce aşağıdakileri ayarlamanız gerekir:
+Prima di creare con lo strumento Utilizzo del computer, devi configurare quanto segue:
 
-- **Güvenli yürütme ortamı:** Güvenlik nedeniyle, Bilgisayar Kullanımı aracınızı güvenli ve kontrollü bir ortamda (ör. sınırlı izinlere sahip bir sanal makine, kapsayıcı veya özel tarayıcı profili) çalıştırmanız gerekir.
-- **İstemci tarafı işlem işleyici:** Model tarafından oluşturulan işlemleri yürütmek ve her işlemden sonra ortamın ekran görüntülerini almak için istemci tarafı mantığını uygulamanız gerekir.
+- **Ambiente di esecuzione sicuro:** per motivi di sicurezza, devi eseguire l'agente
+  Computer Use in un ambiente sicuro e controllato (ad es. una macchina virtuale
+  sandbox, un container o un profilo browser dedicato con autorizzazioni
+  limitate).
+- **Gestore delle azioni lato client:** dovrai implementare la logica lato client
+  per eseguire le azioni generate dal modello e
+  acquisire screenshot dell'ambiente dopo ogni azione.
 
-Bu bölümdeki örneklerde, yürütme ortamı olarak tarayıcı, istemci taraflı işlem işleyici olarak ise [Playwright](https://playwright.dev/) kullanılır. Bu örnekleri çalıştırmak için gerekli bağımlılıkları yüklemeniz ve bir Playwright tarayıcı örneği başlatmanız gerekir:
+Gli esempi in questa sezione utilizzano un browser come ambiente di esecuzione
+e [Playwright](https://playwright.dev/) come gestore di azioni lato client. Per
+eseguire questi esempi, devi installare le dipendenze necessarie e inizializzare un'istanza del browser
+Playwright:
 
-### 0. Playwright'ı yükleme
+### 0. Installare Playwright
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-### 0. Playwright tarayıcı örneğini başlatma
+### 0. Inizializza l'istanza del browser Playwright
 
 ```
 from playwright.sync_api import sync_playwright
@@ -102,21 +128,28 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-Android ortamına genişletmeye yönelik örnek kod, [Özel kullanıcı tanımlı işlevleri kullanma](#custom-functions) bölümünde yer almaktadır.
+Il codice campione per l'estensione a un ambiente Android è incluso nella sezione [Utilizzo di funzioni personalizzate definite dall'utente](#custom-functions).
 
-### 1. Modele istek gönderme
+### 1. Inviare una richiesta al modello
 
-API isteğinize Computer Use aracını ekleyin ve modele, kullanıcının amacını içeren bir istem gönderin. Computer Use'un desteklediği modellerden birini kullanmanız gerekir. Aksi takdirde hata alırsınız:
+Aggiungi lo strumento Utilizzo del computer alla richiesta API e invia un prompt al modello
+che includa l'obiettivo dell'utente. Devi utilizzare uno dei modelli di utilizzo del computer supportati
+o riceverai un errore:
 
 - `gemini-2.5-computer-use-preview-10-2025`
 - `gemini-3-flash-preview`
 
-İsteğe bağlı olarak aşağıdaki parametreleri de ekleyebilirsiniz:
+Puoi anche aggiungere facoltativamente i seguenti parametri:
 
-- **Hariç tutulan işlemler:** [Desteklenen kullanıcı arayüzü işlemleri](#supported-actions) listesinde, modelin yapmasını istemediğiniz işlemler varsa bu işlemleri `excluded_predefined_functions` olarak belirtin.
-- **Kullanıcı tanımlı işlevler:** Bilgisayar Kullanımı aracına ek olarak, özel kullanıcı tanımlı işlevler de eklemek isteyebilirsiniz.
+- **Azioni escluse**:se ci sono azioni nell'elenco delle [azioni dell'interfaccia utente
+  supportate](#supported-actions) che non vuoi che il modello esegua,
+  specifica queste azioni come `excluded_predefined_functions`.
+- **Funzioni definite dall'utente**:oltre allo strumento Utilizzo del computer, potresti
+  voler includere funzioni personalizzate definite dall'utente.
 
-İstek gönderirken ekran boyutunu belirtmenize gerek olmadığını unutmayın. Model, piksel koordinatlarını ekranın yüksekliğine ve genişliğine göre ölçekleyerek tahmin eder.
+Tieni presente che non è necessario specificare le dimensioni di visualizzazione quando invii una richiesta;
+il modello prevede le coordinate dei pixel scalate in base all'altezza e alla larghezza dello
+schermo.
 
 ### Python
 
@@ -168,14 +201,16 @@ response = client.models.generate_content(
 print(response)
 ```
 
-Özel işlevlerin kullanıldığı bir örnek için [Özel kullanıcı tanımlı işlevleri kullanma](#custom-functions) başlıklı makaleye bakın.
+Per un esempio con funzioni personalizzate, consulta [Utilizzo di funzioni personalizzate definite dall'utente](#custom-functions).
 
-### 2. Model yanıtını alma
+### 2. Ricevere la risposta del modello
 
-Bilgisayar Kullanımı aracı etkinleştirildiğinde, görevi tamamlamak için kullanıcı arayüzü işlemlerinin gerekli olduğunu belirlerse model bir veya daha fazla `FunctionCalls` ile yanıt verir.
-Bilgisayar Kullanımı, paralel işlev çağrısını destekler. Bu nedenle model, tek bir dönüşte birden fazla işlem döndürebilir.
+Quando lo strumento Utilizzo del computer è attivato, il modello risponderà con uno o più
+`FunctionCalls` se determina che sono necessarie azioni dell'interfaccia utente per completare l'attività.
+L'utilizzo del computer supporta la chiamata di funzioni parallele, il che significa che il modello può restituire
+più azioni in un singolo turno.
 
-Aşağıda örnek bir model yanıtı verilmiştir.
+Ecco un esempio di risposta del modello.
 
 ```
 {
@@ -200,16 +235,19 @@ Aşağıda örnek bir model yanıtı verilmiştir.
 }
 ```
 
-### 3. Alınan işlemleri yürütme
+### 3. Esegui le azioni ricevute
 
-Uygulama kodunuzun model yanıtını ayrıştırması, işlemleri yürütmesi ve sonuçları toplaması gerekir.
+Il codice dell'applicazione deve analizzare la risposta del modello, eseguire le azioni
+e raccogliere i risultati.
 
-Aşağıdaki örnek kod, Computer Use model yanıtından işlev çağrılarını ayıklar ve bunları Playwright ile yürütülebilecek işlemlere çevirir.
-Model, giriş resminin boyutlarından bağımsız olarak normalleştirilmiş koordinatlar (0-999) çıkarır. Bu nedenle, çeviri adımının bir parçası da bu normalleştirilmiş koordinatları tekrar gerçek piksel değerlerine dönüştürmektir.
+Il codice di esempio riportato di seguito estrae le chiamate di funzione dalla risposta del modello Computer Use e le traduce in azioni che possono essere eseguite con Playwright.
+Il modello restituisce coordinate normalizzate (0-999) indipendentemente dalle dimensioni dell'immagine di input, quindi parte del passaggio di traduzione consiste nel convertire queste coordinate normalizzate di nuovo in valori di pixel effettivi.
 
-Bilgisayar Kullanımı modeliyle kullanım için önerilen ekran boyutu (1440, 900) şeklindedir. Model, sonuçların kalitesi etkilenebilse de herhangi bir çözünürlükle çalışır.
+Le dimensioni dello schermo consigliate per l'utilizzo
+con il modello di utilizzo del computer sono (1440, 900). Il modello funzionerà con qualsiasi
+risoluzione, anche se la qualità dei risultati potrebbe risentirne.
 
-Bu örneğin yalnızca en yaygın 3 kullanıcı arayüzü işlemi (`open_web_browser`, `click_at` ve `type_text_at`) için uygulama içerdiğini unutmayın. Üretim kullanım alanlarında, `excluded_predefined_functions` olarak açıkça eklemediğiniz sürece [Desteklenen işlemler](#supported-actions) listesindeki diğer tüm kullanıcı arayüzü işlemlerini uygulamanız gerekir.
+Tieni presente che questo esempio include solo l'implementazione per le tre azioni della UI più comuni: `open_web_browser`, `click_at` e `type_text_at`. Per i casi d'uso di produzione, dovrai implementare tutte le altre azioni della UI dall'elenco [Azioni supportate](#supported-actions), a meno che non le aggiunga esplicitamente come `excluded_predefined_functions`.
 
 ### Python
 
@@ -274,9 +312,11 @@ def execute_function_calls(candidate, page, screen_width, screen_height):
     return results
 ```
 
-### 4. Yeni ortam durumunu yakalama
+### 4. Acquisire il nuovo stato dell'ambiente
 
-İşlemleri yürüttükten sonra, işlev yürütme sonucunu modele geri gönderin. Böylece model, bu bilgileri kullanarak sonraki işlemi oluşturabilir. Birden fazla işlem (paralel çağrı) yürütüldüyse sonraki kullanıcı dönüşünde her biri için bir `FunctionResponse` göndermeniz gerekir.
+Dopo aver eseguito le azioni, invia il risultato dell'esecuzione della funzione al modello in modo che possa utilizzare queste informazioni per generare l'azione successiva. Se
+sono state eseguite più azioni (chiamate parallele), devi inviare un
+`FunctionResponse` per ciascuna nel turno successivo dell'utente.
 
 ### Python
 
@@ -302,15 +342,14 @@ def get_function_responses(page, results):
     return function_responses
 ```
 
-## Aracı döngüsü oluşturma
+## Crea un loop dell'agente
 
-Çok adımlı etkileşimleri etkinleştirmek için [Bilgisayar kullanımını uygulama](#implement-computer-use) bölümündeki dört adımı bir döngüde birleştirin.
-Hem model yanıtlarını hem de işlev yanıtlarınızı ekleyerek görüşme geçmişini doğru şekilde yönetmeyi unutmayın.
+Per attivare le interazioni in più passaggi, combina i quattro passaggi della sezione [Come implementare l'utilizzo del computer](#implement-computer-use) in un ciclo. Ricorda di gestire correttamente la cronologia della conversazione aggiungendo sia le risposte del modello sia le risposte della funzione.
 
-Bu kod örneğini çalıştırmak için:
+Per eseguire questo esempio di codice devi:
 
-- [Gerekli Playwright bağımlılıklarını](#expandable-1) yükleyin.
-- [(3) Alınan işlemleri yürütün](#execute-actions) ve [(4) Yeni ortam durumunu yakalayın](#capture-state) adımlarındaki yardımcı işlevleri tanımlayın.
+- Installa le [dipendenze Playwright necessarie](#expandable-1).
+- Definisci le funzioni di assistenza dai passaggi [(3) Esegui le azioni ricevute](#execute-actions) e [(4) Acquisisci il nuovo stato dell'ambiente](#capture-state).
 
 ### Python
 
@@ -403,9 +442,9 @@ finally:
     playwright.stop()
 ```
 
-## Özel kullanıcı tanımlı işlevleri kullanma
+## Utilizzare funzioni definite dall'utente personalizzate
 
-İsteğinize, modelin işlevselliğini genişletmek için isteğe bağlı olarak özel kullanıcı tanımlı işlevler ekleyebilirsiniz. Aşağıdaki örnekte, tarayıcıya özgü işlemler hariç tutulurken `open_app`, `long_press_at` ve `go_home` gibi özel kullanıcı tanımlı işlemler eklenerek Bilgisayar Kullanımı modeli ve aracı mobil kullanım alanlarına uyarlanmıştır. Model, tarayıcı dışı ortamlarda görevleri tamamlamak için bu özel işlevleri standart kullanıcı arayüzü işlemleriyle birlikte akıllıca çağırabilir.
+Se vuoi, puoi includere funzioni personalizzate definite dall'utente nella richiesta per estendere la funzionalità del modello. L'esempio riportato di seguito adatta il modello e lo strumento Utilizzo del computer per i casi d'uso mobile includendo azioni personalizzate definite dall'utente come `open_app`, `long_press_at` e `go_home`, escludendo al contempo le azioni specifiche del browser. Il modello può chiamare in modo intelligente queste funzioni personalizzate insieme alle azioni standard della UI per completare le attività in ambienti non browser.
 
 ### Python
 
@@ -521,31 +560,36 @@ response = client.models.generate_content(
 print(response)
 ```
 
-## Desteklenen kullanıcı arayüzü işlemleri
+## Azioni dell'interfaccia utente supportate
 
-Model, `FunctionCall` aracılığıyla aşağıdaki kullanıcı arayüzü işlemlerini isteyebilir. İstemci tarafı kodunuz, bu işlemlerin yürütme mantığını uygulamalıdır. Örnekler için [referans uygulamaya](https://github.com/google/computer-use-preview) bakın.
+Il modello può richiedere le seguenti azioni dell'interfaccia utente tramite un
+`FunctionCall`. Il codice lato client deve implementare la logica di esecuzione per
+queste azioni. Per esempi, consulta l'[implementazione
+di riferimento](https://github.com/google/computer-use-preview).
 
-| Komut Adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) | Örnek İşlev Çağrısı |
+| Nome comando | Descrizione | Argomenti (in Chiamata funzione) | Esempio di chiamata di funzione |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | Web tarayıcısını açar. | Yok | `{"name": "open_web_browser", "args": {}}` |
-| **wait\_5\_seconds** | Dinamik içeriğin yüklenmesine veya animasyonların tamamlanmasına olanak tanımak için yürütmeyi 5 saniye duraklatır. | Yok | `{"name": "wait_5_seconds", "args": {}}` |
-| **go\_back** | Tarayıcının geçmişinde önceki sayfaya gider. | Yok | `{"name": "go_back", "args": {}}` |
-| **go\_forward** | Tarayıcının geçmişinde sonraki sayfaya gider. | Yok | `{"name": "go_forward", "args": {}}` |
-| **search** | Varsayılan arama motorunun ana sayfasına (ör. Google) yönlendirir. Yeni bir arama görevi başlatmak için kullanışlıdır. | Yok | `{"name": "search", "args": {}}` |
-| **navigate** | Tarayıcıyı doğrudan belirtilen URL'ye yönlendirir. | `url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | Web sayfasında belirli bir koordinattaki tıklamalar. X ve Y değerleri 1.000 x 1.000'lik bir ızgaraya dayanır ve ekran boyutlarına göre ölçeklendirilir. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
-| **hover\_at** | Fareyi web sayfasındaki belirli bir koordinatın üzerine getirir. Alt menüleri göstermek için kullanışlıdır. x ve y, 1000x1000'lik bir ızgaraya dayanır. | `y`: int (0-999) `x`: int (0-999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | Belirli bir koordinata metin yazar. Varsayılan olarak önce alanı temizler ve yazdıktan sonra ENTER tuşuna basar ancak bunlar devre dışı bırakılabilir. x ve y, 1000x1000'lik bir ızgaraya dayanır. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (isteğe bağlı, varsayılan değer True), `clear_before_typing`: bool (isteğe bağlı, varsayılan değer True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination** | "Control+C" veya "Enter" gibi klavye tuşlarına ya da kombinasyonlarına basın. İşlemleri (ör. "Enter" tuşuyla form gönderme) veya pano işlemlerini tetiklemek için kullanışlıdır. | `keys`: str (ör. "enter", "control+c"). | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
-| **scroll\_document** | Tüm web sayfasını "yukarı", "aşağı", "sola" veya "sağa" kaydırır. | `direction`: str ("up", "down", "left" veya "right") | `{"name": "scroll_document", "args": {"direction": "down"}}` |
-| **scroll\_at** | Belirli bir öğeyi veya alanı, belirtilen yönde belirli bir büyüklükte (x, y) koordinatında kaydırır. Koordinatlar ve büyüklük (varsayılan 800), 1000x1000'lik bir ızgaraya dayanır. | `y`: int (0-999), `x`: int (0-999), `direction`: str ("up", "down", "left", "right"), `magnitude`: int (0-999, İsteğe bağlı, varsayılan 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
-| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından (x, y) sürükleyip hedef koordinata (destination\_x, destination\_y) bırakır. Tüm koordinatlar 1000x1000'lik bir ızgaraya dayanır. | `y`: int (0-999), `x`: int (0-999), `destination_y`: int (0-999), `destination_x`: int (0-999) | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
+| **open\_web\_browser** | Apre il browser web. | Nessuno | `{"name": "open_web_browser", "args": {}}` |
+| **wait\_5\_seconds** | Mette in pausa l'esecuzione per 5 secondi per consentire il caricamento dei contenuti dinamici o il completamento delle animazioni. | Nessuno | `{"name": "wait_5_seconds", "args": {}}` |
+| **go\_back** | Conduce alla pagina precedente nella cronologia del browser. | Nessuno | `{"name": "go_back", "args": {}}` |
+| **go\_forward** | Conduce alla pagina successiva nella cronologia del browser. | Nessuno | `{"name": "go_forward", "args": {}}` |
+| **search** | Viene visualizzata la home page del motore di ricerca predefinito (ad es. Google). Utile per avviare una nuova attività di ricerca. | Nessuno | `{"name": "search", "args": {}}` |
+| **navigate** | Il browser passa direttamente all'URL specificato. | `url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Clic in una coordinata specifica della pagina web. I valori x e y si basano su una griglia 1000x1000 e vengono scalati in base alle dimensioni dello schermo. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
+| **hover\_at** | Passa il mouse su una coordinata specifica della pagina web. Utile per visualizzare i sottomenu. x e y si basano su una griglia 1000x1000. | `y`: int (0-999) `x`: int (0-999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Digita il testo in una coordinata specifica. Per impostazione predefinita, cancella prima il campo e preme INVIO dopo la digitazione, ma queste azioni possono essere disattivate. x e y si basano su una griglia 1000x1000. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (facoltativo, valore predefinito True), `clear_before_typing`: bool (facoltativo, valore predefinito True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
+| **key\_combination** | Premi tasti o combinazioni di tasti della tastiera, ad esempio "Control+C" o "Invio". Utile per attivare azioni (come l'invio di un modulo con "Invio") o operazioni degli appunti. | `keys`: str (ad es. "invio", "control+c"). | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
+| **scroll\_document** | Scorre l'intera pagina web "verso l'alto", "verso il basso", "verso sinistra" o "verso destra". | `direction`: str ("up", "down", "left" o "right") | `{"name": "scroll_document", "args": {"direction": "down"}}` |
+| **scroll\_at** | Scorre un elemento o un'area specifica in corrispondenza delle coordinate (x, y) nella direzione specificata di una determinata entità. Le coordinate e l'entità (valore predefinito 800) si basano su una griglia 1000x1000. | `y`: int (0-999), `x`: int (0-999), `direction`: str ("up", "down", "left", "right"), `magnitude`: int (0-999, facoltativo, valore predefinito 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
+| **drag\_and\_drop** | Trascina un elemento da una coordinata iniziale (x, y) e lo rilascia in una coordinata di destinazione (destination\_x, destination\_y). Tutte le coordinate si basano su una griglia 1000x1000. | `y`: int (0-999), `x`: int (0-999), `destination_y`: int (0-999), `destination_x`: int (0-999) | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
 
-## Güvenlik
+## Protezione e sicurezza
 
-### Güvenlik kararını onaylama
+### Riconoscere la decisione relativa alla sicurezza
 
-Modele verilen yanıt, işleme bağlı olarak modelin önerdiği işlemi kontrol eden dahili bir güvenlik sisteminden gelen `safety_decision` de içerebilir.
+A seconda dell'azione, la risposta del modello potrebbe includere anche un
+`safety_decision` di un sistema di sicurezza interno che controlla l'azione
+proposta dal modello.
 
 ```
 {
@@ -572,9 +616,13 @@ Modele verilen yanıt, işleme bağlı olarak modelin önerdiği işlemi kontrol
 }
 ```
 
-`safety_decision` `require_confirmation` ise işleme devam etmeden önce son kullanıcıdan onayını almanız gerekir. [Hizmet şartlarına](https://ai.google.dev/gemini-api/terms?hl=tr) göre, kullanıcı onayı isteklerini atlamanıza izin verilmez.
+Se `safety_decision` è `require_confirmation`, devi
+chiedere all'utente finale di confermare prima di procedere con l'esecuzione dell'azione. Ai sensi dei
+[termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it), non è consentito
+aggirare le richieste di conferma umana.
 
-Bu kod örneği, işlemi yürütmeden önce son kullanıcıdan onay ister. Kullanıcı işlemi onaylamazsa döngü sonlandırılır. Kullanıcı işlemi onaylarsa işlem yürütülür ve `safety_acknowledgement` alanı `True` olarak işaretlenir.
+Questo esempio di codice chiede all'utente finale una conferma prima di eseguire l'azione. Se l'utente non conferma l'azione, il ciclo termina. Se l'utente conferma l'azione, questa viene eseguita e il campo
+`safety_acknowledgement` viene contrassegnato come `True`.
 
 ### Python
 
@@ -612,7 +660,7 @@ def execute_function_calls(candidate, page, screen_width, screen_height):
         # ... Execute function call and append to results ...
 ```
 
-Kullanıcı onaylarsa güvenlik onayını `FunctionResponse` bölümüne eklemeniz gerekir.
+Se l'utente conferma, devi includere la conferma di sicurezza nel tuo `FunctionResponse`.
 
 ### Python
 
@@ -633,24 +681,31 @@ function_response_parts.append(
        )
 ```
 
-### Güvenlikle ilgili en iyi uygulamalar
+### Best practice per la sicurezza
 
-Bilgisayar Kullanımı, geliştiricilerin dikkat etmesi gereken yeni riskler sunan yeni bir araçtır:
+Utilizzo del computer è un nuovo strumento che presenta nuovi rischi di cui gli sviluppatori devono essere
+consapevoli:
 
-- **Güvenilmeyen içerikler ve dolandırıcılık:** Model, kullanıcının hedefine ulaşmaya çalışırken güvenilmeyen bilgi kaynaklarına ve ekrandaki talimatlara güvenebilir. Örneğin, kullanıcının hedefi Pixel telefon satın almaksa ve model "Anketi tamamlarsanız ücretsiz Pixel" dolandırıcılığıyla karşılaşırsa anketi tamamlama ihtimali vardır.
-- **Bazen istenmeyen işlemler:** Model, kullanıcının amacını veya web sayfası içeriğini yanlış yorumlayarak yanlış düğmeyi tıklama ya da yanlış formu doldurma gibi hatalı işlemler yapabilir. Bu durum, görevlerin başarısız olmasına veya veri hırsızlığına yol açabilir.
-- **Politika ihlalleri:** API'nin özellikleri, kasıtlı veya kasıtsız olarak Google'ın politikalarını ([Üretken Yapay Zeka Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr) ve [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)) ihlal eden faaliyetlere yönlendirilebilir. Bu, bir sistemin bütünlüğüne müdahale edebilecek, güvenliği tehlikeye atabilecek, güvenlik önlemlerini atlayabilecek, tıbbi cihazları kontrol edebilecek vb. işlemleri içerir.
+- **Contenuti non attendibili e truffe**:mentre cerca di raggiungere l'obiettivo dell'utente, il modello potrebbe fare affidamento su fonti di informazioni e istruzioni non attendibili sullo schermo. Ad esempio, se l'obiettivo dell'utente è acquistare uno smartphone Pixel e il modello si imbatte in una truffa del tipo "Pixel senza costi se completi un sondaggio", è possibile che il modello completi il sondaggio.
+- **Azioni involontarie occasionali:** il modello può interpretare in modo errato l'obiettivo di un utente o i contenuti di una pagina web, causando azioni errate come il clic sul pulsante sbagliato o la compilazione del modulo errato. Ciò può comportare il mancato completamento delle attività o l'esfiltrazione di dati.
+- **Violazioni delle norme**:le funzionalità dell'API potrebbero essere indirizzate, intenzionalmente o meno, verso attività che violano le norme di Google ([Norme relative all'uso vietato dell'AI generativa](https://policies.google.com/terms/generative-ai/use-policy?hl=it) e i [Termini di servizio aggiuntivi dell'API Gemini](https://ai.google.dev/gemini-api/terms?hl=it)). Sono incluse azioni che
+  potrebbero interferire con l'integrità di un sistema, compromettere la sicurezza, aggirare
+  le misure di sicurezza,
+  controllare dispositivi medici e così via.
 
-Bu riskleri gidermek için aşağıdaki güvenlik önlemlerini ve en iyi uygulamaları kullanabilirsiniz:
+Per affrontare questi rischi, puoi implementare le seguenti misure di sicurezza e best practice:
 
-1. **İnsanların dahil edilmesi (HITL):**
+1. **Human-in-the-loop (HITL):**
 
-   - **Kullanıcı onayını uygulayın:** Güvenlik yanıtı `require_confirmation` gösterdiğinde, yürütmeden önce kullanıcı onayını uygulamanız gerekir. Örnek kod için [Güvenlik kararını onaylama](#safety-decisions) bölümüne bakın.
-   - **Özel güvenlik talimatları sağlama:** Geliştiriciler, yerleşik kullanıcı onay kontrollerine ek olarak, kendi güvenlik politikalarını zorunlu kılan özel bir [sistem talimatı](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#system-instructions) ekleyebilir. Bu talimat, belirli model işlemlerini engellemek veya modelin belirli yüksek riskli geri döndürülemez işlemleri yapmadan önce kullanıcı onayı almasını sağlamak için kullanılabilir. Modelle etkileşimde bulunurken ekleyebileceğiniz özel bir güvenlik sistemi talimatı örneğini aşağıda bulabilirsiniz.
+   - **Implementa la conferma dell'utente**:quando la risposta di sicurezza indica
+     `require_confirmation`, devi implementare la conferma dell'utente prima
+     dell'esecuzione. Per il codice campione, consulta la sezione [Riconoscere la decisione di sicurezza](#safety-decisions).
+   - **Fornisci istruzioni di sicurezza personalizzate**:oltre ai controlli di conferma utente integrati, gli sviluppatori possono facoltativamente aggiungere un'[istruzione di sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions) personalizzata che applichi le proprie norme di sicurezza, per bloccare determinate azioni del modello o richiedere la conferma dell'utente prima che il modello intraprenda determinate azioni irreversibili ad alto rischio. Ecco un esempio di istruzione personalizzata
+     del sistema di sicurezza che puoi includere quando interagisci con il modello.
 
-     **Örnek güvenlik talimatları:**
+     **Esempio di istruzioni di sicurezza:**
 
-     Özel güvenlik kurallarınızı sistem talimatı olarak ayarlayın:
+     Imposta le tue regole di sicurezza personalizzate come istruzione di sistema:
 
      ```
      ## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**
@@ -738,41 +793,52 @@ Bu riskleri gidermek için aşağıdaki güvenlik önlemlerini ve en iyi uygulam
      - User confirmation
      - When the task is complete or you have enough information to respond to the user
      ```
-2. **Güvenli yürütme ortamı:** Aracınızı, olası etkisini sınırlamak için güvenli ve korumalı bir ortamda (ör. korumalı alan sanal makinesi (VM), kapsayıcı (ör. Docker) veya sınırlı izinlere sahip özel bir tarayıcı profili) çalıştırın.
-3. **Giriş temizleme:** İstenmeyen talimatlar veya istem enjeksiyonu riskini azaltmak için istemlerdeki kullanıcı tarafından oluşturulan tüm metinleri temizleyin. Bu, faydalı bir güvenlik katmanı olsa da güvenli bir yürütme ortamının yerini almaz.
-4. **İçerik koruma sınırları:** Kullanıcı girişlerini, araç giriş ve çıkışını, aracının yanıtını uygunluk açısından, istem ekleme ve jailbreak tespitini değerlendirmek için koruma sınırlarını ve [içerik güvenliği API'lerini](https://ai.google.dev/gemma/docs/shieldgemma?hl=tr) kullanın.
-5. **İzin verilenler listeleri ve engellenenler listeleri:** Modelin nereye gidebileceğini ve neler yapabileceğini kontrol etmek için filtreleme mekanizmalarını uygulayın. Yasaklanmış web sitelerinin engellenenler listesi iyi bir başlangıç noktasıdır. Daha kısıtlayıcı bir izin verilenler listesi ise daha da güvenlidir.
-6. **Gözlemlenebilirlik ve günlük kaydı:** Hata ayıklama, denetleme ve olaylara müdahale için ayrıntılı günlükler tutun. Müşteriniz istemleri, ekran görüntülerini, model tarafından önerilen işlemleri (function\_call), güvenlik yanıtlarını ve nihayetinde müşteri tarafından gerçekleştirilen tüm işlemleri günlüğe kaydetmelidir.
-7. **Ortam yönetimi:** GUI ortamının tutarlı olmasını sağlayın.
-   Beklenmedik pop-up'lar, bildirimler veya düzendeki değişiklikler modelin kafasını karıştırabilir. Mümkünse her yeni görev için bilinen ve temiz bir durumdan başlayın.
+2. **Ambiente di esecuzione sicuro:** esegui l'agente in un ambiente sicuro e limitato tramite sandbox per limitarne il potenziale impatto (ad es. una macchina virtuale (VM) limitata tramite sandbox, un container (ad es. Docker) o un profilo browser dedicato con autorizzazioni limitate).
+3. **Sanitizzazione dell'input**:sanitizza tutto il testo generato dagli utenti nei prompt per
+   mitigare il rischio di istruzioni non intenzionali o di prompt injection. Si tratta di un
+   livello di sicurezza utile, ma non sostituisce un ambiente di esecuzione
+   sicuro.
+4. **Misure di protezione dei contenuti**:utilizza misure di protezione e [API
+   per la sicurezza dei contenuti](https://ai.google.dev/gemma/docs/shieldgemma?hl=it) per valutare gli input degli utenti, gli input e gli output degli strumenti, la risposta di un agente per l'adeguatezza, l'injection di prompt e il rilevamento del jailbreaking.
+5. **Liste consentite e liste bloccate:** implementa meccanismi di filtro per controllare
+   dove il modello può navigare e cosa può fare. Una lista bloccata di siti web vietati è un buon punto di partenza, mentre una lista consentita più restrittiva è
+   ancora più sicura.
+6. **Osservabilità e logging**:mantieni log dettagliati per il debug,
+   il controllo e la risposta agli incidenti. Il client deve registrare i prompt,
+   gli screenshot, le azioni suggerite dal modello (function\_call), le risposte di sicurezza e
+   tutte le azioni eseguite dal client.
+7. **Gestione dell'ambiente**:assicurati che l'ambiente GUI sia coerente.
+   Pop-up, notifiche o modifiche impreviste al layout possono confondere il modello. Se possibile, inizia ogni nuova attività da uno stato pulito e noto.
 
-## Model sürümleri
+## Versioni modello
 
-`gemini-3-flash-preview`'da Bilgisayar Kullanımı için yerleşik destek bulunduğunu unutmayın. Araca erişmek için ayrı bir modele ihtiyacınız yoktur.
+Tieni presente che `gemini-3-flash-preview` supporta
+l'uso del computer; non è necessario un modello separato per accedere allo strumento.
 
-| Mülk | Açıklama |
+| Proprietà | Descrizione |
 | --- | --- |
-| id\_cardModel kodu | **Gemini API**  `gemini-2.5-computer-use-preview-10-2025` |
-| saveDesteklenen veri türleri | **Giriş**  Resim, metin  **Çıkış**  Metin |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  128.000  **Çıkış jetonu sınırı**  64.000 |
-| 123Sürümler | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Önizleme: `gemini-2.5-computer-use-preview-10-2025` |
-| calendar\_monthSon güncelleme | Ekim 2025 |
+| Codice modello id\_card | **API Gemini**  `gemini-2.5-computer-use-preview-10-2025` |
+| saveTipi di dati supportati | **Ingresso**  Immagine, testo  **Output**  Testo |
+| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  128.000  **Limite di token di output**  64.000 |
+| Versioni 123 | Per ulteriori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Anteprima: `gemini-2.5-computer-use-preview-10-2025` |
+| calendar\_monthUltimo aggiornamento | Ottobre 2025 |
 
-## Sırada ne var?
+## Passaggi successivi
 
-- [Browserbase demo ortamında](http://gemini.browserbase.com) bilgisayar kullanımıyla ilgili denemeler yapın.
-- Örnek kod için [Referans
-  uygulamasına](https://github.com/google/computer-use-preview) göz atın.
-- Diğer Gemini API araçları hakkında bilgi edinin:
-  - [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
-  - [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/grounding?hl=tr)
+- Sperimenta l'utilizzo del computer nell'[ambiente demo di Browserbase](http://gemini.browserbase.com).
+- Consulta l'[implementazione
+  di riferimento](https://github.com/google/computer-use-preview) per un esempio
+  di codice.
+- Scopri di più sugli altri strumenti dell'API Gemini:
+  - [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
+  - [Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-06-05 UTC.
+Ultimo aggiornamento 2026-06-19 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-05 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-19 UTC."],[],[]]

@@ -1,161 +1,145 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=id
-fetched_at: 2026-06-15T06:25:45.911523+00:00
-title: "Integrasi partner dan library \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=pt-BR
+fetched_at: 2026-06-22T06:28:12.408706+00:00
+title: "Integra\u00e7\u00f5es de parceiros e bibliotecas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Kirim masukan
+Envie comentários
 
-# Integrasi partner dan library
+# Integrações de parceiros e bibliotecas
 
-Panduan ini menguraikan strategi arsitektur untuk membangun library, platform, dan gateway di atas Gemini API. Dokumen ini menjelaskan secara mendetail pertimbangan teknis
-antara penggunaan SDK GenAI resmi, Direct API (REST/gRPC), dan
-lapisan kompatibilitas OpenAI.
+Este guia descreve as estratégias arquitetônicas para criar bibliotecas, plataformas e gateways com base na API Gemini. Ele detalha as compensações técnicas entre o uso dos SDKs oficiais da GenAI, a API direta (REST/gRPC) e a camada de compatibilidade do OpenAI.
 
-Gunakan panduan ini jika Anda membuat alat untuk developer lain, seperti
-framework open source, gateway perusahaan, atau agregator SaaS, dan perlu
-mengoptimalkan kebersihan dependensi, ukuran paket, atau paritas fitur.
+Use este guia se você estiver criando ferramentas para outros desenvolvedores, como frameworks de código aberto, gateways corporativos ou agregadores de SaaS, e precisar otimizar a higiene de dependências, o tamanho do pacote ou a paridade de recursos.
 
-## Apa itu integrasi partner?
+## O que é a integração de parceiros?
 
-Partner adalah siapa saja yang membangun integrasi antara Gemini API dan developer pengguna akhir. Kami mengategorikan partner ke dalam empat arketipe. Mengidentifikasi mana yang paling cocok dengan Anda akan membantu Anda memilih jalur integrasi yang tepat.
+Um parceiro é qualquer pessoa que esteja criando uma integração entre a API Gemini e desenvolvedores de usuários finais. Categorizamos os parceiros em quatro arquétipos. Identificar qual deles corresponde mais de perto vai ajudar você a escolher o caminho de integração certo.
 
-#### Framework ekosistem
+#### Framework de ecossistema
 
-- **Siapa Anda:** Pengelola framework open source (misalnya, LangChain, LlamaIndex, Spring AI) atau klien khusus bahasa.
-- **Sasaran Anda:** Kompatibilitas luas. Anda ingin pustaka Anda berfungsi di lingkungan apa pun yang dipilih pengguna tanpa memaksakan konflik.
+- **Quem você é**:mantenedor de um framework de código aberto (por exemplo, LangChain, LlamaIndex, Spring AI) ou clientes específicos do idioma.
+- **Seu objetivo**:ampla compatibilidade. Você quer que sua biblioteca funcione em qualquer ambiente escolhido pelo usuário sem forçar conflitos.
 
-#### Platform runtime dan edge
+#### Plataforma de execução e de borda
 
-- **Siapa Anda:** Platform SaaS, Gateway AI, atau penyedia infrastruktur cloud (misalnya, Vercel, Cloudflare, Zapier) tempat eksekusi kode terjadi di lingkungan yang dibatasi.
-- **Sasaran Anda:** Performa. Anda memerlukan latensi rendah, ukuran paket minimal, dan
-  cold start yang cepat.
+- **Quem você é**:plataformas SaaS, gateways de IA ou provedores de infraestrutura em nuvem (por exemplo, Vercel, Cloudflare, Zapier) em que a execução de código acontece em ambientes restritos.
+- **Seu objetivo**:performance. Você precisa de baixa latência, tamanho mínimo do pacote e inicializações a frio rápidas.
 
-#### Agregator
+#### Agregador
 
-- **Siapa Anda:** Platform, proxy, atau "Taman Model" internal yang menormalisasi akses di berbagai penyedia LLM (misalnya, OpenAI, Anthropic, Google) ke dalam satu antarmuka.
-- **Sasaran Anda:** Portabilitas dan keseragaman.
+- **Quem você é**:plataformas, proxies ou "Model Gardens" internos que normalizam o acesso em muitos provedores de LLM diferentes (por exemplo, OpenAI, Anthropic, Google) em uma única interface.
+- **Seu objetivo**:portabilidade e uniformidade.
 
-#### Gateway perusahaan
+#### Gateway corporativo
 
-- **Siapa Anda:** Tim Engineering Platform internal di perusahaan besar yang membangun "Jalur Ideal" untuk ratusan developer internal.
-- **Sasaran Anda:** Standardisasi, tata kelola, dan autentikasi terpadu.
+- **Quem você é**:equipes internas de engenharia de plataforma em grandes empresas que criam "caminhos ideais" para centenas de desenvolvedores internos.
+- **Seu objetivo**:padronização, governança e autenticação unificada.
 
-## Perbandingan sekilas
+## Resumo comparativo
 
-**Praktik terbaik global:** Semua partner harus mengirim header [`x-goog-api-client`](#client-id)terlepas dari jalur yang dipilih.
+**Prática recomendada global:** todos os parceiros precisam enviar o [`x-goog-api-client`
+cabeçalho](#client-id), independentemente do caminho escolhido.
 
-| Jika Anda... | Jalur yang direkomendasikan | Manfaat utama | Kompromi utama | Praktik terbaik |
+| Se você for... | Caminho recomendado | Principal benefício | Principal compensação | Prática recomendada |
 | --- | --- | --- | --- | --- |
-| **Gateway perusahaan, framework ekosistem** | **[Google GenAI SDK](#genai-sdk)** | **Paritas & kecepatan Platform Agen Gemini Enterprise.** Penanganan bawaan untuk jenis, autentikasi, dan fitur kompleks (misalnya, upload file). Migrasi yang lancar ke Google Cloud. | **Bobot dependensi.** Ketergantungan transitif bisa jadi kompleks dan di luar kendali Anda. Terbatas untuk bahasa yang didukung (Python/Node/Go/Java). | **Mengunci versi.** Sematkan versi SDK di image dasar internal Anda untuk memastikan stabilitas di seluruh tim. |
-| **Framework ekosistem, platform edge, dan agregator** | **[Direct API](#rest)**  *(REST / gRPC)* | **Tanpa dependensi.** Anda mengontrol klien HTTP dan ukuran paket yang tepat. Akses penuh ke semua fitur API dan model. | **Overhead developer yang tinggi.** Struktur JSON dapat memiliki banyak lapisan dan memerlukan validasi manual serta pemeriksaan jenis yang ketat. | **Gunakan spesifikasi OpenAPI.** Mengotomatiskan pembuatan jenis menggunakan spesifikasi resmi kami, bukan menuliskannya secara manual. |
-| **Agregator yang menggunakan SDK OpenAI yang hanya memerlukan alur kerja berbasis teks**  *(Mengoptimalkan portabilitas lama)* | **[Kompatibilitas OpenAI](#openai)** | **Portabilitas instan.** Menggunakan kembali kode atau library yang kompatibel dengan OpenAI. | **Batas fitur.** Fitur khusus model (Video native, Pengekasan) mungkin tidak tersedia. | **Rencana migrasi.** Gunakan ini untuk validasi cepat, tetapi rencanakan untuk mengupgrade ke Direct API untuk fitur API lengkap. |
+| **Gateway corporativo, framework de ecossistema** | **[SDK da GenAI do Google](#genai-sdk)** | **Paridade e velocidade da plataforma de agentes do Gemini Enterprise**. Processamento integrado para tipos, autenticação e recursos complexos (por exemplo, uploads de arquivos). Migração perfeita para o Google Cloud. | **Peso da dependência**. As dependências transitivas podem ser complexas e fora do seu controle. Limitado a linguagens compatíveis (Python/Node/Go/Java). | **Bloquear versões**. Fixe as versões do SDK nas imagens de base internas para garantir a estabilidade entre as equipes. |
+| **Framework de ecossistema, plataformas de borda e agregadores** | **[API direta](#rest)**  *(REST / gRPC)* | **Dependências zero**. Você controla o cliente HTTP e o tamanho exato do pacote. Acesso total a todos os recursos da API e do modelo. | **Alto custo para desenvolvedores**. As estruturas JSON podem ser profundamente aninhadas e exigem validação manual e verificação de tipo rigorosas. | **Usar especificações OpenAPI**. Automatize a geração de tipos usando nossas especificações oficiais em vez de escrevê-las manualmente. |
+| **Agregador que usa SDKs do OpenAI que exigem apenas fluxos de trabalho baseados em texto**  *(Otimização para portabilidade legada)* | **[Compatibilidade com o OpenAI](#openai)** | **Portabilidade instantânea**. Reutilize códigos ou bibliotecas compatíveis com o OpenAI. | **Limite de recursos**. Os recursos específicos do modelo (vídeo nativo, armazenamento em cache) podem não estar disponíveis. | **Plano de migração**. Use isso para validação rápida, mas planeje fazer upgrade para a API direta para ter o recurso completo da API. |
 
-## Integrasi Google GenAI SDK
+## Integração do SDK da GenAI do Google
 
-Untuk framework, penerapan [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=id)
-sering kali merupakan cara yang paling sederhana, mengingat jumlah baris kode yang paling sedikit dalam bahasa yang didukung.
+Para frameworks, a implementação do [SDK da GenAI do Google](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br)
+é geralmente o caminho mais simples, considerando o menor número de linhas de código em linguagens compatíveis.
 
-Untuk tim platform internal, hasil utama Anda sering kali berupa "jalur emas" yang memungkinkan engineer produk bergerak cepat sekaligus mematuhi kebijakan keamanan.
+Para equipes de plataforma internas, o principal resultado é geralmente um "caminho ideal" que permite que os engenheiros de produtos se movam rapidamente, obedecendo às políticas de segurança.
 
-**Manfaat:**
+**Benefícios:**
 
-- **Antarmuka terpadu untuk migrasi Gemini Enterprise Agent Platform:** Developer internal sering kali membuat prototipe menggunakan Kunci API (Gemini API) dan men-deploy ke Gemini Enterprise Agent Platform (IAM) untuk kepatuhan produksi. SDK mengabstraksi perbedaan autentikasi ini.
-  Demikian pula untuk framework, Anda dapat menerapkan satu jalur kode dan mendukung dua set pengguna.
-- **Helper sisi klien:** SDK menyertakan utilitas idiomatik yang mengurangi
-  boilerplate untuk tugas yang kompleks.
-  - *Contoh:* Mendukung objek gambar `PIL` secara langsung dalam perintah, panggilan fungsi otomatis, dan jenis yang komprehensif.
-- **Akses fitur pada hari peluncuran:** Fitur API baru tersedia pada waktu peluncuran melalui SDK.
-- **Dukungan pembuatan kode yang ditingkatkan:** Penginstalan SDK lokal mengekspos definisi jenis dan string dokumen ke asisten coding (misalnya, Cursor, Copilot).
-  Konteks ini meningkatkan akurasi pembuatan kode dibandingkan dengan membuat permintaan REST mentah.
+- **Interface unificada para migração da plataforma de agentes do Gemini Enterprise**:os desenvolvedores internos geralmente criam protótipos usando chaves de API (API Gemini) e implantam na plataforma de agentes do Gemini Enterprise (IAM) para conformidade de produção. O SDK abstrai essas diferenças de autenticação.
+  Da mesma forma, para frameworks, é possível implementar um caminho de código e oferecer suporte a dois conjuntos de usuários.
+- **Auxiliares do lado do cliente**:o SDK inclui utilitários idiomáticos que reduzem o código boilerplate para tarefas complexas.
+  - *Exemplos*:suporte a objetos de imagem `PIL` diretamente em comandos, chamadas de função automáticas e tipos abrangentes.
+- **Acesso a recursos do dia zero**:novos recursos da API estão disponíveis no momento do lançamento pelos SDKs.
+- **Melhor suporte à geração de código**:a instalação local do SDK expõe definições de tipo e docstrings a assistentes de programação (por exemplo, Cursor, Copilot).
+  Esse contexto melhora a precisão da geração de código em comparação com a geração de solicitações REST brutas.
 
-**Kompromi:**
+**A compensação:**
 
-- **Bobot & kompleksitas dependensi:** SDK memiliki dependensinya sendiri, yang dapat meningkatkan ukuran bundle dan berpotensi menimbulkan risiko rantai pasokan.
-- **Pembuatan Versi:** Fitur API baru sering kali disematkan ke versi SDK minimum.
-  Anda mungkin perlu mengirimkan update kepada pengguna untuk mengakses fitur atau model baru, yang dalam beberapa kasus mungkin memerlukan perubahan pada dependensi transitif yang memengaruhi pengguna Anda.
-- **Batasan protokol:** SDK hanya mendukung HTTPS untuk API utama dan
-  WebSockets (WSS) untuk Live API. gRPC tidak didukung menggunakan
-  klien SDK tingkat tinggi.
-- **Dukungan bahasa:** SDK mendukung versi bahasa *saat ini*. Jika Anda perlu mendukung versi EOL (misalnya, Python 3.9), Anda harus mempertahankan fork.
+- **Peso e complexidade da dependência**:os SDKs têm as próprias dependências, o que pode aumentar o tamanho do pacote e o risco da cadeia de suprimentos.
+- **Controle de versão**:novos recursos da API são geralmente fixados em versões mínimas do SDK.
+  Talvez seja necessário enviar atualizações aos usuários para acessar novos recursos ou modelos, o que, em alguns casos, pode exigir mudanças em dependências transitivas que afetam os usuários.
+- **Limites de protocolo**:os SDKs oferecem suporte apenas a HTTPS para a API principal e WebSockets (WSS) para a API Live. O gRPC não é compatível com clientes de SDK de alto nível.
+- **Suporte a idiomas**:os SDKs oferecem suporte às versões *atuais* de idiomas. Se você precisar oferecer suporte a versões EOL (por exemplo, Python 3.9), será necessário manter um fork.
 
-**Praktik terbaik:**
+**Prática recomendada:**
 
-- **Mengunci versi:** Sematkan versi SDK di image dasar internal Anda untuk
-  memastikan stabilitas di seluruh tim.
+- **Bloquear versões**:fixe a versão do SDK nas imagens de base internas para garantir a estabilidade entre as equipes.
 
-## Integrasi API langsung
+## Integração direta com a API
 
-Jika Anda mendistribusikan library kepada ribuan developer, menjalankan di lingkungan yang terbatas, atau membangun agregator yang memerlukan fitur canggih Gemini, Anda mungkin perlu berintegrasi dengan API secara langsung menggunakan REST atau gRPC.
+Se você estiver distribuindo uma biblioteca para milhares de desenvolvedores, executando em um ambiente restrito ou criando um agregador que exige os recursos de ponta do Gemini, talvez seja necessário fazer a integração diretamente com a API usando REST ou gRPC.
 
-**Manfaat:**
+**Benefícios:**
 
-- **Akses fitur lengkap:** Tidak seperti lapisan kompatibilitas OpenAI, penggunaan
-  API secara langsung memungkinkan fitur khusus Gemini, seperti mengupload ke File
-  API, membuat caching konten, dan menggunakan Live API dua arah.
-- **Dependensi minimal:** Di lingkungan tempat dependensi sensitif karena ukuran atau biaya audit. Menggunakan API secara langsung melalui
-  library standar seperti `fetch` atau melalui wrapper seperti `httpx` memastikan library Anda tetap ringan.
-- **Agnostik bahasa:** Ini adalah satu-satunya jalur untuk bahasa yang tidak tercakup oleh SDK, seperti Rust, PHP, dan Ruby, karena tidak ada batasan bahasa.
-- **Performa:** Direct API memiliki overhead inisialisasi nol, sehingga meminimalkan cold start dalam fungsi serverless.
+- **Acesso total aos recursos**:ao contrário da camada de compatibilidade do OpenAI, o uso direto da API ativa recursos específicos do Gemini, como upload para a API File, criação de armazenamento em cache de conteúdo e uso da API Live bidirecional.
+- **Dependências mínimas**:em um ambiente em que as dependências são sensíveis devido ao tamanho ou aos custos de auditoria. O uso direto da API por meio de uma biblioteca padrão, como `fetch`, ou por um wrapper, como `httpx`, garante que a biblioteca permaneça leve.
+- **Independente de linguagem**:esse é o único caminho para linguagens não cobertas pelos SDKs, como Rust, PHP e Ruby, já que não há restrições de linguagem.
+- **Performance**:a API direta não tem custo de inicialização, minimizando as inicializações a frio em funções sem servidor.
 
-**Kompromi:**
+**A compensação:**
 
-- **Implementasi Platform Agen Gemini Enterprise secara manual:** Tidak seperti SDK, penggunaan API secara langsung tidak otomatis menangani perbedaan autentikasi antara AI Studio (Kunci API) dan Platform Agen Gemini Enterprise (IAM). Anda harus menerapkan handler autentikasi
-  terpisah jika ingin mendukung kedua lingkungan.
-- **Tidak ada jenis atau helper bawaan:** Anda tidak akan mendapatkan penyelesaian kode atau pemeriksaan waktu kompilasi untuk objek permintaan kecuali jika Anda menerapkannya sendiri. Tidak ada "pembantu" klien (misalnya, konverter fungsi ke skema), jadi Anda harus menulis logika ini secara manual sendiri.
+- **Implementação manual da plataforma de agentes do Gemini Enterprise**:ao contrário do SDK, o uso direto da API não processa automaticamente as diferenças de autenticação entre o AI Studio (chave de API) e a plataforma de agentes do Gemini Enterprise (IAM). É necessário implementar gerenciadores de autenticação separados se você quiser oferecer suporte aos dois ambientes.
+- **Sem tipos ou auxiliares nativos**:você não recebe conclusões de código ou verificações de tempo de compilação para objetos de solicitação, a menos que os implemente por conta própria. Não há "auxiliares" de cliente (por exemplo, conversores de função para esquema), então você precisa escrever essa lógica manualmente.
 
-**Praktik terbaik**
+**Prática recomendada**
 
-Kami mengekspos spesifikasi yang dapat dibaca mesin yang dapat Anda gunakan untuk membuat definisi jenis untuk library Anda, sehingga Anda tidak perlu menuliskannya secara manual. Download spesifikasi selama proses build, buat jenis, dan kirim kode yang dikompilasi.
+Exibimos uma especificação legível por máquina que pode ser usada para gerar definições de tipo para sua biblioteca, evitando que você as escreva manualmente. Faça o download da especificação durante o processo de build, gere os tipos e envie o código compilado.
 
-- **Endpoint:** `https://generativelanguage.googleapis.com/$discovery/OPENAPI3_0`
+- **Endpoint**:`https://generativelanguage.googleapis.com/$discovery/OPENAPI3_0`
 
-## Integrasi OpenAI SDK
+## Integração do SDK do OpenAI
 
-Jika Anda adalah platform yang memprioritaskan skema terpadu (OpenAI Chat Completions) daripada fitur khusus model, ini adalah cara tercepat Anda.
+Se você é uma plataforma que prioriza um esquema unificado (conclusões de chat do OpenAI) em vez de recursos específicos do modelo, esse é o trajeto mais rápido.
 
-**Manfaat:**
+**Benefícios:**
 
-- **Gesekan rendah:** Anda sering kali dapat menambahkan dukungan Gemini dengan mengubah `baseURL`
-  dan `apiKey`. Cara ini adalah cara cepat untuk mengintegrasikan penerapan "Bawa Kunci Anda Sendiri", menambahkan dukungan Gemini tanpa menulis kode baru.
-- **Batasan:** Jalur ini hanya direkomendasikan jika Anda dibatasi untuk
-  OpenAI SDK dan tidak memerlukan fitur Gemini lanjutan seperti File API,
-  atau menambahkan dukungan untuk alat seperti Perujukan dengan Penelusuran Google secara manual.
+- **Baixa fricção**:geralmente, é possível adicionar suporte ao Gemini mudando o `baseURL` e a `apiKey`. Essa é uma maneira rápida de integrar implementações "Traga sua própria chave", adicionando suporte ao Gemini sem escrever um novo código.
+- **Restrições**:esse caminho só é recomendado se você estiver restrito ao SDK do OpenAI e não precisar de recursos avançados do Gemini, como a API File, ou adicionar manualmente suporte a ferramentas como o embasamento com a Pesquisa Google.
 
-**Kompromi:**
+**A compensação:**
 
-- **Batasan fitur:** Lapisan kompatibilitas memberikan batasan pada kemampuan inti Gemini. Alat sisi server yang tersedia berbeda di setiap platform, dan mungkin memerlukan penanganan manual agar dapat berfungsi dengan alat Gemini API.
-- **Overhead terjemahan:** Karena skema OpenAI tidak dipetakan 1:1 ke arsitektur Gemini, mengandalkan lapisan kompatibilitas menimbulkan beberapa kerumitan yang memerlukan pekerjaan penerapan tambahan untuk diselesaikan, seperti memetakan alat "penelusuran" pengguna ke alat platform yang tepat.
-  Jika Anda memerlukan banyak sekali penanganan khusus, mungkin lebih baik menggunakan SDK atau API khusus untuk setiap platform.
+- **Limitações de recursos**:a camada de compatibilidade oferece limitações aos recursos principais do Gemini. As ferramentas disponíveis do lado do servidor variam entre as plataformas e podem exigir processamento manual para funcionar com as ferramentas da API Gemini.
+- **Sobrecarga de tradução**:como o esquema do OpenAI não é mapeado 1:1 para a arquitetura do Gemini, a dependência da camada de compatibilidade introduz algumas complexidades que exigem mais trabalho de implementação para serem resolvidas, como mapear uma ferramenta de "pesquisa" do usuário para a ferramenta de plataforma certa.
+  Se você precisar de uma quantidade significativa de casos especiais, talvez seja mais valioso usar um SDK ou API dedicado para cada plataforma.
 
-**Praktik terbaik**
+**Prática recomendada**
 
-Jika memungkinkan, lakukan integrasi langsung dengan Gemini API. Namun, untuk kompatibilitas maksimum, pertimbangkan untuk menggunakan library yang mengetahui berbagai penyedia dan dapat menangani pemetaan alat dan pesan untuk Anda.
+Sempre que possível, faça a integração diretamente com a API Gemini. No entanto, para máxima compatibilidade, considere usar uma biblioteca que reconheça diferentes provedores e possa processar o mapeamento de ferramentas e mensagens para você.
 
-## Praktik terbaik untuk semua partner: identifikasi klien
+## Prática recomendada para todos os parceiros: identificação do cliente
 
-Saat melakukan panggilan ke Gemini API sebagai platform atau library, Anda harus
-mengidentifikasi klien menggunakan header `x-goog-api-client`.
+Ao fazer chamadas para a API Gemini como uma plataforma ou biblioteca, é necessário identificar o cliente usando o cabeçalho `x-goog-api-client`.
 
-Dengan begitu, Google dapat mengidentifikasi segmen traffic spesifik Anda, dan jika library Anda menghasilkan pola error tertentu, kami dapat menghubungi Anda untuk membantu men-debug.
+Isso permite que o Google identifique seus segmentos de tráfego específicos e, se a biblioteca estiver produzindo um padrão de erro específico, podemos entrar em contato para ajudar na depuração.
 
-Gunakan format `company-product/version` (misalnya, `acme-framework/1.2.0`).
+Use o formato `company-product/version` (por exemplo, `acme-framework/1.2.0`).
 
-### Contoh implementasi
+### Exemplos de implementação
 
-### GenAI SDK
+### SDK da GenAI
 
-Dengan menyediakan klien API, SDK akan otomatis menambahkan header kustom Anda ke header internalnya.
+Ao fornecer o cliente da API, o SDK anexa automaticamente o cabeçalho personalizado aos cabeçalhos internos.
 
 ```
 from google import genai
@@ -170,7 +154,7 @@ client = genai.Client(
 )
 ```
 
-### Direct API (REST)
+### API direta (REST)
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
@@ -179,7 +163,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     -d '{...}'
 ```
 
-### OpenAI SDK
+### SDK do OpenAI
 
 ```
 from openai import OpenAI
@@ -193,19 +177,19 @@ client = OpenAI(
 )
 ```
 
-## Langkah berikutnya
+## Próximas etapas
 
-- Buka [ringkasan library](https://ai.google.dev/gemini-api/docs/libraries?hl=id) untuk mempelajari
-  SDK GenAI
-- Jelajahi [referensi API](https://ai.google.dev/api?hl=id)
-- Baca [panduan kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id)
+- Acesse a [visão geral da biblioteca](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br) para saber mais sobre
+  os SDKs da GenAI.
+- Navegue pela [referência da API](https://ai.google.dev/api?hl=pt-br).
+- Leia o [guia de compatibilidade do OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
 
-Kirim masukan
+Envie comentários
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Terakhir diperbarui pada 2026-05-19 UTC.
+Última atualização 2026-05-19 UTC.
 
-Ada masukan untuk kami?
+Quer enviar seu feedback?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-19 UTC."],[],[]]

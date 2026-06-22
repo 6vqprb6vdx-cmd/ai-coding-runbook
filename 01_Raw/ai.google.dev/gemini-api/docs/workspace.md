@@ -1,50 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=vi
-fetched_at: 2026-06-15T06:28:01.009880+00:00
-title: "Truy c\u1eadp v\u00e0o Google AI Studio b\u1eb1ng t\u00e0i kho\u1ea3n Workspace c\u1ee7a b\u1ea1n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=ja
+fetched_at: 2026-06-22T06:27:11.034308+00:00
+title: "Workspace \u30a2\u30ab\u30a6\u30f3\u30c8\u3067 Google AI Studio \u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Truy cập vào Google AI Studio bằng tài khoản Workspace của bạn
+# Workspace アカウントで Google AI Studio にアクセスする
 
-Theo mặc định, tất cả người dùng [Google Workspace](https://workspace.google.com?hl=vi) đều có quyền truy cập vào AI Studio. Nếu bạn là người dùng Workspace và muốn bắt đầu sử dụng AI Studio, hãy xem [hướng dẫn bắt đầu nhanh về AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=vi).
+すべての [Google Workspace](https://workspace.google.com?hl=ja) ユーザーは、デフォルトで AI
+Studio にアクセスできます。Workspace ユーザーで、
+AI Studio の使用を開始する場合は、
+[AI Studio クイックスタート](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja)をご覧ください。
 
-## Khắc phục sự cố
+## トラブルシューティング
 
-Nếu tài khoản Google Workspace của bạn không có quyền truy cập vào AI Studio, thì có thể bạn sẽ thấy một lỗi như sau:
+Google Workspace アカウントで AI Studio へのアクセスが無効になっている場合は、次のようなエラーが表示されることがあります。
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-Nếu bạn cho rằng mình cần có quyền truy cập vào AI Studio, hãy liên hệ với quản trị viên Workspace.
+AI Studio へのアクセス権が必要と思われる場合は、Workspace 管理者にお問い合わせください。
 
-## Bật AI Studio cho người dùng Workspace
+## Workspace ユーザーに対して AI Studio を有効にする
 
-Là quản trị viên Google Workspace, bạn có thể kiểm soát những người sử dụng AI Studio:
+Google Workspace 管理者は、AI Studio を使用できるユーザーを制御できます。
 
-- Theo mặc định, AI Studio được bật cho tất cả các phiên bản.
-- Bạn có thể bật hoặc tắt AI Studio cho các nhóm người dùng trong hoặc trên các đơn vị tổ chức.
-- Các phiên bản Google Workspace for Education: Người dùng dưới 18 tuổi bị hạn chế sử dụng AI Studio bằng tài khoản Google Workspace for Education. Điều này vẫn đúng ngay cả khi chế độ cài đặt AI Studio đang bật. Để biết thông tin chi tiết, hãy xem bài viết [Kiểm soát quyền truy cập vào các dịch vụ của Google theo độ tuổi](https://support.google.com/a/answer/10651918?hl=vi).
+- AI Studio は、すべてのエディションでデフォルトで有効になっています。
+- 組織部門内または組織部門全体で、ユーザー グループに対して AI Studio を有効または無効にできます。
+- Google Workspace for Education エディション: 18 歳未満のユーザーは、Google Workspace for Education アカウントで AI Studio を使用できません。これは、AI Studio の設定がオンの場合にも当てはまります。詳しくは、[Google サービスへのアクセスを
+  年齢別に管理する方法](https://support.google.com/a/answer/10651918?hl=ja)をご覧ください。
 
-Để bật hoặc tắt AI Studio cho người dùng trong tổ chức của bạn, hãy xem bài viết [Bật hoặc tắt Google AI Studio cho người dùng](https://support.google.com/a/answer/15004095?hl=vi).
+組織内のユーザーに対して AI Studio を有効または無効にするには、
+[ユーザーに対して Google AI Studio を有効または無効にする](https://support.google.com/a/answer/15004095?hl=ja)をご覧ください。
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+最終更新日 2026-04-29 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

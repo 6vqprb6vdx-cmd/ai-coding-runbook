@@ -1,63 +1,61 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ja
-fetched_at: 2026-06-15T06:17:34.924112+00:00
-title: "Gemini 3.1 Flash Image \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi
+fetched_at: 2026-06-22T06:31:16.614832+00:00
+title: "H\u00ecnh \u1ea3nh Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# Gemini 3.1 Flash Image
+# Hình ảnh Gemini 3.1 Flash
 
-**Nano Banana 2** は、主流の価格帯と低レイテンシで高品質な画像の生成と会話形式の編集を実現します。[Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-image?hl=ja) の
-高効率版として、スピードと
-大量のデベロッパー ユースケース向けに最適化されています。
+**Nano Banana 2** cung cấp tính năng tạo ảnh chất lượng cao và chỉnh sửa đàm thoại với mức giá phổ thông và độ trễ thấp. Đây là phiên bản có hiệu suất cao của [Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-image?hl=vi), được tối ưu hoá cho tốc độ và các trường hợp sử dụng của nhà phát triển với khối lượng lớn.
 
-**主な変更点は、以下のとおりです。**
+**Nội dung cập nhật chính:**
 
-- 新しい出力解像度オプション:
-  - 0.5K、2K、4K のサポートを追加（デフォルトは 1K）
-- 新しい画像検索グラウンディング:
-  - テキスト検索と画像検索の両方の結果を統合し、リアルタイムのウェブデータに基づいて生成
-  - 思考モードのオン / オフに対応
-- 新しいアスペクト比 1:4、4:1、1:8、8:1
-- アスペクト比の遵守を改善
-- 画質と一貫性を向上
-- i18n テキスト レンダリングを改善
+- Các lựa chọn mới về độ phân giải đầu ra:
+  - Hỗ trợ mới cho 0,5K, 2K và 4K, mặc định là 1K
+- Tính năng mới về việc xác định vị trí trong Tìm kiếm bằng hình ảnh:
+  - Tích hợp cả kết quả tìm kiếm bằng văn bản và hình ảnh để cung cấp thông tin cho quá trình tạo nội dung bằng dữ liệu web theo thời gian thực
+  - Có hỗ trợ khi bật hoặc tắt tính năng Suy nghĩ
+- Tỷ lệ khung hình mới 1:4, 4:1, 1:8 và 8:1
+- Cải thiện việc tuân thủ tỷ lệ khung hình
+- Cải thiện chất lượng và tính nhất quán của hình ảnh
+- Cải thiện khả năng kết xuất văn bản theo ngôn ngữ cụ thể
 
-[Google AI Studio で試す](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=ja)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=vi)
 
-## ドキュメント
+## Tài liệu
 
-機能と性能の詳細については、[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)のページをご覧ください。
+Truy cập trang [Tạo ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) để xem thông tin đầy đủ về các tính năng và chức năng.
 
 ## gemini-3.1-flash-image
 
-| プロパティ | 説明 |
+| Thuộc tính | Mô tả |
 | --- | --- |
-| id\_cardモデルコード | `gemini-3.1-flash-image` |
-| saveサポートされるデータタイプ | **入力**  テキストと画像 / PDF  **出力**  画像とテキスト |
-| token\_autoトークンの上限[[\*](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)] | **入力トークンの上限**  131,072  **出力トークンの上限**  32,768 |
-| handyman機能 | **音声生成**  サポート対象外  **Batch API**  サポート対象  **キャッシュ保存**  サポート対象外  **コードの実行**  サポート対象外  **ファイル検索**  サポート対象外  **関数呼び出し**  サポート対象外  **Google マップによるグラウンディング**  サポート対象外  **画像生成**  サポート対象  **Live API**  サポート対象外  **検索によるグラウンディング**  サポート対象  **構造化出力**  サポート対象外  **思考モード**  サポート対象  **URL コンテキスト**  サポート対象外 |
-| 123バージョン | [詳細については、モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - Stable: `gemini-3.1-flash-image` |
-| calendar\_month最新の更新 | 2026 年 2 月 |
-| cognition\_2ナレッジ カットオフ | 2025 年 1 月 |
+| id\_cardMã kiểu máy | `gemini-3.1-flash-image` |
+| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản và hình ảnh / PDF  **Đầu ra**  Hình ảnh và văn bản |
+| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072  **Giới hạn mã thông báo đầu ra**  32.768 |
+| handymanChức năng | **Tạo âm thanh**  Không được hỗ trợ  **Batch API**  Được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Gọi hàm**  Không được hỗ trợ  **Kết nối với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Được hỗ trợ  **Live API**  Không được hỗ trợ  **Tìm trong phần liên kết thực tế**  Được hỗ trợ  **Đầu ra có cấu trúc**  Không được hỗ trợ  **Tư duy**  Được hỗ trợ  **Bối cảnh URL**  Không được hỗ trợ |
+| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Ổn định: `gemini-3.1-flash-image` |
+| calendar\_monthThông tin cập nhật mới nhất | Tháng 2 năm 2026 |
+| cognition\_2Điểm cắt kiến thức | Tháng 1 năm 2025 |
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-05-28 UTC。
+Cập nhật lần gần đây nhất: 2026-05-28 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-28 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]

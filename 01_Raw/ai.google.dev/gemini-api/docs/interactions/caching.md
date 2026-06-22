@@ -1,51 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/caching?hl=ar
-fetched_at: 2026-06-15T06:27:37.391874+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/caching
+fetched_at: 2026-06-22T06:27:04.103457+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+# Context caching
 
-إرسال ملاحظات
+In a typical AI workflow, you might pass the same input tokens over and over to
+a model. The Gemini API offers implicit caching to optimize performance and costs.
 
-# التخزين المؤقت للسياق
+## Implicit caching
 
-في سير عمل نموذجي للذكاء الاصطناعي، قد يتم تمرير الرموز المميزة نفسها بشكل متكرر إلى أحد النماذج. توفّر Gemini API التخزين المؤقت الضمني لتحسين الأداء والتكاليف.
+Implicit caching is enabled by default for all Gemini 2.5 and newer models. We automatically
+pass on cost savings if your request hits caches. There is nothing you need to do
+in order to enable this. The minimum input
+token count for context caching is listed in the following table for each model:
 
-## التخزين المؤقت الضمني
-
-يتم تفعيل التخزين المؤقت الضمني تلقائيًا لجميع نماذج Gemini 2.5 والإصدارات الأحدث. ننقل تلقائيًا
-عروض التوفير في التكاليف إذا وصل طلبك إلى ذاكرات التخزين المؤقت. ليس عليك اتّخاذ أي إجراء لتفعيل هذه الميزة. يتم إدراج الحد الأدنى لعدد الرموز المميزة للإدخال المطلوب لتخزين السياق مؤقتًا في الجدول التالي لكل نموذج:
-
-| الطراز | الحد الأدنى لعدد الرموز المميزة |
+| Model | Min token limit |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| معاينة Gemini 3.1 Pro | 4096 |
+| Gemini 3.1 Pro Preview | 4096 |
 | Gemini 2.5 Flash | 2048 |
 | Gemini 2.5 Pro | 2048 |
 
-لزيادة فرصة حدوث نتيجة ذاكرة التخزين المؤقت الضمنية، اتّبِع الخطوات التالية:
+To increase the chance of an implicit cache hit:
 
-- جرِّب وضع المحتوى الكبير والشائع في بداية طلبك
-- محاولة إرسال طلبات تتضمّن بادئة مشابهة خلال فترة زمنية قصيرة
+- Try putting large and common contents at the beginning of your prompt
+- Try to send requests with similar prefix in a short amount of time
 
-يمكنك الاطّلاع على عدد الرموز المميزة التي تم العثور عليها في ذاكرة التخزين المؤقت في الحقل `usage_metadata` (Python) أو `usageMetadata` (JavaScript) ضمن عنصر الاستجابة.
+You can see the number of tokens which were cache hits in the response object's
+`usage_metadata` (Python) or `usageMetadata` (JavaScript) field.
 
-إرسال ملاحظات
+Send feedback
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-تاريخ التعديل الأخير: 2026-06-02 (حسب التوقيت العالمي المتفَّق عليه)
+Last updated 2026-06-18 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Need to tell us more?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-02 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

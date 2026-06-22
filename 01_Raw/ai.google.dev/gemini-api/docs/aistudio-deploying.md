@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ar
-fetched_at: 2026-06-15T06:28:03.615526+00:00
+fetched_at: 2026-06-22T06:29:10.438293+00:00
 title: "\u0627\u0644\u0646\u0634\u0631 \u0645\u0646 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,26 +18,26 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 # النشر من Google AI Studio
 
-يتيح لك Google AI Studio نشر تطبيقاتك المتكاملة مباشرةً من &quot;وضع الإنشاء&quot;. ويوفّر ذلك مسارًا سريعًا من النموذج الأوّلي إلى بيئة إنتاج مُدارة وقابلة للتوسيع.
+يتيح لك Google AI Studio نشر تطبيقاتك المتكاملة مباشرةً من "وضع الإنشاء". ويوفّر ذلك مسارًا سريعًا من النموذج الأوّلي إلى بيئة التشغيل الفعلي المُدارة والقابلة للتوسيع.
 
 ## خيارات النشر
 
-لتنفيذ تطبيقك من &quot;وضع الإنشاء&quot; في AI Studio، تعتمد المتطلبات على الفئة التي تستخدمها:
+لتنفيذ تطبيقك من "وضع الإنشاء" في AI Studio، تعتمد المتطلبات على الفئة التي تستخدمها:
 
 - [**فئة Google Cloud Starter**](https://docs.cloud.google.com/docs/starter-tier?hl=ar):
   تتيح لك نشر ما يصل إلى تطبيقَين كاملَي الميزات بدون الحاجة إلى إعداد مشروع على السحابة الإلكترونية أو حساب فوترة على Google Cloud.
 - **عملية النشر العادية**: تتطلّب مشروعًا على Google Cloud مرتبطًا بحسابك على AI Studio وتفعيل الفوترة في هذا المشروع.
 
-## لمحة عن "المستوى المبتدئ"
+## لمحة عن Starter Tier
 
 توفّر &quot;فئة المبتدئين&quot; في Google Cloud مسارًا مبسطًا لنشر التطبيقات على Google Cloud مباشرةً من Google AI Studio بدون الحاجة إلى إعداد بيئة Google Cloud كاملة أو حساب فوترة.
 
-يؤدي كل عملية نشر في Google AI Studio إلى إنشاء خدمة مقابلة في Cloud Run. تنطبق القيود التالية على الخدمات التي يتم نشرها في Google AI Studio باستخدام "حزمة المبتدئين":
+يؤدي كل عملية نشر في Google AI Studio إلى إنشاء خدمة مقابلة في Cloud Run. تنطبق القيود التالية على الخدمات التي يتم نشرها في Google AI Studio باستخدام "الفئة المبتدئة":
 
 - يمكنك نشر ما يصل إلى خدمتَين.
-- يتم نشر خدماتك في [منطقة واحدة من مناطق Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=ar).
+- يتم نشر خدماتك في [منطقة واحدة من Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=ar).
 
-## خطوات نشر المستوى المبتدئ
+## خطوات نشر Starter Tier
 
 بعد تصميم تطبيقك في "وضع الإنشاء"، يمكنك نشره باستخدام "الفئة المبتدئة" باتّباع الخطوات التالية:
 
@@ -49,14 +49,13 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## النشر العادي
 
-مع تطوّر تطبيقاتك، قد تحتاج إلى إمكانات تتجاوز تلك المتاحة في "الفئة المبتدئة"، مثل حصص أكبر أو موارد حوسبة إضافية أو منتجات أخرى من Google Cloud غير متوفّرة في "الفئة المبتدئة". للاستفادة من هذه الإمكانات، يمكنك تحويل مشروعك في "فئة المبتدئين" المُدارة بالكامل إلى مشروع عادي على Google Cloud.
+مع تطوّر تطبيقاتك، قد تحتاج إلى إمكانات تتجاوز تلك المتاحة في "الفئة المبتدئة"، مثل حصص أعلى أو موارد حوسبة أكبر أو منتجات أخرى من Google Cloud غير متوفّرة في "الفئة المبتدئة". وللاستفادة من هذه الإمكانات، يمكنك تحويل مشروعك المُدار بالكامل في "الفئة المبتدئة" إلى مشروع عادي على Google Cloud.
 
-يضمن ذلك إمكانية التوسّع بسلاسة بدون فقدان مستوى تقدّمك. اتّبِع الخطوات التالية من أجل
-[إنشاء حساب فوترة على Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=ar#create-new-billing-account)
+يضمن ذلك إمكانية التوسّع بسلاسة بدون فقدان مستوى تقدّمك. اتّبِع الخطوات
+[لإنشاء حساب فوترة على Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=ar#create-new-billing-account)
 والموافقة رسميًا على بنود خدمة Google Cloud العادية
-و[الترقية إلى مشروع Google Cloud عادي](https://docs.cloud.google.com/docs/starter-tier?hl=ar#upgradee).
-لمزيد من المعلومات، يُرجى الاطّلاع على
-[إعداد الحسابات المدفوعة](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ar#paid-setup).
+و[الترقية إلى مشروع على السحابة الإلكترونية عادي](https://docs.cloud.google.com/docs/starter-tier?hl=ar#upgradee).
+لمزيد من المعلومات، يُرجى الاطّلاع على [إعداد الحسابات المدفوعة](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ar#paid-setup).
 
 لمزيد من المعلومات عن فئات الفوترة، يُرجى الاطّلاع على [الفوترة](https://ai.google.dev/gemini-api/docs/billing?hl=ar).
 
@@ -79,8 +78,8 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-تاريخ التعديل الأخير: 2026-05-16 (حسب التوقيت العالمي المتفَّق عليه)
+تاريخ التعديل الأخير: 2026-06-16 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-16 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-16 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

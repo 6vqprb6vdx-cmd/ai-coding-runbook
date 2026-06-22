@@ -1,40 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=ar
-fetched_at: 2026-06-15T06:27:14.877938+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/thinking
+fetched_at: 2026-06-22T06:27:04.186395+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+# Gemini thinking
 
-إرسال ملاحظات
+The [Gemini 3 and 2.5 series models](https://ai.google.dev/gemini-api/docs/models) use a
+"thinking process" that significantly improves their reasoning and multi-step
+planning abilities, making them highly effective for complex tasks such as
+coding, advanced mathematics, and data analysis.
 
-# التفكير في Gemini
+When you use a thinking model, Gemini reasons internally before responding. The Interactions API surfaces this reasoning via `thought` steps, dedicated steps that appear chronologically alongside function calls, user inputs or model outputs in the `steps` array.
 
-تستخدم [نماذج Gemini 3 و2.5 سلسلة](https://ai.google.dev/gemini-api/docs/models?hl=ar)
-"عملية تفكير" تُحسِّن بشكل كبير قدرات الاستدلال والتخطيط المتعدّد الخطوات، ما يجعلها فعّالة للغاية في المهام المعقدة، مثل
-الترميز والرياضيات المتقدّمة وتحليل البيانات.
+Every thought step contains two fields:
 
-عند استخدام نموذج تفكير، يستدلّ Gemini داخليًا قبل الردّ. تعرض Interactions API هذا الاستدلال من خلال خطوات `thought`، وهي خطوات مخصّصة تظهر بترتيب زمني إلى جانب استدعاءات الدوال أو إدخالات المستخدم أو نواتج النموذج في مصفوفة `steps`.
-
-تحتوي كل خطوة تفكير على حقلَين:
-
-| الحقل | مطلوب أو اختياري | الوصف |
+| Field | Required | Description |
 | --- | --- | --- |
-| `signature` | ✅ نعم | تمثيل مشفّر لحالة الاستدلال الداخلي للنموذج يظهر دائمًا، حتى عندما يُجري النموذج الحد الأدنى من الاستدلال |
-| `summary` | ❌ لا | مصفوفة من المحتوى (نص و/أو صور) تلخّص الاستدلال قد تكون فارغة استنادًا إلى إعداد [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=ar)، أو ما إذا كان النموذج قد أجرى ما يكفي من الاستدلال، أو نوع المحتوى (على سبيل المثال، قد لا تتضمّن الصور الكامنة ملخّصات نصية) |
+| `signature` | ✅ Yes | An encrypted representation of the model's internal reasoning state. Always present, even when the model performs minimal reasoning. |
+| `summary` | ❌ No | An array of content (text and/or images) summarizing the reasoning. May be empty depending on the [`thinking_summaries`](https://ai.google.dev/api/interactions-api) config, whether the model performed enough reasoning, or the content type (for example, image latents may not have text summaries). |
 
-## التفاعلات مع التفكير
+## Interactions with thinking
 
-إنّ بدء تفاعل مع نموذج تفكير مشابه لأيّ طلب تفاعل آخر. حدِّد أحد [النماذج التي تتوافق مع التفكير](#thinking-levels) في الحقل `model`:
+Initiating an interaction with a thinking model is similar to any other interaction request. Specify one of the [models with thinking support](#thinking-levels) in the `model` field:
 
 ### Python
 
@@ -64,7 +61,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### راحة
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -77,10 +74,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## ملخّصات الأفكار
+## Thought summaries
 
-تقدّم ملخّصات الأفكار إحصاءات عن عملية الاستدلال الداخلي للنموذج.
-لا يتم عرض سوى الناتج النهائي تلقائيًا. يمكنك تفعيل ملخّصات الأفكار باستخدام `thinking_summaries`:
+Thought summaries provide insights into the model's internal reasoning process.
+By default, only the final output is returned. You can enable thought summaries
+with `thinking_summaries`:
 
 ### Python
 
@@ -147,7 +145,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### راحة
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -163,23 +161,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-قد تحتوي كتلة الأفكار **على توقيع فقط بدون ملخّص** في الحالات التالية:
+A thought block may contain **only a signature with no summary** in these cases:
 
-- الطلبات البسيطة التي لم يستدلّ فيها النموذج بما يكفي لإنشاء ملخّص
-- `thinking_summaries: "none"`، حيث يتم إيقاف الملخّصات بشكل صريح
-- قد لا تتضمّن أنواع معيّنة من محتوى الأفكار، مثل الصور، ملخّصات نصية
+- Simple requests, where the model didn't reason enough to generate a summary
+- `thinking_summaries: "none"`, where summaries are explicitly disabled
+- Certain thought content types, such as images, may not have text summaries
 
-يجب أن يتعامل الرمز البرمجي دائمًا مع كتل الأفكار التي يكون فيها `summary` فارغًا أو غير متوفّر.
+Your code should always handle thought blocks where `summary` is empty or absent.
 
-## البث مع التفكير
+## Streaming with thinking
 
-استخدِم البث لتلقّي ملخّصات الأفكار المتزايدة أثناء الإنشاء.
-يتم تسليم كتل الأفكار باستخدام أحداث Server-Sent Events (SSE) مع نوعَين مختلفَين من التغييرات الجزئية:
+Use streaming to receive incremental thought summaries during generation.
+Thought blocks are delivered using Server-Sent Events (SSE) with two distinct
+delta types:
 
-| نوع التغيير الجزئي | يحتوي على | وقت إرسال البيانات |
+| Delta type | Contains | When sent |
 | --- | --- | --- |
-| `thought_summary` | محتوى ملخّص نصي أو صورة | تغيير جزئي واحد أو أكثر مع ملخّص متزايد |
-| `thought_signature` | التوقيع المشفّر | آخر دلتا قبل `step.stop` |
+| `thought_summary` | Text or image summary content | One or more deltas with incremental summary |
+| `thought_signature` | The cryptographic signature | the last delta before `step.stop` |
 
 ### Python
 
@@ -264,7 +263,7 @@ for await (const event of stream) {
 }
 ```
 
-### راحة
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -282,7 +281,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-يستخدم الردّ على البث أحداث Server-Sent Events (SSE) ويتألف من خطوات وأحداث، على سبيل المثال:
+The streaming response uses Server-Sent Events (SSE) and is composed of steps
+and events, for example:
 
 ```
 event: interaction.created
@@ -313,18 +313,19 @@ event: done
 data: [DONE]
 ```
 
-## التحكّم في التفكير
+## Controlling thinking
 
-تستخدم نماذج Gemini التفكير الديناميكي تلقائيًا، ما يؤدي إلى تعديل مقدار جهد الاستدلال تلقائيًا استنادًا إلى مدى تعقيد الطلب. يمكنك التحكّم في هذا السلوك باستخدام المعلمة `thinking_level`.
+Gemini models engage in dynamic thinking by default, automatically adjusting
+the amount of reasoning effort based on the complexity of the request. You can control this behavior using the `thinking_level` parameter.
 
-| الطراز | التفكير التلقائي | المستويات المتوافقة |
+| Model | Default Thinking | Levels Supported |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | مفعّل (مرتفع) | منخفض، متوسط، مرتفع |
-| gemini-3-flash-preview | مفعّل (مرتفع) | أدنى، منخفض، متوسط، مرتفع |
-| gemini-3-pro-preview | مفعّل (مرتفع) | منخفض، مرتفع |
-| gemini-2.5-pro | مفعّل | منخفض، متوسط، مرتفع |
-| gemini-2.5-flash | مفعّل | منخفض، متوسط، مرتفع |
-| gemini-2.5-flash-lite | غير مفعّل | منخفض، متوسط، مرتفع |
+| gemini-3.1-pro-preview | On (high) | low, medium, high |
+| gemini-3-flash-preview | On (high) | minimal, low, medium, high |
+| gemini-3-pro-preview | On (high) | low, high |
+| gemini-2.5-pro | On | low, medium, high |
+| gemini-2.5-flash | On | low, medium, high |
+| gemini-2.5-flash-lite | Off | low, medium, high |
 
 ### Python
 
@@ -360,7 +361,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### راحة
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -376,27 +377,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## توقيعات الأفكار
+## Thought signatures
 
-توقيعات الأفكار هي تمثيلات مشفّرة للاستدلال الداخلي للنموذج. وهي مطلوبة للحفاظ على استمرارية الاستدلال في التفاعلات المتعدّدة الأدوار.
+Thought signatures are encrypted representations of the model's internal reasoning. They are required to maintain reasoning continuity across multi-turn interactions.
 
-تسهّل Interactions API التعامل مع توقيعات الأفكار بشكل كبير مقارنةً بـ `generateContent` API.
+The Interactions API makes handling thought signatures much simpler than the `generateContent` API.
 
-### الوضع الذي يحفظ الحالة (مقترَح)
+### Stateful mode (Recommended)
 
-تلقائيًا، عند استخدام Interactions API في الوضع الذي يحفظ الحالة (من خلال ضبط `store: true` وتمرير `previous_interaction_id` في الأدوار اللاحقة)، يدير الخادم تلقائيًا حالة المحادثة، بما في ذلك جميع كتل الأفكار والتوقيعات. في هذا الوضع، ليس عليك إجراء أيّ شيء بشأن التوقيعات. تتم معالجتها بالكامل على جانب الخادم.
+By default, when you use the Interactions API in stateful mode (by setting `store: true` and passing the `previous_interaction_id` in subsequent turns), the server automatically manages the conversation state, including all thought blocks and signatures. In this mode, you do not need to do anything regarding signatures. They are handled entirely on the server side.
 
-### الوضع الذي لا يحفظ الحالة
+### Stateless mode
 
-إذا كنت تدير حالة المحادثة بنفسك (الوضع الذي لا يحفظ الحالة) وتمرِّر السجلّ الكامل للإدخالات والنواتج في كل طلب:
+If you are managing the conversation state yourself (stateless mode) and passing the full history of inputs and outputs in each request:
 
-- **يجب** دائمًا إعادة إرسال جميع كتل `thought` تمامًا كما تم استلامها من النموذج.
-- **لا** يجب إزالة كتل الأفكار أو تعديلها من السجلّ، لأنّها تحتوي على التوقيعات المطلوبة ليواصل النموذج استدلاله.
-- عند التبديل بين النماذج ضمن جلسة، يجب أن تظل تعيد إرسال كتل الأفكار الخاصة بالنموذج السابق. تتولّى الأنظمة الخلفية إدارة التوافق.
+- You **MUST** always resend all `thought` blocks exactly as they were received from the model.
+- You should **NOT** remove or modify thought blocks from the history, as they contain the signatures required for the model to continue its reasoning.
+- When switching models within a session, you should still resend the previous model's thought blocks. The backend manages compatibility.
 
-## الأسعار
+## Pricing
 
-عند تفعيل التفكير، يكون سعر الردّ هو مجموع رموز الإخراج ورموز التفكير. يمكنك الحصول على إجمالي عدد رموز التفكير التي تم إنشاؤها من حقل `total_thought_tokens`.
+When thinking is turned on, response pricing is the sum of output
+tokens and thinking tokens. You can get the total number of generated thinking
+tokens from the `total_thought_tokens` field.
 
 ### Python
 
@@ -412,33 +415,35 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-تُنشئ نماذج التفكير أفكارًا كاملة لتحسين جودة الردّ النهائي
-، ثم تعرض [ملخّصات](#summaries) لتقديم إحصاءات عن عملية التفكير. تستند الأسعار إلى رموز التفكير الكاملة التي يحتاج النموذج إلى إنشائها، على الرغم من أنّ واجهة برمجة التطبيقات لا تعرض سوى الملخّص.
+Thinking models generate full thoughts to improve the quality of the final
+response, and then output [summaries](#summaries) to provide insight into the
+thought process. Pricing is based on the full thought tokens the model needs to
+generate, despite only the summary being output from the API.
 
-يمكنك الاطّلاع على مزيد من المعلومات عن الرموز في دليل [احتساب الرموز](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=ar).
+You can learn more about tokens in the [Token counting](https://ai.google.dev/gemini-api/docs/interactions/tokens) guide.
 
-## أفضل الممارسات
+## Best practices
 
-استخدِم نماذج التفكير بكفاءة من خلال اتّباع هذه الإرشادات.
+Use thinking models efficiently by following these guidelines.
 
-- **مراجعة الاستدلال**: حلِّل ملخّصات الأفكار لفهم حالات الفشل وتحسين الطلبات.
-- **التحكّم في ميزانية التفكير**: اطلب من النموذج التفكير بشكل أقل في النواتج الطويلة لتوفير الرموز.
-- **المهام البسيطة**: استخدِم الحد الأدنى من التفكير لاسترداد الحقائق أو التصنيف (على سبيل المثال، "أين تم تأسيس DeepMind؟").
-- **المهام المتوسّطة**: استخدِم التفكير التلقائي لمقارنة المفاهيم أو الاستدلال الإبداعي (على سبيل المثال، مقارنة السيارات الكهربائية والسيارات الهجينة).
-- **المهام المعقدة**: استخدِم الحد الأقصى من التفكير للترميز المتقدّم أو الرياضيات أو التخطيط المتعدّد الخطوات (على سبيل المثال، حلّ مسائل الرياضيات في مسابقة AIME).
+- **Review reasoning**: Analyze thought summaries to understand failures and improve prompts.
+- **Control thinking budget**: Prompt the model to think less for lengthy outputs to save tokens.
+- **Simple tasks**: Use minimal thinking for fact retrieval or classification (e.g., "Where was DeepMind founded?").
+- **Moderate tasks**: Use default thinking for comparing concepts or creative reasoning (e.g., Compare electric and hybrid cars).
+- **Complex tasks**: Use maximum thinking for advanced coding, math, or multi-step planning (e.g., Solve AIME math problems).
 
-## الخطوات التالية
+## What's next
 
-- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=ar): الردود النصية الأساسية
-- [استدعاء الدالة](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=ar): الاتصال بالأدوات
-- [دليل Gemini 3](https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=ar): الميزات الخاصة بالنموذج
+- [Text generation](https://ai.google.dev/gemini-api/docs/interactions/text-generation): Basic text responses
+- [Function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling): Connect to tools
+- [Gemini 3 guide](https://ai.google.dev/gemini-api/docs/interactions/gemini-3): Model-specific features
 
-إرسال ملاحظات
+Send feedback
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
+Last updated 2026-06-18 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Need to tell us more?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

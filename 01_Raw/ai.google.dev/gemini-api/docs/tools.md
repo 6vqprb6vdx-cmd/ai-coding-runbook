@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/tools?hl=pl
-fetched_at: 2026-06-15T06:27:02.390053+00:00
+fetched_at: 2026-06-22T06:27:51.150431+00:00
 title: "Korzystanie z\u00a0narz\u0119dzi za pomoc\u0105 interfejsu Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

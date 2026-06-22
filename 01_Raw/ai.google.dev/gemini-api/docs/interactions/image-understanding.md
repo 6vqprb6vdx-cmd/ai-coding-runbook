@@ -1,39 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=zh-TW
-fetched_at: 2026-06-15T06:28:27.692707+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/image-understanding
+fetched_at: 2026-06-22T06:30:47.559645+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+# Image understanding
 
-提供意見
+Gemini models are built to be multimodal from the ground up, unlocking a wide
+range of image processing and computer vision tasks including but not limited to
+image captioning, classification, and visual question answering without having
+to train specialized ML models.
 
-# 圖像解讀
+In addition to their general multimodal capabilities, Gemini models offer
+**enhanced accuracy** for specific use cases like [object detection](#object-detection) and [segmentation](#segmentation), through additional
+training.
 
-Gemini 模型從一開始就建構於多模態的基礎上，因此可執行各種圖像處理和電腦視覺工作，包括但不限於生成圖像說明、分類和回答圖像問題，無須訓練專門的機器學習模型。
+## Passing images to Gemini
 
-除了提供一般多模態功能，Gemini 模型還透過額外訓練，針對特定用途 (例如[物件偵測](#object-detection)和[區隔](#segmentation)) **提升準確度**。
+You can provide images as input to Gemini using several methods:
 
-## 將圖片傳送給 Gemini
+- [Passing image using URL](#url-image): Ideal for publicly accessible images.
+- [Passing inline image data](#inline-image): For base64-encoded image data.
+- [Uploading images using the File API](#upload-image): Recommended for
+  larger files or for reusing images across multiple requests.
 
-你可以透過下列幾種方式，將圖片做為 Gemini 的輸入內容：
+### Passing image using URL
 
-- [使用網址傳遞圖片](#url-image)：適合公開存取的圖片。
-- [傳遞內嵌圖片資料](#inline-image)：適用於 base64 編碼的圖片資料。
-- [使用 File API 上傳圖片](#upload-image)：建議用於較大的檔案，或在多個要求中重複使用圖片。
-
-### 使用網址傳送圖片
-
-您可以使用 [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=zh-tw) 上傳圖片，並在要求中傳遞圖片：
+You can upload an image using the [Files API](https://ai.google.dev/gemini-api/docs/interactions/files) and pass it
+in the request:
 
 ### Python
 
@@ -105,9 +108,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 傳遞內嵌圖片資料
+### Passing inline image data
 
-您可以提供採用 Base64 編碼的字串做為圖片資料：
+You can provide image data as base64-encoded strings:
 
 ### Python
 
@@ -187,9 +190,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 使用 File API 上傳圖片
+### Uploading images using the File API
 
-如要處理大型檔案或重複使用同一張圖片，請使用 Files API。請參閱 [Files API 指南](https://ai.google.dev/gemini-api/docs/interactions/files?hl=zh-tw)。
+For large files or to be able to use the same image file repeatedly, use the
+Files API. See the [Files API guide](https://ai.google.dev/gemini-api/docs/interactions/files).
 
 ### Python
 
@@ -263,9 +267,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 使用多張圖片做為提示
+## Prompting with multiple images
 
-您可以在單一提示中提供多張圖片，方法是在 `input` 陣列中加入多個圖片物件：
+You can provide multiple images in a single prompt by including multiple image
+objects in the `input` array:
 
 ### Python
 
@@ -344,9 +349,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 物件偵測
+## Object detection
 
-模型經過訓練後，可偵測圖片中的物件並取得定界框座標。座標會根據圖片尺寸縮放至 [0, 1000]。您需要根據原始圖片大小，縮放這些座標。
+Models are trained to detect objects in an
+image and get their bounding box coordinates. The coordinates, relative to image
+dimensions, scale to [0, 1000]. You need to descale these coordinates based on
+your original image size.
 
 ### Python
 
@@ -468,13 +476,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-如需更多範例，請參閱 [Gemini 教戰手冊](https://github.com/google-gemini/cookbook)中的下列筆記本：
+For more examples, check following notebooks in the [Gemini Cookbook](https://github.com/google-gemini/cookbook):
 
-## 區隔
+## Segmentation
 
-從 Gemini 2.5 開始，模型不僅能偵測項目，還能區隔項目並提供輪廓遮罩。
+Starting with Gemini 2.5, models not only detect items but also segment them
+and provide their contour masks.
 
-模型會預測 JSON 清單，其中每個項目都代表區隔遮罩。每個項目都有定界框 (「`box_2d`」)，格式為 `[y0, x0, y1, x1]`，其中包含介於 0 到 1000 之間的標準化座標、可識別物件的標籤 (「`label`」)，以及定界框內的區隔遮罩 (以 Base64 編碼的 PNG 格式，是值介於 0 到 255 之間的機率地圖)。
+The model predicts a JSON list, where each item represents a segmentation mask.
+Each item has a bounding box ("`box_2d`") in the format `[y0, x0, y1, x1]` with
+normalized coordinates between 0 and 1000, a label ("`label`") that identifies
+the object, and finally the segmentation mask inside the bounding box, as base64
+encoded png that is a probability map with values between 0 and 255.
 
 ### Python
 
@@ -616,75 +629,94 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![桌上擺著杯子蛋糕，木製和玻璃物品以亮色標示](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg?hl=zh-tw)
+![A table with cupcakes, with the wooden and glass objects highlighted](https://ai.google.dev/static/gemini-api/docs/images/segmentation.jpg)
 
-含有物件和區隔遮罩的區隔輸出範例
+An example segmentation output with objects and segmentation masks
 
-## 支援的圖片格式
+## Supported image formats
 
-Gemini 支援下列圖片格式 MIME 類型：
+Gemini supports the following image format MIME types:
 
 - PNG - `image/png`
 - JPEG - `image/jpeg`
-- WebP - `image/webp`
+- WEBP - `image/webp`
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-如要瞭解其他檔案輸入方式，請參閱「[檔案輸入方式](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=zh-tw)」指南。
+To learn about other file input methods, see the
+[File input methods](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods) guide.
 
-## 功能
+## Capabilities
 
-所有 Gemini 模型版本都是多模態模型，可用於各種圖像處理和電腦視覺工作，包括但不限於圖像說明、視覺問答、圖像分類、物件偵測和分割。
+All Gemini model versions are multimodal and can be utilized in a wide range
+of image processing and computer vision tasks including but not limited to
+image captioning, visual question and answering, image classification,
+object detection and segmentation.
 
-視品質和效能需求而定，Gemini 可減少使用專業機器學習模型的需求。
+Gemini can reduce the need to use specialized ML models depending on your
+quality and performance requirements.
 
-最新模型版本經過特別訓練，除了強化[物件偵測](#object-detection)和[區隔](#segmentation)等一般功能外，還能提升特定工作的準確度。
+The latest model versions are specifically trained improve accuracy of
+specialized tasks in addition to generic capabilities, like enhanced
+[object detection](#object-detection) and [segmentation](#segmentation).
 
-## 限制和重要技術資訊
+## Limitations and key technical information
 
-### 檔案限制
+### File limit
 
-Gemini 模型每項要求最多可支援 3,600 個圖片檔案。
+Gemini models support a maximum of 3,600 image files per request.
 
-### 計算權杖
+### Token calculation
 
-- 如果兩個維度都 <= 384 像素，則為 258 個權杖。
-  較大的圖片會分割成 768x768 像素的圖塊，每個圖塊需支付 258 個權杖。
+- 258 tokens if both dimensions <= 384 pixels.
+  Larger images are tiled into 768x768 pixel tiles, each costing 258 tokens.
 
-計算圖塊數量的粗略公式如下：
+A rough formula for calculating the number of tiles is as follows:
 
-- 計算裁剪單元大小 (約為 `floor(min(width, height)` / 1.5)。
-- 將每個維度除以裁剪單元大小，然後相乘，即可取得圖塊數量。
+- Calculate the crop unit size which is roughly: `floor(min(width, height)` / 1.5).
+- Divide each dimension by the crop unit size and multiply together to get the
+  number of tiles.
 
-舉例來說，如果圖片尺寸為 960x540，裁剪單位大小為 360。將每個維度除以 360，圖塊數量為 3 \* 2 = 6。
+For example, for an image of dimensions 960x540 would have a crop unit size
+of 360. Divide each dimension by 360 and the number of tile is 3 \* 2 = 6.
 
-### 媒體解析度
+### Media resolution
 
-Gemini 3 推出 `media_resolution` 參數，可精細控管多模態視覺處理作業。`media_resolution` 參數會決定**每個輸入圖片或影片影格分配到的詞元數量上限。**
-解析度越高，模型就越能辨識細小文字或細節，但也會增加權杖用量和延遲時間。
+Gemini 3 introduces granular control over multimodal vision processing with the
+`media_resolution` parameter. The `media_resolution` parameter determines the
+**maximum number of tokens allocated per input image or video frame.**
+Higher resolutions improve the model's ability to
+read fine text or identify small details, but increase token usage and latency.
 
-## 提示與最佳做法
+## Tips and best practices
 
-- 確認圖片已正確旋轉。
-- 使用清晰的圖片，避免模糊不清。
-- 使用含有文字的單一圖片時，請將文字提示詞放在 `input` 陣列中的圖片*前面*。
+- Verify that images are correctly rotated.
+- Use clear, non-blurry images.
+- When using a single image with text, place the text prompt *before* the image in the `input` array.
 
-## 後續步驟
+## What's next
 
-本指南說明如何上傳圖片檔案，以及如何從圖片輸入內容生成文字輸出內容。如要進一步瞭解相關內容，請參閱下列資源：
+This guide shows you how to upload image files and generate text outputs
+from image inputs. To learn more, see the following resources:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files?hl=zh-tw)：進一步瞭解如何上傳及管理檔案，以供 Gemini 使用。
-- [系統指令](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=zh-tw#system-instructions)：
-  系統指令可根據特定需求和用途，引導模型行為。
-- [檔案提示策略](https://ai.google.dev/gemini-api/docs/interactions/files?hl=zh-tw#prompt-guide)：Gemini API 支援使用文字、圖片、音訊和影片資料提示，也就是多模態提示。
-- [安全指南](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-tw)：生成式 AI 模型有時會產生出乎意料的輸出內容，例如不準確、有偏見或令人反感的內容。後續處理和人工評估是不可或缺的環節，有助於降低這類輸出內容造成危害的風險。
+- [Files API](https://ai.google.dev/gemini-api/docs/interactions/files): Learn more about uploading and managing files for use with Gemini.
+- [System instructions](https://ai.google.dev/gemini-api/docs/interactions/text-generation#system-instructions):
+  System instructions let you steer the behavior of the model based on your
+  specific needs and use cases.
+- [File prompting strategies](https://ai.google.dev/gemini-api/docs/interactions/files#prompt-guide): The
+  Gemini API supports prompting with text, image, audio, and video data, also
+  known as multimodal prompting.
+- [Safety guidance](https://ai.google.dev/gemini-api/docs/safety-guidance): Sometimes generative
+  AI models produce unexpected outputs, such as outputs that are inaccurate,
+  biased, or offensive. Post-processing and human evaluation are essential to
+  limit the risk of harm from such outputs.
 
-提供意見
+Send feedback
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-上次更新時間：2026-05-28 (世界標準時間)。
+Last updated 2026-06-18 UTC.
 
-想進一步說明嗎？
+Need to tell us more?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-28 (世界標準時間)。"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

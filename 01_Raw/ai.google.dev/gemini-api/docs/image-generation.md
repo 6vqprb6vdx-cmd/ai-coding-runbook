@@ -1,112 +1,107 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=id
-fetched_at: 2026-06-15T06:28:56.899316+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=vi
+fetched_at: 2026-06-22T06:30:00.597821+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Pembuatan gambar Nano Banana
+# Tạo hình ảnh bằng Nano Banana
 
-Berikan perintah untuk membuat prototipe aplikasi yang berfungsi penuh dan memiliki UI lengkap, serta lihat
-Nano Banana 2 yang terintegrasi dengan alat, data, dan ekosistem Gemini di dunia nyata. Semua itu dilakukan sebelum menulis satu baris kode pun.
+Đưa ra câu lệnh để tạo nguyên mẫu cho các ứng dụng đầy đủ chức năng, hoàn chỉnh về giao diện người dùng và xem Nano Banana 2 được tích hợp với các công cụ, dữ liệu trong thế giới thực và hệ sinh thái Gemini. Tất cả những việc này đều diễn ra trước khi bạn viết một dòng mã.
 
-- [Mencoba aplikasi Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=id)
-- Atau buat sendiri dari perintah:
+- [Dùng thử ứng dụng Nano Banana 2](https://aistudio.google.com/apps/bundled/pet_passport?hl=vi)
+- Hoặc tạo hình ảnh của riêng bạn từ câu lệnh:
 
-- ![majalah](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![tạp chí](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
   ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![pulihkan](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![pisang](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![artikel](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![anjing](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![isometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![majalah](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![khôi phục](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![quả chuối](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+  ![quán cà phê](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![bài viết](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![chó](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![đẳng cự](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![tạp chí](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Dibuat oleh Nano Banana 2
+  Do Nano Banana 2 tạo
 
-  **Perintah:** "Foto sampul majalah glossy, sampul biru minimalis memiliki kata-kata Nano Banana yang besar dan tebal. Teks menggunakan font serif dan mengisi tampilan. Tidak ada teks lain. Di depan teks terdapat potret seseorang yang mengenakan gaun elegan dan minimalis. Dia memegang angka 2 dengan lucu, yang merupakan titik fokus.
+  **Câu lệnh:** "Ảnh chụp một trang bìa tạp chí bóng bẩy, trang bìa màu xanh dương tối giản có dòng chữ Nano Banana lớn và đậm. Văn bản có phông chữ có chân và lấp đầy khung hiển thị. Không có văn bản nào khác. Phía trước văn bản là ảnh chân dung một người mặc chiếc váy thanh lịch và tối giản. Cô bé đang cầm số 2 một cách tinh nghịch, đây là tâm điểm của bức ảnh.
     
-  Letakkan nomor masalah dan tanggal "Feb 2026" di sudut bersama dengan kode batang. Majalah tersebut berada di rak di depan dinding yang diplester berwarna oranye, di dalam toko desainer."
+  Đặt số phát hành và ngày "tháng 2 năm 2026" ở góc cùng với mã vạch. Tạp chí này nằm trên một chiếc kệ dựa vào bức tường trát vữa màu cam, bên trong một cửa hàng thiết kế."
 
-  Buat [foto produk profesional](#4_product_mockups_commercial_photography) di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
+  Tạo [ảnh chụp sản phẩm chuyên nghiệp](#4_product_mockups_commercial_photography) trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=vi)
 - ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Dibuat oleh Nano Banana Pro
+  Do Nano Banana Pro tạo
 
-  **Perintah:** "Tampilkan adegan kartun 3D miniatur isometrik yang jelas, dilihat dari atas pada sudut 45°, tentang London, yang menampilkan landmark dan elemen arsitektur paling ikonik di kota tersebut. Gunakan tekstur lembut dan halus dengan material PBR yang realistis serta pencahayaan dan bayangan yang lembut dan tampak nyata. Integrasikan kondisi cuaca saat ini langsung ke lingkungan kota untuk menciptakan suasana atmosfer yang imersif. Gunakan komposisi yang bersih dan minimalis dengan latar belakang warna solid yang lembut. Di bagian tengah atas, tempatkan judul "London" dalam teks tebal besar, ikon cuaca yang terlihat jelas di bawahnya, lalu tanggal (teks kecil) dan suhu (teks sedang). Semua teks harus berada di tengah dengan jarak yang konsisten, dan mungkin sedikit tumpang-tindih dengan bagian atas bangunan."
+  **Câu lệnh:** "Tạo một cảnh hoạt hình 3D thu nhỏ, rõ nét, đẳng cự, góc nhìn 45° từ trên xuống về London, có các địa danh và yếu tố kiến trúc tiêu biểu nhất. Sử dụng các hoạ tiết tinh tế, mềm mại với chất liệu PBR chân thực, ánh sáng và bóng đổ nhẹ nhàng, sống động. Tích hợp điều kiện thời tiết hiện tại trực tiếp vào môi trường thành phố để tạo ra một bầu không khí sống động. Sử dụng bố cục tối giản, gọn gàng với nền có màu đồng nhất và dịu nhẹ. Ở phía trên cùng ở giữa, hãy đặt tiêu đề "London" bằng văn bản in đậm cỡ lớn, một biểu tượng thời tiết nổi bật bên dưới, sau đó là ngày (chữ nhỏ) và nhiệt độ (chữ cỡ trung). Tất cả văn bản phải được căn giữa với khoảng cách nhất quán và có thể hơi chồng lên phần trên của các toà nhà."
 
-  Pelajari lebih lanjut [perujukan penelusuran](#use-with-grounding) dan coba di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
+  Tìm hiểu thêm về tính năng [căn cứ vào thông tin tìm kiếm](#use-with-grounding) và dùng thử tính năng này trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=vi)
 - ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Dibuat oleh Nano Banana 2
+  Do Nano Banana 2 tạo
 
-  **Perintah:** "Gunakan penelusuran gambar untuk menemukan gambar akurat burung quetzal yang indah. Buat wallpaper 3:2 yang indah dari burung ini, dengan gradien alami dari atas ke bawah dan komposisi minimal."
+  **Câu lệnh:** "Sử dụng tính năng tìm kiếm hình ảnh để tìm hình ảnh chính xác về chim đuôi quạt rực rỡ. Tạo một hình nền đẹp mắt cho chú chim này theo tỷ lệ 3:2, có hiệu ứng chuyển màu tự nhiên từ trên xuống dưới và bố cục tối giản."
 
-  Menggunakan perujukan [Penelusuran Gambar](#image-search) Google dengan Nano Banana 2. Coba di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
-- ![pisang](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  Sử dụng tính năng [Tìm kiếm hình ảnh](#image-search) trên Google cùng với Nano Banana 2. Dùng thử trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=vi)
+- ![quả chuối](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Dibuat oleh Nano Banana Pro
+  Do Nano Banana Pro tạo
 
-  **Perintah:** "Letakkan logo ini pada iklan kelas atas untuk parfum beraroma pisang. Logo terintegrasi sempurna ke dalam botol."
+  **Câu lệnh:** "Đặt biểu trưng này lên một quảng cáo cao cấp cho nước hoa có mùi chuối. Biểu trưng được tích hợp hoàn hảo vào chai."
 
-  Coba [preservasi detail dengan fidelitas tinggi](#5_high-fidelity_detail_preservation) Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
-- ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  Dùng thử tính năng [giữ lại chi tiết có độ trung thực cao](#5_high-fidelity_detail_preservation) của Nano Banana trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=vi)
+- ![quán cà phê](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Dibuat oleh Nano Banana Pro
+  Do Nano Banana Pro tạo
 
-  **Perintah:** "Foto suasana sehari-hari di kafe ramai yang menyajikan sarapan. Di latar depan ada seorang pria anime berambut biru, salah satu orang adalah sketsa pensil, yang lain adalah orang claymation"
+  **Câu lệnh:** "Một bức ảnh chụp cảnh sinh hoạt thường ngày tại một quán cà phê đông đúc phục vụ bữa sáng. Ở tiền cảnh là một người đàn ông trong phim hoạt hình có mái tóc màu xanh dương, một trong số những người này là bản phác thảo bằng bút chì, người còn lại là nhân vật hoạt hình bằng đất sét"
 
-  Bereksperimen dengan berbagai [gaya artistik](#3_style_transfer) menggunakan Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
-- ![artikel](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  Thử nghiệm nhiều [phong cách nghệ thuật](#3_style_transfer) bằng Nano Banana trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=vi)
+- ![bài viết](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Dibuat oleh Nano Banana Pro
+  Do Nano Banana Pro tạo
 
-  **Perintah:** "Gunakan penelusuran untuk mengetahui tanggapan terhadap peluncuran Gemini 3 Flash. Gunakan informasi ini untuk menulis artikel singkat tentangnya (dengan judul). Tampilkan foto artikel sebagaimana muncul dalam majalah glossy yang berfokus pada desain. Gambar tersebut adalah foto satu halaman yang dilipat, yang menampilkan artikel tentang Gemini 3 Flash. Satu foto utama. Judul dalam huruf serif."
+  **Câu lệnh:** "Dùng tính năng tìm kiếm để biết phản ứng của mọi người về việc ra mắt Gemini 3 Flash. Hãy dùng thông tin này để viết một bài viết ngắn về chủ đề đó (có tiêu đề). Trả về ảnh của bài viết như xuất hiện trong một tạp chí bóng bẩy tập trung vào thiết kế. Đây là ảnh chụp một trang giấy được gấp lại, cho thấy bài viết về Gemini 3 Flash. Một ảnh chính. Dòng tiêu đề có chân."
 
-  Membuat [teks yang akurat](#3_accurate_text_in_images) dari [penelusuran](#use-with-grounding). Coba Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
-- ![anjing](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  Tạo [văn bản chính xác](#3_accurate_text_in_images) từ [nội dung tìm kiếm](#use-with-grounding). Dùng thử Nano Banana trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=vi)
+- ![chó](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Dibuat oleh Nano Banana Pro
+  Do Nano Banana Pro tạo
 
-  **Perintah:** "Ikon yang merepresentasikan lucu. Latar belakangnya berwarna putih. Buat ikon dalam gaya 3D yang berwarna-warni dan terasa nyata. Tidak ada teks."
+  **Câu lệnh:** "Một biểu tượng đại diện cho một chú chó dễ thương. Nền có màu trắng. Tạo các biểu tượng theo phong cách 3D nhiều màu sắc và có kết cấu. Không có văn bản."
 
-  Buat [ikon, stiker, dan aset](#2_stylized_illustrations_stickers) dengan Nano Banana di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=id)
-- ![isometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  Tạo [biểu tượng, hình dán và thành phần](#2_stylized_illustrations_stickers) bằng Nano Banana trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2%2Csearch_grounding&hl=vi)
+- ![đẳng cự](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Dibuat oleh Nano Banana 2
+  Do Nano Banana 2 tạo
 
-  **Perintah:** "Buat foto yang isometrik sempurna. Ini bukan miniatur, melainkan foto yang diambil dan kebetulan isometrik sempurna. Ini adalah foto taman modern yang indah. Terdapat kolam renang besar berbentuk 2 dan kata-kata: Nano Banana 2."
+  **Câu lệnh:** "Tạo một bức ảnh có góc nhìn hoàn toàn đẳng cự. Đây không phải là một bức ảnh thu nhỏ, mà là một bức ảnh chụp tình cờ có góc nhìn hoàn toàn đẳng cự. Đây là bức ảnh về một khu vườn hiện đại tuyệt đẹp. Có một bể bơi lớn có hình số 2 và dòng chữ: Nano Banana 2."
 
-  Mencoba [pembuatan gambar fotorealistik](#1_photorealistic_scenes) di [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=id)
+  Thử [tạo hình ảnh siêu thực](#1_photorealistic_scenes) trong [AI Studio](https://aistudio.google.com/apps?features=nano_banana_2&hl=vi)
 
-**Nano Banana** adalah nama untuk kemampuan pembuatan gambar native Gemini.
-Gemini dapat membuat dan memproses gambar melalui percakapan
-dengan teks, gambar, atau kombinasi keduanya. Dengan begitu, Anda dapat membuat, mengedit, dan melakukan iterasi pada visual dengan kontrol yang belum pernah ada sebelumnya.
+**Nano Banana** là tên gọi của các tính năng tạo hình ảnh gốc của Gemini.
+Gemini có thể tạo và xử lý hình ảnh theo cách đàm thoại bằng văn bản, hình ảnh, video hoặc kết hợp các loại nội dung này. Điều này giúp bạn tạo, chỉnh sửa và lặp lại các hình ảnh với khả năng kiểm soát chưa từng có.
 
-Nano Banana mengacu pada tiga model berbeda yang tersedia di Gemini API:
+Nano Banana đề cập đến 3 mô hình riêng biệt có trong Gemini API:
 
-- **Nano Banana 2**: Model [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=id) (`gemini-3.1-flash-image`). Model ini berfungsi sebagai
-  mitra berefisiensi tinggi untuk Gemini 3.1 Pro Image, yang dioptimalkan untuk kecepatan dan
-  kasus penggunaan developer bervolume tinggi.
-- **Nano Banana Pro**: Model [Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=id)
-  (`gemini-3-pro-image`). Model ini dirancang untuk produksi aset profesional, menggunakan penalaran tingkat lanjut ("Berpikir") untuk mengikuti petunjuk yang kompleks dan merender teks dengan fidelitas tinggi.
-- **Nano Banana**: Model [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=id) (`gemini-2.5-flash-image`). Model ini dirancang untuk kecepatan dan efisiensi, serta dioptimalkan untuk tugas-tugas bervolume tinggi dan latensi rendah.
+- **Nano Banana 2**: Mô hình [Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi) (`gemini-3.1-flash-image`). Mô hình này là phiên bản hiệu suất cao của Gemini 3 Pro Image, được tối ưu hoá về tốc độ và các trường hợp sử dụng của nhà phát triển với khối lượng lớn.
+- **Nano Banana Pro**: Mô hình [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=vi) (`gemini-3-pro-image`). Mô hình này được thiết kế để sản xuất tài sản chuyên nghiệp, sử dụng khả năng suy luận nâng cao ("Tư duy") để làm theo các chỉ dẫn phức tạp và hiển thị văn bản có độ trung thực cao.
+- **Nano Banana**: Mô hình [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi) (`gemini-2.5-flash-image`). Mô hình này được thiết kế để có tốc độ và hiệu suất cao, đồng thời được tối ưu hoá cho các tác vụ có khối lượng lớn và độ trễ thấp.
 
-Semua gambar yang dihasilkan menyertakan [watermark SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id).
+Tất cả hình ảnh được tạo đều có [hình mờ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi).
 
-## Pembuatan gambar (teks ke gambar)
+## Tạo hình ảnh (chuyển văn bản thành hình ảnh)
 
 ### Python
 
@@ -295,16 +290,15 @@ curl -s -X POST \
   }'
 ```
 
-## Pengeditan gambar (text-and-image-to-image)
+## Chỉnh sửa hình ảnh (chuyển văn bản và hình ảnh thành hình ảnh)
 
-**Pengingat**: Pastikan Anda memiliki hak yang diperlukan atas gambar apa pun yang Anda upload.
-Jangan membuat konten yang melanggar hak orang lain, termasuk video atau gambar yang menipu, melecehkan, atau membahayakan. Penggunaan layanan AI generatif ini oleh Anda tunduk pada [Kebijakan Penggunaan Terlarang](https://policies.google.com/terms/generative-ai/use-policy?hl=id) kami.
+**Lời nhắc**: Hãy đảm bảo rằng bạn có các quyền cần thiết đối với mọi hình ảnh mà bạn tải lên.
+Bạn không được tạo nội dung vi phạm quyền của người khác, kể cả video hoặc hình ảnh lừa gạt, quấy rối hoặc gây hại. Khi sử dụng dịch vụ AI tạo sinh này, bạn phải tuân theo [Chính sách về các hành vi bị cấm khi sử dụng](https://policies.google.com/terms/generative-ai/use-policy?hl=vi) của chúng tôi.
 
-Berikan gambar dan gunakan perintah teks untuk menambahkan, menghapus, atau mengubah elemen,
-mengubah gaya, atau menyesuaikan gradasi warna.
+Cung cấp hình ảnh và sử dụng câu lệnh dạng văn bản để thêm, xoá hoặc sửa đổi các phần tử, thay đổi kiểu hoặc điều chỉnh phân loại màu.
 
-Contoh berikut menunjukkan cara mengupload gambar yang dienkode `base64`.
-Untuk beberapa gambar, payload yang lebih besar, dan jenis MIME yang didukung, lihat halaman [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id).
+Ví dụ sau đây minh hoạ việc tải hình ảnh được mã hoá `base64` lên.
+Đối với nhiều hình ảnh, tải trọng lớn hơn và các loại MIME được hỗ trợ, hãy xem trang [Hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi).
 
 ### Python
 
@@ -547,11 +541,9 @@ curl -s -X POST \
     }"
 ```
 
-### Pengeditan gambar multi-turn
+### Chỉnh sửa hình ảnh nhiều lượt
 
-Terus buat dan edit gambar melalui percakapan. Percakapan chat atau multi-giliran
-adalah cara yang direkomendasikan untuk melakukan iterasi pada gambar. Contoh
-berikut menunjukkan perintah untuk membuat infografis tentang fotosintesis.
+Tiếp tục tạo và chỉnh sửa hình ảnh theo cách trò chuyện. Trò chuyện hoặc cuộc trò chuyện nhiều lượt là cách nên dùng để lặp lại hình ảnh. Ví dụ sau đây cho thấy một câu lệnh để tạo bản đồ hoạ thông tin về quá trình quang hợp.
 
 ### Python
 
@@ -783,11 +775,11 @@ curl -s -X POST \
   }'
 ```
 
-![Infografis buatan AI tentang fotosintesis](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=id)
+![Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=vi)
 
-Infografis buatan AI tentang fotosintesis
+Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp
 
-Kemudian, Anda dapat menggunakan percakapan yang sama untuk mengubah bahasa pada grafik menjadi Spanyol.
+Sau đó, bạn có thể dùng cùng một cuộc trò chuyện để thay đổi ngôn ngữ trên hình ảnh thành tiếng Tây Ban Nha.
 
 ### Python
 
@@ -981,32 +973,33 @@ curl -s -X POST \
   }'
 ```
 
-![Infografis fotosintesis yang dibuat AI dalam bahasa Spanyol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=id)
+![Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp bằng tiếng Tây Ban Nha](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=vi)
 
-Infografik fotosintesis buatan AI dalam bahasa Spanyol
+Bản đồ hoạ thông tin do AI tạo về quá trình quang hợp bằng tiếng Tây Ban Nha
 
-## Baru dengan model Gambar Gemini 3
+## Tính năng mới với các mô hình Gemini 3 Image
 
-Gemini 3 menawarkan model pengeditan dan pembuatan gambar tercanggih. Gemini 3.1 Flash Image dioptimalkan untuk kecepatan dan kasus penggunaan volume tinggi, dan Gemini 3 Pro Image dioptimalkan untuk produksi aset profesional.
-Dirancang untuk menangani alur kerja yang paling menantang melalui penalaran tingkat lanjut, model ini unggul dalam tugas pembuatan dan modifikasi multi-giliran yang kompleks.
+Gemini 3 cung cấp các mô hình tạo và chỉnh sửa hình ảnh tiên tiến. Gemini 3.1 Flash Image được tối ưu hoá về tốc độ và các trường hợp sử dụng với khối lượng lớn, còn Gemini 3 Pro Image được tối ưu hoá cho việc sản xuất tài sản chuyên nghiệp.
+Được thiết kế để giải quyết những quy trình công việc khó khăn nhất thông qua khả năng suy luận nâng cao, các mô hình này có thể thực hiện xuất sắc những nhiệm vụ tạo và sửa đổi phức tạp, nhiều lượt.
 
-- **Output resolusi tinggi**: Kemampuan pembuatan bawaan untuk visual 1K, 2K, dan 4K.
-  - **Gemini 3.1 Flash Image** menambahkan resolusi 512 (0,5K) yang lebih kecil.
-- **Rendering teks lanjutan**: Mampu membuat teks yang mudah dibaca dan bergaya untuk infografis, menu, diagram, dan aset pemasaran.
-- **Grounding dengan Google Penelusuran**: Model dapat menggunakan Google Penelusuran sebagai alat untuk memverifikasi fakta dan membuat gambar berdasarkan data real-time (misalnya, peta cuaca saat ini, diagram saham, peristiwa terkini).
-  - **Gemini 3.1 Flash Image** menambahkan integrasi Grounding dengan Google Penelusuran untuk Gambar bersama dengan Penelusuran Web.
-- **Mode penalaran**: Model menggunakan proses "penalaran" untuk menalar perintah yang rumit. Fitur ini menghasilkan "gambar pemikiran" sementara (dapat dilihat di backend, tetapi tidak dikenai biaya) untuk menyempurnakan komposisi sebelum menghasilkan output akhir berkualitas tinggi.
-- **Hingga 14 gambar referensi**: Anda kini dapat menggabungkan hingga 14 gambar referensi untuk menghasilkan gambar akhir.
-- **Rasio aspek baru**: Gemini 3.1 Flash Image menambahkan [rasio aspek](#aspect_ratios_and_image_size) 1:4, 4:1, 1:8, dan 8:1.
+- **Đầu ra có độ phân giải cao**: Khả năng tạo hình ảnh 1K, 2K và 4K được tích hợp sẵn.
+  - **Hình ảnh Gemini 3.1 Flash** có độ phân giải nhỏ hơn là 512 (0,5K).
+- **Kết xuất văn bản nâng cao**: Có khả năng tạo văn bản dễ đọc, cách điệu cho đồ hoạ thông tin, thực đơn, sơ đồ và thành phần tiếp thị.
+- **Bám sát nguồn bằng Google Tìm kiếm**: Mô hình có thể sử dụng Google Tìm kiếm làm công cụ để xác minh thông tin và tạo hình ảnh tạo sinh dựa trên dữ liệu theo thời gian thực (ví dụ: bản đồ thời tiết hiện tại, biểu đồ cổ phiếu, sự kiện gần đây).
+  - **Hình ảnh Gemini 3.1 Flash** bổ sung tính năng tích hợp Bám sát nguồn bằng Google Tìm kiếm cho Hình ảnh cùng với Tìm kiếm trên web.
+- **Chế độ Tư duy**: Mô hình này sử dụng quy trình "tư duy" để suy luận thông qua các câu lệnh phức tạp. Công cụ này tạo ra "hình ảnh ý tưởng" tạm thời (có thể nhìn thấy ở phần phụ trợ nhưng không tính phí) để tinh chỉnh bố cục trước khi tạo ra thành phẩm chất lượng cao cuối cùng.
+- **Tối đa 14 hình ảnh tham khảo**: Giờ đây, bạn có thể kết hợp tối đa 14 hình ảnh tham khảo để tạo ra hình ảnh cuối cùng.
+- **Tỷ lệ khung hình mới**: Gemini 3.1 Flash Image bổ sung [tỷ lệ khung hình](#aspect_ratios_and_image_size) 1:4, 4:1, 1:8 và 8:1.
 
-### Menggunakan hingga 14 gambar referensi
+### Sử dụng tối đa 14 hình ảnh tham khảo
 
-Model gambar Gemini 3 memungkinkan Anda menggabungkan hingga 14 gambar referensi. 14 gambar ini dapat mencakup:
+Các mô hình hình ảnh Gemini 3 cho phép bạn kết hợp tối đa 14 hình ảnh tham khảo. 14 hình ảnh này có thể bao gồm:
 
-| Gambar Gemini 3.1 Flash | Gambar Gemini 3.1 Pro |
+| Hình ảnh Gemini 3.1 Flash | Hình ảnh Gemini 3 Pro |
 | --- | --- |
-| Hingga 10 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir | Hingga 6 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir |
-| Hingga 4 gambar karakter untuk mempertahankan konsistensi karakter | Hingga 5 gambar karakter untuk mempertahankan konsistensi karakter |
+| Tối đa 10 hình ảnh về các đối tượng có độ trung thực cao để đưa vào hình ảnh cuối cùng | Tối đa 6 hình ảnh về các đối tượng có độ trung thực cao để đưa vào hình ảnh cuối cùng |
+| Tối đa 4 hình ảnh về nhân vật để đảm bảo tính nhất quán cho nhân vật | Tối đa 5 hình ảnh về nhân vật để đảm bảo tính nhất quán cho nhân vật |
+| Không áp dụng | Tối đa 3 hình ảnh được dùng làm hình ảnh tham khảo về kiểu |
 
 ### Python
 
@@ -1325,15 +1318,15 @@ curl -s -X POST \
     }"
 ```
 
-![Foto grup kantor buatan AI](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=id)
+![Ảnh chụp nhóm nhân viên văn phòng do AI tạo](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=vi)
 
-Foto grup kantor buatan AI
+Ảnh chụp nhóm văn phòng do AI tạo
 
-### Grounding dengan Google Penelusuran
+### Bám sát nguồn bằng Google Tìm kiếm
 
-Gunakan [alat Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) untuk membuat gambar berdasarkan informasi real-time, seperti prakiraan cuaca, diagram saham, atau peristiwa terkini.
+Sử dụng [công cụ Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) để tạo hình ảnh dựa trên thông tin theo thời gian thực, chẳng hạn như dự báo thời tiết, biểu đồ cổ phiếu hoặc sự kiện gần đây.
 
-Perhatikan bahwa saat menggunakan Grounding dengan Google Penelusuran untuk pembuatan gambar, hasil penelusuran berbasis gambar tidak diteruskan ke model pembuatan dan dikecualikan dari respons (lihat [Grounding dengan Google Penelusuran untuk gambar](#image-search))
+Xin lưu ý rằng khi sử dụng tính năng Liên kết thực tế với Google Tìm kiếm để tạo hình ảnh, kết quả tìm kiếm dựa trên hình ảnh sẽ không được chuyển đến mô hình tạo và sẽ bị loại trừ khỏi câu trả lời (xem phần [Liên kết thực tế với Google Tìm kiếm cho hình ảnh](#image-search))
 
 ### Python
 
@@ -1522,24 +1515,22 @@ curl -s -X POST \
   }'
 ```
 
-![Diagram cuaca lima hari buatan AI untuk San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=id)
+![Biểu đồ thời tiết 5 ngày do AI tạo cho San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=vi)
 
-Grafik cuaca lima hari yang dibuat AI untuk San Francisco
+Biểu đồ thời tiết 5 ngày do AI tạo cho San Francisco
 
-Respons mencakup `groundingMetadata` yang berisi kolom wajib
-berikut:
+Phản hồi này bao gồm `groundingMetadata` chứa các trường bắt buộc sau:
 
-- **`searchEntryPoint`**: Berisi HTML dan CSS untuk merender saran penelusuran
-  yang diperlukan.
-- **`groundingChunks`**: Menampilkan 3 sumber web teratas yang digunakan untuk merujuk gambar yang dihasilkan
+- **`searchEntryPoint`**: Chứa HTML và CSS để hiển thị các đề xuất tìm kiếm bắt buộc.
+- **`groundingChunks`**: Trả về 3 nguồn hàng đầu trên web được dùng để làm cơ sở cho hình ảnh được tạo
 
-### Grounding dengan Google Penelusuran untuk Gambar (3.1 Flash)
+### Bám sát nguồn bằng Google Tìm kiếm hình ảnh (3.1 Flash)
 
-Penelusuran dengan Google Penelusuran untuk gambar memungkinkan model menggunakan gambar web yang diambil melalui Google Penelusuran sebagai konteks visual untuk pembuatan gambar. Penelusuran Gambar adalah jenis penelusuran baru dalam alat Perujukan dengan Google Penelusuran yang sudah ada, yang berfungsi bersama [Penelusuran Web](#use-with-grounding) standar.
+Tính năng Bám sát nguồn bằng Google Tìm kiếm cho hình ảnh cho phép các mô hình sử dụng hình ảnh trên web được truy xuất thông qua Google Tìm kiếm làm bối cảnh trực quan để tạo hình ảnh. Tìm kiếm hình ảnh là một loại tìm kiếm mới trong công cụ Bám sát nguồn bằng Google Tìm kiếm hiện có, hoạt động cùng với tính năng [Web Search](#use-with-grounding) tiêu chuẩn.
 
-Untuk mengaktifkan Penelusuran Gambar, konfigurasikan alat `googleSearch` dalam permintaan API Anda dan tentukan `imageSearch` dalam objek `searchTypes`. Penelusuran Gambar dapat digunakan secara terpisah atau bersama dengan Penelusuran Web.
+Để bật tính năng Tìm kiếm bằng hình ảnh, hãy định cấu hình công cụ `googleSearch` trong yêu cầu API của bạn và chỉ định `imageSearch` trong đối tượng `searchTypes`. Bạn có thể sử dụng tính năng Tìm kiếm hình ảnh độc lập hoặc cùng với tính năng Tìm kiếm trên web.
 
-Perhatikan bahwa Perujukan dengan Google Penelusuran untuk gambar tidak dapat digunakan untuk menelusuri orang.
+Xin lưu ý rằng bạn không thể dùng tính năng Grounding with Google Search cho hình ảnh để tìm kiếm người.
 
 ### Python
 
@@ -1766,43 +1757,33 @@ curl -s -X POST \
   }'
 ```
 
-**Persyaratan tampilan**
+**Yêu cầu về việc hiển thị**
 
-Saat Anda menggunakan Penelusuran Gambar dalam Grounding dengan Google Penelusuran, Anda harus mematuhi
-persyaratan berikut:
+Khi sử dụng tính năng Tìm kiếm bằng hình ảnh trong tính năng Bám sát nguồn bằng Google Tìm kiếm, bạn phải tuân thủ các điều kiện sau:
 
-- **Atribusi sumber**: Anda harus memberikan link ke halaman web yang berisi
-  gambar sumber (bukan file gambar itu sendiri, melainkan "halaman yang berisi") dengan
-  cara yang akan dikenali pengguna sebagai link.
-- **Navigasi langsung**: Jika Anda juga memilih untuk menampilkan gambar sumber, Anda
-  harus menyediakan jalur sekali klik langsung dari gambar sumber ke
-  halaman web sumber yang memuatnya. Implementasi lain yang menunda atau mengabstraksi
-  akses pengguna akhir ke halaman web sumber, termasuk tetapi tidak terbatas pada
-  jalur multi-klik atau penggunaan penampil gambar perantara, tidak
-  diizinkan.
+- **Ghi nhận nguồn**: Bạn phải cung cấp một đường liên kết đến trang web chứa hình ảnh nguồn ("trang chứa", không phải tệp hình ảnh) theo cách mà người dùng sẽ nhận ra đó là một đường liên kết.
+- **Điều hướng trực tiếp**: Nếu chọn hiển thị hình ảnh nguồn, bạn phải cung cấp một đường dẫn trực tiếp, chỉ cần nhấp một lần từ hình ảnh nguồn đến trang web nguồn chứa hình ảnh đó. Bạn không được phép triển khai bất kỳ phương thức nào khác làm chậm trễ hoặc che giấu quyền truy cập của người dùng cuối vào trang web nguồn, bao gồm nhưng không giới hạn ở bất kỳ đường dẫn nhiều lượt nhấp nào hoặc việc sử dụng trình xem hình ảnh trung gian.
 
-**Respons**
+**Đáp**
 
-Untuk respons berbasis penelusuran gambar, API memberikan atribusi dan metadata yang jelas untuk menautkan outputnya ke sumber terverifikasi. Kolom utama dalam objek
-`groundingMetadata` meliputi:
+Đối với các câu trả lời có căn cứ sử dụng tính năng tìm kiếm hình ảnh, API cung cấp thông tin ghi nhận quyền tác giả và siêu dữ liệu rõ ràng để liên kết đầu ra của API với các nguồn đã xác minh. Các trường khoá trong đối tượng `groundingMetadata` bao gồm:
 
-- **`imageSearchQueries`**: Kueri spesifik yang digunakan oleh model untuk konteks visual (penelusuran gambar).
-- **`groundingChunks`**: Berisi informasi sumber untuk hasil yang diambil.
-  Untuk sumber gambar, URL ini akan ditampilkan sebagai URL pengalihan menggunakan jenis chunk gambar baru. Chunk ini mencakup:
+- **`imageSearchQueries`**: Các cụm từ tìm kiếm cụ thể mà mô hình sử dụng cho ngữ cảnh trực quan (tìm kiếm hình ảnh).
+- **`groundingChunks`**: Chứa thông tin nguồn cho các kết quả đã truy xuất.
+  Đối với các nguồn hình ảnh, những nguồn này sẽ được trả về dưới dạng URL chuyển hướng bằng cách sử dụng một loại đoạn hình ảnh mới. Khối này bao gồm:
 
-  - **`uri`**: URL halaman web untuk atribusi (halaman landing).
-  - **`image_uri`**: URL gambar langsung.
-- **`groundingSupports`**: Memberikan pemetaan spesifik yang menautkan konten yang dihasilkan ke sumber kutipan yang relevan dalam potongan.
-- **`searchEntryPoint`**: Mencakup chip "Google Penelusuran" yang berisi HTML dan CSS yang sesuai untuk merender Saran Penelusuran.
+  - **`uri`**: URL trang web để phân bổ (trang đích).
+  - **`image_uri`**: URL trực tiếp của hình ảnh.
+- **`groundingSupports`**: Cung cấp các mối liên kết cụ thể để liên kết nội dung được tạo với nguồn trích dẫn có liên quan trong các đoạn.
+- **`searchEntryPoint`**: Bao gồm chip "Google Tìm kiếm" có chứa HTML và CSS tuân thủ để hiển thị Đề xuất tìm kiếm.
 
-### Pembuatan gambar dari video (3.1 Flash)
+### Tạo hình ảnh từ video (3.1 Flash)
 
-Pembuatan gambar dari video memungkinkan Anda membuat gambar baru menggunakan konteks video sebagai referensi multimodal. Fitur ini berguna untuk membuat thumbnail video berkualitas tinggi, poster sinematik, infografis ringkasan, atau karya seni baru yang terinspirasi dari adegan video.
+Tính năng tạo hình ảnh từ video cho phép bạn tạo hình ảnh mới bằng cách sử dụng bối cảnh của video làm thông tin tham khảo đa phương thức. Điều này hữu ích khi tạo hình thu nhỏ chất lượng cao cho video, áp phích điện ảnh, bản đồ hoạ thông tin tóm tắt hoặc tác phẩm nghệ thuật mới lấy cảm hứng từ một cảnh trong video.
 
-Selama pembuatan, model menganalisis frame video dalam konteks (hingga batas token input model
-sebanyak 131.072 token) untuk mengekstrak tema visual dan peristiwa utama, lalu menggunakannya bersama perintah teks Anda untuk menyintesis gambar output.
+Trong quá trình tạo, mô hình sẽ phân tích các khung hình video trong ngữ cảnh (tối đa là 131.072 mã thông báo theo giới hạn mã thông báo đầu vào của mô hình) để trích xuất các chủ đề trực quan và sự kiện chính, sau đó sử dụng các chủ đề và sự kiện này cùng với câu lệnh bằng văn bản của bạn để tổng hợp hình ảnh đầu ra.
 
-Anda dapat meneruskan [URL YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id#youtube) publik secara langsung dalam permintaan API atau mengupload file video lokal menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
+Bạn có thể truyền trực tiếp [URL công khai trên YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#youtube) trong yêu cầu API hoặc tải tệp video cục bộ lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
 
 ### Python
 
@@ -1820,8 +1801,11 @@ response = client.models.generate_content(
           file_data=types.FileData(file_uri="https://www.youtube.com/watch?v=UTdfxFyOQTI"),
           video_metadata=types.VideoMetadata(fps=0.5)
         ),
-        "Can you create an infographics that explains what this video is about?"
-    ]
+        "Generate a poster image that captures the key themes of this video."
+    ],
+    config=types.GenerateContentConfig(
+        response_modalities=["TEXT", "IMAGE"]
+    )
 )
 
 # Save the generated image part
@@ -1852,8 +1836,11 @@ async function main() {
           fps: 0.5
         }
       },
-      { text: "Can you create an infographics that explains what this video is about?" }
-    ]
+      { text: "Generate a poster image that captures the key themes of this video." }
+    ],
+    config: {
+      responseModalities: ["TEXT", "IMAGE"]
+    }
   });
 
   for (const part of response.candidates[0].content.parts) {
@@ -1893,7 +1880,7 @@ func main() {
 
     parts := []*genai.Part{
         videoPart,
-        genai.NewPartFromText("Can you create an infographics that explains what this video is about?"),
+        genai.NewPartFromText("Generate a poster image that captures the key themes of this video."),
     }
 
     contents := []*genai.Content{
@@ -1904,7 +1891,9 @@ func main() {
         ctx,
         "gemini-3.1-flash-image",
         contents,
-        nil,
+        &genai.GenerateContentConfig{
+            ResponseModalities: []string{"TEXT", "IMAGE"},
+        },
     )
     if err != nil {
         log.Fatal(err)
@@ -1926,6 +1915,7 @@ func main() {
 import com.google.genai.Client;
 import com.google.genai.types.Content;
 import com.google.genai.types.FileData;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
 import com.google.genai.types.Part;
 import com.google.genai.types.VideoMetadata;
@@ -1949,7 +1939,11 @@ public class VideoToImage {
           .build();
 
       Part textPart = Part.builder()
-          .text("Can you create an infographics that explains what this video is about?")
+          .text("Generate a poster image that captures the key themes of this video.")
+          .build();
+
+      GenerateContentConfig config = GenerateContentConfig.builder()
+          .responseModalities("TEXT", "IMAGE")
           .build();
 
       GenerateContentResponse response = client.models.generateContent(
@@ -1957,7 +1951,8 @@ public class VideoToImage {
           Content.builder()
               .role("user")
               .parts(ImmutableList.of(videoPart, textPart))
-              .build());
+              .build(),
+          config);
 
       for (Part part : response.parts()) {
         if (part.inlineData().isPresent()) {
@@ -1996,7 +1991,11 @@ public class VideoToImage {
                 FileData = new FileData { FileUri = "https://www.youtube.com/watch?v=UTdfxFyOQTI" },
                 VideoMetadata = new VideoMetadata { Fps = 0.5 }
             },
-            new Part { Text = "Can you create an infographics that explains what this video is about?" }
+            new Part { Text = "Generate a poster image that captures the key themes of this video." }
+        },
+        config: new GenerateContentConfig
+        {
+            ResponseModalities = new List<string> { "TEXT", "IMAGE" }
         }
     );
 
@@ -2031,21 +2030,24 @@ curl -s -X POST \
             "fps": 0.5
           }
         },
-        {"text": "Can you create an infographics that explains what this video is about?"}
+        {"text": "Generate a poster image that captures the key themes of this video."}
       ]
-    }]
+    }],
+    "generationConfig": {
+      "responseModalities": ["TEXT", "IMAGE"]
+    }
   }'
 ```
 
-![Infografis buatan AI dari video YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=id)
+![Bản đồ hoạ thông tin do AI tạo từ một video trên YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=vi)
 
-Infografis buatan AI dari video YouTube
+Ảnh đồ hoạ do AI tạo từ một video trên YouTube
 
-### Membuat gambar dengan resolusi hingga 4K
+### Tạo hình ảnh có độ phân giải lên đến 4K
 
-Model gambar Gemini 3 membuat 1.000 gambar secara default, tetapi juga dapat menghasilkan gambar 2K, 4K, dan 512 (0,5K) (khusus Gemini 3.1 Flash Image). Untuk membuat aset dengan resolusi lebih tinggi, tentukan `image_size` di `generation_config`.
+Các mô hình hình ảnh Gemini 3 tạo ra 1.000 hình ảnh theo mặc định nhưng cũng có thể xuất ra hình ảnh 2K, 4K và 512 (0, 5K) (chỉ có Gemini 3.1 Flash Image). Để tạo thành phần có độ phân giải cao hơn, hãy chỉ định `image_size` trong `generation_config`.
 
-Anda harus menggunakan huruf besar 'K' (mis. 1K, 2K, 4K). Nilai `512` tidak menggunakan akhiran 'K'. Parameter huruf kecil (misalnya, 1k) akan ditolak.
+Bạn phải sử dụng chữ "K" viết hoa (ví dụ: 1K, 2K, 4K). Giá trị `512` không sử dụng hậu tố "K". Các thông số viết thường (ví dụ: 1k) sẽ bị từ chối.
 
 ### Python
 
@@ -2284,20 +2286,19 @@ curl -s -X POST \
   }'
 ```
 
-Berikut adalah contoh gambar yang dihasilkan dari perintah ini:
+Sau đây là một ví dụ về hình ảnh được tạo từ câu lệnh này:
 
-![Sketsa anatomi gaya Da Vinci yang dibuat AI dari kupu-kupu Raja yang dibedah.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=id)
+![Bản phác thảo giải phẫu theo phong cách Da Vinci do AI tạo về một con bướm vua bị mổ xẻ.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=vi)
 
-Sketsa anatomi gaya Da Vinci buatan AI dari kupu-kupu Raja yang dibedah.
+Bản phác thảo giải phẫu theo phong cách Da Vinci do AI tạo về một con bướm vua bị mổ xẻ.
 
-### Proses Berpikir
+### Quá trình tư duy
 
-Model gambar Gemini 3 adalah model pemikiran yang menggunakan proses penalaran ("Penalaran") untuk perintah yang kompleks. Fitur ini diaktifkan secara default dan
-tidak dapat dinonaktifkan di API. Untuk mempelajari lebih lanjut proses berpikir, lihat panduan [Proses Berpikir Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
+Mô hình hình ảnh Gemini 3 là mô hình tư duy sử dụng quy trình suy luận ("Tư duy") cho các câu lệnh phức tạp. Tính năng này được bật theo mặc định và không thể tắt trong API. Để tìm hiểu thêm về quy trình suy nghĩ, hãy xem hướng dẫn [Quy trình suy nghĩ của Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=vi).
 
-Model ini menghasilkan hingga dua gambar sementara untuk menguji komposisi dan logika. Gambar terakhir dalam Proses berpikir juga merupakan gambar akhir yang dirender.
+Mô hình này tạo tối đa 2 hình ảnh tạm thời để kiểm thử bố cục và logic. Hình ảnh cuối cùng trong phần Suy nghĩ cũng là hình ảnh được kết xuất cuối cùng.
 
-Anda dapat memeriksa pemikiran yang menghasilkan gambar akhir.
+Bạn có thể xem những suy nghĩ dẫn đến việc tạo ra hình ảnh cuối cùng.
 
 ### Python
 
@@ -2363,14 +2364,11 @@ foreach (var candidate in response.Candidates) {
 }
 ```
 
-#### Mengontrol tingkat penalaran
+#### Kiểm soát các cấp độ tư duy
 
-Dengan Gemini 3.1 Flash Image, Anda dapat mengontrol jumlah pemikiran yang digunakan model untuk menyeimbangkan kualitas dan latensi. `thinkingLevel` default adalah `minimal`,
-dan tingkat yang didukung adalah `minimal` dan `high`. Menetapkan
-`thinkingLevel` ke `minimal` memberikan respons latensi terendah. Perhatikan bahwa
-pemikiran minimal tidak berarti model tidak menggunakan pemikiran sama sekali.
+Với Gemini 3.1 Flash Image, bạn có thể kiểm soát mức độ tư duy mà mô hình sử dụng để cân bằng chất lượng và độ trễ. `thinkingLevel` mặc định là `minimal` và các cấp độ được hỗ trợ là `minimal` và `high`. Việc đặt `thinkingLevel` thành `minimal` sẽ mang lại các phản hồi có độ trễ thấp nhất. Lưu ý rằng tư duy tối thiểu không có nghĩa là mô hình hoàn toàn không sử dụng tư duy.
 
-Anda dapat menambahkan boolean `includeThoughts` untuk menentukan apakah pemikiran yang dihasilkan model ditampilkan dalam respons, atau tetap tersembunyi.
+Bạn có thể thêm giá trị boolean `includeThoughts` để xác định xem suy nghĩ được mô hình tạo có được trả về trong phản hồi hay vẫn bị ẩn.
 
 ### Python
 
@@ -2609,25 +2607,19 @@ curl -s -X POST \
   }'
 ```
 
-Perhatikan bahwa token pemikiran ditagih terlepas dari apakah `includeThoughts`
-ditetapkan ke `true` atau `false`, karena [proses pemikiran](#thinking-process) selalu
-terjadi secara default, terlepas dari apakah Anda melihat prosesnya atau tidak.
+Xin lưu ý rằng các mã thông báo tư duy sẽ được tính phí bất kể `includeThoughts` được đặt thành `true` hay `false`, vì [quy trình tư duy](#thinking-process) luôn diễn ra theo mặc định cho dù bạn có xem quy trình đó hay không.
 
-#### Tanda Tangan Pikiran
+#### Chữ ký suy nghĩ
 
-Tanda tangan pemikiran adalah representasi terenkripsi dari
-proses pemikiran internal model dan digunakan untuk mempertahankan konteks penalaran
-di seluruh interaksi multi-giliran. Semua respons mencakup kolom `thought_signature`. Sebagai aturan umum, jika Anda menerima tanda tangan pemikiran dalam respons model, Anda harus meneruskannya kembali persis seperti yang diterima saat mengirimkan histori percakapan pada giliran berikutnya. Kegagalan dalam menyebarkan tanda tangan pemikiran dapat menyebabkan respons gagal. Lihat dokumentasi [tanda tangan pemikiran](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=id)
-untuk penjelasan selengkapnya tentang tanda tangan secara keseluruhan.
+Chữ ký suy nghĩ là biểu diễn được mã hoá của quy trình suy nghĩ nội bộ của mô hình và được dùng để duy trì bối cảnh suy luận trong các lượt tương tác nhiều lượt. Tất cả các phản hồi đều có trường `thought_signature`. Theo nguyên tắc chung, nếu nhận được chữ ký suy nghĩ trong phản hồi của mô hình, bạn nên truyền lại chính xác chữ ký đó như khi nhận được khi gửi nhật ký cuộc trò chuyện trong lượt tiếp theo. Nếu không truyền tải được chữ ký ý tưởng, phản hồi có thể không thành công. Hãy xem tài liệu về [chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để biết thêm thông tin giải thích về chữ ký nói chung.
 
-Berikut cara kerja tanda tangan pikiran:
+Sau đây là cách hoạt động của chữ ký tư duy:
 
-- Semua bagian `inline_data` dengan gambar `mimetype` yang merupakan bagian dari respons harus memiliki tanda tangan.
-- Jika ada beberapa bagian teks di awal (sebelum gambar apa pun) tepat setelah
-  pemikiran, bagian teks pertama juga harus memiliki tanda tangan.
-- Jika bagian `inline_data` dengan gambar `mimetype` adalah bagian dari pemikiran, bagian tersebut tidak akan memiliki tanda tangan.
+- Tất cả các phần `inline_data` có hình ảnh `mimetype` nằm trong phản hồi đều phải có chữ ký.
+- Nếu có một số phần văn bản ở đầu (trước bất kỳ hình ảnh nào) ngay sau phần suy nghĩ, thì phần văn bản đầu tiên cũng phải có chữ ký.
+- Nếu `inline_data` các phần có hình ảnh `mimetype` là một phần của suy nghĩ, thì chúng sẽ không có chữ ký.
 
-Kode berikut menunjukkan contoh tempat tanda tangan pemikiran disertakan:
+Đoạn mã sau đây cho thấy ví dụ về vị trí có chữ ký suy nghĩ:
 
 ```
 [
@@ -2687,190 +2679,179 @@ Kode berikut menunjukkan contoh tempat tanda tangan pemikiran disertakan:
 ]
 ```
 
-## Mode pembuatan gambar lainnya
+## Các chế độ tạo hình ảnh khác
 
-Gemini mendukung mode interaksi gambar lainnya berdasarkan struktur dan konteks perintah, termasuk:
+Gemini hỗ trợ các chế độ tương tác khác với hình ảnh dựa trên cấu trúc câu lệnh và ngữ cảnh, bao gồm:
 
-- **Teks ke gambar dan teks (disisipkan):** Menghasilkan gambar dengan teks terkait.
-  - Contoh perintah: "Buat resep paella bergambar."
-- **Gambar dan teks ke gambar dan teks (berselang-seling)**: Menggunakan gambar dan teks input untuk membuat gambar dan teks baru yang terkait.
-  - Contoh perintah: (Dengan gambar ruangan yang dilengkapi perabot) "Sofa warna apa lagi yang cocok untuk ruangan saya? Bisakah Anda memperbarui gambar tersebut?"
+- **Văn bản thành hình ảnh và văn bản (xen kẽ):** Tạo ra hình ảnh kèm theo văn bản liên quan.
+  - Ví dụ về câu lệnh: "Tạo một công thức minh hoạ cho món paella."
+- **Hình ảnh và văn bản sang hình ảnh và văn bản (xen kẽ)**: Sử dụng hình ảnh và văn bản đầu vào để tạo hình ảnh và văn bản mới có liên quan.
+  - Ví dụ về câu lệnh: (Với hình ảnh một căn phòng có đồ nội thất) "Những màu sắc nào khác của ghế sofa sẽ phù hợp với không gian của tôi? Bạn có thể cập nhật hình ảnh không?"
 
-## Membuat gambar secara batch
+## Tạo hàng loạt hình ảnh
 
-Jika Anda perlu membuat banyak gambar, Anda dapat menggunakan
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id). Anda akan mendapatkan [batas frekuensi panggilan API](https://ai.google.dev/gemini-api/docs/rate-limits?hl=id) yang lebih tinggi dengan waktu penyelesaian hingga 24 jam.
+Nếu cần tạo nhiều hình ảnh, bạn có thể sử dụng [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi). Bạn sẽ nhận được [hạn mức tốc độ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi) cao hơn để đổi lấy thời gian xử lý lên đến 24 giờ.
 
-Periksa [dokumentasi pembuatan gambar Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id#image-generation) dan [cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=id) untuk contoh dan kode gambar Batch API.
+Tham khảo [Tài liệu về tính năng tạo hình ảnh bằng Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi#image-generation) và [sách hướng dẫn](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=vi) để xem các ví dụ và mã về hình ảnh bằng Batch API.
 
-## Panduan dan strategi penulisan perintah
+## Hướng dẫn và chiến lược đặt câu lệnh
 
-Menguasai pembuatan gambar dimulai dengan satu prinsip mendasar:
+Để tạo thành thạo hình ảnh, bạn cần nắm vững một nguyên tắc cơ bản:
 
-> **Deskripsikan suasananya, jangan hanya mencantumkan kata kunci.**
-> Kekuatan inti model ini adalah pemahaman bahasanya yang mendalam. Paragraf naratif dan deskriptif hampir selalu menghasilkan gambar yang lebih baik dan lebih koheren daripada daftar kata-kata yang tidak terhubung.
+> **Mô tả cảnh, đừng chỉ liệt kê từ khoá.**
+> Điểm mạnh cốt lõi của mô hình này là khả năng hiểu ngôn ngữ một cách sâu sắc. Một đoạn văn mô tả, tường thuật sẽ hầu như luôn tạo ra hình ảnh tốt hơn và nhất quán hơn so với một danh sách các từ rời rạc.
 
-### Perintah untuk membuat gambar
+### Câu lệnh để tạo hình ảnh
 
-Strategi berikut akan membantu Anda membuat perintah yang efektif untuk
-membuat gambar yang Anda inginkan.
+Các chiến lược sau đây sẽ giúp bạn tạo câu lệnh hiệu quả để tạo ra chính xác những hình ảnh mà bạn đang tìm kiếm.
 
-#### Fotografi
+#### Nhiếp ảnh
 
-Untuk gambar yang realistis, gunakan istilah fotografi. Sebutkan sudut kamera, jenis lensa, pencahayaan, dan detail kecil untuk memandu model menghasilkan gambar yang realistis.
+Để có hình ảnh chân thực, hãy sử dụng các thuật ngữ nhiếp ảnh. Đề cập đến góc camera, loại ống kính, ánh sáng và các chi tiết nhỏ để hướng dẫn mô hình tạo ra kết quả chân thực.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| Foto potret jarak dekat seorang pembuat keramik Jepang lanjut usia dengan kerutan dalam yang disebabkan oleh paparan sinar matahari dan senyum hangat yang penuh makna. Dia sedang memeriksa mangkuk teh yang baru di-glazur dengan cermat. Latarnya adalah bengkelnya yang sederhana dan bermandikan sinar matahari. Adegan diterangi oleh cahaya lembut golden hour yang masuk melalui jendela, menyoroti tekstur halus tanah liat. Diambil dengan lensa potret 85 mm, sehingga menghasilkan latar belakang yang lembut dan buram (bokeh). Suasana keseluruhannya tenang dan mengagumkan. Orientasi potret vertikal. | Pembuat keramik Jepang lansia |
+| Ảnh chụp cận cảnh chân dung một nghệ nhân gốm Nhật Bản lớn tuổi với những nếp nhăn sâu do ánh nắng và nụ cười ấm áp, thấu hiểu. Ông đang kiểm tra kỹ lưỡng một chiếc bát trà mới tráng men. Khung cảnh là xưởng cơ khí mộc mạc, tràn ngập ánh nắng của ông. Khung cảnh được chiếu sáng bằng ánh sáng dịu nhẹ của giờ vàng, chiếu qua một cửa sổ, làm nổi bật kết cấu mịn của đất sét. Chụp bằng ống kính chân dung 85mm, tạo ra một phông nền mềm mại, mờ ảo (bokeh). Tâm trạng tổng thể là thanh bình và điêu luyện. Hướng dọc. | Nghệ nhân gốm sứ Nhật Bản lớn tuổi |
 
-#### Ilustrasi dan stiker bergaya
+#### Hình minh hoạ và hình dán cách điệu
 
-Untuk membuat stiker, ikon, atau aset, sebutkan gaya secara eksplisit dan minta latar belakang putih.
+Để tạo hình dán, biểu tượng hoặc thành phần, hãy nêu rõ kiểu và yêu cầu nền trắng.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| Stiker bergaya kawaii panda merah yang tampak gembira dan mengenakan topi bambu kecil. Ia sedang mengunyah daun bambu hijau. Desainnya menampilkan garis luar yang tebal dan rapi, shading cel sederhana, serta palet warna yang cerah. Latar belakang harus berwarna putih. | Stiker panda merah kawaii |
+| Hình dán theo phong cách kawaii về một chú gấu trúc đỏ vui vẻ đang đội một chiếc mũ tre nhỏ. Nó đang nhai một chiếc lá tre xanh. Thiết kế này có đường viền rõ ràng, đậm nét, kỹ thuật đổ bóng đơn giản và bảng màu sống động. Nền phải có màu trắng. | Hình dán gấu trúc đỏ theo phong cách Kawaii |
 
-#### Teks yang akurat dalam gambar
+#### Văn bản chính xác trong hình ảnh
 
-Gemini unggul dalam merender teks. Jelaskan teks, gaya font (secara deskriptif), dan desain keseluruhan. Gunakan Gemini 3.1 Pro Image untuk produksi aset profesional.
+Gemini có khả năng kết xuất văn bản vượt trội. Nêu rõ văn bản, kiểu phông chữ (mô tả) và thiết kế tổng thể. Sử dụng Gemini 3 Pro Image để sản xuất tài sản chuyên nghiệp.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| Buat logo modern dan minimalis untuk kedai kopi bernama 'The Daily Grind'. Teks harus menggunakan font sans-serif yang rapi dan tebal. Skema warnanya hitam dan putih. Letakkan logo di dalam lingkaran. Gunakan biji kopi dengan cara yang cerdas. | Logo kedai kopi |
+| Tạo một biểu trưng tối giản, hiện đại cho quán cà phê có tên "The Daily Grind". Văn bản phải sử dụng phông chữ sans-serif rõ ràng và in đậm. Bảng phối màu là đen và trắng. Đặt biểu trưng vào một vòng tròn. Sử dụng hạt cà phê một cách khéo léo. | Biểu trưng của quán cà phê |
 
-#### Mockup produk dan fotografi komersial
+#### Bản mô phỏng sản phẩm và ảnh chụp thương mại
 
-Sempurna untuk membuat foto produk yang bersih dan profesional untuk e-commerce, iklan, atau branding.
+Phù hợp để tạo ảnh chụp sản phẩm chuyên nghiệp, rõ ràng cho thương mại điện tử, quảng cáo hoặc hoạt động xây dựng thương hiệu.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| Foto produk cangkir kopi keramik minimalis berwarna hitam matte dengan pencahayaan studio dan resolusi tinggi, yang diletakkan di atas permukaan beton yang dipoles. Pencahayaannya adalah penyiapan softbox tiga titik yang dirancang untuk menciptakan sorotan lembut dan tersebar serta menghilangkan bayangan yang tajam. Sudut kamera adalah bidikan 45 derajat yang sedikit ditinggikan untuk menampilkan garis-garisnya yang bersih. Sangat realistis, dengan fokus tajam pada uap yang mengepul dari kopi. Gambar persegi. | Foto produk mug kopi keramik |
+| Ảnh chụp sản phẩm có độ phân giải cao, được chiếu sáng trong phòng chụp ảnh về một chiếc cốc cà phê bằng gốm tối giản màu đen mờ, được đặt trên bề mặt bê tông đánh bóng. Ánh sáng được thiết lập bằng hộp hắt sáng ba điểm, được thiết kế để tạo ra những điểm sáng dịu nhẹ, khuếch tán và loại bỏ bóng đổ gắt. Góc camera là góc chụp 45 độ hơi cao để làm nổi bật các đường nét gọn gàng của sản phẩm. Siêu chân thực, với tiêu điểm rõ nét vào hơi nước bốc lên từ cà phê. Ảnh hình vuông. | Ảnh chụp sản phẩm cốc cà phê gốm |
 
-#### Desain minimalis dan ruang negatif
+#### Thiết kế tối giản và không gian âm
 
-Sangat cocok untuk membuat latar belakang situs, presentasi, atau materi pemasaran yang akan ditumpuk dengan teks.
+Rất phù hợp để tạo nền cho trang web, bản trình bày hoặc tài liệu tiếp thị có văn bản được đặt lên trên.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| Komposisi minimalis yang menampilkan satu daun mapel merah yang halus di posisi kanan bawah bingkai. Latar belakangnya adalah kanvas putih pudar yang luas dan kosong, sehingga menciptakan ruang negatif yang signifikan untuk teks. Pencahayaan lembut dan tersebar dari kiri atas. Gambar persegi. | Desain minimalis dengan daun maple merah |
+| Bức ảnh tối giản có một chiếc lá phong đỏ duy nhất, tinh tế nằm ở góc dưới bên phải khung hình. Nền là một canvas rộng lớn, trống trải và có màu trắng nhạt, tạo ra khoảng trống đáng kể cho văn bản. Ánh sáng dịu nhẹ, phân tán từ phía trên bên trái. Ảnh hình vuông. | Thiết kế tối giản với lá phong đỏ |
 
-#### Seni berurutan (Panel komik / Storyboard)
+#### Nghệ thuật tuần tự (Bảng phân cảnh / Truyện tranh)
 
-Membangun konsistensi karakter dan deskripsi adegan untuk membuat panel penceritaan visual. Untuk akurasi dengan teks dan kemampuan bercerita, perintah ini paling cocok dengan Gemini 3.1 Pro dan Gemini 3.1 Flash Image.
+Dựa trên tính nhất quán của nhân vật và nội dung mô tả cảnh để tạo các bảng cho việc kể chuyện bằng hình ảnh. Để đảm bảo độ chính xác về văn bản và khả năng kể chuyện, những câu lệnh này hoạt động hiệu quả nhất với Gemini 3.1 Pro và Gemini 3.1 Flash Image.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Input gambar:**  Pria berkacamata putih   Input gambar   **Perintah:** Buat komik 3 panel dengan gaya seni noir yang berani, dengan tinta hitam putih yang kontras. Tempatkan karakter dalam adegan lucu. | Panel komik noir yang suram |
+| **Hình ảnh đầu vào:**  Người đàn ông đeo kính trắng   Hình ảnh đầu vào   **Câu lệnh:** Tạo một truyện tranh gồm 3 khung theo phong cách nghệ thuật noir thô ráp, sử dụng mực đen trắng có độ tương phản cao. Đặt nhân vật vào một cảnh hài hước. | Bảng truyện tranh xã hội đen khắc nghiệt |
 
-#### Grounding dengan Google Penelusuran
+#### Bám sát nguồn bằng Google Tìm kiếm
 
-Gunakan Google Penelusuran untuk membuat gambar berdasarkan informasi terbaru atau real-time.
-Hal ini berguna untuk berita, cuaca, dan topik lain yang sensitif terhadap waktu.
+Sử dụng Google Tìm kiếm để tạo hình ảnh dựa trên thông tin gần đây hoặc thông tin theo thời gian thực.
+Điều này hữu ích cho tin tức, thông tin thời tiết và các chủ đề khác nhạy cảm về thời gian.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| Buat grafik sederhana namun bergaya untuk pertandingan Arsenal semalam di Liga Champions | Grafik skor pertandingan Arsenal |
+| Tạo một hình ảnh đơn giản nhưng phong cách về trận đấu tối qua của Arsenal tại giải Champions League | Đồ hoạ tỷ số bóng đá của Arsenal |
 
-### Perintah untuk mengedit gambar
+### Câu lệnh chỉnh sửa hình ảnh
 
-Contoh ini menunjukkan cara memberikan gambar bersama perintah teks Anda untuk
-pengeditan, komposisi, dan transfer gaya.
+Những ví dụ này cho thấy cách cung cấp hình ảnh cùng với câu lệnh văn bản để chỉnh sửa, tạo thành phần và chuyển kiểu.
 
-#### Menambahkan dan menghapus elemen
+#### Thêm và xoá phần tử
 
-Berikan gambar dan deskripsikan perubahan yang Anda inginkan. Model akan cocok dengan gaya, pencahayaan, dan perspektif gambar asli.
+Cung cấp một hình ảnh và mô tả thay đổi bạn muốn. Mô hình sẽ khớp với phong cách, ánh sáng và góc nhìn của hình ảnh gốc.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Input gambar:**  Gambar fotorealistik kucing oranye berbulu lebat...   Input gambar   **Perintah:** Menggunakan gambar kucing saya yang disediakan, tambahkan topi penyihir kecil rajutan di kepalanya. Buat agar terlihat duduk dengan nyaman dan sesuai dengan pencahayaan lembut pada foto. | Kucing dengan topi penyihir |
+| **Hình ảnh đầu vào:**  Một bức ảnh chân thực về một chú mèo lông xù màu gừng...   Hình ảnh đầu vào   **Câu lệnh:** Dựa vào hình ảnh chú mèo của tôi mà bạn cung cấp, vui lòng thêm một chiếc mũ phù thuỷ nhỏ bằng len trên đầu chú mèo. Hãy chỉnh sửa sao cho đối tượng trông như đang ngồi thoải mái và phù hợp với ánh sáng dịu nhẹ của bức ảnh. | Mèo đội mũ phù thuỷ |
 
-#### Lukisan (Masking semantik)
+#### Chỉnh sửa cụ thể (Tạo mặt nạ ngữ nghĩa)
 
-Tentukan "masker" secara percakapan untuk mengedit bagian tertentu dari gambar tanpa mengubah bagian lainnya.
+Xác định "mặt nạ" bằng cách trò chuyện để chỉnh sửa một phần cụ thể của hình ảnh mà không ảnh hưởng đến phần còn lại.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Input gambar:**  Bidikan lebar ruang tamu modern yang terang...   Input gambar   **Perintah:** Dengan menggunakan gambar ruang tamu yang disediakan, ubah hanya sofa biru menjadi sofa chesterfield kulit cokelat bergaya vintage. Biarkan bagian ruangan lainnya, termasuk bantal di sofa dan pencahayaan, tidak berubah. | Ruang tamu dengan sofa kulit cokelat |
+| **Hình ảnh đầu vào:**  Một cảnh quay rộng về một phòng khách hiện đại, đủ ánh sáng...   Hình ảnh đầu vào   **Câu lệnh:** Dựa vào hình ảnh phòng khách được cung cấp, hãy chỉ thay đổi chiếc ghế sofa màu xanh dương thành một chiếc ghế sofa Chesterfield bằng da màu nâu theo phong cách cổ điển. Giữ nguyên phần còn lại của căn phòng, bao gồm cả gối trên ghế sofa và ánh sáng. | Phòng khách có ghế sofa bằng da màu nâu |
 
-#### Transfer gaya
+#### Chuyển đổi kiểu
 
-Berikan gambar dan minta model untuk membuat ulang kontennya dalam gaya artistik yang berbeda.
+Cung cấp một hình ảnh và yêu cầu mô hình tạo lại nội dung của hình ảnh đó theo một phong cách nghệ thuật khác.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Input gambar:**  Foto fotorealistik beresolusi tinggi jalan kota yang ramai...   Input gambar   **Perintah:** Ubah foto jalan kota modern di malam hari yang diberikan menjadi gaya artistik 'Starry Night' karya Vincent van Gogh. Pertahankan komposisi asli bangunan dan mobil, tetapi render semua elemen dengan sapuan kuas impasto yang berputar-putar dan palet dramatis warna biru tua dan kuning cerah. | Jalan kota dalam gaya Starry Night |
+| **Hình ảnh đầu vào:**  Một bức ảnh chân thực, có độ phân giải cao về một con phố nhộn nhịp trong thành phố...   Hình ảnh đầu vào   **Câu lệnh:** Biến bức ảnh chụp một đường phố hiện đại trong thành phố vào ban đêm thành phong cách nghệ thuật của bức tranh "Đêm đầy sao" của Vincent van Gogh. Giữ nguyên bố cục ban đầu của các toà nhà và ô tô, nhưng kết xuất tất cả các phần tử bằng những nét vẽ xoáy tròn, đắp nổi và bảng màu ấn tượng gồm màu xanh dương đậm và màu vàng tươi. | Đường phố theo phong cách Đêm đầy sao |
 
-#### Komposisi lanjutan: Menggabungkan beberapa gambar
+#### Bố cục nâng cao: Kết hợp nhiều hình ảnh
 
-Berikan beberapa gambar sebagai konteks untuk membuat adegan komposit baru. Fitur ini sangat cocok untuk membuat mockup produk atau kolase kreatif.
+Cung cấp nhiều hình ảnh làm bối cảnh để tạo một cảnh ghép mới. Đây là lựa chọn hoàn hảo cho bản mô phỏng sản phẩm hoặc ảnh ghép sáng tạo.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Gambar input:**  Foto profesional gaun musim panas bermotif bunga biru...   Input 1: Gaun   Foto seluruh tubuh seorang perempuan dengan rambut dicepol...   Input 2: Model   **Perintah:** Buat foto fashion e-commerce profesional. Ambil gaun bermotif bunga biru dari gambar pertama dan biarkan wanita dari gambar kedua memakainya. Buat foto realistis seluruh tubuh perempuan yang mengenakan gaun, dengan pencahayaan dan bayangan yang disesuaikan agar sesuai dengan lingkungan luar ruangan. | Foto e-commerce fashion |
+| **Hình ảnh đầu vào:**  Ảnh chụp chuyên nghiệp chiếc váy hoa mùa hè màu xanh dương...   Đầu vào 1: Váy   Ảnh toàn thân của một người phụ nữ búi tóc...   Đầu vào 2: Người mẫu   **Câu lệnh:** Tạo một bức ảnh thời trang chuyên nghiệp cho thương mại điện tử. Lấy chiếc váy hoa màu xanh dương trong hình ảnh đầu tiên và cho người phụ nữ trong hình ảnh thứ hai mặc chiếc váy đó. Tạo một bức ảnh toàn thân chân thực về người phụ nữ mặc chiếc váy, với ánh sáng và bóng đổ được điều chỉnh cho phù hợp với môi trường ngoài trời. | Ảnh chụp thương mại điện tử về thời trang |
 
-#### Mempertahankan detail fidelitas tinggi
+#### Giữ lại chi tiết có độ trung thực cao
 
-Untuk memastikan detail penting (seperti wajah atau logo) dipertahankan selama pengeditan, deskripsikan detail tersebut secara mendalam bersama dengan permintaan pengeditan Anda.
+Để đảm bảo các chi tiết quan trọng (chẳng hạn như khuôn mặt hoặc biểu trưng) được giữ nguyên trong quá trình chỉnh sửa, hãy mô tả chi tiết các chi tiết đó cùng với yêu cầu chỉnh sửa của bạn.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Gambar input:**  Foto profesional seorang wanita dengan rambut cokelat dan mata biru...   Input 1: Wanita   Logo sederhana dan modern dengan huruf &#39;G&#39; dan &#39;A&#39;...   Input 2: Logo   **Perintah:** Ambil gambar pertama wanita dengan rambut cokelat, mata biru, dan ekspresi netral. Tambahkan logo dari gambar kedua ke kaus hitamnya. Pastikan wajah dan fitur wanita tersebut tetap tidak berubah sama sekali. Logo harus terlihat seperti dicetak secara alami pada kain, mengikuti lipatan baju. | Perempuan dengan logo di kaus |
+| **Hình ảnh đầu vào:**  Ảnh chân dung chuyên nghiệp của một phụ nữ có mái tóc nâu và đôi mắt xanh dương...   Đầu vào 1: Phụ nữ   Một biểu trưng đơn giản, hiện đại với các chữ cái &quot;G&quot; và &quot;A&quot;...   Đầu vào 2: Biểu trưng   **Câu lệnh:** Lấy hình ảnh đầu tiên của người phụ nữ có mái tóc nâu, mắt xanh và biểu cảm trung tính. Thêm biểu trưng trong hình ảnh thứ hai vào áo thun đen của cô ấy. Đảm bảo khuôn mặt và các đặc điểm của người phụ nữ hoàn toàn không thay đổi. Biểu trưng phải trông như được in tự nhiên trên vải, theo các nếp gấp của áo. | Người phụ nữ mặc áo thun có biểu trưng |
 
-#### Menghidupkan sesuatu
+#### Tạo cảm giác sống động cho một đối tượng
 
-Upload sketsa atau gambar kasar dan minta model untuk menyempurnakannya menjadi gambar akhir.
+Tải một bản phác thảo hoặc bản vẽ thô lên và yêu cầu mô hình tinh chỉnh thành một hình ảnh hoàn chỉnh.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Input gambar:**  Sketsa mobil   Sketsa kasar mobil   **Perintah:** Ubah sketsa pensil kasar mobil futuristik ini menjadi foto akhir konsep mobil yang sudah jadi di showroom. Pertahankan garis ramping dan profil rendah dari sketsa, tetapi tambahkan cat biru metalik dan pencahayaan pelek neon. | Foto mobil konsep yang dipoles |
+| **Hình ảnh đầu vào:**  Bản phác thảo một chiếc ô tô   Bản phác thảo sơ bộ về một chiếc ô tô   **Câu lệnh:** Biến bản phác thảo bằng bút chì thô này về một chiếc xe hơi tương lai thành một bức ảnh bóng bẩy về chiếc xe ý tưởng đã hoàn thiện trong phòng trưng bày. Giữ nguyên các đường nét mượt mà và kiểu dáng thấp trong bản phác thảo, nhưng thêm sơn màu xanh dương ánh kim và ánh sáng viền neon. | Ảnh đã chỉnh sửa của chiếc xe ý tưởng |
 
-#### Konsistensi karakter: Tampilan 360
+#### Đảm bảo tính nhất quán của nhân vật: Chế độ xem 360 độ
 
-Anda dapat membuat tampilan karakter 360 derajat dengan memberikan perintah secara berulang untuk sudut yang berbeda. Untuk hasil terbaik, sertakan gambar yang dibuat sebelumnya dalam perintah berikutnya untuk menjaga konsistensi. Untuk pose yang rumit, sertakan gambar referensi pose yang diinginkan.
+Bạn có thể tạo chế độ xem 360 độ của một nhân vật bằng cách liên tục đưa ra câu lệnh cho các góc khác nhau. Để có kết quả tốt nhất, hãy thêm những hình ảnh đã tạo trước đó vào các câu lệnh tiếp theo để duy trì tính nhất quán. Đối với những tư thế phức tạp, hãy thêm một hình ảnh tham khảo về tư thế mong muốn.
 
-| **Perintah** | **Output yang dihasilkan** |
+| **Câu lệnh** | **Nội dung tạo sinh** |
 | --- | --- |
-| **Input gambar:**  Input asli seorang pria berkacamata putih   Gambar asli   **Perintah:** Foto studio pria ini dengan latar belakang putih, dari samping menghadap ke kanan | Output seorang pria berkacamata putih yang melihat ke kanan   Pria berkacamata putih melihat ke kanan   Output seorang pria berkacamata putih yang melihat ke depan   Pria berkacamata putih melihat ke depan |
+| **Hình ảnh đầu vào:**  Đầu vào ban đầu của một người đàn ông đeo kính trắng   Hình ảnh gốc   **Câu lệnh:** Chân dung của người đàn ông này trong phòng chụp ảnh, trên nền trắng, nhìn nghiêng sang phải | Đầu ra của một người đàn ông đeo kính trắng đang nhìn sang phải   Người đàn ông đeo kính trắng nhìn sang phải   Ảnh chân dung một người đàn ông đeo kính trắng đang nhìn về phía trước   Người đàn ông đeo kính trắng nhìn về phía trước |
 
-### Praktik Terbaik
+### Các phương pháp hay nhất
 
-Untuk meningkatkan hasil dari baik menjadi luar biasa, masukkan strategi profesional berikut ke dalam alur kerja Anda.
+Để nâng kết quả từ tốt lên xuất sắc, hãy kết hợp những chiến lược chuyên nghiệp này vào quy trình làm việc của bạn.
 
-- **Buat Perintah yang Sangat Spesifik:** Semakin detail informasi yang Anda berikan, semakin besar kontrol yang Anda miliki. Daripada "armor fantasi", deskripsikan: "armor pelat elf yang indah, diukir dengan pola daun perak, dengan kerah tinggi dan pelindung bahu berbentuk seperti sayap elang".
-- **Berikan Konteks dan Maksud:** Jelaskan *tujuan* gambar. Pemahaman model tentang konteks akan memengaruhi output akhir. Misalnya, "Buat logo untuk merek perawatan kulit kelas atas yang minimalis" akan memberikan hasil yang lebih baik daripada hanya "Buat logo".
-- **Lakukan Iterasi dan Tingkatkan Kualitas:** Jangan mengharapkan gambar yang sempurna pada percobaan pertama. Gunakan sifat percakapan model untuk melakukan perubahan kecil. Lanjutkan dengan perintah seperti, "Bagus, tapi bisakah kamu membuat pencahayaannya sedikit lebih hangat?" atau "Biarkan semuanya sama, tapi ubah ekspresi karakter menjadi lebih serius".
-- **Gunakan Petunjuk Langkah demi Langkah:** Untuk adegan kompleks dengan banyak elemen, pecah perintah Anda menjadi beberapa langkah. "Pertama, buat latar belakang hutan berkabut yang tenang saat fajar. Kemudian, di latar depan, tambahkan altar batu kuno yang tertutup lumut.
-  Terakhir, letakkan pedang tunggal yang bercahaya di atas altar."
-- **Gunakan "Perintah Negatif Semantik":** Daripada mengatakan "tidak ada mobil", deskripsikan
-  adegan yang diinginkan secara positif: "jalan yang kosong dan sepi tanpa tanda-tanda
-  lalu lintas".
-- **Mengontrol Kamera:** Gunakan bahasa fotografi dan sinematik untuk mengontrol komposisi. Istilah seperti `wide-angle shot`, `macro shot`, `low-angle
+- **Càng cụ thể càng tốt:** Bạn càng cung cấp nhiều thông tin chi tiết, bạn càng có nhiều quyền kiểm soát. Thay vì "áo giáp giả tưởng", hãy mô tả nó: "áo giáp dạng tấm của người lùn được chạm khắc hoa văn lá bạc, có cổ áo cao và cầu vai có hình đôi cánh chim ưng".
+- **Cung cấp bối cảnh và ý định:** Giải thích *mục đích* của hình ảnh. Mức độ hiểu biết của mô hình về ngữ cảnh sẽ ảnh hưởng đến kết quả đầu ra cuối cùng. Ví dụ: "Tạo một biểu trưng cho một thương hiệu chăm sóc da tối giản, cao cấp" sẽ mang lại kết quả tốt hơn so với chỉ "Tạo một biểu trưng".
+- **Lặp lại và tinh chỉnh:** Đừng mong đợi một hình ảnh hoàn hảo ngay từ lần thử đầu tiên. Sử dụng tính chất đàm thoại của mô hình để thực hiện các thay đổi nhỏ. Tiếp tục đưa ra các câu lệnh như "Tuyệt vời, nhưng bạn có thể điều chỉnh ánh sáng ấm hơn một chút không?" hoặc "Giữ nguyên mọi thứ, nhưng thay đổi biểu cảm của nhân vật sao cho nghiêm túc hơn."
+- **Sử dụng hướng dẫn từng bước:** Đối với những cảnh phức tạp có nhiều phần tử, hãy chia câu lệnh thành các bước. "Trước tiên, hãy tạo một hình nền là khu rừng yên bình, mờ sương vào lúc bình minh. Sau đó, ở tiền cảnh, hãy thêm một bàn thờ bằng đá cổ được phủ đầy rêu.
+  Cuối cùng, hãy đặt một thanh kiếm phát sáng duy nhất lên trên bàn thờ."
+- **Sử dụng "Câu lệnh phủ định ngữ nghĩa":** Thay vì nói "không có ô tô", hãy mô tả cảnh mong muốn một cách tích cực: "một con đường vắng vẻ, không có dấu hiệu giao thông".
+- **Kiểm soát Camera:** Sử dụng ngôn ngữ nhiếp ảnh và điện ảnh để kiểm soát bố cục. Các thuật ngữ như `wide-angle shot`, `macro shot`, `low-angle
   perspective`.
 
-## Batasan
+## Các điểm hạn chế
 
-- Untuk performa terbaik, gunakan bahasa berikut: EN, ar-EG, de-DE, es-MX,
-  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
-- Pembuatan gambar tidak mendukung input audio atau video.
-- Model tidak akan selalu mengikuti jumlah output gambar persis yang diminta pengguna secara eksplisit.
-- `gemini-2.5-flash-image` berfungsi paling baik dengan maksimal 3 gambar sebagai input, sedangkan
-  `gemini-3-pro-image` mendukung 5 gambar dengan fidelitas tinggi, dan total hingga
-  14 gambar. `gemini-3.1-flash-image` mendukung kemiripan karakter hingga 4 karakter dan kualitas hingga 10 objek dalam satu alur kerja.
-- Saat membuat teks untuk gambar, Gemini akan berfungsi paling baik jika Anda membuat teks terlebih dahulu, lalu meminta gambar dengan teks tersebut.
-- `gemini-3.1-flash-image` Saat ini, perujukan dengan Google Penelusuran tidak mendukung penggunaan gambar orang dari dunia nyata dari penelusuran web.
-- Semua gambar yang dihasilkan menyertakan [watermark SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id).
+- Để có hiệu suất tốt nhất, hãy sử dụng các ngôn ngữ sau: tiếng Anh, tiếng Ả Rập (Ai Cập), tiếng Đức (Đức), tiếng Tây Ban Nha (Mexico), tiếng Pháp (Pháp), tiếng Hindi (Ấn Độ), tiếng Indonesia (Indonesia), tiếng Ý (Ý), tiếng Nhật (Nhật Bản), tiếng Hàn (Hàn Quốc), tiếng Bồ Đào Nha (Brazil), tiếng Nga (Nga), tiếng Ukraina (Ukraina), tiếng Việt (Việt Nam), tiếng Trung (Trung Quốc).
+- Tính năng tạo hình ảnh không hỗ trợ dữ liệu đầu vào bằng âm thanh. Chỉ Gemini 3.1 Flash Image mới hỗ trợ dữ liệu đầu vào là video.
+- Không phải lúc nào mô hình cũng tạo ra chính xác số lượng hình ảnh mà người dùng yêu cầu một cách rõ ràng.
+- `gemini-2.5-flash-image` hoạt động hiệu quả nhất khi có tối đa 3 hình ảnh làm dữ liệu đầu vào, trong khi `gemini-3-pro-image` hỗ trợ 5 hình ảnh có độ trung thực cao và tổng cộng tối đa 14 hình ảnh. `gemini-3.1-flash-image` hỗ trợ độ tương đồng ký tự lên đến 4 ký tự và độ trung thực lên đến 10 đối tượng trong một quy trình duy nhất.
+- Khi tạo văn bản cho một hình ảnh, Gemini hoạt động hiệu quả nhất nếu bạn tạo văn bản trước rồi yêu cầu tạo hình ảnh có văn bản đó.
+- `gemini-3.1-flash-image` Tính năng Bám sát nguồn bằng Google Tìm kiếm hiện không hỗ trợ việc sử dụng hình ảnh thực tế về con người từ tìm kiếm trên web.
+- Tất cả hình ảnh được tạo đều có [hình mờ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi).
 
-## Konfigurasi opsional
+## Cấu hình không bắt buộc
 
-Anda dapat secara opsional mengonfigurasi modalitas respons dan rasio aspek output model di kolom `config` panggilan `generate_content`.
+Bạn có thể tuỳ ý định cấu hình các phương thức phản hồi và tỷ lệ khung hình của đầu ra của mô hình trong trường `config` của các lệnh gọi `generate_content`.
 
-### Jenis output
+### Loại kết quả
 
-Model secara default menampilkan respons teks dan gambar
-(yaitu `response_modalities=['Text', 'Image']`).
-Anda dapat mengonfigurasi respons agar hanya menampilkan gambar tanpa teks menggunakan
-`response_modalities=['Image']`.
+Theo mặc định, mô hình sẽ trả về các phản hồi bằng văn bản và hình ảnh (tức là `response_modalities=['Text', 'Image']`). Bạn có thể định cấu hình phản hồi để chỉ trả về hình ảnh mà không có văn bản bằng cách sử dụng `response_modalities=['Image']`.
 
 ### Python
 
@@ -2953,11 +2934,10 @@ curl -s -X POST \
   }'
 ```
 
-### Rasio aspek dan ukuran gambar
+### Tỷ lệ khung hình và kích thước hình ảnh
 
-Secara default, model akan mencocokkan ukuran gambar output dengan ukuran gambar input Anda, atau menghasilkan persegi 1:1.
-Anda dapat mengontrol rasio aspek gambar output menggunakan kolom `aspect_ratio`
-di bagian `response_format` dalam permintaan respons, seperti yang ditunjukkan di sini:
+Theo mặc định, mô hình sẽ điều chỉnh kích thước hình ảnh đầu ra cho phù hợp với kích thước hình ảnh đầu vào của bạn, hoặc tạo ra các hình vuông 1:1.
+Bạn có thể kiểm soát tỷ lệ khung hình của hình ảnh đầu ra bằng cách sử dụng trường `aspect_ratio` trong `response_format` trong yêu cầu phản hồi, như minh hoạ ở đây:
 
 ### Python
 
@@ -3144,12 +3124,11 @@ curl -s -X POST \
   }'
 ```
 
-Berbagai rasio yang tersedia dan ukuran gambar yang dihasilkan tercantum dalam
-tabel berikut:
+Các tỷ lệ hiện có và kích thước của hình ảnh được tạo được liệt kê trong các bảng sau:
 
-### 3.1 Gambar Flash
+### 3.1 Hình ảnh Flash
 
-| Rasio aspek | Resolusi 512 | 0,5 ribu token | Resolusi 1K | 1.000 token | Resolusi 2K | 2.000 token | Resolusi 4K | 4K token |
+| Tỷ lệ khung hình | Độ phân giải 512 | 500 token | Độ phân giải 1K | 1.000 token | Độ phân giải 2K | 2.000 token | Độ phân giải 4K | 4.000 token |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
 | **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
@@ -3168,7 +3147,7 @@ tabel berikut:
 
 ### 3.1 Pro Image
 
-| Rasio aspek | Resolusi 1K | 1.000 token | Resolusi 2K | 2.000 token | Resolusi 4K | 4K token |
+| Tỷ lệ khung hình | Độ phân giải 1K | 1.000 token | Độ phân giải 2K | 2.000 token | Độ phân giải 4K | 4.000 token |
 | --- | --- | --- | --- | --- | --- | --- |
 | **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
@@ -3181,9 +3160,9 @@ tabel berikut:
 | **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
 | **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
 
-### Gambar Gemini 2.5 Flash
+### Hình ảnh Gemini 2.5 Flash
 
-| Rasio aspek | Resolusi | Token |
+| Tỷ lệ khung hình | Độ phân giải | Mã thông báo |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
 | 2:3 | 832x1248 | 1290 |
@@ -3196,37 +3175,30 @@ tabel berikut:
 | 16:9 | 1344x768 | 1290 |
 | 21:9 | 1536x672 | 1290 |
 
-## Pemilihan model
+## Lựa chọn mô hình
 
-Pilih model yang paling sesuai untuk kasus penggunaan spesifik Anda.
+Chọn mô hình phù hợp nhất với trường hợp sử dụng cụ thể của bạn.
 
-- **Gemini 3.1 Flash Image (Nano Banana 2)** harus menjadi model pembuatan gambar pilihan Anda, karena memiliki performa dan kecerdasan terbaik secara keseluruhan dengan keseimbangan biaya dan latensi yang optimal. Lihat halaman [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.1-flash-image) dan [kemampuan](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=id) model untuk mengetahui detail selengkapnya.
-- **Gemini 3.1 Pro Image (Nano Banana Pro)** dirancang untuk
-  produksi aset profesional dan petunjuk yang kompleks. Model ini memiliki
-  pengetahuan dunia nyata menggunakan Google Penelusuran, proses "Berpikir" default yang
-  memperbaiki komposisi sebelum pembuatan, dan dapat menghasilkan gambar dengan resolusi
-  hingga 4K. Lihat halaman [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3-pro-image) dan [kemampuan](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=id) model untuk mengetahui detail selengkapnya.
-- **Gemini 2.5 Flash Image (Nano Banana)** dirancang untuk kecepatan dan efisiensi. Model ini dioptimalkan untuk tugas bervolume tinggi dan latensi rendah serta membuat gambar dengan resolusi 1024 piksel. Lihat halaman [harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-2.5-flash-image) dan
-  [kemampuan](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=id) model untuk mengetahui detail selengkapnya.
+- **Hình ảnh Gemini 3.1 Flash (Nano Banana 2)** nên là mô hình tạo hình ảnh mà bạn ưu tiên sử dụng, vì đây là mô hình có hiệu suất và trí thông minh toàn diện tốt nhất để cân bằng chi phí và độ trễ. Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.1-flash-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi) của mô hình để biết thêm thông tin chi tiết.
+- **Hình ảnh do Gemini 3 Pro tạo (Nano Banana Pro)** được thiết kế để tạo tài sản chuyên nghiệp và xử lý các chỉ dẫn phức tạp. Mô hình này có tính năng liên kết với thế giới thực bằng Google Tìm kiếm, quy trình "Suy nghĩ" mặc định giúp tinh chỉnh thành phần trước khi tạo và có thể tạo hình ảnh có độ phân giải lên đến 4K. Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3-pro-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=vi) của mô hình để biết thêm thông tin chi tiết.
+- **Hình ảnh Gemini 2.5 Flash (Nano Banana)** được thiết kế để mang lại tốc độ và hiệu quả. Mô hình này được tối ưu hoá cho các tác vụ có khối lượng lớn, độ trễ thấp và tạo hình ảnh ở độ phân giải 1024px. Hãy xem trang [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-2.5-flash-image) và [khả năng](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi) của mô hình để biết thêm thông tin chi tiết.
 
-### Kapan menggunakan Imagen
+### Trường hợp sử dụng Imagen
 
-Selain menggunakan kemampuan pembuatan gambar bawaan Gemini, Anda juga dapat mengakses [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=id), model pembuatan gambar khusus kami, melalui Gemini API.
+Ngoài việc sử dụng các tính năng tạo hình ảnh tích hợp của Gemini, bạn cũng có thể truy cập vào [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=vi), mô hình tạo hình ảnh chuyên biệt của chúng tôi, thông qua Gemini API. Lên kế hoạch di chuyển trước ngày ngừng hoạt động.
 
-Imagen 4 harus menjadi model pilihan Anda saat mulai membuat gambar dengan Imagen. Pilih Imagen 4 Ultra untuk kasus penggunaan lanjutan atau saat Anda memerlukan kualitas gambar terbaik (perhatikan bahwa Imagen 4 Ultra hanya dapat membuat satu gambar dalam satu waktu).
+## Bước tiếp theo
 
-## Langkah berikutnya
+- Bạn có thể tìm thêm ví dụ và mã mẫu trong [hướng dẫn sổ tay nấu ăn](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=vi).
+- Hãy xem [hướng dẫn về Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi) để tìm hiểu cách tạo video bằng Gemini API.
+- Để tìm hiểu thêm về các mô hình Gemini, hãy xem phần [Các mô hình Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi).
 
-- Temukan contoh dan sampel kode lainnya di [panduan cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_Started_Nano_Banana.ipynb?hl=id).
-- Lihat [panduan Veo](https://ai.google.dev/gemini-api/docs/video?hl=id) untuk mempelajari cara membuat video dengan Gemini API.
-- Untuk mempelajari model Gemini lebih lanjut, lihat [Model Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id).
+Gửi ý kiến phản hồi
 
-Kirim masukan
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Cập nhật lần gần đây nhất: 2026-06-19 UTC.
 
-Terakhir diperbarui pada 2026-05-28 UTC.
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-28 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]

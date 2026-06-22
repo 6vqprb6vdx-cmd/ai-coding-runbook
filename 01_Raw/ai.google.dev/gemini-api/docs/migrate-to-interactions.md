@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=pt-BR
-fetched_at: 2026-06-15T06:22:46.204519+00:00
-title: "Como migrar para a API Interactions \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ja
+fetched_at: 2026-06-22T06:24:55.688813+00:00
+title: "Interactions API \u3078\u306e\u79fb\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envie comentários
+フィードバックを送信
 
-# Como migrar para a API Interactions
+# Interactions API への移行
 
-Este guia ajuda você a migrar da API `generateContent` para a API Interactions.
+このガイドでは、`generateContent` API から Interactions API に移行する方法について説明します。
 
-A API Interactions é a interface padrão para criar com o Gemini. Ela é otimizada para fluxos de trabalho de agentes, gerenciamento de estado do lado do servidor e conversas multimodais e multiturno complexas, mas ainda oferece suporte total a solicitações simples e sem estado de turno único. Embora a `generateContent` continue com suporte total, recomendamos a API Interactions para todos os novos desenvolvimentos.
+Interactions API は、Gemini を使用して構築するための標準インターフェースです。エージェント ワークフロー、サーバーサイドの状態管理、複雑なマルチモーダル、マルチターンの会話に最適化されていますが、シンプルなステートレスのシングルターン リクエストも完全にサポートしています。`generateContent` は引き続き完全にサポートされますが、新規開発には Interactions API をおすすめします。
 
-### Por que migrar?
+### 移行の理由
 
-A API Interactions oferece uma maneira mais estruturada e eficiente de criar com o Gemini:
+Interactions API は、Gemini を使用して構築するための、より構造化された強力な方法を提供します。
 
-- **Gerenciamento de histórico do lado do servidor**: fluxos multiturno simplificados usando `previous_interaction_id`. O servidor ativa o estado por padrão (`store=true`), mas você pode ativar o comportamento sem estado definindo `store=false`.
-- **Etapas de execução observáveis**: as etapas digitadas facilitam a depuração de fluxos complexos e a renderização da interface para eventos intermediários (como pensamentos ou widgets de pesquisa).
-- **Criada para fluxos de trabalho de agentes**: suporte nativo para uso de ferramentas de várias etapas, orquestração e fluxos de raciocínio complexos usando etapas de execução digitadas.
-- **Tarefas longas e em segundo plano**: oferece suporte ao descarregamento de operações que exigem muito tempo, como o Deep Think e o Deep Research, para processos em segundo plano usando `background=true`.
+- **サーバーサイドの履歴管理**: `previous_interaction_id` を使用してマルチターンのフローを簡素化します。サーバーはデフォルトで状態を有効にします（`store=true`）。ただし、`store=false` を設定することで、ステートレス動作を選択できます。
+- **実行ステップのオブザーバビリティ**: 型付きステップにより、複雑なフローのデバッグが容易になり、中間イベント（思考や検索ウィジェットなど）の UI をレンダリングできます。
+- **エージェント ワークフロー向けに構築**: 型付き実行ステップを通じて、マルチステップ ツールの使用、オーケストレーション、複雑な推論フローをネイティブにサポートします。
+- **長時間実行タスクとバックグラウンド タスク**: Deep Think や Deep Research などの時間のかかるオペレーションをバックグラウンド プロセスにオフロードできます。`background=true`
 
-## Entrada/saída básica
+## 基本的な入出力
 
-Esta seção mostra como migrar uma solicitação simples de geração de texto.
+このセクションでは、シンプルなテキスト生成リクエストを移行する方法について説明します。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-A API `generateContent` não tem estado e retorna a resposta diretamente. A estrutura da resposta envolve a saída em uma lista de `candidates`, cada uma contendo `content` com uma lista de `parts` para analisar.
+`generateContent` API はステートレスで、レスポンスを直接返します。レスポンス構造は、出力を `candidates` のリストでラップします。各リストには、解析する `parts` のリストを含む `content` が含まれています。
 
 ### Python
 
@@ -105,9 +105,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-A API Interactions retorna um recurso de interação armazenado com uma linha do tempo `steps`. Embora seja possível inspecionar a matriz `steps` manualmente para encontrar eventos intermediários, os SDKs do Google GenAI fornecem propriedades de conveniência diretamente no objeto `Interaction` retornado para acessar a saída final.
+Interactions API は、`steps` タイムラインを含む保存されたインタラクション リソースを返します。`steps` 配列を手動で調べて中間イベントを見つけることもできますが、Google GenAI SDK は、返された `Interaction` オブジェクトに便利なプロパティを直接提供して、最終的な出力にアクセスできるようにします。
 
-A propriedade de conveniência mais comum é **`.output_text`** (string), que extrai e une automaticamente blocos `TextContent` consecutivos no final da resposta do modelo. Embora isso funcione perfeitamente para respostas simples, não inclui blocos de texto anteriores separados por conteúdo não textual (como pensamentos, imagens, áudio ou chamadas de ferramenta). Para respostas multimodais complexas ou intercaladas, é necessário iterar manualmente em `steps`.
+最も一般的な便利なプロパティは **`.output_text`** （文字列）で、モデルのレスポンスの末尾にある連続する `TextContent` ブロックを自動的に抽出して結合します。これはシンプルなレスポンスには最適ですが、テキスト以外のコンテンツ（思考、画像、音声、ツール呼び出しなど）で区切られた以前のテキスト ブロックは含まれません。複雑なマルチモーダル レスポンスやインターリーブされたマルチモーダル レスポンスの場合は、代わりに `steps` を手動で反復処理する必要があります。
 
 ### Python
 
@@ -179,17 +179,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Conversas com vários turnos
+## マルチターンの会話
 
-A API Interactions armazena interações por padrão, permitindo o gerenciamento de estado do lado do servidor para conversas multiturno.
+Interactions API はデフォルトでインタラクションを保存するため、マルチターンの会話のサーバーサイドの状態管理が可能になります。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-Na `generateContent`, é necessário gerenciar manualmente o histórico de conversas usando a matriz `contents` ou um auxiliar de chat do lado do cliente.
+`generateContent` では、`contents` 配列またはクライアントサイドのチャット ヘルパーを使用して、会話履歴を手動で管理する必要があります。
 
 ### Python
 
-**Usando o auxiliar de chat (recomendado)**
+**チャット ヘルパーを使用する（推奨）**
 
 ```
 from google import genai
@@ -204,7 +204,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**Gerenciamento manual do histórico**
+**履歴を手動で管理する**
 
 ```
 from google import genai
@@ -232,7 +232,7 @@ print(response.text)
 
 ### JavaScript
 
-**Usando o auxiliar de chat (recomendado)**
+**チャット ヘルパーを使用する（推奨）**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -247,7 +247,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**Gerenciamento manual do histórico**
+**履歴を手動で管理する**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -299,9 +299,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-A API Interactions gerencia o estado no servidor. Para continuar uma conversa, faça referência ao `previous_interaction_id`.
+Interactions API はサーバーで状態を管理します。`previous_interaction_id` を参照して会話を続けます。
 
 ### Python
 
@@ -394,13 +394,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Entradas multimodais
+## マルチモーダル入力
 
-As duas APIs oferecem suporte a entradas multimodais (texto, imagens, vídeo etc.).
+どちらの API もマルチモーダル入力（テキスト、画像、動画など）をサポートしています。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-Na `generateContent`, você transmite uma lista de `parts` na matriz `contents`. A resposta retorna a saída nas `parts` do primeiro candidato.
+`generateContent` では、`contents` 配列内で `parts` のリストを渡します。レスポンスは、最初の候補の `parts` に出力を返します。
 
 ### Python
 
@@ -463,9 +463,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-Na API Interactions, você transmite uma matriz para o campo `input`. Para recuperar o conteúdo de saída, encontre a etapa `model_output` na linha do tempo.
+Interactions API では、配列を `input` フィールドに渡します。出力コンテンツを取得するには、タイムラインで `model_output` ステップを見つけます。
 
 ### Python
 
@@ -573,13 +573,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Resposta estruturada
+## 構造化出力
 
-Para que o modelo retorne um JSON que corresponda a um esquema específico, configure o formato da resposta.
+特定のスキーマに一致する JSON をモデルに返させるには、レスポンス形式を構成します。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-Na `generateContent`, você configura o formato de saída usando o campo `response_format` aninhado no objeto `generationConfig`.
+`generateContent` では、`generationConfig` オブジェクト内にネストされた `response_format` フィールドを使用して出力形式を構成します。
 
 ### Python
 
@@ -661,9 +661,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-Na API Interactions, os controles de formato de saída são movidos para uma matriz `response_format` de nível superior.
+Interactions API では、出力形式の制御が最上位の `response_format` 配列に移動します。
 
 ### Python
 
@@ -775,13 +775,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Geração multimodal
+## マルチモーダル生成
 
-Ao gerar conteúdo em modalidades além do texto (como imagens ou áudio), a principal diferença é como a resposta estrutura a mídia gerada.
+テキスト以外のモダリティ（画像や音声など）でコンテンツを生成する場合、主な違いは、生成されたメディアをレスポンスがどのように構造化するかです。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-Na `generateContent`, a resposta retorna a mídia gerada diretamente nas `parts` do candidato, normalmente como dados base64 em `inlineData`.
+`generateContent` では、レスポンスは生成されたメディアを候補の `parts` に直接返します。通常は `inlineData` の base64 データとして返されます。
 
 ```
 # Response structure concept
@@ -806,9 +806,9 @@ Na `generateContent`, a resposta retorna a mídia gerada diretamente nas `parts`
 }
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-Na API Interactions, a mídia gerada aparece como itens distintos na matriz `content` de uma etapa `model_output` na linha do tempo, mantendo o fluxo cronológico da interação.
+Interactions API では、生成されたメディアはタイムラインの `model_output` ステップの `content` 配列内の個別のアイテムとして表示され、インタラクションの時系列フローが維持されます。
 
 ```
 # Response structure concept
@@ -834,15 +834,15 @@ Na API Interactions, a mídia gerada aparece como itens distintos na matriz `con
 }
 ```
 
-Isso mantém a análise de resposta consistente com a forma como as entradas e saídas de texto são processadas. Tudo é uma etapa na linha do tempo.
+これにより、レスポンスの解析は、入力とテキスト出力の処理方法と一貫性が保たれます。すべてがタイムラインのステップです。
 
-## Ferramentas do lado do servidor
+## サーバーサイド ツール
 
-O Gemini oferece suporte a ferramentas integradas do lado do servidor, como o embasamento da Pesquisa Google. A principal diferença é como a resposta representa a execução da ferramenta.
+Gemini は、Google 検索のグラウンディングなどの組み込みのサーバーサイド ツールをサポートしています。主な違いは、レスポンスがツールの実行をどのように表すかです。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-Na `generateContent`, as ferramentas do lado do servidor são em grande parte opacas. Você ativa a ferramenta e recebe uma resposta final com um objeto `groundingMetadata` separado. É importante ressaltar que as citações não são inline. O `groundingSupports` usa índices de caracteres para mapear segmentos de texto de volta às fontes da Web em `groundingChunks`.
+`generateContent` では、サーバーサイド ツールはほとんど不透明です。ツールを有効にして、別の `groundingMetadata` オブジェクトで最終的な回答を取得します。重要な点として、引用はインラインではありません。`groundingSupports` は文字インデックスを使用して、テキスト セグメントを `groundingChunks` のウェブソースにマッピングします。
 
 ### Python
 
@@ -950,11 +950,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-Na API Interactions, as ferramentas do lado do servidor oferecem transparência total da linha do tempo. A API registra a chamada e o resultado como `steps` de execução distintos (`google_search_call` e `google_search_result`), expondo exatamente quais dados o modelo recuperou.
+Interactions API では、サーバーサイド ツールはタイムラインの完全な透明性を提供します。API は呼び出しと結果を個別の実行 `steps`（`google_search_call` と `google_search_result`）として記録し、モデルが取得したデータを正確に公開します。
 
-Além disso, a API retorna citações **inline**. Em vez de mapear índices de um objeto de metadados separado, o item de texto na etapa `model_output` contém a própria matriz `annotations` que vincula diretamente à fonte.
+さらに、API は引用を**インライン** で返します。別のメタデータ オブジェクトからインデックスをマッピングする代わりに、`model_output` ステップ内のテキスト アイテムには、ソースに直接リンクする独自の `annotations` 配列が含まれています。
 
 ### Python
 
@@ -1065,13 +1065,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Chamadas de função
+## 関数呼び出し
 
-A estrutura das chamadas de função e dos resultados também mudou para se ajustar ao esquema de etapas.
+関数呼び出しと結果の構造も、Steps スキーマに合わせて変更されています。
 
-### Antes (`generateContent`)
+### 移行前（`generateContent`）
 
-Na `generateContent`, a resposta retorna chamadas de função nos candidatos.
+`generateContent` では、レスポンスは候補内の関数呼び出しを返します。
 
 ### Python
 
@@ -1205,9 +1205,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-As chamadas e os resultados de ferramentas agora são etapas distintas na linha do tempo.
+ツール呼び出しと結果は、タイムラインの個別のステップになりました。
 
 ### Python
 
@@ -1392,15 +1392,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Streaming
+## ストリーミング
 
-Uma diferença fundamental no streaming é que a API Interactions usa o mesmo endpoint com `"stream": true` no corpo da solicitação, enquanto a API `generateContent` exigia a chamada de um endpoint dedicado (`:streamGenerateContent`).
+ストリーミングの主な違いは、Interactions API がリクエスト本文で `"stream": true` を使用して同じエンドポイントを使用するのに対し、`generateContent` API では専用のエンドポイント（`:streamGenerateContent`）を呼び出す必要があったことです。
 
-Além disso, os eventos de streaming agora usam tipos especializados para monitorar o ciclo de vida da interação e rastrear as etapas de execução ao longo da linha do tempo.
+また、ストリーミング イベントでは、特殊な型を使用してインタラクションのライフサイクルをモニタリングし、タイムラインに沿って実行ステップを追跡します。
 
-### Antes (`generateContentStream`)
+### 移行前（`generateContentStream`）
 
-Com a `generateContent`, você consome um fluxo de blocos de resposta.
+`generateContent` を使用すると、レスポンス チャンクのストリームを使用します。
 
 ### Python
 
@@ -1454,9 +1454,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### Depois (API Interactions)
+### 移行後（Interactions API）
 
-Na API Interactions, o streaming usa eventos enviados pelo servidor (SSE, na sigla em inglês) e tipos delta especializados para representar as etapas de execução à medida que acontecem.
+Interactions API では、ストリーミングは Server-Sent Events（SSE）と特殊なデルタ型を使用して、実行ステップを発生時に表現します。
 
 ### Python
 
@@ -1505,7 +1505,7 @@ for await (const event of stream) {
 
 ### REST
 
-# Exemplo de saída de fluxo de SSE
+# Example SSE stream output
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1515,7 +1515,7 @@ data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
 event: step.delta
 data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "User wants an explanation."}}
 event: step.stop
-data: {"type": "step.stop", "index": 0, "status": "done"}
+data: {"type": "step.stop", "index": 0, "status": "done"}}
 event: step.start
 data: {"type": "step.start", "index": 1, "step": {"type": "model\_output"}}
 event: step.delta
@@ -1526,13 +1526,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### Ferramentas de streaming e chamadas de função
+### ストリーミング ツールと関数呼び出し
 
-A maneira como as ferramentas se comportam no fluxo mudou significativamente da `generateContent` para oferecer mais controle e visibilidade.
+ストリームでのツールの動作は、`generateContent` から大幅に変更され、よりきめ細かい制御と可視性が提供されるようになりました。
 
-#### Antes (`generateContent`)
+#### 移行前（`generateContent`）
 
-Com a `generateContent`, as chamadas de função de streaming chegaram completas em um único bloco. Não era possível ver os argumentos sendo gerados em tempo real, então o handler simplesmente verificava um objeto `functionCall` completo.
+`generateContent` では、ストリーミング関数呼び出しは 1 つのチャンクで完了しました。引数がリアルタイムで生成されるのを確認できなかったため、ハンドラは完全な `functionCall` オブジェクトを確認するだけでした。
 
 ### Python
 
@@ -1596,9 +1596,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### Depois (API Interactions)
+#### 移行後（Interactions API）
 
-A API Interactions transmite argumentos de chamada de função caractere por caractere como eventos `arguments`. Todo o ciclo de vida da ferramenta (pensamento, chamada, resultado e saída) é reproduzido como uma série de etapas distintas.
+Interactions API は、関数呼び出し引数を `arguments` イベントとして文字単位でストリーミングします。思考、呼び出し、結果、出力など、ツール ライフサイクル全体が、一連の個別のステップとして実行されます。
 
 ### Python
 
@@ -1743,12 +1743,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-Envie comentários
+フィードバックを送信
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última atualização 2026-06-01 UTC.
+最終更新日 2026-06-19 UTC。
 
-Quer enviar seu feedback?
+ご意見をお聞かせください
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-19 UTC。"],[],[]]

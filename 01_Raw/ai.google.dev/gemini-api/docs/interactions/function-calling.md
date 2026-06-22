@@ -1,35 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-CN
-fetched_at: 2026-06-15T06:25:14.978052+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/function-calling
+fetched_at: 2026-06-22T06:24:18.300982+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 现已推出预览版，支持协作规划、可视化、MCP 等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+# Function calling with the Gemini API
 
-发送反馈
+Function calling lets you connect models to external tools and APIs.
+Instead of generating text responses, the model determines when to call specific
+functions and provides the necessary parameters to execute real-world actions.
+This allows the model to act as a bridge between natural language and real-world
+actions and data. Function calling has 3 primary use cases:
 
-# 使用 Gemini API 进行函数调用
+- [**Take Actions:**](#meeting) Interact with external systems using APIs, such as
+  scheduling appointments, creating invoices, sending emails, or controlling
+  smart home devices.
+- [**Augment Knowledge:**](#weather) Access information from external sources like
+  databases, APIs, and knowledge bases.
+- [**Extend Capabilities:**](#chart) Use external tools to perform computations and
+  extend the limitations of the model, such as using a calculator or creating
+  charts.
 
-函数调用功能可让您将模型连接到外部工具和 API。模型不会生成文本回答，而是确定何时调用特定函数，并提供执行实际操作所需的参数。这样一来，模型就可以充当自然语言与实际操作和数据之间的桥梁。函数调用功能有 3 个主要使用情形：
+You can browse examples of these use cases below:
 
-- [**执行操作**：](#meeting)使用 API 与外部系统互动，例如安排预约、创建账单、发送电子邮件或控制智能家居设备。
-- [**扩充知识**：](#weather)从数据库、API 和知识库等外部来源获取信息。
-- [**扩展功能**：](#chart)使用外部工具执行计算，并扩展模型的功能限制，例如使用计算器或创建图表。
+### Schedule Meeting
 
-您可以浏览以下示例，了解这些使用情形：
-
-### 安排会议
-
-此示例展示了如何定义一个函数，用于在特定时间安排与参会者的会议，从而使模型能够解析用户请求并返回结构化实参，以触发外部系统中的操作。
+This example shows how to define a function that schedules a meeting with attendees at a specific time, allowing the model to parse user requests and return structured arguments to trigger actions in external systems.
 
 ### Python
 
@@ -131,9 +136,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 获取天气信息
+### Get Weather
 
-此示例展示了如何定义一个用于检索某个位置的温度数据的函数，从而使模型能够调用外部 API 来回答需要实时信息或外部信息的查询。
+This example shows how to define a function that retrieves temperature data for a location, enabling the model to call external APIs to answer queries requiring real-time or external information.
 
 ### Python
 
@@ -232,9 +237,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 创建图表
+### Create Chart
 
-此示例展示了如何定义一个可根据结构化数据生成条形图的函数，演示了模型如何使用外部工具执行计算或创建视觉资源：
+This example shows how to define a function that generates a bar chart from structured data, demonstrating how the model can use external tools to perform computations or create visual assets:
 
 ### Python
 
@@ -332,20 +337,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 函数调用的工作原理
+## How function calling works
 
-![函数调用概览](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=zh-cn)
+![function calling overview](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png)
 
-函数调用涉及应用、模型和外部函数之间的结构化互动：
+Function calling involves a structured interaction between your application, the
+model, and external functions:
 
-1. **定义函数声明**：向模型定义函数的名称、参数和用途。
-2. **使用函数声明调用 LLM**：将用户提示与函数声明一起发送给模型。
-3. **执行函数代码（您的责任）**：模型*不会*自行执行函数。提取名称和实参，并在您的应用中执行。
-4. **创建用户友好的回答**：将结果发送回模型，以生成最终的、用户友好的回答。
+1. **Define Function Declaration:** Define the function's name, parameters, and
+   purpose to the model.
+2. **Call LLM with function declarations:** Send user prompt along with the
+   function declaration(s) to the model.
+3. **Execute Function Code (Your Responsibility):** The model *doesn't*
+   execute the function itself. Extract the name and args and execute in
+   your application.
+4. **Create User friendly response:** Send the result back to the model for a
+   final, user-friendly response.
 
-此过程可在多个轮次中重复进行。该模型支持在单个轮次中调用多个函数（[并行函数调用](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-cn#parallel_function_calling)）以及按顺序调用多个函数（[组合式函数调用](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-cn#compositional_function_calling)）。
+This process can be repeated over multiple turns. The model supports calling
+multiple functions in a single turn ([parallel function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling#parallel_function_calling)) and in
+sequence ([compositional function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling#compositional_function_calling)).
 
-### 第 1 步：定义函数声明
+### Step 1: Define a function declaration
 
 ### Python
 
@@ -398,7 +411,7 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### 第 2 步：使用函数声明调用模型
+### Step 2: Call the model with function declarations
 
 ### Python
 
@@ -434,7 +447,7 @@ const fcStep = interaction.steps.find(s => s.type === 'function_call');
 console.log(fcStep);
 ```
 
-模型返回一个包含 `type`、`name` 和 `arguments` 的 `function_call` 步：
+The model returns a `function_call` step with `type`, `name`, and `arguments`:
 
 ```
 type='function_call'
@@ -442,7 +455,7 @@ name='set_light_values'
 arguments={'color_temp': 'warm', 'brightness': 25}
 ```
 
-### 第 3 步：执行函数
+### Step 3: Execute the function
 
 ### Python
 
@@ -466,7 +479,7 @@ if (fcStep.name === 'set_light_values') {
 }
 ```
 
-### 第 4 步：将结果发送回模型
+### Step 4: Send result back to model
 
 ### Python
 
@@ -506,14 +519,14 @@ const finalInteraction = await client.interactions.create({
 console.log(finalInteraction.output_text);
 ```
 
-### 无状态函数调用
+### Stateless function calling
 
-您还可以在无状态模式下使用函数调用，方法是在客户端管理对话记录并设置 `store=false`。
+You can also use function calling in stateless mode by managing the conversation history on the client side and setting `store=false`.
 
-在无状态模式下，您必须在每个后续请求的 `input` 字段中传递完整的对话历史记录。此记录必须包含：
-1. 初始 `user_input` 步。
-2. 第 1 轮中返回的所有模型生成的步骤（包括 `thought` 和 `function_call` 步骤），与接收到的完全一致。
-3. 包含已执行函数的输出的 `function_result` 步骤。
+In stateless mode, you must pass the full history of the conversation in the `input` field of each subsequent request. This history must include:
+1. The initial `user_input` step.
+2. All model-generated steps returned in Turn 1 (including `thought` and `function_call` steps) exactly as received.
+3. The `function_result` step containing the output of your executed function.
 
 ### Python
 
@@ -687,25 +700,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## 函数声明
+## Function declarations
 
-函数声明作为工具传递，包含以下内容：
+A function declaration is passed as a tool and includes:
 
-- `type`（字符串）：对于自定义函数，必须为 `"function"`。
-- `name`（字符串）：唯一的函数名称（使用下划线或驼峰命名法）。
-- `description`（字符串）：对函数用途的清晰说明。
-- `parameters`（对象）：函数预期的输入参数。
-  - `type`（字符串）：总体数据类型，例如 `object`。
-  - `properties`（对象）：包含类型和说明的各个参数。
-  - `required`（数组）：必需的参数名称。
+- `type` (string): Must be `"function"` for custom functions.
+- `name` (string): Unique function name (use underscores or camelCase).
+- `description` (string): Clear explanation of the function's purpose.
+- `parameters` (object): Input parameters the function expects.
+  - `type` (string): Overall data type, such as `object`.
+  - `properties` (object): Individual parameters with type and description.
+  - `required` (array): Mandatory parameter names.
 
-## 使用思考模型进行函数调用
+## Function calling with thinking models
 
-Gemini 3 和 2.5 系列模型使用内部[“思考”](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-cn)流程来改进函数调用。SDK 会自动为您处理[思考签名](https://ai.google.dev/gemini-api/docs/interactions/thought-signatures?hl=zh-cn)。
+Gemini 3 and 2.5 series models use an internal ["thinking"](https://ai.google.dev/gemini-api/docs/interactions/thinking) process that improves function calling.
+The SDKs automatically handle [thought signatures](https://ai.google.dev/gemini-api/docs/interactions/thought-signatures) for you.
 
-## 并行函数调用
+## Parallel function calling
 
-当多个函数相互独立时，可同时调用这些函数：
+Call multiple functions at once when they are independent:
 
 ### Python
 
@@ -756,9 +770,10 @@ for (const step of interaction.steps) {
 }
 ```
 
-## 组合式函数调用
+## Compositional function calling
 
-将多个函数调用链接在一起，以处理复杂的请求（例如，先获取位置信息，然后获取该位置的天气）。
+Chain multiple function calls together for complex requests (e.g., get location
+first, then get weather for that location).
 
 ### Python
 
@@ -813,14 +828,14 @@ for step in interaction.steps:
                  print(part.text)
 ```
 
-## 函数调用模式
+## Function calling modes
 
-在 `generation_config` 中使用 `tool_choice` 控制模型使用工具的方式：
+Control how the model uses tools using `tool_choice` in `generation_config`:
 
-- `auto`（默认值）：模型决定是调用函数还是直接回答。
-- `any`：模型会受到限制，始终预测函数调用。
-- `none`：禁止模型进行函数调用。
-- `validated`（预览版）：模型可确保函数架构合规性。
+- `auto` (Default): Model decides whether to call a function or respond directly.
+- `any`: Model is constrained to always predict a function call.
+- `none`: Model is prohibited from making function calls.
+- `validated` (Preview): Model ensures function schema adherence.
 
 ### Python
 
@@ -881,9 +896,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 多功能工具使用
+## Multi-tool use
 
-您可以启用多个工具，在同一请求中将内置工具与函数调用相结合。Gemini 3 模型可在互动中开箱即用地将内置工具与函数调用相结合。传递 `previous_interaction_id` 会自动循环使用内置工具上下文。
+You can enable multiple tools, combining built-in tools with function calling in
+the same request. Gemini 3 models can combine built-in tools with function
+calling out-of-the-box in Interactions. Passing `previous_interaction_id`
+automatically circulates the built-in tool context.
 
 ### Python
 
@@ -991,13 +1009,15 @@ for (const step of interaction.steps) {
 }
 ```
 
-## 多模态函数响应
+## Multimodal function responses
 
-对于 Gemini 3 系列模型，您可以在发送给模型的函数响应部分中添加多模态内容。模型可以在下一轮对话中处理此多模态内容，从而生成更明智的回答。
+For Gemini 3 series models, you can include multimodal content in
+the function response parts that you send to the model. The model can process
+this multimodal content in its next turn to produce a more informed response.
 
-如需在函数响应中包含多模态数据，请将其作为 `function_result` 步骤的 `result` 字段中的一个或多个内容块。每个禁播内容都必须指定其 `type`（例如 `"text"`、`"image"`）。
+To include multimodal data in a function response, include it as one or more content blocks in the `result` field of the `function_result` step. Each content block must specify its `type` (e.g., `"text"`, `"image"`).
 
-以下示例展示了如何在互动中将包含图片数据的功能响应发送回模型：
+The following example shows how to send a function response containing image data back to the model in an interaction:
 
 ### Python
 
@@ -1098,29 +1118,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 使用结构化输出进行函数调用
+## Function calling with Structured output
 
-对于 Gemini 3 系列模型，将函数调用与[结构化输出](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-cn)相结合，可获得格式一致的回答。
+For Gemini 3 series models, combine function calling with
+[structured output](https://ai.google.dev/gemini-api/docs/interactions/structured-output) for
+consistently formatted responses.
 
-## 远程 MCP（模型上下文协议）
+## Remote MCP (Model Context Protocol)
 
-Interactions API 支持连接到远程 MCP 服务器，以便模型访问外部工具和服务。您可以在工具配置中提供服务器 `name` 和 `url`。
+Interactions API supports connecting to remote MCP servers to give the model access to external tools and services. You provide the server `name` and `url` in the tools configuration.
 
-使用远程 MCP 时，请注意以下限制：
+When using Remote MCP, be aware of the following constraints:
 
-- **服务器类型**：远程 MCP 仅适用于可流式传输的 HTTP 服务器。不支持 SSE（服务器发送的事件）服务器。
-- **模型支持**：远程 MCP 目前无法与 Gemini 3 模型搭配使用。我们很快就会支持 Gemini 3。
-- **命名**：MCP 服务器名称不应包含 `-` 字符。请改用 `snake_case` 服务器名称。
+- **Server types**: Remote MCP only works with Streamable HTTP servers. SSE (Server-Sent Events) servers are not supported.
+- **Model support**: Remote MCP does not work with Gemini 3 models at this time. Support for Gemini 3 is coming soon.
+- **Naming**: MCP server names should not include the `-` character. Use `snake_case` server names instead.
 
-| 字段 | 类型 | 是否必需 | 说明 |
+| Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | `string` | 是 | 必须为 `"mcp_server"`。 |
-| `name` | `string` | 否 | MCP 服务器的显示名称。 |
-| `url` | `string` | 否 | MCP 服务器端点的完整网址。 |
-| `headers` | `object` | 否 | 作为 HTTP 标头随每个请求一起发送到服务器的键值对（例如身份验证令牌）。 |
-| `allowed_tools` | `array` | 否 | 限制智能体可调用的服务器工具。 |
+| `type` | `string` | Yes | Must be `"mcp_server"`. |
+| `name` | `string` | No | A display name for the MCP server. |
+| `url` | `string` | No | The full URL for the MCP server endpoint. |
+| `headers` | `object` | No | Key-value pairs sent as HTTP headers with every request to the server (for example, authentication tokens). |
+| `allowed_tools` | `array` | No | Restrict which tools from the server the agent may call. |
 
-### 示例
+### Example
 
 ### Python
 
@@ -1185,9 +1207,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 流式传输工具调用
+## Stream tool calls
 
-将工具与流式传输搭配使用时，模型会在流中生成一系列 `step.delta` 事件作为函数调用。可以使用 `arguments` 将工具实参作为部分实参进行流式传输。您必须先汇总这些增量，以重建完整的工具调用，然后才能执行它们。
+When using tools with streaming, the model generates function calls as a
+sequence of `step.delta` events on the stream. Tool arguments can be streamed
+as partial arguments using `arguments`. You must aggregate these deltas to
+reconstruct the complete tool calls before executing them.
 
 ### Python
 
@@ -1353,29 +1378,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## 最佳做法
+## Best practices
 
-- **函数和参数说明**：务必清晰具体。
-- **命名**：使用描述性名称，不得包含空格或特殊字符。
-- **强类型**：使用特定类型（整数、字符串、枚举）。
-- **工具选择**：将有效工具数量保持在 10-20 个以内。
-- **提示工程**：提供背景信息和指令。
-- **验证**：在执行函数调用之前进行验证。
-- **错误处理**：实现强大的错误处理机制。
-- **安全性**：为外部 API 使用适当的身份验证。
+- **Function and Parameter Descriptions:** Be clear and specific.
+- **Naming:** Use descriptive names without spaces or special characters.
+- **Strong Typing:** Use specific types (integer, string, enum).
+- **Tool Selection:** Keep active set to 10-20 tools maximum.
+- **Prompt Engineering:** Provide context and instructions.
+- **Validation:** Validate function calls before executing.
+- **Error Handling:** Implement robust error handling.
+- **Security:** Use appropriate authentication for external APIs.
 
-## 注释和限制
+## Notes and limitations
 
-- 仅支持 [OpenAPI 架构的子集](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=zh-cn#FunctionDeclaration)。
-- 对于 `any` 模式，API 可能会拒绝过大或嵌套过深的架构。
-- Python 中支持的形参类型有限。
+- Only a [subset of the OpenAPI schema](https://ai.google.dev/api/rest/v1beta/cachedContents#FunctionDeclaration) is supported.
+- For `any` mode, the API may reject very large or deeply nested schemas.
+- Supported parameter types in Python are limited.
 
-发送反馈
+Send feedback
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-最后更新时间 (UTC)：2026-06-05。
+Last updated 2026-06-18 UTC.
 
-需要向我们提供更多信息？
+Need to tell us more?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-05。"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

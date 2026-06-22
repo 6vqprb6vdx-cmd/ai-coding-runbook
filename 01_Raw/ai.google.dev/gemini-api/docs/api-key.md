@@ -1,141 +1,142 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=pl
-fetched_at: 2026-06-15T06:28:59.241891+00:00
-title: "Korzystanie z kluczy interfejsu Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=th
+fetched_at: 2026-06-22T06:27:07.720441+00:00
+title: "\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e04\u0e35\u0e22\u0e4c Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-# Korzystanie z kluczy interfejsu Gemini API
+# การใช้คีย์ Gemini API
 
-Aby korzystać z interfejsu Gemini API, musisz uwierzytelnić swoje żądania. Możesz to zrobić za pomocą standardowego klucza interfejsu API lub klucza autoryzacji.
+หากต้องการใช้ Gemini API คุณต้องตรวจสอบสิทธิ์คำขอ โดยสามารถตรวจสอบสิทธิ์ได้โดยใช้คีย์ API มาตรฐานหรือคีย์ API การให้สิทธิ์
 
-[Tworzenie lub wyświetlanie klucza interfejsu Gemini API](https://aistudio.google.com/apikey?hl=pl)
+[สร้างหรือดูคีย์ Gemini API](https://aistudio.google.com/apikey?hl=th)
 
-## Typy kluczy interfejsu API: standardowy i autoryzacji
+## ประเภทคีย์ API: มาตรฐานเทียบกับการให้สิทธิ์
 
-Klucze interfejsu API zapewniają dostęp do interfejsu Gemini API, ale różnią się pod względem bezpieczeństwa. Aby zwiększyć bezpieczeństwo, interfejs Gemini API przechodzi ze standardowych kluczy interfejsu API na klucze autoryzacji:
+คีย์ API ให้สิทธิ์เข้าถึง Gemini API แต่มีลักษณะด้านความปลอดภัยที่แตกต่างกัน Gemini API กำลังเปลี่ยนจากคีย์ API มาตรฐานเป็นคีย์การให้สิทธิ์เพื่อปรับปรุงความปลอดภัย ดังนี้
 
-- **Standardowe klucze interfejsu API**: powiązują żądania z projektem w chmurze Google Cloud na potrzeby
-  rozliczeń i limitów. Klucze standardowe nie identyfikują osoby wywołującej, co ogranicza szczegółowość uprawnień i kontroli dostępu, które mogą obsługiwać.
-- **Klucze autoryzacji**: są powiązane bezpośrednio z kontem usługi Google Cloud. Gdy używasz klucza autoryzacji, Twoje żądania są przetwarzane w ramach tożsamości powiązanego konta usługi, co umożliwia szczegółową kontrolę dostępu. Klucze autoryzacji są domyślnie ograniczone do interfejsu Generative Language API (Gemini API) i zapewniają szybkie egzekwowanie zasad dotyczących wycieku kluczy, które szybko blokuje użycie wyciekłych kluczy wykrytych przez nasze systemy.
+- **คีย์ API มาตรฐาน**: เชื่อมโยงคำขอกับโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google เพื่อวัตถุประสงค์ในการเรียกเก็บเงินและโควต้า คีย์มาตรฐานจะไม่ระบุผู้เรียก ซึ่งจำกัดความละเอียดของสิทธิ์และการควบคุมการเข้าถึงที่คีย์รองรับได้
+- **คีย์การให้สิทธิ์ (Auth)**: ผูกกับบัญชีบริการ Google Cloud โดยตรง
+  เมื่อใช้คีย์การให้สิทธิ์ ระบบจะประมวลผลคำขอภายใต้ข้อมูลประจำตัวของบัญชีบริการที่ผูกไว้ ซึ่งช่วยให้สามารถควบคุมการเข้าถึงได้อย่างละเอียด โดยค่าเริ่มต้น คีย์การให้สิทธิ์จะจำกัดไว้สำหรับ Generative Language API (Gemini API) และมีการบังคับใช้คีย์ที่รั่วไหลอย่างรวดเร็ว ซึ่งจะหยุดการใช้งานคีย์ที่รั่วไหลซึ่งระบบตรวจพบได้อย่างรวดเร็ว
 
-Aby zapewnić bezpieczne korzystanie, interfejs Gemini API przejdzie ze standardowych kluczy na klucze autoryzacji:
+Gemini API จะเปลี่ยนจากคีย์มาตรฐานเป็นคีย์การตรวจสอบสิทธิ์เพื่อให้มั่นใจถึงการใช้งานที่ปลอดภัย ดังนี้
 
-- **Domyślne klucze autoryzacji**: wszystkie nowe klucze interfejsu API utworzone w Google AI Studio
-  są automatycznie tworzone jako klucze autoryzacji.
-- **19 czerwca 2026 r.**: interfejs Gemini API będzie odrzucać żądania
-  z **nieograniczonych kluczy standardowych**. Standardowe klucze interfejsu API, do których zastosowano wyraźne ograniczenia, będą nadal działać. To ograniczenie uniemożliwia nieautoryzowane użycie kluczy, które mogą być udostępniane publicznie lub połączone z innymi usługami.
-- **We wrześniu 2026 r.**: interfejs Gemini API będzie odrzucać żądania z **kluczy
-  standardowych**. Aby uniknąć przerw w działaniu usługi, przed tą datą musisz [przejść na klucze autoryzacji](#migrate-to-auth-key). Pamiętaj, aby przejść na klucze autoryzacji przed wrześniem 2026 r.
+- **คีย์การให้สิทธิ์เป็นค่าเริ่มต้น**: คีย์ API ใหม่ทั้งหมดที่สร้างใน Google AI Studio
+  จะสร้างเป็นคีย์การให้สิทธิ์โดยอัตโนมัติ
+- **วันที่ 19 มิถุนายน 2026**: Gemini API จะปฏิเสธคำขอ
+  จาก **คีย์มาตรฐานที่ไม่มีการจำกัด** คีย์ API มาตรฐานที่มีการใช้ข้อจำกัดอย่างชัดเจนจะยังคงทำงานต่อไป ข้อจำกัดนี้จะป้องกันการใช้คีย์ที่ไม่ได้รับอนุญาตซึ่งอาจมีการแชร์แบบสาธารณะหรือลิงก์กับบริการอื่นๆ
+- **เดือนกันยายน 2026**: Gemini API จะปฏิเสธคำขอจาก**คีย์
+  มาตรฐาน** คุณต้อง[ย้ายข้อมูลไปใช้คีย์การให้สิทธิ์](#migrate-to-auth-key)
+  ก่อนวันที่นี้เพื่อหลีกเลี่ยงการหยุดชะงักของบริการ โปรดย้ายข้อมูลไปใช้คีย์การให้สิทธิ์ก่อนเดือนกันยายน 2026
 
-## Zarządzanie kluczami interfejsu API w Google AI Studio
+## การจัดการคีย์ API ใน Google AI Studio
 
-Projektami i kluczami możesz zarządzać bezpośrednio w [Google AI Studio](https://aistudio.google.com/apikey?hl=pl).
+คุณจัดการโปรเจ็กต์และคีย์ได้โดยตรงใน [Google AI Studio](https://aistudio.google.com/apikey?hl=th)
 
-### Projekty Google Cloud
+### โปรเจ็กต์ Google Cloud
 
-Każdy klucz interfejsu Gemini API jest powiązany z projektem [Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=pl).
-Projekty Google Cloud zarządzają rozliczeniami, współpracownikami i uprawnieniami. Google AI Studio udostępnia uproszczony interfejs umożliwiający dostęp do tych projektów.
+คีย์ Gemini API ทุกคีย์จะเชื่อมโยงกับ[โปรเจ็กต์ Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=th)
+โปรเจ็กต์ Google Cloud จะจัดการการเรียกเก็บเงิน ผู้ทำงานร่วมกัน และสิทธิ์ Google AI Studio มีอินเทอร์เฟซแบบเบาเพื่อเข้าถึงโปรเจ็กต์เหล่านี้
 
-- **Projekt domyślny**: jeśli jesteś nowym użytkownikiem, po zaakceptowaniu Warunków korzystania z usługi Google AI Studio automatycznie utworzy domyślny projekt w chmurze Google Cloud i klucz interfejsu API. Możesz zmienić nazwę tego projektu, otwierając widok **Projekty** na panelu.
-- **Istniejące projekty**: jeśli masz już konto Google Cloud, AI
-  Studio nie utworzy projektu domyślnego. Zamiast tego musisz zaimportować istniejące projekty.
+- **โปรเจ็กต์เริ่มต้น**: หากคุณเป็นผู้ใช้ใหม่ Google AI Studio จะสร้างโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google Cloud และคีย์ API เริ่มต้นโดยอัตโนมัติหลังจากที่คุณยอมรับข้อกำหนดในการให้บริการ คุณเปลี่ยนชื่อโปรเจ็กต์นี้ได้โดยไปที่มุมมอง**โปรเจ็กต์** ในแดชบอร์ด
+- **โปรเจ็กต์ที่มีอยู่**: หากคุณมีบัญชี Google Cloud อยู่แล้ว AI
+  Studio จะไม่สร้างโปรเจ็กต์เริ่มต้น แต่คุณต้องนำเข้าโปรเจ็กต์ที่มีอยู่
 
-### Importowanie projektów
+### การนำเข้าโปรเจ็กต์
 
-Domyślnie Google AI Studio nie wyświetla wszystkich Twoich projektów Google Cloud. Musisz zaimportować projekty, których chcesz używać:
+โดยค่าเริ่มต้น Google AI Studio จะไม่แสดงโปรเจ็กต์ Google Cloud ทั้งหมด คุณต้องนำเข้าโปรเจ็กต์ที่ต้องการใช้ โดยทำดังนี้
 
-1. Otwórz [Google AI Studio](https://aistudio.google.com?hl=pl).
-2. W panelu po lewej stronie otwórz **Panel** i wybierz **Projekty**.
-3. Kliknij przycisk **Importuj projekty**.
-4. Wyszukaj i wybierz projekt Google Cloud, który chcesz zaimportować, a potem kliknij **Importuj**.
-5. Po zaimportowaniu otwórz stronę **Klucze interfejsu API** na panelu, aby utworzyć klucz w tym projekcie.
+1. ไปที่ [Google AI Studio](https://aistudio.google.com?hl=th)
+2. เปิด**แดชบอร์ด** จากแผงด้านซ้าย แล้วเลือก**โปรเจ็กต์**
+3. คลิกปุ่ม**นำเข้าโปรเจ็กต์**
+4. ค้นหาและเลือกโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google ที่ต้องการนำเข้า แล้วคลิก**นำเข้า**
+5. เมื่อนำเข้าแล้ว ให้ไปที่หน้า**คีย์ API** ในแดชบอร์ดเพื่อสร้างคีย์ในโปรเจ็กต์นั้น
 
-### Rozwiązywanie problemów z uprawnieniami do tworzenia kluczy
+### การแก้ปัญหาเกี่ยวกับสิทธิ์ในการสร้างคีย์
 
-Jeśli przycisk **Utwórz klucz interfejsu API** jest niedostępny i wyświetla się komunikat
-*„Nie masz uprawnień do tworzenia klucza w tym projekcie”*, oznacza to, że nie masz
-wymaganych uprawnień IAM.
+หากปุ่ม**สร้างคีย์ API** ไม่พร้อมใช้งานและแสดงข้อความ:
+*"คุณไม่มีสิทธิ์สร้างคีย์ในโปรเจ็กต์นี้"* แสดงว่าคุณไม่มีสิทธิ์ IAM ที่
+จำเป็น
 
-Poproś administratora projektu w chmurze lub administratora organizacji Google Cloud o przypisanie Ci roli zawierającej te uprawnienia (np. Edytujący projekt):
+โปรดขอให้ผู้ดูแลระบบโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google หรือผู้ดูแลระบบองค์กรกำหนดบทบาทที่มีสิทธิ์ต่อไปนี้ให้คุณ (เช่น ผู้แก้ไขโปรเจ็กต์)
 
-- `resourcemanager.projects.get`: umożliwia AI Studio weryfikację projektu.
-- `apikeys.keys.create`: umożliwia generowanie kluczy.
-- `serviceusage.services.enable`: zapewnia włączenie interfejsu Generative Language API.
-- `iam.serviceAccounts.create`: wymagane do utworzenia połączonego konta usługi.
-- `iam.serviceAccountApiKeyBindings.create`: wiąże konto usługi z kluczem interfejsu API.
+- `resourcemanager.projects.get`: อนุญาตให้ AI Studio ยืนยันโปรเจ็กต์
+- `apikeys.keys.create`: อนุญาตให้สร้างคีย์
+- `serviceusage.services.enable`: ตรวจสอบว่าได้เปิดใช้ Generative Language API แล้ว
+- `iam.serviceAccounts.create`: จำเป็นต้องสร้างบัญชีบริการที่ลิงก์ไว้
+- `iam.serviceAccountApiKeyBindings.create`: ผูกบัญชีบริการกับคีย์ API
 
-Jeśli nie możesz uzyskać dostępu administracyjnego, możesz utworzyć nowy projekt Google Cloud, który nie jest powiązany z organizacją, aby wygenerować klucze.
+หากคุณไม่สามารถเข้าถึงระดับผู้ดูแลระบบได้ คุณสามารถสร้างโปรเจ็กต์ Google Cloud ใหม่ที่ไม่ได้เชื่อมโยงกับองค์กรเพื่อสร้างคีย์ได้
 
-## Konfigurowanie środowiska
+## การตั้งค่าสภาพแวดล้อม
 
-Gdy masz już klucz, skonfiguruj środowisko, aby bezpiecznie używać go w aplikacjach.
+เมื่อมีคีย์แล้ว ให้กำหนดค่าสภาพแวดล้อมเพื่อใช้คีย์อย่างปลอดภัยในแอปพลิเคชัน
 
-### Używanie zmiennych środowiskowych (zalecane)
+### ใช้ตัวแปรสภาพแวดล้อม (แนะนำ)
 
-Ustaw zmienną środowiskową `GEMINI_API_KEY` lub `GOOGLE_API_KEY`. Biblioteki klienta interfejsu Gemini API automatycznie wykrywają i używają tych zmiennych. Jeśli obie są ustawione, pierwszeństwo ma `GOOGLE_API_KEY`.
+ตั้งค่าตัวแปรสภาพแวดล้อม `GEMINI_API_KEY` หรือ `GOOGLE_API_KEY` ไลบรารีของไคลเอ็นต์ Gemini API จะตรวจหาและใช้ตัวแปรเหล่านี้โดยอัตโนมัติ หากตั้งค่าทั้ง 2 ตัวแปรไว้ `GOOGLE_API_KEY` จะมีความสำคัญเหนือกว่า
 
-Aby ustawić zmienną, wybierz system operacyjny:
+เลือกระบบปฏิบัติการเพื่อตั้งค่าตัวแปร
 
-### Linux/macOS – Bash
+### Linux/macOS - Bash
 
-Sprawdź, czy masz plik konfiguracyjny bash:
+ตรวจสอบว่าคุณมีไฟล์การกำหนดค่า Bash หรือไม่ โดยทำดังนี้
 
 ```
 ~/.bashrc
 ```
 
-Jeśli nie, utwórz go i otwórz:
+หากไม่มี ให้สร้างและเปิดไฟล์ โดยทำดังนี้
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-Na końcu pliku dodaj polecenie eksportu:
+เพิ่มคำสั่งส่งออกที่ส่วนท้ายของไฟล์ โดยทำดังนี้
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Zapisz plik, a potem zastosuj zmiany:
+บันทึกไฟล์ แล้วใช้การเปลี่ยนแปลง โดยทำดังนี้
 
 ```
 source ~/.bashrc
 ```
 
-### macOS – Zsh
+### macOS - Zsh
 
-Sprawdź, czy masz plik konfiguracyjny zsh:
+ตรวจสอบว่าคุณมีไฟล์การกำหนดค่า Zsh หรือไม่ โดยทำดังนี้
 
 ```
 ~/.zshrc
 ```
 
-Jeśli nie, utwórz go i otwórz:
+หากไม่มี ให้สร้างและเปิดไฟล์ โดยทำดังนี้
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-Dodaj polecenie eksportu:
+เพิ่มคำสั่งส่งออก โดยทำดังนี้
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Zapisz plik, a potem zastosuj zmiany:
+บันทึกไฟล์ แล้วใช้การเปลี่ยนแปลง โดยทำดังนี้
 
 ```
 source ~/.zshrc
@@ -143,15 +144,15 @@ source ~/.zshrc
 
 ### Windows
 
-1. Na pasku wyszukiwania systemu Windows wyszukaj „Zmienne środowiskowe”.
-2. W oknie Właściwości systemu kliknij **Zmienne środowiskowe**.
-3. W sekcji **Zmienne użytkownika** lub **Zmienne systemowe** kliknij **Nowa…**.
-4. Ustaw nazwę zmiennej na `GEMINI_API_KEY`, a wartość na klucz interfejsu API.
-5. Aby zapisać zmiany, kliknij **OK**. Aby wczytać zmienną, otwórz nową sesję terminala.
+1. ค้นหา "ตัวแปรสภาพแวดล้อม" ในแถบค้นหาของ Windows
+2. คลิก**ตัวแปรสภาพแวดล้อม** ในกล่องโต้ตอบคุณสมบัติของระบบ
+3. ในส่วน**ตัวแปรผู้ใช้** หรือ**ตัวแปรระบบ** ให้คลิก**ใหม่...**
+4. ตั้งชื่อตัวแปรเป็น `GEMINI_API_KEY` และตั้งค่าเป็นคีย์ API
+5. คลิก**ตกลง** เพื่อบันทึก เปิดเซสชันเทอร์มินัลใหม่เพื่อโหลดตัวแปร
 
-### Jawne podanie klucza interfejsu API w kodzie
+### ระบุคีย์ API อย่างชัดเจนในโค้ด
 
-Klucz interfejsu API możesz przekazać jawnie podczas inicjowania klienta. Zrób to tylko wtedy, gdy nie możesz używać zmiennych środowiskowych.
+คุณส่งคีย์ API อย่างชัดเจนได้เมื่อเริ่มต้นไคลเอ็นต์ ให้ทำเช่นนี้เฉพาะในกรณีที่คุณใช้ตัวแปรสภาพแวดล้อมไม่ได้
 
 ### Python
 
@@ -259,106 +260,109 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Bezpieczeństwo i zarządzanie obiektami tajnymi
+## การรักษาความปลอดภัยและการจัดการข้อมูลลับ
 
-Traktuj klucz interfejsu Gemini API jak hasło. Jeśli klucz zostanie naruszony, inne osoby mogą wykorzystać limit projektu, ponieść nieoczekiwane opłaty i uzyskać dostęp do zasobów prywatnych.
+ปฏิบัติต่อคีย์ Gemini API เหมือนรหัสผ่าน หากคีย์ถูกละเมิด ผู้อื่นจะใช้โควต้าของโปรเจ็กต์ เรียกเก็บเงินที่ไม่คาดคิด และเข้าถึงทรัพยากรส่วนตัวได้
 
-### Krytyczne reguły bezpieczeństwa
+### กฎความปลอดภัยที่สำคัญ
 
-- **Zachowaj klucze w tajemnicy**: nigdy nie zapisuj kluczy interfejsu API w systemach kontroli źródła
-  takich jak Git.
-- **Nigdy nie udostępniaj kluczy po stronie klienta w środowisku produkcyjnym**: nie koduj na stałe kluczy interfejsu API
-  bezpośrednio w aplikacjach internetowych ani mobilnych. Klucze skompilowane w kodzie po stronie klienta mogą zostać wyodrębnione przez użytkowników. Aby zabezpieczyć aplikacje po stronie klienta, uruchom serwer proxy backendu, który będzie wykonywać rzeczywiste wywołania interfejsu API.
+- **เก็บคีย์ไว้เป็นความลับ**: อย่าตรวจสอบคีย์ API ในระบบควบคุมเวอร์ชัน
+  เช่น Git
+- **อย่าเปิดเผยคีย์ในฝั่งไคลเอ็นต์ในสภาพแวดล้อมจริง**: อย่าฮาร์ดโค้ดคีย์ API
+  โดยตรงในเว็บหรือแอปบนอุปกรณ์เคลื่อนที่ ผู้ใช้สามารถแยกคีย์ที่คอมไพล์ในโค้ดฝั่งไคลเอ็นต์ได้ หากต้องการรักษาความปลอดภัยแอปฝั่งไคลเอ็นต์ ให้เรียกใช้พร็อกซีเซิร์ฟเวอร์แบ็กเอนด์เพื่อทำการเรียก API จริง
 
-### Sprawdzone metody zarządzania obiektami tajnymi
+### แนวทางปฏิบัติแนะนำสำหรับการจัดการข้อมูลลับ
 
-- **Zmienne środowiskowe**: odczytuj klucze ze zmiennych środowiskowych, a nie z plików konfiguracyjnych.
-- **Secret Manager**: w środowisku produkcyjnym przechowuj klucze w bezpiecznym magazynie obiektów tajnych
-  takim jak [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=pl).
-- **Alerty rozliczeniowe**: skonfiguruj w konsoli Google Cloud alerty rozliczeniowe, które będą Cię informować o nagłym wzroście wykorzystania lub kosztów.
+- **ตัวแปรสภาพแวดล้อม**: อ่านคีย์จากตัวแปรสภาพแวดล้อมแทนที่จะอ่านจาก
+  ไฟล์การกำหนดค่า
+- **Secret Manager**: สำหรับสภาพแวดล้อมจริง ให้จัดเก็บคีย์ไว้ในที่เก็บข้อมูลลับที่ปลอดภัย
+  เช่น [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=th)
+- **การแจ้งเตือนการเรียกเก็บเงิน**: ตั้งค่าการแจ้งเตือนการเรียกเก็บเงินใน Google Cloud Console เพื่อ
+  แจ้งให้คุณทราบหากมีการใช้งานหรือค่าใช้จ่ายเพิ่มขึ้นอย่างรวดเร็ว
 
-### Lista kontrolna dotycząca reagowania na wyciek danych
+### เช็กลิสต์การตอบสนองต่อการรั่วไหล
 
-Jeśli podejrzewasz, że Twój klucz interfejsu API wyciekł:
+หากสงสัยว่าคีย์ API รั่วไหล ให้ทำดังนี้
 
-1. **Wygeneruj nowy klucz**: utwórz klucz zastępczy w Google AI Studio lub
-   Cloud Console.
-2. **Zaktualizuj aplikację**: wdróż kod z użyciem nowego klucza.
-3. **Wyłącz lub usuń naruszony klucz**: po zweryfikowaniu nowego klucza wyłącz wyciekły klucz w
-   Cloud Console. Aby uniknąć przestoju aplikacji, nie usuwaj starego klucza, dopóki nowy klucz nie będzie w pełni aktywny.
-4. **Sprawdź wykorzystanie**: sprawdź logi rozliczeń i wykorzystanie interfejsu API w Google Cloud
-   Console, aby wykryć nieautoryzowaną aktywność.
+1. **สร้างคีย์ใหม่**: สร้างคีย์ทดแทนใน Google AI Studio หรือ
+   Cloud Console
+2. **อัปเดตแอปพลิเคชัน**: ใช้โค้ดโดยใช้คีย์ใหม่
+3. **ปิดใช้หรือลบคีย์ที่ถูกละเมิด**: ปิดใช้คีย์ที่รั่วไหลใน
+   Cloud Console เมื่อยืนยันคีย์ใหม่แล้ว อย่าลบคีย์เก่าจนกว่าคีย์ใหม่จะทำงานอย่างเต็มที่เพื่อหลีกเลี่ยงการหยุดทำงานของแอปพลิเคชัน
+4. **ตรวจสอบการใช้งาน**: ตรวจสอบบันทึกการเรียกเก็บเงินและการใช้งาน API ใน Google Cloud
+   Console เพื่อระบุกิจกรรมที่ไม่ได้รับอนุญาต
 
-## Ograniczanie i zabezpieczanie kluczy
+## การจำกัดและการรักษาความปลอดภัยคีย์
 
-Dodanie ograniczeń do kluczy interfejsu API minimalizuje potencjalne szkody w przypadku naruszenia bezpieczeństwa klucza.
+การเพิ่มข้อจำกัดให้แก่คีย์ API จะช่วยลดความเสียหายที่อาจเกิดขึ้นหากคีย์ถูกละเมิด
 
-### Stosowanie ograniczeń dotyczących pochodzenia żądania
+### ใช้ข้อจำกัดเกี่ยวกับที่มาของคำขอ
 
-Ograniczenia dotyczące pochodzenia ograniczają, które adresy IP, witryny lub aplikacje mogą używać Twojego klucza.
+ข้อจำกัดเกี่ยวกับที่มาจะจำกัดที่อยู่ IP, เว็บไซต์ หรือแอปพลิเคชันที่สามารถใช้คีย์ของคุณได้
 
-1. Otwórz stronę [Dane logowania w konsoli Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pl).
-2. Wybierz projekt i kliknij nazwę klucza interfejsu API, który chcesz ograniczyć.
-3. W sekcji **Ograniczenia aplikacji** wybierz **Adresy IP** (lub
-   odpowiedni typ ograniczenia dla Twojego środowiska).
-4. Określ dozwolone adresy IP lub zakresy adresów IP, a potem kliknij **Zapisz**.
+1. ไปที่หน้าข้อมูลเข้าสู่ระบบของ [คอนโซล Google Cloud](https://console.cloud.google.com/apis/credentials?hl=th)
+2. เลือกโปรเจ็กต์ แล้วคลิกชื่อคีย์ API ที่ต้องการจำกัด
+3. ในส่วน**การจำกัดแอปพลิเคชัน** ให้เลือก**ที่อยู่ IP** (หรือ
+   ประเภทการจำกัดที่เหมาะสมกับสภาพแวดล้อมของคุณ)
+4. ระบุที่อยู่ IP หรือช่วงที่อนุญาต แล้วคลิก**บันทึก**
 
-### Zabezpieczanie nieograniczonych standardowych kluczy interfejsu API
+### การรักษาความปลอดภัยคีย์ API มาตรฐานที่ไม่มีการจำกัด
 
-Aby nadal korzystać z interfejsu Gemini API po 19 czerwca 2026 r., musisz zabezpieczyć wszystkie nieograniczone klucze.
+หากต้องการใช้ Gemini API ต่อไปหลังจากวันที่ 19 มิถุนายน 2026 คุณต้องรักษาความปลอดภัยคีย์ที่ไม่มีการจำกัด
 
-#### Ograniczanie klucza tylko do interfejsu Gemini API za pomocą AI Studio
+#### จำกัดคีย์ไว้สำหรับ Gemini API เท่านั้นผ่าน AI Studio
 
-Jeśli używasz klucza tylko w interfejsie Gemini API, zabezpiecz go bezpośrednio w AI Studio:
+หากใช้คีย์สำหรับ Gemini API เท่านั้น ให้รักษาความปลอดภัยคีย์โดยตรงใน AI Studio โดยทำดังนี้
 
-1. Na stronie **Klucze interfejsu API** w [Google AI Studio](https://aistudio.google.com/api-keys?hl=pl) znajdź klucze oznaczone etykietą
-   **Nieograniczone**.
-2. Najedź kursorem na etykietę i w oknie kliknij **Dodaj ograniczenia**.
-3. Wybierz **Ogranicz tylko do interfejsu Gemini API**.
-4. Aby potwierdzić, kliknij **Ogranicz klucz**.
+1. ในหน้า**คีย์ API** ใน[Google AI Studio](https://aistudio.google.com/api-keys?hl=th) ให้ค้นหาคีย์ที่มีป้ายกำกับ
+   **ไม่มีการจำกัด**
+2. วางเมาส์เหนือป้ายกำกับ แล้วคลิก**เพิ่มข้อจำกัด** ในกล่องโต้ตอบ
+3. เลือก**จำกัดไว้สำหรับ Gemini API เท่านั้น**
+4. คลิก**จำกัดคีย์** เพื่อยืนยัน
 
-#### Ogranicz klucz do innych usług za pomocą konsoli Google Cloud
+#### จำกัดคีย์สำหรับบริการอื่นๆ ผ่านคอนโซล Google Cloud
 
-Jeśli klucz jest udostępniany innym interfejsom API Google (co nie jest zalecane), ogranicz go w Cloud Console. **Uwaga: po zastosowaniu tych ograniczeń żądania do interfejsu Gemini API używające tego klucza będą kończyć się niepowodzeniem.**
+หากมีการแชร์คีย์กับ Google API อื่นๆ (ไม่แนะนำ) ให้จำกัดคีย์ใน Cloud Console **หมายเหตุ: คำขอ Gemini API ที่ใช้คีย์นี้จะล้มเหลวหลังจากใช้ข้อจำกัดเหล่านี้**
 
-1. Otwórz stronę [Dane logowania w konsoli Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pl).
-2. Wybierz projekt i klucz interfejsu API.
-3. W sekcji **Ograniczenia interfejsów API** kliknij **Ogranicz klucz**.
-4. Z menu wybierz interfejsy API, do których ten klucz ma mieć dostęp. Nie wybieraj **interfejsu Generative Language API**.
-5. Kliknij **Zapisz**. Aby nadal korzystać z interfejsu Gemini API, utwórz w AI Studio osobny klucz z ograniczeniami.
+1. ไปที่หน้าข้อมูลเข้าสู่ระบบของ [คอนโซล Google Cloud](https://console.cloud.google.com/apis/credentials?hl=th)
+2. เลือกโปรเจ็กต์และคีย์ API
+3. ในส่วน**การจำกัด API** ให้เลือก**จำกัดคีย์**
+4. เลือก API ที่ต้องการให้คีย์นี้เข้าถึงได้จากเมนูแบบเลื่อนลง อย่าเลือก **Generative Language API**
+5. คลิก**บันทึก** สร้างคีย์ที่แยกต่างหากและมีการจำกัดใน AI Studio เพื่อใช้ Gemini API ต่อไป
 
-### Zablokowane nieaktywne klucze
+### คีย์ที่ไม่ได้ใช้งานซึ่งถูกบล็อก
 
-Od 7 maja 2026 r. interfejs Gemini API będzie blokować nieograniczone klucze interfejsu API, które przez dłuższy czas były nieaktywne. Te klucze będą w AI Studio oznaczone tagiem **Zablokowany**. Aby kontynuować, musisz wygenerować nowy klucz lub użyć istniejącego klucza z ograniczeniami.
+ตั้งแต่วันที่ 7 พฤษภาคม 2026 เป็นต้นไป Gemini API จะบล็อกคีย์ API ที่ไม่มีการจำกัดซึ่งไม่ได้ใช้งานเป็นระยะเวลานาน คีย์เหล่านี้จะแสดงแท็ก**ถูกบล็อก** ใน AI Studio คุณต้องสร้างคีย์ใหม่หรือใช้คีย์ที่มีการจำกัดที่มีอยู่เพื่อดำเนินการต่อ
 
-## Przechodzenie na klucz autoryzacji
+## ย้ายข้อมูลไปใช้คีย์การให้สิทธิ์
 
-Aby utworzyć nowy klucz autoryzacji i zaktualizować aplikacje, wykonaj te czynności:
+ทำตามขั้นตอนต่อไปนี้เพื่อสร้างคีย์ API การให้สิทธิ์ใหม่และอัปเดตแอปพลิเคชัน
 
-1. Otwórz stronę [Klucze interfejsu API w AI Studio](https://aistudio.google.com/api-keys?hl=pl).
-2. Sprawdź kolumnę **Typ klucza** , aby znaleźć klucze oznaczone jako **Standardowy**.
-3. Aby wygenerować nowy klucz, kliknij **Utwórz klucz interfejsu API**. Wszystkie nowe klucze utworzone w AI Studio są automatycznie tworzone jako klucze autoryzacji.
-4. Skopiuj nowy klucz autoryzacji.
-5. Zaktualizuj kod aplikacji, zmienne środowiskowe i konfiguracje wdrożenia, aby używać nowego klucza autoryzacji.
-6. Przetestuj aplikację, aby sprawdzić, czy działa prawidłowo z nowym kluczem.
-7. Po zweryfikowaniu usuń lub unieważnij stary klucz ruchu, aby zapobiec jego nadużyciu.
+1. ไปที่หน้าคีย์ API ของ [AI Studio](https://aistudio.google.com/api-keys?hl=th)
+2. ตรวจสอบคอลัมน์**ประเภทคีย์** เพื่อระบุคีย์ที่แสดงเป็น**มาตรฐาน**
+3. คลิก**สร้างคีย์ API** เพื่อสร้างคีย์ใหม่ คีย์ใหม่ทั้งหมดที่สร้างใน AI Studio จะสร้างเป็นคีย์การให้สิทธิ์โดยอัตโนมัติ
+4. คัดลอกคีย์ API การให้สิทธิ์ใหม่
+5. อัปเดตโค้ดของแอปพลิเคชัน ตัวแปรสภาพแวดล้อม และการกำหนดค่าการติดตั้งใช้งานทั้งหมดให้ใช้คีย์ API การตรวจสอบสิทธิ์ใหม่
+6. ทดสอบแอปพลิเคชันเพื่อยืนยันว่าแอปพลิเคชันทำงานได้อย่างถูกต้องด้วยคีย์ใหม่
+7. เมื่อยืนยันแล้ว ให้ลบหรือเพิกถอนคีย์การรับส่งข้อมูลเก่าเพื่อป้องกันการใช้งานในทางที่ผิด
 
-## Ograniczenia
+## ข้อจำกัด
 
-Google AI Studio nakłada te ograniczenia dotyczące zarządzania projektami i kluczami:
+Google AI Studio มีข้อจำกัดต่อไปนี้เกี่ยวกับการจัดการโปรเจ็กต์และคีย์
 
-- Na stronie **Projekty** w Google AI Studio możesz utworzyć maksymalnie 10 projektów naraz.
-- Na stronach **Klucze interfejsu API** i **Projekty** wyświetla się maksymalnie 100 kluczy i 50 projektów.
-- Wyświetlane są tylko klucze interfejsu API, które nie mają ograniczeń lub są ograniczone tylko do interfejsu Generative Language API (Gemini API).
+- คุณสร้างโปรเจ็กต์ได้สูงสุดครั้งละ 10 โปรเจ็กต์จากหน้า**โปรเจ็กต์** ของ Google AI Studio
+- หน้า**คีย์ API** และ**โปรเจ็กต์** จะแสดงคีย์ได้สูงสุด 100 คีย์และโปรเจ็กต์ได้สูงสุด 50 โปรเจ็กต์
+- ระบบจะแสดงเฉพาะคีย์ API ที่ไม่มีการจำกัดหรือจำกัดไว้สำหรับ Generative Language API (Gemini API) โดยเฉพาะ
 
-Aby korzystać z zaawansowanego zarządzania projektami lub modyfikować klucze z innymi ograniczeniami, użyj strony [Dane logowania w konsoli Google Cloud](https://console.cloud.google.com/apis/credentials?hl=pl).
+หากต้องการจัดการโปรเจ็กต์ขั้นสูงหรือแก้ไขคีย์ที่มีข้อจำกัดอื่นๆ ให้ใช้
+[หน้าข้อมูลเข้าสู่ระบบของคอนโซล Google Cloud](https://console.cloud.google.com/apis/credentials?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ostatnia aktualizacja: 2026-06-11 UTC.
+อัปเดตล่าสุด 2026-06-19 UTC
 
-Chcesz przekazać coś jeszcze?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-11 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-19 UTC"],[],[]]

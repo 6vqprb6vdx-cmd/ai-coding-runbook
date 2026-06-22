@@ -1,31 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=es-419
-fetched_at: 2026-06-15T06:27:47.390027+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/media-resolution?hl=ko
+fetched_at: 2026-06-22T06:29:14.141810+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+# Media resolution
 
-Enviar comentarios
+The `media_resolution` parameter controls how the Gemini API processes media inputs like images, videos, and PDF documents by determining the **maximum number of tokens** allocated for media inputs, allowing you to balance response quality against latency and cost. For different settings, default values and how they correspond to tokens, see the [Token counts](#token-counts) section.
 
-# Resolución de medios
+You can configure media resolution for individual media objects (content items) within your request (Gemini 3 only).
 
-El parámetro `media_resolution` controla cómo la API de Gemini procesa las entradas de medios, como imágenes, videos y documentos PDF, ya que determina la **cantidad máxima de tokens** asignados para las entradas de medios, lo que te permite equilibrar la calidad de la respuesta con la latencia y el costo. Para conocer los diferentes parámetros de configuración, los valores predeterminados y cómo se corresponden con los tokens, consulta la sección [Recuentos de tokens](#token-counts).
+## Per-content-item media resolution (Gemini 3 only)
 
-Puedes configurar la resolución de medios para objetos de medios individuales (elementos de contenido) dentro de tu solicitud (solo Gemini 3).
-
-## Resolución de medios por elemento de contenido (solo Gemini 3)
-
-Gemini 3 te permite establecer la resolución de medios para objetos de medios individuales dentro de tu solicitud, lo que ofrece una optimización detallada del uso de tokens. Puedes combinar niveles de resolución en una sola solicitud. Por ejemplo, usar alta resolución para un diagrama complejo y baja resolución para una imagen contextual simple.
+Gemini 3 allows you to set media resolution for individual media objects within your request, offering fine-grained optimisation of token usage. You can mix resolution levels in a single request. For example, using high resolution for a complex diagram and low resolution for a simple contextual image.
 
 ### Python
 
@@ -104,69 +100,69 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Valores de resolución disponibles
+## Available resolution values
 
-La API de Gemini define los siguientes niveles para la resolución de medios:
+The Gemini API defines the following levels for media resolution:
 
-- `unspecified`: Es la configuración predeterminada. El recuento de tokens para este nivel varía significativamente entre Gemini 3 y los modelos de Gemini anteriores.
-- `low`: Recuento de tokens más bajo, lo que genera un procesamiento más rápido y un costo más bajo, pero con menos detalles.
-- `medium`: Un equilibrio entre detalles, costo y latencia.
-- `high`: Recuento de tokens más alto, que proporciona más detalles para que el modelo funcione, a costa de una mayor latencia y costo.
-- `ultra_high` (solo por elemento de contenido): Recuento de tokens más alto, necesario para casos de uso específicos, como el [uso de computadoras](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=es-419).
+- `unspecified`: The default setting. The token count for this level varies significantly between Gemini 3 and earlier Gemini models.
+- `low`: Lower token count, resulting in faster processing and lower cost, but with less detail.
+- `medium`: A balance between detail, cost, and latency.
+- `high`: Higher token count, providing more detail for the model to work with, at the expense of increased latency and cost.
+- `ultra_high` (Per content item only): Highest token count, required for specific use cases such as [computer use](https://ai.google.dev/gemini-api/docs/interactions/computer-use).
 
-Ten en cuenta que `high` proporciona el rendimiento óptimo para la mayoría de los casos de uso.
+Note that `high` provides the optimal performance for most use cases.
 
-La cantidad exacta de tokens generados para cada uno de estos niveles depende del **tipo de medio** (imagen, video, PDF) y de la **versión del modelo**.
+The exact number of tokens generated for each of these levels depends on both the **media type** (Image, Video, PDF) and the **model version**.
 
-## Recuentos de tokens
+## Token counts
 
-En las siguientes tablas, se resumen los recuentos de tokens aproximados para cada valor de `media_resolution` y tipo de medio por familia de modelos.
+The tables below summarize the approximate token counts for each `media_resolution` value and media type per model family.
 
-**Modelos de Gemini 3**
+**Gemini 3 models**
 
-| MediaResolution | Imagen | Video | PDF |
+| MediaResolution | Image | Video | PDF |
 | --- | --- | --- | --- |
-| `unspecified` (predeterminado) | 1120 | 70 | 560 |
-| `low` | 280 | 70 | 280 + texto nativo |
-| `medium` | 560 | 70 | 560 + texto nativo |
-| `high` | 1120 | 280 | 1120 + texto nativo |
+| `unspecified` (Default) | 1120 | 70 | 560 |
+| `low` | 280 | 70 | 280 + Native Text |
+| `medium` | 560 | 70 | 560 + Native Text |
+| `high` | 1120 | 280 | 1120 + Native Text |
 | `ultra_high` | 2240 | N/A | N/A |
 
-## Cómo elegir la resolución adecuada
+## Choosing the right resolution
 
-- **Predeterminado (`unspecified`):** Comienza con el valor predeterminado. Está optimizado para lograr un buen equilibrio entre calidad, latencia y costo para los casos de uso más comunes.
-- **`low`:** Úsalo en situaciones en las que el costo y la latencia son fundamentales, y los detalles precisos son menos importantes.
-- **`medium` / `high`:** Aumenta la resolución cuando la tarea requiere comprender detalles complejos dentro de los medios. Esto suele ser necesario para el análisis visual complejo, la lectura de gráficos o la comprensión de documentos densos.
-- **`ultra_high`** : Solo está disponible para la configuración por elemento de contenido. Se recomienda para casos de uso específicos, como el uso de computadoras o cuando las pruebas muestran una mejora clara en comparación con `high`.
-- **Control por elemento de contenido (Gemini 3):** Optimiza el uso de tokens. Por ejemplo, en un prompt con varias imágenes, usa `high` para un diagrama complejo y `low` o `medium` para imágenes contextuales más simples.
+- **Default (`unspecified`):** Start with the default. It's tuned for a good balance of quality, latency, and cost for most common use cases.
+- **`low`:** Use for scenarios where cost and latency are paramount, and fine-grained detail is less critical.
+- **`medium` / `high`:** Increase the resolution when the task requires understanding intricate details within the media. This is often needed for complex visual analysis, chart reading, or dense document comprehension.
+- **`ultra_high`** - Only available for per content item setting. Recommended for specific use cases such as computer use or where testing shows a clear enhancement over `high`.
+- **Per-content-item control (Gemini 3):** Optimizes token usage. For example, in a prompt with multiple images, use `high` for a complex diagram and `low` or `medium` for simpler contextual images.
 
-**Configuración recomendada**
+**Recommended settings**
 
-A continuación, se enumeran los parámetros de configuración de resolución de medios recomendados para cada tipo de medio compatible.
+The following lists the recommended media resolution settings for each supported media type.
 
-| Tipo de medio | Configuración recomendada | Tokens máximos | Orientación sobre el uso |
+| Media Type | Recommended Setting | Max Tokens | Usage Guidance |
 | --- | --- | --- | --- |
-| **Imágenes** | `high` | 1120 | Se recomienda para la mayoría de las tareas de análisis de imágenes para garantizar la máxima calidad. |
-| **PDFs** | `medium` | 560 | Es óptimo para la comprensión de documentos; la calidad suele saturarse en `medium`. Aumentar a `high` rara vez mejora los resultados de OCR para documentos estándar. |
-| **Video** (general) | `low` (o `medium`) | 70 (por fotograma) | **Nota:** En el caso de los videos, la configuración `low` y `medium` se tratan de forma idéntica (70 tokens) para optimizar el uso del contexto. Esto es suficiente para la mayoría de las tareas de reconocimiento y descripción de acciones. |
-| **Video** (con mucho texto) | `high` | 280 (por fotograma) | Solo se requiere cuando el caso de uso implica leer texto denso (OCR) o detalles pequeños dentro de los fotogramas de video. |
+| **Images** | `high` | 1120 | Recommended for most image analysis tasks to ensure maximum quality. |
+| **PDFs** | `medium` | 560 | Optimal for document understanding; quality typically saturates at `medium`. Increasing to `high` rarely improves OCR results for standard documents. |
+| **Video** (General) | `low` (or `medium`) | 70 (per frame) | **Note:** For video, `low` and `medium` settings are treated identically (70 tokens) to optimize context usage. This is sufficient for most action recognition and description tasks. |
+| **Video** (Text-heavy) | `high` | 280 (per frame) | Required only when the use case involves reading dense text (OCR) or small details within video frames. |
 
-Siempre prueba y evalúa el impacto de diferentes parámetros de configuración de resolución en tu aplicación para encontrar el mejor equilibrio entre calidad, latencia y costo.
+Always test and evaluate the impact of different resolution settings on your application to find the best trade-off between quality, latency, and cost.
 
-## Resumen de compatibilidad de versiones
+## Version compatibility summary
 
-- Establecer la `resolution` en elementos de contenido individuales es **exclusivo de los modelos de Gemini 3**.
+- Setting the `resolution` on individual content items is **exclusive to Gemini 3 models**.
 
-## Próximos pasos
+## Next steps
 
-- Obtén más información sobre las capacidades multimodales de la API de Gemini en las guías de [comprensión de imágenes](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=es-419), [comprensión de videos](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=es-419) y [comprensión de documentos](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=es-419).
+- Learn more about the multimodal capabilities of Gemini API in the [image understanding](https://ai.google.dev/gemini-api/docs/interactions/image-understanding), [video understanding](https://ai.google.dev/gemini-api/docs/interactions/video-understanding) and [document understanding](https://ai.google.dev/gemini-api/docs/interactions/document-processing) guides.
 
-Enviar comentarios
+Send feedback
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Última actualización: 2026-05-28 (UTC)
+Last updated 2026-06-18 UTC.
 
-¿Quieres brindar más información?
+Need to tell us more?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-05-28 (UTC)"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

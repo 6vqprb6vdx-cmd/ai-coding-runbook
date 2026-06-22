@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi
-fetched_at: 2026-06-15T06:24:23.867635+00:00
-title: "M\u00f4i tr\u01b0\u1eddng trong c\u00e1c t\u00e1c nh\u00e2n \u0111\u01b0\u1ee3c qu\u1ea3n l\u00fd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar
+fetched_at: 2026-06-22T06:25:56.316407+00:00
+title: "\u0627\u0644\u0628\u064a\u0626\u0627\u062a \u0641\u064a \u0627\u0644\u0648\u0643\u0644\u0627\u0621 \u0627\u0644\u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Môi trường trong các tác nhân được quản lý
+# البيئات في الوكلاء المُدارين
 
-Môi trường là các hộp cát Linux được quản lý, cung cấp cho các tác nhân một nơi tách biệt để thực thi mã và duy trì các tệp. Các thành phần này tách biệt với bối cảnh tương tác, vì vậy, bạn có thể sử dụng lại cùng một môi trường cho nhiều lượt tương tác hoặc bắt đầu lại từ đầu bất cứ lúc nào.
+البيئات هي صناديق حماية مُدارة في Linux تمنح الوكلاء مكانًا معزولاً لتنفيذ الرموز البرمجية والاحتفاظ بالملفات. وهي منفصلة عن سياق التفاعل، لذا يمكنك إعادة استخدام البيئة نفسها في تفاعلات متعددة أو البدء من جديد في أي وقت.
 
-Ví dụ sau đây minh hoạ cách tạo một hoạt động tương tác với một môi trường từ xa mới và truy xuất mã nhận dạng của hoạt động đó:
+يوضّح المثال التالي كيفية إنشاء تفاعل مع بيئة بعيدة جديدة واسترداد رقم تعريفها:
 
 ### Python
 
@@ -68,17 +68,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Tham số `environment`
+## المَعلمة `environment`
 
-Tham số `environment` chấp nhận 3 dạng:
+تقبل المَعلمة `environment` ثلاثة أشكال:
 
-| Biểu mẫu | Ví dụ: | Trường hợp sử dụng |
+| النموذج | مثال | حالات الاستخدام |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | Cung cấp một hộp cát mới. |
-| Mã môi trường | `environment="env_abc123"` | Sử dụng lại một hộp cát hiện có cùng với tất cả tệp và gói của hộp cát đó. |
-| Đối tượng cấu hình | `environment={...}` | Cung cấp một hộp cát mới có nguồn, quy tắc mạng hoặc cả hai. |
+| `"remote"` | `environment="remote"` | توفير صندوق حماية جديد |
+| رقم تعريف البيئة | `environment="env_abc123"` | إعادة استخدام صندوق حماية حالي مع جميع ملفاته وحِزمه |
+| كائن الإعداد | `environment={...}` | توفير صندوق حماية جديد مع مصادر أو قواعد شبكة أو كليهما |
 
-Các ví dụ sau đây minh hoạ 3 cách sử dụng tham số `environment`.
+توضّح الأمثلة التالية الطرق الثلاث لاستخدام المَعلمة `environment`.
 
 ### Python
 
@@ -209,10 +209,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Định cấu hình môi trường
+## ضبط بيئة
 
-Một cách để thiết lập môi trường là cho tác nhân phần mềm biết những gì bạn cần cài đặt.
-Nó xử lý việc giải quyết phần phụ thuộc và khắc phục sự cố. Sau khi môi trường đã sẵn sàng, hãy lưu `environment_id` và sử dụng lại.
+إحدى طرق إعداد بيئة هي إخبار الوكيل بما تحتاج إلى تثبيته.
+يتولّى الوكيل حلّ التبعيات وتحديد المشاكل وحلّها. بعد أن تصبح البيئة جاهزة، احفظ `environment_id` وأعِد استخدامه.
 
 ### Python
 
@@ -290,15 +290,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Gắn từ một nguồn
+### الربط من مصدر
 
-Nếu bạn biết chính xác những tệp mà tác nhân cần, hãy gắn các tệp đó trong một lệnh gọi duy nhất thay vì lặp lại. Đối tượng cấu hình `environment` chấp nhận một mảng `sources` có 3 loại:
+إذا كنت تعرف الملفات التي يحتاجها الوكيل بالضبط، يمكنك ربطها في طلب واحد بدلاً من تكرار العملية. يقبل كائن إعداد `environment` مصفوفة `sources` تتضمّن ثلاثة أنواع:
 
-| Loại nguồn | Giá trị `type` | Mô tả | Hạn mức |
+| نوع المصدر | قيمة `type` | الوصف | الحدّ |
 | --- | --- | --- | --- |
-| Kho lưu trữ Git | `repository` | Sao chép một kho lưu trữ từ một URL vào hộp cát tại `target`. | 500 MB |
-| Cloud Storage | `gcs` | Sao chép một tệp hoặc thư mục từ Cloud Storage vào hộp cát tại `target`. | 2 GB |
-| Nội dung cùng dòng | `inline` | Ghi nội dung văn bản thô vào một tệp trong hộp cát tại `target`. | 1 MB mỗi tệp, tổng cộng 2 MB |
+| مستودع Git | `repository` | يستنسخ مستودعًا من عنوان URL إلى صندوق الحماية في `target`. | 500 ميغابايت |
+| Cloud Storage | `gcs` | ينسخ ملفًا أو دليلًا من Cloud Storage إلى صندوق الحماية في `target`. | 2 غيغابايت |
+| محتوى مضمّن | `inline` | يكتب محتوى نصيًا خامًا في ملف في صندوق الحماية في `target`. | 1 ميغابايت لكل ملف، و2 ميغابايت إجمالاً |
 
 ### Python
 
@@ -404,14 +404,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Bạn có thể kết hợp cả hai phương pháp: khai báo các nguồn đã biết, sau đó lặp lại bằng các hoạt động tương tác tiếp theo để cài đặt các gói hoặc chạy tập lệnh thiết lập. Bạn không thể đặt thư mục gốc (`/`) làm mục tiêu khi thêm một nguồn tuỳ chỉnh, bạn phải luôn chỉ định một thư mục con.
+يمكنك الجمع بين الطريقتَين: ربط المصادر المعروفة بشكلٍ إعلاني، ثم تكرار العملية باستخدام تفاعلات المتابعة لتثبيت الحِزم أو تشغيل النصوص البرمجية للإعداد. لا يمكنك ضبط الجذر (`/`) كهدف عند إضافة مصدر مخصّص، ويجب دائمًا تحديد دليل فرعي.
 
-### Nguồn riêng tư
+### المصادر الخاصة
 
-Bạn cũng có thể tải xuống từ các kho lưu trữ Github riêng tư hoặc các vùng lưu trữ riêng tư trên đám mây bằng cách thêm thông tin đăng nhập vào cấu hình mạng:
+يمكنك أيضًا التنزيل من مستودعات Github الخاصة أو حِزم Cloud Storage الخاصة عن طريق إضافة بيانات الاعتماد في إعدادات الشبكة:
 
-Đối với **kho lưu trữ Git riêng tư**, hãy sử dụng phương thức xác thực `Basic` bằng [Mã thông báo truy cập cá nhân (PAT) của GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
-Mã hoá mã thông báo bằng `x-oauth-basic` làm tên người dùng:
+بالنسبة إلى **مستودعات Git الخاصة**، استخدِم `Basic` المصادقة مع
+[رمز الوصول الشخصي في GitHub
+(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+يمكنك ترميز الرمز المميّز باستخدام `x-oauth-basic` كاسم المستخدم:
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -517,7 +519,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Đối với **các bộ chứa riêng tư trong Cloud Storage**, hãy sử dụng mã thông báo Bearer OAuth 2.0 tiêu chuẩn:
+بالنسبة إلى **حِزم Cloud Storage الخاصة**، استخدِم رمزًا مميّزًا عاديًا من نوع OAuth 2.0 Bearer:
 
 ```
 gcloud auth print-access-token
@@ -623,25 +625,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Phần mềm được cài đặt sẵn
+## البرامج المثبَّتة مسبقًا
 
-Hộp cát chạy trên Ubuntu và đi kèm với các thời gian chạy và gói chung được cài đặt sẵn. Tác nhân có thể cài đặt các gói bổ sung trong thời gian chạy bằng cách sử dụng `pip
-install` hoặc `npm install`. Các gói được cài đặt trong quá trình tương tác sẽ vẫn tồn tại khi bạn dùng lại cùng một `environment_id`.
+يعمل صندوق الحماية على Ubuntu ويأتي مع أوقات تشغيل وحِزم شائعة مثبَّتة مسبقًا. يمكن للوكيل تثبيت حِزم إضافية في وقت التشغيل باستخدام `pip
+install` أو `npm install`. تظل الحِزم المثبَّتة أثناء التفاعل محفوظة عند إعادة استخدام `environment_id` نفسه.
 
-| Danh mục | Các gói được cài đặt sẵn |
+| الفئة | الحِزم المثبَّتة مسبقًا |
 | --- | --- |
-| **Công cụ UNIX** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
-| **Python 3.12** | `numpy`, `pandas`, `requests`, `google-genai`, `beautifulsoup4`, `pyyaml`, `ast-grep-cli` |
-| **Node.js 22** | `create-next-app`, `create-vite`, `typescript` |
+| **أدوات UNIX** | `curl` و`wget` و`git` و`rsync` و`unzip` و`ripgrep` و`fd-find` و`gawk` و`bc` و`tree` و`which` و`lsof` و`htop` و`jq` و`iproute2` و`procps` و`gcloud CLI` |
+| **Python 3.12** | `numpy` و`pandas` و`requests` و`google-genai` و`beautifulsoup4` و`pyyaml` و`ast-grep-cli` |
+| **Node.js 22** | `create-next-app` و`create-vite` و`typescript` |
 
-## Cấu hình mạng
+## إعدادات الشبكة
 
-Theo mặc định, các môi trường có quyền truy cập mạng đi không hạn chế. Sử dụng trường `network` để hạn chế lưu lượng truy cập đi đến các miền cụ thể. Mỗi quy tắc chỉ định một `domain` và một đối tượng `transform` không bắt buộc để chèn tiêu đề vào các yêu cầu trùng khớp. Các tiêu đề này có thể là duy nhất cho mỗi lượt tương tác và bạn có thể cập nhật chúng cho cùng một môi trường.
+تتضمّن البيئات تلقائيًا إمكانية الوصول إلى الشبكة الصادرة بدون أي قيود. استخدِم الحقل `network` لحظر الزيارات الصادرة إلى نطاقات معيّنة. تحدّد كل قاعدة `domain` وكائن `transform` اختياريًا لإضافة عناوين إلى الطلبات المطابقة. يمكن أن تكون هذه العناوين فريدة لكل تفاعل، ويمكنك تعديلها للبيئة نفسها.
 
-| Trường | Loại | Mô tả |
+| الحقل | النوع | الوصف |
 | --- | --- | --- |
-| `domain` | `string` | Miền cần khớp. Sử dụng tên máy chủ chính xác hoặc `*` cho tất cả các miền. |
-| `transform` | `object` | Đối tượng chứa các cặp khoá-giá trị đơn giản đại diện cho các tiêu đề cần chèn vào các yêu cầu khớp, ví dụ: `{"Authorization": "Bearer ..."}`. |
+| `domain` | `string` | النطاق المطلوب مطابقته استخدِم اسم مضيف مطابقًا أو `*` لجميع النطاقات. |
+| `transform` | `object` | كائن يحتوي على أزواج مفتاح/قيمة مسطّحة تمثّل العناوين المطلوب إضافتها إلى الطلبات المطابقة، مثلاً `{"Authorization": "Bearer ..."}`. |
 
 ### Python
 
@@ -731,12 +733,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Khi bạn đặt danh sách cho phép, chỉ những yêu cầu đến các miền được liệt kê rõ ràng mới được phép. Bạn có thể sử dụng ký tự đại diện để so khớp các miền con (ví dụ: `{"domain":
-"*.example.com"}`), nhưng lưu ý rằng ký tự này không so khớp miền gốc `example.com`. Bạn phải thêm miền gốc riêng. Để cho phép tất cả lưu lượng truy cập khác, chẳng hạn như định tuyến các miền không có trong danh sách mà không có tiêu đề được chèn, hãy thêm `{"domain": "*"}` làm mục nhập chung.
+عند ضبط قائمة مسموح بها، لا يُسمح إلا بالطلبات الموجّهة إلى النطاقات المُدرَجة بشكلٍ صريح. يمكنك استخدام أحرف البدل لمطابقة النطاقات الفرعية (مثلاً، `{"domain":
+"*.example.com"}`)، ولكن يُرجى العِلم أنّ ذلك لا يطابق النطاق الرئيسي
+`example.com`، الذي يجب إضافته بشكلٍ منفصل. للسماح بجميع الزيارات الأخرى، مثل
+توجيه النطاقات غير المُدرَجة بدون إضافة عناوين، أضِف `{"domain": "*"}` كإدخال
+شامل.
 
-### Thông tin xác thực
+### بيانات الاعتماد
 
-Bạn có thể thêm thông tin đăng nhập để tác nhân sử dụng bằng cách thêm các phép biến đổi tiêu đề. Thông tin đăng nhập được một proxy truyền dữ liệu ra ngoài chèn vào các tiêu đề HTTP tương ứng, thông tin này không bao giờ được hiển thị bên trong hộp cát dưới dạng các biến môi trường hoặc tệp.
+يمكنك إضافة بيانات اعتماد ليستخدمها وكيلك عن طريق إضافة عمليات تحويل العناوين. يتم إدخال بيانات الاعتماد في عناوين HTTP المعنيّة من خلال وكيل الخروج، ولا يتم عرضها مطلقًا داخل صندوق الحماية كمتغيّرات بيئية أو ملفات.
 
 ### Python
 
@@ -830,9 +835,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Tắt quyền truy cập mạng
+### إيقاف إمكانية الوصول إلى الشبكة
 
-Để chặn tất cả quyền truy cập vào mạng bên ngoài, hãy đặt `network` thành `disabled`:
+لحظر جميع إمكانية الوصول إلى الشبكة الصادرة، اضبط `network` على `disabled`:
 
 ### Python
 
@@ -889,21 +894,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Vòng đời của môi trường
+## دورة حياة البيئة
 
-Môi trường tuân theo vòng đời sau:
+تتّبِع البيئات دورة الحياة التالية:
 
-| Tiểu bang | Hành vi |
+| الحالة | السلوك |
 | --- | --- |
-| **Đã tạo** | Được cung cấp khi một lượt tương tác chỉ định `environment: "remote"` hoặc một đối tượng cấu hình. |
-| **Đang hoạt động** | Chạy trong khi đang có một lượt tương tác. |
-| **Không hoạt động** | Tự động chụp nhanh và dừng sau 15 phút không hoạt động. |
-| **Ngoại tuyến** | Được giữ lại trong 7 ngày kể từ lần hoạt động gần đây nhất. Có thể tiếp tục bằng cách truyền mã nhận dạng của nó. |
-| **Đã xoá** | Đã xoá khỏi hệ thống. |
+| **تم الإنشاء** | يتم توفيرها عندما يحدّد أحد التفاعلات `environment: "remote"` أو كائن إعداد. |
+| **نشطة** | تكون قيد التشغيل أثناء تقدّم التفاعل. |
+| **غير مستخدَم من قِبل أي برنامج حاليًا** | يتم أخذ لقطة تلقائية وإيقافها بعد 15 دقيقة من عدم النشاط. |
+| **بلا إنترنت** | يتم الاحتفاظ بها لمدة 7 أيام منذ آخر نشاط. يمكن استئنافها عن طريق تمرير رقم تعريفها. |
+| **تم الحذف** | تمت إزالتها من النظام. |
 
-## Tải tệp xuống từ môi trường
+## تنزيل الملفات من البيئة
 
-Tác nhân tạo các tệp bên trong hộp cát trong quá trình thực thi. Bạn có thể tải toàn bộ ảnh chụp nhanh môi trường xuống dưới dạng tệp tar bằng Files API:
+ينشئ الوكيل ملفات داخل صندوق الحماية أثناء التنفيذ. يمكنك تنزيل لقطة البيئة الكاملة كملف tar باستخدام Files API:
 
 ### Python
 
@@ -999,39 +1004,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## Giá cả và tài nguyên
+## الأسعار والمراجع
 
-Mỗi môi trường chạy với mức phân bổ tài nguyên cố định:
+تعمل كل بيئة مع تخصيصات موارد ثابتة:
 
-| Tài nguyên | Giá trị |
+| المورد | القيمة |
 | --- | --- |
-| **CPU** | 4 lõi |
-| **Bộ nhớ** | 16 GB |
+| **وحدة المعالجة المركزية** | 4 أنوية |
+| **الذاكرة** | 16 غيغابايت |
 
-Môi trường điện toán (CPU, bộ nhớ, thực thi hộp cát) **không được tính phí** trong thời gian xem trước. Xem phần [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) để biết chi phí mã thông báo của tác nhân.
+**لا يتم تحصيل رسوم** مقابل حوسبة البيئة (وحدة المعالجة المركزية والذاكرة وتنفيذ صندوق الحماية) خلال فترة المعاينة. راجِع
+[الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#pricing-for-agents) لمعرفة
+تكاليف الرموز المميّزة للوكيل.
 
-## Các điểm hạn chế
+## القيود
 
-- **Trạng thái xem trước:** Môi trường và nhân viên hỗ trợ được quản lý đang ở trạng thái xem trước. Các tính năng và giản đồ có thể thay đổi.
-- **Kích thước nguồn nội tuyến:** Nguồn nội tuyến bị giới hạn ở mức 1 MB cho mỗi tệp và tổng cộng 2 MB cho tất cả các tệp.
-- **Kích thước nguồn**: Kho lưu trữ Git có giới hạn 500 MB và kho lưu trữ Bộ nhớ đám mây có giới hạn 2 GB.
-- **Khởi động môi trường:** Quá trình cung cấp một môi trường mới mất tối đa khoảng 5 giây. Các kho lưu trữ nguồn lớn có thể làm tăng thời gian này.
-- **Hỗ trợ tệp:** Hiện tại, tác nhân chỉ có thể đọc tệp văn bản và hình ảnh. Tính năng hỗ trợ tệp nhị phân hiện chưa được cung cấp.
-- **Không gắn từ thư mục gốc:** Bạn không thể đặt thư mục gốc (`/`) làm đích đến khi thêm một nguồn tuỳ chỉnh, bạn phải luôn chỉ định một thư mục con.
+- **حالة المعاينة:** البيئات والوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
+- **حجم المصدر المضمّن:** يقتصر حجم المصادر المضمّنة على 1 ميغابايت لكل ملف، و2 ميغابايت إجمالاً لجميع الملفات.
+- **حجم المصدر**: يقتصر حجم مستودعات Git على 500 ميغابايت ومستودعات Cloud Storage على 2 غيغابايت.
+- **بدء تشغيل البيئة:** يستغرق توفير بيئة جديدة ما يصل إلى 5 ثوانٍ تقريبًا. قد يؤدي استخدام مستودعات مصادر كبيرة إلى زيادة هذا الوقت.
+- **تنسيقات الملفات المتوافقة:** يقتصر الوكيل حاليًا على قراءة الملفات النصية وملفات الصور. ولا تتوفّر بعد إمكانية قراءة الملفات الثنائية.
+- **لا يمكن الربط من الجذر:** لا يمكنك ضبط الجذر (`/`) كهدف عند إضافة مصدر مخصّص، ويجب دائمًا تحديد دليل فرعي.
 
-## Bước tiếp theo
+## الخطوات التالية
 
-- [Tổng quan về tác nhân](https://ai.google.dev/gemini-api/docs/agents?hl=vi): Tìm hiểu về các khái niệm cốt lõi của tác nhân được quản lý.
-- [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): Bắt đầu xây dựng bằng các cuộc trò chuyện nhiều lượt và tính năng phát trực tuyến.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi): Khám phá các chức năng, công cụ và giá của tác nhân mặc định.
-- [Tạo tác nhân tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi): Xác định tác nhân của riêng bạn bằng cách sử dụng `AGENTS.md` và `SKILL.md`.
+- [نظرة عامة على الوكلاء](https://ai.google.dev/gemini-api/docs/agents?hl=ar): تعرَّف على المفاهيم الأساسية للوكلاء المُدارين.
+- [دليل البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): ابدأ في إنشاء محادثات متعددة الأدوار وبث المحتوى.
+- [وكيل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): استكشِف الإمكانات والأدوات والأسعار للوكيل التلقائي.
+- [إنشاء وكلاء مخصّصين](https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar): حدِّد الوكلاء الخاصين بك باستخدام `AGENTS.md` و`SKILL.md`.
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-05-20 UTC.
+تاريخ التعديل الأخير: 2026-05-20 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-20 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-20 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

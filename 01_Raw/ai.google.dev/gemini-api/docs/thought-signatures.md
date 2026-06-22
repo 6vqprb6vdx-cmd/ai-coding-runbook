@@ -1,100 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thought-signatures?hl=fr
-fetched_at: 2026-06-15T06:25:39.226736+00:00
-title: "Signatures de pens\u00e9e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ko
+fetched_at: 2026-06-22T06:27:18.886808+00:00
+title: "\uc0dd\uac01 \uc11c\uba85 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [recherche approfondie Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) est désormais disponible en preview avec la planification collaborative, la visualisation, la compatibilité MCP et plus encore.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 이제 공동 계획, 시각화, MCP 지원 등과 함께 미리보기로 이용할 수 있습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Envoyer des commentaires
+의견 보내기
 
-# Signatures de pensée
+# 생각 서명
 
-Les signatures de réflexion sont des représentations chiffrées du processus de réflexion interne du modèle. Elles permettent de préserver le contexte de raisonnement lors d'interactions en plusieurs étapes.
-Lorsque vous utilisez des modèles de réflexion (comme les séries Gemini 3 et 2.5), l'API peut
-renvoyer un champ `thoughtSignature` dans les [parties de contenu](https://ai.google.dev/api/caching?hl=fr#Part)
-de la réponse (par exemple, les parties `text` ou `functionCall`).
+생각 서명은 모델의 내부 사고 과정을 암호화한 표현으로, 다단계 상호작용 전반에서 추론 컨텍스트를 유지하는 데 사용됩니다.
+사고 모델 (예: Gemini 3 및 2.5 시리즈)을 사용하는 경우 API는 응답의 [콘텐츠 파트](https://ai.google.dev/api/caching?hl=ko#Part) (예: `text` 또는 `functionCall` 파트) 내에 `thoughtSignature` 필드를 반환할 수 있습니다.
 
-En règle générale, si vous recevez une signature de réflexion dans une réponse de modèle, vous devez la renvoyer exactement telle qu'elle a été reçue lorsque vous envoyez l'historique de la conversation au tour suivant.
-**Lorsque vous utilisez des modèles Gemini 3, vous devez renvoyer les signatures de réflexion lors de l'appel de fonction. Sinon, vous recevrez une erreur de validation** (code d'état 4xx).
-Cela inclut l'utilisation du `minimal`
-[paramètre de niveau de réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#thinking-levels) pour Gemini 3
-Flash.
+일반적으로 모델 응답에서 생각 서명을 수신하면 다음 턴에서 대화 기록을 보낼 때 수신한 그대로 다시 전달해야 합니다.
+**Gemini 3 모델을 사용하는 경우 함수 호출 중에 생각 서명을 다시 전달해야 합니다. 그렇지 않으면 유효성 검사 오류가 발생합니다** (4xx 상태 코드).
+여기에는 Gemini 3 Flash에 `minimal`
+[사고 수준](https://ai.google.dev/gemini-api/docs/thinking?hl=ko#thinking-levels) 설정을 사용하는 경우도 포함됩니다.
 
-## Fonctionnement
+## 작동 방식
 
-Le graphique ci-dessous illustre la signification des termes "tour" et "étape" tels qu'ils s'appliquent à
-[l'appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr) dans l'API Gemini. Un "tour" est un échange unique et complet dans une conversation entre un utilisateur et un modèle. Une "étape" est une action ou une opération plus précise effectuée par le modèle, souvent dans le cadre d'un processus plus vaste pour terminer un tour.
+아래 그래픽은 Gemini API의 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)과 관련된 '턴'과 '단계'의 의미를 시각화합니다. '턴'은 사용자와 모델 간의 대화에서 완전한 하나의 교환입니다. '단계'는 모델이 실행하는 더 세부적인 작업 또는 작업으로, 턴을 완료하기 위한 더 큰 프로세스의 일부인 경우가 많습니다.
 
-![Diagramme des tours et des étapes d&#39;appel de fonction](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=fr)
+![함수 호출 턴 및 단계 다이어그램](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=ko)
 
-*Ce document se concentre sur la gestion des appels de fonction pour les modèles Gemini 3. Pour connaître les différences avec la version 2.5, consultez la section [Comportement du modèle](#model-behavior).*
+*이 문서에서는 Gemini 3 모델의 함수 호출 처리에 중점을 둡니다. 2.5와의 차이점은 [모델 동작](#model-behavior) 섹션을 참고하세요.*
 
-Gemini 3 renvoie des signatures de réflexion pour toutes les réponses du modèle (réponses de l'API) avec un appel de fonction. Les signatures de réflexion s'affichent dans les cas suivants :
+Gemini 3는 함수 호출이 포함된 모든 모델 응답 (API의 응답)에 대해 생각 서명을 반환합니다. 생각 서명은 다음 경우에 표시됩니다.
 
-- En cas d'appels de fonction [parallèles](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#parallel_function_calling), la première partie d'appel de fonction renvoyée par la réponse du modèle comporte une
-  signature de réflexion.
-- En cas d'appels de fonction séquentiels (en plusieurs étapes), chaque appel de fonction comporte une signature, et vous devez renvoyer toutes les signatures.
-- Les réponses du modèle sans appel de fonction renvoient une signature de réflexion dans la dernière partie renvoyée par le modèle.
+- [병렬 함수](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#parallel_function_calling) 호출이 있는 경우 모델 응답에서 반환되는 첫 번째 함수 호출 파트에 생각 서명이 포함됩니다.
+- 순차적 (다단계) 함수 호출이 있는 경우 각 함수 호출에는 서명이 포함되며 모든 서명을 다시 전달해야 합니다.
+- 함수 호출이 없는 모델 응답의 경우, 모델에서 반환된 마지막 파트 내부에 생각 서명이 포함되어 반환됩니다.
 
-Le tableau suivant fournit une visualisation des appels de fonction en plusieurs étapes, combinant les définitions des tours et des étapes avec le concept de signatures présenté ci-dessus :
+다음 표에서는 턴과 단계의 정의를 위에 소개된 서명 개념과 결합하여 다단계 함수 호출을 시각화합니다.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Tour** | **Étape** | **Requête utilisateur** | **Réponse de modèle** | **FunctionResponse** |
+| **Turn** | **단계** | **사용자 요청** | **모델 응답** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Aucun |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | 없음 |
 
-## Signatures dans les parties d'appel de fonction
+## 함수 호출 부분의 서명
 
-Lorsque Gemini génère un `functionCall`, il s'appuie sur la `thought_signature` pour traiter correctement la sortie de l'outil au tour suivant.
+Gemini가 `functionCall`를 생성할 때 다음 턴에서 도구의 출력을 올바르게 처리하기 위해 `thought_signature`를 사용합니다.
 
-- **Comportement**:
-  - **Appel de fonction unique** : la partie `functionCall` contient une `thought_signature`.
-  - **Appels de fonction parallèles** : si le modèle génère des appels de fonction parallèles
-    dans une réponse, la `thought_signature` n'est associée **qu'à la première**
-    `functionCall` partie. Les parties `functionCall` suivantes de la même réponse **ne contiennent pas** de signature.
-- **Exigence** : vous **devel** renvoyer cette signature dans la partie exacte où elle
-  a été reçue lors de l'envoi de l'historique de la conversation.
-- **Validation** : une validation stricte est appliquée à tous les appels de fonction dans
-  le tour actuel . (Seul le tour actuel est requis. Nous ne validons pas les tours précédents.)
-  - L'API revient dans l'historique (du plus récent au plus ancien) pour trouver le message **Utilisateur** le plus récent contenant du contenu standard (par exemple, `text`) ( qui correspond au début du tour actuel). Il ne s'agit **be** d'une `functionResponse`.
-  - **Tous** les tours `functionCall` du modèle qui se produisent après ce message d'utilisation spécifique sont considérés comme faisant partie du tour.
-  - La **première** partie `functionCall` de **chaque étape** du tour actuel **doit** inclure sa `thought_signature`.
-  - Si vous omettez une `thought_signature` pour la première partie `functionCall` d'une étape du tour actuel, la requête échoue avec une erreur 400.
-- **Si les signatures appropriées ne sont pas renvoyées, voici comment vous obtiendrez une erreur**
-  - Modèles Gemini 3 : si vous n'incluez pas de signatures, vous obtiendrez une erreur 400. La formulation sera de la forme suivante :
-    - L'appel de fonction `<Function Call>` dans le bloc de contenu `<index of contents array>`
-      ne comporte pas de `thought_signature`. Par exemple, *L'appel de
-      fonction `FC1` dans le bloc de contenu `1.` ne comporte pas de `thought_signature`.*
+- **행동**:
+  - **단일 함수 호출**: `functionCall` 부분에 `thought_signature`가 포함됩니다.
+  - **병렬 함수 호출**: 모델이 응답에서 병렬 함수 호출을 생성하는 경우 `thought_signature`는 **첫 번째**
+    `functionCall` 부분에만 연결됩니다. 동일한 대답의 후속 `functionCall` 부분에는 서명이 포함되지 **않습니다**.
+- **요구사항**: 대화 기록을 다시 보낼 때는 이 서명을 수신했던 바로 그 파트에 정확히 **반환해야 합니다**.
+- **유효성 검사**: 현재 턴 내의 모든 함수 호출에 엄격한 유효성 검사가 적용됩니다 . (현재 턴만 필요하며 이전 턴은 검증하지 않음)
+  - API는 기록 (최신에서 오래된 순)으로 돌아가 표준 콘텐츠 (예: `text`)가 포함된 가장 최근 **User** 메시지(현재 턴의 시작)를 찾습니다. `functionResponse`이 **be**.
+  - 해당 특정 사용 메시지 이후에 발생하는 **모든** 모델 `functionCall`은 턴의 일부로 간주됩니다.
+  - 현재 턴의 **각 단계**의 **첫 번째** `functionCall` 부분에는 `thought_signature`가 포함되어야 **합니다**.
+  - 현재 턴의 단계에서 첫 번째 `functionCall` 부분에 필요한 `thought_signature`를 누락하면 400 오류가 발생하여 요청이 실패합니다.
+- **올바른 서명이 반환되지 않으면 다음과 같이 오류가 발생합니다**
+  - Gemini 3 모델: 서명을 포함하지 않으면 400 오류가 발생합니다. 문구는 다음 형식입니다.
+    - `<index of contents array>` 콘텐츠 블록의 `<Function Call>` 함수 호출에 `thought_signature`가 누락되었습니다. 예를 들어 *`1.` 콘텐츠 블록의 `FC1` 함수 호출에 `thought_signature`이 누락되었습니다.*
 
-### Exemple d'appel de fonction séquentiel
+### 순차적 함수 호출 예시
 
-Cette section présente un exemple d'appels de fonction multiples dans lequel l'utilisateur pose une question complexe nécessitant plusieurs tâches.
+이 섹션에서는 사용자가 여러 작업이 필요한 복잡한 질문을 하는 여러 함수 호출의 예를 보여줍니다.
 
-Examinons un exemple d'appel de fonction multitours dans lequel l'utilisateur pose
-une question complexe nécessitant plusieurs tâches : `"Check flight status for AA100 and
-book a taxi if delayed"`.
+사용자가 여러 작업이 필요한 복잡한 질문(`"Check flight status for AA100 and
+book a taxi if delayed"`)을 하는 멀티턴 함수 호출 예를 살펴보겠습니다.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Tour** | **Étape** | **Requête utilisateur** | **Réponse de modèle** | **FunctionResponse** |
+| **Turn** | **단계** | **사용자 요청** | **모델 응답** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Le code suivant illustre la séquence du tableau ci-dessus.
+다음 코드는 위 표의 시퀀스를 보여줍니다.
 
-**Tour 1, étape 1 (requête utilisateur)**
+**턴 1, 1단계 (사용자 요청)**
 
 ```
 {
@@ -149,7 +138,7 @@ Le code suivant illustre la séquence du tableau ci-dessus.
 }
 ```
 
-**Tour 1, étape 1 (réponse de modèle)**
+**턴 1, 1단계 (모델 응답)**
 
 ```
 {
@@ -170,8 +159,7 @@ Le code suivant illustre la séquence du tableau ci-dessus.
 }
 ```
 
-**Tour 1, étape 2 (réponse utilisateur – envoi des sorties d'outil)** Comme ce tour utilisateur ne contient qu'une `functionResponse` (aucun nouveau texte), nous sommes toujours au tour 1. Nous
-devons conserver `<Signature_A>`.
+**턴 1, 2단계(사용자 응답 - 도구 출력 전송)** 이 사용자 턴에는 새로운 텍스트 없이 `functionResponse`만 포함되어 있으므로 아직 턴 1입니다. `<Signature_A>`을 보존해야 합니다.
 
 ```
 {
@@ -212,7 +200,7 @@ devons conserver `<Signature_A>`.
 }
 ```
 
-**Tour 1, étape 2 (modèle)** Le modèle décide maintenant de réserver un taxi en fonction de la sortie d'outil précédente.
+**1턴, 2단계 (모델)** 이제 모델이 이전 도구 출력을 기반으로 택시를 예약하기로 결정합니다.
 
 ```
 {
@@ -233,7 +221,7 @@ devons conserver `<Signature_A>`.
 }
 ```
 
-**Tour 1, étape 3 (utilisateur – envoi de la sortie d'outil)** Pour envoyer la confirmation de réservation du taxi, nous devons inclure des signatures pour **TOUS** les appels de fonction de cette boucle(`<Signature A>` + `<Signature B>`).
+**턴 1, 3단계 (사용자 - 도구 출력 전송)** 택시 예약 확인을 전송하려면 이 루프의 **모든** 함수 호출에 대한 서명(`<Signature A>` + `<Signature B>`)을 반드시 포함해야 합니다.
 
 ```
 {
@@ -302,19 +290,18 @@ devons conserver `<Signature_A>`.
 }
 ```
 
-### Exemple d'appel de fonction parallèle
+### 병렬 함수 호출 예시
 
-Examinons un exemple d'appel de fonction parallèle dans lequel l'utilisateur demande
-`"Check weather in Paris and London"` pour voir où le modèle effectue la validation.
+사용자가 모델이 검증을 수행하는 위치를 확인하기 위해 `"Check weather in Paris and London"`에 요청하는 병렬 함수 호출 예시를 살펴보겠습니다.
 
-| **Tour** | **Étape** | **Requête utilisateur** | **Réponse de modèle** | **FunctionResponse** |
+| **Turn** | **단계** | **사용자 요청** | **모델 응답** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + signature  FC2 ("London") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | Aucun |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ('파리') + 서명  FC2 ('런던') | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (FC 없음) | 없음 |
 
-Le code suivant illustre la séquence du tableau ci-dessus.
+다음 코드는 위 표의 시퀀스를 보여줍니다.
 
-**Tour 1, étape 1 (requête utilisateur)**
+**턴 1, 1단계 (사용자 요청)**
 
 ```
 {
@@ -353,7 +340,7 @@ Le code suivant illustre la séquence du tableau ci-dessus.
 }
 ```
 
-**Tour 1, étape 1 (réponse de modèle)**
+**턴 1, 1단계 (모델 응답)**
 
 ```
 {
@@ -381,8 +368,7 @@ Le code suivant illustre la séquence du tableau ci-dessus.
 }
 ```
 
-**Tour 1, étape 2 (réponse utilisateur – envoi des sorties d'outil)** Nous devons conserver
-`<Signature_A>` dans la première partie exactement telle qu'elle a été reçue.
+**턴 1, 2단계 (사용자 응답 - 도구 출력 전송)** 첫 번째 파트에 있는 `<Signature_A>`는 받은 그대로 유지해야 합니다.
 
 ```
 [
@@ -440,20 +426,17 @@ Le code suivant illustre la séquence du tableau ci-dessus.
 ]
 ```
 
-## Signatures dans les parties non `functionCall`
+## `functionCall`이 아닌 부분의 서명
 
-Gemini peut également renvoyer des `thought_signatures` dans la dernière partie de la réponse dans les parties qui ne sont pas des appels de fonction.
+Gemini는 함수 호출이 아닌 부분의 응답 마지막 부분에 `thought_signatures`를 반환할 수도 있습니다.
 
-- **Comportement** : la dernière partie de contenu (`text, inlineData…`) renvoyée par le
-  modèle peut contenir une `thought_signature`.
-- **Recommandation** : il est **recommandé** de renvoyer ces signatures pour s'assurer que
-  le modèle maintient un raisonnement de haute qualité, en particulier pour le suivi d'instructions
-  complexes ou les workflows d'agent simulés.
-- **Validation** : l'API **n'applique pas** strictement la validation. Vous ne recevrez pas d'erreur bloquante si vous les omettez, mais les performances peuvent se dégrader.
+- **동작**: 모델에서 반환하는 최종 콘텐츠 부분 (`text, inlineData…`)에 `thought_signature`이 포함될 수 있습니다.
+- **권장사항**: 이 서명을 반환하는 것 모델이 특히 복잡한 지침을 따르거나 시뮬레이션된 에이전트형 워크플로에서 고품질 추론을 유지하도록 보장하기 위해 **권장**됩니다.
+- **유효성 검사**: API는 유효성 검사를 엄격하게 적용하지 **않습니다**. 이를 생략하더라도 차단 오류는 발생하지는 않지만, 성능이 저하될 수 있습니다.
 
-### Raisonnement textuel/contextuel (aucune validation)
+### 텍스트/맥락 내 추론 (검증 없음)
 
-**Tour 1, étape 1 (réponse de modèle)**
+**턴 1, 1단계 (모델 응답)**
 
 ```
 {
@@ -467,7 +450,7 @@ Gemini peut également renvoyer des `thought_signatures` dans la dernière parti
 }
 ```
 
-**Tour 2, étape 1 (utilisateur)**
+**턴 2, 1단계 (사용자)**
 
 ```
 [
@@ -485,41 +468,38 @@ Gemini peut également renvoyer des `thought_signatures` dans la dernière parti
 ]
 ```
 
-## Préservation de la réflexion et utilisation des jetons
+## 사고 보존 및 토큰 사용량
 
-**À partir de Gemini 3.5 Flash**, le modèle utilise le contexte de raisonnement
-de tous les tours précédents lorsque des signatures de réflexion sont présentes dans l'
-historique de la conversation.
+**Gemini 3.5 Flash부터** 모델은 대화 기록에 사고 서명이 있는 경우 이전 모든 턴의 추론 컨텍스트를 사용합니다.
 
-Pour activer la préservation de la réflexion, **transmettez l'historique complet et non modifié de la conversation** (y compris les champs `thought_signature` renvoyés dans les tours de modèle précédents) dans le tableau `contents` de votre requête.
+사고 보존을 사용 설정하려면 요청의 `contents` 배열에 **수정되지 않은 전체 대화 기록** (이전 모델 턴에서 반환된 `thought_signature` 필드 포함)을 전달하세요.
 
-### Gérer la consommation de jetons
+### 토큰 사용 관리
 
-La préservation des réflexions intermédiaires sur plusieurs tours augmente le nombre de jetons d'entrée dans les tours suivants, car le modèle doit analyser les signatures de réflexion des tours précédents.
+여러 턴에 걸쳐 중간 생각을 유지하면 모델이 이전 턴의 생각 서명을 파싱해야 하므로 후속 턴의 입력 토큰 수가 증가합니다.
 
-Si votre application effectue des requêtes simples ou si vous souhaitez réduire les coûts lors de longues conversations, vous pouvez effacer les signatures de réflexion précédentes de l'historique de la conversation.
+애플리케이션이 간단한 질문을 수행하거나 긴 대화에서 비용을 최소화하려는 경우 대화 기록에서 이전 생각 서명을 삭제하면 됩니다.
 
-## Signatures pour la compatibilité avec OpenAI
+## OpenAI 호환성 서명
 
-Les exemples suivants montrent comment gérer les signatures de réflexion pour une API de complétion de chat
-à l'aide de [la compatibilité avec OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=fr).
+다음 예에서는 [OpenAI 호환성](https://ai.google.dev/gemini-api/docs/openai?hl=ko)을 사용하여 채팅 완성 API의 사고 서명을 처리하는 방법을 보여줍니다.
 
-### Exemple d'appel de fonction séquentiel
+### 순차적 함수 호출 예시
 
-Voici un exemple d'appel de fonction multiple dans lequel l'utilisateur pose une question complexe nécessitant plusieurs tâches.
+다음은 사용자가 여러 작업이 필요한 복잡한 질문을 하는 다중 함수 호출의 예입니다.
 
-Examinons un exemple d'appel de fonction multitours dans lequel l'utilisateur demande `Check flight status for AA100 and book a taxi if delayed`. Vous pouvez voir ce qui se passe lorsque l'utilisateur pose une question complexe nécessitant plusieurs tâches.
+사용자가 `Check flight status for AA100 and book a taxi if delayed`라고 묻는 멀티턴 함수 호출 예를 살펴보고 사용자가 여러 태스크가 필요한 복잡한 질문을 할 때 어떤 일이 일어나는지 확인해 보겠습니다.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Tour** | **Étape** | **Requête utilisateur** | **Réponse de modèle** | **FunctionResponse** |
+| **Turn** | **단계** | **사용자 요청** | **모델 응답** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Le code suivant décrit la séquence donnée.
+다음 코드는 지정된 시퀀스를 안내합니다.
 
-**Tour 1, étape 1 (requête utilisateur)**
+**턴 1, 1단계 (사용자 요청)**
 
 ```
 {
@@ -573,7 +553,7 @@ Le code suivant décrit la séquence donnée.
 }
 ```
 
-**Tour 1, étape 1 (réponse de modèle)**
+**턴 1, 1단계 (모델 응답)**
 
 ```
 {
@@ -596,10 +576,9 @@ Le code suivant décrit la séquence donnée.
     }
 ```
 
-**Tour 1, étape 2 (réponse utilisateur – envoi des sorties d'outil)**
+**턴 1, 2단계 (사용자 응답 - 도구 출력 전송)**
 
-Comme ce tour utilisateur ne contient qu'une `functionResponse` (aucun nouveau texte), nous sommes
-toujours au tour 1 et devons conserver `<Signature_A>`.
+이 사용자 턴에는 새로운 텍스트 없이 `functionResponse`만 포함되어 있으므로 아직 턴 1이며 `<Signature_A>`을 보존해야 합니다.
 
 ```
 "messages": [
@@ -634,9 +613,9 @@ toujours au tour 1 et devons conserver `<Signature_A>`.
   ]
 ```
 
-**Tour 1, étape 2 (modèle)**
+**턴 1, 2단계 (모델)**
 
-Le modèle décide maintenant de réserver un taxi en fonction de la sortie d'outil précédente.
+이제 모델은 이전 도구 출력을 기반으로 택시를 예약하기로 결정합니다.
 
 ```
 {
@@ -659,10 +638,9 @@ Le modèle décide maintenant de réserver un taxi en fonction de la sortie d'ou
 }
 ```
 
-**Tour 1, étape 3 (utilisateur – envoi de la sortie d'outil)**
+**턴 1, 3단계 (사용자 - 도구 출력 전송)**
 
-Pour envoyer la confirmation de réservation du taxi, nous devons inclure des signatures pour TOUS
-les appels de fonction de cette boucle (`<Signature A>` + `<Signature B>`).
+택시 예약 확인을 전송하려면 이 루프의 모든 함수 호출 (`<Signature A>` + `<Signature B>`)에 대한 서명을 포함해야 합니다.
 
 ```
 "messages": [
@@ -721,21 +699,19 @@ les appels de fonction de cette boucle (`<Signature A>` + `<Signature B>`).
   ]
 ```
 
-### Exemple d'appel de fonction parallèle
+### 병렬 함수 호출 예시
 
-Examinons un exemple d'appel de fonction parallèle dans lequel l'utilisateur demande
-`"Check weather in Paris and London"` pour voir où le modèle effectue la
-validation.
+사용자가 `"Check weather in Paris and London"`를 요청하는 병렬 함수 호출 예시를 살펴보겠습니다. 모델이 검증을 수행하는 위치를 확인할 수 있습니다.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Tour** | **Étape** | **Requête utilisateur** | **Réponse de modèle** | **FunctionResponse** |
+| **Turn** | **단계** | **사용자 요청** | **모델 응답** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-Voici le code permettant de parcourir la séquence donnée.
+다음은 지정된 시퀀스를 안내하는 코드입니다.
 
-**Tour 1, étape 1 (requête utilisateur)**
+**턴 1, 1단계 (사용자 요청)**
 
 ```
 {
@@ -774,7 +750,7 @@ Voici le code permettant de parcourir la séquence donnée.
 }
 ```
 
-**Tour 1, étape 1 (réponse de modèle)**
+**턴 1, 1단계 (모델 응답)**
 
 ```
 {
@@ -805,9 +781,9 @@ Voici le code permettant de parcourir la séquence donnée.
 }
 ```
 
-**Tour 1, étape 2 (réponse utilisateur – envoi des sorties d'outil)**
+**턴 1, 2단계 (사용자 응답 - 도구 출력 전송)**
 
-Vous devez conserver `<Signature_A>` dans la première partie exactement telle qu'elle a été reçue.
+첫 번째 파트에 있는 `<Signature_A>`는 받은 그대로 유지해야 합니다.
 
 ```
 "messages": [
@@ -856,55 +832,42 @@ Vous devez conserver `<Signature_A>` dans la première partie exactement telle q
   ]
 ```
 
-## Questions fréquentes
+## FAQ
 
-1. **Comment transférer l'historique d'un autre modèle vers Gemini 3 avec une partie d'appel de fonction dans le tour et l'étape actuels ? Je dois fournir des parties d'appel de fonction
-   qui n'ont pas été générées par l'API et qui ne comportent donc pas de signature de réflexion associée
-   ?**
+1. **현재 턴과 단계에 함수 호출 부분이 있는 경우 다른 모델의 기록을 Gemini 3로 전송하려면 어떻게 해야 하나요? API에서 생성되지 않아 연결된 사고 서명이 없는 함수 호출 부분을 제공해야 하나요?**
 
-   Bien qu'il soit fortement
-   déconseillé d'injecter des blocs d'appel de fonction personnalisés dans la requête, dans les cas où cela ne peut pas être évité (par exemple, fournir des informations
-   au modèle sur les appels de fonction et les réponses qui ont été exécutés
-   de manière déterministe par le client, ou transférer une trace d'un autre
-   modèle qui n'inclut pas de signatures de réflexion), vous pouvez définir les signatures
-   factices suivantes de `"context_engineering_is_the_way_to_go"` ou
-   `"skip_thought_signature_validator"` dans le champ de signature de réflexion pour ignorer
-   la validation.
-2. **Je renvoie des appels et des réponses de fonction parallèles entrelacés, et l'API renvoie un code 400. Pourquoi ?**
+   요청에 맞춤 함수 호출 블록을 삽입하는 것은 적극 권장되지 않지만, 클라이언트에서 결정적으로 실행된 함수 호출 및 응답에 관한 정보를 모델에 제공하거나 생각 서명이 포함되지 않은 다른 모델의 트레이스를 전송하는 등 피할 수 없는 경우에는 생각 서명 필드에 `"context_engineering_is_the_way_to_go"` 또는 `"skip_thought_signature_validator"`의 더미 서명을 설정하여 유효성 검사를 건너뛸 수 있습니다.
+2. **인터리브된 병렬 함수 호출 및 응답을 다시 전송하고 있는데 API에서 400을 반환합니다. 이유가 무엇인가요?**
 
-   Lorsque l'API renvoie des appels de fonction parallèles "FC1 + signature, FC2", la réponse utilisateur attendue est "FC1+ signature, FC2, FR1, FR2". Si vous les entrelacez comme "FC1 + signature, FR1, FC2, FR2", l'API renvoie une erreur 400.
-3. **Lors de la diffusion en streaming, le modèle ne renvoie pas d'appel de fonction. Je ne trouve pas
-   la signature de réflexion**
+   API가 병렬 함수 호출 'FC1 + 서명, FC2'를 반환하는 경우 예상되는 사용자 응답은 'FC1 + 서명, FC2, FR1, FR2'입니다. 'FC1 + 서명, FR1, FC2, FR2'와 같이 인터리브된 경우 API는 400 오류를 반환합니다.
+3. **스트리밍 중이고 모델이 함수 호출을 반환하지 않으면 생각 서명을 찾을 수 없습니다.**
 
-   Lors d'une réponse de modèle ne contenant pas de FC avec une requête de diffusion en streaming, le modèle peut renvoyer la signature de réflexion dans une partie avec une partie de contenu textuel vide. Il est conseillé d'analyser l'intégralité de la requête jusqu'à ce que le modèle renvoie `finish_reason`.
+   스트리밍 요청이 있는 FC를 포함하지 않는 모델 응답 중에 모델은 텍스트 콘텐츠 부분이 비어 있는 부분에 생각 서명을 반환할 수 있습니다. 모델에서 `finish_reason`가 반환될 때까지 전체 요청을 파싱하는 것이 좋습니다.
 
-## Signatures de réflexion pour différents modèles
+## 다양한 모델의 생각 서명
 
-[Les modèles Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=fr#gemini-3) et les modèles Gemini 2.5
-se comportent différemment avec les signatures de réflexion :
+[Gemini 3 모델](https://ai.google.dev/gemini-api/docs/models?hl=ko#gemini-3)과 Gemini 2.5 모델은 사고 서명과 관련해 다르게 작동합니다.
 
-- **Préservation de la réflexion**:
-  - **À partir de Gemini 3.5 Flash**, le modèle utilise le contexte de raisonnement de tous les
-    tours précédents lorsque des signatures de réflexion sont présentes dans l'historique de la conversation
-  - Les modèles antérieurs n'utilisent pas le contexte de raisonnement des tours précédents de la même manière.
-- **Si une réponse contient des appels de fonction**:
-  - Gemini 3 comporte toujours la signature dans la première partie d'appel de fonction.
-    Il est **obligatoire** de renvoyer cette partie.
-  - Gemini 2.5 comporte la signature dans la première partie (quel que soit le type). Il est **facultatif** de renvoyer cette partie.
-- **Si une réponse ne contient pas d'appel de fonction**:
-  - Gemini 3 comporte la signature dans la dernière partie si le modèle génère une réflexion.
-  - Gemini 2.5 ne comporte pas de signature dans aucune partie.
+- **사고 보존**:
+  - **Gemini 3.5 Flash부터** 모델은 대화 기록에 사고 서명이 있는 경우 이전 모든 턴의 추론 컨텍스트를 사용합니다.
+  - 이전 모델은 동일한 방식으로 이전 턴의 추론 컨텍스트를 사용하지 않습니다.
+- **대답에 함수 호출이 있는 경우**:
+  - Gemini 3에는 항상 첫 번째 함수 호출 부분에 서명이 있습니다.
+    이 부분을 반환하는 것은 **필수**입니다.
+  - Gemini 2.5는 유형과 관계없이 첫 번째 부분에 서명이 있습니다. 이 부분을 반환하는 것은 **선택사항**입니다.
+- **대답에 함수 호출이 없는 경우**:
+  - 모델이 생각을 생성하는 경우 Gemini 3의 서명이 마지막 부분에 표시됩니다.
+  - Gemini 2.5에는 어떤 부분에도 서명이 없습니다.
 
-Pour plus de détails sur la comparaison, consultez la page [Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#signatures).
-Pour les modèles d'image Gemini 3, consultez la section Processus de réflexion du
-[guide de génération](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr#thinking-process) d'images.
+자세한 비교 내용은 [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko#signatures) 페이지를 참고하세요.
+Gemini 3 Image 모델의 경우 [이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko#thinking-process) 가이드의 사고 과정 섹션을 참고하세요.
 
-Envoyer des commentaires
+의견 보내기
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Dernière mise à jour le 2026/06/01 (UTC).
+최종 업데이트: 2026-06-19(UTC)
 
-Voulez-vous nous donner plus d'informations ?
+의견을 전달하고 싶나요?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/01 (UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-19(UTC)"],[],[]]

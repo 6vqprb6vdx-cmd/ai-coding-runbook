@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=ar
-fetched_at: 2026-06-15T06:17:42.072666+00:00
-title: "\u0627\u0644\u062a\u0631\u062c\u0645\u0629 \u0627\u0644\u0645\u0628\u0627\u0634\u0631\u0629 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=pt-BR
+fetched_at: 2026-06-22T06:31:23.940903+00:00
+title: "Tradu\u00e7\u00e3o instant\u00e2nea com a API Gemini Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-إرسال ملاحظات
+Envie comentários
 
-# الترجمة المباشرة باستخدام Gemini Live API
+# Tradução instantânea com a API Gemini Live
 
-تتيح Gemini Live API ترجمة الكلام إلى كلام في الوقت الفعلي وبوقت استجابة منخفض بين أكثر من 70 لغة باستخدام نموذج [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=ar). من خلال ضبط Live API باستخدام إعدادات الترجمة، يمكنك بث الصوت بلغة واحدة وتلقّي مصدر إخراج الصوت المترجَم بلغة أخرى، ما يتيح ترجمة سلسة من الصوت إلى الصوت في الوقت الفعلي.
+A API Gemini Live oferece suporte à tradução simultânea em tempo real e com baixa latência entre mais de 70 idiomas usando o modelo [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=pt-br). Ao configurar a API Live com as configurações de tradução, é possível transmitir áudio em um idioma e receber a saída de áudio traduzida em outro, permitindo uma tradução de voz para voz em tempo real.
 
-[يمكنك تجربة ميزة "الترجمة المباشرة" في Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=ar)
-[نسخ تطبيق المثال من GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[استخدام مهارات وكيل الترميزterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ar#gemini-live-api-dev)
+[Testar a Tradução instantânea no Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=pt-br)
+[Clonar o app de exemplo do GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[Usar habilidades de agente de programaçãoterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br#gemini-live-api-dev)
 
-## مقارنة بين Live Agent و"الترجمة المباشرة"
+## Atendente x Tradução instantânea
 
-على الرغم من أنّ كلتيهما تستخدمان Live API، يختلف النموذج الذهني لميزة "الترجمة المباشرة" عن التفاعلات مع الوكيل في الوقت الفعلي.
+Embora os dois usem a API Live, o modelo mental da tradução instantânea é diferente das interações de agentes em tempo real.
 
-| Live Agent | الترجمة المباشرة |
+| Agente em tempo real | Tradução instantânea |
 | --- | --- |
-| **يعمل النموذج كمساعد.** يستمع النموذج ويفكر ويتخذ إجراءات نيابةً عنك. | **يعمل النموذج كمترجم.** يتصرف النموذج كمسار ترجمة في الوقت الفعلي. |
-| **يستخدم النموذج تفاعلات مستندة إلى الأدوار.** يعتمد النموذج على فترات التوقف المؤقتة ورصد النية ويتعامل مع المقاطعات. | **يستخدم النموذج معالجة البث المستمر.** يُترجم النموذج الكلام أثناء تحدّث المتحدّث بدون انتظار الأدوار. |
-| **يتوافق النموذج مع الأدوات والوكلاء.** يتوافق النموذج بشكلٍ أساسي مع استدعاء الدوال و"بحث Google" والتعليمات. | **يتوافق النموذج مع الترجمة فقط.** يوفّر النموذج ترجمة بوقت استجابة منخفض فقط، ولا يتوافق مع الأدوات أو التعليمات. |
-| **متعدد الوظائف بالكامل** : يتوافق النموذج مع إدخالات النصوص والصوت والفيديو والصور. | **يقتصر النموذج على الصوت.** يقتصر الإدخال على الصوت لضمان استيفاء الحدود الصارمة لوقت الاستجابة في الوقت الفعلي. |
-| **إعداد دقيق** : يستخدم النموذج التعليمات الخاصة بالإنشاء والكلام والأدوات والنظام. | **إعداد مبسّط** : يمكنك ضبط `target_language_code` وعناصر التحكّم مثل `echo_target_language`. |
+| **O modelo age como um assistente**.Ele ouve, raciocina e realiza ações em seu nome. | **O modelo atua como um intérprete** e se comporta como um pipeline de tradução em tempo real. |
+| **Usa interações baseadas em turnos**: depende de pausas, detecção de intents e processa interrupções. | **Usa o processamento de stream contínuo**: traduz enquanto o falante fala, sem esperar a vez. |
+| **Suporte a ferramentas e agentes**: suporte nativo para chamada de função, Pesquisa Google e instruções. | **Oferece suporte apenas à tradução.** Tradução pura de baixa latência, sem suporte para ferramentas ou instruções. |
+| **Totalmente multimodal**: aceita entradas de texto, áudio, vídeo e imagem. | **Áudio restrito**.A entrada é limitada ao áudio para garantir limites rigorosos de latência em tempo real. |
+| **Configuração granular**: usa geração, fala, ferramentas e instruções do sistema. | **Configuração simplificada**.Defina `target_language_code` e alternâncias como `echo_target_language`. |
 
-## البدء
+## Primeiros passos
 
-توضّح الأمثلة التالية كيفية تهيئة عميل والاتصال بـ Live API باستخدام إعدادات الترجمة.
+Os exemplos a seguir demonstram como inicializar um cliente e se conectar à API Live com uma configuração de tradução.
 
 ### Python
 
@@ -185,15 +185,15 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## إرسال الصوت
+## Enviando áudio
 
-لبث الإدخالات الصوتية للترجمة، عليك إرسال صوت PCM خام بتنسيق little-endian و16 بت.
+Para transmitir entradas de voz para tradução, envie áudio PCM bruto, little-endian e de 16 bits.
 
-- **تنسيق الصوت المُدخَل**: صوت PCM خام بتنسيق little-endian و16 بت بمعدل 16 كيلوهرتز (أحادي).
-- **تنسيق الصوت الناتج**: صوت PCM خام بتنسيق little-endian و16 بت بمعدل 24 كيلوهرتز (أحادي).
-- **حجم الجزء ووقت الاستجابة**: يمكنك إرسال الصوت بأجزاء تبلغ مدة كل منها 100 ملي ثانية.
+- **Formato de áudio de entrada**: PCM bruto de 16 bits a 16 kHz (mono, little-endian).
+- **Formato de áudio de saída**: PCM bruto de 16 bits a 24 kHz (mono, little endian).
+- **Tamanho do bloco e latência**: envie áudio em blocos de 100 ms.
 
-توضّح الأمثلة التالية كيفية إرسال أجزاء الصوت إلى الجلسة.
+Os exemplos a seguir mostram como enviar partes de áudio para a sessão.
 
 ### Python
 
@@ -238,23 +238,23 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## التهيئة
+## Configuração
 
-لتفعيل الترجمة، عليك تحديد `translationConfig` ضِمن `generationConfig` أثناء إعداد الجلسة.
+Para ativar a tradução, especifique o `translationConfig` no `generationConfig` durante a configuração da sessão.
 
-### ضبط رسالة الإعداد
+### Configurar mensagens
 
-يتوافق `generationConfig` مع الحقول التالية لتفعيل النصوص:
+O `generationConfig` é compatível com os seguintes campos para ativar as transcrições:
 
-- **`inputAudioTranscription`**: كائن يتيح للنموذج إرسال نصوص صوتية للنص الصوتي المُدخَل، إذا كان متوفرًا.
-- **`outputAudioTranscription`**: كائن يتيح للنموذج إرسال نصوص صوتية للنص الصوتي الناتج (المترجَم)، إذا كان متوفرًا.
+- **`inputAudioTranscription`**: um objeto que, quando presente, permite que o modelo envie transcrições de texto do áudio de entrada.
+- **`outputAudioTranscription`**: um objeto que, quando presente, permite que o modelo envie transcrições de texto do áudio de saída (traduzido).
 
-يتوافق `translationConfig` مع الحقول التالية:
+O `translationConfig` é compatível com os seguintes campos:
 
-- **`targetLanguageCode`**: رمز اللغة [BCP-47](#supported-languages) للغة التي تريد أن يترجم إليها النموذج (مثل `"pl"` للغة البولندية و`"es"` للإسبانية). الإعداد التلقائي هو `"en"`.
-- **`echoTargetLanguage`**: قيمة منطقية تشير إلى كيفية التعامل مع الصوت المُدخَل الذي يكون باللغة المستهدَفة. إذا تم ضبط هذه القيمة على `true`، سيعيد النموذج نطق الصوت المُدخَل الذي يكون باللغة المستهدَفة. إذا تم ضبط هذه القيمة على `false`، سيظل النموذج صامتًا عندما يكون الكلام المُدخَل باللغة المستهدَفة. الإعداد التلقائي هو `false`.
+- **`targetLanguageCode`**: o [código de idioma BCP-47](#supported-languages) do idioma para o qual você quer que o modelo traduza (por exemplo, `"pl"` para polonês e `"es"` para espanhol). O valor padrão é `"en"`.
+- **`echoTargetLanguage`**: um booleano que indica como o áudio de entrada que já está no idioma de destino deve ser processado. Se definido como `true`, o modelo vai repetir o áudio de entrada que já está no idioma de destino. Se definido como `false`, o modelo vai ficar em silêncio quando a fala de entrada já estiver no idioma de destino. O padrão é `false`.
 
-في ما يلي مثال على بنية رسالة الإعداد:
+Confira um exemplo da estrutura da mensagem de configuração:
 
 ```
 "setup": {
@@ -273,19 +273,19 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## الرموز المميّزة المؤقتة للتطبيقات من جهة العميل
+## Tokens temporários para aplicativos do lado do cliente
 
-بالنسبة إلى التطبيقات من جهة العميل إلى جهة الخادم، يمكنك استخدام [الرموز المميّزة المؤقتة](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ar) (المتوفّرة حاليًا في `v1alpha`) لتجنُّب عرض مفتاح واجهة برمجة التطبيقات.
+Para aplicativos cliente-servidor, use [tokens efêmeros](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pt-br) (atualmente em `v1alpha`) para evitar expor sua chave de API.
 
-عند استخدام الرموز المميّزة المؤقتة مع ميزة "الترجمة المباشرة":
+Ao usar tokens temporários com a Tradução Instantânea:
 
-1. عليك استخدام نقطة النهاية `v1alpha`.
-2. **إعدادات الحظر:** بشكلٍ تلقائي، عليك تحديد `translationConfig` في قيود إنشاء الرمز المميّز على خادمك. يضمن ذلك حظر إعدادات الترجمة وعدم إمكانية العميل التلاعب بها.
-3. **إعدادات إلغاء الحظر:** إذا أردت أن تتمكّن من ضبط `translationConfig` من جهة العميل (على سبيل المثال، للسماح للمستخدم باختيار اللغة المستهدَفة)، عليك إزالتها من طلب إنشاء الرمز المميّز وضبط `"lock_additional_fields": []` بدلاً من ذلك. سيؤدي ذلك إلى إلغاء حظر `translationConfig` ليتم ضبطها من جهة العميل.
+1. É preciso usar o endpoint `v1alpha`.
+2. **Configuração de bloqueio**:por padrão, especifique o `translationConfig` nas restrições de criação de token no seu servidor. Isso garante que a configuração de tradução esteja bloqueada e não possa ser adulterada pelo cliente.
+3. **Configuração de desbloqueio**:se você quiser definir o `translationConfig` no lado do cliente (por exemplo, para permitir que um usuário escolha o próprio idioma de destino), omita-o da solicitação de criação de token e defina `"lock_additional_fields": []`. Isso vai desbloquear o `translationConfig` para ser definido no lado do cliente.
 
-### إنشاء رمز مميّز مؤقت مقيّد
+### Como criar um token temporário restrito
 
-توضّح الأمثلة التالية كيفية إنشاء رمز مميّز مؤقت يتضمّن قيودًا على الترجمة.
+Os exemplos a seguir mostram como criar um token efêmero com restrições de tradução.
 
 ### Python
 
@@ -348,74 +348,74 @@ const token = await client.authTokens.create({
 });
 ```
 
-## القيود
+## Limitações
 
-- **طُرق الإدخال**: لا يتوافق النموذج مع الترجمة إلا مع الإدخال الصوتي. ولا يتوافق مع إدخال النصوص.
-- **تكرار الصوت**: قد يكون تكرار الصوت غير متسق. قد تتغيّر الأصوات بعد فترات توقف مؤقتة طويلة، أو يتم تحديد الجنس الخطأ استنادًا إلى كيفية بدء الكلام، أو قد يتم استخدام صوت واحد أثناء المحادثات السريعة بين عدة متحدثين.
-- **اكتشاف اللغة**: يواجه اكتشاف اللغة صعوبة في التعامل مع اللهجات الكثيفة أو اللغات المتشابهة (مثل الإسبانية والبرتغالية) أو التبديل السريع بين اللغات. **ملاحظة:** يجب أن يؤثر ذلك في النص الصوتي المُدخَل فقط. يجب أن تظل رموز اللغة والترجمة النهائية دقيقة.
-- **الصوت في الخلفية**: تم تصميم النموذج لفلترة الضوضاء والموسيقى لإنتاج كلام واضح، ولكن قد لا يتم تجاهل كل الصوت في الخلفية.
-- **إعادة نطق اللغة المستهدَفة**: عند ضبط `echoTargetLanguage: true`، قد تؤدي الضوضاء في الخلفية أو الموسيقى إلى ظهور تشويش في الصوت المترجَم عندما يكون الصوت المُدخَل باللغة المستهدَفة.
+- **Modalidades de entrada**: somente a entrada de áudio é compatível com a tradução. Não é possível inserir texto.
+- **Replicação de voz**: a replicação de voz pode ser inconsistente. As vozes podem mudar após longas pausas, atribuir o gênero errado com base em como a fala começa ou ficar presa em uma voz durante conversas rápidas com vários falantes.
+- **Detecção de idioma**: a detecção de idioma tem dificuldades com sotaques fortes, idiomas semelhantes (por exemplo, espanhol e português) ou mudanças rápidas de idioma. **Observação**:isso só afeta a transcrição de entrada. Os códigos de idioma e a tradução final ainda precisam ser precisos.
+- **Áudio em segundo plano**: o modelo foi projetado para filtrar ruídos e músicas e produzir uma fala limpa, mas nem todo o áudio em segundo plano pode ser ignorado.
+- **Repetir o idioma de destino**: quando `echoTargetLanguage: true`, o ruído de fundo ou a música podem introduzir artefatos no áudio traduzido quando o áudio de entrada já está no idioma de destino.
 
-## اللغات المتاحة
+## Idiomas compatíveis
 
-تتوفّر ميزة "الترجمة المباشرة" باللغات التالية.
+Os seguintes idiomas são compatíveis com a Tradução instantânea.
 
-| اللغة | رمز BCP-47 | اللغة | رمز BCP-47 |
+| Idioma | Código BCP-47 | Idioma | Código BCP-47 |
 | --- | --- | --- | --- |
-| الأفريقانية | af | الكازاخية | kk |
-| Akan | ak | الخميرية | km |
-| الألبانية | sq | الكينيارواندا | rw |
-| الأمهرية | am | الكورية | ko |
-| العربية | ar | لاو | lo |
-| الأرمينية | hy | اللاتفية | lv |
-| الأذربيجانية | az | الليتوانية | lt |
-| الباسك | eu | المقدونية | mk |
-| البيلاروسية | be | الماليزية | ms |
-| البنغالية | bn | المالايالامية | ml |
-| البلغارية | bg | المراثية | mr |
-| البورمية (ميانمار) | my | المنغولية | mn |
-| الكتالانية | ca | النيبالية | ne |
-| الصينية (المبسطة) | zh-Hans | النرويجية | no, nb |
-| الصينية (التقليدية) | zh-Hant | الفارسية | fa |
-| الكرواتية | hr | البولندية | pl |
-| التشيكية | cs | البرتغالية (البرازيل) | pt-BR |
-| الدانماركية | da | برتغالي (البرتغال) | pt-PT |
-| الهولندية | nl | البنجابية | pa |
-| الإنجليزية | en | الرومانية | ro |
-| الإستونية | et | الروسية | ru |
-| الفلبينية | fil | الصربية | sr |
-| الفنلندية | fi | السندية | sd |
-| الفرنسية | fr | السنهالية | si |
-| الغليشيانية | gl | السلوفاكية | sk |
-| الجورجية | ka | السلوفينية | sl |
-| الألمانية | de | الإسبانية | es |
-| اليونانية | el | السندانية | su |
-| الغوجاراتية | gu | السواحيلية | sw |
-| الهوسا | ha | السويدية | sv |
-| العبرية | he | التاميلية | ta |
-| الهندية | hi | التيلوغوية | te |
-| الهنغارية | hu | التايلاندية | th |
-| الأيسلندية | is | التركية | tr |
-| الإندونيسية | id | الأوكرانية | uk |
-| الإيطالية | it | الأوردية | ur |
-| اليابانية | ja | الأوزبكية | uz |
-| الجافانية | jv | الفيتنامية | vi |
-| الكانادا | kn | الزولو | zu |
+| Africâner | af | Cazaque | kk |
+| Akan | ak | Khmer | km |
+| Albanês | sq | Quiniaruanda | rw |
+| Amárico | sou | Coreano | ko |
+| Árabe | ar | Laosiano | lo |
+| Armênio | hy | Letão | lv |
+| Azerbaijano | az | Lituano | lt |
+| Basco | eu | Macedônio | mk |
+| Bielorrusso | be | Malaio | ms |
+| Bengali | bn | Malaiala | ml |
+| Búlgaro | bg | Marati | mr |
+| Birmanês (Mianmar) | my | Mongol | mn |
+| Catalão | ca | Nepalês | ne |
+| Chinês (simplificado) | zh-Hans | Norueguês | não, nb |
+| Chinês (tradicional) | zh-Hant | Persa | fa |
+| Croata | h | Polonês | pl |
+| Tcheco | cs | Português (Brasil) | pt-BR |
+| Dinamarquês | da | Português (Portugal) | pt-PT |
+| Holandês | nl | Punjabi | pa |
+| Inglês | en | Romeno | ro |
+| Estoniano | et | Russo | ru |
+| Filipino | fil | Sérvio | sr |
+| Finlandês | fi | Sindi | sd |
+| Francês | fr | Cingalês | si |
+| Galego | gl | Eslovaco | sk |
+| Georgiano | ka | Esloveno | sl |
+| Alemão | de | Espanhol | es |
+| Grego | el | Sundanês | su |
+| Gujarati | gu | Suaíli | sw |
+| Hauçá | ha | Sueco | sv |
+| Hebraico | ele | Tâmil | ta |
+| Hindi | hi | Télugo | te |
+| Húngaro | hu | Tailandês | th |
+| Islandês | é | Turco | tr |
+| Indonésio | ID | Ucraniano | uk |
+| Italiano | it | Urdu | ur |
+| Japonês | ja | Usbeque | uz |
+| Javanês | jv | Vietnamita | vi |
+| Canarês | kn | Zulu | zu |
 
-## الخطوات التالية
+## A seguir
 
-- يمكنك قراءة الدليل الكامل حول إمكانات Live API [Capabilities](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ar).
-- يمكنك قراءة دليل [البدء باستخدام حزمة تطوير البرامج (SDK)](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ar).
-- يمكنك قراءة دليل [البدء باستخدام WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=ar).
-- يمكنك قراءة دليل [الرموز المميّزة المؤقتة](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ar) للمصادقة الآمنة في التطبيقات من جهة العميل إلى جهة الخادم.
-- يمكنك نسخ أمثلة [Live API](https://github.com/google-gemini/gemini-live-api-examples) من GitHub.
+- Leia o guia completo de [recursos](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=pt-br) da API Live.
+- Leia o guia [Começar a usar o SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=pt-br).
+- Leia o guia [Começar a usar WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=pt-br).
+- Leia o guia [Tokens efêmeros](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pt-br) para autenticação segura em aplicativos cliente-servidor.
+- Clone os [exemplos de API ativa](https://github.com/google-gemini/gemini-live-api-examples) do GitHub.
 
-إرسال ملاحظات
+Envie comentários
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-تاريخ التعديل الأخير: 2026-06-09 (حسب التوقيت العالمي المتفَّق عليه)
+Última atualização 2026-06-09 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Quer enviar seu feedback?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-09 UTC."],[],[]]

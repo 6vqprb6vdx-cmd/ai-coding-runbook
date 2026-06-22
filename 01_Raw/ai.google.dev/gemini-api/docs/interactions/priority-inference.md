@@ -1,31 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/priority-inference?hl=he
-fetched_at: 2026-06-15T06:23:35.416398+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/priority-inference
+fetched_at: 2026-06-22T06:25:44.222111+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+# Priority inference
 
-שליחת משוב
+The Gemini Priority API is a premium inference tier designed for
+business-critical workloads that require lower latency and the highest
+reliability at a premium price point. Priority tier traffic is prioritized above
+standard API and Flex tier traffic.
 
-# הסקת עדיפות
+Priority inference is available across the Interactions API endpoints.
 
-‫Gemini Priority API הוא רמה של הסקת מסקנות (inference) בתשלום, שמיועדת לעומסי עבודה קריטיים לעסק שדורשים זמן אחזור נמוך ואמינות גבוהה ביותר, במחיר פרימיום. תעבורת נתונים ברמת עדיפות גבוהה מקבלת עדיפות על פני תעבורת נתונים ב-API רגיל וברמת Flex.
+## How to use Priority
 
-הסקת מסקנות לפי עדיפות זמינה בכל נקודות הקצה של Interactions API.
-
-## איך משתמשים בעדיפות
-
-כדי להשתמש ברמת העדיפות Priority, מגדירים את השדה `service_tier` בבקשה לערך `priority`. אם לא מציינים את המסלול בשדה, ברירת המחדל היא המסלול הרגיל.
+To use the Priority tier, set the `service_tier` field in your request to `priority`. The default tier is standard if the field is omitted.
 
 ### Python
 
@@ -86,75 +85,95 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## איך פועל הסקת העדיפות
+## How Priority inference works
 
-ההסקה לפי עדיפות מעבירה בקשות לתורים של מחשוב ברמת קריטיות גבוהה, ומציעה ביצועים מהירים וצפויים לאפליקציות שפונות למשתמשים. המנגנון העיקרי שלו הוא שדרוג לאחור בצד השרת לעיבוד רגיל של תנועה שחורגת מהמגבלות הדינמיות, כדי להבטיח את יציבות האפליקציה במקום לגרום לכשל בבקשה.
+Priority inference routes requests to high-criticality compute queues, offering
+predictable, fast performance for user-facing applications. Its primary
+mechanism is a graceful server-side downgrade to standard processing for traffic
+that exceeds dynamic limits, ensuring application stability instead of failing
+the request.
 
-| תכונה | עדיפות | רגיל | שרירים של סלע | Batch |
+| Feature | Priority | Standard | Flex | Batch |
 | --- | --- | --- | --- | --- |
-| **תמחור** | ‫75% עד 100% יותר מבתוכנית Standard | מחיר מלא | הנחה של 50% | הנחה של 50% |
-| **זמן אחזור** | שניות | שניות לדקות | דקות (יעד של 15-1 דקות) | עד 24 שעות |
-| **אמינות** | גבוהה (לא ניתן להסרה) | גבוהה / בינונית-גבוהה | ללא התחייבות (ניתן להשמטה) | גבוהה (לתפוקה) |
-| **ממשק** | סינכרוני | סינכרוני | סינכרוני | אסינכרוני |
+| **Pricing** | 75-100% more than Standard | Full price | 50% discount | 50% discount |
+| **Latency** | Seconds | Seconds to minutes | Minutes (1–15 min target) | Up to 24 hours |
+| **Reliability** | High (Non-sheddable) | High / Medium-high | Best-effort (Sheddable) | High (for throughput) |
+| **Interface** | Synchronous | Synchronous | Synchronous | Asynchronous |
 
-### יתרונות עיקריים
+### Key benefits
 
-- **זמן אחזור נמוך**: מיועד לזמני תגובה של שנייה אחת עבור כלים אינטראקטיביים של AI שפונים למשתמשים.
-- **אמינות גבוהה**: התנועה מטופלת ברמת קריטיות גבוהה ביותר, ואין אפשרות להפחית אותה.
-- **הורדה הדרגתית של רמת השירות**: אם יש עליות פתאומיות בתנועה שחורגות מהמגבלות הדינמיות, רמת השירות יורדת אוטומטית לרמה רגילה לצורך עיבוד, במקום שהעיבוד ייכשל. כך נמנעים שיבושים בשירות.
-- **הפעלה חלקה**: משתמש באותה שיטת `create` סינכרון כמו בתוכניות הרגילה והגמישה.
+- **Low latency**: Designed for second response times for interactive,
+  user-facing AI tools.
+- **High reliability**: Traffic is treated with the highest criticality and is
+  strictly non-sheddable.
+- **Graceful degradation**: Traffic spikes exceeding dynamic limits are
+  automatically downgraded to the Standard tier for processing instead of failing,
+  preventing service outages.
+- **Low friction**: Uses the same synchronous `create` method as the
+  standard and Flex tiers.
 
-### תרחישים לדוגמה
+### Use cases
 
-עיבוד בעדיפות גבוהה הוא פתרון אידיאלי לתהליכי עבודה קריטיים לעסק שבהם הביצועים והאמינות הם בעלי חשיבות עליונה.
+Priority processing is ideal for business-critical workflows where performance
+and reliability are paramount.
 
-- **אפליקציות אינטראקטיביות מבוססות-AI**: צ'אטבוטים וטייסים וירטואליים לשירות לקוחות, שבהם המשתמשים משלמים מחיר פרימיום ומצפים לתשובות מהירות ועקביות.
-- **מנועי החלטות בזמן אמת**: מערכות שנדרשים בהן תוצאות מהימנות עם זמן אחזור נמוך, כמו תעדוף כרטיסים בשידור חי או זיהוי הונאות.
-- **תכונות ללקוחות פרימיום**: מפתחים שצריכים להבטיח יעדים גבוהים יותר למדידת רמת השירות (SLO) ללקוחות משלמים.
+- **Interactive AI applications**: Customer service chatbots and copilots where
+  users pay a premium and expect fast, consistent responses.
+- **Real-time decision engines**: Systems requiring highly reliable, low-latency
+  outcomes, such as live ticket triaging or fraud detection.
+- **Premium customer features**: Developers who need to guarantee higher service
+  level objectives (SLOs) for paying customers.
 
-### מגבלות קצב
+### Rate limits
 
-לצריכה בעדיפות יש מגבלות קצב משלה, גם אם הצריכה נספרת במסגרת [מגבלות הקצב הכוללות של תנועה אינטראקטיבית](https://aistudio.google.com/rate-limit?hl=he). מגבלות ברירת המחדל על קצב הבקשות להסקת עדיפות הן **0.3x ממגבלת הקצב הרגילה עבור מודל או רמת שירות**
+Priority consumption holds its own rate limits even though consumption is
+counted towards [overall interactive traffic rate limits](https://aistudio.google.com/rate-limit). The default rate limits
+for Priority inference are **0.3x standard rate limit for Model / Tier**
 
-### לוגיקה של שדרוג לאחור
+### Graceful downgrade logic
 
-אם יש עומס ומתרחשת חריגה ממגבלות העדיפות, בקשות שחורגות מהמגבלות **משודרגות אוטומטית בצורה חלקה** לעיבוד רגיל במקום להיכשל עם שגיאה 503 או 429. בקשות ששודרגו לאחור יחויבו בתעריף הרגיל, ולא בתעריף הפרימיום של Priority.
+If Priority limits are exceeded due to congestion, overflow requests are
+**automatically and gracefully** downgraded to Standard processing instead of
+failing with a 503 or 429 error. Downgraded requests are billed at the standard
+rate, not the Priority premium rate.
 
-### באחריות הלקוח
+### Client responsibility
 
-- **מעקב אחר תגובות**: מפתחים צריכים לעקוב אחר `x-gemini-service-tier`
-  הכותרת בתגובת ה-API כדי לזהות אם הבקשות משודרגות לעיתים קרובות ל`standard`.
-- **ניסיונות חוזרים**: לקוחות צריכים להטמיע לוגיקה של ניסיונות חוזרים או השהיה מעריכית לפני ניסיון חוזר (exponential backoff) לשגיאות רגילות, כמו `DEADLINE_EXCEEDED`.
+- **Response monitoring**: Developers should monitor the `x-gemini-service-tier`
+  header in the API response to detect if requests are being frequently downgraded to
+  `standard`.
+- **Retries**: Clients must implement retry logic/exponential backoff for
+  standard errors, such as `DEADLINE_EXCEEDED`.
 
-## תמחור
+## Pricing
 
-המחיר של הסקת עדיפות גבוה ב-75% עד 100% מהמחיר של [ה-API הרגיל](https://ai.google.dev/gemini-api/docs/pricing?hl=he), והחיוב הוא לפי טוקן.
+Priority inference is priced at 75-100% more than the [standard API](https://ai.google.dev/gemini-api/docs/pricing) and billed per token.
 
-## מודלים נתמכים
+## Supported models
 
-המודלים הבאים תומכים בהסקת מסקנות בעדיפות גבוהה:
+The following models support Priority inference:
 
-| מודל | הסקת עדיפות |
+| Model | Priority inference |
 | --- | --- |
-| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Pro (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
-| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite) | ✔️ |
 
-## המאמרים הבאים
+## What's next
 
-- [הסקת מסקנות גמישה](https://ai.google.dev/gemini-api/docs/interactions/flex-inference?hl=he) לצורך צמצום עלויות.
-- [טוקנים](https://ai.google.dev/gemini-api/docs/interactions/tokens?hl=he): הסבר על טוקנים.
+- [Flex inference](https://ai.google.dev/gemini-api/docs/interactions/flex-inference) for cost reduction.
+- [Tokens](https://ai.google.dev/gemini-api/docs/interactions/tokens): Understand tokens.
 
-שליחת משוב
+Send feedback
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-עדכון אחרון: 2026-05-28 (שעון UTC).
+Last updated 2026-06-18 UTC.
 
-רוצה לתת לנו משוב?
+Need to tell us more?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-05-28 (שעון UTC)."],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

@@ -1,35 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi
-fetched_at: 2026-06-15T06:27:41.961012+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/files
+fetched_at: 2026-06-22T06:30:40.939557+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
-
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
-
-Gửi ý kiến phản hồi
+Send feedback
 
 # Files API
 
-Gemini có thể xử lý nhiều loại dữ liệu đầu vào, bao gồm văn bản, hình ảnh và âm thanh cùng một lúc.
+Gemini can handle various types of input data, including text, images, and
+audio, at the same time.
 
-Hướng dẫn này trình bày cách xử lý các tệp nội dung nghe nhìn bằng Files API. Các thao tác cơ bản đều giống nhau đối với tệp âm thanh, hình ảnh, video, tài liệu và các loại tệp được hỗ trợ khác.
+This guide shows you how to work with media files using the Files API. The
+basic operations are the same for audio files, images, videos, documents, and
+other supported file types.
 
-Để biết hướng dẫn về câu lệnh cho tệp, hãy xem phần [Hướng dẫn về câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/interactions/files?hl=vi#prompt-guide).
+For file prompting guidance, check out the [File prompt guide](https://ai.google.dev/gemini-api/docs/interactions/files#prompt-guide) section.
 
-## Tải tệp lên
+## Upload a file
 
-Bạn có thể dùng Files API để tải một tệp đa phương tiện lên. Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, câu lệnh văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 100 MB. Đối với tệp PDF, giới hạn là 50 MB.
+You can use the Files API to upload a media file. Always use the Files API when
+the total request size (including the files, text prompt, system instructions,
+etc.) is larger than 100 MB. For PDF files, the limit is 50 MB.
 
-Đoạn mã sau đây tải một tệp lên rồi dùng tệp đó trong một lệnh gọi đến `interactions.create`.
+The following code uploads a file and then uses the file in a call to
+`interactions.create`.
 
 ### Python
 
@@ -163,9 +165,10 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## Lấy siêu dữ liệu cho một tệp
+## Get metadata for a file
 
-Bạn có thể xác minh rằng API đã lưu trữ thành công tệp được tải lên và nhận siêu dữ liệu của tệp đó bằng cách gọi `files.get`.
+You can verify that the API successfully stored the uploaded file and get its
+metadata by calling `files.get`.
 
 ### Python
 
@@ -233,9 +236,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Liệt kê các tệp đã tải lên
+## List uploaded files
 
-Đoạn mã sau đây lấy danh sách tất cả các tệp đã tải lên:
+The following code gets a list of all the files uploaded:
 
 ### Python
 
@@ -288,9 +291,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Xoá tệp đã tải lên
+## Delete uploaded files
 
-Các tệp sẽ tự động bị xoá sau 48 giờ. Bạn cũng có thể xoá tệp đã tải lên theo cách thủ công:
+Files are automatically deleted after 48 hours. You can also manually delete an
+uploaded file:
 
 ### Python
 
@@ -342,191 +346,241 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/$name \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Thông tin về việc sử dụng
+## Usage info
 
-Bạn có thể dùng Files API để tải lên và tương tác với các tệp đa phương tiện. Files API cho phép bạn lưu trữ tối đa 20 GB tệp cho mỗi dự án, với kích thước tối đa cho mỗi tệp là 2 GB. Các tệp được lưu trữ trong 48 giờ. Trong thời gian đó, bạn có thể dùng API để lấy siêu dữ liệu về các tệp, nhưng không thể tải các tệp xuống.
-Files API được cung cấp miễn phí ở mọi khu vực có Gemini API.
+You can use the Files API to upload and interact with media files. The Files API
+lets you store up to 20 GB of files per project, with a per-file maximum
+size of 2 GB. Files are stored for 48 hours. During that time, you can
+use the API to get metadata about the files, but you can't download the files.
+The Files API is available at no cost in all regions where the Gemini API is
+available.
 
-## Chiến lược nhắc nhở về tệp
+## File prompting strategies
 
-Phần này cung cấp hướng dẫn và các phương pháp hay nhất để sử dụng tệp đa phương tiện với câu lệnh cho Gemini API.
+This section provides guidance and best practices for using media files with
+prompts for the Gemini API.
 
-Việc có thể sử dụng nhiều loại dữ liệu trong câu lệnh giúp bạn linh hoạt hơn về những việc bạn có thể giải quyết bằng Gemini API. Ví dụ: bạn có thể gửi cho mô hình một bức ảnh về một bữa ăn ngon và yêu cầu mô hình viết một bài đăng ngắn trên blog về bữa ăn đó.
+Being able to use various types of data in your prompts gives you more
+flexibility in terms of what tasks you can tackle with the Gemini API. For
+example, you can send the model a photo of a delicious meal and ask it to write
+a short blog about the meal.
 
 |  |  |
 | --- | --- |
-| **Câu lệnh** | **Đáp** |
-| Viết một bài đăng ngắn gọn, hấp dẫn trên blog dựa trên bức ảnh này. Bài đăng đó phải có nội dung mô tả về bữa ăn trong ảnh và kể về hành trình chuẩn bị bữa ăn của tôi.   Bánh quy | Chuẩn bị sẵn bữa ăn là một cách hiệu quả để tiết kiệm thời gian và tiền bạc, đồng thời giúp bạn ăn uống lành mạnh hơn. Bữa ăn này là một ví dụ điển hình về bữa ăn lành mạnh và ngon miệng mà bạn có thể chuẩn bị trước.  Bữa ăn này có cơm gạo lứt, rau củ nướng và gà sốt teriyaki. Gạo lứt là một loại cacbohydrat phức tạp và lành mạnh, giúp bạn có năng lượng bền bỉ. Rau củ nướng là một cách tuyệt vời để bổ sung vitamin và khoáng chất hằng ngày, còn món gà teriyaki là một lựa chọn ngon miệng và giàu protein.  Món ăn này cũng rất dễ chế biến. Bạn chỉ cần nấu gạo lứt, nướng rau và nấu món gà teriyaki. Sau khi nấu xong, hãy chia thức ăn vào các hộp đựng và bảo quản trong tủ lạnh. Sau đó, bạn có thể lấy hộp đựng và đi làm vào những buổi sáng bận rộn!  Nếu bạn đang tìm một bữa ăn lành mạnh và ngon miệng có thể chuẩn bị trước, thì đây là một lựa chọn tuyệt vời. Món ăn này giàu dinh dưỡng và hương vị, chắc chắn sẽ giúp bạn cảm thấy no và hài lòng.  Chúc bạn chuẩn bị được những bữa ăn lành mạnh và ngon miệng! |
+| **Prompt** | **Response** |
+| Write a short, engaging blog post based on this picture. It should include a description of the meal in the photo and talk about my journey meal prepping.   Cookies | Meal prepping is a great way to save time and money, and it can also help you to eat healthier. This meal is a great example of a healthy and delicious meal that can be prepped ahead of time.  This meal features brown rice, roasted vegetables, and chicken teriyaki. The brown rice is a healthy and complex carbohydrate that will give you sustained energy. The roasted vegetables are a great way to get your daily dose of vitamins and minerals, and the chicken teriyaki is a delicious and protein-rich option.  This meal is also straightforward to prepare. Simply cook the brown rice, roast the vegetables, and cook the chicken teriyaki. Once everything is cooked, divide it into meal prep containers and store them in the refrigerator. You can then grab a container and go on busy mornings!  If you're looking for a healthy and delicious meal that can be prepped ahead of time, this meal is a great option. It's packed with nutrients and flavor, and it's sure to keep you feeling full and satisfied.  Here's to healthy and delicious meal prepping! |
 
-Nếu gặp khó khăn khi nhận được kết quả mong muốn từ những câu lệnh sử dụng tệp đa phương tiện, bạn có thể áp dụng một số chiến lược để đạt được kết quả mong muốn. Các phần sau đây cung cấp các phương pháp thiết kế và mẹo khắc phục sự cố để cải thiện câu lệnh sử dụng dữ liệu đầu vào đa phương thức.
+If you are having trouble getting the output you want from prompts that use
+media files, there are some strategies that can help you get the results you
+want. The following sections provide design approaches and troubleshooting
+tips for improving prompts that use multimodal input.
 
-Bạn có thể cải thiện câu lệnh đa phương thức bằng cách làm theo các phương pháp hay nhất sau:
+You can improve your multimodal prompts by following these best practices:
 
-- ### [Kiến thức cơ bản về thiết kế câu lệnh](#specific-instructions)
+- ### [Prompt design fundamentals](#specific-instructions)
 
-  - **Đưa ra chỉ dẫn cụ thể**: Soạn thảo chỉ dẫn rõ ràng và ngắn gọn để giảm thiểu khả năng hiểu sai.
-  - **Thêm một vài ví dụ vào câu lệnh:** Sử dụng một vài ví dụ thực tế để minh hoạ những gì bạn muốn đạt được.
-  - **Chia nhỏ thành từng bước**: Chia các việc phức tạp thành những mục tiêu phụ dễ quản lý, hướng dẫn mô hình thực hiện quy trình.
-  - **Chỉ định định dạng đầu ra**: Trong câu lệnh, hãy yêu cầu đầu ra ở định dạng bạn muốn, chẳng hạn như Markdown, JSON, HTML, v.v.
-  - **Đặt hình ảnh lên trước đối với câu lệnh có một hình ảnh**: Mặc dù Gemini có thể xử lý hình ảnh và văn bản đầu vào theo bất kỳ thứ tự nào, nhưng đối với câu lệnh có một hình ảnh, Gemini có thể hoạt động hiệu quả hơn nếu hình ảnh (hoặc video) đó được đặt trước câu lệnh dạng văn bản. Tuy nhiên, đối với những câu lệnh yêu cầu hình ảnh phải được xen kẽ với văn bản để có ý nghĩa, hãy sử dụng bất kỳ thứ tự nào tự nhiên nhất.
-- ### [Khắc phục sự cố về câu lệnh đa phương thức](#troubleshooting)
+  - **Be specific in your instructions**: Craft clear and concise instructions that leave minimal room for misinterpretation.
+  - **Add a few examples to your prompt:** Use realistic few-shot examples to illustrate what you want to achieve.
+  - **Break it down step-by-step**: Divide complex tasks into manageable sub-goals, guiding the model through the process.
+  - **Specify the output format**: In your prompt, ask for the output to be in the format you want, like Markdown, JSON, HTML and more.
+  - **Put your image first for single-image prompts**: While Gemini can handle image and text inputs in any order, for prompts containing a single image, it might perform better if that image (or video) is placed before the text prompt. However, for prompts that require images to be highly interleaved with texts to make sense, use whatever order is most natural.
+- ### [Troubleshooting your multimodal prompt](#troubleshooting)
 
-  - **Nếu mô hình không lấy thông tin từ phần liên quan của hình ảnh:** Đưa ra gợi ý về những khía cạnh của hình ảnh mà bạn muốn câu lệnh lấy thông tin.
-  - **Nếu đầu ra của mô hình quá chung chung (không đủ phù hợp với đầu vào là hình ảnh/video):** Khi bắt đầu câu lệnh, hãy thử yêu cầu mô hình mô tả(các) hình ảnh hoặc video trước khi đưa ra hướng dẫn về nhiệm vụ, hoặc thử yêu cầu mô hình tham khảo nội dung trong hình ảnh.
-  - **Cách khắc phục sự cố về phần bị lỗi:** Yêu cầu mô hình mô tả hình ảnh hoặc giải thích lý do để đánh giá mức độ hiểu biết ban đầu của mô hình.
-  - **Nếu câu lệnh của bạn tạo ra nội dung ảo:** Hãy thử giảm chế độ cài đặt nhiệt độ hoặc yêu cầu mô hình cung cấp nội dung mô tả ngắn hơn để mô hình ít có khả năng suy đoán thêm chi tiết.
-  - **Điều chỉnh các thông số lấy mẫu:** Thử nghiệm với các chế độ cài đặt nhiệt độ và lựa chọn k hàng đầu khác nhau để điều chỉnh khả năng sáng tạo của mô hình.
+  - **If the model is not drawing information from the relevant part of the image:** Drop hints with which aspects of the image you want the prompt to draw information from.
+  - **If the model output is too generic (not tailored enough to the image/video input):** At the start of the prompt, try asking the model to describe the image(s) or video before providing the task instruction, or try asking the model to refer to what's in the image.
+  - **To troubleshoot which part failed:** Ask the model to describe the image, or ask the model to explain its reasoning, to gauge the model's initial understanding.
+  - **If your prompt results in hallucinated content:** Try dialing down the temperature setting or asking the model for shorter descriptions so that it's less likely to extrapolate additional details.
+  - **Tuning the sampling parameters:** Experiment with different temperature settings and top-k selections to adjust the model's creativity.
 
-### Đưa ra hướng dẫn cụ thể
+### Be specific in your instructions
 
-Câu lệnh sẽ hiệu quả nhất khi rõ ràng và chi tiết. Nếu bạn có một kết quả cụ thể trong đầu, thì tốt hơn là bạn nên đưa yêu cầu đó vào câu lệnh để đảm bảo bạn nhận được kết quả mình muốn.
+Prompts have the most success when they are clear and detailed. If you have a
+specific output in mind, it's better to include that requirement in the prompt
+to ensure you get the output you want.
 
-Đối với hình ảnh này về một bảng thông tin tại sân bay, nếu chỉ yêu cầu mô hình "mô tả hình ảnh này", thì mô hình có thể tạo ra một nội dung mô tả chung. Nếu cần mô hình phân tích thời gian và thành phố trong hình ảnh, bạn có thể đưa yêu cầu đó trực tiếp vào câu lệnh của mình.
+For this image of an airport board, asking the model to just "describe this
+image" could generate a general description. If you need the model to parse the
+time and city from the image, you can include that request directly in your
+prompt.
 
-| Câu lệnh | Câu trả lời của mô hình |
+| Prompt | Model response |
 | --- | --- |
-| Mô tả hình ảnh này. | Hình ảnh cho thấy bảng thông tin chuyến bay hạ cánh và khởi hành tại sân bay. |
+| Describe this image. | The image shows an airport arrivals and departures board. |
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Lịch trình du lịch Phân tích thời gian và thành phố từ bảng thông tin tại sân bay trong hình ảnh này thành một danh sách. | - 10:50 Moscow - 11:05 Edinburgh - 11:05 London - 11:10 Bucharest - 11:30 Kiev - 11:35 Dublin - 11:45 Đông Midlands - 12:15 Sofia - 12:30 London - 12:30 Newcastle - 12:40 St Petersburg - 12:40 London - 12:45 Manchester |
+| Travel timetable Parse the time and city from the airport board shown in this image into a list. | - 10:50 Moscow - 11:05 Edinburgh - 11:05 London - 11:10 Bucharest - 11:30 Kiev - 11:35 Dublin - 11:45 East Midlands - 12:15 Sofia - 12:30 London - 12:30 Newcastle - 12:40 St Petersburg - 12:40 London - 12:45 Manchester |
 
-### Thêm một vài ví dụ
+### Add a few examples
 
-Mô hình Gemini có thể chấp nhận nhiều dữ liệu đầu vào mà mô hình này có thể dùng làm ví dụ để hiểu được kết quả đầu ra mà bạn muốn. Việc thêm những ví dụ này có thể giúp mô hình xác định các mẫu và áp dụng mối quan hệ giữa hình ảnh và câu trả lời đã cho vào ví dụ mới. Đây cũng được gọi là học từ một vài dữ liệu.
+The Gemini model can accept multiple inputs which it can use as examples to
+understand the output you want. Adding these examples can help the model
+identify the patterns and apply the relationship between the given images and
+responses to the new example. This is also called "few-shot" learning.
 
-Trong ví dụ sau, đầu ra ban đầu được viết dưới dạng câu và cũng chứa quốc gia (Brazil). Giả sử bạn muốn đầu ra ở một định dạng hoặc kiểu khác và bạn chỉ muốn thành phố chứ không phải quốc gia. Việc thêm một vài ví dụ vào câu lệnh có thể hướng dẫn mô hình phản hồi theo cách bạn muốn.
+In the following example, the initial output is written in sentence form,
+and also contains the country (Brazil). Suppose you want the output in a
+different format or style, and you want only the city, not the country. Adding
+few-shot examples to your prompt can steer the model to respond in the way you
+want.
 
-| **Câu lệnh** | **Phản hồi của mô hình** |
+| **Prompt** | **Model response** |
 | --- | --- |
-| Lịch trình du lịch Xác định thành phố cùng với địa danh. | Địa danh này là tượng Chúa Kitô Cứu thế ở Rio de Janeiro, Brazil. |
+| Travel timetable Determine the city along with the landmark. | The landmark is the Christ the Redeemer statue in Rio de Janeiro, Brazil. |
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Xác định thành phố cùng với địa danh. đấu trường La Mã | thành phố: Rome, địa danh: Đấu trường La Mã. |
-| Tử Cấm Thành | thành phố: Bắc Kinh, địa danh: Tử Cấm Thành |
-| tử cấm thành | thành phố: Rio de Janeiro, địa danh: Tượng Chúa Kitô Cứu thế |
+| Determine the city along with the landmark. colosseum | city: Rome, landmark: the Colosseum. |
+| Forbidden City | city: Beijing, landmark: Forbidden City |
+| forbidden-city | city: Rio de Janeiro, landmark: Christ the Redeemer statue |
 
-### Phân tích từng bước
+### Break it down step-by-step
 
-Đối với những tác vụ phức tạp như những tác vụ đòi hỏi cả khả năng hiểu biết bằng hình ảnh và khả năng suy luận, bạn nên chia tác vụ thành các bước nhỏ hơn và đơn giản hơn. Ngoài ra, bạn cũng có thể yêu cầu trực tiếp mô hình "suy nghĩ từng bước" trong câu lệnh của mình để đạt được hiệu quả.
+For complex tasks like the ones that require both visual understanding and
+reasoning, it can be helpful to split the task into smaller, more
+straightforward steps. Alternatively, it could also be effective if you
+directly ask the model to "think step by step" in your prompt.
 
-| Câu lệnh | Câu trả lời của mô hình |
+| Prompt | Model response |
 | --- | --- |
-| Khi nào tôi sẽ hết giấy vệ sinh? | Bạn chỉ còn 3 lượt quay. |
+| When will I run out of toilet paper? | Soon, you only have 3 rolls left. |
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| 1. Trước tiên, hãy đếm xem có bao nhiêu cuộn giấy vệ sinh trong bức ảnh này. 2. Sau đó, hãy xác định lượng giấy vệ sinh mà một người thường dùng mỗi ngày. 3. Tính toán thời gian sử dụng hết số giấy vệ sinh này. | 1. Có 3 cuộn giấy vệ sinh trong bức ảnh này. 2. Một người thường dùng khoảng 20 tờ giấy vệ sinh mỗi ngày. 3. Nếu mỗi cuộn có 200 tờ, thì mỗi cuộn sẽ dùng được khoảng 10 ngày. Do đó, 3 cuộn giấy sẽ dùng được khoảng một tháng. |
+| 1. First, count how many toilet paper rolls are in this picture. 2. Then, determine how much toilet paper a typical person uses per day. 3. Calculate how long these rolls of toilet paper will last. | 1. There are 3 rolls of toilet paper in this picture. 2. A typical person uses about 20 sheets of toilet paper per day. 3. If each roll contains 200 sheets, then each roll will last for about 10 days. Therefore, the 3 rolls will last for about a month. |
 
-Các bài toán hoặc những loại bài toán có lời văn khác là những lựa chọn phù hợp để yêu cầu mô hình suy nghĩ từng bước.
+Math problems or other types of word problems are great candidates for asking
+the model to think step-by-step.
 
-| **Câu lệnh** | **Đáp** |
+| **Prompt** | **Response** |
 | --- | --- |
-| Số hạng thứ 4 trong dãy số này là bao nhiêu? | -135 |
+| What is the 4th term in the sequence? | -135 |
 
-Câu trả lời của mô hình không chính xác. Một số cách để cải thiện vấn đề này là yêu cầu mô hình phân tích vấn đề trước khi trả lời câu lệnh.
+The response from the model is incorrect. Some ways to improve this is to ask
+the model to parse the problem before answering the prompt.
 
-| **Câu lệnh** | **Đáp** |
+| **Prompt** | **Response** |
 | --- | --- |
-| Trước tiên, hãy phân tích cú pháp công thức trong hình ảnh.  Sau đó, dựa vào công thức, hãy trả lời câu hỏi "số hạng thứ 4 trong dãy số là gì?". | *Nhấp để mở rộng kết quả* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Thay n = 4 vào công thức: $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Chúng ta không biết giá trị của b(3), vì vậy hãy thay n = 3 vào công thức: $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Chúng ta không biết giá trị của b(2, nên hãy thay n = 2 vào công thức: $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Chúng ta biết giá trị của b(1) là 15, vì vậy hãy thay thế giá trị này vào công thức: $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Bây giờ, chúng ta đã biết giá trị của b(2), hãy thay thế giá trị đó vào công thức cho b(3): $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Giờ đây, khi đã biết giá trị của b(3), hãy thay thế giá trị đó vào công thức cho b(4): $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Do đó, số hạng thứ 4 trong dãy số là -405. |
+| Parse the formula in the image first.  Then based on the formula, answer "what's the 4th term in the sequence?". | *Click to expand the result* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Substitute n = 4 into the formula: $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. We don't know the value of b(3), so substitute n = 3 into the formula: $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. We don't know the value of b(2), so substitute n = 2 into the formula: $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. We know the value of b(1) is 15, so substitute it into the formula: $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Now that we know the value of b(2), substitute it into the formula for b(3): $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Now that we know the value of b(3), substitute it into the formula for b(4): $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Therefore, the 4th term in the sequence is -405. |
 
-Câu trả lời này của mô hình là chính xác. Giờ đây, để câu trả lời trở nên tinh giản hơn nữa, bạn có thể yêu cầu mô hình suy nghĩ từng bước.
+This model response is correct - now to make the response even more streamlined,
+you can ask the model to to think step-by-step.
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Số hạng thứ 4 trong dãy số này là bao nhiêu? Hãy suy nghĩ từng bước. | Số hạng đầu tiên là 15.  Số hạng thứ hai là b(1) \* (-3) = 15 \* (-3) = -45.  Số hạng thứ ba là b(2) \* (-3) = -45 \* (-3) = 135.  Số hạng thứ tư là b(3) \* (-3) = 135 \* (-3) = -405. |
+| What is the 4th term in the sequence? Think step by step. | The first term is 15.  The second term is b(1) \* (-3) = 15 \* (-3) = -45.  The third term is b(2) \* (-3) = -45 \* (-3) = 135.  The fourth term is b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### Chỉ định định dạng đầu ra
+### Specify the output format
 
-Một vấn đề thường gặp là nhu cầu về đầu ra của mô hình ở một định dạng nhất định (ví dụ: Markdown, JSON, HTML), đặc biệt là nếu đầu ra của mô hình cần được một tác vụ hạ nguồn tiếp nhận. Bạn có thể thử tạo đầu ra ở định dạng đó bằng cách hướng dẫn mô hình thực hiện trong câu lệnh. Sau đây là 2 ví dụ:
+A common problem is the need for model output to be in a certain format
+(e.g. Markdown, JSON, HTML), especially if the model output needs to
+be ingested by a downstream task. You can try to produce output in that format
+by instructing the model to do so within the prompt. The following are two
+examples:
 
-| Câu lệnh | Câu trả lời của mô hình |
+| Prompt | Model response |
 | --- | --- |
-| Phân tích bảng trong hình ảnh này thành định dạng Markdown | ```none | Môn học | Trạng thái | Thời gian | Ngày bắt đầu | Đến hạn | | ------- | ------ | ---- | ---------- | ------ | | Toán | Đã hoàn thành | 1,5 giờ | 29/11/2023 | 1/12/2023 | | Địa lý | Đã hoàn thành | 30 phút | 2/12/2023 | 4/12/2023 | | Vật lý | Đang thực hiện | 2 giờ | 3/12/2023 | 5/12/2023 | | Sinh học | Chưa bắt đầu | 6 giờ | 2/11/2016 | 6/12/2023 | ``` |
+| Parse the table in this image into Markdown format | ```none | Subject | Status | Time | Start date | Due on | | ------- | ------ | ---- | ---------- | ------ | | Math | Done | 1.5 hrs | 11/29/2023 | 12/1/2023 | | Geography | Done | 30 min | 12/2/2023 | 12/4/2023 | | Physics | In progress | 2 hrs | 12/3/2023 | 12/5/2023 | | Biology | Not started | 6 hrs | 11/2/2016 | 12/6/2023 | ``` |
 
-| **Câu lệnh** | **Phản hồi của mô hình** |
+| **Prompt** | **Model response** |
 | --- | --- |
-| Cung cấp danh sách tất cả các thuộc tính sau:  thành phần, loại món ăn, có phải là món chay hay không, ở định dạng JSON | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
+| Provide a list of all the following attributes:  ingredients, type of cuisine, vegetarian or not, in JSON format | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
 
-### Đặt hình ảnh lên trước cho câu lệnh một hình ảnh
+### Put your image first for single-image prompts
 
-Mặc dù Gemini có thể diễn giải hình ảnh và văn bản theo bất kỳ thứ tự nào trong câu lệnh, nhưng việc đặt một hình ảnh trước câu lệnh dạng văn bản có thể mang lại kết quả tốt hơn.
-Trong các mẫu sau, bạn sẽ nhận thấy hình ảnh xuất hiện trước văn bản trong mỗi câu lệnh.
+While Gemini can interpret image and text in any order within a prompt, placing
+a single image before the text prompt might lead to better results.
+In the following samples, you'll notice the image comes first before the text in
+each prompt.
 
-### Khắc phục sự cố với câu lệnh đa phương thức
+### Troubleshooting your multimodal prompt
 
-Bạn có thể cần khắc phục sự cố về câu lệnh nếu không nhận được câu trả lời hữu ích. Bạn có thể thử một số chiến lược sau.
+You might need to troubleshoot your prompt if you are not getting a helpful
+response. Here are a few strategies you could try.
 
-#### Nếu mô hình không lấy thông tin từ phần liên quan của hình ảnh
+#### If the model is not drawing information from the relevant part of the image
 
-Để nhận được câu trả lời cụ thể hơn, bạn có thể chỉ ra những khía cạnh của hình ảnh mà bạn muốn câu lệnh lấy thông tin để đưa ra câu trả lời.
+To get a more specific response, you can point out which aspects of the image
+you want the prompt to draw information from to inform its response.
 
-| Câu lệnh | Câu trả lời của mô hình |
+| Prompt | Model response |
 | --- | --- |
-| Những chiếc tã này sẽ dùng được bao nhiêu ngày cho một em bé? | Số tã này sẽ dùng được trong 198 ngày. |
+| How many days will these diapers last a baby? | The diapers will last for 198 days before they run out. |
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Tôi có thể dùng hết số tã này trong bao lâu?  Dùng trọng lượng ghi trên hộp để xác định độ tuổi của trẻ và dùng tổng số tã trong hộp.  Chia tổng số tã cho số lượng tã mà trẻ dùng mỗi ngày. | Hộp này có 198 chiếc tã. Trên hộp ghi rằng tã dành cho trẻ nặng từ 10 đến 17 kg.  Trẻ em trung bình trong khoảng cân nặng này có thể từ 1 đến 2 tuổi.  Một đứa trẻ 2 tuổi thường dùng 6 chiếc tã mỗi ngày, do đó, số tã này sẽ dùng được khoảng 33 ngày (198/6). |
+| How long will these diapers last before I run out?  Use the weight shown on the box to determine the child's age, and use the total number of diapers in the box.  Divide the total number by how many diapers the child goes through per day. | The box contains 198 diapers. The box states the diapers are for a child weighing 22-37 lbs.  The average child in this weight range is likely between 1 and 2 years old.  A 2-year-old typically goes through 6 diapers per day, therefore, the diapers will last around 33 days (198/6). |
 
-#### Nếu đầu ra của mô hình quá chung chung và không đủ phù hợp với dữ liệu đầu vào là hình ảnh
+#### If the model output is too generic and not tailored enough to the image input
 
-Để giúp mô hình điều chỉnh câu trả lời cho (các) hình ảnh, hãy thử yêu cầu mô hình mô tả (các) hình ảnh trước khi thực hiện nhiệm vụ suy luận.
+To help the model tailor its response to the image(s), try asking it to describe
+the images before performing its reasoning task.
 
-| Câu lệnh | Câu trả lời của mô hình |
+| Prompt | Model response |
 | --- | --- |
-| Điểm chung giữa những hình ảnh này là gì? | Cả 4 hình ảnh đều là ví dụ về ảnh phong cảnh. |
+| What is in common between these images? | All four images are examples of landscape photography. |
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Trước tiên, hãy mô tả chi tiết nội dung trong từng hình ảnh. Điểm chung giữa những hình ảnh này là gì? | Hình ảnh đầu tiên cho thấy một người đang đóng gói hành lý vào vali. Hình ảnh thứ hai cho thấy một hành lang trống trong trung tâm mua sắm. Hình ảnh thứ ba cho thấy một cuộn giấy vệ sinh. Hình ảnh thứ tư cho thấy một vùng biển tối tăm và bão tố.  Điểm chung giữa những hình ảnh này là tất cả đều là ví dụ về không gian trung gian. Không gian trung gian là những nơi hoặc tình huống nằm giữa hai nơi hoặc tình huống khác. Chúng thường mang đến cảm giác không chắc chắn hoặc mơ hồ.  Hình ảnh đầu tiên cho thấy người ở giữa đang ở nhà và đang đi du lịch. Hình ảnh thứ hai cho thấy hành lang giữa hai cửa hàng. Hình ảnh thứ ba là giấy vệ sinh, có thể tượng trưng cho phòng tắm. Phòng tắm là không gian chuyển tiếp giữa khu vực riêng tư và khu vực công cộng. Đó là nơi chúng ta chuẩn bị bước vào hoặc rời khỏi thế giới bên ngoài.  Hình ảnh thứ tư cho thấy biển ở trạng thái giữa bình lặng và bão tố.  Không gian liminal có thể vừa thú vị vừa bất an. Chúng có thể là nơi bắt đầu hoặc kết thúc. Đó có thể là nơi để suy ngẫm hoặc nơi để hành động. |
+| First, describe what's in each image in detail. What's in common between these images? | The first image shows a person packing a suitcase. The second image shows an empty hallway in a shopping mall. The third image shows a roll of toilet paper. The fourth image shows a dark and stormy sea.  The commonality between these images is that they are all examples of liminal spaces. Liminal spaces are places or situations that are in between two other places or situations. They are often characterized by a sense of uncertainty or ambiguity.  The first image shows the person in between being at home and being on a trip. The second image shows the hallway in between two stores. The third image is of toilet paper, which can represent a bathroom. A bathroom is a transitional space between private and public realms. It's a place where we prepare ourselves to enter or leave the outside world.  The fourth image shows the sea in between being calm and being stormy.  Liminal spaces can be both exciting and unsettling. They can be a place of new beginning or a place of endings. They can be a place of reflection or a place of action. |
 
-Bạn cũng có thể thử yêu cầu mô hình tham khảo nội dung trong hình ảnh một cách rõ ràng.
+You can also try explicitly asking the model to refer to what's in the image.
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Điểm chung giữa những hình ảnh này là gì? Tham khảo nội dung trong hình ảnh trong câu trả lời của bạn. | Tất cả hình ảnh đều liên quan đến du lịch. Hình ảnh đầu tiên cho thấy một người đang đóng gói hành lý vào vali, hình ảnh thứ hai cho thấy một hành lang trống trong trung tâm mua sắm, hình ảnh thứ ba cho thấy một chồng giấy vệ sinh và hình ảnh thứ tư cho thấy một vùng biển tối tăm và giông bão.  Tất cả những hình ảnh này đều liên quan đến du lịch vì chúng đều là những thứ mà mọi người cần hoặc sử dụng khi đi du lịch. Hình ảnh đầu tiên cho thấy một người đang đóng gói hành lý vào vali. Đây là việc mà mọi người thường làm khi đi du lịch. Hình ảnh thứ hai cho thấy một hành lang trống trong trung tâm mua sắm, đây là nơi mọi người thường đến để mua đồ cho chuyến đi của mình. Hình ảnh thứ ba cho thấy một chồng giấy vệ sinh. Đây là thứ mà mọi người thường dùng khi đi du lịch. Hình ảnh thứ tư cho thấy một vùng biển tối tăm và bão tố. Đây là điều mà mọi người thường gặp phải khi đi du lịch. |
+| What is in common between these images? Refer to what's in the images in your response. | All of the images are related to travel. The first image shows a person packing a suitcase, the second image shows an empty hallway in a shopping mall, the third image shows a stack of toilet paper, and the fourth image shows a dark and stormy sea.  These images are all related to travel because they are all things that people need or use when they travel. The first image shows a person packing a suitcase, which is something that people do when they are going on a trip. The second image shows an empty hallway in a shopping mall, which is a place where people often go to buy things for their trips. The third image shows a stack of toilet paper, which is something that people often use when they are traveling. The fourth image shows a dark and stormy sea, which is something that people often encounter when they are traveling. |
 
-Các mẹo tương tự cũng áp dụng cho kết quả sáng tạo từ hình ảnh. Trong ví dụ sau đây về chú thỏ, việc yêu cầu rõ ràng mô hình đưa các khía cạnh trong hình ảnh vào có thể cải thiện kết quả.
+The same tips work for creative output from images. In the following example with
+the rabbit, explicitly asking the model to include aspects from the image can
+improve the output.
 
-| Câu lệnh | Câu trả lời của mô hình |
+| Prompt | Model response |
 | --- | --- |
-| Bạn có thể viết cho tôi một bài thơ về hình ảnh này không? | Chú thỏ nhỏ, mềm mại và có màu nâu,  Nhảy qua cánh đồng, lên và xuống.  Tai dài, đuôi nhỏ,  Bạn là sinh vật đáng yêu nhất trong tất cả.  Bạn gặm cỏ, cỏ xanh và ngọt,  Và nhảy đi khi thấy tôi.  Nhưng tôi sẽ luôn là bạn của bạn,  Thỏ con, cho đến tận cùng. |
+| Can you write me a poem about this image? | Little bunny, so soft and brown,  Hopping through the field, up and down.  Your ears so long, your tail so small,  You're the cutest creature of them all.  You nibble on the grass, so green and sweet,  And hop away when you see me.  But I'll always be your friend,  Little bunny, until the very end. |
 
-| **Câu lệnh mới** | **Cải thiện phản hồi** |
+| **Updated prompt** | **Improved response** |
 | --- | --- |
-| Bạn có thể viết cho tôi một bài thơ giàu hình ảnh và kịch tính về thông tin về hình ảnh này, đồng thời cho biết vị trí không? | Chú thỏ nhỏ trên bãi cỏ xanh,  Đôi tai dài, thính nhạy.  Chú nhìn thấy gì ngoài kia,  Ở nơi xa xôi mà chú đang ngắm nhìn?  Có phải là màu xanh dương của đại dương,  Lấp lánh dưới ánh nắng?  Hay là những con sóng vỗ bờ và gầm thét,  Một nhịp điệu mà bạn yêu thích?  Thỏ con ơi, hãy nói thật cho ta biết,  Điều gì thu hút con đến vậy?  Có phải làn gió mặn,  Hay tiếng hải âu kêu làm con thích thú?  Có lẽ là do sự rộng lớn của tất cả,  Một thế giới vừa rộng lớn vừa nhỏ bé.  Một nơi mà những giấc mơ có thể bay bổng,  Và những cuộc phiêu lưu có thể nảy mầm.  Thỏ con ơi, ta tự hỏi giấc mơ của con là gì,  Khi con ngồi trên cỏ, thật thanh bình.  Bạn có khao khát khám phá biển sâu,  Hay ở trên đất liền, nơi bạn có thể nhảy?  Dù là gì đi chăng nữa, thỏ con ơi,  Hãy giữ cho ngọn lửa tò mò luôn cháy sáng.  Trong những ước mơ và khát vọng của bạn,  Có một thế giới đang chờ bạn sáng tạo. |
+| Can you write me a descriptive and dramatic poem about this image and include the location? | Little bunny on the green,  Ears so long, so keen.  What do you see out there,  In the distance, where you stare?  Is it the ocean blue,  Sparkling in the sun's hue?  Or the waves that crash and roar,  A rhythm that you adore?  Little bunny, tell me true,  What captures your attention so?  Is it the salty breeze,  Or the seagulls' cries that please?  Perhaps it's the vastness of it all,  A world so big and small.  A place where dreams can roam,  And adventures can be sown.  Little bunny, I wonder what you dream,  As you sit on the grass, so serene.  Do you yearn to explore the deep,  Or stay on land, where you can leap?  Whatever it may be, little bunny,  Keep that spark of wonder burning brightly.  For in your dreams and aspirations,  Lies a world waiting for your creation. |
 
-#### Khắc phục sự cố về phần nào của câu lệnh không hoạt động
+#### Troubleshooting which part of the prompt failed
 
-Có thể khó biết liệu một câu lệnh có thất bại hay không vì mô hình không **hiểu được hình ảnh** ngay từ đầu, hoặc nếu mô hình hiểu được hình ảnh nhưng không thực hiện đúng **các bước suy luận** sau đó.
-Để phân biệt những lý do đó, hãy yêu cầu mô hình mô tả nội dung trong hình ảnh.
+It can be hard to know whether a prompt failed because the model
+didn't **understand the image** to begin with, or if it did understand the image
+but did not perform the correct **reasoning steps** afterward.
+To disambiguate between those reasons, ask the model to describe what's in the image.
 
-Trong ví dụ sau, nếu mô hình phản hồi bằng một món ăn nhẹ có vẻ bất ngờ khi kết hợp với trà (ví dụ: bỏng ngô), trước tiên, bạn có thể khắc phục sự cố để xác định xem mô hình có nhận dạng chính xác rằng hình ảnh có chứa trà hay không.
+In the following example, if the model responds with a snack that seems surprising
+when paired with tea (e.g. popcorn), you can first troubleshoot to determine
+whether the model correctly recognized that the image contains tea.
 
-| Câu lệnh | Lời nhắc để khắc phục sự cố |
+| Prompt | Prompt for troubleshooting |
 | --- | --- |
-| Tôi có thể làm món ăn nhẹ nào trong 1 phút để ăn kèm với món này? | Mô tả nội dung trong hình ảnh này. |
+| What's a snack I can make in 1 minute that would go well with this? | Describe what's in this image. |
 
-Một chiến lược khác là yêu cầu mô hình giải thích lý do. Điều này có thể giúp bạn thu hẹp phạm vi để xác định phần nào trong quá trình suy luận bị lỗi (nếu có).
+Another strategy is to ask the model to explain its reasoning. That can help you
+narrow down which part of the reasoning broke down, if any.
 
-| Câu lệnh | Lời nhắc để khắc phục sự cố |
+| Prompt | Prompt for troubleshooting |
 | --- | --- |
-| Tôi có thể làm món ăn nhẹ nào trong 1 phút để ăn kèm với món này? | Tôi có thể làm món ăn nhẹ nào trong 1 phút để ăn kèm với món này? Vui lòng giải thích lý do. |
+| What's a snack I can make in 1 minute that would go well with this? | What's a snack I can make in 1 minute that would go well with this? Please explain why. |
 
-## Bước tiếp theo
+## What's next
 
-- Hãy thử viết câu lệnh đa phương thức của riêng bạn bằng [Google AI Studio](http://aistudio.google.com?hl=vi).
-- Để biết thông tin về cách sử dụng Gemini Files API để tải tệp đa phương tiện lên và đưa tệp đó vào câu lệnh, hãy xem hướng dẫn về [Vision](https://ai.google.dev/gemini-api/docs/interactions/vision?hl=vi), [Xử lý âm thanh](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=vi) và [Xử lý tài liệu](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=vi).
-- Để biết thêm hướng dẫn về cách thiết kế câu lệnh, chẳng hạn như điều chỉnh các thông số lấy mẫu, hãy xem trang [Chiến lược tạo câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi).
+- Try writing your own multimodal prompts using [Google AI
+  Studio](http://aistudio.google.com).
+- For information on using the Gemini Files API for
+  uploading media files and including them in your prompts, see the
+  [Vision](https://ai.google.dev/gemini-api/docs/interactions/vision), [Audio](https://ai.google.dev/gemini-api/docs/interactions/audio), and
+  [Document processing](https://ai.google.dev/gemini-api/docs/interactions/document-processing) guides.
+- For more guidance on prompt design, like tuning sampling parameters, see the
+  [Prompt strategies](https://ai.google.dev/gemini-api/docs/prompting-strategies) page.
 
-Gửi ý kiến phản hồi
+Send feedback
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-Cập nhật lần gần đây nhất: 2026-06-02 UTC.
+Last updated 2026-06-18 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Need to tell us more?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-02 UTC."],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

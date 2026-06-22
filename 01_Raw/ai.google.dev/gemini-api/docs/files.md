@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/files?hl=es-419
-fetched_at: 2026-06-15T06:27:58.787190+00:00
+source_url: https://ai.google.dev/gemini-api/docs/files?hl=ar
+fetched_at: 2026-06-22T06:30:40.949117+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) ya está disponible en versión preliminar con planificación colaborativa, visualización, compatibilidad con MCP y mucho más.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Enviar comentarios
+إرسال ملاحظات
 
-# API de Files
+# Files API
 
-Gemini puede procesar varios tipos de datos de entrada, como texto, imágenes y audio, al mismo tiempo.
+يمكن لنموذج Gemini التعامل مع أنواع مختلفة من بيانات الإدخال، بما في ذلك النصوص والصور والمقاطع الصوتية، في الوقت نفسه.
 
-En esta guía, se muestra cómo trabajar con archivos multimedia usando la API de Files. Las operaciones básicas son las mismas para los archivos de audio, las imágenes, los videos, los documentos y otros tipos de archivos admitidos.
+يوضّح لك هذا الدليل كيفية التعامل مع ملفات الوسائط باستخدام Files API. تكون العمليات الأساسية هي نفسها بالنسبة إلى الملفات الصوتية والصور والفيديوهات والمستندات وأنواع الملفات الأخرى المتوافقة.
 
-Para obtener orientación sobre las instrucciones de archivos, consulta la sección [Guía de instrucciones de archivos](https://ai.google.dev/gemini-api/docs/files?hl=es-419#prompt-guide).
+للحصول على إرشادات بشأن دليل كتابة الطلبات للملفات، يُرجى الاطّلاع على قسم [دليل كتابة الطلبات للملفات](https://ai.google.dev/gemini-api/docs/files?hl=ar#prompt-guide).
 
-## Subir un archivo
+## تحميل ملف
 
-Puedes usar la API de Files para subir un archivo multimedia. Siempre usa la API de Files cuando el tamaño total de la solicitud (incluidos los archivos, la instrucción de texto, las instrucciones del sistema, etcétera) sea superior a 100 MB. En el caso de los archivos PDF, el límite es de 50 MB.
+يمكنك استخدام Files API لتحميل ملف وسائط. استخدِم دائمًا Files API عندما يتجاوز إجمالي حجم الطلب (بما في ذلك الملفات والنص الموجّه وتعليمات النظام وما إلى ذلك) 100 ميغابايت. بالنسبة إلى ملفات PDF، يبلغ الحدّ الأقصى 50 ميغابايت.
 
-El siguiente código sube un archivo y, luego, lo usa en una llamada a `generateContent`.
+يحمّل الرمز التالي ملفًا ثم يستخدمه في طلب إلى `generateContent`.
 
 ### Python
 
@@ -156,9 +156,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Obtén los metadatos de un archivo
+## الحصول على البيانات الوصفية لملف
 
-Puedes verificar que la API haya almacenado correctamente el archivo subido y obtener sus metadatos llamando a `files.get`.
+يمكنك التأكّد من أنّ واجهة برمجة التطبيقات خزّنت الملف الذي تم تحميله بنجاح والحصول على بياناته الوصفية من خلال طلب `files.get`.
 
 ### Python
 
@@ -226,9 +226,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Enumera los archivos subidos
+## عرض الملفات المحمَّلة
 
-El siguiente código obtiene una lista de todos los archivos subidos:
+يحصل الرمز التالي على قائمة بجميع الملفات التي تم تحميلها:
 
 ### Python
 
@@ -281,9 +281,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Borra archivos subidos
+## حذف الملفات التي تم تحميلها
 
-Los archivos se borran automáticamente después de 48 horas. También puedes borrar manualmente un archivo subido:
+يتم حذف الملفات تلقائيًا بعد 48 ساعة، ويمكنك أيضًا حذف ملف تم تحميله يدويًا باتّباع الخطوات التالية:
 
 ### Python
 
@@ -335,190 +335,193 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Información de uso
+## معلومات الاستخدام
 
-Puedes usar la API de Files para subir archivos multimedia y, luego, interactuar con ellos. La API de Files te permite almacenar hasta 20 GB de archivos por proyecto, con un tamaño máximo por archivo de 2 GB. Los archivos se almacenan durante 48 horas. Durante ese tiempo, puedes usar la API para obtener metadatos sobre los archivos, pero no puedes descargarlos.
-La API de Files está disponible sin costo en todas las regiones en las que está disponible la API de Gemini.
+يمكنك استخدام واجهة برمجة التطبيقات Files API لتحميل ملفات الوسائط والتفاعل معها. تتيح لك Files API تخزين ما يصل إلى 20 غيغابايت من الملفات لكل مشروع، مع حد أقصى لحجم الملف الواحد يبلغ 2 غيغابايت. يتم تخزين الملفات لمدة 48 ساعة. خلال هذه الفترة، يمكنك استخدام واجهة برمجة التطبيقات للحصول على البيانات الوصفية الخاصة بالملفات، ولكن لا يمكنك تنزيل الملفات.
+تتوفّر واجهة برمجة التطبيقات Files API مجانًا في جميع المناطق التي تتوفّر فيها واجهة برمجة التطبيقات Gemini API.
 
-## Estrategias de instrucciones de archivos
+## استراتيجيات طلب الملفات
 
-En esta sección, se proporcionan orientación y prácticas recomendadas para usar archivos multimedia con instrucciones en la API de Gemini.
+يقدّم هذا القسم إرشادات وأفضل الممارسات لاستخدام ملفات الوسائط مع الطلبات في Gemini API.
 
-Poder usar varios tipos de datos en tus instrucciones te brinda más flexibilidad en cuanto a las tareas que puedes abordar con la API de Gemini. Por ejemplo, puedes enviar al modelo una foto de una comida deliciosa y pedirle que escriba un blog breve sobre ella.
+يتيح لك استخدام أنواع مختلفة من البيانات في طلباتك مرونة أكبر في ما يتعلّق بالمهام التي يمكنك إنجازها باستخدام Gemini API. على سبيل المثال، يمكنك إرسال صورة وجبة لذيذة إلى النموذج وطلب كتابة مدوّنة قصيرة عنها.
 
 |  |  |
 | --- | --- |
-| **Instrucción** | **Respuesta** |
-| Escribe una entrada de blog breve y atractiva basada en esta foto. Debe incluir una descripción de la comida que aparece en la foto y hablar sobre mi proceso de preparación de comidas.   Cookies | Preparar las comidas es una excelente manera de ahorrar tiempo y dinero, y también puede ayudarte a comer de forma más saludable. Esta comida es un excelente ejemplo de una comida saludable y deliciosa que se puede preparar con anticipación fácilmente.  Esta comida incluye arroz integral, verduras asadas y pollo teriyaki. El arroz integral es un carbohidrato saludable y complejo que te brindará energía sostenida. Las verduras asadas son una excelente manera de obtener la dosis diaria de vitaminas y minerales, y el pollo teriyaki es una opción deliciosa y rica en proteínas.  Esta comida también es muy fácil de preparar. Solo tienes que cocinar el arroz integral, asar las verduras y cocinar el pollo teriyaki. Una vez que todo esté cocido, divídelo en recipientes para preparar comidas y guárdalos en el refrigerador. Luego, puedes tomar un recipiente y salir en las mañanas ajetreadas.  Si buscas una comida saludable y deliciosa que se pueda preparar con anticipación, esta es una excelente opción. Está repleta de nutrientes y sabor, y seguro te dejará satisfecho.  ¡Salud por la preparación de comidas saludables y deliciosas! |
+| **الطلب** | **الردّ** |
+| اكتب منشورًا موجزًا وجذّابًا على المدوّنة استنادًا إلى هذه الصورة. يجب أن يتضمّن وصفًا للوجبة في الصورة وأن يتحدّث عن رحلتي في إعداد الوجبات مسبقًا.   بسكويت | يُعدّ تحضير الوجبات مسبقًا طريقة رائعة لتوفير الوقت والمال، ويمكن أن يساعدك أيضًا في تناول طعام صحي. هذه الوجبة هي مثال رائع على وجبة صحية ولذيذة يمكن تحضيرها بسهولة مسبقًا.  تتضمّن هذه الوجبة الأرز الأسمر والخضروات المشوية ودجاج الترياكي. فالأرز الأسمر هو كربوهيدرات صحية ومعقّدة تمنحك الطاقة المستدامة، والخضروات المشوية هي طريقة رائعة للحصول على الجرعة اليومية من الفيتامينات والمعادن، ودجاج الترياكي هو خيار لذيذ وغني بالبروتين.  هذه الوجبة سهلة التحضير أيضًا، فكل ما عليك فعله هو طهي الأرز الأسمر وشوي الخضروات وطهي دجاج الترياكي، ثم تقسيمها إلى عبوات مخصصة لتحضير الوجبات وتخزينها في الثلاجة، لتتمكّن من تناولها في الصباحات المزدحمة.  إذا كنت تبحث عن وجبة صحية ولذيذة يمكن تحضيرها بسهولة مسبقًا، فهذه الوجبة هي الخيار الأمثل، فهي غنية بالعناصر الغذائية والنكهة، ومن المؤكد أنّها ستجعلك تشعر بالشبع والرضا.  نتمنى لك وجبات صحية ولذيذة! |
 
-Si tienes problemas para obtener el resultado que deseas a partir de instrucciones que usan archivos multimedia, existen algunas estrategias que pueden ayudarte a obtener los resultados que deseas. En las siguientes secciones, se proporcionan enfoques de diseño y sugerencias para solucionar problemas que te ayudarán a mejorar las instrucciones que usan entradas multimodales.
+إذا كنت تواجه مشكلة في الحصول على النتائج المطلوبة من الطلبات التي تستخدم ملفات وسائط، إليك بعض الاستراتيجيات التي يمكن أن تساعدك في الحصول على النتائج التي تريدها. تقدّم الأقسام التالية طرقًا لتصميم الطلبات ونصائح حول تحديد المشاكل وحلّها لتحسين الطلبات التي تستخدم الإدخال المتعدّد الوسائط.
 
-Para mejorar tus prompts multimodales, sigue estas prácticas recomendadas:
+يمكنك تحسين طلباتك المتعدّدة الوسائط باتّباع أفضل الممارسات التالية:
 
-- ### [Conceptos básicos sobre el diseño de prompts](#specific-instructions)
+- ### [أساسيات تصميم الطلبات](#specific-instructions)
 
-  - **Sé específico en tus instrucciones**: Crea instrucciones claras y concisas que dejen espacio mínimo para interpretaciones erróneas.
-  - **Agrega algunos ejemplos a tu prompt:** Usa ejemplos poco frecuentes para ilustrar lo que quieres lograr.
-  - **Desglosar paso a paso**: Divide las tareas complejas en subobjetivos administrables y guiando el modelo a través del proceso.
-  - **Especifica el formato del resultado**: En el prompt, solicita que el resultado tenga el formato que deseas, como Markdown, JSON, HTML y más.
-  - **Coloca tu imagen primero para los prompts de una sola imagen**: Si bien Gemini puede manejar las entradas de imágenes y texto en cualquier orden, en el caso de los prompts que contienen una sola imagen, podría tener un mejor rendimiento si esa imagen (o video) se coloca antes del prompt de texto. Sin embargo, en el caso de los prompts que requieren que las imágenes estén muy intercaladas con textos para que tengan sentido, usa el orden que sea más natural.
-- ### [Soluciona problemas de tu prompt multimodal](#troubleshooting)
+  - **كن دقيقًا في تعليماتك**: صِغ تعليمات واضحة وموجزة لا تترك مجالاً كبيرًا لإساءة الفهم.
+  - **إضافة بعض الأمثلة إلى طلبك:** استخدِم أمثلة واقعية قليلة اللقطات لتوضيح ما تريد تحقيقه.
+  - **التقسيم إلى خطوات**: قسِّم المهام المعقّدة إلى أهداف فرعية يسهل تنفيذها، ما يساعد النموذج في إكمال العملية.
+  - **تحديد تنسيق الإخراج**: في طلبك، اطلب أن يكون الإخراج بالتنسيق الذي تريده، مثل Markdown وJSON وHTML وغير ذلك.
+  - **وضع صورتك أولاً في الطلبات التي تتضمّن صورة واحدة**: على الرغم من أنّ Gemini يمكنه التعامل مع مدخلات الصور والنصوص بأي ترتيب، قد يكون أداؤه أفضل في الطلبات التي تتضمّن صورة واحدة إذا تم وضع هذه الصورة (أو الفيديو) قبل طلب النص. ومع ذلك، بالنسبة إلى الطلبات التي تتطلّب أن تكون الصور متداخلة بشكل كبير مع النصوص لكي تكون مفهومة، استخدِم الترتيب الأكثر طبيعية.
+- ### [تحديد المشاكل في الطلب المتعدد الوسائط وحلّها](#troubleshooting)
 
-  - **Si el modelo no extrae información de la parte relevante de la imagen:** Agrega pistas sobre los aspectos de la imagen de los que quieres que el prompt extraiga información.
-  - **Si el resultado del modelo es demasiado genérico (no lo suficientemente personalizado para la entrada de imagen o video):** Al inicio del prompt, intenta pedirle al modelo que describa las imágenes o el video antes de proporcionar la instrucción de la tarea, o intenta pedirle al modelo que haga referencia a lo que hay en la imagen.
-  - **Para solucionar la parte que falló:** Pídele al modelo que describa la imagen o pídele que explique su razonamiento, para medir su comprensión inicial.
-  - **Si el prompt muestra contenido alucinado:** Intenta reducir la configuración de la temperatura o pide descripciones más cortas al modelo para que sea menos probable extrapolar detalles adicionales.
-  - **Ajusta los parámetros de muestreo:** Experimenta con diferentes opciones de configuración de temperatura y selecciones de Top-K para ajustar la creatividad del modelo.
+  - **إذا كان النموذج لا يستخلص المعلومات من الجزء ذي الصلة في الصورة:** أضِف تلميحات حول الجوانب التي تريد أن يستخلص الطلب المعلومات منها.
+  - **إذا كانت مخرجات النموذج عامة جدًا (غير مخصّصة بشكل كافٍ للصورة أو الفيديو المُدخَل):** في بداية الطلب، جرِّب أن تطلب من النموذج وصف الصور أو الفيديو قبل تقديم تعليمات المهمة، أو جرِّب أن تطلب من النموذج الإشارة إلى ما يظهر في الصورة.
+  - **لتحديد الجزء الذي تعذّر تنفيذه:** اطلب من النموذج وصف الصورة أو شرح أسباب عدم تنفيذه للطلب، وذلك لتقييم فهم النموذج الأوّلي.
+  - **إذا أدّى طلبك إلى الهلوسة في المحتوى:** جرِّب خفض إعداد درجة العشوائية أو اطلب من النموذج تقديم أوصاف أقصر لتقليل احتمالية استقراء تفاصيل إضافية.
+  - **ضبط مَعلَمات اختيار العيّنات:** جرِّب إعدادات مختلفة لدرجة العشوائية وخيارات top-k لضبط مستوى إبداع النموذج.
 
-### Proporciona instrucciones específicas
+### كن محدّدًا في تعليماتك
 
-Los prompts tienen más éxito cuando son claros y detallados. Si tienes un resultado específico en mente, es mejor incluir ese requisito en el prompt para asegurarte de obtener el resultado que deseas.
+تكون الطلبات أكثر فعاليةً عندما تكون واضحة ومفصّلة. إذا كان لديك ناتج محدّد في ذهنك، من الأفضل تضمين هذا الشرط في الطلب لضمان الحصول على الناتج المطلوب.
 
-Para esta imagen de un panel de aeropuerto, pedirle al modelo que simplemente “describa esta imagen” podría generar una descripción general. Si necesitas que el modelo analice la hora y la ciudad de la imagen, puedes incluir esa solicitud directamente en tu instrucción.
+بالنسبة إلى هذه الصورة التي تعرض لوحة في المطار، قد يؤدي الطلب من النموذج "وصف هذه الصورة" إلى إنشاء وصف عام. إذا كنت بحاجة إلى أن يحلّل النموذج الوقت والمدينة من الصورة، يمكنك تضمين هذا الطلب مباشرةً في طلبك.
 
-| Instrucción | Respuesta del modelo |
+| الطلب | ردّ النموذج |
 | --- | --- |
-| Describe esta imagen. | En la imagen, se muestra el panel de llegadas y salidas de un aeropuerto. |
+| صِف هذه الصورة. | تعرض الصورة لوحة مواعيد الوصول والمغادرة في المطار. |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| Tablero de horarios de viajes Analiza la hora y la ciudad del panel de aeropuerto que se muestra en esta imagen y crea una lista con esos datos. | - 10:50 Moscú - 11:05 Edimburgo - 11:05 Londres - 11:10 Bucarest - 11:30 Kiev - 11:35 Dublín - 11:45 Midlands del Este - 12:15 Sofía - 12:30 Londres - 12:30 Newcastle - 12:40 San Petersburgo - 12:40 Londres - 12:45 Mánchester |
+| جدول مواعيد السفر حوِّل الوقت والمدينة من لوحة المطار الظاهرة في هذه الصورة إلى قائمة. | - ‫10:50 بتوقيت موسكو - ‫11:05 إدنبرة - ‫11:05 لندن - ‫11:10 بوخارست - ‫11:30 صباحًا بتوقيت كييف - ‫11:35 دبلن - ‫11:45 شرق ميدلاندز - ‫12:15 صوفيا - ‫12:30 لندن - ‫12:30 نيوكاسل - ‫12:40 سانت بطرسبرغ - ‫12:40 لندن - ‫12:45 مانشستر |
 
-### Agrega algunos ejemplos
+### إضافة بعض الأمثلة
 
-El modelo Gemini puede aceptar varias entradas, que puede usar como ejemplos para comprender el resultado que deseas. Agregar estos ejemplos puede ayudar a que el modelo identifique los patrones y aplique la relación entre las imágenes y respuestas dadas al ejemplo nuevo. Esto también se conoce como aprendizaje "con varios ejemplos".
+يمكن لنموذج Gemini قبول مدخلات متعددة يمكنه استخدامها كأمثلة لفهم الناتج الذي تريده. يمكن أن تساعد إضافة هذه الأمثلة النموذج في تحديد الأنماط وتطبيق العلاقة بين الصور والردود المحدّدة على المثال الجديد. يُعرف ذلك أيضًا باسم التعلّم ببضع فُرَص.
 
-En el siguiente ejemplo, el resultado inicial está escrito en forma de oración y también contiene el país (Brasil). Supongamos que deseas obtener el resultado en un formato o estilo diferente y solo quieres la ciudad, no el país. Agregar ejemplos de pocos intentos a tu prompt puede hacer que el modelo responda de la manera que deseas.
+في المثال أدناه، تمت كتابة الناتج الأولي في شكل جملة، كما أنّه يتضمّن البلد (البرازيل). لنفترض أنّك تريد الناتج بتنسيق أو أسلوب مختلفين، وأنّك تريد المدينة فقط، وليس البلد. يمكن أن يؤدي إضافة أمثلة قليلة إلى طلبك إلى توجيه النموذج للاستجابة بالطريقة التي تريدها.
 
-| **Instrucción** | **Respuesta del modelo** |
+| **الطلب** | **ردّ النموذج** |
 | --- | --- |
-| Tablero de horarios de viajes Determina la ciudad junto con el punto de referencia. | El punto de referencia es la estatua del Cristo Redentor de Río de Janeiro, Brasil. |
+| جدول مواعيد السفر حدِّد المدينة والمعلم. | المعلم البارز هو تمثال "المسيح الفادي" في ريو دي جانيرو، البرازيل. |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| Determina la ciudad junto con el punto de referencia. coliseo | ciudad: Roma, punto de referencia: el Coliseo. |
-| La Ciudad Prohibida | ciudad: Beijing, punto de referencia: la Ciudad Prohibida |
-| La Ciudad Prohibida | ciudad: Río de Janeiro, punto de referencia: estatua del Cristo Redentor |
+| حدِّد المدينة والمعلم. كولوسيوم | المدينة: روما، المعلم: الكولوسيوم |
+| المدينة المحرمة | المدينة: بكين، المعلم: المدينة المحرّمة |
+| forbidden-city | مدينة: ريو دي جانيرو، معلم: تمثال المسيح الفادي |
 
-### Desglósala paso a paso
+### التقسيم إلى خطوات
 
-Para tareas complejas, como las que requieren comprensión visual y razonamiento, puede ser útil dividir la tarea en pasos más pequeños y sencillos. Como alternativa, también podría ser efectivo si le pides al modelo que "piense paso a paso" en el prompt.
+بالنسبة إلى المهام المعقّدة، مثل تلك التي تتطلّب فهمًا بصريًا واستدلالاً، قد يكون من المفيد تقسيم المهمة إلى خطوات أصغر وأكثر وضوحًا. يمكنك أيضًا أن تطلب من النموذج مباشرةً "التفكير خطوة بخطوة" في طلبك.
 
-| Instrucción | Respuesta del modelo |
+| الطلب | ردّ النموذج |
 | --- | --- |
-| ¿Cuándo se me acabará el papel higiénico? | Pronto, solo te quedan 3 rollos. |
+| متى سينتهي ورق المرحاض؟ | سيتبقى لديك قريبًا 3 لفات فقط. |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| 1. Primero, cuenta cuántos rollos de papel higiénico hay en esta imagen.  2. Luego, determina cuánto papel higiénico usa una persona común por día.  3. Calcula cuánto durarán estos rollos de papel higiénico. | 1. En esta imagen, hay 3 rollos de papel higiénico.  2. Una persona común usa alrededor de 20 hojas de papel higiénico por día.  3. Si cada rollo contiene 200 hojas, cada uno durará alrededor de 10 días. Por lo tanto, los 3 rollos durarán aproximadamente un mes. |
+| 1. أولاً، احسب عدد لفات ورق المرحاض في هذه الصورة.  ‫2. بعد ذلك، حدِّد كمية ورق المرحاض التي يستخدمها الشخص العادي يوميًا.  ‫3. احسب المدة التي ستكفيك فيها لفات ورق المرحاض هذه. | 1. تتضمّن هذه الصورة 3 لفات من ورق المرحاض.  ‫2. يستخدم الشخص العادي حوالي 20 ورقة من ورق التواليت يوميًا.  ‫3. إذا كانت كل لفة تحتوي على 200 ورقة، ستكفي كل لفة لمدة 10 أيام تقريبًا. وبالتالي، ستدوم اللفات الثلاث لمدة شهر تقريبًا. |
 
-Los problemas matemáticos y otros tipos de problemas de palabras son excelentes opciones para pedirle al modelo que piense paso a paso.
+تُعدّ المسائل الرياضية أو الأنواع الأخرى من المسائل الكلامية خيارًا رائعًا لطلب
+من النموذج التفكير خطوة بخطوة.
 
-| **Instrucción** | **Respuesta** |
+| **الطلب** | **الردّ** |
 | --- | --- |
-| ¿Cuál es el cuarto término de la secuencia? | -135 |
+| ما هو الحد الرابع في المتسلسلة؟ | -135 |
 
-La respuesta del modelo es incorrecta. Algunas formas de mejorar esto son pedirle al modelo que analice el problema antes de responder al prompt.
+الردّ الذي قدّمه النموذج غير صحيح. يمكنك تحسين ذلك من خلال الطلب من النموذج تحليل المشكلة قبل الإجابة عن الطلب.
 
-| **Instrucción** | **Respuesta** |
+| **الطلب** | **الردّ** |
 | --- | --- |
-| Analiza primero la fórmula de la imagen.  Luego, en función de la fórmula, responde “¿Cuál es el cuarto término de la secuencia?”. | *Haz clic para expandir el resultado* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Sustituye n = 4 en la fórmula:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. No sabemos el valor de b(3), así que sustituye n = 3 en la fórmula:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. No sabemos el valor de b(2), así que sustituye n = 2 en la fórmula:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Sabemos que el valor de b(1) es 15, por lo que debes sustituirlo en la fórmula:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Ahora que conocemos el valor de b(2), reemplázalo por b(3) en la fórmula:  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Ahora que conocemos el valor de b(3), reemplázalo en la fórmula por b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Por lo tanto, el cuarto término de la secuencia es -405. |
+| عليك أولاً تحليل الصيغة في الصورة.  بعد ذلك، استنادًا إلى الصيغة، أجب عن السؤال "ما هو الحد الرابع في المتسلسلة؟". | *انقر لتوسيع النتيجة* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. استبدِل قيمة n بـ 4 في الصيغة:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. لا نعرف قيمة b(3)، لذا نعوّض عن n = 3 في الصيغة:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. لا نعرف قيمة b(2)، لذا نعوّض عن n بالقيمة 2 في الصيغة:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. نعرف أنّ قيمة b(1) هي 15، لذا نعوّض بها في الصيغة:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. بعد أن عرفنا قيمة b(2)، نعوّض بها في صيغة b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. بعد أن عرفنا قيمة b(3)، نعوّض بها في صيغة b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   وبالتالي، يكون الحد الرابع في المتسلسلة هو -405. |
 
-Esta respuesta del modelo es correcta. Ahora, para que la respuesta sea aún más optimizada, puedes pedirle al modelo que piense paso a paso.
+ردّ النموذج هذا صحيح، ولكن لجعل الردّ أكثر سلاسة، يمكنك أن تطلب من النموذج التفكير خطوة بخطوة.
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| ¿Cuál es el cuarto término de la secuencia? Piensa paso a paso. | El primer término es 15.  El segundo término es b(1) \* (-3) = 15 \* (-3) = -45.  El tercer término es b(2) \* (-3) = -45 \* (-3) = 135.  El cuarto término es b(3) \* (-3) = 135 \* (-3) = -405. |
+| ما هو الحد الرابع في المتسلسلة؟ فكِّر خطوة بخطوة. | الحدّ الأول هو 15.  الحد الثاني هو b(1) \* (-3) = 15 \* (-3) = -45.  الحد الثالث هو b(2) \* (-3) = -45 \* (-3) = 135.  الحد الرابع هو b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### Especifica el formato del resultado
+### تحديد تنسيق الإخراج
 
-Un problema común es la necesidad de que el resultado del modelo esté en un formato determinado (p.ej., Markdown, JSON, HTML), en especial si el resultado del modelo debe transferirse mediante una tarea descendente. Puedes intentar que el modelo produzca un resultado en ese formato indicándoselo en la instrucción. A continuación, se muestran dos ejemplos:
+من المشاكل الشائعة الحاجة إلى أن تكون نتائج النموذج بتنسيق معيّن (مثل Markdown أو JSON أو HTML)، خاصةً إذا كانت نتائج النموذج بحاجة إلى أن يتم استيعابها من خلال مهمة لاحقة. يمكنك محاولة إنتاج مخرجات بهذا التنسيق
+من خلال توجيه النموذج إلى ذلك ضمن الطلب. في ما يلي مثالان:
 
-| Instrucción | Respuesta del modelo |
+| الطلب | ردّ النموذج |
 | --- | --- |
-| Analiza la tabla en esta imagen en formato Markdown | | Asignatura | Estado | Tiempo | Fecha de inicio | Fecha de entrega |  | ------- | ------ | ---- | ---------- | ------ |  | Matemáticas | Listo | 1.5 h | 29/11/2023 | 1/12/2023 |  | Geografía | Listo | 30 min | 2/12/2023 | 4/12/2023 |  | Física | En curso | 2 h | 3/12/2023 | 5/12/2023 |  | Biología | No iniciado | 6 h | 2/11/2016 | 6/12/2023 | |
+| تحليل الجدول في هذه الصورة إلى تنسيق Markdown | | الموضوع | الحالة | الوقت | تاريخ البدء | تاريخ الاستحقاق |  | ------- | ------ | ---- | ---------- | ------ |  | رياضيات | تم | 1.5 ساعة | 29/11/2023 | 1/12/2023 |  | الموقع الجغرافي | تمّت | 30 دقيقة | 2/12/2023 | 4/12/2023 |  | الفيزياء | قيد التقدم | ساعتان | 3/12/2023 | 5/12/2023 |  | علم الأحياء | لم تبدأ | 6 ساعات | 2/11/2016 | 6/12/2023 | |
 
-| **Instrucción** | **Respuesta del modelo** |
+| **الطلب** | **ردّ النموذج** |
 | --- | --- |
-| Proporciona una lista de todos los atributos siguientes:  ingredientes, tipo de cocina, vegetariano o no, en formato JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| قدِّم قائمة بجميع السمات التالية:  المكوّنات ونوع المطبخ ونباتي أو غير نباتي، بتنسيق JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### Coloca primero la imagen para prompts de una sola imagen
+### وضع صورتك أولاً في الطلبات التي تتضمّن صورة واحدة
 
-Si bien Gemini puede interpretar la imagen y el texto en cualquier orden dentro de una instrucción, colocar una sola imagen antes de la instrucción de texto puede generar mejores resultados. En las siguientes muestras, notarás que la imagen se coloca primero antes del texto en cada instrucción.
+مع أنّ Gemini يمكنه تفسير الصورة والنص بأي ترتيب ضمن الطلب، قد يؤدي وضع صورة واحدة قبل الطلب النصي إلى تحقيق نتائج أفضل. في النماذج التالية، ستلاحظ أنّ الصورة تأتي أولاً قبل النص في كل طلب.
 
-### Soluciona los problemas de tu instrucción multimodal
+### تحديد المشاكل في الطلب المتعدد الوسائط وحلّها
 
-Es posible que debas solucionar los problemas de tu instrucción si no obtienes una respuesta útil. Estas son algunas estrategias que puedes probar.
+قد تحتاج إلى تحديد المشكلة في طلبك وحلّها إذا لم تحصل على ردّ مفيد. إليك بعض الاستراتيجيات التي يمكنك تجربتها.
 
-#### Si el modelo no extrae información de la parte relevante de la imagen
+#### إذا كان النموذج لا يستخلص المعلومات من الجزء ذي الصلة في الصورة
 
-Para obtener una respuesta más específica, puedes indicar desde qué aspectos de la imagen deseas que la instrucción extraiga información para generar su respuesta.
+للحصول على ردّ أكثر تحديدًا، يمكنك الإشارة إلى الجوانب التي تريد أن يستند إليها الطلب في استخلاص المعلومات لتضمينها في الردّ.
 
-| Instrucción | Respuesta del modelo |
+| الطلب | ردّ النموذج |
 | --- | --- |
-| ¿Cuántos días durarán estos pañales para un bebé? | Los pañales se acabarán en 198 días. |
+| كم عدد الأيام التي ستكفي فيها هذه الحفاضات الطفل؟ | ستكفي الحفاضات لمدة 198 يومًا قبل أن تنتهي. |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| ¿Cuánto durarán estos pañales antes de acabarse?  Usa el peso que se muestra en la caja para determinar la edad del bebé y usa la cantidad total de pañales que aparece en la caja.  Divide la cantidad total por la cantidad de pañales que el bebé usa en un día. | La caja contiene 198 pañales. La caja indica que los pañales son para niños que pesan entre 10 y 17 kg.  Es probable que el niño promedio de este rango de peso tenga entre 1 y 2 años.  Por lo general, un niño de 2 años usa 6 pañales por día. Por lo tanto, durarán aproximadamente 33 días (198/6). |
+| كم من الوقت ستدوم هذه الحفاضات قبل أن تنتهي؟  استخدِم الوزن الموضّح على العلبة لتحديد عمر الطفل، واستخدِم إجمالي عدد الحفاضات في العلبة.  قسِّم العدد الإجمالي على عدد الحفاضات التي يستخدمها الطفل في اليوم الواحد. | يحتوي الصندوق على 198 حفاضة، ويشير إلى أنّ الحفاضات مناسبة لطفل يزن 22 إلى 37 رطلاً.  من المرجّح أنّ متوسط عمر الطفل في هذا النطاق من الوزن يتراوح بين سنة واحدة وسنتين.  يستخدم الطفل البالغ من العمر عامَين عادةً 6 حفاضات في اليوم، وبالتالي ستدوم الحفاضات حوالي 33 يومًا (198/6). |
 
-#### Si el resultado del modelo es demasiado genérico y no se adapta lo suficiente a la entrada de imagen
+#### إذا كانت مخرجات النموذج عامة جدًا وغير مخصّصة بشكل كافٍ للصورة المُدخَلة
 
-Para ayudar a que el modelo adapte su respuesta a las imágenes, pídele que las describa antes de realizar su tarea de razonamiento.
+لمساعدة النموذج في تخصيص رده وفقًا للصور، جرِّب أن تطلب منه وصف الصور قبل تنفيذ مهمة الاستنتاج.
 
-| Instrucción | Respuesta del modelo |
+| الطلب | ردّ النموذج |
 | --- | --- |
-| ¿Qué tienen en común estas imágenes? | Las cuatro imágenes son ejemplos de fotografías horizontales. |
+| ما هو الشيء المشترك بين هذه الصور؟ | جميع الصور الأربع هي أمثلة على التصوير الفوتوغرافي للمناظر الطبيعية. |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| Primero, describe el contenido de cada imagen en detalle. ¿Qué tienen en común estas imágenes? | En la primera imagen, se muestra a una persona empacando una maleta. La segunda imagen muestra un pasillo vacío en un centro comercial. La tercera imagen muestra un rollo de papel higiénico. La cuarta imagen muestra un mar oscuro y tormentoso.  La común entre estas imágenes es que todos son ejemplos de espacios liminales. Los espacios liminales son lugares o situaciones que se encuentran entre otros dos lugares o situaciones. A menudo, se caracterizan por un sentido de incertidumbre o ambigüedad.  La primera imagen muestra a la persona entre estar en casa y estar de viaje. La segunda imagen muestra el pasillo entre dos tiendas. La tercera imagen es de papel higiénico, que puede representar un baño. Un baño es un espacio de transición entre el ámbito privado y el público. Es un lugar donde nos preparamos para ir al mundo exterior o para dejarlo.  En la cuarta imagen, se muestra el mar entre la calma y la tormenta.  Los espacios liminales pueden ser emocionantes e inquietantes. Pueden ser un lugar de nuevos comienzos o de finales. Pueden ser un lugar de reflexión o un lugar de acción. |
+| ابدأ بوصف محتوى كل صورة بالتفصيل. ما هو الشيء المشترك بين هذه الصور؟ | تعرض الصورة الأولى شخصًا يحزم حقيبة سفر، وتعرض الصورة الثانية ممرًا فارغًا في مركز تسوّق، وتعرض الصورة الثالثة لفة ورق حمام، وتعرض الصورة الرابعة بحرًا مظلمًا وعاصفًا.  القاسم المشترك بين هذه الصور هو أنّها كلها أمثلة على المساحات الحدّية. المساحات الحدّية هي أماكن أو مواقف تقع بين مكانَين أو موقفَين آخرَين. وغالبًا ما تتميّز هذه الألعاب بإحساس بعدم اليقين أو الغموض.  تعرض الصورة الأولى شخصًا في مكان وسيط بين المنزل والرحلة، بينما تعرض الصورة الثانية ممرًا وسيطًا بين متجرَين، أما الصورة الثالثة فتُظهر ورق حمام، وهو ما يرمز إلى الحمّام الذي يمثّل مكانًا وسيطًا بين المساحات الخاصة والعامة، وهو المكان الذي نستعد فيه للدخول إلى العالم الخارجي أو مغادرته.  تعرض الصورة الرابعة البحر بين الهدوء والعاصفة.  يمكن أن تكون المساحات الحدّية مثيرة ومزعجة في الوقت نفسه، ويمكن أن تكون مكانًا لبدايات جديدة أو نهايات، أو مكانًا للتفكير أو العمل. |
 
-También puedes intentar solicitar explícitamente que el modelo haga referencia a lo que hay en la imagen.
+يمكنك أيضًا تجربة الطلب من النموذج بشكل صريح الإشارة إلى ما يظهر في الصورة.
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| ¿Qué tienen en común estas imágenes? Consulta el contenido de las imágenes en tu respuesta. | Todas las imágenes están relacionadas con viajes. La primera imagen muestra a una persona empacando una maleta; la segunda, un pasillo vacío en un centro comercial; la tercera imagen, una pila de papel higiénico, y la cuarta imagen, un mar oscuro y tormentoso.  Todas estas imágenes están relacionadas con viajes porque son todo lo que las personas necesitan o usan cuando viajan. La primera imagen muestra a una persona empacando una maleta, que es lo que suelen hacer las personas cuando van a realizar un viaje. La segunda muestra un pasillo vacío en un centro comercial, que es un lugar donde las personas suelen ir a comprar artículos para sus viajes. La tercera imagen muestra una pila de papel higiénico, algo que la gente suele usar cuando viaja. La cuarta imagen muestra un mar oscuro y tormentoso, algo que las personas suelen encontrar cuando viajan. |
+| ما هو الشيء المشترك بين هذه الصور؟ يجب أن تشير في ردّك إلى محتوى الصور. | جميع الصور مرتبطة بالسفر. تعرض الصورة الأولى شخصًا يحزم حقيبة، وتعرض الصورة الثانية ممرًا فارغًا في مركز تسوّق، وتعرض الصورة الثالثة رزمة من ورق المرحاض، وتعرض الصورة الرابعة بحرًا مظلمًا وعاصفًا.  هذه الصور مرتبطة بالسفر لأنّها تتضمّن أشياء يحتاجها الأشخاص أو يستخدمونها عند السفر. تُظهر الصورة الأولى شخصًا يحزم حقيبة سفر، وهو أمر يفعله الأشخاص عندما يذهبون في رحلة. تُظهر الصورة الثانية ممرًا فارغًا في مركز تسوّق، وهو مكان يذهب إليه الأشخاص غالبًا لشراء أشياء لرحلاتهم. تُظهر الصورة الثالثة رزمة من ورق المرحاض، وهو شيء يستخدمه الأشخاص غالبًا عند السفر. تُظهر الصورة الرابعة بحرًا مظلمًا وعاصفًا، وهو شيء يواجهه الأشخاص غالبًا عند السفر. |
 
-Las mismas sugerencias funcionan para obtener un resultado creativo a partir de imágenes. En el siguiente ejemplo con el conejo, pedirle explícitamente al modelo que incluya aspectos de la imagen puede mejorar el resultado.
+تنطبق النصائح نفسها على النتائج الإبداعية المستندة إلى الصور. في المثال التالي الذي يتضمّن الأرنب، يمكن أن يؤدي الطلب الصريح من النموذج تضمين جوانب من الصورة إلى تحسين النتيجة.
 
-| Instrucción | Respuesta del modelo |
+| الطلب | ردّ النموذج |
 | --- | --- |
-| ¿Puedes escribirme un poema sobre esta imagen? | Conejito, tan suave y marrón,  que salta por el campo arriba y abajo.  Tus orejas tan largas y tan pequeña tu cola,  Eres la criatura más tierna de todas.  Mordisqueas el pasto, tan verde y suave,  Y huyes saltando cuando me veas.  Pero siempre tendrás mi amistad,  Conejito, hasta el final. |
+| هل يمكنك كتابة قصيدة حول هذه الصورة؟ | أرنب صغير، ناعم وبني،  يقفز في الحقل، صعودًا وهبوطًا،  أذناك طويلتان وذيلك صغير،  أنت ألطف مخلوق على الإطلاق.  تأكل العشب الأخضر الحلو  وتقفز بعيدًا عندما تراني.  سأبقى صديقك دائمًا،  يا أرنبي الصغير، حتى النهاية. |
 
-| **Prompt actualizado** | **Respuesta mejorada** |
+| **طلب معدَّل** | **ردود محسّنة** |
 | --- | --- |
-| ¿Puedes escribirme un poema descriptivo y dramático sobre esta imagen y también incluir la ubicación? | Conejito sobre el verde,  Orejas tan largas y agudas.  ¿Qué ves allí,  En la distancia, donde observas?  ¿Es el océano azul  Que brilla con el sol?  ¿O bien las olas que chocan y rugen,  Un ritmo que te adoras?  Pequeño conejo, dime la verdad,  ¿qué capta tu atención?  ¿La brisa salada  o el llanto de las gaviotas?  Quizás sea la enormidad de todo,  Un mundo tan grande y pequeño.  Un lugar donde los deseos pueden viajar,  y las historias se pueden sembrar.  Conejito, me pregunto qué soñarás,  mientras te sientas en el césped, tan sereno.  ¿Te animas a explorar la profundidad?  ¿O te quedarás en la tierra, donde puedes saltar?  Sin importar cómo sea, conejito  Mantén esa chispa de asombro siempre brillante.  Porque en tus sueños y deseos,  hay un mundo que espera tu creación. |
+| هل يمكنك كتابة قصيدة وصفية مؤثرة حول هذه الصورة وتضمين الموقع الجغرافي فيها؟ | أرنب صغير على العشب الأخضر،  أذناه طويلتان وحادتان.  ماذا ترى في الأفق البعيد،  حيث تحدّق بنظرك؟  هل هو لون البحر الأزرق  اللامع تحت أشعة الشمس؟  أم الأمواج التي تتلاطم وتزمجر  بإيقاع يعجبك؟  أرنب صغير، أخبرني الحقيقة،  ما الذي يلفت انتباهك؟  هل هي نسمة البحر المالحة،  أم صرخات النورس التي تسعدك؟  ربما يكمن الجمال في اتساع العالم،  عالم كبير وصغير في الوقت نفسه،  مكان يمكن أن تتجوّل فيه الأحلام،  ويمكن أن تنبت فيه المغامرات.  أيها الأرنب الصغير، أتساءل عمّا تحلم به،  بينما تجلس على العشب، هادئًا جدًا.  هل تتوق إلى استكشاف الأعماق،  أم تفضّل البقاء على الأرض، حيث يمكنك القفز؟  مهما كان حلمك يا أرنبي الصغير،  حافظ على شغفك متوهّجًا،  ففي أحلامك وطموحاتك  يختبئ عالم ينتظر إبداعك. |
 
-#### Soluciona problemas de qué parte del prompt falló
+#### تحديد الجزء الذي تعذّر تنفيذه من الطلب وحلّ المشكلة
 
-Puede ser difícil saber si un prompt falló porque el modelo no **entendió la imagen** en primer lugar, o si la entendió, pero no realizó los **pasos de razonamiento** correctos después.
-Para distinguir los motivos, pídele al modelo que describa el contenido de la imagen.
+قد يصعب معرفة ما إذا كان الطلب قد فشل لأنّ النموذج لم **يفهم الصورة** في البداية، أو لأنّه فهم الصورة ولكنّه لم ينفّذ **خطوات الاستنتاج** الصحيحة بعد ذلك. ولتوضيح الفرق بين هذين السببين، اطلب من النموذج وصف محتوى الصورة.
 
-En el siguiente ejemplo, si el modelo responde con un bocadillo que parece extraño en combinación con el té (p.ej., palomitas de maíz), el primer paso para solucionar el problema es determinar si el modelo reconoció correctamente que la imagen contiene té.
+في المثال التالي، إذا ردّ النموذج بوجبة خفيفة تبدو غير متوقعة عند تناولها مع الشاي (مثل الفشار)، يمكنك أولاً تحديد المشاكل لمعرفة ما إذا كان النموذج قد تعرّف بشكل صحيح على أنّ الصورة تحتوي على شاي.
 
-| Instrucción | Prompt para solucionar problemas |
+| الطلب | طلب تحديد المشاكل وحلّها |
 | --- | --- |
-| ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? | Describe el contenido de esta imagen. |
+| ما هي الوجبة الخفيفة التي يمكنني إعدادها في دقيقة واحدة وتتناسب مع هذا؟ | صِف محتوى هذه الصورة. |
 
-Otra estrategia es pedirle al modelo que explique su razonamiento. Eso puede ayudarte a limitar qué parte del razonamiento falló, si la hubiera.
+هناك استراتيجية أخرى تتمثل في مطالبة النموذج بتوضيح أسباب استنتاجاته. ويمكن أن يساعدك ذلك في
+تحديد الجزء الذي حدث فيه خطأ في الاستنتاج، إن وُجد.
 
-| Instrucción | Prompt para solucionar problemas |
+| الطلب | طلب تحديد المشاكل وحلّها |
 | --- | --- |
-| ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? | ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? Explica por qué. |
+| ما هي الوجبة الخفيفة التي يمكنني إعدادها في دقيقة واحدة وتتناسب مع هذا؟ | ما هي الوجبة الخفيفة التي يمكنني إعدادها في دقيقة واحدة وتتناسب مع هذا؟ يُرجى توضيح السبب. |
 
-## ¿Qué sigue?
+## الخطوات التالية
 
-- Intenta escribir tus propias instrucciones multimodales con [Google AI Studio](http://aistudio.google.com?hl=es-419).
-- Si quieres obtener información para usar la API de Gemini Files para subir archivos multimedia y agregarlos a tus instrucciones, consulta las guías de [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=es-419), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419) y [Procesamiento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419).
-- Para obtener más orientación sobre el diseño de instrucciones, como el ajuste de los parámetros de muestreo, consulta la página [Estrategias de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=es-419).
+- يمكنك تجربة كتابة طلبات متعددة الوسائط باستخدام [Google AI
+  Studio](http://aistudio.google.com?hl=ar).
+- للحصول على معلومات حول استخدام Gemini Files API لتحميل ملفات الوسائط وتضمينها في طلباتك، راجِع أدلة [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=ar) و[الصوت](https://ai.google.dev/gemini-api/docs/audio?hl=ar) و[معالجة المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar).
+- للحصول على مزيد من الإرشادات حول تصميم الطلبات، مثل ضبط مَعلمات أخذ العيّنات، يمكنك الاطّلاع على صفحة [استراتيجيات الطلبات](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar).
 
-Enviar comentarios
+إرسال ملاحظات
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última actualización: 2026-06-10 (UTC)
+تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-¿Quieres brindar más información?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-10 (UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

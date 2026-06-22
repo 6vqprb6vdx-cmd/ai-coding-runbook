@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=th
-fetched_at: 2026-06-15T06:18:15.119649+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/document-processing
+fetched_at: 2026-06-22T06:31:53.386078+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
+- [Docs](https://ai.google.dev/gemini-api/docs)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+# Document understanding
 
-ส่งความคิดเห็น
+Gemini models can process documents in PDF format, using native
+vision to understand entire document contexts. This goes beyond
+just text extraction, allowing Gemini to:
 
-# การทำความเข้าใจเอกสาร
+- Analyze and interpret content, including text, images, diagrams,
+  charts, and tables, even in long documents up to 1000 pages.
+- Extract information into [structured output](https://ai.google.dev/gemini-api/docs/interactions/structured-output) formats.
+- Summarize and answer questions based on both the visual and textual elements
+  in a document.
+- Transcribe document content (e.g. to HTML), preserving layouts and
+  formatting, for use in downstream applications.
 
-โมเดล Gemini สามารถประมวลผลเอกสารในรูปแบบ PDF โดยใช้
-Vision ดั้งเดิมเพื่อทำความเข้าใจบริบทของเอกสารทั้งฉบับ ซึ่งจะช่วยให้ Gemini ทำสิ่งต่อไปนี้ได้
-นอกเหนือจากการดึงข้อความ
+You can also pass non-PDF documents in the same way but Gemini will see them
+as normal text which will eliminate context like charts or formatting.
 
-- วิเคราะห์และตีความเนื้อหา รวมถึงข้อความ รูปภาพ แผนภาพ
-  แผนภูมิ และตาราง แม้ในเอกสารขนาดยาวที่มีมากถึง 1,000 หน้า
-- ดึงข้อมูลลงในรูปแบบ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=th)
-- สรุปและตอบคำถามโดยอิงตามทั้งองค์ประกอบภาพและข้อความ
-  ในเอกสาร
-- ถอดเสียงเนื้อหาเอกสาร (เช่น เป็น HTML) โดยคงเลย์เอาต์และการจัดรูปแบบไว้เพื่อใช้ในแอปพลิเคชันดาวน์สตรีม
+## Passing PDF data inline
 
-นอกจากนี้ คุณยังส่งเอกสารที่ไม่ใช่ PDF ในลักษณะเดียวกันได้ แต่ Gemini จะเห็นเอกสารเหล่านั้นเป็นข้อความปกติ ซึ่งจะไม่มีบริบท เช่น แผนภูมิหรือการจัดรูปแบบ
+You can pass PDF data inline in the request. This is best
+suited for smaller documents or temporary processing where you don't need to
+reference the file in subsequent requests. We recommend using the
+[Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing#large-pdfs)
+for larger documents that you need to refer to in multi-turn interactions to
+improve request latency and reduce bandwidth usage.
 
-## การส่งข้อมูล PDF แบบอินไลน์
-
-คุณส่งข้อมูล PDF แบบอินไลน์ในคำขอได้ วิธีนี้เหมาะที่สุดสำหรับเอกสารขนาดเล็กหรือการประมวลผลชั่วคราวซึ่งคุณไม่จำเป็นต้องอ้างอิงไฟล์ในคำขอที่ตามมา เราขอแนะนำให้ใช้
-[Files API](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=th#large-pdfs)
-สำหรับเอกสารขนาดใหญ่ที่คุณต้องอ้างอิงในการโต้ตอบแบบหลายรอบเพื่อ
-ปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์
-
-ตัวอย่างต่อไปนี้แสดงวิธีส่งข้อมูล PDF ในบรรทัด
+The following example shows you how to pass PDF data inline:
 
 ### Python
 
@@ -125,7 +125,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-นอกจากนี้ คุณยังอัปโหลดไฟล์ PDF ในเครื่องเพื่อประมวลผลได้ด้วย โดยทำดังนี้
+You can also upload a local PDF file for processing:
 
 ### Python
 
@@ -176,13 +176,15 @@ async function main() {
 main();
 ```
 
-## การอัปโหลด PDF โดยใช้ Files API
+## Uploading PDFs using the Files API
 
-เราขอแนะนำให้คุณใช้ Files API สำหรับไฟล์ขนาดใหญ่หรือเมื่อต้องการนำเอกสารกลับมาใช้ซ้ำในคำขอหลายรายการ ซึ่งจะช่วยปรับปรุงเวลาในการตอบสนองของคำขอและลดการใช้แบนด์วิดท์ด้วยการแยกการอัปโหลดไฟล์ออกจากคำขอโมเดล
+We recommend you use Files API for larger files or when you intend to reuse a
+document across multiple requests. This improves request latency and reduces
+bandwidth usage by decoupling the file upload from the model requests.
 
-### PDF ขนาดใหญ่จาก URL
+### Large PDFs from URLs
 
-ใช้ File API เพื่อลดความซับซ้อนในการอัปโหลดและประมวลผลไฟล์ PDF ขนาดใหญ่จาก URL โดยทำดังนี้
+Use the File API to simplify uploading and processing large PDF files from URLs:
 
 ### Python
 
@@ -336,7 +338,7 @@ rm "${DISPLAY_NAME}.pdf"
 rm payload.json
 ```
 
-### PDF ขนาดใหญ่ที่จัดเก็บไว้ในเครื่อง
+### Large PDFs stored locally
 
 ### Python
 
@@ -457,8 +459,9 @@ echo
 jq ".steps[-1].content[0].text" response.json
 ```
 
-คุณสามารถยืนยันว่า API จัดเก็บไฟล์ที่อัปโหลดเรียบร้อยแล้วและรับข้อมูลเมตาของไฟล์ได้โดยการเรียกใช้ [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=th) มีเพียง `name`
-(และ `uri`) เท่านั้นที่ไม่ซ้ำกัน
+You can verify the API successfully stored the uploaded file and get its
+metadata by calling [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get). Only the `name`
+(and by extension, the `uri`) are unique.
 
 ### Python
 
@@ -490,11 +493,11 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## ส่ง PDF หลายไฟล์
+## Passing multiple PDFs
 
-Gemini API สามารถประมวลผลเอกสาร PDF หลายรายการ (สูงสุด 1, 000 หน้า)
-ในคำขอเดียวได้ ตราบใดที่ขนาดรวมของเอกสารและพรอมต์ข้อความ
-ยังคงอยู่ภายในหน้าต่างบริบทของโมเดล
+The Gemini API is capable of processing multiple PDF documents (up to 1000 pages)
+in a single request, as long as the combined size of the documents and the text
+prompt stays within the model's context window.
 
 ### Python
 
@@ -686,55 +689,73 @@ rm "file_info_${DISPLAY_NAME_1}.json"
 rm "file_info_${DISPLAY_NAME_2}.json"
 ```
 
-## รายละเอียดทางเทคนิค
+## Technical details
 
-Gemini รองรับไฟล์ PDF ที่มีขนาดไม่เกิน 50 MB หรือ 1,000 หน้า ขีดจํากัดนี้มีผล
-ทั้งกับข้อมูลแบบอินไลน์และการอัปโหลดผ่าน Files API หน้าเอกสารแต่ละหน้าจะเท่ากับโทเค็น 258 รายการ
+Gemini supports PDF files up to 50MB or 1000 pages. This limit applies
+to both inline data and Files API uploads. Each document page is equivalent to 258
+tokens.
 
-แม้จะไม่มีขีดจำกัดที่เฉพาะเจาะจงสำหรับจำนวนพิกเซลในเอกสารนอกเหนือจาก[หน้าต่างบริบท](https://ai.google.dev/gemini-api/docs/long-context?hl=th)ของโมเดล แต่ระบบจะปรับขนาดหน้าเว็บที่ใหญ่ขึ้นให้มีความละเอียดสูงสุด 3072 x 3072 โดยยังคงอัตราส่วนเดิมไว้ ส่วนหน้าเว็บที่เล็กลงจะได้รับการปรับขนาดเป็น 768 x 768 พิกเซล ไม่มีการลดต้นทุนสำหรับหน้าเว็บที่มีขนาดเล็กลงนอกเหนือจากแบนด์วิดท์ หรือการปรับปรุงประสิทธิภาพสำหรับหน้าเว็บที่มีความละเอียดสูงขึ้น
+While there are no specific limits to the number of pixels in a document besides
+the model's [context window](https://ai.google.dev/gemini-api/docs/long-context), larger pages are
+scaled down to a maximum resolution of 3072 x 3072 while preserving their original
+aspect ratio, while smaller pages are scaled up to 768 x 768 pixels. There is no
+cost reduction for pages at lower sizes, other than bandwidth, or performance
+improvement for pages at higher resolution.
 
-### โมเดล Gemini 3
+### Gemini 3 models
 
-Gemini 3 มีการควบคุมแบบละเอียดเกี่ยวกับการประมวลผลวิสัยทัศน์แบบมัลติโมดอลด้วยพารามิเตอร์ `media_resolution`
-ตอนนี้คุณสามารถตั้งค่าความละเอียดเป็นต่ำ ปานกลาง หรือสูงสำหรับสื่อแต่ละส่วนได้แล้ว การเพิ่มฟีเจอร์นี้จะอัปเดตการประมวลผลเอกสาร PDF ดังนี้
+Gemini 3 introduces granular control over multimodal vision processing with the
+`media_resolution` parameter. You can now set the resolution to low, medium, or
+high per individual media part. With this addition, the processing of PDF
+documents has been updated:
 
-1. **การรวมข้อความดั้งเดิม:** ระบบจะดึงข้อความที่ฝังอยู่ใน PDF
-   และส่งให้โมเดล
-2. **การเรียกเก็บเงินและการรายงานโทเค็น:**
-   - ระบบ**ไม่เรียกเก็บเงิน**สำหรับโทเค็นที่มาจาก**ข้อความดั้งเดิม**ที่ดึงออกมาใน PDF
-   - ในส่วน `usage_metadata` ของการตอบกลับของ API ตอนนี้ระบบจะนับโทเค็นที่สร้างขึ้น
-     จากการประมวลผลหน้า PDF (เป็นรูปภาพ) ภายใต้รูปแบบ `IMAGE`
-     ไม่ใช่รูปแบบ `DOCUMENT` แยกต่างหากเหมือนในบางเวอร์ชันก่อนหน้า
+1. **Native text inclusion:** Text natively embedded in the PDF is extracted
+   and provided to the model.
+2. **Billing & token reporting:**
+   - You are **not charged** for tokens originating from the extracted
+     **native text** in PDFs.
+   - In the `usage_metadata` section of the API response, tokens generated
+     from processing PDF pages (as images) are now counted under the `IMAGE`
+     modality, not a separate `DOCUMENT` modality as in some earlier
+     versions.
 
-### ประเภทเอกสาร
+### Document types
 
-ในทางเทคนิค คุณสามารถส่ง MIME ประเภทอื่นๆ สำหรับการทำความเข้าใจเอกสารได้ เช่น TXT, Markdown, HTML, XML ฯลฯ อย่างไรก็ตาม Document Vision ***จะเข้าใจเฉพาะ PDF เท่านั้น*** ส่วนไฟล์ประเภทอื่นๆ จะได้รับการแยกเป็นข้อความธรรมดา และโมเดล
-จะไม่สามารถตีความสิ่งที่เห็นในการแสดงผลไฟล์เหล่านั้นได้ รายละเอียดของประเภทไฟล์ เช่น แผนภูมิ ไดอะแกรม แท็ก HTML การจัดรูปแบบ Markdown ฯลฯ จะหายไป
+Technically, you can pass other MIME types for document understanding, like
+TXT, Markdown, HTML, XML, etc. However, document vision ***only meaningfully
+understands PDFs***. Other types will be extracted as pure text, and the model
+won't be able to interpret what we see in the rendering of those files. Any
+file-type specifics like charts, diagrams, HTML tags, Markdown formatting, etc.,
+will be lost.
 
-ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ ได้ที่คู่มือ[วิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods?hl=th)
+To learn about other file input methods, see the
+[File input methods](https://ai.google.dev/gemini-api/docs/interactions/file-input-methods) guide.
 
-### แนวทางปฏิบัติแนะนำ
+### Best practices
 
-เพื่อผลลัพธ์ที่ดีที่สุด ให้ทำดังนี้
+For best results:
 
-- หมุนหน้าให้เป็นการวางแนวที่ถูกต้องก่อนอัปโหลด
-- หลีกเลี่ยงหน้าเว็บที่เบลอ
-- หากใช้หน้าเดียว ให้วางพรอมต์ข้อความไว้หลังหน้า
+- Rotate pages to the correct orientation before uploading.
+- Avoid blurry pages.
+- If using a single page, place the text prompt after the page.
 
-## ขั้นตอนถัดไป
+## What's next
 
-ดูข้อมูลเพิ่มเติมได้ที่แหล่งข้อมูลต่อไปนี้
+To learn more, see the following resources:
 
-- [กลยุทธ์การเขียนพรอมต์ด้วยไฟล์](https://ai.google.dev/gemini-api/docs/interactions/files?hl=th#prompt-guide): Gemini API รองรับการเขียนพรอมต์ด้วยข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ ซึ่งเรียกอีกอย่างว่าการเขียนพรอมต์แบบหลายรูปแบบ
-- [คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/interactions/text-generation?hl=th#system-instructions):
-  คำสั่งของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตามความต้องการและกรณีการใช้งานเฉพาะของคุณได้
+- [File prompting strategies](https://ai.google.dev/gemini-api/docs/interactions/files#prompt-guide): The
+  Gemini API supports prompting with text, image, audio, and video data, also
+  known as multimodal prompting.
+- [System instructions](https://ai.google.dev/gemini-api/docs/interactions/text-generation#system-instructions):
+  System instructions let you steer the behavior of the model based on your
+  specific needs and use cases.
 
-ส่งความคิดเห็น
+Send feedback
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-อัปเดตล่าสุด 2026-06-01 UTC
+Last updated 2026-06-18 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Need to tell us more?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

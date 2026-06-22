@@ -1,28 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions/gemini-3?hl=zh-TW
-fetched_at: 2026-06-15T06:17:48.912922+00:00
+source_url: https://ai.google.dev/gemini-api/docs/interactions/gemini-3
+fetched_at: 2026-06-22T06:31:39.245011+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+- [Home](https://ai.google.dev/)
+- [Gemini API](https://ai.google.dev/gemini-api)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview)
 
-Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+Send feedback
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions/interactions-overview?hl=zh-tw)
+# Gemini 3 Developer Guide
 
-提供意見
+Gemini 3 is our most intelligent model family to date, built on a foundation of
+state-of-the-art reasoning. It is designed to bring any idea to life by
+mastering agentic workflows, autonomous coding, and complex multimodal tasks.
+This guide covers key features of the Gemini 3 model family and how to get the
+most out of it.
 
-# Gemini 3 開發人員指南
+Explore our [collection of Gemini 3 apps](https://aistudio.google.com/app/apps?source=showcase&showcaseTag=gemini-3) to
+see how the model handles advanced reasoning, autonomous coding, and complex
+multimodal tasks.
 
-Gemini 3 是我們至今最強大的模型系列，以最先進的推論技術為基礎。這項工具可掌握代理式工作流程、自主編碼和複雜的多模態工作，將任何想法化為現實。本指南將介紹 Gemini 3 模型系列的主要功能，以及如何充分發揮這些功能。
-
-歡迎瀏覽 [Gemini 3 應用程式系列](https://aistudio.google.com/app/apps?source=showcase&%3BshowcaseTag=gemini-3&hl=zh-tw)，瞭解這款模型如何處理進階推論、自主程式設計和複雜的多模態工作。
-
-只要編寫幾行程式碼，即可開始使用：
+Get started with a few lines of code:
 
 ### Python
 
@@ -71,47 +73,60 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 認識 Gemini 3 系列
+## Meet the Gemini 3 series
 
-Gemini 3.1 Pro 最適合處理複雜任務，這類任務需要廣泛的世界知識，以及跨模態的進階推論能力。
+Gemini 3.1 Pro is best for complex tasks that
+require broad world knowledge and advanced reasoning across modalities.
 
-Gemini 3 Flash 是我們最新的 3 系列模型，具備 Pro 級智慧，但速度和價格與 Flash 相同。
+Gemini 3 Flash is our latest 3-series model, with Pro-level intelligence at the
+speed and pricing of Flash.
 
-Nano Banana Pro (又稱 Gemini 3 Pro Image) 是 Google 最高品質的圖像生成模型，而 Nano Banana 2 (又稱 Gemini 3.1 Flash Image) 則具備高產量、高效率和低價位等優勢。
+Nano Banana Pro (also known as Gemini 3 Pro Image) is our highest quality image
+generation model, and Nano Banana 2 (also known as Gemini 3.1 Flash Image) is
+the high-volume, high-efficiency, lower price-point equivalent.
 
-Gemini 3.1 Flash-Lite 是我們的主力模型，專為高成本效益模型和大量工作而打造。
+Gemini 3.1 Flash-Lite is our workhorse model built for cost-efficiency model and
+high-volume tasks.
 
-所有 Gemini 3 模型目前皆為預先發布版。
+All Gemini 3 models are currently in preview.
 
-| 模型 ID | 背景期間 (進 / 出) | 知識截點 | 定價 (輸入 / 輸出)\* |
+| Model ID | Context Window (In / Out) | Knowledge Cutoff | Pricing (Input / Output)\* |
 | --- | --- | --- | --- |
-| **gemini-3.1-flash-lite** | 100 萬次 / 6.4 萬次 | 2025 年 1 月 | $0.25 (文字、圖片、影片)、$0.50 (音訊) / $1.50 |
-| **gemini-3.1-flash-image-preview** | 128k / 32k | 2025 年 1 月 | $0.25 (文字輸入) / $0.067 (圖片輸出)\*\* |
-| **gemini-3.1-pro-preview** | 100 萬次 / 6.4 萬次 | 2025 年 1 月 | $2 美元 / $12 美元 (少於 20 萬個權杖)   $4 美元 / $18 美元 (超過 20 萬個權杖) |
-| **gemini-3-flash-preview** | 100 萬次 / 6.4 萬次 | 2025 年 1 月 | $0.50 / $3 |
-| **gemini-3-pro-image-preview** | 65,000 / 32,000 | 2025 年 1 月 | $2 (文字輸入) / $0.134 (圖片輸出)\*\* |
+| **gemini-3.1-flash-lite** | 1M / 64k | Jan 2025 | $0.25 (text, image, video), $0.50 (audio) / $1.50 |
+| **gemini-3.1-flash-image-preview** | 128k / 32k | Jan 2025 | $0.25 (Text Input) / $0.067 (Image Output)\*\* |
+| **gemini-3.1-pro-preview** | 1M / 64k | Jan 2025 | $2 / $12 (<200k tokens)   $4 / $18 (>200k tokens) |
+| **gemini-3-flash-preview** | 1M / 64k | Jan 2025 | $0.50 / $3 |
+| **gemini-3-pro-image-preview** | 65k / 32k | Jan 2025 | $2 (Text Input) / $0.134 (Image Output)\*\* |
 
-*\* 除非另有註明，否則價格以每 100 萬個權杖為單位。*
-*\*\* 圖片價格會因解析度而異。詳情請參閱[定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。*
+*\* Pricing is per 1 million tokens unless otherwise noted.*
+*\*\* Image pricing varies by resolution. See the [pricing page](https://ai.google.dev/gemini-api/docs/pricing) for details.*
 
-如需詳細的限制、定價和其他資訊，請參閱[模型頁面](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw)。
+For detailed limits, pricing, and additional information, see the
+[models page](https://ai.google.dev/gemini-api/docs/models/gemini).
 
-## Gemini 3 的新 API 功能
+## New API features in Gemini 3
 
-Gemini 3 推出全新參數，讓開發人員進一步掌控延遲時間、成本和多模態準確度。
+Gemini 3 introduces new parameters designed to give developers more control over
+latency, cost, and multimodal fidelity.
 
-### 思考程度
+### Level of thinking
 
-Gemini 3 系列模型預設會使用動態思考功能，根據提示進行推論。您可以使用 `thinking_level` 參數，控制模型產生回覆前，內部推論過程的**最大**深度。Gemini 3 會將這些層級視為思考的相對配額，而非嚴格的權杖保證。
+Gemini 3 series models use dynamic thinking by default to reason through
+prompts. You can use the `thinking_level` parameter, which controls the
+**maximum** depth of the model's internal reasoning process before it produces a
+response. Gemini 3 treats these levels as relative allowances for thinking
+rather than strict token guarantees.
 
-如未指定 `thinking_level`，Gemini 3 會預設為 `high`。如果不需要複雜的推論，可以將模型的思考層級限制為 `low`，加快回覆速度並降低延遲。
+If `thinking_level` is not specified, Gemini 3 will default to `high`. For
+faster, lower-latency responses when complex reasoning isn't required, you can
+constrain the model's thinking level to `low`.
 
-| 思考程度 | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | 說明 |
+| Thinking Level | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Description |
 | --- | --- | --- | --- | --- |
-| **`minimal`** | 不支援 | 支援 (預設) | 支援 | 對於大多數查詢，這項設定與「不思考」相同。模型可能會以極簡思維處理複雜的程式碼編寫工作。將聊天或高處理量應用程式的延遲時間降到最低。請注意，`minimal` 無法保證思考功能已關閉。 |
-| **`low`** | 支援 | 支援 | 支援 | 盡量縮短延遲時間並降低成本。最適合用於遵循簡單指令、即時通訊或高總處理量應用程式。 |
-| **`medium`** | 支援 | 支援 | 支援 | 思考能力均衡，適合處理大多數工作。 |
-| **`high`** | 支援 (預設、動態) | 支援 (動態) | 支援 (預設、動態) | 盡可能深入推論。模型可能需要較長時間才能產生第一個 (非思考) 輸出權杖，但輸出內容會經過更仔細的推論。 |
+| **`minimal`** | Not supported | Supported (Default) | Supported | Matches the "no thinking" setting for most queries. The model may think very minimally for complex coding tasks. Minimizes latency for chat or high throughput applications. Note, `minimal` does not guarantee that thinking is off. |
+| **`low`** | Supported | Supported | Supported | Minimizes latency and cost. Best for simple instruction following, chat, or high-throughput applications. |
+| **`medium`** | Supported | Supported | Supported | Balanced thinking for most tasks. |
+| **`high`** | Supported (Default, Dynamic) | Supported (Dynamic) | Supported (Default, Dynamic) | Maximizes reasoning depth. The model may take significantly longer to reach a first (non thinking) output token, but the output will be more carefully reasoned. |
 
 ### Python
 
@@ -163,24 +178,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 溫度
+### Temperature
 
-對於所有 Gemini 3 模型，我們強烈建議將溫度參數維持在預設值 `1.0`。
+For all Gemini 3 models, we strongly recommend keeping the temperature parameter
+at its default value of `1.0`.
 
-先前的模型通常會調整溫度參數，以控制創意與確定性，但 Gemini 3 的推論能力已針對預設設定進行最佳化。變更溫度參數 (設為低於 1.0) 可能會導致非預期的行為，例如迴圈或效能降低，特別是在複雜的數學或推論工作方面。
+While previous models often benefited from tuning temperature to control
+creativity versus determinism, Gemini 3's reasoning capabilities are optimized
+for the default setting. Changing the temperature (setting it below 1.0) may
+lead to unexpected behavior, such as looping or degraded performance,
+particularly in complex mathematical or reasoning tasks.
 
-### 想法簽名
+### Thought signatures
 
-Gemini 3 模型會使用思維簽章，在 API 呼叫之間維持推理情境。這些簽章是模型內部思考過程的加密表示法。
+Gemini 3 models use thought signatures to maintain reasoning context across API calls. These signatures are encrypted representations of the model's internal thought process.
 
-- **有狀態模式 (建議)**：在有狀態模式下使用 Interactions API (提供 `previous_interaction_id`) 時，伺服器會自動管理對話記錄和想法簽章。
-- **無狀態模式**：如果手動管理對話記錄，後續要求必須包含附有簽章的思維方塊，才能驗證真偽。
+- **Stateful Mode (Recommended)**: When using the Interactions API in stateful mode (providing `previous_interaction_id`), the server automatically manages conversation history and thought signatures.
+- **Stateless Mode**: If you are managing conversation history manually, you must include thought blocks with their signatures in subsequent requests to validate authenticity.
 
-詳情請參閱「[Thought Signatures](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-tw)」頁面。
+For detailed information, see the [Thought Signatures](https://ai.google.dev/gemini-api/docs/interactions/thinking) page.`
 
-### 使用工具輸出結構化內容
+### Structured Outputs with tools
 
-Gemini 3 模型可讓您結合[結構化輸出](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-tw)與內建工具，包括[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-tw)、[網址脈絡](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)、[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)和[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)。
+Gemini 3 models allow you to combine [Structured Outputs](https://ai.google.dev/gemini-api/docs/interactions/structured-output) with built-in tools, including
+[Grounding with Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search), [URL Context](https://ai.google.dev/gemini-api/docs/interactions/url-context), [Code Execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution), and [Function Calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling).
 
 ### Python
 
@@ -294,17 +315,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 圖像生成
+### Image generation
 
-Gemini 3.1 Flash Image 和 Gemini 3 Pro Image 可根據文字提示生成及編輯圖像。這項功能會運用推論能力「思考」提示詞，並擷取即時資料 (例如天氣預報或股票圖表)，然後使用 [Google 搜尋](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-tw)建立基準，生成高保真圖片。
+Gemini 3.1 Flash Image and Gemini 3 Pro Image let you generate and edit images
+from text prompts. It uses
+reasoning to "think" through a prompt and can retrieve real-time data—such as
+weather forecasts or stock charts—before using [Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search) grounding before generating high-fidelity
+images.
 
-**全新和改良功能：**
+**New & improved capabilities:**
 
-- **4K 和文字算繪：**生成清晰易讀的文字和圖表，最高可達 2K 和 4K 解析度。
-- **以真實世界為基準生成圖像：**使用 `google_search` 工具驗證事實，並根據真實世界資訊生成圖像。透過 Google *圖片*搜尋建立基準，適用於 Gemini 3.1 Flash Image。
-- **對話式修圖：**只要說出想編輯的內容 (例如「將背景換成日落」)，即可多輪編輯圖像。這個工作流程會使用**思維簽章**，在對話輪次之間保留視覺情境。
+- **4K & text rendering:** Generate sharp, legible text and diagrams with up
+  to 2K and 4K resolutions.
+- **Grounded generation:** Use the `google_search` tool to verify facts and
+  generate imagery based on real-world information. Grounding with Google *Image*
+  Search available for Gemini 3.1 Flash Image.
+- **Conversational editing:** Multi-turn image editing by simply asking for
+  changes (e.g., "Make the background a sunset"). This workflow relies on
+  **Thought Signatures** to preserve visual context between turns.
 
-如要進一步瞭解長寬比、編輯工作流程和設定選項，請參閱[圖片生成指南](https://ai.google.dev/gemini-api/docs/interactions/image-generation?hl=zh-tw)。
+For complete details on aspect ratios, editing workflows, and configuration
+options, see the [Image Generation guide](https://ai.google.dev/gemini-api/docs/interactions/image-generation).
 
 ### Python
 
@@ -383,21 +414,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**範例回應**
+**Example Response**
 
-![東京天氣](https://ai.google.dev/static/gemini-api/docs/images/weather-tokyo.jpg?hl=zh-tw)
+![Weather Tokyo](https://ai.google.dev/static/gemini-api/docs/images/weather-tokyo.jpg)
 
-### 使用圖片執行程式碼
+### Code Execution with images
 
-Gemini 3 Flash 可將影像視為主動調查，而不只是靜態瀏覽。模型會結合推論和[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)功能，制定計畫，然後編寫及執行 Python 程式碼，逐步放大、裁剪、註解或以其他方式處理圖片，以便根據視覺內容提供答案。
+Gemini 3 Flash can treat vision as an active investigation, not just a static
+glance. By combining reasoning with [code execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution), the model formulates a plan, then writes and
+executes Python code to zoom in, crop, annotate, or otherwise manipulate images
+step-by-step to visually ground its answers.
 
-**用途：**
+**Use cases:**
 
-- **縮放及檢查：**模型會隱含地偵測細節是否過小 (例如讀取遠處的儀表或序號)，並編寫程式碼來裁剪及重新檢查高解析度的區域。
-- **視覺化數學和繪圖：**模型可以使用程式碼執行多步驟計算 (例如加總收據上的項目，或從擷取的資料產生 Matplotlib 圖表)。
-- **圖片註解：**模型可以直接在圖片上繪製箭頭、標示方塊或其他註解，回答「這個項目應該放在哪裡？」等空間問題。
+- **Zoom and inspect:** The model implicitly detects when details are too
+  small (e.g., reading a distant gauge or serial number) and writes code to crop
+  and re-examine the area at higher resolution.
+- **Visual math and plotting:** The model can run multi-step calculations using
+  code (e.g., summing line items on a receipt, or generating a Matplotlib chart
+  from extracted data).
+- **Image annotation:** The model can draw arrows, bounding boxes, or other
+  annotations directly onto images to answer spatial questions like "Where should
+  this item go?".
 
-如要啟用視覺化思考功能，請將「程式碼執行」設定為工具。模型會在必要時自動使用程式碼來處理圖片。
+To enable visual thinking, configure [Code Execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution) as a tool. The model will automatically use
+code to manipulate images when needed.
 
 ### Python
 
@@ -525,13 +566,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-如要進一步瞭解如何使用圖片執行程式碼，請參閱「[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw#images)」。
+For more details on code execution with images, see [Code Execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution#images).
 
-### 多模態函式回覆
+### Multimodal function responses
 
-[多模態函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw#multimodal)
-可讓使用者取得包含多模態物件的函式回覆，
-進而更充分運用模型的函式呼叫功能。標準函式呼叫功能僅支援以文字為基礎的函式回應：
+[Multimodal function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling#multimodal)
+allows users to have function responses containing
+multimodal objects allowing for improved utilization of function calling
+capabilities of the model. Standard function calling only supports text-based
+function responses:
 
 ### Python
 
@@ -708,9 +751,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 結合內建工具和函式呼叫
+### Combine built-in tools and function calling
 
-Gemini 3 允許在同一個 API 呼叫中使用內建工具 (例如 Google 搜尋、網址內容和[更多](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw)) 和自訂[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)工具，實現更複雜的工作流程。
+Gemini 3 allows the use of built-in tools (like Google Search, URL
+context, and [more](https://ai.google.dev/gemini-api/docs/tools)) and custom [function calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling) tools in the same API call, allowing for
+more complex workflows.
 
 ### Python
 
@@ -818,51 +863,99 @@ if (fcStep) {
 }
 ```
 
-## 從 Gemini 2.5 遷移
+## Migration from Gemini 2.5
 
-Gemini 3 是我們迄今最強大的模型系列，相較於 Gemini 2.5，各方面都有顯著提升。遷移時，請注意以下事項：
+Gemini 3 is our most capable model family to date and offers a stepwise
+improvement over Gemini 2.5. When migrating, consider the following:
 
-- **思考型：**如果你先前使用複雜的提示工程 (例如思緒鏈) 強迫 Gemini 2.5 推理，請試用 Gemini 3 和 `thinking_level: "high"`，並簡化提示。
-- **溫度參數設定：**如果現有程式碼明確設定溫度參數 (尤其是將溫度參數設為低值，以產生確定性輸出內容)，建議您移除這個參數，並使用 Gemini 3 的預設值 1.0，以免在複雜工作上發生潛在的迴圈問題或效能下降。
-- **PDF 和文件理解：**
-  如果您依賴特定行為來剖析密集文件，請測試新的 `media_resolution_high` 設定，確保準確度不受影響。
-- **符記用量：**遷移至 Gemini 3 預設值後，PDF 的符記用量可能會**增加**，但影片的符記用量會**減少**。如果預設解析度提高，導致要求超出脈絡窗口，建議您明確降低媒體解析度。
-- **影像分割：**Gemini 3 Pro 或 Gemini 3 Flash 不支援影像分割功能 (傳回物件的像素層級遮罩)。如要處理需要內建影像分割功能的工作負載，建議繼續使用 Gemini 2.5 Flash (關閉思考功能) 或 [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-tw)。
-- **電腦用途：**Gemini 3 Pro 和 Gemini 3 Flash 支援[電腦用途](https://ai.google.dev/gemini-api/docs/interactions/computer-use?hl=zh-tw)。與 2.5 系列不同，您不必使用其他模型就能存取電腦使用工具。
-- **工具支援**：Gemini 3 模型現在支援[結合內建工具和函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=zh-tw)。Gemini 3 模型現在也支援[地圖基礎](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=zh-tw)。
+- **Thinking:** If you were previously using complex prompt engineering (like
+  chain of thought) to force Gemini 2.5 to reason, try Gemini 3 with
+  `thinking_level: "high"` and simplified prompts.
+- **Temperature settings:** If your existing code explicitly sets temperature
+  (especially to low values for deterministic outputs), we recommend removing this
+  parameter and using the Gemini 3 default of 1.0 to avoid potential looping
+  issues or performance degradation on complex tasks.
+- **PDF & document understanding:**
+  If you relied on specific behavior for dense document parsing, test the new
+  `media_resolution_high` setting to ensure continued accuracy.
+- **Token consumption:** Migrating to Gemini 3 defaults may **increase** token
+  usage for PDFs but **decrease** token usage for video. If requests now exceed
+  the context window due to higher default resolutions, we recommend explicitly
+  reducing the media resolution.
+- **Image segmentation:** Image segmentation capabilities (returning pixel-level
+  masks for objects) are not supported in Gemini 3 Pro or Gemini 3 Flash. For
+  workloads requiring built-in image segmentation, we recommend continuing to
+  utilize Gemini 2.5 Flash with thinking turned off or [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview).
+- **Computer Use:** Gemini 3 Pro and Gemini 3 Flash support [Computer
+  Use](https://ai.google.dev/gemini-api/docs/interactions/computer-use). Unlike the 2.5 series, you don't need to
+  use a separate model to access the Computer Use tool.
+- **Tool support**: [Combining built-in tools with function calling](https://ai.google.dev/gemini-api/docs/interactions/tool-combination) is now supported for Gemini 3 models. [Maps
+  grounding](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding) is also now supported for Gemini 3
+  models.
 
-## OpenAI 相容性
+## OpenAI compatibility
 
-如果使用者採用 [OpenAI 相容性層](https://ai.google.dev/gemini-api/docs/openai?hl=zh-tw)，系統會自動將標準參數 (OpenAI 的 `reasoning_effort`) 對應至 Gemini (`thinking_level`) 對等項目。
+For users utilizing the [OpenAI compatibility layer](https://ai.google.dev/gemini-api/docs/openai),
+standard parameters (OpenAI's `reasoning_effort`) are automatically mapped to
+Gemini (`thinking_level`) equivalents.
 
-## 提示最佳做法
+## Prompting best practices
 
-Gemini 3 是推論模型，因此提示方式有所不同。
+Gemini 3 is a reasoning model, which changes how you should prompt.
 
-- **明確的指令：**輸入提示時請簡潔扼要。Gemini 3 最能根據直接明確的指令回覆。如果使用舊版模型，系統可能會過度分析冗長或過於複雜的提示工程技術。
-- **輸出內容詳細程度：**Gemini 3 預設會提供簡潔的回覆，並盡量直接給出有效率的答案。如果您的用途需要更具對話感或「健談」的角色，請務必在提示中明確引導模型 (例如「以友善健談的助理身分說明這件事」)。
-- **脈絡管理：**處理大型資料集 (例如整本書、程式碼集或長篇影片) 時，請將具體指令或問題放在提示結尾的資料脈絡之後。在問題開頭使用「根據上述資訊...」等詞組，讓模型根據提供的資料進行推論。
+- **Precise instructions:** Be concise in your input prompts. Gemini 3 responds
+  best to direct, clear instructions. It may over-analyze verbose or overly
+  complex prompt engineering techniques used for older models.
+- **Output verbosity:** By default, Gemini 3 is less verbose and prefers
+  providing direct, efficient answers. If your use case requires a more
+  conversational or "chatty" persona, you must explicitly steer the model in the
+  prompt (e.g., "Explain this as a friendly, talkative assistant").
+- **Context management:** When working with large datasets (e.g., entire books,
+  codebases, or long videos), place your specific instructions or questions at the
+  end of the prompt, after the data context. Anchor the model's reasoning to the
+  provided data by starting your question with a phrase like, "Based on the
+  preceding information...".
 
-如要進一步瞭解提示設計策略，請參閱[提示工程指南](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw)。
+Learn more about prompt design strategies in the [prompt engineering guide](https://ai.google.dev/gemini-api/docs/prompting-strategies).
 
-## 常見問題
+## FAQ
 
-1. **Gemini 3 的知識截點為何？**Gemini 3 模型所具備的知識截點為 2025 年 1 月。如需最新資訊，請使用[搜尋基礎](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-tw)工具。
-2. **脈絡窗口的限制為何？**Gemini 3 模型支援 100 萬個詞元的輸入脈絡窗口，以及最多 64,000 個詞元的輸出。
-3. **Gemini 3 是否提供免費方案？**Gemini 3 Flash
-   `gemini-3-flash-preview` 在 Gemini API 中提供免費方案。您可以在 Google AI Studio 免付費試用 Gemini 3.1 Pro 和 3 Flash，但 Gemini API 的 `gemini-3.1-pro-preview` 沒有免付費方案。
-4. **舊的 `thinking_budget` 程式碼是否仍可運作？**可以，`thinking_budget` 仍支援回溯相容性，但建議遷移至 `thinking_level`，以獲得更可預測的效能。請勿在同一項要求中同時使用這兩者。
-5. **Gemini 3 是否支援 Batch API？**可以，Gemini 3 支援 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)。
-6. **是否支援脈絡快取？**是，Gemini 3 支援[脈絡快取](https://ai.google.dev/gemini-api/docs/interactions/caching?hl=zh-tw)。
-7. **Gemini 3 支援哪些工具？**Gemini 3 支援 [Google 搜尋](https://ai.google.dev/gemini-api/docs/interactions/google-search?hl=zh-tw)、[利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding?hl=zh-tw)、[檔案搜尋](https://ai.google.dev/gemini-api/docs/interactions/file-search?hl=zh-tw)、[程式碼執行](https://ai.google.dev/gemini-api/docs/interactions/code-execution?hl=zh-tw)和[網址內容](https://ai.google.dev/gemini-api/docs/interactions/url-context?hl=zh-tw)。此外，也支援標準的[函式呼叫](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=zh-tw)，可搭配自訂工具使用，並[與內建工具一併使用](https://ai.google.dev/gemini-api/docs/interactions/tool-combination?hl=zh-tw)。
-8. **什麼是 `gemini-3.1-pro-preview-customtools`？**如果您使用 `gemini-3.1-pro-preview`，但模型忽略自訂工具，改用 bash 指令，請改用 `gemini-3.1-pro-preview-customtools` 模型。詳情請參閱 [這篇文章][customtools-model]。
+1. **What is the knowledge cutoff for Gemini 3?** Gemini 3 models have a
+   knowledge cutoff of January 2025. For more recent information, use the
+   [Search Grounding](https://ai.google.dev/gemini-api/docs/interactions/google-search) tool.
+2. **What are the context window limits?** Gemini 3 models support a 1 million
+   token input context window and up to 64k tokens of output.
+3. **Is there a free tier for Gemini 3?** Gemini 3 Flash
+   `gemini-3-flash-preview` has a free tier in the Gemini API. You can try
+   Gemini 3.1 Pro and 3 Flash at no cost in Google AI Studio, but there
+   is no free tier available for `gemini-3.1-pro-preview` in the Gemini API.
+4. **Will my old `thinking_budget` code still work?** Yes, `thinking_budget` is
+   still supported for backward compatibility, but we recommend migrating to
+   `thinking_level` for more predictable performance. Don't use both in the same
+   request.
+5. **Does Gemini 3 support the Batch API?** Yes, Gemini 3 supports the
+   [Batch API](https://ai.google.dev/gemini-api/docs/batch-api).
+6. **Is Context Caching supported?** Yes, [Context Caching](https://ai.google.dev/gemini-api/docs/interactions/caching) is supported for Gemini 3.
+7. **Which tools are supported in Gemini 3?** Gemini 3 supports
+   [Google Search](https://ai.google.dev/gemini-api/docs/interactions/google-search),
+   [Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/interactions/maps-grounding),
+   [File Search](https://ai.google.dev/gemini-api/docs/interactions/file-search),
+   [Code Execution](https://ai.google.dev/gemini-api/docs/interactions/code-execution), and
+   [URL Context](https://ai.google.dev/gemini-api/docs/interactions/url-context). It also supports
+   standard [Function Calling](https://ai.google.dev/gemini-api/docs/interactions/function-calling) for
+   your own custom tools, and in
+   [combination with built-in tools](https://ai.google.dev/gemini-api/docs/interactions/tool-combination).
+8. **What is `gemini-3.1-pro-preview-customtools`?** If you are using
+   `gemini-3.1-pro-preview` and the model ignores your custom tools in favor of
+   bash commands, try the `gemini-3.1-pro-preview-customtools` model instead.
+   More info [here][customtools-model].
 
-提供意見
+Send feedback
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/), and code samples are licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0). For details, see the [Google Developers Site Policies](https://developers.google.com/site-policies). Java is a registered trademark of Oracle and/or its affiliates.
 
-上次更新時間：2026-05-29 (世界標準時間)。
+Last updated 2026-06-18 UTC.
 
-想進一步說明嗎？
+Need to tell us more?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-29 (世界標準時間)。"],[],[]]
+[[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],["Last updated 2026-06-18 UTC."],[],[]]

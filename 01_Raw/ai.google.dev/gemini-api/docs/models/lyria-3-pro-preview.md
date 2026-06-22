@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=vi
-fetched_at: 2026-06-15T06:27:05.140641+00:00
-title: "Lyria 3 Pro (B\u1ea3n d\u00f9ng th\u1eed) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=tr
+fetched_at: 2026-06-22T06:29:04.061132+00:00
+title: "Lyria 3 Pro \u00d6nizlemesi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Lyria 3 Pro (Bản dùng thử)
+# Lyria 3 Pro Önizlemesi
 
-Lyria 3 Pro Preview là mô hình tạo nhạc hàng đầu của Google. Mô hình này được tối ưu hoá để tạo các bài hát có thời lượng đầy đủ với cấu trúc phức tạp, bao gồm nhiều đoạn thơ, điệp khúc và đoạn chuyển. Mô hình này tạo ra âm thanh nổi 48 kHz chất lượng cao từ câu lệnh dạng văn bản hoặc dữ liệu đầu vào là hình ảnh.
+Lyria 3 Pro Önizleme, Google'ın amiral gemisi müzik üretme modelidir. Birden fazla kıta, nakarat ve köprü içeren, karmaşık yapısal tutarlılığa sahip tam uzunlukta şarkılar oluşturmak için optimize edilmiştir. Metin istemlerinden veya resim girişlerinden yüksek kaliteli, 48 kHz stereo ses üretir.
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=vi)
+[Google AI Studio'da deneme](https://aistudio.google.com/prompts/new_chat?model=lyria-3-pro-preview&hl=tr)
 
-## Tài liệu
+## Belgeler
 
-Hãy xem hướng dẫn về [Tính năng tạo nhạc](https://ai.google.dev/gemini-api/docs/music-generation?hl=vi) để biết thông tin đầy đủ về các tính năng và chức năng.
+Özellikler ve işlevler hakkında kapsamlı bilgi için [Müzik Üretme](https://ai.google.dev/gemini-api/docs/music-generation?hl=tr) kılavuzunu ziyaret edin.
 
 ## lyria-3-pro-preview
 
-| Thuộc tính | Mô tả |
+| Mülk | Açıklama |
 | --- | --- |
-| id\_cardMã kiểu máy | `lyria-3-clip-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản và hình ảnh  **Đầu ra**  Âm thanh (MP3), Văn bản (Lời bài hát) |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072 |
-| handymanChức năng | **Tạo âm thanh**  Được hỗ trợ  **Batch API**  Không được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Gọi hàm**  Không được hỗ trợ  **Kết nối với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Không được hỗ trợ  **Live API**  Không được hỗ trợ  **Tìm trong phần liên kết thực tế**  Không được hỗ trợ  **Đầu ra có cấu trúc**  Không được hỗ trợ  **Tư duy**  Không được hỗ trợ  **Bối cảnh URL**  Không được hỗ trợ |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Xem trước: `lyria-3-clip-preview` - Xem trước: `lyria-3-pro-preview` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 3 năm 2026 |
+| id\_cardModel kodu | `lyria-3-clip-preview` |
+| saveDesteklenen veri türleri | **Girişler**  Metin ve Resim  **Çıkış**  Ses (MP3), Metin (Şarkı Sözleri) |
+| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  131.072 |
+| handymanÖzellikler | **Ses üretimi**  Destekleniyor  **Batch API**  Desteklenmiyor  **Önbelleğe alma**  Desteklenmiyor  **Kod yürütme**  Desteklenmiyor  **Dosya arama**  Desteklenmiyor  **İşlev çağırma**  Desteklenmiyor  **Google Haritalar ile Temellendirme**  Desteklenmiyor  **Görüntü üretme**  Desteklenmiyor  **Live API**  Desteklenmiyor  **Arama temellendirme**  Desteklenmiyor  **Yapılandırılmış çıkışlar**  Desteklenmiyor  **Düşünme** (Thinking)  Desteklenmiyor  **URL bağlamı**  Desteklenmiyor |
+| 123Sürümleri | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) okuyun.  - Önizleme: `lyria-3-clip-preview` - Önizleme: `lyria-3-pro-preview` |
+| calendar\_monthSon güncelleme | Mart 2026 |
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]

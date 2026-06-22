@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he
-fetched_at: 2026-06-15T06:19:47.090465+00:00
-title: "\u05e2\u05d9\u05d2\u05d5\u05df \u05d1\u05e2\u05d6\u05e8\u05ea \u05de\u05e4\u05d5\u05ea Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko
+fetched_at: 2026-06-22T06:31:58.575034+00:00
+title: "Google \uc9c0\ub3c4\ub97c \uc0ac\uc6a9\ud55c \uadf8\ub77c\uc6b4\ub529 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-שליחת משוב
+의견 보내기
 
-# עיגון בעזרת מפות Google
+# Google 지도를 사용한 그라운딩
 
-עיגון בעזרת מפות Google מחבר בין היכולות הגנרטיביות של Gemini לבין הנתונים העשירים, העובדתיים והעדכניים של מפות Google. התכונה הזו מאפשרת למפתחים לשלב בקלות באפליקציות שלהם פונקציונליות שמבוססת על מיקום. כששאילתת משתמש מכילה הקשר שקשור לנתוני מפות, מודל Gemini משתמש במפות Google כדי לספק תשובות מדויקות מבחינה עובדתית ועדכניות שרלוונטיות למיקום הספציפי או לאזור הכללי שהמשתמש ציין.
+Google 지도 기반 그라운딩은 Gemini의 생성 기능을 Google 지도의 풍부하고 사실적이며 최신 데이터와 연결합니다. 이 기능을 사용하면 개발자가 위치 인식 기능을 애플리케이션에 손쉽게 통합할 수 있습니다. 사용자 쿼리에 지도 데이터와 관련된 컨텍스트가 있는 경우 Gemini 모델은 Google 지도를 활용하여 사용자가 지정한 위치 또는 대략적인 위치와 관련된 사실적으로 정확하고 최신 답변을 제공합니다.
 
-- **תשובות מדויקות שמודעות למיקום:** שימוש בנתונים המקיפים והעדכניים של מפות Google לשאילתות ספציפיות מבחינה גיאוגרפית.
-- **התאמה אישית משופרת:** התאמת ההמלצות והמידע על סמך המיקומים שהמשתמשים סיפקו.
+- **정확한 위치 인식 응답:** Google 지도의 광범위하고 최신 데이터를 지리적으로 구체적인 쿼리에 활용합니다.
+- **맞춤설정 개선:** 사용자 제공 위치를 기반으로 추천 및 정보를 맞춤설정합니다.
 
-## שנתחיל?
+## 시작하기
 
-בדוגמה הזו אפשר לראות איך לשלב את עיגון בעזרת מפות Google באפליקציה כדי לספק תשובות מדויקות לשאילתות של משתמשים, בהתאם למיקום שלהם. ההנחיה מבקשת המלצות מקומיות עם מיקום משתמש אופציונלי, ומאפשרת למודל Gemini להשתמש בנתונים של מפות Google.
+이 예에서는 Google 지도 기반 그라운딩을 애플리케이션에 통합하여 사용자 쿼리에 정확한 위치 인식 응답을 제공하는 방법을 보여줍니다. 프롬프트는 선택적 사용자 위치와 함께 지역 추천을 요청하여 Gemini 모델이 Google 지도 데이터를 사용할 수 있도록 합니다.
 
 ### Python
 
@@ -128,34 +128,38 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## איך עיגון בעזרת מפות Google עובד
+## Google 지도 기반 그라운딩 작동 방식
 
-עיגון בעזרת מפות Google משלב את Gemini API עם המערכת האקולוגית של Google Geo באמצעות Maps API כמקור לעיגון. כששאילתה של משתמש מכילה הקשר גיאוגרפי, מודל Gemini יכול להפעיל את הכלי Grounding עם מפות Google. לאחר מכן המודל יכול ליצור תשובות שמבוססות על נתונים ממפות Google שרלוונטיים למיקום שצוין.
+Google 지도 기반 그라운딩은 Maps API를 그라운딩 소스로 사용하여 Gemini API를 Google Geo 생태계와 통합합니다. 사용자 쿼리에 지리적 컨텍스트가 포함되어 있으면 Gemini 모델이 Google 지도 기반 그라운딩 도구를 호출할 수 있습니다. 그러면 모델이 제공된 위치와 관련된 Google 지도 데이터를 기반으로 응답을 생성할 수 있습니다.
 
-התהליך כולל בדרך כלל:
+이 프로세스에는 일반적으로 다음이 포함됩니다.
 
-1. **שאילתת משתמש:** משתמש שולח שאילתה לאפליקציה שלכם, שיכולה לכלול הקשר גיאוגרפי (לדוגמה, "בתי קפה בקרבתי", "מוזיאונים בסן פרנסיסקו").
-2. **הפעלת כלי:** מודל Gemini, שמזהה את הכוונה הגיאוגרפית, מפעיל את הכלי 'עיגון בעזרת מפות Google'. אפשר לספק לכלי הזה את `latitude` ו-`longitude` של המשתמש. הכלי הוא כלי לחיפוש טקסטואלי, והוא פועל באופן דומה לחיפוש במפות Google. כלומר, שאילתות מקומיות (למשל, 'בקרבתי') ישתמשו בקואורדינטות, בעוד ששאילתות ספציפיות או לא מקומיות לא יושפעו מהמיקום המפורש.
-3. **אחזור נתונים:** שירות עיגון בעזרת מפות Google שולח שאילתות למפות Google כדי לקבל מידע רלוונטי (לדוגמה, מקומות, ביקורות, תמונות, כתובות, שעות פתיחה).
-4. **יצירה מבוססת-קרקע:** נתוני המפות שאוחזרו משמשים ליצירת התשובה של מודל Gemini, כדי להבטיח דיוק עובדתי ורלוונטיות.
-5. **תשובה:** המודל מחזיר תשובה טקסטואלית, שכוללת ציטוטים ממקורות במפות Google.
+1. **사용자 쿼리:** 사용자가 지리적 컨텍스트 (예: '내 주변 카페', '샌프란시스코 박물관')를 포함할 수 있는 쿼리를 애플리케이션에 제출합니다.
+2. **도구 호출:** Gemini 모델이 지리적 의도를 인식하고 Google 지도 기반 그라운딩 도구를 호출합니다. 이 도구에는 선택적으로 사용자의 `latitude` 및 `longitude`가 제공될 수 있습니다. 이 도구는 텍스트 검색 도구이며 지도에서 검색하는 것과 유사하게 작동합니다. 즉, 지역 쿼리('내 주변')는 좌표를 사용하지만 구체적이거나 비지역 쿼리는 명시적 위치의 영향을 받지 않을 가능성이 높습니다.
+3. **데이터 검색:** Google 지도 기반 그라운딩 서비스는 Google 지도에 관련 정보 (예: 장소, 리뷰, 사진, 주소, 영업시간)를 쿼리합니다.
+4. **그라운딩된 생성:** 검색된 지도 데이터는 Gemini 모델의 응답에 정보를 제공하여 사실적 정확성과 관련성을 보장합니다.
+5. **응답:** 모델은 Google 지도 소스에 대한 인용을 포함하는 텍스트 응답을 반환합니다.
 
-## למה ומתי כדאי להשתמש בעיגון בעזרת מפות Google
+## Google 지도 기반 그라운딩을 사용해야 하는 이유와 시기
 
-עיגון בעזרת מפות Google מתאים במיוחד לאפליקציות שנדרש בהן מידע מדויק, עדכני וספציפי למיקום. הוא משפר את חוויית המשתמש באמצעות תוכן רלוונטי ומותאם אישית שמבוסס על מסד הנתונים הנרחב של מפות Google, שכולל יותר מ-250 מיליון מקומות ברחבי העולם.
+Google 지도 기반 그라운딩은 정확하고 최신이며 위치별 정보가 필요한 애플리케이션에 적합합니다. 전 세계 2억 5천만 개 이상의 장소에 대한 Google 지도의 광범위한 데이터베이스를 기반으로 관련성 높고 맞춤설정된 콘텐츠를 제공하여 사용자 환경을 개선합니다.
 
-כדאי להשתמש בעיגון בעזרת מפות Google כשהאפליקציה צריכה:
+애플리케이션에서 다음 작업을 해야 하는 경우 Google 지도 기반 그라운딩을 사용해야 합니다.
 
-- חשוב לענות על השאלות בצורה מקיפה ומדויקת.
-- פיתוח כלים לשיחה לתכנון טיולים ומדריכים מקומיים.
-- המלצה על נקודות עניין על סמך מיקום והעדפות משתמש, כמו מסעדות או חנויות.
-- ליצור חוויות מבוססות-מיקום לשירותים חברתיים, קמעונאיים או למשלוחי אוכל.
+- 지리적 질문에 대한 완전하고 정확한 답변을 제공합니다.
+- 대화형 여행 플래너 및 지역 가이드를 빌드합니다.
+- 음식점이나 상점과 같은 위치 및 사용자 선호도를 기반으로 관심 장소를 추천합니다.
+- 소셜, 소매 또는 음식 배달 서비스를 위한 위치 인식 환경을 만듭니다.
 
-עיגון בעזרת מפות Google מצטיין בתרחישי שימוש שבהם נתונים עדכניים ועובדתיים על קרבה הם קריטיים, כמו חיפוש של "בית הקפה הכי טוב בסביבה שלי" או קבלת הוראות הגעה.
+Google 지도 기반 그라운딩은 '내 주변 최고의 카페'를 찾거나 길을 찾는 것과 같이 근접성과 현재 사실 데이터가 중요한 사용 사례에서 뛰어납니다.
 
-## שיטות ופרמטרים של API
+## API 메서드 및 매개변수
 
-העיגון בעזרת מפות Google נחשף דרך Gemini API ככלי בשיטה [`generateContent`](https://ai.google.dev/api/generate-content?hl=he). כדי להפעיל ולהגדיר את עיגון בעזרת מפות Google, צריך לכלול אובייקט [`googleMaps`](https://ai.google.dev/api/caching?hl=he#GoogleMaps) בפרמטר `tools` של הבקשה.
+Google 지도 기반 그라운딩은 Gemini API를 통해 도구로 노출됩니다.
+[`generateContent`](https://ai.google.dev/api/generate-content?hl=ko) 메서드 내 요청의
+`tools` 매개변수에
+[`googleMaps`](https://ai.google.dev/api/caching?hl=ko#GoogleMaps) 객체를 포함하여 Google 지도 기반 그라운딩을
+사용 설정하고 구성합니다.
 
 ### JSON
 
@@ -170,7 +174,7 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }
 ```
 
-בנוסף, הכלי תומך בהעברת המיקום ההקשרי כ-`toolConfig`.
+또한 이 도구는 컨텍스트 위치를 `toolConfig`로 전달하는 것을 지원합니다.
 
 ### JSON
 
@@ -193,10 +197,11 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }
 ```
 
-### הסבר על התשובה שמתבססת על מידע
+### 그라운딩 응답 이해
 
-כשמבססים תגובה על נתונים ממפות Google, התגובה כוללת את השדה [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=he#GroundingMetadata).
-הנתונים המובנים האלה חיוניים לאימות ההצהרות וליצירת חוויית ציטוט עשירה באפליקציה, וגם לעמידה בדרישות השימוש בשירות.
+응답이 Google 지도 데이터로 성공적으로 그라운딩되면 응답에
+[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=ko#GroundingMetadata) 필드가 포함됩니다.
+이 구조화된 데이터는 서비스 사용 요구사항을 충족할 뿐만 아니라 애플리케이션에서 클레임을 확인하고 풍부한 인용 환경을 빌드하는 데 필수적입니다.
 
 ### JSON
 
@@ -243,20 +248,21 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }
 ```
 
-‫Gemini API מחזיר את המידע הבא עם [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=he#GroundingMetadata):
+Gemini API는
+[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=ko#GroundingMetadata)와 함께 다음 정보를 반환합니다.
 
-- ‫`groundingChunks`: מערך של אובייקטים שמכילים את מקורות `maps` (`uri`,‏ `placeId` ו-`title`).
-- ‫`groundingSupports`: מערך של מקטעים לחיבור טקסט התגובה של המודל למקורות ב-`groundingChunks`. כל מקטע מקשר בין טווח טקסט (מוגדר על ידי `startIndex` ו-`endIndex`) לבין `groundingChunkIndices` אחד או יותר. זהו המפתח ליצירת ציטוטים בגוף הטקסט.
+- `groundingChunks`: `maps` 소스 (`uri`, `placeId`, `title`)가 포함된 객체 배열입니다.
+- `groundingSupports`: 모델 응답 텍스트를 `groundingChunks`의 소스에 연결하는 청크 배열입니다. 각 청크는 텍스트 범위 (`startIndex` 및 `endIndex`로 정의됨)를 하나 이상의 `groundingChunkIndices`에 연결합니다. 이는 인라인 인용을 빌드하는 데 핵심입니다.
 
-לדוגמה של קטע קוד שמראה איך לרנדר ציטוטים מוטבעים בטקסט, ראו [את הדוגמה](https://ai.google.dev/gemini-api/docs/google-search?hl=he#attributing_sources_with_inline_citations) במסמכי ההסבר על עיגון באמצעות חיפוש Google.
+텍스트에 인라인 인용을 렌더링하는 방법을 보여주는 코드 스니펫은 [Google 검색을 사용한 그라운딩 문서의 예시](https://ai.google.dev/gemini-api/docs/google-search?hl=ko#attributing_sources_with_inline_citations)를 참고하세요.
 
-## תרחישים לדוגמה
+## 사용 사례
 
-העיגון בעזרת מפות Google תומך במגוון תרחישים לדוגמה שמתבססים על מיקום. בדוגמאות הבאות מוסבר איך אפשר להשתמש בהנחיות ובפרמטרים שונים כדי להסתמך על נתונים ממפות Google. המידע בתוצאות המבוססות על עובדות במפות Google עשוי להיות שונה מהמצב בפועל.
+Google 지도 기반 그라운딩은 다양한 위치 인식 사용 사례를 지원합니다. 다음 예에서는 다양한 프롬프트와 매개변수가 Google 지도 기반 그라운딩을 활용하는 방법을 보여줍니다. Google 지도 그라운딩 결과의 정보는 실제 상황과 다를 수 있습니다.
 
-### איך עונים על שאלות ספציפיות לגבי מקום
+### 장소별 질문 처리
 
-אתם יכולים לשאול שאלות מפורטות על מקום ספציפי ולקבל תשובות שמבוססות על ביקורות של משתמשים ב-Google ועל נתונים אחרים במפות Google.
+특정 장소에 관해 자세한 질문을 하여 Google 사용자 리뷰 및 기타 지도 데이터를 기반으로 답변을 받습니다.
 
 ### Python
 
@@ -294,7 +300,7 @@ if grounding := response.candidates[0].grounding_metadata:
   ```
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -362,9 +368,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-### התאמה אישית לפי מיקום
+### 위치 기반 맞춤설정 제공
 
-לקבל המלצות שמותאמות להעדפות של משתמש ולאזור גיאוגרפי ספציפי.
+사용자의 선호도와 특정 지리적 영역에 맞게 맞춤설정된 추천을 받습니다.
 
 ### Python
 
@@ -399,7 +405,7 @@ if grounding := response.candidates[0].grounding_metadata:
       print(f'- [{chunk.maps.title}]({chunk.maps.uri})')
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -466,9 +472,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-### עזרה בתכנון מסלול
+### 여행 일정 계획 지원
 
-יצירת תוכניות לכמה ימים עם הוראות הגעה ומידע על מיקומים שונים, מושלם לאפליקציות נסיעות.
+여행 애플리케이션에 적합한 다양한 위치에 대한 경로 및 정보가 포함된 다일 계획을 생성합니다.
 
 ### Python
 
@@ -503,7 +509,7 @@ if grounding := response.candidates[0].grounding_metadata:
       print(f'- [{chunk.maps.title}]({chunk.maps.uri})')
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -572,71 +578,73 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## דרישות לשימוש בשירות
+## 서비스 사용 요구사항
 
-בקטע הזה מתוארות דרישות השימוש בשירות Grounding with Google Maps.
+이 섹션에서는 Google 지도 기반 그라운딩에 대한 서비스 사용 요구사항을 설명합니다.
 
-### לעדכן את המשתמש לגבי השימוש במקורות של מפות Google
+### 사용자에게 Google 지도 소스 사용 알림
 
-לכל תוצאה מבוססת-קרקע במפות Google, תקבלו מקורות בפורמט `groundingChunks` שתומכים בכל תשובה. מוחזרים גם המטא-נתונים הבאים:
+각 Google 지도 그라운딩 결과와 함께 각 응답을 지원하는 `groundingChunks`에 소스가 수신됩니다. 다음 메타데이터도 반환됩니다.
 
-- ‫URI במקור
-- title
-- מזהה
+- 소스 URI
+- 제목
+- ID
 
-כשמציגים תוצאות של עיגון בעזרת מפות Google, צריך לציין את המקורות המשויכים במפות Google ולעדכן את המשתמשים לגבי הדברים הבאים:
+Google 지도 기반 그라운딩 결과를 표시할 때는 연결된 Google 지도 소스를 명시하고 사용자에게 다음 사항을 알려야 합니다.
 
-- המקורות של מפות Google צריכים להופיע מיד אחרי התוכן שנוצר ושנתמך על ידי המקורות. התוכן שנוצר נקרא גם תוצאה מבוססת-קרקע ב-Google Maps.
-- מקורות המידע במפות Google צריכים להיות גלויים באינטראקציה אחת של המשתמש.
+- Google 지도 소스는 해당 소스를 뒷받침하는 생성된 콘텐츠 직후에 따라와야 합니다. 이렇게 생성된 콘텐츠를 Google 지도 그라운딩 결과라고도 합니다.
+- Google 지도 소스는 단일 사용자 상호작용 내에서 확인 가능해야 합니다.
 
-### הצגת מקורות של מפות Google עם קישורים למפות Google
+### Google 지도 소스를 Google 지도 링크와 함께 표시
 
-לכל מקור ב-`groundingChunks` וב-`grounding_chunks.maps.placeAnswerSources.reviewSnippets`, צריך ליצור תצוגה מקדימה של הקישור בהתאם לדרישות הבאות:
+`groundingChunks`와 `grounding_chunks.maps.placeAnswerSources.reviewSnippets` 내의 각 소스에 대해 다음 요구사항에 따라 링크 미리보기를 생성해야 합니다.
 
-- צריך לשייך כל מקור למפות Google בהתאם [להנחיות לשיוך טקסט](#maps-attribution-guidelines) במפות Google.
-- הצגת שם המקור שסופק בתשובה.
-- מקשרים למקור באמצעות הסמל `uri` או `googleMapsUri` שמופיע בתשובה.
+- 각 소스는 Google 지도에서 제공한 것임을 명시하고 Google 지도의 텍스트
+  [저작자 표시 지침](#maps-attribution-guidelines)을 따라야 합니다.
+- 응답에 포함된 소스 제목을 표시해야 합니다.
+- 응답에 제공된 `uri` 또는 `googleMapsUri`를 사용하여 소스에 연결해야 합니다.
 
-בתמונות האלה מוצגות הדרישות המינימליות להצגת המקורות והקישורים למפות Google.
+이러한 이미지는 소스 및 Google 지도 링크를 표시하기 위한 최소 요구사항을 보여줍니다.
 
-![הנחיה עם תשובה שכוללת מקורות](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=he)
+![소스가 표시된 응답 포함 프롬프트](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=ko)
 
-אפשר לכווץ את תצוגת המקורות.
+또한 소스 보기 영역은 접을 수 있습니다.
 
-![הנחיה עם תשובה ומקורות במצב מכווץ](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=he)
+![응답과 소스가 접힌 프롬프트](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=ko)
 
-אופציונלי: אפשר להוסיף לקישור תצוגה מקדימה עם תוכן נוסף, כמו:
+선택사항: 링크 미리보기를 다음과 같은 추가 콘텐츠로 보강할 수 있습니다.
 
-- [סמל האתר של מפות Google](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=he)
-  מופיע לפני טקסט השיוך של מפות Google.
-- תמונה מכתובת ה-URL של המקור (`og:image`).
+- Google 지도 텍스트 저작자 표시 앞에 [Google 지도 파비콘](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=ko)
+  을 삽입합니다.
+- 소스 URL에서 제공되는 사진 (`og:image`)을 표시합니다.
 
-מידע נוסף על חלק מספקי הנתונים של מפות Google ועל תנאי הרישיון שלהם מופיע [בהודעות המשפטיות של מפות Google ו-Google Earth](https://www.google.com/help/legalnotices_maps/?hl=he).
+일부 Google 지도 데이터 제공업체 및 해당
+라이선스 조건에 대한 자세한 내용은 [Google 지도 및 Google 어스 법적 고지](https://www.google.com/help/legalnotices_maps/?hl=ko)를 참조하세요.
 
-### הנחיות לציון מקורות במפות Google
+### Google 지도 텍스트 저작자 표시 가이드라인
 
-כשמציינים את המקורות במפות Google בטקסט, צריך לפעול לפי ההנחיות הבאות:
+Google 지도의 텍스트 저작자 소스를 표시할 때는 다음 가이드라인을 따라야 합니다.
 
-- אל תשנו את הטקסט 'מפות Google' בשום צורה:
-  - אל תשנו את האותיות הרישיות של מפות Google.
-  - אל תפצלו את כתובת מפות Google לכמה שורות.
-  - אל תתאימו את מפות Google לשפה אחרת.
-  - כדי למנוע מדפדפנים לתרגם את מפות Google, משתמשים בתכונת ה-HTML‏ translate="no".
-- מעצבים את הטקסט במפות Google לפי ההנחיות שבטבלה הבאה:
+- Google 지도 텍스트를 어떤 방식으로도 수정하지 마세요.
+  - Google 지도의 대소문자를 변경하지 마세요.
+  - Google 지도를 여러 줄로 래핑하지 마세요.
+  - Google 지도를 다른 언어로 현지화하지 마세요.
+  - 브라우저가 Google 지도를 번역하지 못하도록 HTML 속성 translate="no"를 사용해야 합니다.
+- 다음 표에 설명된 대로 Google 지도 텍스트 스타일을 지정해야 합니다.
 
-| נכס | סגנון |
+| 속성 | 스타일 |
 | --- | --- |
-| `Font family` | Roboto. טעינת הגופן היא אופציונלית. |
-| `Fallback font family` | כל גופן Sans Serif שמשמש כבר במוצר או Sans-Serif כדי להפעיל את גופן המערכת שמוגדר כברירת מחדל |
-| `Font style` | רגיל |
+| `Font family` | Roboto. 글꼴 로드는 선택사항입니다. |
+| `Fallback font family` | 제품에서 이미 사용 중인 sans serif 본문 글꼴 또는 'Sans-Serif'를 지정해 기본 시스템 글꼴을 호출합니다. |
+| `Font style` | 보통 |
 | `Font weight` | 400 |
-| `Font color` | לבן, שחור (#1F1F1F) או אפור (#5E5E5E). שמירה על ניגודיות נגישה (4.5:1) ביחס לרקע. |
-| `Font size` | - גודל גופן מינימלי: 12sp - גודל גופן מקסימלי: ‎16sp - מידע על sp זמין במאמר בנושא יחידות של גודל גופן ב[אתר Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
-| `Spacing` | רגיל |
+| `Font color` | 흰색, 검정 (#1F1F1F) 또는 회색 (#5E5E5E). 배경 대비를 고려해 접근성 비율 (4.5:1)을 유지해야 합니다. |
+| `Font size` | - 최소 글꼴 크기: 12sp - 최대 글꼴 크기: 16sp - sp에 대해 자세히 알아보려면 [Material Design 웹사이트](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc)의 글꼴 크기 단위를 참조하세요. |
+| `Spacing` | 보통 |
 
-#### דוגמה ל-CSS
+#### 예시 CSS
 
-קוד ה-CSS הבא מעבד את מפות Google עם סגנון הטיפוגרפיה והצבע המתאימים על רקע לבן או בהיר.
+다음 CSS는 흰색 또는 밝은 배경에서 Google 지도 텍스트를 적절한 타이포그래픽 스타일과 색상으로 렌더링합니다.
 
 ### CSS
 
@@ -655,74 +663,79 @@ color: #5e5e5e;
 }
 ```
 
-### מזהה מקום ומזהה ביקורת
+### 장소 ID 및 리뷰 ID
 
-הנתונים של מפות Google כוללים את מזהה המקום ומזהה הביקורת. יכול להיות שתשמרו במטמון, תאחסנו ותייצאו את נתוני התשובות הבאים:
+Google 지도 데이터에는 장소 ID와 리뷰 ID가 포함됩니다. 다음 응답 데이터를 캐시, 저장, 내보내기할 수 있습니다.
 
 - `placeId`
 - `reviewId`
 
-המגבלות נגד שמירה במטמון בתנאים של עיגון בעזרת מפות Google לא חלות.
+Google 지도 기반 그라운딩 약관에 명시된 캐싱 제한사항은 적용되지 않습니다.
 
-### פעילות אסורה ואזור אסור
+### 금지된 활동 및 지역
 
-כדי לשמור על פלטפורמה בטוחה ומהימנה, יש הגבלות נוספות על תוכן ופעילויות מסוימים ב-Grounding עם מפות Google. בנוסף להגבלות השימוש שמפורטות ב[תנאים](https://ai.google.dev/gemini-api/terms?hl=he#grounding-with-google-maps):
+Google 지도 기반 그라운딩은 안전하고 신뢰할 수 있는 플랫폼을 유지하기 위해 특정 콘텐츠 및 활동에 추가 제한을 둡니다. 약관의 사용
+제한 외에도 [다음 사항에 동의합니다](https://ai.google.dev/gemini-api/terms?hl=ko#grounding-with-google-maps):
 
-- לא תשתמשו ב-עיגון בעזרת מפות Google לפעילויות בסיכון גבוה, כולל שירותי תגובה למקרי חירום.
-- לא תפיצו או תשווקו את האפליקציה שלכם שמציעה Grounding עם מפות Google בשטח אסור. מידע נוסף זמין במאמר בנושא [אזורים אסורים ב-Google Maps Platform](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=he).
-  רשימת הטריטוריות האסורות עשויה להתעדכן מעת לעת.
+- 응급 대응 서비스를 비롯한 고위험 활동에 Google 지도 기반 그라운딩을 사용하지 않습니다.
+- 제한 지역에서 Google 지도 기반 그라운딩을 제공하는 애플리케이션을 배포하거나 마케팅하지 않습니다. 자세한 내용은
+  [Google Maps Platform 금지 지역](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=ko)을 참고하세요.
+  금지 지역 목록은 때때로 업데이트될 수 있습니다.
 
-## שיטות מומלצות
+## 권장사항
 
-- **ציון מיקום המשתמש:** כדי לקבל תשובות רלוונטיות ומותאמות אישית, תמיד צריך לכלול את `user_location` (קו הרוחב וקו האורך) בהגדרה של `googleMapsGrounding` כשמיקום המשתמש ידוע.
-- **ליידע את משתמשי הקצה:** חשוב ליידע את משתמשי הקצה בצורה ברורה שהנתונים של מפות Google משמשים למענה על השאילתות שלהם, במיוחד כשהכלי מופעל.
-- **מעקב אחרי זמן האחזור:** באפליקציות שיש בהן ממשק שיחה, חשוב לוודא שזמן האחזור של תגובות מעוגנות (P95) נשאר בתוך סף קביל כדי לשמור על חוויית משתמש חלקה.
-- **השבתה כשלא צריך:** עיגון בעזרת מפות Google מושבת כברירת מחדל. כדי לשפר את הביצועים ולהוזיל עלויות, מפעילים את האפשרות הזו (`"tools": [{"googleMaps": {}}]`) רק כששאילתה כוללת הקשר גיאוגרפי ברור.
+- **사용자 위치 제공:** 가장 관련성 높고 맞춤설정된 응답을 위해 사용자의 위치를 알고 있는 경우 항상 `googleMapsGrounding` 구성에 `user_location` (위도 및 경도)을 포함하세요.
+- **최종 사용자에게 알림:** 특히 도구가 사용 설정된 경우 Google 지도 데이터가 쿼리에 답변하는 데 사용되고 있음을 최종 사용자에게 명확하게 알립니다.
+- **지연 시간 모니터링:** 대화형 애플리케이션의 경우 원활한 사용자 환경을 유지하기 위해 그라운딩된 응답의 P95 지연 시간이 허용 가능한 기준점 내에 유지되도록 합니다.
+- **필요하지 않은 경우 전환:** Google 지도 기반 그라운딩은 기본적으로 사용 중지되어 있습니다. 성능과 비용을 최적화하려면 쿼리에
+  명확한 지리적 컨텍스트가 있는 경우에만 사용 설정 (`"tools": [{"googleMaps": {}}]`)하세요.
 
-## מגבלות
+## 제한사항
 
-- **היקף גיאוגרפי:** עיגון בעזרת מפות Google זמין בכל העולם
-- **תמיכה בדגמים:** מידע מופיע בקטע [דגמים נתמכים](#supported-models).
-- **קלט או פלט מרובי-אופנים:** בשלב הזה, ההצמדה למציאות באמצעות מפות Google לא תומכת בקלט או בפלט מרובי-אופנים מעבר לטקסט.
-- **מצב ברירת מחדל:** הכלי 'עיגון בעזרת מפות Google' מושבת כברירת מחדל.
-  צריך להפעיל אותו באופן מפורש בבקשות ל-API.
+- **지리적 범위:** Google 지도 기반 그라운딩은 전 세계에서 사용할 수 있습니다.
+- **모델 지원:** [지원되는 모델](#supported-models) 섹션을 참고하세요.
+- **멀티모달 입력/출력:** Google 지도 기반 그라운딩은 현재 텍스트 이외의 멀티모달 입력 또는 출력을 지원하지 않습니다.
+- **기본 상태:** Google 지도 기반 그라운딩 도구는 기본적으로 사용 중지되어 있습니다.
+  API 요청에서 명시적으로 사용 설정해야 합니다.
 
-## תמחור והגבלות על קצב יצירת הבקשות
+## 가격 책정 및 비율 제한
 
-התמחור של עיגון בעזרת מפות Google מבוסס על שאילתות. התעריף הנוכחי הוא **25$‎ ל-1,000 הנחיות מבוססות**. בנוסף, בתוכנית ללא תשלום אפשר לשלוח עד 500 בקשות ביום. בקשה נספרת רק במסגרת המכסה אם ההנחיה מחזירה בהצלחה לפחות תוצאה אחת מבוססת-קרקע של מפות Google (כלומר, תוצאות שמכילות לפחות מקור אחד של מפות Google). אם נשלחות כמה שאילתות אל מפות Google מבקשה אחת, הן נספרות כבקשה אחת לצורך חישוב מגבלת הקצב.
+Google 지도 기반 그라운딩 가격은 쿼리를 기반으로 합니다. 현재 비율은 **그라운딩된 프롬프트 1,000개당$25** 입니다. 무료 등급에서는 일일 최대 500개의 요청도 사용할 수 있습니다. 프롬프트가 Google 지도 그라운딩 결과 (즉, Google 지도 소스를 하나 이상 포함하는 결과)를 하나 이상 성공적으로 반환하는 경우에만 요청이 할당량에 포함됩니다. 단일 요청에서 Google 지도에 여러 쿼리가 전송되면 비율 제한에 대해 하나의 요청으로 계산됩니다.
 
-מידע מפורט על התמחור זמין ב[דף התמחור של Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=he).
+자세한 가격 책정 정보는 [Gemini API 가격 책정 페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)를 참고하세요.
 
-## מודלים נתמכים
+## 지원되는 모델
 
-המודלים הבאים תומכים בעיגון בעזרת מפות Google:
+다음 모델은 Google 지도 기반 그라운딩을 지원합니다.
 
-| מודל | עיגון בעזרת מפות Google |
+| 모델 | Google 지도 기반 그라운딩 |
 | --- | --- |
-| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Pro (גרסת טרום-השקה)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ |
-| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ |
-| [תצוגה מקדימה של Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ |
-| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ |
+| [Gemini 3.1 Pro 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ |
+| [Gemini 3 Flash 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ |
 
-## שילובים נתמכים של כלים
+## 지원되는 도구 조합
 
-מודלים של Gemini 3 תומכים בשילוב של כלים מובנים (כמו Grounding עם מפות Google) עם כלים מותאמים אישית (קריאה לפונקציה). מידע נוסף זמין בדף [שילובים של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
+Gemini 3 모델은 Google 지도 기반 그라운딩과 같은 기본 제공 도구를 맞춤 도구(함수 호출)와 결합하는 것을 지원합니다. 도구 조합
+ 페이지에서 자세히 알아보세요.
 
-## המאמרים הבאים
+## 다음 단계
 
-- כדאי לנסות את [המתכון לעיגון באמצעות חיפוש Google ב-Gemini API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=he).
-- [מידע על כלים נוספים](https://ai.google.dev/gemini-api/docs/tools?hl=he)
-- כדי לקבל מידע נוסף על שיטות מומלצות לאתיקה של בינה מלאכותית ועל מסנני הבטיחות של Gemini API, אפשר לעיין [במדריך להגדרות הבטיחות](https://ai.google.dev/gemini-api/docs/safety-settings?hl=he).
+- Gemini API 설명서에서 [Google 검색을 사용한 그라운딩을 사용해 보세요.](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ko)
+- 사용 가능한 다른 [도구](https://ai.google.dev/gemini-api/docs/tools?hl=ko)에 대해 알아보세요.
+- 책임감 있는 AI 권장사항 및 Gemini API의 안전
+  필터에 대해 자세히 알아보려면 [안전 설정 가이드](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ko)를 참고하세요.
 
-שליחת משוב
+의견 보내기
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-עדכון אחרון: 2026-06-01 (שעון UTC).
+최종 업데이트: 2026-06-19(UTC)
 
-רוצה לתת לנו משוב?
+의견을 전달하고 싶나요?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-01 (שעון UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-19(UTC)"],[],[]]

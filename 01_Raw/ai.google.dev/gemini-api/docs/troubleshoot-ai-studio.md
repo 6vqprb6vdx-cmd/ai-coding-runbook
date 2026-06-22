@@ -1,78 +1,87 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=tr
-fetched_at: 2026-06-15T06:21:04.654424+00:00
-title: "Google AI Studio ile ilgili sorunlar\u0131 giderme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=ar
+fetched_at: 2026-06-22T06:32:32.534985+00:00
+title: "\u062a\u062d\u062f\u064a\u062f \u0627\u0644\u0645\u0634\u0627\u0643\u0644 \u0648\u062d\u0644\u0651\u0647\u0627 \u0641\u064a Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) artık işbirlikçi planlama, görselleştirme, MCP desteği ve daha fazlasıyla önizleme sürümünde kullanılabilir.
+تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-# Google AI Studio ile ilgili sorunları giderme
+# تحديد المشاكل وحلّها في Google AI Studio
 
-Bu sayfada, Google AI Studio'da sorun yaşarsanız sorun giderme ile ilgili öneriler verilmektedir.
+توفّر هذه الصفحة اقتراحات لتحديد المشاكل في Google AI Studio وحلّها في حال مواجهة أي منها.
 
-## 403 Erişim Kısıtlandı hatalarını anlama
+## فهم أخطاء "403 Access Restricted" (الوصول محظور)
 
-403 Erişim Kısıtlandı hatası görürseniz Google AI Studio'yu [Hizmet Şartları](https://ai.google.dev/terms?hl=tr)'na uymayan bir şekilde kullanıyorsunuz demektir. Bunun yaygın bir nedeni, [desteklenen bir bölgede](https://ai.google.dev/available_regions?hl=tr) bulunmamanızdır.
+إذا ظهر لك الخطأ "403 Access Restricted" (الوصول محظور)، يعني ذلك أنّك تستخدم Google AI Studio بطريقة لا تتّبع [بنود الخدمة](https://ai.google.dev/terms?hl=ar). أحد الأسباب الشائعة هو
+أنّك لست مقيمًا في منطقة [تتوفّر فيها الخدمة](https://ai.google.dev/available_regions?hl=ar).
 
-## Google AI Studio'da "İçerik Yok" yanıtlarını çözme
+## حلّ مشكلة الردود "No Content" (لا يوجد محتوى) في Google AI Studio
 
-İçerik herhangi bir nedenle engellenirse Google AI Studio'da warning **No Content** (İçerik Yok) mesajı gösterilir. Daha fazla ayrıntı görmek için fare imlecini **İçerik Yok**'un üzerine getirin ve warning **Güvenlik**'i tıklayın.
+تظهر رسالة warning **No Content** على
+Google AI Studio إذا تم حظر المحتوى لأي سبب كان. للاطّلاع على مزيد من التفاصيل،
+مرِّر المؤشر فوق **No Content** وانقر
+warning على **Safety**.
 
-Yanıt, [güvenlik ayarları](https://ai.google.dev/docs/safety_setting?hl=tr) nedeniyle engellendiyse ve kullanım alanınızla ilgili [güvenlik risklerini](https://ai.google.dev/docs/safety_guidance?hl=tr) göz önünde bulundurduysanız döndürülen yanıtı etkilemek için [güvenlik ayarlarını](https://ai.google.dev/docs/safety_setting?hl=tr#safety_settings_in_makersuite) değiştirebilirsiniz.
+إذا تم حظر الردّ بسبب [إعدادات الأمان](https://ai.google.dev/docs/safety_setting?hl=ar) و
+كنت قد أخذت في الاعتبار [المخاطر الأمنية](https://ai.google.dev/docs/safety_guidance?hl=ar) لحالة الاستخدام، يمكنك
+تعديل
+[إعدادات الأمان](https://ai.google.dev/docs/safety_setting?hl=ar#safety_settings_in_makersuite)
+للتأثير في الردّ الذي يتم عرضه.
 
-Yanıt, güvenlik ayarları nedeniyle değil de başka bir nedenle engellendiyse sorgu veya yanıt [Hizmet Şartları](https://ai.google.dev/terms?hl=tr)'nı ihlal ediyor ya da başka bir şekilde desteklenmiyor olabilir.
+إذا تم حظر الردّ ولكن ليس بسبب إعدادات الأمان، قد يكون الطلب أو
+الردّ مخالفًا لـ [بنود الخدمة](https://ai.google.dev/terms?hl=ar) أو غير متوافق معها.
 
-## Jeton kullanımını ve sınırlarını kontrol etme
+## التحقّق من استخدام الرموز وحدودها
 
-Bir istem açıkken ekranın alt kısmındaki **Metin Önizleme** düğmesinde, isteminizin içeriği için kullanılan mevcut jetonlar ve kullanılan modelin maksimum jeton sayısı gösterilir.
+عند فتح طلب، يعرض الزر **Text Preview** (معاينة النص) في أسفل الشاشة الرموز الحالية المستخدَمة لمحتوى طلبك والحد الأقصى لعدد الرموز للنموذج المستخدَم.
 
-## AI Studio için Google Cloud IAM izinleri
+## أذونات Google Cloud IAM لـ AI Studio
 
-Google Cloud projesi üyelerinin Google AI Studio'da işlem yapabilmek için belirli Identity and Access Management (IAM) izinlerine sahip olması gerekir. Bu kimlikler hakkında daha fazla bilgi için [IAM asıl üyelerine genel bakış](https://cloud.google.com/iam/docs/principals?hl=tr) başlıklı makaleyi inceleyin.
+يحتاج أعضاء مشروع Google Cloud إلى أذونات محدّدة في "إدارة الهوية وإمكانية الوصول" (IAM) لتنفيذ الإجراءات في Google AI Studio. لمزيد من المعلومات عن هذه الهويات، يُرجى الاطّلاع على [نظرة عامة على الجهات الرئيسية في IAM](https://cloud.google.com/iam/docs/principals?hl=ar).
 
-İlişkili Google Cloud projesinde **Düzenleyici** veya **Sahip** rollerine sahip kullanıcılar, kontrol panellerini görüntüleme ve Gemini API anahtarlarını yönetme konusunda tam izinlere sahiptir. **Görüntüleyici** rolüne sahip kullanıcılar kontrol panellerini ve API anahtarlarını görüntüleyebilir ancak bunları oluşturamaz, güncelleyemez veya silemez.
+يملك المستخدمون الذين لديهم دورا **محرِّر** أو **مالك** في مشروع Google Cloud المرتبط أذونات كاملة لعرض لوحات البيانات وإدارة مفاتيح Gemini API. يمكن للمستخدمين الذين لديهم دور **مُشاهد** عرض لوحات البيانات ومفاتيح واجهة برمجة التطبيقات، ولكن لا يمكنهم إنشاءها أو تعديلها أو حذفها.
 
-Daha ayrıntılı kontrol için her bir AI Studio özelliği için gereken belirli izinleri aşağıdaki tablodan inceleyin. Bu izinleri verme talimatları için Google Cloud dokümanlarındaki [Kaynaklara erişim verme, erişimi değiştirme ve iptal etme](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=tr) başlıklı makaleyi inceleyin.
+للتحكّم بشكل أدق، يُرجى الرجوع إلى الجدول التالي للاطّلاع على الأذونات المحدّدة المطلوبة لكل ميزة من ميزات AI Studio. للحصول على تعليمات حول كيفية منح هذه الأذونات، يُرجى الاطّلاع على [منح إذن الوصول إلى الموارد وتغييره وإبطاله](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ar) في مستندات Google Cloud.
 
-| AI Studio özelliği | Gerekli IAM izinleri | Diğer şartlar |
+| ميزة AI Studio | أذونات IAM المطلوبة | متطلبات إضافية |
 | --- | --- | --- |
-| **Proje arama** (projeleri içe aktarma) | `resourcemanager.projects.get` |  |
-| **Projeyi yeniden adlandırma** | `resourcemanager.projects.update` |  |
-| **Görüntüleme kotası katmanı** | Yok |  |
-| **API anahtarı oluşturma** | **Projede arama** iznine sahip olmanız ve:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **API anahtarlarını listeleme** | **Projede arama** iznine sahip olmanız ve:  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud projesinde [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=tr) etkinleştirilmiş olmalıdır. |
-| **API anahtarlarını yeniden adlandırma** | `apikeys.keys.update` |  |
-| **API anahtarlarını silme** | `apikeys.keys.delete` |  |
-| **Kullanım kontrol paneli** | **Projede arama** iznine sahip olmanız ve:  `monitoring.timeSeries.list` |  |
-| **Hız sınırı kontrol paneli** | **Kullanım kontrol paneli** izinlerine sahip olma ve:  `cloudquotas.quotas.get` |  |
-| **Harcama (Faturalandırma sınırı)** | `billing.resourceCosts.get` (harcamayı görüntülemek için) `billing.resourcebudgets.read` (sınırı görüntülemek için) `billing.resourcebudgets.write` (sınır belirlemek için) |  |
-| **Faturalandırma kontrol paneli** | `billing.accounts.get` |  |
+| **البحث عن مشروع** (استيراد المشاريع) | `resourcemanager.projects.get` |  |
+| **إعادة تسمية المشروع** | `resourcemanager.projects.update` |  |
+| **عرض مستوى الحصة** | لا ينطبق |  |
+| **إنشاء مفتاح واجهة برمجة التطبيقات** | يجب أن يكون لديك أذونات **البحث عن مشروع** ، بالإضافة إلى:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **عرض قائمة بمفاتيح واجهة برمجة التطبيقات** | يجب أن يكون لديك أذونات **البحث عن مشروع** ، بالإضافة إلى:  `apikeys.keys.list` `serviceusage.services.get` | يجب تفعيل [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=ar) في مشروع Google Cloud. |
+| **إعادة تسمية مفاتيح واجهة برمجة التطبيقات** | `apikeys.keys.update` |  |
+| **حذف مفاتيح واجهة برمجة التطبيقات** | `apikeys.keys.delete` |  |
+| **لوحة بيانات الاستخدام** | يجب أن يكون لديك أذونات **البحث عن مشروع** ، بالإضافة إلى:  `monitoring.timeSeries.list` |  |
+| **لوحة بيانات الحدّ الأقصى لمعدّل الطلبات** | يجب أن يكون لديك أذونات **لوحة بيانات الاستخدام** ، بالإضافة إلى:  `cloudquotas.quotas.get` |  |
+| **الإنفاق (الحدّ الأقصى للفوترة)** | `billing.resourceCosts.get` (لعرض الإنفاق) `billing.resourcebudgets.read` (لعرض الحدّ الأقصى) `billing.resourcebudgets.write` (لضبط الحدّ الأقصى) |  |
+| **لوحة بيانات الفوترة** | `billing.accounts.get` |  |
 
-### Diğer erişim kontrolleri
+### عمليات التحقّق الأخرى من إمكانية الوصول
 
-AI Studio, Google Cloud IAM izinlerine ek olarak güvenlik ve uygunluk kontrolleri de gerçekleştirir. Aşağıdaki şartları karşılamıyorsanız AI Studio arayüzünde veya API yanıtlarında `PERMISSION_DENIED` ya da erişim kısıtlaması hatasıyla karşılaşabilirsiniz:
+بالإضافة إلى أذونات Google Cloud IAM، يجري AI Studio أيضًا عمليات تحقّق من الأمان والامتثال. قد يظهر لك الخطأ `PERMISSION_DENIED` أو خطأ بشأن تقييد الوصول في واجهة AI Studio أو في ردود واجهة برمجة التطبيقات إذا لم تستوفِ المتطلبات التالية:
 
-- **Güvenlik kontrolleri:** İsteğiniz otomatik güvenlik kontrollerinden geçmelidir.
-- **Hizmet Şartları:** Google Hizmet Şartları'nı ve Üretken Yapay Zeka Ek Hizmet Şartları'nı kabul etmeniz gerekir.
-- **Desteklenen bölge:** [Desteklenen bir bölgede](https://ai.google.dev/gemini-api/docs/available-regions?hl=tr) bulunmanız gerekir.
-- **Güven ve Güvenlik:** Google Cloud projesi kötüye kullanım nedeniyle işaretlenmemiş olmalıdır.
+- **عمليات التحقّق من الأمان:** يجب أن يجتاز طلبك عمليات التحقّق الأمنية الآلية.
+- **بنود الخدمة:** يجب قبول بنود خدمة Google وبنود الخدمة الإضافية الخاصة بالذكاء الاصطناعي التوليدي.
+- **المنطقة المتوفّرة فيها الخدمة:** يجب أن تكون مقيمًا في [منطقة تتوفّر فيها الخدمة](https://ai.google.dev/gemini-api/docs/available-regions?hl=ar).
+- **الثقة والأمان:** يجب ألا يتم وضع علامة على مشروع Google Cloud للإشارة إلى إساءة الاستخدام.
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Son güncelleme tarihi: 2026-05-29 UTC.
+تاريخ التعديل الأخير: 2026-05-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-29 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-05-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=th
-fetched_at: 2026-06-15T06:22:25.158314+00:00
-title: "Deep Research Max \u0e40\u0e27\u0e2d\u0e23\u0e4c\u0e0a\u0e31\u0e19\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=zh-TW
+fetched_at: 2026-06-22T06:24:42.424628+00:00
+title: "Deep Research Max \u9810\u5148\u767c\u5e03\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-ส่งความคิดเห็น
+提供意見
 
-# Deep Research Max เวอร์ชันตัวอย่าง
+# Deep Research Max 預先發布版
 
-ความครอบคลุมสูงสุดสำหรับการรวบรวมและสังเคราะห์บริบทโดยอัตโนมัติ Deep Research Max ได้รับการปรับให้เหมาะสมกับการสืบสวนที่ใช้เวลานานและมีความสำคัญต่อความถูกต้อง ซึ่งจะสังเคราะห์ข้อมูลที่ซับซ้อนจากแหล่งที่มาบนเว็บสาธารณะหลายร้อยแห่งและข้อมูลพื้นที่ทำงานส่วนตัวให้เป็นรายงานที่ครอบคลุมพร้อมการอ้างอิง โดยรองรับการวางแผนร่วมกัน การแสดงภาพ เซิร์ฟเวอร์ MCP และการค้นหาไฟล์
+盡可能全面地自動收集及統整情境資訊。Deep Research Max 專為長時間、準確度至關重要的調查而設計，可從數百個公開網路來源和私人工作區資料中統整複雜資訊，生成附有引文的詳盡報告。支援協作規劃、視覺化、MCP 伺服器和檔案搜尋。
 
-## เอกสารประกอบ
+## 說明文件
 
-ไปที่หน้า [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) เพื่อดูฟีเจอร์และความสามารถทั้งหมด
+如要全面瞭解功能與能力，請前往「[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)」頁面。
 
 ## deep-research-max-preview-04-2026
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| 屬性 | 說明 |
 | --- | --- |
-| id\_cardรหัส Agent | **Interactions API**  `deep-research-max-preview-04-2026` |
-| saveประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ PDF เสียง วิดีโอ  **เอาต์พุต**  ข้อความ (รายงานที่มีการอ้างอิง) รูปภาพ |
-| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **หน้าต่างบริบทอินพุต**  1,048,576  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `deep-research-max-preview-04-2026` |
-| calendar\_monthการอัปเดตล่าสุด | เมษายน 2026 |
+| id\_card代理程式碼 | **互動 API**  `deep-research-max-preview-04-2026` |
+| save支援的資料類型 | **輸入功率**  文字、圖片、PDF、音訊、影片  **輸出內容**  文字 (引用報告)、圖片 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入脈絡窗口**  1,048,576  **輸出詞元限制**  65,536 |
+| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 預覽：`deep-research-max-preview-04-2026` |
+| calendar\_month最新更新 | 2026 年 4 月 |
 
-ส่งความคิดเห็น
+提供意見
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-อัปเดตล่าสุด 2026-04-29 UTC
+上次更新時間：2026-04-29 (世界標準時間)。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+想進一步說明嗎？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-04-29 (世界標準時間)。"],[],[]]

@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=de
-fetched_at: 2026-06-15T06:21:57.505680+00:00
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=he
+fetched_at: 2026-06-22T06:26:39.054348+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) is now available in preview with collaborative planning, visualization, MCP support, and more.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Feedback geben
+שליחת משוב
 
-# Funktionsaufrufe mit der Gemini API
+# בקשות להפעלת פונקציות באמצעות Gemini API
 
-Mit Funktionsaufrufen können Sie Modelle mit externen Tools und APIs verbinden.
-Anstatt Textantworten zu generieren, bestimmt das Modell, wann bestimmte Funktionen aufgerufen werden sollen, und stellt die erforderlichen Parameter zum Ausführen von Aktionen in der realen Welt bereit.
-So kann das Modell als Brücke zwischen natürlicher Sprache und realen Aktionen und Daten fungieren. Funktionsaufrufe haben drei primäre Anwendungsfälle:
+התכונה 'הפעלת פונקציות' מאפשרת לכם לחבר מודלים לכלים ולממשקי API חיצוניים.
+במקום ליצור תשובות טקסטואליות, המודל קובע מתי לקרוא לפונקציות ספציפיות ומספק את הפרמטרים הנדרשים לביצוע פעולות בעולם האמיתי.
+כך המודל יכול לשמש כגשר בין שפה טבעית לבין פעולות ונתונים בעולם האמיתי. יש 3 תרחישי שימוש עיקריים לבקשה להפעלת פונקציה:
 
-- [**Aktionen ausführen**](#meeting):Über APIs mit externen Systemen interagieren, z. B. Termine planen, Rechnungen erstellen, E‑Mails senden oder Smart-Home-Geräte steuern.
-- [**Wissen erweitern**](#weather):Zugriff auf Informationen aus externen Quellen wie Datenbanken, APIs und Wissensdatenbanken.
-- [**Funktionen erweitern**](#chart):Verwenden Sie externe Tools, um Berechnungen durchzuführen und die Einschränkungen des Modells zu erweitern, z. B. durch die Verwendung eines Taschenrechners oder das Erstellen von Diagrammen.
+- [**ביצוע פעולות:**](#meeting) אינטראקציה עם מערכות חיצוניות באמצעות ממשקי API, כמו קביעת פגישות, יצירת חשבוניות, שליחת אימיילים או שליטה במכשירים חכמים לבית.
+- [**העשרת הידע:**](#weather) גישה למידע ממקורות חיצוניים כמו מסדי נתונים, ממשקי API ומאגרי ידע.
+- [**הרחבת היכולות:**](#chart) שימוש בכלים חיצוניים לביצוע חישובים ולהרחבת המגבלות של המודל, למשל שימוש במחשבון או יצירת תרשימים.
 
-Unten finden Sie Beispiele für diese Anwendungsfälle:
+בהמשך מפורטות דוגמאות לתרחישי שימוש כאלה:
 
-### Besprechung planen
+### קביעת פגישה
 
-In diesem Beispiel wird gezeigt, wie Sie eine Funktion definieren, mit der eine Besprechung mit Teilnehmern zu einem bestimmten Zeitpunkt geplant wird. So kann das Modell Nutzeranfragen parsen und strukturierte Argumente zurückgeben, um Aktionen in externen Systemen auszulösen.
+בדוגמה הזו מוסבר איך להגדיר פונקציה שמתזמנת פגישה עם משתתפים בשעה ספציפית, כדי לאפשר למודל לנתח בקשות של משתמשים ולהחזיר ארגומנטים מובנים להפעלת פעולות במערכות חיצוניות.
 
 ### Python
 
@@ -209,9 +209,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Wettervorhersage
+### קבלת מידע על מזג האוויר
 
-In diesem Beispiel wird gezeigt, wie Sie eine Funktion definieren, die Temperaturdaten für einen Ort abruft. So kann das Modell externe APIs aufrufen, um Anfragen zu beantworten, für die Echtzeit- oder externe Informationen erforderlich sind.
+בדוגמה הזו מוסבר איך להגדיר פונקציה שמחלצת נתוני טמפרטורה של מיקום מסוים, וכך מאפשרת למודל להפעיל ממשקי API חיצוניים כדי לענות על שאילתות שדורשות מידע בזמן אמת או מידע חיצוני.
 
 ### Python
 
@@ -350,9 +350,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Diagramm erstellen
+### יצירת תרשים
 
-In diesem Beispiel wird gezeigt, wie Sie eine Funktion definieren, die ein Balkendiagramm aus strukturierten Daten generiert. So wird veranschaulicht, wie das Modell externe Tools verwenden kann, um Berechnungen durchzuführen oder visuelle Elemente zu erstellen:
+בדוגמה הזו מוגדרת פונקציה שמייצרת תרשים עמודות מנתונים מובְנים. הדוגמה הזו ממחישה איך המודל יכול להשתמש בכלים חיצוניים כדי לבצע חישובים או ליצור נכסים חזותיים:
 
 ### Python
 
@@ -522,26 +522,27 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Funktionsweise von Funktionsaufrufen
+## איך פועלת בקשה להפעלת פונקציה
 
-![Funktionsaufrufe – Übersicht](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=de)
+![סקירה כללית על קריאה להפעלת פונקציות](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=he)
 
-Beim Funktionsaufruf findet eine strukturierte Interaktion zwischen Ihrer Anwendung, dem Modell und externen Funktionen statt. So funktioniert der Prozess:
+קריאה לפונקציה היא אינטראקציה מובנית בין האפליקציה, המודל ופונקציות חיצוניות. פירוט התהליך:
 
-1. **Funktionsdeklaration definieren**:Definieren Sie die Funktionsdeklaration in Ihrem Anwendungscode. Funktionsdeklarationen beschreiben dem Modell den Namen, die Parameter und den Zweck der Funktion.
-2. **API mit Funktionsdeklarationen aufrufen**:Senden Sie den Nutzer-Prompt zusammen mit den Funktionsdeklarationen an das Modell. Sie analysiert die Anfrage und ermittelt, ob ein Funktionsaufruf hilfreich wäre. Wenn ja, antwortet sie mit einem strukturierten JSON-Objekt, das den Funktionsnamen, die Argumente und eine eindeutige `id` enthält (diese `id` wird jetzt immer von der API für Gemini 3-Modelle zurückgegeben\*).
-3. **Funktionscode ausführen (Ihre Verantwortung)**: Das Modell *führt die Funktion nicht selbst aus*. Ihre Anwendung ist dafür verantwortlich, die Antwort zu verarbeiten und nach einem Funktionsaufruf zu suchen. Wenn
-   - **Ja**: Extrahieren Sie den Namen, die Argumente und `id` der Funktion und führen Sie die entsprechende Funktion in Ihrer Anwendung aus.
-   - **Nein**:Das Modell hat eine direkte Textantwort auf den Prompt gegeben. Dieser Ablauf wird im Beispiel weniger betont, ist aber ein mögliches Ergebnis.
-4. **Nutzerfreundliche Antwort erstellen**:Wenn eine Funktion ausgeführt wurde, erfassen Sie das Ergebnis und senden Sie es in einer nachfolgenden Unterhaltungsrunde zurück an das Modell. Achten Sie darauf, dass Sie das entsprechende `id` einfügen. Anhand des Ergebnisses wird eine endgültige, nutzerfreundliche Antwort generiert, die die Informationen aus dem Funktionsaufruf enthält.
+1. **הגדרת הצהרת פונקציה:** מגדירים את הצהרת הפונקציה בקוד האפליקציה. הצהרות על פונקציות מתארות למודל את השם, הפרמטרים והמטרה של הפונקציה.
+2. **קריאה ל-API עם הצהרות על פונקציות:** שולחים את הנחיית המשתמש יחד עם ההצהרות על הפונקציות למודל. הוא מנתח את הבקשה וקובע אם כדאי להשתמש בקריאה לפונקציה. אם כן, הוא מגיב עם אובייקט JSON מובנה שמכיל את שם הפונקציה, הארגומנטים ומזהה ייחודי `id` (המזהה `id` הזה תמיד מוחזר עכשיו על ידי ה-API עבור מודלים של Gemini 3\*).
+3. **הפעלת קוד הפונקציה (באחריותכם):** המודל *לא* מפעיל את הפונקציה בעצמו. האפליקציה שלכם אחראית לעבד את התשובה ולבדוק אם יש בה קריאה לפונקציה. אם
+   - **כן**: חילוץ השם, הארגומנטים ו-`id` של הפונקציה והפעלת הפונקציה התואמת באפליקציה.
+   - **לא:** המודל סיפק תגובה ישירה של טקסט להנחיה
+     (התרחיש הזה פחות מודגש בדוגמה, אבל הוא אפשרי).
+4. **יצירת תשובה ידידותית למשתמש:** אם בוצעה פונקציה, צריך לתעד את התוצאה ולשלוח אותה בחזרה למודל, תוך הקפדה על הכללת `id` התואם, בתור הבא של השיחה. המודל ישתמש בתוצאה כדי ליצור תשובה סופית וידידותית למשתמש שמשלבת את המידע מ<b>בקשה להפעלת פונקציה</b>.
 
-Dieser Prozess kann über mehrere Runden wiederholt werden, was komplexe Interaktionen und Workflows ermöglicht. Das Modell unterstützt auch das Aufrufen mehrerer Funktionen in einem einzelnen Turn ([parallele Funktionsaufrufe](#parallel_function_calling)), nacheinander ([zusammengesetzte Funktionsaufrufe](#compositional_function_calling)) und mit integrierten Gemini-Tools ([Verwendung mehrerer Tools](#native-tools)).
+אפשר לחזור על התהליך הזה כמה פעמים, כדי ליצור אינטראקציות ותהליכי עבודה מורכבים. המודל תומך גם בקריאה לכמה פונקציות בתור אחד ([קריאה מקבילה לפונקציות](#parallel_function_calling)), ברצף ([קריאה לפונקציות בהרכבה](#compositional_function_calling)) ובכלים מובנים של Gemini ([שימוש בכמה כלים](#native-tools)).
 
-\* **Funktions-IDs immer zuordnen**:Gemini 3 gibt jetzt immer eine eindeutige `id` mit jedem `functionCall` zurück. Fügen Sie genau diesen `id` in Ihre `functionResponse` ein, damit das Modell Ihr Ergebnis der ursprünglichen Anfrage zuordnen kann.
+‫\* **תמיד ממפים מזהי פונקציות:** מודל Gemini 3 מחזיר עכשיו תמיד `id` ייחודי עם כל `functionCall`. חשוב לכלול את `id` הזה ב-`functionResponse` כדי שהמודל יוכל למפות את התוצאה בחזרה לבקשה המקורית בצורה מדויקת.
 
-### Schritt 1: Funktionsdeklaration definieren
+### שלב 1: מגדירים הצהרה על פונקציה
 
-Definieren Sie eine Funktion und ihre Deklaration in Ihrem Anwendungscode, mit der Nutzer Lichtwerte festlegen und eine API-Anfrage stellen können. Diese Funktion kann externe Dienste oder APIs aufrufen.
+מגדירים פונקציה והצהרה שלה בקוד האפליקציה, שמאפשרות למשתמשים להגדיר ערכי תאורה ולשלוח בקשת API. הפונקציה הזו יכולה להפעיל שירותים חיצוניים או ממשקי API.
 
 ### Python
 
@@ -622,9 +623,9 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Schritt 2: Modell mit Funktionsdeklarationen aufrufen
+### שלב 2: קוראים למודל עם הצהרות על פונקציות
 
-Nachdem Sie die Funktionsdeklarationen definiert haben, können Sie das Modell auffordern, sie zu verwenden. Es analysiert den Prompt und die Funktionsdeklarationen und entscheidet, ob es direkt antworten oder eine Funktion aufrufen soll. Wenn eine Funktion aufgerufen wird, enthält das Antwortobjekt einen Vorschlag für einen Funktionsaufruf.
+אחרי שמגדירים את הצהרות הפונקציות, אפשר להנחות את המודל להשתמש בהן. הוא מנתח את ההנחיה ואת הצהרות הפונקציות ומחליט אם להשיב ישירות או להפעיל פונקציה. אם מתבצעת קריאה לפונקציה, אובייקט התגובה יכיל הצעה לקריאה לפונקציה.
 
 ### Python
 
@@ -686,7 +687,7 @@ const response = await ai.models.generateContent({
 console.log(response.functionCalls[0]);
 ```
 
-Das Modell gibt dann ein `functionCall`-Objekt in einem OpenAPI-kompatiblen Schema zurück, in dem angegeben wird, wie eine oder mehrere der deklarierten Funktionen aufgerufen werden, um die Frage des Nutzers zu beantworten.
+לאחר מכן המודל מחזיר אובייקט `functionCall` בסכימה שתואמת ל-OpenAPI, שמציין איך לקרוא לאחת או יותר מהפונקציות שהוגדרו כדי להשיב על השאלה של המשתמש.
 
 ### Python
 
@@ -704,9 +705,9 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 }
 ```
 
-### Schritt 3: Code der Funktion „set\_light\_values“ ausführen
+### שלב 3: מריצים את הקוד של הפונקציה set\_light\_values
 
-Extrahieren Sie die Details zum Funktionsaufruf aus der Antwort des Modells, parsen Sie die Argumente und führen Sie die Funktion `set_light_values` aus.
+לחלץ את פרטי הקריאה לפונקציה מהתשובה של המודל, לנתח את הארגומנטים ולהפעיל את הפונקציה `set_light_values`.
 
 ### Python
 
@@ -732,9 +733,9 @@ if (tool_call.name === 'set_light_values') {
 }
 ```
 
-### Schritt 4: Nutzerfreundliche Antwort mit Funktionsergebnis erstellen und das Modell noch einmal aufrufen
+### שלב 4: יצירת תגובה ידידותית למשתמש עם תוצאת הפונקציה והפעלת המודל שוב
 
-Senden Sie das Ergebnis der Funktionsausführung schließlich zurück an das Modell, damit es diese Informationen in seine endgültige Antwort an den Nutzer einbeziehen kann.
+לבסוף, שולחים את התוצאה של הפעלת הפונקציה בחזרה למודל כדי שהוא יוכל לשלב את המידע הזה בתשובה הסופית למשתמש.
 
 ### Python
 
@@ -787,53 +788,56 @@ const final_response = await ai.models.generateContent({
 console.log(final_response.text);
 ```
 
-Damit ist der Ablauf für Funktionsaufrufe abgeschlossen. Das Modell hat die Funktion `set_light_values` erfolgreich verwendet, um die angeforderte Aktion des Nutzers auszuführen.
+כך מסתיים תהליך קריאת הפונקציה. המודל השתמש בהצלחה בפונקציה `set_light_values` כדי לבצע את פעולת הבקשה של המשתמש.
 
-## Funktionsdeklarationen
+## הצהרות על פונקציות
 
-Wenn Sie Funktionsaufrufe in einem Prompt implementieren, erstellen Sie ein `tools`-Objekt, das ein oder mehrere `function declarations` enthält. Sie definieren Funktionen mit JSON, insbesondere mit einer [ausgewählten Teilmenge](https://ai.google.dev/api/caching?hl=de#Schema) des [OpenAPI-Schemaformats](https://spec.openapis.org/oas/v3.0.3#schemaw). Eine einzelne Funktionsdeklaration kann die folgenden Parameter enthalten:
+כשמטמיעים קריאות לפונקציות בהנחיה, יוצרים אובייקט `tools` שמכיל פונקציה אחת או יותר `function declarations`. מגדירים פונקציות באמצעות JSON, באופן ספציפי עם [קבוצת משנה נבחרת](https://ai.google.dev/api/caching?hl=he#Schema) של פורמט [סכימת OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). הצהרה על פונקציה אחת יכולה לכלול את הפרמטרים הבאים:
 
-- `name` (String): Ein eindeutiger Name für die Funktion (`get_weather_forecast`, `send_email`). Verwenden Sie beschreibende Namen ohne Leerzeichen oder Sonderzeichen (verwenden Sie Unterstriche oder CamelCase).
-- `description` (string): Eine klare und detaillierte Beschreibung des Zwecks und der Funktionen der Funktion. Das ist wichtig, damit das Modell weiß, wann die Funktion verwendet werden soll. Sei konkret und gib bei Bedarf Beispiele an („Findet Kinos anhand des Standorts und optional des Filmtitels, der derzeit in den Kinos läuft.“).
-- `parameters` (Objekt): Definiert die Eingabeparameter, die von der Funktion erwartet werden.
-  - `type` (String): Gibt den allgemeinen Datentyp an, z. B. `object`.
-  - `properties` (Objekt): Listet einzelne Parameter auf, jeweils mit:
-    - `type` (String): Der Datentyp des Parameters, z. B. `string`, `integer` oder `boolean, array`.
-    - `description` (String): Eine Beschreibung des Zwecks und des Formats des Parameters. Geben Sie Beispiele und Einschränkungen an („Die Stadt und das Bundesland, z. B. ‚San Francisco, CA‘, oder eine Postleitzahl, z. B. ‚95616‘“).
-    - `enum` (Array, optional): Wenn die Parameterwerte aus einem festen Set stammen, verwenden Sie „enum“, um die zulässigen Werte aufzulisten, anstatt sie nur in der Beschreibung zu beschreiben. Das verbessert die Genauigkeit („enum“:[„daylight“, „cool“, „warm“]).
-  - `required` (Array): Ein Array von Strings mit den Parameternamen, die für die Funktion erforderlich sind.
+- ‫`name` (מחרוזת): שם ייחודי לפונקציה (`get_weather_forecast`,`send_email`). מומלץ להשתמש בשמות תיאוריים ללא רווחים או תווים מיוחדים (אפשר להשתמש בקו תחתון או ב-camelCase).
+- ‫`description` (מחרוזת): הסבר ברור ומפורט על המטרה והיכולות של הפונקציה. השלב הזה חיוני כדי שהמודל יבין מתי להשתמש בפונקציה. היו ספציפיים וספקו דוגמאות אם זה עוזר ("מוצא תיאטראות על סמך מיקום ואופציונלית שם הסרט שמוצג כרגע בתיאטראות").
+- ‫`parameters` (object): הגדרה של פרמטרי הקלט שהפונקציה מצפה לקבל.
+  - ‫`type` (מחרוזת): מציין את סוג הנתונים הכולל, כמו `object`.
+  - ‫`properties` (אובייקט): רשימה של פרמטרים בודדים, כל אחד עם:
+    - ‫`type` (string): סוג הנתונים של הפרמטר, כמו `string`,‏ `integer`, ‏ `boolean, array`.
+    - ‫`description` (מחרוזת): תיאור של מטרת הפרמטר והפורמט שלו. צריך לספק דוגמאות ומגבלות ("העיר והמדינה,
+      למשל, 'סן פרנסיסקו, קליפורניה' או מיקוד, למשל, '95616'").
+    - ‫`enum` (מערך, אופציונלי): אם ערכי הפרמטרים הם מתוך קבוצה קבועה, צריך להשתמש ב-enum כדי לפרט את הערכים המותרים במקום לתאר אותם בתיאור. זה משפר את הדיוק ("enum":
+      ["daylight", "cool", "warm"]).
+  - ‫`required` (מערך): מערך של מחרוזות שכולל את שמות הפרמטרים שחובה לציין כדי שהפונקציה תפעל.
 
-Sie können `FunctionDeclarations` auch direkt aus Python-Funktionen mit `types.FunctionDeclaration.from_callable(client=client, callable=your_function)` erstellen.
+אפשר גם ליצור `FunctionDeclarations` ישירות מפונקציות Python באמצעות `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
 
-## Funktionsaufrufe mit Thinking-Modellen
+## בקשה להפעלת פונקציה באמצעות מודלים של חשיבה
 
-Die Modelle der Gemini 3- und 2.5-Serie verwenden einen internen [Denkprozess](https://ai.google.dev/gemini-api/docs/thinking?hl=de), um Anfragen zu bearbeiten. Dadurch wird die Leistung von Funktionsaufrufen deutlich verbessert. Das Modell kann so besser bestimmen, wann eine Funktion aufgerufen werden soll und welche Parameter verwendet werden müssen. Da die Gemini API zustandslos ist, verwenden Modelle [Gedankensignaturen](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=de), um den Kontext über mehrere Konversationsrunden hinweg beizubehalten.
+מודלים מסדרות Gemini 3 ו-2.5 משתמשים בתהליך [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he) פנימי כדי להסיק מסקנות לגבי בקשות. השינוי הזה משפר באופן משמעותי את הביצועים של קריאות לפונקציות, ומאפשר למודל לקבוע בצורה טובה יותר מתי לקרוא לפונקציה ובאילו פרמטרים להשתמש. ממשק Gemini API הוא חסר מצב (stateless), ולכן המודלים משתמשים ב[חתימות מחשבה](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he) כדי לשמור על ההקשר בשיחות רב-שלביות.
 
-In diesem Abschnitt wird die erweiterte Verwaltung von Gedanken-Signaturen behandelt. Dies ist nur erforderlich, wenn Sie API-Anfragen manuell erstellen (z. B. über REST) oder den Unterhaltungsverlauf bearbeiten.
+הקטע הזה מתייחס לניהול מתקדם של חתימות מחשבה, והוא רלוונטי רק אם אתם יוצרים בקשות API באופן ידני (למשל, באמצעות REST) או משנים את היסטוריית השיחות.
 
-**Wenn Sie die [Google GenAI SDKs](https://ai.google.dev/gemini-api/docs/libraries?hl=de) (unsere offiziellen Bibliotheken) verwenden, müssen Sie diesen Prozess nicht verwalten.** Die SDKs führen die erforderlichen Schritte automatisch aus, wie im vorherigen [Beispiel](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#step-4) gezeigt.
+**אם אתם משתמשים ב[ערכות ה-SDK של Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=he) (הספריות הרשמיות שלנו), אתם לא צריכים לנהל את התהליך הזה**. ערכות ה-SDK מטפלות אוטומטית בשלבים הנדרשים, כמו שמוצג ב[דוגמה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#step-4) הקודמת.
 
-### Unterhaltungsverlauf manuell verwalten
+### ניהול היסטוריית השיחות באופן ידני
 
-Wenn Sie den Unterhaltungsverlauf manuell ändern, müssen Sie anstelle der [vollständigen vorherigen Antwort](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#step-4) die `thought_signature` im Zug des Modells korrekt verarbeiten.
+אם משנים את היסטוריית השיחות באופן ידני, במקום לשלוח את [התשובה הקודמת המלאה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#step-4), צריך לטפל בצורה נכונה ב-`thought_signature` שכלול בתור של המודל.
 
-Beachten Sie die folgenden Regeln, damit der Kontext des Modells erhalten bleibt:
+כדי לוודא שההקשר של המודל נשמר, צריך לפעול לפי הכללים הבאים:
 
-- Senden Sie den `thought_signature` immer zurück an das Modell innerhalb des ursprünglichen [`Part`](https://ai.google.dev/api?hl=de#request-body-structure).
-- **Fügen Sie in Ihre `function_response` immer die genaue `id` aus der `function_call` ein, damit die API das Ergebnis der richtigen Anfrage zuordnen kann.**
-- Führen Sie keine `Part` mit einer Signatur mit einer ohne Signatur zusammen, da dadurch der Positionskontext des Gedankens verloren geht.
-- Kombinieren Sie nicht zwei `Parts`, die beide Signaturen enthalten, da die Signaturstrings nicht zusammengeführt werden können.
+- תמיד שולחים את `thought_signature` בחזרה למודל בתוך [`Part`](https://ai.google.dev/api?hl=he#request-body-structure) המקורי.
+- **חשוב תמיד לכלול את הערך המדויק של `id` מתוך `function_call` ב-`function_response` כדי שממשק ה-API יוכל למפות את התוצאה לבקשה הנכונה.**
+- אל תמזגו `Part` שמכיל חתימה עם `Part` שלא מכיל חתימה. כך נשבר ההקשר המיקומי של המחשבה.
+- אל תשלבו שני `Parts` שמכילים חתימות, כי אי אפשר למזג את מחרוזות החתימות.
 
-#### Gedankensignaturen von Gemini 3
+#### חתימות מחשבה של Gemini 3
 
-In Gemini 3 kann jede [`Part`](https://ai.google.dev/api?hl=de#request-body-structure) einer Modellantwort eine Gedanken-Signatur enthalten.
-Wir empfehlen zwar, Signaturen für alle `Part`-Typen zurückzugeben, aber für Funktionsaufrufe ist es obligatorisch, Gedankensignaturen zurückzugeben. Sofern Sie den Unterhaltungsverlauf nicht manuell bearbeiten, werden Gedanken-Signaturen automatisch vom Google GenAI SDK verarbeitet.
+ב-Gemini 3, כל [`Part`](https://ai.google.dev/api?hl=he#request-body-structure) של תשובה של מודל
+עשוי להכיל חתימת מחשבה.
+בדרך כלל מומלץ להחזיר חתימות מכל `Part` הסוגים, אבל החזרת חתימות של מחשבות היא חובה כשמשתמשים בקריאות לפונקציות. אלא אם אתם משנים את היסטוריית השיחות באופן ידני, Google GenAI SDK יטפל בחתימות המחשבה באופן אוטומטי.
 
-Wenn Sie den Chatverlauf manuell bearbeiten, finden Sie auf der Seite [Gedankensignaturen](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=de) eine vollständige Anleitung und Details zum Umgang mit Gedankensignaturen für Gemini 3.
+אם אתם משנים את היסטוריית השיחות באופן ידני, כדאי לעיין בדף [חתימות המחשבות](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he) כדי לקבל הנחיות מלאות ופרטים על טיפול בחתימות המחשבות של Gemini 3.
 
-##### Gedankensignaturen prüfen
+##### בדיקת חתימות של מחשבות
 
-Die Antwort muss nicht unbedingt geprüft werden, aber Sie können sich die `thought_signature` zu Debugging- oder Lernzwecken ansehen.
+אמנם לא צריך לבדוק את התגובה כדי להטמיע את התכונה, אבל אפשר לבדוק את התגובה כדי לראות את ה-`thought_signature` למטרות ניפוי באגים או למטרות לימודיות.
 
 ### Python
 
@@ -861,13 +865,13 @@ if (part.thoughtSignature) {
 }
 ```
 
-Weitere Informationen zu Einschränkungen und zur Verwendung von Gedanken-Signaturen sowie zu Denkmodellen im Allgemeinen finden Sie auf der Seite [Denken](https://ai.google.dev/gemini-api/docs/thinking?hl=de#signatures).
+מידע נוסף על מגבלות ושימוש בחתימות מחשבה, ועל מודלים של חשיבה באופן כללי, זמין בדף [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he#signatures).
 
-## Parallele Funktionsaufrufe
+## בקשות מקבילות להפעלת פונקציות
 
-Neben dem Aufrufen von Funktionen in einzelnen Zügen können Sie auch mehrere Funktionen gleichzeitig aufrufen. Mit parallelen Funktionsaufrufen können Sie mehrere Funktionen gleichzeitig ausführen. Das ist nützlich, wenn die Funktionen nicht voneinander abhängig sind. Das ist in Szenarien wie dem Erheben von Daten aus mehreren unabhängigen Quellen nützlich, z. B. beim Abrufen von Kundendetails aus verschiedenen Datenbanken, beim Prüfen von Lagerbeständen in verschiedenen Lagern oder beim Ausführen mehrerer Aktionen wie dem Umwandeln Ihrer Wohnung in eine Disco.
+בנוסף לקריאה לפונקציה אחת, אפשר גם לקרוא לכמה פונקציות בו-זמנית. התכונה 'הפעלת פונקציות במקביל' מאפשרת להפעיל כמה פונקציות בו-זמנית, והיא שימושית כשהפונקציות לא תלויות זו בזו. האפשרות הזו שימושית בתרחישים כמו איסוף נתונים מכמה מקורות עצמאיים, למשל אחזור פרטי לקוחות ממסדי נתונים שונים או בדיקת רמות המלאי במחסנים שונים, או ביצוע כמה פעולות כמו הפיכת הדירה לדיסקוטק.
 
-Wenn das Modell mehrere Funktionsaufrufe in einem einzigen Zug initiiert, müssen Sie die `function_result`-Objekte nicht in derselben Reihenfolge zurückgeben, in der die `function_call`-Objekte empfangen wurden. Die Gemini API ordnet jedes Ergebnis mithilfe der `id` aus der Ausgabe des Modells dem entsprechenden Aufruf zu. So können Sie Ihre Funktionen asynchron ausführen und die Ergebnisse nach Abschluss an Ihre Liste anhängen.
+כשהמודל יוזם כמה קריאות לפונקציות בתור אחד, לא צריך להחזיר את האובייקטים `function_result` באותו סדר שבו התקבלו האובייקטים `function_call`. ‫Gemini API ממפה כל תוצאה בחזרה לקריאה המתאימה באמצעות `id` מהפלט של המודל. כך אפשר להפעיל את הפונקציות באופן אסינכרוני ולהוסיף את התוצאות לרשימה כשהן מסתיימות.
 
 ### Python
 
@@ -977,8 +981,8 @@ const dimLights = {
 };
 ```
 
-Konfigurieren Sie den Funktionsaufrufmodus so, dass alle angegebenen Tools verwendet werden können.
-[Weitere Informationen zum Konfigurieren von Funktionsaufrufen](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#function_calling_modes)
+מגדירים את מצב קריאת הפונקציות כך שניתן יהיה להשתמש בכל הכלים שצוינו.
+מידע נוסף זמין במאמר בנושא [הגדרת הפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#function_calling_modes).
 
 ### Python
 
@@ -1052,9 +1056,9 @@ for (const fn of response.functionCalls) {
 }
 ```
 
-Jedes der ausgegebenen Ergebnisse spiegelt einen einzelnen Funktionsaufruf wider, den das Modell angefordert hat. Senden Sie die Ergebnisse in derselben Reihenfolge zurück, in der sie angefordert wurden.
+כל אחת מהתוצאות המוקרנות משקפת בקשה להפעלת פונקציה יחידה שהמודל ביקש. כדי לשלוח את התוצאות בחזרה, צריך לכלול את התשובות באותו סדר שבו הן התבקשו.
 
-Das Python SDK unterstützt den [automatischen Funktionsaufruf](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#automatic_function_calling_python_only), bei dem Python-Funktionen automatisch in Deklarationen umgewandelt werden und der Ausführungs- und Antwortzyklus des Funktionsaufrufs für Sie übernommen wird. Im Folgenden finden Sie ein Beispiel für den Anwendungsfall „Disco“.
+‫Python SDK תומך ב[קריאה אוטומטית לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#automatic_function_calling_python_only), שממירה אוטומטית פונקציות של Python להצהרות, ומטפלת במחזור הביצוע והתגובה של הקריאה לפונקציה בשבילכם. בהמשך מופיעה דוגמה לתרחיש השימוש disco.
 
 ### Python
 
@@ -1117,15 +1121,15 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## Zusammengesetzte Funktionsaufrufe
+## בקשה להפעלת פונקציה עם קומפוזיציה
 
-Durch die Komposition oder das sequenzielle Aufrufen von Funktionen kann Gemini mehrere Funktionsaufrufe verketten, um eine komplexe Anfrage zu bearbeiten. Um beispielsweise die Frage „Wie ist die Temperatur an meinem aktuellen Standort?“ zu beantworten, ruft die Gemini API möglicherweise zuerst eine `get_current_location()`-Funktion und dann eine `get_weather()`-Funktion auf, die den Standort als Parameter verwendet.
+קריאה לפונקציות בהרכב או ברצף מאפשרת ל-Gemini לשרשר כמה קריאות לפונקציות כדי למלא בקשה מורכבת. לדוגמה, כדי לענות על השאלה "מה הטמפרטורה במיקום הנוכחי שלי?", יכול להיות ש-Gemini API יפעיל קודם פונקציה `get_current_location()` ואז פונקציה `get_weather()` שמקבלת את המיקום כפרמטר.
 
-Das folgende Beispiel zeigt, wie Sie die Komposition von Funktionsaufrufen mit dem Python SDK und automatischen Funktionsaufrufen implementieren.
+בדוגמה הבאה אפשר לראות איך מטמיעים בקשה להפעלת פונקציה מורכבת באמצעות Python SDK ובקשה אוטומטית להפעלת פונקציה.
 
 ### Python
 
-In diesem Beispiel wird die automatische Funktion zum Aufrufen von Funktionen des `google-genai` Python SDK verwendet. Das SDK konvertiert die Python-Funktionen automatisch in das erforderliche Schema, führt die Funktionsaufrufe aus, wenn das Modell dies anfordert, und sendet die Ergebnisse zurück an das Modell, um die Aufgabe abzuschließen.
+בדוגמה הזו נעשה שימוש בתכונה של קריאה אוטומטית לפונקציה של `google-genai` Python SDK. ה-SDK ממיר אוטומטית את הפונקציות של Python לסכימה הנדרשת, מריץ את הקריאות לפונקציות כשמתקבלת בקשה מהמודל ושולח את התוצאות בחזרה למודל כדי להשלים את המשימה.
 
 ```
 import os
@@ -1164,9 +1168,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**Erwartete Ausgabe**
+**הפלט המצופה**
 
-Wenn Sie den Code ausführen, sehen Sie, wie das SDK die Funktionsaufrufe orchestriert. Das Modell ruft zuerst `get_weather_forecast` auf, empfängt die Temperatur und ruft dann `set_thermostat_temperature` mit dem richtigen Wert basierend auf der Logik im Prompt auf.
+כשמריצים את הקוד, אפשר לראות את ה-SDK מתזמן את הקריאות לפונקציה. המודל קודם קורא לפונקציה `get_weather_forecast`, מקבל את רמת האקראיות ואז קורא לפונקציה `set_thermostat_temperature` עם הערך הנכון על סמך הלוגיקה בהנחיה.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1178,7 +1182,7 @@ OK. I've set the thermostat to 20°C.
 
 ### JavaScript
 
-In diesem Beispiel wird gezeigt, wie Sie das JavaScript-/TypeScript-SDK für zusammengesetzte Funktionsaufrufe mit einer manuellen Ausführungsschleife verwenden.
+בדוגמה הזו מוצג איך להשתמש ב-JavaScript/TypeScript SDK כדי לבצע קריאות לפונקציות מורכבות באמצעות לולאת ביצוע ידנית.
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1307,9 +1311,9 @@ while (true) {
 }
 ```
 
-**Erwartete Ausgabe**
+**הפלט המצופה**
 
-Wenn Sie den Code ausführen, sehen Sie, wie das SDK die Funktionsaufrufe orchestriert. Das Modell ruft zuerst `get_weather_forecast` auf, empfängt die Temperatur und ruft dann `set_thermostat_temperature` mit dem richtigen Wert auf, der auf der Logik im Prompt basiert.
+כשמריצים את הקוד, אפשר לראות את ה-SDK מתזמן את הקריאות לפונקציה. המודל קודם קורא לפונקציה `get_weather_forecast`, מקבל את רמת האקראיות ואז קורא לפונקציה `set_thermostat_temperature` עם הערך הנכון על סמך הלוגיקה בהנחיה.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1319,7 +1323,7 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-Kompositionelle Funktionsaufrufe sind eine native [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de)-Funktion. Das bedeutet, dass die Live API den Funktionsaufruf ähnlich wie das Python SDK verarbeiten kann.
+קריאה לפונקציות מורכבות היא תכונה מקורית של [Live API](https://ai.google.dev/gemini-api/docs/live?hl=he). כלומר, Live API יכול לטפל בקריאות לפונקציות באופן דומה ל-Python SDK.
 
 ### Python
 
@@ -1359,16 +1363,15 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## Modi für Funktionsaufrufe
+## מצבים של בקשה להפעלת פונקציה
 
-Mit der Gemini API können Sie steuern, wie das Modell die bereitgestellten Tools (Funktionsdeklarationen) verwendet. Sie können den Modus in `function_calling_config` festlegen.
+‫Gemini API מאפשר לכם לקבוע איך המודל משתמש בכלים שסופקו (הצהרות פונקציה). במילים אחרות, אתם יכולים להגדיר את המצב בתוך.`function_calling_config`.
 
-- `VALIDATED`: Standardmodus für die Kombination von Tools (wenn auch integrierte Tools oder strukturierte Ausgaben aktiviert sind). Das Modell ist darauf beschränkt, entweder Funktionsaufrufe oder natürliche Sprache vorherzusagen, und sorgt für die Einhaltung des Funktionsschemas. Wenn `allowed_function_names` nicht angegeben ist, wählt das Modell aus allen verfügbaren Funktionsdeklarationen aus. Wenn `allowed_function_names` angegeben wird, wählt das Modell aus den zulässigen Funktionen aus. In diesem Modus werden weniger fehlerhafte Funktionsaufrufe generiert als im Modus `AUTO`.
-- `AUTO`: Standardmodus, wenn nur das Tool „function\_declarations“ aktiviert ist.
-  Das Modell entscheidet anhand des Prompts und des Kontexts, ob eine Antwort in natürlicher Sprache generiert oder ein Funktionsaufruf vorgeschlagen werden soll.
-- `ANY`: Das Modell ist darauf beschränkt, immer einen Funktionsaufruf vorherzusagen, und sorgt für die Einhaltung des Funktionsschemas. Wenn `allowed_function_names` nicht angegeben ist, kann das Modell eine beliebige der bereitgestellten Funktionsdeklarationen auswählen.
-  Wenn `allowed_function_names` als Liste angegeben wird, kann das Modell nur aus den Funktionen in dieser Liste auswählen. Verwenden Sie diesen Modus, wenn Sie für jeden Prompt eine Antwort auf einen Funktionsaufruf benötigen (falls zutreffend).
-- `NONE`: Das Modell darf *keine* Funktionsaufrufe ausführen. Dies entspricht dem Senden einer Anfrage ohne Funktionsdeklarationen. Damit können Sie Funktionsaufrufe vorübergehend deaktivieren, ohne Ihre Tool-Definitionen zu entfernen.
+- ‫`VALIDATED`: מצב ברירת המחדל לשילוב כלים (כשהכלים המובנים או הפלט המובנה מופעלים גם כן). המודל מוגבל לחיזוי של קריאות לפונקציות או של שפה טבעית, ומבטיח עמידה בסכימת הפונקציות. אם לא מציינים את `VALIDATED`, המודל בוחר מתוך כל הצהרות הפונקציות הזמינות. אם מציינים את `VALIDATED`, המודל בוחר מתוך קבוצת הפונקציות המותרות. המצב הזה מצמצם את מספר הקריאות לפונקציות שאינן תקינות (בהשוואה למצב `AUTO`).`allowed_function_names``allowed_function_names`
+- ‫`AUTO`: מצב ברירת המחדל כשמופעל רק הכלי function\_declarations.
+  המודל מחליט אם ליצור תגובה בשפה טבעית או להציע קריאה לפונקציה על סמך ההנחיה וההקשר.
+- ‫`ANY`: המודל מוגבל כך שתמיד יחזיר בקשה להפעלת פונקציה, ויקפיד על סכימת הפונקציה. אם לא מציינים את `allowed_function_names`, המודל יכול לבחור מתוך כל הצהרות הפונקציה שסופקו. אם מציינים את `allowed_function_names` כרשימה, המודל יכול לבחור רק מתוך הפונקציות ברשימה הזו. משתמשים במצב הזה כשנדרשת תגובה של בקשה להפעלת פונקציה לכל הנחיה (אם רלוונטי).
+- ‫`NONE`: *אסור* למודל לבצע קריאות לפונקציות. זה שווה ערך לשליחת בקשה ללא הצהרות פונקציה. אפשר להשתמש בזה כדי להשבית זמנית את השימוש בפונקציות בלי להסיר את ההגדרות של הכלים.
 
 ### Python
 
@@ -1409,18 +1412,18 @@ const config = {
 };
 ```
 
-## Automatischer Funktionsaufruf (nur Python)
+## בקשה אוטומטית להפעלת פונקציה (Python בלבד)
 
-Wenn Sie das Python SDK verwenden, können Sie Python-Funktionen direkt als Tools bereitstellen.
-Das SDK wandelt diese Funktionen in Deklarationen um, verwaltet die Ausführung des Funktionsaufrufs und übernimmt den Antwortzyklus für Sie. Definieren Sie Ihre Funktion mit Type Hints und einem Docstring. Für optimale Ergebnisse wird empfohlen, [Docstrings im Google-Stil](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods) zu verwenden.
-Das SDK führt dann automatisch folgende Aktionen aus:
+כשמשתמשים ב-Python SDK, אפשר לספק פונקציות Python ישירות ככלים.
+ה-SDK ממיר את הפונקציות האלה להצהרות, מנהל את הביצוע של בקשת הפעלת הפונקציה ומטפל במחזור התגובה בשבילכם. מגדירים את הפונקציה עם רמזים לסוגים ומחרוזת תיעוד. לקבלת התוצאות הטובות ביותר, מומלץ להשתמש ב[מחרוזות תיעוד בסגנון Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
+לאחר מכן, ה-SDK יבצע באופן אוטומטי את הפעולות הבאות:
 
-1. Antworten auf Funktionsaufrufe des Modells erkennen.
-2. Rufen Sie die entsprechende Python-Funktion in Ihrem Code auf.
-3. Senden Sie die Antwort der Funktion zurück an das Modell.
-4. Gibt die endgültige Textantwort des Modells zurück.
+1. זיהוי תשובות לקריאות לפונקציות מהמודל.
+2. מפעילים את פונקציית Python המתאימה בקוד.
+3. שולחים את התשובה של הפונקציה בחזרה למודל.
+4. החזרת התשובה הסופית של המודל בטקסט.
 
-Das SDK parst derzeit keine Argumentbeschreibungen in die Property-Beschreibungs-Slots der generierten Funktionsdeklaration. Stattdessen wird der gesamte Docstring als Funktionsbeschreibung auf oberster Ebene gesendet.
+בשלב הזה, ה-SDK לא מנתח תיאורים של ארגומנטים למשבצות התיאור של המאפיינים בהצהרת הפונקציה שנוצרת. במקום זאת, הוא שולח את כל מחרוזת התיעוד כתיאור הפונקציה ברמה העליונה.
 
 ### Python
 
@@ -1457,7 +1460,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-Sie können automatische Funktionsaufrufe mit dem folgenden Befehl deaktivieren:
+כדי להשבית את ההפעלה האוטומטית של פונקציות, משתמשים בפקודה:
 
 ### Python
 
@@ -1468,9 +1471,9 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### Automatische Deklaration des Funktionsschemas
+### הצהרה אוטומטית על סכימת פונקציה
 
-Die API kann die folgenden Typen beschreiben. `Pydantic`-Typen sind zulässig, sofern die darin definierten Felder auch aus zulässigen Typen bestehen. Dict-Typen (z. B. `dict[str: int]`) werden hier nicht gut unterstützt. Verwenden Sie sie nicht.
+ה-API יכול לתאר כל אחד מהסוגים הבאים. מותרים, כל עוד השדות שמוגדרים בהם מורכבים גם הם מסוגים מותרים.`Pydantic` אין תמיכה טובה בסוגי מילונים (כמו `dict[str: int]`), לכן לא מומלץ להשתמש בהם.
 
 ### Python
 
@@ -1479,7 +1482,7 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-Wenn Sie sehen möchten, wie das abgeleitete Schema aussieht, können Sie es mit [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable) konvertieren:
+כדי לראות איך נראית הסכימה שהמערכת הסיקה, אפשר להמיר אותה באמצעות [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
 
 ### Python
 
@@ -1498,11 +1501,12 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## Nutzung mehrerer Tools: Integrierte Tools mit Funktionsaufrufen kombinieren
+## שימוש בכמה כלים: שילוב של כלים מובנים עם בקשות להפעלת פונקציות
 
-Sie können mehrere Tools aktivieren und integrierte Tools mit Funktionsaufrufen in derselben Anfrage kombinieren.
+אפשר להפעיל כמה כלים ולשלב בין כלים מובנים לבין קריאות לפונקציות באותה בקשה.
 
-Gemini 3-Modelle können integrierte Tools und Funktionsaufrufe dank der Funktion für die Weitergabe des Tool-Kontexts kombinieren. Weitere Informationen finden Sie auf der Seite [Integrierte Tools und Funktionsaufrufe kombinieren](https://ai.google.dev/gemini-api/docs/tool-combination?hl=de).
+מודלים של Gemini 3 יכולים לשלב כלים מובנים עם קריאה לפונקציות ישר מהקופסה,
+בזכות התכונה 'העברת הקשר של כלי'. כדי לקבל מידע נוסף, אפשר לקרוא את הדף בנושא [שילוב של כלים מובנים וקריאה לפונקציות](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
 
 ### Python
 
@@ -1644,21 +1648,21 @@ async function run() {
 run();
 ```
 
-Für Modelle vor der Gemini 3-Serie verwenden Sie die [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=de).
+למודלים שקדמו לסדרת Gemini 3, צריך להשתמש ב-[Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=he).
 
-## Multimodale Funktionsantworten
+## תשובות של פונקציות מרובות מצבים
 
-Bei Modellen der Gemini 3-Serie können Sie multimodale Inhalte in die Funktionsantwortteile einfügen, die Sie an das Modell senden. Das Modell kann diese multimodalen Inhalte in seinem nächsten Zug verarbeiten, um eine fundiertere Antwort zu generieren.
-Die folgenden MIME-Typen werden für multimodale Inhalte in Funktionsantworten unterstützt:
+במודלים מסדרת Gemini 3, אפשר לכלול תוכן מולטימודאלי בחלקים של תגובת הפונקציה ששולחים למודל. המודל יכול לעבד את התוכן הרב-מודאלי הזה בתור הבא כדי לספק תשובה מושכלת יותר.
+סוגי ה-MIME הבאים נתמכים בתוכן מולטימודאלי בתשובות של פונקציות:
 
-- **Google Bilder**: `image/png`, `image/jpeg`, `image/webp`
-- **Dokumente**: `application/pdf`, `text/plain`
+- **תמונות**: `image/png`, `image/jpeg`, `image/webp`
+- **מסמכים**: `application/pdf`, `text/plain`
 
-Wenn Sie multimodale Daten in eine Funktionsantwort einfügen möchten, müssen Sie sie als einen oder mehrere Teile einfügen, die im `functionResponse`-Teil verschachtelt sind. Jeder multimodale Teil muss `inlineData` enthalten. Wenn Sie von einem strukturierten `response`-Feld aus auf einen multimodalen Teil verweisen, muss dieser eine eindeutige `displayName` enthalten.
+כדי לכלול נתונים מרובי-אופנים בתשובה של פונקציה, צריך לכלול אותם כחלק אחד או יותר שמוטמעים בחלק `functionResponse`. כל חלק מולטימודאלי חייב להכיל את התג `inlineData`. אם אתם מפנים לחלק מולטימודאלי מתוך שדה `response` מובנה, הוא חייב להכיל `displayName` ייחודי.
 
-Sie können auch von einem strukturierten `response`-Feld des `functionResponse`-Teils aus auf einen multimodalen Teil verweisen. Verwenden Sie dazu das JSON-Referenzformat `{"$ref": "<displayName>"}`. Das Modell ersetzt die Referenz durch den multimodalen Inhalt, wenn es die Antwort verarbeitet. Jeder `displayName` kann im strukturierten Feld `response` nur einmal referenziert werden.
+אפשר גם להפנות לחלק מולטימודאלי מתוך השדה המובנה `response` של החלק `functionResponse` באמצעות פורמט ההפניה של JSON‏ `{"$ref": "<displayName>"}`. המודל מחליף את ההפניה בתוכן מולטימודאלי במהלך עיבוד התשובה. אפשר להפנות לכל `displayName` רק פעם אחת בשדה המובנה `response`.
 
-Im folgenden Beispiel wird eine Nachricht mit einem `functionResponse` für eine Funktion mit dem Namen `get_image` und einem verschachtelten Teil mit Bilddaten mit `displayName: "instrument.jpg"` gezeigt. Das Feld `response` von `functionResponse` verweist auf diesen Bildteil:
+בדוגמה הבאה מוצגת הודעה שמכילה `functionResponse` לפונקציה בשם `get_image` וחלק מוטמע שמכיל נתוני תמונה עם `displayName: "instrument.jpg"`. השדה `functionResponse`'s `response` מפנה לחלק הזה בתמונה:
 
 ### Python
 
@@ -1902,22 +1906,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Funktionsaufrufe mit strukturierter Ausgabe
+## בקשה להפעלת פונקציה עם פלט מובנה
 
-Bei Modellen der Gemini 3-Serie können Sie Funktionsaufrufe mit [strukturierter Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de) verwenden. So kann das Modell Funktionsaufrufe oder Ausgaben vorhersagen, die einem bestimmten Schema entsprechen. So erhalten Sie einheitlich formatierte Antworten, wenn das Modell keine Funktionsaufrufe generiert.
+במודלים מסדרת Gemini 3, אפשר להשתמש בקריאות לפונקציות עם [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he). כך המודל יכול לחזות קריאות לפונקציות או פלטים שמתאימים לסכימה ספציפית. כתוצאה מכך, אתם מקבלים תשובות בפורמט עקבי כשהמודל לא יוצר קריאות לפונקציות.
 
-## Model Context Protocol (MCP)
+## פרוטוקול הקשר של המודל (MCP)
 
-Das [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) ist ein offener Standard zum Verbinden von KI-Anwendungen mit externen Tools und Daten.
-MCP bietet ein gemeinsames Protokoll für den Zugriff von Modellen auf Kontext, z. B. Funktionen (Tools), Datenquellen (Ressourcen) oder vordefinierte Prompts.
+‫[Model Context Protocol‏ (MCP)](https://modelcontextprotocol.io/introduction) הוא תקן פתוח לחיבור אפליקציות AI לכלים ולנתונים חיצוניים.
+‫MCP מספק פרוטוקול משותף למודלים כדי לגשת להקשר, כמו פונקציות (כלים), מקורות נתונים (משאבים) או הנחיות מוגדרות מראש.
 
-Die Gemini SDKs bieten integrierte Unterstützung für das MCP, wodurch Boilerplate-Code reduziert wird und [automatische Tool-Aufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#automatic_function_calling_python_only) für MCP-Tools möglich sind. Wenn das Modell einen MCP-Tool-Aufruf generiert, können das Python- und das JavaScript-Client-SDK das MCP-Tool automatisch ausführen und die Antwort in einer nachfolgenden Anfrage an das Modell zurücksenden. Dieser Vorgang wird so lange wiederholt, bis das Modell keine weiteren Tool-Aufrufe mehr ausführt.
+ערכות ה-SDK של Gemini כוללות תמיכה מובנית ב-MCP, שמצמצמת את קוד ה-boilerplate ומציעה [הפעלה אוטומטית של כלים](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#automatic_function_calling_python_only) ל-MCP. כשהמודל יוצר קריאה לכלים של MCP, ערכות ה-SDK של לקוח Python ו-JavaScript יכולות להפעיל אוטומטית את כלי ה-MCP ולשלוח את התגובה בחזרה למודל בבקשה הבאה. התהליך הזה נמשך עד שהמודל לא יוצר יותר קריאות לכלים.
 
-Hier finden Sie ein Beispiel für die Verwendung eines lokalen MCP-Servers mit Gemini und dem `mcp` SDK.
+כאן אפשר לראות דוגמה לשימוש בשרת MCP מקומי עם Gemini ו-`mcp` SDK.
 
 ### Python
 
-Achten Sie darauf, dass die aktuelle Version des [`mcp` SDK](https://modelcontextprotocol.io/introduction) auf der gewünschten Plattform installiert ist.
+מוודאים שמותקנת בפלטפורמה שבחרתם הגרסה העדכנית של [`mcp` SDK](https://modelcontextprotocol.io/introduction).
+
+‫
 
 ```
 pip install mcp
@@ -1970,7 +1976,7 @@ asyncio.run(run())
 
 ### JavaScript
 
-Achten Sie darauf, dass die aktuelle Version des `mcp` SDK auf der von Ihnen gewählten Plattform installiert ist.
+מוודאים שמותקנת בפלטפורמה שבחרתם הגרסה העדכנית של `mcp` SDK.
 
 ```
 npm install @modelcontextprotocol/sdk
@@ -2018,62 +2024,62 @@ console.log(response.text)
 await client.close();
 ```
 
-### Einschränkungen bei der integrierten MCP-Unterstützung
+### מגבלות בתמיכה המובנית ב-MCP
 
-Die integrierte Unterstützung für MCP ist eine [experimentelle](https://ai.google.dev/gemini-api/docs/models?hl=de#preview) Funktion in unseren SDKs und unterliegt den folgenden Einschränkungen:
+תמיכה מובנית ב-MCP היא תכונה [ניסיונית](https://ai.google.dev/gemini-api/docs/models?hl=he#preview) בערכות ה-SDK שלנו, ויש לה את המגבלות הבאות:
 
-- Es werden nur Tools unterstützt, keine Ressourcen oder Prompts.
-- Es ist für das Python- und das JavaScript-/TypeScript-SDK verfügbar.
-- In zukünftigen Releases kann es zu nicht abwärtskompatiblen Änderungen kommen.
+- יש תמיכה רק בכלים, לא במשאבים או בהנחיות
+- היא זמינה ב-SDK של Python וב-SDK של JavaScript/TypeScript.
+- יכול להיות שיהיו שינויים שעלולים לשבור את התאימות בגרסאות עתידיות.
 
-Die manuelle Integration von MCP-Servern ist immer eine Option, wenn diese die Entwicklung einschränken.
+שילוב ידני של שרתי MCP הוא תמיד אפשרות אם המגבלות האלה משפיעות על מה שאתם בונים.
 
-## Unterstützte Modelle
+## מודלים נתמכים
 
-In diesem Abschnitt werden Modelle und ihre Funktionsaufruffunktionen aufgeführt. Experimentelle Modelle sind nicht enthalten. Eine umfassende Übersicht über die Funktionen finden Sie auf der Seite [Modellübersicht](https://ai.google.dev/gemini-api/docs/models?hl=de).
+בקטע הזה מפורטים המודלים והיכולות שלהם להפעלת פונקציות. לא כולל מודלים ניסיוניים. בדף [סקירה כללית של הדגם](https://ai.google.dev/gemini-api/docs/models?hl=he) אפשר לקרוא סקירה מקיפה של היכולות.
 
-| Modell | Funktionsaufrufe | Parallele Funktionsaufrufe | Zusammengesetzte Funktionsaufrufe |
+| מודל | בקשה להפעלת פונקציה | בקשות מקבילות להפעלת פונקציות | בקשה להפעלת פונקציה עם קומפוזיציה |
 | --- | --- | --- | --- |
-| [Gemini 3.1 Pro (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ | ✔️ | ✔️ |
+| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ | ✔️ | ✔️ |
+| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ | ✔️ | ✔️ |
+| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ | ✔️ | ✔️ |
+| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ | ✔️ | ✔️ |
+| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ | ✔️ | ✔️ |
 
-## Best Practices
+## שיטות מומלצות
 
-- **Funktions- und Parameterbeschreibungen**:Beschreibungen müssen äußerst klar und präzise sein. Das Modell stützt sich darauf, um die richtige Funktion auszuwählen und passende Argumente bereitzustellen.
-- **Benennung**:Verwenden Sie aussagekräftige Funktionsnamen (ohne Leerzeichen, Punkte oder Bindestriche).
-- **Starke Typisierung**:Verwenden Sie für Parameter bestimmte Typen (Ganzzahl, String, Enum), um Fehler zu reduzieren. Wenn ein Parameter nur eine begrenzte Anzahl gültiger Werte haben kann, verwenden Sie ein Enum.
-- **Tool-Auswahl**:Das Modell kann eine beliebige Anzahl von Tools verwenden. Wenn Sie jedoch zu viele Tools bereitstellen, kann das Risiko steigen, dass ein falsches oder suboptimales Tool ausgewählt wird. Die besten Ergebnisse erzielen Sie, wenn Sie nur die relevanten Tools für den Kontext oder die Aufgabe bereitstellen und die Anzahl der aktiven Tools idealerweise auf maximal 10–20 begrenzen. Wenn Sie eine große Anzahl von Tools haben, sollten Sie die dynamische Tool-Auswahl basierend auf dem Unterhaltungskontext in Betracht ziehen.
-- **Prompt Engineering**:
-  - Kontext angeben: Weisen Sie dem Modell eine Rolle zu, z. B. „Du bist ein hilfreicher Wetterassistent“.
-  - Geben Sie Anweisungen: Geben Sie an, wie und wann Funktionen verwendet werden sollen (z.B. „Raten Sie keine Daten; verwenden Sie für Prognosen immer ein zukünftiges Datum.“).
-  - Um Klärung bitten: Weisen Sie das Modell an, bei Bedarf klärende Fragen zu stellen.
-  - Weitere Strategien zum Entwerfen dieser Prompts finden Sie unter [Agentic Workflows](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de#agentic-workflows). Hier ist ein Beispiel für eine getestete [Systemanweisung](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de#agentic-si-template).
-- **Temperatur**:Verwenden Sie eine niedrige Temperatur (z.B. 0) für deterministischere und zuverlässigere Funktionsaufrufe.
-- **Validierung**:Wenn ein Funktionsaufruf erhebliche Folgen hat (z.B. eine Bestellung aufgeben), validieren Sie den Aufruf vor der Ausführung mit dem Nutzer.
-- **Grund für Abschluss prüfen**:Prüfen Sie immer [`finishReason`](https://ai.google.dev/api/generate-content?hl=de#FinishReason) in der Antwort des Modells, um Fälle zu behandeln, in denen das Modell keinen gültigen Funktionsaufruf generieren konnte.
-- **Fehlerbehandlung**: Implementieren Sie eine robuste Fehlerbehandlung in Ihren Funktionen, um unerwartete Eingaben oder API-Fehler ordnungsgemäß zu verarbeiten. Geben Sie informative Fehlermeldungen zurück, die das Modell verwenden kann, um hilfreiche Antworten für den Nutzer zu generieren.
-- **Sicherheit**:Achten Sie beim Aufrufen externer APIs auf die Sicherheit. Verwenden Sie geeignete Authentifizierungs- und Autorisierungsmechanismen. Vermeiden Sie die Offenlegung vertraulicher Daten in Funktionsaufrufen.
-- **Tokenlimits**:Funktionsbeschreibungen und Parameter werden auf Ihr Eingabetokenlimit angerechnet. Wenn Sie Tokenlimits erreichen, sollten Sie die Anzahl der Funktionen oder die Länge der Beschreibungen begrenzen und komplexe Aufgaben in kleinere, fokussiertere Funktionsgruppen aufteilen.
-- **Mischung aus Bash und benutzerdefinierten Tools**: Für Entwickler, die eine Mischung aus Bash und benutzerdefinierten Tools verwenden, ist für Gemini 3.1 Pro Preview ein separater Endpunkt über die API verfügbar, der [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de#gemini-31-pro-preview-customtools) heißt.
+- **תיאורים של פונקציות ופרמטרים:** חשוב להיות ברורים וספציפיים מאוד בתיאורים. המודל מסתמך על התיאורים האלה כדי לבחור את הפונקציה הנכונה ולספק ארגומנטים מתאימים.
+- **שם:** צריך להשתמש בשמות פונקציות תיאוריים (ללא רווחים, נקודות או מקפים).
+- **הקלדה חזקה:** כדי לצמצם את מספר השגיאות, כדאי להשתמש בסוגים ספציפיים (מספר שלם, מחרוזת, enum) לפרמטרים. אם לפרמטר יש קבוצה מוגבלת של ערכים תקינים, צריך להשתמש ב-enum.
+- **בחירת כלי:** למרות שהמודל יכול להשתמש במספר כלים שרירותי, אם מספקים לו יותר מדי כלים, הסיכון לבחירת כלי לא נכון או לא אופטימלי גדל. כדי להשיג את התוצאות הכי טובות, מומלץ לספק רק את הכלים הרלוונטיים להקשר או למשימה, ובאופן אידיאלי להגביל את הסט הפעיל ל-10 עד 20 כלים. אם יש לכם מספר גדול של כלים, כדאי לשקול בחירה דינמית של כלים בהתאם להקשר של השיחה.
+- **הנדסת הנחיות:**
+  - מספקים הקשר: מציינים את התפקיד של המודל (למשל, "אתה עוזר שימושי בנושא מזג האוויר").
+  - לתת הוראות: מציינים איך ומתי להשתמש בפונקציות (לדוגמה, "אל תנחש תאריכים, תמיד תשתמש בתאריך עתידי לתחזיות").
+  - לעודד הבהרה: אפשר להנחות את המודל לשאול שאלות הבהרה אם צריך.
+  - במאמר [תהליכי עבודה מבוססי-סוכן](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he#agentic-workflows) מפורטות אסטרטגיות נוספות לעיצוב ההנחיות האלה. הנה דוגמה ל[הנחיית מערכת](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he#agentic-si-template) שנבדקה.
+- **רמת אקראיות:** מומלץ להשתמש ברמת אקראיות נמוכה (למשל, 0) כדי לקבל בקשות להפעלת פונקציה יותר דטרמיניסטיות ואמינות.
+- **אימות:** אם לקריאה לפונקציה יש השלכות משמעותיות (למשל, ביצוע הזמנה), צריך לאמת את הקריאה עם המשתמש לפני שמבצעים אותה.
+- **בדיקת הסיבה לסיום:** תמיד בודקים את [`finishReason`](https://ai.google.dev/api/generate-content?hl=he#FinishReason) בתגובה של המודל כדי לטפל במקרים שבהם המודל לא הצליח ליצור קריאה תקפה לפונקציה.
+- **טיפול בשגיאות**: כדאי להטמיע טיפול חזק בשגיאות בפונקציות כדי לטפל בצורה חלקה בקלט לא צפוי או בכשלים ב-API. החזרת הודעות שגיאה אינפורמטיביות שהמודל יכול להשתמש בהן כדי ליצור תשובות מועילות למשתמש.
+- **אבטחה:** חשוב לשים לב לאבטחה כשקוראים לממשקי API חיצוניים. שימוש במנגנוני אימות והרשאה מתאימים. הימנעו מחשיפת מידע אישי רגיש בקריאות לפונקציות.
+- **מגבלות על טוקנים:** תיאורי פונקציות ופרמטרים נספרים במגבלת הטוקנים של הקלט. אם אתם מגיעים למגבלות האסימונים, כדאי להגביל את מספר הפונקציות או את אורך התיאורים, ולחלק משימות מורכבות לקבוצות קטנות יותר של פונקציות ממוקדות.
+- **שילוב של bash וכלים בהתאמה אישית** למי שמשתמש בשילוב של bash וכלים בהתאמה אישית, גרסת טרום ההשקה של Gemini 3.1 Pro כוללת נקודת קצה נפרדת שזמינה דרך ה-API בשם [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he#gemini-31-pro-preview-customtools).
 
-## Hinweise und Einschränkungen
+## הערות ומגבלות
 
-- Positionierung von Teilen des Funktionsaufrufs: Wenn Sie benutzerdefinierte Funktionsdeklarationen [zusammen mit integrierten Tools](https://ai.google.dev/gemini-api/docs/tool-combination?hl=de) (z. B. der Google Suche) verwenden, kann das Modell in einem einzigen Zug eine Mischung aus `functionCall`-, `toolCall`- und `toolResponse`-Teilen zurückgeben. Gehen Sie daher nicht davon aus, dass `functionCall` immer das letzte Element im Array „parts“ ist. Wenn Sie die JSON-Antwort manuell parsen, sollten Sie immer das Array „parts“ durchlaufen, anstatt sich auf die Position zu verlassen.
-- Es wird nur eine [Teilmenge des OpenAPI-Schemas](https://ai.google.dev/api/caching?hl=de#FunctionDeclaration) unterstützt.
-- Im `ANY`-Modus lehnt die API möglicherweise sehr große oder tief verschachtelte Schemas ab. Wenn Fehler auftreten, versuchen Sie, die Schemas für Funktionsparameter und Antworten zu vereinfachen, indem Sie Eigenschaftsnamen kürzen, die Schachtelung reduzieren oder die Anzahl der Funktionsdeklarationen begrenzen.
-- Die unterstützten Parametertypen in Python sind begrenzt.
-- Der automatische Funktionsaufruf ist nur eine Funktion des Python SDK.
+- מיקום החלקים של קריאה לפונקציה: כשמשתמשים בהצהרות על פונקציות מותאמות אישית [לצד כלים מובנים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) (כמו חיפוש Google), יכול להיות שהמודל יחזיר שילוב של חלקים מסוג `functionCall`, `toolCall` ו-`toolResponse` בתור אחד. לכן, אל תניחו ש`functionCall` תמיד יהיה הפריט האחרון במערך החלקים. אם אתם מנתחים את תגובת ה-JSON באופן ידני, תמיד כדאי לחזור על הפעולה במערך החלקים במקום להסתמך על המיקום.
+- יש תמיכה רק ב[קבוצת משנה של סכימת OpenAPI](https://ai.google.dev/api/caching?hl=he#FunctionDeclaration).
+- במצב `ANY`, יכול להיות שה-API ידחה סכימות גדולות מאוד או סכימות עם קינון עמוק. אם נתקלים בשגיאות, כדאי לנסות לפשט את סכימות הפרמטרים והתגובות של הפונקציה על ידי קיצור שמות המאפיינים, צמצום ההזחה או הגבלת מספר הצהרות הפונקציה.
+- סוגי הפרמטרים הנתמכים ב-Python מוגבלים.
+- התכונה 'הפעלת פונקציות אוטומטית' זמינה רק ב-Python SDK.
 
-Feedback geben
+שליחת משוב
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Zuletzt aktualisiert: 2026-06-10 (UTC).
+עדכון אחרון: 2026-06-19 (שעון UTC).
 
-Haben Sie Feedback für uns?
+רוצה לתת לנו משוב?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-10 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-19 (שעון UTC)."],[],[]]

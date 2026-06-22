@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=ar
-fetched_at: 2026-06-15T06:23:44.962381+00:00
-title: "\u0625\u0646\u0634\u0627\u0621 \u0645\u0648\u0633\u064a\u0642\u0649 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=vi
+fetched_at: 2026-06-22T06:26:07.337785+00:00
+title: "T\u1ea1o nh\u1ea1c b\u1eb1ng Lyria 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-# إنشاء موسيقى باستخدام Lyria 3
+# Tạo nhạc bằng Lyria 3
 
-‫Lyria 3 هي مجموعة نماذج من Google لإنشاء الموسيقى، وهي متاحة من خلال Gemini API. باستخدام Lyria 3، يمكنك إنشاء مقاطع صوتية مجسّمة عالية الجودة بتردد 44.1 كيلو هرتز من طلبات نصية أو من صور. تقدّم هذه النماذج محتوًى متماسكًا من الناحية البنيوية، بما في ذلك الغناء والكلمات المتزامنة والترتيبات الموسيقية الكاملة.
+Lyria 3 là nhóm mô hình tạo nhạc của Google, có sẵn thông qua Gemini API. Với Lyria 3, bạn có thể tạo âm thanh nổi chất lượng cao ở tần số 44, 1 kHz từ câu lệnh văn bản hoặc từ hình ảnh. Các mô hình này mang đến sự nhất quán về cấu trúc, bao gồm giọng hát, lời bài hát có dấu thời gian và bản phối nhạc cụ hoàn chỉnh.
 
-تتضمّن مجموعة Lyria 3 نموذجَين:
+Nhóm mô hình Lyria 3 bao gồm 2 mô hình:
 
-| الطراز | رقم تعريف الطراز | الأفضل لـ | المدة | الناتج |
+| Mô hình | Mã kiểu máy | Phù hợp nhất cho | Thời lượng | Đầu ra |
 | --- | --- | --- | --- | --- |
-| **مقطع Lyria 3** | `lyria-3-clip-preview` | المقاطع القصيرة والحلقات المتكررة والمعاينات | ‫30 ثانية | MP3 |
-| **‫Lyria 3 Pro** | `lyria-3-pro-preview` | أغانٍ كاملة تتضمّن مقاطع ولازمات وجسورًا | بضع دقائق (يمكن التحكّم فيها من خلال الطلب) | MP3 |
+| **Đoạn video Lyria 3** | `lyria-3-clip-preview` | Đoạn video ngắn, video lặp lại, bản xem trước | 30 giây | MP3 |
+| **Lyria 3 Pro** | `lyria-3-pro-preview` | Bài hát có thời lượng đầy đủ với các đoạn, điệp khúc, cầu nối | Vài phút (có thể kiểm soát thông qua câu lệnh) | MP3 |
 
-يمكن استخدام كلا النموذجين من خلال طريقة `generateContent` العادية و[واجهة Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar) الجديدة، ما يتيح إدخال بيانات متعددة الوسائط (نصوص وصور) وإنتاج صوت **استيريو عالي الدقة بتردد 44.1 كيلو هرتز**.
+Bạn có thể sử dụng cả hai mô hình này bằng phương thức `generateContent` tiêu chuẩn và [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi) mới, hỗ trợ đầu vào đa phương thức (văn bản và hình ảnh) và tạo ra âm thanh **âm thanh nổi có độ trung thực cao 44,1 kHz**.
 
-## إنشاء مقطع موسيقي
+## Tạo đoạn nhạc
 
-ينشئ نموذج Lyria 3 Clip دائمًا مقطعًا مدته **30 ثانية**. لإنشاء مقطع، استدعِ الدالة `generateContent` مع طلب نصي. يتضمّن الرد دائمًا كلمات الأغنية وبنيتها إلى جانب الصوت.
+Mô hình Lyria 3 Clip luôn tạo một đoạn video dài **30 giây**. Để tạo một đoạn video, hãy gọi phương thức `generateContent` bằng một câu lệnh dạng văn bản. Phản hồi luôn bao gồm lời bài hát và cấu trúc bài hát được tạo cùng với âm thanh.
 
 ### Python
 
@@ -132,7 +132,7 @@ func main() {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -184,7 +184,7 @@ curl -s -X POST \
   }'
 ```
 
-### #C
+### C#
 
 ```
 using System.Threading.Tasks;
@@ -212,9 +212,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## إنشاء أغنية كاملة
+## Tạo bài hát có thời lượng đầy đủ
 
-استخدِم نموذج `lyria-3-pro-preview` لإنشاء أغانٍ كاملة المدة تستغرق بضع دقائق. يفهم نموذج Pro البنية الموسيقية ويمكنه إنشاء مقطوعات موسيقية تتضمّن مقاطع شعرية ولازمة وجسرًا موسيقيًا. يمكنك التأثير في المدة من خلال تحديدها في طلبك (مثلاً، "إنشاء أغنية مدتها دقيقتان") أو باستخدام [الطوابع الزمنية](#timing) لتحديد البنية.
+Sử dụng mô hình `lyria-3-pro-preview` để tạo các bài hát dài từ một đến hai phút. Mô hình Pro hiểu rõ cấu trúc âm nhạc và có thể tạo ra các bản nhạc có các đoạn, điệp khúc và cầu nối riêng biệt. Bạn có thể điều chỉnh thời lượng bằng cách chỉ định thời lượng trong câu lệnh (ví dụ: "tạo một bài hát dài 2 phút") hoặc bằng cách sử dụng [dấu thời gian](#timing) để xác định cấu trúc.
 
 ### Python
 
@@ -252,7 +252,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -278,7 +278,7 @@ curl -s -X POST \
   }'
 ```
 
-### #C
+### C#
 
 ```
 var response = await client.Models.GenerateContentAsync(
@@ -289,9 +289,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## اختيار تنسيق الإخراج
+## Chọn định dạng đầu ra
 
-تنشئ نماذج Lyria 3 المحتوى الصوتي بتنسيق **MP3** تلقائيًا. بالنسبة إلى Lyria 3 Pro، يمكنك أيضًا طلب الإخراج بتنسيق **WAV** من خلال ضبط `response_format` في `generationConfig`.
+Theo mặc định, các mô hình Lyria 3 tạo âm thanh ở định dạng **MP3**. Đối với Lyria 3 Pro, bạn cũng có thể yêu cầu đầu ra ở định dạng **WAV** bằng cách đặt `response_format` trong `generationConfig`.
 
 ### Python
 
@@ -335,7 +335,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 GenerateContentConfig config = GenerateContentConfig.builder()
@@ -349,7 +349,7 @@ GenerateContentResponse response = client.models.generateContent(
     config);
 ```
 
-### #C
+### C#
 
 ```
 var config = new GenerateContentConfig {
@@ -384,10 +384,9 @@ curl -s -X POST \
   }'
 ```
 
-## تحليل الردّ
+## Phân tích cú pháp phản hồi
 
-تتضمّن الاستجابة من Lyria 3 أجزاء متعدّدة. تحتوي الأجزاء النصية على كلمات الأغنية التي تم إنشاؤها أو وصف بتنسيق JSON لبنية الأغنية. تحتوي الأجزاء التي تتضمّن
-`inline_data` على وحدات البايت الصوتية.
+Phản hồi của Lyria 3 có nhiều phần. Các phần văn bản chứa lời bài hát được tạo hoặc nội dung mô tả bằng JSON về cấu trúc bài hát. Các phần có `inline_data` chứa các byte âm thanh.
 
 ### Python
 
@@ -458,7 +457,7 @@ if audioData != nil {
 }
 ```
 
-### جافا
+### Java
 
 ```
 List<String> lyrics = new ArrayList<>();
@@ -481,7 +480,7 @@ if (audioData != null) {
 }
 ```
 
-### #C
+### C#
 
 ```
 var lyrics = new List<string>();
@@ -513,11 +512,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## إنشاء موسيقى من الصور
+## Tạo nhạc từ hình ảnh
 
-يتوافق Lyria 3 مع الإدخالات المتعدّدة الوسائط، إذ يمكنك تقديم ما يصل إلى **10 صور**
-إلى جانب طلبك النصي، وسينشئ النموذج موسيقى مستوحاة من
-المحتوى المرئي.
+Lyria 3 hỗ trợ dữ liệu đầu vào đa phương thức – bạn có thể cung cấp tối đa **10 hình ảnh** cùng với câu lệnh văn bản và mô hình sẽ sáng tác nhạc dựa trên nội dung trực quan.
 
 ### Python
 
@@ -589,7 +586,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -624,7 +621,7 @@ curl -s -X POST \
   }"
 ```
 
-### #C
+### C#
 
 ```
 var response = await client.Models.GenerateContentAsync(
@@ -638,9 +635,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## تقديم كلمات أغنية مخصّصة
+## Cung cấp lời bài hát tuỳ chỉnh
 
-يمكنك كتابة كلمات الأغنية الخاصة بك وتضمينها في الطلب. استخدِم علامات الأقسام، مثل `[Verse]` و`[Chorus]` و`[Bridge]`، لمساعدة النموذج في فهم بنية الأغنية:
+Bạn có thể tự viết lời bài hát và đưa lời bài hát đó vào câu lệnh. Sử dụng các thẻ phần như `[Verse]`, `[Chorus]` và `[Bridge]` để giúp mô hình hiểu cấu trúc bài hát:
 
 ### Python
 
@@ -738,7 +735,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 String prompt = """
@@ -768,7 +765,7 @@ GenerateContentResponse response = client.models.generateContent(
     prompt);
 ```
 
-### #C
+### C#
 
 ```
 var prompt = @"
@@ -819,9 +816,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## التحكّم في التوقيت والبنية
+## Kiểm soát thời gian và cấu trúc
 
-يمكنك تحديد ما يحدث بالضبط في لحظات معيّنة من الأغنية باستخدام الطوابع الزمنية. يفيد ذلك في التحكّم في وقت بدء الآلات الموسيقية ووقت عرض كلمات الأغنية وطريقة تقدّم الأغنية:
+Bạn có thể chỉ định chính xác những gì xảy ra tại các thời điểm cụ thể trong bài hát bằng cách sử dụng dấu thời gian. Việc này rất hữu ích để kiểm soát thời điểm nhạc cụ bắt đầu, thời điểm lời bài hát được chuyển và cách bài hát tiến triển:
 
 ### Python
 
@@ -883,7 +880,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 String prompt = """
@@ -901,7 +898,7 @@ GenerateContentResponse response = client.models.generateContent(
     prompt);
 ```
 
-### #C
+### C#
 
 ```
 var prompt = @"
@@ -936,9 +933,9 @@ curl -s -X POST \
   }'
 ```
 
-## إنشاء مقاطع موسيقية بدون غناء
+## Tạo bản nhạc không lời
 
-بالنسبة إلى الموسيقى في الخلفية أو المقاطع الصوتية للألعاب أو أي حالة استخدام لا تتطلّب أصواتًا بشرية، يمكنك أن تطلب من النموذج إنشاء مقاطع موسيقية فقط:
+Đối với nhạc nền, nhạc trò chơi hoặc bất kỳ trường hợp sử dụng nào không yêu cầu giọng hát, bạn có thể yêu cầu mô hình tạo ra các bản nhạc chỉ có nhạc cụ:
 
 ### Python
 
@@ -973,7 +970,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -982,7 +979,7 @@ GenerateContentResponse response = client.models.generateContent(
         + "video game style. Instrumental only, no vocals.");
 ```
 
-### #C
+### C#
 
 ```
 var response = await client.Models.GenerateContentAsync(
@@ -1008,10 +1005,9 @@ curl -s -X POST \
   }'
 ```
 
-## إنشاء موسيقى بلغات مختلفة
+## Tạo nhạc bằng nhiều ngôn ngữ
 
-تنشئ Lyria 3 كلمات الأغاني باللغة التي تستخدمها في طلبك. لإنشاء أغنية
-بكلمات فرنسية، اكتب طلبك باللغة الفرنسية. ويعدّل النموذج أسلوبه الصوتي وطريقة لفظه لتتطابق مع اللغة.
+Lyria 3 tạo lời bài hát bằng ngôn ngữ trong câu lệnh của bạn. Để tạo một bài hát có lời bằng tiếng Pháp, hãy viết câu lệnh bằng tiếng Pháp. Mô hình này điều chỉnh phong cách giọng nói và cách phát âm cho phù hợp với ngôn ngữ.
 
 ### Python
 
@@ -1049,7 +1045,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### جافا
+### Java
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -1059,7 +1055,7 @@ GenerateContentResponse response = client.models.generateContent(
         + "la guitare acoustique.");
 ```
 
-### #C
+### C#
 
 ```
 var response = await client.Models.GenerateContentAsync(
@@ -1086,14 +1082,15 @@ curl -s -X POST \
   }'
 ```
 
-## ذكاء النموذج
+## Trí tuệ của mô hình
 
-تحلّل Lyria 3 عملية الطلب التي أدخلتها، حيث يستند النموذج إلى البنية الموسيقية (المقدمة، والمقطع، والجوقة، والجسر الموسيقي، وما إلى ذلك) بناءً على طلبك.
-يحدث ذلك قبل إنشاء الصوت ويضمن التماسك البنيوي والانسجام الموسيقي.
+Lyria 3 phân tích quy trình tạo câu lệnh của bạn, trong đó mô hình suy luận thông qua cấu trúc âm nhạc (đoạn giới thiệu, đoạn thơ, điệp khúc, đoạn chuyển, v.v.) dựa trên câu lệnh của bạn.
+Việc này diễn ra trước khi âm thanh được tạo và đảm bảo tính nhất quán về cấu trúc cũng như tính nhạc.
 
-## واجهة برمجة تطبيقات التفاعلات
+## Interactions API
 
-يمكنك استخدام نماذج Lyria 3 مع [واجهة برمجة التطبيقات Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar)، وهي واجهة موحّدة للتفاعل مع نماذج Gemini ووكلاء Gemini. فهي تبسّط إدارة الحالة والمهام الطويلة الأمد لحالات الاستخدام المعقّدة المتعدّدة الوسائط.
+Bạn có thể sử dụng các mô hình Lyria 3 với [Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=vi) (API Tương tác);
+đây là một giao diện hợp nhất để tương tác với các mô hình và tác nhân Gemini. Thư viện này đơn giản hoá việc quản lý trạng thái và các tác vụ chạy trong thời gian dài cho các trường hợp sử dụng phức tạp có nhiều phương thức.
 
 ### Python
 
@@ -1155,81 +1152,75 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## دليل كتابة الطلبات
+## Hướng dẫn đặt câu lệnh
 
-يمكن أن يكون طلبك بسيطًا، مثل "أغنية شعبية عن قطط لطيفة تتجنّب البرك،
-أداء صوتي نسائي وصوت المطر"، أو مفصّلاً ومنظّمًا،
-مثل:
+Câu lệnh của bạn có thể đơn giản như "một bài hát dân ca về những chú mèo dễ thương tránh vũng nước, giọng nữ và tiếng mưa", hoặc chi tiết và có cấu trúc như:
 
-> أغنية من نوع "سينثبوب" مستوحاة من الثمانينات، تتضمّن إيقاعًا حيويًا وأجهزة توليف براقة وجوقة آسرة. يجب أن تكون الأغنية ذات طابع قديم مستقبلي،
-> يذكّر بأغاني البوب الكلاسيكية من الثمانينات، مع لمسة عصرية. يجب أن يكون الإيقاع سريعًا ومناسبًا للرقص، حوالي 120 نبضة في الدقيقة، مع بنية واضحة من مقاطع شعرية ولازمة موسيقية، بالإضافة إلى لحن آلي جذاب. تتحدث كلمات الأغنية عن
-> الشعور بالاستعداد لحفلة.
+> Một bản nhạc synth-pop mang phong cách thập niên 1980 với nhịp điệu mạnh mẽ, tiếng đàn synthesizer vang vọng và một điệp khúc bắt tai, đầy cảm hứng. Bài hát phải mang hơi hướng hoài cổ pha lẫn hiện đại, gợi nhớ đến những bản nhạc pop kinh điển của thập niên 80, nhưng được sản xuất theo phong cách hiện đại. Nhịp độ phải sôi động và có thể nhảy theo, khoảng 120 BPM, có cấu trúc rõ ràng giữa đoạn thơ và điệp khúc, cùng một đoạn nhạc không lời bắt tai. Lời bài hát nói về cảm giác chuẩn bị cho một bữa tiệc.
 
-يمكن أن يقدّم لك كلّ من الطلبات البسيطة والمعقّدة نتائج جيدة. ننصحك بتجربة هذه النصائح للعثور على ما يناسبك بشكل أفضل.
+Cả câu lệnh đơn giản và phức tạp đều có thể mang lại kết quả tốt. Bạn nên thử nghiệm những mẹo này để tìm ra cách phù hợp nhất với mình.
 
-### النوع
+### Thể loại
 
-ابدأ طلبك بنوع الموسيقى الذي تريده، مثل الهيب هوب والروك والراب. يمكنك تحديد مزيج من الأنواع الموسيقية:
+Bắt đầu câu lệnh bằng thể loại nhạc bạn muốn, chẳng hạn như hip hop, rock và rap. Bạn có thể chỉ định nhiều thể loại:
 
-- مزيج من موسيقى الروك والرّاب
-- مزيج من موسيقى الموت والموسيقى الأوبرالية
-- مقطوعة كلاسيكية تتضمّن عناصر إلكترونية
-- موسيقى رقص إلكترونية حديثة (EDM) ممزوجة بموسيقى البوب الأوروبية
+- Sự kết hợp giữa metal và rap
+- Kết hợp giữa death metal và opera
+- Một bản nhạc cổ điển có các yếu tố âm thanh điện tử
+- Nhạc dance điện tử (EDM) hiện đại kết hợp với nhạc Europop
 
-يمكنك أيضًا تضمين حقبة:
+Bạn cũng có thể kết hợp một kỷ nguyên:
 
-- موسيقى الهيب هوب في أوائل التسعينيات
-- موسيقى "بوب" فرنسية من الستينيات
-- تجارب الموسيقى الإلكترونية في الثمانينيات
-- موسيقى البوب الرائجة في العقد الأول من القرن الحادي والعشرين
+- Nhạc hip-hop đầu thập niên 90
+- Nhạc pop Pháp theo phong cách yé-yé thập niên 60
+- Thử nghiệm với nhạc điện tử vào những năm 80
+- Nhạc pop đại chúng thập niên 2000
 
-إذا طلبت أنواعًا مخصّصة أو أشكالاً إقليمية، مثل "تكنو برلين" أو "هيفي من منطقة الخليج"، سيحاول النموذج التقاط هذا الجوهر، ولكن قد لا ينجح دائمًا في ذلك.
+Nếu bạn yêu cầu các thể loại hoặc biến thể theo khu vực cụ thể, chẳng hạn như "nhạc techno Berlin" hoặc "nhạc hyphy vùng Vịnh", mô hình sẽ cố gắng nắm bắt được bản chất đó, nhưng không phải lúc nào cũng chính xác.
 
-### آلات
+### Nhạc cụ
 
-ستنشئ Lyria 3 تلقائيًا أغاني تتضمّن الآلات الموسيقية والأدوات التي تتوقّعها في هذا النوع الموسيقي. ليس عليك أن تكون إلزاميًا.
+Theo mặc định, Lyria 3 sẽ tạo các bài hát có nhạc cụ và công cụ mà bạn mong đợi cho thể loại đó. Bạn không cần phải đưa ra chỉ dẫn cụ thể.
 
-ومع ذلك، لن يتضمّن مقطع رقص آلة الساكسفون إلا إذا طلبت ذلك. لذا، إذا أردت الحصول على معزوفة منفردة على الساكسفون، عليك تقديم الطلب التالي:
+Tuy nhiên, một bản nhạc dance sẽ không có kèn saxophone trừ phi bạn yêu cầu. Vì vậy, nếu muốn có một bản độc tấu saxophone, bạn cần phải yêu cầu Gemini tạo:
 
-> أغنية رقص ذات إيقاع قوي وأصوات تركيبية براقة وجوقة جذابة تشبه الأغاني الوطنية يجب أن يكون هناك مقطع منفرد لآلة الساكسفون خلال الجزء الانتقالي.
+> Một bản nhạc dance với nhịp điệu mạnh mẽ, âm thanh điện tử lấp lánh và một điệp khúc bắt tai, đầy cảm hứng. Một đoạn solo saxophone sẽ xuất hiện trong phần chuyển tiếp.
 
-يمكن أن يتضمّن طلبك آلات موسيقية محدّدة، وطريقة عزفها، وكيفية تفاعلها مع بعضها البعض. يمكنك استخدام هذه المجموعة لإنشاء بعض الأجواء أو الملمس:
+Câu lệnh của bạn có thể bao gồm các nhạc cụ cụ thể, âm thanh của chúng và cách chúng tương tác với nhau. Bạn có thể sử dụng sự kết hợp này để tạo ra một số tâm trạng hoặc kết cấu nhất định:
 
-- خطّ جهير مشوّه يتناغم مع أصوات قبّعات عالية نقية
-- أصوات دافئة من آلة توليف صوتية تناظرية تتصاعد تحت غيتار أكويستك بلمسة دافئة وقريبة
-- جدار صوتي تم إنشاؤه من طبقات متعددة من غيتارات مشوّشة، مع أصوات غنائية بعيدة ومكتومة
+- Một đường bassline méo mó, bẩn thỉu đối lập với tiếng hi-hat sạch sẽ, sắc nét
+- Âm nền ấm áp của đàn synthesizer analog vang lên dưới tiếng đàn guitar mộc mạc, gần gũi
+- Một bức tường âm thanh được tạo ra từ nhiều lớp guitar mờ, với giọng hát bị chôn vùi, xa xôi
 
-### بنية الأغنية
+### Cấu trúc bài hát
 
-يمكنك تحديد تسلسل الأغنية في طلبك. استخدِم الأسهم أو القائمة
-لتحديد التسلسل:
+Bạn có thể phác thảo tiến trình của một bài hát trong câu lệnh. Sử dụng mũi tên hoặc danh sách để xác định quy trình:
 
 - `[Intro]` -> `[Verse 1]` -> `[Chorus]` -> `[Verse 2]` -> `[Chorus]` ->
   `[Bridge]` -> `[Outro]`
-- ابدأ بمقدمة هادئة على البيانو، ثم انتقِل إلى مقطع صوتي مرتفع، ثم إلى صمت، ثم إلى جوقة صاخبة.
+- Bắt đầu bằng đoạn nhạc piano nhẹ nhàng, chuyển sang một đoạn nhạc mạnh mẽ, rồi đột ngột im lặng, sau đó bùng nổ vào đoạn điệp khúc.
 
-يمكنك أيضًا تحديد كيفية تغيُّر مستويات الطاقة بين هذه الأقسام:
+Bạn cũng có thể chỉ định cách mức năng lượng thay đổi giữa các phần này:
 
-- بناء التشويق في المقطع التمهيدي، ثم الانتقال إلى الصمت قبل مقطع كورَس ضخم ومثير
-- تصاعد تدريجي في مستوى الصوت طوال الأغنية، مع إضافة آلة موسيقية واحدة في كل مرة
-  إلى أن يصبح الصوت صاخبًا
-- توقّف مفاجئ بعد المقطع الانتقالي، يليه مقطع كورال بدون آلات موسيقية
+- Tạo cao trào ở đoạn tiền điệp khúc, sau đó giảm âm lượng xuống mức im lặng trước khi điệp khúc bùng nổ
+- Tăng dần âm lượng trong suốt bài hát, thêm từng nhạc cụ một cho đến khi tạo ra một bức tường âm thanh hỗn loạn
+- Ngừng đột ngột sau đoạn chuyển, tiếp theo là một đoạn điệp khúc hát chay
 
-يمكنك أيضًا تحديد الوقت الدقيق الذي تريد أن يحدث فيه أمر معيّن:
+Bạn cũng có thể đưa ra câu lệnh về thời điểm chính xác mà bạn muốn một việc gì đó xảy ra:
 
-- إنشاء فيديو قصير مدته 12 ثانية
-- يقول شخص ما "ماذا" كل ثانيتَين
-- يبدأ الكورس في الثانية 22
+- Tạo hiệu ứng tăng dần đến đoạn thả ở giây thứ 12
+- Có người nói "gì" mỗi 2 giây
+- Đoạn điệp khúc bắt đầu ở giây thứ 22
 
-### كلمات الأغنية
+### Lời nhạc
 
-يتم إنشاء الأصوات الغنائية وكلمات الأغاني تلقائيًا. يمكنك تقديم كلمات الأغنية الخاصة بك، أو طلب عدم تضمين كلمات (أو تضمين مقطوعة موسيقية)، أو توجيه عملية إنشاء كلمات الأغنية إلى النتيجة التي تريدها.
+Giọng hát và lời bài hát được tạo theo mặc định. Bạn có thể cung cấp lời bài hát của riêng mình, yêu cầu không có lời bài hát (hoặc chỉ có nhạc không lời) hoặc định hướng việc tạo lời bài hát theo hướng bạn muốn.
 
-ستكون كلمات الأغنية باللغة التي تكتب بها طلبك. يمكنك أيضًا طلب كتابة كلمات الأغنية بلغة أخرى، مثل "اكتب كلمات الأغنية باللغة الفرنسية".
+Lời bài hát sẽ bằng ngôn ngữ mà bạn viết câu lệnh. Bạn cũng có thể yêu cầu viết lời bài hát bằng một ngôn ngữ khác, chẳng hạn như "Viết lời bài hát bằng tiếng Pháp".
 
-#### استخدام كلمات الأغنية الخاصة بك
+#### Sử dụng lời bài hát của riêng bạn
 
-لإدخال كلمات الأغاني الخاصة بك إلى النموذج، عليك تضمينها في الطلب مع البادئة "كلمات الأغاني:"
+Để cung cấp lời bài hát của riêng bạn cho mô hình, hãy thêm lời bài hát vào câu lệnh bằng tiền tố "Lời bài hát:":
 
 ```
 Lyrics:
@@ -1246,55 +1237,51 @@ Go with the flow
 ...
 ```
 
-يمكنك إضافة بادئة إلى أجزاء من الأغنية باستخدام عناوين أقسام مثل `[Intro]` و`[Verse 1]` و`[Pre-chorus]` و`[Chorus]` و`[Outro]`.
+Bạn có thể thêm tiêu đề phần vào đầu các phần của bài hát, chẳng hạn như `[Intro]`, `[Verse 1]`, `[Pre-chorus]`, `[Chorus]` và `[Outro]`.
 
-إذا أردت تكرار كلمة أو سطر، مثلاً كصدى أو من خلال المغنّين المساندين، يمكنك تضمينه بين قوسين: "هيا بنا (هيا بنا)".
+Nếu muốn một từ hoặc dòng được lặp lại, chẳng hạn như tiếng vọng hoặc giọng hát bè, bạn có thể đặt từ hoặc dòng đó trong dấu ngoặc đơn: "Let's go (go)".
 
-#### توجيه الطلب إلى النموذج لكتابة كلمات الأغنية
+#### Đưa ra câu lệnh để mô hình viết lời bài hát
 
-إذا أردت أن تنشئ Lyria 3 كلمات الأغاني نيابةً عنك، من الأفضل تضمين تفاصيل حول موضوع الأغنية في طلبك. وإلا سيحتاج النموذج إلى استنتاج موضوع من طلبك الموسيقي، وقد لا يكون هذا الموضوع هو ما تريده.
+Nếu muốn Lyria 3 viết lời bài hát cho bạn, tốt nhất là bạn nên đưa thông tin chi tiết về nội dung của lời bài hát vào câu lệnh. Nếu không, mô hình sẽ cần suy luận một chủ đề từ câu lệnh về nhạc của bạn và chủ đề đó có thể không phải là chủ đề bạn muốn.
 
-> تتحدث كلمات الأغنية عن الحب الضائع وألم الانفصال. تتذكر المغنية علاقة سابقة والذكريات التي تعود إلى ذهنها.
+> Lời bài hát nói về tình yêu đã mất và nỗi đau của sự thất tình. Bài hát này là nỗi hoài niệm của một ca sĩ về mối quan hệ trong quá khứ và những kỷ niệm ùa về.
 
-إذا أردت الحصول على مقطع متكرّر، من المفيد أن تطلب ذلك في طلبك:
+Nếu bạn muốn có một điệp khúc lặp lại, hãy yêu cầu trong câu lệnh:
 
-> تتحدث كلمات الأغنية عن الحب الضائع وألم الانفصال. تتذكر المغنية علاقة سابقة والذكريات التي تعود إلى ذهنها. تركّز اللازمة القوية على التغلّب على الألم والمضي قدمًا.
+> Lời bài hát nói về tình yêu đã mất và nỗi đau của sự thất tình. Bài hát này là nỗi hoài niệm của một ca sĩ về mối tình đã qua và những kỷ niệm ùa về. Điệp khúc mạnh mẽ tập trung vào việc vượt qua nỗi đau và tiếp tục bước tiếp.
 
-ستوجّه Lyria 3 تلقائيًا بنية كلمات الأغنية نحو نوع الموسيقى الذي تطلبه، ولكن يمكنك إعادة التأكيد على ذلك في طلبك أيضًا. على سبيل المثال:
+Lyria 3 sẽ tự động điều chỉnh cấu trúc của lời bài hát theo loại nhạc mà bạn yêu cầu, nhưng bạn cũng có thể nhấn mạnh lại điều này trong câu lệnh. Ví dụ:
 
-> أغنية إلكترونية راقصة تكرّر العبارة الحماسية نفسها مرارًا وتكرارًا
+> Một bản nhạc EDM lặp đi lặp lại cùng một cụm từ tràn đầy năng lượng.
 
-يمكنك أيضًا طلب تأثيرات صوتية ليست كلمات أغنية، مثل:
+Bạn cũng có thể yêu cầu các hiệu ứng giọng hát không phải là lời bài hát, chẳng hạn như:
 
-- تتضمّن الأغنية عيّنة متكرّرة من فيلم تقول "لا أصدّق هذا!"
-- أغنية تكنو حماسية، قبل أن تتوقف الموسيقى تمامًا ويقول صوت صغير "لا أعرف ما الذي أفعله هنا"، ثم تبدأ الموسيقى.
-- تبدأ الأغنية بمحادثة حول أنّ الأفلام في التسعينيات كانت أفضل من الأفلام الحالية. ثم تنتقل الأغنية إلى أغنية بوب.
+- Một đoạn nhạc mẫu lặp lại trong một bộ phim có câu "Tôi không thể tin được!" xuyên suốt bài hát
+- Một bản nhạc techno tràn đầy năng lượng, ngay trước khi nhạc giảm âm lượng, âm thanh dừng lại và một giọng nói nhỏ vang lên "Tôi không biết mình đang làm gì ở đây", sau đó nhạc giảm âm lượng.
+- Bài hát bắt đầu bằng một cuộc trò chuyện về việc các bộ phim trong thập niên 90 hay hơn ngày nay. Sau đó, bài hát chuyển sang một bài hát pop.
 
-### الغناء
+### Vocals
 
-يمكنك تقديم طلب بشأن طريقة عرض كلمات الأغنية. للحصول على أفضل النتائج، حدِّد ملفًا شخصيًا مفصّلاً للمغني يشمل الجنس والنبرة والمجال الصوتي.
+Bạn có thể đưa ra câu lệnh về cách bạn muốn lời bài hát được cung cấp. Để có kết quả tốt nhất, hãy chỉ định một hồ sơ chi tiết về ca sĩ, bao gồm giới tính, âm sắc và quãng giọng.
 
-- **صوت نسائي عالٍ**: صوت واضح ونقي يتميّز بالخفة والارتفاع. تتميز بقدرتها على إصدار نغمات عالية صافية مع نسيج صوتي خفيف.
-- **صوت ألتو نسائي**: صوت غني ودافئ وأجش في النطاق المنخفض صوت مدخّن مع
-  لمسة من صوت مقلي، صوت روحي ورنّان.
-- **صوت التينور الرجالي**: صوت عالٍ وحاد وحماسي نبرة صوت شبابية مع
-  حدّة أنفية طفيفة، تخترق المزيج بقوة عالية.
-- **صوت رجالي منخفض**: عميق، ودافئ، وناعم. صوت جهوري
-  رنان يقدّم أداءً هادئًا ومريحًا.
-- **المغني المخضرم (ذكر)**: صوت أجش وخشن مع نبرة حادة،
-  يذكّرنا بموسيقى الغرنج في التسعينيات. نطاق صوتي مرتفع ومجهد للتعبير عن المشاعر القوية
+- **Nữ cao**: Âm sắc trong trẻo, tinh khiết, linh hoạt và cao vút. Có khả năng hát những nốt cao bằng giọng huýt sáo với chất giọng thoáng, có hơi.
+- **Nữ trung**: Giọng trầm ấm, dày và khàn. Giọng khàn khàn, có chút giọng chiên trứng, đầy cảm xúc và vang vọng.
+- **Nam cao**: Tươi sáng, mạnh mẽ và tràn đầy năng lượng. Âm sắc trẻ trung, hơi khàn, nổi bật trong bản phối với giọng hát cao đầy nội lực.
+- **Nam trung**: Trầm, ngọt ngào và mượt mà như nhung. Giọng ngực vang vọng, êm dịu và du dương.
+- **Weathered Rocker (Nam)**: Giọng khàn và gai góc với âm sắc thô ráp, gợi nhớ đến nhạc grunge của thập niên 90. Phạm vi trên bị căng cho cường độ cảm xúc.
 
-### مَعلمات الطلبات الأخرى
+### Các tham số khác của câu lệnh
 
-يمكنك أيضًا تضمين هذه المَعلمات لتحسين طلبك بشكل أكبر:
+Bạn cũng có thể thêm các tham số này để tinh chỉnh câu lệnh hơn nữa:
 
-- **المفتاح الموسيقي/المقياس الموسيقي**: حدِّد مفتاحًا موسيقيًا (مثل "في سلم G الكبير" أو "في سلم D الصغير").
-- **المزاج والأجواء**: استخدِم صفات وصفية (مثل "حنين" أو "عدواني" أو "أثيري" أو "حالم").
-- **المدة**: ينتج نموذج "المقطع" دائمًا مقاطع مدتها 30 ثانية. بالنسبة إلى طراز Pro، حدِّد المدة المطلوبة في طلبك (مثلاً، "أريد إنشاء أغنية مدتها دقيقتان") أو استخدِم الطوابع الزمنية للتحكّم في المدة.
+- **Khoá/Gam**: Nêu rõ một khoá nhạc (ví dụ: "in G major", "D minor").
+- **Tâm trạng và bầu không khí**: Sử dụng tính từ mô tả (ví dụ: "hoài niệm", "mạnh mẽ", "siêu thực", "mơ màng").
+- **Thời lượng**: Mô hình Đoạn trích luôn tạo ra các đoạn trích dài 30 giây. Đối với mô hình Pro, hãy chỉ định độ dài mong muốn trong câu lệnh (ví dụ: "tạo một bài hát dài 2 phút") hoặc dùng dấu thời gian để kiểm soát thời lượng.
 
-### أمثلة على الطلبات
+### Câu lệnh mẫu
 
-إليك بعض الأمثلة على الطلبات الفعّالة:
+Sau đây là một số ví dụ về câu lệnh hiệu quả:
 
 - `"A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes
   piano chords, a slow boom-bap drum pattern at 85 BPM, and a jazzy upright
@@ -1304,40 +1291,37 @@ Go with the flow
 - `"A dark, atmospheric trap beat at 140 BPM with heavy 808 bass, eerie synth
   pads, sharp hi-hats, and a haunting vocal sample. In D minor."`
 
-## أفضل الممارسات
+## Các phương pháp hay nhất
 
-- **التكرار باستخدام Clip أولاً** استخدِم النموذج الأسرع `lyria-3-clip-preview` لتجربة الطلبات قبل الالتزام بإنشاء أغنية كاملة باستخدام `lyria-3-pro-preview`.
-- **الدقة** تؤدي الطلبات الغامضة إلى نتائج عامة. اذكر الآلات الموسيقية وسرعة الإيقاع والمفتاح الموسيقي والحالة المزاجية والبنية للحصول على أفضل نتيجة.
-- **استخدام علامات الأقسام** تمنح العلامات `[Verse]` و`[Chorus]` و`[Bridge]` النموذج بنية واضحة يجب اتّباعها.
-- **فصل كلمات الأغنية عن التعليمات** عند تقديم كلمات أغنية مخصّصة، يجب فصلها بوضوح عن تعليمات التوجيه الموسيقي.
+- **Lặp lại với Đoạn video trước.** Sử dụng mô hình `lyria-3-clip-preview` nhanh hơn để thử nghiệm các câu lệnh trước khi tạo một hình ảnh dài bằng `lyria-3-pro-preview`.
+- **Mô tả cụ thể.** Câu lệnh mơ hồ sẽ tạo ra kết quả chung chung. Đề cập đến nhạc cụ, số nhịp/phút, khoá nhạc, tâm trạng và cấu trúc để có kết quả tốt nhất.
+- **Sử dụng thẻ phần.** Thẻ `[Verse]`, `[Chorus]`, `[Bridge]` giúp mô hình có cấu trúc rõ ràng để tuân theo.
+- **Tách lời bài hát khỏi hướng dẫn.** Khi cung cấp lời bài hát tuỳ chỉnh, hãy tách biệt rõ ràng lời bài hát đó với hướng dẫn về chỉ dẫn âm nhạc.
 
-## القيود
+## Các điểm hạn chế
 
-- **الأمان**: تتحقّق فلاتر الأمان من جميع الطلبات. سيتم حظر الطلبات التي تؤدي إلى تشغيل الفلاتر. ويشمل ذلك الطلبات التي تطلب أصوات فنّانين معيّنين أو إنشاء كلمات أغاني محمية بحقوق الطبع والنشر.
-- **وضع العلامات المائية**: تتضمّن جميع المقاطع الصوتية التي يتم إنشاؤها [علامة مائية لمقطع صوتي من SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ar) لتحديدها. هذه العلامة المائية غير مسموعة بالأذن البشرية ولا تؤثر في تجربة الاستماع.
-- **التعديل المتعدد**: عملية إنشاء المقاطع الموسيقية هي عملية من خطوة واحدة.
-  لا يتيح الإصدار الحالي من Lyria 3 تعديل المقاطع التي تم إنشاؤها أو تحسينها بشكل متكرر من خلال طلبات متعددة.
-- **المدة**: ينشئ نموذج "المقطع" دائمًا مقاطع مدتها 30 ثانية. ينشئ نموذج Pro أغاني تستغرق بضع دقائق، ويمكن التأثير في المدة الدقيقة من خلال الطلب.
-- **التحديد**: قد تختلف النتائج بين المكالمات، حتى مع استخدام الطلب نفسه.
+- **An toàn**: Tất cả câu lệnh đều được bộ lọc an toàn kiểm tra. Những câu lệnh kích hoạt bộ lọc sẽ bị chặn. Quy định này áp dụng cho cả những câu lệnh yêu cầu giọng nói của một nghệ sĩ cụ thể hoặc việc tạo ra lời bài hát có bản quyền.
+- **Tạo hình mờ**: Tất cả âm thanh được tạo đều có [thuỷ vân âm thanh SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi) để nhận dạng. Hình mờ này không thể nhận thấy bằng tai thường và không ảnh hưởng đến trải nghiệm nghe.
+- **Chỉnh sửa nhiều lượt**: Tính năng tạo nhạc là một quy trình một lượt.
+  Phiên bản Lyria 3 hiện tại không được hỗ trợ việc chỉnh sửa lặp đi lặp lại hoặc tinh chỉnh một đoạn video được tạo thông qua nhiều câu lệnh.
+- **Độ dài**: Mô hình Đoạn video luôn tạo ra các đoạn video dài 30 giây. Mô hình Pro tạo ra các bài hát có thời lượng vài phút; thời lượng chính xác có thể bị ảnh hưởng thông qua câu lệnh của bạn.
+- **Tính xác định**: Kết quả có thể khác nhau giữa các lệnh gọi, ngay cả khi dùng cùng một câu lệnh.
 
-## الخطوات التالية
+## Bước tiếp theo
 
-- اطّلِع على [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar) لنماذج Lyria 3،
-- جرِّب [إنشاء الموسيقى في الوقت الفعلي](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ar) مع
-  ‫Lyria RealTime،
-- إنشاء محادثات بين عدة أشخاص باستخدام
-  [نماذج تحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)
-- تعرَّف على كيفية إنشاء [صور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) أو [فيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar).
-- تعرَّف على كيفية [فهم Gemini للملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar)،
-- إجراء محادثة فورية مع Gemini باستخدام
-  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)
+- Kiểm tra [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) của các mô hình Lyria 3,
+- Thử [tạo nhạc trực tuyến theo thời gian thực](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi) bằng Lyria RealTime,
+- Tạo các cuộc trò chuyện có nhiều người nói bằng [các mô hình TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi),
+- Khám phá cách tạo [hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) hoặc [video](https://ai.google.dev/gemini-api/docs/video?hl=vi),
+- Tìm hiểu cách Gemini có thể [hiểu tệp âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi),
+- Trò chuyện theo thời gian thực với Gemini bằng [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
+Cập nhật lần gần đây nhất: 2026-06-19 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]
