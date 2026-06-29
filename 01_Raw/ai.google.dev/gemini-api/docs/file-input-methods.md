@@ -1,82 +1,76 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ko
-fetched_at: 2026-06-22T06:31:03.116128+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id
+fetched_at: 2026-06-29T05:33:04.559498+00:00
+title: "Metode input file \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-의견 보내기
+Kirim masukan
 
-# 파일 입력 방법
+# Metode input file
 
-이 가이드에서는 Gemini API에 요청할 때 이미지, 오디오, 동영상, 문서와 같은 미디어 파일을 포함하는 다양한 방법을 설명합니다.
-새 메서드는 배치, 상호작용, Live API를 비롯한 모든 Gemini API 엔드포인트에서 지원됩니다.
-적절한 방법을 선택하는 것은 파일 크기, 현재 데이터가 저장된 위치, 파일 사용 빈도에 따라 달라집니다.
+Panduan ini menjelaskan berbagai cara untuk menyertakan file media seperti gambar, audio, video, dan dokumen saat membuat permintaan ke Gemini API.
+Metode baru ini didukung di semua endpoint Gemini API, termasuk Batch, Interactions, dan Live API.
+Memilih metode yang tepat bergantung pada ukuran file, tempat data disimpan, dan seberapa sering Anda berencana menggunakan file tersebut.
 
-파일을 입력으로 포함하는 가장 간단한 방법은 로컬 파일을 읽고 프롬프트에 포함하는 것입니다. 다음 예에서는 로컬 PDF 파일을 읽는 방법을 보여줍니다. 이 메서드의 PDF는 50MB로 제한됩니다. 파일 입력 유형 및 제한의 전체 목록은 [입력 방법 비교 표](#method-comparison)를 참고하세요.
+Cara paling sederhana untuk menyertakan file sebagai input adalah dengan membaca file lokal dan menyertakannya dalam perintah. Contoh berikut menunjukkan cara membaca file PDF lokal. PDF dibatasi hingga 50 MB untuk metode ini. Lihat
+[tabel perbandingan metode Input](#method-comparison) untuk daftar lengkap jenis dan batas input file.
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 import pathlib
+import base64
 
 client = genai.Client()
 
 filepath = pathlib.Path('my_local_file.pdf')
 
 prompt = "Summarize this document"
-response = client.models.generate_content(
-  model="gemini-3.5-flash",
-  contents=[
-      types.Part.from_bytes(
-        data=filepath.read_bytes(),
-        mime_type='application/pdf',
-      ),
-      prompt
-  ]
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input=[
+        {"type": "text", "text": prompt},
+        {"type": "document", "data": base64.b64encode(filepath.read_bytes()).decode('utf-8'), "mime_type": "application/pdf"}
+    ]
 )
-print(response.text)
+print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
 import * as fs from 'node:fs';
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 const prompt = "Summarize this document";
 
 async function main() {
-    const filePath = path.join('content', 'my_local_file.pdf'); // Adjust path as needed
+    const filePath = 'my_local_file.pdf';
 
-    const contents = [
-        { text: prompt },
-        {
-            inlineData: {
-                mimeType: 'application/pdf',
-                data: fs.readFileSync(filePath).toString("base64")
-            }
-        }
-    ];
-
-    const response = await ai.models.generateContent({
+    const interaction = await client.interactions.create({
         model: "gemini-3.5-flash",
-        contents: contents
+        input: [
+            { type: "text", text: prompt },
+            {
+                type: "document",
+                data: fs.readFileSync(filePath).toString("base64"),
+                mime_type: "application/pdf"
+            }
+        ]
     });
-    console.log(response.text);
+    console.log(interaction.output_text);
 }
 
 main();
@@ -88,56 +82,47 @@ main();
 # Encode the local file to base64
 B64_CONTENT=$(base64 -w 0 my_local_file.pdf)
 
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "contents": [
+    "model": "gemini-3.5-flash",
+    "input": [
+      {"type": "text", "text": "Summarize this document"},
       {
-        "parts": [
-          {"text": "Summarize this document"}
-        ]
-      },
-      {
-        "parts": [
-          {
-            "inlineData": {
-              "mimeType": "application/pdf",
-              "data": "'"${B64_CONTENT}"'"
-            }
-          }
-        ]
+        "type": "document",
+        "data": "'${B64_CONTENT}'",
+        "mime_type": "application/pdf"
       }
     ]
   }'
 ```
 
-## 입력 방법 비교
+## Perbandingan metode input
 
-다음 표에서는 각 입력 방법과 파일 제한, 최적의 사용 사례를 비교합니다. 파일 크기 제한은 파일 형식과 파일을 처리하는 데 사용된 모델/토크나이저에 따라 다를 수 있습니다.
+Tabel berikut membandingkan setiap metode input dengan batas file dan kasus penggunaan terbaik. Perhatikan bahwa batas ukuran file dapat bervariasi bergantung pada jenis file dan model atau tokenizer yang digunakan untuk memproses file.
 
-| 메서드 | 권장 용도 | 최대 파일 크기 | 지속성 |
+| Metode | Paling cocok untuk | Ukuran file maks. | Persistensi |
 | --- | --- | --- | --- |
-| **인라인 데이터** | 빠른 테스트, 작은 파일, 실시간 애플리케이션 | 요청/페이로드당 100MB   (**PDF의 경우 50MB**) | 없음 (모든 요청과 함께 전송됨) |
-| **파일 API 업로드** | 큰 파일, 여러 번 사용된 파일 | 파일당 2GB,   프로젝트당 최대 20GB | 48시간 |
-| **파일 API GCS URI 등록** | 이미 Google Cloud Storage에 있는 대용량 파일, 여러 번 사용되는 파일 | 파일당 2GB, 전체 스토리지 제한 없음 | 없음 (요청별로 가져옴) 한 번 등록하면 최대 30일 동안 액세스할 수 있습니다. |
-| **외부 URL** | 다시 업로드하지 않고 공개 데이터 또는 클라우드 버킷 (AWS, Azure, GCS)의 데이터 | 요청/페이로드당 100MB | 없음 (요청별로 가져옴) |
+| **Data sebaris** | Pengujian cepat, file kecil, aplikasi real-time. | 100 MB per permintaan atau payload   (**50 MB untuk PDF**) | Tidak ada (dikirim dengan setiap permintaan) |
+| **Upload File API** | File besar, file yang digunakan beberapa kali. | 2 GB per file,   hingga 20 GB per project | 48 Jam |
+| **Pendaftaran URI GCS File API** | File besar yang sudah ada di Google Cloud Storage, file yang digunakan beberapa kali. | 2 GB per file, tanpa batas penyimpanan keseluruhan | Tidak ada (diambil per permintaan). Pendaftaran satu kali dapat memberikan akses hingga 30 hari. |
+| **URL eksternal** | Data publik atau data di bucket cloud (AWS, Azure, GCS) tanpa mengupload ulang. | 100 MB per permintaan/payload | Tidak ada (diambil per permintaan) |
 
-## 인라인 데이터
+## Data sebaris
 
-작은 파일 (100MB 미만 또는 PDF의 경우 50MB)의 경우 요청 페이로드에서 데이터를 직접 전달할 수 있습니다. 이는 빠른 테스트나 실시간 임시 데이터를 처리하는 애플리케이션에 가장 간단한 방법입니다. base64로 인코딩된 문자열로 데이터를 제공하거나 로컬 파일을 직접 읽어 데이터를 제공할 수 있습니다.
+Untuk file yang lebih kecil (di bawah 100 MB, atau 50 MB untuk PDF), Anda dapat meneruskan data langsung dalam payload permintaan. Ini adalah metode paling sederhana untuk pengujian cepat atau aplikasi yang menangani data sementara real-time. Anda dapat memberikan data sebagai string berenkode base64 atau dengan membaca file lokal secara langsung.
 
-로컬 파일에서 읽어오는 예시는 이 페이지의 시작 부분에 있는 예시를 참고하세요.
+Untuk contoh membaca dari file lokal, lihat contoh di awal halaman ini.
 
-### URL에서 가져오기
+### Mengambil dari URL
 
-URL에서 파일을 가져와 바이트로 변환하고 입력에 포함할 수도 있습니다.
+Anda juga dapat mengambil file dari URL, mengonversinya menjadi byte, dan menyertakannya dalam input.
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 import httpx
 
 client = genai.Client()
@@ -147,47 +132,41 @@ doc_data = httpx.get(doc_url).content
 
 prompt = "Summarize this document"
 
-response = client.models.generate_content(
-  model="gemini-3.5-flash",
-  contents=[
-      types.Part.from_bytes(
-        data=doc_data,
-        mime_type='application/pdf',
-      ),
-      prompt
-  ]
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input=[
+        {"type": "document", "data": base64.b64encode(doc_data).decode('utf-8'), "mime_type": "application/pdf"},
+        {"type": "text", "text": prompt}
+    ]
 )
-print(response.text)
+print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 const docUrl = 'https://discovery.ucl.ac.uk/id/eprint/10089234/1/343019_3_art_0_py4t4l_convrt.pdf';
 const prompt = "Summarize this document";
 
 async function main() {
-    const pdfResp = await fetch(docUrl);
+    const pdfResp = await fetch(docUrl)
       .then((response) => response.arrayBuffer());
 
-    const contents = [
-        { text: prompt },
-        {
-            inlineData: {
-                mimeType: 'application/pdf',
-                data: Buffer.from(pdfResp).toString("base64")
-            }
-        }
-    ];
-
-    const response = await ai.models.generateContent({
+    const interaction = await client.interactions.create({
         model: "gemini-3.5-flash",
-        contents: contents
+        input: [
+            { type: "text", text: prompt },
+            {
+                type: "document",
+                data: Buffer.from(pdfResp).toString("base64"),
+                mime_type: "application/pdf"
+            }
+        ]
     });
-    console.log(response.text);
+    console.log(interaction.output_text);
 }
 
 main();
@@ -213,100 +192,100 @@ fi
 # Base64 encode the PDF
 ENCODED_PDF=$(base64 $B64FLAGS "${DISPLAY_NAME}.pdf")
 
-# Generate content using the base64 encoded PDF
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+# Create JSON payload file
+cat <<EOF > payload.json
+{
+"model": "gemini-3.5-flash",
+"input": [
+{"type": "document", "data": "${ENCODED_PDF}", "mime_type": "application/pdf"},
+{"type": "text", "text": "${PROMPT}"}
+]
+}
+EOF
+
+# Generate content using interactions
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
-    -X POST \
-    -d '{
-      "contents": [{
-        "parts":[
-          {"inline_data": {"mime_type": "application/pdf", "data": "'"$ENCODED_PDF"'"}},
-          {"text": "'$PROMPT'"}
-        ]
-      }]
-    }' 2> /dev/null > response.json
+    -d @payload.json 2> /dev/null > response.json
 
 cat response.json
 echo
 
-jq ".candidates[].content.parts[].text" response.json
+jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
 ## Gemini File API
 
-File API는 더 큰 파일 (최대 2GB) 또는 여러 요청에서 사용하려는 파일을 위해 설계되었습니다.
+File API dirancang untuk file yang lebih besar (hingga 2 GB) atau file yang ingin Anda gunakan dalam beberapa permintaan.
 
-### 표준 파일 업로드
+### Upload file standar
 
-로컬 파일을 Gemini API에 업로드합니다. 이 방식으로 업로드된 파일은 일시적으로 (48시간) 저장되며 모델에서 효율적으로 검색할 수 있도록 처리됩니다.
+Upload file lokal ke Gemini API. File yang diupload dengan cara ini disimpan sementara (48 jam) dan diproses untuk pengambilan yang efisien oleh model.
 
 ### Python
 
 ```
 from google import genai
+
 client = genai.Client()
 
-# Upload the file
-audio_file = client.files.upload(file="path/to/your/sample.mp3")
-prompt = "Describe this audio clip"
+doc_file = client.files.upload(file="path/to/your/sample.pdf")
+prompt = "Summarize this document"
 
-# Use the uploaded file in a prompt
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=[prompt, audio_file]
+    input=[
+        {"type": "text", "text": prompt},
+        {"type": "document", "uri": doc_file.uri, "mime_type": doc_file.mime_type}
+    ]
 )
-print(response.text)
+print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
-import {
-  GoogleGenAI,
-  createUserContent,
-  createPartFromUri,
-} from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
-const prompt = "Describe this audio clip";
+const client = new GoogleGenAI({});
+const prompt = "Summarize this document";
 
 async function main() {
-  const filePath = "path/to/your/sample.mp3"; // Adjust path as needed
+  const filePath = "path/to/your/sample.pdf";
 
-  const myfile = await ai.files.upload({
+  const myfile = await client.files.upload({
     file: filePath,
-    config: { mimeType: "audio/mpeg" },
+    config: { mime_type: "application/pdf" },
   });
 
-  const response = await ai.models.generateContent({
+  const interaction = await client.interactions.create({
     model: "gemini-3.5-flash",
-    contents: createUserContent([
-      prompt,
-      createPartFromUri(myfile.uri, myfile.mimeType),
-    ]),
+    input: [
+        { type: "text", text: prompt },
+        { type: "document", uri: myfile.uri, mime_type: myfile.mimeType }
+    ]
   });
-  console.log(response.text);
-
+  console.log(interaction.output_text);
 }
+
 await main();
 ```
 
 ### REST
 
 ```
-AUDIO_PATH="path/to/sample.mp3"
-MIME_TYPE=$(file -b --mime-type "${AUDIO_PATH}")
-NUM_BYTES=$(wc -c < "${AUDIO_PATH}")
-DISPLAY_NAME=AUDIO
+FILE_PATH="path/to/sample.pdf"
+MIME_TYPE=$(file -b --mime-type "${FILE_PATH}")
+NUM_BYTES=$(wc -c < "${FILE_PATH}")
+DISPLAY_NAME=DOCUMENT
 
 tmp_header_file=upload-header.tmp
 
 # Initial resumable request defining metadata.
-# The upload url is in the response headers dump them to a file.
-curl "${BASE_URL}/upload/v1beta/files" \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
+curl "https://generativelanguage.googleapis.com/upload/v1beta/files" \
   -D "${tmp_header_file}" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "X-Goog-Upload-Protocol: resumable" \
   -H "X-Goog-Upload-Command: start" \
   -H "X-Goog-Upload-Header-Content-Length: ${NUM_BYTES}" \
@@ -322,67 +301,62 @@ curl "${upload_url}" \
   -H "Content-Length: ${NUM_BYTES}" \
   -H "X-Goog-Upload-Offset: 0" \
   -H "X-Goog-Upload-Command: upload, finalize" \
-  --data-binary "@${AUDIO_PATH}" 2> /dev/null > file_info.json
+  --data-binary "@${FILE_PATH}" 2> /dev/null > file_info.json
 
 file_uri=$(jq ".file.uri" file_info.json)
-echo file_uri=$file_uri
 
-# Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+# Now use in an interaction
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
-    -X POST \
     -d '{
-      "contents": [{
-        "parts":[
-          {"text": "Describe this audio clip"},
-          {"file_data":{"mime_type": "${MIME_TYPE}", "file_uri": '$file_uri'}}]
-        }]
-      }' 2> /dev/null > response.json
-
-cat response.json
-echo
-
-jq ".candidates[].content.parts[].text" response.json
+      "model": "gemini-3.5-flash",
+      "input": [
+        {"type": "text", "text": "Summarize this document"},
+        {"type": "document", "uri": '$file_uri', "mime_type": "'${MIME_TYPE}'"}
+      ]
+    }'
 ```
 
-### Google Cloud Storage 파일 등록
+### Mendaftarkan file Google Cloud Storage
 
-데이터가 이미 Google Cloud Storage에 있는 경우 다운로드하여 다시 업로드할 필요가 없습니다. File API에 직접 등록할 수 있습니다.
+Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload dan menguploadnya lagi. Anda dapat mendaftarkannya langsung dengan File API.
 
-1. 각 버킷에 대한 **서비스 에이전트** 액세스 권한 부여
+1. Memberikan akses **Agen Layanan** ke setiap bucket
 
-   1. Google Cloud 프로젝트에서 Gemini API를 사용 설정합니다.
-   2. 서비스 에이전트를 만듭니다.
+   1. Mengaktifkan Gemini API di project Google Cloud.
+   2. Membuat Agen Layanan:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. 스토리지 버킷을 읽을 수 있는 **Gemini API 서비스 에이전트 권한을 부여**합니다.
+   3. **Memberikan izin Agen Layanan Gemini API** untuk membaca bucket penyimpanan Anda.
 
-      사용자는 사용할 특정 스토리지 버킷에서 이 서비스 에이전트에게 `Storage Object Viewer`
-      [IAM 역할](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=ko#storage.objectViewer)을 할당해야 합니다.
+      Pengguna harus menetapkan peran `Storage Object Viewer`
+      [IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=id#storage.objectViewer)
+      ke agen layanan ini di bucket penyimpanan tertentu yang ingin mereka gunakan.
 
-   이 액세스 권한은 기본적으로 만료되지 않지만 언제든지 변경할 수 있습니다. [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=ko) 명령어를 사용하여 권한을 부여할 수도 있습니다.
-2. 서비스 인증
+   Akses ini tidak akan berakhir secara default, tetapi dapat diubah kapan saja. [Anda juga dapat menggunakan perintah Google Cloud Storage IAM SDK untuk memberikan izin.](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=id)
+2. Mengautentikasi layanan Anda
 
-   **기본 요건**
+   **Prasyarat**
 
-   - API 사용 설정
-   - 적절한 권한이 있는 서비스 계정/에이전트를 만듭니다.
+   - Aktifkan API
+   - Buat akun layanan atau agen dengan izin yang sesuai.
 
-   먼저 스토리지 객체 뷰어 권한이 있는 서비스로 인증해야 합니다. 이 작업이 실행되는 방식은 파일 관리 코드가 실행되는 환경에 따라 다릅니다.
+   Pertama-tama, Anda harus melakukan autentikasi sebagai layanan yang memiliki izin Storage Object Viewer. Cara ini terjadi bergantung pada lingkungan tempat kode pengelolaan file Anda akan berjalan.
 
-   **Google Cloud 외부**
+   **Di luar Google Cloud**
 
-   데스크톱과 같이 Google Cloud 외부에서 코드를 실행하는 경우 다음 단계에 따라 Google Cloud 콘솔에서 계정 사용자 인증 정보를 다운로드하세요.
+   Jika kode Anda berjalan dari luar Google Cloud, seperti desktop, download kredensial akun dari Konsol Google Cloud dengan langkah-langkah berikut:
 
-   1. [서비스 계정 콘솔](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=ko)로 이동합니다.
-   2. 관련 서비스 계정 선택
-   3. **키** 탭을 선택하고 **키 추가, 새 키 만들기**를 선택합니다.
-   4. **JSON** 키 유형을 선택하고 머신에서 파일이 다운로드된 위치를 기록해 둡니다.
+   1. Buka konsol [Akun Layanan](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=id)
+   2. Pilih akun layanan yang relevan
+   3. Pilih tab **Keys** dan pilih **Add key, Create new key**
+   4. Pilih jenis kunci **JSON**, dan catat tempat file didownload di komputer Anda.
 
-   자세한 내용은 [서비스 계정 키 관리](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=ko)에 관한 공식 Google Cloud 문서를 참고하세요.
+   Untuk mengetahui detail selengkapnya, lihat dokumentasi Google Cloud resmi tentang
+   [pengelolaan kunci akun layanan](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=id).
 
-   그런 다음 다음 명령어를 사용하여 인증합니다. 이 명령어는 서비스 계정 파일이 현재 디렉터리에 있으며 이름이 `service-account.json`이라고 가정합니다.
+   Kemudian, gunakan perintah berikut untuk melakukan autentikasi. Perintah ini mengasumsikan bahwa file akun layanan Anda berada di direktori saat ini, dengan nama `service-account.json`.
 
    ### Python
 
@@ -428,13 +402,15 @@ jq ".candidates[].content.parts[].text" response.json
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **Google Cloud 환경**
+   **Di Google Cloud**
 
-   [Cloud Run 함수](https://cloud.google.com/functions?hl=ko) 또는 [Compute Engine 인스턴스](https://cloud.google.com/products/compute?hl=ko)를 사용하여 Google Cloud에서 직접 실행하는 경우 암시적 사용자 인증 정보가 있지만 적절한 범위를 부여하려면 다시 인증해야 합니다.
+   Jika Anda menjalankan langsung di Google Cloud, misalnya dengan menggunakan [fungsi Cloud Run](https://cloud.google.com/functions?hl=id) atau [instance Compute Engine](https://cloud.google.com/products/compute?hl=id), Anda akan memiliki kredensial implisit, tetapi harus melakukan autentikasi ulang untuk memberikan cakupan yang sesuai.
 
    ### Python
 
-   이 코드는 Cloud Run 또는 Compute Engine과 같이 [애플리케이션 기본 사용자 인증 정보](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ko)를 자동으로 가져올 수 있는 환경에서 서비스가 실행된다고 가정합니다.
+   Kode ini mengharapkan layanan berjalan di lingkungan tempat
+   [Kredensial Default Aplikasi](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=id)
+   dapat diperoleh secara otomatis, seperti Cloud Run atau Compute Engine.
 
    ```
    import google.auth
@@ -447,9 +423,11 @@ jq ".candidates[].content.parts[].text" response.json
    credentials, project = google.auth.default(scopes=GCS_READ_SCOPES)
    ```
 
-   ### 자바스크립트
+   ### JavaScript
 
-   이 코드는 Cloud Run 또는 Compute Engine과 같이 [애플리케이션 기본 사용자 인증 정보](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ko)를 자동으로 가져올 수 있는 환경에서 서비스가 실행된다고 가정합니다.
+   Kode ini mengharapkan layanan berjalan di lingkungan tempat
+   [Kredensial Default Aplikasi](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=id)
+   dapat diperoleh secara otomatis, seperti Cloud Run atau Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -464,45 +442,70 @@ jq ".candidates[].content.parts[].text" response.json
 
    ### CLI
 
-   이는 대화형 명령어입니다. Compute Engine과 같은 서비스의 경우 구성 수준에서 실행 중인 서비스에 범위를 연결할 수 있습니다. 예는 [사용자 관리 서비스 문서](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=ko#using)를 참고하세요.
+   Ini adalah perintah interaktif. Untuk layanan seperti Compute Engine, Anda dapat melampirkan cakupan ke layanan yang berjalan di tingkat konfigurasi. Lihat [dokumen layanan yang dikelola pengguna](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=id#using)
+   untuk mengetahui contohnya.
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. 파일 등록 (Files API)
+3. Pendaftaran file (File API)
 
-   Files API를 사용하여 파일을 등록하고 Gemini API에서 직접 사용할 수 있는 Files API 경로를 생성합니다.
+   Gunakan File API untuk mendaftarkan file dan menghasilkan jalur File API yang dapat langsung digunakan di Gemini API.
 
    ### Python
 
    ```
    from google import genai
-   from google.genai.types import Part
 
-   # Note that you must provide an API key in the GEMINI_API_KEY
-   # environment variable, but it is unused for the registration endpoint.
-   client = genai.Client()
+   client = genai.Client(credentials=credentials)
 
    registered_gcs_files = client.files.register_files(
-       uris=["gs://my_bucket/some_object.pdf", "gs://bucket2/object2.txt"],
-       # Use the credentials obtained in the previous step.
-       auth=credentials
+       uris=["gs://my_bucket/some_object.pdf", "gs://bucket2/object2.txt"]
    )
    prompt = "Summarize this file."
 
-   # call generateContent for each file
    for f in registered_gcs_files.files:
      print(f.name)
-     response = client.models.generate_content(
+     interaction = client.interactions.create(
        model="gemini-3.5-flash",
-       contents=[Part.from_uri(
-         file_uri=f.uri,
-         mime_type=f.mime_type,
-       ),
-       prompt],
+       input=[
+         {"type": "text", "text": prompt},
+         {"type": "document", "uri": f.uri, "mime_type": f.mime_type}
+       ],
      )
-     print(response.text)
+     print(interaction.output_text)
+   ```
+
+   ### JavaScript
+
+   ```
+   import { GoogleGenAI } from "@google/genai";
+
+   const ai = new GoogleGenAI({ auth: auth });
+
+   async function main() {
+       const registeredGcsFiles = await ai.files.registerFiles({
+           uris: ["gs://my_bucket/some_object.pdf", "gs://bucket2/object2.txt"]
+       });
+
+       const prompt = "Summarize this file.";
+
+       for (const file of registeredGcsFiles.files) {
+           console.log(file.name);
+           const interaction = await ai.interactions.create({
+               model: "gemini-3.5-flash",
+               input: [
+                   { type: "text", text: prompt },
+                   { type: "document", uri: file.uri, mime_type: file.mimeType }
+               ]
+           });
+
+           console.log(interaction.output_text);
+       }
+   }
+
+   main();
    ```
 
    ### CLI
@@ -517,56 +520,50 @@ jq ".candidates[].content.parts[].text" response.json
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## 외부 HTTP / 서명된 URL
+## URL HTTP / URL Bertanda Tangan Eksternal
 
-생성 요청에서 공개적으로 액세스 가능한 HTTPS URL 또는 사전 서명된 URL ([S3 사전 서명된 URL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html) 및 Azure SAS와 호환)을 직접 전달할 수 있습니다. Gemini API는 처리 중에 콘텐츠를 안전하게 가져옵니다. 이 방법은 다시 업로드하지 않을 최대 100MB 크기의 파일에 적합합니다.
-
-`file_uri` 필드의 URL을 사용하여 공개 또는 서명된 URL을 입력으로 사용할 수 있습니다.
+Anda dapat meneruskan URL HTTPS yang dapat diakses secara publik atau URL yang telah ditandatangani langsung dalam permintaan. Gemini API akan mengambil konten dengan aman selama pemrosesan.
+Hal ini ideal untuk file berukuran hingga 100 MB yang tidak ingin Anda upload ulang.
 
 ### Python
 
 ```
 from google import genai
-from google.genai.types import Part
 
 uri = "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf"
 prompt = "Summarize this file"
 
 client = genai.Client()
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=[
-        Part.from_uri(
-            file_uri=uri,
-            mime_type="application/pdf",
-        ),
-        prompt
-    ],
+    input=[
+        {"type": "document", "uri": uri, "mime_type": "application/pdf"},
+        {"type": "text", "text": prompt}
+    ]
 )
-print(response.text)
+print(interaction.output_text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
-import { GoogleGenAI, createPartFromUri } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
 const uri = "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf";
 
 async function main() {
-  const response = await client.models.generateContent({
+  const interaction = await client.interactions.create({
     model: 'gemini-3.5-flash',
-    contents: [
-      // equivalent to Part.from_uri(file_uri=uri, mime_type="...")
-      createPartFromUri(uri, "application/pdf"),
-      "summarize this file",
-    ],
+    input: [
+      { type: "document", uri: uri, mime_type: "application/pdf" },
+      { type: "text", text: "summarize this file" }
+    ]
   });
 
-  console.log(response.text);
+  console.log(interaction.output_text);
 }
 
 main();
@@ -575,40 +572,36 @@ main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
       -H 'x-goog-api-key: $GEMINI_API_KEY' \
       -H 'Content-Type: application/json' \
       -d '{
-          "contents":[
+          "model": "gemini-3.5-flash",
+          "input": [
+            {"type": "text", "text": "Summarize this pdf"},
             {
-              "parts":[
-                {"text": "Summarize this pdf"},
-                {
-                  "file_data": {
-                    "mime_type":"application/pdf",
-                    "file_uri": "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf"
-                  }
-                }
-              ]
+              "type": "document",
+              "uri": "https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf",
+              "mime_type": "application/pdf"
             }
           ]
         }'
 ```
 
-### 접근성
+### Aksesibilitas
 
-제공한 URL이 로그인이 필요하거나 페이월이 적용된 페이지로 연결되지 않는지 확인합니다. 비공개 데이터베이스의 경우 올바른 액세스 권한과 만료가 있는 서명된 URL을 만들어야 합니다.
+Pastikan URL yang Anda berikan tidak mengarah ke halaman yang memerlukan login atau berada di belakang penghalang konten berbayar. Untuk database pribadi, pastikan Anda membuat URL bertanda tangan dengan izin akses dan masa berlaku yang benar.
 
-### 안전 확인
+### Pemeriksaan keamanan
 
-시스템은 URL이 안전 및 정책 표준 (예: 선택 해제되지 않고 페이월이 적용된 콘텐츠)을 충족하는지 확인하기 위해 URL에 대한 콘텐츠 검토를 수행합니다. 제공한 URL이 이 검사를 통과하지 못하면 `URL_RETRIEVAL_STATUS_UNSAFE`의 `url_retrieval_status`가 표시됩니다.
+Sistem melakukan pemeriksaan moderasi konten pada URL untuk mengonfirmasi bahwa URL tersebut memenuhi standar keamanan dan kebijakan. Jika URL gagal dalam pemeriksaan ini, Anda akan mendapatkan `url_retrieval_status` dari `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### 지원되는 콘텐츠 유형
+### Jenis konten yang didukung
 
-지원되는 파일 형식 및 제한사항 목록은 초기 안내로 제공되며 모든 내용을 포함하지는 않습니다. 지원되는 유형의 유효한 집합은 변경될 수 있으며 사용 중인 특정 모델 및 토큰화 도구 버전에 따라 다를 수 있습니다. 지원되지 않는 유형은 오류를 발생시킵니다.
-또한 이러한 파일 형식의 콘텐츠 검색은 현재 공개적으로 액세스할 수 있는 URL만 지원합니다.
+Daftar jenis dan batasan file yang didukung ini dimaksudkan sebagai panduan awal dan tidak komprehensif. Kumpulan jenis yang didukung dapat berubah dan dapat bervariasi berdasarkan model dan versi tokenizer tertentu yang digunakan. Jenis yang tidak didukung akan menyebabkan error.
+Selain itu, pengambilan konten untuk jenis file ini hanya mendukung URL yang dapat diakses secara publik.
 
-#### 텍스트 파일 형식
+#### Jenis file teks
 
 - `text/html`
 - `text/css`
@@ -618,19 +611,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - `text/rtf`
 - `text/javascript`
 
-#### 애플리케이션 파일 형식
+#### Jenis file aplikasi
 
 - `application/json`
 - `application/pdf`
 
-#### 이미지 파일 형식
+#### Jenis file gambar
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### 동영상 파일 형식
+#### Jenis file video
 
 - `video/mp4`
 - `video/mpeg`
@@ -642,35 +635,36 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - `video/wmv`
 - `video/3gpp`
 
-## 권장사항
+## Praktik terbaik
 
-- **올바른 방법 선택:** 작고 일시적인 파일에는 인라인 데이터를 사용합니다.
-  크기가 크거나 자주 사용하는 파일에는 File API를 사용하세요. 이미 온라인에 호스팅된 데이터에는 외부 URL을 사용합니다.
-- **MIME 유형 지정:** 올바른 처리를 위해 항상 파일 데이터에 올바른 MIME 유형을 제공하세요.
-- **오류 처리:** 코드에서 오류 처리를 구현하여 네트워크 오류, 파일 액세스 문제 또는 API 오류와 같은 잠재적인 문제를 관리합니다.
-- **GCS 권한 관리:** GCS 등록을 사용하는 경우 Gemini API 서비스 에이전트에게 특정 버킷에 대한 필요한 `Storage Object Viewer` 역할만 부여합니다.
-- **서명된 URL 보안:** 서명된 URL에 적절한 만료 시간과 제한된 권한이 있는지 확인합니다.
+- **Pilih metode yang tepat:** Gunakan data sebaris untuk file kecil dan sementara.
+  Gunakan File API untuk file yang lebih besar atau sering digunakan. Gunakan URL eksternal untuk data yang sudah dihosting secara online.
+- **Tentukan Jenis MIME:** Selalu berikan jenis MIME yang benar untuk data file guna memastikan pemrosesan yang tepat.
+- **Tangani Error:** Terapkan penanganan error dalam kode Anda untuk mengelola potensi masalah seperti kegagalan jaringan, masalah akses file, atau error API.
 
-## 제한사항
+## Batasan
 
-- 파일 크기 제한은 방법 ([비교 표](#method-comparison) 참고)과 파일 유형에 따라 다릅니다.
-- 인라인 데이터는 요청 페이로드 크기를 늘립니다.
-- 파일 API 업로드는 임시이며 48시간 후에 만료됩니다.
-- 외부 URL 가져오기는 페이로드당 100MB로 제한되며 특정 콘텐츠 유형을 지원합니다.
-- Google Cloud Storage 등록에는 적절한 IAM 설정과 OAuth 토큰 관리가 필요합니다.
+- Batas ukuran file bervariasi menurut metode (lihat [tabel perbandingan](#method-comparison))
+  dan jenis file.
+- Data sebaris meningkatkan ukuran payload permintaan.
+- Upload File API bersifat sementara dan akan berakhir setelah 48 jam.
+- Pengambilan URL eksternal dibatasi hingga 100 MB per payload dan mendukung jenis konten tertentu.
 
-## 다음 단계
+## Langkah berikutnya
 
-- [Google AI Studio](http://aistudio.google.com/?hl=ko)를 사용하여 나만의 멀티모달 프롬프트를 작성해 보세요.
-- 프롬프트에 파일을 포함하는 방법에 관한 자세한 내용은 [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=ko), [오디오](https://ai.google.dev/gemini-api/docs/audio?hl=ko), [문서 처리](https://ai.google.dev/gemini-api/docs/document-processing?hl=ko) 가이드를 참고하세요.
-- 샘플링 매개변수 조정과 같은 프롬프트 설계에 관한 자세한 안내는 [프롬프트 전략](https://ai.google.dev/gemini-api/docs/prompt-strategies?hl=ko) 가이드를 참고하세요.
+- Coba tulis perintah multimodal Anda sendiri menggunakan
+  [Google AI Studio](http://aistudio.google.com/?hl=id).
+- Untuk mengetahui informasi tentang cara menyertakan file dalam perintah, lihat panduan pemrosesan
+  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id),
+  [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan
+  [Document processing](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
 
-의견 보내기
+Kirim masukan
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-최종 업데이트: 2026-06-19(UTC)
+Terakhir diperbarui pada 2026-06-22 UTC.
 
-의견을 전달하고 싶나요?
+Ada masukan untuk kami?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-19(UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-22 UTC."],[],[]]

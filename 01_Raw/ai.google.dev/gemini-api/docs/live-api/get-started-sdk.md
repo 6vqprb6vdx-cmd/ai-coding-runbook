@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=it
-fetched_at: 2026-06-22T06:32:28.421805+00:00
-title: "Inizia a utilizzare l'API Gemini Live con l'SDK Google GenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=ar
+fetched_at: 2026-06-29T05:31:07.448760+00:00
+title: "\u0628\u062f\u0621 \u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini Live API \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u062d\u0632\u0645\u0629 Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-# Inizia a utilizzare l'API Gemini Live con l'SDK Google GenAI
+# بدء استخدام Gemini Live API باستخدام حزمة Google GenAI SDK
 
-L'API Gemini Live consente un'interazione bidirezionale in tempo reale con i modelli Gemini, supportando input audio, video e di testo e output audio nativi. Questa guida spiega come eseguire l'integrazione con l'API utilizzando l'SDK Google GenAI sul server.
+تتيح واجهة برمجة التطبيقات Gemini Live API التفاعل الثنائي الاتجاه مع نماذج Gemini في الوقت الفعلي، وتتوافق مع إدخالات الصوت والفيديو والنص ومخرجات الصوت الأصلية. يوضّح هذا الدليل كيفية الدمج مع واجهة برمجة التطبيقات باستخدام حزمة تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي على الخادم.
 
-[Prova l'API Live in Google AI Studiomic](https://aistudio.google.com/live?hl=it)
-[Clona l'app di esempio da GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[Usa le competenze dell'agente di codiceterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it)
+[تجربة Live API في Google AI Studiomic](https://aistudio.google.com/live?hl=ar)
+[استنساخ تطبيق المثال من GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[استخدام مهارات وكيل الترميزterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ar)
 
-## Panoramica
+## نظرة عامة
 
-L'API Gemini Live utilizza i WebSocket per la comunicazione in tempo reale. L'SDK `google-genai` fornisce un'interfaccia asincrona di alto livello per la gestione di queste connessioni.
+تستخدم واجهة برمجة التطبيقات Gemini Live WebSockets للتواصل في الوقت الفعلي. توفّر حزمة تطوير البرامج (SDK) `google-genai` واجهة غير متزامنة عالية المستوى لإدارة هذه الاتصالات.
 
-Concetti chiave:
+المفاهيم الأساسية:
 
-- **Sessione**: una connessione persistente al modello.
-- **Configurazione**: configurazione di modalità (audio/testo), voce e istruzioni di sistema.
-- **Input in tempo reale**: invio di frame audio e video come blob.
+- **الجلسة**: اتصال دائم بالنموذج
+- **الإعداد**: إعداد طرق الإدخال (صوت/نص) والصوت وتعليمات النظام
+- **الإدخال في الوقت الفعلي**: إرسال إطارات الصوت والفيديو ككائنات ثنائية كبيرة الحجم
 
-## Connessione all'API Live
+## الربط بواجهة برمجة التطبيقات Live API
 
-Avvia una sessione dell'API Live con una chiave API:
+بدء جلسة Live API باستخدام مفتاح واجهة برمجة تطبيقات:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## Invio di testo
+## جارٍ إرسال الرسالة النصية
 
-Il testo può essere inviato utilizzando `send_realtime_input` (Python) o `sendRealtimeInput` (JavaScript).
+يمكن إرسال النص باستخدام `send_realtime_input` (Python) أو `sendRealtimeInput` (JavaScript).
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## Invio di audio
+## إرسال الصوت
 
-L'audio deve essere inviato come dati PCM non elaborati (audio PCM a 16 bit non elaborato, 16 kHz, little-endian).
+يجب إرسال الصوت كبيانات PCM أولية (صوت PCM أولي 16 بت، 16 كيلوهرتز، ترتيب البايتات الصغير).
 
 ### Python
 
@@ -143,12 +143,12 @@ session.sendRealtimeInput({
 });
 ```
 
-Per un esempio di come ottenere l'audio dal dispositivo client (ad es. il browser)
-consulta l'esempio end-to-end su [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
+للاطّلاع على مثال حول كيفية الحصول على الصوت من جهاز العميل (مثل المتصفح)،
+يُرجى الرجوع إلى المثال الشامل على [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
 
-## Invio di video
+## إرسال الفيديو
 
-I frame video vengono inviati come singole immagini (ad es. JPEG o PNG) a una frequenza fotogrammi specifica (max 1 frame al secondo).
+يتم إرسال إطارات الفيديو كصور فردية (مثل JPEG أو PNG) بعدد اللقطات في الثانية محدّد (إطار واحد في الثانية كحد أقصى).
 
 ### Python
 
@@ -174,12 +174,12 @@ session.sendRealtimeInput({
 });
 ```
 
-Per un esempio di come ottenere il video dal dispositivo client (ad es. il browser)
-consulta l'esempio end-to-end su [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
+للاطّلاع على مثال حول كيفية الحصول على الفيديو من جهاز العميل (مثل المتصفح)،
+راجِع المثال الشامل على [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
 
-## Ricezione di audio
+## استلام الصوت
 
-Le risposte audio del modello vengono ricevute come blocchi di dati.
+يتم تلقّي الردود الصوتية من النموذج على شكل أجزاء من البيانات.
 
 ### Python
 
@@ -207,11 +207,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-Consulta l'app di esempio su GitHub per scoprire come [ricevere l'audio sul server](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) e [riprodurlo nel browser](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
+يمكنك الاطّلاع على مثال التطبيق على GitHub لمعرفة كيفية [تلقّي الصوت على الخادم](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) و[تشغيله في المتصفح](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
 
-## Ricezione di testo
+## جارٍ استلام الرسالة النصية
 
-Le trascrizioni sia dell'input dell'utente sia dell'output del modello sono disponibili nei contenuti del server.
+تتوفّر نصوص لكل من بيانات أدخلها المستخدم ومخرجات النموذج في محتوى الخادم.
 
 ### Python
 
@@ -238,9 +238,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## Gestione delle chiamate allo strumento
+## معالجة طلبات الأدوات
 
-L'API supporta la chiamata allo strumento (chiamata di funzioni). Quando il modello richiede una chiamata allo strumento, devi eseguire la funzione e inviare la risposta.
+تتيح واجهة برمجة التطبيقات استخدام الأدوات (استدعاء الدوال). عندما يطلب النموذج إجراء مكالمة باستخدام أداة، عليك تنفيذ الدالة وإرسال الردّ.
 
 ### Python
 
@@ -281,20 +281,20 @@ if (response.toolCall) {
 }
 ```
 
-## Passaggi successivi
+## الخطوات التالية
 
-- Leggi la guida completa alle [funzionalità](https://ai.google.dev/gemini-api/docs/live-guide?hl=it) dell'API Live per le funzionalità e le configurazioni chiave, tra cui il rilevamento dell'attività vocale e le funzionalità audio native.
-- Leggi la guida all'[utilizzo degli strumenti](https://ai.google.dev/gemini-api/docs/live-tools?hl=it) per scoprire come integrare l'API Live con gli strumenti e la chiamata di funzioni.
-- Leggi la guida alla [gestione delle sessioni](https://ai.google.dev/gemini-api/docs/live-session?hl=it) per gestire le conversazioni a lunga esecuzione.
-- Leggi la guida ai [token effimeri](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=it) per l'autenticazione sicura nelle applicazioni [client-server](#implementation-approach).
-- Per ulteriori informazioni sull'API WebSocket sottostante, consulta la [documentazione di riferimento dell'API WebSocket](https://ai.google.dev/api/live?hl=it).
+- اطّلِع على دليل [الإمكانات](https://ai.google.dev/gemini-api/docs/live-guide?hl=ar) الكامل لواجهة Live API لمعرفة الإمكانات والإعدادات الرئيسية، بما في ذلك ميزة "رصد النشاط الصوتي" وميزات الصوت الأصلية.
+- اطّلِع على دليل [استخدام الأدوات](https://ai.google.dev/gemini-api/docs/live-tools?hl=ar) لمعرفة كيفية دمج Live API مع الأدوات وميزة "استدعاء الدوال".
+- اطّلِع على دليل [إدارة الجلسات](https://ai.google.dev/gemini-api/docs/live-session?hl=ar) لمعرفة كيفية إدارة المحادثات الطويلة.
+- اطّلِع على دليل [الرموز المميزة المؤقتة](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ar) لإجراء مصادقة آمنة في تطبيقات [العميل إلى الخادم](#implementation-approach).
+- لمزيد من المعلومات عن واجهة برمجة تطبيقات WebSockets الأساسية، يُرجى الاطّلاع على [مرجع واجهة برمجة تطبيقات WebSockets](https://ai.google.dev/api/live?hl=ar).
 
-Invia feedback
+إرسال ملاحظات
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ultimo aggiornamento 2026-06-01 UTC.
+تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
 
-Vuoi dirci altro?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-01 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

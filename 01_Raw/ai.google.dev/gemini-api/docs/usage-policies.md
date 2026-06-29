@@ -1,67 +1,67 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=pl
-fetched_at: 2026-06-22T06:31:06.335233+00:00
-title: "Monitorowanie nadu\u017cy\u0107 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=fr
+fetched_at: 2026-06-29T05:30:10.918233+00:00
+title: "Surveillance des utilisations abusives \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Prześlij opinię
+Envoyer des commentaires
 
-# Monitorowanie nadużyć
+# Surveillance des utilisations abusives
 
-Google zobowiązuje się do odpowiedzialnego rozwijania i wykorzystywania AI. Aby zapewnić bezpieczeństwo i integralność Gemini API, stworzyliśmy te wytyczne dotyczące zasad.
-Korzystając z Gemini API, zgadzasz się na te wytyczne, [dodatkowe warunki korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/terms?hl=pl) oraz zasady dotyczące [niedozwolonych zastosowań generatywnej AI](https://policies.google.com/terms/generative-ai/use-policy?hl=pl).
+Google s'engage à développer et à utiliser l'IA de manière responsable. Pour garantir la sécurité et l'intégrité de l'API Gemini, nous avons créé ces consignes.
+En utilisant l'API Gemini, vous acceptez les consignes suivantes, les [Conditions d'utilisation supplémentaires de l'API Gemini](https://ai.google.dev/gemini-api/terms?hl=fr) et le [Règlement sur les utilisations interdites de l'IA générative](https://policies.google.com/terms/generative-ai/use-policy?hl=fr).
 
-## Jak monitorujemy nadużycia
+## Comment nous surveillons les utilisations abusives
 
-Aby egzekwować przestrzeganie naszych zasad, zespół ds. bezpieczeństwa i zaufania Google stosuje połączenie procesów automatycznych i ręcznych do wykrywania potencjalnych nadużyć Gemini API i Google AI Studio.
+L'équipe Google chargée de la fiabilité et de la sécurité utilise des processus automatisés et manuels pour détecter les utilisations abusives potentielles de l'API Gemini et de Google AI Studio afin d'appliquer nos règles.
 
-- **Automatyczne wykrywanie:** automatyczne systemy skanują użycie interfejsu API pod kątem naruszeń naszych zasad dotyczących niedozwolonych zastosowań, takich jak szerzenie nienawiści, nękanie, treści o charakterze seksualnym i treści niebezpieczne.
-- **Wykrywanie ręczne:** jeśli projekt wykazuje podejrzaną aktywność, może zostać oznaczony do ręcznego sprawdzenia przez upoważnionych pracowników Google.
+- **Détection automatisée** : les systèmes automatisés analysent l'utilisation de l'API pour détecter les cas de non-respect de notre règlement sur les utilisations interdites, comme les contenus incitant à la haine, au harcèlement, à caractère sexuel explicite ou dangereux.
+- **Détection manuelle** : si un projet présente régulièrement une activité suspecte, il peut être signalé pour examen manuel par le personnel Google autorisé.
 
-## Jak postępujemy z danymi
+## Comment nous traitons les données
 
-Google przechowuje te dane przez 55 dni w celu wykrywania naruszeń zasad dotyczących niedozwolonych zastosowań i zapobiegania im, aby zapewnić bezpieczeństwo i ochronę usług oraz spełnić wymagania prawne i regulacyjne dotyczące ujawniania informacji:
+Google conserve les données suivantes pendant cinquante-cinq (55) jours afin de détecter et d'empêcher les cas de non-respect du règlement sur les utilisations interdites, de préserver la sécurité des Services et de fournir toute information légale ou réglementaire requise :
 
-- **Podpowiedzi:** podpowiedzi tekstowe przesyłane do interfejsu API.
-- **Informacje kontekstowe:** dodatkowy kontekst podany w podpowiedziach.
-- **Dane wyjściowe:** odpowiedzi generowane przez Gemini API.
+- **Requêtes** : requêtes textuelles que vous envoyez à l'API.
+- **Informations contextuelles** : tout contexte supplémentaire que vous fournissez avec vos requêtes.
+- **Sortie** : réponses générées par l'API Gemini.
 
-## Jak badamy potencjalne problemy
+## Comment nous examinons les problèmes potentiels
 
-Gdy podpowiedzi lub dane wyjściowe modelu zostaną oznaczone przez filtry bezpieczeństwa i systemy wykrywania nadużyć opisane powyżej, upoważnieni pracownicy Google mogą ocenić oznaczone treści i potwierdzić lub poprawić klasyfikację bądź decyzję na podstawie predefiniowanych wytycznych i zasad. Dostęp do danych w celu sprawdzenia przez człowieka mają tylko upoważnieni pracownicy Google za pomocą wewnętrznej platformy do oceny zgodności i zarządzania weryfikacją. Gdy dane są rejestrowane na potrzeby monitorowania nadużyć, są używane wyłącznie do egzekwowania zasad i zapobiegania ich naruszeniom.
-Nie są one używane do trenowania ani dostrajania żadnych modeli AI/ML poza tymi, które są używane specjalnie do egzekwowania zasad.
+Lorsque des requêtes ou des sorties de modèle sont signalées par les filtres de sécurité et les systèmes de détection des utilisations abusives décrits ci-dessus, des employés Google autorisés peuvent évaluer le contenu signalé et confirmer ou corriger la classification ou la détermination en fonction de consignes et de règles prédéfinies. Seuls les employés Google autorisés peuvent accéder aux données pour les examiner manuellement, via une plate-forme interne d'évaluation de la gouvernance et de gestion des examens. Lorsque des données sont consignées pour la surveillance des utilisations abusives, elles sont utilisées uniquement pour faire respecter les règles et prévenir les cas de non-respect.
+Elles ne sont pas utilisées pour entraîner ni ajuster des modèles d'IA/ML, à l'exception de ceux utilisés spécifiquement pour l'application des règles.
 
-## Współpraca z Tobą w zakresie zgodności z zasadami
+## Nous vous aidons à respecter nos règles
 
-Jeśli korzystanie z Gemini nie jest zgodne z naszymi zasadami, możemy podjąć te działania:
+Si votre utilisation de Gemini ne respecte pas nos règles, nous pouvons prendre les mesures suivantes :
 
-- **Skontaktujemy się z Tobą:** możemy skontaktować się z Tobą e-mailem, aby dowiedzieć się, jak korzystasz z usługi, i znaleźć sposoby na zapewnienie zgodności z zasadami.
-- **Tymczasowe limity użycia:** możemy ograniczyć Twój dostęp do Gemini API, na przykład dostosowując limity żądań lub zmieniając model, który odpowiada na konkretne żądanie.
-- **Tymczasowe zawieszenie:** możemy tymczasowo wstrzymać Twój dostęp do Gemini API.
-- **Zamknięcie konta:** w ostateczności i w przypadku poważnych naruszeń możemy trwale zablokować Ci dostęp do Gemini API i innych usług Google.
+- **Nous contacter** : nous pouvons vous contacter par e-mail pour comprendre votre cas d'utilisation et trouver des moyens de rendre votre utilisation conforme.
+- **Limites d'utilisation temporaires** : nous pouvons limiter votre accès à l'API Gemini en ajustant les limites de fréquence ou en modifiant le modèle qui répond à une demande spécifique, par exemple.
+- **Suspension temporaire** : nous pouvons suspendre temporairement votre accès à l'API Gemini.
+- **Clôture du compte** : en dernier recours et en cas de non-respect grave, nous pouvons vous interdire définitivement l'accès à l'API Gemini et à d'autres services Google.
 
-Jeśli skontaktujemy się z Tobą w sprawie zawieszenia lub zamknięcia konta, prześlemy też link, pod którym możesz złożyć odwołanie.
+Si nous vous contactons concernant une suspension ou une clôture de compte, nous vous fournirons également un lien vous permettant de faire appel.
 
-## Zakres
+## Champ d'application
 
-Te wytyczne dotyczące zasad dotyczą korzystania z Gemini API i AI Studio.
+Ces consignes s'appliquent à l'utilisation de l'API Gemini et d'AI Studio.
 
-Prześlij opinię
+Envoyer des commentaires
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Ostatnia aktualizacja: 2026-06-09 UTC.
+Dernière mise à jour le 2026/06/09 (UTC).
 
-Chcesz przekazać coś jeszcze?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-09 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/09 (UTC)."],[],[]]

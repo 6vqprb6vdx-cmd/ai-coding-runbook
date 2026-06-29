@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=zh-TW
-fetched_at: 2026-06-22T06:27:48.491655+00:00
+fetched_at: 2026-06-29T05:28:08.923075+00:00
 title: "\u5728 Google AI Studio \u4e2d\u958b\u767c\u5168\u7aef\u61c9\u7528\u7a0b\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) 現已推出預先發布版，提供協作規劃、視覺化、MCP 支援等功能。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 

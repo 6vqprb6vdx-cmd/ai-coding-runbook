@@ -1,47 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=pl
-fetched_at: 2026-06-22T06:28:50.652709+00:00
-title: "Korzystanie z narz\u0119dzia w po\u0142\u0105czeniu z interfejsem Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=th
+fetched_at: 2026-06-29T05:26:59.665974+00:00
+title: "\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e01\u0e31\u0e1a Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-# Korzystanie z narzędzia w połączeniu z interfejsem Live API
+# การใช้เครื่องมือกับ Live API
 
-Korzystanie z narzędzi pozwala interfejsowi Live API wyjść poza zwykłą rozmowę, umożliwiając mu wykonywanie działań w świecie rzeczywistym i pobieranie kontekstu zewnętrznego przy jednoczesnym utrzymaniu połączenia w czasie rzeczywistym.
-Za pomocą interfejsu Live API możesz definiować narzędzia, takie jak [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
-i [wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl).
+การใช้เครื่องมือช่วยให้ Live API ทำได้มากกว่าแค่การสนทนา โดยช่วยให้ API
+ดำเนินการในโลกแห่งความจริงและดึงบริบทภายนอกเข้ามาได้ในขณะที่ยังคง
+การเชื่อมต่อแบบเรียลไทม์
+คุณกำหนดเครื่องมือต่างๆ เช่น [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+และ [Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th) ได้ด้วย Live API
 
-## Omówienie obsługiwanych narzędzi
+## ภาพรวมของเครื่องมือที่รองรับ
 
-Oto krótkie omówienie narzędzi dostępnych w przypadku modeli interfejsu Live API:
+ต่อไปนี้เป็นภาพรวมโดยย่อของเครื่องมือที่ใช้ได้สำหรับโมเดล Live API
 
-| Narzędzie | Gemini 3.1 Flash Live (wersja testowa) | Gemini 2.5 Flash Live (wersja testowa) |
+| เครื่องมือ | เวอร์ชันตัวอย่าง Gemini 3.1 Flash Live | เวอร์ชันตัวอย่างของ Gemini 2.5 Flash |
 | --- | --- | --- |
-| **Szukaj** | Obsługiwane | Obsługiwane |
-| **Wywoływanie funkcji** | Obsługiwane (tylko synchroniczne) | Obsługiwane (synchroniczne i [asynchroniczne](#async-function-calling)) |
-| **Mapy Google** | Nieobsługiwane | Nieobsługiwane |
-| **Wykonywanie kodu** | Nieobsługiwane | Nieobsługiwane |
-| **Kontekst adresu URL** | Nieobsługiwane | Nieobsługiwane |
+| **ค้นหา** | สิ่งที่ทำได้ | สิ่งที่ทำได้ |
+| **การเรียกใช้ฟังก์ชัน** | รองรับ (ซิงโครนัสเท่านั้น) | รองรับ (แบบเรียลไทม์และ[ไม่เรียลไทม์](#async-function-calling)) |
+| **Google Maps** | สิ่งที่ทำไม่ได้ | สิ่งที่ทำไม่ได้ |
+| **การรันโค้ด** | สิ่งที่ทำไม่ได้ | สิ่งที่ทำไม่ได้ |
+| **บริบทของ URL** | สิ่งที่ทำไม่ได้ | สิ่งที่ทำไม่ได้ |
 
-## Wywoływanie funkcji
+## การเรียกใช้ฟังก์ชัน
 
-Interfejs Live API obsługuje wywoływanie funkcji, podobnie jak zwykłe żądania generowania treści. Wywoływanie funkcji umożliwia interfejsowi Live API interakcję z danymi i programami zewnętrznymi, co znacznie zwiększa możliwości aplikacji.
+Live API รองรับการเรียกใช้ฟังก์ชันเช่นเดียวกับคำขอการสร้างเนื้อหาปกติ
+การเรียกใช้ฟังก์ชันช่วยให้ Live API โต้ตอบกับข้อมูลและโปรแกรมภายนอกได้ ซึ่งจะช่วยเพิ่มความสามารถของแอปพลิเคชันได้อย่างมาก
 
-Deklaracje funkcji możesz zdefiniować w ramach konfiguracji sesji.
-Po otrzymaniu wywołań narzędzi klient powinien odpowiedzieć listą obiektów `FunctionResponse` za pomocą metody `session.send_tool_response`.
+คุณกําหนดการประกาศฟังก์ชันเป็นส่วนหนึ่งของการกําหนดค่าเซสชันได้
+หลังจากได้รับฟังก์ชันคอลแล้ว ไคลเอ็นต์ควรตอบกลับด้วยรายการออบเจ็กต์
+`FunctionResponse`โดยใช้เมธอด `session.send_tool_response`
 
-Więcej informacji znajdziesz w [samouczku dotyczącym wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
+ดูข้อมูลเพิ่มเติมได้ที่[บทแนะนำการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
 
 ### Python
 
@@ -218,13 +222,16 @@ async function main() {
 main();
 ```
 
-Na podstawie jednego prompta model może wygenerować wiele wywołań funkcji i kod niezbędny do łączenia ich wyników. Ten kod jest wykonywany w środowisku piaskownicy, co powoduje generowanie kolejnych [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=pl#bidigeneratecontenttoolcall).
+โมเดลสามารถสร้างการเรียกใช้ฟังก์ชันหลายรายการและโค้ดที่จำเป็นต่อการเชื่อมโยงเอาต์พุตจากพรอมต์เดียว โค้ดนี้จะดำเนินการในสภาพแวดล้อมแซนด์บ็อกซ์
+เพื่อสร้างข้อความ [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=th#bidigeneratecontenttoolcall) ที่ตามมา
 
-## Asynchroniczne wywoływanie funkcji
+## การเรียกใช้ฟังก์ชันแบบอะซิงโครนัส
 
-Domyślnie wywoływanie funkcji odbywa się sekwencyjnie, co oznacza, że wykonywanie jest wstrzymywane do momentu, aż dostępne będą wyniki każdego wywołania funkcji. Zapewnia to sekwencyjne przetwarzanie, co oznacza, że nie będziesz mieć możliwości dalszej interakcji z modelem podczas wykonywania funkcji.
+การเรียกใช้ฟังก์ชันจะดำเนินการตามลำดับโดยค่าเริ่มต้น ซึ่งหมายความว่าการดำเนินการจะหยุดชั่วคราว
+จนกว่าผลลัพธ์ของการเรียกใช้ฟังก์ชันแต่ละรายการจะพร้อมใช้งาน ซึ่งจะช่วยให้ประมวลผลตามลำดับได้ ซึ่งหมายความว่าคุณจะโต้ตอบกับโมเดลต่อไม่ได้ในขณะที่ฟังก์ชันกำลังทำงาน
 
-Jeśli nie chcesz blokować rozmowy, możesz poinformować model, aby uruchamiał funkcje asynchronicznie. Aby to zrobić, musisz najpierw dodać `behavior` do definicji funkcji:
+หากไม่ต้องการบล็อกการสนทนา คุณสามารถบอกโมเดลให้เรียกใช้ฟังก์ชันแบบไม่พร้อมกันได้ โดยคุณต้องเพิ่ม `behavior` ใน
+คำจำกัดความของฟังก์ชันก่อน
 
 ### Python
 
@@ -248,15 +255,16 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` zapewnia, że funkcja będzie działać asynchronicznie, a Ty będziesz mieć możliwość dalszej interakcji z modelem.
+`NON-BLOCKING` ช่วยให้ฟังก์ชันทำงานแบบไม่พร้อมกันในขณะที่คุณโต้ตอบกับโมเดลต่อไปได้
 
-Następnie musisz poinformować model, jak ma się zachowywać, gdy otrzyma `FunctionResponse`, za pomocą parametru `scheduling`. Może on:
+จากนั้นคุณต้องบอกโมเดลว่าควรทำงานอย่างไรเมื่อได้รับ
+`FunctionResponse` โดยใช้พารามิเตอร์ `scheduling` โดยอาจเป็นอย่างใดอย่างหนึ่งต่อไปนี้
 
-- przerwać wykonywanie bieżącego zadania i od razu poinformować Cię o otrzymanej odpowiedzi
-  (`scheduling="INTERRUPT"`),
-- poczekać, aż skończy wykonywać bieżące zadanie
-  (`scheduling="WHEN_IDLE"`),
-- lub nie robić nic i wykorzystać tę wiedzę później w dyskusji
+- ขัดจังหวะสิ่งที่กำลังทำอยู่และแจ้งให้คุณทราบเกี่ยวกับคำตอบที่ได้รับทันที
+  (`scheduling="INTERRUPT"`)
+- รอจนกว่าจะเสร็จสิ้นกับสิ่งที่กำลังทำอยู่
+  (`scheduling="WHEN_IDLE"`)
+- หรือจะปล่อยไว้และใช้ความรู้นั้นในการสนทนาในภายหลังก็ได้
   (`scheduling="SILENT"`)
 
 ### Python
@@ -289,9 +297,11 @@ const functionResponse = {
 }
 ```
 
-## Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google
+## การเชื่อมต่อแหล่งข้อมูลกับ Google Search
 
-Powiązanie ze źródłem informacji przy użyciu wyszukiwarki Google możesz włączyć w ramach konfiguracji sesji. Zwiększa to dokładność interfejsu Live API i zapobiega halucynacjom. Więcej informacji znajdziesz w [samouczku dotyczącym powiązania ze źródłem informacji](https://ai.google.dev/gemini-api/docs/grounding?hl=pl).
+คุณเปิดใช้การอ้างอิงจาก Google Search ได้โดยเป็นส่วนหนึ่งของการกำหนดค่าเซสชัน
+ซึ่งจะช่วยเพิ่มความแม่นยำของ Live API และป้องกัน
+การหลอน ดูข้อมูลเพิ่มเติมได้ที่[บทแนะนำการกราวด์](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
 
 ### Python
 
@@ -450,9 +460,9 @@ async function main() {
 main();
 ```
 
-## Łączenie wielu narzędzi
+## การรวมเครื่องมือหลายอย่าง
 
-W ramach interfejsu Live API możesz łączyć wiele narzędzi, co jeszcze bardziej zwiększa możliwości aplikacji:
+คุณสามารถรวมเครื่องมือหลายอย่างภายใน Live API เพื่อเพิ่มความสามารถของแอปพลิเคชันให้มากยิ่งขึ้นได้
 
 ### Python
 
@@ -500,19 +510,18 @@ const config = {
 // ... remaining model call
 ```
 
-## Co dalej?
+## ขั้นตอนถัดไป
 
-- Więcej przykładów używania narzędzi z interfejsem Live API znajdziesz w
-  [przewodniku dotyczącym korzystania z narzędzi](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=pl).
-- Więcej informacji o funkcjach i konfiguracjach znajdziesz w
-  [przewodniku po możliwościach interfejsu Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=pl).
+- ดูตัวอย่างเพิ่มเติมของการใช้เครื่องมือกับ Live API ได้ใน
+  [ตำราการใช้เครื่องมือ](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=th)
+- ดูเรื่องราวทั้งหมดเกี่ยวกับฟีเจอร์และการกำหนดค่าได้จาก[คู่มือความสามารถของ Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ostatnia aktualizacja: 2026-06-01 UTC.
+อัปเดตล่าสุด 2026-06-01 UTC
 
-Chcesz przekazać coś jeszcze?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-01 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]

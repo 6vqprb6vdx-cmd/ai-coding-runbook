@@ -1,110 +1,98 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=pl
-fetched_at: 2026-06-22T06:27:51.150431+00:00
-title: "Korzystanie z\u00a0narz\u0119dzi za pomoc\u0105 interfejsu Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=fr
+fetched_at: 2026-06-29T05:29:44.781791+00:00
+title: "Utiliser des outils avec l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Prześlij opinię
+Envoyer des commentaires
 
-# Korzystanie z narzędzi za pomocą interfejsu Gemini API
+# Utiliser des outils avec l'API Gemini
 
-Narzędzia rozszerzają możliwości modeli Gemini, umożliwiając im podejmowanie działań w świecie rzeczywistym, dostęp do informacji w czasie rzeczywistym i wykonywanie złożonych zadań obliczeniowych. Modele mogą korzystać z narzędzi zarówno w standardowych interakcjach typu żądanie-odpowiedź, jak i
-w sesjach przesyłania strumieniowego w czasie rzeczywistym za pomocą interfejsu [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=pl).
+Les outils étendent les capacités des modèles Gemini, ce qui leur permet d'agir dans le monde réel, d'accéder à des informations en temps réel et d'effectuer des tâches de calcul complexes. Les modèles peuvent utiliser des outils dans les interactions standard de demande et de réponse, ainsi que dans les sessions de streaming en temps réel à l'aide de l'[API Live](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr).
 
-Narzędzia to konkretne funkcje (takie jak wyszukiwarka Google czy wykonywanie kodu), których model może używać do odpowiadania na zapytania. Interfejs Gemini API udostępnia zestaw w pełni
-zarządzanych, wbudowanych narzędzi. Możesz też zdefiniować narzędzia niestandardowe za pomocą [wywoływania
-funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
+Les outils sont des fonctionnalités spécifiques (comme la recherche Google ou l'exécution de code) qu'un modèle peut utiliser pour répondre aux requêtes. L'API Gemini fournit une suite d'outils intégrés entièrement gérés. Vous pouvez également définir des outils personnalisés à l'aide de l'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
 
-Aby tworzyć wieloetapowe systemy zorientowane na cel, zapoznaj się z omówieniem [agentów](https://ai.google.dev/gemini-api/docs/agents?hl=pl).
+Pour créer des systèmes orientés objectif et à plusieurs étapes, consultez la [présentation des agents](https://ai.google.dev/gemini-api/docs/agents?hl=fr).
 
-## Dostępne narzędzia wbudowane
+## Outils intégrés disponibles
 
-| Narzędzie | Opis | Przypadki użycia |
+| Outil | Description | Cas d'utilisation |
 | --- | --- | --- |
-| [Wyszukiwarka Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) | Uzasadniaj odpowiedzi aktualnymi wydarzeniami i faktami z internetu, aby ograniczyć halucynacje. | \- Odpowiadanie na pytania o bieżące wydarzenia.   \- Weryfikowanie faktów za pomocą różnych źródeł. |
-| [Mapy Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl) | Twórz asystentów rozpoznających lokalizację, którzy mogą znajdować miejsca, wyznaczać trasy i dostarczać bogaty kontekst lokalny. | \- Planowanie tras podróży z wieloma przystankami   \- Znajdowanie lokalnych firm na podstawie kryteriów użytkownika. |
-| [Wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl) | Pozwól modelowi pisać i uruchamiać kod w Pythonie, aby rozwiązywać problemy matematyczne lub dokładnie przetwarzać dane. | \- Rozwiązywanie złożonych równań matematycznych   \- Precyzyjne przetwarzanie i analizowanie danych tekstowych |
-| [Kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl) | Poproś model o przeczytanie i przeanalizowanie treści z określonych stron internetowych lub dokumentów. | \- Odpowiadanie na pytania na podstawie konkretnych adresów URL lub dokumentów   \- Pobieranie informacji z różnych stron internetowych. |
-| [Korzystanie z komputera (wersja testowa)](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl) | Zezwól Gemini na wyświetlanie ekranu i generowanie działań w celu interakcji z interfejsami przeglądarek internetowych (wykonywanie po stronie klienta). | \- Automatyzowanie powtarzalnych przepływów pracy w internecie.   \- Testowanie interfejsów aplikacji internetowych. |
-| [Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl) | Indeksuj i przeszukuj własne dokumenty, aby włączyć generowanie wspomagane wyszukiwaniem (RAG). | \- Przeszukiwanie podręczników technicznych   \- Odpowiadanie na pytania na podstawie danych zastrzeżonych |
+| [La recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) | Ancrez les réponses dans l'actualité et les faits du Web pour réduire les hallucinations. | \- Répondre à des questions sur des événements récents   \- Vérifier des faits à l'aide de sources diverses |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr) | Créez des assistants utilisant la détection de la position qui peuvent trouver des lieux, obtenir des itinéraires et fournir un contexte local riche. | - Planifier des itinéraires de voyage avec plusieurs arrêts   - Trouver des établissements locaux en fonction des critères de l'utilisateur |
+| [Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) | Permettez au modèle d'écrire et d'exécuter du code Python pour résoudre des problèmes mathématiques ou traiter des données avec précision. | \- Résoudre des équations mathématiques complexes   \- Traiter et analyser des données textuelles avec précision |
+| [Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr) | Demandez au modèle de lire et d'analyser le contenu de pages Web ou de documents spécifiques. | \- Répondre à des questions basées sur des URL ou des documents spécifiques   \- Récupérer des informations sur différentes pages Web |
+| [Utilisation de l'ordinateur (aperçu)](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr) | Activez Gemini pour qu'il puisse afficher un écran et générer des actions pour interagir avec les UI des navigateurs Web (exécution côté client). | \- Automatiser les workflows Web répétitifs   \- Tester les interfaces utilisateur des applications Web |
+| [Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr) | Indexez et recherchez vos propres documents pour activer la génération augmentée par récupération (RAG). | \- Recherche dans des manuels techniques   \- Réponses à des questions sur des données propriétaires |
 
-Szczegółowe informacje o kosztach związanych z konkretnymi narzędziami znajdziesz na stronie [Cennik](https://ai.google.dev/gemini-api/docs/pricing?hl=pl#pricing_for_tools).
+Pour en savoir plus sur les coûts associés à des outils spécifiques, consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#pricing_for_tools).
 
-## Jak działa wykonywanie narzędzi
+## Fonctionnement de l'exécution des outils
 
-Narzędzia umożliwiają modelowi żądanie działań podczas rozmowy. Przepływ różni się w zależności od tego, czy narzędzie jest wbudowane (zarządzane przez Google) czy niestandardowe (zarządzane przez Ciebie).
+Les outils permettent au modèle de demander des actions au cours d'une conversation. Le flux diffère selon que l'outil est intégré (géré par Google) ou personnalisé (géré par vous).
 
-### Przepływ narzędzia wbudowanego
+### Flux d'outil intégré
 
-W przypadku narzędzi wbudowanych (wyszukiwarka Google, Mapy Google, kontekst adresu URL, wyszukiwanie plików, wykonywanie kodu) cały proces odbywa się w ramach jednego wywołania interfejsu API:
+Pour les outils intégrés (recherche Google, Google Maps, contexte d'URL, recherche de fichiers, exécution de code), l'ensemble du processus se déroule en un seul appel d'API :
 
-1. **Ty** wysyłasz prompta: „Ile wynosi pierwiastek kwadratowy z najnowszej ceny akcji GOOG?”
-2. **Gemini** stwierdza, że potrzebuje narzędzi, i uruchamia je na serwerach Google (np. wyszukuje cenę akcji, a następnie uruchamia kod w Pythonie, aby obliczyć pierwiastek kwadratowy).
-3. **Gemini** odsyła ostateczną odpowiedź opartą na wynikach narzędzia.
+1. **Vous** envoyez une requête : "Quelle est la racine carrée du dernier cours de l'action GOOG ?"
+2. **Gemini** décide qu'il a besoin d'outils et les exécute sur les serveurs de Google (par exemple, il recherche le cours de l'action, puis exécute du code Python pour calculer la racine carrée).
+3. **Gemini** renvoie la réponse finale basée sur les résultats de l'outil.
 
-### Przepływ narzędzia niestandardowego (wywoływanie funkcji)
+### Flux d'outil personnalisé (appel de fonction)
 
-W przypadku narzędzi niestandardowych i korzystania z komputera wykonywanie jest obsługiwane przez Twoją aplikację:
+Pour les outils personnalisés et l'utilisation de l'ordinateur, votre application gère l'exécution :
 
-1. **Ty** wysyłasz prompta wraz z deklaracjami funkcji (narzędzi).
-2. **Gemini** może odesłać uporządkowany kod JSON, aby wywołać konkretną funkcję
-   (np. `{"name": "get_order_status", "args": {"order_id": "123"}}`),
-   zawsze z unikalnym `id`.
-3. **Ty** uruchamiasz funkcję w swojej aplikacji lub środowisku.
-4. **Ty** odsyłasz wyniki funkcji z tym samym `id` co wywołanie funkcji.
-5. **Gemini** używa wyników do wygenerowania ostatecznej odpowiedzi lub innego wywołania narzędzia.
+1. **Vous** envoyez un prompt avec des déclarations de fonctions (outils).
+2. **Gemini** peut renvoyer un code JSON structuré pour appeler une fonction spécifique (par exemple, `{"name": "get_order_status", "args": {"order_id": "123"}}`), toujours avec un `id` unique.
+3. **Vous** exécutez la fonction dans votre application ou votre environnement.
+4. **Vous** renvoyez les résultats de la fonction à Gemini, avec le même `id` que l'appel de fonction.
+5. **Gemini** utilise les résultats pour générer une réponse finale ou un autre appel d'outil.
 
-Więcej informacji znajdziesz w [przewodniku po wywoływaniu funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
+Pour en savoir plus, consultez le [guide sur les appels de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
 
-### Łączenie przepływu narzędzi wbudowanych i niestandardowych
+### Combiner des outils intégrés et personnalisés
 
-W przypadku żądań, które łączą narzędzia wbudowane i narzędzia niestandardowe (wywołania funkcji), model używa [obiegu kontekstu narzędzia](https://ai.google.dev/gemini-api/docs/toold-combination?hl=pl) do koordynowania wykonywania w różnych środowiskach:
+Pour les requêtes qui combinent des outils intégrés et des outils personnalisés (appels de fonction), le modèle utilise la [circulation du contexte d'outil](https://ai.google.dev/gemini-api/docs/toold-combination?hl=fr) pour coordonner l'exécution dans différents environnements :
 
-1. **Ty** wysyłasz prompta i deklarujesz narzędzia wbudowane oraz funkcje niestandardowe, które chcesz włączyć, ustawiając flagę, aby włączyć obsługę kombinacji.
-2. **Gemini** uruchamia narzędzia wbudowane i przekazuje kontrolę użytkownikowi, jeśli zostaną wygenerowane wywołania funkcji po stronie klienta (kolejność zależy od prompta i decyzji modelu). Odsyła odpowiedź zawierającą:
-   - potwierdzenie wywołania narzędzia;
-   - wyniki odpowiedzi narzędzia (mogą one pojawić się po kodzie JSON, jeśli model wygenerował 2 równoległe wywołania funkcji);
-   - uporządkowany kod JSON do wywołania funkcji;
-   - zaszyfrowane sygnatury myśli, aby zachować kontekst.
-3. **Ty** uruchamiasz funkcję w swojej aplikacji lub środowisku.
-4. **Ty** zwracasz wszystkie części odpowiedzi Gemini oraz wyniki wywołania funkcji.
-5. **Gemini** generuje ostateczną odpowiedź, używając całego połączonego kontekstu.
+1. **Vous** envoyez une requête et déclarez les outils intégrés et les fonctions personnalisées que vous souhaitez activer, en définissant un indicateur pour activer la prise en charge des combinaisons.
+2. **Gemini** exécute les outils intégrés et cède la place à l'utilisateur si des appels de fonction côté client sont générés (l'exécution en premier dépend de la requête et de ce que le modèle décide). Il renvoie une réponse avec :
+   - Confirmation de l'appel d'outil
+   - Résultats de la réponse de l'outil (ils peuvent être placés après le JSON si le modèle a généré deux appels de fonction parallèles)
+   - JSON structuré pour appeler votre fonction
+   - Signatures de pensée chiffrées pour préserver le contexte
+3. **Vous** exécutez la fonction dans votre application ou votre environnement.
+4. **Vous** renvoyez toutes les parties de la réponse de Gemini, ainsi que les résultats de votre appel de fonction.
+5. **Gemini** génère la réponse finale à l'aide de l'ensemble du contexte combiné.
 
-Aby dowiedzieć się, jak włączyć obsługę łączenia narzędzi wbudowanych i niestandardowych, oraz poznać przykłady obiegu kontekstu, przeczytaj [przewodnik po łączeniu narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+Consultez le [guide sur la combinaison d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr) pour découvrir comment activer la prise en charge de la combinaison d'outils intégrés et personnalisés, et obtenir des exemples de circulation du contexte.
 
-## Uporządkowane dane wyjściowe a wywoływanie funkcji
+## Sorties structurées et appels de fonction
 
-Gemini oferuje 2 metody generowania uporządkowanych danych wyjściowych. Używaj [wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) gdy model musi wykonać
-krok pośredni, łącząc się z Twoimi narzędziami lub systemami danych. Używaj
-[uporządkowanych danych wyjściowych](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl), gdy ostateczna odpowiedź modelu musi być ściśle zgodna z określonym schematem, np. w celu renderowania
-niestandardowego interfejsu.
+Gemini propose deux méthodes pour générer des résultats structurés. Utilisez l'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr) lorsque le modèle doit effectuer une étape intermédiaire en se connectant à vos propres outils ou systèmes de données. Utilisez les [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) lorsque vous avez absolument besoin que la réponse finale du modèle respecte un schéma spécifique, par exemple pour afficher une UI personnalisée.
 
-## Uporządkowane dane wyjściowe z narzędziami
+## Sorties structurées avec des outils
 
- 
+Vous pouvez combiner les [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) avec des outils intégrés pour vous assurer que les réponses du modèle ancrées dans des données externes ou des calculs respectent toujours un schéma strict.
 
-Możesz łączyć [uporządkowane dane wyjściowe](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl) z
-narzędziami wbudowanymi, aby mieć pewność, że odpowiedzi modelu oparte na danych zewnętrznych lub
-obliczeniach nadal będą zgodne z określonym schematem.
+Pour obtenir des exemples de code, consultez [Sorties structurées avec des outils](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=fr#structured_outputs_with_tools).
 
-Przykłady kodu znajdziesz w artykule [Uporządkowane dane wyjściowe z narzędziami](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=pl#structured_outputs_with_tools).
+Envoyer des commentaires
 
-Prześlij opinię
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Dernière mise à jour le 2026/04/29 (UTC).
 
-Ostatnia aktualizacja: 2026-04-29 UTC.
+Voulez-vous nous donner plus d'informations ?
 
-Chcesz przekazać coś jeszcze?
-
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

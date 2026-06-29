@@ -1,982 +1,982 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=vi
-fetched_at: 2026-06-22T06:29:23.980442+00:00
-title: "Gi\u00e1 c\u1ee7a Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=tr
+fetched_at: 2026-06-29T05:29:38.961458+00:00
+title: "Gemini Developer API fiyatland\u0131rmas\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-# Giá của Gemini Developer API
+# Gemini Developer API fiyatlandırması
 
-Bắt đầu xây dựng miễn phí với hạn mức hào phóng, sau đó mở rộng quy mô với mức giá trả trước rồi trả tiền theo mức dùng cho các ứng dụng sẵn sàng sản xuất của bạn.
+Cömert sınırlamalarla ücretsiz olarak geliştirmeye başlayın, ardından üretime hazır uygulamalarınız için ön ödemeli ve kullandıkça öde fiyatlandırmasıyla ölçeğinizi artırın.
 
-### Miễn phí
+### Ücretsiz
 
-Dành cho những nhà phát triển và dự án nhỏ mới bắt đầu sử dụng Gemini API.
+Gemini API'yi kullanmaya başlayan geliştiriciler ve küçük projeler için uygundur.
 
-- check\_circleQuyền truy cập có giới hạn vào một số mô hình
-- check\_circleMã thông báo đầu vào và đầu ra miễn phí
-- check\_circleQuyền truy cập vào Google AI Studio
-- check\_circleNội dung được dùng để cải thiện sản phẩm của chúng tôi[\*](https://ai.google.dev/gemini-api/terms?hl=vi)
+- check\_circleBelirli modellere sınırlı erişim
+- check\_circleÜcretsiz giriş ve çıkış jetonları
+- check\_circleGoogle AI Studio erişimi
+- check\_circleÜrünlerimizi iyileştirmek için kullanılan içerikler[\*](https://ai.google.dev/gemini-api/terms?hl=tr)
 
-[Bắt đầu sử dụng miễn phí](https://aistudio.google.com?hl=vi)
+[Ücretsiz kullanmaya başlayın](https://aistudio.google.com?hl=tr)
 
-### Đã thanh toán
+### Ücretli
 
-Đối với các ứng dụng sản xuất yêu cầu số lượng lớn hơn và các tính năng nâng cao.
+Daha yüksek hacimler ve ileri seviye özellikler gerektiren üretim uygulamaları için.
 
-- check\_circleHạn mức yêu cầu cao hơn cho các hoạt động triển khai sản xuất
-- check\_circleQuyền truy cập vào tính năng lưu vào bộ nhớ đệm theo bối cảnh
-- check\_circleAPI theo lô (giảm 50% chi phí)
-- check\_circleQuyền truy cập vào các mô hình tiên tiến nhất của Google
-- check\_circleNội dung **không** được dùng để cải thiện sản phẩm của chúng tôi[\*](https://ai.google.dev/gemini-api/terms?hl=vi)
+- check\_circleÜretim dağıtımları için daha yüksek sıklık sınırları
+- check\_circleBağlamı önbelleğe alma özelliğine erişim
+- check\_circleToplu API (%50 maliyet düşüşü)
+- check\_circleGoogle'ın en gelişmiş modellerine erişim
+- check\_circleİçerik, ürünlerimizi iyileştirmek için **kullanılmaz**[\*](https://ai.google.dev/gemini-api/terms?hl=tr)
 
-[Nâng cấp lên tài khoản Trả phí](https://aistudio.google.com/api-keys?hl=vi)
+[Hesabı ücretli sürüme yükseltme](https://aistudio.google.com/api-keys?hl=tr)
 
-### Doanh nghiệp
+### Kurumsal
 
-Đối với các hoạt động triển khai quy mô lớn có nhu cầu tuỳ chỉnh về bảo mật, hỗ trợ và tuân thủ, được hỗ trợ bởi [Nền tảng tác nhân Gemini Enterprise](https://cloud.google.com/gemini-enterprise-agent-platform?hl=vi).
+[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=tr) tarafından desteklenen, güvenlik, destek ve uygunluk açısından özel ihtiyaçları olan büyük ölçekli dağıtımlar için.
 
-- check\_circleTất cả tính năng trong gói Trả phí, cộng thêm quyền truy cập (không bắt buộc) vào:
-- check\_circleKênh hỗ trợ chuyên biệt
-- check\_circleTính tuân thủ và khả năng bảo mật nâng cao
-- check\_circleCông suất được cấp phép
-- check\_circleChiết khấu dựa trên số lượng (dựa trên mức sử dụng)
-- check\_circleHoạt động ML, vườn mô hình và nhiều nội dung khác
+- check\_circleÜcretli plandaki tüm özelliklere ek olarak aşağıdakilere isteğe bağlı erişim:
+- check\_circleÖzel destek kanalları
+- check\_circleGelişmiş güvenlik ve uygunluk
+- check\_circleTemel hazırlığı yapılmış işleme hızı
+- check\_circleHacme dayalı indirimler (kullanıma dayalı)
+- check\_circleMLOps, Model Garden ve daha fazlası
 
-[Liên hệ với nhóm bán hàng](https://cloud.google.com/contact?hl=vi)
+[Satış Ekibiyle İletişime Geçin](https://cloud.google.com/contact?hl=tr)
 
 ## Gemini 3.5 Flash
 
 *`gemini-3.5-flash`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-3.5-flash&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-3.5-flash&hl=tr)
 
-Mô hình thông minh nhất của chúng tôi được xây dựng để có tốc độ xử lý nhanh, kết hợp trí thông minh đột phá với khả năng tìm kiếm và tiếp cận thông tin vượt trội.
+Hız için tasarlanmış en akıllı modelimiz. Yeni nesil zekayı üstün arama ve temellendirme özellikleriyle birleştirir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | $1,5 |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $9,00 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Miễn phí | 0,15 USD 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 1,50 ABD doları |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 9 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Ücretsiz | Saatlik 0,15 ABD doları 1,00 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | $0,75 |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 4,5 đô la |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,075 1.000.000 mã thông báo / giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,75 ABD doları |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 4,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.075 $1.00 / 1.000.000 jeton başına saat (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | $0,75 |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 4,5 đô la |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,08 1.000.000 mã thông báo / giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,75 ABD doları |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 4,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.08 $1.00 / 1.000.000 jeton başına saat (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 2,7 USD |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 16,2 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Miễn phí | 0,27 1.000.000 mã thông báo / giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 2,70 ABD doları |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 16,20 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Ücretsiz | $0.27 $1.00 / 1.000.000 jeton başına saat (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Yêu cầu mà khách hàng gửi cho Gemini có thể dẫn đến một hoặc nhiều câu hỏi trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện.
+\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
 
 ## Gemini 3.5 Live Translate
 
 *`gemini-3.5-live-translate-preview`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=tr)
 
-Mô hình dịch lời nói sang lời nói theo thời gian thực với độ trễ thấp, hỗ trợ hơn 70 ngôn ngữ.
+70'ten fazla dili destekleyen, düşük gecikme süreli ve anında konuşmadan konuşmaya çeviri modelimiz.
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | $3,50 hoặc $0,0053/phút\* (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 21 USD hoặc 0,0315 USD/phút\* (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 3,50 ABD doları veya 0,0053 ABD doları/dakika\* (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 21,00 ABD doları veya 0,0315 ABD doları/dakika\* (ses) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Việc thanh toán dựa trên tổng mức sử dụng mã thông báo âm thanh đầu vào và đầu ra, được tính theo tỷ lệ 25 mã thông báo trên mỗi giây âm thanh, tương đương với mức giá hiệu quả là khoảng 0,0368 USD mỗi phút.
+\* Faturalandırma, toplam giriş ve çıkış ses jetonu tüketimine göre yapılır.Saniyede 25 jeton hızında hesaplanır ve dakikada yaklaşık 0, 0368 ABD doları etkin fiyata karşılık gelir.
 
 ## Gemini 3.1 Flash-Lite
 
 *`gemini-3.1-flash-lite`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=tr)
 
-Mô hình tiết kiệm chi phí nhất của chúng tôi, được tối ưu hoá cho các tác vụ có số lượng lớn, bản dịch và quy trình xử lý dữ liệu đơn giản.
+Yüksek hacimli ajan tabanlı görevler, çeviri ve basit veri işleme için optimize edilmiş, en uygun maliyetli modelimiz.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,25 USD (văn bản / hình ảnh / video) 0,5 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $1,5 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,025 USD (văn bản / hình ảnh / video) 0,05 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,25 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 1,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,025 ABD doları (metin/resim/video) 0,05 ABD doları (ses) Saat başına 1.000.000 jeton için 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,125 USD (văn bản / hình ảnh / video) 0,25 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $0,75 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,0125 USD (văn bản / hình ảnh / video) 0,025 USD (âm thanh) 0,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,125 ABD doları (metin / resim / video) 0,25 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,75 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,0125 ABD doları (metin / resim / video) 0,025 ABD doları (ses) Saat başına 0,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,125 USD (văn bản / hình ảnh / video) 0,25 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $0,75 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,0125 USD (văn bản / hình ảnh / video) 0,025 USD (âm thanh) 0,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,125 ABD doları (metin / resim / video) 0,25 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,75 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,0125 ABD doları (metin / resim / video) 0,025 ABD doları (ses) Saat başına 0,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,45 USD (văn bản / hình ảnh / video) 0,90 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 2,7 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,045 USD (văn bản / hình ảnh / video) 0,09 USD (âm thanh) 1,80 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,45 ABD doları (metin / resim / video) 0,90 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 2,70 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,045 ABD doları (metin / resim / video) 0,09 ABD doları (ses) saatte 1,80 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Yêu cầu mà khách hàng gửi cho Gemini có thể dẫn đến một hoặc nhiều câu hỏi trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện.
+\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
 
-## Gemini 3.1 Pro (Bản xem trước)
+## Gemini 3.1 Pro Önizlemesi
 
-*`gemini-3.1-pro-preview` và `gemini-3.1-pro-preview-customtools`*
+*`gemini-3.1-pro-preview` ve `gemini-3.1-pro-preview-customtools`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=tr)
 
-Những điểm cải tiến mới nhất về hiệu suất, trí thông minh và khả năng sử dụng cho dòng mô hình tốt nhất trên thế giới về khả năng hiểu đa phương thức, các chức năng tác nhân và khả năng lập trình theo cảm hứng.
+Çok formatlı anlama, ajan tabanlı yetenekler ve sezgisel kodlama konusunda dünyanın en iyi model ailesinde yapılan en son performans, zeka ve kullanılabilirlik iyileştirmeleri.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 2 USD, câu lệnh <= 200.000 token 4 USD, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 120.000 VND, câu lệnh <= 200.000 mã thông báo 180.000 VND, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,2 USD, câu lệnh <= 200.000 mã thông báo 0,4 USD, câu lệnh > 200.000 mã thông báo 4,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 2 ABD doları, istemler <= 200 bin parça 4 ABD doları, istemler > 200 bin parça |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 12 ABD doları, istemler <= 200 bin jeton 18 ABD doları, istemler > 200 bin |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 200.000 jetondan az istem: 0,20 ABD doları 200.000 jetondan fazla istem: 0,40 ABD doları Saat başına 1.000.000 jeton için 4,50 ABD doları (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 1 đô la, câu lệnh <= 200.000 token 2 đô la, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 6 USD, câu lệnh <= 200.000 mã thông báo 9 USD, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | *Tương tự như Standard*  0,20 USD, câu lệnh <= 200.000 mã thông báo 0,40 USD, câu lệnh > 200.000 mã thông báo 4,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 1 ABD doları, istemler <= 200.000 jeton 2 ABD doları, istemler > 200.000 jeton |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 6 ABD doları, istemler <= 200 bin jeton 9 ABD doları, istemler > 200 bin |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  200.000 jetondan az istem için 0,20 ABD doları 200.000 jetondan fazla istem için 0,40 ABD doları Saatte 4,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 1 đô la, câu lệnh <= 200.000 token 2 đô la, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 6 USD, câu lệnh <= 200.000 mã thông báo 9 USD, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | *Tương tự như Standard*  0,20 USD, câu lệnh <= 200.000 mã thông báo 0,40 USD, câu lệnh > 200.000 mã thông báo 4,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 1 ABD doları, istemler <= 200.000 jeton 2 ABD doları, istemler > 200.000 jeton |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 6 ABD doları, istemler <= 200 bin jeton 9 ABD doları, istemler > 200 bin |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  200.000 jetondan az istem için 0,20 ABD doları 200.000 jetondan fazla istem için 0,40 ABD doları Saatte 4,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 3,60 USD, câu lệnh <= 200.000 token 7,20 USD, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 21,60 USD, câu lệnh <= 200.000 mã thông báo 32,40 USD, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,36 USD, câu lệnh <= 200.000 mã thông báo 0,72 USD, câu lệnh > 200.000 8,10 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 3,60 ABD doları, istemler <= 200.000 parça 7,20 ABD doları, istemler > 200.000 parça |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 21,60 ABD doları, istemler <= 200 bin parça 32,40 ABD doları, istemler > 200 bin |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,36 ABD doları, istemler <= 200.000 jeton 0,72 ABD doları, istemler > 200.000 Saat başına 8,10 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Yêu cầu mà khách hàng gửi cho Gemini có thể dẫn đến một hoặc nhiều câu hỏi trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện.
+\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
 
-## Bản xem trước trực tiếp Gemini 3.1 Flash
+## Gemini 3.1 Flash Live Preview
 
 *`gemini-3.1-flash-live-preview`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=tr)
 
-Mô hình âm thanh sang âm thanh có độ trễ thấp của chúng tôi được tối ưu hoá cho cuộc trò chuyện theo thời gian thực với khả năng phát hiện sắc thái âm thanh, độ chính xác về số và nhận thức đa phương thức.
+Akustik nüans algılama, sayısal hassasiyet ve çok formatlı farkındalık ile gerçek zamanlı diyalog için optimize edilmiş, düşük gecikmeli, ses-ses modelimiz.
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,75 USD (văn bản) 3 USD hoặc 0,005 USD/phút (âm thanh) 1 USD hoặc 0,002 USD/phút (hình ảnh/video) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 4,5 USD (văn bản) 12 USD hoặc 0,018 USD/phút (âm thanh) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Được hỗ trợ | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,75 ABD doları (metin) 3,00 ABD doları veya 0,005 ABD doları/dakika (ses) 1,00 ABD doları veya 0,002 ABD doları/dakika (resim/video) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 4,50 ABD doları (metin) 12,00 ABD doları veya 0,018 ABD doları/dakika (ses) |
+| Google Arama ile temellendirme\* | Destekleniyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Yêu cầu mà khách hàng gửi cho Gemini có thể dẫn đến một hoặc nhiều câu hỏi trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện.
+\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
 
-## Hình ảnh Gemini 3.1 Flash 🍌
+## Gemini 3.1 Flash Image 🍌
 
 *`gemini-3.1-flash-image`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=tr)
 
-Được thiết kế để có tốc độ và hiệu quả cao, mô hình tạo hình ảnh Gemini 3.1 Flash mang lại câu trả lời nhanh chóng, mang tính tương tác và có thông lượng cao.
+Hız ve verimlilik için tasarlanan Gemini 3.1 Flash görüntü üretme modeli, hızlı ve etkileşimli yanıtlar ile yüksek gönderim hacmi için etkilidir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,5 USD (văn bản/hình ảnh) |
-| Giá đầu ra | Không có | 3 đô la (văn bản và suy nghĩ)  60 đô la (hình ảnh)  Tương đương với 0,045 đô la cho mỗi 500 hình ảnh\*  0,067 đô la cho mỗi 1.000 hình ảnh\*, 0,101 đô la cho mỗi 2.000 hình ảnh\* và 0,151 đô la cho mỗi 4.000 hình ảnh\*. |
-| Bám sát nguồn bằng tính năng Tìm kiếm hình ảnh và Tìm kiếm trên web của Google\*\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 đô la / 1.000 câu lệnh tìm kiếm để xác thực dựa trên văn bản và hình ảnh. |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin/resim) |
+| Çıkış fiyatı | Kullanılamıyor | 3 ABD doları (metin ve düşünme)  60 ABD doları (resimler)  0,5 bin resim başına 0,045 ABD dolarına eşdeğer\*  1 bin resim başına 0,067 ABD doları\*, 2 bin resim başına 0,101 ABD doları\*, ve 4 bin resim başına 0,151 ABD doları\*. |
+| Google Web ve Görsel Arama ile Temellendirme\*\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından metin ve resim tabanlı temellendirme için 1.000 arama sorgusu başına 14 ABD doları. |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,25 USD (văn bản, hình ảnh) |
-| Giá đầu ra | Không có | 1,5 USD (văn bản và suy nghĩ)  30 USD (hình ảnh)  Tương đương với 0,022 USD cho mỗi 500 hình ảnh\*  0,034 USD cho mỗi 1.000 hình ảnh\*,  0,050 USD cho mỗi 2.000 hình ảnh\*,  và 0,076 USD cho mỗi 4.000 hình ảnh\*. |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin, resim) |
+| Çıkış fiyatı | Kullanılamıyor | 1,50 ABD doları (metin ve düşünme)  30,00 ABD doları (resimler)  0,5 bin resim başına 0,022 ABD dolarına eşdeğer\*  1 bin resim başına 0,034 ABD doları\*,  2 bin resim başına 0,050 ABD doları\*,  ve 4 bin resim başına 0,076 ABD doları\*. |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Đầu ra là hình ảnh có giá 60 USD cho mỗi 1.000.000 mã thông báo.
-Hình ảnh đầu ra ở độ phân giải 0,5K (512px) tiêu thụ 747 mã thông báo và tương đương với 0,045 USD cho mỗi hình ảnh. Hình ảnh đầu ra ở độ phân giải 1K (1024x1024px) tiêu thụ 1.120 mã thông báo và tương đương với 0,067 USD cho mỗi hình ảnh. Hình ảnh đầu ra ở độ phân giải 2K (2048x2048px) tiêu thụ 1680 mã thông báo và tương đương với 0,101 USD cho mỗi hình ảnh. Hình ảnh đầu ra ở độ phân giải 4K (4096x4096px) tiêu thụ 2520 mã thông báo và tương đương với 0,151 USD mỗi hình ảnh.
+\* Resim çıktısı, 1.000.000 jeton başına 60 ABD doları olarak fiyatlandırılır.
+0,5K (512 piksel) çözünürlükteki çıktı resimleri 747 jeton kullanır ve resim başına 0,045 ABD dolarına eşdeğerdir. 1.000 (1024x1024 piksel) çözünürlükteki çıkış resimleri 1.120 jeton kullanır ve resim başına 0,067 ABD dolarına eşittir. 2K (2048x2048 piksel) çözünürlükte çıkış resimleri 1.680 jeton kullanır ve resim başına 0,101 ABD dolarına eşittir. 4K (4096x4096 piksel) çözünürlükteki çıkış resimleri 2.520 jeton kullanır ve resim başına 0,151 ABD dolarına eşittir.
 
-\*\* Yêu cầu do khách hàng gửi đến Gemini có thể dẫn đến một hoặc nhiều cụm từ tìm kiếm trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện. Ngữ cảnh đã truy xuất (văn bản hoặc hình ảnh) do tính năng Grounding with Google Search cung cấp không bị tính phí dưới dạng mã thông báo đầu vào.
+\*\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır. Google Arama ile Temellendirme tarafından sağlanan alınan bağlam (metin veya resimler) giriş jetonları olarak ücretlendirilmez.
 
-## Bản xem trước tính năng TTS của Gemini 3.1 Flash
+## Gemini 3.1 Flash TTS Önizlemesi
 
 *`gemini-3.1-flash-tts-preview`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=tr)
 
-Mô hình âm thanh 3.1 Flash Text-to-Speech được tối ưu hoá để tạo lời nói có hiệu suất cao, độ trễ thấp và có thể kiểm soát được.
+Fiyat-performans, düşük gecikme süresi ve kontrol edilebilir konuşma üretimi için optimize edilmiş 3.1 Flash Text-to-Speech ses modelimiz.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 1 USD (văn bản) |
-| Giá đầu ra | Miễn phí | 200.000 VND (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 1,00 TL (metin) |
+| Çıkış fiyatı | Ücretsiz | 20,00 TL (ses) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,5 USD (văn bản) |
-| Giá đầu ra | Không có | 10 USD (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin) |
+| Çıkış fiyatı | Kullanılamıyor | 10,00 ABD doları (sesli) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Mã thông báo âm thanh tương ứng với 25 mã thông báo cho mỗi giây âm thanh.
+\* Ses jetonları, saniyede 25 jetona karşılık gelir.
 
-## Bản xem trước Gemini 3 Flash
+## Gemini 3 Flash Önizlemesi
 
 *`gemini-3-flash-preview`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-3-flash-preview&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-3-flash-preview&hl=tr)
 
-Mô hình thông minh nhất của chúng tôi được xây dựng để có tốc độ xử lý nhanh, kết hợp trí thông minh đột phá với khả năng tìm kiếm và tiếp cận thông tin vượt trội.
+Hız için tasarlanmış en akıllı modelimiz. Yeni nesil zekayı üstün arama ve temellendirme özellikleriyle birleştirir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,5 USD (văn bản / hình ảnh / video) 1 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 3 đô la |
-| Giá trong bộ nhớ đệm theo bối cảnh | Miễn phí | 0,05 USD (văn bản / hình ảnh / video) 0,10 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,50 ABD doları (metin / resim / video) 1,00 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 3,00 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Ücretsiz | 0,05 ABD doları (metin/resim/video) 0,10 ABD doları (ses) Saat başına 1.000.000 jeton için 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,25 USD (văn bản / hình ảnh / video) 0,5 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | $1,5 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | *Tương tự như gói Chuẩn*  0,05 USD (văn bản / hình ảnh / video)  0,10 USD (âm thanh)  1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  0,05 ABD doları (metin/resim/video)  0,10 ABD doları (ses)  saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,25 USD (văn bản / hình ảnh / video) 0,5 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | $1,5 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | *Tương tự như gói Chuẩn*  0,05 USD (văn bản / hình ảnh / video)  0,10 USD (âm thanh)  1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 yêu cầu mỗi tháng (miễn phí, dùng chung cho Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  0,05 ABD doları (metin/resim/video)  0,10 ABD doları (ses)  saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,90 USD (văn bản / hình ảnh / video) 1,80 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 5,40 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Miễn phí | 0,09 USD (văn bản / hình ảnh / video) 0,18 USD (âm thanh) 1,80 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Kết nối với Google Maps | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,90 ABD doları (metin / resim / video) 1,80 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 5,40 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Ücretsiz | 0,09 ABD doları (metin/resim/video) 0,18 ABD doları (ses) saatte 1.800.000 jeton başına 1,80 ABD doları (depolama fiyatı) |
+| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Yêu cầu mà khách hàng gửi cho Gemini có thể dẫn đến một hoặc nhiều câu hỏi trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện.
+\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
 
-## Hình ảnh Gemini 3 Pro 🍌
+## Gemini 3 Pro Image 🍌
 
 *`gemini-3-pro-image`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=tr)
 
-Mô hình tạo hình ảnh gốc của chúng tôi, được tối ưu hoá về tốc độ, tính linh hoạt và khả năng hiểu ngữ cảnh. **Đầu vào và đầu ra là văn bản** có giá tương đương với [Gemini 3.1 Pro](#gemini-3.1-pro-preview).
+Hız, esneklik ve bağlamsal anlayış için optimize edilmiş yerel görüntü üretme modelimiz. **Metin girişi ve çıkışı**, [Gemini 3.1 Pro](#gemini-3.1-pro-preview) ile aynı şekilde fiyatlandırılır.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 2 USD (văn bản/hình ảnh),  tương đương với 0,0011 USD cho mỗi hình ảnh\* |
-| Giá đầu ra | Không có | 12 đô la (văn bản và suy nghĩ)  120 đô la (hình ảnh)  Tương đương với 0,134 đô la cho mỗi 1K/2K hình ảnh\*\*  và 0,24 đô la cho mỗi hình ảnh 4K\*\* |
-| Bám sát nguồn bằng Google Tìm kiếm\*\*\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 2,00 ABD doları (metin/resim),  resim başına 0,0011 ABD dolarına eşdeğerdir\* |
+| Çıkış fiyatı | Kullanılamıyor | 12,00 ABD doları (metin ve düşünce)  120,00 ABD doları (resimler)  1.000/2.000 resim başına 0,134 ABD dolarına\*\*  ve 4.000 resim başına 0,24 ABD dolarına\*\* eşdeğerdir. |
+| Google Arama ile Temellendirme\*\*\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 10.000 VND (văn bản), 6 VND (hình ảnh)\* |
-| Giá đầu ra | Không có | 6 đô la (văn bản và suy nghĩ)  0,067 đô la cho mỗi 1.000/2.000 hình ảnh\*\*  0,12 đô la cho mỗi hình ảnh 4K\*\* |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 1,00 ABD doları (metin), 0,0006 ABD doları (resim)\* |
+| Çıkış fiyatı | Kullanılamıyor | 6,00 ABD doları (metin ve düşünme)  1.000/2.000 resim başına 0,067 ABD doları\*\*  4.000 resim başına 0,12 ABD doları\*\* |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 10.000 VND (văn bản), 6 VND (hình ảnh)\* |
-| Giá đầu ra | Không có | 6 đô la (văn bản và suy nghĩ)  0,067 đô la cho mỗi 1.000/2.000 hình ảnh\*\*  0,12 đô la cho mỗi hình ảnh 4K\*\* |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 1,00 ABD doları (metin), 0,0006 ABD doları (resim)\* |
+| Çıkış fiyatı | Kullanılamıyor | 6,00 ABD doları (metin ve düşünme)  1.000/2.000 resim başına 0,067 ABD doları\*\*  4.000 resim başına 0,12 ABD doları\*\* |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 3,6 USD (văn bản/hình ảnh) |
-| Giá đầu ra | Không có | 21,6 USD (văn bản và suy nghĩ)  216 USD (hình ảnh) |
-| Bám sát nguồn bằng Google Tìm kiếm\*\*\* | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, dùng chung trên Gemini 3), sau đó là 14 USD / 1.000 cụm từ tìm kiếm |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 3,60 TL (metin/resim) |
+| Çıkış fiyatı | Kullanılamıyor | 21,60 ABD doları (metin ve düşünce)  216,00 ABD doları (resimler) |
+| Google Arama ile Temellendirme\*\*\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-\* Đầu vào hình ảnh được đặt ở mức 560 mã thông báo hoặc 0,0011 USD cho mỗi hình ảnh.
+\* Görüntü girişi 560 jeton veya görüntü başına 0,0011 ABD doları olarak ayarlanır.
 
-\*\* Đầu ra hình ảnh có giá là 120 USD cho mỗi 1.000.000 mã thông báo. Hình ảnh đầu ra từ 1024x1024px (1K) đến 2048x2048px (2K) tiêu thụ 1120 mã thông báo và tương đương với 0,134 USD cho mỗi hình ảnh. Hình ảnh đầu ra có kích thước lên đến 4096x4096px (4K) tiêu thụ 2000 mã thông báo và tương đương với 0,24 USD cho mỗi hình ảnh.
+\*\* Görüntü çıkışı, 1.000.000 jeton başına 120 ABD doları olarak fiyatlandırılır. 1024x1024 piksel (1K) ile 2048x2048 piksel (2K) arasındaki çıkış resimleri 1.120 jeton tüketir ve resim başına 0,134 ABD dolarına eşittir. 4096x4096 piksele (4K) kadar olan çıkış resimleri 2.000 jeton tüketir ve resim başına 0,24 ABD dolarına eş değerdir.
 
-\*\*\* Yêu cầu mà khách hàng gửi cho Gemini có thể dẫn đến một hoặc nhiều cụm từ tìm kiếm trên Google Tìm kiếm. Bạn sẽ bị tính phí cho từng cụm từ tìm kiếm riêng lẻ mà bạn thực hiện.
+\*\*\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
 
 ## Gemini 2.5 Pro
 
 *`gemini-2.5-pro`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-pro&hl=tr)
 
-Mô hình đa năng tiên tiến nhất của chúng tôi, vượt trội trong việc lập trình và xử lý các tác vụ suy luận phức tạp.
+Kodlama ve karmaşık akıl yürütme görevlerinde üstün performans gösteren, son teknoloji ürünü çok amaçlı modelimiz.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 1,25 USD, câu lệnh <= 200.000 mã thông báo 2,5 USD, câu lệnh > 200.000 mã thông báo |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 10 USD, câu lệnh <= 200.000 mã thông báo 15 USD, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,125 USD, câu lệnh <= 200.000 mã thông báo 0,25 USD, câu lệnh > 200.000 4,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí), sau đó là 35 USD / 1.000 câu lệnh cơ bản |
-| Kết nối với Google Maps | Không có | 10.000 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 1,25 ABD doları, istemler <= 200 bin jeton 2,50 ABD doları, istemler > 200 bin jeton |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 10,00 ABD doları, istemler <= 200.000 jeton 15,00 ABD doları, istemler > 200.000 |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.125, istemler <= 200.000 jeton $0.25, istemler > 200.000 $4.50 / 1.000.000 jeton/saat (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | 10.000 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 25 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,625 USD, câu lệnh <= 200.000 token 1,25 USD, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 50.000 VND, câu lệnh <= 200.000 mã thông báo 75.000 VND, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,125 USD, câu lệnh <= 200.000 mã thông báo 0,25 USD, câu lệnh > 200.000 4,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí), sau đó là 35 USD / 1.000 câu lệnh cơ bản |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,625 ABD doları, istemler <= 200 bin parça 1,25 ABD doları, istemler > 200 bin parça |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 5 ABD doları, istemler <= 200.000 jeton 7,50 ABD doları, istemler > 200.000 |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.125, istemler <= 200.000 jeton $0.25, istemler > 200.000 $4.50 / 1.000.000 jeton/saat (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,625 USD, câu lệnh <= 200.000 token 1,25 USD, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 50.000 VND, câu lệnh <= 200.000 mã thông báo 75.000 VND, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,125 USD, câu lệnh <= 200.000 mã thông báo 0,25 USD, câu lệnh > 200.000 4,5 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí), sau đó là 35 USD / 1.000 câu lệnh cơ bản |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,625 ABD doları, istemler <= 200 bin parça 1,25 ABD doları, istemler > 200 bin parça |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 5 ABD doları, istemler <= 200.000 jeton 7,50 ABD doları, istemler > 200.000 |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.125, istemler <= 200.000 jeton $0.25, istemler > 200.000 $4.50 / 1.000.000 jeton/saat (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 2,25 USD, câu lệnh <= 200.000 token 4,5 USD, câu lệnh > 200.000 token |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 18 đô la, câu lệnh <= 200.000 mã thông báo 27 đô la, câu lệnh > 200.000 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,225 USD, câu lệnh <= 200.000 mã thông báo 0,45 USD, câu lệnh > 200.000 8,10 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí), sau đó là 35 USD / 1.000 câu lệnh cơ bản |
-| Kết nối với Google Maps | Không có | 10.000 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 2,25 ABD doları, istemler <= 200 bin parça 4,50 ABD doları, istemler > 200 bin parça |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 18 ABD doları, istemler <= 200.000 jeton 27 ABD doları, istemler > 200.000 |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0,225, istemler <= 200.000 jeton $0,45, istemler > 200.000 Saat başına 8,10 ABD doları / 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | 10.000 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 25 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemini 2.5 Flash
 
 *`gemini-2.5-flash`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash&hl=tr)
 
-Mô hình suy luận kết hợp đầu tiên của chúng tôi hỗ trợ cửa sổ ngữ cảnh 1 triệu token và có ngân sách tư duy.
+1 milyon parçalık bağlam penceresini destekleyen ve düşünme bütçeleri olan ilk karma akıl yürütme modelimiz.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,30 USD (văn bản / hình ảnh / video) 1 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $2,50 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,03 USD (văn bản / hình ảnh / video) 0,1 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Miễn phí, tối đa 500 RPD (giới hạn này được dùng chung với RPD của Flash-Lite) | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash-Lite RPD), sau đó là 35 USD / 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | 500 RPD | 1.500 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,30 ABD doları (metin / resim / video) 1,00 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 2,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,03 ABD doları (metin/resim/video) 0,1 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash-Lite RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,15 USD (văn bản / hình ảnh / video) 0,5 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 1.25 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,03 USD (văn bản / hình ảnh / video) 0,1 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash-Lite RPD), sau đó là 35 USD / 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,25 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,03 ABD doları (metin/resim/video) 0,1 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,15 USD (văn bản / hình ảnh / video) 0,5 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | 1.25 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,03 USD (văn bản / hình ảnh / video) 0,1 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash-Lite RPD), sau đó là 35 USD / 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,25 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,03 ABD doları (metin/resim/video) 0,1 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,54 USD (văn bản / hình ảnh / video) 1,8 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 4,5 đô la |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,054 USD (văn bản / hình ảnh / video) 0,18 USD (âm thanh) 1,80 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Miễn phí, tối đa 500 RPD (giới hạn này được dùng chung với RPD của Flash-Lite) | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash-Lite RPD), sau đó là 35 USD / 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | 500 RPD | 1.500 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,54 ABD doları (metin / resim / video) 1,80 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 4,50 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,054 ABD doları (metin / resim / video) 0,18 ABD doları (ses) 1,80 ABD doları / saatte 1.000.000 jeton (depolama fiyatı) |
+| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash-Lite RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemini 2.5 Flash-Lite
 
 *`gemini-2.5-flash-lite`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=tr)
 
-Đây là mô hình nhỏ nhất và tiết kiệm chi phí nhất của chúng tôi, được xây dựng để sử dụng ở quy mô lớn.
+Büyük ölçekli kullanım için tasarlanan en küçük ve en uygun maliyetli modelimiz.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập (văn bản, hình ảnh, video) | Miễn phí | 0,1 USD (văn bản / hình ảnh / video) 0,3 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $0,40 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,01 USD (văn bản / hình ảnh / video) 0,03 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Miễn phí, tối đa 500 RPD (giới hạn này được dùng chung với RPD của Flash) | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash RPD), sau đó là $35 cho 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | 500 RPD | 1.500 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı (metin, resim, video) | Ücretsiz | 0,10 ABD doları (metin / resim / video) 0,30 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,40 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập (văn bản, hình ảnh, video) | Không có | 0,05 USD (văn bản / hình ảnh / video) 0,15 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | $0,20 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,01 USD (văn bản / hình ảnh / video) 0,03 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash RPD), sau đó là $35 cho 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı (metin, resim, video) | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,15 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 0,20 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập (văn bản, hình ảnh, video) | Không có | 0,05 USD (văn bản / hình ảnh / video) 0,15 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | $0,20 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,01 USD (văn bản / hình ảnh / video) 0,03 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash RPD), sau đó là $35 cho 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı (metin, resim, video) | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,15 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 0,20 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập (văn bản, hình ảnh, video) | Miễn phí | 0,18 USD (văn bản / hình ảnh / video) 0,54 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $0,72 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,018 USD (văn bản / hình ảnh / video) 0,054 USD (âm thanh) 1,80 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Miễn phí, tối đa 500 RPD (giới hạn này được dùng chung với RPD của Flash) | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash RPD), sau đó là $35 cho 1.000 câu lệnh bị hạn chế |
-| Kết nối với Google Maps | 500 RPD | 1.500 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı (metin, resim, video) | Ücretsiz | 0,18 ABD doları (metin / resim / video) 0,54 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,72 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,018 ABD doları (metin/resim/video) 0,054 ABD doları (ses) saatte 1.000.000 jeton başına 1,80 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-## Bản xem trước Gemini 2.5 Flash-Lite
+## Gemini 2.5 Flash-Lite Önizlemesi
 
 *`gemini-2.5-flash-lite-preview-09-2025`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=tr)
 
-Mô hình mới nhất dựa trên Gemini 2.5 Flash Lite, được tối ưu hoá để tiết kiệm chi phí, có thông lượng cao và chất lượng cao.
+Maliyet verimliliği, yüksek gönderim hacmi ve yüksek kalite için optimize edilmiş Gemini 2.5 Flash Lite'a dayalı en yeni model.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập (văn bản, hình ảnh, video) | Miễn phí | 0,1 USD (văn bản / hình ảnh / video) 0,3 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | $0,40 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,01 USD (văn bản / hình ảnh / video) 0,03 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Miễn phí, tối đa 500 RPD (giới hạn này được dùng chung với RPD của Flash) | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash RPD), sau đó là $35 cho 1.000 câu lệnh bị hạn chế |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı (metin, resim, video) | Ücretsiz | 0,10 ABD doları (metin / resim / video) 0,30 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,40 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập (văn bản, hình ảnh, video) | Không có | 0,05 USD (văn bản / hình ảnh / video) 0,15 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | $0,20 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,01 USD (văn bản / hình ảnh / video) 0,03 USD (âm thanh) 1 USD / 1.000.000 mã thông báo mỗi giờ (giá lưu trữ) |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí, hạn mức dùng chung với Flash RPD), sau đó là $35 cho 1.000 câu lệnh bị hạn chế |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı (metin, resim, video) | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,15 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 0,20 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemini 2.5 Flash Native Audio (Live API)
 
 *`gemini-2.5-flash-native-audio-preview-12-2025`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/app/live?hl=vi#gemini-2.5-flash-native-audio-preview-12-2025)
+[Google AI Studio'da deneyin](https://aistudio.google.com/app/live?hl=tr#gemini-2.5-flash-native-audio-preview-12-2025)
 
-Các mô hình âm thanh gốc của [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) được tối ưu hoá để mang đến đầu ra âm thanh chất lượng cao hơn với tốc độ, giọng nói tự nhiên, mức độ chi tiết và tâm trạng tốt hơn.
+Daha iyi hız, ses doğallığı, ayrıntı ve ruh hali ile daha yüksek kaliteli ses çıkışları için optimize edilmiş [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr) yerel ses modellerimiz.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,5 USD (văn bản) 3 USD (âm thanh / video) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 2 USD (văn bản) 12 USD (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,50 ABD doları (metin) 3,00 ABD doları (ses / video) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 2,00 ABD doları (metin) 12,00 ABD doları (ses) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-## Hình ảnh Gemini 2.5 Flash 🍌
+## Gemini 2.5 Flash Image 🍌
 
 *`gemini-2.5-flash-image`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=tr)
 
-Mô hình tạo hình ảnh gốc của chúng tôi, được tối ưu hoá về tốc độ, tính linh hoạt và khả năng hiểu ngữ cảnh. Đầu vào và đầu ra dạng văn bản có giá tương đương với [2,5 Flash](#gemini-2.5-flash).
+Hız, esneklik ve bağlamsal anlayış için optimize edilmiş yerel görüntü üretme modelimiz. Metin girişi ve çıkışı, [2,5 Flash](#gemini-2.5-flash) ile aynı şekilde fiyatlandırılır.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,30 USD (văn bản / hình ảnh) |
-| Giá đầu ra | Không có | 0,039 USD cho mỗi hình ảnh\* |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,30 ABD doları (metin / resim) |
+| Çıkış fiyatı | Kullanılamıyor | Resim başına 0,039 ABD doları\* |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,15 USD (văn bản / hình ảnh) |
-| Giá đầu ra | Không có | 0,0195 USD cho mỗi hình ảnh\* |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim) |
+| Çıkış fiyatı | Kullanılamıyor | Görüntü başına 0,0195 ABD doları\* |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Gập
+### Yaratıcılığınızı
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,15 USD (văn bản / hình ảnh) |
-| Giá đầu ra | Không có | 0,0195 USD cho mỗi hình ảnh\* |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim) |
+| Çıkış fiyatı | Kullanılamıyor | Görüntü başına 0,0195 ABD doları\* |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Mức độ ưu tiên
+### Öncelik
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,54 USD (văn bản / hình ảnh) |
-| Giá đầu ra | Không có | 0,0702 USD cho mỗi hình ảnh\* |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,54 ABD doları (metin / resim) |
+| Çıkış fiyatı | Kullanılamıyor | Resim başına 0,0702 ABD doları\* |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-[\*] Đầu ra là hình ảnh có giá 30 USD cho mỗi 1.000.000 mã thông báo. Hình ảnh đầu ra có kích thước tối đa 1024x1024px tiêu thụ 1290 mã thông báo và tương đương với 0,039 USD cho mỗi hình ảnh.
+[\*] Görüntü çıktısı, 1.000.000 jeton başına 30 ABD doları olarak fiyatlandırılır. 1024x1024 piksele kadar olan çıkış resimleri 1.290 jeton tüketir ve resim başına 0,039 ABD dolarına eşdeğerdir.
 
-## Bản xem trước Gemini 2.5 Flash TTS
+## Gemini 2.5 Flash Preview TTS
 
 *`gemini-2.5-flash-preview-tts`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/generate-speech?hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/generate-speech?hl=tr)
 
-Mô hình âm thanh chuyển văn bản thành lời nói 2.5 Flash được tối ưu hoá để tạo lời nói có thể kiểm soát, độ trễ thấp và hiệu suất cao so với giá.
+Fiyat-performans, düşük gecikme süresi ve kontrol edilebilir konuşma üretimi için optimize edilmiş 2.5 Flash metin okuma ses modelimiz.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,5 USD (văn bản) |
-| Giá đầu ra | Miễn phí | 10 USD (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,50 ABD doları (metin) |
+| Çıkış fiyatı | Ücretsiz | 10,00 ABD doları (sesli) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,25 USD (văn bản) |
-| Giá đầu ra | Không có | 5 USD (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin) |
+| Çıkış fiyatı | Kullanılamıyor | 5,00 ABD doları (ses) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-## Gemini 2.5 Pro Preview TTS
+## Gemini 2.5 Pro Önizleme TTS
 
 *`gemini-2.5-pro-preview-tts`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/generate-speech?hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/generate-speech?hl=tr)
 
-Mô hình âm thanh chuyển văn bản sang lời nói 2.5 Pro được tối ưu hoá để tạo lời nói mạnh mẽ, có độ trễ thấp, mang lại kết quả tự nhiên hơn và dễ dàng điều hướng câu lệnh hơn.
+2.5 Pro metin okuma ses modelimiz, daha doğal çıktılar ve daha kolay yönlendirilen istemler için güçlü ve düşük gecikmeli konuşma üretimi için optimize edilmiştir.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 1 USD (văn bản) |
-| Giá đầu ra | Không có | 200.000 VND (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 1,00 TL (metin) |
+| Çıkış fiyatı | Kullanılamıyor | 20,00 TL (ses) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,5 USD (văn bản) |
-| Giá đầu ra | Không có | 10 USD (âm thanh) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin) |
+| Çıkış fiyatı | Kullanılamıyor | 10,00 ABD doları (sesli) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemini 2.0 Flash
 
 *`gemini-2.0-flash`*
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,1 USD (văn bản / hình ảnh / video) 0,7 USD (âm thanh) |
-| Giá đầu ra | Miễn phí | $0,40 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Miễn phí | 0,025 USD / 1.000.000 mã thông báo (văn bản/hình ảnh/video) 0,175 USD / 1.000.000 mã thông báo (âm thanh) |
-| Lưu vào bộ nhớ đệm theo bối cảnh (bộ nhớ) | Không có | 1 USD / 1.000.000 mã thông báo mỗi giờ |
-| Giá của tính năng tạo hình ảnh | Không có ([đã tắt](https://ai.google.dev/gemini-api/docs/deprecations?hl=vi#gemini-2.0-models)) | Không có ([đã tắt](https://ai.google.dev/gemini-api/docs/deprecations?hl=vi#gemini-2.0-models)) |
-| Giá điều chỉnh | Không có | Không có |
-| Bám sát nguồn bằng Google Tìm kiếm | Miễn phí, tối đa 500 RPD | 1.500 RPD (miễn phí), sau đó là 35 USD / 1.000 câu lệnh cơ bản |
-| Kết nối với Google Maps | 500 RPD | 1.500 RPD (miễn phí), sau đó là 25 USD / 1.000 câu lệnh cơ bản |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,10 ABD doları (metin / resim / video) 0,70 ABD doları (ses) |
+| Çıkış fiyatı | Ücretsiz | 0,40 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Ücretsiz | 0,025 ABD doları / 1.000.000 jeton (metin/resim/video) 0,175 ABD doları / 1.000.000 jeton (ses) |
+| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Saat başına 1.000.000 jeton için 1,00 ABD doları |
+| Görüntü üretme fiyatlandırması | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) |
+| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | $0,05 (văn bản / hình ảnh / video) $0,35 (âm thanh) |
-| Giá đầu ra | Không có | $0,20 |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | 0,025 USD / 1.000.000 mã thông báo (văn bản/hình ảnh/video) 0,175 USD / 1.000.000 mã thông báo (âm thanh) |
-| Lưu vào bộ nhớ đệm theo bối cảnh (bộ nhớ) | Không có | 1 USD / 1.000.000 mã thông báo mỗi giờ |
-| Giá của tính năng tạo hình ảnh | Không có ([đã tắt](https://ai.google.dev/gemini-api/docs/deprecations?hl=vi#gemini-2.0-models)) | Không có ([đã tắt](https://ai.google.dev/gemini-api/docs/deprecations?hl=vi#gemini-2.0-models)) |
-| Giá điều chỉnh | Không có | Không có |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 1.500 RPD (miễn phí), sau đó là 35 USD / 1.000 câu lệnh cơ bản |
-| Kết nối với Google Maps | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,35 ABD doları (ses) |
+| Çıkış fiyatı | Kullanılamıyor | 0,20 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,025 ABD doları / 1.000.000 jeton (metin/resim/video) 0,175 ABD doları / 1.000.000 jeton (ses) |
+| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Saat başına 1.000.000 jeton için 1,00 ABD doları |
+| Görüntü üretme fiyatlandırması | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) |
+| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
+| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-[\*] Đầu ra là hình ảnh có giá 30 USD cho mỗi 1.000.000 mã thông báo. Hình ảnh đầu ra có kích thước tối đa 1024x1024px tiêu thụ 1290 mã thông báo và tương đương với 0,039 USD cho mỗi hình ảnh.
+[\*] Görüntü çıktısı, 1.000.000 jeton başına 30 ABD doları olarak fiyatlandırılır. 1024x1024 piksele kadar olan çıkış resimleri 1.290 jeton tüketir ve resim başına 0,039 ABD dolarına eşdeğerdir.
 
 ## Gemini 2.0 Flash-Lite
 
 *`gemini-2.0-flash-lite`*
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,075 USD |
-| Giá đầu ra | Miễn phí | 0,3 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | Không có |
-| Lưu vào bộ nhớ đệm theo bối cảnh (bộ nhớ) | Không có | Không có |
-| Giá điều chỉnh | Không có | Không có |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,075 ABD doları |
+| Çıkış fiyatı | Ücretsiz | 0,30 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Kullanılamıyor |
+| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,0375 USD |
-| Giá đầu ra | Không có | 0,15 USD |
-| Giá trong bộ nhớ đệm theo bối cảnh | Không có | Không có |
-| Lưu vào bộ nhớ đệm theo bối cảnh (bộ nhớ) | Không có | Không có |
-| Giá điều chỉnh | Không có | Không có |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,0375 ABD doları |
+| Çıkış fiyatı | Kullanılamıyor | 0,15 ABD doları |
+| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Kullanılamıyor |
+| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Imagen 4
 
 *`imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/generate-image?hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com/generate-image?hl=tr)
 
-Mô hình tạo hình ảnh mới nhất của chúng tôi, có khả năng hiển thị văn bản tốt hơn đáng kể và chất lượng hình ảnh tổng thể tốt hơn.
+En yeni görüntü üretme modelimiz. Metin oluşturma özelliği önemli ölçüde iyileştirildi ve genel görüntü kalitesi daha iyi hale getirildi.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-|  | Bậc miễn phí | Bậc có tính phí, tính theo USD cho mỗi hình ảnh |
+|  | Ücretsiz Katman | Ücretli katman, görüntü başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá hình ảnh do Imagen 4 Fast tạo | Không có | 0,02 USD |
-| Giá hình ảnh tiêu chuẩn của Imagen 4 | Không có | 0,04 USD |
-| Giá hình ảnh của Imagen 4 Ultra | Không có | 0,06 USD |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Imagen 4 Fast görüntü fiyatı | Kullanılamıyor | 0,02 ABD doları |
+| Imagen 4 Standart resim fiyatı | Kullanılamıyor | 0,04 ABD doları |
+| Imagen 4 Ultra görüntü fiyatı | Kullanılamıyor | 0,06 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Veo 3.1
 
 *`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview`*
 
-[Dùng thử Veo 3.1](https://deepmind.google/models/veo/?hl=vi)
+[Veo 3.1'i deneyin](https://deepmind.google/models/veo/?hl=tr)
 
-Mô hình tạo video mới nhất của chúng tôi, được cung cấp cho các nhà phát triển trong cấp trả phí của Gemini API.
+Gemini API'nin ücretli katmanındaki geliştiricilerin kullanımına sunulan en yeni video üretme modelimiz.
 
-Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn tốc độ hạn chế hơn.
+Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
 
-|  | Bậc miễn phí | Cấp có tính phí, tính theo giây bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, saniye başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá video Veo 3.1 Standard có âm thanh (mặc định) | Không có | 0,40 USD (720p và 1080p) 0,60 USD (4K) |
-| Giá video Veo 3.1 Fast có âm thanh (mặc định) | Không có | 0,1 USD (720p) 0,12 USD (1080p) 0,3 USD (4K) |
-| Giá video có âm thanh của Veo 3.1 Lite (mặc định) | Không có | 0,05 USD (720p) 0,08 USD (1080p) (không hỗ trợ đầu ra 4K) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Sesli Veo 3.1 Standard video fiyatı (varsayılan) | Kullanılamıyor | 0,40 ABD doları (720p ve 1080p) 0,60 ABD doları (4K) |
+| Sesli Veo 3.1 Fast video fiyatı (varsayılan) | Kullanılamıyor | 0,10 ABD doları (720p) 0,12 ABD doları (1080p) 0,30 ABD doları (4K) |
+| Sesli Veo 3.1 Lite videosu fiyatı (varsayılan) | Kullanılamıyor | 0,05 ABD doları (720p) 0,08 ABD doları (1080p) (4K çıkış desteklenmez) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Veo 3
 
 *`veo-3.0-generate-001`, `veo-3.0-fast-generate-001`*
 
-[Dùng thử Veo 3](https://deepmind.google/models/veo/?hl=vi)
+[Veo 3'ü deneyin](https://deepmind.google/models/veo/?hl=tr)
 
-Mô hình tạo video ổn định của chúng tôi, được cung cấp cho các nhà phát triển trong cấp trả phí của Gemini API.
+Gemini API'nin ücretli katmanındaki geliştiricilerin kullanımına sunulan kararlı video üretme modelimiz.
 
-|  | Bậc miễn phí | Cấp có tính phí, tính theo giây bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, saniye başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá video có âm thanh của Veo 3 Standard (mặc định) | Không có | $0,40 |
-| Giá video có âm thanh của Veo 3 Fast (mặc định) | Không có | 0,1 USD (720p) 0,12 USD (1080p) 0,3 USD (4K) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Veo 3 Standart sesli video fiyatı (varsayılan) | Kullanılamıyor | 0,40 ABD doları |
+| Sesli Veo 3 Fast video fiyatı (varsayılan) | Kullanılamıyor | 0,10 ABD doları (720p) 0,12 ABD doları (1080p) 0,30 ABD doları (4K) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Veo 2
 
 *`veo-2.0-generate-001`*
 
-[Dùng thử API](https://ai.google.dev/gemini-api/docs/video?hl=vi)
+[API'yi deneyin](https://ai.google.dev/gemini-api/docs/video?hl=tr)
 
-Mô hình tạo video tiên tiến của chúng tôi, dành cho các nhà phát triển sử dụng cấp trả phí của Gemini API.
+Geliştiriciler, Gemini API'nin ücretli katmanında son teknoloji ürünü video üretim modelimizi kullanabilir.
 
-|  | Bậc miễn phí | Cấp có tính phí, tính theo giây bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, saniye başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá video | Không có | $0,35 |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Video fiyatı | Kullanılamıyor | 0,35 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Lyria 3
 
-*`lyria-3-clip-preview` và `lyria-3-pro-preview`*
+*`lyria-3-clip-preview` ve `lyria-3-pro-preview`*
 
-Bộ mô hình tạo nhạc của Google. Các mô hình xem trước có thể thay đổi trước khi trở nên ổn định và có giới hạn về tốc độ hạn chế hơn.
+Google'ın müzik üretme modelleri ailesi. Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı sıklık sınırlarına sahip olabilir.
 
-|  | Bậc miễn phí | Cấp có tính phí, mỗi yêu cầu tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, istek başına (ABD doları) |
 | --- | --- | --- |
-| Bản xem trước đoạn video do Lyria 3 tạo (30 giây) | Không có | 0,04 USD cho mỗi bài hát |
-| Bản xem trước Lyria 3 Pro (Bài hát hoàn chỉnh) | Không có | 0,08 USD cho mỗi bài hát |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Lyria 3 Clip Preview (30s) | Kullanılamıyor | Şarkı başına 0,04 ABD doları |
+| Lyria 3 Pro Önizlemesi (Tam Şarkı) | Kullanılamıyor | Şarkı başına 0,08 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemini Embedding 2
 
 *`gemini-embedding-2`*
 
-[Dùng thử API](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi)
+[API'yi deneyin](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
 
-Mô hình nhúng đa phương thức đầu tiên của chúng tôi, ánh xạ văn bản, hình ảnh, video, âm thanh và tệp PDF vào một không gian nhúng hợp nhất.
+Metin, resim, video, ses ve PDF'leri birleşik bir yerleştirme alanına eşleyen ilk çok formatlı yerleştirme modelimiz.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập bằng văn bản | Miễn phí | $0,20 |
-| Giá nhập hình ảnh | Miễn phí | 0,45 USD (0,00012 USD cho mỗi hình ảnh) |
-| Giá đầu vào âm thanh | Miễn phí | 6,5 USD (0,00016 USD mỗi giây) |
-| Giá đầu vào của video | Miễn phí | 12 USD (0,00079 USD/khung hình) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Metin girişi fiyatı | Ücretsiz | 0,20 ABD doları |
+| Görüntü girişi fiyatı | Ücretsiz | 0,45 ABD doları (resim başına 0,00012 ABD doları) |
+| Ses girişi fiyatı | Ücretsiz | 6,50 ABD doları (saniye başına 0,00016 ABD doları) |
+| Video girişi fiyatı | Ücretsiz | 12,00 ABD doları (kare başına 0,00079 ABD doları) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Giá nhập bằng văn bản | Không có | $0,10 |
-| Giá nhập hình ảnh | Không có | 0,225 USD (0,00006 USD cho mỗi hình ảnh) |
-| Giá đầu vào âm thanh | Không có | 3,25 USD (0,00008 USD/giây) |
-| Giá đầu vào của video | Không có | 6 USD (0,000395 USD/khung hình) |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Metin girişi fiyatı | Kullanılamıyor | 0,10 ABD doları |
+| Görüntü girişi fiyatı | Kullanılamıyor | 0,225 ABD doları (resim başına 0,00006 ABD doları) |
+| Ses girişi fiyatı | Kullanılamıyor | 3,25 ABD doları (saniyede 0,00008 ABD doları) |
+| Video girişi fiyatı | Kullanılamıyor | 6,00 ABD doları (kare başına 0,000395 ABD doları) |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemini Embedding
 
 *`gemini-embedding-001`*
 
-[Dùng thử API](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi)
+[API'yi deneyin](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
 
-Mô hình Gemini Embeddings của chúng tôi dành cho các trường hợp sử dụng chỉ văn bản, được cung cấp cho các nhà phát triển ở bậc miễn phí và có tính phí của Gemini API.
+Yalnızca metin içeren kullanım alanları için Gemini Embeddings modelimiz, Gemini API'nin ücretsiz ve ücretli katmanlarındaki geliştiriciler tarafından kullanılabilir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 0,15 USD |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 0,15 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,075 USD |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,075 ABD doları |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-## Bản xem trước Gemini Robotics-ER 1.6
+## Gemini Robotics-ER 1.6 Önizlemesi
 
 *`gemini-robotics-er-1.6-preview`*
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=vi)
+[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=tr)
 
-Gemini Robotics-ER (viết tắt của Gemini Robotics-Embodied Reasoning) là một mô hình tư duy giúp tăng cường khả năng hiểu và tương tác của robot với thế giới thực.
+Gemini Robotics-ER (Gemini Robotics-Embodied Reasoning), robotların fiziksel dünyayı anlama ve etkileşim kurma becerilerini geliştiren bir düşünme modelidir.
 
-### Chuẩn
+### Standart
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | 1 USD (văn bản / hình ảnh / video) 2 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Miễn phí | 5 USD |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | 5.000 câu lệnh mỗi tháng (miễn phí, hạn mức dùng chung với Flash), sau đó là 14 USD / 1.000 cụm từ tìm kiếm để căn cứ vào văn bản và hình ảnh. |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | 1,00 ABD doları (metin / resim / video) 2,00 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 5 TL |
+| Google Arama ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Flash ile paylaşılan sınır), ardından metin ve resim tabanlı temellendirme için 1.000 arama sorgusu başına 14 ABD doları. |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-### Theo nhóm
+### Toplu
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 0,5 USD (văn bản / hình ảnh / video) 1 USD (âm thanh) |
-| Giá đầu ra (bao gồm cả mã thông báo suy nghĩ) | Không có | $2,50 |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin / resim / video) 1,00 ABD doları (ses) |
+| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 2,50 ABD doları |
+| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-## Bản xem trước Gemini 2.5 về việc sử dụng máy tính
+## Gemini 2.5 Bilgisayar Kullanımı Önizlemesi
 
 *`gemini-2.5-computer-use-preview-10-2025`*
 
-Mô hình Sử dụng máy tính của chúng tôi được tối ưu hoá để xây dựng các tác nhân kiểm soát trình duyệt nhằm tự động hoá các tác vụ.
+Görevleri otomatik hale getiren tarayıcı kontrolü aracıları oluşturmak için optimize edilmiş Bilgisayar Kullanımı modelimiz.
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Không có | 1,25 USD, câu lệnh <= 200.000 mã thông báo 2,50 USD, câu lệnh > 200.000 mã thông báo |
-| Giá đầu ra | Không có | 10 USD, câu lệnh <= 200.000 mã thông báo 15 USD, câu lệnh > 200.000 |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Kullanılamıyor | 1,25 ABD doları, istemler <= 200 bin jeton 2,50 ABD doları, istemler > 200 bin jeton |
+| Çıkış fiyatı | Kullanılamıyor | 10,00 ABD doları, istemler <= 200.000 jeton 15,00 ABD doları, istemler > 200.000 |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
 ## Gemma 4
 
-Mô hình mở gọn nhẹ, tiên tiến của chúng tôi được xây dựng dựa trên cùng một công nghệ hỗ trợ các mô hình Gemini.
+Gemini modellerimize güç veren aynı teknolojiyle geliştirilen, hafif, son teknoloji açık modelimiz.
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| Nhập giá | Miễn phí | Không có |
-| Giá đầu ra | Miễn phí | Không có |
-| Giá trong bộ nhớ đệm theo bối cảnh | Miễn phí | Không có |
-| Lưu vào bộ nhớ đệm theo bối cảnh (bộ nhớ) | Miễn phí | Không có |
-| Giá điều chỉnh | Không có | Không có |
-| Bám sát nguồn bằng Google Tìm kiếm | Không có | Không có |
-| Được dùng để cải thiện các sản phẩm của chúng tôi | [Có](https://ai.google.dev/gemini-api/terms?hl=vi) | [Không](https://ai.google.dev/gemini-api/terms?hl=vi) |
+| Giriş fiyatı | Ücretsiz | Kullanılamıyor |
+| Çıkış fiyatı | Ücretsiz | Kullanılamıyor |
+| Bağlamı önbelleğe alma fiyatı | Ücretsiz | Kullanılamıyor |
+| Bağlamı önbelleğe alma (depolama) | Ücretsiz | Kullanılamıyor |
+| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
+| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
+| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
 
-## Quy tắc đặt giá cho công cụ
+## Araçların fiyatlandırması
 
-Các công cụ được định giá theo mức giá riêng và được áp dụng cho mô hình sử dụng các công cụ đó.
-Hãy xem trang [Mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi) để biết những công cụ có sẵn cho từng mô hình.
+Araçlar, kendi fiyatlarıyla fiyatlandırılır ve bunları kullanan modele uygulanır.
+Her modelde hangi araçların kullanılabildiğini öğrenmek için [Modeller](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasını inceleyin.
 
-|  | Bậc miễn phí | Bậc có tính phí, cho mỗi 1 triệu mã thông báo tính bằng USD |
+|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
 | --- | --- | --- |
-| [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi#pricing) | 500 RPD miễn phí (hạn mức dùng chung cho Flash và Flash-Lite). Không áp dụng cho Pro. | Mô hình Gemini 2.5:  1.500 RPD miễn phí (hạn mức dùng chung cho Flash và Flash-Lite). Sau đó, bạn sẽ phải trả 35 USD cho 1.000 câu lệnh có căn cứ   Mô hình Gemini 3:  5.000 câu lệnh mỗi tháng (miễn phí), sau đó bạn sẽ phải trả 14 USD cho 1.000 cụm từ tìm kiếm |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi#pricing_and_rate_limits) | 500 RPD Không dùng được cho phiên bản Pro. | 1.500 RPD miễn phí (giới hạn dùng chung cho Flash và Flash-Lite) 10.000 RPD miễn phí cho Pro. Sau đó, bạn sẽ phải trả 25 USD cho 1.000 câu lệnh bị hạn chế |
-| [Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi#billing) | Miễn phí | Việc thực thi mã được tính phí theo mức giá mã thông báo tiêu chuẩn cho mô hình đã chọn. Chi phí chỉ được xác định dựa trên mức sử dụng công cụ, không có khoản phí nào được tích luỹ cho thời gian chạy phiên. Mã và kết quả thực thi được tạo sẽ được tính phí dưới dạng **Mã thông báo đầu ra** khi được tạo và dưới dạng **Mã thông báo đầu vào** khi mô hình sử dụng chúng trong quy trình suy luận lặp đi lặp lại. |
-| [Bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi#limitations) | Miễn phí | Tính phí theo số lượng mã thông báo đầu vào cho mỗi mô hình định giá. |
-| [Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi) | Không có | Xem bảng giá [Gemini 2.5 Computer Use Preview](#gemini-2.5-computer-use-preview-10-2025). |
-| [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi#pricing) | Miễn phí | Tính phí cho [các mục nhúng](#gemini-embedding) ở mức 0,15 USD / 1 triệu mã thông báo. Mã thông báo tài liệu được truy xuất sẽ bị tính phí như mã thông báo thông thường theo mức giá của mô hình. |
-| [Điểm cuối Công cụ tuỳ chỉnh (Bản dùng thử Gemini 3.1 Pro)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | Không có | Tương tự như mức giá của [Gemini 3.1 Pro Preview](#gemini-3.1-pro-preview) |
+| [Google Arama](https://ai.google.dev/gemini-api/docs/google-search?hl=tr#pricing) | 500 RPD ücretsiz (sınır, Flash ve Flash-Lite için geçerlidir). Pro'da kullanılamaz. | Gemini 2.5 modelleri:  1.500 RPD ücretsiz (Flash ve Flash-Lite için ortak sınır). Ardından 1.000 temellendirilmiş istem için 35 ABD doları   Gemini 3 modelleri:  Ayda 5.000 istem (ücretsiz), ardından 1.000 arama sorgusu için 14 ABD doları |
+| [Google Haritalar](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr#pricing_and_rate_limits) | 500 RPD Pro sürümünde kullanılamaz. | 1.500 RPD ücretsiz (Flash ve Flash-Lite için ortak sınır) Pro için 10.000 RPD ücretsiz. Ardından 25 ABD doları / 1.000 temellendirilmiş istem |
+| [Kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr#billing) | Ücretsiz | Kod yürütme, seçilen modelin standart jeton ücretleri üzerinden faturalandırılır. Maliyetler yalnızca aracın kullanımına göre belirlenir. Oturum çalışma süresi için ücret alınmaz. Oluşturulan kod ve yürütme sonuçları, oluşturulduklarında **çıkış jetonları**, model bunları yinelemeli muhakeme sürecinin bir parçası olarak kullandığında ise **giriş jetonları** olarak faturalandırılır. |
+| [URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr#limitations) | Ücretsiz | Model fiyatlandırmasına göre giriş jetonları olarak ücretlendirilir. |
+| [Bilgisayar kullanımı](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr) | Kullanılamıyor | Model fiyatlandırmasına göre normal jetonlar olarak ücretlendirilir (ör. standart [Gemini 3.5 Flash](#gemini-3.5-flash) fiyatlandırması). Eski model ücretleri için [Gemini 2.5 Bilgisayar Kullanımı Önizlemesi](#gemini-2.5-computer-use-preview-10-2025) fiyatlandırma tablosuna bakın. |
+| [Dosya arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr#pricing) | Ücretsiz | [Yerleştirmeler](#gemini-embedding) için 1 milyon jeton başına 0,15 ABD doları ücret alınır.  Alınan doküman jetonları, model fiyatlandırmasına göre normal jetonlar olarak ücretlendirilir. |
+| [Özel Araçlar uç noktası (Gemini 3.1 Pro Önizlemesi)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | Kullanılamıyor | [Gemini 3.1 Pro Önizleme](#gemini-3.1-pro-preview) fiyatlandırmasıyla aynıdır. |
 
-## Giá dành cho đại lý
+## Temsilciler için fiyatlandırma
 
-Chi phí sử dụng tác nhân được tính dựa trên mức tiêu thụ mã thông báo cơ bản và mức sử dụng các công cụ.
+Aracı kullanım maliyetleri, temel jeton tüketimine ve araçların kullanımına göre hesaplanır.
 
-|  | Mô hình | Công cụ |
+|  | Model | Araçlar |
 | --- | --- | --- |
-| [Tác nhân Deep Research của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) | Tất cả suy luận mô hình đều được tính theo mức giá tiêu chuẩn của danh sách Gemini, bao gồm cả mã thông báo đầu vào, đầu ra và đầu vào / lý luận trung gian được tạo trong các vòng lặp có tác nhân. | Phí sử dụng công cụ được áp dụng theo cấu trúc giá hiện tại, duy trì các điểm khác biệt tiêu chuẩn cho tính năng Nền tảng tìm kiếm (không bao gồm các mã thông báo đã truy xuất) so với Url\_context / Tìm kiếm tệp (các mã thông báo đã truy xuất được đưa vào tất cả các công cụ khác). |
-| [Tác nhân được quản lý trong Gemini API](https://ai.google.dev/gemini-api/docs/agents?hl=vi) | Tất cả suy luận mô hình đều được tính theo mức giá tiêu chuẩn của danh sách Gemini, bao gồm cả mã thông báo đầu vào, đầu ra và đầu vào / lý luận trung gian được tạo trong các vòng lặp có tác nhân. (Xem [thông tin chi tiết về giá](https://ai.google.dev/gemini-api/docs/agents?hl=vi#pricing)). | Bạn sẽ không bị tính phí cho hoạt động điện toán môi trường (CPU, bộ nhớ, thực thi hộp cát) trong thời gian xem trước. |
-| [Tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi) | Tất cả suy luận mô hình đều được tính theo mức giá tiêu chuẩn của danh sách Gemini, bao gồm cả mã thông báo đầu vào, đầu ra và đầu vào / lý luận trung gian được tạo trong các vòng lặp có tác nhân. (Xem [thông tin chi tiết về giá](https://ai.google.dev/gemini-api/docs/agents?hl=vi#pricing)). | Bạn sẽ không bị tính phí cho hoạt động điện toán môi trường (CPU, bộ nhớ, thực thi hộp cát) trong thời gian xem trước. |
+| [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) | Tüm model çıkarımı, giriş, çıkış ve aracı döngüleri sırasında oluşturulan ara giriş / nedenlendirme jetonları dahil olmak üzere standart Gemini liste fiyatları üzerinden ücretlendirilir. | Araç kullanım ücretleri, mevcut fiyatlandırma yapısına göre uygulanır. Search Grounding (alınan jetonlar hariç) ile Url\_context / File Search (alınan jetonlar diğer tüm araçlara dahildir) arasındaki standart ayrımlar korunur. |
+| [Gemini API'de yönetilen ajanlar](https://ai.google.dev/gemini-api/docs/agents?hl=tr) | Tüm model çıkarımı, giriş, çıkış ve aracı döngüleri sırasında oluşturulan ara giriş / nedenlendirme jetonları dahil olmak üzere standart Gemini liste fiyatları üzerinden ücretlendirilir. ([Fiyatlandırma ayrıntılarına](https://ai.google.dev/gemini-api/docs/agents?hl=tr#pricing) bakın). | Önizleme döneminde ortam bilgi işlem (CPU, bellek, korumalı alan yürütme) için fatura kesilmez. |
+| [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr) | Tüm model çıkarımı, giriş, çıkış ve aracı döngüleri sırasında oluşturulan ara giriş / nedenlendirme jetonları dahil olmak üzere standart Gemini liste fiyatları üzerinden ücretlendirilir. ([Fiyatlandırma ayrıntılarına](https://ai.google.dev/gemini-api/docs/agents?hl=tr#pricing) bakın). | Önizleme döneminde ortam bilgi işlem (CPU, bellek, korumalı alan yürütme) için fatura kesilmez. |
 
-## Ghi chú
+## Notlar
 
-- **Tính phí theo mã thông báo tài liệu:** Mã thông báo cho phương thức `DOCUMENT` (ví dụ: tệp PDF) được tính phí theo tỷ lệ mã thông báo hình ảnh. Trong các phản hồi của API, những mã thông báo này xuất hiện trong phương thức `DOCUMENT` trong `promptTokensDetails`.
-- Bạn có thể sử dụng Google AI Studio miễn phí ở tất cả [các khu vực được hỗ trợ](https://ai.google.dev/gemini-api/docs/available-regions?hl=vi). Hãy xem phần [Câu hỏi thường gặp về việc thanh toán](https://ai.google.dev/gemini-api/docs/billing?hl=vi) để biết thêm thông tin chi tiết.
-- Giá có thể khác với giá niêm yết tại đây và giá được cung cấp trên Nền tảng Gemini Enterprise Agent. Để biết giá của Nền tảng tác nhân Gemini Enterprise, hãy xem [trang định giá Nền tảng tác nhân Gemini Enterprise](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=vi).
-- Nếu bạn đang sử dụng tính năng [truy xuất động](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) để tối ưu hoá chi phí, thì chỉ những yêu cầu có chứa ít nhất một URL hỗ trợ bám sát nguồn từ web trong phản hồi mới bị tính phí cho tính năng Bám sát nguồn bằng Google Tìm kiếm.
-  Luôn áp dụng chi phí cho Gemini. Hạn mức tốc độ có thể thay đổi.
+- **Doküman jetonu faturalandırması:** `DOCUMENT` biçimindeki (ör. PDF'ler) jetonlar, resim jetonu oranında faturalandırılır. API yanıtlarında bu jetonlar, `promptTokensDetails` içinde `DOCUMENT` altında görünür.
+- Google AI Studio'nun kullanımı, [kullanıma sunulduğu tüm bölgelerde](https://ai.google.dev/gemini-api/docs/available-regions?hl=tr) ücretsizdir. Ayrıntılar için [Faturalandırmayla ilgili SSS](https://ai.google.dev/gemini-api/docs/billing?hl=tr) sayfasını inceleyin.
+- Fiyatlar, burada listelenen fiyatlardan ve Gemini Enterprise Agent Platform'da sunulan fiyatlardan farklı olabilir. Gemini Enterprise Agent Platform fiyatları için [Gemini Enterprise Agent Platform fiyatlandırma sayfasına](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=tr) bakın.
+- Maliyetleri optimize etmek için [dinamik alma](https://ai.google.dev/gemini-api/docs/grounding?hl=tr) kullanıyorsanız Google Arama ile Temellendirme için yalnızca yanıtlarında web'den en az bir temellendirme destek URL'si içeren istekler ücretlendirilir.
+  Gemini'ın maliyeti her zaman geçerlidir. Sıklık sınırları değişebilir.
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-06-19 UTC.
+Son güncelleme tarihi: 2026-06-24 UTC.
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-19 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-24 UTC."],[],[]]

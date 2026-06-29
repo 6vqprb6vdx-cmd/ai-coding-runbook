@@ -1,69 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ar
-fetched_at: 2026-06-22T06:25:10.602433+00:00
-title: "\u062f\u0644\u064a\u0644 \u0627\u0644\u0628\u062f\u0621 \u0627\u0644\u0633\u0631\u064a\u0639 \u0644\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=tr
+fetched_at: 2026-06-29T05:34:33.069335+00:00
+title: "Google AI Studio h\u0131zl\u0131 ba\u015flang\u0131\u00e7 k\u0131lavuzu \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-# دليل البدء السريع لاستخدام Google AI Studio
+# Google AI Studio hızlı başlangıç kılavuzu
 
-تتيح لك أداة [Google AI Studio](https://aistudio.google.com/?hl=ar) تجربة النماذج بسرعة واستخدام طلبات مختلفة. عندما تكون مستعدًا للبدء، يمكنك النقر على "الحصول على الرمز" واختيار لغة البرمجة المفضّلة لديك لاستخدام [Gemini API](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
+[Google AI Studio](https://aistudio.google.com/?hl=tr), modelleri hızlı bir şekilde denemenize ve farklı istemlerle denemeler yapmanıza olanak tanır. Geliştirmeye hazır olduğunuzda [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=tr)'yi kullanmak için "Kodu al"ı ve tercih ettiğiniz programlama dilini seçebilirsiniz.
 
-## الطلبات والإعدادات
+## İstemler ve ayarlar
 
-توفّر أداة Google AI Studio عدة واجهات للطلبات مصمَّمة لحالات استخدام مختلفة. يتناول هذا الدليل **طلبات الدردشة** المستخدَمة لإنشاء تجارب حوارية. تسمح تقنية الطلبات هذه بتعدّد مرات إدخال البيانات والردود لإنشاء الناتج. يمكنك الاطّلاع على المزيد من المعلومات من خلال
-[مثال طلب الدردشة أدناه](#chat_example).
-تشمل الخيارات الأخرى **البث المباشر في الوقت الفعلي** و**إنشاء الفيديو** وغير ذلك.
+Google AI Studio, farklı kullanım alanları için tasarlanmış çeşitli istem arayüzleri sunar. Bu kılavuzda, sohbet deneyimleri oluşturmak için kullanılan **sohbet istemleri** ele alınmaktadır. Bu istem tekniği, çıktı oluşturmak için birden fazla giriş ve yanıt etkileşimine olanak tanır. [Aşağıdaki sohbet istemi örneğimizden](#chat_example) daha fazla bilgi edinebilirsiniz.
+Diğer seçenekler arasında **Anlık yayın**, **Video oluşturma** ve daha fazlası yer alır.
 
-توفّر أداة AI Studio أيضًا لوحة **إعدادات التشغيل**، حيث يمكنك إجراء تعديلات على [مَعلمات النموذج](https://ai.google.dev/docs/prompting-strategies?hl=ar#model-parameters) و[إعدادات الأمان](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar) وتفعيل أدوات مثل [النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar) و[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) و[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) و[الاستناد إلى مصادر خارجية](https://ai.google.dev/gemini-api/docs/grounding?hl=ar).
+AI Studio'da **Çalıştırma ayarları** paneli de bulunur. Bu panelde [model parametrelerinde](https://ai.google.dev/docs/prompting-strategies?hl=tr#model-parameters) ve [güvenlik ayarlarında](https://ai.google.dev/gemini-api/docs/safety-settings?hl=tr) düzenlemeler yapabilir, [yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr), [işlev çağrısı](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr), [kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr) ve [temellendirme](https://ai.google.dev/gemini-api/docs/grounding?hl=tr) gibi araçları etkinleştirebilirsiniz.
 
-## مثال على طلب في Chat: إنشاء تطبيق محادثة مخصّص
+## Chat istemi örneği: Özel bir sohbet uygulaması oluşturma
 
-إذا سبق لك استخدام روبوت دردشة للأغراض العامة مثل [Gemini](https://gemini.google.com/?hl=ar)، تكون قد جرّبت بنفسك مدى فعالية نماذج الذكاء الاصطناعي التوليدي في الحوارات المفتوحة. على الرغم من أنّ روبوتات الدردشة ذات الأغراض العامة مفيدة، إلا أنّها غالبًا ما تحتاج إلى التكيّف مع حالات استخدام معيّنة.
+[Gemini](https://gemini.google.com/?hl=tr) gibi genel amaçlı bir chatbot kullandıysanız üretken yapay zeka modellerinin açık uçlu diyaloglar için ne kadar güçlü olabileceğini ilk elden deneyimlemişsinizdir. Bu genel amaçlı chatbot'lar faydalı olsa da genellikle belirli kullanım alanlarına göre uyarlanmaları gerekir.
 
-على سبيل المثال، قد تريد إنشاء روبوت دردشة لخدمة العملاء يتيح فقط إجراء محادثات حول منتج إحدى الشركات. قد تحتاج إلى إنشاء روبوت دردشة يتحدث بأسلوب أو نبرة معيّنة، مثل روبوت يطلق الكثير من النكات أو يكتب الشعر أو يستخدم الكثير من رموز الإيموجي في ردوده.
+Örneğin, yalnızca bir şirketin ürünüyle ilgili görüşmeleri destekleyen bir müşteri hizmetleri chatbot'u oluşturmak isteyebilirsiniz. Belirli bir üslup veya tarzda konuşan bir chatbot oluşturmak isteyebilirsiniz. Örneğin, çok sayıda şaka yapan, şair gibi kafiyeli konuşan veya yanıtlarında çok sayıda emoji kullanan bir bot.
 
-يوضّح لك هذا المثال كيفية استخدام Google AI Studio لإنشاء روبوت دردشة ودود
-يتواصل كما لو كان كائنًا فضائيًا يعيش على أحد أقمار كوكب المشتري، وهو أوروبا.
+Bu örnekte, Google AI Studio'yu kullanarak Jüpiter'in uydularından biri olan Europa'da yaşayan bir uzaylı gibi iletişim kuran samimi bir chatbot oluşturma işlemi gösterilmektedir.
 
-### الخطوة 1: إنشاء طلب محادثة
+### 1. adım: Sohbet istemi oluşturun
 
-لإنشاء روبوت دردشة، عليك تقديم أمثلة على التفاعلات بين المستخدم وروبوت الدردشة لتوجيه النموذج لتقديم الردود التي تبحث عنها.
+Chatbot oluşturmak için, modeli istediğiniz yanıtları vermeye yönlendirmek üzere kullanıcı ile chatbot arasındaki etkileşim örneklerini sağlamanız gerekir.
 
-لإنشاء طلب محادثة، اتّبِع الخطوات التالية:
+Sohbet istemi oluşturmak için:
 
-1. افتح [Google AI Studio](https://aistudio.google.com/?hl=ar). سيتم فتح **Playground** تلقائيًا مع طلب محادثة جديد.
-2. انقر على **إعدادات التشغيل** tune في أعلى يسار الصفحة
-   لتوسيع اللوحة، وابحث عن حقل الإدخال
-   [**تعليمات النظام**](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#system-instructions). الصِق ما يلي في حقل إدخال النص:
+1. [Google AI Studio](https://aistudio.google.com/?hl=tr)'yu açın. **Playground**, yeni bir sohbet istemiyle varsayılan olarak açık olur.
+2. Sağ üst köşedeki **Çalıştırma ayarları**'nı tune tıklayarak paneli genişletin ve [**Sistem Talimatları**](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#system-instructions) giriş alanını bulun. Aşağıdakileri metin giriş alanına yapıştırın:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-بعد إضافة تعليمات النظام، ابدأ في اختبار تطبيقك من خلال الدردشة مع النموذج:
+Sistem talimatlarını ekledikten sonra modelle sohbet ederek uygulamanızı test etmeye başlayın:
 
-1. في مربّع إدخال النص الذي يحمل التصنيف **اكتب شيئًا...**، اكتب سؤالاً أو ملاحظة قد يطرحها المستخدم. على سبيل المثال:
+1. **Bir şeyler yazın...** etiketli metin giriş kutusuna, kullanıcının sorabileceği bir soru veya yapabileceği bir gözlem yazın. Örneğin:
 
-   **المستخدم:**
+   **Kullanıcı:**
 
    ```
    What's the weather like?
    ```
-2. انقر على الزر **تشغيل** للحصول على ردّ من روبوت الدردشة. قد تكون الاستجابة مشابهة لما يلي:
+2. Chatbot'tan yanıt almak için **Çalıştır** düğmesini tıklayın. Bu yanıt aşağıdakine benzer olabilir:
 
-   **الطراز:**
+   **Model:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -72,14 +68,14 @@ Google uses AI technology to translate content into your preferred language. AI 
 
    (gemini-2.5-pro)
 
-### الخطوة 2: تعليم برنامج التتبُّع كيفية إجراء محادثات أفضل
+### 2. adım: Botunuza daha iyi sohbet etmeyi öğretin
 
-من خلال تقديم تعليمات بسيطة، تمكّنت من إنشاء برنامج دردشة آلي أساسي خاص بالكائنات الفضائية في أوروبا. ومع ذلك، قد لا تكون التعليمات الفردية كافية لضمان الاتساق والجودة في ردود النموذج. بدون تعليمات أكثر تحديدًا، يميل ردّ النموذج على سؤال حول الطقس إلى أن يكون طويلاً جدًا، ويمكن أن يتخذ شكلًا غير متوقّع.
+Tek bir talimat vererek temel bir Europa uzaylı chatbot'u oluşturabildiniz. Ancak tek bir talimat, modelin yanıtlarında tutarlılık ve kalite sağlamak için yeterli olmayabilir. Daha ayrıntılı talimatlar olmadan modelin hava durumuyla ilgili bir soruya verdiği yanıt çok uzun olma eğilimindedir ve kendi başına hareket edebilir.
 
-خصِّص أسلوب روبوت الدردشة من خلال إضافة ما يلي إلى تعليمات النظام:
+Sistem talimatlarına aşağıdakileri ekleyerek chatbot'unuzun üslubunu özelleştirin:
 
-1. ابدأ بطلب جديد أو استخدِم الطلب نفسه. يمكن تعديل تعليمات النظام بعد بدء جلسة المحادثة.
-2. في قسم **تعليمات النظام**، غيِّر التعليمات الحالية إلى ما يلي:
+1. Yeni bir sohbet istemi başlatın veya aynı istemi kullanın. Sistem talimatları, sohbet oturumu başladıktan sonra değiştirilebilir.
+2. **Sistem Talimatları** bölümünde, mevcut talimatları aşağıdaki talimatlarla değiştirin:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -87,9 +83,9 @@ Google uses AI technology to translate content into your preferred language. AI 
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. أعِد إدخال سؤالك (`What's the weather like?`) وانقر على الزر **تنفيذ**. إذا لم تبدأ محادثة جديدة، قد يبدو ردّك على النحو التالي:
+3. Sorunuzu yeniden girin (`What's the weather like?`) ve **Çalıştır** düğmesini tıklayın. Yeni bir sohbet başlatmadıysanız yanıtınız şu şekilde olabilir:
 
-   **الطراز:**
+   **Model:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -100,23 +96,23 @@ Google uses AI technology to translate content into your preferred language. AI 
 
    (gemini-2.5-pro)
 
-يمكنك استخدام هذا الأسلوب لإضافة المزيد من العمق إلى روبوت الدردشة. اطرح المزيد من الأسئلة وعدِّل الإجابات وحسِّن جودة برنامج الدردشة الآلي. تابِع إضافة التعليمات أو تعديلها واختبِر كيف تغيّر سلوك روبوت الدردشة.
+Bu yaklaşımı kullanarak chatbot'a daha fazla derinlik katabilirsiniz. Daha fazla soru sorun, yanıtları düzenleyin ve chatbot'unuzun kalitesini artırın. Talimatları eklemeye veya değiştirmeye devam edin ve chatbot'unuzun davranışını nasıl değiştirdiklerini test edin.
 
-### الخطوة 3: الخطوات التالية
+### 3. adım: Sonraki adımlar
 
-كما هو الحال مع أنواع الطلبات الأخرى، بعد أن تصبح راضيًا عن النموذج الأوّلي لطلبك، يمكنك استخدام الزر **الحصول على الرمز** لبدء الترميز أو حفظ طلبك للعمل عليه لاحقًا ومشاركته مع الآخرين.
+Diğer istem türlerine benzer şekilde, isteminizin prototipini istediğiniz gibi oluşturduktan sonra **Kodu al** düğmesini kullanarak kodlamaya başlayabilir veya isteminizi kaydedip daha sonra üzerinde çalışabilir ve başkalarıyla paylaşabilirsiniz.
 
-## محتوى إضافي للقراءة
+## Daha fazla bilgi
 
-- إذا كنت مستعدًا للانتقال إلى الرمز، يمكنك الاطّلاع على [البدايات السريعة لواجهة برمجة التطبيقات](https://ai.google.dev/gemini-api/docs/quickstart?hl=ar).
-- لمعرفة كيفية صياغة طلبات أفضل، اطّلِع على [إرشادات تصميم الطلبات](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=ar).
+- Koda geçmeye hazırsanız [API'yi kullanmaya başlama kılavuzlarına](https://ai.google.dev/gemini-api/docs/get-started?hl=tr) bakın.
+- Daha iyi istemler oluşturmayı öğrenmek için [İstem tasarımı yönergeleri](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) başlıklı makaleyi inceleyin.
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)
+Son güncelleme tarihi: 2026-06-22 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]

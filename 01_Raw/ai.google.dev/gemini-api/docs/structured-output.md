@@ -1,41 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=id
-fetched_at: 2026-06-22T06:32:46.275310+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=vi
+fetched_at: 2026-06-29T05:30:33.454875+00:00
+title: "K\u1ebft qu\u1ea3 c\u00f3 c\u1ea5u tr\u00fac \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Output terstruktur
+# Kết quả có cấu trúc
 
-Anda dapat mengonfigurasi model Gemini untuk menghasilkan respons yang sesuai dengan Skema JSON yang diberikan. Hal ini memastikan hasil yang dapat diprediksi dan aman untuk jenisnya serta menyederhanakan ekstraksi data terstruktur dari teks tidak terstruktur.
+Bạn có thể định cấu hình các mô hình Gemini để tạo câu trả lời tuân thủ Giản đồ JSON được cung cấp. Điều này đảm bảo kết quả có thể dự đoán và an toàn về kiểu, đồng thời đơn giản hoá việc trích xuất dữ liệu có cấu trúc từ văn bản không có cấu trúc.
 
-Penggunaan output terstruktur sangat ideal untuk:
+Sử dụng đầu ra có cấu trúc là lựa chọn lý tưởng cho:
 
-- **Ekstraksi data:** Mengambil informasi tertentu seperti nama dan tanggal dari teks.
-- **Klasifikasi terstruktur:** Mengklasifikasikan teks ke dalam kategori yang telah ditentukan.
-- **Alur kerja agentic:** Membuat input terstruktur untuk alat atau API.
+- **Trích xuất dữ liệu:** Lấy thông tin cụ thể như tên và ngày tháng từ văn bản.
+- **Phân loại có cấu trúc:** Phân loại văn bản thành các danh mục được xác định trước.
+- **Quy trình công việc dựa trên tác nhân:** Tạo thông tin đầu vào có cấu trúc cho các công cụ hoặc API.
 
-Selain mendukung Skema JSON di REST API, SDK GenAI Google mempermudah penentuan skema menggunakan
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) dan
-[Zod](https://zod.dev/) (JavaScript).
+Ngoài việc hỗ trợ JSON Schema trong API REST, Google GenAI SDK còn cho phép xác định giản đồ bằng [Pydantic](https://docs.pydantic.dev/latest/) (Python) và [Zod](https://zod.dev/) (JavaScript).
 
-## Contoh output terstruktur
+## Ví dụ về đầu ra có cấu trúc
 
-### Pengekstrak Resep
+### Công cụ trích xuất công thức
 
-Contoh ini menunjukkan cara mengekstrak data terstruktur dari teks menggunakan jenis Skema JSON dasar seperti `object`, `array`, `string`, dan `integer`.
+Ví dụ này minh hoạ cách trích xuất dữ liệu có cấu trúc từ văn bản bằng các loại Giản đồ JSON cơ bản như `object`, `array`, `string` và `integer`.
 
 ### Python
 
@@ -70,15 +67,17 @@ ingredients until just combined. Finally, stir in the chocolate chips. Drop by r
 onto ungreased baking sheets and bake for 9 to 11 minutes.
 """
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=prompt,
-    config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": Recipe.model_json_schema()}},
+    input=prompt,
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": Recipe.model_json_schema()
     },
 )
 
-recipe = Recipe.model_validate_json(response.text)
+recipe = Recipe.model_validate_json(interaction.output_text)
 print(recipe)
 ```
 
@@ -86,22 +85,41 @@ print(recipe)
 
 ```
 import { GoogleGenAI } from "@google/genai";
-import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
+import * as z from "zod";
 
-const ingredientSchema = z.object({
-  name: z.string().describe("Name of the ingredient."),
-  quantity: z.string().describe("Quantity of the ingredient, including units."),
-});
+const recipeJsonSchema = {
+  type: "object",
+  properties: {
+    recipe_name: {
+      type: "string",
+      description: "The name of the recipe."
+    },
+    prep_time_minutes: {
+        type: "integer",
+        description: "Optional time in minutes to prepare the recipe."
+    },
+    ingredients: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          name: { type: "string", description: "Name of the ingredient."},
+          quantity: { type: "string", description: "Quantity of the ingredient, including units."}
+        },
+        required: ["name", "quantity"]
+      }
+    },
+    instructions: {
+      type: "array",
+      items: { type: "string" }
+    }
+  },
+  required: ["recipe_name", "ingredients", "instructions"]
+};
 
-const recipeSchema = z.object({
-  recipe_name: z.string().describe("The name of the recipe."),
-  prep_time_minutes: z.number().optional().describe("Optional time in minutes to prepare the recipe."),
-  ingredients: z.array(ingredientSchema),
-  instructions: z.array(z.string()),
-});
+const recipeSchema = z.fromJSONSchema(recipeJsonSchema);
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
 const prompt = `
 Please extract the recipe from the following text.
@@ -117,121 +135,33 @@ ingredients until just combined. Finally, stir in the chocolate chips. Drop by r
 onto ungreased baking sheets and bake for 9 to 11 minutes.
 `;
 
-const response = await ai.models.generateContent({
+const interaction = await client.interactions.create({
   model: "gemini-3.5-flash",
-  contents: prompt,
-  config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(recipeSchema) } },
+  input: prompt,
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: recipeJsonSchema
   },
 });
 
-const recipe = recipeSchema.parse(JSON.parse(response.text));
+const recipe = recipeSchema.parse(JSON.parse(interaction.output_text));
 console.log(recipe);
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    prompt := `
-  Please extract the recipe from the following text.
-  The user wants to make delicious chocolate chip cookies.
-  They need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,
-  1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,
-  3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.
-  For the best part, they'll need 2 cups of semisweet chocolate chips.
-  First, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,
-  baking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar
-  until light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry
-  ingredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons
-  onto ungreased baking sheets and bake for 9 to 11 minutes.
-  `
-    config := &genai.GenerateContentConfig{
-        ResponseMIMEType: "application/json",
-        ResponseJsonSchema: map[string]any{
-            "type": "object",
-            "properties": map[string]any{
-                "recipe_name": map[string]any{
-                    "type":        "string",
-                    "description": "The name of the recipe.",
-                },
-                "prep_time_minutes": map[string]any{
-                    "type":        "integer",
-                    "description": "Optional time in minutes to prepare the recipe.",
-                },
-                "ingredients": map[string]any{
-                    "type": "array",
-                    "items": map[string]any{
-                        "type": "object",
-                        "properties": map[string]any{
-                            "name": map[string]any{
-                                "type":        "string",
-                                "description": "Name of the ingredient.",
-                            },
-                            "quantity": map[string]any{
-                                "type":        "string",
-                                "description": "Quantity of the ingredient, including units.",
-                            },
-                        },
-                        "required": []string{"name", "quantity"},
-                    },
-                },
-                "instructions": map[string]any{
-                    "type":  "array",
-                    "items": map[string]any{"type": "string"},
-                },
-            },
-            "required": []string{"recipe_name", "ingredients", "instructions"},
-        },
-    }
-
-    result, err := client.Models.GenerateContent(
-        ctx,
-        "gemini-3.5-flash",
-        genai.Text(prompt),
-        config,
-    )
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Println(result.Text())
-}
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
-    -X POST \
     -d '{
-      "contents": [{
-        "parts":[
-          { "text": "Please extract the recipe from the following text.\nThe user wants to make delicious chocolate chip cookies.\nThey need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,\n1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,\n3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.\nFor the best part, they will need 2 cups of semisweet chocolate chips.\nFirst, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,\nbaking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar\nuntil light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry\ningredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons\nonto ungreased baking sheets and bake for 9 to 11 minutes." }
-        ]
-      }],
-      "generationConfig": {
-        "responseFormat": {
-          "text": {
-            "mimeType": "application/json",
-            "schema": {
+      "model": "gemini-3.5-flash",
+      "input": "Please extract the recipe from the following text.\nThe user wants to make delicious chocolate chip cookies.\nThey need 2 and 1/4 cups of all-purpose flour, 1 teaspoon of baking soda,\n1 teaspoon of salt, 1 cup of unsalted butter (softened), 3/4 cup of granulated sugar,\n3/4 cup of packed brown sugar, 1 teaspoon of vanilla extract, and 2 large eggs.\nFor the best part, they will need 2 cups of semisweet chocolate chips.\nFirst, preheat the oven to 375°F (190°C). Then, in a small bowl, whisk together the flour,\nbaking soda, and salt. In a large bowl, cream together the butter, granulated sugar, and brown sugar\nuntil light and fluffy. Beat in the vanilla and eggs, one at a time. Gradually beat in the dry\ningredients until just combined. Finally, stir in the chocolate chips. Drop by rounded tablespoons\nonto ungreased baking sheets and bake for 9 to 11 minutes.",
+      "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
           "type": "object",
           "properties": {
             "recipe_name": {
@@ -249,9 +179,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
                 "properties": {
                   "name": { "type": "string", "description": "Name of the ingredient."},
                   "quantity": { "type": "string", "description": "Quantity of the ingredient, including units."}
-          }
-        }
-      },
+                },
                 "required": ["name", "quantity"]
               }
             },
@@ -263,51 +191,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
           "required": ["recipe_name", "ingredients", "instructions"]
         }
       }
+      }
     }'
 ```
 
-**Contoh Respons:**
+**Ví dụ về câu trả lời:**
 
 ```
 {
   "recipe_name": "Delicious Chocolate Chip Cookies",
   "ingredients": [
-    {
-      "name": "all-purpose flour",
-      "quantity": "2 and 1/4 cups"
-    },
-    {
-      "name": "baking soda",
-      "quantity": "1 teaspoon"
-    },
-    {
-      "name": "salt",
-      "quantity": "1 teaspoon"
-    },
-    {
-      "name": "unsalted butter (softened)",
-      "quantity": "1 cup"
-    },
-    {
-      "name": "granulated sugar",
-      "quantity": "3/4 cup"
-    },
-    {
-      "name": "packed brown sugar",
-      "quantity": "3/4 cup"
-    },
-    {
-      "name": "vanilla extract",
-      "quantity": "1 teaspoon"
-    },
-    {
-      "name": "large eggs",
-      "quantity": "2"
-    },
-    {
-      "name": "semisweet chocolate chips",
-      "quantity": "2 cups"
-    }
+    { "name": "all-purpose flour", "quantity": "2 and 1/4 cups" },
+    { "name": "baking soda", "quantity": "1 teaspoon" },
+    { "name": "salt", "quantity": "1 teaspoon" },
+    { "name": "unsalted butter (softened)", "quantity": "1 cup" },
+    { "name": "granulated sugar", "quantity": "3/4 cup" },
+    { "name": "packed brown sugar", "quantity": "3/4 cup" },
+    { "name": "vanilla extract", "quantity": "1 teaspoon" },
+    { "name": "large eggs", "quantity": "2" },
+    { "name": "semisweet chocolate chips", "quantity": "2 cups" }
   ],
   "instructions": [
     "Preheat the oven to 375°F (190°C).",
@@ -321,9 +223,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### Moderasi Konten
+### Kiểm duyệt nội dung
 
-Contoh ini menampilkan `anyOf` untuk skema bersyarat dan `enum` untuk klasifikasi, sehingga struktur output dapat bervariasi berdasarkan konten.
+Ví dụ này minh hoạ `anyOf` cho các giản đồ có điều kiện và `enum` cho việc phân loại, cho phép cấu trúc đầu ra thay đổi dựa trên nội dung.
 
 ### Python
 
@@ -350,15 +252,17 @@ Please moderate the following content and provide a decision.
 Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
 """
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=prompt,
-    config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": ModerationResult.model_json_schema()}},
+    input=prompt,
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": ModerationResult.model_json_schema()
     },
 )
 
-result = ModerationResult.model_validate_json(response.text)
+result = ModerationResult.model_validate_json(interaction.output_text)
 print(result)
 ```
 
@@ -366,144 +270,75 @@ print(result)
 
 ```
 import { GoogleGenAI } from "@google/genai";
-import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
+import * as z from "zod";
 
-const spamDetailsSchema = z.object({
-  reason: z.string().describe("The reason why the content is considered spam."),
-  spam_type: z.enum(["phishing", "scam", "unsolicited promotion", "other"]).describe("The type of spam."),
-});
+const moderationResultJsonSchema = {
+  type: "object",
+  properties: {
+    decision: {
+      anyOf: [
+        {
+          type: "object",
+          title: "SpamDetails",
+          description: "Details for content classified as spam.",
+          properties: {
+            reason: { type: "string", description: "The reason why the content is considered spam." },
+            spam_type: { type: "string", enum: ["phishing", "scam", "unsolicited promotion", "other"], description: "The type of spam." }
+          },
+          required: ["reason", "spam_type"]
+        },
+        {
+          type: "object",
+          title: "NotSpamDetails",
+          description: "Details for content classified as not spam.",
+          properties: {
+            summary: { type: "string", description: "A brief summary of the content." },
+            is_safe: { type: "boolean", description: "Whether the content is safe for all audiences." }
+          },
+          required: ["summary", "is_safe"]
+        }
+      ]
+    }
+  },
+  required: ["decision"]
+};
 
-const notSpamDetailsSchema = z.object({
-  summary: z.string().describe("A brief summary of the content."),
-  is_safe: z.boolean().describe("Whether the content is safe for all audiences."),
-});
+const moderationResultSchema = z.fromJSONSchema(moderationResultJsonSchema);
 
-const moderationResultSchema = z.object({
-  decision: z.union([spamDetailsSchema, notSpamDetailsSchema]),
-});
-
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
 const prompt = `
 Please moderate the following content and provide a decision.
 Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
 `;
 
-const response = await ai.models.generateContent({
+const interaction = await client.interactions.create({
   model: "gemini-3.5-flash",
-  contents: prompt,
-  config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(moderationResultSchema) } },
+  input: prompt,
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: moderationResultJsonSchema
   },
 });
 
-const result = moderationResultSchema.parse(JSON.parse(response.text));
+const result = moderationResultSchema.parse(JSON.parse(interaction.output_text));
 console.log(result);
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    prompt := `
-  Please moderate the following content and provide a decision.
-  Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'
-  `
-    config := &genai.GenerateContentConfig{
-        ResponseMIMEType: "application/json",
-        ResponseJsonSchema: map[string]any{
-            "type": "object",
-            "properties": map[string]any{
-                "decision": map[string]any{
-                    "anyOf": []map[string]any{
-                        {
-                            "type":        "object",
-                            "title":       "SpamDetails",
-                            "description": "Details for content classified as spam.",
-                            "properties": map[string]any{
-                                "reason": map[string]any{
-                                    "type":        "string",
-                                    "description": "The reason why the content is considered spam.",
-                                },
-                                "spam_type": map[string]any{
-                                    "type":        "string",
-                                    "enum":        []string{"phishing", "scam", "unsolicited promotion", "other"},
-                                    "description": "The type of spam.",
-                                },
-                            },
-                            "required": []string{"reason", "spam_type"},
-                        },
-                        {
-                            "type":        "object",
-                            "title":       "NotSpamDetails",
-                            "description": "Details for content classified as not spam.",
-                            "properties": map[string]any{
-                                "summary": map[string]any{
-                                    "type":        "string",
-                                    "description": "A brief summary of the content.",
-                                },
-                                "is_safe": map[string]any{
-                                    "type":        "boolean",
-                                    "description": "Whether the content is safe for all audiences.",
-                                },
-                            },
-                            "required": []string{"summary", "is_safe"},
-                        },
-                    },
-                },
-            },
-            "required": []string{"decision"},
-        },
-    }
-
-    result, err := client.Models.GenerateContent(
-        ctx,
-        "gemini-3.5-flash",
-        genai.Text(prompt),
-        config,
-    )
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Println(result.Text())
-}
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
-    -X POST \
     -d '{
-      "contents": [{
-        "parts":[
-          { "text": "Please moderate the following content and provide a decision.\nContent: ''Congratulations! You have won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com''" }
-        ]
-      }],
-      "generationConfig": {
-        "responseFormat": {
-          "text": {
-            "mimeType": "application/json",
-            "schema": {
+      "model": "gemini-3.5-flash",
+      "input": "Please moderate the following content and provide a decision.\nContent: '\''Congratulations! You have won a free cruise to the Bahamas. Click here to claim your prize: www.definitely-not-a-scam.com'\''",
+      "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
           "type": "object",
           "properties": {
             "decision": {
@@ -515,44 +350,43 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
                   "properties": {
                     "reason": { "type": "string", "description": "The reason why the content is considered spam." },
                     "spam_type": { "type": "string", "enum": ["phishing", "scam", "unsolicited promotion", "other"], "description": "The type of spam." }
-          }
+                  },
+                  "required": ["reason", "spam_type"]
+                },
+                {
+                  "type": "object",
+                  "title": "NotSpamDetails",
+                  "description": "Details for content classified as not spam.",
+                  "properties": {
+                    "summary": { "type": "string", "description": "A brief summary of the content." },
+                    "is_safe": { "type": "boolean", "description": "Whether the content is safe for all audiences." }
+                  },
+                  "required": ["summary", "is_safe"]
+                }
+              ]
+            }
+          },
+          "required": ["decision"]
         }
-      },
-                   "required": ["reason", "spam_type"]
-                 },
-                 {
-                   "type": "object",
-                   "title": "NotSpamDetails",
-                   "description": "Details for content classified as not spam.",
-                   "properties": {
-                     "summary": { "type": "string", "description": "A brief summary of the content." },
-                     "is_safe": { "type": "boolean", "description": "Whether the content is safe for all audiences." }
-                   },
-                   "required": ["summary", "is_safe"]
-                 }
-               ]
-             }
-           },
-           "required": ["decision"]
-         }
-       }
-     }'
- ```
+      }
+      }
+    }'
+```
 
-**Example Response:**
+**Ví dụ về câu trả lời:**
 
-```json
+```
 {
-"decision": {
- "reason": "The content is an unsolicited prize notification attempting to trick the user into clicking a suspicious link.",
- "spam_type": "scam"
-}
+  "decision": {
+    "reason": "The content is an unsolicited prize notification attempting to trick the user into clicking a suspicious link.",
+    "spam_type": "scam"
+  }
 }
 ```
 
-### Struktur Rekursif
+### Cấu trúc đệ quy
 
-Contoh ini mengilustrasikan cara menentukan skema rekursif seperti diagram organisasi.
+Ví dụ này minh hoạ cách xác định một giản đồ đệ quy, chẳng hạn như biểu đồ tổ chức.
 
 ### Python
 
@@ -577,15 +411,17 @@ Generate an organization chart for a small team.
 The manager is Alice, who manages Bob and Charlie. Bob manages David.
 """
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=prompt,
-    config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": Employee.model_json_schema()}},
+    input=prompt,
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": Employee.model_json_schema()
     },
 )
 
-employee = Employee.model_validate_json(response.text)
+employee = Employee.model_validate_json(interaction.output_text)
 print(employee)
 ```
 
@@ -593,108 +429,60 @@ print(employee)
 
 ```
 import { GoogleGenAI } from "@google/genai";
-import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
+import * as z from "zod";
 
-const employeeSchema = z.object({
-  name: z.string(),
-  employee_id: z.number().int(),
-  reports: z.lazy(() => z.array(employeeSchema)).describe("A list of employees reporting to this employee."),
-});
+const employeeJsonSchema = {
+  type: "object",
+  properties: {
+    name: { type: "string" },
+    employee_id: { type: "integer" },
+    reports: {
+      type: "array",
+      description: "A list of employees reporting to this employee.",
+      items: {
+        "$ref": "#"
+      }
+    }
+  },
+  required: ["name", "employee_id", "reports"]
+};
 
-const ai = new GoogleGenAI({});
+const employeeSchema = z.fromJSONSchema(employeeJsonSchema);
+
+const client = new GoogleGenAI({});
 
 const prompt = `
 Generate an organization chart for a small team.
 The manager is Alice, who manages Bob and Charlie. Bob manages David.
 `;
 
-const response = await ai.models.generateContent({
+const interaction = await client.interactions.create({
   model: "gemini-3.5-flash",
-  contents: prompt,
-  config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(employeeSchema) } },
+  input: prompt,
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: employeeJsonSchema
   },
 });
 
-const employee = employeeSchema.parse(JSON.parse(response.text));
+const employee = employeeSchema.parse(JSON.parse(interaction.output_text));
 console.log(employee);
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    prompt := `
-  Generate an organization chart for a small team.
-  The manager is Alice, who manages Bob and Charlie. Bob manages David.
-  `
-    config := &genai.GenerateContentConfig{
-        ResponseMIMEType: "application/json",
-        ResponseJsonSchema: map[string]any{
-            "type": "object",
-            "properties": map[string]any{
-                "name":        map[string]any{"type": "string"},
-                "employee_id": map[string]any{"type": "integer"},
-                "reports": map[string]any{
-                    "type":        "array",
-                    "description": "A list of employees reporting to this employee.",
-                    "items": map[string]any{
-                        "$ref": "#",
-                    },
-                },
-            },
-            "required": []string{"name", "employee_id", "reports"},
-        },
-    }
-
-    result, err := client.Models.GenerateContent(
-        ctx,
-        "gemini-3.5-flash",
-        genai.Text(prompt),
-        config,
-    )
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Println(result.Text())
-}
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
-    -X POST \
     -d '{
-      "contents": [{
-        "parts":[
-          { "text": "Generate an organization chart for a small team.\nThe manager is Alice, who manages Bob and Charlie. Bob manages David." }
-        ]
-      }],
-      "generationConfig": {
-        "responseFormat": {
-          "text": {
-            "mimeType": "application/json",
-            "schema": {
+      "model": "gemini-3.5-flash",
+      "input": "Generate an organization chart for a small team.\nThe manager is Alice, who manages Bob and Charlie. Bob manages David.",
+      "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
           "type": "object",
           "properties": {
             "name": { "type": "string" },
@@ -705,17 +493,16 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
               "items": {
                 "$ref": "#"
               }
-          }
-        }
-      }
+            }
           },
           "required": ["name", "employee_id", "reports"]
         }
       }
+      }
     }'
 ```
 
-**Contoh Respons:**
+**Ví dụ về câu trả lời:**
 
 ```
 {
@@ -742,17 +529,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-## Streaming
+## Kết quả phát trực tuyến
 
-Anda dapat melakukan streaming output terstruktur, yang memungkinkan Anda mulai memproses respons saat sedang dibuat, tanpa harus menunggu hingga seluruh output selesai. Hal ini dapat meningkatkan performa yang dirasakan dari aplikasi Anda.
-
-Chunk yang di-streaming akan berupa string JSON parsial yang valid, yang dapat digabungkan untuk membentuk objek JSON akhir yang lengkap.
+Bạn có thể truyền trực tuyến các đầu ra có cấu trúc, cho phép bạn bắt đầu xử lý phản hồi khi phản hồi đang được tạo. Các khối được truyền trực tuyến là các chuỗi JSON hợp lệ một phần có thể được nối để tạo thành đối tượng JSON cuối cùng.
 
 ### Python
 
 ```
 from google import genai
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import Literal
 
 class Feedback(BaseModel):
@@ -760,56 +545,63 @@ class Feedback(BaseModel):
     summary: str
 
 client = genai.Client()
-prompt = "The new UI is incredibly intuitive and visually appealing. Great job. Add a very long summary to test streaming!"
+prompt = "The new UI is incredibly intuitive. Add a very long summary to test streaming!"
 
-response_stream = client.models.generate_content_stream(
+stream = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=prompt,
-    config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": Feedback.model_json_schema()}},
+    input=prompt,
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": Feedback.model_json_schema()
     },
+    stream=True
 )
-
-for chunk in response_stream:
-    print(chunk.candidates[0].content.parts[0].text)
+for event in stream:
+    if event.event_type == "step.delta" and event.delta.text:
+        print(event.delta.text, end="")
 ```
 
 ### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
-import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
+import * as z from "zod";
 
-const ai = new GoogleGenAI({});
-const prompt = "The new UI is incredibly intuitive and visually appealing. Great job! Add a very long summary to test streaming!";
-
-const feedbackSchema = z.object({
-  sentiment: z.enum(["positive", "neutral", "negative"]),
-  summary: z.string(),
-});
-
-const stream = await ai.models.generateContentStream({
-  model: "gemini-3.5-flash",
-  contents: prompt,
-  config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(feedbackSchema) } },
+const feedbackJsonSchema = {
+  type: "object",
+  properties: {
+    sentiment: { type: "string", enum: ["positive", "neutral", "negative"] },
+    summary: { type: "string" }
   },
+  required: ["sentiment", "summary"]
+};
+
+const feedbackSchema = z.fromJSONSchema(feedbackJsonSchema);
+
+const client = new GoogleGenAI({});
+
+const stream = await client.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "The new UI is incredibly intuitive. Add a very long summary!",
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: feedbackJsonSchema
+  },
+  stream: true,
 });
 
-for await (const chunk of stream) {
-  console.log(chunk.candidates[0].content.parts[0].text)
+for await (const event of stream) {
+  if (event.type === "step.delta" && event.delta?.text) {
+    process.stdout.write(event.delta.text);
+  }
 }
 ```
 
-## Output terstruktur dengan alat
+## Đầu ra có cấu trúc bằng các công cụ
 
-Gemini 3 memungkinkan Anda menggabungkan Output Terstruktur dengan alat bawaan, termasuk
-[Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id),
-[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id),
-[Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id),
-[Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id#structured-output), dan
-[Pemanggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
+Gemini 3 cho phép bạn kết hợp Đầu ra có cấu trúc với các công cụ tích hợp, bao gồm [Bám sát nguồn bằng Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi), [Ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi), [Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi), [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi#structured-output) và [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi).
 
 ### Python
 
@@ -825,19 +617,18 @@ class MatchResult(BaseModel):
 
 client = genai.Client()
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.1-pro-preview",
-    contents="Search for all details for the latest Euro.",
-    config={
-        "tools": [
-            {"google_search": {}},
-            {"url_context": {}}
-        ],
-        "response_format": {"text": {"mime_type": "application/json", "schema": MatchResult.model_json_schema()}},
-    },  
+    input="Search for all details for the latest Euro.",
+    tools=[{"type": "google_search"}, {"type": "url_context"}],
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": MatchResult.model_json_schema()
+    },
 )
 
-result = MatchResult.model_validate_json(response.text)
+result = MatchResult.model_validate_json(interaction.output_text)
 print(result)
 ```
 
@@ -845,170 +636,136 @@ print(result)
 
 ```
 import { GoogleGenAI } from "@google/genai";
-import { z } from "zod";
-import { zodToJsonSchema } from "zod-to-json-schema";
+import * as z from "zod";
 
-const ai = new GoogleGenAI({});
+const matchJsonSchema = {
+  type: "object",
+  properties: {
+    winner: { type: "string" },
+    final_match_score: { type: "string" },
+    scorers: { type: "array", items: { type: "string" } }
+  },
+  required: ["winner", "final_match_score", "scorers"]
+};
 
-const matchSchema = z.object({
-  winner: z.string().describe("The name of the winner."),
-  final_match_score: z.string().describe("The final score."),
-  scorers: z.array(z.string()).describe("The name of the scorer.")
+const matchSchema = z.fromJSONSchema(matchJsonSchema);
+
+const client = new GoogleGenAI({});
+
+const interaction = await client.interactions.create({
+  model: "gemini-3.1-pro-preview",
+  input: "Search for all details for the latest Euro.",
+  tools: [{type: "google_search"}, {type: "url_context"}],
+  response_format: {
+    type: 'text',
+    mime_type: 'application/json',
+    schema: matchJsonSchema
+  },
 });
 
-async function run() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
-    contents: "Search for all details for the latest Euro.",
-    config: {
-      tools: [
-        { googleSearch: {} },
-        { urlContext: {} }
-      ],
-      responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(matchSchema) } },
-    },
-  });
-
-  const match = matchSchema.parse(JSON.parse(response.text));
-  console.log(match);
-}
-
-run();
+const match = matchSchema.parse(JSON.parse(interaction.output_text));
+console.log(match);
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [{
-      "parts": [{"text": "Search for all details for the latest Euro."}]
-    }],
-    "tools": [
-      {"googleSearch": {}},
-      {"urlContext": {}}
-    ],
-    "generationConfig": {
-        "responseFormat": {
-          "text": {
-            "mimeType": "application/json",
-            "schema": {
-            "type": "object",
-            "properties": {
-                "winner": {"type": "string", "description": "The name of the winner."},
-                "final_match_score": {"type": "string", "description": "The final score."},
-                "scorers": {
-                    "type": "array",
-                    "items": {"type": "string"},
-                    "description": "The name of the scorer."
-                }
-          }
-        }
-      },
-            "required": ["winner", "final_match_score", "scorers"]
-        }
+    "model": "gemini-3.1-pro-preview",
+    "input": "Search for all details for the latest Euro.",
+    "tools": [{"type": "google_search"}, {"type": "url_context"}],
+    "response_format": {
+      "type": "text",
+      "mime_type": "application/json",
+      "schema": {
+        "type": "object",
+        "properties": {
+            "winner": {"type": "string"},
+            "final_match_score": {"type": "string"},
+            "scorers": {"type": "array", "items": {"type": "string"}}
+        },
+        "required": ["winner", "final_match_score", "scorers"]
+      }
     }
   }'
 ```
 
-## Dukungan skema JSON
+## Hỗ trợ giản đồ JSON
 
-Untuk membuat objek JSON, tetapkan `response_format` dalam konfigurasi pembuatan. Skema harus berupa [Skema JSON](https://json-schema.org/) yang valid dan mendeskripsikan format output yang diinginkan.
+Để tạo một đối tượng JSON, hãy định cấu hình `response_format` bằng một đối tượng (hoặc một mảng chứa một đối tượng) thuộc loại `text` và đặt `mime_type` của đối tượng đó thành `application/json`. Bạn nên cung cấp giản đồ trong trường `schema`.
 
-Kemudian, model akan menghasilkan respons yang merupakan string JSON yang valid secara sintaksis dan cocok dengan skema yang diberikan. Saat menggunakan output terstruktur, model akan menghasilkan output dalam urutan yang sama dengan kunci dalam skema.
+Chế độ đầu ra có cấu trúc của Gemini hỗ trợ một phần của quy cách [Giản đồ JSON](https://json-schema.org/).
 
-Mode output terstruktur Gemini mendukung subset spesifikasi [JSON Schema](https://json-schema.org).
+Sau đây là các giá trị được hỗ trợ của `type`:
 
-Nilai `type` berikut didukung:
+- **`string`**: Đối với văn bản.
+- **`number`**: Đối với số dấu phẩy động.
+- **`integer`**: Đối với số nguyên.
+- **`boolean`**: Đối với giá trị đúng hoặc sai.
+- **`object`**: Đối với dữ liệu có cấu trúc có các cặp khoá-giá trị.
+- **`array`**: Đối với danh sách các mục.
+- **`null`**: Để cho phép một thuộc tính có giá trị rỗng, hãy thêm `"null"` vào mảng loại (ví dụ: `{"type": ["string", "null"]}`).
 
-- **`string`**: Untuk teks.
-- **`number`**: Untuk bilangan floating point.
-- **`integer`**: Untuk bilangan bulat.
-- **`boolean`**: Untuk nilai benar/salah.
-- **`object`**: Untuk data terstruktur dengan pasangan nilai kunci.
-- **`array`**: Untuk daftar item.
-- **`null`**: Untuk mengizinkan properti bernilai null, sertakan `"null"` dalam array jenis (misalnya, `{"type": ["string", "null"]}`).
+Những thuộc tính mô tả này giúp hướng dẫn mô hình:
 
-Properti deskriptif ini membantu memandu model:
+- **`title`**: Nội dung mô tả ngắn về một tài sản.
+- **`description`**: Nội dung mô tả dài hơn và chi tiết hơn về một tài sản.
 
-- **`title`**: Deskripsi singkat properti.
-- **`description`**: Deskripsi properti yang lebih panjang dan mendetail.
+### Thuộc tính cụ thể theo loại
 
-### Properti khusus jenis
+**Đối với các giá trị `object`:**
 
-**Untuk nilai `object`:**
+- **`properties`**: Một đối tượng trong đó mỗi khoá là tên thuộc tính và mỗi giá trị là một giản đồ cho thuộc tính đó.
+- **`required`**: Một mảng gồm các chuỗi, liệt kê những thuộc tính bắt buộc.
+- **`additionalProperties`**: Kiểm soát việc có cho phép các thuộc tính không có trong `properties` hay không. Có thể là một boolean hoặc một giản đồ.
 
-- **`properties`**: Objek dengan setiap kunci adalah nama properti dan setiap nilai adalah skema untuk properti tersebut.
-- **`required`**: Array string, yang mencantumkan properti mana yang wajib diisi.
-- **`additionalProperties`**: Mengontrol apakah properti yang tidak tercantum di `properties` diizinkan. Dapat berupa boolean atau skema.
+**Đối với các giá trị `string`:**
 
-**Untuk nilai `string`:**
+- **`enum`**: Liệt kê một tập hợp cụ thể gồm các chuỗi có thể có cho các tác vụ phân loại.
+- **`format`**: Chỉ định cú pháp cho chuỗi, chẳng hạn như `date-time`, `date`, `time`.
 
-- **`enum`**: Mencantumkan kumpulan string tertentu yang mungkin untuk tugas klasifikasi.
-- **`format`**: Menentukan sintaksis untuk string, seperti `date-time`, `date`, `time`.
+**Đối với các giá trị `number` và `integer`:**
 
-**Untuk nilai `number` dan `integer`:**
+- **`enum`**: Liệt kê một tập hợp cụ thể gồm các giá trị bằng số có thể có.
+- **`minimum`**: Giá trị tối thiểu bao gồm.
+- **`maximum`**: Giá trị tối đa (bao gồm).
 
-- **`enum`**: Mencantumkan serangkaian nilai numerik tertentu yang mungkin.
-- **`minimum`**: Nilai inklusif minimum.
-- **`maximum`**: Nilai inklusif maksimum.
+**Đối với các giá trị `array`:**
 
-**Untuk nilai `array`:**
+- **`items`**: Xác định giản đồ cho tất cả các mục trong mảng.
+- **`prefixItems`**: Xác định danh sách giản đồ cho N mục đầu tiên, cho phép các cấu trúc giống như bộ giá trị.
+- **`minItems`**: Số lượng tối thiểu các mục trong mảng.
+- **`maxItems`**: Số lượng tối đa của các mục trong mảng.
 
-- **`items`**: Menentukan skema untuk semua item dalam array.
-- **`prefixItems`**: Menentukan daftar skema untuk N item pertama, sehingga memungkinkan struktur seperti tuple.
-- **`minItems`**: Jumlah minimum item dalam array.
-- **`maxItems`**: Jumlah maksimum item dalam array.
+## Đầu ra có cấu trúc so với gọi hàm
 
-## Dukungan model
-
-Model berikut mendukung output terstruktur:
-
-| Model | Output Terstruktur |
+| Tính năng | Trường hợp sử dụng chính |
 | --- | --- |
-| Gemini 3.1 Flash-Lite | ✔️ |
-| Pratinjau Gemini 3.1 Pro | ✔️ |
-| Gemini 3.5 Flash | ✔️ |
-| Pratinjau Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 2.5 Pro | ✔️ |
-| Gemini 2.5 Flash | ✔️ |
-| Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini 2.0 Flash | ✔️\* |
-| Gemini 2.0 Flash-Lite | ✔️\* |
+| **Đầu ra có cấu trúc** | **Định dạng câu trả lời cuối cùng.** Sử dụng khi bạn muốn *câu trả lời* của mô hình ở một định dạng cụ thể. |
+| **Lệnh gọi hàm** | **Thực hiện hành động trong cuộc trò chuyện.** Sử dụng khi mô hình cần *hỏi bạn* thực hiện một việc trước khi đưa ra câu trả lời cuối cùng. |
 
-*\* Perhatikan bahwa Gemini 2.0 memerlukan daftar `propertyOrdering` eksplisit dalam input JSON untuk menentukan struktur yang diinginkan. Anda dapat menemukan contohnya di [cookbook](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) ini.*
+## Các phương pháp hay nhất
 
-## Output terstruktur vs. pemanggilan fungsi
+- **Nội dung mô tả rõ ràng:** Sử dụng trường `description` để hướng dẫn mô hình.
+- **Nhập mạnh:** Sử dụng các loại cụ thể (`integer`, `string`, `enum`).
+- **Thiết kế câu lệnh:** Nêu rõ bạn muốn mô hình làm gì.
+- **Xác thực:** Mặc dù đầu ra là JSON có cú pháp chính xác, nhưng bạn luôn phải xác thực các giá trị trong ứng dụng của mình.
+- **Xử lý lỗi:** Triển khai biện pháp xử lý lỗi hữu ích cho các đầu ra tuân thủ giản đồ nhưng không chính xác về mặt ngữ nghĩa.
 
-Output terstruktur dan panggilan fungsi menggunakan skema JSON, tetapi keduanya memiliki tujuan yang berbeda:
+## Các điểm hạn chế
 
-| Fitur | Kasus Penggunaan Utama |
-| --- | --- |
-| **Output Terstruktur** | **Memformat respons akhir kepada pengguna.** Gunakan ini jika Anda ingin *jawaban* model dalam format tertentu (misalnya, mengekstrak data dari dokumen untuk disimpan ke database). |
-| **Pemanggilan Fungsi** | **Mengambil tindakan selama percakapan.** Gunakan ini saat model perlu *meminta Anda* untuk melakukan tugas (misalnya, "dapatkan cuaca saat ini") sebelum dapat memberikan jawaban akhir. |
+- **Tập hợp con của giản đồ:** Không phải tính năng nào của Giản đồ JSON cũng được hỗ trợ.
+- **Độ phức tạp của giản đồ:** Các giản đồ quá lớn hoặc có nhiều lớp lồng nhau có thể bị từ chối.
 
-## Praktik terbaik
+Gửi ý kiến phản hồi
 
-- **Deskripsi yang jelas:** Gunakan kolom `description` dalam skema Anda untuk memberikan petunjuk yang jelas kepada model tentang representasi setiap properti. Hal ini penting untuk memandu output model.
-- **Pengetikan kuat:** Gunakan jenis tertentu (`integer`, `string`, `enum`) jika memungkinkan. Jika parameter memiliki serangkaian nilai valid yang terbatas, gunakan `enum`.
-- **Rekayasa perintah:** Nyatakan dengan jelas dalam perintah Anda apa yang Anda inginkan dari model. Misalnya, "Ekstrak informasi berikut dari teks..." atau "Klasifikasikan masukan ini sesuai dengan skema yang diberikan...".
-- **Validasi:** Meskipun output terstruktur menjamin JSON yang benar secara sintaksis, output ini tidak menjamin nilai yang benar secara semantik. Selalu validasi output akhir dalam kode aplikasi Anda sebelum menggunakannya.
-- **Penanganan error:** Terapkan penanganan error yang andal di aplikasi Anda untuk mengelola kasus dengan baik saat output model, meskipun sesuai dengan skema, mungkin tidak memenuhi persyaratan logika bisnis Anda.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-## Batasan
+Cập nhật lần gần đây nhất: 2026-06-22 UTC.
 
-- **Subkumpulan skema:** Tidak semua fitur spesifikasi Skema JSON didukung. Model mengabaikan properti yang tidak didukung.
-- **Kompleksitas skema:** API dapat menolak skema yang sangat besar atau memiliki banyak tingkat. Jika Anda mengalami error, coba sederhanakan skema dengan mempersingkat nama properti, mengurangi nesting, atau membatasi jumlah batasan.
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-Kirim masukan
-
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
-
-Terakhir diperbarui pada 2026-06-19 UTC.
-
-Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-19 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]

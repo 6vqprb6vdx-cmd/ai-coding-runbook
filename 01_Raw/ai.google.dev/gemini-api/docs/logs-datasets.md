@@ -1,92 +1,92 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=id
-fetched_at: 2026-06-22T06:25:34.669153+00:00
-title: "Log dan set data \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it
+fetched_at: 2026-06-29T05:34:29.750013+00:00
+title: "Log e set di dati \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Deep Research Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) kini tersedia dalam pratinjau dengan perencanaan kolaboratif, visualisasi, dukungan MCP, dan lainnya.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Kirim masukan
+Invia feedback
 
-# Log dan set data
+# Log e set di dati
 
-Panduan ini berisi semua yang Anda perlukan untuk mulai mengaktifkan logging untuk aplikasi Gemini API yang ada. Dalam panduan ini, Anda akan mempelajari cara melihat log dari aplikasi yang ada atau baru di dasbor Google AI Studio untuk lebih memahami perilaku model dan cara pengguna berinteraksi dengan aplikasi Anda. Gunakan logging untuk mengamati, men-debug, dan *secara opsional membagikan masukan penggunaan
-kepada Google untuk membantu meningkatkan kualitas Gemini di berbagai kasus penggunaan developer*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id)
+Questa guida contiene tutto il necessario per iniziare ad abilitare la registrazione per le applicazioni API Gemini esistenti. In questa guida imparerai a visualizzare i log di un'applicazione esistente o nuova nella dashboard di Google AI Studio per comprendere meglio il comportamento del modello e il modo in cui gli utenti potrebbero interagire con le tue applicazioni. Utilizza la registrazione per osservare, eseguire il debug e *facoltativamente condividere il feedback sull'utilizzo
+con Google per contribuire a migliorare Gemini in tutti i casi d'uso degli sviluppatori*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=it)
 
-Semua panggilan API `GenerateContent` dan `StreamGenerateContent` didukung,
-termasuk panggilan yang dilakukan melalui endpoint [kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id).
+Sono supportate tutte le chiamate API `GenerateContent` e `StreamGenerateContent`,
+incluse quelle effettuate tramite gli endpoint di compatibilità di [OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
 
-## 1. Mengaktifkan logging di Google AI Studio
+## 1. Abilitare la registrazione in Google AI Studio
 
-Sebelum memulai, pastikan Anda memiliki project yang mengaktifkan penagihan dan Anda adalah pemiliknya.
+Prima di iniziare, assicurati di avere un progetto di tua proprietà con la fatturazione abilitata.
 
-1. Buka halaman log di Google [AI Studio](https://aistudio.google.com/logs?hl=id).
-2. Pilih project Anda dari menu drop-down dan tekan tombol aktifkan untuk mengaktifkan logging untuk semua permintaan secara default.
+1. Apri la pagina dei log in Google [AI Studio](https://aistudio.google.com/logs?hl=it).
+2. Scegli il progetto dal menu a discesa e premi il pulsante di attivazione per abilitare la registrazione per tutte le richieste per impostazione predefinita.
 
-![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=id)
+![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=it)
 
-Anda dapat mengaktifkan atau menonaktifkan logging untuk semua project atau untuk project tertentu, dan mengubah preferensi ini kapan saja melalui Google AI Studio.
+Puoi attivare o disattivare la registrazione per tutti i progetti o per progetti specifici e modificare queste preferenze in qualsiasi momento tramite Google AI Studio.
 
-## 2. Melihat log di AI Studio
+## 2. Visualizzare i log in AI Studio
 
-1. Buka [AI Studio](https://aistudio.google.com/logs?hl=id).
-2. Pilih project yang telah Anda aktifkan logging-nya.
-3. Anda akan melihat log muncul di tabel dalam urutan kronologis terbalik.
+1. Vai ad [AI Studio](https://aistudio.google.com/logs?hl=it).
+2. Seleziona il progetto per cui hai abilitato la registrazione.
+3. Dovresti vedere i log visualizzati nella tabella in ordine cronologico inverso.
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/nano-banana-logs.gif)
 
-Klik entri untuk melihat pasangan permintaan dan respons dalam tampilan halaman penuh. Anda dapat memeriksa perintah lengkap, respons lengkap dari Gemini, dan konteks dari giliran sebelumnya. Perhatikan bahwa setiap project memiliki batas penyimpanan default hingga 1.000 log, dan log yang tidak disimpan dalam set data akan berakhir masa berlakunya setelah 55 hari. Jika project Anda mencapai batas penyimpanan, Anda akan diminta untuk menghapus log.
+Fai clic su una voce per visualizzare la coppia richiesta-risposta in una visualizzazione di pagina intera. Puoi esaminare il prompt completo, la risposta completa di Gemini e il contesto del turno precedente. Tieni presente che ogni progetto ha un limite di spazio di archiviazione predefinito di un massimo di 1000 log e che i log non salvati nei set di dati scadranno dopo 55 giorni. Se il tuo progetto raggiunge il limite di spazio di archiviazione, ti verrà chiesto di eliminare i log.
 
-## 3. Menyeleksi dan membagikan set data
+## 3. Selezionare e condividere i set di dati
 
-- Dari tabel log, temukan panel filter di bagian atas untuk memilih properti yang akan digunakan sebagai filter.
-- Dari tampilan log yang difilter, gunakan kotak centang untuk memilih semua atau beberapa log.
-- Klik tombol "Buat Set Data" yang muncul di bagian atas daftar.
-- Beri nama deskriptif dan deskripsi opsional untuk set data baru Anda.
-- Anda akan melihat set data yang baru saja dibuat dengan kumpulan log yang diseleksi.
-- Ekspor set data Anda untuk analisis lebih lanjut sebagai file CSV, JSONL, atau ke Google Spreadsheet.
+- Nella tabella dei log, individua la barra dei filtri in alto per selezionare una proprietà in base alla quale filtrare.
+- Nella visualizzazione filtrata dei log, utilizza le caselle di controllo per selezionare tutti o alcuni log.
+- Fai clic sul pulsante "Crea set di dati" visualizzato nella parte superiore dell'elenco.
+- Assegna al nuovo set di dati un nome descrittivo e una descrizione facoltativa.
+- Verrà visualizzato il set di dati appena creato con il set di log selezionato.
+- Esporta il set di dati per ulteriori analisi come file CSV, JSONL o in Fogli Google.
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/sales-dataset.gif)
 
-Set data dapat berguna untuk sejumlah kasus penggunaan yang berbeda.
+I set di dati possono essere utili per diversi casi d'uso.
 
-- **Menyeleksi set tantangan:** Mendorong peningkatan di masa mendatang yang menargetkan area yang ingin Anda tingkatkan kualitas AI-nya.
-- **Menyeleksi set sampel:** Misalnya, sampel dari penggunaan sebenarnya untuk membuat respons dari model lain, atau kumpulan kasus ekstrem untuk pemeriksaan rutin sebelum deployment.
-- **Set evaluasi:** Set yang mewakili penggunaan sebenarnya di seluruh kemampuan penting, untuk perbandingan di seluruh model lain atau iterasi petunjuk sistem.
+- **Selezionare set di sfide:** promuovi miglioramenti futuri che riguardano le aree in cui vuoi che la tua AI migliori.
+- **Selezionare set di esempi:** ad esempio, un campione di utilizzo reale per generare risposte da un altro modello o una raccolta di casi limite per i controlli di routine prima del deployment.
+- **Set di valutazione:** set rappresentativi dell'utilizzo reale in tutte le funzionalità importanti, per il confronto tra altri modelli o iterazioni delle istruzioni di sistema.
 
-Anda dapat membantu mendorong kemajuan dalam riset AI, Gemini API, dan Google AI Studio dengan memilih untuk membagikan set data Anda sebagai contoh demonstrasi. Hal ini memungkinkan kami menyempurnakan model kami dalam berbagai konteks dan membuat sistem AI yang tetap berguna bagi developer di berbagai bidang dan aplikasi
+Puoi contribuire a promuovere i progressi nella ricerca sull'AI, nell'API Gemini e in Google AI Studio scegliendo di condividere i tuoi set di dati come esempi dimostrativi. In questo modo possiamo perfezionare i nostri modelli in contesti diversi e creare sistemi di AI che rimangano utili agli sviluppatori in molti campi e applicazioni.
 
-## Langkah berikutnya &hal yang akan diuji
+## Passaggi successivi e cosa testare
 
-Setelah mengaktifkan logging, berikut beberapa hal yang dapat Anda coba:
+Ora che hai abilitato la registrazione, ecco alcune cose da provare:
 
-- **Membuat prototipe dengan histori sesi:** Manfaatkan [Build AI Studio](https://aistudio.google.com/apps?hl=id) untuk membuat prototipe aplikasi kode dan menambahkan kunci API Anda untuk mengaktifkan histori log pengguna.
-- **Menjalankan kembali log dengan Gemini Batch API:** Gunakan set data untuk pengambilan sampel respons
-  dan evaluasi model atau logika aplikasi dengan menjalankan kembali log melalui
-  [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **Creare prototipi con la cronologia delle sessioni:** utilizza [AI Studio Build](https://aistudio.google.com/apps?hl=it) per creare app di codice e aggiungi la chiave API per abilitare una cronologia dei log utente.
+- **Eseguire di nuovo i log con l'API Gemini Batch:** utilizza i set di dati per il campionamento delle risposte
+  e la valutazione dei modelli o della logica dell'applicazione eseguendo di nuovo i log tramite l'API
+  [Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-## Kompatibilitas
+## Compatibilità
 
-Logging saat ini tidak didukung untuk hal berikut:
+Al momento, la registrazione non è supportata per:
 
-- Model Imagen dan Veo
-- Model embedding Gemini
-- Input yang berisi video, GIF, atau PDF
+- Modelli Imagen e Veo
+- Modello di incorporamento Gemini
+- Input contenenti video, GIF o PDF
 
-Kirim masukan
+Invia feedback
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Terakhir diperbarui pada 2026-06-01 UTC.
+Ultimo aggiornamento 2026-06-01 UTC.
 
-Ada masukan untuk kami?
+Vuoi dirci altro?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-01 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-01 UTC."],[],[]]

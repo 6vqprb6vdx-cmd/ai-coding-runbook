@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=tr
-fetched_at: 2026-06-22T06:31:27.188529+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+fetched_at: 2026-06-29T05:33:26.905379+00:00
+title: "Google Arama temeli \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
@@ -12,44 +12,34 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 - [Ana Sayfa](https://ai.google.dev/?hl=tr)
 - [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
 - [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
 Geri bildirim gönderin
 
-# Google Arama ile Temellendirme
+# Google Arama temeli
 
-Google Arama ile Temellendirme, Gemini modelini güncel web içeriğine bağlar ve tüm dillerde kullanılabilir. Bu sayede Gemini, son güncel bilgi tarihinin ötesinde doğrulanabilir kaynaklardan alıntı yaparak daha doğru yanıtlar verebilir.
+Google Arama ile Temellendirme, Gemini modelini gerçek zamanlı web içeriğine bağlar ve tüm dillerde kullanılabilir. Bu sayede Gemini, son güncel bilgi tarihinin ötesinde daha doğru yanıtlar verebilir ve doğrulanabilir kaynaklardan alıntı yapabilir.
 
 Temellendirme, aşağıdaki işlemleri yapabilen uygulamalar oluşturmanıza yardımcı olur:
 
 - **Doğruluğu artırma:** Yanıtları gerçek dünyadaki bilgilere dayandırarak model halüsinasyonlarını azaltın.
-- **Anlık bilgilere erişme:** Son olaylar ve konularla ilgili soruları yanıtlama
+- **Anlık bilgilere erişme:** Yakın zamandaki olaylar ve konularla ilgili soruları yanıtlama
 - **Alıntı ekleyin:** Modelin iddialarının kaynaklarını göstererek kullanıcıların güvenini kazanın.
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
-grounding_tool = types.Tool(
-    google_search=types.GoogleSearch()
-)
-
-config = types.GenerateContentConfig(
-    tools=[grounding_tool]
-)
-
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents="Who won the euro 2024?",
-    config=config,
+    input="Who won the euro 2024?",
+    tools=[{"type": "google_search"}]
 )
 
-print(response.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -57,53 +47,33 @@ print(response.text)
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-const groundingTool = {
-  googleSearch: {},
-};
-
-const config = {
-  tools: [groundingTool],
-};
-
-const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
-  contents: "Who won the euro 2024?",
-  config,
+const interaction = await client.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Who won the euro 2024?",
+    tools: [{ type: "google_search" }]
 });
 
-console.log(response.text);
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
-  -X POST \
   -d '{
-    "contents": [
-      {
-        "parts": [
-          {"text": "Who won the euro 2024?"}
-        ]
-      }
-    ],
-    "tools": [
-      {
-        "google_search": {}
-      }
-    ]
+    "model": "gemini-3.5-flash",
+    "input": "Who won the euro 2024?",
+    "tools": [{"type": "google_search"}]
   }'
 ```
 
-[Arama aracı not defterini](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=tr) deneyerek daha fazla bilgi edinebilirsiniz.
-
 ## Google Arama ile temellendirme nasıl çalışır?
 
-`google_search` aracını etkinleştirdiğinizde model, arama, işleme ve bilgi alıntılamayla ilgili tüm iş akışını otomatik olarak yönetir.
+`google_search` aracını etkinleştirdiğinizde model, bilgi arama, işleme ve alıntı yapma işlemlerinin tüm iş akışını otomatik olarak gerçekleştirir.
 
 ![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=tr)
 
@@ -111,165 +81,153 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 2. **İstem Analizi:** Model, istemi analiz eder ve Google Arama'nın yanıtı iyileştirip iyileştiremeyeceğini belirler.
 3. **Google Arama:** Gerekirse model, bir veya daha fazla arama sorgusunu otomatik olarak oluşturup yürütür.
 4. **Arama sonuçlarını işleme:** Model, arama sonuçlarını işler, bilgileri sentezler ve bir yanıt oluşturur.
-5. **Temellendirilmiş Yanıt:** API, arama sonuçlarına dayalı, son ve kullanıcı dostu bir yanıt döndürür. Bu yanıtta, modelin metin yanıtı ve arama sorguları, web sonuçları ve alıntılarla birlikte `groundingMetadata` yer alır.
+5. **Temellendirilmiş Yanıt:** API, arama sonuçlarına dayalı, son ve kullanıcı dostu bir yanıt döndürür. Bu yanıtta, alıntıları içeren satır içi `annotations` ile modelin metin yanıtı, arama sorgularını ve arama önerilerini içeren `google_search_call` ve `google_search_result` adımları yer alır.
 
 ## Temellendirme yanıtını anlama
 
-Bir yanıt başarıyla temellendirildiğinde yanıtta `groundingMetadata` alanı bulunur. Bu yapılandırılmış veriler, hak taleplerini doğrulamak ve uygulamanızda zengin bir alıntı deneyimi oluşturmak için gereklidir.
+Yanıt başarıyla temellendirildiğinde modelin metin çıkışı, metin içeriği bloğunda doğrudan satır içi `annotations` içerir. Bu ek açıklamalar, yanıtın bölümlerini kaynaklarına bağlayan alıntı bilgileri sağlar.
 
 ```
 {
-  "candidates": [
+  "steps": [
     {
-      "content": {
-        "parts": [
-          {
-            "text": "Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title."
-          }
-        ],
-        "role": "model"
-      },
-      "groundingMetadata": {
-        "webSearchQueries": [
-          "UEFA Euro 2024 winner",
-          "who won euro 2024"
-        ],
-        "searchEntryPoint": {
-          "renderedContent": "<!-- HTML and CSS for the search widget -->"
-        },
-        "groundingChunks": [
-          {"web": {"uri": "https://vertexaisearch.cloud.google.com.....", "title": "aljazeera.com"}},
-          {"web": {"uri": "https://vertexaisearch.cloud.google.com.....", "title": "uefa.com"}}
-        ],
-        "groundingSupports": [
-          {
-            "segment": {"startIndex": 0, "endIndex": 85, "text": "Spain won Euro 2024, defeatin..."},
-            "groundingChunkIndices": [0]
-          },
-          {
-            "segment": {"startIndex": 86, "endIndex": 210, "text": "This victory marks Spain's..."},
-            "groundingChunkIndices": [0, 1]
-          }
-        ]
+      "type": "thought",
+      "summary": [
+        {
+          "type": "text",
+          "text": "The user is asking for the winner of Euro 2024. I need to search for the result of the Euro 2024 final."
+        }
+      ],
+      "signature": "CoMDAXLI2nynRYojJIy6B1Jh9os2crpWLfB0..."
+    },
+    {
+      "type": "google_search_call",
+      "arguments": {
+        "queries": ["UEFA Euro 2024 winner"]
       }
+    },
+    {
+      "type": "google_search_result",
+      "call_id": "search_001",
+      "result": [
+        {
+          "search_suggestions": "<!-- HTML and CSS for the search widget -->"
+        }
+      ]
+    },
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.",
+          "annotations": [
+            {
+              "type": "url_citation",
+              "url": "https://www.aljazeera.com/sports/euro-2024-final",
+              "title": "aljazeera.com",
+              "start_index": 0,
+              "end_index": 56
+            },
+            {
+              "type": "url_citation",
+              "url": "https://www.uefa.com/euro2024/news/spain-wins-euro-2024",
+              "title": "uefa.com",
+              "start_index": 57,
+              "end_index": 124
+            }
+          ]
+        }
+      ]
     }
   ]
 }
 ```
 
-Gemini API, `groundingMetadata` ile birlikte aşağıdaki bilgileri döndürür:
+Yanıtın temel alanları:
 
-- `webSearchQueries` : Kullanılan arama sorgularının dizisi. Bu, hata ayıklama ve modelin muhakeme sürecini anlamak için yararlıdır.
-- `searchEntryPoint` : Gerekli arama önerilerini oluşturmak için HTML ve CSS'yi içerir. Kullanımla ilgili tüm şartlar [Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr#grounding-with-google-search)'nda ayrıntılı olarak açıklanmıştır.
-- `groundingChunks` : Web kaynaklarını (`uri` ve `title`) içeren nesne dizisi.
-- `groundingSupports` : Model yanıtı `text` ile `groundingChunks` içindeki kaynakları bağlamak için kullanılan parçalar dizisi. Her parça, bir metni `segment` (`startIndex` ve `endIndex` ile tanımlanır) bir veya daha fazla `groundingChunkIndices` ile bağlar. Bu, metin içi alıntılar oluşturmanın anahtarıdır.
+- `google_search_call` : Modelin yürüttüğü arama `queries` içerir.
+- `google_search_result` : Arama önerilerini kullanıcı arayüzünüzde oluşturmak için kullanılan bir HTML snippet'i olan `search_suggestions` içerir. Kullanımla ilgili tüm şartlar [Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr#grounding-with-google-search)'nda ayrıntılı olarak açıklanmıştır.
+- `text` ile `annotations` : Modelin satır içi alıntılarla sentezlenmiş yanıtı. Her `url_citation` ek açıklaması, bir metin segmentini (`start_index` ve `end_index` ile tanımlanır) bir kaynak URL'ye bağlar. Bu, satır içi alıntı oluşturmanın anahtarıdır.
 
 Google Arama ile temellendirme, yanıtları hem herkese açık web verileri hem de sağladığınız belirli URL'lerle temellendirmek için [URL bağlam aracı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) ile birlikte de kullanılabilir.
 
 ## Satır içi alıntılarla kaynakları atfetme
 
-API, yapılandırılmış alıntı verileri döndürerek kaynakları kullanıcı arayüzünüzde nasıl göstereceğiniz konusunda tam kontrol sahibi olmanızı sağlar. Modelin ifadelerini doğrudan kaynaklarına bağlamak için `groundingSupports` ve `groundingChunks` alanlarını kullanabilirsiniz. Meta verileri işleyerek satır içi, tıklanabilir alıntılar içeren bir yanıt oluşturmak için kullanılan yaygın bir kalıbı aşağıda bulabilirsiniz.
+API, metin içerik bloğunda satır içi `url_citation` ek açıklamalar döndürerek kaynakları kullanıcı arayüzünüzde nasıl göstereceğiniz konusunda size tam kontrol sağlar.
+Her ek açıklama, metnin hangi bölümüne atıfta bulunduğunu belirlemek için `start_index` ve `end_index` içerir. Bunları nasıl ayıklayıp görüntüleyeceğinizi öğrenin.
 
 ### Python
 
 ```
-def add_citations(response):
-    text = response.text
-    supports = response.candidates[0].grounding_metadata.grounding_supports
-    chunks = response.candidates[0].grounding_metadata.grounding_chunks
-
-    # Sort supports by end_index in descending order to avoid shifting issues when inserting.
-    sorted_supports = sorted(supports, key=lambda s: s.segment.end_index, reverse=True)
-
-    for support in sorted_supports:
-        end_index = support.segment.end_index
-        if support.grounding_chunk_indices:
-            # Create citation string like [1](link1)[2](link2)
-            citation_links = []
-            for i in support.grounding_chunk_indices:
-                if i < len(chunks):
-                    uri = chunks[i].web.uri
-                    citation_links.append(f"[{i + 1}]({uri})")
-
-            citation_string = ", ".join(citation_links)
-            text = text[:end_index] + citation_string + text[end_index:]
-
-    return text
-
-# Assuming response with grounding metadata
-text_with_citations = add_citations(response)
-print(text_with_citations)
+for step in interaction.steps:
+    if step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print(content_block.text)
+                if content_block.annotations:
+                    print("\nCitations:")
+                    for annotation in content_block.annotations:
+                        if annotation.type == "url_citation":
+                            cited_text = content_block.text[annotation.start_index:annotation.end_index]
+                            print(f"  [{annotation.title}]({annotation.url})")
+                            print(f"    Cited text: \"{cited_text}\"")
 ```
 
 ### JavaScript
 
 ```
-function addCitations(response) {
-    let text = response.text;
-    const supports = response.candidates[0]?.groundingMetadata?.groundingSupports;
-    const chunks = response.candidates[0]?.groundingMetadata?.groundingChunks;
-
-    // Sort supports by end_index in descending order to avoid shifting issues when inserting.
-    const sortedSupports = [...supports].sort(
-        (a, b) => (b.segment?.endIndex ?? 0) - (a.segment?.endIndex ?? 0),
-    );
-
-    for (const support of sortedSupports) {
-        const endIndex = support.segment?.endIndex;
-        if (endIndex === undefined || !support.groundingChunkIndices?.length) {
-        continue;
-        }
-
-        const citationLinks = support.groundingChunkIndices
-        .map(i => {
-            const uri = chunks[i]?.web?.uri;
-            if (uri) {
-            return `[${i + 1}](${uri})`;
+for (const step of interaction.steps) {
+  if (step.type === 'model_output') {
+    for (const contentBlock of step.content) {
+      if (contentBlock.type === 'text') {
+        console.log(contentBlock.text);
+        if (contentBlock.annotations) {
+          console.log("\nCitations:");
+          for (const annotation of contentBlock.annotations) {
+            if (annotation.type === 'url_citation') {
+              const citedText = contentBlock.text.slice(annotation.startIndex, annotation.endIndex);
+              console.log(`  [${annotation.title}](${annotation.url})`);
+              console.log(`    Cited text: "${citedText}"`);
             }
-            return null;
-        })
-        .filter(Boolean);
-
-        if (citationLinks.length > 0) {
-        const citationString = citationLinks.join(", ");
-        text = text.slice(0, endIndex) + citationString + text.slice(endIndex);
+          }
         }
+      }
     }
-
-    return text;
+  }
 }
-
-const textWithCitations = addCitations(response);
-console.log(textWithCitations);
 ```
 
-Satır içi alıntıların yer aldığı yeni yanıt şu şekilde görünür:
+Çıktıda, metin ve alıntıları gösterilir:
 
 ```
-Spain won Euro 2024, defeating England 2-1 in the final.[1](https:/...), [2](https:/...), [4](https:/...), [5](https:/...) This victory marks Spain's record-breaking fourth European Championship title.[5]((https:/...), [2](https:/...), [3](https:/...), [4](https:/...)
+Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
+
+Citations:
+  [aljazeera.com](https://www.aljazeera.com/sports/euro-2024-final)
+    Cited text: "Spain won Euro 2024, defeating England 2-1 in the final."
+  [uefa.com](https://www.uefa.com/euro2024/news/spain-wins-euro-2024)
+    Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
 ## Fiyatlandırma
 
 Gemini 3 ile Google Arama'yı Temellendirme özelliğini kullandığınızda projeniz, modelin yürütmeye karar verdiği her arama sorgusu için faturalandırılır. Model, tek bir isteme yanıt vermek için birden fazla arama sorgusu yürütmeye karar verirse (örneğin, aynı API çağrısında `"UEFA Euro 2024 winner"` ve `"Spain vs England Euro 2024 final
-score"` için arama yaparsa) bu, söz konusu istek için aracın iki faturalandırılabilir kullanımı olarak sayılır. Faturalandırma amacıyla, benzersiz sorguları sayarken boş web arama sorgularını yoksayarız. Bu faturalandırma modeli yalnızca Gemini 3 modelleri için geçerlidir. Gemini 2.5 veya daha eski modellerle arama temellendirmeyi kullandığınızda projeniz istem başına faturalandırılır.
+score"` için arama yaparsa) bu, söz konusu istek için aracın iki faturalandırılabilir kullanımı olarak sayılır. Faturalandırma amacıyla, benzersiz sorguları sayarken boş web arama sorgularını dikkate almayız. Bu faturalandırma modeli yalnızca Gemini 3 modelleri için geçerlidir. Gemini 2.5 veya daha eski modellerle arama temellendirmeyi kullandığınızda projeniz istem başına faturalandırılır.
 
 Ayrıntılı fiyatlandırma bilgileri için [Gemini API fiyatlandırma sayfasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) inceleyin.
 
 ## Desteklenen modeller
 
-Tüm özellikleri [modele
-genel bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında bulabilirsiniz.
+Tüm özellikleri [modele genel bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında bulabilirsiniz.
 
 | Model | Google Arama ile Temellendirme |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite | ✔️ |
 | Gemini 3.1 Flash Image Önizlemesi | ✔️ |
 | Gemini 3.1 Pro Önizlemesi | ✔️ |
 | Gemini 3 Pro Görüntü Önizlemesi | ✔️ |
 | Gemini 3 Flash Önizlemesi | ✔️ |
-| Gemini 3.1 Flash-Lite Önizlemesi | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
@@ -279,11 +237,10 @@ genel bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında b
 
 Daha karmaşık kullanım alanlarını desteklemek için Google Arama ile Temellendirme'yi [kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr) ve [URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) gibi diğer araçlarla birlikte kullanabilirsiniz.
 
-Gemini 3 modelleri, yerleşik araçların (ör. Google Arama ile temellendirme) özel araçlarla (işlev çağrısı) birlikte kullanılmasını destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
+Gemini 3 modelleri, yerleşik araçların (ör. Google Arama ile Temellendirme) özel araçlarla (işlev çağrısı) birlikte kullanılmasını destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
 
 ## Sırada ne var?
 
-- [Gemini API çözüm kitabında Google Arama ile Temellendirme](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=tr)'yi deneyin.
 - [İşlev Çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) gibi diğer araçlar hakkında bilgi edinin.
 - [URL bağlamı aracını](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) kullanarak istemleri belirli URL'lerle nasıl zenginleştireceğinizi öğrenin.
 
@@ -291,8 +248,8 @@ Geri bildirim gönderin
 
 Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Son güncelleme tarihi: 2026-06-19 UTC.
+Son güncelleme tarihi: 2026-06-22 UTC.
 
 Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-19 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]

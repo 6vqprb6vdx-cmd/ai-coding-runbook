@@ -1,31 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar
-fetched_at: 2026-06-22T06:25:13.859037+00:00
-title: "\u0627\u0644\u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u062d\u0633\u0628 \u0627\u0644\u0623\u0648\u0644\u0648\u064a\u0629 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-CN
+fetched_at: 2026-06-29T05:34:16.130426+00:00
+title: "\u4f18\u5148\u7ea7\u63a8\u7406 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-إرسال ملاحظات
+发送反馈
 
-# الاستدلال حسب الأولوية
+# 优先级推理
 
-‫Gemini Priority API هي طبقة استنتاج مميزة مصمّمة لأحمال العمل الأساسية التي تتطلّب وقت استجابة أقل وموثوقية أعلى بسعر مميز. تحظى الزيارات إلى طبقة الأولوية بأولوية أعلى من الزيارات إلى واجهة برمجة التطبيقات العادية والطبقة المرنة.
+说明：了解如何通过 Interactions API 中的 Priority 推理层优化延迟时间
 
-يتوفّر الاستنتاج ذو الأولوية لمستخدمي [الطبقة 2 والطبقة 3](https://ai.google.dev/gemini-api/docs/billing?hl=ar#about-billing) من خلال نقطتَي نهاية GenerateContent API
-وInteractions API.
+Gemini Priority API 是一种高级推理层级，专为需要低延迟和最高可靠性的业务关键型工作负载而设计，价格较高。优先层级的流量优先于标准 API 和灵活层级的流量。
 
-## كيفية استخدام الأولوية
+优先级推理功能适用于所有 Interactions API 端点。
 
-لاستخدام طبقة الأولوية، اضبط حقل `service_tier` في نص الطلب على `priority`. الطبقة التلقائية هي الطبقة العادية إذا تم حذف الحقل.
+## 如何使用“优先级”
+
+如需使用“优先”层级，请将请求中的 `service_tier` 字段设置为 `priority`。如果省略此字段，则默认层级为标准层级。
 
 ### Python
 
@@ -34,185 +35,114 @@ from google import genai
 
 client = genai.Client()
 
-try:
-    response = client.models.generate_content(
-        model="gemini-3.5-flash",
-        contents="Triage this critical customer support ticket immediately.",
-        config={"service_tier": "priority"},
-    )
-
-    # Validate for graceful downgrade
-    if response.sdk_http_response.headers.get("x-gemini-service-tier") == "standard":
-        print("Warning: Priority limit exceeded, processed at Standard tier.")
-
-    print(response.text)
-
-except Exception as e:
-    # Standard error handling (e.g., DEADLINE_EXCEEDED)
-    print(f"Error during API call: {e}")
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Triage this critical customer support ticket immediately.",
+    service_tier='priority'
+)
+print(interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-import {GoogleGenAI} from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
 const ai = new GoogleGenAI({});
 
 async function main() {
-  try {
-      const result = await ai.models.generateContent({
-          model: "gemini-3.5-flash",
-          contents: "Triage this critical customer support ticket immediately.",
-          config: {serviceTier: "priority"},
-      });
-
-      // Validate for graceful downgrade
-      if (result.sdkHttpResponse.headers.get("x-gemini-service-tier") === "standard") {
-          console.log("Warning: Priority limit exceeded, processed at Standard tier.");
-      }
-
-      console.log(result.text);
-
-  } catch (e) {
-      console.log(`Error during API call: ${e}`);
-  }
+    const interaction = await ai.interactions.create({
+        model: "gemini-3.5-flash",
+        input: "Triage this critical customer support ticket immediately.",
+        service_tier: "priority"
+    });
+    console.log(interaction.output_text);
 }
 
 await main();
 ```
 
-### انتقال
+### REST
 
 ```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-    "google.golang.org/genai"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer client.Close()
-
-    resp, err := client.Models.GenerateContent(
-        ctx,
-        "gemini-3.5-flash",
-        genai.Text("Triage this critical customer support ticket immediately."),
-        &genai.GenerateContentConfig{
-            ServiceTier: "priority",
-        },
-    )
-    if err != nil {
-        log.Fatalf("Error during API call: %v", err)
-    }
-
-    // Validate for graceful downgrade
-    if resp.SDKHTTPResponse.Header.Get("x-gemini-service-tier") == "standard" {
-        fmt.Println("Warning: Priority limit exceeded, processed at Standard tier.")
-    }
-
-    fmt.Println(resp.Text())
-}
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Triage this critical customer support ticket immediately.",
+    "service_tier": "priority"
+  }'
 ```
 
-### راحة
+## 优先级推理的运作方式
 
-```
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=$GEMINI_API_KEY" \
--H "Content-Type: application/json" \
--d '{
-  "contents": [{
-    "parts":[{"text": "Analyze user sentiment in real time"}]
-  }],
-  "service_tier": "priority"
-}'
-```
+优先级推理会将请求路由到高严重性计算队列，从而为面向用户的应用提供可预测的快速性能。其主要机制是，当流量超出动态限制时，服务器端会以优雅的方式降级为标准处理，从而确保应用稳定性，而不是使请求失败。
 
-## آلية عمل الاستنتاج ذي الأولوية
-
-يوجّه الاستنتاج ذو الأولوية الطلبات إلى قوائم انتظار الحوسبة عالية الأهمية، ما يوفّر أداءً سريعًا يمكن التنبؤ به للتطبيقات التي يتفاعل معها المستخدمون. آليته الأساسية هي الرجوع السلس من جهة الخادم إلى المعالجة العادية للزيارات التي تتجاوز الحدود الديناميكية، ما يضمن استقرار التطبيق بدلاً من تعذُّر معالجة الطلب.
-
-| الميزة | الأولوية | خطة "الرزمة العادية" | التعبير | مجمّعة |
+| 功能 | 优先级 | 标准 | Flex | 批量 |
 | --- | --- | --- | --- | --- |
-| **الأسعار** | أكثر بنسبة %75 إلى %100 من خطة "الرزمة العادية" | السعر الكامل | خصم بنسبة% 50 | خصم بنسبة% 50 |
-| **وقت الاستجابة** | الثواني | من الثواني إلى الدقائق | الدقائق (من دقيقة واحدة إلى 15 دقيقة كحد أقصى) | ما يصل إلى 24 ساعة |
-| **الموثوقية** | عالية (لا يمكن تقليلها) | عالية / متوسطة عالية | بأفضل جهد (يمكن تقليلها) | عالية (لمعدّل نقل البيانات) |
-| **الواجهة** | متزامن | متزامن | متزامن | غير متزامن |
+| **价格** | 比标准版高出 75-100% | 全价票 | 5 折 | 5 折 |
+| **延迟时间** | 秒 | 秒到分钟 | 分钟（目标时长为 1-15 分钟） | 最长 24 小时 |
+| **可靠性** | 高（不可舍弃） | 高 / 中高 | 尽力而为（可舍弃） | 高（针对吞吐量） |
+| **接口** | 同步 | 同步 | 同步 | 异步 |
 
-### المزايا الرئيسية
+### 主要优势
 
-- **وقت استجابة منخفض**: مصمّم لأوقات الاستجابة بالثواني لأدوات الذكاء الاصطناعي التفاعلية التي يتفاعل معها المستخدمون.
-- **موثوقية عالية**: يتم التعامل مع الزيارات بأعلى درجة من الأهمية ولا يمكن تقليلها على الإطلاق.
-- **التكيّف مع الإصدارات الأقدم**: يتم تلقائيًا الرجوع إلى الطبقة العادية لمعالجة الزيارات التي تتجاوز الحدود الديناميكية بدلاً من تعذُّر معالجتها، ما يمنع انقطاع الخدمة.
-- **الحد الأدنى من المشاكل**: تستخدم الطريقتان العادية والمرنة طريقة `generateContent` المتزامنة نفسها.
+- **低延迟**：专为面向用户的交互式 AI 工具而设计，可实现秒级响应时间。
+- **高可靠性**：流量以最高严重程度处理，且严格不可丢弃。
+- **平稳降级**：如果流量峰值超出动态限额，系统会自动将流量降级到标准层级进行处理，而不是处理失败，从而防止服务中断。
+- **低摩擦**：使用与标准层级和 Flex 层级相同的同步 `create` 方法。
 
-### حالات الاستخدام
+### 使用场景
 
-تُعد المعالجة ذات الأولوية مثالية لسير العمل الأساسي الذي تكون فيه الأولوية للأداء والموثوقية.
+优先处理非常适合性能和可靠性至关重要的关键业务工作流。
 
-- **تطبيقات الذكاء الاصطناعي التفاعلية**: روبوتات الدردشة و"المساعدون" لخدمة العملاء حيث يدفع المستخدمون سعرًا مميزًا ويتوقعون استجابات سريعة ومتسقة.
-- **محركات اتخاذ القرارات في الوقت الفعلي**: الأنظمة التي تتطلب نتائج موثوقة جدًا ومنخفضة وقت الاستجابة
-  ، مثل فرز التذاكر المباشر أو كشف الاحتيال.
-- **ميزات العملاء المميزين**: المطوّرون الذين يحتاجون إلى ضمان أهداف مستوى خدمة أعلى للعملاء الذين يدفعون رسومًا.
+- **互动式 AI 应用**：客户服务聊天机器人和 Copilot，用户支付高价，希望获得快速、一致的回答。
+- **实时决策引擎**：需要高度可靠、低延迟结果的系统，例如实时工单分流或欺诈检测。
+- **高级客户功能**：需要为付费客户保证更高服务等级目标 (SLO) 的开发者。
 
-### الحدود القصوى لمعدّل الاستخدام
+### 速率限制
 
-[تخضع عمليات الاستهلاك ذات الأولوية لحدود قصوى لمعدّل الاستخدام خاصة بها، على الرغم من احتساب عمليات الاستهلاك ضمن الحدود القصوى لمعدّل استخدام الزيارات التفاعلية بشكل عام.](https://aistudio.google.com/rate-limit?hl=ar) الحدود القصوى التلقائية لمعدّل استخدام الاستنتاج ذي الأولوية هي **0.3 ضعف الحد الأقصى لمعدّل الاستخدام العادي للطراز / الطبقة**
+即使优先级消耗计入[总体交互式流量速率限制](https://aistudio.google.com/rate-limit?hl=zh-cn)，它也有自己的速率限制。优先级推理的默认速率限制为**模型 / 层级标准速率限制的 0.3 倍**
 
-### منطق الرجوع السلس
+### 优雅降级逻辑
 
-إذا تم تجاوز الحدود القصوى للأولوية بسبب الازدحام، يتم **تلقائيًا وبشكل سلس** الرجوع إلى المعالجة العادية للطلبات التي تتجاوز الحد الأقصى بدلاً من تعذُّر معالجتها بسبب ظهور الخطأ 503 أو 429. تتم فوترة الطلبات التي تم الرجوع إلى معالجتها بالسعر العادي، وليس بالسعر المميز للأولوية.
+如果因拥塞而超出优先级限制，溢出请求会**自动且平稳地**降级为标准处理，而不是因 503 或 429 错误而失败。降级后的请求按标准费率计费，而不是按 Priority Premium 费率计费。
 
-### مسؤولية العميل
+### 客户责任
 
-- **مراقبة الردود**: على المطوّرين مراقبة `x-gemini-service-tier`
-  العنوان في ردّ واجهة برمجة التطبيقات للكشف عمّا إذا كان يتم الرجوع بشكل متكرر إلى
-  `standard`.
-- **إعادة المحاولات**: على العملاء تنفيذ منطق إعادة المحاولة/التراجع الأسي لـ
-  الأخطاء العادية، مثل `DEADLINE_EXCEEDED`.
+- **响应监控**：开发者应监控 API 响应中的 `x-gemini-service-tier` 标头，以检测请求是否经常降级为 `standard`。
+- **重试**：客户端必须针对标准错误（例如 `DEADLINE_EXCEEDED`）实现重试逻辑/指数退避算法。
 
-## الأسعار
+## 价格
 
-يتم تسعير الاستنتاج ذي الأولوية بنسبة %75 إلى %100 أكثر من [واجهة برمجة التطبيقات العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar) ويتم تحصيل الرسوم لكل رمز مميز.
+优先级推理的价格比[标准 API](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn) 高出 75-100%，按令牌数计费。
 
-## الطُرز المتوافقة
+## 支持的模型
 
-تسمح الطُرز التالية بالاستنتاج ذي الأولوية:
+以下模型支持优先推理：
 
-| الطراز | الاستنتاج ذو الأولوية |
+| 模型 | 优先级推理 |
 | --- | --- |
-| [‫Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ‫✔️ |
-| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ‫✔️ |
-| [‫Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ‫✔️ |
-| [‫Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ‫✔️ |
-| [‫Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ar) | ‫✔️ |
-| [‫Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ‫✔️ |
-| [‫Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ‫✔️ |
-| [‫Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar) | ‫✔️ |
-| [‫Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ‫✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
+| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
 
-## الخطوات التالية
+## 后续步骤
 
-يمكنك الاطّلاع على خيارات [الاستنتاج والتحسين](https://ai.google.dev/gemini-api/docs/optimization?hl=ar) الأخرى في Gemini:
+- [灵活推理](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-cn)，以降低成本。
+- [token](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn)：了解 token。
 
-- [الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar) لخفض التكلفة بنسبة% 50
-- [واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) للمعالجة غير المتزامنة في غضون 24 ساعة
-- [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar) لتقليل تكاليف الرموز المميّزة للإدخال
+发送反馈
 
-إرسال ملاحظات
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+最后更新时间 (UTC)：2026-06-22。
 
-تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)
+需要向我们提供更多信息？
 
-هل تريد مشاركة ملاحظاتك معنا؟
-
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-22。"],[],[]]

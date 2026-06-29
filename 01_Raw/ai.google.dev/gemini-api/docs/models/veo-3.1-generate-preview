@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=pt-BR
-fetched_at: 2026-06-22T06:27:04.548027+00:00
+fetched_at: 2026-06-29T05:27:11.299168+00:00
 title: "Veo 3.1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 

@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=de
-fetched_at: 2026-06-22T06:29:33.868710+00:00
-title: "ReAct-Agent mit Gemini und LangGraph von Grund auf erstellen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=vi
+fetched_at: 2026-06-29T05:28:55.735652+00:00
+title: "T\u1ea1o t\u00e1c nh\u00e2n ReAct t\u1eeb \u0111\u1ea7u b\u1eb1ng Gemini v\u00e0 LangGraph \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) ist jetzt in der Vorabversion mit Funktionen wie gemeinsamer Planung, Visualisierung und MCP-Unterstützung verfügbar.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Feedback geben
+Gửi ý kiến phản hồi
 
-# ReAct-Agent mit Gemini und LangGraph von Grund auf erstellen
+# Tạo tác nhân ReAct từ đầu bằng Gemini và LangGraph
 
-LangGraph ist ein Framework zum Erstellen zustandsorientierter LLM-Anwendungen und eignet sich daher gut für die Entwicklung von ReAct-Agents (Reasoning and Acting).
+LangGraph là một khung để tạo các ứng dụng LLM có trạng thái, khiến nó trở thành một lựa chọn phù hợp để tạo các Tác nhân ReAct (Suy luận và hành động).
 
-ReAct-Agents kombinieren LLM-Logik mit der Ausführung von Aktionen. Sie denken iterativ, verwenden Tools und reagieren auf Beobachtungen, um Nutzerziele zu erreichen, wobei sie ihren Ansatz dynamisch anpassen. Dieses Muster wurde 2023 in [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) eingeführt und versucht, die flexible Problemlösung von Menschen anstelle von starren Workflows nachzubilden.
+Các tác nhân ReAct kết hợp khả năng suy luận của LLM với việc thực thi hành động. Họ suy nghĩ, sử dụng công cụ và hành động dựa trên những quan sát để đạt được mục tiêu của người dùng, đồng thời điều chỉnh phương pháp của mình một cách linh hoạt. Được giới thiệu trong bài viết ["ReAct: Synergizing Reasoning and Acting in Language Models"](https://arxiv.org/abs/2210.03629) (2023), mẫu này cố gắng phản ánh khả năng suy luận và giải quyết vấn đề linh hoạt như con người thay vì các quy trình làm việc cứng nhắc.
 
-LangGraph bietet einen vordefinierten ReAct-Agenten ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)), der sich besonders eignet, wenn Sie mehr Kontrolle und Anpassungsmöglichkeiten für Ihre ReAct-Implementierungen benötigen. In diesem Leitfaden wird eine vereinfachte Version beschrieben.
+LangGraph cung cấp một tác nhân ReAct được tạo sẵn ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)), hoạt động hiệu quả khi bạn cần kiểm soát và tuỳ chỉnh thêm cho các hoạt động triển khai ReAct. Hướng dẫn này sẽ cho bạn thấy một phiên bản đơn giản.
 
-Bei LangGraph werden Agents als Graphen mit drei Hauptkomponenten modelliert:
+LangGraph mô hình hoá các tác nhân dưới dạng biểu đồ bằng cách sử dụng 3 thành phần chính:
 
-- `State`: Gemeinsame Datenstruktur (in der Regel `TypedDict` oder `Pydantic BaseModel`), die den aktuellen Snapshot der Anwendung darstellt.
-- `Nodes`: Codiert die Logik Ihrer Agents. Sie erhalten den aktuellen Status als Eingabe, führen eine Berechnung oder einen Nebeneffekt aus und geben einen aktualisierten Status zurück, z. B. LLM- oder Tool-Aufrufe.
-- `Edges`: Definiert den nächsten `Node`, der auf Grundlage des aktuellen `State` ausgeführt werden soll. Dies ermöglicht bedingte Logik und feste Übergänge.
+- `State`: Cấu trúc dữ liệu được chia sẻ (thường là `TypedDict` hoặc `Pydantic BaseModel`) biểu thị ảnh chụp nhanh hiện tại của ứng dụng.
+- `Nodes`: Mã hoá logic của các tác nhân. Các hàm này nhận Trạng thái hiện tại làm dữ liệu đầu vào, thực hiện một số phép tính hoặc hiệu ứng phụ và trả về Trạng thái đã cập nhật, chẳng hạn như lệnh gọi LLM hoặc lệnh gọi công cụ.
+- `Edges`: Xác định `Node` tiếp theo sẽ thực thi dựa trên `State` hiện tại, cho phép logic có điều kiện và các hiệu ứng chuyển đổi cố định.
 
-Wenn Sie noch keinen API-Schlüssel haben, können Sie einen in [Google AI Studio](https://aistudio.google.com/apikey?hl=de) abrufen.
+Nếu chưa có Khoá API, bạn có thể lấy khoá này từ [Google AI Studio](https://aistudio.google.com/apikey?hl=vi).
 
 ```
 pip install langgraph langchain-google-genai geopy requests
 ```
 
-Legen Sie Ihren API-Schlüssel in der Umgebungsvariable `GEMINI_API_KEY` fest.
+Đặt khoá API trong biến môi trường `GEMINI_API_KEY`.
 
 ```
 import os
@@ -45,11 +45,11 @@ import os
 api_key = os.getenv("GEMINI_API_KEY")
 ```
 
-In diesem Leitfaden wird anhand eines praktischen Beispiels erläutert, wie Sie einen ReAct-Agenten mit LangGraph implementieren. Sie erstellen einen Agent, dessen Ziel es ist, mit einem Tool das aktuelle Wetter für einen bestimmten Ort zu ermitteln.
+Để hiểu rõ hơn về cách triển khai một tác nhân ReAct bằng LangGraph, hướng dẫn này sẽ trình bày một ví dụ thực tế. Bạn sẽ tạo một tác nhân có mục tiêu là sử dụng một công cụ để tìm thông tin thời tiết hiện tại cho một vị trí cụ thể.
 
-Für diesen Wetter-Agent wird der `State` zur Veranschaulichung den laufenden Unterhaltungsverlauf (als Liste von Nachrichten) und einen Zähler (als Ganzzahl) für die Anzahl der ausgeführten Schritte beibehalten.
+Đối với tác nhân thời tiết này, `State` sẽ duy trì nhật ký cuộc trò chuyện đang diễn ra (dưới dạng danh sách tin nhắn) và một bộ đếm (dưới dạng số nguyên) cho số bước đã thực hiện, cho mục đích minh hoạ.
 
-LangGraph bietet die Hilfsfunktion `add_messages` zum Aktualisieren von Listen mit Statusmeldungen. Sie fungiert als [Reducer](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers), der die aktuelle Liste und die neuen Nachrichten entgegennimmt und eine kombinierte Liste zurückgibt. Es verarbeitet Aktualisierungen anhand der Nachrichten-ID und verwendet standardmäßig das Verhalten „Nur anhängen“ für neue, noch nicht gesehene Nachrichten.
+LangGraph cung cấp một hàm trợ giúp, `add_messages`, để cập nhật danh sách thông báo trạng thái. Nó hoạt động như một [reducer](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers), lấy danh sách hiện tại, cộng với các thông báo mới và trả về một danh sách kết hợp. Nó xử lý các bản cập nhật theo mã nhận dạng tin nhắn và mặc định là hành vi "chỉ thêm" cho các tin nhắn mới, chưa xem.
 
 ```
 from typing import Annotated,Sequence, TypedDict
@@ -63,7 +63,7 @@ class AgentState(TypedDict):
     number_of_steps: int
 ```
 
-Als Nächstes definieren Sie Ihr Wettertool.
+Tiếp theo, hãy xác định công cụ thời tiết của bạn.
 
 ```
 from langchain_core.tools import tool
@@ -102,7 +102,7 @@ def get_weather_forecast(location: str, date: str):
 tools = [get_weather_forecast]
 ```
 
-Initialisieren Sie nun das Modell und binden Sie die Tools an das Modell.
+Bây giờ, hãy khởi tạo mô hình và liên kết các công cụ với mô hình.
 
 ```
 from datetime import datetime
@@ -125,14 +125,14 @@ res=model.invoke(f"What is the weather in Berlin on {datetime.today()}?")
 print(res)
 ```
 
-Der letzte Schritt, bevor Sie Ihren Agent ausführen können, besteht darin, die Knoten und Kanten zu definieren.
-In diesem Beispiel gibt es zwei Knoten und eine Kante.
+Bước cuối cùng trước khi bạn có thể chạy tác nhân là xác định các nút và cạnh.
+Trong ví dụ này, bạn có 2 nút và 1 cạnh.
 
-- `call_tool`-Knoten, der die Tool-Methode ausführt. LangGraph hat einen vordefinierten Knoten dafür namens [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/).
-- `call_model`-Knoten, der das Modell mit dem `model_with_tools` aufruft.
-- `should_continue`-Kante, die entscheidet, ob das Tool oder das Modell aufgerufen wird.
+- nút `call_tool` thực thi phương thức công cụ của bạn. LangGraph có một nút dựng sẵn cho việc này, được gọi là [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/).
+- Nút `call_model` sử dụng `model_with_tools` để gọi mô hình.
+- `should_continue` cạnh quyết định có gọi công cụ hay mô hình hay không.
 
-Die Anzahl der Knoten und Kanten ist nicht festgelegt. Sie können Ihrem Diagramm beliebig viele Knoten und Kanten hinzufügen. Sie können beispielsweise einen Knoten zum Hinzufügen strukturierter Ausgaben oder einen Knoten zur Selbstüberprüfung/Reflexion hinzufügen, um die Modellausgabe zu prüfen, bevor Sie das Tool oder das Modell aufrufen.
+Số lượng nút và cạnh không cố định. Bạn có thể thêm bao nhiêu nút và cạnh tuỳ thích vào biểu đồ của mình. Ví dụ: bạn có thể thêm một nút để thêm đầu ra có cấu trúc hoặc một nút tự xác minh/phản chiếu để kiểm tra đầu ra của mô hình trước khi gọi công cụ hoặc mô hình.
 
 ```
 from langchain_core.messages import ToolMessage
@@ -176,7 +176,7 @@ def should_continue(state: AgentState):
     return "continue"
 ```
 
-Nachdem alle Agent-Komponenten fertig sind, können Sie sie jetzt zusammenfügen.
+Khi đã chuẩn bị xong tất cả các thành phần của tác nhân, bạn có thể kết hợp chúng lại với nhau.
 
 ```
 from langgraph.graph import StateGraph, END
@@ -212,7 +212,7 @@ workflow.add_edge("tools", "llm")
 graph = workflow.compile()
 ```
 
-Mit der Methode `draw_mermaid_png` können Sie den Graphen visualisieren.
+Bạn có thể trực quan hoá biểu đồ bằng phương thức `draw_mermaid_png`.
 
 ```
 from IPython.display import Image, display
@@ -220,9 +220,9 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=de)
+![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=vi)
 
-Führen Sie den Agent jetzt aus.
+Bây giờ, hãy chạy tác nhân.
 
 ```
 from datetime import datetime
@@ -235,7 +235,7 @@ for state in graph.stream(inputs, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-Sie können die Unterhaltung jetzt fortsetzen, nach dem Wetter in einer anderen Stadt fragen oder einen Vergleich anfordern.
+Giờ đây, bạn có thể tiếp tục cuộc trò chuyện, hỏi về Thời tiết ở một thành phố khác hoặc yêu cầu so sánh.
 
 ```
 state["messages"].append(("user", "Would it be warmer in Munich?"))
@@ -245,12 +245,12 @@ for state in graph.stream(state, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-Feedback geben
+Gửi ý kiến phản hồi
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Zuletzt aktualisiert: 2026-06-19 (UTC).
+Cập nhật lần gần đây nhất: 2026-06-22 UTC.
 
-Haben Sie Feedback für uns?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-19 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]

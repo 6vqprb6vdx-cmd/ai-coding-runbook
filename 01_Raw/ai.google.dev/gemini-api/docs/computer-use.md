@@ -1,106 +1,113 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=it
-fetched_at: 2026-06-22T06:24:09.244913+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=ar
+fetched_at: 2026-06-29T05:35:56.127215+00:00
+title: "\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u0627\u0644\u0643\u0645\u0628\u064a\u0648\u062a\u0631 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) is now available in preview with collaborative planning, visualization, MCP support, and more.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-# Uso del computer
+# استخدام الكمبيوتر
 
-L'utilizzo del computer ti consente di creare agenti di controllo del browser che interagiscono
-con le attività e le automatizzano. Utilizzando gli screenshot, il modello può "vedere" lo schermo di un computer e "agire" generando azioni specifiche della UI, come clic del mouse e input da tastiera. Analogamente alla chiamata di funzione, devi scrivere il codice dell'applicazione lato client per ricevere ed eseguire le azioni di utilizzo del computer.
+تتيح لك أداة "استخدام الكمبيوتر" إنشاء وكلاء تحكّم في المتصفّح والأجهزة الجوّالة وأجهزة الكمبيوتر المكتبي تتفاعل مع المهام وتنفّذها تلقائيًا. باستخدام لقطات الشاشة، يمكن للنموذج "رؤية" شاشة الكمبيوتر و "التصرف" من خلال إنشاء إجراءات معيّنة في واجهة المستخدم، مثل نقرات الماوس وإدخالات لوحة المفاتيح. على غرار ميزة &quot;استدعاء الدوال&quot;، عليك تنفيذ بيئة التنفيذ من جهة العميل لتلقّي إجراءات &quot;استخدام الكمبيوتر&quot; وتنفيذها.
 
-Con Utilizzo del computer, puoi creare agenti che:
+‫Gemini 3.5 Flash هو النموذج المقترَح للاستخدام على الكمبيوتر، ويتضمّن عدة إمكانات جديدة:
 
-- Automatizza l'inserimento di dati ripetitivi o la compilazione di moduli sui siti web.
-- Esegui test automatici di applicazioni web e flussi utente
-- Eseguire ricerche su vari siti web (ad es. raccogliere informazioni, prezzi e recensioni sui prodotti da siti di e-commerce per informare un acquisto)
+- **التوافق مع بيئات متعددة:** يمكنك إنشاء وكلاء لبيئات [المتصفّح والأجهزة الجوّالة وأجهزة الكمبيوتر](#supported-environments).
+- **إجراءات مبسطة مع النوايا:** تتضمّن الإجراءات حقل `intent` يشرح الأساس المنطقي الذي يستند إليه النموذج في كل خطوة.
+- **سياسات الأمان القابلة للإعداد:** يمكنك تحسين [سلوك الأمان](#safety-policies) باستخدام فئات السياسات وعناصر التجاوز المضمّنة.
+- **رصد عمليات حقن الطلبات:** فعِّل ميزة [فحص لقطات الشاشة](#prompt-injection) لرصد التعليمات الخفية التي تهدف إلى خداع الذكاء الاصطناعي.
 
-Il modo più semplice per testare la funzionalità Utilizzo del computer è tramite l'[implementazione
-di riferimento](https://github.com/google/computer-use-preview/) o
-l'[ambiente demo Browserbase](http://gemini.browserbase.com).
+باستخدام "استخدام الكمبيوتر"، يمكنك إنشاء وكلاء تنفيذ يمكنهم:
 
-## Come funziona Uso del computer
+- أتمتة إدخال البيانات المتكرّر أو ملء النماذج على المواقع الإلكترونية
+- إجراء اختبار آلي لتطبيقات الويب وتفاعلات المستخدمين
+- إجراء بحث على مواقع إلكترونية مختلفة (مثل جمع معلومات عن المنتجات وأسعارها ومراجعاتها من مواقع التجارة الإلكترونية لاتخاذ قرار بشأن الشراء)
 
-Per creare un agente di controllo del browser con il modello Utilizzo del computer, implementa
-un ciclo dell'agente che esegue le seguenti operazioni:
+في ما يلي مثال بسيط على تهيئة العميل وإرسال طلب إلى النموذج مع تفعيل الأداة `computer_use` لبيئة المتصفّح:
 
-1. [**Invia una richiesta al modello**](#send-request)
+### Python
 
-   - Aggiungi lo strumento Utilizzo del computer ed eventualmente qualsiasi funzione personalizzata definita dall'utente
-     o funzione esclusa alla tua richiesta API.
-   - Richiedi al modello Computer Use la richiesta dell'utente.
-2. [**Ricevere la risposta del modello**](#model-response)
+```
+from google import genai
 
-   - Il modello di utilizzo del computer analizza la richiesta e lo screenshot dell'utente e genera una risposta che include un `function_call` suggerito che rappresenta un'azione dell'interfaccia utente (ad es. "fai clic sulla coordinata (x,y)" o "digita "testo""). Per una descrizione di tutte le azioni dell'interfaccia utente supportate dal modello di utilizzo del computer, consulta [Azioni supportate](#supported-actions).
-   - La risposta dell'API può includere anche un `safety_decision` di un sistema
-     di sicurezza interno che controlla l'azione proposta dal modello. Questo
-     `safety_decision` classifica l'azione come:
-     - **Regolare / consentita**:l'azione è considerata sicura. Ciò può anche
-       essere rappresentato dall'assenza di `safety_decision`.
-     - **Richiede conferma (`require_confirmation`)**: il modello sta per eseguire un'azione
-       che potrebbe essere rischiosa (ad es. fare clic su un "banner dei cookie").
-3. [**Esegui l'azione ricevuta**](#execute-actions)
+client = genai.Client()
 
-   - Il codice lato client riceve `function_call` e qualsiasi `safety_decision`
-     di accompagnamento.
-     - **Regolare / consentito**:se `safety_decision` indica regolare/consentito (o se non è presente alcun `safety_decision`), il codice lato client può eseguire `function_call` specificato nell'ambiente di destinazione (ad es. un browser web).
-     - **Richiede conferma**:se `safety_decision` indica
-       richiede conferma, la tua applicazione deve chiedere all'utente finale
-       la conferma prima di eseguire `function_call`. Se l'utente
-       conferma, procedi con l'esecuzione dell'azione. Se l'utente nega l'autorizzazione, non
-       eseguire l'azione.
-4. [**Acquisire il nuovo stato dell'ambiente**](#capture-state)
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Search for 'Gemini API' on Google.",
+    tools=[{"type": "computer_use", "environment": "browser"}]
+)
 
-   - Se l'azione è stata eseguita, il client acquisisce una nuova schermata
-     della GUI e l'URL corrente da inviare al modello Computer Use come
-     parte di un `function_response`.
-   - Se un'azione è stata bloccata dal sistema di sicurezza o la conferma è stata negata dall'utente, l'applicazione potrebbe inviare un altro tipo di feedback al modello o terminare l'interazione.
+print(interaction)
+```
 
-Questo processo si ripete dal passaggio 2 con il modello che utilizza la nuova
-istantanea e l'obiettivo in corso per suggerire l'azione successiva. Il ciclo continua
-finché l'attività non viene completata, si verifica un errore o il processo viene terminato
-(ad esempio a causa di una risposta di sicurezza "blocca" o di una decisione dell'utente).
+### JavaScript
 
-![Panoramica dell&#39;uso del computer](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=it)
+```
+import { GoogleGenAI } from '@google/genai';
 
-## Come implementare l'uso del computer
+const ai = new GoogleGenAI();
 
-Prima di creare con lo strumento Utilizzo del computer, devi configurare quanto segue:
+const interaction = await ai.interactions.create({
+  model: 'gemini-3.5-flash',
+  input: "Search for 'Gemini API' on Google.",
+  tools: [{ type: "computer_use", environment: "browser" }]
+});
 
-- **Ambiente di esecuzione sicuro:** per motivi di sicurezza, devi eseguire l'agente
-  Computer Use in un ambiente sicuro e controllato (ad es. una macchina virtuale
-  sandbox, un container o un profilo browser dedicato con autorizzazioni
-  limitate).
-- **Gestore delle azioni lato client:** dovrai implementare la logica lato client
-  per eseguire le azioni generate dal modello e
-  acquisire screenshot dell'ambiente dopo ogni azione.
+console.log(interaction);
+```
 
-Gli esempi in questa sezione utilizzano un browser come ambiente di esecuzione
-e [Playwright](https://playwright.dev/) come gestore di azioni lato client. Per
-eseguire questi esempi, devi installare le dipendenze necessarie e inizializzare un'istanza del browser
-Playwright:
+## طريقة عمل ميزة "استخدام الكمبيوتر"
 
-### 0. Installare Playwright
+لإنشاء وكيل باستخدام نموذج "استخدام الكمبيوتر"، عليك إعداد حلقة متواصلة بين تطبيقك وواجهة برمجة التطبيقات. في ما يلي ما سيفعله الرمز في كل خطوة:
+
+1. [**إرسال طلب إلى النموذج**](#send-request)
+   - يرسل تطبيقك طلبًا إلى واجهة برمجة التطبيقات يتضمّن أداة "استخدام الكمبيوتر"، وإعدادات التهيئة (مثل البيئة المستهدَفة)، وطلب المستخدم، ولقطة شاشة للشاشة الحالية.
+2. [**تلقّي ردّ النموذج**](#model-response)
+   - يحلّل النموذج الشاشة والطلب، ويعرض ردًا يتضمّن `function_call` مقترَحًا يمثّل إجراءً في واجهة المستخدم (مثل النقر أو التمرير أو ضغط المفاتيح).
+   - بالنسبة إلى **Gemini 3.5 Flash**، يتضمّن الرد أيضًا شرحًا `intent`
+     يوضّح سبب اختيار النموذج لهذا الإجراء.
+   - قد يتضمّن الرد أيضًا `safety_decision` من نظام أمان داخلي يصنّف الإجراء على أنّه عادي/مسموح به، أو `require_confirmation` (يتطلّب موافقة المستخدم)، أو محظور.
+3. [**تنفيذ الإجراء الذي تم تلقّيه**](#execute-actions)
+   - إذا كان الإجراء مسموحًا به (أو إذا أكّده المستخدم)، سيحلّل الرمز البرمجي من جهة العميل `function_call`، ويغيّر حجم الإحداثيات العادية لتتطابق مع إطار العرض، وينفّذ الإجراء في البيئة المستهدَفة باستخدام أدوات التشغيل الآلي (مثل Playwright). إذا تم حظر الإجراء، على العميل إيقاف التنفيذ أو التعامل مع الانقطاع.
+4. [**تسجيل حالة البيئة الجديدة**](#capture-state)
+   - بعد انتهاء تنفيذ الإجراء، يلتقط تطبيقك لقطة شاشة جديدة ويرسلها إلى النموذج في `function_result` لطلب الخطوة التالية.
+
+بعد ذلك، تتكرر هذه العملية بدءًا من الخطوة 2، ويتم باستمرار طلب الإجراء التالي من النموذج إلى أن تكتمل المهمة أو يتم إنهاؤها.
+
+![نظرة عامة على استخدام الكمبيوتر](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=ar)
+
+## كيفية تنفيذ ميزة "استخدام الكمبيوتر"
+
+قبل إنشاء تطبيق باستخدام أداة "استخدام الكمبيوتر"، عليك إعداد ما يلي:
+
+- **بيئة التنفيذ الآمنة:** شغِّل وكيلك في جهاز افتراضي أو حاوية في وضع الحماية لعزله عن نظامك المضيف والحدّ من تأثيره المحتمل.
+  يتضمّن [التنفيذ المرجعي](https://github.com/google/computer-use-preview/)
+  بيئة اختبارية جاهزة للاستخدام تستند إلى Docker ويمكنك استخدامها كنقطة بداية.
+- **معالج الإجراءات من جهة العميل:** نفِّذ منطقًا من جهة العميل لتنفيذ الإحداثيات وكتابة النص وأخذ لقطات شاشة.
+
+تستخدِم الأمثلة أدناه متصفّح ويب كبيئة تنفيذ و[Playwright](https://playwright.dev/) كأداة معالجة من جهة العميل.
+
+### 0. إعداد Playwright
+
+أولاً، ثبِّت الحِزم المطلوبة:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-### 0. Inizializza l'istanza del browser Playwright
+بعد ذلك، ابدأ مثيلاً لمتصفّح Playwright لاستخدامه في التنفيذ:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -128,126 +135,190 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-Il codice campione per l'estensione a un ambiente Android è incluso nella sezione [Utilizzo di funzioni personalizzate definite dall'utente](#custom-functions).
+### 1. إرسال طلب إلى النموذج
 
-### 1. Inviare una richiesta al modello
+ابدأ مكتبة البرامج واضبط أداة "استخدام الكمبيوتر". يُرجى العِلم أنّه ليس من الضروري تحديد حجم العرض عند إرسال طلب، إذ يتوقّع النموذج إحداثيات البكسل التي تم تغيير حجمها لتناسب ارتفاع الشاشة وعرضها.
 
-Aggiungi lo strumento Utilizzo del computer alla richiesta API e invia un prompt al modello
-che includa l'obiettivo dell'utente. Devi utilizzare uno dei modelli di utilizzo del computer supportati
-o riceverai un errore:
+### ‫Gemini 3.5 Flash (يُنصح به)
 
-- `gemini-2.5-computer-use-preview-10-2025`
-- `gemini-3-flash-preview`
+### Python
 
-Puoi anche aggiungere facoltativamente i seguenti parametri:
+استخدِم حزمة تطوير البرامج (SDK) `google-genai` Python (الإصدار `2.7.0` أو إصدار أحدث) لإعداد طلب يستهدف بيئة المتصفّح:
 
-- **Azioni escluse**:se ci sono azioni nell'elenco delle [azioni dell'interfaccia utente
-  supportate](#supported-actions) che non vuoi che il modello esegua,
-  specifica queste azioni come `excluded_predefined_functions`.
-- **Funzioni definite dall'utente**:oltre allo strumento Utilizzo del computer, potresti
-  voler includere funzioni personalizzate definite dall'utente.
+```
+from google import genai
 
-Tieni presente che non è necessario specificare le dimensioni di visualizzazione quando invii una richiesta;
-il modello prevede le coordinate dei pixel scalate in base all'altezza e alla larghezza dello
-schermo.
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model='gemini-3.5-flash',
+    input="Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th",
+    tools=[
+        {
+            "type": "computer_use",
+            "environment": "browser",
+            "enable_prompt_injection_detection": True
+        }
+    ]
+)
+
+print(interaction)
+```
+
+### JavaScript
+
+استخدِم حزمة تطوير البرامج (SDK) الخاصة بـ Node.js في `@google/genai` لإعداد طلب يستهدف بيئة المتصفّح:
+
+```
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI();
+
+const interaction = await ai.interactions.create({
+  model: 'gemini-3.5-flash',
+  input: "Find a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th",
+  tools: [
+    {
+      type: "computer_use",
+      environment: "browser",
+      enable_prompt_injection_detection: true
+    }
+  ]
+});
+
+console.log(interaction);
+```
+
+### REST
+
+استخدِم curl لإرسال طلب:
+
+```
+curl -X POST \
+  "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Find me a flight from SF to Hawaii on Jun 30th, coming back on Jul 6th. Start by navigating directly to flights.google.com",
+    "tools": [
+      {
+        "type": "computer_use",
+        "environment": "browser",
+        "enable_prompt_injection_detection": true
+      }
+    ]
+  }'
+```
+
+### الإصدار القديم من Gemini 2.5
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
-from google.genai.types import Content, Part
 
 client = genai.Client()
 
 # Specify predefined functions to exclude (optional)
 excluded_functions = ["drag_and_drop"]
 
-generate_content_config = genai.types.GenerateContentConfig(
-    tools=[
-        # 1. Computer Use tool with browser environment
-        types.Tool(
-            computer_use=types.ComputerUse(
-                environment=types.Environment.ENVIRONMENT_BROWSER,
-                # Optional: Exclude specific predefined functions
-                excluded_predefined_functions=excluded_functions
-                )
-              ),
-        # 2. Optional: Custom user-defined functions
-        #types.Tool(
-          # function_declarations=custom_functions
-          #   )
-          ],
-  )
-
-# Create the content with user message
-contents=[
-    Content(
-        role="user",
-        parts=[
-            Part(text="Search for highly rated smart fridges with touchscreen, 2 doors, around 25 cu ft, priced below 4000 dollars on Google Shopping. Create a bulleted list of the 3 cheapest options in the format of name, description, price in an easy-to-read layout."),
-        ],
-    )
-]
-
-# Generate content with the configured settings
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model='gemini-2.5-computer-use-preview-10-2025',
-    contents=contents,
-    config=generate_content_config,
+    input="Search for highly rated smart fridges on Google Shopping.",
+    tools=[
+        {
+            "type": "computer_use",
+            "environment": "browser",
+            "excluded_predefined_functions": excluded_functions
+        }
+    ]
 )
 
-# Print the response output
-print(response)
+print(interaction)
 ```
 
-Per un esempio con funzioni personalizzate, consulta [Utilizzo di funzioni personalizzate definite dall'utente](#custom-functions).
+### JavaScript
 
-### 2. Ricevere la risposta del modello
+```
+import { GoogleGenAI } from '@google/genai';
 
-Quando lo strumento Utilizzo del computer è attivato, il modello risponderà con uno o più
-`FunctionCalls` se determina che sono necessarie azioni dell'interfaccia utente per completare l'attività.
-L'utilizzo del computer supporta la chiamata di funzioni parallele, il che significa che il modello può restituire
-più azioni in un singolo turno.
+const ai = new GoogleGenAI();
 
-Ecco un esempio di risposta del modello.
+// Specify predefined functions to exclude (optional)
+const excludedFunctions = ["drag_and_drop"];
+
+const interaction = await ai.interactions.create({
+  model: 'gemini-2.5-computer-use-preview-10-2025',
+  input: "Search for highly rated smart fridges on Google Shopping.",
+  tools: [
+    {
+      type: "computer_use",
+      environment: "browser",
+      excluded_predefined_functions: excludedFunctions
+    }
+  ]
+});
+
+console.log(interaction);
+```
+
+### 2. تلقّي ردّ النموذج
+
+يقترح نموذج الردّ استدعاء دالة. بالنسبة إلى **Gemini 3.5 Flash**،
+يتضمّن الرد نية استدلال مخصّصة بالإضافة إلى الإحداثيات. يوضّح ما يلي أمثلة على كلا الردّين:
+
+### Gemini 3.5 Flash
 
 ```
 {
-  "content": {
-    "parts": [
-      {
-        "text": "I will type the search query into the search bar. The search bar is in the center of the page."
-      },
-      {
-        "function_call": {
-          "name": "type_text_at",
-          "args": {
-            "x": 371,
-            "y": 470,
-            "text": "highly rated smart fridges with touchscreen, 2 doors, around 25 cu ft, priced below 4000 dollars on Google Shopping",
-            "press_enter": true
-          }
-        }
+  "steps": [
+    {
+      "type": "function_call",
+      "name": "click",
+      "arguments": {
+        "x": 450,
+        "y": 120,
+        "intent": "Click the search box to type the destination."
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
-### 3. Esegui le azioni ricevute
+### الإصدار القديم من Gemini 2.5
 
-Il codice dell'applicazione deve analizzare la risposta del modello, eseguire le azioni
-e raccogliere i risultati.
+```
+{
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "I will type the search query into the search bar."
+        }
+      ]
+    },
+    {
+      "type": "function_call",
+      "name": "type_text_at",
+      "arguments": {
+        "x": 371,
+        "y": 470,
+        "text": "highly rated smart fridges",
+        "press_enter": true
+      }
+    }
+  ]
+}
+```
 
-Il codice di esempio riportato di seguito estrae le chiamate di funzione dalla risposta del modello Computer Use e le traduce in azioni che possono essere eseguite con Playwright.
-Il modello restituisce coordinate normalizzate (0-999) indipendentemente dalle dimensioni dell'immagine di input, quindi parte del passaggio di traduzione consiste nel convertire queste coordinate normalizzate di nuovo in valori di pixel effettivi.
+### 3- تنفيذ الإجراءات التي تم تلقّيها
 
-Le dimensioni dello schermo consigliate per l'utilizzo
-con il modello di utilizzo del computer sono (1440, 900). Il modello funzionerà con qualsiasi
-risoluzione, anche se la qualità dei risultati potrebbe risentirne.
+يجب أن يحلّل تطبيقك إحداثيات الردّ وينفّذ الإجراء ويغيّر حجمها من الإحداثيات العادية 1000x1000.
 
-Tieni presente che questo esempio include solo l'implementazione per le tre azioni della UI più comuni: `open_web_browser`, `click_at` e `type_text_at`. Per i casi d'uso di produzione, dovrai implementare tutte le altre azioni della UI dall'elenco [Azioni supportate](#supported-actions), a meno che non le aggiunga esplicitamente come `excluded_predefined_functions`.
+يتعامل الرمز أدناه مع أوامر الأدوات القديمة (`click_at` و`type_text_at`) وأوامر Gemini 3.5 Flash المبسّطة (`click` و`type`).
 
 ### Python
 
@@ -263,43 +334,60 @@ def denormalize_y(y: int, screen_height: int) -> int:
     """Convert normalized y coordinate (0-1000) to actual pixel coordinate."""
     return int(y / 1000 * screen_height)
 
-def execute_function_calls(candidate, page, screen_width, screen_height):
+def execute_function_calls(interaction, page, screen_width, screen_height):
     results = []
-    function_calls = []
-    for part in candidate.content.parts:
-        if part.function_call:
-            function_calls.append(part.function_call)
+    function_calls = [
+        step for step in interaction.steps if step.type == "function_call"
+    ]
 
     for function_call in function_calls:
         action_result = {}
         fname = function_call.name
-        args = function_call.args
-        print(f"  -> Executing: {fname}")
+        args = function_call.arguments
+        print(f"  -> Executing: {fname} (Intent: {args.get('intent', 'N/A')})")
 
         try:
-            if fname == "open_web_browser":
-                pass # Already open
-            elif fname == "click_at":
+            if fname in ("open_web_browser", "open_app"):
+                pass # Handled / already open
+            elif fname in ("click", "click_at", "double_click", "triple_click", "middle_click", "right_click", "move", "long_press"):
                 actual_x = denormalize_x(args["x"], screen_width)
                 actual_y = denormalize_y(args["y"], screen_height)
-                page.mouse.click(actual_x, actual_y)
-            elif fname == "type_text_at":
-                actual_x = denormalize_x(args["x"], screen_width)
-                actual_y = denormalize_y(args["y"], screen_height)
+
+                if fname in ("click", "click_at"):
+                    page.mouse.click(actual_x, actual_y)
+                elif fname == "double_click":
+                    page.mouse.dblclick(actual_x, actual_y)
+                elif fname == "right_click":
+                    page.mouse.click(actual_x, actual_y, button="right")
+                elif fname == "middle_click":
+                    page.mouse.click(actual_x, actual_y, button="middle")
+                elif fname == "move":
+                    page.mouse.move(actual_x, actual_y)
+            elif fname in ("type", "type_text_at"):
+                actual_x = denormalize_x(args["x"], screen_width) if "x" in args else None
+                actual_y = denormalize_y(args["y"], screen_height) if "y" in args else None
                 text = args["text"]
                 press_enter = args.get("press_enter", False)
 
-                page.mouse.click(actual_x, actual_y)
-                # Simple clear (Command+A, Backspace for Mac)
+                if actual_x is not None and actual_y is not None:
+                    page.mouse.click(actual_x, actual_y)
+                # Clear field first
                 page.keyboard.press("Meta+A")
                 page.keyboard.press("Backspace")
                 page.keyboard.type(text)
                 if press_enter:
                     page.keyboard.press("Enter")
+            elif fname == "navigate":
+                page.goto(args["url"])
+            elif fname == "go_back":
+                page.go_back()
+            elif fname == "go_forward":
+                page.go_forward()
+            elif fname == "wait":
+                time.sleep(args.get("seconds", 1))
             else:
-                print(f"Warning: Unimplemented or custom function {fname}")
+                print(f"Warning: Custom or unhandled function {fname}")
 
-            # Wait for potential navigations/renders
             page.wait_for_load_state(timeout=5000)
             time.sleep(1)
 
@@ -307,49 +395,167 @@ def execute_function_calls(candidate, page, screen_width, screen_height):
             print(f"Error executing {fname}: {e}")
             action_result = {"error": str(e)}
 
-        results.append((fname, action_result))
+        results.append((fname, function_call.id, action_result))
 
     return results
 ```
 
-### 4. Acquisire il nuovo stato dell'ambiente
+### JavaScript
 
-Dopo aver eseguito le azioni, invia il risultato dell'esecuzione della funzione al modello in modo che possa utilizzare queste informazioni per generare l'azione successiva. Se
-sono state eseguite più azioni (chiamate parallele), devi inviare un
-`FunctionResponse` per ciascuna nel turno successivo dell'utente.
+```
+function denormalizeX(x, screenWidth) {
+    // Convert normalized x coordinate (0-1000) to actual pixel coordinate.
+    return Math.floor((x / 1000) * screenWidth);
+}
+
+function denormalizeY(y, screenHeight) {
+    // Convert normalized y coordinate (0-1000) to actual pixel coordinate.
+    return Math.floor((y / 1000) * screenHeight);
+}
+
+async function executeFunctionCalls(interaction, page, screenWidth, screenHeight) {
+    const results = [];
+    const functionCalls = interaction.steps.filter(step => step.type === "function_call");
+
+    for (const functionCall of functionCalls) {
+        const actionResult = {};
+        const fname = functionCall.name;
+        const args = functionCall.arguments;
+        console.log(`  -> Executing: ${fname} (Intent: ${args.intent || 'N/A'})`);
+
+        try {
+            if (fname === "open_web_browser" || fname === "open_app") {
+                // Handled / already open
+            } else if (["click", "click_at", "double_click", "triple_click", "middle_click", "right_click", "move", "long_press"].includes(fname)) {
+                const actualX = denormalizeX(args.x, screenWidth);
+                const actualY = denormalizeY(args.y, screenHeight);
+
+                if (fname === "click" || fname === "click_at") {
+                    await page.mouse.click(actualX, actualY);
+                } else if (fname === "double_click") {
+                    await page.mouse.dblclick(actualX, actualY);
+                } else if (fname === "right_click") {
+                    await page.mouse.click(actualX, actualY, { button: "right" });
+                } else if (fname === "middle_click") {
+                    await page.mouse.click(actualX, actualY, { button: "middle" });
+                } else if (fname === "move") {
+                    await page.mouse.move(actualX, actualY);
+                }
+            } else if (fname === "type" || fname === "type_text_at") {
+                const actualX = args.x !== undefined ? denormalizeX(args.x, screenWidth) : null;
+                const actualY = args.y !== undefined ? denormalizeY(args.y, screenHeight) : null;
+                const text = args.text;
+                const pressEnter = args.press_enter || false;
+
+                if (actualX !== null && actualY !== null) {
+                    await page.mouse.click(actualX, actualY);
+                }
+                // Clear field first
+                await page.keyboard.press("Meta+A");
+                await page.keyboard.press("Backspace");
+                await page.keyboard.type(text);
+                if (pressEnter) {
+                    await page.keyboard.press("Enter");
+                }
+            } else if (fname === "navigate") {
+                await page.goto(args.url);
+            } else if (fname === "go_back") {
+                await page.goBack();
+            } else if (fname === "go_forward") {
+                await page.goForward();
+            } else if (fname === "wait") {
+                await new Promise(resolve => setTimeout(resolve, (args.seconds || 1) * 1000));
+            } else {
+                console.log(`Warning: Custom or unhandled function ${fname}`);
+            }
+
+            await page.waitForLoadState('load', { timeout: 5000 }).catch(() => {});
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        } catch (e) {
+            console.log(`Error executing ${fname}: ${e}`);
+            actionResult.error = e.message;
+        }
+
+        results.push([fname, functionCall.id, actionResult]);
+    }
+
+    return results;
+}
+```
+
+### 4. تسجيل حالة البيئة الجديدة
+
+بعد تنفيذ الإجراءات، أرسِل نتيجة تنفيذ الدالة إلى النموذج ليتمكّن من استخدام هذه المعلومات لإنشاء الإجراء التالي. في حال تنفيذ إجراءات متعددة (مكالمات متوازية)، عليك إرسال `function_result` لكل إجراء في رد المستخدم التالي.
 
 ### Python
 
 ```
+import json
+import base64
+
 def get_function_responses(page, results):
     screenshot_bytes = page.screenshot(type="png")
     current_url = page.url
     function_responses = []
-    for name, result in results:
-        response_data = {"url": current_url}
-        response_data.update(result)
-        function_responses.append(
-            types.FunctionResponse(
-                name=name,
-                response=response_data,
-                parts=[types.FunctionResponsePart(
-                        inline_data=types.FunctionResponseBlob(
-                            mime_type="image/png",
-                            data=screenshot_bytes))
-                ]
-            )
-        )
+    for name, call_id, result in results:
+        function_responses.append({
+            "type": "function_result",
+            "name": name,
+            "call_id": call_id,
+            "result": [
+                {
+                    "type": "text",
+                    "text": json.dumps({"url": current_url, **result})
+                },
+                {
+                    "type": "image",
+                    "data": base64.b64encode(screenshot_bytes).decode("utf-8"),
+                    "mime_type": "image/png"
+                }
+            ]
+        })
     return function_responses
 ```
 
-## Crea un loop dell'agente
+### JavaScript
 
-Per attivare le interazioni in più passaggi, combina i quattro passaggi della sezione [Come implementare l'utilizzo del computer](#implement-computer-use) in un ciclo. Ricorda di gestire correttamente la cronologia della conversazione aggiungendo sia le risposte del modello sia le risposte della funzione.
+```
+async function getFunctionResponses(page, results) {
+    const screenshotBuffer = await page.screenshot({ type: 'png' });
+    const screenshotBase64 = screenshotBuffer.toString('base64');
+    const currentUrl = page.url();
+    const functionResponses = [];
 
-Per eseguire questo esempio di codice devi:
+    for (const [name, callId, result] of results) {
+        functionResponses.push({
+            type: "function_result",
+            name: name,
+            call_id: callId,
+            result: [
+                {
+                    type: "text",
+                    text: JSON.stringify({ url: currentUrl, ...result })
+                },
+                {
+                    type: "image",
+                    data: screenshotBase64,
+                    mime_type: "image/png"
+                }
+            ]
+        });
+    }
+    return functionResponses;
+}
+```
 
-- Installa le [dipendenze Playwright necessarie](#expandable-1).
-- Definisci le funzioni di assistenza dai passaggi [(3) Esegui le azioni ricevute](#execute-actions) e [(4) Acquisisci il nuovo stato dell'ambiente](#capture-state).
+بعد تحديد كيفية تسجيل حالة البيئة وتنسيقها، يمكنك دمج كل هذه الخطوات في حلقة تنفيذ مستمرة.
+
+## إنشاء حلقة وكيل
+
+لتفعيل التفاعلات المتعدّدة الخطوات، ادمِج الخطوات الأربع من قسم [كيفية تنفيذ استخدام الكمبيوتر](#implement-computer-use) في حلقة واحدة.
+تستمر هذه الحلقة في طلب تنفيذ الإجراءات وإعادة النتائج إلى النموذج إلى أن تكتمل المهمة.
+
+تذكَّر إدارة سجلّ المحادثات بشكل صحيح من خلال إضافة ردود النموذج وردود الوظائف إلى السجلّ في كل خطوة.
 
 ### Python
 
@@ -359,8 +565,6 @@ from typing import Any, List, Tuple
 from playwright.sync_api import sync_playwright
 
 from google import genai
-from google.genai import types
-from google.genai.types import Content, Part
 
 client = genai.Client()
 
@@ -385,54 +589,58 @@ try:
     # Go to initial page
     page.goto("https://ai.google.dev/gemini-api/docs")
 
-    # Configure the model (From Step 1)
-    config = types.GenerateContentConfig(
-        tools=[types.Tool(computer_use=types.ComputerUse(
-            environment=types.Environment.ENVIRONMENT_BROWSER
-        ))],
-        thinking_config=types.ThinkingConfig(include_thoughts=True),
-    )
-
-    # Initialize history
+    # Take initial screenshot
     initial_screenshot = page.screenshot(type="png")
     USER_PROMPT = "Go to ai.google.dev/gemini-api/docs and search for pricing."
     print(f"Goal: {USER_PROMPT}")
 
-    contents = [
-        Content(role="user", parts=[
-            Part(text=USER_PROMPT),
-            Part.from_bytes(data=initial_screenshot, mime_type='image/png')
-        ])
-    ]
+    # First interaction
+    interaction = client.interactions.create(
+        model='gemini-3.5-flash',
+        input=[
+            {"type": "text", "text": USER_PROMPT},
+            {"type": "image", "data": base64.b64encode(initial_screenshot).decode("utf-8"), "mime_type": "image/png"}
+        ],
+        tools=[{
+            "type": "computer_use",
+            "environment": "browser",
+            "enable_prompt_injection_detection": True
+        }]
+    )
 
     # Agent Loop
     turn_limit = 5
     for i in range(turn_limit):
         print(f"\n--- Turn {i+1} ---")
-        print("Thinking...")
-        response = client.models.generate_content(
-            model='gemini-2.5-computer-use-preview-10-2025',
-            contents=contents,
-            config=config,
+
+        has_function_calls = any(
+            step.type == "function_call"
+            for step in interaction.steps
         )
-
-        candidate = response.candidates[0]
-        contents.append(candidate.content)
-
-        has_function_calls = any(part.function_call for part in candidate.content.parts)
         if not has_function_calls:
-            text_response = " ".join([part.text for part in candidate.content.parts if part.text])
+            text_response = " ".join([
+                content_block.text for step in interaction.steps if step.type == "model_output"
+                for content_block in step.content if content_block.type == "text"
+            ])
             print("Agent finished:", text_response)
             break
 
         print("Executing actions...")
-        results = execute_function_calls(candidate, page, SCREEN_WIDTH, SCREEN_HEIGHT)
+        results = execute_function_calls(interaction, page, SCREEN_WIDTH, SCREEN_HEIGHT)
 
         print("Capturing state...")
         function_responses = get_function_responses(page, results)
 
-        contents.append(
-            Content(role="user", parts=[Part(function_response=fr) for fr in function_responses])
+        # Continue conversation with function responses
+        interaction = client.interactions.create(
+            model='gemini-3.5-flash',
+            previous_interaction_id=interaction.id,
+            input=function_responses,
+            tools=[{
+                "type": "computer_use",
+                "environment": "browser",
+                "enable_prompt_injection_detection": True
+            }]
         )
 
 finally:
@@ -442,286 +650,504 @@ finally:
     playwright.stop()
 ```
 
-## Utilizzare funzioni definite dall'utente personalizzate
+### JavaScript
 
-Se vuoi, puoi includere funzioni personalizzate definite dall'utente nella richiesta per estendere la funzionalità del modello. L'esempio riportato di seguito adatta il modello e lo strumento Utilizzo del computer per i casi d'uso mobile includendo azioni personalizzate definite dall'utente come `open_app`, `long_press_at` e `go_home`, escludendo al contempo le azioni specifiche del browser. Il modello può chiamare in modo intelligente queste funzioni personalizzate insieme alle azioni standard della UI per completare le attività in ambienti non browser.
+```
+import { chromium } from 'playwright';
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI();
+
+// Constants for screen dimensions
+const SCREEN_WIDTH = 1440;
+const SCREEN_HEIGHT = 900;
+
+console.log("Initializing browser...");
+const browser = await chromium.launch({ headless: false });
+const context = await browser.newContext({
+    viewport: { width: SCREEN_WIDTH, height: SCREEN_HEIGHT }
+});
+const page = await context.newPage();
+
+// Define helper functions. Copy/paste from steps 3 and 4:
+// function denormalizeX(...)
+// function denormalizeY(...)
+// async function executeFunctionCalls(...)
+// async function getFunctionResponses(...)
+
+try {
+    // Go to initial page
+    await page.goto("https://ai.google.dev/gemini-api/docs");
+
+    // Take initial screenshot
+    const initialScreenshotBuffer = await page.screenshot({ type: 'png' });
+    const initialScreenshotBase64 = initialScreenshotBuffer.toString('base64');
+    const USER_PROMPT = "Go to ai.google.dev/gemini-api/docs and search for pricing.";
+    console.log(`Goal: ${USER_PROMPT}`);
+
+    // First interaction
+    let interaction = await ai.interactions.create({
+        model: 'gemini-3.5-flash',
+        input: [
+            { type: 'text', text: USER_PROMPT },
+            { type: 'image', data: initialScreenshotBase64, mime_type: 'image/png' }
+        ],
+        tools: [{
+            type: 'computer_use',
+            environment: 'browser',
+            enable_prompt_injection_detection: true
+        }]
+    });
+
+    // Agent Loop
+    const turnLimit = 5;
+    for (let i = 0; i < turnLimit; i++) {
+        console.log(`\n--- Turn ${i + 1} ---`);
+
+        const hasFunctionCalls = interaction.steps.some(step => step.type === "function_call");
+        if (!hasFunctionCalls) {
+            const textResponses = [];
+            for (const step of interaction.steps) {
+                if (step.type === "model_output") {
+                    for (const contentBlock of step.content || []) {
+                        if (contentBlock.type === "text") {
+                            textResponses.push(contentBlock.text);
+                        }
+                    }
+                }
+            }
+            console.log("Agent finished:", textResponses.join(" "));
+            break;
+        }
+
+        console.log("Executing actions...");
+        const results = await executeFunctionCalls(interaction, page, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        console.log("Capturing state...");
+        const functionResponses = await getFunctionResponses(page, results);
+
+        // Continue conversation with function responses
+        interaction = await ai.interactions.create({
+            model: 'gemini-3.5-flash',
+            previous_interaction_id: interaction.id,
+            input: functionResponses,
+            tools: [{
+                type: 'computer_use',
+                environment: 'browser',
+                enable_prompt_injection_detection: true
+            }]
+        });
+    }
+} finally {
+    // Cleanup
+    console.log("\nClosing browser...");
+    await browser.close();
+}
+```
+
+## البيئات المتوافقة (Gemini 3.5 Flash)
+
+يتوافق Gemini 3.5 Flash مع ثلاث بيئات محدّدة في `computer_use` الإعدادات:
+
+### بيئة المتصفّح (`ENVIRONMENT_BROWSER`)
+
+الإجراءات المتاحة ضمن أداة المتصفّح:
+
+| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) |
+| --- | --- | --- |
+| **click** | انقر بالزر الأيسر للفأرة على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | انقر مرّتين على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | النقر ثلاث مرات على الإحداثيات | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | انقر بزر الماوس الأوسط على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
+| **right\_click** | انقر بزر الماوس الأيمن على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | يضغط مع الاستمرار على زر الماوس عند الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | يرفع إصبعك عن زر الماوس عند الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **نقل** | تنقل هذه السمة المؤشر إلى الموضع المحدّد. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | كتابة نص | ‫`text`: str `press_enter`: bool (اختياري، القيمة التلقائية `false`) `intent`: str |
+| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية إلى إحداثيات النهاية. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | يوقف التنفيذ مؤقتًا لعدد محدّد من الثواني. | ‫`seconds`: int (اختياري، القيمة التلقائية `1`) `intent`: str |
+| **press\_key** | يضغط على المفتاح المحدّد ثم يحرّره. | `key`: str `intent`: str |
+| **key\_down** | يضغط مع الاستمرار على المفتاح المحدّد. | `key`: str `intent`: str |
+| **key\_up** | تُستخدَم هذه الطريقة لتحرير المفتاح المحدّد. | `key`: str `intent`: str |
+| **مفتاح الاختصار** | يضغط على مجموعة المفاتيح المحدّدة. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | تعرض هذه الدالة لقطة شاشة للشاشة الحالية. | ‫`intent`: str |
+| **scroll** | التمرير للأعلى أو للأسفل أو لليسار أو لليمين عند إحداثية معيّنة بمسافة بكسل | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `direction`: سلسلة (`"up"`، `"down"`، `"left"`، `"right"`) `magnitude_in_pixels`: عدد صحيح (0-999، اختياري، القيمة التلقائية `300`) `intent`: سلسلة |
+| **go\_back** | للرجوع إلى صفحة الويب السابقة في سجلّ المتصفّح | ‫`intent`: str |
+| **navigate** | ينتقِل مباشرةً إلى عنوان URL محدّد. | `url`: str `intent`: str |
+| **go\_forward** | ينتقِل إلى صفحة الويب التالية في سجلّ التصفّح. | ‫`intent`: str |
+
+### بيئة الأجهزة الجوّالة (`ENVIRONMENT_MOBILE`)
+
+إجراءات البيئة المحسّنة على Android:
+
+| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) |
+| --- | --- | --- |
+| **open\_app** | يفتح تطبيقًا باسمه. | `app_name`: str `intent`: str |
+| **click** | انقر بالزر الأيسر للفأرة على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | تعرض هذه الطريقة التطبيقات المتاحة على الجهاز، وتعرض أسماءها وأسماء حِزمها. | ‫`intent`: str |
+| **wait** | يوقف التنفيذ مؤقتًا لعدد محدّد من الثواني. | ‫`seconds`: int (اختياري، القيمة التلقائية `1`) `intent`: str |
+| **go\_back** | للرجوع إلى الشاشة أو صفحة الويب السابقة | ‫`intent`: str |
+| **type** | كتابة نص | ‫`text`: str `press_enter`: bool (اختياري، القيمة التلقائية `false`) `intent`: str |
+| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية إلى إحداثيات النهاية. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | تنفيذ ضغطة مع الاستمرار على إحداثيات معيّنة على الشاشة | ‫`y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `seconds`: عدد صحيح (اختياري، القيمة التلقائية `2`) `intent`: سلسلة |
+| **press\_key** | يضغط على المفتاح المحدّد ثم يحرّره. | `key`: str `intent`: str |
+| **take\_screenshot** | تعرض هذه الدالة لقطة شاشة للشاشة الحالية. | ‫`intent`: str |
+
+### بيئة الكمبيوتر المكتبي (`ENVIRONMENT_DESKTOP`)
+
+أوامر المؤشر على مستوى نظام التشغيل في بيئات سطح المكتب:
+
+| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) |
+| --- | --- | --- |
+| **click** | انقر بالزر الأيسر للفأرة على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | انقر مرّتين على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | النقر ثلاث مرات على الإحداثيات | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | انقر بزر الماوس الأوسط على الإحداثيات. | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `intent`: سلسلة |
+| **right\_click** | انقر بزر الماوس الأيمن على الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | يضغط مع الاستمرار على زر الماوس عند الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | يرفع إصبعك عن زر الماوس عند الإحداثيات. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **نقل** | تنقل هذه السمة المؤشر إلى الموضع المحدّد. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | كتابة نص | ‫`text`: str `press_enter`: bool (اختياري، القيمة التلقائية `false`) `intent`: str |
+| **drag\_and\_drop** | يسحب عنصرًا من إحداثيات البداية إلى إحداثيات النهاية. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | يوقف التنفيذ مؤقتًا لعدد محدّد من الثواني. | ‫`seconds`: int (اختياري، القيمة التلقائية `1`) `intent`: str |
+| **press\_key** | يضغط على المفتاح المحدّد ثم يحرّره. | `key`: str `intent`: str |
+| **key\_down** | يضغط مع الاستمرار على المفتاح المحدّد. | `key`: str `intent`: str |
+| **key\_up** | تُستخدَم هذه الطريقة لتحرير المفتاح المحدّد. | `key`: str `intent`: str |
+| **مفتاح الاختصار** | يضغط على مجموعة المفاتيح المحدّدة. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | تعرض هذه الدالة لقطة شاشة للشاشة الحالية. | ‫`intent`: str |
+| **scroll** | التمرير للأعلى أو للأسفل أو لليسار أو لليمين عند إحداثية معيّنة بمسافة بكسل | `y`: عدد صحيح (0-999) `x`: عدد صحيح (0-999) `direction`: سلسلة (`"up"`، `"down"`، `"left"`، `"right"`) `magnitude_in_pixels`: عدد صحيح (0-999، اختياري، القيمة التلقائية `300`) `intent`: سلسلة |
+
+## إجراءات واجهة المستخدم المتوافقة مع الإصدارات القديمة (Gemini 2.5)
+
+بالنسبة إلى النماذج القديمة (`gemini-2.5-computer-use-preview-10-2025`)، تتوفّر الإجراءات التالية:
+
+| اسم الأمر | الوصف | الوسيطات (في استدعاء الدالة) | مثال على استدعاء الدالة |
+| --- | --- | --- | --- |
+| **open\_web\_browser** | يفتح متصفّح الويب. | بدون | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | يوقف التنفيذ مؤقتًا لمدة 5 ثوانٍ. | بدون | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | ينقلك هذا الزر إلى الصفحة السابقة في السجلّ. | بدون | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | للانتقال إلى الصفحة التالية في السجلّ | بدون | `{"name": "go_forward", "arguments": {}}` |
+| **search** | ينتقِل إلى محرك البحث التلقائي. | بدون | `{"name": "search", "arguments": {}}` |
+| **navigate** | ينقل المتصفّح مباشرةً إلى عنوان URL المحدّد. | ‫`url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | النقرات في إحداثيات معيّنة | ‫`y`: عدد صحيح (من 0 إلى 999)، `x`: عدد صحيح (من 0 إلى 999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | تحريك مؤشر الماوس إلى إحداثيات معيّنة | ‫`y`: عدد صحيح (من 0 إلى 999)، `x`: عدد صحيح (من 0 إلى 999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | كتابة نص في إحداثية | ‫`y`: عدد صحيح (0-999)، `x`: عدد صحيح (0-999)، `text`: سلسلة، `press_enter`: قيمة منطقية (اختيارية، القيمة التلقائية هي True)، `clear_before_typing`: قيمة منطقية (اختيارية، القيمة التلقائية هي True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | اضغط على المفاتيح أو المجموعات. | ‫`keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | تنتقل إلى أسفل صفحة الويب بأكملها. | ‫`direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | يتم التمرير في الإحداثيات (x,y). | ‫`y`: int، ‏`x`: int، ‏`direction`: str، ‏`magnitude`: int (اختياري، القيمة التلقائية 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | عمليات السحب بين إحداثيتَين | ‫`y`: int، ‏`x`: int، ‏`destination_y`: int، ‏`destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+
+## الدوال المخصّصة من تحديد المستخدم
+
+يمكنك توسيع وظائف النموذج من خلال تضمين دوال مخصّصة يحدّدها المستخدم. على سبيل المثال، في سيناريوهات المشاركة البشرية (HITL)، يمكنك استبعاد الإجراءات التلقائية المحدّدة مسبقًا وتسجيل إجراءات مخصّصة.
+
+#### أدوات Gemini 3.5 Flash المخصّصة
+
+### Python
+
+استبعِد إجراءات المتصفّح العادية المحدّدة مسبقًا (مثل `click`) وسجِّل أداة `yield_to_user` مخصّصة:
+
+```
+from google import genai
+
+client = genai.Client()
+
+yield_to_user_tool = {
+    "type": "function",
+    "name": "yield_to_user",
+    "description": "Yields control back to the user for assistance or verification when an automated action is unsafe or ambiguous.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "reason": {
+                "type": "string",
+                "description": "The reason why the agent is yielding control to the human."
+            }
+        },
+        "required": ["reason"]
+    }
+}
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Click the submit button. If you need a second factor authentication code, ask me.",
+    tools=[
+        {
+            "type": "computer_use",
+            "environment": "mobile",
+            "excluded_predefined_functions": ["click"]
+        },
+        yield_to_user_tool
+    ]
+)
+```
+
+### JavaScript
+
+استبعِد إجراءات المتصفّح العادية المحدّدة مسبقًا (مثل `click`) وسجِّل أداة `yield_to_user` مخصّصة:
+
+```
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI();
+
+const yieldToUserTool = {
+    type: "function",
+    name: "yield_to_user",
+    description: "Yields control back to the user for assistance or verification when an automated action is unsafe or ambiguous.",
+    parameters: {
+        type: "object",
+        properties: {
+            reason: {
+                type: "string",
+                description: "The reason why the agent is yielding control to the human."
+            }
+        },
+        required: ["reason"]
+    }
+};
+
+const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Click the submit button. If you need a second factor authentication code, ask me.",
+    tools: [
+        {
+            type: "computer_use",
+            environment: "mobile",
+            excluded_predefined_functions: ["click"]
+        },
+        yieldToUserTool
+    ]
+});
+```
+
+#### أدوات مخصّصة (قديمة) في Gemini 2.5
 
 ### Python
 
 ```
-from typing import Optional, Dict, Any
-
 from google import genai
-from google.genai import types
-from google.genai.types import Content, Part
 
 client = genai.Client()
 
-SYSTEM_PROMPT = """You are operating an Android phone. Today's date is October 15, 2023, so ignore any other date provided.
-* To provide an answer to the user, *do not use any tools* and output your answer on a separate line. IMPORTANT: Do not add any formatting or additional punctuation/text, just output the answer by itself after two empty lines.
-* Make sure you scroll down to see everything before deciding something isn't available.
-* You can open an app from anywhere. The icon doesn't have to currently be on screen.
-* Unless explicitly told otherwise, make sure to save any changes you make.
-* If text is cut off or incomplete, scroll or click into the element to get the full text before providing an answer.
-* IMPORTANT: Complete the given task EXACTLY as stated. DO NOT make any assumptions that completing a similar task is correct.  If you can't find what you're looking for, SCROLL to find it.
-* If you want to edit some text, ONLY USE THE `type` tool. Do not use the onscreen keyboard.
-* Quick settings shouldn't be used to change settings. Use the Settings app instead.
-* The given task may already be completed. If so, there is no need to do anything.
-"""
+# Define custom tools here
+custom_functions = [...]  # Describe parameters as function declarations
 
-def open_app(app_name: str, intent: Optional[str] = None) -> Dict[str, Any]:
-    """Opens an app by name.
-
-    Args:
-        app_name: Name of the app to open (any string).
-        intent: Optional deep-link or action to pass when launching, if the app supports it.
-
-    Returns:
-        JSON payload acknowledging the request (app name and optional intent).
-    """
-    return {"status": "requested_open", "app_name": app_name, "intent": intent}
-
-def long_press_at(x: int, y: int) -> Dict[str, int]:
-    """Long-press at a specific screen coordinate.
-
-    Args:
-        x: X coordinate (absolute), scaled to the device screen width (pixels).
-        y: Y coordinate (absolute), scaled to the device screen height (pixels).
-
-    Returns:
-        Object with the coordinates pressed and the duration used.
-    """
-    return {"x": x, "y": y}
-
-def go_home() -> Dict[str, str]:
-    """Navigates to the device home screen.
-
-    Returns:
-        A small acknowledgment payload.
-    """
-    return {"status": "home_requested"}
-
-#  Build function declarations
-CUSTOM_FUNCTION_DECLARATIONS = [
-    types.FunctionDeclaration.from_callable(client=client, callable=open_app),
-    types.FunctionDeclaration.from_callable(client=client, callable=long_press_at),
-    types.FunctionDeclaration.from_callable(client=client, callable=go_home),
-]
-
-#Exclude browser functions
-EXCLUDED_PREDEFINED_FUNCTIONS = [
+excluded_functions = [
     "open_web_browser",
+    "wait_5_seconds",
+    "go_back",
+    "go_forward",
     "search",
     "navigate",
     "hover_at",
     "scroll_document",
-    "go_forward",
     "key_combination",
     "drag_and_drop",
 ]
 
-#Utility function to construct a GenerateContentConfig
-def make_generate_content_config() -> genai.types.GenerateContentConfig:
-    """Return a fixed GenerateContentConfig with Computer Use + custom functions."""
-    return genai.types.GenerateContentConfig(
-        system_instruction=SYSTEM_PROMPT,
-        tools=[
-            types.Tool(
-                computer_use=types.ComputerUse(
-                    environment=types.Environment.ENVIRONMENT_BROWSER,
-                    excluded_predefined_functions=EXCLUDED_PREDEFINED_FUNCTIONS,
-                )
-            ),
-            types.Tool(function_declarations=CUSTOM_FUNCTION_DECLARATIONS),
-        ],
-    )
+interaction = client.interactions.create(
+    model='gemini-2.5-computer-use-preview-10-2025',
+    input="Open Chrome, then long-press at 200,400.",
+    tools=[
+        {
+            "type": "computer_use",
+            "environment": "browser",
+            "excluded_predefined_functions": excluded_functions
+        },
+        *custom_functions
+    ]
+)
 
-# Create the content with user message
-contents: list[Content] = [
-    Content(
-        role="user",
-        parts=[
-            # text instruction
-            Part(text="Open Chrome, then long-press at 200,400."),
-        ],
-    )
-]
-
-# Build your fixed config (from helper)
-config = make_generate_content_config()
-
-# Generate content with the configured settings
-response = client.models.generate_content(
-        model='gemini-2.5-computer-use-preview-10-2025',
-        contents=contents,
-        config=config,
-    )
-
-print(response)
+print(interaction)
 ```
 
-## Azioni dell'interfaccia utente supportate
+### JavaScript
 
-Il modello può richiedere le seguenti azioni dell'interfaccia utente tramite un
-`FunctionCall`. Il codice lato client deve implementare la logica di esecuzione per
-queste azioni. Per esempi, consulta l'[implementazione
-di riferimento](https://github.com/google/computer-use-preview).
+```
+import { GoogleGenAI } from '@google/genai';
 
-| Nome comando | Descrizione | Argomenti (in Chiamata funzione) | Esempio di chiamata di funzione |
-| --- | --- | --- | --- |
-| **open\_web\_browser** | Apre il browser web. | Nessuno | `{"name": "open_web_browser", "args": {}}` |
-| **wait\_5\_seconds** | Mette in pausa l'esecuzione per 5 secondi per consentire il caricamento dei contenuti dinamici o il completamento delle animazioni. | Nessuno | `{"name": "wait_5_seconds", "args": {}}` |
-| **go\_back** | Conduce alla pagina precedente nella cronologia del browser. | Nessuno | `{"name": "go_back", "args": {}}` |
-| **go\_forward** | Conduce alla pagina successiva nella cronologia del browser. | Nessuno | `{"name": "go_forward", "args": {}}` |
-| **search** | Viene visualizzata la home page del motore di ricerca predefinito (ad es. Google). Utile per avviare una nuova attività di ricerca. | Nessuno | `{"name": "search", "args": {}}` |
-| **navigate** | Il browser passa direttamente all'URL specificato. | `url`: str | `{"name": "navigate", "args": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | Clic in una coordinata specifica della pagina web. I valori x e y si basano su una griglia 1000x1000 e vengono scalati in base alle dimensioni dello schermo. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "args": {"y": 300, "x": 500}}` |
-| **hover\_at** | Passa il mouse su una coordinata specifica della pagina web. Utile per visualizzare i sottomenu. x e y si basano su una griglia 1000x1000. | `y`: int (0-999) `x`: int (0-999) | `{"name": "hover_at", "args": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | Digita il testo in una coordinata specifica. Per impostazione predefinita, cancella prima il campo e preme INVIO dopo la digitazione, ma queste azioni possono essere disattivate. x e y si basano su una griglia 1000x1000. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (facoltativo, valore predefinito True), `clear_before_typing`: bool (facoltativo, valore predefinito True) | `{"name": "type_text_at", "args": {"y": 250, "x": 400, "text": "search query", "press_enter": false}}` |
-| **key\_combination** | Premi tasti o combinazioni di tasti della tastiera, ad esempio "Control+C" o "Invio". Utile per attivare azioni (come l'invio di un modulo con "Invio") o operazioni degli appunti. | `keys`: str (ad es. "invio", "control+c"). | `{"name": "key_combination", "args": {"keys": "Control+A"}}` |
-| **scroll\_document** | Scorre l'intera pagina web "verso l'alto", "verso il basso", "verso sinistra" o "verso destra". | `direction`: str ("up", "down", "left" o "right") | `{"name": "scroll_document", "args": {"direction": "down"}}` |
-| **scroll\_at** | Scorre un elemento o un'area specifica in corrispondenza delle coordinate (x, y) nella direzione specificata di una determinata entità. Le coordinate e l'entità (valore predefinito 800) si basano su una griglia 1000x1000. | `y`: int (0-999), `x`: int (0-999), `direction`: str ("up", "down", "left", "right"), `magnitude`: int (0-999, facoltativo, valore predefinito 800) | `{"name": "scroll_at", "args": {"y": 500, "x": 500, "direction": "down", "magnitude": 400}}` |
-| **drag\_and\_drop** | Trascina un elemento da una coordinata iniziale (x, y) e lo rilascia in una coordinata di destinazione (destination\_x, destination\_y). Tutte le coordinate si basano su una griglia 1000x1000. | `y`: int (0-999), `x`: int (0-999), `destination_y`: int (0-999), `destination_x`: int (0-999) | `{"name": "drag_and_drop", "args": {"y": 100, "x": 100, "destination_y": 500, "destination_x": 500}}` |
+const ai = new GoogleGenAI();
 
-## Protezione e sicurezza
+// Define custom tools here
+const customFunctions = [...]; // Describe parameters as function declarations
 
-### Riconoscere la decisione relativa alla sicurezza
+const excludedFunctions = [
+    "open_web_browser",
+    "wait_5_seconds",
+    "go_back",
+    "go_forward",
+    "search",
+    "navigate",
+    "hover_at",
+    "scroll_document",
+    "key_combination",
+    "drag_and_drop",
+];
 
-A seconda dell'azione, la risposta del modello potrebbe includere anche un
-`safety_decision` di un sistema di sicurezza interno che controlla l'azione
-proposta dal modello.
+const interaction = await ai.interactions.create({
+    model: 'gemini-2.5-computer-use-preview-10-2025',
+    input: "Open Chrome, then long-press at 200,400.",
+    tools: [
+        {
+            type: "computer_use",
+            environment: "browser",
+            excluded_predefined_functions: excludedFunctions
+        },
+        ...customFunctions
+    ]
+});
+
+console.log(interaction);
+```
+
+## إدارة مستويات التفكير (Gemini 3.5 Flash)
+
+بالنسبة إلى وكلاء استخدام الكمبيوتر، يمكنك ضبط مستويات تفكير مختلفة لتحقيق التوازن بين جودة الإجراء وسرعة التنفيذ. بشكل عام، تحقق مستويات التفكير المنخفضة توازنًا جيدًا لمهام التشغيل الآلي العادية.
+
+## السلامة والأمان
+
+### ضبط سياسات الأمان (Gemini 3.5 Flash)
+
+يتضمّن نموذج Gemini 3.5 Flash فئات خدمات أمان مُدمَجة تحدّد تلقائيًا ما إذا كان تأكيد المستخدم مطلوبًا.
+
+| فئة سياسة السلامة | الوصف |
+| --- | --- |
+| `FINANCIAL_TRANSACTIONS` | يحظر أو يشغّل تأكيدًا للإجراءات التي تتضمّن دفعات أو إتمام عملية شراء بالتجزئة أو سلعًا خاضعة للرقابة. |
+| `SENSITIVE_DATA_MODIFICATION` | يحمي السجلات الصحية أو المالية أو الحكومية من التعديل غير المصرّح به. |
+| `COMMUNICATION_TOOL` | يمنع الوكيل من إرسال رسائل إلكترونية أو رسائل محادثة أو مسودات بشكل مستقل. |
+| `ACCOUNT_CREATION` | يمنع هذا الخيار الوكيل من تسجيل حسابات جديدة بشكل مستقل على المواقع الإلكترونية. |
+| `DATA_MODIFICATION` | تنظّم هذه السياسة التعديلات العامة على نظام الملفات ومشاركة البيانات وحذف مساحة التخزين. |
+| `USER_CONSENT_MANAGEMENT` | يتطلّب ذلك أن يتولّى المستخدم إدارة بانرات قبول ملفات تعريف الارتباط وإشعارات الخصوصية. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | يمنع النموذج من قبول بنود الخدمة أو العقود الملزمة قانونًا بشكل مستقل. |
+
+#### تجاهل إعدادات الأمان
+
+يمكنك إلغاء سياسات محدّدة من خلال تمرير عمليات الإلغاء:
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Clean up the local folder by archiving old logs.",
+    tools=[
+        {
+            "type": "computer_use",
+            "environment": "desktop",
+            "disabled_safety_policies": [
+                "data_modification"
+            ]
+        }
+    ]
+)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from '@google/genai';
+
+const ai = new GoogleGenAI();
+
+const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Clean up the local folder by archiving old logs.",
+    tools: [
+        {
+            type: "computer_use",
+            environment: "desktop",
+            disabled_safety_policies: [
+                "data_modification"
+            ]
+        }
+    ]
+});
+```
+
+### رصد هجمات حقن الطلبات (Gemini 3.5 Flash)
+
+آلية أمان تتطلّب الموافقة وتفحص وحدات البكسل في لقطة الشاشة بحثًا عن تعليمات طلب خداعي خفية (مثل "تجاهل الأوامر السابقة") وتحظر تنفيذها عند رصدها.
+
+### تأكيد قرار الأمان
+
+قد يتضمّن الردّ المَعلمة `safety_decision` في وسيطات استدعاء الدالة:
 
 ```
 {
-  "content": {
-    "parts": [
-      {
-        "text": "I have evaluated step 2. It seems Google detected unusual traffic and is asking me to verify I'm not a robot. I need to click the 'I'm not a robot' checkbox located near the top left (y=98, x=95).",
-      },
-      {
-        "function_call": {
-          "name": "click_at",
-          "args": {
-            "x": 60,
-            "y": 100,
-            "safety_decision": {
-              "explanation": "I have encountered a CAPTCHA challenge that requires interaction. I need you to complete the challenge by clicking the 'I'm not a robot' checkbox and any subsequent verification steps.",
-              "decision": "require_confirmation"
-            }
-          }
+  "steps": [
+    {
+      "type": "function_call",
+      "name": "click_at",
+      "arguments": {
+        "x": 60,
+        "y": 100,
+        "safety_decision": {
+          "explanation": "Must check check-box",
+          "decision": "require_confirmation"
         }
       }
-    ]
-  }
+    }
+  ]
 }
 ```
 
-Se `safety_decision` è `require_confirmation`, devi
-chiedere all'utente finale di confermare prima di procedere con l'esecuzione dell'azione. Ai sensi dei
-[termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it), non è consentito
-aggirare le richieste di conferma umana.
-
-Questo esempio di codice chiede all'utente finale una conferma prima di eseguire l'azione. Se l'utente non conferma l'azione, il ciclo termina. Se l'utente conferma l'azione, questa viene eseguita e il campo
-`safety_acknowledgement` viene contrassegnato come `True`.
+إذا كانت قيمة `safety_decision` هي `require_confirmation`، اطلب من المستخدم النهائي اتّخاذ إجراء. إذا أكّد المستخدم ذلك، اضبط قيمة `safety_acknowledgement` في `function_result`.
 
 ### Python
 
 ```
-import termcolor
-
 def get_safety_confirmation(safety_decision):
-    """Prompt user for confirmation when safety check is triggered."""
-    termcolor.cprint("Safety service requires explicit confirmation!", color="red")
-    print(safety_decision["explanation"])
+    # Prompt user for confirmation
+    print(f"Safety confirmation required: {safety_decision.get('explanation', '')}")
+    return "CONTINUE" # Or TERMINATE
 
-    decision = ""
-    while decision.lower() not in ("y", "n", "ye", "yes", "no"):
-        decision = input("Do you wish to proceed? [Y]es/[N]o\n")
-
-    if decision.lower() in ("n", "no"):
-        return "TERMINATE"
-    return "CONTINUE"
-
-def execute_function_calls(candidate, page, screen_width, screen_height):
-
-    # ... Extract function calls from response ...
-
-    for function_call in function_calls:
-        extra_fr_fields = {}
-
-        # Check for safety decision
-        if 'safety_decision' in function_call.args:
-            decision = get_safety_confirmation(function_call.args['safety_decision'])
-            if decision == "TERMINATE":
-                print("Terminating agent loop")
-                break
-            extra_fr_fields["safety_acknowledgement"] = "true" # Safety acknowledgement
-
-        # ... Execute function call and append to results ...
+# Inside execute_function_calls, check for safety_decision:
+if 'safety_decision' in function_call.arguments:
+    decision = get_safety_confirmation(function_call.arguments['safety_decision'])
+    if decision == "TERMINATE":
+        break
+    # Include safety_acknowledgement inside the action result
+    action_result["safety_acknowledgement"] = True
 ```
 
-Se l'utente conferma, devi includere la conferma di sicurezza nel tuo `FunctionResponse`.
+### أفضل الممارسات المتعلّقة بالأمان
 
-### Python
+تتضمّن ميزة "استخدام الكمبيوتر" مخاطر فريدة تتعلّق بالأمان والتشغيل، إذ قد يواجه النموذج محتوًى غير موثوق به على الشاشات أو يرتكب أخطاءً في تنفيذ الإجراءات نيابةً عن المستخدم. اتّبِع أفضل الممارسات التالية لحماية بيانات المستخدمين وأنظمتهم:
 
-```
-function_response_parts.append(
-    FunctionResponse(
-        name=name,
-        response={"url": current_url,
-                  **extra_fr_fields},  # Include safety acknowledgement
-        parts=[
-            types.FunctionResponsePart(
-                inline_data=types.FunctionResponseBlob(
-                    mime_type="image/png", data=screenshot
-                )
-             )
-           ]
-         )
-       )
-```
+1. **المشاركة البشرية (HITL):**
 
-### Best practice per la sicurezza
+   - **فرض تأكيد المستخدم:** عندما يشير الرد المتعلّق بالسلامة إلى
+     `require_confirmation` (أو عندما يتطلّب قرار السلامة القديم ذلك)، اطلب من المستخدم الموافقة.
+   - **تقديم تعليمات أمان مخصّصة:** يمكنك تنفيذ تعليمات نظام مخصّصة لتحديد حدود الأمان الخاصة بك وفرضها. على سبيل المثال:
 
-Utilizzo del computer è un nuovo strumento che presenta nuovi rischi di cui gli sviluppatori devono essere
-consapevoli:
-
-- **Contenuti non attendibili e truffe**:mentre cerca di raggiungere l'obiettivo dell'utente, il modello potrebbe fare affidamento su fonti di informazioni e istruzioni non attendibili sullo schermo. Ad esempio, se l'obiettivo dell'utente è acquistare uno smartphone Pixel e il modello si imbatte in una truffa del tipo "Pixel senza costi se completi un sondaggio", è possibile che il modello completi il sondaggio.
-- **Azioni involontarie occasionali:** il modello può interpretare in modo errato l'obiettivo di un utente o i contenuti di una pagina web, causando azioni errate come il clic sul pulsante sbagliato o la compilazione del modulo errato. Ciò può comportare il mancato completamento delle attività o l'esfiltrazione di dati.
-- **Violazioni delle norme**:le funzionalità dell'API potrebbero essere indirizzate, intenzionalmente o meno, verso attività che violano le norme di Google ([Norme relative all'uso vietato dell'AI generativa](https://policies.google.com/terms/generative-ai/use-policy?hl=it) e i [Termini di servizio aggiuntivi dell'API Gemini](https://ai.google.dev/gemini-api/terms?hl=it)). Sono incluse azioni che
-  potrebbero interferire con l'integrità di un sistema, compromettere la sicurezza, aggirare
-  le misure di sicurezza,
-  controllare dispositivi medici e così via.
-
-Per affrontare questi rischi, puoi implementare le seguenti misure di sicurezza e best practice:
-
-1. **Human-in-the-loop (HITL):**
-
-   - **Implementa la conferma dell'utente**:quando la risposta di sicurezza indica
-     `require_confirmation`, devi implementare la conferma dell'utente prima
-     dell'esecuzione. Per il codice campione, consulta la sezione [Riconoscere la decisione di sicurezza](#safety-decisions).
-   - **Fornisci istruzioni di sicurezza personalizzate**:oltre ai controlli di conferma utente integrati, gli sviluppatori possono facoltativamente aggiungere un'[istruzione di sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions) personalizzata che applichi le proprie norme di sicurezza, per bloccare determinate azioni del modello o richiedere la conferma dell'utente prima che il modello intraprenda determinate azioni irreversibili ad alto rischio. Ecco un esempio di istruzione personalizzata
-     del sistema di sicurezza che puoi includere quando interagisci con il modello.
-
-     **Esempio di istruzioni di sicurezza:**
-
-     Imposta le tue regole di sicurezza personalizzate come istruzione di sistema:
+     ### Python
 
      ```
+     from google import genai
+
+     client = genai.Client()
+
+     system_instruction = """
      ## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**
 
      This is your first and most important check. If the next required action falls
      into any of the following categories, you MUST stop immediately, and seek the
      user's explicit permission.
 
-     **Procedure for Seeking Confirmation:**  * **For Consequential Actions:**
-     Perform all preparatory steps (e.g., navigating, filling out forms, typing a
-     message). You will ask for confirmation **AFTER** all necessary information is
-     entered on the screen, but **BEFORE** you perform the final, irreversible action
-     (e.g., before clicking "Send", "Submit", "Confirm Purchase", "Share").  * **For
-     Prohibited Actions:** If the action is strictly forbidden (e.g., accepting legal
-     terms, solving a CAPTCHA), you must first inform the user about the required
-     action and ask for their confirmation to proceed.
+     **Procedure for Seeking Confirmation:**
+     * **For Consequential Actions:** Perform all preparatory steps (e.g., navigating,
+       filling out forms, typing a message). You will ask for confirmation **AFTER**
+       all necessary information is entered on the screen, but **BEFORE** you perform
+       the final, irreversible action (e.g., before clicking "Send", "Submit",
+       "Confirm Purchase", "Share").
+     * **For Prohibited Actions:** If the action is strictly forbidden (e.g., accepting
+       legal terms, solving a CAPTCHA), you must first inform the user about the
+       required action and ask for their confirmation to proceed.
 
      **USER_CONFIRMATION Categories:**
 
@@ -735,7 +1161,7 @@ Per affrontare questi rischi, puoi implementare le seguenti misure di sicurezza 
          *   Any other legally significant contracts or agreements.
      *   **Robot Detection:** You MUST NEVER attempt to solve or bypass the
          following. You must ask the user to confirm before performing these actions.
-     *   CAPTCHAs (of any kind)
+         *   CAPTCHAs (of any kind)
          *   Any other anti-robot or human-verification mechanisms, even if you are
              capable.
      *   **Financial Transactions:**
@@ -792,53 +1218,156 @@ Per affrontare questi rischi, puoi implementare le seguenti misure di sicurezza 
      Write final response to the user in the following cases:
      - User confirmation
      - When the task is complete or you have enough information to respond to the user
+     """
+
+     interaction = client.interactions.create(
+         model="gemini-3.5-flash",
+         system_instruction=system_instruction,
+         input="Prepare a draft but do not send.",
+         tools=[{
+             "type": "computer_use",
+             "environment": "browser"
+         }]
+     )
      ```
-2. **Ambiente di esecuzione sicuro:** esegui l'agente in un ambiente sicuro e limitato tramite sandbox per limitarne il potenziale impatto (ad es. una macchina virtuale (VM) limitata tramite sandbox, un container (ad es. Docker) o un profilo browser dedicato con autorizzazioni limitate).
-3. **Sanitizzazione dell'input**:sanitizza tutto il testo generato dagli utenti nei prompt per
-   mitigare il rischio di istruzioni non intenzionali o di prompt injection. Si tratta di un
-   livello di sicurezza utile, ma non sostituisce un ambiente di esecuzione
-   sicuro.
-4. **Misure di protezione dei contenuti**:utilizza misure di protezione e [API
-   per la sicurezza dei contenuti](https://ai.google.dev/gemma/docs/shieldgemma?hl=it) per valutare gli input degli utenti, gli input e gli output degli strumenti, la risposta di un agente per l'adeguatezza, l'injection di prompt e il rilevamento del jailbreaking.
-5. **Liste consentite e liste bloccate:** implementa meccanismi di filtro per controllare
-   dove il modello può navigare e cosa può fare. Una lista bloccata di siti web vietati è un buon punto di partenza, mentre una lista consentita più restrittiva è
-   ancora più sicura.
-6. **Osservabilità e logging**:mantieni log dettagliati per il debug,
-   il controllo e la risposta agli incidenti. Il client deve registrare i prompt,
-   gli screenshot, le azioni suggerite dal modello (function\_call), le risposte di sicurezza e
-   tutte le azioni eseguite dal client.
-7. **Gestione dell'ambiente**:assicurati che l'ambiente GUI sia coerente.
-   Pop-up, notifiche o modifiche impreviste al layout possono confondere il modello. Se possibile, inizia ogni nuova attività da uno stato pulito e noto.
 
-## Versioni modello
+     ### JavaScript
 
-Tieni presente che `gemini-3-flash-preview` supporta
-l'uso del computer; non è necessario un modello separato per accedere allo strumento.
+     ```
+     import { GoogleGenAI } from '@google/genai';
 
-| Proprietà | Descrizione |
-| --- | --- |
-| Codice modello id\_card | **API Gemini**  `gemini-2.5-computer-use-preview-10-2025` |
-| saveTipi di dati supportati | **Ingresso**  Immagine, testo  **Output**  Testo |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  128.000  **Limite di token di output**  64.000 |
-| Versioni 123 | Per ulteriori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Anteprima: `gemini-2.5-computer-use-preview-10-2025` |
-| calendar\_monthUltimo aggiornamento | Ottobre 2025 |
+     const ai = new GoogleGenAI();
 
-## Passaggi successivi
+     const systemInstruction = `
+     ## **RULE 1: Seek User Confirmation (USER_CONFIRMATION)**
 
-- Sperimenta l'utilizzo del computer nell'[ambiente demo di Browserbase](http://gemini.browserbase.com).
-- Consulta l'[implementazione
-  di riferimento](https://github.com/google/computer-use-preview) per un esempio
-  di codice.
-- Scopri di più sugli altri strumenti dell'API Gemini:
-  - [Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
-  - [Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/grounding?hl=it)
+     This is your first and most important check. If the next required action falls
+     into any of the following categories, you MUST stop immediately, and seek the
+     user's explicit permission.
 
-Invia feedback
+     **Procedure for Seeking Confirmation:**
+     * **For Consequential Actions:** Perform all preparatory steps (e.g., navigating,
+       filling out forms, typing a message). You will ask for confirmation **AFTER**
+       all necessary information is entered on the screen, but **BEFORE** you perform
+       the final, irreversible action (e.g., before clicking "Send", "Submit",
+       "Confirm Purchase", "Share").
+     * **For Prohibited Actions:** If the action is strictly forbidden (e.g., accepting
+       legal terms, solving a CAPTCHA), you must first inform the user about the
+       required action and ask for their confirmation to proceed.
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+     **USER_CONFIRMATION Categories:**
 
-Ultimo aggiornamento 2026-06-19 UTC.
+     *   **Consent and Agreements:** You are FORBIDDEN from accepting, selecting, or
+         agreeing to any of the following on the user's behalf. You must ask the
+         user to confirm before performing these actions.
+         *   Terms of Service
+         *   Privacy Policies
+         *   Cookie consent banners
+         *   End User License Agreements (EULAs)
+         *   Any other legally significant contracts or agreements.
+     *   **Robot Detection:** You MUST NEVER attempt to solve or bypass the
+         following. You must ask the user to confirm before performing these actions.
+         *   CAPTCHAs (of any kind)
+         *   Any other anti-robot or human-verification mechanisms, even if you are
+             capable.
+     *   **Financial Transactions:**
+         *   Completing any purchase.
+         *   Managing or moving money (e.g., transfers, payments).
+         *   Purchasing regulated goods or participating in gambling.
+     *   **Sending Communications:**
+         *   Sending emails.
+         *   Sending messages on any platform (e.g., social media, chat apps).
+         *   Posting content on social media or forums.
+     *   **Accessing or Modifying Sensitive Information:**
+         *   Health, financial, or government records (e.g., medical history, tax
+             forms, passport status).
+         *   Revealing or modifying sensitive personal identifiers (e.g., SSN, bank
+             account number, credit card number).
+     *   **User Data Management:**
+         *   Accessing, downloading, or saving files from the web.
+         *   Sharing or sending files/data to any third party.
+         *   Transferring user data between systems.
+     *   **Browser Data Usage:**
+         *   Accessing or managing Chrome browsing history, bookmarks, autofill data,
+             or saved passwords.
+     *   **Security and Identity:**
+         *   Logging into any user account.
+         *   Any action that involves misrepresentation or impersonation (e.g.,
+             creating a fan account, posting as someone else).
+     *   **Insurmountable Obstacles:** If you are technically unable to interact with
+         a user interface element or are stuck in a loop you cannot resolve, ask the
+         user to take over.
+     ---
 
-Vuoi dirci altro?
+     ## **RULE 2: Default Behavior (ACTUATE)**
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-19 UTC."],[],[]]
+     If an action does **NOT** fall under the conditions for `USER_CONFIRMATION`,
+     your default behavior is to **Actuate**.
+
+     **Actuation Means:**  You MUST proactively perform all necessary steps to move
+     the user's request forward. Continue to actuate until you either complete the
+     non-consequential task or encounter a condition defined in Rule 1.
+
+     *   **Example 1:** If asked to send money, you will navigate to the payment
+         portal, enter the recipient's details, and enter the amount. You will then
+         **STOP** as per Rule 1 and ask for confirmation before clicking the final
+         "Send" button.
+     *   **Example 2:** If asked to post a message, you will navigate to the site,
+         open the post composition window, and write the full message. You will then
+         **STOP** as per Rule 1 and ask for confirmation before clicking the final
+         "Post" button.
+
+         After the user has confirmed, remember to get the user's latest screen
+         before continuing to perform actions.
+
+     # Final Response Guidelines:
+     Write final response to the user in the following cases:
+     - User confirmation
+     - When the task is complete or you have enough information to respond to the user
+     `;
+
+     const interaction = await ai.interactions.create({
+         model: "gemini-3.5-flash",
+         system_instruction: systemInstruction,
+         input: "Prepare a draft but do not send.",
+         tools: [{
+             type: "computer_use",
+             environment: "browser"
+         }]
+     });
+     ```
+2. **بيئة التنفيذ الآمنة:** شغِّل الوكيل في بيئة آمنة ومحمية
+   للحدّ من تأثيره المحتمَل. يمكن أن يكون ذلك عبارة عن آلة افتراضية (VM) في بيئة معزولة أو حاوية (مثل Docker) أو ملف شخصي مخصّص للمتصفّح مع أذونات محدودة. يمكنك الاطّلاع على [التنفيذ المرجعي على GitHub](https://github.com/google/computer-use-preview/) للحصول على إرشادات حول إعداد وضع الحماية باستخدام Docker.
+3. **تنقية المدخلات:** يجب تنقية كل النص الذي ينشئه المستخدمون في الطلبات للحد من خطر التعليمات غير المقصودة أو هجمات حقن الطلبات. هذه الطبقة مفيدة للأمان، ولكنّها لا تحلّ محل بيئة التنفيذ الآمنة.
+4. **ضوابط المحتوى:** استخدِم ضوابط المحتوى وواجهات برمجة التطبيقات الخاصة بسلامة المحتوى لتقييم مدى ملاءمة مدخلات المستخدمين ومدخلات الأدوات ومخرجاتها وردود الوكيل، بالإضافة إلى رصد عمليات حقن التعليمات البرمجية وعمليات تجاوز القيود.
+5. **القوائم المسموح بها والقوائم المحظورة:** استخدِم آليات فلترة للتحكّم في الأماكن التي يمكن للنموذج الانتقال إليها والإجراءات التي يمكنه اتّخاذها. تُعدّ القائمة المحظورة التي تتضمّن المواقع الإلكترونية المحظورة نقطة بداية جيدة، بينما تكون القائمة المسموح بها الأكثر تقييدًا أكثر أمانًا.
+6. **إمكانية تتبّع البيانات وتسجيل البيانات:** احتفِظ بسجلات مفصّلة لتصحيح الأخطاء والتدقيق والاستجابة للحوادث. على البرنامج تسجيل الطلبات، ولقطات الشاشة، والإجراءات التي تقترحها النماذج (`function_call`)، والردود الآمنة، وجميع الإجراءات التي ينفّذها البرنامج في النهاية.
+7. **إدارة البيئة:** تأكَّد من اتساق بيئة واجهة المستخدم الرسومية.
+   قد تؤدي النوافذ المنبثقة أو الإشعارات أو التغييرات غير المتوقّعة في التنسيق إلى إرباك النموذج. ابدأ من حالة معروفة ونظيفة لكل مهمة جديدة إذا أمكن ذلك.
+
+## إصدارات النموذج
+
+يمكنك استخدام ميزة "استخدام الكمبيوتر" مع الطُرز التالية:
+
+- [**‫Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) (`gemini-3.5-flash`): النموذج المقترَح للاستخدام على الكمبيوتر، ويتميّز بإجراءات مبسطة مع نوايا، ويتوافق مع بيئات المتصفح والأجهزة الجوّالة وأجهزة الكمبيوتر، ويتضمّن سياسات أمان قابلة للضبط، ويتيح رصد عمليات حقن الطلبات.
+- [**معاينة Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) (`gemini-3-flash-preview`): نموذج معاينة
+  متوافق مع أجهزة الكمبيوتر
+- [**‫Gemini 2.5 (إصدار تجريبي قديم)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ar) (`gemini-2.5-computer-use-preview-10-2025`): نموذج إصدار تجريبي قديم محسّن للاستخدام على أجهزة الكمبيوتر المستندة إلى المتصفّح
+
+## الخطوات التالية
+
+- جرِّب استخدام الكمبيوتر في [بيئة العرض التوضيحي Browserbase](http://gemini.browserbase.com).
+- اطّلِع على [التنفيذ المرجعي](https://github.com/google/computer-use-preview) للحصول على مثال على الرمز البرمجي.
+- مزيد من المعلومات حول أدوات Gemini API الأخرى:
+  - [استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
+  - [تحديد المصدر من خلال "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)
+
+إرسال ملاحظات
+
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+
+تاريخ التعديل الأخير: 2026-06-25 (حسب التوقيت العالمي المتفَّق عليه)
+
+هل تريد مشاركة ملاحظاتك معنا؟
+
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-25 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

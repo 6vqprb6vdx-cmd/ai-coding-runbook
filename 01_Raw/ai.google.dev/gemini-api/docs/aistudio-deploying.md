@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ar
-fetched_at: 2026-06-22T06:29:10.438293+00:00
+fetched_at: 2026-06-29T05:27:07.741975+00:00
 title: "\u0627\u0644\u0646\u0634\u0631 \u0645\u0646 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 

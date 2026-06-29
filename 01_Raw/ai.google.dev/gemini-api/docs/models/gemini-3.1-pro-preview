@@ -1,55 +1,61 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ja
-fetched_at: 2026-06-22T06:26:20.353816+00:00
-title: "Gemini 3.1 Pro \u30d7\u30ec\u30d3\u30e5\u30fc\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar
+fetched_at: 2026-06-29T05:35:10.141539+00:00
+title: "\u0645\u0639\u0627\u064a\u0646\u0629 Gemini 3.1 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-フィードバックを送信
+إرسال ملاحظات
 
-# Gemini 3.1 Pro プレビュー版
+# معاينة Gemini 3.1 Pro
 
-Gemini 3 Pro シリーズのパフォーマンスと信頼性を向上させるために構築された Gemini 3.1 Pro プレビュー版は、より優れた思考、トークン効率の向上、より根拠のある事実と一貫性のあるエクスペリエンスを提供します。ソフトウェア エンジニアリングの動作とユーザビリティ、および現実世界のドメインで正確なツールの使用と信頼性の高い複数ステップの実行を必要とするエージェント ワークフロー向けに最適化されています。
+تم تصميم إصدار Gemini 3.1 Pro التجريبي لتحسين أداء سلسلة Gemini 3 Pro وموثوقيتها، وهو يوفّر قدرات تحليلية أفضل، وكفاءة محسّنة في استخدام الرموز المميزة، وتجربة أكثر واقعية واتساقًا من الناحية الوقائعية. تم تحسينه
+ليناسب سلوكيات هندسة البرمجيات وقابلية الاستخدام، بالإضافة إلى سير العمل المستند إلى الوكلاء
+الذي يتطلّب استخدامًا دقيقًا للأدوات وتنفيذًا موثوقًا به لعدة خطوات في مجالات
+العالم الحقيقي.
 
-[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ja)
+[تجربة الميزة في Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ar)
 
-## ドキュメント
+## الوثائق
 
-機能と機能の詳細については、[Gemini 3 デベロッパー ガイド](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ja)のページをご覧ください。
+انتقِل إلى صفحة [دليل المطوّرين في Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
 
 ## gemini-3.1-pro-preview
 
-| プロパティ | 説明 |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardモデルコード | `gemini-3.1-pro-preview` |
-| save でサポートされるデータ型 | **入力**  テキスト、画像、動画、音声、PDF  **出力**  テキスト |
-| token\_autoトークン上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  1,048,576  **出力トークンの上限**  65,536 |
-| handyman機能 | **音声生成**  サポート対象外  **Batch API**  サポート対象  **キャッシュ保存**  サポート対象  **コードの実行**  サポート対象  **ファイル検索**  サポート対象（AI Studio のみ）  **Flex 推論**  サポート対象  **関数呼び出し**  サポート対象  **Google マップによるグラウンディング**  サポート対象  **画像生成**  サポート対象外  **Live API**  サポート対象外  **候補の推論**  サポート対象  **検索によるグラウンディング**  サポート対象  **構造化出力**  サポート対象  **思考モード**  サポート対象  **URL コンテキスト**  サポート対象 |
-| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - プレビュー: `gemini-3.1-pro-preview` - プレビュー: `gemini-3.1-pro-preview-customtools` \* |
-| calendar\_month最終更新日 | 2026 年 2 月 |
-| cognition\_2ナレッジ カットオフ | 2025 年 1 月 |
+| رمز النموذج id\_card | `gemini-3.1-pro-preview` |
+| saveأنواع البيانات المتوافقة | **المدخلات**  النصوص والصور والفيديوهات والمحتوى الصوتي وملفات PDF  **الناتج**  نص |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  1,048,576  **الحدّ الأقصى لعدد الرموز المميزة الناتجة**  65,536 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  متوافق (في AI Studio فقط)  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  متاح |
+| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  متاح  **[استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  متاح |
+| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - معاينة: `gemini-3.1-pro-preview` - معاينة: `gemini-3.1-pro-preview-customtools` \* |
+| calendar\_monthآخر تعديل | فبراير 2026 |
+| cognition\_2تاريخ آخر تحديث للبيانات | يناير 2025 |
 
 #### gemini-3.1-pro-preview-customtools
 
-\* *bash とカスタムツールの両方を使用して構築している場合は、Gemini 3.1 Pro プレビュー版に、`gemini-3.1-pro-preview-customtools` という API を介して利用できる個別のエンドポイントが付属しています。このエンドポイントは、カスタムツール（`view_file` や `search_code` など）の優先順位付けに適しています。*
+\* *بالنسبة إلى المطوّرين الذين يستخدمون مزيجًا من bash والأدوات المخصّصة، يتوفّر الإصدار التجريبي من Gemini 3.1 Pro
+مع نقطة نهاية منفصلة يمكن الوصول إليها من خلال واجهة برمجة التطبيقات باسم
+`gemini-3.1-pro-preview-customtools`. يُعدّ هذا النقطة النهائية أفضل في تحديد أولويات أدواتك المخصّصة (مثل `view_file` أو `search_code`).*
 
-*`gemini-3.1-pro-preview-customtools` はカスタムツールと Bash を使用するエージェント ワークフロー用に最適化されていますが、このようなツールを使用しないユースケースでは品質の変動が見られることがあります。*
+*يُرجى العِلم أنّه على الرغم من أنّ `gemini-3.1-pro-preview-customtools` محسّن لسير العمل المستند إلى الوكلاء والذي يستخدم أدوات مخصّصة وbash، قد تلاحظ بعض التقلبات في الجودة في بعض حالات الاستخدام التي لا تستفيد من هذه الأدوات.*
 
-フィードバックを送信
+إرسال ملاحظات
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-04-29 UTC。
+تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
 
-ご意見をお聞かせください
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

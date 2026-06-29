@@ -1,27 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/openai?hl=th
-fetched_at: 2026-06-22T06:31:47.315142+00:00
-title: "\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e01\u0e31\u0e19\u0e44\u0e14\u0e49\u0e01\u0e31\u0e1a OpenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/openai?hl=it
+fetched_at: 2026-06-29T05:31:47.356757+00:00
+title: "Compatibilit\u00e0 con OpenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) พร้อมให้บริการในเวอร์ชันพรีวิวแล้วตอนนี้ โดยมีฟีเจอร์การวางแผนร่วมกัน การแสดงภาพข้อมูล การรองรับ MCP และอื่นๆ
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-ส่งความคิดเห็น
+Invia feedback
 
-# ความเข้ากันได้กับ OpenAI
+# Compatibilità con OpenAI
 
-คุณเข้าถึงโมเดล Gemini ได้โดยใช้ไลบรารี OpenAI (Python และ TypeScript/
-Javascript) พร้อมกับ REST API โดยอัปเดตโค้ด 3 บรรทัด
-และใช้[คีย์ Gemini API](https://aistudio.google.com/apikey?hl=th) หากยังไม่ได้ใช้ไลบรารี OpenAI เราขอแนะนำให้คุณเรียกใช้
-[Gemini API โดยตรง](https://ai.google.dev/gemini-api/docs/quickstart?hl=th)
+I modelli Gemini sono accessibili utilizzando le librerie OpenAI (Python e TypeScript/JavaScript) insieme all'API REST, aggiornando tre righe di codice e utilizzando la [chiave API Gemini](https://aistudio.google.com/apikey?hl=it). Se non utilizzi già le librerie OpenAI, ti consigliamo di chiamare direttamente l'[API Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=it).
 
 ### Python
 
@@ -92,22 +89,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-สิ่งที่เปลี่ยนแปลง มีเพียง 3 บรรทัด
+Che cosa è cambiato? Solo tre righe.
 
-- **`api_key="GEMINI_API_KEY"`**: แทนที่ "`GEMINI_API_KEY`" ด้วยคีย์ Gemini
-  API จริง ซึ่งคุณรับได้ใน [Google AI Studio](https://aistudio.google.com?hl=th)
-- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** นี่
-  บอกให้ไลบรารี OpenAI ส่งคำขอไปยังปลายทาง Gemini API แทน
-  URL เริ่มต้น
-- **`model="gemini-3.5-flash"`**: เลือกโมเดล Gemini ที่เข้ากันได้
+- **`api_key="GEMINI_API_KEY"`**: sostituisci "`GEMINI_API_KEY`" con la tua chiave API Gemini, che puoi ottenere in [Google AI Studio](https://aistudio.google.com?hl=it).
+- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** questo
+  indica alla libreria OpenAI di inviare richieste all'endpoint dell'API Gemini anziché
+  all'URL predefinito.
+- **`model="gemini-3.5-flash"`**: scegli un modello Gemini compatibile
 
-## การคิด
+## Ragionamento
 
-โมเดล Gemini ได้รับการฝึกให้คิดแก้ปัญหาที่ซับซ้อน ซึ่งนำไปสู่การใช้เหตุผลที่ดีขึ้นอย่างมาก Gemini API มาพร้อมกับ [พารามิเตอร์
-การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)ที่ช่วยให้คุณควบคุมได้อย่างละเอียด
-ว่าโมเดลจะคิดมากน้อยเพียงใด
+I modelli Gemini sono addestrati a risolvere problemi complessi, il che porta a un ragionamento notevolmente migliorato. L'API Gemini è dotata di [parametri di
+pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it) che consentono un controllo
+granulare della quantità di pensiero del modello.
 
-โมเดล Gemini แต่ละโมเดลมีการกำหนดค่าการใช้เหตุผลที่แตกต่างกัน คุณสามารถดูวิธีที่โมเดลเหล่านี้แมปกับความพยายามในการใช้เหตุผลของ OpenAI ได้ดังนี้
+I diversi modelli Gemini hanno configurazioni di ragionamento diverse. Puoi vedere come
+corrispondono agli sforzi di ragionamento di OpenAI come segue:
 
 | `reasoning_effort` (OpenAI) | `thinking_level` (Gemini 3.1 Pro) | `thinking_level` (Gemini 3.1 Flash-Lite) | `thinking_level` (Gemini 3 Flash) | `thinking_budget` (Gemini 2.5) |
 | --- | --- | --- | --- | --- |
@@ -116,11 +113,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
 | `medium` | `medium` | `medium` | `medium` | `8,192` |
 | `high` | `high` | `high` | `high` | `24,576` |
 
-หากไม่ได้ระบุ `reasoning_effort` ไว้ Gemini จะใช้
-ระดับ [เริ่มต้น](https://ai.google.dev/gemini-api/docs/thinking?hl=th#levels) หรืองบประมาณ [ของโมเดล](https://ai.google.dev/gemini-api/docs/thinking?hl=th#set-budget)
+Se non viene specificato alcun `reasoning_effort`, Gemini utilizza il [livello](https://ai.google.dev/gemini-api/docs/thinking?hl=it#levels) o il [budget](https://ai.google.dev/gemini-api/docs/thinking?hl=it#set-budget) predefinito del modello.
 
-หากต้องการปิดใช้การคิด คุณสามารถตั้งค่า `reasoning_effort` เป็น `"none"` สำหรับ
-โมเดล 2.5 คุณจะปิดการใช้เหตุผลสำหรับโมเดล Gemini 2.5 Pro หรือ 3 ไม่ได้
+Se vuoi disattivare la funzionalità di ragionamento, puoi impostare `reasoning_effort` su `"none"` per i modelli 2.5. Il ragionamento non può essere disattivato per i modelli Gemini 2.5 Pro o 3.
 
 ### Python
 
@@ -194,10 +189,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-โมเดลการคิดของ Gemini ยังสร้าง[สรุปความคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#summaries)ด้วย
-คุณสามารถใช้ช่อง [`extra_body`](#extra-body) เพื่อรวมช่อง Gemini ไว้ในคำขอ
+I modelli di pensiero di Gemini producono anche [riepiloghi dei pensieri](https://ai.google.dev/gemini-api/docs/thinking?hl=it#summaries).
+Puoi utilizzare il campo [`extra_body`](#extra-body) per includere i campi Gemini
+nella tua richiesta.
 
-โปรดทราบว่า `reasoning_effort` และ `thinking_level`/`thinking_budget` มีฟังก์ชันการทำงานที่ซ้อนทับกัน จึงใช้พร้อมกันไม่ได้
+Tieni presente che le funzionalità `reasoning_effort` e `thinking_level`/`thinking_budget` si sovrappongono, pertanto non possono essere utilizzate contemporaneamente.
 
 ### Python
 
@@ -273,11 +269,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
       }'
 ```
 
-Gemini 3 รองรับความเข้ากันได้กับ OpenAI สำหรับลายเซ็นความคิดใน Chat Completion API คุณดูตัวอย่างทั้งหมดได้ในหน้า[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th#openai)
+Gemini 3 supporta la compatibilità con OpenAI per le firme di pensiero nelle API di completamento della chat. Puoi trovare l'esempio completo nella pagina [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it#openai).
 
-## สตรีมมิง
+## Streaming
 
-Gemini API รองรับ[การสตรีมมิงการตอบกลับ](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=th#generate-a-text-stream)
+L'API Gemini supporta le [risposte in streaming](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=it#generate-a-text-stream).
 
 ### Python
 
@@ -356,9 +352,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
     }'
 ```
 
-## การเรียกใช้ฟังก์ชัน
+## Chiamata di funzione
 
-การเรียกใช้ฟังก์ชันช่วยให้คุณรับเอาต์พุตข้อมูลที่มีโครงสร้างจากโมเดล Generative ได้ง่ายขึ้น และ [Gemini API ก็รองรับฟีเจอร์นี้](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=th)
+La chiamata di funzione semplifica l'ottenimento di output di dati strutturati dai modelli generativi ed è [supportata nell'API Gemini](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=it).
 
 ### Python
 
@@ -489,10 +485,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
 }'
 ```
 
-## การทำความเข้าใจรูปภาพ
+## Comprensione delle immagini
 
-โมเดล Gemini เป็นโมเดลมัลติโมดัลโดยกำเนิดและมีประสิทธิภาพดีที่สุดใน
-[งานด้านวิชันซิสติกส์ทั่วไปหลายอย่าง](https://ai.google.dev/gemini-api/docs/vision?hl=th)
+I modelli Gemini sono nativamente multimodali e offrono prestazioni di prima classe in
+[molte attività di visione comuni](https://ai.google.dev/gemini-api/docs/vision?hl=it).
 
 ### Python
 
@@ -621,9 +617,9 @@ bash -c '
 '
 ```
 
-## สร้างรูปภาพ
+## Genera un'immagine
 
-สร้างรูปภาพโดยใช้ `gemini-2.5-flash-image` หรือ `gemini-3-pro-image-preview` พารามิเตอร์ที่รองรับ ได้แก่ `prompt`, `model`, `n`, `size`, และ `response_format` เลเยอร์ความเข้ากันได้จะละเว้นพารามิเตอร์อื่นๆ ที่ไม่ได้ระบุไว้ที่นี่หรือในส่วน [`extra_body`](#extra-body) โดยไม่มีการแจ้งเตือน
+Genera un'immagine utilizzando `gemini-2.5-flash-image` o `gemini-3-pro-image-preview`. I parametri supportati includono `prompt`, `model`, `n`, `size` e `response_format`. Qualsiasi altro parametro non elencato qui o nella sezione [`extra_body`](#extra-body) verrà ignorato automaticamente dal livello di compatibilità.
 
 ### Python
 
@@ -690,11 +686,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/images/generations
       }'
 ```
 
-## สร้างวิดีโอ
+## Generare un video
 
-สร้างวิดีโอโดยใช้ `veo-3.1-generate-preview` ผ่านปลายทาง `/v1/videos` ที่เข้ากันได้กับ Sora พารามิเตอร์ระดับบนสุดที่รองรับคือ `prompt` และ `model` คุณต้องส่งพารามิเตอร์เพิ่มเติม เช่น `duration_seconds`, `image` และ `aspect_ratio` พร้อมกับ `extra_body` ดูพารามิเตอร์ทั้งหมดที่ใช้ได้ในส่วน [`extra_body`](#extra-body)
+Genera un video utilizzando `veo-3.1-generate-preview` tramite l'endpoint `/v1/videos` compatibile con Sora. I parametri di primo livello supportati sono `prompt` e `model`. Parametri aggiuntivi come `duration_seconds`, `image` e `aspect_ratio` devono essere trasmessi con `extra_body`. Consulta la sezione [`extra_body`](#extra-body)
+per tutti i parametri disponibili.
 
-การสร้างวิดีโอเป็นการดำเนินการที่ใช้เวลานาน ซึ่งจะแสดงผลรหัสการดำเนินการที่คุณสามารถโพลเพื่อตรวจสอบความสมบูรณ์ได้
+La generazione di video è un'operazione a lunga esecuzione che restituisce
+un ID operazione che puoi eseguire il polling per il completamento.
 
 ### Python
 
@@ -749,9 +747,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos" \
   -F "prompt=A cinematic drone shot of a waterfall"
 ```
 
-### ตรวจสอบสถานะวิดีโอ
+### Controllare lo stato del video
 
-การสร้างวิดีโอเป็นการดำเนินการแบบอะซิงโครนัส ใช้ `GET /v1/videos/{id}` เพื่อโพลสถานะและดึงข้อมูล URL วิดีโอสุดท้ายเมื่อเสร็จสมบูรณ์
+La generazione di video è asincrona. Utilizza `GET /v1/videos/{id}` per eseguire il polling dello stato
+e recuperare l'URL video finale al termine dell'operazione:
 
 ### Python
 
@@ -815,9 +814,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos/VIDEO_ID" \
   -H "Authorization: Bearer $GEMINI_API_KEY"
 ```
 
-## การทำความเข้าใจเสียง
+## Comprensione dell'audio
 
-วิเคราะห์อินพุตเสียง
+Analizza l'input audio:
 
 ### Python
 
@@ -930,9 +929,9 @@ bash -c '
 '
 ```
 
-## เอาต์พุตที่มีโครงสร้าง
+## Output strutturato
 
-[โมเดล Gemini สามารถแสดงผลออบเจ็กต์ JSON ในโครงสร้างใดก็ได้ที่คุณกำหนด](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)
+I modelli Gemini possono generare oggetti JSON in qualsiasi [struttura definita](https://ai.google.dev/gemini-api/docs/structured-output?hl=it).
 
 ### Python
 
@@ -993,10 +992,12 @@ const event = completion.choices[0].message.parsed;
 console.log(event);
 ```
 
-## การฝัง
+## Incorporamenti
 
-การฝังข้อความจะวัดความเกี่ยวข้องของสตริงข้อความและสร้างได้
-โดยใช้ [Gemini API](https://ai.google.dev/gemini-api/docs/embeddings?hl=th) คุณสามารถใช้ `gemini-embedding-2-preview` สำหรับการฝังมัลติโมดัล หรือ `gemini-embedding-001` สำหรับการฝังข้อความเท่านั้น
+Gli embedding di testo misurano la correlazione tra stringhe di testo e possono essere generati
+utilizzando l'[API Gemini](https://ai.google.dev/gemini-api/docs/embeddings?hl=it). Puoi utilizzare
+`gemini-embedding-2-preview` per gli incorporamenti multimodali o
+`gemini-embedding-001` per gli incorporamenti solo testuali.
 
 ### Python
 
@@ -1050,22 +1051,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/embeddings" \
   }'
 ```
 
-## Batch API
+## API Batch
 
-คุณสามารถสร้าง[งานแบบกลุ่ม](https://ai.google.dev/gemini-api/docs/batch-mode?hl=th) ส่งงาน และตรวจสอบ
-สถานะของงานได้โดยใช้ไลบรารี OpenAI
+Puoi creare [job batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=it), inviarli e controllarne lo stato utilizzando la libreria OpenAI.
 
-คุณจะต้องเตรียมไฟล์ JSONL ในรูปแบบอินพุตของ OpenAI เช่น
+Dovrai preparare il file JSONL nel formato di input di OpenAI. Ad esempio:
 
 ```
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.5-flash", "messages": [{"role": "user", "content": "Tell me a one-sentence joke."}]}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.5-flash", "messages": [{"role": "user", "content": "Why is the sky blue?"}]}}
 ```
 
-ความเข้ากันได้กับ OpenAI สำหรับ Batch รองรับการสร้างกลุ่ม การตรวจสอบสถานะงาน และการดูผลลัพธ์แบบกลุ่ม
+La compatibilità con OpenAI per Batch supporta la creazione di un batch,
+il monitoraggio dello stato del job e la visualizzazione dei risultati del batch.
 
-ปัจจุบันระบบยังไม่รองรับความเข้ากันได้สำหรับการอัปโหลดและดาวน์โหลด ตัวอย่างต่อไปนี้จึงใช้ไคลเอ็นต์ `genai` สำหรับการอัปโหลดและดาวน์โหลด
-[ไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th) ซึ่งเหมือนกับตอนที่ใช้ Gemini [Batch API](https://ai.google.dev/gemini-api/docs/batch-mode?hl=th#input-file)
+Al momento la compatibilità per il caricamento e il download non è supportata. L'esempio seguente utilizza invece il client `genai` per caricare e scaricare [file](https://ai.google.dev/gemini-api/docs/files?hl=it), come quando si utilizza l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=it#input-file) di Gemini.
 
 ### Python
 
@@ -1111,7 +1111,7 @@ for line in file_content.splitlines():
     print(line)
 ```
 
-[OpenAI SDK ยังรองรับการสร้างการฝังด้วย Batch API ด้วย](https://ai.google.dev/gemini-api/docs/batch-api?hl=th#batch-embeddings) หากต้องการทำเช่นนั้น ให้เปลี่ยนช่อง `endpoint` ของเมธอด `create` เป็นปลายทางการฝัง รวมถึงคีย์ `url` และ `model` ในไฟล์ JSONL
+L'SDK OpenAI supporta anche la [generazione di incorporamenti con l'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it#batch-embeddings). Per farlo, sostituisci il campo `endpoint` del metodo `create` con un endpoint di incorporamento, nonché le chiavi `url` e `model` nel file JSONL:
 
 ```
 # JSONL file using embeddings model and endpoint
@@ -1128,12 +1128,12 @@ batch = openai_client.batches.create(
 )
 ```
 
-ดูตัวอย่างฉบับเต็มได้ในส่วน[การสร้างการฝังแบบกลุ่ม](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb)
-ของคู่มือความเข้ากันได้กับ OpenAI
+Per un esempio completo, consulta la sezione [Generazione di incorporamenti batch](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb) del manuale di compatibilità di OpenAI.
 
-## การอนุมานแบบยืดหยุ่นและการอนุมานแบบลำดับความสำคัญ
+## Inferenza di flessibilità e priorità
 
-Gemini API ตรงกับพารามิเตอร์ `service_tier` ของ OpenAI ทั้งในด้านชื่อและตรรกะ โดยบังคับใช้ขีดจำกัดและกำหนดเส้นทางการรับส่งข้อมูลอย่างเหมาะสมสำหรับระดับการอนุมานทั้งแบบยืดหยุ่นและแบบลำดับความสำคัญ
+L'API Gemini corrisponde al parametro `service_tier` di OpenAI per nome e logica,
+imponendo limiti e indirizzando il traffico in modo controllato per i livelli di inferenza Flex e Priority.
 
 ### Python
 
@@ -1156,38 +1156,39 @@ completion = client.chat.completions.create(
 print(completion)
 ```
 
-เมื่อไม่ได้กำหนดไว้อย่างชัดเจน `service_tier` จะใช้ค่าเริ่มต้นเป็น `standard` ซึ่งเทียบเท่ากับ `default` สำหรับ OpenAI
-ดูข้อมูลเพิ่มเติมเกี่ยวกับระดับการอนุมานได้ในเอกสารประกอบการ[เพิ่มประสิทธิภาพ](https://ai.google.dev/gemini-api/docs/optimization?hl=th)
+Se non viene assegnato esplicitamente, `service_tier` ha come valore predefinito `standard`, equivalente
+a `default` per OpenAI.
+Scopri di più sui livelli di inferenza nella documentazione relativa all'[ottimizzazione](https://ai.google.dev/gemini-api/docs/optimization?hl=it).
 
-## เปิดใช้ฟีเจอร์ Gemini ด้วย `extra_body`
+## Attivare le funzionalità di Gemini con `extra_body`
 
-Gemini รองรับฟีเจอร์หลายอย่างที่โมเดล OpenAI ไม่มี แต่คุณสามารถเปิดใช้ได้โดยใช้ช่อง `extra_body`
+Esistono diverse funzionalità supportate da Gemini che non sono disponibili nei modelli OpenAI, ma che possono essere attivate utilizzando il campo `extra_body`.
 
-| พารามิเตอร์ | ประเภท | อุปกรณ์ปลายทาง | คำอธิบาย |
+| Parametro | Tipo | Endpoint | Descrizione |
 | --- | --- | --- | --- |
-| **`cached_content`** | ข้อความ | แชท | สอดคล้องกับแคชเนื้อหาทั่วไปของ Gemini |
-| **`thinking_config`** | วัตถุ | แชท | สอดคล้องกับ ThinkingConfig ของ Gemini |
-| **`aspect_ratio`** | ข้อความ | รูปภาพ | สัดส่วนภาพเอาต์พุต (เช่น `"16:9"`, `"1:1"`, `"9:16"`) |
-| **`generation_config`** | วัตถุ | รูปภาพ | ออบเจ็กต์การกำหนดค่าการสร้างของ Gemini (เช่น `{"responseModalities": ["IMAGE"], "candidateCount": 2}`) |
-| **`safety_settings`** | รายการ | รูปภาพ | ตัวกรองเกณฑ์ความปลอดภัยที่กำหนดเอง (เช่น `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`) |
-| **`tools`** | รายการ | รูปภาพ | เปิดใช้การอ้างอิง (เช่น `[{"google_search": {}}]`) สำหรับ `gemini-3-pro-image-preview` เท่านั้น |
-| **`aspect_ratio`** | ข้อความ | วิดีโอ | ขนาดของวิดีโอเอาต์พุต (`16:9` สำหรับแนวนอน, `9:16` สำหรับแนวตั้ง) แมปจาก `size` หากไม่ได้ระบุไว้ |
-| **`resolution`** | ข้อความ | วิดีโอ | ความละเอียดเอาต์พุต (`720p`, `1080p`, `4K`) หมายเหตุ: `1080p` และ `4K` จะทริกเกอร์ไปป์ไลน์การเพิ่มความละเอียด |
-| **`duration_seconds`** | จำนวนเต็ม | วิดีโอ | ความยาวการสร้าง (ค่า: `4`, `6`, `8`) ต้องเป็น `8` เมื่อใช้ `reference_images`, การประมาณค่า หรือส่วนขยาย |
-| **`frame_rate`** | ข้อความ | วิดีโอ | อัตราเฟรมสำหรับเอาต์พุตวิดีโอ (เช่น `"24"`) |
-| **`input_reference`** | ข้อความ | วิดีโอ | อินพุตอ้างอิงสำหรับการสร้างวิดีโอ |
-| **`extend_video_id`** | ข้อความ | วิดีโอ | รหัสของวิดีโอที่มีอยู่เพื่อขยาย |
-| **`negative_prompt`** | ข้อความ | วิดีโอ | รายการที่จะยกเว้น (เช่น `"shaky camera"`) |
-| **`seed`** | จำนวนเต็ม | วิดีโอ | จำนวนเต็มสำหรับการสร้างแบบดีเทอร์มินิสติก |
-| **`style`** | ข้อความ | วิดีโอ | การจัดรูปแบบภาพ (`cinematic` เป็นค่าเริ่มต้น, `creative` สำหรับการเพิ่มประสิทธิภาพโซเชียลมีเดีย) |
-| **`person_generation`** | ข้อความ | วิดีโอ | ควบคุมการสร้างผู้คน (`allow_adult`, `allow_all`, `dont_allow`) |
-| **`reference_images`** | รายการ | วิดีโอ | รูปภาพสูงสุด 3 รูปสำหรับการอ้างอิงสไตล์/ตัวละคร (ชิ้นงาน Base64) |
-| **`image`** | ข้อความ | วิดีโอ | รูปภาพอินพุตเริ่มต้นที่เข้ารหัส Base64 เพื่อกำหนดเงื่อนไขการสร้างวิดีโอ |
-| **`last_frame`** | วัตถุ | วิดีโอ | รูปภาพสุดท้ายสำหรับการประมาณค่า (ต้องมี `image` เป็นเฟรมแรก) |
+| **`cached_content`** | Testo | Chat | Corrisponde alla cache dei contenuti generali di Gemini. |
+| **`thinking_config`** | Oggetto | Chat | Corrisponde a ThinkingConfig di Gemini. |
+| **`aspect_ratio`** | Testo | Immagini | Proporzioni di output (ad es. `"16:9"`, `"1:1"`, `"9:16"`). |
+| **`generation_config`** | Oggetto | Immagini | Oggetto di configurazione della generazione di Gemini (ad es. `{"responseModalities": ["IMAGE"], "candidateCount": 2}`). |
+| **`safety_settings`** | Elenco | Immagini | Filtri personalizzati per la soglia di sicurezza (ad es. `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`). |
+| **`tools`** | Elenco | Immagini | Attiva il grounding (ad es. `[{"google_search": {}}]`). Solo per `gemini-3-pro-image-preview`. |
+| **`aspect_ratio`** | Testo | Video | Dimensioni del video di output (`16:9` per l'orientamento orizzontale, `9:16` per l'orientamento verticale). Mappe da `size` se non specificato. |
+| **`resolution`** | Testo | Video | Risoluzione di output (`720p`, `1080p`, `4K`). Nota: `1080p` e `4K` attivano la pipeline di upsampling. |
+| **`duration_seconds`** | Numero intero | Video | Durata della generazione (valori: `4`, `6`, `8`). Deve essere `8` quando si utilizzano `reference_images`, l'interpolazione o l'estensione. |
+| **`frame_rate`** | Testo | Video | Frequenza fotogrammi per l'output video (ad es. `"24"`). |
+| **`input_reference`** | Testo | Video | Input di riferimento per la generazione di video. |
+| **`extend_video_id`** | Testo | Video | ID di un video esistente da estendere. |
+| **`negative_prompt`** | Testo | Video | Elementi da escludere (ad es. `"shaky camera"`). |
+| **`seed`** | Numero intero | Video | Numero intero per la generazione deterministica. |
+| **`style`** | Testo | Video | Stile visivo (`cinematic` predefinito, `creative` ottimizzato per i social media). |
+| **`person_generation`** | Testo | Video | Controlla la generazione di persone (`allow_adult`, `allow_all`, `dont_allow`). |
+| **`reference_images`** | Elenco | Video | Fino a 3 immagini per il riferimento di stile/personaggio (asset base64). |
+| **`image`** | Testo | Video | Immagine di input iniziale con codifica Base64 per condizionare la generazione del video. |
+| **`last_frame`** | Oggetto | Video | Immagine finale per l'interpolazione (richiede `image` come primo frame). |
 
-### ตัวอย่างการใช้ `extra_body`
+### Esempio di utilizzo di `extra_body`
 
-ตัวอย่างการใช้ `extra_body` เพื่อตั้งค่า `cached_content`
+Ecco un esempio di utilizzo di `extra_body` per impostare `cached_content`:
 
 ### Python
 
@@ -1225,9 +1226,9 @@ for chunk in stream:
     print(chunk.usage.to_dict())
 ```
 
-## แสดงรายการโมเดล
+## Elenco modelli
 
-รับรายการโมเดล Gemini ที่พร้อมใช้งาน
+Per ottenere un elenco dei modelli Gemini disponibili:
 
 ### Python
 
@@ -1271,9 +1272,9 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models \
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## ดึงข้อมูลโมเดล
+## Recuperare un modello
 
-ดึงข้อมูลโมเดล Gemini
+Recupera un modello Gemini:
 
 ### Python
 
@@ -1314,23 +1315,23 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models/gemini-3.5-f
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## ข้อจำกัดปัจจุบัน
+## Limitazioni attuali
 
-การรองรับไลบรารี OpenAI ยังอยู่ในเวอร์ชันเบต้าในขณะที่เราขยายการรองรับฟีเจอร์
+Il supporto delle librerie OpenAI è ancora in versione beta mentre estendiamo il supporto delle funzionalità.
 
-หากมีคำถามเกี่ยวกับพารามิเตอร์ที่รองรับ ฟีเจอร์ที่จะเปิดตัว หรือพบปัญหาในการเริ่มต้นใช้งาน Gemini โปรดเข้าร่วม
-ฟอรัมนักพัฒนาแอป
+Se hai domande sui parametri supportati, sulle funzionalità future o se riscontri problemi
+iniziali con Gemini, unisciti al nostro [forum per gli sviluppatori](https://discuss.ai.google.dev/c/gemini-api/4?hl=it).
 
-## ขั้นตอนถัดไป
+## Passaggi successivi
 
-ลองใช้ [Colab ความเข้ากันได้กับ OpenAI](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=th) เพื่อดูตัวอย่างโดยละเอียดเพิ่มเติม
+Prova il nostro [OpenAI Compatibility Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=it) per esaminare esempi più dettagliati.
 
-ส่งความคิดเห็น
+Invia feedback
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-อัปเดตล่าสุด 2026-06-19 UTC
+Ultimo aggiornamento 2026-06-22 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Vuoi dirci altro?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-19 UTC"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-22 UTC."],[],[]]

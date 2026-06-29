@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar
-fetched_at: 2026-06-22T06:32:55.715620+00:00
+fetched_at: 2026-06-29T05:32:44.236635+00:00
 title: "\u202bGemini 2.5 Flash Image (Nano Banana) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
@@ -18,7 +18,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 # ‫Gemini 2.5 Flash Image (Nano Banana)
 
-هذا المحرّك هو الأفضل لإنشاء الصور بسرعة عالية، ويقدّم سرعة وكفاءة متطوّرتَين. يُعدّ نموذج Gemini 2.5 Flash Image، المعروف أيضًا باسم Nano Banana، الأفضل لإنشاء الصور بكميات كبيرة وتعديل الصور في المحادثات وتنفيذ مهام سير العمل الإبداعية التي تتطلّب فهمًا متعدد الوسائط مع وقت استجابة منخفض.
+هذا المحرّك هو الأفضل لإنشاء الصور المرئية بسرعة فائقة، ويقدّم سرعة وكفاءة متطوّرتَين. يُعدّ Gemini 2.5 Flash Image، المعروف أيضًا باسم Nano Banana، الأفضل لإنشاء الصور بكميات كبيرة وتعديل الصور في المحادثات وتوفير مساحات عمل إبداعية ذات وقت استجابة منخفض تتطلّب فهمًا أصليًا للوسائط المتعدّدة.
 
 [تجربة في Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=ar)
 
@@ -33,8 +33,9 @@ Google uses AI technology to translate content into your preferred language. AI 
 | --- | --- |
 | id\_cardرمز النموذج | `gemini-2.5-flash-image` |
 | saveأنواع البيانات المتوافقة | **المدخلات**  الصور والنصوص  **الناتج**  الصور والنصوص |
-| token\_autoالحدود القصوى للرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحد الأقصى للرموز المميزة في الإدخال**  65,536  **الحد الأقصى للرموز المميزة في الناتج**  32,768 |
-| handymanالإمكانات | **إنشاء الصوت**  غير متاح  **واجهة برمجة التطبيقات المجمّعة**  متاحة  **التخزين المؤقت**  متاح  **تنفيذ الرموز البرمجية**  غير متاح  **البحث عن الملفات**  غير متاح  **الاستدلال المرن**  متاح  **استدعاء الدوال**  غير متاح  **استخدام "خرائط Google" كمصدر**  غير متاح  **إنشاء الصور**  متاح  **واجهة برمجة التطبيقات المباشرة**  غير متاح  **الاستدلال حسب الأولوية**  متاح  **لتحديد المصادر في "بحث Google"**  غير متاح  **مُخرجات منظَّمة**  متاحة  **طريقة التفكير**  غير متاح  **سياق عنوان URL**  غير متاح |
+| token\_autoحدود الرموز المميّزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لرموز الإدخال المميّزة**  65,536  **الحدّ الأقصى لرموز الإخراج المميّزة**  32,768 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  غير متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  غير متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  متاح  **[واجهة برمجة التطبيقات المباشرة](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[لتحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  غير متاح  **[مُخرجات منظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  متاح  **[طريقة التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  غير متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  غير متاح |
+| خيارات الاستهلاكspeed | **[واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  متاح  **[الاستنتاج ذو الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  متاح |
 | 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - الإصدار الثابت: `gemini-2.5-flash-image` - الإصدار المتوقّف: `gemini-2.5-flash-image-preview` |
 | calendar\_monthآخر تعديل | أكتوبر 2025 |
 | cognition\_2تاريخ آخر تحديث للبيانات | يونيو 2025 |
@@ -43,8 +44,8 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

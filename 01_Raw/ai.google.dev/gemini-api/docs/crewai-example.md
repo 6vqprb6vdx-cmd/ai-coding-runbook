@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=ar
-fetched_at: 2026-06-22T06:29:07.476428+00:00
-title: "\u062a\u062d\u0644\u064a\u0644 \u062f\u0639\u0645 \u0627\u0644\u0639\u0645\u0644\u0627\u0621 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini \u0648CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=id
+fetched_at: 2026-06-29T05:25:29.932940+00:00
+title: "Analisis dukungan pelanggan dengan Gemini dan CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-إرسال ملاحظات
+Kirim masukan
 
-# تحليل دعم العملاء باستخدام Gemini وCrewAI
+# Analisis dukungan pelanggan dengan Gemini dan CrewAI
 
-‫[CrewAI](https://docs.crewai.com/introduction) هو إطار عمل لتنظيم
-وكلاء الذكاء الاصطناعي المستقلين الذين يتعاونون لتحقيق أهداف معقّدة. يتيح لك
-تحديد الوكلاء من خلال تحديد الأدوار والأهداف والقصص الخلفية، ثم تحديد المهام
-لهم.
+[CrewAI](https://docs.crewai.com/introduction) adalah framework untuk mengatur
+agen AI otonom yang berkolaborasi untuk mencapai sasaran yang kompleks. Framework ini memungkinkan Anda
+menentukan agen dengan menentukan peran, sasaran, dan latar belakang, lalu menentukan tugas
+untuk agen tersebut.
 
-يوضّح هذا المثال كيفية إنشاء نظام متعدّد الوكلاء لتحليل بيانات دعم العملاء بهدف تحديد المشاكل واقتراح تحسينات على العمليات باستخدام Gemini 3 Flash، ما يؤدي إلى إنشاء تقرير مخصّص ليقرأه رئيس العمليات (COO).
+Contoh ini menunjukkan cara membuat sistem multi-agen untuk menganalisis data dukungan pelanggan guna mengidentifikasi masalah dan mengusulkan peningkatan proses menggunakan Gemini 3 Flash, yang menghasilkan laporan yang ditujukan untuk dibaca oleh Chief Operating Officer (COO).
 
-سيوضّح لك الدليل كيفية إنشاء "طاقم عمل" من وكلاء الذكاء الاصطناعي الذين يمكنهم تنفيذ المهام التالية:
+Panduan ini akan menunjukkan cara membuat "kru" agen AI yang dapat melakukan tugas berikut:
 
-1. جلب بيانات دعم العملاء وتحليلها (محاكاة في هذا المثال)
-2. تحديد المشاكل المتكرّرة والاختناقات في العمليات
-3. اقتراح تحسينات قابلة للتنفيذ
-4. تجميع النتائج في تقرير موجز مناسب لرئيس العمليات
+1. Mengambil dan menganalisis data dukungan pelanggan (disimulasikan dalam contoh ini).
+2. Mengidentifikasi masalah berulang dan hambatan proses.
+3. Menyarankan peningkatan yang dapat ditindaklanjuti.
+4. Mengumpulkan temuan ke dalam laporan ringkas yang sesuai untuk COO.
 
-تحتاج إلى مفتاح Gemini API. إذا لم يكن لديك مفتاح، يمكنك [الحصول عليه في
-Google AI Studio](https://aistudio.google.com/apikey?hl=ar).
+Anda memerlukan kunci Gemini API. Jika belum memilikinya, Anda bisa [mendapatkannya di
+Google AI Studio](https://aistudio.google.com/apikey?hl=id).
 
 ```
 pip install "crewai[tools]"
 ```
 
-عليك ضبط مفتاح Gemini API كمتغيّر بيئة باسم `GEMINI_API_KEY`، ثم ضبط CrewAI لاستخدام نموذج Gemini.
+Tetapkan kunci Gemini API Anda sebagai variabel lingkungan bernama `GEMINI_API_KEY`, lalu konfigurasi CrewAI untuk menggunakan model Gemini.
 
 ```
 import os
@@ -54,14 +54,14 @@ gemini_llm = LLM(
 )
 ```
 
-## تحديد المكوّنات
+## Menentukan komponen
 
-يمكنك إنشاء تطبيقات CrewAI باستخدام **الأدوات** و**الوكلاء** و**المهام** و
-**طاقم العمل** نفسه. توضّح الأقسام التالية كل مكوّن من هذه المكوّنات.
+Buat aplikasi CrewAI menggunakan **Alat**, **Agen**, **Tugas**, dan
+**Kru** itu sendiri. Bagian berikut menjelaskan setiap komponen ini.
 
-### الأدوات
+### Alat
 
-الأدوات هي إمكانات يمكن للوكلاء استخدامها للتفاعل مع العالم الخارجي أو تنفيذ إجراءات معيّنة. هنا، يمكنك تحديد أداة عنصر نائب لمحاكاة جلب بيانات دعم العملاء. في تطبيق حقيقي، يمكنك الاتصال بقاعدة بيانات أو واجهة برمجة تطبيقات أو نظام ملفات. لمزيد من المعلومات عن الأدوات، يُرجى الاطّلاع على دليل أدوات [CrewAI](https://docs.crewai.com/concepts/tools).
+Alat adalah kemampuan yang dapat digunakan agen untuk berinteraksi dengan dunia luar atau melakukan tindakan tertentu. Di sini, Anda menentukan alat placeholder untuk menyimulasikan pengambilan data dukungan pelanggan. Dalam aplikasi sebenarnya, Anda akan terhubung ke database, API, atau sistem file. Untuk mengetahui informasi selengkapnya tentang alat, lihat panduan alat [CrewAI](https://docs.crewai.com/concepts/tools).
 
 ```
 from crewai.tools import BaseTool
@@ -91,11 +91,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### الوكلاء
+### Agen
 
-الوكلاء هم العاملون الفرديون في مجال الذكاء الاصطناعي في طاقم عملك. لكل وكيل
-معيّن`role` و`goal` و`backstory` و`llm` معيّن و`tools` اختيارية. لمزيد من
-المعلومات عن الوكلاء، يُرجى الاطّلاع على دليل[وكلاء CrewAI](https://docs.crewai.com/concepts/agents).
+Agen adalah pekerja AI individual di kru Anda. Setiap agen memiliki `role`, `goal`, `backstory`, `llm` yang ditetapkan, dan `tools` opsional. Untuk mengetahui informasi selengkapnya tentang agen, lihat [panduan agen CrewAI](https://docs.crewai.com/concepts/agents).
 
 ```
 from crewai import Agent
@@ -142,12 +140,9 @@ report_writer = Agent(
 )
 ```
 
-### مهام Google
+### Tugas
 
-تحدّد المهام التعيينات المحدّدة للوكلاء. لكل مهمة
-`description` و`expected_output` ويتم تعيينها إلى `agent`. يتم تنفيذ المهام بالتسلسل تلقائيًا وتتضمّن سياق المهمة السابقة. لمزيد من
-المعلومات عن المهام، يُرجى الاطّلاع على دليل مهام [CrewAI
-guide](https://docs.crewai.com/concepts/tasks).
+Tugas menentukan penugasan spesifik untuk agen. Setiap tugas memiliki `description`, `expected_output`, dan ditetapkan ke `agent`. Tugas dijalankan secara berurutan secara default dan menyertakan konteks tugas sebelumnya. Untuk mengetahui informasi selengkapnya tentang tugas, lihat [panduan tugas CrewAI](https://docs.crewai.com/concepts/tasks).
 
 ```
 from crewai import Task
@@ -206,10 +201,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### طاقم العمل
+### Crew
 
-يجمع `Crew` بين الوكلاء والمهام، ويحدّد سير عمل العملية
-(مثل "متسلسل").
+`Crew` menggabungkan agen dan tugas, menentukan proses alur kerja (seperti "berurutan").
 
 ```
 from crewai import Crew, Process
@@ -222,9 +216,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## تشغيل طاقم العمل
+## Menjalankan kru
 
-أخيرًا، يمكنك بدء تنفيذ طاقم العمل باستخدام أي مدخلات ضرورية.
+Terakhir, mulai eksekusi kru dengan input yang diperlukan.
 
 ```
 # Start the crew's work
@@ -238,18 +232,19 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-سيتم الآن تنفيذ النص البرمجي. سيستخدم `Data Analyst` الأداة، وسيحلّل `Process
-Optimizer` النتائج، وسيجمع `Report Writer`
-التقرير النهائي، الذي تتم طباعته بعد ذلك في وحدة التحكّم. سيؤدي الإعداد `verbose=True` إلى عرض عملية التفكير والإجراءات التفصيلية لكل وكيل.
+Skrip kini akan dijalankan. `Data Analyst` akan menggunakan alat, `Process
+Optimizer` akan menganalisis temuan, dan `Report Writer` akan menyusun
+laporan akhir, yang kemudian dicetak ke konsol. Setelan `verbose=True` akan menampilkan proses pemikiran dan tindakan mendetail dari setiap agen.
 
-لمزيد من المعلومات عن CrewAI، يُرجى الاطّلاع على [مقدّمة عن CrewAI](https://docs.crewai.com/introduction).
+Untuk mempelajari CrewAI lebih lanjut, lihat [CrewAI
+pengantar](https://docs.crewai.com/introduction).
 
-إرسال ملاحظات
+Kirim masukan
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاريخ التعديل الأخير: 2026-06-10 (حسب التوقيت العالمي المتفَّق عليه)
+Terakhir diperbarui pada 2026-06-10 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Ada masukan untuk kami?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-10 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-10 UTC."],[],[]]

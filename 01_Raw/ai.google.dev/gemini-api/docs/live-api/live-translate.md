@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=pt-BR
-fetched_at: 2026-06-22T06:31:23.940903+00:00
-title: "Tradu\u00e7\u00e3o instant\u00e2nea com a API Gemini Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=he
+fetched_at: 2026-06-29T05:31:58.044875+00:00
+title: "\u05ea\u05e8\u05d2\u05d5\u05dd \u05d1\u05d6\u05de\u05df \u05d0\u05de\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envie comentários
+שליחת משוב
 
-# Tradução instantânea com a API Gemini Live
+# תרגום בזמן אמת באמצעות Gemini Live API
 
-A API Gemini Live oferece suporte à tradução simultânea em tempo real e com baixa latência entre mais de 70 idiomas usando o modelo [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=pt-br). Ao configurar a API Live com as configurações de tradução, é possível transmitir áudio em um idioma e receber a saída de áudio traduzida em outro, permitindo uma tradução de voz para voz em tempo real.
+ממשק Gemini Live API תומך בתרגום דיבור לדיבור בזמן אמת עם זמן טעינה נמוך, בין יותר מ-70 שפות, באמצעות מודל [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=he). אם מגדירים את Live API עם הגדרות תרגום, אפשר להזרים אודיו בשפה אחת ולקבל פלט אודיו מתורגם בשפה אחרת, וכך ליהנות מתרגום קולי בזמן אמת.
 
-[Testar a Tradução instantânea no Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=pt-br)
-[Clonar o app de exemplo do GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[Usar habilidades de agente de programaçãoterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br#gemini-live-api-dev)
+[רוצים לנסות את התרגום בזמן אמת ב-Google AI Studio?mic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=he)
+[משכפלים את אפליקציית הדוגמה מ-GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[שימוש במיומנויות של סוכן קודterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=he#gemini-live-api-dev)
 
-## Atendente x Tradução instantânea
+## נציג תמיכה לעומת תרגום בזמן אמת
 
-Embora os dois usem a API Live, o modelo mental da tradução instantânea é diferente das interações de agentes em tempo real.
+שני הפיצ'רים משתמשים ב-Live API, אבל המודל המנטלי של תרגום בזמן אמת שונה מזה של אינטראקציות עם סוכנים בזמן אמת.
 
-| Agente em tempo real | Tradução instantânea |
+| נציג תמיכה | תרגום בזמן אמת |
 | --- | --- |
-| **O modelo age como um assistente**.Ele ouve, raciocina e realiza ações em seu nome. | **O modelo atua como um intérprete** e se comporta como um pipeline de tradução em tempo real. |
-| **Usa interações baseadas em turnos**: depende de pausas, detecção de intents e processa interrupções. | **Usa o processamento de stream contínuo**: traduz enquanto o falante fala, sem esperar a vez. |
-| **Suporte a ferramentas e agentes**: suporte nativo para chamada de função, Pesquisa Google e instruções. | **Oferece suporte apenas à tradução.** Tradução pura de baixa latência, sem suporte para ferramentas ou instruções. |
-| **Totalmente multimodal**: aceita entradas de texto, áudio, vídeo e imagem. | **Áudio restrito**.A entrada é limitada ao áudio para garantir limites rigorosos de latência em tempo real. |
-| **Configuração granular**: usa geração, fala, ferramentas e instruções do sistema. | **Configuração simplificada**.Defina `target_language_code` e alternâncias como `echo_target_language`. |
+| **המערכת פועלת כעוזרת.** היא מקשיבה, מסיקה מסקנות ומבצעת פעולות בשמכם. | **המודל פועל כמתורגמן.** הוא פועל כצינור לעיבוד נתונים של תרגום בזמן אמת. |
+| **משתמש באינטראקציות מבוססות-תור.** התכונה מסתמכת על הפסקות בדיבור, זיהוי כוונות וטיפול בהפרעות. | **נעשה שימוש בעיבוד זרמי נתונים.** התרגום מתבצע בזמן שהדובר מדבר, בלי לחכות לתורו. |
+| **תמיכה בכלים ובסוכנים.** תמיכה מובנית בהפעלת פונקציות, בחיפוש Google ובהוראות. | **תמיכה בתרגום בלבד.** תרגום טהור עם השהיה נמוכה, ללא תמיכה בכלים או בהוראות. |
+| **מרובה מצבים באופן מלא.** הוא תומך בקלט של טקסט, אודיו, וידאו ותמונות. | **האודיו מוגבל.** הקלט מוגבל לאודיו כדי להבטיח סף מחמיר של זמן אחזור בזמן אמת. |
+| **הגדרה מפורטת.** הוא משתמש בהוראות ליצירה, בדיבור, בכלים ובמערכת. | **הגדרה פשוטה יותר.** מגדירים את `target_language_code` ומפעילים או משביתים את המתגים כמו `echo_target_language`. |
 
-## Primeiros passos
+## שנתחיל?
 
-Os exemplos a seguir demonstram como inicializar um cliente e se conectar à API Live com uma configuração de tradução.
+בדוגמאות הבאות מוצג איך לאתחל לקוח ולהתחבר ל-Live API עם הגדרת תרגום.
 
 ### Python
 
@@ -185,15 +185,15 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Enviando áudio
+## שליחת אודיו
 
-Para transmitir entradas de voz para tradução, envie áudio PCM bruto, little-endian e de 16 bits.
+כדי להזרים קלט קולי לתרגום, שולחים אודיו PCM גולמי, little-endian, ‏ 16 ביט.
 
-- **Formato de áudio de entrada**: PCM bruto de 16 bits a 16 kHz (mono, little-endian).
-- **Formato de áudio de saída**: PCM bruto de 16 bits a 24 kHz (mono, little endian).
-- **Tamanho do bloco e latência**: envie áudio em blocos de 100 ms.
+- **פורמט אודיו של הקלט**: PCM גולמי של 16 ביט ב-16kHz (מונו, little-endian).
+- **פורמט אודיו של הפלט**: Raw 16-bit PCM at 24kHz (מונו, little-endian).
+- **גודל קבוצת הנתונים וזמן הטעינה**: שליחת אודיו בקבוצות נתונים של 100 אלפיות השנייה.
 
-Os exemplos a seguir mostram como enviar partes de áudio para a sessão.
+בדוגמאות הבאות אפשר לראות איך שולחים מקטעי אודיו לסשן.
 
 ### Python
 
@@ -238,23 +238,23 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## Configuração
+## הגדרות אישיות
 
-Para ativar a tradução, especifique o `translationConfig` no `generationConfig` durante a configuração da sessão.
+כדי להפעיל את התרגום, צריך לציין את `translationConfig` בתוך `generationConfig` במהלך הגדרת הסשן.
 
-### Configurar mensagens
+### הגדרת הודעות לגבי הגדרה
 
-O `generationConfig` é compatível com os seguintes campos para ativar as transcrições:
+‫`generationConfig` תומך בשדות הבאים כדי להפעיל תמלילים:
 
-- **`inputAudioTranscription`**: um objeto que, quando presente, permite que o modelo envie transcrições de texto do áudio de entrada.
-- **`outputAudioTranscription`**: um objeto que, quando presente, permite que o modelo envie transcrições de texto do áudio de saída (traduzido).
+- ‫**`inputAudioTranscription`**: אובייקט שמאפשר למודל לשלוח תמלילי טקסט של קלט האודיו, אם הוא קיים.
+- ‫**`outputAudioTranscription`**: אובייקט שמאפשר למודל לשלוח תמלילי טקסט של פלט האודיו (מתורגם), אם הוא קיים.
 
-O `translationConfig` é compatível com os seguintes campos:
+‫`translationConfig` תומך בשדות הבאים:
 
-- **`targetLanguageCode`**: o [código de idioma BCP-47](#supported-languages) do idioma para o qual você quer que o modelo traduza (por exemplo, `"pl"` para polonês e `"es"` para espanhol). O valor padrão é `"en"`.
-- **`echoTargetLanguage`**: um booleano que indica como o áudio de entrada que já está no idioma de destino deve ser processado. Se definido como `true`, o modelo vai repetir o áudio de entrada que já está no idioma de destino. Se definido como `false`, o modelo vai ficar em silêncio quando a fala de entrada já estiver no idioma de destino. O padrão é `false`.
+- ‫**`targetLanguageCode`**: [קוד השפה מסוג BCP-47](#supported-languages) שאליה רוצים שהמודל יתרגם (למשל, `"pl"` לפולנית, `"es"` לספרדית). ברירת המחדל היא `"en"`.
+- ‫**`echoTargetLanguage`**: ערך בוליאני שמציין איך לטפל באודיו של קלט שכבר קיים בשפת היעד. אם הערך מוגדר ל-`true`, המודל ישמיע הד של קלט אודיו שכבר קיים בשפת היעד. אם הערך הוא `false`, המודל יישאר שקט אם הדיבור שמוזן כבר בשפת היעד. ברירת המחדל היא `false`.
 
-Confira um exemplo da estrutura da mensagem de configuração:
+דוגמה למבנה של הודעת ההגדרה:
 
 ```
 "setup": {
@@ -273,19 +273,19 @@ Confira um exemplo da estrutura da mensagem de configuração:
 }
 ```
 
-## Tokens temporários para aplicativos do lado do cliente
+## טוקנים זמניים לאפליקציות בצד הלקוח
 
-Para aplicativos cliente-servidor, use [tokens efêmeros](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pt-br) (atualmente em `v1alpha`) para evitar expor sua chave de API.
+באפליקציות מסוג לקוח-שרת, אפשר להשתמש ב[אסימונים זמניים](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=he) (שנמצאים כרגע ב`v1alpha`) כדי להימנע מחשיפת מפתח ה-API.
 
-Ao usar tokens temporários com a Tradução Instantânea:
+כשמשתמשים בטוקנים זמניים עם תרגום בזמן אמת:
 
-1. É preciso usar o endpoint `v1alpha`.
-2. **Configuração de bloqueio**:por padrão, especifique o `translationConfig` nas restrições de criação de token no seu servidor. Isso garante que a configuração de tradução esteja bloqueada e não possa ser adulterada pelo cliente.
-3. **Configuração de desbloqueio**:se você quiser definir o `translationConfig` no lado do cliente (por exemplo, para permitir que um usuário escolha o próprio idioma de destino), omita-o da solicitação de criação de token e defina `"lock_additional_fields": []`. Isso vai desbloquear o `translationConfig` para ser definido no lado do cliente.
+1. חובה להשתמש בנקודת הקצה `v1alpha`.
+2. **נעילת ההגדרה:** כברירת מחדל, צריך לציין את `translationConfig` באילוצים של יצירת הטוקן בשרת. כך מוודאים שהגדרת התרגום נעולה ושהלקוח לא יכול לשנות אותה.
+3. **ביטול הנעילה של ההגדרה:** אם רוצים להגדיר את `translationConfig` בצד הלקוח (לדוגמה, כדי לאפשר למשתמש לבחור את שפת היעד שלו), צריך להשמיט את ההגדרה הזו מבקשת יצירת הטוקן ולהגדיר במקומה את `"lock_additional_fields": []`. כך אפשר יהיה לבטל את הנעילה של `translationConfig` כדי להגדיר אותו בצד הלקוח.
 
-### Como criar um token temporário restrito
+### יצירת טוקן זמני מוגבל
 
-Os exemplos a seguir mostram como criar um token efêmero com restrições de tradução.
+בדוגמאות הבאות מוסבר איך ליצור אסימון זמני עם הגבלות תרגום.
 
 ### Python
 
@@ -348,74 +348,74 @@ const token = await client.authTokens.create({
 });
 ```
 
-## Limitações
+## מגבלות
 
-- **Modalidades de entrada**: somente a entrada de áudio é compatível com a tradução. Não é possível inserir texto.
-- **Replicação de voz**: a replicação de voz pode ser inconsistente. As vozes podem mudar após longas pausas, atribuir o gênero errado com base em como a fala começa ou ficar presa em uma voz durante conversas rápidas com vários falantes.
-- **Detecção de idioma**: a detecção de idioma tem dificuldades com sotaques fortes, idiomas semelhantes (por exemplo, espanhol e português) ou mudanças rápidas de idioma. **Observação**:isso só afeta a transcrição de entrada. Os códigos de idioma e a tradução final ainda precisam ser precisos.
-- **Áudio em segundo plano**: o modelo foi projetado para filtrar ruídos e músicas e produzir uma fala limpa, mas nem todo o áudio em segundo plano pode ser ignorado.
-- **Repetir o idioma de destino**: quando `echoTargetLanguage: true`, o ruído de fundo ou a música podem introduzir artefatos no áudio traduzido quando o áudio de entrada já está no idioma de destino.
+- **אמצעי קלט**: יש תמיכה רק בקלט אודיו לתרגום. אין תמיכה בהזנת טקסט.
+- **שכפול קול**: שכפול קול יכול להיות לא עקבי. יכול להיות שהקולות ישתנו אחרי הפסקות ארוכות, שהמגדר ישתנה בהתאם לאופן שבו מתחיל הדיבור או שהקול יישאר קבוע במהלך שיחות מהירות עם כמה דוברים.
+- **זיהוי שפות**: זיהוי שפות מתקשה בזיהוי מבטא כבד, שפות דומות (למשל ספרדית לעומת פורטוגזית) או מעברים מהירים בין שפות. **הערה:** הבעיה הזו אמורה להשפיע רק על התמליל של הקלט. קודי השפה והתרגום הסופי אמורים להיות מדויקים.
+- **אודיו ברקע**: המודל נועד לסנן רעשים ומוזיקה כדי ליצור דיבור נקי, אבל יכול להיות שלא כל האודיו ברקע יסונן.
+- **השפה של Echo Target**: אם האודיו שמוזן כבר בשפת היעד, רעשי רקע או מוזיקה עלולים לגרום לארטיפקטים באודיו המתורגם כשמשתמשים ב-`echoTargetLanguage: true`.
 
-## Idiomas compatíveis
+## שפות נתמכות
 
-Os seguintes idiomas são compatíveis com a Tradução instantânea.
+השפות הבאות נתמכות בתרגום בזמן אמת.
 
-| Idioma | Código BCP-47 | Idioma | Código BCP-47 |
+| שפה | קוד BCP-47 | שפה | קוד BCP-47 |
 | --- | --- | --- | --- |
-| Africâner | af | Cazaque | kk |
-| Akan | ak | Khmer | km |
-| Albanês | sq | Quiniaruanda | rw |
-| Amárico | sou | Coreano | ko |
-| Árabe | ar | Laosiano | lo |
-| Armênio | hy | Letão | lv |
-| Azerbaijano | az | Lituano | lt |
-| Basco | eu | Macedônio | mk |
-| Bielorrusso | be | Malaio | ms |
-| Bengali | bn | Malaiala | ml |
-| Búlgaro | bg | Marati | mr |
-| Birmanês (Mianmar) | my | Mongol | mn |
-| Catalão | ca | Nepalês | ne |
-| Chinês (simplificado) | zh-Hans | Norueguês | não, nb |
-| Chinês (tradicional) | zh-Hant | Persa | fa |
-| Croata | h | Polonês | pl |
-| Tcheco | cs | Português (Brasil) | pt-BR |
-| Dinamarquês | da | Português (Portugal) | pt-PT |
-| Holandês | nl | Punjabi | pa |
-| Inglês | en | Romeno | ro |
-| Estoniano | et | Russo | ru |
-| Filipino | fil | Sérvio | sr |
-| Finlandês | fi | Sindi | sd |
-| Francês | fr | Cingalês | si |
-| Galego | gl | Eslovaco | sk |
-| Georgiano | ka | Esloveno | sl |
-| Alemão | de | Espanhol | es |
-| Grego | el | Sundanês | su |
-| Gujarati | gu | Suaíli | sw |
-| Hauçá | ha | Sueco | sv |
-| Hebraico | ele | Tâmil | ta |
-| Hindi | hi | Télugo | te |
-| Húngaro | hu | Tailandês | th |
-| Islandês | é | Turco | tr |
-| Indonésio | ID | Ucraniano | uk |
-| Italiano | it | Urdu | ur |
-| Japonês | ja | Usbeque | uz |
-| Javanês | jv | Vietnamita | vi |
-| Canarês | kn | Zulu | zu |
+| אפריקאנס | af | קזחית | kk |
+| אקאן | ak | חמרית | ק"מ |
+| אלבנית | sq | קינירואנדה | rw |
+| אמהרית | am | קוריאנית | ko |
+| ערבית | ar | לאו | lo |
+| ארמנית | hy | לטבית | lv |
+| אזרית | az | ליטאית | lt |
+| בסקית | eu | מקדונית | mk |
+| בלארוסית | be | מלאית | ms |
+| בנגלית | bn | מליאלאם | ml |
+| בולגרית | bg | מראטהית | mr |
+| בורמזית (מיאנמר) | my | מונגולית | mn |
+| קטלאנית | ca | נפאלית | ne |
+| סינית (פשוטה) | zh-Hans | נורווגית | no, nb |
+| סינית (מסורתית) | zh-Hant | פרסית | fa |
+| קרואטית | שעה | פולנית | pl |
+| צ'כית | cs | פורטוגזית (ברזיל) | pt-BR |
+| דנית | da | פורטוגזית (פורטוגל) | pt-PT |
+| הולנדית | nl | פנג'אבי | pa |
+| אנגלית | en | רומנית | ro |
+| אסטונית | et | רוסית | ru |
+| פיליפינית | fil | סרבית | sr |
+| פינית | fi | סינדהית | SD |
+| צרפתית | fr | סינהאלה | si |
+| גליציאנית | gl | סלובקית | sk |
+| גאורגית | ka | סלובנית | sl |
+| גרמנית | de | ספרדית | es |
+| יוונית | el | סונדנזית | su |
+| גוג'ראטי | gu | סווהילי | sw |
+| האוסה | ha | שוודית | sv |
+| עברית | הוא | טמילית | ta |
+| הינדי | hi | טלוגו | te |
+| הונגרית | hu | תאית | th |
+| איסלנדית | is | טורקית | tr |
+| אינדונזית | id [מזהה] | אוקראינית | uk |
+| איטלקית | it | אורדו | ur |
+| יפנית | ja | אוזבקית | uz |
+| ג'אווה | jv | וייטנאמית | vi |
+| קנאדה | kn | זולו | zu |
 
-## A seguir
+## המאמרים הבאים
 
-- Leia o guia completo de [recursos](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=pt-br) da API Live.
-- Leia o guia [Começar a usar o SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=pt-br).
-- Leia o guia [Começar a usar WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=pt-br).
-- Leia o guia [Tokens efêmeros](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pt-br) para autenticação segura em aplicativos cliente-servidor.
-- Clone os [exemplos de API ativa](https://github.com/google-gemini/gemini-live-api-examples) do GitHub.
+- אפשר לקרוא את המדריך המלא בנושא [יכולות](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=he) של Live API.
+- קוראים את המדריך [איך מתחילים לעבוד עם ה-SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=he).
+- מומלץ לקרוא את המדריך [איך מתחילים לעבוד עם WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=he).
+- במדריך [טוקנים זמניים](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=he) מוסבר איך לבצע אימות מאובטח באפליקציות מסוג לקוח-שרת.
+- משכפלים את [הדוגמאות ל-Live API](https://github.com/google-gemini/gemini-live-api-examples) מ-GitHub.
 
-Envie comentários
+שליחת משוב
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última atualização 2026-06-09 UTC.
+עדכון אחרון: 2026-06-09 (שעון UTC).
 
-Quer enviar seu feedback?
+רוצה לתת לנו משוב?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-09 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-09 (שעון UTC)."],[],[]]

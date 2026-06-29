@@ -1,36 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=he
-fetched_at: 2026-06-22T06:27:53.969184+00:00
-title: "\u05e1\u05d5\u05db\u05df \u05de\u05d7\u05e7\u05e8 \u05e2\u05dd Gemini \u05d5-LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=ja
+fetched_at: 2026-06-29T05:27:26.180812+00:00
+title: "Gemini \u3068 LlamaIndex \u3092\u4f7f\u7528\u3057\u305f\u30ea\u30b5\u30fc\u30c1 \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) זמין עכשיו בתצוגה מקדימה עם תכונות כמו תכנון שיתופי, ויזואליזציה, תמיכה ב-MCP ועוד.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-שליחת משוב
+フィードバックを送信
 
-# סוכן מחקר עם Gemini ו-LlamaIndex
+# Gemini と LlamaIndex を使用したリサーチ エージェント
 
-‫LlamaIndex הוא פריימוורק לבניית סוכני ידע באמצעות מודלים גדולים של שפה (LLM) שמחוברים לנתונים שלכם. בדוגמה הזו מוסבר איך ליצור תהליך עבודה עם כמה סוכנים עבור סוכן מחקר. ב-LlamaIndex, ‏ [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
-הם אבני הבניין של סוכנים ומערכות מרובות סוכנים.
+LlamaIndex は、データに接続された LLM を使用してナレッジ エージェントを構築するためのフレームワークです。この例では、リサーチ エージェント用のマルチエージェント ワークフローを構築する方法を示します。LlamaIndex では、[`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
+はエージェント システムとマルチエージェント システムの構成要素です。
 
-אתם צריכים מפתח Gemini API. אם עדיין אין לכם חשבון, אתם יכולים [ליצור חשבון ב-Google AI Studio](https://aistudio.google.com/apikey?hl=he).
-קודם כול, מתקינים את כל הספריות הנדרשות של LlamaIndex. ‫LlamaIndex משתמש בחבילה `google-genai` מתחת לפני השטח.
+Gemini API キーが必要です。キーがない場合は、Google AI Studio で
+[取得できます](https://aistudio.google.com/apikey?hl=ja)。
+まず、必要な LlamaIndex ライブラリをすべてインストールします。LlamaIndex は、内部で `google-genai` パッケージを使用します。
 
 ```
 pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai llama-index-tools-google
 ```
 
-## הגדרת Gemini ב-LlamaIndex
+## LlamaIndex で Gemini を設定する
 
-המנוע של כל סוכן LlamaIndex הוא LLM שמטפל בהסקת מסקנות ובעיבוד טקסט. בדוגמה הזו נשתמש ב-Gemini 3 Flash. חשוב לוודא ש[הגדרתם את מפתח ה-API כמשתנה סביבה](https://ai.google.dev/gemini-api/docs/api-key?hl=he).
+LlamaIndex エージェントのエンジンは、推論とテキスト処理を処理する LLM です。この例では、Gemini 3 Flash を使用します。API キーを環境変数として[設定してください
+。](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)
 
 ```
 import os
@@ -42,11 +44,11 @@ assert 'GEMINI_API_KEY' in os.environ
 llm = GoogleGenAI(model="gemini-3.5-flash")
 ```
 
-## כלי בנייה
+## ビルドツール
 
-סוכנים משתמשים בכלים כדי ליצור אינטראקציה עם העולם החיצוני, כמו חיפוש באינטרנט או אחסון מידע. [כלים ב-LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
-יכולים להיות פונקציות רגילות של Python, או מיובאים מ-`ToolSpecs` קיימים.
-‫Gemini כולל כלי מובנה לשימוש בחיפוש Google, שבו נעשה שימוש כאן.
+エージェントはツールを使用して、ウェブの検索や情報の保存など、外部の世界とやり取りします。[LlamaIndex のツール](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
+は、通常の Python 関数にすることも、既存の `ToolSpecs` からインポートすることもできます。
+Gemini には、Google 検索を使用するための組み込みツールが用意されています。ここでは、このツールを使用します。
 
 ```
 from google.genai import types
@@ -61,21 +63,21 @@ llm_with_search = GoogleGenAI(
 )
 ```
 
-עכשיו בודקים את מופע ה-LLM באמצעות שאילתה שדורשת חיפוש. במדריך הזה מניחים שקיים לולאת אירועים פעילה (כמו `python -m asyncio` או Google Colab).
+検索が必要なクエリを使用して、LLM インスタンスをテストします。このガイドでは、実行中のイベント ループ（`python -m asyncio` や Google Colab など）を想定しています。
 
 ```
 response = await llm_with_search.acomplete("What's the weather like today in Biarritz?")
 print(response)
 ```
 
-הנציג למחקר ישתמש בפונקציות של Python ככלים. יש הרבה דרכים לבנות מערכת שתבצע את המשימה הזו. בדוגמה הזו, תשתמשו בנתונים הבאים:
+リサーチ エージェントは、Python 関数をツールとして使用します。このタスクを実行するシステムを構築する方法はたくさんあります。この例では、次のものを使用します。
 
-1. ‫`search_web` משתמש ב-Gemini עם חיפוש Google כדי לחפש באינטרנט מידע על הנושא שצוין.
-2. ‫`record_notes` שומר את המחקר שנמצא באינטרנט במצב, כדי שהכלים האחרים יוכלו להשתמש בו.
-3. ‫`write_report` כותב את הדוח באמצעות המידע שנמצא על ידי `ResearchAgent`
-4. ‫`review_report` בודק את הדוח ומספק משוב.
+1. `search_web` は、Gemini と Google 検索を使用して、指定されたトピックに関する情報をウェブで検索します。
+2. `record_notes` は、ウェブで見つかった調査結果を状態に保存して、他のツールで使用できるようにします。
+3. `write_report` は、`ResearchAgent` が見つけた情報を使用してレポートを作成します。
+4. `review_report` はレポートを確認し、フィードバックを提供します。
 
-המחלקות `Context` מעבירות את המצב בין סוכנים/כלים, ולכל סוכן תהיה גישה למצב הנוכחי של המערכת.
+`Context` クラスは、エージェントとツールの間で状態を渡します。各エージェントは、システムの現在の状態にアクセスできます。
 
 ```
 from llama_index.core.workflow import Context
@@ -110,18 +112,18 @@ async def review_report(ctx: Context, review: str) -> str:
     return "Report reviewed."
 ```
 
-## יצירת עוזר עם כמה סוכנים
+## マルチエージェント アシスタントを構築する
 
-כדי ליצור מערכת מרובת סוכנים, צריך להגדיר את הסוכנים ואת האינטראקציות שלהם.
-במערכת יהיו שלושה סוכנים:
+マルチエージェント システムを構築するには、エージェントとそのインタラクションを定義します。
+システムには 3 つのエージェントがあります。
 
-1. ‫`ResearchAgent` מחפש באינטרנט מידע על הנושא שצוין.
-2. `WriteAgent` כותב את הדוח באמצעות המידע שנמצא על ידי `ResearchAgent`.
-3. `ReviewAgent` בודק את הדוח ומספק משוב.
+1. `ResearchAgent` は、指定されたトピックに関する情報をウェブで検索します。
+2. `WriteAgent` は、`ResearchAgent` が見つけた情報を使用してレポートを作成します。
+3. `ReviewAgent` はレポートを確認し、フィードバックを提供します。
 
-בדוגמה הזו נעשה שימוש במחלקה `AgentWorkflow` כדי ליצור מערכת מרובת סוכנים שתפעיל את הסוכנים האלה לפי הסדר. כל סוכן מקבל `system_prompt` שמסביר לו מה הוא צריך לעשות, ומציע לו איך לעבוד עם הסוכנים האחרים.
+この例では、`AgentWorkflow` クラスを使用して、これらのエージェントを順番に実行するマルチエージェント システムを作成します。各エージェントは、実行する内容を指示する `system_prompt` を受け取り、他のエージェントとの連携方法を提案します。
 
-אפשר גם לציין אילו סוכנים אחרים יכולים לתקשר עם המערכת מרובת הסוכנים באמצעות `can_handoff_to` (אם לא תציינו, המערכת תנסה להבין את זה בעצמה).
+必要に応じて、`can_handoff_to` を使用して、マルチエージェント システムが通信できる他のエージェントを指定できます（指定しない場合、システムは独自に判断しようとします）。
 
 ```
 from llama_index.core.agent.workflow import (
@@ -171,7 +173,7 @@ review_agent = FunctionAgent(
 )
 ```
 
-הגדרתם את הסוכנים, ועכשיו אתם יכולים ליצור את `AgentWorkflow` ולהפעיל אותו.
+エージェントが定義されたので、`AgentWorkflow` を作成して実行できます。
 
 ```
 from llama_index.core.agent.workflow import AgentWorkflow
@@ -187,7 +189,7 @@ agent_workflow = AgentWorkflow(
 )
 ```
 
-במהלך ההרצה של תהליך העבודה, אפשר להזרים אירועים, קריאות לכלים ועדכונים אל המסוף.
+ワークフローの実行中に、イベント、ツール呼び出し、更新をコンソールにストリーミングできます。
 
 ```
 from llama_index.core.agent.workflow import (
@@ -235,7 +237,7 @@ async for event in handler.stream_events():
         print(f"  With arguments: {event.tool_kwargs}")
 ```
 
-אחרי שהתהליך מסתיים, אפשר להדפיס את הפלט הסופי של הדוח, וגם את מצב הבדיקה הסופי של סוכן הבדיקה.
+ワークフローが完了したら、レポートの最終出力と、レビュー エージェントからの最終レビューの状態を出力できます。
 
 ```
 state = await handler.ctx.store.get("state")
@@ -243,24 +245,26 @@ print("Report Content:\n", state["report_content"])
 print("\n------------\nFinal Review:\n", state["review"])
 ```
 
-## רוצים להשתמש בתהליכי עבודה מותאמים אישית?
+## カスタム ワークフローでさらに活用する
 
-‫`AgentWorkflow` היא דרך מצוינת להתחיל לעבוד עם מערכות מרובות סוכנים. אבל מה קורה אם אתם צריכים יותר שליטה? אתם יכולים לבנות תהליך עבודה מאפס. כמה סיבות ליצירת תהליך עבודה משלכם:
+`AgentWorkflow` は、マルチエージェント システムを始めるのに最適な方法です。ただし、より詳細な制御が必要な場合はどうすればよいでしょうか。 ワークフローを最初から構築できます。独自のワークフローを構築する理由としては、次のようなものがあります。
 
-- **יותר שליטה בתהליך**: אתם יכולים להחליט על הנתיב המדויק של הסוכנים שלכם. לדוגמה, ליצור לולאות, לקבל החלטות בנקודות מסוימות או להגדיר סוכנים שיעבדו במקביל על משימות שונות.
-- **שימוש בנתונים מורכבים**: לא להשתמש רק בטקסט פשוט. תהליכי עבודה מותאמים אישית מאפשרים לכם להשתמש בנתונים מובְנים נוספים, כמו אובייקטים מסוג JSON או מחלקות מותאמות אישית, כקלט ופלט.
-- **עבודה עם מדיה מסוגים שונים**: יצירת סוכנים שיכולים להבין ולעבד לא רק טקסט, אלא גם תמונות, אודיו וסרטונים.
-- **תכנון חכם יותר**: אתם יכולים לעצב תהליך עבודה שקודם יוצר תוכנית מפורטת לפני שהסוכנים מתחילים לעבוד. התכונה הזו שימושית למשימות מורכבות שדורשות כמה שלבים.
-- **הפעלת תיקון עצמי**: יצירת סוכנים שיכולים לבדוק את העבודה שלהם. אם הפלט לא מספיק טוב, הסוכן יכול לנסות שוב, וליצור לולאה של שיפורים עד שהתוצאה תהיה מושלמת.
+- **プロセスをより詳細に制御する**: エージェントがたどる正確なパスを決定できます。これには、ループの作成、特定の時点での意思決定、エージェントが異なるタスクを並行して実行することが含まれます。
+- **複雑なデータを使用する**: プレーン テキストを超えて、カスタム ワークフローでは、入力と出力に JSON オブジェクトやカスタム クラスなど、より構造化されたデータを使用できます。
+- **さまざまなメディアを扱う**: テキストだけでなく、画像、音声、動画も理解して処理できるエージェントを構築します。
+- **よりスマートな計画**: エージェントが作業を開始する前に
+  詳細な計画を作成するワークフローを設計できます。これは、複数のステップを必要とする複雑なタスクに便利です。
+- **自己修正を有効にする**: 自分の作業を確認できるエージェントを作成します。出力が十分でない場合、エージェントは結果が完璧になるまで改善を繰り返します。
 
-מידע נוסף על LlamaIndex Workflows זמין ב[תיעוד של LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
+LlamaIndex Workflows の詳細については、[LlamaIndex Workflows
+ドキュメント](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)をご覧ください。
 
-שליחת משוב
+フィードバックを送信
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-עדכון אחרון: 2026-06-10 (שעון UTC).
+最終更新日 2026-06-10 UTC。
 
-רוצה לתת לנו משוב?
+ご意見をお聞かせください
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-10 (שעון UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-10 UTC。"],[],[]]

@@ -1,42 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=it
-fetched_at: 2026-06-22T06:30:45.034309+00:00
-title: "Generare immagini utilizzando Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=ja
+fetched_at: 2026-06-29T05:25:49.749215+00:00
+title: "Imagen \u3092\u4f7f\u7528\u3057\u3066\u753b\u50cf\u3092\u751f\u6210\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=it) è ora disponibile in anteprima con pianificazione collaborativa, visualizzazione, supporto MCP e altro ancora.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-# Generare immagini utilizzando Imagen
+# Imagen を使用して画像を生成する
 
-Imagen è il modello di generazione di immagini ad alta fedeltà di Google, in grado di generare
-immagini realistiche e di alta qualità da prompt di testo. Tutte le immagini generate
-includono una filigrana SynthID. Per saperne di più sulle varianti del modello Imagen disponibili, consulta la sezione [Versioni del modello](#model-versions).
+Imagen は、Google の高忠実度画像生成モデルです。テキスト プロンプトからリアルで高品質な画像を生成できます。すべての生成画像には SynthID の透かしが埋め込まれています。使用可能な Imagen モデル バリエーションの詳細については、[モデル バージョン](#model-versions)をご覧ください。
 
-## Migrazione a Nano Banana
+## Imagen モデルを使用して画像を生成する
 
-I modelli Imagen sono ritirati e verranno disattivati il 17 agosto 2026. Ti consigliamo di eseguire la migrazione a Nano Banana per le tue esigenze di generazione di immagini.
-
-La migrazione comporta le seguenti modifiche:
-
-- **Nome modello**: utilizza `gemini-2.5-flash-image` anziché i nomi dei modelli Imagen.
-- **Metodo**: utilizza `client.models.generate_content` al posto di `client.models.generate_images`.
-- **Gestione delle risposte**: Nano Banana restituisce parti di contenuti, che possono includere dati immagine, anziché un oggetto di risposta immagine specifico.
-
-Per ulteriori dettagli ed esempi, consulta la [guida alla generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it).
-
-## Genera immagini utilizzando i modelli Imagen
-
-Questo esempio mostra la generazione di immagini con un [modello Imagen](https://deepmind.google/technologies/imagen/?hl=it):
+次の例は、[Imagen モデル](https://deepmind.google/technologies/imagen/?hl=ja)を使用して画像を生成する方法を示しています。
 
 ### Python
 
@@ -146,411 +132,359 @@ curl -X POST \
       }'
 ```
 
-![Immagine creata con l&#39;AI di un robot che tiene in mano uno skateboard rosso](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=it)
+![赤いスケートボードを持っているロボットの AI 生成画像](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=ja)
 
-Immagine creata con l'AI di un robot che tiene in mano uno skateboard rosso
+赤いスケートボードを持っているロボットの AI 生成画像
 
-### Configurazione di Imagen
+### Imagen の構成
 
-Al momento Imagen supporta solo i prompt in inglese e i seguenti parametri:
+Imagen は現在、英語のプロンプトと次のパラメータのみをサポートしています。
 
-- `numberOfImages`: il numero di immagini da generare, da 1 a 4 (incluso).
-  Il valore predefinito è 4.
-- `imageSize`: la dimensione dell'immagine generata. Questa funzionalità è supportata solo per
-  i modelli Standard e Ultra. I valori supportati sono `1K` e `2K`.
-  Il valore predefinito è `1K`.
-- `aspectRatio`: modifica le proporzioni dell'immagine generata. I valori supportati sono `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` e `"16:9"`. Il valore predefinito è
-  `"1:1"`.
-- `personGeneration`: Consente al modello di generare immagini di persone. Sono
-  supportati i seguenti valori:
+- `numberOfImages`: 生成する画像の数（1 ～ 4）。デフォルトは 4 です。
+- `imageSize`: 生成される画像のサイズ。これは、Standard モデルと Ultra モデルでのみサポートされています。サポートされている値は `1K` と `2K` です。デフォルトは `1K` です。
+- `aspectRatio`: 生成された画像のアスペクト比を変更します。サポートされている値は `"1:1"`、`"3:4"`、`"4:3"`、`"9:16"`、`"16:9"` です。デフォルトは `"1:1"` です。
+- `personGeneration`: モデルが人物の画像を生成できるようにします。次の値を使用できます。
 
-  - `"dont_allow"`: Blocca la generazione di immagini di persone.
-  - `"allow_adult"`: genera immagini di adulti, ma non di bambini. Questa è
-    l'impostazione predefinita.
-  - `"allow_all"`: Genera immagini che includono adulti e bambini.
+  - `"dont_allow"`: 人物の画像の生成をブロックします。
+  - `"allow_adult"`: 大人の画像を生成しますが、子供の画像は生成しません。これがデフォルトです。
+  - `"allow_all"`: 大人や子供の画像が生成されます。
 
-## Guida ai prompt di Imagen
+## Imagen プロンプト ガイド
 
-Questa sezione della guida di Imagen mostra come la modifica di un prompt da testo a immagine
-possa produrre risultati diversi, insieme a esempi di immagini che puoi creare.
+Imagen ガイドのこのセクションでは、テキスト画像変換プロンプトを変更して異なる結果を生成する方法と、作成できる画像の例について説明します。
 
-### Nozioni di base sulla scrittura di prompt
+### プロンプト作成の基本
 
-Un buon prompt è descrittivo e chiaro e utilizza parole chiave e modificatori significativi. Inizia pensando al **soggetto**, al **contesto** e allo **stile**.
+適切なプロンプトは、説明的で明確であり、意味のあるキーワードと修飾子を使用しています。まず、**主題**、**コンテキスト**、**スタイル**について考えてみましょう。
 
-![Prompt con soggetto, contesto e stile enfatizzati](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=it)
+![主題、コンテキスト、スタイルが強調されているプロンプト](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=ja)
 
-Testo dell'immagine: uno *schizzo* (**stile**) di un *palazzo di appartamenti moderno*
-(**soggetto**) circondato da *grattacieli* (**contesto e sfondo**).
+画像のテキスト: モダンなアパート）
+（**主題**）が超高層ビル（**コンテキストと背景**）に囲まれているスケッチ（**スタイル**）。
 
-1. **Soggetto**: la prima cosa a cui pensare con qualsiasi prompt è il
-   *soggetto*: l'oggetto, la persona, l'animale o il paesaggio di cui vuoi un'immagine.
-2. **Contesto e sfondo:** altrettanto importante è lo *sfondo o il contesto*
-   in cui verrà inserito il soggetto. Prova a posizionare il soggetto in una varietà
-   di sfondi. Ad esempio, uno studio con sfondo bianco, all'aperto o
-   in ambienti interni.
-3. **Stile**:infine, aggiungi lo stile dell'immagine che vuoi. Gli *stili* possono essere generali
-   (pittura, fotografia, schizzi) o molto specifici (pittura a pastello, disegno
-   a carboncino, 3D isometrico). Puoi anche combinare gli stili.
+1. **主題**: プロンプトについて最初に考えるべきなのは主題、すなわち画像の主体となる物体、人物、動物、風景などです。
+2. **コンテキストと背景:** その主題が配置される背景やコンテキストも同様に重要です。主題をさまざまな背景に置いてみてください。たとえば、スタジオの白い背景、屋外、屋内の環境などです。
+3. **スタイル:** 最後に、希望する画像のスタイルを追加します。スタイルは、概括的なもの（絵画、写真、スケッチ）でも、特定化されたもの（パステル画、木炭画、アイソメトリック 3D）でもかまいません。スタイルを組み合わせることもできます。
 
-Dopo aver scritto una prima versione del prompt, perfezionalo aggiungendo
-più dettagli finché non ottieni l'immagine che desideri. L'iterazione è importante.
-Inizia definendo l'idea principale, poi perfezionala ed espandila
-finché l'immagine generata non si avvicina alla tua visione.
+プロンプトの最初のバージョンを作成したら、目的の画像が得られるまで詳細を追加してプロンプトを改良します。反復処理が重要です。まずコアアイデアを定義し、生成された画像がビジョンに近づくまで、そのコアアイデアを絞り込み、拡張します。
 
 |  |  |  |
 | --- | --- | --- |
-| Immagine di esempio fotorealistica 1   Prompt: un parco in primavera vicino a un lago | Immagine di esempio fotorealistica 2   Prompt: un parco in primavera vicino a un lago, **il sole tramonta sul lago, ora d'oro** | immagine di esempio fotorealistica 3   Prompt: Un parco in primavera vicino a un lago, ***il sole tramonta sul lago, ora d'oro, fiori selvatici rossi*** |
+| フォトリアリスティックなサンプル画像 1   プロンプト: 湖のそばにある春の公園 | フォトリアリスティックなサンプル画像 2   プロンプト: 湖のそばにある春の公園、**湖に沈む夕日、ゴールデン アワー** | フォトリアリスティックなサンプル画像 3   プロンプト: 湖のそばにある春の公園、***湖に沈む夕日、ゴールデン アワー、赤く咲き誇る野生の花*** |
 
-I modelli Imagen possono trasformare le tue idee in immagini dettagliate, indipendentemente
-dalla lunghezza e dal livello di dettaglio dei prompt. Perfeziona la tua visione
-attraverso prompt iterativi, aggiungendo dettagli finché non ottieni il risultato perfetto.
+Imagen モデルは、プロンプトが短くても、長くて詳細でも、アイデアを詳細な画像に変換できます。反復的なプロンプトを通じてビジョンを絞り込み、完璧な結果が得られるまで詳細を追加します。
 
 |  |  |
 | --- | --- |
-| I prompt brevi ti consentono di generare rapidamente un'immagine.  Esempio di prompt breve per Imagen 4   Prompt: foto ravvicinata di una donna sui 20 anni, fotografia di strada, fermo immagine di un film, toni caldi arancioni tenui | I prompt più lunghi ti consentono di aggiungere dettagli specifici e creare l'immagine.  Esempio di prompt lungo per Imagen 4   Prompt: foto accattivante di una donna sui 20 anni che utilizza uno stile di fotografia di strada. L'immagine deve assomigliare a un fotogramma di un film con toni caldi arancioni tenui. |
+| 短いプロンプトを使用すると、画像をすばやく生成できます。  Imagen 4 の短いプロンプトの例   プロンプト: 20 代の女性のクローズアップ写真、ストリート写真、映画のワンシーン、落ち着いたオレンジの暖色調 | 長いプロンプトを使用すると、具体的な詳細を追加して画像を作成できます。  Imagen 4 の長いプロンプトの例   プロンプト: ストリート フォトスタイルを活用した 20 代の女性の魅力的な写真。画像は、オレンジ色の暖色系の落ち着いた色調にし、映画のワンシーンのように見えるようにする必要があります。 |
 
-Altri suggerimenti per la scrittura di prompt per Imagen:
+Imagen プロンプトの作成に関するその他のヒント:
 
-- **Utilizza un linguaggio descrittivo**: impiega aggettivi e avverbi dettagliati per
-  delineare un quadro chiaro per Imagen.
-- **Fornisci il contesto**: se necessario, includi informazioni di base per aiutare l'AI a comprendere.
-- **Fai riferimento ad artisti o stili specifici**: se hai in mente un'estetica particolare, fare riferimento ad artisti o movimenti artistici specifici può essere utile.
-- **Utilizza strumenti di prompt engineering**: valuta la possibilità di esplorare strumenti o risorse di prompt engineering per perfezionare i prompt e ottenere risultati ottimali.
-- **Migliorare i dettagli del viso nelle immagini personali e di gruppo**: specifica i dettagli del viso come punto focale della foto (ad esempio, utilizza la parola "ritratto" nel prompt).
+- **わかりやすい表現を使用する**: 具体的な形容詞や副詞を使用して、Imagen の明確な画像を描きます。
+- **コンテキストを提供する**: 必要に応じて、AI の理解を助けるために背景情報を含めます。
+- **特定のアーティストやスタイルを参照する**: 特定の美学を念頭に置いている場合は、特定のアーティストや芸術運動を参照すると役に立ちます。
+- **プロンプト エンジニアリング ツールを使用する**: プロンプトを改良して最適な結果を得るために、プロンプト エンジニアリング ツールやリソースの使用をおすすめします。
+- **個人写真やグループ写真の顔の細部を補正する**: 写真の焦点として顔の細部を指定します（たとえば、プロンプトで「ポートレート」という単語を使用します）。
 
-### Generare testo nelle immagini
+### 画像内のテキストを生成する
 
-I modelli Imagen possono aggiungere testo alle immagini, aprendo nuove possibilità di generazione di immagini creative. Segui queste indicazioni per sfruttare al meglio questa funzionalità:
+Imagen モデルは画像にテキストを追加できるため、よりクリエイティブな画像生成が可能になります。この機能を最大限に活用するには、次のガイダンスに沿って操作してください。
 
-- **Itera con sicurezza**: potresti dover rigenerare le immagini finché non ottieni l'aspetto che desideri. L'integrazione del testo di Imagen è ancora in fase di sviluppo e a volte più tentativi danno i risultati migliori.
-- **Mantienilo breve**: limita il testo a un massimo di 25 caratteri per una generazione ottimale.
-- **Più frasi**: prova due o tre frasi distinte per fornire informazioni aggiuntive. Evita di superare le tre frasi per composizioni più pulite.
+- **確実に反復処理する**: 目的の外観になるまで画像を再生成しなければならない場合があります。Imagen のテキスト統合は現在も進化しており、複数回試行することで最良の結果が得られることもあります。
+- **テキストを短くする**: 生成を最適化するには、テキストを 25 文字以下に制限します。
+- **複数のフレーズ**: 2 つから 3 つの異なるフレーズをテストして、追加情報を提供します。クリーンな構成にするため、フレーズは 3 つを超えないようにします。
 
-  ![Esempio di testo generato da Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=it)
+  ![Imagen 4 のテキスト生成の例](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=ja)
 
-  Prompt: un poster con il testo "Summerland" in grassetto come titolo, sotto il quale si trova lo slogan "L'estate non è mai stata così bella"
-- **Posizionamento guidato**: anche se Imagen può tentare di posizionare il testo
-  come indicato, prevedi variazioni occasionali. Questa funzionalità è in continuo
-  miglioramento.
-- **Stile del carattere di ispirazione**: specifica uno stile del carattere generale per influenzare in modo sottile
-  le scelte di Imagen. Non fare affidamento sulla replica precisa del carattere, ma prevedi
-  interpretazioni creative.
-- **Dimensioni carattere**: specifica le dimensioni del carattere o un'indicazione generale delle dimensioni (ad esempio *piccole*, *medie*, *grandi*) per influire sulla generazione delle dimensioni del carattere.
+  プロンプト: タイトルとして太字のフォントで「Summerland」というテキストが書かれたポスター。このテキストの下には「Summer never felt so good」というスローガンが書かれています
+- **ガイド付き配置**: Imagen は指示どおりにテキストを配置しようとしますが、場合によっては変動が生じることがあります。この機能は継続的に改善されています。
+- **フォント スタイルを引き出す**: 一般的なフォント スタイルを指定して、Imagen の選択に微妙な影響を与えます。正確なフォント レプリケーションに依存せず、クリエイティブな解釈を想定してください。
+- **フォントサイズ**: フォントサイズまたはサイズの一般的な指標（小、中、大など）を指定して、フォントサイズの生成に影響を与えます。
 
-### Parametrizzazione dei prompt
+### プロンプトのパラメータ化
 
-Per controllare meglio i risultati dell'output, potrebbe essere utile parametrizzare gli input in Imagen. Ad esempio, supponiamo che tu
-voglia che i tuoi clienti possano generare loghi per la loro attività e che
-venga sempre generato un logo su uno sfondo a tinta unita. Vuoi anche limitare le opzioni che il cliente può selezionare da un menu.
+出力結果をより適切に制御するには、Imagen への入力をパラメータ化すると便利です。たとえば、お客様がビジネスのロゴを生成できるようにし、ロゴが常に単色の背景で生成されるようにしたいとします。また、クライアントがメニューから選択できるオプションを制限することもできます。
 
-In questo esempio, puoi creare un prompt con parametri simile al seguente:
+この例では、次のようなパラメータ化されたプロンプトを作成できます。
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-Nell'interfaccia utente personalizzata, il cliente può inserire i parametri utilizzando
-un menu e il valore scelto viene inserito nel prompt ricevuto da Imagen.
+カスタム ユーザー インターフェースでは、ユーザーはメニューを使用してパラメータを入力できます。選択した値が、Imagen が受け取るプロンプトに入力されます。
 
-Ad esempio:
+次に例を示します。
 
-1. Prompt: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. プロンプト: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Esempio di parametrizzazione del prompt di Imagen 4 n. 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=it)
-2. Prompt: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Imagen 4 プロンプトのパラメータ化の例 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=ja)
+2. プロンプト: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Esempio di parametrizzazione del prompt di Imagen 4 n. 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=it)
-3. Prompt: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Imagen 4 プロンプトのパラメータ化の例 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=ja)
+3. プロンプト: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Esempio di parametrizzazione del prompt di Imagen 4 n. 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=it)
+   ![Imagen 4 プロンプトのパラメータ化の例 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=ja)
 
-### Tecniche avanzate di scrittura dei prompt
+### 高度なプロンプト作成手法
 
-Utilizza i seguenti esempi per creare prompt più specifici in base ad attributi
-come descrittori di fotografia, forme e materiali, movimenti artistici
-storici e modificatori della qualità dell'immagine.
+以下の例を使用すると、属性（写真の記述子、形状と素材、歴史的な芸術運動、画質の修飾子など）に基づいて、より具体的なプロンプトを作成できます。
 
-#### Fotografia
+#### 写真
 
-- Il prompt include: *"Una foto di…"*
+- プロンプトに「...の写真」が含まれる
 
-Per utilizzare questo stile, inizia con parole chiave che indichino chiaramente a
-Imagen che stai cercando una fotografia. Inizia i prompt con
-*"Una foto di…" . ."*. Ad esempio:
+このスタイルを使用するには、まず、写真を探していることを Imagen に明確に伝えるキーワードを使用します。プロンプトに「...の写真*​*」と記述します。例を示します。
 
 |  |  |  |
 | --- | --- | --- |
-| Immagine di esempio fotorealistica 1   Prompt: **una foto di** chicchi di caffè in una cucina su una superficie di legno | Immagine di esempio fotorealistica 2   Prompt: **una foto di** una barretta di cioccolato sul bancone della cucina | immagine di esempio fotorealistica 3   Prompt: **una foto di** un edificio moderno con acqua sullo sfondo |
+| フォトリアリスティックなサンプル画像 1   プロンプト: キッチンで木製のテーブルに置かれたコーヒー豆の**写真** | フォトリアリスティックなサンプル画像 2   プロンプト: キッチン カウンターに置かれた板チョコの**写真** | フォトリアリスティックなサンプル画像 3   プロンプト: 水を背景にしたモダンな建物の**写真** |
 
-Origine immagine: ogni immagine è stata generata utilizzando il prompt di testo corrispondente con il modello Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-##### Modificatori di fotografia
+##### 写真の修飾子
 
-Negli esempi seguenti puoi vedere diversi modificatori e parametri specifici per la fotografia. Puoi combinare più modificatori per un controllo più preciso.
+次の例では、写真に固有のいくつかの修飾子とパラメータを見ることができます。複数の修飾子を組み合わせて、より正確に制御できます。
 
-1. **Prossimità della fotocamera** - *Primo piano, scattato da lontano*
-
-   |  |  |
-   | --- | --- |
-   | immagine di esempio della fotocamera in primo piano   Prompt: una foto in **primo piano** di chicchi di caffè | immagine di esempio della fotocamera con zoom diminuito   Prompt: una foto **con lo zoom diminuito** di un piccolo sacchetto di  chicchi di caffè in una cucina disordinata |
-2. **Posizione della videocamera**: *aerea, dal basso*
+1. **カメラの近接性** - クローズアップ、遠くから撮影
 
    |  |  |
    | --- | --- |
-   | immagine di esempio di foto aerea   Prompt: **foto aerea** di una città urbana con grattacieli | un&#39;immagine di esempio della visualizzazione dal basso   Prompt: una foto della chioma di una foresta con cielo azzurro **dal basso** |
-3. **Illuminazione**: *naturale, suggestiva, calda, fredda*
+   | クローズアップによるカメラのサンプル画像   プロンプト: コーヒー豆の**クローズアップ**写真 | ズームアウトによるカメラのサンプル画像   プロンプト: 散らかったキッチンに置かれた コーヒー豆の小さな袋の**ズームアウト**写真 |
+2. **カメラの位置** - 空中、下から
 
    |  |  |
    | --- | --- |
-   | immagine di esempio di illuminazione naturale   Prompt: foto di una poltrona moderna in studio, **luce naturale** | immagine di esempio di illuminazione suggestiva   Prompt: foto di una poltrona moderna in studio, **illuminazione drammatica** |
-4. **Impostazioni della fotocamera** *- sfocatura movimento, sfocatura diffusa, bokeh, ritratto*
+   | 空中からの写真のサンプル画像   プロンプト: 高層ビルがそびえる都会の**航空写真** | 下から撮影したサンプル画像   プロンプト: **下から**撮影した青空と林冠の写真 |
+3. **照明** - 自然、ドラマチック、暖かい、寒い
 
    |  |  |
    | --- | --- |
-   | immagine di esempio di sfocatura movimento   Prompt: foto di una città con grattacieli dall'interno di un'auto con **sfocatura del movimento** | immagine di esempio con sfocatura diffusa   Prompt: **fotografia con sfocatura diffusa** di un ponte in una città di notte |
-5. **Tipi di obiettivi**: *35 mm, 50 mm, fisheye, grandangolare, macro*
+   | 自然光のサンプル画像   プロンプト: モダンなアームチェアのスタジオ写真、**自然光** | ドラマチックな照明のサンプル画像   プロンプト: モダンなアームチェアのスタジオ写真、**ドラマチックな照明** |
+4. **カメラの設定** - モーション ブラー、ソフト フォーカス、ボケ、ポートレート
 
    |  |  |
    | --- | --- |
-   | macro lens sample image   Prompt: foto di una foglia, **obiettivo macro** | Immagine di esempio con obiettivo fisheye   Prompt: street photography, new york city, **fisheye lens** |
-6. **Tipi di pellicola**: *bianco e nero, polaroid*
+   | モーション ブラーのサンプル画像   プロンプト: 高層ビルがそびえる都会を社内から撮影した**モーション ブラー**のある写真 | ソフト フォーカスのサンプル画像   プロンプト: 都会の橋を夜間に撮影した**ソフト フォーカス**の写真 |
+5. **レンズの種類** - 35 mm、50 mm、魚眼、広角、マクロ
 
    |  |  |
    | --- | --- |
-   | immagine di esempio di foto polaroid   Prompt: un **ritratto in stile polaroid** di un cane che indossa occhiali da sole | immagine campione di foto in bianco e nero   Prompt: **foto in bianco e nero** di un cane che indossa occhiali da sole |
+   | マクロレンズのサンプル画像   プロンプト: 葉の写真、**マクロレンズ** | 魚眼レンズのサンプル画像   プロンプト: 街路写真、ニューヨーク市、**魚眼レンズ** |
+6. **フィルムの種類** - モノクロ、ポラロイド
 
-Origine immagine: ogni immagine è stata generata utilizzando il prompt di testo corrispondente con il modello Imagen 4.
+   |  |  |
+   | --- | --- |
+   | ポラロイド写真のサンプル画像   プロンプト: サングラスをかけた犬の**ポラロイド ポートレート** | モノクロ写真のサンプル画像   プロンプト: サングラスをかけた犬の**モノクロ写真** |
 
-### Illustrazione e arte
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-- Il prompt include: *"Un painting di…"*, *"Un sketch di…"*
+### イラストとアート
 
-Gli stili artistici variano dagli stili monocromatici come gli schizzi a matita all'arte digitale iperrealistica. Ad esempio, le seguenti immagini utilizzano lo stesso prompt con stili diversi:
+- プロンプトには、「...のpainting」、「...のsketch」という表現を含めます。
 
-*"Un [art style or creation technique] di una berlina elettrica sportiva
-angolare con grattacieli sullo sfondo"*
+アートのスタイルは、鉛筆のスケッチなどのモノクロ スタイルから、ハイパーリアルなデジタルアートまで、多岐にわたります。たとえば、次の画像では、同じプロンプトを異なるスタイルで使用します。
+
+「高層ビルを背景にした、角張ったスポーティな電動セダンの[art style or creation technique]」
 
 |  |  |  |
 | --- | --- | --- |
-| immagini di esempio di arte   Prompt: un **disegno tecnico a matita** di un oggetto angolare... | immagini di esempio di arte   Prompt: un **disegno a carboncino** di una figura angolare... | immagini di esempio di arte   Prompt: un **disegno a matita colorata** di una figura angolare... |
+| アートのサンプル画像   プロンプト: 角張った ... の**技術的な鉛筆画** | アートのサンプル画像   プロンプト: 角張った ... の**木炭画** | アートのサンプル画像   プロンプト: 角張った ... の**色鉛筆画** |
 
 |  |  |  |
 | --- | --- | --- |
-| immagini di esempio di arte   Prompt: A **pastel painting** of an angular... | immagini di esempio di arte   Prompt: Un'**opera di arte digitale** di un... | immagini di esempio di arte   Prompt: Un **poster in stile Art Déco** di una figura angolare... |
+| アートのサンプル画像   プロンプト: 角張った ... の**パステル画** | アートのサンプル画像   プロンプト: 角張った ... の**デジタルアート** | アートのサンプル画像   プロンプト: 角張った ... の**アールデコ（ポスター）** |
 
-Origine immagine: ogni immagine è stata generata utilizzando il prompt di testo corrispondente con il modello Imagen 2.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 2 モデルを使用して生成されました。
 
-##### Forme e materiali
+##### 形状と素材
 
-- Il prompt include: *"...fatto di..."*, *"...a forma di..."*
+- プロンプトには、「... で作られた ...」、「... の形の ...」という表現を含めます。
 
-Uno dei punti di forza di questa tecnologia è la possibilità di creare immagini che
-altrimenti sarebbero difficili o impossibili. Ad esempio, puoi ricreare
-il logo della tua azienda con materiali e trame diversi.
+このテクノロジーの強みの一つは、他の方法では困難または不可能な画像を作成できることです。たとえば、さまざまな素材やテクスチャで会社のロゴを再現できます。
 
 |  |  |  |
 | --- | --- | --- |
-| Immagine di esempio di forme e materiali 1   Prompt: un borsone **fatto di** formaggio | Immagine di esempio di forme e materiali 2   Prompt: neon tubes **in the shape** of a bird | immagine di esempio di forme e materiali 3   Prompt: una poltrona **di carta**, foto di studio, stile origami |
+| 形状と素材のサンプル画像 1   プロンプト: チーズで**作った**ダッフルバッグ | 形状と素材のサンプル画像 2   プロンプト: 鳥の**形の**ネオンチューブ | 形状と素材のサンプル画像 3   プロンプト: **紙で作られた**アームチェア、スタジオ写真、折り紙スタイル |
 
-Origine immagine: ogni immagine è stata generata utilizzando il prompt di testo corrispondente con il modello Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-#### Riferimenti all'arte storica
+#### 歴史的美術品のリファレンス
 
-- Il prompt include: *"...nello stile di..."*
+- プロンプトには、「... スタイルの ...」という表現を含めます。
 
-Nel corso degli anni, alcuni stili sono diventati iconici. Di seguito sono riportate alcune idee
-di stili di pittura o artistici storici che puoi provare.
+特定のスタイルは、長年の間に象徴的な存在になりました。歴史的絵画やアートのスタイルを試すためのアイデアのいくつかを、以下に紹介します。
 
-*"genera un'immagine nello stile di [art period or movement]
-: un parco eolico"*
+「[art period or movement]
+ スタイルの画像（風力発電所）を生成」
 
 |  |  |  |
 | --- | --- | --- |
-| immagine di esempio di impressionismo   Prompt: genera un'immagine **nello stile di *un quadro impressionista***: un parco eolico | immagine di esempio del Rinascimento   Prompt: genera un'immagine **nello stile di *un dipinto rinascimentale***: un parco eolico | immagine di esempio di pop art   Prompt: genera un'immagine **nello stile della *pop art***: un parco eolico |
+| 印象派のサンプル画像   プロンプト: 印象派絵画の**スタイルの**画像（風力発電所）を生成 | ルネサンス期のサンプル画像   プロンプト: ルネサンス期絵画の**スタイルの**画像（風力発電所）を生成 | ポップアートのサンプル画像   プロンプト: ポップアート **スタイルの**画像（風力発電所）を生成 |
 
-Origine immagine: ogni immagine è stata generata utilizzando il prompt di testo corrispondente con il modello Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-#### Modificatori della qualità delle immagini
+#### 画像品質の修飾子
 
-Determinate parole chiave possono indicare al modello che stai cercando un asset di alta qualità. Ecco alcuni esempi di modificatori della qualità:
+特定のキーワードから、高品質のアセットを探していることをモデルが認識できます。品質の修飾子の例を次に示します。
 
-- **Modificatori generali**: *di alta qualità, bellissimo, stilizzato*
-- **Foto** - *4K, HDR, Studio Photo*
-- **Arte, illustrazione** - *di un professionista, dettagliata*
+- **一般的な修飾子** - 高品質、美しい、図案化された
+- **写真** - 4K、HDR、スタジオ写真
+- **アート、イラスト** - プロが作成した、詳細な
 
-Di seguito sono riportati alcuni esempi di prompt senza modificatori di qualità e
-lo stesso prompt con modificatori di qualità.
+以下に、品質の修飾子を使用しない場合のプロンプトと、同じプロンプトで品質の修飾子を使用したいくつかの例を示します。
 
 |  |  |
 | --- | --- |
-| corn example image without modifiers   Prompt (nessun modificatore di qualità): una foto di una pannocchia di mais | corn example image with modifiers   Prompt (con modificatori di qualità): **4k HDR beautiful**   photo of a corn stalk **taken by a   professional photographer** |
+| 修飾子なしのトウモロコシのサンプル画像   プロンプト（品質の修飾子なし）: トウモロコシの茎の写真 | 修飾子ありのトウモロコシのサンプル画像   プロンプト（品質の修飾子付き）: **4k HDR 美しい**  **プロカメラマンが撮影した** トウモロコシの茎の写真 |
 
-Origine immagine: ogni immagine è stata generata utilizzando il prompt di testo corrispondente con il modello Imagen 4.
+画像の生成元: 各画像は、対応するテキスト プロンプトと Imagen 4 モデルを使用して生成されました。
 
-#### Proporzioni
+#### アスペクト比
 
-La generazione di immagini con Imagen ti consente di impostare cinque proporzioni
-distinte per le immagini.
+Imagen の画像生成では、5 つの異なる画像アスペクト比を設定できます。
 
-1. **Quadrato** (1:1, predefinito): una foto quadrata standard. Gli utilizzi comuni di questo
-   formato includono i post sui social media.
-2. **Schermo intero** (4:3): queste proporzioni sono di uso comune nei media o nei film.
-   Sono anche le dimensioni della maggior parte delle vecchie TV (non widescreen) e delle fotocamere di medio formato. Acquisisce una porzione più ampia della scena in orizzontale (rispetto a 1:1),
-   il che la rende una proporzione preferita per la fotografia.
+1. **スクエア**（1:1、デフォルト）- 標準の正方形の写真。このアスペクト比の一般的な用途としては、ソーシャル メディアの投稿などがあります。
+2. **全画面**（4:3） - このアスペクト比は、メディアや映画でよく使用されます。また、古い（ワイドスクリーンではない）テレビやミディアム フォーマット カメラでも使用されています。1:1 と比べると、横方向に広いシーンをキャプチャできるため、写真撮影に適したアスペクト比です。
 
    |  |  |
    | --- | --- |
-   | esempio di proporzioni   Prompt: primo piano delle dita di un musicista che suona il pianoforte, film in bianco e nero, vintage (proporzioni 4:3) | esempio di proporzioni   Prompt: una foto professionale di patatine fritte per un ristorante di lusso, nello stile di una rivista di cucina (proporzioni 4:3) |
-3. **Verticale a schermo intero** (3:4): si tratta delle proporzioni a schermo intero ruotate
-   di 90 gradi. Ciò consente di catturare più scena in verticale rispetto
-   alle proporzioni 1:1.
+   | アスペクト比の例   プロンプト: ピアノを弾いているミュージシャンの手のアップ、モノクロ フィルム、ヴィンテージ（4:3 のアスペクト比） | アスペクト比の例   プロンプト: 高級レストランのフライドポテトのプロのスタジオ写真, フード雑誌のスタイル（アスペクト比 4:3） |
+3. **縦向き全画面**（3:4） - 全画面のアスペクト比を 90 度回転したもの。1:1 のアスペクト比と比べると、縦方向に広がるシーンをキャプチャできます。
 
    |  |  |
    | --- | --- |
-   | esempio di proporzioni   Prompt: una donna che fa un'escursione, primo piano dei suoi scarponi riflessi in una pozzanghera, grandi montagne sullo sfondo, nello stile di una pubblicità, angolazioni drammatiche (proporzioni 3:4) | esempio di proporzioni   Prompt: scatto aereo di un fiume che scorre in una valle mistica (proporzioni 3:4) |
-4. **Widescreen** (16:9): questo formato ha sostituito il 4:3 ed è ora il più
-   comune per TV, monitor e schermi di cellulari (orizzontale).
-   Utilizza questo formato quando vuoi catturare una porzione più ampia dello sfondo (ad
-   esempio, paesaggi panoramici).
+   | アスペクト比の例   プロンプト: ハイキングをする女性, 水たまりに映るブーツのクローズアップ, 背景に大きな山, 広告スタイル, ドラマチックなアングル（3:4 のアスペクト比） | アスペクト比の例   プロンプト: 神秘的な渓谷を流れる川の空撮（アスペクト比 3:4） |
+4. **ワイドスクリーン**（16:9）- 4:3 に代わって、テレビ、モニター、スマートフォンの画面（横向き）で最も一般的なアスペクト比。風景など、広い背景を撮影する場合に使用します。
 
-   ![esempio di proporzioni](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=it)
+   ![アスペクト比の例](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=ja)
 
-   Prompt: un uomo vestito di bianco seduto sulla spiaggia, primo piano, luce dell'ora d'oro (proporzioni 16:9)
-5. **Verticale** (9:16): queste proporzioni sono widescreen, ma ruotate. Si tratta di un
-   formato relativamente nuovo, reso popolare dalle app di video nel formato breve (ad esempio, YouTube Shorts). Utilizza questa opzione per oggetti alti con orientamenti verticali
-   forti, come edifici, alberi, cascate o altri oggetti simili.
+   プロンプト: 全身白の服を着た男性がビーチに座っている, クローズアップ, ゴールデン アワーの照明（アスペクト比 16:9）
+5. **縦向き**（9:16）- 比率はワイドスクリーンですが、回転しています。これは、ショート動画アプリ（YouTube ショートなど）で普及している比較的新しいアスペクト比です。建物、木、滝など、縦方向に長い対象に使用します。
 
-   ![esempio di proporzioni](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=it)
+   ![アスペクト比の例](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=ja)
 
-   Prompt: rendering digitale di un enorme grattacielo moderno, grandioso, epico con un bellissimo tramonto sullo sfondo (proporzioni 9:16)
+   プロンプト: 巨大な高層ビルのデジタル レンダリング, モダン, 壮大, 壮大な背景に美しい夕日（9:16 のアスペクト比）
 
-#### Immagini fotorealistiche
+#### フォトリアリスティックな画像
 
-Versioni diverse del modello di generazione di immagini
-potrebbero offrire un mix di output artistici e fotorealistici. Utilizza le seguenti
-formule nei prompt per generare output più fotorealistici, in base al soggetto
-che vuoi generare.
+画像生成モデルのさまざまなバージョンによって、芸術的な出力とフォトリアリスティックな出力が混在する場合があります。プロンプトで次の表現を使用することで、生成する主題に応じてよりフォトリアリスティックな出力を生成できます。
 
-| Caso d'uso | Tipo di obiettivo | Lunghezze focali | Ulteriori dettagli |
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
 | --- | --- | --- | --- |
-| Persone (ritratti) | Prime, zoom | 24-35mm | film in bianco e nero, film noir, profondità di campo, duotone (menziona due colori) |
-| Cibo, insetti, piante (oggetti, natura morta) | Macro | 60-105mm | Dettagli elevati, messa a fuoco precisa, illuminazione controllata |
-| Sport, fauna selvatica (movimento) | Zoom con teleobiettivo | 100-400mm | Tempo di esposizione rapido, tracciamento di azioni o movimenti |
-| Astronomica, orizzontale (grandangolo) | Grandangolare | 10-24mm | Tempi di esposizione lunghi, messa a fuoco nitida, esposizione lunga, acqua o nuvole uniformi |
+| 人（縦向き） | プライム、ズーム | 24～35mm | モノクロ フィルム、フィルム ノワール、被写界深度、デュオトーン（2 色について言及） |
+| 食品、虫、植物（物体、静物） | マクロ | 60～105mm | 高精細、正確なフォーカス、照明の制御 |
+| スポーツ、野生動物（モーション） | 望遠ズーム | 100～400mm | 高速シャッター スピード、アクションまたは動作のトラッキング |
+| 天体、風景（広角） | 広角 | 10～24mm | 長い露光時間、シャープ フォーカス、長時間露光、滑らかな水や雲 |
 
-##### Ritratti
+##### ポートレート
 
-| Caso d'uso | Tipo di obiettivo | Lunghezze focali | Ulteriori dettagli |
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
 | --- | --- | --- | --- |
-| Persone (ritratti) | Prime, zoom | 24-35mm | film in bianco e nero, film noir, profondità di campo, duotone (menziona due colori) |
+| 人（縦向き） | プライム、ズーム | 24～35mm | モノクロ フィルム、フィルム ノワール、被写界深度、デュオトーン（2 色について言及） |
 
-Utilizzando diverse parole chiave della tabella, Imagen può generare i seguenti
-ritratti:
+このテーブルから複数のキーワードを使用して、Imagen により次のポートレートを生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| esempio di fotografia ritrattistica | esempio di fotografia ritrattistica | esempio di fotografia ritrattistica | esempio di fotografia ritrattistica |
+| ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 |
 
-Prompt: *Una donna, ritratto 35 mm, duotoni blu e grigi*  
-Modello: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| esempio di fotografia ritrattistica | esempio di fotografia ritrattistica | esempio di fotografia ritrattistica | esempio di fotografia ritrattistica |
-
-Prompt: *Una donna, ritratto 35 mm, film noir*  
-Modello: `imagen-4.0-generate-001`
-
-##### Oggetti
-
-| Caso d'uso | Tipo di obiettivo | Lunghezze focali | Ulteriori dettagli |
-| --- | --- | --- | --- |
-| Cibo, insetti, piante (oggetti, natura morta) | Macro | 60-105mm | Dettagli elevati, messa a fuoco precisa, illuminazione controllata |
-
-Utilizzando diverse parole chiave della tabella, Imagen può
-generare le seguenti immagini di oggetti:
+プロンプト: 女性、35mm の縦向き、青とグレーのデュオトーン  
+モデル: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Esempio di fotografia di oggetti | Esempio di fotografia di oggetti | Esempio di fotografia di oggetti | Esempio di fotografia di oggetti |
+| ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 | ポートレート写真の例 |
 
-Prompt: *foglia di una pianta della preghiera, obiettivo macro, 60 mm*  
-Modello: `imagen-4.0-generate-001`
+プロンプト: 女性、35mm 縦向き、フィルム ノワール  
+モデル: `imagen-4.0-generate-001`
+
+##### オブジェクト
+
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
+| --- | --- | --- | --- |
+| 食品、虫、植物（物体、静物） | マクロ | 60～105mm | 高精細、正確なフォーカス、照明の制御 |
+
+このテーブルから複数のキーワードを使用して、Imagen により次のオブジェクト画像を生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Esempio di fotografia di oggetti | Esempio di fotografia di oggetti | Esempio di fotografia di oggetti | Esempio di fotografia di oggetti |
+| 物体写真の例 | 物体写真の例 | 物体写真の例 | 物体写真の例 |
 
-Prompt: *un piatto di pasta, obiettivo macro da 100 mm*  
-Modello: `imagen-4.0-generate-001`
-
-##### Movimento
-
-| Caso d'uso | Tipo di obiettivo | Lunghezze focali | Ulteriori dettagli |
-| --- | --- | --- | --- |
-| Sport, fauna selvatica (movimento) | Zoom con teleobiettivo | 100-400mm | Tempo di esposizione rapido, tracciamento di azioni o movimenti |
-
-Utilizzando diverse parole chiave della tabella, Imagen può generare le seguenti immagini in movimento:
+プロンプト: 花類、リーフ、60mm  
+モデル: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| esempio di fotografia in movimento | esempio di fotografia in movimento | esempio di fotografia in movimento | esempio di fotografia in movimento |
+| 物体写真の例 | 物体写真の例 | 物体写真の例 | 物体写真の例 |
 
-Prompt: *un touchdown vincente, tempo di esposizione elevato, rilevamento del movimento*  
-Modello: `imagen-4.0-generate-001`
+プロンプト: パスタのプレート、100mm マクロレンズ  
+モデル: `imagen-4.0-generate-001`
+
+##### モーション
+
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
+| --- | --- | --- | --- |
+| スポーツ、野生動物（モーション） | 望遠ズーム | 100～400mm | 高速シャッター スピード、アクションまたは動作のトラッキング |
+
+このテーブルから複数のキーワードを使用して、Imagen により次の動画を生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| esempio di fotografia in movimento | esempio di fotografia in movimento | esempio di fotografia in movimento | esempio di fotografia in movimento |
+| モーション フォトの例 | モーション フォトの例 | モーション フォトの例 | モーション フォトの例 |
 
-Prompt: *Un cervo che corre nella foresta, tempo di esposizione rapido, rilevamento del movimento*  
-Modello: `imagen-4.0-generate-001`
-
-##### Grandangolare
-
-| Caso d'uso | Tipo di obiettivo | Lunghezze focali | Ulteriori dettagli |
-| --- | --- | --- | --- |
-| Astronomica, orizzontale (grandangolo) | Grandangolare | 10-24mm | Tempi di esposizione lunghi, messa a fuoco nitida, esposizione lunga, acqua o nuvole uniformi |
-
-Utilizzando diverse parole chiave della tabella, Imagen può
-generare le seguenti immagini grandangolari:
+プロンプト: 勝利のタッチダウン、高速シャッター スピード、動作トラッキング  
+モデル: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| esempio di fotografia grandangolare | esempio di fotografia grandangolare | esempio di fotografia grandangolare | esempio di fotografia grandangolare |
+| モーション フォトの例 | モーション フォトの例 | モーション フォトの例 | モーション フォトの例 |
 
-Prompt: *an expansive mountain range, landscape wide angle 10mm*  
-Modello: `imagen-4.0-generate-001`
+プロンプト: 森の中を走るシカ、高速シャッター スピード、動作トラッキング  
+モデル: `imagen-4.0-generate-001`
+
+##### 広角
+
+| ユースケース | レンズの種類 | レンズ焦点距離 | 補足情報 |
+| --- | --- | --- | --- |
+| 天体、風景（広角） | 広角 | 10～24mm | 長い露光時間、シャープ フォーカス、長時間露光、滑らかな水や雲 |
+
+このテーブル内の複数のキーワードを使用して、Imagen により次の広角画像を生成できます。
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| esempio di fotografia grandangolare | esempio di fotografia grandangolare | esempio di fotografia grandangolare | esempio di fotografia grandangolare |
+| 広角撮影の例 | 広角撮影の例 | 広角撮影の例 | 広角撮影の例 |
 
-Prompt: *una foto della luna, astrofotografia, grandangolo 10 mm*  
-Modello: `imagen-4.0-generate-001`
+プロンプト: 広大な山並み、風景、広角 10mm  
+モデル: `imagen-4.0-generate-001`
 
-## Versioni modello
+|  |  |  |  |
+| --- | --- | --- | --- |
+| 広角撮影の例 | 広角撮影の例 | 広角撮影の例 | 広角撮影の例 |
 
-### Imagen 4 (obsoleto)
+プロンプト: 月の写真、天体写真、広角 10mm  
+モデル: `imagen-4.0-generate-001`
 
-| Proprietà | Descrizione |
+## モデル バージョン
+
+### Imagen 4
+
+| プロパティ | 説明 |
 | --- | --- |
-| Codice modello id\_card | **API Gemini**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveTipi di dati supportati | **Ingresso**  Testo  **Output**  Immagini |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  480 token (testo)  **Immagini di output**  Da 1 a 4 (Ultra/Standard/Veloce) |
-| calendar\_monthUltimo aggiornamento | Giugno 2025 |
+| id\_cardモデルコード | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| save でサポートされるデータ型 | **入力**  テキスト  **出力**  画像 |
+| token\_autoトークン上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  480 トークン（テキスト）  **出力画像**  1 ～ 4（Ultra/Standard/Fast） |
+| calendar\_month最終更新日 | 2025 年 6 月 |
 
 ### Imagen 3
 
-Il modello Imagen 3 è stato [arrestato](https://ai.google.dev/gemini-api/docs/deprecations?hl=it).
+Imagen 3 モデルは[シャットダウン](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja)されました。
 
-Invia feedback
+フィードバックを送信
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ultimo aggiornamento 2026-06-15 UTC.
+最終更新日 2026-05-13 UTC。
 
-Vuoi dirci altro?
+ご意見をお聞かせください
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-15 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-05-13 UTC。"],[],[]]

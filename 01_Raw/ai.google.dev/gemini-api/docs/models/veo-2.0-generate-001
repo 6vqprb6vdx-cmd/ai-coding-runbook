@@ -1,47 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=pt-BR
-fetched_at: 2026-06-22T06:31:52.994166+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=th
+fetched_at: 2026-06-29T05:32:41.492692+00:00
 title: "Veo 2.0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Envie comentários
+ส่งความคิดเห็น
 
 # Veo 2.0
 
-Nosso modelo de geração de vídeo estável e confiável oferece desempenho consistente para fluxos de trabalho prontos para produção. O Veo 2.0 é ideal para a criação de conteúdo padrão de 1080p, recursos de rede social e tarefas de vídeo de alto volume que priorizam a consistência confiável de caracteres e velocidades de geração previsíveis abaixo de um segundo.
+โมเดลการสร้างวิดีโอที่เสถียรและเชื่อถือได้ของเรา ซึ่งให้ประสิทธิภาพที่สม่ำเสมอสำหรับเวิร์กโฟลว์ที่พร้อมใช้งานจริง Veo 2.0 เหมาะที่สุดสำหรับการสร้างเนื้อหา 1080p มาตรฐาน, ชิ้นงานโซเชียลมีเดีย และงานวิดีโอจำนวนมากที่ให้ความสำคัญกับความสอดคล้องของตัวละครที่เชื่อถือได้และความเร็วในการสร้างที่คาดการณ์ได้ในระดับไม่ถึงวินาที
 
-[Testar no Google AI Studio](https://aistudio.google.com?model=veo-2.0-generate-001&hl=pt-br)
+[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=veo-2.0-generate-001&hl=th)
 
-## Documentação
+## เอกสารประกอบ
 
-Acesse a página [Geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br) para conferir a cobertura completa de
-recursos e funcionalidades.
+ไปที่หน้า[การสร้างวิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)เพื่อดู
+ฟีเจอร์และความสามารถทั้งหมด
 
 ## veo-2.0-generate-001
 
-| Propriedade | Descrição |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_cardCódigo do modelo | **API Gemini**  `veo-2.0-generate-001` |
-| saveTipos de dados com suporte | **Entrada**  Texto, imagem  **Saída**  Vídeo |
-| token\_autoLimits | **Entrada de texto**  N/A  **Entrada de imagem**  Qualquer resolução e proporção de imagem com tamanho de arquivo de até 20 MB  **Vídeo de saída**  Até 2 |
-| calendar\_monthAtualização mais recente | Abril de 2025 |
+| id\_cardรหัสโมเดล | **Gemini API**  `veo-2.0-generate-001` |
+| saveประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ  **เอาต์พุต**  วิดีโอ |
+| token\_autoขีดจำกัด | **อินพุตข้อความ**  ไม่มี  **อินพุตรูปภาพ**  ความละเอียดและอัตราส่วนกว้างยาวของรูปภาพใดก็ได้ โดยมีขนาดไฟล์ไม่เกิน 20 MB  **วิดีโอเอาต์พุต**  สูงสุด 2 รายการ |
+| calendar\_monthการอัปเดตล่าสุด | เมษายน 2025 |
 
-Envie comentários
+ส่งความคิดเห็น
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última atualização 2026-06-15 UTC.
+อัปเดตล่าสุด 2026-06-15 UTC
 
-Quer enviar seu feedback?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-15 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-15 UTC"],[],[]]

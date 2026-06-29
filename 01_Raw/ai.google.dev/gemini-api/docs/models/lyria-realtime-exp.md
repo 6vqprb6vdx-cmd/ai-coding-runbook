@@ -1,47 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=vi
-fetched_at: 2026-06-22T06:33:01.407645+00:00
-title: "Lyria RealTime (th\u1eed nghi\u1ec7m) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=ja
+fetched_at: 2026-06-29T05:33:40.325763+00:00
+title: "Lyria RealTime \u8a66\u9a13\u904b\u7528\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Lyria RealTime (thử nghiệm)
+# Lyria RealTime 試験運用版
 
-Một công cụ thử nghiệm để tổng hợp nhạc có độ trung thực cao, cung cấp các tính năng cải tiến để tạo và chuyển đổi nội dung âm thanh. Lyria RealTime phù hợp nhất với việc viết bài hát có sự hỗ trợ của AI, tạo nhạc cụ độc đáo và quy trình làm việc sáng tạo với âm thanh đòi hỏi khả năng kiểm soát sâu sắc giai điệu và nhịp điệu, không có giọng hát.
+高忠実度の音楽合成のための試験的なエンジン。オーディオ コンテンツの生成と変換のための革新的な機能を提供します。Lyria RealTime は、AI を活用した作曲、独自のインストゥルメンタルの生成、メロディーとリズムを細かく制御する必要があるボーカルなしのクリエイティブなオーディオ ワークフローに最適です。
 
-[Dùng thử Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=vi)
+[Lyria RealTime を試す](https://deepmind.google/models/lyria/lyria-realtime/?hl=ja)
 
-## Tài liệu
+## ドキュメント
 
-Hãy truy cập [trang Tạo nhạc theo thời gian thực](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi) để xem đầy đủ các tính năng và chức năng.
+機能と機能の完全な一覧については、[リアルタイムの音楽生成](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ja)のページをご覧ください。
 
 ## lyria-realtime-exp
 
-| Thuộc tính | Mô tả |
+| プロパティ | 説明 |
 | --- | --- |
-| id\_cardMã mô hình | **Gemini API**  `lyria-realtime-exp` |
-| saveCác loại dữ liệu được hỗ trợ | **Input**  Văn bản (Câu lệnh có trọng số)  **Đầu ra**  Âm thanh (PCM 16 bit thô) |
-| token\_autoGiới hạn xem trực tuyến | **Tần số lấy mẫu**  48kHz (Âm thanh nổi)  **Độ trễ của tính năng điều khiển**  Tối đa 2 giây |
-| 123Phiên bản | Hãy đọc các [mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm chi tiết.  - Thử nghiệm: `lyria-realtime-exp` |
-| calendar\_monthNội dung cập nhật mới nhất | Tháng 5 năm 2025 |
+| id\_cardモデルコード | **Gemini API**  `lyria-realtime-exp` |
+| save でサポートされるデータ型 | **入力**  テキスト（重み付けされたプロンプト）  **出力**  音声（RAW 16 ビット PCM） |
+| token\_auto ストリーミングの制限 | **サンプルレート**  48 kHz（ステレオ）  **レイテンシを制御する**  最大 2 秒 |
+| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - 試験運用版: `lyria-realtime-exp` |
+| calendar\_month最終更新日 | 2025 年 5 月 |
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+最終更新日 2026-04-29 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

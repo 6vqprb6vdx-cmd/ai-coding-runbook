@@ -1,0 +1,519 @@
+---
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=zh-TW
+fetched_at: 2026-06-29T05:33:14.064859+00:00
+title: "Gemini 3.5 Flash \u6700\u65b0\u6d88\u606f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+---
+
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+
+Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
+
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+
+提供意見
+
+# Gemini 3.5 Flash 最新消息
+
+Gemini 3.5 Flash 已**正式發布**，穩定性高，可大規模用於實際工作環境。這是 Google 最聰明的 Flash 模型，可大規模執行代理式作業、程式設計和長期任務，並持續提供頂尖效能。
+
+本指南概略說明 Gemini 3.5 Flash 的改良項目、API 異動和遷移指引。
+
+## 新增模型
+
+| 模型 | 模型 ID | 說明 |
+| --- | --- | --- |
+| Gemini 3.5 Flash | `gemini-3.5-flash` | Google 最聰明的模型，可持續在代理和程式設計工作上提供頂尖效能。 |
+
+Gemini 3.5 Flash 支援 100 萬個詞元的脈絡窗口、最多 65,000 個輸出詞元、思考型功能，以及與 Gemini 3 Flash 相同的工具和平台功能，包括[電腦使用 (預先發布版)](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)。如需完整規格，請參閱[機型總覽](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-tw)。
+如要瞭解定價，請參閱[定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.5-flash)。
+
+## 快速入門導覽課程
+
+本指南中的所有範例都使用 GenerateContent API。系統也支援 Interactions API，適用相同的設定選項和建議。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Explain how parallel agentic execution works in three sentences.",
+)
+print(response.text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  const response = await ai.models.generateContent({
+    model: "gemini-3.5-flash",
+    contents: "Explain how parallel agentic execution works in three sentences.",
+  });
+  console.log(response.text);
+}
+
+main();
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [{
+      "parts": [{"text": "Explain how parallel agentic execution works in three sentences."}]
+    }]
+  }'
+```
+
+## 最新資訊
+
+- **持續提供頂尖效能：**這是 Google 最聰明的 Flash 模型，可大規模執行代理和程式設計工作。
+- **代理執行：**大規模部署子代理、解決問題，以及快速代理迴圈。
+- **程式設計：**反覆進行程式設計週期、快速探索及設計原型，測試替代路徑並動態探索解決方案。
+- **長期：**大規模使用多步驟工作流程和工具。
+- **保留想法：**模型會自動保留多輪對話中的中間推理過程，不需要變更 API。
+- **新的預設努力程度：**預設思考努力程度已從 `high` 變更為 `medium`。詳情請參閱「[新的預設投入程度](#default-effort-level)」。
+- **提升`low`思考能力：** `low` 現在可大幅提升程式碼和代理程式工作效能，減少步驟，以更低的延遲時間和成本提供高品質服務。
+- **正式發行版：**穩定模型，適合大規模用於實際工作環境。
+
+### 選擇合適的 Flash 模型
+
+Gemini 3.5 Flash 是我們最強大、最聰明的 Flash 模型。不過，不同的用途可能有不同的成本和延遲時間要求。
+
+- **Gemini 3.1 Flash-Lite**：如要以低成本處理大量工作，且不需要 3.5 Flash 的進階推論深度，建議使用 [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw)。這是穩定且長期適用的模型，經過最佳化調整，可提高效率。詳情請參閱「[Flash-Lite 開發人員指南](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw#developer_guide)」。
+- **Gemini 3 Flash 預先發布版**：我們建議遷移至 3.5 Flash，以確保正式發布版穩定性並提升推論能力。不過，開發人員仍可繼續使用 [Gemini 3 Flash (預先發布版)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw)，測試預先發布版模型。
+
+## 行為變更
+
+### 新的預設投入程度：`medium`
+
+預設思考量現在為 **`medium`**，Gemini 3 Flash 預先發布版則為 `high`。`medium` 在各種工作上都能獲得非常好的結果，而且速度更快、成本效益更高。對於複雜問題，`high`
+可鼓勵模型深入思考。
+
+| 投入程度 | 使用時機 |
+| --- | --- |
+| `minimal` | 以回應速度為優先考量。類似聊天的用途、快速的事實性答案、更簡單的工具呼叫。 |
+| `low` | 需要較低延遲和較少步驟的程式碼和代理式工作。也適合用於需要思考的分析和寫作工作。 |
+| **`medium` (預設)** | **適合大多數工作，可提供最佳品質。建議用於複雜程式碼和代理式用途。** |
+| `high` | 盡量發揮模型的思考和工具使用能力。最適合處理複雜的推論、困難的數學，以及最困難的程式碼或代理程式工作。可進行延伸思考和函式呼叫。 |
+
+如要覆寫預設值，請在設定中設定 `thinking_level`：
+
+### Python
+
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    contents="Prove that the square root of 2 is irrational.",
+    config=types.GenerateContentConfig(
+        thinking_config=types.ThinkingConfig(thinking_level="high")
+    ),
+)
+
+print(response.text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  const response = await ai.models.generateContent({
+    model: "gemini-3.5-flash",
+    contents: "Prove that the square root of 2 is irrational.",
+    config: {
+      thinkingConfig: {
+        thinkingLevel: "HIGH",
+      },
+    },
+  });
+  console.log(response.text);
+}
+
+main();
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [{
+      "parts": [{"text": "Prove that the square root of 2 is irrational."}]
+    }],
+    "generationConfig": {
+      "thinkingConfig": {
+        "thinkingLevel": "HIGH"
+      }
+    }
+  }'
+```
+
+下表列出各模型支援的思考層次：
+
+| 思考程度 | Gemini 3.5 Flash | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | 說明 |
+| --- | --- | --- | --- | --- | --- |
+| **`minimal`** | 支援 | 不支援 | 支援 (預設) | 支援 | 對於大多數查詢，這項設定與「不思考」設定相符。請注意，`minimal` 無法保證關閉思考功能，模型可能會針對複雜工作進行極少的推理。 |
+| **`low`** | 支援 | 支援 | 支援 | 支援 | 盡量縮短延遲時間並降低成本。 |
+| **`medium`** | 支援 (預設) | 支援 | 支援 | 支援 | 思考能力均衡，適合處理多數工作。 |
+| **`high`** | 支援 (動態) | 支援 (預設、動態) | 支援 (動態) | 支援 (預設、動態) | 盡可能深入推論。 |
+
+### 保留想法
+
+模型會自動在多輪對話中保留中間推理結果，如果對話記錄中包含推論脈絡，系統會沿用這些資訊，進而提升複雜多步驟工作的效能，例如反覆偵錯和程式碼重構。不必變更 API：
+
+- **Interactions API**：系統會自動保留想法。行為沒有改變。
+- **GenerateContent API**：從 Gemini 3.5 Flash 開始，如果對話記錄中包含思維簽章，模型就會使用先前所有輪次的推論脈絡。如要啟用這項功能，請在 `contents` 中傳遞完整且未經修改的對話記錄 (包括[想法簽章](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw))。SDK 會自動處理這項作業。
+
+## Gemini 3.x 中的參數更新和最佳做法
+
+以下適用於**所有 Gemini 3.x 模型**，包括 Gemini 3.5 Flash。
+
+- **`temperature`、`top_p`、`top_k`**：強烈建議不要變更預設值。Gemini 3 的推論能力已針對預設設定完成最佳化。
+- 使用 `thinking_level`，而不要使用 `thinking_budget`。
+- **函式呼叫回應比對**：`id`、`name` 和回應計數必須與先前的呼叫相符。
+- **多模態函式回覆**：在函式回覆中加入多模態內容，而非在函式回覆外。
+- **函式回應中的內嵌指令**：附加至函式回應文字，而非獨立部分。
+- **減少不必要的工具呼叫**：使用較低的思考層級或實驗系統指令，減少代理工作流程中的工具呼叫。
+
+如要瞭解如何更新程式碼，請參閱下方各節。
+
+### 取樣參數 (不再建議使用)
+
+`temperature`、`top_p` 和 `top_k` 不再適用於所有 Gemini 3.x 模型。Gemini 3 的推論能力已針對預設設定完成最佳化。**從所有要求中移除這些參數。**
+
+```
+# ⚠️ Remove these parameters (not recommended)
+config = types.GenerateContentConfig(
+    temperature=0.7,
+    top_p=0.9,
+    top_k=40
+)
+```
+
+為確保確定性，建議您根據特定用途定義系統指令，並明確指定規則。
+
+### `thinking_budget` (不建議使用)
+
+我們不再建議在所有 Gemini 3.x 模型中使用原始數值 `thinking_budget` 參數。請改用 `thinking_level` 字串列舉。
+
+```
+# ⚠️ Before (not recommended)
+config = types.GenerateContentConfig(
+    thinking_config=types.ThinkingConfig(thinking_budget=7500)
+)
+
+# ✅ After
+config = types.GenerateContentConfig(
+    thinking_config=types.ThinkingConfig(thinking_level="medium")
+)
+```
+
+可用值：`minimal`、`low`、`medium` (預設值) 和 `high`。
+
+### 函式呼叫：嚴格比對回應
+
+如果函式回應不符，Interactions API 就會發生錯誤。GenerateContent API 目前不會傳回錯誤，但如果回覆不相符，模型在大多數情況下會傳回空白回覆，並附上 `finish_reason: STOP`。請一律遵循下列慣例：
+
+| 規定 | 詳細資料 |
+| --- | --- |
+| 包含 `id`的訂金 | 每個 `FunctionResponse` 都必須包含對應 `FunctionCall` 的 `id` |
+| 第 `name` 場 | 回應中的 `name` 必須與呼叫中的 `name` 相符 |
+| 相符項目數 | 針對收到的每個 `FunctionCall`，傳回正好一個 `FunctionResponse` |
+
+### Python
+
+```
+# ✅ Include matching id and name in the function response
+final_response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    config=config,
+    contents=[
+        *previous_contents,
+        response.candidates[0].content,
+        types.Content(role="user", parts=[
+            types.Part.from_function_response(
+                name=tool_call.name,
+                response={"result": result},
+                id=tool_call.id,
+            )
+        ]),
+    ],
+)
+```
+
+### JavaScript
+
+```
+// ✅ Include matching id and name in the function response
+const functionResponsePart = {
+  functionResponse: {
+    name: toolCall.name,
+    response: { result: result },
+    id: toolCall.id,
+  },
+};
+
+const finalResponse = await ai.models.generateContent({
+  model: "gemini-3.5-flash",
+  contents: [
+    ...previousContents,
+    { role: "model", parts: [{ functionCall: toolCall }] },
+    { role: "user", parts: [functionResponsePart] },
+  ],
+  config: config,
+});
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [
+      {"role": "user", "parts": [{"text": "..."}]},
+      {"role": "model", "parts": [{"functionCall": {"name": "my_function", "args": {...}}}]},
+      {"role": "user", "parts": [{"functionResponse": {"name": "my_function", "id": "call_id", "response": {"result": "..."}}}]}
+    ]
+  }'
+```
+
+### 多模態函式回覆
+
+我們經常看到客戶在函式回應以外提供圖片。這可能會導致模型出現非預期的行為 (例如洩漏想法)，並導致輸出內容品質不佳。請改為按照「[多模態函式回覆 API 文件](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=zh-tw#multimodal)」中的建議操作，並在傳送至模型的回覆部分中加入多模態內容。模型可以在下一個回合處理這類多模態內容，進而生成更實用的回覆。
+
+### Python
+
+```
+# ✅ Include multimodal content in the function response
+final_response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    config=config,
+    contents=[
+        *previous_contents,
+        response.candidates[0].content,
+        types.Content(role="user", parts=[
+            types.Part.from_function_response(
+                name=tool_call.name,
+                response={
+                    "result": "instrument.jpg",
+                    "image": base64_image_data,
+                },
+                id=tool_call.id,
+            )
+        ]),
+    ],
+)
+```
+
+### JavaScript
+
+```
+// ✅ Include multimodal content in the function response
+const finalResponse = await ai.models.generateContent({
+  model: "gemini-3.5-flash",
+  contents: [
+    ...previousContents,
+    { role: "model", parts: [{ functionCall: toolCall }] },
+    {
+      role: "user",
+      parts: [{
+        functionResponse: {
+          name: toolCall.name,
+          id: toolCall.id,
+          response: {
+            result: "instrument.jpg",
+            image: base64ImageData,
+          },
+        },
+      }],
+    },
+  ],
+  config: config,
+});
+```
+
+### 函式回應中的內嵌指令
+
+我們經常看到客戶在函式回應中提供額外指示，做為後續的 `Parts`。這可能會導致模型出現非預期的行為 (例如洩漏想法)，並降低輸出內容的品質。請改為在函式回應文字結尾附加任何額外指示，並以兩個換行符號分隔。
+
+### Python
+
+```
+# ✅ Append inline instructions to the end of the function response separated by two newlines
+result_text = f"{json.dumps(result)}\n\n<your inline instructions>"
+
+final_response = client.models.generate_content(
+    model="gemini-3.5-flash",
+    config=config,
+    contents=[
+        *previous_contents,
+        response.candidates[0].content,
+        types.Content(role="user", parts=[
+            types.Part.from_function_response(
+                name=tool_call.name,
+                response={"result": result_text},
+                id=tool_call.id,
+            )
+        ]),
+    ],
+)
+```
+
+### JavaScript
+
+```
+// ✅ Append inline instructions to the end of the function response separated by two newlines
+const resultText = `${JSON.stringify(result)}\n\n<your inline instructions>`;
+
+const finalResponse = await ai.models.generateContent({
+  model: "gemini-3.5-flash",
+  contents: [
+    ...previousContents,
+    { role: "model", parts: [{ functionCall: toolCall }] },
+    {
+      role: "user",
+      parts: [{
+        functionResponse: {
+          name: toolCall.name,
+          id: toolCall.id,
+          response: { result: resultText },
+        },
+      }],
+    },
+  ],
+  config: config,
+});
+```
+
+### 減少不必要的工具呼叫
+
+如果工具呼叫次數過多，可以採取以下兩種方法盡量減少：
+
+1. **首先，請降低思考層級** (`medium`、`low` 或 `minimal`)：
+   思考層級越高，模型就越會使用工具探索及驗證，因此降低層級可減少工具呼叫次數。
+2. **新增系統指令：**如果調整思考程度後仍有過度使用情形，請考慮使用限制工具用量的提示。例如：
+
+   ```
+   You have a limited action budget of <n> tool calls. Use them efficiently.
+   ```
+
+## 遷移檢查清單
+
+### 從 Gemini 3 Flash 預先發布版遷移
+
+- 更新模型名稱：`gemini-3-flash-preview` → `gemini-3.5-flash`
+- 查看定價。Gemini 3.5 Flash 的價格高於 Gemini 3 Flash 預先發布版。如果您的使用案例對成本非常敏感，請考慮改用 [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw)。詳情請參閱[定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.5-flash)。
+- 從設定中移除 `temperature`、`top_p`、`top_k` (不再建議使用)。
+- 將 `thinking_budget` 替換為 `thinking_level`。
+- 在所有 `FunctionResponse` 部分中加入 `id` 和相符的 `name`。
+- 測試提示。預設成效已從 `high` → `medium` 變更；請確認品質、速度和費用。
+- 系統現在預設會保留想法。推論內容會在回合之間延續，這有助於提升效能，但可能會增加詞元用量。
+- 減少不必要的工具呼叫：首先，請降低思考層級 (`medium`、`low` 或 `minimal`)；如果工具使用過度，請新增系統指令來限制工具使用。
+- 支援「電腦使用」。
+
+### 從 Gemini 2.5 遷移
+
+上述所有權限，以及下列權限：
+
+- 簡化提示。如果您使用思維鏈提示工程來強制推論，請改用 `thinking_level: "medium"` 或 `"high"`，並搭配較簡單的提示。
+- 測試 PDF 和媒體工作負載。如果您依賴特定行為來剖析密集文件，請測試 `media_resolution_high` 設定，確保準確度不受影響。遷移至 Gemini 3 預設值可能會增加 PDF 的權杖用量，但會減少影片的權杖用量；如果要求超出脈絡窗口，請明確減少 `media_resolution`。詳情請參閱[媒體解析度](https://ai.google.dev/gemini-api/docs/media-resolution?hl=zh-tw)文件。
+- [搭配使用多種工具](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)。
+  您可以在同一項要求中使用 Google 搜尋、網址環境、執行程式碼和自訂函式。
+- 如果使用多模態函式回覆，請將多模態內容移至函式回覆部分內，而非與其並列。
+- 如果使用內嵌指令搭配函式回應，請以兩個換行符號分隔，將指令附加至函式回應文字，而非做為獨立部分。
+- Gemini 3.x 不支援影像分割功能。如要處理區隔工作負載，請繼續使用 Gemini 2.5 Flash (關閉思考模式) 或 [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-tw)。
+- 從設定中移除 `candidate_count` (Gemini 3.x 不支援)
+
+## Gemini 3 系列功能
+
+Gemini 3.5 Flash 承襲了 Gemini 3 系列的所有功能，包括電腦使用功能。Gemini 3 推出後沿用的功能：
+
+- [**思考**](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)**：**已加密的推論脈絡會在 API 呼叫之間保留。在 Interactions API 中自動執行；在 GenerateContent 中隱含執行。
+- [**使用工具輸出結構化內容**](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)**：**結合 JSON 模式與內建工具 (搜尋、網址內容、執行程式碼、呼叫函式)。
+- [**多模態函式回覆**](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#multimodal)**：**在函式呼叫結果中傳回圖片、音訊和其他媒體。
+- [**使用圖片執行程式碼**](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw#images)**：**執行可處理及生成圖片的程式碼。
+- [**合併使用工具**](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)**：**在同一個要求中，使用內建工具和自訂函式呼叫。
+- [**媒體解析度**](https://ai.google.dev/gemini-api/docs/media-resolution?hl=zh-tw)**：**
+  可精細控管圖片、影片和 PDF 輸入內容的權杖分配。
+  Gemini 3 模型支援混合保真度提示的每個內容項目解析度設定 (`low`、`medium`、`high`、`ultra_high`)。
+- [**思維簽章**](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw)**：**
+  模型內部推論的加密表示法。多輪函式呼叫的必要項目，由官方 SDK 自動管理。
+
+## 提示最佳做法
+
+Gemini 3.x 模型是推論模型，因此提示方式有所不同。
+
+- **精確的指示：**請簡潔明瞭。Gemini 3.x 最適合直接且清楚的指令。為舊版模型設計的冗長或複雜提示工程技術，可能會導致模型過度分析。
+- **輸出詳細程度：**Gemini 3.x 預設會提供較精簡的回答，並偏好直接且有效率的答案。如果您的用途需要對話語氣，請在提示中明確引導模型 (例如「以友善健談的助理身分說明這件事」)。
+- **脈絡管理：**處理大型資料集 (例如整本書、程式碼集或長影片) 時，請將具體指示或問題放在提示結尾的資料脈絡之後。在問題開頭加上「根據上述資訊...」等詞組，讓模型根據特定資訊推論。
+
+如要進一步瞭解提示設計策略，請參閱[提示工程指南](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw)。
+
+## 限制
+
+- Gemini 3.x 不支援影像分割功能。如要處理區隔工作負載，請繼續使用 Gemini 2.5 Flash (關閉思考模式) 或 [Gemini Robotics-ER 1.6](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-tw)。
+
+## 常見問題
+
+1. **Gemini 3.5 Flash 的知識截點為何？**Gemini 3.5 Flash 的知識截點為 2025 年 1 月。如需最新資訊，請使用[搜尋基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)工具。
+2. **脈絡窗口的限制為何？**Gemini 3.5 Flash 支援 100 萬個詞元的輸入脈絡窗口，以及最多 65,000 個詞元的輸出內容。
+3. **舊的 `thinking_budget` 程式碼是否仍可運作？**可以，`thinking_budget` 仍支援回溯相容性，但建議您遷移至 `thinking_level`，以獲得更可預測的成效。請勿在同一要求中同時使用這兩者。
+4. **Gemini 3.5 Flash 是否支援 Batch API？**可以。詳情請參閱「[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)」指南。
+5. **是否支援脈絡快取？**是，支援[內容快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)。
+6. **支援哪些工具？**Gemini 3.5 Flash 支援
+   [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)、
+   [利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)、
+   [檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)、
+   [執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)、
+   [網址脈絡](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)和
+   標準[呼叫函式](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)，
+   包括
+   [合併使用工具](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)。Gemini 3.5 Flash **不**支援「電腦使用」。
+
+## 後續步驟
+
+- 如要進一步瞭解提示設計策略，請參閱[提示工程指南](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw)。
+- 開始使用 [Gemini 3 教戰手冊](https://github.com/google-gemini/cookbook)
+- 瞭解 [Gemini API 最佳化和推論](https://ai.google.dev/gemini-api/docs/optimization?hl=zh-tw)
+
+提供意見
+
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+
+上次更新時間：2026-06-24 (世界標準時間)。
+
+想進一步說明嗎？
+
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-24 (世界標準時間)。"],[],[]]

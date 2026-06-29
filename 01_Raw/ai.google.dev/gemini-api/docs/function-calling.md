@@ -1,226 +1,145 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=he
-fetched_at: 2026-06-22T06:26:39.054348+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=ja
+fetched_at: 2026-06-29T05:35:46.874406+00:00
+title: "Gemini API \u3092\u4f7f\u7528\u3057\u305f\u95a2\u6570\u547c\u3073\u51fa\u3057 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-שליחת משוב
+フィードバックを送信
 
-# בקשות להפעלת פונקציות באמצעות Gemini API
+# Gemini API を使用した関数呼び出し
 
-התכונה 'הפעלת פונקציות' מאפשרת לכם לחבר מודלים לכלים ולממשקי API חיצוניים.
-במקום ליצור תשובות טקסטואליות, המודל קובע מתי לקרוא לפונקציות ספציפיות ומספק את הפרמטרים הנדרשים לביצוע פעולות בעולם האמיתי.
-כך המודל יכול לשמש כגשר בין שפה טבעית לבין פעולות ונתונים בעולם האמיתי. יש 3 תרחישי שימוש עיקריים לבקשה להפעלת פונקציה:
+関数呼び出しを使用すると、モデルを外部ツールや API に接続できます。テキスト レスポンスを生成する代わりに、モデルは特定の関数を呼び出すタイミングを判断し、現実世界のアクションを実行するために必要なパラメータを提供します。これにより、モデルは自然言語と現実世界のアクションやデータとの間のブリッジとして機能できます。関数呼び出しには、次の 3 つの主なユースケースがあります。
 
-- [**ביצוע פעולות:**](#meeting) אינטראקציה עם מערכות חיצוניות באמצעות ממשקי API, כמו קביעת פגישות, יצירת חשבוניות, שליחת אימיילים או שליטה במכשירים חכמים לבית.
-- [**העשרת הידע:**](#weather) גישה למידע ממקורות חיצוניים כמו מסדי נתונים, ממשקי API ומאגרי ידע.
-- [**הרחבת היכולות:**](#chart) שימוש בכלים חיצוניים לביצוע חישובים ולהרחבת המגבלות של המודל, למשל שימוש במחשבון או יצירת תרשימים.
+- [**アクションを実行する:**](#meeting) API を使用して外部システムとやり取りします。たとえば、予定のスケジュール設定、請求書の作成、メールの送信、スマートホーム デバイスの制御などを行います。
+- [**知識の補強:**](#weather) データベース、API、ナレッジベースなどの外部ソースから情報にアクセスします。
+- [**機能の拡張:**](#chart) 外部ツールを使用して計算を行い、モデルの制限を拡張します（電卓の使用やグラフの作成など）。
 
-בהמשך מפורטות דוגמאות לתרחישי שימוש כאלה:
+これらのユースケースの例については、以下をご覧ください。
 
-### קביעת פגישה
+### 会議のスケジュール
 
-בדוגמה הזו מוסבר איך להגדיר פונקציה שמתזמנת פגישה עם משתתפים בשעה ספציפית, כדי לאפשר למודל לנתח בקשות של משתמשים ולהחזיר ארגומנטים מובנים להפעלת פעולות במערכות חיצוניות.
+この例では、特定の時間に会議をスケジュールする関数を定義する方法を示します。これにより、モデルはユーザー リクエストを解析し、構造化された引数を返して外部システムでアクションをトリガーできます。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
-# Define the function declaration for the model
 schedule_meeting_function = {
+    "type": "function",
     "name": "schedule_meeting",
     "description": "Schedules a meeting with specified attendees at a given time and date.",
     "parameters": {
         "type": "object",
         "properties": {
-            "attendees": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "List of people attending the meeting.",
-            },
-            "date": {
-                "type": "string",
-                "description": "Date of the meeting (e.g., '2024-07-29')",
-            },
-            "time": {
-                "type": "string",
-                "description": "Time of the meeting (e.g., '15:00')",
-            },
-            "topic": {
-                "type": "string",
-                "description": "The subject or topic of the meeting.",
-            },
+            "attendees": {"type": "array", "items": {"type": "string"}},
+            "date": {"type": "string", "description": "Date (e.g., '2024-07-29')"},
+            "time": {"type": "string", "description": "Time (e.g., '15:00')"},
+            "topic": {"type": "string", "description": "The meeting topic."},
         },
         "required": ["attendees", "date", "time", "topic"],
     },
 }
 
-# Configure the client and tools
 client = genai.Client()
-tools = types.Tool(function_declarations=[schedule_meeting_function])
-config = types.GenerateContentConfig(tools=[tools])
 
-# Send request with function declarations
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about the Q3 planning.",
-    config=config,
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about Q3 planning.",
+    tools=[{"type": "function", **schedule_meeting_function}],
 )
 
-# Check for a function call
-if response.candidates[0].content.parts[0].function_call:
-    function_call = response.candidates[0].content.parts[0].function_call
-    print(f"Function to call: {function_call.name}")
-    print(f"ID: {function_call.id}")
-    print(f"Arguments: {function_call.args}")
-    #  In a real app, you would call your function here:
-    #  result = schedule_meeting(**function_call.args)
-else:
-    print("No function call found in the response.")
-    print(response.text)
+for step in interaction.steps:
+    if step.type == "function_call":
+        print(f"Function to call: {step.name}")
+        print(f"Arguments: {step.arguments}")
 ```
 
 ### JavaScript
 
 ```
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
-// Configure the client
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-// Define the function declaration for the model
-const scheduleMeetingFunctionDeclaration = {
+const scheduleMeetingFunction = {
+  type: 'function',
   name: 'schedule_meeting',
   description: 'Schedules a meeting with specified attendees at a given time and date.',
   parameters: {
-    type: Type.OBJECT,
+    type: 'object',
     properties: {
-      attendees: {
-        type: Type.ARRAY,
-        items: { type: Type.STRING },
-        description: 'List of people attending the meeting.',
-      },
-      date: {
-        type: Type.STRING,
-        description: 'Date of the meeting (e.g., "2024-07-29")',
-      },
-      time: {
-        type: Type.STRING,
-        description: 'Time of the meeting (e.g., "15:00")',
-      },
-      topic: {
-        type: Type.STRING,
-        description: 'The subject or topic of the meeting.',
-      },
+      attendees: { type: 'array', items: { type: 'string' } },
+      date: { type: 'string', description: 'Date (e.g., "2024-07-29")' },
+      time: { type: 'string', description: 'Time (e.g., "15:00")' },
+      topic: { type: 'string', description: 'The meeting topic.' },
     },
     required: ['attendees', 'date', 'time', 'topic'],
   },
 };
 
-// Send request with function declarations
-const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about the Q3 planning.',
-  config: {
-    tools: [{
-      functionDeclarations: [scheduleMeetingFunctionDeclaration]
-    }],
-  },
+const interaction = await client.interactions.create({
+  model: 'gemini-3-flash-preview',
+  input: 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about Q3 planning.',
+  tools: [scheduleMeetingFunction],
 });
 
-// Check for function calls in the response
-if (response.functionCalls && response.functionCalls.length > 0) {
-  const functionCall = response.functionCalls[0]; // Assuming one function call
-  console.log(`Function to call: ${functionCall.name}`);
-  console.log(`ID: ${functionCall.id}`);
-  console.log(`Arguments: ${JSON.stringify(functionCall.args)}`);
-  // In a real app, you would call your actual function here:
-  // const result = await scheduleMeeting(functionCall.args);
-} else {
-  console.log("No function call found in the response.");
-  console.log(response.text);
+for (const step of interaction.steps) {
+  if (step.type === 'function_call') {
+    console.log(`Function to call: ${step.name}`);
+    console.log(`Arguments: ${JSON.stringify(step.arguments)}`);
+  }
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about the Q3 planning."
-          }
-        ]
-      }
-    ],
-    "tools": [
-      {
-        "functionDeclarations": [
-          {
-            "name": "schedule_meeting",
-            "description": "Schedules a meeting with specified attendees at a given time and date.",
-            "parameters": {
-              "type": "object",
-              "properties": {
-                "attendees": {
-                  "type": "array",
-                  "items": {"type": "string"},
-                  "description": "List of people attending the meeting."
-                },
-                "date": {
-                  "type": "string",
-                  "description": "Date of the meeting (e.g., '2024-07-29')"
-                },
-                "time": {
-                  "type": "string",
-                  "description": "Time of the meeting (e.g., '15:00')"
-                },
-                "topic": {
-                  "type": "string",
-                  "description": "The subject or topic of the meeting."
-                }
-              },
-              "required": ["attendees", "date", "time", "topic"]
-            }
-          }
-        ]
-      }
-    ]
+    "model": "gemini-3-flash-preview",
+    "input": "Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about Q3 planning.",
+    "tools": [{
+        "type": "function",
+        "name": "schedule_meeting",
+        "description": "Schedules a meeting with specified attendees at a given time and date.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "attendees": {"type": "array", "items": {"type": "string"}},
+            "date": {"type": "string"},
+            "time": {"type": "string"},
+            "topic": {"type": "string"}
+          },
+          "required": ["attendees", "date", "time", "topic"]
+        }
+    }]
   }'
 ```
 
-### קבלת מידע על מזג האוויר
+### 天気情報を取得する
 
-בדוגמה הזו מוסבר איך להגדיר פונקציה שמחלצת נתוני טמפרטורה של מיקום מסוים, וכך מאפשרת למודל להפעיל ממשקי API חיצוניים כדי לענות על שאילתות שדורשות מידע בזמן אמת או מידע חיצוני.
+この例では、ある場所の気温データを取得する関数を定義する方法を示します。これにより、モデルはリアルタイムまたは外部情報を必要とするクエリに回答するために外部 API を呼び出すことができます。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
-# Define the function declaration for the model
 weather_function = {
+    "type": "function",
     "name": "get_current_temperature",
     "description": "Gets the current temperature for a given location.",
     "parameters": {
@@ -235,48 +154,36 @@ weather_function = {
     },
 }
 
-# Configure the client and tools
 client = genai.Client()
-tools = types.Tool(function_declarations=[weather_function])
-config = types.GenerateContentConfig(tools=[tools])
 
-# Send request with function declarations
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="What's the temperature in London?",
-    config=config,
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="What's the temperature in London?",
+    tools=[weather_function],
 )
 
-# Check for a function call
-if response.candidates[0].content.parts[0].function_call:
-    function_call = response.candidates[0].content.parts[0].function_call
-    print(f"Function to call: {function_call.name}")
-    print(f"ID: {function_call.id}")
-    print(f"Arguments: {function_call.args}")
-    #  In a real app, you would call your function here:
-    #  result = get_current_temperature(**function_call.args)
-else:
-    print("No function call found in the response.")
-    print(response.text)
+for step in interaction.steps:
+    if step.type == "function_call":
+        print(f"Function to call: {step.name}")
+        print(f"Arguments: {step.arguments}")
 ```
 
 ### JavaScript
 
 ```
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
-// Configure the client
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-// Define the function declaration for the model
 const weatherFunctionDeclaration = {
+  type: 'function',
   name: 'get_current_temperature',
   description: 'Gets the current temperature for a given location.',
   parameters: {
-    type: Type.OBJECT,
+    type: 'object',
     properties: {
       location: {
-        type: Type.STRING,
+        type: 'string',
         description: 'The city name, e.g. San Francisco',
       },
     },
@@ -284,271 +191,163 @@ const weatherFunctionDeclaration = {
   },
 };
 
-// Send request with function declarations
-const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: "What's the temperature in London?",
-  config: {
-    tools: [{
-      functionDeclarations: [weatherFunctionDeclaration]
-    }],
-  },
+const interaction = await client.interactions.create({
+  model: 'gemini-3-flash-preview',
+  input: "What's the temperature in London?",
+  tools: [weatherFunctionDeclaration],
 });
 
-// Check for function calls in the response
-if (response.functionCalls && response.functionCalls.length > 0) {
-  const functionCall = response.functionCalls[0]; // Assuming one function call
-  console.log(`Function to call: ${functionCall.name}`);
-  console.log(`ID: ${functionCall.id}`);
-  console.log(`Arguments: ${JSON.stringify(functionCall.args)}`);
-  // In a real app, you would call your actual function here:
-  // const result = await getCurrentTemperature(functionCall.args);
-} else {
-  console.log("No function call found in the response.");
-  console.log(response.text);
+for (const step of interaction.steps) {
+  if (step.type === 'function_call') {
+    console.log(`Function to call: ${step.name}`);
+    console.log(`Arguments: ${JSON.stringify(step.arguments)}`);
+  }
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "What'\''s the temperature in London?"
-          }
-        ]
+    "model": "gemini-3-flash-preview",
+    "input": "What'\''s the temperature in London?",
+    "tools": [{
+      "type": "function",
+      "name": "get_current_temperature",
+      "description": "Gets the current temperature for a given location.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {"type": "string", "description": "The city name"}
+        },
+        "required": ["location"]
       }
-    ],
-    "tools": [
-      {
-        "functionDeclarations": [
-          {
-            "name": "get_current_temperature",
-            "description": "Gets the current temperature for a given location.",
-            "parameters": {
-              "type": "object",
-              "properties": {
-                "location": {
-                  "type": "string",
-                  "description": "The city name, e.g. San Francisco"
-                }
-              },
-              "required": ["location"]
-            }
-          }
-        ]
-      }
-    ]
+    }]
   }'
 ```
 
-### יצירת תרשים
+### グラフを作成
 
-בדוגמה הזו מוגדרת פונקציה שמייצרת תרשים עמודות מנתונים מובְנים. הדוגמה הזו ממחישה איך המודל יכול להשתמש בכלים חיצוניים כדי לבצע חישובים או ליצור נכסים חזותיים:
+次の例は、構造化データから棒グラフを生成する関数を定義する方法を示しています。この例では、モデルが外部ツールを使用して計算を実行したり、ビジュアル アセットを作成したりする方法を示しています。
 
 ### Python
 
 ```
-import os
 from google import genai
-from google.genai import types
 
-# Define the function declaration for the model
 create_chart_function = {
+    "type": "function",
     "name": "create_bar_chart",
-    "description": "Creates a bar chart given a title, labels, and corresponding values.",
+    "description": "Creates a bar chart given a title, labels, and values.",
     "parameters": {
         "type": "object",
         "properties": {
-            "title": {
-                "type": "string",
-                "description": "The title for the chart.",
-            },
-            "labels": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "List of labels for the data points (e.g., ['Q1', 'Q2', 'Q3']).",
-            },
-            "values": {
-                "type": "array",
-                "items": {"type": "number"},
-                "description": "List of numerical values corresponding to the labels (e.g., [50000, 75000, 60000]).",
-            },
+            "title": {"type": "string", "description": "The title for the chart."},
+            "labels": {"type": "array", "items": {"type": "string"}},
+            "values": {"type": "array", "items": {"type": "number"}},
         },
         "required": ["title", "labels", "values"],
     },
 }
 
-# Configure the client and tools
 client = genai.Client()
-tools = types.Tool(function_declarations=[create_chart_function])
-config = types.GenerateContentConfig(tools=[tools])
 
-# Send request with function declarations
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000.",
-    config=config,
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
+    tools=[create_chart_function],
 )
 
-# Check for a function call
-if response.candidates[0].content.parts[0].function_call:
-    function_call = response.candidates[0].content.parts[0].function_call
-    print(f"Function to call: {function_call.name}")
-    print(f"ID: {function_call.id}")
-    print(f"Arguments: {function_call.args}")
-    #  In a real app, you would call your function here using a charting library:
-    #  result = create_bar_chart(**function_call.args)
-else:
-    print("No function call found in the response.")
-    print(response.text)
+for step in interaction.steps:
+    if step.type == "function_call":
+        print(f"Function to call: {step.name}")
+        print(f"Arguments: {step.arguments}")
 ```
 
 ### JavaScript
 
 ```
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
-// Configure the client
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-// Define the function declaration for the model
 const createChartFunctionDeclaration = {
+  type: 'function',
   name: 'create_bar_chart',
-  description: 'Creates a bar chart given a title, labels, and corresponding values.',
+  description: 'Creates a bar chart given a title, labels, and values.',
   parameters: {
-    type: Type.OBJECT,
+    type: 'object',
     properties: {
-      title: {
-        type: Type.STRING,
-        description: 'The title for the chart.',
-      },
-      labels: {
-        type: Type.ARRAY,
-        items: { type: Type.STRING },
-        description: 'List of labels for the data points (e.g., ["Q1", "Q2", "Q3"]).',
-      },
-      values: {
-        type: Type.ARRAY,
-        items: { type: Type.NUMBER },
-        description: 'List of numerical values corresponding to the labels (e.g., [50000, 75000, 60000]).',
-      },
+      title: { type: 'string', description: 'The title for the chart.' },
+      labels: { type: 'array', items: { type: 'string' } },
+      values: { type: 'array', items: { type: 'number' } },
     },
     required: ['title', 'labels', 'values'],
   },
 };
 
-// Send request with function declarations
-const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: "Create a bar chart titled 'Quarterly Sales' with data: Q1: 50000, Q2: 75000, Q3: 60000.",
-  config: {
-    tools: [{
-      functionDeclarations: [createChartFunctionDeclaration]
-    }],
-  },
+const interaction = await client.interactions.create({
+  model: 'gemini-3-flash-preview',
+  input: "Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
+  tools: [createChartFunctionDeclaration],
 });
 
-// Check for function calls in the response
-if (response.functionCalls && response.functionCalls.length > 0) {
-  const functionCall = response.functionCalls[0]; // Assuming one function call
-  console.log(`Function to call: ${functionCall.name}`);
-  console.log(`ID: ${functionCall.id}`);
-  console.log(`Arguments: ${JSON.stringify(functionCall.args)}`);
-  // In a real app, you would call your actual function here:
-  // const result = await createBarChart(functionCall.args);
-} else {
-  console.log("No function call found in the response.");
-  console.log(response.text);
+for (const step of interaction.steps) {
+  if (step.type === 'function_call') {
+    console.log(`${step.name}(${JSON.stringify(step.arguments)})`);
+  }
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "Create a bar chart titled ''Quarterly Sales'' with data: Q1: 50000, Q2: 75000, Q3: 60000."
-          }
-        ]
-      }
-    ],
-    "tools": [
-      {
-        "functionDeclarations": [
-          {
-            "name": "create_bar_chart",
-            "description": "Creates a bar chart given a title, labels, and corresponding values.",
-            "parameters": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string",
-                  "description": "The title for the chart."
-                },
-                "labels": {
-                  "type": "array",
-                  "items": {"type": "string"},
-                  "description": "List of labels for the data points (e.g., [''Q1'', ''Q2'', ''Q3''])."
-                },
-                "values": {
-                  "type": "array",
-                  "items": {"type": "number"},
-                  "description": "List of numerical values corresponding to the labels (e.g., [50000, 75000, 60000])."
-                }
-              },
-              "required": ["title", "labels", "values"]
-            }
-          }
-        ]
-      }
-    ]
+    "model": "gemini-3-flash-preview",
+    "input": "Create a bar chart titled '\''Quarterly Sales'\'' with Q1: 50000, Q2: 75000, Q3: 60000.",
+    "tools": [{
+        "type": "function",
+        "name": "create_bar_chart",
+        "description": "Creates a bar chart given a title, labels, and values.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "title": {"type": "string"},
+            "labels": {"type": "array", "items": {"type": "string"}},
+            "values": {"type": "array", "items": {"type": "number"}}
+          },
+          "required": ["title", "labels", "values"]
+        }
+    }]
   }'
 ```
 
-## איך פועלת בקשה להפעלת פונקציה
+## 関数呼び出しの仕組み
 
-![סקירה כללית על קריאה להפעלת פונקציות](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=he)
+![関数呼び出しの概要](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=ja)
 
-קריאה לפונקציה היא אינטראקציה מובנית בין האפליקציה, המודל ופונקציות חיצוניות. פירוט התהליך:
+関数呼び出しには、アプリケーション、モデル、外部関数の間の構造化されたやり取りが含まれます。
 
-1. **הגדרת הצהרת פונקציה:** מגדירים את הצהרת הפונקציה בקוד האפליקציה. הצהרות על פונקציות מתארות למודל את השם, הפרמטרים והמטרה של הפונקציה.
-2. **קריאה ל-API עם הצהרות על פונקציות:** שולחים את הנחיית המשתמש יחד עם ההצהרות על הפונקציות למודל. הוא מנתח את הבקשה וקובע אם כדאי להשתמש בקריאה לפונקציה. אם כן, הוא מגיב עם אובייקט JSON מובנה שמכיל את שם הפונקציה, הארגומנטים ומזהה ייחודי `id` (המזהה `id` הזה תמיד מוחזר עכשיו על ידי ה-API עבור מודלים של Gemini 3\*).
-3. **הפעלת קוד הפונקציה (באחריותכם):** המודל *לא* מפעיל את הפונקציה בעצמו. האפליקציה שלכם אחראית לעבד את התשובה ולבדוק אם יש בה קריאה לפונקציה. אם
-   - **כן**: חילוץ השם, הארגומנטים ו-`id` של הפונקציה והפעלת הפונקציה התואמת באפליקציה.
-   - **לא:** המודל סיפק תגובה ישירה של טקסט להנחיה
-     (התרחיש הזה פחות מודגש בדוגמה, אבל הוא אפשרי).
-4. **יצירת תשובה ידידותית למשתמש:** אם בוצעה פונקציה, צריך לתעד את התוצאה ולשלוח אותה בחזרה למודל, תוך הקפדה על הכללת `id` התואם, בתור הבא של השיחה. המודל ישתמש בתוצאה כדי ליצור תשובה סופית וידידותית למשתמש שמשלבת את המידע מ<b>בקשה להפעלת פונקציה</b>.
+1. **関数宣言を定義する:** モデルに関数名、パラメータ、目的を定義します。
+2. **関数宣言を使用して LLM を呼び出す:** ユーザーのプロンプトと関数宣言をモデルに送信します。
+3. **関数コードの実行（ユーザーの責任）:** モデルは関数自体を実行しません。名前と引数を抽出し、アプリケーションで実行します。
+4. **ユーザー フレンドリーなレスポンスを作成する:** 最終的なユーザー フレンドリーなレスポンスを得るために、結果をモデルに送り返します。
 
-אפשר לחזור על התהליך הזה כמה פעמים, כדי ליצור אינטראקציות ותהליכי עבודה מורכבים. המודל תומך גם בקריאה לכמה פונקציות בתור אחד ([קריאה מקבילה לפונקציות](#parallel_function_calling)), ברצף ([קריאה לפונקציות בהרכבה](#compositional_function_calling)) ובכלים מובנים של Gemini ([שימוש בכמה כלים](#native-tools)).
+このプロセスは複数回繰り返すことができます。このモデルは、1 回のターンで複数の関数を並列（[並列関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#parallel_function_calling)）または順番（[コンポジション関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#compositional_function_calling)）に呼び出すことをサポートしています。
 
-‫\* **תמיד ממפים מזהי פונקציות:** מודל Gemini 3 מחזיר עכשיו תמיד `id` ייחודי עם כל `functionCall`. חשוב לכלול את `id` הזה ב-`functionResponse` כדי שהמודל יוכל למפות את התוצאה בחזרה לבקשה המקורית בצורה מדויקת.
-
-### שלב 1: מגדירים הצהרה על פונקציה
-
-מגדירים פונקציה והצהרה שלה בקוד האפליקציה, שמאפשרות למשתמשים להגדיר ערכי תאורה ולשלוח בקשת API. הפונקציה הזו יכולה להפעיל שירותים חיצוניים או ממשקי API.
+### ステップ 1: 関数宣言を定義する
 
 ### Python
 
 ```
-# Define a function that the model can call to control smart lights
 set_light_values_declaration = {
+    "type": "function",
     "name": "set_light_values",
     "description": "Sets the brightness and color temperature of a light.",
     "parameters": {
@@ -556,102 +355,62 @@ set_light_values_declaration = {
         "properties": {
             "brightness": {
                 "type": "integer",
-                "description": "Light level from 0 to 100. Zero is off and 100 is full brightness",
+                "description": "Light level from 0 to 100",
             },
             "color_temp": {
                 "type": "string",
                 "enum": ["daylight", "cool", "warm"],
-                "description": "Color temperature of the light fixture, which can be `daylight`, `cool` or `warm`.",
+                "description": "Color temperature",
             },
         },
         "required": ["brightness", "color_temp"],
     },
 }
 
-# This is the actual function that would be called based on the model's suggestion
-def set_light_values(brightness: int, color_temp: str) -> dict[str, int | str]:
-    """Set the brightness and color temperature of a room light. (mock API).
-
-    Args:
-        brightness: Light level from 0 to 100. Zero is off and 100 is full brightness
-        color_temp: Color temperature of the light fixture, which can be `daylight`, `cool` or `warm`.
-
-    Returns:
-        A dictionary containing the set brightness and color temperature.
-    """
+def set_light_values(brightness: int, color_temp: str) -> dict:
+    """Set the brightness and color temperature of a room light."""
     return {"brightness": brightness, "colorTemperature": color_temp}
 ```
 
 ### JavaScript
 
 ```
-import { Type } from '@google/genai';
-
-// Define a function that the model can call to control smart lights
-const setLightValuesFunctionDeclaration = {
+const setLightValuesTool = {
+  type: 'function',
   name: 'set_light_values',
   description: 'Sets the brightness and color temperature of a light.',
   parameters: {
-    type: Type.OBJECT,
+    type: 'object',
     properties: {
-      brightness: {
-        type: Type.NUMBER,
-        description: 'Light level from 0 to 100. Zero is off and 100 is full brightness',
-      },
-      color_temp: {
-        type: Type.STRING,
-        enum: ['daylight', 'cool', 'warm'],
-        description: 'Color temperature of the light fixture, which can be `daylight`, `cool` or `warm`.',
-      },
+      brightness: { type: 'number', description: 'Light level from 0 to 100' },
+      color_temp: { type: 'string', enum: ['daylight', 'cool', 'warm'] },
     },
     required: ['brightness', 'color_temp'],
   },
 };
 
-/**
-
-*   Set the brightness and color temperature of a room light. (mock API)
-*   @param {number} brightness - Light level from 0 to 100. Zero is off and 100 is full brightness
-*   @param {string} color_temp - Color temperature of the light fixture, which can be `daylight`, `cool` or `warm`.
-*   @return {Object} A dictionary containing the set brightness and color temperature.
-*/
 function setLightValues(brightness, color_temp) {
-  return {
-    brightness: brightness,
-    colorTemperature: color_temp
-  };
+  return { brightness: brightness, colorTemperature: color_temp };
 }
 ```
 
-### שלב 2: קוראים למודל עם הצהרות על פונקציות
-
-אחרי שמגדירים את הצהרות הפונקציות, אפשר להנחות את המודל להשתמש בהן. הוא מנתח את ההנחיה ואת הצהרות הפונקציות ומחליט אם להשיב ישירות או להפעיל פונקציה. אם מתבצעת קריאה לפונקציה, אובייקט התגובה יכיל הצעה לקריאה לפונקציה.
+### ステップ 2: 関数宣言を使用してモデルを呼び出す
 
 ### Python
 
 ```
-from google.genai import types
+from google import genai
 
-# Configure the client and tools
 client = genai.Client()
-tools = types.Tool(function_declarations=[set_light_values_declaration])
-config = types.GenerateContentConfig(tools=[tools])
 
-# Define user prompt
-contents = [
-    types.Content(
-        role="user", parts=[types.Part(text="Turn the lights down to a romantic level")]
-    )
-]
-
-# Send request with function declarations
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=contents,
-    config=config,
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="Turn the lights down to a romantic level",
+    tools=[set_light_values_declaration],
 )
 
-print(response.candidates[0].content.parts[0].function_call)
+fc_step = next(s for s in interaction.steps if s.type == "function_call")
+print(fc_step)
 ```
 
 ### JavaScript
@@ -659,865 +418,475 @@ print(response.candidates[0].content.parts[0].function_call)
 ```
 import { GoogleGenAI } from '@google/genai';
 
-// Generation config with function declaration
-const config = {
-  tools: [{
-    functionDeclarations: [setLightValuesFunctionDeclaration]
-  }]
-};
+const client = new GoogleGenAI({});
 
-// Configure the client
-const ai = new GoogleGenAI({});
-
-// Define user prompt
-const contents = [
-  {
-    role: 'user',
-    parts: [{ text: 'Turn the lights down to a romantic level' }]
-  }
-];
-
-// Send request with function declarations
-const response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: contents,
-  config: config
+const interaction = await client.interactions.create({
+  model: 'gemini-3-flash-preview',
+  input: 'Turn the lights down to a romantic level',
+  tools: [setLightValuesTool],
 });
 
-console.log(response.functionCalls[0]);
+const fcStep = interaction.steps.find(s => s.type === 'function_call');
+console.log(fcStep);
 ```
 
-לאחר מכן המודל מחזיר אובייקט `functionCall` בסכימה שתואמת ל-OpenAPI, שמציין איך לקרוא לאחת או יותר מהפונקציות שהוגדרו כדי להשיב על השאלה של המשתמש.
+モデルは、`type`、`name`、`arguments` を含む `function_call` ステップを返します。
+
+```
+type='function_call'
+name='set_light_values'
+arguments={'color_temp': 'warm', 'brightness': 25}
+```
+
+### ステップ 3: 関数を実行する
 
 ### Python
 
 ```
-id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_values'
-```
+fc_step = next(s for s in interaction.steps if s.type == "function_call")
 
-### JavaScript
-
-```
-{
-  id: '8f2b1a3c',
-  name: 'set_light_values',
-  args: { brightness: 25, color_temp: 'warm' }
-}
-```
-
-### שלב 3: מריצים את הקוד של הפונקציה set\_light\_values
-
-לחלץ את פרטי הקריאה לפונקציה מהתשובה של המודל, לנתח את הארגומנטים ולהפעיל את הפונקציה `set_light_values`.
-
-### Python
-
-```
-# Extract tool call details, it may not be in the first part.
-tool_call = response.candidates[0].content.parts[0].function_call
-
-if tool_call.name == "set_light_values":
-    result = set_light_values(**tool_call.args)
+if fc_step.name == "set_light_values":
+    result = set_light_values(**fc_step.arguments)
     print(f"Function execution result: {result}")
 ```
 
 ### JavaScript
 
 ```
-// Extract tool call details
-const tool_call = response.functionCalls[0]
+const fcStep = interaction.steps.find(s => s.type === 'function_call');
 
 let result;
-if (tool_call.name === 'set_light_values') {
-  result = setLightValues(tool_call.args.brightness, tool_call.args.color_temp);
+if (fcStep.name === 'set_light_values') {
+  result = setLightValues(fcStep.arguments.brightness, fcStep.arguments.color_temp);
   console.log(`Function execution result: ${JSON.stringify(result)}`);
 }
 ```
 
-### שלב 4: יצירת תגובה ידידותית למשתמש עם תוצאת הפונקציה והפעלת המודל שוב
-
-לבסוף, שולחים את התוצאה של הפעלת הפונקציה בחזרה למודל כדי שהוא יוכל לשלב את המידע הזה בתשובה הסופית למשתמש.
+### ステップ 4: 結果をモデルに送り返す
 
 ### Python
 
 ```
-from google import genai
-from google.genai import types
-
-# Create a function response part
-function_response_part = types.Part.from_function_response(
-    name=tool_call.name,
-    response={"result": result},
-    id=tool_call.id,
-)
-
-# Append function call and result of the function execution to contents
-contents.append(response.candidates[0].content) # Append the content from the model's response.
-contents.append(types.Content(role="user", parts=[function_response_part])) # Append the function response
-
-client = genai.Client()
-final_response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    config=config,
-    contents=contents,
-)
-
-print(final_response.text)
-```
-
-### JavaScript
-
-```
-// Create a function response part
-const function_response_part = {
-  name: tool_call.name,
-  response: { result },
-  id: tool_call.id
-}
-
-// Append function call and result of the function execution to contents
-contents.push(response.candidates[0].content);
-contents.push({ role: 'user', parts: [{ functionResponse: function_response_part }] });
-
-// Get the final response from the model
-const final_response = await ai.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: contents,
-  config: config
-});
-
-console.log(final_response.text);
-```
-
-כך מסתיים תהליך קריאת הפונקציה. המודל השתמש בהצלחה בפונקציה `set_light_values` כדי לבצע את פעולת הבקשה של המשתמש.
-
-## הצהרות על פונקציות
-
-כשמטמיעים קריאות לפונקציות בהנחיה, יוצרים אובייקט `tools` שמכיל פונקציה אחת או יותר `function declarations`. מגדירים פונקציות באמצעות JSON, באופן ספציפי עם [קבוצת משנה נבחרת](https://ai.google.dev/api/caching?hl=he#Schema) של פורמט [סכימת OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). הצהרה על פונקציה אחת יכולה לכלול את הפרמטרים הבאים:
-
-- ‫`name` (מחרוזת): שם ייחודי לפונקציה (`get_weather_forecast`,`send_email`). מומלץ להשתמש בשמות תיאוריים ללא רווחים או תווים מיוחדים (אפשר להשתמש בקו תחתון או ב-camelCase).
-- ‫`description` (מחרוזת): הסבר ברור ומפורט על המטרה והיכולות של הפונקציה. השלב הזה חיוני כדי שהמודל יבין מתי להשתמש בפונקציה. היו ספציפיים וספקו דוגמאות אם זה עוזר ("מוצא תיאטראות על סמך מיקום ואופציונלית שם הסרט שמוצג כרגע בתיאטראות").
-- ‫`parameters` (object): הגדרה של פרמטרי הקלט שהפונקציה מצפה לקבל.
-  - ‫`type` (מחרוזת): מציין את סוג הנתונים הכולל, כמו `object`.
-  - ‫`properties` (אובייקט): רשימה של פרמטרים בודדים, כל אחד עם:
-    - ‫`type` (string): סוג הנתונים של הפרמטר, כמו `string`,‏ `integer`, ‏ `boolean, array`.
-    - ‫`description` (מחרוזת): תיאור של מטרת הפרמטר והפורמט שלו. צריך לספק דוגמאות ומגבלות ("העיר והמדינה,
-      למשל, 'סן פרנסיסקו, קליפורניה' או מיקוד, למשל, '95616'").
-    - ‫`enum` (מערך, אופציונלי): אם ערכי הפרמטרים הם מתוך קבוצה קבועה, צריך להשתמש ב-enum כדי לפרט את הערכים המותרים במקום לתאר אותם בתיאור. זה משפר את הדיוק ("enum":
-      ["daylight", "cool", "warm"]).
-  - ‫`required` (מערך): מערך של מחרוזות שכולל את שמות הפרמטרים שחובה לציין כדי שהפונקציה תפעל.
-
-אפשר גם ליצור `FunctionDeclarations` ישירות מפונקציות Python באמצעות `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
-
-## בקשה להפעלת פונקציה באמצעות מודלים של חשיבה
-
-מודלים מסדרות Gemini 3 ו-2.5 משתמשים בתהליך [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he) פנימי כדי להסיק מסקנות לגבי בקשות. השינוי הזה משפר באופן משמעותי את הביצועים של קריאות לפונקציות, ומאפשר למודל לקבוע בצורה טובה יותר מתי לקרוא לפונקציה ובאילו פרמטרים להשתמש. ממשק Gemini API הוא חסר מצב (stateless), ולכן המודלים משתמשים ב[חתימות מחשבה](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he) כדי לשמור על ההקשר בשיחות רב-שלביות.
-
-הקטע הזה מתייחס לניהול מתקדם של חתימות מחשבה, והוא רלוונטי רק אם אתם יוצרים בקשות API באופן ידני (למשל, באמצעות REST) או משנים את היסטוריית השיחות.
-
-**אם אתם משתמשים ב[ערכות ה-SDK של Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=he) (הספריות הרשמיות שלנו), אתם לא צריכים לנהל את התהליך הזה**. ערכות ה-SDK מטפלות אוטומטית בשלבים הנדרשים, כמו שמוצג ב[דוגמה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#step-4) הקודמת.
-
-### ניהול היסטוריית השיחות באופן ידני
-
-אם משנים את היסטוריית השיחות באופן ידני, במקום לשלוח את [התשובה הקודמת המלאה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#step-4), צריך לטפל בצורה נכונה ב-`thought_signature` שכלול בתור של המודל.
-
-כדי לוודא שההקשר של המודל נשמר, צריך לפעול לפי הכללים הבאים:
-
-- תמיד שולחים את `thought_signature` בחזרה למודל בתוך [`Part`](https://ai.google.dev/api?hl=he#request-body-structure) המקורי.
-- **חשוב תמיד לכלול את הערך המדויק של `id` מתוך `function_call` ב-`function_response` כדי שממשק ה-API יוכל למפות את התוצאה לבקשה הנכונה.**
-- אל תמזגו `Part` שמכיל חתימה עם `Part` שלא מכיל חתימה. כך נשבר ההקשר המיקומי של המחשבה.
-- אל תשלבו שני `Parts` שמכילים חתימות, כי אי אפשר למזג את מחרוזות החתימות.
-
-#### חתימות מחשבה של Gemini 3
-
-ב-Gemini 3, כל [`Part`](https://ai.google.dev/api?hl=he#request-body-structure) של תשובה של מודל
-עשוי להכיל חתימת מחשבה.
-בדרך כלל מומלץ להחזיר חתימות מכל `Part` הסוגים, אבל החזרת חתימות של מחשבות היא חובה כשמשתמשים בקריאות לפונקציות. אלא אם אתם משנים את היסטוריית השיחות באופן ידני, Google GenAI SDK יטפל בחתימות המחשבה באופן אוטומטי.
-
-אם אתם משנים את היסטוריית השיחות באופן ידני, כדאי לעיין בדף [חתימות המחשבות](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=he) כדי לקבל הנחיות מלאות ופרטים על טיפול בחתימות המחשבות של Gemini 3.
-
-##### בדיקת חתימות של מחשבות
-
-אמנם לא צריך לבדוק את התגובה כדי להטמיע את התכונה, אבל אפשר לבדוק את התגובה כדי לראות את ה-`thought_signature` למטרות ניפוי באגים או למטרות לימודיות.
-
-### Python
-
-```
-import base64
-# After receiving a response from a model with thinking enabled
-# response = client.models.generate_content(...)
-
-# The signature is attached to the response part containing the function call
-part = response.candidates[0].content.parts[0]
-if part.thought_signature:
-  print(base64.b64encode(part.thought_signature).decode("utf-8"))
-```
-
-### JavaScript
-
-```
-// After receiving a response from a model with thinking enabled
-// const response = await ai.models.generateContent(...)
-
-// The signature is attached to the response part containing the function call
-const part = response.candidates[0].content.parts[0];
-if (part.thoughtSignature) {
-  console.log(part.thoughtSignature);
-}
-```
-
-מידע נוסף על מגבלות ושימוש בחתימות מחשבה, ועל מודלים של חשיבה באופן כללי, זמין בדף [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he#signatures).
-
-## בקשות מקבילות להפעלת פונקציות
-
-בנוסף לקריאה לפונקציה אחת, אפשר גם לקרוא לכמה פונקציות בו-זמנית. התכונה 'הפעלת פונקציות במקביל' מאפשרת להפעיל כמה פונקציות בו-זמנית, והיא שימושית כשהפונקציות לא תלויות זו בזו. האפשרות הזו שימושית בתרחישים כמו איסוף נתונים מכמה מקורות עצמאיים, למשל אחזור פרטי לקוחות ממסדי נתונים שונים או בדיקת רמות המלאי במחסנים שונים, או ביצוע כמה פעולות כמו הפיכת הדירה לדיסקוטק.
-
-כשהמודל יוזם כמה קריאות לפונקציות בתור אחד, לא צריך להחזיר את האובייקטים `function_result` באותו סדר שבו התקבלו האובייקטים `function_call`. ‫Gemini API ממפה כל תוצאה בחזרה לקריאה המתאימה באמצעות `id` מהפלט של המודל. כך אפשר להפעיל את הפונקציות באופן אסינכרוני ולהוסיף את התוצאות לרשימה כשהן מסתיימות.
-
-### Python
-
-```
-power_disco_ball = {
-    "name": "power_disco_ball",
-    "description": "Powers the spinning disco ball.",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "power": {
-                "type": "boolean",
-                "description": "Whether to turn the disco ball on or off.",
-            }
-        },
-        "required": ["power"],
-    },
-}
-
-start_music = {
-    "name": "start_music",
-    "description": "Play some music matching the specified parameters.",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "energetic": {
-                "type": "boolean",
-                "description": "Whether the music is energetic or not.",
-            },
-            "loud": {
-                "type": "boolean",
-                "description": "Whether the music is loud or not.",
-            },
-        },
-        "required": ["energetic", "loud"],
-    },
-}
-
-dim_lights = {
-    "name": "dim_lights",
-    "description": "Dim the lights.",
-    "parameters": {
-        "type": "object",
-        "properties": {
-            "brightness": {
-                "type": "number",
-                "description": "The brightness of the lights, 0.0 is off, 1.0 is full.",
-            }
-        },
-        "required": ["brightness"],
-    },
-}
-```
-
-### JavaScript
-
-```
-import { Type } from '@google/genai';
-
-const powerDiscoBall = {
-  name: 'power_disco_ball',
-  description: 'Powers the spinning disco ball.',
-  parameters: {
-    type: Type.OBJECT,
-    properties: {
-      power: {
-        type: Type.BOOLEAN,
-        description: 'Whether to turn the disco ball on or off.'
-      }
-    },
-    required: ['power']
-  }
-};
-
-const startMusic = {
-  name: 'start_music',
-  description: 'Play some music matching the specified parameters.',
-  parameters: {
-    type: Type.OBJECT,
-    properties: {
-      energetic: {
-        type: Type.BOOLEAN,
-        description: 'Whether the music is energetic or not.'
-      },
-      loud: {
-        type: Type.BOOLEAN,
-        description: 'Whether the music is loud or not.'
-      }
-    },
-    required: ['energetic', 'loud']
-  }
-};
-
-const dimLights = {
-  name: 'dim_lights',
-  description: 'Dim the lights.',
-  parameters: {
-    type: Type.OBJECT,
-    properties: {
-      brightness: {
-        type: Type.NUMBER,
-        description: 'The brightness of the lights, 0.0 is off, 1.0 is full.'
-      }
-    },
-    required: ['brightness']
-  }
-};
-```
-
-מגדירים את מצב קריאת הפונקציות כך שניתן יהיה להשתמש בכל הכלים שצוינו.
-מידע נוסף זמין במאמר בנושא [הגדרת הפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#function_calling_modes).
-
-### Python
-
-```
-from google import genai
-from google.genai import types
-
-# Configure the client and tools
-client = genai.Client()
-house_tools = [
-    types.Tool(function_declarations=[power_disco_ball, start_music, dim_lights])
-]
-config = types.GenerateContentConfig(
-    tools=house_tools,
-    automatic_function_calling=types.AutomaticFunctionCallingConfig(
-        disable=True
-    ),
-    # Force the model to call 'any' function, instead of chatting.
-    tool_config=types.ToolConfig(
-        function_calling_config=types.FunctionCallingConfig(mode='ANY')
-    ),
-)
-
-chat = client.chats.create(model="gemini-3.5-flash", config=config)
-response = chat.send_message("Turn this place into a party!")
-
-# Print out each of the function calls requested from this single call
-print("Example 1: Forced function calling")
-for fn in response.function_calls:
-    args = ", ".join(f"{key}={val}" for key, val in fn.args.items())
-    print(f"{fn.name}({args}) - ID: {fn.id}")
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI } from '@google/genai';
-
-// Set up function declarations
-const houseFns = [powerDiscoBall, startMusic, dimLights];
-
-const config = {
-    tools: [{
-        functionDeclarations: houseFns
-    }],
-    // Force the model to call 'any' function, instead of chatting.
-    toolConfig: {
-        functionCallingConfig: {
-            mode: 'any'
+final_interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input=[
+        {
+            "type": "function_result",
+            "name": fc_step.name,
+            "call_id": fc_step.id,
+            "result": [{"type": "text", "text": json.dumps(result)}],
         }
-    }
-};
-
-// Configure the client
-const ai = new GoogleGenAI({});
-
-// Create a chat session
-const chat = ai.chats.create({
-    model: 'gemini-3.5-flash',
-    config: config
-});
-const response = await chat.sendMessage({message: 'Turn this place into a party!'});
-
-// Print out each of the function calls requested from this single call
-console.log("Example 1: Forced function calling");
-for (const fn of response.functionCalls) {
-    const args = Object.entries(fn.args)
-        .map(([key, val]) => `${key}=${val}`)
-        .join(', ');
-    console.log(`${fn.name}(${args}) - ID: ${fn.id}`);
-}
-```
-
-כל אחת מהתוצאות המוקרנות משקפת בקשה להפעלת פונקציה יחידה שהמודל ביקש. כדי לשלוח את התוצאות בחזרה, צריך לכלול את התשובות באותו סדר שבו הן התבקשו.
-
-‫Python SDK תומך ב[קריאה אוטומטית לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#automatic_function_calling_python_only), שממירה אוטומטית פונקציות של Python להצהרות, ומטפלת במחזור הביצוע והתגובה של הקריאה לפונקציה בשבילכם. בהמשך מופיעה דוגמה לתרחיש השימוש disco.
-
-### Python
-
-```
-from google import genai
-from google.genai import types
-
-# Actual function implementations
-def power_disco_ball_impl(power: bool) -> dict:
-    """Powers the spinning disco ball.
-
-    Args:
-        power: Whether to turn the disco ball on or off.
-
-    Returns:
-        A status dictionary indicating the current state.
-    """
-    return {"status": f"Disco ball powered {'on' if power else 'off'}"}
-
-def start_music_impl(energetic: bool, loud: bool) -> dict:
-    """Play some music matching the specified parameters.
-
-    Args:
-        energetic: Whether the music is energetic or not.
-        loud: Whether the music is loud or not.
-
-    Returns:
-        A dictionary containing the music settings.
-    """
-    music_type = "energetic" if energetic else "chill"
-    volume = "loud" if loud else "quiet"
-    return {"music_type": music_type, "volume": volume}
-
-def dim_lights_impl(brightness: float) -> dict:
-    """Dim the lights.
-
-    Args:
-        brightness: The brightness of the lights, 0.0 is off, 1.0 is full.
-
-    Returns:
-        A dictionary containing the new brightness setting.
-    """
-    return {"brightness": brightness}
-
-# Configure the client
-client = genai.Client()
-config = types.GenerateContentConfig(
-    tools=[power_disco_ball_impl, start_music_impl, dim_lights_impl]
+    ],
+    tools=[set_light_values_declaration],
+    previous_interaction_id=interaction.id,
 )
 
-# Make the request
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Do everything you need to this place into party!",
-    config=config,
-)
-
-print("\nExample 2: Automatic function calling")
-print(response.text)
-# I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
-```
-
-## בקשה להפעלת פונקציה עם קומפוזיציה
-
-קריאה לפונקציות בהרכב או ברצף מאפשרת ל-Gemini לשרשר כמה קריאות לפונקציות כדי למלא בקשה מורכבת. לדוגמה, כדי לענות על השאלה "מה הטמפרטורה במיקום הנוכחי שלי?", יכול להיות ש-Gemini API יפעיל קודם פונקציה `get_current_location()` ואז פונקציה `get_weather()` שמקבלת את המיקום כפרמטר.
-
-בדוגמה הבאה אפשר לראות איך מטמיעים בקשה להפעלת פונקציה מורכבת באמצעות Python SDK ובקשה אוטומטית להפעלת פונקציה.
-
-### Python
-
-בדוגמה הזו נעשה שימוש בתכונה של קריאה אוטומטית לפונקציה של `google-genai` Python SDK. ה-SDK ממיר אוטומטית את הפונקציות של Python לסכימה הנדרשת, מריץ את הקריאות לפונקציות כשמתקבלת בקשה מהמודל ושולח את התוצאות בחזרה למודל כדי להשלים את המשימה.
-
-```
-import os
-from google import genai
-from google.genai import types
-
-# Example Functions
-def get_weather_forecast(location: str) -> dict:
-    """Gets the current weather temperature for a given location."""
-    print(f"Tool Call: get_weather_forecast(location={location})")
-    # TODO: Make API call
-    print("Tool Response: {'temperature': 25, 'unit': 'celsius'}")
-    return {"temperature": 25, "unit": "celsius"}  # Dummy response
-
-def set_thermostat_temperature(temperature: int) -> dict:
-    """Sets the thermostat to a desired temperature."""
-    print(f"Tool Call: set_thermostat_temperature(temperature={temperature})")
-    # TODO: Interact with a thermostat API
-    print("Tool Response: {'status': 'success'}")
-    return {"status": "success"}
-
-# Configure the client and model
-client = genai.Client()
-config = types.GenerateContentConfig(
-    tools=[get_weather_forecast, set_thermostat_temperature]
-)
-
-# Make the request
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise set it to 18°C.",
-    config=config,
-)
-
-# Print the final, user-facing response
-print(response.text)
-```
-
-**הפלט המצופה**
-
-כשמריצים את הקוד, אפשר לראות את ה-SDK מתזמן את הקריאות לפונקציה. המודל קודם קורא לפונקציה `get_weather_forecast`, מקבל את רמת האקראיות ואז קורא לפונקציה `set_thermostat_temperature` עם הערך הנכון על סמך הלוגיקה בהנחיה.
-
-```
-Tool Call: get_weather_forecast(location=London)
-Tool Response: {'temperature': 25, 'unit': 'celsius'}
-Tool Call: set_thermostat_temperature(temperature=20)
-Tool Response: {'status': 'success'}
-OK. I've set the thermostat to 20°C.
+print(final_interaction.output_text)
 ```
 
 ### JavaScript
 
-בדוגמה הזו מוצג איך להשתמש ב-JavaScript/TypeScript SDK כדי לבצע קריאות לפונקציות מורכבות באמצעות לולאת ביצוע ידנית.
+```
+const finalInteraction = await client.interactions.create({
+  model: 'gemini-3-flash-preview',
+  input: [{
+    type: 'function_result',
+    name: fcStep.name,
+    call_id: fcStep.id,
+    result: [{ type: 'text', text: JSON.stringify(result) }]
+  }],
+  tools: [setLightValuesTool],
+  previous_interaction_id: interaction.id,
+});
+
+console.log(finalInteraction.output_text);
+```
+
+### ステートレス関数呼び出し
+
+クライアント側で会話履歴を管理し、`store=false` を設定することで、ステートレス モードで関数呼び出しを使用することもできます。
+
+ステートレス モードでは、後続の各リクエストの `input` フィールドで会話の履歴全体を渡す必要があります。この履歴には、以下の情報が含まれている必要があります。
+1. 最初の `user_input` ステップ。2. ターン 1 で返されたモデル生成のすべてのステップ（`thought` ステップと `function_call` ステップを含む）が、受信したとおりに返されます。3. 実行された関数の出力を含む `function_result` ステップ。
+
+### Python
 
 ```
-import { GoogleGenAI, Type } from "@google/genai";
+from google import genai
+import json
 
-// Configure the client
-const ai = new GoogleGenAI({});
+client = genai.Client()
 
-// Example Functions
-function get_weather_forecast({ location }) {
-  console.log(`Tool Call: get_weather_forecast(location=${location})`);
-  // TODO: Make API call
-  console.log("Tool Response: {'temperature': 25, 'unit': 'celsius'}");
-  return { temperature: 25, unit: "celsius" };
-}
+history = [
+    {
+        "type": "user_input",
+        "content": [{"type": "text", "text": "Turn the lights down to a romantic level"}]
+    }
+]
 
-function set_thermostat_temperature({ temperature }) {
-  console.log(
-    `Tool Call: set_thermostat_temperature(temperature=${temperature})`,
-  );
-  // TODO: Make API call
-  console.log("Tool Response: {'status': 'success'}");
-  return { status: "success" };
-}
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    store=False,
+    input=history,
+    tools=[set_light_values_declaration],
+)
 
-const toolFunctions = {
-  get_weather_forecast,
-  set_thermostat_temperature,
-};
+for step in interaction.steps:
+    history.append(step.model_dump())
 
-const tools = [
-  {
-    functionDeclarations: [
-      {
-        name: "get_weather_forecast",
-        description:
-          "Gets the current weather temperature for a given location.",
-        parameters: {
-          type: Type.OBJECT,
-          properties: {
-            location: {
-              type: Type.STRING,
-            },
-          },
-          required: ["location"],
-        },
-      },
-      {
-        name: "set_thermostat_temperature",
-        description: "Sets the thermostat to a desired temperature.",
-        parameters: {
-          type: Type.OBJECT,
-          properties: {
-            temperature: {
-              type: Type.NUMBER,
-            },
-          },
-          required: ["temperature"],
-        },
-      },
-    ],
-  },
-];
+fc_step = next(s for s in interaction.steps if s.type == "function_call")
+if fc_step.name == "set_light_values":
+    result = set_light_values(**fc_step.arguments)
 
-// Prompt for the model
-let contents = [
-  {
-    role: "user",
-    parts: [
-      {
-        text: "If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise set it to 18°C.",
-      },
-    ],
-  },
-];
+history.append({
+    "type": "function_result",
+    "name": fc_step.name,
+    "call_id": fc_step.id,
+    "result": [{"type": "text", "text": json.dumps(result)}],
+})
 
-// Loop until the model has no more function calls to make
-while (true) {
-  const result = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents,
-    config: { tools },
+final_interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    store=False,
+    input=history,
+    tools=[set_light_values_declaration],
+)
+
+print(final_interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+async function main() {
+  const history = [
+    {
+      type: "user_input",
+      content: [{ type: "text", text: "Turn the lights down to a romantic level" }]
+    }
+  ];
+
+  const interaction = await client.interactions.create({
+    model: "gemini-3-flash-preview",
+    store: false,
+    input: history,
+    tools: [setLightValuesTool],
   });
 
-  if (result.functionCalls && result.functionCalls.length > 0) {
-    const functionCall = result.functionCalls[0];
+  history.push(...interaction.steps);
 
-    const { name, args } = functionCall;
+  const fcStep = interaction.steps.find(s => s.type === 'function_call');
+  let result;
+  if (fcStep.name === 'set_light_values') {
+    result = setLightValues(fcStep.arguments.brightness, fcStep.arguments.color_temp);
+  }
 
-    if (!toolFunctions[name]) {
-      throw new Error(`Unknown function call: ${name}`);
-    }
+  history.push({
+    type: 'function_result',
+    name: fcStep.name,
+    call_id: fcStep.id,
+    result: [{ type: 'text', text: JSON.stringify(result) }]
+  });
 
-    // Call the function and get the response.
-    const toolResponse = toolFunctions[name](args);
+  const finalInteraction = await client.interactions.create({
+    model: 'gemini-3-flash-preview',
+    store: false,
+    input: history,
+    tools: [setLightValuesTool],
+  });
 
-    const functionResponsePart = {
-      name: functionCall.name,
-      response: {
-        result: toolResponse,
-      },
-      id: functionCall.id,
-    };
+  console.log(finalInteraction.output_text);
+}
 
-    // Send the function response back to the model.
-    contents.push({
-      role: "model",
-      parts: [
-        {
-          functionCall: functionCall,
+await main();
+```
+
+### REST
+
+```
+# Turn 1: Send request with tools and store: false
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "store": false,
+    "input": [
+      {
+        "type": "user_input",
+        "content": "Turn the lights down to a romantic level"
+      }
+    ],
+    "tools": [{
+      "type": "function",
+      "name": "set_light_values",
+      "description": "Sets the brightness and color temperature of a light.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "brightness": {"type": "integer", "description": "Light level from 0 to 100"},
+          "color_temp": {"type": "string", "enum": ["daylight", "cool", "warm"]}
         },
-      ],
-    });
-    contents.push({
-      role: "user",
-      parts: [
-        {
-          functionResponse: functionResponsePart,
+        "required": ["brightness", "color_temp"]
+      }
+    }]
+  }')
+
+# Extract model steps (thought, function_call)
+MODEL_STEPS=$(echo "$RESPONSE1" | jq '.steps')
+
+# Extract function call details to execute
+FC_NAME=$(echo "$RESPONSE1" | jq -r '.steps[] | select(.type=="function_call") | .name')
+FC_ID=$(echo "$RESPONSE1" | jq -r '.steps[] | select(.type=="function_call") | .id')
+
+# Assume local execution returns: {"brightness": 25, "colorTemperature": "warm"}
+RESULT="{\"brightness\": 25, \"colorTemperature\": \"warm\"}"
+
+# Reconstruct history for Turn 2
+HISTORY=$(jq -n \
+  --argjson first_input '[{"type": "user_input", "content": "Turn the lights down to a romantic level"}]' \
+  --argjson model_steps "$MODEL_STEPS" \
+  --arg fc_name "$FC_NAME" \
+  --arg fc_id "$FC_ID" \
+  --arg result "$RESULT" \
+  '$first_input + $model_steps + [{"type": "function_result", "name": $fc_name, "call_id": $fc_id, "result": [{"type": "text", "text": $result}]}]')
+
+# Turn 2: Send the full history
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d "{
+    \"model\": \"gemini-3-flash-preview\",
+    \"store\": false,
+    \"input\": $HISTORY,
+    \"tools\": [{
+      \"type\": \"function\",
+      \"name\": \"set_light_values\",
+      \"description\": \"Sets the brightness and color temperature of a light.\",
+      \"parameters\": {
+        \"type\": \"object\",
+        \"properties\": {
+          \"brightness\": {\"type\": \"integer\"},
+          \"color_temp\": {\"type\": \"string\"}
         },
-      ],
-    });
-  } else {
-    // No more function calls, break the loop.
-    console.log(result.text);
-    break;
+        \"required\": [\"brightness\", \"color_temp\"]
+      }
+    }]
+  }"
+```
+
+## 関数宣言
+
+関数宣言はツールとして渡され、次のものが含まれます。
+
+- `type`（文字列）: カスタム関数の場合は `"function"` である必要があります。
+- `name`（文字列）: 一意の関数名（アンダースコアまたは camelCase を使用）。
+- `description`（文字列）: 関数の目的についての明確な説明。
+- `parameters`（オブジェクト）: 関数が想定する入力パラメータ。
+  - `type`（文字列）: 全体的なデータ型（`object` など）。
+  - `properties`（オブジェクト）: 型と説明を含む個々のパラメータ。
+  - `required`（配列）: 必須パラメータ名。
+
+## 思考モデルを使用した関数呼び出し
+
+Gemini 3 シリーズと 2.5 シリーズのモデルは、関数呼び出しを改善する内部の「思考」プロセスを使用します。SDK は、[思考シグネチャ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ja)を自動的に処理します。
+
+## 並列関数呼び出し
+
+独立した複数の関数を一度に呼び出す:
+
+### Python
+
+```
+power_disco_ball = {"type": "function", "name": "power_disco_ball", "description": "Powers the disco ball.",
+    "parameters": {"type": "object", "properties": {"power": {"type": "boolean"}}, "required": ["power"]}}
+start_music = {"type": "function", "name": "start_music", "description": "Play music.",
+    "parameters": {"type": "object", "properties": {"energetic": {"type": "boolean"}, "loud": {"type": "boolean"}}, "required": ["energetic", "loud"]}}
+dim_lights = {"type": "function", "name": "dim_lights", "description": "Dim the lights.",
+    "parameters": {"type": "object", "properties": {"brightness": {"type": "number"}}, "required": ["brightness"]}}
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="Turn this place into a party!",
+    tools=[power_disco_ball, start_music, dim_lights],
+    generation_config={"tool_choice": "any"},
+)
+
+for step in interaction.steps:
+    if step.type == "function_call":
+        args = ", ".join(f"{key}={val}" for key, val in step.arguments.items())
+        print(f"{step.name}({args})")
+```
+
+### JavaScript
+
+```
+const powerDiscoBall = { type: 'function', name: 'power_disco_ball', description: 'Powers the disco ball.',
+  parameters: { type: 'object', properties: { power: { type: 'boolean' } }, required: ['power'] } };
+const startMusic = { type: 'function', name: 'start_music', description: 'Play music.',
+  parameters: { type: 'object', properties: { energetic: { type: 'boolean' }, loud: { type: 'boolean' } }, required: ['energetic', 'loud'] } };
+const dimLights = { type: 'function', name: 'dim_lights', description: 'Dim the lights.',
+  parameters: { type: 'object', properties: { brightness: { type: 'number' } }, required: ['brightness'] } };
+
+const interaction = await client.interactions.create({
+  model: 'gemini-3-flash-preview',
+  input: 'Turn this place into a party!',
+  tools: [powerDiscoBall, startMusic, dimLights],
+  generation_config: { tool_choice: 'any' },
+});
+
+for (const step of interaction.steps) {
+  if (step.type === 'function_call') {
+    console.log(`${step.name}(${JSON.stringify(step.arguments)})`);
   }
 }
 ```
 
-**הפלט המצופה**
+## コンポジション関数呼び出し
 
-כשמריצים את הקוד, אפשר לראות את ה-SDK מתזמן את הקריאות לפונקציה. המודל קודם קורא לפונקציה `get_weather_forecast`, מקבל את רמת האקראיות ואז קורא לפונקציה `set_thermostat_temperature` עם הערך הנכון על סמך הלוגיקה בהנחיה.
-
-```
-Tool Call: get_weather_forecast(location=London)
-Tool Response: {'temperature': 25, 'unit': 'celsius'}
-Tool Call: set_thermostat_temperature(temperature=20)
-Tool Response: {'status': 'success'}
-OK. It's 25°C in London, so I've set the thermostat to 20°C.
-```
-
-קריאה לפונקציות מורכבות היא תכונה מקורית של [Live API](https://ai.google.dev/gemini-api/docs/live?hl=he). כלומר, Live API יכול לטפל בקריאות לפונקציות באופן דומה ל-Python SDK.
+複雑なリクエスト（最初に位置情報を取得してから、その位置情報の天気を取得するなど）のために、複数の関数呼び出しを連結します。
 
 ### Python
 
 ```
-# Light control schemas
-turn_on_the_lights_schema = {'name': 'turn_on_the_lights'}
-turn_off_the_lights_schema = {'name': 'turn_off_the_lights'}
+get_weather_forecast_declaration = {
+    "type": "function",
+    "name": "get_weather_forecast",
+    "description": "Gets the current weather temperature for a given location.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "location": {"type": "string", "description": "The location"},
+        },
+        "required": ["location"],
+    },
+}
 
-prompt = """
-  Hey, can you write run some python code to turn on the lights, wait 10s and then turn off the lights?
-  """
+set_thermostat_temperature_declaration = {
+    "type": "function",
+    "name": "set_thermostat_temperature",
+    "description": "Sets the thermostat to a desired temperature.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "temperature": {
+                "type": "integer",
+                "description": "The temperature in Celsius",
+            },
+        },
+        "required": ["temperature"],
+    },
+}
 
-tools = [
-    {'code_execution': {}},
-    {'function_declarations': [turn_on_the_lights_schema, turn_off_the_lights_schema]}
-]
+client = genai.Client()
 
-await run(prompt, tools=tools, modality="AUDIO")
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
+    tools=[
+        get_weather_forecast_declaration,
+        set_thermostat_temperature_declaration,
+    ],
+)
+
+for step in interaction.steps:
+    if step.type == "function_call":
+        print(f"Function to call: {step.name}")
+        print(f"Arguments: {step.arguments}")
+    elif hasattr(step, "content") and step.content:
+         for part in step.content:
+             if hasattr(part, "text"):
+                 print(part.text)
+```
+
+## 関数呼び出しモード
+
+`generation_config` の `tool_choice` を使用して、モデルがツールを使用する方法を制御します。
+
+- `auto`（デフォルト）: 関数を呼び出すか、直接応答するかをモデルが決定します。
+- `any`: モデルは常に関数呼び出しを予測するように制約されます。
+- `none`: モデルは関数呼び出しを行うことが禁止されています。
+- `validated`（プレビュー）: モデルは関数スキーマの準拠を保証します。
+
+### Python
+
+```
+generation_config = {
+    "tool_choice": {
+        "allowed_tools": {
+            "mode": "any",
+            "tools": ["get_current_temperature"]
+        }
+    }
+}
 ```
 
 ### JavaScript
 
 ```
-// Light control schemas
-const turnOnTheLightsSchema = { name: 'turn_on_the_lights' };
-const turnOffTheLightsSchema = { name: 'turn_off_the_lights' };
-
-const prompt = `
-  Hey, can you write run some python code to turn on the lights, wait 10s and then turn off the lights?
-`;
-
-const tools = [
-  { codeExecution: {} },
-  { functionDeclarations: [turnOnTheLightsSchema, turnOffTheLightsSchema] }
-];
-
-await run(prompt, tools=tools, modality="AUDIO")
-```
-
-## מצבים של בקשה להפעלת פונקציה
-
-‫Gemini API מאפשר לכם לקבוע איך המודל משתמש בכלים שסופקו (הצהרות פונקציה). במילים אחרות, אתם יכולים להגדיר את המצב בתוך.`function_calling_config`.
-
-- ‫`VALIDATED`: מצב ברירת המחדל לשילוב כלים (כשהכלים המובנים או הפלט המובנה מופעלים גם כן). המודל מוגבל לחיזוי של קריאות לפונקציות או של שפה טבעית, ומבטיח עמידה בסכימת הפונקציות. אם לא מציינים את `VALIDATED`, המודל בוחר מתוך כל הצהרות הפונקציות הזמינות. אם מציינים את `VALIDATED`, המודל בוחר מתוך קבוצת הפונקציות המותרות. המצב הזה מצמצם את מספר הקריאות לפונקציות שאינן תקינות (בהשוואה למצב `AUTO`).`allowed_function_names``allowed_function_names`
-- ‫`AUTO`: מצב ברירת המחדל כשמופעל רק הכלי function\_declarations.
-  המודל מחליט אם ליצור תגובה בשפה טבעית או להציע קריאה לפונקציה על סמך ההנחיה וההקשר.
-- ‫`ANY`: המודל מוגבל כך שתמיד יחזיר בקשה להפעלת פונקציה, ויקפיד על סכימת הפונקציה. אם לא מציינים את `allowed_function_names`, המודל יכול לבחור מתוך כל הצהרות הפונקציה שסופקו. אם מציינים את `allowed_function_names` כרשימה, המודל יכול לבחור רק מתוך הפונקציות ברשימה הזו. משתמשים במצב הזה כשנדרשת תגובה של בקשה להפעלת פונקציה לכל הנחיה (אם רלוונטי).
-- ‫`NONE`: *אסור* למודל לבצע קריאות לפונקציות. זה שווה ערך לשליחת בקשה ללא הצהרות פונקציה. אפשר להשתמש בזה כדי להשבית זמנית את השימוש בפונקציות בלי להסיר את ההגדרות של הכלים.
-
-### Python
-
-```
-from google.genai import types
-
-# Configure function calling mode
-tool_config = types.ToolConfig(
-    function_calling_config=types.FunctionCallingConfig(
-        mode="ANY", allowed_function_names=["get_current_temperature"]
-    )
-)
-
-# Create the generation config
-config = types.GenerateContentConfig(
-    tools=[tools],  # not defined here.
-    tool_config=tool_config,
-)
-```
-
-### JavaScript
-
-```
-import { FunctionCallingConfigMode } from '@google/genai';
-
-// Configure function calling mode
-const toolConfig = {
-  functionCallingConfig: {
-    mode: FunctionCallingConfigMode.ANY,
-    allowedFunctionNames: ['get_current_temperature']
+const generation_config = {
+  tool_choice: {
+    allowed_tools: {
+      mode: 'any',
+      tools: ['get_current_temperature']
+    }
   }
 };
-
-// Create the generation config
-const config = {
-  tools: tools, // not defined here.
-  toolConfig: toolConfig,
-};
 ```
 
-## בקשה אוטומטית להפעלת פונקציה (Python בלבד)
+### REST
 
-כשמשתמשים ב-Python SDK, אפשר לספק פונקציות Python ישירות ככלים.
-ה-SDK ממיר את הפונקציות האלה להצהרות, מנהל את הביצוע של בקשת הפעלת הפונקציה ומטפל במחזור התגובה בשבילכם. מגדירים את הפונקציה עם רמזים לסוגים ומחרוזת תיעוד. לקבלת התוצאות הטובות ביותר, מומלץ להשתמש ב[מחרוזות תיעוד בסגנון Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
-לאחר מכן, ה-SDK יבצע באופן אוטומטי את הפעולות הבאות:
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3-flash-preview",
+    "input": "What is the temperature in Boston?",
+    "tools": [{
+      "type": "function",
+      "name": "get_current_temperature",
+      "description": "Gets the current temperature for a given location.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "location": {"type": "string"}
+        },
+        "required": ["location"]
+      }
+    }],
+    "generation_config": {
+      "tool_choice": {
+        "allowed_tools": {
+          "mode": "any",
+          "tools": ["get_current_temperature"]
+        }
+      }
+    }
+  }'
+```
 
-1. זיהוי תשובות לקריאות לפונקציות מהמודל.
-2. מפעילים את פונקציית Python המתאימה בקוד.
-3. שולחים את התשובה של הפונקציה בחזרה למודל.
-4. החזרת התשובה הסופית של המודל בטקסט.
+## マルチツールの使用
 
-בשלב הזה, ה-SDK לא מנתח תיאורים של ארגומנטים למשבצות התיאור של המאפיינים בהצהרת הפונקציה שנוצרת. במקום זאת, הוא שולח את כל מחרוזת התיעוד כתיאור הפונקציה ברמה העליונה.
+複数のツールを有効にして、同じリクエストで組み込みツールと関数呼び出しを組み合わせることができます。Gemini 3 モデルでは、インタラクションで組み込みツールと関数呼び出しをすぐに組み合わせることができます。`previous_interaction_id` を渡すと、組み込みツール コンテキストが自動的に循環します。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
-
-# Define the function with type hints and docstring
-def get_current_temperature(location: str) -> dict:
-    """Gets the current temperature for a given location.
-
-    Args:
-        location: The city and state, e.g. San Francisco, CA
-
-    Returns:
-        A dictionary containing the temperature and unit.
-    """
-    # ... (implementation) ...
-    return {"temperature": 25, "unit": "Celsius"}
-
-# Configure the client
-client = genai.Client()
-config = types.GenerateContentConfig(
-    tools=[get_current_temperature]
-)  # Pass the function itself
-
-# Make the request
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="What's the temperature in Boston?",
-    config=config,
-)
-
-print(response.text)  # The SDK handles the function call and returns the final text
-```
-
-כדי להשבית את ההפעלה האוטומטית של פונקציות, משתמשים בפקודה:
-
-### Python
-
-```
-config = types.GenerateContentConfig(
-    tools=[get_current_temperature],
-    automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True)
-)
-```
-
-### הצהרה אוטומטית על סכימת פונקציה
-
-ה-API יכול לתאר כל אחד מהסוגים הבאים. מותרים, כל עוד השדות שמוגדרים בהם מורכבים גם הם מסוגים מותרים.`Pydantic` אין תמיכה טובה בסוגי מילונים (כמו `dict[str: int]`), לכן לא מומלץ להשתמש בהם.
-
-### Python
-
-```
-AllowedType = (
-  int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
-```
-
-כדי לראות איך נראית הסכימה שהמערכת הסיקה, אפשר להמיר אותה באמצעות [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
-
-### Python
-
-```
-from google import genai
-from google.genai import types
-
-def multiply(a: float, b: float):
-    """Returns a * b."""
-    return a * b
-
-client = genai.Client()
-fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=client)
-
-# to_json_dict() provides a clean JSON representation.
-print(fn_decl.to_json_dict())
-```
-
-## שימוש בכמה כלים: שילוב של כלים מובנים עם בקשות להפעלת פונקציות
-
-אפשר להפעיל כמה כלים ולשלב בין כלים מובנים לבין קריאות לפונקציות באותה בקשה.
-
-מודלים של Gemini 3 יכולים לשלב כלים מובנים עם קריאה לפונקציות ישר מהקופסה,
-בזכות התכונה 'העברת הקשר של כלי'. כדי לקבל מידע נוסף, אפשר לקרוא את הדף בנושא [שילוב של כלים מובנים וקריאה לפונקציות](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he).
-
-### Python
-
-```
-from google import genai
-from google.genai import types
+import json
 
 client = genai.Client()
 
-getWeather = {
-    "name": "getWeather",
+get_weather = {
+    "type": "function",
+    "name": "get_weather",
     "description": "Gets the weather for a requested city.",
     "parameters": {
         "type": "object",
@@ -1531,374 +900,187 @@ getWeather = {
     },
 }
 
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="What is the northernmost city in the United States? What's the weather like there today?",
-    config=types.GenerateContentConfig(
-      tools=[
-        types.Tool(
-          google_search=types.ToolGoogleSearch(),  # Built-in tool
-          function_declarations=[getWeather]       # Custom tool
-        ),
-      ],
-      include_server_side_tool_invocations=True
-    ),
-)
-
-history = [
-    types.Content(
-        role="user",
-        parts=[types.Part(text="What is the northernmost city in the United States? What's the weather like there today?")]
-    ),
-    response.candidates[0].content,
-    types.Content(
-        role="user",
-        parts=[types.Part(
-            function_response=types.FunctionResponse(
-                name="getWeather",
-                response={"response": "Very cold. 22 degrees Fahrenheit."},
-                id=response.candidates[0].content.parts[2].function_call.id
-            )
-        )]
-    )
+tools = [
+    {"type": "google_search"},
+    get_weather               
 ]
 
-response_2 = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=history,
-    config=types.GenerateContentConfig(
-      tools=[
-        types.Tool(
-          google_search=types.ToolGoogleSearch(),
-          function_declarations=[getWeather]
-        ),
-      ],
-      include_server_side_tool_invocations=True
-    ),
+interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="What is the northernmost city in the United States? What's the weather like there today?",
+    tools=tools
 )
+
+for step in interaction.steps:
+    if step.type == "function_call":
+        print(f"Function call: {step.name} (ID: {step.id})")
+        result = {"response": "Very cold. 22 degrees Fahrenheit."}
+        interaction_2 = client.interactions.create(
+            model="gemini-3-flash-preview",
+            previous_interaction_id=interaction.id,
+            tools=tools,
+            input=[{
+                "type": "function_result",
+                "name": step.name,
+                "call_id": step.id,
+                "result": [{"type": "text", "text": json.dumps(result)}]
+            }]
+        )
+
+        print(interaction_2.output_text)
 ```
 
 ### JavaScript
 
 ```
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
 const client = new GoogleGenAI({});
 
-const getWeather = {
-    name: "getWeather",
-    description: "Get the weather in a given location",
+const weatherTool = {
+    type: 'function',
+    name: 'get_weather',
+    description: 'Gets the weather for a given location.',
     parameters: {
-        type: "OBJECT",
+        type: 'object',
         properties: {
-            location: {
-                type: "STRING",
-                description: "The city and state, e.g. San Francisco, CA"
-            }
+            location: { type: 'string', description: 'The city and state, e.g. San Francisco, CA' }
         },
-        required: ["location"]
+        required: ['location']
     }
 };
 
-async function run() {
-    const model = client.models.generateContent({
-        model: "gemini-3.5-flash",
-    });
+const tools = [
+    {type: 'google_search'}, // Built-in tool
+    weatherTool            
+];
 
-    const tools = [
-      { googleSearch: {} },
-      { functionDeclarations: [getWeather] }
-    ];
-    const toolConfig = { includeServerSideToolInvocations: true };
+let interaction = await client.interactions.create({
+    model: 'gemini-3-flash-preview',
+    input: "What is the northernmost city in the United States? What's the weather like there today?",
+    tools: tools
+});
 
-    const result1 = await model.generateContent({
-        contents: [{role: "user", parts: [{text: "What is the northernmost city in the United States? What's the weather like there today?"}]}],
-        tools: tools,
-        toolConfig: toolConfig,
-    });
-
-    const response1 = result1.response;
-    const functionCallId = response1.candidates[0].content.parts.find(p => p.functionCall)?.functionCall?.id;
-
-    const history = [
-        {
-            role: "user",
-            parts:[{text: "What is the northernmost city in the United States? What's the weather like there today?"}]
-        },
-        response1.candidates[0].content,
-        {
-            role: "user",
-            parts: [{
-                functionResponse: {
-                    name: "getWeather",
-                    response: {response: "Very cold. 22 degrees Fahrenheit."},
-                    id: functionCallId
-                }
+for (const step of interaction.steps) {
+    if (step.type === 'function_call') {
+        console.log(`Function call: ${step.name} (ID: ${step.id})`);
+        const result = {response: "Very cold. 22 degrees Fahrenheit."};
+        const interaction_2 = await client.interactions.create({
+            model: 'gemini-3-flash-preview',
+            previous_interaction_id: interaction.id,
+            tools: tools,
+            input: [{
+                type: 'function_result',
+                name: step.name,
+                call_id: step.id,
+                result: [{ type: 'text', text: JSON.stringify(result) }]
             }]
-        }
-    ];
+        });
 
-    const result2 = await model.generateContent({
-        contents: history,
-        tools: tools,
-        toolConfig: toolConfig,
-    });
+        console.log(interaction_2.output_text);
+    }
 }
-
-run();
 ```
 
-למודלים שקדמו לסדרת Gemini 3, צריך להשתמש ב-[Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=he).
+## マルチモーダル関数レスポンス
 
-## תשובות של פונקציות מרובות מצבים
+Gemini 3 シリーズのモデルでは、モデルに送信する関数レスポンス部分にマルチモーダル コンテンツを含めることができます。モデルは、次のターンでこのマルチモーダル コンテンツを処理して、より多くの情報に基づいたレスポンスを生成できます。
 
-במודלים מסדרת Gemini 3, אפשר לכלול תוכן מולטימודאלי בחלקים של תגובת הפונקציה ששולחים למודל. המודל יכול לעבד את התוכן הרב-מודאלי הזה בתור הבא כדי לספק תשובה מושכלת יותר.
-סוגי ה-MIME הבאים נתמכים בתוכן מולטימודאלי בתשובות של פונקציות:
+関数レスポンスにマルチモーダル データを含めるには、`function_result` ステップの `result` フィールドに 1 つ以上のコンテンツ ブロックとしてデータを含めます。各コンテンツ ブロックは、その `type`（`"text"`、`"image"` など）を指定する必要があります。
 
-- **תמונות**: `image/png`, `image/jpeg`, `image/webp`
-- **מסמכים**: `application/pdf`, `text/plain`
-
-כדי לכלול נתונים מרובי-אופנים בתשובה של פונקציה, צריך לכלול אותם כחלק אחד או יותר שמוטמעים בחלק `functionResponse`. כל חלק מולטימודאלי חייב להכיל את התג `inlineData`. אם אתם מפנים לחלק מולטימודאלי מתוך שדה `response` מובנה, הוא חייב להכיל `displayName` ייחודי.
-
-אפשר גם להפנות לחלק מולטימודאלי מתוך השדה המובנה `response` של החלק `functionResponse` באמצעות פורמט ההפניה של JSON‏ `{"$ref": "<displayName>"}`. המודל מחליף את ההפניה בתוכן מולטימודאלי במהלך עיבוד התשובה. אפשר להפנות לכל `displayName` רק פעם אחת בשדה המובנה `response`.
-
-בדוגמה הבאה מוצגת הודעה שמכילה `functionResponse` לפונקציה בשם `get_image` וחלק מוטמע שמכיל נתוני תמונה עם `displayName: "instrument.jpg"`. השדה `functionResponse`'s `response` מפנה לחלק הזה בתמונה:
+次の例は、画像データを含む関数レスポンスをインタラクションでモデルに送信する方法を示しています。
 
 ### Python
 
 ```
+import base64
 from google import genai
-from google.genai import types
-
 import requests
 
 client = genai.Client()
 
-# This is a manual, two turn multimodal function calling workflow:
+tool_call = next(s for s in interaction.steps if s.type == "function_call")
 
-# 1. Define the function tool
-get_image_declaration = types.FunctionDeclaration(
-  name="get_image",
-  description="Retrieves the image file reference for a specific order item.",
-  parameters={
-      "type": "object",
-      "properties": {
-          "item_name": {
-              "type": "string",
-              "description": "The name or description of the item ordered (e.g., 'instrument')."
-          }
-      },
-      "required": ["item_name"],
-  },
-)
-tool_config = types.Tool(function_declarations=[get_image_declaration])
-
-# 2. Send a message that triggers the tool
-prompt = "Show me the instrument I ordered last month."
-response_1 = client.models.generate_content(
-  model="gemini-3.5-flash",
-  contents=[prompt],
-  config=types.GenerateContentConfig(
-      tools=[tool_config],
-  )
-)
-
-# 3. Handle the function call
-function_call = response_1.function_calls[0]
-requested_item = function_call.args["item_name"]
-print(f"Model wants to call: {function_call.name}")
-
-# Execute your tool (e.g., call an API)
-# (This is a mock response for the example)
-print(f"Calling external tool for: {requested_item}")
-
-function_response_data = {
-  "image_ref": {"$ref": "instrument.jpg"},
-}
 image_path = "https://goo.gle/instrument-img"
 image_bytes = requests.get(image_path).content
-function_response_multimodal_data = types.FunctionResponsePart(
-  inline_data=types.FunctionResponseBlob(
-    mime_type="image/jpeg",
-    display_name="instrument.jpg",
-    data=image_bytes,
-  )
-)
 
-# 4. Send the tool's result back
-# Append this turn's messages to history for a final response.
-history = [
-  types.Content(role="user", parts=[types.Part(text=prompt)]),
-  response_1.candidates[0].content,
-  types.Content(
-    role="user",
-    parts=[
-        types.Part.from_function_response(
-          id=function_call.id,
-          name=function_call.name,
-          response=function_response_data,
-          parts=[function_response_multimodal_data]
-        )
+base64_image_data = base64.b64encode(image_bytes).decode("utf-8")
+
+final_interaction = client.interactions.create(
+    model="gemini-3-flash-preview",
+    previous_interaction_id=interaction.id,
+    input=[
+        {
+            "type": "function_result",
+            "name": tool_call.name,
+            "call_id": tool_call.id,
+            "result": [
+                {"type": "text", "text": "instrument.jpg"},
+                {
+                    "type": "image",
+                    "mime_type": "image/jpeg",
+                    "data": base64_image_data,
+                },
+            ],
+        }
     ],
-  )
-]
-
-response_2 = client.models.generate_content(
-  model="gemini-3.5-flash",
-  contents=history,
-  config=types.GenerateContentConfig(
-      tools=[tool_config],
-      thinking_config=types.ThinkingConfig(include_thoughts=True)
-  ),
 )
 
-print(f"\nFinal model response: {response_2.text}")
+print(final_interaction.output_text)
 ```
 
 ### JavaScript
 
 ```
-import { GoogleGenAI, Type } from '@google/genai';
+import { GoogleGenAI } from "@google/genai";
 
-const client = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({});
 
-// This is a manual, two turn multimodal function calling workflow:
-// 1. Define the function tool
-const getImageDeclaration = {
-  name: 'get_image',
-  description: 'Retrieves the image file reference for a specific order item.',
-  parameters: {
-    type: Type.OBJECT,
-    properties: {
-      item_name: {
-        type: Type.STRING,
-        description: "The name or description of the item ordered (e.g., 'instrument').",
-      },
-    },
-    required: ['item_name'],
-  },
-};
+const toolCall = interaction.steps.find(s => s.type === 'function_call');
 
-const toolConfig = {
-  functionDeclarations: [getImageDeclaration],
-};
+const base64ImageData = "BASE64_IMAGE_DATA";
 
-// 2. Send a message that triggers the tool
-const prompt = 'Show me the instrument I ordered last month.';
-const response1 = await client.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: prompt,
-  config: {
-    tools: [toolConfig],
-  },
+const finalInteraction = await ai.interactions.create({
+    model: 'gemini-3-flash-preview',
+    previous_interaction_id: interaction.id,
+    input: [{
+        type: 'function_result',
+        name: toolCall.name,
+        call_id: toolCall.id,
+        result: [
+            { type: 'text', text: 'instrument.jpg' },
+            {
+                type: 'image',
+                mime_type: 'image/jpeg',
+                data: base64ImageData,
+            }
+        ]
+    }]
 });
 
-// 3. Handle the function call
-const functionCall = response1.functionCalls[0];
-const requestedItem = functionCall.args.item_name;
-console.log(`Model wants to call: ${functionCall.name}`);
-
-// Execute your tool (e.g., call an API)
-// (This is a mock response for the example)
-console.log(`Calling external tool for: ${requestedItem}`);
-
-const functionResponseData = {
-  image_ref: { $ref: 'instrument.jpg' },
-};
-
-const imageUrl = "https://goo.gle/instrument-img";
-const response = await fetch(imageUrl);
-const imageArrayBuffer = await response.arrayBuffer();
-const base64ImageData = Buffer.from(imageArrayBuffer).toString('base64');
-
-const functionResponseMultimodalData = {
-  inlineData: {
-    mimeType: 'image/jpeg',
-    displayName: 'instrument.jpg',
-    data: base64ImageData,
-  },
-};
-
-// 4. Send the tool's result back
-// Append this turn's messages to history for a final response.
-const history = [
-  { role: 'user', parts: [{ text: prompt }] },
-  response1.candidates[0].content,
-  {
-    role: 'user',
-    parts: [
-      {
-        functionResponse: {
-          id: functionCall.id,
-          name: functionCall.name,
-          response: functionResponseData,
-          parts: [functionResponseMultimodalData]
-        },
-      },
-    ],
-  },
-];
-
-const response2 = await client.models.generateContent({
-  model: 'gemini-3.5-flash',
-  contents: history,
-  config: {
-    tools: [toolConfig],
-    thinkingConfig: { includeThoughts: true },
-  },
-});
-
-console.log(`\nFinal model response: ${response2.text}`);
+console.log(finalInteraction.output_text);
 ```
 
 ### REST
 
 ```
-IMG_URL="https://goo.gle/instrument-img"
-
-MIME_TYPE=$(curl -sIL "$IMG_URL" | grep -i '^content-type:' | awk -F ': ' '{print $2}' | sed 's/\r$//' | head -n 1)
-if [[ -z "$MIME_TYPE" || ! "$MIME_TYPE" == image/* ]]; then
-  MIME_TYPE="image/jpeg"
-fi
-
-# Check for macOS
-if [[ "$(uname)" == "Darwin" ]]; then
-  IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -b 0)
-elif [[ "$(base64 --version 2>&1)" = *"FreeBSD"* ]]; then
-  IMAGE_B64=$(curl -sL "$IMG_URL" | base64)
-else
-  IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -w0)
-fi
-
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
-      ...,
+    "model": "gemini-3-flash-preview",
+    "previous_interaction_id": "INTERACTION_ID",
+    "input": [
       {
-        "role": "user",
-        "parts": [
-        {
-            "functionResponse": {
-              "name": "get_image",
-              "id": "UNIQUE_CALL_ID_HERE",
-              "response": {
-                "image_ref": {
-                  "$ref": "instrument.jpg"
-                }
-              },
-              "parts": [
-                {
-                  "inlineData": {
-                    "displayName": "instrument.jpg",
-                    "mimeType":"'"$MIME_TYPE"'",
-                    "data": "'"$IMAGE_B64"'"
-                  }
-                }
-              ]
-            }
+        "type": "function_result",
+        "name": "get_image",
+        "call_id": "call_123",
+        "result": [
+          {"type": "text", "text": "instrument.jpg"},
+          {
+            "type": "image",
+            "mime_type": "image/jpeg",
+            "data": "BASE64_IMAGE_DATA"
           }
         ]
       }
@@ -1906,180 +1088,282 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## בקשה להפעלת פונקציה עם פלט מובנה
+## 構造化出力を使用した関数呼び出し
 
-במודלים מסדרת Gemini 3, אפשר להשתמש בקריאות לפונקציות עם [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he). כך המודל יכול לחזות קריאות לפונקציות או פלטים שמתאימים לסכימה ספציפית. כתוצאה מכך, אתם מקבלים תשובות בפורמט עקבי כשהמודל לא יוצר קריאות לפונקציות.
+Gemini 3 シリーズのモデルでは、関数呼び出しと[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を組み合わせて、一貫した形式のレスポンスを取得します。
 
-## פרוטוקול הקשר של המודל (MCP)
+## リモート MCP（Model Context Protocol）
 
-‫[Model Context Protocol‏ (MCP)](https://modelcontextprotocol.io/introduction) הוא תקן פתוח לחיבור אפליקציות AI לכלים ולנתונים חיצוניים.
-‫MCP מספק פרוטוקול משותף למודלים כדי לגשת להקשר, כמו פונקציות (כלים), מקורות נתונים (משאבים) או הנחיות מוגדרות מראש.
+Interactions API は、リモート MCP サーバーへの接続をサポートしており、モデルが外部ツールやサービスにアクセスできるようにします。ツール構成でサーバーの `name` と `url` を指定します。
 
-ערכות ה-SDK של Gemini כוללות תמיכה מובנית ב-MCP, שמצמצמת את קוד ה-boilerplate ומציעה [הפעלה אוטומטית של כלים](https://ai.google.dev/gemini-api/docs/function-calling?hl=he#automatic_function_calling_python_only) ל-MCP. כשהמודל יוצר קריאה לכלים של MCP, ערכות ה-SDK של לקוח Python ו-JavaScript יכולות להפעיל אוטומטית את כלי ה-MCP ולשלוח את התגובה בחזרה למודל בבקשה הבאה. התהליך הזה נמשך עד שהמודל לא יוצר יותר קריאות לכלים.
+リモート MCP を使用する場合は、次の制約事項に注意してください。
 
-כאן אפשר לראות דוגמה לשימוש בשרת MCP מקומי עם Gemini ו-`mcp` SDK.
+- **サーバータイプ**: リモート MCP はストリーミング可能な HTTP サーバーでのみ動作します。SSE（サーバー送信イベント）サーバーは対象外です。
+- **モデルのサポート**: 現在、リモート MCP は Gemini 3 モデルでは動作しません。Gemini 3 のサポートは近日中に提供される予定です。
+- **命名**: MCP サーバー名に `-` 文字を含めないでください。代わりに `snake_case` サーバー名を使用してください。
+
+| フィールド | 型 | 必須 / 省略可 | 説明 |
+| --- | --- | --- | --- |
+| `type` | `string` | ○ | `"mcp_server"` を指定します。 |
+| `name` | `string` | いいえ | MCP サーバーの表示名。 |
+| `url` | `string` | いいえ | MCP サーバー エンドポイントの完全な URL。 |
+| `headers` | `object` | いいえ | サーバーへのすべてのリクエストとともに HTTP ヘッダーとして送信される Key-Value ペア（認証トークンなど）。 |
+| `allowed_tools` | `array` | いいえ | エージェントが呼び出すことができるサーバーのツールを制限します。 |
+
+### 例
 
 ### Python
 
-מוודאים שמותקנת בפלטפורמה שבחרתם הגרסה העדכנית של [`mcp` SDK](https://modelcontextprotocol.io/introduction).
-
-‫
-
 ```
-pip install mcp
-```
-
-```
-import os
-import asyncio
-from datetime import datetime
-from mcp import ClientSession, StdioServerParameters
-from mcp.client.stdio import stdio_client
 from google import genai
 
 client = genai.Client()
 
-# Create server parameters for stdio connection
-server_params = StdioServerParameters(
-    command="npx",  # Executable
-    args=["-y", "@philschmid/weather-mcp"],  # MCP Server
-    env=None,  # Optional environment variables
+interaction = client.interactions.create(
+    model="gemini-2.5-flash",
+    input="Check the status of my last server deployment.",
+    tools=[
+        {
+            "type": "mcp_server",
+            "name": "Deployment Tracker",
+            "url": "https://mcp.example.com/mcp",
+            "headers": {"Authorization": "Bearer my-token"},
+        }
+    ]
 )
-
-async def run():
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
-            # Prompt to get the weather for the current day in London.
-            prompt = f"What is the weather in London in {datetime.now().strftime('%Y-%m-%d')}?"
-
-            # Initialize the connection between client and server
-            await session.initialize()
-
-            # Send request to the model with MCP function declarations
-            response = await client.aio.models.generate_content(
-                model="gemini-3.5-flash",
-                contents=prompt,
-                config=genai.types.GenerateContentConfig(
-                    temperature=0,
-                    tools=[session],  # uses the session, will automatically call the tool
-                    # Uncomment if you **don't** want the SDK to automatically call the tool
-                    # automatic_function_calling=genai.types.AutomaticFunctionCallingConfig(
-                    #     disable=True
-                    # ),
-                ),
-            )
-            print(response.text)
-
-# Start the asyncio event loop and run the main function
-asyncio.run(run())
 ```
 
 ### JavaScript
 
-מוודאים שמותקנת בפלטפורמה שבחרתם הגרסה העדכנית של `mcp` SDK.
+```
+import { GoogleGenAI } from '@google/genai';
+
+const client = new GoogleGenAI({});
+
+const interaction = await client.interactions.create({
+    model: 'gemini-2.5-flash',
+    input: 'Check the status of my last server deployment.',
+    tools: [
+        {
+            type: 'mcp_server',
+            name: 'Deployment Tracker',
+            url: 'https://mcp.example.com/mcp',
+            headers: { Authorization: 'Bearer my-token' }
+        }
+    ]
+});
+```
+
+### REST
 
 ```
-npm install @modelcontextprotocol/sdk
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+-d '{
+    "model": "gemini-2.5-flash",
+    "input": "Check the status of my last server deployment.",
+    "tools": [
+        {
+            "type": "mcp_server",
+            "name": "Deployment Tracker",
+            "url": "https://mcp.example.com/mcp",
+            "headers": {"Authorization": "Bearer my-token"}
+        }
+    ]
+}'
 ```
 
-```
-import { GoogleGenAI, FunctionCallingConfigMode , mcpToTool} from '@google/genai';
-import { Client } from "@modelcontextprotocol/sdk/client/index.js";
-import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+## ツールの呼び出しをストリーミングする
 
-// Create server parameters for stdio connection
-const serverParams = new StdioClientTransport({
-  command: "npx", // Executable
-  args: ["-y", "@philschmid/weather-mcp"] // MCP Server
+ストリーミングでツールを使用する場合、モデルはストリーム上の `step.delta` イベントのシーケンスとして関数呼び出しを生成します。ツールの引数は、`arguments` を使用して部分引数としてストリーミングできます。これらの差分を集計して、ツール呼び出しを実行する前に完全なツール呼び出しを再構築する必要があります。
+
+### Python
+
+```
+import json
+from google import genai
+
+client = genai.Client()
+
+weather_tool = {
+    "type": "function",
+    "name": "get_weather",
+    "description": "Gets the weather for a given location.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "location": {"type": "string", "description": "The city and state"}
+        },
+        "required": ["location"]
+    }
+}
+
+stream = client.interactions.create(
+    model="gemini-3-flash-preview",
+    input="What is the weather in Paris?",
+    tools=[weather_tool],
+    stream=True
+)
+
+current_calls = {}
+tool_calls = []
+
+for event in stream:
+    if event.event_type == "step.start":
+        if event.step.type == "function_call":
+            current_calls[event.index] = {
+                "id": event.step.id,
+                "name": event.step.name,
+                "arguments": ""
+            }
+            if hasattr(event.step, "arguments") and event.step.arguments:
+                if isinstance(event.step.arguments, dict):
+                    current_calls[event.index]["arguments"] = json.dumps(event.step.arguments)
+                else:
+                    current_calls[event.index]["arguments"] = event.step.arguments
+    elif event.event_type == "step.delta":
+        if event.delta.type == "arguments":
+            if event.index in current_calls:
+                current_calls[event.index]["arguments"] += event.delta.partial_arguments
+        elif event.delta.type == "text":
+            print(event.delta.text, end="", flush=True)
+
+    elif event.event_type == "interaction.completed":
+        for index, call in current_calls.items():
+            args = call["arguments"]
+            if args:
+                args = json.loads(args)
+            else:
+                args = {}
+
+            tool_calls.append({
+                "type": "function_call",
+                "id": call["id"],
+                "name": call["name"],
+                "arguments": args
+            })
+
+        print(f"\nFinal tool calls ready to execute:")
+        print(json.dumps(tool_calls, indent=2))
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from '@google/genai';
+
+const client = new GoogleGenAI({});
+
+const weatherTool = {
+    type: 'function',
+    name: 'get_weather',
+    description: 'Gets the weather for a given location.',
+    parameters: {
+        type: 'object',
+        properties: {
+            location: { type: 'string', description: 'The city and state' }
+        },
+        required: ['location']
+    }
+};
+
+const stream = await client.interactions.create({
+    model: 'gemini-3-flash-preview',
+    input: 'What is the weather in Paris?',
+    tools: [weatherTool],
+    stream: true,
 });
 
-const client = new Client(
-  {
-    name: "example-client",
-    version: "1.0.0"
-  }
-);
+const currentCalls = new Map();
+let toolCalls = [];
 
-// Configure the client
-const ai = new GoogleGenAI({});
-
-// Initialize the connection between client and server
-await client.connect(serverParams);
-
-// Send request to the model with MCP tools
-const response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
-  contents: `What is the weather in London in ${new Date().toLocaleDateString()}?`,
-  config: {
-    tools: [mcpToTool(client)],  // uses the session, will automatically call the tool
-    // Uncomment if you **don't** want the sdk to automatically call the tool
-    // automaticFunctionCalling: {
-    //   disable: true,
-    // },
-  },
-});
-console.log(response.text)
-
-// Close the connection
-await client.close();
+for await (const event of stream) {
+    const evType = event.event_type;
+    if (evType === 'step.start') {
+        if (event.step.type === 'function_call') {
+            currentCalls.set(event.index, {
+                id: event.step.id,
+                name: event.step.name,
+                arguments: ''
+            });
+            if (event.step.arguments) {
+                if (typeof event.step.arguments === 'object') {
+                    currentCalls.get(event.index).arguments = JSON.stringify(event.step.arguments);
+                } else {
+                    currentCalls.get(event.index).arguments = event.step.arguments;
+                }
+            }
+        }
+    } else if (evType === 'step.delta') {
+        if (event.delta.type === 'arguments') {
+            if (currentCalls.has(event.index)) {
+                currentCalls.get(event.index).arguments += event.delta.partial_arguments;
+            }
+        } else if (event.delta.type === 'text') {
+            process.stdout.write(event.delta.text);
+        }
+    } else if (evType === 'interaction.completed' || evType === 'interaction.complete') {
+        toolCalls = Array.from(currentCalls.values()).map(call => ({
+            type: 'function_call',
+            id: call.id,
+            name: call.name,
+            arguments: call.arguments ? JSON.parse(call.arguments) : {}
+        }));
+        console.log('\nFinal tool calls ready to execute:');
+        console.log(JSON.stringify(toolCalls, null, 2));
+    }
+}
 ```
 
-### מגבלות בתמיכה המובנית ב-MCP
+### REST
 
-תמיכה מובנית ב-MCP היא תכונה [ניסיונית](https://ai.google.dev/gemini-api/docs/models?hl=he#preview) בערכות ה-SDK שלנו, ויש לה את המגבלות הבאות:
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+-d '{
+    "model": "gemini-3-flash-preview",
+    "input": "What is the weather in Paris?",
+    "tools": [{
+        "type": "function",
+        "name": "get_weather",
+        "description": "Gets the weather for a given location.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "location": {"type": "string", "description": "The city and state"}
+            },
+            "required": ["location"]
+        }
+    }],
+    "stream": true
+}'
+```
 
-- יש תמיכה רק בכלים, לא במשאבים או בהנחיות
-- היא זמינה ב-SDK של Python וב-SDK של JavaScript/TypeScript.
-- יכול להיות שיהיו שינויים שעלולים לשבור את התאימות בגרסאות עתידיות.
+## ベスト プラクティス
 
-שילוב ידני של שרתי MCP הוא תמיד אפשרות אם המגבלות האלה משפיעות על מה שאתם בונים.
+- **関数とパラメータの説明:** 明確かつ具体的に記述します。
+- **命名:** スペースや特殊文字を含まない説明的な名前を使用します。
+- **強い型付け:** 特定の型（整数、文字列、列挙型）を使用します。
+- **ツールの選択:** アクティブなセットを最大 10 ～ 20 個のツールに保ちます。
+- **プロンプト エンジニアリング:** コンテキストと指示を提供します。
+- **検証:** 実行前に関数呼び出しを検証します。
+- **エラー処理:** 堅牢なエラー処理を実装します。
+- **セキュリティ:** 外部 API に適切な認証を使用します。
 
-## מודלים נתמכים
+## 注意と制限事項
 
-בקטע הזה מפורטים המודלים והיכולות שלהם להפעלת פונקציות. לא כולל מודלים ניסיוניים. בדף [סקירה כללית של הדגם](https://ai.google.dev/gemini-api/docs/models?hl=he) אפשר לקרוא סקירה מקיפה של היכולות.
+- サポートされているのは、[OpenAPI スキーマのサブセット](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=ja#FunctionDeclaration)のみです。
+- `any` モードの場合、API は非常に大きなスキーマや深くネストされたスキーマを拒否することがあります。
+- Python でサポートされているパラメータの型は限られています。
 
-| מודל | בקשה להפעלת פונקציה | בקשות מקבילות להפעלת פונקציות | בקשה להפעלת פונקציה עם קומפוזיציה |
-| --- | --- | --- | --- |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he) | ✔️ | ✔️ | ✔️ |
-| ‫[Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he) | ✔️ | ✔️ | ✔️ |
-| ‫[Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) | ✔️ | ✔️ | ✔️ |
-| ‫[Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=he) | ✔️ | ✔️ | ✔️ |
-| ‫[Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he) | ✔️ | ✔️ | ✔️ |
-| ‫[Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=he) | ✔️ | ✔️ | ✔️ |
+フィードバックを送信
 
-## שיטות מומלצות
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-- **תיאורים של פונקציות ופרמטרים:** חשוב להיות ברורים וספציפיים מאוד בתיאורים. המודל מסתמך על התיאורים האלה כדי לבחור את הפונקציה הנכונה ולספק ארגומנטים מתאימים.
-- **שם:** צריך להשתמש בשמות פונקציות תיאוריים (ללא רווחים, נקודות או מקפים).
-- **הקלדה חזקה:** כדי לצמצם את מספר השגיאות, כדאי להשתמש בסוגים ספציפיים (מספר שלם, מחרוזת, enum) לפרמטרים. אם לפרמטר יש קבוצה מוגבלת של ערכים תקינים, צריך להשתמש ב-enum.
-- **בחירת כלי:** למרות שהמודל יכול להשתמש במספר כלים שרירותי, אם מספקים לו יותר מדי כלים, הסיכון לבחירת כלי לא נכון או לא אופטימלי גדל. כדי להשיג את התוצאות הכי טובות, מומלץ לספק רק את הכלים הרלוונטיים להקשר או למשימה, ובאופן אידיאלי להגביל את הסט הפעיל ל-10 עד 20 כלים. אם יש לכם מספר גדול של כלים, כדאי לשקול בחירה דינמית של כלים בהתאם להקשר של השיחה.
-- **הנדסת הנחיות:**
-  - מספקים הקשר: מציינים את התפקיד של המודל (למשל, "אתה עוזר שימושי בנושא מזג האוויר").
-  - לתת הוראות: מציינים איך ומתי להשתמש בפונקציות (לדוגמה, "אל תנחש תאריכים, תמיד תשתמש בתאריך עתידי לתחזיות").
-  - לעודד הבהרה: אפשר להנחות את המודל לשאול שאלות הבהרה אם צריך.
-  - במאמר [תהליכי עבודה מבוססי-סוכן](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he#agentic-workflows) מפורטות אסטרטגיות נוספות לעיצוב ההנחיות האלה. הנה דוגמה ל[הנחיית מערכת](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he#agentic-si-template) שנבדקה.
-- **רמת אקראיות:** מומלץ להשתמש ברמת אקראיות נמוכה (למשל, 0) כדי לקבל בקשות להפעלת פונקציה יותר דטרמיניסטיות ואמינות.
-- **אימות:** אם לקריאה לפונקציה יש השלכות משמעותיות (למשל, ביצוע הזמנה), צריך לאמת את הקריאה עם המשתמש לפני שמבצעים אותה.
-- **בדיקת הסיבה לסיום:** תמיד בודקים את [`finishReason`](https://ai.google.dev/api/generate-content?hl=he#FinishReason) בתגובה של המודל כדי לטפל במקרים שבהם המודל לא הצליח ליצור קריאה תקפה לפונקציה.
-- **טיפול בשגיאות**: כדאי להטמיע טיפול חזק בשגיאות בפונקציות כדי לטפל בצורה חלקה בקלט לא צפוי או בכשלים ב-API. החזרת הודעות שגיאה אינפורמטיביות שהמודל יכול להשתמש בהן כדי ליצור תשובות מועילות למשתמש.
-- **אבטחה:** חשוב לשים לב לאבטחה כשקוראים לממשקי API חיצוניים. שימוש במנגנוני אימות והרשאה מתאימים. הימנעו מחשיפת מידע אישי רגיש בקריאות לפונקציות.
-- **מגבלות על טוקנים:** תיאורי פונקציות ופרמטרים נספרים במגבלת הטוקנים של הקלט. אם אתם מגיעים למגבלות האסימונים, כדאי להגביל את מספר הפונקציות או את אורך התיאורים, ולחלק משימות מורכבות לקבוצות קטנות יותר של פונקציות ממוקדות.
-- **שילוב של bash וכלים בהתאמה אישית** למי שמשתמש בשילוב של bash וכלים בהתאמה אישית, גרסת טרום ההשקה של Gemini 3.1 Pro כוללת נקודת קצה נפרדת שזמינה דרך ה-API בשם [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he#gemini-31-pro-preview-customtools).
+最終更新日 2026-06-22 UTC。
 
-## הערות ומגבלות
+ご意見をお聞かせください
 
-- מיקום החלקים של קריאה לפונקציה: כשמשתמשים בהצהרות על פונקציות מותאמות אישית [לצד כלים מובנים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) (כמו חיפוש Google), יכול להיות שהמודל יחזיר שילוב של חלקים מסוג `functionCall`, `toolCall` ו-`toolResponse` בתור אחד. לכן, אל תניחו ש`functionCall` תמיד יהיה הפריט האחרון במערך החלקים. אם אתם מנתחים את תגובת ה-JSON באופן ידני, תמיד כדאי לחזור על הפעולה במערך החלקים במקום להסתמך על המיקום.
-- יש תמיכה רק ב[קבוצת משנה של סכימת OpenAPI](https://ai.google.dev/api/caching?hl=he#FunctionDeclaration).
-- במצב `ANY`, יכול להיות שה-API ידחה סכימות גדולות מאוד או סכימות עם קינון עמוק. אם נתקלים בשגיאות, כדאי לנסות לפשט את סכימות הפרמטרים והתגובות של הפונקציה על ידי קיצור שמות המאפיינים, צמצום ההזחה או הגבלת מספר הצהרות הפונקציה.
-- סוגי הפרמטרים הנתמכים ב-Python מוגבלים.
-- התכונה 'הפעלת פונקציות אוטומטית' זמינה רק ב-Python SDK.
-
-שליחת משוב
-
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
-
-עדכון אחרון: 2026-06-19 (שעון UTC).
-
-רוצה לתת לנו משוב?
-
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-19 (שעון UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-22 UTC。"],[],[]]

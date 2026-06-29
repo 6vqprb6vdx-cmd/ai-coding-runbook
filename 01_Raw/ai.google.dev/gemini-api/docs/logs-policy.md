@@ -1,70 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=ja
-fetched_at: 2026-06-22T06:28:38.478923+00:00
-title: "\u30c7\u30fc\u30bf\u30ed\u30ae\u30f3\u30b0\u3068\u5171\u6709 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=zh-CN
+fetched_at: 2026-06-29T05:25:05.839756+00:00
+title: "\u6570\u636e\u8bb0\u5f55\u548c\u5171\u4eab \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-フィードバックを送信
+发送反馈
 
-# データロギングと共有
+# 数据记录和共享
 
-このページでは、
-[Gemini API ログ](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ja)の保存と管理について説明します。Gemini API ログは、課金が有効になっているプロジェクトのサポート対象の Gemini API 呼び出しから取得される、デベロッパーが所有する
-API データです。ログには、ユーザーのリクエストからモデルのレスポンスまでのプロセス全体が含まれます。
+本页面概述了 [Gemini API 日志](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=zh-cn)的存储和管理，这些日志是已启用结算功能的项目中受支持的 Gemini API 调用的开发者自有 API 数据。日志涵盖了从用户提出请求到模型做出回答的整个过程。
 
-## 1. 共有できるデータ
+## 1. 可共享的数据
 
-プロジェクト オーナーは、Gemini API 呼び出しのロギングを有効にするかどうかを選択できます。ロギングは、お客様自身が使用するため、または Google とのフィードバックや共有を通じてモデルの継続的な改善に役立てるために使用できます。
+作为项目所有者，您可以选择启用 Gemini API 调用日志记录功能，以便自行使用或向 Google 提供反馈和分享信息，帮助我们不断改进模型。
 
-ロギングを有効にすると、プロダクトの改善とモデルのトレーニングのために次のデータを提供することで、さまざまな分野やユースケースのデベロッパーにとって価値のある AI システムの構築に役立てることができます。
+启用日志记录后，您可以选择贡献以下数据，帮助我们构建对各个领域和用例的开发者都持续有价值的 AI 系统，以改进产品和模型训练：
 
-- **データセット:** Google AI Studio の [Logs and Datasets] インターフェースを使用して、サポートされている Gemini API 呼び出しから関心のあるログ（リクエスト、レスポンス、メタデータなど）を選択します。データセットに含めることで提供されます。データセットの作成時にオプトアウトすることもできます。
-- **フィードバック:** ログを確認する際に、フィードバックを提供できます。これには、高評価/低評価の評価や、提供するコメントが含まれます。
+- **数据集**：使用 Google AI Studio 的“日志和数据集”界面，从受支持的 Gemini API 调用中选择感兴趣的日志（请求、响应、元数据等）；通过包含在数据集中贡献，并在创建数据集期间可以选择退出。
+- **反馈**：查看日志时，您可以提供反馈，包括点赞/点踩评分以及您提供的任何书面评论。
 
-[[データセットを Google と共有すると、リクエストやレスポンスなど、そのデータセット内のログは「無償サービス」の利用規約に従って処理されます。つまり、データセットは、モデルの改善とトレーニングなど、Google のプロダクト、サービス、機械学習技術の開発と改善に使用される可能性があります。](https://developers.google.com/terms?hl=ja)](https://ai.google.dev/gemini-api/terms?hl=ja#data-use-unpaid)**個人情報や機密情報は含めないでください。**
+如果您与 Google 分享数据集，系统会根据我们针对“[无偿服务](https://ai.google.dev/gemini-api/terms?hl=zh-cn#data-use-unpaid)”的[条款](https://developers.google.com/terms?hl=zh-cn)处理该数据集中的日志（包括请求和响应），这意味着该数据集可能会用于开发和改进 Google 产品、服务和机器学习技术，包括改进和训练我们的模型。**请勿包含个人信息、敏感信息或机密信息。**
 
-## 2. データの使用方法
+## 2. 我们会如何使用您的数据
 
-デフォルトでは、ログは 55 日後に期限切れになります。この期間を過ぎると、ログは使用できなくなります。データセットを作成して、この期間を超えて関心のあるログや価値のあるログを保持し、ダウンストリームのユースケースで使用したり、モデルの改善に任意で貢献したりできます。データセットに保存されたログには有効期限はありませんが、各プロジェクトのデフォルトのストレージ上限は 1,000 ログです。
+默认情况下，日志会在 55 天后过期。在此期限过后，这些功能将无法使用。您可以创建数据集，以保留此期限之外的感兴趣或有价值的日志，供下游使用情形使用，并可选择性地为模型改进做出贡献。存储在数据集中的日志没有设置过期日期，但每个项目的默认存储空间上限为 1,000 条日志。
 
-デフォルトでは、ロギングは課金が有効になっているプロジェクトでのみ使用できるため、
-データ使用に関する[規約](https://developers.google.com/terms?hl=ja)
-に従い、ログ内のプロンプトとレスポンスはプロダクトの改善や
-開発には使用されません。
+默认情况下，由于日志记录仅适用于已启用结算的项目，因此日志中的提示和回答不会用于产品改进或开发，这符合我们关于数据使用的[条款](https://developers.google.com/terms?hl=zh-cn)。
 
-ログのデータセットを Google と共有することを選択した場合、これらのデータセットは、AI
-システムとアプリケーションが使用されるドメインとコンテキストの多様性をより深く理解するための実際のデモンストレーション
-データとして使用されます。このデータは、モデルの品質の向上や、将来のモデルとサービスのトレーニングと評価に役立てられる可能性があります。[このデータは、無償サービスのデータ使用に関する規約に従って処理されます。](https://ai.google.dev/gemini-api/terms?hl=ja#data-use-unpaid)そのため、人間のレビュアーが、共有した
-API 入出力の読み取り、注釈付け、処理を行う場合があります。モデルの改善にデータを使用する前に、このプロセスの一部として、ユーザーのプライバシーを保護するための措置が
-Google により講じられます。措置には Google アカウント、API キー、およびクラウド
-プロジェクトからのデータの切り離しが含まれます。これらは人間のレビュアーによる読み取りや注記の前に行われます。
+如果您选择与 Google 分享日志数据集，这些数据集将用作实际演示数据，以便更好地了解 AI 系统和应用所使用的网域和上下文的多样性。这些数据可能会用于提高模型质量，并为未来模型和服务的训练和评估提供信息。我们会根据[免费服务](https://ai.google.dev/gemini-api/terms?hl=zh-cn#data-use-unpaid)的数据使用条款处理这些数据。
+因此，人工审核员可能会读取、批注和处理您分享的 API 输入和输出。在将数据用于改进模型之前，Google 会在此过程中采取措施来保护用户隐私。其中包括消除这些数据与您的 Google 账号、API 密钥和云项目的关联，然后才允许审核员查看或添加注释。
 
-## 3. データの権限
+## 3. 数据权限
 
-API データの提供を有効にすることで、このドキュメントに記載されているように、Google がデータを処理して使用するために必要な権限があることを確認します。**有料サービスを通じて取得した機密情報、機密情報、専有情報を含むログは提供しないでください**
-。API 利用規約の「[コンテンツの送信](https://developers.google.com/terms?hl=ja#b_submission_of_content)」
-に規定されている内容に従って使用者から Google に与えられる許可は、Google による使用に適用される法律で求められる範囲の中で、使用者が本サービスに送信したコンテンツ（たとえばプロンプトや、それに関連したシステム命令、キャッシュに保存されたコンテンツ、画像、動画、文書などのファイル）、および生成された回答にまで範囲が拡大されます。
+选择贡献 API 数据即表示您确认，您已授予 Google 必要权限，以便 Google 能够按照本文档中的说明处理和使用这些数据。**请勿提供包含通过付费服务获得的敏感信息、机密信息或专有信息的日志**。您根据 API 条款中“[提交内容](https://developers.google.com/terms?hl=zh-cn#b_submission_of_content)”部分向 Google 授予的许可还扩展到您提交给本服务的任何内容（例如提示，包括关联的系统指令、缓存的内容和文件，如图片、视频或文档）以及任何生成的回答，但仅限在适用法律要求我们使用这些内容时。
 
-## 4. データ共有とフィードバック
+## 4. 数据共享和反馈
 
-データを例として共有することで、AI 研究、Gemini API、Google AI Studio の最先端技術の発展に貢献できます。これにより、さまざまなコンテキストでモデルを継続的に改善し、さまざまな分野やユースケースのデベロッパーにとって価値のある AI システムを構築できます。
+您可以选择分享数据作为示例，帮助我们推进 AI 研究、Gemini API 和 Google AI Studio 的前沿发展，从而使我们能够不断改进各种情境下的模型，并构建在各种领域和使用情形下对开发者都持续有价值的 AI 系统。
 
-フィードバックを送信
+发送反馈
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最終更新日 2026-06-01 UTC。
+最后更新时间 (UTC)：2026-06-01。
 
-ご意見をお聞かせください
+需要向我们提供更多信息？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-01 UTC。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-01。"],[],[]]

@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=vi
-fetched_at: 2026-06-22T06:26:41.425850+00:00
-title: "M\u00f4 h\u00ecnh Gemini Embedding 2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=ar
+fetched_at: 2026-06-29T05:34:01.933293+00:00
+title: "\u0646\u0645\u0648\u0630\u062c Gemini Embedding 2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Mô hình Gemini Embedding 2
+# نموذج Gemini Embedding 2
 
-Mô hình nhúng đa phương thức đầu tiên của chúng tôi, cung cấp tính năng ánh xạ số hiệu quả cho văn bản, hình ảnh, video, âm thanh và tệp PDF vào một không gian nhúng hợp nhất duy nhất. Mô hình Gemini Embedding 2 phù hợp nhất cho tính năng tìm kiếm ngữ nghĩa đa phương thức, truy xuất tài liệu và các hệ thống đề xuất đòi hỏi phải tính toán mức độ tương đồng nhanh chóng, có thể mở rộng trên các tập dữ liệu lớn gồm nhiều phương thức.
+أول نموذج تضمين متعدد الوسائط، يوفّر عملية ربط رقمية فعّالة للنصوص والصور والفيديوهات والملفات الصوتية وملفات PDF في مساحة تضمين موحّدة واحدة يُعدّ نموذج Gemini Embedding 2 الأفضل لعمليات البحث الدلالي بين الوسائط المختلفة واسترجاع المستندات وأنظمة الاقتراحات التي تتطلّب إجراء عمليات حسابية سريعة وقابلة للتوسّع للتشابه بين مجموعات البيانات الكبيرة المتعدّدة الوسائط.
 
-## Tài liệu
+## الوثائق
 
-Truy cập trang [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi) để xem toàn bộ các tính năng và chức năng.
+يمكنك الانتقال إلى صفحة [التضمينات](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar) للاطّلاع على التغطية الكاملة
+للميزات والإمكانات.
 
 ## gemini-embedding-2
 
-| Thuộc tính | Mô tả |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardMã kiểu máy | **Gemini API**  `gemini-embedding-2` |
-| saveCác loại dữ liệu được hỗ trợ | **Input**  Văn bản, hình ảnh, video, âm thanh, PDF  **Đầu ra**  Văn bản nhúng |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  8.192  **Kích thước phương diện đầu ra**  Linh hoạt, hỗ trợ: 128 – 3072, Nên dùng: 768, 1536, 3072 |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Ổn định: `gemini-embedding-2` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 4 năm 2026 |
+| id\_cardرمز النموذج | **Gemini API**  `gemini-embedding-2` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة وفيديو وملف صوتي وملف PDF  **الناتج**  تضمينات نصية |
+| token\_autoحدود الرموز[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لرموز الإدخال**  8,192  **حجم بُعد الناتج**  مرن، يتوافق مع: 128 - 3072، ننصح باستخدام: 768 و1536 و3072 |
+| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - الإصدار الثابت: `gemini-embedding-2` |
+| calendar\_monthآخر تعديل | أبريل 2026 |
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

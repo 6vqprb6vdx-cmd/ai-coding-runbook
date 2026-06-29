@@ -1,132 +1,134 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=ja
-fetched_at: 2026-06-22T06:27:57.309835+00:00
-title: "\u9577\u3044\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/long-context?hl=tr
+fetched_at: 2026-06-29T05:27:40.746201+00:00
+title: "Uzun ba\u011flam \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-フィードバックを送信
+Geri bildirim gönderin
 
-# 長いコンテキスト
+# Uzun bağlam
 
-多くの Gemini モデルには、100 万トークン以上の大きなコンテキスト ウィンドウが搭載されています。これまで、大規模言語モデル（LLM）は、一度にモデルに渡すことができるテキスト（またはトークン）の量によって大幅に制限されていました。Gemini の長いコンテキスト ウィンドウは、多くの新しいユースケースとデベロッパー パラダイムを実現します。
+Birçok Gemini modelinde 1 milyon veya daha fazla parçalık büyük bağlam pencereleri bulunur.
+Geçmişte büyük dil modelleri (LLM'ler), modele aynı anda iletilebilecek metin (veya jeton) miktarıyla ilgili önemli sınırlamalara sahipti.
+Gemini'ın uzun bağlam penceresi, birçok yeni kullanım alanının ve geliştirici paradigmasının kilidini açıyor.
 
-[テキスト生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja)や[マルチモーダル入力](https://ai.google.dev/gemini-api/docs/vision?hl=ja)などのケースですでに使用しているコードは、長いコンテキストでも変更せずに使用できます。
+[Metin oluşturma](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr) veya [çok formatlı girişler](https://ai.google.dev/gemini-api/docs/vision?hl=tr) gibi durumlar için kullandığınız kod, uzun bağlamla birlikte herhangi bir değişiklik yapmadan çalışır.
 
-このドキュメントでは、100 万トークン以上のコンテキスト ウィンドウを備えたモデルを使用して実現できることの概要について説明します。このページでは、コンテキスト ウィンドウの概要を説明し、デベロッパーが長いコンテキストについて考える方法、長いコンテキストの実際のユースケース、長いコンテキストの使用を最適化する方法について説明します。
+Bu belgede, 1 milyon ve daha fazla parçalık bağlam pencerelerine sahip modelleri kullanarak neler yapabileceğiniz hakkında genel bir bakış sunulmaktadır. Bu sayfada, bağlam penceresiyle ilgili kısa bir genel bakış sunulmakta ve geliştiricilerin uzun bağlam, uzun bağlamın çeşitli gerçek dünya kullanım alanları ve uzun bağlam kullanımını optimize etme yöntemleri hakkında nasıl düşünmesi gerektiği ele alınmaktadır.
 
-特定のモデルのコンテキスト ウィンドウ サイズについては、[モデル](https://ai.google.dev/gemini-api/docs/models?hl=ja)のページをご覧ください。
+Belirli modellerin bağlam penceresi boyutları için [Modeller](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasına bakın.
 
-## コンテキスト ウィンドウとは
+## Bağlam penceresi nedir?
 
-Gemini モデルを使用する基本的な方法は、情報（コンテキスト）をモデルに渡して、モデルが回答を生成することです。コンテキスト ウィンドウは短期記憶に似ています。人間の短期記憶に保存できる情報量には限界があり、生成モデルにも同じことが言えます。
+Gemini modellerini kullanmanın temel yolu, modele bilgi (bağlam) iletmektir. Model daha sonra bir yanıt oluşturur. Bağlam penceresi, kısa süreli belleğe benzetilebilir. Kullanıcıların kısa süreli hafızasında sınırlı miktarda bilgi depolanabilir. Bu durum, üretken modeller için de geçerlidir.
 
-モデルの仕組みについて詳しくは、[生成モデルガイド](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja#under-the-hood)をご覧ください。
+Modellerin nasıl çalıştığı hakkında daha fazla bilgiyi [üretken modeller kılavuzumuzda](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=tr#under-the-hood) bulabilirsiniz.
 
-## 長いコンテキストを利用する
+## Uzun bağlamı kullanmaya başlama
 
-以前のバージョンの生成モデルでは、一度に 8,000 個のトークンしか処理できませんでした。新しいモデルはさらに進化し、32,000 個または 128,000 個のトークンを受け入れることができます。Gemini は 100 万個のトークンを処理できる最初のモデルです。
+Üretken modellerin önceki sürümleri,tek seferde yalnızca 8.000 jeton işleyebiliyordu. Daha yeni modeller, 32.000 hatta 128.000 jeton kabul ederek bu sınırı daha da ileriye taşıdı. Gemini, 1 milyon jeton kabul edebilen ilk modeldir.
 
-実際には、100 万個のトークンは次のようになります。
+Pratikte 1 milyon jeton şöyle görünür:
 
-- 50,000 行のコード（1 行あたり 80 文字として）
-- 過去 5 年間に送信したすべてのテキスト メッセージ
-- 平均的な長さの英語の小説 8 冊分
-- 平均的な長さのポッドキャスト エピソードの文字起こしが 200 件以上
+- 50.000 satır kod (satır başına standart 80 karakterle)
+- Son 5 yılda gönderdiğiniz tüm kısa mesajlar
+- 8 ortalama uzunlukta İngilizce roman
+- Ortalama uzunlukta 200'den fazla podcast bölümünün transkripti
 
-他の多くのモデルで一般的なコンテキスト ウィンドウが小さい場合は、古いメッセージを任意に削除する、コンテンツを要約する、ベクトル データベースで RAG を使用する、プロンプトをフィルタしてトークンを節約するなどの戦略が必要になることがよくあります。
+Diğer birçok modelde yaygın olan daha sınırlı bağlam pencereleri genellikle jeton tasarrufu için eski mesajları rastgele bırakma, içeriği özetleme, vektör veritabanlarıyla RAG kullanma veya istemleri filtreleme gibi stratejiler gerektirir.
 
-これらの手法は特定のシナリオでは引き続き有効ですが、Gemini の広範なコンテキスト ウィンドウでは、関連するすべての情報を事前に提供するという、より直接的なアプローチが可能です。Gemini モデルは大規模なコンテキスト機能を備えた専用モデルであるため、強力なコンテキスト内学習を実現します。たとえば、コンテキスト内の教材（500 ページの参照文法、辞書、約 400 の並列文）のみを使用して、Gemini は英語からカラマン語（200 人未満の話し手しかいないパプア語）への翻訳を学習しました。その品質は、同じ教材を使用する人間の学習者と同程度です。これは、Gemini の長いコンテキストによって実現したパラダイム シフトを示しており、堅牢なコンテキスト内学習を通じて新たな可能性を切り開いています。
+Bu teknikler belirli senaryolarda değerli olmaya devam etse de Gemini'ın geniş bağlam penceresi daha doğrudan bir yaklaşımı mümkün kılar: tüm ilgili bilgileri en baştan sağlamak. Gemini modelleri, büyük bağlam yetenekleriyle özel olarak geliştirildiğinden bağlam içi öğrenme konusunda güçlü bir performans gösterir. Örneğin, yalnızca bağlam içi eğitici materyaller (500 sayfalık bir referans dil bilgisi, bir sözlük ve yaklaşık 400 paralel cümle) kullanılarak Gemini, aynı materyalleri kullanan bir insan öğrenenle benzer kalitede, 200'den az konuşanı olan bir Papua dili olan Kalamang'dan İngilizceye [çeviri yapmayı öğrendi](https://storage.googleapis.com/deepmind-media/gemini/gemini_v1_5_report.pdf). Bu, Gemini'ın uzun bağlam özelliği sayesinde mümkün olan paradigma değişikliğini gösterir. Bu özellik, bağlam içi güçlü öğrenme yoluyla yeni olanaklar sunar.
 
-## 長いコンテキストのユースケース
+## Uzun bağlam kullanım alanları
 
-ほとんどの生成モデルの標準的なユースケースは依然としてテキスト入力ですが、Gemini モデル ファミリーでは、マルチモーダル ユースケースの新しいパラダイムが実現されます。これらのモデルは、テキスト、動画、音声、画像をネイティブに理解できます。[マルチモーダル ファイル形式を受け取る Gemini API](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=ja) も用意されています。
+Çoğu üretken modelin standart kullanım alanı hâlâ metin girişi olsa da Gemini model ailesi, çok formatlı kullanım alanlarında yeni bir paradigma sunuyor. Bu modeller metin, video, ses ve görüntüleri doğal olarak anlayabilir. Bu modeller, [çok formatlı dosya türlerini kabul eden Gemini API](https://ai.google.dev/gemini-api/docs/prompting_with_media?hl=tr) ile birlikte sunulur.
 
-### 長いテキスト
+### Uzun metin
 
-テキストが LLM の支えるインテリジェンス レイヤであることは明らかです。前述のように、LLM の実際の制限の多くは、特定のタスクを行うのに十分なコンテキスト ウィンドウがないためでした。検索拡張生成（RAG）などの技術が急速に普及し、モデルに関連するコンテキスト情報を動的に提供できるようになりました。コンテキスト ウィンドウがさらに大きくなり、新しいユースケースを実現する新しい手法が登場しています。
+Metin, LLM'lerle ilgili gelişmelerin temelini oluşturan zeka katmanı olduğunu kanıtlamıştır. Daha önce de belirtildiği gibi, LLM'lerin pratik sınırlamalarının çoğu, belirli görevleri yerine getirmek için yeterince büyük bir bağlam penceresine sahip olmamalarından kaynaklanıyordu. Bu durum, almayla artırılmış üretim (RAG) ve modele dinamik olarak alakalı bağlamsal bilgiler sağlayan diğer tekniklerin hızla benimsenmesine yol açtı. Artık daha büyük bağlam pencereleriyle birlikte yeni kullanım alanları sunan yeni teknikler kullanıma sunuluyor.
 
-テキストベースの長いコンテキストの新しいユースケースと標準的なユースケースとしては、次のようなものがあります。
+Metin tabanlı uzun bağlam için bazı yeni ve standart kullanım alanları şunlardır:
 
-- 大規模なテキスト コーパスの要約
-  - 以前のコンテキスト モデルの要約オプションでは、新しいトークンがモデルに渡されるときに、以前のセクションの状態を保持するために、スライディング ウィンドウなどの手法が必要でした。
-- 質問と回答
-  - これまではコンテキストの量が限られ、モデルの事実的な再現率が低いため、RAG でのみ可能でした。
-- エージェント ワークフロー
-  - テキストは、エージェントがこれまでに行ったことや行うべきことを記録する方法の基盤ですが、実際の状況やエージェントの目標に関する十分な情報がないため、信頼性に限界があります。
+- Büyük metin derlemelerini özetleme
+  - Daha küçük bağlam modelleriyle önceki özetleme seçenekleri, yeni jetonlar modele aktarılırken önceki bölümlerin durumunu korumak için kayan bir pencere veya başka bir teknik gerektiriyordu.
+- Soru sorma ve yanıtlama
+  - Geçmişte, bağlamın sınırlı miktarı ve modellerin olgusal hatırlama oranının düşük olması nedeniyle bu yalnızca RAG ile mümkündü.
+- Temsilci tabanlı iş akışları
+  - Metin, aracıların yaptıkları ve yapmaları gereken işlemlerin durumunu korumasının temelini oluşturur. Dünya ve aracının hedefi hakkında yeterli bilgiye sahip olmamak, aracıların güvenilirliğini sınırlar.
 
-[多ショット コンテキスト内学習](https://arxiv.org/pdf/2404.11018)は、長いコンテキスト モデルによって実現される最もユニークな機能の一つです。研究によると、一般的な「シングルショット」または「マルチショット」のパラダイム（モデルにタスクの 1 つまたは数個の例を提示し、それを数百、数千、数十万の例にスケールアップする）を採用すると、新しいモデル機能につながる可能性があります。このマルチショット アプローチは、特定のタスク用にファインチューニングされたモデルと同様のパフォーマンスを発揮することも示されています。Gemini モデルのパフォーマンスが本番環境へのロールアウトにまだ不十分なユースケースでは、マルチショット アプローチを試すことができます。後述の長いコンテキストの最適化のセクションで説明するように、コンテキスト キャッシュを使用すると、この種の入力トークン ワークロードがはるかに経済的に実現可能になり、場合によってはレイテンシがさらに短くなります。
+[Çok örnekli bağlam içi öğrenme](https://arxiv.org/pdf/2404.11018), uzun bağlam modellerinin sunduğu en benzersiz özelliklerden biridir. Araştırmalar, modele bir görevin bir veya birkaç örneğinin sunulduğu ve bunun yüzlerce, binlerce hatta yüz binlerce örneğe çıkarıldığı yaygın "tek görevli" veya "çok görevli" örnek paradigmanın, modelin yeni yetenekler kazanmasına yol açabileceğini göstermiştir. Bu çok görevli yaklaşımın, belirli bir görev için ince ayar yapılmış modellerle benzer performans gösterdiği de kanıtlanmıştır. Gemini modelinin performansının henüz üretime geçiş için yeterli olmadığı kullanım alanlarında çok görevli yaklaşımı deneyebilirsiniz. Uzun bağlam optimizasyonu bölümünde daha sonra inceleyeceğiniz gibi, bağlam önbelleğe alma bu tür yüksek giriş parçası iş yükünü çok daha ekonomik hale getirir ve bazı durumlarda gecikmeyi daha da azaltır.
 
-### 長い動画
+### Uzun video
 
-動画コンテンツの有用性は、長い間、メディア自体のアクセス性の欠如によって制限されていました。コンテンツの概要をつかむのは難しく、文字起こしでは動画のニュアンスが伝わらないことが多かったためです。また、ほとんどのツールは、画像、テキスト、音声を同時に処理できません。Gemini では、長いコンテキストのテキスト機能を、マルチモーダル入力に関する質問を推論して回答する能力に置き換え、パフォーマンスを維持しています。
+Video içeriğinin faydası, uzun süredir ortamın erişilebilirliğinin olmaması nedeniyle kısıtlanıyordu. İçeriği hızlı göz atma zordu, transkriptler genellikle videonun nüansını yakalayamıyordu ve çoğu araç resim, metin ve sesi birlikte işlemiyordu. Gemini ile uzun bağlamlı metin özellikleri, çok formatlı girişlerle ilgili soruları akıl yürüterek yanıtlamaya ve bu sırada performansı korumaya olanak tanır.
 
-動画の長いコンテキストの新しいユースケースと標準のユースケースとしては、次のようなものがあります。
+Uzun video bağlamıyla ilgili bazı yeni ve standart kullanım alanları şunlardır:
 
-- 動画に関する質問と回答
-- ビデオメモリ（[Google の Project Astra](https://deepmind.google/technologies/gemini/project-astra/?hl=ja)）
-- 動画字幕作成
-- 動画レコメンデーション システム: 新しいマルチモーダル理解によって既存のメタデータを拡充
-- データと関連する動画のメタデータの集合を調べ、視聴者に関連しない動画の部分を削除するように動画をカスタマイズ
-- 動画コンテンツの管理
-- リアルタイムのビデオ処理
+- Video soruları ve yanıtları
+- [Google'ın Project Astra](https://deepmind.google/technologies/gemini/project-astra/?hl=tr) ile gösterildiği gibi video belleği
+- Video altyazı ekleme
+- Mevcut meta verileri yeni çok formatlı anlayışla zenginleştirerek video öneri sistemleri
+- Veri kümesi ve ilişkili video meta verilerine bakıp izleyiciyle alakalı olmayan video bölümlerini kaldırarak videoları özelleştirme
+- Video içeriği denetimi
+- Gerçek zamanlı video işleme
 
-動画を扱う場合は、[動画がトークンに変換される仕組み](https://ai.google.dev/gemini-api/docs/tokens?hl=ja#media-token)を検討することが重要です。これは課金と使用量の上限に影響します。動画ファイルによるプロンプトの詳細については、[プロンプト ガイド](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=ja#prompting-with-videos)をご覧ください。
+Videolarla çalışırken [videoların jetonlara nasıl işlendiğini](https://ai.google.dev/gemini-api/docs/tokens?hl=tr#media-token) göz önünde bulundurmak önemlidir. Bu durum, faturalandırma ve kullanım sınırlarını etkiler. Video dosyalarıyla istem oluşturma hakkında daha fazla bilgiyi [İstem oluşturma kılavuzunda](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=tr#prompting-with-videos) bulabilirsiniz.
 
-### 長い音声
+### Uzun ses içerikleri
 
-Gemini モデルは、音声を理解できる最初のネイティブ マルチモーダル大規模言語モデルです。これまで、音声を処理するためには、音声入力モデルやテキスト文字変換モデルなど、複数のドメイン固有のモデルを連結するという典型的なデベロッパー ワークフローがありました。これにより、複数のラウンドトリップ リクエストの実行に必要なレイテンシが増加し、複数モデルのセットアップで接続されていないアーキテクチャに起因するパフォーマンスの低下が発生しました。
+Gemini modelleri, sesi anlayabilen ilk doğal olarak çok formatlı büyük dil modelleriydi. Geçmişte, tipik geliştirici iş akışında sesi işlemek için konuşmayı metne dönüştürme modeli ve metni metne dönüştürme modeli gibi alana özgü birden fazla modelin bir araya getirilmesi gerekiyordu. Bu durum, birden fazla gidiş-dönüş isteği gerçekleştirilmesinden kaynaklanan ek gecikmeye ve genellikle birden fazla model kurulumunun bağlantısı kesilmiş mimarilerine atfedilen performans düşüşüne yol açtı.
 
-音声コンテキストの新しい標準的なユースケースとしては、次のようなものがあります。
+Ses bağlamı için bazı yeni ve standart kullanım alanları şunlardır:
 
-- リアルタイムの音声文字変換と翻訳
-- ポッドキャスト / 動画に関する質問と回答
-- 会議の文字起こしと要約
-- 音声アシスタント
+- Anlık metne dönüştürme ve çeviri
+- Podcast / video soru-cevap
+- Toplantıyı metne dönüştürme ve özetleme
+- Sesli asistanlar
 
-音声ファイルによるプロンプトの詳細については、[プロンプト ガイド](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=ja#prompting-with-videos)をご覧ください。
+Ses dosyalarıyla istem oluşturma hakkında daha fazla bilgiyi [İstem oluşturma kılavuzu](https://ai.google.dev/gemini-api/docs/prompting_with_media?lang=python&hl=tr#prompting-with-videos)'nda bulabilirsiniz.
 
-## 長いコンテキストの最適化
+## Uzun bağlam optimizasyonları
 
-長いコンテキストと Gemini モデルを使用する場合の主な最適化は、[コンテキスト キャッシュ](https://ai.google.dev/gemini-api/docs/caching?hl=ja)を使用することです。これまでは、1 つのリクエストで大量のトークンを処理することができず、コストも大きな制約となっていました。ユーザーが 10 個の PDF、動画、業務用のファイルをアップロードするチャットアプリを使用している場合、従来は、これらのリクエストを処理するために、より複雑な検索拡張生成（RAG）ツール / フレームワークを使用し、コンテキスト ウィンドウに移動されたトークンに対して多額の料金が発生していました。現在では、ユーザーがアップロードしたファイルをキャッシュに保存し、保存料金を時間単位で支払うことができるようになりました。たとえば、Gemini Flash のリクエストあたりの入出力コストは、標準の入出力コストの約 4 分の 1 です。そのため、ユーザーがデータとチャットすることは、デベロッパーにとっても大きなコスト削減になります。
+Uzun bağlam ve Gemini modelleriyle çalışırken birincil optimizasyon, [bağlam önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr) özelliğini kullanmaktır. Tek bir istekte çok sayıda jetonun işlenmesinin daha önce mümkün olmamasının yanı sıra, diğer temel kısıtlama maliyetti. Kullanıcının 10 PDF, bir video ve bazı iş belgeleri yüklediği bir "verilerinizle sohbet edin" uygulamanız varsa bu istekleri işlemek için geçmişte daha karmaşık bir alma artırılmış oluşturma (RAG) aracı/çerçevesiyle çalışmanız ve bağlam penceresine taşınan jetonlar için önemli bir miktar ödeme yapmanız gerekirdi. Artık kullanıcının yüklediği dosyaları önbelleğe alabilir ve bunları saatlik olarak depolamak için ödeme yapabilirsiniz. Örneğin, Gemini Flash ile istek başına giriş / çıkış maliyeti, standart giriş / çıkış maliyetinden yaklaşık 4 kat daha azdır. Bu nedenle, kullanıcı verileriyle yeterince sohbet ederse bu, geliştirici olarak sizin için büyük bir maliyet tasarrufu sağlar.
 
-## 長いコンテキストの制限
+## Uzun bağlam sınırlamaları
 
-このガイドのさまざまなセクションで、Gemini モデルがさまざまな「干し草の山から針を探す」検索に対して高いパフォーマンスを達成する方法について説明しました。これらのテストでは、検出対象が 1 つの針である最も基本的な設定を検討しています。複数の「針」や特定の情報が含まれている場合は、モデルの精度が変わります。パフォーマンスはコンテキストによって大きく異なる場合があります。適切な情報を取得することとコストの間には、本質的なトレードオフがあるため、この点は考慮する必要があります。1 回のクエリで約 99% の精度を得ることができますが、そのクエリを送信するたびに入力トークンの費用を支払う必要があります。100 個の情報を取り出すときに 99% のパフォーマンスが必要であれば、100 個のリクエストを送信する必要があります。これは、コンテキスト キャッシュによって、パフォーマンスを維持しながら Gemini モデルの使用に関連する費用を大幅に削減できる例です。
+Bu kılavuzun çeşitli bölümlerinde, Gemini modellerinin çeşitli iğne-samanlıkta-iğne-arama değerlendirmelerinde nasıl yüksek performans elde ettiğinden bahsettik. Bu testlerde, aradığınız tek bir iğnenin olduğu en temel kurulum dikkate alınır. Birden fazla "iğne" veya aradığınız belirli bilgi parçaları olduğunda model aynı doğrulukla çalışmaz. Performans, bağlama bağlı olarak büyük ölçüde değişebilir. Doğru bilgilerin alınması ile maliyet arasında doğal bir denge olduğundan bu durumu göz önünde bulundurmanız önemlidir. Tek bir sorguda yaklaşık% 99 doğruluk elde edebilirsiniz ancak bu sorguyu her gönderdiğinizde giriş jetonu maliyetini ödemeniz gerekir. Bu nedenle, 100 bilgi parçasının alınması için% 99 performans gerekiyorsa muhtemelen 100 istek göndermeniz gerekir. Bu, bağlam önbelleğe almanın, performansı yüksek tutarken Gemini modellerini kullanmayla ilişkili maliyeti önemli ölçüde azaltabileceği iyi bir örnektir.
 
-## よくある質問
+## SSS
 
-### コンテキスト ウィンドウにクエリを配置するのに最適な場所はどこですか？
+### Sorgumu bağlam penceresinde nereye yerleştirmeliyim?
 
-ほとんどの場合、特にコンテキストの合計が長い場合は、プロンプトの最後にクエリや質問を配置する（他のすべてのコンテキストの後）と、モデルのパフォーマンスが向上します。
+Çoğu durumda, özellikle de bağlamın tamamı uzunsa sorgunuzu / sorunuzu istemin sonuna (diğer tüm bağlamlardan sonra) yerleştirdiğinizde modelin performansı daha iyi olur.
 
-### クエリにトークンを追加すると、モデルのパフォーマンスが低下しますか？
+### Bir sorguya daha fazla jeton eklediğimde model performansı düşer mi?
 
-一般に、モデルにトークンを渡す必要がない場合は、渡さないようにするのが最善です。ただし、情報を含む大きなトークンがあり、その情報について質問したい場合は、モデルがその情報を抽出する能力は非常に高いです（多くの場合、精度は 99% に達します）。
+Genel olarak, jetonların modele iletilmesi gerekmiyorsa iletilmemesi en iyisidir. Ancak, bazı bilgileri içeren büyük bir jeton yığınınız varsa ve bu bilgiler hakkında soru sormak istiyorsanız model, bu bilgileri ayıklama konusunda oldukça başarılıdır (birçok durumda% 99'a varan doğruluk).
 
-### 長いコンテキスト クエリの費用を削減するにはどうすればよいですか？
+### Uzun bağlamlı sorgularla maliyetimi nasıl düşürebilirim?
 
-何度も再利用したいトークン / コンテキストのセットがある場合は、[コンテキストのキャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)を使用すると、その情報に関する質問に関連する費用を削減できます。
+Çok kez yeniden kullanmak istediğiniz benzer bir jeton / bağlam kümeniz varsa [bağlam önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr), bu bilgilerle ilgili soru sormayla ilişkili maliyetleri azaltmanıza yardımcı olabilir.
 
-### コンテキストの長さはモデルのレイテンシに影響しますか？
+### Bağlam uzunluğu, model gecikmesini etkiler mi?
 
-リクエストのサイズに関係なく、特定のリクエストには一定のレイテンシがありますが、一般的に、クエリが長いほどレイテンシ（最初のトークンまでの時間）が長くなります。
+Boyutundan bağımsız olarak, her istekte belirli bir gecikme süresi vardır ancak genellikle daha uzun sorgularda gecikme süresi (ilk jetona kadar geçen süre) daha yüksek olur.
 
-フィードバックを送信
+Geri bildirim gönderin
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最終更新日 2026-06-19 UTC。
+Son güncelleme tarihi: 2026-06-22 UTC.
 
-ご意見をお聞かせください
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-19 UTC。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]

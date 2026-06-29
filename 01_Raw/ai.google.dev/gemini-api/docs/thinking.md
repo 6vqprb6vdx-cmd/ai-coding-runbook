@@ -1,35 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=id
-fetched_at: 2026-06-22T06:32:20.160993+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=zh-TW
+fetched_at: 2026-06-29T05:30:28.024631+00:00
+title: "Gemini \u601d\u8003 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Penalaran Gemini
+# Gemini 思考
 
-Model seri [Gemini 3 dan 2.5](https://ai.google.dev/gemini-api/docs/models?hl=id) menggunakan
-"proses penalaran" internal yang meningkatkan kemampuan penalaran dan perencanaan multi-langkah secara signifikan, sehingga sangat efektif untuk tugas kompleks seperti
-coding, matematika tingkat lanjut, dan analisis data.
+[Gemini 3 和 2.5 系列模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)採用「思考過程」，大幅提升推論和多步驟規劃能力，因此非常適合處理複雜工作，例如程式設計、高等數學和資料分析。
 
-Panduan ini menunjukkan cara menggunakan kemampuan penalaran Gemini menggunakan Gemini API.
+使用思考型模型時，Gemini 會先進行內部推論，再做出回覆。Interactions API 會透過 `thought` 步驟顯示這項推論過程，這些專屬步驟會依時間順序顯示在 `steps` 陣列中，與函式呼叫、使用者輸入內容或模型輸出內容並列。
 
-## Membuat konten dengan penalaran
+每個思考步驟都包含兩個欄位：
 
-Memulai permintaan dengan model penalaran mirip dengan permintaan pembuatan konten lainnya. Perbedaan utamanya terletak pada penentuan salah satu
-[model dengan dukungan penalaran](#supported-models) di kolom `model`, seperti yang
-ditunjukkan dalam contoh [pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#text-input) berikut:
+| 欄位 | 必要 | 說明 |
+| --- | --- | --- |
+| `signature` | ✅ 是 | 模型內部推論狀態的加密表示法。一律會顯示，即使模型只執行最少的推論作業。 |
+| `summary` | ❌ 否 | 總結推論過程的內容陣列 (文字和/或圖片)。視 [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=zh-tw) 設定、模型是否進行足夠的推論，或內容類型而定，可能為空白 (例如，圖片潛在空間可能沒有文字摘要)。 |
+
+## 與思考過程的互動
+
+啟動與思考型模型的互動，與任何其他互動要求類似。在 `model` 欄位中，指定[支援思考步驟的模型](#thinking-levels)：
 
 ### Python
 
@@ -37,13 +39,12 @@ ditunjukkan dalam contoh [pembuatan teks](https://ai.google.dev/gemini-api/docs/
 from google import genai
 
 client = genai.Client()
-prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example."
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=prompt
-)
 
-print(response.text)
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Explain the concept of Occam's Razor and provide a simple, everyday example."
+)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -51,233 +52,170 @@ print(response.text)
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-async function main() {
-  const prompt = "Explain the concept of Occam's Razor and provide a simple, everyday example.";
-
-  const response = await ai.models.generateContent({
+const interaction = await client.interactions.create({
     model: "gemini-3.5-flash",
-    contents: prompt,
-  });
-
-  console.log(response.text);
-}
-
-main();
+    input: "Explain the concept of Occam's Razor and provide a simple, everyday example."
+});
+console.log(interaction.output_text);
 ```
 
-### Go
+### REST
 
 ```
-package main
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Explain the concept of Occam'\''s Razor and provide a simple example."
+  }'
+```
 
-import (
-  "context"
-  "fmt"
-  "log"
-  "os"
-  "google.golang.org/genai"
+## 想法重點摘要
+
+想法摘要可深入瞭解模型的內部推論過程。
+根據預設，系統只會傳回最終輸出內容。你可以使用 `thinking_summaries` 啟用想法摘要：
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="What is the sum of the first 50 prime numbers?",
+    generation_config={
+        "thinking_summaries": "auto"
+    }
 )
 
-func main() {
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
+for step in interaction.steps:
+    if step.type == "thought":
+        print("Thought summary:")
+        if step.summary:
+            for content_block in step.summary:
+                if content_block.type == "text":
+                    print(content_block.text)
+        print()
+    elif step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print("Answer:")
+                print(content_block.text)
+                print()
+```
 
-  prompt := "Explain the concept of Occam's Razor and provide a simple, everyday example."
-  model := "gemini-3.5-flash"
+### JavaScript
 
-  resp, _ := client.Models.GenerateContent(ctx, model, genai.Text(prompt), nil)
+```
+import { GoogleGenAI } from "@google/genai";
 
-  fmt.Println(resp.Text())
+const client = new GoogleGenAI({});
+
+const interaction = await client.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "What is the sum of the first 50 prime numbers?",
+    generation_config: {
+        thinking_summaries: "auto"
+    }
+});
+
+for (const step of interaction.steps) {
+    if (step.type === "thought") {
+        console.log("Thought summary:");
+        if (step.summary) {
+            for (const contentBlock of step.summary) {
+                if (contentBlock.type === "text") console.log(contentBlock.text);
+            }
+        }
+    } else if (step.type === "model_output") {
+        for (const contentBlock of step.content) {
+            if (contentBlock.type === "text") {
+                console.log("Answer:");
+                console.log(contentBlock.text);
+            }
+        }
+    }
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
- -H "x-goog-api-key: $GEMINI_API_KEY" \
- -H 'Content-Type: application/json' \
- -X POST \
- -d '{
-   "contents": [
-     {
-       "parts": [
-         {
-           "text": "Explain the concept of Occam'\''s Razor and provide a simple, everyday example."
-         }
-       ]
-     }
-   ]
- }'
- ```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "What is the sum of the first 50 prime numbers?",
+    "generation_config": {
+      "thinking_summaries": "auto"
+    }
+  }'
 ```
 
-## Ringkasan penalaran
+在下列情況下，想法區塊可能**只包含簽名，沒有摘要**：
 
-Ringkasan penalaran adalah versi ringkasan dari penalaran mentah model dan menawarkan insight tentang proses penalaran internal model. Perhatikan bahwa tingkat dan anggaran penalaran berlaku untuk penalaran mentah model, bukan untuk ringkasan penalaran.
+- 簡單要求，模型未充分推理，無法生成摘要
+- `thinking_summaries: "none"`，明確停用摘要功能
+- 部分想法內容類型 (例如圖片) 可能沒有文字摘要
 
-Anda dapat mengaktifkan ringkasan penalaran dengan menetapkan `includeThoughts` ke `true` dalam konfigurasi permintaan. Kemudian, Anda dapat mengakses ringkasan dengan melakukan iterasi melalui `parts` parameter `response`, dan memeriksa boolean `thought`.
+程式碼應一律處理 `summary` 為空或不存在的思維區塊。
 
-Berikut adalah contoh yang menunjukkan cara mengaktifkan dan mengambil ringkasan penalaran tanpa streaming, yang menampilkan satu ringkasan penalaran akhir dengan respons:
+## 串流與思考
+
+在生成期間使用串流功能，接收增量想法摘要。
+系統會使用伺服器傳送事件 (SSE) 傳送思維方塊，並提供兩種不同的差異類型：
+
+| Delta 類型 | 包含 | 傳送時間 |
+| --- | --- | --- |
+| `thought_summary` | 文字或圖片摘要內容 | 一或多個增量摘要的差異 |
+| `thought_signature` | 密碼編譯簽章 | `step.stop`之前的最後一個增量 |
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
-
-client = genai.Client()
-prompt = "What is the sum of the first 50 prime numbers?"
-response = client.models.generate_content(
-  model="gemini-3.5-flash",
-  contents=prompt,
-  config=types.GenerateContentConfig(
-    thinking_config=types.ThinkingConfig(
-      include_thoughts=True
-    )
-  )
-)
-
-for part in response.candidates[0].content.parts:
-  if not part.text:
-    continue
-  if part.thought:
-    print("Thought summary:")
-    print(part.text)
-    print()
-  else:
-    print("Answer:")
-    print(part.text)
-    print()
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents: "What is the sum of the first 50 prime numbers?",
-    config: {
-      thinkingConfig: {
-        includeThoughts: true,
-      },
-    },
-  });
-
-  for (const part of response.candidates[0].content.parts) {
-    if (!part.text) {
-      continue;
-    }
-    else if (part.thought) {
-      console.log("Thoughts summary:");
-      console.log(part.text);
-    }
-    else {
-      console.log("Answer:");
-      console.log(part.text);
-    }
-  }
-}
-
-main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "google.golang.org/genai"
-  "os"
-)
-
-func main() {
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  contents := genai.Text("What is the sum of the first 50 prime numbers?")
-  model := "gemini-3.5-flash"
-  resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
-    ThinkingConfig: &genai.ThinkingConfig{
-      IncludeThoughts: true,
-    },
-  })
-
-  for _, part := range resp.Candidates[0].Content.Parts {
-    if part.Text != "" {
-      if part.Thought {
-        fmt.Println("Thoughts Summary:")
-        fmt.Println(part.Text)
-      } else {
-        fmt.Println("Answer:")
-        fmt.Println(part.Text)
-      }
-    }
-  }
-}
-```
-
-Berikut adalah contoh penggunaan penalaran dengan streaming, yang menampilkan ringkasan inkremental bergulir selama pembuatan:
-
-### Python
-
-```
-from google import genai
-from google.genai import types
 
 client = genai.Client()
 
 prompt = """
 Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue.
-The person who lives in the red house owns a cat.
+Alice does not live in the red house.
 Bob does not live in the green house.
-Carol owns a dog.
-The green house is to the left of the red house.
-Alice does not own a cat.
-Who lives in each house, and what pet do they own?
+Carol does not live in the red or green house.
+Which house does each person live in?
 """
 
 thoughts = ""
 answer = ""
 
-for chunk in client.models.generate_content_stream(
+stream = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=prompt,
-    config=types.GenerateContentConfig(
-      thinking_config=types.ThinkingConfig(
-        include_thoughts=True
-      )
-    )
-):
-  for part in chunk.candidates[0].content.parts:
-    if not part.text:
-      continue
-    elif part.thought:
-      if not thoughts:
-        print("Thoughts summary:")
-      print(part.text)
-      thoughts += part.text
-    else:
-      if not answer:
-        print("Answer:")
-      print(part.text)
-      answer += part.text
+    input=prompt,
+    generation_config={
+        "thinking_summaries": "auto"
+    },
+    stream=True
+)
+
+for event in stream:
+    if event.event_type == "step.delta":
+        if event.delta.type == "thought_summary":
+            if not thoughts:
+                print("Thinking...")
+            summary_text = event.delta.content.text
+            print(f"[Thought] {summary_text}", end="")
+            thoughts += summary_text
+        elif event.delta.type == "text" and event.delta.text:
+            if not answer:
+                print("\nAnswer:")
+            print(event.delta.text, end="")
+            answer += event.delta.text
 ```
 
 ### JavaScript
@@ -285,272 +223,119 @@ for chunk in client.models.generate_content_stream(
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
 const prompt = `Alice, Bob, and Carol each live in a different house on the same
-street: red, green, and blue. The person who lives in the red house owns a cat.
-Bob does not live in the green house. Carol owns a dog. The green house is to
-the left of the red house. Alice does not own a cat. Who lives in each house,
-and what pet do they own?`;
+street: red, green, and blue. Alice does not live in the red house.
+Bob does not live in the green house.
+Carol does not live in the red or green house.
+Which house does each person live in?`;
 
 let thoughts = "";
 let answer = "";
 
-async function main() {
-  const response = await ai.models.generateContentStream({
+const stream = await client.interactions.create({
     model: "gemini-3.5-flash",
-    contents: prompt,
-    config: {
-      thinkingConfig: {
-        includeThoughts: true,
-      },
+    input: prompt,
+    generation_config: {
+        thinking_summaries: "auto"
     },
-  });
+    stream: true
+});
 
-  for await (const chunk of response) {
-    for (const part of chunk.candidates[0].content.parts) {
-      if (!part.text) {
-        continue;
-      } else if (part.thought) {
-        if (!thoughts) {
-          console.log("Thoughts summary:");
+for await (const event of stream) {
+    if (event.event_type === "step.delta") {
+        if (event.delta.type === "thought_summary") {
+            if (!thoughts) console.log("Thinking...");
+            const text = event.delta.content?.text || "";
+            process.stdout.write(`[Thought] ${text}`);
+            thoughts += text;
+        } else if (event.delta.type === "text" && event.delta.text) {
+            if (!answer) console.log("\nAnswer:");
+            process.stdout.write(event.delta.text);
+            answer += event.delta.text;
         }
-        console.log(part.text);
-        thoughts = thoughts + part.text;
-      } else {
-        if (!answer) {
-          console.log("Answer:");
-        }
-        console.log(part.text);
-        answer = answer + part.text;
-      }
     }
-  }
-}
-
-await main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "log"
-  "os"
-  "google.golang.org/genai"
-)
-
-const prompt = `
-Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue.
-The person who lives in the red house owns a cat.
-Bob does not live in the green house.
-Carol owns a dog.
-The green house is to the left of the red house.
-Alice does not own a cat.
-Who lives in each house, and what pet do they own?
-`
-
-func main() {
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  contents := genai.Text(prompt)
-  model := "gemini-3.5-flash"
-
-  resp := client.Models.GenerateContentStream(ctx, model, contents, &genai.GenerateContentConfig{
-    ThinkingConfig: &genai.ThinkingConfig{
-      IncludeThoughts: true,
-    },
-  })
-
-  for chunk := range resp {
-    for _, part := range chunk.Candidates[0].Content.Parts {
-      if len(part.Text) == 0 {
-        continue
-      }
-
-      if part.Thought {
-        fmt.Printf("Thought: %s\n", part.Text)
-      } else {
-        fmt.Printf("Answer: %s\n", part.Text)
-      }
-    }
-  }
-}
-```
-
-## Mengontrol penalaran
-
-Model Gemini melakukan penalaran dinamis secara default, dan otomatis menyesuaikan jumlah upaya penalaran berdasarkan kompleksitas permintaan pengguna.
-Namun, jika Anda memiliki batasan latensi tertentu atau mengharuskan model melakukan penalaran yang lebih mendalam dari biasanya, Anda dapat menggunakan parameter secara opsional untuk mengontrol perilaku penalaran.
-
-### Tingkat penalaran (Gemini 3)
-
-Parameter `thinkingLevel`, yang direkomendasikan untuk model Gemini 3 dan yang lebih baru, memungkinkan Anda mengontrol perilaku penalaran.
-
-Tabel berikut menjelaskan setelan `thinkingLevel` untuk setiap jenis model:
-
-| Tingkat Penalaran | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | Gemini 3.5 Flash | Deskripsi |
-| --- | --- | --- | --- | --- | --- |
-| **`minimal`** | Tidak didukung | Didukung (Default) | Didukung | Didukung | Cocok dengan setelan "tanpa penalaran" untuk sebagian besar kueri. Model mungkin berpikir sangat minimal untuk tugas coding yang kompleks. Meminimalkan latensi untuk aplikasi chat atau throughput tinggi. Perhatikan, `minimal` tidak menjamin bahwa penalaran dinonaktifkan. |
-| **`low`** | Didukung | Didukung | Didukung | Didukung | Meminimalkan latensi dan biaya. Paling cocok untuk aplikasi chat, throughput tinggi, atau mengikuti petunjuk sederhana. |
-| **`medium`** | Didukung | Didukung | Didukung | Didukung (Default) | Penalaran seimbang untuk sebagian besar tugas. |
-| **`high`** | Didukung (Default, Dinamis) | Didukung (Dinamis) | Didukung (Default, Dinamis) | Didukung (Dinamis) | Memaksimalkan kedalaman penalaran. Model mungkin memerlukan waktu yang jauh lebih lama untuk mencapai token output pertama (non-penalaran), tetapi output akan lebih dipertimbangkan dengan cermat. |
-
-Contoh berikut menunjukkan cara menetapkan tingkat penalaran.
-
-### Python
-
-```
-from google import genai
-from google.genai import types
-
-client = genai.Client()
-
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents="Provide a list of 3 famous physicists and their key contributions",
-    config=types.GenerateContentConfig(
-        thinking_config=types.ThinkingConfig(thinking_level="low")
-    ),
-)
-
-print(response.text)
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI, ThinkingLevel } from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents: "Provide a list of 3 famous physicists and their key contributions",
-    config: {
-      thinkingConfig: {
-        thinkingLevel: ThinkingLevel.LOW,
-      },
-    },
-  });
-
-  console.log(response.text);
-}
-
-main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "google.golang.org/genai"
-  "os"
-)
-
-func main() {
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  thinkingLevelVal := "low"
-
-  contents := genai.Text("Provide a list of 3 famous physicists and their key contributions")
-  model := "gemini-3.5-flash"
-  resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
-    ThinkingConfig: &genai.ThinkingConfig{
-      ThinkingLevel: &thinkingLevelVal,
-    },
-  })
-
-fmt.Println(resp.Text())
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
--H "x-goog-api-key: $GEMINI_API_KEY" \
--H 'Content-Type: application/json' \
--X POST \
--d '{
-  "contents": [
-    {
-      "parts": [
-        {
-          "text": "Provide a list of 3 famous physicists and their key contributions"
-        }
-      ]
-    }
-  ],
-  "generationConfig": {
-    "thinkingConfig": {
-          "thinkingLevel": "low"
-    }
-  }
-}'
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Alice, Bob, and Carol each live in a different house on the same street: red, green, and blue. Alice does not live in the red house. Bob does not live in the green house. Carol does not live in the red or green house. Which house does each person live in?",
+    "generation_config": {
+      "thinking_summaries": "auto"
+    },
+    "stream": true
+  }'
 ```
 
-Anda tidak dapat menonaktifkan penalaran untuk Gemini 3.1 Pro. Gemini 3 Flash dan Flash-Lite juga tidak mendukung penalaran nonaktif penuh, tetapi setelan `minimal` berarti model kemungkinan tidak akan berpikir (meskipun masih berpotensi).
-Jika Anda tidak menentukan tingkat penalaran, Gemini akan menggunakan tingkat penalaran default model Gemini 3 (misalnya, `"high"` untuk Gemini 3.1 Pro, dan `"medium"` untuk Gemini 3.5 Flash).
+串流回應會使用伺服器傳送事件 (SSE)，並由步驟和事件組成，例如：
 
-Model seri Gemini 2.5 tidak mendukung `thinkingLevel`; gunakan `thinkingBudget`.
+```
+event: interaction.created
+data: {"interaction":{"id":"v1_xxx","status":"in_progress","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.created"}
 
-### Anggaran penalaran
+event: step.start
+data: {"index":0,"step":{"signature":"","summary":[{"text":"**Evaluating the clues**\n\nI'm considering...","type":"text"}],"type":"thought"},"event_type":"step.start"}
 
-Parameter `thinkingBudget`, yang diperkenalkan dengan seri Gemini 2.5, memandu model tentang jumlah token penalaran tertentu yang akan digunakan untuk penalaran.
+event: step.delta
+data: {"index":0,"delta":{"signature":"EpoGCpcGAXLI2nx/...","type":"thought_signature"},"event_type":"step.delta"}
 
-Berikut adalah detail konfigurasi `thinkingBudget` untuk setiap jenis model.
-Anda dapat menonaktifkan penalaran dengan menetapkan `thinkingBudget` ke 0.
-Menetapkan `thinkingBudget` ke -1 akan mengaktifkan **penalaran dinamis**, yang berarti model akan menyesuaikan anggaran berdasarkan kompleksitas permintaan.
+event: step.stop
+data: {"index":0,"event_type":"step.stop"}
 
-| Model | Setelan default (Anggaran penalaran tidak ditetapkan) | Rentang | Nonaktifkan penalaran | Aktifkan penalaran dinamis |
-| --- | --- | --- | --- | --- |
-| **2.5 Pro** | Penalaran dinamis | `128` hingga `32768` | T/A: Tidak dapat menonaktifkan penalaran | `thinkingBudget = -1` (Default) |
-| **2.5 Flash** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
-| **2.5 Flash Preview** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
-| **2.5 Flash Lite** | Model tidak berpikir | `512` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **2.5 Flash Lite Preview** | Model tidak berpikir | `512` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **Robotics-ER 1.6 Preview** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
-| **2.5 Flash Live Native Audio Preview (09-2025)** | Penalaran dinamis | `0` hingga `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (Default) |
+event: step.start
+data: {"index":1,"step":{"content":[{"text":"Based on the clues provided, here","type":"text"}],"type":"model_output"},"event_type":"step.start"}
+
+event: step.delta
+data: {"index":1,"delta":{"text":" is the answer to your question...","type":"text"},"event_type":"step.delta"}
+
+event: step.stop
+data: {"index":1,"event_type":"step.stop"}
+
+event: interaction.completed
+data: {"interaction":{"id":"v1_xxx","status":"completed","usage":{"total_tokens":530,"total_input_tokens":62,"total_output_tokens":171,"total_thought_tokens":297}},"event_type":"interaction.completed"}
+
+event: done
+data: [DONE]
+```
+
+## 控制思考
+
+Gemini 模型預設會進行動態思考，根據要求的複雜程度自動調整推論量。您可以使用 `thinking_level` 參數控制這項行為。
+
+| 模型 | 預設思考 | 支援的等級 |
+| --- | --- | --- |
+| gemini-3.1-pro-preview | 開啟 (高) | 低、中、高 |
+| gemini-3-flash-preview | 開啟 (高) | 低、中、高 |
+| gemini-3-pro-preview | 開啟 (高) | 低、高 |
+| gemini-3.5-flash | 開啟 (媒介) | 低、中、高 |
+| gemini-2.5-pro | 開啟 | 低、中、高 |
+| gemini-2.5-flash | 開啟 | 低、中、高 |
+| gemini-2.5-flash-lite | 關閉 | 低、中、高 |
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
-response = client.models.generate_content(
-    model="gemini-2.5-flash",
-    contents="Provide a list of 3 famous physicists and their key contributions",
-    config=types.GenerateContentConfig(
-        thinking_config=types.ThinkingConfig(thinking_budget=1024)
-        # Turn off thinking:
-        # thinking_config=types.ThinkingConfig(thinking_budget=0)
-        # Turn on dynamic thinking:
-        # thinking_config=types.ThinkingConfig(thinking_budget=-1)
-    ),
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Provide a list of 3 famous physicists and their key contributions",
+    generation_config={
+        "thinking_level": "low"
+    }
 )
-
-print(response.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -558,194 +343,95 @@ print(response.text)
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: "Provide a list of 3 famous physicists and their key contributions",
-    config: {
-      thinkingConfig: {
-        thinkingBudget: 1024,
-        // Turn off thinking:
-        // thinkingBudget: 0
-        // Turn on dynamic thinking:
-        // thinkingBudget: -1
-      },
-    },
-  });
-
-  console.log(response.text);
-}
-
-main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "google.golang.org/genai"
-  "os"
-)
-
-func main() {
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  thinkingBudgetVal := int32(1024)
-
-  contents := genai.Text("Provide a list of 3 famous physicists and their key contributions")
-  model := "gemini-2.5-flash"
-  resp, _ := client.Models.GenerateContent(ctx, model, contents, &genai.GenerateContentConfig{
-    ThinkingConfig: &genai.ThinkingConfig{
-      ThinkingBudget: &thinkingBudgetVal,
-      // Turn off thinking:
-      // ThinkingBudget: int32(0),
-      // Turn on dynamic thinking:
-      // ThinkingBudget: int32(-1),
-    },
-  })
-
-fmt.Println(resp.Text())
-}
+const interaction = await client.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Provide a list of 3 famous physicists and their key contributions",
+    generation_config: {
+        thinking_level: "low"
+    }
+});
+console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent" \
--H "x-goog-api-key: $GEMINI_API_KEY" \
--H 'Content-Type: application/json' \
--X POST \
--d '{
-  "contents": [
-    {
-      "parts": [
-        {
-          "text": "Provide a list of 3 famous physicists and their key contributions"
-        }
-      ]
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Provide a list of 3 famous physicists and their key contributions",
+    "generation_config": {
+      "thinking_level": "low"
     }
-  ],
-  "generationConfig": {
-    "thinkingConfig": {
-          "thinkingBudget": 1024
-    }
-  }
-}'
+  }'
 ```
 
-Bergantung pada perintah, model mungkin meluap atau kekurangan anggaran token.
+## 想法簽名
 
-## Tanda tangan penalaran
+思維簽章是模型內部推理過程的加密表示法。在多輪對話中，必須維持推論的連貫性。
 
-Gemini API bersifat stateless, sehingga model memperlakukan setiap permintaan API secara independen dan tidak memiliki akses ke konteks penalaran dari giliran sebelumnya dalam interaksi multi-giliran.
+與 `generateContent` API 相比，Interactions API 可大幅簡化處理想法簽章的程序。
 
-Untuk mengaktifkan pemeliharaan konteks penalaran di seluruh interaksi multi-giliran, Gemini menampilkan tanda tangan penalaran, yang merupakan representasi terenkripsi dari proses penalaran internal model.
+### 有狀態模式 (建議)
 
-- **Model Gemini 2.5** menampilkan tanda tangan penalaran saat penalaran diaktifkan dan
-  permintaan menyertakan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#thinking),
-  khususnya [deklarasi fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#step-2).
-- **Model Gemini 3** dapat menampilkan tanda tangan penalaran untuk semua jenis [bagian](https://ai.google.dev/api/caching?hl=id#Part).
-  Sebaiknya selalu teruskan semua tanda tangan seperti yang diterima, tetapi hal ini *diperlukan* untuk tanda tangan panggilan fungsi. Baca halaman
-  [Tanda Tangan Penalaran](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=id) untuk
-  mempelajari lebih lanjut.
+根據預設，在有狀態模式下使用 Interactions API 時 (方法是設定 `store: true` 並在後續回合中傳遞 `previous_interaction_id`)，伺服器會自動管理對話狀態，包括所有想法區塊和簽章。在這個模式下，您不需要對簽章採取任何行動。這些作業完全在伺服器端處理。
 
-Batasan penggunaan lainnya yang perlu dipertimbangkan dengan panggilan fungsi mencakup:
+### 無狀態模式
 
-- Tanda tangan ditampilkan dari model dalam bagian lain dalam respons, misalnya panggilan fungsi atau bagian teks.
-  [Teruskan seluruh respons](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#step-4)
-  dengan semua bagian kembali ke model pada giliran berikutnya.
-- Jangan menggabungkan bagian dengan tanda tangan.
-- Jangan menggabungkan satu bagian dengan tanda tangan dengan bagian lain tanpa tanda tangan.
+如果您自行管理對話狀態 (無狀態模式)，並在每個要求中傳遞完整的輸入和輸出記錄：
 
-## Harga
+- 您**必須**一律重新傳送所有 `thought` 區塊，且內容必須與模型傳送的完全一致。
+- 請**勿**從記錄中移除或修改想法方塊，因為這些方塊包含模型繼續推論所需的簽章。
+- 在工作階段中切換模型時，您仍應重新傳送先前模型的思考區塊。後端會管理相容性。
 
-Saat penalaran diaktifkan, harga respons adalah jumlah token output dan token penalaran. Anda dapat memperoleh jumlah total token penalaran yang dihasilkan dari kolom `thoughtsTokenCount`.
+## 定價
+
+開啟思考功能後，回覆價格會是輸出詞元和思考詞元的總和。您可以從 `total_thought_tokens` 欄位取得產生的思考權杖總數。
 
 ### Python
 
 ```
-# ...
-print("Thoughts tokens:", response.usage_metadata.thoughts_token_count)
-print("Output tokens:", response.usage_metadata.candidates_token_count)
+print("Thoughts tokens:", interaction.usage.total_thought_tokens)
+print("Output tokens:", interaction.usage.total_output_tokens)
 ```
 
 ### JavaScript
 
 ```
-// ...
-console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
-console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
+console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
+console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-### Go
+思考模型會生成完整想法，提升最終回覆的品質，然後輸出[摘要](#summaries)，深入瞭解思考過程。即使 API 只會輸出摘要，但計費依據仍是模型需要產生的完整思考權杖。
 
-```
-// ...
-fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
-fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
-```
+如要進一步瞭解權杖，請參閱「[權杖計數](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)」指南。
 
-Model penalaran menghasilkan penalaran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](#summaries) output untuk memberikan insight tentang proses penalaran. Jadi, harga didasarkan pada token penalaran lengkap yang perlu dihasilkan model untuk membuat ringkasan, meskipun hanya ringkasan yang dihasilkan dari API.
+## 最佳做法
 
-Anda dapat mempelajari token lebih lanjut di [panduan Penghitungan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id).
+請按照下列指南，有效運用思考模型。
 
-## Praktik terbaik
+- **檢閱推論**：分析想法摘要，瞭解失敗原因並改善提示。
+- **控管思考預算**：提示模型減少思考，以節省詞元。
+- **簡單工作**：使用低思考量功能擷取事實或分類 (例如「DeepMind 在哪裡成立？」)。
+- **中等難度的工作**：使用預設的思考方式比較概念或進行創意推理 (例如比較電動車和油電混合車)。
+- **複雜工作**：使用最高思考量進行進階程式設計、數學或多步驟規劃 (例如解決 AIME 數學問題)。
 
-Bagian ini mencakup beberapa panduan untuk menggunakan model penalaran secara efisien.
-Seperti biasa, mengikuti [panduan perintah dan praktik terbaik](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id) kami akan memberikan hasil terbaik.
+## 後續步驟
 
-### Proses debug dan pengarahan
+- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)：基本文字回覆
+- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)：連結至工具
+- [Gemini 3 指南](https://ai.google.dev/gemini-api/docs/gemini-3?hl=zh-tw)：模型專屬功能
 
-- **Tinjau penalaran**: Jika Anda tidak mendapatkan respons yang diharapkan dari model penalaran, Anda dapat menganalisis ringkasan penalaran Gemini dengan cermat.
-  Anda dapat melihat cara model memecah tugas dan mencapai kesimpulannya, serta menggunakan informasi tersebut untuk mengoreksi hasil yang benar.
-- **Berikan Panduan dalam Penalaran**: Jika Anda mengharapkan output yang sangat panjang, sebaiknya berikan panduan dalam perintah untuk membatasi
-  [jumlah penalaran](#set-budget) yang digunakan model. Hal ini memungkinkan Anda mencadangkan lebih banyak output token untuk respons.
+提供意見
 
-### Kompleksitas tugas
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-- **Tugas Mudah (Penalaran dapat DINONAKTIFKAN):** Untuk permintaan sederhana yang tidak memerlukan penalaran kompleks, seperti pengambilan atau klasifikasi fakta, penalaran tidak diperlukan. Contohnya mencakup:
-  - "Di mana DeepMind didirikan?"
-  - "Apakah email ini meminta rapat atau hanya memberikan informasi?"
-- **Tugas Sedang (Default/Beberapa Penalaran):** Banyak permintaan umum yang diuntungkan dari pemrosesan langkah demi langkah atau pemahaman yang lebih mendalam. Gemini dapat menggunakan kemampuan penalaran secara fleksibel untuk tugas seperti:
-  - Membuat analogi fotosintesis dan tumbuh dewasa.
-  - Membandingkan dan membedakan mobil listrik dan mobil hybrid.
-- **Tugas Sulit (Kemampuan Penalaran Maksimum):** Untuk tantangan yang benar-benar kompleks, seperti menyelesaikan soal matematika yang kompleks atau tugas coding, sebaiknya tetapkan anggaran penalaran yang tinggi. Jenis tugas ini mengharuskan model untuk menggunakan kemampuan penalaran dan perencanaan penuh, yang sering kali melibatkan banyak langkah internal sebelum memberikan jawaban. Contohnya mencakup:
-  - Menyelesaikan soal 1 di AIME 2025: Temukan jumlah semua basis bilangan bulat b > 9 untuk
-    yang 17b adalah pembagi 97b.
-  - Menulis kode Python untuk aplikasi web yang memvisualisasikan data pasar saham real-time, termasuk autentikasi pengguna. Buat seefisien mungkin.
+上次更新時間：2026-06-24 (世界標準時間)。
 
-## Model, alat, dan kemampuan yang didukung
+想進一步說明嗎？
 
-Fitur penalaran didukung di semua model seri 3 dan 2.5.
-Anda dapat menemukan semua kemampuan model di
-[halaman ringkasan model](https://ai.google.dev/gemini-api/docs/models?hl=id).
-
-Model penalaran berfungsi dengan semua alat dan kemampuan Gemini. Hal ini memungkinkan model berinteraksi dengan sistem eksternal, menjalankan kode, atau mengakses informasi real-time, yang menggabungkan hasilnya ke dalam penalaran dan respons akhir.
-
-Anda dapat mencoba contoh penggunaan alat dengan model penalaran di [Buku resep penalaran][Colab].
-
-## Apa langkah selanjutnya?
-
-- Cakupan penalaran tersedia di panduan [Kompatibilitas OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=id#thinking).
-
-[Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
-
-Kirim masukan
-
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
-
-Terakhir diperbarui pada 2026-06-19 UTC.
-
-Ada masukan untuk kami?
-
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-19 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-24 (世界標準時間)。"],[],[]]

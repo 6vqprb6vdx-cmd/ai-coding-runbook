@@ -1,87 +1,97 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=pl
-fetched_at: 2026-06-22T06:28:57.310190+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=zh-TW
+fetched_at: 2026-06-29T05:25:39.347068+00:00
+title: "\u7db2\u5740\u80cc\u666f\u8cc7\u8a0a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Prześlij opinię
+提供意見
 
-# Kontekst adresu URL
+# 網址背景資訊
 
-Narzędzie kontekstu adresu URL umożliwia przekazywanie modelom dodatkowego kontekstu w postaci adresów URL. Jeśli w żądaniu uwzględnisz adresy URL, model uzyska dostęp do treści z tych stron (o ile nie jest to typ adresu URL wymieniony w [sekcji ograniczeń](#limitations)), aby na ich podstawie tworzyć i ulepszać odpowiedzi.
+網址脈絡工具可讓您以網址形式為模型提供額外脈絡。在要求中加入網址後，模型會存取這些網頁的內容 (只要不是[限制一節](#limitations)中列出的網址類型)，藉此提供更完善的回覆。
 
-Narzędzie kontekstu adresu URL przydaje się w przypadku takich zadań:
+網址脈絡工具適用於下列工作：
 
-- **Wyodrębnianie danych:** pobieranie z wielu adresów URL konkretnych informacji, takich jak ceny, nazwy lub kluczowe wnioski.
-- **Porównywanie dokumentów:** analizuj wiele raportów, artykułów lub plików PDF, aby identyfikować różnice i śledzić trendy.
-- **Synteza i tworzenie treści:** łączenie informacji z kilku adresów URL, aby generować dokładne podsumowania, posty na blogu lub raporty.
-- **Analizowanie kodu i dokumentów:** wskaż repozytorium GitHub lub dokumentację techniczną, aby wyjaśnić kod, wygenerować instrukcje konfiguracji lub odpowiedzieć na pytania.
+- **擷取資料**：從多個網址擷取特定資訊，例如價格、名稱或重要發現。
+- **比較文件**：分析多份報表、文章或 PDF，找出差異並追蹤趨勢。
+- **統整及建立內容**：整合多個來源網址的資訊，生成準確的摘要、網誌文章或報告。
+- **分析程式碼和文件**：指向 GitHub 存放區或技術文件，說明程式碼、生成設定操作說明或回答問題。
 
-Poniższy przykład pokazuje, jak porównać 2 przepisy z różnych witryn.
+以下範例說明如何比較不同網站的兩道食譜。
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
-from google.genai.types import Tool, GenerateContentConfig
 
 client = genai.Client()
-model_id = "gemini-3.5-flash"
-
-tools = [
-  {"url_context": {}},
-]
 
 url1 = "https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592"
 url2 = "https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/"
 
-response = client.models.generate_content(
-    model=model_id,
-    contents=f"Compare the ingredients and cooking times from the recipes at {url1} and {url2}",
-    config=GenerateContentConfig(
-        tools=tools,
-    )
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input=f"Compare the ingredients and cooking times from the recipes at {url1} and {url2}",
+    tools=[{"type": "url_context"}]
 )
 
-for each in response.candidates[0].content.parts:
-    print(each.text)
-
-# For verification, you can inspect the metadata to see which URLs the model retrieved
-print(response.candidates[0].url_context_metadata)
+# Print the model's text response and its source annotations
+for step in interaction.steps:
+    if step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print(content_block.text)
+                if content_block.annotations:
+                    print("\nSources:")
+                    for annotation in content_block.annotations:
+                        if annotation.type == "url_citation":
+                            print(f"  - {annotation.title}: {annotation.url}")
 ```
 
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
 async function main() {
-  const response = await ai.models.generateContent({
+  const interaction = await client.interactions.create({
     model: "gemini-3.5-flash",
-    contents: [
-        "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
-    ],
-    config: {
-      tools: [{urlContext: {}}],
-    },
+    input: "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
+    tools: [{ type: "url_context" }]
   });
-  console.log(response.text);
 
-  // For verification, you can inspect the metadata to see which URLs the model retrieved
-  console.log(response.candidates[0].urlContextMetadata)
+  // Print the model's text response and its source annotations
+  for (const step of interaction.steps) {
+    if (step.type === 'model_output') {
+      for (const contentBlock of step.content) {
+        if (contentBlock.type === 'text') {
+          console.log(contentBlock.text);
+          if (contentBlock.annotations) {
+            console.log("\nSources:");
+            for (const annotation of contentBlock.annotations) {
+              if (annotation.type === 'url_citation') {
+                console.log(`  - ${annotation.title}: ${annotation.url}`);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 await main();
@@ -90,94 +100,80 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+# Specifies the API revision to avoid breaking changes when they become default
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-      "contents": [
-          {
-              "parts": [
-                  {"text": "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/"}
-              ]
-          }
-      ],
-      "tools": [
-          {
-              "url_context": {}
-          }
-      ]
-  }' > result.json
-
-cat result.json
+      "model": "gemini-3.5-flash",
+      "input": "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
+      "tools": [{"type": "url_context"}]
+  }'
 ```
 
-## Jak to działa
+## 運作方式
 
-Narzędzie Kontekst adresu URL korzysta z dwuetapowego procesu pobierania, aby zachować równowagę między szybkością, kosztem i dostępem do aktualnych danych. Gdy podasz adres URL, narzędzie najpierw spróbuje pobrać treść z wewnętrznej pamięci podręcznej indeksu. Pełni funkcję wysoce zoptymalizowanej pamięci podręcznej. Jeśli adres URL nie jest dostępny w indeksie (np. jeśli jest to bardzo nowa strona), narzędzie automatycznie przełącza się na pobieranie wersji opublikowanej.
-Bezpośrednio uzyskuje dostęp do adresu URL, aby pobrać jego zawartość w czasie rzeczywistym.
+網址內容工具採用兩步驟的擷取程序，兼顧速度、成本和最新資料存取權。提供網址後，這項工具會先嘗試從內部索引快取擷取內容。這可做為經過高度最佳化的快取。如果網址未編入索引 (例如網頁剛發布)，工具會自動改為即時擷取。這項工具會直接存取網址，即時擷取內容。
 
-## Łączenie z innymi narzędziami
+## 與其他工具搭配使用
 
-Narzędzie kontekstu adresu URL możesz łączyć z innymi narzędziami, aby tworzyć bardziej zaawansowane
-przepływy pracy.
+您可以將網址內容工具與其他工具結合，建立功能更強大的工作流程。
 
-[Modele Gemini 3](#supported-models) obsługują łączenie wbudowanych narzędzi (takich jak kontekst adresu URL) z narzędziami niestandardowymi (wywoływanie funkcji). Więcej informacji znajdziesz na stronie [kombinacje narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+[Gemini 3 模型](#supported-models)支援結合內建工具 (例如網址脈絡) 和自訂工具 (函式呼叫)。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
 
-### Powiązanie ze źródłem informacji przy użyciu wyszukiwarki
+### 以搜尋結果為基礎
 
-Gdy włączone są zarówno kontekst adresu URL, jak i [powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl), model może korzystać z funkcji wyszukiwania, aby znajdować w internecie odpowiednie informacje, a następnie używać narzędzia kontekstu adresu URL, aby lepiej zrozumieć znalezione strony. To podejście jest przydatne w przypadku promptów, które wymagają zarówno szerokiego wyszukiwania, jak i dogłębnej analizy konkretnych stron.
+同時啟用網址脈絡和 [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)後，模型就能使用搜尋功能在網路上尋找相關資訊，然後使用網址脈絡工具深入瞭解找到的網頁。這種做法非常適合需要廣泛搜尋，以及深入分析特定網頁的提示。
 
 ### Python
 
 ```
+# This will only work for SDK newer than 2.0.0
 from google import genai
-from google.genai.types import Tool, GenerateContentConfig, GoogleSearch, UrlContext
 
 client = genai.Client()
-model_id = "gemini-3.5-flash"
 
-tools = [
-      {"url_context": {}},
-      {"google_search": {}}
-  ]
-
-response = client.models.generate_content(
-    model=model_id,
-    contents="Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
-    config=GenerateContentConfig(
-        tools=tools,
-    )
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
+    tools=[
+        {"type": "url_context"},
+        {"type": "google_search"}
+    ]
 )
 
-for each in response.candidates[0].content.parts:
-    print(each.text)
-# get URLs retrieved for context
-print(response.candidates[0].url_context_metadata)
+for step in interaction.steps:
+    if step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print(content_block.text)
 ```
 
 ### JavaScript
 
 ```
+// This will only work for SDK newer than 2.0.0
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
 async function main() {
-  const response = await ai.models.generateContent({
+  const interaction = await client.interactions.create({
     model: "gemini-3.5-flash",
-    contents: [
-        "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
-    ],
-    config: {
-      tools: [
-        {urlContext: {}},
-        {googleSearch: {}}
-        ],
-    },
+    input: "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
+    tools: [
+      { type: "url_context" },
+      { type: "google_search" }
+    ]
   });
-  console.log(response.text);
-  // To get URLs retrieved for context
-  console.log(response.candidates[0].urlContextMetadata)
+
+  for (const step of interaction.steps) {
+    if (step.type === 'model_output') {
+      for (const contentBlock of step.content) {
+        if (contentBlock.type === 'text') console.log(contentBlock.text);
+      }
+    }
+  }
 }
 
 await main();
@@ -186,145 +182,96 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+# Specifies the API revision to avoid breaking changes when they become default
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-      "contents": [
-          {
-              "parts": [
-                  {"text": "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute."}
-              ]
-          }
-      ],
+      "model": "gemini-3.5-flash",
+      "input": "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
       "tools": [
-          {
-              "url_context": {}
-          },
-          {
-              "google_search": {}
-          }
+          {"type": "url_context"},
+          {"type": "google_search"}
       ]
-  }' > result.json
-
-cat result.json
+  }'
 ```
 
-## Interpretowanie odpowiedzi
+## 瞭解回覆內容
 
-Gdy model używa narzędzia kontekstu URL, odpowiedź zawiera obiekt `url_context_metadata`. Ten obiekt zawiera listę adresów URL, z których model pobrał treść, oraz stan każdej próby pobrania, co jest przydatne do weryfikacji i debugowania.
+模型使用網址情境工具時，文字回覆會包含文字內容區塊的內嵌 `url_citation` 註解。每項註解都會將回應文字的片段 (透過 `start_index` 和 `end_index`) 連結至衍生來源網址。這是應用程式中顯示引文的主要方式，請參閱[上方的主要範例](#get-started)，瞭解如何擷取引文。
 
-Oto przykład tej części odpowiedzi (dla zwięzłości pominięto niektóre jej fragmenty):
+回應中也會納入 `url_context_result` 步驟，其中含有每個網址擷取嘗試的中繼資料 (狀態、擷取的網址)。這項功能主要用於偵錯。
+
+### 安全檢查
+
+系統會對網址執行內容審查檢查，確認網址符合安全標準。如果網址未通過這項檢查，對應的 `url_context_result` 步驟會顯示 `status` `"unsafe"`。
+
+### 符記數量
+
+系統會將從提示中指定網址擷取的內容，計為輸入權杖的一部分。您可以在互動的 `usage` 物件中查看權杖數量。範例如下：
 
 ```
-{
-  "candidates": [
-    {
-      "content": {
-        "parts": [
-          {
-            "text": "... \n"
-          }
-        ],
-        "role": "model"
-      },
-      ...
-      "url_context_metadata": {
-        "url_metadata": [
-          {
-            "retrieved_url": "https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592",
-            "url_retrieval_status": "URL_RETRIEVAL_STATUS_SUCCESS"
-          },
-          {
-            "retrieved_url": "https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
-            "url_retrieval_status": "URL_RETRIEVAL_STATUS_SUCCESS"
-          }
-        ]
-      }
-    }
-  ]
+'usage': {
+  'output_tokens': 45,
+  'input_tokens': 27,
+  'input_tokens_details': [{'modality': 'TEXT', 'token_count': 27}],
+  'thoughts_tokens': 31,
+  'tool_use_input_tokens': 10309,
+  'tool_use_input_tokens_details': [{'modality': 'TEXT', 'token_count': 10309}],
+  'total_tokens': 10412
 }
 ```
 
-Szczegółowe informacje o tym obiekcie znajdziesz w [dokumentacji interfejsu API `UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=pl#UrlContextMetadata).
+每個權杖的價格取決於使用的模型，詳情請參閱[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)頁面。
 
-### Kontrole bezpieczeństwa
+## 支援的模型
 
-System sprawdza adres URL pod kątem moderacji treści, aby potwierdzić, że spełnia on standardy bezpieczeństwa. Jeśli podany przez Ciebie adres URL nie przejdzie tej weryfikacji, otrzymasz `url_retrieval_status` `URL_RETRIEVAL_STATUS_UNSAFE`.
-
-### Liczba tokenów
-
-Treści pobrane z adresów URL podanych w prompcie są liczone jako tokeny wejściowe. Liczbę tokenów w prompcie i wykorzystanie narzędzi możesz sprawdzić w obiekcie [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=pl#UsageMetadata)
-w danych wyjściowych modelu. Oto przykładowe dane wyjściowe:
-
-```
-'usage_metadata': {
-  'candidates_token_count': 45,
-  'prompt_token_count': 27,
-  'prompt_tokens_details': [{'modality': <MediaModality.TEXT: 'TEXT'>,
-    'token_count': 27}],
-  'thoughts_token_count': 31,
-  'tool_use_prompt_token_count': 10309,
-  'tool_use_prompt_tokens_details': [{'modality': <MediaModality.TEXT: 'TEXT'>,
-    'token_count': 10309}],
-  'total_token_count': 10412
-  }
-```
-
-Cena za token zależy od użytego modelu. Więcej informacji znajdziesz na stronie [cennika](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
-
-## Obsługiwane modele
-
-| Model | Kontekst adresu URL |
+| 模型 | 網址背景資訊 |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) | ✔️ |
-| [Gemini 3.1 Pro (wersja testowa)](https://ai.google.dev/gemini-api/docs/gemini-3.1-pro-preview?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3 Flash (wersja testowa)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-tw) | ✔️ |
+| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ |
 
-## Sprawdzone metody
+## 最佳做法
 
-- **Podaj konkretne adresy URL:** aby uzyskać najlepsze wyniki, podaj bezpośrednie adresy URL treści, które mają być analizowane przez model. Model pobierze tylko treści z podanych adresów URL, a nie z linków zagnieżdżonych.
-- **Sprawdź dostępność:** upewnij się, że podane adresy URL nie prowadzą do stron, które wymagają logowania lub są umieszczone w sekcji płatnej.
-- **Używaj pełnego adresu URL:** podaj pełny adres URL, w tym protokół (np. https://www.google.com zamiast google.com).
+- **提供具體網址**：為獲得最佳結果，請提供您希望模型分析的內容的直接網址。模型只會從您提供的網址擷取內容，不會從巢狀連結擷取任何內容。
+- **檢查存取方式**：確認提供的網址不會導向需要登入或位於付費牆後的網頁。
+- **使用完整網址**：請提供完整網址，包括通訊協定 (例如 https://www.google.com，而不是只有 google.com)。
 
-## Ograniczenia
+## 限制
 
-- Wywoływanie funkcji: korzystanie z narzędzi (kontekst adresu URL, powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google itp.) z wywoływaniem funkcji jest obecnie nieobsługiwane.
-- Limit żądań: narzędzie może przetworzyć maksymalnie 20 adresów URL w jednym żądaniu.
-- Rozmiar treści URL: maksymalny rozmiar treści pobranych z jednego adresu URL to 34 MB.
-- Publiczna dostępność: adresy URL muszą być publicznie dostępne w internecie.
-  Adresy hosta lokalnego (np. localhost, 127.0.0.1), sieci prywatne i usługi tunelowania (np. ngrok, pinggy) nie są obsługiwane.
-- Tylko interfejs Gemini API: kontekst adresu URL jest dostępny tylko w interfejsie Gemini API, a nie na platformie Gemini Enterprise Agent Platform.
+- 要求限制：這項工具每次最多可處理 20 個網址。
+- 網址內容大小：從單一網址擷取的內容大小上限為 34 MB。
+- 公開存取：網址必須可在網路上公開存取。
+  系統不支援本機主機位址 (例如 localhost、127.0.0.1)、私人網路和通道服務 (例如 ngrok、pinggy)。
+- 僅限 Gemini API：網址脈絡僅適用於 Gemini API，不適用於 Gemini Enterprise Agent Platform。
 
-### Obsługiwane i nieobsługiwane typy treści
+### 支援及不支援的內容類型
 
-Narzędzie może wyodrębniać treści z adresów URL, które zawierają te typy treści:
+這項工具可從下列內容類型的網址中擷取內容：
 
-- Tekst (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- Obraz (image/png, image/jpeg, image/bmp, image/webp)
+- 文字 (text/html、application/json、text/plain、text/xml、text/css、
+  text/javascript、text/csv、text/rtf)
+- 圖片 (image/png、image/jpeg、image/bmp、image/webp)
 - PDF (application/pdf)
 
-Te typy treści **nie są** obsługiwane:
+系統「不」支援下列內容類型：
 
-- Treści płatne
-- filmy w YouTube (więcej informacji o przetwarzaniu adresów URL z YouTube znajdziesz w sekcji [rozumienie filmów](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl#youtube));
-- pliki Google Workspace, takie jak dokumenty lub arkusze kalkulacyjne Google;
-- Pliki audio i wideo
+- 付費牆內容
+- YouTube 影片 (請參閱[影片理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw#youtube)，瞭解如何處理 YouTube 網址)
+- Google Workspace 檔案，例如 Google 文件或試算表
+- 影片和音訊檔案
 
-## Co dalej?
+提供意見
 
-- Więcej przykładów znajdziesz w [książce kucharskiej dotyczącej kontekstu adresu URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=pl#url-context).
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Prześlij opinię
+上次更新時間：2026-06-22 (世界標準時間)。
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+想進一步說明嗎？
 
-Ostatnia aktualizacja: 2026-06-19 UTC.
-
-Chcesz przekazać coś jeszcze?
-
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-19 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-22 (世界標準時間)。"],[],[]]

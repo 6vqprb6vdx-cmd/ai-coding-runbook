@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ja
-fetched_at: 2026-06-22T06:24:55.688813+00:00
-title: "Interactions API \u3078\u306e\u79fb\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=hi
+fetched_at: 2026-06-29T05:36:48.487895+00:00
+title: "Interactions API \u092a\u0930 \u092e\u093e\u0907\u0917\u094d\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-# Interactions API への移行
+# Interactions API पर माइग्रेट करना
 
-このガイドでは、`generateContent` API から Interactions API に移行する方法について説明します。
+इस गाइड से, आपको `generateContent` API से Interactions API पर माइग्रेट करने में मदद मिलती है.
 
-Interactions API は、Gemini を使用して構築するための標準インターフェースです。エージェント ワークフロー、サーバーサイドの状態管理、複雑なマルチモーダル、マルチターンの会話に最適化されていますが、シンプルなステートレスのシングルターン リクエストも完全にサポートしています。`generateContent` は引き続き完全にサポートされますが、新規開発には Interactions API をおすすめします。
+Interactions API, Gemini के साथ इंटिग्रेट करने के लिए स्टैंडर्ड इंटरफ़ेस है. इसे एजेंटिक वर्कफ़्लो, सर्वर-साइड स्टेट मैनेजमेंट, और जटिल मल्टी-मोडल, मल्टी-टर्न बातचीत के लिए ऑप्टिमाइज़ किया गया है. साथ ही, यह बिना स्टेट वाले सिंगल-टर्न के सामान्य अनुरोधों को पूरी तरह से सपोर्ट करता है. `generateContent` को पूरी तरह से सपोर्ट किया जाता है. हालांकि, हमारा सुझाव है कि नए डेवलपमेंट के लिए, Interactions API का इस्तेमाल करें.
 
-### 移行の理由
+### माइग्रेट क्यों करें?
 
-Interactions API は、Gemini を使用して構築するための、より構造化された強力な方法を提供します。
+Interactions API, Gemini के साथ इंटिग्रेट करने का ज़्यादा स्ट्रक्चर्ड और बेहतर तरीका है:
 
-- **サーバーサイドの履歴管理**: `previous_interaction_id` を使用してマルチターンのフローを簡素化します。サーバーはデフォルトで状態を有効にします（`store=true`）。ただし、`store=false` を設定することで、ステートレス動作を選択できます。
-- **実行ステップのオブザーバビリティ**: 型付きステップにより、複雑なフローのデバッグが容易になり、中間イベント（思考や検索ウィジェットなど）の UI をレンダリングできます。
-- **エージェント ワークフロー向けに構築**: 型付き実行ステップを通じて、マルチステップ ツールの使用、オーケストレーション、複雑な推論フローをネイティブにサポートします。
-- **長時間実行タスクとバックグラウンド タスク**: Deep Think や Deep Research などの時間のかかるオペレーションをバックグラウンド プロセスにオフロードできます。`background=true`
+- **सर्वर-साइड इतिहास मैनेजमेंट**: `previous_interaction_id` की मदद से, मल्टी-टर्न फ़्लो को आसान बनाया गया है. सर्वर, डिफ़ॉल्ट रूप से स्टेट को चालू करता है (`store=true`). हालांकि, `store=false` सेट करके, बिना स्टेट वाले व्यवहार को चुना जा सकता है.
+- **ऑब्ज़र्वेबल एक्ज़ीक्यूशन स्टेप**: टाइप किए गए स्टेप की मदद से, जटिल फ़्लो को डीबग करना और इंटरमीडिएट इवेंट (जैसे, थॉट या सर्च विजेट) के लिए यूज़र इंटरफ़ेस (यूआई) रेंडर करना आसान हो जाता है.
+- **एजेंटिक वर्कफ़्लो के लिए बनाया गया है**: टाइप किए गए एक्ज़ीक्यूशन स्टेप की मदद से, मल्टी-स्टेप टूल के इस्तेमाल, ऑर्केस्ट्रेशन, और जटिल रीज़निंग फ़्लो के लिए नेटिव सपोर्ट.
+- **लंबे समय तक चलने वाले और बैकग्राउंड टास्क**: Deep Think और Deep Research जैसी समय लेने वाली कार्रवाइयों को बैकग्राउंड प्रोसेस में ऑफ़लोड करने की सुविधा. `background=true`
 
-## 基本的な入出力
+## सामान्य इनपुट/आउटपुट
 
-このセクションでは、シンプルなテキスト生成リクエストを移行する方法について説明します。
+इस सेक्शन में, टेक्स्ट जनरेट करने के सामान्य अनुरोध को माइग्रेट करने का तरीका बताया गया है.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` API はステートレスで、レスポンスを直接返します。レスポンス構造は、出力を `candidates` のリストでラップします。各リストには、解析する `parts` のリストを含む `content` が含まれています。
+`generateContent` API, बिना स्टेट वाला है और सीधे जवाब देता है. जवाब का स्ट्रक्चर, आउटपुट को `candidates` की सूची में रैप करता है. हर कैंडिडेट में, पार्स करने के लिए `parts` की सूची के साथ `content` होता है.
 
 ### Python
 
@@ -105,9 +105,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-Interactions API は、`steps` タイムラインを含む保存されたインタラクション リソースを返します。`steps` 配列を手動で調べて中間イベントを見つけることもできますが、Google GenAI SDK は、返された `Interaction` オブジェクトに便利なプロパティを直接提供して、最終的な出力にアクセスできるようにします。
+Interactions API, `steps` टाइमलाइन के साथ, सेव किया गया इंटरैक्शन रिसॉर्स दिखाता है. इंटरमीडिएट इवेंट ढूंढने के लिए, `steps` ऐरे की जांच मैन्युअल तरीके से की जा सकती है. हालांकि, Google GenAI SDK टूल, फ़ाइनल आउटपुट को ऐक्सेस करने के लिए, दिखाए गए `Interaction` ऑब्जेक्ट पर सीधे तौर पर सुविधाजनक प्रॉपर्टी उपलब्ध कराते हैं.
 
-最も一般的な便利なプロパティは **`.output_text`** （文字列）で、モデルのレスポンスの末尾にある連続する `TextContent` ブロックを自動的に抽出して結合します。これはシンプルなレスポンスには最適ですが、テキスト以外のコンテンツ（思考、画像、音声、ツール呼び出しなど）で区切られた以前のテキスト ブロックは含まれません。複雑なマルチモーダル レスポンスやインターリーブされたマルチモーダル レスポンスの場合は、代わりに `steps` を手動で反復処理する必要があります。
+सबसे आम सुविधाजनक प्रॉपर्टी **`.output_text`** (स्ट्रिंग) है. यह मॉडल के जवाब के आखिर में, लगातार `TextContent` ब्लॉक को अपने-आप एक्सट्रैक्ट और जॉइन करती है. यह सामान्य जवाबों के लिए पूरी तरह से काम करती है. हालांकि, इसमें टेक्स्ट के पहले वाले ब्लॉक शामिल नहीं होते. ये ब्लॉक, नॉन-टेक्स्ट कॉन्टेंट (जैसे, थॉट, इमेज, ऑडियो या टूल कॉल) से अलग किए जाते हैं. जटिल या इंटरलीव्ड मल्टीमोडल जवाबों के लिए, आपको इसके बजाय `steps` पर मैन्युअल तरीके से इटरेट करना होगा.
 
 ### Python
 
@@ -179,17 +179,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## マルチターンの会話
+## मल्टी-टर्न बातचीत
 
-Interactions API はデフォルトでインタラクションを保存するため、マルチターンの会話のサーバーサイドの状態管理が可能になります。
+Interactions API, डिफ़ॉल्ट रूप से इंटरैक्शन सेव करता है. इससे, मल्टी-टर्न बातचीत के लिए सर्वर-साइड स्टेट मैनेजमेंट की सुविधा मिलती है.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、`contents` 配列またはクライアントサイドのチャット ヘルパーを使用して、会話履歴を手動で管理する必要があります。
+`generateContent` में, आपको `contents` ऐरे या क्लाइंट-साइड चैट हेल्पर का इस्तेमाल करके, बातचीत के इतिहास को मैन्युअल तरीके से मैनेज करना होगा.
 
 ### Python
 
-**チャット ヘルパーを使用する（推奨）**
+**चैट हेल्पर का इस्तेमाल करना (इसका सुझाव दिया जाता है)**
 
 ```
 from google import genai
@@ -204,7 +204,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**履歴を手動で管理する**
+**इतिहास को मैन्युअल तरीके से मैनेज करना**
 
 ```
 from google import genai
@@ -232,7 +232,7 @@ print(response.text)
 
 ### JavaScript
 
-**チャット ヘルパーを使用する（推奨）**
+**चैट हेल्पर का इस्तेमाल करना (इसका सुझाव दिया जाता है)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -247,7 +247,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**履歴を手動で管理する**
+**इतिहास को मैन्युअल तरीके से मैनेज करना**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -299,9 +299,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API はサーバーで状態を管理します。`previous_interaction_id` を参照して会話を続けます。
+Interactions API, सर्वर पर स्टेट को मैनेज करता है. `previous_interaction_id` का रेफ़रंस देकर, बातचीत जारी रखी जा सकती है.
 
 ### Python
 
@@ -394,13 +394,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## マルチモーダル入力
+## मल्टीमोडल इनपुट
 
-どちらの API もマルチモーダル入力（テキスト、画像、動画など）をサポートしています。
+दोनों एपीआई, मल्टीमोडल इनपुट (टेक्स्ट, इमेज, वीडियो वगैरह) को सपोर्ट करते हैं.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、`contents` 配列内で `parts` のリストを渡します。レスポンスは、最初の候補の `parts` に出力を返します。
+`generateContent` में, `contents` ऐरे में `parts` की सूची पास की जाती है. जवाब, पहले कैंडिडेट के `parts` में आउटपुट दिखाता है.
 
 ### Python
 
@@ -463,9 +463,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API では、配列を `input` フィールドに渡します。出力コンテンツを取得するには、タイムラインで `model_output` ステップを見つけます。
+Interactions API में, `input` फ़ील्ड में एक ऐरे पास किया जाता है. टाइमलाइन में `model_output` स्टेप ढूंढकर, आउटपुट कॉन्टेंट वापस पाया जा सकता है.
 
 ### Python
 
@@ -573,13 +573,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 構造化出力
+## स्ट्रक्चर्ड आउटपुट
 
-特定のスキーマに一致する JSON をモデルに返させるには、レスポンス形式を構成します。
+मॉडल से किसी खास स्कीमा से मेल खाने वाला JSON पाने के लिए, जवाब का फ़ॉर्मैट कॉन्फ़िगर करें.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、`generationConfig` オブジェクト内にネストされた `response_format` フィールドを使用して出力形式を構成します。
+`generateContent` में, `generationConfig` ऑब्जेक्ट में नेस्ट किए गए `response_format` फ़ील्ड का इस्तेमाल करके, आउटपुट फ़ॉर्मैट कॉन्फ़िगर किया जाता है.
 
 ### Python
 
@@ -661,9 +661,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API では、出力形式の制御が最上位の `response_format` 配列に移動します。
+Interactions API में, आउटपुट फ़ॉर्मैट कंट्रोल, टॉप-लेवल `response_format` ऐरे में चले जाते हैं.
 
 ### Python
 
@@ -775,13 +775,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## マルチモーダル生成
+## मल्टीमोडल जनरेशन
 
-テキスト以外のモダリティ（画像や音声など）でコンテンツを生成する場合、主な違いは、生成されたメディアをレスポンスがどのように構造化するかです。
+टेक्स्ट के अलावा अन्य फ़ॉर्मैट (जैसे, इमेज या ऑडियो) में कॉन्टेंट जनरेट करते समय, मुख्य अंतर यह होता है कि जवाब, जनरेट किए गए मीडिया को कैसे स्ट्रक्चर करता है.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、レスポンスは生成されたメディアを候補の `parts` に直接返します。通常は `inlineData` の base64 データとして返されます。
+`generateContent` में, जवाब, जनरेट किए गए मीडिया को सीधे कैंडिडेट के `parts` में दिखाता है. आम तौर पर, यह `inlineData` में base64 डेटा के तौर पर दिखता है.
 
 ```
 # Response structure concept
@@ -806,9 +806,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API では、生成されたメディアはタイムラインの `model_output` ステップの `content` 配列内の個別のアイテムとして表示され、インタラクションの時系列フローが維持されます。
+Interactions API में, जनरेट किया गया मीडिया, टाइमलाइन में `model_output` स्टेप के `content` ऐरे में अलग-अलग आइटम के तौर पर दिखता है. इससे, इंटरैक्शन का क्रम बना रहता है.
 
 ```
 # Response structure concept
@@ -834,15 +834,15 @@ Interactions API では、生成されたメディアはタイムラインの `m
 }
 ```
 
-これにより、レスポンスの解析は、入力とテキスト出力の処理方法と一貫性が保たれます。すべてがタイムラインのステップです。
+इससे, जवाब को पार्स करने का तरीका, इनपुट और टेक्स्ट आउटपुट को हैंडल करने के तरीके के मुताबिक बना रहता है. टाइमलाइन में हर चीज़ एक स्टेप होती है.
 
-## サーバーサイド ツール
+## सर्वर-साइड टूल
 
-Gemini は、Google 検索のグラウンディングなどの組み込みのサーバーサイド ツールをサポートしています。主な違いは、レスポンスがツールの実行をどのように表すかです。
+Gemini, Google Search grounding जैसे बिल्ट-इन सर्वर-साइड टूल को सपोर्ट करता है. मुख्य अंतर यह है कि जवाब, टूल के एक्ज़ीक्यूशन को कैसे दिखाता है.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、サーバーサイド ツールはほとんど不透明です。ツールを有効にして、別の `groundingMetadata` オブジェクトで最終的な回答を取得します。重要な点として、引用はインラインではありません。`groundingSupports` は文字インデックスを使用して、テキスト セグメントを `groundingChunks` のウェブソースにマッピングします。
+`generateContent` में, सर्वर-साइड टूल ज़्यादातर ओपेक होते हैं. टूल को चालू करने पर, आपको `groundingMetadata` ऑब्जेक्ट के साथ फ़ाइनल जवाब मिलता है. अहम बात यह है कि साइटेशन इनलाइन नहीं होते. `groundingSupports`, `groundingChunks` में टेक्स्ट सेगमेंट को वेब सोर्स पर वापस मैप करने के लिए, वर्ण इंडेक्स का इस्तेमाल करते हैं.
 
 ### Python
 
@@ -950,11 +950,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API では、サーバーサイド ツールはタイムラインの完全な透明性を提供します。API は呼び出しと結果を個別の実行 `steps`（`google_search_call` と `google_search_result`）として記録し、モデルが取得したデータを正確に公開します。
+Interactions API में, सर्वर-साइड टूल, पूरी टाइमलाइन की पारदर्शिता उपलब्ध कराते हैं. एपीआई, कॉल और नतीजे को अलग-अलग एक्ज़ीक्यूशन `steps` (`google_search_call` और `google_search_result`) के तौर पर रिकॉर्ड करता है. इससे यह पता चलता है कि मॉडल ने कौनसा डेटा वापस पाया है.
 
-さらに、API は引用を**インライン** で返します。別のメタデータ オブジェクトからインデックスをマッピングする代わりに、`model_output` ステップ内のテキスト アイテムには、ソースに直接リンクする独自の `annotations` 配列が含まれています。
+इसके अलावा, एपीआई, साइटेशन **इनलाइन** दिखाता है. मेटाडेटा के किसी अलग ऑब्जेक्ट से इंडेक्स को मैप करने के बजाय, `model_output` स्टेप में मौजूद टेक्स्ट आइटम में अपना `annotations` ऐरे होता है. यह ऐरे, सीधे सोर्स से लिंक होता है.
 
 ### Python
 
@@ -1065,13 +1065,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 関数呼び出し
+## फ़ंक्शन कॉल
 
-関数呼び出しと結果の構造も、Steps スキーマに合わせて変更されています。
+फ़ंक्शन कॉल और नतीजों का स्ट्रक्चर भी, Steps स्कीमा के हिसाब से बदल गया है.
 
-### 移行前（`generateContent`）
+### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、レスポンスは候補内の関数呼び出しを返します。
+`generateContent` में, जवाब, कैंडिडेट में फ़ंक्शन कॉल दिखाता है.
 
 ### Python
 
@@ -1205,9 +1205,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-ツール呼び出しと結果は、タイムラインの個別のステップになりました。
+टूल कॉल और नतीजे अब टाइमलाइन में अलग-अलग स्टेप हैं.
 
 ### Python
 
@@ -1392,15 +1392,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## ストリーミング
+## स्ट्रीमिंग
 
-ストリーミングの主な違いは、Interactions API がリクエスト本文で `"stream": true` を使用して同じエンドポイントを使用するのに対し、`generateContent` API では専用のエンドポイント（`:streamGenerateContent`）を呼び出す必要があったことです。
+स्ट्रीमिंग में मुख्य अंतर यह है कि Interactions API, अनुरोध के मुख्य हिस्से में `"stream": true` के साथ एक ही एंडपॉइंट का इस्तेमाल करता है. वहीं, `generateContent` API के लिए, किसी खास एंडपॉइंट (`:streamGenerateContent`) को कॉल करना ज़रूरी था.
 
-また、ストリーミング イベントでは、特殊な型を使用してインタラクションのライフサイクルをモニタリングし、タイムラインに沿って実行ステップを追跡します。
+इसके अलावा, स्ट्रीमिंग इवेंट अब इंटरैक्शन लाइफ़साइकल की निगरानी करने और टाइमलाइन के साथ-साथ एक्ज़ीक्यूशन स्टेप को ट्रैक करने के लिए, खास टाइप का इस्तेमाल करते हैं.
 
-### 移行前（`generateContentStream`）
+### `generateContentStream` का इस्तेमाल करने से पहले
 
-`generateContent` を使用すると、レスポンス チャンクのストリームを使用します。
+`generateContent` की मदद से, जवाब के चंक की स्ट्रीम का इस्तेमाल किया जाता है.
 
 ### Python
 
@@ -1454,9 +1454,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### 移行後（Interactions API）
+### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API では、ストリーミングは Server-Sent Events（SSE）と特殊なデルタ型を使用して、実行ステップを発生時に表現します。
+Interactions API में, स्ट्रीमिंग, Server-Sent Events (एसएसई) और खास डेल्टा टाइप का इस्तेमाल करती है, ताकि एक्ज़ीक्यूशन स्टेप को दिखाया जा सके.
 
 ### Python
 
@@ -1505,7 +1505,7 @@ for await (const event of stream) {
 
 ### REST
 
-# Example SSE stream output
+# एसएसई स्ट्रीम आउटपुट का उदाहरण
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -1526,13 +1526,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### ストリーミング ツールと関数呼び出し
+### स्ट्रीमिंग टूल और फ़ंक्शन कॉल
 
-ストリームでのツールの動作は、`generateContent` から大幅に変更され、よりきめ細かい制御と可視性が提供されるようになりました。
+`generateContent` से `Interactions API` पर माइग्रेट करने के बाद, स्ट्रीम में टूल के काम करने के तरीके में काफ़ी बदलाव आया है. इससे, ज़्यादा बेहतर कंट्रोल और विज़िबिलिटी मिलती है.
 
-#### 移行前（`generateContent`）
+#### `generateContent` का इस्तेमाल करने से पहले
 
-`generateContent` では、ストリーミング関数呼び出しは 1 つのチャンクで完了しました。引数がリアルタイムで生成されるのを確認できなかったため、ハンドラは完全な `functionCall` オブジェクトを確認するだけでした。
+`generateContent` की मदद से, स्ट्रीमिंग फ़ंक्शन कॉल एक ही चंक में पूरी तरह से आ जाते थे. आपको रीयल-टाइम में आर्ग्युमेंट जनरेट होते नहीं दिखते थे. इसलिए, हैंडलर सिर्फ़ `functionCall` ऑब्जेक्ट के पूरा होने की जांच करता था.
 
 ### Python
 
@@ -1596,9 +1596,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### 移行後（Interactions API）
+#### Interactions API का इस्तेमाल करने के बाद
 
-Interactions API は、関数呼び出し引数を `arguments` イベントとして文字単位でストリーミングします。思考、呼び出し、結果、出力など、ツール ライフサイクル全体が、一連の個別のステップとして実行されます。
+Interactions API, `arguments` इवेंट के तौर पर, फ़ंक्शन कॉल आर्ग्युमेंट को एक-एक वर्ण करके स्ट्रीम करता है. टूल का पूरा लाइफ़साइकल — थॉट, कॉल, नतीजा, और आउटपुट — अलग-अलग स्टेप की सीरीज़ के तौर पर दिखता है.
 
 ### Python
 
@@ -1743,12 +1743,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-フィードバックを送信
+सुझाव भेजें
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最終更新日 2026-06-19 UTC。
+आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया.
 
-ご意見をお聞かせください
+क्या आपको हमें और कुछ बताना है?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-19 UTC。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया."],[],[]]

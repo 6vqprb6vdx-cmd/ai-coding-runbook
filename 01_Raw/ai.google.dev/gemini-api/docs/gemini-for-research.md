@@ -1,34 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ja
-fetched_at: 2026-06-22T06:30:48.194214+00:00
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pt-BR
+fetched_at: 2026-06-29T05:28:48.149750+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
 
-# Gemini for Research で発見を加速する
+# Acelere a descoberta com o Gemini para pesquisa
 
-[Gemini API キーを取得する](https://aistudio.google.com/apikey?hl=ja)
+[Gerar uma chave da API Gemini](https://aistudio.google.com/apikey?hl=pt-br)
 
-Gemini モデルは、さまざまな分野の基礎研究を進めるために使用できます。Gemini を調査に活用する方法は次のとおりです。
+Os modelos Gemini podem ser usados para avançar a pesquisa básica em várias disciplinas.
+Confira algumas maneiras de usar o Gemini na sua pesquisa:
 
-- **モデルの出力を分析して制御する**: 詳細な分析を行うために、`CitationMetadata` などのツールを使用して、モデルによって生成されたレスポンス候補を調べることができます。`responseSchema`、`topP`、`topK` などのモデル生成と出力のオプションを構成することもできます。[詳細](https://ai.google.dev/api/generate-content?hl=ja)
-- **マルチモーダル入力**: Gemini は画像、音声、動画を処理できるため、さまざまなエキサイティングな研究分野を開拓できます。[詳細](https://ai.google.dev/gemini-api/docs/vision?hl=ja)
-- **長いコンテキスト機能**: Gemini 3.0 Flash と Pro には 100 万トークンのコンテキスト ウィンドウが搭載されています。[詳細](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)
-- **Grow with Google**: API と Google AI Studio を通じて Gemini モデルにすばやくアクセスし、本番環境のユースケースに活用できます。Google Cloud ベースのプラットフォームをお探しの場合は、Gemini Enterprise Agent Platform で追加のサポート インフラストラクチャを利用できます。
+- **Analisar e controlar as saídas do modelo**: para uma análise mais detalhada, examine um
+  candidato de resposta gerado pelo modelo usando ferramentas como
+  `CitationMetadata`. Também é possível configurar opções para geração e saídas do modelo, como `responseSchema`, `topP` e `topK`. [Saiba mais](https://ai.google.dev/api/generate-content?hl=pt-br).
+- **Entradas multimodais**: o Gemini pode processar imagens, áudio e vídeos, permitindo uma
+  infinidade de direções de pesquisa interessantes. [Saiba mais](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br).
+- **Recursos de contexto longo**: o Gemini 3.0 Flash e Pro vêm com uma janela de contexto de 1 milhão de tokens. [Saiba mais](https://ai.google.dev/gemini-api/docs/long-context?hl=pt-br).
+- **Cresça com o Google**: acesse rapidamente os modelos do Gemini pela API e pelo Google AI
+  Studio para casos de uso de produção. Se você estiver procurando uma plataforma baseada no Google Cloud, a Gemini Enterprise Agent Platform poderá fornecer infraestrutura de suporte adicional.
 
-学術研究を支援し、最先端の研究を推進するため、Google は [Gemini Academic Program](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ja#gemini-academic-program) を通じて、科学者や学術研究者に Gemini API クレジットへのアクセスを提供しています。
+Para apoiar a pesquisa acadêmica e impulsionar a pesquisa de ponta, o Google oferece
+acesso a créditos da API Gemini para cientistas e pesquisadores acadêmicos pelo
+[Programa Acadêmico do Gemini](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=pt-br#gemini-academic-program).
 
-## Gemini を使ってみる
+## Comece a usar o Gemini
 
-Gemini API と Google AI Studio を使用すると、Google の最新モデルの利用を開始し、アイデアをスケーラブルなアプリケーションに変えることができます。
+A API Gemini e o Google AI Studio ajudam você a começar a trabalhar com os modelos mais recentes do Google e a transformar suas ideias em aplicativos escalonáveis.
 
 ### Python
 
@@ -76,36 +83,47 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
    }'
 ```
 
-## 注目の学術関係者
+## Acadêmicos em destaque
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=ja)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=pt-br)
 
-「私たちの研究では、Gemini を視覚言語モデル（VLM）として、さまざまな環境におけるそのエージェントの動作を堅牢性と安全性の観点から調査しています。これまでのところ、VLM エージェントがコンピュータ タスクを実行する際のポップアップ ウィンドウなどの妨害に対する Gemini の堅牢性を評価し、Gemini を活用してソーシャル インタラクション、時間的イベント、動画入力に基づくリスク要因を分析してきました。」
+"Nossa pesquisa investiga o Gemini como um modelo de linguagem visual (VLM, na sigla em inglês) e seus comportamentos agênticos em diversos ambientes, do ponto de vista da robustez e da segurança. Até agora, avaliamos a robustez do Gemini contra distrações, como janelas pop-up, quando os agentes VLM realizam tarefas de computador, e aproveitamos o Gemini para analisar a interação social, eventos temporais e fatores de risco com base na entrada de vídeo."
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=ja)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=pt-br)
 
-Gemini Pro と Flash は、長いコンテキスト ウィンドウを備えており、オープン ボキャブラリー モバイル マニピュレーション プロジェクトである OK-Robot で活用されています。Gemini を使用すると、ロボットの「メモリ」（この場合は、ロボットが長期間の動作中に取得した過去の観測データ）に対して、複雑な自然言語クエリとコマンドを実行できます。Mahi Shafiullah と私は、Gemini を使用して、ロボットが現実世界で実行できるコードにタスクを分解しています。」
+"O Gemini Pro e o Flash, com a janela de contexto longa, têm nos ajudado no OK-Robot, nosso projeto de manipulação móvel de vocabulário aberto. O Gemini permite consultas e comandos complexos de linguagem natural na "memória" do robô: nesse caso, observações anteriores feitas pelo robô durante uma longa duração de operação. Mahi Shafiullah e eu também estamos usando o Gemini para decompor tarefas em códigos que o robô pode executar no mundo real."
 
-## Gemini アカデミック プログラム
+## Programa Acadêmico do Gemini
 
-[サポートされている国](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)の認定学術研究者（教員、スタッフ、博士課程の学生など）は、研究プロジェクトで Gemini API クレジットとより高いレート制限を利用するために申請できます。このサポートにより、科学実験のスループットが向上し、研究が進歩します。
+Pesquisadores acadêmicos qualificados (como professores, funcionários e estudantes de doutorado) em [países
+aceitos](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br) podem se inscrever para receber créditos da API Gemini
+e limites de taxa mais altos para projetos de pesquisa. Esse suporte permite maior capacidade de processamento para experimentos científicos e avanços na pesquisa.
 
-特に、次のセクションの研究分野に関心がありますが、さまざまな科学分野からの応募を歓迎します。
+Estamos particularmente interessados nas áreas de pesquisa na seção a seguir, mas aceitamos inscrições de diversas disciplinas científicas:
 
-- **評価とベンチマーク**: 事実性、安全性、指示の遵守、推論、計画などの分野で強力なパフォーマンス シグナルを提供できる、コミュニティで承認された評価方法。
-- **人類に利益をもたらす科学的発見の加速**: 希少疾患や顧みられない病気、実験生物学、材料科学、持続可能性などの分野を含む、学際的な科学研究における AI の潜在的な応用。
-- **エンボディメントとインタラクション**: 大規模言語モデルを活用して、エンボディド AI、アンビエント インタラクション、ロボティクス、人間とコンピュータのインタラクションの分野における新しいインタラクションを調査します。
-- **新機能**: 推論と計画を強化するために必要な新しいエージェント機能を検討し、推論中に機能を拡張する方法（Gemini Flash の活用など）を検討します。
-- **マルチモーダルなインタラクションと理解**: さまざまなタスクにわたる分析、推論、計画のためのマルチモーダル基盤モデルのギャップと機会を特定します。
+- **Avaliações e comparativos de mercado**: métodos de avaliação aprovados pela comunidade que podem fornecer um indicador de desempenho forte em áreas como veracidade, segurança, instruções, raciocínio e planejamento.
+- **Acelerar a descoberta científica para beneficiar a humanidade**: possíveis
+  aplicações de IA em pesquisas científicas interdisciplinares, incluindo áreas
+  como doenças raras e negligenciadas, biologia experimental, ciência dos materiais
+  e sustentabilidade.
+- **Incorporação e interações**: uso de modelos de linguagem grandes para
+  investigar novas interações nos campos de IA incorporada, interações ambientais,
+  robótica e interação humano-computador.
+- **Recursos emergentes**: explorar novos recursos agênticos necessários para
+  melhorar o raciocínio e o planejamento, e como os recursos podem ser expandidos durante a
+  inferência (por exemplo, usando o Gemini Flash).
+- **Interação e compreensão multimodais**: identificar lacunas e
+  oportunidades para modelos de base multimodais para análise, raciocínio,
+  e planejamento em várias tarefas.
 
-対象: 有効な教育機関または学術研究機関に所属する個人（教員、研究者など）のみが申請できます。API へのアクセスとクレジットの付与および削除は、Google の裁量により行われます。お申し込みは毎月審査されます。
+Qualificação: somente pessoas (professores, pesquisadores ou equivalentes) afiliados a uma instituição acadêmica válida ou organização de pesquisa acadêmica podem se inscrever. O acesso e os créditos da API serão concedidos e removidos a critério do Google. Analisamos as inscrições mensalmente.
 
-### Gemini API を使用して調査を開始する
+### Comece a pesquisar com a API Gemini
 
-[今すぐ申し込む](https://forms.gle/HMviQstU8PxC5iCt5)
+[Faça sua inscrição agora](https://forms.gle/HMviQstU8PxC5iCt5)
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最終更新日 2026-06-19 UTC。
+Última atualização 2026-06-22 UTC.
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-19 UTC。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]

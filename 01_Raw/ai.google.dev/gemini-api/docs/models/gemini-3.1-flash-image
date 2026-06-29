@@ -1,61 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=vi
-fetched_at: 2026-06-22T06:31:16.614832+00:00
-title: "H\u00ecnh \u1ea3nh Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ar
+fetched_at: 2026-06-29T05:33:10.394552+00:00
+title: "\u0635\u0648\u0631\u0629 Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Hình ảnh Gemini 3.1 Flash
+# صورة Gemini 3.1 Flash
 
-**Nano Banana 2** cung cấp tính năng tạo ảnh chất lượng cao và chỉnh sửa đàm thoại với mức giá phổ thông và độ trễ thấp. Đây là phiên bản có hiệu suất cao của [Gemini 3.1 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-image?hl=vi), được tối ưu hoá cho tốc độ và các trường hợp sử dụng của nhà phát triển với khối lượng lớn.
+توفّر **Nano Banana 2** إمكانات إنشاء صور عالية الجودة وتعديلها بشكل حواري، وذلك بسعر مناسب للجميع وبوقت استجابة قصير. وهو يمثّل النموذج عالي الكفاءة المقابل لنموذج [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ar)، والمحسَّن من أجل السرعة وحالات الاستخدام التي تتطلّب حجمًا كبيرًا من البيانات.
 
-**Nội dung cập nhật chính:**
+**التعديلات الرئيسية:**
 
-- Các lựa chọn mới về độ phân giải đầu ra:
-  - Hỗ trợ mới cho 0,5K, 2K và 4K, mặc định là 1K
-- Tính năng mới về việc xác định vị trí trong Tìm kiếm bằng hình ảnh:
-  - Tích hợp cả kết quả tìm kiếm bằng văn bản và hình ảnh để cung cấp thông tin cho quá trình tạo nội dung bằng dữ liệu web theo thời gian thực
-  - Có hỗ trợ khi bật hoặc tắt tính năng Suy nghĩ
-- Tỷ lệ khung hình mới 1:4, 4:1, 1:8 và 8:1
-- Cải thiện việc tuân thủ tỷ lệ khung hình
-- Cải thiện chất lượng và tính nhất quán của hình ảnh
-- Cải thiện khả năng kết xuất văn bản theo ngôn ngữ cụ thể
+- خيارات جديدة لدرجة دقة الإخراج:
+  - إتاحة دقة 0.5K و2K و4K، مع ضبط الدقة التلقائية على 1K
+- تحديد موقع العناصر في الصور بشكل جديد:
+  - دمج نتائج البحث النصية ونتائج البحث بالصور للاستفادة من بيانات الويب في الوقت الفعلي عند إنشاء المحتوى
+  - تفعيل ميزة "أفكاري" أو إيقافها
+- نسب العرض إلى الارتفاع الجديدة 1:4 و4:1 و1:8 و8:1
+- الالتزام المحسَّن بنسبة العرض إلى الارتفاع
+- تحسين جودة الصور وتناسقها
+- تحسين عرض النصوص المتوافقة مع معايير التدويل (i18n)
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=vi)
+[تجربة الميزة في Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=ar)
 
-## Tài liệu
+## الوثائق
 
-Truy cập trang [Tạo ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) để xem thông tin đầy đủ về các tính năng và chức năng.
+انتقِل إلى صفحة [إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
 
 ## gemini-3.1-flash-image
 
-| Thuộc tính | Mô tả |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardMã kiểu máy | `gemini-3.1-flash-image` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản và hình ảnh / PDF  **Đầu ra**  Hình ảnh và văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072  **Giới hạn mã thông báo đầu ra**  32.768 |
-| handymanChức năng | **Tạo âm thanh**  Không được hỗ trợ  **Batch API**  Được hỗ trợ  **Lưu vào bộ nhớ đệm**  Không được hỗ trợ  **Thực thi mã**  Không được hỗ trợ  **Tìm kiếm tệp**  Không được hỗ trợ  **Gọi hàm**  Không được hỗ trợ  **Kết nối với Google Maps**  Không được hỗ trợ  **Tạo hình ảnh**  Được hỗ trợ  **Live API**  Không được hỗ trợ  **Tìm trong phần liên kết thực tế**  Được hỗ trợ  **Đầu ra có cấu trúc**  Không được hỗ trợ  **Tư duy**  Được hỗ trợ  **Bối cảnh URL**  Không được hỗ trợ |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Ổn định: `gemini-3.1-flash-image` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 2 năm 2026 |
-| cognition\_2Điểm cắt kiến thức | Tháng 1 năm 2025 |
+| رمز النموذج id\_card | `gemini-3.1-flash-image` |
+| saveأنواع البيانات المتوافقة | **المدخلات**  النص والصورة / ملف PDF  **الناتج**  الصورة والنص |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  131,072  **الحدّ الأقصى لعدد الرموز المميزة الناتجة**  32,768 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  غير متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  غير متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  غير متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  غير متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  غير متاح |
+| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستدلال المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  غير متاح  **[استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  غير متاح |
+| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-3.1-flash-image` |
+| calendar\_monthآخر تعديل | فبراير 2026 |
+| cognition\_2تاريخ آخر تحديث للبيانات | يناير 2025 |
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-05-28 UTC.
+تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-28 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

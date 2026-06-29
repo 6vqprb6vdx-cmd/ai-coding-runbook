@@ -1,90 +1,85 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=hi
-fetched_at: 2026-06-22T06:28:35.892873+00:00
-title: "OAuth \u0915\u094d\u0935\u093f\u0915\u0938\u094d\u091f\u093e\u0930\u094d\u091f \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u092a\u0941\u0937\u094d\u091f\u093f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=ja
+fetched_at: 2026-06-29T05:28:51.574842+00:00
+title: "OAuth \u306b\u3088\u308b\u8a8d\u8a3c\u306e\u30af\u30a4\u30c3\u30af\u30b9\u30bf\u30fc\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini की Deep Research की सुविधा](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) अब झलक के तौर पर उपलब्ध है. इसमें साथ मिलकर प्लान बनाने, विज़ुअलाइज़ेशन, एमसीपी के साथ काम करने की सुविधा वगैरह शामिल है.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-सुझाव भेजें
+フィードバックを送信
 
-# OAuth क्विकस्टार्ट की मदद से पुष्टि करना
+# OAuth による認証のクイックスタート
 
-Gemini API में पुष्टि करने का सबसे आसान तरीका, एपीआई पासकोड को कॉन्फ़िगर करना है. इसके बारे में [Gemini API के क्विकस्टार्ट](https://ai.google.dev/gemini-api/docs/quickstart?hl=hi) में बताया गया है. अगर आपको ऐक्सेस कंट्रोल को ज़्यादा पाबंदियों के साथ लागू करना है, तो OAuth का इस्तेमाल करें. इस गाइड की मदद से, OAuth के ज़रिए पुष्टि करने की सुविधा सेट अप की जा सकती है.
+Gemini API への認証を行う最も簡単な方法は、[Gemini API スタートガイド](https://ai.google.dev/gemini-api/docs/get-started?hl=ja)で説明されているように、API キーを構成することです。より厳密なアクセス制御が必要な場合は、代わりに OAuth を使用できます。このガイドでは、OAuth を使用した認証の設定について説明します。
 
-इस गाइड में, पुष्टि करने का आसान तरीका बताया गया है. यह टेस्टिंग एनवायरमेंट के लिए सही है. प्रोडक्शन एनवायरमेंट के लिए, अपने ऐप्लिकेशन के हिसाब से सही [ऐक्सेस क्रेडेंशियल चुनने
-से पहले](https://developers.google.com/workspace/guides/create-credentials?hl=hi#choose_the_access_credential_that_is_right_for_you), [पुष्टि करने और अनुमति देने
-के बारे में](https://developers.google.com/workspace/guides/auth-overview?hl=hi) जानें.
+このガイドでは、テスト環境に適した簡略化された認証方法を使用します。本番環境では、アプリに適した[アクセス認証情報を選択する](https://developers.google.com/workspace/guides/create-credentials?hl=ja#choose_the_access_credential_that_is_right_for_you)前に、[認証と認可](https://developers.google.com/workspace/guides/auth-overview?hl=ja)について学習してください。
 
-## मकसद
+## 目標
 
-- OAuth के लिए अपना क्लाउड प्रोजेक्ट सेट अप करना
-- application-default-credentials सेट अप करना
-- `gcloud auth` का इस्तेमाल करने के बजाय, अपने प्रोग्राम में क्रेडेंशियल मैनेज करना
+- OAuth 用のクラウド プロジェクトを設定する
+- application-default-credentials を設定する
+- `gcloud auth` を使用する代わりに、プログラムで認証情報を管理する
 
-## ज़रूरी शर्तें
+## 前提条件
 
-इस क्विकस्टार्ट को चलाने के लिए, आपको इनकी ज़रूरत होगी:
+このクイックスタートを実行するには、次のものが必要です。
 
-- [Google Cloud प्रोजेक्ट](https://developers.google.com/workspace/guides/create-project?hl=hi)
-- [gcloud सीएलआई का लोकल इंस्टॉलेशन](https://cloud.google.com/sdk/docs/install?hl=hi)
+- [Google Cloud プロジェクト](https://developers.google.com/workspace/guides/create-project?hl=ja)
+- [gcloud CLI のローカル インストール](https://cloud.google.com/sdk/docs/install?hl=ja)
 
-## अपना क्लाउड प्रोजेक्ट सेट अप करना
+## クラウド プロジェクトを設定する
 
-इस क्विकस्टार्ट को पूरा करने के लिए, आपको सबसे पहले अपना Cloud प्रोजेक्ट सेट अप करना होगा.
+このクイックスタートを完了するには、まず Cloud プロジェクトを設定する必要があります。
 
-### 1. एपीआई चालू करना
+### 1. API を有効にする
 
-Google API का इस्तेमाल करने से पहले, आपको उन्हें Google Cloud प्रोजेक्ट में चालू करना होगा.
+Google API を使用する前に、Google Cloud プロジェクトで API を有効にする必要があります。
 
-- Google Cloud console में, Google Generative Language API चालू करें.
+- Google Cloud コンソールで、Google Generative Language API を有効にします。
 
-  [एपीआई चालू करना](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=hi)
+  [API の有効化](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=ja)
 
-### 2. उस स्क्रीन को कॉन्फ़िगर करना जहां OAuth के लिए सहमति दी जाती है
+### 2. OAuth 同意画面を構成する
 
-इसके बाद, प्रोजेक्ट की उस स्क्रीन को कॉन्फ़िगर करें जहां OAuth के लिए सहमति दी जाती है. साथ ही, खुद को टेस्टर के तौर पर जोड़ें. अगर आपने अपने Cloud प्रोजेक्ट के लिए यह चरण पहले ही पूरा कर लिया है, तो अगले सेक्शन पर जाएं.
+次に、プロジェクトの OAuth 同意画面を構成し、自分自身をテストユーザーとして追加します。Cloud プロジェクトでこの手順をすでに完了している場合は、次のセクションに進みます。
 
-1. Google Cloud console में, **मेन्यू** >
-   **Google Auth platform** > **खास जानकारी** पर जाएं.
+1. Google Cloud コンソールで、**[メニュー]** > [**Google Auth Platform**] > [**概要**] に移動します。
 
-   [Google Auth प्लैटफ़ॉर्म पर जाएं](https://console.developers.google.com/auth/overview?hl=hi)
-2. प्रोजेक्ट कॉन्फ़िगरेशन फ़ॉर्म भरें. इसके बाद, **Audience** सेक्शन में जाकर, उपयोगकर्ता का टाइप **External** पर सेट करें.
-3. फ़ॉर्म में बाकी जानकारी भरें. इसके बाद, उपयोगकर्ता के डेटा से जुड़ी नीति की शर्तों को स्वीकार करें. इसके बाद, **बनाएं** पर क्लिक करें.
-4. फ़िलहाल, स्कोप जोड़ने की प्रोसेस को स्किप किया जा सकता है. इसके बाद, **सेव करें और जारी रखें** पर क्लिक करें. आने वाले समय में, जब आपको अपने Google Workspace संगठन के बाहर इस्तेमाल करने के लिए कोई ऐप्लिकेशन बनाना हो, तब आपको उन अनुमति के दायरे को जोड़ना और उनकी पुष्टि करनी होगी जिनकी आपके ऐप्लिकेशन को ज़रूरत है.
-5. टेस्ट यूज़र जोड़ें:
+   [Google Auth Platform に移動](https://console.developers.google.com/auth/overview?hl=ja)
+2. プロジェクト構成フォームに記入し、[**Audience**] セクションでユーザーの種類を [**External**] に設定します。
+3. フォームの残りの項目を入力し、ユーザーデータに関するポリシーの条項に同意して、[**作成**] をクリックします。
+4. ここでは、スコープの追加をスキップして、[**保存して次へ**] をクリックします。今後、Google Workspace 組織外で使用するアプリを作成する場合は、アプリに必要な承認スコープを追加して確認する必要があります。
+5. テストユーザーを追加します。
 
-   1. Google Auth प्लैटफ़ॉर्म के [ऑडियंस पेज](https://console.developers.google.com/auth/audience?hl=hi) पर जाएं.
-   2. **टेस्ट उपयोगकर्ता** में जाकर, **उपयोगकर्ता जोड़ें** पर क्लिक करें.
-   3. अपना ईमेल पता और टेस्ट करने वाले अन्य ज़्यादाृत उपयोगकर्ताओं का ईमेल पता डालें. इसके बाद, **सेव करें** पर क्लिक करें.
+   1. Google Auth プラットフォームの[オーディエンス ページ](https://console.developers.google.com/auth/audience?hl=ja)に移動します。
+   2. [**テストユーザー**] で [**ユーザーを追加**] をクリックします。
+   3. メールアドレスと他の承認済みテストユーザーを入力し、[**保存**] をクリックします。
 
-### 3. डेस्कटॉप ऐप्लिकेशन के लिए क्रेडेंशियल को अनुमति देना
+### 3. デスクトップ アプリケーションの認証情報を承認する
 
-असली उपयोगकर्ता के तौर पर पुष्टि करने और अपने ऐप्लिकेशन में उपयोगकर्ता का डेटा ऐक्सेस करने के लिए, आपको एक या उससे ज़्यादा OAuth 2.0 क्लाइंट आईडी बनाने होंगे. क्लाइंट आईडी का इस्तेमाल, Google के OAuth सर्वर पर किसी एक ऐप्लिकेशन की पहचान करने के लिए किया जाता है. अगर आपका ऐप्लिकेशन कई प्लैटफ़ॉर्म पर चलता है, तो आपको हर प्लैटफ़ॉर्म के लिए अलग क्लाइंट आईडी बनाना होगा.
+エンドユーザーとして認証を行い、アプリ内でユーザーデータにアクセスするには、1 つ以上の OAuth 2.0 クライアント ID を作成する必要があります。クライアント ID は、Google の OAuth サーバーで個々のアプリを識別するために使用します。アプリが複数のプラットフォームで実行される場合は、プラットフォームごとに個別のクライアント ID を作成する必要があります。
 
-1. Google Cloud Console में, **मेन्यू** > **Google Auth platform** >
-   **क्लाइंट** पर जाएं.
+1. Google Cloud コンソールで、**メニュー** > [**Google Auth Platform**] > [**クライアント**] に移動します。
 
-   [क्रेडेंशियल पर जाएं](https://console.developers.google.com/auth/clients?hl=hi)
-2. **क्लाइंट बनाएं** पर क्लिक करें.
-3. **ऐप्लिकेशन का टाइप** > **डेस्कटॉप ऐप्लिकेशन** पर क्लिक करें.
-4. **नाम** फ़ील्ड में, क्रेडेंशियल के लिए कोई नाम टाइप करें. यह नाम सिर्फ़
-   Google Cloud Console में दिखता है.
-5. **बनाएं** पर क्लिक करें. OAuth क्लाइंट बनाया गया स्क्रीन दिखेगी. इसमें आपका नया क्लाइंट आईडी और क्लाइंट सीक्रेट दिखेगा.
-6. **ठीक है** पर क्लिक करें. नया क्रेडेंशियल, **OAuth 2.0 क्लाइंट आईडी** में दिखता है.
-7. JSON फ़ाइल सेव करने के लिए, डाउनलोड बटन पर क्लिक करें. इसे `client_secret_<identifier>.json` के तौर पर सेव किया जाएगा. इसके बाद, इसका नाम बदलकर `client_secret.json` कर दें और इसे अपनी वर्किंग डायरेक्ट्री में ले जाएं.
+   [認証情報に進む](https://console.developers.google.com/auth/clients?hl=ja)
+2. [**クライアントを作成**] をクリックします。
+3. [**アプリケーションの種類**] > [**デスクトップ アプリ**] をクリックします。
+4. [**名前**] フィールドに、認証情報の名前を入力します。この名前は Google Cloud コンソールにのみ表示されます。
+5. [**作成**] をクリックします。[OAuth クライアントを作成しました] 画面が表示され、新しいクライアント ID とクライアント シークレットが表示されます。
+6. [**OK**] をクリックします。新しく作成した認証情報が [**OAuth 2.0 クライアント ID**] に表示されます。
+7. ダウンロード ボタンをクリックして、JSON ファイルを保存します。`client_secret_<identifier>.json` として保存されるので、`client_secret.json` に名前を変更して作業ディレクトリに移動します。
 
-## ऐप्लिकेशन के डिफ़ॉल्ट क्रेडेंशियल सेट अप करना
+## アプリケーションのデフォルト認証情報を設定する
 
-`client_secret.json` फ़ाइल को इस्तेमाल किए जा सकने वाले क्रेडेंशियल में बदलने के लिए, `gcloud auth application-default login` कमांड के `--client-id-file` आर्ग्युमेंट में इसकी जगह की जानकारी पास करें.
+`client_secret.json` ファイルを使用可能な認証情報に変換するには、そのロケーションを `gcloud auth application-default login` コマンドの `--client-id-file` 引数に渡します。
 
 ```
 gcloud auth application-default login \
@@ -92,9 +87,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-इस ट्यूटोरियल में, प्रोजेक्ट को आसानी से सेट अप करने की सुविधा दी गई है. इससे **"Google ने इस ऐप्लिकेशन की पुष्टि नहीं की है."** डायलॉग ट्रिगर होता है. यह सामान्य है. **"जारी रखें"** को चुनें.
+このチュートリアルの簡略化されたプロジェクト設定では、[**Google はこのアプリを確認していません。**] ダイアログがトリガーされます。これは正常です。[**続行**] を選択します。
 
-इससे, नतीजा देने वाला टोकन एक जानी-पहचानी जगह पर रखा जाता है, ताकि इसे `gcloud` या क्लाइंट लाइब्रेरी से ऐक्सेस किया जा सके.
+これにより、結果のトークンが既知の場所に配置され、`gcloud` またはクライアント ライブラリからアクセスできるようになります。
 
 ```` ```
 gcloud auth application-default login   
@@ -105,11 +100,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-ऐप्लिकेशन के डिफ़ॉल्ट क्रेडेंशियल (एडीसी) सेट करने के बाद, ज़्यादातर भाषाओं में क्लाइंट लाइब्रेरी को उन्हें ढूंढने के लिए बहुत कम या किसी भी मदद की ज़रूरत नहीं होती.
+アプリケーションのデフォルト認証情報（ADC）を設定すると、ほとんどの言語のクライアント ライブラリは、最小限のサポートで ADC を見つけることができます。
 
 ### Curl
 
-यह सुविधा काम कर रही है या नहीं, यह जांचने का सबसे तेज़ तरीका है कि curl का इस्तेमाल करके, REST API को ऐक्सेस किया जाए:
+これが機能していることをテストする最も簡単な方法は、curl を使用して REST API にアクセスすることです。
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -122,13 +117,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Python में, क्लाइंट लाइब्रेरी को ये क्रेडेंशियल अपने-आप मिल जाने चाहिए:
+Python では、クライアント ライブラリが自動的に検索します。
 
 ```
 pip install google-genai
 ```
 
-इसे टेस्ट करने के लिए, यह छोटी स्क्रिप्ट इस्तेमाल की जा सकती है:
+テスト用の最小限のスクリプトは次のようになります。
 
 ```
 from google import genai
@@ -137,28 +132,28 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## अगले चरण
+## 次のステップ
 
-अगर यह काम कर रहा है, तो अब [अपने टेक्स्ट डेटा पर सिमैंटिक रिट्रीवल](https://ai.google.dev/docs/semantic_retriever?hl=hi) आज़माएं.
+これが機能していれば、[テキストデータに対するセマンティック検索](https://ai.google.dev/docs/semantic_retriever?hl=ja)を試す準備は完了です。
 
-## क्रेडेंशियल खुद मैनेज करना [Python]
+## 認証情報を自分で管理する [Python]
 
-कई मामलों में, आपके पास क्लाइंट आईडी (`client_secret.json`) से ऐक्सेस टोकन बनाने के लिए, `gcloud` कमांड उपलब्ध नहीं होगी. Google, कई भाषाओं में लाइब्रेरी उपलब्ध कराता है, ताकि आप अपने ऐप्लिकेशन में उस प्रोसेस को मैनेज कर सकें. इस सेक्शन में, Python में प्रोसेस के बारे में बताया गया है. इस तरह की प्रक्रिया के मिलते-जुलते उदाहरण, अन्य भाषाओं के लिए भी उपलब्ध हैं. इन्हें [Drive API के दस्तावेज़](https://developers.google.com/drive/api/quickstart/python?hl=hi) में देखा जा सकता है
+多くの場合、クライアント ID（`client_secret.json`）からアクセス トークンを作成するために `gcloud` コマンドを使用することはできません。Google は、アプリ内でそのプロセスを管理できるように、多くの言語でライブラリを提供しています。このセクションでは、Python でのプロセスを示します。この種の手順に相当する例は、他の言語についても [Drive API のドキュメント](https://developers.google.com/drive/api/quickstart/python?hl=ja)で確認できます。
 
-### 1. ज़रूरी लाइब्रेरी इंस्टॉल करना
+### 1. 必要なライブラリのインストール
 
-Python के लिए Google क्लाइंट लाइब्रेरी और Gemini क्लाइंट लाइब्रेरी इंस्टॉल करें.
+Python 用 Google クライアント ライブラリと Gemini クライアント ライブラリをインストールします。
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. क्रेडेंशियल मैनेजर के बारे में लिखें
+### 2. 認証情報マネージャーを記述する
 
-बार-बार अनुमति देने वाली स्क्रीन पर क्लिक करने से बचने के लिए, अपनी वर्किंग डायरेक्ट्री में `load_creds.py` नाम की फ़ाइल बनाएं. इससे `load_creds.py` फ़ाइल को कैश किया जा सकेगा, ताकि बाद में इसका फिर से इस्तेमाल किया जा सके. अगर यह फ़ाइल खत्म हो जाती है, तो इसे रीफ़्रेश किया जा सकता है.`token.json`
+認証画面をクリックする回数を最小限に抑えるには、作業ディレクトリに `load_creds.py` というファイルを作成して、後で再利用できる `token.json` ファイルをキャッシュに保存するか、有効期限が切れた場合は更新します。
 
-`client_secret.json` फ़ाइल को `genai.configure` के साथ इस्तेमाल किए जा सकने वाले टोकन में बदलने के लिए, इस कोड का इस्तेमाल करें:
+次のコードを使用して、`client_secret.json` ファイルを `genai.configure` で使用できるトークンに変換します。
 
 ```
 import os.path
@@ -195,9 +190,9 @@ def load_creds():
     return creds
 ```
 
-### 3. अपना प्रोग्राम लिखना
+### 3. プログラムを作成する
 
-अब अपना `script.py` बनाएं:
+次に、`script.py` を作成します。
 
 ```
 import pprint
@@ -212,27 +207,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. प्रोग्राम चलाएं
+### 4. プログラムを実行する
 
-अपनी वर्किंग डायरेक्ट्री में, सैंपल चलाएं:
+作業ディレクトリで、サンプルを実行します。
 
 ```
 python script.py
 ```
 
-स्क्रिप्ट को पहली बार चलाने पर, यह एक ब्राउज़र विंडो खोलती है और आपसे ऐक्सेस की अनुमति देने के लिए कहती है.
+スクリプトを初めて実行すると、ブラウザ ウィンドウが開き、アクセス権の承認を求めるメッセージが表示されます。
 
-1. अगर आपने Google खाते में पहले से साइन इन नहीं किया है, तो आपको साइन इन करने के लिए कहा जाएगा. अगर आपने एक से ज़्यादा खातों में साइन इन किया हुआ है, तो **अपने प्रोजेक्ट को कॉन्फ़िगर करते समय, उस खाते को ज़रूर चुनें जिसे आपने "टेस्ट खाता" के तौर पर सेट किया है.**
-2. अनुमति से जुड़ी जानकारी फ़ाइल सिस्टम में सेव होती है. इसलिए, अगली बार सैंपल कोड चलाने पर, आपको अनुमति देने के लिए नहीं कहा जाएगा.
+1. Google アカウントにログインしていない場合は、ログインを求められます。複数のアカウントにログインしている場合は、**プロジェクトの構成時に「テスト アカウント」として設定したアカウントを必ず選択してください。**
+2. 認証情報はファイル システムに保存されるため、次回サンプルコードを実行するときに認証を求められることはありません。
 
-आपने पुष्टि करने की सुविधा को सेटअप कर लिया है.
+認証の設定が完了しました。
 
-सुझाव भेजें
+フィードバックを送信
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-आखिरी बार 2026-06-19 (UTC) को अपडेट किया गया.
+最終更新日 2026-06-22 UTC。
 
-क्या आपको हमें और कुछ बताना है?
+ご意見をお聞かせください
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-19 (UTC) को अपडेट किया गया."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-22 UTC。"],[],[]]

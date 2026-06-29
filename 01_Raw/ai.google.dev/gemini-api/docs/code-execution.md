@@ -1,56 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=th
-fetched_at: 2026-06-22T06:26:26.059219+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=ja
+fetched_at: 2026-06-29T05:37:04.753529+00:00
+title: "\u30b3\u30fc\u30c9\u306e\u5b9f\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-ส่งความคิดเห็น
+フィードバックを送信
 
-# การเรียกใช้โค้ด
+# コードの実行
 
-Gemini API มีเครื่องมือเรียกใช้โค้ดที่ช่วยให้โมเดลสร้างและรันโค้ด Python ได้ จากนั้นโมเดลจะเรียนรู้ซ้ำๆ จากผลการเรียกใช้โค้ดจนกว่าจะได้เอาต์พุตสุดท้าย คุณสามารถใช้การดำเนินการโค้ดเพื่อสร้างแอปพลิเคชันที่ได้รับประโยชน์จากการให้เหตุผลตามโค้ด เช่น คุณสามารถใช้การเรียกใช้โค้ดเพื่อแก้สมการหรือประมวลผลข้อความ นอกจากนี้ คุณยังใช้ [ไลบรารี](#supported-libraries)ที่รวมอยู่ในสภาพแวดล้อมการเรียกใช้โค้ดเพื่อทำงานที่เฉพาะเจาะจงมากขึ้นได้ด้วย
+Gemini API には、モデルが Python コードを生成して実行できるコード実行ツールが用意されています。モデルは、最終的な出力に到達するまで、コード実行の結果から反復的に学習できます。コード実行を使用して、コードベースの推論を活用するアプリケーションを構築できます。たとえば、コード実行を使用して方程式を解いたり、テキストを処理したりできます。コード実行環境に含まれる[ライブラリ](#supported-libraries)を使用して、より専門的なタスクを実行することもできます。
 
-Gemini สามารถเรียกใช้โค้ดใน Python ได้เท่านั้น คุณยังคงขอความช่วยเหลือจาก Gemini ให้สร้างโค้ดในภาษาอื่นได้ แต่โมเดลจะใช้เครื่องมือเรียกใช้โค้ดเพื่อดำเนินการไม่ได้
+Gemini は Python でのみコードを実行できます。Gemini に別の言語でコードを生成するように依頼することはできますが、モデルはコード実行ツールを使用して実行することはできません。
 
-## เปิดใช้การเรียกใช้โค้ด
+## コード実行を有効にする
 
-หากต้องการเปิดใช้การเรียกใช้โค้ด ให้กำหนดค่าเครื่องมือเรียกใช้โค้ดในโมเดล ซึ่งจะช่วยให้โมเดลสร้างและรันโค้ดได้
+コード実行を有効にするには、モデルでコード実行ツールを構成します。これにより、モデルはコードを生成して実行できます。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents="What is the sum of the first 50 prime numbers? "
-    "Generate and run code for the calculation, and make sure you get all 50.",
-    config=types.GenerateContentConfig(
-        tools=[types.Tool(code_execution=types.ToolCodeExecution)]
-    ),
+    input="What is the sum of the first 50 prime numbers? "
+          "Generate and run code for the calculation, and make sure you get all 50.",
+    tools=[{"type": "code_execution"}]
 )
 
-for part in response.candidates[0].content.parts:
-    if part.text is not None:
-        print(part.text)
-    if part.executable_code is not None:
-        print(part.executable_code.code)
-    if part.code_execution_result is not None:
-        print(part.code_execution_result.output)
+for step in interaction.steps:
+    if step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print(content_block.text)
+    elif step.type == "code_execution_call":
+        print(step.arguments.code)
+    elif step.type == "code_execution_result":
+        print(step.result)
 ```
 
 ### JavaScript
@@ -58,92 +56,44 @@ for part in response.candidates[0].content.parts:
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-let response = await ai.models.generateContent({
-  model: "gemini-3.5-flash",
-  contents: [
-    "What is the sum of the first 50 prime numbers? " +
-      "Generate and run code for the calculation, and make sure you get all 50.",
-  ],
-  config: {
-    tools: [{ codeExecution: {} }],
-  },
+const interaction = await client.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "What is the sum of the first 50 prime numbers? " +
+           "Generate and run code for the calculation, and make sure you get all 50.",
+    tools: [{ type: "code_execution" }]
 });
 
-const parts = response?.candidates?.[0]?.content?.parts || [];
-parts.forEach((part) => {
-  if (part.text) {
-    console.log(part.text);
-  }
-
-  if (part.executableCode && part.executableCode.code) {
-    console.log(part.executableCode.code);
-  }
-
-  if (part.codeExecutionResult && part.codeExecutionResult.output) {
-    console.log(part.codeExecutionResult.output);
-  }
-});
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    "google.golang.org/genai"
-)
-
-func main() {
-
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
+for (const step of interaction.steps) {
+    if (step.type === "model_output") {
+        for (const contentBlock of step.content) {
+            if (contentBlock.type === "text") {
+                console.log(contentBlock.text);
+            }
+        }
+    } else if (step.type === "code_execution_call") {
+        console.log(step.arguments.code);
+    } else if (step.type === "code_execution_result") {
+        console.log(step.result);
     }
-
-    config := &genai.GenerateContentConfig{
-        Tools: []*genai.Tool{
-            {CodeExecution: &genai.ToolCodeExecution{}},
-        },
-    }
-
-    result, _ := client.Models.GenerateContent(
-        ctx,
-        "gemini-3.5-flash",
-        genai.Text("What is the sum of the first 50 prime numbers? " +
-                  "Generate and run code for the calculation, and make sure you get all 50."),
-        config,
-    )
-
-    fmt.Println(result.Text())
-    fmt.Println(result.ExecutableCode())
-    fmt.Println(result.CodeExecutionResult())
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
--d ' {"tools": [{"code_execution": {}}],
-    "contents": {
-      "parts":
-        {
-            "text": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50."
-        }
-    },
+-d '{
+    "model": "gemini-3.5-flash",
+    "input": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
+    "tools": [{"type": "code_execution"}]
 }'
 ```
 
-เอาต์พุตอาจมีลักษณะดังต่อไปนี้ ซึ่งจัดรูปแบบให้อ่านง่าย
+出力は次のようになります。読みやすくするためにフォーマットされています。
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,200 +142,107 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-เอาต์พุตนี้รวมส่วนเนื้อหาหลายส่วนที่โมเดลส่งคืนเมื่อใช้การเรียกใช้โค้ด
+この出力は、コード実行時にモデルが返す複数のコンテンツ部分を組み合わせたものです。
 
-- `text`: ข้อความแบบอินไลน์ที่โมเดลสร้างขึ้น
-- `executableCode`: โค้ดที่โมเดลสร้างขึ้นเพื่อเรียกใช้
-- `codeExecutionResult`: ผลลัพธ์ของโค้ดที่เรียกใช้ได้
+- `text`: モデルによって生成されたインライン テキスト
+- `code_execution_call`: 実行されることを目的とし、モデルによって生成されたコード
+- `code_execution_result`: 実行可能コードの結果
 
-รูปแบบการตั้งชื่อสำหรับส่วนเหล่านี้จะแตกต่างกันไปตามภาษาโปรแกรม
+## 画像を使用したコード実行（Gemini 3）
 
-## การเรียกใช้โค้ดกับรูปภาพ (Gemini 3)
+Gemini 3 Flash モデルで Python コードを記述して実行し、画像を積極的に操作して検査できるようになりました。
 
-ตอนนี้โมเดล Gemini 3 Flash สามารถเขียนและเรียกใช้โค้ด Python เพื่อจัดการและตรวจสอบรูปภาพได้อย่างมีประสิทธิภาพ
+**ユースケース**
 
-**กรณีการใช้งาน**
+- **ズームと検査**: モデルは、詳細が小さすぎる場合
+  （遠くのゲージの読み取りなど）を暗黙的に検出し、コードを記述して領域を切り抜き、
+  高解像度で再検査します。
+- **ビジュアル数学**: モデルは、コードを使用して複数ステップの計算を実行できます（例:
+  領収書の明細の合計）。
+- **画像アノテーション**: モデルは、画像にアノテーションを付けて質問に回答できます（関係を示す矢印を描画するなど）。
 
-- **ซูมและตรวจสอบ**: โมเดลจะตรวจหาโดยนัยเมื่อรายละเอียดมีขนาดเล็กเกินไป
-  (เช่น การอ่านมาตรวัดที่อยู่ไกลออกไป) และเขียนโค้ดเพื่อครอบตัดและตรวจสอบพื้นที่อีกครั้ง
-  ด้วยความละเอียดที่สูงขึ้น
-- **คณิตศาสตร์เชิงภาพ**: โมเดลสามารถทำการคำนวณหลายขั้นตอนโดยใช้โค้ด (เช่น
-  การรวมรายการในใบเสร็จ)
-- **การใส่คำอธิบายประกอบในรูปภาพ**: โมเดลสามารถใส่คำอธิบายประกอบในรูปภาพเพื่อตอบคำถาม เช่น
-  การวาดลูกศรเพื่อแสดงความสัมพันธ์
+## 画像を使用したコード実行を有効にする
 
-### เปิดใช้การเรียกใช้โค้ดกับรูปภาพ
-
-ระบบรองรับการเรียกใช้โค้ดกับรูปภาพอย่างเป็นทางการใน Gemini 3 Flash คุณสามารถเปิดใช้งานลักษณะการทำงานนี้ได้โดยเปิดใช้ทั้งการเรียกใช้โค้ดเป็นเครื่องมือและการคิด
+画像を使用したコード実行は、Gemini 3 Flash で正式にサポートされています。この動作を有効にするには、ツールとしてのコード実行と思考の両方を有効にします。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 import requests
+import base64
 from PIL import Image
 import io
 
 image_path = "https://goo.gle/instrument-img"
 image_bytes = requests.get(image_path).content
-image = types.Part.from_bytes(
-  data=image_bytes, mime_type="image/jpeg"
-)
 
-# Ensure you have your API key set
 client = genai.Client()
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents=[image, "Zoom into the expression pedals and tell me how many pedals are there?"],
-    config=types.GenerateContentConfig(
-        tools=[types.Tool(code_execution=types.ToolCodeExecution)]
-    ),
+    input=[
+        {"type": "image", "data": base64.b64encode(image_bytes).decode('\utf-8'), "mime_type": "image/jpeg"},
+        {"type": "text", "text": "Zoom into the expression pedals and tell me how many pedals are there?"}
+    ],
+    tools=[{"type": "code_execution"}]
 )
 
-for part in response.candidates[0].content.parts:
-    if part.text is not None:
-        print(part.text)
-    if part.executable_code is not None:
-        print(part.executable_code.code)
-    if part.code_execution_result is not None:
-        print(part.code_execution_result.output)
-    if part.as_image() is not None:
-        # display() is a standard function in Jupyter/Colab notebooks
-        display(Image.open(io.BytesIO(part.as_image().image_bytes)))
+for step in interaction.steps:
+    if step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print(content_block.text)
+            elif content_block.type == "image":
+                display(Image.open(io.BytesIO(base64.b64decode(content_block.data))))
+    elif step.type == "code_execution_call":
+        print(step.arguments.code)
+    elif step.type == "code_execution_result":
+        print(step.result)
 ```
 
 ### JavaScript
 
 ```
-async function main() {
-  const ai = new GoogleGenAI({ });
+import { GoogleGenAI } from "@google/genai";
 
-  // 1. Prepare Image Data
+async function main() {
+  const client = new GoogleGenAI({});
+
   const imageUrl = "https://goo.gle/instrument-img";
   const response = await fetch(imageUrl);
   const imageArrayBuffer = await response.arrayBuffer();
   const base64ImageData = Buffer.from(imageArrayBuffer).toString('base64');
 
-  // 2. Call the API with Code Execution enabled
-  const result = await ai.models.generateContent({
+  const interaction = await client.interactions.create({
     model: "gemini-3.5-flash",
-    contents: [
+    input: [
       {
-        inlineData: {
-          mimeType: 'image/jpeg',
-          data: base64ImageData,
-        },
+        type: "image",
+        data: base64ImageData,
+        mime_type: "image/jpeg"
       },
-      { text: "Zoom into the expression pedals and tell me how many pedals are there?" }
+      { type: "text", text: "Zoom into the expression pedals and tell me how many pedals are there?" }
     ],
-    config: {
-      tools: [{ codeExecution: {} }],
-    },
+    tools: [{ type: "code_execution" }]
   });
 
-  // 3. Process the response (Text, Code, and Execution Results)
-  const candidates = result.candidates;
-  if (candidates && candidates[0].content.parts) {
-    for (const part of candidates[0].content.parts) {
-      if (part.text) {
-        console.log("Text:", part.text);
+  for (const step of interaction.steps) {
+    if (step.type === "model_output") {
+      for (const contentBlock of step.content) {
+        if (contentBlock.type === "text") {
+          console.log("Text:", contentBlock.text);
+        }
       }
-      if (part.executableCode) {
-        console.log(`\nGenerated Code (${part.executableCode.language}):\n`, part.executableCode.code);
-      }
-      if (part.codeExecutionResult) {
-        console.log(`\nExecution Output (${part.codeExecutionResult.outcome}):\n`, part.codeExecutionResult.output);
-      }
+    } else if (step.type === "code_execution_call") {
+      console.log(`\nGenerated Code:\n`, step.arguments.code);
+    } else if (step.type === "code_execution_result") {
+      console.log(`\nExecution Output:\n`, step.result);
     }
   }
 }
 
 main();
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "io"
-    "log"
-    "net/http"
-    "os"
-
-    "google.golang.org/genai"
-)
-
-func main() {
-    ctx := context.Background()
-    // Initialize Client (Reads GEMINI_API_KEY from env)
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // 1. Download the image
-    imageResp, err := http.Get("https://goo.gle/instrument-img")
-    if err != nil {
-        log.Fatal(err)
-    }
-    defer imageResp.Body.Close()
-
-    imageBytes, err := io.ReadAll(imageResp.Body)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // 2. Configure Code Execution Tool
-    config := &genai.GenerateContentConfig{
-        Tools: []*genai.Tool{
-            {CodeExecution: &genai.ToolCodeExecution{}},
-        },
-    }
-
-    // 3. Generate Content
-    result, err := client.Models.GenerateContent(
-        ctx,
-        "gemini-3.5-flash",
-        []*genai.Content{
-            {
-                Parts: []*genai.Part{
-                    {InlineData: &genai.Blob{MIMEType: "image/jpeg", Data: imageBytes}},
-                    {Text: "Zoom into the expression pedals and tell me how many pedals are there?"},
-                },
-                Role: "user",
-            },
-        },
-        config,
-    )
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // 4. Parse Response (Text, Code, Output)
-    for _, cand := range result.Candidates {
-        for _, part := range cand.Content.Parts {
-            if part.Text != "" {
-                fmt.Println("Text:", part.Text)
-            }
-            if part.ExecutableCode != nil {
-                fmt.Printf("\nGenerated Code (%s):\n%s\n", 
-                    part.ExecutableCode.Language, 
-                    part.ExecutableCode.Code)
-            }
-            if part.CodeExecutionResult != nil {
-                fmt.Printf("\nExecution Output (%s):\n%s\n", 
-                    part.CodeExecutionResult.Outcome, 
-                    part.CodeExecutionResult.Output)
-            }
-        }
-    }
-}
 ```
 
 ### REST
@@ -407,264 +264,199 @@ else
   IMAGE_B64=$(curl -sL "$IMG_URL" | base64 -w0)
 fi
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateContent" \
+# Use jq to create the JSON payload to avoid "Argument list too long" error with large base64 strings
+echo -n "$IMAGE_B64" > image_b64.txt
+jq -n \
+  --rawfile b64 image_b64.txt \
+  --arg mime "$MIME_TYPE" \
+  '{
+    model: "gemini-3.5-flash",
+    input: [
+      {type: "image", data: $b64, mime_type: $mime},
+      {type: "text", text: "Zoom into the expression pedals and tell me how many pedals are there?"}
+    ],
+    tools: [{type: "code_execution"}]
+  }' > payload.json
+
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
-    -X POST \
-    -d '{
-      "contents": [{
-        "parts":[
-            {
-              "inline_data": {
-                "mime_type":"'"$MIME_TYPE"'",
-                "data": "'"$IMAGE_B64"'"
-              }
-            },
-            {"text": "Zoom into the expression pedals and tell me how many pedals are there?"}
-        ]
-      }],
-      "tools": [
-        {
-          "code_execution": {}
-        }
-      ]
-    }'
+    -d @payload.json
 ```
 
-## ใช้การเรียกใช้โค้ดในการแชท
+## マルチターン インタラクションでコード実行を使用する
 
-คุณยังใช้การเรียกใช้โค้ดเป็นส่วนหนึ่งของการแชทได้ด้วย
+`previous_interaction_id` を使用して、マルチターン会話の一部としてコード実行を使用することもできます。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
-chat = client.chats.create(
+interaction1 = client.interactions.create(
     model="gemini-3.5-flash",
-    config=types.GenerateContentConfig(
-        tools=[types.Tool(code_execution=types.ToolCodeExecution)]
-    ),
+    input="I have a math question for you.",
+    tools=[{"type": "code_execution"}]
+)
+print(interaction1.output_text)
+
+interaction2 = client.interactions.create(
+    model="gemini-3.5-flash",
+    previous_interaction_id=interaction1.id,
+    input="What is the sum of the first 50 prime numbers? "
+          "Generate and run code for the calculation, and make sure you get all 50.",
+    tools=[{"type": "code_execution"}]
 )
 
-response = chat.send_message("I have a math question for you.")
-print(response.text)
-
-response = chat.send_message(
-    "What is the sum of the first 50 prime numbers? "
-    "Generate and run code for the calculation, and make sure you get all 50."
-)
-
-for part in response.candidates[0].content.parts:
-    if part.text is not None:
-        print(part.text)
-    if part.executable_code is not None:
-        print(part.executable_code.code)
-    if part.code_execution_result is not None:
-        print(part.code_execution_result.output)
+for step in interaction2.steps:
+    if step.type == "model_output":
+        for content_block in step.content:
+            if content_block.type == "text":
+                print(content_block.text)
+    elif step.type == "code_execution_call":
+        print(step.arguments.code)
+    elif step.type == "code_execution_result":
+        print(step.result)
 ```
 
 ### JavaScript
 
 ```
-import {GoogleGenAI} from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
-const chat = ai.chats.create({
-  model: "gemini-3.5-flash",
-  history: [
-    {
-      role: "user",
-      parts: [{ text: "I have a math question for you:" }],
-    },
-    {
-      role: "model",
-      parts: [{ text: "Great! I'm ready for your math question. Please ask away." }],
-    },
-  ],
-  config: {
-    tools: [{codeExecution:{}}],
-  }
+const interaction1 = await client.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "I have a math question for you.",
+    tools: [{ type: "code_execution" }]
+});
+console.log(interaction1.output_text);
+
+const interaction2 = await client.interactions.create({
+    model: "gemini-3.5-flash",
+    previous_interaction_id: interaction1.id,
+    input: "What is the sum of the first 50 prime numbers? " +
+           "Generate and run code for the calculation, and make sure you get all 50.",
+    tools: [{ type: "code_execution" }]
 });
 
-const response = await chat.sendMessage({
-  message: "What is the sum of the first 50 prime numbers? " +
-            "Generate and run code for the calculation, and make sure you get all 50."
-});
-console.log("Chat response:", response.text);
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "os"
-    "google.golang.org/genai"
-)
-
-func main() {
-
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
+for (const step of interaction2.steps) {
+    if (step.type === "model_output") {
+        for (const contentBlock of step.content) {
+            if (contentBlock.type === "text") {
+                console.log(contentBlock.text);
+            }
+        }
+    } else if (step.type === "code_execution_call") {
+        console.log(step.arguments.code);
+    } else if (step.type === "code_execution_result") {
+        console.log(step.result);
     }
-
-    config := &genai.GenerateContentConfig{
-        Tools: []*genai.Tool{
-            {CodeExecution: &genai.ToolCodeExecution{}},
-        },
-    }
-
-    chat, _ := client.Chats.Create(
-        ctx,
-        "gemini-3.5-flash",
-        config,
-        nil,
-    )
-
-    result, _ := chat.SendMessage(
-                    ctx,
-                    genai.Part{Text: "What is the sum of the first 50 prime numbers? " +
-                                          "Generate and run code for the calculation, and " +
-                                          "make sure you get all 50.",
-                              },
-                )
-
-    fmt.Println(result.Text())
-    fmt.Println(result.ExecutableCode())
-    fmt.Println(result.CodeExecutionResult())
 }
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+# First turn
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -H 'Content-Type: application/json' \
--d '{"tools": [{"code_execution": {}}],
-    "contents": [
-        {
-            "role": "user",
-            "parts": [{
-                "text": "Write code to print \"Hello world!\" and execute it"
-            }]
-        },{
-            "role": "model",
-            "parts": [
-              {
-                "executable_code": {
-                  "id": "a1b2c3d4",
-                  "language": "PYTHON",
-                  "code": "\nprint(\"hello world!\")\n"
-                }
-                "thought_signature": "..."
-              },
-              {
-                "code_execution_result": {
-                  "id": "a1b2c3d4",
-                  "outcome": "OUTCOME_OK",
-                  "output": "hello world!\n"
-                }
-              },
-              {
-                "text": "I have printed \"hello world!\" using the provided python code block. \n",
-                "thought_signature": "..."
-              }
-            ],
-        },{
-            "role": "user",
-            "parts": [{
-                "text": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50."
-            }]
-        }
-    ]
+-d '{
+    "model": "gemini-3.5-flash",
+    "input": "I have a math question for you.",
+    "tools": [{"type": "code_execution"}]
+}')
+
+INTERACTION_ID=$(echo $RESPONSE1 | jq -r '.id')
+
+# Second turn with previous_interaction_id
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+-H "x-goog-api-key: $GEMINI_API_KEY" \
+-H 'Content-Type: application/json' \
+-d '{
+    "model": "gemini-3.5-flash",
+    "previous_interaction_id": "'"$INTERACTION_ID"'",
+    "input": "What is the sum of the first 50 prime numbers? Generate and run code for the calculation, and make sure you get all 50.",
+    "tools": [{"type": "code_execution"}]
 }'
 ```
 
-## อินพุต/เอาต์พุต (I/O)
+## 入出力（I/O）
 
-การเรียกใช้โค้ดรองรับอินพุตไฟล์และเอาต์พุตกราฟ คุณสามารถอัปโหลดไฟล์ CSV และไฟล์ข้อความ ถามคำถามเกี่ยวกับ
-ไฟล์ และสร้างกราฟ [Matplotlib](https://matplotlib.org/) เป็นส่วนหนึ่ง
-ของการตอบกลับได้โดยใช้ความสามารถด้านอินพุตและ
-เอาต์พุตเหล่านี้ ระบบจะแสดงไฟล์เอาต์พุตเป็นรูปภาพแบบอินไลน์ในการตอบกลับ
+[Gemini 2.0 Flash 以降、コード実行ではファイル入力とグラフ出力がサポートされています。](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#gemini-2.0-flash)これらの入出力
+機能を使用すると、CSV ファイルとテキスト ファイルをアップロードし、ファイルに関する質問をしたり、レスポンスの一部として [Matplotlib](https://matplotlib.org/) グラフを生成したりできます。出力ファイルは、レスポンスでインライン画像として返されます。
 
-### การกำหนดราคา I/O
+### I/O の料金
 
-เมื่อใช้ I/O ของการเรียกใช้โค้ด ระบบจะเรียกเก็บเงินจากคุณสำหรับโทเค็นอินพุตและโทเค็นเอาต์พุต
+コード実行 I/O を使用する場合、入力トークンと出力トークンに対して課金されます。
 
-**โทเค็นอินพุต:**
+**入力トークン:**
 
-- พรอมต์ของผู้ใช้
+- ユーザーによるプロンプト
 
-**โทเค็นเอาต์พุต:**
+**出力トークン:**
 
-- โค้ดที่โมเดลสร้างขึ้น
-- เอาต์พุตการเรียกใช้โค้ดในสภาพแวดล้อมโค้ด
-- โทเค็นการคิด
-- ข้อมูลสรุปที่โมเดลสร้างขึ้น
+- モデルによって生成されたコード
+- コード環境でのコード実行出力
+- 思考トークン
+- モデルによって生成された要約
 
-### รายละเอียด I/O
+### I/O の詳細
 
-เมื่อทำงานกับ I/O ของการเรียกใช้โค้ด โปรดทราบรายละเอียดทางเทคนิคต่อไปนี้
+コード実行 I/O を使用する場合は、次の技術的な詳細に注意してください。
 
-- รันไทม์สูงสุดของสภาพแวดล้อมโค้ดคือ 30 วินาที
-- หากสภาพแวดล้อมโค้ดสร้างข้อผิดพลาด โมเดลอาจตัดสินใจสร้างเอาต์พุตโค้ดใหม่ ซึ่งอาจเกิดขึ้นได้สูงสุด 5 ครั้ง
-- ขนาดอินพุตไฟล์สูงสุดจะจำกัดตามหน้าต่างโทเค็นของโมเดล ใน AI Studio ขนาดไฟล์อินพุตสูงสุดคือ 1 ล้านโทเค็น (ประมาณ 2 MB สำหรับไฟล์ข้อความของประเภทอินพุตที่รองรับ) หากคุณอัปโหลดไฟล์ที่มีขนาดใหญ่เกินไป AI Studio จะไม่อนุญาตให้คุณส่งไฟล์ดังกล่าว
-- การเรียกใช้โค้ดทำงานได้ดีที่สุดกับไฟล์ข้อความและไฟล์ CSV
-- คุณส่งไฟล์อินพุตใน `part.inlineData` หรือ `part.fileData` (อัปโหลด
-  ผ่าน [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)) ได้ และระบบจะส่งคืนไฟล์เอาต์พุตเป็น `part.inlineData` เสมอ
+- コード環境の最大実行時間は 30 秒です。
+- コード環境でエラーが発生した場合、モデルはコード出力を再生成することがあります。これは最大 5 回まで発生する可能性があります。
+- 最大ファイル入力サイズは、モデル トークン ウィンドウによって制限されます。モデルの最大コンテキスト ウィンドウを超えるファイルをアップロードすると、API はエラーを返します。
+- コード実行は、テキスト ファイルと CSV ファイルで最適に動作します。
+- 入力ファイルはインライン データとして渡すか、
+  [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用してアップロードできます
+  。出力ファイルは常にインライン データとして返されます。
 
-## การเรียกเก็บเงิน
+## 課金
 
-การเปิดใช้การเรียกใช้โค้ดจาก Gemini API จะไม่มีค่าใช้จ่ายเพิ่มเติม
-ระบบจะเรียกเก็บเงินจากคุณตามอัตราปัจจุบันของโทเค็นอินพุตและเอาต์พุตโดยอิงตามโมเดล Gemini ที่คุณใช้
+Gemini API からのコード実行を有効にしても、追加料金は発生しません。
+使用している Gemini モデルに基づいて、入力トークンと出力トークンの現在のレートで課金されます。
 
-สิ่งอื่นๆ ที่ควรทราบเกี่ยวกับการเรียกเก็บเงินสำหรับการเรียกใช้โค้ดมีดังนี้
+コード実行の課金に関するその他の注意事項は次のとおりです。
 
-- ระบบจะเรียกเก็บเงินจากคุณเพียงครั้งเดียวสำหรับโทเค็นอินพุตที่คุณส่งไปยังโมเดล และจะเรียกเก็บเงินสำหรับโทเค็นเอาต์พุตสุดท้ายที่โมเดลส่งคืนให้คุณ
-- ระบบจะนับโทเค็นที่แสดงโค้ดที่สร้างขึ้นเป็นโทเค็นเอาต์พุต โค้ดที่สร้างขึ้นอาจมีข้อความและเอาต์พุตหลายรูปแบบ เช่น รูปภาพ
-- ระบบจะนับผลการเรียกใช้โค้ดเป็นโทเค็นเอาต์พุตด้วย
+- モデルに渡す入力トークンに対しては一度だけ課金され、モデルから返された最終出力トークンに対して課金されます。
+- 生成されたコードを表すトークンは、出力トークンとしてカウントされます。生成されたコードには、テキストとマルチモーダル出力（画像など）を含めることができます。
+- コード実行の結果も出力トークンとしてカウントされます。
 
-โมเดลการเรียกเก็บเงินแสดงอยู่ในแผนภาพต่อไปนี้
+課金モデルを次の図に示します。
 
-![โมเดลการเรียกเก็บเงินสำหรับการรันโค้ด](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=th)
+![コード実行の課金モデル](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=ja)
 
-- ระบบจะเรียกเก็บเงินจากคุณตามอัตราปัจจุบันของโทเค็นอินพุตและเอาต์พุตโดยอิงตามโมเดล Gemini ที่คุณใช้
-- หาก Gemini ใช้การเรียกใช้โค้ดเมื่อสร้างการตอบกลับ พรอมต์เดิม โค้ดที่สร้างขึ้น และผลลัพธ์ของโค้ดที่เรียกใช้จะติดป้ายกำกับเป็น *โทเค็นระดับกลาง* และระบบจะเรียกเก็บเงินเป็น *โทเค็นอินพุต*
-- จากนั้น Gemini จะสร้างข้อมูลสรุปและส่งคืนโค้ดที่สร้างขึ้น ผลลัพธ์ของโค้ดที่เรียกใช้ และข้อมูลสรุปสุดท้าย ระบบจะเรียกเก็บเงินสำหรับรายการเหล่านี้เป็น *โทเค็นเอาต์พุต*
-- Gemini API จะรวมจำนวนโทเค็นระดับกลางไว้ในการตอบกลับจาก API เพื่อให้คุณทราบว่าเหตุใดคุณจึงได้รับโทเค็นอินพุตเพิ่มเติมนอกเหนือจากพรอมต์เริ่มต้น
+- 使用している Gemini モデルに基づいて、入力トークンと出力トークンの現在のレートで課金されます。
+- Gemini がレスポンスの生成時にコード実行を使用する場合、元のプロンプト、生成されたコード、実行されたコードの結果には中間トークン というラベルが付けられ、入力トークン として課金されます。
+- Gemini は要約を生成し、生成されたコード、実行されたコードの結果、最終的な要約を返します。これらは出力トークン として課金されます。
+- Gemini API の API レスポンスには中間トークン数が含まれるため、最初のプロンプト以外の追加の入力トークンを取得する理由がわかります。
 
-## ข้อจำกัด
+## 制限事項
 
-- โมเดลสามารถสร้างและเรียกใช้โค้ดได้เท่านั้น โดยไม่สามารถส่งคืนอาร์ติแฟกต์อื่นๆ เช่น ไฟล์สื่อ
-- ในบางกรณี การเปิดใช้การเรียกใช้โค้ดอาจทำให้เกิดการถดถอยในส่วนอื่นๆ ของเอาต์พุตโมเดล (เช่น การเขียนเรื่องราว)
-- โมเดลต่างๆ มีความสามารถในการใช้การเรียกใช้โค้ดให้สำเร็จแตกต่างกัน
+- モデルはコードの生成と実行のみが可能です。メディア ファイルなど、他のアーティファクトを返すことはできません。
+- コード実行を有効にすると、モデル出力の他の領域（ストーリーの作成など）で回帰が発生することがあります。
+- コード実行を正常に使用できるかどうかは、モデルによって異なります。
 
-## ชุดค่าผสมของเครื่องมือที่รองรับ
+## サポートされているツールの組み合わせ
 
-คุณสามารถรวมเครื่องมือเรียกใช้โค้ดกับ
-[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) เพื่อ
-รองรับกรณีการใช้งานที่ซับซ้อนมากขึ้น
+コード実行ツールを
+[Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)と組み合わせて
+、より複雑なユースケースに対応できます。
 
-โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การเรียกใช้โค้ด) กับเครื่องมือที่กำหนดเอง (การเรียกฟังก์ชัน) คุณต้องส่งฟิลด์ `id` และ `thought_signature` กลับมาเพื่อให้การรวมเครื่องมือทำงานได้ ดูข้อมูลเพิ่มเติมได้ในหน้า
-[ชุดค่าผสมของเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Gemini 3 モデルでは、組み込みツール（コード実行など）とカスタムツール（関数呼び出し）を組み合わせることができます。
 
-## ไลบรารีที่รองรับ
+## サポートされているライブラリ
 
-สภาพแวดล้อมการเรียกใช้โค้ดมีไลบรารีต่อไปนี้
+コード実行環境には、次のライブラリが含まれています。
 
 - attrs
-- chess
+- チェス
 - contourpy
 - fpdf
 - geopandas
@@ -679,7 +471,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - numpy
 - opencv-python
 - openpyxl
-- packaging
+- パッケージ化
 - pandas
 - pillow
 - protobuf
@@ -701,22 +493,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 - toolz
 - xlrd
 
-คุณจะติดตั้งไลบรารีของคุณเองไม่ได้
+独自のライブラリをインストールすることはできません。
 
-## ขั้นตอนถัดไป
+## 次のステップ
 
-- ลองใช้
-  [Colab ของการเรียกใช้โค้ด](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=th)
-- ดูข้อมูลเกี่ยวกับเครื่องมืออื่นๆ ของ Gemini API ได้แก่
-  - [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
-  - [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
+- ぜひ
+- 他の Gemini API ツールについて学習する:
+  - [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)
+  - [Google 検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)
 
-ส่งความคิดเห็น
+フィードバックを送信
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-อัปเดตล่าสุด 2026-06-19 UTC
+最終更新日 2026-06-22 UTC。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+ご意見をお聞かせください
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-19 UTC"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-22 UTC。"],[],[]]

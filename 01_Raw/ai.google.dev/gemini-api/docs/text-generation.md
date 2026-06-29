@@ -1,27 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=ar
-fetched_at: 2026-06-22T06:30:58.192338+00:00
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-TW
+fetched_at: 2026-06-29T05:27:06.219747+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) is now available in preview with collaborative planning, visualization, MCP support, and more.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [generateContent API](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-إرسال ملاحظات
+提供意見
 
-# إنشاء النص
+# 文字生成
 
-يمكن لواجهة Gemini API إنشاء نصوص من النصوص والصور والفيديوهات والمحتوى الصوتي التي يتم إدخالها.
+Gemini API 可根據文字、圖片、影片和音訊輸入內容生成文字輸出內容。
 
-في ما يلي مثال أساسي:
+基本範例如下：
 
 ### Python
 
@@ -30,11 +29,11 @@ from google import genai
 
 client = genai.Client()
 
-response = client.models.generate_content(
+interaction = client.interactions.create(
     model="gemini-3.5-flash",
-    contents="How does AI work?"
+    input="How does AI work?"
 )
-print(response.text)
+print(interaction.output_text)
 ```
 
 ### JavaScript
@@ -45,319 +44,301 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 async function main() {
-  const response = await ai.models.generateContent({
+  const interaction = await ai.interactions.create({
     model: "gemini-3.5-flash",
-    contents: "How does AI work?",
+    input: "How does AI work?",
   });
-  console.log(response.text);
+  console.log(interaction.output_text);
 }
 
 await main();
 ```
 
-### Go
+### REST
 
 ```
-package main
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "How does AI work?"
+  }'
+```
 
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
+Google GenAI SDK 會在傳回的 `Interaction` 物件上直接提供便利屬性，方便您存取模型的回覆。
+
+最常見的輔助函式是 **`interaction.output_text`** (字串)，會傳回模型回覆中的最後一個文字區塊。如果回覆內容分成多個連續的 `TextContent` 區塊，系統會自動合併這些區塊。請注意，`.output_text` 不包括以非文字內容 (例如想法、圖片、音訊或工具呼叫) 分隔的先前文字區塊。如果是複雜或交錯的多模態回應，則必須改為手動疊代 `steps`。如要進一步瞭解其他媒體便利性屬性，請參閱「[互動總覽](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-tw#convenience-properties)」。
+
+## 與 Gemini 一起思考
+
+Gemini 模型預設會[「思考」](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-tw)，也就是先推論要求內容，再進行回覆。
+
+每種模型支援不同的思考設定，可讓您控管成本、延遲和智慧。詳情請參閱[思考指南](https://ai.google.dev/gemini-api/docs/interactions/thinking?hl=zh-tw#set-budget)。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="How does AI work?",
+    generation_config={
+        "thinking_level": "low"
+    }
 )
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  result, _ := client.Models.GenerateContent(
-      ctx,
-      "gemini-3.5-flash",
-      genai.Text("Explain how AI works in a few words"),
-      nil,
-  )
-
-  fmt.Println(result.Text())
-}
+print(interaction.output_text)
 ```
 
-### جافا
+### JavaScript
 
 ```
-import com.google.genai.Client;
-import com.google.genai.types.GenerateContentResponse;
+import { GoogleGenAI } from "@google/genai";
 
-public class GenerateContentWithTextInput {
-  public static void main(String[] args) {
+const ai = new GoogleGenAI({});
 
-    Client client = new Client();
-
-    GenerateContentResponse response =
-        client.models.generateContent("gemini-3.5-flash", "How does AI work?", null);
-
-    System.out.println(response.text());
-  }
+async function main() {
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "How does AI work?",
+    generation_config: {
+      thinking_level: "low",
+    },
+  });
+  console.log(interaction.output_text);
 }
+
+await main();
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
+    "model": "gemini-3.5-flash",
+    "input": "How does AI work?",
+    "generation_config": {
+      "thinking_level": "low"
+    }
+  }'
+```
+
+## 系統指令和其他設定
+
+你可以使用系統指令引導 Gemini 模型的行為。傳遞 `system_instruction` 參數來設定模型行為。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    system_instruction="You are a cat. Your name is Neko.",
+    input="Hello there"
+)
+
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Hello there",
+    system_instruction: "You are a cat. Your name is Neko.",
+  });
+  console.log(interaction.output_text);
+}
+
+await main();
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "system_instruction": "You are a cat. Your name is Neko.",
+    "input": "Hello there"
+  }'
+```
+
+您也可以使用 `generation_config` 參數，覆寫預設生成參數，例如溫度。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="Explain how AI works",
+    generation_config={
+        "temperature": 1.0
+    }
+)
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "Explain how AI works",
+    generation_config: {
+      temperature: 1.0,
+    },
+  });
+  console.log(interaction.output_text);
+}
+
+await main();
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Explain how AI works",
+    "generation_config": {
+      "temperature": 1.0
+    }
+  }'
+```
+
+如需可設定參數的完整清單及其說明，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw)。
+
+## 多模態輸入內容
+
+Gemini API 支援多模態輸入內容，可讓您結合文字和媒體檔案。以下範例說明如何提供圖片：
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+uploaded_file = client.files.upload(file="path/to/organ.jpg")
+
+interaction = client.interactions.create(
+    model="gemini-3.5-flash",
+    input=[
+        {"type": "text", "text": "Tell me about this instrument"},
+        {
+            "type": "image",
+            "uri": uploaded_file.uri,
+            "mime_type": uploaded_file.mime_type
+        }
+    ]
+)
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  const uploadedFile = await ai.files.upload({
+    file: "path/to/organ.jpg",
+    config: { mimeType: "image/jpeg" }
+  });
+
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: [
+      {type: "text", text: "Tell me about this instrument"},
       {
-        "parts": [
-          {
-            "text": "How does AI work?"
-          }
-        ]
+        type: "image",
+        uri: uploadedFile.uri,
+        mime_type: uploadedFile.mimeType
+      }
+    ],
+  });
+  console.log(interaction.output_text);
+}
+
+await main();
+```
+
+### REST
+
+```
+# First upload the file using the Files API, then use the URI:
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": [
+      {"type": "text", "text": "Tell me about this instrument"},
+      {
+        "type": "image",
+        "uri": "YOUR_FILE_URI",
+        "mime_type": "image/jpeg"
       }
     ]
   }'
 ```
 
-### برمجة التطبيقات
+如需提供圖片的替代方法和更進階的圖片處理方式，請參閱[圖像解讀指南](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=zh-tw)。這項 API 也支援[文件](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=zh-tw)、[影片](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=zh-tw)和[音訊](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=zh-tw)輸入內容，並可解讀這些內容。
 
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
+## 逐句顯示回覆
 
-function main() {
-  const payload = {
-    contents: [
-      {
-        parts: [
-          { text: 'How AI does work?' },
-        ],
-      },
-    ],
-  };
+根據預設，整個生成程序完成後，模型才會傳回回覆。
 
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
-
-## التفكير مع Gemini
-
-تتضمّن نماذج Gemini غالبًا ميزة ["التفكير"](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) مفعّلة تلقائيًا،
-ما يتيح للنموذج الاستدلال قبل الرد على الطلب.
-
-يتيح كل نموذج إعدادات مختلفة للتفكير، ما يمنحك التحكّم في التكلفة ووقت الاستجابة والذكاء. لمزيد من التفاصيل، يُرجى الاطّلاع على
-[دليل التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#set-budget).
+如要讓互動更流暢，請使用串流處理生成的回應區塊。如需涵蓋事件類型、使用工具串流、思考、代理程式和圖像生成的完整指南，請參閱專屬的[串流互動](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=zh-tw)指南。
 
 ### Python
 
 ```
 from google import genai
-from google.genai import types
 
 client = genai.Client()
 
-response = client.models.generate_content(
+stream = client.interactions.create(
     model="gemini-3.5-flash",
-    contents="How does AI work?",
-    config=types.GenerateContentConfig(
-        thinking_config=types.ThinkingConfig(thinking_level="low")
-    ),
+    input="Explain how AI works",
+    stream=True
 )
-print(response.text)
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI, ThinkingLevel } from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents: "How does AI work?",
-    config: {
-      thinkingConfig: {
-        thinkingLevel: ThinkingLevel.LOW,
-      },
-    }
-  });
-  console.log(response.text);
-}
-
-await main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
-)
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  thinkingLevelVal := "low"
-
-  result, _ := client.Models.GenerateContent(
-      ctx,
-      "gemini-3.5-flash",
-      genai.Text("How does AI work?"),
-      &genai.GenerateContentConfig{
-        ThinkingConfig: &genai.ThinkingConfig{
-            ThinkingLevel: &thinkingLevelVal,
-        },
-      }
-  )
-
-  fmt.Println(result.Text())
-}
-```
-
-### جافا
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.GenerateContentConfig;
-import com.google.genai.types.GenerateContentResponse;
-import com.google.genai.types.ThinkingConfig;
-import com.google.genai.types.ThinkingLevel;
-
-public class GenerateContentWithThinkingConfig {
-  public static void main(String[] args) {
-
-    Client client = new Client();
-
-    GenerateContentConfig config =
-        GenerateContentConfig.builder()
-            .thinkingConfig(ThinkingConfig.builder().thinkingLevel(new ThinkingLevel("low")))
-            .build();
-
-    GenerateContentResponse response =
-        client.models.generateContent("gemini-3.5-flash", "How does AI work?", config);
-
-    System.out.println(response.text());
-  }
-}
-```
-
-### REST
-
-```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -X POST \
-  -d '{
-    "contents": [
-      {
-        "parts": [
-          {
-            "text": "How does AI work?"
-          }
-        ]
-      }
-    ],
-    "generationConfig": {
-      "thinkingConfig": {
-        "thinkingLevel": "low"
-      }
-    }
-  }'
-```
-
-### برمجة التطبيقات
-
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-
-function main() {
-  const payload = {
-    contents: [
-      {
-        parts: [
-          { text: 'How AI does work?' },
-        ],
-      },
-    ],
-    generationConfig: {
-      thinkingConfig: {
-        thinkingLevel: 'low'
-      }
-    }
-  };
-
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
-
-## تعليمات النظام والإعدادات الأخرى
-
-يمكنك توجيه سلوك نماذج Gemini باستخدام تعليمات النظام، وذلك من خلال تمرير عنصر [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig).
-
-### Python
-
-```
-from google import genai
-from google.genai import types
-
-client = genai.Client()
-
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    config=types.GenerateContentConfig(
-        system_instruction="You are a cat. Your name is Neko."),
-    contents="Hello there"
-)
-
-print(response.text)
+for event in stream:
+    if event.event_type == "step.delta":
+        if event.delta.type == "text":
+            print(event.delta.text, end="")
 ```
 
 ### JavaScript
@@ -368,693 +349,41 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 async function main() {
-  const response = await ai.models.generateContent({
+  const stream = await ai.interactions.create({
     model: "gemini-3.5-flash",
-    contents: "Hello there",
-    config: {
-      systemInstruction: "You are a cat. Your name is Neko.",
-    },
+    input: "Explain how AI works",
+    stream: true,
   });
-  console.log(response.text);
-}
 
-await main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
-)
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  config := &genai.GenerateContentConfig{
-      SystemInstruction: genai.NewContentFromText("You are a cat. Your name is Neko.", genai.RoleUser),
-  }
-
-  result, _ := client.Models.GenerateContent(
-      ctx,
-      "gemini-3.5-flash",
-      genai.Text("Hello there"),
-      config,
-  )
-
-  fmt.Println(result.Text())
-}
-```
-
-### جافا
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.Content;
-import com.google.genai.types.GenerateContentConfig;
-import com.google.genai.types.GenerateContentResponse;
-import com.google.genai.types.Part;
-
-public class GenerateContentWithSystemInstruction {
-  public static void main(String[] args) {
-
-    Client client = new Client();
-
-    GenerateContentConfig config =
-        GenerateContentConfig.builder()
-            .systemInstruction(
-                Content.fromParts(Part.fromText("You are a cat. Your name is Neko.")))
-            .build();
-
-    GenerateContentResponse response =
-        client.models.generateContent("gemini-3.5-flash", "Hello there", config);
-
-    System.out.println(response.text());
-  }
-}
-```
-
-### REST
-
-```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -d '{
-    "system_instruction": {
-      "parts": [
-        {
-          "text": "You are a cat. Your name is Neko."
-        }
-      ]
-    },
-    "contents": [
-      {
-        "parts": [
-          {
-            "text": "Hello there"
-          }
-        ]
+  for await (const event of stream) {
+    if (event.event_type === "step.delta") {
+      if (event.delta.type === "text") {
+        process.stdout.write(event.delta.text);
       }
-    ]
-  }'
-```
-
-### برمجة التطبيقات
-
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-
-function main() {
-  const systemInstruction = {
-    parts: [{
-      text: 'You are a cat. Your name is Neko.'
-    }]
-  };
-
-  const payload = {
-    systemInstruction,
-    contents: [
-      {
-        parts: [
-          { text: 'Hello there' },
-        ],
-      },
-    ],
-  };
-
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
-
-يتيح لك العنصر [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig)
-أيضًا تجاهل مَعلمات الإنشاء التلقائية، مثل
-[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig).
-
-### Python
-
-```
-from google import genai
-from google.genai import types
-
-client = genai.Client()
-
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=["Explain how AI works"],
-    config=types.GenerateContentConfig(
-        max_output_tokens=1000
-    )
-)
-print(response.text)
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function main() {
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents: "Explain how AI works",
-    config: {
-      maxOutputTokens: 1000,
-    },
-  });
-  console.log(response.text);
-}
-
-await main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "log"
-  "google.golang.org/genai"
-)
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  config := &genai.GenerateContentConfig{
-    MaxOutputTokens:   1000,
-    ResponseMIMEType:  "application/json",
-  }
-
-  result, _ := client.Models.GenerateContent(
-    ctx,
-    "gemini-3.5-flash",
-    genai.Text("What is the average size of a swallow?"),
-    config,
-  )
-
-  fmt.Println(result.Text())
-}
-```
-
-### جافا
-
-```
-import com.google.genai.Client;
-import com.google.genai.types.GenerateContentConfig;
-import com.google.genai.types.GenerateContentResponse;
-
-public class GenerateContentWithConfig {
-  public static void main(String[] args) {
-
-    Client client = new Client();
-
-    GenerateContentConfig config = GenerateContentConfig.builder().maxOutputTokens(1000).build();
-
-    GenerateContentResponse response =
-        client.models.generateContent("gemini-3.5-flash", "Explain how AI works", config);
-
-    System.out.println(response.text());
-  }
-}
-```
-
-### REST
-
-```
-curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -X POST \
-  -d '{
-    "contents": [
-      {
-        "parts": [
-          {
-            "text": "Explain how AI works"
-          }
-        ]
-      }
-    ],
-    "generationConfig": {
-      "stopSequences": [
-        "Title"
-      ],
-      "maxOutputTokens": 1000
     }
-  }'
-```
-
-### برمجة التطبيقات
-
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-
-function main() {
-  const generationConfig = {
-    maxOutputTokens: 1000,
-    responseFormat: { text: { mimeType: "text/plain" } },
-  };
-
-  const payload = {
-    generationConfig,
-    contents: [
-      {
-        parts: [
-          { text: 'Explain how AI works in a few words' },
-        ],
-      },
-    ],
-  };
-
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
-
-يُرجى الرجوع إلى [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerationConfig) في مرجع واجهة برمجة التطبيقات للاطّلاع على قائمة كاملة بالمَعلمات القابلة للإعداد وأوصافها.
-
-## إدخالات متعددة الوسائط
-
-تتيح لك Gemini API استخدام مدخلات متعددة الوسائط، ما يسمح لك بدمج النصوص مع ملفات الوسائط. يوضّح المثال التالي كيفية تقديم صورة:
-
-### Python
-
-```
-from PIL import Image
-from google import genai
-
-client = genai.Client()
-
-image = Image.open("/path/to/organ.png")
-response = client.models.generate_content(
-    model="gemini-3.5-flash",
-    contents=[image, "Tell me about this instrument"]
-)
-print(response.text)
-```
-
-### JavaScript
-
-```
-import {
-  GoogleGenAI,
-  createUserContent,
-  createPartFromUri,
-} from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function main() {
-  const image = await ai.files.upload({
-    file: "/path/to/organ.png",
-  });
-  const response = await ai.models.generateContent({
-    model: "gemini-3.5-flash",
-    contents: [
-      createUserContent([
-        "Tell me about this instrument",
-        createPartFromUri(image.uri, image.mimeType),
-      ]),
-    ],
-  });
-  console.log(response.text);
-}
-
-await main();
-```
-
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
-)
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  imagePath := "/path/to/organ.jpg"
-  imgData, _ := os.ReadFile(imagePath)
-
-  parts := []*genai.Part{
-      genai.NewPartFromText("Tell me about this instrument"),
-      &genai.Part{
-          InlineData: &genai.Blob{
-              MIMEType: "image/jpeg",
-              Data:     imgData,
-          },
-      },
-  }
-
-  contents := []*genai.Content{
-      genai.NewContentFromParts(parts, genai.RoleUser),
-  }
-
-  result, _ := client.Models.GenerateContent(
-      ctx,
-      "gemini-3.5-flash",
-      contents,
-      nil,
-  )
-
-  fmt.Println(result.Text())
-}
-```
-
-### جافا
-
-```
-import com.google.genai.Client;
-import com.google.genai.Content;
-import com.google.genai.types.GenerateContentResponse;
-import com.google.genai.types.Part;
-
-public class GenerateContentWithMultiModalInputs {
-  public static void main(String[] args) {
-
-    Client client = new Client();
-
-    Content content =
-      Content.fromParts(
-          Part.fromText("Tell me about this instrument"),
-          Part.fromUri("/path/to/organ.jpg", "image/jpeg"));
-
-    GenerateContentResponse response =
-        client.models.generateContent("gemini-3.5-flash", content, null);
-
-    System.out.println(response.text());
-  }
-}
-```
-
-### REST
-
-```
-# Use a temporary file to hold the base64 encoded image data
-TEMP_B64=$(mktemp)
-trap 'rm -f "$TEMP_B64"' EXIT
-base64 $B64FLAGS $IMG_PATH > "$TEMP_B64"
-
-# Use a temporary file to hold the JSON payload
-TEMP_JSON=$(mktemp)
-trap 'rm -f "$TEMP_JSON"' EXIT
-
-cat > "$TEMP_JSON" << EOF
-{
-  "contents": [
-    {
-      "parts": [
-        {
-          "text": "Tell me about this instrument"
-        },
-        {
-          "inline_data": {
-            "mime_type": "image/jpeg",
-            "data": "$(cat "$TEMP_B64")"
-          }
-        }
-      ]
-    }
-  ]
-}
-EOF
-
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
-  -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H 'Content-Type: application/json' \
-  -X POST \
-  -d "@$TEMP_JSON"
-```
-
-### برمجة التطبيقات
-
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-
-function main() {
-  const imageUrl = 'http://image/url';
-  const image = getImageData(imageUrl);
-  const payload = {
-    contents: [
-      {
-        parts: [
-          { image },
-          { text: 'Tell me about this instrument' },
-        ],
-      },
-    ],
-  };
-
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-
-function getImageData(url) {
-  const blob = UrlFetchApp.fetch(url).getBlob();
-
-  return {
-    mimeType: blob.getContentType(),
-    data: Utilities.base64Encode(blob.getBytes())
-  };
-}
-```
-
-للحصول على طرق بديلة لتقديم الصور ومعالجة أكثر تقدّمًا للصور، راجِع [دليل فهم الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar). تتيح واجهة برمجة التطبيقات أيضًا إدخال [المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar) و[الفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar) و[الملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar) وفهمها.
-
-## عرض الردود تدريجيًا
-
-تعرض النماذج تلقائيًا ردًا بعد اكتمال عملية الإنشاء بأكملها.
-
-للحصول على تفاعلات أكثر سلاسة، استخدِم البث لتلقّي مثيلات [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=ar#v1beta.GenerateContentResponse) بشكل تدريجي أثناء إنشائها.
-
-### Python
-
-```
-from google import genai
-
-client = genai.Client()
-
-response = client.models.generate_content_stream(
-    model="gemini-3.5-flash",
-    contents=["Explain how AI works"]
-)
-for chunk in response:
-    print(chunk.text, end="")
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI } from "@google/genai";
-
-const ai = new GoogleGenAI({});
-
-async function main() {
-  const response = await ai.models.generateContentStream({
-    model: "gemini-3.5-flash",
-    contents: "Explain how AI works",
-  });
-
-  for await (const chunk of response) {
-    console.log(chunk.text);
   }
 }
 
 await main();
 ```
 
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
-)
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  stream := client.Models.GenerateContentStream(
-      ctx,
-      "gemini-3.5-flash",
-      genai.Text("Write a story about a magic backpack."),
-      nil,
-  )
-
-  for chunk, _ := range stream {
-      part := chunk.Candidates[0].Content.Parts[0]
-      fmt.Print(part.Text)
-  }
-}
-```
-
-### جافا
-
-```
-import com.google.genai.Client;
-import com.google.genai.ResponseStream;
-import com.google.genai.types.GenerateContentResponse;
-
-public class GenerateContentStream {
-  public static void main(String[] args) {
-
-    Client client = new Client();
-
-    ResponseStream<GenerateContentResponse> responseStream =
-      client.models.generateContentStream(
-          "gemini-3.5-flash", "Write a story about a magic backpack.", null);
-
-    for (GenerateContentResponse res : responseStream) {
-      System.out.print(res.text());
-    }
-
-    // To save resources and avoid connection leaks, it is recommended to close the response
-    // stream after consumption (or using try block to get the response stream).
-    responseStream.close();
-  }
-}
-```
-
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:streamGenerateContent?alt=sse" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   --no-buffer \
   -d '{
-    "contents": [
-      {
-        "parts": [
-          {
-            "text": "Explain how AI works"
-          }
-        ]
-      }
-    ]
+    "model": "gemini-3.5-flash",
+    "input": "Explain how AI works",
+    "stream": true
   }'
 ```
 
-### برمجة التطبيقات
+## 多轉折對話
 
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-
-function main() {
-  const payload = {
-    contents: [
-      {
-        parts: [
-          { text: 'Explain how AI works' },
-        ],
-      },
-    ],
-  };
-
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:streamGenerateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
-
-## المحادثات المترابطة (محادثة)
-
-توفّر حِزم SDK وظائف لجمع عدّة جولات من الطلبات والردود في محادثة، ما يمنحك طريقة سهلة لتتبُّع سجلّ المحادثات.
+Interactions API 支援多輪對話，只要使用 `previous_interaction_id` 將互動串連在一起即可。每個回合都是獨立的互動，API 會自動管理對話記錄。
 
 ### Python
 
@@ -1062,17 +391,19 @@ function main() {
 from google import genai
 
 client = genai.Client()
-chat = client.chats.create(model="gemini-3.5-flash")
 
-response = chat.send_message("I have 2 dogs in my house.")
-print(response.text)
+interaction1 = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="I have 2 dogs in my house.",
+)
+print(interaction1.output_text)
 
-response = chat.send_message("How many paws are in my house?")
-print(response.text)
-
-for message in chat.get_history():
-    print(f'role - {message.role}',end=": ")
-    print(message.parts[0].text)
+interaction2 = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="How many paws are in my house?",
+    previous_interaction_id=interaction1.id,
+)
+print(interaction2.output_text)
 ```
 
 ### JavaScript
@@ -1083,186 +414,47 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 async function main() {
-  const chat = ai.chats.create({
+  const interaction1 = await ai.interactions.create({
     model: "gemini-3.5-flash",
-    history: [
-      {
-        role: "user",
-        parts: [{ text: "Hello" }],
-      },
-      {
-        role: "model",
-        parts: [{ text: "Great to meet you. What would you like to know?" }],
-      },
-    ],
+    input: "I have 2 dogs in my house.",
   });
+  console.log("Response 1:", interaction1.output_text);
 
-  const response1 = await chat.sendMessage({
-    message: "I have 2 dogs in my house.",
+  const interaction2 = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "How many paws are in my house?",
+    previous_interaction_id: interaction1.id,
   });
-  console.log("Chat response 1:", response1.text);
-
-  const response2 = await chat.sendMessage({
-    message: "How many paws are in my house?",
-  });
-  console.log("Chat response 2:", response2.text);
+  console.log("Response 2:", interaction2.output_text);
 }
 
 await main();
 ```
 
-### Go
-
-```
-package main
-
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
-)
-
-func main() {
-
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
-
-  history := []*genai.Content{
-      genai.NewContentFromText("Hi nice to meet you! I have 2 dogs in my house.", genai.RoleUser),
-      genai.NewContentFromText("Great to meet you. What would you like to know?", genai.RoleModel),
-  }
-
-  chat, _ := client.Chats.Create(ctx, "gemini-3.5-flash", nil, history)
-  res, _ := chat.SendMessage(ctx, genai.Part{Text: "How many paws are in my house?"})
-
-  if len(res.Candidates) > 0 {
-      fmt.Println(res.Candidates[0].Content.Parts[0].Text)
-  }
-}
-```
-
-### جافا
-
-```
-import com.google.genai.Chat;
-import com.google.genai.Client;
-import com.google.genai.types.Content;
-import com.google.genai.types.GenerateContentResponse;
-
-public class MultiTurnConversation {
-  public static void main(String[] args) {
-
-    Client client = new Client();
-    Chat chatSession = client.chats.create("gemini-3.5-flash");
-
-    GenerateContentResponse response =
-        chatSession.sendMessage("I have 2 dogs in my house.");
-    System.out.println("First response: " + response.text());
-
-    response = chatSession.sendMessage("How many paws are in my house?");
-    System.out.println("Second response: " + response.text());
-
-    // Get the history of the chat session.
-    // Passing 'true' to getHistory() returns the curated history, which excludes
-    // empty or invalid parts.
-    // Passing 'false' here would return the comprehensive history, including
-    // empty or invalid parts.
-    ImmutableList<Content> history = chatSession.getHistory(true);
-    System.out.println("History: " + history);
-  }
-}
-```
-
 ### REST
 
 ```
-curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent \
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "Hello"
-          }
-        ]
-      },
-      {
-        "role": "model",
-        "parts": [
-          {
-            "text": "Great to meet you. What would you like to know?"
-          }
-        ]
-      },
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "I have two dogs in my house. How many paws are in my house?"
-          }
-        ]
-      }
-    ]
+    "model": "gemini-3.5-flash",
+    "input": "I have 2 dogs in my house."
+  }')
+
+INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
+
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "I have two dogs in my house. How many paws are in my house?",
+    "previous_interaction_id": "'$INTERACTION_ID'"
   }'
 ```
 
-### برمجة التطبيقات
-
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-
-function main() {
-  const payload = {
-    contents: [
-      {
-        role: 'user',
-        parts: [
-          { text: 'Hello' },
-        ],
-      },
-      {
-        role: 'model',
-        parts: [
-          { text: 'Great to meet you. What would you like to know?' },
-        ],
-      },
-      {
-        role: 'user',
-        parts: [
-          { text: 'I have two dogs in my house. How many paws are in my house?' },
-        ],
-      },
-    ],
-  };
-
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
-
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
-
-يمكن أيضًا استخدام البث للمحادثات المترابطة.
+您也可以將 `previous_interaction_id` 與串流方法結合，用於多輪對話。
 
 ### Python
 
@@ -1270,19 +462,23 @@ function main() {
 from google import genai
 
 client = genai.Client()
-chat = client.chats.create(model="gemini-3.5-flash")
 
-response = chat.send_message_stream("I have 2 dogs in my house.")
-for chunk in response:
-    print(chunk.text, end="")
+interaction1 = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="I have 2 dogs in my house.",
+)
+print(interaction1.output_text)
 
-response = chat.send_message_stream("How many paws are in my house?")
-for chunk in response:
-    print(chunk.text, end="")
-
-for message in chat.get_history():
-    print(f'role - {message.role}', end=": ")
-    print(message.parts[0].text)
+stream = client.interactions.create(
+    model="gemini-3.5-flash",
+    input="How many paws are in my house?",
+    previous_interaction_id=interaction1.id,
+    stream=True
+)
+for event in stream:
+    if event.event_type == "step.delta":
+        if event.delta.type == "text":
+            print(event.delta.text, end="")
 ```
 
 ### JavaScript
@@ -1293,211 +489,199 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({});
 
 async function main() {
-  const chat = ai.chats.create({
+  const interaction1 = await ai.interactions.create({
     model: "gemini-3.5-flash",
-    history: [
-      {
-        role: "user",
-        parts: [{ text: "Hello" }],
-      },
-      {
-        role: "model",
-        parts: [{ text: "Great to meet you. What would you like to know?" }],
-      },
-    ],
+    input: "I have 2 dogs in my house.",
   });
+  console.log("Response 1:", interaction1.output_text);
 
-  const stream1 = await chat.sendMessageStream({
-    message: "I have 2 dogs in my house.",
+  const stream = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    input: "How many paws are in my house?",
+    previous_interaction_id: interaction1.id,
+    stream: true,
   });
-  for await (const chunk of stream1) {
-    console.log(chunk.text);
-    console.log("_".repeat(80));
-  }
-
-  const stream2 = await chat.sendMessageStream({
-    message: "How many paws are in my house?",
-  });
-  for await (const chunk of stream2) {
-    console.log(chunk.text);
-    console.log("_".repeat(80));
+  for await (const event of stream) {
+    if (event.event_type === "step.delta") {
+      if (event.delta.type === "text") {
+        process.stdout.write(event.delta.text);
+      }
+    }
   }
 }
 
 await main();
 ```
 
-### Go
+### REST
 
 ```
-package main
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "I have 2 dogs in my house."
+  }')
+INTERACTION_ID=$(echo "$RESPONSE1" | jq -r '.id')
 
-import (
-  "context"
-  "fmt"
-  "os"
-  "google.golang.org/genai"
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  --no-buffer \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "How many paws are in my house?",
+    "previous_interaction_id": "'$INTERACTION_ID'",
+    "stream": true
+  }'
+```
+
+## 無狀態對話
+
+根據預設，使用 `previous_interaction_id` 時，Interactions API 會在伺服器端管理對話狀態。不過，您也可以在用戶端自行管理對話記錄，以無狀態模式運作。
+
+如要使用無狀態模式，請按照下列步驟操作：
+1. 在要求中設定 `store=false`，即可停用伺服器端儲存空間。
+2. 在用戶端將對話記錄維護為 **steps** 陣列。
+3. 在後續要求中，請在 `input` 欄位中傳遞累積的步驟，並將新回合附加為 `user_input` 步驟。
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+history = [
+    {
+        "type": "user_input",
+        "content": [{"type": "text", "text": "I have 2 dogs in my house."}]
+    }
+]
+
+interaction1 = client.interactions.create(
+    model="gemini-3.5-flash",
+    store=False,
+    input=history
 )
+print("Response 1:", interaction1.steps[-1].content[0].text)
 
-func main() {
+for step in interaction1.steps:
+    history.append(step.model_dump())
 
-  ctx := context.Background()
-  client, err := genai.NewClient(ctx, nil)
-  if err != nil {
-      log.Fatal(err)
-  }
+history.append({
+    "type": "user_input",
+    "content": [{"type": "text", "text": "How many paws are in my house?"}]
+})
 
-  history := []*genai.Content{
-      genai.NewContentFromText("Hi nice to meet you! I have 2 dogs in my house.", genai.RoleUser),
-      genai.NewContentFromText("Great to meet you. What would you like to know?", genai.RoleModel),
-  }
-
-  chat, _ := client.Chats.Create(ctx, "gemini-3.5-flash", nil, history)
-  stream := chat.SendMessageStream(ctx, genai.Part{Text: "How many paws are in my house?"})
-
-  for chunk, _ := range stream {
-      part := chunk.Candidates[0].Content.Parts[0]
-      fmt.Print(part.Text)
-  }
-}
+interaction2 = client.interactions.create(
+    model="gemini-3.5-flash",
+    store=False,
+    input=history
+)
+print("Response 2:", interaction2.steps[-1].content[0].text)
 ```
 
-### جافا
+### JavaScript
 
 ```
-import com.google.genai.Chat;
-import com.google.genai.Client;
-import com.google.genai.ResponseStream;
-import com.google.genai.types.GenerateContentResponse;
+import { GoogleGenAI } from "@google/genai";
 
-public class MultiTurnConversationWithStreaming {
-  public static void main(String[] args) {
+const ai = new GoogleGenAI({});
 
-    Client client = new Client();
-    Chat chatSession = client.chats.create("gemini-3.5-flash");
-
-    ResponseStream<GenerateContentResponse> responseStream =
-        chatSession.sendMessageStream("I have 2 dogs in my house.", null);
-
-    for (GenerateContentResponse response : responseStream) {
-      System.out.print(response.text());
+async function main() {
+  const history = [
+    {
+      type: "user_input",
+      content: [{ type: "text", text: "I have 2 dogs in my house." }]
     }
+  ];
 
-    responseStream = chatSession.sendMessageStream("How many paws are in my house?", null);
+  const interaction1 = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    store: false,
+    input: history
+  });
+  console.log("Response 1:", interaction1.steps.at(-1).content[0].text);
 
-    for (GenerateContentResponse response : responseStream) {
-      System.out.print(response.text());
-    }
+  history.push(...interaction1.steps);
 
-    // Get the history of the chat session. History is added after the stream
-    // is consumed and includes the aggregated response from the stream.
-    System.out.println("History: " + chatSession.getHistory(false));
-  }
+  history.push({
+    type: "user_input",
+    content: [{ type: "text", text: "How many paws are in my house?" }]
+  });
+
+  const interaction2 = await ai.interactions.create({
+    model: "gemini-3.5-flash",
+    store: false,
+    input: history
+  });
+  console.log("Response 2:", interaction2.steps.at(-1).content[0].text);
 }
+
+await main();
 ```
 
 ### REST
 
 ```
-curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:streamGenerateContent?alt=sse \
+# Turn 1: Send request with store: false
+RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
-  -X POST \
   -d '{
-    "contents": [
+    "model": "gemini-3.5-flash",
+    "store": false,
+    "input": [
       {
-        "role": "user",
-        "parts": [
-          {
-            "text": "Hello"
-          }
-        ]
-      },
-      {
-        "role": "model",
-        "parts": [
-          {
-            "text": "Great to meet you. What would you like to know?"
-          }
-        ]
-      },
-      {
-        "role": "user",
-        "parts": [
-          {
-            "text": "I have two dogs in my house. How many paws are in my house?"
-          }
-        ]
+        "type": "user_input",
+        "content": "I have 2 dogs in my house."
       }
     ]
-  }'
+  }')
+
+# Extract the steps from response
+MODEL_STEPS=$(echo "$RESPONSE1" | jq '.steps')
+
+# Reconstruct the full history for Turn 2 by combining:
+# 1. First user input
+# 2. Model response steps
+# 3. Second user input
+HISTORY=$(jq -n \
+  --argjson first_input '[{"type": "user_input", "content": "I have 2 dogs in my house."}]' \
+  --argjson model_steps "$MODEL_STEPS" \
+  --argjson second_input '[{"type": "user_input", "content": "How many paws are in my house?"}]' \
+  "'"'"'$first_input + $model_steps + $second_input'"'"'")
+
+# Turn 2: Send the full history
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d "{
+    \"model\": \"gemini-3.5-flash\",
+    \"store\": false,
+    \"input\": $HISTORY
+  }"
 ```
 
-### برمجة التطبيقات
+## 提示詞撰寫訣竅
 
-```
-// See https://developers.google.com/apps-script/guides/properties
-// for instructions on how to set the API key.
-const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
+如要瞭解如何充分發揮 Gemini 的效用，請參閱[提示工程指南](https://ai.google.dev/gemini/docs/prompting-strategies?hl=zh-tw)。
 
-function main() {
-  const payload = {
-    contents: [
-      {
-        role: 'user',
-        parts: [
-          { text: 'Hello' },
-        ],
-      },
-      {
-        role: 'model',
-        parts: [
-          { text: 'Great to meet you. What would you like to know?' },
-        ],
-      },
-      {
-        role: 'user',
-        parts: [
-          { text: 'I have two dogs in my house. How many paws are in my house?' },
-        ],
-      },
-    ],
-  };
+## 後續步驟
 
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:streamGenerateContent';
-  const options = {
-    method: 'POST',
-    contentType: 'application/json',
-    headers: {
-      'x-goog-api-key': apiKey,
-    },
-    payload: JSON.stringify(payload)
-  };
+- 在 [Google AI Studio 中試用 Gemini](https://aistudio.google.com?hl=zh-tw)。
+- 試用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/interactions/structured-output?hl=zh-tw)，取得類似 JSON 的回覆。
+- 探索 Gemini 的[圖片](https://ai.google.dev/gemini-api/docs/interactions/image-understanding?hl=zh-tw)、[影片](https://ai.google.dev/gemini-api/docs/interactions/video-understanding?hl=zh-tw)、[音訊](https://ai.google.dev/gemini-api/docs/interactions/audio?hl=zh-tw)和[文件](https://ai.google.dev/gemini-api/docs/interactions/document-processing?hl=zh-tw)理解功能。
+- 瞭解多模態[檔案提示策略](https://ai.google.dev/gemini-api/docs/interactions/files?hl=zh-tw#prompt-guide)。
 
-  const response = UrlFetchApp.fetch(url, options);
-  const data = JSON.parse(response);
-  const content = data['candidates'][0]['content']['parts'][0]['text'];
-  console.log(content);
-}
-```
+提供意見
 
-## نصائح حول الطلبات
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-يمكنك مراجعة [دليل هندسة الطلبات](https://ai.google.dev/gemini/docs/prompting-strategies?hl=ar) للحصول على اقتراحات حول كيفية الاستفادة إلى أقصى حدّ من Gemini.
+上次更新時間：2026-06-22 (世界標準時間)。
 
-## الخطوات التالية
+想進一步說明嗎？
 
-- جرِّب [Gemini في Google AI Studio](https://aistudio.google.com?hl=ar).
-- جرِّب [المخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar) للحصول على ردود شبيهة بتنسيق JSON.
-- استكشِف إمكانات Gemini في فهم [الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar) و[الفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar) و[الملفات الصوتية](https://ai.google.dev/gemini-api/docs/audio?hl=ar) و[المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar).
-- [مزيد من المعلومات حول استراتيجيات تقديم الطلبات باستخدام الملفات](https://ai.google.dev/gemini-api/docs/files?hl=ar#prompt-guide)
-
-إرسال ملاحظات
-
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
-
-تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)
-
-هل تريد مشاركة ملاحظاتك معنا؟
-
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-22 (世界標準時間)。"],[],[]]

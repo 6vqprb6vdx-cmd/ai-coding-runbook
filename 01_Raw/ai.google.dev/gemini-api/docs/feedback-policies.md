@@ -1,59 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=pl
-fetched_at: 2026-06-22T06:27:13.686307+00:00
-title: "Prze\u015blij opini\u0119 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=he
+fetched_at: 2026-06-29T05:27:23.280586+00:00
+title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) jest teraz dostępna w wersji testowej z funkcjami planowania współpracy, wizualizacji, obsługi MCP i nie tylko.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Prześlij opinię
+שליחת משוב
 
-# Prześlij opinię
+# משוב
 
-## Głosowanie na preferencje w tekście
+## הצבעה להעדפות מוטבעות
 
-W Google AI Studio możesz czasami zobaczyć porównanie dwóch różnych odpowiedzi na Twój prompt. Jest to część naszego systemu głosowania na preferencje w tekście. Poprosimy Cię o wybranie odpowiedzi, którą wolisz. Pomoże nam to zrozumieć, które wyniki modelu są najbardziej przydatne dla użytkowników.
+ב-Google AI Studio, יכול להיות שמדי פעם תראו השוואה בין שתי תשובות שונות להנחיה שלכם. זה חלק ממערכת ההצבעה שלנו להעדפות בתוך התוכן. תתבקשו לבחור את התשובה המועדפת. כך אנחנו יכולים להבין אילו פלטים של המודל הכי מועילים למשתמשים.
 
-### Dlaczego oferujemy tę usługę?
+### למה אנחנו עושים את זה?
 
-Nieustannie pracujemy nad ulepszaniem naszych modeli i usług AI. Twoja opinia
-w ramach głosowania na preferencje w tekście pomaga nam udostępniać, ulepszać i rozwijać usługi Google
-oraz technologie uczenia maszynowego, w tym funkcje, produkty i usługi Google dla przedsiębiorstw, zgodnie z
-[dodatkowymi warunkami korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/terms?hl=pl) i
-[Polityką prywatności](https://policies.google.com/privacy?hl=pl).
+אנחנו כל הזמן פועלים לשיפור המודלים והשירותים שלנו מבוססי-AI. המשוב שלכם באמצעות ההצבעה על העדפות בתוך הטקסט עוזר לנו לספק, לשפר ולפתח מוצרים ושירותים של Google וטכנולוגיות למידת מכונה, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם [לתנאים והגבלות נוספים לממשקי Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות הפרטיות](https://policies.google.com/privacy?hl=he).
 
-### Jakie dane są uwzględniane w opinii?
+### אילו נתונים נכללים במשוב?
 
-Aby podejmować świadome decyzje dotyczące naszych modeli, zbieramy określone dane, gdy bierzesz udział w głosowaniu na preferencje w tekście:
+כדי לקבל החלטות מושכלות לגבי המודלים שלנו, אנחנו אוספים נתונים מסוימים כשאתם משתתפים בהצבעה להעדפות בתוך הטקסט:
 
-- **Prompty i odpowiedzi:** rejestrujemy wszystkie prompty i odpowiedzi, w tym przesłane treści, w rozmowie, w której przesłano opinię. Rejestrujemy też 2 opcje odpowiedzi, które zostały wybrane. Pomaga nam to zrozumieć kontekst Twoich preferencji.
-- **Twój głos:** rejestrujemy, którą odpowiedź wolisz. Jest to główna część zbieranej przez nas opinii.
-- **Szczegóły użytkowania:** obejmują informacje o tym, który model wygenerował odpowiedź, oraz inne szczegóły techniczne i operacyjne dotyczące korzystania z tej funkcji.
+- **הנחיות ותשובות:** אנחנו מתעדים את כל ההנחיות והתשובות, כולל כל תוכן שהועלה, בשיחה ששלחתם עליה משוב. אנחנו גם מתעדים את שתי אפשרויות התשובה שבחרתם. כך נוכל להבין את ההקשר של ההעדפה שלכם.
+- **ההצבעה שלך:** אנחנו מתעדים איזו תשובה העדפתם. זהו עיקר המשוב שאנחנו אוספים.
+- **פרטי השימוש:** כולל מידע על המודל שיצר את התגובה ופרטים טכניים ותפעוליים אחרים על השימוש שלכם בתכונה הזו.
 
-### Twoja prywatność
+### הפרטיות שלך
 
-Szanujemy Twoją prywatność. W ramach tego procesu Google podejmuje odpowiednie działania, aby chronić Twoją prywatność. Obejmuje to odłączanie tych danych od Twojego konta Google, klucza API i projektu w chmurze, zanim weryfikatorzy je zobaczą lub opatrzą adnotacjami. **Nie przesyłaj opinii o rozmowach, które zawierają informacje wrażliwe, poufne lub osobiste.**
+הפרטיות שלכם חשובה לנו מאוד. במסגרת התהליך הזה, Google מבצעת פעולות כדי להגן על הפרטיות שלכם. לדוגמה, אנחנו מנתקים את הנתונים האלה מחשבון Google, ממפתח ה-API ומפרויקט הענן לפני שהבודקים רואים אותם או מוסיפים להם הערות. **אל תשלחו משוב על שיחות שכוללות מידע רגיש, סודי או אישי.**
 
-### Wyłączenie funkcji
+### ביטול הסכמה להצטרפות
 
-Gdy pojawi się głosowanie na preferencje w tekście, możesz je pominąć.
+תוכלו לדלג על ההצבעה להעדפות בתוך הטקסט כשהיא תופיע.
 
-Dziękujemy za pomoc w ulepszaniu Google AI Studio.
+תודה שעזרת לנו לשפר את Google AI Studio!
 
-Prześlij opinię
+שליחת משוב
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Ostatnia aktualizacja: 2026-04-29 UTC.
+עדכון אחרון: 2026-04-29 (שעון UTC).
 
-Chcesz przekazać coś jeszcze?
+רוצה לתת לנו משוב?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-04-29 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]

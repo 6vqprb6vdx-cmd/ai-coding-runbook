@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pt-BR
-fetched_at: 2026-06-22T06:33:53.632511+00:00
+fetched_at: 2026-06-29T05:32:58.185886+00:00
 title: "Guia de in\u00edcio r\u00e1pido dos agentes gerenciados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
@@ -22,7 +22,7 @@ Neste guia, você aprende a criar e usar agentes gerenciados na API Gemini usand
 
 ## Executar sua primeira interação com o agente
 
-Uma única chamada para a [API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br) provisiona um sandbox do Linux, executa o loop do agente e retorna o resultado. Você vai definir três parâmetros:
+Uma única chamada para a [API Interactions](https://ai.google.dev/gemini-api/docs?hl=pt-br) provisiona um sandbox do Linux, executa o loop do agente e retorna o resultado. Você vai definir três parâmetros:
 
 - Transmita o `agent` como `"antigravity-preview-05-2026",`, que é a versão atual do nosso agente gerenciado predefinido e de uso geral.
 - Defina `environment="remote"` para provisionar um novo ambiente de sandbox.
@@ -72,7 +72,6 @@ console.log(`Output: ${interaction.output_text}`);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "agent": "antigravity-preview-05-2026",
     "input": [{"type": "text", "text": "Write a Python script that generates the first 20 Fibonacci numbers and saves them to fibonacci.txt. Then read the file and print its contents."}],
@@ -123,7 +122,6 @@ console.log(interaction2.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "agent": "antigravity-preview-05-2026",
     "previous_interaction_id": "interaction_id_from_step_1",
@@ -190,7 +188,6 @@ for await (const event of stream) {
 curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "agent": "antigravity-preview-05-2026",
     "input": "Read Hacker News, summarize the top 5 stories, and save the results as a PDF.",
@@ -199,7 +196,7 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-O streaming retorna um iterável de deltas de etapa, que são texto incremental, tokens de raciocínio e atualizações de chamadas de função. Saiba como transmitir respostas no [guia de streaming](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=pt-br).
+O streaming retorna um iterável de deltas de etapa, que são texto incremental, tokens de raciocínio e atualizações de chamadas de função. Saiba como transmitir respostas no [guia de streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=pt-br).
 
 ## Baixar arquivos do ambiente
 
@@ -338,7 +335,6 @@ console.log(`Saved agent: ${agent.id}`);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "id": "fibonacci-analyst",
     "base_agent": "antigravity-preview-05-2026",
@@ -397,7 +393,6 @@ console.log(result.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "agent": "fibonacci-analyst",
     "environment": "remote",
@@ -410,14 +405,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - [Agente antigravidade](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br): recursos, ferramentas compatíveis, entrada multimodal, preços e limitações.
 - [Como criar agentes gerenciados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pt-br): amplie o Antigravity com suas próprias instruções, habilidades e dados.
 - [Ambientes](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br): fontes, rede, ciclo de vida, limites de recursos.
-- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br): a API subjacente para modelos e agentes.
+- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br): a API subjacente para modelos e agentes.
 
 Envie comentários
 
 Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última atualização 2026-06-19 UTC.
+Última atualização 2026-06-22 UTC.
 
 Quer enviar seu feedback?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-19 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]

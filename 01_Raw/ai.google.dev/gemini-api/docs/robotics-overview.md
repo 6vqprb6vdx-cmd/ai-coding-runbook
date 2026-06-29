@@ -1,56 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pt-BR
-fetched_at: 2026-06-22T06:29:30.143379+00:00
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=hi
+fetched_at: 2026-06-29T05:28:31.835868+00:00
 title: "Gemini Robotics-ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O [Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) já está disponível em pré-lançamento com planejamento colaborativo, visualização, suporte a MCP e muito mais.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envie comentários
+सुझाव भेजें
 
 # Gemini Robotics-ER 1.6
 
-O Gemini Robotics-ER 1.6 é um modelo de visão-linguagem (VLM) que traz os recursos de agente do Gemini para a robótica. Ele foi projetado para raciocínio avançado no mundo físico, permitindo que os robôs interpretem dados visuais complexos, façam raciocínio espacial e planejem ações com base em comandos de linguagem natural.
+Gemini Robotics-ER 1.6, विज़न-लैंग्वेज मॉडल (वीएलएम) है. यह रोबोटिक्स में Gemini की एजेंट के तौर पर काम करने की क्षमताओं को शामिल करता है. इसे असल दुनिया में बेहतर तरीके से काम करने के लिए डिज़ाइन किया गया है. इससे रोबोट, मुश्किल विज़ुअल डेटा को समझ पाते हैं, जगह के हिसाब से तर्क कर पाते हैं, और नैचुरल लैंग्वेज में दिए गए निर्देशों के हिसाब से काम कर पाते हैं.
 
-Se você estava usando o Gemini Robotics-ER 1.5, comece a usar o modelo 1.6
-substituindo o nome do modelo de `model="gemini-robotics-er-1.5-preview"`
-para `model="gemini-robotics-er-1.6-preview"` na chamada de API.
+ध्यान दें कि अगर Gemini Robotics-ER 1.5 का इस्तेमाल किया जा रहा था, तो एपीआई कॉल में मॉडल के नाम को `model="gemini-robotics-er-1.5-preview"` से बदलकर `model="gemini-robotics-er-1.6-preview"` करके, 1.6 मॉडल का इस्तेमाल शुरू किया जा सकता है.
 
-Principais recursos e benefícios:
+मुख्य सुविधाएं और फ़ायदे:
 
-- **Autonomia avançada**:os robôs podem raciocinar, se adaptar e responder a mudanças em ambientes abertos.
-- **Interação em linguagem natural**:facilita o uso de robôs ao permitir a atribuição de tarefas complexas usando linguagem natural.
-- **Orquestração de tarefas**:desconstrói comandos de linguagem natural em subtarefas e se integra aos controladores e comportamentos de robôs atuais para concluir tarefas de longo prazo.
-- **Recursos versáteis**:localiza e identifica objetos, entende as relações entre eles, planeja movimentos e trajetórias e interpreta cenas dinâmicas.
+- **बेहतर स्वायत्तता:** रोबोट, ओपन-एंडेड एनवायरमेंट में बदलावों के हिसाब से काम कर सकते हैं, उनमें बदलाव कर सकते हैं, और उनके हिसाब से जवाब दे सकते हैं.
+- **नैचुरल लैंग्वेज इंटरैक्शन:** इससे रोबोट का इस्तेमाल करना आसान हो जाता है. साथ ही, नैचुरल लैंग्वेज का इस्तेमाल करके मुश्किल टास्क असाइन किए जा सकते हैं.
+- **टास्क ऑर्केस्ट्रेशन:** यह सुविधा, आम बोलचाल वाली भाषा में दिए गए निर्देशों को उप-टास्क में बांटती है. साथ ही, लंबे समय तक चलने वाले टास्क को पूरा करने के लिए, मौजूदा रोबोट कंट्रोलर और व्यवहारों के साथ इंटिग्रेट होती है.
+- **कई तरह की सुविधाएं:** यह ऑब्जेक्ट का पता लगाता है और उनकी पहचान करता है. साथ ही, ऑब्जेक्ट के बीच के संबंध को समझता है, पकड़ने और चलने के तरीके को समझता है, और डाइनैमिक सीन को समझता है.
 
-Este documento descreve [o que o modelo faz](#how-it-works) e apresenta vários [exemplos](#standard-spatial-reasoning) que destacam os recursos de agente do modelo.
+इस दस्तावेज़ में बताया गया है कि [मॉडल क्या करता है](#how-it-works). साथ ही, इसमें कई [उदाहरण](#standard-spatial-reasoning) दिए गए हैं, जिनसे मॉडल की एजेंट के तौर पर काम करने की क्षमताओं के बारे में पता चलता है.
 
-Se quiser começar agora, teste o modelo no Google AI Studio.
+अगर आपको तुरंत इस मॉडल का इस्तेमाल शुरू करना है, तो Google AI Studio में जाकर इसे आज़माएं.
 
-[Testar no Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=pt-br)
+[Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=hi)
 
-## Segurança
+## सुरक्षा
 
-Embora o Gemini Robotics-ER 1.6 tenha sido criado com foco na segurança, é sua responsabilidade manter um ambiente seguro ao redor do robô. Os modelos de IA generativa podem cometer erros, e os robôs físicos podem causar danos. A segurança é uma prioridade, e tornar os modelos de IA generativa seguros quando usados com robótica do mundo real é uma área ativa e essencial da nossa pesquisa. Para saber mais, acesse a [página de segurança de robótica do Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=pt-br).
+Gemini Robotics-ER 1.6 को सुरक्षा को ध्यान में रखकर बनाया गया है. हालांकि, यह आपकी ज़िम्मेदारी है कि आप रोबोट के आस-पास सुरक्षित माहौल बनाए रखें. जनरेटिव एआई मॉडल से गलतियां हो सकती हैं. साथ ही, फ़िज़िकल रोबोट से नुकसान हो सकता है. सुरक्षा हमारी प्राथमिकता है. साथ ही, असल दुनिया के रोबोटिक्स के साथ जनरेटिव एआई मॉडल का इस्तेमाल करते समय, उन्हें सुरक्षित बनाना हमारी रिसर्च का एक अहम हिस्सा है. ज़्यादा जानने के लिए, [Google DeepMind के रोबोटिक्स की सुरक्षा से जुड़ा पेज](https://deepmind.google/models/gemini-robotics/safety?hl=hi) पर जाएं.
 
-## Introdução: encontrar objetos em uma cena
+## शुरू करना: किसी सीन में ऑब्जेक्ट ढूंढना
 
-O exemplo a seguir demonstra um caso de uso comum de robótica. Ele mostra como
-transmitir uma imagem e um comando de texto ao modelo usando o método
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=pt-br#method:-models.generatecontent)
-para receber uma lista de objetos identificados com os respectivos pontos 2D.
-O modelo retorna pontos para os itens identificados em uma imagem, retornando
-as coordenadas e os rótulos 2D normalizados.
+इस उदाहरण में, रोबोटिक्स के इस्तेमाल का एक सामान्य उदाहरण दिखाया गया है. इसमें, [`generateContent`](https://ai.google.dev/api/generate-content?hl=hi#method:-models.generatecontent) तरीके का इस्तेमाल करके, मॉडल को इमेज और टेक्स्ट प्रॉम्प्ट पास करने का तरीका बताया गया है. इससे, पहचाने गए ऑब्जेक्ट की सूची और उनके 2D पॉइंट मिलते हैं.
+मॉडल, इमेज में पहचाने गए आइटम के लिए पॉइंट दिखाता है. साथ ही, उनके सामान्य किए गए 2D कोऑर्डिनेट और लेबल दिखाता है.
 
-É possível usar essa saída com uma API de robótica ou chamar um modelo de visão-linguagem-ação (VLA) ou qualquer outra função definida pelo usuário de terceiros para gerar ações que um robô possa realizar.
+इस आउटपुट का इस्तेमाल, रोबोटिक्स एपीआई के साथ किया जा सकता है. इसके अलावा, विज़न-लैंग्वेज-ऐक्शन (वीएलए) मॉडल या तीसरे पक्ष के किसी अन्य उपयोगकर्ता-परिभाषित फ़ंक्शन को कॉल करके, रोबोट के लिए कार्रवाइयां जनरेट की जा सकती हैं.
 
 ### Python
 
@@ -125,7 +119,7 @@ curl -X POST \
   }'
 ```
 
-A saída será uma matriz JSON contendo objetos, cada um com um `point` (coordenadas `[y, x]` normalizadas) e um `label` que identifica o objeto.
+आउटपुट के तौर पर एक JSON कलेक्शन मिलेगा. इसमें ऑब्जेक्ट शामिल होंगे. हर ऑब्जेक्ट में `point` (सामान्य किए गए `[y, x]` कोऑर्डिनेट) और ऑब्जेक्ट की पहचान करने वाला `label` होगा.
 
 ### JSON
 
@@ -144,43 +138,44 @@ A saída será uma matriz JSON contendo objetos, cada um com um `point` (coorden
 ]
 ```
 
-A imagem a seguir é um exemplo de como esses pontos podem ser mostrados:
+नीचे दी गई इमेज में, इन पॉइंट को दिखाने का तरीका बताया गया है:
 
-![Um exemplo que mostra os pontos de objetos em uma imagem](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=pt-br)
+![इमेज में मौजूद ऑब्जेक्ट के पॉइंट दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=hi)
 
-## Como funciona
+## यह कैसे काम करता है
 
-O Gemini Robotics-ER 1.6 permite que seus robôs contextualizem e trabalhem no mundo físico usando a compreensão espacial. Ele recebe entradas de imagem/vídeo/áudio e comandos de linguagem natural para:
+Gemini Robotics-ER 1.6 की मदद से, आपके रोबोट को कॉन्टेक्स्ट के हिसाब से काम करने और
+स्पेशल अंडरस्टैंडिंग का इस्तेमाल करके, फ़िज़िकल दुनिया में काम करने की अनुमति मिलती है. यह इमेज/वीडियो/ऑडियो इनपुट और नैचुरल लैंग्वेज वाले प्रॉम्प्ट लेता है, ताकि:
 
-- **Entender objetos e o contexto da cena**: identifica objetos e raciocina sobre a relação deles com a cena, incluindo as affordances.
-- **Entender instruções de tarefas**: interpreta tarefas dadas em linguagem natural, como "encontre a banana".
-- **Raciocínio espacial e temporal**: entender sequências de ações e como os objetos interagem com uma cena ao longo do tempo.
-- **Forneça saída estruturada**: retorna coordenadas (pontos ou caixas delimitadoras) que representam locais de objetos.
+- **ऑब्जेक्ट और सीन के कॉन्टेक्स्ट को समझना**: ऑब्जेक्ट की पहचान करता है और सीन के साथ उनके संबंध के बारे में बताता है. इसमें उनके अफ़ोर्डेंस भी शामिल हैं.
+- **टास्क के निर्देशों को समझना**: बोलचाल की भाषा में दिए गए टास्क को समझना, जैसे कि "केला ढूंढो".
+- **स्पेशल और टेम्परल रीज़निंग**: कार्रवाइयों के क्रम और समय के साथ किसी सीन में ऑब्जेक्ट किस तरह इंटरैक्ट करते हैं, यह समझना.
+- **स्ट्रक्चर्ड आउटपुट उपलब्ध कराना**: इससे ऑब्जेक्ट की जगहों को दिखाने वाले निर्देशांक (पॉइंट या बाउंडिंग बॉक्स) मिलते हैं.
 
-Isso permite que os robôs "vejam" e "entendam" o ambiente de maneira programática.
+इससे रोबोट, प्रोग्राम के हिसाब से अपने आस-पास के माहौल को "देख" और "समझ" पाते हैं.
 
-O Gemini Robotics-ER 1.6 também é agentic, o que significa que ele pode dividir tarefas complexas (como "coloque a maçã na tigela") em subtarefas para orquestrar tarefas de longo prazo:
+Gemini Robotics-ER 1.6 भी एजेंटिक है. इसका मतलब है कि यह मुश्किल टास्क (जैसे, "सेब को कटोरे में रखो") को उप-टास्क में बांट सकता है, ताकि लंबे समय तक चलने वाले टास्क को मैनेज किया जा सके:
 
-- **Sequenciar subtarefas**: decompõe comandos em uma sequência lógica de etapas.
-- **Chamadas de função/execução de código**: executa etapas chamando suas funções/ferramentas de robô atuais ou executando o código gerado.
+- **उपटास्क को क्रम से लगाना**: यह कमांड को चरणों के लॉजिकल सीक्वेंस में बांटता है.
+- **फ़ंक्शन कॉल/कोड एक्ज़ीक्यूशन**: यह आपके मौजूदा रोबोट फ़ंक्शन/टूल को कॉल करके या जनरेट किए गए कोड को लागू करके चरणों को पूरा करता है.
 
-Leia mais sobre como a chamada de função com o Gemini funciona na [página de chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=pt-br#how-it-works).
+[फ़ंक्शन कॉलिंग पेज](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=hi#how-it-works) पर जाकर, इस बारे में ज़्यादा जानें कि Gemini के साथ फ़ंक्शन कॉलिंग की सुविधा कैसे काम करती है.
 
-### Como usar o orçamento de pensamento com o Gemini Robotics-ER 1.6
+### Gemini Robotics-ER 1.6 के साथ थिंकिंग बजट का इस्तेमाल करना
 
-O Gemini Robotics-ER 1.6 tem um orçamento de pensamento flexível que dá controle sobre as compensações entre latência e precisão. Para tarefas de compreensão espacial, como detecção de objetos, o modelo pode alcançar alto desempenho com um pequeno orçamento de pensamento. Tarefas de raciocínio mais complexas, como contagem e estimativa de peso, se beneficiam de um orçamento de pensamento maior. Isso permite equilibrar a necessidade de respostas de baixa latência com resultados de alta precisão para tarefas mais desafiadoras.
+Gemini Robotics-ER 1.6 में, थिंकिंग बजट की सुविधा उपलब्ध है. इससे आपको यह तय करने में मदद मिलती है कि आपको कम समय में जवाब चाहिए या सटीक जवाब चाहिए. स्पेशल अंडरस्टैंडिंग वाले टास्क, जैसे कि ऑब्जेक्ट का पता लगाने के लिए, मॉडल कम थिंकिंग बजट के साथ अच्छी परफ़ॉर्मेंस दे सकता है. गिनती करने और वज़न का अनुमान लगाने जैसे मुश्किल कामों के लिए, ज़्यादा थिंकिंग बजट का इस्तेमाल किया जाता है. इससे आपको ज़्यादा मुश्किल टास्क के लिए, कम समय में मिलने वाले जवाबों और ज़्यादा सटीक नतीजों के बीच संतुलन बनाने में मदद मिलती है.
 
-Para saber mais sobre os orçamentos de pensamento, consulte a página de recursos principais de [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br).
+सोचने के बजट के बारे में ज़्यादा जानने के लिए, [सोचने](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) की मुख्य क्षमताओं वाला पेज देखें.
 
-## Raciocínio espacial padrão
+## स्पैशियल रीज़निंग की स्टैंडर्ड सुविधा
 
-Os exemplos a seguir demonstram tarefas de **percepção robótica** e raciocínio espacial usando comandos de linguagem natural, que vão desde apontar e encontrar objetos em uma imagem até planejar trajetórias. Para simplificar, os snippets de código nestes exemplos foram reduzidos para mostrar apenas o comando e a chamada para a API `generate_content`.
+यहां दिए गए उदाहरणों में, नैचुरल लैंग्वेज प्रॉम्प्ट का इस्तेमाल करके **रोबोटिक परसेप्शन** और स्पेशल रीज़निंग से जुड़े टास्क दिखाए गए हैं. इनमें इमेज में ऑब्जेक्ट ढूंढने और उन्हें पॉइंट करने से लेकर, ट्रैजेक्ट्री प्लान करने तक के टास्क शामिल हैं. आसानी से समझने के लिए, इन उदाहरणों में दिए गए कोड स्निपेट को छोटा कर दिया गया है. इनमें सिर्फ़ प्रॉम्प्ट और `generate_content` एपीआई को कॉल करने की जानकारी दिखाई गई है.
 
-O código executável completo e outros exemplos podem ser encontrados no [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) (link em inglês).
+पूरा कोड और अन्य उदाहरण, [रोबोटिक्स कुकबुक](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) में देखे जा सकते हैं.
 
-### Apontar para objetos
+### ऑब्जेक्ट की ओर इशारा करना
 
-Apontar e encontrar objetos em imagens ou frames de vídeo é um caso de uso comum para modelos de visão e linguagem (VLMs) em robótica. O exemplo a seguir pede ao modelo para encontrar objetos específicos em uma imagem e retornar as coordenadas deles.
+रोबोटिक्स में, विज़न-एंड-लैंग्वेज मॉडल (वीएलएम) का इस्तेमाल आम तौर पर इमेज या वीडियो फ़्रेम में मौजूद चीज़ों की पहचान करने के लिए किया जाता है. इस उदाहरण में, मॉडल से किसी इमेज में मौजूद ऑब्जेक्ट का पता लगाने और उनके कोऑर्डिनेट देने के लिए कहा गया है.
 
 ### Python
 
@@ -228,7 +223,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-A saída seria semelhante ao exemplo de introdução, um JSON contendo as coordenadas dos objetos encontrados e os rótulos deles.
+आउटपुट, 'शुरू करें' सेक्शन में दिए गए उदाहरण की तरह होगा. यह एक JSON होगा, जिसमें ऑब्जेक्ट के कोऑर्डिनेट और उनके लेबल शामिल होंगे.
 
 ```
 [
@@ -242,9 +237,9 @@ A saída seria semelhante ao exemplo de introdução, um JSON contendo as coorde
 ]
 ```
 
-![Um exemplo que mostra os pontos de objetos identificados em uma imagem](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=pt-br)
+![इमेज में पहचाने गए ऑब्जेक्ट के पॉइंट दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=hi)
 
-Use o comando a seguir para pedir ao modelo que interprete categorias abstratas, como "fruta", em vez de objetos específicos e localize todas as instâncias na imagem.
+मॉडल से किसी इमेज में मौजूद सभी चीज़ों की पहचान करने और उन्हें "फल" जैसी सामान्य कैटगरी में रखने का अनुरोध करने के लिए, यहां दिया गया प्रॉम्प्ट इस्तेमाल करें.
 
 ### Python
 
@@ -257,13 +252,13 @@ prompt = f"""
         [y, x] format normalized to 0-1000."""
 ```
 
-Acesse a página [compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br) para conhecer outras técnicas de processamento de imagens.
+इमेज प्रोसेसिंग की अन्य तकनीकों के बारे में जानने के लिए, [इमेज की बारीक़ी से पहचान](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi) पेज पर जाएं.
 
-### Como rastrear objetos em um vídeo
+### वीडियो में ऑब्जेक्ट ट्रैक करना
 
-O Gemini Robotics-ER 1.6 também pode analisar frames de vídeo para rastrear objetos ao longo do tempo. Consulte [Entradas de vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br#supported-formats) para ver uma lista de formatos de vídeo compatíveis.
+Gemini Robotics-ER 1.6, वीडियो फ़्रेम का विश्लेषण करके, समय के साथ-साथ ऑब्जेक्ट को ट्रैक भी कर सकता है. काम करने वाले वीडियो फ़ॉर्मैट की सूची देखने के लिए, [वीडियो इनपुट](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#supported-formats) देखें.
 
-Este é o comando básico usado para encontrar objetos específicos em cada frame analisado pelo modelo:
+मॉडल जिस हर फ़्रेम का विश्लेषण करता है उसमें मौजूद खास ऑब्जेक्ट ढूंढने के लिए, इस प्रॉम्प्ट का इस्तेमाल किया जाता है:
 
 ### Python
 
@@ -287,18 +282,17 @@ base_prompt = f"""
   """
 ```
 
-A saída mostra uma caneta e um laptop sendo rastreados nos frames do vídeo.
+इस इमेज में, वीडियो फ़्रेम में पेन और लैपटॉप को ट्रैक करते हुए दिखाया गया है.
 
-![Um exemplo que mostra objetos sendo rastreados em frames de um GIF](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=pt-br)
+![GIF में फ़्रेम के ज़रिए ट्रैक किए जा रहे ऑब्जेक्ट दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=hi)
 
-Para conferir o código executável completo, consulte o
-[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+पूरे रन करने लायक कोड के लिए, [रोबोटिक्स कुकबुक](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) देखें.
 
-### Detecção de objetos e caixas delimitadoras
+### ऑब्जेक्ट का पता लगाने की सुविधा और बाउंडिंग बॉक्स
 
-Além de pontos únicos, o modelo também pode retornar caixas delimitadoras 2D, fornecendo uma região retangular que envolve um objeto.
+मॉडल, सिंगल पॉइंट के अलावा 2D बाउंडिंग बॉक्स भी दिखा सकता है. इससे किसी ऑब्जेक्ट के चारों ओर आयताकार क्षेत्र दिखता है.
 
-Este exemplo solicita caixas delimitadoras 2D para objetos identificáveis em uma mesa. O modelo é instruído a limitar a saída a 25 objetos e a nomear várias instâncias de forma exclusiva.
+इस उदाहरण में, टेबल पर मौजूद पहचाने जा सकने वाले ऑब्जेक्ट के लिए 2D बाउंडिंग बॉक्स का अनुरोध किया गया है. मॉडल को यह निर्देश दिया गया है कि वह जवाब में ज़्यादा से ज़्यादा 25 ऑब्जेक्ट शामिल करे. साथ ही, एक से ज़्यादा इंस्टेंस को यूनीक नाम दे.
 
 ### Python
 
@@ -341,17 +335,19 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-A seguir, mostramos as caixas retornadas do modelo.
+यहां मॉडल से मिले बॉक्स दिखाए गए हैं.
 
-![Exemplo mostrando caixas delimitadoras para objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=pt-br)
+![मिली हुई चीज़ों के लिए बाउंडिंग बॉक्स दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=hi)
 
-Para conferir o código executável completo, consulte o [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) (em inglês). A página [Compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br) também tem outros exemplos de tarefas visuais, como detecção de objetos e exemplos de caixa delimitadora.
+पूरा कोड देखने के लिए, [Robotics
+cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) देखें.
+[इमेज को समझना](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi) पेज पर, विज़ुअल टास्क के अन्य उदाहरण भी दिए गए हैं. जैसे, ऑब्जेक्ट का पता लगाना और बाउंडिंग बॉक्स के उदाहरण.
 
-### Trajetórias
+### ट्रैजेक्ट्री
 
-O Gemini Robotics-ER 1.6 pode gerar sequências de pontos que definem uma trajetória, útil para orientar o movimento do robô.
+Gemini Robotics-ER 1.6, ऐसे पॉइंट के सीक्वेंस जनरेट कर सकता है जो किसी ट्रैजेक्ट्री को तय करते हैं. ये पॉइंट, रोबोट को मूव करने के लिए गाइड करने में मददगार होते हैं.
 
-Este exemplo pede uma trajetória para mover uma caneta vermelha até um organizador, incluindo o ponto de partida e uma série de pontos intermediários.
+इस उदाहरण में, लाल पेन को किसी ऑर्गेनाइज़र पर ले जाने के लिए, ट्रैजेक्ट्री का अनुरोध किया गया है. इसमें शुरुआती पॉइंट और इंटरमीडिएट पॉइंट की सीरीज़ शामिल है.
 
 ### Python
 
@@ -393,9 +389,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-A resposta é um conjunto de coordenadas que descrevem a trajetória do caminho
-que a caneta vermelha precisa seguir para concluir a tarefa de movê-la para cima do
-organizador:
+जवाब में कोऑर्डिनेट का एक सेट दिया गया है. इससे उस पाथ की जानकारी मिलती है जिस पर लाल पेन को चलना चाहिए, ताकि उसे ऑर्गेनाइज़र के ऊपर ले जाने का काम पूरा किया जा सके:
 
 ```
 [
@@ -418,18 +412,15 @@ organizador:
 ]
 ```
 
-![Um exemplo mostrando a trajetória planejada](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=pt-br)
+![प्लान की गई ट्रैजेक्ट्री दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=hi)
 
-## Recursos agênticos
+## एजेंटिक एआई की सुविधाएँ
 
-Os exemplos a seguir demonstram o **raciocínio robótico** avançado usando os recursos de agente do modelo, especificamente a **execução de código**. Nesses
-cenários, o modelo pode decidir escrever e executar código Python para manipular
-imagens (como zoom, corte ou rotação) para resolver ambiguidades ou
-melhorar a precisão antes de responder.
+यहां दिए गए उदाहरणों में, मॉडल की एजेंटिक क्षमताओं का इस्तेमाल करके, ऐडवांस **रोबोटिक रीज़निंग** के बारे में बताया गया है. खास तौर पर, **कोड एक्ज़ीक्यूशन** के बारे में. इन स्थितियों में, मॉडल इमेज में बदलाव करने के लिए Python कोड लिख सकता है और उसे एक्ज़ीक्यूट कर सकता है. जैसे, ज़ूम इन करना, काटना या घुमाना. इससे जवाब देने से पहले, मॉडल को इमेज से जुड़ी अस्पष्टता को दूर करने या सटीक जानकारी देने में मदद मिलती है.
 
-### Detecção de objetos (zoom e corte)
+### ऑब्जेक्ट का पता लगाने की सुविधा (ज़ूम और काटें)
 
-O exemplo a seguir demonstra como usar a execução de código para ampliar e cortar uma imagem para uma visualização mais clara ao detectar objetos e retornar caixas delimitadoras.
+यहां दिए गए उदाहरण में बताया गया है कि कोड एक्ज़ीक्यूशन का इस्तेमाल करके, किसी इमेज को ज़ूम और क्रॉप कैसे किया जाता है. इससे ऑब्जेक्ट का पता लगाने और बाउंडिंग बॉक्स दिखाने के दौरान, इमेज को ज़्यादा साफ़ तौर पर देखा जा सकता है.
 
 ### Python
 
@@ -468,7 +459,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A saída do modelo seria semelhante a esta:
+मॉडल का आउटपुट इस तरह का होगा:
 
 ```
 [
@@ -480,13 +471,13 @@ A saída do modelo seria semelhante a esta:
 ]
 ```
 
-A seguir, mostramos as caixas retornadas do modelo.
+यहां मॉडल से मिले बॉक्स दिखाए गए हैं.
 
-![Exemplo mostrando caixas delimitadoras para objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=pt-br)
+![मिली हुई चीज़ों के लिए बाउंडिंग बॉक्स दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=hi)
 
-### Ler um medidor analógico e aplicar a lógica
+### एनालॉग गेज को पढ़ना और लॉजिक लागू करना
 
-O exemplo a seguir demonstra como usar o modelo para ler um medidor analógico e realizar cálculos de tempo. Ele usa uma instrução do sistema para gerar uma saída JSON.
+यहां दिए गए उदाहरण में, मॉडल का इस्तेमाल करके ऐनलॉग गेज को पढ़ने और समय की गणना करने का तरीका बताया गया है. यह JSON आउटपुट को लागू करने के लिए, सिस्टम के निर्देश का इस्तेमाल करता है.
 
 ### Python
 
@@ -523,11 +514,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Confira abaixo um exemplo de entrada de imagem.
+इमेज के तौर पर दिए गए इनपुट का एक उदाहरण यहां दिया गया है.
 
-![Um exemplo mostrando um relógio para leitura](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=pt-br)
+![पढ़ने के लिए घड़ी दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=hi)
 
-A saída do modelo seria semelhante a esta:
+मॉडल का आउटपुट इस तरह का होगा:
 
 ```
 Time Response:  {
@@ -536,9 +527,9 @@ Time Response:  {
  }
 ```
 
-### Medir fluido em um recipiente
+### किसी कंटेनर में मौजूद तरल पदार्थ को मापना
 
-O exemplo a seguir mostra como usar a execução de código para ler um medidor e calcular o nível de líquido como uma porcentagem.
+नीचे दिए गए उदाहरण में, कोड को लागू करके मीटर को पढ़ने और लिक्विड के लेवल को प्रतिशत के तौर पर कैलकुलेट करने का तरीका बताया गया है.
 
 ### Python
 
@@ -578,13 +569,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Esta é a imagem ampliada da entrada.
+यहां इनपुट इमेज को ज़ूम इन करके दिखाया गया है.
 
-![Um exemplo mostrando um relógio para leitura](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=pt-br)
+![पढ़ने के लिए घड़ी दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=hi)
 
-### Ler marcações em uma placa de circuito
+### सर्किट बोर्ड पर मौजूद निशान पढ़ना
 
-O exemplo a seguir demonstra como usar a execução de código para ler texto em um chip de placa de circuito, permitindo que o modelo faça zoom, corte e gire a imagem conforme necessário.
+यहां दिए गए उदाहरण में, कोड एक्ज़ीक्यूशन का इस्तेमाल करके सर्किट बोर्ड चिप पर मौजूद टेक्स्ट को पढ़ने का तरीका बताया गया है. इससे मॉडल, इमेज को ज़रूरत के हिसाब से ज़ूम, कांट-छांट, और घुमा सकता है.
 
 ### Python
 
@@ -618,13 +609,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Esta é a imagem ampliada da entrada.
+यहां इनपुट इमेज को ज़ूम इन करके दिखाया गया है.
 
-![Um exemplo mostrando um relógio para leitura](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=pt-br)
+![पढ़ने के लिए घड़ी दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=hi)
 
-### Anotação de imagem
+### इमेज एनोटेशन
 
-O exemplo a seguir demonstra como usar a execução de código para anotar uma imagem (por exemplo, desenhando setas para instruções de descarte) e retornar a imagem modificada.
+नीचे दिए गए उदाहरण में बताया गया है कि कोड एक्ज़ीक्यूशन की सुविधा का इस्तेमाल करके, किसी इमेज में एनोटेशन कैसे जोड़ा जाता है. उदाहरण के लिए, डिस्पोज़ल के निर्देशों के लिए ऐरो बनाना और बदली गई इमेज को वापस पाना.
 
 ### Python
 
@@ -662,11 +653,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Confira abaixo um exemplo de entrada de imagem.
+इमेज के तौर पर दिए गए इनपुट का एक उदाहरण यहां दिया गया है.
 
-![Um exemplo mostrando um relógio para leitura](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=pt-br)
+![पढ़ने के लिए घड़ी दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=hi)
 
-A saída do modelo seria semelhante a esta:
+मॉडल का आउटपुट इस तरह का होगा:
 
 ```
 The annotated image shows the suggested disposal locations for the items on the table:
@@ -675,15 +666,13 @@ The annotated image shows the suggested disposal locations for the items on the 
 - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Orquestração
+## आयोजन सेवाएं
 
-O Gemini Robotics-ER 1.6 pode realizar **planejamento de tarefas** e raciocínio espacial de nível superior, inferindo ações ou identificando locais ideais com base na compreensão contextual para orquestrar tarefas de longo prazo.
+Gemini Robotics-ER 1.6, **टास्क प्लान** कर सकता है. साथ ही, यह किसी जगह के बारे में बेहतर तरीके से सोच-समझ सकता है. यह कॉन्टेक्स्ट को समझकर, टास्क पूरे करने के लिए सही जगह चुन सकता है या ज़रूरी कार्रवाइयां कर सकता है. इससे लंबे समय तक चलने वाले टास्क को मैनेज करने में मदद मिलती है.
 
-### Abrir espaço para um laptop
+### लैपटॉप रखने के लिए जगह बनाना
 
-Este exemplo mostra como o Gemini Robotics-ER pode raciocinar sobre um espaço. O comando
-pede que o modelo identifique qual objeto precisa ser movido para criar
-espaço para outro item.
+इस उदाहरण में दिखाया गया है कि Gemini Robotics-ER, किसी जगह के बारे में कैसे सोच-विचार कर सकता है. प्रॉम्प्ट में मॉडल से यह पूछा गया है कि किस ऑब्जेक्ट को हटाकर, दूसरी चीज़ के लिए जगह बनानी है.
 
 ### Python
 
@@ -721,7 +710,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-A resposta contém uma coordenada 2D do objeto que responde à pergunta do usuário, neste caso, o objeto que deve ser movido para abrir espaço para um laptop.
+जवाब में, उस ऑब्जेक्ट का 2D कोऑर्डिनेट होता है जो उपयोगकर्ता के सवाल का जवाब देता है. इस मामले में, वह ऑब्जेक्ट जो लैपटॉप के लिए जगह बनाने के लिए हिलना चाहिए.
 
 ```
 [
@@ -729,11 +718,11 @@ A resposta contém uma coordenada 2D do objeto que responde à pergunta do usuá
 ]
 ```
 
-![Um exemplo que mostra qual objeto precisa ser movido para outro objeto](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=pt-br)
+![इस उदाहरण में दिखाया गया है कि किसी ऑब्जेक्ट को दूसरे ऑब्जेक्ट के लिए कहां ले जाना है](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=hi)
 
-### Como preparar um almoço
+### लंच पैक करना
 
-O modelo também pode fornecer instruções para tarefas de várias etapas e apontar objetos relevantes para cada etapa. Este exemplo mostra como o modelo planeja uma série de etapas para preparar uma lancheira.
+मॉडल, एक से ज़्यादा चरणों वाले टास्क के लिए निर्देश भी दे सकता है. साथ ही, हर चरण के लिए काम की चीज़ों की ओर इशारा कर सकता है. इस उदाहरण में दिखाया गया है कि मॉडल, लंच बैग पैक करने के लिए कई चरणों की योजना कैसे बनाता है.
 
 ### Python
 
@@ -772,14 +761,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-A resposta desse comando é um conjunto de instruções detalhadas sobre como embalar
-uma lancheira com base na entrada de imagem.
+इस प्रॉम्प्ट के जवाब में, इमेज इनपुट से लंच बैग पैक करने के बारे में सिलसिलेवार निर्देश दिए गए हैं.
 
-**Imagem de entrada**
+**इनपुट इमेज**
 
-![Imagem de uma lancheira e itens para colocar nela](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=pt-br)
+![लंच बॉक्स और उसमें रखने के लिए चीज़ों की इमेज](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=hi)
 
-**Saída do modelo**
+**मॉडल आउटपुट**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -802,17 +790,15 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-### Como chamar uma API de robô personalizada
+### कस्टम रोबोट एपीआई को कॉल करना
 
-Este exemplo demonstra a orquestração de tarefas com uma API de robô personalizada. Ele
-apresenta uma API simulada projetada para uma operação de pegar e colocar. A tarefa é pegar um bloco azul e colocar em uma tigela laranja:
+इस उदाहरण में, कस्टम रोबोट एपीआई की मदद से टास्क ऑर्केस्ट्रेशन के बारे में बताया गया है. इसमें पिक-एंड-प्लेस ऑपरेशन के लिए डिज़ाइन किया गया मॉक एपीआई शामिल है. टास्क में, नीले रंग के ब्लॉक को उठाकर नारंगी रंग के कटोरे में रखना है:
 
-![Imagem do bloco e da tigela](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=pt-br)
+![ब्लॉक और कटोरे की इमेज](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=hi)
 
-Assim como os outros exemplos nesta página, o código executável completo está disponível
-no [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) (link em inglês).
+इस पेज पर दिए गए अन्य उदाहरणों की तरह, पूरा कोड [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) में उपलब्ध है.
 
-A primeira etapa é localizar os dois itens com o seguinte comando:
+पहला चरण यह है कि इन दोनों आइटम का पता लगाया जाए. इसके लिए, यह प्रॉम्प्ट इस्तेमाल करें:
 
 ### Python
 
@@ -825,7 +811,7 @@ prompt = """
           """
 ```
 
-A resposta do modelo inclui as coordenadas normalizadas do bloco e da tigela:
+मॉडल के जवाब में, ब्लॉक और कटोरे के सामान्य किए गए कोऑर्डिनेट शामिल हैं:
 
 ```
 [
@@ -834,7 +820,7 @@ A resposta do modelo inclui as coordenadas normalizadas do bloco e da tigela:
 ]
 ```
 
-Este exemplo usa a seguinte API de robô simulado:
+इस उदाहरण में, रोबोट के एपीआई के इस मॉक का इस्तेमाल किया गया है:
 
 ### Python
 
@@ -849,8 +835,7 @@ def returnToOrigin():
   print("Returning to origin pose")
 ```
 
-A próxima etapa é chamar uma sequência de funções da API com a lógica necessária para
-executar a ação. O comando a seguir inclui uma descrição da API do robô que o modelo deve usar ao orquestrar essa tarefa.
+अगला चरण, कार्रवाई को पूरा करने के लिए ज़रूरी लॉजिक के साथ एपीआई फ़ंक्शन के क्रम को कॉल करना है. इस प्रॉम्प्ट में, रोबोट एपीआई के बारे में जानकारी दी गई है. मॉडल को इस टास्क को पूरा करने के लिए, इस एपीआई का इस्तेमाल करना चाहिए.
 
 ### Python
 
@@ -894,7 +879,7 @@ prompt = f"""
 """
 ```
 
-Confira a seguir uma possível saída do modelo com base no comando e na API de robô simulada. A saída inclui o processo de pensamento do modelo e as tarefas que ele planejou como resultado. Ela também mostra a saída das chamadas de função do robô que o modelo sequenciou.
+यहां प्रॉम्प्ट और मॉक रोबोट एपीआई के आधार पर, मॉडल से मिलने वाला संभावित आउटपुट दिखाया गया है. आउटपुट में, मॉडल की सोचने की प्रोसेस और उन टास्क के बारे में जानकारी शामिल होती है जिन्हें मॉडल ने प्लान किया है. इसमें, रोबोट के फ़ंक्शन कॉल का आउटपुट भी दिखता है. मॉडल ने इन फ़ंक्शन कॉल को एक साथ क्रम से लगाया है.
 
 ```
 Reasoning: To perform the pick and place operation, I will first move the
@@ -994,72 +979,72 @@ moving to coordinates: -247, 90, 15
 Returning to origin pose
 ```
 
-## Práticas recomendadas
+## सबसे सही तरीके
 
-Para otimizar o desempenho e a acurácia dos seus aplicativos de robótica, é fundamental entender como interagir com o modelo do Gemini de maneira eficaz. Esta seção descreve as práticas recomendadas e as principais estratégias para criar comandos, processar dados visuais e estruturar tarefas para alcançar os resultados mais confiáveis.
+अपने रोबोटिक्स ऐप्लिकेशन की परफ़ॉर्मेंस और सटीकता को ऑप्टिमाइज़ करने के लिए, Gemini मॉडल के साथ असरदार तरीके से इंटरैक्ट करने का तरीका समझना ज़रूरी है. इस सेक्शन में, प्रॉम्प्ट बनाने, विज़ुअल डेटा को मैनेज करने, और टास्क को स्ट्रक्चर करने के सबसे सही तरीकों और अहम रणनीतियों के बारे में बताया गया है, ताकि सबसे भरोसेमंद नतीजे मिल सकें.
 
-1. Use uma linguagem clara e simples.
+1. आसान और साफ़ भाषा का इस्तेमाल करें.
 
-   - **Use linguagem natural**: o modelo do Gemini foi desenvolvido para entender a linguagem natural e conversacional. Estruture seus comandos de forma semanticamente clara e que reflita como uma pessoa daria instruções naturalmente.
-   - **Use terminologia do dia a dia**: prefira uma linguagem comum e cotidiana em vez de jargões técnicos ou especializados. Se o modelo não estiver respondendo como esperado a um determinado termo, tente reformular com um sinônimo mais comum.
-2. Otimize a entrada visual.
+   - **नैचुरल लैंग्वेज का इस्तेमाल करें**: Gemini मॉडल को, नैचुरल लैंग्वेज को समझने के लिए डिज़ाइन किया गया है. अपने प्रॉम्प्ट को इस तरह से स्ट्रक्चर करें कि वे सिमैंटिक तौर पर साफ़ हों. साथ ही, वे इस तरह से लिखे गए हों जैसे कोई व्यक्ति स्वाभाविक रूप से निर्देश देता है.
+   - **रोज़मर्रा के शब्दों का इस्तेमाल करें**: तकनीकी या खास शब्दों के बजाय, रोज़मर्रा की सामान्य भाषा का इस्तेमाल करें. अगर मॉडल किसी शब्द का जवाब आपकी उम्मीद के मुताबिक नहीं दे रहा है, तो उस शब्द को किसी आम बोलचाल वाले शब्द से बदलें.
+2. विज़ुअल इनपुट को ऑप्टिमाइज़ करें.
 
-   - **Aumentar o zoom para ver detalhes**: ao lidar com objetos pequenos ou difíceis de discernir em uma foto mais ampla, use uma função de caixa delimitadora para isolar o objeto de interesse. Em seguida, corte a imagem para essa seleção e envie a nova imagem focada para o modelo para uma análise mais detalhada.
-   - **Teste iluminação e cores**: a percepção do modelo pode ser afetada por condições de iluminação difíceis e contraste de cores ruim.
-3. Divida problemas complexos em etapas menores. Ao abordar cada etapa menor individualmente, você pode orientar o modelo para um resultado mais preciso e bem-sucedido.
-4. Melhore a acurácia por consenso. Para tarefas que exigem um alto grau de precisão, consulte o modelo várias vezes com o mesmo comando. Ao calcular a média dos resultados retornados, você pode chegar a um "consenso" que geralmente é mais preciso e confiável.
+   - **ज़्यादा जानकारी के लिए ज़ूम इन करें**: जब छोटे ऑब्जेक्ट या वाइड शॉट में पहचान करने में मुश्किल होने वाले ऑब्जेक्ट के साथ काम किया जा रहा हो, तो बाउंडिंग बॉक्स फ़ंक्शन का इस्तेमाल करके, काम के ऑब्जेक्ट को अलग करें. इसके बाद, इमेज को इस हिस्से के हिसाब से क्रॉप किया जा सकता है. साथ ही, मॉडल को नई और फ़ोकस की गई इमेज भेजी जा सकती है, ताकि वह ज़्यादा बारीकी से विश्लेषण कर सके.
+   - **रोशनी और रंग के साथ एक्सपेरिमेंट करें**: रोशनी की मुश्किल स्थितियों और खराब कलर कंट्रास्ट की वजह से, मॉडल की परफ़ॉर्मेंस पर असर पड़ सकता है.
+3. मुश्किल समस्याओं को छोटे-छोटे चरणों में बांट लें. हर छोटे चरण को अलग-अलग तरीके से हल करके, मॉडल को ज़्यादा सटीक और बेहतर नतीजे पाने में मदद की जा सकती है.
+4. सहमति के आधार पर, जवाब को ज़्यादा सटीक बनाना. ऐसे टास्क जिनके लिए सटीक जवाब की ज़रूरत होती है उनके लिए, एक ही प्रॉम्प्ट का इस्तेमाल करके मॉडल से कई बार क्वेरी की जा सकती है. जवाबों का औसत निकालकर, एक "सहमति" पर पहुंचा जा सकता है. यह अक्सर ज़्यादा सटीक और भरोसेमंद होती है.
 
-## Limitações
+## सीमाएं
 
-Considere as seguintes limitações ao desenvolver com o Gemini Robotics-ER 1.6:
+Gemini Robotics-ER 1.6 का इस्तेमाल करके डेवलपमेंट करते समय, इन सीमाओं का ध्यान रखें:
 
-- **Status de pré-lançamento**:o modelo está em **pré-lançamento**. As APIs e os recursos podem mudar, e talvez ele não seja adequado para aplicativos de produção sem testes completos.
-- **Latência**:consultas complexas, entradas de alta resolução ou `thinking_budget` extensos podem aumentar os tempos de processamento.
-- **Alucinações**:assim como todos os modelos de linguagem grandes, o Gemini Robotics-ER 1.6 pode ocasionalmente "alucinar" ou fornecer informações incorretas, especialmente para comandos ambíguos ou entradas fora da distribuição.
-- **Dependência da qualidade do comando**:a qualidade da saída do modelo depende muito da clareza e da especificidade do comando de entrada. Comandos vagos ou mal estruturados podem levar a resultados abaixo do ideal.
-- **Custo computacional**:executar o modelo, principalmente com entradas de vídeo ou `thinking_budget` alto, consome recursos computacionais e gera custos.
-  Consulte a página [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para mais detalhes.
-- **Tipos de entrada**:consulte os tópicos a seguir para saber mais sobre as limitações de cada modo.
-  - [Entradas de imagem](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br#technical-details-image)
-  - [Entradas de vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br#supported-formats)
-  - [Entradas de áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br#supported-formats)
+- **झलक की स्थिति:** मॉडल फ़िलहाल **झलक** में है. एपीआई और सुविधाओं में बदलाव हो सकता है. साथ ही, बिना पूरी तरह से जांच किए, यह प्रोडक्शन-क्रिटिकल ऐप्लिकेशन के लिए सही नहीं हो सकता.
+- **लेटेंसी:** मुश्किल क्वेरी, हाई रिज़ॉल्यूशन वाले इनपुट या बड़े पैमाने पर `thinking_budget` की वजह से, प्रोसेस होने में ज़्यादा समय लग सकता है.
+- **गलत जानकारी:** सभी लार्ज लैंग्वेज मॉडल की तरह, Gemini Robotics-ER 1.6 कभी-कभी "गलत जानकारी" दे सकता है. यह खास तौर पर, ऐसे प्रॉम्प्ट के लिए होता है जिनमें साफ़ तौर पर जानकारी नहीं दी गई होती या जो इनपुट के दायरे से बाहर होते हैं.
+- **प्रॉम्प्ट की क्वालिटी पर निर्भरता:** मॉडल के आउटपुट की क्वालिटी, इनपुट प्रॉम्प्ट की क्लैरिटी और स्पेसिफ़िसिटी पर काफ़ी हद तक निर्भर करती है. अस्पष्ट या खराब तरीके से स्ट्रक्चर किए गए प्रॉम्प्ट से, सही नतीजे नहीं मिलते.
+- **कैलकुलेशन में लगने वाला समय:** मॉडल को चलाने में, खास तौर पर वीडियो इनपुट या ज़्यादा `thinking_budget` के साथ, कैलकुलेशन के संसाधनों का इस्तेमाल होता है और इसके लिए शुल्क लगता है.
+  ज़्यादा जानकारी के लिए, [सोचना](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) पेज देखें.
+- **इनपुट टाइप:** हर मोड के लिए तय की गई सीमाओं के बारे में जानने के लिए, यहां दिए गए विषय देखें.
+  - [इमेज इनपुट](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi#technical-details-image)
+  - [वीडियो इनपुट](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#supported-formats)
+  - [ऑडियो इनपुट](https://ai.google.dev/gemini-api/docs/audio?hl=hi#supported-formats)
 
-## Aviso de privacidade
+## निजता नोटिस
 
-Você reconhece que os modelos mencionados neste documento (os "Modelos de robótica") usam dados de vídeo e áudio para operar e mover seu hardware de acordo com suas instruções. Portanto, você pode operar os Modelos de robótica de forma que dados de pessoas identificáveis, como voz, imagens e dados de semelhança ("Dados pessoais"), sejam coletados por eles. Se você optar por operar os modelos de robótica de uma maneira que colete dados pessoais, concorda em não permitir que pessoas identificáveis interajam ou estejam presentes na área ao redor dos modelos de robótica, a menos que essas pessoas tenham sido suficientemente notificadas e consentido com o fato de que seus dados pessoais podem ser fornecidos e usados pelo Google conforme descrito nos termos adicionais de serviço da API Gemini, disponíveis em [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=pt-br) (os "Termos"), incluindo de acordo com a seção intitulada "Como o Google usa seus dados". Você vai garantir que esse aviso permita a coleta e o uso de dados pessoais conforme descrito nos Termos e vai empregar todos os esforços comercialmente razoáveis para minimizar a coleta e a distribuição de dados pessoais usando técnicas como desfoque de rosto e operando os modelos de robótica em áreas sem pessoas identificáveis, na medida do possível.
+आप स्वीकार करते हैं कि इस दस्तावेज़ में बताए गए मॉडल ("रोबोटिक्स मॉडल") को चलाने और आपके निर्देशों के मुताबिक हार्डवेयर को मूव करने के लिए, वीडियो और ऑडियो डेटा का इस्तेमाल किया जाता है. इसलिए, आपके पास रोबोटिक्स मॉडल को इस तरह से चलाने का विकल्प होता है कि वे पहचान ज़ाहिर करने वाली जानकारी इकट्ठा कर सकें. जैसे, आवाज़, इमेज, और मिलती-जुलती जानकारी ("निजी डेटा"). अगर आपने Robotics Models को इस तरह से इस्तेमाल करने का विकल्प चुना है कि वह निजी डेटा इकट्ठा करता है, तो इसका मतलब है कि आपने इस बात पर सहमति दी है कि आप किसी भी ऐसे व्यक्ति को Robotics Models के साथ इंटरैक्ट करने या उसके आस-पास मौजूद रहने की अनुमति नहीं देंगे जिसकी पहचान की जा सकती है. ऐसा तब तक नहीं किया जा सकेगा, जब तक ऐसे व्यक्ति को यह सूचना न दे दी जाए कि उसका निजी डेटा, Gemini API की सेवा की अतिरिक्त शर्तों में बताए गए तरीके से Google को दिया जा सकता है और Google उसका इस्तेमाल कर सकता है. Gemini API की सेवा की अतिरिक्त शर्तें, [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=hi) पर उपलब्ध हैं. इन्हें "शर्तें" कहा जाता है. इसमें "Google आपके डेटा का इस्तेमाल कैसे करता है" सेक्शन में दी गई जानकारी भी शामिल है. आपको यह पक्का करना होगा कि इस तरह की सूचना में, शर्तों में बताए गए तरीके से निजी डेटा को इकट्ठा करने और इस्तेमाल करने की अनुमति दी गई हो. साथ ही, आपको कारोबार के नज़रिए से सही प्रयास करने होंगे, ताकि निजी डेटा को कम से कम इकट्ठा किया जा सके और उसे कम से कम डिस्ट्रिब्यूट किया जा सके. इसके लिए, आपको चेहरे को धुंधला करने जैसी तकनीकों का इस्तेमाल करना होगा. साथ ही, रोबोटिक्स मॉडल को ऐसे इलाकों में चलाना होगा जहां लोगों की पहचान ज़ाहिर न हो.
 
-## Preços
+## कीमत
 
-Para informações detalhadas sobre preços e regiões disponíveis, consulte a página [Preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+शुल्क और उपलब्धता वाले देशों के बारे में ज़्यादा जानकारी के लिए, [शुल्क](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज पर जाएं.
 
-## Versões do modelo
+## मॉडल के वर्शन
 
-### Pré-lançamento do Robotics-ER 1.6
+### Robotics-ER 1.6 की झलक
 
-| Propriedade | Descrição |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| Código do modelo id\_card | `gemini-robotics-er-1.6-preview` |
-| saveTipos de dados aceitos | **Entradas** (link em inglês)  Texto, imagens, vídeo, áudio  **Saída**  Texto |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  131.072  **Limite de token de saída**  65.536 |
-| handymanRecursos | **Geração de áudio**  incompatível  **API Batch**  Compatível  **Armazenamento em cache**  Compatível  **Execução de código**  Compatível  **Uso do computador**  Compatível  **Pesquisa de arquivos**  Compatível  **Inferência flexível**  Compatível  **Chamadas de função**  Compatível  **Embasamento com o Google Maps**  Compatível  **Geração de imagens**  incompatível  **API Live**  incompatível  **Inferência de prioridade**  Compatível  **Embasamento da pesquisa**  Compatível  **Respostas estruturadas**  Compatível  **Pensamento**  Compatível  **Contexto do URL**  Compatível |
-| Versões 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthÚltima atualização | Dezembro de 2025 |
-| cognition\_2Limite de conhecimento | Janeiro de 2025 |
+| id\_cardमॉडल कोड | `gemini-robotics-er-1.6-preview` |
+| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज, वीडियो, ऑडियो  **आउटपुट**  टेक्स्ट |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  131,072  **आउटपुट टोकन की सीमा**  65,536 |
+| handymanसुविधाएँ | **[ऑडियो जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/speech-generation?hl=hi)**  काम नहीं करता है  **[कैश मेमोरी में सेव होना](https://ai.google.dev/gemini-api/docs/caching?hl=hi)**  काम करता है  **[कोड एक्ज़ीक्यूट करना](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi)**  काम करता है  **[कंप्यूटर का इस्तेमाल](https://ai.google.dev/gemini-api/docs/computer-use?hl=hi)**  काम करता है  **[फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)**  काम करता है  **[फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)**  काम करता है  **[Google Maps की मदद से जवाब तैयार करना](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)**  काम करता है  **[इमेज जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)**  काम नहीं करता है  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=hi)**  काम नहीं करता है  **[भरोसेमंद स्रोतों से जानकारी लेना](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)**  काम करता है  **[स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi)**  काम करता है  **[सोचना](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)**  काम करता है  **[यूआरएल का कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)**  काम करता है |
+| speedकॉन्टेंट देखने के विकल्प | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi)**  काम करता है  **[फ़्लेक्स अनुमान](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi)**  काम करता है  **[प्राथमिकता का अनुमान लगाना](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi)**  काम करता है |
+| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - झलक देखें: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthनया अपडेट | दिसंबर 2025 |
+| cognition\_2नॉलेज कटऑफ़ | जनवरी 2025 |
 
-## Próximas etapas
+## अगले चरण
 
-- Conheça outros recursos e continue testando diferentes comandos e entradas para descobrir mais aplicações do Gemini Robotics-ER 1.6.
-  Consulte o [Colab de introdução à robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) para mais exemplos.
-- Saiba como os modelos de robótica do Gemini foram criados pensando na segurança na [página de segurança de robótica do Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=pt-br).
-- Leia sobre as atualizações mais recentes dos modelos do Gemini Robotics na
-  [página de destino do Gemini Robotics](https://deepmind.google/robotics?hl=pt-br).
+- Gemini Robotics-ER 1.6 की अन्य क्षमताओं के बारे में जानें. साथ ही, अलग-अलग प्रॉम्प्ट और इनपुट का इस्तेमाल करके एक्सपेरिमेंट जारी रखें, ताकि आपको इसके अन्य इस्तेमाल के बारे में पता चल सके.
+  ज़्यादा उदाहरणों के लिए, [Robotics getting started colab](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) देखें.
+- जानें कि Gemini Robotics मॉडल को सुरक्षा को ध्यान में रखकर कैसे बनाया गया है. इसके लिए, [Google DeepMind Robotics Safety पेज](https://deepmind.google/models/gemini-robotics/safety?hl=hi) पर जाएं.
+- [Gemini Robotics के लैंडिंग पेज](https://deepmind.google/robotics?hl=hi) पर जाकर, Gemini Robotics के मॉडल से जुड़े नए अपडेट के बारे में पढ़ें.
 
-Envie comentários
+सुझाव भेजें
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última atualização 2026-06-19 UTC.
+आखिरी बार 2026-06-23 (UTC) को अपडेट किया गया.
 
-Quer enviar seu feedback?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-19 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-23 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,274 +1,274 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=vi
-fetched_at: 2026-06-22T06:31:52.899055+00:00
-title: "C\u00e1c khu v\u1ef1c \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 Google AI Studio v\u00e0 API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=ja
+fetched_at: 2026-06-29T05:31:29.853741+00:00
+title: "Google AI Studio \u3068 Gemini API \u3092\u5229\u7528\u3067\u304d\u308b\u30ea\u30fc\u30b8\u30e7\u30f3 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Tính năng Nghiên cứu chuyên sâu của Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi) hiện đang ở giai đoạn xem trước, với các tính năng lập kế hoạch cộng tác, hình ảnh hoá, hỗ trợ MCP và nhiều tính năng khác.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Các khu vực được hỗ trợ Google AI Studio và API Gemini
+# Google AI Studio と Gemini API を利用できるリージョン
 
-Nếu bạn truy cập vào trang này khi cố gắng sử dụng [Google AI Studio](https://aistudio.google.com/?hl=vi), thì có thể
-là do một trong các nguyên nhân sau:
+[Google AI Studio](https://aistudio.google.com/?hl=ja) にアクセスしようとしたときにこのページが表示された場合は、次のいずれかの原因が考えられます。
 
-- **Quy định hạn chế theo khu vực**: Google AI Studio không có ở khu vực của bạn. Hãy tham khảo phần bên dưới để xem danh sách các khu vực được hỗ trợ.
-- **Yêu cầu về độ tuổi**: Bạn không đáp ứng yêu cầu về độ tuổi tối thiểu (từ 18 tuổi trở lên) để sử dụng dịch vụ này.
-- **Xác minh tài khoản**: Bạn có thể sử dụng dịch vụ này nhưng chưa [xác minh tuổi của mình](https://support.google.com/accounts/answer/10071085?hl=vi) trên Tài khoản Google.
+- **地域制限**: お住まいの地域では Google AI Studio をご利用いただけません。サポートされているリージョンの一覧については、以下のセクションをご覧ください。
+- **年齢要件**: このサービスを利用するための最低年齢要件（18 歳以上）を満たしていません。
+- **アカウント確認**: サービスにアクセスできる可能性がありますが、Google アカウントで[年齢確認](https://support.google.com/accounts/answer/10071085?hl=ja)がまだ行われていません。
 
-Để biết thêm thông tin chi tiết về các yêu cầu, hãy xem [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi) của chúng tôi.
+要件について詳しくは、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja)をご確認ください。
 
-## Khu vực khả dụng
+## 利用可能なリージョン
 
-Gemini API và Google AI Studio có ở các quốc gia và vùng lãnh thổ sau. Nếu bạn không ở một trong những quốc gia hoặc vùng lãnh thổ này, hãy thử
-[Gemini API trong Nền tảng đại lý Gemini Enterprise](https://cloud.google.com/gemini-enterprise-agent-platform?hl=vi):
+を使用して、**Colab インスタンス**のロケーションを確認できます。
 
-- Albania
-- Algeria
-- Samoa thuộc Hoa Kỳ
-- Andorra
-- Angola
-- Anguilla
-- Nam Cực
-- Antigua và Barbuda
-- Argentina
-- Armenia
-- Aruba
-- Úc
-- Áo
-- Azerbaijan
-- Bahamas
-- Bahrain
-- Bangladesh
-- Barbados
-- Bỉ
-- Belize
-- Benin
-- Bermuda
-- Bhutan
-- Bolivia
-- Bosnia và Herzegovina
-- Botswana
-- Brazil
-- Lãnh thổ Ấn Độ Dương thuộc Anh
-- Quần đảo Virgin thuộc Anh
-- Brunei
-- Bulgaria
-- Burkina Faso
-- Burundi
-- Cabo Verde
-- Campuchia
-- Cameroon
-- Canada
-- Caribbean thuộc Hà Lan
-- Quần đảo Cayman
-- Cộng hoà Trung Phi
-- Chad
-- Chile
-- Đảo Christmas
-- Quần đảo Cocos (Keeling)
-- Colombia
-- Comoros
-- Quần đảo Cook
-- Costa Rica
-- Bờ biển Ngà
-- Croatia
-- Curaçao
-- Cộng hoà Séc
-- Cộng hoà Dân chủ Congo
-- Đan Mạch
-- Djibouti
-- Dominica
-- Cộng hoà Dominica
-- Ecuador
-- Ai Cập
-- El Salvador
-- Guinea Xích đạo
-- Eritrea
-- Estonia
-- Eswatini
-- Ethiopia
-- Quần đảo Falkland (Islas Malvinas)
-- Quần đảo Faroe
-- Fiji
-- Phần Lan
-- Pháp
-- Guiana thuộc Pháp
-- Gabon
-- Gambia
-- Georgia
-- Đức
-- Ghana
-- Gibraltar
-- Hy Lạp
-- Greenland
-- Grenada
-- Guam
-- Guatemala
-- Guernsey
-- Guinea
-- Guinea-Bissau
-- Guyana
-- Haiti
-- Đảo Heard và Quần đảo McDonald
-- Honduras
-- Hungary
-- Iceland
-- Ấn Độ
-- Indonesia
-- Iraq
-- Ireland
-- Đảo Man
-- Israel
-- Ý
-- Jamaica
-- Nhật Bản
-- Jersey
-- Jordan
-- Kazakhstan
-- Kenya
-- Kiribati
-- Kosovo
-- Kuwait
-- Kyrgyzstan
-- Lào
-- Latvia
-- Lebanon
-- Lesotho
-- Liberia
-- Libya
-- Liechtenstein
-- Lithuania
-- Luxembourg
-- Madagascar
-- Malawi
-- Malaysia
-- Maldives
-- Mali
-- Malta
-- Quần đảo Marshall
-- Mauritania
-- Mauritius
-- Mexico
-- Micronesia
-- Moldova
-- Monaco
-- Mông Cổ
-- Montenegro
-- Montserrat
-- Ma Rốc
-- Mozambique
-- Namibia
-- Nauru
-- Nepal
-- Hà Lan
-- New Caledonia
-- New Zealand
-- Nicaragua
-- Niger
-- Nigeria
-- Niue
-- Đảo Norfolk
-- Bắc Macedonia
-- Quần đảo Bắc Mariana
-- Na Uy
-- Oman
-- Pakistan
-- Palau
-- Palestine
-- Panama
-- Papua New Guinea
-- Paraguay
-- Peru
-- Philippines
-- Quần đảo Pitcairn
-- Ba Lan
-- Bồ Đào Nha
-- Puerto Rico
-- Qatar
-- Cộng hoà Síp
-- Cộng hoà Congo
-- Romania
-- Rwanda
-- Réunion
-- Saint Barthélemy
-- Saint Helena, Ascension và Tristan da Cunha
-- Saint Kitts và Nevis
-- Saint Lucia
-- Saint Pierre và Miquelon
-- Saint Vincent và Grenadines
-- Samoa
-- San Marino
-- São Tomé và Príncipe
-- Ả Rập Xê Út
-- Senegal
-- Serbia
-- Seychelles
-- Sierra Leone
-- Singapore
-- Slovakia
-- Slovenia
-- Quần đảo Solomon
-- Somalia
-- Nam Phi
-- Nam Georgia và quần đảo Nam Sandwich
-- Hàn Quốc
-- Nam Sudan
-- Tây Ban Nha
-- Sri Lanka
-- Sudan
-- Suriname
-- Thuỵ Điển
-- Thuỵ Sĩ
-- Đài Loan
-- Tajikistan
-- Tanzania
-- Thái Lan
-- Đông Timor
-- Togo
-- Tokelau
-- Tonga
-- Trinidad và Tobago
-- Tunisia
-- Turkmenistan
-- Quần đảo Turks và Caicos
-- Tuvalu
-- Thổ Nhĩ Kỳ
-- Uganda
-- Ukraina
-- Các Tiểu Vương quốc Ả Rập Thống nhất
-- Vương quốc Anh
-- Hoa Kỳ
-- Các tiểu đảo xa của Hoa Kỳ
-- Uruguay
-- Quần đảo Virgin thuộc Hoa Kỳ
-- Uzbekistan
-- Vanuatu
-- Thành quốc Vatican
-- Venezuela
-- Việt Nam
-- Wallis và Futuna
-- Tây Sahara
-- Yemen
-- Zambia
-- Zimbabwe
-- Quần đảo Åland
+Gemini API と Google AI Studio は、以下の国と地域でご利用いただけます。上記の国または地域以外にお住まいの場合は、[Gemini Enterprise Agent Platform の Gemini API](https://cloud.google.com/gemini-enterprise-agent-platform?hl=ja) をお試しください。
 
-Gửi ý kiến phản hồi
+- アルバニア
+- アルジェリア
+- 米領サモア
+- アンドラ
+- アンゴラ
+- アンギラ
+- 南極大陸
+- アンティグア バーブーダ
+- アルゼンチン
+- アルメニア
+- アルバ
+- オーストラリア
+- オーストリア
+- アゼルバイジャン
+- バハマ
+- バーレーン
+- バングラデシュ
+- バルバドス
+- ベルギー
+- ベリーズ
+- ベナン
+- バミューダ
+- ブータン
+- ボリビア
+- ボスニア ヘルツェゴビナ
+- ボツワナ
+- ブラジル
+- 英領インド洋地域
+- 英領バージン諸島
+- ブルネイ
+- ブルガリア
+- ブルキナファソ
+- ブルンジ
+- カボベルデ
+- カンボジア
+- カメルーン
+- カナダ
+- オランダ領カリブ
+- ケイマン諸島
+- 中央アフリカ
+- チャド
+- チリ
+- クリスマス諸島
+- ココス諸島（キーリング諸島）
+- コロンビア
+- コモロ
+- クック諸島
+- コスタリカ
+- コートジボワール
+- クロアチア
+- キュラソー島
+- チェコ共和国
+- コンゴ民主共和国
+- デンマーク
+- ジブチ
+- ドミニカ
+- ドミニカ共和国
+- エクアドル
+- エジプト
+- エルサルバドル
+- 赤道ギニア
+- エリトリア
+- エストニア
+- エスワティニ
+- エチオピア
+- フォークランド諸島（マルビナス諸島）
+- フェロー諸島
+- フィジー
+- フィンランド
+- フランス
+- 仏領ギアナ
+- ガボン
+- ガンビア
+- グルジア
+- ドイツ
+- ガーナ
+- ジブラルタル
+- ギリシャ
+- グリーンランド
+- グレナダ
+- グアム
+- グアテマラ
+- ガーンジー
+- ギニア
+- ギニアビサウ
+- ガイアナ
+- ハイチ
+- ハード島とマクドナルド諸島
+- ホンジュラス
+- ハンガリー
+- アイスランド
+- インド
+- インドネシア
+- イラク
+- アイルランド
+- マン島
+- イスラエル
+- イタリア
+- ジャマイカ
+- 日本
+- ジャージー
+- ヨルダン
+- カザフスタン
+- ケニア
+- キリバス
+- コソボ
+- クウェート
+- キルギス
+- ラオス
+- ラトビア
+- レバノン
+- レソト
+- リベリア
+- リビア
+- リヒテンシュタイン
+- リトアニア
+- ルクセンブルク
+- マダガスカル
+- マラウイ
+- マレーシア
+- モルディブ
+- マリ
+- マルタ
+- マーシャル諸島
+- モーリタニア
+- モーリシャス
+- メキシコ
+- ミクロネシア
+- モルドバ
+- モナコ
+- モンゴル
+- モンテネグロ
+- モントセラト島
+- モロッコ
+- モザンビーク
+- ナミビア
+- ナウル
+- ネパール
+- オランダ
+- ニューカレドニア
+- ニュージーランド
+- ニカラグア
+- ニジェール
+- ナイジェリア
+- ニウエ
+- ノーフォーク島
+- 北マケドニア
+- 北マリアナ諸島
+- ノルウェー
+- オマーン
+- パキスタン
+- パラオ
+- パレスチナ
+- パナマ
+- パプアニューギニア
+- パラグアイ
+- ペルー
+- フィリピン
+- ピトケアン諸島
+- ポーランド
+- ポルトガル
+- プエルトリコ
+- カタール
+- キプロス共和国
+- コンゴ共和国
+- ルーマニア
+- ルワンダ
+- レユニオン
+- サン バルテルミー
+- セントヘレナ、アセンション、トリスタン ダ クーニャ
+- セントクリストファー ネービス
+- セントルシア
+- サンピエール ミクロン
+- セントビンセントおよびグレナディーン諸島
+- サモア
+- サンマリノ
+- サントメ プリンシペ
+- サウジアラビア
+- セネガル
+- セルビア
+- セイシェル
+- シェラレオネ
+- シンガポール
+- スロバキア
+- スロベニア
+- ソロモン諸島
+- ソマリア
+- 南アフリカ
+- 南ジョージア諸島および南サンドウィッチ諸島
+- 韓国
+- 南スーダン
+- スペイン
+- スリランカ
+- スーダン
+- スリナム
+- スウェーデン
+- スイス
+- 台湾
+- タジキスタン
+- タンザニア
+- タイ
+- 東ティモール
+- トーゴ
+- トケラウ諸島
+- トンガ
+- トリニダード トバゴ
+- チュニジア
+- トルクメニスタン
+- タークス カイコス諸島
+- ツバル
+- トルコ
+- ウガンダ
+- ウクライナ
+- アラブ首長国連邦
+- 英国
+- 米国
+- 合衆国周辺離島
+- ウルグアイ
+- 米領バージン諸島
+- ウズベキスタン
+- バヌアツ
+- バチカン
+- ベネズエラ
+- ベトナム
+- ウォリス フツナ諸島
+- 西サハラ
+- イエメン
+- ザンビア
+- ジンバブエ
+- オーランド諸島
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+フィードバックを送信
 
-Cập nhật lần gần đây nhất: 2026-04-29 UTC.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+最終更新日 2026-04-29 UTC。
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]
+ご意見をお聞かせください
+
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]

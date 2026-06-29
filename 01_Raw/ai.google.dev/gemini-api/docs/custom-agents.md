@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ar
-fetched_at: 2026-06-22T06:33:41.568377+00:00
-title: "\u0625\u0646\u0634\u0627\u0621 \u0648\u0643\u0644\u0627\u0621 \u0645\u064f\u062f\u0627\u0631\u064a\u0646 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-TW
+fetched_at: 2026-06-29T05:31:04.131253+00:00
+title: "\u5efa\u69cb\u4ee3\u7ba1\u4ee3\u7406\u7a0b\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-تتوفّر الآن ميزة [Deep Research من Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar) في إصدار تجريبي يتضمّن ميزات التخطيط التعاوني والتصوّر ودعم MCP والمزيد.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-إرسال ملاحظات
+提供意見
 
-# إنشاء وكلاء مُدارين
+# 建構代管代理程式
 
-تتيح لك الوكلاء المُدارون على Gemini API توسيع نطاق "وكيل Antigravity" باستخدام التعليمات والمهارات والبيانات الخاصة بك. يمكنك [تخصيص الوكيل بشكل مضمّن](#customize-inline) في وقت التفاعل، أو [حفظ الإعداد](#save-agent) كوكيل مُدار تستدعيه حسب رقم التعريف.
+透過 Gemini API 中的受管理代理程式，您可以運用自己的指令、技能和資料擴充 Antigravity 代理程式。您可以在互動時[自訂代理程式內嵌](#customize-inline)，或[將設定儲存](#save-agent)為您透過 ID 叫用的受管理代理程式。
 
-## تخصيص "وكيل Antigravity"
+## 自訂 Antigravity 代理程式
 
-أسرع طريقة لإنشاء وكيل مخصّص هي تمرير الإعداد بشكل مضمّن أثناء إنشاء تفاعل جديد بدون الحاجة إلى خطوة تسجيل. يمكنك توسيع نطاق الوكيل بثلاث طرق:
+如要快速建構自訂代理程式，最簡單的方式就是在建立新互動時，直接傳遞設定，不需要註冊步驟。您可以透過三種方式擴充代理程式：
 
-- **تعليمات النظام**: يمكنك تمرير نص مضمّن من خلال `system_instruction` لتحديد السلوك.
-- **الأدوات**: يمكنك إلغاء الأدوات التلقائية (تنفيذ الرموز البرمجية والبحث وسياق عنوان URL) أو تحديد دوالّ مخصّصة (استدعاء الدوالّ).
-- **الملفات والمهارات**: يمكنك تحميل ملفات، مثل `AGENTS.md` و`SKILL.md`، إلى البيئة.
+- **系統指令**：透過 `system_instruction` 傳遞內嵌文字，以塑造行為。
+- **工具**：覆寫預設工具 (程式碼執行、搜尋、網址內容)、註冊遠端 MCP 伺服器，或定義自訂函式 (函式呼叫)。
+- **檔案和技能**：將 `AGENTS.md` 和 `SKILL.md` 等檔案掛載到環境中。
 
-في ما يلي مثال على تمرير كل من هذه العناصر الثلاثة بشكل مضمّن:
+以下是內嵌傳遞所有三個項目的範例：
 
 ### Python
 
@@ -98,7 +98,6 @@ console.log(interaction.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "agent": "antigravity-preview-05-2026",
     "input": "Analyze the Q1 revenue data and create a slide deck.",
@@ -121,22 +120,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-يتم تحديد كل شيء في وقت التفاعل. ما مِن حاجة إلى تسجيل أي شيء أولاً. يوفر إطار عمل "وكيل Antigravity" وقت التشغيل (تنفيذ الرموز البرمجية وإدارة الملفات والوصول إلى الويب) وطبقات الإعداد الخاصة بك في الأعلى.
+所有項目都是在互動時定義。不必事先註冊任何項目，Antigravity 代理程式安全帶提供執行階段 (程式碼執行、檔案管理、網路存取)，以及頂層的設定層。
 
-### الأدوات وتعليمات النظام
+### 工具和系統指令
 
-يمكنك تخصيص سلوك الوكيل وإمكاناته لتفاعل معيّن باستخدام المَعلمتَين `system_instruction` و`tools`.
+您可以使用 `system_instruction` 和 `tools` 參數，自訂特定互動的代理程式行為和功能。
 
-- **تعليمات النظام**: استخدِم المَعلمة `system_instruction` لتمرير نص مضمّن يحدّد سلوك الوكيل. هذا مثالي للتعديلات السريعة التي تريد تغييرها لكل مكالمة. تكون المَعلمة `system_instruction` والملف `AGENTS.md` إضافيَين، ويتم تطبيق كلتَيهما عند توفّرهما.
-- **الأدوات**: بشكلٍ تلقائي، يمكن لـ "وكيل Antigravity" الوصول إلى `code_execution` و`google_search` و`url_context`. يمكنك إلغاء هذه القائمة من خلال تمرير المَعلمة `tools` في وقت التفاعل. يمكنك أيضًا تحديد [دوالّ مخصّصة (استدعاء الدوالّ)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#function-calling) لربط الوكيل بواجهات برمجة التطبيقات وقواعد البيانات الخاصة بك. للاطّلاع على التفاصيل الكاملة حول الأدوات المتاحة، يُرجى الرجوع إلى مقالة "[وكيل Antigravity: الأدوات المتوافقة](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar#supported-tools)".
+- **系統指令**：使用 `system_instruction` 參數傳遞內嵌文字，以塑造代理程式的行為。非常適合在每次通話時快速調整設定。《`system_instruction`》和《`AGENTS.md`》是加成效果，如果兩者都存在，則會同時套用。
+- **工具**：根據預設，Antigravity 代理程式可存取 `code_execution`、`google_search` 和 `url_context`。您可以在互動時傳遞 `tools` 參數，覆寫這份清單。您也可以註冊[遠端 MCP 伺服器](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#mcp-servers)，或定義[自訂函式 (函式呼叫)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#function-calling)，將代理程式連結至您自己的 API 和資料庫。如要瞭解可用的完整工具，請參閱「[Antigravity Agent：支援的工具](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#supported-tools)」。
 
-### التخصيص المستند إلى الملفات
+### 以檔案為基礎的自訂
 
-#### بنية دليل الوكيل
+#### 代理程式目錄結構
 
-على الرغم من أنّه يمكنك تمرير الإعداد بشكل مضمّن، ننصحك بتنظيم ملفات الوكيل في دليل منظَّم. يسهّل ذلك إدارة الملفات والتحكّم في إصداراتها وتحميلها في بيئة الوكيل.
+雖然您可以內嵌傳遞設定，但我們建議您在結構化目錄中整理代理程式的檔案。方便管理、版本管控，以及掛接到代理程式環境。
 
-يبدو دليل مشروع الوكيل النموذجي على النحو التالي:
+典型的代理程式專案目錄如下所示：
 
 ```
 my-agent/
@@ -147,13 +146,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-يفحص وقت تشغيل Antigravity الملفات التالية في `.agents/` (وفي جذر البيئة).
+Antigravity 執行階段會掃描 `.agents/` (和環境的根目錄) 是否有這些檔案。
 
 #### AGENTS.md
 
-يحمّل الوكيل تلقائيًا الملف `.agents/AGENTS.md` (أو `/.agents/AGENTS.md`) من البيئة كتعليمات للنظام عند بدء التشغيل. استخدِم الملف `AGENTS.md` لتعريفات الشخصيات الطويلة والإرشادات التفصيلية والتعليمات التي تريد التحكّم في إصداراتها إلى جانب الرمز البرمجي.
+代理程式會在啟動時，從環境中自動載入 `.agents/AGENTS.md` (或 `/.agents/AGENTS.md`) 做為系統指令。使用 `AGENTS.md` 進行長篇角色定義、詳細規範和說明，並與程式碼一起進行版本管控。
 
-يمكنك تحميل ملف `AGENTS.md` باستخدام مصدر مضمّن:
+使用內嵌來源掛接 `AGENTS.md`：
 
 ### Python
 
@@ -213,7 +212,6 @@ console.log(interaction.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Api-Revision: 2026-05-20" \
   -d '{
       "agent": "antigravity-preview-05-2026",
       "input": "Analyze the Q1 revenue data and create a report.",
@@ -231,9 +229,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### المهارات: SKILL.md
+#### 技能：SKILL.md
 
-المهارات هي ملفات توسّع إمكانات الوكيل. ضَعها ضِمن `.agents/skills/<skill-name>/SKILL.md` وسيكتشفها إطار العمل ويسجّلها تلقائيًا.
+技能是擴充代理功能的檔案。將它們放在 `.agents/skills/<skill-name>/SKILL.md` 下方，安全帶就會自動探索並註冊。
 
 ```
 .agents/
@@ -243,7 +241,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         └── SKILL.md
 ```
 
-يمكنك تحميل مهارة باستخدام مصدر مضمّن:
+使用內嵌來源掛接技能：
 
 ### Python
 
@@ -303,7 +301,6 @@ console.log(interaction.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Api-Revision: 2026-05-20" \
   -d '{
       "agent": "antigravity-preview-05-2026",
       "input": "Create a presentation about our Q1 results.",
@@ -321,15 +318,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-يتم اكتشاف المهارات التي يتم تحميلها من `.agents/skills/` و`/.agents/skills/` تلقائيًا.
+系統會自動探索從 `.agents/skills/` 和 `/.agents/skills/` 載入的技能。
 
-## إنشاء وكيل مُدار
+## 建立代管代理程式
 
-بعد تكرار الإعداد، يمكنك إنشاؤه كوكيل مُدار باستخدام `agents.create`. يتيح لك ذلك استدعاء الوكيل حسب رقم التعريف بدون تكرار الإعداد في كل مرة.
+完成設定的疊代作業後，您可以使用 `agents.create` 將設定建立為受管理代理程式。這樣一來，您就能透過 ID 叫用代理程式，不必每次都重複設定。
 
-### من المصادر
+### 來自來源
 
-حدِّد `base_agent` و`id` و`system_instruction` و`base_environment` باستخدام المصادر. توفّر المنصة بيئة اختبار جديدة تتضمّن ملفاتك في كل عملية استدعاء. يمكنك الاطّلاع على أنواع المصادر المتاحة (Git وGCS والمضمّنة) في مقالة [البيئات](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar).
+使用來源指定 `base_agent`、`id`、`system_instruction` 和 `base_environment`。平台會在每次叫用時，使用您的檔案佈建新的沙箱。如要瞭解可用的來源類型 (Git、GCS、內嵌)，請參閱「[環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)」。
 
 ### Python
 
@@ -409,7 +406,6 @@ console.log(`Created agent: ${agent.id}`);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
--H "Api-Revision: 2026-05-20" \
 -d '{
     "id": "data-analyst",
     "base_agent": "antigravity-preview-05-2026",
@@ -437,9 +433,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### من بيئة حالية (تفريع)
+### 從現有環境 (分叉)
 
-كرِّر استخدام "وكيل Antigravity" الأساسي إلى أن تصبح البيئة مناسبة (الحِزم مثبَّتة والملفات في مكانها)، ثم فرِّعها إلى وكيل مُدار.
+使用基礎 Antigravity 代理程式進行疊代，直到環境正確為止 (已安裝套件、檔案就位)，然後將其分叉到受管理代理程式。
 
 ### Python
 
@@ -496,7 +492,6 @@ console.log(`Forked agent successfully: ${agent.id}`);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Api-Revision: 2026-05-20" \
   -d '{
       "agent": "antigravity-preview-05-2026",
       "input": "Install pandas, matplotlib, and seaborn. Create an analysis template at /workspace/template.py.",
@@ -504,11 +499,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### باستخدام قواعد الشبكة
+### 使用網路規則
 
-يمكنك حظر الوصول الصادر أو إدخال بيانات الاعتماد عند حفظ وكيل مُدار. للاطّلاع على المخطط الكامل لقائمة السماح وأنماط بيانات الاعتماد والأحرف البدل، يُرجى الرجوع إلى مقالة [البيئات: إعدادات الشبكة](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar#network-configuration).
+儲存受管理代理程式時，您可以鎖定輸出存取權或插入憑證。如需完整的許可清單結構定義、憑證模式和萬用字元，請參閱「[環境：網路設定](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#network-configuration)」。
 
-ينشئ المثال التالي وكيل `issue-resolver` لا يمكنه الوصول إلا إلى GitHub وPyPI، مع إدخال بيانات الاعتماد لـ GitHub:
+以下範例會建立只能存取 GitHub 和 PyPI 的 `issue-resolver` 代理程式，並為 GitHub 插入憑證：
 
 ### Python
 
@@ -590,7 +585,6 @@ console.log(`Created issue-resolver agent successfully: ${agent.id}`);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Api-Revision: 2026-05-20" \
   -d '{
       "id": "issue-resolver",
       "base_agent": "antigravity-preview-05-2026",
@@ -619,9 +613,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## استدعاء الوكيل
+## 叫用代理程式
 
-يمكنك استدعاء الوكيل المُدار باستخدام رقم تعريف الوكيل من خلال إنشاء تفاعل جديد. في كل عملية استدعاء، يتم تفريع البيئة الأساسية، لذا تبدأ كل عملية تشغيل من جديد.
+建立新的互動，並使用代理程式 ID 呼叫受管理代理程式。每次叫用都會分叉基本環境，因此每次執行都會從乾淨的狀態開始。
 
 ### Python
 
@@ -653,7 +647,6 @@ console.log(result.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Api-Revision: 2026-05-20" \
   -d '{
       "agent": "data-analyst",
       "input": "Analyze Q1 revenue data from /workspace/templates/sample.csv and create a slide deck.",
@@ -661,11 +654,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-للاطّلاع على المحادثات المترابطة والبث، يُرجى الرجوع إلى دليل البدء السريع . تنطبق أنماط `previous_interaction_id` و`environment` نفسها على الوكلاء المُدارين.
+如要瞭解多輪對話和串流，請參閱[快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)。受管理代理程式也適用相同的 `previous_interaction_id` 和 `environment` 模式。
 
-## إلغاء الإعداد في وقت الاستدعاء
+代管代理程式也支援背景執行和取消作業。如需詳細資料和程式碼範例，請參閱「[Antigravity Agent：背景執行](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#background-execution)」。
 
-يمكنك إلغاء `system_instruction` و`tools` التلقائيتَين للوكيل عند إنشاء تفاعل. يتيح لك ذلك تعديل سلوك الوكيل أو إمكاناته لعملية تشغيل معيّنة بدون تغيير تعريف الوكيل المخزَّن.
+## 在叫用時覆寫設定
+
+建立互動時，您可以覆寫代理程式的預設 `system_instruction` 和 `tools`。這樣一來，您就能在特定執行作業中修改代理程式的行為或功能，而不必變更儲存的代理程式定義。
 
 ### Python
 
@@ -700,7 +695,6 @@ console.log(result.output_text);
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
-  -H "Api-Revision: 2026-05-20" \
   -d '{
       "agent": "data-analyst",
       "input": "Analyze Q1 revenue data, but do not create a slide deck. Just output a summary table.",
@@ -710,11 +704,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## إدارة الوكلاء
+## 管理代理
 
-يمكنك إدراج الوكلاء والحصول عليهم وحذفهم.
+您可以列出、取得及刪除代理程式。
 
-### إدراج الوكلاء
+### 列出代理程式
 
 ### Python
 
@@ -742,7 +736,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### الحصول على وكيل
+### 取得代理程式
 
 ### Python
 
@@ -765,9 +759,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### حذف وكيل
+### 刪除代理程式
 
-يؤدي الحذف إلى إزالة الإعداد. لا تتأثر البيئات الحالية والتفاعلات التي أنشأها الوكيل.
+刪除後，系統會移除設定。代理程式建立的現有環境和互動不會受到影響。
 
 ### Python
 
@@ -788,46 +782,46 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## مرجع تعريف الوكيل
+## 代理定義參考資料
 
-| الحقل | النوع | مطلوب | الوصف |
+| 欄位 | 類型 | 必要 | 說明 |
 | --- | --- | --- | --- |
-| `id` | سلسلة | نعم | رقم تعريف فريد للوكيل. يُستخدَم لاستدعاء الوكيل. |
-| `description` | سلسلة | لا | وصف للوكيل يمكن لشخص عادي قراءته. |
-| `base_agent` | سلسلة | نعم | رقم تعريف الوكيل الأساسي (مثلاً، `antigravity-preview-05-2026`). |
-| `system_instruction` | سلسلة | لا | طلب النظام الذي يحدّد السلوك والشخصية. |
-| `tools` | سلسلة أو عنصر | لا | الأدوات التي يمكن للوكيل استخدامها، وإذا تم حذفها، سيتمكّن الوكيل من الوصول إلى `code_execution` و`google_search` و`url_context`. |
-| `base_environment` | سلسلة أو عنصر | لا | `"remote"` أو `environment_id` أو عنصر إعداد يتضمّن `sources` و`network`. يُرجى الرجوع إلى مقالة البيئات. |
+| `id` | 字串 | 是 | 專屬代理程式 ID。用於呼叫代理程式。 |
+| `description` | 字串 | 否 | 人類可讀的代理說明。 |
+| `base_agent` | 字串 | 是 | 基本代理 ID (例如 `antigravity-preview-05-2026`)。 |
+| `system_instruction` | 字串 | 否 | 定義行為和角色的系統提示。 |
+| `tools` | 陣列 | 否 | 代理可用的工具。如果省略此屬性，系統會預設為 `code_execution`、`google_search` 和 `url_context`。支援的工具包括 `code_execution`、`google_search`、`url_context`、`mcp_server` 和自訂 `function` 定義。 |
+| `base_environment` | 字串或物件 | 否 | `"remote"`、`environment_id`，或是包含 `sources` 和 `network` 的設定物件。請參閱「環境」。 |
 
-## سير عمل التكرار
+## 疊代工作流程
 
-1. **إنشاء نموذج أولي** باستخدام "وكيل Antigravity" الأساسي. يمكنك تمرير تعليمات النظام ومصادر البيئة بشكل مضمّن. اختبِر التعليمات والمهارات وإعداد البيئة بشكل تفاعلي.
-2. **تثبيت** البيئة. يمكنك تثبيت الحِزم وتحميل المصادر والتحقّق من أنّ كل شيء يعمل.
-3. **الاحتفاظ** بالوكيل كوكيل مُدار من خلال إنشاء وكيل جديد، إما من المصادر أو من خلال تفريع البيئة.
-4. **تعديل** تعريف الوكيل. يمكنك تغيير تعليمات النظام أو تبديل المهارات أو إضافة المصادر. ستستخدم عملية الاستدعاء التالية الإعداد الجديد.
+1. 使用基礎 Antigravity 代理**原型**。內嵌傳遞系統指令和環境來源。以互動方式測試指令、技能和環境設定。
+2. **穩定**環境。安裝套件、掛接來源，並確認一切正常運作。
+3. 建立新代理程式 (可從來源建立，或透過分叉環境建立)，以**保留**為受管理代理程式。
+4. **更新**代理程式定義。變更系統指令、更換技能或新增來源。下次叫用時，系統就會採用新設定。
 
-## القيود
+## 限制
 
-- **حالة المعاينة**: الوكلاء المُدارون في مرحلة المعاينة. قد تتغيّر الميزات والمخططات.
-- **الوكيل الأساسي**: لا يمكن استخدام سوى `antigravity-preview-05-2026` كـ `base_agent`.
-- **ما مِن ميزة للتحكّم في الإصدارات**: لا تتوفّر بعد ميزتا التحكّم في إصدارات الوكيل والرجوع إلى إصدار سابق.
-- **ما مِن ميزة لتضمين وكلاء فرعيين**: لا تتوفّر بعد ميزة تفويض الوكلاء الفرعيين.
-- يمكنك استخدام ما يصل إلى 1,000 وكيل مُدار.
+- **預覽狀態**：受管理代理程式目前為預覽版。功能和結構定義可能會有所異動。
+- **基礎代理程式**：僅支援 `antigravity-preview-05-2026` 做為 `base_agent`。
+- **不支援版本管理**：目前不支援代理程式版本管理和復原。
+- **不支援子代理巢狀結構**：目前不支援子代理委派。
+- 最多可有 1000 個受管理代理程式。
 
-## الخطوات التالية
+## 後續步驟
 
-- [نظرة عامة على الوكلاء](https://ai.google.dev/gemini-api/docs/agents?hl=ar): يمكنك التعرّف على المفاهيم الأساسية للوكلاء المُدارين.
-- [دليل البدء السريع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ar): يمكنك البدء في الإنشاء باستخدام المحادثات المترابطة والعرض تدريجيًا.
-- [وكيل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ar): يمكنك استكشاف إمكانات الوكيل التلقائي وأدواته وأسعاره.
-- [بيئات الوكلاء](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ar): يمكنك إعداد بيئات الاختبار والمصادر والشبكات.
-- [Managed Agents API على "منصة الوكلاء"](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ar): يمكنك إنشاء وكلاء باستخدام حوكمة تنظيمية مضمّنة.
+- [代理程式總覽](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw)：瞭解受管理代理程式的核心概念。
+- [快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)：開始建構多輪對話和串流。
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)：瞭解預設代理的功能、工具和價格。
+- [代理程式環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)：設定沙箱、來源和網路。
+- [Agent Platform 的 Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=zh-tw)：用於建立內建機構治理功能的代理。
 
-إرسال ملاحظات
+提供意見
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاريخ التعديل الأخير: 2026-06-17 (حسب التوقيت العالمي المتفَّق عليه)
+上次更新時間：2026-06-26 (世界標準時間)。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+想進一步說明嗎？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-17 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-26 (世界標準時間)。"],[],[]]

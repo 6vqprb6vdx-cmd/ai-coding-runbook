@@ -1,55 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=ja
-fetched_at: 2026-06-22T06:27:11.034308+00:00
-title: "Workspace \u30a2\u30ab\u30a6\u30f3\u30c8\u3067 Google AI Studio \u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=tr
+fetched_at: 2026-06-29T05:29:48.722777+00:00
+title: "Google AI Studio'ya Workspace hesab\u0131n\u0131zla eri\u015fme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ja) がプレビュー版で利用可能になりました。共同プランニング、可視化、MCP サポートなどが含まれています。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-フィードバックを送信
+Geri bildirim gönderin
 
-# Workspace アカウントで Google AI Studio にアクセスする
+# Google AI Studio'ya Workspace hesabınızla erişme
 
-すべての [Google Workspace](https://workspace.google.com?hl=ja) ユーザーは、デフォルトで AI
-Studio にアクセスできます。Workspace ユーザーで、
-AI Studio の使用を開始する場合は、
-[AI Studio クイックスタート](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ja)をご覧ください。
+Tüm [Google Workspace](https://workspace.google.com?hl=tr) kullanıcıları, varsayılan olarak AI Studio'ya erişebilir. Workspace kullanıcısıysanız ve AI Studio'yu kullanmaya başlamak istiyorsanız [AI Studio hızlı başlangıç kılavuzunu](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=tr) inceleyin.
 
-## トラブルシューティング
+## Sorun giderme
 
-Google Workspace アカウントで AI Studio へのアクセスが無効になっている場合は、次のようなエラーが表示されることがあります。
+Google Workspace hesabınız için AI Studio'ya erişim devre dışı bırakılmışsa aşağıdaki gibi bir hata mesajı görebilirsiniz:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-AI Studio へのアクセス権が必要と思われる場合は、Workspace 管理者にお問い合わせください。
+AI Studio'ya erişebilmeniz gerektiğini düşünüyorsanız Workspace yöneticinizle iletişime geçin.
 
-## Workspace ユーザーに対して AI Studio を有効にする
+## Workspace kullanıcıları için AI Studio'yu etkinleştirme
 
-Google Workspace 管理者は、AI Studio を使用できるユーザーを制御できます。
+Google Workspace yöneticisi olarak, AI Studio'yu kimlerin kullanabileceğini kontrol edebilirsiniz:
 
-- AI Studio は、すべてのエディションでデフォルトで有効になっています。
-- 組織部門内または組織部門全体で、ユーザー グループに対して AI Studio を有効または無効にできます。
-- Google Workspace for Education エディション: 18 歳未満のユーザーは、Google Workspace for Education アカウントで AI Studio を使用できません。これは、AI Studio の設定がオンの場合にも当てはまります。詳しくは、[Google サービスへのアクセスを
-  年齢別に管理する方法](https://support.google.com/a/answer/10651918?hl=ja)をご覧ください。
+- AI Studio, tüm sürümlerde varsayılan olarak etkindir.
+- AI Studio'yu kuruluş birimleri genelinde veya kuruluş birimleri içindeki kullanıcı grupları için devre dışı bırakabilir ya da etkinleştirebilirsiniz.
+- Google Workspace for Education sürümleri: 18 yaşından küçük kullanıcılar, Google Workspace for Education hesaplarıyla AI Studio'yu kullanamaz. Bu durum, AI Studio ayarı açık olsa bile geçerlidir. Ayrıntılı bilgi için [Google hizmetlerine erişimi yaşa göre kontrol etme](https://support.google.com/a/answer/10651918?hl=tr) başlıklı makaleyi inceleyin.
 
-組織内のユーザーに対して AI Studio を有効または無効にするには、
-[ユーザーに対して Google AI Studio を有効または無効にする](https://support.google.com/a/answer/15004095?hl=ja)をご覧ください。
+Kuruluşunuzdaki kullanıcılar için AI Studio'yu etkinleştirmek veya devre dışı bırakmak istiyorsanız [Kullanıcılar için Google AI Studio'yu etkinleştirme veya devre dışı bırakma](https://support.google.com/a/answer/15004095?hl=tr) başlıklı makaleyi inceleyin.
 
-フィードバックを送信
+Geri bildirim gönderin
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最終更新日 2026-04-29 UTC。
+Son güncelleme tarihi: 2026-04-29 UTC.
 
-ご意見をお聞かせください
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]
