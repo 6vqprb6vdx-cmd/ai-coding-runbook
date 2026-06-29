@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/prompt-library
-fetched_at: 2026-05-25T12:53:28.482805+00:00
+fetched_at: 2026-06-29T05:23:11.038712+00:00
 fetch_method: mintlify_md
 ---
 
@@ -1223,7 +1223,7 @@ export const text = {
   "review-your-changes-before": {
     title: "Review your changes before you commit",
     teaches: "Catch problems while they're still cheap to fix. Claude reads the changed files in full, not just the diff lines, so it spots issues a quick self-review misses.",
-    next: "Run `/review` for the same check in one command"
+    next: "Run `/code-review` for the same check in one command"
   },
   "review-a-pull-request": {
     title: "Review a pull request",
