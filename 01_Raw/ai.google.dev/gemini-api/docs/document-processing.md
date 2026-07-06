@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/document-processing?hl=ar
-fetched_at: 2026-06-29T05:31:36.264119+00:00
+fetched_at: 2026-07-06T05:13:04.330101+00:00
 title: "\u0641\u0647\u0645 \u0627\u0644\u0645\u0633\u062a\u0646\u062f\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

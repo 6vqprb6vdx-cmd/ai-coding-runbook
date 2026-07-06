@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=vi
-fetched_at: 2026-06-29T05:30:24.114497+00:00
-title: "B\u1ea3n xem tr\u01b0\u1edbc Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=id
+fetched_at: 2026-07-06T05:13:55.367860+00:00
+title: "Pratinjau antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-# Bản xem trước Antigravity
+# Pratinjau antigravity
 
-Một tác nhân được quản lý đa năng và mạnh mẽ, được thiết kế cho các quy trình công việc tự động, nhiều bước. Mô hình này lập kế hoạch, suy luận, chạy mã, quản lý tệp và tìm kiếm trên web trong một hộp cát Linux biệt lập, an toàn do Google lưu trữ.
+Agen terkelola serbaguna yang andal dan dirancang untuk alur kerja multilangkah yang otonom. Model ini merencanakan, melakukan penalaran, menjalankan kode, mengelola file, dan menelusuri web di dalam sandbox Linux yang aman dan terisolasi yang dihosting oleh Google.
 
-## Tài liệu
+## Dokumentasi
 
-Truy cập trang [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi) để xem thông tin đầy đủ về các tính năng, chức năng và mã mẫu.
+Buka halaman [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id) untuk mendapatkan cakupan
+lengkap tentang fitur, kemampuan, dan contoh kode.
 
 ## antigravity-preview-05-2026
 
-| Thuộc tính | Mô tả |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardMã nhân viên | **Interactions API**  `antigravity-preview-05-2026` |
-| saveCác loại dữ liệu được hỗ trợ | **Input**  Văn bản, hình ảnh  **Đầu ra**  Văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Cửa sổ ngữ cảnh đầu vào**  1.048.576 (được nén ở mức khoảng 135.000)  **Giới hạn mã thông báo đầu ra**  65.536 |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Xem trước: `antigravity-preview-05-2026` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 5/2026 |
+| Kode agen id\_card | **Interactions API**  `antigravity-preview-05-2026` |
+| saveJenis data yang didukung | **Input**  Teks, Gambar  **Output**  Teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Jendela konteks input**  1.048.576 (dikompresi menjadi ~135 ribu)  **Batas token output**  65.536 |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `antigravity-preview-05-2026` |
+| calendar\_monthPembaruan terbaru | Mei 2026 |
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Cập nhật lần gần đây nhất: 2026-05-19 UTC.
+Terakhir diperbarui pada 2026-05-19 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Ada masukan untuk kami?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]

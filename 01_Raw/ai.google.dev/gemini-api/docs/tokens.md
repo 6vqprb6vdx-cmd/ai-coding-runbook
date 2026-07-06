@@ -1,46 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=ko
-fetched_at: 2026-06-29T05:33:59.185386+00:00
-title: "\ud1a0\ud070 \uc774\ud574 \ubc0f \uacc4\uc0b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=vi
+fetched_at: 2026-07-06T05:15:37.143542+00:00
+title: "T\u00ecm hi\u1ec3u v\u00e0 t\u00ednh m\u00e3 th\u00f4ng b\u00e1o \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# 토큰 이해 및 계산
+# Tìm hiểu và tính mã thông báo
 
-Gemini 및 기타 생성형 AI 모델은 *토큰* 이라는 세분화된 수준에서 입력과 출력을 처리합니다.
+Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào và đầu ra ở mức độ chi tiết được gọi là *mã thông báo*.
 
-**Gemini 모델의 경우 토큰은 약 4자와 같습니다.
-토큰 100개는 영어 단어 약 60~80개와 같습니다.**
+**Đối với các mô hình Gemini, một mã thông báo tương đương với khoảng 4 ký tự.
+100 mã thông báo tương đương với khoảng 60 đến 80 từ tiếng Anh.**
 
-## 토큰 정보
+## Giới thiệu về mã thông báo
 
-토큰은 단일 문자(예: `z`) 또는 전체 단어(예: `cat`)일 수 있습니다. 긴 단어는 여러 토큰으로 나뉩니다. 모델에서 사용하는 모든 토큰 집합을 어휘라고 하며, 텍스트를 토큰으로 분할하는 프로세스를 *토큰화* 라고 합니다.
+Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả các mã thông báo mà mô hình sử dụng được gọi là từ vựng và quy trình phân tách văn bản thành mã thông báo được gọi là *mã hoá*.
 
-결제가 사용 설정된 경우 [Gemini API 호출 비용](https://ai.google.dev/pricing?hl=ko)은
-입력 및 출력 토큰 수에 따라 결정되므로 토큰 수를
-계산하는 방법을 알아두면 유용합니다.
+Khi bạn bật tính năng thanh toán, [chi phí cho một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
 
-## 토큰 집계
+## Đếm mã thông báo
 
-Gemini API의 모든 입력 및 출력은 텍스트, 이미지 파일, 기타 텍스트가 아닌 양식을 포함하여 토큰화됩니다.
+Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được mã hoá thành mã thông báo, bao gồm cả văn bản, tệp hình ảnh và các phương thức không phải văn bản khác.
 
-다음과 같은 방법으로 토큰을 집계할 수 있습니다.
+Bạn có thể đếm mã thông báo theo những cách sau:
 
-- **요청의 입력으로 `count_tokens`를 호출합니다.** *입력에만* 있는 총 토큰 수를 반환합니다. 입력을 보내기 전에 이 호출을 실행하여 요청의 크기를 확인합니다.
-- **상호작용 응답에서 `usage`를 사용합니다.** 입력 (`total_input_tokens`), 출력 (`total_output_tokens`), 생각 (`total_thought_tokens`), 캐시된 콘텐츠(`total_cached_tokens`), 도구 사용 (`total_tool_use_tokens`), 총 (`total_tokens`)의 토큰 수를 반환합니다.
+- **Gọi `count_tokens` bằng dữ liệu đầu vào của yêu cầu.** Trả về tổng số mã thông báo *chỉ trong dữ liệu đầu vào*. Thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào để kiểm tra kích thước của các yêu cầu.
+- **Sử dụng `usage` trên câu trả lời tương tác.** Trả về số lượng mã thông báo cho dữ liệu đầu vào (`total_input_tokens`), dữ liệu đầu ra (`total_output_tokens`), suy nghĩ (`total_thought_tokens`), nội dung được lưu vào bộ nhớ đệm (`total_cached_tokens`), việc sử dụng công cụ (`total_tool_use_tokens`) và tổng số (`total_tokens`).
 
-### 텍스트 토큰 집계
+### Đếm mã thông báo văn bản
 
 ### Python
 
@@ -100,9 +98,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### 멀티턴 토큰 집계
+### Đếm mã thông báo nhiều lượt
 
-`previous_interaction_id`를 사용하여 대화 기록에서 토큰을 집계합니다.
+Đếm số lượng mã thông báo trong nhật ký trò chuyện bằng cách sử dụng `previous_interaction_id`:
 
 ### Python
 
@@ -148,16 +146,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### 멀티모달 토큰 집계
+### Đếm mã thông báo đa phương thức
 
-이미지, 동영상, 오디오를 비롯한 Gemini API의 모든 입력은 토큰화됩니다.
-토큰화에 관한 핵심 사항은 다음과 같습니다.
+Mọi dữ liệu đầu vào cho Gemini API đều được mã hoá thành mã thông báo, bao gồm cả hình ảnh, video và âm thanh.
+Các điểm chính về việc mã hoá:
 
-- **이미지**: 두 치수가 모두 384픽셀 이하인 이미지는 토큰 258개로 집계됩니다. 더 큰 이미지는 768x768픽셀 타일로 바둑판식으로 배열되며 각 타일은 토큰 258개로 집계됩니다.
-- **동영상**: 초당 토큰 263개
-- **오디오**: 초당 토큰 32개
+- **Hình ảnh**: Hình ảnh có kích thước ≤384 pixel ở cả hai chiều được tính là 258 mã thông báo. Các hình ảnh lớn hơn được chia thành các ô có kích thước 768x768 pixel, mỗi ô được tính là 258 mã thông báo.
+- **Video**: 263 mã thông báo mỗi giây
+- **Âm thanh**: 32 mã thông báo mỗi giây
 
-#### 이미지 토큰
+#### Mã thông báo hình ảnh
 
 ### Python
 
@@ -203,7 +201,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**인라인 데이터 예시:**
+**Ví dụ về dữ liệu nội tuyến:**
 
 ### Python
 
@@ -228,7 +226,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### 동영상 토큰
+#### Mã thông báo video
 
 ### Python
 
@@ -261,7 +259,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### 오디오 토큰
+#### Mã thông báo âm thanh
 
 ### Python
 
@@ -287,9 +285,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### 시스템 안내 토큰 집계
+### Đếm mã thông báo hướng dẫn hệ thống
 
-시스템 안내는 입력 토큰의 일부로 집계됩니다.
+Các chỉ dẫn hệ thống được tính là một phần của mã thông báo đầu vào:
 
 ### Python
 
@@ -305,9 +303,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### 도구 토큰 집계
+### Đếm mã thông báo công cụ
 
-도구 (함수, 코드 실행, Google 검색)도 집계됩니다.
+Các công cụ (hàm, thực thi mã, Google Tìm kiếm) cũng được tính:
 
 ### Python
 
@@ -337,11 +335,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## 컨텍스트 윈도우
+## Cửa sổ ngữ cảnh
 
-각 Gemini 모델에는 처리할 수 있는 최대 토큰 수가 있습니다. 컨텍스트 윈도우는 입력 및 출력 토큰의 결합된 한도를 정의합니다.
+Mỗi mô hình Gemini đều có số lượng mã thông báo tối đa mà mô hình đó có thể xử lý. Cửa sổ ngữ cảnh xác định giới hạn kết hợp của mã thông báo đầu vào và đầu ra.
 
-### 프로그래매틱 방식으로 컨텍스트 윈도우 크기 가져오기
+### Lấy kích thước cửa sổ ngữ cảnh theo phương thức lập trình
 
 ### Python
 
@@ -361,20 +359,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-[모델 페이지에서 컨텍스트 윈도우 크기를 확인합니다.](https://ai.google.dev/gemini-api/docs/models?hl=ko)
+Tìm kích thước cửa sổ ngữ cảnh trên trang [các mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
 
-## 다음 단계
+## Bước tiếp theo
 
-- [텍스트 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko): 생성 기본사항
-- [캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko): 캐싱으로 비용 절감
-- [가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko): 비용 이해
+- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi): Các kiến thức cơ bản về việc tạo văn bản
+- [Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi): Giảm chi phí bằng cách lưu vào bộ nhớ đệm
+- [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi): Tìm hiểu về chi phí
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-최종 업데이트: 2026-06-22(UTC)
+Cập nhật lần gần đây nhất: 2026-06-22 UTC.
 
-의견을 전달하고 싶나요?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-22(UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]

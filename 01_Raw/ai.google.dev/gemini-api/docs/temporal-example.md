@@ -1,75 +1,83 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=vi
-fetched_at: 2026-06-29T05:37:08.710217+00:00
-title: "T\u00e1c nh\u00e2n AI b\u1ec1n v\u1eefng v\u1edbi Gemini v\u00e0 Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/temporal-example?hl=th
+fetched_at: 2026-07-06T05:07:24.150421+00:00
+title: "\u0e40\u0e2d\u0e40\u0e08\u0e19\u0e15\u0e4c AI \u0e17\u0e35\u0e48\u0e17\u0e19\u0e17\u0e32\u0e19\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 Temporal \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Gửi ý kiến phản hồi
+ส่งความคิดเห็น
 
-# Tác nhân AI bền vững với Gemini và Temporal
+# เอเจนต์ AI ที่ทนทานด้วย Gemini และ Temporal
 
-Hướng dẫn này hướng dẫn bạn cách xây dựng một vòng lặp có tác nhân [theo kiểu ReAct](https://arxiv.org/abs/2210.03629) sử dụng Gemini API để suy luận và [Temporal](https://temporal.io/) để duy trì.
-Bạn có thể xem toàn bộ mã nguồn của hướng dẫn này trên [GitHub](https://github.com/temporal-community/durable-react-agent-gemini).
+บทแนะนำนี้จะอธิบายขั้นตอนการสร้างลูปของ Agent ในสไตล์
+[ReAct](https://arxiv.org/abs/2210.03629) ที่ใช้
+Gemini API สำหรับการให้เหตุผลและ [Temporal](https://temporal.io/) สำหรับความทนทาน
+ซอร์สโค้ดฉบับสมบูรณ์สำหรับบทแนะนำนี้พร้อมให้บริการบน
+[GitHub](https://github.com/temporal-community/durable-react-agent-gemini)
 
-Trợ lý có thể gọi các công cụ, chẳng hạn như tra cứu cảnh báo thời tiết hoặc xác định vị trí địa lý của địa chỉ IP và sẽ lặp lại cho đến khi có đủ thông tin để phản hồi.
+Agent สามารถเรียกใช้เครื่องมือต่างๆ ได้ เช่น การค้นหาการแจ้งเตือนสภาพอากาศหรือการระบุตำแหน่งทางภูมิศาสตร์ของที่อยู่ IP และจะวนซ้ำจนกว่าจะมีข้อมูลเพียงพอที่จะตอบกลับ
 
-Điểm khác biệt giữa bản minh hoạ này và bản minh hoạ tác nhân thông thường là **độ bền**. Mọi lệnh gọi LLM, mọi lệnh gọi công cụ và mọi bước của vòng lặp dựa trên tác nhân đều được Temporal duy trì. Nếu quy trình gặp sự cố, mạng bị ngắt hoặc API hết thời gian chờ, Temporal sẽ tự động thử lại và tiếp tục từ bước đã hoàn tất gần đây nhất. Không có nhật ký cuộc trò chuyện nào bị mất và không có lệnh gọi công cụ nào bị lặp lại không chính xác.
+สิ่งที่ทำให้ Agent นี้แตกต่างจากการสาธิต Agent ทั่วไปคือ**ความทนทาน** Temporal จะเก็บรักษาการเรียกใช้ LLM, การเรียกใช้เครื่องมือ และทุกขั้นตอนของลูปของ Agent หากกระบวนการขัดข้อง เครือข่ายขาดการเชื่อมต่อ หรือ API หมดเวลา Temporal จะลองอีกครั้งโดยอัตโนมัติและดำเนินการต่อจากขั้นตอนสุดท้ายที่เสร็จสมบูรณ์ ระบบจะไม่สูญเสียประวัติการสนทนาและจะไม่เรียกใช้เครื่องมือซ้ำอย่างไม่ถูกต้อง
 
-## Kiến trúc
+## สถาปัตยกรรม
 
-Cấu trúc này bao gồm 3 phần:
+สถาปัตยกรรมประกอบด้วย 3 ส่วนดังนี้
 
-- **Quy trình công việc:** Vòng lặp có tác nhân điều phối logic thực thi.
-- **Hoạt động:** Các đơn vị công việc riêng lẻ (lệnh gọi LLM, lệnh gọi công cụ) mà Temporal duy trì.
-- **Worker:** Quy trình thực thi quy trình công việc và hoạt động.
+- **เวิร์กโฟลว์:** ลูปของ Agent ที่จัดระเบียบตรรกะการดำเนินการ
+- **กิจกรรม:** หน่วยงานแต่ละหน่วย (การเรียกใช้ LLM, การเรียกใช้เครื่องมือ) ที่ Temporal ทำให้ทนทาน
+- **Worker:** กระบวนการที่ดำเนินการเวิร์กโฟลว์และกิจกรรม
 
-Trong ví dụ này, bạn sẽ đặt cả 3 phần này vào một tệp duy nhất (`durable_agent_worker.py`). Trong quá trình triển khai thực tế, bạn sẽ tách chúng ra để có nhiều lợi thế về việc triển khai và khả năng mở rộng. Bạn sẽ đặt mã cung cấp lời nhắc cho tác nhân trong tệp thứ hai (`start_workflow.py`).
+ในตัวอย่างนี้ คุณจะวางทั้ง 3 ส่วนนี้ไว้ในไฟล์เดียว (`durable_agent_worker.py`) แต่ในการใช้งานจริง คุณควรแยกส่วนต่างๆ ออกจากกันเพื่อให้ได้รับประโยชน์ต่างๆ ในด้านการติดตั้งใช้งานและความสามารถในการปรับขนาด คุณจะวางโค้ดที่ส่งพรอมต์ไปยัง Agent ไว้ในไฟล์ที่ 2 (`start_workflow.py`)
 
-## Điều kiện tiên quyết
+## ข้อกำหนดเบื้องต้น
 
-Để hoàn tất hướng dẫn này, bạn cần:
+สิ่งที่ต้องมีเพื่อให้ทำตามคำแนะนำนี้ได้
 
-- Khoá Gemini API. Bạn có thể tạo một khoá API miễn phí trong [Google AI Studio](https://aistudio.google.com/apikey?hl=vi).
-- [Python](https://www.python.org/downloads/) phiên bản 3.10 trở lên.
-- [Temporal CLI](https://docs.temporal.io/cli) để chạy máy chủ phát triển cục bộ.
+- คีย์ Gemini API คุณสร้างคีย์ได้ฟรีใน
+  [Google AI Studio](https://aistudio.google.com/apikey?hl=th)
+- [Python](https://www.python.org/downloads/) เวอร์ชัน 3.10 ขึ้นไป
+- [Temporal CLI](https://docs.temporal.io/cli) สำหรับเรียกใช้เซิร์ฟเวอร์การพัฒนาซอฟต์แวร์ภายใน
 
-## Thiết lập
+## ตั้งค่า
 
-Trước khi bắt đầu, hãy đảm bảo bạn có một [máy chủ phát triển Temporal](https://docs.temporal.io/cli#start-dev-server) đang chạy cục bộ:
+ก่อนเริ่มต้น ให้ตรวจสอบว่าคุณมี
+[เซิร์ฟเวอร์การพัฒนาซอฟต์แวร์ Temporal](https://docs.temporal.io/cli#start-dev-server)
+ที่ทำงานภายในเครื่อง
 
 ```
 temporal server start-dev
 ```
 
-Tiếp theo, hãy cài đặt các phần phụ thuộc bắt buộc:
+จากนั้นติดตั้งการอ้างอิงที่จำเป็น
 
 ```
 pip install temporalio google-genai httpx pydantic python-dotenv
 ```
 
-Tạo một tệp `.env` trong thư mục dự án bằng khoá Gemini API của bạn. Bạn có thể lấy khoá API từ [Google AI Studio](https://aistudio.google.com/apikey?hl=vi).
+สร้างไฟล์ `.env` ในไดเรกทอรีโปรเจ็กต์ด้วยคีย์ Gemini API คุณ
+รับคีย์ API ได้จาก
+[Google AI Studio](https://aistudio.google.com/apikey?hl=th)
 
 ```
 echo "GOOGLE_API_KEY=your-api-key-here" > .env
 ```
 
-## Triển khai
+## การใช้งาน
 
-Phần còn lại của hướng dẫn này sẽ trình bày về `durable_agent_worker.py` từ trên xuống dưới, từng bước xây dựng tác nhân. Tạo tệp và làm theo.
+ส่วนที่เหลือของบทแนะนำนี้จะอธิบาย `durable_agent_worker.py` ตั้งแต่ต้นจนจบ โดยสร้าง Agent ขึ้นทีละส่วน สร้างไฟล์แล้วทำตาม
 
-### Nhập và thiết lập hộp cát
+### การนำเข้าและการตั้งค่าแซนด์บ็อกซ์
 
-Bắt đầu bằng những nội dung nhập phải được xác định trước. Khối `workflow.unsafe.imports_passed_through()` cho biết hộp cát quy trình công việc của Temporal cho phép một số mô-đun nhất định đi qua mà không bị hạn chế. Điều này là cần thiết vì một số thư viện (đáng chú ý là `httpx`, phân lớp con `urllib.request.Request`) sử dụng các mẫu mà hộp cát sẽ chặn.
+เริ่มต้นด้วยการนำเข้าที่ต้องกำหนดไว้ล่วงหน้า บล็อก `workflow.unsafe.imports_passed_through()` จะบอกให้แซนด์บ็อกซ์เวิร์กโฟลว์ของ Temporal อนุญาตให้โมดูลบางโมดูลผ่านได้โดยไม่มีข้อจำกัด ซึ่งจำเป็นเนื่องจากไลบรารีหลายรายการ (โดยเฉพาะ `httpx` ซึ่งเป็นคลาสย่อยของ `urllib.request.Request`) ใช้รูปแบบที่แซนด์บ็อกซ์จะบล็อก
 
 ```
 from temporalio import workflow
@@ -84,9 +92,9 @@ with workflow.unsafe.imports_passed_through():
     from google.genai import types
 ```
 
-### Hướng dẫn về hệ thống
+### วิธีการของระบบ
 
-Tiếp theo, hãy xác định tính cách của trợ lý. Các chỉ dẫn hệ thống cho mô hình biết cách hoạt động. Nhân viên hỗ trợ này được hướng dẫn phản hồi bằng thơ hai câu khi không cần dùng công cụ.
+จากนั้นกำหนดบุคลิกของ Agent วิธีการของระบบจะบอกให้โมเดลทราบถึงวิธีแสดงพฤติกรรม Agent นี้ได้รับคำสั่งให้ตอบกลับเป็นไฮกุเมื่อไม่จำเป็นต้องใช้เครื่องมือ
 
 ```
 SYSTEM_INSTRUCTIONS = """
@@ -97,9 +105,9 @@ If no tools are needed, respond in haikus.
 """
 ```
 
-### Định nghĩa về công cụ
+### คำจำกัดความของเครื่องมือ
 
-Bây giờ, hãy xác định những công cụ mà tác nhân có thể sử dụng. Mỗi công cụ là một hàm không đồng bộ có chuỗi tài liệu mô tả. Các công cụ nhận tham số sẽ sử dụng một mô hình Pydantic làm đối số duy nhất. Đây là phương pháp hay nhất của Temporal giúp chữ ký hoạt động ổn định khi bạn thêm các trường không bắt buộc theo thời gian.
+ตอนนี้ให้กำหนดเครื่องมือที่ Agent ใช้ได้ เครื่องมือแต่ละอย่างเป็นฟังก์ชันแบบไม่พร้อมกันที่มีสตริงเอกสารอธิบาย เครื่องมือที่ใช้พารามิเตอร์จะใช้โมเดล Pydantic เป็นอาร์กิวเมนต์เดียว นี่เป็นแนวทางปฏิบัติแนะนำของ Temporal ที่ช่วยให้ลายเซ็นของกิจกรรมมีเสถียรภาพเมื่อคุณเพิ่มช่องที่ไม่บังคับเมื่อเวลาผ่านไป
 
 ```
 import json
@@ -128,7 +136,7 @@ async def get_weather_alerts(request: GetWeatherAlertsRequest) -> str:
         return json.dumps(response.json())
 ```
 
-Tiếp theo, hãy xác định các công cụ để xác định vị trí địa lý theo địa chỉ IP:
+จากนั้นกำหนดเครื่องมือสำหรับการระบุตำแหน่งทางภูมิศาสตร์ของที่อยู่ IP
 
 ```
 class GetLocationRequest(BaseModel):
@@ -157,9 +165,10 @@ async def get_location_info(request: GetLocationRequest) -> str:
         return f"{result['city']}, {result['regionName']}, {result['country']}"
 ```
 
-### Sổ đăng ký công cụ
+### รีจิสทรีเครื่องมือ
 
-Tiếp theo, hãy tạo một sổ đăng ký ánh xạ tên công cụ đến các hàm trình xử lý. Hàm `get_tools()` tạo các đối tượng `FunctionDeclaration` tương thích với Gemini từ các lệnh gọi bằng cách sử dụng `FunctionDeclaration.from_callable_with_api_option()`.
+จากนั้นสร้างรีจิสทรีที่แมปชื่อเครื่องมือกับฟังก์ชันตัวแฮนเดิล ฟังก์ชัน
+`get_tools()` จะสร้างออบเจ็กต์ที่เข้ากันได้กับ Gemini `FunctionDeclaration` จากฟังก์ชันที่เรียกใช้ได้โดยใช้ `FunctionDeclaration.from_callable_with_api_option()`
 
 ```
 from typing import Any, Awaitable, Callable
@@ -197,11 +206,11 @@ def get_tools() -> types.Tool:
     )
 ```
 
-### Hoạt động của LLM
+### กิจกรรม LLM
 
-Bây giờ, hãy xác định hoạt động gọi Gemini API. Các lớp dữ liệu `GeminiChatRequest` và `GeminiChatResponse` xác định hợp đồng.
+ตอนนี้ให้กำหนดกิจกรรมที่เรียกใช้ Gemini API คลาสข้อมูล `GeminiChatRequest` และ `GeminiChatResponse` จะกำหนดสัญญา
 
-Bạn sẽ tắt tính năng tự động gọi hàm để lời gọi LLM và lời gọi công cụ được xử lý dưới dạng các tác vụ riêng biệt, giúp tăng độ bền cho tác nhân của bạn. Bạn cũng sẽ tắt các lần thử lại tích hợp của SDK (`attempts=1`) vì Temporal xử lý các lần thử lại một cách bền bỉ.
+คุณจะปิดใช้การเรียกใช้ฟังก์ชันอัตโนมัติเพื่อให้ระบบจัดการการเรียกใช้ LLM และการเรียกใช้เครื่องมือเป็นงานแยกกัน ซึ่งจะช่วยเพิ่มความทนทานให้กับ Agent นอกจากนี้ คุณยังจะปิดใช้การลองอีกครั้งในตัวของ SDK (`attempts=1`) เนื่องจาก Temporal จัดการการลองอีกครั้งได้อย่างทนทาน
 
 ```
 import os
@@ -277,11 +286,11 @@ async def generate_content(request: GeminiChatRequest) -> GeminiChatResponse:
     )
 ```
 
-### Hoạt động của công cụ động
+### กิจกรรมเครื่องมือแบบไดนามิก
 
-Tiếp theo, hãy xác định hoạt động thực thi các công cụ. Thao tác này sử dụng tính năng hoạt động động của Temporal: trình xử lý công cụ (một đối tượng có thể gọi) được lấy từ sổ đăng ký công cụ thông qua hàm `get_handler`. Nhờ đó, bạn có thể xác định nhiều tác nhân chỉ bằng cách cung cấp một bộ công cụ và hướng dẫn hệ thống khác; quy trình triển khai vòng lặp dựa trên tác nhân không cần thay đổi.
+จากนั้นกำหนดกิจกรรมที่ดำเนินการเครื่องมือ ซึ่งใช้ฟีเจอร์กิจกรรมแบบไดนามิกของ Temporal โดยระบบจะรับตัวแฮนเดิลเครื่องมือ (ฟังก์ชันที่เรียกใช้ได้) จากรีจิสทรีเครื่องมือผ่านฟังก์ชัน `get_handler` วิธีนี้ช่วยให้กำหนด Agent ต่างๆ ได้ง่ายๆ เพียงแค่ระบุชุดเครื่องมือและวิธีการของระบบที่แตกต่างกัน โดยเวิร์กโฟลว์ที่ใช้ลูปของ Agent ไม่จำเป็นต้องมีการเปลี่ยนแปลง
 
-Hoạt động này kiểm tra chữ ký của trình xử lý để xác định cách truyền đối số. Nếu trình xử lý dự kiến nhận một mô hình Pydantic, thì trình xử lý đó sẽ xử lý định dạng đầu ra lồng nhau mà Gemini tạo ra (ví dụ: `{"request": {"state": "CA"}}` thay vì `{"state": "CA"}` đơn giản).
+กิจกรรมจะตรวจสอบลายเซ็นของตัวจัดการเพื่อกำหนดวิธีส่งอาร์กิวเมนต์ หากตัวจัดการคาดหวังโมเดล Pydantic ระบบจะจัดการรูปแบบเอาต์พุตที่ซ้อนกันซึ่ง Gemini สร้างขึ้น (เช่น `{"request": {"state": "CA"}}` แทนที่จะเป็น `{"state": "CA"}` แบบแบน)
 
 ```
 import inspect
@@ -321,11 +330,11 @@ async def dynamic_tool_activity(args: Sequence[RawValue]) -> dict:
     return result
 ```
 
-### Quy trình công việc của vòng lặp AI tác nhân
+### เวิร์กโฟลว์ลูปของ Agent
 
-Giờ đây, bạn đã có tất cả các thành phần để hoàn tất việc tạo tác nhân. Lớp `AgentWorkflow` triển khai một quy trình công việc chứa vòng lặp của tác nhân. Trong vòng lặp đó, LLM được gọi thông qua hoạt động (giúp hoạt động này bền vững), đầu ra được kiểm tra và nếu LLM đã chọn một công cụ, thì công cụ đó sẽ được gọi thông qua `dynamic_tool_activity`.
+ตอนนี้คุณมีทุกส่วนที่จำเป็นในการสร้าง Agent ให้เสร็จสมบูรณ์แล้ว คลาส `AgentWorkflow` ใช้เวิร์กโฟลว์ที่มีลูปของ Agent ภายในลูปนั้น ระบบจะเรียกใช้ LLM ผ่านกิจกรรม (ทำให้ทนทาน) ตรวจสอบเอาต์พุต และหาก LLM เลือกเครื่องมือ ระบบจะเรียกใช้เครื่องมือผ่าน `dynamic_tool_activity`
 
-Trong tác nhân kiểu ReAct đơn giản này, sau khi LLM chọn không sử dụng một công cụ, vòng lặp sẽ được coi là hoàn tất và kết quả LLM cuối cùng sẽ được trả về.
+ใน Agent สไตล์ ReAct อย่างง่ายนี้ เมื่อ LLM เลือกที่จะไม่ใช้เครื่องมือ ระบบจะถือว่าลูปเสร็จสมบูรณ์และส่งคืนผลลัพธ์สุดท้ายของ LLM
 
 ```
 from datetime import timedelta
@@ -393,13 +402,13 @@ class AgentWorkflow:
         return result
 ```
 
-Vòng lặp có tác nhân hoàn toàn bền vững. Nếu worker của tác nhân gặp sự cố sau một số lần lặp lại trong vòng lặp, Temporal sẽ tiếp tục chính xác từ nơi worker dừng lại mà không cần gọi lại các lệnh gọi LLM hoặc lệnh gọi công cụ đã thực thi.
+ลูปของ Agent มีความทนทานอย่างเต็มที่ หาก Worker ของ Agent ขัดข้องหลังจากวนซ้ำหลายครั้ง Temporal จะดำเนินการต่อจากจุดที่หยุดไว้โดยไม่ต้องเรียกใช้การเรียกใช้ LLM หรือการเรียกใช้เครื่องมือที่ดำเนินการไปแล้วอีกครั้ง
 
-### Khởi động worker
+### การเริ่มต้น Worker
 
-Cuối cùng, hãy kết nối mọi thứ với nhau. Mặc dù mã này triển khai logic nghiệp vụ cần thiết theo cách khiến mã có vẻ đang chạy trong một quy trình duy nhất, nhưng việc sử dụng Temporal sẽ biến mã này thành một hệ thống dựa trên sự kiện (cụ thể là dựa trên nguồn sự kiện) trong đó hoạt động giao tiếp giữa quy trình công việc và các hoạt động diễn ra thông qua tính năng nhắn tin do Temporal cung cấp.
+สุดท้ายให้เชื่อมต่อทุกอย่างเข้าด้วยกัน แม้ว่าโค้ดจะใช้ตรรกะทางธุรกิจที่จำเป็นในลักษณะที่ทำให้ดูเหมือนว่ากำลังทำงานในกระบวนการเดียว แต่การใช้ Temporal จะทำให้ระบบเป็นระบบที่ขับเคลื่อนด้วยเหตุการณ์ (โดยเฉพาะอย่างยิ่งระบบที่ใช้การจัดเก็บข้อมูลเหตุการณ์) ซึ่งการสื่อสารระหว่างเวิร์กโฟลว์และกิจกรรมจะเกิดขึ้นผ่านการรับส่งข้อความที่ Temporal จัดเตรียมไว้
 
-Worker Temporal kết nối với dịch vụ Temporal và đóng vai trò là trình lập lịch biểu cho các tác vụ quy trình làm việc và hoạt động. Worker đăng ký quy trình và cả hai hoạt động, sau đó bắt đầu nghe các tác vụ.
+Worker ของ Temporal จะเชื่อมต่อกับบริการ Temporal และทำหน้าที่เป็นตัวจัดตารางเวลาสำหรับเวิร์กโฟลว์และงานกิจกรรม Worker จะลงทะเบียนเวิร์กโฟลว์และกิจกรรมทั้ง 2 อย่าง จากนั้นจะเริ่มรอรับงาน
 
 ```
 import asyncio
@@ -438,9 +447,9 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Tập lệnh phía máy khách
+## สคริปต์ไคลเอ็นต์
 
-Tạo tập lệnh máy khách (`start_workflow.py`). Tập lệnh này gửi một truy vấn và chờ kết quả. Lưu ý rằng nó kết nối với cùng một hàng đợi tác vụ được tham chiếu trong worker của tác nhân – tập lệnh `start_workflow` sẽ gửi một tác vụ quy trình làm việc có lời nhắc của người dùng đến hàng đợi tác vụ đó, bắt đầu quá trình thực thi tác nhân.
+สร้างสคริปต์ไคลเอ็นต์ (`start_workflow.py`) ซึ่งจะส่งคำค้นหาและรอผลลัพธ์ โปรดทราบว่าสคริปต์นี้จะเชื่อมต่อกับคิวงานเดียวกันกับที่อ้างอิงไว้ใน Worker ของ Agent โดยสคริปต์ `start_workflow` จะส่งงานเวิร์กโฟลว์พร้อมพรอมต์ของผู้ใช้ไปยังคิวงานนั้น ซึ่งจะเริ่มการดำเนินการของ Agent
 
 ```
 import asyncio
@@ -470,29 +479,29 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-## Chạy tác nhân
+## เรียกใช้ Agent
 
-Nếu bạn chưa làm, hãy khởi động máy chủ phát triển Temporal:
+หากยังไม่ได้ดำเนินการ ให้เริ่มเซิร์ฟเวอร์การพัฒนาซอฟต์แวร์ Temporal โดยทำดังนี้
 
 ```
 temporal server start-dev
 ```
 
-Trong một cửa sổ dòng lệnh mới, hãy bắt đầu trình chạy tác nhân:
+เริ่ม Worker ของ Agent ในหน้าต่างเทอร์มินัลใหม่โดยทำดังนี้
 
 ```
 python -m durable_agent_worker
 ```
 
-Trong cửa sổ dòng lệnh thứ ba, hãy gửi một truy vấn đến tác nhân của bạn:
+ส่งคำค้นหาไปยัง Agent ในหน้าต่างเทอร์มินัลที่ 3 โดยทำดังนี้
 
 ```
 python -m start_workflow "are there any weather alerts for where I am?"
 ```
 
-Lưu ý đầu ra trong thiết bị đầu cuối của `durable_agent_worker` cho biết các hành động xảy ra trong mỗi lần lặp của vòng lặp dựa trên tác nhân. LLM có thể đáp ứng yêu cầu của người dùng bằng cách gọi một loạt công cụ theo ý mình. Bạn có thể xem các bước đã thực hiện thông qua giao diện người dùng Temporal tại `http://localhost:8233/namespaces/default/workflows`.
+สังเกตเอาต์พุตในเทอร์มินัลของ `durable_agent_worker` ซึ่งแสดงการดำเนินการที่เกิดขึ้นในแต่ละการวนซ้ำของลูปของ Agent LLM สามารถตอบสนองคำขอของผู้ใช้ได้โดยการเรียกใช้เครื่องมือต่างๆ ที่มี คุณดูขั้นตอนที่ดำเนินการได้ผ่าน UI ของ Temporal ที่ `http://localhost:8233/namespaces/default/workflows`
 
-Hãy thử một vài câu lệnh khác nhau để xem lý do của nhân viên và các công cụ gọi:
+ลองใช้พรอมต์ต่างๆ เพื่อดูเหตุผลและการเรียกใช้เครื่องมือของ Agent โดยทำดังนี้
 
 ```
 python -m start_workflow "are there any weather alerts for New York?"
@@ -501,64 +510,63 @@ python -m start_workflow "what is my ip address?"
 python -m start_workflow "tell me a joke"
 ```
 
-Câu lệnh cuối cùng không yêu cầu bất kỳ công cụ nào, vì vậy, tác nhân sẽ phản hồi bằng một bài thơ haiku dựa trên `SYSTEM_INSTRUCTIONS`.
+พรอมต์สุดท้ายไม่จำเป็นต้องใช้เครื่องมือใดๆ ดังนั้น Agent จะตอบกลับเป็นไฮกุตาม `SYSTEM_INSTRUCTIONS`
 
-## Kiểm tra độ bền (Không bắt buộc)
+## ทดสอบความทนทาน (ไม่บังคับ)
 
-Việc xây dựng trên Temporal đảm bảo tác nhân của bạn hoạt động liền mạch khi gặp sự cố. Bạn có thể kiểm thử việc này bằng hai thử nghiệm riêng biệt.
+การสร้าง Agent บน Temporal จะช่วยให้ Agent ทำงานต่อไปได้อย่างราบรื่นเมื่อเกิดข้อผิดพลาด คุณทดสอบได้โดยใช้การทดลอง 2 อย่างที่แตกต่างกัน
 
-### Mô phỏng tình trạng mất mạng
+### จำลองเครือข่ายขัดข้อง
 
-Trong thử nghiệm này, bạn sẽ tạm thời tắt kết nối Internet của máy tính, gửi một quy trình làm việc, xem Temporal tự động thử lại, sau đó khôi phục mạng để xem quy trình này khôi phục.
+ในการทดสอบนี้ คุณจะปิดใช้การเชื่อมต่ออินเทอร์เน็ตของคอมพิวเตอร์ชั่วคราว ส่งเวิร์กโฟลว์ ดู Temporal ลองอีกครั้งโดยอัตโนมัติ จากนั้นกู้คืนเครือข่ายเพื่อดูว่าระบบกู้คืนได้หรือไม่
 
-1. Ngắt kết nối máy tính với Internet (ví dụ: tắt Wi-Fi).
-2. Gửi quy trình công việc:
+1. ยกเลิกการเชื่อมต่อเครื่องกับอินเทอร์เน็ต (เช่น ปิด Wi-Fi)
+2. ส่งเวิร์กโฟลว์โดยทำดังนี้
 
    ```
    python -m start_workflow "tell me a joke"
    ```
-3. Kiểm tra giao diện người dùng Temporal (`http://localhost:8233`). Bạn sẽ thấy hoạt động LLM không thành công và Temporal tự động quản lý các lần thử lại ở chế độ nền.
-4. Kết nối lại với Internet.
-5. Lần thử lại tự động tiếp theo sẽ kết nối thành công với Gemini API và thiết bị đầu cuối của bạn sẽ in kết quả cuối cùng.
+3. ตรวจสอบ UI ของ Temporal (`http://localhost:8233`) คุณจะเห็นว่ากิจกรรม LLM ล้มเหลวและ Temporal จัดการการลองอีกครั้งโดยอัตโนมัติในเบื้องหลัง
+4. เชื่อมต่ออินเทอร์เน็ตอีกครั้ง
+5. การลองอีกครั้งโดยอัตโนมัติครั้งถัดไปจะเข้าถึง Gemini API ได้สำเร็จ และเทอร์มินัลจะพิมพ์ผลลัพธ์สุดท้าย
 
-### Sống sót sau sự cố của worker
+### การทำงานต่อไปได้เมื่อ Worker ขัดข้อง
 
-Trong kiểm thử này, bạn sẽ huỷ worker khi đang thực thi và khởi động lại worker đó. Phát lại tạm thời nhật ký quy trình làm việc (nguồn sự kiện) và tiếp tục từ hoạt động đã hoàn thành gần đây nhất – các lệnh gọi LLM và lệnh gọi công cụ đã hoàn thành sẽ không được lặp lại.
+ในการทดสอบนี้ คุณจะหยุดกระบวนการ Worker กลางคันและรีสตาร์ท Temporal จะเล่นประวัติเวิร์กโฟลว์ซ้ำ (การจัดเก็บข้อมูลเหตุการณ์) และดำเนินการต่อจากกิจกรรมสุดท้ายที่เสร็จสมบูรณ์ โดยจะไม่เรียกใช้ LLM และการเรียกใช้เครื่องมือที่เสร็จสมบูรณ์ไปแล้วอีกครั้ง
 
-1. Để có thời gian dừng worker, hãy mở `durable_agent_worker.py` và tạm thời bỏ chú thích `await asyncio.sleep(10)` bên trong vòng lặp `AgentWorkflow`
-   `run`.
-2. Khởi động lại worker:
+1. หากต้องการให้มีเวลาหยุด Worker ให้เปิด `durable_agent_worker.py` และยกเลิกการแสดงความคิดเห็น `await asyncio.sleep(10)` ชั่วคราวภายในลูป `run` ของ `AgentWorkflow`
+2. รีสตาร์ท Worker โดยทำดังนี้
 
    ```
    python -m durable_agent_worker
    ```
-3. Gửi một cụm từ tìm kiếm kích hoạt nhiều công cụ:
+3. ส่งคำค้นหาที่ทริกเกอร์เครื่องมือหลายอย่างโดยทำดังนี้
 
    ```
    python -m start_workflow "are there any weather alerts where I am?"
    ```
-4. Huỷ quy trình worker bất cứ lúc nào trước khi hoàn tất (`Ctrl-C` trong thiết bị đầu cuối worker hoặc sử dụng `kill %1` nếu đang chạy ở chế độ nền).
-5. Khởi động lại worker:
+4. หยุดกระบวนการ Worker ได้ทุกเมื่อก่อนที่จะเสร็จสมบูรณ์ (`Ctrl-C` ในเทอร์มินัลของ Worker หรือใช้ `kill %1` หากทำงานในเบื้องหลัง)
+5. รีสตาร์ท Worker โดยทำดังนี้
 
    ```
    python -m durable_agent_worker
    ```
 
-Temporal phát lại nhật ký quy trình làm việc. Các lệnh gọi LLM và lệnh gọi công cụ đã hoàn tất sẽ **không** được thực thi lại – kết quả của các lệnh gọi này sẽ được phát lại ngay lập tức từ nhật ký (nhật ký sự kiện). Quy trình công việc hoàn tất thành công.
+Temporal จะเล่นประวัติเวิร์กโฟลว์ซ้ำ ระบบจะ**ไม่** เรียกใช้การเรียกใช้ LLM และการเรียกใช้เครื่องมือที่เสร็จสมบูรณ์ไปแล้วอีกครั้ง แต่จะเล่นผลลัพธ์ซ้ำจากประวัติ (บันทึกเหตุการณ์) ทันที เวิร์กโฟลว์จะเสร็จสมบูรณ์
 
-## Tài nguyên khác
+## แหล่งข้อมูลเพิ่มเติม
 
-- [Tài liệu về Temporal](https://docs.temporal.io/)
+- [เอกสารประกอบของ Temporal](https://docs.temporal.io/)
 - [Temporal Python SDK](https://docs.temporal.io/develop/python)
-- [SDK AI tạo sinh của Google](https://googleapis.github.io/python-genai/)
-- [Mã nguồn cho hướng dẫn này](https://github.com/temporal-community/durable-react-agent-gemini)
+- [Google GenAI SDK](https://googleapis.github.io/python-genai/)
+- [ซอร์สโค้ดสำหรับบทแนะนำนี้](https://github.com/temporal-community/durable-react-agent-gemini)
 
-Gửi ý kiến phản hồi
+ส่งความคิดเห็น
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Cập nhật lần gần đây nhất: 2026-06-22 UTC.
+อัปเดตล่าสุด 2026-06-22 UTC
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-22 UTC"],[],[]]

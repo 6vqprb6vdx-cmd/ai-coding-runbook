@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=vi
-fetched_at: 2026-06-29T05:26:51.224561+00:00
-title: "T\u00e1c nh\u00e2n Deep Research c\u1ee7a Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419
+fetched_at: 2026-07-06T05:20:21.341230+00:00
+title: "Agente de Deep Research de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Tác nhân Deep Research của Gemini
+# Agente de Deep Research de Gemini
 
-Tác nhân Deep Research của Gemini tự động lập kế hoạch, thực hiện và tổng hợp các nhiệm vụ nghiên cứu nhiều bước. Nhờ Gemini, tính năng này có thể tìm hiểu thông tin phức tạp để tạo ra các báo cáo chi tiết có trích dẫn. Các chức năng mới cho phép bạn lập kế hoạch cộng tác với tác nhân, kết nối với các công cụ bên ngoài bằng máy chủ MCP, bao gồm cả hình ảnh trực quan (chẳng hạn như biểu đồ và đồ thị) và cung cấp trực tiếp tài liệu làm dữ liệu đầu vào.
+El agente de Deep Research de Gemini planifica, ejecuta y sintetiza de forma autónoma tareas de investigación de varios pasos. Con la tecnología de Gemini, navega por entornos de información complejos para producir informes detallados con citas. Las nuevas capacidades te permiten planificar de forma colaborativa con el agente, conectarte a herramientas externas con servidores de MCP, incluir visualizaciones (como gráficos) y proporcionar documentos directamente como entrada.
 
-Các tác vụ nghiên cứu bao gồm việc tìm kiếm và đọc lặp đi lặp lại, đồng thời có thể mất vài phút để hoàn thành. Bạn phải sử dụng [thực thi trong nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi) (đặt `background=true`) để chạy tác nhân một cách không đồng bộ và thăm dò kết quả hoặc thông tin cập nhật về luồng. Hãy xem phần [Xử lý các tác vụ chạy trong thời gian dài](#long-running-tasks) để biết thêm thông tin chi tiết.
+Las tareas de investigación implican búsquedas y lecturas iterativas, y pueden tardar varios minutos en completarse. Debes usar la [ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419) (establece `background=true`) para ejecutar el agente de forma asíncrona y sondear los resultados o transmitir actualizaciones. Consulta [Cómo controlar tareas de larga duración](#long-running-tasks) para obtener más detalles.
 
-Ví dụ sau đây minh hoạ cách bắt đầu một tác vụ nghiên cứu ở chế độ nền và thăm dò kết quả.
+En el siguiente ejemplo, se muestra cómo iniciar una tarea de investigación en segundo plano y sondear los resultados.
 
 ### Python
 
@@ -97,20 +97,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Các phiên bản được hỗ trợ
+## Versiones compatibles
 
-Nhân viên hỗ trợ Deep Research có 2 phiên bản:
+El agente de Deep Research está disponible en dos versiones:
 
-- **Deep Research** (`deep-research-preview-04-2026`): Được thiết kế để đạt tốc độ và hiệu quả cao, lý tưởng để truyền trực tuyến trở lại giao diện người dùng của ứng dụng.
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): Mức độ toàn diện tối đa để tự động thu thập và tổng hợp bối cảnh.
+- **Deep Research** (`deep-research-preview-04-2026`): Se diseñó para ser rápido y eficiente, y es ideal para transmitirlo a la IU del cliente.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Máxima exhaustividad para la recopilación y síntesis automatizadas de contexto.
 
-## Lập kế hoạch cộng tác
+## Planificación colaborativa
 
-Lập kế hoạch cộng tác giúp bạn kiểm soát hướng nghiên cứu trước khi tác nhân bắt đầu công việc. Khi được bật, tác nhân sẽ trả về một kế hoạch nghiên cứu đề xuất thay vì thực thi ngay lập tức. Sau đó, bạn có thể xem xét, sửa đổi hoặc phê duyệt kế hoạch thông qua các lượt tương tác nhiều lượt.
+La planificación colaborativa te permite controlar la dirección de la investigación antes de que el agente comience su trabajo. Cuando se habilita, el agente devuelve un plan de investigación propuesto en lugar de ejecutarlo de inmediato. Luego, puedes revisar, modificar o aprobar el plan a través de interacciones de varios turnos.
 
-### Bước 1: Yêu cầu tạo kế hoạch
+### Paso 1: Solicita un plan
 
-Đặt `collaborative_planning=True` trong lượt tương tác đầu tiên. Thay vì trả về một báo cáo đầy đủ, tác nhân sẽ trả về một kế hoạch nghiên cứu.
+Establece `collaborative_planning=True` en la primera interacción. El agente devuelve un plan de investigación en lugar de un informe completo.
 
 ### Python
 
@@ -176,9 +176,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Bước 2: Tinh chỉnh kế hoạch (không bắt buộc)
+### Paso 2: Define mejor el plan (opcional)
 
-Sử dụng `previous_interaction_id` để tiếp tục cuộc trò chuyện và lặp lại kế hoạch. Giữ `collaborative_planning=True` để tiếp tục ở chế độ lập kế hoạch.
+Usa `previous_interaction_id` para continuar la conversación y realizar iteraciones en el plan. Mantén presionado `collaborative_planning=True` para permanecer en el modo de planificación.
 
 ### Python
 
@@ -242,9 +242,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Bước 3: Phê duyệt và thực hiện
+### Paso 3: Aprueba y ejecuta
 
-Đặt `collaborative_planning=False` (hoặc bỏ qua) để phê duyệt kế hoạch và bắt đầu nghiên cứu.
+Establece `collaborative_planning=False` (o omítelo) para aprobar el plan y comenzar la investigación.
 
 ### Python
 
@@ -308,10 +308,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Hình ảnh trực quan
+## Visualización
 
-Khi `visualization` được đặt thành `"auto"`, tác nhân có thể tạo biểu đồ, đồ thị và các phần tử trực quan khác để hỗ trợ các kết quả nghiên cứu của mình.
-Hình ảnh được tạo sẽ có trong các bước phản hồi và được truyền dưới dạng các delta `image`. Để có kết quả tốt nhất, hãy yêu cầu rõ ràng về hình ảnh trong câu hỏi của bạn, ví dụ: "Đưa biểu đồ cho thấy xu hướng theo thời gian" hoặc "Tạo hình ảnh so sánh thị phần". Việc đặt `visualization` thành `"auto"` sẽ bật khả năng này, nhưng tác nhân chỉ tạo hình ảnh khi câu lệnh yêu cầu.
+Cuando `visualization` se establece en `"auto"`, el agente puede generar gráficos y otros elementos visuales para respaldar los resultados de su investigación.
+Las imágenes generadas se incluyen en los pasos de la respuesta y se transmiten como deltas de `image`. Para obtener mejores resultados, pide explícitamente elementos visuales en tu búsqueda, por ejemplo, "Incluye gráficos que muestren las tendencias a lo largo del tiempo" o "Genera gráficos que comparen la participación de mercado". Si configuras `visualization` como `"auto"`, se habilita la capacidad, pero el agente solo genera elementos visuales cuando la instrucción los solicita.
 
 ### Python
 
@@ -397,21 +397,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Các công cụ được hỗ trợ
+## Herramientas compatibles
 
-Deep Research hỗ trợ nhiều công cụ tích hợp và công cụ bên ngoài. Theo mặc định (khi không có tham số `tools` nào được cung cấp), tác nhân có quyền truy cập vào Google Tìm kiếm, Bối cảnh URL và Thực thi mã. Bạn có thể chỉ định rõ ràng các công cụ để hạn chế hoặc mở rộng khả năng của tác nhân.
+Deep Research admite varias herramientas integradas y externas. De forma predeterminada (cuando no se proporciona ningún parámetro `tools`), el agente tiene acceso a la Búsqueda de Google, al contexto de URL y a la ejecución de código. Puedes especificar de forma explícita herramientas para restringir o extender las capacidades del agente.
 
-| Công cụ | Giá trị loại | Mô tả |
+| Herramienta | Valor del tipo | Descripción |
 | --- | --- | --- |
-| Google Tìm kiếm | `google_search` | Tìm kiếm trên web công khai. Bật theo mặc định. |
-| Ngữ cảnh URL | `url_context` | Đọc và tóm tắt nội dung trang web. Bật theo mặc định. |
-| Thực thi mã | `code_execution` | Thực thi mã để thực hiện các phép tính và phân tích dữ liệu. Bật theo mặc định. |
-| Máy chủ MCP | `mcp_server` | Kết nối với các máy chủ MCP từ xa để truy cập vào công cụ bên ngoài. |
-| Tìm kiếm tệp | `file_search` | Tìm kiếm tập hợp tài liệu đã tải lên. |
+| Búsqueda de Google | `google_search` | Buscar en la Web pública Habilitada de forma predeterminada. |
+| Contexto de URL | `url_context` | Leer y resumir el contenido de páginas web Habilitada de forma predeterminada. |
+| Ejecución de código | `code_execution` | Ejecutar código para realizar cálculos y análisis de datos Habilitada de forma predeterminada. |
+| Servidor MCP | `mcp_server` | Conectarse a servidores MCP remotos para acceder a herramientas externas |
+| Búsqueda de archivos | `file_search` | Busca en los corpus de documentos que subiste. |
 
-### Google Tìm kiếm
+### Búsqueda de Google
 
-Bật Google Tìm kiếm một cách rõ ràng làm công cụ duy nhất:
+Habilita explícitamente la Búsqueda de Google como la única herramienta:
 
 ### Python
 
@@ -449,9 +449,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Ngữ cảnh URL
+### Contexto de URL
 
-Cho phép tác nhân đọc và tóm tắt các trang web cụ thể:
+Permite que el agente lea y resuma páginas web específicas:
 
 ### Python
 
@@ -489,9 +489,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Thực thi mã
+### Ejecución de código
 
-Cho phép tác nhân thực thi mã để tính toán và phân tích dữ liệu:
+Permite que el agente ejecute código para realizar cálculos y análisis de datos:
 
 ### Python
 
@@ -529,19 +529,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Máy chủ MCP
+### Servidores de MCP
 
-Cung cấp `name` và `url` của máy chủ trong cấu hình công cụ. Bạn cũng có thể truyền thông tin xác thực và hạn chế những công cụ mà trợ lý ảo có thể gọi.
+Proporciona el servidor `name` y `url` en la configuración de herramientas. También puedes pasar credenciales de autenticación y restringir las herramientas a las que puede llamar el agente.
 
-| Trường | Loại | Bắt buộc | Mô tả |
+| Campo | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | Có | Phải là `"mcp_server"`. |
-| `name` | `string` | Không | Tên hiển thị của máy chủ MCP. |
-| `url` | `string` | Không | URL đầy đủ cho điểm cuối của máy chủ MCP. |
-| `headers` | `object` | Không | Các cặp khoá-giá trị được gửi dưới dạng tiêu đề HTTP trong mỗi yêu cầu đến máy chủ (ví dụ: mã thông báo xác thực). |
-| `allowed_tools` | `array` | Không | Hạn chế những công cụ mà tác nhân có thể gọi từ máy chủ. |
+| `type` | `string` | Sí | Debe ser `"mcp_server"`. |
+| `name` | `string` | No | Es un nombre visible para el servidor de MCP. |
+| `url` | `string` | No | Es la URL completa del extremo del servidor de MCP. |
+| `headers` | `object` | No | Pares clave-valor enviados como encabezados HTTP con cada solicitud al servidor (por ejemplo, tokens de autenticación). |
+| `allowed_tools` | `array` | No | Restringe las herramientas del servidor a las que puede llamar el agente. |
 
-#### Cách sử dụng cơ bản
+#### Uso básico
 
 ### Python
 
@@ -600,9 +600,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Tìm kiếm tệp
+### Búsqueda de archivos
 
-Cấp cho tác nhân quyền truy cập vào dữ liệu của riêng bạn bằng cách sử dụng công cụ [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi).
+Otorga acceso al agente a tus propios datos con la herramienta [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419).
 
 ### Python
 
@@ -654,11 +654,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Khả năng điều hướng và định dạng
+## Capacidad de dirección y formato
 
-Bạn có thể điều hướng đầu ra của tác nhân bằng cách cung cấp hướng dẫn định dạng cụ thể trong câu lệnh. Nhờ đó, bạn có thể sắp xếp báo cáo thành các phần và tiểu mục cụ thể, thêm bảng dữ liệu hoặc điều chỉnh giọng điệu cho các đối tượng khác nhau (ví dụ: "chuyên môn", "điều hành", "thông thường").
+Puedes guiar la respuesta del agente proporcionando instrucciones de formato específicas en tu instrucción. Esto te permite estructurar los informes en secciones y subsecciones específicas, incluir tablas de datos o ajustar el tono para diferentes públicos (p.ej., "técnico", "ejecutivo" o "informal").
 
-Xác định rõ định dạng đầu ra mong muốn trong văn bản đầu vào.
+Define el formato de salida deseado de forma explícita en el texto de entrada.
 
 ### Python
 
@@ -711,9 +711,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Thông tin đầu vào đa phương thức
+## Entradas multimodales
 
-Deep Research hỗ trợ nhiều phương thức nhập, bao gồm cả hình ảnh và tài liệu (tệp PDF), cho phép tác nhân phân tích nội dung trực quan và tiến hành nghiên cứu dựa trên nền tảng web theo bối cảnh của thông tin đầu vào được cung cấp.
+Deep Research admite entradas multimodales, incluidas imágenes y documentos (PDFs), lo que permite que el agente analice contenido visual y realice investigaciones basadas en la Web contextualizadas por las entradas proporcionadas.
 
 ### Python
 
@@ -819,9 +819,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Hiểu tài liệu
+### Comprensión de documentos
 
-Truyền trực tiếp tài liệu dưới dạng dữ liệu đầu vào đa phương thức. Trợ lý sẽ phân tích các tài liệu được cung cấp và tiến hành nghiên cứu dựa trên nội dung của các tài liệu đó.
+Pasa documentos directamente como entrada multimodal. El agente analiza los documentos proporcionados y realiza investigaciones basadas en su contenido.
 
 ### Python
 
@@ -882,28 +882,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Xử lý các tác vụ chạy trong thời gian dài
+## Cómo controlar tareas de larga duración
 
-Deep Research là một quy trình gồm nhiều bước, bao gồm lập kế hoạch, tìm kiếm, đọc và viết. Chu kỳ này thường vượt quá giới hạn thời gian chờ tiêu chuẩn của các lệnh gọi API đồng bộ.
+Deep Research es un proceso de varios pasos que incluye planificación, búsqueda, lectura y escritura. Por lo general, este ciclo supera los límites de tiempo de espera estándar de las llamadas a la API síncronas.
 
-Nhân viên hỗ trợ bắt buộc phải sử dụng `background=True`. API này sẽ trả về ngay một đối tượng `Interaction` một phần. Bạn có thể dùng thuộc tính `id` để truy xuất một lượt tương tác cho hoạt động thăm dò ý kiến. Trạng thái tương tác sẽ chuyển từ `in_progress` sang `completed` hoặc `failed`. Để biết hướng dẫn đầy đủ về cách quản lý các tác vụ ở chế độ nền, hãy xem phần [Thực thi ở chế độ nền](https://ai.google.dev/gemini-api/docs/background-execution?hl=vi).
+Se requieren agentes para usar `background=True`. La API devuelve un objeto `Interaction` parcial de inmediato. Puedes usar la propiedad `id` para recuperar una interacción para la votación. El estado de interacción pasará de `in_progress` a `completed` o `failed`. Para obtener una guía completa sobre la administración de tareas en segundo plano, consulta [Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
-### Phát trực tiếp
+### Transmisión
 
-Tính năng Deep Research hỗ trợ truyền trực tuyến để nhận thông tin cập nhật theo thời gian thực về tiến trình nghiên cứu, bao gồm cả bản tóm tắt ý tưởng, văn bản đầu ra và hình ảnh được tạo.
-Bạn phải đặt `stream=True` và `background=True`.
+Deep Research admite la transmisión para recibir actualizaciones en tiempo real sobre el progreso de la investigación, incluidos resúmenes de pensamientos, texto generado e imágenes.
+Debes configurar `stream=True` y `background=True`.
 
-Để nhận các bước suy luận trung gian (suy nghĩ) và thông tin cập nhật về tiến trình, bạn phải bật **bản tóm tắt suy nghĩ** bằng cách đặt `thinking_summaries` thành `"auto"` trong `agent_config`. Nếu không có thông tin này, luồng dữ liệu có thể chỉ cung cấp kết quả cuối cùng.
+Para recibir pasos de razonamiento intermedios (pensamientos) y actualizaciones de progreso, debes habilitar los **resúmenes de pensamiento** configurando `thinking_summaries` en `"auto"` en `agent_config`. Sin esto, es posible que la transmisión solo proporcione los resultados finales.
 
-#### Loại sự kiện phát trực tuyến
+#### Tipos de eventos de transmisión
 
-| Loại sự kiện | Loại Delta | Mô tả |
+| Tipo de evento | Tipo de delta | Descripción |
 | --- | --- | --- |
-| `step.delta` | `thought` | Bước suy luận trung gian của tác nhân. |
-| `step.delta` | `text` | Một phần của văn bản đầu ra cuối cùng. |
-| `step.delta` | `image` | Một hình ảnh được tạo (được mã hoá bằng base64). |
+| `step.delta` | `thought` | Es un paso de razonamiento intermedio del agente. |
+| `step.delta` | `text` | Es parte del texto final. |
+| `step.delta` | `image` | Imagen generada (codificada en base64). |
 
-Ví dụ sau đây bắt đầu một tác vụ nghiên cứu và xử lý luồng bằng tính năng tự động kết nối lại. Thao tác này theo dõi `interaction_id` và `last_event_id` để nếu kết nối bị gián đoạn (ví dụ: sau khi hết thời gian chờ 600 giây), thao tác này có thể tiếp tục từ nơi bị gián đoạn.
+En el siguiente ejemplo, se inicia una tarea de investigación y se procesa la transmisión con reconexión automática. Realiza un seguimiento de `interaction_id` y `last_event_id` para que, si se interrumpe la conexión (por ejemplo, después del tiempo de espera de 600 segundos), pueda reanudarse desde donde se interrumpió.
 
 ### Python
 
@@ -1024,9 +1024,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Câu hỏi nối tiếp và lượt tương tác
+## Preguntas y conversaciones de seguimiento
 
-Bạn có thể tiếp tục cuộc trò chuyện sau khi nhân viên hỗ trợ gửi báo cáo cuối cùng bằng cách sử dụng `previous_interaction_id`. Nhờ đó, bạn có thể yêu cầu làm rõ, tóm tắt hoặc giải thích chi tiết về các phần cụ thể của nghiên cứu mà không cần khởi động lại toàn bộ tác vụ.
+Puedes continuar la conversación después de que el agente devuelva el informe final con `previous_interaction_id`. Esto te permite pedir aclaraciones, resúmenes o explicaciones sobre secciones específicas de la investigación sin tener que reiniciar toda la tarea.
 
 ### Python
 
@@ -1069,28 +1069,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Trường hợp nên dùng Tác nhân Deep Research của Gemini
+## Cuándo usar el agente de Deep Research de Gemini
 
-Deep Research là một **tác nhân**, chứ không chỉ là một mô hình. Công cụ này phù hợp nhất với những khối lượng công việc yêu cầu phương pháp "nhà phân tích trong hộp" thay vì trò chuyện có độ trễ thấp.
+Deep Research es un **agente**, no solo un modelo. Es más adecuado para cargas de trabajo que requieren un enfoque de "analista en una caja" en lugar de un chat de latencia baja.
 
-| Tính năng | Các mô hình Gemini tiêu chuẩn | Tác nhân Deep Research của Gemini |
+| Función | Modelos de Gemini estándar | Agente de Deep Research de Gemini |
 | --- | --- | --- |
-| **Độ trễ** | Giây | Phút (Không đồng bộ/Nền) |
-| **Quy trình** | Tạo -> Đầu ra | Lập kế hoạch -> Tìm kiếm -> Đọc -> Lặp lại -> Đầu ra |
-| **Đầu ra** | Văn bản trò chuyện, mã, bản tóm tắt ngắn | Báo cáo chi tiết, phân tích dài, bảng so sánh |
-| **Phù hợp nhất với** | Chatbot, trích xuất, viết sáng tạo | Phân tích thị trường, thẩm định, đánh giá tài liệu, bối cảnh cạnh tranh |
+| **Latencia** | Segundos | Minutos (asíncrono/en segundo plano) |
+| **Proceso** | Generar -> Resultado | Planificar > Buscar > Leer > Iterar > Generar |
+| **Resultado** | Texto conversacional, código y resúmenes breves | Informes detallados, análisis de formato largo y tablas comparativas |
+| **Ideal para** | Chatbots, extracción, escritura creativa | Análisis de mercado, diligencia debida, revisiones bibliográficas y análisis de la competencia |
 
-## Cấu hình tác nhân
+## Configuración del agente
 
-Deep Research sử dụng tham số `agent_config` để kiểm soát hành vi.
-Truyền nó dưới dạng một từ điển có các trường sau:
+La Investigación profunda usa el parámetro `agent_config` para controlar el comportamiento.
+Pásalo como un diccionario con los siguientes campos:
 
-| Trường | Loại | Mặc định | Mô tả |
+| Campo | Tipo | Predeterminado | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | Bắt buộc | Phải là `"deep-research"`. |
-| `thinking_summaries` | `string` | `"none"` | Đặt thành `"auto"` để nhận các bước suy luận trung gian trong quá trình truyền phát trực tiếp. Đặt thành `"none"` để tắt. |
-| `visualization` | `string` | `"auto"` | Đặt thành `"auto"` để cho phép tạo biểu đồ và hình ảnh do tác nhân tạo. Đặt thành `"off"` để tắt. |
-| `collaborative_planning` | `boolean` | `false` | Đặt thành `true` để bật tính năng xem xét kế hoạch nhiều lượt trước khi bắt đầu nghiên cứu. |
+| `type` | `string` | Obligatorio | Debe ser `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Se establece en `"auto"` para recibir pasos de razonamiento intermedios durante la transmisión. Configúralo en `"none"` para inhabilitarlo. |
+| `visualization` | `string` | `"auto"` | Se establece en `"auto"` para habilitar los gráficos y las imágenes generados por el agente. Configúralo en `"off"` para inhabilitarlo. |
+| `collaborative_planning` | `boolean` | `false` | Se establece en `true` para habilitar la revisión del plan de varios turnos antes de que comience la investigación. |
 
 ### Python
 
@@ -1145,57 +1145,57 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Tình trạng còn hàng và giá
+## Disponibilidad y precios
 
-Bạn có thể truy cập vào Gemini Deep Research Agent bằng Interactions API trong Google AI Studio và Gemini API.
+Puedes acceder al agente de investigación profunda de Gemini con la API de Interactions en Google AI Studio y la API de Gemini.
 
-Giá tuân theo [mô hình trả tiền theo mức dùng](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) dựa trên các mô hình Gemini cơ bản và các công cụ cụ thể mà tác nhân sử dụng. Không giống như các yêu cầu trò chuyện thông thường (một yêu cầu dẫn đến một kết quả đầu ra), tác vụ Deep Research là một quy trình làm việc dựa trên tác nhân. Một yêu cầu duy nhất sẽ kích hoạt một vòng lặp tự động gồm lập kế hoạch, tìm kiếm, đọc và suy luận.
+Los precios siguen un [modelo de pago por uso](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#pricing-for-agents) basado en los modelos subyacentes de Gemini y las herramientas específicas que utiliza el agente. A diferencia de las solicitudes de chat estándar, en las que una solicitud genera una respuesta, una tarea de Deep Research es un flujo de trabajo de agente. Una sola solicitud activa un bucle autónomo de planificación, búsqueda, lectura y razonamiento.
 
-### Chi phí ước tính
+### Costos estimados
 
-Chi phí sẽ khác nhau tuỳ thuộc vào mức độ nghiên cứu cần thiết. Trợ lý tự động xác định mức độ đọc và tìm kiếm cần thiết để trả lời câu lệnh của bạn.
+Los costos varían según la profundidad de la investigación requerida. El agente determina de forma autónoma cuánta lectura y búsqueda son necesarias para responder tu instrucción.
 
-- **Deep Research** (`deep-research-preview-04-2026`): Đối với một cụm từ tìm kiếm thông thường đòi hỏi mức độ phân tích vừa phải, tác nhân có thể sử dụng khoảng 80 cụm từ tìm kiếm, khoảng 250.000 mã thông báo đầu vào (khoảng 50-70% được lưu vào bộ nhớ đệm) và khoảng 60.000 mã thông báo đầu ra.
-  - **Tổng số tiền ước tính:** Khoảng 10.000 VND – 30.000 VND cho mỗi nhiệm vụ
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): Để phân tích sâu về môi trường cạnh tranh hoặc thẩm định kỹ lưỡng, tác nhân có thể sử dụng tối đa khoảng 160 cụm từ tìm kiếm, khoảng 900.000 mã thông báo đầu vào (khoảng 50-70% được lưu vào bộ nhớ đệm) và khoảng 80.000 mã thông báo đầu ra.
-  - **Tổng số tiền ước tính:** Khoảng 30.000 VND – 70.000 VND cho mỗi nhiệm vụ
+- **Deep Research** (`deep-research-preview-04-2026`): Para una búsqueda típica que requiere un análisis moderado, el agente puede usar alrededor de 80 búsquedas, 250,000 tokens de entrada (entre el 50 y el 70% en caché) y 60,000 tokens de salida.
+  - **Total estimado:** De USD 1.00 a USD 3.00 por tarea
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Para un análisis profundo del panorama competitivo o una diligencia debida exhaustiva, el agente puede usar hasta 160 búsquedas, 900,000 tokens de entrada (entre el 50 y el 70% en caché) y 80,000 tokens de salida.
+  - **Total estimado:** De USD 3.00 a USD 7.00 por tarea
 
-## Lưu ý về sự an toàn
+## Consideraciones de seguridad
 
-Việc cấp cho một đặc vụ quyền truy cập vào web và các tệp riêng tư của bạn đòi hỏi bạn phải cân nhắc kỹ lưỡng các rủi ro về an toàn.
+Darle acceso a un agente a la Web y a tus archivos privados requiere una consideración cuidadosa de los riesgos de seguridad.
 
-- **Tiêm câu lệnh (prompt injection) bằng cách sử dụng tệp:** Tác nhân sẽ đọc nội dung của các tệp mà bạn cung cấp. Đảm bảo rằng các tài liệu đã tải lên (tệp PDF, tệp văn bản) đến từ các nguồn đáng tin cậy. Một tệp độc hại có thể chứa văn bản ẩn được thiết kế để thao túng đầu ra của tác nhân.
-- **Rủi ro về nội dung trên web:** Đặc vụ tìm kiếm trên web công khai. Mặc dù chúng tôi triển khai các bộ lọc an toàn mạnh mẽ, nhưng vẫn có rủi ro là tác nhân có thể gặp phải và xử lý các trang web độc hại. Bạn nên xem xét `citations` được cung cấp trong câu trả lời để xác minh các nguồn.
-- **Trích xuất:** Hãy thận trọng khi yêu cầu tác nhân tóm tắt dữ liệu nội bộ nhạy cảm nếu bạn cũng cho phép tác nhân duyệt web.
+- **Inyección de instrucciones con archivos:** El agente lee el contenido de los archivos que proporcionas. Asegúrate de que los documentos subidos (PDFs, archivos de texto) provengan de fuentes confiables. Un archivo malicioso podría contener texto oculto diseñado para manipular la salida del agente.
+- **Riesgos del contenido web:** El agente busca en la Web pública. Si bien implementamos filtros de seguridad sólidos, existe el riesgo de que el agente encuentre y procese páginas web maliciosas. Te recomendamos que revises el `citations` que se proporciona en la respuesta para verificar las fuentes.
+- **Exfiltración:** Ten cuidado cuando le pidas al agente que resuma datos internos sensibles si también le permites navegar por la Web.
 
-## Các phương pháp hay nhất
+## Prácticas recomendadas
 
-- **Hỏi về những thông tin chưa biết:** Hướng dẫn nhân viên hỗ trợ cách xử lý dữ liệu bị thiếu.
-  Ví dụ: hãy thêm *"Nếu không có số liệu cụ thể cho năm 2025, hãy nêu rõ rằng đó là số liệu dự đoán hoặc không có sẵn thay vì ước tính"* vào câu lệnh của bạn.
-- **Cung cấp bối cảnh:** Đưa ra thông tin cơ bản hoặc các ràng buộc trực tiếp trong câu lệnh đầu vào để giúp tác nhân nghiên cứu.
-- **Sử dụng tính năng lập kế hoạch cộng tác:** Đối với các câu hỏi phức tạp, hãy bật tính năng lập kế hoạch cộng tác để xem xét và tinh chỉnh kế hoạch nghiên cứu trước khi thực hiện.
-- **Thông tin đầu vào đa phương thức:** Deep Research Agent hỗ trợ thông tin đầu vào đa phương thức.
-  Hãy sử dụng một cách thận trọng vì điều này làm tăng chi phí và nguy cơ tràn cửa sổ ngữ cảnh.
+- **Mensaje para desconocidos:** Indica al agente cómo controlar los datos faltantes.
+  Por ejemplo, agrega *"Si no hay cifras específicas disponibles para el 2025, indica explícitamente que son proyecciones o que no están disponibles en lugar de hacer una estimación"* a tu instrucción.
+- **Proporciona contexto:** Fundamenta la investigación del agente proporcionando información de antecedentes o restricciones directamente en la instrucción de entrada.
+- **Usa la planificación colaborativa:** Para las preguntas complejas, habilita la planificación colaborativa para revisar y definir mejor el plan de investigación antes de la ejecución.
+- **Entradas multimodales:** El agente de Deep Research admite entradas multimodales.
+  Úsala con precaución, ya que aumenta los costos y el riesgo de desbordamiento de la ventana de contexto.
 
-## Các điểm hạn chế
+## Limitaciones
 
-- **Công cụ tuỳ chỉnh:** Hiện tại, bạn không thể cung cấp các công cụ tuỳ chỉnh cho Lệnh gọi hàm nhưng có thể sử dụng các máy chủ MCP (Giao thức ngữ cảnh mô hình) từ xa với tác nhân Nghiên cứu chuyên sâu.
-- **Đầu ra có cấu trúc:** Hiện tại, Deep Research Agent không hỗ trợ đầu ra có cấu trúc.
-- **Thời gian nghiên cứu tối đa:** Trợ lý Deep Research có thời gian nghiên cứu tối đa là 60 phút. Hầu hết các tác vụ sẽ hoàn tất trong vòng 20 phút.
-- **Yêu cầu về cửa hàng:** Việc thực thi tác nhân bằng `background=True` yêu cầu `store=True`.
-- **Google Tìm kiếm:** [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi) được bật theo mặc định và [các hạn chế cụ thể](https://ai.google.dev/gemini-api/terms?hl=vi#use-restrictions2) áp dụng cho kết quả có căn cứ.
+- **Herramientas personalizadas:** Actualmente, no puedes proporcionar herramientas personalizadas de Llamadas a funciones, pero puedes usar servidores remotos de MCP (Protocolo de contexto del modelo) con el agente de Deep Research.
+- **Resultados estructurados:** Actualmente, el agente de Deep Research no admite resultados estructurados.
+- **Tiempo máximo de investigación:** El agente de Deep Research tiene un tiempo máximo de investigación de 60 minutos. La mayoría de las tareas deberían completarse en un plazo de 20 minutos.
+- **Requisito de la tienda:** La ejecución del agente con `background=True` requiere `store=True`.
+- **Búsqueda de Google:** La [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) está habilitada de forma predeterminada y se aplican [restricciones específicas](https://ai.google.dev/gemini-api/terms?hl=es-419#use-restrictions2) a los resultados fundamentados.
 
-## Bước tiếp theo
+## ¿Qué sigue?
 
-- Tìm hiểu thêm về [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi).
-- Tìm hiểu cách sử dụng dữ liệu của riêng bạn bằng công cụ [Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi).
+- Obtén más información sobre la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419).
+- Obtén información para usar tus propios datos con la herramienta [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419).
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Cập nhật lần gần đây nhất: 2026-06-26 UTC.
+Última actualización: 2026-06-26 (UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+¿Quieres brindar más información?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-26 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-26 (UTC)"],[],[]]

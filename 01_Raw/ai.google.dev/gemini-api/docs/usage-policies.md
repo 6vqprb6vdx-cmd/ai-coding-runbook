@@ -1,67 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=fr
-fetched_at: 2026-06-29T05:30:10.918233+00:00
-title: "Surveillance des utilisations abusives \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=vi
+fetched_at: 2026-07-06T05:13:07.790138+00:00
+title: "Gi\u00e1m s\u00e1t h\u00e0nh vi sai tr\u00e1i \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-# Surveillance des utilisations abusives
+# Giám sát hành vi sai trái
 
-Google s'engage à développer et à utiliser l'IA de manière responsable. Pour garantir la sécurité et l'intégrité de l'API Gemini, nous avons créé ces consignes.
-En utilisant l'API Gemini, vous acceptez les consignes suivantes, les [Conditions d'utilisation supplémentaires de l'API Gemini](https://ai.google.dev/gemini-api/terms?hl=fr) et le [Règlement sur les utilisations interdites de l'IA générative](https://policies.google.com/terms/generative-ai/use-policy?hl=fr).
+Google cam kết phát triển và sử dụng AI một cách có trách nhiệm. Để đảm bảo tính an toàn và tính toàn vẹn của Gemini API, chúng tôi đã tạo ra các nguyên tắc chính sách này.
+Bằng cách sử dụng Gemini API, bạn đồng ý với các nguyên tắc sau đây, [Điều khoản dịch vụ bổ sung](https://ai.google.dev/gemini-api/terms?hl=vi) của
+Gemini API và Chính sách về các hành vi bị cấm khi sử dụng AI tạo sinh[.](https://policies.google.com/terms/generative-ai/use-policy?hl=vi)
 
-## Comment nous surveillons les utilisations abusives
+## Cách chúng tôi giám sát để phát hiện hành vi sử dụng sai mục đích
 
-L'équipe Google chargée de la fiabilité et de la sécurité utilise des processus automatisés et manuels pour détecter les utilisations abusives potentielles de l'API Gemini et de Google AI Studio afin d'appliquer nos règles.
+Nhóm Tin cậy và An toàn của Google sử dụng kết hợp các quy trình tự động và thủ công để phát hiện hành vi sử dụng sai mục đích có thể xảy ra đối với Gemini API và Google AI Studio nhằm thực thi các chính sách của chúng tôi.
 
-- **Détection automatisée** : les systèmes automatisés analysent l'utilisation de l'API pour détecter les cas de non-respect de notre règlement sur les utilisations interdites, comme les contenus incitant à la haine, au harcèlement, à caractère sexuel explicite ou dangereux.
-- **Détection manuelle** : si un projet présente régulièrement une activité suspecte, il peut être signalé pour examen manuel par le personnel Google autorisé.
+- **Phát hiện tự động:** Các hệ thống tự động quét việc sử dụng API để phát hiện các hành vi vi phạm Chính sách về các hành vi bị cấm khi sử dụng, chẳng hạn như ngôn từ kích động thù hận, hành vi quấy rối, nội dung khiêu dâm và nội dung nguy hiểm.
+- **Phát hiện thủ công:** Nếu một dự án liên tục có hoạt động đáng ngờ, dự án đó có thể bị gắn cờ để nhân viên được uỷ quyền của Google xem xét theo cách thủ công.
 
-## Comment nous traitons les données
+## Cách chúng tôi xử lý dữ liệu
 
-Google conserve les données suivantes pendant cinquante-cinq (55) jours afin de détecter et d'empêcher les cas de non-respect du règlement sur les utilisations interdites, de préserver la sécurité des Services et de fournir toute information légale ou réglementaire requise :
+Google giữ lại các dữ liệu sau đây trong 55 (năm mươi lăm) ngày nhằm mục đích phát hiện và ngăn chặn các hành vi vi phạm Chính sách về các hành vi bị cấm khi sử dụng để duy trì sự an toàn và bảo mật của Dịch vụ, cũng như mọi thông tin bắt buộc phải tiết lộ theo quy định pháp luật:
 
-- **Requêtes** : requêtes textuelles que vous envoyez à l'API.
-- **Informations contextuelles** : tout contexte supplémentaire que vous fournissez avec vos requêtes.
-- **Sortie** : réponses générées par l'API Gemini.
+- **Câu lệnh:** Câu lệnh bằng văn bản mà bạn gửi đến API.
+- **Thông tin theo bối cảnh:** Mọi thông tin bổ sung theo bối cảnh mà bạn cung cấp cùng với câu lệnh.
+- **Kết quả:** Câu trả lời do Gemini API tạo ra.
 
-## Comment nous examinons les problèmes potentiels
+## Cách chúng tôi điều tra các vấn đề tiềm ẩn
 
-Lorsque des requêtes ou des sorties de modèle sont signalées par les filtres de sécurité et les systèmes de détection des utilisations abusives décrits ci-dessus, des employés Google autorisés peuvent évaluer le contenu signalé et confirmer ou corriger la classification ou la détermination en fonction de consignes et de règles prédéfinies. Seuls les employés Google autorisés peuvent accéder aux données pour les examiner manuellement, via une plate-forme interne d'évaluation de la gouvernance et de gestion des examens. Lorsque des données sont consignées pour la surveillance des utilisations abusives, elles sont utilisées uniquement pour faire respecter les règles et prévenir les cas de non-respect.
-Elles ne sont pas utilisées pour entraîner ni ajuster des modèles d'IA/ML, à l'exception de ceux utilisés spécifiquement pour l'application des règles.
+Khi câu lệnh hoặc kết quả của mô hình bị bộ lọc an toàn và hệ thống phát hiện hành vi sai trái được mô tả ở trên gắn cờ, nhân viên được uỷ quyền của Google có thể đánh giá nội dung bị gắn cờ và xác nhận hoặc sửa thông tin phân loại hoặc xác định dựa trên các nguyên tắc và chính sách được xác định trước. Chỉ nhân viên được uỷ quyền của Google mới có thể truy cập dữ liệu để xem xét theo cách thủ công thông qua nền tảng đánh giá quản trị nội bộ và quản lý quy trình xem xét. Khi dữ liệu được ghi lại để giám sát hành vi sai trái, dữ liệu đó chỉ được dùng cho mục đích thực thi chính sách và ngăn chặn hành vi vi phạm chính sách.
+Dữ liệu này không được dùng để huấn luyện hoặc tinh chỉnh bất kỳ mô hình AI/ML nào ngoài những mô hình được dùng riêng cho việc thực thi chính sách.
 
-## Nous vous aidons à respecter nos règles
+## Hợp tác với bạn để tuân thủ chính sách
 
-Si votre utilisation de Gemini ne respecte pas nos règles, nous pouvons prendre les mesures suivantes :
+Nếu việc bạn sử dụng Gemini không tuân thủ các chính sách của chúng tôi, chúng tôi có thể thực hiện các bước sau:
 
-- **Nous contacter** : nous pouvons vous contacter par e-mail pour comprendre votre cas d'utilisation et trouver des moyens de rendre votre utilisation conforme.
-- **Limites d'utilisation temporaires** : nous pouvons limiter votre accès à l'API Gemini en ajustant les limites de fréquence ou en modifiant le modèle qui répond à une demande spécifique, par exemple.
-- **Suspension temporaire** : nous pouvons suspendre temporairement votre accès à l'API Gemini.
-- **Clôture du compte** : en dernier recours et en cas de non-respect grave, nous pouvons vous interdire définitivement l'accès à l'API Gemini et à d'autres services Google.
+- **Liên hệ:** Chúng tôi có thể liên hệ với bạn qua email để hiểu rõ trường hợp sử dụng của bạn và tìm hiểu các cách để giúp bạn tuân thủ chính sách.
+- **Giới hạn tạm thời về việc sử dụng:** Chúng tôi có thể giới hạn quyền truy cập của bạn vào Gemini API bằng cách điều chỉnh giới hạn về tốc độ hoặc thay đổi mô hình trả lời một yêu cầu cụ thể, chẳng hạn.
+- **Tạm ngưng:** Chúng tôi có thể tạm ngưng quyền truy cập của bạn vào Gemini API.
+- **Đóng tài khoản:** Trong trường hợp cuối cùng và đối với các hành vi vi phạm nghiêm trọng, chúng tôi có thể đóng vĩnh viễn quyền truy cập của bạn vào Gemini API và các dịch vụ khác của Google.
 
-Si nous vous contactons concernant une suspension ou une clôture de compte, nous vous fournirons également un lien vous permettant de faire appel.
+Nếu chúng tôi liên hệ với bạn về việc tạm ngưng hoặc đóng tài khoản, chúng tôi cũng sẽ cung cấp một đường liên kết để bạn có thể kháng nghị.
 
-## Champ d'application
+## Phạm vi
 
-Ces consignes s'appliquent à l'utilisation de l'API Gemini et d'AI Studio.
+Các nguyên tắc chính sách này áp dụng cho việc sử dụng Gemini API và AI Studio.
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Dernière mise à jour le 2026/06/09 (UTC).
+Cập nhật lần gần đây nhất: 2026-06-09 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/09 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-09 UTC."],[],[]]

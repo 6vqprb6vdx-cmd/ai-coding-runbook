@@ -1,30 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/media-resolution?hl=tr
-fetched_at: 2026-06-29T05:31:19.780628+00:00
-title: "Medya \u00e7\u00f6z\u00fcn\u00fcrl\u00fc\u011f\u00fc \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/media-resolution?hl=he
+fetched_at: 2026-07-06T05:13:19.359322+00:00
+title: "\u05e8\u05d6\u05d5\u05dc\u05d5\u05e6\u05d9\u05d9\u05ea \u05d4\u05de\u05d3\u05d9\u05d4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Geri bildirim gönderin
+שליחת משוב
 
-# Medya çözünürlüğü
+# רזולוציית המדיה
 
-`media_resolution` parametresi, medya girişleri için ayrılan **maksimum jeton sayısını** belirleyerek Gemini API'nin resim, video ve PDF belgeleri gibi medya girişlerini nasıl işleyeceğini kontrol eder. Bu sayede yanıt kalitesini gecikme ve maliyetle dengelemenizi sağlar. Farklı ayarlar, varsayılan değerler ve bunların jetonlarla nasıl eşleştiği hakkında bilgi edinmek için [Jeton sayıları](#token-counts) bölümüne bakın.
+הפרמטר `media_resolution` קובע איך Gemini API מעבד קלט של מדיה כמו תמונות, סרטונים ומסמכי PDF. הוא מגדיר את **מספר הטוקנים המקסימלי** שמוקצה לקלט של מדיה, וכך מאפשר לכם לאזן בין איכות התגובה לבין זמן האחזור והעלות. בקטע [ספירת אסימונים](#token-counts) מפורטים ערכי ברירת המחדל של הגדרות שונות והאסימונים שמתאימים להן.
 
-İsteğinizdeki (yalnızca Gemini 3) bağımsız medya nesneleri (içerik öğeleri) için medya çözünürlüğünü yapılandırabilirsiniz.
+אתם יכולים להגדיר את רזולוציית המדיה לאובייקטים ספציפיים של מדיה (פריטי תוכן) בבקשה (רק ב-Gemini 3).
 
-## İçerik öğesi başına medya çözünürlüğü (yalnızca Gemini 3)
+## רזולוציית מדיה לכל פריט תוכן (Gemini 3 בלבד)
 
-Gemini 3, isteğinizdeki her bir medya nesnesi için medya çözünürlüğünü ayarlamanıza olanak tanır ve jeton kullanımında ayrıntılı optimizasyon sunar. Tek bir istekte çözünürlük düzeylerini karıştırabilirsiniz. Örneğin, karmaşık bir şema için yüksek çözünürlük, basit bir bağlamsal resim için düşük çözünürlük kullanabilirsiniz.
+‫Gemini 3 מאפשר לכם להגדיר רזולוציית מדיה לאובייקטים ספציפיים של מדיה בבקשה, וכך לבצע אופטימיזציה פרטנית של השימוש בטוקנים. אפשר לשלב רמות רזולוציה שונות בבקשה אחת. לדוגמה, שימוש ברזולוציה גבוהה לתרשים מורכב וברזולוציה נמוכה לתמונה פשוטה שמוסיפה הקשר.
 
 ### Python
 
@@ -102,69 +102,69 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Kullanılabilir çözünürlük değerleri
+## ערכי הרזולוציה הזמינים
 
-Gemini API, medya çözünürlüğü için aşağıdaki düzeyleri tanımlar:
+ב-Gemini API מוגדרות הרמות הבאות של רזולוציית מדיה:
 
-- `unspecified`: Varsayılan ayardır. Bu seviyenin jeton sayısı, Gemini 3 ile önceki Gemini modelleri arasında önemli ölçüde farklılık gösterir.
-- `low`: Daha düşük jeton sayısı, daha hızlı işlem ve daha düşük maliyetle sonuçlanır ancak daha az ayrıntı içerir.
-- `medium`: Ayrıntı, maliyet ve gecikme arasında bir denge.
-- `high`: Gecikme ve maliyet artışı karşılığında, modelin çalışması için daha fazla ayrıntı sağlayan daha yüksek jeton sayısı.
-- `ultra_high` (Yalnızca içerik öğesi başına): En yüksek jeton sayısıdır. [Bilgisayar kullanımı](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr) gibi belirli kullanım alanları için gereklidir.
+- ‫`unspecified`: הגדרת ברירת המחדל. מספר הטוקנים ברמה הזו משתנה באופן משמעותי בין Gemini 3 לבין מודלים קודמים של Gemini.
+- ‫`low`: מספר אסימונים נמוך יותר, שמוביל לעיבוד מהיר יותר ולעלות נמוכה יותר, אבל עם פחות פרטים.
+- ‫`medium`: איזון בין רמת הפירוט, העלות וההשהיה.
+- ‫`high`: מספר גבוה יותר של טוקנים, שמספק למודל יותר פרטים לעבודה, אבל על חשבון עלות גבוהה יותר וזמן אחזור ארוך יותר.
+- ‫`ultra_high` (לכל פריט תוכן בלבד): מספר האסימונים הגבוה ביותר, נדרש לתרחישי שימוש ספציפיים כמו [שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he).
 
-`high` seçeneğinin çoğu kullanım alanında optimum performans sağladığını unutmayın.
+חשוב לזכור שההגדרה `high` מספקת את הביצועים האופטימליים ברוב תרחישי השימוש.
 
-Bu seviyelerin her biri için oluşturulan jetonların tam sayısı hem **medya türüne** (resim, video, PDF) hem de **model sürümüne** bağlıdır.
+המספר המדויק של הטוקנים שנוצרו לכל אחת מהרמות האלה תלוי ב**סוג המדיה** (תמונה, סרטון, PDF) וב**גרסת המודל**.
 
-## Jeton sayıları
+## מספר הטוקנים
 
-Aşağıdaki tablolarda, her model ailesi için her `media_resolution` değeri ve medya türüne ait yaklaşık jeton sayıları özetlenmektedir.
+בטבלאות הבאות מפורטות ספירות האסימונים המשוערות לכל ערך של `media_resolution` ולכל סוג מדיה לכל משפחת מודלים.
 
-**Gemini 3 modelleri**
+**מודלים של Gemini 3**
 
-| MediaResolution | Resim | Video | PDF |
+| MediaResolution | תמונה | וידאו | PDF |
 | --- | --- | --- | --- |
-| `unspecified` (Varsayılan) | 1120 | 70 | 560 |
-| `low` | 280 | 70 | 280 + Doğal Metin |
-| `medium` | 560 | 70 | 560 + Doğal Metin |
-| `high` | 1120 | 280 | 1.120 + Yerel Metin |
-| `ultra_high` | 2240 | Yok | Yok |
+| ‫`unspecified` (ברירת מחדל) | 1120 | 70 | 560 |
+| `low` | 280 | 70 | ‫280 + טקסט מותאם |
+| `medium` | 560 | 70 | ‫560 + טקסט מותאם |
+| `high` | 1120 | 280 | ‫1120 + טקסט מותאם |
+| `ultra_high` | 2240 | לא רלוונטי | לא רלוונטי |
 
-## Doğru çözünürlüğü seçme
+## בחירת הרזולוציה המתאימה
 
-- **Varsayılan (`unspecified`):** Varsayılanla başlayın. En yaygın kullanım alanlarında kalite, gecikme ve maliyet arasında iyi bir denge sağlamak için ayarlanmıştır.
-- **`low`:** Maliyet ve gecikmenin öncelikli olduğu, ayrıntılı bilgilerin daha az önemli olduğu senaryolarda kullanılır.
-- **`medium` / `high`:** Görev, medyada karmaşık ayrıntıların anlaşılmasını gerektirdiğinde çözünürlüğü artırın. Bu özellik genellikle karmaşık görsel analiz, grafik okuma veya yoğun belge anlama için gereklidir.
-- **`ultra_high`**: Yalnızca içerik öğesi başına ayar için kullanılabilir. Bilgisayar kullanımı gibi belirli kullanım alanları veya testlerin `high` üzerinde net bir iyileşme gösterdiği durumlarda önerilir.
-- **İçerik öğesi başına kontrol (Gemini 3):** Jeton kullanımını optimize eder. Örneğin, birden fazla resim içeren bir istemde karmaşık bir diyagram için `high`, daha basit bağlamsal resimler için `low` veya `medium` kullanın.
+- **ברירת מחדל (`unspecified`):** מתחילים עם ברירת המחדל. הוא מותאם לאיזון טוב בין איכות, זמן אחזור ועלות ברוב תרחישי השימוש הנפוצים.
+- ‫**`low`:** מתאים לתרחישים שבהם העלות והחביון הם בעלי חשיבות עליונה, ופרטים מדויקים פחות קריטיים.
+- ‫**`medium` / `high`:** הגדלת הרזולוציה כשנדרשת הבנה של פרטים מורכבים במדיה. היכולת הזו נדרשת לעיתים קרובות לניתוח חזותי מורכב, לקריאת תרשימים או להבנת מסמכים עמוסים במידע.
+- ‫**`ultra_high`** – זמין רק להגדרה של כל פריט תוכן. מומלץ לתרחישי שימוש ספציפיים, כמו שימוש במחשב, או במקרים שבהם בדיקות מראות שיפור ברור לעומת `high`.
+- **שליטה בכל פריט תוכן (Gemini 3):** אופטימיזציה של השימוש בטוקנים. לדוגמה, בהנחיה עם כמה תמונות, אפשר להשתמש ב-`high` לתרשים מורכב וב-`low` או ב-`medium` לתמונות פשוטות יותר עם הקשר.
 
-**Önerilen ayarlar**
+**הגדרות מומלצות**
 
-Aşağıda, desteklenen her medya türü için önerilen medya çözünürlüğü ayarları listelenmiştir.
+ברשימה הבאה מפורטות הגדרות הרזולוציה המומלצות של המדיה לכל סוג מדיה נתמך.
 
-| Medya Türü | Önerilen Ayar | Maksimum jeton sayısı | Kullanım Yönergeleri |
+| סוג מדיה | הגדרה מומלצת | מספר מקסימלי של טוקנים | הנחיות לשימוש |
 | --- | --- | --- | --- |
-| **Resimler** | `high` | 1120 | Maksimum kaliteyi sağlamak için çoğu görüntü analizi görevinde önerilir. |
-| **PDF'ler** | `medium` | 560 | Belge anlamak için idealdir. Kalite genellikle `medium`'da doygunluğa ulaşır. `high`'ya yükseltmek, standart dokümanlar için OCR sonuçlarını nadiren iyileştirir. |
-| **Video** (Genel) | `low` (veya `medium`) | 70 (kare başına) | **Not:** Video için `low` ve `medium` ayarları, bağlam kullanımını optimize etmek amacıyla aynı şekilde (70 jeton) değerlendirilir. Bu, çoğu eylem tanıma ve açıklama görevi için yeterlidir. |
-| **Video** (Metin ağırlıklı) | `high` | 280 (kare başına) | Yalnızca kullanım alanında yoğun metin okuma (OCR) veya video karelerindeki küçük ayrıntılar yer aldığında gereklidir. |
+| **תמונות** | `high` | 1120 | מומלץ לרוב משימות ניתוח התמונות כדי להבטיח איכות מקסימלית. |
+| **קובצי PDF** | `medium` | 560 | אופטימלי להבנת מסמכים. האיכות מגיעה בדרך כלל לנקודת רוויה ב-`medium`. הגדלה ל-`high` משפרת לעיתים רחוקות את תוצאות ה-OCR במסמכים רגילים. |
+| **סרטון** (כללי) | `low` (או `medium`) | ‫70 (לכל פריים) | **הערה:** כשמדובר בסרטונים, ההגדרות `low` ו-`medium` מטופלות באופן זהה (70 טוקנים) כדי לייעל את השימוש בהקשר. זה מספיק לרוב המשימות של זיהוי פעולות ותיאור שלהן. |
+| **סרטון** (הרבה טקסט) | `high` | ‫280 (לכל פריים) | נדרש רק אם תרחיש השימוש כולל קריאת טקסט צפוף (OCR) או פרטים קטנים בתוך פריים של סרטון. |
 
-Kalite, gecikme ve maliyet arasında en iyi dengeyi bulmak için farklı çözünürlük ayarlarının uygulamanız üzerindeki etkisini her zaman test edin ve değerlendirin.
+חשוב תמיד לבדוק ולהעריך את ההשפעה של הגדרות רזולוציה שונות על האפליקציה, כדי למצוא את האיזון הטוב ביותר בין איכות, זמן אחזור ועלות.
 
-## Sürüm uyumluluğu özeti
+## סיכום תאימות הגרסה
 
-- `resolution` ayarını tek tek içerik öğelerinde belirleme **yalnızca Gemini 3 modellerinde kullanılabilir**.
+- הגדרת `resolution` בפריטי תוכן ספציפיים **זמינה רק במודלים של Gemini 3**.
 
-## Sonraki adımlar
+## השלבים הבאים
 
-- Gemini API'nin çok formatlı özellikleriyle ilgili daha fazla bilgiyi [Görüntü Anlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr), [Video Anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) ve [Doküman Anlama](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr) kılavuzlarında bulabilirsiniz.
+- במדריכים בנושא [הבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he), [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he) ו[הבנת מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he) אפשר לקרוא מידע נוסף על היכולות המולטי-מודאליות של Gemini API.
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-06-22 UTC.
+עדכון אחרון: 2026-06-22 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-22 (שעון UTC)."],[],[]]

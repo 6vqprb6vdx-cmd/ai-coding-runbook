@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=zh-TW
-fetched_at: 2026-06-29T05:25:39.347068+00:00
-title: "\u7db2\u5740\u80cc\u666f\u8cc7\u8a0a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=hi
+fetched_at: 2026-07-06T05:16:19.213385+00:00
+title: "\u092f\u0942\u0906\u0930\u090f\u0932 \u0915\u093e \u0915\u0949\u0928\u094d\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-提供意見
+सुझाव भेजें
 
-# 網址背景資訊
+# यूआरएल का कॉन्टेक्स्ट
 
-網址脈絡工具可讓您以網址形式為模型提供額外脈絡。在要求中加入網址後，模型會存取這些網頁的內容 (只要不是[限制一節](#limitations)中列出的網址類型)，藉此提供更完善的回覆。
+यूआरएल कॉन्टेक्स्ट टूल की मदद से, मॉडल को यूआरएल के तौर पर अतिरिक्त कॉन्टेक्स्ट दिया जा सकता है. अपने अनुरोध में यूआरएल शामिल करके, मॉडल उन पेजों का कॉन्टेंट ऐक्सेस कर पाएगा. हालांकि, ऐसा तब ही होगा, जब यूआरएल का टाइप [सीमाएं सेक्शन](#limitations) में दिए गए यूआरएल टाइप में शामिल न हो. इससे मॉडल को जवाब देने और उसे बेहतर बनाने में मदद मिलेगी.
 
-網址脈絡工具適用於下列工作：
+यूआरएल कॉन्टेक्स्ट टूल, इन जैसे कामों के लिए मददगार होता है:
 
-- **擷取資料**：從多個網址擷取特定資訊，例如價格、名稱或重要發現。
-- **比較文件**：分析多份報表、文章或 PDF，找出差異並追蹤趨勢。
-- **統整及建立內容**：整合多個來源網址的資訊，生成準確的摘要、網誌文章或報告。
-- **分析程式碼和文件**：指向 GitHub 存放區或技術文件，說明程式碼、生成設定操作說明或回答問題。
+- **डेटा निकालना**: एक से ज़्यादा यूआरएल से खास जानकारी निकालना. जैसे, कीमतें, नाम या मुख्य नतीजे.
+- **दस्तावेज़ों की तुलना करना**: रुझानों का पता लगाने और अंतरों की पहचान करने के लिए, एक से ज़्यादा रिपोर्ट, लेख या PDF का विश्लेषण करें.
+- **कॉन्टेंट बनाना और जानकारी इकट्ठा करना**: सटीक जवाब, ब्लॉग पोस्ट या रिपोर्ट जनरेट करने के लिए, कई सोर्स यूआरएल से जानकारी इकट्ठा करें.
+- **कोड और दस्तावेज़ों का विश्लेषण करना**: कोड के बारे में जानकारी देने, सेटअप करने के निर्देश जनरेट करने या सवालों के जवाब देने के लिए, GitHub रिपॉज़िटरी या तकनीकी दस्तावेज़ पर जाएं.
 
-以下範例說明如何比較不同網站的兩道食譜。
+यहां दिए गए उदाहरण में, अलग-अलग वेबसाइटों की दो रेसिपी की तुलना करने का तरीका बताया गया है.
 
 ### Python
 
@@ -111,19 +111,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 運作方式
+## यह कैसे काम करता है
 
-網址內容工具採用兩步驟的擷取程序，兼顧速度、成本和最新資料存取權。提供網址後，這項工具會先嘗試從內部索引快取擷取內容。這可做為經過高度最佳化的快取。如果網址未編入索引 (例如網頁剛發布)，工具會自動改為即時擷取。這項工具會直接存取網址，即時擷取內容。
+यूआरएल कॉन्टेक्स्ट टूल, डेटा को दो चरणों में इकट्ठा करता है. इससे, तेज़ी से डेटा इकट्ठा करने, कम लागत, और नए डेटा को ऐक्सेस करने के बीच संतुलन बनाए रखने में मदद मिलती है. यूआरएल देने पर, यह टूल सबसे पहले इंटरनल इंडेक्स कैश मेमोरी से कॉन्टेंट फ़ेच करने की कोशिश करता है. यह एक ऑप्टिमाइज़ की गई कैश मेमोरी के तौर पर काम करता है. अगर कोई यूआरएल इंडेक्स में उपलब्ध नहीं है (उदाहरण के लिए, अगर यह बहुत नया पेज है), तो टूल अपने-आप लाइव फ़ेच करने की सुविधा पर वापस चला जाता है.
+यह सीधे तौर पर यूआरएल को ऐक्सेस करता है, ताकि रीयल टाइम में उसका कॉन्टेंट वापस पाया जा सके.
 
-## 與其他工具搭配使用
+## अन्य टूल के साथ इस्तेमाल करना
 
-您可以將網址內容工具與其他工具結合，建立功能更強大的工作流程。
+यूआरएल के कॉन्टेक्स्ट की जानकारी देने वाले टूल को अन्य टूल के साथ मिलाकर, ज़्यादा असरदार वर्कफ़्लो बनाए जा सकते हैं.
 
-[Gemini 3 模型](#supported-models)支援結合內建工具 (例如網址脈絡) 和自訂工具 (函式呼叫)。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
+[Gemini 3 मॉडल](#supported-models), कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ-साथ, पहले से मौजूद टूल (जैसे, यूआरएल कॉन्टेक्स्ट) को एक साथ इस्तेमाल करने की सुविधा देते हैं. [टूल के कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) पेज पर जाकर, इस बारे में ज़्यादा जानें.
 
-### 以搜尋結果為基礎
+### खोज के नतीजों से जानकारी पाना
 
-同時啟用網址脈絡和 [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)後，模型就能使用搜尋功能在網路上尋找相關資訊，然後使用網址脈絡工具深入瞭解找到的網頁。這種做法非常適合需要廣泛搜尋，以及深入分析特定網頁的提示。
+यूआरएल कॉन्टेक्स्ट और [Google Search से जानकारी पाना](https://ai.google.dev/gemini-api/docs/grounding?hl=hi), दोनों सुविधाएं चालू होने पर मॉडल, खोज से जुड़ी अपनी क्षमताओं का इस्तेमाल करके, ऑनलाइन काम की जानकारी ढूंढ सकता है. इसके बाद, यूआरएल कॉन्टेक्स्ट टूल का इस्तेमाल करके, उसे मिले पेजों के बारे में ज़्यादा जानकारी पा सकता है. यह तरीका उन प्रॉम्प्ट के लिए बहुत कारगर है जिनमें किसी विषय के बारे में ज़्यादा से ज़्यादा जानकारी खोजने के साथ-साथ, किसी खास पेज का बारीकी से विश्लेषण करने की ज़रूरत होती है.
 
 ### Python
 
@@ -196,19 +197,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 瞭解回覆內容
+## जवाब को समझना
 
-模型使用網址情境工具時，文字回覆會包含文字內容區塊的內嵌 `url_citation` 註解。每項註解都會將回應文字的片段 (透過 `start_index` 和 `end_index`) 連結至衍生來源網址。這是應用程式中顯示引文的主要方式，請參閱[上方的主要範例](#get-started)，瞭解如何擷取引文。
+जब मॉडल, यूआरएल कॉन्टेक्स्ट टूल का इस्तेमाल करता है, तो उसके टेक्स्ट वाले जवाब में टेक्स्ट कॉन्टेंट ब्लॉक पर इनलाइन `url_citation` एनोटेशन शामिल होते हैं. हर एनोटेशन, जवाब के टेक्स्ट के एक सेगमेंट को उस सोर्स यूआरएल से लिंक करता है जिससे वह लिया गया है. ऐसा `start_index` और `end_index` के ज़रिए किया जाता है. अपने आवेदन में उद्धरण दिखाने का यह मुख्य तरीका है. इन्हें निकालने का तरीका जानने के लिए, [ऊपर दिया गया मुख्य उदाहरण](#get-started) देखें.
 
-回應中也會納入 `url_context_result` 步驟，其中含有每個網址擷取嘗試的中繼資料 (狀態、擷取的網址)。這項功能主要用於偵錯。
+जवाब में `url_context_result` चरण भी शामिल होता है. इसमें, हर यूआरएल को वापस पाने की कोशिश के बारे में मेटाडेटा होता है. जैसे, स्थिति, वापस पाया गया यूआरएल. यह मुख्य रूप से डीबग करने के लिए
+उपयोगी है.
 
-### 安全檢查
+### सुरक्षा जांच
 
-系統會對網址執行內容審查檢查，確認網址符合安全標準。如果網址未通過這項檢查，對應的 `url_context_result` 步驟會顯示 `status` `"unsafe"`。
+सिस्टम, यूआरएल पर कॉन्टेंट मॉडरेशन की जांच करता है. इससे यह पुष्टि की जाती है कि यूआरएल, सुरक्षा मानकों के मुताबिक हैं. अगर कोई यूआरएल इस जांच में पास नहीं होता है, तो उससे जुड़े `url_context_result` चरण में `"unsafe"` का `status` दिखेगा.
 
-### 符記數量
+### टोकन की संख्या
 
-系統會將從提示中指定網址擷取的內容，計為輸入權杖的一部分。您可以在互動的 `usage` 物件中查看權杖數量。範例如下：
+आपके प्रॉम्प्ट में दिए गए यूआरएल से वापस पाए गए कॉन्टेंट को, इनपुट टोकन के तौर पर गिना जाता है. इंटरैक्शन के `usage` ऑब्जेक्ट में, टोकन की संख्या देखी जा सकती है. यहां एक उदाहरण दिया गया है:
 
 ```
 'usage': {
@@ -222,56 +224,56 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-每個權杖的價格取決於使用的模型，詳情請參閱[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)頁面。
+हर टोकन की कीमत, इस्तेमाल किए गए मॉडल पर निर्भर करती है. ज़्यादा जानकारी के लिए, [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज देखें.
 
-## 支援的模型
+## इन मॉडल के साथ काम करता है
 
-| 模型 | 網址背景資訊 |
+| मॉडल | यूआरएल का कॉन्टेक्स्ट |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-tw) | ✔️ |
-| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ |
-| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=hi) | ✔️ |
+| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3 Flash की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
 
-## 最佳做法
+## सबसे सही तरीके
 
-- **提供具體網址**：為獲得最佳結果，請提供您希望模型分析的內容的直接網址。模型只會從您提供的網址擷取內容，不會從巢狀連結擷取任何內容。
-- **檢查存取方式**：確認提供的網址不會導向需要登入或位於付費牆後的網頁。
-- **使用完整網址**：請提供完整網址，包括通訊協定 (例如 https://www.google.com，而不是只有 google.com)。
+- **खास यूआरएल दें**: बेहतर नतीजे पाने के लिए, उस कॉन्टेंट के डायरेक्ट यूआरएल दें जिसका आपको मॉडल से विश्लेषण कराना है. मॉडल सिर्फ़ आपके दिए गए यूआरएल से कॉन्टेंट को फिर से हासिल करेगा. यह नेस्ट किए गए लिंक से कोई कॉन्टेंट हासिल नहीं करेगा.
+- **पक्का करें कि यूआरएल ऐक्सेस किए जा सकते हों**: पुष्टि करें कि आपके दिए गए यूआरएल, ऐसे पेजों पर रीडायरेक्ट न करते हों जिन्हें ऐक्सेस करने के लिए लॉग इन करने या पैसे चुकाने की ज़रूरत होती है.
+- **पूरा यूआरएल इस्तेमाल करें**: पूरा यूआरएल दें.इसमें प्रोटोकॉल भी शामिल करें. उदाहरण के लिए, सिर्फ़ google.com के बजाय https://www.google.com.
 
-## 限制
+## सीमाएं
 
-- 要求限制：這項工具每次最多可處理 20 個網址。
-- 網址內容大小：從單一網址擷取的內容大小上限為 34 MB。
-- 公開存取：網址必須可在網路上公開存取。
-  系統不支援本機主機位址 (例如 localhost、127.0.0.1)、私人網路和通道服務 (例如 ngrok、pinggy)。
-- 僅限 Gemini API：網址脈絡僅適用於 Gemini API，不適用於 Gemini Enterprise Agent Platform。
+- अनुरोध की सीमा: यह टूल, हर अनुरोध में ज़्यादा से ज़्यादा 20 यूआरएल प्रोसेस कर सकता है.
+- यूआरएल के कॉन्टेंट का साइज़: किसी एक यूआरएल से लिए गए कॉन्टेंट का साइज़ 34 एमबी से ज़्यादा नहीं होना चाहिए.
+- सार्वजनिक तौर पर ऐक्सेस किया जा सकने वाला यूआरएल: यूआरएल ऐसे होने चाहिए जिन्हें वेब पर सार्वजनिक तौर पर ऐक्सेस किया जा सके.
+  लोकलहोस्ट पते (जैसे, localhost, 127.0.0.1), निजी नेटवर्क, और टनलिंग सेवाएं (जैसे, ngrok, pinggy) काम नहीं करती हैं.
+- सिर्फ़ Gemini API के लिए: यूआरएल कॉन्टेक्स्ट की सुविधा सिर्फ़ Gemini API में उपलब्ध है. यह Gemini Enterprise Agent Platform के ज़रिए उपलब्ध नहीं है.
 
-### 支援及不支援的內容類型
+### इस्तेमाल किए जा सकने वाले और इस्तेमाल न किए जा सकने वाले कॉन्टेंट टाइप
 
-這項工具可從下列內容類型的網址中擷取內容：
+यह टूल, इन तरह के कॉन्टेंट वाले यूआरएल से कॉन्टेंट निकाल सकता है:
 
-- 文字 (text/html、application/json、text/plain、text/xml、text/css、
-  text/javascript、text/csv、text/rtf)
-- 圖片 (image/png、image/jpeg、image/bmp、image/webp)
+- टेक्स्ट (text/html, application/json, text/plain, text/xml, text/css,
+  text/javascript , text/csv, text/rtf)
+- इमेज (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-系統「不」支援下列內容類型：
+इस तरह के कॉन्टेंट के लिए, यह सुविधा **काम नहीं करती**:
 
-- 付費牆內容
-- YouTube 影片 (請參閱[影片理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw#youtube)，瞭解如何處理 YouTube 網址)
-- Google Workspace 檔案，例如 Google 文件或試算表
-- 影片和音訊檔案
+- Paywall की गई सामग्री
+- YouTube वीडियो (YouTube के यूआरएल प्रोसेस करने का तरीका जानने के लिए, [वीडियो समझने की सुविधा](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#youtube) देखें)
+- Google Workspace की फ़ाइलें, जैसे कि Google Docs या स्प्रेडशीट
+- वीडियो और ऑडियो फ़ाइलें
 
-提供意見
+सुझाव भेजें
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-上次更新時間：2026-06-22 (世界標準時間)。
+आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया.
 
-想進一步說明嗎？
+क्या आपको हमें और कुछ बताना है?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-22 (世界標準時間)。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-22 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,52 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=zh-TW
-fetched_at: 2026-06-29T05:32:08.965177+00:00
-title: "\u958b\u59cb\u4f7f\u7528 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=he
+fetched_at: 2026-07-06T05:15:21.647226+00:00
+title: "\u05ea\u05d7\u05d9\u05dc\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-提供意見
+שליחת משוב
 
-# 開始使用
+# תחילת העבודה
 
-本指南將說明如何使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 開始使用 Gemini API。您將在一分鐘內完成第一次 API 呼叫，並探索文字生成、多模態理解、圖片生成、結構化輸出內容、工具、函式呼叫、代理程式和背景執行作業。
+במדריך הזה נסביר איך להתחיל להשתמש ב-Gemini API באמצעות [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he). תבצעו את הקריאה הראשונה ל-API תוך פחות מדקה, ותכירו את התכונות הבאות: יצירת טקסט, הבנה מולטי-מודאלית, יצירת תמונות, פלט מובנה, כלים, בקשות להפעלת פונקציות, סוכנים והפעלה ברקע.
 
-您可以透過 [Python](https://github.com/googleapis/python-genai) 和 [JavaScript](https://github.com/googleapis/js-genai) SDK，以及 REST 使用 Interactions API。
+ה-API של האינטראקציות זמין דרך ה-SDK של [Python](https://github.com/googleapis/python-genai) ו-[JavaScript](https://github.com/googleapis/js-genai), וגם דרך REST.
 
-## 1. 取得 API 金鑰
+## 1. קבלת מפתח API
 
-如要使用 Gemini API，您需要 [API 金鑰](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw)。免費建立帳戶，即可開始使用：
+כדי להשתמש ב-Gemini API, צריך מפתח API כדי לאמת את הבקשות, לאכוף מגבלות אבטחה ולעקוב אחרי השימוש בחשבון.
 
-[建立 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
+- מערכת Google AI Studio יוצרת באופן אוטומטי פרויקט ומפתח API למשתמשים חדשים.
+  אפשר להעתיק אותו מ[דף מפתחות ה-API](https://aistudio.google.com/api-keys?hl=he).
+- אם אתם צריכים מפתח חדש, לוחצים על **Create API key** (יצירת מפתח API) ב-AI Studio ופועלים לפי ההוראות בתיבת הדו-שיח כדי להוסיף צמד חדש של מפתח ופרויקט.
 
-然後設為環境變數：
+[יצירת מפתח Gemini API](https://aistudio.google.com/apikey?hl=he)
+
+מגדירים את המפתח כמשתנה סביבה:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-## 2. 安裝 SDK 並進行第一次呼叫
+### שדרוג לרמה בתשלום
 
-安裝 SDK，並透過單一 API 呼叫生成文字。
+שדרוג לתוכנית בתשלום מגדיל את מגבלות הקצב ומחייב הגדרה של חיוב ב-Cloud.
+
+- לוחצים על **הגדרת חיוב** בדפים [מפתחות API](https://aistudio.google.com/api-keys?hl=he) או [פרויקטים](https://aistudio.google.com/projects?hl=he) ב-AI Studio.
+- פועלים לפי ההוראות בתיבת הדו-שיח של החיוב ב-Cloud כדי ליצור או לקשר חשבון לחיוב, להוסיף אמצעי תשלום ולשלם מראש לפחות 10$ (או סכום שווה ערך במטבע אחר) בקרדיטים בתשלום.
+- אפשר לראות את השימוש ב-API ב-[Google AI Studio](https://aistudio.google.com/usage?hl=he) בקטע **מרכז הבקרה** > **שימוש**.
+
+מידע נוסף זמין [בדף החיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he).
+
+## 2. התקנה של SDK וביצוע השיחה הראשונה
+
+מתקינים את ה-SDK ויוצרים טקסט באמצעות קריאה אחת ל-API.
 
 ### Python
 
-安裝 SDK：
+מתקינים את ה-SDK:
 
 ```
 pip install -U google-genai
 ```
 
-初始化用戶端並發出要求：
+מאחלים את הלקוח ושולחים בקשה:
 
 ```
 from google import genai
@@ -62,13 +76,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-安裝 SDK：
+מתקינים את ה-SDK:
 
 ```
 npm install @google/genai
 ```
 
-初始化用戶端並發出要求：
+מאחלים את הלקוח ושולחים בקשה:
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -94,7 +108,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回覆：**
+**תשובה:**
 
 ```
 {
@@ -126,13 +140,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-使用 REST 時，API 會傳回完整的 `Interaction` 資源，其中包含中繼資料、使用統計資料，以及回合的逐步記錄。
+כשמשתמשים ב-REST, ה-API מחזיר את משאב `Interaction` המלא שמכיל מטא-נתונים, נתוני שימוש והיסטוריה מפורטת של התור.
 
-SDK 會公開完整的回應，同時提供 `interaction.output_text` 和 `interaction.output_image` 等便利屬性，可直接存取最終輸出內容。如要進一步瞭解回覆結構，請參閱「[互動總覽](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)」或「[文字生成指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)」，瞭解系統指令和生成設定的詳細資訊。
+ערכות ה-SDK חושפות את התשובה המלאה, אבל הן גם מספקות מאפיינים נוחים כמו `interaction.output_text` ו-`interaction.output_image` כדי לגשת ישירות לתוצרים הסופיים. ב[סקירה הכללית על אינטראקציות](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) מוסבר על מבנה התשובות, וב[מדריך ליצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he) מפורטים הוראות המערכת והגדרות היצירה.
 
-## 3. 逐句顯示回覆
+## 3. הצגת התשובה באופן שוטף
 
-如要讓互動更流暢，請在生成回應時串流傳輸。每個 `step.delta` 事件都會傳送一組文字，您可以立即顯示。
+כדי שהאינטראקציה תהיה חלקה יותר, אפשר להזרים את התשובה בזמן שהיא נוצרת. כל אירוע `step.delta` מספק נתח טקסט שאפשר להציג באופן מיידי.
 
 ### Python
 
@@ -182,9 +196,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-串流時，伺服器會傳回伺服器傳送事件 (SSE) 串流。每個事件都包含類型和 JSON 資料。
+בסטרימינג, השרת מגיב בסטרים של אירועים שנשלחים מהשרת (SSE). כל אירוע כולל סוג ונתוני JSON.
 
-**回覆：**
+**תשובה:**
 
 ```
 event: interaction.created
@@ -215,18 +229,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-如要深入瞭解如何處理串流事件和 delta 類型，請參閱[串流互動指南](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-tw)。
+ב[מדריך לאינטראקציות עם סטרימינג](https://ai.google.dev/gemini-api/docs/streaming?hl=he) מוסבר בפירוט איך לטפל באירועים של סטרימינג ובסוגי דלתא.
 
-## 4. 多轉折對話
+## 4. שיחות רב-שלביות
 
-Interactions API 支援多輪對話，方法有兩種：
+‫Interactions API תומך בשיחות מרובות שלבים בשתי גישות:
 
-- **有狀態 (建議)**：使用 `previous_interaction_id` 在伺服器上繼續對話。適合大多數的即時通訊和代理式工作流程，可讓伺服器管理記錄並最佳化快取。
-- **無狀態**：在每個要求中傳遞所有先前的輪次 (包括中繼模型想法和工具步驟)，藉此在用戶端管理對話記錄。
+- **Stateful (מומלץ)**: המשך שיחה בשרת באמצעות `previous_interaction_id`. אידיאלי לרוב תהליכי העבודה של צ'אטים וסוכנים שבהם רוצים שהשרת ינהל את ההיסטוריה ויבצע אופטימיזציה של שמירת המידע במטמון.
+- **ללא שמירת מצב**: כדי לנהל את היסטוריית השיחות בצד הלקוח, צריך להעביר את כל התורות הקודמות (כולל שלבי החשיבה והשימוש בכלי של המודל) בכל בקשה.
 
-### 具狀態 (建議)
+### עם שמירת מצב (מומלץ)
 
-傳遞 `previous_interaction_id` 即可串連互動。伺服器會為您管理完整對話記錄。
+אפשר ליצור שרשרת של אינטראקציות על ידי העברת `previous_interaction_id`. השרת מנהל את היסטוריית השיחות המלאה בשבילכם.
 
 ### Python
 
@@ -296,9 +310,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 無狀態
+### בלי שמירת מצב
 
-在用戶端設定 `store=false` 及管理對話記錄。您必須保留並重新傳送所有模型生成的步驟 (包括 `thought` 和 `function_call` 步驟)，且內容必須與收到的完全一致。
+להגדיר את היסטוריית השיחות עם `store=false` ולנהל אותה בצד הלקוח. אתם צריכים לשמור את כל השלבים שנוצרו על ידי המודל (כולל השלבים `thought` ו-`function_call`) ולשלוח אותם מחדש בדיוק כפי שהם התקבלו.
 
 ### Python
 
@@ -410,7 +424,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**回覆：**
+**תשובה:**
 
 ```
 {
@@ -437,11 +451,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-第二次互動會傳回完整的回應物件，其中只包含新步驟，但會以先前回合的脈絡為基礎。如要進一步瞭解如何維護狀態，請參閱[多輪對話指南](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#multi-turn-conversations)，或探索[無狀態模式](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#stateless-conversations)，瞭解如何管理用戶端記錄。
+האינטראקציה השנייה מחזירה אובייקט תגובה מלא שכולל רק את השלבים החדשים, אבל הוא מבוסס על ההקשר של התור הקודם. מידע נוסף על שמירת מצב ב[מדריך לשיחות רב-שלביות](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#multi-turn-conversations). אפשר גם לעיין במידע על [מצב בלי שמירת מצב](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#stateless-conversations) לניהול היסטוריה בצד הלקוח.
 
-## 5. 多模態理解
+## 5. הבנה מולטי-מודאלית
 
-Gemini 模型可直接解讀圖片、音訊、影片和文件。在單一要求中傳遞媒體和文字。
+מודלים של Gemini מבינים תמונות, אודיו, סרטונים ומסמכים באופן מובנה. העברת מדיה לצד טקסט בבקשה אחת.
 
 ### Python
 
@@ -533,7 +547,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**回覆：**
+**תשובה:**
 
 ```
 {
@@ -558,27 +572,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-請參閱[圖像解讀指南](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)，瞭解如何傳遞圖片、影片和音訊檔案。
+[במדריך להבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he) מוסבר איך מעבירים תמונות, סרטונים וקובצי אודיו.
 
 [hearing
 
-音訊理解
+הבנת אודיו
 
-轉錄音訊檔案、摘要內容或回答相關問題。](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)
+לתמלל קובצי אודיו, לסכם אותם או לענות על שאלות לגביהם.](https://ai.google.dev/gemini-api/docs/audio?hl=he)
 [videocam
 
-影片解讀
+הבנת סרטונים
 
-分析影片內容、找出事件並描述動作。](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)
+לנתח את תוכן הסרטון, לאתר אירועים ולתאר פעולות.](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he)
 [description
 
-文件處理
+עיבוד מסמכים
 
-從 PDF 和其他文件格式中擷取資訊。](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)
+חילוץ מידע מקובצי PDF ומפורמטים אחרים של מסמכים.](https://ai.google.dev/gemini-api/docs/document-processing?hl=he)
 
-## 6. 多模態生成
+## 6. יצירה מולטי-מודאלית
 
-Gemini 可使用 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw) 圖像模型生成圖像。
+‫Gemini יכול ליצור תמונות באופן טבעי באמצעות מודלי התמונות [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=he).
 
 ### Python
 
@@ -631,7 +645,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**回覆：**
+**תשובה:**
 
 ```
 {
@@ -654,22 +668,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-模型生成圖片時，會在 `steps` 陣列的步驟中，以及透過 `output_image` 便利屬性，傳回 Base64 編碼的圖片資料。請參閱[圖像生成指南](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)，瞭解顯示比例、圖片編輯和參考資料。
+כשהמודל יוצר תמונה, הוא מחזיר את נתוני התמונה בקידוד base64 בשלב במערך `steps`, וגם באמצעות מאפיין הנוחות `output_image`. [במדריך ליצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he) אפשר לקרוא על יחסי גובה-רוחב, עריכת תמונות והפניות.
 
 [record\_voice\_over
 
-語音生成
+יצירת דיבור
 
-使用 Gemini 3.1 Flash TTS 生成生動的多人語音。](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)
+יצירת דיבור רגשי של כמה דוברים באמצעות Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)
 [music\_note
 
-音樂生成
+יצירת מוזיקה
 
-使用 Lyria 3 製作短片和完整歌曲。](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-tw)
+אתם יכולים ליצור קליפים ושירים באורך מלא עם Lyria 3.](https://ai.google.dev/gemini-api/docs/music-generation?hl=he)
 
-## 7. 使用結構化輸出內容
+## 7. שימוש בפלט מובנה
 
-設定模型，傳回符合您定義結構定義的 JSON。結構化輸出內容適用於 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript)。
+הגדרת המודל להחזרת JSON שתואם לסכימה שהגדרתם. פלט מובנה פועל עם [Pydantic](https://docs.pydantic.dev/latest/) ‏ (Python) ועם [Zod](https://zod.dev/) ‏ (JavaScript).
 
 ### Python
 
@@ -772,7 +786,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回覆：**
+**תשובה:**
 
 ```
 {
@@ -794,11 +808,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-輸出文字區塊包含符合要求結構定義的有效 JSON 字串。如要瞭解如何定義更複雜的結構和遞迴結構定義，請參閱[結構化輸出內容指南](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)。
+בלוק הפלט של הטקסט מכיל מחרוזת JSON תקינה שתואמת בדיוק לסכימה המבוקשת. ב[מדריך לפלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) מוסבר איך מגדירים מבנים מורכבים יותר וסכימות רקורסיביות.
 
-## 8. 使用工具
+## 8. שימוש בכלים
 
-使用 Google 搜尋查找資料，鞏固回覆的事實基礎。API 會自動搜尋、處理結果並傳回引文。
+להשתמש בחיפוש Google כדי להוסיף לתשובה של המודל מידע בזמן אמת. ה-API מחפש באופן אוטומטי, מעבד את התוצאות ומחזיר ציטוטים.
 
 ### Python
 
@@ -871,7 +885,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**回覆：**
+**תשובה:**
 
 ```
 {
@@ -921,41 +935,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-互動記錄會詳細列出搜尋步驟，最終輸出內容則會內嵌引用網路來源。
+השלבים של החיפוש מפורטים בהיסטוריית האינטראקציות, והפלט הסופי כולל ציטוטים מוטמעים שמפנים למקורות באינטרנט.
 
-如要瞭解如何擷取搜尋引用來源，請參閱 [Google 搜尋基礎指南](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)；如要瞭解如何合併多項工具，請參閱[工具組合指南](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)。
+ב[מדריך להארקה של חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) מוסבר איך לחלץ ציטוטים מחיפוש Google, וב[מדריך לשילוב כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) מוסבר איך לשלב בין כמה כלים.
 
 [code
 
-執行程式碼
+הרצת קוד
 
-在安全的沙箱 Borg 環境中執行 Python 程式碼。](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)
+להריץ קוד Python בסביבת Borg מאובטחת שפועלת בארגז חול.](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)
 [link
 
-網址背景資訊
+ההקשר של כתובת ה-URL
 
-直接傳遞公開網頁網址，以網頁內容為依據生成回覆。](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)
+העברת כתובות URL ציבוריות באינטרנט ישירות כדי לבסס את התשובות על תוכן דף האינטרנט.](https://ai.google.dev/gemini-api/docs/url-context?hl=he)
 [search
 
-檔案搜尋
+חיפוש קבצים
 
-為上傳的文件和媒體檔案建立索引並進行搜尋。](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)
+יצירת אינדקס וחיפוש במסמכים ובקובצי מדיה שהועלו.](https://ai.google.dev/gemini-api/docs/file-search?hl=he)
 [map
 
-Google 地圖
+מפות Google
 
-根據現實世界的地理空間和位置資料建立回覆基準。](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)
+התשובות מבוססות על נתונים גיאו-מרחביים ונתוני מיקום מהעולם האמיתי.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)
 [computer
 
-操作電腦
+שימוש במחשב
 
-瀏覽器自動化和螢幕互動。](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)
+אוטומציה של דפדפן ואינטראקציה עם המסך.](https://ai.google.dev/gemini-api/docs/computer-use?hl=he)
 
-## 9. 呼叫自己的函式
+## 9. הפעלת פונקציות משלכם
 
-函式呼叫功能可讓您將模型連結至程式碼。您會宣告函式的名稱和參數，模型會決定何時呼叫函式並傳回結構化引數，而您會在本地執行函式並傳回結果。
+התכונה 'הפעלת פונקציות' מאפשרת לכם לחבר את המודל לקוד שלכם. אתם מצהירים על השם והפרמטרים של הפונקציה, המודל מחליט מתי להפעיל אותה ומחזיר ארגומנטים מובנים, ואתם מפעילים אותה באופן מקומי ושולחים את התוצאה בחזרה.
 
-### 具狀態 (建議)
+### עם שמירת מצב (מומלץ)
 
 ### Python
 
@@ -1140,13 +1154,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 無狀態
+### בלי שמירת מצב
 
-您也可以在無狀態模式中使用函式呼叫，方法是在用戶端管理對話記錄，並設定 `store=false`。在無狀態模式中，您必須在每個後續要求的 `input` 欄位中，傳遞完整的對話記錄。這類記錄必須包括：
+אפשר גם להשתמש בהפעלת פונקציות במצב חסר מצב (stateless) על ידי ניהול היסטוריית השיחות בצד הלקוח והגדרת `store=false`. במצב ללא שמירת סטטוס, צריך להעביר את ההיסטוריה המלאה של השיחה בשדה `input` של כל בקשה עוקבת. ההיסטוריה הזו צריכה לכלול:
 
-1. 初始 `user_input` 步驟。
-2. 在第 1 輪中，所有模型生成的步驟 (包括 `thought` 和 `function_call` 步驟) 都會完全按照收到的內容傳回。
-3. `function_result` 步驟，其中包含已執行函式的輸出內容。
+1. השלב הראשוני `user_input`.
+2. כל השלבים שנוצרו על ידי המודל ומוחזרים בתור 1 (כולל השלבים `thought` ו-`function_call`) בדיוק כפי שהתקבלו.
+3. השלב `function_result` שמכיל את הפלט של הפונקציה שהופעלה.
 
 ### Python
 
@@ -1354,9 +1368,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**回覆：**
+**תשובה:**
 
-在第 1 輪中，模型會傳回狀態為 `requires_action` 的回應，以及 `function_call` 步驟：
+במהלך תור 1, המודל מחזיר תשובה עם הסטטוס `requires_action` והשלב `function_call`:
 
 ```
 {
@@ -1377,7 +1391,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-在您於本機執行函式並提交結果 (第 2 輪) 後，系統會傳回最終完成的互動：
+אחרי שמריצים את הפונקציה באופן מקומי ושולחים את התוצאה (תור 2), האינטראקציה הסופית שהושלמה מחזירה:
 
 ```
 {
@@ -1407,11 +1421,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-如要瞭解平行函式呼叫或函式選擇模式等進階功能，請參閱[函式呼叫指南](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+למידע על תכונות מתקדמות כמו קריאה מקבילה לפונקציות או מצבי בחירת פונקציות, אפשר לעיין [במדריך לקריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
-## 10. 執行受管理代理程式
+## 10. הפעלת סוכן מנוהל
 
-受管理代理程式會在遠端沙箱中執行，並可存取程式碼執行和檔案管理等工具。傳遞 `agent`，而非 `model`，並設定 `environment="remote"`。
+סוכנים מנוהלים פועלים בארגז חול מרוחק עם גישה לכלים כמו הרצת קוד וניהול קבצים. מעבירים `agent` במקום `model` ומגדירים את `environment="remote"`.
 
 ### Python
 
@@ -1458,27 +1472,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-您也可以定義及儲存[自訂代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)，並提供自己的指令、技能和資料來源。
+אתם יכולים גם להגדיר ולשמור [סוכנים מותאמים אישית](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he) עם הוראות, כישורים ומקורות נתונים משלכם.
 
 [rocket\_launch
 
-快速入門導覽課程
+מדריך למתחילים
 
-進行第一次代理呼叫、串流回應，以及建構自訂代理。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)
+איך מתקשרים לסוכן, משדרים תשובות ויוצרים סוכן בהתאמה אישית](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he)
 [smart\_toy
 
-Antigravity 代理程式
+Antigravity Agent
 
-預設代理程式的功能、工具、多模態輸入和定價。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)
+יכולות, כלים, קלט רב-אופני ותמחור של הסוכן שמוגדר כברירת מחדל.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he)
 [experiment
 
-AI Studio 中的代理程式
+סוכנים ב-AI Studio
 
-視覺化測試區，可設計代理程式原型，完全不必編寫程式碼。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw)
+סביבת משחקים ויזואלית ליצירת אב טיפוס של סוכנים בלי לכתוב קוד.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=he)
 
-## 11. 在背景執行工作
+## 11. הפעלת משימות ברקע
 
-設定 `background=True` 以非同步方式執行長時間執行的工作。使用 `interactions.get()` 輪詢結果。詳情請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)。
+מגדירים את `background=True` להרצת משימות ארוכות באופן אסינכרוני. סקר לתוצאות עם `interactions.get()`. פרטים נוספים זמינים ב[מדריך להרצת תהליכים ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he).
 
 ### Python
 
@@ -1573,9 +1587,9 @@ while true; do
 done
 ```
 
-**回覆：**
+**תשובה:**
 
-初始回應會立即傳回，狀態為 `in_progress`：
+התשובה הראשונית מוחזרת באופן מיידי עם הסטטוס `in_progress`:
 
 ```
 {
@@ -1586,7 +1600,7 @@ done
 }
 ```
 
-背景工作完全執行完畢後，檢查互動狀態會傳回：
+אחרי שהמשימה ברקע מסתיימת, בדיקת מצב האינטראקציה מחזירה:
 
 ```
 {
@@ -1608,27 +1622,27 @@ done
 }
 ```
 
-請參閱[背景執行指南](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)，瞭解如何以非同步方式執行模型和代理程式。
+ב[מדריך להרצת מודלים וסוכנים ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he) אפשר לקרוא על הרצת מודלים וסוכנים באופן אסינכרוני.
 
-## 後續步驟
+## המאמרים הבאים
 
-- [背景執行](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw)：以非同步方式執行長時間執行的工作，並管理狀態。
-- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)：系統指令、生成設定和進階文字模式。
-- [圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)：顯示比例、圖像編輯和風格參考。
-- [圖像解讀](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)：分類、物件偵測和圖像問與答。
-- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)：針對複雜工作使用連鎖思維推論。
-- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)：平行、組合和受限函式模式。
-- [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)：建立基準、引用來源和搜尋建議。
-- [受管理代理](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)：預先建構的代理，可執行程式碼及管理檔案。
-- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)：自主執行多步驟研究，並規劃和統整資訊。
-- [結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)：JSON 結構定義、列舉和遞迴型別定義。
+- [הרצה ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he): הרצת משימות ארוכות באופן אסינכרוני וניהול מצב.
+- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he): הוראות מערכת, הגדרות יצירה ותבניות טקסט מתקדמות.
+- [יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he): יחסי גובה-רוחב, עריכת תמונות ותמונות להמחשה.
+- [הבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he): סיווג, זיהוי אובייקטים ושאלות ותשובות ויזואליות.
+- [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he): שימוש בשרשרת חשיבה למשימות מורכבות.
+- [קריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he): מצבי פונקציות מקבילים, קומפוזיציוניים ומוגבלים.
+- [חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he): ביסוס, ציטוטים והצעות לחיפוש.
+- [סוכנים מנוהלים](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he): סוכנים מוכנים מראש עם הרצת קוד וניהול קבצים.
+- ‫[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he): מחקר אוטונומי רב-שלבי עם תכנון וסינתזה.
+- ‫[Structured output](https://ai.google.dev/gemini-api/docs/structured-output?hl=he): סכימות JSON, סוגי enum והגדרות סוגים רקורסיביות.
 
-提供意見
+שליחת משוב
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-上次更新時間：2026-06-26 (世界標準時間)。
+עדכון אחרון: 2026-07-01 (שעון UTC).
 
-想進一步說明嗎？
+רוצה לתת לנו משוב?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-26 (世界標準時間)。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-01 (שעון UTC)."],[],[]]

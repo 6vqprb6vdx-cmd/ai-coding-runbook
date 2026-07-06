@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=ko
-fetched_at: 2026-06-29T05:37:43.201620+00:00
+fetched_at: 2026-07-06T05:06:03.745657+00:00
 title: "Gemini Developer API\uc758 \ub370\uc774\ud130 \ubcf4\uad00 \uc5c6\uc74c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

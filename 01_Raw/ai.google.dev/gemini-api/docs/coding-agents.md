@@ -1,62 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=vi
-fetched_at: 2026-06-29T05:27:30.763358+00:00
-title: "Thi\u1ebft l\u1eadp tr\u1ee3 l\u00fd l\u1eadp tr\u00ecnh b\u1eb1ng Gemini MCP v\u00e0 Skills \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=ar
+fetched_at: 2026-07-06T05:17:49.689413+00:00
+title: "\u0625\u0639\u062f\u0627\u062f \u0645\u0633\u0627\u0639\u062f \u0627\u0644\u062a\u0631\u0645\u064a\u0632 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini MCP \u0648\"\u0627\u0644\u0645\u0647\u0627\u0631\u0627\u062a\" \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Thiết lập trợ lý lập trình bằng Gemini MCP và Skills
+# إعداد مساعد الترميز باستخدام Gemini MCP و"المهارات"
 
-Trợ lý lập trình AI rất mạnh mẽ nhưng cũng có những hạn chế – dữ liệu huấn luyện bị cắt ở một ngày cụ thể, thiếu các tính năng và thay đổi mới của API. Nếu không có quyền truy cập vào tài liệu dành riêng cho Gemini, các tác nhân có thể đề xuất các mẫu chung thay vì các phương pháp tối ưu hoá.
+مساعدو الترميز بالذكاء الاصطناعي فعّالون ولكن لديهم قيود، إذ تتوقف بيانات التدريب عند تاريخ معيّن، ولا تتضمّن الميزات والتغييرات الجديدة في واجهة برمجة التطبيقات. بدون الوصول إلى مستندات Gemini المحدّدة، قد يقترح الوكلاء أنماطًا عامة بدلاً من الأساليب المحسّنة.
 
-Để trợ lý lập trình của bạn luôn cập nhật API Gemini đang phát triển và cách sử dụng được đề xuất, bạn nên thiết lập **Gemini Docs MCP** và nâng cao môi trường của mình bằng **Kỹ năng Gemini API**. Mặc dù bạn có thể sử dụng các công cụ này một cách độc lập, nhưng chúng được thiết kế để hoạt động cùng nhau nhằm cung cấp phạm vi bao phủ hoàn chỉnh.
+للحفاظ على تحديث مساعد الترميز بما يتناسب مع Gemini API المتطورة واستخدامها المقترَح، ننصحك بإعداد **Gemini Docs MCP** وتحسين بيئتك باستخدام **مهارات Gemini API**. على الرغم من إمكانية استخدام هذه الأدوات بشكلٍ مستقل، تم تصميمها للعمل معًا لتوفير تغطية كاملة.
 
-## Kết nối Gemini Docs MCP
+## ربط Gemini Docs MCP
 
-Gemini lưu trữ một máy chủ Giao thức ngữ cảnh mô hình (MCP) công khai tại `https://gemini-api-docs-mcp.dev`. Việc kết nối tác nhân lập trình của bạn với máy chủ này đảm bảo rằng tất cả các truy vấn đều có quyền truy cập vào các API, bản cập nhật mã và ví dụ về cấu hình tối ưu mới nhất.
+تستضيف Gemini خادمًا عامًا لبروتوكول سياق النموذج (MCP) على `https://gemini-api-docs-mcp.dev`. يضمن ربط وكيل الترميز بهذا الخادم وصول جميع طلبات البحث إلى أحدث واجهات برمجة التطبيقات وتعديلات الرموز البرمجية وأمثلة الإعدادات المثالية.
 
-Chạy lệnh sau trong thiết bị đầu cuối hoặc thư mục gốc của dự án của tác nhân để cài đặt máy chủ:
+نفِّذ الأمر التالي في الوحدة الطرفية للوكيل أو في جذر المشروع لتثبيت الخادم:
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-Máy chủ này thêm một hàm `search_documentation` mà tác nhân của bạn có thể dùng để truy xuất các định nghĩa API và mẫu tích hợp theo thời gian thực từ các tệp tài liệu Gemini chính thức.
+يضيف هذا الخادم دالة `search_documentation` يمكن لوكيلك استخدامها لاسترداد تعريفات واجهة برمجة التطبيقات وأنماط التكامل في الوقت الفعلي من ملفات مستندات Gemini الرسمية.
 
-## Thêm kỹ năng phát triển API
+## إضافة مهارات تطوير واجهة برمجة التطبيقات
 
-Các kỹ năng này cung cấp **các quy tắc và phương pháp hay nhất được tích hợp sẵn** (chẳng hạn như thực thi đúng SDK và phiên bản mô hình hiện tại) ngay trong ngữ cảnh của trợ lý. Kỹ năng này hoạt động cùng với dịch vụ Gemini Docs MCP: Nếu bạn đã cài đặt cả hai, thì kỹ năng này sẽ sử dụng dịch vụ MCP cho tài liệu, nhưng ngay cả khi chưa cài đặt MCP, kỹ năng này sẽ tìm nạp `llms.txt` từ `ai.google.dev` làm phương án dự phòng.
+توفّر المهارات **قواعد وأفضل الممارسات مضمّنة** (مثل فرض إصدارات حزمة SDK الصحيحة وإصدارات النموذج الحالية) مباشرةً في سياق مساعدك. تعمل المهارة مع خدمة Gemini Docs MCP: إذا ثبّتَ كلاً منهما، تستخدم المهارة خدمة MCP للوصول إلى المستندات، ولكن حتى بدون تثبيت MCP، ستسترد المهارة ملف `llms.txt` من `ai.google.dev` كحلّ احتياطي.
 
-Để cài đặt các kỹ năng này, bạn có thể sử dụng một trong các công cụ được hỗ trợ sau. Hướng dẫn cài đặt cho cả hai công cụ được cung cấp bên dưới mỗi mô-đun kỹ năng:
+لتثبيت هذه المهارات، يمكنك استخدام إحدى الأدوات المتوافقة التالية. يتم توفير تعليمات التثبيت لكلتا الأداتَين أسفل كل وحدة مهارة:
 
-- **[skills.sh](https://skills.sh)**: Nên dùng. Tiêu chuẩn mở cho các hành vi của tác nhân di động.
-- **[Context7](https://context7.com)**
+- **[skills.sh](https://skills.sh)**: ننصحك باستخدامها. المعيار المفتوح لسلوكيات الوكلاء المحمولة
+- **[Context7](https://context7.com)**: متوافقة مع المستخدمين الذين يستخدمون حاليًا المنظومة المتكاملة Context7
 
-### gemini-api-dev
+### ‫gemini-api-dev
 
-Kỹ năng cơ bản để phát triển Gemini cho mục đích chung. Kỹ năng này cung cấp tài liệu và các phương pháp hay nhất cho:
+المهارة الأساسية لتطوير Gemini للأغراض العامة توفّر هذه المهارة مستندات وأفضل الممارسات لما يلي:
 
-- Định tuyến câu lệnh đến các mô hình hiện tại (ví dụ: Gemini 3.1 Pro/Flash) và tránh các mô hình không dùng nữa
-- Câu lệnh đa phương thức, gọi hàm, đầu ra có cấu trúc và các mẫu tích hợp phổ biến
+- توجيه الطلبات إلى النماذج الحالية (مثل Gemini 3.1 Pro/Flash) وتجنُّب النماذج التي تم إيقافها
+- إنشاء الطلبات المتعددة الوسائط واستدعاء الدوال والنتائج المنظَّمة وأنماط التكامل الشائعة
 
-#### Cài đặt bằng skills.sh
+#### التثبيت باستخدام skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 ```
 
-#### Cài đặt bằng Context7
+#### التثبيت باستخدام Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
@@ -64,108 +64,108 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
 
 ### gemini-live-api-dev
 
-Kỹ năng xây dựng các ứng dụng AI đàm thoại theo thời gian thực bằng Gemini Live API. Kỹ năng này cung cấp tài liệu và các phương pháp hay nhất cho:
+مهارة لإنشاء تطبيقات ذكاء اصطناعي محادثة في الوقت الفعلي باستخدام Gemini Live API توفّر هذه المهارة مستندات وأفضل الممارسات لما يلي:
 
-- Kết nối WebSocket để truyền phát có độ trễ thấp
-- Truyền phát âm thanh, video và văn bản
-- Phát hiện hoạt động bằng giọng nói và hỗ trợ tính năng chen ngang
+- اتصالات WebSocket للبث منخفض وقت الاستجابة
+- بث الصوت والفيديو والنص
+- رصد النشاط الصوتي ودعم المقاطعة
 
-#### Cài đặt bằng skills.sh
+#### التثبيت باستخدام skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 ```
 
-#### Cài đặt bằng Context7
+#### التثبيت باستخدام Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
 ```
 
-### gemini-interactions-api
+### ‫gemini-interactions-api
 
-Kỹ năng xây dựng ứng dụng bằng
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi). Interactions API là một giao diện hợp nhất để tương tác với các mô hình và tác nhân Gemini, được thiết kế cho các ứng dụng dựa trên tác nhân. Kỹ năng này bao gồm:
+مهارة لإنشاء تطبيقات باستخدام الـ
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar). ‫Interactions API هي واجهة موحّدة للتفاعل مع نماذج Gemini والوكلاء، وهي مصمّمة للتطبيقات التي تعتمد على الوكلاء. تغطّي هذه المهارة ما يلي:
 
-- Tạo văn bản, trò chuyện nhiều lượt và truyền phát
-- Gọi hàm, đầu ra có cấu trúc và tạo hình ảnh
-- Chạy ở chế độ nền và tác nhân Deep Research
-- Quản lý trạng thái cuộc trò chuyện phía máy chủ
-- Các mẫu SDK Python và TypeScript
+- إنشاء النصوص والمحادثات المترابطة والبث
+- استدعاء الدوال والنتائج المنظَّمة وإنشاء الصور
+- التنفيذ في الخلفية ووكلاء Deep Research
+- إدارة حالة المحادثة من جهة الخادم
+- أنماط حزمة SDK في Python وTypeScript
 
-#### Cài đặt bằng skills.sh
+#### التثبيت باستخدام skills.sh
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
 ```
 
-#### Cài đặt bằng Context7
+#### التثبيت باستخدام Context7
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-interactions-api
 ```
 
-## Xác minh cài đặt
+## التحقق من التثبيت
 
-Sau khi cài đặt, hãy xác nhận rằng trợ lý lập trình của bạn có thể kết nối với máy chủ Gemini Docs MCP và sử dụng các kỹ năng đã cài đặt.
+بعد التثبيت، تأكَّد من أنّ مساعد الترميز يمكنه الاتصال بخادم Gemini Docs MCP واستخدام المهارات التي ثبّتها.
 
-### 1. Xác minh hành vi của tác nhân
+### 1. التحقّق من سلوك الوكيل
 
-Cách đáng tin cậy nhất để xác minh là hỏi tác nhân của bạn một câu hỏi kỹ thuật về Gemini API.
+الطريقة الأكثر موثوقية للتحقّق هي طرح سؤال فني على وكيلك حول Gemini API.
 
-**Câu lệnh:** "Làm cách nào để sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh bằng Gemini API?"
+**الطلب:** "كيف يمكنني استخدام ميزة تخزين السياق مؤقتًا مع Gemini API؟"
 
-Một thiết lập thành công sẽ:
+سيؤدي الإعداد الناجح إلى ما يلي:
 
-- **Cung cấp mã chính xác**: Tham chiếu các phương thức Gemini cụ thể như `cacheContent` hoặc `cachedContents.create` từ các điểm cuối mới nhất.
-- **Sử dụng Công cụ MCP**: Cho biết rằng công cụ này được kết nối với **Máy chủ Gemini Docs MCP** hoặc đang sử dụng công cụ `search_documentation` để tìm nạp dữ liệu.
-- **Gọi các kỹ năng đã tải**: Hiển thị một chỉ báo cho biết công cụ này đang "Sử dụng kỹ năng: gemini-api-dev" (nếu dựa vào trình bao bọc thứ cấp).
+- **توفير رمز دقيق**: يمكنك الرجوع إلى طرق Gemini المحدّدة، مثل `cacheContent` أو `cachedContents.create` من أحدث نقاط النهاية.
+- **استخدام أداة MCP**: يمكنك التأكّد من أنّها متصلة **بخادم Gemini Docs MCP** أو تستخدم أداة `search_documentation` لاسترداد البيانات.
+- **استدعاء المهارات المحمَّلة**: يمكنك عرض مؤشر يشير إلى أنّه "يستخدم المهارة: gemini-api-dev" (إذا كان يعتمد على برنامج تضمين ثانوي).
 
-### 2. Xác minh biểu hiện và công cụ
+### 2. التحقّق من البيانات والأدوات
 
-Nếu tác nhân đưa ra câu trả lời chung chung, hãy sử dụng các lệnh Khám phá hoặc Trạng thái cụ thể cho môi trường của bạn để xác minh rằng Docs MCP hoặc kỹ năng được tải vào bộ nhớ.
+إذا قدّم الوكيل إجابة عامة، استخدِم أوامر Discovery أو Status المحدّدة لبيئتك للتحقّق من تحميل Docs MCP أو المهارة في الذاكرة.
 
-| Môi trường | Xác minh MCP | Xác minh kỹ năng |
+| البيئة | التحقّق من MCP | التحقّق من المهارات |
 | --- | --- | --- |
-| **Mã Claude** | Nhập `/mcp` trong thiết bị đầu cuối để xem các máy chủ đang hoạt động và công cụ `search_documentation`. | Nhập `/skills` trong thiết bị đầu cuối để liệt kê tất cả các tệp kê khai đang hoạt động. |
-| **Con trỏ** | Chuyển đến **Cài đặt > Tính năng > MCP**. Đảm bảo máy chủ ở trạng thái "Đã kết nối". | Mở **Cài đặt > Quy tắc**. Xác minh kỹ năng xuất hiện trong phần "Tác nhân quyết định". |
-| **Antigravity** | Kiểm tra thanh bên **Tuỳ chỉnh > Kết nối** để biết trạng thái MCP. | Nhập `/skills list` hoặc kiểm tra thanh bên **Tuỳ chỉnh > Quy tắc**. |
-| **Gemini CLI** | Chạy `gemini mcp list` hoặc sử dụng `/mcp list`. | Chạy `gemini skills list` hoặc sử dụng lệnh dấu gạch chéo `/skills` trong phiên. |
-| **Copilot** | Nhập `@gemini /mcp` để liệt kê các trình kết nối dữ liệu đang hoạt động. | Nhập `@gemini /skills` (hoặc `/skills`) để xem các tiện ích đang hoạt động. |
+| ‫**Claude Code** | اكتب `/mcp` في الوحدة الطرفية لعرض الخوادم النشطة وأدوات `search_documentation`. | اكتب `/skills` في الوحدة الطرفية لعرض جميع البيانات النشطة. |
+| ‫**Cursor** | انتقِل إلى **الإعدادات > الميزات > MCP**. تأكَّد من أنّ الخادم "متصل". | افتح **الإعدادات > القواعد**. تأكَّد من ظهور المهارة ضمن "يقرّر الوكيل". |
+| **Antigravity** | راجِع الشريط الجانبي **التخصيصات > الاتصالات** لمعرفة حالة MCP. | اكتب `/skills list` أو راجِع الشريط الجانبي **التخصيصات > القواعد**. |
+| ‫**Gemini CLI** | نفِّذ `gemini mcp list` أو استخدِم `/mcp list`. | نفِّذ `gemini skills list` أو استخدِم أمر يبدأ بشرطة مائلة `/skills` أثناء الجلسة. |
+| ‫**Copilot** | اكتب `@gemini /mcp` لعرض موصِّلات البيانات النشطة. | اكتب `@gemini /skills` (أو `/skills`) لعرض الإضافات النشطة. |
 
-## Khắc phục sự cố
+## تحديد المشاكل وحلّها
 
-Nếu tác nhân của bạn chỉ cung cấp thông tin chung hoặc không nhận ra các phương thức dành riêng cho Gemini, hãy kiểm tra những điều sau:
+إذا كان وكيلك يقدّم معلومات عامة فقط أو لا يتعرّف على طرق Gemini المحدّدة، تحقَّق مما يلي:
 
-### Tác nhân không phát hiện được kỹ năng
+### لم يعثر الوكيل على المهارة
 
-Hầu hết các tác nhân chỉ lập chỉ mục kỹ năng khi khởi động.
+تُنشئ معظم الوكلاء فهرسًا للمهارات عند بدء التشغيل فقط.
 
-**Khắc phục:** Khởi động lại hoàn toàn IDE (Cursor/VS Code) hoặc thoát rồi mở lại tác nhân dựa trên thiết bị đầu cuối (Mã Claude).
+**الحلّ:** أعِد تشغيل بيئة IDE (‫Cursor/VS Code) بالكامل أو اخرج من الوكيل المستند إلى الوحدة الطرفية (‫Claude Code) وأعِد فتحه.
 
-### Xung đột chung so với cục bộ
+### تعارض عالمي مقابل تعارض محلي
 
-Nếu bạn cài đặt bằng cờ `--global`, tác nhân của bạn có thể bỏ qua cờ này để ưu tiên các quy tắc dành riêng cho dự án.
+إذا ثبّتَ المهارة باستخدام العلامة `--global`، قد يتجاهلها وكيلك لصالح القواعد الخاصة بالمشروع.
 
-**Khắc phục:** Thử cài đặt kỹ năng trực tiếp vào thư mục gốc của dự án mà không có cờ chung:
+**الحلّ:** حاوِل تثبيت المهارة مباشرةً في جذر مشروعك بدون العلامة العامة:
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev
 ```
 
-## Tài nguyên
+## الموارد
 
-- [Các kỹ năng Gemini API trên GitHub](https://github.com/google-gemini/gemini-skills)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi)
-- [Bắt đầu](https://ai.google.dev/gemini-api/docs/get-started?hl=vi)
-- [Thư viện](https://ai.google.dev/gemini-api/docs/libraries?hl=vi)
+- [مهارات Gemini API على GitHub](https://github.com/google-gemini/gemini-skills)
+- [‫Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar)
+- [البدء](https://ai.google.dev/gemini-api/docs/get-started?hl=ar)
+- [المكتبات](https://ai.google.dev/gemini-api/docs/libraries?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-06-22 UTC.
+تاريخ التعديل الأخير: 2026-06-22 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-22 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

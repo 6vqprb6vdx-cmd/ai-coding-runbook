@@ -1,39 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=hi
-fetched_at: 2026-06-29T05:36:04.081313+00:00
-title: "\u0938\u094d\u091f\u094d\u0930\u0915\u094d\u091a\u0930\u094d\u0921 \u0906\u0909\u091f\u092a\u0941\u091f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=pt-BR
+fetched_at: 2026-07-06T05:08:36.139774+00:00
+title: "Respostas estruturadas \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-सुझाव भेजें
+Envie comentários
 
-# स्ट्रक्चर्ड आउटपुट
+# Respostas estruturadas
 
-Gemini मॉडल को कॉन्फ़िगर करके, दिए गए JSON स्कीमा के मुताबिक जवाब जनरेट किए जा सकते हैं. इससे टाइप-सेफ़ नतीजे मिलते हैं और बिना स्ट्रक्चर वाले टेक्स्ट से स्ट्रक्चर्ड डेटा को आसानी से निकाला जा सकता है.
+É possível configurar os modelos do Gemini para gerar respostas que aderem a um esquema JSON fornecido. Isso garante resultados previsíveis e com segurança de tipo, além de simplificar a extração de dados estruturados de textos não estruturados.
 
-स्ट्रक्चर्ड आउटपुट का इस्तेमाल इन कामों के लिए सबसे सही है:
+O uso de saídas estruturadas é ideal para:
 
-- **डेटा निकालना:** टेक्स्ट से नाम और तारीख जैसी जानकारी निकालना.
-- **स्ट्रक्चर्ड क्लासिफ़िकेशन:** टेक्स्ट को पहले से तय की गई कैटगरी में बांटना.
-- **एजेंटिक वर्कफ़्लो:** टूल या एपीआई के लिए स्ट्रक्चर्ड इनपुट जनरेट करना.
+- **Extração de dados**:extrair informações específicas, como nomes e datas, de textos.
+- **Classificação estruturada**:classificar textos em categorias predefinidas.
+- **Fluxos de trabalho de agentes**:gerar entradas estruturadas para ferramentas ou APIs.
 
-REST API में JSON स्कीमा के साथ-साथ, Google के GenAI SDK टूल भी काम करते हैं. इनकी मदद से, [Pydantic](https://docs.pydantic.dev/latest/) (Python) और [Zod](https://zod.dev/) (JavaScript) का इस्तेमाल करके स्कीमा को आसानी से तय किया जा सकता है.
+Além de oferecer suporte ao esquema JSON na API REST, os SDKs do Google GenAI
+facilitam a definição de esquemas usando
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) e
+[Zod](https://zod.dev/) (JavaScript).
 
-## स्ट्रक्चर्ड आउटपुट के उदाहरण
+## Exemplos de saída estruturada
 
-### रेसिपी एक्सट्रैक्टर
+### Extrator de receitas
 
-इस उदाहरण में, `object`, `array`, `string`, और `integer` जैसे बुनियादी JSON स्कीमा टाइप का इस्तेमाल करके, टेक्स्ट से स्ट्रक्चर्ड डेटा निकालने का तरीका दिखाया गया है.
+Este exemplo demonstra como extrair dados estruturados de texto usando tipos básicos de esquema JSON, como `object`, `array`, `string` e `integer`.
 
 ### Python
 
@@ -127,7 +130,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -264,7 +267,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**जवाब का उदाहरण:**
+**Exemplo de resposta:**
 
 ```
 {
@@ -319,9 +322,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### कॉन्टेंट मॉडरेट करना
+### Moderação de conteúdo
 
-इस उदाहरण में, शर्त के साथ स्कीमा लागू करने के लिए `anyOf` और क्लासिफ़िकेशन के लिए `enum` का इस्तेमाल किया गया है. इससे कॉन्टेंट के आधार पर आउटपुट स्ट्रक्चर में बदलाव किया जा सकता है.
+Este exemplo mostra `anyOf` para esquemas condicionais e `enum` para classificação, permitindo que a estrutura de saída varie com base no conteúdo.
 
 ### Python
 
@@ -400,7 +403,7 @@ const result = moderationResultSchema.parse(JSON.parse(response.text));
 console.log(result);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -548,9 +551,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### रिकर्सिव स्ट्रक्चर
+### Estruturas recursivas
 
-इस उदाहरण में, किसी रिकर्सिव स्कीमा को तय करने का तरीका बताया गया है. जैसे, संगठन का चार्ट.
+Este exemplo ilustra como definir um esquema recursivo, como um organograma.
 
 ### Python
 
@@ -619,7 +622,7 @@ const employee = employeeSchema.parse(JSON.parse(response.text));
 console.log(employee);
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -713,7 +716,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**जवाब का उदाहरण:**
+**Exemplo de resposta:**
 
 ```
 {
@@ -740,11 +743,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-## स्ट्रीमिंग
+## Streaming
 
-स्ट्रक्चर्ड आउटपुट को स्ट्रीम किया जा सकता है. इससे, पूरे आउटपुट के जनरेट होने का इंतज़ार किए बिना, जवाब को प्रोसेस करना शुरू किया जा सकता है. इससे आपके ऐप्लिकेशन की परफ़ॉर्मेंस बेहतर हो सकती है.
+É possível transmitir saídas estruturadas, o que permite começar a processar a resposta à medida que ela é gerada, sem precisar esperar que toda a saída seja concluída. Isso pode melhorar o desempenho percebido do aplicativo.
 
-स्ट्रीम किए गए चंक, मान्य आंशिक JSON स्ट्रिंग होंगे. इन्हें जोड़कर, फ़ाइनल और पूरा JSON ऑब्जेक्ट बनाया जा सकता है.
+Os blocos transmitidos serão strings JSON parciais válidas, que podem ser concatenadas para formar o objeto JSON final e completo.
 
 ### Python
 
@@ -800,14 +803,16 @@ for await (const chunk of stream) {
 }
 ```
 
-## टूल की मदद से स्ट्रक्चर्ड आउटपुट जनरेट करना
+## Saídas estruturadas com ferramentas
 
-Gemini 3 की मदद से, स्ट्रक्चर्ड आउटपुट को पहले से मौजूद टूल के साथ जोड़ा जा सकता है. इनमें ये टूल शामिल हैं:
-[Google Search से मिली जानकारी का इस्तेमाल करना](https://ai.google.dev/gemini-api/docs/google-search?hl=hi),
-[यूआरएल का कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi),
-[कोड एक्ज़ीक्यूट करना](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi),
-[फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi#structured-output), और
-[फ़ंक्शन कॉल करना](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi).
+ `gemini-3.1-pro-preview`
+
+O Gemini 3 permite combinar saídas estruturadas com ferramentas integradas, incluindo
+[o embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br),
+[o contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br),
+[a execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br),
+[a pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br#structured-output), e
+[a chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
 
 ### Python
 
@@ -912,101 +917,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## JSON स्कीमा के साथ काम करता है
+## Suporte ao esquema JSON
 
-JSON ऑब्जेक्ट जनरेट करने के लिए, जनरेशन कॉन्फ़िगरेशन में `response_format` को सेट करें. स्कीमा, मान्य [JSON स्कीमा](https://json-schema.org/) होना चाहिए. इसमें, आउटपुट के फ़ॉर्मैट के बारे में बताया गया हो.
+Para gerar um objeto JSON, defina o `response_format` na configuração de geração. O esquema precisa ser um [esquema JSON](https://json-schema.org/) válido que descreva o formato de saída desejado.
 
-इसके बाद, मॉडल एक ऐसा जवाब जनरेट करेगा जो सिंटैक्टिक तौर पर मान्य JSON स्ट्रिंग हो और दिए गए स्कीमा से मेल खाती हो. स्ट्रक्चर्ड आउटपुट का इस्तेमाल करते समय, मॉडल आउटपुट को उसी क्रम में जनरेट करेगा जिस क्रम में स्कीमा में कुंजियां मौजूद हैं.
+Em seguida, o modelo vai gerar uma resposta que é uma string JSON sintaticamente válida que corresponde ao esquema fornecido. Ao usar saídas estruturadas, o modelo vai produzir saídas na mesma ordem das chaves no esquema.
 
-Gemini के स्ट्रक्चर्ड आउटपुट मोड में, [JSON स्कीमा](https://json-schema.org) के कुछ स्पेसिफ़िकेशन काम करते हैं.
+O modo de saída estruturada do Gemini oferece suporte a um subconjunto da especificação do esquema [JSON](https://json-schema.org).
 
-`type` एट्रिब्यूट के लिए, इन वैल्यू का इस्तेमाल किया जा सकता है:
+Os seguintes valores de `type` são aceitos:
 
-- **`string`**: टेक्स्ट के लिए.
-- **`number`**: फ़्लोटिंग-पॉइंट नंबर के लिए.
-- **`integer`**: पूर्णांकों के लिए.
-- **`boolean`**: सही/गलत वैल्यू के लिए.
-- **`object`**: यह स्ट्रक्चर्ड डेटा के लिए होता है, जिसमें कुंजी-वैल्यू पेयर होते हैं.
-- **`array`**: आइटम की सूचियों के लिए.
-- **`null`**: किसी प्रॉपर्टी को शून्य के तौर पर सेट करने के लिए, टाइप कलेक्शन में `"null"` शामिल करें. उदाहरण के लिए, `{"type": ["string", "null"]}`.
+- **`string`**: para texto.
+- **`number`**: para usar pontos flutuantes.
+- **`integer`**: para números inteiros.
+- **`boolean`**: para valores verdadeiro/falso.
+- **`object`**: para dados estruturados com pares de chave-valor.
+- **`array`**: para listas de itens.
+- **`null`**: para permitir que uma propriedade seja nula, inclua `"null"` na matriz de tipo (por exemplo, `{"type": ["string", "null"]}`).
 
-ब्यौरे वाली इन प्रॉपर्टी से, मॉडल को सही जानकारी देने में मदद मिलती है:
+Essas propriedades descritivas ajudam a orientar o modelo:
 
-- **`title`**: किसी प्रॉपर्टी के बारे में कम शब्दों में जानकारी.
-- **`description`**: किसी प्रॉपर्टी के बारे में ज़्यादा जानकारी.
+- **`title`**: uma breve descrição de uma propriedade.
+- **`description`**: uma descrição mais longa e detalhada de uma propriedade.
 
-### टाइप के हिसाब से प्रॉपर्टी
+### Propriedades específicas do tipo
 
-**`object` वैल्यू के लिए:**
+**Para valores:**`object`
 
-- **`properties`**: यह एक ऐसा ऑब्जेक्ट है जिसमें हर कुंजी, प्रॉपर्टी का नाम होती है और हर वैल्यू, उस प्रॉपर्टी का स्कीमा होती है.
-- **`required`**: यह स्ट्रिंग का एक कलेक्शन है. इसमें उन प्रॉपर्टी की सूची दी गई है जिन्हें सेट करना ज़रूरी है.
-- **`additionalProperties`**: इससे यह तय होता है कि `properties` में शामिल नहीं की गई प्रॉपर्टी को अनुमति दी जाए या नहीं. यह बूलियन या स्कीमा हो सकता है.
+- **`properties`**: um objeto em que cada chave é um nome de propriedade e cada valor é um esquema para essa propriedade.
+- **`required`**: uma matriz de strings que lista quais propriedades são obrigatórias.
+- **`additionalProperties`**: controla se as propriedades não listadas em `properties` são permitidas. Pode ser um booleano ou um esquema.
 
-**`string` वैल्यू के लिए:**
+**Para valores `string`:**
 
-- **`enum`**: इसमें क्लासिफ़िकेशन के कामों के लिए, संभावित स्ट्रिंग का एक खास सेट दिया गया है.
-- **`format`**: यह स्ट्रिंग के लिए सिंटैक्स तय करता है. जैसे, `date-time`, `date`, `time`.
+- **`enum`**: lista um conjunto específico de strings possíveis para tarefas de classificação.
+- **`format`**: especifica uma sintaxe para a string, como `date-time`, `date`, `time`.
 
-**`number` और `integer` वैल्यू के लिए:**
+**Para valores `number` e `integer`:**
 
-- **`enum`**: यह फ़ंक्शन, संख्या वाली संभावित वैल्यू का कोई खास सेट दिखाता है.
-- **`minimum`**: कम से कम वैल्यू.
-- **`maximum`**: ज़्यादा से ज़्यादा वैल्यू.
+- **`enum`**: lista um conjunto específico de valores numéricos possíveis.
+- **`minimum`**: o valor inclusivo mínimo.
+- **`maximum`**: o valor inclusivo máximo.
 
-**`array` वैल्यू के लिए:**
+**Para `array` valores:**
 
-- **`items`**: यह कलेक्शन में मौजूद सभी आइटम के लिए स्कीमा तय करता है.
-- **`prefixItems`**: यह पहले N आइटम के लिए स्कीमा की सूची तय करता है. इससे टपल जैसे स्ट्रक्चर बनाए जा सकते हैं.
-- **`minItems`**: कलेक्शन में मौजूद आइटम की कम से कम संख्या.
-- **`maxItems`**: कलेक्शन में मौजूद आइटम की ज़्यादा से ज़्यादा संख्या.
+- **`items`**: define o esquema para todos os itens na matriz.
+- **`prefixItems`**: define uma lista de esquemas para os primeiros N itens, permitindo estruturas semelhantes a tuplas.
+- **`minItems`**: o número mínimo de itens na matriz.
+- **`maxItems`**: o número máximo de itens na matriz.
 
-## मॉडल से जुड़ी सहायता
+## Suporte ao modelo
 
-ये मॉडल, स्ट्रक्चर्ड आउटपुट जनरेट करने की सुविधा के साथ काम करते हैं:
+Os modelos a seguir oferecem suporte à saída estruturada:
 
-| मॉडल | स्ट्रक्चर्ड आउटपुट |
+| Modelo | Saídas estruturadas |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro की झलक | ✔️ |
+| Pré-lançamento do Gemini 3.1 Pro | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite की झलक | ✔️ |
+| Pré-lançamento do Gemini 3.1 Flash-Lite | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* ध्यान दें कि Gemini 2.0 को JSON इनपुट में, `propertyOrdering` की साफ़ तौर पर दी गई सूची की ज़रूरत होती है, ताकि पसंदीदा स्ट्रक्चर तय किया जा सके. आपको इस [कुकबुक](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) में इसका उदाहरण मिल सकता है.*
+*\* O Gemini 2.0 exige uma lista `propertyOrdering` explícita na entrada JSON para definir a estrutura preferida. Confira um exemplo neste [cookbook](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
 
-## स्ट्रक्चर्ड आउटपुट बनाम फ़ंक्शन कॉलिंग
+## Saídas estruturadas x chamada de função
 
-स्ट्रक्चर्ड आउटपुट और फ़ंक्शन कॉलिंग, दोनों में JSON स्कीमा का इस्तेमाल किया जाता है. हालांकि, इनके मकसद अलग-अलग होते हैं:
+As saídas estruturadas e a chamada de função usam esquemas JSON, mas têm propósitos diferentes:
 
-| सुविधा | इस्तेमाल का मुख्य उदाहरण |
+| Recurso | Caso de uso principal |
 | --- | --- |
-| **स्ट्रक्चर्ड आउटपुट** | **उपयोगकर्ता को जवाब देने के लिए, फ़ॉर्मैट किया जा रहा है.** इसका इस्तेमाल तब करें, जब आपको मॉडल से किसी खास फ़ॉर्मैट में *जवाब* चाहिए हो. उदाहरण के लिए, किसी दस्तावेज़ से डेटा निकालकर डेटाबेस में सेव करना. |
-| **फ़ंक्शन कॉलिंग** | **बातचीत के दौरान कार्रवाई करना.** इसका इस्तेमाल तब करें, जब मॉडल को फ़ाइनल जवाब देने से पहले, *आपसे* कोई टास्क (जैसे, "मौसम की मौजूदा जानकारी पाना") पूरा करने के लिए कहना हो. |
+| **Saídas estruturadas** | **Formatar a resposta final para o usuário**. Use isso quando quiser que a *resposta* do modelo esteja em um formato específico (por exemplo, extrair dados de um documento para salvar em um banco de dados). |
+| **Chamada de função** | **Realizar ações durante a conversa**. Use isso quando o modelo precisar *pedir* que você realize uma tarefa (por exemplo, "mostrar o clima atual") antes de fornecer uma resposta final. |
 
-## सबसे सही तरीके
+## Práticas recomendadas
 
-- **साफ़ तौर पर ब्यौरा देना:** अपने स्कीमा में `description` फ़ील्ड का इस्तेमाल करें. इससे मॉडल को साफ़ तौर पर यह निर्देश दिया जा सकेगा कि हर प्रॉपर्टी क्या दिखाती है. मॉडल के आउटपुट को गाइड करने के लिए यह ज़रूरी है.
-- **स्ट्रॉन्ग टाइपिंग:** जब भी हो सके, खास टाइप (`integer`, `string`, `enum`) का इस्तेमाल करें. अगर किसी पैरामीटर के लिए मान्य वैल्यू का सेट सीमित है, तो `enum` का इस्तेमाल करें.
-- **प्रॉम्प्ट इंजीनियरिंग:** अपने प्रॉम्प्ट में साफ़ तौर पर बताएं कि आपको मॉडल से क्या काम करवाना है. उदाहरण के लिए, "टेक्स्ट से यह जानकारी निकालो..." या "इस सुझाव/राय/शिकायत को दिए गए स्कीमा के हिसाब से कैटगरी में बांटो...".
-- **पुष्टि करना:** स्ट्रक्चर्ड आउटपुट से, सिंटैक्टिक तौर पर सही JSON की गारंटी मिलती है. हालांकि, इससे यह गारंटी नहीं मिलती कि वैल्यू सिमैंटिक तौर पर सही हैं. अपने ऐप्लिकेशन कोड में, फ़ाइनल आउटपुट का इस्तेमाल करने से पहले, हमेशा उसकी पुष्टि करें.
-- **गड़बड़ी ठीक करना:** अपने ऐप्लिकेशन में गड़बड़ी ठीक करने की बेहतर सुविधा लागू करें. इससे उन मामलों को आसानी से मैनेज किया जा सकेगा जहां मॉडल का आउटपुट, स्कीमा के मुताबिक होने के बावजूद आपके कारोबारी नियम से जुड़ी ज़रूरी शर्तों को पूरा नहीं करता है.
+- **Descrições claras**:use o campo `description` no esquema para fornecer instruções claras ao modelo sobre o que cada propriedade representa. Isso é essencial para orientar a saída do modelo.
+- **Tipagem forte**:use tipos específicos (`integer`, `string`, `enum`) sempre que possível. Se um parâmetro tiver um conjunto limitado de valores válidos, use um `enum`.
+- **Engenharia de comandos**:declare claramente no comando o que você quer que o modelo faça. Por exemplo, "Extraia as seguintes informações do texto..." ou "Classifique esse feedback de acordo com o esquema fornecido...".
+- **Validação**:embora a saída estruturada garanta um JSON sintaticamente correto, ela não garante que os valores sejam semanticamente corretos. Sempre valide a saída final no código do aplicativo antes de usá-la.
+- **Tratamento de erros**:implemente um tratamento de erros robusto no aplicativo para gerenciar casos em que a saída do modelo, embora esteja em conformidade com o esquema, não atenda aos requisitos da lógica de negócios.
 
-## सीमाएं
+## Limitações
 
-- **स्कीमा का सबसेट:** JSON स्कीमा स्पेसिफ़िकेशन की सभी सुविधाएँ काम नहीं करती हैं. मॉडल, इस्तेमाल नहीं की जा सकने वाली प्रॉपर्टी को अनदेखा करता है.
-- **स्कीमा की जटिलता:** एपीआई, बहुत बड़े या डीपली नेस्ट किए गए स्कीमा को अस्वीकार कर सकता है. अगर आपको गड़बड़ियां मिलती हैं, तो प्रॉपर्टी के नाम छोटे करके, नेस्टिंग कम करके या शर्तों की संख्या सीमित करके, अपने स्कीमा को आसान बनाने की कोशिश करें.
+- **Subconjunto de esquema**:nem todos os recursos da especificação do esquema JSON são aceitos. O modelo ignora propriedades não aceitas.
+- **Complexidade do esquema**:a API pode rejeitar esquemas muito grandes ou profundamente aninhados. Se você encontrar erros, tente simplificar o esquema encurtando os nomes das propriedades, reduzindo o aninhamento ou limitando o número de restrições.
 
-सुझाव भेजें
+Envie comentários
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-आखिरी बार 2026-06-23 (UTC) को अपडेट किया गया.
+Última atualização 2026-06-23 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Quer enviar seu feedback?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-23 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-23 UTC."],[],[]]

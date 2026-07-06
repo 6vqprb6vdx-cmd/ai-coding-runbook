@@ -1,181 +1,157 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar
-fetched_at: 2026-06-29T05:30:41.092995+00:00
-title: "\u0648\u0627\u062c\u0647\u0629 \u0628\u0631\u0645\u062c\u0629 \u0627\u0644\u062a\u0637\u0628\u064a\u0642\u0627\u062a Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr
+fetched_at: 2026-07-06T05:12:13.740673+00:00
+title: "Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-# واجهة برمجة التطبيقات Interactions API
+# Interactions API
 
-‫Interactions API هي واجهتنا الجديدة وأبسط طريقة للاستفادة من نماذج Gemini والوكلاء. اعتبارًا من يونيو 2026، ستصبح الواجهة متاحة للجميع وهي الواجهة المقترَحة لجميع المشاريع الجديدة.
+Etkileşimler API'si, yeni arayüzümüz ve Gemini modelleri ve aracılarıyla geliştirme yapmanın en basit yoludur. Haziran 2026 itibarıyla genel kullanıma sunulmuştur ve tüm yeni projeler için önerilen arayüzdür.
 
-على الرغم من أنّها تُعتبر الآن واجهة قديمة، لا تزال واجهة برمجة التطبيقات الأصلية
-[`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=ar)API
-متوافقة تمامًا.
+Artık eski bir API olarak kabul edilse de orijinal [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=tr) API'si tam olarak desteklenmeye devam etmektedir.
 
-## أهمية استخدام Interactions API
+## Etkileşimler API'sini neden kullanmalısınız?
 
-- **إمكانات جديدة جاهزة للاستخدام**: حالة المحادثة الاختيارية من جهة الخادم
-  باستخدام `previous_interaction_id`، وخطوات التنفيذ القابلة للمراقبة لأغراض
-  تصحيح الأخطاء وعرض واجهة المستخدم، و[التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar) للمهام الطويلة الأمد
-  باستخدام `background=true`.
-- **تكلفة أقل مع معدّلات أعلى لنتائج ذاكرة التخزين المؤقت**: تتيح إدارة الحالة من جهة الخادم تخزين السياق مؤقتًا بشكل أكثر فعالية على مستوى المحادثات المترابطة، ما يقلّل من تكاليف الرموز المميّزة للمحادثات المترابطة.
-- **مصمَّمة للنماذج والوكلاء المتقدّمين**: تم تصميمها خصيصًا لنماذج التفكير
-  واستخدام الأدوات المتعدّد الخطوات وعمليات الاستدلال المعقّدة، ما يسهّل
-  عملية إنشاء التطبيقات التي تستخدم الوكلاء وتصحيح أخطائها وتنظيمها.
-- **واجهة برمجة تطبيقات واحدة للنماذج والوكلاء**: واجهة موحّدة لاستدعاء
-  نماذج Gemini والوكلاء مباشرةً، مثل Deep Research والوكلاء المُدارين المخصّصين
-  ، بدون الحاجة إلى تعلُّم نقاط نهاية أو أنماط منفصلة.
-- **مكان إطلاق الميزات الجديدة**: من الآن فصاعدًا، سيتم إطلاق النماذج والإمكانات الجديدة التي تتجاوز عائلة النماذج الأساسية، بالإضافة إلى الإمكانات والأدوات الجديدة التي تستخدم إمكانات بالذكاء الاصطناعي الوكيل على Interactions API.
+- **Kullanıma hazır yeni özellikler**: `previous_interaction_id` kullanılarak isteğe bağlı sunucu tarafında görüşme durumu, hata ayıklama ve kullanıcı arayüzü oluşturma için gözlemlenebilir yürütme adımları ve `background=true` kullanılarak uzun süren görevler için [arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr).
+- **Daha yüksek önbellek isabet oranlarıyla daha düşük maliyet**: Sunucu tarafında durum yönetimi, dönüşümler arasında daha verimli bağlam önbelleğe alma olanağı sağlayarak çok aşamalı etkileşim sohbetlerinde jeton maliyetlerini azaltır.
+- **Yeni nesil modeller ve ajanlar için geliştirilmiştir**: Düşünme modelleri, çok adımlı araç kullanımı ve karmaşık akıl yürütme akışları için özel olarak geliştirilmiştir. Bu sayede, ajan tabanlı uygulamaların oluşturulması, hata ayıklanması ve düzenlenmesi süreci basitleştirilir.
+- **Modeller ve temsilciler için tek API**: Deep Research ve özel olarak yönetilen temsilciler gibi Gemini modellerini ve temsilcilerini doğrudan çağırmak için tek bir birleştirilmiş arayüz. Öğrenilecek ayrı uç noktalar veya kalıplar yoktur.
+- **Yeni özelliklerin kullanıma sunulduğu yer**: Gelecekte, temel ana hat ailesinin ötesindeki yeni modeller ve özellikler ile yeni temsilci tabanlı özellikler ve araçlar Interactions API'de kullanıma sunulacak.
 
-تخزّن Interactions API الطلبات تلقائيًا حتى تتمكّن من الاستفادة من ميزات إدارة الحالة من جهة الخادم باستخدام `previous_interaction_id`. يمكنك تفعيل السلوك غير المرتبط بحالة المحادثة من خلال ضبط `store=false`. راجِع قسم [الاحتفاظ بالبيانات](#data-storage-retention) لمعرفة
-التفاصيل.
+Varsayılan olarak Interactions API, istekleri depolar. Böylece `previous_interaction_id` kullanarak sunucu tarafı durum yönetimi özelliklerinden yararlanabilirsiniz. `store=false` ayarını yaparak durum bilgisiz davranışı etkinleştirebilirsiniz. Ayrıntılar için [Veri saklama](#data-storage-retention) bölümüne bakın.
 
-## البدء
+## Başlayın
 
-- **إعداد وكيل الترميز**: يمكنك الاتصال بخادم **Gemini Docs MCP** وتثبيت
-  مهارة `gemini-interactions-api` لمنح مساعدك إمكانية الوصول المباشر إلى
-  أحدث مستندات المطوّرين وأفضل الممارسات.
-  [إعداد وكيل الترميز ←](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ar)
-- **نقل البيانات من `generateContent`**: إذا كان لديك عملية دمج حالية،
-  اتّبِع [دليل نقل البيانات](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ar) للانتقال إلى Interactions API.
-- **البدء**: يمكنك البدء في استخدام [Interactions API من خلال دليل البدء](https://ai.google.dev/gemini-api/docs/get-started?hl=ar).
+- **Kodlama aracınızı ayarlama**: **Gemini Docs MCP**'ye bağlanın ve `gemini-interactions-api` becerisini yükleyerek asistanınızın en son geliştirici belgelerine ve en iyi uygulamalara doğrudan erişmesini sağlayın.
+  [Kodlama temsilcinizi ayarlama →](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
+- **`generateContent`**'den geçiş yapma: Mevcut bir entegrasyonunuz varsa Etkileşimler API'sine geçiş yapmak için [Taşıma Kılavuzu](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=tr)'nu inceleyin.
+- **Başlayın**: [Interactions API'yi kullanmaya başlama kılavuzundaki](https://ai.google.dev/gemini-api/docs/get-started?hl=tr) adımları uygulayın.
 
-### أدلة الميزات
+### Özellik rehberleri
 
-يمكنك استكشاف الإمكانات المحدّدة في Interactions API من خلال هذه الأدلة. يمكنك استخدام الزرّ في هذه الصفحات للتبديل بين generateContent وInteractions API:
+Bu kılavuzlar aracılığıyla Interactions API'sinin belirli özelliklerini keşfedin. generateContent ve Interactions API arasında geçiş yapmak için bu sayfalardaki açma/kapatma düğmesini kullanabilirsiniz:
 
-- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar)
-- [إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)
-- [فهم الصور](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ar)
-- [فهم الصوت](https://ai.google.dev/gemini-api/docs/audio?hl=ar)
-- [فهم الفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar)
-- [معالجة المستندات](https://ai.google.dev/gemini-api/docs/document-processing?hl=ar)
-- [استدعاء الوظائف](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)
-- [ناتج منظَّم](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)
-- [وكيل Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar)
-- [الاستدلال المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)
-- [الاستدلال حسب الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)
+- [Metin üretme](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr)
+- [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)
+- [Görüntü anlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr)
+- [Ses yorumlama](https://ai.google.dev/gemini-api/docs/audio?hl=tr)
+- [Video anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) (Video understanding)
+- [Belge işleme](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr)
+- [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
+- [Yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr)
+- [Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr)
+- [Esnek çıkarım](https://ai.google.dev/gemini-api/docs/flex-inference?hl=tr)
+- [Öncelik çıkarımı](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr)
 
-## طريقة عمل Interactions API
+## Interactions API'sinin işleyiş şekli
 
-تتمحور Interactions API حول مورد أساسي: الـ [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=ar#Resource:Interaction). يمثّل `Interaction` دورًا كاملاً في محادثة أو مهمة. ويعمل كسجلّ جلسة، يحتوي على السجلّ الكامل لتفاعل ما كسلسلة زمنية من **خطوات التنفيذ**. تتضمّن هذه الخطوات أفكار النموذج واستدعاءات الأدوات ونتائجها من جهة الخادم أو من جهة العميل (مثل `function_call` و`function_result`)، و`model_output` النهائي. يتضمّن المورد المخزَّن (الذي يتم استرداده من خلال `interactions.get`) أيضًا خطوات `user_input` للحصول على السياق الكامل، على الرغم من أنّ استجابة `interactions.create` لا تعرض سوى الخطوات التي تم إنشاؤها بواسطة النموذج.
+Etkileşimler API'si, temel bir kaynak olan [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=tr#Resource:Interaction) etrafında şekillenir. `Interaction`, bir görüşme veya görevdeki tam bir dönüşü temsil eder. Bir etkileşimin tüm geçmişini **yürütme adımlarının** kronolojik sırası olarak içeren bir oturum kaydı görevi görür. Bu adımlar arasında model düşünceleri, sunucu tarafında veya istemci tarafında araç çağrıları ve sonuçları (ör. `function_call` ve `function_result`) ve nihai `model_output` yer alır. Depolanan kaynak (`interactions.get` aracılığıyla alınan) tam bağlam için `user_input` adımlarını da içerir ancak `interactions.create` yanıtı yalnızca model tarafından oluşturulan adımları döndürür.
 
-عند إجراء طلب إلى
-[`interactions.create`](https://ai.google.dev/api/interactions-api?hl=ar#CreateInteraction)، أنت
-تنشئ موردًا جديدًا `Interaction`.
+[`interactions.create`](https://ai.google.dev/api/interactions-api?hl=tr#CreateInteraction) adresine çağrı yaptığınızda yeni bir `Interaction` kaynağı oluşturursunuz.
 
-### إدارة الحالة من جهة الخادم
+### Sunucu tarafı durum yönetimi
 
-يمكنك استخدام `id` لتفاعل مكتمل في طلب لاحق باستخدام
-`previous_interaction_id` لمواصلة المحادثة. يستخدم الخادم هذا المعرّف لاسترداد سجلّ المحادثة، ما يوفّر عليك إعادة إرسال سجلّ المحادثة بالكامل.
+Sohbete devam etmek için `previous_interaction_id` parametresini kullanarak sonraki bir çağrıda tamamlanmış bir etkileşimin `id` değerini kullanabilirsiniz. Sunucu, sohbet geçmişini almak için bu kimliği kullanır. Böylece, tüm sohbet geçmişini yeniden göndermeniz gerekmez.
 
-تحتفظ المَعلمة `previous_interaction_id` بسجلّ المحادثة فقط (المدخلات والمخرجات) باستخدام `previous_interaction_id`. أما المَعلمات الأخرى، فهي **ضمن نطاق التفاعل** ولا تنطبق إلا على التفاعل المحدّد الذي تنشئه حاليًا:
+`previous_interaction_id` parametresi yalnızca `previous_interaction_id` kullanılarak yapılan görüşme geçmişini (girişler ve çıkışlar) korur. Diğer parametreler **etkileşim kapsamlıdır**
+ve yalnızca şu anda oluşturduğunuz etkileşim için geçerlidir:
 
 - `tools`
 - `system_instruction`
-- `generation_config` (بما في ذلك `thinking_level` و`temperature` وما إلى ذلك)
+- `generation_config` (`thinking_level`, `temperature` vb. dahil)
 
-يعني ذلك أنّه عليك إعادة تحديد هذه المَعلمات في كل تفاعل جديد إذا كنت تريد تطبيقها. إنّ إدارة الحالة من جهة الخادم اختيارية، ويمكنك أيضًا العمل في وضع غير مرتبط بحالة المحادثة من خلال إرسال سجلّ المحادثة الكامل في كل طلب.
+Bu, geçerli olmasını istediğiniz takdirde bu parametreleri her yeni etkileşimde yeniden belirtmeniz gerektiği anlamına gelir. Bu sunucu tarafı durum yönetimi isteğe bağlıdır. Her isteğe tam görüşme geçmişini göndererek durum bilgisiz modda da çalışabilirsiniz.
 
-### تخزين البيانات والاحتفاظ بها
+### Veri depolama ve saklama
 
-تخزّن واجهة برمجة التطبيقات تلقائيًا جميع عناصر التفاعل (`store=true`) لتسهيل استخدام ميزات إدارة الحالة من جهة الخادم (باستخدام `previous_interaction_id`)، [التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar) (باستخدام `background=true`) ولأغراض إمكانية تتبّع البيانات.
+API, varsayılan olarak sunucu tarafı durum yönetimi özelliklerinin (`previous_interaction_id` ile), [arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) (`background=true` kullanılarak) ve gözlemlenebilirlik amaçlarıyla kullanımını basitleştirmek için tüm Interaction nesnelerini (`store=true`) saklar.
 
-- **الخطة المدفوعة**: يحتفظ النظام بالتفاعلات لمدة **55 يومًا**.
-- **الخطة المجانية**: يحتفظ النظام بالتفاعلات لمدة **يوم واحد**.
+- **Ücretli katman**: Sistem, etkileşimleri **55 gün** boyunca saklar.
+- **Ücretsiz katman**: Sistem, etkileşimleri **1 gün** boyunca saklar.
 
-إذا كنت لا تريد ذلك، يمكنك ضبط `store=false` في طلبك. يختلف عنصر التحكّم هذا عن إدارة الحالة، ويمكنك إيقاف التخزين لأي تفاعل. يُرجى العِلم أنّ
-`store=false` غير متوافق مع [التنفيذ في الخلفية](https://ai.google.dev/gemini-api/docs/background-execution?hl=ar) ويمنع استخدام
-`previous_interaction_id` للأدوار اللاحقة.
+Bunu istemiyorsanız isteğinizde `store=false` ayarlayabilirsiniz. Bu kontrol, durum yönetiminden ayrıdır. Herhangi bir etkileşim için depolamayı devre dışı bırakabilirsiniz. Ancak `store=false` öğesinin [arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) ile uyumlu olmadığını ve sonraki dönüşlerde `previous_interaction_id` öğesinin kullanılmasını engellediğini unutmayın.
 
-يمكنك حذف التفاعلات المخزَّنة في أي وقت باستخدام طريقة الحذف الواردة في
-[مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api/interactions-api?hl=ar). لا يمكنك حذف التفاعلات إلا إذا كنت تعرف معرّف التفاعل.
+[API Referansı](https://ai.google.dev/api/interactions-api?hl=tr)'nda bulunan silme yöntemini kullanarak depolanan etkileşimleri istediğiniz zaman silebilirsiniz. Yalnızca etkileşim kimliğini biliyorsanız etkileşimleri silebilirsiniz.
 
-بعد انتهاء فترة التخزين، سيتم حذف بياناتك تلقائيًا.
+Saklama süresi sona erdikten sonra verileriniz otomatik olarak silinir.
 
-يعالج النظام عناصر `التفاعل` وفقًا للأحكام .
+Sistem, Etkileşim nesnelerini [şartlara](https://ai.google.dev/gemini-api/terms?hl=tr) göre işler.
 
-## أفضل الممارسات
+## En iyi uygulamalar
 
-- **معدّل نتائج ذاكرة التخزين المؤقت**: يتيح استخدام `previous_interaction_id` لمواصلة المحادثات للنظام استخدام التخزين المؤقت الضمني لـ سجلّ المحادثة بسهولة أكبر، ما يحسّن الأداء ويقلّل التكاليف.
-- **دمج التفاعلات**: يمكنك دمج تفاعلات الوكيل و
-  النموذج ومطابقتها ضمن محادثة. على سبيل المثال، يمكنك استخدام وكيل متخصّص، مثل وكيل Deep Research، لجمع البيانات الأولية، ثم استخدام نموذج Gemini عادي للمهام اللاحقة، مثل التلخيص أو إعادة التنسيق، وربط هذه الخطوات باستخدام `previous_interaction_id`.
+- **Önbellek isabet oranı**: Sohbetlere devam etmek için `previous_interaction_id` kullanıldığında sistem, sohbet geçmişi için örtülü önbelleğe almayı daha kolay kullanabilir. Bu da performansı artırır ve maliyetleri düşürür.
+- **Etkileşimleri karıştırma**: Bir görüşmede Agent ve Model etkileşimlerini karıştırıp eşleştirebilirsiniz. Örneğin, ilk veri toplama için Deep Research aracısı gibi özel bir aracı kullanabilir, ardından özetleme veya yeniden biçimlendirme gibi takip görevleri için standart bir Gemini modeli kullanabilirsiniz. Bu adımları `previous_interaction_id` ile bağlayabilirsiniz.
 
-## النماذج والوكلاء المتوافقون
+## Desteklenen modeller ve aracı
 
-| اسم النموذج | النوع | رقم تعريف الطراز |
+| Model Adı | Tür | Model Kimliği |
 | --- | --- | --- |
-| Gemini 3.5 Flash | الطراز | `gemini-3.5-flash` |
-| ‫Gemini 3.1 Pro (معاينة) | الطراز | `gemini-3.1-pro-preview` |
-| Gemini 3.1 Flash-Lite | الطراز | `gemini-3.1-flash-lite` |
-| ‫Gemini 3 Flash (معاينة) | الطراز | `gemini-3-flash-preview` |
-| Gemini 2.5 Pro | الطراز | `gemini-2.5-pro` |
-| Gemini 2.5 Flash | الطراز | `gemini-2.5-flash` |
-| Gemini 2.5 Flash-lite | الطراز | `gemini-2.5-flash-lite` |
-| ‫Gemini 3 Pro Image | الطراز | `gemini-3-pro-image` |
-| ‫Gemini 3.1 Flash Image | الطراز | `gemini-3.1-flash-image` |
-| ‫Gemini 3.1 Flash TTS (معاينة) | الطراز | `gemini-3.1-flash-tts-preview` |
-| ‫Gemma 4 31B IT | الطراز | `gemma-4-31b-it` |
-| ‫Gemma 4 26B MoE IT | الطراز | `gemma-4-26b-a4b-it` |
-| ‫Lyria 3 Clip (معاينة) | الطراز | `lyria-3-clip-preview` |
-| ‫Lyria 3 Pro (معاينة) | الطراز | `lyria-3-pro-preview` |
-| ‫Deep Research (معاينة) | الوكيل | `deep-research-preview-04-2026` |
-| ‫Deep Research (معاينة) | الوكيل | `deep-research-max-preview-04-2026` |
-| ‫Antigravity (معاينة) | الوكيل | `antigravity-preview-05-2026` |
+| Gemini 3.5 Flash | Model | `gemini-3.5-flash` |
+| Gemini 3.1 Pro Önizlemesi | Model | `gemini-3.1-pro-preview` |
+| Gemini 3.1 Flash-Lite | Model | `gemini-3.1-flash-lite` |
+| Gemini 3 Flash Önizlemesi | Model | `gemini-3-flash-preview` |
+| Gemini 2.5 Pro | Model | `gemini-2.5-pro` |
+| Gemini 2.5 Flash | Model | `gemini-2.5-flash` |
+| Gemini 2.5 Flash-lite | Model | `gemini-2.5-flash-lite` |
+| Gemini 3 Pro Image | Model | `gemini-3-pro-image` |
+| Gemini 3.1 Flash Görüntüsü | Model | `gemini-3.1-flash-image` |
+| Gemini 3.1 Flash TTS Önizlemesi | Model | `gemini-3.1-flash-tts-preview` |
+| Gemma 4 31B IT | Model | `gemma-4-31b-it` |
+| Gemma 4 26B MoE IT | Model | `gemma-4-26b-a4b-it` |
+| Lyria 3 Clip Preview | Model | `lyria-3-clip-preview` |
+| Lyria 3 Pro Önizlemesi | Model | `lyria-3-pro-preview` |
+| Deep Research Önizlemesi | Temsilci | `deep-research-preview-04-2026` |
+| Deep Research Önizlemesi | Temsilci | `deep-research-max-preview-04-2026` |
+| Antigravity önizlemesi | Temsilci | `antigravity-preview-05-2026` |
 
-## حزم SDK
+## SDK'lar
 
-يمكنك استخدام أحدث إصدار من حزم Google GenAI SDK للوصول إلى Interactions API.
+Etkileşimler API'sine erişmek için Google GenAI SDK'larının en son sürümünü kullanabilirsiniz.
 
-- في Python، هذه هي حزمة `google-genai` من الإصدار `2.3.0` والإصدارات الأحدث.
-- في JavaScript، هذه هي حزمة `@google/genai` من الإصدار `2.3.0` والإصدارات الأحدث.
+- Python'da bu, `2.3.0` sürümünden itibaren `google-genai` paketidir.
+- JavaScript'te bu, `2.3.0` sürümünden itibaren `@google/genai` paketidir.
 
-يمكنك الاطّلاع على مزيد من المعلومات حول كيفية تثبيت حزم SDK في صفحة
-[المكتبات](https://ai.google.dev/gemini-api/docs/libraries?hl=ar).
+SDK'ları nasıl yükleyeceğiniz hakkında daha fazla bilgiyi [Kitaplıklar](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) sayfasında bulabilirsiniz.
 
-## القيود
+## Sınırlamalar
 
-- **خادم MCP عن بُعد**: لا يتيح Gemini 3 استخدام خادم MCP عن بُعد، ولكن سيتم توفير هذه الميزة قريبًا.
+- **Uzak MCP**: Gemini 3, uzak MCP'yi desteklemez. Bu özellik yakında kullanıma sunulacaktır.
 
-تتوفّر الميزات التالية في واجهة برمجة التطبيقات
-[`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=ar)، ولكنها **غير متاحة بعد** في Interactions API:
+Aşağıdaki özellikler [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=tr) API tarafından desteklenir ancak Interactions API'de **henüz kullanılamaz**:
 
-- **[البيانات الوصفية للفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar)**: الحقل `video_metadata`، الذي يُستخدم لضبط فواصل الاقتصاص
-  ومعدّلات الإطارات المخصّصة لفهم الفيديوهات.
-- **[واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**
-- **[استدعاء الوظائف التلقائي (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ar#automatic_function_calling_python_only)**
-- **[التخزين المؤقت الصريح](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**: يُرجى العِلم أنّ التخزين المؤقت الضمني من جهة الخادم متاح في Interactions API
-  عبر `previous_interaction_id`.
+- **[Video meta verileri](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr)**: Video anlama için klip aralıklarını ve özel kare hızlarını ayarlamak üzere kullanılan `video_metadata` alanı.
+- **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr)**
+- **[Otomatik işlev çağırma (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=tr#automatic_function_calling_python_only)**
+- **[Açık önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr)**: Sunucu tarafında örtülü önbelleğe almanın, `previous_interaction_id` aracılığıyla Interactions API'sinde kullanılabildiğini unutmayın.
 
-## الملاحظات
+## Geri bildirim
 
-ملاحظاتك ضرورية لتطوير Interactions API.
-يمكنك مشاركة أفكارك أو الإبلاغ عن الأخطاء أو طلب ميزات في
-[منتدى Google AI Developer Community](https://discuss.ai.google.dev/c/gemini-api/4?hl=ar).
+Geri bildiriminiz, Etkileşimler API'sinin geliştirilmesi açısından büyük önem taşır.
+Düşüncelerinizi paylaşmak, hataları bildirmek veya özellik isteğinde bulunmak için [Google Yapay Zeka Geliştirici Topluluğu Forumu](https://discuss.ai.google.dev/c/gemini-api/4?hl=tr)'nu kullanabilirsiniz.
 
-## الخطوات التالية
+## Sırada ne var?
 
-- يمكنك تجربة [دفتر الملاحظات الخاص بالبدء السريع في Interactions API](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=ar).
-- مزيد من المعلومات حول [وكيل Deep Research في Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=ar).
+- [Interactions API hızlı başlangıç not defterini](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=tr) deneyin.
+- [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) hakkında daha fazla bilgi edinin.
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-تاريخ التعديل الأخير: 2026-06-26 (حسب التوقيت العالمي المتفَّق عليه)
+Son güncelleme tarihi: 2026-06-26 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-26 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-26 UTC."],[],[]]

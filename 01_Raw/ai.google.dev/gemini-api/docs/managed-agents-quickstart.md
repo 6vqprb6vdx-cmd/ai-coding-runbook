@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=pt-BR
-fetched_at: 2026-06-29T05:32:58.185886+00:00
-title: "Guia de in\u00edcio r\u00e1pido dos agentes gerenciados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr
+fetched_at: 2026-07-06T05:13:35.260893+00:00
+title: "Y\u00f6netilen Ajanlar H\u0131zl\u0131 Ba\u015flang\u0131\u00e7 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envie comentários
+Geri bildirim gönderin
 
-# Guia de início rápido dos agentes gerenciados
+# Yönetilen Ajanlar Hızlı Başlangıç
 
-Neste guia, você aprende a criar e usar agentes gerenciados na API Gemini usando o [agente Antigravity](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=pt-br). Você vai fazer sua primeira chamada de agente, continuar uma conversa de várias rodadas, transmitir a resposta, baixar arquivos da sandbox e trabalhar com o agente gerenciado Antigravity.
+Bu kılavuzda, [Antigravity agent](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=tr)'ı kullanarak Gemini API'de Yönetilen Ajanlar oluşturma ve kullanma adımları açıklanmaktadır. İlk temsilci görüşmenizi yapacak, çok turlu bir sohbete devam edecek, yanıtı yayınlayacak, korumalı alandan dosya indirecek ve Antigravity tarafından yönetilen temsilciyle çalışacaksınız.
 
-## Executar sua primeira interação com o agente
+## İlk temsilci etkileşiminizi çalıştırma
 
-Uma única chamada para a [API Interactions](https://ai.google.dev/gemini-api/docs?hl=pt-br) provisiona um sandbox do Linux, executa o loop do agente e retorna o resultado. Você vai definir três parâmetros:
+[Interactions API](https://ai.google.dev/gemini-api/docs?hl=tr)'ye yapılan tek bir çağrı, Linux özel korumalı alanını sağlar, aracı döngüsünü çalıştırır ve sonucu döndürür. Üç parametre tanımlarsınız:
 
-- Transmita o `agent` como `"antigravity-preview-05-2026",`, que é a versão atual do nosso agente gerenciado predefinido e de uso geral.
-- Defina `environment="remote"` para provisionar um novo ambiente de sandbox.
-- Crie uma entrada, definindo o que você quer que o agente faça.
+- Önceden tanımlanmış ve genel amaçlı yönetilen aracımızın mevcut sürümü olan `agent` değerini `"antigravity-preview-05-2026",` olarak iletin.
+- Yeni bir temiz sanal alan ortamı sağlamak için `environment="remote"` tanımlayın.
+- Temsilcinin ne yapmasını istediğinizi tanımlayan bir giriş oluşturun.
 
 ### Python
 
@@ -79,16 +79,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-A resposta retorna um objeto `Interaction`. Armazene `interaction.id` e `interaction.environment_id` para continuar a conversa na mesma sandbox. Use `interaction.output_text` para acessar a resposta final do agente. `interaction.steps` lista cada etapa realizada pelo agente (raciocínio, chamadas de ferramentas, execução de código).
+Yanıt, `Interaction` nesnesi döndürür. Aynı korumalı alanda sohbete devam etmek için `interaction.id` ve `interaction.environment_id` değerlerini saklayın. Temsilcinin son yanıtına erişmek için `interaction.output_text` simgesini kullanın. `interaction.steps`, aracının gerçekleştirdiği her adımı (gerekçe, araç çağrıları, kod yürütme) listeler.
 
-## Continuar a conversa (vários turnos)
+## Görüşmeye devam etme (çok adımlı)
 
-A API rastreia duas dimensões de estado independentes:
+API, iki bağımsız durum boyutunu izler:
 
-- **Contexto da conversa**:histórico de chat, rastreamento de raciocínio, uso de ferramentas, uso de `previous_interaction_id`.
-- [**Estado do ambiente**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br):arquivos, pacotes instalados e estado da sandbox, usando `environment`.
+- **Sohbet bağlamı:** Sohbet geçmişi, akıl yürütme izi, araç kullanımı, `previous_interaction_id` kullanımı.
+- [**Ortam durumu:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) `environment` kullanılarak dosyalar, yüklü paketler ve korumalı alan durumu.
 
-Transmita os dois no lugar respectivo para retomar:
+Devam etmek için her ikisini de ilgili yere yerleştirin:
 
 ### Python
 
@@ -130,20 +130,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Os arquivos do turno 1 (`fibonacci.txt`) permanecem no turno 2. O agente também retém o contexto da conversa.
+1. turdaki dosyalar (`fibonacci.txt`) 2. turda kalır. Temsilci, sohbet bağlamını da korur.
 
-É possível misturar e combinar estes itens de forma independente:
+Bunları bağımsız olarak karıştırıp eşleştirebilirsiniz:
 
-- **Limpar conversa, manter arquivos**:omita `previous_interaction_id` e transmita apenas o ID do ambiente usando `environment` para uma nova conversa no mesmo espaço de trabalho.
-- **Manter conversa, novo espaço de trabalho**:transmita `previous_interaction_id` e defina `environment="remote"` para um novo sandbox.
+- **Net görüşme, dosyaları saklama:** `previous_interaction_id` simgesini atlayın, aynı çalışma alanında yeni bir görüşme için yalnızca `environment` kullanarak ortam kimliğini iletin.
+- **Sohbeti sürdürme, yeni çalışma alanı:** Geçiş `previous_interaction_id`, yeni bir sandbox için `environment="remote"` ayarlayın.
 
-### Compactação automática de contexto
+### Otomatik bağlam sıkıştırma
 
-Em conversas longas e de várias interações, o histórico bruto de etapas de raciocínio, chamadas de ferramentas e conteúdo de arquivos grandes pode crescer rapidamente e consumir um espaço de contexto significativo. Para evitar erros de limite de token e manter o foco do agente (evitando a "deterioração do contexto"), a API Managed Agents tem uma etapa nativa de compactação de contexto em torno de 135 mil tokens. Isso acontece automaticamente.
+Uzun süren, çok turlu sohbetlerde, muhakeme adımlarının, araç çağrılarının ve büyük dosya içeriklerinin ham geçmişi hızla büyüyebilir ve önemli miktarda bağlam alanı tüketebilir. Yönetilen Aracılar API'si, jeton sınırı hatalarını önlemek ve aracının odak noktasını korumak (bağlam bozulmasını önlemek) için yaklaşık 135.000 jetonluk yerel bir bağlam sıkıştırma adımına sahiptir. Bu, otomatik olarak gerçekleşir.
 
-## Mostrar composição da resposta
+## Yanıtı akış şeklinde gösterme
 
-Para tarefas de longa duração, é possível transmitir a resposta para ver o agente trabalhar em tempo real:
+Uzun süren görevlerde, temsilcinin çalışmasını anlık olarak görmek için yanıtı yayınlayabilirsiniz:
 
 ### Python
 
@@ -196,11 +196,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-O streaming retorna um iterável de deltas de etapa, que são texto incremental, tokens de raciocínio e atualizações de chamadas de função. Saiba como transmitir respostas no [guia de streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=pt-br).
+Yayın, adım farklılıklarının yinelenebilir bir değerini döndürür. Bu değerler, artımlı metin, akıl yürütme jetonları ve araç çağrısı güncellemeleridir. Yanıtları yayınlama hakkında daha fazla bilgiyi [Yayınlama kılavuzu](https://ai.google.dev/gemini-api/docs/streaming?hl=tr)'nda bulabilirsiniz.
 
-## Baixar arquivos do ambiente
+## Ortamdan dosya indirme
 
-Quando o agente cria arquivos dentro da sandbox. Faça o download usando a API Files com uma solicitação HTTP direta (ainda não há um método de SDK):
+Aracı, sanal ortamda dosya oluşturduğunda Doğrudan HTTP isteğiyle (henüz SDK yöntemi yok) Files API'yi kullanarak indirin:
 
 ### Python
 
@@ -267,13 +267,13 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/environme
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## Salvar um agente gerenciado
+## Yönetilen bir aracıyı kaydetme
 
-Nas etapas anteriores, usamos o agente Antigravity padrão e o personalizamos inline. Depois de iterar na configuração (instruções, habilidades e ambiente), você pode salvá-la como um agente gerenciado. Isso permite que você o invoque por ID sem repetir a configuração.
+Önceki adımlarda varsayılan Antigravity aracısını kullandık ve satır içi olarak özelleştirdik. Yapılandırmanızı (talimatlar, beceriler ve ortam) yineledikten sonra yönetilen bir aracı olarak kaydedebilirsiniz. Bu sayede, yapılandırmayı tekrarlamadan kimliğe göre çağırabilirsiniz.
 
-Ao salvar um agente, você define um `base_environment` (de fontes ou bifurcando um ambiente existente). O agente vai usar esse ambiente em todas as novas interações.
+Bir aracı kaydettiğinizde `base_environment` tanımlarsınız (kaynaklardan veya mevcut bir ortamı çatallayarak). Temsilci, her yeni etkileşim için bu ortamı kullanır.
 
-**De fontes**:defina fontes inline ou de outras fontes, como GitHub ou Cloud Storage.
+**Kaynaklardan:** Kaynakları satır içi olarak veya GitHub ya da Cloud Storage gibi diğer kaynaklardan tanımlayın.
 
 ### Python
 
@@ -357,9 +357,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## Invocar o agente gerenciado
+## Yönetilen aracıyı çağırma
 
-Depois de salvar um agente gerenciado, você pode invocá-lo por ID. Cada invocação ramifica o ambiente de base, então cada execução começa do zero:
+Kaydettiğiniz yönetilen temsilcileri kimlikleriyle çağırabilirsiniz. Her çağırma işlemi temel ortamı çatalladığından her çalıştırma temiz bir şekilde başlar:
 
 ### Python
 
@@ -400,19 +400,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## A seguir
+## Sırada ne var?
 
-- [Agente antigravidade](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br): recursos, ferramentas compatíveis, entrada multimodal, preços e limitações.
-- [Como criar agentes gerenciados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=pt-br): amplie o Antigravity com suas próprias instruções, habilidades e dados.
-- [Ambientes](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br): fontes, rede, ciclo de vida, limites de recursos.
-- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br): a API subjacente para modelos e agentes.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr): Yetenekler, desteklenen araçlar, çok formatlı giriş, fiyatlandırma ve sınırlamalar.
+- [Yönetilen Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): Antigravity'yi kendi talimatlarınız, becerileriniz ve verilerinizle genişletin.
+- [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): kaynaklar, ağ, yaşam döngüsü, kaynak sınırları.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr): Modeller ve aracılar için temel API.
 
-Envie comentários
+Geri bildirim gönderin
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Última atualização 2026-06-22 UTC.
+Son güncelleme tarihi: 2026-06-22 UTC.
 
-Quer enviar seu feedback?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]

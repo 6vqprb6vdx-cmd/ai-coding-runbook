@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=ar
-fetched_at: 2026-06-29T05:34:01.933293+00:00
-title: "\u0646\u0645\u0648\u0630\u062c Gemini Embedding 2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=zh-CN
+fetched_at: 2026-07-06T05:06:36.036494+00:00
+title: "Gemini Embedding 2 \u6a21\u578b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-إرسال ملاحظات
+发送反馈
 
-# نموذج Gemini Embedding 2
+# Gemini Embedding 2 模型
 
-أول نموذج تضمين متعدد الوسائط، يوفّر عملية ربط رقمية فعّالة للنصوص والصور والفيديوهات والملفات الصوتية وملفات PDF في مساحة تضمين موحّدة واحدة يُعدّ نموذج Gemini Embedding 2 الأفضل لعمليات البحث الدلالي بين الوسائط المختلفة واسترجاع المستندات وأنظمة الاقتراحات التي تتطلّب إجراء عمليات حسابية سريعة وقابلة للتوسّع للتشابه بين مجموعات البيانات الكبيرة المتعدّدة الوسائط.
+我们的第一个多模态嵌入模型，可将文本、图片、视频、音频和 PDF 高效地映射到单个统一的嵌入空间中。Gemini Embedding 2
+模型最适合跨模态语义搜索、文档检索和推荐系统，这些系统需要在大型多模态数据集中进行快速、可扩缩的相似度计算。
 
-## الوثائق
+## 文档
 
-يمكنك الانتقال إلى صفحة [التضمينات](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar) للاطّلاع على التغطية الكاملة
-للميزات والإمكانات.
+如需全面了解功能，请访问[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)页面。
 
 ## gemini-embedding-2
 
-| الموقع | الوصف |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardرمز النموذج | **Gemini API**  `gemini-embedding-2` |
-| saveأنواع البيانات المتوافقة | **الإدخال**  نص وصورة وفيديو وملف صوتي وملف PDF  **الناتج**  تضمينات نصية |
-| token\_autoحدود الرموز[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لرموز الإدخال**  8,192  **حجم بُعد الناتج**  مرن، يتوافق مع: 128 - 3072، ننصح باستخدام: 768 و1536 و3072 |
-| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - الإصدار الثابت: `gemini-embedding-2` |
-| calendar\_monthآخر تعديل | أبريل 2026 |
+| id\_card模型代码 | **Gemini API**  `gemini-embedding-2` |
+| save支持的数据类型 | **输入**  文本、图片、视频、音频、PDF  **输出**  文本嵌入 |
+| token\_auto | **输入令牌限制**  8192  **输出维度大小**  灵活，支持：128 - 3072，推荐：768、1536、3072 |
+| 123版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 稳定版：`gemini-embedding-2` |
+| calendar\_month最后更新时间 | 2026 年 4 月 |
 
-إرسال ملاحظات
+发送反馈
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)
+最后更新时间 (UTC)：2026-04-29。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+需要向我们提供更多信息？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-04-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]

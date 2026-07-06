@@ -1,109 +1,116 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-key?hl=tr
-fetched_at: 2026-06-29T05:36:17.183386+00:00
-title: "Gemini API anahtarlar\u0131n\u0131 kullanma \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-key?hl=th
+fetched_at: 2026-07-06T05:10:22.845257+00:00
+title: "\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e04\u0e35\u0e22\u0e4c Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Gemini API anahtarlarını kullanma
+# การใช้คีย์ Gemini API
 
-Gemini API'yi kullanmak için isteklerinizin kimliğini doğrulamanız gerekir. Standart veya yetkilendirme API anahtarı kullanarak kimliğinizi doğrulayabilirsiniz.
+หากต้องการใช้ Gemini API คุณต้องตรวจสอบสิทธิ์คำขอ โดยสามารถตรวจสอบสิทธิ์ได้โดยใช้คีย์ API มาตรฐานหรือคีย์ API การให้สิทธิ์
 
-[Gemini API anahtarı oluşturma veya görüntüleme](https://aistudio.google.com/apikey?hl=tr)
+[สร้างหรือดูคีย์ Gemini API](https://aistudio.google.com/apikey?hl=th)
 
-## API anahtarı türleri: Standart ve Yetkilendirme
+## ประเภทคีย์ API: มาตรฐานเทียบกับการให้สิทธิ์
 
-API anahtarları, Gemini API'ye erişim sağlar ancak güvenlik özellikleri farklıdır. Gemini API, güvenliği artırmak için standart API anahtarlarından yetkilendirme anahtarlarına geçiş yapıyor:
+คีย์ API ให้สิทธิ์เข้าถึง Gemini API แต่ลักษณะด้านความปลอดภัยจะแตกต่างกัน Gemini API กำลังเปลี่ยนจากคีย์ API มาตรฐานเป็นคีย์การให้สิทธิ์เพื่อปรับปรุงความปลอดภัย
 
-- **Standart API anahtarları**: Faturalandırma ve kota amacıyla istekleri bir Google Cloud projesiyle ilişkilendirin. Standart anahtarlar arayanı tanımlamadığından destekleyebilecekleri izinlerin ve erişim denetiminin ayrıntı düzeyi sınırlıdır.
-- **Yetkilendirme (auth) anahtarları**: Doğrudan bir Google Cloud hizmet hesabına bağlıdır. Yetkilendirme anahtarı kullandığınızda istekleriniz, bu bağlı hizmet hesabının kimliği altında işlenir ve ayrıntılı erişim kontrolü sağlanır. Yetkilendirme anahtarları varsayılan olarak Generative Language API (Gemini API) ile sınırlıdır ve sistemlerimiz tarafından algılanan sızdırılmış anahtarların kullanımını hızlı bir şekilde durduran, hızlı etkili sızdırılmış anahtar zorunluluğu sağlar.
+- **คีย์ API มาตรฐาน**: เชื่อมโยงคำขอกับโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google เพื่อวัตถุประสงค์ในการเรียกเก็บเงินและโควต้า คีย์มาตรฐานจะไม่ระบุผู้เรียก ซึ่งจำกัดความละเอียดของสิทธิ์และการควบคุมการเข้าถึงที่คีย์รองรับได้
+- **คีย์การให้สิทธิ์ (คีย์ auth)**: ผูกกับบัญชีบริการ Google Cloud โดยตรง
+  เมื่อใช้คีย์การให้สิทธิ์ ระบบจะประมวลผลคำขอภายใต้ข้อมูลประจำตัวของบัญชีบริการที่ผูกไว้ ซึ่งช่วยให้สามารถควบคุมการเข้าถึงแบบละเอียดได้ คีย์การให้สิทธิ์จะจำกัดไว้สำหรับ Generative Language API (Gemini API) โดยค่าเริ่มต้น และมีการบังคับใช้คีย์ที่รั่วไหลอย่างรวดเร็ว ซึ่งจะหยุดการใช้งานคีย์ที่รั่วไหลซึ่งระบบตรวจพบได้อย่างรวดเร็ว
 
-Gemini API, güvenli kullanımı sağlamak için Standart anahtarlardan Kimlik Doğrulama anahtarlarına geçiş yapacak:
+Gemini API จะเปลี่ยนจากคีย์มาตรฐานเป็นคีย์ Auth เพื่อให้มั่นใจถึงการใช้งานที่ปลอดภัย
 
-- **Varsayılan kimlik doğrulama anahtarları**: Google AI Studio'da oluşturulan tüm yeni API anahtarları otomatik olarak kimlik doğrulama anahtarı olarak oluşturulur.
-- **19 Haziran 2026'da**: Gemini API, **sınırsız standart anahtarlardan** gelen istekleri reddedecek. Açık kısıtlamalar uygulanmış standart API anahtarları çalışmaya devam eder. Bu kısıtlama, herkese açık olarak paylaşılan veya diğer hizmetlere bağlanan anahtarların yetkisiz kullanımını engeller.
-- **Eylül 2026'da**: Gemini API, **standart anahtarlardan** gelen istekleri reddedecek. Hizmet kesintisi yaşamamak için bu tarihten önce [kimlik doğrulama anahtarlarına geçiş yapmanız](#migrate-to-auth-key) gerekir. Eylül 2026'dan önce kimlik doğrulama anahtarlarına geçiş yapmayı unutmayın.
+- **คีย์ auth เป็นค่าเริ่มต้น**: คีย์ API ใหม่ทั้งหมดที่สร้างใน Google AI Studio
+  จะสร้างเป็นคีย์ auth โดยอัตโนมัติ
+- **ในวันที่ 19 มิถุนายน 2026**: Gemini API จะปฏิเสธคำขอ
+  จาก **คีย์มาตรฐานที่ไม่จำกัด** คีย์ API มาตรฐานที่มีการใช้ข้อจำกัดที่ชัดเจนจะยังคงใช้งานได้ ข้อจำกัดนี้จะป้องกันการใช้คีย์ที่ไม่ได้รับอนุญาตซึ่งอาจแชร์แบบสาธารณะหรือลิงก์กับบริการอื่นๆ
+- **ในเดือนกันยายน 2026**: Gemini API จะปฏิเสธคำขอจาก **คีย์
+  มาตรฐาน** คุณต้อง[ย้ายข้อมูลไปใช้คีย์ auth](#migrate-to-auth-key)
+  ก่อนวันที่นี้เพื่อหลีกเลี่ยงการหยุดชะงักของบริการ โปรดย้ายข้อมูลไปใช้คีย์ auth ก่อนเดือนกันยายน 2026
 
-## Google AI Studio'da API anahtarlarını yönetme
+## การจัดการคีย์ API ใน Google AI Studio
 
-Projelerinizi ve anahtarlarınızı doğrudan [Google AI Studio](https://aistudio.google.com/apikey?hl=tr)'da yönetebilirsiniz.
+คุณสามารถจัดการโปรเจ็กต์และคีย์ได้โดยตรงใน [Google AI Studio](https://aistudio.google.com/apikey?hl=th)
 
-### Google Cloud projeleri
+### โปรเจ็กต์ Google Cloud
 
-Her Gemini API anahtarı bir [Google Cloud projesiyle](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=tr) ilişkilendirilir.
-Google Cloud projeleri faturalandırmayı, ortak çalışanları ve izinleri yönetir. Google AI Studio, bu projelere erişmek için basit bir arayüz sunar.
+คีย์ Gemini API ทุกคีย์จะเชื่อมโยงกับ[โปรเจ็กต์ Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=th)
+โปรเจ็กต์ Google Cloud จะจัดการการเรียกเก็บเงิน ผู้ทำงานร่วมกัน และสิทธิ์ Google AI Studio มีอินเทอร์เฟซแบบเบาเพื่อเข้าถึงโปรเจ็กต์เหล่านี้
 
-- **Varsayılan proje**: Yeni bir kullanıcıysanız Google AI Studio, Hizmet Şartları'nı kabul ettikten sonra otomatik olarak varsayılan bir Google Cloud projesi ve API anahtarı oluşturur. Kontrol panelinizdeki **Projeler** görünümüne giderek bu projeyi yeniden adlandırabilirsiniz.
-- **Mevcut projeler**: Google Cloud hesabınız varsa AI Studio varsayılan bir proje oluşturmaz. Bunun yerine mevcut projelerinizi içe aktarmanız gerekir.
+- **โปรเจ็กต์เริ่มต้น**: หากคุณเป็นผู้ใช้ใหม่ Google AI Studio จะสร้างโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google Cloud และคีย์ API เริ่มต้นโดยอัตโนมัติหลังจากที่คุณยอมรับข้อกำหนดในการให้บริการ คุณสามารถเปลี่ยนชื่อโปรเจ็กต์นี้ได้โดยไปที่มุมมอง**โปรเจ็กต์** ในแดชบอร์ด
+- **โปรเจ็กต์ที่มีอยู่**: หากคุณมีบัญชี Google Cloud อยู่แล้ว AI
+  Studio จะไม่สร้างโปรเจ็กต์เริ่มต้น แต่คุณต้องนำเข้าโปรเจ็กต์ที่มีอยู่แทน
 
-### Projeleri içe aktarma
+### การนำเข้าโปรเจ็กต์
 
-Google AI Studio, varsayılan olarak Google Cloud projelerinizin tümünü göstermez. Kullanmak istediğiniz projeleri içe aktarmanız gerekir:
+โดยค่าเริ่มต้น Google AI Studio จะไม่แสดงโปรเจ็กต์ Google Cloud ทั้งหมด คุณต้องนำเข้าโปรเจ็กต์ที่ต้องการใช้โดยทำดังนี้
 
-1. [Google AI Studio](https://aistudio.google.com?hl=tr)'ya gidin.
-2. Soldaki panelden **Kontrol Paneli**'ni açın ve **Projeler**'i seçin.
-3. **Projeleri içe aktar** düğmesini tıklayın.
-4. İçe aktarmak istediğiniz Google Cloud projesini arayıp seçin ve **İçe aktar**'ı tıklayın.
-5. İçe aktarma işlemi tamamlandıktan sonra kontrol panelindeki **API Anahtarları** sayfasına giderek ilgili projede anahtar oluşturun.
+1. ไปที่ [Google AI Studio](https://aistudio.google.com?hl=th)
+2. เปิด**แดชบอร์ด** จากแผงด้านซ้าย แล้วเลือก**โปรเจ็กต์**
+3. คลิกปุ่ม**นำเข้าโปรเจ็กต์**
+4. ค้นหาและเลือกโปรเจ็กต์ที่อยู่ในระบบคลาวด์ของ Google ที่ต้องการนำเข้า แล้วคลิก**นำเข้า**
+5. เมื่อนำเข้าแล้ว ให้ไปที่หน้า**คีย์ API** ในแดชบอร์ดเพื่อสร้างคีย์ในโปรเจ็กต์นั้น
 
-### Anahtar oluşturma izinleriyle ilgili sorunları giderme
+### การแก้ปัญหาเกี่ยวกับสิทธิ์ในการสร้างคีย์
 
-**API anahtarı oluştur** düğmesi kullanılamıyorsa ve şu mesajı gösteriyorsa:
-*"Bu projede anahtar oluşturma izniniz yok"*, gerekli IAM izinlerine sahip değilsinizdir.
+หากปุ่ม**สร้างคีย์ API** ไม่พร้อมใช้งานและแสดงข้อความ:
+*"คุณไม่มีสิทธิ์สร้างคีย์ในโปรเจ็กต์นี้"* แสดงว่าคุณไม่มีสิทธิ์ IAM ที่
+จำเป็น
 
-Google Cloud projenizin veya kuruluş yöneticinizin size aşağıdaki izinleri içeren bir rol (ör. Proje Düzenleyicisi) vermesini isteyin:
+ขอให้ผู้ดูแลระบบโปรเจ็กต์ Google Cloud หรือผู้ดูแลระบบองค์กรกำหนดบทบาทที่มีสิทธิ์ต่อไปนี้ให้คุณ (เช่น ผู้แก้ไขโปรเจ็กต์)
 
-- `resourcemanager.projects.get`: AI Studio'nun projeyi doğrulamasını sağlar.
-- `apikeys.keys.create`: Anahtar oluşturmaya izin verir.
-- `serviceusage.services.enable`: Generative Language API'nin etkinleştirilmesini sağlar.
-- `iam.serviceAccounts.create`: Bağlı hizmet hesabını oluşturmak için gereklidir.
-- `iam.serviceAccountApiKeyBindings.create`: Hizmet hesabını API anahtarına bağlar.
+- `resourcemanager.projects.get`: อนุญาตให้ AI Studio ยืนยันโปรเจ็กต์
+- `apikeys.keys.create`: อนุญาตให้สร้างคีย์
+- `serviceusage.services.enable`: ตรวจสอบว่าได้เปิดใช้ Generative Language API แล้ว
+- `iam.serviceAccounts.create`: จำเป็นต้องสร้างบัญชีบริการที่ลิงก์
+- `iam.serviceAccountApiKeyBindings.create`: ผูกบัญชีบริการกับคีย์ API
 
-Yönetim erişimi alamıyorsanız anahtarlarınızı oluşturmak için bir kuruluşla ilişkilendirilmemiş yeni bir Google Cloud projesi oluşturabilirsiniz.
+หากคุณไม่สามารถเข้าถึงระดับผู้ดูแลระบบได้ คุณสามารถสร้างโปรเจ็กต์ Google Cloud ใหม่ที่ไม่ได้เชื่อมโยงกับองค์กรเพื่อสร้างคีย์ได้
 
-## Ortamınızı kurma
+## การตั้งค่าสภาพแวดล้อม
 
-Anahtarınız olduğunda ortamınızı, uygulamalarınızda güvenli bir şekilde kullanacak şekilde yapılandırın.
+เมื่อมีคีย์แล้ว ให้กำหนดค่าสภาพแวดล้อมเพื่อใช้คีย์อย่างปลอดภัยในแอปพลิเคชัน
 
-### Ortam değişkenlerini kullanma (önerilir)
+### ใช้ตัวแปรสภาพแวดล้อม (แนะนำ)
 
-`GEMINI_API_KEY` veya `GOOGLE_API_KEY` ortam değişkenini ayarlayın. Gemini API istemci kitaplıkları bu değişkenleri otomatik olarak algılar ve kullanır. İkisi de ayarlanırsa `GOOGLE_API_KEY` öncelikli olur.
+ตั้งค่าตัวแปรสภาพแวดล้อม `GEMINI_API_KEY` หรือ `GOOGLE_API_KEY` ไลบรารีของไคลเอ็นต์ Gemini API จะตรวจหาและใช้ตัวแปรเหล่านี้โดยอัตโนมัติ หากตั้งค่าทั้ง 2 ตัวแปรไว้ `GOOGLE_API_KEY` จะมีความสำคัญเหนือกว่า
 
-Değişkeni ayarlamak için işletim sisteminizi seçin:
+เลือกระบบปฏิบัติการเพื่อตั้งค่าตัวแปร
 
 ### Linux/macOS - Bash
 
-Bir bash yapılandırma dosyanızın olup olmadığını doğrulayın:
+ตรวจสอบว่าคุณมีไฟล์การกำหนดค่า bash หรือไม่ โดยทำดังนี้
 
 ```
 ~/.bashrc
 ```
 
-Yoksa bir tane oluşturup açın:
+หากไม่มี ให้สร้างและเปิดไฟล์โดยทำดังนี้
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-Dosyanın sonuna dışa aktarma komutunu ekleyin:
+เพิ่มคำสั่งส่งออกที่ส่วนท้ายของไฟล์โดยทำดังนี้
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Dosyayı kaydedin ve değişiklikleri uygulayın:
+บันทึกไฟล์ แล้วใช้การเปลี่ยนแปลงโดยทำดังนี้
 
 ```
 source ~/.bashrc
@@ -111,25 +118,25 @@ source ~/.bashrc
 
 ### macOS - Zsh
 
-zsh yapılandırma dosyanızın olup olmadığını doğrulayın:
+ตรวจสอบว่าคุณมีไฟล์การกำหนดค่า zsh หรือไม่ โดยทำดังนี้
 
 ```
 ~/.zshrc
 ```
 
-Yoksa bir tane oluşturup açın:
+หากไม่มี ให้สร้างและเปิดไฟล์โดยทำดังนี้
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-Dışa aktarma komutunu ekleyin:
+เพิ่มคำสั่งส่งออกโดยทำดังนี้
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Dosyayı kaydedin ve değişiklikleri uygulayın:
+บันทึกไฟล์ แล้วใช้การเปลี่ยนแปลงโดยทำดังนี้
 
 ```
 source ~/.zshrc
@@ -137,15 +144,15 @@ source ~/.zshrc
 
 ### Windows
 
-1. Windows arama çubuğunda "Environment Variables" (Ortam Değişkenleri) ifadesini arayın.
-2. Sistem Özellikleri iletişim kutusunda **Ortam Değişkenleri**'ni tıklayın.
-3. **Kullanıcı değişkenleri** veya **Sistem değişkenleri** altında **Yeni...** seçeneğini tıklayın.
-4. Değişken adını `GEMINI_API_KEY`, değeri ise API anahtarınız olarak ayarlayın.
-5. Kaydetmek için **Tamam**'ı tıklayın. Değişkeni yüklemek için yeni bir terminal oturumu açın.
+1. ค้นหา "ตัวแปรสภาพแวดล้อม" ในแถบค้นหาของ Windows
+2. คลิก**ตัวแปรสภาพแวดล้อม** ในกล่องโต้ตอบคุณสมบัติของระบบ
+3. คลิก**ใหม่...** ในส่วน**ตัวแปรผู้ใช้** หรือ**ตัวแปรระบบ**
+4. ตั้งชื่อตัวแปรเป็น `GEMINI_API_KEY` และตั้งค่าเป็นคีย์ API
+5. คลิก**ตกลง** เพื่อบันทึก เปิดเซสชันเทอร์มินัลใหม่เพื่อโหลดตัวแปร
 
-### API anahtarını kodda açıkça sağlama
+### ระบุคีย์ API อย่างชัดเจนในโค้ด
 
-İstemciyi başlatırken API anahtarını açıkça iletebilirsiniz. Bu işlemi yalnızca ortam değişkenlerini kullanamıyorsanız yapın.
+คุณสามารถส่งคีย์ API อย่างชัดเจนเมื่อเริ่มต้นไคลเอ็นต์ ให้ทำเช่นนี้เฉพาะในกรณีที่คุณใช้ตัวแปรสภาพแวดล้อมไม่ได้
 
 ### Python
 
@@ -253,98 +260,109 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Güvenlik ve gizli anahtar yönetimi
+## การรักษาความปลอดภัยและการจัดการข้อมูลลับ
 
-Gemini API anahtarınızı şifre gibi kullanın. Bu anahtarların güvenliği ihlal edilirse diğer kullanıcılar projenizin kotasını kullanabilir, beklenmedik faturalandırma ücretlerine neden olabilir ve özel kaynaklara erişebilir.
+ปฏิบัติต่อคีย์ Gemini API เหมือนรหัสผ่าน หากคีย์ถูกละเมิด ผู้อื่นจะใช้โควต้าของโปรเจ็กต์ เรียกเก็บเงินค่าใช้จ่ายที่ไม่คาดคิด และเข้าถึงทรัพยากรส่วนตัวได้
 
-### Önemli güvenlik kuralları
+### กฎความปลอดภัยที่สำคัญ
 
-- **Anahtarları gizli tutun**: API anahtarlarını asla Git gibi kaynak kontrol sistemlerine işlemeyin.
-- **Üretimde anahtarları asla istemci tarafında kullanmayın**: API anahtarlarını doğrudan web veya mobil uygulamalara sabit kodlamayın. İstemci tarafı kodunda derlenen anahtarlar kullanıcılar tarafından çıkarılabilir. İstemci tarafı uygulamaların güvenliğini sağlamak için gerçek API çağrılarını yapmak üzere bir arka uç proxy sunucusu çalıştırın.
+- **เก็บคีย์ไว้เป็นความลับ**: อย่าตรวจสอบคีย์ API ในระบบควบคุมแหล่งที่มา
+  เช่น Git
+- **อย่าเปิดเผยคีย์ฝั่งไคลเอ็นต์ในสภาพแวดล้อมจริง**: อย่าฮาร์ดโค้ดคีย์ API
+  โดยตรงในเว็บหรือแอปบนอุปกรณ์เคลื่อนที่ ผู้ใช้สามารถแยกคีย์ที่คอมไพล์ในโค้ดฝั่งไคลเอ็นต์ได้ หากต้องการรักษาความปลอดภัยแอปฝั่งไคลเอ็นต์ ให้เรียกใช้พร็อกซีเซิร์ฟเวอร์แบ็กเอนด์เพื่อทำการเรียก API จริง
 
-### Gizli anahtar yönetimi için en iyi uygulamalar
+### แนวทางปฏิบัติแนะนำสำหรับการจัดการข้อมูลลับ
 
-- **Ortam değişkenleri**: Anahtarları yapılandırma dosyaları yerine ortam değişkenlerinden okuyun.
-- **Secret Manager**: Üretim için anahtarlarınızı [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=tr) gibi güvenli bir gizli anahtar deposunda saklayın.
-- **Faturalandırma uyarıları**: Kullanım veya maliyetlerde artış olması durumunda sizi bilgilendirmek için Google Cloud Console'da faturalandırma uyarıları ayarlayın.
+- **ตัวแปรสภาพแวดล้อม**: อ่านคีย์จากตัวแปรสภาพแวดล้อมแทนที่จะอ่านจาก
+  ไฟล์การกำหนดค่า
+- **Secret Manager**: สำหรับสภาพแวดล้อมจริง ให้จัดเก็บคีย์ไว้ในที่เก็บข้อมูลลับที่ปลอดภัย
+  เช่น [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=th)
+- **การแจ้งเตือนการเรียกเก็บเงิน**: ตั้งค่าการแจ้งเตือนการเรียกเก็บเงินใน Google Cloud Console เพื่อ
+  แจ้งให้คุณทราบหากมีการใช้งานหรือค่าใช้จ่ายเพิ่มขึ้นอย่างรวดเร็ว
 
-### Sızıntı yanıtı yapılacaklar listesi
+### เช็กลิสต์การตอบสนองต่อการรั่วไหล
 
-API anahtarınızın sızdırıldığından şüpheleniyorsanız:
+หากสงสัยว่าคีย์ API รั่วไหล ให้ทำดังนี้
 
-1. **Yeni bir anahtar oluşturun**: Google AI Studio veya Cloud Console'da yedek bir anahtar oluşturun.
-2. **Uygulamanızı güncelleyin**: Kodunuzu yeni anahtarı kullanarak dağıtın.
-3. **Güvenliği ihlal edilmiş anahtarı devre dışı bırakın veya silin**: Yeni anahtar doğrulandıktan sonra sızdırılan anahtarı Cloud Console'da devre dışı bırakın. Uygulama kapalı kalma süresini önlemek için yeni anahtar tamamen etkinleşene kadar eski anahtarı silmeyin.
-4. **Kullanımı denetleme**: Yetkisiz etkinliği belirlemek için Google Cloud Console'da faturalandırma günlüklerini ve API kullanımını kontrol edin.
+1. **สร้างคีย์ใหม่**: สร้างคีย์ทดแทนใน Google AI Studio หรือ
+   Cloud Console
+2. **อัปเดตแอปพลิเคชัน**: นำโค้ดไปใช้โดยใช้คีย์ใหม่
+3. **ปิดใช้หรือลบคีย์ที่ถูกละเมิด**: ปิดใช้คีย์ที่รั่วไหลใน
+   Cloud Console เมื่อยืนยันคีย์ใหม่แล้ว อย่าลบคีย์เก่าจนกว่าคีย์ใหม่จะทำงานอย่างเต็มรูปแบบเพื่อหลีกเลี่ยงการหยุดทำงานของแอปพลิเคชัน
+4. **ตรวจสอบการใช้งาน**: ตรวจสอบบันทึกการเรียกเก็บเงินและการใช้งาน API ใน Google Cloud
+   Console เพื่อระบุกิจกรรมที่ไม่ได้รับอนุญาต
 
-## Anahtarlarınızı kısıtlama ve güvenliğini sağlama
+## การจำกัดและการรักษาความปลอดภัยคีย์
 
-API anahtarlarınıza kısıtlamalar eklemek, bir anahtarın güvenliği ihlal edilirse oluşabilecek zararı en aza indirir.
+การเพิ่มข้อจำกัดให้แก่คีย์ API จะช่วยลดความเสียหายที่อาจเกิดขึ้นหากคีย์ถูกละเมิด
 
-### İstek kaynağı kısıtlamaları uygulama
+### ใช้ข้อจำกัดเกี่ยวกับต้นทางของคำขอ
 
-Kaynak kısıtlamaları, anahtarınızı hangi IP adreslerinin, web sitelerinin veya uygulamaların kullanabileceğini sınırlar.
+ข้อจำกัดเกี่ยวกับต้นทางจะจำกัดที่อยู่ IP, เว็บไซต์ หรือแอปพลิเคชันที่สามารถใช้คีย์ของคุณได้
 
-1. [Google Cloud Console Kimlik Bilgileri sayfasına](https://console.cloud.google.com/apis/credentials?hl=tr) gidin.
-2. Projenizi seçin ve kısıtlamak istediğiniz API anahtarının adını tıklayın.
-3. **Uygulama kısıtlamaları** bölümünde **IP adresleri**'ni (veya ortamınız için uygun kısıtlama türünü) seçin.
-4. İzin verilen IP adreslerini veya aralıklarını belirtin, ardından **Kaydet**'i tıklayın.
+1. ไปที่หน้า[ข้อมูลเข้าสู่ระบบคอนโซล Google Cloud](https://console.cloud.google.com/apis/credentials?hl=th)
+2. เลือกโปรเจ็กต์ แล้วคลิกชื่อคีย์ API ที่ต้องการจำกัด
+3. ในส่วน**ข้อจำกัดแอปพลิเคชัน** ให้เลือก**ที่อยู่ IP** (หรือ
+   ประเภทข้อจำกัดที่เหมาะสมกับสภาพแวดล้อมของคุณ)
+4. ระบุที่อยู่ IP หรือช่วงที่อนุญาต แล้วคลิก**บันทึก**
 
-### Kısıtlanmamış standart API anahtarlarının güvenliğini sağlama
+### การรักษาความปลอดภัยคีย์ API มาตรฐานที่ไม่จำกัด
 
-Gemini API'yi 19 Haziran 2026'dan sonra kullanmaya devam etmek için tüm kısıtlanmamış anahtarları güvenli hale getirmeniz gerekir.
+หากต้องการใช้ Gemini API ต่อไปหลังจากวันที่ 19 มิถุนายน 2026 คุณต้องรักษาความปลอดภัยคีย์ที่ไม่จำกัด
 
-#### Anahtarı yalnızca AI Studio üzerinden Gemini API ile kısıtlama
+#### จำกัดคีย์สำหรับ Gemini API เท่านั้นผ่าน AI Studio
 
-Anahtarı yalnızca Gemini API için kullanıyorsanız doğrudan AI Studio'da güvenli hale getirin:
+หากใช้คีย์สำหรับ Gemini API เท่านั้น ให้รักษาความปลอดภัยคีย์โดยตรงใน AI Studio โดยทำดังนี้
 
-1. [Google AI Studio](https://aistudio.google.com/api-keys?hl=tr)'daki **API Anahtarları** sayfasında, **Kısıtlanmamış** etiketiyle işaretlenmiş anahtarları bulun.
-2. Fareyle etiketin üzerine gelin ve iletişim kutusunda **Kısıtlama ekle**'yi tıklayın.
-3. **Yalnızca Gemini API ile kısıtla**'yı seçin.
-4. Onaylamak için **Anahtarı kısıtla**'yı tıklayın.
+1. ในหน้า**คีย์ API** ใน[Google AI Studio](https://aistudio.google.com/api-keys?hl=th) ให้ค้นหาคีย์ที่มีป้ายกำกับ
+   **ไม่จำกัด**
+2. วางเมาส์เหนือป้ายกำกับ แล้วคลิก**เพิ่มข้อจำกัด** ในกล่องโต้ตอบ
+3. เลือก**จำกัดเฉพาะ Gemini API**
+4. คลิก**จำกัดคีย์** เพื่อยืนยัน
 
-#### Google Cloud Console üzerinden anahtarı diğer hizmetler için kısıtlama
+#### จำกัดคีย์สำหรับบริการอื่นๆ ผ่านคอนโซล Google Cloud
 
-Anahtar diğer Google API'leriyle paylaşılıyorsa (önerilmez) Cloud Console'da kısıtlayın. **Not: Bu anahtar kullanılarak yapılan Gemini API istekleri, bu kısıtlamalar uygulandıktan sonra başarısız olur.**
+หากแชร์คีย์กับ Google API อื่นๆ (ไม่แนะนำ) ให้จำกัดคีย์ใน Cloud Console **หมายเหตุ: คำขอ Gemini API ที่ใช้คีย์นี้จะล้มเหลวหลังจากใช้ข้อจำกัดเหล่านี้**
 
-1. [Google Cloud Console Kimlik Bilgileri sayfasını](https://console.cloud.google.com/apis/credentials?hl=tr) ziyaret edin.
-2. Projeyi ve API anahtarını seçin.
-3. **API kısıtlamaları** bölümünde **Anahtarı kısıtla**'yı seçin.
-4. Açılır listeden, bu anahtarın erişmesini istediğiniz API'leri seçin. **Generative Language API**'yi seçmeyin.
-5. **Kaydet**'i tıklayın. Gemini API'yi kullanmaya devam etmek için AI Studio'da ayrı ve kısıtlanmış bir anahtar oluşturun.
+1. ไปที่หน้าข้อมูลเข้าสู่ระบบ [คอนโซล Google Cloud](https://console.cloud.google.com/apis/credentials?hl=th)
+2. เลือกโปรเจ็กต์และคีย์ API
+3. ในส่วน**ข้อจำกัด API** ให้เลือก**จำกัดคีย์**
+4. จากเมนูแบบเลื่อนลง ให้เลือก API ที่ต้องการให้คีย์นี้เข้าถึง อย่าเลือก **Generative Language API**
+5. คลิก**บันทึก** สร้างคีย์ที่จำกัดแยกต่างหากใน AI Studio เพื่อใช้ Gemini API ต่อไป
 
-### Etkin olmayan engellenen anahtarlar
+### คีย์ที่ไม่ได้ใช้งานซึ่งถูกบล็อก
 
-7 Mayıs 2026'dan itibaren Gemini API, uzun süredir kullanılmayan sınırsız API anahtarlarını engeller. Bu anahtarlar, AI Studio'da **Engellendi** etiketini gösterir. Devam etmek için yeni bir anahtar oluşturmanız veya mevcut bir kısıtlanmış anahtarı kullanmanız gerekir.
+ตั้งแต่วันที่ 7 พฤษภาคม 2026 เป็นต้นไป Gemini API จะบล็อกคีย์ API ที่ไม่จำกัดซึ่งไม่ได้ใช้งานเป็นระยะเวลานาน คีย์เหล่านี้จะแสดงแท็ก**ถูกบล็อก** ใน AI Studio คุณต้องสร้างคีย์ใหม่หรือใช้คีย์ที่จำกัดที่มีอยู่เพื่อดำเนินการต่อ
 
-## Kimlik doğrulama anahtarına geçiş yapma
+## ย้ายข้อมูลไปใช้คีย์ auth
 
-Yeni bir kimlik doğrulama API anahtarı oluşturmak ve uygulamalarınızı güncellemek için aşağıdaki adımları uygulayın:
+ทำตามขั้นตอนต่อไปนี้เพื่อสร้างคีย์ API auth ใหม่และอัปเดตแอปพลิเคชัน
 
-1. [AI Studio API Anahtarları sayfasına](https://aistudio.google.com/api-keys?hl=tr) gidin.
-2. **Standart** olarak listelenen anahtarları belirlemek için **Anahtar Türü** sütununu kontrol edin.
-3. Yeni bir anahtar oluşturmak için **API anahtarı oluştur**'u tıklayın. AI Studio'da oluşturulan tüm yeni anahtarlar otomatik olarak kimlik doğrulama anahtarı olarak oluşturulur.
-4. Yeni kimlik doğrulama API anahtarını kopyalayın.
-5. Yeni kimlik doğrulama API anahtarını kullanmak için uygulama kodunuzu, ortam değişkenlerinizi ve tüm dağıtım yapılandırmalarınızı güncelleyin.
-6. Uygulamanızı test ederek yeni anahtarla doğru şekilde çalıştığını doğrulayın.
-7. Doğrulandıktan sonra, kötüye kullanımı önlemek için eski trafik anahtarınızı silin veya iptal edin.
+1. ไปที่หน้าคีย์ API ของ [AI Studio](https://aistudio.google.com/api-keys?hl=th)
+2. ตรวจสอบคอลัมน์**ประเภทคีย์** เพื่อระบุคีย์ที่แสดงเป็น**มาตรฐาน**
+3. คลิก**สร้างคีย์ API** เพื่อสร้างคีย์ใหม่ คีย์ใหม่ทั้งหมดที่สร้างใน AI Studio จะสร้างเป็นคีย์ auth โดยอัตโนมัติ
+4. คัดลอกคีย์ API auth ใหม่
+5. อัปเดตโค้ดของแอปพลิเคชัน ตัวแปรสภาพแวดล้อม และการกำหนดค่าการทำให้ใช้งานได้ทั้งหมดให้ใช้คีย์ API การตรวจสอบสิทธิ์ใหม่
+6. ทดสอบแอปพลิเคชันเพื่อยืนยันว่าแอปพลิเคชันทำงานได้อย่างถูกต้องด้วยคีย์ใหม่
+7. เมื่อยืนยันแล้ว ให้ลบหรือเพิกถอนคีย์การรับส่งข้อมูลเก่าเพื่อป้องกันการใช้งานในทางที่ผิด
 
-## Sınırlamalar
+## ข้อจำกัด
 
-Google AI Studio, proje ve anahtar yönetimiyle ilgili aşağıdaki sınırlamaları uygular:
+Google AI Studio มีข้อจำกัดต่อไปนี้เกี่ยวกับการจัดการโปรเจ็กต์และคีย์
 
-- Google AI Studio **Projeler** sayfasında tek seferde en fazla 10 proje oluşturabilirsiniz.
-- **API anahtarları** ve **Projeler** sayfalarında en fazla 100 anahtar ve 50 proje gösterilir.
-- Yalnızca kısıtlanmamış veya özellikle Generative Language API (Gemini API) ile kısıtlanmış API anahtarları gösterilir.
+- คุณสร้างโปรเจ็กต์ได้สูงสุดครั้งละ 10 โปรเจ็กต์จากหน้า**โปรเจ็กต์** ของ Google AI Studio
+- หน้า**คีย์ API** และ**โปรเจ็กต์** จะแสดงคีย์ได้สูงสุด 100 คีย์และโปรเจ็กต์ได้สูงสุด 50 โปรเจ็กต์
+- ระบบจะแสดงเฉพาะคีย์ API ที่ไม่จำกัดหรือจำกัดไว้สำหรับ Generative Language API (Gemini API) โดยเฉพาะ
 
-Gelişmiş proje yönetimi veya anahtarları diğer kısıtlamalarla değiştirmek için [Google Cloud Console kimlik bilgileri sayfasını](https://console.cloud.google.com/apis/credentials?hl=tr) kullanın.
+หากต้องการจัดการโปรเจ็กต์ขั้นสูงหรือแก้ไขคีย์ที่มีข้อจำกัดอื่นๆ ให้ใช้
+[หน้าข้อมูลเข้าสู่ระบบคอนโซล Google Cloud](https://console.cloud.google.com/apis/credentials?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-06-24 UTC.
+อัปเดตล่าสุด 2026-06-24 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-24 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-24 UTC"],[],[]]

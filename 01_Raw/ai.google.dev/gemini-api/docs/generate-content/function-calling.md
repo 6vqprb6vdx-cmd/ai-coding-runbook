@@ -1,43 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=th
-fetched_at: 2026-06-29T05:30:02.732025+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e01\u0e43\u0e0a\u0e49\u0e1f\u0e31\u0e07\u0e01\u0e4c\u0e0a\u0e31\u0e19\u0e14\u0e49\u0e27\u0e22 Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=vi
+fetched_at: 2026-07-06T05:19:59.007507+00:00
+title: "G\u1ecdi h\u00e0m b\u1eb1ng Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# การเรียกใช้ฟังก์ชันด้วย Gemini API
+# Gọi hàm bằng Gemini API
 
-การเรียกใช้ฟังก์ชันช่วยให้คุณเชื่อมต่อโมเดลกับเครื่องมือและ API ภายนอกได้
-โมเดลจะพิจารณาเวลาที่จะเรียกใช้ฟังก์ชันที่เฉพาะเจาะจงและระบุพารามิเตอร์ที่จำเป็นเพื่อดำเนินการในโลกแห่งความเป็นจริงแทนที่จะสร้างคำตอบเป็นข้อความ
-ซึ่งช่วยให้โมเดลทำหน้าที่เป็นตัวเชื่อมระหว่างภาษาธรรมชาติกับ
-การดำเนินการและข้อมูลในโลกแห่งความเป็นจริงได้ การเรียกใช้ฟังก์ชันมีกรณีการใช้งานหลักๆ 3 กรณีดังนี้
+Tính năng gọi hàm cho phép bạn kết nối các mô hình với các công cụ và API bên ngoài.
+Thay vì tạo phản hồi bằng văn bản, mô hình sẽ xác định thời điểm gọi các hàm cụ thể và cung cấp các tham số cần thiết để thực thi các hành động trong thế giới thực.
+Điều này cho phép mô hình đóng vai trò là cầu nối giữa ngôn ngữ tự nhiên và các hành động cũng như dữ liệu trong thế giới thực. Tính năng gọi hàm có 3 trường hợp sử dụng chính:
 
-- [**ดำเนินการ:**](#meeting) โต้ตอบกับระบบภายนอกโดยใช้ API เช่น
-  กำหนดเวลานัดหมาย สร้างใบแจ้งหนี้ ส่งอีเมล หรือควบคุม
-  อุปกรณ์สมาร์ทโฮม
-- [**เพิ่มพูนความรู้:**](#weather) เข้าถึงข้อมูลจากแหล่งที่มาภายนอก เช่น
-  ฐานข้อมูล, API และฐานความรู้
-- [**ขยายขีดความสามารถ:**](#chart) ใช้เครื่องมือภายนอกเพื่อทำการคำนวณและ
-  ขยายข้อจำกัดของโมเดล เช่น การใช้เครื่องคิดเลขหรือการสร้าง
-  แผนภูมิ
+- [**Thực hiện hành động:**](#meeting) Tương tác với các hệ thống bên ngoài bằng API, chẳng hạn như lên lịch hẹn, tạo hoá đơn, gửi email hoặc điều khiển các thiết bị nhà thông minh.
+- [**Tăng cường kiến thức:**](#weather) Truy cập thông tin từ các nguồn bên ngoài như cơ sở dữ liệu, API và cơ sở kiến thức.
+- [**Mở rộng khả năng:**](#chart) Sử dụng các công cụ bên ngoài để thực hiện phép tính và mở rộng các giới hạn của mô hình, chẳng hạn như sử dụng máy tính hoặc tạo biểu đồ.
 
-คุณสามารถเรียกดูตัวอย่างกรณีการใช้งานเหล่านี้ได้ที่ด้านล่าง
+Bạn có thể duyệt xem ví dụ về các trường hợp sử dụng này bên dưới:
 
-### กำหนดเวลาการประชุม
+### Lên lịch họp
 
-ตัวอย่างนี้แสดงวิธีสร้างฟังก์ชันที่กำหนดเวลาการประชุมกับผู้เข้าร่วมในเวลาที่เฉพาะเจาะจง ซึ่งจะช่วยให้โมเดลแยกวิเคราะห์คำขอของผู้ใช้และแสดงอาร์กิวเมนต์ที่มีโครงสร้างเพื่อทริกเกอร์การดำเนินการในระบบภายนอกได้
+Ví dụ này cho thấy cách xác định một hàm lên lịch cuộc họp với người tham dự vào một thời điểm cụ thể, cho phép mô hình phân tích cú pháp các yêu cầu của người dùng và trả về các đối số có cấu trúc để kích hoạt các hành động trong hệ thống bên ngoài.
 
 ### Python
 
@@ -215,9 +209,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### ดูสภาพอากาศ
+### Nhận thông tin thời tiết
 
-ตัวอย่างนี้แสดงวิธีสร้างฟังก์ชันที่ดึงข้อมูลอุณหภูมิของสถานที่ตั้ง ซึ่งช่วยให้โมเดลเรียกใช้ API ภายนอกเพื่อตอบคำค้นหาที่ต้องใช้ข้อมูลแบบเรียลไทม์หรือข้อมูลภายนอกได้
+Ví dụ này cho thấy cách xác định một hàm truy xuất dữ liệu nhiệt độ cho một vị trí, cho phép mô hình gọi các API bên ngoài để trả lời những truy vấn yêu cầu thông tin theo thời gian thực hoặc thông tin bên ngoài.
 
 ### Python
 
@@ -356,9 +350,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### สร้างแผนภูมิ
+### Tạo biểu đồ
 
-ตัวอย่างนี้แสดงวิธีกำหนดฟังก์ชันที่สร้างแผนภูมิแท่งจาก Structured Data ซึ่งแสดงให้เห็นว่าโมเดลใช้เครื่องมือภายนอกเพื่อทำการคำนวณหรือสร้างชิ้นงานภาพได้อย่างไร
+Ví dụ này cho thấy cách xác định một hàm tạo biểu đồ thanh từ dữ liệu có cấu trúc, minh hoạ cách mô hình có thể sử dụng các công cụ bên ngoài để thực hiện các phép tính hoặc tạo tài sản trực quan:
 
 ### Python
 
@@ -528,44 +522,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## วิธีการทำงานของการเรียกใช้ฟังก์ชัน
+## Cách hoạt động của tính năng gọi hàm
 
-![ภาพรวม
-การเรียกใช้ฟังก์ชัน](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=th)
+![tổng quan về tính năng gọi hàm](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=vi)
 
-การเรียกใช้ฟังก์ชันเกี่ยวข้องกับการโต้ตอบที่มีโครงสร้างระหว่างแอปพลิเคชัน โมเดล และฟังก์ชันภายนอก
-รายละเอียดของกระบวนการมีดังนี้
+Gọi hàm là một hoạt động tương tác có cấu trúc giữa ứng dụng, mô hình và các hàm bên ngoài. Sau đây là thông tin chi tiết về quy trình này:
 
-1. **กำหนดการประกาศฟังก์ชัน:** กำหนดการประกาศฟังก์ชันในโค้ดของแอปพลิเคชัน การประกาศฟังก์ชันจะอธิบายชื่อ พารามิเตอร์ และวัตถุประสงค์ของฟังก์ชันต่อโมเดล
-2. **เรียกใช้ API ด้วยการประกาศฟังก์ชัน:** ส่งพรอมต์ของผู้ใช้พร้อมกับการประกาศฟังก์ชันไปยังโมเดล โดยจะวิเคราะห์คำขอและพิจารณาว่าการเรียกใช้ฟังก์ชันจะเป็นประโยชน์หรือไม่
-   หากเป็นเช่นนั้น โมเดลจะตอบกลับด้วยออบเจ็กต์ JSON ที่มีโครงสร้าง
-   ซึ่งมีชื่อฟังก์ชัน อาร์กิวเมนต์ และ `id` ที่ไม่ซ้ำกัน
-   (ตอนนี้ API จะส่งคืน `id` เสมอสำหรับโมเดล Gemini 3\*)
-3. **เรียกใช้โค้ดฟังก์ชัน (ความรับผิดชอบของคุณ):** โมเดล*ไม่*
-   เรียกใช้ฟังก์ชันด้วยตัวเอง แอปพลิเคชันของคุณมีหน้าที่
-   ประมวลผลการตอบกลับและตรวจสอบการเรียกใช้ฟังก์ชัน หาก
-   - **ใช่**: แยกชื่อ อาร์กิวเมนต์ และ`id`ของฟังก์ชัน แล้วเรียกใช้
-     ฟังก์ชันที่เกี่ยวข้องในแอปพลิเคชัน
-   - **ไม่ได้:** โมเดลได้ให้คำตอบเป็นข้อความโดยตรงต่อพรอมต์
-     (โฟลว์นี้ได้รับการเน้นย้ำน้อยกว่าในตัวอย่าง แต่ก็เป็นผลลัพธ์ที่เป็นไปได้)
-4. **สร้างคำตอบที่ใช้งานง่าย:** หากมีการเรียกใช้ฟังก์ชัน ให้บันทึกผลลัพธ์
-   และส่งกลับไปยังโมเดล โดยตรวจสอบว่าคุณได้รวม`id`ที่ตรงกัน
-   ไว้ในการสนทนาในรอบถัดไป โดยจะใช้ผลลัพธ์เพื่อ
-   สร้างคำตอบสุดท้ายที่ใช้งานง่ายซึ่งรวมข้อมูล
-   จากการเรียกใช้ฟังก์ชัน
+1. **Xác định khai báo hàm:** Xác định khai báo hàm trong mã xử lý ứng dụng của bạn. Khai báo hàm mô tả tên, tham số và mục đích của hàm cho mô hình.
+2. **Gọi API bằng các khai báo hàm:** Gửi câu lệnh của người dùng cùng với(các) khai báo hàm đến mô hình. Nó phân tích yêu cầu và xác định xem việc gọi hàm có hữu ích hay không. Nếu có, hệ thống sẽ phản hồi bằng một đối tượng JSON có cấu trúc chứa tên hàm, đối số và một `id` duy nhất (API hiện luôn trả về `id` này cho các mô hình Gemini 3\*).
+3. **Thực thi mã hàm (trách nhiệm của bạn):** Mô hình *không* tự thực thi hàm. Ứng dụng của bạn có trách nhiệm xử lý phản hồi và kiểm tra lệnh gọi hàm. Nếu
+   - **Có**: Trích xuất tên, đối số và `id` của hàm rồi thực thi hàm tương ứng trong ứng dụng của bạn.
+   - **Không:** Mô hình đã đưa ra câu trả lời bằng văn bản trực tiếp cho câu lệnh (luồng này ít được nhấn mạnh trong ví dụ nhưng là một kết quả có thể xảy ra).
+4. **Tạo câu trả lời thân thiện với người dùng:** Nếu một hàm đã được thực thi, hãy thu thập kết quả và gửi lại cho mô hình, đảm bảo bạn đưa `id` phù hợp vào lượt trò chuyện tiếp theo. Công cụ này sẽ sử dụng kết quả để tạo ra một phản hồi cuối cùng, thân thiện với người dùng, kết hợp thông tin từ lệnh gọi hàm.
 
-กระบวนการนี้สามารถทำซ้ำได้หลายรอบ ซึ่งช่วยให้เกิดการโต้ตอบและเวิร์กโฟลว์ที่ซับซ้อน นอกจากนี้ โมเดลยังรองรับการเรียกฟังก์ชันหลายรายการ
-ในเทิร์นเดียว ([การเรียกฟังก์ชันแบบขนาน](#parallel_function_calling)) ตาม
-ลำดับ ([การเรียกฟังก์ชันแบบคอมโพสิต](#compositional_function_calling))
-และด้วยเครื่องมือ Gemini ในตัว ([การใช้เครื่องมือหลายอย่าง](#native-tools))
+Quá trình này có thể được lặp lại nhiều lần, cho phép các quy trình và hoạt động tương tác phức tạp. Mô hình này cũng hỗ trợ việc gọi nhiều hàm trong một lượt ([gọi hàm song song](#parallel_function_calling)), theo trình tự ([gọi hàm thành phần](#compositional_function_calling)) và bằng các công cụ Gemini tích hợp ([sử dụng nhiều công cụ](#native-tools)).
 
-\* **แมปรหัสฟังก์ชันเสมอ:** ตอนนี้ Gemini 3 จะส่งคืน`id`ที่ไม่ซ้ำกันเสมอ
-`functionCall` ใส่`id`นี้ใน`functionResponse`
-เพื่อให้โมเดลสามารถเชื่อมโยงผลลัพธ์กลับไปยังคำขอเดิมได้อย่างแม่นยำ
+\* **Luôn liên kết mã nhận dạng hàm:** Gemini 3 hiện luôn trả về một `id` duy nhất với mọi `functionCall`. Hãy thêm chính xác `id` này vào `functionResponse` để mô hình có thể ánh xạ chính xác kết quả của bạn về yêu cầu ban đầu.
 
-### ขั้นตอนที่ 1: กำหนดการประกาศฟังก์ชัน
+### Bước 1: Xác định một khai báo hàm
 
-กำหนดฟังก์ชันและการประกาศภายในโค้ดของแอปพลิเคชันที่อนุญาตให้ผู้ใช้ตั้งค่าแสงและส่งคำขอ API ฟังก์ชันนี้อาจเรียกใช้บริการหรือ API ภายนอก
+Xác định một hàm và khai báo của hàm đó trong mã xử lý ứng dụng để cho phép người dùng đặt giá trị ánh sáng và đưa ra yêu cầu API. Hàm này có thể gọi các dịch vụ hoặc API bên ngoài.
 
 ### Python
 
@@ -646,11 +622,9 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### ขั้นตอนที่ 2: เรียกใช้โมเดลด้วยการประกาศฟังก์ชัน
+### Bước 2: Gọi mô hình bằng các khai báo hàm
 
-เมื่อกำหนดการประกาศฟังก์ชันแล้ว คุณสามารถแจ้งให้โมเดล
-ใช้ฟังก์ชันเหล่านั้นได้ โดยจะวิเคราะห์พรอมต์และการประกาศฟังก์ชัน แล้วตัดสินใจว่าจะตอบกลับโดยตรงหรือเรียกใช้ฟังก์ชัน หากมีการเรียกใช้ฟังก์ชัน ออบเจ็กต์การตอบกลับ
-จะมีคำแนะนำในการเรียกใช้ฟังก์ชัน
+Sau khi xác định các khai báo hàm, bạn có thể nhắc mô hình sử dụng các khai báo đó. Công cụ này phân tích câu lệnh và khai báo hàm, đồng thời quyết định có nên phản hồi trực tiếp hay gọi một hàm. Nếu một hàm được gọi, đối tượng phản hồi sẽ chứa một đề xuất gọi hàm.
 
 ### Python
 
@@ -712,9 +686,7 @@ const response = await ai.models.generateContent({
 console.log(response.functionCalls[0]);
 ```
 
-จากนั้นโมเดลจะแสดงออบเจ็กต์ `functionCall` ในสคีมาที่เข้ากันได้กับ OpenAPI
-ซึ่งระบุวิธีเรียกใช้ฟังก์ชันที่ประกาศไว้ตั้งแต่ 1 รายการขึ้นไปเพื่อ
-ตอบคำถามของผู้ใช้
+Sau đó, mô hình sẽ trả về một đối tượng `functionCall` trong một giản đồ tương thích với OpenAPI, chỉ định cách gọi một hoặc nhiều hàm đã khai báo để trả lời câu hỏi của người dùng.
 
 ### Python
 
@@ -732,10 +704,9 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 }
 ```
 
-### ขั้นตอนที่ 3: เรียกใช้โค้ดฟังก์ชัน set\_light\_values
+### Bước 3: Thực thi mã hàm set\_light\_values
 
-ดึงรายละเอียดการเรียกใช้ฟังก์ชันจากการตอบกลับของโมเดล แยกวิเคราะห์อาร์กิวเมนต์
-และเรียกใช้`set_light_values`ฟังก์ชัน
+Trích xuất thông tin chi tiết về lệnh gọi hàm từ phản hồi của mô hình, phân tích cú pháp các đối số và thực thi hàm `set_light_values`.
 
 ### Python
 
@@ -761,10 +732,9 @@ if (tool_call.name === 'set_light_values') {
 }
 ```
 
-### ขั้นตอนที่ 4: สร้างคำตอบที่ใช้งานง่ายพร้อมผลลัพธ์ของฟังก์ชันและเรียกใช้โมเดลอีกครั้ง
+### Bước 4: Tạo phản hồi thân thiện với người dùng bằng kết quả của hàm và gọi lại mô hình
 
-สุดท้าย ให้ส่งผลลัพธ์ของการเรียกใช้ฟังก์ชันกลับไปยังโมเดลเพื่อให้โมเดลสามารถ
-รวมข้อมูลนี้ไว้ในคำตอบสุดท้ายที่ส่งให้ผู้ใช้
+Cuối cùng, hãy gửi kết quả thực thi hàm trở lại mô hình để mô hình có thể kết hợp thông tin này vào phản hồi cuối cùng cho người dùng.
 
 ### Python
 
@@ -817,77 +787,53 @@ const final_response = await ai.models.generateContent({
 console.log(final_response.text);
 ```
 
-ซึ่งจะเป็นการเสร็จสิ้นขั้นตอนการเรียกใช้ฟังก์ชัน โมเดลใช้ฟังก์ชัน
-`set_light_values` เพื่อดำเนินการตามคำขอของผู้ใช้ได้สำเร็จ
+Thao tác này sẽ hoàn tất quy trình gọi hàm. Mô hình đã sử dụng thành công hàm `set_light_values` để thực hiện hành động theo yêu cầu của người dùng.
 
-## การประกาศฟังก์ชัน
+## Khai báo hàm
 
-เมื่อใช้การเรียกใช้ฟังก์ชันในพรอมต์ คุณจะสร้างออบเจ็กต์ `tools`
-ซึ่งมี `function declarations` อย่างน้อย 1 รายการ คุณกำหนดฟังก์ชันโดยใช้ JSON โดยเฉพาะกับ[ชุดย่อยที่เลือก](https://ai.google.dev/api/caching?hl=th#Schema)
-ของรูปแบบ[สคีมา OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw) การประกาศฟังก์ชันเดียวอาจมีพารามิเตอร์ต่อไปนี้
+Khi triển khai tính năng gọi hàm trong một câu lệnh, bạn sẽ tạo một đối tượng `tools` chứa một hoặc nhiều `function declarations`. Bạn xác định các hàm bằng JSON, cụ thể là bằng một [tập hợp con chọn lọc](https://ai.google.dev/api/caching?hl=vi#Schema) của định dạng [giản đồ OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). Một khai báo hàm duy nhất có thể bao gồm các tham số sau:
 
-- `name` (สตริง): ชื่อที่ไม่ซ้ำกันสำหรับฟังก์ชัน (`get_weather_forecast`,
-  `send_email`) ใช้ชื่อที่สื่อความหมายโดยไม่มีช่องว่างหรืออักขระพิเศษ
-  (ใช้อักขระขีดล่างหรือ CamelCase)
-- `description` (string): คำอธิบายที่ชัดเจนและละเอียดเกี่ยวกับวัตถุประสงค์และความสามารถของฟังก์ชัน
-  ซึ่งเป็นสิ่งสำคัญเพื่อให้โมเดลเข้าใจว่าเมื่อใดควรใช้ฟังก์ชัน ระบุรายละเอียดและยกตัวอย่างหากเป็นประโยชน์ ("ค้นหา
-  โรงภาพยนตร์ตามสถานที่ตั้งและชื่อภาพยนตร์ (ไม่บังคับ) ซึ่งกำลัง
-  ฉายอยู่ในโรงภาพยนตร์")
-- `parameters` (ออบเจ็กต์): กำหนดพารามิเตอร์อินพุตที่ฟังก์ชัน
-  คาดหวัง
-  - `type` (สตริง): ระบุประเภทข้อมูลโดยรวม เช่น `object`
-  - `properties` (ออบเจ็กต์): แสดงรายการพารามิเตอร์แต่ละรายการ โดยแต่ละรายการมีข้อมูลต่อไปนี้
-    - `type` (string): ประเภทข้อมูลของพารามิเตอร์ เช่น `string`,
-      `integer`, `boolean, array`
-    - `description` (สตริง): คำอธิบายวัตถุประสงค์และรูปแบบของพารามิเตอร์ ระบุตัวอย่างและข้อจำกัด ("เมืองและรัฐ เช่น 'ซานฟรานซิสโก แคลิฟอร์เนีย' หรือรหัสไปรษณีย์ เช่น '95616'")
-    - `enum` (อาร์เรย์ ไม่บังคับ): หากค่าพารามิเตอร์มาจากชุดที่กำหนด
-      ไว้ ให้ใช้ "enum" เพื่อแสดงค่าที่อนุญาตแทนการอธิบายค่าเหล่านั้น
-      ในคำอธิบาย ซึ่งจะช่วยเพิ่มความแม่นยำ ("enum":
-      ["daylight", "cool", "warm"])
-  - `required` (อาร์เรย์): อาร์เรย์ของสตริงที่แสดงชื่อพารามิเตอร์ที่
-    จำเป็นเพื่อให้ฟังก์ชันทำงานได้
+- `name` (chuỗi): Tên duy nhất cho hàm (`get_weather_forecast`, `send_email`). Sử dụng tên mô tả không có dấu cách hoặc ký tự đặc biệt (sử dụng dấu gạch dưới hoặc camelCase).
+- `description` (chuỗi): Nội dung giải thích rõ ràng và chi tiết về mục đích và khả năng của hàm. Điều này rất quan trọng để mô hình hiểu được thời điểm sử dụng hàm. Hãy nêu cụ thể và đưa ra ví dụ nếu hữu ích ("Tìm rạp chiếu phim dựa trên vị trí và tiêu đề phim (không bắt buộc) đang chiếu tại rạp.").
+- `parameters` (đối tượng): Xác định các tham số đầu vào mà hàm mong đợi.
+  - `type` (chuỗi): Chỉ định loại dữ liệu tổng thể, chẳng hạn như `object`.
+  - `properties` (đối tượng): Liệt kê các thông số riêng lẻ, mỗi thông số có:
+    - `type` (chuỗi): Loại dữ liệu của tham số, chẳng hạn như `string`, `integer`, `boolean, array`.
+    - `description` (chuỗi): Nội dung mô tả về mục đích và định dạng của tham số. Đưa ra ví dụ và các ràng buộc ("Thành phố và tiểu bang, ví dụ: "San Francisco, CA" hoặc mã zip, ví dụ: "95616").
+    - `enum` (mảng, không bắt buộc): Nếu các giá trị tham số thuộc một tập hợp cố định, hãy sử dụng "enum" để liệt kê các giá trị được phép thay vì chỉ mô tả các giá trị đó trong phần mô tả. Điều này giúp cải thiện độ chính xác ("enum":["daylight", "cool", "warm"]).
+  - `required` (mảng): Một mảng gồm các chuỗi liệt kê tên tham số bắt buộc để hàm hoạt động.
 
-นอกจากนี้ คุณยังสร้าง `FunctionDeclarations` จากฟังก์ชัน Python ได้โดยตรงโดยใช้
-`types.FunctionDeclaration.from_callable(client=client, callable=your_function)`
+Bạn cũng có thể tạo `FunctionDeclarations` trực tiếp từ các hàm Python bằng cách sử dụng `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
 
-## การเรียกใช้ฟังก์ชันด้วยโมเดลการคิด
+## Gọi hàm bằng mô hình tư duy
 
-โมเดล Gemini 3 และ 2.5 ใช้กระบวนการ["การคิด"](https://ai.google.dev/gemini-api/docs/thinking?hl=th) ภายในเพื่อหาเหตุผลสำหรับคำขอ ซึ่งจะช่วยปรับปรุงประสิทธิภาพการเรียกใช้ฟังก์ชันได้อย่างมาก
-ทำให้โมเดลกำหนดได้ดียิ่งขึ้นว่าจะเรียกใช้ฟังก์ชันเมื่อใดและจะใช้พารามิเตอร์ใด
-เนื่องจาก Gemini API เป็นแบบไม่เก็บสถานะ โมเดลจึงใช้[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)เพื่อรักษาบริบทในการสนทนาแบบหลายรอบ
+Các mô hình Gemini 3 và 2.5 sử dụng quy trình ["tư duy"](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) nội bộ để suy luận về các yêu cầu. Điều này giúp cải thiện đáng kể hiệu suất gọi hàm, cho phép mô hình xác định chính xác hơn thời điểm gọi hàm và tham số cần sử dụng. Vì Gemini API không lưu giữ trạng thái, nên các mô hình sử dụng [chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để duy trì ngữ cảnh trong các cuộc trò chuyện nhiều lượt.
 
-ส่วนนี้ครอบคลุมการจัดการลายเซ็นความคิดขั้นสูง และจำเป็นเฉพาะในกรณีที่คุณสร้างคำขอ API ด้วยตนเอง (เช่น ผ่าน REST) หรือจัดการประวัติการสนทนา
+Phần này đề cập đến việc quản lý nâng cao chữ ký suy nghĩ và chỉ cần thiết nếu bạn đang tạo Yêu cầu API theo cách thủ công (ví dụ: thông qua REST) hoặc thao tác với nhật ký cuộc trò chuyện.
 
-**หากใช้ [SDK ของ GenAI ของ Google](https://ai.google.dev/gemini-api/docs/libraries?hl=th) (ไลบรารีอย่างเป็นทางการของเรา) คุณไม่จำเป็นต้องจัดการกระบวนการนี้** SDK
-จะจัดการขั้นตอนที่จำเป็นโดยอัตโนมัติ ดังที่แสดงใน[ตัวอย่าง](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#step-4)ก่อนหน้า
+**Nếu đang sử dụng [SDK AI tạo sinh của Google](https://ai.google.dev/gemini-api/docs/libraries?hl=vi) (các thư viện chính thức của chúng tôi), bạn không cần quản lý quy trình này**. Các SDK sẽ tự động xử lý các bước cần thiết, như minh hoạ trong [ví dụ](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-4) trước đó.
 
-### การจัดการประวัติการสนทนาด้วยตนเอง
+### Quản lý cuộc trò chuyện theo cách thủ công
 
-หากคุณแก้ไขประวัติการสนทนาด้วยตนเองแทนที่จะส่ง[คำตอบก่อนหน้าทั้งหมด](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#step-4) คุณต้องจัดการ `thought_signature` ที่รวมอยู่ในเทิร์นของโมเดลอย่างถูกต้อง
+Nếu sửa đổi nhật ký trò chuyện theo cách thủ công, thay vì gửi [phản hồi hoàn chỉnh trước đó](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-4), bạn phải xử lý chính xác `thought_signature` có trong lượt của mô hình.
 
-ทำตามกฎต่อไปนี้เพื่อให้บริบทของโมเดลยังคงอยู่
+Hãy tuân thủ các quy tắc sau để đảm bảo ngữ cảnh của mô hình được giữ nguyên:
 
-- ส่ง `thought_signature` กลับไปยังโมเดลภายใน [`Part`](https://ai.google.dev/api?hl=th#request-body-structure) เดิมเสมอ
-- **ใส่ `id` ที่แน่นอนจาก `function_call` ใน `function_response` เสมอ เพื่อให้ API แมปผลลัพธ์กับคำขอที่ถูกต้องได้**
-- อย่าผสาน `Part` ที่มีลายเซ็นกับ `Part` ที่ไม่มีลายเซ็น ซึ่ง
-  จะทำลายบริบทเชิงตำแหน่งของความคิด
-- อย่ารวม `Parts` 2 รายการที่มีลายเซ็น เนื่องจากระบบจะผสานสตริงลายเซ็นไม่ได้
+- Luôn gửi `thought_signature` trở lại mô hình bên trong [`Part`](https://ai.google.dev/api?hl=vi#request-body-structure) ban đầu.
+- **Luôn thêm chính xác `id` từ `function_call` vào `function_response` để API có thể ánh xạ kết quả đến yêu cầu chính xác.**
+- Đừng hợp nhất một `Part` chứa chữ ký với một `Part` không chứa chữ ký. Điều này phá vỡ ngữ cảnh vị trí của suy nghĩ.
+- Đừng kết hợp hai `Parts` đều chứa chữ ký, vì bạn không thể hợp nhất các chuỗi chữ ký.
 
-#### ลายเซ็นความคิดของ Gemini 3
+#### Chữ ký tư duy của Gemini 3
 
-ใน Gemini 3 [`Part`](https://ai.google.dev/api?hl=th#request-body-structure) ของคำตอบจากโมเดล
-อาจมีลายเซ็นความคิด
-แม้ว่าโดยทั่วไปเราจะแนะนำให้ส่งคืนลายเซ็นจาก`Part`ทุกประเภท
-แต่การส่งคืนลายเซ็นความคิดเป็นข้อบังคับสำหรับการเรียกใช้ฟังก์ชัน เว้นแต่คุณจะ
-จัดการประวัติการสนทนาด้วยตนเอง Google GenAI SDK จะ
-จัดการลายเซ็นความคิดโดยอัตโนมัติ
+Trong Gemini 3, mọi [`Part`](https://ai.google.dev/api?hl=vi#request-body-structure) của câu trả lời do mô hình tạo có thể chứa chữ ký suy nghĩ.
+Mặc dù thường thì bạn nên trả về chữ ký từ tất cả các loại `Part`, nhưng việc truyền lại chữ ký ý tưởng là bắt buộc đối với tính năng gọi hàm. Trừ phi bạn thao tác nhật ký cuộc trò chuyện theo cách thủ công, nếu không, Google GenAI SDK sẽ tự động xử lý chữ ký suy nghĩ.
 
-หากคุณแก้ไขประวัติการสนทนาด้วยตนเอง โปรดดูคำแนะนำและรายละเอียดทั้งหมดเกี่ยวกับการจัดการลายเซ็นความคิดสำหรับ Gemini 3 ในหน้า[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=th)
+Nếu bạn đang thao tác nhật ký cuộc trò chuyện theo cách thủ công, hãy tham khảo trang [Chữ ký suy nghĩ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để biết hướng dẫn và thông tin chi tiết đầy đủ về cách xử lý chữ ký suy nghĩ cho Gemini 3.
 
-##### การตรวจสอบลายเซ็นความคิด
+##### Kiểm tra chữ ký của suy nghĩ
 
-แม้ว่าจะไม่จำเป็นสำหรับการติดตั้งใช้งาน แต่คุณสามารถตรวจสอบการตอบกลับเพื่อดู
-`thought_signature`เพื่อวัตถุประสงค์ในการแก้ไขข้อบกพร่องหรือเพื่อการศึกษา
+Mặc dù không cần thiết cho việc triển khai, nhưng bạn có thể kiểm tra phản hồi để xem `thought_signature` cho mục đích gỡ lỗi hoặc giáo dục.
 
 ### Python
 
@@ -915,18 +861,13 @@ if (part.thoughtSignature) {
 }
 ```
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับข้อจำกัดและการใช้งานลายเซ็นความคิด รวมถึงโมเดลการคิดโดยทั่วไปได้ในหน้า[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#signatures)
+Tìm hiểu thêm về các hạn chế và cách sử dụng chữ ký tư duy, cũng như về các mô hình tư duy nói chung, trên trang [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#signatures).
 
-## การเรียกใช้ฟังก์ชันแบบคู่ขนาน
+## Gọi hàm song song
 
-นอกจากฟังก์ชันการเรียกใช้ฟังก์ชันแบบผลัดกันแล้ว คุณยังเรียกใช้ฟังก์ชันหลายฟังก์ชันพร้อมกันได้ด้วย
-การเรียกใช้ฟังก์ชันแบบขนานช่วยให้คุณเรียกใช้ฟังก์ชันหลายรายการ
-พร้อมกันได้ และใช้เมื่อฟังก์ชันไม่ได้ขึ้นอยู่กับฟังก์ชันอื่น ซึ่งมีประโยชน์ในสถานการณ์ต่างๆ เช่น การรวบรวมข้อมูลจากแหล่งข้อมูลอิสระหลายแหล่ง เช่น การดึงรายละเอียดลูกค้าจากฐานข้อมูลต่างๆ หรือการตรวจสอบระดับสินค้าคงคลังในคลังสินค้าต่างๆ หรือการดำเนินการหลายอย่าง เช่น การเปลี่ยนอพาร์ตเมนต์ให้เป็นดิสโก้
+Ngoài việc gọi hàm một lượt, bạn cũng có thể gọi nhiều hàm cùng lúc. Tính năng gọi hàm song song cho phép bạn thực thi nhiều hàm cùng một lúc và được dùng khi các hàm không phụ thuộc vào nhau. Điều này hữu ích trong các trường hợp như thu thập dữ liệu từ nhiều nguồn độc lập, chẳng hạn như truy xuất thông tin chi tiết về khách hàng từ các cơ sở dữ liệu khác nhau hoặc kiểm tra mức tồn kho ở nhiều kho hàng hoặc thực hiện nhiều hành động như biến căn hộ của bạn thành một vũ trường.
 
-เมื่อโมเดลเริ่มการเรียกใช้ฟังก์ชันหลายครั้งในเทิร์นเดียว คุณไม่จำเป็นต้องส่งคืนออบเจ็กต์ `function_result` ตามลำดับเดียวกับที่ได้รับออบเจ็กต์ `function_call` Gemini API จะแมปผลลัพธ์แต่ละรายการกลับไป
-ยังการเรียกที่เกี่ยวข้องโดยใช้ `id` จากเอาต์พุตของโมเดล ซึ่งจะช่วยให้คุณ
-เรียกใช้ฟังก์ชันแบบไม่พร้อมกันและต่อท้ายผลลัพธ์ในรายการเมื่อ
-ฟังก์ชันทำงานเสร็จ
+Khi mô hình bắt đầu nhiều lệnh gọi hàm trong một lượt, bạn không cần trả về các đối tượng `function_result` theo cùng thứ tự mà các đối tượng `function_call` đã nhận được. Gemini API liên kết từng kết quả với lệnh gọi tương ứng bằng cách sử dụng `id` từ đầu ra của mô hình. Điều này cho phép bạn thực thi các hàm một cách không đồng bộ và thêm kết quả vào danh sách khi chúng hoàn tất.
 
 ### Python
 
@@ -1036,9 +977,8 @@ const dimLights = {
 };
 ```
 
-กำหนดค่าโหมดการเรียกใช้ฟังก์ชันเพื่อให้ใช้เครื่องมือที่ระบุทั้งหมดได้
-ดูข้อมูลเพิ่มเติมได้ที่หัวข้อ
-[การกำหนดค่าการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#function_calling_modes)
+Định cấu hình chế độ gọi hàm để cho phép sử dụng tất cả các công cụ được chỉ định.
+Để tìm hiểu thêm, bạn có thể đọc về [cách định cấu hình tính năng gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#function_calling_modes).
 
 ### Python
 
@@ -1112,13 +1052,9 @@ for (const fn of response.functionCalls) {
 }
 ```
 
-ผลลัพธ์ที่พิมพ์แต่ละรายการแสดงถึงการเรียกใช้ฟังก์ชันเดียวที่โมเดลได้
-ขอ หากต้องการส่งผลลัพธ์กลับ ให้รวมการตอบกลับตามลำดับเดียวกับที่ขอ
+Mỗi kết quả được in phản ánh một lệnh gọi hàm duy nhất mà mô hình đã yêu cầu. Để gửi kết quả trở lại, hãy đưa các phản hồi theo cùng thứ tự như khi chúng được yêu cầu.
 
-Python SDK รองรับ[การเรียกใช้ฟังก์ชันอัตโนมัติ](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#automatic_function_calling_python_only)
-ซึ่งจะแปลงฟังก์ชัน Python เป็นการประกาศโดยอัตโนมัติ จัดการ
-วงจรการดำเนินการและการตอบกลับการเรียกใช้ฟังก์ชันให้คุณ ต่อไปนี้เป็นตัวอย่างสำหรับ
-กรณีการใช้งานดิสโก้
+Python SDK hỗ trợ [tự động gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#automatic_function_calling_python_only), tự động chuyển đổi các hàm Python thành khai báo, xử lý quá trình thực thi lệnh gọi hàm và chu kỳ phản hồi cho bạn. Sau đây là một ví dụ về trường hợp sử dụng disco.
 
 ### Python
 
@@ -1181,19 +1117,15 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## การเรียกใช้ฟังก์ชันแบบคอมโพสิต
+## Gọi hàm thành phần
 
-การเรียกใช้ฟังก์ชันแบบเรียงซ้อนหรือแบบลำดับช่วยให้ Gemini สามารถเชื่อมโยงการเรียกใช้ฟังก์ชันหลายรายการเข้าด้วยกันเพื่อตอบสนองคำขอที่ซับซ้อน เช่น หากต้องการตอบคำถาม "ขออุณหภูมิในตำแหน่งปัจจุบัน" Gemini API อาจเรียกใช้ฟังก์ชัน `get_current_location()` ก่อน แล้วจึงเรียกใช้ฟังก์ชัน `get_weather()` ที่ใช้ตำแหน่งเป็นพารามิเตอร์
+Tính năng gọi hàm theo thành phần hoặc tuần tự cho phép Gemini liên kết nhiều lệnh gọi hàm với nhau để thực hiện một yêu cầu phức tạp. Ví dụ: để trả lời câu hỏi "Nhiệt độ ở vị trí hiện tại của tôi là bao nhiêu", trước tiên, Gemini API có thể gọi một hàm `get_current_location()`, sau đó là một hàm `get_weather()` lấy vị trí làm tham số.
 
-ตัวอย่างต่อไปนี้แสดงวิธีใช้การเรียกใช้ฟังก์ชันแบบคอมโพสิชัน
-โดยใช้ Python SDK และการเรียกใช้ฟังก์ชันอัตโนมัติ
+Ví dụ sau đây minh hoạ cách triển khai lệnh gọi hàm kết hợp bằng cách sử dụng Python SDK và lệnh gọi hàm tự động.
 
 ### Python
 
-ตัวอย่างนี้ใช้ฟีเจอร์การเรียกใช้ฟังก์ชันอัตโนมัติของ
-`google-genai` Python SDK SDK จะแปลงฟังก์ชัน Python
-เป็นสคีมาที่จำเป็นโดยอัตโนมัติ เรียกใช้ฟังก์ชันเมื่อโมเดลร้องขอ
-และส่งผลลัพธ์กลับไปยังโมเดลเพื่อทำงานให้เสร็จสมบูรณ์
+Ví dụ này sử dụng tính năng gọi hàm tự động của SDK Python `google-genai`. SDK tự động chuyển đổi các hàm Python sang giản đồ bắt buộc, thực thi các lệnh gọi hàm khi được mô hình yêu cầu và gửi kết quả trở lại mô hình để hoàn tất tác vụ.
 
 ```
 import os
@@ -1232,12 +1164,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**ผลลัพธ์ที่คาดไว้**
+**Kết quả đầu ra dự kiến**
 
-เมื่อเรียกใช้โค้ด คุณจะเห็น SDK จัดการการเรียกฟังก์ชัน
-โมเดลจะเรียกใช้ `get_weather_forecast` ก่อน จากนั้นรับ
-อุณหภูมิ แล้วเรียกใช้ `set_thermostat_temperature` โดยมีค่าที่ถูกต้อง
-ตามตรรกะในพรอมต์
+Khi chạy mã, bạn sẽ thấy SDK điều phối các lệnh gọi hàm. Trước tiên, mô hình gọi `get_weather_forecast`, nhận nhiệt độ, sau đó gọi `set_thermostat_temperature` với giá trị chính xác dựa trên logic trong câu lệnh.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1249,8 +1178,7 @@ OK. I've set the thermostat to 20°C.
 
 ### JavaScript
 
-ตัวอย่างนี้แสดงวิธีใช้ JavaScript/TypeScript SDK เพื่อเรียกใช้ฟังก์ชันแบบคอมโพสิชัน
-โดยใช้ลูปการดำเนินการด้วยตนเอง
+Ví dụ này cho thấy cách sử dụng JavaScript/TypeScript SDK để thực hiện lệnh gọi hàm kết hợp bằng cách sử dụng vòng lặp thực thi thủ công.
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1379,12 +1307,9 @@ while (true) {
 }
 ```
 
-**ผลลัพธ์ที่คาดไว้**
+**Kết quả đầu ra dự kiến**
 
-เมื่อเรียกใช้โค้ด คุณจะเห็น SDK จัดการการเรียกฟังก์ชัน
-โมเดลจะเรียกใช้ `get_weather_forecast` ก่อน จากนั้นรับ
-อุณหภูมิ แล้วเรียกใช้ `set_thermostat_temperature` โดยมีค่าที่ถูกต้อง
-ตามตรรกะในพรอมต์
+Khi chạy mã, bạn sẽ thấy SDK điều phối các lệnh gọi hàm. Trước tiên, mô hình gọi `get_weather_forecast`, nhận nhiệt độ, sau đó gọi `set_thermostat_temperature` với giá trị chính xác dựa trên logic trong câu lệnh.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1394,9 +1319,7 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-การเรียกใช้ฟังก์ชันแบบคอมโพสิตเป็นฟีเจอร์ [Live
-API](https://ai.google.dev/gemini-api/docs/live?hl=th) ดั้งเดิม ซึ่งหมายความว่า Live API
-สามารถจัดการการเรียกใช้ฟังก์ชันได้คล้ายกับ Python SDK
+Gọi hàm thành phần là một tính năng gốc của [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi). Điều này có nghĩa là Live API có thể xử lý lệnh gọi hàm tương tự như Python SDK.
 
 ### Python
 
@@ -1436,24 +1359,16 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## โหมดการเรียกใช้ฟังก์ชัน
+## Chế độ gọi hàm
 
-Gemini API ช่วยให้คุณควบคุมวิธีที่โมเดลใช้เครื่องมือที่ระบุ (การประกาศฟังก์ชัน) ได้
-โดยคุณสามารถตั้งค่าโหมดได้ภายใน
-`function_calling_config`
+Gemini API cho phép bạn kiểm soát cách mô hình sử dụng các công cụ được cung cấp (khai báo hàm). Cụ thể, bạn có thể đặt chế độ trong `function_calling_config`.
 
-- `VALIDATED`: โหมดเริ่มต้นสำหรับการรวมเครื่องมือ (เมื่อเปิดใช้เครื่องมือในตัวหรือ
-  เอาต์พุตที่มีโครงสร้างด้วย) โมเดลถูกจำกัดให้คาดการณ์ได้ทั้งการเรียกใช้ฟังก์ชันหรือภาษาธรรมชาติ และรับประกันการยึดมั่นในสคีมาของฟังก์ชัน หากไม่ได้ระบุ `allowed_function_names` โมเดลจะเลือกจากประกาศฟังก์ชันที่มีอยู่ทั้งหมด หากระบุ `allowed_function_names` โมเดลจะเลือกจากชุดฟังก์ชันที่อนุญาต โหมดนี้ช่วยลดการเรียกใช้ฟังก์ชันที่รูปแบบไม่ถูกต้อง (เมื่อเทียบกับโหมด `AUTO`)
-- `AUTO`: โหมดเริ่มต้นเมื่อเปิดใช้เครื่องมือ function\_declarations เท่านั้น
-  โมเดลจะตัดสินใจว่าจะสร้างคำตอบที่เป็นภาษาธรรมชาติหรือแนะนำการเรียกใช้ฟังก์ชันโดยอิงตามพรอมต์และบริบท
-- `ANY`: โมเดลถูกจำกัดให้คาดการณ์การเรียกใช้ฟังก์ชันเสมอและ
-  ตรวจสอบว่าสคีมาฟังก์ชันเป็นไปตามข้อกำหนด หากไม่ได้ระบุ `allowed_function_names`
-  โมเดลจะเลือกจากประกาศฟังก์ชันที่ระบุไว้ได้
-  หากระบุ `allowed_function_names` เป็นรายการ โมเดลจะเลือกได้เฉพาะฟังก์ชันในรายการนั้น
-  ใช้โหมดนี้เมื่อคุณต้องการให้ฟังก์ชัน
-  เรียกใช้การตอบกลับทุกพรอมต์ (หากมี)
-- `NONE`: โมเดล*ถูกห้าม*ไม่ให้ทำการเรียกฟังก์ชัน ซึ่งเทียบเท่ากับการส่งคำขอโดยไม่มีการประกาศฟังก์ชันใดๆ ใช้เพื่อ
-  ปิดใช้การเรียกใช้ฟังก์ชันชั่วคราวโดยไม่ต้องนำคำจำกัดความเครื่องมือออก
+- `VALIDATED`: Chế độ mặc định cho tổ hợp công cụ (khi các công cụ tích hợp hoặc đầu ra có cấu trúc cũng được bật). Mô hình này bị hạn chế dự đoán lệnh gọi hàm hoặc ngôn ngữ tự nhiên và đảm bảo tuân thủ giản đồ hàm. Nếu `allowed_function_names` không được cung cấp, mô hình sẽ chọn trong số tất cả các khai báo hàm có sẵn. Nếu `allowed_function_names` được cung cấp, mô hình sẽ chọn trong số các hàm được phép. Chế độ này giúp giảm các lệnh gọi hàm bị lỗi (so với chế độ `AUTO`).
+- `AUTO`: Chế độ mặc định khi chỉ bật công cụ function\_declarations.
+  Mô hình sẽ quyết định có tạo câu trả lời bằng ngôn ngữ tự nhiên hay đề xuất một lệnh gọi hàm dựa trên câu lệnh và bối cảnh.
+- `ANY`: Mô hình bị hạn chế để luôn dự đoán một lệnh gọi hàm và đảm bảo tuân thủ giản đồ hàm. Nếu bạn không chỉ định `allowed_function_names`, mô hình có thể chọn trong số bất kỳ khai báo hàm nào được cung cấp.
+  Nếu `allowed_function_names` được cung cấp dưới dạng một danh sách, thì mô hình chỉ có thể chọn trong số các hàm trong danh sách đó. Sử dụng chế độ này khi bạn yêu cầu phản hồi lệnh gọi hàm cho mọi câu lệnh (nếu có).
+- `NONE`: Mô hình *bị cấm* thực hiện lệnh gọi hàm. Điều này tương đương với việc gửi một yêu cầu mà không có bất kỳ khai báo hàm nào. Sử dụng tuỳ chọn này để tạm thời vô hiệu hoá tính năng gọi hàm mà không cần xoá định nghĩa công cụ.
 
 ### Python
 
@@ -1494,22 +1409,18 @@ const config = {
 };
 ```
 
-## การเรียกใช้ฟังก์ชันอัตโนมัติ (Python เท่านั้น)
+## Gọi hàm tự động (chỉ dành cho Python)
 
-เมื่อใช้ Python SDK คุณจะระบุฟังก์ชัน Python เป็นเครื่องมือได้โดยตรง
-SDK จะแปลงฟังก์ชันเหล่านี้เป็นการประกาศ จัดการการเรียกใช้ฟังก์ชัน
-และการดำเนินการ และจัดการวงจรการตอบกลับให้คุณ กำหนดฟังก์ชันด้วย
-คำแนะนำประเภทและสตริงเอกสาร ขอแนะนำให้ใช้[สตริงเอกสารสไตล์ Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods) เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
-จากนั้น SDK จะดำเนินการต่อไปนี้โดยอัตโนมัติ
+Khi sử dụng Python SDK, bạn có thể cung cấp trực tiếp các hàm Python dưới dạng công cụ.
+SDK chuyển đổi các hàm này thành các khai báo, quản lý việc thực thi lệnh gọi hàm và xử lý chu kỳ phản hồi cho bạn. Xác định hàm bằng các gợi ý về kiểu và chuỗi tài liệu. Để có kết quả tối ưu, bạn nên sử dụng [chuỗi tài liệu theo kiểu của Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
+Sau đó, SDK sẽ tự động:
 
-1. ตรวจหาการตอบกลับการเรียกใช้ฟังก์ชันจากโมเดล
-2. เรียกใช้ฟังก์ชัน Python ที่เกี่ยวข้องในโค้ด
-3. ส่งการตอบกลับของฟังก์ชันกลับไปยังโมเดล
-4. แสดงผลข้อความตอบกลับสุดท้ายของโมเดล
+1. Phát hiện các phản hồi gọi hàm từ mô hình.
+2. Gọi hàm Python tương ứng trong mã của bạn.
+3. Gửi phản hồi của hàm trở lại mô hình.
+4. Trả về phản hồi văn bản cuối cùng của mô hình.
 
-ขณะนี้ SDK ยังไม่ได้แยกวิเคราะห์คำอธิบายอาร์กิวเมนต์ลงในช่องพร็อพเพอร์ตี้
-คำอธิบายของการประกาศฟังก์ชันที่สร้างขึ้น แต่จะส่ง
-สตริงเอกสารทั้งหมดเป็นคำอธิบายฟังก์ชันระดับบนสุด
+SDK hiện không phân tích cú pháp nội dung mô tả đối số thành các vị trí nội dung mô tả thuộc tính của khai báo hàm được tạo. Thay vào đó, nó sẽ gửi toàn bộ chuỗi tài liệu dưới dạng nội dung mô tả hàm cấp cao nhất.
 
 ### Python
 
@@ -1546,7 +1457,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-คุณปิดใช้การเรียกใช้ฟังก์ชันอัตโนมัติได้โดยใช้คำสั่งต่อไปนี้
+Bạn có thể tắt tính năng tự động gọi hàm bằng cách dùng:
 
 ### Python
 
@@ -1557,10 +1468,9 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### การประกาศสคีมาฟังก์ชันอัตโนมัติ
+### Khai báo giản đồ hàm tự động
 
-API สามารถอธิบายประเภทต่อไปนี้ได้ `Pydantic` ได้รับอนุญาต ตราบใดที่ฟิลด์ที่กำหนดไว้ในฟิลด์เหล่านั้นประกอบด้วยประเภทที่ได้รับอนุญาตด้วย
-ระบบไม่รองรับประเภท Dict (เช่น `dict[str: int]`) ที่นี่ ดังนั้นโปรดอย่าใช้
+API này có thể mô tả bất kỳ loại nào sau đây. cho phép các loại `Pydantic`, miễn là các trường được xác định trên các loại này cũng bao gồm các loại được phép. Các loại Dict (chẳng hạn như `dict[str: int]`) không được hỗ trợ tốt ở đây, đừng sử dụng chúng.
 
 ### Python
 
@@ -1569,8 +1479,7 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-หากต้องการดูว่าสคีมาที่อนุมานมีลักษณะอย่างไร คุณสามารถแปลงสคีมาได้โดยใช้
-[`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable)
+Để xem lược đồ suy luận trông như thế nào, bạn có thể chuyển đổi lược đồ đó bằng cách sử dụng [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
 
 ### Python
 
@@ -1589,12 +1498,11 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## การใช้เครื่องมือหลายอย่าง: รวมเครื่องมือในตัวกับการเรียกใช้ฟังก์ชัน
+## Sử dụng nhiều công cụ: Kết hợp các công cụ tích hợp với tính năng gọi hàm
 
-คุณเปิดใช้เครื่องมือหลายอย่างได้โดยการรวมเครื่องมือในตัวเข้ากับการเรียกใช้ฟังก์ชันในคำขอเดียวกัน
+Bạn có thể bật nhiều công cụ, kết hợp các công cụ tích hợp sẵn với tính năng gọi hàm trong cùng một yêu cầu.
 
-โมเดล Gemini 3 สามารถรวมเครื่องมือในตัวเข้ากับการเรียกใช้ฟังก์ชันได้ทันที
-ด้วยฟีเจอร์การหมุนเวียนบริบทของเครื่องมือ อ่านข้อมูลเพิ่มเติมได้ในหน้า[การรวมเครื่องมือในตัวและการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Các mô hình Gemini 3 có thể kết hợp các công cụ tích hợp với tính năng gọi hàm ngay lập tức, nhờ tính năng truyền ngữ cảnh công cụ. Hãy đọc trang về [Kết hợp các công cụ tích hợp và tính năng gọi hàm](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi) để tìm hiểu thêm.
 
 ### Python
 
@@ -1736,24 +1644,21 @@ async function run() {
 run();
 ```
 
-สำหรับโมเดลก่อนซีรีส์ Gemini 3 ให้ใช้ [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=th)
+Đối với các mô hình trước dòng Gemini 3, hãy sử dụng [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=vi).
 
-## การตอบกลับฟังก์ชันหลายรูปแบบ
+## Phản hồi của hàm đa phương thức
 
-สำหรับโมเดลซีรีส์ Gemini 3 คุณสามารถรวมเนื้อหาหลายรูปแบบไว้ในส่วนการตอบกลับฟังก์ชันที่ส่งไปยังโมเดลได้ โมเดลสามารถประมวลผล
-เนื้อหามัลติโมดัลนี้ในรอบถัดไปเพื่อสร้างคำตอบที่อิงตามข้อมูลมากขึ้น
-ระบบรองรับประเภท MIME ต่อไปนี้สำหรับเนื้อหามัลติโมดอลในคำตอบของฟังก์ชัน
+Đối với các mô hình Gemini 3, bạn có thể đưa nội dung đa phương thức vào các phần phản hồi của hàm mà bạn gửi đến mô hình. Mô hình có thể xử lý nội dung đa phương thức này trong lượt tiếp theo để đưa ra câu trả lời có nhiều thông tin hơn.
+Các loại MIME sau đây được hỗ trợ cho nội dung đa phương thức trong các phản hồi của hàm:
 
-- **รูปภาพ**: `image/png`, `image/jpeg`, `image/webp`
-- **เอกสาร**: `application/pdf`, `text/plain`
+- **Hình ảnh**: `image/png`, `image/jpeg`, `image/webp`
+- **Tài liệu**: `application/pdf`, `text/plain`
 
-หากต้องการรวมข้อมูลหลายรูปแบบในการตอบกลับของฟังก์ชัน ให้รวมข้อมูลเป็นส่วนอย่างน้อย 1 ส่วนที่ซ้อนอยู่ภายในส่วน `functionResponse` ชิ้นส่วนมัลติโมดัลแต่ละชิ้นต้องมี`inlineData` หากอ้างอิงชิ้นส่วนมัลติโมดัลจากภายในฟิลด์ `response` ที่มีโครงสร้าง จะต้องมี `displayName` ที่ไม่ซ้ำกัน
+Để đưa dữ liệu đa phương thức vào một phản hồi của hàm, hãy đưa dữ liệu đó vào dưới dạng một hoặc nhiều phần được lồng trong phần `functionResponse`. Mỗi phần đa phương thức phải chứa `inlineData`. Nếu bạn tham chiếu một phần đa phương thức từ trong trường `response` có cấu trúc, thì phần đó phải chứa một `displayName` duy nhất.
 
-นอกจากนี้ คุณยังอ้างอิงชิ้นส่วนมัลติโมดัลจากภายใน`response`ฟิลด์ของ `functionResponse` ชิ้นส่วนที่มีโครงสร้างได้โดยใช้รูปแบบการอ้างอิง JSON `{"$ref": "<displayName>"}` โมเดลจะแทนที่ข้อมูลอ้างอิงด้วย
-เนื้อหามัลติโมดัลเมื่อประมวลผลคำตอบ `displayName` แต่ละรายการจะอ้างอิงได้เพียงครั้งเดียวในฟิลด์ `response` ที่มีโครงสร้าง
+Bạn cũng có thể tham chiếu một phần đa phương thức từ trong trường `response` có cấu trúc của phần `functionResponse` bằng cách sử dụng định dạng tham chiếu JSON `{"$ref": "<displayName>"}`. Mô hình sẽ thay thế thông tin tham khảo bằng nội dung đa phương thức khi xử lý phản hồi. Bạn chỉ có thể tham chiếu mỗi `displayName` một lần trong trường `response` có cấu trúc.
 
-ตัวอย่างต่อไปนี้แสดงข้อความที่มี `functionResponse` สำหรับฟังก์ชันชื่อ `get_image` และส่วนที่ซ้อนกันซึ่งมีข้อมูลรูปภาพพร้อม `displayName: "instrument.jpg"` ฟิลด์ `functionResponse`'s `response`
-อ้างอิงส่วนของรูปภาพนี้
+Ví dụ sau đây cho thấy một thông báo chứa `functionResponse` cho một hàm có tên là `get_image` và một phần lồng nhau chứa dữ liệu hình ảnh có `displayName: "instrument.jpg"`. Trường `functionResponse` của `response` tham chiếu đến phần hình ảnh này:
 
 ### Python
 
@@ -1997,30 +1902,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## การเรียกใช้ฟังก์ชันที่มีเอาต์พุตที่มีโครงสร้าง
+## Gọi hàm bằng đầu ra có cấu trúc
 
-สำหรับโมเดล Gemini 3 คุณสามารถใช้การเรียกใช้ฟังก์ชันกับ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)ได้ ซึ่งจะช่วยให้โมเดล
-คาดการณ์การเรียกใช้ฟังก์ชันหรือเอาต์พุตที่เป็นไปตามสคีมาที่เฉพาะเจาะจงได้ ด้วยเหตุนี้
-คุณจึงได้รับคำตอบที่มีการจัดรูปแบบอย่างสม่ำเสมอเมื่อโมเดลไม่ได้สร้าง
-การเรียกใช้ฟังก์ชัน
+Đối với các mô hình Gemini 3, bạn có thể sử dụng tính năng gọi hàm với [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi). Điều này cho phép mô hình dự đoán các lệnh gọi hàm hoặc đầu ra tuân thủ một lược đồ cụ thể. Do đó, bạn sẽ nhận được các phản hồi có định dạng nhất quán khi mô hình không tạo ra các lệnh gọi hàm.
 
-## Model Context Protocol (MCP)
+## Giao thức ngữ cảnh mô hình (MCP)
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) เป็น
-มาตรฐานแบบเปิดสำหรับการเชื่อมต่อแอปพลิเคชัน AI กับเครื่องมือและข้อมูลภายนอก
-MCP มีโปรโตคอลทั่วไปสำหรับโมเดลในการเข้าถึงบริบท เช่น ฟังก์ชัน
-(เครื่องมือ) แหล่งข้อมูล (ทรัพยากร) หรือพรอมต์ที่กำหนดไว้ล่วงหน้า
+[Giao thức ngữ cảnh mô hình (MCP)](https://modelcontextprotocol.io/introduction) là một tiêu chuẩn mở để kết nối các ứng dụng AI với các công cụ và dữ liệu bên ngoài.
+MCP cung cấp một giao thức chung để các mô hình truy cập vào bối cảnh, chẳng hạn như các hàm (công cụ), nguồn dữ liệu (tài nguyên) hoặc câu lệnh được xác định trước.
 
-SDK ของ Gemini มีการรองรับ MCP ในตัว ซึ่งจะช่วยลดโค้ดสำเร็จรูปและมี[การเรียกใช้เครื่องมืออัตโนมัติ](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#automatic_function_calling_python_only)สำหรับเครื่องมือ MCP เมื่อโมเดลสร้างการเรียกใช้เครื่องมือ MCP แล้ว SDK ไคลเอ็นต์ Python และ JavaScript จะเรียกใช้เครื่องมือ MCP โดยอัตโนมัติและส่งการตอบกลับไปยังโมเดลในคำขอที่ตามมา โดยจะทำซ้ำลูปนี้จนกว่าโมเดลจะไม่เรียกใช้เครื่องมืออีก
+Các Gemini SDK có hỗ trợ tích hợp cho MCP, giúp giảm mã nguyên mẫu và cung cấp tính năng [gọi công cụ tự động](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#automatic_function_calling_python_only) cho các công cụ MCP. Khi mô hình tạo một lệnh gọi công cụ MCP, SDK ứng dụng Python và JavaScript có thể tự động thực thi công cụ MCP và gửi phản hồi trở lại mô hình trong một yêu cầu tiếp theo, tiếp tục vòng lặp này cho đến khi mô hình không thực hiện thêm lệnh gọi công cụ nào nữa.
 
-ในส่วนนี้ คุณจะเห็นตัวอย่างวิธีใช้เซิร์ฟเวอร์ MCP ในเครื่องกับ Gemini และ
-`mcp` SDK
+Tại đây, bạn có thể xem ví dụ về cách sử dụng máy chủ MCP cục bộ với Gemini và SDK `mcp`.
 
 ### Python
 
-ตรวจสอบว่าได้ติดตั้ง SDK ของ
-[`mcp`](https://modelcontextprotocol.io/introduction) เวอร์ชันล่าสุดใน
-แพลตฟอร์มที่คุณเลือกแล้ว
+Đảm bảo bạn đã cài đặt phiên bản mới nhất của [`mcp` SDK](https://modelcontextprotocol.io/introduction) trên nền tảng mà bạn chọn.
 
 ```
 pip install mcp
@@ -2073,8 +1970,7 @@ asyncio.run(run())
 
 ### JavaScript
 
-ตรวจสอบว่าได้ติดตั้ง `mcp` SDK เวอร์ชันล่าสุดบนแพลตฟอร์ม
-ที่คุณเลือกแล้ว
+Đảm bảo bạn đã cài đặt phiên bản mới nhất của SDK `mcp` trên nền tảng mà bạn chọn.
 
 ```
 npm install @modelcontextprotocol/sdk
@@ -2122,86 +2018,62 @@ console.log(response.text)
 await client.close();
 ```
 
-### ข้อจำกัดของการรองรับ MCP ในตัว
+### Hạn chế đối với tính năng hỗ trợ MCP tích hợp
 
-การรองรับ MCP ในตัวเป็นฟีเจอร์[ทดลอง](https://ai.google.dev/gemini-api/docs/models?hl=th#preview)
-ใน SDK ของเราและมีข้อจำกัดต่อไปนี้
+Hỗ trợ MCP tích hợp là một tính năng [thử nghiệm](https://ai.google.dev/gemini-api/docs/models?hl=vi#preview) trong SDK của chúng tôi và có các hạn chế sau:
 
-- รองรับเฉพาะเครื่องมือ ไม่รองรับทรัพยากรหรือพรอมต์
-- พร้อมให้บริการสำหรับ Python และ JavaScript/TypeScript SDK
-- การเปลี่ยนแปลงที่ส่งผลกับส่วนอื่นในระบบอาจเกิดขึ้นในรุ่นต่อๆ ไป
+- Chỉ hỗ trợ các công cụ, không hỗ trợ tài nguyên hay câu lệnh
+- Tính năng này có trong Python và JavaScript/TypeScript SDK.
+- Các thay đổi có thể gây lỗi có thể xảy ra trong các bản phát hành sau này.
 
-การผสานรวมเซิร์ฟเวอร์ MCP ด้วยตนเองเป็นตัวเลือกเสมอหากข้อจำกัดเหล่านี้จำกัดสิ่งที่คุณ
-กำลังสร้าง
+Tích hợp thủ công các máy chủ MCP luôn là một lựa chọn nếu những máy chủ này giới hạn những gì bạn đang xây dựng.
 
-## โมเดลที่รองรับ
+## Mô hình được hỗ trợ
 
-ส่วนนี้แสดงรายการโมเดลและความสามารถในการเรียกใช้ฟังก์ชัน แต่ไม่รวมโมเดลทดลอง คุณดูภาพรวมความสามารถแบบครอบคลุมได้ในหน้า[ภาพรวมโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
+Phần này liệt kê các mô hình và khả năng gọi hàm của chúng. Không bao gồm các mô hình thử nghiệm. Bạn có thể xem thông tin tổng quan toàn diện về các chức năng trên trang [tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
 
-| รุ่น | การเรียกใช้ฟังก์ชัน | การเรียกใช้ฟังก์ชันแบบคู่ขนาน | การเรียกใช้ฟังก์ชันแบบคอมโพสิต |
+| Mô hình | Gọi hàm | Gọi hàm song song | Gọi hàm thành phần |
 | --- | --- | --- | --- |
-| [ตัวอย่าง Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ | ✔️ | ✔️ |
+| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ | ✔️ | ✔️ |
 
-## แนวทางปฏิบัติแนะนำ
+## Các phương pháp hay nhất
 
-- **คำอธิบายฟังก์ชันและพารามิเตอร์:** อธิบายให้ชัดเจนและเฉพาะเจาะจงที่สุด
-  โมเดลจะใช้ข้อมูลเหล่านี้เพื่อเลือกฟังก์ชันที่ถูกต้อง
-  และระบุอาร์กิวเมนต์ที่เหมาะสม
-- **การตั้งชื่อ:** ใช้ชื่อฟังก์ชันที่สื่อความหมาย (ไม่มีการเว้นวรรค จุด หรือ
-  ขีดกลาง)
-- **การพิมพ์ที่รัดกุม:** ใช้ประเภทที่เฉพาะเจาะจง (จำนวนเต็ม สตริง enum) สำหรับพารามิเตอร์
-  เพื่อลดข้อผิดพลาด หากพารามิเตอร์มีชุดค่าที่ถูกต้องแบบจำกัด ให้ใช้
-  enum
-- **การเลือกเครื่องมือ:** แม้ว่าโมเดลจะใช้เครื่องมือได้ไม่จำกัดจำนวน แต่การระบุเครื่องมือมากเกินไปอาจเพิ่มความเสี่ยงในการเลือกเครื่องมือที่ไม่ถูกต้องหรือไม่เหมาะสม เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ให้พยายามระบุเฉพาะเครื่องมือที่เกี่ยวข้อง
-  กับบริบทหรืองาน โดยควรจำกัดชุดเครื่องมือที่ใช้งานอยู่ให้ไม่เกิน
-  10-20 รายการ พิจารณาการเลือกเครื่องมือแบบไดนามิกตามบริบทการสนทนาหากคุณมีเครื่องมือจำนวนมาก
-- **การออกแบบพรอมต์:**
-  - ระบุบริบท: บอกบทบาทของโมเดล (เช่น "คุณเป็นผู้ช่วยด้านสภาพอากาศที่ให้ความช่วยเหลือ")
-  - ให้คำสั่ง: ระบุวิธีและเวลาที่จะใช้ฟังก์ชัน (เช่น "อย่า
-    คาดเดาวันที่ ให้ใช้วันที่ในอนาคตเสมอสำหรับการคาดการณ์")
-  - กระตุ้นให้ขอคำชี้แจง: สั่งให้โมเดลถามคำถามเพื่อขอข้อมูลเพิ่มเติม
-    หากจำเป็น
-  - ดูกลยุทธ์เพิ่มเติมในการออกแบบพรอมต์เหล่านี้ได้ที่[เวิร์กโฟลว์แบบเอเจนต์](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=th#agentic-workflows)
-    ตัวอย่าง[คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=th#agentic-si-template)ที่ผ่านการทดสอบแล้วมีดังนี้
-- **อุณหภูมิ:** ใช้อุณหภูมิต่ำ (เช่น 0) เพื่อให้การเรียกใช้ฟังก์ชันมีความแน่นอนและ
-  เชื่อถือได้มากขึ้น
-- **การตรวจสอบ:** หากการเรียกใช้ฟังก์ชันมีผลกระทบอย่างมาก (เช่น
-  การสั่งซื้อ) ให้ตรวจสอบการเรียกใช้กับผู้ใช้ก่อนที่จะดำเนินการ
-- **ตรวจสอบเหตุผลที่เสร็จสิ้น:** ตรวจสอบ[`finishReason`](https://ai.google.dev/api/generate-content?hl=th#FinishReason)
-  ในคำตอบของโมเดลเสมอเพื่อจัดการกรณีที่โมเดลสร้าง
-  การเรียกใช้ฟังก์ชันที่ถูกต้องไม่สำเร็จ
-- **การจัดการข้อผิดพลาด**: ใช้การจัดการข้อผิดพลาดที่มีประสิทธิภาพในฟังก์ชันเพื่อ
-  จัดการอินพุตที่ไม่คาดคิดหรือความล้มเหลวของ API อย่างเหมาะสม แสดงข้อความแสดงข้อผิดพลาดที่ให้ข้อมูล
-  ซึ่งโมเดลใช้สร้างคำตอบที่เป็นประโยชน์แก่ผู้ใช้ได้
-- **ความปลอดภัย:** โปรดคำนึงถึงความปลอดภัยเมื่อเรียกใช้ API ภายนอก ใช้กลไกการตรวจสอบสิทธิ์และการให้สิทธิ์ที่เหมาะสม หลีกเลี่ยงการเปิดเผยข้อมูลที่ละเอียดอ่อนในการเรียกใช้ฟังก์ชัน
-- **ขีดจำกัดโทเค็น:** คำอธิบายฟังก์ชันและพารามิเตอร์จะนับรวมใน
-  ขีดจำกัดโทเค็นอินพุต หากใช้โทเค็นเกินขีดจำกัด ให้ลองจำกัดจำนวนฟังก์ชันหรือความยาวของคำอธิบาย แบ่งงานที่ซับซ้อนออกเป็นชุดฟังก์ชันที่เล็กลงและเฉพาะเจาะจงมากขึ้น
-- **การผสมผสานระหว่าง Bash และเครื่องมือที่กำหนดเอง** สำหรับผู้ที่สร้างโดยใช้การผสมผสานระหว่าง Bash และเครื่องมือที่กำหนดเอง
-  เวอร์ชันตัวอย่างของ Gemini 3.1 Pro
-  มาพร้อมกับปลายทางแยกต่างหากที่พร้อมใช้งานผ่าน API ที่ชื่อ [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th#gemini-31-pro-preview-customtools)
+- **Nội dung mô tả về hàm và tham số:** Nội dung mô tả phải cực kỳ rõ ràng và cụ thể. Mô hình dựa vào những thông tin này để chọn đúng hàm và cung cấp các đối số phù hợp.
+- **Đặt tên:** Sử dụng tên hàm mô tả (không có dấu cách, dấu chấm hoặc dấu gạch ngang).
+- **Nhập mạnh:** Sử dụng các loại cụ thể (số nguyên, chuỗi, enum) cho các tham số để giảm lỗi. Nếu một tham số có một tập hợp giới hạn các giá trị hợp lệ, hãy sử dụng một enum.
+- **Lựa chọn công cụ:** Mặc dù mô hình có thể sử dụng một số lượng tuỳ ý công cụ, nhưng việc cung cấp quá nhiều công cụ có thể làm tăng nguy cơ chọn một công cụ không chính xác hoặc không tối ưu. Để có kết quả tốt nhất, hãy chỉ cung cấp các công cụ phù hợp cho bối cảnh hoặc nhiệm vụ, lý tưởng nhất là giữ cho tập hợp đang hoạt động ở mức tối đa là 10-20. Hãy cân nhắc việc chọn công cụ động dựa trên ngữ cảnh cuộc trò chuyện nếu bạn có tổng số lượng lớn công cụ.
+- **Kỹ thuật tạo câu lệnh:**
+  - Cung cấp bối cảnh: Cho mô hình biết vai trò của mô hình (ví dụ: "Bạn là một trợ lý thời tiết hữu ích").
+  - Đưa ra hướng dẫn: Chỉ định cách thức và thời điểm sử dụng các hàm (ví dụ: "Đừng đoán ngày; luôn sử dụng ngày trong tương lai cho thông tin dự đoán").
+  - Khuyến khích làm rõ: Hướng dẫn mô hình đặt câu hỏi làm rõ nếu cần.
+  - Hãy xem [Quy trình làm việc dựa trên tác nhân](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi#agentic-workflows) để biết thêm các chiến lược về cách thiết kế những câu lệnh này. Dưới đây là ví dụ về một [chỉ dẫn hệ thống](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi#agentic-si-template) đã được kiểm thử.
+- **Nhiệt độ:** Sử dụng nhiệt độ thấp (ví dụ: 0) để có các lệnh gọi hàm đáng tin cậy và mang tính xác định hơn.
+- **Xác thực:** Nếu một lệnh gọi hàm có hậu quả đáng kể (ví dụ: đặt hàng), hãy xác thực lệnh gọi đó với người dùng trước khi thực thi.
+- **Kiểm tra lý do hoàn tất:** Luôn kiểm tra [`finishReason`](https://ai.google.dev/api/generate-content?hl=vi#FinishReason) trong câu trả lời của mô hình để xử lý các trường hợp mô hình không tạo được một lệnh gọi hàm hợp lệ.
+- **Xử lý lỗi**: Triển khai quy trình xử lý lỗi mạnh mẽ trong các hàm để xử lý một cách thích hợp các dữ liệu đầu vào không mong muốn hoặc lỗi API. Trả về các thông báo lỗi mang tính thông tin mà mô hình có thể dùng để tạo câu trả lời hữu ích cho người dùng.
+- **Bảo mật:** Hãy chú ý đến vấn đề bảo mật khi gọi các API bên ngoài. Sử dụng các cơ chế xác thực và uỷ quyền thích hợp. Tránh để lộ dữ liệu nhạy cảm trong các lệnh gọi hàm.
+- **Giới hạn mã thông báo:** Nội dung mô tả hàm và các tham số được tính vào giới hạn mã thông báo đầu vào. Nếu bạn đang gặp phải giới hạn về mã thông báo, hãy cân nhắc việc giới hạn số lượng hàm hoặc độ dài của nội dung mô tả, chia các tác vụ phức tạp thành các tập hợp hàm nhỏ hơn và tập trung hơn.
+- **Kết hợp bash và các công cụ tuỳ chỉnh** Đối với những người tạo bằng cách kết hợp bash và các công cụ tuỳ chỉnh, Gemini 3.1 Pro Preview có một điểm cuối riêng biệt có sẵn thông qua API có tên là [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi#gemini-31-pro-preview-customtools).
 
-## หมายเหตุและข้อจำกัด
+## Lưu ý và hạn chế
 
-- การวางตำแหน่งส่วนต่างๆ ของการเรียกใช้ฟังก์ชัน: เมื่อใช้การประกาศฟังก์ชันที่กำหนดเอง[ควบคู่ไปกับเครื่องมือในตัว](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th) (เช่น Google Search) โมเดลอาจแสดงส่วนต่างๆ ของ `functionCall`, `toolCall` และ `toolResponse` ในการโต้ตอบครั้งเดียว ด้วยเหตุนี้ อย่าคิดว่า
-  `functionCall`จะเป็นรายการสุดท้ายในอาร์เรย์ชิ้นส่วนเสมอ หากคุณ
-  แยกวิเคราะห์การตอบกลับ JSON ด้วยตนเอง ให้วนซ้ำอาร์เรย์ parts เสมอ
-  แทนที่จะอิงตามตำแหน่ง
-- รองรับเฉพาะ[ชุดย่อยของสคีมา OpenAPI](https://ai.google.dev/api/caching?hl=th#FunctionDeclaration)
-- สำหรับโหมด `ANY` API อาจปฏิเสธสคีมาที่มีขนาดใหญ่มากหรือซ้อนกันลึก หากพบข้อผิดพลาด ให้ลองลดความซับซ้อนของพารามิเตอร์ฟังก์ชันและสคีมาการตอบกลับโดยการย่อชื่อพร็อพเพอร์ตี้ ลดการซ้อน หรือจำกัดจำนวนการประกาศฟังก์ชัน
-- ประเภทพารามิเตอร์ที่รองรับใน Python มีจำกัด
-- การเรียกใช้ฟังก์ชันอัตโนมัติเป็นฟีเจอร์ของ Python SDK เท่านั้น
+- Vị trí của các phần trong lệnh gọi hàm: Khi sử dụng các khai báo hàm tuỳ chỉnh [cùng với các công cụ tích hợp sẵn](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi) (như Google Tìm kiếm), mô hình có thể trả về hỗn hợp các phần `functionCall`, `toolCall` và `toolResponse` trong một lượt. Do đó, đừng giả định rằng `functionCall` sẽ luôn là mục cuối cùng trong mảng parts. Nếu bạn đang phân tích cú pháp phản hồi JSON theo cách thủ công, hãy luôn lặp lại mảng parts thay vì dựa vào vị trí.
+- Chỉ hỗ trợ [một phần của giản đồ OpenAPI](https://ai.google.dev/api/caching?hl=vi#FunctionDeclaration).
+- Đối với chế độ `ANY`, API có thể từ chối các giản đồ rất lớn hoặc được lồng sâu. Nếu bạn gặp lỗi, hãy thử đơn giản hoá tham số hàm và lược đồ phản hồi bằng cách rút ngắn tên thuộc tính, giảm số lượng lồng ghép hoặc giới hạn số lượng khai báo hàm.
+- Các loại tham số được hỗ trợ trong Python bị hạn chế.
+- Chỉ có Python SDK mới có tính năng tự động gọi hàm.
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-อัปเดตล่าสุด 2026-06-24 UTC
+Cập nhật lần gần đây nhất: 2026-06-24 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-24 UTC"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-24 UTC."],[],[]]

@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=th
-fetched_at: 2026-06-29T05:30:59.336624+00:00
-title: "\u0e01\u0e32\u0e23\u0e42\u0e15\u0e49\u0e15\u0e2d\u0e1a\u0e43\u0e19\u0e01\u0e32\u0e23\u0e2a\u0e15\u0e23\u0e35\u0e21 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=pl
+fetched_at: 2026-07-06T05:10:54.710289+00:00
+title: "Interakcje ze streamingiem \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-ส่งความคิดเห็น
+Prześlij opinię
 
-# การโต้ตอบในการสตรีม
+# Interakcje ze streamingiem
 
-เมื่อสร้างการโต้ตอบ คุณสามารถตั้งค่า `stream: true` เพื่อสตรีมการตอบกลับทีละรายการโดยใช้ [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE)
+Podczas tworzenia interakcji możesz ustawić `stream: true`, aby przesyłać strumieniowo odpowiedź przy użyciu [zdarzeń wysyłanych przez serwer](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
 
 ### Python
 
@@ -110,24 +110,24 @@ event: done
 data: [DONE]
 ```
 
-## ประเภทกิจกรรม
+## Typy zdarzeń
 
-เหตุการณ์ที่เซิร์ฟเวอร์ส่งแต่ละรายการจะมี `event_type` ที่มีชื่อและข้อมูล JSON ที่เชื่อมโยง API การโต้ตอบใช้โมเดลการสตรีมแบบสมมาตรซึ่งเนื้อหาทั้งหมด ไม่ว่าจะเป็นข้อความ การเรียกใช้เครื่องมือ หรือการคิด จะไหลผ่านเหตุการณ์**แบบทีละขั้นตอน**ที่สอดคล้องกัน
+Każde zdarzenie wysyłane przez serwer zawiera nazwany element `event_type` i powiązane dane JSON. Interfejs Interactions API używa symetrycznego modelu strumieniowania, w którym cała zawartość – tekst, wywołania narzędzi, myślenie – przepływa przez spójne zdarzenie **na podstawie kroku**.
 
-แต่ละสตรีมจะทำตามขั้นตอนเหตุการณ์ต่อไปนี้
+Każdy strumień jest zgodny z tym przepływem zdarzeń:
 
-1. `interaction.created`: มีการสร้างการโต้ตอบ ซึ่งรวมถึงข้อมูลเมตา (รหัส โมเดล สถานะ)
-2. ชุด**ขั้นตอน** โดยแต่ละขั้นตอนประกอบด้วยข้อมูลต่อไปนี้
-   - `step.start` เหตุการณ์ที่ระบุประเภทขั้นตอน (เช่น `model_output`, `thought`, `function_call`)
-   - `step.delta` เหตุการณ์อย่างน้อย 1 รายการที่มีข้อมูลที่เพิ่มขึ้นสำหรับขั้นตอนนั้น
-   - `step.stop` เหตุการณ์ที่ทำเครื่องหมายขั้นตอนว่าเสร็จสมบูรณ์
-3. `interaction.completed` กิจกรรมที่มีสถิติ`usage`สุดท้าย
+1. `interaction.created`: interakcja jest tworzona i zawiera metadane (identyfikator, model, stan).
+2. Seria **kroków**, z których każdy składa się z:
+   - zdarzenia `step.start` wskazującego typ kroku (np. `model_output`, `thought`, `function_call`).
+   - co najmniej 1 zdarzenia `step.delta` z przyrostowymi danymi dla tego kroku.
+   - zdarzenia `step.stop` oznaczającego krok jako zakończony.
+3. Zdarzenie `interaction.completed` z końcowymi statystykami `usage`.
 
-เมื่อตั้งค่า `stream: false` แล้ว API จะแสดงออบเจ็กต์ `interaction` รายการเดียวที่มีอาร์เรย์ `steps` องค์ประกอบแต่ละรายการใน `steps` คือเวอร์ชันที่ประกอบเสร็จสมบูรณ์ของวงจร `step.start` → `step.delta`(s) → `step.stop`
+Gdy ustawisz `stream: false`, interfejs API zwróci pojedynczy obiekt `interaction` z tablicą `steps`. Każdy element w `steps` to w pełni zmontowana wersja cyklu `step.start` → `step.delta`(s) → `step.stop`.
 
 ### `interaction.created`
 
-ส่งเมื่อสร้างการโต้ตอบเป็นครั้งแรก ประกอบด้วยรหัสการโต้ตอบ โมเดล และสถานะเริ่มต้น
+Wysyłane, gdy interakcja zostanie utworzona. Zawiera identyfikator interakcji, model i stan początkowy.
 
 ```
 event: interaction.created
@@ -136,7 +136,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3-flash-preview", "status":
 
 ### `interaction.status_update`
 
-ส่งสัญญาณการเปลี่ยนสถานะระดับการโต้ตอบ อาจปรากฏระหว่างขั้นตอน
+Sygnalizuje przejście stanu na poziomie interakcji. Może się pojawiać między krokami.
 
 ```
 event: interaction.status_update
@@ -145,23 +145,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-ทำเครื่องหมายจุดเริ่มต้นของขั้นตอนใหม่ มีขั้นตอน `type` และ `index` ประเภทขั้นตอนจะกำหนดประเภทเดลต้าที่คาดไว้และลักษณะที่ขั้นตอนปรากฏในการตอบกลับแบบไม่สตรีม
+Oznacza początek nowego kroku. Zawiera `type` i `index` kroku. Typ kroku określa, jakich typów delty należy się spodziewać i jak krok będzie wyglądać w odpowiedzi bez strumieniowania:
 
-| ประเภทของขั้นตอน | ประเภทเดลต้าที่คาดไว้ | คำอธิบาย |
+| Typ kroku | Oczekiwane typy delty | Opis |
 | --- | --- | --- |
-| `model_output` | `text`, `image`, `audio` | เนื้อหาคำตอบสุดท้ายของโมเดล |
-| `thought` | `thought_signature`, `thought_summary` | การให้เหตุผลแบบลูกโซ่ความคิด `summary` จะปรากฏเมื่อเปิดใช้ `thinking_summaries` เท่านั้น |
-| `function_call` | `arguments_delta` | คำขอให้ไคลเอ็นต์เรียกใช้ฟังก์ชัน ตั้งค่าสถานะการโต้ตอบเป็น `requires_action` |
-| เครื่องมือฝั่งเซิร์ฟเวอร์ | แตกต่างกันไปตามเครื่องมือ | เครื่องมือที่ API เรียกใช้ (เช่น `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`) |
+| `model_output` | `text`, `image`, `audio` | Końcowa treść odpowiedzi modelu. |
+| `thought` | `thought_signature`, `thought_summary` | Rozumowanie w łańcuchu myśli. `summary` jest obecny tylko wtedy, gdy włączona jest opcja `thinking_summaries`. |
+| `function_call` | `arguments_delta` | Prośba o wykonanie funkcji przez klienta. Ustawia stan interakcji na `requires_action`. |
+| Narzędzia po stronie serwera | Zależy od narzędzia | Narzędzia wykonywane przez interfejs API (np. `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
 
-ดูรายการทั้งหมดได้ที่[เอกสารอ้างอิง API การโต้ตอบ](https://ai.google.dev/api/interactions-api?hl=th)
+Pełną listę znajdziesz w dokumentacji interfejsu [Interactions API](https://ai.google.dev/api/interactions-api?hl=pl).
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-สำหรับการเรียกใช้ฟังก์ชัน ขั้นตอนนี้จะมีชื่อฟังก์ชัน รหัส และอาร์กิวเมนต์ว่าง `{}`
+W przypadku wywołań funkcji krok zawiera nazwę funkcji, identyfikator i puste argumenty `{}`.
 
 ```
 event: step.start
@@ -170,11 +170,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-ข้อมูลที่เพิ่มขึ้นสำหรับขั้นตอนปัจจุบัน ออบเจ็กต์ `delta` มีฟิลด์ `type` ที่กำหนดรูปร่าง
+Przyrostowe dane dla bieżącego kroku. Obiekt `delta` zawiera pole `type`, które określa jego kształt.
 
-**ตัวอย่างเช่น**
+**Przykłady:**
 
-**`text`:** โทเค็นข้อความที่เพิ่มขึ้นจากขั้นตอน `model_output`
+**`text`:** przyrostowy token tekstowy z kroku `model_output`:
 
 ```
 event: step.delta
@@ -184,32 +184,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** ข้อมูลรูปภาพที่เข้ารหัส Base64 จากขั้นตอน `model_output`
+**`image`:** dane obrazu zakodowane w formacie Base64 z kroku `model_output`:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** เนื้อหาสรุปความคิดจากขั้นตอนที่ `thought`
+**`thought_summary`:** treść podsumowania myślenia z kroku `thought`:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** สตริง JSON (บางส่วน) สำหรับอาร์กิวเมนต์การเรียกใช้ฟังก์ชัน ต้องสะสมในเดลต้า
+**`arguments_delta`:** (częściowy) ciąg znaków JSON argumentów wywołania funkcji. Musi być gromadzony w deltach:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-ประเภทเดลต้าที่พบบ่อยที่สุดมีดังนี้ ดูรายการประเภทเดลต้าทั้งหมดได้ที่[เอกสารอ้างอิง Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
+Oto kilka najczęstszych typów delty. Pełną listę wszystkich typów delty znajdziesz w dokumentacji interfejsu [Interactions API](https://ai.google.dev/api/interactions-api?hl=pl).
 
 ### `step.stop`
 
-ทำเครื่องหมายจุดสิ้นสุดของขั้นตอน มีขั้นตอน `index`
+Oznacza koniec kroku. Zawiera `index` kroku.
 
 ```
 event: step.stop
@@ -218,7 +218,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-ส่งเมื่อการโต้ตอบเสร็จสิ้น มีออบเจ็กต์การโต้ตอบสุดท้ายที่มีสถิติ `usage` ในโหมดที่ไม่ใช่การสตรีม นี่คือออบเจ็กต์การตอบกลับระดับบนสุด ไม่รวม `steps` ในการตอบกลับ
+Wysyłane po zakończeniu interakcji. Zawiera końcowy obiekt interakcji ze statystykami `usage`. W trybie bez strumieniowania jest to sam obiekt odpowiedzi najwyższego poziomu. Nie zawiera w odpowiedzi `steps`.
 
 ```
 event: interaction.completed
@@ -227,28 +227,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-ส่งเมื่อเกิดข้อผิดพลาดระหว่างการโต้ตอบ มีออบเจ็กต์ข้อผิดพลาดพร้อมข้อความและรหัส
+Wysyłane, gdy podczas interakcji wystąpi błąd. Zawiera obiekt błędu z komunikatem i kodem.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## การสตรีมด้วยเครื่องมือ
+## Strumieniowanie za pomocą narzędzi
 
-Interactions API รองรับการสตรีมด้วยเครื่องมือฝั่งไคลเอ็นต์ (การเรียกใช้ฟังก์ชัน) และเครื่องมือฝั่งเซิร์ฟเวอร์ (Google Search, การดำเนินการโค้ด ฯลฯ) ในคำขอเดียว ในระหว่างการสตรีม การเรียกใช้เครื่องมือจะปรากฏเป็นขั้นตอนที่พิมพ์ในสตรีมเหตุการณ์ สำหรับการเรียกใช้ฟังก์ชัน เหตุการณ์ `step.start` จะส่งชื่อฟังก์ชัน
-และเหตุการณ์ `step.delta` จะสตรีมอาร์กิวเมนต์เป็นสตริง JSON
-(`arguments_delta`) คุณต้องสะสมส่วนต่างเหล่านี้เพื่อรับอาร์กิวเมนต์ทั้งหมด
-เครื่องมือฝั่งเซิร์ฟเวอร์ เช่น Google Search จะดำเนินการโดยอัตโนมัติโดย API
-ซึ่งจะสร้างขั้นตอน `google_search_call` และ `google_search_result`
+Interfejs Interactions API obsługuje strumieniowanie za pomocą narzędzi po stronie klienta (wywoływanie funkcji) i narzędzi po stronie serwera (wyszukiwarka Google, wykonywanie kodu itp.) w jednym żądaniu. Podczas strumieniowania wywołania narzędzi pojawiają się w strumieniu zdarzeń jako kroki określonego typu. W przypadku wywołań funkcji zdarzenie `step.start` dostarcza nazwę funkcji, a zdarzenia `step.delta` przesyłają argumenty jako ciągi znaków JSON (`arguments_delta`). Aby uzyskać pełne argumenty, musisz zgromadzić te delty.
+Narzędzia po stronie serwera, takie jak wyszukiwarka Google, są wykonywane automatycznie przez interfejs API, co powoduje tworzenie kroków `google_search_call` i `google_search_result`.
 
-### การสตรีมด้วยการเรียกใช้ฟังก์ชัน
+### Strumieniowanie za pomocą wywoływania funkcji
 
-หากต้องการเรียกใช้ฟังก์ชันด้วยการสตรีม ไคลเอ็นต์ต้องจัดการการสนทนาไปมา
+Aby wykonywać wywoływanie funkcji za pomocą strumieniowania, klient musi obsługiwać rozmowę wieloetapową:
 
-1. **เทิร์นที่ 1 (คำขอฟังก์ชัน):** เรียกใช้ `interactions.create` ด้วย `stream: true`
-   และ `tools` ที่คุณกำหนด API จะสตรีม`function_call` คุณต้องรวบรวมสตริง JSON ของอาร์กิวเมนต์ที่เพิ่มขึ้น (`arguments_delta`) จากเหตุการณ์ `step.delta` จนกว่าการโต้ตอบจะเสร็จสมบูรณ์โดยมีสถานะ `requires_action`
-2. **เทิร์นที่ 2 (ส่งผลลัพธ์):** เรียกใช้ `interactions.create` อีกครั้ง โดยส่ง `previous_interaction_id` (ตรงกับรหัสของการโต้ตอบครั้งแรก) และส่งบล็อก `function_result` ภายในอาร์เรย์ `input` ซึ่งจะทำให้สตรีมกลับมาทำงานอีกครั้ง และช่วยให้โมเดลสร้างคำตอบสุดท้ายได้
+1. **Etap 1 (żądanie funkcji):** wywołaj `interactions.create` z `stream: true` i zdefiniowanymi `tools`. Interfejs API będzie przesyłać strumieniowo krok `function_call`. Musisz gromadzić przyrostowe ciągi znaków JSON argumentów (`arguments_delta`) ze zdarzeń `step.delta`, dopóki interakcja nie zostanie zakończona ze stanem `requires_action`.
+2. **Etap 2 (wysyłanie wyniku):** ponownie wywołaj `interactions.create`, przekazując `previous_interaction_id` (pasujący do identyfikatora pierwszej interakcji) i wysyłając blok `function_result` w tablicy `input`. Spowoduje to wznowienie strumienia, co umożliwi modelowi wygenerowanie ostatecznej odpowiedzi.
 
 ### Python
 
@@ -407,7 +403,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**เทิร์นที่ 1:** ขอการเรียกใช้ฟังก์ชัน
+**Etap 1:** żądanie wywołania funkcji
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -438,7 +434,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**เทิร์นที่ 2:** ส่งผลลัพธ์ของฟังก์ชันโดยใช้ `previous_interaction_id` และ `call_id` จากเทิร์นที่ 1
+**Etap 2:** wyślij wynik funkcji za pomocą `previous_interaction_id` i `call_id` z etapu 1
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -467,9 +463,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### การสตรีมด้วยเครื่องมือหลายอย่าง
+### Strumieniowanie za pomocą wielu narzędzi
 
-ตัวอย่างต่อไปนี้ใช้ทั้งเครื่องมือ `function` และ `google_search` ในคำขอเดียว
+W tym przykładzie użyto w jednym żądaniu narzędzia `function` i `google_search`:
 
 ### Python
 
@@ -672,9 +668,9 @@ event: done
 data: [DONE]
 ```
 
-## การสตรีมพร้อมการคิด
+## Strumieniowanie z myśleniem
 
-เมื่อโมเดลใช้การคิด คุณจะได้รับ`thought`ขั้นตอนที่มีเดลต้า 2 ประเภทที่แตกต่างกัน ได้แก่ `thought_summary` (เนื้อหาสรุปข้อความหรือรูปภาพที่เพิ่มขึ้น) และ `thought_signature` (การแสดงการให้เหตุผลภายในของโมเดลที่เข้ารหัส ซึ่งส่งเป็นเดลต้าสุดท้ายก่อน `step.stop`) หากเปิดใช้ `thinking_summaries` เดลต้า `thought_summary` จะสตรีมสรุปการให้เหตุผลของโมเดล ดูรายละเอียดเพิ่มเติมเกี่ยวกับการคิดได้ที่[คำแนะนำในการคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+Gdy model używa myślenia, otrzymasz kroki `thought` z 2 różnymi typami delty: `thought_summary` (przyrostowa treść podsumowania tekstu lub obrazu) i `thought_signature` (zaszyfrowana reprezentacja wewnętrznego rozumowania modelu, wysyłana jako ostatnia delta przed `step.stop`). Jeśli włączona jest opcja `thinking_summaries`, delty `thought_summary` przesyłają strumieniowo podsumowanie rozumowania modelu. Więcej informacji o myśleniu znajdziesz w przewodniku [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
 
 ### Python
 
@@ -774,9 +770,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## การสตรีมกับเอเจนต์
+## Strumieniowanie za pomocą agentów
 
-Interactions API รองรับเอเจนต์ เช่น Deep Research เอเจนต์ใช้ `background=True` และแสดงผลแบบอะซิงโครนัส แต่คุณยังสตรีมการโต้ตอบของเอเจนต์เพื่อรับข้อมูลอัปเดตความคืบหน้าและขั้นตอนกลางได้เมื่อมีการดำเนินการ ดูรายละเอียดเพิ่มเติมได้ที่[คู่มือการดำเนินการในเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th)และ[คู่มือ Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th)
+Interfejs Interactions API obsługuje agentów, takich jak Deep Research. Agenci używają `background=True` i zwracają wyniki asynchronicznie, ale możesz też przesyłać strumieniowo interakcje z agentami, aby otrzymywać aktualizacje postępów i kroki pośrednie na bieżąco. Więcej informacji znajdziesz w przewodnikach [Wykonywanie w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl) i [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl).
 
 ### Python
 
@@ -895,11 +891,11 @@ event: done
 data: [DONE]
 ```
 
-## การสร้างรูปภาพแบบสตรีมมิง
+## Strumieniowe generowanie obrazów
 
-Interactions API รองรับการสตรีมเอาต์พุตหลายรูปแบบพร้อมกัน การขอทั้ง `text` และ `image` ใน `response_format` จะช่วยให้คุณได้รับข้อความที่แทรกสลับกับรูปภาพที่สร้างขึ้นในสตรีมเดียวกัน
+Interfejs Interactions API obsługuje jednoczesne strumieniowanie wielu trybów wyjściowych. Jeśli w `response_format` zażądasz zarówno `text`, jak i `image`, możesz otrzymywać w tym samym strumieniu przeplatany tekst i wygenerowane obrazy.
 
-ตัวอย่างต่อไปนี้ใช้ `gemini-3.1-flash-image-preview` (Nano Banana 2) เพื่อค้นหาข้อมูลและสร้างเรื่องราวพร้อมภาพประกอบที่สอดแทรก
+W tym przykładzie użyto `gemini-3.1-flash-image-preview` (Nano Banana 2) do wyszukiwania informacji i generowania historii z przeplatanymi ilustracjami.
 
 ### Python
 
@@ -1052,24 +1048,24 @@ event: done
 data: [DONE]
 ```
 
-## การจัดการเหตุการณ์ที่ไม่รู้จัก
+## Obsługa nieznanych zdarzeń
 
-เราอาจเพิ่มประเภทเหตุการณ์และประเภทเดลต้าใหม่ๆ เมื่อเวลาผ่านไปตามนโยบายการกำหนดเวอร์ชันของ API โค้ดควรจัดการประเภทเหตุการณ์ที่ไม่รู้จักอย่างเหมาะสม โดยบันทึกและข้ามเหตุการณ์ที่คุณไม่รู้จักแทนที่จะแสดงข้อผิดพลาด
+Zgodnie z zasadami dotyczącymi obsługi wersji interfejsu API z czasem mogą zostać dodane nowe typy zdarzeń i typy delty. Kod powinien obsługiwać nieznane typy zdarzeń w sposób prawidłowy – rejestrować i pomijać wszystkie nierozpoznane zdarzenia, zamiast zgłaszać błąd.
 
-## ขั้นตอนถัดไป
+## Co dalej?
 
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
-- สำรวจ[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)ด้วยเครื่องมือ
-- ดูข้อมูลเกี่ยวกับ[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)เพื่อการให้เหตุผลที่ดียิ่งขึ้น
-- ลองใช้[ตัวแทน Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) สำหรับงานที่ใช้เวลานาน
-- ดูประเภทเหตุการณ์และประเภทเดลต้าทั้งหมดได้ที่[เอกสารอ้างอิง Interactions API](https://ai.google.dev/api/interactions-api?hl=th)
+- Dowiedz się więcej o interfejsie [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl).
+- Poznaj [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) za pomocą narzędzi.
+- Dowiedz się więcej o [myśleniu](https://ai.google.dev/gemini-api/docs/thinking?hl=pl), które zwiększa możliwości rozumowania.
+- Wypróbuj agenta [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) do długotrwałych zadań.
+- Wszystkie typy zdarzeń i typy delty znajdziesz w dokumentacji interfejsu [Interactions API](https://ai.google.dev/api/interactions-api?hl=pl).
 
-ส่งความคิดเห็น
+Prześlij opinię
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-อัปเดตล่าสุด 2026-06-26 UTC
+Ostatnia aktualizacja: 2026-06-26 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Chcesz przekazać coś jeszcze?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-26 UTC"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-26 UTC."],[],[]]

@@ -1,70 +1,72 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=id
-fetched_at: 2026-06-29T05:37:56.399719+00:00
-title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=th
+fetched_at: 2026-07-06T05:09:12.136173+00:00
+title: "\u0e17\u0e4d\u0e32\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e41\u0e25\u0e30\u0e19\u0e31\u0e1a\u0e42\u0e17\u0e40\u0e04\u0e47\u0e19 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Kirim masukan
+ส่งความคิดเห็น
 
-# Memahami dan menghitung token
+# ทําความเข้าใจและนับโทเค็น
 
-Gemini dan model AI generatif lainnya memproses input dan output pada granularitas yang disebut *token*.
+Gemini และโมเดล Generative AI อื่นๆ จะประมวลผลอินพุตและเอาต์พุตที่ระดับความละเอียดที่เรียกว่า *โทเค็น*
 
-**Untuk model Gemini, token setara dengan sekitar 4 karakter.
-100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
+**สำหรับโมเดล Gemini โทเค็นจะเทียบเท่ากับอักขระประมาณ 4 ตัว
+โทเค็น 100 รายการจะเท่ากับคำภาษาอังกฤษประมาณ 60-80 คำ**
 
-## Tentang token
+## เกี่ยวกับโทเค็น
 
-Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses pemisahan teks menjadi token disebut *tokenisasi*.
+โทเค็นอาจเป็นอักขระเดียว เช่น `z` หรือคำทั้งคำ เช่น `cat` คำยาวจะถูกแบ่งออกเป็นโทเค็นหลายรายการ ชุดโทเค็นทั้งหมดที่โมเดลใช้เรียกว่าคำศัพท์ และกระบวนการแยกข้อความออกเป็นโทเค็นเรียกว่า *การแยกโทเค็น*
 
-Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id)
-ditentukan sebagian oleh jumlah token input dan output, sehingga mengetahui cara
-menghitung token dapat bermanfaat.
+เมื่อเปิดใช้การเรียกเก็บเงิน [ต้นทุนของการเรียกใช้ Gemini API](https://ai.google.dev/pricing?hl=th) จะ
+พิจารณาจากจำนวนโทเค็นอินพุตและเอาต์พุตเป็นส่วนหนึ่ง ดังนั้นการรู้วิธี
+นับโทเค็นจึงอาจเป็นประโยชน์
 
-Anda dapat mencoba menghitung token di Colab kami.
+คุณสามารถลองนับโทเค็นใน Colab ของเราได้
 
 |  |  |  |
 | --- | --- | --- |
-| [Lihat di ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | [Coba notebook Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) | [Lihat notebook di GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=id) |
+| [ดูใน ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | [ลองใช้ Colab Notebook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=th) | [ดู Notebook ใน GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=th) |
 
-## Menghitung token
+## นับโทเค็น
 
-Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
+อินพุตและเอาต์พุตทั้งหมดของ Gemini API จะได้รับการแยกโทเค็น ซึ่งรวมถึงข้อความ ไฟล์รูปภาพ และรูปแบบอื่นๆ ที่ไม่ใช่ข้อความ
 
-Anda dapat menghitung token dengan cara berikut:
+คุณสามารถนับโทเค็นได้ด้วยวิธีต่อไปนี้
 
-- **Panggil [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=id) dengan input
-  permintaan.**  
-   Tindakan ini akan menampilkan jumlah total token di *input saja*. Anda dapat melakukan panggilan ini sebelum mengirim input ke model untuk memeriksa ukuran permintaan.
-- **Gunakan atribut `usage_metadata` pada objek `response` setelah
-  memanggil `generate_content`.**  
-   Tindakan ini akan menampilkan jumlah total
-  token di *input dan output*: `total_token_count`.  
-   Tindakan ini juga menampilkan jumlah token input dan output secara terpisah: `prompt_token_count` (token input) dan `candidates_token_count` (token output).
+- **เรียกใช้ [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=th) ด้วยอินพุต
+  ของคำขอ**  
+   ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นทั้งหมดใน *อินพุตเท่านั้น* คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนส่งอินพุตไปยังโมเดลเพื่อตรวจสอบขนาดของคำขอ
+- **ใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` หลังจาก
+  เรียกใช้ `generate_content`**  
+   ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นทั้งหมดใน
+  *ทั้งอินพุตและเอาต์พุต*: `total_token_count`  
+   นอกจากนี้ยังแสดงผลจำนวนโทเค็นของอินพุตและเอาต์พุตแยกกันด้วย ได้แก่ `prompt_token_count` (โทเค็นอินพุต) และ `candidates_token_count` (โทเค็นเอาต์พุต)
 
-  Jika Anda menggunakan model [penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id), token yang digunakan selama proses penalaran akan ditampilkan di `thoughts_token_count`. Dan jika Anda menggunakan
-  [Context caching](https://ai.google.dev/gemini-api/docs/caching?hl=id), jumlah token yang di-cache akan berada di `cached_content_token_count`.
+  หากคุณใช้ [โมเดล
+  การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th) ระบบจะแสดงผลโทเค็นที่ใช้ระหว่างกระบวนการคิด
+  ใน `thoughts_token_count` และหากคุณใช้
+  [การแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th) จำนวนโทเค็นที่แคชไว้จะอยู่ใน `cached_content_token_count`
 
-### Menghitung token teks
+### นับโทเค็นข้อความ
 
-Jika Anda memanggil `count_tokens` dengan input khusus teks, tindakan ini akan menampilkan jumlah token teks di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan.
+หากคุณเรียกใช้ `count_tokens` ด้วยอินพุตที่เป็นข้อความเท่านั้น ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นของข้อความใน *อินพุตเท่านั้น* (`total_tokens`) คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนเรียกใช้ `generate_content` เพื่อตรวจสอบขนาดของคำขอ
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `generate_content` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`)
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
 ### Python
 
@@ -139,17 +141,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Menghitung token multi-turn (chat)
+### นับโทเค็นการสนทนาไปมา (แชท)
 
-Jika Anda memanggil `count_tokens` dengan histori chat, tindakan ini akan menampilkan jumlah total token teks dari setiap peran dalam chat (`total_tokens`).
+หากคุณเรียกใช้ `count_tokens` ด้วยประวัติการแชท ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นทั้งหมดของข้อความจากแต่ละบทบาทในการแชท (`total_tokens`)
 
-Opsi lainnya adalah memanggil `send_message`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `send_message` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`)
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
-Untuk memahami seberapa besar giliran percakapan berikutnya, Anda harus menambahkannya ke histori saat memanggil `count_tokens`.
+หากต้องการทราบว่าการสนทนาครั้งถัดไปจะมีขนาดเท่าใด คุณต้องเพิ่มการสนทนาครั้งถัดไปลงในประวัติเมื่อเรียกใช้ `count_tokens`
 
 ### Python
 
@@ -275,33 +277,33 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Menghitung token multimodal
+### นับโทเค็นแบบหลายรูปแบบ
 
-Semua input ke Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya. Perhatikan poin-poin utama tingkat tinggi berikut tentang tokenisasi input multimodal selama pemrosesan oleh Gemini API:
+อินพุตทั้งหมดของ Gemini API จะได้รับการแยกโทเค็น ซึ่งรวมถึงข้อความ ไฟล์รูปภาพ และรูปแบบอื่นๆ ที่ไม่ใช่ข้อความ โปรดทราบประเด็นสำคัญระดับสูงต่อไปนี้เกี่ยวกับการแยกโทเค็นของอินพุตแบบหลายรูปแบบระหว่างการประมวลผลโดย Gemini API
 
-- Input gambar dengan kedua dimensi <=384 piksel dihitung sebagai 258 token. Gambar yang lebih besar dalam satu atau kedua dimensi akan dipangkas dan diskalakan sesuai kebutuhan menjadi petak 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
-- File video dan audio dikonversi menjadi token dengan tarif tetap berikut: video dengan 263 token per detik dan audio dengan 32 token per detik.
+- อินพุตรูปภาพที่มีขนาดทั้ง 2 ด้าน <=384 พิกเซลจะนับเป็น 258 โทเค็น รูปภาพที่มีขนาดใหญ่กว่าในด้านใดด้านหนึ่งหรือทั้ง 2 ด้านจะถูกครอบตัดและปรับขนาดตามความจำเป็นให้เป็นไทล์ขนาด 768x768 พิกเซล โดยแต่ละไทล์จะนับเป็น 258 โทเค็น
+- ระบบจะแปลงไฟล์วิดีโอและไฟล์เสียงเป็นโทเค็นในอัตราคงที่ต่อไปนี้ วิดีโอที่ 263 โทเค็นต่อวินาที และเสียงที่ 32 โทเค็นต่อวินาที
 
-#### Resolusi media
+#### ความละเอียดของสื่อ
 
-[Model Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=id#gemini-3) memperkenalkan kontrol terperinci atas
-pemrosesan visi multimodal dengan parameter `media_resolution`. Parameter `media_resolution` menentukan **jumlah maksimum token yang dialokasikan per gambar input atau frame video.**
-Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks halus atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
+[โมเดล Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=th#gemini-3) มีการควบคุมแบบละเอียดในการประมวลผลการมองเห็นแบบ
+หลายรูปแบบด้วยพารามิเตอร์ `media_resolution` พารามิเตอร์ `media_resolution` จะกำหนด**จำนวนโทเค็นสูงสุดที่จัดสรรต่อรูปภาพอินพุตหรือเฟรมวิดีโอ**
+ความละเอียดที่สูงขึ้นจะช่วยเพิ่มความสามารถของโมเดลในการอ่านข้อความขนาดเล็กหรือระบุรายละเอียดเล็กๆ แต่จะเพิ่มการใช้โทเค็นและเวลาในการตอบสนอง
 
-Untuk mengetahui detail selengkapnya tentang parameter dan pengaruhnya terhadap penghitungan token,
-lihat panduan [resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
+ดูรายละเอียดเพิ่มเติมเกี่ยวกับพารามิเตอร์และวิธีที่พารามิเตอร์นี้อาจส่งผลต่อการคำนวณโทเค็นได้ที่
+คู่มือ[ความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=th)
 
-#### File gambar
+#### ไฟล์ภาพ
 
-Jika Anda memanggil `count_tokens` dengan input teks dan gambar, tindakan ini akan menampilkan jumlah token gabungan teks dan gambar di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan. Anda juga dapat secara opsional memanggil `count_tokens` pada teks dan file secara terpisah.
+หากคุณเรียกใช้ `count_tokens` ด้วยอินพุตที่เป็นข้อความและรูปภาพ ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นรวมของข้อความและรูปภาพใน *อินพุตเท่านั้น* (`total_tokens`) คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนเรียกใช้ `generate_content` เพื่อตรวจสอบขนาดของคำขอ นอกจากนี้ คุณยังเรียกใช้ `count_tokens` กับข้อความและไฟล์แยกกันได้ด้วย
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `generate_content` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`)
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
-Contoh yang menggunakan gambar yang diupload dari File API:
+ตัวอย่างที่ใช้รูปภาพที่อัปโหลดจาก File API
 
 ### Python
 
@@ -401,7 +403,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Contoh yang menyediakan gambar sebagai data inline:
+ตัวอย่างที่แสดงรูปภาพเป็นข้อมูลแบบอินไลน์
 
 ### Python
 
@@ -498,20 +500,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### File video atau audio
+#### ไฟล์วิดีโอหรือไฟล์เสียง
 
-Audio dan video masing-masing dikonversi menjadi token dengan tarif tetap berikut:
+ระบบจะแปลงเสียงและวิดีโอแต่ละรายการเป็นโทเค็นในอัตราคงที่ต่อไปนี้
 
-- Video: 263 token per detik
-- Audio: 32 token per detik
+- วิดีโอ: 263 โทเค็นต่อวินาที
+- เสียง: 32 โทเค็นต่อวินาที
 
-Jika Anda memanggil `count_tokens` dengan input teks dan video/audio, tindakan ini akan menampilkan jumlah token gabungan teks dan file video/audio di *input saja* (`total_tokens`). Anda dapat melakukan panggilan ini sebelum memanggil `generate_content` untuk memeriksa ukuran permintaan. Anda juga dapat secara opsional memanggil `count_tokens` pada teks dan file secara terpisah.
+หากคุณเรียกใช้ `count_tokens` ด้วยอินพุตที่เป็นข้อความและวิดีโอ/เสียง ฟังก์ชันนี้จะแสดงผลจำนวนโทเค็นรวมของข้อความและไฟล์วิดีโอ/เสียงใน *อินพุตเท่านั้น* (`total_tokens`) คุณสามารถเรียกใช้ฟังก์ชันนี้ก่อนเรียกใช้ `generate_content` เพื่อตรวจสอบขนาดของคำขอ นอกจากนี้ คุณยังเรียกใช้ `count_tokens` กับข้อความและไฟล์แยกกันได้ด้วย
 
-Opsi lainnya adalah memanggil `generate_content`, lalu menggunakan atribut `usage_metadata` pada objek `response` untuk mendapatkan hal berikut:
+อีกตัวเลือกหนึ่งคือการเรียกใช้ `generate_content` แล้วใช้แอตทริบิวต์ `usage_metadata` ในออบเจ็กต์ `response` เพื่อรับข้อมูลต่อไปนี้
 
-- Jumlah token input (`prompt_token_count`), konten yang di-cache (`cached_content_token_count`), dan output (`candidates_token_count`) secara terpisah
-- Jumlah token untuk proses penalaran (`thoughts_token_count`)
-- Jumlah total token di *input dan output* (`total_token_count`).
+- จำนวนโทเค็นแยกกันของอินพุต (`prompt_token_count`) เนื้อหาที่แคชไว้ (`cached_content_token_count`) และเอาต์พุต (`candidates_token_count`)
+- จำนวนโทเค็นสำหรับกระบวนการคิด (`thoughts_token_count`)
+- จำนวนโทเค็นทั้งหมดใน *ทั้งอินพุตและเอาต์พุต* (`total_token_count`)
 
 ### Python
 
@@ -636,9 +638,9 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### Menghitung token penalaran
+### นับโทเค็นการคิด
 
-Saat Anda mengaktifkan penalaran, harga respons adalah jumlah token output dan token penalaran. Anda dapat mengambil jumlah total token penalaran yang dihasilkan dari kolom `thoughtsTokenCount` (atau SDK yang setara).
+เมื่อเปิดใช้การคิด ราคาการตอบกลับจะเป็นผลรวมของโทเค็นเอาต์พุตและโทเค็นการคิด คุณสามารถดึงข้อมูลจำนวนโทเค็นการคิดทั้งหมดที่สร้างขึ้นจากช่อง `thoughtsTokenCount` (หรือเทียบเท่าใน SDK)
 
 ### Python
 
@@ -664,13 +666,15 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Model penalaran menghasilkan penalaran lengkap untuk meningkatkan kualitas respons akhir, lalu menghasilkan [ringkasan](https://ai.google.dev/gemini-api/docs/thinking?hl=id#summaries) output untuk memberikan insight tentang proses penalaran. Jadi, API mendasarkan harga pada token penalaran lengkap yang dihasilkan model untuk membuat ringkasan, meskipun API hanya menampilkan ringkasan.
+โมเดลการคิดจะสร้างความคิดทั้งหมดเพื่อปรับปรุงคุณภาพของการตอบกลับสุดท้าย แล้วแสดงผล[ข้อมูลสรุป](https://ai.google.dev/gemini-api/docs/thinking?hl=th#summaries)เพื่อให้ข้อมูลเชิงลึกเกี่ยวกับกระบวนการคิด ดังนั้น API จะกำหนดราคาตามโทเค็นความคิดทั้งหมดที่โมเดลสร้างขึ้นเพื่อสร้างข้อมูลสรุป แม้ว่า API จะแสดงผลข้อมูลสรุปเท่านั้น
 
-Anda dapat mempelajari lebih lanjut cara mengonfigurasi penalaran di panduan [penalaran Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
+ดูข้อมูลเพิ่มเติมเกี่ยวกับวิธีกำหนดค่าการคิดได้ในคู่มือการคิดของ [Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
 
-## Jendela konteks
+## หน้าต่างบริบท
 
-Model yang tersedia melalui Gemini API memiliki jendela konteks yang diukur dalam token. Jendela konteks menentukan jumlah input yang dapat Anda berikan dan jumlah output yang dapat dihasilkan model. Anda dapat menentukan ukuran jendela konteks dengan memanggil endpoint [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=id)atau dengan melihat [dokumentasi model](https://ai.google.dev/gemini-api/docs/models?hl=id).
+โมเดลที่พร้อมใช้งานผ่าน Gemini API มีหน้าต่างบริบทที่วัดเป็นโทเค็น หน้าต่างบริบทจะกำหนดจำนวนอินพุตที่คุณระบุได้และจำนวนเอาต์พุตที่โมเดลสร้างได้ คุณสามารถกำหนดขนาดของ
+หน้าต่างบริบทได้โดยการเรียกใช้ปลายทาง [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=th)
+หรือดูใน[เอกสารประกอบของโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
 
 ### Python
 
@@ -715,12 +719,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Kirim masukan
+ส่งความคิดเห็น
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Terakhir diperbarui pada 2026-06-24 UTC.
+อัปเดตล่าสุด 2026-06-24 UTC
 
-Ada masukan untuk kami?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-24 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-24 UTC"],[],[]]

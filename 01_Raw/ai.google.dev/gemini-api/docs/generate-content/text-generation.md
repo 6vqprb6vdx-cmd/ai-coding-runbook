@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=tr
-fetched_at: 2026-06-29T05:26:04.923803+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=fr
+fetched_at: 2026-07-06T05:21:35.783128+00:00
 title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Geri bildirim gönderin
+Envoyer des commentaires
 
-# Metin oluşturma
+# Génération de texte
 
-Gemini API, metin, resim, video ve ses girişlerinden metin çıkışı oluşturabilir.
+L'API Gemini peut générer une sortie de texte à partir d'entrées de texte, d'images, de vidéos et audio.
 
-Temel bir örnek:
+Voici un exemple basique :
 
 ### Python
 
@@ -125,7 +125,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -160,11 +160,13 @@ function main() {
 }
 ```
 
-## Gemini ile düşünme
+## Réflexion avec Gemini
 
-Gemini modellerinde genellikle ["düşünme"](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) özelliği varsayılan olarak etkindir. Bu özellik, modelin bir isteğe yanıt vermeden önce akıl yürütmesini sağlar.
+[Les modèles Gemini sont souvent activés par défaut
+ce qui leur permet de raisonner avant de répondre à une requête.](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)
 
-Her model, maliyet, gecikme ve zeka üzerinde kontrol sahibi olmanızı sağlayan farklı düşünme yapılandırmalarını destekler. Daha fazla ayrıntı için [düşünme kılavuzuna](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#set-budget) bakın.
+Chaque modèle est compatible avec différentes configurations de réflexion, ce qui vous permet de contrôler les coûts, la latence et l'intelligence. Pour en savoir plus, consultez le
+[guide de réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#set-budget).
 
 ### Python
 
@@ -296,7 +298,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -336,9 +338,11 @@ function main() {
 }
 ```
 
-## Sistem talimatları ve diğer yapılandırmalar
+## Instructions système et autres configurations
 
-Sistem talimatlarıyla Gemini modellerinin davranışını yönlendirebilirsiniz. Bunun için [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig) nesnesi iletin.
+Vous pouvez guider le comportement des modèles Gemini à l'aide d'instructions système. Pour ce faire,
+transmettez un [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig)
+objet.
 
 ### Python
 
@@ -468,7 +472,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -510,8 +514,9 @@ function main() {
 }
 ```
 
-[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig)
-nesnesi, [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig) gibi varsayılan oluşturma parametrelerini de geçersiz kılmanıza olanak tanır.
+L'[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig)
+objet vous permet également de remplacer les paramètres de génération par défaut, tels que
+[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig).
 
 ### Python
 
@@ -636,7 +641,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ge
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -677,11 +682,13 @@ function main() {
 }
 ```
 
-Yapılandırılabilir parametrelerin ve açıklamalarının tam listesi için API referansımızdaki [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerationConfig) bölümüne bakın.
+Consultez [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig)
+dans notre documentation de référence de l'API pour obtenir la liste complète des paramètres configurables et leurs
+descriptions.
 
-## Çok formatlı girişler
+## Entrées multimodales
 
-Gemini API, çok formatlı girişleri destekler. Bu sayede metinleri medya dosyalarıyla birleştirebilirsiniz. Aşağıdaki örnekte resim sağlama gösterilmektedir:
+L'API Gemini est compatible avec les entrées multimodales, ce qui vous permet de combiner du texte avec des fichiers multimédias. L'exemple suivant montre comment fournir une image :
 
 ### Python
 
@@ -842,7 +849,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   -d "@$TEMP_JSON"
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -889,14 +896,17 @@ function getImageData(url) {
 }
 ```
 
-Resim sağlamanın alternatif yöntemleri ve daha gelişmiş resim işleme hakkında bilgi edinmek için [Görüntü Anlama Rehberimizi](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr) inceleyin.
-API ayrıca [doküman](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr), [video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) ve [ses](https://ai.google.dev/gemini-api/docs/audio?hl=tr) girişlerini ve bu girişlerin anlaşılmasını da destekler.
+Pour découvrir d'autres méthodes permettant de fournir des images et un traitement d'image plus avancé,
+consultez notre [guide sur la compréhension des images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr).
+L'API est également compatible avec les entrées et la compréhension de [documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr), de [vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr) et [audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr).
 
-## Yanıtları akış şeklinde gösterme
+## Réponses en streaming
 
-Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir.
+Par défaut, le modèle ne renvoie une réponse qu'une fois le processus de génération
+terminé.
 
-Daha akıcı etkileşimler için, [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerateContentResponse) örneklerini oluşturuldukça artımlı olarak almak üzere akışı kullanın.
+Pour des interactions plus fluides, utilisez le streaming pour recevoir [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerateContentResponse) instances de manière incrémentielle
+à mesure qu'elles sont générées.
 
 ### Python
 
@@ -1015,7 +1025,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:s
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1050,9 +1060,9 @@ function main() {
 }
 ```
 
-## Çok aşamalı etkileşimli görüşmeler (sohbet)
+## Conversations multitours (chat)
 
-SDK'larımız, birden fazla istem ve yanıt turunu bir sohbette toplama işlevi sunarak sohbet geçmişini kolayca takip etmenizi sağlar.
+Nos SDK fournissent une fonctionnalité permettant de collecter plusieurs séries de requêtes et de réponses dans un chat, ce qui vous permet de suivre facilement l'historique des conversations.
 
 ### Python
 
@@ -1212,7 +1222,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ge
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1260,7 +1270,7 @@ function main() {
 }
 ```
 
-Yayın, çok aşamalı etkileşimler için de kullanılabilir.
+Le streaming peut également être utilisé pour les conversations multitours.
 
 ### Python
 
@@ -1431,7 +1441,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:st
   }'
 ```
 
-### Apps Komut Dosyası
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1479,40 +1489,46 @@ function main() {
 }
 ```
 
-## İstem ipuçları
+## Conseils pour écrire des prompts
 
-Gemini'dan en iyi şekilde yararlanmayla ilgili öneriler için [istem mühendisliği kılavuzumuza](https://ai.google.dev/gemini/docs/prompting-strategies?hl=tr) göz atın.
+Consultez notre [guide de prompt engineering](https://ai.google.dev/gemini/docs/prompting-strategies?hl=fr) pour obtenir des suggestions sur la façon de tirer le meilleur parti de Gemini.
 
-## Sırada ne var?
+## Étape suivante
 
-- [Google AI Studio'da Gemini](https://aistudio.google.com?hl=tr)'ı deneyin.
-- JSON benzeri yanıtlar için [yapılandırılmış çıkışlarla](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) deneme yapın.
-- Gemini'ın [görüntü](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr),
-  [video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr), [ses](https://ai.google.dev/gemini-api/docs/audio?hl=tr)
-  ve [doküman](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr) anlama özelliklerini keşfedin.
-- Çok formatlı [dosya istemi stratejileri](https://ai.google.dev/gemini-api/docs/files?hl=tr#prompt-guide) hakkında bilgi edinin.
+- Essayez [Gemini dans Google AI Studio](https://aistudio.google.com?hl=fr).
+- Testez les [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) pour
+  les réponses de type JSON.
+- Découvrez les capacités de compréhension des [images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr),
+  [vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr), [audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr)
+  et des [documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr) de Gemini.
+- Découvrez les stratégies de requêtes multimodales
+  [de fichiers](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide).
 
-## İçerik oluşturma
+## Génération de contenu
 
-Bu, modele istem göndermek için kullanılan merkezi uç noktadır. İçerik oluşturmak için iki uç nokta vardır. Temel fark, yanıtı nasıl aldığınızdır:
+Il s'agit du point de terminaison central pour l'envoi de requêtes au modèle. Il existe deux points de terminaison pour générer du contenu. La principale différence réside dans la façon dont vous recevez la réponse :
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=tr#method:-models.generatecontent)
-  (REST)**:
-  İsteği alır ve model tüm oluşturma işlemini tamamladıktan sonra tek bir yanıt verir.
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=tr#method:-models.streamgeneratecontent)
-  (SSE)**: Tam olarak aynı isteği alır ancak model, yanıtın parçalarını oluşturuldukça geri aktarır. Bu, kısmi sonuçları hemen görüntülemenize olanak tanıdığı için etkileşimli uygulamalarda daha iyi bir kullanıcı deneyimi sağlar.
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=fr#method:-models.generatecontent)
+  (REST)** : reçoit une requête et fournit une seule réponse une fois que le modèle a terminé sa génération.
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=fr#method:-models.streamgeneratecontent)
+  (SSE)** : reçoit exactement la même requête, mais le modèle renvoie des blocs de la réponse à mesure qu'ils sont générés. Cela améliore l'expérience utilisateur pour les applications interactives, car vous pouvez afficher immédiatement des résultats partiels.
 
-### İstek metni yapısı
+### Structure du corps de la requête
 
-[İstek gövdesi](https://ai.google.dev/api/generate-content?hl=tr#request-body), hem standart hem de akış modları için **aynı** olan ve birkaç temel nesneden oluşturulan bir JSON nesnesidir:
+Le [corps de la requête](https://ai.google.dev/api/generate-content?hl=fr#request-body) est un objet JSON qui est
+**identique** pour les modes standard et streaming, et est créé à partir de quelques objets principaux
+:
 
-- [`Content`](https://ai.google.dev/api/caching?hl=tr#Content) nesnesi: Bir görüşmedeki tek bir dönüşü temsil eder.
-- [`Part`](https://ai.google.dev/api/caching?hl=tr#Part) nesnesi: `Content` dönüşündeki bir veri parçası (ör. metin veya resim).
-- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=tr#Blob)): İşlenmemiş medya baytları ve bunların MIME türü için bir kapsayıcı.
+- [`Content`](https://ai.google.dev/api/caching?hl=fr#Content) objet : représente un seul tour dans une
+  conversation.
+- [`Part`](https://ai.google.dev/api/caching?hl=fr#Part) objet : élément de données dans un tour `Content`
+  (comme du texte ou une image).
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=fr#Blob)) : conteneur pour les octets multimédias bruts
+  et leur type MIME.
 
-En üst düzeyde, istek gövdesinde bir `contents` nesnesi bulunur. Bu nesne, her biri sohbetteki dönüşleri temsil eden `Content` nesnelerinin listesidir. Çoğu durumda, temel metin oluşturma için tek bir `Content` nesneniz olur. Ancak görüşme geçmişini korumak istiyorsanız birden fazla `Content` nesne kullanabilirsiniz.
+Au niveau le plus élevé, le corps de la requête contient un objet `contents`, qui est une liste d'objets `Content`, chacun représentant des tours de conversation. Dans la plupart des cas, pour la génération de texte de base, vous n'aurez qu'un seul objet `Content`, mais si vous souhaitez conserver l'historique des conversations, vous pouvez utiliser plusieurs objets `Content`.
 
-Aşağıda tipik bir `generateContent` istek gövdesi gösterilmektedir:
+L'exemple suivant montre un corps de requête `generateContent` typique :
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -1537,20 +1553,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Yanıt gövdesi yapısı
+### Structure du corps de la réponse
 
-[Yanıt metni](https://ai.google.dev/api/generate-content?hl=tr#response-body), aşağıdakiler hariç hem akış hem de standart mod için benzerdir:
+Le [corps de la réponse](https://ai.google.dev/api/generate-content?hl=fr#response-body) est semblable pour les modes
+streaming et standard, à l'exception des points suivants :
 
-- Standart mod: Yanıt gövdesi, [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerateContentResponse) öğesinin bir örneğini içerir.
-- Akış modu: Yanıt metni, [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=tr#v1beta.GenerateContentResponse) örneklerinin akışını içerir.
+- Mode standard : le corps de la réponse contient une instance de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerateContentResponse).
+- Mode streaming : le corps de la réponse contient un flux d'
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerateContentResponse)
+  instances.
 
-Genel olarak, yanıt gövdesinde `candidates` nesnesi bulunur. Bu nesne, `Candidate` nesnelerinin listesidir. `Candidate` nesnesi, modelden döndürülen oluşturulmuş yanıtı içeren bir `Content` nesnesi içerir.
+À un niveau élevé, le corps de la réponse contient un objet `candidates`, qui est une liste d'objets `Candidate`. L'objet `Candidate` contient un objet `Content` qui contient la réponse générée renvoyée par le modèle.
 
-## REST API örnekleri
+## Exemples d'API REST
 
-### Çok formatlı istem (metin ve resim)
+### Requête multimodale (texte et image)
 
-Bir istemde hem metin hem de resim sağlamak için `parts` dizisi iki `Part` nesne içermelidir: biri metin, diğeri ise resim için `inline_data`.
+Pour fournir à la fois du texte et une image dans une requête, le tableau `parts` doit contenir deux objets `Part` : un pour le texte et un pour l'image `inline_data`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -1572,9 +1592,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Çok aşamalı etkileşimli görüşmeler (sohbet)
+### Conversations multitours (chat)
 
-Birden fazla dönüş içeren bir görüşme oluşturmak için `contents` dizisini birden fazla `Content` nesnesiyle tanımlarsınız. API, sonraki yanıt için bağlam olarak bu geçmişin tamamını kullanır. Her `Content` nesnesinin `role` değeri `user` ve `model` arasında değişmelidir.
+Pour créer une conversation à plusieurs tours, vous définissez le tableau `contents` avec plusieurs objets `Content`. L'API utilisera l'historique complet comme contexte pour la réponse suivante. Le `role` de chaque objet `Content` doit alterner entre `user` et `model`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -1605,25 +1625,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Temel çıkarımlar
+### Points à retenir
 
-- `Content` zarfı temsil eder: Kullanıcıdan veya modelden gelen bir mesaj dönüşü için üst düzey kapsayıcıdır.
-- `Part` çok formatlılığı etkinleştirir: Farklı veri türlerini (metin, resim, video URI'si vb.) birleştirmek için tek bir `Content` nesnesinde birden fazla `Part` nesnesi kullanın.
-- Veri yönteminizi seçin:
-  - Doğrudan yerleştirilmiş küçük medya öğeleri (ör. çoğu resim) için `Part` ile `inline_data` kullanın.
-  - Daha büyük dosyalar veya istekler arasında yeniden kullanmak istediğiniz dosyalar için dosyayı yüklemek üzere File API'yi kullanın ve `file_data` bölümüyle referans verin.
-- Konuşma geçmişini yönetme: REST API'yi kullanan sohbet uygulamaları için her dönüşte `contents` dizisini `Content` nesnelerini ekleyerek oluşturun. `"user"` ve `"model"` rolleri arasında geçiş yapın. SDK kullanıyorsanız
-  konuşma geçmişini yönetmenin önerilen yolu için SDK belgelerine bakın.
+- `Content` est l'enveloppe : il s'agit du conteneur de premier niveau pour un tour de message, qu'il provienne de l'utilisateur ou du modèle.
+- `Part` permet la multimodalité : utilisez plusieurs objets `Part` dans un seul objet `Content` pour combiner différents types de données (texte, image, URI vidéo, etc.).
+- Choisissez votre méthode de données :
+  - Pour les contenus multimédias petits et directement intégrés (comme la plupart des images), utilisez un `Part` avec `inline_data`.
+  - Pour les fichiers plus volumineux ou ceux que vous souhaitez réutiliser dans plusieurs requêtes, utilisez l'API File pour importer le fichier et le référencer avec une partie `file_data`.
+- Gérez l'historique des conversations : pour les applications de chat utilisant l'API REST, créez
+  le `contents` tableau en ajoutant des `Content` objets pour chaque tour,
+  en alternant les rôles `"user"` et `"model"`. Si vous utilisez un SDK, consultez sa documentation pour connaître la méthode recommandée de gestion de l'historique des conversations.
 
-## Yanıt örnekleri
+## Exemples de réponses
 
-Aşağıdaki örneklerde, bu bileşenlerin farklı istek türleri için nasıl bir araya geldiği gösterilmektedir.
+Les exemples suivants montrent comment ces composants s'assemblent pour différents types de requêtes.
 
-### Yalnızca metin içeren yanıt
+### Réponse textuelle uniquement
 
-Varsayılan metin yanıtı, modelin yanıtını içeren bir veya daha fazla `content` nesnesi içeren bir `candidates` dizisinden oluşur.
+Une réponse textuelle par défaut se compose d'un tableau `candidates` avec un ou plusieurs objets `content` contenant la réponse du modèle.
 
-Aşağıda, **standart** bir yanıta örnek verilmiştir:
+Voici un exemple de réponse **standard** :
 
 ```
 {
@@ -1644,7 +1665,7 @@ Aşağıda, **standart** bir yanıta örnek verilmiştir:
 }
 ```
 
-Aşağıda bir dizi **aktarım** yanıtı verilmiştir. Her yanıtta, yanıtın tamamını bir araya getiren bir `responseId` bulunur:
+Voici une série de réponses **en streaming**. Chaque réponse contient un `responseId` qui lie la réponse complète :
 
 ```
 {
@@ -1692,37 +1713,43 @@ Aşağıda bir dizi **aktarım** yanıtı verilmiştir. Her yanıtta, yanıtın 
 }
 ```
 
-## Live API (BidiGenerateContent) WebSockets API
+## API WebSockets de l'API Live (BidiGenerateContent)
 
-Live API, gerçek zamanlı yayın kullanım alanlarını etkinleştirmek için çift yönlü yayın yapmaya yönelik durum bilgisi içeren bir WebSocket tabanlı API sunar. Daha fazla bilgi için [Live API kılavuzunu](https://ai.google.dev/gemini-api/docs/live?hl=tr) ve [Live API referansını](https://ai.google.dev/api/live?hl=tr) inceleyebilirsiniz.
+L'API Live propose une API avec état basée sur WebSocket pour le streaming bidirectionnel afin d'activer les cas d'utilisation du streaming en temps réel. Pour en savoir plus, consultez le
+[guide de l'API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr) et la [documentation de référence de l'API Live](https://ai.google.dev/api/live?hl=fr).
 
-## Uzmanlaşmış modeller
+## Modèles spécialisés
 
-Gemini model ailesine ek olarak Gemini API, [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=tr), [Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=tr) ve [gömme](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr) modelleri gibi özel modeller için uç noktalar sunar. Modeller bölümündeki bu kılavuzlara göz atabilirsiniz.
+En plus de la famille de modèles Gemini, l'API Gemini propose des points de terminaison pour
+des modèles spécialisés tels que [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr),
+[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=fr) et
+[les modèles d'embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr). Vous pouvez consulter ces guides dans la section "Modèles".
 
-## Platform API'leri
+## API de plate-forme
 
-Diğer uç noktalar, şu ana kadar açıklanan ana uç noktalarla birlikte kullanılabilecek ek özellikler sağlar. Daha fazla bilgi edinmek için Kılavuzlar bölümündeki [Toplu iş modu](https://ai.google.dev/gemini-api/docs/batch-mode?hl=tr) ve [File API](https://ai.google.dev/gemini-api/docs/files?hl=tr) konularına göz atın.
+Le reste des points de terminaison permet d'utiliser des fonctionnalités supplémentaires avec les points de terminaison principaux décrits jusqu'à présent. Pour en savoir plus, consultez les sections
+[Mode par lot](https://ai.google.dev/gemini-api/docs/batch-mode?hl=fr) et
+[API File](https://ai.google.dev/gemini-api/docs/files?hl=fr) dans la section "Guides".
 
-## Sırada ne var?
+## Étape suivante
 
-Yeni başlıyorsanız Gemini API programlama modelini anlamanıza yardımcı olacak aşağıdaki kılavuzlara göz atın:
+Si vous débutez, consultez les guides suivants, qui vous aideront à comprendre le modèle de programmation de l'API Gemini :
 
-- [Gemini API'yi kullanmaya başlama kılavuzu](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Gemini model rehberi](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr)
+- [Guide de démarrage de l'API Gemini](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Guide des modèles Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr)
 
-Ayrıca, farklı Gemini API özelliklerini tanıtan ve kod örnekleri sunan özellik kılavuzlarına da göz atabilirsiniz:
+Vous pouvez également consulter les guides sur les fonctionnalités, qui présentent différentes fonctionnalités de l'API Gemini et fournissent des exemples de code :
 
-- [Metin üretme](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr)
-- [Bağlamı önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr)
-- [Yerleştirmeler](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
+- [Génération de texte](https://ai.google.dev/gemini-api/docs/text-generation?hl=fr)
+- [Mise en cache du contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr)
+- [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr)
 
-Geri bildirim gönderin
+Envoyer des commentaires
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Son güncelleme tarihi: 2026-06-24 UTC.
+Dernière mise à jour le 2026/06/24 (UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-24 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/24 (UTC)."],[],[]]

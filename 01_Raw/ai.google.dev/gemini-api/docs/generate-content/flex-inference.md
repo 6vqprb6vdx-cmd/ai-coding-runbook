@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=tr
-fetched_at: 2026-06-29T05:32:23.407342+00:00
-title: "Flex \u00e7\u0131kar\u0131m\u0131 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=ar
+fetched_at: 2026-07-06T05:12:57.332194+00:00
+title: "\u0627\u0644\u0627\u0633\u062a\u0646\u062a\u0627\u062c \u0627\u0644\u0645\u0631\u0646 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-# Flex çıkarımı
+# الاستنتاج المرن
 
-Açıklama: Esnek çıkarım katmanıyla maliyetleri nasıl optimize edeceğinizi öğrenin
+الوصف: تعرَّف على كيفية تحسين التكاليف باستخدام مستوى الاستدلال المرن
 
-Gemini Flex API, değişken gecikme süresi ve en iyi çaba ile kullanılabilirlik karşılığında standart ücretlere kıyasla% 50 maliyet düşüşü sunan bir çıkarım katmanıdır. Bu API, eşzamanlı işleme gerektiren ancak standart API'nin gerçek zamanlı performansına ihtiyaç duymayan, gecikmeye toleranslı iş yükleri için tasarlanmıştır.
+‫Gemini Flex API هو مستوى استدلال يقدّم خصمًا بنسبة% 50 على التكلفة مقارنةً بالأسعار العادية، مقابل وقت استجابة متغيّر وتوفّر بأفضل جهد. تم تصميم هذا المستوى لأحمال العمل التي تتحمّل وقت الاستجابة وتتطلّب معالجة متزامنة ولكنّها لا تحتاج إلى الأداء في الوقت الفعلي الذي يوفّره واجهة برمجة التطبيقات العادية.
 
-## Flex nasıl kullanılır?
+## كيفية استخدام المستوى المرن
 
-Esnek katmanı kullanmak için istek gövdesinde `service_tier` değerini `flex` olarak belirtin. Bu alan atlanırsa istekler varsayılan olarak standart katmanı kullanır.
+لاستخدام المستوى المرن، حدِّد `service_tier` على أنّه `flex` في نص الطلب. تستخدم الطلبات تلقائيًا المستوى العادي إذا تم حذف هذا الحقل.
 
 ### Python
 
@@ -68,7 +68,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -116,57 +116,61 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## Flex çıkarımının işleyiş şekli
+## كيفية عمل الاستدلال المرن
 
-Gemini Flex çıkarımı, standart API ile [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr)'nin 24 saatlik yanıt süresi arasındaki boşluğu kapatır. Arka plan görevleri ve sıralı iş akışları için uygun maliyetli bir çözüm sunmak üzere yoğun olmayan zamanlardaki, "kullanılmayan" bilgi işlem kapasitesinden yararlanır.
+[يسدّ الاستدلال المرن في Gemini الفجوة بين واجهة برمجة التطبيقات العادية وواجهة برمجة التطبيقات المجمّعة التي تستغرق 24 ساعة
+.](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) ويستخدِم هذا المستوى سعة الحوسبة "القابلة للتخفيض" في غير أوقات الذروة لتوفير حلّ فعّال من حيث التكلفة للمهام في الخلفية وسير العمل المتسلسل.
 
-| Özellik | Yaratıcılığınızı | Öncelik | Standart | Toplu |
+| الميزة | التعبير | الأولوية | خطة "الرزمة العادية" | مجمّعة |
 | --- | --- | --- | --- | --- |
-| **Fiyatlandırma** | %50 indirim | Standart'tan% 75-100 daha fazla | Tam fiyat | %50 indirim |
-| **Gecikme** | Dakikalar (1-15 dakika hedef) | Düşük (saniye) | Saniyeden dakikaya | En fazla 24 saat |
-| **Güvenilirlik** | En iyi sonuç (Sheddable) | Yüksek (tüy dökmeyen) | Yüksek / Biraz yüksek | Yüksek (aktarım hızı için) |
-| **Arayüz** | Eşzamanlı | Eşzamanlı | Eşzamanlı | Eşzamansız |
+| **الأسعار** | خصم بنسبة% 50 | أكثر بنسبة %75 إلى %100 من خطة "الرزمة العادية" | السعر الكامل | خصم بنسبة% 50 |
+| **وقت الاستجابة** | دقائق (الهدف من دقيقة إلى 15 دقيقة) | منخفض (ثوانٍ) | من ثوانٍ إلى دقائق | ما يصل إلى 24 ساعة |
+| **الموثوقية** | بأفضل جهد (قابل للتخفيض) | عالية (غير قابلة للتخفيض) | عالية / متوسّطة إلى عالية | عالية (لمعدّل نقل البيانات) |
+| **الواجهة** | متزامن | متزامن | متزامن | غير متزامن |
 
-### Temel avantajlar
+### المزايا الرئيسية
 
-- **Maliyet verimliliği**: Üretim dışı değerlendirmeler, arka plan aracıları ve veri zenginleştirme için önemli ölçüde tasarruf sağlar.
-- **Kolay**: Toplu nesneleri, iş kimliklerini veya yoklamayı yönetmeniz gerekmez. Mevcut isteklerinize tek bir parametre eklemeniz yeterlidir.
-- **Eşzamanlı iş akışları**: Bir sonraki isteğin bir öncekinin çıkışına bağlı olduğu sıralı API zincirleri için idealdir. Bu nedenle, aracı iş akışları için toplu işlerden daha esnektir.
+- **فعالية التكلفة**: وفورات كبيرة لعمليات التقييم غير الإنتاجية والوكلاء في الخلفية وإثراء البيانات
+- **سهولة الاستخدام**: ما مِن حاجة إلى إدارة كائنات مجمّعة أو أرقام تعريف الوظائف أو عمليات الاقتراع، ما عليك سوى إضافة مَعلمة واحدة إلى طلباتك الحالية.
+- **سير العمل المتزامن**: مثالي لسلاسل واجهات برمجة التطبيقات المتسلسلة حيث يعتمد الطلب التالي على ناتج الطلب السابق، ما يجعله أكثر مرونة من واجهة برمجة التطبيقات المجمّعة لسير عمل الوكلاء
 
-### Kullanım alanları
+### حالات الاستخدام
 
-- **Çevrimdışı değerlendirmeler**: "LLM-as-a-judge" regresyon testleri veya skor tabloları çalıştırma.
-- **Arka plan aracıları**: CRM güncellemeleri, profil oluşturma veya içerik denetleme gibi sıralı görevler. Bu görevlerde birkaç dakikalık gecikme kabul edilebilir.
-- **Bütçe kısıtlamalı araştırma**: Sınırlı bir bütçeyle yüksek jeton hacmi gerektiren akademik deneyler.
+- **عمليات التقييم بلا إنترنت**: إجراء اختبارات الانحدار أو لوحات الصدارة "للنموذج اللغوي الكبير كحكم"
+- **الوكلاء في الخلفية**: مهام متسلسلة، مثل تعديلات نظام إدارة علاقات العملاء أو إنشاء الملفات الشخصية أو الإشراف على المحتوى، حيث تكون دقائق التأخير مقبولة
+- **الأبحاث المقيّدة بالميزانية**: التجارب الأكاديمية التي تتطلّب حجمًا كبيرًا من الرموز المميّزة بميزانية محدودة
 
-### Hız sınırları
+### حدود معدّل الاستخدام
 
-Esnek çıkarım trafiği, genel [hız sınırlarınıza](https://aistudio.google.com/rate-limit?hl=tr) dahil edilir. [Toplu İşlem API'si](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr) gibi genişletilmiş hız sınırları sunmaz.
+يتم احتساب عدد الزيارات الناتجة عن الاستدلال المرن ضمن حدود [معدّل الاستخدام](https://aistudio.google.com/rate-limit?hl=ar) العامة، ولا
+يقدّم هذا المستوى حدودًا موسّعة لمعدّل الاستخدام مثل [واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar).
 
-### Sökülebilir kapasite
+### السعة القابلة للتخفيض
 
-Esnek trafik daha düşük öncelikli olarak değerlendirilir. Standart trafikte ani bir artış olursa yüksek öncelikli kullanıcılar için kapasite sağlamak amacıyla esnek istekler öncelikli olarak işlenebilir veya çıkarılabilir. Yüksek öncelikli çıkarım arıyorsanız [Öncelikli çıkarım](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr) bölümüne bakın.
+يتم التعامل مع عدد الزيارات المرنة بأولوية أقل. في حال حدوث ارتفاع في عدد الزيارات العادية، قد يتم إيقاف طلبات المستوى المرن أو إزالتها لضمان توفير السعة للمستخدمين ذوي الأولوية العالية. إذا كنت تبحث عن استدلال ذي أولوية عالية، اطّلِع على
+[الاستدلال ذي الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)
 
-### Hata kodları
+### رموز الخطأ
 
-Esnek kapasite kullanılamadığında veya sistemde yoğunluk olduğunda API, standart hata kodlarını döndürür:
+عندما تكون سعة المستوى المرن غير متاحة أو يكون النظام مزدحمًا، ستعرض واجهة برمجة التطبيقات رموز الخطأ العادية:
 
-- **503 Hizmet Kullanılamıyor**: Sistem şu anda tam kapasiteyle çalışıyor.
-- **429 Çok Fazla İstek Var**: Sıklık sınırları veya kaynak tükenmesi.
+- **\*\*503 الخدمة غير متاحة\*\***: يتلقّى النظام عدد طلبات كبير جدًا في الوقت الحالي.
+- **429 Too Many Requests**: حدود معدّل الاستخدام أو استنفاد الموارد
 
-### Müşterinin sorumluluğu
+### مسؤولية العميل
 
-- **Sunucu tarafında yedekleme yok**: Beklenmedik ücretleri önlemek için Flex kapasitesi doluysa sistem, Flex isteğini otomatik olarak Standart katmana yükseltmez.
-- **Yeniden denemeler**: Eksponansiyel geri yükleme ile kendi istemci tarafı yeniden deneme mantığınızı uygulamanız gerekir.
-- **Zaman aşımları**: Esnek istekler bir kuyrukta bekleyebileceğinden, bağlantının erken kapanmasını önlemek için istemci tarafı zaman aşımlarını 10 dakika veya daha uzun bir süreye çıkarmanızı öneririz.
+- **ما مِن خيار احتياطي من جهة الخادم**: لمنع حدوث رسوم غير متوقّعة، لن يرقّي النظام تلقائيًا طلبًا من المستوى المرن إلى المستوى العادي إذا كانت سعة المستوى المرن ممتلئة.
+- **عمليات إعادة المحاولة**: عليك تنفيذ منطق إعادة المحاولة من جهة العميل باستخدام
+  خوارزمية الرقود الأسي الثنائي.
+- **مهلات الانتظار**: بما أنّ طلبات المستوى المرن قد تبقى في صفّ الانتظار، ننصحك بزيادة مهلات الانتظار من جهة العميل إلى 10 دقائق أو أكثر لتجنُّب إغلاق الاتصال قبل الأوان.
 
-## Zaman aşımı aralıklarını ayarlama
+## تعديل فترات مهلة الانتظار
 
-REST API ve istemci kitaplıkları için istek başına zaman aşımlarını, istemci kitaplıklarını kullanırken ise yalnızca genel zaman aşımlarını yapılandırabilirsiniz.
+يمكنك ضبط مهلات الانتظار لكل طلب في REST API ومكتبات العميل، ومهلات الانتظار العامة فقط عند استخدام مكتبات العميل.
 
-İstemci tarafı zaman aşımınızın her zaman amaçlanan sunucu bekleme süresini (ör. Flex bekleme sıraları için 600 saniye ve üzeri) kapsadığından emin olun. SDK'lar zaman aşımı değerlerini milisaniye cinsinden bekler.
+احرص دائمًا على أن تغطّي مهلة الانتظار من جهة العميل فترة الانتظار المقصودة من جهة الخادم (مثل 600 ثانية أو أكثر لقوائم انتظار المستوى المرن). تتوقّع حِزم تطوير البرامج (SDK) قيم مهلة الانتظار بالملّي ثانية.
 
-### İstek başına zaman aşımı
+### مهلات الانتظار لكل طلب
 
 ### Python
 
@@ -247,7 +251,7 @@ except Exception as e:
  await main();
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -313,11 +317,12 @@ func main() {
 
 ### REST
 
-REST çağrıları yaparken HTTP üstbilgileri ve `curl` seçeneklerinin bir kombinasyonunu kullanarak zaman aşımlarını kontrol edebilirsiniz:
+عند إجراء طلبات REST، يمكنك التحكّم في مهلات الانتظار باستخدام مجموعة من عناوين HTTP وخيارات `curl`:
 
-- **`X-Server-Timeout` üstbilgi (sunucu tarafı zaman aşımı)**: Bu üstbilgi, Gemini API sunucusu için tercih edilen bir zaman aşımı süresi (varsayılan 600 saniye) önerir. Sunucu bu isteğe uymaya çalışır ancak bu garanti edilmez. Değer saniye cinsinden olmalıdır.
-- **`curl` içinde `--max-time` (İstemci Tarafı Zaman Aşımı)**: `curl --max-time
-  <seconds>` seçeneği, `curl`'nin tüm işlemin tamamlanmasını bekleyeceği toplam süreye (saniye cinsinden) kesin bir sınır koyar. Bu, istemci tarafı bir güvenlik önlemidir.
+- **العنوان `X-Server-Timeout` (مهلة الانتظار من جهة الخادم)**: يشير هذا العنوان إلى مدة مهلة الانتظار المفضّلة (600 ثانية تلقائيًا) لخادم Gemini API. سيحاول الخادم الالتزام بذلك، ولكن ليس هناك ما يضمن ذلك. يجب أن تكون القيمة بالثواني.
+- **`--max-time` في `curl` (مهلة الانتظار من جهة العميل)**: يضبط الخيار `curl --max-time
+  <seconds>` حدًا أقصى للوقت الإجمالي (بالثواني) الذي ستنتظره `curl`
+  حتى تكتمل العملية بأكملها. هذا إجراء وقائي من جهة العميل.
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -333,9 +338,9 @@ REST çağrıları yaparken HTTP üstbilgileri ve `curl` seçeneklerinin bir kom
  }'
 ```
 
-### Global zaman aşımları
+### مهلات الانتظار العامة
 
-Belirli bir `genai.Client` örneği (yalnızca istemci kitaplıkları) üzerinden yapılan tüm API çağrılarının varsayılan bir zaman aşımı olmasını istiyorsanız istemciyi `http_options` ve `genai.types.HttpOptions` kullanarak başlatırken bunu yapılandırabilirsiniz.
+إذا كنت تريد أن تتضمّن جميع طلبات واجهة برمجة التطبيقات التي يتم إجراؤها من خلال مثيل `genai.Client` معيّن (مكتبات العميل فقط) مهلة انتظار تلقائية، يمكنك ضبط ذلك عند تهيئة العميل باستخدام `http_options` و`genai.types.HttpOptions`.
 
 ### Python
 
@@ -425,7 +430,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
  package main
@@ -482,9 +487,9 @@ await main();
  }
 ```
 
-## Yeniden denemeleri uygulama
+## تنفيذ عمليات إعادة المحاولة
 
-Flex, 503 hatalarıyla başarısız olabilen bir katman olduğundan başarısız isteklerle devam etmek için isteğe bağlı olarak yeniden deneme mantığını uygulamanın bir örneğini aşağıda bulabilirsiniz:
+بما أنّ المستوى المرن قابل للتخفيض ويتعذّر استخدامه مع ظهور أخطاء 503، إليك مثال على تنفيذ منطق إعادة المحاولة اختياريًا لمتابعة الطلبات التي تعذّر إرسالها:
 
 ### Python
 
@@ -567,7 +572,7 @@ print(response.text)
  await main();
 ```
 
-### Go
+### انتقال
 
 ```
  package main
@@ -626,40 +631,41 @@ print(response.text)
  }
 ```
 
-## Fiyatlandırma
+## الأسعار
 
-Esnek çıkarım, [standart API](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) fiyatının% 50'si üzerinden fiyatlandırılır ve jeton başına faturalandırılır.
+يتم تسعير الاستدلال المرن بنسبة% 50 من [واجهة برمجة التطبيقات العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)
+ويتم تحصيل الرسوم لكل رمز مميّز.
 
-## Desteklenen modeller
+## النماذج المتوافقة
 
-Aşağıdaki modellerde Flex çıkarımı desteklenir:
+تتوفّر ميزة الاستدلال المرن في النماذج التالية:
 
-| Model | Esnek çıkarım |
+| الطراز | الاستدلال المرن |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
-| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | ✔️ |
-| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
-| [Gemini 3 Pro ile Görüntü Önizleme](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=tr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
+| [Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ar) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
 
-## Sırada ne var?
+## الخطوات التالية
 
-Gemini'ın diğer [çıkarım ve optimizasyon](https://ai.google.dev/gemini-api/docs/optimization?hl=tr) seçenekleri hakkında bilgi edinin:
+يمكنك الاطّلاع على خيارات [الاستدلال والتحسين](https://ai.google.dev/gemini-api/docs/optimization?hl=ar) الأخرى في Gemini:
 
-- Ultra düşük gecikme için [öncelikli çıkarım](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr).
-- 24 saat içinde eşzamansız işleme için [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr).
-- Giriş jetonu maliyetlerini azaltmak için [bağlam önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr).
+- [الاستدلال ذي الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar) لوقت استجابة فائق السرعة
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) للمعالجة غير المتزامنة في غضون 24 ساعة
+- [تخزين السياق مؤقتًا](https://ai.google.dev/gemini-api/docs/caching?hl=ar) لتقليل تكاليف الرموز المميّزة للإدخال
 
-Geri bildirim gönderin
+إرسال ملاحظات
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Son güncelleme tarihi: 2026-06-23 UTC.
+تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-23 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=zh-TW
-fetched_at: 2026-06-29T05:30:28.024631+00:00
-title: "Gemini \u601d\u8003 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=pl
+fetched_at: 2026-07-06T05:12:33.353579+00:00
+title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-提供意見
+Prześlij opinię
 
-# Gemini 思考
+# Gemini
 
-[Gemini 3 和 2.5 系列模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)採用「思考過程」，大幅提升推論和多步驟規劃能力，因此非常適合處理複雜工作，例如程式設計、高等數學和資料分析。
+[Modele z serii Gemini 3 i 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pl) wykorzystują „proces myślowy”, który znacznie poprawia ich zdolność do rozumowania i planowania wieloetapowego, dzięki czemu są bardzo skuteczne w przypadku złożonych zadań, takich jak kodowanie, zaawansowana matematyka i analiza danych.
 
-使用思考型模型時，Gemini 會先進行內部推論，再做出回覆。Interactions API 會透過 `thought` 步驟顯示這項推論過程，這些專屬步驟會依時間順序顯示在 `steps` 陣列中，與函式呼叫、使用者輸入內容或模型輸出內容並列。
+Gdy używasz modelu myślenia, Gemini analizuje prompta wewnętrznie przed udzieleniem odpowiedzi. Interfejs API interakcji udostępnia to rozumowanie za pomocą `thought`kroków, czyli specjalnych kroków, które pojawiają się chronologicznie obok wywołań funkcji, danych wejściowych użytkownika lub danych wyjściowych modelu w `steps`tablicy.
 
-每個思考步驟都包含兩個欄位：
+Każdy krok myślowy zawiera 2 pola:
 
-| 欄位 | 必要 | 說明 |
+| Pole | Wymagane | Opis |
 | --- | --- | --- |
-| `signature` | ✅ 是 | 模型內部推論狀態的加密表示法。一律會顯示，即使模型只執行最少的推論作業。 |
-| `summary` | ❌ 否 | 總結推論過程的內容陣列 (文字和/或圖片)。視 [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=zh-tw) 設定、模型是否進行足夠的推論，或內容類型而定，可能為空白 (例如，圖片潛在空間可能沒有文字摘要)。 |
+| `signature` | ✅ Tak | zaszyfrowana reprezentacja wewnętrznego stanu rozumowania modelu; Zawsze obecne, nawet gdy model wykonuje minimalne rozumowanie. |
+| `summary` | ❌ Nie | Tablica treści (tekst lub obrazy) podsumowująca uzasadnienie. Może być pusta w zależności od konfiguracji [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=pl), tego, czy model przeprowadził wystarczające rozumowanie, lub typu treści (np. latentne obrazy mogą nie mieć podsumowań tekstowych). |
 
-## 與思考過程的互動
+## Interakcje z myśleniem
 
-啟動與思考型模型的互動，與任何其他互動要求類似。在 `model` 欄位中，指定[支援思考步驟的模型](#thinking-levels)：
+Rozpoczęcie interakcji z modelem myślowym jest podobne do każdego innego żądania interakcji. W polu `model` określ jeden z [modeli z obsługą myślenia](#thinking-levels):
 
 ### Python
 
@@ -73,10 +73,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 想法重點摘要
+## Podsumowania myśli
 
-想法摘要可深入瞭解模型的內部推論過程。
-根據預設，系統只會傳回最終輸出內容。你可以使用 `thinking_summaries` 啟用想法摘要：
+Podsumowania myśli zawierają informacje o wewnętrznym procesie rozumowania modelu.
+Domyślnie zwracane są tylko dane wyjściowe. Podsumowania myśli możesz włączyć, klikając `thinking_summaries`:
 
 ### Python
 
@@ -158,23 +158,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-在下列情況下，想法區塊可能**只包含簽名，沒有摘要**：
+W tych przypadkach blok myśli może zawierać **tylko podpis bez podsumowania**:
 
-- 簡單要求，模型未充分推理，無法生成摘要
-- `thinking_summaries: "none"`，明確停用摘要功能
-- 部分想法內容類型 (例如圖片) 可能沒有文字摘要
+- Proste żądania, w przypadku których model nie przeprowadził wystarczającego rozumowania, aby wygenerować podsumowanie.
+- `thinking_summaries: "none"`, w przypadku których podsumowania są wyraźnie wyłączone.
+- Niektóre typy treści, np. obrazy, mogą nie mieć podsumowań tekstowych.
 
-程式碼應一律處理 `summary` 為空或不存在的思維區塊。
+Kod powinien zawsze obsługiwać bloki myśli, w których pole `summary` jest puste lub nie występuje.
 
-## 串流與思考
+## Streaming z myśleniem
 
-在生成期間使用串流功能，接收增量想法摘要。
-系統會使用伺服器傳送事件 (SSE) 傳送思維方塊，並提供兩種不同的差異類型：
+Użyj przesyłania strumieniowego, aby otrzymywać przyrostowe podsumowania myśli podczas generowania.
+Bloki myśli są dostarczane za pomocą zdarzeń wysyłanych przez serwer (SSE) z 2 różnymi typami zmian:
 
-| Delta 類型 | 包含 | 傳送時間 |
+| Typ delty | Zawiera | Czas wysłania |
 | --- | --- | --- |
-| `thought_summary` | 文字或圖片摘要內容 | 一或多個增量摘要的差異 |
-| `thought_signature` | 密碼編譯簽章 | `step.stop`之前的最後一個增量 |
+| `thought_summary` | treści podsumowujące w formie tekstu lub obrazu; | Co najmniej 1 zmiana z przyrostowym podsumowaniem |
+| `thought_signature` | Podpis kryptograficzny | ostatnia zmiana przed `step.stop` |
 
 ### Python
 
@@ -276,7 +276,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-串流回應會使用伺服器傳送事件 (SSE)，並由步驟和事件組成，例如：
+Odpowiedź strumieniowa korzysta ze zdarzeń wysyłanych przez serwer (SSE) i składa się z kroków i zdarzeń, np.:
 
 ```
 event: interaction.created
@@ -307,19 +307,20 @@ event: done
 data: [DONE]
 ```
 
-## 控制思考
+## Kontrolowanie myślenia
 
-Gemini 模型預設會進行動態思考，根據要求的複雜程度自動調整推論量。您可以使用 `thinking_level` 參數控制這項行為。
+Modele Gemini domyślnie stosują dynamiczne myślenie, automatycznie dostosowując poziom rozumowania do złożoności żądania. Możesz kontrolować to zachowanie za pomocą parametru `thinking_level`.
 
-| 模型 | 預設思考 | 支援的等級 |
+| Model | Domyślne myślenie | Obsługiwane poziomy |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | 開啟 (高) | 低、中、高 |
-| gemini-3-flash-preview | 開啟 (高) | 低、中、高 |
-| gemini-3-pro-preview | 開啟 (高) | 低、高 |
-| gemini-3.5-flash | 開啟 (媒介) | 低、中、高 |
-| gemini-2.5-pro | 開啟 | 低、中、高 |
-| gemini-2.5-flash | 開啟 | 低、中、高 |
-| gemini-2.5-flash-lite | 關閉 | 低、中、高 |
+| gemini-3.1-pro-preview | Włączone (wysokie) | niski, średni, wysoki |
+| gemini-3.1-flash-lite-image | Włączono (minimalne) | minimalna, wysoka |
+| gemini-3-flash-preview | Włączone (wysokie) | minimalny, niski, średni, wysoki |
+| gemini-3-pro-preview | Włączone (wysokie) | niski, wysoki |
+| gemini-3.5-flash | Włączono (średni) | minimalny, niski, średni, wysoki |
+| gemini-2.5-pro | Wł. | niski, średni, wysoki |
+| gemini-2.5-flash | Wł. | niski, średni, wysoki |
+| gemini-2.5-flash-lite | Wył. | niski, średni, wysoki |
 
 ### Python
 
@@ -370,27 +371,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 想法簽名
+## Podpisy myśli
 
-思維簽章是模型內部推理過程的加密表示法。在多輪對話中，必須維持推論的連貫性。
+Sygnatury myśli to zaszyfrowane reprezentacje wewnętrznego rozumowania modelu. Muszą one zachowywać ciągłość rozumowania w interakcjach wieloetapowych.
 
-與 `generateContent` API 相比，Interactions API 可大幅簡化處理想法簽章的程序。
+Interfejs Interactions API znacznie upraszcza obsługę sygnatur myśli w porównaniu z interfejsem `generateContent` API.
 
-### 有狀態模式 (建議)
+### Tryb stanowy (zalecany)
 
-根據預設，在有狀態模式下使用 Interactions API 時 (方法是設定 `store: true` 並在後續回合中傳遞 `previous_interaction_id`)，伺服器會自動管理對話狀態，包括所有想法區塊和簽章。在這個模式下，您不需要對簽章採取任何行動。這些作業完全在伺服器端處理。
+Domyślnie, gdy używasz interfejsu API interakcji w trybie stanowym (ustawiając `store: true` i przekazując `previous_interaction_id` w kolejnych turach), serwer automatycznie zarządza stanem rozmowy, w tym wszystkimi blokami myśli i sygnaturami. W tym trybie nie musisz nic robić w związku z podpisami. Są one obsługiwane w całości po stronie serwera.
 
-### 無狀態模式
+### Tryb bezstanowy
 
-如果您自行管理對話狀態 (無狀態模式)，並在每個要求中傳遞完整的輸入和輸出記錄：
+Jeśli samodzielnie zarządzasz stanem rozmowy (tryb bezstanowy) i w każdym żądaniu przekazujesz pełną historię danych wejściowych i wyjściowych:
 
-- 您**必須**一律重新傳送所有 `thought` 區塊，且內容必須與模型傳送的完全一致。
-- 請**勿**從記錄中移除或修改想法方塊，因為這些方塊包含模型繼續推論所需的簽章。
-- 在工作階段中切換模型時，您仍應重新傳送先前模型的思考區塊。後端會管理相容性。
+- **MUSISZ** zawsze ponownie wysyłać wszystkie bloki `thought` dokładnie w takiej postaci, w jakiej zostały otrzymane z modelu.
+- **NIE** usuwaj ani nie modyfikuj bloków myślowych z historii, ponieważ zawierają one sygnatury wymagane do dalszego wnioskowania przez model.
+- Podczas przełączania modeli w ramach sesji nadal musisz ponownie wysyłać bloki myślowe poprzedniego modelu. Zgodnością zarządza backend.
 
-## 定價
+## Ceny
 
-開啟思考功能後，回覆價格會是輸出詞元和思考詞元的總和。您可以從 `total_thought_tokens` 欄位取得產生的思考權杖總數。
+Gdy myślenie jest włączone, cena odpowiedzi to suma tokenów wyjściowych i tokenów myślenia. Łączną liczbę wygenerowanych tokenów myślenia możesz uzyskać z pola `total_thought_tokens`.
 
 ### Python
 
@@ -406,32 +407,32 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-思考模型會生成完整想法，提升最終回覆的品質，然後輸出[摘要](#summaries)，深入瞭解思考過程。即使 API 只會輸出摘要，但計費依據仍是模型需要產生的完整思考權杖。
+Modele myślowe generują pełne myśli, aby poprawić jakość ostatecznej odpowiedzi, a następnie wyświetlają [podsumowania](#summaries), które pozwalają zrozumieć proces myślowy. Ceny są oparte na pełnych tokenach myśli, które model musi wygenerować, mimo że interfejs API zwraca tylko podsumowanie.
 
-如要進一步瞭解權杖，請參閱「[權杖計數](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)」指南。
+Więcej informacji o tokenach znajdziesz w przewodniku [Liczba tokenów](https://ai.google.dev/gemini-api/docs/tokens?hl=pl).
 
-## 最佳做法
+## Sprawdzone metody
 
-請按照下列指南，有效運用思考模型。
+Skutecznie korzystaj z modeli myślowych, postępując zgodnie z tymi wskazówkami.
 
-- **檢閱推論**：分析想法摘要，瞭解失敗原因並改善提示。
-- **控管思考預算**：提示模型減少思考，以節省詞元。
-- **簡單工作**：使用低思考量功能擷取事實或分類 (例如「DeepMind 在哪裡成立？」)。
-- **中等難度的工作**：使用預設的思考方式比較概念或進行創意推理 (例如比較電動車和油電混合車)。
-- **複雜工作**：使用最高思考量進行進階程式設計、數學或多步驟規劃 (例如解決 AIME 數學問題)。
+- **Sprawdzanie uzasadnienia:** analizuj podsumowania myśli, aby zrozumieć przyczyny niepowodzeń i ulepszać prompty.
+- **Kontrolowanie budżetu na myślenie:** poproś model, aby mniej myślał w przypadku długich danych wyjściowych, aby zaoszczędzić tokeny.
+- **Proste zadania:** wymagają minimalnego lub niewielkiego wysiłku umysłowego w zakresie wyszukiwania faktów lub klasyfikacji (np. „Gdzie powstała firma DeepMind?”).
+- **Moderowanie zadań:** używaj domyślnego sposobu myślenia do porównywania koncepcji lub kreatywnego rozumowania (np. porównaj samochody elektryczne i hybrydowe).
+- **Złożone zadania:** używaj maksymalnego poziomu myślenia w przypadku zaawansowanego kodowania, matematyki lub planowania wieloetapowego (np. rozwiązywania problemów matematycznych z AIME).
 
-## 後續步驟
+## Co dalej?
 
-- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)：基本文字回覆
-- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)：連結至工具
-- [Gemini 3 指南](https://ai.google.dev/gemini-api/docs/gemini-3?hl=zh-tw)：模型專屬功能
+- [Generowanie tekstu:](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl) podstawowe odpowiedzi tekstowe
+- [Wywoływanie funkcji:](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) łączenie z narzędziami
+- [Przewodnik po Gemini 3:](https://ai.google.dev/gemini-api/docs/gemini-3?hl=pl) funkcje poszczególnych modeli
 
-提供意見
+Prześlij opinię
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-上次更新時間：2026-06-24 (世界標準時間)。
+Ostatnia aktualizacja: 2026-07-01 UTC.
 
-想進一步說明嗎？
+Chcesz przekazać coś jeszcze?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-24 (世界標準時間)。"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-01 UTC."],[],[]]

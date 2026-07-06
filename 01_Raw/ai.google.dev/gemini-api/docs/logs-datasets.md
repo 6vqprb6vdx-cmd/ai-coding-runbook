@@ -1,92 +1,89 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=it
-fetched_at: 2026-06-29T05:34:29.750013+00:00
-title: "Log e set di dati \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ar
+fetched_at: 2026-07-06T05:10:06.851906+00:00
+title: "\u0627\u0644\u0633\u062c\u0644\u0651\u0627\u062a \u0648\u0645\u062c\u0645\u0648\u0639\u0627\u062a \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-# Log e set di dati
+# السجلّات ومجموعات البيانات
 
-Questa guida contiene tutto il necessario per iniziare ad abilitare la registrazione per le applicazioni API Gemini esistenti. In questa guida imparerai a visualizzare i log di un'applicazione esistente o nuova nella dashboard di Google AI Studio per comprendere meglio il comportamento del modello e il modo in cui gli utenti potrebbero interagire con le tue applicazioni. Utilizza la registrazione per osservare, eseguire il debug e *facoltativamente condividere il feedback sull'utilizzo
-con Google per contribuire a migliorare Gemini in tutti i casi d'uso degli sviluppatori*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=it)
+يحتوي هذا الدليل على كل ما تحتاج إليه لبدء تفعيل تسجيل البيانات لتطبيقات Gemini API الحالية. في هذا الدليل، ستتعرّف على كيفية عرض السجلات من تطبيق حالي أو جديد في لوحة بيانات Google AI Studio لفهم سلوك النموذج بشكل أفضل وكيفية تفاعل المستخدمين مع تطبيقاتك. استخدِم التسجيل لمراقبة الأخطاء وتصحيحها و*مشاركة ملاحظاتك حول الاستخدام مع Google بشكل اختياري للمساعدة في تحسين Gemini في مختلف حالات استخدام المطوّرين*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=ar)
 
-Sono supportate tutte le chiamate API `GenerateContent` e `StreamGenerateContent`,
-incluse quelle effettuate tramite gli endpoint di compatibilità di [OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=it).
+تتوفّر جميع طلبات البيانات من واجهة برمجة التطبيقات `GenerateContent` و`StreamGenerateContent`، بما في ذلك تلك التي يتم إجراؤها من خلال نقاط نهاية [التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar).
 
-## 1. Abilitare la registrazione in Google AI Studio
+## 1. تفعيل تسجيل الأنشطة في Google AI Studio
 
-Prima di iniziare, assicurati di avere un progetto di tua proprietà con la fatturazione abilitata.
+قبل البدء، تأكَّد من توفّر مشروع تملكه ومفعَّلة فيه الفوترة.
 
-1. Apri la pagina dei log in Google [AI Studio](https://aistudio.google.com/logs?hl=it).
-2. Scegli il progetto dal menu a discesa e premi il pulsante di attivazione per abilitare la registrazione per tutte le richieste per impostazione predefinita.
+1. افتح صفحة السجلات في [AI Studio](https://aistudio.google.com/logs?hl=ar) من Google.
+2. اختَر مشروعك من القائمة المنسدلة واضغط على زر التفعيل لتفعيل التسجيل لجميع الطلبات تلقائيًا.
 
-![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=it)
+![](https://ai.google.dev/static/gemini-api/docs/images/logs-state.png?hl=ar)
 
-Puoi attivare o disattivare la registrazione per tutti i progetti o per progetti specifici e modificare queste preferenze in qualsiasi momento tramite Google AI Studio.
+يمكنك تفعيل أو إيقاف التسجيل لجميع المشاريع أو لمشاريع معيّنة، وتغيير هذه الإعدادات المفضّلة في أي وقت من خلال Google AI Studio.
 
-## 2. Visualizzare i log in AI Studio
+## 2. عرض السجلات في AI Studio
 
-1. Vai ad [AI Studio](https://aistudio.google.com/logs?hl=it).
-2. Seleziona il progetto per cui hai abilitato la registrazione.
-3. Dovresti vedere i log visualizzati nella tabella in ordine cronologico inverso.
+1. انتقِل إلى [AI Studio](https://aistudio.google.com/logs?hl=ar).
+2. اختَر المشروع الذي فعّلت تسجيل الدخول إليه.
+3. من المفترض أن تظهر السجلات في الجدول بترتيب زمني عكسي.
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/nano-banana-logs.gif)
 
-Fai clic su una voce per visualizzare la coppia richiesta-risposta in una visualizzazione di pagina intera. Puoi esaminare il prompt completo, la risposta completa di Gemini e il contesto del turno precedente. Tieni presente che ogni progetto ha un limite di spazio di archiviazione predefinito di un massimo di 1000 log e che i log non salvati nei set di dati scadranno dopo 55 giorni. Se il tuo progetto raggiunge il limite di spazio di archiviazione, ti verrà chiesto di eliminare i log.
+انقر على إدخال لعرض الطلب والردّ في مشاهدة صفحة على الويب كاملة. يمكنك الاطّلاع على الطلب الكامل والردّ الكامل من Gemini والسياق من المحادثة السابقة. يُرجى العِلم أنّ كل مشروع يتضمّن حدًا تلقائيًا لمساحة التخزين يصل إلى 1,000 سجلّ، وستنتهي صلاحية السجلات التي لم يتم حفظها في مجموعات البيانات بعد 55 يومًا. إذا بلغ مشروعك الحد الأقصى المسموح به لمساحة التخزين، سيُطلب منك حذف السجلات.
 
-## 3. Selezionare e condividere i set di dati
+## 3- تنظيم مجموعات البيانات ومشاركتها
 
-- Nella tabella dei log, individua la barra dei filtri in alto per selezionare una proprietà in base alla quale filtrare.
-- Nella visualizzazione filtrata dei log, utilizza le caselle di controllo per selezionare tutti o alcuni log.
-- Fai clic sul pulsante "Crea set di dati" visualizzato nella parte superiore dell'elenco.
-- Assegna al nuovo set di dati un nome descrittivo e una descrizione facoltativa.
-- Verrà visualizzato il set di dati appena creato con il set di log selezionato.
-- Esporta il set di dati per ulteriori analisi come file CSV, JSONL o in Fogli Google.
+- من جدول السجلات، ابحث عن شريط الفلترة في أعلى الصفحة لاختيار سمة تريد استخدامها في الفلترة.
+- من العرض الذي تمت فلترته للسجلّات، استخدِم مربّعات الاختيار لاختيار كل السجلّات أو بعضها.
+- انقر على الزر "إنشاء مجموعة بيانات" الذي يظهر في أعلى القائمة.
+- أدخِل اسمًا وصفيًا ووصفًا اختياريًا لمجموعة البيانات الجديدة.
+- ستظهر مجموعة البيانات التي أنشأتها للتو مع مجموعة السجلات المنسّقة.
+- يمكنك تصدير مجموعة البيانات لإجراء المزيد من التحليلات كملفات CSV أو JSONL أو إلى "جداول بيانات Google".
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/sales-dataset.gif)
 
-I set di dati possono essere utili per diversi casi d'uso.
+يمكن أن تكون مجموعات البيانات مفيدةً لعدد من حالات الاستخدام المختلفة.
 
-- **Selezionare set di sfide:** promuovi miglioramenti futuri che riguardano le aree in cui vuoi che la tua AI migliori.
-- **Selezionare set di esempi:** ad esempio, un campione di utilizzo reale per generare risposte da un altro modello o una raccolta di casi limite per i controlli di routine prima del deployment.
-- **Set di valutazione:** set rappresentativi dell'utilizzo reale in tutte le funzionalità importanti, per il confronto tra altri modelli o iterazioni delle istruzioni di sistema.
+- **تنظيم مجموعات التحديات:** يمكنك تحسين أداء الذكاء الاصطناعي في المستقبل من خلال استهداف المجالات التي تريد تحسينها.
+- **تنظيم مجموعات عيّنات:** على سبيل المثال، عيّنة من الاستخدام الفعلي لإنشاء ردود من نموذج آخر، أو مجموعة من الحالات الحدّية لإجراء عمليات التحقّق الروتينية قبل النشر
+- **مجموعات التقييم:** مجموعات تمثّل الاستخدام الفعلي لمختلف الإمكانات المهمة، وذلك للمقارنة بين النماذج الأخرى أو تكرارات تعليمات النظام.
 
-Puoi contribuire a promuovere i progressi nella ricerca sull'AI, nell'API Gemini e in Google AI Studio scegliendo di condividere i tuoi set di dati come esempi dimostrativi. In questo modo possiamo perfezionare i nostri modelli in contesti diversi e creare sistemi di AI che rimangano utili agli sviluppatori in molti campi e applicazioni.
+يمكنك المساعدة في إحراز تقدّم في أبحاث الذكاء الاصطناعي وGemini API وGoogle AI Studio
+من خلال اختيار مشاركة مجموعات البيانات كأمثلة توضيحية. ويتيح لنا ذلك تحسين نماذجنا في سياقات متنوعة وإنشاء أنظمة ذكاء اصطناعي تظل مفيدة للمطوّرين في العديد من المجالات والتطبيقات.
 
-## Passaggi successivi e cosa testare
+## الخطوات التالية وما يجب اختباره
 
-Ora che hai abilitato la registrazione, ecco alcune cose da provare:
+بعد تفعيل ميزة التسجيل، إليك بعض الإجراءات التي يمكنك تجربتها:
 
-- **Creare prototipi con la cronologia delle sessioni:** utilizza [AI Studio Build](https://aistudio.google.com/apps?hl=it) per creare app di codice e aggiungi la chiave API per abilitare una cronologia dei log utente.
-- **Eseguire di nuovo i log con l'API Gemini Batch:** utilizza i set di dati per il campionamento delle risposte
-  e la valutazione dei modelli o della logica dell'applicazione eseguendo di nuovo i log tramite l'API
-  [Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
+- **إنشاء نماذج أوّلية باستخدام سجلّ الجلسات:** يمكنك الاستفادة من [ميزة "إنشاء" في AI Studio](https://aistudio.google.com/apps?hl=ar) لإنشاء تطبيقات باستخدام رموز برمجية وإضافة مفتاح واجهة برمجة التطبيقات لتفعيل سجلّات المستخدمين.
+- **إعادة تشغيل السجلات باستخدام Gemini Batch API:** استخدِم مجموعات البيانات لأخذ عيّنات من الردود وتقييم النماذج أو منطق التطبيق من خلال إعادة تشغيل السجلات عبر [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-## Compatibilità
+## التوافق
 
-Al momento, la registrazione non è supportata per:
+لا تتوفّر حاليًا ميزة تسجيل البيانات في ما يلي:
 
-- Modelli Imagen e Veo
-- Modello di incorporamento Gemini
-- Input contenenti video, GIF o PDF
+- نماذج Imagen وVeo
+- نموذج تضمين Gemini
+- الإدخالات التي تحتوي على فيديوهات أو صور GIF أو ملفات PDF
 
-Invia feedback
+إرسال ملاحظات
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ultimo aggiornamento 2026-06-01 UTC.
+تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)
 
-Vuoi dirci altro?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-01 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-01 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

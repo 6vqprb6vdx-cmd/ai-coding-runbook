@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/changelog?hl=zh-TW
-fetched_at: 2026-06-29T05:34:19.409975+00:00
+fetched_at: 2026-07-06T05:08:21.628033+00:00
 title: "\u7248\u672c\u8cc7\u8a0a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -20,13 +20,18 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 本頁面說明 Gemini API 的更新詳細資料。
 
+## 2026 年 6 月 30 日
+
+- **Gemini Omni Flash 公開測試版**：已於 `gemini-omni-flash-preview`推出，這款高效能多模態模型專為高速生成影片和對話式影片編輯而設計。使用 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)，你可以根據文字說明生成 720p 的 3 到 10 秒影片，或將靜態圖片製作成動畫，然後透過對話式編輯和微調輸出內容。如要開始使用，請參閱 [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=zh-tw) 指南和 [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=zh-tw) 模型資訊卡。
+- `gemini-3.1-flash-lite-image` (Nano Banana Lite) 已正式發布，這是內建的多模態模型，經過最佳化處理，可極低延遲地生成及編輯圖像，且經濟實惠。請參閱 [Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=zh-tw) 模型資訊卡和[圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)指南。
+
 ## 2026 年 6 月 24 日
 
 - **電腦使用**：在 Gemini 3.5 Flash 中推出「電腦使用」工具的公開預先發布版。這個版本簡化了意圖動作、內建支援瀏覽器、行動裝置和電腦環境、可設定安全政策，以及進階提示詞注入偵測功能。
 
 ## 2026 年 6 月 17 日
 
-- **支援語音生成串流**：現在 `streamGenerateContent` (以及 Interactions API 中的 `stream: true`) 支援 `gemini-3.1-flash-tts-preview` 模型串流。詳情請參閱[文字轉語音](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#streaming)指南。
+- **支援語音生成串流**：現在 `gemini-3.1-flash-tts-preview` 模型支援透過 `streamGenerateContent` (以及 Interactions API 中的 `stream: true`) 進行串流。詳情請參閱[文字轉語音](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw#streaming)指南。
 
 ## 2026 年 6 月 15 日
 
@@ -76,7 +81,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 ## 2026 年 5 月 19 日
 
 - Google 已發布 `gemini-3.5-flash`Gemini 3.5 Flash 的正式版，這是我們目前最智慧的模型，可持續提供頂尖效能，處理代理功能和程式設計工作。這就是 `gemini-flash-latest` 背後的模型。
-- 推出 **Gemini API 中的受管理代理**公開預先發布版。開發人員可藉此建構及部署自主式有狀態代理程式，並在安全隔離的 Google 代管 Linux 沙箱環境中執行。詳情請參閱「[代理程式總覽](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw)」頁面和[快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)。
+- 推出 **Gemini API 中的受管理代理**公開預先發布版。開發人員可藉此建構及部署自主式有狀態代理程式，在安全隔離的 Google 代管 Linux 沙箱環境中執行。詳情請參閱「[代理程式總覽](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw)」頁面和[快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)。
 - 發布一般用途的 **Antigravity Agent** 受管理代理程式 (公開預先發布版)。
   [`antigravity-preview-05-2026`](https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=zh-tw)Antigravity 代理程式可在沙箱容器中自主規劃、推論、編寫及執行程式碼、管理檔案，以及瀏覽網路。如需程式碼範例和規格，請參閱「[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)」指南。
 
@@ -92,7 +97,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2026 年 5 月 5 日
 
-- 更新「檔案搜尋」，支援多模態搜尋。您現在可以使用 `gemini-embedding-2` 模型，以原生方式嵌入及搜尋圖片。基礎中繼資料現在包含 `media_id`，可顯示圖片出處，以及 `page_numbers`，可指出資訊來源。詳情請參閱[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)指南。
+- 更新「檔案搜尋」，支援多模態搜尋。您現在可以使用 `gemini-embedding-2` 模型，以原生方式嵌入及搜尋圖片。基礎中繼資料現在包含 `media_id`，可顯示視覺引用內容，以及 `page_numbers`，可指出資訊來源。詳情請參閱[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)指南。
 
 ## 2026 年 5 月 4 日
 
@@ -104,7 +109,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2026 年 4 月 22 日
 
-- 正式發布 (GA)。`gemini-embedding-2`詳情請參閱「[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)」頁面。
+- 正式發布 `gemini-embedding-2` 做為正式版 (GA)。詳情請參閱「[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)」頁面。
 
 ## 2026 年 4 月 21 日
 
@@ -163,7 +168,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2026 年 3 月 10 日
 
-- 發布 `gemini-embedding-2-preview`，這是我們第一個多模態嵌入模型。這項模型支援文字、圖片、影片、音訊和 PDF 輸入內容，並將所有模態對應至統一的嵌入空間。詳情請參閱「[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)」。
+- 發布首個多模態嵌入模型 `gemini-embedding-2-preview`。這項模型支援文字、圖片、影片、音訊和 PDF 輸入內容，並將所有模態對應至統一的嵌入空間。詳情請參閱「[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)」。
 - 淘汰公告：`gemini-2.5-flash-lite-preview-09-2025` 模型將於 2026 年 3 月 31 日[停用](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-tw)。
 
 ## 2026 年 3 月 9 日
@@ -245,7 +250,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2025 年 12 月 17 日
 
-- 推出 Gemini 3 Flash 預先發布版 `gemini-3-flash-preview`，以低成本提供可媲美大型模型的快速頂尖效能。升級的視覺和空間推理能力，以及代理程式編碼功能。請參閱說明文件，瞭解部分新功能，包括：
+- 推出 Gemini 3 Flash 預先發布版 `gemini-3-flash-preview`，以低成本提供可媲美大型模型的快速頂尖效能。升級的視覺和空間推論能力，以及代理功能編碼能力。請參閱說明文件，瞭解部分新功能，包括：
 
   - [多模態函式回覆](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#multimodal)
   - [執行程式碼並顯示圖片](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw#images)
@@ -324,7 +329,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2025 年 11 月 4 日
 
-- [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw) 的圖片輸入權杖數從 1290 個減少至 258 個，降低了圖片編輯成本。
+- [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw) 的圖片輸入權杖數已從 1290 個減少至 258 個，降低圖片編輯成本。
 - 淘汰公告：下列模型即將停止服務：
 
   - 11 月 18 日：
@@ -393,7 +398,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2025 年 9 月 25 日
 
-- 預先發布 Gemini Robotics-ER 1.5 模型。請參閱[機器人技術總覽](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-tw)，瞭解如何將模型用於機器人應用程式。
+- 發布 Gemini Robotics-ER 1.5 模型預先發布版。請參閱[機器人技術總覽](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-tw)，瞭解如何將模型用於機器人應用程式。
 - 推出下列預先發布版模型：
 
   - `gemini-2.5-flash-preview-09-2025`
@@ -429,11 +434,11 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 ## 2025 年 8 月 18 日
 
-- [網址脈絡工具](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)正式發布，這項工具可提供網址做為提示的額外脈絡。使用 `gemini-2.0-flash` 模型搭配網址內容的功能 (實驗版) 將於一週後停用。
+- [網址脈絡工具](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)正式發布，可提供網址做為提示的額外脈絡。使用 `gemini-2.0-flash` 模型搭配網址內容的功能 (實驗版) 將於一週後停用。
 
 ## 2025 年 8 月 14 日
 
-- Imagen 4 Ultra、Standard 和 Fast 模型現已正式發布 (GA)。詳情請參閱 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-tw) 頁面。
+- 正式發布 (GA) Imagen 4 Ultra、Standard 和 Fast 模型。詳情請參閱 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=zh-tw) 頁面。
 
 ## 2025 年 8 月 7 日
 
@@ -465,7 +470,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 ## 2025 年 6 月 26 日
 
 - 預覽模型 `gemini-2.5-pro-preview-05-06` 和 `gemini-2.5-pro-preview-03-25` 現在會重新導向至最新穩定版 `gemini-2.5-pro`。
-- `gemini-2.5-pro-exp-03-25`已關機。
+- 「`gemini-2.5-pro-exp-03-25`」已關機。
 
 ## 2025 年 6 月 24 日
 
@@ -477,7 +482,7 @@ Google uses AI technology to translate content into your preferred language. AI 
   將於 2025 年 6 月 26 日重新導向至 `gemini-2.5-pro`。
 - 發布 `gemini-2.5-flash`，這是第一個穩定的 2.5 Flash 模型。如要瞭解詳情，請參閱 [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#gemini-2.5-flash)。
   `gemini-2.5-flash-preview-04-17` 將於 2025 年 7 月 15 日淘汰。
-- 推出 `gemini-2.5-flash-lite-preview-06-17`，這是低成本、高效能的 Gemini 2.5 模型。詳情請參閱 [Gemini 2.5 Flash-Lite 預先發布版](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#gemini-2.5-flash-lite)。
+- 推出 `gemini-2.5-flash-lite-preview-06-17`，這款 Gemini 2.5 模型價格低廉，但效能優異。詳情請參閱 [Gemini 2.5 Flash-Lite 預先發布版](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#gemini-2.5-flash-lite)。
 
 ## 2025 年 6 月 5 日
 
@@ -532,7 +537,7 @@ Google uses AI technology to translate content into your preferred language. AI 
 
   - **強化工作階段管理和可靠性**
 
-    - **工作階段續傳：**即使網路暫時中斷，工作階段仍可繼續運作。這項 API 現在支援伺服器端工作階段狀態儲存 (最多 24 小時)，並提供控點 (session\_resumption) 以重新連線，並從上次中斷的地方繼續。
+    - **工作階段續傳：**即使網路暫時中斷，工作階段仍會持續運作。這項 API 現在支援伺服器端工作階段狀態儲存 (最多 24 小時)，並提供控點 (session\_resumption) 以重新連線，並從上次中斷的地方繼續。
     - **透過脈絡壓縮延長對話時間：**啟用這項功能後，對話時間將不受限制，使用滑動視窗機制設定內容視窗壓縮，自動管理內容長度，避免因內容限制而突然終止。
     - **正常中斷連線通知：**接收 `GoAway` 伺服器訊息，瞭解連線即將關閉的時間，以便在終止前正常處理。
   - **進一步控管互動動態**
@@ -877,8 +882,8 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-上次更新時間：2026-06-25 (世界標準時間)。
+上次更新時間：2026-06-30 (世界標準時間)。
 
 想進一步說明嗎？
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-25 (世界標準時間)。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-30 (世界標準時間)。"],[],[]]

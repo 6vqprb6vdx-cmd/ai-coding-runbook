@@ -1,47 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-BR
-fetched_at: 2026-06-29T05:31:51.289725+00:00
-title: "Compreens\u00e3o do v\u00eddeo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi
+fetched_at: 2026-07-06T05:14:14.480311+00:00
+title: "Hi\u1ec3u video \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-# Compreensão do vídeo
+# Hiểu video
 
-> Para saber mais sobre a geração de vídeos, consulte o guia do [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br).
+> Để tìm hiểu về tính năng tạo video, hãy xem hướng dẫn về [Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi).
 
-Os modelos do Gemini podem processar vídeos, permitindo muitos casos de uso de desenvolvedores de ponta
-que historicamente exigiam modelos específicos do domínio.
-Algumas das funcionalidades de visão do Gemini incluem a capacidade de: descrever, segmentar e extrair informações de vídeos, responder a perguntas sobre o conteúdo de vídeos e se referir a marcações de tempo específicas em um vídeo.
+Các mô hình Gemini có thể xử lý video, cho phép nhiều trường hợp sử dụng của nhà phát triển tiên phong mà trước đây cần có các mô hình dành riêng cho miền.
+Một số khả năng thị giác của Gemini bao gồm: mô tả, phân đoạn và trích xuất thông tin từ video, trả lời câu hỏi về nội dung video và tham khảo các dấu thời gian cụ thể trong video.
 
-Você pode enviar vídeos para o Gemini das seguintes maneiras:
+Bạn có thể cung cấp video làm dữ liệu đầu vào cho Gemini theo những cách sau:
 
-| Método de entrada | Tamanho máximo | Caso de uso recomendado |
+| Phương thức nhập | Kích thước tối đa | Trường hợp sử dụng được đề xuất |
 | --- | --- | --- |
-| [API File](#upload-video) | 20 GB (pago) / 2 GB (sem custo financeiro) | Arquivos grandes (mais de 100 MB), vídeos longos (mais de 10 minutos) e arquivos reutilizáveis. |
-| [Registro do Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br#registration) | 2 GB (por arquivo, sem limites de armazenamento) | Arquivos grandes (mais de 100 MB), vídeos longos (mais de 10 minutos), arquivos persistentes e reutilizáveis. |
-| [Dados inline](#inline-video) | < 100MB | Arquivos pequenos (<100 MB), curta duração (<1 min), entradas únicas. |
-| [URLs do YouTube](#youtube) | N/A | Vídeos públicos do YouTube. |
+| [File API](#upload-video) | 20 GB (có tính phí) / 2 GB (miễn phí) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp có thể dùng lại. |
+| [Đăng ký Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi#registration) | 2 GB (mỗi tệp, không giới hạn bộ nhớ) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp cố định, có thể dùng lại. |
+| [Dữ liệu nội tuyến](#inline-video) | < 100MB | Tệp nhỏ (<100 MB), thời lượng ngắn (<1 phút), dữ liệu đầu vào một lần. |
+| [URL trên YouTube](#youtube) | Không áp dụng | Video công khai trên YouTube. |
 
-> **Observação**:a [API File](#upload-video) é recomendada para a maioria dos casos de uso, especialmente para arquivos maiores que 100 MB ou quando você quer reutilizar o arquivo em várias solicitações.
+> **Lưu ý:** Bạn nên dùng [File API](#upload-video) cho hầu hết các trường hợp sử dụng, đặc biệt là đối với những tệp có kích thước lớn hơn 100 MB hoặc khi bạn muốn dùng lại tệp trong nhiều yêu cầu.
 
-Para saber mais sobre outros métodos de entrada de arquivos, como o uso de URLs externos ou arquivos
-armazenados no Google Cloud, consulte o guia
-[Métodos de entrada de arquivos](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-br).
+Để tìm hiểu về các phương thức nhập tệp khác, chẳng hạn như sử dụng URL bên ngoài hoặc tệp được lưu trữ trong Google Cloud, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
 
-### Enviar um arquivo de vídeo
+### Tải tệp video lên
 
-O código a seguir baixa um vídeo de amostra, faz upload dele usando a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br), espera que ele seja processado e usa a referência do arquivo enviado para resumir o vídeo.
+Đoạn mã sau đây tải một video mẫu xuống, tải video đó lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi), đợi video được xử lý, sau đó dùng thông tin tham chiếu về tệp đã tải lên để tóm tắt video.
 
 ### Python
 
@@ -178,17 +175,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-Use sempre a API Files quando o tamanho total da solicitação (incluindo o arquivo, o comando de texto, as instruções do sistema etc.) for maior que 20 MB, a duração do vídeo for significativa ou se você pretende usar o mesmo vídeo em vários comandos.
-A API File aceita formatos de arquivo de vídeo diretamente.
+Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, lời nhắc bằng văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB, thời lượng video đáng kể hoặc nếu bạn dự định sử dụng cùng một video trong nhiều lời nhắc.
+File API chấp nhận trực tiếp các định dạng tệp video.
 
-Para saber mais sobre como trabalhar com arquivos de mídia, consulte a
-[API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+Để tìm hiểu thêm về cách làm việc với các tệp nội dung nghe nhìn, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
 
-### Transmitir dados de vídeo in-line
+### Truyền dữ liệu video nội tuyến
 
-Em vez de fazer upload de um arquivo de vídeo usando a API File, é possível transmitir vídeos menores diretamente na solicitação. Isso é adequado para vídeos mais curtos com menos de 20 MB de tamanho total da solicitação.
+Thay vì tải tệp video lên bằng File API, bạn có thể truyền trực tiếp các video nhỏ hơn trong yêu cầu. Phương thức này phù hợp với những video ngắn có tổng kích thước yêu cầu dưới 20 MB.
 
-Confira um exemplo de como fornecer dados de vídeo inline:
+Dưới đây là ví dụ về cách cung cấp dữ liệu video nội tuyến:
 
 ### Python
 
@@ -266,9 +262,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### Transmitir URLs do YouTube
+### URL của YouTube
 
-Você pode transmitir URLs do YouTube diretamente para a API Gemini como parte da sua solicitação da seguinte forma:
+Bạn có thể truyền trực tiếp URL của YouTube đến Gemini API trong yêu cầu của mình như sau:
 
 ### Python
 
@@ -327,17 +323,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**Limitações:**
+**Các điểm hạn chế:**
 
-- Na versão sem custo financeiro, não é possível enviar mais de 8 horas de vídeo do YouTube por dia.
-- Para o nível pago, não há limite com base na duração do vídeo.
-- Para modelos anteriores ao Gemini 2.5, é possível enviar apenas um vídeo por solicitação. Para o Gemini 2.5 e modelos mais recentes, é possível fazer upload de até 10 vídeos por solicitação.
-- Só é possível enviar vídeos públicos, não privados ou não listados.
+- Đối với gói miễn phí, bạn không thể tải quá 8 giờ video trên YouTube lên mỗi ngày.
+- Đối với gói có tính phí, không có giới hạn dựa trên thời lượng video.
+- Đối với các mô hình trước Gemini 2.5, bạn chỉ có thể tải 1 video lên mỗi yêu cầu. Đối với Gemini 2.5 và các mô hình sau này, bạn có thể tải tối đa 10 video lên cho mỗi yêu cầu.
+- Bạn chỉ có thể tải video công khai lên (không thể tải video riêng tư hoặc không công khai lên).
 
-## Consulte os carimbos de data/hora no conteúdo
+## Tham khảo dấu thời gian trong nội dung
 
-Você pode fazer perguntas sobre pontos específicos no vídeo usando
-carimbos de data/hora no formato `MM:SS`.
+Bạn có thể đặt câu hỏi về những thời điểm cụ thể trong video bằng cách sử dụng dấu thời gian có dạng `MM:SS`.
 
 ### Python
 
@@ -357,11 +352,11 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## Extrair insights detalhados de vídeos
+## Trích xuất thông tin chi tiết từ video
 
-Os modelos do Gemini oferecem recursos avançados para entender conteúdo de vídeo processando informações dos fluxos de **áudio e visuais**. Assim, é possível extrair um conjunto detalhado de informações, incluindo a geração de descrições do que está acontecendo em um vídeo e respostas a perguntas sobre o conteúdo.
+Các mô hình Gemini có khả năng mạnh mẽ trong việc hiểu nội dung video bằng cách xử lý thông tin từ cả luồng **âm thanh và hình ảnh**. Nhờ đó, bạn có thể trích xuất một bộ thông tin chi tiết phong phú, bao gồm cả việc tạo nội dung mô tả về những gì đang diễn ra trong video và trả lời các câu hỏi về nội dung của video.
 
-Para descrições visuais, o modelo faz amostras do vídeo a uma taxa de **1 frame por segundo** (FPS). Essa taxa de amostragem padrão funciona bem para a maioria dos conteúdos, mas pode perder detalhes em vídeos com movimentos rápidos ou mudanças de cena rápidas.
+Đối với nội dung mô tả bằng hình ảnh, mô hình lấy mẫu video ở tốc độ **1 khung hình/giây** (FPS). Tỷ lệ lấy mẫu mặc định này phù hợp với hầu hết nội dung, nhưng lưu ý rằng tỷ lệ này có thể bỏ lỡ các chi tiết trong video có chuyển động nhanh hoặc cảnh thay đổi nhanh.
 
 ### Python
 
@@ -381,9 +376,9 @@ const prompt = "Describe the key events in this video, providing both audio and 
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## Formatos de vídeo compatíveis:
+## Định dạng video được hỗ trợ
 
-O Gemini é compatível com os seguintes tipos MIME de formato de vídeo:
+Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
 
 - `video/mp4`
 - `video/mpeg`
@@ -395,52 +390,46 @@ O Gemini é compatível com os seguintes tipos MIME de formato de vídeo:
 - `video/wmv`
 - `video/3gpp`
 
-## Detalhes técnicos sobre vídeos
+## Thông tin kỹ thuật về video
 
-- **Modelos e contexto compatíveis**: todos os modelos do Gemini podem processar dados de vídeo.
-  - Os modelos com uma janela de contexto de 1 milhão podem processar vídeos de até 1 hora na resolução de mídia padrão ou de até 3 horas na resolução de mídia baixa.
-- **Processamento da API File**: ao usar a API File, os vídeos são armazenados a 1 frame por segundo (FPS) e o áudio é processado a 1 Kbps (canal único).
-  Os carimbos de data/hora são adicionados a cada segundo.
-  - Essas taxas estão sujeitas a mudanças no futuro para melhorias na inferência.
-- **Cálculo de tokens**: cada segundo de vídeo é tokenizado da seguinte forma:
-  - Frames individuais (amostrados a 1 QPS):
-    - Se `media_resolution` estiver definido como "baixo", os frames serão tokenizados a 66 tokens por frame.
-    - Caso contrário, os frames são tokenizados a 258 tokens por frame.
-  - Áudio: 32 tokens por segundo.
-  - Os metadados também são incluídos.
-  - Total: aproximadamente 300 tokens por segundo de vídeo na resolução de mídia padrão ou 100 tokens por segundo de vídeo na resolução de mídia baixa.
-- **Resolução média**: o Gemini 3 apresenta controle granular sobre o processamento de visão multimodal com o parâmetro `media_resolution`. O parâmetro
-  `media_resolution` determina o
-  **número máximo de tokens alocados por imagem de entrada ou frame de vídeo**.
-  Resoluções mais altas melhoram a capacidade do modelo de ler textos pequenos ou identificar detalhes pequenos, mas aumentam o uso de tokens e a latência.
+- **Các mô hình và ngữ cảnh được hỗ trợ**: Tất cả Gemini đều có thể xử lý dữ liệu video.
+  - Các mô hình có cửa sổ ngữ cảnh 1 triệu token có thể xử lý video dài tối đa 1 giờ ở độ phân giải mặc định hoặc video dài tối đa 3 giờ ở độ phân giải thấp.
+- **Xử lý bằng File API**: Khi sử dụng File API, video được lưu trữ ở tốc độ 1 khung hình/giây (FPS) và âm thanh được xử lý ở tốc độ 1 Kbps (một kênh).
+  Dấu thời gian được thêm vào mỗi giây.
+  - Những tỷ lệ này có thể thay đổi trong tương lai để cải thiện khả năng suy luận.
+- **Tính toán mã thông báo**: Mỗi giây video được mã hoá như sau:
+  - Khung hình riêng lẻ (lấy mẫu ở tốc độ 1 khung hình/giây):
+    - Nếu `media_resolution` được đặt thành thấp, các khung hình sẽ được mã hoá thành 66 mã thông báo cho mỗi khung hình.
+    - Nếu không, các khung hình sẽ được mã hoá thành 258 mã thông báo cho mỗi khung hình.
+  - Âm thanh: 32 mã thông báo mỗi giây.
+  - Siêu dữ liệu cũng được đưa vào.
+  - Tổng cộng: Khoảng 300 mã thông báo cho mỗi giây video ở độ phân giải mặc định của nội dung nghe nhìn hoặc 100 mã thông báo cho mỗi giây video ở độ phân giải thấp của nội dung nghe nhìn.
+- **Độ phân giải trung bình**: Gemini 3 giới thiệu khả năng kiểm soát chi tiết đối với quá trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
+  Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
 
-  Para mais detalhes sobre cálculos de tokens, consulte o guia de [tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br).
-- **Formato de carimbo de data/hora**: ao se referir a momentos específicos em um vídeo no comando, use o formato `MM:SS` (por exemplo, `01:15` para 1 minuto e 15 segundos).
-- **Práticas recomendadas**:
+  Để biết thêm thông tin về cách tính mã thông báo, hãy xem hướng dẫn về [mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
+- **Định dạng dấu thời gian**: Khi đề cập đến những khoảnh khắc cụ thể trong video trong câu lệnh, hãy sử dụng định dạng `MM:SS` (ví dụ: `01:15` cho 1 phút 15 giây).
+- **Các phương pháp hay nhất**:
 
-  - Use apenas um vídeo por solicitação de comando para ter os melhores resultados.
-  - Se você estiver combinando texto e um único vídeo, coloque o comando de texto *depois* da parte do vídeo na matriz `input`.
-  - Sequências de ação rápidas podem perder detalhes devido à taxa de amostragem de 1 FPS. Considere diminuir a velocidade desses clipes, se necessário.
+  - Chỉ sử dụng một video cho mỗi yêu cầu tạo câu lệnh để có kết quả tối ưu.
+  - Nếu kết hợp văn bản và một video, hãy đặt câu lệnh bằng văn bản *sau* phần video trong mảng `input`.
+  - Xin lưu ý rằng các cảnh hành động nhanh có thể bị mất chi tiết do tốc độ lấy mẫu 1 FPS. Cân nhắc làm chậm những đoạn video như vậy nếu cần.
 
-## A seguir
+## Bước tiếp theo
 
-Neste guia, mostramos como fazer upload de arquivos de vídeo e gerar saídas de texto com base em entradas de vídeo. Para saber mais, consulte os seguintes recursos:
+Hướng dẫn này trình bày cách tải tệp video lên và tạo đầu ra văn bản từ đầu vào video. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
 
-- [Instruções do sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br#system-instructions):
-  Com elas, é possível orientar o comportamento do modelo com base nas suas
-  necessidades e casos de uso específicos.
-- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br): saiba mais sobre como enviar e gerenciar arquivos para uso com o Gemini.
-- [Estratégias de comandos de arquivo](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide): a
-  API Gemini aceita comandos com dados de texto, imagem, áudio e vídeo, também
-  conhecidas como comandos multimodais.
-- [Orientações de segurança](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pt-br): às vezes, os modelos de IA generativa produzem resultados inesperados, como imprecisos, tendenciosos ou ofensivos. O pós-processamento e a avaliação humana são essenciais para limitar o risco de danos causados por essas saídas.
+- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều chỉnh hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi): Tìm hiểu thêm về cách tải lên và quản lý tệp để sử dụng với Gemini.
+- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
+- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Việc xử lý hậu kỳ và đánh giá của con người là rất cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última atualização 2026-06-22 UTC.
+Cập nhật lần gần đây nhất: 2026-06-22 UTC.
 
-Quer enviar seu feedback?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]

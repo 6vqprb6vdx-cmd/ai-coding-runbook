@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=vi
-fetched_at: 2026-06-29T05:34:24.906925+00:00
+fetched_at: 2026-07-06T05:06:54.205841+00:00
 title: "Ch\u1ea1y \u1edf ch\u1ebf \u0111\u1ed9 n\u1ec1n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

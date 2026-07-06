@@ -1,51 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=th
-fetched_at: 2026-06-29T05:26:59.665974+00:00
-title: "\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e01\u0e31\u0e1a Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=vi
+fetched_at: 2026-07-06T05:16:37.441687+00:00
+title: "S\u1eed d\u1ee5ng c\u00f4ng c\u1ee5 v\u1edbi Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# การใช้เครื่องมือกับ Live API
+# Sử dụng công cụ với Live API
 
-การใช้เครื่องมือช่วยให้ Live API ทำได้มากกว่าแค่การสนทนา โดยช่วยให้ API
-ดำเนินการในโลกแห่งความจริงและดึงบริบทภายนอกเข้ามาได้ในขณะที่ยังคง
-การเชื่อมต่อแบบเรียลไทม์
-คุณกำหนดเครื่องมือต่างๆ เช่น [การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
-และ [Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th) ได้ด้วย Live API
+Tính năng sử dụng công cụ cho phép Live API không chỉ dừng lại ở việc trò chuyện mà còn có thể thực hiện các hành động trong thế giới thực và lấy ngữ cảnh bên ngoài trong khi vẫn duy trì kết nối theo thời gian thực.
+Bạn có thể xác định các công cụ như [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) và [Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) bằng Live API.
 
-## ภาพรวมของเครื่องมือที่รองรับ
+## Tổng quan về các công cụ được hỗ trợ
 
-ต่อไปนี้เป็นภาพรวมโดยย่อของเครื่องมือที่ใช้ได้สำหรับโมเดล Live API
+Sau đây là thông tin tổng quan ngắn gọn về các công cụ có sẵn cho mô hình Live API:
 
-| เครื่องมือ | เวอร์ชันตัวอย่าง Gemini 3.1 Flash Live | เวอร์ชันตัวอย่างของ Gemini 2.5 Flash |
+| Công cụ | Bản xem trước Gemini 3.1 Flash Live | Bản xem trước trực tiếp Gemini 2.5 Flash |
 | --- | --- | --- |
-| **ค้นหา** | สิ่งที่ทำได้ | สิ่งที่ทำได้ |
-| **การเรียกใช้ฟังก์ชัน** | รองรับ (ซิงโครนัสเท่านั้น) | รองรับ (แบบเรียลไทม์และ[ไม่เรียลไทม์](#async-function-calling)) |
-| **Google Maps** | สิ่งที่ทำไม่ได้ | สิ่งที่ทำไม่ได้ |
-| **การรันโค้ด** | สิ่งที่ทำไม่ได้ | สิ่งที่ทำไม่ได้ |
-| **บริบทของ URL** | สิ่งที่ทำไม่ได้ | สิ่งที่ทำไม่ได้ |
+| **Tìm kiếm** | Được hỗ trợ | Được hỗ trợ |
+| **Gọi hàm** | Được hỗ trợ (chỉ đồng bộ) | Được hỗ trợ (đồng bộ và [không đồng bộ](#async-function-calling)) |
+| **Google Maps** | Không được hỗ trợ | Không được hỗ trợ |
+| **Thực thi mã** | Không được hỗ trợ | Không được hỗ trợ |
+| **Bối cảnh URL** | Không được hỗ trợ | Không được hỗ trợ |
 
-## การเรียกใช้ฟังก์ชัน
+## Gọi hàm
 
-Live API รองรับการเรียกใช้ฟังก์ชันเช่นเดียวกับคำขอการสร้างเนื้อหาปกติ
-การเรียกใช้ฟังก์ชันช่วยให้ Live API โต้ตอบกับข้อมูลและโปรแกรมภายนอกได้ ซึ่งจะช่วยเพิ่มความสามารถของแอปพลิเคชันได้อย่างมาก
+Live API hỗ trợ chức năng gọi, giống như các yêu cầu tạo nội dung thông thường. Tính năng gọi hàm cho phép Live API tương tác với dữ liệu và chương trình bên ngoài, giúp tăng đáng kể những gì ứng dụng của bạn có thể thực hiện.
 
-คุณกําหนดการประกาศฟังก์ชันเป็นส่วนหนึ่งของการกําหนดค่าเซสชันได้
-หลังจากได้รับฟังก์ชันคอลแล้ว ไคลเอ็นต์ควรตอบกลับด้วยรายการออบเจ็กต์
-`FunctionResponse`โดยใช้เมธอด `session.send_tool_response`
+Bạn có thể xác định các khai báo hàm trong cấu hình phiên.
+Sau khi nhận được lệnh gọi công cụ, ứng dụng khách phải phản hồi bằng một danh sách các đối tượng `FunctionResponse` bằng phương thức `session.send_tool_response`.
 
-ดูข้อมูลเพิ่มเติมได้ที่[บทแนะนำการเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+Hãy xem [Hướng dẫn gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi) để tìm hiểu thêm.
 
 ### Python
 
@@ -222,16 +217,13 @@ async function main() {
 main();
 ```
 
-โมเดลสามารถสร้างการเรียกใช้ฟังก์ชันหลายรายการและโค้ดที่จำเป็นต่อการเชื่อมโยงเอาต์พุตจากพรอมต์เดียว โค้ดนี้จะดำเนินการในสภาพแวดล้อมแซนด์บ็อกซ์
-เพื่อสร้างข้อความ [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=th#bidigeneratecontenttoolcall) ที่ตามมา
+Từ một câu lệnh duy nhất, mô hình có thể tạo nhiều lệnh gọi hàm và mã cần thiết để liên kết các đầu ra của chúng. Mã này thực thi trong một môi trường hộp cát, tạo ra các thông báo [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=vi#bidigeneratecontenttoolcall) tiếp theo.
 
-## การเรียกใช้ฟังก์ชันแบบอะซิงโครนัส
+## Gọi hàm không đồng bộ
 
-การเรียกใช้ฟังก์ชันจะดำเนินการตามลำดับโดยค่าเริ่มต้น ซึ่งหมายความว่าการดำเนินการจะหยุดชั่วคราว
-จนกว่าผลลัพธ์ของการเรียกใช้ฟังก์ชันแต่ละรายการจะพร้อมใช้งาน ซึ่งจะช่วยให้ประมวลผลตามลำดับได้ ซึ่งหมายความว่าคุณจะโต้ตอบกับโมเดลต่อไม่ได้ในขณะที่ฟังก์ชันกำลังทำงาน
+Theo mặc định, tính năng gọi hàm sẽ thực thi tuần tự, tức là quá trình thực thi sẽ tạm dừng cho đến khi có kết quả của từng lệnh gọi hàm. Điều này đảm bảo quá trình xử lý tuần tự, tức là bạn sẽ không thể tiếp tục tương tác với mô hình trong khi các hàm đang chạy.
 
-หากไม่ต้องการบล็อกการสนทนา คุณสามารถบอกโมเดลให้เรียกใช้ฟังก์ชันแบบไม่พร้อมกันได้ โดยคุณต้องเพิ่ม `behavior` ใน
-คำจำกัดความของฟังก์ชันก่อน
+Nếu không muốn chặn cuộc trò chuyện, bạn có thể yêu cầu mô hình chạy các hàm không đồng bộ. Để làm như vậy, trước tiên bạn cần thêm một `behavior` vào định nghĩa hàm:
 
 ### Python
 
@@ -255,17 +247,13 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` ช่วยให้ฟังก์ชันทำงานแบบไม่พร้อมกันในขณะที่คุณโต้ตอบกับโมเดลต่อไปได้
+`NON-BLOCKING` đảm bảo hàm chạy không đồng bộ trong khi bạn có thể tiếp tục tương tác với mô hình.
 
-จากนั้นคุณต้องบอกโมเดลว่าควรทำงานอย่างไรเมื่อได้รับ
-`FunctionResponse` โดยใช้พารามิเตอร์ `scheduling` โดยอาจเป็นอย่างใดอย่างหนึ่งต่อไปนี้
+Sau đó, bạn cần cho mô hình biết cách hoạt động khi nhận được `FunctionResponse` bằng cách sử dụng tham số `scheduling`. Bạn có thể:
 
-- ขัดจังหวะสิ่งที่กำลังทำอยู่และแจ้งให้คุณทราบเกี่ยวกับคำตอบที่ได้รับทันที
-  (`scheduling="INTERRUPT"`)
-- รอจนกว่าจะเสร็จสิ้นกับสิ่งที่กำลังทำอยู่
-  (`scheduling="WHEN_IDLE"`)
-- หรือจะปล่อยไว้และใช้ความรู้นั้นในการสนทนาในภายหลังก็ได้
-  (`scheduling="SILENT"`)
+- Tạm dừng những gì đang làm và cho bạn biết ngay về câu trả lời mà nó nhận được (`scheduling="INTERRUPT"`),
+- Chờ đến khi hoàn tất việc đang làm (`scheduling="WHEN_IDLE"`),
+- Hoặc không làm gì cả và sử dụng kiến thức đó vào lúc khác trong cuộc thảo luận (`scheduling="SILENT"`)
 
 ### Python
 
@@ -297,11 +285,9 @@ const functionResponse = {
 }
 ```
 
-## การเชื่อมต่อแหล่งข้อมูลกับ Google Search
+## Dựa trên kết quả của Google Tìm kiếm
 
-คุณเปิดใช้การอ้างอิงจาก Google Search ได้โดยเป็นส่วนหนึ่งของการกำหนดค่าเซสชัน
-ซึ่งจะช่วยเพิ่มความแม่นยำของ Live API และป้องกัน
-การหลอน ดูข้อมูลเพิ่มเติมได้ที่[บทแนะนำการกราวด์](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
+Bạn có thể bật tính năng Grounding bằng Google Tìm kiếm trong quá trình định cấu hình phiên. Điều này giúp tăng độ chính xác của Live API và ngăn chặn hiện tượng ảo giác. Hãy xem [hướng dẫn về việc tiếp đất](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) để tìm hiểu thêm.
 
 ### Python
 
@@ -460,9 +446,9 @@ async function main() {
 main();
 ```
 
-## การรวมเครื่องมือหลายอย่าง
+## Kết hợp nhiều công cụ
 
-คุณสามารถรวมเครื่องมือหลายอย่างภายใน Live API เพื่อเพิ่มความสามารถของแอปพลิเคชันให้มากยิ่งขึ้นได้
+Bạn có thể kết hợp nhiều công cụ trong Live API, từ đó tăng cường hơn nữa các chức năng của ứng dụng:
 
 ### Python
 
@@ -510,18 +496,17 @@ const config = {
 // ... remaining model call
 ```
 
-## ขั้นตอนถัดไป
+## Bước tiếp theo
 
-- ดูตัวอย่างเพิ่มเติมของการใช้เครื่องมือกับ Live API ได้ใน
-  [ตำราการใช้เครื่องมือ](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=th)
-- ดูเรื่องราวทั้งหมดเกี่ยวกับฟีเจอร์และการกำหนดค่าได้จาก[คู่มือความสามารถของ Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=th)
+- Hãy xem thêm các ví dụ về cách sử dụng công cụ với Live API trong [Sổ tay về cách sử dụng công cụ](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=vi).
+- Xem toàn bộ thông tin về các tính năng và cấu hình trong [hướng dẫn về Các chức năng của Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi).
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-อัปเดตล่าสุด 2026-06-01 UTC
+Cập nhật lần gần đây nhất: 2026-06-01 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-01 UTC"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-01 UTC."],[],[]]

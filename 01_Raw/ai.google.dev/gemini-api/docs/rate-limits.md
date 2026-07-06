@@ -1,205 +1,213 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl
-fetched_at: 2026-06-29T05:31:53.978117+00:00
-title: "Ograniczenia liczby \u017c\u0105da\u0144 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja
+fetched_at: 2026-07-06T05:13:27.591917+00:00
+title: "\u30ec\u30fc\u30c8\u5236\u9650 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Prześlij opinię
+フィードバックを送信
 
-# Ograniczenia liczby żądań
+# レート制限
 
-Limity liczby żądań regulują liczbę żądań, które możesz wysyłać do interfejsu Gemini API w określonym czasie. Te limity pomagają zachować uczciwe użytkowanie, chronić przed nadużyciami i utrzymywać wydajność systemu dla wszystkich użytkowników.
+レート制限は、特定の期間内に Gemini API に送信できるリクエスト数を規制します。この制限は、公正な使用を維持し、不正使用を防ぎ、すべてのユーザーのシステム パフォーマンスを維持するのに役立ちます。
 
-[Wyświetlanie aktywnych limitów żądań w AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=pl)
+[AI Studio で有効なレート制限を表示する](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=ja)
 
-## Jak działają limity szybkości
+## レート制限の仕組み
 
-Limity szybkości są zwykle mierzone w 3 wymiarach:
+レート制限は通常、次の 3 つのディメンションで測定されます。
 
-- Żądania na minutę (**RPM**)
-- Tokeny na minutę (dane wejściowe) (**TPM**)
-- Żądania dziennie (**RPD**)
+- 1 分あたりのリクエスト数（**RPM**）
+- 1 分あたりのトークン数（入力）（**TPM**）
+- 1 日あたりのリクエスト数（**RPD**）
 
-Wykorzystanie jest oceniane pod kątem każdego limitu, a przekroczenie któregokolwiek z nich spowoduje błąd limitu szybkości. Jeśli na przykład limit RPM wynosi 20, wykonanie 21 żądań w ciągu minuty spowoduje błąd, nawet jeśli nie przekroczysz limitu TPM ani innych limitów.
+使用量は各上限に対して評価され、いずれかの上限を超えるとレート制限エラーがトリガーされます。たとえば、RPM 上限が 20 の場合、TPM やその他の上限を超えていなくても、1 分以内に 21 件のリクエストを行うとエラーが発生します。
 
-Limity liczby żądań są stosowane w przypadku poszczególnych projektów, a nie kluczy interfejsu API. Limity liczby żądań dziennie (**RPD**) są resetowane o północy czasu pacyficznego.
+レート制限は、API キーごとではなく、プロジェクトごとに適用されます。1 日あたりのリクエスト数（**RPD**）の割り当ては、午前 0 時（太平洋時間）にリセットされます。
 
-Limity różnią się w zależności od używanego modelu, a niektóre z nich dotyczą tylko określonych modeli. Na przykład liczba obrazów na minutę (IPM) jest obliczana tylko w przypadku modeli, które mogą generować obrazy (Nano Banana), ale jest podobna do liczby tokenów na minutę. Inne modele mogą mieć limit tokenów na dzień (TPD).
+上限は使用する特定のモデルによって異なり、一部の上限は特定のモデルにのみ適用されます。たとえば、1 分あたりの画像数（IPM）は、画像を生成できるモデル（Nano Banana）でのみ計算されますが、概念的には TPM と似ています。他のモデルでは、1 日あたりのトークン数（TPD）の上限が設定されている場合があります。
 
-W przypadku modeli eksperymentalnych i wersji podglądowych limity liczby żądań są bardziej restrykcyjne.
+試験運用版モデルとプレビュー版モデルでは、レート制限が厳しくなっています。
 
-### Limity oparte na wydatkach
+### 費用ベースのレート制限
 
-Oprócz limitów liczby żądań na minutę (RPM) i tokenów na minutę (TPM) interfejs Gemini API wymusza limity oparte na wydatkach, aby chronić przed nieoczekiwanymi opłatami. To, czy te limity obowiązują na Twoim koncie, zależy od historii płatności i [poziomu wykorzystania](#usage-tiers).
+Gemini API では、1 分あたりのリクエスト数（RPM）と 1 分あたりのトークン数（TPM）の上限に加えて、予期しない料金が発生しないように費用ベースのレート制限が適用されます。これらの制限がアカウントに適用されるかどうかは、請求
+履歴と[使用量ティア](#usage-tiers)によって異なります。
 
-W tabeli poniżej przedstawiamy limity oparte na wydatkach dla każdego [poziomu wykorzystania](#usage-tiers). Limity te są oceniane w 10-minutowym przedziale czasu. To, czy te limity obowiązują na Twoim koncie, zależy od historii płatności i stanu konta.
+[次の表に、使用量ティアごとの費用ベースのレート制限を示します。](#usage-tiers)これらの制限は、10 分間のローリング ウィンドウで評価されます。これらの制限がアカウントに適用されるかどうかは、請求履歴とアカウントのステータスによって異なります。
 
-| Kategoria wykorzystania | Limit wydatków (na 10 minut) |
+| 使用量ティア | 費用レート制限（10 分あたり） |
 | --- | --- |
-| **Free** | Nie dotyczy |
-| **Poziom 1** | 10 HKD |
-| **Poziom 2** | 200 HKD |
-| **Pracownik obsługi klienta poziomu 3** | 200 HKD |
+| **無料** | なし |
+| **Tier 1** | $10 |
+| **Tier 2** | $200 |
+| **Tier 3** | $200 |
 
-Jeśli osiągniesz limit liczby żądań oparty na wydatkach, interfejs API zwróci `429 RESOURCE_EXHAUSTED`błąd. Aby rozwiązać ten problem:
+費用ベースのレート制限に達すると、API から `429 RESOURCE_EXHAUSTED` エラーが返されます。この問題を解決するには:
 
-- **Poczekaj i spróbuj ponownie** po krótkim czasie.
-- **Zmniejsz liczbę kosztownych żądań**, np. używając mniejszych okien kontekstowych lub krótszych wyników.
-- Jeśli podczas normalnego użytkowania stale osiągasz ten limit, [poproś o zwiększenie limitu](#request-rate-limit-increase).
+- しばらく待ってから**再試行** してください。
+- **コンテキスト ウィンドウを小さくしたり、出力を短くしたりするなどして、コストの高いリクエストのレートを減らします**。
+- 通常の使用中にこの上限に達することが続く場合は、
+  [レート制限の引き上げをリクエストしてください](#request-rate-limit-increase)。
 
-## Poziomy wykorzystania
+## 使用量ティア
 
-Limity liczby żądań są powiązane z poziomem wykorzystania projektu. Wraz ze wzrostem wykorzystania interfejsu API i wydatków automatycznie przejdziesz na wyższy poziom z większymi limitami liczby żądań.
+レート制限は、プロジェクトの使用量ティアに関連付けられています。API の使用量と費用が増加すると、レート制限が引き上げられた上位のティアに自動的にアップグレードされます。
 
-Kryteria kwalifikacji do poziomów 2 i 3 są oparte na łącznych wydatkach na usługi Google Cloud (w tym na Gemini API) na koncie rozliczeniowym połączonym z Twoim projektem.
+Tier 2 と Tier 3 の資格は、プロジェクトにリンクされている請求先アカウントの Google Cloud サービス（Gemini API を含むがこれに限定されない）の合計累積費用に基づいています。
 
-| Kategoria wykorzystania | Kwalifikacje | [Limit poziomu płatności](https://ai.google.dev/gemini-api/docs/billing?hl=pl#tier-spend-caps) |
+| 使用量ティア | 予選 | [請求ティアの上限](https://ai.google.dev/gemini-api/docs/billing?hl=ja#tier-spend-caps) |
 | --- | --- | --- |
-| **Free** | [Aktywny projekt](https://ai.google.dev/gemini-api/docs/api-key?hl=pl#google-cloud-projects) lub bezpłatny okres próbny | Nie dotyczy |
-| **Poziom 1** | [Skonfiguruj i połącz aktywne konto rozliczeniowe](https://ai.google.dev/gemini-api/docs/billing?hl=pl#setup-billing) | 250 USD |
-| **Poziom 2** | Wypłata 100 USD + 3 dni od pierwszej udanej płatności | 2000 USD |
-| **Pracownik obsługi klienta poziomu 3** | Wypłata 1000 USD + 30 dni od pierwszej udanej płatności | 20 000–100 000 USD i więcej |
+| **無料** | [有効なプロジェクト](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)または無料トライアル | なし |
+| **Tier 1** | [有効な請求先アカウントを設定してリンクしている](https://ai.google.dev/gemini-api/docs/billing?hl=ja#setup-billing) | $250 |
+| **Tier 2** | $100 の支払い + 最初のお支払いが完了してから 3 日 | $2,000 |
+| **Tier 3** | $1,000 の支払い + 最初のお支払いが完了してから 30 日 | $20,000 ～$100,000 以上 |
 
-Spełnienie podanych kryteriów kwalifikacji jest zwykle wystarczające do zatwierdzenia, ale w rzadkich przypadkach prośba o przejście na wyższy poziom może zostać odrzucona z powodu innych czynników wykrytych podczas procesu weryfikacji.
+通常、記載されている資格要件を満たしていれば承認されますが、審査プロセスで特定された他の要因に基づいて、アップグレード リクエストが拒否される場合があります。
 
-Ten system pomaga zachować bezpieczeństwo i integralność platformy Gemini API dla wszystkich użytkowników.
+このシステムは、すべてのユーザーに対して Gemini API プラットフォームのセキュリティと整合性を維持するのに役立ちます。
 
-## Limity liczby żądań interfejsu Gemini API
+## Gemini API のレート制限
 
-Limity szybkości zależą od wielu czynników (np. od poziomu wykorzystania) i można je sprawdzić w Google AI Studio. W miarę jak Twój poziom i stan konta będą się zmieniać, limity żądań będą się automatycznie aktualizować.
+レート制限は、使用量ティアなどのさまざまな要因によって異なり、Google AI Studio で確認できます。ティアとアカウントのステータスは時間の経過とともに変化するため、レート制限は自動的に更新されます。
 
-[Wyświetlanie aktywnych limitów żądań w AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=pl)
+[AI Studio で有効なレート制限を表示する](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=ja)
 
-Określone limity szybkości nie są gwarantowane, a rzeczywista przepustowość może się różnić.
+指定されたレート制限は保証されておらず、実際の容量は異なる場合があります。
 
-## Limity szybkości wnioskowania o priorytetach
+## 優先推論のレート制限
 
-Zużycie [priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) ma własne limity szybkości, mimo że jest wliczane do ogólnych limitów szybkości ruchu interaktywnego. **Domyślne limity to: 0,3x [standardowego limitu](https://aistudio.google.com/rate-limit?hl=pl) dla każdego modelu i poziomu**
+[優先度](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)の高い消費は、消費量が全体的なインタラクティブ トラフィックの
+レート制限にカウントされる場合でも、独自のレート
+制限を保持します。**デフォルトのレート制限は、モデルとティアごとに[標準レート制限](https://aistudio.google.com/rate-limit?hl=ja)の 0.3 倍です**
 
-## Limity częstotliwości żądań interfejsu Batch API
+## Batch API のレート制限
 
-Żądania [interfejsu Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl) podlegają własnym limitom szybkości, niezależnym od wywołań interfejsu API innych niż zbiorcze.
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) リクエストには、非バッチ API 呼び出しとは別に、独自のレート
+制限が適用されます。
 
-- **Równoczesne żądania zbiorcze:** 100
-- **Maksymalny rozmiar pliku wejściowego:** 2 GB
-- **Limit miejsca na pliki:** 20 GB
-- **Tokeny w kolejce według modelu:** tabela **Tokeny w kolejce w przypadku przetwarzania wsadowego** zawiera maksymalną liczbę tokenów, które można umieścić w kolejce do przetwarzania wsadowego we wszystkich aktywnych zadaniach wsadowych dla danego modelu.
+- **同時実行バッチ リクエスト:** 100
+- **入力ファイルサイズの制限:** 2 GB
+- **ファイル ストレージの上限:** 20 GB
+- **モデルごとにキューに登録されたトークン:** [**バッチ キューに登録されたトークン**] 表に、特定のモデルのすべてのアクティブなバッチジョブでバッチ処理用にキューに登録できるトークンの最大数が表示されます。
 
-### Poziom 1
+### Tier 1
 
-| Model | Tokeny w kolejce w przypadku przetwarzania wsadowego |
+| モデル | バッチ キューに登録されたトークン |
 | --- | --- |
-| Modele generujące tekst | | | | |
+| テキスト出力モデル | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro (wersja testowa) | 5 000 000 |
-| Gemini 3.1 Flash-Lite | 10 000 000 |
-| Gemini 3.1 Flash-Lite (wersja testowa) | 10 000 000 |
-| Gemini 3.5 Flash | 3 000 000 |
-| Gemini 3.5 Flash | 3 000 000 |
-| Gemini 2.5 Pro | 5 000 000 |
-| Gemini 2.5 Pro TTS | 25 000 |
-| Gemini 2.5 Flash | 3 000 000 |
-| Gemini 2.5 Flash (wersja testowa) | 3 000 000 |
-| Gemini 2.5 Flash Image (wersja testowa) | 3 000 000 |
-| Gemini 2.5 Flash TTS | 100 000 |
-| Gemini 2.5 Flash-Lite | 10 000 000 |
-| Gemini 2.5 Flash-Lite (wersja testowa) | 10 000 000 |
-| Gemini 2.0 Flash | 10 000 000 |
-| Gemini 2.0 Flash Image | 3 000 000 |
-| Gemini 2.0 Flash-Lite | 10 000 000 |
-| Modele generowania multimodalnego | | | | |
-| Gemini 3.1 Flash Image (wersja testowa) 🍌 | 1 000 000 |
-| Gemini 3 Pro Image (wersja testowa) 🍌 | 2 000 000 |
-| Modele wektorów dystrybucyjnych | | | | |
-| Osadzanie Gemini | 500 000 |
+| Gemini 3.1 Pro プレビュー版 | 5,000,000 |
+| Gemini 3.1 Flash Lite | 10,000,000 |
+| Gemini 3.1 Flash Lite プレビュー版 | 10,000,000 |
+| Gemini 3.5 Flash | 3,000,000 |
+| Gemini 2.5 Pro | 5,000,000 |
+| Gemini 2.5 Pro TTS | 25,000 |
+| Gemini 2.5 Flash | 3,000,000 |
+| Gemini 2.5 Flash プレビュー版 | 3,000,000 |
+| Gemini 2.5 Flash Image プレビュー版 | 3,000,000 |
+| Gemini 2.5 Flash TTS | 100,000 |
+| Gemini 2.5 Flash Lite | 10,000,000 |
+| Gemini 2.5 Flash Lite プレビュー版 | 10,000,000 |
+| Gemini 2.0 Flash | 10,000,000 |
+| Gemini 2.0 Flash Image | 3,000,000 |
+| Gemini 2.0 Flash Lite | 10,000,000 |
+| マルチモーダル生成モデル | | | | |
+| Gemini 3.1 Flash Image プレビュー版 🍌 | 1,000,000 |
+| Gemini 3.1 Flash Lite Image 🍌 | 2,000,000 |
+| Gemini 3 Pro Image プレビュー版 🍌 | 2,000,000 |
+| エンベディング モデル | | | | |
+| Gemini エンベディング | 500,000 |
 
-### Poziom 2
+### Tier 2
 
-| Model | Tokeny w kolejce w przypadku przetwarzania wsadowego |
+| モデル | バッチ キューに登録されたトークン |
 | --- | --- |
-| Modele generujące tekst | | | | |
+| テキスト出力モデル | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro (wersja testowa) | 500 000 000 |
-| Gemini 3.1 Flash-Lite | 500 000 000 |
-| Gemini 3.1 Flash-Lite (wersja testowa) | 500 000 000 |
-| Gemini 3.5 Flash | 400 000 000 |
-| Gemini 3.5 Flash | 400 000 000 |
-| Gemini 2.5 Pro | 500 000 000 |
-| Gemini 2.5 Pro TTS | 100 000 |
-| Gemini 2.5 Flash | 400 000 000 |
-| Gemini 2.5 Flash (wersja testowa) | 400 000 000 |
-| Gemini 2.5 Flash Image (wersja testowa) | 400 000 000 |
-| Gemini 2.5 Flash TTS | 100 000 |
-| Gemini 2.5 Flash-Lite | 500 000 000 |
-| Gemini 2.5 Flash-Lite (wersja testowa) | 500 000 000 |
-| Gemini 2.0 Flash | 1 000 000 000 |
-| Gemini 2.0 Flash Image | 400 000 000 |
-| Gemini 2.0 Flash-Lite | 1 000 000 000 |
-| Modele generowania multimodalnego | | | | |
-| Gemini 3.1 Flash Image (wersja testowa) 🍌 | 250 000 000 |
-| Gemini 3 Pro Image (wersja testowa) 🍌 | 270 000 000 |
-| Modele wektorów dystrybucyjnych | | | | |
-| Osadzanie Gemini | 5 000 000 |
+| Gemini 3.1 Pro プレビュー版 | 500,000,000 |
+| Gemini 3.1 Flash Lite | 500,000,000 |
+| Gemini 3.1 Flash Lite プレビュー版 | 500,000,000 |
+| Gemini 3.5 Flash | 400,000,000 |
+| Gemini 2.5 Pro | 500,000,000 |
+| Gemini 2.5 Pro TTS | 100,000 |
+| Gemini 2.5 Flash | 400,000,000 |
+| Gemini 2.5 Flash プレビュー版 | 400,000,000 |
+| Gemini 2.5 Flash Image プレビュー版 | 400,000,000 |
+| Gemini 2.5 Flash TTS | 100,000 |
+| Gemini 2.5 Flash Lite | 500,000,000 |
+| Gemini 2.5 Flash Lite プレビュー版 | 500,000,000 |
+| Gemini 2.0 Flash | 1,000,000,000 |
+| Gemini 2.0 Flash Image | 400,000,000 |
+| Gemini 2.0 Flash Lite | 1,000,000,000 |
+| マルチモーダル生成モデル | | | | |
+| Gemini 3.1 Flash Image プレビュー版 🍌 | 250,000,000 |
+| Gemini 3.1 Flash Lite Image 🍌 | 270,000,000 |
+| Gemini 3 Pro Image プレビュー版 🍌 | 270,000,000 |
+| エンベディング モデル | | | | |
+| Gemini エンベディング | 5,000,000 |
 
-### Poziom 3
+### Tier 3
 
-| Model | Tokeny w kolejce w przypadku przetwarzania wsadowego |
+| モデル | バッチ キューに登録されたトークン |
 | --- | --- |
-| Modele generujące tekst | | | | |
+| テキスト出力モデル | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 3.1 Pro (wersja testowa) | 1 000 000 000 |
-| Gemini 3.1 Flash-Lite | 1 000 000 000 |
-| Gemini 3.1 Flash-Lite (wersja testowa) | 1 000 000 000 |
-| Gemini 3.5 Flash | 1 000 000 000 |
-| Gemini 3.5 Flash | 1 000 000 000 |
-| Gemini 2.5 Pro | 1 000 000 000 |
-| Gemini 2.5 Pro TTS | 1 000 000 |
-| Gemini 2.5 Flash | 1 000 000 000 |
-| Gemini 2.5 Flash (wersja testowa) | 1 000 000 000 |
-| Gemini 2.5 Flash Image (wersja testowa) | 1 000 000 000 |
-| Gemini 2.5 Flash TTS | 4 000 000 |
-| Gemini 2.5 Flash-Lite | 1 000 000 000 |
-| Gemini 2.5 Flash-Lite (wersja testowa) | 1 000 000 000 |
-| Gemini 2.0 Flash | 5 000 000 000 |
-| Gemini 2.0 Flash Image | 1 000 000 000 |
-| Gemini 2.0 Flash-Lite | 5 000 000 000 |
-| Modele generowania multimodalnego | | | | |
-| Gemini 3.1 Flash Image (wersja testowa) 🍌 | 750 000 000 |
-| Gemini 3 Pro Image (wersja testowa) 🍌 | 1 000 000 000 |
-| Modele wektorów dystrybucyjnych | | | | |
-| Osadzanie Gemini | 10 000 000 |
+| Gemini 3.1 Pro プレビュー版 | 1,000,000,000 |
+| Gemini 3.1 Flash Lite | 1,000,000,000 |
+| Gemini 3.1 Flash Lite プレビュー版 | 1,000,000,000 |
+| Gemini 3.5 Flash | 1,000,000,000 |
+| Gemini 2.5 Pro | 1,000,000,000 |
+| Gemini 2.5 Pro TTS | 1,000,000 |
+| Gemini 2.5 Flash | 1,000,000,000 |
+| Gemini 2.5 Flash プレビュー版 | 1,000,000,000 |
+| Gemini 2.5 Flash Image プレビュー版 | 1,000,000,000 |
+| Gemini 2.5 Flash TTS | 4,000,000 |
+| Gemini 2.5 Flash Lite | 1,000,000,000 |
+| Gemini 2.5 Flash Lite プレビュー版 | 1,000,000,000 |
+| Gemini 2.0 Flash | 5,000,000,000 |
+| Gemini 2.0 Flash Image | 1,000,000,000 |
+| Gemini 2.0 Flash Lite | 5,000,000,000 |
+| マルチモーダル生成モデル | | | | |
+| Gemini 3.1 Flash Image プレビュー版 🍌 | 750,000,000 |
+| Gemini 3.1 Flash Lite Image 🍌 | 1,000,000,000 |
+| Gemini 3 Pro Image プレビュー版 🍌 | 1,000,000,000 |
+| エンベディング モデル | | | | |
+| Gemini エンベディング | 10,000,000 |
 
-## Jak przejść na wyższy poziom
+## 次のティアにアップグレードする方法
 
-Aby przejść z poziomu bezpłatnego na płatny, musisz najpierw [skonfigurować płatności w AI Studio](https://ai.google.dev/gemini-api/docs/billing?hl=pl).
+無料ティアから有料ティアに移行するには、まず
+[AI Studio で請求を設定する必要があります](https://ai.google.dev/gemini-api/docs/billing?hl=ja)。
 
-Gdy Twój projekt spełni [określone kryteria](#usage-tiers), zostanie automatycznie uaktualniony do wyższego poziomu. Przejście z abonamentu Free na abonament Tier 1 zwykle następuje natychmiast, a kolejne przejścia na wyższe abonamenty zaczynają obowiązywać w ciągu 10 minut. Otwórz [stronę Projekty](https://aistudio.google.com/projects?hl=pl) w AI Studio, aby sprawdzić swoje poziomy.
+プロジェクトが[指定された条件](#usage-tiers)を満たすと、
+自動的に次のティアにアップグレードされます。無料ティアから Tier 1 へのティアのアップグレードは通常、すぐに有効になります。それ以降のティアのアップグレードは 10 分以内に有効になります。AI Studio の [[プロジェクト] ページ](https://aistudio.google.com/projects?hl=ja)に移動して、ティアを確認します。
 
-## Prośba o zwiększenie limitu liczby żądań
+## レート制限の引き上げをリクエストする
 
-Każda odmiana modelu ma powiązany limit szybkości (żądania na minutę, RPM).
-Szczegółowe informacje o tych limitach znajdziesz na stronie [Limity szybkości w AI Studio](https://aistudio.google.com/rate-limit?hl=pl).
+モデル バリエーションごとに、関連付けられたレート制限（1 分あたりのリクエスト数、RPM）があります。
+これらのレート制限の詳細については、
+[AI Studio のレート制限](https://aistudio.google.com/rate-limit?hl=ja)のページをご覧ください。
 
-[Prośba o zwiększenie limitu częstotliwości w przypadku konta płatnego](https://forms.gle/ETzX94k8jf7iSotH9)
+[有料ティアのレート制限の引き上げをリクエストする](https://forms.gle/ETzX94k8jf7iSotH9)
 
-Nie możemy zagwarantować zwiększenia limitu żądań, ale dołożymy wszelkich starań, aby rozpatrzyć Twoją prośbę.
+レート制限の引き上げを保証するものではありませんが、リクエストの審査に最善を尽くします。
 
-Prześlij opinię
+フィードバックを送信
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ostatnia aktualizacja: 2026-06-25 UTC.
+最終更新日 2026-07-03 UTC。
 
-Chcesz przekazać coś jeszcze?
+ご意見をお聞かせください
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-25 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-03 UTC。"],[],[]]

@@ -1,30 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=tr
-fetched_at: 2026-06-29T05:33:26.905379+00:00
-title: "Google Arama temeli \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=it
+fetched_at: 2026-07-06T05:11:44.530858+00:00
+title: "Grounding con la Ricerca Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Google Arama temeli
+# Grounding con la Ricerca Google
 
-Google Arama ile Temellendirme, Gemini modelini gerçek zamanlı web içeriğine bağlar ve tüm dillerde kullanılabilir. Bu sayede Gemini, son güncel bilgi tarihinin ötesinde daha doğru yanıtlar verebilir ve doğrulanabilir kaynaklardan alıntı yapabilir.
+Grounding con la Ricerca Google collega il modello Gemini ai contenuti web in tempo reale
+e funziona con tutte le lingue disponibili. In questo modo, Gemini può fornire risposte più accurate e citare fonti verificabili aggiornate rispetto al suo knowledge cutoff.
 
-Temellendirme, aşağıdaki işlemleri yapabilen uygulamalar oluşturmanıza yardımcı olur:
+La base di riferimento ti aiuta a creare applicazioni che possono:
 
-- **Doğruluğu artırma:** Yanıtları gerçek dünyadaki bilgilere dayandırarak model halüsinasyonlarını azaltın.
-- **Anlık bilgilere erişme:** Yakın zamandaki olaylar ve konularla ilgili soruları yanıtlama
-- **Alıntı ekleyin:** Modelin iddialarının kaynaklarını göstererek kullanıcıların güvenini kazanın.
+- **Aumentare l'accuratezza fattuale:** ridurre le allucinazioni del modello basando
+  le risposte su informazioni del mondo reale.
+- **Accedere a informazioni in tempo reale:** rispondere a domande su eventi e argomenti recenti.
+- **Fornisci citazioni**:crea fiducia negli utenti mostrando le fonti delle
+  affermazioni del modello.
 
 ### Python
 
@@ -71,21 +74,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Google Arama ile temellendirme nasıl çalışır?
+## Come funziona il grounding con la Ricerca Google
 
-`google_search` aracını etkinleştirdiğinizde model, bilgi arama, işleme ve alıntı yapma işlemlerinin tüm iş akışını otomatik olarak gerçekleştirir.
+Quando attivi lo strumento `google_search`, il modello gestisce automaticamente l'intero flusso di lavoro
+di ricerca, elaborazione e citazione delle informazioni.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=tr)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=it)
 
-1. **Kullanıcı istemi:** Uygulamanız, kullanıcının istemini `google_search` aracı etkinleştirilmiş şekilde Gemini API'ye gönderiyor.
-2. **İstem Analizi:** Model, istemi analiz eder ve Google Arama'nın yanıtı iyileştirip iyileştiremeyeceğini belirler.
-3. **Google Arama:** Gerekirse model, bir veya daha fazla arama sorgusunu otomatik olarak oluşturup yürütür.
-4. **Arama sonuçlarını işleme:** Model, arama sonuçlarını işler, bilgileri sentezler ve bir yanıt oluşturur.
-5. **Temellendirilmiş Yanıt:** API, arama sonuçlarına dayalı, son ve kullanıcı dostu bir yanıt döndürür. Bu yanıtta, alıntıları içeren satır içi `annotations` ile modelin metin yanıtı, arama sorgularını ve arama önerilerini içeren `google_search_call` ve `google_search_result` adımları yer alır.
+1. **Prompt dell'utente**:la tua applicazione invia un prompt dell'utente all'API Gemini
+   con lo strumento `google_search` abilitato.
+2. **Analisi del prompt**:il modello analizza il prompt e determina se una
+   Ricerca Google può migliorare la risposta.
+3. **Ricerca Google**:se necessario, il modello genera automaticamente una o più query di ricerca e le esegue.
+4. **Elaborazione dei risultati di ricerca**:il modello elabora i risultati di ricerca,
+   sintetizza le informazioni e formula una risposta.
+5. **Risposta fondata**:l'API restituisce una risposta finale e di facile utilizzo
+   basata sui risultati di ricerca. Questa risposta include il testo della risposta
+   del modello con `annotations` in linea contenenti le citazioni, nonché
+   i passaggi `google_search_call` e `google_search_result` con le query di ricerca e i suggerimenti di ricerca.
 
-## Temellendirme yanıtını anlama
+## Informazioni sulla risposta di grounding
 
-Yanıt başarıyla temellendirildiğinde modelin metin çıkışı, metin içeriği bloğunda doğrudan satır içi `annotations` içerir. Bu ek açıklamalar, yanıtın bölümlerini kaynaklarına bağlayan alıntı bilgileri sağlar.
+Quando una risposta viene fondata correttamente, l'output di testo del modello include
+`annotations` in linea direttamente nel blocco di contenuti di testo. Queste annotazioni
+forniscono informazioni sulle citazioni che collegano parti della risposta alle relative fonti.
 
 ```
 {
@@ -144,18 +156,26 @@ Yanıt başarıyla temellendirildiğinde modelin metin çıkışı, metin içeri
 }
 ```
 
-Yanıtın temel alanları:
+I campi chiave nella risposta:
 
-- `google_search_call` : Modelin yürüttüğü arama `queries` içerir.
-- `google_search_result` : Arama önerilerini kullanıcı arayüzünüzde oluşturmak için kullanılan bir HTML snippet'i olan `search_suggestions` içerir. Kullanımla ilgili tüm şartlar [Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr#grounding-with-google-search)'nda ayrıntılı olarak açıklanmıştır.
-- `text` ile `annotations` : Modelin satır içi alıntılarla sentezlenmiş yanıtı. Her `url_citation` ek açıklaması, bir metin segmentini (`start_index` ve `end_index` ile tanımlanır) bir kaynak URL'ye bağlar. Bu, satır içi alıntı oluşturmanın anahtarıdır.
+- `google_search_call` : contiene la ricerca `queries` eseguita dal modello.
+- `google_search_result` : contiene `search_suggestions`, uno snippet HTML
+  per il rendering dei suggerimenti di ricerca nella tua UI. I requisiti di utilizzo completi sono
+  descritti nei [Termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it#grounding-with-google-search).
+- `text` con `annotations` : la risposta sintetizzata del modello con citazioni
+  in linea. Ogni annotazione `url_citation` collega un segmento di testo (definito
+  da `start_index` e `end_index`) a un URL di origine. Questo è il segreto per
+  creare citazioni in linea.
 
-Google Arama ile temellendirme, yanıtları hem herkese açık web verileri hem de sağladığınız belirli URL'lerle temellendirmek için [URL bağlam aracı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) ile birlikte de kullanılabilir.
+La contestualizzazione con la Ricerca Google può essere utilizzata anche in combinazione con lo [strumento di contesto
+URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) per basare le risposte sia sui dati web pubblici sia sugli URL specifici che fornisci.
 
-## Satır içi alıntılarla kaynakları atfetme
+## Attribuire le fonti con le citazioni in linea
 
-API, metin içerik bloğunda satır içi `url_citation` ek açıklamalar döndürerek kaynakları kullanıcı arayüzünüzde nasıl göstereceğiniz konusunda size tam kontrol sağlar.
-Her ek açıklama, metnin hangi bölümüne atıfta bulunduğunu belirlemek için `start_index` ve `end_index` içerir. Bunları nasıl ayıklayıp görüntüleyeceğinizi öğrenin.
+L'API restituisce annotazioni `url_citation` in linea sul blocco di contenuti di testo,
+offrendoti il controllo completo su come visualizzare le fonti nell'interfaccia utente.
+Ogni annotazione include `start_index` e `end_index` per identificare la parte
+del testo che cita. Ecco come estrarli e visualizzarli.
 
 ### Python
 
@@ -198,7 +218,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-Çıktıda, metin ve alıntıları gösterilir:
+L'output mostrerà il testo seguito dalle relative citazioni:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -210,46 +230,55 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Fiyatlandırma
+## Prezzi
 
-Gemini 3 ile Google Arama'yı Temellendirme özelliğini kullandığınızda projeniz, modelin yürütmeye karar verdiği her arama sorgusu için faturalandırılır. Model, tek bir isteme yanıt vermek için birden fazla arama sorgusu yürütmeye karar verirse (örneğin, aynı API çağrısında `"UEFA Euro 2024 winner"` ve `"Spain vs England Euro 2024 final
-score"` için arama yaparsa) bu, söz konusu istek için aracın iki faturalandırılabilir kullanımı olarak sayılır. Faturalandırma amacıyla, benzersiz sorguları sayarken boş web arama sorgularını dikkate almayız. Bu faturalandırma modeli yalnızca Gemini 3 modelleri için geçerlidir. Gemini 2.5 veya daha eski modellerle arama temellendirmeyi kullandığınızda projeniz istem başına faturalandırılır.
+Quando utilizzi il Grounding con la Ricerca Google con Gemini 3, il tuo progetto viene fatturato
+per ogni query di ricerca che il modello decide di eseguire. Se il modello decide di
+eseguire più query di ricerca per rispondere a un singolo prompt (ad esempio,
+cercando `"UEFA Euro 2024 winner"` e `"Spain vs England Euro 2024 final
+score"` nella stessa chiamata API), questo viene conteggiato come due utilizzi fatturabili dello strumento
+per quella richiesta. Ai fini della fatturazione, ignoriamo le query di ricerca web vuote
+quando conteggiamo le query uniche. Questo modello di fatturazione si applica solo ai modelli Gemini 3; quando utilizzi il grounding della ricerca con Gemini 2.5 o modelli precedenti, il tuo progetto viene fatturato per prompt.
 
-Ayrıntılı fiyatlandırma bilgileri için [Gemini API fiyatlandırma sayfasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) inceleyin.
+Per informazioni più dettagliate sui prezzi, consulta la [pagina dei prezzi dell'API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=it).
 
-## Desteklenen modeller
+## Modelli supportati
 
-Tüm özellikleri [modele genel bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında bulabilirsiniz.
+Puoi trovare le funzionalità complete nella pagina [Panoramica
+modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
 
-| Model | Google Arama ile Temellendirme |
+| Modello | Grounding con la Ricerca Google |
 | --- | --- |
 | Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash Image Önizlemesi | ✔️ |
-| Gemini 3.1 Pro Önizlemesi | ✔️ |
-| Gemini 3 Pro Görüntü Önizlemesi | ✔️ |
-| Gemini 3 Flash Önizlemesi | ✔️ |
+| Gemini 3.1 Flash Image (anteprima) | ✔️ |
+| Gemini 3.1 Pro (anteprima) | ✔️ |
+| Anteprima di Gemini 3 Pro Image | ✔️ |
+| Gemini 3 Flash (anteprima) | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Desteklenen araç kombinasyonları
+## Combinazioni di strumenti supportate
 
-Daha karmaşık kullanım alanlarını desteklemek için Google Arama ile Temellendirme'yi [kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr) ve [URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) gibi diğer araçlarla birlikte kullanabilirsiniz.
+Puoi utilizzare Grounding con la Ricerca Google con altri strumenti come
+l'[esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) e
+il [contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) per supportare casi d'uso più complessi.
 
-Gemini 3 modelleri, yerleşik araçların (ör. Google Arama ile Temellendirme) özel araçlarla (işlev çağrısı) birlikte kullanılmasını destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinin.
+I modelli Gemini 3 supportano la combinazione di strumenti integrati (come Grounding con la Ricerca Google) con strumenti personalizzati (chiamata di funzioni). Scopri di più nella pagina
+[Combinazioni di strumenti](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it).
 
-## Sırada ne var?
+## Passaggi successivi
 
-- [İşlev Çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) gibi diğer araçlar hakkında bilgi edinin.
-- [URL bağlamı aracını](https://ai.google.dev/gemini-api/docs/url-context?hl=tr) kullanarak istemleri belirli URL'lerle nasıl zenginleştireceğinizi öğrenin.
+- Scopri altri strumenti disponibili, come la [chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
+- Scopri come arricchire i prompt con URL specifici utilizzando lo [strumento Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it).
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-06-22 UTC.
+Ultimo aggiornamento 2026-06-22 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-22 UTC."],[],[]]

@@ -1,39 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=fr
-fetched_at: 2026-06-29T05:25:22.548533+00:00
-title: "API Batch \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=ja
+fetched_at: 2026-07-06T05:17:46.260757+00:00
+title: "\u30d0\u30c3\u30c1 API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Envoyer des commentaires
+フィードバックを送信
 
-# API Batch
+# バッチ API
 
-L'API Gemini Batch est conçue pour traiter de grands volumes de requêtes de manière asynchrone à [50% du coût standard](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
-Le délai de traitement cible est de 24 heures, mais il est généralement beaucoup plus rapide.
+Gemini Batch API は、大量のリクエストを
+非同期で[標準料金の 50% で処理するように設計されています](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)。
+目標の所要時間は
+24 時間ですが、ほとんどの場合、はるかに短時間で完了します。
 
-Utilisez l'API Batch pour les tâches à grande échelle et non urgentes, telles que le prétraitement des données ou l'exécution d'évaluations pour lesquelles une réponse immédiate n'est pas requise.
+Batch API は、データの前処理や評価の実行など、すぐにレスポンスを必要としない大規模で緊急性の低いタスクに使用します。
 
-## Créer un job par lot
+## バッチジョブを作成する
 
-Vous pouvez envoyer vos requêtes dans l'API Batch de deux manières :
+Batch API でリクエストを送信する方法は 2 つあります。
 
-- **[Requêtes intégrées](#inline-requests)** : liste d'objets [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=fr#GenerateContentRequest) directement inclus dans votre demande de création par lot. Cette méthode convient aux petits lots dont la taille totale de la requête est inférieure à 20 Mo. La **sortie** renvoyée par le modèle est une liste d'objets `inlineResponse`.
-- **[Fichier d'entrée](#input-file)** : fichier [JSON Lines (JSONL)](https://jsonlines.org/) dans lequel chaque ligne contient un objet [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=fr#GenerateContentRequest) complet.
-  Cette méthode est recommandée pour les requêtes plus volumineuses. La **sortie** renvoyée par le modèle est un fichier JSONL dans lequel chaque ligne est un objet `GenerateContentResponse` ou un objet d'état.
+- **[インライン リクエスト](#inline-requests):** バッチ作成リクエストに直接含まれる
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトのリスト。これは、リクエストの合計サイズが 20 MB 未満の小規模なバッチに適しています。モデルから返される**出力** は、`inlineResponse` オブジェクトのリストです。
+- **[入力ファイル](#input-file):** 各行に完全な
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトが含まれる
+  [JSON Lines（JSONL）](https://jsonlines.org/)
+  ファイル。この方法は、大規模なリクエストにおすすめです。モデルから返される**出力** は、各行が `GenerateContentResponse` またはステータス オブジェクトである JSONL ファイルです。
 
-### Requêtes intégrées
+### インライン リクエスト
 
-Pour un petit nombre de requêtes, vous pouvez intégrer directement les objets [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=fr#GenerateContentRequest) dans votre [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=fr#request-body). L'exemple suivant appelle la méthode [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=fr#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) avec des requêtes intégrées :
+リクエストの数が少ない場合は、
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトを
+[`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#request-body) 内に直接埋め込むことができます。次の例では、インライン リクエストを使用して
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+メソッドを呼び出します。
 
 ### Python
 
@@ -135,22 +144,23 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }'
 ```
 
-### Fichier en entrée
+### 入力ファイル
 
-Pour les ensembles de requêtes plus volumineux, préparez un fichier JSON Lines (JSONL). Chaque ligne de ce fichier doit être un objet JSON contenant une clé définie par l'utilisateur et un objet de requête, où la requête est un objet [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=fr#GenerateContentRequest) valide. La clé définie par l'utilisateur est utilisée dans la réponse pour indiquer quel résultat correspond à quelle requête. Par exemple, la réponse à une requête dont la clé est définie sur `request-1` sera annotée avec le même nom de clé.
+リクエストのセットが大きい場合は、JSON Lines（JSONL）ファイルを用意します。このファイルの各行は、ユーザー定義のキーとリクエスト オブジェクトを含む JSON オブジェクトにする必要があります。リクエストは有効な[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトです。ユーザー定義のキーは、どの出力がどのリクエストの結果であるかを示すためにレスポンスで使用されます。たとえば、キーが `request-1` として定義されているリクエストの場合、レスポンスには同じキー名のアノテーションが付けられます。
 
-Ce fichier est importé à l'aide de l'[API File](https://ai.google.dev/gemini-api/docs/files?hl=fr). La taille maximale autorisée pour un fichier d'entrée est de 2 Go.
+このファイルは、[File API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用してアップロードされます。入力ファイルに許容される最大ファイルサイズは 2 GB です。
 
-Voici un exemple de fichier JSONL. Vous pouvez l'enregistrer dans un fichier nommé `my-batch-requests.json` :
+JSONL ファイルの例を次に示します。`my-batch-requests.json` という名前のファイルに保存できます。
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-Comme pour les requêtes intégrées, vous pouvez spécifier d'autres paramètres tels que des instructions système, des outils ou d'autres configurations dans chaque requête JSON.
+インライン リクエストと同様に、各リクエスト JSON で、システム指示、ツール、その他の構成などの他のパラメータを指定できます。
 
-Vous pouvez importer ce fichier à l'aide de l'[API File](https://ai.google.dev/gemini-api/docs/files?hl=fr), comme illustré dans l'exemple suivant. Si vous utilisez une entrée multimodale, vous pouvez faire référence à d'autres fichiers importés dans votre fichier JSONL.
+このファイルは、次の例に示すように、[File API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を
+使用してアップロードできます。マルチモーダル入力を使用している場合は、JSONL ファイル内でアップロードした他のファイルを参照できます。
 
 ### Python
 
@@ -271,7 +281,9 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-L'exemple suivant appelle la méthode [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=fr#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) avec le fichier d'entrée importé à l'aide de l'API File :
+次の例では、File API を使用してアップロードされた入力ファイルを使用して
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+メソッドを呼び出します。
 
 ### Python
 
@@ -325,18 +337,19 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }"
 ```
 
-Lorsque vous créez un job par lot, un nom de job vous est renvoyé. Utilisez ce nom pour [surveiller](#batch-job-status) l'état du job et [récupérer les résultats](#retrieve-batch-results) une fois le job terminé.
+バッチジョブを作成すると、ジョブ名が返されます。この名前を使用して、[ジョブのステータスをモニタリング](#batch-job-status)し、[ジョブが完了したら結果を取得します](#retrieve-batch-results)。
 
-Voici un exemple de résultat contenant un nom de job :
+ジョブ名を含む出力の例を次に示します。
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### Compatibilité avec l'embedding par lot
+### バッチ エンべディングのサポート
 
-Vous pouvez utiliser l'API Batch pour interagir avec le [modèle Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr) et obtenir un débit plus élevé.
-Pour créer un job par lot d'embeddings avec des [requêtes intégrées](#inline-requests) ou des [fichiers d'entrée](#input-file), utilisez l'API `batches.create_embeddings` et spécifiez le modèle d'embeddings.
+Batch API を使用して、
+[エンべディング モデル](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)とやり取りしてスループットを向上させることができます。
+[[インライン リクエストまたは入力ファイルを使用してエンべディング バッチジョブを作成するには、`batches.create_embeddings` API を使用してエンべディング モデルを指定します。](#inline-requests)](#input-file)
 
 ### Python
 
@@ -384,11 +397,12 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-Pour obtenir d'autres exemples, consultez la section "Embeddings" du [cookbook de l'API Batch](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
+その他の例については、[Batch API クックブック](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
+のエンべディングのセクションをご覧ください。
 
-### Configurer la requête
+### リクエストの構成
 
-Vous pouvez inclure toutes les configurations de requête que vous utiliseriez dans une requête standard non par lot. Par exemple, vous pouvez spécifier la température, les instructions système ou même transmettre d'autres modalités. L'exemple suivant montre une requête intégrée contenant une instruction système pour l'une des requêtes :
+標準の非バッチ リクエストで使用するリクエスト構成を含めることができます。たとえば、温度やシステム指示を指定したり、他のモダリティを渡したりできます。次の例は、リクエストの 1 つにシステム指示を含むインライン リクエストの例を示しています。
 
 ### Python
 
@@ -416,7 +430,8 @@ inlineRequestsList = [
 ]
 ```
 
-De même, vous pouvez spécifier les outils à utiliser pour une requête. L'exemple suivant montre une requête qui active l'[outil de recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) :
+同様に、リクエストに使用するツールを指定できます。次の例
+は、[Google 検索ツール](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)を有効にするリクエストを示しています。
 
 ### Python
 
@@ -437,8 +452,7 @@ inlineRequestsList = [
 ]
 ```
 
-Vous pouvez également spécifier une [sortie structurée](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr).
-L'exemple suivant montre comment spécifier vos requêtes par lot.
+[構造化された出力も指定できます。](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)次の例は、バッチ リクエストに を指定する方法を示しています。
 
 ### Python
 
@@ -589,7 +603,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-Voici un exemple de résultat de ce job :
+このジョブの出力例を次に示します。
 
 ```
 --- Response 1 ---
@@ -685,20 +699,20 @@ Voici un exemple de résultat de ce job :
 ]
 ```
 
-## Surveiller l'état d'un job
+## ジョブのステータスをモニタリングする
 
-Utilisez le nom de l'opération obtenu lors de la création du job par lot pour interroger son état.
-Le champ "state" du job par lot indique son état actuel. Un job par lot peut avoir l'un des états suivants :
+バッチジョブの作成時に取得したオペレーション名を使用して、ステータスをポーリングします。
+バッチジョブの state フィールドに、現在のステータスが表示されます。バッチジョブは次のいずれかの状態になります。
 
-- `JOB_STATE_PENDING` : la tâche a été créée et attend d'être traitée par le service.
-- `JOB_STATE_RUNNING` : la tâche est en cours d'exécution.
-- `JOB_STATE_SUCCEEDED` : la tâche a été effectuée avec succès. Vous pouvez maintenant récupérer les résultats.
-- `JOB_STATE_FAILED` : la tâche a échoué. Pour en savoir plus, consultez les détails de l'erreur.
-- `JOB_STATE_CANCELLED` : la tâche a été annulée par l'utilisateur.
-- `JOB_STATE_EXPIRED` : la tâche a expiré, car elle était en cours d'exécution ou en attente depuis plus de 48 heures. La tâche ne générera aucun résultat à récupérer.
-  Vous pouvez essayer d'envoyer de nouveau le job ou de diviser les requêtes en plus petits lots.
+- `JOB_STATE_PENDING`: ジョブが作成され、サービスによる処理を待機しています。
+- `JOB_STATE_RUNNING`: ジョブは進行中です。
+- `JOB_STATE_SUCCEEDED`: ジョブが正常に完了しました。結果を取得できるようになりました。
+- `JOB_STATE_FAILED`: ジョブが失敗しました。詳細については、エラーの詳細をご覧ください。
+- `JOB_STATE_CANCELLED`: ジョブがユーザーによってキャンセルされました。
+- `JOB_STATE_EXPIRED`: ジョブが 48 時間以上実行中または保留中のため、期限切れになりました。ジョブの結果を取得することはできません。
+  ジョブを再送信するか、リクエストを小さなバッチに分割してみてください。
 
-Vous pouvez interroger régulièrement l'état du job pour vérifier s'il est terminé.
+ジョブのステータスを定期的にポーリングして、完了を確認できます。
 
 ### Python
 
@@ -764,10 +778,11 @@ try {
 }
 ```
 
-### Interrogation et webhooks
+### ポーリングと Webhook
 
-**Vous en avez assez des sondages ?** Gemini prend désormais en charge les [Webhooks](https://ai.google.dev/gemini-api/docs/webhooks?hl=fr) pour traiter les complétions de manière asynchrone.
-Au lieu d'appeler `GET / operations` en continu, abonnez-vous à `batch.succeeded` directement pour permettre à l'API Gemini d'envoyer des notifications en temps réel à votre serveur lorsque des opérations asynchrones ou de longue durée sont terminées.
+**ポーリングにうんざりしていませんか？**Gemini で、完了を非同期で処理するための
+[Webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=ja) がサポートされるようになりました。
+`GET / operations` を継続的に呼び出す代わりに、`batch.succeeded` を直接サブスクライブすると、非同期オペレーションまたは長時間実行オペレーションが完了したときに、Gemini API がリアルタイム通知をサーバーにプッシュできます。
 
 ### Python
 
@@ -819,9 +834,10 @@ curl -X POST \
   }'
 ```
 
-## Récupération des résultats
+## 結果を取得する
 
-Une fois que l'état du job par lot indique qu'il a réussi, les résultats sont disponibles dans le champ `response`.
+ジョブのステータスがバッチジョブの成功を示したら、`response` フィールドで結果を確認できます。
+デフォルトでは、バッチジョブの結果は 6 週間保存され、ダウンロードできます。その後、完全に削除されます。
 
 ### Python
 
@@ -974,9 +990,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## Lister les jobs par lot
+## バッチジョブを一覧表示する
 
-Vous pouvez lister vos jobs par lot récents.
+最近のバッチジョブを一覧表示できます。
 
 ### Python
 
@@ -1010,9 +1026,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Annuler un job par lot
+## バッチジョブをキャンセルする
 
-Vous pouvez annuler un job par lot en cours à l'aide de son nom. Lorsqu'un job est annulé, il cesse de traiter les nouvelles requêtes.
+実行中のバッチジョブは、名前を使用してキャンセルできます。ジョブがキャンセルされると、新しいリクエストの処理が停止します。
 
 ### Python
 
@@ -1041,9 +1057,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## Supprimer un job par lot
+## バッチジョブを削除する
 
-Vous pouvez supprimer un job par lot existant à l'aide de son nom. Lorsqu'un job est supprimé, il cesse de traiter les nouvelles requêtes et est supprimé de la liste des jobs par lot.
+既存のバッチジョブは、名前を使用して削除できます。ジョブが削除されると、新しいリクエストの処理が停止し、バッチジョブのリストから削除されます。
 
 ### Python
 
@@ -1067,13 +1083,16 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Générer des images par lot
+## 画像をバッチで生成する
 
-Si vous utilisez [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr) et que vous devez générer de nombreuses images, vous pouvez utiliser l'API Batch pour obtenir des [limites de fréquence](https://ai.google.dev/gemini-api/docs/rate-limits?hl=fr) plus élevées en échange d'un délai de traitement pouvant aller jusqu'à 24 heures.
+[Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) を使用していて、大量
+の画像を生成する必要がある場合は、Batch API を使用して、最大 24 時間の所要時間でレート上限
+を引き上げることができます。
 
-Vous pouvez utiliser des [requêtes intégrées](#inline-requests-images) pour les petits lots de requêtes (moins de 20 Mo) ou un [fichier d'entrée JSONL](#input-file-images) pour les grands lots (recommandé pour la génération d'images) :
+リクエストの小規模なバッチ（20 MB 未満）には[インライン リクエスト](#inline-requests-images)を使用し、
+大規模なバッチ（画像生成におすすめ）には[JSONL 入力ファイル](#input-file-images)を使用できます。
 
-### Demandes d'images intégrées
+### 画像のインライン リクエスト
 
 ### Python
 
@@ -1284,7 +1303,7 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-### Fichier d'entrée pour les images
+### 画像の入力ファイル
 
 ### Python
 
@@ -1516,35 +1535,44 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## Détails techniques
+## 詳細な技術情報
 
-- **Modèles compatibles** : l'API Batch est compatible avec différents modèles Gemini.
-  Consultez la page [Modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr) pour connaître la compatibilité de chaque modèle avec l'API Batch. Les modalités acceptées pour l'API Batch sont les mêmes que celles acceptées pour l'API interactive (ou non par lot).
-- **Tarifs** : l'utilisation de l'API Batch est facturée à 50% du coût standard de l'API interactive pour le modèle équivalent. Pour en savoir plus, consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr). Pour en savoir plus sur les limites de débit de cette fonctionnalité, consultez la page [Limites de débit](https://ai.google.dev/gemini-api/docs/rate-limits?hl=fr#batch-mode).
-- **Objectif de niveau de service (SLO)** : les jobs par lot sont conçus pour être traités dans un délai de 24 heures. De nombreux jobs peuvent se terminer beaucoup plus rapidement en fonction de leur taille et de la charge système actuelle.
-- **Mise en cache** : la [mise en cache du contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) est compatible avec les requêtes par lot. Réutilisez le contenu mis en cache en spécifiant le nom de ressource `cached_content` dans la configuration des requêtes individuelles de votre lot.
-  Si une requête de votre lot génère un succès de cache, vous payez les [tarifs standards de mise en cache du contexte](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
+- **サポートされているモデル:** Batch API は、さまざまな Gemini モデルをサポートしています。
+  各モデルの Batch API のサポート
+  については、[モデルのページ](https://ai.google.dev/gemini-api/docs/models?hl=ja)をご覧ください。Batch API でサポートされているモダリティは、インタラクティブ（非バッチ）API でサポートされているモダリティと同じです。
+- **料金:** Batch API の使用料金は、同等のモデルの標準インタラクティブ API 料金の 50% です。詳細については、[料金のページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)
+  をご覧ください。この機能のレート上限について詳しくは、[レート上限のページ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#batch-mode)
+  をご覧ください。
+- **サービスレベル目標（SLO）:** バッチジョブは、24 時間以内の所要時間で完了するように設計されています。ジョブのサイズと現在のシステム負荷によっては、多くのジョブがはるかに短時間で完了する場合があります。
+- **キャッシュ:** [コンテキストのキャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)は、バッチ リクエストでサポートされています。バッチ内の個々のリクエストの構成で `cached_content` リソース名を指定して、キャッシュに保存されたコンテンツを再利用します。
+  バッチ内のリクエストがキャッシュ ヒットした場合、
+  [標準のコンテキスト キャッシュ保存料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)が課金されます。
 
-## Bonnes pratiques
+## ベスト プラクティス
 
-- **Utilisez des fichiers d'entrée pour les requêtes volumineuses** : pour un grand nombre de requêtes, utilisez toujours la méthode d'entrée de fichier pour une meilleure gestion et pour éviter d'atteindre les limites de taille des requêtes pour l'appel [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=fr#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) lui-même. Notez que la taille de chaque fichier d'entrée est limitée à 2 Go.
-- **Gestion des erreurs** : vérifiez le `batchStats` pour `failedRequestCount` une fois le job terminé. Si vous utilisez la sortie de fichier, analysez chaque ligne pour vérifier s'il s'agit d'un `GenerateContentResponse` ou d'un objet d'état indiquant une erreur pour cette requête spécifique. Consultez le [guide de dépannage](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=fr#error-codes) pour obtenir la liste complète des codes d'erreur.
-- **N'envoyez les jobs qu'une seule fois** : la création d'un job par lot n'est pas idempotente.
-  Si vous envoyez la même demande de création deux fois, deux jobs par lot distincts seront créés.
-- **Fractionnez les très grands lots** : bien que le délai de traitement cible soit de 24 heures, le temps de traitement réel peut varier en fonction de la charge du système et de la taille du job.
-  Pour les jobs volumineux, envisagez de les diviser en plus petits lots si vous avez besoin de résultats intermédiaires plus rapidement.
+- [**大規模なリクエストには入力ファイルを使用する:** 大量のリクエストの場合は、管理しやすくするため、また
+  呼び出し自体でリクエスト サイズの上限に達しないようにするため、必ずファイル入力
+  方式を使用してください。](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)`BatchGenerateContent`入力ファイル 1 つあたりのファイルサイズの上限は 2 GB です。
+- **エラー処理:** ジョブが完了したら、`batchStats` で `failedRequestCount` を確認します。ファイル出力を使用している場合は、各行を解析して、特定のリクエストのエラーを示す `GenerateContentResponse` またはステータス オブジェクトであるかどうかを確認します。エラーコードの一覧については、[トラブルシューティング
+  ガイド](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja#error-codes)をご覧ください。
+- **ジョブを 1 回送信する:** バッチジョブの作成はべき等ではありません。
+  同じ作成リクエストを 2 回送信すると、2 つの別々のバッチジョブが作成されます。
+- **非常に大きなバッチを分割する:** 目標の所要時間は 24 時間ですが、実際の処理時間はシステム負荷とジョブサイズによって異なります。
+  大規模なジョブで中間結果を早めに取得する必要がある場合は、ジョブを小さなバッチに分割することを検討してください。
 
-## Étape suivante
+## 次のステップ
 
-- Pour obtenir d'autres exemples, consultez le [notebook de l'API Batch](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=fr).
-- La couche de compatibilité OpenAI est compatible avec l'API Batch. Consultez les exemples sur la page [Compatibilité avec OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=fr#batch).
+- その他の例については、[Batch API ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=ja)
+  をご覧ください。
+- OpenAI 互換レイヤは Batch API をサポートしています。OpenAI 互換性のページの例を
+  [ご覧ください。](https://ai.google.dev/gemini-api/docs/openai?hl=ja#batch)
 
-Envoyer des commentaires
+フィードバックを送信
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Dernière mise à jour le 2026/06/22 (UTC).
+最終更新日 2026-07-02 UTC。
 
-Voulez-vous nous donner plus d'informations ?
+ご意見をお聞かせください
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/22 (UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-02 UTC。"],[],[]]

@@ -1,982 +1,1026 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=tr
-fetched_at: 2026-06-29T05:29:38.961458+00:00
-title: "Gemini Developer API fiyatland\u0131rmas\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=hi
+fetched_at: 2026-07-06T05:19:02.720118+00:00
+title: "Gemini Developer API \u0915\u0940 \u0915\u0940\u092e\u0924 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-# Gemini Developer API fiyatlandırması
+# Gemini Developer API की कीमत
 
-Cömert sınırlamalarla ücretsiz olarak geliştirmeye başlayın, ardından üretime hazır uygulamalarınız için ön ödemeli ve kullandıkça öde fiyatlandırmasıyla ölçeğinizi artırın.
+ज़्यादा सीमाएं होने की वजह से, बिना किसी शुल्क के काम करना शुरू करें. इसके बाद, प्रोडक्शन के लिए तैयार ऐप्लिकेशन के लिए, प्रीपेड और इस्तेमाल के हिसाब से पैसे चुकाने की सुविधा का इस्तेमाल करके स्केल अप करें.
 
-### Ücretsiz
+### मुफ़्त
 
-Gemini API'yi kullanmaya başlayan geliştiriciler ve küçük projeler için uygundur.
+यह प्लान, Gemini API का इस्तेमाल शुरू करने वाले डेवलपर और छोटे प्रोजेक्ट के लिए है.
 
-- check\_circleBelirli modellere sınırlı erişim
-- check\_circleÜcretsiz giriş ve çıkış jetonları
-- check\_circleGoogle AI Studio erişimi
-- check\_circleÜrünlerimizi iyileştirmek için kullanılan içerikler[\*](https://ai.google.dev/gemini-api/terms?hl=tr)
+- check\_circleकुछ मॉडल का सीमित ऐक्सेस
+- check\_circleइनपुट और आउटपुट टोकन के लिए कोई शुल्क नहीं लिया जाता
+- check\_circleGoogle AI Studio का ऐक्सेस
+- check\_circleहमारे प्रॉडक्ट को बेहतर बनाने के लिए इस्तेमाल किया गया कॉन्टेंट[\*](https://ai.google.dev/gemini-api/terms?hl=hi)
 
-[Ücretsiz kullanmaya başlayın](https://aistudio.google.com?hl=tr)
+[बिना किसी शुल्क के शुरू करें](https://aistudio.google.com?hl=hi)
 
-### Ücretli
+### पैसे देने होंगे
 
-Daha yüksek hacimler ve ileri seviye özellikler gerektiren üretim uygulamaları için.
+ऐसे प्रोडक्शन ऐप्लिकेशन के लिए जिनमें ज़्यादा वॉल्यूम और ऐडवांस सुविधाओं की ज़रूरत होती है.
 
-- check\_circleÜretim dağıtımları için daha yüksek sıklık sınırları
-- check\_circleBağlamı önbelleğe alma özelliğine erişim
-- check\_circleToplu API (%50 maliyet düşüşü)
-- check\_circleGoogle'ın en gelişmiş modellerine erişim
-- check\_circleİçerik, ürünlerimizi iyileştirmek için **kullanılmaz**[\*](https://ai.google.dev/gemini-api/terms?hl=tr)
+- check\_circleप्रोडक्शन डिप्लॉयमेंट के लिए ज़्यादा दर की सीमाएं
+- check\_circleकॉन्टेक्स्ट कैश मेमोरी का ऐक्सेस
+- check\_circleबैच एपीआई (लागत में 50% की कमी)
+- check\_circleGoogle के सबसे ऐडवांस मॉडल का ऐक्सेस
+- check\_circleहमारे प्रॉडक्ट को बेहतर बनाने के लिए, **नहीं** इस्तेमाल किया गया कॉन्टेंट[\*](https://ai.google.dev/gemini-api/terms?hl=hi)
 
-[Hesabı ücretli sürüme yükseltme](https://aistudio.google.com/api-keys?hl=tr)
+[पैसे चुकाकर इस्तेमाल किए जाने वाले खाते पर अपग्रेड करें](https://aistudio.google.com/api-keys?hl=hi)
 
-### Kurumsal
+### Enterprise
 
-[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=tr) tarafından desteklenen, güvenlik, destek ve uygunluk açısından özel ihtiyaçları olan büyük ölçekli dağıtımlar için.
+बड़े पैमाने पर डिप्लॉयमेंट के लिए, सुरक्षा, सहायता, और अनुपालन से जुड़ी कस्टम ज़रूरतें पूरी करने के लिए, [Gemini Enterprise एजेंट प्लैटफ़ॉर्म](https://cloud.google.com/gemini-enterprise-agent-platform?hl=hi) की मदद से.
 
-- check\_circleÜcretli plandaki tüm özelliklere ek olarak aşağıdakilere isteğe bağlı erişim:
-- check\_circleÖzel destek kanalları
-- check\_circleGelişmiş güvenlik ve uygunluk
-- check\_circleTemel hazırlığı yapılmış işleme hızı
-- check\_circleHacme dayalı indirimler (kullanıma dayalı)
-- check\_circleMLOps, Model Garden ve daha fazlası
+- check\_circleपैसे चुकाकर ली जाने वाली सदस्यता में मिलने वाली सभी सुविधाएं. साथ ही, इनके ऐक्सेस का विकल्प:
+- check\_circleसहायता पाने के लिए खास चैनल
+- check\_circleसुरक्षा और अनुपालन से जुड़ी बेहतर सुविधाएं
+- check\_circleडेटा ट्रांसफ़र करने के लिए असाइन की गई स्पीड
+- check\_circleइस्तेमाल के आधार पर, वॉल्यूम के हिसाब से मिलने वाली छूट
+- check\_circleएमएल ऑप्स, मॉडल गार्डन वगैरह
 
-[Satış Ekibiyle İletişime Geçin](https://cloud.google.com/contact?hl=tr)
+[सेल्स टीम से संपर्क करें](https://cloud.google.com/contact?hl=hi)
 
 ## Gemini 3.5 Flash
 
 *`gemini-3.5-flash`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-3.5-flash&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-3.5-flash&hl=hi)
 
-Hız için tasarlanmış en akıllı modelimiz. Yeni nesil zekayı üstün arama ve temellendirme özellikleriyle birleştirir.
+यह हमारा सबसे स्मार्ट मॉडल है. इसे तेज़ी से काम करने के लिए बनाया गया है. इसमें फ़्रंटियर इंटेलिजेंस के साथ-साथ, बेहतर खोज और ग्राउंडिंग की सुविधा भी शामिल है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 1,50 ABD doları |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 9 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Ücretsiz | Saatlik 0,15 ABD doları 1,00 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | $1.50 |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | INR405 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | बिना किसी शुल्क के उपलब्ध | 0.15 डॉलर 100 रुपये / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,75 ABD doları |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 4,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.075 $1.00 / 1.000.000 jeton başına saat (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 33.75 रुपये |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 4.50 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.075 डॉलर 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,75 ABD doları |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 4,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.08 $1.00 / 1.000.000 jeton başına saat (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 33.75 रुपये |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 4.50 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.08 डॉलर 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 2,70 ABD doları |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 16,20 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Ücretsiz | $0.27 $1.00 / 1.000.000 jeton başına saat (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 2.70 डॉलर |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 1,620 रुपये |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | बिना किसी शुल्क के उपलब्ध | 0.27 डॉलर 1.00 डॉलर / हर घंटे 10,00,000 टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
+\* Gemini को ग्राहक की ओर से सबमिट की गई किसी अनुरोध के जवाब में, Google Search को एक या उससे ज़्यादा क्वेरी भेजी जा सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा.
 
 ## Gemini 3.5 Live Translate
 
 *`gemini-3.5-live-translate-preview`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-live-translate-preview&hl=hi)
 
-70'ten fazla dili destekleyen, düşük gecikme süreli ve anında konuşmadan konuşmaya çeviri modelimiz.
+यह मॉडल, बातचीत का रीयल-टाइम में अनुवाद करता है. इसमें कम समय लगता है. यह 70 से ज़्यादा भाषाओं में काम करता है.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 3,50 ABD doları veya 0,0053 ABD doları/dakika\* (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 21,00 ABD doları veya 0,0315 ABD doları/dakika\* (ses) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 3.50 डॉलर या 0.0053 डॉलर/मिनट\* (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 21.00 डॉलर या 0.0315 डॉलर/मिनट\* (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Faturalandırma, toplam giriş ve çıkış ses jetonu tüketimine göre yapılır.Saniyede 25 jeton hızında hesaplanır ve dakikada yaklaşık 0, 0368 ABD doları etkin fiyata karşılık gelir.
+\* बिलिंग, इनपुट और आउटपुट ऑडियो टोकन की कुल खपत के आधार पर की जाती है. इसका हिसाब, ऑडियो के हर सेकंड के लिए 25 टोकन की दर से लगाया जाता है. इस हिसाब से, हर मिनट की कीमत करीब 0.0368 डॉलर होती है.
 
 ## Gemini 3.1 Flash-Lite
 
 *`gemini-3.1-flash-lite`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=hi)
 
-Yüksek hacimli ajan tabanlı görevler, çeviri ve basit veri işleme için optimize edilmiş, en uygun maliyetli modelimiz.
+यह हमारा सबसे किफ़ायती मॉडल है. इसे एजेंटिक टास्क, अनुवाद, और डेटा प्रोसेसिंग जैसे कामों के लिए ऑप्टिमाइज़ किया गया है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,25 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 1,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,025 ABD doları (metin/resim/video) 0,05 ABD doları (ses) Saat başına 1.000.000 jeton için 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.25 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.50 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | $1.50 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.025 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.05 डॉलर (ऑडियो) 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,125 ABD doları (metin / resim / video) 0,25 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,75 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,0125 ABD doları (metin / resim / video) 0,025 ABD doları (ses) Saat başına 0,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.125 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.25 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 33.75 रुपये |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.0125 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.025 डॉलर (ऑडियो) 0.50 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,125 ABD doları (metin / resim / video) 0,25 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,75 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,0125 ABD doları (metin / resim / video) 0,025 ABD doları (ses) Saat başına 0,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.125 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.25 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 33.75 रुपये |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.0125 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.025 डॉलर (ऑडियो) 0.50 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,45 ABD doları (metin / resim / video) 0,90 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 2,70 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,045 ABD doları (metin / resim / video) 0,09 ABD doları (ses) saatte 1,80 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 20.25 रुपये (टेक्स्ट / इमेज / वीडियो) 40.50 रुपये (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 2.70 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.045 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.09 डॉलर (ऑडियो) 1.80 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
+\* Gemini को ग्राहक की ओर से सबमिट की गई किसी अनुरोध के जवाब में, Google Search को एक या उससे ज़्यादा क्वेरी भेजी जा सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा.
 
-## Gemini 3.1 Pro Önizlemesi
+## Gemini Omni Flash की झलक
 
-*`gemini-3.1-pro-preview` ve `gemini-3.1-pro-preview-customtools`*
+*`gemini-omni-flash-preview`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=hi)
 
-Çok formatlı anlama, ajan tabanlı yetenekler ve sezgisel kodlama konusunda dünyanın en iyi model ailesinde yapılan en son performans, zeka ve kullanılabilirlik iyileştirmeleri.
+वीडियो जनरेट करने और उनमें बदलाव करने वाला हमारा नया मॉडल. यह Gemini API के पेड टियर में डेवलपर के लिए उपलब्ध है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 2 ABD doları, istemler <= 200 bin parça 4 ABD doları, istemler > 200 bin parça |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 12 ABD doları, istemler <= 200 bin jeton 18 ABD doları, istemler > 200 bin |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 200.000 jetondan az istem: 0,20 ABD doları 200.000 jetondan fazla istem: 0,40 ABD doları Saat başına 1.000.000 jeton için 4,50 ABD doları (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | $1.50 (टेक्स्ट / इमेज / वीडियो / ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 900 रुपये (टेक्स्ट) 1,750 रुपये (वीडियो)\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+\* बिलिंग, आउटपुट टोकन के कुल इस्तेमाल के आधार पर की जाती है. इसकी गणना, 720 पिक्सल वाले वीडियो के हर सेकंड के लिए 5,792 टोकन की दर से की जाती है. स्टैंडर्ड कीमत के हिसाब से, यह हर सेकंड के लिए करीब 10 रुपये के बराबर है.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+## Gemini 3.1 Pro की झलक
+
+*`gemini-3.1-pro-preview` और `gemini-3.1-pro-preview-customtools`*
+
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=hi)
+
+मल्टीमॉडल कॉन्टेंट को समझने, एजेंटिक एआई की सुविधाओं, और वाइब-कोडिंग के लिए, दुनिया के सबसे बेहतरीन मॉडल फ़ैमिली की परफ़ॉर्मेंस, इंटेलिजेंस, और इस्तेमाल करने में आसानी से जुड़े सुधार.
+
+### स्टैंडर्ड
+
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 1 ABD doları, istemler <= 200.000 jeton 2 ABD doları, istemler > 200.000 jeton |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 6 ABD doları, istemler <= 200 bin jeton 9 ABD doları, istemler > 200 bin |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  200.000 jetondan az istem için 0,20 ABD doları 200.000 jetondan fazla istem için 0,40 ABD doları Saatte 4,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 200 रुपये, प्रॉम्प्ट <= 2 लाख टोकन 400 रुपये, प्रॉम्प्ट > 2 लाख टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 12.00 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 18.00 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.20 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 0.40 डॉलर, प्रॉम्प्ट > 2 लाख टोकन 4.50 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 1 ABD doları, istemler <= 200.000 jeton 2 ABD doları, istemler > 200.000 jeton |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 6 ABD doları, istemler <= 200 bin jeton 9 ABD doları, istemler > 200 bin |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  200.000 jetondan az istem için 0,20 ABD doları 200.000 jetondan fazla istem için 0,40 ABD doları Saatte 4,50 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 100 रुपये, प्रॉम्प्ट में 2 लाख से कम टोकन 200 रुपये, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 6.00 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 9.00 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | *स्टैंडर्ड के बराबर*  0.20 डॉलर, 2 लाख से कम टोकन वाले प्रॉम्प्ट 0.40 डॉलर, 2 लाख से ज़्यादा टोकन वाले प्रॉम्प्ट 4.50 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 3,60 ABD doları, istemler <= 200.000 parça 7,20 ABD doları, istemler > 200.000 parça |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 21,60 ABD doları, istemler <= 200 bin parça 32,40 ABD doları, istemler > 200 bin |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,36 ABD doları, istemler <= 200.000 jeton 0,72 ABD doları, istemler > 200.000 Saat başına 8,10 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 100 रुपये, प्रॉम्प्ट में 2 लाख से कम टोकन 200 रुपये, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 6.00 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 9.00 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | *स्टैंडर्ड के बराबर*  0.20 डॉलर, 2 लाख से कम टोकन वाले प्रॉम्प्ट 0.40 डॉलर, 2 लाख से ज़्यादा टोकन वाले प्रॉम्प्ट 4.50 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
+### प्राथमिकता
 
-## Gemini 3.1 Flash Live Preview
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
+| --- | --- | --- |
+| कीमत डालें | उपलब्ध नहीं है | 3.60 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 7.20 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 2,160 रुपये, प्रॉम्प्ट <= 2 लाख टोकन 3,240 रुपये, प्रॉम्प्ट > 2 लाख टोकन |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.36 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 0.72 डॉलर, प्रॉम्प्ट > 2 लाख टोकन 8.10 डॉलर / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
+
+\* Gemini को ग्राहक की ओर से सबमिट की गई किसी अनुरोध के जवाब में, Google Search को एक या उससे ज़्यादा क्वेरी भेजी जा सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा.
+
+## Gemini 3.1 Flash की लाइव प्रीव्यू सुविधा
 
 *`gemini-3.1-flash-live-preview`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-live-preview&hl=hi)
 
-Akustik nüans algılama, sayısal hassasiyet ve çok formatlı farkındalık ile gerçek zamanlı diyalog için optimize edilmiş, düşük gecikmeli, ses-ses modelimiz.
+यह ऑडियो-टू-ऑडियो मॉडल, कम समय में जवाब देने के लिए ऑप्टिमाइज़ किया गया है. यह बातचीत को रीयल-टाइम में प्रोसेस करता है. साथ ही, इसमें आवाज़ की बारीकियों का पता लगाने, संख्यात्मक जानकारी को सटीक तरीके से समझने, और मल्टीमॉडल के बारे में जानकारी देने की क्षमता है.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,75 ABD doları (metin) 3,00 ABD doları veya 0,005 ABD doları/dakika (ses) 1,00 ABD doları veya 0,002 ABD doları/dakika (resim/video) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 4,50 ABD doları (metin) 12,00 ABD doları veya 0,018 ABD doları/dakika (ses) |
-| Google Arama ile temellendirme\* | Destekleniyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.75 डॉलर (टेक्स्ट) 3.00 डॉलर या 0.005 डॉलर/मिनट (ऑडियो) 1.00 डॉलर या 0.002 डॉलर/मिनट (इमेज/वीडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 450 रुपये (टेक्स्ट) 1,200 रुपये या 1.80 रुपये/मिनट (ऑडियो) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | समर्थित | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
+\* Gemini को ग्राहक की ओर से सबमिट की गई किसी अनुरोध के जवाब में, Google Search को एक या उससे ज़्यादा क्वेरी भेजी जा सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा.
 
-## Gemini 3.1 Flash Image 🍌
+## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
 
 *`gemini-3.1-flash-image`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=hi)
 
-Hız ve verimlilik için tasarlanan Gemini 3.1 Flash görüntü üretme modeli, hızlı ve etkileşimli yanıtlar ile yüksek gönderim hacmi için etkilidir.
+Gemini 3.1 Flash Image generation मॉडल को तेज़ी से और असरदार तरीके से काम करने के लिए डिज़ाइन किया गया है. यह तुरंत और इंटरैक्टिव जवाब देने के साथ-साथ हाई थ्रूपुट के लिए भी असरदार है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin/resim) |
-| Çıkış fiyatı | Kullanılamıyor | 3 ABD doları (metin ve düşünme)  60 ABD doları (resimler)  0,5 bin resim başına 0,045 ABD dolarına eşdeğer\*  1 bin resim başına 0,067 ABD doları\*, 2 bin resim başına 0,101 ABD doları\*, ve 4 bin resim başına 0,151 ABD doları\*. |
-| Google Web ve Görsel Arama ile Temellendirme\*\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından metin ve resim tabanlı temellendirme için 1.000 arama sorgusu başına 14 ABD doları. |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.50 डॉलर (टेक्स्ट/इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 3 डॉलर (टेक्स्ट और सोच-विचार)  60.00 डॉलर (इमेज)  500 इमेज के लिए 0.045 डॉलर\*  1,000 इमेज के लिए 0.067 डॉलर\*, 2,000 इमेज के लिए 0.101 डॉलर\*, और 4,000 इमेज के लिए 0.151 डॉलर\*. |
+| Google Web और Image Search से सटीक जानकारी पाने की सुविधा\*\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, टेक्स्ट और इमेज पर आधारित जानकारी खोजने के लिए, 1,000 खोज क्वेरी के लिए 14 डॉलर. |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin, resim) |
-| Çıkış fiyatı | Kullanılamıyor | 1,50 ABD doları (metin ve düşünme)  30,00 ABD doları (resimler)  0,5 bin resim başına 0,022 ABD dolarına eşdeğer\*  1 bin resim başına 0,034 ABD doları\*,  2 bin resim başına 0,050 ABD doları\*,  ve 4 bin resim başına 0,076 ABD doları\*. |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.25 डॉलर (टेक्स्ट, इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 1.50 डॉलर (टेक्स्ट और सोच-विचार)  30.00 डॉलर (इमेज)  500 इमेज के लिए 0.022 डॉलर\* के बराबर  1,000 इमेज के लिए 0.034 डॉलर\*,  2,000 इमेज के लिए 0.050 डॉलर\*,  और 4,000 इमेज के लिए 0.076 डॉलर\*. |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Resim çıktısı, 1.000.000 jeton başına 60 ABD doları olarak fiyatlandırılır.
-0,5K (512 piksel) çözünürlükteki çıktı resimleri 747 jeton kullanır ve resim başına 0,045 ABD dolarına eşdeğerdir. 1.000 (1024x1024 piksel) çözünürlükteki çıkış resimleri 1.120 jeton kullanır ve resim başına 0,067 ABD dolarına eşittir. 2K (2048x2048 piksel) çözünürlükte çıkış resimleri 1.680 jeton kullanır ve resim başına 0,101 ABD dolarına eşittir. 4K (4096x4096 piksel) çözünürlükteki çıkış resimleri 2.520 jeton kullanır ve resim başına 0,151 ABD dolarına eşittir.
+\* इमेज के आउटपुट की कीमत, 10,00,000 टोकन के लिए 60 डॉलर है.
+0.5K (512 पिक्सल) रिज़ॉल्यूशन वाली इमेज जनरेट करने पर, 747 टोकन खर्च होते हैं. साथ ही, हर इमेज के लिए 0.045 डॉलर का शुल्क लगता है. 1K (1024x1024 पिक्सल) पर आउटपुट इमेज जनरेट करने के लिए 1,120 टोकन खर्च होते हैं. इनकी कीमत 0.067 डॉलर प्रति इमेज होती है. 2K (2048x2048 पिक्सल) पर आउटपुट इमेज जनरेट करने के लिए 1,680 टोकन खर्च होते हैं. साथ ही, हर इमेज के लिए 0.101 डॉलर खर्च होते हैं. 4K (4096x4096 पिक्सल) रिज़ॉल्यूशन वाली इमेज जनरेट करने पर 2,520 टोकन खर्च होते हैं. इसका मतलब है कि हर इमेज के लिए 0.151 डॉलर खर्च होते हैं.
 
-\*\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır. Google Arama ile Temellendirme tarafından sağlanan alınan bağlam (metin veya resimler) giriş jetonları olarak ücretlendirilmez.
+\*\* किसी ग्राहक की ओर से Gemini को भेजी गई क्वेरी के जवाब में, Google Search को एक या उससे ज़्यादा क्वेरी भेजी जा सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा. Google Search से मिली जानकारी (टेक्स्ट या इमेज) को इनपुट टोकन के तौर पर नहीं गिना जाता.
 
-## Gemini 3.1 Flash TTS Önizlemesi
+## Gemini 3.1 Flash Lite इमेज 🍌
+
+*`gemini-3.1-flash-lite-image`*
+
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=hi)
+
+Gemini 3.1 Flash Lite Image मॉडल को, इमेज जनरेट करने वाले मॉडल फ़ैमिली के सबसे असरदार मॉडल के तौर पर डिज़ाइन किया गया है. इसे इंतज़ार का समय बहुत कम रखने से जुड़ी सेटिंग और किफ़ायती इमेज जनरेट करने और उनमें बदलाव करने के लिए डिज़ाइन किया गया है.
+
+### स्टैंडर्ड
+
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
+| --- | --- | --- |
+| कीमत डालें | उपलब्ध नहीं है | 0.25 डॉलर (टेक्स्ट/इमेज/वीडियो) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 150 रुपये (टेक्स्ट और सोच-विचार)  3,000 रुपये (इमेज)  1K रिज़ॉल्यूशन वाली हर इमेज के लिए 3.36 रुपये\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
+
+### बैच
+
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
+| --- | --- | --- |
+| कीमत डालें | उपलब्ध नहीं है | 0.125 डॉलर (टेक्स्ट/इमेज/वीडियो) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 0.75 डॉलर (टेक्स्ट और सोच-विचार)  15.00 डॉलर (इमेज)  1K रिज़ॉल्यूशन वाली इमेज के लिए 0.0168 डॉलर के बराबर\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
+
+\* इमेज आउटपुट की कीमत, हर 10 लाख टोकन के लिए 30 डॉलर है. 1K (1024x1024 पिक्सल) रिज़ॉल्यूशन वाली इमेज जनरेट करने पर 1,120 टोकन खर्च होते हैं. इस हिसाब से, हर इमेज की कीमत 0.0336 डॉलर होती है.
+
+## Gemini 3.1 Flash TTS की झलक
 
 *`gemini-3.1-flash-tts-preview`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=hi)
 
-Fiyat-performans, düşük gecikme süresi ve kontrol edilebilir konuşma üretimi için optimize edilmiş 3.1 Flash Text-to-Speech ses modelimiz.
+टेक्स्ट को ऑडियो में बदलने वाला हमारा 3.1 Flash मॉडल, कीमत के हिसाब से बेहतर परफ़ॉर्मेंस देने के लिए ऑप्टिमाइज़ किया गया है. यह कम समय में और कंट्रोल की जा सकने वाली स्पीच जनरेट करता है.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 1,00 TL (metin) |
-| Çıkış fiyatı | Ücretsiz | 20,00 TL (ses) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | $1.00 (टेक्स्ट) |
+| आउटपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 2,000 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin) |
-| Çıkış fiyatı | Kullanılamıyor | 10,00 ABD doları (sesli) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 50 रुपये (टेक्स्ट) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 1000 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Ses jetonları, saniyede 25 jetona karşılık gelir.
+\* ऑडियो टोकन, ऑडियो के हर सेकंड के लिए 25 टोकन के बराबर होते हैं.
 
-## Gemini 3 Flash Önizlemesi
+## Gemini 3 Flash की झलक
 
 *`gemini-3-flash-preview`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-3-flash-preview&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-3-flash-preview&hl=hi)
 
-Hız için tasarlanmış en akıllı modelimiz. Yeni nesil zekayı üstün arama ve temellendirme özellikleriyle birleştirir.
+यह हमारा सबसे स्मार्ट मॉडल है. इसे तेज़ी से काम करने के लिए बनाया गया है. इसमें फ़्रंटियर इंटेलिजेंस के साथ-साथ, बेहतर खोज और ग्राउंडिंग की सुविधा भी शामिल है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,50 ABD doları (metin / resim / video) 1,00 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 3,00 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Ücretsiz | 0,05 ABD doları (metin/resim/video) 0,10 ABD doları (ses) Saat başına 1.000.000 jeton için 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.50 डॉलर (टेक्स्ट / इमेज / वीडियो) 1.00 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 3.00 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | बिना किसी शुल्क के उपलब्ध | 0.05 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.10 डॉलर (ऑडियो) 1.00 डॉलर / हर घंटे के लिए 10,00,000 टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  0,05 ABD doları (metin/resim/video)  0,10 ABD doları (ses)  saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.25 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.50 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | $1.50 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | *स्टैंडर्ड के बराबर*  0.05 डॉलर (टेक्स्ट / इमेज / वीडियो)  0.10 डॉलर (ऑडियो)  1.00 डॉलर / हर घंटे के हिसाब से 10,00,000 टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | *Standart ile aynı*  0,05 ABD doları (metin/resim/video)  0,10 ABD doları (ses)  saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istek (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.25 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.50 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | $1.50 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | *स्टैंडर्ड के बराबर*  0.05 डॉलर (टेक्स्ट / इमेज / वीडियो)  0.10 डॉलर (ऑडियो)  1.00 डॉलर / हर घंटे के हिसाब से 10,00,000 टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 अनुरोध (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,90 ABD doları (metin / resim / video) 1,80 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 5,40 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Ücretsiz | 0,09 ABD doları (metin/resim/video) 0,18 ABD doları (ses) saatte 1.800.000 jeton başına 1,80 ABD doları (depolama fiyatı) |
-| Google Arama ile temellendirme\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.90 डॉलर (टेक्स्ट / इमेज / वीडियो) 1.80 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | $5.40 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | बिना किसी शुल्क के उपलब्ध | 0.09 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.18 डॉलर (ऑडियो) 1.80 डॉलर / हर घंटे के लिए 10,00,000 टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
+\* Gemini को ग्राहक की ओर से सबमिट की गई किसी अनुरोध के जवाब में, Google Search को एक या उससे ज़्यादा क्वेरी भेजी जा सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा.
 
-## Gemini 3 Pro Image 🍌
+## Gemini 3 Pro Image (Nano Banana Pro) 🍌
 
 *`gemini-3-pro-image`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=hi)
 
-Hız, esneklik ve bağlamsal anlayış için optimize edilmiş yerel görüntü üretme modelimiz. **Metin girişi ve çıkışı**, [Gemini 3.1 Pro](#gemini-3.1-pro-preview) ile aynı şekilde fiyatlandırılır.
+इमेज जनरेट करने वाला हमारा मॉडल, तेज़ी से काम करने, ज़रूरत के हिसाब से बदलाव करने, और कॉन्टेक्स्ट को समझने के लिए ऑप्टिमाइज़ किया गया है. **टेक्स्ट इनपुट और आउटपुट** की कीमत, [Gemini 3.1 Pro](#gemini-3.1-pro-preview) के बराबर है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 2,00 ABD doları (metin/resim),  resim başına 0,0011 ABD dolarına eşdeğerdir\* |
-| Çıkış fiyatı | Kullanılamıyor | 12,00 ABD doları (metin ve düşünce)  120,00 ABD doları (resimler)  1.000/2.000 resim başına 0,134 ABD dolarına\*\*  ve 4.000 resim başına 0,24 ABD dolarına\*\* eşdeğerdir. |
-| Google Arama ile Temellendirme\*\*\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 200 रुपये (टेक्स्ट/इमेज),  हर इमेज के लिए 0.11 रुपये के बराबर\* |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 12.00 डॉलर (टेक्स्ट और सोच-विचार)  120.00 डॉलर (इमेज)  1,000/2,000 इमेज के लिए 0.134 डॉलर\*\*  और 4,000 इमेज के लिए 0.24 डॉलर\*\* |
+| Google Search से सटीक जानकारी पाने की सुविधा\*\*\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 1,00 ABD doları (metin), 0,0006 ABD doları (resim)\* |
-| Çıkış fiyatı | Kullanılamıyor | 6,00 ABD doları (metin ve düşünme)  1.000/2.000 resim başına 0,067 ABD doları\*\*  4.000 resim başına 0,12 ABD doları\*\* |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | $1.00 (टेक्स्ट), $0.0006 (इमेज)\* |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 6.00 डॉलर (टेक्स्ट और सोच-विचार)  हर 1K/2K इमेज के लिए 0.067 डॉलर\*\*  हर 4K इमेज के लिए 0.12 डॉलर\*\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 1,00 ABD doları (metin), 0,0006 ABD doları (resim)\* |
-| Çıkış fiyatı | Kullanılamıyor | 6,00 ABD doları (metin ve düşünme)  1.000/2.000 resim başına 0,067 ABD doları\*\*  4.000 resim başına 0,12 ABD doları\*\* |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | $1.00 (टेक्स्ट), $0.0006 (इमेज)\* |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 6.00 डॉलर (टेक्स्ट और सोच-विचार)  हर 1K/2K इमेज के लिए 0.067 डॉलर\*\*  हर 4K इमेज के लिए 0.12 डॉलर\*\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 3,60 TL (metin/resim) |
-| Çıkış fiyatı | Kullanılamıyor | 21,60 ABD doları (metin ve düşünce)  216,00 ABD doları (resimler) |
-| Google Arama ile Temellendirme\*\*\* | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Gemini 3'te paylaşılır), ardından 1.000 arama sorgusu için 14 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 3.60 डॉलर (टेक्स्ट/इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 2,160 रुपये (टेक्स्ट और सोच-विचार)  21,600 रुपये (इमेज) |
+| Google Search से सटीक जानकारी पाने की सुविधा\*\*\* | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, Gemini 3 के साथ शेयर किए जाते हैं). इसके बाद, 1,000 खोज क्वेरी के लिए 14 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-\* Görüntü girişi 560 jeton veya görüntü başına 0,0011 ABD doları olarak ayarlanır.
+\* इमेज इनपुट के लिए, 560 टोकन या हर इमेज के लिए 0.0011 डॉलर का शुल्क लिया जाता है.
 
-\*\* Görüntü çıkışı, 1.000.000 jeton başına 120 ABD doları olarak fiyatlandırılır. 1024x1024 piksel (1K) ile 2048x2048 piksel (2K) arasındaki çıkış resimleri 1.120 jeton tüketir ve resim başına 0,134 ABD dolarına eşittir. 4096x4096 piksele (4K) kadar olan çıkış resimleri 2.000 jeton tüketir ve resim başına 0,24 ABD dolarına eş değerdir.
+\*\* इमेज जनरेट करने की सुविधा के लिए, हर 10 लाख टोकन पर 120 डॉलर का शुल्क लिया जाता है. 1024x1024 पिक्सल (1K) से लेकर 2048x2048 पिक्सल (2K) तक की इमेज जनरेट करने पर, 1120 टोकन खर्च होते हैं. साथ ही, हर इमेज के लिए 0.134 डॉलर लगते हैं. 4096x4096 पिक्सल (4K) तक की आउटपुट इमेज के लिए 2,000 टोकन खर्च होते हैं. यह हर इमेज के लिए 0.24 डॉलर के बराबर है.
 
-\*\*\* Müşteriler tarafından Gemini'a gönderilen istekler, Google Arama'ya bir veya daha fazla sorgu gönderilmesine neden olabilir. Yapılan her bir arama sorgusu için sizden ödeme alınır.
+\*\*\* किसी ग्राहक की ओर से Gemini को सबमिट की गई क्वेरी से, Google Search को एक या उससे ज़्यादा क्वेरी मिल सकती हैं. खोज क्वेरी के लिए, आपसे शुल्क लिया जाएगा.
 
 ## Gemini 2.5 Pro
 
 *`gemini-2.5-pro`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-pro&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-2.5-pro&hl=hi)
 
-Kodlama ve karmaşık akıl yürütme görevlerinde üstün performans gösteren, son teknoloji ürünü çok amaçlı modelimiz.
+यह हमारा सबसे बेहतरीन मॉडल है. यह कोडिंग और मुश्किल सवालों के जवाब देने में माहिर है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 1,25 ABD doları, istemler <= 200 bin jeton 2,50 ABD doları, istemler > 200 bin jeton |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 10,00 ABD doları, istemler <= 200.000 jeton 15,00 ABD doları, istemler > 200.000 |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.125, istemler <= 200.000 jeton $0.25, istemler > 200.000 $4.50 / 1.000.000 jeton/saat (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | 10.000 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 25 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 1.25 डॉलर, प्रॉम्प्ट में 2 लाख से कम टोकन 2.50 डॉलर, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 10.00 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 15.00 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.125 डॉलर, प्रॉम्प्ट <= 2,00,000 टोकन 0.25 डॉलर, प्रॉम्प्ट > 2,00,000 टोकन 4.50 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त), इसके बाद 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | 10,000 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,625 ABD doları, istemler <= 200 bin parça 1,25 ABD doları, istemler > 200 bin parça |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 5 ABD doları, istemler <= 200.000 jeton 7,50 ABD doları, istemler > 200.000 |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.125, istemler <= 200.000 jeton $0.25, istemler > 200.000 $4.50 / 1.000.000 jeton/saat (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.625 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 1.25 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 500 रुपये, प्रॉम्प्ट में 2 लाख से कम टोकन होने पर 750 रुपये, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन होने पर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.125 डॉलर, प्रॉम्प्ट <= 2,00,000 टोकन 0.25 डॉलर, प्रॉम्प्ट > 2,00,000 टोकन 4.50 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त), इसके बाद 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,625 ABD doları, istemler <= 200 bin parça 1,25 ABD doları, istemler > 200 bin parça |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 5 ABD doları, istemler <= 200.000 jeton 7,50 ABD doları, istemler > 200.000 |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0.125, istemler <= 200.000 jeton $0.25, istemler > 200.000 $4.50 / 1.000.000 jeton/saat (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.625 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 1.25 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 500 रुपये, प्रॉम्प्ट में 2 लाख से कम टोकन होने पर 750 रुपये, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन होने पर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.125 डॉलर, प्रॉम्प्ट <= 2,00,000 टोकन 0.25 डॉलर, प्रॉम्प्ट > 2,00,000 टोकन 4.50 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त), इसके बाद 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 2,25 ABD doları, istemler <= 200 bin parça 4,50 ABD doları, istemler > 200 bin parça |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 18 ABD doları, istemler <= 200.000 jeton 27 ABD doları, istemler > 200.000 |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | $0,225, istemler <= 200.000 jeton $0,45, istemler > 200.000 Saat başına 8,10 ABD doları / 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | 10.000 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 25 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 2.25 डॉलर, प्रॉम्प्ट में 2 लाख से कम टोकन 4.50 डॉलर, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | $18.00, प्रॉम्प्ट <= 200 हज़ार टोकन $27.00, प्रॉम्प्ट > 200 हज़ार |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | $0.225, प्रॉम्प्ट <= 2,00,000 टोकन $0.45, प्रॉम्प्ट > 2,00,000 टोकन $8.10 / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त), इसके बाद 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | 10,000 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemini 2.5 Flash
 
 *`gemini-2.5-flash`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-2.5-flash&hl=hi)
 
-1 milyon parçalık bağlam penceresini destekleyen ve düşünme bütçeleri olan ilk karma akıl yürütme modelimiz.
+यह हमारा पहला हाइब्रिड रीज़निंग मॉडल है. इसमें 10 लाख टोकन वाली कॉन्टेक्स्ट विंडो का इस्तेमाल किया जा सकता है. साथ ही, इसमें थिंकिंग बजट भी होता है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,30 ABD doları (metin / resim / video) 1,00 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 2,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,03 ABD doları (metin/resim/video) 0,1 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash-Lite RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.30 डॉलर (टेक्स्ट / इमेज / वीडियो) 1.00 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | $2.50 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.03 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.1 डॉलर (ऑडियो) 1.00 डॉलर / हर घंटे 10 लाख टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | बिना किसी शुल्क के, ज़्यादा से ज़्यादा 500 आरपीडी (यह सीमा, Flash-Lite RPD के साथ शेयर की जाती है) | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash-Lite RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | 500 आरपीडी | 1,500 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,25 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,03 ABD doları (metin/resim/video) 0,1 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.15 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.50 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 1.25 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.03 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.1 डॉलर (ऑडियो) 1.00 डॉलर / हर घंटे 10 लाख टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash-Lite RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim / video) 0,50 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 1,25 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,03 ABD doları (metin/resim/video) 0,1 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.15 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.50 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | 1.25 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.03 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.1 डॉलर (ऑडियो) 1.00 डॉलर / हर घंटे 10 लाख टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash-Lite RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,54 ABD doları (metin / resim / video) 1,80 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 4,50 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,054 ABD doları (metin / resim / video) 0,18 ABD doları (ses) 1,80 ABD doları / saatte 1.000.000 jeton (depolama fiyatı) |
-| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash-Lite RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash-Lite RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | $0.54 (टेक्स्ट / इमेज / वीडियो) $1.80 (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 4.50 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.054 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.18 डॉलर (ऑडियो) हर घंटे के हिसाब से 180 डॉलर / 10 लाख टोकन (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | बिना किसी शुल्क के, ज़्यादा से ज़्यादा 500 आरपीडी (यह सीमा, Flash-Lite RPD के साथ शेयर की जाती है) | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash-Lite RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | 500 आरपीडी | 1,500 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemini 2.5 Flash-Lite
 
 *`gemini-2.5-flash-lite`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=hi)
 
-Büyük ölçekli kullanım için tasarlanan en küçük ve en uygun maliyetli modelimiz.
+यह हमारा सबसे छोटा और किफ़ायती मॉडल है. इसे बड़े पैमाने पर इस्तेमाल करने के लिए बनाया गया है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı (metin, resim, video) | Ücretsiz | 0,10 ABD doları (metin / resim / video) 0,30 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,40 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत की जानकारी (टेक्स्ट, इमेज, वीडियो) | बिना किसी शुल्क के उपलब्ध | 0.10 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.30 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 18 रुपये |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.01 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.03 डॉलर (ऑडियो) 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | बिना किसी शुल्क के, ज़्यादा से ज़्यादा 500 आरपीडी (यह सीमा, Flash RPD के साथ शेयर की जाती है) | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | 500 आरपीडी | 1,500 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı (metin, resim, video) | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,15 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 0,20 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत की जानकारी (टेक्स्ट, इमेज, वीडियो) | उपलब्ध नहीं है | 0.05 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.15 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | $0.20 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.01 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.03 डॉलर (ऑडियो) 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı (metin, resim, video) | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,15 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 0,20 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत की जानकारी (टेक्स्ट, इमेज, वीडियो) | उपलब्ध नहीं है | 0.05 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.15 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | $0.20 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.01 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.03 डॉलर (ऑडियो) 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı (metin, resim, video) | Ücretsiz | 0,18 ABD doları (metin / resim / video) 0,54 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,72 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,018 ABD doları (metin/resim/video) 0,054 ABD doları (ses) saatte 1.000.000 jeton başına 1,80 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत की जानकारी (टेक्स्ट, इमेज, वीडियो) | बिना किसी शुल्क के उपलब्ध | 16.20 रुपये (टेक्स्ट / इमेज / वीडियो) 48.60 रुपये (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | $0.72 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | $0.018 (टेक्स्ट / इमेज / वीडियो) $0.054 (ऑडियो) $1.80 / 10 लाख टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | बिना किसी शुल्क के, ज़्यादा से ज़्यादा 500 आरपीडी (यह सीमा, Flash RPD के साथ शेयर की जाती है) | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | 500 आरपीडी | 1,500 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-## Gemini 2.5 Flash-Lite Önizlemesi
+## Gemini 2.5 Flash-Lite का प्रीव्यू
 
 *`gemini-2.5-flash-lite-preview-09-2025`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-2.5-flash-lite-preview-09-2025&hl=hi)
 
-Maliyet verimliliği, yüksek gönderim hacmi ve yüksek kalite için optimize edilmiş Gemini 2.5 Flash Lite'a dayalı en yeni model.
+Gemini 2.5 Flash Lite पर आधारित नया मॉडल. इसे कम लागत, ज़्यादा थ्रूपुट, और बेहतर क्वालिटी के लिए ऑप्टिमाइज़ किया गया है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı (metin, resim, video) | Ücretsiz | 0,10 ABD doları (metin / resim / video) 0,30 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 0,40 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz (Flash RPD ile paylaşılan sınır) | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत की जानकारी (टेक्स्ट, इमेज, वीडियो) | बिना किसी शुल्क के उपलब्ध | 0.10 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.30 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 18 रुपये |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.01 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.03 डॉलर (ऑडियो) 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | बिना किसी शुल्क के, ज़्यादा से ज़्यादा 500 आरपीडी (यह सीमा, Flash RPD के साथ शेयर की जाती है) | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı (metin, resim, video) | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,15 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 0,20 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,01 ABD doları (metin/resim/video) 0,03 ABD doları (ses) saatte 1.000.000 jeton başına 1,00 ABD doları (depolama fiyatı) |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz, Flash RPD ile paylaşılan sınır), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत की जानकारी (टेक्स्ट, इमेज, वीडियो) | उपलब्ध नहीं है | 0.05 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.15 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | $0.20 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | 0.01 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.03 डॉलर (ऑडियो) 1.00 डॉलर / 10,00,000 टोकन प्रति घंटा (स्टोरेज की कीमत) |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त, यह सीमा Flash RPD के साथ शेयर की जाती है). इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemini 2.5 Flash Native Audio (Live API)
 
 *`gemini-2.5-flash-native-audio-preview-12-2025`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/app/live?hl=tr#gemini-2.5-flash-native-audio-preview-12-2025)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/app/live?hl=hi#gemini-2.5-flash-native-audio-preview-12-2025)
 
-Daha iyi hız, ses doğallığı, ayrıntı ve ruh hali ile daha yüksek kaliteli ses çıkışları için optimize edilmiş [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr) yerel ses modellerimiz.
+हमारे [Live API](https://ai.google.dev/gemini-api/docs/live?hl=hi) के नेटिव ऑडियो मॉडल को बेहतर बनाया गया है. ये मॉडल, बेहतर पेसिंग, आवाज़ की नैचुरैलिटी, शब्दों की संख्या, और मूड के साथ-साथ, ज़्यादा क्वालिटी वाले ऑडियो आउटपुट के लिए ऑप्टिमाइज़ किए गए हैं.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,50 ABD doları (metin) 3,00 ABD doları (ses / video) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 2,00 ABD doları (metin) 12,00 ABD doları (ses) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.50 डॉलर (टेक्स्ट) 3.00 डॉलर (ऑडियो / वीडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | 200 रुपये (टेक्स्ट) 1,200 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-## Gemini 2.5 Flash Image 🍌
+## Gemini 2.5 Flash Image (Nano Banana) 🍌
 
 *`gemini-2.5-flash-image`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=hi)
 
-Hız, esneklik ve bağlamsal anlayış için optimize edilmiş yerel görüntü üretme modelimiz. Metin girişi ve çıkışı, [2,5 Flash](#gemini-2.5-flash) ile aynı şekilde fiyatlandırılır.
+इमेज जनरेट करने वाला हमारा मॉडल, तेज़ी से काम करने, ज़रूरत के हिसाब से बदलाव करने, और कॉन्टेक्स्ट को समझने के लिए ऑप्टिमाइज़ किया गया है. टेक्स्ट इनपुट और आउटपुट की कीमत, [2.5 फ़्लैश](#gemini-2.5-flash) के बराबर है.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,30 ABD doları (metin / resim) |
-| Çıkış fiyatı | Kullanılamıyor | Resim başına 0,039 ABD doları\* |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.30 डॉलर (टेक्स्ट / इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | हर इमेज के लिए 0.039 डॉलर\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim) |
-| Çıkış fiyatı | Kullanılamıyor | Görüntü başına 0,0195 ABD doları\* |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.15 डॉलर (टेक्स्ट / इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | हर इमेज के लिए 0.0195 डॉलर\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Yaratıcılığınızı
+### Flex
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,15 ABD doları (metin / resim) |
-| Çıkış fiyatı | Kullanılamıyor | Görüntü başına 0,0195 ABD doları\* |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.15 डॉलर (टेक्स्ट / इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | हर इमेज के लिए 0.0195 डॉलर\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Öncelik
+### प्राथमिकता
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,54 ABD doları (metin / resim) |
-| Çıkış fiyatı | Kullanılamıyor | Resim başına 0,0702 ABD doları\* |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | $0.54 (टेक्स्ट / इमेज) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | हर इमेज के लिए 0.0702 डॉलर\* |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-[\*] Görüntü çıktısı, 1.000.000 jeton başına 30 ABD doları olarak fiyatlandırılır. 1024x1024 piksele kadar olan çıkış resimleri 1.290 jeton tüketir ve resim başına 0,039 ABD dolarına eşdeğerdir.
+[\*] इमेज के आउटपुट की कीमत, 10 लाख टोकन के लिए 30 डॉलर है. 1024x1024 पिक्सल तक की आउटपुट इमेज के लिए 1290 टोकन खर्च होते हैं. यह हर इमेज के लिए 0.039 डॉलर के बराबर है.
 
 ## Gemini 2.5 Flash Preview TTS
 
 *`gemini-2.5-flash-preview-tts`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/generate-speech?hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/generate-speech?hl=hi)
 
-Fiyat-performans, düşük gecikme süresi ve kontrol edilebilir konuşma üretimi için optimize edilmiş 2.5 Flash metin okuma ses modelimiz.
+यह हमारा 2.5 Flash मॉडल है. यह टेक्स्ट को ऑडियो में बदलने वाला मॉडल है. इसे कम कीमत में बेहतर परफ़ॉर्मेंस देने के लिए ऑप्टिमाइज़ किया गया है. साथ ही, यह कम समय में और कंट्रोल की जा सकने वाली स्पीच जनरेट करता है.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,50 ABD doları (metin) |
-| Çıkış fiyatı | Ücretsiz | 10,00 ABD doları (sesli) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 50 रुपये (टेक्स्ट) |
+| आउटपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 1000 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,25 ABD doları (metin) |
-| Çıkış fiyatı | Kullanılamıyor | 5,00 ABD doları (ses) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.25 डॉलर (टेक्स्ट) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 500 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-## Gemini 2.5 Pro Önizleme TTS
+## Gemini 2.5 Pro Preview TTS
 
 *`gemini-2.5-pro-preview-tts`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/generate-speech?hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/generate-speech?hl=hi)
 
-2.5 Pro metin okuma ses modelimiz, daha doğal çıktılar ve daha kolay yönlendirilen istemler için güçlü ve düşük gecikmeli konuşma üretimi için optimize edilmiştir.
+लिखे हुए शब्दों को बोली में बदलने वाला हमारा 2.5 Pro ऑडियो मॉडल, कम समय में तेज़ी से बोली जनरेट करने के लिए ऑप्टिमाइज़ किया गया है. इससे ज़्यादा नैचुरल आउटपुट मिलते हैं और प्रॉम्प्ट को आसानी से कंट्रोल किया जा सकता है.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 1,00 TL (metin) |
-| Çıkış fiyatı | Kullanılamıyor | 20,00 TL (ses) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | $1.00 (टेक्स्ट) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 2,000 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin) |
-| Çıkış fiyatı | Kullanılamıyor | 10,00 ABD doları (sesli) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 50 रुपये (टेक्स्ट) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 1000 रुपये (ऑडियो) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemini 2.0 Flash
 
 *`gemini-2.0-flash`*
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,10 ABD doları (metin / resim / video) 0,70 ABD doları (ses) |
-| Çıkış fiyatı | Ücretsiz | 0,40 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Ücretsiz | 0,025 ABD doları / 1.000.000 jeton (metin/resim/video) 0,175 ABD doları / 1.000.000 jeton (ses) |
-| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Saat başına 1.000.000 jeton için 1,00 ABD doları |
-| Görüntü üretme fiyatlandırması | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) |
-| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Google Arama ile Temellendirme | 500 RPD'ye kadar ücretsiz | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | 500 RPD | 1.500 RPD (ücretsiz), ardından 25 ABD doları / 1.000 temellendirilmiş istem |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.10 डॉलर (टेक्स्ट / इमेज / वीडियो) 0.70 डॉलर (ऑडियो) |
+| आउटपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 18 रुपये |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | बिना किसी शुल्क के उपलब्ध | $0.025 / 10,00,000 टोकन (टेक्स्ट/इमेज/वीडियो) $0.175 / 10,00,000 टोकन (ऑडियो) |
+| कॉन्टेक्स्ट को कैश मेमोरी में सेव करना (स्टोरेज) | उपलब्ध नहीं है | 10 लाख टोकन के लिए 100 रुपये प्रति घंटा |
+| इमेज जनरेट करने की सुविधा की कीमत | उपलब्ध नहीं है ([बंद कर दिया गया है](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi#gemini-2.0-models)) | उपलब्ध नहीं है ([बंद कर दिया गया है](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi#gemini-2.0-models)) |
+| ट्यूनिंग की कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| Google Search से सटीक जानकारी पाने की सुविधा | बिना किसी शुल्क के, 500 आरपीडी तक | 1,500 आरपीडी (मुफ़्त), इसके बाद 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | 500 आरपीडी | 1,500 आरपीडी (मुफ़्त), इसके बाद 25 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,05 ABD doları (metin / resim / video) 0,35 ABD doları (ses) |
-| Çıkış fiyatı | Kullanılamıyor | 0,20 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | 0,025 ABD doları / 1.000.000 jeton (metin/resim/video) 0,175 ABD doları / 1.000.000 jeton (ses) |
-| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Saat başına 1.000.000 jeton için 1,00 ABD doları |
-| Görüntü üretme fiyatlandırması | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) | Kullanılamıyor ([kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr#gemini-2.0-models)) |
-| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Google Arama ile Temellendirme | Kullanılamıyor | 1.500 RPD (ücretsiz), ardından 1.000 temellendirilmiş istem için 35 ABD doları |
-| Google Haritalar ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 5 रुपये (टेक्स्ट / इमेज / वीडियो) 35 रुपये (ऑडियो) |
+| आउटपुट की कीमत | उपलब्ध नहीं है | $0.20 |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | $0.025 / 10,00,000 टोकन (टेक्स्ट/इमेज/वीडियो) $0.175 / 10,00,000 टोकन (ऑडियो) |
+| कॉन्टेक्स्ट को कैश मेमोरी में सेव करना (स्टोरेज) | उपलब्ध नहीं है | 10 लाख टोकन के लिए 100 रुपये प्रति घंटा |
+| इमेज जनरेट करने की सुविधा की कीमत | उपलब्ध नहीं है ([बंद कर दिया गया है](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi#gemini-2.0-models)) | उपलब्ध नहीं है ([बंद कर दिया गया है](https://ai.google.dev/gemini-api/docs/deprecations?hl=hi#gemini-2.0-models)) |
+| ट्यूनिंग की कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | 1,500 आरपीडी (मुफ़्त), इसके बाद 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट |
+| Google Maps से जानकारी लेने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-[\*] Görüntü çıktısı, 1.000.000 jeton başına 30 ABD doları olarak fiyatlandırılır. 1024x1024 piksele kadar olan çıkış resimleri 1.290 jeton tüketir ve resim başına 0,039 ABD dolarına eşdeğerdir.
+[\*] इमेज के आउटपुट की कीमत, 10 लाख टोकन के लिए 30 डॉलर है. 1024x1024 पिक्सल तक की आउटपुट इमेज के लिए 1290 टोकन खर्च होते हैं. यह हर इमेज के लिए 0.039 डॉलर के बराबर है.
 
 ## Gemini 2.0 Flash-Lite
 
 *`gemini-2.0-flash-lite`*
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,075 ABD doları |
-| Çıkış fiyatı | Ücretsiz | 0,30 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Kullanılamıyor |
-| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.075 डॉलर |
+| आउटपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 0.30 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| कॉन्टेक्स्ट को कैश मेमोरी में सेव करना (स्टोरेज) | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| ट्यूनिंग की कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,0375 ABD doları |
-| Çıkış fiyatı | Kullanılamıyor | 0,15 ABD doları |
-| Bağlamı önbelleğe alma fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Bağlamı önbelleğe alma (depolama) | Kullanılamıyor | Kullanılamıyor |
-| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.0375 डॉलर |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 0.15 डॉलर |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| कॉन्टेक्स्ट को कैश मेमोरी में सेव करना (स्टोरेज) | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| ट्यूनिंग की कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Imagen 4
 
 *`imagen-4.0-generate-001`, `imagen-4.0-ultra-generate-001`, `imagen-4.0-fast-generate-001`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com/generate-image?hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com/generate-image?hl=hi)
 
-En yeni görüntü üretme modelimiz. Metin oluşturma özelliği önemli ölçüde iyileştirildi ve genel görüntü kalitesi daha iyi hale getirildi.
+इमेज जनरेट करने वाला हमारा नया मॉडल. इसमें टेक्स्ट रेंडरिंग की सुविधा पहले से बेहतर है. साथ ही, इमेज की क्वालिटी भी पहले से बेहतर है.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-|  | Ücretsiz Katman | Ücretli katman, görüntü başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता के लिए, हर इमेज के हिसाब से डॉलर में कीमत |
 | --- | --- | --- |
-| Imagen 4 Fast görüntü fiyatı | Kullanılamıyor | 0,02 ABD doları |
-| Imagen 4 Standart resim fiyatı | Kullanılamıyor | 0,04 ABD doları |
-| Imagen 4 Ultra görüntü fiyatı | Kullanılamıyor | 0,06 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| Imagen 4 Fast की मदद से जनरेट की गई इमेज की कीमत | उपलब्ध नहीं है | 0.02 डॉलर |
+| Imagen 4 की मदद से जनरेट की गई स्टैंडर्ड इमेज की कीमत | उपलब्ध नहीं है | 0.04 डॉलर |
+| Imagen 4 Ultra के ज़रिए जनरेट की गई इमेज की कीमत | उपलब्ध नहीं है | 0.06 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Veo 3.1
 
 *`veo-3.1-generate-preview`, `veo-3.1-fast-generate-preview`, `veo-3.1-lite-generate-preview`*
 
-[Veo 3.1'i deneyin](https://deepmind.google/models/veo/?hl=tr)
+[Veo 3.1 आज़माएँ](https://deepmind.google/models/veo/?hl=hi)
 
-Gemini API'nin ücretli katmanındaki geliştiricilerin kullanımına sunulan en yeni video üretme modelimiz.
+वीडियो जनरेट करने वाला हमारा नया मॉडल. यह Gemini API के पैसे चुकाकर ली जाने वाली सदस्यता के तहत, डेवलपर के लिए उपलब्ध है.
 
-Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı hız sınırlarına sahip olabilir.
+झलक देखने के लिए उपलब्ध मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके लिए अनुरोध करने की दर की सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-|  | Ücretsiz Katman | Ücretli katman, saniye başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता के लिए, हर सेकंड का शुल्क (डॉलर में) |
 | --- | --- | --- |
-| Sesli Veo 3.1 Standard video fiyatı (varsayılan) | Kullanılamıyor | 0,40 ABD doları (720p ve 1080p) 0,60 ABD doları (4K) |
-| Sesli Veo 3.1 Fast video fiyatı (varsayılan) | Kullanılamıyor | 0,10 ABD doları (720p) 0,12 ABD doları (1080p) 0,30 ABD doları (4K) |
-| Sesli Veo 3.1 Lite videosu fiyatı (varsayılan) | Kullanılamıyor | 0,05 ABD doları (720p) 0,08 ABD doları (1080p) (4K çıkış desteklenmez) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| ऑडियो के साथ Veo 3.1 Standard वीडियो की कीमत (डिफ़ॉल्ट) | उपलब्ध नहीं है | 0.40 डॉलर (720 पिक्सल और 1080 पिक्सल) 0.60 डॉलर (4K) |
+| ऑडियो के साथ Veo 3.1 Fast की मदद से जनरेट किए गए वीडियो की कीमत (डिफ़ॉल्ट) | उपलब्ध नहीं है | 10 रुपये (720 पिक्सल) 12 रुपये (1080 पिक्सल) 30 रुपये (4K) |
+| Veo 3.1 Lite की मदद से ऑडियो के साथ वीडियो जनरेट करने की कीमत (डिफ़ॉल्ट) | उपलब्ध नहीं है | 0.05 डॉलर (720 पिक्सल) 0.08 डॉलर (1080 पिक्सल) (4K आउटपुट काम नहीं करता) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Veo 3
 
 *`veo-3.0-generate-001`, `veo-3.0-fast-generate-001`*
 
-[Veo 3'ü deneyin](https://deepmind.google/models/veo/?hl=tr)
+[Veo 3 आज़माएँ](https://deepmind.google/models/veo/?hl=hi)
 
-Gemini API'nin ücretli katmanındaki geliştiricilerin kullanımına sunulan kararlı video üretme modelimiz.
+यह वीडियो जनरेट करने वाला हमारा भरोसेमंद मॉडल है. यह Gemini API के पेड टियर में डेवलपर के लिए उपलब्ध है.
 
-|  | Ücretsiz Katman | Ücretli katman, saniye başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता के लिए, हर सेकंड का शुल्क (डॉलर में) |
 | --- | --- | --- |
-| Veo 3 Standart sesli video fiyatı (varsayılan) | Kullanılamıyor | 0,40 ABD doları |
-| Sesli Veo 3 Fast video fiyatı (varsayılan) | Kullanılamıyor | 0,10 ABD doları (720p) 0,12 ABD doları (1080p) 0,30 ABD doları (4K) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| आवाज़ के साथ Veo 3 Standard वीडियो की कीमत (डिफ़ॉल्ट) | उपलब्ध नहीं है | 18 रुपये |
+| Veo 3 Fast की मदद से जनरेट किए गए ऑडियो वाले वीडियो की कीमत (डिफ़ॉल्ट) | उपलब्ध नहीं है | 10 रुपये (720 पिक्सल) 12 रुपये (1080 पिक्सल) 30 रुपये (4K) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Veo 2
 
 *`veo-2.0-generate-001`*
 
-[API'yi deneyin](https://ai.google.dev/gemini-api/docs/video?hl=tr)
+[एपीआई आज़माएं](https://ai.google.dev/gemini-api/docs/video?hl=hi)
 
-Geliştiriciler, Gemini API'nin ücretli katmanında son teknoloji ürünü video üretim modelimizi kullanabilir.
+यह वीडियो जनरेट करने वाला हमारा बेहतरीन मॉडल है. यह Gemini API के पैसे चुकाकर ली जाने वाली सदस्यता के तहत, डेवलपर के लिए उपलब्ध है.
 
-|  | Ücretsiz Katman | Ücretli katman, saniye başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता के लिए, हर सेकंड का शुल्क (डॉलर में) |
 | --- | --- | --- |
-| Video fiyatı | Kullanılamıyor | 0,35 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| वीडियो की कीमत | उपलब्ध नहीं है | 15.75 रुपये |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Lyria 3
 
-*`lyria-3-clip-preview` ve `lyria-3-pro-preview`*
+*`lyria-3-clip-preview` और `lyria-3-pro-preview`*
 
-Google'ın müzik üretme modelleri ailesi. Önizleme modelleri, kararlı hale gelmeden önce değişebilir ve daha kısıtlayıcı sıklık sınırlarına sahip olabilir.
+संगीत जनरेट करने वाले Google के मॉडल की फ़ैमिली. प्रीव्यू मॉडल, स्टेबल होने से पहले बदल सकते हैं. साथ ही, इनके इस्तेमाल की दर से जुड़ी सीमाएं ज़्यादा पाबंदियों वाली हो सकती हैं.
 
-|  | Ücretsiz Katman | Ücretli katman, istek başına (ABD doları) |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता के लिए, हर अनुरोध का शुल्क (डॉलर में) |
 | --- | --- | --- |
-| Lyria 3 Clip Preview (30s) | Kullanılamıyor | Şarkı başına 0,04 ABD doları |
-| Lyria 3 Pro Önizlemesi (Tam Şarkı) | Kullanılamıyor | Şarkı başına 0,08 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| Lyria 3 की क्लिप की झलक (30 सेकंड) | उपलब्ध नहीं है | हर गाने के लिए 0.04 डॉलर |
+| Lyria 3 Pro का प्रीव्यू (पूरा गाना) | उपलब्ध नहीं है | हर गाने के लिए 0.08 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemini Embedding 2
 
 *`gemini-embedding-2`*
 
-[API'yi deneyin](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
+[एपीआई आज़माएं](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi)
 
-Metin, resim, video, ses ve PDF'leri birleşik bir yerleştirme alanına eşleyen ilk çok formatlı yerleştirme modelimiz.
+यह हमारा पहला मल्टीमॉडल एम्बेडिंग मॉडल है. यह टेक्स्ट, इमेज, वीडियो, ऑडियो, और PDF को एक ही एम्बेडिंग स्पेस में मैप करता है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Metin girişi fiyatı | Ücretsiz | 0,20 ABD doları |
-| Görüntü girişi fiyatı | Ücretsiz | 0,45 ABD doları (resim başına 0,00012 ABD doları) |
-| Ses girişi fiyatı | Ücretsiz | 6,50 ABD doları (saniye başına 0,00016 ABD doları) |
-| Video girişi fiyatı | Ücretsiz | 12,00 ABD doları (kare başına 0,00079 ABD doları) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| टेक्स्ट इनपुट की कीमत | बिना किसी शुल्क के उपलब्ध | $0.20 |
+| इमेज इनपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 0.45 डॉलर (हर इमेज के लिए 0.00012 डॉलर) |
+| ऑडियो इनपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 6.50 डॉलर (0.00016 डॉलर प्रति सेकंड) |
+| वीडियो इनपुट की कीमत | बिना किसी शुल्क के उपलब्ध | 1,200 रुपये (हर फ़्रेम के लिए 0.079 रुपये) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Metin girişi fiyatı | Kullanılamıyor | 0,10 ABD doları |
-| Görüntü girişi fiyatı | Kullanılamıyor | 0,225 ABD doları (resim başına 0,00006 ABD doları) |
-| Ses girişi fiyatı | Kullanılamıyor | 3,25 ABD doları (saniyede 0,00008 ABD doları) |
-| Video girişi fiyatı | Kullanılamıyor | 6,00 ABD doları (kare başına 0,000395 ABD doları) |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| टेक्स्ट इनपुट की कीमत | उपलब्ध नहीं है | 0.10 डॉलर |
+| इमेज इनपुट की कीमत | उपलब्ध नहीं है | 0.225 डॉलर (हर इमेज के लिए 0.00006 डॉलर) |
+| ऑडियो इनपुट की कीमत | उपलब्ध नहीं है | 3.25 डॉलर (हर सेकंड के लिए 0.00008 डॉलर) |
+| वीडियो इनपुट की कीमत | उपलब्ध नहीं है | 600 रुपये (0.0395 रुपये प्रति फ़्रेम) |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemini Embedding
 
 *`gemini-embedding-001`*
 
-[API'yi deneyin](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
+[एपीआई आज़माएं](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi)
 
-Yalnızca metin içeren kullanım alanları için Gemini Embeddings modelimiz, Gemini API'nin ücretsiz ve ücretli katmanlarındaki geliştiriciler tarafından kullanılabilir.
+यह हमारा Gemini Embeddings मॉडल है. इसका इस्तेमाल सिर्फ़ टेक्स्ट के लिए किया जा सकता है. यह Gemini API के मुफ़्त और सशुल्क टियर में डेवलपर के लिए उपलब्ध है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 0,15 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 0.15 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,075 ABD doları |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.075 डॉलर |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-## Gemini Robotics-ER 1.6 Önizlemesi
+## Gemini Robotics-ER 1.6 की झलक
 
 *`gemini-robotics-er-1.6-preview`*
 
-[Google AI Studio'da deneyin](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=tr)
+[इसे Google AI Studio में आज़माएं](https://aistudio.google.com?model=gemini-robotics-er-1.6-preview&hl=hi)
 
-Gemini Robotics-ER (Gemini Robotics-Embodied Reasoning), robotların fiziksel dünyayı anlama ve etkileşim kurma becerilerini geliştiren bir düşünme modelidir.
+Gemini Robotics-ER का मतलब है Gemini Robotics-Embodied Reasoning. यह एक थिंकिंग मॉडल है. यह रोबोट की, असल दुनिया को समझने और उससे इंटरैक्ट करने की क्षमताओं को बेहतर बनाता है.
 
-### Standart
+### स्टैंडर्ड
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | 1,00 ABD doları (metin / resim / video) 2,00 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Ücretsiz | 5 TL |
-| Google Arama ile Temellendirme | Kullanılamıyor | Ayda 5.000 istem (ücretsiz, Flash ile paylaşılan sınır), ardından metin ve resim tabanlı temellendirme için 1.000 arama sorgusu başına 14 ABD doları. |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | 45 रुपये (टेक्स्ट / इमेज / वीडियो) 90 रुपये (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | बिना किसी शुल्क के उपलब्ध | $5.00 |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | हर महीने 5,000 प्रॉम्प्ट (मुफ़्त, यह सीमा Flash के साथ शेयर की जाती है). इसके बाद, टेक्स्ट और इमेज के आधार पर जवाब पाने के लिए, 1,000 खोज क्वेरी के लिए 14 डॉलर. |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-### Toplu
+### बैच
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 0,50 ABD doları (metin / resim / video) 1,00 ABD doları (ses) |
-| Çıkış fiyatı (düşünme jetonları dahil) | Kullanılamıyor | 2,50 ABD doları |
-| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 0.50 डॉलर (टेक्स्ट / इमेज / वीडियो) 1.00 डॉलर (ऑडियो) |
+| आउटपुट की कीमत (इसमें थिंकिंग टोकन शामिल हैं) | उपलब्ध नहीं है | $2.50 |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-## Gemini 2.5 Bilgisayar Kullanımı Önizlemesi
+## Gemini 2.5 की कंप्यूटर पर इस्तेमाल करने की सुविधा का प्रीव्यू
 
 *`gemini-2.5-computer-use-preview-10-2025`*
 
-Görevleri otomatik hale getiren tarayıcı kontrolü aracıları oluşturmak için optimize edilmiş Bilgisayar Kullanımı modelimiz.
+कंप्यूटर के इस्तेमाल से जुड़ा हमारा मॉडल, ब्राउज़र कंट्रोल करने वाले ऐसे एजेंट बनाने के लिए ऑप्टिमाइज़ किया गया है जो टास्क को ऑटोमेट करते हैं.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Kullanılamıyor | 1,25 ABD doları, istemler <= 200 bin jeton 2,50 ABD doları, istemler > 200 bin jeton |
-| Çıkış fiyatı | Kullanılamıyor | 10,00 ABD doları, istemler <= 200.000 jeton 15,00 ABD doları, istemler > 200.000 |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | उपलब्ध नहीं है | 1.25 डॉलर, प्रॉम्प्ट में 2 लाख से कम टोकन 2.50 डॉलर, प्रॉम्प्ट में 2 लाख से ज़्यादा टोकन |
+| आउटपुट की कीमत | उपलब्ध नहीं है | 10.00 डॉलर, प्रॉम्प्ट <= 2 लाख टोकन 15.00 डॉलर, प्रॉम्प्ट > 2 लाख टोकन |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
 ## Gemma 4
 
-Gemini modellerimize güç veren aynı teknolojiyle geliştirilen, hafif, son teknoloji açık modelimiz.
+यह कम साइज़ वाला, बेहतरीन, और ओपन मॉडल है. इसे उसी टेक्नोलॉजी का इस्तेमाल करके बनाया गया है जिसका इस्तेमाल Gemini मॉडल बनाने के लिए किया गया है.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| Giriş fiyatı | Ücretsiz | Kullanılamıyor |
-| Çıkış fiyatı | Ücretsiz | Kullanılamıyor |
-| Bağlamı önbelleğe alma fiyatı | Ücretsiz | Kullanılamıyor |
-| Bağlamı önbelleğe alma (depolama) | Ücretsiz | Kullanılamıyor |
-| İnce ayarlar fiyatı | Kullanılamıyor | Kullanılamıyor |
-| Google Arama ile Temellendirme | Kullanılamıyor | Kullanılamıyor |
-| Ürünlerimizi iyileştirmek için kullanılır. | [Evet](https://ai.google.dev/gemini-api/terms?hl=tr) | [Hayır](https://ai.google.dev/gemini-api/terms?hl=tr) |
+| कीमत डालें | बिना किसी शुल्क के उपलब्ध | उपलब्ध नहीं है |
+| आउटपुट की कीमत | बिना किसी शुल्क के उपलब्ध | उपलब्ध नहीं है |
+| कॉन्टेक्स्ट के हिसाब से कैश मेमोरी में सेव की गई कीमत | बिना किसी शुल्क के उपलब्ध | उपलब्ध नहीं है |
+| कॉन्टेक्स्ट को कैश मेमोरी में सेव करना (स्टोरेज) | बिना किसी शुल्क के उपलब्ध | उपलब्ध नहीं है |
+| ट्यूनिंग की कीमत | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| Google Search से सटीक जानकारी पाने की सुविधा | उपलब्ध नहीं है | उपलब्ध नहीं है |
+| इस कुकी का इस्तेमाल, हमारे प्रॉडक्ट को बेहतर बनाने के लिए किया जाता है | [हां](https://ai.google.dev/gemini-api/terms?hl=hi) | [नहीं](https://ai.google.dev/gemini-api/terms?hl=hi) |
 
-## Araçların fiyatlandırması
+## टूल की कीमत
 
-Araçlar, kendi fiyatlarıyla fiyatlandırılır ve bunları kullanan modele uygulanır.
-Her modelde hangi araçların kullanılabildiğini öğrenmek için [Modeller](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasını inceleyin.
+टूल की कीमत, उनके हिसाब से तय की जाती है. ये कीमतें, उन मॉडल पर लागू होती हैं जो उनका इस्तेमाल करते हैं.
+[मॉडल](https://ai.google.dev/gemini-api/docs/models?hl=hi) पेज पर जाकर देखें कि हर मॉडल के लिए कौनसे टूल उपलब्ध हैं.
 
-|  | Ücretsiz Katman | Ücretli katman, 1 milyon jeton başına ABD doları cinsinden |
+|  | फ़्री टियर | पैसे चुकाकर ली जाने वाली सदस्यता, हर 10 लाख टोकन के लिए डॉलर में शुल्क |
 | --- | --- | --- |
-| [Google Arama](https://ai.google.dev/gemini-api/docs/google-search?hl=tr#pricing) | 500 RPD ücretsiz (sınır, Flash ve Flash-Lite için geçerlidir). Pro'da kullanılamaz. | Gemini 2.5 modelleri:  1.500 RPD ücretsiz (Flash ve Flash-Lite için ortak sınır). Ardından 1.000 temellendirilmiş istem için 35 ABD doları   Gemini 3 modelleri:  Ayda 5.000 istem (ücretsiz), ardından 1.000 arama sorgusu için 14 ABD doları |
-| [Google Haritalar](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr#pricing_and_rate_limits) | 500 RPD Pro sürümünde kullanılamaz. | 1.500 RPD ücretsiz (Flash ve Flash-Lite için ortak sınır) Pro için 10.000 RPD ücretsiz. Ardından 25 ABD doları / 1.000 temellendirilmiş istem |
-| [Kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr#billing) | Ücretsiz | Kod yürütme, seçilen modelin standart jeton ücretleri üzerinden faturalandırılır. Maliyetler yalnızca aracın kullanımına göre belirlenir. Oturum çalışma süresi için ücret alınmaz. Oluşturulan kod ve yürütme sonuçları, oluşturulduklarında **çıkış jetonları**, model bunları yinelemeli muhakeme sürecinin bir parçası olarak kullandığında ise **giriş jetonları** olarak faturalandırılır. |
-| [URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr#limitations) | Ücretsiz | Model fiyatlandırmasına göre giriş jetonları olarak ücretlendirilir. |
-| [Bilgisayar kullanımı](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr) | Kullanılamıyor | Model fiyatlandırmasına göre normal jetonlar olarak ücretlendirilir (ör. standart [Gemini 3.5 Flash](#gemini-3.5-flash) fiyatlandırması). Eski model ücretleri için [Gemini 2.5 Bilgisayar Kullanımı Önizlemesi](#gemini-2.5-computer-use-preview-10-2025) fiyatlandırma tablosuna bakın. |
-| [Dosya arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr#pricing) | Ücretsiz | [Yerleştirmeler](#gemini-embedding) için 1 milyon jeton başına 0,15 ABD doları ücret alınır.  Alınan doküman jetonları, model fiyatlandırmasına göre normal jetonlar olarak ücretlendirilir. |
-| [Özel Araçlar uç noktası (Gemini 3.1 Pro Önizlemesi)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | Kullanılamıyor | [Gemini 3.1 Pro Önizleme](#gemini-3.1-pro-preview) fiyatlandırmasıyla aynıdır. |
+| [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi#pricing) | 500 आरपीडी मुफ़्त (यह सीमा, Flash और Flash-Lite के लिए शेयर की जाती है). Pro के लिए उपलब्ध नहीं है. | Gemini 2.5 मॉडल:  हर दिन 1,500 अनुरोध मुफ़्त में किए जा सकते हैं. यह सीमा, Flash और Flash-Lite के लिए एक जैसी है. इसके बाद, 35 डॉलर / 1,000 ग्राउंडेड प्रॉम्प्ट   Gemini 3 मॉडल:  हर महीने 5,000 प्रॉम्प्ट मुफ़्त में इस्तेमाल किए जा सकते हैं. इसके बाद, 14 डॉलर / 1,000 खोज क्वेरी |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi#pricing_and_rate_limits) | 500 आरपीडी Pro वर्शन के लिए उपलब्ध नहीं है. | RPD के 1,500 जवाब मुफ़्त में पाएं (यह सीमा Flash और Flash-Lite के लिए एक जैसी है) Pro वर्शन में RPD के 10,000 जवाब मुफ़्त में पाएं. इसके बाद, 1,000 भरोसेमंद प्रॉम्प्ट के लिए 25 डॉलर चुकाएं |
+| [कोड एक्ज़ीक्यूट करना](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi#billing) | बिना किसी शुल्क के उपलब्ध | कोड को एक्ज़ीक्यूट करने के लिए, चुने गए मॉडल के हिसाब से टोकन की स्टैंडर्ड दरों पर बिल भेजा जाता है. लागतें सिर्फ़ टूल के इस्तेमाल के आधार पर तय की जाती हैं. सेशन के रनटाइम के लिए कोई शुल्क नहीं लिया जाता. जनरेट किए गए कोड और उसके नतीजे के लिए, **आउटपुट टोकन** के तौर पर बिल भेजा जाता है. वहीं, जब मॉडल इन टोकन का इस्तेमाल, बार-बार गहराई से विश्लेषण करने की प्रोसेस के हिस्से के तौर पर करता है, तब **इनपुट टोकन** के तौर पर बिल भेजा जाता है. |
+| [यूआरएल का कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi#limitations) | बिना किसी शुल्क के उपलब्ध | मॉडल की कीमत के हिसाब से, इनपुट टोकन के तौर पर शुल्क लिया जाता है. |
+| [कंप्यूटर का इस्तेमाल](https://ai.google.dev/gemini-api/docs/computer-use?hl=hi) | उपलब्ध नहीं है | इनके लिए, हर मॉडल की कीमत के हिसाब से सामान्य टोकन का शुल्क लिया जाता है. जैसे, [Gemini 3.5 Flash](#gemini-3.5-flash) की स्टैंडर्ड कीमत. लेगसी मॉडल की दरों के लिए, [Gemini 2.5 Computer Use Preview](#gemini-2.5-computer-use-preview-10-2025) की कीमत वाली टेबल देखें. |
+| [फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi#pricing) | बिना किसी शुल्क के उपलब्ध | [एम्बेडिंग](#gemini-embedding) के लिए, 10 लाख टोकन पर 0.15 डॉलर का शुल्क लिया जाता है. मॉडल की कीमत के हिसाब से, निकाले गए दस्तावेज़ के टोकन के लिए सामान्य टोकन के तौर पर शुल्क लिया जाता है. |
+| [कस्टम टूल एंडपॉइंट (Gemini 3.1 Pro की झलक)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | उपलब्ध नहीं है | [Gemini 3.1 Pro Preview](#gemini-3.1-pro-preview) की कीमत के बराबर |
 
-## Temsilciler için fiyatlandırma
+## एजेंट के लिए शुल्क
 
-Aracı kullanım maliyetleri, temel jeton tüketimine ve araçların kullanımına göre hesaplanır.
+एजेंट के इस्तेमाल की लागत का हिसाब, टोकन की खपत और टूल के इस्तेमाल के आधार पर लगाया जाता है.
 
-|  | Model | Araçlar |
+|  | मॉडल | टूल |
 | --- | --- | --- |
-| [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) | Tüm model çıkarımı, giriş, çıkış ve aracı döngüleri sırasında oluşturulan ara giriş / nedenlendirme jetonları dahil olmak üzere standart Gemini liste fiyatları üzerinden ücretlendirilir. | Araç kullanım ücretleri, mevcut fiyatlandırma yapısına göre uygulanır. Search Grounding (alınan jetonlar hariç) ile Url\_context / File Search (alınan jetonlar diğer tüm araçlara dahildir) arasındaki standart ayrımlar korunur. |
-| [Gemini API'de yönetilen ajanlar](https://ai.google.dev/gemini-api/docs/agents?hl=tr) | Tüm model çıkarımı, giriş, çıkış ve aracı döngüleri sırasında oluşturulan ara giriş / nedenlendirme jetonları dahil olmak üzere standart Gemini liste fiyatları üzerinden ücretlendirilir. ([Fiyatlandırma ayrıntılarına](https://ai.google.dev/gemini-api/docs/agents?hl=tr#pricing) bakın). | Önizleme döneminde ortam bilgi işlem (CPU, bellek, korumalı alan yürütme) için fatura kesilmez. |
-| [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr) | Tüm model çıkarımı, giriş, çıkış ve aracı döngüleri sırasında oluşturulan ara giriş / nedenlendirme jetonları dahil olmak üzere standart Gemini liste fiyatları üzerinden ücretlendirilir. ([Fiyatlandırma ayrıntılarına](https://ai.google.dev/gemini-api/docs/agents?hl=tr#pricing) bakın). | Önizleme döneminde ortam bilgi işlem (CPU, bellek, korumalı alan yürütme) için fatura kesilmez. |
+| [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=hi) | मॉडल के सभी अनुमानों के लिए, Gemini की सूची में दी गई स्टैंडर्ड दरों के हिसाब से शुल्क लिया जाता है. इसमें इनपुट, आउटपुट, और एजेंटिक लूप के दौरान जनरेट किए गए इंटरमीडिएट इनपुट / रीज़निंग टोकन शामिल हैं. | टूल के इस्तेमाल के लिए, मौजूदा कीमत के हिसाब से शुल्क लिया जाता है. इसमें Search Grounding (इसमें फ़ेच किए गए टोकन शामिल नहीं होते) और Url\_context / File Search (इसमें फ़ेच किए गए टोकन शामिल होते हैं) के बीच के अंतर को ध्यान में रखा जाता है. |
+| [Gemini API में मैनेज किए गए एजेंट](https://ai.google.dev/gemini-api/docs/agents?hl=hi) | मॉडल के सभी अनुमानों के लिए, Gemini की सूची में दी गई स्टैंडर्ड दरों के हिसाब से शुल्क लिया जाता है. इसमें इनपुट, आउटपुट, और एजेंटिक लूप के दौरान जनरेट किए गए इंटरमीडिएट इनपुट / रीज़निंग टोकन शामिल हैं. ([कीमत की जानकारी](https://ai.google.dev/gemini-api/docs/agents?hl=hi#pricing) देखें). | झलक के दौरान, एनवायरमेंट कंप्यूट (सीपीयू, मेमोरी, सैंडबॉक्स एक्ज़ीक्यूशन) के लिए बिल नहीं भेजा जाता. |
+| [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi) | मॉडल के सभी अनुमानों के लिए, Gemini की सूची में दी गई स्टैंडर्ड दरों के हिसाब से शुल्क लिया जाता है. इसमें इनपुट, आउटपुट, और एजेंटिक लूप के दौरान जनरेट किए गए इंटरमीडिएट इनपुट / रीज़निंग टोकन शामिल हैं. ([कीमत की जानकारी](https://ai.google.dev/gemini-api/docs/agents?hl=hi#pricing) देखें). | झलक के दौरान, एनवायरमेंट कंप्यूट (सीपीयू, मेमोरी, सैंडबॉक्स एक्ज़ीक्यूशन) के लिए बिल नहीं भेजा जाता. |
 
-## Notlar
+## नोट
 
-- **Doküman jetonu faturalandırması:** `DOCUMENT` biçimindeki (ör. PDF'ler) jetonlar, resim jetonu oranında faturalandırılır. API yanıtlarında bu jetonlar, `promptTokensDetails` içinde `DOCUMENT` altında görünür.
-- Google AI Studio'nun kullanımı, [kullanıma sunulduğu tüm bölgelerde](https://ai.google.dev/gemini-api/docs/available-regions?hl=tr) ücretsizdir. Ayrıntılar için [Faturalandırmayla ilgili SSS](https://ai.google.dev/gemini-api/docs/billing?hl=tr) sayfasını inceleyin.
-- Fiyatlar, burada listelenen fiyatlardan ve Gemini Enterprise Agent Platform'da sunulan fiyatlardan farklı olabilir. Gemini Enterprise Agent Platform fiyatları için [Gemini Enterprise Agent Platform fiyatlandırma sayfasına](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=tr) bakın.
-- Maliyetleri optimize etmek için [dinamik alma](https://ai.google.dev/gemini-api/docs/grounding?hl=tr) kullanıyorsanız Google Arama ile Temellendirme için yalnızca yanıtlarında web'den en az bir temellendirme destek URL'si içeren istekler ücretlendirilir.
-  Gemini'ın maliyeti her zaman geçerlidir. Sıklık sınırları değişebilir.
+- **दस्तावेज़ के टोकन के लिए बिलिंग:** `DOCUMENT` मोडेलिटी (उदाहरण के लिए, PDF) के टोकन के लिए बिलिंग, इमेज के टोकन की दर से की जाती है. एपीआई के जवाबों में, ये टोकन `promptTokensDetails` में मौजूद `DOCUMENT` मोडेलिटी के तहत दिखते हैं.
+- Google AI Studio का इस्तेमाल, [उपलब्ध सभी देशों/इलाकों](https://ai.google.dev/gemini-api/docs/available-regions?hl=hi) में बिना किसी शुल्क के किया जा सकता है. ज़्यादा जानकारी के लिए, [बिलिंग के बारे में अक्सर पूछे जाने वाले सवाल](https://ai.google.dev/gemini-api/docs/billing?hl=hi) देखें.
+- यहां दी गई कीमतें और Gemini Enterprise Agent Platform पर दी गई कीमतें अलग-अलग हो सकती हैं. Gemini Enterprise एजेंट प्लैटफ़ॉर्म की कीमतों के बारे में जानने के लिए, [Gemini Enterprise एजेंट प्लैटफ़ॉर्म की कीमत वाला पेज](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=hi) देखें.
+- अगर लागत को ऑप्टिमाइज़ करने के लिए, [डाइनैमिक तरीके से जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/grounding?hl=hi) का इस्तेमाल किया जा रहा है, तो Google Search से जानकारी पाने की सुविधा के लिए सिर्फ़ उन अनुरोधों से शुल्क लिया जाता है जिनके जवाब में, वेब से कम से कम एक भरोसेमंद यूआरएल शामिल हो.
+  Gemini के लिए शुल्क हमेशा लागू होते हैं. दर की सीमाओं में बदलाव किया जा सकता है.
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Son güncelleme tarihi: 2026-06-24 UTC.
+आखिरी बार 2026-06-30 (UTC) को अपडेट किया गया.
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-24 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-30 (UTC) को अपडेट किया गया."],[],[]]

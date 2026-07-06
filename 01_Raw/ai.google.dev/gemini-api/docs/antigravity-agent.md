@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr
-fetched_at: 2026-06-29T05:28:05.878478+00:00
-title: "Agent Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi
+fetched_at: 2026-07-06T05:21:18.289590+00:00
+title: "T\u00e1c nh\u00e2n Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-# Agent Antigravity
+# Tác nhân Antigravity
 
-L'agent Antigravity est un agent géré à usage général sur l'API Gemini. Un seul appel d'API vous donne un agent qui raisonne, exécute du code, gère des fichiers et navigue sur le Web dans votre propre bac à sable Linux sécurisé, hébergé par Google.
+Tác nhân Antigravity là một tác nhân được quản lý đa năng trên API Gemini. Một lệnh gọi API duy nhất sẽ cung cấp cho bạn một tác nhân có khả năng suy luận, thực thi mã, quản lý tệp và duyệt web trong hộp cát Linux bảo mật của riêng bạn, do Google lưu trữ.
 
-Il est alimenté par Gemini 3.5 Flash et utilise le même harnais que l'IDE Antigravity. Disponible via l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) et [Google AI Studio](https://aistudio.google.com?hl=fr).
+Gemini Spark được hỗ trợ bởi Gemini 3.5 Flash và sử dụng cùng một cơ chế như Antigravity IDE. Có trong [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) và [Google AI Studio](https://aistudio.google.com?hl=vi).
 
 ### Python
 
@@ -67,31 +67,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Capacités
+## Tính năng
 
-Chaque appel peut provisionner un bac à sable Linux et démarrer une boucle d'utilisation d'outil. L'agent planifie, agit, observe les résultats et répète l'opération jusqu'à ce que la tâche soit terminée.
+Mỗi lệnh gọi có thể cung cấp một hộp cát Linux và bắt đầu một vòng lặp sử dụng công cụ. Tác nhân lập kế hoạch, hành động, quan sát kết quả và lặp lại cho đến khi hoàn thành nhiệm vụ.
 
-- **Exécution de code** : exécutez des commandes Bash, Python et Node.js. Installez des packages, exécutez des tests et créez des applications.
-- **Gestion des fichiers** : lisez, écrivez, modifiez, recherchez et listez des fichiers dans le bac à sable. Les fichiers sont conservés entre les interactions.
-- **Accès Web** : recherche Google et récupération d'URL pour les données.
-- **Compactage du contexte** : compactage automatique du contexte (déclenché à environ 135 000 jetons) pour prendre en charge les sessions de longue durée et multitours sans perdre le contexte ni atteindre les limites de jetons.
+- **Thực thi mã:** Chạy các lệnh Bash, Python và Node.js. Cài đặt gói, chạy kiểm thử, tạo ứng dụng.
+- **Quản lý tệp:** Đọc, ghi, chỉnh sửa, tìm kiếm và liệt kê các tệp trong hộp cát. Các tệp vẫn tồn tại trong các lượt tương tác.
+- **Quyền truy cập vào web:** Google Tìm kiếm và tìm nạp URL để lấy dữ liệu.
+- **Nén bối cảnh:** Tự động nén bối cảnh (được kích hoạt ở khoảng 135.000 mã thông báo) để hỗ trợ các phiên kéo dài nhiều lượt mà không làm mất bối cảnh hoặc vượt quá giới hạn mã thông báo.
 
-Pour en savoir plus sur l'utilisation multitour et le streaming, consultez le [Quickstart](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=fr).
+Hãy xem phần [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi) để biết cách sử dụng nhiều lượt và phát trực tuyến.
 
-## Outils compatibles
+## Các công cụ được hỗ trợ
 
-Par défaut, l'agent a accès à `code_execution`, `google_search` et `url_context`. Les outils de système de fichiers sont activés automatiquement lorsque vous spécifiez le paramètre `environment`. Vous pouvez également définir des **fonctions personnalisées** pour connecter l'agent à vos propres API et outils. Vous n'avez besoin de spécifier le paramètre `tools` que lorsque vous personnalisez ou limitez l'ensemble par défaut, ou lorsque vous ajoutez des fonctions personnalisées.
+Theo mặc định, tác nhân có quyền truy cập vào `code_execution`, `google_search` và `url_context`. Các công cụ hệ thống tệp sẽ tự động được bật khi bạn chỉ định tham số `environment`. Bạn cũng có thể xác định **các hàm tuỳ chỉnh** để kết nối tác nhân với các API và công cụ của riêng mình. Bạn chỉ cần chỉ định tham số `tools` khi tuỳ chỉnh hoặc hạn chế bộ mặc định, hoặc khi thêm các hàm tuỳ chỉnh.
 
-| Outil | Valeur du type | Description |
+| Công cụ | Giá trị loại | Mô tả |
 | --- | --- | --- |
-| Exécution du code | `code_execution` | Exécutez des commandes shell (bash, Python, Node) avec capture stdout/stderr. |
-| Recherche Google | `google_search` | Recherchez sur le Web public. |
-| Contexte de l'URL | `url_context` | Récupérez et lisez des pages Web. |
-| Système de fichiers | *(activé via `environment`)* | Lisez, écrivez, modifiez, recherchez et listez des fichiers dans le bac à sable. Aucun type d'outil distinct ; activé automatiquement lorsque `environment` est défini. |
-| Fonctions personnalisées | `function` | Définissez des fonctions personnalisées que l'agent peut demander à exécuter. Consultez [Appel de fonction](#function-calling). |
-| Serveur MCP distant | `mcp_server` | Enregistrez des serveurs MCP (Model Context Protocol) externes en tant qu'outils. Consultez [Serveurs MCP](#mcp-servers). |
+| Thực thi mã | `code_execution` | Chạy các lệnh shell (bash, Python, Node) với tính năng ghi lại stdout/stderr. |
+| Google Tìm kiếm | `google_search` | Tìm kiếm trên web công khai. |
+| Ngữ cảnh URL | `url_context` | Tìm nạp và đọc các trang web. |
+| Hệ thống tệp | *(được bật thông qua `environment`)* | Đọc, ghi, chỉnh sửa, tìm kiếm và liệt kê các tệp trong hộp cát. Không có loại công cụ riêng biệt; tự động bật khi bạn đặt `environment`. |
+| Hàm tuỳ chỉnh | `function` | Xác định các hàm tuỳ chỉnh mà tác nhân có thể yêu cầu thực thi. Xem phần [Gọi hàm](#function-calling). |
+| Máy chủ MCP từ xa | `mcp_server` | Đăng ký các máy chủ Giao thức ngữ cảnh mô hình (MCP) bên ngoài dưới dạng công cụ. Xem phần [Máy chủ MCP](#mcp-servers). |
 
-Pour limiter l'agent à des outils spécifiques, ne transmettez que ceux dont vous avez besoin :
+Để giới hạn tác nhân ở các công cụ cụ thể, hãy chỉ truyền những công cụ bạn cần:
 
 ### Python
 
@@ -150,9 +150,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Requêtes multimodales
+## Đầu vào đa phương thức
 
-L'agent Antigravity est compatible avec les requêtes multimodales. Actuellement, seules les requêtes `text` et `image` sont acceptées. Les images doivent être fournies sous forme de chaînes encodées en base64 intégrées (`data`).
+Tác nhân Antigravity hỗ trợ thông tin đầu vào đa phương thức. Hiện tại, chỉ có đầu vào `text` và `image` được hỗ trợ. Bạn phải cung cấp hình ảnh dưới dạng chuỗi được mã hoá base64 cùng dòng (`data`).
 
 ### Python
 
@@ -225,11 +225,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## Appel de fonction
+## Gọi hàm
 
-L'appel de fonction vous permet de connecter l'agent Antigravity à des API et des bases de données externes en définissant des outils personnalisés que l'agent peut appeler. Pour en savoir plus sur les concepts généraux, consultez [Appel de fonction avec l'API Gemini](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=fr).
+Tính năng gọi hàm cho phép bạn kết nối tác nhân Antigravity với các API và cơ sở dữ liệu bên ngoài bằng cách xác định các công cụ tuỳ chỉnh mà tác nhân có thể gọi. Để biết các khái niệm chung, hãy xem phần [Gọi hàm bằng Gemini API](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=vi).
 
-L'exemple suivant illustre une interaction en deux tours. L'agent demande d'abord un appel de fonction `get_weather` personnalisé, puis le client l'exécute et renvoie le résultat au deuxième tour.
+Ví dụ sau đây minh hoạ một lượt tương tác gồm 2 lượt. Trước tiên, tác nhân yêu cầu một lệnh gọi hàm `get_weather` tuỳ chỉnh, sau đó máy khách thực thi lệnh gọi hàm đó và trả về kết quả trong lượt thứ hai.
 
 ### Python
 
@@ -443,19 +443,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Serveurs MCP
+## Máy chủ MCP
 
-Vous pouvez connecter l'agent Antigravity à des outils externes en enregistrant des serveurs MCP (Model Context Protocol) distants. L'agent est compatible avec les serveurs MCP distants via HTTP diffusable.
+Bạn có thể kết nối tác nhân Antigravity với các công cụ bên ngoài bằng cách đăng ký các máy chủ Giao thức ngữ cảnh mô hình (MCP) từ xa. Tác nhân hỗ trợ các máy chủ MCP từ xa qua HTTP có thể truyền phát.
 
-Lorsque vous enregistrez un serveur MCP, vous devez spécifier les champs suivants dans le tableau `tools` :
+Khi đăng ký máy chủ MCP, bạn phải chỉ định các trường sau trong mảng `tools`:
 
-| Champ | Type | Obligatoire | Description |
+| Trường | Loại | Bắt buộc | Mô tả |
 | --- | --- | --- | --- |
-| `type` | chaîne | Oui | Doit être `"mcp_server"`. |
-| `name` | chaîne | Oui | Identifiant unique du serveur. Doit être strictement en minuscules et alphanumérique (correspondant à `^[a-z0-9_-]+$`). |
-| `url` | chaîne | Oui | URL du point de terminaison du serveur MCP distant. |
-| `headers` | objet | Non | En-têtes personnalisés (par exemple, authentification) envoyés avec les requêtes. |
-| `allowed_tools` | tableau | Non | Liste des noms d'outils autorisés à être exécutés. Si cette option est omise, tous les outils sont autorisés. |
+| `type` | chuỗi | Có | Phải là `"mcp_server"`. |
+| `name` | chuỗi | Có | Giá trị nhận dạng riêng biệt của máy chủ. Phải là chữ thường và bao gồm cả chữ và số (phù hợp với `^[a-z0-9_-]+$`). |
+| `url` | chuỗi | Có | URL điểm cuối của máy chủ MCP từ xa. |
+| `headers` | đối tượng | Không | Tiêu đề tuỳ chỉnh (ví dụ: xác thực) được gửi cùng với các yêu cầu. |
+| `allowed_tools` | mảng | Không | Danh sách tên công cụ được phép thực thi. Nếu bạn bỏ qua, tất cả các công cụ đều được phép. |
 
 ### Python
 
@@ -518,15 +518,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Personnaliser l'agent
+## Tuỳ chỉnh tác nhân
 
-Vous pouvez étendre l'agent Antigravity en personnalisant ses instructions, ses outils et son environnement. L'agent est compatible avec une approche native du système de fichiers pour la personnalisation : vous pouvez installer des fichiers tels que `AGENTS.md` pour les instructions et les compétences sous `.agents/skills/` directement dans le bac à sable, ou transmettre la configuration en ligne au moment de l'interaction. Vous pouvez itérer sur votre configuration en ligne, puis l'enregistrer en tant qu'agent géré lorsque vous êtes prêt.
+Bạn có thể mở rộng tác nhân Antigravity bằng cách tuỳ chỉnh các chỉ dẫn, công cụ và môi trường của nó. Tác nhân này hỗ trợ phương pháp tuỳ chỉnh gốc của hệ thống tệp: bạn có thể gắn các tệp như `AGENTS.md` cho hướng dẫn và kỹ năng trong `.agents/skills/` trực tiếp vào hộp cát hoặc truyền cấu hình nội tuyến tại thời điểm tương tác. Bạn có thể lặp lại cấu hình nội tuyến rồi lưu cấu hình đó dưới dạng một tác nhân được quản lý khi đã sẵn sàng.
 
-Pour en savoir plus sur la création d'agents personnalisés, consultez [Créer des agents gérés](https://ai.google.dev/gemini-api/docs/custom-agents?hl=fr).
+Để biết đầy đủ thông tin chi tiết về cách tạo các tác nhân tuỳ chỉnh, hãy xem bài viết [Tạo tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi).
 
-## Exécution en arrière-plan
+## Chạy ở chế độ nền
 
-Les tâches de l'agent qui impliquent un raisonnement en plusieurs étapes, l'exécution de code ou des opérations sur les fichiers peuvent prendre plusieurs minutes. Utilisez `background=True` pour exécuter l'interaction de manière asynchrone. L'API renvoie immédiatement un ID d'interaction que vous interrogez jusqu'à ce que l'état soit `completed` ou `failed`.
+Các nhiệm vụ của tác nhân liên quan đến suy luận đa bước, thực thi mã hoặc thao tác với tệp có thể mất vài phút để hoàn thành. Sử dụng `background=True` để chạy lượt tương tác không đồng bộ. API này sẽ trả về ngay lập tức một mã nhận dạng lượt tương tác mà bạn sẽ thăm dò cho đến khi trạng thái là `completed` hoặc `failed`.
 
 ### Python
 
@@ -608,9 +608,9 @@ curl -s -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/$I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-L'exécution en arrière-plan nécessite `store=True`, qui est la valeur par défaut. Pour obtenir des mises à jour en temps réel de la progression lors de l'exécution en arrière-plan, consultez [Diffuser des interactions en arrière-plan](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=fr#streaming-background).
+Chế độ thực thi trong nền yêu cầu `store=True` (đây là chế độ mặc định). Để biết thông tin cập nhật tiến trình theo thời gian thực trong quá trình thực thi ở chế độ nền, hãy xem phần [Truyền trực tuyến các hoạt động tương tác ở chế độ nền](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=vi#streaming-background).
 
-Vous pouvez annuler une interaction en arrière-plan en cours d'exécution à l'aide de la méthode `cancel`.
+Bạn có thể huỷ một hoạt động tương tác đang chạy ở chế độ nền bằng phương thức `cancel`.
 
 ### Python
 
@@ -631,9 +631,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions/INTE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-**Multitour avec exécution en arrière-plan**
+**Nhiều lượt với tính năng thực thi trong nền**
 
-Lorsqu'une interaction en arrière-plan implique des outils avec état (comme l'exécution de code dans un bac à sable), utilisez l'`environment_id` de l'interaction terminée pour continuer dans le même environnement. Cela permet à l'agent de reprendre là où il s'était arrêté, avec tous les fichiers et l'état intacts.
+Khi một hoạt động tương tác ở chế độ nền liên quan đến các công cụ có trạng thái (chẳng hạn như thực thi mã trong hộp cát), hãy sử dụng `environment_id` từ hoạt động tương tác đã hoàn tất để tiếp tục trong cùng một môi trường. Điều này đảm bảo rằng tác nhân sẽ tiếp tục từ nơi đã dừng lại với tất cả các tệp và trạng thái còn nguyên vẹn.
 
 ### Python
 
@@ -745,65 +745,65 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }"
 ```
 
-## Environnements
+## Môi trường
 
-Chaque appel crée ou réutilise un bac à sable Linux. Le paramètre `environment` prend trois formes :
+Mỗi lệnh gọi sẽ tạo hoặc sử dụng lại một hộp cát Linux. Tham số `environment` có 3 dạng:
 
-| Formulaire | Description |
+| Biểu mẫu | Mô tả |
 | --- | --- |
-| `"remote"` | Provisionnez un nouveau bac à sable avec les paramètres par défaut. |
-| `"env_abc123"` | Réutilisez un environnement existant par ID, en conservant tous les fichiers et l'état. |
-| `{...}` | `EnvironmentConfig` complet avec des sources personnalisées et des règles réseau. |
+| `"remote"` | Cung cấp một hộp cát mới với chế độ cài đặt mặc định. |
+| `"env_abc123"` | Tái sử dụng một môi trường hiện có theo mã nhận dạng, giữ nguyên mọi tệp và trạng thái. |
+| `{...}` | `EnvironmentConfig` đầy đủ với các quy tắc mạng và nguồn tuỳ chỉnh. |
 
-Pour en savoir plus sur les sources (Git, GCS, en ligne), la mise en réseau, le cycle de vie et les limites de ressources, consultez [Environnements](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr).
+Hãy xem phần [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi) để biết thông tin chi tiết về các nguồn (Git, GCS, nội tuyến), mạng, vòng đời và hạn mức tài nguyên.
 
-## Disponibilité et prix
+## Tình trạng còn hàng và giá
 
-L'agent Antigravity est disponible en preview via l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) dans Google AI Studio et l'API Gemini.
+Bạn có thể dùng thử tác nhân Antigravity thông qua [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) trong Google AI Studio và Gemini API.
 
-La tarification suit un [modèle de paiement à l'usage](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#pricing-for-agents) basé sur les jetons du modèle Gemini sous-jacent et les outils utilisés par l'agent. Contrairement à une requête de chat standard qui produit une seule sortie, une interaction Antigravity est un workflow agentique. Une seule requête déclenche une boucle autonome de raisonnement, d'exécution d'outil, d'exécution de code et de gestion de fichiers.
+Giá được tính theo [mô hình trả tiền theo mức dùng](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) dựa trên số lượng token của mô hình Gemini cơ bản và các công cụ mà tác nhân sử dụng. Không giống như yêu cầu trò chuyện tiêu chuẩn tạo ra một đầu ra duy nhất, tương tác Antigravity là một quy trình làm việc dựa trên tác nhân. Một yêu cầu duy nhất sẽ kích hoạt một vòng lặp tự động gồm suy luận, thực thi công cụ, chạy mã và quản lý tệp.
 
-### Coûts estimés
+### Chi phí ước tính
 
-Les coûts varient en fonction de la complexité de la tâche. L'agent détermine de manière autonome le nombre d'appels d'outils, d'exécutions de code et d'opérations sur les fichiers nécessaires. Les estimations suivantes sont basées sur les exécutions.
+Chi phí sẽ khác nhau tuỳ thuộc vào độ phức tạp của nhiệm vụ. Tác nhân tự động xác định số lượng lệnh gọi công cụ, lượt thực thi mã và thao tác tệp cần thiết. Các số liệu ước tính sau đây dựa trên các lần chạy.
 
-| Catégorie de tâche | Jetons d'entrée | Jetons de sortie | Coût habituel |
+| Danh mục việc cần làm | Mã thông báo nhập | Mã thông báo xuất | Chi phí thông thường |
 | --- | --- | --- | --- |
-| **Recherche et synthèse d'informations** | 100 000 à 500 000 | 10 000 à 40 000 | 0,30 $ à 1,00 $ |
-| **Génération de documents et de contenu** | 100 000 à 500 000 | 15 000 à 50 000 | 0,30 $ à 1,30 $ |
-| **Conception de processus et de systèmes** | 100 000 à 400 000 | 10 000 à 30 000 | 0,25 $ à 0,80 $ |
-| **Traitement et analyse des données** | 300 000 à 3 000 000 | 30 000 à 150 000 | 0,70 $ à 3,25 $ |
+| **Nghiên cứu và tổng hợp thông tin** | 100.000 – 500.000 | 10.000 – 40.000 | 0,30 – 1,00 USD |
+| **Tạo tài liệu và nội dung** | 100.000 – 500.000 | 15.000 – 50.000 | 0,30 USD – 1,30 USD |
+| **Thiết kế quy trình và hệ thống** | 100.000 – 400.000 | 10.000 – 30.000 | 0,25 – 0,80 USD |
+| **Xử lý và phân tích dữ liệu** | 300.000 – 3.000.000 | 30.000 – 150.000 | 0,70 USD – 3,25 USD |
 
-50 à 70% des jetons d'entrée sont généralement mis en cache. Les workflows agentiques complexes avec de nombreux appels d'outils peuvent accumuler 3 à 5 millions de jetons dans une seule interaction, avec des coûts allant jusqu'à environ 5 $.
+Thông thường, 50–70% mã thông báo đầu vào được lưu vào bộ nhớ đệm. Các quy trình công việc phức tạp của tác nhân với nhiều lệnh gọi công cụ có thể tích luỹ từ 3 đến 5 triệu mã thông báo trong một lượt tương tác duy nhất, với chi phí lên đến khoảng 5 USD.
 
-Le **calcul de l'environnement** (processeur, mémoire, exécution du bac à sable) **n'est pas facturé** pendant la période de preview.
+**Điện toán môi trường** (CPU, bộ nhớ, thực thi hộp cát) **không được tính phí** trong thời gian xem trước.
 
-## Limites
+## Các điểm hạn chế
 
-- **État de la preview** : l'agent Antigravity et l'API Interactions. Les fonctionnalités et les schémas peuvent changer.
-- **Configuration de génération non compatible** : les paramètres suivants ne sont pas compatibles et renvoient une erreur 400 : `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
-- **Sortie structurée** : l'agent Antigravity n'est pas compatible avec les sorties structurées.
-- **Outils non disponibles** : `file_search`, `computer_use` et `google_maps` ne sont pas encore compatibles.
-- **Limites du MCP distant** : le transport des événements envoyés par le serveur (SSE) n'est pas compatible (utilisez HTTP diffusable). De plus, le `name` du serveur doit être strictement en minuscules et alphanumérique (l'utilisation de lettres majuscules déclenche une erreur générique `400 Bad Request`).
-- **Outil de système de fichiers** : aucun outil de système de fichiers n'est disponible pour le moment. Il fait partie de l'`environment`.
-- **Exigence de stockage** : l'exécution de l'agent à l'aide de `background=True` nécessite `store=True`.
-- **Appel de fonction avec état uniquement** : l'appel de fonction n'est compatible qu'en mode avec état. Vous devez utiliser `previous_interaction_id` pour continuer le tour ; la reconstruction manuelle de l'historique (mode sans état) n'est pas compatible.
-- **Types multimodaux non compatibles**. Les entrées audio, vidéo et de documents ne sont pas compatibles pour le moment. Seuls le texte et les images sont autorisés.
+- **Trạng thái xem trước:** Tác nhân Antigravity và Interactions API. Các tính năng và giản đồ có thể thay đổi.
+- **Cấu hình tạo không được hỗ trợ:** Các tham số sau không được hỗ trợ và trả về lỗi 400: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
+- **Đầu ra có cấu trúc:** Tác nhân Antigravity không hỗ trợ đầu ra có cấu trúc.
+- **Các công cụ không dùng được:** `file_search`, `computer_use` và `google_maps` hiện chưa được hỗ trợ.
+- **Các hạn chế đối với MCP từ xa:** Không hỗ trợ phương thức truyền Sự kiện được gửi bởi máy chủ (SSE) (hãy dùng HTTP có thể truyền trực tuyến). Ngoài ra, `name` của máy chủ phải hoàn toàn là chữ thường và chữ và số (việc sử dụng chữ hoa sẽ kích hoạt lỗi `400 Bad Request` chung).
+- **Công cụ hệ thống tệp:** Hiện không có công cụ hệ thống tệp. Đây là một phần của `environment`.
+- **Yêu cầu về cửa hàng:** Việc thực thi tác nhân bằng `background=True` yêu cầu `store=True`.
+- **Chỉ gọi hàm có trạng thái:** Tính năng gọi hàm chỉ được hỗ trợ ở chế độ có trạng thái. Bạn phải sử dụng `previous_interaction_id` để tiếp tục lượt trò chuyện; hệ thống không hỗ trợ việc khôi phục nhật ký theo cách thủ công (chế độ không trạng thái).
+- **Các loại nội dung đa phương thức không được hỗ trợ.** Hiện tại, chúng tôi không hỗ trợ dữ liệu đầu vào là âm thanh, video và tài liệu. Bạn chỉ được phép sử dụng văn bản và hình ảnh.
 
-## Étape suivante
+## Bước tiếp theo
 
-- [Guide de démarrage rapide](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=fr) : conversations multitours et diffusion en streaming.
-- [Créer des agents personnalisés](https://ai.google.dev/gemini-api/docs/custom-agents?hl=fr) : instructions, compétences et enregistrement d'agents personnalisés.
-- [Environnements](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : configuration du bac à sable, sources, mise en réseau.
-- [Agent de recherche approfondie](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) : tâches de recherche de longue durée.
-- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) : l'API sous-jacente.
+- [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): cuộc trò chuyện nhiều lượt và truyền phát trực tuyến.
+- [Tạo tác nhân tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi): hướng dẫn, kỹ năng tuỳ chỉnh và lưu tác nhân.
+- [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi): cấu hình hộp cát, nguồn, mạng.
+- [Tác nhân Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi): các nhiệm vụ nghiên cứu dài.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi): API cơ bản.
 
-Envoyer des commentaires
+Gửi ý kiến phản hồi
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Dernière mise à jour le 2026/06/26 (UTC).
+Cập nhật lần gần đây nhất: 2026-06-26 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/26 (UTC)."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-26 UTC."],[],[]]

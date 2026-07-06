@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=pt-BR
-fetched_at: 2026-06-29T05:30:22.444640+00:00
-title: "Embasamento com o Google Maps \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=ar
+fetched_at: 2026-07-06T05:10:44.213632+00:00
+title: "\u0627\u0644\u0627\u0633\u062a\u0646\u0627\u062f \u0625\u0644\u0649 \"\u062e\u0631\u0627\u0626\u0637 Google\" \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envie comentários
+إرسال ملاحظات
 
-# Embasamento com o Google Maps
+# الاستناد إلى "خرائط Google"
 
-O embasamento com o Google Maps conecta os recursos generativos do Gemini aos dados avançados, factuais e atualizados do Google Maps. Esse recurso permite que os desenvolvedores incorporem facilmente funcionalidades com reconhecimento de localização aos aplicativos. Quando uma consulta do usuário tem um contexto relacionado aos dados do Maps, o modelo do Gemini aproveita o Google Maps para fornecer respostas factualmente precisas e atualizadas que são relevantes para o local especificado ou a área geral do usuário.
+يتيح استخدام "خرائط Google" كمصدر ربط الإمكانات التوليدية في Gemini بالبيانات الغنية والحقيقية والحديثة في "خرائط Google". تتيح هذه الميزة للمطوّرين دمج وظائف تستند إلى الموقع الجغرافي بسهولة في تطبيقاتهم. عندما يتضمّن طلب المستخدم سياقًا مرتبطًا ببيانات "خرائط Google"، يستفيد نموذج Gemini من "خرائط Google" لتقديم إجابات دقيقة ومحدّثة ذات صلة بالموقع الجغرافي أو المنطقة العامة التي حدّدها المستخدم.
 
-- **Respostas precisas e com reconhecimento de localização**:aproveite os dados atuais e abrangentes do Google Maps para consultas geograficamente específicas.
-- **Personalização aprimorada**:adapte as recomendações e informações com base nos locais fornecidos pelo usuário.
+- **ردود دقيقة ومستندة إلى الموقع الجغرافي:** يمكنك الاستفادة من بيانات "خرائط Google" الشاملة والحديثة للردّ على طلبات البحث الجغرافية المحدّدة.
+- **تخصيص محسّن:** يمكنك تخصيص الاقتراحات والمعلومات استنادًا إلى المواقع الجغرافية التي يقدّمها المستخدم.
 
-## Primeiros passos
+## البدء
 
-Este exemplo demonstra como integrar o embasamento com o Google Maps ao seu aplicativo para fornecer respostas precisas e com reconhecimento de localização às consultas do usuário. O comando pede recomendações locais com um local de usuário opcional, permitindo que o modelo do Gemini use os dados do Google Maps.
+يوضّح هذا المثال كيفية دمج ميزة استخدام "خرائط Google" كمصدر في تطبيقك لتقديم ردود دقيقة ومستندة إلى الموقع الجغرافي لطلبات المستخدمين. يطلب الطلب اقتراحات محلية مع موقع جغرافي اختياري للمستخدم، ما يتيح لنموذج Gemini استخدام بيانات "خرائط Google".
 
 ### Python
 
@@ -128,38 +128,35 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## Como funciona o embasamento com o Google Maps
+## طريقة عمل ميزة "استخدام "خرائط Google" كمصدر"
 
-O embasamento com o Google Maps integra a API Gemini ao ecossistema do Google Geo usando a API Maps como uma fonte de embasamento. Quando a consulta de um usuário contém contexto geográfico, o modelo do Gemini pode invocar a ferramenta de embasamento com o Google Maps. Em seguida, o modelo pode gerar respostas baseadas nos dados do Google Maps relevantes para o local fornecido.
+تدمج ميزة "استخدام خرائط Google كمصدر" واجهة Gemini API مع منظومة Google Geo المتكاملة باستخدام Maps API كمصدر لتحديد المصدر. عندما يتضمّن طلب المستخدم سياقًا جغرافيًا، يمكن لنموذج Gemini استدعاء أداة "تحديد المصدر من خلال خرائط Google". بعد ذلك، يمكن للنموذج إنشاء ردود تستند إلى بيانات "خرائط Google" ذات الصلة بالموقع الجغرافي المقدَّم.
 
-O processo normalmente envolve:
+تتضمّن العملية عادةً ما يلي:
 
-1. **Consulta do usuário**:um usuário envia uma consulta ao seu aplicativo, que pode incluir contexto geográfico (por exemplo, "cafeterias perto de mim", "museus em São Francisco").
-2. **Invocação da ferramenta**:o modelo do Gemini, reconhecendo a intenção geográfica, invoca a ferramenta de embasamento com o Google Maps. Essa ferramenta pode ser fornecida opcionalmente com a `latitude` e a `longitude` do usuário. A ferramenta é uma ferramenta de pesquisa textual e se comporta de maneira semelhante à pesquisa no Maps. As consultas locais ("perto de mim") usam as coordenadas, enquanto as consultas específicas ou não locais provavelmente não serão influenciadas pelo local explícito.
-3. **Recuperação de dados**:o serviço de embasamento com o Google Maps consulta o Google Maps para informações relevantes (por exemplo, lugares, avaliações, fotos, endereços, horário de funcionamento).
-4. **Geração embasada**:os dados recuperados do Maps são usados para informar a resposta do modelo do Gemini, garantindo precisão e relevância factual.
-5. **Resposta**:o modelo retorna uma resposta de texto, que inclui citações de fontes do Google Maps.
+1. **طلب المستخدم:** يرسل المستخدم طلبًا إلى تطبيقك، وقد يتضمّن سياقًا جغرافيًا (مثل "مقاهي بالقرب مني" أو "متاحف في سان فرانسيسكو").
+2. **استدعاء الأداة:** يستدعي نموذج Gemini أداة "استخدام "خرائط Google" كمصدر" بعد التعرّف على الغرض الجغرافي من الطلب. يمكن تزويد هذه الأداة اختياريًا بـ
+   و`latitude` و`longitude`. الأداة هي أداة بحث نصي وتعمل بطريقة مشابهة للبحث على "خرائط Google"، حيث ستستخدم الطلبات المحلية ("بالقرب مني") الإحداثيات، بينما من غير المرجّح أن تتأثر الطلبات المحدّدة أو غير المحلية بالموقع الجغرافي الصريح.
+3. **استرجاع البيانات:** تطلب خدمة "استخدام "خرائط Google" كمصدر" معلومات ذات صلة من "خرائط Google" (مثل الأماكن والمراجعات والصور والعناوين وساعات العمل).
+4. **الإنشاء المستند إلى المصدر:** يتم استخدام بيانات "خرائط Google" التي تم استرجاعها لتقديم ردّ نموذج Gemini، ما يضمن الدقة والصلة بالوقائع.
+5. **الردّ:** يعرض النموذج ردًا نصيًا يتضمّن مراجع لمصادر "خرائط Google".
 
-## Por que e quando usar o embasamento com o Google Maps
+## أسباب استخدام ميزة "استخدام "خرائط Google" كمصدر" والحالات التي يجب استخدامها فيها
 
-O embasamento com o Google Maps é ideal para aplicativos que exigem informações precisas, atualizadas e específicas do local. Ele melhora a experiência do usuário fornecendo conteúdo relevante e personalizado com o apoio do banco de dados abrangente do Google Maps de mais de 250 milhões de lugares em todo o mundo.
+يُعدّ استخدام "خرائط Google" كمصدر مثاليًا للتطبيقات التي تتطلّب معلومات دقيقة ومحدّثة ومستندة إلى الموقع الجغرافي. تعزّز هذه الميزة تجربة المستخدم من خلال تقديم محتوى ذي صلة ومخصّص يستند إلى قاعدة بيانات "خرائط Google" الشاملة التي تضم أكثر من 250 مليون مكان في جميع أنحاء العالم.
 
-Use o embasamento com o Google Maps quando o aplicativo precisar:
+عليك استخدام "خرائط Google" كمصدر عندما يحتاج تطبيقك إلى ما يلي:
 
-- Fornecer respostas completas e precisas para perguntas geográficas específicas.
-- Criar planejadores de viagens conversacionais e guias locais.
-- Recomendar pontos de interesse com base na localização e nas preferências do usuário, como restaurantes ou lojas.
-- Criar experiências com reconhecimento de localização para serviços sociais, de varejo ou de entrega de comida.
+- تقديم ردود كاملة ودقيقة على الأسئلة الجغرافية المحدّدة
+- إنشاء أدوات تخطيط للرحلات وأدلة محلية مستندة إلى المحادثات
+- اقتراح أماكن مهمة استنادًا إلى الموقع الجغرافي وتفضيلات المستخدم، مثل المطاعم أو المتاجر
+- إنشاء تجارب مستندة إلى الموقع الجغرافي للخدمات الاجتماعية أو خدمات البيع بالتجزئة أو خدمات توصيل الطعام
 
-O embasamento com o Google Maps se destaca em casos de uso em que a proximidade e os dados factuais atuais são essenciais, como encontrar a "melhor cafeteria perto de mim" ou receber instruções.
+يتميّز استخدام "خرائط Google" كمصدر في حالات الاستخدام التي تكون فيها القرب والبيانات الواقعية الحالية مهمة، مثل العثور على "أفضل مقهى بالقرب مني" أو الحصول على الاتجاهات.
 
-## Métodos e parâmetros da API
+## طرق واجهة برمجة التطبيقات والمعلَمات
 
-O embasamento com o Google Maps é exposto pela API Gemini como uma ferramenta no método
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=pt-br). Para ativar e configurar
-o embasamento com o Google Maps, inclua um
-[`googleMaps`](https://ai.google.dev/api/caching?hl=pt-br#GoogleMaps) objeto no `tools` parâmetro da sua
-solicitação.
+يتم توفير ميزة "استخدام "خرائط Google" كمصدر" من خلال Gemini API كأداة ضمن [`generateContent`](https://ai.google.dev/api/generate-content?hl=ar) الطريقة. يمكنك تفعيل ميزة "استخدام "خرائط Google" كمصدر" وضبطها من خلال تضمين عنصر [`googleMaps`](https://ai.google.dev/api/caching?hl=ar#GoogleMaps) في مَعلمة `tools` في طلبك.
 
 ### JSON
 
@@ -174,7 +171,7 @@ solicitação.
 }
 ```
 
-Além disso, a ferramenta oferece suporte à transmissão do local contextual como `toolConfig`.
+بالإضافة إلى ذلك، تتيح الأداة تمرير الموقع الجغرافي السياقي كـ `toolConfig`.
 
 ### JSON
 
@@ -197,11 +194,11 @@ Além disso, a ferramenta oferece suporte à transmissão do local contextual co
 }
 ```
 
-### Noções básicas sobre a resposta de embasamento
+### فهم الردّ على تحديد المصدر
 
-Quando uma resposta é embasada com sucesso nos dados do Google Maps, ela
-inclui um [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=pt-br#GroundingMetadata) campo.
-Esses dados estruturados são essenciais para verificar reivindicações e criar uma experiência de citação avançada no aplicativo, além de atender aos requisitos de uso do serviço.
+عندما يتم تحديد مصدر الردّ بنجاح باستخدام بيانات "خرائط Google"، يتضمّن الردّ
+حقل [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=ar#GroundingMetadata).
+هذه البيانات المنظَّمة ضرورية للتحقّق من الادعاءات وإنشاء تجربة مراجع غنية في تطبيقك، بالإضافة إلى استيفاء متطلبات استخدام الخدمة.
 
 ### JSON
 
@@ -248,23 +245,21 @@ Esses dados estruturados são essenciais para verificar reivindicações e criar
 }
 ```
 
-A API Gemini retorna as seguintes informações com o
-[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=pt-br#GroundingMetadata):
+تعرض Gemini API المعلومات التالية مع الـ
+[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=ar#GroundingMetadata):
 
-- `groundingChunks`: matriz de objetos que contém as fontes `maps` (`uri`, `placeId` e `title`).
-- `groundingSupports`: matriz de blocos para conectar o texto de resposta do modelo às fontes em `groundingChunks`. Cada bloco vincula um intervalo de texto (definido por `startIndex` e `endIndex`) a um ou mais `groundingChunkIndices`. Essa é a chave para criar citações inline.
+- `groundingChunks`: مصفوفة من الكائنات التي تحتوي على مصادر `maps` (`uri` و`placeId` و`title`)
+- `groundingSupports`: مصفوفة من الأجزاء لربط نص ردّ النموذج بالمصادر في `groundingChunks` يربط كل جزء نطاقًا نصيًا (محدّدًا من خلال `startIndex` و`endIndex`) بواحد أو أكثر من `groundingChunkIndices`. هذا هو المفتاح لإنشاء مراجع مضمّنة.
 
-Para um snippet de código que mostra como renderizar citações inline no texto, consulte [o
-exemplo](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br#attributing_sources_with_inline_citations)
-na documentação de embasamento com a Pesquisa Google.
+للاطّلاع على مقتطف من الرمز البرمجي يوضّح كيفية عرض المراجع المضمّنة في النص، يمكنك الاطّلاع على [المثال](https://ai.google.dev/gemini-api/docs/google-search?hl=ar#attributing_sources_with_inline_citations) في مستندات ميزة "تحديد المصدر من خلال بحث Google".
 
-## Casos de uso
+## حالات الاستخدام
 
-O embasamento com o Google Maps oferece suporte a vários casos de uso com reconhecimento de localização. Os exemplos a seguir demonstram como diferentes comandos e parâmetros podem aproveitar o embasamento com o Google Maps. As informações nos resultados embasados do Google Maps podem ser diferentes das condições reais.
+استخدام "خرائط Google" كمصدر يدعم مجموعة متنوعة من حالات الاستخدام المستندة إلى الموقع الجغرافي. توضّح الأمثلة التالية كيف يمكن أن تستفيد الطلبات والمعلَمات المختلفة من استخدام "خرائط Google" كمصدر. قد تختلف المعلومات في "النتائج المستندة إلى المصدر من خرائط Google" عن الظروف الفعلية.
 
-### Como lidar com perguntas específicas do lugar
+### التعامل مع الأسئلة الخاصة بمكان معيّن
 
-Faça perguntas detalhadas sobre um lugar específico para receber respostas com base nas avaliações dos usuários do Google e em outros dados do Maps.
+يمكنك طرح أسئلة مفصّلة حول مكان معيّن للحصول على إجابات استنادًا إلى مراجعات مستخدمي Google وبيانات "خرائط Google" الأخرى.
 
 ### Python
 
@@ -302,7 +297,7 @@ if grounding := response.candidates[0].grounding_metadata:
   ```
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -370,9 +365,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-### Como fornecer personalização com base na localização
+### توفير تجربة مخصّصة مستندة إلى الموقع الجغرافي
 
-Receba recomendações personalizadas para as preferências de um usuário e uma área geográfica específica.
+يمكنك الحصول على اقتراحات مخصّصة لتفضيلات المستخدم ومنطقة جغرافية معيّنة.
 
 ### Python
 
@@ -407,7 +402,7 @@ if grounding := response.candidates[0].grounding_metadata:
       print(f'- [{chunk.maps.title}]({chunk.maps.uri})')
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -474,9 +469,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-### Como ajudar no planejamento de itinerários
+### المساعدة في تخطيط برنامج الرحلة
 
-Gere planos de vários dias com instruções e informações sobre vários locais, perfeitos para aplicativos de viagens.
+يمكنك إنشاء خطط لعدة أيام تتضمّن الاتجاهات والمعلومات حول مواقع جغرافية مختلفة، ما يجعلها مثالية لتطبيقات السفر.
 
 ### Python
 
@@ -511,7 +506,7 @@ if grounding := response.candidates[0].grounding_metadata:
       print(f'- [{chunk.maps.title}]({chunk.maps.uri})')
 ```
 
-### JavaScript
+### Javascript
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -580,73 +575,73 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
 }'
 ```
 
-## Requisitos de uso do serviço
+## متطلبات استخدام الخدمة
 
-Esta seção descreve os requisitos de uso do serviço para o embasamento com o Google Maps.
+يصف هذا القسم متطلبات استخدام خدمة "تحديد المصدر من خلال خرائط Google".
 
-### Informar o usuário sobre o uso de fontes do Google Maps
+### إعلام المستخدم باستخدام مصادر "خرائط Google"
 
-Com cada resultado embasado do Google Maps, você vai receber fontes em `groundingChunks` que oferecem suporte a cada resposta. Os seguintes metadados também são retornados:
+مع كل نتيجة مستندة إلى المصدر من "خرائط Google"، ستتلقّى مصادر في `groundingChunks` تدعم كل ردّ. يتم أيضًا عرض البيانات الوصفية التالية:
 
-- URI de origem
-- título
-- ID
+- معرف الموارد المنتظم (URI) للمصدر
+- title
+- رقم التعريف
 
-Ao apresentar resultados do embasamento com o Google Maps, especifique as fontes associadas do Google Maps e informe seus usuários sobre o seguinte:
+عند عرض نتائج من ميزة "استخدام "خرائط Google" كمصدر"، عليك تحديد مصادر "خرائط Google" المرتبطة وإعلام المستخدمين بما يلي:
 
-- As fontes do Google Maps precisam seguir imediatamente o conteúdo gerado que elas oferecem suporte. Esse conteúdo gerado também é chamado de resultado embasado do Google Maps.
-- As fontes do Google Maps precisam estar visíveis em uma interação do usuário.
+- يجب أن تتبع مصادر "خرائط Google" على الفور المحتوى الذي تم إنشاؤه والذي تدعمه المصادر. يُشار أيضًا إلى هذا المحتوى الذي تم إنشاؤه باسم "النتائج المستندة إلى المصدر من خرائط Google".
+- يجب أن تكون مصادر "خرائط Google" قابلة للعرض خلال تفاعل واحد مع المستخدم.
 
-### Mostrar fontes do Google Maps com links do Google Maps
+### عرض مصادر "خرائط Google" مع روابط "خرائط Google"
 
-Para cada fonte em `groundingChunks` e em `grounding_chunks.maps.placeAnswerSources.reviewSnippets`, uma visualização do link precisa ser gerada seguindo estes requisitos:
+لكل مصدر في `groundingChunks` وفي `grounding_chunks.maps.placeAnswerSources.reviewSnippets`، يجب إنشاء معاينة للرابط استنادًا إلى المتطلبات التالية:
 
-- Atribua cada fonte ao Google Maps seguindo as diretrizes de atribuição de texto do Google Maps
-  [attribution guidelines](#maps-attribution-guidelines).
-- Mostre o título da fonte fornecido na resposta.
-- Vincule à fonte usando o `uri` ou `googleMapsUri` da resposta.
+- يجب تحديد مصدر كل ميزة على "خرائط Google" استنادًا إلى إرشادات تحديد المصدر النصي في "خرائط Google"
+  .
+- يجب عرض عنوان المصدر المقدَّم في الردّ.
+- يجب الربط بالمصدر باستخدام `uri` أو `googleMapsUri` من الردّ.
 
-Essas imagens mostram os requisitos mínimos para exibir as fontes e os links do Google Maps.
+تعرض هذه الصور الحد الأدنى من المتطلبات لعرض المصادر وروابط "خرائط Google".
 
-![Comando com resposta mostrando fontes](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=pt-br)
+![الطلب مع الردّ الذي يعرض المصادر](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=ar)
 
-É possível recolher a visualização das fontes.
+يمكنك تصغير طريقة عرض المصادر.
 
-![Comando com resposta e fontes recolhidas](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=pt-br)
+![الطلب مع تصغير الرد والمصادر](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=ar)
 
-Opcional: melhore a visualização do link com conteúdo adicional, como:
+اختياري: يمكنك تحسين معاينة الرابط بمحتوى إضافي، مثل:
 
-- Um [favicon do Google Maps](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=pt-br)
-  é inserido antes da atribuição de texto do Google Maps.
-- Uma foto do URL de origem (`og:image`).
+- إدراج [رمز مفضل لـ "خرائط Google"](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=ar)
+  قبل تحديد المصدر النصي في "خرائط Google"
+- صورة من عنوان URL للمصدر (`og:image`)
 
-Para mais informações sobre alguns dos nossos provedores de dados do Google Maps e os termos de
-licença deles, consulte os [avisos legais do Google Maps e do Google Earth](https://www.google.com/help/legalnotices_maps/?hl=pt-br).
+لمزيد من المعلومات حول بعض مزوّدي بيانات "خرائط Google" وبنود الترخيص الخاصة بهم
+، يمكنك الاطّلاع على [الإشعارات القانونية في "خرائط Google" وGoogle Earth](https://www.google.com/help/legalnotices_maps/?hl=ar).
 
-### Diretrizes de atribuição de texto do Google Maps
+### إرشادات تحديد المصدر النصي في "خرائط Google"
 
-Ao atribuir fontes ao Google Maps no texto, siga estas diretrizes:
+عند تحديد مصادر "خرائط Google" في النص، اتّبِع الإرشادات التالية:
 
-- Não modifique o texto do Google Maps de forma alguma:
-  - Não mude a capitalização do Google Maps.
-  - Não quebre o Google Maps em várias linhas.
-  - Não localize o Google Maps para outro idioma.
-  - Impeça que os navegadores traduzam o Google Maps usando o atributo HTML translate="no".
-- Estilize o texto do Google Maps conforme descrito na tabela a seguir:
+- لا تعدِّل النص "خرائط Google" بأي شكل من الأشكال:
+  - لا تغيِّر حالة الأحرف في "خرائط Google".
+  - لا تنقل "خرائط Google" إلى أسطر متعددة.
+  - لا تترجِم "خرائط Google" إلى لغة أخرى.
+  - امنع المتصفّحات من ترجمة "خرائط Google" باستخدام سمة HTML‏ `translate="no"`.
+- نسِّق نص "خرائط Google" كما هو موضّح في الجدول التالي:
 
-| Propriedade | Estilo |
+| الموقع | النمط |
 | --- | --- |
-| `Font family` | Roboto. O carregamento da fonte é opcional. |
-| `Fallback font family` | Qualquer fonte Sans Serif já usada no seu produto ou "Sans-Serif" para invocar a fonte padrão do sistema |
-| `Font style` | Normal |
+| `Font family` | Roboto تحميل الخط اختياري. |
+| `Fallback font family` | أي خط نص أساسي من نوع sans serif مستخدَم حاليًا في منتجك أو "Sans-Serif" لاستدعاء خط النظام التلقائي |
+| `Font style` | عادي |
 | `Font weight` | 400 |
-| `Font color` | Branco, preto (#1F1F1F) ou cinza (#5E5E5E). Mantenha um contraste acessível (4,5:1) com o plano de fundo. |
-| `Font size` | - Tamanho mínimo da fonte: 12sp - Tamanho máximo da fonte: 16sp - Para saber mais sobre sp, consulte Unidades de tamanho da fonte no site do [Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
-| `Spacing` | Normal |
+| `Font color` | أبيض أو أسود (#1F1F1F) أو رمادي (#5E5E5E) يجب الحفاظ على تباين يسهل الوصول إليه (4.5:1) مع الخلفية. |
+| `Font size` | - الحد الأدنى لحجم الخط: 12sp - الحد الأقصى لحجم الخط: 16sp - للتعرّف على وحدات sp، يمكنك الاطّلاع على وحدات حجم الخط على موقع [التصميم المتعدد الأبعاد](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
+| `Spacing` | عادي |
 
-#### CSS de exemplo
+#### مثال على نمط CSS
 
-O CSS a seguir renderiza o Google Maps com o estilo e a cor tipográficos adequados em um plano de fundo branco ou claro.
+يعرض نمط CSS التالي "خرائط Google" بالنمط المطبعي واللون المناسبَين على خلفية بيضاء أو فاتحة.
 
 ### CSS
 
@@ -665,79 +660,78 @@ color: #5e5e5e;
 }
 ```
 
-### ID de lugar e ID da avaliação
+### رقم تعريف المكان ورقم تعريف المراجعة
 
-Os dados do Google Maps incluem o ID do lugar e o ID da avaliação. É possível armazenar em cache, armazenar e exportar os seguintes dados de resposta:
+تتضمّن بيانات "خرائط Google" رقم تعريف المكان ورقم تعريف المراجعة. يمكنك تخزين بيانات الردّ التالية مؤقتًا وحفظها وتصديرها:
 
 - `placeId`
 - `reviewId`
 
-As restrições contra o armazenamento em cache nos Termos de embasamento com o Google Maps não se aplicam.
+لا تنطبق القيود المفروضة على التخزين المؤقت في بنود استخدام "خرائط Google" كمصدر.
 
-### Atividade e território proibidos
+### النشاط المحظور والمنطقة المحظورة
 
-O embasamento com o Google Maps tem restrições adicionais para determinados conteúdos e atividades para manter uma plataforma segura e confiável. Além das restrições de uso
-nos [Termos](https://ai.google.dev/gemini-api/terms?hl=pt-br#grounding-with-google-maps):
+يتضمّن استخدام "خرائط Google" كمصدر قيودًا إضافية على محتوى وأنشطة معيّنة للحفاظ على منصة آمنة وموثوق بها. بالإضافة إلى قيود الاستخدام الواردة في [البنود](https://ai.google.dev/gemini-api/terms?hl=ar#grounding-with-google-maps):
 
-- Não use o embasamento com o Google Maps para atividades de alto risco, incluindo serviços de resposta a emergências.
-- Não distribua nem comercializar seu aplicativo que oferece embasamento com o Google Maps em um território proibido. Para mais informações, consulte
-  [Territórios proibidos da Plataforma Google Maps](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=pt-br).
-  A lista de territórios proibidos pode ser atualizada periodicamente.
+- لن تستخدم ميزة "استخدام "خرائط Google" كمصدر" للأنشطة عالية المخاطر، بما في ذلك خدمات الاستجابة للطوارئ.
+- لن توزع أو تسوّق تطبيقك الذي يقدّم ميزة "تحديد المصدر من خلال خرائط Google" في منطقة محظورة. لمزيد من المعلومات، يمكنك الاطّلاع على
+  [المناطق المحظورة في "منصة خرائط Google"](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=ar).
+  قد يتم تعديل قائمة المناطق المحظورة من حين لآخر.
 
-## Práticas recomendadas
+## أفضل الممارسات
 
-- **Fornecer a localização do usuário**:para as respostas mais relevantes e personalizadas, sempre inclua a `user_location` (latitude e longitude) na configuração `googleMapsGrounding` quando a localização do usuário for conhecida.
-- **Informar os usuários finais**:informe claramente aos usuários finais que os dados do Google Maps estão sendo usados para responder às consultas deles, principalmente quando a ferramenta está ativada.
-- **Monitorar a latência**:para aplicativos conversacionais, verifique se a latência P95 para respostas embasadas permanece dentro dos limites aceitáveis para manter uma experiência do usuário tranquila.
-- **Desativar quando não for necessário**:o embasamento com o Google Maps está desativado por padrão. Ative-o (`"tools": [{"googleMaps": {}}]`) somente quando uma consulta tiver um
-  contexto geográfico claro para otimizar o desempenho e o custo.
+- **توفير موقع المستخدم:** للحصول على الردود الأكثر صلة بالموضوع والمخصّصة، عليك دائمًا تضمين `user_location` (خط العرض وخط الطول) في إعدادات `googleMapsGrounding` عندما يكون موقع المستخدم معروفًا.
+- **إعلام المستخدمين النهائيين:** عليك إعلام المستخدمين النهائيين بوضوح بأنّه يتم استخدام بيانات "خرائط Google" للإجابة عن طلباتهم، خاصةً عند تفعيل الأداة.
+- **مراقبة وقت الاستجابة:** بالنسبة إلى التطبيقات المستندة إلى المحادثات، تأكّد من أنّ وقت الاستجابة في المئوية الـ 95 للردود المستندة إلى المصدر يظل ضمن الحدود المقبولة للحفاظ على تجربة مستخدم سلسة.
+- **إيقاف الميزة عند عدم الحاجة إليها:** يكون استخدام "خرائط Google" كمصدر غير مفعّل تلقائيًا. عليك تفعيلها فقط (`"tools": [{"googleMaps": {}}]`) عندما يتضمّن الطلب سياقًا جغرافيًا واضحًا، وذلك لتحسين الأداء والتكلفة.
 
-## Limitações
+## القيود
 
-- **Escopo geográfico**:o embasamento com o Google Maps está disponível globalmente
-- **Suporte ao modelo**:consulte a seção [Modelos compatíveis](#supported-models).
-- **Entradas/saídas multimodais**:o embasamento com o Google Maps não oferece suporte a entradas ou saídas multimodais além do texto.
-- **Estado padrão**:a ferramenta de embasamento com o Google Maps está desativada por padrão.
-  É necessário ativá-la explicitamente nas solicitações da API.
+- **النطاق الجغرافي:** يتوفّر استخدام "خرائط Google" كمصدر على مستوى العالم.
+- **النماذج المتوافقة:** يمكنك الاطّلاع على قسم [النماذج المتوافقة](#supported-models).
+- **المدخلات/المخرجات المتعددة الوسائط:** لا يتيح استخدام "خرائط Google" كمصدر حاليًا المدخلات أو المخرجات المتعددة الوسائط بخلاف النص.
+- **الحالة التلقائية:** تكون أداة "استخدام "خرائط Google" كمصدر" غير مفعّلة تلقائيًا.
+  عليك تفعيلها صراحةً في طلبات واجهة برمجة التطبيقات.
 
-## Preços e limites de taxa
+## التسعير وحدود المعدّل
 
-O preço do embasamento com o Google Maps é baseado em consultas. A taxa atual é de **US$25 por 1 mil comandos embasados**. O nível sem custo financeiro também tem até 500 solicitações por dia disponíveis. Uma solicitação só é contabilizada na cota quando um comando retorna pelo menos um resultado embasado do Google Maps (ou seja, resultados que contêm pelo menos uma fonte do Google Maps). Se várias consultas forem enviadas ao Google Maps de uma única solicitação, elas serão contabilizadas como uma solicitação para o limite de taxa.
+يستند تسعير ميزة استخدام "خرائط Google" كمصدر إلى الطلبات. المعدّل الحالي هو **25 دولارًا أمريكيًا لكل 1000 طلب مستند إلى المصدر**. تتضمّن الطبقة المجانية أيضًا ما يصل إلى 500 طلب في اليوم. لا يتم احتساب الطلب ضمن الحصة إلا عندما يعرض الطلب بنجاح نتيجة واحدة على الأقل مستندة إلى المصدر من "خرائط Google" (أي نتائج تحتوي على مصدر واحد على الأقل من "خرائط Google"). إذا تم إرسال طلبات متعددة إلى "خرائط Google" من طلب واحد، يتم احتسابها كطلب واحد ضمن حدّ المعدّل.
 
-Para informações detalhadas sobre preços, consulte a [página de preços da API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+للاطّلاع على معلومات مفصّلة عن الأسعار، يمكنك الانتقال إلى [صفحة تسعير Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=ar).
 
-## Modelos compatíveis
+## النماذج المتوافقة
 
-Os seguintes modelos oferecem suporte ao embasamento com o Google Maps:
+تتيح النماذج التالية ميزة "استخدام "خرائط Google" كمصدر":
 
-| Modelo | Embasamento com o Google Maps |
+| الطراز | استخدام "خرائط Google" كمصدر |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
 
-## Combinações de ferramentas compatíveis
+## مجموعات الأدوات المتوافقة
 
-Os modelos do Gemini 3 oferecem suporte à combinação de ferramentas integradas (como o embasamento com o Google Maps) com ferramentas personalizadas (chamada de função). Saiba mais na
-[página de combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
+تتيح نماذج Gemini 3 الجمع بين الأدوات المضمّنة (مثل ميزة "تحديد المصدر من خلال خرائط Google") والأدوات المخصّصة (استدعاء الدوال). يمكنك الاطّلاع على مزيد من المعلومات في صفحة
+[مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
 
-## A seguir
+## الخطوات التالية
 
-- Teste o [embasamento com a Pesquisa Google no manual da API Gemini
-  Gemini](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=pt-br).
-- Saiba mais sobre outras [ferramentas disponíveis](https://ai.google.dev/gemini-api/docs/tools?hl=pt-br).
-- Para saber mais sobre as práticas recomendadas de IA responsável e os filtros de segurança da API Gemini, consulte [o guia de configurações de segurança](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pt-br).
+- يمكنك تجربة ميزة [تحديد المصدر من خلال بحث Google في Gemini API
+  Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ar).
+- يمكنك التعرّف على الأدوات الأخرى [المتاحة](https://ai.google.dev/gemini-api/docs/tools?hl=ar).
+- لمزيد من المعلومات حول أفضل ممارسات الذكاء الاصطناعي المسؤول وفلاتر الأمان في Gemini API
+  ، يمكنك الاطّلاع على [دليل إعدادات الأمان](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ar).
 
-Envie comentários
+إرسال ملاحظات
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última atualização 2026-06-24 UTC.
+تاريخ التعديل الأخير: 2026-06-24 (حسب التوقيت العالمي المتفَّق عليه)
 
-Quer enviar seu feedback?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-24 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

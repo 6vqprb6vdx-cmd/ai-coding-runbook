@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=he
-fetched_at: 2026-06-29T05:29:00.927992+00:00
-title: "\u05d4\u05d1\u05e0\u05ea \u05d0\u05d5\u05d3\u05d9\u05d5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=zh-CN
+fetched_at: 2026-07-06T05:18:51.307928+00:00
+title: "\u97f3\u9891\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-שליחת משוב
+发送反馈
 
-# הבנת אודיו
+# 音频理解
 
-‫Gemini יכול לנתח קלט אודיו וליצור תשובות טקסט.
+Gemini 可以分析音频输入并生成文本响应。
 
 ### Python
 
@@ -90,23 +90,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## סקירה כללית
+## 概览
 
-‫Gemini יכול לנתח ולהבין קלט אודיו וליצור תשובות בטקסט,
-מה שמאפשר תרחישי שימוש כמו:
+Gemini 可以分析和理解音频输入并生成文本响应，从而实现以下用例：
 
-- תיאור, סיכום או מענה על שאלות לגבי תוכן אודיו
-- תמלול ותרגום (דיבור לטקסט)
-- חלוקת קובץ האודיו לפי דוברים (זיהוי של דוברים שונים)
-- זיהוי רגשות בדיבור ובמוזיקה
-- ניתוח פלחים ספציפיים עם חותמות זמן
+- 描述音频内容、总结音频内容或回答有关音频内容的问题
+- 转写和翻译（语音转文字）
+- 讲话人区分（识别不同的讲话人）
+- 检测语音和音乐中的情绪
+- 使用时间戳分析特定片段
 
-לשידורים חיים עם אינטראקציות בזמן אמת באמצעות קול ווידאו, אפשר לעיין ב-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=he).
-כדי להשתמש במודלים ייעודיים של תמלול דיבור לטקסט עם תמיכה בתמלול בזמן אמת, צריך להשתמש ב-[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=he).
+如需进行实时语音和视频交互，请参阅
+[Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn)。
+如需使用支持实时转写的专用语音转文字模型，
+请使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-cn)。
 
-## תמלול דיבור לטקסט
+## 将语音转写为文字
 
-בדוגמה הזו מוסבר איך לתמלל, לתרגם ולסכם דיבור עם [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) של חותמות זמן, זיהוי דוברים וזיהוי רגשות.
+此示例展示了如何使用
+[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)，通过
+时间戳、讲话人区分和情绪检测功能转写、翻译和总结语音。
 
 ### Python
 
@@ -264,18 +267,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![אפליקציית Gemini רב-לשונית לתמלול אודיו](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=he)
+![一款多语言音频转写 Gemini 应用](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-cn)
 
-## קלט אודיו
+## 输入音频
 
-אפשר לספק נתוני אודיו בדרכים הבאות:
+您可以通过以下方式提供音频数据：
 
-- [מעלים קובץ אודיו](#upload-audio) לפני ששולחים בקשה.
-- [מעבירים נתוני אודיו מוטבעים](#inline-audio) עם הבקשה.
+- [在发出请求之前上传音频文件](#upload-audio)。
+- [在请求中传递内嵌音频数据](#inline-audio)。
 
-### העלאה של קובץ אודיו
+### 上传音频文件
 
-לקבצים שגדולים מ-20MB, צריך להשתמש ב-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
+对于大于 20 MB 的文件，请使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn)。
 
 ### Python
 
@@ -346,9 +349,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### העברת נתוני אודיו בתוך השורה
+### 内嵌传递音频数据
 
-עבור קובצי אודיו קטנים שגודל הבקשה הכולל שלהם הוא פחות מ-20MB:
+对于总请求大小小于 20MB 的小型音频文件：
 
 ### Python
 
@@ -428,13 +431,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-הערות לגבי נתוני אודיו מוטבעים:
-\* הגודל המקסימלי של הבקשה הוא 20MB בסך הכול (כולל הנחיות וכל הקבצים)
-\* כדי לעשות שימוש חוזר, [מעלים את הקובץ](#upload-audio) במקום זאת
+关于内嵌音频数据的注意事项：
+\* 请求总大小上限为 20 MB（包括提示和所有文件）
+\* 如需重复使用，请改为[上传文件](#upload-audio)
 
-## קבלת תמליל
+## 获取转写内容
 
-כדי לקבל תמליל, מבקשים אותו בהנחיה:
+如需获取转写内容，请在提示中请求：
 
 ### Python
 
@@ -470,9 +473,9 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## עיון בחותמות זמן
+## 引用时间戳
 
-כדי להפנות לחלקים ספציפיים, משתמשים בפורמט `MM:SS`:
+使用 `MM:SS` 格式引用特定部分：
 
 ### Python
 
@@ -502,9 +505,9 @@ const interaction = await client.interactions.create({
 });
 ```
 
-## ספירת טוקנים
+## 统计 token 数量
 
-ספירת טוקנים בקובץ אודיו:
+统计音频文件中的 token 数量：
 
 ### Python
 
@@ -528,37 +531,37 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-## פורמטים נתמכים של אודיו
+## 支持的音频格式
 
-- ‫WAV – `audio/wav`
+- WAV - `audio/wav`
 - MP3 - `audio/mp3`
 - AIFF - `audio/aiff`
-- ‫AAC – `audio/aac`
+- AAC - `audio/aac`
 - OGG Vorbis - `audio/ogg`
-- ‫FLAC – `audio/flac`
+- FLAC - `audio/flac`
 
-## פרטים טכניים על אודיו
+## 有关音频的技术详细信息
 
-- **טוקנים**: 32 טוקנים לכל שנייה של אודיו (דקה אחת = 1,920 טוקנים)
-- **צלילים שהם לא דיבור**: Gemini מבין צלילים שהם לא דיבור (ציוץ ציפורים, סירנות וכו')
-- **אורך מקסימלי**: 9.5 שעות של אודיו לכל הנחיה
-- **רזולוציה**: דגימה חוזרת ל-16Kbps
-- **ערוצים**: שילוב של אודיו מרובה ערוצים לערוץ יחיד
+- **token**：每秒音频 32 个 token（1 分钟 = 1,920 个 token）
+- **非语音**：Gemini 可以理解非语音声音（鸟鸣、警报声等）
+- **最长时长**：每个提示 9.5 小时的音频
+- **分辨率**：下采样至 16 Kbps
+- **通道**：多通道音频合并为单通道
 
-## המאמרים הבאים
+## 后续步骤
 
-- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): העלאה וניהול של קובצי אודיו
-- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
-  Customize model behavior
-- ‫[Structured output](https://ai.google.dev/gemini-api/docs/structured-output?hl=he):
-  קבלת תוצאות תמלול בפורמט JSON
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn)：上传和管理音频文件
+- [系统指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-cn#system-instructions)：
+  自定义模型行为
+- [结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)：
+  以 JSON 格式获取转写结果
 
-שליחת משוב
+发送反馈
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-עדכון אחרון: 2026-06-22 (שעון UTC).
+最后更新时间 (UTC)：2026-06-22。
 
-רוצה לתת לנו משוב?
+需要向我们提供更多信息？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-22 (שעון UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-22。"],[],[]]

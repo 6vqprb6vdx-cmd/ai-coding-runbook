@@ -1,47 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pt-BR
-fetched_at: 2026-06-29T05:35:30.828081+00:00
-title: "Tokens tempor\u00e1rios \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ko
+fetched_at: 2026-07-06T05:09:41.107674+00:00
+title: "\uc784\uc2dc \ud1a0\ud070 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Envie comentários
+의견 보내기
 
-# Tokens temporários
+# 임시 토큰
 
-Os tokens temporários são tokens de autenticação de curta duração para acessar a API Gemini
-usando [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Eles foram projetados para melhorar a segurança quando
-você se conecta diretamente de um dispositivo do usuário à API (uma
-[implementação cliente-servidor](https://ai.google.dev/gemini-api/docs/live?hl=pt-br#implementation-approach)
-). Assim como as chaves de API padrão, os tokens temporários podem ser extraídos de aplicativos do lado do cliente, como navegadores da Web ou apps para dispositivos móveis. No entanto, como os tokens temporários expiram rapidamente e podem ser restritos, eles reduzem significativamente os riscos de segurança em um ambiente de produção. Use-os ao acessar a API Live diretamente de aplicativos do lado do cliente para melhorar a segurança da chave de API.
+임시 토큰은 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)를 통해 Gemini
+API에 액세스하기 위한 단기 인증 토큰입니다. 사용자의 기기에서 API로 직접 연결할 때
+보안을 강화하도록 설계되었습니다 (a
+[클라이언트-서버](https://ai.google.dev/gemini-api/docs/live?hl=ko#implementation-approach)
+구현). 표준 API 키와 마찬가지로 임시 토큰은 웹브라우저나 모바일 앱과 같은 클라이언트 측 애플리케이션에서 추출할 수 있습니다. 하지만 임시 토큰은 빠르게 만료되고 제한될 수 있으므로 프로덕션 환경에서 보안 위험을 크게 줄입니다. 클라이언트 측 애플리케이션에서 Live API에 직접 액세스할 때 API 키 보안을 강화하기 위해 사용해야 합니다.
 
-## Como os tokens temporários funcionam
+## 임시 토큰 작동 방식
 
-Veja como os tokens temporários funcionam de modo geral:
+다음은 임시 토큰의 작동 방식을 간략하게 설명합니다.
 
-1. O cliente (por exemplo, um app da Web) é autenticado no back-end.
-2. O back-end solicita um token temporário do serviço de provisionamento da API Gemini.
-3. A API Gemini emite um token de curta duração.
-4. O back-end envia o token ao cliente para conexões WebSocket com a API Live. Para fazer isso, troque a chave de API por um token temporário.
-5. O cliente usa o token como se fosse uma chave de API.
+1. 클라이언트 (예: 웹 앱)가 백엔드로 인증합니다.
+2. 백엔드가 Gemini API의 프로비저닝 서비스에서 임시 토큰을 요청합니다.
+3. Gemini API가 단기 토큰을 발급합니다.
+4. 백엔드가 Live API에 대한 WebSocket 연결을 위해 토큰을 클라이언트로 전송합니다. API 키를 임시 토큰으로 교체하여 이 작업을 실행할 수 있습니다.
+5. 그러면 클라이언트가 토큰을 API 키인 것처럼 사용합니다.
 
-![Visão geral dos tokens temporários](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=pt-br)
+![임시 토큰 개요](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=ko)
 
-Isso melhora a segurança porque, mesmo que seja extraído, o token é de curta duração, ao contrário de uma chave de API de longa duração implantada no lado do cliente. Como o cliente envia dados diretamente para o Gemini, isso também melhora a latência e evita que os back-ends precisem fazer proxy dos dados em tempo real.
+이렇게 하면 클라이언트 측에 배포된 장기 API 키와 달리 토큰이 추출되더라도 단기이므로 보안이 강화됩니다. 클라이언트가 데이터를 Gemini로 직접 전송하므로 지연 시간도 개선되고 백엔드가 실시간 데이터를 프록시할 필요가 없습니다.
 
-## Criar um token temporário
+## 임시 토큰 만들기
 
-Confira um exemplo simplificado de como receber um token temporário do Gemini.
-Por padrão, você terá 1 minuto para iniciar novas sessões da API Live usando o token dessa solicitação (`newSessionExpireTime`) e 30 minutos para enviar mensagens pela conexão (`expireTime`).
+다음은 Gemini에서 임시 토큰을 가져오는 방법을 간략하게 보여주는 예입니다.
+기본적으로 이 요청의 토큰 (`newSessionExpireTime`)을 사용하여 새 Live API 세션을 시작하는 데 1분이 주어지고 해당 연결을 통해 메시지를 전송하는 데 30분이 주어집니다 (`expireTime`).
 
 ### Python
 
@@ -86,14 +86,12 @@ const token = await client.authTokens.create({
   });
 ```
 
-Para restrições de valor `expireTime`, padrões e outras especificações de campo, consulte a
-[referência da API](https://ai.google.dev/api/live?hl=pt-br#ephemeral-auth-tokens).
-No período `expireTime`, você precisará de
-[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=pt-br#session-resumption) para
-reconectar a chamada a cada 10 minutos. Isso pode ser feito com o mesmo token, mesmo
-que `uses: 1`.
+`expireTime` 값 제약조건, 기본값, 기타 필드 사양은
+[API 참조](https://ai.google.dev/api/live?hl=ko#ephemeral-auth-tokens)를 확인하세요.
+`expireTime` 기간 내에 10분마다 호출을 다시 연결하려면
+[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=ko#session-resumption)이 필요합니다 (`uses: 1`인 경우에도 동일한 토큰으로 실행할 수 있음).
 
-Também é possível bloquear um token temporário em um conjunto de configurações. Isso pode ser útil para melhorar ainda mais a segurança do aplicativo e manter as instruções do sistema no lado do servidor.
+임시 토큰을 구성 집합에 잠글 수도 있습니다. 이는 애플리케이션의 보안을 더욱 개선하고 시스템 안내를 서버 측에 유지하는 데 유용할 수 있습니다.
 
 ### Python
 
@@ -151,15 +149,15 @@ const token = await client.authTokens.create({
 // You'll need to pass the value under token.name back to your client to use it
 ```
 
-Também é possível bloquear um subconjunto de campos. Consulte a [documentação do SDK](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)
-para mais informações.
+필드의 하위 집합을 잠글 수도 있습니다. 자세한 내용은 [SDK 문서](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)
+를 참고하세요.
 
-## Conectar-se à API Live com um token temporário
+## 임시 토큰으로 Live API에 연결
 
-Depois de ter um token temporário, use-o como se fosse uma chave de API, mas lembre-se de que ele só funciona para a API Live e apenas com a versão `v1alpha` da API.
+임시 토큰이 있으면 API 키인 것처럼 사용합니다. 하지만 Live API에서만 작동하고 API의 `v1alpha` 버전에서만 작동합니다.
 
-O uso de tokens temporários só agrega valor ao implantar aplicativos
-que seguem a abordagem de implementação [cliente-servidor](https://ai.google.dev/gemini-api/docs/live?hl=pt-br#implementation-approach).
+[임시 토큰을 사용하면 클라이언트-서버 구현 접근 방식을 따르는 애플리케이션
+을 배포할 때만 가치를 더할 수 있습니다.](https://ai.google.dev/gemini-api/docs/live?hl=ko#implementation-approach)
 
 ### JavaScript
 
@@ -189,30 +187,30 @@ async function main() {
 main();
 ```
 
-Consulte [Introdução à API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br) para mais exemplos.
+더 많은 예는 [Live API 시작하기](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
 
-## Práticas recomendadas
+## 권장사항
 
-- Defina uma duração de expiração curta usando o parâmetro `expire_time`.
-- Os tokens expiram, exigindo a reinicialização do processo de provisionamento.
-- Verifique a autenticação segura do seu back-end. Os tokens temporários só serão tão seguros quanto o método de autenticação de back-end.
-- Em geral, evite usar tokens temporários para conexões de back-end para o Gemini, já que esse caminho normalmente é considerado seguro.
+- `expire_time` 매개변수를 사용하여 짧은 만료 기간을 설정합니다.
+- 토큰이 만료되어 프로비저닝 프로세스를 다시 시작해야 합니다.
+- 자체 백엔드의 보안 인증을 확인합니다. 임시 토큰은 백엔드 인증 방법만큼만 안전합니다.
+- 일반적으로 이 경로는 일반적으로 안전한 것으로 간주되므로 백엔드-Gemini 연결에 임시 토큰을 사용하지 않는 것이 좋습니다.
 
-## Limitações
+## 제한사항
 
-No momento, os tokens temporários só são compatíveis com a [API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br).
+현재 임시 토큰은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)와만 호환됩니다.
 
-## A seguir
+## 다음 단계
 
-- Leia a referência da API Live [sobre tokens temporários](https://ai.google.dev/api/live?hl=pt-br#ephemeral-auth-tokens)
-  para mais informações.
+- 자세한 내용은 임시 토큰에 관한 Live API [참조](https://ai.google.dev/api/live?hl=ko#ephemeral-auth-tokens)
+  를 읽어보세요.
 
-Envie comentários
+의견 보내기
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última atualização 2026-06-12 UTC.
+최종 업데이트: 2026-06-12(UTC)
 
-Quer enviar seu feedback?
+의견을 전달하고 싶나요?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-12 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-12(UTC)"],[],[]]

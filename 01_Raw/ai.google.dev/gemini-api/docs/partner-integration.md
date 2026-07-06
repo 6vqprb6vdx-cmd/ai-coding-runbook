@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/partner-integration?hl=ar
-fetched_at: 2026-06-29T05:28:25.688928+00:00
+fetched_at: 2026-07-06T05:19:32.630046+00:00
 title: "\u0639\u0645\u0644\u064a\u0627\u062a \u0627\u0644\u062f\u0645\u062c \u0645\u0639 \u0627\u0644\u0634\u0631\u0643\u0627\u0621 \u0648\u0627\u0644\u0645\u0643\u062a\u0628\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

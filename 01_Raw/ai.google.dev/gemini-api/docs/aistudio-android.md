@@ -1,135 +1,134 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=tr
-fetched_at: 2026-06-29T05:38:03.866508+00:00
-title: "Google AI Studio'da Android uygulamalar\u0131 geli\u015ftirme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=vi
+fetched_at: 2026-07-06T05:07:32.762919+00:00
+title: "T\u1ea1o \u1ee9ng d\u1ee5ng Android trong Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-# Google AI Studio'da Android uygulamaları geliştirme
+# Tạo ứng dụng Android trong Google AI Studio
 
-Google AI Studio, doğal dil isteminden yerel Android uygulamaları oluşturmanıza olanak tanır. İstediğiniz uygulamayı tanımlayın. [Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr#antigravity-agent), eksiksiz bir Kotlin ve [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=tr) projesi oluşturur. Tarayıcınızdan uygulamanızı tarayıcı tabanlı bir Android emülatöründe önizleyebilir, fiziksel bir cihaza yükleyebilir ve test için yayınlayabilirsiniz.
+Google AI Studio cho phép bạn tạo các ứng dụng Android gốc từ một câu lệnh bằng ngôn ngữ tự nhiên. Mô tả ứng dụng bạn muốn, và [Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi#antigravity-agent) sẽ tạo một dự án hoàn chỉnh bằng Kotlin và [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=vi). Trên trình duyệt, bạn có thể xem trước ứng dụng trong trình mô phỏng Android dựa trên trình duyệt, cài đặt ứng dụng trên một thiết bị thực và xuất bản ứng dụng để kiểm thử.
 
-## Başlayın
+## Bắt đầu
 
-Android uygulaması geliştirmeye başlamak için:
+Cách bắt đầu tạo một ứng dụng Android:
 
-1. Sol taraftaki gezinme panelini kullanarak Google AI Studio'da [Oluşturma modu](https://aistudio.google.com/apps?hl=tr)'na gidin.
-2. Platform seçiciden **Android**'i seçin.
-3. Oluşturmak istediğiniz uygulamayı açıklayan bir istem girin (örneğin, *"Yerel depolama alanına sahip günlük görev takipçisi oluştur"* veya *"Basit bir hesap makinesi oluştur"*).
-4. Ajan, projeyi oluşturur ve tarayıcı tabanlı Android emülatöründe başlatır.
+1. Chuyển đến [Chế độ xây dựng](https://aistudio.google.com/apps?hl=vi) trong Google AI Studio bằng bảng điều hướng bên trái.
+2. Chọn **Android** trong bộ chọn nền tảng.
+3. Nhập một câu lệnh mô tả ứng dụng bạn muốn tạo (ví dụ: *"Tạo một bảng theo dõi nhiệm vụ hằng ngày có bộ nhớ cục bộ"* hoặc *"Tạo một Máy tính đơn giản"*).
+4. Tác nhân sẽ tạo dự án và chạy dự án đó trong trình mô phỏng Android dựa trên trình duyệt.
 
-Ardından, web deneyiminde olduğu gibi sohbet panelini kullanarak uygulamanızı yineleyebilirsiniz. Temsilci, Android projenizdeki tüm dosyaları yönetir ve değişiklikleri kod tabanına yayar.
+Sau đó, bạn có thể lặp lại quy trình này trên ứng dụng bằng cách sử dụng bảng trò chuyện, giống như trải nghiệm trên web. Tác nhân này quản lý tất cả các tệp trong dự án Android của bạn và truyền các thay đổi trên toàn bộ cơ sở mã.
 
-## Tarayıcı tabanlı Android emülatörü
+## Trình mô phỏng Android dựa trên trình duyệt
 
-Android emülatörü tamamen bulutta çalışır ve tarayıcınıza yayın yapar.
-Android SDK'yı, Android Studio'yu veya yerel bir emülatörü yüklemeniz gerekmez.
+Trình mô phỏng Android chạy hoàn toàn trên đám mây và truyền trực tuyến đến trình duyệt của bạn.
+Bạn không cần cài đặt Android SDK, Android Studio hoặc trình mô phỏng cục bộ.
 
-Emülatör şunları sağlar:
+Trình mô phỏng này cung cấp:
 
-- **Pixel benzeri cihaz simülasyonu**: Uygulamanızla gerçek bir cihazda olduğu gibi dokunarak, kaydırarak ve etkileşimde bulunarak test edin.
-- **Döndürme desteği**: Dikey ve yatay yön arasında geçiş yapın.
-- **Canlı önizleme**: Temsilci kodda değişiklik yaptığında uygulama yeniden oluşturulur ve emülatör otomatik olarak yenilenir.
+- **Mô phỏng thiết bị giống Pixel**: nhấn, cuộn và tương tác với ứng dụng của bạn giống như trên một thiết bị thực.
+- **Hỗ trợ xoay**: chuyển đổi giữa hướng dọc và hướng ngang.
+- **Xem trước trực tiếp**: khi tác nhân thực hiện các thay đổi về mã, ứng dụng sẽ tạo lại và trình mô phỏng sẽ tự động làm mới.
 
-### Emülatör sınırlamaları
+### Giới hạn của trình mô phỏng
 
-Tarayıcı tabanlı emülatör, tüm donanım özelliklerini desteklemez. Aşağıdakiler emülatörde kullanılamaz:
+Trình mô phỏng dựa trên trình duyệt không hỗ trợ tất cả các tính năng phần cứng. Trình mô phỏng không có các tính năng sau:
 
-- Kamera ve fotoğraf çekme
-- NFC ve Bluetooth
-- GPS (konum simüle ediliyor)
-- Google Play Hizmetleri (Google ile Oturum Açma, Haritalar ve diğer Play Hizmetleri özellikleri gerçek cihazda çalışır ancak emülatörde çalışmaz)
+- Chụp ảnh và quay video bằng camera
+- NFC và Bluetooth
+- GPS (vị trí được mô phỏng)
+- Dịch vụ Google Play (Đăng nhập bằng Google, Maps và các tính năng khác của Dịch vụ Play hoạt động trên thiết bị thực nhưng không hoạt động trong trình mô phỏng)
 
-## ADB'nin yüklü olduğu bir cihaza yükleme
+## Cài đặt trên thiết bị có ADB
 
-Oluşturulan APK'yı, USB ile bilgisayarınıza bağlı fiziksel bir Android cihaza doğrudan yükleyebilirsiniz. Bu işlem, tarayıcı üzerinden cihazınızla iletişim kurmak için [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=tr)'yi kullanır. Yerel ADB kurulumu gerekmez.
+Bạn có thể cài đặt trực tiếp APK đã tạo trên một thiết bị Android thực được kết nối với máy tính bằng USB. Tính năng này sử dụng [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=vi) để giao tiếp với thiết bị của bạn thông qua trình duyệt. Không cần cài đặt ADB cục bộ.
 
-### Ön koşullar
+### Điều kiện tiên quyết
 
-- WebUSB'yi destekleyen bir Chrome veya Edge tarayıcı
-- [Geliştirici Seçenekleri ve USB üzerinden hata ayıklama](https://developer.android.com/studio/debug/dev-options?hl=tr)'nın etkin olduğu bir Android cihaz.
-- Cihazınızı bilgisayarınıza bağlayan bir USB kablosu
+- Trình duyệt Chrome hoặc Edge hỗ trợ WebUSB.
+- Một thiết bị Android đã bật [Tuỳ chọn cho nhà phát triển và Gỡ lỗi qua USB](https://developer.android.com/studio/debug/dev-options?hl=vi).
+- Cáp USB kết nối thiết bị với máy tính.
 
-### Uygulamayı cihazınıza yükleyin
+### Cài đặt ứng dụng trên thiết bị
 
-1. Önizleme panelinde **Cihaza Yükle**'yi tıklayın.
-2. Tarayıcının USB cihaz seçicisinden Android cihazınızı seçin.
-3. APK, cihazınıza aktarılıp yüklenir.
-4. Uygulama otomatik olarak başlatılır.
+1. Nhấp vào **Cài đặt trên thiết bị** trong bảng điều khiển xem trước.
+2. Chọn thiết bị Android của bạn trong trình chọn thiết bị USB của trình duyệt.
+3. Tệp APK sẽ được chuyển và cài đặt trên thiết bị của bạn.
+4. Ứng dụng sẽ tự động chạy.
 
-## Play Store'da yayınlama
+## Phát hành lên Cửa hàng Play
 
-Android uygulamanızı [Google Play Console](https://play.google.com/console?hl=tr)'un dahili test kanalında yayınlayabilirsiniz. Bu kanal, uygulamayı 100'e kadar test kullanıcısına dağıtmanıza olanak tanır.
+Bạn có thể xuất bản ứng dụng Android của mình lên kênh kiểm thử nội bộ của [Google Play Console](https://play.google.com/console?hl=vi). Kênh này cho phép bạn phân phối ứng dụng cho tối đa 100 người kiểm thử.
 
-### Ön koşullar
+### Điều kiện tiên quyết
 
-- [Google Play Geliştirici hesabı](https://play.google.com/console/signup?hl=tr)
-  (bir defalık 25 ABD doları kayıt ücreti gerekir).
-- Play Console'da tamamlanmış bir geliştirici profili.
+- [Tài khoản nhà phát triển trên Google Play](https://play.google.com/console/signup?hl=vi) (bạn phải trả phí đăng ký một lần là 25 USD).
+- Hồ sơ nhà phát triển đã hoàn tất trong Play Console.
 
-### Uygulamanızı yayınlama
+### Phát hành ứng dụng
 
-1. Google AI Studio'da **Ayarlar > Yayınla**'yı açın.
-2. **Play Store'da yayınla**'yı tıklayın.
-3. Google Play Geliştirici Hesabınızla kimliğinizi doğrulayın.
-4. AI Studio, APK'yı imzalar, uygulama girişini oluşturur (veya yeni bir sürüm yükler) ve dahili test kanalında yayınlar.
-5. Test kullanıcılarınızla paylaşabileceğiniz bir bağlantı alırsınız.
+1. Mở **Settings > Publish** (Cài đặt > Xuất bản) trong Google AI Studio.
+2. Nhấp vào **Xuất bản lên Cửa hàng Play**.
+3. Xác thực bằng tài khoản nhà phát triển trên Google Play của bạn.
+4. AI Studio ký APK, tạo trang thông tin trên Cửa hàng Play (hoặc tải phiên bản mới lên) và xuất bản lên kênh kiểm thử nội bộ.
+5. Bạn sẽ nhận được một đường liên kết để chia sẻ với người kiểm thử.
 
-AI Studio, yönetilen bir anahtar deposu kullanarak APK imzalama işlemini otomatik olarak yönetir. Uygulama girişini (simge, ekran görüntüleri, açıklama) daha sonra Play Console'da özelleştirebilirsiniz.
+AI Studio tự động quản lý việc ký APK bằng kho khoá được quản lý. Bạn có thể tuỳ chỉnh trang thông tin ứng dụng (biểu tượng, ảnh chụp màn hình, nội dung mô tả) sau này trong Play Console.
 
-## Oluşturulan içerikler
+## Nội dung được tạo
 
-Bir Android uygulaması oluşturduğunuzda aracı, aşağıdaki yapıya sahip standart bir Gradle tabanlı proje oluşturur:
+Khi bạn tạo một ứng dụng Android, tác nhân sẽ tạo một dự án tiêu chuẩn dựa trên Gradle có cấu trúc như sau:
 
-- **Derleme yapılandırması**: Kotlin DSL kullanılarak `build.gradle.kts` dosyaları (proje ve uygulama düzeyi).
-- **Kullanıcı arayüzü katmanı**: [Material 3](https://m3.material.io/) temalı [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=tr) bileşenleri.
-- **Mimari**: ViewModel'ler ve veri sınıflarıyla tek etkinlikli mimari.
-- **Kaynaklar**: `AndroidManifest.xml`, drawables, dizeler ve diğer Android kaynakları.
+- **Cấu hình bản dựng**: Các tệp `build.gradle.kts` (cấp dự án và cấp ứng dụng) bằng Kotlin DSL.
+- **Lớp giao diện người dùng**: Các thành phần [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=vi) có giao diện [Material 3](https://m3.material.io/).
+- **Cấu trúc**: cấu trúc một hoạt động với ViewModel và các lớp dữ liệu.
+- **Tài nguyên**: `AndroidManifest.xml`, các đối tượng có thể vẽ, chuỗi và các tài nguyên khác của Android.
 
-Aracı, Gradle bağımlılıklarını otomatik olarak yönetir ve gerektiğinde Maven ile Google depolarından paketler ekler.
+Tác nhân này tự động quản lý các phần phụ thuộc Gradle, thêm các gói từ kho lưu trữ Maven và Google khi cần.
 
-Oluşturulan kodu, önizleme panelindeki **Kod** sekmesini kullanarak görüntüleyebilir ve düzenleyebilirsiniz. Android Studio'da geliştirmeye devam etmek için projeyi **ZIP dosyası** olarak indirin.
+Bạn có thể xem và chỉnh sửa mã được tạo bằng thẻ **Code** (Mã) trong bảng xem trước. Để tiếp tục phát triển trong Android Studio, hãy tải dự án xuống dưới dạng **tệp ZIP**.
 
-## Sınırlamalar
+## Các điểm hạn chế
 
-AI Studio'da Android uygulaması oluşturma ile ilgili aşağıdaki sınırlamalar vardır:
+Hoạt động tạo ứng dụng Android trong AI Studio có những hạn chế sau:
 
-### Platform sınırlamaları
+### Các hạn chế về nền tảng
 
-- **Yalnızca istemci tarafı**: Android uygulamaları, sunucu tarafı bileşeni içermez.
-  Sunucu çalışma zamanı gerektiren özellikler (sır yönetimi, çok oyunculu, Firebase, Google Workspace API'leri) kullanılamaz.
-- **Tek etkinlikli mimari**: Yalnızca tek etkinlikli, tek modüllü projeler desteklenir.
-- **Yalnızca Jetpack Compose**: Uygulamalar Kotlin ve Jetpack Compose kullanır. Java ve XML düzenleri desteklenmez.
-- **NDK veya yerel kod yok**: C ve C++ kodu desteklenmez.
-- **Wear OS veya Android TV yok**: Yalnızca telefon ve tablet form faktörleri desteklenir.
+- **Chỉ phía máy khách**: Các ứng dụng Android không có thành phần phía máy chủ.
+  Các tính năng yêu cầu thời gian chạy máy chủ (quản lý bí mật, nhiều người chơi, Firebase, API Google Workspace) không dùng được.
+- **Cấu trúc một hoạt động**: chỉ hỗ trợ các dự án một hoạt động, một mô-đun.
+- **Chỉ Jetpack Compose**: ứng dụng sử dụng Kotlin và Jetpack Compose. Không hỗ trợ bố cục Java và XML.
+- **Không có NDK hoặc mã gốc**: Mã C và C++ không được hỗ trợ.
+- **Không có Wear OS hoặc Android TV**: chỉ hỗ trợ hệ số hình dạng điện thoại và máy tính bảng.
 
-### Dışa aktarma sınırlamaları
+### Hạn chế khi xuất
 
-- **Yalnızca ZIP olarak indirme**: Projeyi ZIP dosyası olarak indirebilirsiniz. GitHub dışa aktarma özelliği, Android projelerinde henüz kullanılamamaktadır.
+- **Chỉ tải tệp ZIP xuống**: bạn có thể tải dự án xuống dưới dạng tệp ZIP. Tính năng xuất sang GitHub hiện chưa được cung cấp cho các dự án Android.
 
-## Sırada ne var?
+## Bước tiếp theo
 
-- [Google AI Studio'da uygulama geliştirme](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr)
-- [Tam Yığın Uygulamaları Geliştirme](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=tr) (web)
-- [Uygulama Galerisi](https://aistudio.google.com/apps?source=showcase&hl=tr)'ndeki örneklere bakın.
+- [Tạo ứng dụng trong Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi)
+- [Phát triển ứng dụng Full-Stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=vi) (web)
+- Xem các ví dụ trong [Thư viện ứng dụng](https://aistudio.google.com/apps?source=showcase&hl=vi).
 
-Geri bildirim gönderin
+Gửi ý kiến phản hồi
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Son güncelleme tarihi: 2026-05-19 UTC.
+Cập nhật lần gần đây nhất: 2026-05-19 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-05-19 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]

@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-CN
-fetched_at: 2026-06-29T05:34:46.600531+00:00
-title: "\u53d7\u7ba1\u4ee3\u7406\u4e2d\u7684\u73af\u5883 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-TW
+fetched_at: 2026-07-06T05:05:55.276487+00:00
+title: "\u4ee3\u7ba1\u4ee3\u7406\u7a0b\u5f0f\u4e2d\u7684\u74b0\u5883 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-发送反馈
+提供意見
 
-# 受管代理中的环境
+# 代管代理程式中的環境
 
-环境是受管理的 Linux 沙盒，可为智能体提供一个隔离的位置来执行代码和保留文件。它们与互动上下文分离，因此您可以在多个互动中重复使用同一环境，也可以随时重新开始。
+環境是受管理的 Linux 沙箱，可為代理提供隔離空間，執行程式碼並保留檔案。這些環境與互動情境無關，因此您可以在多個互動中重複使用相同環境，或隨時重新開始。
 
-以下示例演示了如何使用新的远程环境创建互动并检索其 ID：
+以下範例示範如何使用新的遠端環境建立互動，並擷取其 ID：
 
 ### Python
 
@@ -67,17 +67,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## `environment` 参数
+## `environment` 參數
 
-`environment` 参数接受三种形式：
+`environment` 參數接受三種形式：
 
-| 姿势 | 示例 | 适用情形 |
+| 表單 | 範例 | 使用時機 |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | 预配新的沙盒。 |
-| 环境 ID | `environment="env_abc123"` | 重复使用包含所有文件和软件包的现有沙盒。 |
-| 配置对象 | `environment={...}` | 预配包含来源、网络规则或两者的新沙盒。 |
+| `"remote"` | `environment="remote"` | 佈建新的沙箱。 |
+| 環境 ID | `environment="env_abc123"` | 重複使用現有的沙箱，以及其中的所有檔案和套件。 |
+| 設定物件 | `environment={...}` | 佈建新的沙箱，並提供來源、網路規則或兩者。 |
 
-以下示例演示了使用 `environment` 参数的三种方式。
+下列範例示範使用 `environment` 參數的三種方式。
 
 ### Python
 
@@ -205,9 +205,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 配置环境
+## 設定環境
 
-设置环境的一种方法是告知智能体需要安装的内容。它会处理依赖项解析和问题排查。环境准备就绪后，保存 `environment_id` 并重复使用。
+設定環境的方法之一是告訴代理程式需要安裝的項目。並處理依附元件解析和疑難排解作業。環境準備就緒後，請儲存 `environment_id` 並重複使用。
 
 ### Python
 
@@ -284,15 +284,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 从来源装载
+### 從來源掛接
 
-如果您确切知道智能体需要哪些文件，请在一次调用中装载这些文件，而不是进行迭代。`environment` 配置对象接受包含三种类型的 `sources` 数组：
+如果您確切知道代理程式需要哪些檔案，請在單一呼叫中掛接這些檔案，而不是進行疊代。`environment` 設定物件接受 `sources` 陣列，其中包含三種型別：
 
-| 来源类型 | `type` 值 | 说明 | 限制 |
+| 來源類型 | `type`值 | 說明 | 限制 |
 | --- | --- | --- | --- |
-| Git 代码库 | `repository` | 将代码库从网址克隆到 `target` 处的沙盒中。 | 500 MB |
-| Cloud Storage | `gcs` | 将文件或目录从 Cloud Storage 复制到 `target` 处的沙盒中。 | 2 GB |
-| 内嵌内容 | `inline` | 将原始文本内容写入 `target` 处的沙盒中的文件。 | 每个文件 1 MB，总共 2 MB |
+| Git 存放區 | `repository` | 從網址將存放區複製到 `target` 的沙箱。 | 500 MB |
+| Cloud Storage | `gcs` | 將 Cloud Storage 中的檔案或目錄複製到 `target` 的沙箱。 | 2 GB |
+| 內嵌內容 | `inline` | 將原始文字內容寫入沙箱中 `target` 的檔案。 | 每個檔案 1 MB，總計 2 MB |
 
 ### Python
 
@@ -397,16 +397,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-您可以结合使用这两种方法：以声明方式装载已知来源，然后通过后续互动进行迭代以安装软件包或运行设置脚本。添加自定义来源时，您无法将根目录 (`/`) 设置为目标，必须始终指定子目录。
+您可以結合這兩種方法：以宣告方式掛接已知來源，然後透過後續互動疊代，安裝套件或執行設定指令碼。新增自訂來源時，您無法將根目錄 (`/`) 設為目標，必須指定子目錄。
 
-### 私有来源
+### 私人來源
 
-您还可以通过在网络配置中添加凭据，从私有 GitHub 代码库或私有 Cloud Storage 存储分区下载内容：
+您也可以在網路設定中新增憑證，從私人 GitHub 存放區或私人 Cloud Storage 值區下載：
 
-对于**私有 Git 代码库**，请使用`Basic`身份验证以及您的
-[GitHub 个人访问令牌
-(PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)。
-使用 `x-oauth-basic` 作为用户名对令牌进行编码：
+如果是**私人 Git 存放區**，請使用 `Basic` 驗證，並提供 [GitHub 個人存取權杖 (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)。
+使用 `x-oauth-basic` 做為使用者名稱，對權杖進行編碼：
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -511,7 +509,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-对于**私有 Cloud Storage 存储分区**，请使用标准 OAuth 2.0 不记名令牌：
+如果是**私有 Cloud Storage bucket**，請使用標準 OAuth 2.0 不記名權杖：
 
 ```
 gcloud auth print-access-token
@@ -616,25 +614,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 预装软件
+## 預先安裝軟體
 
-沙盒在 Ubuntu 上运行，并预装了运行时和常用软件包。智能体可以在运行时使用 `pip
-install` 或 `npm install` 安装其他软件包。当您重复使用同一 `environment_id` 时，在互动期间安装的软件包会保留。
+沙箱會在 Ubuntu 上執行，並預先安裝執行階段和常見套件。代理程式可在執行階段使用 `pip
+install` 或 `npm install` 安裝其他套件。重複使用相同 `environment_id` 時，互動期間安裝的套件會保留下來。
 
-| 类别 | 预装软件包 |
+| 類別 | 預先安裝的套件 |
 | --- | --- |
 | **UNIX 工具** | `curl`、`wget`、`git`、`rsync`、`unzip`、`ripgrep`、`fd-find`、`gawk`、`bc`、`tree`、`which`、`lsof`、`htop`、`jq`、`iproute2`、`procps`、`gcloud CLI` |
-| **Python 3.12** | `numpy`、`pandas`、`requests`、`google-genai`、`beautifulsoup4`、`pyyaml`、`ast-grep-cli` |
+| **Python 3.12** | `numpy`，`pandas`，`requests`，`google-genai`，`beautifulsoup4`，`pyyaml`，`ast-grep-cli` |
 | **Node.js 22** | `create-next-app`、`create-vite`、`typescript` |
 
-## 网络配置
+## 網路設定
 
-默认情况下，环境具有不受限制的出站网络访问权限。使用 `network` 字段将出站流量限制为特定网域。每条规则都指定一个 `domain` 和一个可选的 `transform` 对象，以将标头注入到匹配的请求中。这些标头对于每次互动可以是唯一的，并且您可以为同一环境更新这些标头。
+根據預設，環境具有不受限制的輸出網路存取權。使用 `network` 欄位將傳出流量限制在特定網域。每項規則都會指定 `domain` 和選用的 `transform` 物件，將標頭插入相符的要求。這些標頭在每次互動中可能都不相同，您也可以更新相同環境的標頭。
 
-| 字段 | 类型 | 说明 |
+| 欄位 | 類型 | 說明 |
 | --- | --- | --- |
-| `domain` | `string` | 要匹配的网域。使用确切的主机名或 `*` 来指定所有网域。 |
-| `transform` | `object` | 包含扁平键值对的对象，这些键值对表示要注入到匹配请求中的标头，例如 `{"Authorization": "Bearer ..."}`。 |
+| `domain` | `string` | 要比對的網域。使用確切主機名稱，或以 `*` 代表所有網域。 |
+| `transform` | `object` | 物件，內含代表要插入相符要求的標頭的扁平鍵/值組合，例如 `{"Authorization": "Bearer ..."}`。 |
 
 ### Python
 
@@ -723,13 +721,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-设置许可名单后，系统仅允许向明确列出的网域发出请求。您可以使用通配符来匹配子网域（例如 `{"domain":
-"*.example.com"}`），但请注意，这不会匹配根域名
-`example.com`，您必须单独添加该域名。如需允许所有其他流量（例如在不注入标头的情况下路由未列出的网域），请添加 `{"domain": "*"}` 作为全能条目。
+設定許可清單後，系統只會允許對明確列出的網域提出要求。您可以使用萬用字元比對子網域 (例如 `{"domain":
+"*.example.com"}`)，但請注意，這不會比對根網域 `example.com`，您必須另外新增根網域。如要允許所有其他流量 (例如轉送未列出的網域，且不插入標頭)，請新增 `{"domain": "*"}` 做為適用所有流量的項目。
 
-### 凭据
+### 憑證
 
-您可以通过添加标头转换来添加凭据，供智能体使用。凭据由出站代理注入到相应的 HTTP 标头中，它们绝不会作为环境变量或文件在沙盒内公开。
+您可以新增標頭轉換，為代理程式新增憑證。憑證會由輸出 Proxy 插入對應的 HTTP 標頭，絕不會以環境變數或檔案的形式在沙箱內公開。
 
 ### Python
 
@@ -822,9 +819,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### 停用网络访问权限
+### 停用網路存取權
 
-如需阻止所有出站网络访问，请将 `network` 设置为 `disabled`：
+如要封鎖所有傳出網路存取權，請將 `network` 設為 `disabled`：
 
 ### Python
 
@@ -880,21 +877,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 环境生命周期
+## 環境生命週期
 
-环境遵循以下生命周期：
+環境的生命週期如下：
 
-| 状态 | 行为 |
+| 州 | 行為 |
 | --- | --- |
-| **已创建** | 当互动指定 `environment: "remote"` 或配置对象时，系统会预配环境。 |
-| **有效** | 在互动进行期间运行。 |
-| **空闲** | 闲置 15 分钟后，系统会自动创建快照并停止环境。 |
-| **离线** | 自上次使用以来保留 7 天。可以通过传递其 ID 来恢复。 |
-| **已删除** | 从系统中移除。 |
+| **已建立** | 當互動指定 `environment: "remote"` 或設定物件時，系統會佈建此項目。 |
+| **進行中** | 在互動進行期間執行。 |
+| **閒置** | 自動拍攝快照，並在閒置 15 分鐘後停止。 |
+| **離線** | 自上次使用起保留 7 天。傳遞 ID 即可繼續。 |
+| **已刪除** | 已從系統中移除。 |
 
-## 从环境下载文件
+## 從環境下載檔案
 
-智能体在执行期间会在沙盒内创建文件。您可以使用 Files API 将完整环境快照下载为 tar 文件：
+代理程式會在執行期間於沙箱內建立檔案。您可以使用 Files API，將完整環境快照下載為 tar 檔案：
 
 ### Python
 
@@ -989,40 +986,39 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   -o snapshot.tar
 ```
 
-## 价格和资源
+## 價格與資源
 
-每个环境都以固定的资源分配运行：
+每個環境都會以固定的資源分配量執行：
 
-| 资源 | 值 |
+| 資源 | 值 |
 | --- | --- |
-| **CPU** | 4 核 |
-| **内存** | 16 GB |
+| **CPU** | 4 核心 |
+| **記憶體** | 16 GB |
 
-在预览版期间，环境计算（CPU、内存、沙盒执行）**不收费** 。如需了解
-智能体令牌费用，请参阅[价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#pricing-for-agents)。
+在預先發布期間，環境運算 (CPU、記憶體、沙箱執行) **不會產生費用**。如需瞭解代理程式權杖費用，請參閱「[定價](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#pricing-for-agents)」。
 
 ## 限制
 
-- **预览版状态** ：环境和受管理的智能体处于预览版阶段。功能和架构可能会发生变化。
-- **内嵌来源大小** ：内嵌来源限制为每个文件 1 MB，所有文件总共 2 MB。
-- **来源大小**：Git 代码库限制为 500 MB，Cloud Storage 代码库限制为 2 GB。
-- **环境启动** ：预配新环境最多需要约 5 秒。大型来源代码库可能会增加此时间。
-- **文件支持** ：智能体目前只能读取文本文件和图片文件。尚不支持二进制文件。
-- **无法从根目录装载** ：添加自定义来源时，您无法将根目录 (`/`) 设置为目标，必须始终指定子目录。
+- **預覽狀態：**環境和受管理代理程式目前處於預覽階段。功能和結構定義可能會有所異動。
+- **內嵌來源大小：**每個檔案的內嵌來源大小上限為 1 MB，所有檔案的內嵌來源大小總和上限為 2 MB。
+- **來源大小**：Git 存放區大小上限為 500 MB，Cloud Storage 存放區大小上限為 2 GB。
+- **環境啟動：**佈建新環境最多需要約 5 秒。如果來源存放區很大，可能需要較長的時間。
+- **支援的檔案：**目前僅限讀取文字和圖片檔。目前尚不支援二進位檔案。
+- **無法從根目錄掛接：**新增自訂來源時，您無法將根目錄 (`/`) 設為目標，必須一律指定子目錄。
 
-## 后续步骤
+## 後續步驟
 
-- [智能体概览](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn)：了解受管理的智能体的核心概念。
-- [快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)：开始构建多轮对话和流式传输。
-- [Antigravity 智能体](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-cn)：探索默认智能体的功能、工具和价格。
-- [构建自定义智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)：使用 `AGENTS.md` 和 `SKILL.md` 定义您自己的智能体。
+- [代理程式總覽](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw)：瞭解受管理代理程式的核心概念。
+- [快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)：開始建構多輪對話和串流。
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)：瞭解預設代理的功能、工具和價格。
+- [建構自訂代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)：使用 `AGENTS.md` 和 `SKILL.md` 定義專屬代理。
 
-发送反馈
+提供意見
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最后更新时间 (UTC)：2026-06-22。
+上次更新時間：2026-06-22 (世界標準時間)。
 
-需要向我们提供更多信息？
+想進一步說明嗎？
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-22。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-22 (世界標準時間)。"],[],[]]

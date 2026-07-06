@@ -1,45 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=id
-fetched_at: 2026-06-29T05:25:29.932940+00:00
-title: "Analisis dukungan pelanggan dengan Gemini dan CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=he
+fetched_at: 2026-07-06T05:16:15.265361+00:00
+title: "\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e9\u05dc \u05ea\u05de\u05d9\u05db\u05ea \u05dc\u05e7\u05d5\u05d7\u05d5\u05ea \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea Gemini \u05d5-CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Analisis dukungan pelanggan dengan Gemini dan CrewAI
+# ניתוח של תמיכת לקוחות באמצעות Gemini ו-CrewAI
 
-[CrewAI](https://docs.crewai.com/introduction) adalah framework untuk mengatur
-agen AI otonom yang berkolaborasi untuk mencapai sasaran yang kompleks. Framework ini memungkinkan Anda
-menentukan agen dengan menentukan peran, sasaran, dan latar belakang, lalu menentukan tugas
-untuk agen tersebut.
+‫[CrewAI](https://docs.crewai.com/introduction) הוא פריימוורק לניהול סוכני AI אוטונומיים שמשתפים פעולה כדי להשיג יעדים מורכבים. הוא מאפשר להגדיר סוכנים על ידי ציון תפקידים, יעדים וסיפורי רקע, ולאחר מכן להגדיר להם משימות.
 
-Contoh ini menunjukkan cara membuat sistem multi-agen untuk menganalisis data dukungan pelanggan guna mengidentifikasi masalah dan mengusulkan peningkatan proses menggunakan Gemini 3 Flash, yang menghasilkan laporan yang ditujukan untuk dibaca oleh Chief Operating Officer (COO).
+בדוגמה הזו נסביר איך לבנות מערכת מרובת סוכנים לניתוח נתונים של תמיכת לקוחות כדי לזהות בעיות ולהציע שיפורים בתהליכים באמצעות Gemini 3 Flash. המערכת יוצרת דוח שמיועד לקריאה על ידי מנהל תפעול ראשי (COO).
 
-Panduan ini akan menunjukkan cara membuat "kru" agen AI yang dapat melakukan tugas berikut:
+במדריך הזה נסביר איך ליצור 'צוות' של סוכני AI שיכולים לבצע את המשימות הבאות:
 
-1. Mengambil dan menganalisis data dukungan pelanggan (disimulasikan dalam contoh ini).
-2. Mengidentifikasi masalah berulang dan hambatan proses.
-3. Menyarankan peningkatan yang dapat ditindaklanjuti.
-4. Mengumpulkan temuan ke dalam laporan ringkas yang sesuai untuk COO.
+1. אחזור וניתוח של נתוני תמיכת לקוחות (סימולציה בדוגמה הזו).
+2. זיהוי בעיות חוזרות וצווארי בקבוק בתהליך.
+3. להציע שיפורים פרקטיים.
+4. לרכז את הממצאים בדוח תמציתי שמתאים למנהל תפעול ראשי.
 
-Anda memerlukan kunci Gemini API. Jika belum memilikinya, Anda bisa [mendapatkannya di
-Google AI Studio](https://aistudio.google.com/apikey?hl=id).
+אתם צריכים מפתח Gemini API. אם עדיין אין לכם חשבון, אתם יכולים [ליצור חשבון ב-Google AI Studio](https://aistudio.google.com/apikey?hl=he).
 
 ```
 pip install "crewai[tools]"
 ```
 
-Tetapkan kunci Gemini API Anda sebagai variabel lingkungan bernama `GEMINI_API_KEY`, lalu konfigurasi CrewAI untuk menggunakan model Gemini.
+מגדירים את מפתח Gemini API כמשתנה סביבה בשם `GEMINI_API_KEY`, ואז מגדירים את CrewAI כך שישתמש במודל Gemini.
 
 ```
 import os
@@ -54,14 +50,13 @@ gemini_llm = LLM(
 )
 ```
 
-## Menentukan komponen
+## הגדרת רכיבים
 
-Buat aplikasi CrewAI menggunakan **Alat**, **Agen**, **Tugas**, dan
-**Kru** itu sendiri. Bagian berikut menjelaskan setiap komponen ini.
+פיתוח אפליקציות CrewAI באמצעות **Tools**,‏ **Agents**,‏ **Tasks** ו-**Crew**. בקטעים הבאים מוסבר על כל אחד מהרכיבים האלה.
 
-### Alat
+### כלים
 
-Alat adalah kemampuan yang dapat digunakan agen untuk berinteraksi dengan dunia luar atau melakukan tindakan tertentu. Di sini, Anda menentukan alat placeholder untuk menyimulasikan pengambilan data dukungan pelanggan. Dalam aplikasi sebenarnya, Anda akan terhubung ke database, API, atau sistem file. Untuk mengetahui informasi selengkapnya tentang alat, lihat panduan alat [CrewAI](https://docs.crewai.com/concepts/tools).
+כלים הם יכולות שסוכנים יכולים להשתמש בהן כדי ליצור אינטראקציה עם העולם החיצוני או לבצע פעולות ספציפיות. כאן מגדירים כלי placeholder כדי לדמות אחזור של נתוני תמיכת לקוחות. באפליקציה אמיתית, מתחברים למסד נתונים, ל-API או למערכת קבצים. מידע נוסף על כלים זמין [במדריך הכלים של CrewAI](https://docs.crewai.com/concepts/tools).
 
 ```
 from crewai.tools import BaseTool
@@ -91,9 +86,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### Agen
+### סוכנים
 
-Agen adalah pekerja AI individual di kru Anda. Setiap agen memiliki `role`, `goal`, `backstory`, `llm` yang ditetapkan, dan `tools` opsional. Untuk mengetahui informasi selengkapnya tentang agen, lihat [panduan agen CrewAI](https://docs.crewai.com/concepts/agents).
+סוכנים הם עובדי ה-AI האישיים בצוות. לכל סוכן יש `role`,‏ `goal`,‏ `backstory` ספציפיים, `llm` מוקצה ו`tools` אופציונלי. מידע נוסף על סוכנים זמין [במדריך לסוכני CrewAI](https://docs.crewai.com/concepts/agents).
 
 ```
 from crewai import Agent
@@ -140,9 +135,9 @@ report_writer = Agent(
 )
 ```
 
-### Tugas
+### Tasks
 
-Tugas menentukan penugasan spesifik untuk agen. Setiap tugas memiliki `description`, `expected_output`, dan ditetapkan ke `agent`. Tugas dijalankan secara berurutan secara default dan menyertakan konteks tugas sebelumnya. Untuk mengetahui informasi selengkapnya tentang tugas, lihat [panduan tugas CrewAI](https://docs.crewai.com/concepts/tasks).
+המשימות מגדירות את המטלות הספציפיות של הסוכנים. לכל משימה יש `description`, ‏ `expected_output`, והיא מוקצית ל`agent`. כברירת מחדל, המשימות מופעלות ברצף וכוללות את ההקשר של המשימה הקודמת. מידע נוסף על משימות זמין ב[מדריך למשימות ב-CrewAI](https://docs.crewai.com/concepts/tasks).
 
 ```
 from crewai import Task
@@ -201,9 +196,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Crew
+### צוות ההפקה
 
-`Crew` menggabungkan agen dan tugas, menentukan proses alur kerja (seperti "berurutan").
+`Crew` מאחד בין הסוכנים והמשימות, ומגדיר את תהליך העבודה (למשל, 'רציף').
 
 ```
 from crewai import Crew, Process
@@ -216,9 +211,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## Menjalankan kru
+## הרצת הצוות
 
-Terakhir, mulai eksekusi kru dengan input yang diperlukan.
+לבסוף, מפעילים את צוות הביצוע עם כל נתוני הקלט הנדרשים.
 
 ```
 # Start the crew's work
@@ -232,19 +227,17 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-Skrip kini akan dijalankan. `Data Analyst` akan menggunakan alat, `Process
-Optimizer` akan menganalisis temuan, dan `Report Writer` akan menyusun
-laporan akhir, yang kemudian dicetak ke konsol. Setelan `verbose=True` akan menampilkan proses pemikiran dan tindakan mendetail dari setiap agen.
+הסקריפט יופעל. ‫`Data Analyst` ישתמש בכלי, `Process
+Optimizer` ינתח את הממצאים ו-`Report Writer` ירכז את הדוח הסופי, שיוצג במסוף. ההגדרה `verbose=True` תציג את תהליך החשיבה המפורט ואת הפעולות של כל סוכן.
 
-Untuk mempelajari CrewAI lebih lanjut, lihat [CrewAI
-pengantar](https://docs.crewai.com/introduction).
+מידע נוסף על CrewAI זמין ב[מבוא ל-CrewAI](https://docs.crewai.com/introduction).
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-06-10 UTC.
+עדכון אחרון: 2026-06-10 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-10 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-10 (שעון UTC)."],[],[]]

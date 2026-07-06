@@ -1,64 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=zh-TW
-fetched_at: 2026-06-29T05:26:14.564101+00:00
-title: "\u8108\u7d61\u5feb\u53d6 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=vi
+fetched_at: 2026-07-06T05:17:30.891249+00:00
+title: "L\u01b0u ng\u1eef c\u1ea3nh v\u00e0o b\u1ed9 nh\u1edb \u0111\u1ec7m \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-提供意見
+Gửi ý kiến phản hồi
 
-# 脈絡快取
+# Lưu ngữ cảnh vào bộ nhớ đệm
 
-在典型的 AI 工作流程中，您可能會重複將相同的輸入權杖傳遞至模型。Gemini API 提供兩種不同的快取機制：
+Trong quy trình AI thông thường, bạn có thể truyền đi truyền lại các mã thông báo đầu vào giống nhau cho một mô hình. Gemini API cung cấp 2 cơ chế lưu vào bộ nhớ đệm:
 
-- 隱式快取 (Gemini 2.5 和更新的模型會自動啟用，不保證能節省費用)
-- 明確快取 (大多數模型可手動啟用，保證節省費用)
+- Lưu vào bộ nhớ đệm ngầm ẩn (tự động bật trên Gemini 2.5 và các mô hình mới hơn, không đảm bảo tiết kiệm chi phí)
+- Lưu vào bộ nhớ đệm rõ ràng (có thể bật theo cách thủ công trên hầu hết các mô hình, đảm bảo tiết kiệm chi phí)
 
-如果您想確保節省費用，但願意增加開發人員工作量，則可使用明確快取。
+Tính năng lưu vào bộ nhớ đệm rõ ràng hữu ích trong trường hợp bạn muốn đảm bảo tiết kiệm chi phí, nhưng cần thêm một số công việc cho nhà phát triển.
 
-## 隱含快取
+## Lưu vào bộ nhớ đệm ngầm ẩn
 
-所有 Gemini 2.5 以上版本模型都會預設啟用隱式快取功能。如果要求命中快取，系統會自動將節省的費用退還給您。這項功能會自動啟用，您無需採取任何行動。下表列出各模型進行內容快取時的最低輸入權杖數：
+Tính năng lưu vào bộ nhớ đệm ngầm ẩn được bật theo mặc định cho tất cả các mô hình Gemini 2.5 và mới hơn. Chúng tôi tự động chuyển khoản tiết kiệm chi phí nếu yêu cầu của bạn truy cập vào bộ nhớ đệm. Bạn không cần làm gì để bật tính năng này. Số lượng mã thông báo đầu vào tối thiểu để lưu vào bộ nhớ đệm theo bối cảnh được liệt kê trong bảng sau cho từng mô hình:
 
-| 模型 | 詞元數量下限 |
+| Mô hình | Giới hạn mã thông báo tối thiểu |
 | --- | --- |
 | Gemini 3.5 Flash | 4096 |
-| Gemini 3.1 Pro 預先發布版 | 4096 |
+| Bản xem trước Gemini 3.1 Pro | 4096 |
 | Gemini 2.5 Flash | 2048 |
 | Gemini 2.5 Pro | 2048 |
 
-如要提高隱含快取命中的機率，請採取下列行動：
+Cách tăng cơ hội truy cập vào bộ nhớ đệm ngầm ẩn:
 
-- 請嘗試在提示開頭放入大型和常見內容
-- 嘗試在短時間內傳送具有類似前置字串的要求
+- Thử đặt nội dung lớn và phổ biến ở đầu lời nhắc
+- Thử gửi yêu cầu có tiền tố tương tự trong một khoảng thời gian ngắn
 
-您可以在回應物件的 `usage_metadata` 欄位中，查看快取命中次數。
+Bạn có thể xem số lượng mã thông báo đã truy cập vào bộ nhớ đệm trong trường `usage_metadata` của đối tượng phản hồi.
 
-## 明確快取
+## Lưu vào bộ nhớ đệm rõ ràng
 
-使用 Gemini API 的明確快取功能，您可以將部分內容傳遞至模型一次、快取輸入權杖，然後在後續要求中參照快取的權杖。在特定量級下，使用快取權杖的成本比重複傳遞相同權杖主體更低。
+Khi sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng của Gemini API, bạn có thể truyền một số nội dung vào mô hình một lần, lưu mã thông báo đầu vào vào bộ nhớ đệm, sau đó tham chiếu đến các mã thông báo đã lưu vào bộ nhớ đệm cho các yêu cầu tiếp theo. Ở một số lượng nhất định, việc sử dụng mã thông báo đã lưu vào bộ nhớ đệm sẽ có chi phí thấp hơn so với việc truyền cùng một tập hợp mã thông báo nhiều lần.
 
-快取一組權杖時，您可以選擇快取存在多久，權杖才會自動刪除。這段快取時間稱為「存留時間」(TTL)。如未設定，TTL 預設為 1 小時。快取費用取決於輸入權杖大小，以及權杖的保留時間。
+Khi lưu một tập hợp mã thông báo vào bộ nhớ đệm, bạn có thể chọn thời gian tồn tại của bộ nhớ đệm trước khi các mã thông báo tự động bị xoá. Thời gian lưu vào bộ nhớ đệm này được gọi là *thời gian tồn tại* (TTL). Nếu bạn không đặt thời gian này, TTL sẽ mặc định là 1 giờ. Chi phí lưu vào bộ nhớ đệm phụ thuộc vào kích thước mã thông báo đầu vào và thời gian bạn muốn các mã thông báo tồn tại.
 
-本節假設您已安裝 Gemini SDK (或已安裝 curl)，並已設定 API 金鑰，如「[開始使用指南](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)」所示。
+Phần này giả định rằng bạn đã cài đặt Gemini SDK (hoặc đã cài đặt curl)
+và đã định cấu hình khoá API, như trong
+[hướng dẫn Bắt đầu](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi).
 
-### 使用快取生成內容
+### Tạo nội dung bằng bộ nhớ đệm
 
 ### Python
 
-以下範例說明如何使用快取的系統指令和影片檔案生成內容。
+Ví dụ sau đây trình bày cách tạo nội dung bằng hướng dẫn hệ thống và tệp video đã lưu vào bộ nhớ đệm.
 
-### 影片
+### Video
 
 ```
 import os
@@ -165,7 +167,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-以下範例說明如何使用快取的系統指令和文字檔生成內容。
+Ví dụ sau đây trình bày cách tạo nội dung bằng hướng dẫn hệ thống và tệp văn bản đã lưu vào bộ nhớ đệm.
 
 ```
 import {
@@ -206,7 +208,7 @@ await main();
 
 ### Go
 
-以下範例說明如何使用快取產生內容。
+Ví dụ sau đây trình bày cách tạo nội dung bằng bộ nhớ đệm.
 
 ```
 package main
@@ -276,9 +278,9 @@ func main() {
 
 ### REST
 
-以下範例說明如何建立快取，然後用來產生內容。
+Ví dụ sau đây trình bày cách tạo bộ nhớ đệm rồi sử dụng bộ nhớ đệm đó để tạo nội dung.
 
-### 影片
+### Video
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -427,20 +429,22 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### 列出快取
+### Liệt kê bộ nhớ đệm
 
-您無法擷取或查看快取內容，但可以擷取快取中繼資料 (`name`、`model`、`display_name`、`usage_metadata`、`create_time`、`update_time` 和 `expire_time`)。
+Bạn không thể truy xuất hoặc xem nội dung đã lưu vào bộ nhớ đệm, nhưng có thể truy xuất
+siêu dữ liệu bộ nhớ đệm (`name`, `model`, `display_name`, `usage_metadata`,
+`create_time`, `update_time` và `expire_time`).
 
 ### Python
 
-如要列出所有上傳快取的中繼資料，請使用 `CachedContent.list()`：
+Để liệt kê siêu dữ liệu cho tất cả bộ nhớ đệm đã tải lên, hãy sử dụng `CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-如要擷取一個快取物件的中繼資料 (如果知道物件名稱)，請使用 `get`：
+Để tìm nạp siêu dữ liệu cho một đối tượng bộ nhớ đệm, nếu bạn biết tên của đối tượng đó, hãy sử dụng `get`:
 
 ```
 client.caches.get(name=name)
@@ -448,7 +452,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-如要列出所有上傳快取的中繼資料，請使用 `GoogleGenAI.caches.list()`：
+Để liệt kê siêu dữ liệu cho tất cả bộ nhớ đệm đã tải lên, hãy sử dụng `GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -465,7 +469,7 @@ while (true) {
 
 ### Go
 
-以下範例會列出所有快取。
+Ví dụ sau đây liệt kê tất cả bộ nhớ đệm.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -478,7 +482,7 @@ for _, item := range caches {
 }
 ```
 
-以下範例會列出快取，頁面大小為 2。
+Ví dụ sau đây liệt kê bộ nhớ đệm bằng kích thước trang là 2.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -511,13 +515,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### 更新快取
+### Cập nhật bộ nhớ đệm
 
-您可以為快取設定新的 `ttl` 或 `expire_time`。不支援變更快取的其他任何項目。
+Bạn có thể đặt `ttl` hoặc `expire_time` mới cho bộ nhớ đệm. Bạn không thể thay đổi bất kỳ thông tin nào khác về bộ nhớ đệm.
 
 ### Python
 
-以下範例說明如何使用 `client.caches.update()` 更新快取的 `ttl`。
+Ví dụ sau đây trình bày cách cập nhật `ttl` của bộ nhớ đệm bằng `client.caches.update()`.
 
 ```
 from google import genai
@@ -531,7 +535,10 @@ client.caches.update(
 )
 ```
 
-如要設定到期時間，請接受 `datetime` 物件或 ISO 格式的日期時間字串 (`dt.isoformat()`，例如 `2025-01-27T16:02:36.473528+00:00`)。時間必須包含時區 (`datetime.utcnow()` 不會附加時區，`datetime.now(datetime.timezone.utc)` 則會附加時區)。
+Để đặt thời gian hết hạn, hệ thống sẽ chấp nhận đối tượng `datetime` hoặc chuỗi ngày giờ ở định dạng ISO (`dt.isoformat()`, chẳng hạn như
+`2025-01-27T16:02:36.473528+00:00`). Thời gian của bạn phải bao gồm múi giờ
+(`datetime.utcnow()` không đính kèm múi giờ,
+`datetime.now(datetime.timezone.utc)` có đính kèm múi giờ).
 
 ```
 from google import genai
@@ -551,7 +558,7 @@ client.caches.update(
 
 ### JavaScript
 
-以下範例說明如何使用 `GoogleGenAI.caches.update()` 更新快取的 `ttl`。
+Ví dụ sau đây trình bày cách cập nhật `ttl` của bộ nhớ đệm bằng `GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -564,7 +571,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-以下範例說明如何更新快取的 `TTL`。
+Ví dụ sau đây trình bày cách cập nhật `TTL` của bộ nhớ đệm.
 
 ```
 // Update the TTL (2 hours).
@@ -580,7 +587,7 @@ fmt.Println(cache)
 
 ### REST
 
-以下範例說明如何更新快取的 `ttl`。
+Ví dụ sau đây trình bày cách cập nhật `ttl` của bộ nhớ đệm.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -588,9 +595,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### 刪除快取
+### Xoá bộ nhớ đệm
 
-快取服務提供刪除作業，可手動從快取中移除內容。以下範例說明如何刪除快取：
+Dịch vụ lưu vào bộ nhớ đệm cung cấp thao tác xoá để xoá nội dung khỏi bộ nhớ đệm theo cách thủ công. Ví dụ sau đây trình bày cách xoá bộ nhớ đệm:
 
 ### Python
 
@@ -620,44 +627,49 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### 使用 OpenAI 程式庫進行明確快取
+### Lưu vào bộ nhớ đệm rõ ràng bằng thư viện OpenAI
 
-如果您使用 [OpenAI 程式庫](https://ai.google.dev/gemini-api/docs/openai?hl=zh-tw)，可以透過 [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=zh-tw#extra-body) 的 `cached_content` 屬性啟用明確快取。
+Nếu đang sử dụng [thư viện OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi), bạn có thể bật
+tính năng lưu vào bộ nhớ đệm rõ ràng bằng cách sử dụng thuộc tính `cached_content` trên
+[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=vi#extra-body).
 
-## 使用明確快取的時機
+## Trường hợp nên sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng
 
-情境快取特別適合在短要求中重複參照大量初始情境的情境。請考慮在下列用途使用內容快取：
+Tính năng lưu vào bộ nhớ đệm theo bối cảnh đặc biệt phù hợp với các trường hợp mà một bối cảnh ban đầu đáng kể được các yêu cầu ngắn hơn tham chiếu nhiều lần. Hãy cân nhắc sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh cho các trường hợp sử dụng như:
 
-- 具有大量[系統指令](https://ai.google.dev/gemini-api/docs/system-instructions?hl=zh-tw)的聊天機器人
-- 重複分析冗長的影片檔案
-- 針對大量文件集重複查詢
-- 經常分析程式碼存放區或修正錯誤
+- Chatbot có hướng dẫn hệ thống mở rộng [system instructions](https://ai.google.dev/gemini-api/docs/system-instructions?hl=vi)
+- Phân tích lặp lại các tệp video dài
+- Truy vấn định kỳ đối với các tập hợp tài liệu lớn
+- Phân tích kho lưu trữ mã thường xuyên hoặc sửa lỗi
 
-### 明確快取如何降低成本
+### Cách tính năng lưu vào bộ nhớ đệm rõ ràng giúp giảm chi phí
 
-情境快取是付費功能，可降低成本。計費依據下列因素：
+Tính năng lưu vào bộ nhớ đệm theo bối cảnh là một tính năng có tính phí được thiết kế để giảm chi phí. Việc tính phí dựa trên các yếu tố sau:
 
-1. **快取詞元數：**快取的輸入詞元數，納入後續提示時會以較低的費率計費。
-2. **儲存時間：**快取權杖的儲存時間 (TTL)，費用會根據快取權杖數量的 TTL 時間長度計費。存留時間沒有上下限。
-3. **其他因素：**系統會收取其他費用，例如非快取輸入權杖和輸出權杖的費用。
+1. **Số lượng mã thông báo trong bộ nhớ đệm:** Số lượng mã thông báo đầu vào được lưu vào bộ nhớ đệm, được tính phí với mức giảm khi được đưa vào các lời nhắc tiếp theo.
+2. **Thời gian lưu trữ:** Khoảng thời gian các mã thông báo được lưu vào bộ nhớ đệm (TTL), được tính phí dựa trên thời lượng TTL của số lượng mã thông báo được lưu vào bộ nhớ đệm. Không có giới hạn tối thiểu hoặc tối đa đối với TTL.
+3. **Các yếu tố khác:** Các khoản phí khác sẽ được áp dụng, chẳng hạn như đối với mã thông báo đầu vào và mã thông báo đầu ra không được lưu vào bộ nhớ đệm.
 
-如需最新定價詳細資料，請參閱 Gemini API [定價頁面](https://ai.google.dev/pricing?hl=zh-tw)。如要瞭解如何計算權杖，請參閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)。
+Để biết thông tin chi tiết mới nhất về giá, hãy tham khảo trang [giá
+của Gemini API](https://ai.google.dev/pricing?hl=vi). Để tìm hiểu cách đếm mã thông báo, hãy xem [hướng dẫn
+về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
 
-### 其他注意事項
+### Các yếu tố cần cân nhắc khác
 
-使用內容快取時，請注意下列事項：
+Hãy lưu ý những điểm cần cân nhắc sau đây khi sử dụng tính năng lưu vào bộ nhớ đệm theo bối cảnh:
 
-- 不同模型有不同的內容快取*最低*輸入權杖數。*最大值*與指定模型的最大值相同。(如要進一步瞭解如何計算權杖，請參閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw))。
-- 模型不會區分快取權杖和一般輸入權杖。快取內容是提示的前置字元。
-- 內容快取沒有特殊費率或用量限制，適用 `GenerateContent` 的標準費率限制，且權杖限制包含快取的權杖。
-- 快取服務的建立、取得和列出作業，以及使用快取時的 `GenerateContent`，都會傳回快取權杖數量。`usage_metadata`
+- Số lượng mã thông báo đầu vào *tối thiểu* để lưu vào bộ nhớ đệm theo bối cảnh sẽ khác nhau tuỳ theo mô hình. Số lượng mã thông báo đầu vào *tối đa* cũng giống như số lượng mã thông báo tối đa cho mô hình đã cho. (Để biết thêm thông tin về cách đếm mã thông báo,
+  hãy xem [hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi)).
+- Mô hình không phân biệt giữa mã thông báo đã lưu vào bộ nhớ đệm và mã thông báo đầu vào thông thường. Nội dung đã lưu vào bộ nhớ đệm là tiền tố của lời nhắc.
+- Không có mức giá đặc biệt hoặc giới hạn sử dụng đối với tính năng lưu vào bộ nhớ đệm theo bối cảnh; các giới hạn về mức giá tiêu chuẩn cho `GenerateContent` sẽ được áp dụng và giới hạn mã thông báo bao gồm cả mã thông báo đã lưu vào bộ nhớ đệm.
+- Số lượng mã thông báo đã lưu vào bộ nhớ đệm được trả về trong `usage_metadata` từ các thao tác tạo, nhận và liệt kê của dịch vụ lưu vào bộ nhớ đệm, cũng như trong `GenerateContent` khi sử dụng bộ nhớ đệm.
 
-提供意見
+Gửi ý kiến phản hồi
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-上次更新時間：2026-06-24 (世界標準時間)。
+Cập nhật lần gần đây nhất: 2026-06-24 UTC.
 
-想進一步說明嗎？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-24 (世界標準時間)。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-24 UTC."],[],[]]

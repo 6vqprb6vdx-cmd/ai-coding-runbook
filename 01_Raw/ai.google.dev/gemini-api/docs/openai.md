@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/openai?hl=it
-fetched_at: 2026-06-29T05:31:47.356757+00:00
-title: "Compatibilit\u00e0 con OpenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/openai?hl=ja
+fetched_at: 2026-07-06T05:14:43.625069+00:00
+title: "OpenAI \u306e\u4e92\u63db\u6027 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-# Compatibilità con OpenAI
+# OpenAI の互換性
 
-I modelli Gemini sono accessibili utilizzando le librerie OpenAI (Python e TypeScript/JavaScript) insieme all'API REST, aggiornando tre righe di codice e utilizzando la [chiave API Gemini](https://aistudio.google.com/apikey?hl=it). Se non utilizzi già le librerie OpenAI, ti consigliamo di chiamare direttamente l'[API Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=it).
+Gemini モデルには、OpenAI ライブラリ（Python と TypeScript / JavaScript）と REST API を使用してアクセスできます。これには、3 行のコードを更新し、[Gemini API キー](https://aistudio.google.com/apikey?hl=ja)を使用します。OpenAI ライブラリを使用していない場合は、[Gemini API を直接](https://ai.google.dev/gemini-api/docs/get-started?hl=ja)呼び出すことをおすすめします。
 
 ### Python
 
@@ -89,33 +89,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-Che cosa è cambiato? Solo tre righe.
+変更点3 行だけです。
 
-- **`api_key="GEMINI_API_KEY"`**: sostituisci "`GEMINI_API_KEY`" con la tua chiave API Gemini, che puoi ottenere in [Google AI Studio](https://aistudio.google.com?hl=it).
-- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** questo
-  indica alla libreria OpenAI di inviare richieste all'endpoint dell'API Gemini anziché
-  all'URL predefinito.
-- **`model="gemini-3.5-flash"`**: scegli un modello Gemini compatibile
+- **`api_key="GEMINI_API_KEY"`**: 「`GEMINI_API_KEY`」を実際の Gemini API キーに置き換えます。このキーは [Google AI Studio](https://aistudio.google.com?hl=ja) で取得できます。
+- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** OpenAI ライブラリに、デフォルトの URL ではなく Gemini API エンドポイントにリクエストを送信するように指示します。
+- **`model="gemini-3.5-flash"`**: 互換性のある Gemini モデルを選択する
 
-## Ragionamento
+## 思考モード
 
-I modelli Gemini sono addestrati a risolvere problemi complessi, il che porta a un ragionamento notevolmente migliorato. L'API Gemini è dotata di [parametri di
-pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it) che consentono un controllo
-granulare della quantità di pensiero del modello.
+Gemini モデルは、複雑な問題を思考するようトレーニングされているため、推論が大幅に改善されています。Gemini API には、モデルの思考量をきめ細かく制御できる[思考パラメータ](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)が用意されています。
 
-I diversi modelli Gemini hanno configurazioni di ragionamento diverse. Puoi vedere come
-corrispondono agli sforzi di ragionamento di OpenAI come segue:
+Gemini モデルごとに推論構成が異なります。OpenAI の推論の取り組みとのマッピングは次のとおりです。
 
-| `reasoning_effort` (OpenAI) | `thinking_level` (Gemini 3.1 Pro) | `thinking_level` (Gemini 3.1 Flash-Lite) | `thinking_level` (Gemini 3 Flash) | `thinking_budget` (Gemini 2.5) |
+| `reasoning_effort`（OpenAI） | `thinking_level`（Gemini 3.1 Pro） | `thinking_level`（Gemini 3.1 Flash-Lite） | `thinking_level`（Gemini 3 Flash） | `thinking_budget`（Gemini 2.5） |
 | --- | --- | --- | --- | --- |
 | `minimal` | `low` | `minimal` | `minimal` | `1,024` |
 | `low` | `low` | `low` | `low` | `1,024` |
 | `medium` | `medium` | `medium` | `medium` | `8,192` |
 | `high` | `high` | `high` | `high` | `24,576` |
 
-Se non viene specificato alcun `reasoning_effort`, Gemini utilizza il [livello](https://ai.google.dev/gemini-api/docs/thinking?hl=it#levels) o il [budget](https://ai.google.dev/gemini-api/docs/thinking?hl=it#set-budget) predefinito del modello.
+`reasoning_effort` が指定されていない場合、Gemini はモデルのデフォルトの[レベル](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#levels)または[予算](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#set-budget)を使用します。
 
-Se vuoi disattivare la funzionalità di ragionamento, puoi impostare `reasoning_effort` su `"none"` per i modelli 2.5. Il ragionamento non può essere disattivato per i modelli Gemini 2.5 Pro o 3.
+思考を無効にする場合は、2.5 モデルの `reasoning_effort` を `"none"` に設定します。Gemini 2.5 Pro モデルまたは Gemini 3 モデルでは推論を無効にできません。
 
 ### Python
 
@@ -189,11 +184,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-I modelli di pensiero di Gemini producono anche [riepiloghi dei pensieri](https://ai.google.dev/gemini-api/docs/thinking?hl=it#summaries).
-Puoi utilizzare il campo [`extra_body`](#extra-body) per includere i campi Gemini
-nella tua richiesta.
+Gemini の思考モデルは、[思考の要約](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#summaries)も生成します。[`extra_body`](#extra-body) フィールドを使用して、リクエストに Gemini フィールドを含めることができます。
 
-Tieni presente che le funzionalità `reasoning_effort` e `thinking_level`/`thinking_budget` si sovrappongono, pertanto non possono essere utilizzate contemporaneamente.
+`reasoning_effort` と `thinking_level`/`thinking_budget` は機能が重複しているため、同時に使用することはできません。
 
 ### Python
 
@@ -269,11 +262,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
       }'
 ```
 
-Gemini 3 supporta la compatibilità con OpenAI per le firme di pensiero nelle API di completamento della chat. Puoi trovare l'esempio completo nella pagina [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it#openai).
+Gemini 3 は、チャット補完 API の思考シグネチャの OpenAI 互換性をサポートしています。完全な例は、[思考シグネチャ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ja#openai)のページで確認できます。
 
-## Streaming
+## ストリーミング
 
-L'API Gemini supporta le [risposte in streaming](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=it#generate-a-text-stream).
+Gemini API は[ストリーミング レスポンス](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=ja#generate-a-text-stream)をサポートしています。
 
 ### Python
 
@@ -352,9 +345,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
     }'
 ```
 
-## Chiamata di funzione
+## 関数呼び出し
 
-La chiamata di funzione semplifica l'ottenimento di output di dati strutturati dai modelli generativi ed è [supportata nell'API Gemini](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=it).
+関数呼び出しを使用すると、生成モデルから構造化データ出力を簡単に取得できます。これは [Gemini API でサポート](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=ja)されています。
 
 ### Python
 
@@ -485,10 +478,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
 }'
 ```
 
-## Comprensione delle immagini
+## 画像理解
 
-I modelli Gemini sono nativamente multimodali e offrono prestazioni di prima classe in
-[molte attività di visione comuni](https://ai.google.dev/gemini-api/docs/vision?hl=it).
+Gemini モデルはネイティブ マルチモーダルであり、[多くの一般的なビジョンタスク](https://ai.google.dev/gemini-api/docs/vision?hl=ja)でクラス最高のパフォーマンスを実現します。
 
 ### Python
 
@@ -617,9 +609,9 @@ bash -c '
 '
 ```
 
-## Genera un'immagine
+## 画像を生成
 
-Genera un'immagine utilizzando `gemini-2.5-flash-image` o `gemini-3-pro-image-preview`. I parametri supportati includono `prompt`, `model`, `n`, `size` e `response_format`. Qualsiasi altro parametro non elencato qui o nella sezione [`extra_body`](#extra-body) verrà ignorato automaticamente dal livello di compatibilità.
+`gemini-2.5-flash-image` または `gemini-3-pro-image-preview` を使用して画像を生成します。サポートされているパラメータには、`prompt`、`model`、`n`、`size`、`response_format` があります。ここに記載されていないパラメータ、または [`extra_body`](#extra-body) セクションに記載されていないパラメータは、互換性レイヤによって通知なく無視されます。
 
 ### Python
 
@@ -686,13 +678,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/images/generations
       }'
 ```
 
-## Generare un video
+## 動画を生成
 
-Genera un video utilizzando `veo-3.1-generate-preview` tramite l'endpoint `/v1/videos` compatibile con Sora. I parametri di primo livello supportati sono `prompt` e `model`. Parametri aggiuntivi come `duration_seconds`, `image` e `aspect_ratio` devono essere trasmessi con `extra_body`. Consulta la sezione [`extra_body`](#extra-body)
-per tutti i parametri disponibili.
+Sora 互換の `/v1/videos` エンドポイントを介して `veo-3.1-generate-preview` を使用して動画を生成します。サポートされている最上位パラメータは `prompt` と `model` です。`duration_seconds`、`image`、`aspect_ratio` などの追加パラメータは、`extra_body` とともに渡す必要があります。使用可能なすべてのパラメータについては、[`extra_body`](#extra-body) セクションをご覧ください。
 
-La generazione di video è un'operazione a lunga esecuzione che restituisce
-un ID operazione che puoi eseguire il polling per il completamento.
+動画生成は、完了のためにポーリングできるオペレーション ID を返す長時間実行オペレーションです。
 
 ### Python
 
@@ -747,10 +737,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos" \
   -F "prompt=A cinematic drone shot of a waterfall"
 ```
 
-### Controllare lo stato del video
+### 動画のステータスを確認する
 
-La generazione di video è asincrona. Utilizza `GET /v1/videos/{id}` per eseguire il polling dello stato
-e recuperare l'URL video finale al termine dell'operazione:
+動画の生成は非同期です。`GET /v1/videos/{id}` を使用してステータスをポーリングし、完了時に最終的な動画 URL を取得します。
 
 ### Python
 
@@ -814,9 +803,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos/VIDEO_ID" \
   -H "Authorization: Bearer $GEMINI_API_KEY"
 ```
 
-## Comprensione dell'audio
+## 音声の理解
 
-Analizza l'input audio:
+以下のように音声入力を分析します。
 
 ### Python
 
@@ -929,9 +918,9 @@ bash -c '
 '
 ```
 
-## Output strutturato
+## 構造化出力
 
-I modelli Gemini possono generare oggetti JSON in qualsiasi [struttura definita](https://ai.google.dev/gemini-api/docs/structured-output?hl=it).
+Gemini モデルは、[定義した構造](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)で JSON オブジェクトを出力できます。
 
 ### Python
 
@@ -992,12 +981,9 @@ const event = completion.choices[0].message.parsed;
 console.log(event);
 ```
 
-## Incorporamenti
+## エンベディング
 
-Gli embedding di testo misurano la correlazione tra stringhe di testo e possono essere generati
-utilizzando l'[API Gemini](https://ai.google.dev/gemini-api/docs/embeddings?hl=it). Puoi utilizzare
-`gemini-embedding-2-preview` per gli incorporamenti multimodali o
-`gemini-embedding-001` per gli incorporamenti solo testuali.
+テキスト エンベディングは、テキスト文字列の関連性を測定し、[Gemini API](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja) を使用して生成できます。マルチモーダル エンベディングには `gemini-embedding-2-preview` を使用し、テキストのみのエンベディングには `gemini-embedding-001` を使用できます。
 
 ### Python
 
@@ -1051,21 +1037,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/embeddings" \
   }'
 ```
 
-## API Batch
+## バッチ API
 
-Puoi creare [job batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=it), inviarli e controllarne lo stato utilizzando la libreria OpenAI.
+OpenAI ライブラリを使用して、[バッチジョブ](https://ai.google.dev/gemini-api/docs/batch-mode?hl=ja)を作成して送信し、ステータスを確認できます。
 
-Dovrai preparare il file JSONL nel formato di input di OpenAI. Ad esempio:
+OpenAI 入力形式で JSONL ファイルを準備する必要があります。次に例を示します。
 
 ```
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.5-flash", "messages": [{"role": "user", "content": "Tell me a one-sentence joke."}]}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.5-flash", "messages": [{"role": "user", "content": "Why is the sky blue?"}]}}
 ```
 
-La compatibilità con OpenAI per Batch supporta la creazione di un batch,
-il monitoraggio dello stato del job e la visualizzazione dei risultati del batch.
+Batch の OpenAI 互換性では、バッチの作成、ジョブ ステータスのモニタリング、バッチ結果の表示がサポートされています。
 
-Al momento la compatibilità per il caricamento e il download non è supportata. L'esempio seguente utilizza invece il client `genai` per caricare e scaricare [file](https://ai.google.dev/gemini-api/docs/files?hl=it), come quando si utilizza l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-mode?hl=it#input-file) di Gemini.
+アップロードとダウンロードは現在対象外です。代わりに、次の例では、Gemini [Batch API](https://ai.google.dev/gemini-api/docs/batch-mode?hl=ja#input-file) を使用する場合と同じように、`genai` クライアントを使用して[ファイル](https://ai.google.dev/gemini-api/docs/files?hl=ja)をアップロードおよびダウンロードします。
 
 ### Python
 
@@ -1111,7 +1096,7 @@ for line in file_content.splitlines():
     print(line)
 ```
 
-L'SDK OpenAI supporta anche la [generazione di incorporamenti con l'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it#batch-embeddings). Per farlo, sostituisci il campo `endpoint` del metodo `create` con un endpoint di incorporamento, nonché le chiavi `url` e `model` nel file JSONL:
+OpenAI SDK は、[Batch API を使用したエンベディングの生成](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja#batch-embeddings)もサポートしています。これを行うには、`create` メソッドの `endpoint` フィールドをエンベディング エンドポイントに置き換え、JSONL ファイルの `url` キーと `model` キーも置き換えます。
 
 ```
 # JSONL file using embeddings model and endpoint
@@ -1128,12 +1113,11 @@ batch = openai_client.batches.create(
 )
 ```
 
-Per un esempio completo, consulta la sezione [Generazione di incorporamenti batch](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb) del manuale di compatibilità di OpenAI.
+完全な例については、OpenAI 互換性クックブックの[バッチ エンベディング生成](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb)セクションをご覧ください。
 
-## Inferenza di flessibilità e priorità
+## Flex と Priority の推論
 
-L'API Gemini corrisponde al parametro `service_tier` di OpenAI per nome e logica,
-imponendo limiti e indirizzando il traffico in modo controllato per i livelli di inferenza Flex e Priority.
+Gemini API は、名前とロジックで OpenAI の `service_tier` パラメータと一致し、Flex と Priority の両方の推論階層で制限を適用し、トラフィックを適切に転送します。
 
 ### Python
 
@@ -1156,39 +1140,37 @@ completion = client.chat.completions.create(
 print(completion)
 ```
 
-Se non viene assegnato esplicitamente, `service_tier` ha come valore predefinito `standard`, equivalente
-a `default` per OpenAI.
-Scopri di più sui livelli di inferenza nella documentazione relativa all'[ottimizzazione](https://ai.google.dev/gemini-api/docs/optimization?hl=it).
+明示的に割り当てられていない場合、`service_tier` はデフォルトで `standard` に設定されます。これは OpenAI の `default` と同等です。推論階層の詳細については、[最適化](https://ai.google.dev/gemini-api/docs/optimization?hl=ja)のドキュメントをご覧ください。
 
-## Attivare le funzionalità di Gemini con `extra_body`
+## `extra_body` で Gemini の機能を有効にする
 
-Esistono diverse funzionalità supportate da Gemini che non sono disponibili nei modelli OpenAI, ma che possono essere attivate utilizzando il campo `extra_body`.
+Gemini でサポートされている機能のうち、OpenAI モデルでは利用できないものがいくつかありますが、`extra_body` フィールドを使用して有効にできます。
 
-| Parametro | Tipo | Endpoint | Descrizione |
+| パラメータ | タイプ | エンドポイント | 説明 |
 | --- | --- | --- | --- |
-| **`cached_content`** | Testo | Chat | Corrisponde alla cache dei contenuti generali di Gemini. |
-| **`thinking_config`** | Oggetto | Chat | Corrisponde a ThinkingConfig di Gemini. |
-| **`aspect_ratio`** | Testo | Immagini | Proporzioni di output (ad es. `"16:9"`, `"1:1"`, `"9:16"`). |
-| **`generation_config`** | Oggetto | Immagini | Oggetto di configurazione della generazione di Gemini (ad es. `{"responseModalities": ["IMAGE"], "candidateCount": 2}`). |
-| **`safety_settings`** | Elenco | Immagini | Filtri personalizzati per la soglia di sicurezza (ad es. `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`). |
-| **`tools`** | Elenco | Immagini | Attiva il grounding (ad es. `[{"google_search": {}}]`). Solo per `gemini-3-pro-image-preview`. |
-| **`aspect_ratio`** | Testo | Video | Dimensioni del video di output (`16:9` per l'orientamento orizzontale, `9:16` per l'orientamento verticale). Mappe da `size` se non specificato. |
-| **`resolution`** | Testo | Video | Risoluzione di output (`720p`, `1080p`, `4K`). Nota: `1080p` e `4K` attivano la pipeline di upsampling. |
-| **`duration_seconds`** | Numero intero | Video | Durata della generazione (valori: `4`, `6`, `8`). Deve essere `8` quando si utilizzano `reference_images`, l'interpolazione o l'estensione. |
-| **`frame_rate`** | Testo | Video | Frequenza fotogrammi per l'output video (ad es. `"24"`). |
-| **`input_reference`** | Testo | Video | Input di riferimento per la generazione di video. |
-| **`extend_video_id`** | Testo | Video | ID di un video esistente da estendere. |
-| **`negative_prompt`** | Testo | Video | Elementi da escludere (ad es. `"shaky camera"`). |
-| **`seed`** | Numero intero | Video | Numero intero per la generazione deterministica. |
-| **`style`** | Testo | Video | Stile visivo (`cinematic` predefinito, `creative` ottimizzato per i social media). |
-| **`person_generation`** | Testo | Video | Controlla la generazione di persone (`allow_adult`, `allow_all`, `dont_allow`). |
-| **`reference_images`** | Elenco | Video | Fino a 3 immagini per il riferimento di stile/personaggio (asset base64). |
-| **`image`** | Testo | Video | Immagine di input iniziale con codifica Base64 per condizionare la generazione del video. |
-| **`last_frame`** | Oggetto | Video | Immagine finale per l'interpolazione (richiede `image` come primo frame). |
+| **`cached_content`** | テキスト | チャット | Gemini の一般的なコンテンツ キャッシュに対応します。 |
+| **`thinking_config`** | オブジェクト | チャット | Gemini の ThinkingConfig に対応します。 |
+| **`aspect_ratio`** | テキスト | 画像 | 出力アスペクト比（`"16:9"`、`"1:1"`、`"9:16"` など）。 |
+| **`generation_config`** | オブジェクト | 画像 | Gemini 生成構成オブジェクト（`{"responseModalities": ["IMAGE"], "candidateCount": 2}` など）。 |
+| **`safety_settings`** | リスト | 画像 | カスタムの安全しきい値フィルタ（例: `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`）。 |
+| **`tools`** | リスト | 画像 | グラウンディング（`[{"google_search": {}}]` など）を有効にします。`gemini-3-pro-image-preview` のみ。 |
+| **`aspect_ratio`** | テキスト | 動画 | 出力動画のサイズ（横向きの場合は `16:9`、縦向きの場合は `9:16`）。指定しない場合、`size` からマップします。 |
+| **`resolution`** | テキスト | 動画 | 出力解像度（`720p`、`1080p`、`4K`）。注: `1080p` と `4K` はアップサンプラー パイプラインをトリガーします。 |
+| **`duration_seconds`** | 整数 | 動画 | 生成の長さ（値: `4`、`6`、`8`）。`reference_images`、補間、拡張機能を使用する場合は `8` にする必要があります。 |
+| **`frame_rate`** | テキスト | 動画 | 動画出力のフレームレート（`"24"` など）。 |
+| **`input_reference`** | テキスト | 動画 | 動画生成のリファレンス入力。 |
+| **`extend_video_id`** | テキスト | 動画 | 延長する既存の動画の ID。 |
+| **`negative_prompt`** | テキスト | 動画 | 除外するアイテム（例: `"shaky camera"`）。 |
+| **`seed`** | 整数 | 動画 | 決定論的生成の整数。 |
+| **`style`** | テキスト | 動画 | ビジュアル スタイル（`cinematic` はデフォルト、`creative` はソーシャル メディア向けに最適化）。 |
+| **`person_generation`** | テキスト | 動画 | 人物の生成を制御します（`allow_adult`、`allow_all`、`dont_allow`）。 |
+| **`reference_images`** | リスト | 動画 | スタイル/キャラクターの参照用画像（base64 アセット）を最大 3 枚。 |
+| **`image`** | テキスト | 動画 | 動画生成の条件付けに使用する、Base64 でエンコードされた初期入力画像。 |
+| **`last_frame`** | オブジェクト | 動画 | 補間の最終画像（最初のフレームとして `image` が必要）。 |
 
-### Esempio di utilizzo di `extra_body`
+### `extra_body` の使用例
 
-Ecco un esempio di utilizzo di `extra_body` per impostare `cached_content`:
+`extra_body` を使用して `cached_content` を設定する例を次に示します。
 
 ### Python
 
@@ -1226,9 +1208,9 @@ for chunk in stream:
     print(chunk.usage.to_dict())
 ```
 
-## Elenco modelli
+## モデルの一覧表示
 
-Per ottenere un elenco dei modelli Gemini disponibili:
+使用可能な Gemini モデルのリストを取得します。
 
 ### Python
 
@@ -1272,9 +1254,9 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models \
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## Recuperare un modello
+## モデルを取得する
 
-Recupera un modello Gemini:
+Gemini モデルを取得します。
 
 ### Python
 
@@ -1315,23 +1297,22 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models/gemini-3.5-f
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## Limitazioni attuali
+## 現在の制限事項
 
-Il supporto delle librerie OpenAI è ancora in versione beta mentre estendiamo il supporto delle funzionalità.
+機能サポートの拡大に伴い、OpenAI ライブラリのサポートは引き続きベータ版となります。
 
-Se hai domande sui parametri supportati, sulle funzionalità future o se riscontri problemi
-iniziali con Gemini, unisciti al nostro [forum per gli sviluppatori](https://discuss.ai.google.dev/c/gemini-api/4?hl=it).
+サポートされているパラメータ、今後の機能についてご不明な点がある場合や、Gemini の使用を開始する際に問題が発生した場合は、[デベロッパー フォーラム](https://discuss.ai.google.dev/c/gemini-api/4?hl=ja)にご参加ください。
 
-## Passaggi successivi
+## 次のステップ
 
-Prova il nostro [OpenAI Compatibility Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=it) per esaminare esempi più dettagliati.
+[OpenAI 互換性 Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=ja) を試して、より詳細な例を確認してください。
 
-Invia feedback
+フィードバックを送信
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ultimo aggiornamento 2026-06-22 UTC.
+最終更新日 2026-06-22 UTC。
 
-Vuoi dirci altro?
+ご意見をお聞かせください
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-22 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-06-22 UTC。"],[],[]]

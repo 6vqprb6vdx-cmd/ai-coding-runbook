@@ -1,47 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=th
-fetched_at: 2026-06-29T05:32:41.492692+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=zh-CN
+fetched_at: 2026-07-06T05:14:32.640961+00:00
 title: "Veo 2.0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-ส่งความคิดเห็น
+发送反馈
 
 # Veo 2.0
 
-โมเดลการสร้างวิดีโอที่เสถียรและเชื่อถือได้ของเรา ซึ่งให้ประสิทธิภาพที่สม่ำเสมอสำหรับเวิร์กโฟลว์ที่พร้อมใช้งานจริง Veo 2.0 เหมาะที่สุดสำหรับการสร้างเนื้อหา 1080p มาตรฐาน, ชิ้นงานโซเชียลมีเดีย และงานวิดีโอจำนวนมากที่ให้ความสำคัญกับความสอดคล้องของตัวละครที่เชื่อถือได้และความเร็วในการสร้างที่คาดการณ์ได้ในระดับไม่ถึงวินาที
+我们强大可靠的稳定视频生成模型，可为可用于生产用途的工作流提供一致的性能。Veo 2.0 非常适合标准 1080p 内容创作、社交媒体素材资源以及需要优先考虑可靠的角色一致性和可预测的亚秒级生成速度的大批量视频任务。
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=veo-2.0-generate-001&hl=th)
+[在 Google AI Studio 中试用](https://aistudio.google.com?model=veo-2.0-generate-001&hl=zh-cn)
 
-## เอกสารประกอบ
+## 文档
 
-ไปที่หน้า[การสร้างวิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)เพื่อดู
-ฟีเจอร์และความสามารถทั้งหมด
+如需全面了解功能和功能，请访问[视频生成](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)页面。
 
 ## veo-2.0-generate-001
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardรหัสโมเดล | **Gemini API**  `veo-2.0-generate-001` |
-| saveประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ  **เอาต์พุต**  วิดีโอ |
-| token\_autoขีดจำกัด | **อินพุตข้อความ**  ไม่มี  **อินพุตรูปภาพ**  ความละเอียดและอัตราส่วนกว้างยาวของรูปภาพใดก็ได้ โดยมีขนาดไฟล์ไม่เกิน 20 MB  **วิดีโอเอาต์พุต**  สูงสุด 2 รายการ |
-| calendar\_monthการอัปเดตล่าสุด | เมษายน 2025 |
+| id\_card 模型代码 | **Gemini API**  `veo-2.0-generate-001` |
+| 保存支持的数据类型 | **输入**  文字、图片  **输出**  视频 |
+| token\_auto 限制 | **文本输入**  不适用  **图片输入**  任意分辨率和宽高比，文件大小不超过 20MB  **输出视频**  最多 2 个 |
+| calendar\_month最新更新 | 2025 年 4 月 |
 
-ส่งความคิดเห็น
+发送反馈
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-อัปเดตล่าสุด 2026-06-15 UTC
+最后更新时间 (UTC)：2026-06-15。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+需要向我们提供更多信息？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-15 UTC"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-15。"],[],[]]

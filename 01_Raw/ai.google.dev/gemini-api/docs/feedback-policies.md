@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=he
-fetched_at: 2026-06-29T05:27:23.280586+00:00
+fetched_at: 2026-07-06T05:16:23.142480+00:00
 title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

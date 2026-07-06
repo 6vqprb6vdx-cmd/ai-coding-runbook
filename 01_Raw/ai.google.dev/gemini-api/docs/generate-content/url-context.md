@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=es-419
-fetched_at: 2026-06-29T05:37:40.442065+00:00
-title: "Contexto de URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=ar
+fetched_at: 2026-07-06T05:08:40.439718+00:00
+title: "\u0633\u064a\u0627\u0642 \u0639\u0646\u0648\u0627\u0646 URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Enviar comentarios
+إرسال ملاحظات
 
-# Contexto de URL
+# سياق عنوان URL
 
-La herramienta de contexto de URL te permite proporcionar contexto adicional a los modelos en forma de URLs. Si incluyes URLs en tu solicitud, el modelo accederá al contenido de esas páginas (siempre y cuando no se trate de un tipo de URL que se indique en la [sección de limitaciones](#limitations)) para fundamentar y mejorar su respuesta.
+تتيح لك أداة "سياق عنوان URL" تقديم سياق إضافي للنماذج في شكل عناوين URL. من خلال تضمين عناوين URL في طلبك، سيتمكّن النموذج من الوصول إلى المحتوى من تلك الصفحات (ما دام أنّ نوع عنوان URL غير مدرَج في [قسم القيود](#limitations)) للاستناد إليه في الرد وتحسينه.
 
-La herramienta de contexto de URL es útil para tareas como las siguientes:
+تفيد أداة سياق عنوان URL في مهام مثل ما يلي:
 
-- **Extraer datos**: Extrae información específica, como precios, nombres o hallazgos clave, de varias URLs.
-- **Comparar documentos**: Analiza varios informes, artículos o PDFs para identificar diferencias y hacer un seguimiento de las tendencias.
-- **Sintetizar y crear contenido**: Combina información de varias URLs de origen para generar resúmenes, entradas de blog o informes precisos.
-- **Analizar código y documentos**: Indica un repositorio de GitHub o documentación técnica para explicar el código, generar instrucciones de configuración o responder preguntas.
+- **استخراج البيانات**: استخراج معلومات معيّنة، مثل الأسعار أو الأسماء أو النتائج الرئيسية، من عناوين URL متعددة
+- **مقارنة المستندات**: يمكنك تحليل تقارير أو مقالات أو ملفات PDF متعددة لتحديد الاختلافات وتتبُّع المؤشرات.
+- **تجميع المحتوى وإنشاؤه**: يمكنك الجمع بين المعلومات من عدة عناوين URL مصدر لإنشاء ملخّصات أو منشورات مدوّنات أو تقارير دقيقة.
+- **تحليل الرموز البرمجية والمستندات**: يمكنك الإشارة إلى مستودع GitHub أو مستندات فنية لشرح الرموز البرمجية أو إنشاء تعليمات الإعداد أو الإجابة عن الأسئلة.
 
-En el siguiente ejemplo, se muestra cómo comparar dos recetas de diferentes sitios web.
+يوضّح المثال التالي كيفية مقارنة وصفتَي طعام من موقعَين إلكترونيَين مختلفَين.
 
 ### Python
 
@@ -111,20 +111,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 cat result.json
 ```
 
-## Cómo funciona
+## آلية العمل
 
-La herramienta Contexto de URL utiliza un proceso de recuperación de dos pasos para equilibrar la velocidad, el costo y el acceso a datos nuevos. Cuando proporcionas una URL, la herramienta primero intenta recuperar el contenido de una caché de índice interna. Esto actúa como una caché altamente optimizada. Si una URL no está disponible en el índice (por ejemplo, si es una página muy nueva), la herramienta recurre automáticamente a realizar una recuperación en vivo.
-Esto accede directamente a la URL para recuperar su contenido en tiempo real.
+تستخدم أداة "سياق عنوان URL" عملية استرجاع من خطوتَين لتحقيق التوازن بين السرعة والتكلفة وإمكانية الوصول إلى البيانات الحديثة. عند تقديم عنوان URL، تحاول الأداة أولاً جلب المحتوى من ذاكرة تخزين مؤقت للفهرس الداخلي. ويعمل ذلك كذاكرة تخزين مؤقت محسّنة للغاية. إذا لم يكن عنوان URL متاحًا في الفهرس (على سبيل المثال، إذا كانت الصفحة جديدة جدًا)، ستعود الأداة تلقائيًا إلى إجراء عملية جلب مباشرة.
+يصل هذا التطبيق مباشرةً إلى عنوان URL لاسترداد محتواه في الوقت الفعلي.
 
-## Combinación con otras herramientas
+## الجمع مع أدوات أخرى
 
-Puedes combinar la herramienta de contexto de URL con otras herramientas para crear flujos de trabajo más potentes.
+يمكنك الجمع بين أداة سياق عنوان URL وأدوات أخرى لإنشاء سير عمل أكثر فعالية.
 
-Los [modelos de Gemini 3](#supported-models) admiten la combinación de herramientas integradas (como Contexto de URL) con herramientas personalizadas (llamadas a funciones). Obtén más información en la página de [combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
+تتيح [نماذج Gemini 3](#supported-models) إمكانية الجمع بين الأدوات المضمّنة (مثل "سياق عنوان URL") والأدوات المخصّصة (استدعاء الدوال). يمكنك الاطّلاع على مزيد من المعلومات في صفحة [مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
 
-### Fundamentación con la búsqueda
+### تحديد المصدر باستخدام "بحث Google"
 
-Cuando se habilitan tanto el contexto de URL como la [Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419), el modelo puede usar sus capacidades de búsqueda para encontrar información relevante en línea y, luego, usar la herramienta de contexto de URL para comprender mejor las páginas que encuentra. Este enfoque es eficaz para las instrucciones que requieren una búsqueda amplia y un análisis profundo de páginas específicas.
+عند تفعيل كلّ من &quot;سياق عنوان URL&quot; و[تحديد مصدر المعلومات باستخدام &quot;بحث Google&quot;](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)، يمكن للنموذج استخدام إمكانات البحث للعثور على معلومات ذات صلة على الإنترنت، ثم استخدام أداة &quot;سياق عنوان URL&quot; للتعرّف بشكل أكثر تفصيلاً على الصفحات التي يعثر عليها. هذا الأسلوب فعّال مع الطلبات التي تتطلّب بحثًا واسع النطاق وتحليلاً معمّقًا لصفحات معيّنة.
 
 ### Python
 
@@ -209,11 +209,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 cat result.json
 ```
 
-## Cómo comprender la respuesta
+## فهم الردّ
 
-Cuando el modelo usa la herramienta de contexto de URL, la respuesta incluye un objeto `url_context_metadata`. Este objeto enumera las URLs desde las que el modelo recuperó contenido y el estado de cada intento de recuperación, lo que resulta útil para la verificación y la depuración.
+عندما يستخدم النموذج أداة سياق عنوان URL، يتضمّن الردّ عنصر `url_context_metadata`. يسرد هذا العنصر عناوين URL التي استردّ منها النموذج المحتوى، وحالة كل محاولة استرداد، ما يفيد في التحقّق من صحة البيانات وتصحيح الأخطاء.
 
-A continuación, se muestra un ejemplo de esa parte de la respuesta (se omitieron partes de la respuesta para mayor brevedad):
+في ما يلي مثال على هذا الجزء من الاستجابة
+(تم حذف بعض أجزاء الاستجابة للاختصار):
 
 ```
 {
@@ -245,15 +246,16 @@ A continuación, se muestra un ejemplo de esa parte de la respuesta (se omitiero
 }
 ```
 
-Para obtener detalles completos sobre este objeto , consulta la [referencia de la API de `UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=es-419#UrlContextMetadata).
+للحصول على تفاصيل كاملة عن هذا العنصر، يُرجى الاطّلاع على
+[`UrlContextMetadata` مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api/generate-content?hl=ar#UrlContextMetadata).
 
-### Verificaciones de seguridad
+### عمليات التحقّق من الأمان
 
-El sistema realiza una verificación de moderación de contenido en la URL para confirmar que cumple con los estándares de seguridad. Si la URL que proporcionaste no pasa esta verificación, recibirás un `url_retrieval_status` de `URL_RETRIEVAL_STATUS_UNSAFE`.
+يُجري النظام عملية تدقيق في المحتوى على عنوان URL للتأكّد من استيفائه معايير الأمان. إذا لم يجتَز عنوان URL الذي قدّمته عملية التحقّق هذه، سيظهر لك `url_retrieval_status` من `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### Recuento de tokens
+### عدد الرموز المميّزة
 
-El contenido recuperado de las URLs que especificas en tu instrucción se cuenta como parte de los tokens de entrada. Puedes ver el recuento de tokens de tu instrucción y el uso de herramientas en el objeto [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=es-419#UsageMetadata) del resultado del modelo. A continuación, se muestra un ejemplo del resultado:
+يتم احتساب المحتوى الذي يتم استرجاعه من عناوين URL التي تحدّدها في طلبك كجزء من الرموز المميزة للإدخال. يمكنك الاطّلاع على عدد الرموز المميزة في طلبك واستخدام الأدوات في عنصر [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=ar#UsageMetadata) من مخرجات النموذج. في ما يلي مثال على الناتج:
 
 ```
 'usage_metadata': {
@@ -269,60 +271,62 @@ El contenido recuperado de las URLs que especificas en tu instrucción se cuenta
   }
 ```
 
-El precio por token depende del modelo que se use. Consulta la página de [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) para obtener más detalles.
+يعتمد السعر لكل رمز مميز على النموذج المستخدَم، راجِع صفحة
+[الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar) للحصول على التفاصيل.
 
-## Modelos compatibles
+## النماذج المتوافقة
 
-| Modelo | Contexto de URL |
+| الطراز | سياق عنوان URL |
 | --- | --- |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ |
+| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=ar) | ✔️ |
+| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
+| [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
 
-## Prácticas recomendadas
+## أفضل الممارسات
 
-- **Proporciona URLs específicas**: Para obtener los mejores resultados, proporciona URLs directas al contenido que deseas que analice el modelo. El modelo solo recuperará contenido de las URLs que proporciones, no de los vínculos anidados.
-- **Verifica la accesibilidad**: Comprueba que las URLs que proporciones no dirijan a páginas que requieran un acceso o estén detrás de un muro de pago.
-- **Usa la URL completa**: Proporciona la URL completa, incluido el protocolo (p.ej., https://www.google.com en lugar de solo google.com).
+- **تقديم عناوين URL محدّدة**: للحصول على أفضل النتائج، قدِّم عناوين URL مباشرة إلى المحتوى الذي تريد أن يحلّله النموذج. لن يستردّ النموذج سوى المحتوى من عناوين URL التي تقدّمها، وليس أي محتوى من الروابط المتداخلة.
+- **التحقّق من إمكانية الوصول**: تأكَّد من أنّ عناوين URL التي تقدّمها لا تؤدي إلى صفحات تتطلّب تسجيل الدخول أو تقع خلف حاجز دفع.
+- **استخدام عنوان URL الكامل**: يجب تقديم عنوان URL الكامل، بما في ذلك البروتوكول (مثلاً، https://www.google.com بدلاً من google.com فقط).
 
-## Limitaciones
+## القيود
 
-- Llamadas a funciones: Actualmente, no se admite el uso de herramientas (contexto de URL, fundamentación con la Búsqueda de Google, etcétera) con llamadas a funciones.
-- Límite de solicitudes: La herramienta puede procesar hasta 20 URLs por solicitud.
-- Tamaño del contenido de la URL: El tamaño máximo del contenido recuperado de una sola URL es de 34 MB.
-- Accesibilidad pública: Las URLs deben ser de acceso público en la Web.
-  No se admiten las direcciones de localhost (p.ej., localhost, 127.0.0.1), las redes privadas ni los servicios de tunelización (p.ej., ngrok, pinggy).
-- Solo en la API de Gemini: El contexto de URL solo está disponible en la API de Gemini, no a través de Gemini Enterprise Agent Platform.
+- لا تتوفّر حاليًا ميزة "استدعاء الدوال": استخدام الأدوات (سياق عنوان URL، وتحديد المصدر من خلال "بحث Search"، وما إلى ذلك) مع ميزة "استدعاء الدوال".
+- حدّ الطلبات: يمكن للأداة معالجة ما يصل إلى 20 عنوان URL لكل طلب.
+- حجم محتوى عنوان URL: الحد الأقصى لحجم المحتوى الذي يتم استرجاعه من عنوان URL واحد هو 34 ميغابايت.
+- إمكانية الوصول إلى الجميع: يجب أن تكون عناوين URL متاحة للجميع على الويب.
+  لا تتوافق عناوين المضيف المحلي (مثل localhost و127.0.0.1) والشبكات الخاصة وخدمات الأنفاق (مثل ngrok وpinggy).
+- ‫Gemini API فقط: لا تتوفّر ميزة "سياق عنوان URL" إلا في Gemini API، وليس من خلال منصة وكيل Gemini Enterprise.
 
-### Tipos de contenido admitidos y no admitidos
+### أنواع المحتوى المتوفّرة وغير المتوفّرة
 
-La herramienta puede extraer contenido de URLs con los siguientes tipos de contenido:
+يمكن للأداة استخراج المحتوى من عناوين URL التي تتضمّن أنواع المحتوى التالية:
 
-- Texto (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- Imagen (image/png, image/jpeg, image/bmp, image/webp)
-- PDF (application/pdf)
+- نص (text/html وapplication/json وtext/plain وtext/xml وtext/css وtext/javascript وtext/csv وtext/rtf)
+- صورة (image/png أو image/jpeg أو image/bmp أو image/webp)
+- ‫PDF (application/pdf)
 
-**No** se admiten los siguientes tipos de contenido:
+**لا تتوافق أنواع المحتوى التالية:**
 
-- Contenido pago
-- Videos de YouTube (consulta la [comprensión de videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419#youtube) para obtener información sobre cómo procesar URLs de YouTube)
-- Archivos de Google Workspace, como documentos u hojas de cálculo de Google
-- Archivos de audio y video
+- المحتوى المحمي بنظام حظر الاشتراك غير المدفوع
+- فيديوهات YouTube (راجِع مقالة [فهم الفيديو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar#youtube) للتعرّف على كيفية معالجة عناوين URL الخاصة بفيديوهات YouTube)
+- ملفات Google Workspace، مثل مستندات Google أو جداول البيانات
+- ملفات الفيديو والصوت
 
-## ¿Qué sigue?
+## الخطوات التالية
 
-- Explora el [recetario de contexto de URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=es-419#url-context) para obtener más ejemplos.
+- يمكنك الاطّلاع على [كتاب وصفات سياق عنوان URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=ar#url-context)
+  للحصول على المزيد من الأمثلة.
 
-Enviar comentarios
+إرسال ملاحظات
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última actualización: 2026-06-23 (UTC)
+تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)
 
-¿Quieres brindar más información?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-23 (UTC)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-23 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

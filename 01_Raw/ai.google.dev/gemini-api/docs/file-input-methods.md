@@ -1,29 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id
-fetched_at: 2026-06-29T05:33:04.559498+00:00
-title: "Metode input file \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi
+fetched_at: 2026-07-06T05:11:57.546317+00:00
+title: "Ph\u01b0\u01a1ng th\u1ee9c nh\u1eadp t\u1ec7p \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-# Metode input file
+# Phương thức nhập tệp
 
-Panduan ini menjelaskan berbagai cara untuk menyertakan file media seperti gambar, audio, video, dan dokumen saat membuat permintaan ke Gemini API.
-Metode baru ini didukung di semua endpoint Gemini API, termasuk Batch, Interactions, dan Live API.
-Memilih metode yang tepat bergantung pada ukuran file, tempat data disimpan, dan seberapa sering Anda berencana menggunakan file tersebut.
+Hướng dẫn này giải thích những cách để bạn có thể đưa các tệp đa phương tiện (chẳng hạn như hình ảnh, âm thanh, video và tài liệu) vào khi đưa ra yêu cầu cho Gemini API.
+Các phương thức mới được hỗ trợ trong tất cả các điểm cuối của Gemini API, bao gồm cả Batch, Interactions và Live API.
+Việc chọn phương thức phù hợp phụ thuộc vào kích thước tệp, nơi lưu trữ dữ liệu và tần suất bạn dự định sử dụng tệp.
 
-Cara paling sederhana untuk menyertakan file sebagai input adalah dengan membaca file lokal dan menyertakannya dalam perintah. Contoh berikut menunjukkan cara membaca file PDF lokal. PDF dibatasi hingga 50 MB untuk metode ini. Lihat
-[tabel perbandingan metode Input](#method-comparison) untuk daftar lengkap jenis dan batas input file.
+Cách đơn giản nhất để đưa một tệp vào làm dữ liệu đầu vào là đọc một tệp cục bộ và đưa tệp đó vào câu lệnh. Ví dụ sau đây cho thấy cách đọc một tệp PDF cục bộ. Đối với phương thức này, tệp PDF chỉ được có dung lượng tối đa 50 MB. Hãy xem [Bảng so sánh phương thức nhập](#method-comparison) để biết danh sách đầy đủ các loại và giới hạn nhập tệp.
 
 ### Python
 
@@ -98,26 +97,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Perbandingan metode input
+## So sánh phương thức nhập
 
-Tabel berikut membandingkan setiap metode input dengan batas file dan kasus penggunaan terbaik. Perhatikan bahwa batas ukuran file dapat bervariasi bergantung pada jenis file dan model atau tokenizer yang digunakan untuk memproses file.
+Bảng sau đây so sánh từng phương thức nhập với giới hạn tệp và các trường hợp sử dụng hiệu quả nhất. Xin lưu ý rằng giới hạn kích thước tệp có thể thay đổi tuỳ thuộc vào loại tệp và mô hình hoặc mã hoá từ được dùng để xử lý tệp.
 
-| Metode | Paling cocok untuk | Ukuran file maks. | Persistensi |
+| Phương thức | Phù hợp nhất cho | Kích thước tệp tối đa | Khả năng lưu trữ dài lâu |
 | --- | --- | --- | --- |
-| **Data sebaris** | Pengujian cepat, file kecil, aplikasi real-time. | 100 MB per permintaan atau payload   (**50 MB untuk PDF**) | Tidak ada (dikirim dengan setiap permintaan) |
-| **Upload File API** | File besar, file yang digunakan beberapa kali. | 2 GB per file,   hingga 20 GB per project | 48 Jam |
-| **Pendaftaran URI GCS File API** | File besar yang sudah ada di Google Cloud Storage, file yang digunakan beberapa kali. | 2 GB per file, tanpa batas penyimpanan keseluruhan | Tidak ada (diambil per permintaan). Pendaftaran satu kali dapat memberikan akses hingga 30 hari. |
-| **URL eksternal** | Data publik atau data di bucket cloud (AWS, Azure, GCS) tanpa mengupload ulang. | 100 MB per permintaan/payload | Tidak ada (diambil per permintaan) |
+| **Dữ liệu nội tuyến** | Thử nghiệm nhanh, tệp nhỏ, ứng dụng theo thời gian thực. | 100 MB cho mỗi yêu cầu hoặc tải trọng   (**50 MB đối với tệp PDF**) | Không có (gửi kèm theo mọi yêu cầu) |
+| **Tải tệp lên bằng API** | Tệp lớn, tệp được dùng nhiều lần. | 2 GB cho mỗi tệp,   tối đa 20 GB cho mỗi dự án | 48 giờ |
+| **Đăng ký URI GCS của File API** | Các tệp lớn đã có trong Google Cloud Storage, các tệp được dùng nhiều lần. | 2 GB cho mỗi tệp, không có giới hạn chung về bộ nhớ | Không có (tìm nạp theo yêu cầu). Một lần đăng ký có thể cấp quyền truy cập trong tối đa 30 ngày. |
+| **URL bên ngoài** | Dữ liệu công khai hoặc dữ liệu trong các vùng lưu trữ đám mây (AWS, Azure, GCS) mà không cần tải lại. | 100 MB cho mỗi yêu cầu/tải trọng | Không có (tìm nạp theo yêu cầu) |
 
-## Data sebaris
+## Dữ liệu cùng dòng
 
-Untuk file yang lebih kecil (di bawah 100 MB, atau 50 MB untuk PDF), Anda dapat meneruskan data langsung dalam payload permintaan. Ini adalah metode paling sederhana untuk pengujian cepat atau aplikasi yang menangani data sementara real-time. Anda dapat memberikan data sebagai string berenkode base64 atau dengan membaca file lokal secara langsung.
+Đối với các tệp nhỏ hơn (dưới 100 MB hoặc 50 MB đối với tệp PDF), bạn có thể truyền dữ liệu trực tiếp trong tải trọng yêu cầu. Đây là phương thức đơn giản nhất để kiểm thử nhanh hoặc các ứng dụng xử lý dữ liệu tạm thời theo thời gian thực. Bạn có thể cung cấp dữ liệu dưới dạng chuỗi được mã hoá base64 hoặc bằng cách đọc trực tiếp các tệp cục bộ.
 
-Untuk contoh membaca dari file lokal, lihat contoh di awal halaman ini.
+Để xem ví dụ về cách đọc từ một tệp cục bộ, hãy xem ví dụ ở đầu trang này.
 
-### Mengambil dari URL
+### Tìm nạp từ URL
 
-Anda juga dapat mengambil file dari URL, mengonversinya menjadi byte, dan menyertakannya dalam input.
+Bạn cũng có thể tìm nạp một tệp từ URL, chuyển đổi tệp đó thành byte và đưa tệp đó vào dữ liệu đầu vào.
 
 ### Python
 
@@ -217,11 +216,11 @@ jq ".outputs[] | select(.type == \"text\") | .text" response.json
 
 ## Gemini File API
 
-File API dirancang untuk file yang lebih besar (hingga 2 GB) atau file yang ingin Anda gunakan dalam beberapa permintaan.
+File API được thiết kế cho các tệp lớn (tối đa 2 GB) hoặc các tệp mà bạn dự định sử dụng trong nhiều yêu cầu.
 
-### Upload file standar
+### Tải tệp lên theo cách tiêu chuẩn
 
-Upload file lokal ke Gemini API. File yang diupload dengan cara ini disimpan sementara (48 jam) dan diproses untuk pengambilan yang efisien oleh model.
+Tải một tệp cục bộ lên Gemini API. Các tệp được tải lên theo cách này sẽ được lưu trữ tạm thời (48 giờ) và được xử lý để mô hình có thể truy xuất hiệu quả.
 
 ### Python
 
@@ -318,45 +317,44 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-### Mendaftarkan file Google Cloud Storage
+### Đăng ký tệp Google Cloud Storage
 
-Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload dan menguploadnya lagi. Anda dapat mendaftarkannya langsung dengan File API.
+Nếu dữ liệu của bạn đã có trong Google Cloud Storage, bạn không cần tải xuống rồi tải lên lại. Bạn có thể đăng ký trực tiếp với File API.
 
-1. Memberikan akses **Agen Layanan** ke setiap bucket
+1. Cấp quyền truy cập cho **Tác nhân dịch vụ** vào từng bộ chứa
 
-   1. Mengaktifkan Gemini API di project Google Cloud.
-   2. Membuat Agen Layanan:
+   1. Bật Gemini API trong dự án trên đám mây của bạn.
+   2. Tạo tác nhân dịch vụ:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Memberikan izin Agen Layanan Gemini API** untuk membaca bucket penyimpanan Anda.
+   3. **Cấp cho Gemini API Service Agent quyền** đọc các bộ chứa lưu trữ của bạn.
 
-      Pengguna harus menetapkan peran `Storage Object Viewer`
-      [IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=id#storage.objectViewer)
-      ke agen layanan ini di bucket penyimpanan tertentu yang ingin mereka gunakan.
+      Người dùng cần chỉ định `Storage Object Viewer`
+      [vai trò IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=vi#storage.objectViewer)
+      cho tác nhân dịch vụ này trên các nhóm lưu trữ cụ thể mà họ dự định sử dụng.
 
-   Akses ini tidak akan berakhir secara default, tetapi dapat diubah kapan saja. [Anda juga dapat menggunakan perintah Google Cloud Storage IAM SDK untuk memberikan izin.](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=id)
-2. Mengautentikasi layanan Anda
+   Theo mặc định, quyền truy cập này không hết hạn, nhưng bạn có thể thay đổi bất cứ lúc nào. Bạn cũng có thể dùng các lệnh [SDK IAM của Google Cloud Storage](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=vi) để cấp quyền.
+2. Xác thực dịch vụ của bạn
 
-   **Prasyarat**
+   **Điều kiện tiên quyết**
 
-   - Aktifkan API
-   - Buat akun layanan atau agen dengan izin yang sesuai.
+   - Bật API
+   - Tạo một tài khoản dịch vụ hoặc tác nhân có các quyền thích hợp.
 
-   Pertama-tama, Anda harus melakukan autentikasi sebagai layanan yang memiliki izin Storage Object Viewer. Cara ini terjadi bergantung pada lingkungan tempat kode pengelolaan file Anda akan berjalan.
+   Trước tiên, bạn cần xác thực với tư cách là dịch vụ có quyền xem đối tượng lưu trữ. Cách thức này phụ thuộc vào môi trường mà mã quản lý tệp của bạn sẽ chạy.
 
-   **Di luar Google Cloud**
+   **Bên ngoài Google Cloud**
 
-   Jika kode Anda berjalan dari luar Google Cloud, seperti desktop, download kredensial akun dari Konsol Google Cloud dengan langkah-langkah berikut:
+   Nếu mã của bạn đang chạy bên ngoài Google Cloud, chẳng hạn như trên máy tính, hãy tải thông tin đăng nhập tài khoản xuống từ Google Cloud Console theo các bước sau:
 
-   1. Buka konsol [Akun Layanan](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=id)
-   2. Pilih akun layanan yang relevan
-   3. Pilih tab **Keys** dan pilih **Add key, Create new key**
-   4. Pilih jenis kunci **JSON**, dan catat tempat file didownload di komputer Anda.
+   1. Duyệt đến [Bảng điều khiển tài khoản dịch vụ](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=vi)
+   2. Chọn tài khoản dịch vụ có liên quan
+   3. Chọn thẻ **Khoá** rồi chọn **Thêm khoá, Tạo khoá mới**
+   4. Chọn loại khoá **JSON** và ghi lại vị trí tải tệp xuống trên máy của bạn.
 
-   Untuk mengetahui detail selengkapnya, lihat dokumentasi Google Cloud resmi tentang
-   [pengelolaan kunci akun layanan](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=id).
+   Để biết thêm thông tin chi tiết, hãy xem tài liệu chính thức của Google Cloud về [quản lý khoá tài khoản dịch vụ](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=vi).
 
-   Kemudian, gunakan perintah berikut untuk melakukan autentikasi. Perintah ini mengasumsikan bahwa file akun layanan Anda berada di direktori saat ini, dengan nama `service-account.json`.
+   Sau đó, hãy dùng các lệnh sau để xác thực. Các lệnh này giả định rằng tệp tài khoản dịch vụ của bạn nằm trong thư mục hiện tại, có tên là `service-account.json`.
 
    ### Python
 
@@ -402,15 +400,13 @@ Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload d
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **Di Google Cloud**
+   **Trên Google Cloud**
 
-   Jika Anda menjalankan langsung di Google Cloud, misalnya dengan menggunakan [fungsi Cloud Run](https://cloud.google.com/functions?hl=id) atau [instance Compute Engine](https://cloud.google.com/products/compute?hl=id), Anda akan memiliki kredensial implisit, tetapi harus melakukan autentikasi ulang untuk memberikan cakupan yang sesuai.
+   Nếu đang chạy trực tiếp trong Google Cloud, chẳng hạn như bằng cách sử dụng [các hàm Cloud Run](https://cloud.google.com/functions?hl=vi) hoặc một [phiên bản Compute Engine](https://cloud.google.com/products/compute?hl=vi), bạn sẽ có thông tin đăng nhập ngầm nhưng cần xác thực lại để cấp các phạm vi thích hợp.
 
    ### Python
 
-   Kode ini mengharapkan layanan berjalan di lingkungan tempat
-   [Kredensial Default Aplikasi](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=id)
-   dapat diperoleh secara otomatis, seperti Cloud Run atau Compute Engine.
+   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=vi) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
 
    ```
    import google.auth
@@ -425,9 +421,7 @@ Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload d
 
    ### JavaScript
 
-   Kode ini mengharapkan layanan berjalan di lingkungan tempat
-   [Kredensial Default Aplikasi](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=id)
-   dapat diperoleh secara otomatis, seperti Cloud Run atau Compute Engine.
+   Mã này giả định rằng dịch vụ đang chạy trong một môi trường mà [Thông tin xác thực mặc định của ứng dụng](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=vi) có thể được tự động lấy, chẳng hạn như Cloud Run hoặc Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -442,16 +436,15 @@ Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload d
 
    ### CLI
 
-   Ini adalah perintah interaktif. Untuk layanan seperti Compute Engine, Anda dapat melampirkan cakupan ke layanan yang berjalan di tingkat konfigurasi. Lihat [dokumen layanan yang dikelola pengguna](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=id#using)
-   untuk mengetahui contohnya.
+   Đây là một lệnh tương tác. Đối với các dịch vụ như Compute Engine, bạn có thể đính kèm các phạm vi vào dịch vụ đang chạy ở cấp cấu hình. Hãy xem [tài liệu về dịch vụ do người dùng quản lý](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=vi#using) để biết ví dụ.
 
    ```
    gcloud auth application-default login \
    --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
    ```
-3. Pendaftaran file (File API)
+3. Đăng ký tệp (API Tệp)
 
-   Gunakan File API untuk mendaftarkan file dan menghasilkan jalur File API yang dapat langsung digunakan di Gemini API.
+   Sử dụng Files API để đăng ký tệp và tạo đường dẫn Files API có thể được dùng trực tiếp trong Gemini API.
 
    ### Python
 
@@ -520,10 +513,10 @@ Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload d
        -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
    ```
 
-## URL HTTP / URL Bertanda Tangan Eksternal
+## HTTP bên ngoài / URL đã ký
 
-Anda dapat meneruskan URL HTTPS yang dapat diakses secara publik atau URL yang telah ditandatangani langsung dalam permintaan. Gemini API akan mengambil konten dengan aman selama pemrosesan.
-Hal ini ideal untuk file berukuran hingga 100 MB yang tidak ingin Anda upload ulang.
+Bạn có thể truyền trực tiếp các URL HTTPS truy cập được công khai hoặc URL được ký trước trong yêu cầu của mình. Gemini API sẽ tìm nạp nội dung một cách an toàn trong quá trình xử lý.
+Đây là lựa chọn lý tưởng cho những tệp có kích thước tối đa 100 MB mà bạn không muốn tải lên lại.
 
 ### Python
 
@@ -588,20 +581,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         }'
 ```
 
-### Aksesibilitas
+### Hỗ trợ tiếp cận
 
-Pastikan URL yang Anda berikan tidak mengarah ke halaman yang memerlukan login atau berada di belakang penghalang konten berbayar. Untuk database pribadi, pastikan Anda membuat URL bertanda tangan dengan izin akses dan masa berlaku yang benar.
+Xác minh rằng các URL bạn cung cấp không dẫn đến những trang yêu cầu đăng nhập hoặc có tường phí. Đối với cơ sở dữ liệu riêng tư, hãy đảm bảo rằng bạn tạo một URL đã ký với quyền truy cập và thời gian hết hạn chính xác.
 
-### Pemeriksaan keamanan
+### Kiểm tra an toàn
 
-Sistem melakukan pemeriksaan moderasi konten pada URL untuk mengonfirmasi bahwa URL tersebut memenuhi standar keamanan dan kebijakan. Jika URL gagal dalam pemeriksaan ini, Anda akan mendapatkan `url_retrieval_status` dari `URL_RETRIEVAL_STATUS_UNSAFE`.
+Hệ thống sẽ kiểm tra nội dung của URL để xác nhận rằng các URL đó đáp ứng các tiêu chuẩn về sự an toàn và chính sách. Nếu URL không vượt qua được bước kiểm tra này, bạn sẽ nhận được `url_retrieval_status` là `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### Jenis konten yang didukung
+### Các loại nội dung được hỗ trợ
 
-Daftar jenis dan batasan file yang didukung ini dimaksudkan sebagai panduan awal dan tidak komprehensif. Kumpulan jenis yang didukung dapat berubah dan dapat bervariasi berdasarkan model dan versi tokenizer tertentu yang digunakan. Jenis yang tidak didukung akan menyebabkan error.
-Selain itu, pengambilan konten untuk jenis file ini hanya mendukung URL yang dapat diakses secara publik.
+Danh sách các loại tệp được hỗ trợ và hạn chế này chỉ mang tính hướng dẫn ban đầu và chưa đầy đủ. Tập hợp các loại được hỗ trợ có hiệu lực có thể thay đổi và có thể khác nhau tuỳ theo mô hình và phiên bản mã hoá từ cụ thể đang được sử dụng. Các loại không được hỗ trợ sẽ dẫn đến lỗi.
+Ngoài ra, việc truy xuất nội dung cho các loại tệp này chỉ hỗ trợ URL có thể truy cập công khai.
 
-#### Jenis file teks
+#### Loại tệp văn bản
 
 - `text/html`
 - `text/css`
@@ -611,19 +604,19 @@ Selain itu, pengambilan konten untuk jenis file ini hanya mendukung URL yang dap
 - `text/rtf`
 - `text/javascript`
 
-#### Jenis file aplikasi
+#### Các loại tệp ứng dụng
 
 - `application/json`
 - `application/pdf`
 
-#### Jenis file gambar
+#### Loại tệp hình ảnh
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Jenis file video
+#### Loại tệp video
 
 - `video/mp4`
 - `video/mpeg`
@@ -635,36 +628,31 @@ Selain itu, pengambilan konten untuk jenis file ini hanya mendukung URL yang dap
 - `video/wmv`
 - `video/3gpp`
 
-## Praktik terbaik
+## Các phương pháp hay nhất
 
-- **Pilih metode yang tepat:** Gunakan data sebaris untuk file kecil dan sementara.
-  Gunakan File API untuk file yang lebih besar atau sering digunakan. Gunakan URL eksternal untuk data yang sudah dihosting secara online.
-- **Tentukan Jenis MIME:** Selalu berikan jenis MIME yang benar untuk data file guna memastikan pemrosesan yang tepat.
-- **Tangani Error:** Terapkan penanganan error dalam kode Anda untuk mengelola potensi masalah seperti kegagalan jaringan, masalah akses file, atau error API.
+- **Chọn phương thức phù hợp:** Sử dụng dữ liệu nội tuyến cho các tệp nhỏ, tạm thời.
+  Sử dụng File API cho các tệp có kích thước lớn hoặc thường dùng. Sử dụng URL bên ngoài cho dữ liệu đã được lưu trữ trực tuyến.
+- **Chỉ định loại MIME:** Luôn cung cấp loại MIME chính xác cho dữ liệu tệp để đảm bảo quá trình xử lý diễn ra đúng cách.
+- **Xử lý lỗi:** Triển khai quy trình xử lý lỗi trong mã của bạn để quản lý các vấn đề tiềm ẩn như lỗi mạng, vấn đề về quyền truy cập vào tệp hoặc lỗi API.
 
-## Batasan
+## Các điểm hạn chế
 
-- Batas ukuran file bervariasi menurut metode (lihat [tabel perbandingan](#method-comparison))
-  dan jenis file.
-- Data sebaris meningkatkan ukuran payload permintaan.
-- Upload File API bersifat sementara dan akan berakhir setelah 48 jam.
-- Pengambilan URL eksternal dibatasi hingga 100 MB per payload dan mendukung jenis konten tertentu.
+- Giới hạn kích thước tệp thay đổi tuỳ theo phương thức (xem [bảng so sánh](#method-comparison)) và loại tệp.
+- Dữ liệu nội tuyến làm tăng kích thước tải trọng yêu cầu.
+- Tệp tải lên qua File API chỉ là tạm thời và sẽ hết hạn sau 48 giờ.
+- Việc tìm nạp URL bên ngoài bị giới hạn ở 100 MB cho mỗi tải trọng và hỗ trợ các loại nội dung cụ thể.
 
-## Langkah berikutnya
+## Bước tiếp theo
 
-- Coba tulis perintah multimodal Anda sendiri menggunakan
-  [Google AI Studio](http://aistudio.google.com/?hl=id).
-- Untuk mengetahui informasi tentang cara menyertakan file dalam perintah, lihat panduan pemrosesan
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id),
-  [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan
-  [Document processing](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
+- Hãy thử viết câu lệnh đa phương thức của riêng bạn bằng [Google AI Studio](http://aistudio.google.com/?hl=vi).
+- Để biết thông tin về cách đưa tệp vào câu lệnh, hãy xem hướng dẫn về [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=vi), [Âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi) và [Xử lý tài liệu](https://ai.google.dev/gemini-api/docs/document-processing?hl=vi).
 
-Kirim masukan
+Gửi ý kiến phản hồi
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Terakhir diperbarui pada 2026-06-22 UTC.
+Cập nhật lần gần đây nhất: 2026-06-22 UTC.
 
-Ada masukan untuk kami?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-22 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]
