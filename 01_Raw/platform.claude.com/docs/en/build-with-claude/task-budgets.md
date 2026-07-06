@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/task-budgets
-fetched_at: 2026-06-29T05:22:57.252768+00:00
+fetched_at: 2026-07-06T05:03:14.264044+00:00
 fetch_method: mintlify_md
 ---
 
@@ -531,6 +531,7 @@ The minimum accepted `task_budget.total` is **20,000 tokens**; values below the 
 | ----------------- | ------------------------------------------- |
 | Claude Fable 5    | Beta (set `task-budgets-2026-03-13` header) |
 | Claude Mythos 5   | Beta (set `task-budgets-2026-03-13` header) |
+| Claude Sonnet 5   | Not supported                               |
 | Claude Opus 4.8   | Beta (set `task-budgets-2026-03-13` header) |
 | Claude Opus 4.7   | Beta (set `task-budgets-2026-03-13` header) |
 | Claude Opus 4.6   | Not supported                               |

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/pdf-support
-fetched_at: 2026-06-29T05:22:58.698428+00:00
+fetched_at: 2026-07-06T05:03:16.638022+00:00
 fetch_method: mintlify_md
 ---
 
@@ -519,7 +519,7 @@ For PDFs you'll use repeatedly, or when you want to avoid encoding overhead, use
 
   ```typescript TypeScript
   import Anthropic, { toFile } from "@anthropic-ai/sdk";
-  import fs from "fs";
+  import fs from "node:fs";
 
   const anthropic = new Anthropic();
 
