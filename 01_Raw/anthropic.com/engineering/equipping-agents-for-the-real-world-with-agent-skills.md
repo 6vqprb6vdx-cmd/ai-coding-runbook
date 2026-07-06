@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills
-fetched_at: 2026-06-29T05:23:21.999784+00:00
+fetched_at: 2026-07-06T05:03:31.586526+00:00
 title: "Equipping agents for the real world with Agent Skills \\ Anthropic"
 ---
 
@@ -96,7 +96,7 @@ We recommend installing skills only from trusted sources. When installing a skil
 
 ## The future of Skills
 
-Agent Skills are [supported today](https://www.anthropic.com/news/skills) across [Claude.ai](http://claude.ai/redirect/website.v1.7b0b6039-9e45-4c78-b4f8-5a377d4e57c4), Claude Code, the Claude Agent SDK, and the Claude Developer Platform.
+Agent Skills are [supported today](https://www.anthropic.com/news/skills) across [Claude.ai](http://claude.ai/redirect/website.v1.4244f733-2982-4c7c-8c5c-6b82aa07ed63), Claude Code, the Claude Agent SDK, and the Claude Developer Platform.
 
 In the coming weeks, we’ll continue to add features that support the full lifecycle of creating, editing, discovering, sharing, and using Skills. We’re especially excited about the opportunity for Skills to help organizations and individuals share their context and workflows with Claude. We’ll also explore how Skills can complement [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) servers by teaching agents more complex workflows that involve external tools and software.
 
