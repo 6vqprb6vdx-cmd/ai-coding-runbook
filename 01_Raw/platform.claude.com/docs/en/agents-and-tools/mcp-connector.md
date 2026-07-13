@@ -1,10 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/agents-and-tools/mcp-connector
-fetched_at: 2026-07-06T05:03:17.185620+00:00
+fetched_at: 2026-07-13T04:24:31.570357+00:00
 fetch_method: mintlify_md
 ---
 
 # MCP connector
+
+Connect to remote MCP servers directly from the Messages API without an MCP client, and allowlist, denylist, or configure individual tools.
 
 ---
 

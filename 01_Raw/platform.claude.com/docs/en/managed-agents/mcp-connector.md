@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/mcp-connector
-fetched_at: 2026-06-29T05:22:59.674693+00:00
+fetched_at: 2026-07-13T04:24:32.098893+00:00
 fetch_method: mintlify_md
 ---
 
@@ -20,7 +20,7 @@ MCP configuration is split across two steps:
 This separation keeps secrets out of reusable agent definitions while letting each session authenticate with its own credentials.
 
 <Note>
-  All Managed Agents API requests require the `managed-agents-2026-04-01` beta header. The SDK sets the beta header automatically.
+  Managed Agents API requests require the `managed-agents-2026-04-01` beta header, except memory store endpoints, which use `agent-memory-2026-07-22` instead. The SDK sets the correct beta header automatically. See [Beta headers](/docs/en/api/beta-headers#endpoint-specific-headers).
 </Note>
 
 ## Declare MCP servers on the agent

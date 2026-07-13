@@ -1,10 +1,12 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/batch-processing
-fetched_at: 2026-07-06T05:03:14.682841+00:00
+fetched_at: 2026-07-13T04:24:30.234303+00:00
 fetch_method: mintlify_md
 ---
 
 # Batch processing
+
+Process large volumes of Messages requests asynchronously with the Message Batches API, cutting costs by 50% and increasing throughput.
 
 ---
 
