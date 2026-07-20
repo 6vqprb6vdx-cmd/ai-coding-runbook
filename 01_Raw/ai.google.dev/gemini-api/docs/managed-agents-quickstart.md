@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr
-fetched_at: 2026-07-06T05:13:35.260893+00:00
-title: "Y\u00f6netilen Ajanlar H\u0131zl\u0131 Ba\u015flang\u0131\u00e7 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-TW
+fetched_at: 2026-07-20T04:45:21.675798+00:00
+title: "\u4ee3\u7ba1\u4ee3\u7406\u7a0b\u5f0f\u5feb\u901f\u5165\u9580\u5c0e\u89bd\u8ab2\u7a0b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Geri bildirim gönderin
+提供意見
 
-# Yönetilen Ajanlar Hızlı Başlangıç
+# 代管代理程式快速入門導覽課程
 
-Bu kılavuzda, [Antigravity agent](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=tr)'ı kullanarak Gemini API'de Yönetilen Ajanlar oluşturma ve kullanma adımları açıklanmaktadır. İlk temsilci görüşmenizi yapacak, çok turlu bir sohbete devam edecek, yanıtı yayınlayacak, korumalı alandan dosya indirecek ve Antigravity tarafından yönetilen temsilciyle çalışacaksınız.
+本指南將逐步說明如何使用 [Antigravity 代理](https://ai.google.dev/gemini-api/docs/agents/antigravity-agent?hl=zh-tw)，在 Gemini API 上建立及使用 Managed Agents。您將進行第一次代理程式呼叫、繼續多輪對話、串流回應、從沙箱下載檔案，以及使用 Antigravity 管理型代理程式。
 
-## İlk temsilci etkileşiminizi çalıştırma
+## 執行首次代理互動
 
-[Interactions API](https://ai.google.dev/gemini-api/docs?hl=tr)'ye yapılan tek bir çağrı, Linux özel korumalı alanını sağlar, aracı döngüsünü çalıştırır ve sonucu döndürür. Üç parametre tanımlarsınız:
+只要呼叫一次 [Interactions API](https://ai.google.dev/gemini-api/docs?hl=zh-tw)，即可佈建 Linux 沙箱、執行代理程式迴圈，並傳回結果。您將定義三項參數：
 
-- Önceden tanımlanmış ve genel amaçlı yönetilen aracımızın mevcut sürümü olan `agent` değerini `"antigravity-preview-05-2026",` olarak iletin.
-- Yeni bir temiz sanal alan ortamı sağlamak için `environment="remote"` tanımlayın.
-- Temsilcinin ne yapmasını istediğinizi tanımlayan bir giriş oluşturun.
+- 以 `"antigravity-preview-05-2026",` 形式傳遞 `agent`，這是預先定義的通用型受管理代理程式目前版本。
+- 定義 `environment="remote"`，以佈建全新的沙箱環境。
+- 建立輸入內容，定義代理程式要執行的動作。
 
 ### Python
 
@@ -79,16 +79,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Yanıt, `Interaction` nesnesi döndürür. Aynı korumalı alanda sohbete devam etmek için `interaction.id` ve `interaction.environment_id` değerlerini saklayın. Temsilcinin son yanıtına erişmek için `interaction.output_text` simgesini kullanın. `interaction.steps`, aracının gerçekleştirdiği her adımı (gerekçe, araç çağrıları, kod yürütme) listeler.
+回應會傳回 `Interaction` 物件。儲存 `interaction.id` 和 `interaction.environment_id`，即可在同一個沙箱中繼續對話。使用 `interaction.output_text` 存取代理的最終回覆。`interaction.steps` 列出代理執行的每個步驟 (推論、工具呼叫、程式碼執行作業)。
 
-## Görüşmeye devam etme (çok adımlı)
+## 繼續對話 (多輪)
 
-API, iki bağımsız durum boyutunu izler:
+這項 API 會追蹤兩個獨立的狀態維度：
 
-- **Sohbet bağlamı:** Sohbet geçmişi, akıl yürütme izi, araç kullanımı, `previous_interaction_id` kullanımı.
-- [**Ortam durumu:**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) `environment` kullanılarak dosyalar, yüklü paketler ve korumalı alan durumu.
+- **對話脈絡：**對話記錄、推論追蹤、工具使用情形、使用 `previous_interaction_id`。
+- [**環境狀態：**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)檔案、已安裝的套件和沙箱狀態，使用 `environment`。
 
-Devam etmek için her ikisini de ilgili yere yerleştirin:
+在各自的位置傳遞這兩項內容，即可繼續：
 
 ### Python
 
@@ -130,20 +130,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-1. turdaki dosyalar (`fibonacci.txt`) 2. turda kalır. Temsilci, sohbet bağlamını da korur.
+第 1 回合 (`fibonacci.txt`) 的檔案會保留到第 2 回合。專員也會保留對話脈絡。
 
-Bunları bağımsız olarak karıştırıp eşleştirebilirsiniz:
+您可以獨立混搭下列項目：
 
-- **Net görüşme, dosyaları saklama:** `previous_interaction_id` simgesini atlayın, aynı çalışma alanında yeni bir görüşme için yalnızca `environment` kullanarak ortam kimliğini iletin.
-- **Sohbeti sürdürme, yeni çalışma alanı:** Geçiş `previous_interaction_id`, yeni bir sandbox için `environment="remote"` ayarlayın.
+- **清除對話，保留檔案：**省略 `previous_interaction_id`，只使用 `environment` 傳遞環境 ID，在同一個工作區中展開新的對話。
+- **保留對話，建立新工作區：**傳遞 `previous_interaction_id`，為新的沙箱設定 `environment="remote"`。
 
-### Otomatik bağlam sıkıştırma
+### 自動壓縮脈絡
 
-Uzun süren, çok turlu sohbetlerde, muhakeme adımlarının, araç çağrılarının ve büyük dosya içeriklerinin ham geçmişi hızla büyüyebilir ve önemli miktarda bağlam alanı tüketebilir. Yönetilen Aracılar API'si, jeton sınırı hatalarını önlemek ve aracının odak noktasını korumak (bağlam bozulmasını önlemek) için yaklaşık 135.000 jetonluk yerel bir bağlam sıkıştırma adımına sahiptir. Bu, otomatik olarak gerçekleşir.
+在長時間的多輪對話中，推論步驟、工具呼叫和大型檔案內容的原始記錄可能會快速增長，並消耗大量脈絡空間。為避免發生權杖限制錯誤，並維持代理程式的專注度 (防止「脈絡腐化」)，Managed Agents API 會在權杖數量達到約 135,000 個時，執行原生脈絡壓縮步驟。這個步驟會自動執行。
 
-## Yanıtı akış şeklinde gösterme
+## 逐句顯示回覆
 
-Uzun süren görevlerde, temsilcinin çalışmasını anlık olarak görmek için yanıtı yayınlayabilirsiniz:
+如果是長時間執行的工作，您可以串流回應，即時查看代理程式的工作情形：
 
 ### Python
 
@@ -196,11 +196,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-Yayın, adım farklılıklarının yinelenebilir bir değerini döndürür. Bu değerler, artımlı metin, akıl yürütme jetonları ve araç çağrısı güncellemeleridir. Yanıtları yayınlama hakkında daha fazla bilgiyi [Yayınlama kılavuzu](https://ai.google.dev/gemini-api/docs/streaming?hl=tr)'nda bulabilirsiniz.
+串流會傳回步驟差異的可疊代項目，包括遞增文字、推論詞元和工具呼叫更新。如要進一步瞭解如何串流回應，請參閱[串流指南](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-tw)。
 
-## Ortamdan dosya indirme
+## 從環境下載檔案
 
-Aracı, sanal ortamda dosya oluşturduğunda Doğrudan HTTP isteğiyle (henüz SDK yöntemi yok) Files API'yi kullanarak indirin:
+代理程式在沙箱中建立檔案時。使用 Files API 透過直接 HTTP 要求下載 (目前沒有 SDK 方法)：
 
 ### Python
 
@@ -267,13 +267,13 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/environme
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## Yönetilen bir aracıyı kaydetme
+## 儲存代管代理程式
 
-Önceki adımlarda varsayılan Antigravity aracısını kullandık ve satır içi olarak özelleştirdik. Yapılandırmanızı (talimatlar, beceriler ve ortam) yineledikten sonra yönetilen bir aracı olarak kaydedebilirsiniz. Bu sayede, yapılandırmayı tekrarlamadan kimliğe göre çağırabilirsiniz.
+在先前的步驟中，我們使用了預設的 Antigravity 代理程式，並內嵌自訂。完成設定 (指令、技能和環境) 的疊代後，您可以將設定儲存為受管理代理程式。這樣一來，您就能透過 ID 叫用該函式，不必重複設定。
 
-Bir aracı kaydettiğinizde `base_environment` tanımlarsınız (kaynaklardan veya mevcut bir ortamı çatallayarak). Temsilci, her yeni etkileşim için bu ortamı kullanır.
+儲存代理程式時，您會定義 `base_environment` (來自來源或分叉現有環境)。每次新互動時，代理程式都會使用這個環境。
 
-**Kaynaklardan:** Kaynakları satır içi olarak veya GitHub ya da Cloud Storage gibi diğer kaynaklardan tanımlayın.
+**從來源：**內嵌定義來源，或從 GitHub 或 Cloud Storage 等其他來源定義。
 
 ### Python
 
@@ -357,9 +357,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## Yönetilen aracıyı çağırma
+## 叫用代管代理程式
 
-Kaydettiğiniz yönetilen temsilcileri kimlikleriyle çağırabilirsiniz. Her çağırma işlemi temel ortamı çatalladığından her çalıştırma temiz bir şekilde başlar:
+儲存受管理代理程式後，您就可以透過 ID 叫用該代理程式。每次叫用都會分叉基本環境，因此每次執行都會從乾淨的狀態開始：
 
 ### Python
 
@@ -400,19 +400,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Sırada ne var?
+## 後續步驟
 
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr): Yetenekler, desteklenen araçlar, çok formatlı giriş, fiyatlandırma ve sınırlamalar.
-- [Yönetilen Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): Antigravity'yi kendi talimatlarınız, becerileriniz ve verilerinizle genişletin.
-- [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): kaynaklar, ağ, yaşam döngüsü, kaynak sınırları.
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr): Modeller ve aracılar için temel API.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)：功能、支援的工具、多模態輸入、價格和限制。
+- [建構受管理代理](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)：使用您自己的指令、技能和資料擴充 Antigravity。
+- [環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw)：來源、網路、生命週期、資源限制。
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)：模型和代理程式的基礎 API。
 
-Geri bildirim gönderin
+提供意見
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Son güncelleme tarihi: 2026-06-22 UTC.
+上次更新時間：2026-06-22 (世界標準時間)。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+想進一步說明嗎？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-22 (世界標準時間)。"],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/openai?hl=ja
-fetched_at: 2026-07-06T05:14:43.625069+00:00
+fetched_at: 2026-07-20T04:45:00.718374+00:00
 title: "OpenAI \u306e\u4e92\u63db\u6027 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

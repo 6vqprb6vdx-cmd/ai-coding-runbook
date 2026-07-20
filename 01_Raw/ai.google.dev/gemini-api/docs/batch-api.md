@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=ja
-fetched_at: 2026-07-06T05:17:46.260757+00:00
-title: "\u30d0\u30c3\u30c1 API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=vi
+fetched_at: 2026-07-20T04:35:55.084198+00:00
+title: "API x\u1eed l\u00fd h\u00e0ng lo\u1ea1t \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# バッチ API
+# API xử lý hàng loạt
 
-Gemini Batch API は、大量のリクエストを
-非同期で[標準料金の 50% で処理するように設計されています](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)。
-目標の所要時間は
-24 時間ですが、ほとんどの場合、はるかに短時間で完了します。
+API Gemini Batch được thiết kế để xử lý số lượng lớn yêu cầu
+một cách không đồng bộ với mức phí bằng [50% mức phí tiêu chuẩn](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
+Thời gian xử lý mục tiêu là 24 giờ, nhưng trong phần lớn trường hợp, thời gian này sẽ nhanh hơn nhiều.
 
-Batch API は、データの前処理や評価の実行など、すぐにレスポンスを必要としない大規模で緊急性の低いタスクに使用します。
+Hãy sử dụng API Batch cho các tác vụ quy mô lớn, không khẩn cấp, chẳng hạn như xử lý trước dữ liệu hoặc chạy các lượt đánh giá mà không cần phản hồi ngay lập tức.
 
-## バッチジョブを作成する
+## Tạo công việc theo lô
 
-Batch API でリクエストを送信する方法は 2 つあります。
+Bạn có 2 cách để gửi yêu cầu trong API Batch:
 
-- **[インライン リクエスト](#inline-requests):** バッチ作成リクエストに直接含まれる
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトのリスト。これは、リクエストの合計サイズが 20 MB 未満の小規模なバッチに適しています。モデルから返される**出力** は、`inlineResponse` オブジェクトのリストです。
-- **[入力ファイル](#input-file):** 各行に完全な
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトが含まれる
-  [JSON Lines（JSONL）](https://jsonlines.org/)
-  ファイル。この方法は、大規模なリクエストにおすすめです。モデルから返される**出力** は、各行が `GenerateContentResponse` またはステータス オブジェクトである JSONL ファイルです。
+- **[Yêu cầu nội tuyến](#inline-requests):** Danh sách các đối tượng
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=vi#GenerateContentRequest) được đưa trực tiếp vào yêu cầu tạo lô. Cách này phù hợp với các lô nhỏ hơn có tổng kích thước yêu cầu dưới 20 MB. **Kết quả** mà mô hình trả về là danh sách các đối tượng `inlineResponse`.
+- **[Tệp đầu vào](#input-file):** Tệp [JSON Lines (JSONL)](https://jsonlines.org/)
+  trong đó mỗi dòng chứa một đối tượng
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=vi#GenerateContentRequest) hoàn chỉnh.
+  Bạn nên sử dụng phương thức này cho các yêu cầu lớn hơn. **Kết quả** mà mô hình trả về là tệp JSONL trong đó mỗi dòng là một đối tượng `GenerateContentResponse` hoặc đối tượng trạng thái.
 
-### インライン リクエスト
+### Yêu cầu nội tuyến
 
-リクエストの数が少ない場合は、
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトを
-[`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#request-body) 内に直接埋め込むことができます。次の例では、インライン リクエストを使用して
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-メソッドを呼び出します。
+Đối với một số ít yêu cầu, bạn có thể trực tiếp nhúng các đối tượng
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=vi#GenerateContentRequest)
+vào [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=vi#request-body). Ví dụ
+sau đây gọi phương thức
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=vi#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+bằng các yêu cầu nội tuyến:
 
 ### Python
 
@@ -144,23 +144,25 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }'
 ```
 
-### 入力ファイル
+### Tệp đầu vào
 
-リクエストのセットが大きい場合は、JSON Lines（JSONL）ファイルを用意します。このファイルの各行は、ユーザー定義のキーとリクエスト オブジェクトを含む JSON オブジェクトにする必要があります。リクエストは有効な[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ja#GenerateContentRequest) オブジェクトです。ユーザー定義のキーは、どの出力がどのリクエストの結果であるかを示すためにレスポンスで使用されます。たとえば、キーが `request-1` として定義されているリクエストの場合、レスポンスには同じキー名のアノテーションが付けられます。
+Đối với các tập hợp yêu cầu lớn hơn, hãy chuẩn bị tệp JSON Lines (JSONL). Mỗi dòng trong
+tệp này phải là một đối tượng JSON chứa khoá do người dùng xác định và một đối tượng yêu cầu, trong đó yêu cầu là một đối tượng
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=vi#GenerateContentRequest) hợp lệ. Khoá do người dùng xác định được dùng trong phản hồi để cho biết kết quả nào là kết quả của yêu cầu nào. Ví dụ: yêu cầu có khoá được xác định là `request-1` sẽ có phản hồi được chú thích bằng cùng tên khoá.
 
-このファイルは、[File API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を使用してアップロードされます。入力ファイルに許容される最大ファイルサイズは 2 GB です。
+Tệp này được tải lên bằng [API Tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi). Kích thước tệp tối đa được phép đối với tệp đầu vào là 2 GB.
 
-JSONL ファイルの例を次に示します。`my-batch-requests.json` という名前のファイルに保存できます。
+Sau đây là ví dụ về tệp JSONL. Bạn có thể lưu tệp này trong một tệp có tên `my-batch-requests.json`:
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-インライン リクエストと同様に、各リクエスト JSON で、システム指示、ツール、その他の構成などの他のパラメータを指定できます。
+Tương tự như các yêu cầu nội tuyến, bạn có thể chỉ định các tham số khác như hướng dẫn hệ thống, công cụ hoặc các cấu hình khác trong mỗi JSON yêu cầu.
 
-このファイルは、次の例に示すように、[File API](https://ai.google.dev/gemini-api/docs/files?hl=ja) を
-使用してアップロードできます。マルチモーダル入力を使用している場合は、JSONL ファイル内でアップロードした他のファイルを参照できます。
+Bạn có thể tải tệp này lên bằng [API Tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi) như
+trong ví dụ sau. Nếu đang làm việc với dữ liệu đầu vào đa phương thức, bạn có thể tham chiếu đến các tệp đã tải lên khác trong tệp JSONL.
 
 ### Python
 
@@ -281,9 +283,9 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-次の例では、File API を使用してアップロードされた入力ファイルを使用して
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-メソッドを呼び出します。
+Ví dụ sau đây gọi phương thức
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=vi#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+bằng tệp đầu vào được tải lên bằng API Tệp:
 
 ### Python
 
@@ -337,19 +339,23 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:ba
 }"
 ```
 
-バッチジョブを作成すると、ジョブ名が返されます。この名前を使用して、[ジョブのステータスをモニタリング](#batch-job-status)し、[ジョブが完了したら結果を取得します](#retrieve-batch-results)。
+Khi tạo công việc theo lô, bạn sẽ nhận được tên công việc được trả về. Hãy sử dụng tên này
+để [theo dõi](#batch-job-status) trạng thái công việc cũng như
+[truy xuất kết quả](#retrieve-batch-results) sau khi công việc hoàn tất.
 
-ジョブ名を含む出力の例を次に示します。
+Sau đây là ví dụ về kết quả chứa tên công việc:
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### バッチ エンべディングのサポート
+### Hỗ trợ nhúng theo lô
 
-Batch API を使用して、
-[エンべディング モデル](https://ai.google.dev/gemini-api/docs/embeddings?hl=ja)とやり取りしてスループットを向上させることができます。
-[[インライン リクエストまたは入力ファイルを使用してエンべディング バッチジョブを作成するには、`batches.create_embeddings` API を使用してエンべディング モデルを指定します。](#inline-requests)](#input-file)
+Bạn có thể sử dụng API Batch để tương tác với mô hình
+[Nhúng](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi) nhằm tăng thông lượng.
+[[Để tạo công việc nhúng theo lô bằng các yêu cầu nội tuyến](#inline-requests)
+hoặc tệp đầu vào](#input-file), hãy sử dụng API `batches.create_embeddings` và
+chỉ định mô hình nhúng.
 
 ### Python
 
@@ -397,12 +403,12 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-その他の例については、[Batch API クックブック](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
-のエンべディングのセクションをご覧ください。
+Hãy đọc phần Nhúng trong [sổ tay API Batch](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
+để xem thêm các ví dụ.
 
-### リクエストの構成
+### Yêu cầu về cấu hình
 
-標準の非バッチ リクエストで使用するリクエスト構成を含めることができます。たとえば、温度やシステム指示を指定したり、他のモダリティを渡したりできます。次の例は、リクエストの 1 つにシステム指示を含むインライン リクエストの例を示しています。
+Bạn có thể đưa mọi cấu hình yêu cầu mà bạn sẽ sử dụng trong yêu cầu tiêu chuẩn không theo lô. Ví dụ: bạn có thể chỉ định nhiệt độ, hướng dẫn hệ thống hoặc thậm chí truyền các phương thức khác. Ví dụ sau đây cho thấy một yêu cầu nội tuyến mẫu chứa hướng dẫn hệ thống cho một trong các yêu cầu:
 
 ### Python
 
@@ -430,8 +436,8 @@ inlineRequestsList = [
 ]
 ```
 
-同様に、リクエストに使用するツールを指定できます。次の例
-は、[Google 検索ツール](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)を有効にするリクエストを示しています。
+Tương tự, bạn có thể chỉ định các công cụ cần sử dụng cho một yêu cầu. Ví dụ sau đây
+cho thấy một yêu cầu bật công cụ [Tìm kiếm của Google](https://ai.google.dev/gemini-api/docs/google-search?hl=vi):
 
 ### Python
 
@@ -452,7 +458,8 @@ inlineRequestsList = [
 ]
 ```
 
-[構造化された出力も指定できます。](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)次の例は、バッチ リクエストに を指定する方法を示しています。
+Bạn cũng có thể chỉ định [kết quả có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi) as well.
+Ví dụ sau đây cho thấy cách chỉ định cho các yêu cầu theo lô.
 
 ### Python
 
@@ -603,7 +610,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-このジョブの出力例を次に示します。
+Sau đây là ví dụ về kết quả của công việc này:
 
 ```
 --- Response 1 ---
@@ -699,20 +706,20 @@ const inlinedBatchJob = await ai.batches.create({
 ]
 ```
 
-## ジョブのステータスをモニタリングする
+## Theo dõi trạng thái công việc
 
-バッチジョブの作成時に取得したオペレーション名を使用して、ステータスをポーリングします。
-バッチジョブの state フィールドに、現在のステータスが表示されます。バッチジョブは次のいずれかの状態になります。
+Hãy sử dụng tên thao tác nhận được khi tạo công việc theo lô để thăm dò trạng thái của công việc đó.
+Trường trạng thái của công việc theo lô sẽ cho biết trạng thái hiện tại của công việc đó. Công việc theo lô có thể ở một trong các trạng thái sau:
 
-- `JOB_STATE_PENDING`: ジョブが作成され、サービスによる処理を待機しています。
-- `JOB_STATE_RUNNING`: ジョブは進行中です。
-- `JOB_STATE_SUCCEEDED`: ジョブが正常に完了しました。結果を取得できるようになりました。
-- `JOB_STATE_FAILED`: ジョブが失敗しました。詳細については、エラーの詳細をご覧ください。
-- `JOB_STATE_CANCELLED`: ジョブがユーザーによってキャンセルされました。
-- `JOB_STATE_EXPIRED`: ジョブが 48 時間以上実行中または保留中のため、期限切れになりました。ジョブの結果を取得することはできません。
-  ジョブを再送信するか、リクエストを小さなバッチに分割してみてください。
+- `JOB_STATE_PENDING`: Công việc đã được tạo và đang chờ dịch vụ xử lý.
+- `JOB_STATE_RUNNING`: Công việc đang được tiến hành.
+- `JOB_STATE_SUCCEEDED`: Công việc đã hoàn tất thành công. Giờ đây, bạn có thể truy xuất kết quả.
+- `JOB_STATE_FAILED`: Công việc không thành công. Hãy kiểm tra thông tin chi tiết về lỗi để biết thêm thông tin.
+- `JOB_STATE_CANCELLED`: Công việc đã bị người dùng huỷ.
+- `JOB_STATE_EXPIRED`: Công việc đã hết hạn vì đang chạy hoặc đang chờ xử lý trong hơn 48 giờ. Công việc sẽ không có kết quả nào để truy xuất.
+  Bạn có thể thử gửi lại công việc hoặc chia các yêu cầu thành các lô nhỏ hơn.
 
-ジョブのステータスを定期的にポーリングして、完了を確認できます。
+Bạn có thể thăm dò trạng thái công việc theo định kỳ để kiểm tra xem công việc đã hoàn tất hay chưa.
 
 ### Python
 
@@ -778,11 +785,11 @@ try {
 }
 ```
 
-### ポーリングと Webhook
+### Thăm dò và webhook
 
-**ポーリングにうんざりしていませんか？**Gemini で、完了を非同期で処理するための
-[Webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=ja) がサポートされるようになりました。
-`GET / operations` を継続的に呼び出す代わりに、`batch.succeeded` を直接サブスクライブすると、非同期オペレーションまたは長時間実行オペレーションが完了したときに、Gemini API がリアルタイム通知をサーバーにプッシュできます。
+**Bạn đã chán việc thăm dò?** Gemini hiện hỗ trợ
+[Webhook](https://ai.google.dev/gemini-api/docs/webhooks?hl=vi) để xử lý các lượt hoàn thành một cách không đồng bộ.
+Thay vì liên tục gọi `GET / operations`, hãy trực tiếp đăng ký `batch.succeeded` để cho phép API Gemini gửi thông báo theo thời gian thực đến máy chủ của bạn khi các thao tác không đồng bộ hoặc thao tác chạy trong thời gian dài hoàn tất.
 
 ### Python
 
@@ -834,10 +841,10 @@ curl -X POST \
   }'
 ```
 
-## 結果を取得する
+## Truy xuất kết quả
 
-ジョブのステータスがバッチジョブの成功を示したら、`response` フィールドで結果を確認できます。
-デフォルトでは、バッチジョブの結果は 6 週間保存され、ダウンロードできます。その後、完全に削除されます。
+Sau khi trạng thái công việc cho biết công việc theo lô của bạn đã thành công, kết quả sẽ có trong trường `response`.
+Theo mặc định, kết quả công việc theo lô được lưu trữ và có thể tải xuống trong 6 tuần trước khi bị xoá vĩnh viễn.
 
 ### Python
 
@@ -990,9 +997,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## バッチジョブを一覧表示する
+## Liệt kê các công việc theo lô
 
-最近のバッチジョブを一覧表示できます。
+Bạn có thể liệt kê các công việc theo lô gần đây.
 
 ### Python
 
@@ -1026,9 +1033,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## バッチジョブをキャンセルする
+## Huỷ công việc theo lô
 
-実行中のバッチジョブは、名前を使用してキャンセルできます。ジョブがキャンセルされると、新しいリクエストの処理が停止します。
+Bạn có thể huỷ công việc theo lô đang diễn ra bằng tên của công việc đó. Khi một công việc bị huỷ, công việc đó sẽ ngừng xử lý các yêu cầu mới.
 
 ### Python
 
@@ -1057,9 +1064,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## バッチジョブを削除する
+## Xoá công việc theo lô
 
-既存のバッチジョブは、名前を使用して削除できます。ジョブが削除されると、新しいリクエストの処理が停止し、バッチジョブのリストから削除されます。
+Bạn có thể xoá công việc theo lô hiện có bằng tên của công việc đó. Khi một công việc bị xoá, công việc đó sẽ ngừng xử lý các yêu cầu mới và bị xoá khỏi danh sách công việc theo lô.
 
 ### Python
 
@@ -1083,16 +1090,17 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 画像をバッチで生成する
+## Tạo hình ảnh theo lô
 
-[Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja) を使用していて、大量
-の画像を生成する必要がある場合は、Batch API を使用して、最大 24 時間の所要時間でレート上限
-を引き上げることができます。
+Nếu đang sử dụng [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) và cần tạo nhiều
+hình ảnh, bạn có thể sử dụng API Batch để nhận
+[hạn mức cao hơn](https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi) để đổi lấy thời gian xử lý tối
+đa là 24 giờ.
 
-リクエストの小規模なバッチ（20 MB 未満）には[インライン リクエスト](#inline-requests-images)を使用し、
-大規模なバッチ（画像生成におすすめ）には[JSONL 入力ファイル](#input-file-images)を使用できます。
+Bạn có thể sử dụng [các yêu cầu nội tuyến](#inline-requests-images) cho các lô yêu cầu nhỏ (dưới 20 MB) hoặc
+một [tệp đầu vào JSONL](#input-file-images) cho các lô lớn (nên dùng để tạo hình ảnh):
 
-### 画像のインライン リクエスト
+### Yêu cầu nội tuyến đối với hình ảnh
 
 ### Python
 
@@ -1303,7 +1311,7 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-### 画像の入力ファイル
+### Tệp đầu vào đối với hình ảnh
 
 ### Python
 
@@ -1535,44 +1543,47 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## 詳細な技術情報
+## Chi tiết kỹ thuật
 
-- **サポートされているモデル:** Batch API は、さまざまな Gemini モデルをサポートしています。
-  各モデルの Batch API のサポート
-  については、[モデルのページ](https://ai.google.dev/gemini-api/docs/models?hl=ja)をご覧ください。Batch API でサポートされているモダリティは、インタラクティブ（非バッチ）API でサポートされているモダリティと同じです。
-- **料金:** Batch API の使用料金は、同等のモデルの標準インタラクティブ API 料金の 50% です。詳細については、[料金のページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)
-  をご覧ください。この機能のレート上限について詳しくは、[レート上限のページ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#batch-mode)
-  をご覧ください。
-- **サービスレベル目標（SLO）:** バッチジョブは、24 時間以内の所要時間で完了するように設計されています。ジョブのサイズと現在のシステム負荷によっては、多くのジョブがはるかに短時間で完了する場合があります。
-- **キャッシュ:** [コンテキストのキャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)は、バッチ リクエストでサポートされています。バッチ内の個々のリクエストの構成で `cached_content` リソース名を指定して、キャッシュに保存されたコンテンツを再利用します。
-  バッチ内のリクエストがキャッシュ ヒットした場合、
-  [標準のコンテキスト キャッシュ保存料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)が課金されます。
+- **Các mô hình được hỗ trợ:** API Batch hỗ trợ nhiều mô hình Gemini.
+  Hãy tham khảo [trang Mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi) để biết thông tin về việc từng mô hình hỗ trợ
+  API Batch. Các phương thức được hỗ trợ cho API Batch cũng giống như các phương thức được hỗ trợ trên API tương tác (hoặc không theo lô).
+- **Giá:** Mức giá sử dụng API Batch bằng 50% mức giá API tương tác tiêu chuẩn cho mô hình tương đương. Hãy xem [trang giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi)
+  để biết thông tin chi tiết. Hãy tham khảo [trang hạn mức](https://ai.google.dev/gemini-api/docs/rate-limits?hl=vi#batch-mode)
+  để biết thông tin chi tiết về hạn mức của tính năng này.
+- **Mục tiêu mức độ dịch vụ (SLO):** Các công việc theo lô được thiết kế để hoàn tất trong thời gian xử lý 24 giờ. Nhiều công việc có thể hoàn tất nhanh hơn nhiều tuỳ thuộc vào kích thước và mức tải hiện tại của hệ thống.
+- **Bộ nhớ đệm:** [Tính năng lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) được hỗ trợ
+  cho các yêu cầu theo lô. Hãy sử dụng lại nội dung đã lưu vào bộ nhớ đệm bằng cách chỉ định tên tài nguyên `cached_content` trong cấu hình của từng yêu cầu trong lô.
+  Nếu một yêu cầu trong lô của bạn dẫn đến kết quả tìm kiếm trong bộ nhớ cache, thì bạn sẽ trả mức giá
+  [tiêu chuẩn cho việc lưu vào bộ nhớ đệm theo bối cảnh](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
 
-## ベスト プラクティス
+## Các phương pháp hay nhất
 
-- [**大規模なリクエストには入力ファイルを使用する:** 大量のリクエストの場合は、管理しやすくするため、また
-  呼び出し自体でリクエスト サイズの上限に達しないようにするため、必ずファイル入力
-  方式を使用してください。](https://ai.google.dev/api/batch-mode?hl=ja#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)`BatchGenerateContent`入力ファイル 1 つあたりのファイルサイズの上限は 2 GB です。
-- **エラー処理:** ジョブが完了したら、`batchStats` で `failedRequestCount` を確認します。ファイル出力を使用している場合は、各行を解析して、特定のリクエストのエラーを示す `GenerateContentResponse` またはステータス オブジェクトであるかどうかを確認します。エラーコードの一覧については、[トラブルシューティング
-  ガイド](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja#error-codes)をご覧ください。
-- **ジョブを 1 回送信する:** バッチジョブの作成はべき等ではありません。
-  同じ作成リクエストを 2 回送信すると、2 つの別々のバッチジョブが作成されます。
-- **非常に大きなバッチを分割する:** 目標の所要時間は 24 時間ですが、実際の処理時間はシステム負荷とジョブサイズによって異なります。
-  大規模なジョブで中間結果を早めに取得する必要がある場合は、ジョブを小さなバッチに分割することを検討してください。
+- **Sử dụng tệp đầu vào cho các yêu cầu lớn:** Đối với số lượng lớn yêu cầu,
+  hãy luôn sử dụng phương thức nhập tệp
+  để dễ quản lý hơn và tránh đạt đến hạn mức kích thước yêu cầu cho
+  chính lệnh gọi [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=vi#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent). Xin lưu ý rằng giới hạn kích thước tệp là 2 GB cho mỗi tệp đầu vào.
+- **Xử lý lỗi:** Hãy kiểm tra `batchStats` để biết `failedRequestCount` sau khi công việc hoàn tất. Nếu sử dụng tệp đầu ra, hãy phân tích cú pháp từng dòng để kiểm tra xem đó có phải là `GenerateContentResponse` hay đối tượng trạng thái cho biết lỗi cho yêu cầu cụ thể đó hay không. Hãy xem [hướng dẫn
+  khắc phục sự cố](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=vi#error-codes) để biết toàn bộ tập hợp
+  mã lỗi.
+- **Gửi công việc một lần:** Việc tạo công việc theo lô không phải là thao tác luỹ đẳng.
+  Nếu bạn gửi cùng một yêu cầu tạo hai lần, thì hai công việc theo lô riêng biệt sẽ được tạo.
+- **Chia các lô rất lớn:** Mặc dù thời gian xử lý mục tiêu là 24 giờ, nhưng thời gian xử lý thực tế có thể thay đổi dựa trên mức tải của hệ thống và kích thước công việc.
+  Đối với các công việc lớn, hãy cân nhắc chia thành các lô nhỏ hơn nếu bạn cần kết quả trung gian sớm hơn.
 
-## 次のステップ
+## Bước tiếp theo
 
-- その他の例については、[Batch API ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=ja)
-  をご覧ください。
-- OpenAI 互換レイヤは Batch API をサポートしています。OpenAI 互換性のページの例を
-  [ご覧ください。](https://ai.google.dev/gemini-api/docs/openai?hl=ja#batch)
+- Hãy xem [sổ tay API Batch](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=vi)
+  để biết thêm các ví dụ.
+- Lớp tương thích OpenAI hỗ trợ API Batch. Hãy đọc các ví dụ trên trang
+  [Khả năng tương thích với OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi#batch).
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-07-02 UTC。
+Cập nhật lần gần đây nhất: 2026-07-02 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-02 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-02 UTC."],[],[]]

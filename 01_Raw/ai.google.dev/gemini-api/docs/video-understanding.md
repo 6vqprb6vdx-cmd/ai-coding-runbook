@@ -1,44 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi
-fetched_at: 2026-07-06T05:14:14.480311+00:00
-title: "Hi\u1ec3u video \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=th
+fetched_at: 2026-07-20T04:43:47.565910+00:00
+title: "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Gửi ý kiến phản hồi
+ส่งความคิดเห็น
 
-# Hiểu video
+# การทำความเข้าใจวิดีโอ
 
-> Để tìm hiểu về tính năng tạo video, hãy xem hướng dẫn về [Veo](https://ai.google.dev/gemini-api/docs/video?hl=vi).
+> ดูข้อมูลเกี่ยวกับการสร้างวิดีโอได้ในคู่มือ [Veo](https://ai.google.dev/gemini-api/docs/video?hl=th)
 
-Các mô hình Gemini có thể xử lý video, cho phép nhiều trường hợp sử dụng của nhà phát triển tiên phong mà trước đây cần có các mô hình dành riêng cho miền.
-Một số khả năng thị giác của Gemini bao gồm: mô tả, phân đoạn và trích xuất thông tin từ video, trả lời câu hỏi về nội dung video và tham khảo các dấu thời gian cụ thể trong video.
+โมเดล Gemini สามารถประมวลผลวิดีโอได้ ซึ่งช่วยให้กรณีการใช้งานของนักพัฒนาแอปที่อยู่แถวหน้าหลายๆ กรณี
+ซึ่งในอดีตต้องใช้โมเดลเฉพาะโดเมน
+ความสามารถด้านการมองเห็นของ Gemini บางอย่าง ได้แก่ ความสามารถในการอธิบาย แบ่งกลุ่ม
+และดึงข้อมูลจากวิดีโอ ตอบคำถามเกี่ยวกับเนื้อหาวิดีโอ และ
+อ้างอิงการประทับเวลาที่เฉพาะเจาะจงภายในวิดีโอ
 
-Bạn có thể cung cấp video làm dữ liệu đầu vào cho Gemini theo những cách sau:
+คุณสามารถป้อนวิดีโอไปยัง Gemini ได้ด้วยวิธีต่อไปนี้
 
-| Phương thức nhập | Kích thước tối đa | Trường hợp sử dụng được đề xuất |
+| วิธีการป้อนข้อมูล | ขนาดสูงสุด | กรณีการใช้งานที่แนะนำ |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 GB (có tính phí) / 2 GB (miễn phí) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp có thể dùng lại. |
-| [Đăng ký Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi#registration) | 2 GB (mỗi tệp, không giới hạn bộ nhớ) | Tệp lớn (từ 100 MB trở lên), video dài (từ 10 phút trở lên), tệp cố định, có thể dùng lại. |
-| [Dữ liệu nội tuyến](#inline-video) | < 100MB | Tệp nhỏ (<100 MB), thời lượng ngắn (<1 phút), dữ liệu đầu vào một lần. |
-| [URL trên YouTube](#youtube) | Không áp dụng | Video công khai trên YouTube. |
+| [File API](#upload-video) | 20 GB (แบบชำระเงิน) / 2 GB (ฟรี) | ไฟล์ขนาดใหญ่ (100 MB ขึ้นไป), วิดีโอยาว (10 นาทีขึ้นไป), ไฟล์ที่นำกลับมาใช้ซ้ำได้ |
+| [การลงทะเบียน Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th#registration) | 2 GB (ต่อไฟล์ ไม่มีขีดจำกัดพื้นที่เก็บข้อมูล) | ไฟล์ขนาดใหญ่ (100 MB ขึ้นไป), วิดีโอยาว (10 นาทีขึ้นไป), ไฟล์ที่ใช้ซ้ำได้ |
+| [ข้อมูลในบรรทัด](#inline-video) | < 100MB | ไฟล์ขนาดเล็ก (น้อยกว่า 100 MB), ระยะเวลาสั้น (น้อยกว่า 1 นาที), อินพุตแบบครั้งเดียว |
+| [URL ของ YouTube](#youtube) | ไม่มี | วิดีโอ YouTube สาธารณะ |
 
-> **Lưu ý:** Bạn nên dùng [File API](#upload-video) cho hầu hết các trường hợp sử dụng, đặc biệt là đối với những tệp có kích thước lớn hơn 100 MB hoặc khi bạn muốn dùng lại tệp trong nhiều yêu cầu.
+> **หมายเหตุ:** เราขอแนะนำให้ใช้ [File API](#upload-video) สำหรับ Use Case ส่วนใหญ่ โดยเฉพาะอย่างยิ่งสำหรับไฟล์ที่มีขนาดใหญ่กว่า 100 MB หรือเมื่อคุณต้องการนำไฟล์ไปใช้ซ้ำในคำขอหลายรายการ
 
-Để tìm hiểu về các phương thức nhập tệp khác, chẳng hạn như sử dụng URL bên ngoài hoặc tệp được lưu trữ trong Google Cloud, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
+ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ เช่น การใช้ URL ภายนอกหรือไฟล์ที่จัดเก็บไว้ใน Google Cloud ได้ที่คู่มือ[วิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
 
-### Tải tệp video lên
+### อัปโหลดไฟล์วิดีโอ
 
-Đoạn mã sau đây tải một video mẫu xuống, tải video đó lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi), đợi video được xử lý, sau đó dùng thông tin tham chiếu về tệp đã tải lên để tóm tắt video.
+โค้ดต่อไปนี้จะดาวน์โหลดวิดีโอตัวอย่าง อัปโหลดโดยใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)
+รอให้ประมวลผล แล้วใช้การอ้างอิงไฟล์ที่อัปโหลดเพื่อ
+สรุปวิดีโอ
 
 ### Python
 
@@ -175,16 +180,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, lời nhắc bằng văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB, thời lượng video đáng kể hoặc nếu bạn dự định sử dụng cùng một video trong nhiều lời nhắc.
-File API chấp nhận trực tiếp các định dạng tệp video.
+ใช้ Files API เสมอเมื่อขนาดคำขอทั้งหมด (รวมถึงไฟล์ ข้อความพรอมต์ คำสั่งของระบบ ฯลฯ) ใหญ่กว่า 20 MB, ระยะเวลาของวิดีโอมีความสำคัญ หรือหากคุณต้องการใช้วิดีโอเดียวกันในพรอมต์หลายรายการ
+File API ยอมรับรูปแบบไฟล์วิดีโอโดยตรง
 
-Để tìm hiểu thêm về cách làm việc với các tệp nội dung nghe nhìn, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
+ดูข้อมูลเพิ่มเติมเกี่ยวกับการทำงานกับไฟล์สื่อได้ที่
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)
 
-### Truyền dữ liệu video nội tuyến
+### ส่งข้อมูลวิดีโอแบบอินไลน์
 
-Thay vì tải tệp video lên bằng File API, bạn có thể truyền trực tiếp các video nhỏ hơn trong yêu cầu. Phương thức này phù hợp với những video ngắn có tổng kích thước yêu cầu dưới 20 MB.
+คุณส่งวิดีโอขนาดเล็กกว่า
+ในคำขอได้โดยตรงแทนที่จะอัปโหลดไฟล์วิดีโอโดยใช้ File API วิธีนี้เหมาะสำหรับ
+วิดีโอสั้นๆ ที่มีขนาดคำขอรวมไม่เกิน 20 MB
 
-Dưới đây là ví dụ về cách cung cấp dữ liệu video nội tuyến:
+ตัวอย่างการระบุข้อมูลวิดีโอในบรรทัดมีดังนี้
 
 ### Python
 
@@ -262,9 +270,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### URL của YouTube
+### ส่ง URL ของ YouTube
 
-Bạn có thể truyền trực tiếp URL của YouTube đến Gemini API trong yêu cầu của mình như sau:
+คุณส่ง URL ของ YouTube ไปยัง Gemini API ได้โดยตรงเป็นส่วนหนึ่งของคำขอ ดังนี้
 
 ### Python
 
@@ -323,16 +331,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**Các điểm hạn chế:**
+**ข้อจำกัด:**
 
-- Đối với gói miễn phí, bạn không thể tải quá 8 giờ video trên YouTube lên mỗi ngày.
-- Đối với gói có tính phí, không có giới hạn dựa trên thời lượng video.
-- Đối với các mô hình trước Gemini 2.5, bạn chỉ có thể tải 1 video lên mỗi yêu cầu. Đối với Gemini 2.5 và các mô hình sau này, bạn có thể tải tối đa 10 video lên cho mỗi yêu cầu.
-- Bạn chỉ có thể tải video công khai lên (không thể tải video riêng tư hoặc không công khai lên).
+- สำหรับแพ็กเกจฟรี คุณจะอัปโหลดวิดีโอ YouTube ได้ไม่เกิน 8 ชั่วโมงต่อวัน
+- สำหรับแพ็กเกจแบบชำระเงิน จะไม่มีการจำกัดตามความยาวของวิดีโอ
+- สำหรับโมเดลก่อน Gemini 2.5 คุณจะอัปโหลดวิดีโอได้เพียง 1 รายการต่อคำขอ สำหรับโมเดล Gemini 2.5 ขึ้นไป คุณจะอัปโหลดวิดีโอได้สูงสุด 10 รายการต่อคำขอ
+- คุณอัปโหลดได้เฉพาะวิดีโอสาธารณะ (ไม่ใช่ส่วนตัวหรือที่ไม่เป็นสาธารณะ)
 
-## Tham khảo dấu thời gian trong nội dung
+## อ้างอิงการประทับเวลาในเนื้อหา
 
-Bạn có thể đặt câu hỏi về những thời điểm cụ thể trong video bằng cách sử dụng dấu thời gian có dạng `MM:SS`.
+คุณสามารถถามคำถามเกี่ยวกับช่วงเวลาที่เฉพาะเจาะจงภายในวิดีโอได้โดยใช้
+การประทับเวลาในรูปแบบ `MM:SS`
 
 ### Python
 
@@ -352,11 +361,15 @@ const prompt = "What are the examples given at 00:05 and 00:10 supposed to show 
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## Trích xuất thông tin chi tiết từ video
+## ดึงข้อมูลเชิงลึกโดยละเอียดจากวิดีโอ
 
-Các mô hình Gemini có khả năng mạnh mẽ trong việc hiểu nội dung video bằng cách xử lý thông tin từ cả luồng **âm thanh và hình ảnh**. Nhờ đó, bạn có thể trích xuất một bộ thông tin chi tiết phong phú, bao gồm cả việc tạo nội dung mô tả về những gì đang diễn ra trong video và trả lời các câu hỏi về nội dung của video.
+โมเดล Gemini มีความสามารถอันทรงพลังในการทำความเข้าใจเนื้อหาวิดีโอโดย
+การประมวลผลข้อมูลจากทั้งสตรีม**เสียงและภาพ** ซึ่งช่วยให้คุณ
+ดึงรายละเอียดที่หลากหลายได้ รวมถึงสร้างคำอธิบายสิ่งที่
+เกิดขึ้นในวิดีโอและตอบคำถามเกี่ยวกับเนื้อหาของวิดีโอ
 
-Đối với nội dung mô tả bằng hình ảnh, mô hình lấy mẫu video ở tốc độ **1 khung hình/giây** (FPS). Tỷ lệ lấy mẫu mặc định này phù hợp với hầu hết nội dung, nhưng lưu ý rằng tỷ lệ này có thể bỏ lỡ các chi tiết trong video có chuyển động nhanh hoặc cảnh thay đổi nhanh.
+สำหรับคำอธิบายภาพ โมเดลจะสุ่มตัวอย่างวิดีโอที่อัตรา **1 เฟรม
+ต่อวินาที** (FPS) อัตราการสุ่มตัวอย่างเริ่มต้นนี้เหมาะกับเนื้อหาส่วนใหญ่ แต่โปรดทราบว่าอาจพลาดรายละเอียดในวิดีโอที่มีการเคลื่อนไหวอย่างรวดเร็วหรือการเปลี่ยนฉากอย่างรวดเร็ว
 
 ### Python
 
@@ -376,9 +389,9 @@ const prompt = "Describe the key events in this video, providing both audio and 
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## Định dạng video được hỗ trợ
+## รูปแบบวิดีโอที่รองรับ
 
-Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
+Gemini รองรับประเภท MIME ของรูปแบบวิดีโอต่อไปนี้
 
 - `video/mp4`
 - `video/mpeg`
@@ -390,46 +403,53 @@ Gemini hỗ trợ các loại MIME sau đây cho định dạng video:
 - `video/wmv`
 - `video/3gpp`
 
-## Thông tin kỹ thuật về video
+## รายละเอียดทางเทคนิคเกี่ยวกับวิดีโอ
 
-- **Các mô hình và ngữ cảnh được hỗ trợ**: Tất cả Gemini đều có thể xử lý dữ liệu video.
-  - Các mô hình có cửa sổ ngữ cảnh 1 triệu token có thể xử lý video dài tối đa 1 giờ ở độ phân giải mặc định hoặc video dài tối đa 3 giờ ở độ phân giải thấp.
-- **Xử lý bằng File API**: Khi sử dụng File API, video được lưu trữ ở tốc độ 1 khung hình/giây (FPS) và âm thanh được xử lý ở tốc độ 1 Kbps (một kênh).
-  Dấu thời gian được thêm vào mỗi giây.
-  - Những tỷ lệ này có thể thay đổi trong tương lai để cải thiện khả năng suy luận.
-- **Tính toán mã thông báo**: Mỗi giây video được mã hoá như sau:
-  - Khung hình riêng lẻ (lấy mẫu ở tốc độ 1 khung hình/giây):
-    - Nếu `media_resolution` được đặt thành thấp, các khung hình sẽ được mã hoá thành 66 mã thông báo cho mỗi khung hình.
-    - Nếu không, các khung hình sẽ được mã hoá thành 258 mã thông báo cho mỗi khung hình.
-  - Âm thanh: 32 mã thông báo mỗi giây.
-  - Siêu dữ liệu cũng được đưa vào.
-  - Tổng cộng: Khoảng 300 mã thông báo cho mỗi giây video ở độ phân giải mặc định của nội dung nghe nhìn hoặc 100 mã thông báo cho mỗi giây video ở độ phân giải thấp của nội dung nghe nhìn.
-- **Độ phân giải trung bình**: Gemini 3 giới thiệu khả năng kiểm soát chi tiết đối với quá trình xử lý hình ảnh đa phương thức bằng tham số `media_resolution`. Tham số `media_resolution` xác định **số lượng mã thông báo tối đa được phân bổ cho mỗi khung hình đầu vào của hình ảnh hoặc video.**
-  Độ phân giải cao hơn giúp cải thiện khả năng đọc văn bản nhỏ hoặc xác định các chi tiết nhỏ của mô hình, nhưng làm tăng mức sử dụng mã thông báo và độ trễ.
+- **โมเดลและบริบทที่รองรับ**: Gemini ทุกรุ่นประมวลผลข้อมูลวิดีโอได้
+  - โมเดลที่มีหน้าต่างบริบทขนาด 1 ล้านสามารถประมวลผลวิดีโอที่มีความยาวสูงสุด 1 ชั่วโมงที่ความละเอียดสื่อเริ่มต้น หรือ 3 ชั่วโมงที่ความละเอียดสื่อต่ำ
+- **การประมวลผล File API**: เมื่อใช้ File API ระบบจะจัดเก็บวิดีโอที่ 1 เฟรมต่อวินาที (FPS) และประมวลผลเสียงที่ 1 Kbps (ช่องเดียว)
+  ระบบจะเพิ่มการประทับเวลาทุกวินาที
+  - โดยอัตราเหล่านี้อาจมีการเปลี่ยนแปลงในอนาคตเพื่อปรับปรุงการอนุมาน
+- **การคำนวณโทเค็น**: ระบบจะแปลงวิดีโอแต่ละวินาทีเป็นโทเค็นดังนี้
+  - เฟรมแต่ละเฟรม (สุ่มที่ 1 FPS)
+    - หากตั้งค่า `media_resolution` เป็นต่ำ
+      ระบบจะแปลงเฟรมเป็นโทเค็นที่ 66 โทเค็นต่อเฟรม
+    - ไม่เช่นนั้น ระบบจะแปลงเฟรมเป็นโทเค็นที่ 258 โทเค็นต่อเฟรม
+  - เสียง: 32 โทเค็นต่อวินาที
+  - รวมถึงข้อมูลเมตาด้วย
+  - ทั้งหมด: ประมาณ 300 โทเค็นต่อวินาทีของวิดีโอที่ความละเอียดสื่อเริ่มต้น หรือ 100 โทเค็นต่อวินาทีของวิดีโอที่ความละเอียดสื่อต่ำ
+- **ความละเอียดของสื่อ**: Gemini 3 มีการควบคุมการประมวลผลภาพหลายรูปแบบอย่างละเอียดด้วยพารามิเตอร์ `media_resolution` พารามิเตอร์
+  `media_resolution` จะกำหนด**จำนวนโทเค็นสูงสุดที่จัดสรรต่อรูปภาพอินพุตหรือเฟรมวิดีโอ**
+  ความละเอียดที่สูงขึ้นจะช่วยปรับปรุงความสามารถของโมเดลในการอ่านข้อความขนาดเล็กหรือระบุรายละเอียดเล็กๆ น้อยๆ แต่จะเพิ่มการใช้โทเค็นและเวลาในการตอบสนอง
 
-  Để biết thêm thông tin về cách tính mã thông báo, hãy xem hướng dẫn về [mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
-- **Định dạng dấu thời gian**: Khi đề cập đến những khoảnh khắc cụ thể trong video trong câu lệnh, hãy sử dụng định dạng `MM:SS` (ví dụ: `01:15` cho 1 phút 15 giây).
-- **Các phương pháp hay nhất**:
+  ดูรายละเอียดเพิ่มเติมเกี่ยวกับการคำนวณโทเค็นได้ที่คู่มือ[โทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th)
+- **รูปแบบการประทับเวลา**: เมื่ออ้างอิงถึงช่วงเวลาที่เฉพาะเจาะจงในวิดีโอภายในพรอมต์ ให้ใช้รูปแบบ `MM:SS` (เช่น `01:15` สำหรับ 1 นาที 15 วินาที)
+- **แนวทางปฏิบัติแนะนำ**
 
-  - Chỉ sử dụng một video cho mỗi yêu cầu tạo câu lệnh để có kết quả tối ưu.
-  - Nếu kết hợp văn bản và một video, hãy đặt câu lệnh bằng văn bản *sau* phần video trong mảng `input`.
-  - Xin lưu ý rằng các cảnh hành động nhanh có thể bị mất chi tiết do tốc độ lấy mẫu 1 FPS. Cân nhắc làm chậm những đoạn video như vậy nếu cần.
+  - ใช้เพียงวิดีโอเดียวต่อคำขอพรอมต์เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
+  - หากรวมข้อความและวิดีโอรายการเดียว ให้วางพรอมต์ข้อความ*หลัง*ส่วนวิดีโอในอาร์เรย์ `input`
+  - โปรดทราบว่าลำดับการดำเนินการที่รวดเร็วอาจสูญเสียรายละเอียดเนื่องจากอัตราการสุ่มตัวอย่าง 1 FPS พิจารณาการลดความเร็วคลิปดังกล่าวหากจำเป็น
 
-## Bước tiếp theo
+## ขั้นตอนถัดไป
 
-Hướng dẫn này trình bày cách tải tệp video lên và tạo đầu ra văn bản từ đầu vào video. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
+คู่มือนี้แสดงวิธีอัปโหลดไฟล์วิดีโอและสร้างเอาต์พุตข้อความจากอินพุตวิดีโอ
+ดูข้อมูลเพิ่มเติมได้ที่แหล่งข้อมูลต่อไปนี้
 
-- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều chỉnh hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi): Tìm hiểu thêm về cách tải lên và quản lý tệp để sử dụng với Gemini.
-- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
-- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Việc xử lý hậu kỳ và đánh giá của con người là rất cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
+- [คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions):
+  คำสั่งของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตามความต้องการ
+  และกรณีการใช้งานที่เฉพาะเจาะจงได้
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th): ดูข้อมูลเพิ่มเติมเกี่ยวกับการอัปโหลดและจัดการ
+  ไฟล์เพื่อใช้กับ Gemini
+- [กลยุทธ์การแจ้งไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide): Gemini API รองรับการแจ้งด้วยข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ ซึ่งเรียกอีกอย่างว่าการแจ้งแบบมัลติโมดัล
+- [คำแนะนำด้านความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=th): บางครั้งโมเดล Generative AI อาจสร้างเอาต์พุตที่ไม่คาดคิด เช่น เอาต์พุตที่ไม่ถูกต้อง มีอคติ หรือไม่เหมาะสม การประมวลผลภายหลังและการประเมินจากเจ้าหน้าที่เป็นสิ่งจำเป็นเพื่อ
+  จำกัดความเสี่ยงที่จะเกิดอันตรายจากเอาต์พุตดังกล่าว
 
-Gửi ý kiến phản hồi
+ส่งความคิดเห็น
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Cập nhật lần gần đây nhất: 2026-06-22 UTC.
+อัปเดตล่าสุด 2026-07-06 UTC
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-06 UTC"],[],[]]

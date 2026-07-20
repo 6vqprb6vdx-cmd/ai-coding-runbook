@@ -1,157 +1,181 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr
-fetched_at: 2026-07-06T05:12:13.740673+00:00
-title: "Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-BR
+fetched_at: 2026-07-20T04:42:19.802742+00:00
+title: "API Interactions \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Geri bildirim gönderin
+Envie comentários
 
-# Interactions API
+# API Interactions
 
-Etkileşimler API'si, yeni arayüzümüz ve Gemini modelleri ve aracılarıyla geliştirme yapmanın en basit yoludur. Haziran 2026 itibarıyla genel kullanıma sunulmuştur ve tüm yeni projeler için önerilen arayüzdür.
+A API Interactions é a melhor maneira de criar com modelos e agentes do Gemini. Desde junho de 2026, ele está disponível para todos e é recomendado para todos os novos projetos. Embora agora seja considerada legada, a API
+[`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=pt-br) original
+continua sendo totalmente compatível.
 
-Artık eski bir API olarak kabul edilse de orijinal [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=tr) API'si tam olarak desteklenmeye devam etmektedir.
+## Por que usar a API Interactions?
 
-## Etkileşimler API'sini neden kullanmalısınız?
+- **Interface universal para todos os aplicativos**: projetada como a interface padrão para todos os casos de uso, incluindo geração de texto de turno único, compreensão multimodal, saídas estruturadas, orquestração de ferramentas e fluxos de trabalho de agentes.
+- **API única para modelos e agentes**: um endpoint e um padrão unificados para chamar modelos padrão do Gemini e agentes especializados diretamente (como Deep Research e agentes gerenciados personalizados).
+- **Novas funcionalidades prontas para uso**: recursos como estado de conversa opcional do lado do servidor usando `previous_interaction_id`, etapas de execução observáveis para depuração e renderização da interface, além de [execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) para tarefas de longa duração usando `background=true`.
+- **Custo menor com taxas de ocorrência em cache mais altas**: ao usar conversas multiturno, o gerenciamento de estado opcional do lado do servidor permite um cache de contexto mais eficiente entre as rodadas, reduzindo os custos de token.
+- **Onde os novos recursos são lançados**: daqui em diante, todos os novos modelos, recursos multimodais, ferramentas e recursos de agente serão lançados na API Interactions.
 
-- **Kullanıma hazır yeni özellikler**: `previous_interaction_id` kullanılarak isteğe bağlı sunucu tarafında görüşme durumu, hata ayıklama ve kullanıcı arayüzü oluşturma için gözlemlenebilir yürütme adımları ve `background=true` kullanılarak uzun süren görevler için [arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr).
-- **Daha yüksek önbellek isabet oranlarıyla daha düşük maliyet**: Sunucu tarafında durum yönetimi, dönüşümler arasında daha verimli bağlam önbelleğe alma olanağı sağlayarak çok aşamalı etkileşim sohbetlerinde jeton maliyetlerini azaltır.
-- **Yeni nesil modeller ve ajanlar için geliştirilmiştir**: Düşünme modelleri, çok adımlı araç kullanımı ve karmaşık akıl yürütme akışları için özel olarak geliştirilmiştir. Bu sayede, ajan tabanlı uygulamaların oluşturulması, hata ayıklanması ve düzenlenmesi süreci basitleştirilir.
-- **Modeller ve temsilciler için tek API**: Deep Research ve özel olarak yönetilen temsilciler gibi Gemini modellerini ve temsilcilerini doğrudan çağırmak için tek bir birleştirilmiş arayüz. Öğrenilecek ayrı uç noktalar veya kalıplar yoktur.
-- **Yeni özelliklerin kullanıma sunulduğu yer**: Gelecekte, temel ana hat ailesinin ötesindeki yeni modeller ve özellikler ile yeni temsilci tabanlı özellikler ve araçlar Interactions API'de kullanıma sunulacak.
+Por padrão, a API Interactions armazena solicitações para que você possa aproveitar
+os recursos de gerenciamento de estado do lado do servidor usando
+`previous_interaction_id`. É possível ativar o comportamento sem estado definindo
+`store=false`. Consulte a seção [retenção de dados](#data-storage-retention) para mais detalhes.
 
-Varsayılan olarak Interactions API, istekleri depolar. Böylece `previous_interaction_id` kullanarak sunucu tarafı durum yönetimi özelliklerinden yararlanabilirsiniz. `store=false` ayarını yaparak durum bilgisiz davranışı etkinleştirebilirsiniz. Ayrıntılar için [Veri saklama](#data-storage-retention) bölümüne bakın.
+## Primeiros passos
 
-## Başlayın
+- **Configure seu agente de programação**: conecte-se ao **MCP dos Documentos do Gemini** e instale
+  a habilidade `gemini-interactions-api` para dar ao seu assistente acesso direto aos
+  documentos mais recentes para desenvolvedores e às práticas recomendadas. Para conferir as etapas detalhadas, consulte o
+  [guia de configuração do seu agente de programação](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br).
+- **Migrar de `generateContent`**: se você tiver uma integração, siga o [guia de migração](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=pt-br) para fazer a transição para a API Interactions.
+- **Começar**: siga as etapas no [guia de início rápido da API Interactions](https://ai.google.dev/gemini-api/docs/get-started?hl=pt-br).
 
-- **Kodlama aracınızı ayarlama**: **Gemini Docs MCP**'ye bağlanın ve `gemini-interactions-api` becerisini yükleyerek asistanınızın en son geliştirici belgelerine ve en iyi uygulamalara doğrudan erişmesini sağlayın.
-  [Kodlama temsilcinizi ayarlama →](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
-- **`generateContent`**'den geçiş yapma: Mevcut bir entegrasyonunuz varsa Etkileşimler API'sine geçiş yapmak için [Taşıma Kılavuzu](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=tr)'nu inceleyin.
-- **Başlayın**: [Interactions API'yi kullanmaya başlama kılavuzundaki](https://ai.google.dev/gemini-api/docs/get-started?hl=tr) adımları uygulayın.
+### Guias de recursos
 
-### Özellik rehberleri
+Confira estes guias para conhecer os recursos específicos da API Interactions. Use a chave nessas páginas para alternar entre a API generateContent e a API Interactions:
 
-Bu kılavuzlar aracılığıyla Interactions API'sinin belirli özelliklerini keşfedin. generateContent ve Interactions API arasında geçiş yapmak için bu sayfalardaki açma/kapatma düğmesini kullanabilirsiniz:
+- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br)
+- [Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)
+- [Compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br)
+- [Compreensão de áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br)
+- [Compreensão do vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br)
+- [Processamento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br)
+- [Chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)
+- [Saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)
+- [Agente Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br)
+- [Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br)
+- [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)
 
-- [Metin üretme](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr)
-- [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)
-- [Görüntü anlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr)
-- [Ses yorumlama](https://ai.google.dev/gemini-api/docs/audio?hl=tr)
-- [Video anlama](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr) (Video understanding)
-- [Belge işleme](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr)
-- [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
-- [Yapılandırılmış çıkış](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr)
-- [Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr)
-- [Esnek çıkarım](https://ai.google.dev/gemini-api/docs/flex-inference?hl=tr)
-- [Öncelik çıkarımı](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr)
+## Como a API Interactions funciona
 
-## Interactions API'sinin işleyiş şekli
+A API Interactions se concentra em um recurso principal: o [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=pt-br#Resource:Interaction). Um `Interaction` representa uma rodada completa em uma conversa ou tarefa. Ele funciona como um registro de sessão, contendo todo o histórico de uma interação como uma sequência cronológica de **etapas de execução**. Essas etapas incluem reflexões do modelo, chamadas de ferramentas e resultados do lado do servidor ou do lado do cliente (como `function_call` e `function_result`) e o `model_output` final. O recurso armazenado (recuperado via `interactions.get`) também inclui etapas `user_input` para contexto completo, embora a resposta `interactions.create` retorne apenas etapas geradas pelo modelo.
 
-Etkileşimler API'si, temel bir kaynak olan [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=tr#Resource:Interaction) etrafında şekillenir. `Interaction`, bir görüşme veya görevdeki tam bir dönüşü temsil eder. Bir etkileşimin tüm geçmişini **yürütme adımlarının** kronolojik sırası olarak içeren bir oturum kaydı görevi görür. Bu adımlar arasında model düşünceleri, sunucu tarafında veya istemci tarafında araç çağrıları ve sonuçları (ör. `function_call` ve `function_result`) ve nihai `model_output` yer alır. Depolanan kaynak (`interactions.get` aracılığıyla alınan) tam bağlam için `user_input` adımlarını da içerir ancak `interactions.create` yanıtı yalnızca model tarafından oluşturulan adımları döndürür.
+Ao fazer uma chamada para
+[`interactions.create`](https://ai.google.dev/api/interactions-api?hl=pt-br#CreateInteraction), você está
+criando um novo recurso `Interaction`.
 
-[`interactions.create`](https://ai.google.dev/api/interactions-api?hl=tr#CreateInteraction) adresine çağrı yaptığınızda yeni bir `Interaction` kaynağı oluşturursunuz.
+### Gerenciamento de estado do lado do servidor
 
-### Sunucu tarafı durum yönetimi
+Você pode usar o `id` de uma interação concluída em uma chamada subsequente usando o parâmetro `previous_interaction_id` para continuar a conversa. O servidor usa esse ID para recuperar o histórico da conversa, evitando que você precise reenviar todo o histórico do chat.
 
-Sohbete devam etmek için `previous_interaction_id` parametresini kullanarak sonraki bir çağrıda tamamlanmış bir etkileşimin `id` değerini kullanabilirsiniz. Sunucu, sohbet geçmişini almak için bu kimliği kullanır. Böylece, tüm sohbet geçmişini yeniden göndermeniz gerekmez.
-
-`previous_interaction_id` parametresi yalnızca `previous_interaction_id` kullanılarak yapılan görüşme geçmişini (girişler ve çıkışlar) korur. Diğer parametreler **etkileşim kapsamlıdır**
-ve yalnızca şu anda oluşturduğunuz etkileşim için geçerlidir:
+O parâmetro `previous_interaction_id` preserva apenas o histórico de conversas (entradas e saídas) usando `previous_interaction_id`. Os outros parâmetros são **no escopo da interação** e se aplicam apenas à interação específica que você está gerando:
 
 - `tools`
 - `system_instruction`
-- `generation_config` (`thinking_level`, `temperature` vb. dahil)
+- `generation_config` (incluindo `thinking_level`, `temperature` etc.)
 
-Bu, geçerli olmasını istediğiniz takdirde bu parametreleri her yeni etkileşimde yeniden belirtmeniz gerektiği anlamına gelir. Bu sunucu tarafı durum yönetimi isteğe bağlıdır. Her isteğe tam görüşme geçmişini göndererek durum bilgisiz modda da çalışabilirsiniz.
+Isso significa que você precisa especificar esses parâmetros novamente em cada nova interação se quiser que eles sejam aplicados. O gerenciamento de estado do lado do servidor é opcional. Você também pode operar no modo sem estado enviando o histórico completo da conversa em cada solicitação.
 
-### Veri depolama ve saklama
+### Armazenamento e retenção de dados
 
-API, varsayılan olarak sunucu tarafı durum yönetimi özelliklerinin (`previous_interaction_id` ile), [arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) (`background=true` kullanılarak) ve gözlemlenebilirlik amaçlarıyla kullanımını basitleştirmek için tüm Interaction nesnelerini (`store=true`) saklar.
+Por padrão, a API armazena todos os objetos de interação (`store=true`) para simplificar o uso de recursos de gerenciamento de estado do lado do servidor (com `previous_interaction_id`), [execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) (usando `background=true`) e fins de observabilidade.
 
-- **Ücretli katman**: Sistem, etkileşimleri **55 gün** boyunca saklar.
-- **Ücretsiz katman**: Sistem, etkileşimleri **1 gün** boyunca saklar.
+- **Nível pago**: o sistema retém as interações por **55 dias**.
+- **Nível sem custo financeiro**: o sistema retém as interações por **1 dia**.
 
-Bunu istemiyorsanız isteğinizde `store=false` ayarlayabilirsiniz. Bu kontrol, durum yönetiminden ayrıdır. Herhangi bir etkileşim için depolamayı devre dışı bırakabilirsiniz. Ancak `store=false` öğesinin [arka planda yürütme](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) ile uyumlu olmadığını ve sonraki dönüşlerde `previous_interaction_id` öğesinin kullanılmasını engellediğini unutmayın.
+Se não quiser isso, defina `store=false` na sua solicitação. Esse controle é separado do gerenciamento de estado. Você pode desativar o armazenamento para qualquer interação. No entanto, `store=false` é incompatível com a [execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) e impede o uso de `previous_interaction_id` em turnos subsequentes.
 
-[API Referansı](https://ai.google.dev/api/interactions-api?hl=tr)'nda bulunan silme yöntemini kullanarak depolanan etkileşimleri istediğiniz zaman silebilirsiniz. Yalnızca etkileşim kimliğini biliyorsanız etkileşimleri silebilirsiniz.
+Para projetos do nível pago, é possível configurar a janela de retenção no [AI Studio](https://aistudio.google.com/logs?hl=pt-br) para marcar automaticamente os registros para exclusão do armazenamento do projeto após 7, 14, 28 ou 55 dias. Um período de retenção mais curto pode afetar a recuperação de conversas anteriores.
 
-Saklama süresi sona erdikten sonra verileriniz otomatik olarak silinir.
+É possível excluir interações armazenadas a qualquer momento usando o método [`delete`](https://ai.google.dev/api/interactions-api?hl=pt-br#deleteInteraction) de forma programática, que
+requer o ID da interação. Também é possível conferir e gerenciar os registros de interações armazenadas, incluindo a exclusão do armazenamento do projeto, no [AI Studio](https://aistudio.google.com/logs?hl=pt-br).
 
-Sistem, Etkileşim nesnelerini [şartlara](https://ai.google.dev/gemini-api/terms?hl=tr) göre işler.
+Após o período de armazenamento expirar, seus dados serão excluídos automaticamente.
 
-## En iyi uygulamalar
+Os objetos de interação são processados de acordo com os [termos](https://ai.google.dev/gemini-api/terms?hl=pt-br).
 
-- **Önbellek isabet oranı**: Sohbetlere devam etmek için `previous_interaction_id` kullanıldığında sistem, sohbet geçmişi için örtülü önbelleğe almayı daha kolay kullanabilir. Bu da performansı artırır ve maliyetleri düşürür.
-- **Etkileşimleri karıştırma**: Bir görüşmede Agent ve Model etkileşimlerini karıştırıp eşleştirebilirsiniz. Örneğin, ilk veri toplama için Deep Research aracısı gibi özel bir aracı kullanabilir, ardından özetleme veya yeniden biçimlendirme gibi takip görevleri için standart bir Gemini modeli kullanabilirsiniz. Bu adımları `previous_interaction_id` ile bağlayabilirsiniz.
+### Ver interações no AI Studio
 
-## Desteklenen modeller ve aracı
+A API armazena solicitações da API Interactions executadas com `store=true` para projetos no nível pago. Você pode conferir essas informações diretamente na
+[página "Registros" do Google AI Studio](https://ai.google.dev/gemini-api/docs/www.aistudio.google.com/logs?hl=pt-br). Consulte o
+[guia de registros](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-br) para mais informações.
 
-| Model Adı | Tür | Model Kimliği |
+## Práticas recomendadas
+
+- **Taxa de ocorrência em cache**: o armazenamento em cache implícito é compatível com os modos com e sem estado. Consulte o [guia de início rápido](https://ai.google.dev/gemini-api/docs/get-started?hl=pt-br#4_multi-turn_conversations). Usar `previous_interaction_id` (com estado) para continuar conversas permite que o sistema utilize mais facilmente o cache implícito para o histórico de conversas, o que melhora o desempenho e reduz os custos.
+- **Interações combinadas**: você pode combinar interações de agente e modelo em uma conversa. Por exemplo, você pode usar um agente especializado, como o Deep Research, para a coleta inicial de dados e, em seguida, usar um modelo padrão do Gemini para tarefas de acompanhamento, como resumir ou reformatar, vinculando essas etapas ao `previous_interaction_id`.
+
+## Modelos e agentes compatíveis
+
+| Nome do modelo | Tipo | ID do modelo |
 | --- | --- | --- |
-| Gemini 3.5 Flash | Model | `gemini-3.5-flash` |
-| Gemini 3.1 Pro Önizlemesi | Model | `gemini-3.1-pro-preview` |
-| Gemini 3.1 Flash-Lite | Model | `gemini-3.1-flash-lite` |
-| Gemini 3 Flash Önizlemesi | Model | `gemini-3-flash-preview` |
-| Gemini 2.5 Pro | Model | `gemini-2.5-pro` |
-| Gemini 2.5 Flash | Model | `gemini-2.5-flash` |
-| Gemini 2.5 Flash-lite | Model | `gemini-2.5-flash-lite` |
-| Gemini 3 Pro Image | Model | `gemini-3-pro-image` |
-| Gemini 3.1 Flash Görüntüsü | Model | `gemini-3.1-flash-image` |
-| Gemini 3.1 Flash TTS Önizlemesi | Model | `gemini-3.1-flash-tts-preview` |
-| Gemma 4 31B IT | Model | `gemma-4-31b-it` |
-| Gemma 4 26B MoE IT | Model | `gemma-4-26b-a4b-it` |
-| Lyria 3 Clip Preview | Model | `lyria-3-clip-preview` |
-| Lyria 3 Pro Önizlemesi | Model | `lyria-3-pro-preview` |
-| Deep Research Önizlemesi | Temsilci | `deep-research-preview-04-2026` |
-| Deep Research Önizlemesi | Temsilci | `deep-research-max-preview-04-2026` |
-| Antigravity önizlemesi | Temsilci | `antigravity-preview-05-2026` |
+| Gemini 3.5 Flash | Modelo | `gemini-3.5-flash` |
+| Pré-lançamento do Gemini 3.1 Pro | Modelo | `gemini-3.1-pro-preview` |
+| Gemini 3.1 Flash-Lite | Modelo | `gemini-3.1-flash-lite` |
+| Pré-lançamento do Gemini 3 Flash | Modelo | `gemini-3-flash-preview` |
+| Gemini 2.5 Pro | Modelo | `gemini-2.5-pro` |
+| Gemini 2.5 Flash | Modelo | `gemini-2.5-flash` |
+| Gemini 2.5 Flash-lite | Modelo | `gemini-2.5-flash-lite` |
+| Gemini 3 Pro Image | Modelo | `gemini-3-pro-image` |
+| Imagem do Gemini 3.1 Flash | Modelo | `gemini-3.1-flash-image` |
+| Pré-lançamento do Gemini 3.1 Flash TTS | Modelo | `gemini-3.1-flash-tts-preview` |
+| Gemma 4 31B IT | Modelo | `gemma-4-31b-it` |
+| Gemma 4 26B MoE IT | Modelo | `gemma-4-26b-a4b-it` |
+| Prévia de clipes do Lyria 3 | Modelo | `lyria-3-clip-preview` |
+| Pré-lançamento do Lyria 3 Pro | Modelo | `lyria-3-pro-preview` |
+| Prévia do Deep Research | Agente | `deep-research-preview-04-2026` |
+| Prévia do Deep Research | Agente | `deep-research-max-preview-04-2026` |
+| Prévia do Antigravity | Agente | `antigravity-preview-05-2026` |
 
-## SDK'lar
+## SDKs
 
-Etkileşimler API'sine erişmek için Google GenAI SDK'larının en son sürümünü kullanabilirsiniz.
+Use a versão mais recente dos SDKs da IA generativa do Google para acessar a API Interactions.
 
-- Python'da bu, `2.3.0` sürümünden itibaren `google-genai` paketidir.
-- JavaScript'te bu, `2.3.0` sürümünden itibaren `@google/genai` paketidir.
+- Em Python, esse é o pacote `google-genai` da versão `2.3.0` em diante.
+- Em JavaScript, esse é o pacote `@google/genai` da versão `2.3.0`
+  em diante.
 
-SDK'ları nasıl yükleyeceğiniz hakkında daha fazla bilgiyi [Kitaplıklar](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) sayfasında bulabilirsiniz.
+Saiba mais sobre como instalar os SDKs na página [Bibliotecas](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br).
 
-## Sınırlamalar
+## Limitações
 
-- **Uzak MCP**: Gemini 3, uzak MCP'yi desteklemez. Bu özellik yakında kullanıma sunulacaktır.
+- **MCP remoto**: o Gemini 3 não é compatível com MCP remoto, mas isso vai estar disponível em breve.
+- **Compatibilidade de modelos com várias interações**: ao misturar modelos diferentes em uma
+  conversa (com ou sem estado), os modelos subsequentes precisam aceitar
+  as modalidades de saída dos modelos anteriores como entrada. Por exemplo, se você gerar uma imagem usando o `gemini-3.1-flash-image`, não poderá continuar essa conversa com um modelo que não aceita entradas de imagem, como um modelo somente de texto ou um modelo de geração de música como o Lyria.
 
-Aşağıdaki özellikler [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=tr) API tarafından desteklenir ancak Interactions API'de **henüz kullanılamaz**:
+Os seguintes recursos são compatíveis com a API
+[`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=pt-br), mas **ainda não estão
+disponíveis** na API Interactions:
 
-- **[Video meta verileri](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr)**: Video anlama için klip aralıklarını ve özel kare hızlarını ayarlamak üzere kullanılan `video_metadata` alanı.
-- **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr)**
-- **[Otomatik işlev çağırma (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=tr#automatic_function_calling_python_only)**
-- **[Açık önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr)**: Sunucu tarafında örtülü önbelleğe almanın, `previous_interaction_id` aracılığıyla Interactions API'sinde kullanılabildiğini unutmayın.
+- **[Metadados de vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br)**: o campo `video_metadata`, usado para definir intervalos de corte
+  e taxas de frames personalizadas para o entendimento de vídeo.
+- **[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br)**
+- **[Chamada automática de função (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=pt-br#automatic_function_calling_python_only)**
+- **[Criação de cache explícita](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)**: observe que a criação de cache implícita do lado do servidor está disponível na API Interactions
+  via `previous_interaction_id`.
+- **[Configurações de segurança](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pt-br)**: as configurações de segurança personalizadas não são compatíveis com a API Interactions.
 
-## Geri bildirim
+## Feedback
 
-Geri bildiriminiz, Etkileşimler API'sinin geliştirilmesi açısından büyük önem taşır.
-Düşüncelerinizi paylaşmak, hataları bildirmek veya özellik isteğinde bulunmak için [Google Yapay Zeka Geliştirici Topluluğu Forumu](https://discuss.ai.google.dev/c/gemini-api/4?hl=tr)'nu kullanabilirsiniz.
+Seu feedback é fundamental para o desenvolvimento da API Interactions.
+Compartilhe suas ideias, informe bugs ou solicite recursos no [fórum da comunidade de desenvolvedores da IA do Google](https://discuss.ai.google.dev/c/gemini-api/4?hl=pt-br).
 
-## Sırada ne var?
+## A seguir
 
-- [Interactions API hızlı başlangıç not defterini](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=tr) deneyin.
-- [Gemini Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) hakkında daha fazla bilgi edinin.
+- Teste o [notebook de início rápido da API Interactions](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=pt-br).
+- Saiba mais sobre o [agente do Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br).
 
-Geri bildirim gönderin
+Envie comentários
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Son güncelleme tarihi: 2026-06-26 UTC.
+Última atualização 2026-07-16 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Quer enviar seu feedback?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-26 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-16 UTC."],[],[]]

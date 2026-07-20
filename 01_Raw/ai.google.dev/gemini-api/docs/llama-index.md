@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=vi
-fetched_at: 2026-07-06T05:19:41.447199+00:00
+fetched_at: 2026-07-20T04:33:04.450469+00:00
 title: "T\u00e1c nh\u00e2n nghi\u00ean c\u1ee9u b\u1eb1ng Gemini v\u00e0 LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

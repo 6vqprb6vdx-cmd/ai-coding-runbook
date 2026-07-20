@@ -1,55 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=hi
-fetched_at: 2026-07-06T05:17:13.541441+00:00
-title: "\u0905\u092a\u0928\u0947 Workspace \u0916\u093e\u0924\u0947 \u0938\u0947 Google AI Studio \u0915\u094b \u0910\u0915\u094d\u0938\u0947\u0938 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=pt-BR
+fetched_at: 2026-07-20T04:36:57.863371+00:00
+title: "Acesse o Google AI Studio com sua conta do Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-सुझाव भेजें
+Envie comentários
 
-# अपने Workspace खाते से Google AI Studio को ऐक्सेस करना
+# Acesse o Google AI Studio com sua conta do Workspace
 
-[Google Workspace के सभी उपयोगकर्ताओं के पास, डिफ़ॉल्ट रूप से AI
-Studio का ऐक्सेस होता है.](https://workspace.google.com?hl=hi) अगर आपके पास Workspace का खाता है और आपको
-AI Studio का इस्तेमाल करना है, तो
-[AI Studio का इस्तेमाल शुरू करने से जुड़ी गाइड पढ़ें](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=hi).
+Todos os usuários do [Google Workspace](https://workspace.google.com?hl=pt-br) têm acesso ao AI Studio por padrão. Se você usa o Workspace e quer começar a usar o
+AI Studio, confira o
+[guia de início rápido do AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=pt-br).
 
-## समस्या का हल
+## Solução de problemas
 
-अगर आपके Google Workspace खाते के लिए, AI Studio का ऐक्सेस बंद कर दिया गया है, तो आपको यह गड़बड़ी दिख सकती है:
+Se o acesso ao AI Studio estiver desativado para sua conta do Google Workspace, talvez você veja um erro como este:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-अगर आपको लगता है कि आपके पास AI Studio का ऐक्सेस होना चाहिए, तो अपने Workspace एडमिन से संपर्क करें.
+Se você acha que deveria ter acesso ao AI Studio, entre em contato com seu administrador do Workspace.
 
-## Workspace के उपयोगकर्ताओं के लिए AI Studio चालू करना
+## Ativar o AI Studio para usuários do Workspace
 
-Google Workspace एडमिन के तौर पर, आपके पास यह कंट्रोल करने का विकल्प होता है कि AI Studio का इस्तेमाल कौन कर सकता है:
+Como administrador do Google Workspace, você pode controlar quem usa o AI Studio:
 
-- सभी वर्शन के लिए, AI Studio डिफ़ॉल्ट रूप से चालू रहता है.
-- संगठन की अलग-अलग इकाइयों के उपयोगकर्ताओं और उनके ग्रुप के लिए, AI Studio को बंद या चालू किया जा सकता है.
-- Google Workspace for Education के वर्शन: 18 साल से कम उम्र के उपयोगकर्ता, अपने Google Workspace for Education खातों से AI Studio का इस्तेमाल नहीं कर सकते. यह तब भी लागू होता है, जब AI Studio की सेटिंग चालू हो. ज़्यादा जानकारी के लिए, [उम्र के हिसाब से, Google की सेवाओं के ऐक्सेस को कंट्रोल करना
-  लेख पढ़ें](https://support.google.com/a/answer/10651918?hl=hi).
+- O AI Studio está ativado por padrão em todas as edições.
+- É possível ativar ou desativar o AI Studio para conjuntos de usuários em várias unidades organizacionais ou dentro delas.
+- Edições do Google Workspace for Education: os usuários com menos de 18 anos não podem usar o AI Studio com as contas do Google Workspace for Education. Isso é válido mesmo quando a configuração do AI Studio está
+  ativada. Saiba mais em [Controlar o acesso aos Serviços do Google por idade](https://support.google.com/a/answer/10651918?hl=pt-br).
 
-अपने संगठन के उपयोगकर्ताओं के लिए, AI Studio को चालू या बंद करने के बारे में जानने के लिए,
-[उपयोगकर्ताओं के लिए Google AI Studio को चालू या बंद करना](https://support.google.com/a/answer/15004095?hl=hi) लेख पढ़ें.
+Para ativar ou desativar o AI Studio para usuários na sua organização, consulte
+[Ativar ou desativar o Google AI Studio para os usuários](https://support.google.com/a/answer/15004095?hl=pt-br).
 
-सुझाव भेजें
+Envie comentários
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
+Última atualização 2026-04-29 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Quer enviar seu feedback?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-04-29 UTC."],[],[]]

@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=fr
-fetched_at: 2026-07-06T05:21:35.783128+00:00
-title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=pt-BR
+fetched_at: 2026-07-20T04:33:53.239752+00:00
+title: "Gera\u00e7\u00e3o de texto \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Envoyer des commentaires
+Envie comentários
 
-# Génération de texte
+# Geração de texto
 
-L'API Gemini peut générer une sortie de texte à partir d'entrées de texte, d'images, de vidéos et audio.
+A API Gemini pode gerar saída de texto com base em entradas de texto, imagens, vídeo e áudio.
 
-Voici un exemple basique :
+Este é um exemplo básico:
 
 ### Python
 
@@ -160,13 +160,13 @@ function main() {
 }
 ```
 
-## Réflexion avec Gemini
+## Pensando com o Gemini
 
-[Les modèles Gemini sont souvent activés par défaut
-ce qui leur permet de raisonner avant de répondre à une requête.](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)
+Os modelos do Gemini geralmente têm o ["pensamento"](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) ativado por padrão
+o que permite que o modelo raciocine antes de responder a uma solicitação.
 
-Chaque modèle est compatible avec différentes configurations de réflexion, ce qui vous permet de contrôler les coûts, la latence et l'intelligence. Pour en savoir plus, consultez le
-[guide de réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#set-budget).
+Cada modelo oferece suporte a diferentes configurações de pensamento, o que permite controlar o custo, a latência e a inteligência. Para mais detalhes, consulte o
+[guia de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#set-budget).
 
 ### Python
 
@@ -338,11 +338,11 @@ function main() {
 }
 ```
 
-## Instructions système et autres configurations
+## Instruções do sistema e outras configurações
 
-Vous pouvez guider le comportement des modèles Gemini à l'aide d'instructions système. Pour ce faire,
-transmettez un [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig)
-objet.
+Você pode orientar o comportamento dos modelos do Gemini com instruções do sistema. Para fazer isso,
+transmita um [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig)
+objeto.
 
 ### Python
 
@@ -514,9 +514,9 @@ function main() {
 }
 ```
 
-L'[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig)
-objet vous permet également de remplacer les paramètres de génération par défaut, tels que
-[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig).
+O [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig)
+objeto também permite substituir parâmetros de geração padrão, como
+[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig).
 
 ### Python
 
@@ -682,13 +682,13 @@ function main() {
 }
 ```
 
-Consultez [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerationConfig)
-dans notre documentation de référence de l'API pour obtenir la liste complète des paramètres configurables et leurs
-descriptions.
+Consulte [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerationConfig)
+na referência da API para conferir uma lista completa de parâmetros configuráveis e as
+descrições deles.
 
-## Entrées multimodales
+## Entradas multimodais
 
-L'API Gemini est compatible avec les entrées multimodales, ce qui vous permet de combiner du texte avec des fichiers multimédias. L'exemple suivant montre comment fournir une image :
+A API Gemini oferece suporte a entradas multimodais, permitindo combinar texto com arquivos de mídia. O exemplo a seguir demonstra como fornecer uma imagem:
 
 ### Python
 
@@ -896,17 +896,17 @@ function getImageData(url) {
 }
 ```
 
-Pour découvrir d'autres méthodes permettant de fournir des images et un traitement d'image plus avancé,
-consultez notre [guide sur la compréhension des images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr).
-L'API est également compatible avec les entrées et la compréhension de [documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr), de [vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr) et [audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr).
+Para métodos alternativos de fornecimento de imagens e processamento de imagens mais avançado,
+consulte nosso [guia de compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br).
+A API também oferece suporte a [entradas e compreensão de](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br) [documentos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br), [vídeos](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br) e
+áudios.
 
-## Réponses en streaming
+## Respostas de streaming
 
-Par défaut, le modèle ne renvoie une réponse qu'une fois le processus de génération
-terminé.
+Por padrão, o modelo retorna uma resposta somente após a conclusão de todo o processo de geração.
 
-Pour des interactions plus fluides, utilisez le streaming pour recevoir [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerateContentResponse) instances de manière incrémentielle
-à mesure qu'elles sont générées.
+Para interações mais fluidas, use o streaming para receber [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerateContentResponse) instâncias de forma incremental
+à medida que são geradas.
 
 ### Python
 
@@ -1060,9 +1060,9 @@ function main() {
 }
 ```
 
-## Conversations multitours (chat)
+## Conversas com várias interações (chat)
 
-Nos SDK fournissent une fonctionnalité permettant de collecter plusieurs séries de requêtes et de réponses dans un chat, ce qui vous permet de suivre facilement l'historique des conversations.
+Nossos SDKs oferecem funcionalidade para coletar várias rodadas de comandos e respostas em um chat, oferecendo uma maneira fácil de acompanhar o histórico da conversa.
 
 ### Python
 
@@ -1270,7 +1270,7 @@ function main() {
 }
 ```
 
-Le streaming peut également être utilisé pour les conversations multitours.
+O streaming também pode ser usado para conversas com várias interações.
 
 ### Python
 
@@ -1489,46 +1489,46 @@ function main() {
 }
 ```
 
-## Conseils pour écrire des prompts
+## Dicas de comandos
 
-Consultez notre [guide de prompt engineering](https://ai.google.dev/gemini/docs/prompting-strategies?hl=fr) pour obtenir des suggestions sur la façon de tirer le meilleur parti de Gemini.
+Consulte nosso [guia de engenharia de comandos](https://ai.google.dev/gemini/docs/prompting-strategies?hl=pt-br) para
+sugestões sobre como aproveitar ao máximo o Gemini.
 
-## Étape suivante
+## A seguir
 
-- Essayez [Gemini dans Google AI Studio](https://aistudio.google.com?hl=fr).
-- Testez les [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) pour
-  les réponses de type JSON.
-- Découvrez les capacités de compréhension des [images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr),
-  [vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr), [audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr)
-  et des [documents](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr) de Gemini.
-- Découvrez les stratégies de requêtes multimodales
-  [de fichiers](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide).
+- Teste o [Gemini no Google AI Studio](https://aistudio.google.com?hl=pt-br).
+- Faça experimentos com [saídas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) para
+  respostas semelhantes a JSON.
+- Conheça os recursos de compreensão de [imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br),
+  [vídeos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br), [áudios](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br)
+  e [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br) do Gemini.
+- Saiba mais sobre estratégias de comando de arquivos multimodais
+  .
 
-## Génération de contenu
+## Geração de conteúdo
 
-Il s'agit du point de terminaison central pour l'envoi de requêtes au modèle. Il existe deux points de terminaison pour générer du contenu. La principale différence réside dans la façon dont vous recevez la réponse :
+Esse é o endpoint central para enviar comandos ao modelo. Há dois endpoints para gerar conteúdo. A principal diferença é como você recebe a resposta:
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=fr#method:-models.generatecontent)
-  (REST)** : reçoit une requête et fournit une seule réponse une fois que le modèle a terminé sa génération.
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=fr#method:-models.streamgeneratecontent)
-  (SSE)** : reçoit exactement la même requête, mais le modèle renvoie des blocs de la réponse à mesure qu'ils sont générés. Cela améliore l'expérience utilisateur pour les applications interactives, car vous pouvez afficher immédiatement des résultats partiels.
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=pt-br#method:-models.generatecontent)
+  (REST)**: recebe uma solicitação e fornece uma única resposta depois que o modelo termina toda a geração.
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=pt-br#method:-models.streamgeneratecontent)
+  (SSE)**: recebe a mesma solicitação, mas o modelo transmite blocos da resposta à medida que são gerados. Isso oferece uma melhor experiência do usuário para aplicativos interativos, porque permite mostrar resultados parciais imediatamente.
 
-### Structure du corps de la requête
+### Estrutura do corpo da solicitação
 
-Le [corps de la requête](https://ai.google.dev/api/generate-content?hl=fr#request-body) est un objet JSON qui est
-**identique** pour les modes standard et streaming, et est créé à partir de quelques objets principaux
-:
+O [corpo da solicitação](https://ai.google.dev/api/generate-content?hl=pt-br#request-body) é um objeto JSON que é
+**idêntico** para os modos padrão e de streaming e é criado com alguns objetos principais:
 
-- [`Content`](https://ai.google.dev/api/caching?hl=fr#Content) objet : représente un seul tour dans une
-  conversation.
-- [`Part`](https://ai.google.dev/api/caching?hl=fr#Part) objet : élément de données dans un tour `Content`
-  (comme du texte ou une image).
-- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=fr#Blob)) : conteneur pour les octets multimédias bruts
-  et leur type MIME.
+- [`Content`](https://ai.google.dev/api/caching?hl=pt-br#Content) objeto: representa uma única interação em uma
+  conversa.
+- [`Part`](https://ai.google.dev/api/caching?hl=pt-br#Part) objeto: um pedaço de dados em uma interação `Content`
+  (como texto ou uma imagem).
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=pt-br#Blob)): um contêiner para bytes de mídia brutos
+  e o tipo MIME deles.
 
-Au niveau le plus élevé, le corps de la requête contient un objet `contents`, qui est une liste d'objets `Content`, chacun représentant des tours de conversation. Dans la plupart des cas, pour la génération de texte de base, vous n'aurez qu'un seul objet `Content`, mais si vous souhaitez conserver l'historique des conversations, vous pouvez utiliser plusieurs objets `Content`.
+No nível mais alto, o corpo da solicitação contém um objeto `contents`, que é uma lista de objetos `Content`, cada um representando interações na conversa. Na maioria dos casos, para a geração de texto básica, você terá um único objeto `Content`, mas, se quiser manter o histórico da conversa, poderá usar vários objetos `Content`.
 
-L'exemple suivant montre un corps de requête `generateContent` typique :
+O exemplo a seguir mostra um corpo de solicitação `generateContent` típico:
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -1553,24 +1553,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Structure du corps de la réponse
+### Estrutura do corpo da resposta
 
-Le [corps de la réponse](https://ai.google.dev/api/generate-content?hl=fr#response-body) est semblable pour les modes
-streaming et standard, à l'exception des points suivants :
+O [corpo da resposta](https://ai.google.dev/api/generate-content?hl=pt-br#response-body) é semelhante para ambos
+os modos de streaming e padrão, exceto pelo seguinte:
 
-- Mode standard : le corps de la réponse contient une instance de
-  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerateContentResponse).
-- Mode streaming : le corps de la réponse contient un flux d'
-  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fr#v1beta.GenerateContentResponse)
-  instances.
+- Modo padrão: o corpo da resposta contém uma instância de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerateContentResponse).
+- Modo de streaming: o corpo da resposta contém um fluxo de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=pt-br#v1beta.GenerateContentResponse)
+  instâncias.
 
-À un niveau élevé, le corps de la réponse contient un objet `candidates`, qui est une liste d'objets `Candidate`. L'objet `Candidate` contient un objet `Content` qui contient la réponse générée renvoyée par le modèle.
+Em um nível alto, o corpo da resposta contém um objeto `candidates`, que é uma lista de objetos `Candidate`. O objeto `Candidate` contém um objeto `Content` que tem a resposta gerada retornada do modelo.
 
-## Exemples d'API REST
+## Exemplos de API REST
 
-### Requête multimodale (texte et image)
+### Comando multimodal (texto e imagem)
 
-Pour fournir à la fois du texte et une image dans une requête, le tableau `parts` doit contenir deux objets `Part` : un pour le texte et un pour l'image `inline_data`.
+Para fornecer texto e uma imagem em um comando, a matriz `parts` precisa conter dois objetos `Part`: um para o texto e outro para a imagem `inline_data`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -1592,9 +1592,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Conversations multitours (chat)
+### Conversas com várias interações (chat)
 
-Pour créer une conversation à plusieurs tours, vous définissez le tableau `contents` avec plusieurs objets `Content`. L'API utilisera l'historique complet comme contexte pour la réponse suivante. Le `role` de chaque objet `Content` doit alterner entre `user` et `model`.
+Para criar uma conversa com várias interações, defina a matriz `contents` com vários objetos `Content`. A API vai usar todo esse histórico como contexto para a próxima resposta. O `role` de cada objeto `Content` precisa alternar entre `user` e `model`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent" \
@@ -1625,26 +1625,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Points à retenir
+### Pontos principais
 
-- `Content` est l'enveloppe : il s'agit du conteneur de premier niveau pour un tour de message, qu'il provienne de l'utilisateur ou du modèle.
-- `Part` permet la multimodalité : utilisez plusieurs objets `Part` dans un seul objet `Content` pour combiner différents types de données (texte, image, URI vidéo, etc.).
-- Choisissez votre méthode de données :
-  - Pour les contenus multimédias petits et directement intégrés (comme la plupart des images), utilisez un `Part` avec `inline_data`.
-  - Pour les fichiers plus volumineux ou ceux que vous souhaitez réutiliser dans plusieurs requêtes, utilisez l'API File pour importer le fichier et le référencer avec une partie `file_data`.
-- Gérez l'historique des conversations : pour les applications de chat utilisant l'API REST, créez
-  le `contents` tableau en ajoutant des `Content` objets pour chaque tour,
-  en alternant les rôles `"user"` et `"model"`. Si vous utilisez un SDK, consultez sa documentation pour connaître la méthode recommandée de gestion de l'historique des conversations.
+- `Content` é o envelope: é o contêiner de nível superior para uma interação de mensagem, seja do usuário ou do modelo.
+- `Part` permite a multimodalidade: use vários objetos `Part` em um único objeto `Content` para combinar diferentes tipos de dados (texto, imagem, URI de vídeo etc.).
+- Escolha seu método de dados:
+  - Para mídias pequenas e incorporadas diretamente (como a maioria das imagens), use um `Part` com `inline_data`.
+  - Para arquivos maiores ou que você quer reutilizar em várias solicitações, use a API File para fazer upload do arquivo e referenciá-lo com uma parte `file_data`.
+- Gerenciar o histórico da conversa: para aplicativos de chat que usam a API REST, crie
+  a matriz `contents` anexando objetos `Content` para cada interação,
+  alternando entre as funções `"user"` e `"model"`. Se você estiver usando um SDK, consulte a documentação dele para conferir a maneira recomendada de gerenciar o histórico da conversa.
 
-## Exemples de réponses
+## Exemplos de resposta
 
-Les exemples suivants montrent comment ces composants s'assemblent pour différents types de requêtes.
+Os exemplos a seguir mostram como esses componentes se unem para diferentes tipos de solicitações.
 
-### Réponse textuelle uniquement
+### Resposta somente em texto
 
-Une réponse textuelle par défaut se compose d'un tableau `candidates` avec un ou plusieurs objets `content` contenant la réponse du modèle.
+Uma resposta de texto padrão consiste em uma matriz `candidates` com um ou mais objetos `content` que contêm a resposta do modelo.
 
-Voici un exemple de réponse **standard** :
+Confira a seguir um exemplo de resposta **padrão**:
 
 ```
 {
@@ -1665,7 +1665,7 @@ Voici un exemple de réponse **standard** :
 }
 ```
 
-Voici une série de réponses **en streaming**. Chaque réponse contient un `responseId` qui lie la réponse complète :
+A seguir, há uma série de respostas de **streaming**. Cada resposta contém um `responseId` que vincula a resposta completa:
 
 ```
 {
@@ -1713,43 +1713,44 @@ Voici une série de réponses **en streaming**. Chaque réponse contient un `res
 }
 ```
 
-## API WebSockets de l'API Live (BidiGenerateContent)
+## API Live (BidiGenerateContent) WebSockets
 
-L'API Live propose une API avec état basée sur WebSocket pour le streaming bidirectionnel afin d'activer les cas d'utilisation du streaming en temps réel. Pour en savoir plus, consultez le
-[guide de l'API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr) et la [documentation de référence de l'API Live](https://ai.google.dev/api/live?hl=fr).
+A API Live oferece uma API com estado baseada em WebSocket para streaming bidirecional, permitindo casos de uso de streaming em tempo real. Consulte o
+[guia da API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br) e a [referência da API Live](https://ai.google.dev/api/live?hl=pt-br)
+para mais detalhes.
 
-## Modèles spécialisés
+## Modelos especializados
 
-En plus de la famille de modèles Gemini, l'API Gemini propose des points de terminaison pour
-des modèles spécialisés tels que [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr),
-[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=fr) et
-[les modèles d'embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr). Vous pouvez consulter ces guides dans la section "Modèles".
+Além da família de modelos do Gemini, a API Gemini oferece endpoints para
+modelos especializados, como o [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=pt-br),
+[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=pt-br) e
+[modelos de incorporação](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br). Consulte esses guias na seção Modelos.
 
-## API de plate-forme
+## APIs da plataforma
 
-Le reste des points de terminaison permet d'utiliser des fonctionnalités supplémentaires avec les points de terminaison principaux décrits jusqu'à présent. Pour en savoir plus, consultez les sections
-[Mode par lot](https://ai.google.dev/gemini-api/docs/batch-mode?hl=fr) et
-[API File](https://ai.google.dev/gemini-api/docs/files?hl=fr) dans la section "Guides".
+O restante dos endpoints permite outros recursos para uso com os endpoints principais descritos até agora. Consulte os tópicos
+[Modo em lote](https://ai.google.dev/gemini-api/docs/batch-mode?hl=pt-br) e
+[API File](https://ai.google.dev/gemini-api/docs/files?hl=pt-br) na seção Guias para saber mais.
 
-## Étape suivante
+## A seguir
 
-Si vous débutez, consultez les guides suivants, qui vous aideront à comprendre le modèle de programmation de l'API Gemini :
+Se você está começando, consulte os guias a seguir, que vão ajudar a entender o modelo de programação da API Gemini:
 
-- [Guide de démarrage de l'API Gemini](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Guide des modèles Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr)
+- [Guia de introdução à API Gemini](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Guia do modelo do Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br)
 
-Vous pouvez également consulter les guides sur les fonctionnalités, qui présentent différentes fonctionnalités de l'API Gemini et fournissent des exemples de code :
+Você também pode consultar os guias de recursos, que apresentam diferentes recursos da API Gemini e fornecem exemplos de código:
 
-- [Génération de texte](https://ai.google.dev/gemini-api/docs/text-generation?hl=fr)
-- [Mise en cache du contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr)
-- [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr)
+- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br)
+- [Cache de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)
+- [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br)
 
-Envoyer des commentaires
+Envie comentários
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Dernière mise à jour le 2026/06/24 (UTC).
+Última atualização 2026-07-08 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Quer enviar seu feedback?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/06/24 (UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-08 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=ja
-fetched_at: 2026-07-06T05:07:07.937873+00:00
+fetched_at: 2026-07-20T04:39:28.369234+00:00
 title: "\u30a8\u30f3\u30d9\u30c7\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

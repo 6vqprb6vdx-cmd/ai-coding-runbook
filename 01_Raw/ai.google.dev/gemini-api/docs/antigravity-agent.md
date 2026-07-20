@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi
-fetched_at: 2026-07-06T05:21:18.289590+00:00
-title: "T\u00e1c nh\u00e2n Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr
+fetched_at: 2026-07-20T04:36:10.122767+00:00
+title: "Antigravity Agent \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Tác nhân Antigravity
+# Antigravity Agent
 
-Tác nhân Antigravity là một tác nhân được quản lý đa năng trên API Gemini. Một lệnh gọi API duy nhất sẽ cung cấp cho bạn một tác nhân có khả năng suy luận, thực thi mã, quản lý tệp và duyệt web trong hộp cát Linux bảo mật của riêng bạn, do Google lưu trữ.
+Antigravity ajanı, Gemini API'deki genel amaçlı bir yönetilen ajandır. Tek bir API çağrısı, Google tarafından barındırılan kendi güvenli Linux sanal alanınızda akıl yürüten, kod yürüten, dosyaları yöneten ve web'de gezinmenizi sağlayan bir aracı sunar.
 
-Gemini Spark được hỗ trợ bởi Gemini 3.5 Flash và sử dụng cùng một cơ chế như Antigravity IDE. Có trong [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) và [Google AI Studio](https://aistudio.google.com?hl=vi).
+Gemini 3.5 Flash tarafından desteklenir ve Antigravity IDE ile aynı koşum takımını kullanır. [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) ve [Google AI Studio](https://aistudio.google.com?hl=tr) üzerinden kullanılabilir.
 
 ### Python
 
@@ -67,31 +67,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Tính năng
+## Özellikler
 
-Mỗi lệnh gọi có thể cung cấp một hộp cát Linux và bắt đầu một vòng lặp sử dụng công cụ. Tác nhân lập kế hoạch, hành động, quan sát kết quả và lặp lại cho đến khi hoàn thành nhiệm vụ.
+Her çağrı, bir Linux sanal alanı sağlayabilir ve araç kullanma döngüsü başlatabilir. Ajan; plan yapar, harekete geçer, sonuçları gözlemler ve görev tamamlanana kadar tekrarlar.
 
-- **Thực thi mã:** Chạy các lệnh Bash, Python và Node.js. Cài đặt gói, chạy kiểm thử, tạo ứng dụng.
-- **Quản lý tệp:** Đọc, ghi, chỉnh sửa, tìm kiếm và liệt kê các tệp trong hộp cát. Các tệp vẫn tồn tại trong các lượt tương tác.
-- **Quyền truy cập vào web:** Google Tìm kiếm và tìm nạp URL để lấy dữ liệu.
-- **Nén bối cảnh:** Tự động nén bối cảnh (được kích hoạt ở khoảng 135.000 mã thông báo) để hỗ trợ các phiên kéo dài nhiều lượt mà không làm mất bối cảnh hoặc vượt quá giới hạn mã thông báo.
+- **Kod yürütme:** Bash, Python ve Node.js komutlarını çalıştırın. Paketleri yükleyin, testleri çalıştırın, uygulamalar oluşturun.
+- **Dosya yönetimi:** Sandbox'taki dosyaları okuma, yazma, düzenleme, arama ve listeleme. Dosyalar, etkileşimler arasında korunur.
+- **Web erişimi:** Veriler için Google Arama ve URL getirme.
+- **Bağlam sıkıştırma:** Bağlamı kaybetmeden veya parça sınırlarına ulaşmadan uzun süren, çok aşamalı etkileşim oturumlarını desteklemek için otomatik bağlam sıkıştırma (~135.000 parçada tetiklenir).
 
-Hãy xem phần [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi) để biết cách sử dụng nhiều lượt và phát trực tuyến.
+Çok aşamalı etkileşim kullanımı ve yayın için [Hızlı Başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr) bölümüne bakın.
 
-## Các công cụ được hỗ trợ
+## Desteklenen araçlar
 
-Theo mặc định, tác nhân có quyền truy cập vào `code_execution`, `google_search` và `url_context`. Các công cụ hệ thống tệp sẽ tự động được bật khi bạn chỉ định tham số `environment`. Bạn cũng có thể xác định **các hàm tuỳ chỉnh** để kết nối tác nhân với các API và công cụ của riêng mình. Bạn chỉ cần chỉ định tham số `tools` khi tuỳ chỉnh hoặc hạn chế bộ mặc định, hoặc khi thêm các hàm tuỳ chỉnh.
+Ajan, varsayılan olarak `code_execution`, `google_search` ve `url_context` uygulamalarına erişebilir. `environment` parametresini belirttiğinizde dosya sistemi araçları otomatik olarak etkinleştirilir. Ayrıca, aracıyı kendi API'lerinize ve araçlarınıza bağlamak için **özel işlevler** de tanımlayabilirsiniz. Varsayılan grubu özelleştirirken veya kısıtlarken ya da özel işlevler eklerken yalnızca `tools` parametresini belirtmeniz gerekir.
 
-| Công cụ | Giá trị loại | Mô tả |
+| Araç | Tür değeri | Açıklama |
 | --- | --- | --- |
-| Thực thi mã | `code_execution` | Chạy các lệnh shell (bash, Python, Node) với tính năng ghi lại stdout/stderr. |
-| Google Tìm kiếm | `google_search` | Tìm kiếm trên web công khai. |
-| Ngữ cảnh URL | `url_context` | Tìm nạp và đọc các trang web. |
-| Hệ thống tệp | *(được bật thông qua `environment`)* | Đọc, ghi, chỉnh sửa, tìm kiếm và liệt kê các tệp trong hộp cát. Không có loại công cụ riêng biệt; tự động bật khi bạn đặt `environment`. |
-| Hàm tuỳ chỉnh | `function` | Xác định các hàm tuỳ chỉnh mà tác nhân có thể yêu cầu thực thi. Xem phần [Gọi hàm](#function-calling). |
-| Máy chủ MCP từ xa | `mcp_server` | Đăng ký các máy chủ Giao thức ngữ cảnh mô hình (MCP) bên ngoài dưới dạng công cụ. Xem phần [Máy chủ MCP](#mcp-servers). |
+| Kod Yürütme | `code_execution` | stdout/stderr yakalama ile kabuk komutlarını (bash, Python, Node) çalıştırın. |
+| Google Arama | `google_search` | Herkese açık web'de arama yapın. |
+| URL Bağlamı | `url_context` | Web sayfalarını getirme ve okuma |
+| Dosya sistemi | *(`environment` üzerinden etkinleştirilir)* | Sandbox'ta dosyaları okuma, yazma, düzenleme, arama ve listeleme Ayrı bir araç türü yoktur. `environment` ayarlandığında otomatik olarak etkinleştirilir. |
+| Özel İşlevler | `function` | Ajanın yürütülmesini isteyebileceği özel işlevler tanımlayın. [İşlev çağırma](#function-calling) başlıklı makaleyi inceleyin. |
+| Uzak MCP Sunucusu | `mcp_server` | Harici Model Bağlam Protokolü (MCP) sunucularını araç olarak kaydedin. [MCP sunucuları](#mcp-servers) başlıklı makaleyi inceleyin. |
 
-Để giới hạn tác nhân ở các công cụ cụ thể, hãy chỉ truyền những công cụ bạn cần:
+Aracı belirli araçlarla sınırlamak için yalnızca ihtiyacınız olanları iletin:
 
 ### Python
 
@@ -150,9 +150,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Đầu vào đa phương thức
+## Çok formatlı giriş
 
-Tác nhân Antigravity hỗ trợ thông tin đầu vào đa phương thức. Hiện tại, chỉ có đầu vào `text` và `image` được hỗ trợ. Bạn phải cung cấp hình ảnh dưới dạng chuỗi được mã hoá base64 cùng dòng (`data`).
+Antigravity aracısı, çok formatlı girişleri destekler. Şu anda yalnızca `text` ve `image` girişleri desteklenmektedir. Resimler, satır içi Base64 kodlu dizeler (`data`) olarak sağlanmalıdır.
 
 ### Python
 
@@ -225,11 +225,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## Gọi hàm
+## İşlev çağırma
 
-Tính năng gọi hàm cho phép bạn kết nối tác nhân Antigravity với các API và cơ sở dữ liệu bên ngoài bằng cách xác định các công cụ tuỳ chỉnh mà tác nhân có thể gọi. Để biết các khái niệm chung, hãy xem phần [Gọi hàm bằng Gemini API](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=vi).
+İşlev çağrısı, Antigravity aracısının çağırabileceği özel araçlar tanımlayarak bu aracı harici API'lere ve veritabanlarına bağlamanıza olanak tanır. Genel kavramlar için [Gemini API ile işlev çağrısı](https://ai.google.dev/gemini-api/docs/interactions/function-calling?hl=tr) başlıklı makaleyi inceleyin.
 
-Ví dụ sau đây minh hoạ một lượt tương tác gồm 2 lượt. Trước tiên, tác nhân yêu cầu một lệnh gọi hàm `get_weather` tuỳ chỉnh, sau đó máy khách thực thi lệnh gọi hàm đó và trả về kết quả trong lượt thứ hai.
+Aşağıdaki örnekte 2 dönüşlü bir etkileşim gösterilmektedir. Ajan önce özel bir `get_weather` işlev çağrısı ister, istemci bunu yürütür ve sonucu ikinci turda döndürür.
 
 ### Python
 
@@ -443,19 +443,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Máy chủ MCP
+## MCP sunucuları
 
-Bạn có thể kết nối tác nhân Antigravity với các công cụ bên ngoài bằng cách đăng ký các máy chủ Giao thức ngữ cảnh mô hình (MCP) từ xa. Tác nhân hỗ trợ các máy chủ MCP từ xa qua HTTP có thể truyền phát.
+Uzak Model Bağlam Protokolü (MCP) sunucularını kaydederek Antigravity ajanı harici araçlara bağlayabilirsiniz. Aracı, akışa uygun HTTP üzerinden uzak MCP sunucularını destekler.
 
-Khi đăng ký máy chủ MCP, bạn phải chỉ định các trường sau trong mảng `tools`:
+Bir MCP sunucusu kaydederken `tools` dizisinde aşağıdaki alanları belirtmeniz gerekir:
 
-| Trường | Loại | Bắt buộc | Mô tả |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `type` | chuỗi | Có | Phải là `"mcp_server"`. |
-| `name` | chuỗi | Có | Giá trị nhận dạng riêng biệt của máy chủ. Phải là chữ thường và bao gồm cả chữ và số (phù hợp với `^[a-z0-9_-]+$`). |
-| `url` | chuỗi | Có | URL điểm cuối của máy chủ MCP từ xa. |
-| `headers` | đối tượng | Không | Tiêu đề tuỳ chỉnh (ví dụ: xác thực) được gửi cùng với các yêu cầu. |
-| `allowed_tools` | mảng | Không | Danh sách tên công cụ được phép thực thi. Nếu bạn bỏ qua, tất cả các công cụ đều được phép. |
+| `type` | dize | Evet | `"mcp_server"` olmalıdır. |
+| `name` | dize | Evet | Sunucunun benzersiz tanımlayıcısı. Kesinlikle küçük harf ve alfanümerik olmalıdır (`^[a-z0-9_-]+$` ile eşleşmelidir). |
+| `url` | dize | Evet | Uzak MCP sunucusunun uç nokta URL'si. |
+| `headers` | nesne | Hayır | İsteklerle gönderilen özel üstbilgiler (ör. kimlik doğrulama). |
+| `allowed_tools` | dizi | Hayır | Çalıştırılmasına izin verilen araç adlarının listesi. Atlanırsa tüm araçlara izin verilir. |
 
 ### Python
 
@@ -518,15 +518,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Tuỳ chỉnh tác nhân
+## Aracıyı özelleştirme
 
-Bạn có thể mở rộng tác nhân Antigravity bằng cách tuỳ chỉnh các chỉ dẫn, công cụ và môi trường của nó. Tác nhân này hỗ trợ phương pháp tuỳ chỉnh gốc của hệ thống tệp: bạn có thể gắn các tệp như `AGENTS.md` cho hướng dẫn và kỹ năng trong `.agents/skills/` trực tiếp vào hộp cát hoặc truyền cấu hình nội tuyến tại thời điểm tương tác. Bạn có thể lặp lại cấu hình nội tuyến rồi lưu cấu hình đó dưới dạng một tác nhân được quản lý khi đã sẵn sàng.
+Antigravity aracısını talimatlarını, araçlarını ve ortamını özelleştirerek genişletebilirsiniz. Aracı, özelleştirme için dosya sistemiyle uyumlu bir yaklaşımı destekler: Talimatlar ve beceriler için `AGENTS.md` gibi dosyaları doğrudan korumalı alana `.agents/skills/` altında bağlayabilir veya yapılandırmayı etkileşim sırasında satır içi olarak iletebilirsiniz. Yapılandırmanızı satır içi olarak yineleyebilir ve hazır olduğunuzda yönetilen ajan olarak kaydedebilirsiniz.
 
-Để biết đầy đủ thông tin chi tiết về cách tạo các tác nhân tuỳ chỉnh, hãy xem bài viết [Tạo tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi).
+Özel ajanları oluşturma hakkında ayrıntılı bilgi için [Yönetilen Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr) başlıklı makaleyi inceleyin.
 
-## Chạy ở chế độ nền
+## Arka planda yürütme
 
-Các nhiệm vụ của tác nhân liên quan đến suy luận đa bước, thực thi mã hoặc thao tác với tệp có thể mất vài phút để hoàn thành. Sử dụng `background=True` để chạy lượt tương tác không đồng bộ. API này sẽ trả về ngay lập tức một mã nhận dạng lượt tương tác mà bạn sẽ thăm dò cho đến khi trạng thái là `completed` hoặc `failed`.
+Çok adımlı akıl yürütme, kod yürütme veya dosya işlemleri içeren aracı görevlerinin tamamlanması birkaç dakika sürebilir. Etkileşimi eşzamansız olarak çalıştırmak için `background=True` öğesini kullanın. API, durum `completed` veya `failed` olana kadar yokladığınız bir etkileşim kimliğiyle hemen yanıt verir.
 
 ### Python
 
@@ -608,9 +608,9 @@ curl -s -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/$I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Chế độ thực thi trong nền yêu cầu `store=True` (đây là chế độ mặc định). Để biết thông tin cập nhật tiến trình theo thời gian thực trong quá trình thực thi ở chế độ nền, hãy xem phần [Truyền trực tuyến các hoạt động tương tác ở chế độ nền](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=vi#streaming-background).
+Arka planda yürütme için varsayılan olarak `store=True` gerekir. Arka planda yürütme sırasında gerçek zamanlı ilerleme güncellemeleri için [Arka planda etkileşimleri yayınlama](https://ai.google.dev/gemini-api/docs/interactions/streaming?hl=tr#streaming-background) başlıklı makaleyi inceleyin.
 
-Bạn có thể huỷ một hoạt động tương tác đang chạy ở chế độ nền bằng phương thức `cancel`.
+`cancel` yöntemini kullanarak devam eden bir arka plan etkileşimini iptal edebilirsiniz.
 
 ### Python
 
@@ -621,7 +621,7 @@ client.interactions.cancel(id="INTERACTION_ID")
 ### JavaScript
 
 ```
-await client.interactions.cancel({ id: "INTERACTION_ID" });
+await client.interactions.cancel("INTERACTION_ID");
 ```
 
 ### REST
@@ -631,9 +631,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions/INTE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-**Nhiều lượt với tính năng thực thi trong nền**
+**Arka planda yürütme ile çok aşamalı etkileşim**
 
-Khi một hoạt động tương tác ở chế độ nền liên quan đến các công cụ có trạng thái (chẳng hạn như thực thi mã trong hộp cát), hãy sử dụng `environment_id` từ hoạt động tương tác đã hoàn tất để tiếp tục trong cùng một môi trường. Điều này đảm bảo rằng tác nhân sẽ tiếp tục từ nơi đã dừng lại với tất cả các tệp và trạng thái còn nguyên vẹn.
+Arka plandaki bir etkileşim durum bilgisi olan araçları (ör. bir sandbox'ta kod yürütme) içerdiğinde, aynı ortamda devam etmek için tamamlanan etkileşimdeki `environment_id` simgesini kullanın. Bu sayede, ajan tüm dosyalar ve durum korunarak kaldığı yerden devam eder.
 
 ### Python
 
@@ -745,65 +745,522 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }"
 ```
 
-## Môi trường
+## Ortam
 
-Mỗi lệnh gọi sẽ tạo hoặc sử dụng lại một hộp cát Linux. Tham số `environment` có 3 dạng:
+Her çağrı, bir Linux sanal alanı oluşturur veya yeniden kullanır. `environment` parametresi üç biçimde olabilir:
 
-| Biểu mẫu | Mô tả |
+| Form | Açıklama |
 | --- | --- |
-| `"remote"` | Cung cấp một hộp cát mới với chế độ cài đặt mặc định. |
-| `"env_abc123"` | Tái sử dụng một môi trường hiện có theo mã nhận dạng, giữ nguyên mọi tệp và trạng thái. |
-| `{...}` | `EnvironmentConfig` đầy đủ với các quy tắc mạng và nguồn tuỳ chỉnh. |
+| `"remote"` | Varsayılan ayarlarla yeni bir sanal alan sağlayın. |
+| `"env_abc123"` | Tüm dosyaları ve durumu koruyarak mevcut bir ortamı kimliğe göre yeniden kullanın. |
+| `{...}` | Özel kaynaklar ve ağ kurallarıyla tam `EnvironmentConfig` |
 
-Hãy xem phần [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi) để biết thông tin chi tiết về các nguồn (Git, GCS, nội tuyến), mạng, vòng đời và hạn mức tài nguyên.
+Kaynaklar (Git, GCS, satır içi), ağ, yaşam döngüsü ve kaynak sınırları hakkında ayrıntılı bilgi için [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) başlıklı makaleyi inceleyin.
 
-## Tình trạng còn hàng và giá
+## Tetikleyiciler
 
-Bạn có thể dùng thử tác nhân Antigravity thông qua [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) trong Google AI Studio và Gemini API.
+Tetikleyiciler, bir aracı cron zamanlamasına göre otomatik olarak çalışacak şekilde planlamanıza olanak tanır. Tetikleyici, bir aracı, ortamı, istemi ve planı manuel müdahale olmadan tetiklenen kalıcı bir kaynağa bağlar. Her yürütme aynı ortamı yeniden kullandığından, bir çalıştırmada oluşturulan dosyalar kalıcı olur ve bir sonraki çalıştırmada görünür.
 
-Giá được tính theo [mô hình trả tiền theo mức dùng](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#pricing-for-agents) dựa trên số lượng token của mô hình Gemini cơ bản và các công cụ mà tác nhân sử dụng. Không giống như yêu cầu trò chuyện tiêu chuẩn tạo ra một đầu ra duy nhất, tương tác Antigravity là một quy trình làm việc dựa trên tác nhân. Một yêu cầu duy nhất sẽ kích hoạt một vòng lặp tự động gồm suy luận, thực thi công cụ, chạy mã và quản lý tệp.
+### Tetikleyici oluştur
 
-### Chi phí ước tính
+Cron planı, saat dilimi ve etkileşim yapılandırmasını belirterek tetikleyici oluşturun. Tetikleyici, `active` durumunda başlar ve eşleşen bir sonraki cron zamanında tetiklenir. Sonraki çağrılarda tetikleyiciyi yönetmek için döndürülen `id` değerini kaydedin.
 
-Chi phí sẽ khác nhau tuỳ thuộc vào độ phức tạp của nhiệm vụ. Tác nhân tự động xác định số lượng lệnh gọi công cụ, lượt thực thi mã và thao tác tệp cần thiết. Các số liệu ước tính sau đây dựa trên các lần chạy.
+### Python
 
-| Danh mục việc cần làm | Mã thông báo nhập | Mã thông báo xuất | Chi phí thông thường |
+```
+from google import genai
+
+client = genai.Client()
+
+trigger = client.triggers.create(
+    schedule="0 9 * * *",
+    time_zone="America/Argentina/Buenos_Aires",
+    display_name="issue-solver",
+    interaction={
+        "agent": "antigravity-preview-05-2026",
+        "input": "Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled 'accepted', skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/.",
+        "environment": {
+            "type": "remote",
+            "network": {
+                "allowlist": [
+                    {
+                        "domain": "api.github.com",
+                        "transform": {
+                            "Authorization": "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                        },
+                    },
+                    {"domain": "github.com"},
+                ]
+            },
+        },
+    },
+)
+
+print(f"Trigger created: {trigger.id}")
+print(f"Next run: {trigger.next_run_time}")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const trigger = await client.triggers.create({
+    schedule: "0 9 * * *",
+    time_zone: "America/Argentina/Buenos_Aires",
+    display_name: "issue-solver",
+    interaction: {
+        agent: "antigravity-preview-05-2026",
+        input: [{
+            type: "text",
+            text: "Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled 'accepted', skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/.",
+        }],
+        environment: {
+            type: "remote",
+            network: {
+                allowlist: [
+                    {
+                        domain: "api.github.com",
+                        transform: {
+                            "Authorization": "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                        },
+                    },
+                    { domain: "github.com" },
+                ],
+            },
+        },
+    },
+});
+
+console.log(`Trigger created: ${trigger.id}`);
+console.log(`Next run: ${trigger.next_run_time}`);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{
+      "schedule": "0 9 * * *",
+      "time_zone": "America/Argentina/Buenos_Aires",
+      "display_name": "issue-solver",
+      "interaction": {
+          "agent": "antigravity-preview-05-2026",
+          "input": [{"type": "text", "text": "Review open PRs in my-org/my-app for new comments and address feedback. Close issues whose PRs were merged. Then check for new issues labeled accepted, skip any already tracked in /workspace/solved-issues/, fix the rest, and open a PR for each. Save reports to /workspace/solved-issues/."}],
+          "environment": {
+              "type": "remote",
+              "network": {
+                  "allowlist": [
+                      {
+                          "domain": "api.github.com",
+                          "transform": {
+                              "Authorization": "Bearer ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                          }
+                      },
+                      {"domain": "github.com"}
+                  ]
+              }
+          }
+      }
+  }'
+```
+
+`CreateTrigger` isteği aşağıdaki alanları kabul eder:
+
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| **Nghiên cứu và tổng hợp thông tin** | 100.000 – 500.000 | 10.000 – 40.000 | 0,30 – 1,00 USD |
-| **Tạo tài liệu và nội dung** | 100.000 – 500.000 | 15.000 – 50.000 | 0,30 USD – 1,30 USD |
-| **Thiết kế quy trình và hệ thống** | 100.000 – 400.000 | 10.000 – 30.000 | 0,25 – 0,80 USD |
-| **Xử lý và phân tích dữ liệu** | 300.000 – 3.000.000 | 30.000 – 150.000 | 0,70 USD – 3,25 USD |
+| `schedule` | dize | Evet | Cron ifadesi (ör. saatte bir için `0 * * * *`, hafta içi sabahları için `0 9 * * 1-5`). |
+| `time_zone` | dize | Evet | IANA saat dilimi (ör. `UTC`, `America/Argentina/Buenos_Aires`). |
+| `display_name` | dize | Hayır | Tetikleyicinin, kullanıcılar tarafından okunabilir adı. |
+| `max_consecutive_failures` | tam sayı | Hayır | Tetikleyicinin otomatik olarak duraklatılmadan önceki maksimum hata sayısı. Varsayılan: 5. |
+| `execution_timeout_seconds` | tam sayı | Hayır | Yürütme başına zaman aşımı süresi (saniye). Varsayılan: 600. |
+| `interaction` | nesne | Evet | Aracı, girişi, araçları ve ortamı tanımlayan bir `CreateInteractionRequest`. |
 
-Thông thường, 50–70% mã thông báo đầu vào được lưu vào bộ nhớ đệm. Các quy trình công việc phức tạp của tác nhân với nhiều lệnh gọi công cụ có thể tích luỹ từ 3 đến 5 triệu mã thông báo trong một lượt tương tác duy nhất, với chi phí lên đến khoảng 5 USD.
+Yanıtta aşağıdaki önemli alanlar bulunur:
 
-**Điện toán môi trường** (CPU, bộ nhớ, thực thi hộp cát) **không được tính phí** trong thời gian xem trước.
+| Alan | Tür | Açıklama |
+| --- | --- | --- |
+| `id` | dize | Tetikleyicinin benzersiz tanımlayıcısı. Bunu sonraki tüm işlemlerde kullanın. |
+| `status` | dize | Mevcut durum: `active`, `paused` veya `disabled`. |
+| `next_run_time` | dize | Bir sonraki planlanmış yürütmenin ISO 8601 zaman damgası. |
+| `consecutive_failure_count` | tam sayı | Son başarılı yürütmeden bu yana art arda başarısız olan yürütme sayısı. |
 
-## Các điểm hạn chế
+### Tetikleyicileri listeleme
 
-- **Trạng thái xem trước:** Tác nhân Antigravity và Interactions API. Các tính năng và giản đồ có thể thay đổi.
-- **Cấu hình tạo không được hỗ trợ:** Các tham số sau không được hỗ trợ và trả về lỗi 400: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
-- **Đầu ra có cấu trúc:** Tác nhân Antigravity không hỗ trợ đầu ra có cấu trúc.
-- **Các công cụ không dùng được:** `file_search`, `computer_use` và `google_maps` hiện chưa được hỗ trợ.
-- **Các hạn chế đối với MCP từ xa:** Không hỗ trợ phương thức truyền Sự kiện được gửi bởi máy chủ (SSE) (hãy dùng HTTP có thể truyền trực tuyến). Ngoài ra, `name` của máy chủ phải hoàn toàn là chữ thường và chữ và số (việc sử dụng chữ hoa sẽ kích hoạt lỗi `400 Bad Request` chung).
-- **Công cụ hệ thống tệp:** Hiện không có công cụ hệ thống tệp. Đây là một phần của `environment`.
-- **Yêu cầu về cửa hàng:** Việc thực thi tác nhân bằng `background=True` yêu cầu `store=True`.
-- **Chỉ gọi hàm có trạng thái:** Tính năng gọi hàm chỉ được hỗ trợ ở chế độ có trạng thái. Bạn phải sử dụng `previous_interaction_id` để tiếp tục lượt trò chuyện; hệ thống không hỗ trợ việc khôi phục nhật ký theo cách thủ công (chế độ không trạng thái).
-- **Các loại nội dung đa phương thức không được hỗ trợ.** Hiện tại, chúng tôi không hỗ trợ dữ liệu đầu vào là âm thanh, video và tài liệu. Bạn chỉ được phép sử dụng văn bản và hình ảnh.
+Projenizle ilişkili tüm tetikleyicileri alın.
 
-## Bước tiếp theo
+### Python
 
-- [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): cuộc trò chuyện nhiều lượt và truyền phát trực tuyến.
-- [Tạo tác nhân tuỳ chỉnh](https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi): hướng dẫn, kỹ năng tuỳ chỉnh và lưu tác nhân.
-- [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi): cấu hình hộp cát, nguồn, mạng.
-- [Tác nhân Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=vi): các nhiệm vụ nghiên cứu dài.
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi): API cơ bản.
+```
+triggers = client.triggers.list()
+for trigger in triggers.triggers:
+    print(f"{trigger.id}: {trigger.display_name} ({trigger.status})")
+```
 
-Gửi ý kiến phản hồi
+### JavaScript
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+```
+const triggers = await client.triggers.list();
+for (const trigger of triggers.triggers) {
+    console.log(`${trigger.id}: ${trigger.display_name} (${trigger.status})`);
+}
+```
 
-Cập nhật lần gần đây nhất: 2026-06-26 UTC.
+### REST
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+```
+curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers" \
+  -H "x-goog-api-key: $GEMINI_API_KEY"
+```
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-26 UTC."],[],[]]
+### Tetikleyici edinme
+
+Tek bir tetikleyicinin tam yapılandırmasını ve mevcut durumunu getirin.
+
+### Python
+
+```
+trigger = client.triggers.get(id="TRIGGER_ID")
+print(f"Schedule: {trigger.schedule}")
+print(f"Next run: {trigger.next_run_time}")
+```
+
+### JavaScript
+
+```
+const trigger = await client.triggers.get("TRIGGER_ID");
+console.log(`Schedule: ${trigger.schedule}`);
+console.log(`Next run: ${trigger.next_run_time}`);
+```
+
+### REST
+
+```
+curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_ID" \
+  -H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+### Duraklatma ve devam ettirme
+
+Programlanmış yürütmeleri durdurmak için tetikleyiciyi duraklatabilir, zamanlamayı yeniden etkinleştirmek için ise devam ettirebilirsiniz. Duraklatma, manuel yürütmeleri etkilemez.
+
+### Python
+
+```
+# Pause
+client.triggers.update(id="TRIGGER_ID", status="paused")
+
+# Resume
+client.triggers.update(id="TRIGGER_ID", status="active")
+```
+
+### JavaScript
+
+```
+// Pause
+await client.triggers.update("TRIGGER_ID", { status: "paused" });
+
+// Resume
+await client.triggers.update("TRIGGER_ID", { status: "active" });
+```
+
+### REST
+
+```
+# Pause
+curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_ID" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{"status": "paused"}'
+
+# Resume
+curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_ID" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{"status": "active"}'
+```
+
+### Tetikleyici silme
+
+Bir tetikleyiciyi kalıcı olarak kaldırma Geçmiş yürütme geçmişi silinmez.
+
+### Python
+
+```
+client.triggers.delete(id="TRIGGER_ID")
+```
+
+### JavaScript
+
+```
+await client.triggers.delete("TRIGGER_ID");
+```
+
+### REST
+
+```
+curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_ID" \
+  -H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+### Tetikleyiciyi hemen çalıştırma
+
+Bir sonraki planlanmış zamanı beklemeden isteğe bağlı olarak tetikleyiciyi etkinleştirin. Bu özellik, tetikleyici duraklatılmış olsa bile çalışır.
+
+### Python
+
+```
+client.triggers.run(trigger_id="TRIGGER_ID")
+```
+
+### JavaScript
+
+```
+await client.triggers.run("TRIGGER_ID");
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_ID/executions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+### Yürütmeleri listeleme
+
+Bir tetikleyicinin yürütme geçmişini görüntüleme Her yürütme işleminde `status`, zaman damgaları, tam etkileşim çıkışını getirmek için kullanabileceğiniz bir `interaction_id` ve tüm çalıştırmaların aynı korumalı alanı paylaştığını onaylayan bir `environment_id` bulunur.
+
+### Python
+
+```
+executions = client.triggers.list_executions(trigger_id="TRIGGER_ID")
+for ex in executions.trigger_executions:
+    print(f"{ex.id}: {ex.status} ({ex.start_time} - {ex.end_time})")
+
+# Fetch the full interaction for an execution
+interaction = client.interactions.get(id=ex.interaction_id)
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+const executions = await client.triggers.listExecutions("TRIGGER_ID");
+for (const ex of executions.trigger_executions) {
+    console.log(`${ex.id}: ${ex.status} (${ex.start_time} - ${ex.end_time})`);
+}
+
+// Fetch the full interaction for an execution
+const interaction = await client.interactions.get(ex.interaction_id);
+console.log(interaction.output_text);
+```
+
+### REST
+
+```
+curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_ID/executions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY"
+```
+
+## Kullanılabilirlik ve fiyatlandırma
+
+Antigravity aracısı, Google AI Studio'daki [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) ve hem ücretsiz katman hem de ücretli katman projeleri için Gemini API aracılığıyla önizleme sürümünde kullanılabilir.
+
+Fiyatlandırma, temel Gemini model jetonlarına ve aracının kullandığı araçlara dayalı [kullandıkça öde modeline](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#pricing-for-agents) göre belirlenir. Tek bir çıkış üreten standart bir sohbet isteğinin aksine, Antigravity etkileşimi, bir aracı iş akışıdır. Tek bir istek, muhakeme, araç yürütme, kod çalıştırma ve dosya yönetimi gibi işlemleri içeren bağımsız bir döngüyü tetikler. Ücretsiz katman projelerinde ücretsiz bir hız sınırı ve kullanım kotası bulunur.
+
+Antigravity etkileşimleri, çok turlu bağımsız döngüler çalıştırır ve önemli sayıda jeton tüketebilir. Jeton kullanımını sınırlamak için isteğinizde [bütçe kontrolleri](#budget-controls) ayarlayın. Ayrıca [SSE akışıyla](https://ai.google.dev/gemini-api/docs/streaming?hl=tr) ilerlemeyi gerçek zamanlı olarak izleyebilir veya çalışan istekleri iptal edebilirsiniz.
+
+### Bütçe kontrolleri
+
+Bir etkileşimin kullanabileceği toplam jeton sayısını (giriş + çıkış + düşünme) sınırlamak için `max_total_tokens` değerini `agent_config` içinde (`"type": "antigravity"` ile birlikte) ayarlayın.
+Önbelleğe alınan jetonlar bu sınıra dahil edilmez. Ajan sınıra ulaştığında etkileşim durdurulur ve `status: "incomplete"` ile geri döner. Bu sınır, en iyi çaba ilkesine göre belirlenir: Ajanın adımlar arasında bütçeyi kontrol etme zamanına bağlı olarak gerçek kullanım bu sınırı biraz aşabilir.
+
+`agent_config`, `agent` ve `input` ile birlikte etkileşim isteğinde bütçeyi ayarlayın.
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    agent="antigravity-preview-05-2026",
+    input="Analyze the dataset in /workspace/data.csv and generate a summary report.",
+    agent_config={
+        "type": "antigravity",
+        "max_total_tokens": 50000
+    },
+    environment={
+        "type": "remote",
+        "sources": [
+            {
+                "type": "inline",
+                "target": "/workspace/data.csv",
+                "content": "id,name,value\n1,alpha,100\n2,beta,200\n",
+            }
+        ],
+    }
+)
+print(f"Status: {interaction.status}")  # "incomplete" if budget was hit
+print(f"Tokens used: {interaction.usage.total_tokens}")
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const interaction = await client.interactions.create({
+    agent: "antigravity-preview-05-2026",
+    input: "Analyze the dataset in /workspace/data.csv and generate a summary report.",
+    agent_config: {
+        type: "antigravity",
+        max_total_tokens: 50000
+    },
+    environment: {
+        type: "remote",
+        sources: [
+            {
+                type: "inline",
+                target: "/workspace/data.csv",
+                content: "id,name,value\n1,alpha,100\n2,beta,200\n",
+            },
+        ],
+    },
+});
+console.log(`Status: ${interaction.status}`);
+console.log(`Tokens used: ${interaction.usage.total_tokens}`);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{
+    "agent": "antigravity-preview-05-2026",
+    "input": "Analyze the dataset in /workspace/data.csv and generate a summary report.",
+    "agent_config": {
+      "type": "antigravity",
+      "max_total_tokens": 50000
+    },
+    "environment": {
+      "type": "remote",
+      "sources": [
+        {
+          "type": "inline",
+          "target": "/workspace/data.csv",
+          "content": "id,name,value\n1,alpha,100\n2,beta,200\n"
+        }
+      ]
+    }
+  }'
+```
+
+#### Tamamlanmamış bir etkileşimi devam ettirme
+
+Bir etkileşim `status: "incomplete"` döndürdüğünde temsilcinin çalışması ve bağlamı korunur. Kaldığı yerden devam etmek için orijinal etkileşime `id` ve `environment_id` referans veren yeni bir etkileşim gönderin. Yeni etkileşimin kendi `max_total_tokens` bütçesi olur.
+
+### Python
+
+```
+# Continue from where the agent stopped
+continuation = client.interactions.create(
+    agent="antigravity-preview-05-2026",
+    input="continue",
+    previous_interaction_id=interaction.id,
+    environment=interaction.environment_id,
+    agent_config={
+        "type": "antigravity",
+        "max_total_tokens": 50000
+    }
+)
+print(f"Status: {continuation.status}")
+```
+
+### JavaScript
+
+```
+const continuation = await client.interactions.create({
+    agent: "antigravity-preview-05-2026",
+    input: "continue",
+    previous_interaction_id: interaction.id,
+    environment: interaction.environment_id,
+    agent_config: {
+        type: "antigravity",
+        max_total_tokens: 50000
+    }
+});
+console.log(`Status: ${continuation.status}`);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{
+    "agent": "antigravity-preview-05-2026",
+    "input": "continue",
+    "previous_interaction_id": "INTERACTION_ID",
+    "environment": "ENVIRONMENT_ID",
+    "agent_config": {
+      "type": "antigravity",
+      "max_total_tokens": 50000
+    }
+  }'
+```
+
+### Tahmini maliyetler
+
+Maliyetler, görevin karmaşıklığına göre değişir. Ajan, kaç araç çağrısı, kod yürütme ve dosya işlemi gerektiğini bağımsız olarak belirler. Aşağıdaki tahminler çalıştırmalara dayanmaktadır.
+
+| Görev kategorisi | Giriş jetonu sayısı | Çıkış jetonu sayısı | Normal maliyet |
+| --- | --- | --- | --- |
+| **Araştırma ve bilgi sentezi** | 100 bin-500 bin | 10.000-40.000 | 0,30-1,00 ABD doları |
+| **Doküman ve içerik oluşturma** | 100 bin-500 bin | 15.000-50.000 | 0,30-1,30 ABD doları |
+| **Süreç ve sistem tasarımı** | 100 bin-400 bin | 10.000-30.000 | 0,25-0,80 ABD doları |
+| **Veri işleme ve analiz** | 300.000-3.000.000 | 30 bin - 150 bin | 0,70-3,25 ABD doları |
+
+Giriş jetonlarının% 50-70'i genellikle önbelleğe alınır. Çok sayıda araç çağrısı içeren karmaşık aracı iş akışları, tek bir etkileşimde 3-5 milyon jeton biriktirebilir ve maliyeti yaklaşık 5 ABD dolarına kadar çıkabilir.
+
+Önizleme döneminde **ortam bilgi işlem** (CPU, bellek, korumalı alan yürütme) için **ücret alınmaz**.
+
+## Sınırlamalar
+
+- **Önizleme durumu:** Antigravity ajanı ve Interactions API'si. Özellikler ve şemalar değişebilir.
+- **Desteklenmeyen oluşturma yapılandırması:** Şu parametreler desteklenmez ve 400 hatası döndürür: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
+- **Yapılandırılmış çıkış:** Antigravity aracısı, yapılandırılmış çıkışları desteklemez.
+- **Kullanılamayan araçlar:** `file_search`, `computer_use` ve `google_maps` henüz desteklenmemektedir.
+- **Uzak MCP sınırlamaları:** Server-Sent Events (SSE) aktarımı desteklenmez (Streamable HTTP kullanın). Ayrıca, sunucu `name` kesinlikle küçük harf ve alfasayısal olmalıdır (büyük harf kullanılması genel bir `400 Bad Request` hatasını tetikler).
+- **Dosya sistemi aracı:** Şu anda dosya sistemi aracı yok. `environment` kapsamında sunulur.
+- **Mağaza koşulu:** `background=True` kullanılarak yapılan aracı yürütme işlemi için `store=True` gerekir.
+- **Yalnızca durum bilgisi olan işlev çağrıları:** İşlev çağrıları yalnızca durum bilgisi olan modda desteklenir. Sırayı devam ettirmek için `previous_interaction_id` kullanmanız gerekir. Geçmişi manuel olarak yeniden oluşturma (durum bilgisiz mod) desteklenmiyor.
+- **Desteklenmeyen çok formatlı türler.** Ses, video ve doküman girişleri şu anda desteklenmemektedir. Yalnızca metin ve resimlere izin verilir.
+
+## Sırada ne var?
+
+- [Hızlı başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr): Çok aşamalı etkileşimler ve akış.
+- [Özel Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): Özel talimatlar, beceriler ve ajanları kaydetme.
+- [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): korumalı alan yapılandırması, kaynaklar, ağ.
+- [Deep Research Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr): Uzun araştırma görevleri.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr): Temel API.
+
+Geri bildirim gönderin
+
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+
+Son güncelleme tarihi: 2026-07-16 UTC.
+
+Bize geri bildirimde bulunmak mı istiyorsunuz?
+
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-16 UTC."],[],[]]

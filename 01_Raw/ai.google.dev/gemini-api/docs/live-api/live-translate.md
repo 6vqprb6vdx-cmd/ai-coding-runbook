@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=pl
-fetched_at: 2026-07-06T05:13:24.717304+00:00
-title: "T\u0142umaczenie na \u017cywo za pomoc\u0105 interfejsu Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=id
+fetched_at: 2026-07-20T04:44:40.013009+00:00
+title: "Terjemahan langsung dengan Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Prześlij opinię
+Kirim masukan
 
-# Tłumaczenie na żywo za pomocą interfejsu Gemini Live API
+# Terjemahan langsung dengan Gemini Live API
 
-Interfejs Gemini Live API obsługuje tłumaczenie mowy na mowę w czasie rzeczywistym z krótkim czasem oczekiwania w ponad 70 językach za pomocą modelu [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=pl). Konfigurując interfejs Live API z ustawieniami tłumaczenia, możesz przesyłać strumieniowo dźwięk w jednym języku i otrzymywać przetłumaczony dźwięk w innym języku, co umożliwia płynne tłumaczenie głosu na głos w czasie rzeczywistym.
+Gemini Live API mendukung terjemahan ucapan ke ucapan secara real-time dan berlatensi rendah antara lebih dari 70 bahasa menggunakan model [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=id). Dengan mengonfigurasi Live API menggunakan setelan terjemahan, Anda dapat melakukan streaming audio dalam satu bahasa dan menerima output audio terjemahan dalam bahasa lain, sehingga memungkinkan terjemahan suara ke suara secara real-time yang lancar.
 
-[Wypróbuj tłumaczenie na żywo w Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=pl)
-[Sklonuj przykładową aplikację z GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[Korzystaj z umiejętności agenta do kodowaniaterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pl#gemini-live-api-dev)
+[Coba Live Translate di Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=id)
+[Clone aplikasi contoh dari GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[Gunakan keterampilan agen codingterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=id#gemini-live-api-dev)
 
-## Czat na żywo z pracownikiem obsługi klienta a tłumaczenie na żywo
+## Agen Langsung vs. Terjemahan Langsung
 
-Obie funkcje korzystają z interfejsu Live API, ale model mentalny tłumaczenia na żywo różni się od interakcji z agentem w czasie rzeczywistym.
+Meskipun keduanya menggunakan Live API, model mental untuk Terjemahan Langsung berbeda dengan interaksi agen real-time percakapan.
 
-| Czat z pracownikiem | Tłumaczenie na żywo |
+| Agen Langsung | Terjemahan Langsung |
 | --- | --- |
-| **Model działa jako asystent** – słucha, analizuje i podejmuje działania w Twoim imieniu. | **Model działa jak tłumacz.** Działa jak potok tłumaczenia w czasie rzeczywistym. |
-| **Wykorzystuje interakcje oparte na turach.** Opiera się na przerwach, wykrywaniu intencji i obsłudze przerw. | **Wykorzystuje ciągłe przetwarzanie strumieniowe** – tłumaczy wypowiedzi mówcy na bieżąco, bez czekania na swoją kolej. |
-| **Obsługuje narzędzia i agenty.** Natywna obsługa wywoływania funkcji, wyszukiwarki Google i instrukcji. | **Obsługuje tylko tłumaczenie.** Tłumaczenie z niskim opóźnieniem bez obsługi narzędzi ani instrukcji. |
-| **W pełni multimodalny** – obsługuje dane wejściowe w postaci tekstu, dźwięku, wideo i obrazów. | **Dźwięk ograniczony.** Dane wejściowe są ograniczone do dźwięku, aby zapewnić ścisłe progi opóźnienia w czasie rzeczywistym. |
-| **Szczegółowa konfiguracja** Korzysta z generowania, mowy, narzędzi i instrukcji systemowych. | **Uproszczona konfiguracja.** Ustaw `target_language_code` i przełączniki, takie jak `echo_target_language`. |
+| **Model ini bertindak sebagai asisten.** Model ini mendengarkan, memproses, dan melakukan tindakan atas nama Anda. | **Model ini berfungsi sebagai penerjemah.** Model ini berperilaku sebagai pipeline penerjemah real-time. |
+| **Menggunakan interaksi berbasis giliran.** Mengandalkan jeda, deteksi maksud, dan menangani gangguan. | **Menggunakan pemrosesan stream berkelanjutan.** Menerjemahkan saat pembicara berbicara tanpa menunggu giliran. |
+| **Mendukung alat dan agen.** Dukungan native untuk pemanggilan fungsi, Google Penelusuran, dan petunjuk. | **Hanya mendukung terjemahan.** Terjemahan latensi rendah murni; tidak ada dukungan untuk alat atau petunjuk. |
+| **Multimodal sepenuhnya.** Mendukung input teks, audio, video, dan gambar. | **Audio dibatasi.** Input terbatas pada audio untuk memastikan nilai minimum latensi real-time yang ketat. |
+| **Konfigurasi terperinci.** Menggunakan pembuatan, ucapan, alat, dan petunjuk sistem. | **Konfigurasi yang disederhanakan.** Tetapkan `target_language_code` dan tombol seperti `echo_target_language`. |
 
-## Rozpocznij
+## Mulai
 
-Poniższe przykłady pokazują, jak zainicjować klienta i połączyć się z interfejsem Live API za pomocą konfiguracji tłumaczenia.
+Contoh berikut menunjukkan cara melakukan inisialisasi klien dan terhubung ke Live API dengan konfigurasi terjemahan.
 
 ### Python
 
@@ -185,15 +185,15 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Wysyłanie dźwięku
+## Mengirim audio
 
-Aby przesyłać strumieniowo dane wejściowe głosowe do tłumaczenia, wysyłaj surowe, 16-bitowe dane audio PCM w formacie little-endian.
+Untuk melakukan streaming input suara untuk terjemahan, Anda mengirimkan audio PCM 16-bit mentah, little-endian.
 
-- **Format dźwięku wejściowego:** surowy 16-bitowy PCM przy 16 kHz (mono, little-endian).
-- **Format dźwięku wyjściowego:** surowy 16-bitowy PCM przy 24 kHz (mono, little-endian).
-- **Rozmiar fragmentu i czas oczekiwania:** wysyłaj dźwięk w fragmentach o długości 100 ms.
+- **Format audio input**: PCM 16-bit mentah pada 16 kHz (mono, little-endian).
+- **Format audio output**: PCM 16-bit mentah pada 24 kHz (mono, little-endian).
+- **Ukuran Chunk dan Latensi**: Kirim audio dalam chunk 100 md.
 
-Poniższe przykłady pokazują, jak wysyłać do sesji fragmenty dźwięku.
+Contoh berikut menunjukkan cara mengirimkan potongan audio ke sesi.
 
 ### Python
 
@@ -238,23 +238,23 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## Konfiguracja
+## Konfigurasi
 
-Aby włączyć tłumaczenie, musisz określić `translationConfig` w ramach `generationConfig` podczas konfigurowania sesji.
+Untuk mengaktifkan terjemahan, Anda harus menentukan `translationConfig` dalam `generationConfig` selama penyiapan sesi.
 
-### Konfigurowanie wiadomości dotyczących konfiguracji
+### Konfigurasi pesan penyiapan
 
-`generationConfig` obsługuje te pola, aby włączyć transkrypcje:
+`generationConfig` mendukung kolom berikut untuk mengaktifkan transkrip:
 
-- **`inputAudioTranscription`**: obiekt, który po wystąpieniu umożliwia modelowi wysyłanie transkrypcji tekstowych wejściowego dźwięku.
-- **`outputAudioTranscription`**: obiekt, który po wystąpieniu umożliwia modelowi wysyłanie transkrypcji tekstowych wyjściowego (przetłumaczonego) dźwięku.
+- **`inputAudioTranscription`**: Objek yang, jika ada, memungkinkan model mengirimkan transkrip teks dari audio input.
+- **`outputAudioTranscription`**: Objek yang, jika ada, memungkinkan model mengirimkan transkrip teks dari audio output (yang diterjemahkan).
 
-`translationConfig` obsługuje te pola:
+`translationConfig` mendukung kolom berikut:
 
-- **`targetLanguageCode`**: [kod języka BCP-47](#supported-languages), na który ma tłumaczyć model (np. `"pl"` w przypadku języka polskiego, `"es"` w przypadku języka hiszpańskiego). Domyślnie `"en"`.
-- **`echoTargetLanguage`**: wartość logiczna wskazująca, jak należy obsługiwać dźwięk wejściowy, który jest już w języku docelowym. Jeśli ustawisz wartość `true`, model będzie powtarzać dźwięk wejściowy, który jest już w języku docelowym. Jeśli ustawisz wartość `false`, model będzie milczeć, gdy mowa wejściowa jest już w języku docelowym. Domyślnie ustawiona jest wartość `false`.
+- **`targetLanguageCode`**: [Kode bahasa BCP-47](#supported-languages) dari bahasa yang Anda inginkan untuk terjemahan model (misalnya, `"pl"` untuk Polandia, `"es"` untuk Spanyol). Nilai defaultnya adalah `"en"`.
+- **`echoTargetLanguage`**: Boolean yang menunjukkan cara menangani audio input yang sudah dalam bahasa target. Jika disetel ke `true`, model akan mengulangi (menirukan) audio input yang sudah dalam bahasa target. Jika disetel ke `false`, model akan tetap diam saat ucapan input sudah dalam bahasa target. Nilai defaultnya adalah `false`.
 
-Oto przykład struktury wiadomości konfiguracyjnej:
+Berikut adalah contoh struktur pesan penyiapan:
 
 ```
 "setup": {
@@ -273,19 +273,19 @@ Oto przykład struktury wiadomości konfiguracyjnej:
 }
 ```
 
-## Tokeny tymczasowe dla aplikacji po stronie klienta
+## Token sementara untuk aplikasi sisi klien
 
-W przypadku aplikacji działających w modelu klient-serwer możesz używać [tokenów tymczasowych](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pl) (obecnie w `v1alpha`), aby uniknąć ujawnienia klucza interfejsu API.
+Untuk aplikasi klien-ke-server, Anda dapat menggunakan [token sementara](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=id) (saat ini dalam `v1alpha`) untuk menghindari pemaparan kunci API Anda.
 
-Podczas korzystania z tokenów tymczasowych z tłumaczeniem na żywo:
+Saat menggunakan token sementara dengan Terjemahan Langsung:
 
-1. Musisz użyć punktu końcowego `v1alpha`.
-2. **Konfiguracja blokowania:** domyślnie w ograniczeniach tworzenia tokena na serwerze należy określić `translationConfig`. Dzięki temu konfiguracja tłumaczenia jest zablokowana i klient nie może w nią ingerować.
-3. **Odblokowywanie konfiguracji:** jeśli chcesz mieć możliwość ustawienia parametru `translationConfig` po stronie klienta (np. aby umożliwić użytkownikowi wybór języka docelowego), musisz pominąć go w żądaniu utworzenia tokena i zamiast niego ustawić parametr `"lock_additional_fields": []`. Umożliwi to ustawienie wartości `translationConfig` po stronie klienta.
+1. Anda harus menggunakan endpoint `v1alpha`.
+2. **Mengunci konfigurasi:** Secara default, Anda harus menentukan `translationConfig` dalam batasan pembuatan token di server Anda. Hal ini memastikan konfigurasi terjemahan dikunci dan tidak dapat dirusak oleh klien.
+3. **Membuka kunci konfigurasi:** Jika Anda ingin dapat menyetel `translationConfig` di sisi klien (misalnya, untuk mengizinkan pengguna memilih bahasa targetnya sendiri), Anda harus menghapusnya dari permintaan pembuatan token dan menyetel `"lock_additional_fields": []` sebagai gantinya. Tindakan ini akan membuka kunci `translationConfig` untuk ditetapkan di sisi klien.
 
-### Tworzenie ograniczonego tokena efemerycznego
+### Membuat token ephemeral yang dibatasi
 
-Poniższe przykłady pokazują, jak utworzyć token tymczasowy z ograniczeniami dotyczącymi tłumaczenia.
+Contoh berikut menunjukkan cara membuat token sementara dengan batasan terjemahan.
 
 ### Python
 
@@ -348,74 +348,74 @@ const token = await client.authTokens.create({
 });
 ```
 
-## Ograniczenia
+## Batasan
 
-- **Rodzaje danych wejściowych:** w przypadku tłumaczenia obsługiwane są tylko dane audio. Wpisywanie tekstu nie jest obsługiwane.
-- **Replikacja głosu:** replikacja głosu może być niespójna. Głosy mogą się zmieniać po długich przerwach, przypisywać niewłaściwą płeć na podstawie tego, jak zaczyna się mowa, lub utknąć na jednym głosie podczas szybkich rozmów z wieloma mówcami.
-- **Wykrywanie języka:** wykrywanie języka może być utrudnione w przypadku silnego akcentu, podobnych języków (np. hiszpańskiego i portugalskiego) lub szybkiego przełączania się między językami. **Uwaga:** powinno to mieć wpływ tylko na transkrypcję danych wejściowych. Kody języków i ostateczne tłumaczenie powinny być nadal prawidłowe.
-- **Dźwięk w tle:** model został zaprojektowany tak, aby odfiltrowywać szumy i muzykę w celu uzyskania czystej mowy, ale nie wszystkie dźwięki w tle mogą być ignorowane.
-- **Echo Target Language** (Powtórz język docelowy): gdy `echoTargetLanguage: true`, szumy w tle lub muzyka mogą wprowadzać artefakty w przetłumaczonym dźwięku, jeśli dźwięk wejściowy jest już w języku docelowym.
+- **Modalitas Input**: Hanya input audio yang didukung untuk terjemahan. Input teks tidak didukung.
+- **Replikasi Suara**: Replikasi suara dapat tidak konsisten. Suara dapat berubah setelah jeda yang panjang, menetapkan gender yang salah berdasarkan cara ucapan dimulai, atau macet pada satu suara selama percakapan multi-pembicara yang cepat.
+- **Deteksi Bahasa**: Deteksi bahasa mengalami kesulitan dengan aksen berat, bahasa yang serupa (misalnya, Spanyol vs. Portugis), atau peralihan bahasa yang cepat. **Catatan:** Hal ini hanya akan memengaruhi transkrip input. Kode bahasa dan terjemahan akhir harus tetap akurat.
+- **Audio Latar Belakang**: Model ini dirancang untuk memfilter derau dan musik guna menghasilkan ucapan yang jelas, tetapi tidak semua audio latar belakang dapat diabaikan.
+- **Bahasa Target Gema (Echo)**: Jika `echoTargetLanguage: true`, suara bising di latar belakang atau musik dapat menimbulkan artefak dalam audio yang diterjemahkan jika audio input sudah dalam bahasa target.
 
-## Obsługiwane języki
+## Bahasa yang didukung
 
-Tłumaczenie na żywo jest dostępne w tych językach.
+Bahasa berikut didukung untuk Terjemahan Langsung.
 
-| Język | Kod BCP-47 | Język | Kod BCP-47 |
+| Language | Kode BCP-47 | Language | Kode BCP-47 |
 | --- | --- | --- | --- |
-| afrikaans | af | kazachski | kk |
-| akan | ak | khmerski | km |
-| albański | sq | ruanda-rundi | rw |
-| amharski | am | koreański | ko |
-| arabski | ar | laotański | lo |
-| ormiański | hy | łotewski | lv |
-| azerski | az | litewski | lt |
-| baskijski | eu | macedoński | mk |
-| białoruski | be | malajski | ms |
-| bengalski | bn | malajalam | ml |
-| bułgarski | bg | marathi | mr |
-| birmański (Mjanma) | my | mongolski | mn |
-| kataloński | ca | nepalski | ne |
-| Chiński (uproszczony) | zh-Hans | norweski | no, nb |
-| chiński (tradycyjny) | zh-Hant | perski | fa |
-| chorwacki | h | polski | pl |
-| czeski | cs | portugalski (Brazylia) | pt-BR |
-| duński | da | portugalski (Portugalia) | pt-PT |
-| niderlandzki | nl | pendżabski | pa |
-| angielski | en | rumuński | ro |
-| estoński | et | rosyjski | ru |
-| filipiński | fil | serbski | sr |
-| fiński | fi | sindhi | sd |
-| francuski | fr | syngaleski | si |
-| galicyjski | gl | słowacki | sk |
-| gruziński | ka | słoweński | sl |
-| niemiecki | de | hiszpański | es |
-| Kuchnia grecka | el | sundajski | su |
-| gudżarati | gu | suahili | sw |
-| hausa | ha | szwedzki | sv |
-| hebrajski | on | tamilski | ta |
-| hindi | hi | telugu | te |
-| węgierski | hu | tajski | th |
-| islandzki | jest | turecki | tr |
-| indonezyjski | id | ukraiński | uk |
-| włoski | it | urdu | ur |
-| japoński | ja | uzbecki | uz |
-| jawajski | jv | wietnamski | vi |
-| kannada | kn | zulu | zu |
+| Afrika | af | Kazak | kk |
+| Akan | ak | Khmer | km |
+| Albania | sq | Kinyarwanda | rw |
+| Amharik | am | Korea | ko |
+| Arab | ar | Laos | lo |
+| Armenia | hy | Latvia | lv |
+| Azerbaijan | az | Lituania | lt |
+| Basque | eu | Makedonia | mk |
+| Belarusia | be | Melayu | md |
+| Bengali | bn | Malayalam | ml |
+| Bulgaria | bg | Marathi | mr |
+| Burma (Myanmar) | my | Mongolia | mn |
+| Katalan | ca | Nepal | ne |
+| China (Aksara Sederhana) | zh-Hans | Norwegia | no, nb |
+| China (Aksara Tradisional) | zh-Hant | Persia | fa |
+| Kroasia | jam | Polandia | pl |
+| Ceko | cs | Portugis (Brasil) | pt-BR |
+| Denmark | da | Portugis (Portugal) | pt-PT |
+| Belanda | nl | Punjabi | pa |
+| Inggris | en | Rumania | ro |
+| Estonia | et | Rusia | ru |
+| Filipino | fil | Serbia | sr |
+| Finlandia | fi | Sindhi | sd |
+| Prancis | fr | Sinhala | si |
+| Galisia | gl | Slovakia | sk |
+| Georgia | ka | Slovenia | sl |
+| Jerman | de | Spanyol | es |
+| Yunani | el | Sunda | su |
+| Gujarat | gu | Swahili | sw |
+| Hausa | ha | Swedia | sv |
+| Ibrani | he | Tamil | ta |
+| Hindi | hi | Telugu | te |
+| Hungaria | hu | Thai | th |
+| Islandia | is | Turki | tr |
+| Indonesia | id | Ukraina | uk |
+| Italia | it | Urdu | ur |
+| Jepang | ja | Uzbek | uz |
+| Jawa | jv | Vietnam | vi |
+| Kannada | kn | Zulu | zu |
 
-## Co dalej?
+## Langkah berikutnya
 
-- Przeczytaj pełny przewodnik po [możliwościach](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=pl) interfejsu Live API.
-- Zapoznaj się z przewodnikiem [Pierwsze kroki z pakietem SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=pl).
-- Przeczytaj przewodnik [Pierwsze kroki z WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=pl).
-- Przeczytaj przewodnik [Tokeny tymczasowe](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pl), aby dowiedzieć się, jak bezpiecznie uwierzytelniać aplikacje działające w modelu klient-serwer.
-- Sklonuj [przykłady Live API](https://github.com/google-gemini/gemini-live-api-examples) z GitHuba.
+- Baca panduan [Kemampuan](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=id) Live API selengkapnya.
+- Baca panduan [Mulai menggunakan SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=id).
+- Baca panduan [Mulai menggunakan WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=id).
+- Baca panduan [Token sementara](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=id) untuk autentikasi yang aman di aplikasi klien ke server.
+- Clone [Contoh API aktif](https://github.com/google-gemini/gemini-live-api-examples) dari GitHub.
 
-Prześlij opinię
+Kirim masukan
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Ostatnia aktualizacja: 2026-06-09 UTC.
+Terakhir diperbarui pada 2026-06-09 UTC.
 
-Chcesz przekazać coś jeszcze?
+Ada masukan untuk kami?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-09 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-09 UTC."],[],[]]

@@ -1,55 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ar
-fetched_at: 2026-07-06T05:14:28.810527+00:00
-title: "\u062f\u0644\u064a\u0644 \u0625\u0645\u0643\u0627\u0646\u0627\u062a Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi
+fetched_at: 2026-07-20T04:42:00.208803+00:00
+title: "H\u01b0\u1edbng d\u1eabn v\u1ec1 c\u00e1c ch\u1ee9c n\u0103ng c\u1ee7a Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-# دليل إمكانات Live API
+# Hướng dẫn về các chức năng của Live API
 
-هذا دليل شامل يوضّح الإمكانات والإعدادات المتاحة من خلال Live API.
-راجِع صفحة [البدء باستخدام Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar) للحصول على نظرة عامة ورمز نموذجي لحالات الاستخدام الشائعة.
+Đây là hướng dẫn toàn diện trình bày các chức năng và cấu hình có trong Live API.
+Hãy xem trang [Bắt đầu sử dụng Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) để biết thông tin tổng quan và mã mẫu cho các trường hợp sử dụng phổ biến.
 
-## قبل البدء
+## Trước khi bắt đầu
 
-- **التعرّف على المفاهيم الأساسية:** إذا لم يسبق لك ذلك،
-  ننصحك بقراءة صفحة [البدء باستخدام Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)  أولاً.
-  سيساعدك هذا الدليل في التعرّف على المبادئ الأساسية لـ Live API وطريقة عملها و[مختلف طرق التنفيذ](https://ai.google.dev/gemini-api/docs/live?hl=ar#implementation-approach).
-- **تجربة Live API في AI Studio:** قد يكون من المفيد تجربة Live API في [Google AI Studio](https://aistudio.google.com/app/live?hl=ar) قبل البدء في إنشاء التطبيقات. لاستخدام Live API في Google AI Studio، انقر على **البث المباشر (Stream)**.
+- **Làm quen với các khái niệm cốt lõi:** Nếu chưa làm, trước tiên, hãy đọc trang [Bắt đầu sử dụng Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi) . Trang này sẽ giới thiệu cho bạn các nguyên tắc cơ bản của Live API, cách API này hoạt động và các [phương pháp triển khai](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach) khác nhau.
+- **Dùng thử Live API trong AI Studio:** Bạn có thể thấy việc dùng thử Live API trong [Google AI Studio](https://aistudio.google.com/app/live?hl=vi) là hữu ích trước khi bắt đầu xây dựng. Để sử dụng Live API trong Google AI Studio, hãy chọn **Stream** (Phát trực tiếp).
 
-## مقارنة النماذج
+## So sánh mô hình
 
-يلخّص الجدول التالي الاختلافات الرئيسية بين
-[Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ar) و[Gemini 2.5 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=ar):
+Bảng sau đây tóm tắt những điểm khác biệt chính giữa mô hình [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi) và [Gemini 2.5 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=vi):
 
-| الميزة | معاينة مباشرة لـ Gemini 3.1 Flash | ‫Gemini 2.5 Flash Live Preview |
+| Tính năng | Bản xem trước Gemini 3.1 Flash Live | Bản xem trước trực tiếp Gemini 2.5 Flash |
 | --- | --- | --- |
-| **[التفكير](#native-audio-output-thinking)** | يستخدم `thinkingLevel` للتحكّم في عمق التفكير من خلال إعدادات مثل `minimal` و`low` و`medium` و`high`. يتم ضبط القيمة التلقائية على `minimal` لتحسين وقت الاستجابة. يمكنك الاطّلاع على [مستويات التفكير والميزانيات](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#levels-budgets). | يستخدم `thinkingBudget` لضبط عدد الرموز المميزة للتفكير. يتم تفعيل التفكير الديناميكي تلقائيًا. اضبط `thinkingBudget` على `0` لإيقافه. اطّلِع على [مستويات التفكير والميزانيات](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#levels-budgets). |
-| **[تلقّي الردّ](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentservercontent)** | يمكن أن يحتوي حدث خادم واحد على أجزاء متعدّدة من المحتوى في الوقت نفسه (على سبيل المثال، `inlineData` والنص). احرص على أن يعالج الرمز البرمجي جميع الأجزاء في كل حدث لتجنُّب فقدان المحتوى. | يحتوي كل حدث على الخادم على جزء واحد فقط من المحتوى، ويتم تسليم الأجزاء في أحداث منفصلة. |
-| **[محتوى العميل](#incremental-updates)** | لا تتوفّر `send_client_content` إلا لإنشاء سجلّ السياق الأوّلي (يتطلّب ضبط `initial_history_in_client_content` في إعدادات الجلسة). لإرسال إشعارات نصية أثناء المحادثة، استخدِم `send_realtime_input` بدلاً من ذلك. | يتوفّر `send_client_content` طوال المحادثة لإرسال تحديثات المحتوى التدريجية وتحديد السياق. |
-| **[تفعيل التغطية](https://ai.google.dev/api/live?hl=ar#turncoverage)** | القيمة التلقائية هي `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. يتضمّن دور النموذج نشاطًا صوتيًا تم رصده وجميع لقطات الفيديو. | القيمة التلقائية هي `TURN_INCLUDES_ONLY_ACTIVITY`. يتضمّن دور النموذج النشاط الذي تم رصده فقط. |
-| **[التعرّف المخصّص على النشاط الصوتي](#disable-automatic-vad)** (`activity_start`/`activity_end`) | متاح أوقِف ميزة "التعرّف التلقائي على النشاط الصوتي" وأرسِل الرسالتَين `activityStart` و`activityEnd` يدويًا للتحكّم في حدود الدور. | متاح أوقِف ميزة "التعرّف التلقائي على النشاط الصوتي" وأرسِل الرسالتَين `activityStart` و`activityEnd` يدويًا للتحكّم في حدود الدور. |
-| **[إعدادات "التعرّف التلقائي على النشاط المرئي والسمعي"](#configure-automatic-vad)** | متوافق: اضبط المَعلمات، مثل `start_of_speech_sensitivity` و`end_of_speech_sensitivity` و`prefix_padding_ms` و`silence_duration_ms`. | متوافق: اضبط المَعلمات، مثل `start_of_speech_sensitivity` و`end_of_speech_sensitivity` و`prefix_padding_ms` و`silence_duration_ms`. |
-| **[استدعاء الدوال غير المتزامن](https://ai.google.dev/gemini-api/docs/live-tools?hl=ar#async-function-calling)** (`behavior: NON_BLOCKING`) | غير متاح لا يمكن استدعاء الدوال إلا بشكل تسلسلي. لن يبدأ النموذج في الردّ إلى أن ترسل ردّ الأداة. | متوافق: اضبط قيمة `behavior` على `NON_BLOCKING` في تعريف الدالة للسماح للنموذج بمواصلة التفاعل أثناء تنفيذ الدالة. يمكنك التحكّم في طريقة تعامل النموذج مع الردود باستخدام المَعلمة `scheduling` (`INTERRUPT` أو `WHEN_IDLE` أو `SILENT`). |
-| **[التحكّم الاستباقي بالصوت](#proactive-audio)** | غير متاح | متوافق: عند تفعيل هذا الخيار، يمكن للنموذج أن يقرّر بشكل استباقي عدم الردّ إذا كان المحتوى المُدخَل غير ذي صلة. اضبط قيمة `proactive_audio` على `true` في إعدادات `proactivity` (يتطلّب `v1alpha`). |
-| **[الحوار العاطفي](#affective-dialog)** | غير متاح | متاح يعدّل النموذج أسلوب الردّ ليتطابق مع أسلوب التعبير والنبرة في الإدخال. اضبط قيمة `enable_affective_dialog` على `true` في إعدادات الجلسة (يتطلّب ذلك `v1alpha`). |
+| **[Tư duy](#native-audio-output-thinking)** | Sử dụng `thinkingLevel` để kiểm soát độ sâu tư duy bằng các chế độ cài đặt như `minimal`, `low`, `medium` và `high`. Mặc định là `minimal` để tối ưu hoá cho độ trễ thấp nhất. Xem phần [Các cấp và ngân sách của chiến dịch suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets). | Sử dụng `thinkingBudget` để đặt số lượng mã thông báo tư duy. Tính năng tư duy linh hoạt được bật theo mặc định. Đặt `thinkingBudget` thành `0` để tắt. Xem phần [Các cấp và ngân sách của chiến dịch suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets). |
+| **[Nhận phản hồi](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservercontent)** | Một sự kiện trên máy chủ có thể chứa nhiều phần nội dung cùng lúc (ví dụ: `inlineData` và bản chép lời). Đảm bảo mã của bạn xử lý tất cả các phần trong mỗi sự kiện để tránh bỏ lỡ nội dung. | Mỗi sự kiện trên máy chủ chỉ chứa một phần nội dung. Các phần được phân phối trong các sự kiện riêng biệt. |
+| **[Nội dung của khách hàng](#incremental-updates)** | `send_client_content` chỉ được hỗ trợ để gieo hạt nhật ký bối cảnh ban đầu (yêu cầu đặt `initial_history_in_client_content` trong cấu hình phiên). Để gửi nội dung cập nhật văn bản trong cuộc trò chuyện, hãy sử dụng `send_realtime_input`. | `send_client_content` được hỗ trợ trong suốt cuộc trò chuyện để gửi các bản cập nhật nội dung gia tăng và thiết lập ngữ cảnh. |
+| **[Bật chế độ xem mức độ phù hợp](https://ai.google.dev/api/live?hl=vi#turncoverage)** | Giá trị mặc định là `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Lượt phản hồi của mô hình bao gồm hoạt động âm thanh được phát hiện và tất cả các khung hình video. | Giá trị mặc định là `TURN_INCLUDES_ONLY_ACTIVITY`. Lượt phản hồi của mô hình chỉ bao gồm hoạt động được phát hiện. |
+| **[VAD tuỳ chỉnh](#disable-automatic-vad)** (`activity_start`/`activity_end`) | Được hỗ trợ. Tắt VAD tự động và gửi tin nhắn `activityStart` và `activityEnd` theo cách thủ công để kiểm soát ranh giới lượt lời. | Được hỗ trợ. Tắt VAD tự động và gửi tin nhắn `activityStart` và `activityEnd` theo cách thủ công để kiểm soát ranh giới lượt lời. |
+| **[Cấu hình VAD tự động](#configure-automatic-vad)** | Được hỗ trợ. Định cấu hình các thông số như `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` và `silence_duration_ms`. | Được hỗ trợ. Định cấu hình các thông số như `start_of_speech_sensitivity`, `end_of_speech_sensitivity`, `prefix_padding_ms` và `silence_duration_ms`. |
+| **[Gọi hàm không đồng bộ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi#async-function-calling)** (`behavior: NON_BLOCKING`) | Không được hỗ trợ. Chỉ có thể gọi hàm theo trình tự. Mô hình sẽ không bắt đầu phản hồi cho đến khi bạn gửi phản hồi của công cụ. | Được hỗ trợ. Đặt `behavior` thành `NON_BLOCKING` trong một khai báo hàm để cho phép mô hình tiếp tục tương tác trong khi hàm chạy. Kiểm soát cách mô hình xử lý các phản hồi bằng tham số `scheduling` (`INTERRUPT`, `WHEN_IDLE` hoặc `SILENT`). |
+| **[Âm thanh chủ động](#proactive-audio)** | Không được hỗ trợ | Được hỗ trợ. Khi được bật, mô hình có thể chủ động quyết định không phản hồi nếu nội dung đầu vào không liên quan. Đặt `proactive_audio` thành `true` trong cấu hình `proactivity` (yêu cầu `v1alpha`). |
+| **[Đối thoại cảm xúc](#affective-dialog)** | Không được hỗ trợ | Được hỗ trợ. Mô hình sẽ điều chỉnh phong cách phản hồi cho phù hợp với cách diễn đạt và giọng điệu của câu lệnh đầu vào. Đặt `enable_affective_dialog` thành `true` trong cấu hình phiên (yêu cầu `v1alpha`). |
 
-للانتقال من Gemini 2.5 Flash Live إلى Gemini 3.1 Flash Live، يُرجى الاطّلاع على [دليل نقل البيانات](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ar#migrating).
+Để di chuyển từ Gemini 2.5 Flash Live sang Gemini 3.1 Flash Live, hãy xem [hướng dẫn di chuyển](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi#migrating).
 
-## إنشاء اتصال
+## Thiết lập kết nối
 
-يوضّح المثال التالي كيفية إنشاء اتصال باستخدام مفتاح واجهة برمجة التطبيقات:
+Ví dụ sau đây minh hoạ cách tạo một kết nối bằng khoá API:
 
 ### Python
 
@@ -110,13 +107,13 @@ async function main() {
 main();
 ```
 
-## طُرق التفاعل
+## Phương thức tương tác
 
-تقدّم الأقسام التالية أمثلة وسياقًا داعمًا لمختلف أساليب الإدخال والإخراج المتاحة في Live API.
+Các phần sau đây cung cấp ví dụ và ngữ cảnh hỗ trợ cho nhiều phương thức đầu vào và đầu ra có trong Live API.
 
-### إرسال الصوت
+### Đang gửi âm thanh
 
-يجب إرسال الصوت كبيانات PCM أولية (صوت PCM أولي 16 بت، 16 كيلوهرتز، ترتيب البايتات الصغير).
+Bạn cần gửi âm thanh dưới dạng dữ liệu PCM thô (âm thanh PCM thô 16 bit, 16 kHz, little-endian).
 
 ### Python
 
@@ -142,13 +139,13 @@ session.sendRealtimeInput({
 });
 ```
 
-### تنسيقات الصوت
+### Định dạng âm thanh
 
-تكون البيانات الصوتية في Live API دائمًا غير معالجة، وبتنسيق little-endian، وبتنسيق PCM ذي 16 بت. يستخدم مصدر إخراج الصوت دائمًا معدّل عيّنات يبلغ 24 كيلو هرتز. تكون البيانات الصوتية المدخلة في الأصل 16 كيلو هرتز، ولكن ستعيد Live API أخذ العيّنات إذا لزم الأمر، وبالتالي يمكن إرسال أي معدّل عيّنات. لنقل معدّل عيّنات الصوت المُدخل، اضبط نوع MIME لكل [Blob](https://ai.google.dev/api/caching?hl=ar#Blob) يحتوي على صوت على قيمة مثل `audio/pcm;rate=16000`.
+Dữ liệu âm thanh trong Live API luôn là dữ liệu thô, little-endian, PCM 16 bit. Đầu ra âm thanh luôn sử dụng tốc độ lấy mẫu là 24 kHz. Âm thanh đầu vào vốn là 16 kHz, nhưng Live API sẽ lấy lại mẫu nếu cần, vì vậy, bạn có thể gửi bất kỳ tốc độ lấy mẫu nào. Để truyền đạt tốc độ lấy mẫu của âm thanh đầu vào, hãy đặt loại MIME của mỗi [Blob](https://ai.google.dev/api/caching?hl=vi#Blob) chứa âm thanh thành một giá trị như `audio/pcm;rate=16000`.
 
-### استلام الصوت
+### Nhận âm thanh
 
-يتم تلقّي الردود الصوتية من النموذج على شكل أجزاء من البيانات.
+Các câu trả lời bằng âm thanh của mô hình được nhận dưới dạng các khối dữ liệu.
 
 ### Python
 
@@ -176,9 +173,9 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-### جارٍ إرسال الرسالة النصية
+### Đang gửi tin nhắn
 
-يمكن إرسال النص باستخدام `send_realtime_input` (Python) أو `sendRealtimeInput` (JavaScript).
+Bạn có thể gửi văn bản bằng `send_realtime_input` (Python) hoặc `sendRealtimeInput` (JavaScript).
 
 ### Python
 
@@ -194,9 +191,9 @@ session.sendRealtimeInput({
 });
 ```
 
-### إرسال الفيديو
+### Đang gửi video
 
-يتم إرسال إطارات الفيديو كصور فردية (مثل JPEG أو PNG) بعدد اللقطات في الثانية محدّد (إطار واحد في الثانية كحد أقصى).
+Khung hình video được gửi dưới dạng hình ảnh riêng lẻ (ví dụ: JPEG hoặc PNG) ở một tốc độ khung hình cụ thể (tối đa 1 khung hình/giây).
 
 ### Python
 
@@ -222,9 +219,9 @@ session.sendRealtimeInput({
 });
 ```
 
-#### تعديلات المحتوى التدريجية
+#### Bản cập nhật nội dung bổ sung
 
-استخدِم التحديثات التزايدية لإرسال النص المُدخَل أو إنشاء سياق الجلسة أو استعادة سياق الجلسة. بالنسبة إلى السياقات القصيرة، يمكنك إرسال تفاعلات اتّجاهات مفصّلة لتمثيل التسلسل الدقيق للأحداث:
+Sử dụng các bản cập nhật gia tăng để gửi dữ liệu đầu vào văn bản, thiết lập ngữ cảnh phiên hoặc khôi phục ngữ cảnh phiên. Đối với các ngữ cảnh ngắn, bạn có thể gửi các lượt tương tác từng bước để biểu thị chính xác trình tự các sự kiện:
 
 ### Python
 
@@ -256,14 +253,13 @@ inputTurns = [{ "role": "user", "parts": [{ "text": "What is the capital of Germ
 session.sendClientContent({ turns: inputTurns, turnComplete: true })
 ```
 
-بالنسبة إلى السياقات الأطول، يُنصح بتقديم ملخّص واحد للرسالة من أجل إتاحة مساحة في قدرة الاستيعاب للتفاعلات اللاحقة. راجِع [استئناف الجلسة](https://ai.google.dev/gemini-api/docs/live-session?hl=ar#session-resumption) للتعرّف على طريقة أخرى لتحميل سياق الجلسة.
+Đối với các ngữ cảnh dài hơn, bạn nên cung cấp một bản tóm tắt tin nhắn duy nhất để giải phóng cửa sổ ngữ cảnh cho các lượt tương tác tiếp theo. Hãy xem phần [Tiếp tục phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi#session-resumption) để biết một phương thức khác để tải ngữ cảnh phiên.
 
-### النصوص المُحوَّلة من مقاطع صوتية
+### Bản chép lời
 
-بالإضافة إلى ردّ النموذج، يمكنك أيضًا تلقّي نصوص لكل من مصدر إخراج الصوت والمدخل الصوتي.
+Ngoài câu trả lời của mô hình, bạn cũng có thể nhận được bản chép lời của cả đầu ra âm thanh và đầu vào âm thanh.
 
-لتفعيل تحويل الصوت الذي ينتجه النموذج إلى نص، أرسِل
-`output_audio_transcription` في إعدادات الإعداد. يتم استنتاج لغة تحويل الصوت إلى نص من ردّ النموذج.
+Để bật tính năng chép lời cho đầu ra âm thanh của mô hình, hãy gửi `output_audio_transcription` trong cấu hình thiết lập. Ngôn ngữ của bản chép lời được suy luận từ câu trả lời của mô hình.
 
 ### Python
 
@@ -381,8 +377,7 @@ async function main() {
 main();
 ```
 
-لتفعيل تحويل الصوت إلى نص في النموذج، أرسِل
-`input_audio_transcription` في إعدادات الضبط.
+Để bật tính năng chép lời cho đầu vào âm thanh của mô hình, hãy gửi `input_audio_transcription` trong cấu hình thiết lập.
 
 ### Python
 
@@ -527,11 +522,11 @@ async function main() {
 main();
 ```
 
-### تغيير الصوت واللغة
+### Thay đổi giọng nói và ngôn ngữ
 
-تتيح نماذج [مصدر إخراج الصوت الأصلي](#native-audio-output) استخدام أي من الأصوات المتاحة لنماذج [تحويل النص إلى كلام (TTS)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#voices). يمكنك الاستماع إلى جميع الأصوات في [AI Studio](https://aistudio.google.com/app/live?hl=ar).
+Các mô hình [đầu ra âm thanh gốc](#native-audio-output) hỗ trợ mọi giọng nói có trong các mô hình [Chuyển văn bản sang lời nói (TTS)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi#voices) của chúng tôi. Bạn có thể nghe tất cả các giọng nói trong [AI Studio](https://aistudio.google.com/app/live?hl=vi).
 
-لتحديد صوت، اضبط اسم الصوت ضمن الكائن `speechConfig` كجزء من إعدادات الجلسة:
+Để chỉ định một giọng nói, hãy đặt tên giọng nói trong đối tượng `speechConfig` trong cấu hình phiên:
 
 ### Python
 
@@ -553,17 +548,16 @@ const config = {
 };
 ```
 
-تتيح واجهة برمجة التطبيقات Live API استخدام [لغات متعددة](#supported-languages).
-تختار نماذج [مصدر إخراج الصوت الأصلي](#native-audio-output) اللغة المناسبة تلقائيًا ولا تتيح ضبط رمز اللغة بشكل صريح.
+Live API hỗ trợ [nhiều ngôn ngữ](#supported-languages).
+Các mô hình [đầu ra âm thanh gốc](#native-audio-output) sẽ tự động chọn ngôn ngữ phù hợp và không hỗ trợ việc đặt mã ngôn ngữ một cách rõ ràng.
 
-## إمكانات الصوت المضمَّنة
+## Khả năng âm thanh gốc
 
-تتضمّن أحدث نماذجنا ميزة [مصدر إخراج الصوت المضمّنة](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ar)، التي توفّر كلامًا طبيعيًا وواقعيًا وأداءً محسّنًا بلغات متعددة.
+Các mô hình mới nhất của chúng tôi có [đầu ra âm thanh gốc](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=vi), mang đến lời nói tự nhiên, chân thực và hiệu suất đa ngôn ngữ được cải thiện.
 
-### جارٍ التفكير
+### Tư duy
 
-تستخدم نماذج Gemini 3.1 `thinkingLevel` للتحكّم في عمق التفكير، مع إعدادات مثل `minimal` و`low` و`medium` و`high`. القيمة التلقائية هي `minimal` لتحسين وقت الاستجابة إلى أدنى حدّ. تستخدم نماذج Gemini 2.5
-`thinkingBudget` لتحديد عدد الرموز المميزة الخاصة بالتفكير بدلاً من ذلك. لمزيد من التفاصيل حول المستويات والميزانيات، يُرجى الاطّلاع على [مقارنة المستويات بالميزانيات](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#levels-budgets).
+Các mô hình Gemini 3.1 sử dụng `thinkingLevel` để kiểm soát độ sâu tư duy, với các chế độ cài đặt như `minimal`, `low`, `medium` và `high`. Chế độ mặc định là `minimal` để tối ưu hoá độ trễ thấp nhất. Các mô hình Gemini 2.5 sử dụng `thinkingBudget` để đặt số lượng mã thông báo tư duy. Để biết thêm thông tin về cấp độ so với ngân sách, hãy xem bài viết [Cấp độ và ngân sách](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#levels-budgets).
 
 ### Python
 
@@ -608,9 +602,7 @@ async function main() {
 main();
 ```
 
-بالإضافة إلى ذلك، يمكنك تفعيل ملخّصات الأفكار من خلال ضبط `includeThoughts` على
-`true` في الإعدادات. يمكنك الاطّلاع على [ملخّصات الأفكار](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#summaries)
-لمزيد من المعلومات:
+Ngoài ra, bạn có thể bật tính năng tóm tắt ý tưởng bằng cách đặt `includeThoughts` thành `true` trong cấu hình. Hãy xem phần [tóm tắt ý tưởng](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#summaries) để biết thêm thông tin:
 
 ### Python
 
@@ -639,12 +631,11 @@ const config = {
 };
 ```
 
-### حوار تفاعلي تعاطفي
+### Đối thoại cảm xúc
 
-تتيح هذه الميزة لـ Gemini مواءمة أسلوب ردوده مع التعبير المدخَل ونبرته.
+Tính năng này cho phép Gemini điều chỉnh phong cách phản hồi theo biểu thức và giọng điệu đầu vào.
 
-لاستخدام الحوار التفاعلي التعاطفي، اضبط إصدار واجهة برمجة التطبيقات على `v1alpha` واضبط
-`enable_affective_dialog` على `true` في رسالة الإعداد:
+Để sử dụng đối thoại cảm xúc, hãy đặt phiên bản API thành `v1alpha` và đặt `enable_affective_dialog` thành `true` trong thông báo thiết lập:
 
 ### Python
 
@@ -668,12 +659,11 @@ const config = {
 };
 ```
 
-### التحكّم التلقائي بالصوت
+### Âm thanh chủ động
 
-عند تفعيل هذه الميزة، يمكن أن يقرّر Gemini بشكل استباقي عدم الردّ إذا كان المحتوى غير ذي صلة.
+Khi tính năng này được bật, Gemini có thể chủ động quyết định không phản hồi nếu nội dung không liên quan.
 
-لاستخدامها، اضبط إصدار واجهة برمجة التطبيقات على `v1alpha` واضبط الحقل `proactivity`
-في رسالة الإعداد واضبط `proactive_audio` على `true`:
+Để sử dụng, hãy đặt phiên bản API thành `v1alpha` và định cấu hình trường `proactivity` trong thông báo thiết lập, đồng thời đặt `proactive_audio` thành `true`:
 
 ### Python
 
@@ -697,19 +687,19 @@ const config = {
 }
 ```
 
-## ترجمة مباشرة
+## Dịch trực tiếp
 
-تتيح Live API ترجمة المحادثات المنطوقة في الوقت الفعلي وبزمن انتقال منخفض، ما يتيح لك إنشاء تطبيقات ترجمة من الصوت إلى الصوت في الوقت الفعلي.
+Live API hỗ trợ dịch các cuộc trò chuyện bằng lời nói theo thời gian thực với độ trễ thấp. Khả năng này cho phép bạn tạo các ứng dụng dịch giọng nói theo thời gian thực.
 
-لمزيد من المعلومات والأمثلة، يُرجى الاطّلاع على [دليل "الترجمة الفورية"](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=ar).
+Để biết thêm thông tin và ví dụ, hãy xem [hướng dẫn về tính năng Dịch trực tiếp](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=vi).
 
-## التعرّف على النشاط الصوتي (VAD)
+## Phát hiện hoạt động thoại (VAD)
 
-تتيح ميزة "رصد النشاط الصوتي" (VAD) للنموذج التعرّف على وقت تحدث شخص ما. وهذا أمر ضروري لإنشاء محادثات طبيعية، لأنّه يتيح للمستخدم مقاطعة النموذج في أي وقت.
+Tính năng Phát hiện hoạt động thoại (VAD) cho phép mô hình nhận dạng thời điểm một người đang nói. Đây là tính năng cần thiết để tạo ra các cuộc trò chuyện tự nhiên, vì tính năng này cho phép người dùng ngắt lời mô hình bất cứ lúc nào.
 
-عندما يرصد VAD انقطاعًا، يتم إلغاء عملية الإنشاء الجارية والتخلص منها، ويتم الاحتفاظ فقط بالمعلومات التي تم إرسالها إلى العميل في سجلّ الجلسة. بعد ذلك، يرسل الخادم رسالة [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=ar#bidigeneratecontentservercontent) للإبلاغ عن الانقطاع.
+Khi VAD phát hiện thấy một đoạn ngắt, quá trình tạo đang diễn ra sẽ bị huỷ và loại bỏ. Chỉ những thông tin đã được gửi đến máy khách mới được giữ lại trong nhật ký phiên. Sau đó, máy chủ sẽ gửi thông báo [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservercontent) để báo cáo sự gián đoạn.
 
-بعد ذلك، يتجاهل خادم Gemini أي طلبات معلّقة لاستدعاء الدوال ويرسل رسالة `BidiGenerateContentServerContent` تتضمّن أرقام تعريف الطلبات الملغاة.
+Sau đó, máy chủ Gemini sẽ loại bỏ mọi lệnh gọi hàm đang chờ xử lý và gửi thông báo `BidiGenerateContentServerContent` kèm theo mã nhận dạng của các lệnh gọi đã huỷ.
 
 ### Python
 
@@ -737,11 +727,11 @@ for (const turn of turns) {
 }
 ```
 
-### الكشف التلقائي عن النشاط الصوتي
+### VAD tự động
 
-تنفّذ هذه الميزة تلقائيًا عملية VAD على دفق مستمر من الإدخال الصوتي. ويمكن ضبطها باستخدام الحقل [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=ar#RealtimeInputConfig.AutomaticActivityDetection) في [إعدادات الإعداد](https://ai.google.dev/api/live?hl=ar#BidiGenerateContentSetup).
+Theo mặc định, mô hình sẽ tự động thực hiện VAD trên luồng đầu vào âm thanh liên tục. Bạn có thể định cấu hình VAD bằng trường [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=vi#RealtimeInputConfig.AutomaticActivityDetection) của [cấu hình thiết lập](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentSetup).
 
-عند إيقاف بث الصوت مؤقتًا لأكثر من ثانية واحدة (على سبيل المثال، لأنّ المستخدم أوقف الميكروفون)، يجب إرسال حدث [`audioStreamEnd`](https://ai.google.dev/api/live?hl=ar#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end) لمحو أي صوت مخزّن مؤقتًا. يمكن للعميل استئناف إرسال البيانات الصوتية في أي وقت.
+Khi luồng âm thanh bị tạm dừng trong hơn một giây (ví dụ: vì người dùng tắt micrô), bạn nên gửi sự kiện [`audioStreamEnd`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end) để xoá mọi âm thanh được lưu vào bộ nhớ đệm. Ứng dụng có thể tiếp tục gửi dữ liệu âm thanh bất cứ lúc nào.
 
 ### Python
 
@@ -877,11 +867,11 @@ async function main() {
 main();
 ```
 
-باستخدام `send_realtime_input`، سيردّ واجهة برمجة التطبيقات على الصوت تلقائيًا استنادًا إلى VAD. في حين أنّ `send_client_content` يضيف الرسائل إلى سياق النموذج بالترتيب، تم تحسين `send_realtime_input` لتحقيق استجابة أفضل على حساب الترتيب الحتمي.
+Với `send_realtime_input`, API sẽ tự động phản hồi âm thanh dựa trên VAD. Mặc dù `send_client_content` thêm các thông báo vào ngữ cảnh mô hình theo thứ tự, nhưng `send_realtime_input` được tối ưu hoá để có khả năng phản hồi nhanh chóng, nhưng lại không đảm bảo được thứ tự xác định.
 
-### إعدادات VAD التلقائية
+### Cấu hình VAD tự động
 
-لمزيد من التحكّم في نشاط VAD، يمكنك ضبط المَعلمات التالية. يمكنك الاطّلاع على [مرجع واجهة برمجة التطبيقات](https://ai.google.dev/api/live?hl=ar#automaticactivitydetection) للحصول على مزيد من المعلومات.
+Để kiểm soát hoạt động VAD tốt hơn, bạn có thể định cấu hình các thông số sau. Hãy xem [Tài liệu tham khảo API](https://ai.google.dev/api/live?hl=vi#automaticactivitydetection) để biết thêm thông tin.
 
 ### Python
 
@@ -921,10 +911,9 @@ const config = {
 };
 ```
 
-### إيقاف ميزة "التعرّف التلقائي على النشاط الصوتي"
+### Tắt tính năng tự động phát hiện hoạt động thoại
 
-بدلاً من ذلك، يمكن إيقاف ميزة VAD التلقائية من خلال ضبط
-`realtimeInputConfig.automaticActivityDetection.disabled` على `true` في رسالة الإعداد. في هذا الإعداد، يكون العميل مسؤولاً عن رصد كلام المستخدم وإرسال رسالتَي [`activityStart`](https://ai.google.dev/api/live?hl=ar#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start) و[`activityEnd`](https://ai.google.dev/api/live?hl=ar#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end) في الأوقات المناسبة. لا يتم إرسال `audioStreamEnd` في هذا الإعداد. بدلاً من ذلك، يتم تمييز أي انقطاع في البث برسالة `activityEnd`.
+Ngoài ra, bạn có thể tắt tính năng VAD tự động bằng cách đặt `realtimeInputConfig.automaticActivityDetection.disabled` thành `true` trong thông báo thiết lập. Trong cấu hình này, ứng dụng chịu trách nhiệm phát hiện lời nói của người dùng và gửi thông báo [`activityStart`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start) và [`activityEnd`](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end) vào thời điểm thích hợp. `audioStreamEnd` không được gửi trong cấu hình này. Thay vào đó, mọi sự gián đoạn luồng đều được đánh dấu bằng thông báo `activityEnd`.
 
 ### Python
 
@@ -971,37 +960,34 @@ session.sendRealtimeInput(
 session.sendRealtimeInput({ activityEnd: {} })
 ```
 
-### فهم مَعلمات VAD وتأثيرها في الجودة
+### Tìm hiểu các thông số VAD và tác động của chúng đến chất lượng
 
-عند استخدام ميزة &quot;التعرّف التلقائي على النشاط الصوتي&quot;، يتحكّم مَعلمَان رئيسيان في طريقة تقسيم الصوت إلى مقاطع كلامية قبل إرسالها إلى النموذج:
+Khi sử dụng VAD tự động, hai thông số chính sẽ kiểm soát cách phân đoạn âm thanh thành các lượt lời nói trước khi được gửi đến mô hình:
 
-- **`prefixPaddingMs`**: مقدار الصوت المطلوب تضمينه *قبل* رصد الكلام. يضمن هذا "الرجوع إلى الخلف" أن يرصد النموذج بداية الكلام بالكامل، بما في ذلك المقطع اللفظي الأول الذي قد يبدأ قبل أن يتم تشغيل ميزة "رصد النشاط الصوتي". قد يؤدي استخدام القيمة `0` إلى اقتطاع بداية الكلمات.
-- **`silenceDurationMs`**: المدة التي ينتظرها الخادم بدون سماع أي صوت
-  قبل إنهاء نوبة الكلام. يحدّد هذا الإعداد مدى تسامح النظام مع التوقفات الطبيعية في منتصف الجملة (مثل التفكير أو التنفس أو حدود الجملة).
+- **`prefixPaddingMs`**: Lượng âm thanh cần đưa vào *trước* khi phát hiện thấy lời nói. Tính năng "nhìn lại" này đảm bảo mô hình ghi lại toàn bộ thời điểm bắt đầu của lời nói, bao gồm cả âm tiết đầu tiên có thể bắt đầu trước khi VAD kích hoạt. Giá trị `0` có thể khiến phần đầu của các từ bị cắt.
+- **`silenceDurationMs`**: Khoảng thời gian máy chủ chờ trong lúc không có âm thanh trước khi kết thúc một lượt lời nói. Khoảng thời gian này xác định mức độ chấp nhận của hệ thống đối với các khoảng dừng tự nhiên giữa câu (ví dụ: suy nghĩ, hít thở hoặc ranh giới của mệnh đề).
 
-#### تأثير `silenceDurationMs` على جودة الصوت
+#### Ảnh hưởng của `silenceDurationMs` đến chất lượng âm thanh
 
-تؤثّر قيمة `silenceDurationMs` بشكل مباشر في حجم وشمولية أجزاء الصوت التي يتلقّاها النموذج لمعالجتها:
+Giá trị `silenceDurationMs` ảnh hưởng trực tiếp đến kích thước và tính hoàn chỉnh của các đoạn âm thanh mà mô hình nhận được để xử lý:
 
-- **يُنصح به (من 500 ملي ثانية إلى 800 ملي ثانية):** يوفّر توازنًا جيدًا، إذ يتلقّى النموذج أجزاء صوتية كاملة وغنية بالسياق مع الحفاظ على معدل تأخير معقول. يبلغ الإعداد التلقائي الداخلي للخادم 800 ملي ثانية تقريبًا.
-- **منخفضة جدًا (مثل 100 ملي ثانية إلى 200 ملي ثانية):** ينهي النظام مقاطع الكلام أثناء التوقفات المؤقتة الطبيعية، ما يؤدي إلى تقسيم جملة واحدة إلى عدة مقاطع صوتية صغيرة. يتلقّى النموذج هذه الأجزاء بشكل فردي، ما يؤدي إلى فقدان السياق المشترك بين الأجزاء وانخفاض جودة النسخ والردود.
-- **مرتفع جدًا (على سبيل المثال، 2000 ملي ثانية أو أكثر):** ينتظر النظام وقتًا طويلاً بعد توقّف المستخدم عن التحدث، ما يؤدي إلى زيادة وقت الاستجابة الذي يلاحظه المستخدم قبل أن يستجيب النموذج.
+- **Nên dùng (500 mili giây – 800 mili giây):** Cung cấp sự cân bằng hợp lý – mô hình nhận được các đoạn âm thanh đầy đủ, giàu ngữ cảnh trong khi vẫn duy trì độ trễ hợp lý. Giá trị mặc định nội bộ của máy chủ là khoảng 800 mili giây.
+- **Quá thấp (ví dụ: 100 mili giây – 200 mili giây):** Hệ thống kết thúc lượt lời nói trong khi tạm dừng tự nhiên, chia một câu nói thành nhiều đoạn âm thanh nhỏ. Mô hình nhận từng đoạn này riêng lẻ, mất ngữ cảnh giữa các đoạn và dẫn đến chất lượng bản chép lời và phản hồi thấp hơn.
+- **Quá cao (ví dụ: 2000 mili giây trở lên):** Hệ thống đợi một thời gian dài sau khi người dùng ngừng nói, làm tăng độ trễ cảm nhận trước khi mô hình phản hồi.
 
-#### أفضل الممارسات المتعلّقة بميزة "إعلانات الفيديو أثناء التنقّل" اليدوية (من جهة العميل)
+#### Các phương pháp hay nhất cho VAD thủ công (phía máy khách)
 
-عند إيقاف ميزة "التعرّف التلقائي على النشاط الصوتي" وإدارة إشارات `activityStart`/`activityEnd`
-من ميزة "التعرّف على الصوت" من جهة العميل، يجب الانتباه إلى أنّه يتم تجاوز آليات التخزين المؤقت المضمّنة في الخادم. وهذا يعني ما يلي:
+Khi bạn tắt tính năng VAD tự động và quản lý các tín hiệu `activityStart`/`activityEnd` từ tính năng phát hiện giọng nói phía máy khách của riêng bạn, hãy lưu ý rằng các cơ chế đệm âm thanh tích hợp của máy chủ sẽ bị bỏ qua. Điều này có nghĩa là:
 
-1. **عدم توفّر مخزن مؤقت قبل بدء الكلام:** لم يعُد الخادم يضيف الصوت قبل بدء الكلام الذي تم رصده. يجب أن يقدّم العميل سياقًا صوتيًا كافيًا قبل إرسال `activityStart`.
-2. **عدم السماح بفترة سماح للصمت:** يتفاعل الخادم على الفور مع إشارة
-   `activityEnd` بدون أي انتظار إضافي. إذا كان تطبيق VAD من جهة العميل يستخدم حدًا صارمًا لنهاية الكلام (مثلاً، 200 ملي ثانية من الصمت)، قد يتم قطع الكلام في منتصف الجملة أثناء التوقفات الطبيعية.
+1. **Không có bộ nhớ đệm trước lời nói:** Máy chủ sẽ không còn thêm âm thanh vào trước khi phát hiện thấy lời nói bắt đầu. Khách hàng của bạn phải cung cấp đủ ngữ cảnh âm thanh trước khi gửi `activityStart`.
+2. **Không có khoảng thời gian im lặng:** Máy chủ sẽ hành động ngay lập tức dựa trên tín hiệu `activityEnd` mà không cần chờ thêm. Nếu VAD phía máy khách của bạn sử dụng ngưỡng kết thúc lời nói quá cao (ví dụ: 200 mili giây im lặng), thì lời nói có thể bị cắt ngang câu trong khi có khoảng dừng tự nhiên.
 
-للحفاظ على جودة الصوت عند استخدام ميزة "رصد النشاط الصوتي" يدويًا، استخدِم حدًا أدنى لمدة **500 ملي ثانية** لانتهاء الكلام في أداة رصد النشاط الصوتي على جهاز العميل.
-غالبًا ما تؤدي الحدود الدنيا التي تقل عن هذه القيمة إلى تشوّش الصوت، ما يؤدي إلى انخفاض جودة النسخ والردود التي يقدمها النموذج.
+Để duy trì chất lượng âm thanh bằng VAD thủ công, hãy sử dụng ngưỡng im lặng cuối lời nói ít nhất là **500 mili giây** trong trình phát hiện hoạt động thoại của ứng dụng.
+Các ngưỡng dưới giá trị này thường gây ra âm thanh rời rạc, làm giảm chất lượng bản chép lời và phản hồi của mô hình.
 
-## عدد الرموز المميّزة
+## Số lượng mã thông báo
 
-يمكنك العثور على إجمالي عدد الرموز المميزة المستهلكة في الحقل [usageMetadata](https://ai.google.dev/api/live?hl=ar#usagemetadata) ضمن رسالة الخادم التي تم إرجاعها.
+Bạn có thể tìm thấy tổng số mã thông báo đã sử dụng trong trường [usageMetadata](https://ai.google.dev/api/live?hl=vi#usagemetadata) của thông báo máy chủ được trả về.
 
 ### Python
 
@@ -1035,9 +1021,9 @@ for (const turn of turns) {
 }
 ```
 
-## درجة دقة الوسائط
+## Độ phân giải của nội dung nghe nhìn
 
-يمكنك تحديد دقة الوسائط المُدخلة من خلال ضبط الحقل `mediaResolution` كجزء من إعدادات الجلسة:
+Bạn có thể chỉ định độ phân giải của nội dung nghe nhìn cho nội dung nghe nhìn đầu vào bằng cách đặt trường `mediaResolution` trong cấu hình phiên:
 
 ### Python
 
@@ -1061,100 +1047,99 @@ const config = {
 };
 ```
 
-## القيود
+## Các điểm hạn chế
 
-يُرجى مراعاة القيود التالية في Live API عند التخطيط لمشروعك.
+Hãy cân nhắc những hạn chế sau của Live API khi bạn lên kế hoạch cho dự án của mình.
 
-### طُرق الاستجابة
+### Phương thức phản hồi
 
-لا تتوافق نماذج الصوت الأصلية إلا مع وضع الاستجابة `AUDIO. إذا كنت بحاجة إلى تلقّي ردّ النموذج كنص، استخدِم ميزة [نسخ الصوت](#audio-transcription).
+Các mô hình âm thanh gốc chỉ hỗ trợ phương thức phản hồi `AUDIO`. Nếu bạn cần phản hồi của mô hình dưới dạng văn bản, hãy sử dụng tính năng [chép lời âm thanh đầu ra](#audio-transcription).
 
-### مصادقة البرنامج
+### Xác thực ứng dụng
 
-لا توفّر واجهة Live API تلقائيًا سوى مصادقة الخادم إلى الخادم. إذا كنت تنفّذ تطبيق Live API باستخدام [أسلوب من العميل إلى الخادم](https://ai.google.dev/gemini-api/docs/live?hl=ar#implementation-approach)، عليك استخدام [الرموز المميزة المؤقتة](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ar) للحدّ من مخاطر الأمان.
+Theo mặc định, Live API chỉ cung cấp tính năng xác thực từ máy chủ đến máy chủ. Nếu đang triển khai ứng dụng Live API bằng [phương pháp từ máy khách đến máy chủ](https://ai.google.dev/gemini-api/docs/live?hl=vi#implementation-approach), bạn cần sử dụng [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=vi) để giảm thiểu rủi ro bảo mật.
 
-### مدة الجلسة
+### Thời lượng phiên
 
-تقتصر مدة الجلسات الصوتية فقط على 15 دقيقة،
-بينما تقتصر مدة الجلسات الصوتية والمرئية على دقيقتَين.
-ومع ذلك، يمكنك ضبط [تقنيات مختلفة لإدارة الجلسات](https://ai.google.dev/gemini-api/docs/live-session?hl=ar) من أجل تمديد مدة الجلسة بلا حدود.
+Các phiên chỉ có âm thanh bị giới hạn ở 15 phút và các phiên có cả âm thanh và video bị giới hạn ở 2 phút.
+Tuy nhiên, bạn có thể định cấu hình [các kỹ thuật quản lý phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi) khác nhau cho số lượng tiện ích không giới hạn trong thời lượng phiên.
 
-### قدرة الاستيعاب
+### Cửa sổ ngữ cảnh
 
-يبلغ الحدّ الأقصى لقدرة الاستيعاب في الجلسة:
+Một phiên có giới hạn cửa sổ ngữ cảnh là:
 
-- ‫128 ألف رمز مميّز لنماذج [مصدر إخراج الصوت الأصلي](#native-audio-output)
-- ‫32 ألف رمز مميز لطُرز Live API الأخرى
+- 128.000 token cho các mô hình [đầu ra âm thanh gốc](#native-audio-output)
+- 32 nghìn token cho các mô hình Live API khác
 
-## اللغات المتاحة
+## Ngôn ngữ được hỗ trợ
 
-تتيح Live API اللغات الـ 97 التالية.
+Live API hỗ trợ 97 ngôn ngữ sau.
 
-| اللغة | رمز BCP-47 | اللغة | رمز BCP-47 |
+| Ngôn ngữ | Mã BCP-47 | Ngôn ngữ | Mã BCP-47 |
 | --- | --- | --- | --- |
-| الأفريقانية | `af` | اللاتفية | `lv` |
-| الأكانية | `ak` | الليتوانية | `lt` |
-| الألبانية | `sq` | المقدونية | `mk` |
-| الأمهرية | `am` | الماليزية | `ms` |
-| العربية | `ar` | المالايالامية | `ml` |
-| الأرمينية | `hy` | المالطية | `mt` |
-| الأسامية | `as` | الماورية | `mi` |
-| الأذربيجانية | `az` | المراثية | `mr` |
-| الباسك | `eu` | المنغولية | `mn` |
-| البيلاروسية | `be` | النيبالية | `ne` |
-| البنغالية | `bn` | النرويجية | `no` |
-| البوسنية | `bs` | الأوديا | `or` |
-| البلغارية | `bg` | الأورومية | `om` |
-| البورمية | `my` | البشتو | `ps` |
-| الكتالانية | `ca` | الفارسية | `fa` |
-| السيبيوانية | `ceb` | البولندية | `pl` |
-| الصينية | `zh` | البرتغالية | `pt` |
-| الكرواتية | `hr` | البنجابية | `pa` |
-| التشيكية | `cs` | الكويتشوا | `qu` |
-| الدانماركية | `da` | الرومانية | `ro` |
-| الهولندية | `nl` | الرومانشية | `rm` |
-| الإنجليزية | `en` | الروسية | `ru` |
-| الإستونية | `et` | الصربية | `sr` |
-| الفاروية | `fo` | السندية | `sd` |
-| الفلبينية | `fil` | السنهالية | `si` |
-| الفنلندية | `fi` | السلوفاكية | `sk` |
-| الفرنسية | `fr` | السلوفينية | `sl` |
-| الغليشيانية | `gl` | الصومالية | `so` |
-| الجورجية | `ka` | السوتو الجنوبية | `st` |
-| الألمانية | `de` | الإسبانية | `es` |
-| اليونانية | `el` | السواحيلية | `sw` |
-| الغوجاراتية | `gu` | السويدية | `sv` |
-| الهوسا | `ha` | الطاجيكية | `tg` |
-| العبرية | `iw` | التاميلية | `ta` |
-| الهندية | `hi` | التيلوغوية | `te` |
-| الهنغارية | `hu` | التايلاندية | `th` |
-| الأيسلندية | `is` | التسوانية | `tn` |
-| الإندونيسية | `id` | التركية | `tr` |
-| الأيرلندية | `ga` | التركمانية | `tk` |
-| الإيطالية | `it` | الأوكرانية | `uk` |
-| اليابانية | `ja` | الأوردية | `ur` |
-| الكانادا | `kn` | الأوزبكية | `uz` |
-| الكازاخية | `kk` | الفيتنامية | `vi` |
-| الخميرية | `km` | الويلزية | `cy` |
-| الكينيارواندا | `rw` | الفريزية الغربية | `fy` |
-| الكورية | `ko` | الولوفية | `wo` |
-| الكردية | `ku` | اليوروبا | `yo` |
-| القيرغيزية | `ky` | الزولو | `zu` |
-| لاو | `lo` |  |  |
+| Tiếng Hà Lan ở Nam Phi | `af` | Tiếng Latvia | `lv` |
+| Tiếng Akan | `ak` | Tiếng Lithuania | `lt` |
+| Tiếng Albania | `sq` | Tiếng Macedonia | `mk` |
+| Tiếng Amhara | `am` | Tiếng Malay | `ms` |
+| Tiếng Ả Rập | `ar` | Tiếng Malayalam | `ml` |
+| Tiếng Armenia | `hy` | Tiếng Malta | `mt` |
+| Tiếng Assam | `as` | Tiếng Maori | `mi` |
+| Tiếng Azerbaijan | `az` | Tiếng Marathi | `mr` |
+| Tiếng Basque | `eu` | Tiếng Mông Cổ | `mn` |
+| Tiếng Belarus | `be` | Tiếng Nepal | `ne` |
+| Tiếng Bengal | `bn` | Tiếng Na Uy | `no` |
+| Tiếng Bosnia | `bs` | Tiếng Odia | `or` |
+| Tiếng Bungary | `bg` | Tiếng Oromo | `om` |
+| Tiếng Myanmar | `my` | Tiếng Pashto | `ps` |
+| Tiếng Catalan | `ca` | Persian | `fa` |
+| Tiếng Cebuano | `ceb` | Tiếng Ba Lan | `pl` |
+| Tiếng Trung | `zh` | Tiếng Bồ Đào Nha | `pt` |
+| Croatian | `hr` | Tiếng Punjab | `pa` |
+| Tiếng Séc | `cs` | Tiếng Quechua | `qu` |
+| Tiếng Đan Mạch | `da` | Tiếng Rumani | `ro` |
+| Tiếng Hà Lan | `nl` | Tiếng Romansh | `rm` |
+| Tiếng Anh | `en` | Tiếng Nga | `ru` |
+| Tiếng Estonia | `et` | Tiếng Serbia | `sr` |
+| Tiếng Faroe | `fo` | Tiếng Sindh | `sd` |
+| Tiếng Philippines | `fil` | Tiếng Sinhala | `si` |
+| Tiếng Phần Lan | `fi` | Tiếng Slovak | `sk` |
+| Tiếng Pháp | `fr` | Tiếng Slovenia | `sl` |
+| Tiếng Galicia | `gl` | Tiếng Somali | `so` |
+| Tiếng Gruzia | `ka` | Tiếng Nam Sotho | `st` |
+| Tiếng Đức | `de` | Tiếng Tây Ban Nha | `es` |
+| Tiếng Hy Lạp | `el` | Tiếng Swahili | `sw` |
+| Tiếng Gujarat | `gu` | Tiếng Thuỵ Điển | `sv` |
+| Tiếng Hausa | `ha` | Tiếng Tajik | `tg` |
+| Tiếng Do Thái | `iw` | Tiếng Tamil | `ta` |
+| Tiếng Hindi | `hi` | Tiếng Telugu | `te` |
+| Tiếng Hungary | `hu` | Tiếng Thái | `th` |
+| Tiếng Iceland | `is` | Tiếng Tswana | `tn` |
+| Tiếng Indonesia | `id` | Tiếng Thổ Nhĩ Kỳ | `tr` |
+| Tiếng Ireland | `ga` | Tiếng Turkmen | `tk` |
+| Tiếng Ý | `it` | Tiếng Ukraina | `uk` |
+| Tiếng Nhật | `ja` | Tiếng Urdu | `ur` |
+| Tiếng Kannada | `kn` | Tiếng Uzbek | `uz` |
+| Tiếng Kazakh | `kk` | Tiếng Việt | `vi` |
+| Tiếng Khmer | `km` | Tiếng Wales | `cy` |
+| Tiếng Kinyarwanda | `rw` | Tiếng Tây Frisia | `fy` |
+| Tiếng Hàn | `ko` | Tiếng Wolof | `wo` |
+| Tiếng Kurd | `ku` | Tiếng Yoruba | `yo` |
+| Tiếng Kyrgyz | `ky` | Tiếng Zulu | `zu` |
+| Tiếng Lào | `lo` |  |  |
 
-## الخطوات التالية
+## Bước tiếp theo
 
-- يمكنك الاطّلاع على دليلَي [استخدام الأدوات](https://ai.google.dev/gemini-api/docs/live-tools?hl=ar) و[إدارة الجلسات](https://ai.google.dev/gemini-api/docs/live-session?hl=ar) للحصول على معلومات أساسية حول استخدام Live API بفعالية.
-- جرِّب Live API في [Google AI Studio](https://aistudio.google.com/app/live?hl=ar).
-- لمزيد من المعلومات حول نماذج Live API، يُرجى الاطّلاع على [Gemini 2.5 Flash Native Audio](https://ai.google.dev/gemini-api/docs/models?hl=ar#gemini-2.5-flash-native-audio) في صفحة "النماذج".
-- يمكنك الاطّلاع على المزيد من الأمثلة في [كتاب وصفات Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=ar) و[كتاب وصفات أدوات Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ar) و[نص Live API البرمجي الخاص ببدء الاستخدام](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
+- Đọc hướng dẫn về [Cách sử dụng công cụ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi) và [Quản lý phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi) để biết thông tin cần thiết về cách sử dụng Live API một cách hiệu quả.
+- Dùng thử Live API trong [Google AI Studio](https://aistudio.google.com/app/live?hl=vi).
+- Để biết thêm thông tin về các mô hình Live API, hãy xem phần [Âm thanh gốc của Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models?hl=vi#gemini-2.5-flash-native-audio) trên trang Mô hình.
+- Hãy thử xem thêm các ví dụ trong [sổ tay Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=vi), [sổ tay Live API Tools](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=vi) và [tập lệnh Live API Get Started](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
 
-إرسال ملاحظات
+Gửi ý kiến phản hồi
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاريخ التعديل الأخير: 2026-06-09 (حسب التوقيت العالمي المتفَّق عليه)
+Cập nhật lần gần đây nhất: 2026-06-09 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-09 UTC."],[],[]]

@@ -1,274 +1,274 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-CN
-fetched_at: 2026-07-06T05:10:36.141135+00:00
-title: "Google AI Studio \u548c Gemini API \u7684\u9002\u7528\u533a\u57df \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=vi
+fetched_at: 2026-07-20T04:45:27.373333+00:00
+title: "C\u00e1c khu v\u1ef1c \u0111\u01b0\u1ee3c h\u1ed7 tr\u1ee3 Google AI Studio v\u00e0 API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-发送反馈
+Gửi ý kiến phản hồi
 
-# Google AI Studio 和 Gemini API 的适用区域
+# Các khu vực được hỗ trợ Google AI Studio và API Gemini
 
-如果您在尝试访问 [Google AI Studio](https://aistudio.google.com/?hl=zh-cn) 时进入此页面，可能是由于以下原因之一：
+Nếu bạn truy cập vào trang này khi cố gắng sử dụng [Google AI Studio](https://aistudio.google.com/?hl=vi), thì có thể
+là do một trong các nguyên nhân sau:
 
-- **地区限制**：您所在的地区不支持使用 Google AI Studio。如需查看支持的地区列表，请参阅下文。
-- **年龄要求**：您未达到使用此服务的最低年龄要求（18 周岁）。
-- **账号验证**：您或许可以访问该服务，但尚未在 Google 账号中[验证您的年龄](https://support.google.com/accounts/answer/10071085?hl=zh-cn)。
+- **Quy định hạn chế theo khu vực**: Google AI Studio không có ở khu vực của bạn. Hãy tham khảo phần bên dưới để xem danh sách các khu vực được hỗ trợ.
+- **Yêu cầu về độ tuổi**: Bạn không đáp ứng yêu cầu về độ tuổi tối thiểu (từ 18 tuổi trở lên) để sử dụng dịch vụ này.
+- **Xác minh tài khoản**: Bạn có thể sử dụng dịch vụ này nhưng chưa [xác minh tuổi của mình](https://support.google.com/accounts/answer/10071085?hl=vi) trên Tài khoản Google.
 
-如需详细了解相关要求，请参阅我们的[《服务条款》](https://ai.google.dev/gemini-api/terms?hl=zh-cn)。
+Để biết thêm thông tin chi tiết về các yêu cầu, hãy xem [Điều khoản dịch vụ](https://ai.google.dev/gemini-api/terms?hl=vi) của chúng tôi.
 
-## 可用区域
+## Khu vực khả dụng
 
-查看 **Colab 实例**的位置
+Gemini API và Google AI Studio có ở các quốc gia và vùng lãnh thổ sau. Nếu bạn không ở một trong những quốc gia hoặc vùng lãnh thổ này, hãy thử
+[Gemini API trong Nền tảng đại lý Gemini Enterprise](https://cloud.google.com/gemini-enterprise-agent-platform?hl=vi):
 
-Gemini API 和 Google AI Studio 已在以下国家和地区推出。如果您不在上述国家/地区，请尝试使用 [Gemini Enterprise Agent Platform 中的 Gemini API](https://cloud.google.com/gemini-enterprise-agent-platform?hl=zh-cn)：
+- Albania
+- Algeria
+- Samoa thuộc Hoa Kỳ
+- Andorra
+- Angola
+- Anguilla
+- Nam Cực
+- Antigua và Barbuda
+- Argentina
+- Armenia
+- Aruba
+- Úc
+- Áo
+- Azerbaijan
+- Bahamas
+- Bahrain
+- Bangladesh
+- Barbados
+- Bỉ
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Bosnia và Herzegovina
+- Botswana
+- Brazil
+- Lãnh thổ Ấn Độ Dương thuộc Anh
+- Quần đảo Virgin thuộc Anh
+- Brunei
+- Bulgaria
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Campuchia
+- Cameroon
+- Canada
+- Caribbean thuộc Hà Lan
+- Quần đảo Cayman
+- Cộng hoà Trung Phi
+- Chad
+- Chile
+- Đảo Christmas
+- Quần đảo Cocos (Keeling)
+- Colombia
+- Comoros
+- Quần đảo Cook
+- Costa Rica
+- Bờ biển Ngà
+- Croatia
+- Curaçao
+- Cộng hoà Séc
+- Cộng hoà Dân chủ Congo
+- Đan Mạch
+- Djibouti
+- Dominica
+- Cộng hoà Dominica
+- Ecuador
+- Ai Cập
+- El Salvador
+- Guinea Xích đạo
+- Eritrea
+- Estonia
+- Eswatini
+- Ethiopia
+- Quần đảo Falkland (Islas Malvinas)
+- Quần đảo Faroe
+- Fiji
+- Phần Lan
+- Pháp
+- Guiana thuộc Pháp
+- Gabon
+- Gambia
+- Georgia
+- Đức
+- Ghana
+- Gibraltar
+- Hy Lạp
+- Greenland
+- Grenada
+- Guam
+- Guatemala
+- Guernsey
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Haiti
+- Đảo Heard và Quần đảo McDonald
+- Honduras
+- Hungary
+- Iceland
+- Ấn Độ
+- Indonesia
+- Iraq
+- Ireland
+- Đảo Man
+- Israel
+- Ý
+- Jamaica
+- Nhật Bản
+- Jersey
+- Jordan
+- Kazakhstan
+- Kenya
+- Kiribati
+- Kosovo
+- Kuwait
+- Kyrgyzstan
+- Lào
+- Latvia
+- Lebanon
+- Lesotho
+- Liberia
+- Libya
+- Liechtenstein
+- Lithuania
+- Luxembourg
+- Madagascar
+- Malawi
+- Malaysia
+- Maldives
+- Mali
+- Malta
+- Quần đảo Marshall
+- Mauritania
+- Mauritius
+- Mexico
+- Micronesia
+- Moldova
+- Monaco
+- Mông Cổ
+- Montenegro
+- Montserrat
+- Ma Rốc
+- Mozambique
+- Namibia
+- Nauru
+- Nepal
+- Hà Lan
+- New Caledonia
+- New Zealand
+- Nicaragua
+- Niger
+- Nigeria
+- Niue
+- Đảo Norfolk
+- Bắc Macedonia
+- Quần đảo Bắc Mariana
+- Na Uy
+- Oman
+- Pakistan
+- Palau
+- Palestine
+- Panama
+- Papua New Guinea
+- Paraguay
+- Peru
+- Philippines
+- Quần đảo Pitcairn
+- Ba Lan
+- Bồ Đào Nha
+- Puerto Rico
+- Qatar
+- Cộng hoà Síp
+- Cộng hoà Congo
+- Romania
+- Rwanda
+- Réunion
+- Saint Barthélemy
+- Saint Helena, Ascension và Tristan da Cunha
+- Saint Kitts và Nevis
+- Saint Lucia
+- Saint Pierre và Miquelon
+- Saint Vincent và Grenadines
+- Samoa
+- San Marino
+- São Tomé và Príncipe
+- Ả Rập Xê Út
+- Senegal
+- Serbia
+- Seychelles
+- Sierra Leone
+- Singapore
+- Slovakia
+- Slovenia
+- Quần đảo Solomon
+- Somalia
+- Nam Phi
+- Nam Georgia và quần đảo Nam Sandwich
+- Hàn Quốc
+- Nam Sudan
+- Tây Ban Nha
+- Sri Lanka
+- Sudan
+- Suriname
+- Thuỵ Điển
+- Thuỵ Sĩ
+- Đài Loan
+- Tajikistan
+- Tanzania
+- Thái Lan
+- Đông Timor
+- Togo
+- Tokelau
+- Tonga
+- Trinidad và Tobago
+- Tunisia
+- Turkmenistan
+- Quần đảo Turks và Caicos
+- Tuvalu
+- Thổ Nhĩ Kỳ
+- Uganda
+- Ukraina
+- Các Tiểu Vương quốc Ả Rập Thống nhất
+- Vương quốc Anh
+- Hoa Kỳ
+- Các tiểu đảo xa của Hoa Kỳ
+- Uruguay
+- Quần đảo Virgin thuộc Hoa Kỳ
+- Uzbekistan
+- Vanuatu
+- Thành quốc Vatican
+- Venezuela
+- Việt Nam
+- Wallis và Futuna
+- Tây Sahara
+- Yemen
+- Zambia
+- Zimbabwe
+- Quần đảo Åland
 
-- 阿尔巴尼亚
-- 阿尔及利亚
-- 美属萨摩亚
-- 安道尔
-- 安哥拉
-- 安圭拉
-- 南极洲
-- 安提瓜和巴布达
-- 阿根廷
-- 亚美尼亚
-- 阿鲁巴
-- 澳大利亚
-- 奥地利
-- 阿塞拜疆
-- 巴哈马
-- 巴林
-- 孟加拉国
-- 巴巴多斯
-- 比利时
-- 伯利兹
-- 贝宁
-- 百慕大
-- 不丹
-- 玻利维亚
-- 波斯尼亚和黑塞哥维那
-- 博茨瓦纳
-- 巴西
-- 英属印度洋领地
-- 英属维尔京群岛
-- 文莱
-- 保加利亚
-- 布基纳法索
-- 布隆迪
-- 佛得角
-- 柬埔寨
-- 喀麦隆
-- 加拿大
-- 荷属加勒比地区
-- 开曼群岛
-- 中非共和国
-- 乍得
-- 智利
-- 圣诞岛
-- 科科斯（基林）群岛
-- 哥伦比亚
-- 科摩罗
-- 库克群岛
-- 哥斯达黎加
-- 科特迪瓦
-- 克罗地亚
-- 库拉索
-- 捷克共和国
-- 刚果民主共和国
-- 丹麦
-- 吉布提
-- 多米尼克
-- 多米尼加共和国
-- 厄瓜多尔
-- 埃及
-- 萨尔瓦多
-- 赤道几内亚
-- 厄立特里亚
-- 爱沙尼亚
-- 斯威士兰
-- 埃塞俄比亚
-- 福克兰群岛（马尔维纳斯群岛）
-- 法罗群岛
-- 斐济
-- 芬兰
-- 法国
-- 法属圭亚那
-- 加蓬
-- 冈比亚
-- 格鲁吉亚
-- 德国
-- 加纳
-- 直布罗陀
-- 希腊
-- 格陵兰
-- 格林纳达
-- 关岛
-- 危地马拉
-- 根西
-- 几内亚
-- 几内亚比绍
-- 圭亚那
-- 海地
-- 赫德岛和麦克唐纳群岛
-- 洪都拉斯
-- 匈牙利
-- 冰岛
-- 印度
-- 印度尼西亚
-- 伊拉克
-- 爱尔兰
-- 马恩岛
-- 以色列
-- 意大利
-- 牙买加
-- 日本
-- 泽西岛
-- 约旦
-- 哈萨克斯坦
-- 肯尼亚
-- 基里巴斯
-- 科索沃
-- 科威特
-- 吉尔吉斯斯坦
-- 老挝
-- 拉脱维亚
-- 黎巴嫩
-- 莱索托
-- 利比里亚
-- 利比亚
-- 列支敦士登
-- 立陶宛
-- 卢森堡
-- 马达加斯加
-- 马拉维
-- 马来西亚
-- 马尔代夫
-- 马里
-- 马耳他
-- 马绍尔群岛
-- 毛里塔尼亚
-- 毛里求斯
-- 墨西哥
-- 密克罗尼西亚
-- 摩尔多瓦
-- 摩纳哥
-- 蒙古
-- 黑山
-- 蒙特塞拉特
-- 摩洛哥
-- 莫桑比克
-- 纳米比亚
-- 瑙鲁
-- 尼泊尔
-- 荷兰
-- 新喀里多尼亚
-- 新西兰
-- 尼加拉瓜
-- 尼日尔
-- 尼日利亚
-- 纽埃
-- 诺福克岛
-- 北马其顿
-- 北马里亚纳群岛
-- 挪威
-- 阿曼
-- 巴基斯坦
-- 帕劳
-- 巴勒斯坦
-- 巴拿马
-- 巴布亚新几内亚
-- 巴拉圭
-- 秘鲁
-- 菲律宾
-- 皮特凯恩群岛
-- 波兰
-- 葡萄牙
-- 波多黎各
-- 卡塔尔
-- 塞浦路斯共和国
-- 刚果共和国
-- 罗马尼亚
-- 卢旺达
-- 留尼汪岛
-- 圣巴泰勒米岛
-- 圣赫勒拿岛、阿森松岛和特里斯坦-达库尼亚群岛
-- 圣基茨和尼维斯
-- 圣卢西亚
-- 圣皮埃尔和密克隆
-- 圣文森特和格林纳丁斯
-- 萨摩亚
-- 圣马力诺
-- 圣多美和普林西比
-- 沙特阿拉伯
-- 塞内加尔
-- 塞尔维亚
-- 塞舌尔
-- 塞拉利昂
-- 新加坡
-- 斯洛伐克
-- 斯洛文尼亚
-- 所罗门群岛
-- 索马里
-- 南非
-- 南乔治亚和南桑德威奇群岛
-- 韩国
-- 南苏丹
-- 西班牙
-- 斯里兰卡
-- 苏丹
-- 苏里南
-- 瑞典
-- 瑞士
-- 台湾
-- 塔吉克斯坦
-- 坦桑尼亚
-- 泰国
-- 东帝汶
-- 多哥
-- 托克劳
-- 汤加
-- 特立尼达和多巴哥
-- 突尼斯
-- 土库曼斯坦
-- 特克斯和凯科斯群岛
-- 图瓦卢
-- 土耳其
-- 乌干达
-- 乌克兰
-- 阿拉伯联合酋长国
-- 英国
-- 美国
-- 美属外岛
-- 乌拉圭
-- 美属维尔京群岛
-- 乌兹别克斯坦
-- 瓦努阿图
-- 梵蒂冈
-- 委内瑞拉
-- 越南
-- 瓦利斯和福图纳
-- 西撒哈拉
-- 也门
-- 赞比亚
-- 津巴布韦
-- 奥兰群岛
+Gửi ý kiến phản hồi
 
-发送反馈
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Cập nhật lần gần đây nhất: 2026-04-29 UTC.
 
-最后更新时间 (UTC)：2026-04-29。
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-需要向我们提供更多信息？
-
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-04-29 UTC."],[],[]]

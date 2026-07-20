@@ -1,90 +1,117 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=es-419
-fetched_at: 2026-07-06T05:18:17.965282+00:00
-title: "Implementaci\u00f3n desde Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=vi
+fetched_at: 2026-07-20T04:37:30.205304+00:00
+title: "Tri\u1ec3n khai t\u1eeb Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-# Implementación desde Google AI Studio
+# Triển khai từ Google AI Studio
 
-Google AI Studio te permite implementar tus aplicaciones de full stack directamente desde el modo de compilación. Esto proporciona una ruta rápida desde el prototipo hasta un entorno de producción administrado y escalable.
+Google AI Studio cho phép bạn triển khai các ứng dụng full-stack ngay trong Chế độ tạo. Nhờ đó, bạn có thể nhanh chóng chuyển từ nguyên mẫu sang môi trường sản xuất có thể mở rộng và được quản lý.
 
-## Opciones de implementación
+## Các lựa chọn triển khai
 
-Para implementar tu aplicación desde el modo de compilación de AI Studio, los requisitos dependen del nivel que uses:
+Để triển khai ứng dụng trong Chế độ tạo của AI Studio, các yêu cầu sẽ phụ thuộc vào gói bạn sử dụng:
 
-- [**Nivel Starter de Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=es-419):
-  Te permite publicar hasta 2 aplicaciones de full stack sin configurar un
-  proyecto de Google Cloud ni una cuenta de facturación.
-- **Implementación estándar**: Requiere un proyecto de Google Cloud vinculado a tu
-  cuenta de AI Studio y la facturación habilitada en ese proyecto.
+- [**Gói Starter của Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=vi):
+  Cho phép bạn xuất bản tối đa 2 ứng dụng full-stack mà không cần thiết lập
+  dự án Google Cloud hoặc tài khoản thanh toán.
+- **Triển khai tiêu chuẩn**: Yêu cầu một dự án Google Cloud được liên kết với tài khoản
+  AI Studio của bạn và tính năng thanh toán được bật trên dự án đó.
 
-## Acerca del nivel Starter
+## Giới thiệu về Gói Starter
 
-El nivel Starter de Google Cloud proporciona una ruta optimizada para implementar aplicaciones en Google Cloud directamente desde Google AI Studio sin configurar un entorno completo de Google Cloud ni una cuenta de facturación.
+Gói Starter của Google Cloud cung cấp một quy trình hợp lý để triển khai ứng dụng lên Google Cloud ngay trong Google AI Studio mà không cần thiết lập môi trường Google Cloud đầy đủ hoặc tài khoản thanh toán.
 
-Cada implementación de Google AI Studio crea un servicio correspondiente en Cloud Run. Para los servicios implementados en Google AI Studio con el nivel Starter, se aplican las siguientes limitaciones:
+Mỗi lượt triển khai trong Google AI Studio sẽ tạo một dịch vụ tương ứng trong Cloud Run. Đối với các dịch vụ được triển khai trong Google AI Studio bằng Gói Starter, các giới hạn sau đây sẽ áp dụng:
 
-- Puedes implementar hasta dos servicios.
-- Tus servicios se implementan en una
-  [sola región de Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=es-419).
+- Bạn có thể triển khai tối đa hai dịch vụ.
+- Các dịch vụ của bạn được triển khai trong một
+  [khu vực Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=vi).
 
-## Pasos de implementación del nivel Starter
+## Các bước triển khai Gói Starter
 
-Después de diseñar tu app en el modo de compilación, impleméntala con el nivel Starter:
+Sau khi thiết kế ứng dụng ở Chế độ tạo, hãy triển khai ứng dụng đó bằng Gói Starter:
 
-1. Haz clic en el botón **Publicar** en la esquina superior derecha.
-2. Haz clic en **Comenzar**.
-3. Haz clic en **Publicar app**.
+1. Nhấp vào nút **Xuất bản** ở góc trên cùng bên phải.
+2. Hãy nhấp vào **Bắt đầu**.
+3. Nhấp vào **Xuất bản ứng dụng**.
 
-Una vez que se complete la implementación, AI Studio proporcionará una URL de Cloud Run en la que podrás acceder a tu aplicación en vivo.
+Sau khi quá trình triển khai hoàn tất, AI Studio sẽ cung cấp một URL Cloud Run để bạn có thể truy cập vào ứng dụng đang hoạt động của mình.
 
-## Implementación estándar
+## URL tuỳ chỉnh cho AI Studio
 
-A medida que evolucionan tus aplicaciones, es posible que necesites capacidades más allá del nivel Starter, como cuotas más altas o mayores recursos de procesamiento, o bien otros productos de Google Cloud que no estén disponibles en el nivel Starter. Para desbloquear estas capacidades, puedes convertir tu proyecto completamente administrado del nivel Starter en un proyecto estándar de Google Cloud.
+Khi xuất bản ứng dụng trong Google AI Studio, bạn có thể đặt một miền phụ tuỳ chỉnh,
+dễ nhớ trong `ai.studio` (ví dụ:
+`https://your-app-name.ai.studio`).
 
-Esto garantiza que puedas escalar sin problemas sin perder tu progreso. Sigue los pasos para
-[crear una cuenta de Facturación de Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=es-419#create-new-billing-account),
-aceptar formalmente las Condiciones del Servicio estándar de Google Cloud y
-[actualizar a un proyecto estándar de Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=es-419#upgradee).
-Para obtener más información, consulta
-[Configuración de cuentas pagas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419#paid-setup).
+Google AI Studio yêu cầu các miền phụ phải là duy nhất trên toàn cầu trong tất cả các dự án và chỉ định các miền phụ đó theo nguyên tắc ai đến trước được phục vụ trước. Nếu một dự án khác đã sử dụng tên, AI Studio sẽ nhắc bạn chọn một tên khác. Nếu bạn huỷ xuất bản hoặc xoá một ứng dụng, URL tuỳ chỉnh của ứng dụng đó sẽ được phát hành và người dùng khác có thể nhận URL đó.
 
-Para obtener más información sobre los niveles de facturación, consulta [Facturación](https://ai.google.dev/gemini-api/docs/billing?hl=es-419).
+### Đặt URL tuỳ chỉnh
 
-## Borra tu aplicación
+Cách đặt hoặc cập nhật URL tuỳ chỉnh cho ứng dụng:
 
-Si ya no necesitas tu app, puedes borrarla en Google AI Studio siguiendo estas instrucciones:
+1. Mở ứng dụng trong Google AI Studio ở chế độ **Tạo**.
+2. Nhấp vào **Xuất bản** ở góc trên cùng bên phải.
+3. Trong cấu hình triển khai, hãy nhập miền phụ bạn muốn vào trường **URL tuỳ chỉnh** hoặc chấp nhận URL được đề xuất.
+4. Nhấp vào **Xuất bản ứng dụng**.
 
-1. En Google AI Studio, ve a la página
-   [Apps](https://aistudio.google.com/app/apps?hl=es-419).
-2. En el menú de la izquierda, selecciona **Apps**.
-3. Mantén el puntero sobre la app que deseas borrar.
-4. Haz clic en el ícono de la papelera en el lado derecho de la fila para borrar la app.
+Để chuyển một URL tuỳ chỉnh hiện có sang một ứng dụng khác, trước tiên, bạn phải huỷ xuất bản hoặc xoá ứng dụng được chỉ định URL tuỳ chỉnh đó, sau đó xuất bản ứng dụng mới bằng miền phụ đã chọn.
 
-## ¿Qué sigue?
+### Báo cáo vấn đề về nhãn hiệu hoặc bản quyền
 
-- Obtén más información sobre el
-  [nivel Inicial de Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=es-419).
-- Lee sobre [la facturación](https://ai.google.dev/gemini-api/docs/billing?hl=es-419) en la API de Gemini.
+Các miền phụ tuỳ chỉnh phải tuân thủ
+[Điều khoản dịch vụ của Google](https://policies.google.com/terms?hl=vi). Nếu nhận thấy một
+URL tuỳ chỉnh vi phạm nhãn hiệu hoặc sử dụng tên có bản quyền mà không được
+phép, bạn có thể báo cáo URL đó bằng
+[Trình khắc phục sự cố pháp lý của Google](https://support.google.com/legal/troubleshooter/1114905?hl=vi).
 
-Enviar comentarios
+## Triển khai tiêu chuẩn
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Khi các ứng dụng của bạn phát triển, bạn có thể cần các tính năng ngoài Gói Starter, chẳng hạn như hạn mức cao hơn hoặc tăng tài nguyên tính toán hoặc các sản phẩm khác của Google Cloud không có trong Gói Starter. Để khai thác các tính năng này, bạn có thể chuyển đổi dự án Gói Starter được quản lý hoàn toàn thành dự án Google Cloud tiêu chuẩn.
 
-Última actualización: 2026-06-16 (UTC)
+Điều này đảm bảo rằng bạn có thể mở rộng quy mô một cách liền mạch mà không làm mất tiến trình. Hãy làm theo các bước để
+[tạo tài khoản Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=vi#create-new-billing-account),
+chính thức chấp nhận Điều khoản dịch vụ tiêu chuẩn của Google Cloud và
+[nâng cấp lên dự án Google Cloud tiêu chuẩn](https://docs.cloud.google.com/docs/starter-tier?hl=vi#upgradee).
+Để biết thêm thông tin, hãy xem bài viết
+[Thiết lập tài khoản trả phí](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=vi#paid-setup).
 
-¿Quieres brindar más información?
+Để tìm hiểu thêm về các gói thanh toán, hãy xem bài viết [Thanh toán](https://ai.google.dev/gemini-api/docs/billing?hl=vi).
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-06-16 (UTC)"],[],[]]
+## Xoá ứng dụng
+
+Nếu không còn cần ứng dụng nữa, bạn có thể xoá ứng dụng đó trong Google AI Studio bằng cách làm theo các hướng dẫn sau:
+
+1. Trong Google AI Studio, hãy chuyển đến trang
+   [Ứng dụng](https://aistudio.google.com/app/apps?hl=vi).
+2. Ở trình đơn bên trái, hãy chọn **Ứng dụng**.
+3. Di chuyển con trỏ qua ứng dụng bạn muốn xoá.
+4. Nhấp vào biểu tượng thùng rác ở bên phải của hàng để xoá ứng dụng.
+
+## Bước tiếp theo
+
+- Tìm hiểu thêm về
+  [Gói Starter của Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=vi).
+- Đọc bài viết về [Thanh toán](https://ai.google.dev/gemini-api/docs/billing?hl=vi) trong Gemini API.
+
+Gửi ý kiến phản hồi
+
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+
+Cập nhật lần gần đây nhất: 2026-07-10 UTC.
+
+Bạn muốn chia sẻ thêm với chúng tôi?
+
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-10 UTC."],[],[]]

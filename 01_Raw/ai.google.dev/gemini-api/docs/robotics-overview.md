@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ko
-fetched_at: 2026-07-06T05:16:08.225517+00:00
-title: "Gemini Robotics-ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=de
+fetched_at: 2026-07-20T04:36:21.102942+00:00
+title: "Gemini Robotics-ER\u00a01.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-의견 보내기
+Feedback geben
 
-# Gemini Robotics-ER 1.6
+# Gemini Robotics-ER 1.6
 
-Gemini Robotics-ER 1.6은 Gemini의 에이전트 기능을 로봇공학에 도입하는 비전 언어 모델 (VLM)입니다. 물리적 세계에서 고급 추론을 할 수 있도록 설계되어 로봇이 복잡한 시각적 데이터를 해석하고, 공간 추론을 실행하고, 자연어 명령에서 작업을 계획할 수 있습니다.
+Gemini Robotics-ER 1.6 ist ein Vision-Language-Modell (VLM), das die Agent-Funktionen von Gemini für die Robotik nutzt. Es wurde für fortschrittliches logisches Denken in der physischen Welt entwickelt und ermöglicht es Robotern, komplexe visuelle Daten zu interpretieren, räumliche Schlussfolgerungen zu ziehen und Aktionen aus Befehlen in natürlicher Sprache zu planen.
 
-Gemini Robotics-ER 1.5를 사용한 경우 API 호출에서 모델 이름을 `model="gemini-robotics-er-1.5-preview"`에서 `model="gemini-robotics-er-1.6-preview"`로 바꿔 1.6 모델을 사용할 수 있습니다.
+Wenn Sie Gemini Robotics-ER 1.5 verwendet haben, können Sie das Modell 1.6 verwenden, indem Sie im API-Aufruf den Modellnamen von `model="gemini-robotics-er-1.5-preview"` in `model="gemini-robotics-er-1.6-preview"` ändern.
 
-주요 기능 및 혜택:
+Wichtige Funktionen und Vorteile:
 
-- **자율성 향상:** 로봇이 개방형 환경의 변화에 추론하고 적응하며 대응할 수 있습니다.
-- **자연어 상호작용:** 자연어를 사용하여 복잡한 작업 할당을 지원하여 로봇을 더 쉽게 사용할 수 있습니다.
-- **작업 오케스트레이션:** 자연어 명령을 하위 작업으로 분해하고 기존 로봇 컨트롤러 및 동작과 통합하여 장기적인 작업을 완료합니다.
-- **다재다능한 기능:** 객체를 찾아 식별하고, 객체 관계를 이해하고, 잡기 및 궤적을 계획하고, 동적 장면을 해석합니다.
+- **Erweiterte Autonomie**:Roboter können in offenen Umgebungen Schlussfolgerungen ziehen, sich anpassen und auf Veränderungen reagieren.
+- **Interaktion in natürlicher Sprache**:Roboter sind einfacher zu bedienen, da komplexe Aufgaben in natürlicher Sprache zugewiesen werden können.
+- **Aufgabenorchestrierung**:Zerlegt Befehle in natürlicher Sprache in untergeordnete Aufgaben und lässt sich in vorhandene Robotersteuerungen und Verhaltensweisen integrieren, um Aufgaben mit langer Zeitspanne zu erledigen.
+- **Vielseitige Funktionen**:Objekte lokalisieren und identifizieren, Beziehungen zwischen Objekten verstehen, Greifvorgänge und Trajektorien planen und dynamische Szenen interpretieren.
 
-이 문서에서는 [모델이 하는 일](#how-it-works)을 설명하고 모델의 에이전트 기능을 강조하는 여러 [예](#standard-spatial-reasoning)를 살펴봅니다.
+In diesem Dokument wird [die Funktionsweise des Modells](#how-it-works) beschrieben und es werden mehrere [Beispiele](#standard-spatial-reasoning) vorgestellt, die die agentenähnlichen Funktionen des Modells verdeutlichen.
 
-바로 시작하려면 Google AI Studio에서 모델을 사용해 보세요.
+Wenn Sie gleich loslegen möchten, können Sie das Modell in Google AI Studio ausprobieren.
 
-[Google AI Studio에서 사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=ko)
+[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=de)
 
-## 안전
+## Sicherheit
 
-Gemini Robotics-ER 1.6은 안전을 고려하여 제작되었지만 로봇 주변의 안전한 환경을 유지하는 것은 사용자의 책임입니다. 생성형 AI 모델은 실수를 할 수 있으며, 물리적 로봇은 손상을 일으킬 수 있습니다. 안전은 최우선 과제이며, 실제 로봇 공학에서 사용할 때 생성형 AI 모델을 안전하게 만드는 것은 Google 연구의 활발하고 중요한 분야입니다. 자세한 내용은 [Google DeepMind 로봇 공학 안전 페이지](https://deepmind.google/models/gemini-robotics/safety?hl=ko)를 참고하세요.
+Gemini Robotics-ER 1.6 wurde mit Blick auf die Sicherheit entwickelt. Es liegt jedoch in Ihrer Verantwortung, für eine sichere Umgebung rund um den Roboter zu sorgen. Modelle für generative KI können Fehler machen und physische Roboter können Schäden verursachen. Sicherheit hat für uns Priorität. Deshalb ist es ein aktiver und wichtiger Bereich unserer Forschung, generative KI-Modelle sicher zu machen, wenn sie mit realen Robotern verwendet werden. Weitere Informationen finden Sie auf der [Google DeepMind-Seite zur Robotersicherheit](https://deepmind.google/models/gemini-robotics/safety?hl=de).
 
-## 시작하기: 장면에서 객체 찾기
+## Erste Schritte: Objekte in einer Szene finden
 
-다음 예에서는 일반적인 로봇 공학 사용 사례를 보여줍니다. [`generateContent`](https://ai.google.dev/api/generate-content?hl=ko#method:-models.generatecontent) 메서드를 사용하여 이미지와 텍스트 프롬프트를 모델에 전달하여 식별된 객체와 해당 2D 포인트 목록을 가져오는 방법을 보여줍니다.
-모델은 이미지에서 식별된 항목의 포인트를 반환하여 정규화된 2D 좌표와 라벨을 반환합니다.
+Das folgende Beispiel veranschaulicht einen häufigen Anwendungsfall in der Robotik. Darin wird gezeigt, wie Sie mit der Methode [`generateContent`](https://ai.google.dev/api/generate-content?hl=de#method:-models.generatecontent) ein Bild und einen Text-Prompt an das Modell übergeben, um eine Liste der erkannten Objekte mit den entsprechenden 2D-Punkten zu erhalten.
+Das Modell gibt Punkte für Elemente zurück, die es in einem Bild erkannt hat, sowie deren normalisierte 2D-Koordinaten und Labels.
 
-이 출력을 로봇공학 API와 함께 사용하거나 시각-언어-행동(VLA) 모델 또는 기타 서드 파티 사용자 정의 함수를 호출하여 로봇이 실행할 작업을 생성할 수 있습니다.
+Sie können diese Ausgabe mit einer Robotics API verwenden oder ein VLA-Modell (Vision-Language-Action) oder andere benutzerdefinierte Drittanbieterfunktionen aufrufen, um Aktionen für einen Roboter zu generieren.
 
 ### Python
 
@@ -119,7 +119,7 @@ curl -X POST \
   }'
 ```
 
-출력은 객체를 포함하는 JSON 배열이며, 각 객체에는 `point`(정규화된 `[y, x]` 좌표)와 객체를 식별하는 `label`가 있습니다.
+Die Ausgabe ist ein JSON-Array mit Objekten, die jeweils ein `point` (normalisierte `[y, x]`-Koordinaten) und ein `label` zur Identifizierung des Objekts enthalten.
 
 ### JSON
 
@@ -138,43 +138,43 @@ curl -X POST \
 ]
 ```
 
-다음 이미지는 이러한 포인트를 표시하는 방법을 보여주는 예입니다.
+Das folgende Bild zeigt ein Beispiel dafür, wie diese Punkte dargestellt werden können:
 
-![이미지에서 객체의 점을 표시하는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ko)
+![Beispiel für die Darstellung der Punkte von Objekten in einem Bild](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=de)
 
-## 작동 방식
+## Funktionsweise
 
-Gemini Robotics-ER 1.6을 사용하면 로봇이 공간 이해를 통해 실제 환경에서 맥락을 파악하고 작업할 수 있습니다. 이미지/동영상/오디오 입력과 자연어 프롬프트를 사용하여 다음 작업을 실행합니다.
+Mit Gemini Robotics-ER 1.6 können Ihre Roboter die physische Welt mithilfe von räumlichem Verständnis in den Kontext setzen und darin arbeiten. Es verwendet Bild-, Video- und Audioeingaben sowie Prompts in natürlicher Sprache, um:
 
-- **객체 및 장면 컨텍스트 이해**: 객체를 식별하고 어포던스를 비롯한 장면과의 관계를 추론합니다.
-- **작업 요청 사항 이해**: '바나나 찾아줘'와 같은 자연어로 제공된 작업을 해석합니다.
-- **공간적, 시간적 추론**: 일련의 작업과 시간이 지남에 따라 객체가 장면과 상호작용하는 방식을 이해합니다.
-- **구조화된 출력 제공**: 객체 위치를 나타내는 좌표 (점 또는 경계 상자)를 반환합니다.
+- **Objekte und Szenenkontext verstehen**: Erkennt Objekte und analysiert ihre Beziehung zur Szene, einschließlich ihrer Affordanzen.
+- **Aufgabenanweisungen verstehen**: Interpretiert Aufgaben, die in natürlicher Sprache formuliert sind, z. B. „Finde die Banane“.
+- **Räumlich und zeitlich denken**: Abläufe von Aktionen und die Interaktion von Objekten mit einer Szene im Zeitverlauf verstehen.
+- **Strukturierte Ausgabe bereitstellen**: Gibt Koordinaten (Punkte oder Begrenzungsrahmen) zurück, die Objektpositionen darstellen.
 
-이를 통해 로봇은 프로그래매틱 방식으로 환경을 '보고' '이해'할 수 있습니다.
+So können Roboter ihre Umgebung programmatisch „sehen“ und „verstehen“.
 
-Gemini Robotics-ER 1.6은 에이전트형이기도 합니다. 즉, '사과를 그릇에 넣어'와 같은 복잡한 작업을 하위 작업으로 분류하여 장기 작업을 조정할 수 있습니다.
+Gemini Robotics-ER 1.6 ist auch agentisch. Das bedeutet, dass es komplexe Aufgaben (z. B. „Lege den Apfel in die Schüssel“) in Unteraufgaben aufteilen kann, um langfristige Aufgaben zu koordinieren:
 
-- **하위 작업 순서 지정**: 명령어를 논리적 단계 시퀀스로 분해합니다.
-- **함수 호출/코드 실행**: 기존 로봇 함수/도구를 호출하거나 생성된 코드를 실행하여 단계를 실행합니다.
+- **Unteraufgaben sequenzieren**: Befehle werden in eine logische Abfolge von Schritten zerlegt.
+- **Funktionsaufrufe/Codeausführung**: Führt Schritte aus, indem vorhandene Roboterfunktionen/-tools aufgerufen oder generierter Code ausgeführt wird.
 
-Gemini의 함수 호출 작동 방식에 대한 자세한 내용은 [함수 호출 페이지](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ko#how-it-works)를 참고하세요.
+[Weitere Informationen zu Funktionsaufrufen mit Gemini](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=de#how-it-works)
 
-### Gemini Robotics-ER 1.6으로 사고 예산 사용
+### Thinking Budget mit Gemini Robotics-ER 1.6 verwenden
 
-Gemini Robotics-ER 1.6에는 지연 시간과 정확도 간의 균형을 제어할 수 있는 유연한 사고 예산이 있습니다. 객체 감지와 같은 공간 이해 작업의 경우 모델은 작은 사고 예산으로 높은 성능을 달성할 수 있습니다. 더 큰 사고 예산은 개수 세기, 무게 추정과 같은 더 복잡한 추론 작업에 도움이 됩니다. 이를 통해 더 어려운 작업에 대해 지연 시간이 짧은 응답과 정확도가 높은 결과를 균형 있게 제공할 수 있습니다.
+Gemini Robotics-ER 1.6 verfügt über ein flexibles Denkbudget, mit dem Sie die Kompromisse zwischen Latenz und Genauigkeit steuern können. Bei Aufgaben zum räumlichen Verständnis wie der Objekterkennung kann das Modell mit einem kleinen Denkbudget eine hohe Leistung erzielen. Komplexere Aufgaben wie das Zählen und die Gewichtsschätzung profitieren von einem größeren Denkbudget. So können Sie den Bedarf an Antworten mit geringer Latenz mit Ergebnissen mit hoher Genauigkeit für anspruchsvollere Aufgaben in Einklang bringen.
 
-생각 예산에 대해 자세히 알아보려면 [생각하기](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) 핵심 기능 페이지를 참고하세요.
+Weitere Informationen zu Denkbudgets finden Sie auf der Seite mit den [wichtigsten Funktionen](https://ai.google.dev/gemini-api/docs/thinking?hl=de) für die Denkphase.
 
-## 표준 공간 추론
+## Standardmäßiges räumliches Denken
 
-다음 예에서는 이미지에서 객체를 가리키고 찾는 것부터 궤적을 계획하는 것까지 자연어 프롬프트를 사용한 **로봇 인식** 및 공간 추론 작업을 보여줍니다. 간단하게 하기 위해 이 예의 코드 스니펫은 프롬프트와 `generate_content` API 호출만 표시하도록 축소되었습니다.
+Die folgenden Beispiele veranschaulichen Aufgaben für **robotic perception** und räumliches Denken mit Prompts in natürlicher Sprache, die von der Identifizierung und Suche von Objekten in einem Bild bis hin zur Planung von Trajektorien reichen. Der Einfachheit halber wurden die Code-Snippets in diesen Beispielen so gekürzt, dass nur der Prompt und der Aufruf der `generate_content` API zu sehen sind.
 
-실행 가능한 전체 코드와 추가 예는 [로보틱스 쿡북](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)에서 확인할 수 있습니다.
+Den vollständigen ausführbaren Code sowie zusätzliche Beispiele finden Sie im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-### 객체 가리키기
+### Auf Objekte zeigen
 
-이미지 또는 동영상 프레임에서 객체를 가리키고 찾는 것은 로봇 공학에서 비전-언어 모델 (VLM)의 일반적인 사용 사례입니다. 다음 예에서는 모델에 이미지 내의 특정 객체를 찾아 좌표를 반환하도록 요청합니다.
+Das Zeigen auf und Suchen von Objekten in Bildern oder Videoframes ist ein häufiger Anwendungsfall für Vision-and-Language-Modelle (VLMs) in der Robotik. Im folgenden Beispiel wird das Modell aufgefordert, bestimmte Objekte in einem Bild zu finden und ihre Koordinaten zurückzugeben.
 
 ### Python
 
@@ -222,7 +222,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-출력은 시작하기 예와 유사하며, 발견된 객체의 좌표와 라벨이 포함된 JSON입니다.
+Die Ausgabe wäre ähnlich wie im Beispiel für den Einstieg ein JSON-Objekt mit den Koordinaten der gefundenen Objekte und ihren Labels.
 
 ```
 [
@@ -236,9 +236,9 @@ print(image_response.text)
 ]
 ```
 
-![이미지에서 식별된 객체의 점을 표시하는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=ko)
+![Ein Beispiel, in dem die Punkte von Objekten angezeigt werden, die in einem Bild erkannt wurden](https://ai.google.dev/static/gemini-api/docs/images/robotics/pointing-objects.png?hl=de)
 
-다음 프롬프트를 사용하여 모델이 구체적인 객체 대신 '과일'과 같은 추상적인 카테고리를 해석하고 이미지의 모든 인스턴스를 찾도록 요청합니다.
+Verwenden Sie den folgenden Prompt, um das Modell aufzufordern, abstrakte Kategorien wie „Obst“ anstelle bestimmter Objekte zu interpretieren und alle Instanzen im Bild zu finden.
 
 ### Python
 
@@ -251,13 +251,13 @@ prompt = f"""
         [y, x] format normalized to 0-1000."""
 ```
 
-다른 이미지 처리 기법은 [이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko) 페이지를 참고하세요.
+[Weitere Bildverarbeitungstechniken](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de)
 
-### 동영상에서 객체 추적
+### Objekte in einem Video verfolgen
 
-Gemini Robotics-ER 1.6은 동영상 프레임을 분석하여 시간 경과에 따른 객체를 추적할 수도 있습니다. 지원되는 동영상 형식 목록은 [동영상 입력](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko#supported-formats)을 참고하세요.
+Gemini Robotics-ER 1.6 kann auch Videoframes analysieren, um Objekte im Zeitverlauf zu verfolgen. Eine Liste der unterstützten Videoformate finden Sie unter [Videoeingaben](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#supported-formats).
 
-다음은 모델이 분석하는 각 프레임에서 특정 객체를 찾는 데 사용되는 기본 프롬프트입니다.
+Das ist der Basis-Prompt, mit dem bestimmte Objekte in jedem Frame gefunden werden, den das Modell analysiert:
 
 ### Python
 
@@ -281,17 +281,17 @@ base_prompt = f"""
   """
 ```
 
-출력에는 동영상 프레임에서 추적되는 펜과 노트북이 표시됩니다.
+Die Ausgabe zeigt, wie ein Stift und ein Laptop in den Videoframes verfolgt werden.
 
-![GIF의 프레임을 통해 추적되는 객체를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=ko)
+![Ein Beispiel, in dem Objekte in einem GIF durch Frames verfolgt werden](https://ai.google.dev/static/gemini-api/docs/images/robotics/object-tracking.gif?hl=de)
 
-실행 가능한 전체 코드는 [로보틱스 쿡북](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)을 참고하세요.
+Den vollständigen ausführbaren Code finden Sie im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-### 객체 감지 및 경계 상자
+### Objekterkennung und Begrenzungsrahmen
 
-단일 지점 외에도 모델은 객체를 둘러싸는 직사각형 영역을 제공하는 2D 경계 상자를 반환할 수 있습니다.
+Das Modell kann nicht nur einzelne Punkte, sondern auch 2D-Markierungsrahmen zurückgeben, die einen rechteckigen Bereich um ein Objekt darstellen.
 
-이 예에서는 테이블에서 식별 가능한 객체의 2D 경계 상자를 요청합니다. 모델은 출력을 25개 객체로 제한하고 여러 인스턴스의 이름을 고유하게 지정하도록 지시받습니다.
+In diesem Beispiel werden 2D-Begrenzungsrahmen für identifizierbare Objekte auf einem Tisch angefordert. Das Modell wird angewiesen, die Ausgabe auf 25 Objekte zu beschränken und mehrere Instanzen eindeutig zu benennen.
 
 ### Python
 
@@ -334,18 +334,18 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-다음은 모델에서 반환된 상자를 보여줍니다.
+Im Folgenden sehen Sie die vom Modell zurückgegebenen Begrenzungsrahmen.
 
-![발견된 객체의 경계 상자를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=ko)
+![Beispiel für Begrenzungsrahmen für gefundene Objekte](https://ai.google.dev/static/gemini-api/docs/images/robotics/bounding-boxes.png?hl=de)
 
-실행 가능한 전체 코드는 [로보틱스 쿡북](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)을 참고하세요.
-[이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko) 페이지에는 객체 감지, 경계 상자 예시와 같은 시각적 작업의 추가 예도 있습니다.
+Den vollständigen ausführbaren Code finden Sie im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Auf der Seite [Bildanalyse](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de) finden Sie weitere Beispiele für visuelle Aufgaben wie Objekterkennung und Begrenzungsrahmen.
 
-### 궤적
+### Trajektorien
 
-Gemini Robotics-ER 1.6은 로봇 움직임을 안내하는 데 유용한 궤적을 정의하는 점의 시퀀스를 생성할 수 있습니다.
+Gemini Robotics-ER 1.6 kann Folgen von Punkten generieren, die eine Trajektorie definieren. Das ist nützlich, um Roboterbewegungen zu steuern.
 
-이 예시에서는 시작점과 일련의 중간 지점을 포함하여 빨간색 펜을 정리함으로 이동하는 궤적을 요청합니다.
+In diesem Beispiel wird eine Trajektorie angefordert, um einen roten Stift zu einem Organizer zu bewegen. Dazu werden der Startpunkt und eine Reihe von Zwischenpunkten angegeben.
 
 ### Python
 
@@ -387,7 +387,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-대답은 빨간색 펜이 주최자 위로 이동하는 작업을 완료하기 위해 따라야 하는 경로의 궤적을 설명하는 좌표 집합입니다.
+Die Antwort ist eine Reihe von Koordinaten, die die Flugbahn des roten Stifts beschreiben, die er zurücklegen muss, um die Aufgabe zu erfüllen, ihn auf den Organizer zu bewegen:
 
 ```
 [
@@ -410,15 +410,15 @@ print(image_response.text)
 ]
 ```
 
-![계획된 궤적을 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=ko)
+![Beispiel für die geplante Flugbahn](https://ai.google.dev/static/gemini-api/docs/images/robotics/trajectories.png?hl=de)
 
-## 에이전트 기능
+## Agentische Funktionen
 
-다음 예에서는 모델의 에이전트 기능, 특히 **코드 실행**을 사용하여 고급 **로봇 추론**을 보여줍니다. 이러한 시나리오에서 모델은 대답하기 전에 모호성을 해결하거나 정확도를 높이기 위해 이미지를 조작 (예: 확대, 자르기, 회전)하는 Python 코드를 작성하고 실행할 수 있습니다.
+Die folgenden Beispiele veranschaulichen das erweiterte **Robotic Reasoning** mit den Agent-Funktionen des Modells, insbesondere die **Codeausführung**. In diesen Szenarien kann das Modell entscheiden, Python-Code zu schreiben und auszuführen, um Bilder zu bearbeiten (z. B. durch Zoomen, Zuschneiden oder Drehen), um Unklarheiten zu beseitigen oder die Genauigkeit zu verbessern, bevor es antwortet.
 
-### 객체 감지 (확대/축소 및 자르기)
+### Objekterkennung (Zoomen und Zuschneiden)
 
-다음 예에서는 객체를 감지하고 경계 상자를 반환할 때 코드 실행을 사용하여 이미지를 확대/축소하고 자르는 방법을 보여줍니다.
+Das folgende Beispiel zeigt, wie Sie die Codeausführung verwenden, um ein Bild zu zoomen und zuzuschneiden, damit Objekte besser erkannt und Begrenzungsrahmen zurückgegeben werden können.
 
 ### Python
 
@@ -457,7 +457,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-모델 출력은 다음과 비슷합니다.
+Die Modellausgabe würde in etwa so aussehen:
 
 ```
 [
@@ -469,13 +469,13 @@ print(response.text)
 ]
 ```
 
-다음은 모델에서 반환된 상자를 보여줍니다.
+Im Folgenden sehen Sie die vom Modell zurückgegebenen Begrenzungsrahmen.
 
-![발견된 객체의 경계 상자를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ko)
+![Beispiel für Begrenzungsrahmen für gefundene Objekte](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=de)
 
-### 아날로그 게이지를 읽고 로직 적용
+### Analoge Messgeräte ablesen und Logik anwenden
 
-다음 예에서는 모델을 사용하여 아날로그 게이지를 읽고 시간 계산을 실행하는 방법을 보여줍니다. 시스템 명령어를 사용하여 JSON 출력을 강제 적용합니다.
+Das folgende Beispiel zeigt, wie Sie das Modell verwenden, um ein analoges Messgerät zu lesen und Zeitberechnungen durchzuführen. Dabei wird eine Systemanweisung verwendet, um eine JSON-Ausgabe zu erzwingen.
 
 ### Python
 
@@ -512,11 +512,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-다음은 이미지 입력의 예입니다.
+Im Folgenden finden Sie ein Beispiel für eine Bildeingabe.
 
-![읽을 시계를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=ko)
+![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-clock-reading.png?hl=de)
 
-모델 출력은 다음과 비슷합니다.
+Die Modellausgabe würde in etwa so aussehen:
 
 ```
 Time Response:  {
@@ -525,9 +525,9 @@ Time Response:  {
  }
 ```
 
-### 컨테이너의 유체 측정
+### Flüssigkeit in einem Behälter messen
 
-다음 예에서는 코드 실행을 사용하여 미터를 읽고 액체 수준을 백분율로 계산하는 방법을 보여줍니다.
+Das folgende Beispiel zeigt, wie Sie die Codeausführung verwenden, um einen Zähler auszulesen und den Flüssigkeitsstand in Prozent zu berechnen.
 
 ### Python
 
@@ -567,13 +567,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-다음은 입력의 확대 이미지입니다.
+Unten sehen Sie eine vergrößerte Version des Eingabebilds.
 
-![읽을 시계를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=ko)
+![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-fluid-container.png?hl=de)
 
-### 회로판의 표시 읽기
+### Markierungen auf einer Leiterplatte lesen
 
-다음 예에서는 코드 실행을 사용하여 회로판 칩의 텍스트를 읽는 방법을 보여줍니다. 이렇게 하면 모델이 필요에 따라 이미지를 확대/축소하고 자르고 회전할 수 있습니다.
+Im folgenden Beispiel wird gezeigt, wie Sie die Codeausführung verwenden, um Text auf einem Chip auf einer Leiterplatte zu lesen. Das Modell kann das Bild nach Bedarf zoomen, zuschneiden und drehen.
 
 ### Python
 
@@ -607,13 +607,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-다음은 입력의 확대 이미지입니다.
+Unten sehen Sie eine vergrößerte Version des Eingabebilds.
 
-![읽을 시계를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ko)
+![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=de)
 
-### 이미지 주석
+### Bildannotation
 
-다음 예에서는 코드 실행을 사용하여 이미지에 주석을 달고 (예: 폐기 안내 화살표 그리기) 수정된 이미지를 반환하는 방법을 보여줍니다.
+Das folgende Beispiel zeigt, wie Sie die Codeausführung verwenden, um ein Bild mit Anmerkungen zu versehen (z.B. durch Zeichnen von Pfeilen für Entsorgungsanweisungen) und das geänderte Bild zurückzugeben.
 
 ### Python
 
@@ -651,11 +651,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-다음은 이미지 입력의 예입니다.
+Im Folgenden finden Sie ein Beispiel für eine Bildeingabe.
 
-![읽을 시계를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ko)
+![Beispiel für eine Uhr](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=de)
 
-모델 출력은 다음과 비슷합니다.
+Die Modellausgabe würde in etwa so aussehen:
 
 ```
 The annotated image shows the suggested disposal locations for the items on the table:
@@ -664,13 +664,13 @@ The annotated image shows the suggested disposal locations for the items on the 
 - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## 조정
+## Orchestrierung
 
-Gemini Robotics-ER 1.6은 **작업 계획** 및 상위 수준의 공간 추론을 실행하여 컨텍스트 이해를 기반으로 작업을 추론하거나 최적의 위치를 식별하여 장기 작업을 조정할 수 있습니다.
+Gemini Robotics-ER 1.6 kann **Aufgaben planen** und räumliche Schlussfolgerungen auf höherer Ebene ziehen. Es kann Aktionen ableiten oder optimale Standorte auf Grundlage des Kontextes ermitteln, um Aufgaben mit langem Horizont zu koordinieren.
 
-### 노트북을 위한 공간 만들기
+### Platz für einen Laptop schaffen
 
-이 예시에서는 Gemini Robotics-ER이 공간에 대해 추론하는 방법을 보여줍니다. 프롬프트는 다른 항목을 위한 공간을 만들기 위해 이동해야 하는 객체를 식별하도록 모델에 요청합니다.
+In diesem Beispiel wird gezeigt, wie Gemini Robotics-ER über einen Raum nachdenken kann. Der Prompt fordert das Modell auf, zu ermitteln, welches Objekt verschoben werden muss, um Platz für ein anderes Element zu schaffen.
 
 ### Python
 
@@ -708,7 +708,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-대답에는 사용자의 질문에 대한 답이 되는 객체의 2D 좌표가 포함됩니다. 이 경우 노트북을 놓을 공간을 만들기 위해 이동해야 하는 객체입니다.
+Die Antwort enthält eine 2D-Koordinate des Objekts, das die Frage des Nutzers beantwortet. In diesem Fall ist es das Objekt, das verschoben werden soll, um Platz für einen Laptop zu schaffen.
 
 ```
 [
@@ -716,11 +716,11 @@ print(image_response.text)
 ]
 ```
 
-![다른 객체를 위해 이동해야 하는 객체를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=ko)
+![Ein Beispiel, das zeigt, welches Objekt für ein anderes Objekt verschoben werden muss](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=de)
 
-### 점심 도시락 싸기
+### Lunchpaket packen
 
-또한 모델은 여러 단계로 구성된 작업에 대한 안내를 제공하고 각 단계와 관련된 객체를 가리킬 수 있습니다. 이 예시에서는 모델이 점심 가방을 싸기 위한 일련의 단계를 계획하는 방법을 보여줍니다.
+Das Modell kann auch Anleitungen für mehrstufige Aufgaben geben und für jeden Schritt auf relevante Objekte verweisen. In diesem Beispiel wird gezeigt, wie das Modell eine Reihe von Schritten zum Packen einer Lunchbox plant.
 
 ### Python
 
@@ -759,13 +759,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-이 프롬프트의 대답은 이미지 입력에서 점심 가방을 포장하는 방법에 관한 단계별 안내입니다.
+Die Antwort auf diesen Prompt ist eine Schritt-für-Schritt-Anleitung zum Packen einer Lunchbox anhand der Bildeingabe.
 
-**입력 이미지**
+**Eingabebild**
 
-![도시락과 도시락에 넣을 물건의 이미지](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=ko)
+![Bild einer Brotdose und von Lebensmitteln, die hineingepackt werden können](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=de)
 
-**모델 출력**
+**Modellausgabe**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -788,15 +788,15 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-### 맞춤 로봇 API 호출
+### Benutzerdefinierte Roboter-API aufrufen
 
-이 예시에서는 맞춤 로봇 API를 사용한 작업 오케스트레이션을 보여줍니다. 픽앤플레이스 작업을 위해 설계된 모의 API를 도입합니다. 파란색 블록을 집어 주황색 그릇에 넣는 것이 작업입니다.
+In diesem Beispiel wird die Aufgabenorchestration mit einer benutzerdefinierten Roboter-API veranschaulicht. Sie enthält eine Mock-API, die für einen Pick-and-Place-Vorgang entwickelt wurde. Die Aufgabe besteht darin, einen blauen Block aufzunehmen und in eine orangefarbene Schale zu legen:
 
-![블록과 그릇 이미지](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=ko)
+![Bild des Blocks und der Schale](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=de)
 
-이 페이지의 다른 예와 마찬가지로 실행 가능한 전체 코드는 [로보틱스 쿡북](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)에서 확인할 수 있습니다.
+Ähnlich wie bei den anderen Beispielen auf dieser Seite ist der vollständige ausführbare Code im [Robotics Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) verfügbar.
 
-첫 번째 단계는 다음 프롬프트로 두 항목을 모두 찾는 것입니다.
+Im ersten Schritt müssen Sie beide Artikel mit dem folgenden Prompt finden:
 
 ### Python
 
@@ -809,7 +809,7 @@ prompt = """
           """
 ```
 
-모델 응답에는 블록과 그릇의 정규화된 좌표가 포함됩니다.
+Die Modellantwort enthält die normalisierten Koordinaten des Blocks und der Schale:
 
 ```
 [
@@ -818,7 +818,7 @@ prompt = """
 ]
 ```
 
-이 예시에서는 다음 모의 로봇 API를 사용합니다.
+In diesem Beispiel wird die folgende Mock-Roboter-API verwendet:
 
 ### Python
 
@@ -833,7 +833,7 @@ def returnToOrigin():
   print("Returning to origin pose")
 ```
 
-다음 단계는 작업을 실행하는 데 필요한 논리로 API 함수 시퀀스를 호출하는 것입니다. 다음 프롬프트에는 모델이 이 작업을 오케스트레이션할 때 사용해야 하는 로봇 API에 대한 설명이 포함되어 있습니다.
+Im nächsten Schritt wird eine Folge von API-Funktionen mit der erforderlichen Logik aufgerufen, um die Aktion auszuführen. Der folgende Prompt enthält eine Beschreibung der Roboter-API, die das Modell bei der Orchestrierung dieser Aufgabe verwenden soll.
 
 ### Python
 
@@ -877,7 +877,7 @@ prompt = f"""
 """
 ```
 
-다음은 프롬프트와 모의 로봇 API를 기반으로 한 모델의 가능한 출력을 보여줍니다. 출력에는 모델의 사고 과정과 그 결과로 계획한 작업이 포함됩니다. 또한 모델이 함께 시퀀싱한 로봇 함수 호출의 출력도 표시됩니다.
+Das Folgende zeigt eine mögliche Ausgabe des Modells basierend auf dem Prompt und der Mock-Roboter-API. Die Ausgabe enthält den Denkprozess des Modells und die Aufgaben, die es daraufhin geplant hat. Außerdem wird die Ausgabe der Roboterfunktionsaufrufe angezeigt, die das Modell nacheinander ausgeführt hat.
 
 ```
 Reasoning: To perform the pick and place operation, I will first move the
@@ -977,72 +977,72 @@ moving to coordinates: -247, 90, 15
 Returning to origin pose
 ```
 
-## 권장사항
+## Best Practices
 
-로봇 공학 애플리케이션의 성능과 정확도를 최적화하려면 Gemini 모델과 효과적으로 상호작용하는 방법을 이해하는 것이 중요합니다. 이 섹션에서는 가장 신뢰할 수 있는 결과를 얻기 위해 프롬프트를 작성하고, 시각적 데이터를 처리하고, 작업을 구조화하는 데 필요한 권장사항과 주요 전략을 간략히 설명합니다.
+Um die Leistung und Genauigkeit Ihrer Robotikanwendungen zu optimieren, ist es wichtig, dass Sie wissen, wie Sie effektiv mit dem Gemini-Modell interagieren. In diesem Abschnitt werden Best Practices und wichtige Strategien für das Erstellen von Prompts, den Umgang mit visuellen Daten und die Strukturierung von Aufgaben beschrieben, um die zuverlässigsten Ergebnisse zu erzielen.
 
-1. 명확하고 간단한 표현을 사용합니다.
+1. Verwenden Sie eine klare und einfache Sprache.
 
-   - **자연어 사용**: Gemini 모델은 자연스러운 대화형 언어를 이해하도록 설계되었습니다. 의미적으로 명확하고 사람이 자연스럽게 지시하는 방식을 반영하는 방식으로 프롬프트를 구성하세요.
-   - **일상적인 용어 사용**: 기술적 또는 전문 용어보다는 일반적인 일상 언어를 선택하세요. 모델이 특정 용어에 예상대로 응답하지 않으면 더 일반적인 동의어로 바꿔 보세요.
-2. 시각적 입력을 최적화합니다.
+   - **Natürliche Sprache verwenden**: Das Gemini-Modell ist darauf ausgelegt, natürliche, konversationelle Sprache zu verstehen. Formulieren Sie Ihre Prompts so, dass sie semantisch klar sind und widerspiegeln, wie eine Person auf natürliche Weise Anweisungen geben würde.
+   - **Alltagssprache verwenden**: Verwenden Sie eine einfache, alltägliche Sprache anstelle von Fachsprache oder Jargon. Wenn das Modell nicht wie erwartet auf einen bestimmten Begriff reagiert, versuchen Sie, ihn mit einem gängigeren Synonym umzuformulieren.
+2. Visuelle Eingabe optimieren
 
-   - **세부정보를 위해 확대**: 작은 객체나 넓은 샷에서 식별하기 어려운 객체를 다룰 때는 경계 상자 기능을 사용하여 관심 객체를 분리합니다. 그런 다음 이미지를 이 선택 영역으로 자르고 새로운 초점 이미지를 모델에 보내 더 자세한 분석을 받을 수 있습니다.
-   - **조명 및 색상 실험**: 모델의 인식은 어려운 조명 조건과 열악한 색상 대비의 영향을 받을 수 있습니다.
-3. 복잡한 문제를 더 작은 단계로 나눕니다. 각 작은 단계를 개별적으로 처리하면 모델이 더 정확하고 성공적인 결과를 도출하도록 안내할 수 있습니다.
-4. 합의를 통해 정확성 개선 높은 수준의 정확도가 필요한 작업의 경우 동일한 프롬프트로 모델을 여러 번 쿼리할 수 있습니다. 반환된 결과를 평균화하면 더 정확하고 신뢰할 수 있는 '컨센서스'에 도달할 수 있습니다.
+   - **Für Details heranzoomen**: Wenn Sie es mit Objekten zu tun haben, die klein oder in einer Weitwinkelaufnahme schwer zu erkennen sind, verwenden Sie eine Begrenzungsrahmenfunktion, um das gewünschte Objekt zu isolieren. Sie können das Bild dann auf diese Auswahl zuschneiden und das neue, fokussierte Bild an das Modell senden, um eine detailliertere Analyse zu erhalten.
+   - **Mit Beleuchtung und Farbe experimentieren**: Die Wahrnehmung des Modells kann durch schwierige Lichtverhältnisse und einen schlechten Farbkontrast beeinträchtigt werden.
+3. Teilen Sie komplexe Probleme in kleinere Schritte auf. Wenn Sie jeden kleineren Schritt einzeln angehen, können Sie das Modell zu einem präziseren und erfolgreichen Ergebnis führen.
+4. Genauigkeit durch Konsens verbessern Bei Aufgaben, die ein hohes Maß an Präzision erfordern, können Sie das Modell mit demselben Prompt mehrmals abfragen. Durch die Mittelung der zurückgegebenen Ergebnisse können Sie einen „Konsens“ erzielen, der oft genauer und zuverlässiger ist.
 
-## 제한사항
+## Beschränkungen
 
-Gemini Robotics-ER 1.6으로 개발할 때는 다음 제한사항을 고려하세요.
+Beachten Sie beim Entwickeln mit Gemini Robotics-ER 1.6 die folgenden Einschränkungen:
 
-- **미리보기 상태:** 모델이 현재 **미리보기** 상태입니다. API와 기능이 변경될 수 있으며, 철저한 테스트 없이 프로덕션에 중요한 애플리케이션에 적합하지 않을 수 있습니다.
-- **지연 시간:** 복잡한 질문, 고해상도 입력 또는 광범위한 `thinking_budget`로 인해 처리 시간이 늘어날 수 있습니다.
-- **할루시네이션:** 모든 대규모 언어 모델과 마찬가지로 Gemini Robotics-ER 1.6도 때때로 '할루시네이션'을 일으키거나 잘못된 정보를 제공할 수 있습니다. 특히 모호한 프롬프트나 분포에서 벗어난 입력의 경우 이러한 문제가 발생할 수 있습니다.
-- **프롬프트 품질에 대한 의존성:** 모델 출력의 품질은 입력 프롬프트의 명확성과 구체성에 크게 좌우됩니다. 모호하거나 구조가 좋지 않은 프롬프트는 최적의 결과를 얻지 못할 수 있습니다.
-- **계산 비용:** 특히 동영상 입력 또는 높은 `thinking_budget`로 모델을 실행하면 컴퓨팅 리소스가 소비되고 비용이 발생합니다.
-  자세한 내용은 [생각하기](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) 페이지를 참고하세요.
-- **입력 유형:** 각 모드의 제한사항에 관한 자세한 내용은 다음 주제를 참고하세요.
-  - [이미지 입력](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko#technical-details-image)
-  - [동영상 입력](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko#supported-formats)
-  - [오디오 입력](https://ai.google.dev/gemini-api/docs/audio?hl=ko#supported-formats)
+- **Vorschau**:Das Modell befindet sich derzeit in der **Vorschau**. APIs und Funktionen können sich ändern und sind ohne gründliche Tests möglicherweise nicht für produktionskritische Anwendungen geeignet.
+- **Latenz**:Komplexe Anfragen, Eingaben mit hoher Auflösung oder umfangreiche `thinking_budget` können zu längeren Verarbeitungszeiten führen.
+- **KI-Halluzinationen**:Wie alle Large Language Models kann Gemini Robotics-ER 1.6 gelegentlich „halluzinieren“ oder falsche Informationen liefern, insbesondere bei mehrdeutigen Prompts oder Out-of-Distribution-Eingaben.
+- **Abhängigkeit von der Prompt-Qualität**:Die Qualität der Ausgabe des Modells hängt stark von der Klarheit und Spezifität des Eingabe-Prompts ab. Vage oder schlecht strukturierte Prompts können zu suboptimalen Ergebnissen führen.
+- **Rechenkosten**:Die Ausführung des Modells, insbesondere mit Videoeingaben oder hohem `thinking_budget`, verbraucht Rechenressourcen und verursacht Kosten.
+  Weitere Informationen finden Sie auf der Seite [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=de).
+- **Eingabetypen**:In den folgenden Abschnitten finden Sie Details zu den Einschränkungen für die einzelnen Modi.
+  - [Bildeingaben](https://ai.google.dev/gemini-api/docs/image-understanding?hl=de#technical-details-image)
+  - [Videoeingänge](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#supported-formats)
+  - [Audioeingänge](https://ai.google.dev/gemini-api/docs/audio?hl=de#supported-formats)
 
-## 개인정보처리방침
+## Datenschutzhinweise
 
-귀하는 이 문서에 언급된 모델('로봇 공학 모델')이 귀하의 지시에 따라 하드웨어를 작동하고 이동하기 위해 동영상 및 오디오 데이터를 활용한다는 점을 인정합니다. 따라서 음성, 이미지, 유사성 데이터 ('개인 정보')와 같은 식별 가능한 개인의 데이터가 로봇 모델에 의해 수집되도록 로봇 모델을 작동할 수 있습니다. 귀하가 개인 정보를 수집하는 방식으로 로봇 모델을 운영하기로 선택한 경우, 식별 가능한 개인이 [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=ko)에 있는 Gemini API 추가 서비스 약관('약관')에 설명된 대로, 'Google에서 데이터를 사용하는 방식' 섹션에 따라 Google에 개인 정보가 제공되고 사용될 수 있다는 사실을 충분히 통지받고 이에 동의하지 않는 한, 식별 가능한 개인이 로봇 모델과 상호작용하거나 로봇 모델 주변에 있는 것을 허용하지 않는 데 동의합니다. 귀하는 이러한 알림이 '약관'에 명시된 대로 '개인 정보'의 수집 및 사용을 허용하도록 보장하며, 얼굴 흐리게 처리와 같이 식별 가능한 사람이 포함되지 않은 영역에서 '로봇 모델'을 운영하는 등의 기법을 사용하여 '개인 정보'의 수집 및 배포를 최소화하기 위해 상업적으로 합당한 노력을 기울입니다.
+Sie bestätigen, dass die in diesem Dokument genannten Modelle (die „Robotikmodelle“) Video- und Audiodaten verwenden, um Ihre Hardware gemäß Ihren Anweisungen zu betreiben und zu bewegen. Sie dürfen die Robotikmodelle daher so betreiben, dass Daten von identifizierbaren Personen, z. B. Sprach-, Bild- und Ähnlichkeitsdaten („personenbezogene Daten“), von den Robotikmodellen erhoben werden. Wenn Sie die Robotikmodelle so betreiben, dass personenbezogene Daten erhoben werden, stimmen Sie zu, dass Sie keine identifizierbaren Personen mit den Robotikmodellen interagieren lassen oder sich in der Umgebung der Robotikmodelle aufhalten lassen, es sei denn, diese identifizierbaren Personen wurden ausreichend darüber informiert und haben zugestimmt, dass ihre personenbezogenen Daten an Google weitergegeben und von Google verwendet werden dürfen, wie in den zusätzlichen Nutzungsbedingungen für Gemini API unter [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=de) (den „Nutzungsbedingungen“) beschrieben, einschließlich gemäß dem Abschnitt „Wie Google Ihre Daten verwendet“. Sie sorgen dafür, dass diese Mitteilung die Erhebung und Nutzung personenbezogener Daten gemäß den Nutzungsbedingungen erlaubt, und unternehmen wirtschaftlich angemessene Anstrengungen, um die Erhebung und Weitergabe personenbezogener Daten zu minimieren, indem Sie Techniken wie das Unkenntlichmachen von Gesichtern verwenden und die Robotikmodelle nach Möglichkeit in Bereichen betreiben, in denen sich keine identifizierbaren Personen aufhalten.
 
-## 가격 책정
+## Preise
 
-가격 및 사용 가능한 지역에 관한 자세한 내용은 [가격](https://ai.google.dev/gemini-api/docs/pricing?hl=ko) 페이지를 참고하세요.
+Detaillierte Informationen zu Preisen und verfügbaren Regionen finden Sie auf der Seite [Preise](https://ai.google.dev/gemini-api/docs/pricing?hl=de).
 
-## 모델 버전
+## Modellversionen
 
-### Robotics-ER 1.6 프리뷰
+### Robotics-ER 1.6 (Vorschau)
 
-| 속성 | 설명 |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_card모델 코드 | `gemini-robotics-er-1.6-preview` |
-| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오  **출력**  텍스트 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  131,072  **출력 토큰 한도**  65,536 |
-| handyman기능 | **[오디오 생성](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)**  지원되지 않음  **[캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**  지원됨  **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**  지원됨  **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**  지원됨  **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**  지원됨  **[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**  지원됨  **[Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**  지원됨  **[이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)**  지원되지 않음  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)**  지원되지 않음  **[검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)**  지원됨  **[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)**  지원됨  **[사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)**  지원됨  **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**  지원됨 |
-| speed소비 옵션 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**  지원됨  **[유연한 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)**  지원됨  **[우선순위 추론](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko)**  지원됨 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `gemini-robotics-er-1.6-preview` |
-| calendar\_month최신 업데이트 | 2025년 12월 |
-| cognition\_2지식 단절 | 2025년 1월 |
+| id\_cardModellcode | `gemini-robotics-er-1.6-preview` |
+| saveUnterstützte Datentypen | **Eingaben**  Text, Bilder, Video, Audio  **Ausgabe**  Text |
+| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  131.072  **Tokenausgabelimit**  65.536 |
+| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Nicht unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Unterstützt  **[Codeausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Unterstützt  **[Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de)**  Unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Nicht unterstützt  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Nicht unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Unterstützt  **[Denken](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Unterstützt  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Unterstützt |
+| speedNutzungsoptionen | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Unterstützt  **[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)**  Unterstützt  **[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)**  Unterstützt |
+| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Vorschau für: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthLetzte Aktualisierung | Dezember 2025 |
+| cognition\_2Wissensstichtag | Januar 2025 |
 
-## 다음 단계
+## Nächste Schritte
 
-- 다른 기능을 살펴보고 다양한 프롬프트와 입력을 계속 실험하여 Gemini Robotics-ER 1.6의 더 많은 애플리케이션을 알아보세요.
-  더 많은 예는 [로보틱스 시작하기 Colab](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)을 참고하세요.
-- 안전을 고려하여 Gemini Robotics 모델이 빌드된 방식을 알아보려면 [Google DeepMind 로봇 공학 안전 페이지](https://deepmind.google/models/gemini-robotics/safety?hl=ko)를 방문하세요.
-- [Gemini Robotics 방문 페이지](https://deepmind.google/robotics?hl=ko)에서 Gemini Robotics 모델의 최신 업데이트에 대해 알아보세요.
+- Sehen Sie sich auch andere Funktionen an und experimentieren Sie weiter mit verschiedenen Prompts und Eingaben, um weitere Anwendungsfälle für Gemini Robotics-ER 1.6 zu finden.
+  Weitere Beispiele finden Sie im [Robotics Getting Started Colab](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+- Weitere Informationen dazu, wie Gemini Robotics-Modelle mit Blick auf die Sicherheit entwickelt wurden, [finden Sie auf dieser Seite](https://deepmind.google/models/gemini-robotics/safety?hl=de).
+- Aktuelle Informationen zu Gemini Robotics-Modellen finden Sie auf der [Gemini Robotics-Landingpage](https://deepmind.google/robotics?hl=de).
 
-의견 보내기
+Feedback geben
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-최종 업데이트: 2026-06-23(UTC)
+Zuletzt aktualisiert: 2026-07-13 (UTC).
 
-의견을 전달하고 싶나요?
+Haben Sie Feedback für uns?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-23(UTC)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-07-13 (UTC)."],[],[]]

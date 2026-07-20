@@ -1,43 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-BR
-fetched_at: 2026-07-06T05:11:01.332322+00:00
-title: "Respostas estruturadas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=id
+fetched_at: 2026-07-20T04:42:54.692575+00:00
+title: "Output terstruktur \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Respostas estruturadas
+# Output terstruktur
 
-É possível configurar os modelos do Gemini para gerar respostas que sigam um esquema JSON fornecido. Isso garante resultados previsíveis e seguros de tipo e simplifica
-a extração de dados estruturados de texto não estruturado.
+Anda dapat mengonfigurasi model Gemini untuk menghasilkan respons yang sesuai dengan Skema JSON yang disediakan. Hal ini memastikan hasil yang dapat diprediksi dan aman jenisnya, serta menyederhanakan ekstraksi data terstruktur dari teks tidak terstruktur.
 
-Usar respostas estruturadas é ideal para:
+Penggunaan output terstruktur sangat ideal untuk:
 
-- **Extração de dados**:extrai informações específicas, como nomes e datas, de um texto.
-- **Classificação estruturada**:classifique textos em categorias predefinidas.
-- **Fluxos de trabalho com agentes**:geram entradas estruturadas para ferramentas ou APIs.
+- **Ekstraksi data:** Menarik informasi tertentu seperti nama dan tanggal dari teks.
+- **Klasifikasi terstruktur:** Mengklasifikasikan teks ke dalam kategori yang telah ditentukan.
+- **Alur kerja agen:** Menghasilkan input terstruktur untuk alat atau API.
 
-Além de oferecer suporte ao esquema JSON na API REST, os SDKs de IA generativa do Google
-permitem definir esquemas usando
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) e
+Selain mendukung Skema JSON di REST API, Google GenAI SDK
+memungkinkan Anda menentukan skema menggunakan
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) dan
 [Zod](https://zod.dev/) (JavaScript).
 
-## Exemplos de saída estruturada
+## Contoh output terstruktur
 
-### Extrator de receitas
+### Pengekstrak Resep
 
-Este exemplo demonstra como extrair dados estruturados de texto usando tipos básicos de
-esquema JSON, como `object`, `array`, `string` e `integer`.
+Contoh ini menunjukkan cara mengekstrak data terstruktur dari teks menggunakan jenis Skema JSON dasar seperti `object`, `array`, `string`, dan `integer`.
 
 ### Python
 
@@ -89,6 +87,7 @@ print(recipe)
 ### JavaScript
 
 ```
+// Note: Ensure zod is installed (npm install zod)
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -200,7 +199,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**Contoh Respons:**
 
 ```
 {
@@ -228,9 +227,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Moderação de conteúdo
+### Moderasi Konten
 
-Este exemplo mostra `anyOf` para esquemas condicionais e `enum` para classificação, permitindo que a estrutura de saída varie com base no conteúdo.
+Contoh ini menampilkan `anyOf` untuk skema bersyarat dan `enum` untuk klasifikasi, sehingga struktur output dapat bervariasi berdasarkan konten.
 
 ### Python
 
@@ -274,6 +273,7 @@ print(result)
 ### JavaScript
 
 ```
+// Note: Ensure zod is installed (npm install zod)
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -378,7 +378,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**Contoh Respons:**
 
 ```
 {
@@ -389,10 +389,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Estruturas recursivas
+### Struktur Rekursif
 
-Este exemplo ilustra como definir um esquema recursivo, como um
-organograma.
+Contoh ini mengilustrasikan cara menentukan skema rekursif seperti diagram organisasi.
 
 ### Python
 
@@ -434,6 +433,7 @@ print(employee)
 ### JavaScript
 
 ```
+// Note: Ensure zod is installed (npm install zod)
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -508,7 +508,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Exemplo de resposta:**
+**Contoh Respons:**
 
 ```
 {
@@ -535,10 +535,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Resultados de streaming
+## Hasil streaming
 
-É possível transmitir saídas estruturadas, permitindo que você comece a processar a
-resposta à medida que ela é gerada. Os blocos transmitidos são strings JSON parciais válidas que podem ser concatenadas para formar o objeto JSON final.
+Anda dapat melakukan streaming output terstruktur, sehingga Anda dapat mulai memproses respons saat respons tersebut dibuat. Potongan yang di-streaming adalah string JSON parsial yang valid yang dapat digabungkan untuk membentuk objek JSON akhir.
 
 ### Python
 
@@ -565,13 +564,15 @@ stream = client.interactions.create(
     stream=True
 )
 for event in stream:
-    if event.event_type == "step.delta" and event.delta.text:
-        print(event.delta.text, end="")
+    if event.event_type == "step.delta":
+        if event.delta.type == "text" and getattr(event.delta, "text", None):
+            print(event.delta.text, end="", flush=True)
 ```
 
 ### JavaScript
 
 ```
+// Note: Ensure zod is installed (npm install zod)
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -600,19 +601,47 @@ const stream = await client.interactions.create({
 });
 
 for await (const event of stream) {
-  if (event.type === "step.delta" && event.delta?.text) {
-    process.stdout.write(event.delta.text);
+  if (event.event_type === "step.delta") {
+    if (event.delta.type === "text") {
+      process.stdout.write(event.delta.text);
+    }
   }
 }
 ```
 
-## Saídas estruturadas com ferramentas
+### REST
 
-Com o Gemini 3, você pode combinar saídas estruturadas com ferramentas integradas, incluindo
-[Embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br),
-[Contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br),
-[Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br), [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br#structured-output) e
-[Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
+```
+curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H 'Content-Type: application/json' \
+    -d '{
+      "model": "gemini-3.5-flash",
+      "input": "The new UI is incredibly intuitive. Add a very long summary!",
+      "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "sentiment": { "type": "string", "enum": ["positive", "neutral", "negative"] },
+            "summary": { "type": "string" }
+          },
+          "required": ["sentiment", "summary"]
+        }
+      },
+      "stream": true
+    }'
+```
+
+## Output terstruktur dengan alat
+
+Gemini 3 memungkinkan Anda menggabungkan Output Terstruktur dengan alat bawaan, termasuk
+[Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id),
+[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id),
+[Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id),
+[Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id#structured-output), dan
+[Panggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
 
 ### Python
 
@@ -646,6 +675,7 @@ print(result)
 ### JavaScript
 
 ```
+// Note: Ensure zod is installed (npm install zod)
 import { GoogleGenAI } from "@google/genai";
 import * as z from "zod";
 
@@ -704,79 +734,80 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Suporte a esquemas JSON
+## Dukungan skema JSON
 
-Para gerar um objeto JSON, configure `response_format` com um objeto (ou uma matriz que contenha um objeto) do tipo `text` e defina `mime_type` como `application/json`. O esquema precisa ser fornecido no campo `schema`.
+Untuk membuat objek JSON, konfigurasikan `response_format` dengan objek (atau array yang berisi objek) berjenis `text` dan tetapkan `mime_type`-nya ke `application/json`. Skema harus disediakan di kolom `schema`.
 
-O modo de saída estruturada do Gemini é compatível com um subconjunto da especificação do [esquema JSON](https://json-schema.org/).
+Mode output terstruktur Gemini mendukung subset spesifikasi
+[Skema JSON](https://json-schema.org/).
 
-Os seguintes valores de `type` são aceitos:
+Nilai `type` berikut didukung:
 
-- **`string`**: para texto.
-- **`number`**: para usar pontos flutuantes.
-- **`integer`**: para números inteiros.
-- **`boolean`**: para valores verdadeiro ou falso.
-- **`object`**: para dados estruturados com pares de chave-valor.
-- **`array`**: para listas de itens.
-- **`null`**: para permitir que uma propriedade seja nula, inclua `"null"` na matriz de tipo (por exemplo, `{"type": ["string", "null"]}`).
+- **`string`**: Untuk teks.
+- **`number`**: Untuk angka floating point.
+- **`integer`**: Untuk bilangan bulat.
+- **`boolean`**: Untuk nilai benar atau salah.
+- **`object`**: Untuk data terstruktur dengan key-value pair.
+- **`array`**: Untuk daftar item.
+- **`null`**: Untuk mengizinkan properti menjadi null, sertakan `"null"` dalam array jenis (misalnya, `{"type": ["string", "null"]}`).
 
-Essas propriedades descritivas ajudam a orientar o modelo:
+Properti deskriptif ini membantu memandu model:
 
-- **`title`**: uma breve descrição de uma propriedade.
-- **`description`**: uma descrição mais longa e detalhada de uma propriedade.
+- **`title`**: Deskripsi singkat properti.
+- **`description`**: Deskripsi properti yang lebih panjang dan lebih mendetail.
 
-### Propriedades específicas do tipo
+### Properti khusus jenis
 
-**Para valores de `object`:**
+**Untuk nilai `object`:**
 
-- **`properties`**: um objeto em que cada chave é um nome de propriedade e cada valor é um esquema para essa propriedade.
-- **`required`**: uma matriz de strings que lista quais propriedades são obrigatórias.
-- **`additionalProperties`**: controla se as propriedades não listadas em `properties` são permitidas. Pode ser um booleano ou um esquema.
+- **`properties`**: Objek dengan setiap kunci adalah nama properti dan setiap nilai adalah skema untuk properti tersebut.
+- **`required`**: Array string yang mencantumkan properti mana yang wajib.
+- **`additionalProperties`**: Mengontrol apakah properti yang tidak tercantum di `properties` diizinkan. Dapat berupa boolean atau skema.
 
-**Para valores de `string`:**
+**Untuk nilai `string`:**
 
-- **`enum`**: lista um conjunto específico de strings possíveis para tarefas de classificação.
-- **`format`**: especifica uma sintaxe para a string, como `date-time`, `date`, `time`.
+- **`enum`**: Mencantumkan kumpulan string yang mungkin untuk tugas klasifikasi.
+- **`format`**: Menentukan sintaksis untuk string, seperti `date-time`, `date`, `time`.
 
-**Para valores de `number` e `integer`:**
+**Untuk nilai `number` dan `integer`:**
 
-- **`enum`**: lista um conjunto específico de valores numéricos possíveis.
-- **`minimum`**: o valor mínimo inclusivo.
-- **`maximum`**: o valor máximo inclusivo.
+- **`enum`**: Mencantumkan kumpulan nilai numerik yang mungkin.
+- **`minimum`**: Nilai inklusif minimum.
+- **`maximum`**: Nilai inklusif maksimum.
 
-**Para valores de `array`:**
+**Untuk nilai `array`:**
 
-- **`items`**: define o esquema de todos os itens na matriz.
-- **`prefixItems`**: define uma lista de esquemas para os primeiros N itens, permitindo estruturas semelhantes a tuplas.
-- **`minItems`**: o número mínimo de itens na matriz.
-- **`maxItems`**: o número máximo de itens na matriz.
+- **`items`**: Menentukan skema untuk semua item dalam array.
+- **`prefixItems`**: Menentukan daftar skema untuk N item pertama, sehingga memungkinkan struktur seperti tuple.
+- **`minItems`**: Jumlah minimum item dalam array.
+- **`maxItems`**: Jumlah maksimum item dalam array.
 
-## Saídas estruturadas x chamada de função
+## Output terstruktur versus panggilan fungsi
 
-| Recurso | Caso de uso principal |
+| Fitur | Kasus Penggunaan Utama |
 | --- | --- |
-| **Saídas estruturadas** | **Formatando a resposta final.** Use quando quiser que a *resposta* do modelo esteja em um formato específico. |
-| **Chamada de função** | **Realizar ações durante a conversa** Use quando o modelo precisar *pedir que você* realize uma tarefa antes de dar uma resposta final. |
+| **Output Terstruktur** | **Memformat respons akhir.** Gunakan saat Anda menginginkan *jawaban* model dalam format tertentu. |
+| **Panggilan Fungsi** | **Mengambil tindakan selama percakapan.** Gunakan saat model perlu *meminta Anda* untuk melakukan tugas sebelum memberikan jawaban akhir. |
 
-## Práticas recomendadas
+## Praktik terbaik
 
-- **Descrições claras**:use o campo `description` para orientar o modelo.
-- **Tipagem forte**:use tipos específicos (`integer`, `string`, `enum`).
-- **Engenharia de comando**:indique claramente o que você quer que o modelo faça.
-- **Validação**:embora a saída seja um JSON sintaticamente correto, sempre valide os valores no seu aplicativo.
-- **Tratamento de erros**:implemente um tratamento de erros robusto para saídas compatíveis com o esquema, mas semanticamente incorretas.
+- **Deskripsi yang jelas:** Gunakan kolom `description` untuk memandu model.
+- **Pengetikan yang kuat:** Gunakan jenis tertentu (`integer`, `string`, `enum`).
+- **Teknik perintah:** Nyatakan dengan jelas tindakan yang Anda inginkan dari model.
+- **Validasi:** Meskipun output adalah JSON yang benar secara sintaksis, selalu validasi nilai dalam aplikasi Anda.
+- **Penanganan error:** Terapkan penanganan error yang andal untuk output yang sesuai dengan skema tetapi salah secara semantik.
 
-## Limitações
+## Batasan
 
-- **Subconjunto de esquema**:nem todos os recursos do esquema JSON são compatíveis.
-- **Complexidade do esquema**:esquemas muito grandes ou aninhados podem ser rejeitados.
+- **Subset skema:** Tidak semua fitur Skema JSON didukung.
+- **Kompleksitas skema:** Skema yang sangat besar atau sangat bertingkat mungkin akan ditolak.
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-06-22 UTC.
+Terakhir diperbarui pada 2026-07-07 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-07 UTC."],[],[]]

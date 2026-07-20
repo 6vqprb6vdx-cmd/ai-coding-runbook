@@ -1,165 +1,185 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=zh-TW
-fetched_at: 2026-07-06T05:21:47.605798+00:00
-title: "\u5728 Google AI Studio \u4e2d\u958b\u767c\u5168\u7aef\u61c9\u7528\u7a0b\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=id
+fetched_at: 2026-07-20T04:33:16.726512+00:00
+title: "Mengembangkan Aplikasi Full-Stack di Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-提供意見
+Kirim masukan
 
-# 在 Google AI Studio 中開發全端應用程式
+# Mengembangkan Aplikasi Full-Stack di Google AI Studio
 
-Google AI Studio 現在支援全端開發，可讓您建構的應用程式不只是用戶端原型。透過伺服器端執行階段，您可以管理密鑰、連線至外部 API，以及建構即時多人遊戲體驗。
+Google AI Studio kini mendukung pengembangan full-stack, sehingga Anda dapat membuat aplikasi yang melampaui prototipe sisi klien. Dengan runtime sisi server, Anda dapat mengelola secret, terhubung ke API eksternal, dan membangun pengalaman multiplayer real-time.
 
-## 伺服器端執行階段
+## Runtime sisi server
 
-Google AI Studio 應用程式現在可以包含伺服器端元件 (Node.js)。這種做法有以下幾個優點：
+Aplikasi Google AI Studio kini dapat menyertakan komponen sisi server (Node.js).
+Hal ini memungkinkan Anda:
 
-- **執行伺服器端邏輯**：執行不應向用戶端公開的程式碼。
-- **存取 npm 套件**：[Antigravity Agent](https://antigravity.google/docs/agent?hl=zh-tw) 可以安裝及使用 npm 生態系統中的大量套件。
-- **處理密鑰**：安全地使用 API 金鑰和憑證。
+- **Menjalankan logika sisi server**: Menjalankan kode yang tidak boleh diekspos ke
+  klien.
+- **Mengakses paket npm**: [Agen Antigravity](https://antigravity.google/docs/agent?hl=id)
+  dapat menginstal dan menggunakan paket dari ekosistem npm yang luas.
+- **Menangani secret**: Menggunakan kunci API dan kredensial dengan aman.
 
-### 使用 npm 套件
+### Menggunakan paket npm
 
-您不需要手動執行 `npm install`，只要要求 Agent 新增需要套件的功能，Agent 就會處理安裝和匯入作業。
+Anda tidak perlu menjalankan `npm install` secara manual. Cukup minta Agen untuk menambahkan fungsi yang memerlukan paket, dan Agen akan menangani penginstalan dan impor.
 
-**範例**：>「使用 `axios` 從外部 API 擷取資料。」
+**Contoh**: > "Gunakan `axios` untuk mengambil data dari API eksternal."
 
-## 安全地管理密鑰
+## Mengelola secret dengan aman
 
-有了伺服器端程式碼和密鑰管理功能，您現在可以建構與世界互動的應用程式。
+Dengan kode sisi server dan pengelolaan secret, kini Anda dapat membuat aplikasi yang berinteraksi dengan dunia.
 
-### Gemini API 金鑰
+### Kunci Gemini API
 
-建立使用 Gemini API 的新應用程式時，AI Studio 會自動將 `GEMINI_API_KEY` 設定為伺服器端密鑰，不需要手動設定。您可以在「設定」中的「密鑰」面板查看這項金鑰。應用程式的 Gemini API 呼叫是透過這個金鑰，從伺服器端程式碼發出，因此絕不會在瀏覽器中公開。
+Saat Anda membuat aplikasi baru yang menggunakan Gemini API, AI Studio akan otomatis mengonfigurasi `GEMINI_API_KEY` Anda sebagai secret sisi server — tidak diperlukan penyiapan manual. Anda dapat melihat kunci ini di panel **Secrets** di Setelan. Panggilan Gemini API aplikasi Anda dibuat dari kode sisi server menggunakan kunci ini, sehingga tidak pernah diekspos di browser.
 
-### 第三方 API 金鑰
+### Kunci API pihak ketiga
 
-如要使用其他服務，請手動新增 API 金鑰：
+Untuk layanan lain, Anda dapat menambahkan kunci API secara manual:
 
-- **第三方 API**：連結至 Stripe、SendGrid 或自訂 REST API 等服務。
-- **資料庫**：連線至外部資料庫 (例如透過 Supabase、Firebase 或 MongoDB Atlas)，在工作階段結束後保留資料。
+- **API pihak ketiga**: Terhubung ke layanan seperti Stripe, SendGrid, atau REST API kustom.
+- **Database**: Terhubung ke database eksternal (misalnya, melalui Supabase, Firebase,
+  atau MongoDB Atlas) untuk mempertahankan data di luar sesi.
 
-建構實際應用程式時，您通常需要連線至第三方服務 (例如 Twilio、Slack 或資料庫)，而這些服務需要 API 金鑰。您可以按照下列步驟手動新增金鑰：
+Saat membuat aplikasi dunia nyata, Anda sering kali perlu terhubung ke layanan pihak ketiga (seperti Twilio, Slack, atau database) yang memerlukan kunci API. Anda dapat menambahkan kunci secara manual dengan langkah-langkah berikut:
 
-1. **新增密鑰**：前往 Google AI Studio 的「設定」選單，然後找到「密鑰」專區。
-2. **儲存金鑰**：在此新增 API 金鑰或密碼權杖。
-3. **在程式碼中存取**：代理程式可以編寫伺服器端程式碼，安全地存取這些密鑰 (通常是透過環境變數)，確保密鑰絕不會暴露給用戶端瀏覽器。
+1. **Menambahkan secret**: Buka menu **Settings** di Google AI Studio dan cari
+   bagian Secrets.
+2. **Menyimpan kunci**: Tambahkan kunci API atau token secret Anda di sini.
+3. **Mengakses dalam kode**: Agen dapat menulis kode sisi server yang mengakses
+   secret ini dengan aman (biasanya via variabel lingkungan), memastikan
+   secret tidak pernah diekspos ke browser sisi klien.
 
-如有需要，當需要新密鑰或在專案的環境變數中偵測到新金鑰時，服務專員也會在對話中顯示資訊卡，提示您新增金鑰。
+Jika diperlukan, agen juga akan menampilkan kartu di chat yang meminta Anda untuk menambahkan kunci setiap kali secret baru diperlukan atau saat kunci baru terdeteksi di variabel env project.
 
-### 整合 Firebase 資料庫和驗證功能
+### Integrasi Firebase untuk database &autentikasi
 
-現在，您只要透過 [Firebase 整合](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=zh-tw)，就能在 Google AI Studio 中輕鬆為應用程式新增資料庫或驗證功能。Antigravity Agent 可以自動佈建及設定下列服務：
+Google AI Studio kini memudahkan penambahan database atau autentikasi ke
+aplikasi Anda melalui
+[integrasi Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=id).
+Agen Antigravity dapat menyediakan dan menyiapkan layanan berikut secara otomatis untuk Anda:
 
-- **Firestore 資料庫**：彈性且可擴充的 NoSQL 雲端資料庫，可儲存及同步處理用戶端與伺服器端開發的資料。
-- **Firebase 驗證**：讓使用者透過「使用 Google 帳戶登入」流程，安全地登入應用程式。
+- **Database Firestore**: database cloud NoSQL yang fleksibel dan skalabel untuk menyimpan
+  dan menyinkronkan data untuk pengembangan sisi klien dan sisi server.
+- **Firebase Authentication**: memungkinkan pengguna Anda login ke
+  aplikasi Anda dengan aman menggunakan alur "Login dengan Google".
 
-只要要求代理程式「在我的應用程式中新增資料庫」或「設定 Google 登入」，
-代理程式就會為您處理必要的設定和程式碼產生作業。
+Cukup minta agen untuk "menambahkan database ke aplikasi saya" atau "menyiapkan Login dengan Google", dan agen akan menangani konfigurasi dan pembuatan kode yang diperlukan untuk Anda.
 
-Firebase 提供免費方案，您也可以視需求升級至付費帳戶，享有更多配額或使用付費功能。
+Firebase memungkinkan Anda memulai secara gratis, dan secara opsional melakukan penskalaan dengan akun berbayar kapan saja Anda siap untuk kuota yang lebih besar atau menggunakan fitur berbayar.
 
 ## Google Workspace API
 
-Google AI Studio 可讓您建構連結至 Google Workspace API 的應用程式，讓使用者在應用程式中處理實際資料，例如電子郵件、試算表、文件、日曆活動等。您不必再設定 Google Cloud 雲端專案、設定 OAuth 或手動管理 API。
+Google AI Studio memungkinkan Anda membuat aplikasi yang terhubung ke Google Workspace API, sehingga pengguna dapat menggunakan data mereka yang sebenarnya: email, spreadsheet, dokumen, acara kalender, dan lainnya, semuanya dalam aplikasi Anda. Anda tidak perlu lagi menyiapkan project Google Cloud, mengonfigurasi OAuth, atau mengelola API secara manual.
 
-### 運作方式
+### Cara kerjanya
 
-您可以透過兩種方式新增 Workspace 整合：
+Anda dapat menambahkan integrasi Workspace dengan dua cara:
 
-- **在對話面板中描述**：只要在底部的對話面板中告訴代理程式所需內容，例如「建立費用追蹤工具，將收據記錄到我的 Google 試算表」或「建立摘要顯示未讀取 Gmail 郵件的資訊主頁」。
-- **從整合面板選取**：在「建構」模式的右側邊欄中開啟「整合」面板，然後啟用要連結的 Workspace 應用程式。
+- **Jelaskan di panel chat**: Cukup beri tahu agen apa yang Anda inginkan di panel chat di bagian bawah. Misalnya, *"Buat pelacak pengeluaran yang mencatat tanda terima ke Google Spreadsheet saya"* atau *"Buat dasbor yang meringkas pesan Gmail saya yang belum dibaca."*
+- **Pilih dari panel integrasi**: Buka panel **Integrations** di sidebar kanan mode Build dan aktifkan aplikasi Workspace yang ingin Anda hubungkan.
 
-新增 Workspace 應用程式時，AI Studio 會自動執行下列操作：
+Saat Anda menambahkan aplikasi Workspace, AI Studio akan otomatis:
 
-1. 為應用程式設定必要的 Google API。
-2. 產生呼叫 API 的伺服器端程式碼。
-3. 新增安全的「使用 Google 帳戶登入」流程，讓應用程式的終端使用者授權存取自己的資料。
+1. Menghubungkan Google API yang diperlukan untuk aplikasi Anda.
+2. Membuat kode sisi server untuk memanggil API.
+3. Menambahkan alur "Login dengan Google" yang aman sehingga pengguna akhir aplikasi Anda dapat mengotorisasi akses ke data mereka sendiri.
 
-### 支援的應用程式
+### Aplikasi yang didukung
 
-可用的 Google Workspace 應用程式如下：
+Aplikasi Google Workspace berikut tersedia:
 
-| 應用程式 | 可建構的內容 |
+| Aplikasi | Yang dapat Anda buat |
 | --- | --- |
-| Google 日曆 | 讀取、建立及管理活動和日曆 |
-| Google Chat | 讀取及參與對話和群組聊天室 |
-| Google 文件 | 建立、讀取、更新及設定文件格式 |
-| Google 雲端硬碟 | 整理、搜尋及管理檔案和資料夾 |
-| Google 表單 | 建立問卷調查、更新問題及擷取回覆 |
-| Gmail | 讀取、傳送及管理電子郵件內容 |
-| Google Keep | 管理記事、清單和附件 |
-| Google Meet | 安排及管理視訊通話 |
-| 聯絡人 | 同步及管理聯絡人 |
-| Google 試算表 | 讀取、寫入及格式化試算表資料 |
-| Google 簡報 | 建立及修改簡報 |
-| Google Tasks | 建立、管理及整理工作 |
+| Google Kalender | Membaca, membuat, dan mengelola acara dan kalender |
+| Google Chat | Membaca dan berinteraksi dengan percakapan dan ruang grup |
+| Google Dokumen | Membuat, membaca, memperbarui, dan memformat dokumen |
+| Google Drive | Mengatur, menelusuri, dan mengelola file dan folder |
+| Google Formulir | Membuat survei, memperbarui pertanyaan, dan mengambil respons |
+| Gmail | Membaca, mengirim, dan mengelola konten email |
+| Google Keep | Mengelola catatan, daftar, dan lampiran |
+| Google Meet | Menjadwalkan dan mengelola panggilan video |
+| Kontak | Menyinkronkan dan mengelola kontak |
+| Google Spreadsheet | Membaca, menulis, dan memformat data spreadsheet |
+| Google Slide | Membuat dan mengubah presentasi |
+| Google Tasks | Membuat, mengelola, dan mengatur tugas |
 
-### 驗證和權限
+### Autentikasi dan izin
 
-身為建構者，您不需要設定 OAuth 用戶端、管理憑證或設定 Google Cloud 專案。AI Studio 會為您處理所有這些事項。
+Sebagai pembuat, Anda tidak perlu mengonfigurasi klien OAuth, mengelola kredensial, atau menyiapkan project Google Cloud. AI Studio akan menangani semuanya untuk Anda.
 
-整合 Workspace API 的應用程式會使用「使用 Google 帳戶登入」驗證使用者身分。使用者開啟應用程式時，系統會提示他們登入並授予應用程式所需的特定權限 (例如日曆的唯讀存取權，或是編輯試算表的權限)。應用程式只會存取使用者的資料。每位使用者都會授權存取自己的帳戶。
+Aplikasi dengan Workspace API terintegrasi menggunakan "Login dengan Google" untuk mengautentikasi pengguna akhir. Saat pengguna membuka aplikasi Anda, mereka akan diminta untuk login dan memberikan izin tertentu yang diperlukan aplikasi Anda (misalnya, akses hanya baca ke kalender mereka, atau kemampuan untuk mengedit spreadsheet). Aplikasi Anda hanya mengakses data orang yang menggunakannya. Setiap pengguna mengotorisasi akses ke akun mereka sendiri.
 
-### 提示詞範例
+### Contoh perintah
 
-以下提供幾個構想，協助您開始使用 Workspace 整合功能：
+Berikut beberapa ide untuk memulai integrasi Workspace:
 
-- *「建立一個應用程式，讀取我的 Google 日曆，並在 Gmail 中為每場會議草擬準備電子郵件。」*
-- 「建立工具，將 Google 文件內容生成 5 張投影片的摘要簡報，並匯入 Google 簡報。」
-- *「製作費用追蹤工具，讓我上傳收據，Gemini 擷取詳細資料，並在 Google 試算表中記錄新資料列。」*
+- *"Buat aplikasi yang membaca Google Kalender saya dan membuat draf email persiapan di
+  Gmail untuk setiap rapat."*
+- *"Buat alat yang mengambil Google Dokumen dan membuat ringkasan 5 slide
+  presentasi di Google Slide."*
+- *"Buat pelacak pengeluaran tempat saya mengupload tanda terima, Gemini mengekstrak
+  detailnya, dan mencatat baris baru di Google Spreadsheet saya."*
 
-### 設定 OAuth
+### Menyiapkan OAuth
 
-密鑰管理的主要用途之一是設定 OAuth，以便連線至其他網站或應用程式。如果提示包含連線至需要 OAuth 驗證的第三方應用程式的操作說明，智慧助理會提供該應用程式的 OAuth 設定說明。這些操作說明會提供設定 OAuth 應用程式所需的必要回呼網址。您也可以在「設定」面板的「整合」下方找到回呼網址。
+Salah satu kasus penggunaan utama untuk pengelolaan secret adalah menyiapkan OAuth untuk terhubung ke situs atau aplikasi lain. Jika perintah Anda menyertakan petunjuk tentang cara menghubungkan ke aplikasi pihak ketiga yang memerlukan autentikasi OAuth, agen akan memberikan petunjuk tentang cara menyiapkan OAuth untuk aplikasi tersebut. Petunjuk ini akan menyertakan URL callback yang diperlukan untuk mengonfigurasi Aplikasi OAuth Anda.
+Anda juga dapat menemukan URL callback di bagian **Integrations** di panel Settings.
 
-## 打造多人遊戲體驗
+## Membangun pengalaman multiplayer
 
-全堆疊執行階段可啟用即時協作功能。
+Runtime full-stack memungkinkan fitur kolaborasi real-time.
 
-- **即時狀態**：你可以要求 Agent 建構「即時通訊」、「協作白板」或「多人遊戲」等功能。
-- **同步工作階段**：伺服器會管理狀態，讓多位使用者即時與同一個應用程式例項互動。
+- **Status real-time**: Anda dapat meminta Agen untuk membuat fitur seperti "live
+  chat", "papan tulis kolaboratif", atau "game multiplayer".
+- **Sesi yang disinkronkan**: Server mengelola status, sehingga beberapa pengguna
+  dapat berinteraksi dengan instance aplikasi yang sama secara real-time.
 
-**範例提示**：「將這個遊戲設為多人遊戲，讓玩家可以看到彼此的游標。」
+**Contoh perintah**: > "Jadikan ini game multiplayer tempat pemain dapat melihat kursor satu sama
+lain."
 
-### 測試多人遊戲應用程式的訣竅
+### Tips untuk menguji aplikasi multiplayer
 
-部署應用程式前，您可以透過兩種方式測試多人遊戲模式。
+Anda dapat menguji mode multiplayer dengan dua cara sebelum men-deploy aplikasi.
 
-1. 在多個分頁中，以 Google AI Studio 建構模式開啟應用程式。在「建構」模式下開發時，應用程式會位於開發容器中。在多個分頁中開啟應用程式，即可模擬多位玩家使用應用程式。
-2. 使用右上方的「分享」選單與他人共用應用程式。
-   然後使用「分享」選單「整合」分頁中的「共用網址」，與您共用應用程式的玩家一起使用應用程式。
+1. Buka aplikasi Anda dalam mode Build Google AI Studio di beberapa tab. Saat mengembangkan dalam mode Build, aplikasi Anda berada dalam container pengembangan. Membuka aplikasi di beberapa tab akan memungkinkan Anda mensimulasikan beberapa pemain yang menggunakan aplikasi Anda.
+2. Bagikan aplikasi kepada orang lain menggunakan menu **Share** di kanan atas. Kemudian, gunakan **Shared URL** dari tab **Integrations** di menu **Share** untuk menggunakan aplikasi dengan pemain yang telah Anda bagikan aplikasi Anda.
 
-## 最佳做法
+## Praktik terbaik
 
-- **Gemini API 呼叫**：系統會自動將 `GEMINI_API_KEY` 設定為伺服器端密鑰。使用這個金鑰，從伺服器端程式碼呼叫 Gemini API。您可以在「密鑰」面板中查看。
-- **密鑰安全性**：請務必使用 Secret Manager 管理機密金鑰。
-  請勿在檔案中以硬式編碼方式加入這些金鑰。
-- **關注點分離**：將 UI 邏輯保留在用戶端框架 (React/Angular)，並將商業邏輯/資料處理保留在伺服器端。
-- **錯誤處理**：確保伺服器端程式碼能妥善處理外部 API 呼叫的錯誤，避免應用程式當機。
+- **Panggilan Gemini API**: `GEMINI_API_KEY` Anda otomatis dikonfigurasi sebagai
+  secret sisi server. Lakukan panggilan Gemini API dari kode sisi server Anda menggunakan kunci ini. Anda dapat melihatnya di panel **Secrets**.
+- **Keamanan secret**: Selalu gunakan pengelola Secret untuk kunci sensitif.
+  Jangan pernah meng-hardcode-nya dalam file Anda.
+- **Pemisahan tanggung jawab**: Simpan logika UI Anda di framework sisi klien
+  (React/Angular) dan penanganan data/logika bisnis Anda di sisi server.
+- **Penanganan error**: Pastikan kode sisi server Anda menangani error
+  dari panggilan API eksternal dengan kuat untuk mencegah aplikasi mengalami error.
 
-## 後續步驟
+## Apa Langkah Selanjutnya?
 
-- [在 Google AI Studio 中建構應用程式](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=zh-tw)
-- [從 Google AI Studio 部署](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-tw)
-- [應用程式庫](https://aistudio.google.com/apps?source=showcase&hl=zh-tw)
+- [Membuat Aplikasi di Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=id)
+- [Men-deploy dari Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=id)
+- [Galeri Aplikasi](https://aistudio.google.com/apps?source=showcase&hl=id)
 
-提供意見
+Kirim masukan
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-上次更新時間：2026-05-19 (世界標準時間)。
+Terakhir diperbarui pada 2026-05-19 UTC.
 
-想進一步說明嗎？
+Ada masukan untuk kami?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-05-19 (世界標準時間)。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-05-19 UTC."],[],[]]

@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=pl
-fetched_at: 2026-07-06T05:12:33.353579+00:00
-title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=he
+fetched_at: 2026-07-20T04:45:25.281096+00:00
+title: "\u05d7\u05e9\u05d9\u05d1\u05d4 \u05e9\u05dc Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Prześlij opinię
+שליחת משוב
 
-# Gemini
+# חשיבה של Gemini
 
-[Modele z serii Gemini 3 i 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pl) wykorzystują „proces myślowy”, który znacznie poprawia ich zdolność do rozumowania i planowania wieloetapowego, dzięki czemu są bardzo skuteczne w przypadku złożonych zadań, takich jak kodowanie, zaawansowana matematyka i analiza danych.
+[למודלים מסדרות Gemini 3 ו-2.5](https://ai.google.dev/gemini-api/docs/models?hl=he) יש 'תהליך חשיבה' שמשפר באופן משמעותי את יכולות החשיבה הרציונלית והתכנון הרב-שלבי שלהם. כך הם יעילים מאוד במשימות מורכבות כמו כתיבת קוד, מתמטיקה מתקדמת וניתוח נתונים.
 
-Gdy używasz modelu myślenia, Gemini analizuje prompta wewnętrznie przed udzieleniem odpowiedzi. Interfejs API interakcji udostępnia to rozumowanie za pomocą `thought`kroków, czyli specjalnych kroków, które pojawiają się chronologicznie obok wywołań funkcji, danych wejściowych użytkownika lub danych wyjściowych modelu w `steps`tablicy.
+כשמשתמשים במודל חשיבה, Gemini מנתח את ההנחיה באופן פנימי לפני שהוא משיב. ה-API של האינטראקציות חושף את ההסבר הזה באמצעות `thought` שלבים ייעודיים שמופיעים בסדר כרונולוגי לצד קריאות לפונקציות, קלט משתמש או פלט של מודל במערך `steps`.
 
-Każdy krok myślowy zawiera 2 pola:
+כל שלב מחשבה מכיל שני שדות:
 
-| Pole | Wymagane | Opis |
+| שדה | חובה? | תיאור |
 | --- | --- | --- |
-| `signature` | ✅ Tak | zaszyfrowana reprezentacja wewnętrznego stanu rozumowania modelu; Zawsze obecne, nawet gdy model wykonuje minimalne rozumowanie. |
-| `summary` | ❌ Nie | Tablica treści (tekst lub obrazy) podsumowująca uzasadnienie. Może być pusta w zależności od konfiguracji [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=pl), tego, czy model przeprowadził wystarczające rozumowanie, lub typu treści (np. latentne obrazy mogą nie mieć podsumowań tekstowych). |
+| `signature` | ‫✅ כן | ייצוג מוצפן של מצב הנימוק הפנימי של המודל. תמיד מוצג, גם כשהמודל מבצע נימוק מינימלי. |
+| `summary` | ❌ לא | מערך של תוכן (טקסט ו/או תמונות) שמסכם את הנימוקים. יכול להיות שיהיה ריק, בהתאם להגדרות של [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=he), אם המודל לא ביצע מספיק חשיבה רציונלית או בהתאם לסוג התוכן (לדוגמה, יכול להיות שלא יהיו סיכומי טקסט לתמונות לטנטיות). |
 
-## Interakcje z myśleniem
+## אינטראקציות עם תכונת ההעמקה
 
-Rozpoczęcie interakcji z modelem myślowym jest podobne do każdego innego żądania interakcji. W polu `model` określ jeden z [modeli z obsługą myślenia](#thinking-levels):
+התחלת אינטראקציה עם מודל חשיבה דומה לכל בקשת אינטראקציה אחרת. בשדה `model`, מציינים אחד מ[המודלים עם תמיכה בחשיבה](#thinking-levels):
 
 ### Python
 
@@ -73,10 +73,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Podsumowania myśli
+## סיכומי חשיבה
 
-Podsumowania myśli zawierają informacje o wewnętrznym procesie rozumowania modelu.
-Domyślnie zwracane są tylko dane wyjściowe. Podsumowania myśli możesz włączyć, klikając `thinking_summaries`:
+סיכומי מחשבות מספקים תובנות לגבי תהליך הנימוק הפנימי של המודל.
+כברירת מחדל, מוחזר רק הפלט הסופי. אפשר להפעיל סיכומי מחשבות באמצעות `thinking_summaries`:
 
 ### Python
 
@@ -158,23 +158,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-W tych przypadkach blok myśli może zawierać **tylko podpis bez podsumowania**:
+בלוק מחשבה יכול להכיל **רק חתימה ללא סיכום** במקרים הבאים:
 
-- Proste żądania, w przypadku których model nie przeprowadził wystarczającego rozumowania, aby wygenerować podsumowanie.
-- `thinking_summaries: "none"`, w przypadku których podsumowania są wyraźnie wyłączone.
-- Niektóre typy treści, np. obrazy, mogą nie mieć podsumowań tekstowych.
+- בקשות פשוטות, שבהן המודל לא נימק מספיק כדי ליצור סיכום
+- `thinking_summaries: "none"`, במקרים שבהם הסיכומים מושבתים באופן מפורש
+- יכול להיות שלסוגים מסוימים של תוכן מחשבות, כמו תמונות, לא יהיו סיכומי טקסט
 
-Kod powinien zawsze obsługiwać bloki myśli, w których pole `summary` jest puste lub nie występuje.
+הקוד צריך תמיד לטפל בבלוקים של מחשבות שבהם `summary` ריק או לא קיים.
 
-## Streaming z myśleniem
+## סטרימינג עם חשיבה
 
-Użyj przesyłania strumieniowego, aby otrzymywać przyrostowe podsumowania myśli podczas generowania.
-Bloki myśli są dostarczane za pomocą zdarzeń wysyłanych przez serwer (SSE) z 2 różnymi typami zmian:
+אפשר להשתמש בסטרימינג כדי לקבל סיכומים מצטברים של המחשבות במהלך היצירה.
+בלוקי מחשבה מועברים באמצעות אירועים שנשלחים מהשרת (SSE) עם שני סוגים שונים של דלתא:
 
-| Typ delty | Zawiera | Czas wysłania |
+| סוג הדלתא | מכיל | מתי נשלח |
 | --- | --- | --- |
-| `thought_summary` | treści podsumowujące w formie tekstu lub obrazu; | Co najmniej 1 zmiana z przyrostowym podsumowaniem |
-| `thought_signature` | Podpis kryptograficzny | ostatnia zmiana przed `step.stop` |
+| `thought_summary` | תוכן סיכום של טקסט או תמונה | דלתא אחת או יותר עם סיכום מצטבר |
+| `thought_signature` | החתימה הקריפטוגרפית | הדלתא האחרונה לפני `step.stop` |
 
 ### Python
 
@@ -276,7 +276,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Odpowiedź strumieniowa korzysta ze zdarzeń wysyłanych przez serwer (SSE) i składa się z kroków i zdarzeń, np.:
+התגובה בסטרימינג משתמשת באירועים שנשלחים מהשרת (SSE) ומורכבת משלבים ומאירועים, לדוגמה:
 
 ```
 event: interaction.created
@@ -307,20 +307,20 @@ event: done
 data: [DONE]
 ```
 
-## Kontrolowanie myślenia
+## שליטה בחשיבה
 
-Modele Gemini domyślnie stosują dynamiczne myślenie, automatycznie dostosowując poziom rozumowania do złożoności żądania. Możesz kontrolować to zachowanie za pomocą parametru `thinking_level`.
+מודלים של Gemini חושבים באופן דינמי כברירת מחדל, ומתאימים באופן אוטומטי את כמות המאמץ שמושקע בהסקה על סמך מורכבות הבקשה. אפשר לשלוט בהתנהגות הזו באמצעות הפרמטר `thinking_level`.
 
-| Model | Domyślne myślenie | Obsługiwane poziomy |
+| מודל | חשיבה כברירת מחדל | רמות נתמכות |
 | --- | --- | --- |
-| gemini-3.1-pro-preview | Włączone (wysokie) | niski, średni, wysoki |
-| gemini-3.1-flash-lite-image | Włączono (minimalne) | minimalna, wysoka |
-| gemini-3-flash-preview | Włączone (wysokie) | minimalny, niski, średni, wysoki |
-| gemini-3-pro-preview | Włączone (wysokie) | niski, wysoki |
-| gemini-3.5-flash | Włączono (średni) | minimalny, niski, średni, wysoki |
-| gemini-2.5-pro | Wł. | niski, średni, wysoki |
-| gemini-2.5-flash | Wł. | niski, średni, wysoki |
-| gemini-2.5-flash-lite | Wył. | niski, średni, wysoki |
+| gemini-3.1-pro-preview | מופעל (גבוהה) | נמוך, בינוני, גבוה |
+| gemini-3.1-flash-lite-image | מופעל (מינימלי) | מינימלי, גבוה |
+| gemini-3-flash-preview | מופעל (גבוהה) | מינימלי, נמוך, בינוני, גבוה |
+| gemini-3-pro-preview | מופעל (גבוהה) | נמוך, גבוה |
+| gemini-3.5-flash | מופעל (בינוני) | מינימלי, נמוך, בינוני, גבוה |
+| gemini-2.5-pro | מופעל | נמוך, בינוני, גבוה |
+| gemini-2.5-flash | מופעל | נמוך, בינוני, גבוה |
+| gemini-2.5-flash-lite | מושבת | נמוך, בינוני, גבוה |
 
 ### Python
 
@@ -371,27 +371,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Podpisy myśli
+## חתימות של מחשבות
 
-Sygnatury myśli to zaszyfrowane reprezentacje wewnętrznego rozumowania modelu. Muszą one zachowywać ciągłość rozumowania w interakcjach wieloetapowych.
+חתימות מחשבה הן ייצוגים מוצפנים של ההיגיון הפנימי של המודל. הם נדרשים לשמור על רצף של נימוקים לאורך אינטראקציות עוקבות.
 
-Interfejs Interactions API znacznie upraszcza obsługę sygnatur myśli w porównaniu z interfejsem `generateContent` API.
+ממשק Interactions API מפשט את הטיפול בחתימות מחשבה בהשוואה ל-`generateContent` API.
 
-### Tryb stanowy (zalecany)
+### מצב עם שמירת מצב (מומלץ)
 
-Domyślnie, gdy używasz interfejsu API interakcji w trybie stanowym (ustawiając `store: true` i przekazując `previous_interaction_id` w kolejnych turach), serwer automatycznie zarządza stanem rozmowy, w tym wszystkimi blokami myśli i sygnaturami. W tym trybie nie musisz nic robić w związku z podpisami. Są one obsługiwane w całości po stronie serwera.
+כברירת מחדל, כשמשתמשים ב-Interactions API במצב stateful (על ידי הגדרת `store: true` והעברת `previous_interaction_id` בתורות הבאות), השרת מנהל באופן אוטומטי את מצב השיחה, כולל כל בלוקי המחשבה והחתימות. במצב הזה, לא צריך לעשות שום דבר לגבי חתימות. הם מטופלים באופן מלא בצד השרת.
 
-### Tryb bezstanowy
+### מצב חסר סטטוס
 
-Jeśli samodzielnie zarządzasz stanem rozmowy (tryb bezstanowy) i w każdym żądaniu przekazujesz pełną historię danych wejściowych i wyjściowych:
+אם אתם מנהלים את מצב השיחה בעצמכם (מצב בלי שמירת מצב) ומעבירים את ההיסטוריה המלאה של הקלט והפלט בכל בקשה:
 
-- **MUSISZ** zawsze ponownie wysyłać wszystkie bloki `thought` dokładnie w takiej postaci, w jakiej zostały otrzymane z modelu.
-- **NIE** usuwaj ani nie modyfikuj bloków myślowych z historii, ponieważ zawierają one sygnatury wymagane do dalszego wnioskowania przez model.
-- Podczas przełączania modeli w ramach sesji nadal musisz ponownie wysyłać bloki myślowe poprzedniego modelu. Zgodnością zarządza backend.
+- **חובה** לשלוח מחדש את כל הבלוקים של `thought` בדיוק כמו שהם התקבלו מהמודל.
+- **חשוב** לא להסיר או לשנות את בלוקי המחשבה מההיסטוריה, כי הם מכילים את החתימות שנדרשות כדי שהמודל ימשיך את הנימוק שלו.
+- כשמחליפים מודלים במהלך סשן, עדיין צריך לשלוח מחדש את בלוקי המחשבה של המודל הקודם. הקצה העורפי מנהל את התאימות.
 
-## Ceny
+## תמחור
 
-Gdy myślenie jest włączone, cena odpowiedzi to suma tokenów wyjściowych i tokenów myślenia. Łączną liczbę wygenerowanych tokenów myślenia możesz uzyskać z pola `total_thought_tokens`.
+כשהחשיבה מופעלת, התמחור של התשובה הוא סכום הטוקנים של הפלט והטוקנים של החשיבה. אפשר לקבל את המספר הכולל של טוקנים של חשיבה שנוצרו מהשדה `total_thought_tokens`.
 
 ### Python
 
@@ -407,32 +407,32 @@ console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
 console.log(`Output tokens: ${interaction.usage.total_output_tokens}`);
 ```
 
-Modele myślowe generują pełne myśli, aby poprawić jakość ostatecznej odpowiedzi, a następnie wyświetlają [podsumowania](#summaries), które pozwalają zrozumieć proces myślowy. Ceny są oparte na pełnych tokenach myśli, które model musi wygenerować, mimo że interfejs API zwraca tylko podsumowanie.
+מודלים של חשיבה יוצרים מחשבות מלאות כדי לשפר את האיכות של התשובה הסופית, ואז יוצרים [סיכומים](#summaries) כדי לספק תובנות לגבי תהליך החשיבה. התמחור מבוסס על כל הטוקנים של המחשבה שהמודל צריך ליצור, למרות שרק הסיכום מופק מה-API.
 
-Więcej informacji o tokenach znajdziesz w przewodniku [Liczba tokenów](https://ai.google.dev/gemini-api/docs/tokens?hl=pl).
+מידע נוסף על טוקנים זמין במדריך [ספירת טוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
 
-## Sprawdzone metody
+## שיטות מומלצות
 
-Skutecznie korzystaj z modeli myślowych, postępując zgodnie z tymi wskazówkami.
+כדי להשתמש במודלים של חשיבה בצורה יעילה, כדאי לפעול לפי ההנחיות הבאות.
 
-- **Sprawdzanie uzasadnienia:** analizuj podsumowania myśli, aby zrozumieć przyczyny niepowodzeń i ulepszać prompty.
-- **Kontrolowanie budżetu na myślenie:** poproś model, aby mniej myślał w przypadku długich danych wyjściowych, aby zaoszczędzić tokeny.
-- **Proste zadania:** wymagają minimalnego lub niewielkiego wysiłku umysłowego w zakresie wyszukiwania faktów lub klasyfikacji (np. „Gdzie powstała firma DeepMind?”).
-- **Moderowanie zadań:** używaj domyślnego sposobu myślenia do porównywania koncepcji lub kreatywnego rozumowania (np. porównaj samochody elektryczne i hybrydowe).
-- **Złożone zadania:** używaj maksymalnego poziomu myślenia w przypadku zaawansowanego kodowania, matematyki lub planowania wieloetapowego (np. rozwiązywania problemów matematycznych z AIME).
+- **בדיקת ההיגיון**: ניתוח סיכומי המחשבות כדי להבין את הכשלים ולשפר את ההנחיות.
+- **שליטה בתקציב החשיבה**: אפשר להנחות את המודל לחשוב פחות כדי ליצור פלט ארוך ולחסוך בטוקנים.
+- **משימות פשוטות**: שימוש במינימום חשיבה או בחשיבה ברמה נמוכה כדי לאחזר עובדות או לבצע סיווג (לדוגמה, "איפה הוקמה DeepMind?").
+- **משימות מורכבות**: השתמשו בחשיבה רגילה כדי להשוות בין מושגים או להסיק מסקנות יצירתיות (למשל, השוואה בין רכבים חשמליים לרכבים היברידיים).
+- **משימות מורכבות**: כדי לכתוב קוד מתקדם, לפתור בעיות מתמטיות או לתכנן תוכניות מרובות שלבים (למשל, לפתור בעיות מתמטיות של AIME), כדאי להשתמש בחשיבה מקסימלית.
 
-## Co dalej?
+## המאמרים הבאים
 
-- [Generowanie tekstu:](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl) podstawowe odpowiedzi tekstowe
-- [Wywoływanie funkcji:](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) łączenie z narzędziami
-- [Przewodnik po Gemini 3:](https://ai.google.dev/gemini-api/docs/gemini-3?hl=pl) funkcje poszczególnych modeli
+- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he): תשובות טקסט בסיסיות
+- [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he): התחברות לכלי
+- [מדריך Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=he): תכונות ספציפיות למודל
 
-Prześlij opinię
+שליחת משוב
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Ostatnia aktualizacja: 2026-07-01 UTC.
+עדכון אחרון: 2026-07-06 (שעון UTC).
 
-Chcesz przekazać coś jeszcze?
+רוצה לתת לנו משוב?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-01 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-07-06 (שעון UTC)."],[],[]]

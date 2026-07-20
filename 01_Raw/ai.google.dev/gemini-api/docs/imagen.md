@@ -1,28 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=pt-BR
-fetched_at: 2026-07-06T05:17:54.061353+00:00
-title: "Gerar imagens usando o Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=tr
+fetched_at: 2026-07-20T04:37:43.108423+00:00
+title: "Imagen'i kullanarak resim olu\u015fturma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envie comentários
+Geri bildirim gönderin
 
-# Gerar imagens usando o Imagen
+# Imagen'i kullanarak resim oluşturma
 
-O Imagen é o modelo de geração de imagens de alta fidelidade do Google, capaz de gerar imagens realistas e de alta qualidade com base em comandos de texto. Todas as imagens geradas incluem uma marca-d'água do SynthID. Para saber mais sobre as variantes disponíveis do modelo Imagen, consulte a seção [Versões do modelo](#model-versions).
+Imagen, Google'ın yüksek kaliteli görüntü üretme modelidir. Metin istemlerinden gerçekçi ve yüksek kaliteli görüntüler oluşturabilir. Üretilen tüm görüntülerde SynthID filigranı bulunur. Kullanılabilen Imagen modeli varyantları hakkında daha fazla bilgi edinmek için [Model sürümleri](#model-versions) bölümüne bakın.
 
-## Gerar imagens usando os modelos do Imagen
+## Nano Banana'ya geçiş
 
-Este exemplo demonstra como gerar imagens com um [modelo do Imagen](https://deepmind.google/technologies/imagen/?hl=pt-br):
+Imagen modellerinin desteği sonlandırıldı ve 17 Ağustos 2026'da kapatılacak. Görüntü oluşturma ihtiyaçlarınız için Nano Banana'ya geçmenizi öneririz.
+
+Taşıma işlemi aşağıdaki değişiklikleri içerir:
+
+- **Model adı**: Imagen model adları yerine `gemini-2.5-flash-image` kullanın.
+- **Yöntem**: `client.models.generate_images` yerine `client.models.generate_content` kullanın.
+- **Yanıt işleme**: Nano Banana, belirli bir görüntü yanıtı nesnesi yerine görüntü verilerini içerebilen içerik parçaları döndürür.
+
+Daha fazla bilgi ve örnek için [Görüntü üretme kılavuzuna](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr) bakın.
+
+## Imagen modellerini kullanarak resim üretme
+
+Bu örnekte, [Imagen modeli](https://deepmind.google/technologies/imagen/?hl=tr) ile görüntü oluşturma gösterilmektedir:
 
 ### Python
 
@@ -132,400 +144,363 @@ curl -X POST \
       }'
 ```
 
-![Imagem gerada com IA de um robô segurando um skate vermelho](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=pt-br)
+![Kırmızı kaykay tutan bir robotun yapay zekayla üretilmiş resmi](https://ai.google.dev/static/gemini-api/docs/images/robot-skateboard.png?hl=tr)
 
-Imagem gerada com IA de um robô segurando um skate vermelho
+Kırmızı kaykay tutan bir robotun yapay zekayla üretilmiş görüntüsü
 
-### Configuração do Imagen
+### Imagen yapılandırması
 
-No momento, a Imagen só aceita comandos em inglês e os seguintes parâmetros:
+Imagen şu anda yalnızca İngilizce istemleri ve aşağıdaki parametreleri desteklemektedir:
 
-- `numberOfImages`: o número de imagens a serem geradas, de 1 a 4 (inclusive).
-  O padrão é 4.
-- `imageSize`: o tamanho da imagem gerada. Isso só é compatível com
-  os modelos Standard e Ultra. Os valores aceitos são `1K` e `2K`.
-  O padrão é `1K`.
-- `aspectRatio`: muda a proporção da imagem gerada. Os valores
-  aceitos são `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` e `"16:9"`. O padrão é
-  `"1:1"`.
-- `personGeneration`: permite que o modelo gere imagens de pessoas. Os valores a seguir são aceitos:
+- `numberOfImages`: Oluşturulacak resim sayısı (1-4 arası).
+  Varsayılan değer 4'tür.
+- `imageSize`: Üretilen resmin boyutu. Bu özellik yalnızca Standart ve Ultra modellerinde desteklenir. Desteklenen değerler `1K` ve `2K`'dir.
+  Varsayılan değer `1K`'dır.
+- `aspectRatio`: Oluşturulan resmin en boy oranını değiştirir. Desteklenen değerler: `"1:1"`, `"3:4"`, `"4:3"`, `"9:16"` ve `"16:9"`. Varsayılan değer: `"1:1"`.
+- `personGeneration`: Modelin insan resimleri oluşturmasına izin verilir. Aşağıdaki değerler desteklenir:
 
-  - `"dont_allow"`: bloqueia a geração de imagens de pessoas.
-  - `"allow_adult"`: gerar imagens de adultos, mas não de crianças. Esse é
-    o padrão.
-  - `"allow_all"`: gerar imagens que incluam adultos e crianças.
+  - `"dont_allow"`: İnsanların yer aldığı görüntülerin üretilmesini engelleme
+  - `"allow_adult"`: Çocukların değil, yetişkinlerin resimlerini üretin. Bu, varsayılan seçenektir.
+  - `"allow_all"`: Yetişkinlerin ve çocukların yer aldığı görüntüler üretin.
 
-## Guia de comandos do Imagen
+## Imagen istem rehberi
 
-Esta seção do guia do Imagen mostra como a modificação de um comando de texto para imagem
-pode produzir resultados diferentes, além de exemplos de imagens que você pode criar.
+Imagen kılavuzunun bu bölümünde, metinden görüntü oluşturma istemini değiştirmenin nasıl farklı sonuçlar verebileceği ve oluşturabileceğiniz resim örnekleri gösterilmektedir.
 
-### Noções básicas para escrever comandos
+### İstem yazmayla ilgili temel bilgiler
 
-Um bom comando é descritivo e claro, e usa palavras-chave e modificadores significativos. Comece pensando no **assunto**, no **contexto** e no **estilo**.
+İyi bir istem açıklayıcı ve net olmalı, anlamlı anahtar kelimeler ve değiştiriciler kullanmalıdır. **Özne**, **bağlam** ve **stilinizi** düşünerek başlayın.
 
-![Foco com assunto, contexto e estilo](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=pt-br)
+![Konu, bağlam ve stilin vurgulandığı istem](https://ai.google.dev/static/gemini-api/docs/images/imagen/style-subject-context.png?hl=tr)
 
-Texto da imagem: um *esboço* (**estilo**) de um *prédio moderno*
-(**assunto**) cercado por *arranha-céus* (**contexto e plano de fundo**).
+Resim metni: *Gökdelenlerle* (**bağlam ve arka plan**) çevrili bir *modern apartman binasının* (**konu**) *taslağı* (**stil**).
 
-1. **Assunto**: a primeira coisa a considerar com qualquer solicitação é o *assunto*: o objeto, a pessoa, o animal ou o cenário de que você quer uma imagem.
-2. **Contexto e plano de fundo:** o mais importante é o *plano de fundo ou o contexto* em que o assunto será colocado. Tente colocar o objeto
-   de várias formas. Por exemplo, um estúdio com fundo branco, ambientes externos ou ambientes internos.
-3. **Estilo:** por fim, adicione o estilo da imagem que você quer usar. Os *estilos* podem ser gerais (pintura, fotografia, esboços) ou muito específicos (pintura pastel, desenho a carvão, isométrico 3D). Também é possível combinar estilos.
+1. **Özne**: Her istemde ilk olarak *özneyi* düşünmeniz gerekir. Bu, resmini istediğiniz nesne, kişi, hayvan veya manzaradır.
+2. **Bağlam ve arka plan:** Konunun yerleştirileceği *arka plan veya bağlam* da aynı derecede önemlidir. Öznenizi çeşitli arka planlara yerleştirmeyi deneyin. Örneğin, beyaz arka planlı bir stüdyo, dış mekanlar veya iç mekanlar.
+3. **Stil:** Son olarak, istediğiniz resim stilini ekleyin. *Stiller* genel (tablo, fotoğraf, eskiz) veya çok özel (pastel boya, kömür çizimi, izometrik 3D) olabilir. Stilleri birleştirebilirsiniz.
 
-Depois de escrever uma primeira versão do comando, refine-o adicionando mais detalhes até chegar à imagem desejada. A iteração é importante.
-Comece estabelecendo sua ideia principal e depois refine e expanda essa ideia até que a imagem gerada fique parecida com sua visão.
+İsteminizi ilk kez yazdıktan sonra, istediğiniz görüntüye ulaşana kadar daha fazla ayrıntı ekleyerek isteminizi iyileştirin. Tekrar önemlidir.
+Önce temel fikrinizi belirleyin, ardından oluşturulan görüntü vizyonunuza yakın olana kadar bu temel fikri iyileştirin ve genişletin.
 
 |  |  |  |
 | --- | --- | --- |
-| imagem fotorrealista de amostra 1   Comando: um parque na primavera ao lado de um lago | imagem fotográfica realista 2   Instrução: um parque na primavera ao lado de um lago, **o sol se põe sobre o lago, golden hour** | imagem fotorrealista de amostra 3   Comando: um parque na primavera ao lado de um lago, ***o sol se põe sobre o lago, golden hour, flores silvestres vermelhas*** |
+| Gerçekçi örnek resim 1   İstem: İlkbaharda bir gölün yanındaki park | Gerçekçi örnek resim 2   İstem: İlkbaharda bir gölün yanındaki park, **güneş gölün karşısında batıyor, altın saat** | gerçekçi örnek resim 3   İstem: İlkbaharda bir gölün yanındaki park, ***güneş gölün karşısında batıyor, altın saat, kırmızı kır çiçekleri*** |
 
-Os modelos do Imagen podem transformar suas ideias em imagens detalhadas, sejam seus comandos curtos ou longos e detalhados. Refine sua visão com comandos iterativos, adicionando detalhes até alcançar o resultado perfeito.
+Imagen modelleri, istemleriniz kısa veya uzun ve ayrıntılı olsa da fikirlerinizi ayrıntılı görüntülere dönüştürebilir. İstediğiniz mükemmel sonucu elde edene kadar isteminizi yineleyerek ve ayrıntılar ekleyerek vizyonunuzu şekillendirin.
 
 |  |  |
 | --- | --- |
-| Comandos curtos permitem gerar uma imagem rapidamente.  Exemplo de comando curto da Imagen 4   Instrução: foto close up de uma mulher aos 20 anos, fotografia de rua, imagem estática de um filme, tons quentes de laranja suave | Comandos mais longos permitem adicionar detalhes específicos e criar sua imagem.  Exemplo de comando longo do Imagen 4   Instrução: foto cativante de uma mulher na faixa dos 20 anos usando um estilo de fotografia de rua. A imagem precisa parecer um filme com tons quentes de laranja esmaecido. |
+| Kısa istemler, hızlı bir şekilde resim üretmenize olanak tanır.  Imagen 4 kısa istem örneği   İstem: 20'li yaşlarında bir kadının yakın çekim fotoğrafı, sokak fotoğrafı, film karesi, soluk turuncu sıcak tonlar | Daha uzun istemler, belirli ayrıntılar eklemenize ve görüntünüzü oluşturmanıza olanak tanır.  Imagen 4 uzun istem örneği   İstem: 20'li yaşlarında bir kadının sokak fotoğrafçılığı tarzında çekilmiş büyüleyici fotoğrafı. Resim, turuncu rengin soluk tonlarının kullanıldığı bir film karesi gibi görünmeli. |
 
-Outras dicas para escrever comandos do Imagen:
+Imagen istemi yazmayla ilgili ek öneriler:
 
-- **Use uma linguagem descritiva**: use adjetivos e advérbios detalhados para
-  criar uma imagem clara para o Imagen.
-- **Contextualize**: se necessário, inclua informações básicas para ajudar a IA a entender.
-- **Referencie artistas ou estilos específicos**: se você tiver uma estética específica em mente, referenciar artistas ou movimentos artísticos pode ser útil.
-- **Use ferramentas de engenharia de comando**: considere usar ferramentas ou recursos de engenharia de comando para refinar seus comandos e alcançar os melhores resultados.
-- **Melhorar os detalhes faciais nas suas imagens pessoais e em grupo**: especifique os detalhes faciais como foco da foto (por exemplo, use a palavra "retrato" no comando).
+- **Açıklayıcı bir dil kullanın**: Imagen'e net bir resim sunmak için ayrıntılı sıfatlar ve zarflar kullanın.
+- **Bağlam bilgisi verin**: Gerekirse yapay zekanın anlamasına yardımcı olmak için arka plan bilgilerini ekleyin.
+- **Belirli sanatçılardan veya tarzlardan bahsedin**: Aklınızda belirli bir estetik varsa belirli sanatçılardan veya sanat akımlarından bahsetmek faydalı olabilir.
+- **İstem mühendisliği araçlarını kullanın**: İstemlerinizi hassaslaştırmanıza ve en iyi sonuçları elde etmenize yardımcı olacak istem mühendisliği araçlarını veya kaynaklarını inceleyin.
+- **Kişisel ve grup resimlerinizdeki yüz ayrıntılarını iyileştirme**: Yüz ayrıntılarını fotoğrafın odak noktası olarak belirtin (örneğin, istemde "portre" kelimesini kullanın).
 
-### Gerar texto em imagens
+### Resimlerde metin oluşturma
 
-Os modelos do Imagen podem adicionar texto às imagens, abrindo mais possibilidades criativas de geração de imagens. Use as orientações a seguir para aproveitar ao máximo esse recurso:
+Imagen modelleri, resimlere metin ekleyerek daha yaratıcı görüntü oluşturma olanakları sunar. Bu özellikten en iyi şekilde yararlanmak için aşağıdaki bilgileri kullanın:
 
-- **Itere com confiança**: talvez seja necessário regenerar imagens até
-  conseguir o resultado desejado. A integração de texto do Imagen ainda está em
-  evolução, e às vezes várias tentativas geram os melhores resultados.
-- **Seja breve**: limite o texto a 25 caracteres ou menos para uma geração
-  ideal.
-- **Várias frases**: teste duas ou três frases distintas para
-  fornecer mais informações. Evite usar mais de três frases para composições mais limpas.
+- **Güvenle yineleme yapın**: İstediğiniz görünümü elde edene kadar görüntüleri yeniden oluşturmanız gerekebilir. Imagen'in metin entegrasyonu hâlâ gelişme aşamasındadır ve bazen birden fazla deneme en iyi sonuçları verir.
+- **Kısa tutun**: En iyi sonuç için metni 25 karakterle sınırlayın.
+- **Birden fazla ifade**: Ek bilgi sağlamak için iki veya üç farklı ifadeyle denemeler yapın. Daha net kompozisyonlar için üç ifadeyi aşmayın.
 
-  ![Exemplo de texto gerado pela Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=pt-br)
+  ![Imagen 4 ile metin oluşturma örneği](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_generate-text.png?hl=tr)
 
-  Comando: um pôster com o texto "Summerland" em negrito como um
-  título. Abaixo desse texto, está o slogan "O verão nunca foi tão bom"
-- **Posicionamento de guia**: embora o Imagen possa tentar posicionar o texto conforme indicado, variações ocasionais são esperadas. Esse recurso está em constante melhoria.
-- **Estilo de fonte inspirador**: especifique um estilo de fonte geral para influenciar sutilmente as escolhas da Imagen. Não dependa da replicação precisa da fonte, mas espere interpretações criativas.
-- **Tamanho da fonte**: especifique um tamanho de fonte ou uma indicação geral de tamanho (por exemplo, *pequeno*, *médio*, *grande*) para influenciar a geração do tamanho da fonte.
+  İstem: Başlık olarak "Summerland" metninin kalın yazı tipiyle yazıldığı, bu metnin altında "Yaz hiç bu kadar güzel olmamıştı" sloganının yer aldığı bir poster.
+- **Kılavuz Yerleşimi**: Imagen, metni yönlendirildiği şekilde yerleştirmeye çalışsa da zaman zaman farklılıklar olabilir. Bu özellik sürekli olarak geliştirilmektedir.
+- **Yazı tipi stiline ilham verme**: Imagen'in seçimlerini ince bir şekilde etkilemek için genel bir yazı tipi stili belirtin. Yazı tipinin tam olarak aynı olmasını beklemeyin ancak yaratıcı yorumlar bekleyebilirsiniz.
+- **Yazı tipi boyutu**: Yazı tipi boyutu oluşturmayı etkilemek için yazı tipi boyutu veya genel bir boyut göstergesi (örneğin, *küçük*, *orta*, *büyük*) belirtin.
 
-### Parametrização de comandos
+### İstem parametrelendirme
 
-Para controlar melhor os resultados, pode ser útil parametrizar as entradas no Imagen. Por exemplo, suponha que você queira que seus clientes possam gerar logos para a empresa deles e queira garantir que os logos sejam sempre gerados em um fundo de cor sólida. Você
-também quer limitar as opções que o cliente pode selecionar em um menu.
+Çıkış sonuçlarını daha iyi kontrol etmek için Imagen'e girişleri parametrelendirmeniz faydalı olabilir. Örneğin, müşterilerinizin işletmeleri için logo oluşturabilmesini ve logoların her zaman düz renk bir arka plan üzerinde oluşturulmasını istediğinizi varsayalım. Ayrıca, müşterinin menüden seçebileceği seçenekleri de sınırlamak istiyorsunuz.
 
-Neste exemplo, é possível criar um comando parametrizado semelhante ao seguinte:
+Bu örnekte, aşağıdakine benzer şekilde parametrelendirilmiş bir istem oluşturabilirsiniz:
 
 ```
 A {logo_style} logo for a {company_area} company on a solid color background. Include the text {company_name}.
 ```
 
-Na sua interface do usuário personalizada, o cliente pode inserir os parâmetros usando
-um menu, e o valor escolhido preenche o comando que o Imagen recebe.
+Müşteri, özel kullanıcı arayüzünüzde parametreleri bir menü kullanarak girebilir ve seçtiği değer, Imagen'in aldığı istemi doldurur.
 
-Exemplo:
+Örneğin:
 
-1. Comando: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
+1. İstem: `A minimalist logo for a health care company on a solid color background. Include the text Journey.`
 
-   ![Exemplo 1 de parametrização de comandos do Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=pt-br)
-2. Comando: `A modern logo for a software company on a solid color background. Include the text Silo.`
+   ![Imagen 4 istem parametreleştirme örneği 1](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_healthcare.png?hl=tr)
+2. İstem: `A modern logo for a software company on a solid color background. Include the text Silo.`
 
-   ![Exemplo 2 de parametrização de comandos da Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=pt-br)
-3. Comando: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
+   ![Imagen 4 istem parametrelendirme örneği 2](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_software.png?hl=tr)
+3. İstem: `A traditional logo for a baking company on a solid color background. Include the text Seed.`
 
-   ![Exemplo 3 de parametrização de comandos do Imagen 4](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=pt-br)
+   ![Imagen 4 istem parametreleştirme örneği 3](https://ai.google.dev/static/gemini-api/docs/images/imagen/imagen3_prompt-param_baking.png?hl=tr)
 
-### Técnicas avançadas para a criação de prompts
+### Gelişmiş istem yazma teknikleri
 
-Use os exemplos a seguir para criar comandos mais específicos com base em atributos
-como descritores de fotografia, formas e materiais, movimentos de arte
-históricos e modificadores de qualidade de imagem.
+Fotoğraf tanımlayıcıları, şekiller ve malzemeler, tarihi sanat akımları ve görüntü kalitesi değiştiricileri gibi özelliklere dayalı olarak daha spesifik istemler oluşturmak için aşağıdaki örnekleri kullanın.
 
-#### Fotografia
+#### Fotoğrafçılık
 
-- A solicitação inclui: *"Uma foto de..."*
+- İstem şunları içerir: *"... fotoğrafı"*
 
-Para usar esse estilo, comece usando palavras-chave que informem claramente ao Imagen que você está procurando uma fotografia. Inicie suas solicitações com
-*"Uma foto de . "*. Por exemplo:
+Bu stili kullanmak için Imagen'a fotoğraf aradığınızı net bir şekilde belirten anahtar kelimelerle başlayın. İstemlerinize *"Şunun fotoğrafı:" ifadesiyle başlayın. . ."*. Örneğin:
 
 |  |  |  |
 | --- | --- | --- |
-| imagem fotorrealista de amostra 1   Prompt: **uma foto de** grãos de café em uma cozinha em uma superfície de madeira | imagem fotográfica realista 2   Prompt: **uma foto de** uma barra de chocolate em um balcão de cozinha | imagem fotorrealista de amostra 3   Prompt: **uma foto de** um edifício moderno com água em segundo plano |
+| Gerçekçi örnek resim 1   İstem: **Mutfakta ahşap bir yüzeyin üzerinde** kahve çekirdeklerinin fotoğrafı | Gerçekçi örnek resim 2   İstem: Mutfak tezgahında **bir** çikolata çubuğunun | gerçekçi örnek resim 3   İstem: Arka planda su bulunan modern bir binanın **fotoğrafı** |
 
-Fonte da imagem: cada imagem foi gerada usando a solicitação de texto correspondente com o modelo Imagen 4.
+Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
 
-##### Modificadores de fotografia
+##### Fotoğrafçılık değiştiricileri
 
-Nos exemplos abaixo, você pode ver vários modificadores
-e parâmetros específicos para fotografia. Você pode combinar vários modificadores para ter um controle mais preciso.
+Aşağıdaki örneklerde, fotoğrafa özel çeşitli değiştiricileri ve parametreleri görebilirsiniz. Daha hassas kontrol için birden fazla değiştiriciyi birleştirebilirsiniz.
 
-1. **Proximidade da câmera** - *Close-up, tirada de longe*
-
-   |  |  |
-   | --- | --- |
-   | Fechar imagem da amostra da câmera   Prompt: uma foto **de perto** de grãos de café | imagem de exemplo de câmera com zoom diminuído   Prompt: uma foto **afastada** de um pequeno saco de grãos de café  em uma cozinha bagunçada |
-2. **Posição da câmera**: *aéreo, vista de baixo*
+1. **Kamera Yakınlığı** - *Uzaktan çekilen yakın çekim*
 
    |  |  |
    | --- | --- |
-   | imagem de amostra da foto aérea   Comando: **foto aérea** de uma cidade urbana com arranha-céus | uma imagem de amostra de uma vista de baixo   Comando: foto de um dossel florestal com céu azul **abaixo** |
-3. **Iluminação**: *natural, dramático, calor, frio*
+   | yakın çekim kamera örnek görüntüsü   İstem: Kahve çekirdeklerinin **yakın çekim** fotoğrafı | Uzaklaştırılmış kamera örnek resmi   İstem: Dağınık bir mutfakta küçük bir kahve çekirdeği torbasının **uzaklaştırılmış** fotoğrafı |
+2. **Kamera Konumu** - *aerial, from below* (havadan, aşağıdan)
 
    |  |  |
    | --- | --- |
-   | imagem de amostra de iluminação natural   Prompt: foto de estúdio de uma cadeira moderna, **iluminação natural** | imagem de exemplo de iluminação dramática   Prompt: foto de estúdio de uma cadeira moderna, **iluminação dramática** |
-4. **Configurações da câmera** *— desfoque de movimento, foco suave, bokeh, retrato*
+   | Kuş bakışı fotoğraf örneği   İstem: Gökdelenlerin bulunduğu bir şehir merkezinin **havadan fotoğrafı** | alttan görünüm örnek resmi   İstem: **Aşağıdan** çekilmiş, mavi gökyüzünün göründüğü bir orman örtüsü fotoğrafı |
+3. **Işık** - *doğal, dramatik, sıcak, soğuk*
 
    |  |  |
    | --- | --- |
-   | imagem de amostra de desfoque de movimento   Comando: foto de uma cidade com arranha-céus dentro de um carro com **desfoque de movimento** | imagem de amostra de foco suave   Comando: **filtro difusor** na fotografia de uma ponte em uma cidade urbana à noite |
-5. **Tipos de lentes** - *35 mm, 50 mm, olho de peixe, grande angular, macro*
+   | doğal ışıklandırma örnek resmi   İstem: Modern bir koltuğun **doğal ışıkta** çekilmiş stüdyo fotoğrafı | dramatik ışıklandırma örnek resmi   İstem: modern bir koltuğun stüdyo fotoğrafı, **etkileyici ışıklandırma** |
+4. **Kamera Ayarları** *- hareket bulanıklığı, Odağı Yumuşat, bokeh, portre*
 
    |  |  |
    | --- | --- |
-   | imagem de amostra de lente macro   Comando: foto de uma folha, **lente macro** | imagem de amostra da lente olho de peixe   Instrução: fotografia de rua, cidade de Nova York, **lente olho de peixe** |
-6. **Tipos de filme** - *preto e branco, polaroid*
+   | hareket bulanıklığı örnek resmi   İstem: **Hareket bulanıklığı** olan bir arabanın içinden çekilmiş, gökdelenlerle dolu bir şehir fotoğrafı | Odağı Yumuşat örnek resmi   İstem: Gece, şehirdeki bir köprünün **odağı yumuşatılmış** fotoğrafı |
+5. **Lens türleri**: *35 mm, 50 mm, balık gözü, geniş açı, makro*
 
    |  |  |
    | --- | --- |
-   | imagem de amostra da foto polaroid   Comando: um **retrato polaroide** de um cachorro usando óculos escuros | imagem de amostra de foto em preto e branco   Instrução: **foto em preto e branco** de um cachorro usando óculos escuros |
+   | Makro lens örnek resmi   İstem: Yaprak fotoğrafı, **makro lens** | Balık gözü lens örnek resmi   İstem: sokak fotoğrafçılığı, New York City, **balık gözü lens** |
+6. **Film türleri** - *siyah beyaz, polaroid*
 
-Fonte da imagem: cada imagem foi gerada usando a solicitação de texto correspondente com o modelo Imagen 4.
+   |  |  |
+   | --- | --- |
+   | polaroid fotoğraf örneği   İstem: Güneş gözlüğü takan bir köpeğin **Polaroid portresi** | siyah beyaz fotoğraf örneği   İstem: Güneş gözlüğü takan bir köpeğin **siyah beyaz fotoğrafı** |
 
-### Ilustração e arte
+Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
 
-- A solicitação inclui: *"A painting de..."*, *"Um sketch de..."*
+### Resim ve sanat
 
-Os estilos de arte variam de estilos monocromáticos como esboços a lápis à arte digital
-realista. Por exemplo, as imagens a seguir usam a mesma solicitação com estilos diferentes:
+- İstem şunları içerir: *"... painting resmi"*, *"Bir sketch..."*
 
-*"Um [art style or creation technique] de um sedan elétrico esportivo angular com arranha-céus em segundo plano"*
+Sanat stilleri, kalemle çizilmiş taslaklar gibi tek renkli stillerden hiper gerçekçi dijital sanat eserlerine kadar çeşitlilik gösterir. Örneğin, aşağıdaki resimlerde farklı stillerle aynı istem kullanılmıştır:
+
+*"Arka planda gökdelenlerin olduğu, köşeli ve sportif bir elektrikli sedanın [art style or creation technique]"*
 
 |  |  |  |
 | --- | --- | --- |
-| imagens de amostra de arte   Prompt: um **desenho técnico de lápis** de um angular... | imagens de amostra de arte   Prompt: um **desenho de carvão** de um angular... | imagens de amostra de arte   Comando: um **desenho de lápis de cor** de um angular... |
+| sanat örnek resimleri   İstem: Köşeli bir...**teknik kurşun kalem çizimi** | sanat örnek resimleri   İstem: A **charcoal drawing** of an angular... | Sanat örnek resimleri   İstem: Köşeli bir...**renkli kalem çizimi** |
 
 |  |  |  |
 | --- | --- | --- |
-| imagens de amostra de arte   Instrução: uma **pintura pastel** de um angular... | imagens de amostra de arte   Comando: uma **arte digital** de uma imagem angular... | imagens de amostra de arte   Prompt: um **art déco (pôster)** de um angular... |
+| sanat örnek resimleri   İstem: Köşeli bir...**pastel boya resmi** | Sanat örnek resimleri   İstem: Köşeli bir...**dijital sanatı** | Sanat örnek resimleri   İstem: Köşeli bir...**art deco (poster)** |
 
-Fonte da imagem: cada imagem foi gerada usando o comando de texto correspondente com o modelo Imagen 2.
+Resim kaynağı: Her resim, Imagen 2 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
 
-##### Formas e materiais
+##### Şekiller ve malzemeler
 
-- A solicitação inclui: *"...made of..."*, *"...na forma de..."*
+- İstem şunları içeriyor: *"...yapılmış..."*, *"...şeklinde..."*
 
-Um dos pontos fortes dessa tecnologia é a possibilidade de criar imagens que seriam difíceis ou impossíveis. Por exemplo, é possível recriar
-o logotipo da empresa em diferentes materiais e texturas.
-
-|  |  |  |
-| --- | --- | --- |
-| imagem e exemplos de exemplo de imagem 1   Prompt: uma bolsa de viagem **feita de** queijo | imagem e exemplos de exemplo de imagem 2   Comando: tubos de neon **no formato** de um pássaro | imagem e exemplos de exemplo de imagem 3   Solicitação: uma poltrona **feita de papel**, foto de estúdio, estilo origami |
-
-Fonte da imagem: cada imagem foi gerada usando a solicitação de texto correspondente com o modelo Imagen 4.
-
-#### Referências de arte históricas
-
-- A solicitação inclui: *"...in the style of..."*
-
-Alguns estilos se tornaram icônicos ao longo dos anos. Confira algumas ideias de pintura histórica ou estilos de arte que você pode testar.
-
-*"gere uma imagem no estilo de [art period or movement]
-: um parque eólico"*
+Bu teknolojinin güçlü yönlerinden biri, başka şekilde zor veya imkansız olan görüntüler oluşturabilmenizdir. Örneğin, şirket logonuzu farklı materyaller ve dokularla yeniden oluşturabilirsiniz.
 
 |  |  |  |
 | --- | --- | --- |
-| imagem de exemplo de impressionismo   Comando: gere uma imagem **no estilo de *uma pintura impressionista***: um parque eólico | imagem de exemplo do renascentista   Comando: gere uma imagem **no estilo de *uma pintura renascentista***: um parque eólico | imagem de exemplo de pop art   Comando: gere uma imagem **no estilo de *pop art***: um parque eólico |
+| Şekiller ve malzemeler örneği resim 1   İstem: **Peynirden yapılmış** bir spor çantası | şekiller ve malzemeler örneği resim 2   İstem: Kuş **şeklinde** neon tüpler | şekiller ve malzemeler örneği resim 3   İstem: **Kağıttan yapılmış** bir koltuk, stüdyo fotoğrafı, origami tarzı |
 
-Fonte da imagem: cada imagem foi gerada usando a solicitação de texto correspondente com o modelo Imagen 4.
+Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
 
-#### Modificadores de qualidade da imagem
+#### Tarihi sanat referansları
 
-Algumas palavras-chave podem informar ao modelo que você está procurando um recurso de alta qualidade. Veja alguns exemplos de modificadores de qualidade:
+- İstem şunları içeriyor: *"...tarzında..."*
 
-- **Modificadores gerais**: *alta qualidade, bonito, estilizado*
-- **Fotos**: *fotos 4K, HDR e do Studio*
-- **Arte, Ilustração**: *por um profissional, detalhado*
+Bazı stiller yıllar içinde ikonik hale geldi. Aşağıda deneyebileceğiniz bazı tarihi resim veya sanat tarzları fikirleri verilmiştir.
 
-Veja a seguir alguns exemplos de prompts sem modificadores de qualidade e
-o mesmo com modificadores de qualidade.
+*"[art period or movement]
+ tarzında bir resim üret: rüzgar çiftliği"*
+
+|  |  |  |
+| --- | --- | --- |
+| empresyonizm örneği resim   İstem: **Empresyonist bir tablo*tarzında*** bir görüntü oluştur: rüzgar çiftliği | Rönesans dönemi örneği   İstem: **Rönesans dönemi tablosu *stilinde*** bir rüzgar çiftliği resmi oluştur | Pop art örneği resim   İstem: **Pop art*tarzında*** bir rüzgar çiftliği resmi üret |
+
+Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
+
+#### Resim kalitesi değiştiricileri
+
+Belirli anahtar kelimeler, modelin yüksek kaliteli bir öğe aradığınızı anlamasını sağlayabilir. Kalite değiştiricilere örnek olarak şunlar verilebilir:
+
+- **Genel Değiştiriciler** - *yüksek kaliteli, güzel, stilize edilmiş*
+- **Fotoğraflar** - *4K, HDR, Studio Photo*
+- **Sanat, İllüstrasyon** - *Profesyonel, ayrıntılı*
+
+Aşağıda, kalite değiştiricileri içermeyen istemlere ve aynı istemin kalite değiştiricileri içeren versiyonuna dair birkaç örnek verilmiştir.
 
 |  |  |
 | --- | --- |
-| imagem de exemplo de milho sem modificadores   Solicitação (sem modificadores de qualidade): uma foto de um talo de milho | imagem de exemplo de milho com modificadores **Comando (com modificadores de qualidade): 4K HDR bonito   foto de uma haste de milho **tirada por um fotógrafo profissional de**** |
+| Değiştiriciler olmadan mısır örneği resmi   İstem (kalite değiştiriciler yok): Bir mısır sapının fotoğrafı | Değiştiricilerle birlikte mısır örneği resmi   İstem (kalite değiştiricilerle): **4K HDR kalitesinde**   bir mısır koçanı **profesyonel bir   fotoğrafçı tarafından çekilmiş** |
 
-Fonte da imagem: cada imagem foi gerada usando a solicitação de texto correspondente com o modelo Imagen 4.
+Resim kaynağı: Her resim, Imagen 4 modeliyle ilgili metin istemi kullanılarak oluşturulmuştur.
 
-#### Proporções
+#### En boy oranları
 
-A geração de imagens do Imagen permite definir cinco proporções
-de imagem distintas.
+Imagen ile görüntü üretme özelliği, beş farklı görüntü en-boy oranı ayarlamanıza olanak tanır.
 
-1. **Quadrado** (1:1, padrão): uma foto quadrada padrão. Usos comuns para essa proporção incluem postagens de mídias sociais.
-2. **Tela cheia** (4:3): essa proporção é usada com frequência em mídias ou filmes.
-   Elas também têm as mesmas dimensões da maioria das TVs e câmeras de formato médio antigas. Ela captura mais da cena horizontalmente (em comparação com 1:1),
-   o que a torna uma proporção preferencial para fotografia.
+1. **Kare** (1:1, varsayılan): Standart bir kare fotoğraf. Bu en-boy oranının yaygın kullanım alanları arasında sosyal medya gönderileri yer alır.
+2. **Tam ekran** (4:3): Bu en boy oranı genellikle medyada veya filmlerde kullanılır.
+   Ayrıca çoğu eski (geniş ekran olmayan) TV'nin ve orta formatlı kameraların boyutlarıdır. Yatay olarak daha fazla sahneyi yakalar (1:1 ile karşılaştırıldığında). Bu nedenle, fotoğrafçılıkta tercih edilen en boy oranıdır.
 
    |  |  |
    | --- | --- |
-   | exemplo de proporção   Instrução: close dos dedos de um músico tocando piano, filme em preto e branco, vintage (proporção de 4:3) | exemplo de proporção   Instrução: uma foto profissional de um estúdio que mostra batatas fritas para um restaurante sofisticado, no estilo de uma revista de culinária (proporção de 4:3) |
-3. **Tela cheia em modo retrato** (3:4): é a proporção de tela cheia girada
-   em 90 graus. Isso permite capturar mais da cena verticalmente em comparação com
-   a proporção de 1:1.
+   | en-boy oranı örneği   İstem: Piyano çalan bir müzisyenin parmaklarının yakın çekimi, siyah beyaz film, vintage (4:3 en boy oranı) | en-boy oranı örneği   İstem: Lüks bir restoran için patates kızartmasının yemek dergisi tarzında profesyonel bir stüdyo fotoğrafı (4:3 en-boy oranı) |
+3. **Dikey tam ekran** (3:4): Bu, 90 derece döndürülmüş tam ekran en boy oranıdır. Bu sayede, 1:1 en boy oranına kıyasla sahnenin daha fazlasını dikey olarak yakalayabilirsiniz.
 
    |  |  |
    | --- | --- |
-   | exemplo de proporção   Instrução: uma mulher caminhando, perto de suas botas refletidas em uma poça, grandes montanhas ao fundo, no estilo de um anúncio, ângulos dramáticos (proporção 3:4) | exemplo de proporção   Instrução: imagem aérea de um rio fluindo por um vale místico (proporção 3:4) |
-4. **Widescreen** (16:9): essa proporção substituiu a de 4:3 e agora é a
-   proporção mais comum para TVs, monitores e telas de smartphones (paisagem).
-   Use essa proporção quando quiser capturar mais do plano de fundo (por
-   exemplo, paisagens panorâmicas).
+   | en-boy oranı örneği   İstem: Yürüyüş yapan bir kadının botlarının su birikintisine yansıyan yakın çekimi, arka planda büyük dağlar, reklam tarzında, dramatik açılar (3:4 en-boy oranı) | en-boy oranı örneği   İstem: Bir nehrin mistik bir vadide aktığına dair kuşbakışı çekim (3:4 en-boy oranı) |
+4. **Geniş ekran** (16:9): Bu oran, 4:3'ün yerini almıştır ve artık TV'ler, monitörler ve cep telefonu ekranları (yatay) için en yaygın en boy oranıdır.
+   Arka planın daha fazlasını (ör. manzaralar) yakalamak istediğinizde bu en boy oranını kullanın.
 
-   ![exemplo de proporção](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=pt-br)
+   ![en-boy oranı örneği](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_16-9_man.png?hl=tr)
 
-   Instrução: um homem vestindo roupas
-   brancas sentado na praia, de perto, com iluminação de golden hour (proporção
-   de 16:9)
-5. **Retrato** (9:16): essa proporção é widescreen, mas girada. Essa é uma
-   proporção relativamente nova que ficou conhecida por apps de vídeos mais curtos (por exemplo, YouTube Shorts). Use essa opção para objetos altos com fortes
-   orientações verticais, como edifícios, árvores, cachoeiras ou outros objetos
-   semelhantes.
+   İstem: Plajda oturan, baştan aşağı beyaz giyinmiş bir adam, yakın çekim, gün batımının altın saatindeki ışık (16:9 en-boy oranı)
+5. **Dikey** (9:16): Bu oran geniş ekranın döndürülmüş halidir. Bu, kısa video uygulamaları (ör. YouTube Shorts) tarafından popüler hale getirilen nispeten yeni bir en-boy oranıdır. Binalar, ağaçlar, şelaleler veya benzeri diğer nesneler gibi güçlü dikey yönlere sahip uzun nesneler için kullanın.
 
-   ![exemplo de proporção](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=pt-br)
+   ![en-boy oranı örneği](https://ai.google.dev/static/gemini-api/docs/images/imagen/aspect-ratios_9-16_skyscraper.png?hl=tr)
 
-   Instrução: uma renderização digital de um arranha-céu enorme, moderno, grandioso, épico com um lindo pôr do sol ao fundo (proporção de 9:16)
+   İstem: Arka planda güzel bir gün batımı olan, devasa, modern, görkemli ve destansı bir gökdelenin dijital görüntüsü (9:16 en-boy oranı)
 
-#### Imagens fotorrealistas
+#### Fotoğraf gerçekliğinde görüntüler
 
-Versões diferentes do modelo de geração de imagens podem oferecer uma combinação de saídas artísticas e fotorrealistas. Use a seguinte
-palavra nos comandos para gerar uma saída mais fotorrealista com base no assunto
-que quiser gerar.
+Görüntü üretme modelinin farklı sürümleri, sanatsal ve fotogerçekçi çıkışların bir karışımını sunabilir. Oluşturmak istediğiniz konuya göre daha fotogerçekçi bir çıktı oluşturmak için istemlerde aşağıdaki ifadeleri kullanın.
 
-| Caso de uso | Tipo de lente | Distâncias focais | Mais detalhes |
+| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
 | --- | --- | --- | --- |
-| Pessoas (retratos) | Prime, zoom | 24-35mm | filme em preto e branco, Filme noir, Profundidade de campo, duotone (mencione duas cores) |
-| Comida, insetos, plantas (objetos, natureza morta) | Macro | 60-105mm | Alto nível de detalhes, foco preciso, iluminação controlada |
-| Esportes, vida selvagem (movimento) | Zoom telefoto | 100-400mm | Velocidade rápida do obturador, rastreamento de ação ou movimento |
-| Astronômico, paisagem (amplo angular) | Grande angular | 10-24mm | Longos tempos de exposição, foco nítido, exposição longa, água suave ou nuvens |
+| Kişiler (portreler) | Üs, yakınlaştırma | 24-35mm | Siyah beyaz film, Film noir, Alan derinliği, iki tonlu (iki renkten bahsedin) |
+| Yiyecek, böcek, bitki (nesneler, natürmort) | Makro | 60-105mm | Yüksek ayrıntı, hassas odaklama, kontrollü ışıklandırma |
+| Spor, vahşi yaşam (hareket) | Telefoto yakınlaştırma | 100-400mm | Yüksek deklanşör hızı, aksiyon veya hareket takibi |
+| Astronomik, manzara (geniş açı) | Geniş Açı | 10-24mm | Uzun pozlama süreleri, keskin odak, uzun pozlama, pürüzsüz su veya bulutlar |
 
-##### Retratos
+##### Portreler
 
-| Caso de uso | Tipo de lente | Distâncias focais | Mais detalhes |
+| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
 | --- | --- | --- | --- |
-| Pessoas (retratos) | Prime, zoom | 24-35mm | filme em preto e branco, Filme noir, Profundidade de campo, duotone (mencione duas cores) |
+| Kişiler (portreler) | Üs, yakınlaştırma | 24-35mm | Siyah beyaz film, Film noir, Alan derinliği, Çift tonlu (iki renkten bahsedin) |
 
-Usando várias palavras-chave da tabela, o Imagen pode gerar os seguintes
-retratos:
+Imagen, tablodaki birkaç anahtar kelimeyi kullanarak aşağıdaki portreleri oluşturabilir:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| exemplo de fotografia de retrato | exemplo de fotografia de retrato | exemplo de fotografia de retrato | exemplo de fotografia de retrato |
+| Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği |
 
-Comando: *uma mulher, retrato de 35 mm, duotons azul e cinza*  
-Modelo: `imagen-4.0-generate-001`
-
-|  |  |  |  |
-| --- | --- | --- | --- |
-| exemplo de fotografia de retrato | exemplo de fotografia de retrato | exemplo de fotografia de retrato | exemplo de fotografia de retrato |
-
-Comando: *uma mulher, retrato de 35 mm, film noir*  
-Modelo: `imagen-4.0-generate-001`
-
-##### Objetos
-
-| Caso de uso | Tipo de lente | Distâncias focais | Mais detalhes |
-| --- | --- | --- | --- |
-| Comida, insetos, plantas (objetos, natureza morta) | Macro | 60-105mm | Alto nível de detalhes, foco preciso, iluminação controlada |
-
-Usando várias palavras-chave da tabela, o Imagen pode gerar as seguintes imagens de objeto:
+İstem: *35 mm portre, mavi ve gri çift tonlu bir kadın*  
+Model: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| exemplo de fotografia de objeto | exemplo de fotografia de objeto | exemplo de fotografia de objeto | exemplo de fotografia de objeto |
+| Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği | Portre fotoğrafçılığı örneği |
 
-Comando: *folha de uma planta de oração, lente macro, 60 mm*  
-Modelo: `imagen-4.0-generate-001`
+İstem: *Bir kadın, 35 mm portre, film noir*  
+Model: `imagen-4.0-generate-001`
+
+##### Nesneler
+
+| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
+| --- | --- | --- | --- |
+| Yiyecek, böcek, bitki (nesneler, natürmort) | Makro | 60-105mm | Yüksek ayrıntı, hassas odaklama, kontrollü ışıklandırma |
+
+Tablodaki birkaç anahtar kelimeyi kullanarak Imagen, aşağıdaki nesne resimlerini oluşturabilir:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| exemplo de fotografia de objeto | exemplo de fotografia de objeto | exemplo de fotografia de objeto | exemplo de fotografia de objeto |
+| Nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği |
 
-Comando: *um prato de macarrão, lente macro de 100 mm*  
-Modelo: `imagen-4.0-generate-001`
-
-##### Movimento
-
-| Caso de uso | Tipo de lente | Distâncias focais | Mais detalhes |
-| --- | --- | --- | --- |
-| Esportes, vida selvagem (movimento) | Zoom telefoto | 100-400mm | Velocidade rápida do obturador, rastreamento de ação ou movimento |
-
-Usando várias palavras-chave da tabela, o Imagen
-pode gerar as seguintes imagens em movimento:
+İstem: *dua çiçeği yaprağı, makro lens, 60 mm*  
+Model: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| exemplo de fotografia com movimento | exemplo de fotografia com movimento | exemplo de fotografia com movimento | exemplo de fotografia com movimento |
+| nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği | nesne fotoğrafı örneği |
 
-Comando: *um touchdown vencedor, velocidade do obturador rápida e rastreamento de movimento*  
-Modelo: `imagen-4.0-generate-001`
+İstem: *a plate of pasta, 100mm Macro lens*  
+Model: `imagen-4.0-generate-001`
+
+##### Hareket
+
+| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
+| --- | --- | --- | --- |
+| Spor, vahşi yaşam (hareket) | Telefoto yakınlaştırma | 100-400mm | Yüksek deklanşör hızı, aksiyon veya hareket takibi |
+
+Imagen, tablodaki birkaç anahtar kelimeyi kullanarak aşağıdaki hareketli görüntüleri oluşturabilir:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| exemplo de fotografia com movimento | exemplo de fotografia com movimento | exemplo de fotografia com movimento | exemplo de fotografia com movimento |
+| hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği |
 
-Comando: *um cervo correndo na floresta, alta velocidade do obturador, rastreamento de movimento*  
-Modelo: `imagen-4.0-generate-001`
-
-##### Grande angular
-
-| Caso de uso | Tipo de lente | Distâncias focais | Mais detalhes |
-| --- | --- | --- | --- |
-| Astronômico, paisagem (amplo angular) | Grande angular | 10-24mm | Longos tempos de exposição, foco nítido, exposição longa, água suave ou nuvens |
-
-Usando várias palavras-chave da tabela, o Imagen pode gerar as seguintes imagens grande angulares:
+İstem: *kazandıran touchdown, hızlı deklanşör hızı, hareket takibi*  
+Model: `imagen-4.0-generate-001`
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Exemplo de fotografia grande angular | Exemplo de fotografia grande angular | Exemplo de fotografia grande angular | Exemplo de fotografia grande angular |
+| hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği | hareketli fotoğrafçılık örneği |
 
-Comando: *uma ampla cordilheira, ângulo amplo de paisagem de 10 mm*  
-Modelo: `imagen-4.0-generate-001`
+İstem: *Ormanda koşan bir geyik, yüksek deklanşör hızı, hareket takibi*  
+Model: `imagen-4.0-generate-001`
+
+##### Geniş Açı
+
+| Kullanım alanı | Lens türü | Odak uzaklıkları | Ek bilgiler |
+| --- | --- | --- | --- |
+| Astronomik, manzara (geniş açı) | Geniş Açı | 10-24mm | Uzun pozlama süreleri, keskin odak, uzun pozlama, pürüzsüz su veya bulutlar |
+
+Tablodaki birkaç anahtar kelimeyi kullanarak Imagen, aşağıdaki geniş açılı fotoğrafları oluşturabilir:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| Exemplo de fotografia grande angular | Exemplo de fotografia grande angular | Exemplo de fotografia grande angular | Exemplo de fotografia grande angular |
+| Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği |
 
-Comando: *uma foto da lua, fotografia astronômica, ângulo amplo de 10 mm*  
-Modelo: `imagen-4.0-generate-001`
+İstem: *an expansive mountain range, landscape wide angle 10mm*  
+Model: `imagen-4.0-generate-001`
 
-## Versões do modelo
+|  |  |  |  |
+| --- | --- | --- | --- |
+| Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği | Geniş açılı fotoğraf örneği |
 
-### Imagen 4
+İstem: *Ayın fotoğrafı, astro fotoğrafçılık, 10 mm geniş açı*  
+Model: `imagen-4.0-generate-001`
 
-| Propriedade | Descrição |
+## Model sürümleri
+
+### Imagen 4 (desteği sonlandırıldı)
+
+| Mülk | Açıklama |
 | --- | --- |
-| Código do modelo id\_card | **API Gemini**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveTipos de dados aceitos | **Entrada**  Texto  **Saída**  Imagens |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  480 tokens (texto)  **Imagens de saída**  1 a 4 (Ultra/Standard/Fast) |
-| calendar\_monthÚltima atualização | Junho de 2025 |
+| id\_cardModel kodu | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveDesteklenen veri türleri | **Giriş**  Metin  **Çıkış**  Resimler |
+| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  480 jeton (metin)  **Çıkış resimleri**  1 ila 4 (Ultra/Standart/Hızlı) |
+| calendar\_monthSon güncelleme | Haziran 2025 |
 
 ### Imagen 3
 
-O modelo Imagen 3 foi [desativado](https://ai.google.dev/gemini-api/docs/deprecations?hl=pt-br).
+Imagen 3 modeli [kapatıldı](https://ai.google.dev/gemini-api/docs/deprecations?hl=tr).
 
-Envie comentários
+Geri bildirim gönderin
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Última atualização 2026-05-13 UTC.
+Son güncelleme tarihi: 2026-07-16 UTC.
 
-Quer enviar seu feedback?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-05-13 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-07-16 UTC."],[],[]]

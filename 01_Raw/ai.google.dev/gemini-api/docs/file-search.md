@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=ar
-fetched_at: 2026-07-06T05:05:41.405954+00:00
+fetched_at: 2026-07-20T04:39:56.009904+00:00
 title: "\u0627\u0644\u0628\u062d\u062b \u0639\u0646 \u0627\u0644\u0645\u0644\u0641\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,9 +18,9 @@ Google uses AI technology to translate content into your preferred language. AI 
 
 # البحث عن الملفات
 
-تتيح Gemini API ميزة "التوليد المعزّز بالاسترجاع" من خلال أداة "البحث في الملفات". تستورد ميزة "البحث في الملفات" بياناتك وتقسّمها إلى أجزاء وتفهرسها لتتيح استرجاع المعلومات ذات الصلة بسرعة استنادًا إلى طلب مقدَّم. يتم بعد ذلك استخدام هذه المعلومات المسترجَعة كسياق للنموذج، ما يتيح له تقديم إجابات أكثر دقة وملاءمةً. تتوفّر أيضًا إمكانات البحث المتعدّد الوسائط في ميزة &quot;البحث عن الملفات&quot;، وذلك من خلال تضمين النصوص المتوافق مع `gemini-embedding-001`، وتضمين الصور/الوسائط المتعددة المتوافق مع `gemini-embedding-2`.
+تتيح Gemini API ميزة "التوليد المعزّز بالاسترجاع" من خلال أداة "البحث في الملفات". تستورد ميزة "البحث في الملفات" بياناتك وتقسّمها إلى أجزاء وتفهرسها لتتيح استرجاع المعلومات ذات الصلة بسرعة استنادًا إلى طلب مقدَّم. يتم بعد ذلك استخدام هذه المعلومات المسترجَعة كسياق للنموذج، ما يتيح له تقديم إجابات أكثر دقة وملاءمةً. تتوفّر أيضًا إمكانات البحث المتعدّد الوسائط في ميزة "البحث عن الملفات"، وذلك من خلال تضمين النصوص باستخدام `gemini-embedding-001`، وتضمين الصور والوسائط المتعددة باستخدام `gemini-embedding-2`.
 
-تكون مساحة تخزين الملفات وإنشاء عمليات التضمين مجانية عند وقت طلب البحث، ولن تدفع إلا مقابل إنشاء عمليات التضمين عند فهرسة ملفاتك لأول مرة وتكلفة الرموز المميزة العادية للإدخال والإخراج في نموذج Gemini. يساهم نموذج الفوترة الجديد هذا في تسهيل عملية إنشاء &quot;أداة البحث عن الملفات&quot; وتوسيع نطاقها، كما يقلّل من تكلفتها. راجِع قسم [الأسعار](#pricing) لمعرفة التفاصيل.
+تكون عملية تخزين الملفات وإنشاء عمليات التضمين عند وقت طلب البحث مجانية، ولن تدفع إلا مقابل إنشاء عمليات التضمين عند فهرسة ملفاتك لأول مرة وتكلفة الرموز المميزة العادية الخاصة بمدخلات ومخرجات نموذج Gemini. يساهم نموذج الفوترة الجديد هذا في تسهيل عملية إنشاء &quot;أداة البحث عن الملفات&quot; وتوسيع نطاقها، كما يقلّل من تكلفتها. راجِع قسم [الأسعار](#pricing) لمعرفة التفاصيل.
 
 ## التحميل مباشرةً إلى "متجر البحث عن الملفات"
 
@@ -79,7 +79,7 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
-const { GoogleGenAI } = require('@google/genai');
+import { GoogleGenAI } from '@google/genai';
 
 const ai = new GoogleGenAI({});
 
@@ -135,6 +135,55 @@ async function run() {
 run();
 ```
 
+### REST
+
+```
+# 1. Create a File Search store
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?key=$GEMINI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "displayName": "your-file-search-store-name",
+      "embeddingModel": "models/gemini-embedding-2"
+    }' > store_res.json
+
+FILE_SEARCH_STORE_NAME=$(jq -r ".name" store_res.json)
+
+# 2. Upload directly to File Search store using resumable upload
+NUM_BYTES=$(wc -c < "sample.txt")
+curl "https://generativelanguage.googleapis.com/upload/v1beta/fileSearchStores/$FILE_SEARCH_STORE_NAME:uploadToFileSearchStore?key=$GEMINI_API_KEY" \
+    -D upload-header.tmp \
+    -H "X-Goog-Upload-Protocol: resumable" \
+    -H "X-Goog-Upload-Command: start" \
+    -H "X-Goog-Upload-Header-Content-Length: $NUM_BYTES" \
+    -H "X-Goog-Upload-Header-Content-Type: text/plain" \
+    -H "Content-Type: application/json" \
+    -d '{"displayName": "sample.txt"}' 2> /dev/null
+
+upload_url=$(grep -i "x-goog-upload-url: " upload-header.tmp | cut -d" " -f2 | tr -d "\r")
+rm upload-header.tmp
+
+curl "${upload_url}" \
+    -H "Content-Length: $NUM_BYTES" \
+    -H "X-Goog-Upload-Offset: 0" \
+    -H "X-Goog-Upload-Command: upload, finalize" \
+    --data-binary "@sample.txt" 2> /dev/null > upload_response.json
+
+cat upload_response.json
+
+# 3. Query using the File Search store
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "model": "gemini-3.5-flash",
+      "input": "Can you tell me about [insert question]",
+      "tools": [{
+        "type": "file_search",
+        "file_search_store_names": ["'"$FILE_SEARCH_STORE_NAME"'"]
+      }]
+    }'
+```
+
 راجِع مرجع واجهة برمجة التطبيقات [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#method:-media.uploadtofilesearchstore) للحصول على مزيد من المعلومات.
 
 ## استيراد الملفات
@@ -187,7 +236,7 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
-const { GoogleGenAI } = require('@google/genai');
+import { GoogleGenAI } from '@google/genai';
 
 const ai = new GoogleGenAI({});
 
@@ -237,6 +286,60 @@ async function run() {
 run();
 ```
 
+### REST
+
+```
+# 1. Upload file using the Files API
+NUM_BYTES=$(wc -c < "sample.txt")
+curl "https://generativelanguage.googleapis.com/upload/v1beta/files?key=$GEMINI_API_KEY" \
+    -D upload-header.tmp \
+    -H "X-Goog-Upload-Protocol: resumable" \
+    -H "X-Goog-Upload-Command: start" \
+    -H "X-Goog-Upload-Header-Content-Length: $NUM_BYTES" \
+    -H "X-Goog-Upload-Header-Content-Type: text/plain" \
+    -H "Content-Type: application/json" \
+    -d '{"file": {"displayName": "sample.txt"}}' 2> /dev/null
+
+upload_url=$(grep -i "x-goog-upload-url: " upload-header.tmp | cut -d" " -f2 | tr -d "\r")
+rm upload-header.tmp
+
+curl "${upload_url}" \
+    -H "Content-Length: $NUM_BYTES" \
+    -H "X-Goog-Upload-Offset: 0" \
+    -H "X-Goog-Upload-Command: upload, finalize" \
+    --data-binary "@sample.txt" 2> /dev/null > file_info.json
+
+FILE_NAME=$(jq -r ".file.name" file_info.json)
+
+# 2. Create a File Search store
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?key=$GEMINI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "displayName": "your-file-search-store-name",
+      "embeddingModel": "models/gemini-embedding-2"
+    }' > store_res.json
+
+FILE_SEARCH_STORE_NAME=$(jq -r ".name" store_res.json)
+
+# 3. Import the file into the File Search store
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/$FILE_SEARCH_STORE_NAME:importFile?key=$GEMINI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{"fileName": "'"$FILE_NAME"'"}'
+
+# 4. Query using the File Search store
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+    -H "x-goog-api-key: $GEMINI_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "model": "gemini-3.5-flash",
+      "input": "Can you tell me about [insert question]",
+      "tools": [{
+        "type": "file_search",
+        "file_search_store_names": ["'"$FILE_SEARCH_STORE_NAME"'"]
+      }]
+    }'
+```
+
 راجِع مرجع واجهة برمجة التطبيقات [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=ar#method:-filesearchstores.importfile) للحصول على مزيد من المعلومات.
 
 ## إعدادات التقسيم
@@ -275,7 +378,7 @@ print("Custom chunking complete.")
 ### JavaScript
 
 ```
-const { GoogleGenAI } = require('@google/genai');
+import { GoogleGenAI } from '@google/genai';
 
 const ai = new GoogleGenAI({});
 
@@ -300,6 +403,39 @@ while (!operation.done) {
 console.log("Custom chunking complete.");
 ```
 
+### REST
+
+```
+NUM_BYTES=$(wc -c < "sample.txt")
+curl "https://generativelanguage.googleapis.com/upload/v1beta/fileSearchStores/$FILE_SEARCH_STORE_NAME:uploadToFileSearchStore?key=$GEMINI_API_KEY" \
+    -D upload-header.tmp \
+    -H "X-Goog-Upload-Protocol: resumable" \
+    -H "X-Goog-Upload-Command: start" \
+    -H "X-Goog-Upload-Header-Content-Length: $NUM_BYTES" \
+    -H "X-Goog-Upload-Header-Content-Type: text/plain" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "displayName": "sample.txt",
+      "chunkingConfig": {
+        "whiteSpaceConfig": {
+          "maxTokensPerChunk": 200,
+          "maxOverlapTokens": 20
+        }
+      }
+    }' 2> /dev/null
+
+upload_url=$(grep -i "x-goog-upload-url: " upload-header.tmp | cut -d" " -f2 | tr -d "\r")
+rm upload-header.tmp
+
+curl "${upload_url}" \
+    -H "Content-Length: $NUM_BYTES" \
+    -H "X-Goog-Upload-Offset: 0" \
+    -H "X-Goog-Upload-Command: upload, finalize" \
+    --data-binary "@sample.txt" 2> /dev/null > upload_response.json
+
+cat upload_response.json
+```
+
 لاستخدام متجر "بحث الملفات"، مرِّره كأداة إلى طريقة `interactions.create`، كما هو موضّح في المثالَين [تحميل](#upload) و[استيراد](#importing-files).
 
 ## آلية العمل
@@ -316,10 +452,9 @@ console.log("Custom chunking complete.");
 في ما يلي تفصيل لعملية استخدام واجهة برمجة التطبيقات File Search
 `uploadToFileSearchStore`:
 
-1. **إنشاء مستودع بحث في الملفات**: يحتوي مستودع بحث في الملفات على البيانات المعالَجة من ملفاتك. وهي الحاوية الدائمة لعمليات التضمين التي سيتم إجراء البحث الدلالي عليها.
+1. **إنشاء مستودع بحث في الملفات**: يحتوي مستودع بحث في الملفات على البيانات المعالَجة من ملفاتك. وهي الحاوية الثابتة لعمليات التضمين التي سيتم إجراء البحث الدلالي عليها.
 2. **تحميل ملف واستيراده إلى مستودع &quot;البحث عن الملفات&quot;**: يمكنك تحميل ملف واستيراد النتائج إلى مستودع &quot;البحث عن الملفات&quot; في الوقت نفسه. يؤدي ذلك إلى إنشاء كائن `File` مؤقت، وهو مرجع إلى المستند الأولي. يتم بعد ذلك تقسيم هذه البيانات إلى أجزاء، وتحويلها إلى تضمينات في &quot;بحث الملفات&quot;، وفهرستها. يتم حذف عنصر `File` بعد 48 ساعة، بينما يتم تخزين البيانات التي تم استيرادها إلى مساحة تخزين &quot;البحث عن الملفات&quot; لأجل غير مسمى إلى أن تختار حذفها.
-3. **طلب البحث باستخدام "البحث عن الملفات"**: أخيرًا، يمكنك استخدام أداة `FileSearch` في مكالمة `generateContent`. في إعدادات الأداة، عليك تحديد
-   `FileSearchRetrievalResource`، الذي يشير إلى `FileSearchStore` الذي تريد البحث فيه. يطلب ذلك من النموذج إجراء بحث دلالي في مخزن &quot;بحث الملفات&quot; المحدّد للعثور على المعلومات ذات الصلة التي يمكنه الاستناد إليها في رده.
+3. **طلب البحث باستخدام "البحث عن الملفات"**: أخيرًا، يمكنك استخدام أداة `FileSearch` في مكالمة `generateContent`. في إعدادات الأداة، عليك تحديد `FileSearchRetrievalResource`، يشير إلى `FileSearchStore` الذي تريد البحث فيه. يطلب ذلك من النموذج إجراء بحث دلالي في مخزن &quot;بحث الملفات&quot; المحدّد للعثور على المعلومات ذات الصلة التي يمكنه الاستناد إليها في رده.
 
 ![عملية الفهرسة وطلب البحث في &quot;بحث الملفات&quot;](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=ar)
 
@@ -333,7 +468,8 @@ console.log("Custom chunking complete.");
 ## متاجر "بحث الملفات"
 
 مستودع "البحث عن الملفات" هو حاوية لتضمينات المستندات. في حين يتم حذف الملفات الأولية التي تم تحميلها من خلال File API بعد 48 ساعة، يتم تخزين البيانات التي تم استيرادها إلى مستودع &quot;بحث الملفات&quot; إلى أجل غير مسمى إلى أن تحذفها يدويًا. يمكنك إنشاء عدة مستودعات بحث في الملفات لتنظيم مستنداتك. تتيح لك واجهة برمجة التطبيقات
-`FileSearchStore` إنشاء قوائم بملفاتك وحذفها والبحث عنها وإدارتها. يتم تحديد نطاق أسماء متاجر "بحث الملفات" على مستوى العالم.
+`FileSearchStore` إنشاء قوائم بملفاتك وحذفها والحصول عليها وإدارتها
+في متاجر البحث. يتم تحديد نطاق أسماء متاجر "البحث في الملفات" على مستوى العالم.
 
 في ما يلي بعض الأمثلة على كيفية إدارة متاجر "بحث الملفات":
 
@@ -342,17 +478,17 @@ console.log("Custom chunking complete.");
 ```
 file_search_store = client.file_search_stores.create(
     config={
-        'display_name': 'my-file_search-store-123',
+        'display_name': 'myfilesearchstore123',
         'embedding_model': 'models/gemini-embedding-2'
     }
 )
 
-for file_search_store in client.file_search_stores.list():
-    print(file_search_store)
+for store in client.file_search_stores.list():
+    print(store)
 
-my_file_search_store = client.file_search_stores.get(name='fileSearchStores/my-file_search-store-123')
+my_file_search_store = client.file_search_stores.get(name=file_search_store.name)
 
-client.file_search_stores.delete(name='fileSearchStores/my-file_search-store-123', config={'force': True})
+client.file_search_stores.delete(name=file_search_store.name, config={'force': True})
 ```
 
 ### JavaScript
@@ -360,7 +496,7 @@ client.file_search_stores.delete(name='fileSearchStores/my-file_search-store-123
 ```
 const fileSearchStore = await ai.fileSearchStores.create({
   config: {
-    displayName: 'my-file_search-store-123',
+    displayName: 'myfilesearchstore123',
     embeddingModel: 'models/gemini-embedding-2'
   }
 });
@@ -371,11 +507,11 @@ for await (const store of fileSearchStores) {
 }
 
 const myFileSearchStore = await ai.fileSearchStores.get({
-  name: 'fileSearchStores/my-file_search-store-123'
+  name: fileSearchStore.name
 });
 
 await ai.fileSearchStores.delete({
-  name: 'fileSearchStores/my-file_search-store-123',
+  name: fileSearchStore.name,
   config: { force: true }
 });
 ```
@@ -387,11 +523,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     -H "Content-Type: application/json" \
     -d '{ "displayName": "My Store", "embedding_model": "models/gemini-embedding-2" }'
 
-curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?key=${GEMINI_API_KEY}" \
+curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?key=${GEMINI_API_KEY}"
 
-curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123?key=${GEMINI_API_KEY}"
+curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123?key=${GEMINI_API_KEY}"
 
-curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123?key=${GEMINI_API_KEY}"
+curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123?key=${GEMINI_API_KEY}"
 ```
 
 ## مستندات "البحث في الملفات"
@@ -404,42 +540,43 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStore
 ### Python
 
 ```
-for document_in_store in client.file_search_stores.documents.list(parent='fileSearchStores/my-file_search-store-123'):
+for document_in_store in client.file_search_stores.documents.list(parent='fileSearchStores/myfilesearchstore123'):
   print(document_in_store)
 
-file_search_document = client.file_search_stores.documents.get(name='fileSearchStores/my-file_search-store-123/documents/my_doc')
+file_search_document = client.file_search_stores.documents.get(name='fileSearchStores/myfilesearchstore123/documents/sampletxt123')
 print(file_search_document)
 
-client.file_search_stores.documents.delete(name='fileSearchStores/my-file_search-store-123/documents/my_doc', config={'force': True})
+client.file_search_stores.documents.delete(name='fileSearchStores/myfilesearchstore123/documents/sampletxt123', config={'force': True})
 ```
 
 ### JavaScript
 
 ```
 const documents = await ai.fileSearchStores.documents.list({
-  parent: 'fileSearchStores/my-file_search-store-123'
+  parent: 'fileSearchStores/myfilesearchstore123'
 });
 for await (const doc of documents) {
   console.log(doc);
 }
 
 const fileSearchDocument = await ai.fileSearchStores.documents.get({
-  name: 'fileSearchStores/my-file_search-store-123/documents/my_doc'
+  name: 'fileSearchStores/myfilesearchstore123/documents/sampletxt123'
 });
 
 await ai.fileSearchStores.documents.delete({
-  name: 'fileSearchStores/my-file_search-store-123/documents/my_doc'
+  name: 'fileSearchStores/myfilesearchstore123/documents/sampletxt123',
+  config: { force: true }
 });
 ```
 
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents?key=${GEMINI_API_KEY}"
+curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents?key=${GEMINI_API_KEY}"
 
-curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents/my_doc?key=${GEMINI_API_KEY}"
+curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents/sampletxt123?key=${GEMINI_API_KEY}"
 
-curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents/my_doc?key=${GEMINI_API_KEY}&force=true"
+curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents/sampletxt123?key=${GEMINI_API_KEY}&force=true"
 ```
 
 ## البيانات الوصفية للملف
@@ -542,9 +679,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 cat response.json
 ```
 
-يمكنك الاطّلاع على إرشادات حول تنفيذ بنية فلتر القائمة الخاصة بـ `metadata_filter` على [google.aip.dev/160](https://google.aip.dev/160).
+يمكنك الاطّلاع على إرشادات حول تنفيذ بنية فلتر القائمة `metadata_filter` على [google.aip.dev/160](https://google.aip.dev/160).
 
-## البحث المتعدّد الوسائط في الملفات
+## البحث المتعدد الوسائط في الملفات
 
 تتيح لك ميزة "البحث المتعدد الوسائط في الملفات" تضمين الصور والبحث فيها بشكلٍ مدمج، ما يتيح إنشاء تطبيقات غنية ومتعددة الوسائط تستخدم "التوليد المعزّز بالاسترجاع".
 
@@ -598,7 +735,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
 
 عند استخدام &quot;البحث عن الملفات&quot;، قد يتضمّن ردّ النموذج اقتباسات تحدّد الأجزاء من المستندات التي حمّلتها والتي تم استخدامها لإنشاء الإجابة. ويساعد ذلك في التحقّق من صحة المعلومات.
 
-يمكنك الوصول إلى معلومات المصدر من خلال السمة `annotations` داخل كتل `content` الردّ في الخطوة `model_output`.
+يمكنك الوصول إلى معلومات الاقتباس من خلال السمة `annotations` داخل خطوات `model_output` في مربّعات `content` الخاصة بالردّ.
 
 ### Python
 
@@ -621,6 +758,31 @@ for (const step of interaction.steps) {
       }
     }
   }
+}
+```
+
+### REST
+
+```
+{
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "...",
+          "annotations": [
+            {
+              "type": "file_citation",
+              "file_name": "sample.txt",
+              "source": "..."
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -662,9 +824,35 @@ for (const step of interaction.steps) {
 }
 ```
 
+### REST
+
+```
+{
+  "steps": [
+    {
+      "type": "model_output",
+      "content": [
+        {
+          "type": "text",
+          "text": "...",
+          "annotations": [
+            {
+              "type": "file_citation",
+              "file_name": "document.pdf",
+              "page_number": 1,
+              "source": "..."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ### اقتباسات من الوسائط
 
-عندما يشير النموذج إلى جزء من صورة أثناء الإنشاء، تعرض واجهة برمجة التطبيقات تعليقًا توضيحيًا من النوع `file_citation` في التعليقات التوضيحية يتضمّن `media_id`. يمكنك استخدام هذا المعرّف لتنزيل جزء الصورة الذي أشار إليه النموذج. يكون هذا `media_id` ثابتًا في طلبات البحث المتعددة، ما يتيح لك استرداد الصورة نفسها أو تخزينها مؤقتًا باستخدام المعرّف بشكل موثوق.
+عندما يشير النموذج إلى جزء من صورة أثناء الإنشاء، تعرض واجهة برمجة التطبيقات تعليقًا توضيحيًا من النوع `file_citation` في التعليقات التوضيحية يتضمّن `media_id`. يمكنك استخدام هذا المعرّف لتنزيل جزء الصورة الذي أشار إليه النموذج. يكون `media_id` هذا ثابتًا في طلبات البحث المتعددة، ما يتيح لك استرداد الصورة نفسها أو تخزينها مؤقتًا بشكل موثوق باستخدام المعرّف.
 
 المقتطف التالي هو مثال على خطوة استجابة REST:
 
@@ -757,26 +945,26 @@ for step in interaction.steps:
 ### JavaScript
 
 ```
-  const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
-    input: "Tell me about [insert question]",
-    tools: [{
-      type: "file_search",
-      file_search_store_names: [fileSearchStore.name]
-    }]
-  });
+const interaction = await ai.interactions.create({
+  model: "gemini-3.5-flash",
+  input: "Tell me about [insert question]",
+  tools: [{
+    type: "file_search",
+    file_search_store_names: [fileSearchStore.name]
+  }]
+});
 
-  for (const step of interaction.steps) {
-    if (step.type === 'model_output') {
-      for (const contentBlock of step.content) {
-        if (contentBlock.annotations) {
-          contentBlock.annotations.forEach((annotation) => {
-            console.log(annotation);
-          });
-        }
+for (const step of interaction.steps) {
+  if (step.type === 'model_output') {
+    for (const contentBlock of step.content) {
+      if (contentBlock.annotations) {
+        contentBlock.annotations.forEach((annotation) => {
+          console.log(annotation);
+        });
       }
     }
   }
+}
 ```
 
 ### REST
@@ -813,9 +1001,10 @@ for step in interaction.steps:
 }
 ```
 
-## الناتج المنظَّم
+## ناتج منظَّم
 
-بدءًا من طُرز Gemini 3، يمكنك الجمع بين أداة البحث عن الملفات و[النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar).
+بدءًا من نماذج Gemini 3، يمكنك دمج أداة البحث عن الملفات مع
+[النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar).
 
 ### Python
 
@@ -920,12 +1109,6 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 | [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
 | [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
 | [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
-
-## مجموعات الأدوات المتوافقة
-
-تتيح نماذج Gemini 3 الجمع بين الأدوات المضمّنة (مثل "البحث عن الملفات") والأدوات المخصّصة (استدعاء الدالة). يمكنك الاطّلاع على مزيد من المعلومات في صفحة [مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
 
 ## أنواع الملفات المعتمدة
 
@@ -1126,7 +1309,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 ## القيود
 
 - **Live API:** لا تتوافق ميزة &quot;البحث عن الملفات&quot; مع [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar).
-- **عدم توافق الأداة:** لا يمكن حاليًا استخدام &quot;البحث عن ملف&quot; مع أدوات أخرى، مثل [تحديد المصدر من خلال &quot;بحث Search&quot;](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) و[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) وغير ذلك.
+- **عدم توافق الأدوات:** لا يمكن دمج أدوات التأسيس المضمّنة مع بعضها البعض،
+  على سبيل المثال، لا يمكن استخدام "البحث عن الملفات" في الوقت نفسه مع [التأسيس باستخدام "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) أو
+  [سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) في الطلب نفسه.
 
 ### حدود معدّل الاستخدام
 
@@ -1138,15 +1323,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   - **المستوى 1**: 10 غيغابايت
   - **المستوى 2**: ‏100 غيغابايت
   - **المستوى 3**: 1 تيرابايت
-- **اقتراح**: يجب ألا يتجاوز حجم كل مستودع بيانات في "بحث الملفات" 20 غيغابايت لضمان أفضل أوقات استرجاع.
+- **اقتراح**: يجب ألا يتجاوز حجم كل مستودع بيانات في "بحث الملفات" 20 غيغابايت لضمان أفضل أوقات استجابة ممكنة.
 
 ## الأسعار
 
 - يتم تحصيل رسوم منك مقابل التضمينات في وقت الفهرسة استنادًا إلى [أسعار التضمينات](https://ai.google.dev/gemini-api/docs/pricing?hl=ar#gemini-embedding-2) الحالية.
 - تتوفر خدمة تخزين الأمتعة مجانًا.
 - تكون تضمينات وقت طلب البحث مجانية.
-- يتم تحصيل رسوم من الرموز المميزة للمستندات التي تم استرجاعها باعتبارها
-  [رموزًا مميزة للسياق](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) عادية.
+- يتم تحصيل رسوم من الرموز المميزة للمستندات التي تم استرجاعها باعتبارها [رموزًا مميزة للسياق](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) عادية.
 
 ## الخطوات التالية
 
@@ -1156,8 +1340,8 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-تاريخ التعديل الأخير: 2026-06-22 (حسب التوقيت العالمي المتفَّق عليه)
+تاريخ التعديل الأخير: 2026-07-07 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-22 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-07-07 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,134 +1,135 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=vi
-fetched_at: 2026-07-06T05:07:32.762919+00:00
-title: "T\u1ea1o \u1ee9ng d\u1ee5ng Android trong Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=hi
+fetched_at: 2026-07-20T04:39:37.089434+00:00
+title: "Google AI Studio \u092e\u0947\u0902 Android \u0910\u092a\u094d\u0932\u093f\u0915\u0947\u0936\u0928 \u092c\u0928\u093e\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-# Tạo ứng dụng Android trong Google AI Studio
+# Google AI Studio में Android ऐप्लिकेशन बनाना
 
-Google AI Studio cho phép bạn tạo các ứng dụng Android gốc từ một câu lệnh bằng ngôn ngữ tự nhiên. Mô tả ứng dụng bạn muốn, và [Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi#antigravity-agent) sẽ tạo một dự án hoàn chỉnh bằng Kotlin và [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=vi). Trên trình duyệt, bạn có thể xem trước ứng dụng trong trình mô phỏng Android dựa trên trình duyệt, cài đặt ứng dụng trên một thiết bị thực và xuất bản ứng dụng để kiểm thử.
+Google AI Studio की मदद से, नैचुरल लैंग्वेज वाले प्रॉम्प्ट का इस्तेमाल करके नेटिव Android ऐप्लिकेशन बनाए जा सकते हैं. आपको जिस तरह का ऐप्लिकेशन चाहिए उसके बारे में बताएं. इसके बाद, [Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=hi#antigravity-agent), Kotlin और [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=hi) का पूरा प्रोजेक्ट जनरेट करता है. अपने ब्राउज़र से, ब्राउज़र पर आधारित Android एम्युलेटर में अपने ऐप्लिकेशन का पूर्वावलोकन किया जा सकता है. साथ ही, इसे किसी फ़िज़िकल डिवाइस पर इंस्टॉल किया जा सकता है और टेस्टिंग के लिए पब्लिश किया जा सकता है.
 
-## Bắt đầu
+## अपनी प्रोफ़ाइल बनाना शुरू करें
 
-Cách bắt đầu tạo một ứng dụng Android:
+Android ऐप्लिकेशन बनाना शुरू करने के लिए:
 
-1. Chuyển đến [Chế độ xây dựng](https://aistudio.google.com/apps?hl=vi) trong Google AI Studio bằng bảng điều hướng bên trái.
-2. Chọn **Android** trong bộ chọn nền tảng.
-3. Nhập một câu lệnh mô tả ứng dụng bạn muốn tạo (ví dụ: *"Tạo một bảng theo dõi nhiệm vụ hằng ngày có bộ nhớ cục bộ"* hoặc *"Tạo một Máy tính đơn giản"*).
-4. Tác nhân sẽ tạo dự án và chạy dự án đó trong trình mô phỏng Android dựa trên trình duyệt.
+1. बाईं ओर मौजूद नेविगेशन पैनल का इस्तेमाल करके, Google AI Studio में [बिल्ड मोड](https://aistudio.google.com/apps?hl=hi) पर जाएं.
+2. प्लैटफ़ॉर्म पिकर से **Android** चुनें.
+3. आपको जिस तरह का ऐप्लिकेशन बनाना है उसके बारे में बताने के लिए, प्रॉम्प्ट डालें. उदाहरण के लिए, *"लोकल स्टोरेज की सुविधा वाला, रोज़ के टास्क ट्रैक करने वाला ऐप्लिकेशन बनाओ"* या *"एक सामान्य कैल्क्यूलेटर बनाओ"*.
+4. एजेंट, प्रोजेक्ट जनरेट करता है और उसे ब्राउज़र पर आधारित Android एम्युलेटर में लॉन्च करता है.
 
-Sau đó, bạn có thể lặp lại quy trình này trên ứng dụng bằng cách sử dụng bảng trò chuyện, giống như trải nghiệm trên web. Tác nhân này quản lý tất cả các tệp trong dự án Android của bạn và truyền các thay đổi trên toàn bộ cơ sở mã.
+इसके बाद, चैट पैनल का इस्तेमाल करके अपने ऐप्लिकेशन को बेहतर बनाया जा सकता है. यह ठीक वैसा ही होगा जैसा वेब पर किया जाता है. यह एजेंट, आपके Android प्रोजेक्ट की सभी फ़ाइलों को मैनेज करता है. साथ ही, कोडबेस में बदलावों को लागू करता है.
 
-## Trình mô phỏng Android dựa trên trình duyệt
+## ब्राउज़र पर आधारित Android Emulator
 
-Trình mô phỏng Android chạy hoàn toàn trên đám mây và truyền trực tuyến đến trình duyệt của bạn.
-Bạn không cần cài đặt Android SDK, Android Studio hoặc trình mô phỏng cục bộ.
+Android एम्युलेटर पूरी तरह से क्लाउड में चलता है और आपके ब्राउज़र पर स्ट्रीम होता है.
+आपको Android SDK, Android Studio या लोकल एम्युलेटर इंस्टॉल करने की ज़रूरत नहीं है.
 
-Trình mô phỏng này cung cấp:
+एम्युलेटर में ये सुविधाएं मिलती हैं:
 
-- **Mô phỏng thiết bị giống Pixel**: nhấn, cuộn và tương tác với ứng dụng của bạn giống như trên một thiết bị thực.
-- **Hỗ trợ xoay**: chuyển đổi giữa hướng dọc và hướng ngang.
-- **Xem trước trực tiếp**: khi tác nhân thực hiện các thay đổi về mã, ứng dụng sẽ tạo lại và trình mô phỏng sẽ tự động làm mới.
+- **Pixel जैसे डिवाइस का सिम्युलेशन**: किसी असली डिवाइस की तरह, अपने ऐप्लिकेशन पर टैप करें, स्क्रोल करें, और उसके साथ इंटरैक्ट करें.
+- **स्क्रीन घुमाने की सुविधा**: पोर्ट्रेट और लैंडस्केप ओरिएंटेशन के बीच टॉगल करें.
+- **लाइव झलक**: जब एजेंट कोड में बदलाव करता है, तो ऐप्लिकेशन फिर से बनता है और एम्युलेटर अपने-आप रीफ़्रेश हो जाता है.
 
-### Giới hạn của trình mô phỏng
+### एम्युलेटर की सीमाएं
 
-Trình mô phỏng dựa trên trình duyệt không hỗ trợ tất cả các tính năng phần cứng. Trình mô phỏng không có các tính năng sau:
+ब्राउज़र पर आधारित एम्युलेटर में, हार्डवेयर की सभी सुविधाएं काम नहीं करती हैं. ये सुविधाएं, एम्युलेटर में उपलब्ध नहीं हैं:
 
-- Chụp ảnh và quay video bằng camera
-- NFC và Bluetooth
-- GPS (vị trí được mô phỏng)
-- Dịch vụ Google Play (Đăng nhập bằng Google, Maps và các tính năng khác của Dịch vụ Play hoạt động trên thiết bị thực nhưng không hoạt động trong trình mô phỏng)
+- कैमरा और फ़ोटो कैप्चर करने की सुविधा
+- एनएफ़सी और ब्लूटूथ
+- जीपीएस (जगह की जानकारी सिम्युलेट की गई है)
+- Google Play services (Google साइन-इन, Maps, और Play services की अन्य सुविधाएं असली डिवाइस पर काम करती हैं, लेकिन एम्युलेटर में नहीं)
 
-## Cài đặt trên thiết bị có ADB
+## ADB की सुविधा वाले डिवाइस पर इंस्टॉल करना
 
-Bạn có thể cài đặt trực tiếp APK đã tạo trên một thiết bị Android thực được kết nối với máy tính bằng USB. Tính năng này sử dụng [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=vi) để giao tiếp với thiết bị của bạn thông qua trình duyệt. Không cần cài đặt ADB cục bộ.
+बनाए गए APK को सीधे तौर पर, किसी ऐसे Android डिवाइस पर इंस्टॉल किया जा सकता है जो यूएसबी के ज़रिए आपके कंप्यूटर से कनेक्ट हो. यह ब्राउज़र के ज़रिए आपके डिवाइस से कम्यूनिकेट करने के लिए, [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=hi) का इस्तेमाल करता है. ADB को स्थानीय तौर पर इंस्टॉल करने की ज़रूरत नहीं है.
 
-### Điều kiện tiên quyết
+### ज़रूरी शर्तें
 
-- Trình duyệt Chrome hoặc Edge hỗ trợ WebUSB.
-- Một thiết bị Android đã bật [Tuỳ chọn cho nhà phát triển và Gỡ lỗi qua USB](https://developer.android.com/studio/debug/dev-options?hl=vi).
-- Cáp USB kết nối thiết bị với máy tính.
+- WebUSB के साथ काम करने वाला Chrome या Edge ब्राउज़र.
+- Android डिवाइस पर [डेवलपर के लिए सेटिंग और टूल और यूएसबी डीबग करने की सुविधा](https://developer.android.com/studio/debug/dev-options?hl=hi) चालू होनी चाहिए.
+- आपके डिवाइस को कंप्यूटर से कनेक्ट करने वाली यूएसबी केबल.
 
-### Cài đặt ứng dụng trên thiết bị
+### अपने डिवाइस पर ऐप्लिकेशन इंस्टॉल करना
 
-1. Nhấp vào **Cài đặt trên thiết bị** trong bảng điều khiển xem trước.
-2. Chọn thiết bị Android của bạn trong trình chọn thiết bị USB của trình duyệt.
-3. Tệp APK sẽ được chuyển và cài đặt trên thiết bị của bạn.
-4. Ứng dụng sẽ tự động chạy.
+1. झलक दिखाने वाले पैनल में, **डिवाइस पर इंस्टॉल करें** पर क्लिक करें.
+2. ब्राउज़र के यूएसबी डिवाइस पिकर से, अपना Android डिवाइस चुनें.
+3. एपीके को आपके डिवाइस पर ट्रांसफ़र करके इंस्टॉल कर दिया जाता है.
+4. ऐप्लिकेशन अपने-आप लॉन्च हो जाता है.
 
-## Phát hành lên Cửa hàng Play
+## Play Store पर पब्लिश करना
 
-Bạn có thể xuất bản ứng dụng Android của mình lên kênh kiểm thử nội bộ của [Google Play Console](https://play.google.com/console?hl=vi). Kênh này cho phép bạn phân phối ứng dụng cho tối đa 100 người kiểm thử.
+अपने Android ऐप्लिकेशन को [Google Play Console](https://play.google.com/console?hl=hi) के इंटरनल टेस्टिंग ट्रैक पर पब्लिश किया जा सकता है. इससे, ऐप्लिकेशन को ज़्यादा से ज़्यादा 100 टेस्टर के साथ शेयर किया जा सकता है.
 
-### Điều kiện tiên quyết
+### ज़रूरी शर्तें
 
-- [Tài khoản nhà phát triển trên Google Play](https://play.google.com/console/signup?hl=vi) (bạn phải trả phí đăng ký một lần là 25 USD).
-- Hồ sơ nhà phát triển đã hoàn tất trong Play Console.
+- [Google Play डेवलपर खाता](https://play.google.com/console/signup?hl=hi) (इसके लिए, रजिस्ट्रेशन के लिए एक बार में 25 डॉलर का शुल्क देना होगा).
+- Play Console में डेवलपर प्रोफ़ाइल पूरी की गई हो.
 
-### Phát hành ứng dụng
+### ऐप्लिकेशन पब्लिश करना
 
-1. Mở **Settings > Publish** (Cài đặt > Xuất bản) trong Google AI Studio.
-2. Nhấp vào **Xuất bản lên Cửa hàng Play**.
-3. Xác thực bằng tài khoản nhà phát triển trên Google Play của bạn.
-4. AI Studio ký APK, tạo trang thông tin trên Cửa hàng Play (hoặc tải phiên bản mới lên) và xuất bản lên kênh kiểm thử nội bộ.
-5. Bạn sẽ nhận được một đường liên kết để chia sẻ với người kiểm thử.
+1. Google AI Studio में **सेटिंग > पब्लिश करें** खोलें.
+2. **Play Store पर पब्लिश करें** पर क्लिक करें.
+3. अपने Google Play डेवलपर खाते से पुष्टि करें.
+4. AI Studio, APK पर हस्ताक्षर करता है, ऐप्लिकेशन की लिस्टिंग बनाता है (या नया वर्शन अपलोड करता है),
+   और उसे इंटरनल टेस्टिंग ट्रैक पर पब्लिश करता है.
+5. आपको एक लिंक मिलता है, जिसे टेस्टर के साथ शेयर किया जा सकता है.
 
-AI Studio tự động quản lý việc ký APK bằng kho khoá được quản lý. Bạn có thể tuỳ chỉnh trang thông tin ứng dụng (biểu tượng, ảnh chụp màn hình, nội dung mô tả) sau này trong Play Console.
+AI Studio, मैनेज किए गए कीस्टोर का इस्तेमाल करके, APK साइनिंग को अपने-आप मैनेज करता है. Play Console में जाकर, ऐप्लिकेशन की लिस्टिंग (आइकॉन, स्क्रीनशॉट, जानकारी) को बाद में भी अपनी पसंद के मुताबिक बनाया जा सकता है.
 
-## Nội dung được tạo
+## क्या जनरेट किया गया है
 
-Khi bạn tạo một ứng dụng Android, tác nhân sẽ tạo một dự án tiêu chuẩn dựa trên Gradle có cấu trúc như sau:
+Android ऐप्लिकेशन बनाने पर, एजेंट एक स्टैंडर्ड Gradle-आधारित प्रोजेक्ट जनरेट करता है. इसका स्ट्रक्चर इस तरह होता है:
 
-- **Cấu hình bản dựng**: Các tệp `build.gradle.kts` (cấp dự án và cấp ứng dụng) bằng Kotlin DSL.
-- **Lớp giao diện người dùng**: Các thành phần [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=vi) có giao diện [Material 3](https://m3.material.io/).
-- **Cấu trúc**: cấu trúc một hoạt động với ViewModel và các lớp dữ liệu.
-- **Tài nguyên**: `AndroidManifest.xml`, các đối tượng có thể vẽ, chuỗi và các tài nguyên khác của Android.
+- **बिल्ड कॉन्फ़िगरेशन**: Kotlin DSL का इस्तेमाल करके `build.gradle.kts` फ़ाइलें (प्रोजेक्ट और ऐप्लिकेशन लेवल).
+- **यूज़र इंटरफ़ेस (यूआई) लेयर**: [Material 3](https://m3.material.io/) थीमिंग वाले [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=hi) कॉम्पोनेंट.
+- **आर्किटेक्चर**: ViewModels और डेटा क्लास के साथ सिंगल-ऐक्टिविटी आर्किटेक्चर.
+- **संसाधन**: `AndroidManifest.xml`, ड्रॉएबल, स्ट्रिंग, और अन्य Android संसाधन.
 
-Tác nhân này tự động quản lý các phần phụ thuộc Gradle, thêm các gói từ kho lưu trữ Maven và Google khi cần.
+यह एजेंट, Gradle डिपेंडेंसी को अपने-आप मैनेज करता है. साथ ही, ज़रूरत के हिसाब से Maven और Google रिपॉज़िटरी से पैकेज जोड़ता है.
 
-Bạn có thể xem và chỉnh sửa mã được tạo bằng thẻ **Code** (Mã) trong bảng xem trước. Để tiếp tục phát triển trong Android Studio, hãy tải dự án xuống dưới dạng **tệp ZIP**.
+झलक वाले पैनल में मौजूद **कोड** टैब का इस्तेमाल करके, जनरेट किए गए कोड को देखा और उसमें बदलाव किया जा सकता है. Android Studio में डेवलपमेंट जारी रखने के लिए, प्रोजेक्ट को **ZIP फ़ाइल** के तौर पर डाउनलोड करें.
 
-## Các điểm hạn chế
+## सीमाएं
 
-Hoạt động tạo ứng dụng Android trong AI Studio có những hạn chế sau:
+AI Studio में Android ऐप्लिकेशन बनाने से जुड़ी ये सीमाएं हैं:
 
-### Các hạn chế về nền tảng
+### प्लैटफ़ॉर्म से जुड़ी सीमाएं
 
-- **Chỉ phía máy khách**: Các ứng dụng Android không có thành phần phía máy chủ.
-  Các tính năng yêu cầu thời gian chạy máy chủ (quản lý bí mật, nhiều người chơi, Firebase, API Google Workspace) không dùng được.
-- **Cấu trúc một hoạt động**: chỉ hỗ trợ các dự án một hoạt động, một mô-đun.
-- **Chỉ Jetpack Compose**: ứng dụng sử dụng Kotlin và Jetpack Compose. Không hỗ trợ bố cục Java và XML.
-- **Không có NDK hoặc mã gốc**: Mã C và C++ không được hỗ trợ.
-- **Không có Wear OS hoặc Android TV**: chỉ hỗ trợ hệ số hình dạng điện thoại và máy tính bảng.
+- **सिर्फ़ क्लाइंट-साइड**: Android ऐप्लिकेशन में सर्वर-साइड कॉम्पोनेंट शामिल नहीं होता.
+  सर्वर रनटाइम की ज़रूरत वाली सुविधाएं (जैसे, सीक्रेट मैनेजमेंट, मल्टीप्लेयर, Firebase, Google Workspace API) उपलब्ध नहीं हैं.
+- **सिंगल-ऐक्टिविटी आर्किटेक्चर**: सिर्फ़ सिंगल-ऐक्टिविटी और सिंगल-मॉड्यूल वाले प्रोजेक्ट काम करते हैं.
+- **सिर्फ़ Jetpack Compose**: ऐप्लिकेशन, Kotlin और Jetpack Compose का इस्तेमाल करते हैं. Java और XML लेआउट इस्तेमाल नहीं किए जा सकते.
+- **कोई NDK या नेटिव कोड नहीं**: C और C++ कोड काम नहीं करता.
+- **Wear OS या Android TV पर काम नहीं करता**: यह सिर्फ़ फ़ोन और टैबलेट पर काम करता है.
 
-### Hạn chế khi xuất
+### एक्सपोर्ट करने से जुड़ी सीमाएं
 
-- **Chỉ tải tệp ZIP xuống**: bạn có thể tải dự án xuống dưới dạng tệp ZIP. Tính năng xuất sang GitHub hiện chưa được cung cấp cho các dự án Android.
+- **सिर्फ़ ZIP फ़ाइल डाउनलोड करें**: प्रोजेक्ट को ZIP फ़ाइल के तौर पर डाउनलोड किया जा सकता है. GitHub पर एक्सपोर्ट करने की सुविधा, अभी Android प्रोजेक्ट के लिए उपलब्ध नहीं है.
 
-## Bước tiếp theo
+## आगे क्या करना है
 
-- [Tạo ứng dụng trong Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=vi)
-- [Phát triển ứng dụng Full-Stack](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=vi) (web)
-- Xem các ví dụ trong [Thư viện ứng dụng](https://aistudio.google.com/apps?source=showcase&hl=vi).
+- [Google AI Studio में ऐप्लिकेशन बनाना](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=hi)
+- [फ़ुल-स्टैक ऐप्लिकेशन डेवलप करना](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=hi) (वेब)
+- [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=hi) में उदाहरण देखें.
 
-Gửi ý kiến phản hồi
+सुझाव भेजें
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Cập nhật lần gần đây nhất: 2026-05-19 UTC.
+आखिरी बार 2026-05-19 (UTC) को अपडेट किया गया.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-05-19 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-05-19 (UTC) को अपडेट किया गया."],[],[]]

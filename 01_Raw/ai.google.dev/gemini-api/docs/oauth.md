@@ -1,95 +1,85 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=pl
-fetched_at: 2026-07-06T05:20:06.218195+00:00
-title: "Kr\u00f3tkie wprowadzenie do uwierzytelniania z protoko\u0142em OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=es-419
+fetched_at: 2026-07-20T04:33:12.051621+00:00
+title: "Gu\u00eda de inicio r\u00e1pido de Authentication con OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Prześlij opinię
+Enviar comentarios
 
-# Krótkie wprowadzenie do uwierzytelniania z protokołem OAuth
+# Guía de inicio rápido de Authentication con OAuth
 
-Najłatwiejszym sposobem uwierzytelniania w Gemini API jest skonfigurowanie klucza API
-zgodnie z instrukcjami w [przewodniku dla początkujących](https://ai.google.dev/gemini-api/docs/get-started?hl=pl). Jeśli potrzebujesz bardziej rygorystycznych kontroli dostępu, możesz zamiast tego użyć OAuth. Ten przewodnik pomoże Ci skonfigurować uwierzytelnianie za pomocą OAuth.
+La forma más sencilla de autenticarse en la API de Gemini es configurar una clave de API, como se describe en la [guía de inicio rápido de la API de Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419). Si necesitas controles de acceso más estrictos, puedes usar OAuth en su lugar. Esta guía te ayudará a configurar la autenticación con OAuth.
 
-Ten przewodnik zawiera uproszczoną metodę uwierzytelniania, która jest odpowiednia dla środowiska testowego. W przypadku środowiska produkcyjnego zapoznaj się
-z informacjami
-[o uwierzytelnianiu i autoryzacji](https://developers.google.com/workspace/guides/auth-overview?hl=pl)
-przed
-[wybraniem danych logowania](https://developers.google.com/workspace/guides/create-credentials?hl=pl#choose_the_access_credential_that_is_right_for_you)
-odpowiednich dla Twojej aplikacji.
+En esta guía, se usa un enfoque de autenticación simplificado que es adecuado para un entorno de pruebas. En el caso de un entorno de producción, obtén información sobre la [autenticación y la autorización](https://developers.google.com/workspace/guides/auth-overview?hl=es-419) antes de [elegir las credenciales de acceso](https://developers.google.com/workspace/guides/create-credentials?hl=es-419#choose_the_access_credential_that_is_right_for_you) adecuadas para tu app.
 
-## Cele
+## Objetivos
 
-- Skonfiguruj projekt w chmurze na potrzeby OAuth.
-- Skonfiguruj domyślne dane logowania aplikacji.
-- Zarządzaj danymi logowania w programie zamiast używać `gcloud auth`.
+- Configura tu proyecto de Cloud para OAuth
+- Configura las credenciales predeterminadas de la aplicación
+- Administra las credenciales en tu programa en lugar de usar `gcloud auth`
 
-## Wymagania wstępne
+## Requisitos previos
 
-Aby uruchomić ten samouczek, musisz mieć:
+Para ejecutar esta guía de inicio rápido, necesitas lo siguiente:
 
-- [projekt Google Cloud,](https://developers.google.com/workspace/guides/create-project?hl=pl)
-- [lokalną instalację gcloud CLI.](https://cloud.google.com/sdk/docs/install?hl=pl)
+- [Un proyecto de Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=es-419)
+- [Una instalación local de la CLI de gcloud](https://cloud.google.com/sdk/docs/install?hl=es-419)
 
-## Konfigurowanie projektu w chmurze
+## Configura tu proyecto de Cloud
 
-Aby wykonać zadania z tego samouczka, musisz najpierw skonfigurować projekt w chmurze.
+Para completar esta guía de inicio rápido, primero debes configurar tu proyecto de Cloud.
 
-### 1. Włącz API
+### 1. Habilita la API
 
-Zanim zaczniesz korzystać z interfejsów API Google, musisz je włączyć w projekcie w chmurze Google.
+Antes de usar las APIs de Google, debes activarlas en un proyecto de Google Cloud.
 
-- W konsoli Google Cloud włącz Google Generative Language API.
+- En la consola de Google Cloud, habilita la API de Google Generative Language.
 
-  [Włącz API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=pl)
+  [Habilitar la API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=es-419)
 
-### 2. Konfigurowanie ekranu zgody OAuth
+### 2. Cómo configurar la pantalla de consentimiento de OAuth
 
-Następnie skonfiguruj ekran zgody OAuth w projekcie i dodaj siebie jako użytkownika testowego. Jeśli ten krok został już wykonany w przypadku projektu w chmurze, przejdź do następnej sekcji.
+A continuación, configura la pantalla de consentimiento de OAuth del proyecto y agrégate como usuario de prueba. Si ya completaste este paso para tu proyecto de Cloud, ve a la siguiente sección.
 
-1. W konsoli Google Cloud kliknij **Menu** > **Platforma uwierzytelniania Google** > **Przegląd**.
+1. En la consola de Google Cloud, ve a **Menú** > **Plataforma de Google Auth** > **Descripción general**.
 
-   [Otwórz platformę uwierzytelniania Google](https://console.developers.google.com/auth/overview?hl=pl)
-2. Wypełnij formularz konfiguracji projektu i w sekcji **Odbiorcy** ustaw typ użytkownika na **Zewnętrzny**.
-3. Wypełnij pozostałą część formularza, zaakceptuj warunki zasad dotyczących danych użytkownika, a następnie kliknij **Utwórz**.
-4. Na razie możesz pominąć dodawanie zakresów i kliknąć **Zapisz i kontynuuj**. W przyszłości, gdy będziesz tworzyć aplikację do użytku poza organizacją Google Workspace, musisz dodać i zweryfikować zakresy autoryzacji wymagane przez aplikację.
-5. Dodaj użytkowników testowych:
+   [Ir a Google Auth Platform](https://console.developers.google.com/auth/overview?hl=es-419)
+2. Completa el formulario de configuración del proyecto y establece el tipo de usuario como **Externo** en la sección **Público**.
+3. Completa el resto del formulario, acepta las condiciones de la Política de Datos del Usuario y, luego, haz clic en **Crear**.
+4. Por ahora, puedes omitir la adición de permisos y hacer clic en **Guardar y continuar**. En el futuro, cuando crees una app para usarla fuera de tu organización de Google Workspace, deberás agregar y verificar los alcances de autorización que requiere tu app.
+5. Agrega usuarios de prueba:
 
-   1. Otwórz stronę
-      [Odbiorcy](https://console.developers.google.com/auth/audience?hl=pl) na
-      platformie uwierzytelniania Google.
-   2. W sekcji **Użytkownicy testowi** kliknij **Dodaj użytkowników**.
-   3. Wpisz swój adres e-mail i adresy e-mail innych autoryzowanych użytkowników testowych, a następnie kliknij **Zapisz**.
+   1. Navega a la [página Audience](https://console.developers.google.com/auth/audience?hl=es-419) de la plataforma de autenticación de Google.
+   2. En **Usuarios de prueba**, haz clic en **Agregar usuarios**.
+   3. Ingresa tu dirección de correo electrónico y los demás usuarios de prueba autorizados, y haz clic en **Guardar**.
 
-### 3. Autoryzowanie danych logowania aplikacji na komputer
+### 3. Autoriza credenciales para una aplicación de escritorio
 
-Aby uwierzytelnić się jako użytkownik końcowy i uzyskać dostęp do danych użytkownika w aplikacji, musisz utworzyć co najmniej 1 identyfikator klienta OAuth 2.0. Identyfikator klienta wskazuje konkretną aplikację na serwerach OAuth Google. Jeśli Twoja aplikacja działa na kilku platformach, musisz utworzyć osobny identyfikator klienta dla każdej z nich.
+Para autenticarte como usuario final y acceder a los datos del usuario en tu app, debes crear uno o más IDs de cliente de OAuth 2.0. Un ID de cliente se usa con el fin de identificar una sola app para los servidores de OAuth de Google. Si tu app se ejecuta en varias plataformas, debes crear un ID de cliente independiente para cada una de ellas.
 
-1. W konsoli Google Cloud kliknij **Menu** > **Platforma uwierzytelniania Google** > **Klienci**.
+1. En el menú de navegación de la consola de Google Cloud, ve a **Menú** > **Plataforma de Google Auth** > **Clientes**.
 
-   [Otwórz dane logowania](https://console.developers.google.com/auth/clients?hl=pl)
-2. Kliknij **Utwórz klienta**.
-3. Kliknij **Typ aplikacji** > **Aplikacja na komputer**.
-4. W polu **Nazwa** wpisz nazwę danych logowania. Ta nazwa jest widoczna tylko w konsoli Google Cloud.
-5. Kliknij **Utwórz**. Wyświetli się ekran Utworzono klienta OAuth z nowym identyfikatorem klienta i tajnym kluczem klienta.
-6. Kliknij **OK**. Nowo utworzone dane logowania pojawią się w sekcji **Identyfikatory klientów OAuth 2.0**.
-7. Kliknij przycisk pobierania, aby zapisać plik JSON. Zostanie on zapisany jako
-   `client_secret_<identifier>.json`. Zmień jego nazwę na `client_secret.json`
-   i przenieś go do katalogu roboczego.
+   [Ir a Credenciales](https://console.developers.google.com/auth/clients?hl=es-419)
+2. Haz clic en **Crear cliente**.
+3. Haz clic en **Tipo de aplicación** > **App de escritorio**.
+4. En el campo **Nombre**, escribe un nombre para la credencial. Este nombre solo se muestra en la consola de Google Cloud.
+5. Haz clic en **Crear**. Aparecerá la pantalla Cliente de OAuth creado, que muestra tu nuevo ID de cliente y secreto de cliente.
+6. Haz clic en **Aceptar**. La credencial recién creada aparecerá en **IDs de cliente de OAuth 2.0.**
+7. Haz clic en el botón de descarga para guardar el archivo JSON. Se guardará como `client_secret_<identifier>.json`. Cámbiale el nombre a `client_secret.json` y muévelo a tu directorio de trabajo.
 
-## Konfigurowanie domyślnych danych logowania aplikacji
+## Configura credenciales predeterminadas de la aplicación
 
-Aby przekonwertować plik `client_secret.json` na dane logowania, które można wykorzystać, przekaż jego lokalizację do argumentu `--client-id-file` polecenia `gcloud auth application-default login`.
+Para convertir el archivo `client_secret.json` en credenciales utilizables, pasa su ubicación al argumento `--client-id-file` del comando `gcloud auth application-default login`.
 
 ```
 gcloud auth application-default login \
@@ -97,10 +87,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-Uproszczona konfiguracja projektu w tym samouczku powoduje wyświetlenie okna **"Google nie
-zweryfikowało tej aplikacji"**. To normalne. Kliknij **„Kontynuuj”**.
+La configuración simplificada del proyecto en este instructivo activa un diálogo **"Google no verificó esta app"**. Esto es normal. Elige **“Continuar”**.
 
-Spowoduje to umieszczenie wygenerowanego tokena w dobrze znanej lokalizacji, dzięki czemu będzie on dostępny dla `gcloud` lub bibliotek klienta.
+Esto coloca el token resultante en una ubicación conocida para que `gcloud` o las bibliotecas cliente puedan acceder a él.
 
 ```` ```
 gcloud auth application-default login   
@@ -111,11 +100,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-Gdy skonfigurujesz domyślne uwierzytelnianie aplikacji (ADC), biblioteki klienta w większości języków nie będą potrzebować pomocy w ich znalezieniu.
+Una vez que configures las credenciales predeterminadas de la aplicación (ADC), las bibliotecas cliente en la mayoría de los lenguajes necesitarán poca o ninguna ayuda para encontrarlas.
 
-### curl
+### Curl
 
-Najszybszym sposobem na sprawdzenie, czy wszystko działa, jest użycie curl do uzyskania dostępu do REST API:
+La forma más rápida de probar que esto funciona es usarlo para acceder a la API de REST con curl:
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -128,13 +117,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-W Pythonie biblioteki klienta powinny znaleźć je automatycznie:
+En Python, las bibliotecas cliente deberían encontrarlas automáticamente:
 
 ```
 pip install google-genai
 ```
 
-Minimalny skrypt do testowania może wyglądać tak:
+Una secuencia de comandos mínima para probarlo podría ser la siguiente:
 
 ```
 from google import genai
@@ -143,30 +132,28 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## Dalsze kroki
+## Próximos pasos
 
-Jeśli wszystko działa, możesz wypróbować
-[wyszukiwanie semantyczne na danych tekstowych](https://ai.google.dev/docs/semantic_retriever?hl=pl).
+Si funciona, puedes probar la [recuperación semántica en tus datos de texto](https://ai.google.dev/docs/semantic_retriever?hl=es-419).
 
-## Samodzielne zarządzanie danymi logowania [Python]
+## Administra las credenciales por tu cuenta [Python]
 
-W wielu przypadkach nie będziesz mieć dostępu do polecenia `gcloud`, aby utworzyć token dostępu na podstawie identyfikatora klienta (`client_secret.json`). Google udostępnia biblioteki w wielu językach, które umożliwiają zarządzanie tym procesem w aplikacji. W tej sekcji pokazujemy, jak to zrobić w Pythonie. Odpowiednie przykłady tej procedury w innych językach znajdziesz w
-[dokumentacji Drive API](https://developers.google.com/drive/api/quickstart/python?hl=pl).
+En muchos casos, no tendrás disponible el comando `gcloud` para crear el token de acceso a partir del ID de cliente (`client_secret.json`). Google proporciona bibliotecas en muchos lenguajes para que puedas administrar ese proceso dentro de tu app. En esta sección, se muestra el proceso en Python. En la [documentación de la API de Drive](https://developers.google.com/drive/api/quickstart/python?hl=es-419), hay ejemplos equivalentes de este tipo de procedimiento para otros lenguajes.
 
-### 1. Zainstaluj niezbędne biblioteki
+### 1. Instala las bibliotecas necesarias
 
-Zainstaluj bibliotekę klienta Google dla Pythona i bibliotekę klienta Gemini.
+Instala la biblioteca cliente de Google para Python y la biblioteca cliente de Gemini.
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. Napisz menedżera danych logowania
+### 2. Escribe el administrador de credenciales
 
-Aby zminimalizować liczbę kliknięć na ekranach autoryzacji, utwórz w katalogu roboczym plik o nazwie `load_creds.py`, który będzie buforować plik `token.json`, aby można go było później użyć ponownie lub odświeżyć, jeśli wygaśnie.
+Para minimizar la cantidad de veces que debes hacer clic en las pantallas de autorización, crea un archivo llamado `load_creds.py` en tu directorio de trabajo para almacenar en caché un archivo `token.json` que se pueda reutilizar más adelante o actualizar si vence.
 
-Zacznij od tego kodu, aby przekonwertować plik `client_secret.json` na token, którego można używać z `genai.configure`:
+Comienza con el siguiente código para convertir el archivo `client_secret.json` en un token que se pueda usar con `genai.configure`:
 
 ```
 import os.path
@@ -203,9 +190,9 @@ def load_creds():
     return creds
 ```
 
-### 3. Napisz program
+### 3. Escribe tu programa
 
-Teraz utwórz plik `script.py`:
+Ahora crea tu `script.py`:
 
 ```
 import pprint
@@ -220,27 +207,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. Uruchom program
+### 4. Ejecuta tu programa
 
-W katalogu roboczym uruchom przykład:
+En tu directorio de trabajo, ejecuta la muestra:
 
 ```
 python script.py
 ```
 
-Gdy uruchomisz skrypt po raz pierwszy, otworzy się okno przeglądarki z prośbą o autoryzację dostępu.
+La primera vez que ejecutes la secuencia de comandos, se abrirá una ventana del navegador y se te solicitará que autorices el acceso.
 
-1. Jeśli nie jesteś zalogowany(-a) na konto Google, pojawi się prośba o zalogowanie się. Jeśli korzystasz z kilku kont, **pamiętaj, aby podczas konfigurowania projektu wybrać konto, które zostało ustawione jako „Konto testowe”**.
-2. Informacje o autoryzacji są przechowywane w systemie plików, więc przy następnym uruchomieniu przykładowego kodu nie pojawi się prośba o autoryzację.
+1. Si aún no accediste a tu Cuenta de Google, se te solicitará que lo hagas. Si accediste a varias cuentas, **asegúrate de seleccionar la cuenta que configuraste como "Cuenta de prueba" cuando configuraste tu proyecto.**
+2. La información de autorización se almacena en el sistema de archivos, por lo que la próxima vez que ejecutes el código de muestra, no se te solicitará la autorización.
 
-Udało Ci się skonfigurować uwierzytelnianie.
+Configuraste correctamente la autenticación.
 
-Prześlij opinię
+Enviar comentarios
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Ostatnia aktualizacja: 2026-07-01 UTC.
+Última actualización: 2026-07-01 (UTC)
 
-Chcesz przekazać coś jeszcze?
+¿Quieres brindar más información?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-01 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-01 (UTC)"],[],[]]

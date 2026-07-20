@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=pt-BR
-fetched_at: 2026-07-06T05:08:36.139774+00:00
-title: "Respostas estruturadas \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=it
+fetched_at: 2026-07-20T04:41:33.974280+00:00
+title: "Output strutturati \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+L'API [Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) è ora disponibile a livello generale. Ti consigliamo di utilizzare questa API per accedere a tutti i modelli e a tutte le funzionalità più recenti.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envie comentários
+Invia feedback
 
-# Respostas estruturadas
+# Output strutturati
 
-É possível configurar os modelos do Gemini para gerar respostas que aderem a um esquema JSON fornecido. Isso garante resultados previsíveis e com segurança de tipo, além de simplificar a extração de dados estruturados de textos não estruturados.
+Puoi configurare i modelli Gemini per generare risposte che rispettino uno schema JSON fornito. In questo modo, i risultati sono prevedibili e type-safe e l'estrazione di dati strutturati da testo non strutturato è più semplice.
 
-O uso de saídas estruturadas é ideal para:
+L'utilizzo di output strutturati è ideale per:
 
-- **Extração de dados**:extrair informações específicas, como nomes e datas, de textos.
-- **Classificação estruturada**:classificar textos em categorias predefinidas.
-- **Fluxos de trabalho de agentes**:gerar entradas estruturadas para ferramentas ou APIs.
+- **Estrazione dei dati:** estrai informazioni specifiche, come nomi e date, dal testo.
+- **Classificazione strutturata:** classifica il testo in categorie predefinite.
+- **Flussi di lavoro agentici:** genera input strutturati per strumenti o API.
 
-Além de oferecer suporte ao esquema JSON na API REST, os SDKs do Google GenAI
-facilitam a definição de esquemas usando
+Oltre a supportare lo schema JSON nell'API REST, gli SDK Google GenAI
+semplificano la definizione degli schemi utilizzando
 [Pydantic](https://docs.pydantic.dev/latest/) (Python) e
 [Zod](https://zod.dev/) (JavaScript).
 
-## Exemplos de saída estruturada
+## Esempi di output strutturati
 
-### Extrator de receitas
+### Estrattore di ricette
 
-Este exemplo demonstra como extrair dados estruturados de texto usando tipos básicos de esquema JSON, como `object`, `array`, `string` e `integer`.
+Questo esempio mostra come estrarre dati strutturati dal testo utilizzando i tipi di schema JSON di base come `object`, `array`, `string` e `integer`.
 
 ### Python
 
@@ -130,7 +130,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -267,7 +267,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**Exemplo de resposta:**
+**Esempio di risposta:**
 
 ```
 {
@@ -322,9 +322,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### Moderação de conteúdo
+### Moderazione dei contenuti
 
-Este exemplo mostra `anyOf` para esquemas condicionais e `enum` para classificação, permitindo que a estrutura de saída varie com base no conteúdo.
+Questo esempio mostra `anyOf` per gli schemi condizionali e `enum` per la classificazione, consentendo alla struttura dell'output di variare in base ai contenuti.
 
 ### Python
 
@@ -403,7 +403,7 @@ const result = moderationResultSchema.parse(JSON.parse(response.text));
 console.log(result);
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -551,9 +551,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 }
 ```
 
-### Estruturas recursivas
+### Strutture ricorsive
 
-Este exemplo ilustra como definir um esquema recursivo, como um organograma.
+Questo esempio illustra come definire uno schema ricorsivo, ad esempio un organigramma.
 
 ### Python
 
@@ -622,7 +622,7 @@ const employee = employeeSchema.parse(JSON.parse(response.text));
 console.log(employee);
 ```
 
-### Go
+### Vai
 
 ```
 package main
@@ -716,7 +716,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
     }'
 ```
 
-**Exemplo de resposta:**
+**Esempio di risposta:**
 
 ```
 {
@@ -745,9 +745,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
 
 ## Streaming
 
-É possível transmitir saídas estruturadas, o que permite começar a processar a resposta à medida que ela é gerada, sem precisar esperar que toda a saída seja concluída. Isso pode melhorar o desempenho percebido do aplicativo.
+Puoi eseguire lo streaming degli output strutturati, il che ti consente di iniziare a elaborare la risposta durante la generazione, senza dover attendere il completamento dell'intero output. In questo modo, le prestazioni percepite della tua applicazione possono migliorare.
 
-Os blocos transmitidos serão strings JSON parciais válidas, que podem ser concatenadas para formar o objeto JSON final e completo.
+I blocchi in streaming saranno stringhe JSON parziali valide, che possono essere concatenate per formare l'oggetto JSON finale e completo.
 
 ### Python
 
@@ -803,16 +803,14 @@ for await (const chunk of stream) {
 }
 ```
 
-## Saídas estruturadas com ferramentas
+## Output strutturati con gli strumenti
 
- `gemini-3.1-pro-preview`
-
-O Gemini 3 permite combinar saídas estruturadas com ferramentas integradas, incluindo
-[o embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br),
-[o contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br),
-[a execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br),
-[a pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br#structured-output), e
-[a chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br).
+Gemini 3 ti consente di combinare gli output strutturati con gli strumenti integrati, tra cui
+[Grounding con la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it),
+[contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it),
+[esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it),
+[ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it#structured-output) e
+[chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
 
 ### Python
 
@@ -917,101 +915,101 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## Suporte ao esquema JSON
+## Supporto dello schema JSON
 
-Para gerar um objeto JSON, defina o `response_format` na configuração de geração. O esquema precisa ser um [esquema JSON](https://json-schema.org/) válido que descreva o formato de saída desejado.
+Per generare un oggetto JSON, imposta `response_format` nella configurazione di generazione. Lo schema deve essere uno schema [JSON valido](https://json-schema.org/) che descriva il formato di output desiderato.
 
-Em seguida, o modelo vai gerar uma resposta que é uma string JSON sintaticamente válida que corresponde ao esquema fornecido. Ao usar saídas estruturadas, o modelo vai produzir saídas na mesma ordem das chaves no esquema.
+Il modello genererà quindi una risposta che è una stringa JSON sintatticamente valida che corrisponde allo schema fornito. Quando utilizzi gli output strutturati, il modello produce gli output nello stesso ordine delle chiavi nello schema.
 
-O modo de saída estruturada do Gemini oferece suporte a um subconjunto da especificação do esquema [JSON](https://json-schema.org).
+La modalità di output strutturato di Gemini supporta un sottoinsieme della specifica dello schema [JSON](https://json-schema.org).
 
-Os seguintes valores de `type` são aceitos:
+Sono supportati i seguenti valori di `type`:
 
-- **`string`**: para texto.
-- **`number`**: para usar pontos flutuantes.
-- **`integer`**: para números inteiros.
-- **`boolean`**: para valores verdadeiro/falso.
-- **`object`**: para dados estruturados com pares de chave-valor.
-- **`array`**: para listas de itens.
-- **`null`**: para permitir que uma propriedade seja nula, inclua `"null"` na matriz de tipo (por exemplo, `{"type": ["string", "null"]}`).
+- **`string`**: per il testo.
+- **`number`**: per i numeri in virgola mobile.
+- **`integer`**: per i numeri interi.
+- **`boolean`**: per i valori true/false.
+- **`object`**: per i dati strutturati con coppie chiave-valore.
+- **`array`**: per gli elenchi di elementi.
+- **`null`**: per consentire a una proprietà di essere null, includi `"null"` nell'array di tipi (ad es. `{"type": ["string", "null"]}`).
 
-Essas propriedades descritivas ajudam a orientar o modelo:
+Queste proprietà descrittive aiutano a guidare il modello:
 
-- **`title`**: uma breve descrição de uma propriedade.
-- **`description`**: uma descrição mais longa e detalhada de uma propriedade.
+- **`title`**: una breve descrizione di una proprietà.
+- **`description`**: una descrizione più lunga e dettagliata di una proprietà.
 
-### Propriedades específicas do tipo
+### Proprietà specifiche del tipo
 
-**Para valores:**`object`
+**Per i valori `object`:**
 
-- **`properties`**: um objeto em que cada chave é um nome de propriedade e cada valor é um esquema para essa propriedade.
-- **`required`**: uma matriz de strings que lista quais propriedades são obrigatórias.
-- **`additionalProperties`**: controla se as propriedades não listadas em `properties` são permitidas. Pode ser um booleano ou um esquema.
+- **`properties`**: un oggetto in cui ogni chiave è un nome di proprietà e ogni valore è uno schema per quella proprietà.
+- **`required`**: un array di stringhe che elenca le proprietà obbligatorie.
+- **`additionalProperties`**: controlla se le proprietà non elencate in `properties` sono consentite. Può essere un valore booleano o uno schema.
 
-**Para valores `string`:**
+**Per i valori `string`:**
 
-- **`enum`**: lista um conjunto específico de strings possíveis para tarefas de classificação.
-- **`format`**: especifica uma sintaxe para a string, como `date-time`, `date`, `time`.
+- **`enum`**: elenca un insieme specifico di stringhe possibili per le attività di classificazione.
+- **`format`**: specifica una sintassi per la stringa, ad esempio `date-time`, `date`, `time`.
 
-**Para valores `number` e `integer`:**
+**Per i valori `number` e `integer`:**
 
-- **`enum`**: lista um conjunto específico de valores numéricos possíveis.
-- **`minimum`**: o valor inclusivo mínimo.
-- **`maximum`**: o valor inclusivo máximo.
+- **`enum`**: elenca un insieme specifico di valori numerici possibili.
+- **`minimum`**: il valore inclusivo minimo.
+- **`maximum`**: il valore inclusivo massimo.
 
-**Para `array` valores:**
+**Per i valori `array`:**
 
-- **`items`**: define o esquema para todos os itens na matriz.
-- **`prefixItems`**: define uma lista de esquemas para os primeiros N itens, permitindo estruturas semelhantes a tuplas.
-- **`minItems`**: o número mínimo de itens na matriz.
-- **`maxItems`**: o número máximo de itens na matriz.
+- **`items`**: definisce lo schema per tutti gli elementi dell'array.
+- **`prefixItems`**: definisce un elenco di schemi per i primi N elementi, consentendo strutture simili a tuple.
+- **`minItems`**: il numero minimo di elementi nell'array.
+- **`maxItems`**: il numero massimo di elementi nell'array.
 
-## Suporte ao modelo
+## Supporto del modello
 
-Os modelos a seguir oferecem suporte à saída estruturada:
+I seguenti modelli supportano l'output strutturato:
 
-| Modelo | Saídas estruturadas |
+| Modello | Output strutturati |
 | --- | --- |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Pré-lançamento do Gemini 3.1 Pro | ✔️ |
+| Gemini 3.1 Pro (anteprima) | ✔️ |
 | Gemini 3.5 Flash | ✔️ |
-| Pré-lançamento do Gemini 3.1 Flash-Lite | ✔️ |
+| Gemini 3.1 Flash-Lite (anteprima) | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️\* |
 | Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* O Gemini 2.0 exige uma lista `propertyOrdering` explícita na entrada JSON para definir a estrutura preferida. Confira um exemplo neste [cookbook](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
+*\* Tieni presente che Gemini 2.0 richiede un elenco esplicito `propertyOrdering` all'interno dell'input JSON per definire la struttura preferita. Puoi trovare un esempio in questo [cookbook](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
 
-## Saídas estruturadas x chamada de função
+## Output strutturati e chiamate di funzione
 
-As saídas estruturadas e a chamada de função usam esquemas JSON, mas têm propósitos diferentes:
+Sia gli output strutturati sia le chiamate di funzione utilizzano schemi JSON, ma hanno scopi diversi:
 
-| Recurso | Caso de uso principal |
+| Funzionalità | Caso d'uso primario |
 | --- | --- |
-| **Saídas estruturadas** | **Formatar a resposta final para o usuário**. Use isso quando quiser que a *resposta* do modelo esteja em um formato específico (por exemplo, extrair dados de um documento para salvar em um banco de dados). |
-| **Chamada de função** | **Realizar ações durante a conversa**. Use isso quando o modelo precisar *pedir* que você realize uma tarefa (por exemplo, "mostrar o clima atual") antes de fornecer uma resposta final. |
+| **Output strutturati** | **Formattazione della risposta finale all'utente.** Utilizza questa opzione quando vuoi che la *risposta* del modello sia in un formato specifico (ad es. estrazione di dati da un documento da salvare in un database). |
+| **Chiamate di funzione** | **Esecuzione di azioni durante la conversazione.** Utilizza questa opzione quando il modello deve *chiederti* di eseguire un'attività (ad es. "ottieni le condizioni meteorologiche attuali") prima di poter fornire una risposta finale. |
 
-## Práticas recomendadas
+## Best practice
 
-- **Descrições claras**:use o campo `description` no esquema para fornecer instruções claras ao modelo sobre o que cada propriedade representa. Isso é essencial para orientar a saída do modelo.
-- **Tipagem forte**:use tipos específicos (`integer`, `string`, `enum`) sempre que possível. Se um parâmetro tiver um conjunto limitado de valores válidos, use um `enum`.
-- **Engenharia de comandos**:declare claramente no comando o que você quer que o modelo faça. Por exemplo, "Extraia as seguintes informações do texto..." ou "Classifique esse feedback de acordo com o esquema fornecido...".
-- **Validação**:embora a saída estruturada garanta um JSON sintaticamente correto, ela não garante que os valores sejam semanticamente corretos. Sempre valide a saída final no código do aplicativo antes de usá-la.
-- **Tratamento de erros**:implemente um tratamento de erros robusto no aplicativo para gerenciar casos em que a saída do modelo, embora esteja em conformidade com o esquema, não atenda aos requisitos da lógica de negócios.
+- **Descrizioni chiare:** utilizza il campo `description` nello schema per fornire istruzioni chiare al modello su cosa rappresenta ogni proprietà. Questo è fondamentale per guidare l'output del modello.
+- **Digitazione forte:** utilizza tipi specifici (`integer`, `string`, `enum`) quando possibile. Se un parametro ha un insieme limitato di valori validi, utilizza un `enum`.
+- **Prompt engineering:** indica chiaramente nel prompt cosa vuoi che il modello faccia. Ad esempio, "Estrai le seguenti informazioni dal testo..." o "Classifica questo feedback in base allo schema fornito...".
+- **Convalida:** anche se l'output strutturato garantisce un JSON sintatticamente corretto, non garantisce che i valori siano semanticamente corretti. Convalida sempre l'output finale nel codice dell'applicazione prima di utilizzarlo.
+- **Gestione degli errori:** implementa una gestione degli errori efficace nella tua applicazione per gestire correttamente i casi in cui l'output del modello, pur essendo conforme allo schema, potrebbe non soddisfare i requisiti della logica di business.
 
-## Limitações
+## Limitazioni
 
-- **Subconjunto de esquema**:nem todos os recursos da especificação do esquema JSON são aceitos. O modelo ignora propriedades não aceitas.
-- **Complexidade do esquema**:a API pode rejeitar esquemas muito grandes ou profundamente aninhados. Se você encontrar erros, tente simplificar o esquema encurtando os nomes das propriedades, reduzindo o aninhamento ou limitando o número de restrições.
+- **Sottoinsieme dello schema:** non tutte le funzionalità della specifica dello schema JSON sono supportate. Il modello ignora le proprietà non supportate.
+- **Complessità dello schema:** l'API potrebbe rifiutare schemi molto grandi o profondamente nidificati. Se riscontri errori, prova a semplificare lo schema abbreviando i nomi delle proprietà, riducendo la nidificazione o limitando il numero di vincoli.
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-06-23 UTC.
+Ultimo aggiornamento 2026-06-23 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-23 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-23 UTC."],[],[]]

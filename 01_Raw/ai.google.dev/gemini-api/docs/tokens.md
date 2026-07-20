@@ -1,44 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=vi
-fetched_at: 2026-07-06T05:15:37.143542+00:00
-title: "T\u00ecm hi\u1ec3u v\u00e0 t\u00ednh m\u00e3 th\u00f4ng b\u00e1o \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=id
+fetched_at: 2026-07-20T04:45:30.197870+00:00
+title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-# Tìm hiểu và tính mã thông báo
+# Memahami dan menghitung token
 
-Gemini và các mô hình AI tạo sinh khác xử lý dữ liệu đầu vào và đầu ra ở mức độ chi tiết được gọi là *mã thông báo*.
+Gemini dan model AI generatif lainnya memproses input dan output pada perincian
+yang disebut *token*.
 
-**Đối với các mô hình Gemini, một mã thông báo tương đương với khoảng 4 ký tự.
-100 mã thông báo tương đương với khoảng 60 đến 80 từ tiếng Anh.**
+**Untuk model Gemini, satu token setara dengan sekitar 4 karakter.
+100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
 
-## Giới thiệu về mã thông báo
+## Tentang token
 
-Mã thông báo có thể là các ký tự đơn như `z` hoặc toàn bộ từ như `cat`. Các từ dài được chia thành nhiều mã thông báo. Tập hợp tất cả các mã thông báo mà mô hình sử dụng được gọi là từ vựng và quy trình phân tách văn bản thành mã thông báo được gọi là *mã hoá*.
+Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang
+dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses membagi teks menjadi token disebut *tokenisasi*.
 
-Khi bạn bật tính năng thanh toán, [chi phí cho một lệnh gọi đến Gemini API](https://ai.google.dev/pricing?hl=vi) sẽ được xác định một phần dựa trên số lượng mã thông báo đầu vào và đầu ra. Vì vậy, việc biết cách đếm mã thông báo có thể hữu ích.
+Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id) sebagian ditentukan oleh jumlah token input dan output, jadi mengetahui cara menghitung token dapat membantu.
 
-## Đếm mã thông báo
+## Menjumlahkan token
 
-Tất cả dữ liệu đầu vào và đầu ra từ Gemini API đều được mã hoá thành mã thông báo, bao gồm cả văn bản, tệp hình ảnh và các phương thức không phải văn bản khác.
+Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
 
-Bạn có thể đếm mã thông báo theo những cách sau:
+Anda dapat menghitung token dengan cara berikut:
 
-- **Gọi `count_tokens` bằng dữ liệu đầu vào của yêu cầu.** Trả về tổng số mã thông báo *chỉ trong dữ liệu đầu vào*. Thực hiện lệnh gọi này trước khi gửi dữ liệu đầu vào để kiểm tra kích thước của các yêu cầu.
-- **Sử dụng `usage` trên câu trả lời tương tác.** Trả về số lượng mã thông báo cho dữ liệu đầu vào (`total_input_tokens`), dữ liệu đầu ra (`total_output_tokens`), suy nghĩ (`total_thought_tokens`), nội dung được lưu vào bộ nhớ đệm (`total_cached_tokens`), việc sử dụng công cụ (`total_tool_use_tokens`) và tổng số (`total_tokens`).
+- **Panggil `count_tokens` dengan input permintaan.** Menampilkan jumlah total
+  token dalam *input saja*. Lakukan panggilan ini sebelum mengirim input
+  untuk memeriksa ukuran permintaan Anda.
+- **Gunakan `usage` pada respons interaksi.** Menampilkan jumlah token
+  untuk input (`total_input_tokens`), output (`total_output_tokens`),
+  pemikiran (`total_thought_tokens`), konten yang di-cache
+  (`total_cached_tokens`), penggunaan alat (`total_tool_use_tokens`),
+  dan total (`total_tokens`).
 
-### Đếm mã thông báo văn bản
+### Menghitung token teks
 
 ### Python
 
@@ -98,9 +106,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Đếm mã thông báo nhiều lượt
+### Menghitung token multi-giliran
 
-Đếm số lượng mã thông báo trong nhật ký trò chuyện bằng cách sử dụng `previous_interaction_id`:
+Menghitung token di seluruh histori percakapan menggunakan `previous_interaction_id`:
 
 ### Python
 
@@ -146,16 +154,16 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Đếm mã thông báo đa phương thức
+### Menghitung token multimodal
 
-Mọi dữ liệu đầu vào cho Gemini API đều được mã hoá thành mã thông báo, bao gồm cả hình ảnh, video và âm thanh.
-Các điểm chính về việc mã hoá:
+Semua input ke Gemini API di-tokenisasi, termasuk gambar, video, dan audio.
+Poin penting tentang tokenisasi:
 
-- **Hình ảnh**: Hình ảnh có kích thước ≤384 pixel ở cả hai chiều được tính là 258 mã thông báo. Các hình ảnh lớn hơn được chia thành các ô có kích thước 768x768 pixel, mỗi ô được tính là 258 mã thông báo.
-- **Video**: 263 mã thông báo mỗi giây
-- **Âm thanh**: 32 mã thông báo mỗi giây
+- **Gambar**: Gambar ≤384 piksel di kedua dimensi dihitung sebagai 258 token. Gambar yang lebih besar diatur menjadi ubin 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
+- **Video**: 263 token per detik
+- **Audio**: 32 token per detik
 
-#### Mã thông báo hình ảnh
+#### Token gambar
 
 ### Python
 
@@ -201,7 +209,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-**Ví dụ về dữ liệu nội tuyến:**
+**Contoh data inline:**
 
 ### Python
 
@@ -226,7 +234,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Mã thông báo video
+#### Token video
 
 ### Python
 
@@ -259,7 +267,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Mã thông báo âm thanh
+#### Token audio
 
 ### Python
 
@@ -285,9 +293,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Đếm mã thông báo hướng dẫn hệ thống
+### Menghitung token petunjuk sistem
 
-Các chỉ dẫn hệ thống được tính là một phần của mã thông báo đầu vào:
+Petunjuk sistem dihitung sebagai bagian dari token input:
 
 ### Python
 
@@ -303,9 +311,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Đếm mã thông báo công cụ
+### Menghitung token alat
 
-Các công cụ (hàm, thực thi mã, Google Tìm kiếm) cũng được tính:
+Alat (fungsi, eksekusi kode, Google Penelusuran) juga dihitung:
 
 ### Python
 
@@ -335,11 +343,12 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Cửa sổ ngữ cảnh
+## Jendela konteks
 
-Mỗi mô hình Gemini đều có số lượng mã thông báo tối đa mà mô hình đó có thể xử lý. Cửa sổ ngữ cảnh xác định giới hạn kết hợp của mã thông báo đầu vào và đầu ra.
+Setiap model Gemini memiliki jumlah token maksimum yang dapat ditanganinya. Jendela konteks
+menentukan batas gabungan token input dan output.
 
-### Lấy kích thước cửa sổ ngữ cảnh theo phương thức lập trình
+### Mendapatkan ukuran jendela konteks secara terprogram
 
 ### Python
 
@@ -359,20 +368,20 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-Tìm kích thước cửa sổ ngữ cảnh trên trang [các mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+Temukan ukuran jendela konteks di halaman [model](https://ai.google.dev/gemini-api/docs/models?hl=id).
 
-## Bước tiếp theo
+## Langkah berikutnya
 
-- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi): Các kiến thức cơ bản về việc tạo văn bản
-- [Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi): Giảm chi phí bằng cách lưu vào bộ nhớ đệm
-- [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi): Tìm hiểu về chi phí
+- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id): Dasar-dasar pembuatan
+- [Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id): Mengurangi biaya dengan caching
+- [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id): Memahami biaya
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Cập nhật lần gần đây nhất: 2026-06-22 UTC.
+Terakhir diperbarui pada 2026-07-06 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Ada masukan untuk kami?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-22 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-07-06 UTC."],[],[]]

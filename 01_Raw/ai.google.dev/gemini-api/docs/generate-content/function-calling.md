@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=vi
-fetched_at: 2026-07-06T05:19:59.007507+00:00
-title: "G\u1ecdi h\u00e0m b\u1eb1ng Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=ar
+fetched_at: 2026-07-20T04:34:44.813362+00:00
+title: "\u0627\u0633\u062a\u062f\u0639\u0627\u0621 \u0627\u0644\u062f\u0648\u0627\u0644\u0651 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Gọi hàm bằng Gemini API
+# استدعاء الدوالّ باستخدام Gemini API
 
-Tính năng gọi hàm cho phép bạn kết nối các mô hình với các công cụ và API bên ngoài.
-Thay vì tạo phản hồi bằng văn bản, mô hình sẽ xác định thời điểm gọi các hàm cụ thể và cung cấp các tham số cần thiết để thực thi các hành động trong thế giới thực.
-Điều này cho phép mô hình đóng vai trò là cầu nối giữa ngôn ngữ tự nhiên và các hành động cũng như dữ liệu trong thế giới thực. Tính năng gọi hàm có 3 trường hợp sử dụng chính:
+تتيح لك ميزة "استدعاء الدوال" ربط النماذج بالأدوات وواجهات برمجة التطبيقات الخارجية.
+وبدلاً من إنشاء ردود نصية، يحدّد النموذج الوقت المناسب لاستدعاء دوال معيّنة ويقدّم المَعلمات اللازمة لتنفيذ إجراءات في العالم الحقيقي.
+يتيح ذلك للنموذج أن يكون بمثابة جسر بين اللغة الطبيعية والإجراءات والبيانات في العالم الحقيقي. تتضمّن ميزة "استدعاء الدالة" 3 حالات استخدام أساسية:
 
-- [**Thực hiện hành động:**](#meeting) Tương tác với các hệ thống bên ngoài bằng API, chẳng hạn như lên lịch hẹn, tạo hoá đơn, gửi email hoặc điều khiển các thiết bị nhà thông minh.
-- [**Tăng cường kiến thức:**](#weather) Truy cập thông tin từ các nguồn bên ngoài như cơ sở dữ liệu, API và cơ sở kiến thức.
-- [**Mở rộng khả năng:**](#chart) Sử dụng các công cụ bên ngoài để thực hiện phép tính và mở rộng các giới hạn của mô hình, chẳng hạn như sử dụng máy tính hoặc tạo biểu đồ.
+- [**اتّخاذ إجراءات:**](#meeting) التفاعل مع الأنظمة الخارجية باستخدام واجهات برمجة التطبيقات، مثل تحديد المواعيد أو إنشاء الفواتير أو إرسال الرسائل الإلكترونية أو التحكّم في الأجهزة المنزلية الذكية
+- [**تعزيز المعرفة:**](#weather) الوصول إلى المعلومات من مصادر خارجية، مثل قواعد البيانات وواجهات برمجة التطبيقات وقواعد المعلومات
+- [**توسيع الإمكانات:**](#chart) يمكنك استخدام أدوات خارجية لإجراء العمليات الحسابية وتوسيع حدود النموذج، مثل استخدام آلة حاسبة أو إنشاء رسومات بيانية.
 
-Bạn có thể duyệt xem ví dụ về các trường hợp sử dụng này bên dưới:
+يمكنك الاطّلاع أدناه على أمثلة على حالات الاستخدام هذه:
 
-### Lên lịch họp
+### تحديد موعد اجتماع
 
-Ví dụ này cho thấy cách xác định một hàm lên lịch cuộc họp với người tham dự vào một thời điểm cụ thể, cho phép mô hình phân tích cú pháp các yêu cầu của người dùng và trả về các đối số có cấu trúc để kích hoạt các hành động trong hệ thống bên ngoài.
+يوضّح هذا المثال كيفية تحديد دالة تحدّد موعدًا لاجتماع مع المشارِكين في وقت معيّن، ما يسمح للنموذج بتحليل طلبات المستخدمين وعرض وسيطات منظَّمة لتنفيذ إجراءات في أنظمة خارجية.
 
 ### Python
 
@@ -209,9 +209,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Nhận thông tin thời tiết
+### الحصول على معلومات الطقس
 
-Ví dụ này cho thấy cách xác định một hàm truy xuất dữ liệu nhiệt độ cho một vị trí, cho phép mô hình gọi các API bên ngoài để trả lời những truy vấn yêu cầu thông tin theo thời gian thực hoặc thông tin bên ngoài.
+يوضّح هذا المثال كيفية تحديد دالة تسترد بيانات درجة الحرارة لموقع جغرافي، ما يتيح للنموذج استدعاء واجهات برمجة التطبيقات الخارجية للإجابة عن طلبات البحث التي تتطلّب معلومات خارجية أو في الوقت الفعلي.
 
 ### Python
 
@@ -350,9 +350,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### Tạo biểu đồ
+### إنشاء رسم بياني
 
-Ví dụ này cho thấy cách xác định một hàm tạo biểu đồ thanh từ dữ liệu có cấu trúc, minh hoạ cách mô hình có thể sử dụng các công cụ bên ngoài để thực hiện các phép tính hoặc tạo tài sản trực quan:
+يوضّح هذا المثال كيفية تحديد دالة تنشئ رسمًا بيانيًا شريطيًا من بيانات منظَّمة، ما يوضّح كيف يمكن للنموذج استخدام أدوات خارجية لإجراء عمليات حسابية أو إنشاء أصول مرئية:
 
 ### Python
 
@@ -522,26 +522,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Cách hoạt động của tính năng gọi hàm
+## طريقة عمل ميزة "استدعاء الدوال"
 
-![tổng quan về tính năng gọi hàm](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=vi)
+![نظرة عامة حول ميزة &quot;استدعاء الدالة&quot;](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=ar)
 
-Gọi hàm là một hoạt động tương tác có cấu trúc giữa ứng dụng, mô hình và các hàm bên ngoài. Sau đây là thông tin chi tiết về quy trình này:
+تتضمّن ميزة "استدعاء الدوال" تفاعلاً منظَّمًا بين تطبيقك والنموذج والدوال الخارجية. في ما يلي تفاصيل العملية:
 
-1. **Xác định khai báo hàm:** Xác định khai báo hàm trong mã xử lý ứng dụng của bạn. Khai báo hàm mô tả tên, tham số và mục đích của hàm cho mô hình.
-2. **Gọi API bằng các khai báo hàm:** Gửi câu lệnh của người dùng cùng với(các) khai báo hàm đến mô hình. Nó phân tích yêu cầu và xác định xem việc gọi hàm có hữu ích hay không. Nếu có, hệ thống sẽ phản hồi bằng một đối tượng JSON có cấu trúc chứa tên hàm, đối số và một `id` duy nhất (API hiện luôn trả về `id` này cho các mô hình Gemini 3\*).
-3. **Thực thi mã hàm (trách nhiệm của bạn):** Mô hình *không* tự thực thi hàm. Ứng dụng của bạn có trách nhiệm xử lý phản hồi và kiểm tra lệnh gọi hàm. Nếu
-   - **Có**: Trích xuất tên, đối số và `id` của hàm rồi thực thi hàm tương ứng trong ứng dụng của bạn.
-   - **Không:** Mô hình đã đưa ra câu trả lời bằng văn bản trực tiếp cho câu lệnh (luồng này ít được nhấn mạnh trong ví dụ nhưng là một kết quả có thể xảy ra).
-4. **Tạo câu trả lời thân thiện với người dùng:** Nếu một hàm đã được thực thi, hãy thu thập kết quả và gửi lại cho mô hình, đảm bảo bạn đưa `id` phù hợp vào lượt trò chuyện tiếp theo. Công cụ này sẽ sử dụng kết quả để tạo ra một phản hồi cuối cùng, thân thiện với người dùng, kết hợp thông tin từ lệnh gọi hàm.
+1. **تحديد تعريف الدالة:** حدِّد تعريف الدالة في الرمز البرمجي لتطبيقك. تصف "تعريفات الدوال" اسم الدالة ومعلماتها والغرض منها للنموذج.
+2. **استدعاء واجهة برمجة التطبيقات باستخدام تعريفات الدوال:** أرسِل طلب المستخدم مع تعريفات الدوال إلى النموذج. ويحلّل الطلب ويحدّد ما إذا كان استدعاء دالة سيكون مفيدًا. في هذه الحالة، يستجيب النموذج بكائن JSON منظَّم يحتوي على اسم الدالة والمعلَمات ومعرّف فريد `id`
+   (يعرض النموذج الآن هذا المعرّف `id` دائمًا عند استخدام نماذج Gemini 3\*).
+3. **تنفيذ رمز الدالة (مسؤوليتك):** *لا* ينفّذ النموذج الدالة بنفسه. يقع على عاتق تطبيقك مسؤولية معالجة الرد والتحقّق من وجود طلب استدعاء دالة. If
+   - **نعم**: استخرِج الاسم والوسيطات و`id` للدالة ونفِّذ الدالة المقابلة في تطبيقك.
+   - **لا:** قدّم النموذج ردًا نصيًا مباشرًا على الطلب
+     (لا يتم التركيز على هذا المسار في المثال، ولكنّه نتيجة محتملة).
+4. **إنشاء ردّ سهل الاستخدام:** إذا تم تنفيذ دالة، سجِّل النتيجة وأرسِلها مرة أخرى إلى النموذج، مع الحرص على تضمين `id` المطابق في دورة لاحقة من المحادثة. سيستخدم النموذج النتيجة لإنشاء رد نهائي سهل الاستخدام يتضمّن المعلومات من استدعاء الدالة.
 
-Quá trình này có thể được lặp lại nhiều lần, cho phép các quy trình và hoạt động tương tác phức tạp. Mô hình này cũng hỗ trợ việc gọi nhiều hàm trong một lượt ([gọi hàm song song](#parallel_function_calling)), theo trình tự ([gọi hàm thành phần](#compositional_function_calling)) và bằng các công cụ Gemini tích hợp ([sử dụng nhiều công cụ](#native-tools)).
+يمكن تكرار هذه العملية عدة مرات، ما يتيح إجراء تفاعلات وعمليات سير عمل معقّدة. يتيح النموذج أيضًا استدعاء دوال متعددة
+في دورة واحدة ([استدعاء الدوال بالتوازي](#parallel_function_calling))،
+وبالتسلسل ([استدعاء الدوال التركيبي](#compositional_function_calling))،
+ومع أدوات Gemini المضمّنة ([استخدام أدوات متعددة](#native-tools)).
 
-\* **Luôn liên kết mã nhận dạng hàm:** Gemini 3 hiện luôn trả về một `id` duy nhất với mọi `functionCall`. Hãy thêm chính xác `id` này vào `functionResponse` để mô hình có thể ánh xạ chính xác kết quả của bạn về yêu cầu ban đầu.
+\* **ربط معرّفات الدوال دائمًا:** يعرض Gemini 3 الآن دائمًا معرّفًا فريدًا
+`id` مع كل `functionCall`. يجب تضمين `id` هذا بالضبط في `functionResponse` حتى يتمكّن النموذج من ربط النتيجة بالطلب الأصلي بدقة.
 
-### Bước 1: Xác định một khai báo hàm
+### الخطوة 1: تحديد تعريف دالة
 
-Xác định một hàm và khai báo của hàm đó trong mã xử lý ứng dụng để cho phép người dùng đặt giá trị ánh sáng và đưa ra yêu cầu API. Hàm này có thể gọi các dịch vụ hoặc API bên ngoài.
+حدِّد دالة وبيانها ضمن الرمز البرمجي لتطبيقك يسمح للمستخدمين بضبط قيم الإضاءة وإجراء طلب بيانات من واجهة برمجة التطبيقات. يمكن أن تستدعي هذه الدالة خدمات أو واجهات برمجة تطبيقات خارجية.
 
 ### Python
 
@@ -622,9 +628,9 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Bước 2: Gọi mô hình bằng các khai báo hàm
+### الخطوة 2: استدعاء النموذج باستخدام تعريفات الدوال
 
-Sau khi xác định các khai báo hàm, bạn có thể nhắc mô hình sử dụng các khai báo đó. Công cụ này phân tích câu lệnh và khai báo hàm, đồng thời quyết định có nên phản hồi trực tiếp hay gọi một hàm. Nếu một hàm được gọi, đối tượng phản hồi sẽ chứa một đề xuất gọi hàm.
+بعد تحديد تعريفات الدوال، يمكنك أن تطلب من النموذج استخدامها. ويحلّل الطلب وتعريفات الدوال ويقرّر ما إذا كان سيردّ مباشرةً أو سيستدعي دالة. إذا تم استدعاء دالة، سيحتوي عنصر الاستجابة على اقتراح باستدعاء دالة.
 
 ### Python
 
@@ -686,7 +692,7 @@ const response = await ai.models.generateContent({
 console.log(response.functionCalls[0]);
 ```
 
-Sau đó, mô hình sẽ trả về một đối tượng `functionCall` trong một giản đồ tương thích với OpenAPI, chỉ định cách gọi một hoặc nhiều hàm đã khai báo để trả lời câu hỏi của người dùng.
+بعد ذلك، يعرض النموذج كائن `functionCall` في مخطط متوافق مع OpenAPI يحدّد كيفية طلب إحدى الدوال المحدّدة أو أكثر من أجل الرد على سؤال المستخدم.
 
 ### Python
 
@@ -704,9 +710,9 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 }
 ```
 
-### Bước 3: Thực thi mã hàm set\_light\_values
+### الخطوة 3: تنفيذ رمز الدالة set\_light\_values
 
-Trích xuất thông tin chi tiết về lệnh gọi hàm từ phản hồi của mô hình, phân tích cú pháp các đối số và thực thi hàm `set_light_values`.
+استخرِج تفاصيل طلب استدعاء الدالة من ردّ النموذج، وحلِّل المَعلمات، ونفِّذ الدالة `set_light_values`.
 
 ### Python
 
@@ -732,9 +738,9 @@ if (tool_call.name === 'set_light_values') {
 }
 ```
 
-### Bước 4: Tạo phản hồi thân thiện với người dùng bằng kết quả của hàm và gọi lại mô hình
+### الخطوة 4: إنشاء ردّ سهل الاستخدام يتضمّن نتيجة الدالة واستدعاء النموذج مرة أخرى
 
-Cuối cùng, hãy gửi kết quả thực thi hàm trở lại mô hình để mô hình có thể kết hợp thông tin này vào phản hồi cuối cùng cho người dùng.
+أخيرًا، أرسِل نتيجة تنفيذ الدالة إلى النموذج ليتمكّن من دمج هذه المعلومات في الرد النهائي الذي يقدّمه للمستخدم.
 
 ### Python
 
@@ -787,53 +793,62 @@ const final_response = await ai.models.generateContent({
 console.log(final_response.text);
 ```
 
-Thao tác này sẽ hoàn tất quy trình gọi hàm. Mô hình đã sử dụng thành công hàm `set_light_values` để thực hiện hành động theo yêu cầu của người dùng.
+بهذا تنتهي عملية استدعاء الدوال. استخدم النموذج الدالة
+`set_light_values` بنجاح لتنفيذ الإجراء المطلوب من المستخدم.
 
-## Khai báo hàm
+## تعريفات الدوال
 
-Khi triển khai tính năng gọi hàm trong một câu lệnh, bạn sẽ tạo một đối tượng `tools` chứa một hoặc nhiều `function declarations`. Bạn xác định các hàm bằng JSON, cụ thể là bằng một [tập hợp con chọn lọc](https://ai.google.dev/api/caching?hl=vi#Schema) của định dạng [giản đồ OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). Một khai báo hàm duy nhất có thể bao gồm các tham số sau:
+عند تنفيذ ميزة "استدعاء الدوال" في طلب، يمكنك إنشاء عنصر `tools` يحتوي على دالة واحدة أو أكثر من دوال `function declarations`. يمكنك تحديد الدوال باستخدام JSON، وتحديدًا باستخدام [مجموعة فرعية من select](https://ai.google.dev/api/caching?hl=ar#Schema) من تنسيق [مخطط OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). يمكن أن يتضمّن تعريف الدالة الواحدة المَعلمات التالية:
 
-- `name` (chuỗi): Tên duy nhất cho hàm (`get_weather_forecast`, `send_email`). Sử dụng tên mô tả không có dấu cách hoặc ký tự đặc biệt (sử dụng dấu gạch dưới hoặc camelCase).
-- `description` (chuỗi): Nội dung giải thích rõ ràng và chi tiết về mục đích và khả năng của hàm. Điều này rất quan trọng để mô hình hiểu được thời điểm sử dụng hàm. Hãy nêu cụ thể và đưa ra ví dụ nếu hữu ích ("Tìm rạp chiếu phim dựa trên vị trí và tiêu đề phim (không bắt buộc) đang chiếu tại rạp.").
-- `parameters` (đối tượng): Xác định các tham số đầu vào mà hàm mong đợi.
-  - `type` (chuỗi): Chỉ định loại dữ liệu tổng thể, chẳng hạn như `object`.
-  - `properties` (đối tượng): Liệt kê các thông số riêng lẻ, mỗi thông số có:
-    - `type` (chuỗi): Loại dữ liệu của tham số, chẳng hạn như `string`, `integer`, `boolean, array`.
-    - `description` (chuỗi): Nội dung mô tả về mục đích và định dạng của tham số. Đưa ra ví dụ và các ràng buộc ("Thành phố và tiểu bang, ví dụ: "San Francisco, CA" hoặc mã zip, ví dụ: "95616").
-    - `enum` (mảng, không bắt buộc): Nếu các giá trị tham số thuộc một tập hợp cố định, hãy sử dụng "enum" để liệt kê các giá trị được phép thay vì chỉ mô tả các giá trị đó trong phần mô tả. Điều này giúp cải thiện độ chính xác ("enum":["daylight", "cool", "warm"]).
-  - `required` (mảng): Một mảng gồm các chuỗi liệt kê tên tham số bắt buộc để hàm hoạt động.
+- ‫`name` (string): اسم فريد للدالة (`get_weather_forecast`،
+  `send_email`). استخدِم أسماء وصفية بدون مسافات أو أحرف خاصة
+  (استخدِم الشرطات السفلية أو camelCase).
+- `description` (سلسلة): شرح واضح ومفصّل للغرض من الدالة وإمكاناتها. هذا أمر بالغ الأهمية لكي يفهم النموذج متى يجب استخدام الدالة. كن محدّدًا وقدِّم أمثلة إذا كان ذلك مفيدًا ("تعثر على دور السينما استنادًا إلى الموقع الجغرافي وعنوان الفيلم اختياريًا، والذي يتم عرضه حاليًا في دور السينما").
+- ‫`parameters` (object): تحدّد هذه السمة مَعلمات الإدخال التي تتوقّعها الدالة.
+  - `type` (سلسلة): تحدّد نوع البيانات العام، مثل `object`.
+  - `properties` (عنصر): يدرج المَعلمات الفردية، ويتضمّن كل منها ما يلي:
+    - `type` (سلسلة): نوع بيانات المَعلمة، مثل `string` أو `integer` أو `boolean, array`
+    - ‫`description` (سلسلة): وصف لغرض المَعلمة وتنسيقها. قدِّم أمثلة وقيودًا ("المدينة والولاية،
+      مثل 'سان فرانسيسكو، كاليفورنيا' أو رمز بريدي مثل '95616'").
+    - ‫`enum` (مصفوفة، اختياري): إذا كانت قيم المَعلمات من مجموعة ثابتة، استخدِم "enum" لإدراج القيم المسموح بها بدلاً من مجرد وصفها في الوصف. يؤدي ذلك إلى تحسين الدقة ("enum":
+      ["daylight", "cool", "warm"]).
+  - ‫`required` (مصفوفة): مصفوفة من السلاسل تسرد أسماء المَعلمات التي يجب توفّرها لكي تعمل الدالة.
 
-Bạn cũng có thể tạo `FunctionDeclarations` trực tiếp từ các hàm Python bằng cách sử dụng `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
+يمكنك أيضًا إنشاء `FunctionDeclarations` من دوال Python مباشرةً باستخدام `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
 
-## Gọi hàm bằng mô hình tư duy
+## استدعاء الدوال باستخدام نماذج التفكير
 
-Các mô hình Gemini 3 và 2.5 sử dụng quy trình ["tư duy"](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) nội bộ để suy luận về các yêu cầu. Điều này giúp cải thiện đáng kể hiệu suất gọi hàm, cho phép mô hình xác định chính xác hơn thời điểm gọi hàm và tham số cần sử dụng. Vì Gemini API không lưu giữ trạng thái, nên các mô hình sử dụng [chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để duy trì ngữ cảnh trong các cuộc trò chuyện nhiều lượt.
+تستخدم نماذج Gemini 3 و2.5 سلسلة عملية ["تفكير"](https://ai.google.dev/gemini-api/docs/thinking?hl=ar) داخلية للاستدلال على الطلبات. يؤدي ذلك إلى تحسين أداء ميزة &quot;استدعاء الدوال&quot; بشكل كبير، ما يسمح للنموذج بتحديد الوقت المناسب لاستدعاء دالة معيّنة والمعلَمات التي يجب استخدامها. بما أنّ Gemini API لا يحتفظ بأي بيانات، تستخدم النماذج
+[توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar) للحفاظ على السياق
+في المحادثات المترابطة.
 
-Phần này đề cập đến việc quản lý nâng cao chữ ký suy nghĩ và chỉ cần thiết nếu bạn đang tạo Yêu cầu API theo cách thủ công (ví dụ: thông qua REST) hoặc thao tác với nhật ký cuộc trò chuyện.
+يتناول هذا القسم الإدارة المتقدّمة لتوقيعات الأفكار، ولا يكون ضروريًا إلا إذا كنت تنشئ طلبات واجهة برمجة التطبيقات يدويًا (مثل REST) أو تتلاعب بسجلّ المحادثات.
 
-**Nếu đang sử dụng [SDK AI tạo sinh của Google](https://ai.google.dev/gemini-api/docs/libraries?hl=vi) (các thư viện chính thức của chúng tôi), bạn không cần quản lý quy trình này**. Các SDK sẽ tự động xử lý các bước cần thiết, như minh hoạ trong [ví dụ](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-4) trước đó.
+**إذا كنت تستخدم [حِزم تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي](https://ai.google.dev/gemini-api/docs/libraries?hl=ar) (مكتباتنا الرسمية)، لن تحتاج إلى إدارة هذه العملية**. تتولّى حِزم SDK تلقائيًا تنفيذ الخطوات اللازمة، كما هو موضّح في [المثال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-4) السابق.
 
-### Quản lý cuộc trò chuyện theo cách thủ công
+### إدارة سجلّ المحادثات يدويًا
 
-Nếu sửa đổi nhật ký trò chuyện theo cách thủ công, thay vì gửi [phản hồi hoàn chỉnh trước đó](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#step-4), bạn phải xử lý chính xác `thought_signature` có trong lượt của mô hình.
+في حال تعديل سجلّ المحادثات يدويًا، بدلاً من إرسال [الردّ السابق الكامل](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#step-4)، عليك التعامل بشكل صحيح مع `thought_signature` المضمّن في ردّ النموذج.
 
-Hãy tuân thủ các quy tắc sau để đảm bảo ngữ cảnh của mô hình được giữ nguyên:
+اتّبِع القواعد التالية لضمان الحفاظ على سياق النموذج:
 
-- Luôn gửi `thought_signature` trở lại mô hình bên trong [`Part`](https://ai.google.dev/api?hl=vi#request-body-structure) ban đầu.
-- **Luôn thêm chính xác `id` từ `function_call` vào `function_response` để API có thể ánh xạ kết quả đến yêu cầu chính xác.**
-- Đừng hợp nhất một `Part` chứa chữ ký với một `Part` không chứa chữ ký. Điều này phá vỡ ngữ cảnh vị trí của suy nghĩ.
-- Đừng kết hợp hai `Parts` đều chứa chữ ký, vì bạn không thể hợp nhất các chuỗi chữ ký.
+- يجب دائمًا إرسال `thought_signature` مرة أخرى إلى النموذج داخل [`Part`](https://ai.google.dev/api?hl=ar#request-body-structure) الأصلي.
+- **احرص دائمًا على تضمين `id` نفسه من `function_call` في `function_response` لكي تتمكّن واجهة برمجة التطبيقات من ربط النتيجة بالطلب الصحيح.**
+- لا تدمج `Part` تحتوي على توقيع مع `Part` لا تحتوي على توقيع. يؤدي ذلك إلى فقدان السياق المكاني للفكرة.
+- لا تدمج بين ملفَي `Parts` يحتويان على تواقيع، لأنّه لا يمكن دمج سلاسل التواقيع.
 
-#### Chữ ký tư duy của Gemini 3
+#### توقيعات أفكار Gemini 3
 
-Trong Gemini 3, mọi [`Part`](https://ai.google.dev/api?hl=vi#request-body-structure) của câu trả lời do mô hình tạo có thể chứa chữ ký suy nghĩ.
-Mặc dù thường thì bạn nên trả về chữ ký từ tất cả các loại `Part`, nhưng việc truyền lại chữ ký ý tưởng là bắt buộc đối với tính năng gọi hàm. Trừ phi bạn thao tác nhật ký cuộc trò chuyện theo cách thủ công, nếu không, Google GenAI SDK sẽ tự động xử lý chữ ký suy nghĩ.
+في Gemini 3، قد يحتوي أي [`Part`](https://ai.google.dev/api?hl=ar#request-body-structure) من ردّ النموذج
+على توقيع فكري.
+على الرغم من أنّنا ننصح بشكل عام بعرض التوقيعات من جميع أنواع `Part`، إلا أنّ عرض توقيعات الأفكار إلزامي عند استخدام ميزة "استدعاء الدوال". ما لم يتم التلاعب يدويًا بسجلّ المحادثات، ستتعامل حزمة تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي مع توقيعات الأفكار تلقائيًا.
 
-Nếu bạn đang thao tác nhật ký cuộc trò chuyện theo cách thủ công, hãy tham khảo trang [Chữ ký suy nghĩ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) để biết hướng dẫn và thông tin chi tiết đầy đủ về cách xử lý chữ ký suy nghĩ cho Gemini 3.
+إذا كنت تتلاعب بسجلّ المحادثات يدويًا، يُرجى الرجوع إلى صفحة [توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar) للحصول على إرشادات وتفاصيل كاملة حول كيفية التعامل مع توقيعات الأفكار في Gemini 3.
 
-##### Kiểm tra chữ ký của suy nghĩ
+##### فحص توقيعات الأفكار
 
-Mặc dù không cần thiết cho việc triển khai, nhưng bạn có thể kiểm tra phản hồi để xem `thought_signature` cho mục đích gỡ lỗi hoặc giáo dục.
+مع أنّ ذلك ليس ضروريًا للتنفيذ، يمكنك فحص الاستجابة للاطّلاع على
+`thought_signature` لأغراض تصحيح الأخطاء أو تعليمية.
 
 ### Python
 
@@ -861,13 +876,13 @@ if (part.thoughtSignature) {
 }
 ```
 
-Tìm hiểu thêm về các hạn chế và cách sử dụng chữ ký tư duy, cũng như về các mô hình tư duy nói chung, trên trang [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#signatures).
+يمكنك الاطّلاع على مزيد من المعلومات حول القيود والاستخدامات المتعلقة بالتوقيعات الفكرية ونماذج التفكير بشكل عام في صفحة [التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar#signatures).
 
-## Gọi hàm song song
+## استدعاء الدوال بشكل متوازٍ
 
-Ngoài việc gọi hàm một lượt, bạn cũng có thể gọi nhiều hàm cùng lúc. Tính năng gọi hàm song song cho phép bạn thực thi nhiều hàm cùng một lúc và được dùng khi các hàm không phụ thuộc vào nhau. Điều này hữu ích trong các trường hợp như thu thập dữ liệu từ nhiều nguồn độc lập, chẳng hạn như truy xuất thông tin chi tiết về khách hàng từ các cơ sở dữ liệu khác nhau hoặc kiểm tra mức tồn kho ở nhiều kho hàng hoặc thực hiện nhiều hành động như biến căn hộ của bạn thành một vũ trường.
+بالإضافة إلى استدعاء الدوال في محادثة واحدة، يمكنك أيضًا استدعاء دوال متعددة في الوقت نفسه. تتيح لك ميزة "استدعاء الدوال المتوازي" تنفيذ دوال متعددة في الوقت نفسه، ويتم استخدامها عندما لا تكون الدوال معتمدة على بعضها البعض. ويكون ذلك مفيدًا في سيناريوهات مثل جمع البيانات من مصادر مستقلة متعددة، مثل استرداد تفاصيل العملاء من قواعد بيانات مختلفة أو التحقّق من مستويات المخزون في مستودعات مختلفة أو تنفيذ إجراءات متعددة مثل تحويل شقتك إلى ديسكو.
 
-Khi mô hình bắt đầu nhiều lệnh gọi hàm trong một lượt, bạn không cần trả về các đối tượng `function_result` theo cùng thứ tự mà các đối tượng `function_call` đã nhận được. Gemini API liên kết từng kết quả với lệnh gọi tương ứng bằng cách sử dụng `id` từ đầu ra của mô hình. Điều này cho phép bạn thực thi các hàm một cách không đồng bộ và thêm kết quả vào danh sách khi chúng hoàn tất.
+عندما يبدأ النموذج عدة طلبات استدعاء دوال في دورة واحدة، ليس عليك عرض كائنات `function_result` بالترتيب نفسه الذي تم استلام كائنات `function_call` به. يربط Gemini API كل نتيجة بالمكالمة المقابلة لها باستخدام `id` من ناتج النموذج. يتيح لك ذلك تنفيذ الدوال بشكل غير متزامن وإلحاق النتائج بقائمتك عند اكتمالها.
 
 ### Python
 
@@ -977,8 +992,8 @@ const dimLights = {
 };
 ```
 
-Định cấu hình chế độ gọi hàm để cho phép sử dụng tất cả các công cụ được chỉ định.
-Để tìm hiểu thêm, bạn có thể đọc về [cách định cấu hình tính năng gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#function_calling_modes).
+اضبط وضع "استدعاء الدوال" للسماح باستخدام جميع الأدوات المحدّدة.
+لمزيد من المعلومات، يمكنك الاطّلاع على مقالة [ضبط ميزة "استدعاء الدوال"](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#function_calling_modes).
 
 ### Python
 
@@ -1052,9 +1067,11 @@ for (const fn of response.functionCalls) {
 }
 ```
 
-Mỗi kết quả được in phản ánh một lệnh gọi hàm duy nhất mà mô hình đã yêu cầu. Để gửi kết quả trở lại, hãy đưa các phản hồi theo cùng thứ tự như khi chúng được yêu cầu.
+تعكس كل نتيجة مطبوعة طلبًا واحدًا للدالة قد طلبه النموذج. لإعادة إرسال النتائج، يجب تضمين الردود بالترتيب نفسه الذي تم طلبها به.
 
-Python SDK hỗ trợ [tự động gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#automatic_function_calling_python_only), tự động chuyển đổi các hàm Python thành khai báo, xử lý quá trình thực thi lệnh gọi hàm và chu kỳ phản hồi cho bạn. Sau đây là một ví dụ về trường hợp sử dụng disco.
+يتيح حزمة تطوير البرامج (SDK) الخاصة بلغة Python [استدعاء الدوال تلقائيًا](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#automatic_function_calling_python_only)،
+ما يؤدي إلى تحويل دوال Python تلقائيًا إلى تعريفات، والتعامل مع دورة تنفيذ استدعاء الدالة والاستجابة نيابةً عنك. في ما يلي مثال على حالة استخدام
+الديسكو.
 
 ### Python
 
@@ -1117,15 +1134,16 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## Gọi hàm thành phần
+## استدعاء الدوال التركيبية
 
-Tính năng gọi hàm theo thành phần hoặc tuần tự cho phép Gemini liên kết nhiều lệnh gọi hàm với nhau để thực hiện một yêu cầu phức tạp. Ví dụ: để trả lời câu hỏi "Nhiệt độ ở vị trí hiện tại của tôi là bao nhiêu", trước tiên, Gemini API có thể gọi một hàm `get_current_location()`, sau đó là một hàm `get_weather()` lấy vị trí làm tham số.
+تتيح ميزة &quot;استدعاء الدوال التركيبي أو التسلسلي&quot; لـ Gemini ربط عدة استدعاءات للدوال معًا لتلبية طلب معقّد. على سبيل المثال، للإجابة عن السؤال "ما هي درجة الحرارة في موقعي الجغرافي الحالي؟"، قد تستدعي Gemini API أولاً الدالة `get_current_location()` ثم الدالة `get_weather()` التي تأخذ الموقع الجغرافي كمعلَمة.
 
-Ví dụ sau đây minh hoạ cách triển khai lệnh gọi hàm kết hợp bằng cách sử dụng Python SDK và lệnh gọi hàm tự động.
+يوضّح المثال التالي كيفية تنفيذ استدعاء الدوال التركيبية باستخدام حزمة تطوير البرامج للغة Python واستدعاء الدوال التلقائي.
 
 ### Python
 
-Ví dụ này sử dụng tính năng gọi hàm tự động của SDK Python `google-genai`. SDK tự động chuyển đổi các hàm Python sang giản đồ bắt buộc, thực thi các lệnh gọi hàm khi được mô hình yêu cầu và gửi kết quả trở lại mô hình để hoàn tất tác vụ.
+يستخدم هذا المثال ميزة استدعاء الدوال التلقائي في
+`google-genai` حزمة تطوير البرامج (SDK) الخاصة بلغة Python. تحوّل حزمة تطوير البرامج (SDK) تلقائيًا دوال Python إلى المخطط المطلوب، وتنفّذ طلبات استدعاء الدوال عند طلب النموذج، وترسل النتائج إلى النموذج لإكمال المهمة.
 
 ```
 import os
@@ -1164,9 +1182,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**Kết quả đầu ra dự kiến**
+**الناتج المتوقّع**
 
-Khi chạy mã, bạn sẽ thấy SDK điều phối các lệnh gọi hàm. Trước tiên, mô hình gọi `get_weather_forecast`, nhận nhiệt độ, sau đó gọi `set_thermostat_temperature` với giá trị chính xác dựa trên logic trong câu lệnh.
+عند تشغيل الرمز، ستلاحظ أنّ حزمة تطوير البرامج (SDK) تنظّم عمليات استدعاء الدوال. يستدعي النموذج أولاً `get_weather_forecast`، ويتلقّى درجة الحرارة، ثم يستدعي `set_thermostat_temperature` بالقيمة الصحيحة استنادًا إلى المنطق الوارد في الطلب.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1178,7 +1196,7 @@ OK. I've set the thermostat to 20°C.
 
 ### JavaScript
 
-Ví dụ này cho thấy cách sử dụng JavaScript/TypeScript SDK để thực hiện lệnh gọi hàm kết hợp bằng cách sử dụng vòng lặp thực thi thủ công.
+يوضّح هذا المثال كيفية استخدام حزمة تطوير البرامج (SDK) المستندة إلى JavaScript/TypeScript لتنفيذ استدعاءات الدوال التركيبية باستخدام حلقة تنفيذ يدوية.
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1307,9 +1325,9 @@ while (true) {
 }
 ```
 
-**Kết quả đầu ra dự kiến**
+**الناتج المتوقّع**
 
-Khi chạy mã, bạn sẽ thấy SDK điều phối các lệnh gọi hàm. Trước tiên, mô hình gọi `get_weather_forecast`, nhận nhiệt độ, sau đó gọi `set_thermostat_temperature` với giá trị chính xác dựa trên logic trong câu lệnh.
+عند تشغيل الرمز، ستلاحظ أنّ حزمة تطوير البرامج (SDK) تنظّم عمليات استدعاء الدوال. يستدعي النموذج أولاً `get_weather_forecast`، ويتلقّى درجة الحرارة، ثم يستدعي `set_thermostat_temperature` بالقيمة الصحيحة استنادًا إلى المنطق الوارد في الطلب.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1319,7 +1337,8 @@ Tool Response: {'status': 'success'}
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-Gọi hàm thành phần là một tính năng gốc của [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi). Điều này có nghĩa là Live API có thể xử lý lệnh gọi hàm tương tự như Python SDK.
+استدعاء الدوال التركيبية هو إحدى الميزات الأصلية في [Live
+API](https://ai.google.dev/gemini-api/docs/live?hl=ar). وهذا يعني أنّ Live API يمكنها التعامل مع استدعاء الدوال بشكل مشابه لحزمة تطوير البرامج (SDK) بلغة Python.
 
 ### Python
 
@@ -1359,16 +1378,18 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## Chế độ gọi hàm
+## أوضاع استدعاء الدالة
 
-Gemini API cho phép bạn kiểm soát cách mô hình sử dụng các công cụ được cung cấp (khai báo hàm). Cụ thể, bạn có thể đặt chế độ trong `function_calling_config`.
+تتيح لك Gemini API التحكّم في طريقة استخدام النموذج للأدوات المتوفّرة (تعريفات الدوال). على وجه التحديد، يمكنك ضبط الوضع ضمن `function_calling_config`.
 
-- `VALIDATED`: Chế độ mặc định cho tổ hợp công cụ (khi các công cụ tích hợp hoặc đầu ra có cấu trúc cũng được bật). Mô hình này bị hạn chế dự đoán lệnh gọi hàm hoặc ngôn ngữ tự nhiên và đảm bảo tuân thủ giản đồ hàm. Nếu `allowed_function_names` không được cung cấp, mô hình sẽ chọn trong số tất cả các khai báo hàm có sẵn. Nếu `allowed_function_names` được cung cấp, mô hình sẽ chọn trong số các hàm được phép. Chế độ này giúp giảm các lệnh gọi hàm bị lỗi (so với chế độ `AUTO`).
-- `AUTO`: Chế độ mặc định khi chỉ bật công cụ function\_declarations.
-  Mô hình sẽ quyết định có tạo câu trả lời bằng ngôn ngữ tự nhiên hay đề xuất một lệnh gọi hàm dựa trên câu lệnh và bối cảnh.
-- `ANY`: Mô hình bị hạn chế để luôn dự đoán một lệnh gọi hàm và đảm bảo tuân thủ giản đồ hàm. Nếu bạn không chỉ định `allowed_function_names`, mô hình có thể chọn trong số bất kỳ khai báo hàm nào được cung cấp.
-  Nếu `allowed_function_names` được cung cấp dưới dạng một danh sách, thì mô hình chỉ có thể chọn trong số các hàm trong danh sách đó. Sử dụng chế độ này khi bạn yêu cầu phản hồi lệnh gọi hàm cho mọi câu lệnh (nếu có).
-- `NONE`: Mô hình *bị cấm* thực hiện lệnh gọi hàm. Điều này tương đương với việc gửi một yêu cầu mà không có bất kỳ khai báo hàm nào. Sử dụng tuỳ chọn này để tạm thời vô hiệu hoá tính năng gọi hàm mà không cần xoá định nghĩa công cụ.
+- ‫`VALIDATED`: الوضع التلقائي لدمج الأدوات (عند تفعيل الأدوات المضمّنة أو النتائج المنظَّمة أيضًا) يقتصر النموذج على توقّع إما طلبات الدوال أو اللغة الطبيعية، ويضمن الالتزام بمخطط الدوال. في حال عدم توفير
+  `allowed_function_names`، يختار النموذج من جميع تعريفات الدوال المتاحة. إذا تم توفير `allowed_function_names`، يختار النموذج من مجموعة الدوال المسموح بها. يقلّل هذا الوضع من عدد استدعاءات الدوال غير الصالحة (مقارنةً بالوضع `AUTO`).
+- ‫`AUTO`: الوضع التلقائي عند تفعيل أداة function\_declarations فقط
+  يقرّر النموذج ما إذا كان سينشئ ردًا بلغة طبيعية أو سيقترح إجراء مكالمة استنادًا إلى الطلب والسياق.
+- `ANY`: يلتزم النموذج دائمًا بتوقّع طلب دالة، ويضمن الالتزام بمخطط الدالة. إذا لم يتم تحديد `allowed_function_names`، يمكن للنموذج الاختيار من أي من تعريفات الدوال المقدَّمة.
+  إذا تم تقديم `allowed_function_names` كقائمة، يمكن للنموذج الاختيار فقط من الدوال في تلك القائمة. استخدِم هذا الوضع عندما تحتاج إلى استجابة من دالة
+  لكل طلب (إذا كان ذلك منطبقًا).
+- ‫`NONE`: *محظور* على النموذج إجراء استدعاءات الدوال. وهذا الإجراء يعادل إرسال طلب بدون أي تعريفات للدوال. يمكنك استخدام هذه السمة لإيقاف ميزة "استدعاء الدوال" مؤقتًا بدون إزالة تعريفات الأدوات.
 
 ### Python
 
@@ -1409,18 +1430,19 @@ const config = {
 };
 ```
 
-## Gọi hàm tự động (chỉ dành cho Python)
+## استدعاء الدالة تلقائيًا (في Python فقط)
 
-Khi sử dụng Python SDK, bạn có thể cung cấp trực tiếp các hàm Python dưới dạng công cụ.
-SDK chuyển đổi các hàm này thành các khai báo, quản lý việc thực thi lệnh gọi hàm và xử lý chu kỳ phản hồi cho bạn. Xác định hàm bằng các gợi ý về kiểu và chuỗi tài liệu. Để có kết quả tối ưu, bạn nên sử dụng [chuỗi tài liệu theo kiểu của Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
-Sau đó, SDK sẽ tự động:
+عند استخدام حزمة تطوير البرامج (SDK) الخاصة بلغة Python، يمكنك تقديم دوال Python مباشرةً كأدوات.
+تحوّل حزمة SDK هذه الدوال إلى تعريفات، وتدير عملية تنفيذ استدعاء الدالة، وتتعامل مع دورة الاستجابة نيابةً عنك. حدِّد الدالة باستخدام تلميحات الأنواع وسلسلة التوثيق. للحصول على أفضل النتائج، ننصحك باستخدام
+[سلاسل مستندات بتنسيق Google.](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)
+سيقوم حِزمة تطوير البرامج (SDK) بعد ذلك تلقائيًا بما يلي:
 
-1. Phát hiện các phản hồi gọi hàm từ mô hình.
-2. Gọi hàm Python tương ứng trong mã của bạn.
-3. Gửi phản hồi của hàm trở lại mô hình.
-4. Trả về phản hồi văn bản cuối cùng của mô hình.
+1. رصد الردود على طلبات تنفيذ الدوال من النموذج
+2. استدعِ دالة Python المناسبة في الرمز البرمجي.
+3. إرسال ردّ الدالة إلى النموذج
+4. عرض الردّ النصي النهائي للنموذج
 
-SDK hiện không phân tích cú pháp nội dung mô tả đối số thành các vị trí nội dung mô tả thuộc tính của khai báo hàm được tạo. Thay vào đó, nó sẽ gửi toàn bộ chuỗi tài liệu dưới dạng nội dung mô tả hàm cấp cao nhất.
+لا تحلّل حزمة تطوير البرامج (SDK) حاليًا أوصاف الوسيطات إلى خانات وصف السمة في بيان الدالة الذي تم إنشاؤه. بدلاً من ذلك، يرسل السلسلة بأكملها كالوصف الخاص بالدالة ذات المستوى الأعلى.
 
 ### Python
 
@@ -1457,7 +1479,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-Bạn có thể tắt tính năng tự động gọi hàm bằng cách dùng:
+يمكنك إيقاف استدعاء الدوال التلقائي باستخدام:
 
 ### Python
 
@@ -1468,9 +1490,11 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### Khai báo giản đồ hàm tự động
+### بيان مخطط الدالة التلقائي
 
-API này có thể mô tả bất kỳ loại nào sau đây. cho phép các loại `Pydantic`, miễn là các trường được xác định trên các loại này cũng bao gồm các loại được phép. Các loại Dict (chẳng hạn như `dict[str: int]`) không được hỗ trợ tốt ở đây, đừng sử dụng chúng.
+يمكن لواجهة برمجة التطبيقات وصف أي من الأنواع التالية. يُسمح باستخدام أنواع `Pydantic`،
+ما دام أنّ الحقول المحدّدة فيها تتألف أيضًا من أنواع
+مسموح بها. لا تتوافق أنواع القواميس (مثل `dict[str: int]`) مع هذه الميزة، لذا لا تستخدمها.
 
 ### Python
 
@@ -1479,7 +1503,8 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-Để xem lược đồ suy luận trông như thế nào, bạn có thể chuyển đổi lược đồ đó bằng cách sử dụng [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
+للاطّلاع على شكل المخطط المستنتَج، يمكنك تحويله باستخدام
+[`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
 
 ### Python
 
@@ -1498,11 +1523,11 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## Sử dụng nhiều công cụ: Kết hợp các công cụ tích hợp với tính năng gọi hàm
+## استخدام أدوات متعددة: الجمع بين الأدوات المضمّنة وميزة "استدعاء الدوال"
 
-Bạn có thể bật nhiều công cụ, kết hợp các công cụ tích hợp sẵn với tính năng gọi hàm trong cùng một yêu cầu.
+يمكنك تفعيل أدوات متعددة، والجمع بين الأدوات المضمّنة واستدعاء الدوال في الطلب نفسه.
 
-Các mô hình Gemini 3 có thể kết hợp các công cụ tích hợp với tính năng gọi hàm ngay lập tức, nhờ tính năng truyền ngữ cảnh công cụ. Hãy đọc trang về [Kết hợp các công cụ tích hợp và tính năng gọi hàm](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi) để tìm hiểu thêm.
+يمكن لنماذج Gemini 3 الجمع بين الأدوات المضمّنة وميزة &quot;استدعاء الدوال&quot; الجاهزة للاستخدام، وذلك بفضل ميزة &quot;تداول سياق الأدوات&quot;. يمكنك الاطّلاع على صفحة [الجمع بين الأدوات المضمّنة واستدعاء الدوال البرمجية](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar) لمزيد من المعلومات.
 
 ### Python
 
@@ -1644,21 +1669,22 @@ async function run() {
 run();
 ```
 
-Đối với các mô hình trước dòng Gemini 3, hãy sử dụng [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=vi).
+بالنسبة إلى الطُرز التي تسبق سلسلة Gemini 3، استخدِم [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ar).
 
-## Phản hồi của hàm đa phương thức
+## استجابات الوظائف المتعددة الوسائط
 
-Đối với các mô hình Gemini 3, bạn có thể đưa nội dung đa phương thức vào các phần phản hồi của hàm mà bạn gửi đến mô hình. Mô hình có thể xử lý nội dung đa phương thức này trong lượt tiếp theo để đưa ra câu trả lời có nhiều thông tin hơn.
-Các loại MIME sau đây được hỗ trợ cho nội dung đa phương thức trong các phản hồi của hàm:
+بالنسبة إلى نماذج سلسلة Gemini 3، يمكنك تضمين محتوى متعدد الوسائط في أجزاء استجابة الدالة التي ترسلها إلى النموذج. يمكن للنموذج معالجة هذا المحتوى المتعدد الوسائط في دوره التالي لتقديم ردّ أكثر دقة.
+تتوفّر أنواع MIME التالية للمحتوى المتعدّد الوسائط في ردود الدوال:
 
-- **Hình ảnh**: `image/png`, `image/jpeg`, `image/webp`
-- **Tài liệu**: `application/pdf`, `text/plain`
+- **الصور**: `image/png` و`image/jpeg` و`image/webp`
+- **المستندات**: `application/pdf`، `text/plain`
 
-Để đưa dữ liệu đa phương thức vào một phản hồi của hàm, hãy đưa dữ liệu đó vào dưới dạng một hoặc nhiều phần được lồng trong phần `functionResponse`. Mỗi phần đa phương thức phải chứa `inlineData`. Nếu bạn tham chiếu một phần đa phương thức từ trong trường `response` có cấu trúc, thì phần đó phải chứa một `displayName` duy nhất.
+لتضمين بيانات متعددة الوسائط في ردّ الدالة، أدرِجها كجزء واحد أو أكثر
+مضمّن في الجزء `functionResponse`. يجب أن يحتوي كل جزء متعدد الوسائط على `inlineData`. إذا أشرت إلى جزء متعدد الوسائط من داخل حقل `response` الخاص بالبيانات المنظَّمة، يجب أن يحتوي على `displayName` فريد.
 
-Bạn cũng có thể tham chiếu một phần đa phương thức từ trong trường `response` có cấu trúc của phần `functionResponse` bằng cách sử dụng định dạng tham chiếu JSON `{"$ref": "<displayName>"}`. Mô hình sẽ thay thế thông tin tham khảo bằng nội dung đa phương thức khi xử lý phản hồi. Bạn chỉ có thể tham chiếu mỗi `displayName` một lần trong trường `response` có cấu trúc.
+يمكنك أيضًا الإشارة إلى جزء متعدد الوسائط من داخل حقل `response` البيانات المنظَّمة الخاص بالجزء `functionResponse` باستخدام تنسيق مرجع JSON `{"$ref": "<displayName>"}`. يستبدل النموذج المرجع بالمحتوى المتعدد الوسائط عند معالجة الرد. لا يمكن الإشارة إلى كل `displayName` إلا مرة واحدة في الحقل `response` المنظَّم.
 
-Ví dụ sau đây cho thấy một thông báo chứa `functionResponse` cho một hàm có tên là `get_image` và một phần lồng nhau chứa dữ liệu hình ảnh có `displayName: "instrument.jpg"`. Trường `functionResponse` của `response` tham chiếu đến phần hình ảnh này:
+يعرض المثال التالي رسالة تحتوي على `functionResponse` لوظيفة باسم `get_image` وجزء مضمّن يحتوي على بيانات صور مع `displayName: "instrument.jpg"`. يشير الحقل `response` الخاص بـ `functionResponse` إلى جزء الصورة هذا:
 
 ### Python
 
@@ -1902,22 +1928,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## Gọi hàm bằng đầu ra có cấu trúc
+## استدعاء الدالة مع الناتج المنظَّم
 
-Đối với các mô hình Gemini 3, bạn có thể sử dụng tính năng gọi hàm với [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi). Điều này cho phép mô hình dự đoán các lệnh gọi hàm hoặc đầu ra tuân thủ một lược đồ cụ thể. Do đó, bạn sẽ nhận được các phản hồi có định dạng nhất quán khi mô hình không tạo ra các lệnh gọi hàm.
+بالنسبة إلى طُرز سلسلة Gemini 3، يمكنك استخدام ميزة &quot;استدعاء الدوال&quot; مع
+[النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar). يتيح ذلك للنموذج توقّع استدعاءات الدوال أو النتائج التي تلتزم بمخطط محدّد. نتيجةً لذلك، ستتلقّى ردودًا منسَّقة بشكل متّسق عندما لا ينشئ النموذج استدعاءات الدوال.
 
-## Giao thức ngữ cảnh mô hình (MCP)
+## بروتوكول سياق النموذج (MCP)
 
-[Giao thức ngữ cảnh mô hình (MCP)](https://modelcontextprotocol.io/introduction) là một tiêu chuẩn mở để kết nối các ứng dụng AI với các công cụ và dữ liệu bên ngoài.
-MCP cung cấp một giao thức chung để các mô hình truy cập vào bối cảnh, chẳng hạn như các hàm (công cụ), nguồn dữ liệu (tài nguyên) hoặc câu lệnh được xác định trước.
+[بروتوكول سياق النموذج (MCP)](https://modelcontextprotocol.io/introduction) هو معيار مفتوح المصدر لربط تطبيقات الذكاء الاصطناعي بالأدوات والبيانات الخارجية.
+يوفّر بروتوكول سياق النموذج بروتوكولاً مشتركًا للنماذج للوصول إلى السياق، مثل الدوال (الأدوات) أو مصادر البيانات (الموارد) أو الطلبات المحدّدة مسبقًا.
 
-Các Gemini SDK có hỗ trợ tích hợp cho MCP, giúp giảm mã nguyên mẫu và cung cấp tính năng [gọi công cụ tự động](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#automatic_function_calling_python_only) cho các công cụ MCP. Khi mô hình tạo một lệnh gọi công cụ MCP, SDK ứng dụng Python và JavaScript có thể tự động thực thi công cụ MCP và gửi phản hồi trở lại mô hình trong một yêu cầu tiếp theo, tiếp tục vòng lặp này cho đến khi mô hình không thực hiện thêm lệnh gọi công cụ nào nữa.
+تتضمّن حِزم تطوير البرامج (SDK) من Gemini إمكانية استخدام MCP، ما يقلّل من الرموز النموذجية ويوفّر [استدعاء الأدوات تلقائيًا](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#automatic_function_calling_python_only) لأدوات MCP. عندما ينشئ النموذج طلبًا لاستخدام أداة MCP، يمكن لحزمة تطوير البرامج (SDK) الخاصة بلغة Python وJavaScript تنفيذ أداة MCP تلقائيًا وإرسال الردّ إلى النموذج في طلب لاحق، مع مواصلة هذه العملية إلى أن يتوقف النموذج عن إرسال طلبات لاستخدام الأدوات.
 
-Tại đây, bạn có thể xem ví dụ về cách sử dụng máy chủ MCP cục bộ với Gemini và SDK `mcp`.
+في ما يلي مثال على كيفية استخدام خادم MCP محلي مع Gemini و`mcp` SDK.
 
 ### Python
 
-Đảm bảo bạn đã cài đặt phiên bản mới nhất của [`mcp` SDK](https://modelcontextprotocol.io/introduction) trên nền tảng mà bạn chọn.
+تأكَّد من تثبيت أحدث إصدار من حزمة تطوير البرامج (SDK) الخاصة بـ
+[`mcp`](https://modelcontextprotocol.io/introduction) على
+النظام الأساسي الذي تختاره.
 
 ```
 pip install mcp
@@ -1970,7 +1999,7 @@ asyncio.run(run())
 
 ### JavaScript
 
-Đảm bảo bạn đã cài đặt phiên bản mới nhất của SDK `mcp` trên nền tảng mà bạn chọn.
+تأكَّد من تثبيت أحدث إصدار من حزمة تطوير البرامج (SDK) `mcp` على المنصة التي تختارها.
 
 ```
 npm install @modelcontextprotocol/sdk
@@ -2018,62 +2047,69 @@ console.log(response.text)
 await client.close();
 ```
 
-### Hạn chế đối với tính năng hỗ trợ MCP tích hợp
+### القيود المفروضة على التوافق المضمّن مع منصّات إدارة الموافقة
 
-Hỗ trợ MCP tích hợp là một tính năng [thử nghiệm](https://ai.google.dev/gemini-api/docs/models?hl=vi#preview) trong SDK của chúng tôi và có các hạn chế sau:
+تتوفّر ميزة دعم MCP المضمّنة [تجريبيًا](https://ai.google.dev/gemini-api/docs/models?hl=ar#preview) في حِزم SDK، وتخضع للقيود التالية:
 
-- Chỉ hỗ trợ các công cụ, không hỗ trợ tài nguyên hay câu lệnh
-- Tính năng này có trong Python và JavaScript/TypeScript SDK.
-- Các thay đổi có thể gây lỗi có thể xảy ra trong các bản phát hành sau này.
+- تتوفّر الأدوات فقط، وليس المراجع أو الطلبات
+- تتوفّر هذه الميزة لحزمة تطوير البرامج (SDK) الخاصة بلغة Python وJavaScript/TypeScript.
+- قد تحدث تغييرات غير متوافقة مع الإصدارات السابقة في الإصدارات المستقبلية.
 
-Tích hợp thủ công các máy chủ MCP luôn là một lựa chọn nếu những máy chủ này giới hạn những gì bạn đang xây dựng.
+يمكنك دائمًا دمج خوادم MCP يدويًا إذا كانت هذه الخوادم تفرض قيودًا على ما تنشئه.
 
-## Mô hình được hỗ trợ
+## النماذج المتوافقة
 
-Phần này liệt kê các mô hình và khả năng gọi hàm của chúng. Không bao gồm các mô hình thử nghiệm. Bạn có thể xem thông tin tổng quan toàn diện về các chức năng trên trang [tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+يسرد هذا القسم النماذج وإمكاناتها في استدعاء الدوال. ولا يتم تضمين النماذج التجريبية. يمكنك الاطّلاع على نظرة عامة شاملة حول الإمكانات في صفحة [النظرة العامة على النموذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
 
-| Mô hình | Gọi hàm | Gọi hàm song song | Gọi hàm thành phần |
+| الطراز | استدعاء الدالة | استدعاء الدوال بشكل متوازٍ | استدعاء الدوال التركيبية |
 | --- | --- | --- | --- |
-| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=vi) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ | ✔️ | ✔️ |
+| [إصدار تجريبي من Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ | ✔️ | ✔️ |
+| [‫Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ | ✔️ | ✔️ |
 
-## Các phương pháp hay nhất
+## أفضل الممارسات
 
-- **Nội dung mô tả về hàm và tham số:** Nội dung mô tả phải cực kỳ rõ ràng và cụ thể. Mô hình dựa vào những thông tin này để chọn đúng hàm và cung cấp các đối số phù hợp.
-- **Đặt tên:** Sử dụng tên hàm mô tả (không có dấu cách, dấu chấm hoặc dấu gạch ngang).
-- **Nhập mạnh:** Sử dụng các loại cụ thể (số nguyên, chuỗi, enum) cho các tham số để giảm lỗi. Nếu một tham số có một tập hợp giới hạn các giá trị hợp lệ, hãy sử dụng một enum.
-- **Lựa chọn công cụ:** Mặc dù mô hình có thể sử dụng một số lượng tuỳ ý công cụ, nhưng việc cung cấp quá nhiều công cụ có thể làm tăng nguy cơ chọn một công cụ không chính xác hoặc không tối ưu. Để có kết quả tốt nhất, hãy chỉ cung cấp các công cụ phù hợp cho bối cảnh hoặc nhiệm vụ, lý tưởng nhất là giữ cho tập hợp đang hoạt động ở mức tối đa là 10-20. Hãy cân nhắc việc chọn công cụ động dựa trên ngữ cảnh cuộc trò chuyện nếu bạn có tổng số lượng lớn công cụ.
-- **Kỹ thuật tạo câu lệnh:**
-  - Cung cấp bối cảnh: Cho mô hình biết vai trò của mô hình (ví dụ: "Bạn là một trợ lý thời tiết hữu ích").
-  - Đưa ra hướng dẫn: Chỉ định cách thức và thời điểm sử dụng các hàm (ví dụ: "Đừng đoán ngày; luôn sử dụng ngày trong tương lai cho thông tin dự đoán").
-  - Khuyến khích làm rõ: Hướng dẫn mô hình đặt câu hỏi làm rõ nếu cần.
-  - Hãy xem [Quy trình làm việc dựa trên tác nhân](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi#agentic-workflows) để biết thêm các chiến lược về cách thiết kế những câu lệnh này. Dưới đây là ví dụ về một [chỉ dẫn hệ thống](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=vi#agentic-si-template) đã được kiểm thử.
-- **Nhiệt độ:** Sử dụng nhiệt độ thấp (ví dụ: 0) để có các lệnh gọi hàm đáng tin cậy và mang tính xác định hơn.
-- **Xác thực:** Nếu một lệnh gọi hàm có hậu quả đáng kể (ví dụ: đặt hàng), hãy xác thực lệnh gọi đó với người dùng trước khi thực thi.
-- **Kiểm tra lý do hoàn tất:** Luôn kiểm tra [`finishReason`](https://ai.google.dev/api/generate-content?hl=vi#FinishReason) trong câu trả lời của mô hình để xử lý các trường hợp mô hình không tạo được một lệnh gọi hàm hợp lệ.
-- **Xử lý lỗi**: Triển khai quy trình xử lý lỗi mạnh mẽ trong các hàm để xử lý một cách thích hợp các dữ liệu đầu vào không mong muốn hoặc lỗi API. Trả về các thông báo lỗi mang tính thông tin mà mô hình có thể dùng để tạo câu trả lời hữu ích cho người dùng.
-- **Bảo mật:** Hãy chú ý đến vấn đề bảo mật khi gọi các API bên ngoài. Sử dụng các cơ chế xác thực và uỷ quyền thích hợp. Tránh để lộ dữ liệu nhạy cảm trong các lệnh gọi hàm.
-- **Giới hạn mã thông báo:** Nội dung mô tả hàm và các tham số được tính vào giới hạn mã thông báo đầu vào. Nếu bạn đang gặp phải giới hạn về mã thông báo, hãy cân nhắc việc giới hạn số lượng hàm hoặc độ dài của nội dung mô tả, chia các tác vụ phức tạp thành các tập hợp hàm nhỏ hơn và tập trung hơn.
-- **Kết hợp bash và các công cụ tuỳ chỉnh** Đối với những người tạo bằng cách kết hợp bash và các công cụ tuỳ chỉnh, Gemini 3.1 Pro Preview có một điểm cuối riêng biệt có sẵn thông qua API có tên là [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi#gemini-31-pro-preview-customtools).
+- **أوصاف الوظائف والمعلَمات:** يجب أن تكون أوصافك واضحة ومحدّدة للغاية. ويعتمد النموذج على هذه المعلومات لاختيار الوظيفة الصحيحة وتقديم الوسيطات المناسبة.
+- **التسمية:** استخدِم أسماء دوال وصفية (بدون مسافات أو نقاط أو شرطات).
+- **الكتابة القوية:** استخدِم أنواعًا محدّدة (عدد صحيح، سلسلة، تعداد) للمَعلمات
+  للحدّ من الأخطاء. إذا كانت إحدى المَعلمات تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم نوع البيانات
+  enum.
+- **اختيار الأدوات:** على الرغم من أنّ النموذج يمكنه استخدام عدد غير محدود من الأدوات، فإنّ توفير عدد كبير جدًا منها يمكن أن يزيد من خطر اختيار أداة غير صحيحة أو غير مثالية. لتحقيق أفضل النتائج، احرص على توفير الأدوات ذات الصلة فقط بالسياق أو المهمة، مع الحرص على ألا يتجاوز عدد الأدوات النشطة 10 إلى 20 أداة كحد أقصى. ننصحك باختيار الأدوات بشكل ديناميكي استنادًا إلى سياق المحادثة إذا كان لديك عدد كبير من الأدوات.
+- **هندسة الطلبات:**
+  - توفير السياق: أخبر النموذج عن دوره (مثلاً، "أنت مساعد
+    مفيد بشأن الطقس").
+  - تقديم التعليمات: حدِّد كيفية استخدام الدوال ومتى يجب استخدامها (مثلاً، "لا تخمّن التواريخ، بل استخدِم دائمًا تاريخًا مستقبليًا للتوقعات").
+  - تشجيع التوضيح: اطلب من النموذج طرح أسئلة توضيحية
+    إذا لزم الأمر.
+  - يمكنك الاطّلاع على [سير العمل المستند إلى الوكلاء](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar#agentic-workflows)
+    للحصول على استراتيجيات إضافية حول تصميم هذه الطلبات. في ما يلي مثال على [تعليمات نظام](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar#agentic-si-template) تم اختبارها.
+- **درجة العشوائية:** استخدِم درجة عشوائية منخفضة (مثل 0) لإجراء استدعاءات دالة أكثر حتميةً وموثوقيةً.
+- **التحقّق من الصحة:** إذا كان لطلب تنفيذ دالة عواقب كبيرة (مثل تقديم طلب)، يجب التحقّق من صحة الطلب مع المستخدم قبل تنفيذه.
+- **التحقّق من سبب الإنهاء:** احرص دائمًا على التحقّق من [`finishReason`](https://ai.google.dev/api/generate-content?hl=ar#FinishReason)
+  في ردّ النموذج للتعامل مع الحالات التي تعذّر فيها على النموذج إنشاء
+  استدعاء دالة صالح.
+- **معالجة الأخطاء**: اتّخِذ إجراءات فعالة لمعالجة الأخطاء في الدوال من أجل معالجة الإدخالات غير المتوقّعة أو الأعطال في واجهة برمجة التطبيقات بشكل سليم. عرض رسائل خطأ مفيدة يمكن للنموذج استخدامها لإنشاء ردود مفيدة للمستخدم.
+- **الأمان:** يُرجى مراعاة الأمان عند استدعاء واجهات برمجة التطبيقات الخارجية. استخدِم آليات المصادقة والتفويض المناسبة. تجنَّب عرض البيانات الحسّاسة في استدعاءات الدوال.
+- **حدود الرموز المميزة:** يتم احتساب أوصاف الدوال ومعلَماتها ضمن الحد الأقصى لعدد الرموز المميزة التي يمكنك إدخالها. إذا كنت تواجه مشاكل بسبب الحد الأقصى لعدد الرموز المميزة، ننصحك بالحد من عدد الدوال أو طول الأوصاف، أو بتقسيم المهام المعقّدة إلى مجموعات أصغر وأكثر تركيزًا من الدوال.
+- **مزيج من bash والأدوات المخصّصة**: بالنسبة إلى المطوّرين الذين يستخدمون مزيجًا من bash والأدوات المخصّصة، يتوفّر الإصدار التجريبي من Gemini 3.1 Pro مع نقطة نهاية منفصلة يمكن الوصول إليها من خلال واجهة برمجة التطبيقات باسم [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar#gemini-31-pro-preview-customtools).
 
-## Lưu ý và hạn chế
+## الملاحظات والقيود
 
-- Vị trí của các phần trong lệnh gọi hàm: Khi sử dụng các khai báo hàm tuỳ chỉnh [cùng với các công cụ tích hợp sẵn](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi) (như Google Tìm kiếm), mô hình có thể trả về hỗn hợp các phần `functionCall`, `toolCall` và `toolResponse` trong một lượt. Do đó, đừng giả định rằng `functionCall` sẽ luôn là mục cuối cùng trong mảng parts. Nếu bạn đang phân tích cú pháp phản hồi JSON theo cách thủ công, hãy luôn lặp lại mảng parts thay vì dựa vào vị trí.
-- Chỉ hỗ trợ [một phần của giản đồ OpenAPI](https://ai.google.dev/api/caching?hl=vi#FunctionDeclaration).
-- Đối với chế độ `ANY`, API có thể từ chối các giản đồ rất lớn hoặc được lồng sâu. Nếu bạn gặp lỗi, hãy thử đơn giản hoá tham số hàm và lược đồ phản hồi bằng cách rút ngắn tên thuộc tính, giảm số lượng lồng ghép hoặc giới hạn số lượng khai báo hàm.
-- Các loại tham số được hỗ trợ trong Python bị hạn chế.
-- Chỉ có Python SDK mới có tính năng tự động gọi hàm.
+- تحديد موضع أجزاء طلبات الدوال: عند استخدام تعريفات الدوال المخصّصة [إلى جانب الأدوات المضمّنة](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar) (مثل &quot;بحث Google&quot;)، قد يعرض النموذج مزيجًا من أجزاء `functionCall` و`toolCall` و`toolResponse` في ردّ واحد. لهذا السبب، لا تفترض أنّ `functionCall` سيكون دائمًا العنصر الأخير في مصفوفة الأجزاء. إذا كنت تحلّل استجابة JSON يدويًا، احرص دائمًا على تكرار مصفوفة الأجزاء بدلاً من الاعتماد على الموضع.
+- لا يتوافق سوى [جزء من مخطط OpenAPI](https://ai.google.dev/api/caching?hl=ar#FunctionDeclaration).
+- بالنسبة إلى الوضع `ANY`، قد ترفض واجهة برمجة التطبيقات المخططات الكبيرة جدًا أو المتداخلة بشكل كبير. إذا واجهت أخطاء، حاوِل تبسيط مخططات مَعلمات الدالة والاستجابة من خلال تقصير أسماء السمات أو تقليل التداخل أو الحدّ من عدد تعريفات الدوال.
+- أنواع المَعلمات المتوافقة في Python محدودة.
+- لا تتوفّر ميزة استدعاء الدوال التلقائي إلا في حزمة تطوير البرامج (SDK) الخاصة بلغة Python.
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-06-24 UTC.
+تاريخ التعديل الأخير: 2026-06-24 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-24 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,41 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-BR
-fetched_at: 2026-07-06T05:06:26.119299+00:00
-title: "Chamada de fun\u00e7\u00e3o com a API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=vi
+fetched_at: 2026-07-20T04:38:45.513427+00:00
+title: "G\u1ecdi h\u00e0m b\u1eb1ng Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-# Chamada de função com a API Gemini
+# Gọi hàm bằng Gemini API
 
-A chamada de função permite conectar modelos a ferramentas e APIs externas.
-Em vez de gerar respostas de texto, o modelo determina quando chamar funções específicas e fornece os parâmetros necessários para executar ações reais.
-Isso permite que o modelo atue como uma ponte entre a linguagem natural e as ações e dados reais. A chamada de função tem três casos de uso principais:
+Tính năng gọi hàm cho phép bạn kết nối các mô hình với các công cụ và API bên ngoài.
+Thay vì tạo phản hồi bằng văn bản, mô hình sẽ xác định thời điểm gọi các hàm cụ thể và cung cấp các tham số cần thiết để thực thi các hành động trong thế giới thực.
+Điều này cho phép mô hình đóng vai trò là cầu nối giữa ngôn ngữ tự nhiên và các hành động cũng như dữ liệu trong thế giới thực. Tính năng gọi hàm có 3 trường hợp sử dụng chính:
 
-- [**Realizar ações:**](#meeting) interaja com sistemas externos usando APIs, como
-  agendar compromissos, criar faturas, enviar e-mails ou controlar
-  dispositivos domésticos inteligentes.
-- [**\*\*Aumentar o conhecimento\*\*:**](#weather) acesse informações de fontes externas, como
-  bancos de dados, APIs e bases de conhecimento.
-- [**Ampliar os recursos:**](#chart) use ferramentas externas para realizar cálculos e
-  ampliar as limitações do modelo, como usar uma calculadora ou criar
-  gráficos.
+- [**Thực hiện hành động:**](#meeting) Tương tác với các hệ thống bên ngoài bằng API, chẳng hạn như lên lịch hẹn, tạo hoá đơn, gửi email hoặc điều khiển các thiết bị nhà thông minh.
+- [**Tăng cường kiến thức:**](#weather) Truy cập thông tin từ các nguồn bên ngoài như cơ sở dữ liệu, API và cơ sở kiến thức.
+- [**Mở rộng khả năng:**](#chart) Sử dụng các công cụ bên ngoài để thực hiện phép tính và mở rộng các giới hạn của mô hình, chẳng hạn như sử dụng máy tính hoặc tạo biểu đồ.
 
-Confira exemplos desses casos de uso abaixo:
+Bạn có thể duyệt xem ví dụ về các trường hợp sử dụng này bên dưới:
 
-### Programar reunião
+### Lên lịch họp
 
-Este exemplo mostra como definir uma função que agenda uma reunião com participantes em um horário específico, permitindo que o modelo analise as solicitações do usuário e retorne argumentos estruturados para acionar ações em sistemas externos.
+Ví dụ này cho thấy cách xác định một hàm lên lịch cuộc họp với người tham dự vào một thời điểm cụ thể, cho phép mô hình phân tích cú pháp các yêu cầu của người dùng và trả về các đối số có cấu trúc để kích hoạt các hành động trong hệ thống bên ngoài.
 
 ### Python
 
@@ -61,7 +56,7 @@ schedule_meeting_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Schedule a meeting with Bob and Alice for 03/14/2025 at 10:00 AM about Q3 planning.",
     tools=[{"type": "function", **schedule_meeting_function}],
 )
@@ -96,7 +91,7 @@ const scheduleMeetingFunction = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3-flash-preview',
+  model: 'gemini-3.5-flash',
   input: 'Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about Q3 planning.',
   tools: [scheduleMeetingFunction],
 });
@@ -116,7 +111,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Schedule a meeting with Bob and Alice for 03/27/2025 at 10:00 AM about Q3 planning.",
     "tools": [{
         "type": "function",
@@ -136,9 +131,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Receber informações sobre o clima
+### Nhận thông tin thời tiết
 
-Este exemplo mostra como definir uma função que recupera dados de temperatura de um local, permitindo que o modelo chame APIs externas para responder a consultas que exigem informações externas ou em tempo real.
+Ví dụ này cho thấy cách xác định một hàm truy xuất dữ liệu nhiệt độ cho một vị trí, cho phép mô hình gọi các API bên ngoài để trả lời những truy vấn yêu cầu thông tin theo thời gian thực hoặc thông tin bên ngoài.
 
 ### Python
 
@@ -164,7 +159,7 @@ weather_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What's the temperature in London?",
     tools=[weather_function],
 )
@@ -199,7 +194,7 @@ const weatherFunctionDeclaration = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3-flash-preview',
+  model: 'gemini-3.5-flash',
   input: "What's the temperature in London?",
   tools: [weatherFunctionDeclaration],
 });
@@ -219,7 +214,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What'\''s the temperature in London?",
     "tools": [{
       "type": "function",
@@ -236,9 +231,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Criar gráfico
+### Tạo biểu đồ
 
-Este exemplo mostra como definir uma função que gera um gráfico de barras com dados estruturados, demonstrando como o modelo pode usar ferramentas externas para realizar cálculos ou criar recursos visuais:
+Ví dụ này cho thấy cách xác định một hàm tạo biểu đồ thanh từ dữ liệu có cấu trúc, minh hoạ cách mô hình có thể sử dụng các công cụ bên ngoài để thực hiện các phép tính hoặc tạo tài sản trực quan:
 
 ### Python
 
@@ -263,7 +258,7 @@ create_chart_function = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
     tools=[create_chart_function],
 )
@@ -297,7 +292,7 @@ const createChartFunctionDeclaration = {
 };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3-flash-preview',
+  model: 'gemini-3.5-flash',
   input: "Create a bar chart titled 'Quarterly Sales' with Q1: 50000, Q2: 75000, Q3: 60000.",
   tools: [createChartFunctionDeclaration],
 });
@@ -316,7 +311,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "Create a bar chart titled '\''Quarterly Sales'\'' with Q1: 50000, Q2: 75000, Q3: 60000.",
     "tools": [{
         "type": "function",
@@ -335,23 +330,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Como a chamada de funções funciona
+## Cách hoạt động của tính năng gọi hàm
 
-![Visão geral da chamada de função](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=pt-br)
+![tổng quan về tính năng gọi hàm](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=vi)
 
-A chamada de função envolve uma interação estruturada entre o aplicativo, o modelo e as funções externas:
+Gọi hàm là một hoạt động tương tác có cấu trúc giữa ứng dụng, mô hình và các hàm bên ngoài:
 
-1. **Definir a declaração de função**:defina o nome, os parâmetros e a finalidade da função para o modelo.
-2. **Chamar o LLM com declarações de função**:envie o comando do usuário com as declarações de função para o modelo.
-3. **Executar o código da função (sua responsabilidade)**: o modelo *não*
-   executa a função em si. Extraia o nome e os argumentos e execute no aplicativo.
-4. **Criar uma resposta amigável ao usuário**:envie o resultado de volta ao modelo para uma resposta final e amigável ao usuário.
+1. **Xác định khai báo hàm:** Xác định tên, tham số và mục đích của hàm cho mô hình.
+2. **Gọi LLM bằng các khai báo hàm:** Gửi câu lệnh của người dùng cùng với(các) khai báo hàm đến mô hình.
+3. **Thực thi mã hàm (Trách nhiệm của bạn):** Mô hình *không* tự thực thi hàm. Trích xuất tên và đối số rồi thực thi trong ứng dụng của bạn.
+4. **Tạo câu trả lời thân thiện với người dùng:** Gửi kết quả trở lại mô hình để có câu trả lời cuối cùng, thân thiện với người dùng.
 
-Esse processo pode ser repetido várias vezes. O modelo oferece suporte à chamada de
-várias funções em uma única vez ([chamada de função paralela](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#parallel_function_calling)) e em
-sequência ([chamada de função composicional](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#compositional_function_calling)).
+Quá trình này có thể được lặp lại nhiều lần. Mô hình này hỗ trợ việc gọi nhiều hàm trong một lượt ([gọi hàm song song](#parallel_function_calling)) và theo trình tự ([gọi hàm kết hợp](#compositional_function_calling)).
 
-### Etapa 1: definir uma declaração de função
+### Bước 1: Xác định một khai báo hàm
 
 ### Python
 
@@ -404,7 +396,7 @@ function setLightValues(brightness, color_temp) {
 }
 ```
 
-### Etapa 2: chamar o modelo com declarações de função
+### Bước 2: Gọi mô hình bằng các khai báo hàm
 
 ### Python
 
@@ -414,7 +406,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Turn the lights down to a romantic level",
     tools=[set_light_values_declaration],
 )
@@ -431,7 +423,7 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3-flash-preview',
+  model: 'gemini-3.5-flash',
   input: 'Turn the lights down to a romantic level',
   tools: [setLightValuesTool],
 });
@@ -440,7 +432,7 @@ const fcStep = interaction.steps.find(s => s.type === 'function_call');
 console.log(fcStep);
 ```
 
-O modelo retorna uma etapa `function_call` com `type`, `name` e `arguments`:
+Mô hình này trả về một bước `function_call` với `type`, `name` và `arguments`:
 
 ```
 type='function_call'
@@ -448,7 +440,7 @@ name='set_light_values'
 arguments={'color_temp': 'warm', 'brightness': 25}
 ```
 
-### Etapa 3: executar a função
+### Bước 3: Thực thi hàm
 
 ### Python
 
@@ -472,13 +464,13 @@ if (fcStep.name === 'set_light_values') {
 }
 ```
 
-### Etapa 4: enviar o resultado de volta ao modelo
+### Bước 4: Gửi kết quả về mô hình
 
 ### Python
 
 ```
 final_interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input=[
         {
             "type": "function_result",
@@ -498,7 +490,7 @@ print(final_interaction.output_text)
 
 ```
 const finalInteraction = await client.interactions.create({
-  model: 'gemini-3-flash-preview',
+  model: 'gemini-3.5-flash',
   input: [{
     type: 'function_result',
     name: fcStep.name,
@@ -512,13 +504,14 @@ const finalInteraction = await client.interactions.create({
 console.log(finalInteraction.output_text);
 ```
 
-### Chamada de função sem estado
+### Gọi hàm không trạng thái
 
-Você também pode usar a chamada de função no modo sem estado gerenciando o histórico de conversas no lado do cliente e definindo `store=false`.
+Bạn cũng có thể sử dụng tính năng gọi hàm ở chế độ không trạng thái bằng cách quản lý nhật ký trò chuyện ở phía máy khách và đặt `store=false`.
 
-No modo sem estado, é necessário transmitir o histórico completo da conversa no campo `input` de cada solicitação subsequente. Esse histórico precisa incluir: 1. A etapa `user_input` inicial.
-2. Todas as etapas geradas pelo modelo retornadas na vez 1 (incluindo as etapas `thought` e `function_call`) exatamente como recebidas.
-3. A etapa `function_result` que contém a saída da função executada.
+Ở chế độ không trạng thái, bạn phải truyền toàn bộ nhật ký cuộc trò chuyện trong trường `input` của mỗi yêu cầu tiếp theo. Nhật ký này phải bao gồm:
+1. Bước `user_input` ban đầu.
+2. Tất cả các bước do mô hình tạo được trả về trong Lượt 1 (bao gồm cả các bước `thought` và `function_call`) chính xác như đã nhận.
+3. Bước `function_result` chứa kết quả của hàm mà bạn đã thực thi.
 
 ### Python
 
@@ -536,7 +529,7 @@ history = [
 ]
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     store=False,
     input=history,
     tools=[set_light_values_declaration],
@@ -557,7 +550,7 @@ history.append({
 })
 
 final_interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     store=False,
     input=history,
     tools=[set_light_values_declaration],
@@ -582,7 +575,7 @@ async function main() {
   ];
 
   const interaction = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     store: false,
     input: history,
     tools: [setLightValuesTool],
@@ -604,7 +597,7 @@ async function main() {
   });
 
   const finalInteraction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     store: false,
     input: history,
     tools: [setLightValuesTool],
@@ -624,7 +617,7 @@ RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/in
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "store": false,
     "input": [
       {
@@ -671,7 +664,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d "{
-    \"model\": \"gemini-3-flash-preview\",
+    \"model\": \"gemini-3.5-flash\",
     \"store\": false,
     \"input\": $HISTORY,
     \"tools\": [{
@@ -690,26 +683,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Declarações de função
+## Khai báo hàm
 
-Uma declaração de função é transmitida como uma ferramenta e inclui:
+Khai báo hàm được truyền dưới dạng một công cụ và bao gồm:
 
-- `type` (string): precisa ser `"function"` para funções personalizadas.
-- `name` (string): nome de função exclusivo (use sublinhados ou camelCase).
-- `description` (string): explicação clara da finalidade da função.
-- `parameters` (objeto): parâmetros de entrada esperados pela função.
-  - `type` (string): tipo de dados geral, como `object`.
-  - `properties` (objeto): parâmetros individuais com tipo e descrição.
-  - `required` (matriz): nomes de parâmetros obrigatórios.
+- `type` (chuỗi): Phải là `"function"` đối với các hàm tuỳ chỉnh.
+- `name` (chuỗi): Tên hàm riêng biệt (sử dụng dấu gạch dưới hoặc quy tắc lạc đà).
+- `description` (chuỗi): Giải thích rõ ràng về mục đích của hàm.
+- `parameters` (đối tượng): Các thông số đầu vào mà hàm này yêu cầu.
+  - `type` (chuỗi): Loại dữ liệu tổng thể, chẳng hạn như `object`.
+  - `properties` (đối tượng): Các tham số riêng lẻ có loại và nội dung mô tả.
+  - `required` (mảng): Tên tham số bắt buộc.
 
-## Chamada de função com modelos de pensamento
+## Gọi hàm bằng mô hình tư duy
 
-Os modelos das séries Gemini 3 e 2.5 usam um processo de ["pensamento"](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) interno que melhora a chamada de função.
-Os SDKs processam automaticamente as [assinaturas de pensamento](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pt-br).
+Các mô hình Gemini 3 sử dụng quy trình ["tư duy"](https://ai.google.dev/gemini-api/docs/thinking?hl=vi) nội bộ giúp cải thiện tính năng gọi hàm. Các SDK sẽ tự động xử lý [chữ ký ý tưởng](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=vi) cho bạn.
 
-## Chamada de função paralela
+## Gọi hàm song song
 
-Chame várias funções de uma só vez quando elas forem independentes:
+Gọi nhiều hàm cùng lúc khi chúng độc lập:
 
 ### Python
 
@@ -724,7 +716,7 @@ dim_lights = {"type": "function", "name": "dim_lights", "description": "Dim the 
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="Turn this place into a party!",
     tools=[power_disco_ball, start_music, dim_lights],
     generation_config={"tool_choice": "any"},
@@ -747,7 +739,7 @@ const dimLights = { type: 'function', name: 'dim_lights', description: 'Dim the 
   parameters: { type: 'object', properties: { brightness: { type: 'number' } }, required: ['brightness'] } };
 
 const interaction = await client.interactions.create({
-  model: 'gemini-3-flash-preview',
+  model: 'gemini-3.5-flash',
   input: 'Turn this place into a party!',
   tools: [powerDiscoBall, startMusic, dimLights],
   generation_config: { tool_choice: 'any' },
@@ -760,9 +752,60 @@ for (const step of interaction.steps) {
 }
 ```
 
-## Chamada de função composicional
+### REST
 
-Encadeie várias chamadas de função para solicitações complexas (por exemplo, primeiro receba o local e, em seguida, receba a previsão do tempo para esse local).
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "Turn this place into a party!",
+    "tools": [
+      {
+        "type": "function",
+        "name": "power_disco_ball",
+        "description": "Powers the disco ball.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "power": {"type": "boolean"}
+          },
+          "required": ["power"]
+        }
+      },
+      {
+        "type": "function",
+        "name": "start_music",
+        "description": "Play music.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "energetic": {"type": "boolean"},
+            "loud": {"type": "boolean"}
+          },
+          "required": ["energetic", "loud"]
+        }
+      },
+      {
+        "type": "function",
+        "name": "dim_lights",
+        "description": "Dim the lights.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "brightness": {"type": "number"}
+          },
+          "required": ["brightness"]
+        }
+      }
+    ]
+  }'
+```
+
+## Gọi hàm thành phần
+
+Nối nhiều lệnh gọi hàm với nhau cho các yêu cầu phức tạp (ví dụ: trước tiên, hãy lấy vị trí, sau đó lấy thông tin thời tiết cho vị trí đó).
 
 ### Python
 
@@ -799,7 +842,7 @@ set_thermostat_temperature_declaration = {
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
     tools=[
         get_weather_forecast_declaration,
@@ -817,14 +860,111 @@ for step in interaction.steps:
                  print(part.text)
 ```
 
-## Modos de chamada de função
+### JavaScript
 
-Controle como o modelo usa ferramentas usando `tool_choice` em `generation_config`:
+```
+import { GoogleGenAI } from '@google/genai';
 
-- `auto` (padrão): o modelo decide se quer chamar uma função ou responder diretamente.
-- `any`: o modelo é restrito a sempre prever uma chamada de função.
-- `none`: o modelo está proibido de fazer chamadas de função.
-- `validated` (pré-lançamento): o modelo garante a conformidade do esquema de função.
+const client = new GoogleGenAI({});
+
+const getWeatherForecastTool = {
+  type: 'function',
+  name: 'get_weather_forecast',
+  description: 'Gets the current weather temperature for a given location.',
+  parameters: {
+    type: 'object',
+    properties: {
+      location: { type: 'string', description: 'The location' },
+    },
+    required: ['location'],
+  },
+};
+
+const setThermostatTemperatureTool = {
+  type: 'function',
+  name: 'set_thermostat_temperature',
+  description: 'Sets the thermostat to a desired temperature.',
+  parameters: {
+    type: 'object',
+    properties: {
+      temperature: {
+        type: 'integer',
+        description: 'The temperature in Celsius',
+      },
+    },
+    required: ['temperature'],
+  },
+};
+
+const interaction = await client.interactions.create({
+  model: 'gemini-3.5-flash',
+  input: "If it's warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
+  tools: [
+    getWeatherForecastTool,
+    setThermostatTemperatureTool,
+  ],
+});
+
+for (const step of interaction.steps) {
+  if (step.type === 'function_call') {
+    console.log(`Function to call: ${step.name}`);
+    console.log(`Arguments: ${JSON.stringify(step.arguments)}`);
+  } else if (step.content) {
+    for (const part of step.content) {
+      if (part.text) {
+        console.log(part.text);
+      }
+    }
+  }
+}
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "If it'\''s warmer than 20°C in London, set the thermostat to 20°C, otherwise 18°C.",
+    "tools": [
+      {
+        "type": "function",
+        "name": "get_weather_forecast",
+        "description": "Gets the current weather temperature for a given location.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {"type": "string"}
+          },
+          "required": ["location"]
+        }
+      },
+      {
+        "type": "function",
+        "name": "set_thermostat_temperature",
+        "description": "Sets the thermostat to a desired temperature.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "temperature": {"type": "integer"}
+          },
+          "required": ["temperature"]
+        }
+      }
+    ]
+  }'
+```
+
+## Chế độ gọi hàm
+
+Kiểm soát cách mô hình sử dụng các công cụ bằng cách sử dụng `tool_choice` trong `generation_config`:
+
+- `auto` (Mặc định): Mô hình quyết định có gọi một hàm hay phản hồi trực tiếp.
+- `any`: Mô hình bị hạn chế để luôn dự đoán một lệnh gọi hàm.
+- `none`: Mô hình không được phép thực hiện lệnh gọi hàm.
+- `validated` (Xem trước): Mô hình đảm bảo tuân thủ giản đồ hàm.
 
 ### Python
 
@@ -859,7 +999,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What is the temperature in Boston?",
     "tools": [{
       "type": "function",
@@ -884,9 +1024,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Uso de várias ferramentas
+## Sử dụng dụng cụ đa năng
 
-É possível ativar várias ferramentas, combinando ferramentas integradas com a chamada de função na mesma solicitação. Os modelos do Gemini 3 podem combinar ferramentas integradas com a chamada de função pronta para uso nas interações. A transmissão de `previous_interaction_id` circula automaticamente o contexto da ferramenta integrada.
+Bạn có thể bật nhiều công cụ, kết hợp các công cụ tích hợp sẵn với tính năng gọi hàm trong cùng một yêu cầu. Các mô hình Gemini 3 có thể kết hợp các công cụ tích hợp với tính năng gọi hàm ngay lập tức trong phần Tương tác. Việc truyền `previous_interaction_id` sẽ tự động lưu hành ngữ cảnh công cụ tích hợp.
 
 ### Python
 
@@ -918,7 +1058,7 @@ tools = [
 ]
 
 interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What is the northernmost city in the United States? What's the weather like there today?",
     tools=tools
 )
@@ -928,7 +1068,7 @@ for step in interaction.steps:
         print(f"Function call: {step.name} (ID: {step.id})")
         result = {"response": "Very cold. 22 degrees Fahrenheit."}
         interaction_2 = client.interactions.create(
-            model="gemini-3-flash-preview",
+            model="gemini-3.5-flash",
             previous_interaction_id=interaction.id,
             tools=tools,
             input=[{
@@ -968,7 +1108,7 @@ const tools = [
 ];
 
 let interaction = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: "What is the northernmost city in the United States? What's the weather like there today?",
     tools: tools
 });
@@ -978,7 +1118,7 @@ for (const step of interaction.steps) {
         console.log(`Function call: ${step.name} (ID: ${step.id})`);
         const result = {response: "Very cold. 22 degrees Fahrenheit."};
         const interaction_2 = await client.interactions.create({
-            model: 'gemini-3-flash-preview',
+            model: 'gemini-3.5-flash',
             previous_interaction_id: interaction.id,
             tools: tools,
             input: [{
@@ -994,13 +1134,73 @@ for (const step of interaction.steps) {
 }
 ```
 
-## Respostas de funções multimodais
+### REST
 
-Para modelos da série Gemini 3, é possível incluir conteúdo multimodal nas partes de resposta da função que você envia ao modelo. O modelo pode processar esse conteúdo multimodal na próxima vez para produzir uma resposta mais informada.
+```
+# Turn 1: Send request with built-in google_search tool and custom weather tool
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "input": "What is the northernmost city in the United States? What'\''s the weather like there today?",
+    "tools": [
+      {"type": "google_search"},
+      {
+        "type": "function",
+        "name": "get_weather",
+        "description": "Gets the weather for a given location.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {"type": "string", "description": "The city and state, e.g. San Francisco, CA"}
+          },
+          "required": ["location"]
+        }
+      }
+    ]
+  }'
 
-Para incluir dados multimodais em uma resposta de função, inclua-os como um ou mais blocos de conteúdo no campo `result` da etapa `function_result`. Cada bloco de conteúdo precisa especificar o `type` (por exemplo, `"text"`, `"image"`).
+# Turn 2: Provide function result and pass previous_interaction_id
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "model": "gemini-3.5-flash",
+    "previous_interaction_id": "INTERACTION_ID",
+    "tools": [
+      {"type": "google_search"},
+      {
+        "type": "function",
+        "name": "get_weather",
+        "description": "Gets the weather for a given location.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "location": {"type": "string", "description": "The city and state, e.g. San Francisco, CA"}
+          },
+          "required": ["location"]
+        }
+      }
+    ],
+    "input": [
+      {
+        "type": "function_result",
+        "name": "get_weather",
+        "call_id": "call_123",
+        "result": [{"type": "text", "text": "{\"response\": \"Very cold. 22 degrees Fahrenheit.\"}"}]
+      }
+    ]
+  }'
+```
 
-O exemplo a seguir mostra como enviar uma resposta de função que contém dados de imagem de volta ao modelo em uma interação:
+## Phản hồi của hàm đa phương thức
+
+Đối với các mô hình Gemini 3, bạn có thể đưa nội dung đa phương thức vào các phần phản hồi của hàm mà bạn gửi đến mô hình. Mô hình có thể xử lý nội dung đa phương thức này trong lượt tiếp theo để đưa ra câu trả lời có nhiều thông tin hơn.
+
+Để đưa dữ liệu đa phương thức vào phản hồi của hàm, hãy thêm dữ liệu đó dưới dạng một hoặc nhiều khối nội dung trong trường `result` của bước `function_result`. Mỗi khối nội dung phải chỉ định `type` (ví dụ: `"text"`, `"image"`).
+
+Ví dụ sau đây cho thấy cách gửi phản hồi của hàm chứa dữ liệu hình ảnh trở lại mô hình trong một lượt tương tác:
 
 ### Python
 
@@ -1019,7 +1219,7 @@ image_bytes = requests.get(image_path).content
 base64_image_data = base64.b64encode(image_bytes).decode("utf-8")
 
 final_interaction = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     previous_interaction_id=interaction.id,
     input=[
         {
@@ -1046,14 +1246,14 @@ print(final_interaction.output_text)
 ```
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({});
+const client = new GoogleGenAI({});
 
 const toolCall = interaction.steps.find(s => s.type === 'function_call');
 
 const base64ImageData = "BASE64_IMAGE_DATA";
 
-const finalInteraction = await ai.interactions.create({
-    model: 'gemini-3-flash-preview',
+const finalInteraction = await client.interactions.create({
+    model: 'gemini-3.5-flash',
     previous_interaction_id: interaction.id,
     input: [{
         type: 'function_result',
@@ -1080,7 +1280,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "previous_interaction_id": "INTERACTION_ID",
     "input": [
       {
@@ -1100,31 +1300,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Chamada de função com saída estruturada
+## Gọi hàm bằng đầu ra có cấu trúc
 
-Para modelos da série Gemini 3, combine a chamada de função com
-[saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) para
-respostas formatadas de forma consistente.
+Đối với các mô hình dòng Gemini 3, hãy kết hợp lệnh gọi hàm với [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi) để có các câu trả lời được định dạng nhất quán.
 
-## MCP (Protocolo de Contexto de Modelo) remoto
+## MCP (Giao thức ngữ cảnh mô hình) từ xa
 
-A API Interactions oferece suporte à conexão com servidores MCP remotos para dar ao modelo acesso a ferramentas e serviços externos. Você fornece o `name` e o `url` do servidor na configuração das ferramentas.
+API Tương tác hỗ trợ việc kết nối với các máy chủ MCP từ xa để cấp cho mô hình quyền truy cập vào các công cụ và dịch vụ bên ngoài. Bạn cung cấp `name` và `url` của máy chủ trong cấu hình công cụ.
 
-Ao usar o MCP remoto, esteja ciente das seguintes restrições:
+Khi sử dụng Remote MCP, hãy lưu ý những hạn chế sau:
 
-- **Tipos de servidor**: o MCP remoto só funciona com servidores HTTP transmissíveis. Os servidores SSE (Eventos enviados pelo servidor) não são aceitos.
-- **Suporte ao modelo**: o MCP remoto não funciona com modelos do Gemini 3 no momento. O suporte ao Gemini 3 será lançado em breve.
-- **Nomenclatura**: os nomes de servidores MCP não podem incluir o caractere `-`. Use nomes de servidores `snake_case`.
+- **Các loại máy chủ**: MCP từ xa chỉ hoạt động với các máy chủ HTTP có thể truyền phát. Không hỗ trợ máy chủ SSE (Sự kiện được gửi bởi máy chủ).
+- **Đặt tên**: Tên máy chủ MCP không được chứa ký tự `-`. Thay vào đó, hãy sử dụng tên máy chủ `snake_case`.
 
-| Campo | Tipo | Obrigatório | Descrição |
+| Trường | Loại | Bắt buộc | Mô tả |
 | --- | --- | --- | --- |
-| `type` | `string` | Sim | Precisa ser `"mcp_server"`. |
-| `name` | `string` | Não | Um nome de exibição para o servidor MCP. |
-| `url` | `string` | Não | O URL completo do endpoint do servidor MCP. |
-| `headers` | `object` | Não | Pares de chave-valor enviados como cabeçalhos HTTP com cada solicitação ao servidor (por exemplo, tokens de autenticação). |
-| `allowed_tools` | `array` | Não | Restrinja quais ferramentas do servidor o agente pode chamar. |
+| `type` | `string` | Có | Phải là `"mcp_server"`. |
+| `name` | `string` | Không | Tên hiển thị của máy chủ MCP. |
+| `url` | `string` | Không | URL đầy đủ cho điểm cuối của máy chủ MCP. |
+| `headers` | `object` | Không | Các cặp khoá-giá trị được gửi dưới dạng tiêu đề HTTP trong mỗi yêu cầu đến máy chủ (ví dụ: mã thông báo xác thực). |
+| `allowed_tools` | `array` | Không | Hạn chế những công cụ mà tác nhân có thể gọi từ máy chủ. |
 
-### Exemplo
+### Ví dụ
 
 ### Python
 
@@ -1134,14 +1331,13 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-2.5-flash",
-    input="Check the status of my last server deployment.",
+    model="gemini-3.5-flash",
+    input="Check the weather in San Francisco.",
     tools=[
         {
             "type": "mcp_server",
-            "name": "Deployment Tracker",
-            "url": "https://mcp.example.com/mcp",
-            "headers": {"Authorization": "Bearer my-token"},
+            "name": "weather",
+            "url": "https://gemini-api-demos.uc.r.appspot.com/mcp",
         }
     ]
 )
@@ -1155,14 +1351,13 @@ import { GoogleGenAI } from '@google/genai';
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-    model: 'gemini-2.5-flash',
-    input: 'Check the status of my last server deployment.',
+    model: 'gemini-3.5-flash',
+    input: 'Check the weather in San Francisco.',
     tools: [
         {
             type: 'mcp_server',
-            name: 'Deployment Tracker',
-            url: 'https://mcp.example.com/mcp',
-            headers: { Authorization: 'Bearer my-token' }
+            name: 'weather',
+            url: 'https://gemini-api-demos.uc.r.appspot.com/mcp'
         }
     ]
 });
@@ -1175,22 +1370,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-2.5-flash",
-    "input": "Check the status of my last server deployment.",
+    "model": "gemini-3.5-flash",
+    "input": "Check the weather in San Francisco.",
     "tools": [
         {
             "type": "mcp_server",
-            "name": "Deployment Tracker",
-            "url": "https://mcp.example.com/mcp",
-            "headers": {"Authorization": "Bearer my-token"}
+            "name": "weather",
+            "url": "https://gemini-api-demos.uc.r.appspot.com/mcp"
         }
     ]
 }'
 ```
 
-## Transmitir chamadas de ferramentas
+## Truyền trực tuyến lệnh gọi công cụ
 
-Ao usar ferramentas com streaming, o modelo gera chamadas de função como uma sequência de eventos `step.delta` no stream. Os argumentos da ferramenta podem ser transmitidos como argumentos parciais usando `arguments`. É necessário agregar esses deltas para reconstruir as chamadas de ferramentas completas antes de executá-las.
+Khi sử dụng các công cụ có tính năng truyền phát trực tiếp, mô hình sẽ tạo các lệnh gọi hàm dưới dạng một chuỗi các sự kiện `step.delta` trên luồng. Bạn có thể truyền trực tuyến các đối số của công cụ dưới dạng đối số một phần bằng cách sử dụng `arguments`. Bạn phải tổng hợp các phần chênh lệch này để tạo lại các lệnh gọi công cụ hoàn chỉnh trước khi thực thi chúng.
 
 ### Python
 
@@ -1214,7 +1408,7 @@ weather_tool = {
 }
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What is the weather in Paris?",
     tools=[weather_tool],
     stream=True
@@ -1283,7 +1477,7 @@ const weatherTool = {
 };
 
 const stream = await client.interactions.create({
-    model: 'gemini-3-flash-preview',
+    model: 'gemini-3.5-flash',
     input: 'What is the weather in Paris?',
     tools: [weatherTool],
     stream: true,
@@ -1337,7 +1531,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   -H "Content-Type: application/json" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What is the weather in Paris?",
     "tools": [{
         "type": "function",
@@ -1355,29 +1549,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## Práticas recomendadas
+## Các phương pháp hay nhất
 
-- **Descrições de funções e parâmetros**:sejam claras e específicas.
-- **Nomenclatura**:use nomes descritivos sem espaços ou caracteres especiais.
-- **Tipagem forte**:use tipos específicos (inteiro, string, enumeração).
-- **Seleção de ferramentas**:mantenha o conjunto ativo em no máximo 10 a 20 ferramentas.
-- **Engenharia de comandos**:forneça contexto e instruções.
-- **Validação**:valide as chamadas de função antes de executar.
-- **Tratamento de erros**:implemente um tratamento de erros robusto.
-- **Segurança**:use a autenticação adequada para APIs externas.
+- **Mô tả hàm và tham số:** Rõ ràng và cụ thể.
+- **Đặt tên:** Sử dụng tên mô tả không có dấu cách hoặc ký tự đặc biệt.
+- **Nhập mạnh:** Sử dụng các loại cụ thể (số nguyên, chuỗi, enum).
+- **Lựa chọn công cụ:** Giữ số lượng công cụ đang hoạt động ở mức tối đa là 10 đến 20.
+- **Thiết kế câu lệnh:** Cung cấp bối cảnh và hướng dẫn.
+- **Xác thực:** Xác thực các lệnh gọi hàm trước khi thực thi.
+- **Xử lý lỗi:** Triển khai biện pháp xử lý lỗi hữu ích.
+- **Bảo mật:** Sử dụng phương thức xác thực phù hợp cho các API bên ngoài.
 
-## Observações e limitações:
+## Lưu ý và giới hạn
 
-- Há suporte apenas para um [subconjunto do esquema OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=pt-br#FunctionDeclaration).
-- Para o modo `any`, a API pode rejeitar esquemas muito grandes ou profundamente aninhados.
-- Os tipos de parâmetros aceitos em Python são limitados.
+- Chỉ hỗ trợ [một phần của giản đồ OpenAPI](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=vi#FunctionDeclaration).
+- Đối với chế độ `any`, API có thể từ chối các giản đồ rất lớn hoặc được lồng sâu.
+- Các loại tham số được hỗ trợ trong Python bị hạn chế.
 
-Envie comentários
+Gửi ý kiến phản hồi
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última atualização 2026-06-22 UTC.
+Cập nhật lần gần đây nhất: 2026-07-07 UTC.
 
-Quer enviar seu feedback?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-22 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-07 UTC."],[],[]]

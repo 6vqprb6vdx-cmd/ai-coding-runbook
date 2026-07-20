@@ -1,96 +1,97 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=ko
-fetched_at: 2026-07-06T05:17:11.227541+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=fr
+fetched_at: 2026-07-20T04:35:29.193432+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)가 정식 버전으로 출시되었습니다. 이 API를 사용하여 모든 최신 기능과 모델에 액세스하는 것이 좋습니다.
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est désormais en disponibilité générale. Nous vous recommandons d'utiliser cette API pour accéder à toutes les dernières fonctionnalités et tous les derniers modèles.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-의견 보내기
+Envoyer des commentaires
 
-# Nano Banana 이미지 생성
+# Génération d'images Nano Banana
 
-프롬프트를 사용하여 완전한 기능을 갖춘 UI 완성 앱의 프로토타입을 제작하고 Nano Banana 2가 실제 도구, 데이터, Gemini 생태계와 통합된 모습을 확인하세요. 코드를 한 줄도 작성하지 않고 말입니다.
+Créez des applications entièrement fonctionnelles avec une interface utilisateur complète à l'aide de requêtes, et découvrez
+Nano Banana 2 intégré à des outils, des données et l'écosystème Gemini réels. le tout sans écrire une seule ligne de code.
 
-- 또는 프롬프트에서 직접 빌드할 수 있습니다.
+- Ou créez la vôtre à partir de requêtes :
 
-- ![잡지](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
-  ![런던](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![복원](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+- ![magazine](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+  ![restaurer](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
   ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![카페](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![기사](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![개](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![아이소메트릭](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![잡지](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![article](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![chien](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![isométrique](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![magazine](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Nano Banana 2로 생성됨
+  Généré par Nano Banana 2
 
-  **프롬프트:** '유광 잡지 표지 사진. 미니멀한 파란색 표지에는 굵은 글씨로 Nano Banana라고 적혀 있습니다. 텍스트는 세리프 글꼴로 되어 있으며 뷰를 채웁니다. 다른 텍스트는 입력하지 마세요. 텍스트 앞에는 세련되고 미니멀한 드레스를 입은 사람의 인물 사진이 있습니다. 그녀는 초점인 숫자 2를 장난스럽게 들고 있습니다.
+  **Requête** : "Photo d'une couverture de magazine brillant, la couverture bleue minimaliste comporte les mots Nano Banana en gros et en gras. Le texte est écrit dans une police avec empattement et remplit la vue. Aucun autre texte. Devant le texte se trouve le portrait d'une personne portant une robe élégante et minimaliste. Elle tient le chiffre 2 de manière ludique, qui est le point focal.
     
-  바코드와 함께 문제 번호와 '2026년 2월' 날짜를 모서리에 넣습니다. 잡지는 디자이너 매장 내 오렌지색 회반죽 벽에 있는 선반에 있습니다.'
-- ![런던](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
+   Mets le numéro du problème et la date "février 2026" dans l'angle, avec un code-barres. Le magazine est posé sur une étagère contre un mur enduit orange, dans une boutique de créateurs."
+- ![Londres](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Nano Banana Pro로 생성됨
+  Généré par Nano Banana Pro
 
-  **프롬프트:** '런던의 가장 상징적인 랜드마크와 건축 요소를 보여주는 45도 각도로 위에서 내려다보는 구도의 아이소메트릭 미니어처 3D 만화 장면을 명확하게 표현해 줘. 사실적인 PBR 소재와 부드럽고 세련된 질감, 부드럽고 사실적인 조명과 그림자를 사용해 줘. 현재 날씨 조건을 도시 환경에 직접 통합하여 몰입감 있는 분위기를 조성합니다. 부드러운 단색 배경을 사용하여 깨끗하고 미니멀한 구도를 사용합니다. 상단 중앙에 'London'이라는 제목을 큰 굵은 글씨로 배치하고 그 아래에 눈에 띄는 날씨 아이콘, 날짜 (작은 텍스트), 온도 (중간 텍스트)를 배치합니다. 모든 텍스트는 일관된 간격으로 가운데에 배치되어야 하며 건물의 상단과 미묘하게 겹칠 수 있습니다.'
-- ![케찰](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  **Requête** : "Présente une scène de dessin animé 3D miniature, isométrique et claire, vue de dessus à 45°, de Londres, avec ses monuments et éléments architecturaux les plus emblématiques. Utilisez des textures douces et raffinées avec des matériaux PBR réalistes, ainsi que des éclairages et des ombres doux et réalistes. Intégrez les conditions météorologiques actuelles directement dans l'environnement urbain pour créer une ambiance immersive. Utilise une composition épurée et minimaliste avec un arrière-plan uni et doux. En haut au centre, placez le titre "Londres" en gros caractères gras, une icône météo bien visible en dessous, puis la date (en petits caractères) et la température (en caractères moyens). Tout le texte doit être centré avec un espacement cohérent et peut chevaucher légèrement le haut des bâtiments."
+- ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Nano Banana 2로 생성됨
+  Généré par Nano Banana 2
 
-  **프롬프트:** '이미지 검색을 사용하여 화려한 케찰새의 정확한 이미지를 찾아 줘. 자연스러운 위아래 그라데이션과 최소한의 구성으로 이 새의 아름다운 3:2 배경화면을 만들어 줘."
+  **Requête** : "Utilise la recherche d'images pour trouver des images précises d'un quetzal resplendissant. Crée un magnifique fond d'écran au format 3:2 de cet oiseau, avec un dégradé naturel de haut en bas et une composition minimaliste."
 - ![banana](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Nano Banana Pro로 생성됨
+  Généré par Nano Banana Pro
 
-  **프롬프트:** '바나나 향수 고급 광고에 이 로고를 넣어 줘. 로고가 병에 완벽하게 통합되어 있습니다.'
-- ![카페](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  **Requête** : "Place ce logo sur une publicité haut de gamme pour un parfum à la banane. Le logo est parfaitement intégré à la bouteille."
+- ![café](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Nano Banana Pro로 생성됨
+  Généré par Nano Banana Pro
 
-  **프롬프트:** '아침 식사를 제공하는 번화한 카페의 일상적인 장면 사진. 앞쪽에는 파란색 머리의 애니메이션 남자가 있고, 한 사람은 연필 스케치, 다른 사람은 클레이 애니메이션 사람입니다.'
-- ![기사](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  **Requête** : "Photo d'une scène de la vie quotidienne dans un café animé servant le petit-déjeuner. Au premier plan, un homme d'anime aux cheveux bleus, l'une des personnes est un croquis au crayon, l'autre est une personne en pâte à modeler"
+- ![article](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Nano Banana Pro로 생성됨
+  Généré par Nano Banana Pro
 
-  **프롬프트:** '검색을 사용하여 Gemini 3 Flash 출시가 어떻게 받아들여졌는지 알아봐. 이 정보를 사용하여 제목이 있는 짧은 기사를 작성하세요. 디자인에 중점을 둔 광택 잡지에 표시된 기사의 사진을 반환해 줘. Gemini 3 Flash에 관한 기사를 보여주는 단일 페이지가 접혀 있는 사진입니다. 히어로 사진 1장 광고 제목은 세리프입니다.'
-- ![개](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  **Requête** : "Utilise la recherche pour savoir comment le lancement de Gemini 3 Flash a été accueilli. Utilise ces informations pour écrire un court article à ce sujet (avec des titres). Retourne une photo de l'article tel qu'il est apparu dans un magazine brillant axé sur le design. Il s'agit d'une photo d'une seule page pliée, montrant l'article sur Gemini 3 Flash. Une photo principale Titre en serif."
+- ![chien](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Nano Banana Pro로 생성됨
+  Généré par Nano Banana Pro
 
-  **프롬프트:** '귀여운 강아지를 나타내는 아이콘. 배경은 흰색입니다. 아이콘을 다채롭고 촉각적인 3D 스타일로 만들어 줘. 텍스트가 없습니다.'
-- ![아이소메트릭](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  **Requête** : "Une icône représentant un chien mignon. L'arrière-plan est blanc. Crée des icônes dans un style 3D coloré et tactile. Pas de texte."
+- ![isométrique](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Nano Banana 2로 생성됨
+  Généré par Nano Banana 2
 
-  **프롬프트:** '완벽한 등각 투영법으로 사진을 만들어 줘. 미니어처가 아니라 완벽한 등각 투영법으로 촬영된 사진입니다. 아름다운 현대식 정원의 사진입니다. 2 모양의 큰 수영장과 'Nano Banana 2'라는 단어가 있습니다.'
+  **Requête** : "Crée une photo parfaitement isométrique. Il ne s'agit pas d'une miniature, mais d'une photo qui s'est avérée parfaitement isométrique. Il s'agit d'une photo d'un magnifique jardin moderne. Il y a une grande piscine en forme de 2 et les mots "Nano Banana 2"."
 
-**Nano Banana**는 Gemini의 기본 이미지 생성 기능의 이름입니다.
-Gemini는 텍스트, 이미지 또는 둘 다를 조합하여 대화형으로 이미지를 생성하고 처리할 수 있습니다. 이를 통해 전례 없이 세밀하게 제어하면서 시각적 요소를 만들고, 수정하고, 반복할 수 있습니다.
+**Nano Banana** est le nom des fonctionnalités de génération d'images natives de Gemini.
+Gemini peut générer et traiter des images de manière conversationnelle avec du texte, des images ou une combinaison des deux. Vous pouvez ainsi créer, modifier et itérer des éléments visuels avec un contrôle sans précédent.
 
-Nano Banana는 Gemini API에서 사용할 수 있는 4가지 고유한 모델을 의미합니다.
+Nano Banana fait référence à quatre modèles distincts disponibles dans l'API Gemini :
 
-- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=ko))
-  (`gemini-3.1-flash-lite-image`):** 속도와 비용이 주요 운영 제약 조건인 환경에서 속도와 확장성을 위해 설계된 가장 빠르고 저렴한 Gemini 이미지 모델입니다. 여러 참조 입력 또는 멀티턴 순차 편집에 최적화되어 있지 않습니다.
-- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ko))
-  (`gemini-3.1-flash-image`):** 모든 작업을 위한 가장 다재다능한 모델이자 일반적인 워크호스 모델로 사용됩니다. 속도와 최첨단 4K 생성, 실질적인 지식, 안정적인 텍스트 렌더링의 균형을 맞춥니다. 여러 참고 이미지 처리 및 일관성에서 뛰어남
-- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ko))
-  (`gemini-3-pro-image`):** 가장 복잡한 시각적 작업을 위한 프리미엄 옵션으로, 최고 수준의 세계 지식, 고급 현지화, 정확한 브랜드 일관성, 정밀한 크리에이티브 컨트롤을 제공합니다.
-- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ko))
-  (`gemini-2.5-flash-image`):** Nano Banana 시리즈의 기존 선두 주자입니다.
-  Nano Banana 2 Lite는 안정적인 성능을 제공하지만, 향상된 품질, 더 빠른 생성 속도, 더 낮은 API 가격을 경험하려면 Nano Banana 2 Lite로 전환하는 것이 좋습니다.
+- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=fr))
+  (`gemini-3.1-flash-lite-image`)** : notre modèle Gemini pour les images le plus rapide et le moins cher, conçu pour la vitesse et l'évolutivité lorsque la rapidité et le coût sont les principales contraintes opérationnelles. Non optimisé pour plusieurs entrées de référence ni pour l'édition séquentielle multitour.
+- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=fr))
+  (`gemini-3.1-flash-image`)** : modèle polyvalent et généraliste pour toutes les tâches. Il équilibre la vitesse avec une génération 4K de pointe, une connaissance du monde et un rendu fiable du texte. Exceller dans le traitement et la cohérence de plusieurs images de référence.
+- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=fr))
+  (`gemini-3-pro-image`)** : le choix Premium pour les tâches visuelles les plus complexes. Il offre le plus haut niveau de connaissances sur le monde, une localisation avancée, une cohérence de marque précise et un contrôle créatif de haute précision.
+- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr))
+  (`gemini-2.5-flash-image`)** : le pionnier de la série Nano Banana.
+  Bien qu'il ait été un outil fiable, nous recommandons vivement aux clients de passer à Nano Banana 2 Lite pour bénéficier d'une qualité améliorée, de vitesses de génération plus rapides et de tarifs d'API plus bas.
 
-생성된 모든 이미지에는 [SynthID 워터마크](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ko)가 포함됩니다.
+Toutes les images générées incluent un [filigrane SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr).
 
-## 이미지 생성 (텍스트 이미지 변환)
+## Génération d'images (texte vers image)
 
 ### Python
 
@@ -111,7 +112,7 @@ with open("generated_image.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -154,17 +155,17 @@ curl -s -X POST \
   }'
 ```
 
-마지막으로 생성된 이미지 블록을 반환하는 `interaction.output_image` 속성을 사용하여 생성된 이미지 데이터를 가져올 수 있습니다. 편의 속성에 관한 자세한 내용은 [상호작용 개요](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko#convenience-properties)를 참고하세요.
+Vous pouvez récupérer les données d'image générées à l'aide de la propriété `interaction.output_image`, qui renvoie le dernier bloc d'image généré. Pour en savoir plus sur les propriétés pratiques, consultez [Présentation des interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr#convenience-properties).
 
-## 이미지 편집 (텍스트 및 이미지 간)
+## Retouche d'images (texte et image vers image)
 
-**참고**: 업로드하는 이미지에 대한 필요한 권리를 보유하고 있는지 확인하세요.
-속이거나, 괴롭히거나, 피해를 입히는 동영상 또는 이미지를 비롯해 다른 사람의 권리를 침해하는 콘텐츠를 생성하면 안 됩니다. 이 생성형 AI 서비스의 사용에는 Google의 [금지된 사용 정책](https://policies.google.com/terms/generative-ai/use-policy?hl=ko)이 적용됩니다.
+**Rappel** : Assurez-vous de disposer des droits nécessaires sur toutes les images que vous importez.
+Ne générez aucun contenu qui porte atteinte aux droits d'autrui, y compris des vidéos ou images trompeuses, ou qui harcèlent ou nuisent à autrui. Votre utilisation de ce service d'IA générative est soumise à notre [Règlement sur les utilisations interdites](https://policies.google.com/terms/generative-ai/use-policy?hl=fr).
 
-이미지를 제공하고 텍스트 프롬프트를 사용하여 요소를 추가, 삭제 또는 수정하거나, 스타일을 변경하거나, 색상 그레이딩을 조정합니다.
+Fournissez une image et utilisez des requêtes textuelles pour ajouter, supprimer ou modifier des éléments, changer le style ou ajuster la correction colorimétrique.
 
-다음 예에서는 `base64`로 인코딩된 이미지를 업로드하는 방법을 보여줍니다.
-여러 이미지, 더 큰 페이로드, 지원되는 MIME 유형은 [이미지 이해](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko) 페이지를 참고하세요.
+L'exemple suivant montre comment importer des images encodées au format `base64`.
+Pour en savoir plus sur les images multiples, les charges utiles plus importantes et les types MIME acceptés, consultez la page [Compréhension des images](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fr).
 
 ### Python
 
@@ -198,7 +199,7 @@ with open("generated_image.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -257,9 +258,9 @@ curl -s -X POST \
     }"
 ```
 
-### 멀티턴 이미지 수정
+### Édition d'images multitour
 
-대화형으로 이미지를 계속 생성하고 수정하세요. 이미지를 반복하는 데는 멀티턴 대화가 권장됩니다. 다음 예에서는 광합성에 관한 인포그래픽을 생성하는 프롬프트를 보여줍니다.
+Continuez à générer et à modifier des images de manière conversationnelle. Nous vous recommandons d'utiliser les conversations multitours pour itérer sur les images. L'exemple suivant montre une requête permettant de générer une infographie sur la photosynthèse.
 
 ### Python
 
@@ -280,7 +281,7 @@ with open("photosynthesis.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -322,11 +323,11 @@ curl -s -X POST \
   }'
 ```
 
-![광합성에 관한 AI 생성 인포그래픽](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=ko)
+![Infographie générée par IA sur la photosynthèse](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=fr)
 
-광합성에 관한 AI 생성 인포그래픽
+Infographie générée par IA sur la photosynthèse
 
-그런 다음 `previous_interaction_id`를 사용하여 그래픽의 언어를 스페인어로 변경할 수 있습니다.
+Vous pouvez ensuite utiliser `previous_interaction_id` pour modifier la langue de l'image et la passer à l'espagnol.
 
 ### Python
 
@@ -349,7 +350,7 @@ if generated_image:
         f.write(base64.b64decode(generated_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction2 = await ai.interactions.create({
@@ -391,35 +392,35 @@ curl -s -X POST \
   }'
 ```
 
-![스페인어로 된 광합성의 AI 생성 인포그래픽](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=ko)
+![Infographie sur la photosynthèse générée par l'IA en espagnol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=fr)
 
-스페인어로 된 광합성 AI 생성 인포그래픽
+Infographie sur la photosynthèse générée par IA en espagnol
 
-## Gemini 3 이미지 모델의 새로운 기능
+## Nouveautés des modèles d'images Gemini 3
 
-Gemini 3는 최첨단 이미지 생성 및 편집 모델을 제공합니다. Gemini 3.1 Flash Image는 속도와 대량 사용 사례에 최적화되어 있으며 Gemini 3 Pro Image는 전문적인 애셋 제작에 최적화되어 있습니다.
-고급 추론을 통해 가장 어려운 워크플로를 처리하도록 설계되었으며, 복잡한 멀티턴 생성 및 수정 작업에 탁월합니다.
+Gemini 3 propose des modèles de pointe pour la génération et la retouche d'images. Gemini 3.1 Flash Image est optimisé pour la vitesse et les cas d'utilisation à fort volume, tandis que Gemini 3 Pro Image est optimisé pour la production d'assets professionnels.
+Conçus pour gérer les workflows les plus complexes grâce à un raisonnement avancé, ils excellent dans les tâches complexes de création et de modification multitour.
 
-- **고해상도 출력**: 1K, 2K, 4K 시각적 요소를 위한 기본 제공 생성 기능
-  - **Gemini 3.1 Flash Image**에 더 작은 512px (0.5K) 해상도가 추가되었습니다.
-  - **Gemini 3.1 Flash Lite Image**는 1K 해상도만 지원합니다.
-- **고급 텍스트 렌더링**: 인포그래픽, 메뉴, 다이어그램, 마케팅 애셋에 대해 읽기 쉽고 스타일이 지정된 텍스트를 생성할 수 있습니다.
-- **Google 검색을 사용한 그라운딩**: 모델이 Google 검색을 도구로 사용하여 사실을 확인하고 실시간 데이터 (예: 현재 날씨 지도, 주식 차트, 최근 이벤트)를 기반으로 이미지를 생성할 수 있습니다.
-  - **Gemini 3.1 Flash-Lite 이미지 모델에서 지원되지 않습니다.**
-  - **Gemini 3.1 Flash Image**는 웹 검색과 함께 Google 이미지 검색 그라운딩을 통합합니다.
-- **사고 모드**: 모델이 '사고' 과정을 활용하여 복잡한 프롬프트를 추론합니다. 최종 고화질 출력을 생성하기 전에 구도를 다듬기 위해 임시 '생각 이미지' (백엔드에 표시되지만 요금이 청구되지 않음)를 생성합니다.
-- **최대 14개의 참고 이미지**: 이제 최대 14개의 참고 이미지를 혼합하여 최종 이미지를 생성할 수 있습니다.
-- **새 가로세로 비율**: Gemini 3.1 Flash Lite Image에 `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` [가로세로 비율](#aspect_ratios_and_image_size)이 추가됩니다.
+- **Sortie haute résolution** : fonctionnalités de génération intégrées pour les visuels 1K, 2K et 4K.
+  - **Gemini 3.1 Flash Image** ajoute la résolution inférieure de 512 px (0,5K).
+  - L'**image Gemini 3.1 Flash-Lite** n'est compatible qu'avec la résolution 1K.
+- **Rendu du texte amélioré** : permet de générer du texte lisible et stylisé pour les infographies, les menus, les diagrammes et les supports marketing.
+- **Ancrage avec la recherche Google** : le modèle peut utiliser la recherche Google comme outil pour vérifier des faits et générer des images basées sur des données en temps réel (par exemple, des cartes météo actuelles, des graphiques boursiers ou des événements récents).
+  - **Non compatible avec le modèle Gemini 3.1 Flash Lite Image.**
+  - **Gemini 3.1 Flash Image** ajoute l'intégration de l'ancrage de la recherche d'images Google à la recherche sur le Web.
+- **Mode Raisonnement** : le modèle utilise un processus de "réflexion" pour raisonner sur les requêtes complexes. Il génère des "images de réflexion" intermédiaires (visibles dans le backend, mais non facturées) pour affiner la composition avant de produire le résultat final de haute qualité.
+- **Jusqu'à 14 images de référence** : vous pouvez désormais combiner jusqu'à 14 images de référence pour générer l'image finale.
+- **Nouveaux formats** : Gemini 3.1 Flash Lite Image ajoute les [formats](#aspect_ratios_and_image_size) `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9` et `21:9`.
 
-### 최대 14개의 참조 이미지 사용
+### Utiliser jusqu'à 14 images de référence
 
-Gemini 3 이미지 모델을 사용하면 최대 14개의 참조 이미지를 혼합할 수 있습니다. 이러한 14개의 이미지에는 다음이 포함될 수 있습니다.
+Les modèles d'image Gemini 3 vous permettent de combiner jusqu'à 14 images de référence. Ces 14 images peuvent inclure les éléments suivants :
 
-| Gemini 3.1 Flash Lite 이미지 | Gemini 3.1 Flash Image | Gemini 3 Pro Image |
+| Image Gemini 3.1 Flash-Lite | Image Gemini 3.1 Flash | Gemini 3 Pro Image |
 | --- | --- | --- |
-| 최종 이미지에 포함할 충실도가 높은 객체의 이미지(최대 14개) | 최종 이미지에 포함할 충실도가 높은 객체의 이미지(최대 10개) | 최종 이미지에 포함할 충실도가 높은 객체의 이미지(최대 6개) |
-| 해당 사항 없음 | 캐릭터 일관성을 유지하기 위한 캐릭터 이미지 최대 4개 | 캐릭터 일관성을 유지하기 위한 캐릭터 이미지 최대 5개 |
-| 해당 사항 없음 | 해당 사항 없음 | 스타일 참조로 사용할 이미지 최대 3개 |
+| Jusqu'à 14 images d'objets haute fidélité à inclure dans l'image finale | Jusqu'à 10 images d'objets haute fidélité à inclure dans l'image finale | Jusqu'à six images d'objets haute fidélité à inclure dans l'image finale |
+| N/A | Jusqu'à quatre images de personnages pour assurer leur cohérence | Jusqu'à cinq images de personnages pour assurer leur cohérence |
+| N/A | N/A | Jusqu'à trois images à utiliser comme références de style |
 
 ### Python
 
@@ -478,7 +479,7 @@ with open("office.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -542,15 +543,15 @@ curl -s -X POST \
     }"
 ```
 
-![AI 생성 사무실 그룹 사진](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=ko)
+![Photo de groupe au bureau générée par l'IA](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=fr)
 
-AI 생성 사무실 단체 사진
+Photo de groupe au bureau générée par IA
 
-### Google 검색을 사용하는 그라운딩
+### Ancrage avec la recherche Google
 
-[Google 검색 도구](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)를 사용하여 날씨 예보, 주식 차트, 최근 이벤트와 같은 실시간 정보를 기반으로 이미지를 생성합니다.
+Utilisez l'[outil de recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) pour générer des images basées sur des informations en temps réel, comme des prévisions météo, des graphiques boursiers ou des événements récents.
 
-이미지 생성과 함께 Google 검색을 사용한 그라운딩을 사용하는 경우 이미지 기반 검색 결과는 생성 모델에 전달되지 않으며 대답에서 제외됩니다 ([Google 이미지 검색을 사용한 그라운딩](#image-search) 참고).
+Notez que lorsque vous utilisez l'ancrage avec la recherche Google pour générer des images, les résultats de recherche basés sur des images ne sont pas transmis au modèle de génération et sont exclus de la réponse (voir [Ancrage avec la recherche Google Images](#image-search)).
 
 ### Python
 
@@ -578,7 +579,7 @@ with open("weather.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -628,20 +629,20 @@ curl -s -X POST \
   }'
 ```
 
-![샌프란시스코의 5일간 날씨를 보여주는 AI 생성 차트](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=ko)
+![Graphique météo sur cinq jours généré par IA pour San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=fr)
 
-샌프란시스코의 5일간 날씨를 보여주는 AI 생성 차트
+Tableau météo sur cinq jours généré par l'IA pour San Francisco
 
-응답에는 `google_search_call` 및 `google_search_result` 단계와 텍스트 단계의 인라인 `url_citation` 주석이 포함됩니다.
+La réponse inclut les étapes `google_search_call` et `google_search_result`, ainsi que des annotations `url_citation` intégrées à l'étape de texte :
 
-- **`google_search_result`**: UI에서 검색어를 렌더링하기 위한 HTML 스니펫인 `search_suggestions`이 포함되어 있습니다.
-- **`url_citation` 주석**: 텍스트 단계의 인라인 인용으로, 대답의 일부를 웹 소스에 연결합니다.
+- **`google_search_result`** : contient `search_suggestions`, un extrait HTML permettant d'afficher les suggestions de recherche dans votre UI.
+- **Annotations `url_citation`** : citations intégrées à l'étape de texte, qui relient des parties de la réponse à leurs sources Web.
 
-### Google 이미지 검색을 사용한 그라운딩 (3.1 Flash)
+### Ancrage avec la recherche Google pour les images (3.1 Flash)
 
-Google 이미지 검색을 사용한 그라운딩을 사용하면 모델이 Google 이미지 검색을 통해 검색된 웹 이미지를 이미지 생성의 시각적 컨텍스트로 사용할 수 있습니다. 이미지 검색은 기존의 Google 검색을 사용한 그라운딩 도구 내에 있는 새로운 검색 유형으로, 표준 [웹 검색](#use-with-grounding)과 함께 작동합니다.
+L'ancrage avec la recherche Google Images permet aux modèles d'utiliser les images Web récupérées via la recherche Google Images comme contexte visuel pour la génération d'images. La recherche d'images est un nouveau type de recherche au sein de l'outil existant d'ancrage avec la recherche Google. Elle fonctionne en parallèle de la [recherche sur le Web](#use-with-grounding) standard.
 
-이미지 검색을 사용 설정하려면 API 요청에서 `google_search` 도구를 구성하고 `search_types` 배열 내에서 `image_search`을 지정합니다. 이미지 검색은 독립적으로 또는 웹 검색과 함께 사용할 수 있습니다.
+Pour activer la recherche d'images, configurez l'outil `google_search` dans votre requête API et spécifiez `image_search` dans le tableau `search_types`. La recherche d'images peut être utilisée indépendamment ou en même temps que la recherche sur le Web.
 
 ### Python
 
@@ -660,7 +661,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -695,24 +696,24 @@ curl -s -X POST \
   }'
 ```
 
-**디스플레이 요구사항**
+**Conditions requises pour l'affichage**
 
-Google 검색을 사용한 그라운딩 내에서 이미지 검색을 사용하는 경우 `google_search_result` 단계의 `search_suggestions`를 표시해야 합니다. 전체 사용 요구사항은 [서비스 약관](https://ai.google.dev/gemini-api/terms?hl=ko#grounding-with-google-search)에 자세히 설명되어 있습니다.
+Lorsque vous utilisez la recherche d'images dans l'ancrage avec la recherche Google, vous devez afficher le `search_suggestions` de l'étape `google_search_result`. Les exigences d'utilisation complètes sont détaillées dans les [Conditions d'utilisation](https://ai.google.dev/gemini-api/terms?hl=fr#grounding-with-google-search).
 
-**응답**
+**Réponse**
 
-이미지 검색을 사용하는 그라운딩된 대답의 경우 API는 대답 단계의 일부로 인라인 인용 및 저작자 표시 메타데이터를 반환합니다.
+Pour les réponses ancrées utilisant la recherche d'images, l'API renvoie des citations intégrées et des métadonnées d'attribution dans les étapes de la réponse :
 
-- **`url_citation` 주석**: `model_output` 내 텍스트 콘텐츠 블록의 인라인 인용으로, 생성된 콘텐츠를 소스에 연결합니다.
-- **`google_search_result`**: UI에서 검색어를 렌더링하기 위한 HTML 스니펫인 `search_suggestions`이 포함되어 있습니다.
+- **Annotations `url_citation`** : citations intégrées dans le bloc de contenu textuel de `model_output`, qui relient le contenu généré à sa source.
+- **`google_search_result`** : contient `search_suggestions`, un extrait HTML permettant d'afficher les suggestions de recherche dans votre UI.
 
-### 동영상 이미지 변환 생성 (3.1 Flash)
+### Génération d'images à partir de vidéos (3.1 Flash)
 
-동영상-이미지 생성 기능을 사용하면 동영상의 컨텍스트를 멀티모달 참조로 사용하여 새로운 이미지를 생성할 수 있습니다. 이 기능은 고품질 동영상 썸네일, 영화 포스터, 요약 인포그래픽 또는 동영상 장면에서 영감을 받은 새로운 아트워크를 만드는 데 유용합니다.
+La génération d'images à partir de vidéos vous permet de créer des images en utilisant le contexte d'une vidéo comme référence multimodale. Cela est utile pour créer des miniatures vidéo de haute qualité, des affiches de films, des infographies récapitulatives ou de nouvelles illustrations inspirées d'une scène vidéo.
 
-생성 중에 모델은 맥락에 따라 동영상 프레임을 분석하여 시각적 테마와 주요 이벤트를 추출한 다음, 텍스트 프롬프트와 함께 사용하여 출력 이미지를 합성합니다.
+Lors de la génération, le modèle analyse les images vidéo dans leur contexte pour extraire les thèmes visuels et les événements clés. Il les utilise ensuite avec votre requête textuelle pour synthétiser l'image de sortie.
 
-API 요청에 공개 [YouTube URL](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko#youtube)을 직접 전달하거나 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko)를 사용하여 로컬 동영상 파일을 업로드할 수 있습니다.
+Vous pouvez transmettre des [URL YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr#youtube) publiques directement dans votre requête d'API ou importer des fichiers vidéo locaux à l'aide de l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=fr).
 
 ### Python
 
@@ -748,7 +749,7 @@ for step in interaction.steps:
                 print("Image saved as video_poster.png")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -818,15 +819,15 @@ curl -s -X POST \
   }'
 ```
 
-![YouTube 동영상에서 생성된 AI 인포그래픽](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=ko)
+![Infographie générée par IA à partir d'une vidéo YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=fr)
 
-YouTube 동영상에서 생성된 AI 인포그래픽
+Infographie générée par IA à partir d'une vidéo YouTube
 
-### 최대 4K 해상도로 이미지 생성
+### Générer des images jusqu'à la résolution 4K
 
-Gemini 3 이미지 모델은 기본적으로 1K 이미지를 생성하지만 2K, 4K, 512px (0.5K) (Gemini 3.1 Flash Image만 해당) 이미지도 출력할 수 있습니다. 고해상도 애셋을 생성하려면 `response_format`에서 `image_size`을 지정합니다.
+Les modèles d'images Gemini 3 génèrent 1 000 images par défaut, mais peuvent également générer des images de 2 000, 4 000 et 512 px (05.K) (Gemini 3.1 Flash Image uniquement). Pour générer des composants de résolution supérieure, spécifiez `image_size` dans `response_format`.
 
-대문자 'K'를 사용해야 합니다(예: 512px (05.K), 1K, 2K, 4K). 소문자 매개변수 (예: 1k)는 거부됩니다.
+Vous devez utiliser un "K" en majuscule (par exemple, 512px (05.K), 1K, 2K, 4K). Les paramètres en minuscules (par exemple, 1k) seront refusés.
 
 ### Python
 
@@ -857,7 +858,7 @@ with open("butterfly.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -906,19 +907,19 @@ curl -s -X POST \
   }'
 ```
 
-다음은 이 프롬프트로 생성된 이미지의 예입니다.
+Voici un exemple d'image générée à partir de cette requête :
 
-![해부된 제왕나비의 다빈치 스타일 AI 생성 해부학적 스케치](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=ko)
+![Croquis anatomique d'un monarque disséqué, dans le style de Léonard de Vinci, généré par IA.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=fr)
 
-해부된 제왕나비의 다빈치 스타일 AI 생성 해부학적 스케치
+Croquis anatomique d'un papillon monarque disséqué, généré par IA dans le style de Léonard de Vinci.
 
-### 사고 과정
+### Processus de raisonnement
 
-Gemini 3 이미지 모델은 복잡한 프롬프트에 추론 프로세스 ('사고')를 사용하는 사고 모델입니다. 이 기능은 기본적으로 사용 설정되며 API에서 사용 중지할 수 없습니다. 사고 과정에 대해 자세히 알아보려면 [Gemini 사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) 가이드를 참고하세요.
+Les modèles d'image Gemini 3 sont des modèles de réflexion qui utilisent un processus de raisonnement ("Réflexion") pour les requêtes complexes. Cette fonctionnalité est activée par défaut et ne peut pas être désactivée dans l'API. Pour en savoir plus sur le processus de réflexion, consultez le guide [Réflexion de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
 
-모델은 구도와 논리를 테스트하기 위해 최대 2개의 임시 이미지를 생성합니다. Thinking 내의 마지막 이미지도 최종 렌더링된 이미지입니다.
+Le modèle génère jusqu'à deux images intermédiaires pour tester la composition et la logique. La dernière image de la section "Réflexion" est également l'image finale rendue.
 
-최종 이미지가 생성된 이유를 확인할 수 있습니다.
+Vous pouvez consulter les réflexions qui ont conduit à la production de l'image finale.
 
 ### Python
 
@@ -933,7 +934,7 @@ for step in interaction.steps:
                 image.show()
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 for (const step of interaction.steps) {
@@ -950,11 +951,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-#### 인터리브 처리된 텍스트 및 이미지
+#### Texte et images entrelacés
 
-표준 이미지 생성 모델은 이미지만 출력하지만 일부 고급 Gemini 3 모델 (예: `gemini-3-pro-image`)은 텍스트 블록과 삽화가 동일한 대답 내에 모두 포함된 스토리나 안내 가이드와 같은 인터리브 콘텐츠를 생성할 수 있습니다.
+Alors que les modèles de génération d'images standards ne génèrent que des images, certains modèles Gemini 3 avancés (comme `gemini-3-pro-image`) peuvent générer du contenu entrelacé, comme des histoires ou des guides d'instructions contenant à la fois des blocs de texte et des illustrations dans la même réponse.
 
-출력이 복잡하고 인터리브되어 있으므로 `.output_image` 또는 `.output_text`와 같은 편의 속성은 전체 시퀀스를 포착하지 않습니다. 인터리브 콘텐츠에 액세스하고 저장하려면 `steps`를 수동으로 반복해야 합니다.
+Étant donné que la sortie est complexe et entrelacée, les propriétés pratiques telles que `.output_image` ou `.output_text` ne captureront pas la séquence complète. Pour accéder au contenu entrelacé et l'enregistrer, vous devez itérer manuellement sur `steps` :
 
 ### Python
 
@@ -978,7 +979,7 @@ for step in interaction.steps:
                 image_counter += 1
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await ai.interactions.create({
@@ -1004,9 +1005,9 @@ for (const step of interaction.steps) {
 }
 ```
 
-#### 사고 수준 제어
+#### Contrôler les niveaux de réflexion
 
-Gemini 3.1 Flash Image를 사용하면 모델이 품질과 지연 시간의 균형을 맞추기 위해 사용하는 사고량을 제어할 수 있습니다. 기본 `thinking_level`은 `minimal`이고 지원되는 수준은 `minimal` 및 `high`입니다.
+Avec Gemini 3.1 Flash Image, vous pouvez contrôler la quantité de réflexion utilisée par le modèle pour trouver le bon équilibre entre qualité et latence. La valeur par défaut de `thinking_level` est `minimal`. Les niveaux acceptés sont `minimal` et `high`.
 
 ### Python
 
@@ -1031,7 +1032,7 @@ image = Image.open(io.BytesIO(base64.b64decode(interaction.output_image.data)))
 image.show()
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1071,32 +1072,32 @@ curl -s -X POST \
   }'
 ```
 
-[사고 과정](#thinking-process)은 과정을 보든 안 보든 항상 기본적으로 발생하므로 사고 모델의 경우 사고 토큰이 기본적으로 청구됩니다.
+Notez que les jetons de réflexion sont facturés par défaut pour les modèles de réflexion, car le [processus de réflexion](#thinking-process) se produit toujours par défaut, que vous le consultiez ou non.
 
-## 기타 이미지 생성 모드
+## Autres modes de génération d'images
 
-대부분의 사용 사례에는 Nano Banana 이미지 생성 모델이 권장되지만 다음과 같은 전용 이미지 생성 모델을 살펴볼 수도 있습니다.
+Bien que les modèles de génération d'images Nano Banana soient recommandés pour la plupart des cas d'utilisation, vous pouvez également explorer des modèles de génération d'images dédiés :
 
-- **[Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=ko)**: 고품질 이미지 생성을 위해 최적화된 Google의 텍스트 이미지 변환 모델입니다.
-- **[Veo](https://ai.google.dev/gemini-api/docs/video?hl=ko)**: Google의 동영상 생성 모델입니다.
+- **[Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr)** : modèles texte-vers-image de Google optimisés pour générer des images de haute qualité.
+- **[Veo](https://ai.google.dev/gemini-api/docs/video?hl=fr)** : modèle de génération de vidéos de Google.
 
-## 일괄적으로 이미지 생성
+## Générer des images par lot
 
-이 페이지에 설명된 모든 이미지 생성 기능은 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko#image-generation)를 사용하여 일괄 작업으로 실행할 수도 있습니다. 이 API는 이미지를 많이 생성해야 하는 경우에 적합합니다. 최대 24시간의 처리 시간이 소요되는 대신 더 높은 비율 한도가 제공됩니다.
+Toutes les fonctionnalités de génération d'images décrites sur cette page peuvent également être exécutées en tant que jobs par lot à l'aide de l'[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr#image-generation), ce qui est idéal si vous devez générer de nombreuses images.Vous bénéficiez de limites de fréquence plus élevées en échange d'un délai de traitement pouvant aller jusqu'à 24 heures.
 
-## 프롬프트 가이드 및 전략
+## Guide et stratégies de requête
 
-이 섹션에서는 일반적인 이미지 생성 및 수정 워크플로의 프롬프트 예시와 템플릿을 제공합니다. 각 예에는 재사용 가능한 템플릿과 Interactions API의 샘플 프롬프트가 포함되어 있습니다.
+Cette section fournit des exemples et des modèles de requêtes pour les workflows courants de génération et de modification d'images. Chaque exemple inclut un modèle réutilisable et un exemple d'invite pour l'API Interactions.
 
-### 이미지 생성 프롬프트
+### Requêtes pour générer des images
 
-다음 예시에서는 텍스트 프롬프트를 사용하여 다양한 유형의 이미지를 생성하는 방법을 보여줍니다.
+Les exemples suivants montrent comment utiliser des requêtes textuelles pour générer différents types d'images.
 
-#### 1. 실사형 장면
+#### 1. Scènes photoréalistes
 
-장면을 자세히 설명해 줘. 구체적일수록 결과를 더 많이 제어할 수 있습니다.
+Décrivez une scène de manière très détaillée. Plus vous serez précis, plus vous aurez de contrôle sur les résultats.
 
-### 템플릿
+### Modèle
 
 ```
 A photorealistic [type of shot] of a [subject description] in a [setting
@@ -1104,7 +1105,7 @@ description]. [Description of the light]. Shot from a [camera angle]
 with a [lens type].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 A photorealistic wide-angle shot of a vibrant coral reef teeming with tropical fish. Crystal-clear turquoise water with sunbeams filtering down from the surface, illuminating a sea turtle gliding gracefully over the coral. Shot from a low perspective with a wide-angle lens. Aspect ratio 16:9.
@@ -1138,7 +1139,7 @@ with open("coral_reef.png", "wb") as f:
     f.write(base64.b64decode(interaction.output_image.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1186,15 +1187,11 @@ curl -s -X POST \
   }'
 ```
 
-![생생한 산호초의 포토리얼리스틱 광각 사진...](https://ai.google.dev/static/gemini-api/docs/images/coral_reef.png?hl=ko)
+#### 2. Illustrations et autocollants stylisés
 
-활기찬 산호초의 사실적인 광각 사진...
+Décrivez le style artistique, le sujet et le support. Soyez précis sur les détails visuels (lignes en gras, couleurs, etc.) pour obtenir des résultats cohérents.
 
-#### 2. 세련된 삽화 및 스티커
-
-예술적 스타일, 주제, 매체를 설명합니다. 일관된 결과를 얻으려면 시각적 세부정보 (굵은 선, 색상 등)를 구체적으로 지정하세요.
-
-### 템플릿
+### Modèle
 
 ```
 A [style] of a [subject, with details about accessories or actions]
@@ -1202,7 +1199,7 @@ doing [activity]. The design features [visual qualities, e.g., bold outlines,
 cel-shading, etc.] and [color/background preference].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 A kawaii-style sticker of a happy red panda wearing a tiny bamboo hat. It's munching on a green bamboo leaf. The design features bold, clean outlines, simple cel-shading, and a vibrant color palette. The background must be white.
@@ -1231,7 +1228,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1274,15 +1271,15 @@ curl -s -X POST \
   }'
 ```
 
-![행복한 빨간색...](https://ai.google.dev/static/gemini-api/docs/images/red_panda_sticker.png?hl=ko)
+![Autocollant de style kawaii représentant un...](https://ai.google.dev/static/gemini-api/docs/images/red_panda_sticker.png?hl=fr)
 
-행복한 레서판다의 귀여운 스타일 스티커...
+Autocollant de style kawaii représentant un panda roux joyeux…
 
-#### 3. 이미지의 정확한 텍스트
+#### 3. Texte précis dans les images
 
-Gemini는 텍스트 렌더링에 탁월합니다. 텍스트, 글꼴 스타일(설명), 전체 디자인을 명확하게 설명하세요. Gemini 3 Pro Image를 사용하여 전문적인 애셋을 제작하세요.
+Gemini excelle dans le rendu de texte. Décrivez clairement le texte, le style de police et la conception globale. Utilisez Gemini 3 Pro Image pour produire des assets professionnels.
 
-### 템플릿
+### Modèle
 
 ```
 Create a [image type] for [brand/concept] with the text "[text to render]"
@@ -1290,7 +1287,7 @@ in a [font style]. The design should be [style description], with a
 [color scheme].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 Create a modern, minimalist logo for a coffee shop called 'The Daily Grind'. The text should be in a clean, bold, sans-serif font. The color scheme is black and white. Put the logo in a circle. Use a coffee bean in a clever way.
@@ -1320,7 +1317,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1368,15 +1365,15 @@ curl -s -X POST \
   }'
 ```
 
-![&#39;The Daily Grind&#39;라는 커피숍의 현대적이고 미니멀한 로고를 만들어 줘.](https://ai.google.dev/static/gemini-api/docs/images/logo_example.jpg?hl=ko)
+![Crée un logo moderne et minimaliste pour un café appelé &quot;The Daily Grind&quot;…](https://ai.google.dev/static/gemini-api/docs/images/logo_example.jpg?hl=fr)
 
-'The Daily Grind'라는 커피숍의 현대적이고 미니멀한 로고를 만들어 줘...
+Crée un logo moderne et minimaliste pour un café appelé "The Daily Grind"…
 
-#### 4. 제품 모형 및 상업용 사진
+#### 4. Maquettes de produits et photographie commerciale
 
-전자상거래, 광고 또는 브랜딩을 위한 깔끔하고 전문적인 제품 사진을 만드는 데 적합합니다.
+Idéal pour créer des photos de produits claires et professionnelles pour l'e-commerce, la publicité ou le branding.
 
-### 템플릿
+### Modèle
 
 ```
 A high-resolution, studio-lit product photograph of a [product description]
@@ -1386,7 +1383,7 @@ a [angle type] to showcase [specific feature]. Ultra-realistic, with sharp
 focus on [key detail]. [Aspect ratio].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 A high-resolution, studio-lit product photograph of a minimalist ceramic
@@ -1420,7 +1417,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1463,15 +1460,15 @@ curl -s -X POST \
   }'
 ```
 
-![미니멀한 세라믹 커피 머그잔의 고해상도 스튜디오 조명 제품 사진을 만들어 줘.](https://ai.google.dev/static/gemini-api/docs/images/product_mockup.png?hl=ko)
+![Photo de studio en haute résolution d'une tasse à café minimaliste en céramique…](https://ai.google.dev/static/gemini-api/docs/images/product_mockup.png?hl=fr)
 
-미니멀한 세라믹 커피 머그의 고해상도 스튜디오 조명 제품 사진...
+Photo de produit en haute résolution et éclairée en studio d'un mug à café minimaliste en céramique…
 
-#### 5. 미니멀리스트 및 네거티브 스페이스 디자인
+#### 5. Design minimaliste et espace négatif
 
-텍스트가 오버레이되는 웹사이트, 프레젠테이션 또는 마케팅 자료의 배경을 만드는 데 적합합니다.
+Idéal pour créer des arrière-plans pour des sites Web, des présentations ou des supports marketing sur lesquels du texte sera superposé.
 
-### 템플릿
+### Modèle
 
 ```
 A minimalist composition featuring a single [subject] positioned in the
@@ -1480,7 +1477,7 @@ A minimalist composition featuring a single [subject] positioned in the
 [Aspect ratio].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 A minimalist composition featuring a single, delicate red maple leaf
@@ -1512,7 +1509,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1555,21 +1552,21 @@ curl -s -X POST \
   }'
 ```
 
-![섬세한 빨간색 단풍잎 하나가 특징인 미니멀한 구성...](https://ai.google.dev/static/gemini-api/docs/images/minimalist_design.png?hl=ko)
+![Composition minimaliste représentant une seule et délicate feuille d'érable rouge…](https://ai.google.dev/static/gemini-api/docs/images/minimalist_design.png?hl=fr)
 
-섬세한 단풍잎 하나가 돋보이는 미니멀한 구성...
+Composition minimaliste mettant en scène une seule et délicate feuille d'érable rouge...
 
-#### 6. 연속적인 아트 (만화 패널 / 스토리보드)
+#### 6. Art séquentiel (bande dessinée / storyboard)
 
-캐릭터 일관성 및 장면 설명을 기반으로 시각적 스토리텔링을 위한 패널을 만듭니다. 텍스트의 정확성과 스토리텔링 능력을 위해 이러한 프롬프트는 Gemini 3 Pro 및 Gemini 3.1 Flash Image와 함께 사용하는 것이 가장 좋습니다.
+S'appuie sur la cohérence des personnages et la description des scènes pour créer des panneaux de narration visuelle. Pour obtenir des résultats précis avec du texte et des capacités de narration, ces requêtes fonctionnent mieux avec Gemini 3 Pro et Gemini 3.1 Flash Image.
 
-### 템플릿
+### Modèle
 
 ```
 Make a 3 panel comic in a [style]. Put the character in a [type of scene].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 Make a 3 panel comic in a gritty, noir art style with high-contrast black and white inks. Put the character in a humurous scene.
@@ -1610,7 +1607,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1671,15 +1668,15 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| 입력 | 출력 |
-| 흰색 안경을 쓴 남자   입력 이미지 | 거친 느와르 아트 스타일로 3컷 만화를 만들어 줘.   어둡고 느와르적인 아트 스타일로 3컷 만화를 만들어 줘... |
+| Entrée | Sortie |
+| Homme portant des lunettes blanches   Image d'entrée | Crée une bande dessinée en trois cases dans un style noir et réaliste…   Crée une bande dessinée en trois cases dans un style artistique noir et réaliste… |
 
-#### 7. Google 검색을 사용하는 그라운딩
+#### 7. Ancrage avec la recherche Google
 
-Google 검색을 사용하여 최근 또는 실시간 정보를 기반으로 이미지를 생성합니다.
-이는 뉴스, 날씨, 기타 시간에 민감한 주제에 유용합니다.
+Utilisez la recherche Google pour générer des images basées sur des informations récentes ou en temps réel.
+Cela est utile pour les actualités, la météo et d'autres sujets urgents.
 
-### 프롬프트
+### Prompt
 
 ```
 Make a simple but stylish graphic of last night's Arsenal game in the Champion's League
@@ -1711,7 +1708,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1762,19 +1759,19 @@ curl -s -X POST \
   }'
 ```
 
-![아스널 축구 점수의 AI 생성 그래픽](https://ai.google.dev/static/gemini-api/docs/images/football-score.jpg?hl=ko)
+![Image générée par IA d'un résultat de match de football d'Arsenal](https://ai.google.dev/static/gemini-api/docs/images/football-score.jpg?hl=fr)
 
-아스널 축구 점수의 AI 생성 그래픽
+Illustration générée par IA d'un score de match de football d'Arsenal
 
-### 이미지 수정 프롬프트
+### Requêtes pour modifier des images
 
-이 예시에서는 수정, 구성, 스타일 전송을 위해 텍스트 프롬프트와 함께 이미지를 제공하는 방법을 보여줍니다.
+Ces exemples montrent comment fournir des images en plus de vos requêtes textuelles pour l'édition, la composition et le transfert de style.
 
-#### 1. 요소 추가 및 삭제
+#### 1. Ajouter et supprimer des éléments
 
-이미지를 제공하고 변경사항을 설명하세요. 모델은 원본 이미지의 스타일, 조명, 원근법과 일치합니다.
+Fournissez une image et décrivez votre modification. Le modèle correspondra au style, à la luminosité et à la perspective de l'image d'origine.
 
-### 템플릿
+### Modèle
 
 ```
 Using the provided image of [subject], please [add/remove/modify] [element]
@@ -1782,7 +1779,7 @@ to/from the scene. Ensure the change is [description of how the change should
 integrate].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 "Using the provided image of my cat, please add a small, knitted wizard hat
@@ -1825,7 +1822,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1886,14 +1883,14 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| 입력 | 출력 |
-| 솜털이 보송보송한 생강색 고양이의 사진처럼 사실적인 이미지   푹신한 생강색 고양이의 사실적인 사진... | 제공된 고양이 이미지를 사용해 작고 털실로 뜬 마법사 모자를 추가해 줘.   제공된 고양이 이미지를 사용하여 작고 니트 소재의 마법사 모자를 추가해 줘... |
+| Entrée | Sortie |
+| Image photoréaliste d'un chat roux duveteux.   Une image photoréaliste d'un chat roux au poil soyeux… | À partir de l'image fournie de mon chat, ajoute un petit chapeau de magicien tricoté…   À partir de l'image fournie de mon chat, ajoute un petit chapeau de magicien tricoté… |
 
-#### 2. 인페인팅 (시맨틱 마스킹)
+#### 2. Remplissage (masquage sémantique)
 
-대화형으로 '마스크'를 정의하여 이미지의 특정 부분을 수정하고 나머지는 그대로 둡니다.
+Définissez de manière conversationnelle un "masque" pour modifier une partie spécifique d'une image tout en laissant le reste intact.
 
-### 템플릿
+### Modèle
 
 ```
 Using the provided image, change only the [specific element] to [new
@@ -1901,7 +1898,7 @@ element/description]. Keep everything else in the image exactly the same,
 preserving the original style, lighting, and composition.
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 "Using the provided image of a living room, change only the blue sofa to be
@@ -1944,7 +1941,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -2005,20 +2002,20 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| 입력 | 출력 |
-| 조명이 잘 들어오는 현대적인 거실의 와이드 샷...   조명이 잘 들어오는 현대적인 거실의 와이드 샷... | 제공된 거실 이미지를 사용하여 파란색 소파만 빈티지한 갈색 가죽 체스터필드 소파로 변경해 줘.   제공된 거실 이미지를 사용하여 파란색 소파만 빈티지한 갈색 가죽 체스터필드 소파로 변경해 줘... |
+| Entrée | Sortie |
+| Un plan large d'un salon moderne et bien éclairé…   Plan large d'un salon moderne et bien éclairé… | À partir de l'image fournie d'un salon, remplace uniquement le canapé bleu par un canapé Chesterfield vintage en cuir marron…   À partir de l'image fournie d'un salon, remplace uniquement le canapé bleu par un canapé Chesterfield vintage en cuir marron… |
 
-#### 3. 스타일 전이
+#### 3. Transfert de style
 
-이미지를 제공하고 모델에 다른 예술적 스타일로 콘텐츠를 다시 만들도록 요청합니다.
+Fournissez une image et demandez au modèle de recréer son contenu dans un autre style artistique.
 
-### 템플릿
+### Modèle
 
 ```
 Transform the provided photograph of [subject] into the artistic style of [artist/art style]. Preserve the original composition but render it with [description of stylistic elements].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 "Transform the provided photograph of a modern city street at night into the artistic style of Vincent van Gogh's 'Starry Night'. Preserve the original composition of buildings and cars, but render all elements with swirling, impasto brushstrokes and a dramatic palette of deep blues and bright yellows."
@@ -2059,7 +2056,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -2116,14 +2113,14 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| 입력 | 출력 |
-| 번화한 도시 거리의 포토리얼리스틱 고해상도 사진...   분주한 도시 거리의 고해상도 실사형 사진... | 제공된 현대 도시의 밤거리 사진을 다음과 같이 변환해 줘.   제공된 야간 현대 도시 거리 사진을 변환해 줘... |
+| Entrée | Sortie |
+| Photo haute résolution et photoréaliste d'une rue animée…   Photo réaliste en haute résolution d'une rue animée… | Transforme la photo fournie d'une rue moderne de nuit…   Transforme la photo fournie d'une rue de ville moderne la nuit… |
 
-#### 4. 고급 합성: 여러 이미지 결합
+#### 4. Composition avancée : combiner plusieurs images
 
-여러 이미지를 컨텍스트로 제공하여 새로운 합성 장면을 만듭니다. 제품 모형이나 창의적인 콜라주에 적합합니다.
+Fournissez plusieurs images comme contexte pour créer une nouvelle scène composite. C'est l'outil idéal pour les maquettes de produits ou les collages créatifs.
 
-### 템플릿
+### Modèle
 
 ```
 Create a new image by combining the elements from the provided images. Take
@@ -2131,7 +2128,7 @@ the [element from image 1] and place it with/on the [element from image 2].
 The final image should be a [description of the final scene].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 "Create a professional e-commerce fashion photo. Take the blue floral dress
@@ -2182,7 +2179,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -2252,14 +2249,14 @@ curl -s -X POST \
 
 |  |  |  |
 | --- | --- | --- |
-| 입력 1 | 입력 2 | 출력 |
-| 무채색 배경에 파란색 꽃무늬 여름 드레스   중립적인 배경에 있는 파란색 꽃무늬 여름 드레스 | 머리를 번으로 묶은 여성의 전신 사진...   머리를 번으로 묶은 여성을 전신으로 촬영한 사진... | 야외에서 파란색 꽃무늬 여름 드레스를 입은 여성   야외에서 파란색 꽃무늬 여름 드레스를 입은 여성 |
+| Entrée 1 | Saisie 2 | Sortie |
+| Robe d'été bleue à fleurs sur fond neutre   Robe d'été bleue à fleurs sur un fond neutre | Photo en pied d'une femme avec les cheveux attachés en chignon…   Plan complet d'une femme avec les cheveux attachés en chignon… | Une femme portant une robe d'été bleue à fleurs dans un cadre extérieur   Une femme portant une robe d'été bleue à fleurs dans un cadre extérieur |
 
-#### 5. 충실도 높은 세부정보 보존
+#### 5. Préservation des détails haute fidélité
 
-편집 중에 얼굴이나 로고와 같은 중요한 세부정보가 보존되도록 하려면 편집 요청과 함께 세부정보를 자세히 설명하세요.
+Pour vous assurer que les détails importants (comme un visage ou un logo) sont conservés lors d'une modification, décrivez-les en détail dans votre demande de modification.
 
-### 템플릿
+### Modèle
 
 ```
 Using the provided images, place [element from image 2] onto [element from
@@ -2268,7 +2265,7 @@ completely unchanged. The added element should [description of how the
 element should integrate].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 "Take the first image of the woman with brown hair, blue eyes, and a neutral
@@ -2312,7 +2309,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -2374,21 +2371,21 @@ curl -s -X POST \
 
 |  |  |  |
 | --- | --- | --- |
-| 입력 1 | 입력 2 | 출력 |
-| 갈색 머리에 파란 눈을 가진 여성의 전문적인 프로필 사진...   갈색 머리에 파란 눈을 가진 여성의 전문 프로필 사진... | 문자 G와 A가 있는 현대적인 브랜드 식별자   G 및 A 문자가 포함된 최신 브랜드 식별자 | 갈색 머리에 파란 눈을 하고 중립적인 표정을 한 여성의 첫 번째 이미지를 가져와서...   갈색 머리에 파란 눈을 하고 무표정한 여자의 첫 번째 이미지를 가져와 줘. |
+| Entrée 1 | Saisie 2 | Sortie |
+| Un portrait professionnel d'une femme aux cheveux bruns et aux yeux bleus…   Portrait professionnel d'une femme aux cheveux bruns et aux yeux bleus… | Identifiant de marque moderne avec les lettres G et A   Identifiant de marque moderne avec les lettres G et A | Prends la première image de la femme aux cheveux bruns, aux yeux bleus et à l'expression neutre…   Prends la première image de la femme aux cheveux bruns, aux yeux bleus et à l'expression neutre… |
 
-#### 6. 생동감 불어넣기
+#### 6. Donner vie à quelque chose
 
-러프 스케치나 그림을 업로드하고 모델에 완성된 이미지로 다듬어 달라고 요청하세요.
+Importez une esquisse ou un dessin et demandez au modèle de le transformer en image finalisée.
 
-### 템플릿
+### Modèle
 
 ```
 Turn this rough [medium] sketch of a [subject] into a [style description]
 photo. Keep the [specific features] from the sketch but add [new details/materials].
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 "Turn this rough pencil sketch of a futuristic car into a polished photo of the finished concept car in a showroom. Keep the sleek lines and low profile from the sketch but add metallic blue paint and neon rim lighting."
@@ -2425,7 +2422,7 @@ for step in interaction.steps:
                     f.write(base64.b64decode(content_block.data))
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -2482,20 +2479,20 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| 입력 | 출력 |
-| 자동차 스케치   자동차의 대략적인 스케치 | 최종 콘셉트 자동차를 보여주는 출력   세련된 자동차 사진 |
+| Entrée | Sortie |
+| Croquis d'une voiture   Croquis d'une voiture | Résultat montrant le concept car final   Photo retouchée d'une voiture |
 
-#### 7. 캐릭터 일관성: 360도 보기
+#### 7. Cohérence des personnages : vue à 360°
 
-다양한 각도를 반복적으로 요청하여 캐릭터의 360도 뷰를 생성할 수 있습니다. 최상의 결과를 얻으려면 일관성을 유지하기 위해 이전에 생성된 이미지를 후속 프롬프트에 포함하세요. 복잡한 포즈의 경우 선택한 포즈의 참고 이미지를 포함합니다.
+Vous pouvez générer des vues à 360 degrés d'un personnage en demandant de manière itérative différents angles. Pour obtenir les meilleurs résultats, incluez les images générées précédemment dans les requêtes suivantes afin de maintenir la cohérence. Pour les poses complexes, incluez une image de référence de la pose sélectionnée.
 
-### 템플릿
+### Modèle
 
 ```
 A studio portrait of [person] against [background], [looking forward/in profile looking right/etc.]
 ```
 
-### 프롬프트
+### Prompt
 
 ```
 A studio portrait of this man against white, in profile looking right
@@ -2534,41 +2531,41 @@ for step in interaction.steps:
 
 |  |  |  |
 | --- | --- | --- |
-| 입력 | 출력 1 | 출력 2 |
-| 흰색 안경을 쓴 남자의 원본 입력   원본 이미지 | 오른쪽을 바라보는 흰색 안경을 쓴 남자의 출력   오른쪽을 바라보는 흰색 안경을 쓴 남자 | 앞을 바라보는 흰색 안경을 쓴 남성의 출력   흰색 안경을 쓰고 앞을 바라보는 남자 |
+| Entrée | Sortie 1 | Résultat 2 |
+| Entrée d'origine d'un homme portant des lunettes blanches   Image d'origine | Sortie d'un homme portant des lunettes blanches et regardant vers la droite   Homme portant des lunettes blanches et regardant vers la droite | Sortie d'un homme portant des lunettes blanches et regardant droit devant lui   Homme portant des lunettes blanches et regardant vers l'avant |
 
-### 권장사항
+### Bonnes pratiques
 
-결과를 좋음에서 우수함으로 끌어올리려면 이러한 전문적인 전략을 워크플로에 통합하세요.
+Pour passer de bons à excellents résultats, intégrez ces stratégies professionnelles à votre workflow.
 
-- **매우 구체적으로 작성:** 세부정보를 많이 제공할수록 더 나은 결과를 얻을 수 있습니다. '판타지 갑옷' 대신 '은박 무늬가 새겨진 화려한 엘프 판금 갑옷, 높은 칼라와 매 날개 모양의 어깨 보호대를 갖추고 있다'라고 설명해 보세요.
-- **컨텍스트와 의도 제공:** 이미지의 *목적*을 설명합니다. 컨텍스트에 대한 모델의 이해가 최종 출력에 영향을 미칩니다. 예를 들어 '고급 미니멀리즘 스킨케어 브랜드를 위한 로고를 만들어 줘'가 '로고를 만들어 줘'보다 더 효과적입니다.
-- **반복 및 개선:** 첫 번째 시도에서 완벽한 이미지를 기대하지 마세요. 모델의 대화형 특성을 사용하여 약간의 변경사항을 적용합니다. '좋은데 조명을 좀 더 따뜻하게 해 줘' 또는 '다른 건 그대로 두고 캐릭터의 표정을 더 심각하게 바꿔 줘'와 같은 프롬프트로 후속 조치를 취합니다.
-- **단계별 안내 사용:** 요소가 많은 복잡한 장면의 경우 프롬프트를 단계로 나눕니다. '먼저 새벽의 고요하고 안개 낀 숲의 배경을 만들어 줘. 그런 다음 전경에 이끼로 덮인 고대 돌 제단을 추가하고
-  마지막으로 제단 위에 빛나는 검 하나를 놓아'
-- **'시맨틱 네거티브 프롬프트' 사용:** '차가 없다'고 말하는 대신, 의도한 장면을 긍정적으로 묘사하세요.'교통의 흔적조차 없는 텅 빈, 황량한 거리'
-- **카메라 제어:** 사진 및 영화 촬영 언어를 사용하여 구도를 제어합니다. `wide-angle shot`, `macro shot`, `low-angle
-  perspective`와 같은 용어
+- **Soyez très précis** : plus vous fournissez de détails, plus vous avez de contrôle. Au lieu de "armure fantastique", décrivez-la : "armure de plates elfique ornée, gravée de motifs en feuille d'argent, avec un col montant et des épaulières en forme d'ailes de faucon".
+- **Fournissez le contexte et l'intention** : expliquez l'*objectif* de l'image. La compréhension du contexte par le modèle influencera le résultat final. Par exemple, la requête "Crée un logo pour une marque de soins pour la peau haut de gamme et minimaliste" donnera de meilleurs résultats que "Crée un logo".
+- **Répétez et affinez** : ne vous attendez pas à obtenir une image parfaite du premier coup. Utilisez la nature conversationnelle du modèle pour apporter de petites modifications. Faites un suivi avec des requêtes telles que "C'est super, mais peux-tu rendre l'éclairage un peu plus chaud ?" ou "Garde tout pareil, mais rends l'expression du personnage plus sérieuse".
+- **Utilisez des instructions détaillées** : pour les scènes complexes comportant de nombreux éléments, divisez votre requête en étapes. "Crée d'abord un arrière-plan représentant une forêt sereine et brumeuse à l'aube. Ensuite, au premier plan, ajoutez un ancien autel de pierre recouvert de mousse.
+  Enfin, placez une seule épée lumineuse sur l'autel."
+- **Utilisez des "requêtes négatives sémantiques"** : au lieu de dire "pas de voitures", décrivez la scène souhaitée de manière positive : "une rue vide et désertée, sans aucun signe de circulation".
+- **Contrôlez la caméra** : utilisez le langage photographique et cinématographique pour contrôler la composition. Termes tels que `wide-angle shot`, `macro shot` et `low-angle
+  perspective`.
 
-## 제한사항
+## Limites
 
-- 최상의 성능을 위해 다음 언어를 사용하세요. EN, ar-EG, de-DE, es-MX, fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN
-- 이미지 생성은 오디오 입력을 지원하지 않습니다. 동영상 입력은 Gemini 3.1 Flash Image에서만 지원됩니다.
-- 모델이 사용자가 명시적으로 요청한 정확한 수의 이미지 출력을 따르지 않을 수 있습니다.
-- `gemini-2.5-flash-image`는 최대 3개의 이미지를 입력으로 사용할 때 가장 잘 작동하며, `gemini-3-pro-image`는 충실도가 높은 이미지 5개와 총 14개의 이미지를 지원합니다. `gemini-3.1-flash-image`는 단일 워크플로에서 최대 4자의 문자 유사성과 최대 10개의 객체 충실도를 지원합니다.
-- 이미지에 대한 텍스트를 생성할 때 먼저 텍스트를 생성한 다음 텍스트와 함께 이미지를 요청하면 Gemini가 가장 잘 작동합니다.
-- `gemini-3.1-flash-image` 현재 Google 검색을 사용한 그라운딩은 웹 검색에서 실제 사람의 이미지를 사용하는 것을 지원하지 않습니다.
-- 생성된 모든 이미지에는 [SynthID 워터마크](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ko)가 포함됩니다.
+- Pour des performances optimales, utilisez les langues suivantes : EN, ar-EG, de-DE, es-MX, fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
+- La génération d'images n'accepte pas les entrées audio. Les entrées vidéo ne sont acceptées que pour l'image Gemini 3.1 Flash.
+- Le modèle ne respecte pas toujours le nombre exact d'images de sortie que l'utilisateur demande explicitement.
+- `gemini-2.5-flash-image` fonctionne mieux avec un maximum de trois images en entrée, tandis que `gemini-3-pro-image` accepte cinq images haute fidélité et jusqu'à 14 images au total. `gemini-3.1-flash-image` accepte une ressemblance de caractères allant jusqu'à quatre caractères et une fidélité allant jusqu'à 10 objets dans un même workflow.
+- Lorsque vous générez du texte pour une image, Gemini fonctionne mieux si vous générez d'abord le texte, puis demandez une image avec le texte.
+- `gemini-3.1-flash-image` L'ancrage avec la recherche Google ne permet pas d'utiliser des images de personnes issues de la recherche sur le Web pour le moment.
+- Toutes les images générées incluent un [filigrane SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=fr).
 
-## 선택적 구성
+## Configurations facultatives
 
-`response_format` 매개변수를 사용하여 출력 형식, 가로세로 비율, 이미지 크기를 선택적으로 구성할 수 있습니다.
+Vous pouvez éventuellement configurer le format de sortie, les proportions et la taille de l'image à l'aide du paramètre `response_format`.
 
-### 출력 형식
+### Format de sortie
 
-모델은 기본적으로 텍스트와 이미지 응답을 모두 반환합니다. `response_format` 파라미터에 이미지 형식을 지정하여 생성된 이미지만 반환하도록 대답을 구성할 수 있습니다 (대화형 텍스트는 생략).
+Par défaut, le modèle renvoie des réponses textuelles et des réponses d'image. Vous pouvez configurer la réponse pour qu'elle ne renvoie que les images générées (en omettant le texte conversationnel) en spécifiant un format d'image dans le paramètre `response_format`.
 
-텍스트와 생성된 이미지 등 여러 모달리티를 요청하려면 `response_format`에 형식 항목 배열을 전달하세요.
+Pour demander plusieurs modalités (par exemple, à la fois le texte et l'image générée), transmettez plutôt un tableau d'entrées de format à `response_format`.
 
 ### Python
 
@@ -2583,7 +2580,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await ai.interactions.create({
@@ -2613,9 +2610,9 @@ curl -s -X POST \
   }'
 ```
 
-### 가로세로 비율 및 이미지 크기
+### Formats et taille d'image
 
-기본적으로 모델은 출력 이미지 크기를 입력 이미지 크기에 맞추거나 1:1 정사각형을 생성합니다. `type`이 `"image"`로 설정된 경우 `response_format` 아래의 `aspect_ratio` 및 `image_size` 필드를 사용하여 출력 이미지의 가로세로 비율과 크기를 제어할 수 있습니다.
+Par défaut, le modèle fait correspondre la taille de l'image de sortie à celle de votre image d'entrée, ou génère des carrés au format 1:1. Vous pouvez contrôler les proportions et la taille de l'image de sortie à l'aide des champs `aspect_ratio` et `image_size` sous `response_format` lorsque `type` est défini sur `"image"`.
 
 ### Python
 
@@ -2631,7 +2628,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 const interaction = await ai.interactions.create({
@@ -2663,82 +2660,82 @@ curl -s -X POST \
   }'
 ```
 
-사용 가능한 다양한 비율과 생성된 이미지의 크기는 다음 표에 나와 있습니다.
+Les différents ratios disponibles et la taille de l'image générée sont listés dans les tableaux suivants :
 
-### 3.1 Flash 이미지
+### Image Flash 3.1
 
-| 가로세로 비율 | 512px 해상도 | 토큰 500개 | 1K 해상도 | 토큰 1,000개 | 2K 해상도 | 토큰 2,000개 | 4K 해상도 | 4,000토큰 |
+| Format | Résolution de 512 px | 0,5 k jetons | Résolution 1K | 1 000 jetons | Résolution 2K | 2 000 jetons | Résolution 4K | 4 000 jetons |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
-| **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1120 | 2048x8192 | 2000 |
-| **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1120 | 1536x12288 | 2000 |
-| **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
-| **3:2** | 632x424 | 747 | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
-| **3:4** | 448x600 | 747 | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
-| **4:1** | 1024x256 | 747 | 2048x512 | 1120 | 4096x1024 | 1120 | 8192x2048 | 2000 |
-| **4:3** | 600x448 | 747 | 1200x896 | 1120 | 2400x1792 | 1120 | 4800x3584 | 2000 |
-| **4:5** | 464x576 | 747 | 928x1152 | 1120 | 1856x2304 | 1120 | 3712x4608 | 2000 |
-| **5:4** | 576x464 | 747 | 1152x928 | 1120 | 2304x1856 | 1120 | 4608x3712 | 2000 |
-| **8:1** | 1536x192 | 747 | 3072x384 | 1120 | 6144x768 | 1120 | 12288x1536 | 2000 |
-| **9:16** | 384x688 | 747 | 768x1376 | 1120 | 1536x2752 | 1120 | 3072x5504 | 2000 |
-| **16:9** | 688x384 | 747 | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
-| **21:9** | 792x168 | 747 | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
+| **1:1** | 512 x 512 | 747 | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4 096 x 4 096 | 2000 |
+| **1:4** | 256 x 1 024 | 747 | 512 x 2 048 | 1120 | 1024x4096 | 1120 | 2048 x 8192 | 2000 |
+| **1:8** | 192 x 1 536 | 747 | 384 x 3 072 | 1120 | 768 x 6 144 | 1120 | 1536 x 12288 | 2000 |
+| **2:3** | 424 x 632 | 747 | 848 x 1 264 | 1120 | 1696 x 2528 | 1120 | 3392 x 5056 | 2000 |
+| **3:2** | 632 x 424 | 747 | 1 264 x 848 | 1120 | 2528 x 1696 | 1120 | 5056 x 3392 | 2000 |
+| **3:4** | 448 x 600 | 747 | 896 x 1200 | 1120 | 1792x2400 | 1120 | 3584 x 4800 | 2000 |
+| **4:1** | 1024x256 | 747 | 2048 x 512 | 1120 | 4 096 x 1 024 | 1120 | 8192 x 2048 | 2000 |
+| **4:3** | 600 x 448 | 747 | 1 200 x 896 | 1120 | 2400x1792 | 1120 | 4 800 x 3 584 | 2000 |
+| **4:5** | 464 x 576 | 747 | 928 x 1 152 | 1120 | 1856 x 2304 | 1120 | 3712 x 4608 | 2000 |
+| **5:4** | 576 x 464 | 747 | 1152x928 | 1120 | 2304 x 1856 | 1120 | 4608 x 3712 | 2000 |
+| **8:1** | 1536x192 | 747 | 3072 x 384 | 1120 | 6 144 x 768 | 1120 | 12 288 x 1 536 | 2000 |
+| **9:16** | 384 x 688 | 747 | 768 x 1 376 | 1120 | 1536 x 2752 | 1120 | 3072 x 5504 | 2000 |
+| **16:9** | 688x384 | 747 | 1 376 x 768 | 1120 | 2752 x 1536 | 1120 | 5504 x 3072 | 2000 |
+| **21:9** | 792 x 168 | 747 | 1 584 x 672 | 1120 | 3168x1344 | 1120 | 6336 x 2688 | 2000 |
 
-### 3.1 Pro 이미지
+### 3.1 Pro Image
 
-| 가로세로 비율 | 1K 해상도 | 토큰 1,000개 | 2K 해상도 | 토큰 2,000개 | 4K 해상도 | 4,000토큰 |
+| Format | Résolution 1K | 1 000 jetons | Résolution 2K | 2 000 jetons | Résolution 4K | 4 000 jetons |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
-| **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
-| **3:2** | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
-| **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
-| **4:3** | 1200x896 | 1120 | 2400x1792 | 1120 | 4800x3584 | 2000 |
-| **4:5** | 928x1152 | 1120 | 1856x2304 | 1120 | 3712x4608 | 2000 |
-| **5:4** | 1152x928 | 1120 | 2304x1856 | 1120 | 4608x3712 | 2000 |
-| **9:16** | 768x1376 | 1120 | 1536x2752 | 1120 | 3072x5504 | 2000 |
-| **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
-| **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4 096 x 4 096 | 2000 |
+| **2:3** | 848 x 1 264 | 1120 | 1696 x 2528 | 1120 | 3392 x 5056 | 2000 |
+| **3:2** | 1 264 x 848 | 1120 | 2528 x 1696 | 1120 | 5056 x 3392 | 2000 |
+| **3:4** | 896 x 1200 | 1120 | 1792x2400 | 1120 | 3584 x 4800 | 2000 |
+| **4:3** | 1 200 x 896 | 1120 | 2400x1792 | 1120 | 4 800 x 3 584 | 2000 |
+| **4:5** | 928 x 1 152 | 1120 | 1856 x 2304 | 1120 | 3712 x 4608 | 2000 |
+| **5:4** | 1152x928 | 1120 | 2304 x 1856 | 1120 | 4608 x 3712 | 2000 |
+| **9:16** | 768 x 1 376 | 1120 | 1536 x 2752 | 1120 | 3072 x 5504 | 2000 |
+| **16:9** | 1 376 x 768 | 1120 | 2752 x 1536 | 1120 | 5504 x 3072 | 2000 |
+| **21:9** | 1 584 x 672 | 1120 | 3168x1344 | 1120 | 6336 x 2688 | 2000 |
 
-### Gemini 2.5 Flash Image
+### Gemini 2.5 Flash Image
 
-| 가로세로 비율 | 해상도 | 토큰 |
+| Format | Solution | Jetons |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
-| 2:3 | 832x1248 | 1290 |
-| 3:2 | 1248x832 | 1290 |
-| 3:4 | 864x1184 | 1290 |
-| 4:3 | 1184x864 | 1290 |
-| 4:5 | 896x1152 | 1290 |
+| 2:3 | 832 x 1 248 | 1290 |
+| 3:2 | 1 248 x 832 | 1290 |
+| 3:4 | 864 x 1 184 | 1290 |
+| 4:3 | 1 184 x 864 | 1290 |
+| 4:5 | 896 x 1 152 | 1290 |
 | 5:4 | 1152x896 | 1290 |
-| 9:16 | 768x1344 | 1290 |
-| 16:9 | 1344x768 | 1290 |
-| 21:9 | 1536x672 | 1290 |
+| 9:16 | 768 x 1 344 | 1290 |
+| 16:9 | 1 344 x 768 | 1290 |
+| 21:9 | 1 536 x 672 | 1290 |
 
-## 모델 선택
+## Sélection du modèle
 
-특정 사용 사례에 가장 적합한 모델을 선택합니다.
+Choisissez le modèle le mieux adapté à votre cas d'utilisation spécifique.
 
-- **Gemini 3.1 Flash Image (Nano Banana 2)**는 비용과 지연 시간의 균형을 맞추는 최고의 전반적인 성능과 인텔리전스를 갖춘 이미지 생성 모델입니다. 자세한 내용은 모델 [가격](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#gemini-3.1-flash-image) 및 [기능](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ko) 페이지를 참고하세요.
-- **Gemini 3.1 Flash Lite Image (Nano Banana Lite)**는 이미지 생성 제품군에서 가장 효율적인 모델로, 지연 시간이 매우 짧고 비용 효율적인 이미지 생성 및 편집 기능을 제공합니다.
-  자세한 내용은 모델 [가격](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#gemini-3.1-flash-lite-image) 및 [기능](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=ko) 페이지를 참고하세요.
-- **Gemini 3 Pro Image (Nano Banana Pro)**는 전문적인 애셋 제작과 복잡한 안내를 위해 설계되었습니다. 이 모델은 Google 검색을 사용한 실제 그라운딩, 생성 전에 구성을 개선하는 기본 '생각' 프로세스를 특징으로 하며 최대 4K 해상도의 이미지를 생성할 수 있습니다. 자세한 내용은 모델 [가격](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#gemini-3-pro-image) 및 [기능](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ko) 페이지를 참고하세요.
-- **Gemini 2.5 Flash Image (Nano Banana)**는 속도와 효율성을 위해 설계되었습니다. 이 모델은 대량의 낮은 지연 시간 태스크에 최적화되어 있으며 1024px 해상도로 이미지를 생성합니다. 자세한 내용은 모델 [가격](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#gemini-2.5-flash-image) 및 [기능](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ko) 페이지를 참고하세요.
+- **Gemini 3.1 Flash Image (Nano Banana 2)** devrait être votre modèle de génération d'images de référence, car il offre le meilleur équilibre entre performances globales, intelligence, coût et latence. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.1-flash-image) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=fr) des modèles.
+- **Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)** est le modèle le plus efficace de la famille de modèles de génération d'images. Il offre une latence ultra-faible ainsi qu'une génération et une retouche d'images rentables.
+  Pour en savoir plus, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.1-flash-lite-image) et [Fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=fr) des modèles.
+- **Gemini 3 Pro Image (Nano Banana Pro)** est conçu pour la production d'assets professionnels et les instructions complexes. Ce modèle est ancré dans le monde réel grâce à la recherche Google. Il dispose d'un processus de "réflexion" par défaut qui affine la composition avant la génération et peut générer des images d'une résolution allant jusqu'à 4K. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3-pro-image) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=fr) des modèles.
+- **Gemini 2.5 Flash Image (Nano Banana)** est conçu pour la rapidité et l'efficacité. Ce modèle est optimisé pour les tâches à faible latence et à volume élevé. Il génère des images d'une résolution de 1 024 px. Pour en savoir plus, consultez la page des [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-2.5-flash-image) et des [fonctionnalités](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fr) des modèles.
 
-### Imagen을 사용해야 하는 경우
+### Quand utiliser Imagen ?
 
-Gemini의 기본 제공 이미지 생성 기능 사용 외에도 Gemini API를 통해 Google의 특화된 이미지 생성 모델인 [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=ko)에도 액세스할 수 있습니다. 폐쇄일 전에 마이그레이션하세요.
+En plus d'utiliser les fonctionnalités de génération d'images intégrées à Gemini, vous pouvez également accéder à [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=fr), notre modèle de génération d'images spécialisé, via l'API Gemini. Prévoyez de migrer avant la date d'arrêt.
 
-## 다음 단계
+## Étape suivante
 
-- [Veo 가이드](https://ai.google.dev/gemini-api/docs/video?hl=ko)에서 Gemini API로 동영상을 생성하는 방법을 알아보세요.
-- Gemini 모델에 대해 자세히 알아보려면 [Gemini 모델](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko)을 참고하세요.
+- Consultez le [guide Veo](https://ai.google.dev/gemini-api/docs/video?hl=fr) pour découvrir comment générer des vidéos avec l'API Gemini.
+- Pour en savoir plus sur les modèles Gemini, consultez [Modèles Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr).
 
-의견 보내기
+Envoyer des commentaires
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-최종 업데이트: 2026-06-30(UTC)
+Dernière mise à jour le 2026/07/16 (UTC).
 
-의견을 전달하고 싶나요?
+Voulez-vous nous donner plus d'informations ?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-06-30(UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/16 (UTC)."],[],[]]

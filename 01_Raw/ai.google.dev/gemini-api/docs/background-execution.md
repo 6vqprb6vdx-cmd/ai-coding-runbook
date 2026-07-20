@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=vi
-fetched_at: 2026-07-06T05:06:54.205841+00:00
-title: "Ch\u1ea1y \u1edf ch\u1ebf \u0111\u1ed9 n\u1ec1n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-CN
+fetched_at: 2026-07-20T04:37:50.180750+00:00
+title: "\u540e\u53f0\u6267\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gửi ý kiến phản hồi
+发送反馈
 
-# Chạy ở chế độ nền
+# 后台执行
 
-Đối với các tác vụ kéo dài như nghiên cứu chuyên sâu, lập luận phức tạp hoặc thực thi tác nhân nhiều bước, thời gian chờ kết nối có thể làm gián đoạn các yêu cầu HTTP tiêu chuẩn (thường đóng sau 60 giây). [API Tương tác](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) cung cấp **hoạt động thực thi trong nền** để chạy các tác vụ này một cách không đồng bộ.
+对于深度研究、复杂推理或多步智能体执行等长时间运行的任务，连接超时可能会中断标准 HTTP 请求（通常在 60 秒后关闭）。[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 提供**后台执行**功能，以异步运行这些任务。
 
-Để cho phép hoạt động tương tác chạy cho đến khi hoàn tất tác vụ trên máy chủ, hãy đặt `"background": true` khi tạo hoạt động tương tác. API này sẽ trả về ngay lập tức một mã nhận dạng tương tác mà các ứng dụng khách có thể dùng để thăm dò trạng thái, tiến trình truyền phát hoặc kết nối lại với một luồng bị ngắt kết nối.
+如需让互动一直运行，直到完成服务器上的任务，请在创建互动时设置 `"background": true`。该 API 会立即返回一个互动 ID，客户端应用可以使用该 ID 来轮询状态、流式传输进度或重新连接到断开连接的流。
 
-Chế độ thực thi trong nền được hỗ trợ cho các mô hình Gemini tiêu chuẩn (chẳng hạn như `gemini-3.5-flash` và `gemini-3.1-pro-preview`) cũng như các Tác nhân được quản lý (chẳng hạn như `antigravity-preview-05-2026`).
+标准 Gemini 模型（例如 `gemini-3.5-flash` 和 `gemini-3.1-pro-preview`）和受管理的代理（例如 `antigravity-preview-05-2026`）支持后台执行。
 
-## Tạo một hoạt động tương tác ở chế độ nền
+## 创建后台互动
 
-Để bắt đầu một hoạt động tương tác ở chế độ nền, hãy đặt tham số `background` thành `true` khi tạo tài nguyên.
+如需启动后台互动，请在创建资源时将 `background` 参数设置为 `true`。
 
 ### Python
 
@@ -72,31 +72,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cách hoạt động của tính năng thực thi ở chế độ nền
+## 后台执行的运作方式
 
-Khi bạn tạo một hoạt động tương tác ở chế độ nền, tác vụ sẽ chạy không đồng bộ trên máy chủ. Tương tác sẽ chuyển đổi qua nhiều trạng thái thực thi:
+创建后台互动时，任务会在服务器上异步运行。互动会经历各种执行状态：
 
-- `in_progress`: Máy chủ đang tích cực thực hiện hoạt động tương tác (chẳng hạn như chạy mã hoặc nghiên cứu).
-- `requires_action`: Hoạt động tương tác đã tạm dừng và đang chờ thông tin đầu vào của ứng dụng (chẳng hạn như xác nhận việc thực thi một công cụ hoặc trả lời một câu hỏi).
-- `completed`: Tương tác hoàn tất thành công và có sẵn đầu ra.
-- `failed`: Đã xảy ra lỗi trong quá trình thực thi (chẳng hạn như lỗi công cụ hoặc giới hạn về tốc độ).
-- `cancelled`: Một yêu cầu của ứng dụng đã dừng quá trình thực thi.
+- `in_progress`：服务器正在积极执行互动（例如运行代码或进行研究）。
+- `requires_action`：互动已暂停，正在等待客户输入（例如确认工具执行或回答问题）。
+- `completed`：互动已成功完成，输出已可供使用。
+- `failed`：执行期间出错（例如工具故障或速率限制）。
+- `cancelled`：客户端请求停止了执行。
 
-### Trường hợp sử dụng
+### 使用场景
 
-Sử dụng chế độ thực thi trong nền cho:
+使用后台执行功能可实现以下目的：
 
-- **Hoạt động của trợ lý ảo:** Các tác vụ yêu cầu thực thi mã, duyệt web hoặc điều phối trợ lý ảo phụ (chẳng hạn như `antigravity-preview-05-2026`).
-- **Deep Research:** Chạy bằng `deep-research-preview-04-2026` hoặc `deep-research-max-preview-04-2026` và mất vài phút.
-- **Lý luận dài:** Các tác vụ mà các bước suy nghĩ của mô hình vượt quá giới hạn kết nối HTTP tiêu chuẩn.
+- **智能体执行**：需要执行代码、浏览网页或进行子智能体编排的任务（例如 `antigravity-preview-05-2026`）。
+- **Deep Research**：使用 `deep-research-preview-04-2026` 或 `deep-research-max-preview-04-2026` 运行，需要几分钟时间。
+- **长推理**：模型思考步骤超出标准 HTTP 连接限制的任务。
 
-## Truy xuất kết quả
+## 检索结果
 
-Nhận kết quả tương tác trong nền bằng cách sử dụng **polling** hoặc **streaming**.
+使用**轮询**或**流式传输**获取后台互动结果。
 
-### Mẫu thăm dò (không chặn)
+### 轮询模式（非阻塞）
 
-Cơ chế thăm dò định kỳ kiểm tra trạng thái tương tác bằng cách sử dụng các yêu cầu GET không chặn cho đến khi đạt đến trạng thái kết thúc.
+轮询会使用非阻塞 GET 请求定期检查互动状态，直到达到终止状态。
 
 ### Python
 
@@ -147,9 +147,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### Mẫu truyền trực tuyến
+### 流式传输模式
 
-Nếu mạng bị gián đoạn và ngắt kết nối một luồng, thì quá trình phát trực tuyến có thể tiếp tục từ sự kiện đã nhận gần đây nhất. Mỗi delta chứa một `event_id` duy nhất trong tải trọng của nó. Việc truyền mã nhận dạng này dưới dạng `last_event_id` sẽ tiếp tục phát trực tuyến từ sự kiện đó.
+如果网络中断导致数据流断开，则可以从上次收到的事件恢复流式传输。每个 delta 的载荷中都包含一个唯一的 `event_id`。将此 ID 作为 `last_event_id` 传递会从相应事件恢复流。
 
 ### Python
 
@@ -240,14 +240,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Cuộc trò chuyện nhiều lượt
+## 多轮对话
 
-Các lượt tương tác tiếp theo có thể liên kết với một cuộc trò chuyện ở chế độ nền bằng cách sử dụng `previous_interaction_id`, tuỳ thuộc vào những ràng buộc sau:
+后续互动可以使用 `previous_interaction_id` 链接到后台对话，但需遵守以下限制：
 
-1. **Các lệnh thực thi đang hoạt động bị chặn:** Việc liên kết một lượt tương tác tiếp theo với một lượt tương tác có trạng thái `in_progress` sẽ trả về lỗi `400 Bad Request`. Chờ cho thao tác tương tác đạt đến trạng thái `completed` trước khi bắt đầu thao tác tiếp theo.
-2. **Tham số môi trường cho Đặc vụ được quản lý:** Khi liên kết các lượt tương tác cho Đặc vụ được quản lý (chẳng hạn như `antigravity-preview-05-2026`), các yêu cầu phải bao gồm cả `previous_interaction_id` và `environment`.
+1. **活跃执行被阻塞**：将后续互动链接到状态为 `in_progress` 的互动会返回 `400 Bad Request` 错误。等待互动达到 `completed` 状态，然后再开始下一个互动。
+2. **受管代理的环境参数**：当为受管代理（例如 `antigravity-preview-05-2026`）链接互动时，请求必须同时包含 `previous_interaction_id` 和 `environment`。
 
-Các ví dụ sau đây minh hoạ cách liên kết các hoạt động tương tác:
+以下示例展示了如何串联互动：
 
 ### Python
 
@@ -335,12 +335,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Huỷ và xoá
+## 取消和删除
 
-Kiểm soát các hoạt động đang chạy và quản lý bộ nhớ bằng cách sử dụng yêu cầu huỷ và xoá:
+使用取消和删除请求来控制正在运行的执行并管理存储空间：
 
-- **Huỷ (`POST /interactions/{id}/cancel`):** Dừng việc đang chạy. Trạng thái chuyển thành `cancelled`. Các thao tác dọn dẹp trên máy chủ có thể gây ra một chút chậm trễ trước khi các bản cập nhật trạng thái trong yêu cầu GET được thực hiện.
-- **Xoá (`DELETE /interactions/{id}`):** Xoá các bản ghi tương tác khỏi máy chủ. Các yêu cầu GET tiếp theo sẽ trả về lỗi `404 Not Found`.
+- **取消 (`POST /interactions/{id}/cancel`)**：停止正在运行的任务。状态转换为 `cancelled`。服务器上的清理操作可能会导致 GET 请求中的状态更新出现轻微延迟。
+- **删除 (`DELETE /interactions/{id}`)**：从服务器中移除互动记录。后续 GET 请求会返回 `404 Not Found` 错误。
 
 ### Python
 
@@ -384,18 +384,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Các bước tiếp theo
+## 后续步骤
 
-- Đọc [Thông tin tổng quan về Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) để hiểu rõ về việc quản lý phiên và trạng thái.
-- Hãy xem hướng dẫn về [Tương tác trong quá trình phát trực tiếp](https://ai.google.dev/gemini-api/docs/streaming?hl=vi) để biết thông tin chi tiết về thông tin cập nhật sự kiện theo thời gian thực.
-- Khám phá [Hướng dẫn nhanh về tác nhân được quản lý](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi) để tạo tác nhân có trạng thái nhiều lượt tương tác.
+- 请参阅 [Interactions API 概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn)，了解会话和状态管理。
+- 如需详细了解实时活动更新，请参阅[流式互动](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-cn)指南。
+- 探索[受管代理快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)，构建有状态的多轮代理。
 
-Gửi ý kiến phản hồi
+发送反馈
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Cập nhật lần gần đây nhất: 2026-06-26 UTC.
+最后更新时间 (UTC)：2026-06-26。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+需要向我们提供更多信息？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-06-26 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-06-26。"],[],[]]

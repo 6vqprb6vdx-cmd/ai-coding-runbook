@@ -1,55 +1,56 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=tr
-fetched_at: 2026-07-06T05:19:28.670558+00:00
-title: "Gemini API kitapl\u0131klar\u0131 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/libraries?hl=pl
+fetched_at: 2026-07-20T04:36:28.434290+00:00
+title: "Biblioteki Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Geri bildirim gönderin
+Prześlij opinię
 
-# Gemini API kitaplıkları
+# Biblioteki Gemini API
 
-Gemini API ile geliştirme yaparken **Google GenAI SDK**'yı kullanmanızı öneririz.
-Bunlar, en popüler diller için geliştirdiğimiz ve bakımını yaptığımız resmi, üretime hazır kitaplıklardır. Bu işlevler [genel kullanıma](https://ai.google.dev/gemini-api/docs/libraries?hl=tr#new-libraries) sunulmuştur ve tüm resmi belgelerimizde ve örneklerimizde kullanılmaktadır.
+Podczas tworzenia aplikacji za pomocą interfejsu Gemini API zalecamy korzystanie z **pakietu Google GenAI SDK**.
+Są to oficjalne biblioteki gotowe do użycia w środowisku produkcyjnym, które rozwijamy i utrzymujemy w przypadku najpopularniejszych języków. Są one w fazie [ogólnej dostępności](https://ai.google.dev/gemini-api/docs/libraries?hl=pl#new-libraries) i używane w całej naszej oficjalnej
+dokumentacji oraz we wszystkich przykładach.
 
-Gemini API'yi kullanmaya yeni başladıysanız [Başlangıç kılavuzumuzu](https://ai.google.dev/gemini-api/docs/get-started?hl=tr) inceleyerek başlayın.
+Jeśli dopiero zaczynasz korzystać z interfejsu Gemini API, zapoznaj się z naszym [przewodnikiem dla początkujących](https://ai.google.dev/gemini-api/docs/get-started?hl=pl).
 
-## Dil desteği ve yükleme
+## Obsługa języków i instalacja
 
-Google GenAI SDK; Python, JavaScript/TypeScript, Go ve Java dillerinde kullanılabilir. Her dilin kitaplığını paket yöneticilerini kullanarak yükleyebilir veya daha fazla bilgi için GitHub depolarını ziyaret edebilirsiniz:
+Pakiet Google GenAI SDK jest dostępny w językach Python, JavaScript/TypeScript, Go i Java. Bibliotekę każdego języka możesz zainstalować za pomocą menedżerów pakietów lub odwiedzić repozytoria GitHub, aby uzyskać więcej informacji:
 
 ### Python
 
-- Kitaplık: [`google-genai`](https://pypi.org/project/google-genai)
-- GitHub deposu: [googleapis/python-genai](https://github.com/googleapis/python-genai)
-- Yükleme: `pip install google-genai`
+- Biblioteka: [`google-genai`](https://pypi.org/project/google-genai)
+- Repozytorium GitHub: [googleapis/python-genai](https://github.com/googleapis/python-genai)
+- Instalacja: `pip install google-genai`
 
 ### JavaScript
 
-- Kitaplık: [`@google/genai`](https://www.npmjs.com/package/@google/genai)
-- GitHub deposu: [googleapis/js-genai](https://github.com/googleapis/js-genai)
-- Yükleme: `npm install @google/genai`
+- Biblioteka: [`@google/genai`](https://www.npmjs.com/package/@google/genai)
+- Repozytorium GitHub: [googleapis/js-genai](https://github.com/googleapis/js-genai)
+- Instalacja: `npm install @google/genai`
 
 ### Go
 
-- Kitaplık: [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
-- GitHub deposu: [googleapis/go-genai](https://github.com/googleapis/go-genai)
-- Yükleme: `go get google.golang.org/genai`
+- Biblioteka: [`google.golang.org/genai`](https://pkg.go.dev/google.golang.org/genai)
+- Repozytorium GitHub: [googleapis/go-genai](https://github.com/googleapis/go-genai)
+- Instalacja: `go get google.golang.org/genai`
 
 ### Java
 
-- Kitaplık: `google-genai`
-- GitHub deposu: [googleapis/java-genai](https://github.com/googleapis/java-genai)
-- Yükleme: Maven kullanıyorsanız bağımlılıklarınıza aşağıdakileri ekleyin:
+- Biblioteka: `google-genai`
+- Repozytorium GitHub: [googleapis/java-genai](https://github.com/googleapis/java-genai)
+- Instalacja: jeśli używasz Maven, dodaj do zależności ten kod:
 
 ```
 <dependencies>
@@ -63,43 +64,47 @@ Google GenAI SDK; Python, JavaScript/TypeScript, Go ve Java dillerinde kullanıl
 
 ### C#
 
-- Kitaplık: `Google.GenAI`
-- GitHub deposu: [googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
-- Yükleme: `dotnet add package Google.GenAI`
+- Biblioteka: `Google.GenAI`
+- Repozytorium GitHub: [googleapis/dotnet-genai](https://googleapis.github.io/dotnet-genai/)
+- Instalacja: `dotnet add package Google.GenAI`
 
-## Genel kullanıma sunulma
+## Ogólna dostępność
 
-Google GenAI SDK, Mayıs 2025 itibarıyla tüm desteklenen platformlarda genel kullanıma sunuldu ve Gemini API'ye erişmek için önerilen kitaplıklar oldu.
-Kararlıdırlar, üretim amaçlı kullanım için tam olarak desteklenirler ve aktif olarak bakımları yapılır.
-Bu planlar, en yeni özelliklere erişim sağlar ve Gemini ile çalışırken en iyi performansı sunar.
+Od maja 2025 r. pakiet Google GenAI SDK jest ogólnie dostępny na wszystkich obsługiwanych platformach i jest zalecaną biblioteką do uzyskiwania dostępu do interfejsu Gemini API.
+Jest stabilny, w pełni obsługiwany w środowisku produkcyjnym i aktywnie utrzymywany.
+Zapewnia dostęp do najnowszych funkcji i najlepszą wydajność podczas pracy z Gemini.
 
-Eski kitaplıklarımızdan birini kullanıyorsanız en yeni özelliklere erişebilmek ve Gemini ile çalışırken en iyi performansı elde edebilmek için geçiş yapmanızı önemle tavsiye ederiz. Daha fazla bilgi için [eski kitaplıklar](https://ai.google.dev/gemini-api/docs/libraries?hl=tr#previous-sdks) bölümünü inceleyin.
+Jeśli używasz jednej z naszych starszych bibliotek, zdecydowanie zalecamy przejście na nową wersję, aby uzyskać dostęp do najnowszych funkcji i najlepszą wydajność podczas pracy z Gemini. Więcej informacji znajdziesz w sekcji [Starsze biblioteki](https://ai.google.dev/gemini-api/docs/libraries?hl=pl#previous-sdks).
 
-## Eski kitaplıklar ve taşıma
+## Starsze biblioteki i migracja
 
-Eski kitaplıklarımızdan birini kullanıyorsanız [yeni kitaplıklara geçmenizi](https://ai.google.dev/gemini-api/docs/migrate?hl=tr) öneririz.
+[Jeśli używasz jednej z naszych starszych bibliotek, zalecamy przejście na nowe biblioteki.](https://ai.google.dev/gemini-api/docs/migrate?hl=pl)
 
-Eski kitaplıklar, son özelliklere (ör. [Live API](https://ai.google.dev/gemini-api/docs/live?hl=tr) ve [Veo](https://ai.google.dev/gemini-api/docs/video?hl=tr)) erişim sağlamaz ve 30 Kasım 2025'ten itibaren kullanımdan kaldırılır.
+Starsze biblioteki nie zapewniają dostępu do najnowszych funkcji (takich jak
+[Live API](https://ai.google.dev/gemini-api/docs/live?hl=pl) i [Veo](https://ai.google.dev/gemini-api/docs/video?hl=pl)) i są
+wycofywane z dniem 30 listopada 2025 r.
 
-Her eski kitaplığın destek durumu farklıdır. Ayrıntılı bilgi için aşağıdaki tabloya bakın:
+Stan obsługi każdej starszej biblioteki jest inny. Szczegółowe informacje znajdziesz w tabeli poniżej:
 
-| Dil | Eski kitaplık | Destek durumu | Önerilen kitaplık |
+| Język | Starsza biblioteka | Stan obsługi | Zalecana biblioteka |
 | --- | --- | --- | --- |
-| **Python** | `google-generativeai` | Aktif olarak sürdürülmüyor | `google-genai` |
-| **JavaScript/TypeScript** | `@google/generativeai` | Aktif olarak sürdürülmüyor | `@google/genai` |
-| **Go** | `google.golang.org/generative-ai` | Aktif olarak sürdürülmüyor | `google.golang.org/genai` |
-| **Dart ve Flutter** | `google_generative_ai` | Aktif olarak sürdürülmüyor | [Genkit Dart](https://genkit.dev/docs/dart/get-started/) veya [Firebase AI Logic](https://pub.dev/packages/firebase_ai)'i kullanın. |
-| **Swift** | `generative-ai-swift` | Aktif olarak sürdürülmüyor | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=tr)'i kullanma |
-| **Android** | `generative-ai-android` | Aktif olarak sürdürülmüyor | [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=tr)'i kullanma |
+| **Python** | `google-generativeai` | Nie jest aktywnie utrzymywana | `google-genai` |
+| **JavaScript/TypeScript** | `@google/generativeai` | Nie jest aktywnie utrzymywana | `@google/genai` |
+| **Go** | `google.golang.org/generative-ai` | Nie jest aktywnie utrzymywana | `google.golang.org/genai` |
+| **Dart i Flutter** | `google_generative_ai` | Nie jest aktywnie utrzymywana | Użyj [Genkit Dart](https://genkit.dev/docs/dart/get-started/) lub [Firebase AI Logic](https://pub.dev/packages/firebase_ai) |
+| **Swift** | `generative-ai-swift` | Nie jest aktywnie utrzymywana | Użyj [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=pl) |
+| **Android** | `generative-ai-android` | Nie jest aktywnie utrzymywana | Użyj [Firebase AI Logic](https://firebase.google.com/products/firebase-ai-logic?hl=pl) |
 
-**Java geliştiricileri için not:** Gemini API için Google tarafından sağlanan eski bir Java SDK'sı olmadığından önceki bir Google kitaplığından geçiş yapılması gerekmez. Doğrudan [Dil desteği ve yükleme](#install) bölümündeki yeni kitaplıkla başlayabilirsiniz.
+**Uwaga dla programistów w Javie:** nie było starszego pakietu SDK Java dostarczonego przez Google dla interfejsu Gemini API, więc nie jest wymagana migracja z poprzedniej biblioteki Google. Możesz
+od razu zacząć korzystać z nowej biblioteki opisanej w
+[sekcji Obsługa języków i instalacja](#install).
 
-Geri bildirim gönderin
+Prześlij opinię
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Son güncelleme tarihi: 2026-06-22 UTC.
+Ostatnia aktualizacja: 2026-06-22 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Chcesz przekazać coś jeszcze?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-22 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-22 UTC."],[],[]]

@@ -1,52 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=de
-fetched_at: 2026-07-06T05:18:46.710133+00:00
-title: "Videogenerierung in der Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=pt-BR
+fetched_at: 2026-07-20T04:33:26.917586+00:00
+title: "Gera\u00e7\u00e3o de v\u00eddeos na API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Feedback geben
+Envie comentários
 
-# Videogenerierung in der Gemini API
+# Geração de vídeos na API Gemini
 
-Die Gemini API bietet zwei Modelle für die Videogenerierung:
-[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=de) und [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=de).
-Beide sind für unterschiedliche Arbeitsabläufe konzipiert.
+A API Gemini oferece dois modelos para gerar vídeos: [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=pt-br) e [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=pt-br).
+Cada um foi projetado para fluxos de trabalho diferentes.
 
-Verwenden Sie Gemini Omni Flash als Standardmodell für die Videogenerierung. Es bietet eine bessere Videokohärenz, eine bessere Verarbeitung mehrerer Eingaben (Unterstützung von Text-, Bild-, Audio- und Videoeingaben gleichzeitig), eine bessere Konsistenz der Charaktere, eine höhere faktische Genauigkeit und eine mehrfache Bearbeitung per Prompt (z.B. Ersetzen von Elementen oder Ändern der Perspektive). Verwenden Sie Veo 3.1, wenn bestimmte Funktionen wie die Szenenerweiterung, die Steuerung des letzten Frames oder die Integration in ältere Pipelines erforderlich sind.
+Usar o Gemini Omni Flash como modelo padrão para geração de vídeo. Ele oferece coerência de vídeo superior, raciocínio com várias entradas (compatível com entradas de texto, imagem, áudio e vídeo simultaneamente), consistência de personagens, precisão factual e edição conversacional multiturno (por exemplo, substituição de elementos ou mudanças de perspectiva). Use o Veo 3.1 para recursos específicos, como extensão de cena, controle do último frame ou integração com pipelines legados.
 
 ## Gemini Omni Flash
 
-Gemini Omni Flash ist ein schnelles, multimodales Modell für die Videogenerierung und die Bearbeitung von Videos per Prompt. Es kann Text-Prompts und Bilder schnell in kurze Videos umwandeln und ermöglicht es Ihnen, die Ergebnisse mithilfe der Interactions API in mehreren Schritten zu optimieren.
+O Gemini Omni Flash é um modelo multimodal rápido para geração e edição conversacional de vídeos. Ela é excelente para transformar rapidamente comandos de texto e imagens em vídeos curtos, além de permitir refinar os resultados em várias rodadas usando a API Interactions.
 
-[Erste Schritte mit Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=de)
+[Comece a usar o Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=pt-br)
 
 ## Veo 3.1
 
-Veo 3.1 ist ein Modell für die Videogenerierung mit nativem Audio. Es unterstützt Funktionen wie die Videoerweiterung, die framespezifische Generierung und die bildbasierte Steuerung über die `generateContent` API.
+O Veo 3.1 é um modelo para gerar vídeos com áudio nativo. Ela oferece suporte a recursos como extensão de vídeo, geração específica de frames e orientação baseada em imagens pela API `generateContent`.
 
-[Erste Schritte mit Veo 3.1 →](https://ai.google.dev/gemini-api/docs/veo?hl=de)
+[Comece a usar o Veo 3.1 →](https://ai.google.dev/gemini-api/docs/veo?hl=pt-br)
 
-## Videos verstehen
+## Compreensão de vídeo
 
-Wenn Sie vorhandene Videoinhalte aufnehmen und analysieren möchten, anstatt neue Videos zu generieren
-, lesen Sie den Leitfaden [Videos verstehen](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de).
+Se você precisar ingerir e analisar conteúdo de vídeo existente em vez de gerar
+novos vídeos, consulte o [guia de compreensão de vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br).
 
-Feedback geben
+Envie comentários
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Zuletzt aktualisiert: 2026-06-30 (UTC).
+Última atualização 2026-06-30 UTC.
 
-Haben Sie Feedback für uns?
+Quer enviar seu feedback?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-30 (UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-30 UTC."],[],[]]

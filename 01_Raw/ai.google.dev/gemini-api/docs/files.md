@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/files?hl=de
-fetched_at: 2026-07-06T05:21:11.216411+00:00
-title: "Files API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/files?hl=es-419
+fetched_at: 2026-07-20T04:33:43.040299+00:00
+title: "API de Files \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) ist jetzt allgemein verfügbar. Wir empfehlen, diese API zu verwenden, um auf alle aktuellen Funktionen und Modelle zuzugreifen.
+La [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) ya está disponible de forma general. Te recomendamos que uses esta API para acceder a todos los modelos y funciones más recientes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Feedback geben
+Enviar comentarios
 
-# Files API
+# API de Files
 
-Gemini kann verschiedene Arten von Eingabedaten gleichzeitig verarbeiten, darunter Text, Bilder und Audio.
+Gemini puede procesar varios tipos de datos de entrada, como texto, imágenes y audio, al mismo tiempo.
 
-In diesem Leitfaden erfahren Sie, wie Sie mit der Files API mit Mediendateien arbeiten. Die grundlegenden Vorgänge sind für Audiodateien, Bilder, Videos, Dokumente und andere unterstützte Dateitypen gleich.
+En esta guía, se muestra cómo trabajar con archivos multimedia usando la API de Files. Las operaciones básicas son las mismas para los archivos de audio, las imágenes, los videos, los documentos y otros tipos de archivos admitidos.
 
-Eine Anleitung zu Datei-Prompts finden Sie im Abschnitt [Leitfaden zu Datei-Prompts](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide).
+Para obtener orientación sobre las instrucciones de archivos, consulta la sección [Guía de instrucciones de archivos](https://ai.google.dev/gemini-api/docs/files?hl=es-419#prompt-guide).
 
-## Datei hochladen
+## Subir un archivo
 
-Sie können die Files API verwenden, um eine Mediendatei hochzuladen. Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich der Dateien, des Text-Prompts, der Systemanweisungen usw.) größer als 100 MB ist. Für PDF-Dateien gilt ein Limit von 50 MB.
+Puedes usar la API de Files para subir un archivo multimedia. Siempre usa la API de Files cuando el tamaño total de la solicitud (incluidos los archivos, la instrucción de texto, las instrucciones del sistema, etcétera) sea superior a 100 MB. En el caso de los archivos PDF, el límite es de 50 MB.
 
-Mit dem folgenden Code wird eine Datei hochgeladen und dann in einem Aufruf von `interactions.create` verwendet.
+El siguiente código sube un archivo y, luego, lo usa en una llamada a `interactions.create`.
 
 ### Python
 
@@ -76,7 +76,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 file, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", nil)
@@ -161,9 +161,9 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## Metadaten für eine Datei abrufen
+## Obtén los metadatos de un archivo
 
-Sie können prüfen, ob die API die hochgeladene Datei erfolgreich gespeichert hat, und die zugehörigen Metadaten abrufen, indem Sie `files.get` aufrufen.
+Puedes verificar que la API haya almacenado correctamente el archivo subido y obtener sus metadatos llamando a `files.get`.
 
 ### Python
 
@@ -201,7 +201,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 file, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", nil)
@@ -231,9 +231,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Hochgeladene Dateien auflisten
+## Enumera los archivos subidos
 
-Mit dem folgenden Code wird eine Liste aller hochgeladenen Dateien abgerufen:
+El siguiente código obtiene una lista de todos los archivos subidos:
 
 ### Python
 
@@ -266,7 +266,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 for file, err := range client.Files.All(ctx) {
@@ -286,9 +286,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Hochgeladene Dateien löschen
+## Borra archivos subidos
 
-Dateien werden nach 48 Stunden automatisch gelöscht. Sie können eine hochgeladene Datei auch manuell löschen:
+Los archivos se borran automáticamente después de 48 horas. También puedes borrar manualmente un archivo subido:
 
 ### Python
 
@@ -323,7 +323,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### Go
 
 ```
 file, err := client.Files.UploadFromPath(ctx, "path/to/sample.mp3", nil)
@@ -340,191 +340,191 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/$name \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Nutzungsinformationen
+## Información de uso
 
-Mit der Files API können Sie Mediendateien hochladen und mit ihnen interagieren. Mit der Files API können Sie bis zu 20 GB Dateien pro Projekt speichern. Die maximale Größe pro Datei beträgt 2 GB. Dateien werden 48 Stunden lang gespeichert. In dieser Zeit können Sie die API verwenden, um Metadaten zu den Dateien abzurufen, aber die Dateien nicht herunterladen.
-Die Files API ist in allen Regionen, in denen die Gemini API verfügbar ist, kostenlos verfügbar.
+Puedes usar la API de Files para subir archivos multimedia y, luego, interactuar con ellos. La API de Files te permite almacenar hasta 20 GB de archivos por proyecto, con un tamaño máximo por archivo de 2 GB. Los archivos se almacenan durante 48 horas. Durante ese tiempo, puedes usar la API para obtener metadatos sobre los archivos, pero no puedes descargarlos.
+La API de Files está disponible sin costo en todas las regiones en las que está disponible la API de Gemini.
 
-## Strategien für Dateiprompts
+## Estrategias de instrucciones de archivos
 
-In diesem Abschnitt finden Sie Anleitungen und Best Practices für die Verwendung von Mediendateien mit Prompts für die Gemini API.
+En esta sección, se proporcionan orientación y prácticas recomendadas para usar archivos multimedia con instrucciones en la API de Gemini.
 
-Da Sie verschiedene Datentypen in Ihren Prompts verwenden können, sind Sie flexibler bei den Aufgaben, die Sie mit der Gemini API erledigen können. Sie können dem Modell zum Beispiel ein Foto von einem leckeren Gericht senden und es bitten, einen kurzen Blogbeitrag über das Gericht zu schreiben.
+Poder usar varios tipos de datos en tus instrucciones te brinda más flexibilidad en cuanto a las tareas que puedes abordar con la API de Gemini. Por ejemplo, puedes enviar al modelo una foto de una comida deliciosa y pedirle que escriba un blog breve sobre ella.
 
 |  |  |
 | --- | --- |
-| **Eingabeaufforderung** | **Antwort** |
-| Schreibe einen kurzen, ansprechenden Blogbeitrag auf der Grundlage dieses Bildes. Er sollte eine Beschreibung der Mahlzeit auf dem Foto enthalten und über die Vorbereitung der Mahlzeit sprechen.   Kekse | Meal Prep ist eine gute Möglichkeit, Zeit und Geld zu sparen. Außerdem kann es dir helfen, dich gesünder zu ernähren. Diese Mahlzeit ist ein hervorragendes Beispiel für eine gesunde und leckere Mahlzeit, die im Voraus zubereitet werden kann.  Dieses Gericht besteht aus braunem Reis, geröstetem Gemüse und Hähnchen-Teriyaki. Der braune Reis ist ein gesundes und komplexes Kohlenhydrat, das dir nachhaltig Energie liefert. Das geröstete Gemüse ist eine gute Möglichkeit, deinen täglichen Bedarf an Vitaminen und Mineralstoffen zu decken, und das Hähnchen-Teriyaki ist eine köstliche und proteinreiche Option.  Dieses Gericht ist auch einfach zuzubereiten. Koche einfach den braunen Reis, brate das Gemüse und koche das Hähnchen-Teriyaki. Sobald alles gekocht ist, verteile es auf Behälter für die Essenszubereitung und bewahre es im Kühlschrank auf. So können Sie sich an geschäftigen Morgen einfach einen Behälter schnappen.  Wenn du auf der Suche nach einem gesunden und leckeren Gericht bist, das du im Voraus zubereiten kannst, ist dieses Gericht eine gute Wahl. Es ist reich an Nährstoffen und schmeckt köstlich. Außerdem macht es satt und zufrieden.  Auf ein gesundes und leckeres Meal Prep! |
+| **Instrucción** | **Respuesta** |
+| Escribe una entrada de blog breve y atractiva basada en esta foto. Debe incluir una descripción de la comida que aparece en la foto y hablar sobre mi proceso de preparación de comidas.   Cookies | Preparar las comidas es una excelente manera de ahorrar tiempo y dinero, y también puede ayudarte a comer de forma más saludable. Esta comida es un excelente ejemplo de una comida saludable y deliciosa que se puede preparar con anticipación.  Esta comida incluye arroz integral, verduras asadas y pollo teriyaki. El arroz integral es un carbohidrato saludable y complejo que te brindará energía sostenida. Las verduras asadas son una excelente manera de obtener la dosis diaria de vitaminas y minerales, y el pollo teriyaki es una opción deliciosa y rica en proteínas.  Esta comida también es fácil de preparar. Solo tienes que cocinar el arroz integral, asar las verduras y cocinar el pollo teriyaki. Una vez que todo esté cocido, divídelo en recipientes para preparar comidas y guárdalos en el refrigerador. Luego, puedes tomar un recipiente y salir en las mañanas ajetreadas.  Si buscas una comida saludable y deliciosa que puedas preparar con anticipación, esta es una excelente opción. Está repleta de nutrientes y sabor, y seguro te dejará con una sensación de saciedad y satisfacción.  ¡Salud por la preparación de comidas saludables y deliciosas! |
 
-Wenn Sie Probleme haben, die gewünschte Ausgabe von Prompts zu erhalten, in denen Mediendateien verwendet werden, können Sie einige Strategien anwenden, um die gewünschten Ergebnisse zu erzielen. In den folgenden Abschnitten finden Sie Designansätze und Tipps zur Fehlerbehebung, mit denen Sie Prompts mit multimodaler Eingabe verbessern können.
+Si tienes problemas para obtener el resultado que deseas a partir de instrucciones que usan archivos multimedia, existen algunas estrategias que pueden ayudarte a obtener los resultados que deseas. En las siguientes secciones, se proporcionan enfoques de diseño y sugerencias para solucionar problemas que te ayudarán a mejorar las instrucciones que usan entradas multimodales.
 
-Sie können Ihre multimodalen Prompts mit den folgenden Best Practices verbessern:
+Para mejorar tus prompts multimodales, sigue estas prácticas recomendadas:
 
-- ### [Grundlagen des Prompt-Designs](#specific-instructions)
+- ### [Conceptos básicos sobre el diseño de prompts](#specific-instructions)
 
-  - **Formulieren Sie spezifische Anweisungen:** Stellen Sie klare und präzise Anweisungen bereit, die möglichst wenig Raum für Fehldeutungen lassen.
-  - **Ein paar Beispiele zum Prompt hinzufügen:** Verwenden Sie realistische Few-Shot-Beispiele, um zu veranschaulichen, was Sie erreichen möchten.
-  - **Schritt für Schritt aufschlüsseln**: Teilen Sie komplexe Aufgaben in überschaubare Unterziele auf und führen Sie das Modell durch den Prozess.
-  - **Ausgabeformat angeben**: Fordern Sie in dem Prompt an, dass die Ausgabe in dem gewünschten Format vorliegt, z. B. Markdown, JSON, HTML und mehr.
-  - **Bild zuerst für Aufforderungen mit einem einzelnen Bild platzieren**: Zwar kann Gemini Bild- und -Texteingaben in beliebiger Reihenfolge verarbeiten, für Aufforderungen mit einem einzelnen Bild kann es jedoch besser sein, wenn dieses Bild (oder Video) vor der Textaufforderung platziert wird. Verwenden Sie jedoch für Aufforderungen, die Bilder erfordern, die eng mit Texten verknüpft sein müssen, die am ehesten natürliche Reihenfolge.
-- ### [Fehlerbehebung bei multimodalem Prompt](#troubleshooting)
+  - **Sé específico en tus instrucciones**: Crea instrucciones claras y concisas que dejen espacio mínimo para interpretaciones erróneas.
+  - **Agrega algunos ejemplos a tu prompt:** Usa ejemplos poco frecuentes para ilustrar lo que quieres lograr.
+  - **Desglosar paso a paso**: Divide las tareas complejas en subobjetivos administrables y guiando el modelo a través del proceso.
+  - **Especifica el formato del resultado**: En el prompt, solicita que el resultado tenga el formato que deseas, como Markdown, JSON, HTML y más.
+  - **Coloca tu imagen primero para los prompts de una sola imagen**: Si bien Gemini puede manejar las entradas de imágenes y texto en cualquier orden, en el caso de los prompts que contienen una sola imagen, podría tener un mejor rendimiento si esa imagen (o video) se coloca antes del prompt de texto. Sin embargo, en el caso de los prompts que requieren que las imágenes estén muy intercaladas con textos para que tengan sentido, usa el orden que sea más natural.
+- ### [Soluciona problemas de tu prompt multimodal](#troubleshooting)
 
-  - **Wenn das Modell aus dem relevanten Teil des Bildes keine Informationen bezieht**:Geben Sie an, aus welchen Aspekte des Bildes der Prompt Informationen abrufen soll.
-  - **Wenn die Modellausgabe zu allgemein ist (nicht genug auf die Bild-/Videoeingabe zugeschnitten)** : Versuchen Sie zu Beginn des Prompts, das Modell um eine Beschreibung des Bildes oder Videos zu bitten, bevor Sie die Aufgabe beschreiben. oder bitten Sie das Modell, sich auf den Inhalt des Bildes zu beziehen.
-  - **Fehlerbehebung, welcher Teil fehlgeschlagen ist**:Bitten Sie das Modell, das Bild zu beschreiben, oder bitten Sie das Modell, seine Logik zu erläutern, um das ursprüngliche Verständnis des Modells zu messen.
-  - **Wenn die Eingabeaufforderung zu halluzinierten Inhalten führt**, sollten Sie die Temperatureinstellung verringern oder das Modell um kürzere Beschreibungen bitten, damit die Wahrscheinlichkeit geringer ist, dass zusätzliche Details angezeigt werden.
-  - **Parameter für die Stichprobenerhebung optimieren**:Experimentieren Sie mit verschiedenen Temperatureinstellungen und „Top-K“-Auswahlen, um die Kreativität des Modells anzupassen.
+  - **Si el modelo no extrae información de la parte relevante de la imagen:** Agrega pistas sobre los aspectos de la imagen de los que quieres que el prompt extraiga información.
+  - **Si el resultado del modelo es demasiado genérico (no lo suficientemente personalizado para la entrada de imagen o video):** Al inicio del prompt, intenta pedirle al modelo que describa las imágenes o el video antes de proporcionar la instrucción de la tarea, o intenta pedirle al modelo que haga referencia a lo que hay en la imagen.
+  - **Para solucionar la parte que falló:** Pídele al modelo que describa la imagen o pídele que explique su razonamiento, para medir su comprensión inicial.
+  - **Si el prompt muestra contenido alucinado:** Intenta reducir la configuración de la temperatura o pide descripciones más cortas al modelo para que sea menos probable extrapolar detalles adicionales.
+  - **Ajusta los parámetros de muestreo:** Experimenta con diferentes opciones de configuración de temperatura y selecciones de Top-K para ajustar la creatividad del modelo.
 
-### Machen Sie genaue Anweisungen
+### Proporciona instrucciones específicas
 
-Prompts haben den größten Erfolg, wenn sie klar und detailliert sind. Wenn Sie eine bestimmte Ausgabe im Hinterkopf haben, sollten Sie diese Anforderung in den Prompt aufnehmen, damit Sie die gewünschte Ausgabe erhalten.
+Los prompts tienen más éxito cuando son claros y detallados. Si tienes un resultado específico en mente, es mejor incluir ese requisito en el prompt para asegurarte de obtener el resultado que deseas.
 
-Wenn Sie für dieses Bild eines Flughafenboards die Anfrage an das Modell senden, nur „Dieses Bild beschreiben“ könnte es eine allgemeine Beschreibung generieren. Wenn das Modell die Zeit und die Stadt aus dem Bild parsen soll, können Sie diese Anfrage direkt in den Prompt einfügen.
+Para esta imagen de un panel de aeropuerto, pedirle al modelo que simplemente “describa esta imagen” podría generar una descripción general. Si necesitas que el modelo analice la hora y la ciudad desde la imagen, puedes incluir esa solicitud directamente en el prompt.
 
-| Prompt | Modellantwort |
+| Instrucción | Respuesta del modelo |
 | --- | --- |
-| Beschreiben Sie dieses Bild. | Auf dem Bild ist eine Anzeige für Ankunfts- und Abflugfinfos für den Flughafen zu sehen. |
+| Describe esta imagen. | En la imagen, se muestra el panel de llegadas y salidas de un aeropuerto. |
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Reiseplan Parsen Sie die Uhrzeit und die Stadt vom Flughafenanzeige in dem Bild in eine Liste. | - 10:50 Moskau - 11:05 Edinburgh - 11:05 London - 11:10 Bukarest - 11:30 Kiew - 11:35 Dublin - 11:45 East Midlands - 12:15 Sofia - 12:30 London - 12:30 Newcastle - 12:40 Sankt Petersburg - 12:40 London - 12:45 Manchester |
+| Tablero de horarios de viajes Analiza la hora y la ciudad del panel de aeropuerto que se muestra en esta imagen y crea una lista con esos datos. | - 10:50 Moscú - 11:05 Edimburgo - 11:05 Londres - 11:10 Bucarest - 11:30 Kiev - 11:35 Dublín - 11:45 Midlands del Este - 12:15 Sofía - 12:30 Londres - 12:30 Newcastle - 12:40 San Petersburgo - 12:40 Londres - 12:45 Mánchester |
 
-### Ein paar Beispiele hinzufügen
+### Agrega algunos ejemplos
 
-Das Gemini-Modell kann mehrere Eingaben akzeptieren, die es als Beispiele für das Verständnis der gewünschten Ausgabe verwenden kann. Wenn Sie diese Beispiele hinzufügen, kann das Modell die Muster leichter identifizieren und die Beziehung zwischen den angegebenen Bildern und Antworten auf das neue Beispiel anwenden. Dies wird auch als „Few-Shot“-Lernen bezeichnet.
+El modelo de Gemini puede aceptar varias entradas que puede usar como ejemplos para comprender el resultado que deseas. Agregar estos ejemplos puede ayudar al modelo a identificar los patrones y aplicar la relación entre las imágenes y las respuestas proporcionadas al ejemplo nuevo. Esto también se conoce como aprendizaje "con varios ejemplos".
 
-Im folgenden Beispiel wird die ursprüngliche Ausgabe in Satzform geschrieben und enthält auch das Land (Brasilien). Angenommen, Sie möchten die Ausgabe in einem anderen Format oder Stil haben und nur die Stadt und nicht das Land benötigen. Wenn Sie Ihrer Prompt Few-Shot-Beispiele hinzufügen, können Sie das Modell so steuern, dass es antwortet, wie Sie es möchten.
+En el siguiente ejemplo, el resultado inicial está escrito en forma de oración y también contiene el país (Brasil). Supongamos que deseas obtener el resultado en un formato o estilo diferente y solo quieres la ciudad, no el país. Agregar ejemplos de pocos intentos a tu instrucción puede hacer que el modelo responda de la manera que deseas.
 
-| **Eingabeaufforderung** | **Modellantwort** |
+| **Instrucción** | **Respuesta del modelo** |
 | --- | --- |
-| Reiseplan Bestimmen Sie die Stadt und das Wahrzeichen. | Die Sehenswürdigkeit ist die Cristo Redentor-Statue in Rio de Janeiro, Brasilien. |
+| Tablero de horarios de viajes Determina la ciudad junto con el punto de referencia. | El punto de referencia es la estatua del Cristo Redentor de Río de Janeiro, Brasil. |
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Bestimmen Sie die Stadt und das Wahrzeichen. Kolosseum | Stadt: Rom, Sehenswürdigkeit: Kolosseum. |
-| Die Verbotene Stadt | Stadt: Peking, Sehenswürdigkeit: Verbotene Stadt |
-| Die Verbotene Stadt | Stadt: Rio de Janeiro, Sehenswürdigkeit: Cristo Redentor-Statue |
+| Determina la ciudad junto con el punto de referencia. coliseo | ciudad: Roma, punto de referencia: el Coliseo. |
+| La Ciudad Prohibida | ciudad: Beijing, punto de referencia: la Ciudad Prohibida |
+| La Ciudad Prohibida | ciudad: Río de Janeiro, punto de referencia: estatua del Cristo Redentor |
 
-### Schritt-für-Schritt-Anleitung
+### Desglósala paso a paso
 
-Bei komplexen Aufgaben wie Aufgaben, die sowohl visuelles Verständnis als auch Logik erfordern, kann es hilfreich sein, die Aufgabe in kleinere, einfachere Schritte aufzuteilen. Alternativ kann es auch sinnvoll sein, wenn Sie das Modell in Ihrem Prompt direkt bitten, schrittweise zu denken.
+Para tareas complejas, como las que requieren comprensión visual y razonamiento, puede ser útil dividir la tarea en pasos más pequeños y sencillos. Como alternativa, también podría ser efectivo si le pides al modelo que "piense paso a paso" en el prompt.
 
-| Prompt | Modellantwort |
+| Instrucción | Respuesta del modelo |
 | --- | --- |
-| Wann habe ich kein Toilettenpapier mehr? | Bald sind nur noch 3 Rollen übrig. |
+| ¿Cuándo se me acabará el papel higiénico? | Pronto, solo te quedan 3 rollos. |
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| 1. Zählen Sie zuerst, wie viele Toilettenpapierrollen auf diesem Bild zu sehen sind. 2. Ermitteln Sie dann, wie viel Toilettenpapier eine typische Person pro Tag verwendet. 3. Berechne, wie lange diese Rollen von Toilettenpapier halten. | 1. Auf diesem Bild sind drei Rollen Toilettenpapier zu sehen. 2. Eine typische Person verwendet täglich etwa 20 Blätter Toilettenpapier. 3. Wenn jede Rolle 200 Tabellenblatt enthält, hält jede Roll etwa 10 Tage lang. Daher halten die 3 Rollen etwa einen Monat. |
+| 1. Primero, cuenta cuántos rollos de papel higiénico hay en esta imagen. 2. Luego, determina cuánto papel higiénico usa una persona común por día. 3. Calcula cuánto durarán estos rollos de papel higiénico. | 1. En esta imagen, hay 3 rollos de papel higiénico. 2. Una persona común usa alrededor de 20 hojas de papel higiénico por día. 3. Si cada rollo contiene 200 hojas, cada uno durará alrededor de 10 días. Por lo tanto, los 3 rollos durarán aproximadamente un mes. |
 
-Mathematische Aufgaben oder andere Arten von Wortproblemen sind gute Kandidaten dafür, das Modell zu bitten, Schritt für Schritt zu denken.
+Los problemas matemáticos y otros tipos de problemas de palabras son excelentes opciones para pedirle al modelo que piense paso a paso.
 
-| **Eingabeaufforderung** | **Antwort** |
+| **Instrucción** | **Respuesta** |
 | --- | --- |
-| Was ist der vierte Begriff in der Sequenz? | -135 |
+| ¿Cuál es el cuarto término de la secuencia? | -135 |
 
-Die Antwort des Modells ist falsch. Zum Verbessern Sie können das Modell beispielsweise bitten, das Problem zu parsen, bevor es den Prompt beantwortet.
+La respuesta del modelo es incorrecta. Algunas formas de mejorar esto son pedirle al modelo que analice el problema antes de responder al prompt.
 
-| **Eingabeaufforderung** | **Antwort** |
+| **Instrucción** | **Respuesta** |
 | --- | --- |
-| Parsen Sie zuerst die Formel im Bild.  Beantworte dann anhand der Formel: „Was ist der vierte Begriff in der Folge?“. | *Klicken Sie, um das Ergebnis zu maximieren* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Setzen Sie in der Formel n = 4 ein: $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Wir kennen den Wert von b(3) nicht. Setzen Sie daher n = 3 in der Formel ein: $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Wir kennen den Wert von b(2) nicht. Setzen Sie daher n = 2 in der Formel ein: $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Da wir wissen, dass der Wert von b(1) 15 ist, setzen Sie ihn in der Formel ein: $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Nachdem wir den Wert von b(2) kennen, setzen Sie ihn in der Formel für b(3) ein: $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Nachdem wir den Wert von b(3) kennen, setzen Sie ihn in der Formel für b(4) ein: $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Daher ist der vierte Begriff in der Sequenz -405. |
+| Analiza primero la fórmula de la imagen.  Luego, en función de la fórmula, responde “¿Cuál es el cuarto término de la secuencia?”. | *Haz clic para expandir el resultado* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Sustituye n = 4 en la fórmula: $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. No sabemos el valor de b(3), así que sustituye n = 3 en la fórmula: $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. No sabemos el valor de b(2), así que sustituye n = 2 en la fórmula: $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Sabemos que el valor de b(1) es 15, por lo que debes sustituirlo en la fórmula: $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Ahora que conocemos el valor de b(2), reemplázalo por b(3) en la fórmula: $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Ahora que conocemos el valor de b(3), reemplázalo en la fórmula por b(4): $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Por lo tanto, el cuarto término de la secuencia es -405. |
 
-Diese Modellantwort ist korrekt. Wenn Sie die Antwort jetzt noch optimieren möchten, können Sie das Modell bitten, schrittweise zu denken.
+Esta respuesta del modelo es correcta. Ahora, para que la respuesta sea aún más optimizada, puedes pedirle al modelo que piense paso a paso.
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Was ist der vierte Begriff in der Sequenz? Detaillierte Anleitung | Der erste Begriff ist 15.  Der zweite Begriff ist b(1) \* (-3) = 15 \* (-3) = -45.  Der dritte Begriff ist b(2) \* (-3) = -45 \* (-3) = 135.  Der vierte Begriff ist b(3) \* (-3) = 135 \* (-3) = -405. |
+| ¿Cuál es el cuarto término de la secuencia? Piensa paso a paso. | El primer término es 15.  El segundo término es b(1) \* (-3) = 15 \* (-3) = -45.  El tercer término es b(2) \* (-3) = -45 \* (-3) = 135.  El cuarto término es b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### Ausgabeformat angeben
+### Especifica el formato del resultado
 
-Ein häufiges Problem besteht darin, dass die Modellausgabe in einem bestimmten Format vorliegen muss (z.B. Markdown, JSON, HTML), insbesondere wenn die Modellausgabe von einer nachgelagerten Aufgabe aufgenommen werden muss. Sie können versuchen, eine Ausgabe in diesem Format zu erstellen, indem Sie das Modell im Prompt dazu anweisen. Hier sind zwei Beispiele:
+Un problema común es la necesidad de que el resultado del modelo esté en un formato determinado (p.ej., Markdown, JSON, HTML), en especial si el resultado del modelo debe transferirse mediante una tarea descendente. Puedes intentar que el modelo produzca un resultado en ese formato indicándoselo en la instrucción. A continuación, se muestran dos ejemplos:
 
-| Prompt | Modellantwort |
+| Instrucción | Respuesta del modelo |
 | --- | --- |
-| Die Tabelle in diesem Bild in das Markdown-Format parsen | ```none | Fach | Status | Zeit | Startdatum | Fällig am | | ------- | ------ | ---- | ---------- | ------ | | Mathematik | Fertig | 1,5 Std. | 29.11.2023 | 1.12.2023 | | Geografie | Fertig | 30 Min. | 2.12.2023 | 4.12.2023 | | Physik | In Bearbeitung | 2 Std. | 3.12.2023 | 5.12.2023 | | Biologie | Nicht gestartet | 6 Std. | 2.11.2016 | 6.12.2023 | ``` |
+| Analiza la tabla en esta imagen en formato Markdown | ```none | Asunto | Estado | Hora | Fecha de inicio | Plazo | | ------- | ------ | ---- | ---------- | ------ | | Matemáticas | Listo | 1.5 h | 29/11/2023 | 1/12/2023 | | Geografía | Listo | 30 min | 2/12/2023 | 4/12/2023 | | Física | En curso | 2 h | 3/12/2023 | 5/12/2023 | | Biología | No iniciado | 6 h | 2/11/2016 | 6/12/2023 | ``` |
 
-| **Eingabeaufforderung** | **Modellantwort** |
+| **Instrucción** | **Respuesta del modelo** |
 | --- | --- |
-| Geben Sie eine Liste aller folgenden Attribute an:  Zutaten, Art der Küche, vegetarisch oder nicht, im JSON-Format | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
+| Proporciona una lista de todos los atributos siguientes:  ingredientes, tipo de cocina, vegetariano o no, en formato JSON | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
 
-### Bild zuerst für Aufforderungen mit einem einzelnen Bild platzieren
+### Coloca primero la imagen para prompts de una sola imagen
 
-Gemini kann Bilder und Text in beliebiger Reihenfolge innerhalb einer Eingabeaufforderung interpretieren. Die Platzierung eines einzelnen Bildes vor der Textaufforderung kann jedoch zu besseren Ergebnissen führen.
-In den folgenden Beispielen sehen Sie, dass das Bild in jedem Prompt zuerst vor dem Text steht.
+Si bien Gemini puede interpretar la imagen y el texto en cualquier orden dentro de un mensaje, colocar una sola imagen antes del mensaje de texto puede generar mejores resultados.
+En las siguientes muestras, notarás que la imagen aparece antes del texto en cada instrucción.
 
-### Fehlerbehebung bei multimodalem Prompt
+### Soluciona los problemas de tu instrucción multimodal
 
-Möglicherweise müssen Sie Probleme mit Ihrem Prompt beheben, wenn Sie keine hilfreiche Antwort erhalten. Hier sind einige Strategien, die Sie ausprobieren können:
+Es posible que debas solucionar los problemas de tu instrucción si no obtienes una respuesta útil. Estas son algunas estrategias que puedes probar.
 
-#### Wenn das Modell keine Informationen aus dem relevanten Bildteil abruft
+#### Si el modelo no extrae información de la parte relevante de la imagen
 
-Um eine spezifischere Antwort zu erhalten, können Sie angeben, aus welchen Aspekten des Bildes Informationen herausgegeben werden sollen.
+Para obtener una respuesta más específica, puedes indicar desde qué aspectos de la imagen deseas que la instrucción extraiga información para generar su respuesta.
 
-| Prompt | Modellantwort |
+| Instrucción | Respuesta del modelo |
 | --- | --- |
-| Wie viele Tage halten diese Windeln für ein Baby? | Die Windel halten 198 Tage, bevor sie aufgebraucht sind. |
+| ¿Cuántos días durarán estos pañales para un bebé? | Los pañales se acabarán en 198 días. |
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Wie lange halten diese Windeln?  Verwenden Sie das auf dem Feld angezeigte Gewicht, um das Alter des Kindes zu bestimmen. Verwenden Sie dann die Gesamtzahl der Windeln im Feld.  Teilen Sie die Gesamtzahl durch die Anzahl der Windeln, die das Kind pro Tag benötigt. | Die Verpackung enthält 198 Windeln. Die Verpackung besagt, dass die Windel für ein Kind mit einem Gewicht von 22-37 lbs gedacht sind.  Das durchschnittliche Kind in diesem Gewichtbereich ist wahrscheinlich zwischen 1 und 2 Jahren alt.  Eine Zweijährige braucht in der Regel sechs Windeln pro Tag, daher halten sie etwa 33 Tage (198/6). |
+| ¿Cuánto durarán estos pañales antes de acabarse?  Usa el peso que se muestra en la caja para determinar la edad del bebé y usa la cantidad total de pañales que aparece en la caja.  Divide la cantidad total por la cantidad de pañales que el bebé usa en un día. | La caja contiene 198 pañales. La caja indica que los pañales son para niños que pesan entre 10 y 17 kg.  Es probable que el niño promedio de este rango de peso tenga entre 1 y 2 años.  Por lo general, un niño de 2 años usa 6 pañales por día. Por lo tanto, durarán aproximadamente 33 días (198/6). |
 
-#### Wenn die Modellausgabe zu allgemein und nicht ausreichend auf die Bildeingabe zugeschnitten ist
+#### Si el resultado del modelo es demasiado genérico y no se adapta lo suficiente a la entrada de imagen
 
-Damit das Modell seine Antwort auf das Bild bzw. die Bilder anpassen kann, bitten Sie es, das Bild zu beschreiben, bevor das Modell die Logik ausführt.
+Para ayudar a que el modelo adapte su respuesta a las imágenes, pídele que las describa antes de realizar su tarea de razonamiento.
 
-| Prompt | Modellantwort |
+| Instrucción | Respuesta del modelo |
 | --- | --- |
-| Was haben diese Bilder gemeinsam? | Alle vier Bilder sind Beispiele für Bilder im Querformat. |
+| ¿Qué tienen en común estas imágenes? | Las cuatro imágenes son ejemplos de fotografías horizontales. |
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Beschreiben Sie zuerst im Detail, was die einzelnen Bilder enthalten. Was haben diese Bilder gemeinsam? | Das erste Bild zeigt eine Person, die einen Koffer verpackt, das zweite zeigt einen leeren Flur in einem Einkaufszentrum, das dritte Bild zeigt einen Rolle von Toilettenpapier und das vierte Bild ein dunkles und stürmisches Meer.  Die Gemeinsamkeiten zwischen diesen Bildern sind, dass sie alle Beispiele für Grenzbereiche sind. Grenzbereich sind Orte oder Situationen, die zwischen zwei anderen Orten oder Situationen liegen. Sie sind oft durch ein Gefühl von Unsicherheit oder Mehrdeutigkeit gekennzeichnet.  Das erste Bild zeigt die Person, die zwischen der zu Hause und einer Reise steht. Die zweite Abbildung zeigt den Flur zwischen zwei Geschäften. Das dritte Bild ist Toilettenpapier, das ein Bad darstellen kann. Ein Badezimmer ist ein Übergangsraum zwischen privaten und öffentlichen Bereichen. Es ist ein Ort, an dem wir uns darauf vorbereiten, die Außenwelt zu betreten und zu verlassen.  Das vierte Bild zeigt das Meer zwischen Ruhe und Sturm.  Grenzbereiche können sowohl interessant als auch unübersichtlich sein. Sie können ein Ort für einen neuen Anfang oder ein Ort mit Endungen sein. Sie können ein Ort der Reflexion oder ein Handlungsort sein. |
+| Primero, describe el contenido de cada imagen en detalle. ¿Qué tienen en común estas imágenes? | En la primera imagen, se muestra a una persona empacando una maleta. La segunda imagen muestra un pasillo vacío en un centro comercial. La tercera imagen muestra un rollo de papel higiénico. La cuarta imagen muestra un mar oscuro y tormentoso.  La común entre estas imágenes es que todos son ejemplos de espacios liminales. Los espacios liminales son lugares o situaciones que se encuentran entre otros dos lugares o situaciones. A menudo, se caracterizan por un sentido de incertidumbre o ambigüedad.  La primera imagen muestra a la persona entre estar en casa y estar de viaje. La segunda imagen muestra el pasillo entre dos tiendas. La tercera imagen es de papel higiénico, que puede representar un baño. Un baño es un espacio de transición entre el ámbito privado y el público. Es un lugar donde nos preparamos para ir al mundo exterior o para dejarlo.  En la cuarta imagen, se muestra el mar entre la calma y la tormenta.  Los espacios liminales pueden ser emocionantes e inquietantes. Pueden ser un lugar de nuevos comienzos o de finales. Pueden ser un lugar de reflexión o un lugar de acción. |
 
-Sie können auch versuchen, das Modell explizit auffordern, auf den Inhalt des Bildes zu verweisen.
+También puedes intentar solicitar explícitamente que el modelo haga referencia a lo que hay en la imagen.
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Was haben diese Bilder gemeinsam? In der Antwort auf den Inhalt der Bildern verweisen | Alle Bilder beziehen sich auf Reisen. Das erste Bild zeigt eine Person, die einen Koffer packt, das zweite einen leeren Flur in einem Einkaufszentrum, das dritte einen Stapel Toilettenpapier und das vierte ein dunkles und stürmisches Meer.  Diese Bilder beziehen sich alle auf Reisen, da es alles ist, was Nutzer auf Reisen brauchen oder verwenden. Das erste Bild zeigt eine Person, die einen Koffer packt. Das ist etwas, was Menschen vor einer Reise tun. Das zweite Bild zeigt einen leeren Flur in einem Einkaufszentrum, in dem Nutzer häufig Dinge für ihre Reisen kaufen. Das dritte Bild zeigt einen Stapel von Toilettenpapier, das Menschen häufig auf Reisen verwenden. Das vierte Bild zeigt ein dunkles und stürmisches Meer. Dies ist eines der Dinge, auf die Menschen häufig auf Reisen treffen. |
+| ¿Qué tienen en común estas imágenes? Consulta el contenido de las imágenes en tu respuesta. | Todas las imágenes están relacionadas con viajes. La primera imagen muestra a una persona empacando una maleta; la segunda, un pasillo vacío en un centro comercial; la tercera imagen, una pila de papel higiénico, y la cuarta imagen, un mar oscuro y tormentoso.  Todas estas imágenes están relacionadas con viajes porque son todo lo que las personas necesitan o usan cuando viajan. La primera imagen muestra a una persona empacando una maleta, que es algo que hacen las personas cuando viajan. La segunda imagen muestra un pasillo vacío en un centro comercial, que es un lugar donde las personas suelen ir a comprar artículos para sus viajes. La tercera imagen muestra una pila de papel higiénico, algo que la gente suele usar cuando viaja. La cuarta imagen muestra un mar oscuro y tormentoso, algo que las personas suelen encontrar cuando viajan. |
 
-Dieselben Tipps gelten auch für die Creative-Ausgabe von Bildern. Im folgenden Beispiel mit dem Kaninchen kann es hilfreich sein, das Modell explizit aufzufordern, Aspekte aus dem Bild in das Modell aufzunehmen.
+Las mismas sugerencias funcionan para obtener un resultado creativo a partir de imágenes. En el siguiente ejemplo con el conejo, pedirle explícitamente al modelo que incluya aspectos de la imagen puede mejorar el resultado.
 
-| Prompt | Modellantwort |
+| Instrucción | Respuesta del modelo |
 | --- | --- |
-| Kannst du mir ein Gedicht zu diesem Bild schreiben? | Kleines Kaninchen, so weich und braun,  will am liebsten im Feld abhau'n.  Die Ohren so lang, der Schwanz so klein,  Es ist so süß und trefflich fein.  Du knabberst am Gras, so grün und süß,  und rennst davon, wenn du mich siehst.  Aber ich bin immer dein Freund,  denke ich mir verträumt. |
+| ¿Puedes escribirme un poema sobre esta imagen? | Conejito, tan suave y marrón,  que salta por el campo arriba y abajo.  Tus orejas tan largas y tan pequeña tu cola,  Eres la criatura más tierna de todas.  Mordisqueas el pasto, tan verde y suave,  Y huyes saltando cuando me veas.  Pero siempre tendrás mi amistad,  Conejito, hasta el final. |
 
-| **Aktualisierter Prompt** | **Verbesserte Reaktion** |
+| **Prompt actualizado** | **Respuesta mejorada** |
 | --- | --- |
-| Können Sie mir ein beschreibendes und pathetisches Gedicht zu diesem Bild schreiben und den Standort einbeziehen? | Kleines Kaninchen im Grün,  Ohren, so lang und kühn.  Was siehst du in der Ferne liegen,  wohin deine Blicke fliegen?  Ist es der blaue Ozean,  funkelnd in der Sonne Bahn?  Oder die Wellen, die brechen und brüllen,  ein Rhythmus, der dich will erfüllen?  Kleines Wesen sage mir,  was nur fasziniert dich hier?  Ist es die salzige und starke Brise,  oder der Möwenruf über der Wiese?  Vielleicht ist es die Unermesslichkeit des Seins,  Die Welt, so groß und auch so klein.  Ein Ort, an dem sich Träume formen können,  und Abenteuer sich enthemmen.  Ich frage mich, was ist wohl dein Traum,  wenn du so heiter im Grase sitzt im Raum?  Möchtest du in die Tiefe vordringen,  oder bleiben an Land, wo du kannst springen?  Was auch immer es ist, kleines Kaninchen,  behalte den Eindruck dieses Wunderlichen!  In den Träumen und Wünschen Deinen,  liegt eine Welt, die du sollst vereinen. |
+| ¿Puedes escribirme un poema descriptivo y dramático sobre esta imagen y también incluir la ubicación? | Conejito sobre el verde,  Orejas tan largas y agudas.  ¿Qué ves allí,  En la distancia, donde observas?  ¿Es el océano azul  Que brilla con el sol?  ¿O bien las olas que chocan y rugen,  Un ritmo que te adoras?  Pequeño conejo, dime la verdad,  ¿qué capta tu atención?  ¿La brisa salada  o el llanto de las gaviotas?  Quizás sea la enormidad de todo,  Un mundo tan grande y pequeño.  Un lugar donde los deseos pueden viajar,  y las historias se pueden sembrar.  Conejito, me pregunto qué soñarás,  mientras te sientas en el césped, tan sereno.  ¿Te animas a explorar la profundidad?  ¿O te quedarás en la tierra, donde puedes saltar?  Sin importar cómo sea, conejito  Mantén esa chispa de asombro siempre brillante.  Porque en tus sueños y deseos,  hay un mundo que espera tu creación. |
 
-#### Fehlerbehebung, welcher Teil der Prompt fehlgeschlagen ist
+#### Soluciona problemas de qué parte del prompt falló
 
-Es ist möglicherweise schwierig zu erkennen, ob eine Eingabeaufforderung fehlgeschlagen ist, weil das Modell **nicht verstanden hat, mit welchem Bild** zu beginnen ist oder wenn es das Bild verstanden hat, nicht die richtigen **logischen Schritte ausgeführt** hat.
-Um zwischen diesen Logiken zu unterscheiden, bitten Sie das Modell, den Inhalt des Bildes zu beschreiben.
+Puede ser difícil saber si un prompt falló porque el modelo no **entendió la imagen** en primer lugar, o si la entendió, pero no realizó los **pasos de razonamiento** correctos después.
+Para distinguir los motivos, pídele al modelo que describa el contenido de la imagen.
 
-Wenn das Modell im folgenden Beispiel mit Snacks antwortet, die bei Kombination mit Tee (z.B. Popcorn) überraschend sind, können Sie zuerst eine Fehlerbehebung durchführen, um festzustellen, ob das Modell richtig erkannt hat, dass das Bild Tee zeigt.
+En el siguiente ejemplo, si el modelo responde con un bocadillo que parece extraño en combinación con el té (p.ej., palomitas de maíz), el primer paso para solucionar el problema es determinar si el modelo reconoció correctamente que la imagen contiene té.
 
-| Prompt | Prompt zur Fehlerbehebung |
+| Instrucción | Prompt para solucionar problemas |
 | --- | --- |
-| Welchen Snack kann ich in einer Minute machen, der dazu gut passe würde? | Beschreiben Sie den Inhalt des Bildes. |
+| ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? | Describe el contenido de esta imagen. |
 
-Eine andere Strategie besteht darin, das Modell um seine Logik zu bitten. So können Sie gegebenenfalls ermitteln, welcher Teil der Logik aufgeschlüsselt wurde.
+Otra estrategia es pedirle al modelo que explique su razonamiento. Eso puede ayudarte a limitar qué parte del razonamiento falló, si la hubiera.
 
-| Prompt | Prompt zur Fehlerbehebung |
+| Instrucción | Prompt para solucionar problemas |
 | --- | --- |
-| Welchen Snack kann ich in einer Minute machen, der dazu gut passe würde? | Welchen Snack kann ich in einer Minute machen, der dazu gut passe würde? Bitte erläutere, weshalb du sie erreicht bzw. nicht erreicht hast. |
+| ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? | ¿Qué tentempié puedo preparar en 1 minuto que se combine bien con esto? Explica por qué. |
 
-## Nächste Schritte
+## ¿Qué sigue?
 
-- Probieren Sie aus, eigene multimodale Prompts mit [Google AI Studio](http://aistudio.google.com?hl=de) zu erstellen.
-- Informationen zur Verwendung der Gemini Files API zum Hochladen von Media-Dateien und zum Einbinden in Ihre Prompts finden Sie in den Leitfäden [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=de), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=de) und [Dokumentverarbeitung](https://ai.google.dev/gemini-api/docs/document-processing?hl=de).
-- Weitere Informationen zum Prompt-Design, z. B. zum Anpassen von Sampling-Parametern, finden Sie auf der Seite [Prompt-Strategien](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=de).
+- Intenta escribir tus propias instrucciones multimodales con [Google AI Studio](http://aistudio.google.com?hl=es-419).
+- Si quieres obtener información para usar la API de Gemini Files para subir archivos multimedia y agregarlos a tus instrucciones, consulta las guías de [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=es-419), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419) y [Procesamiento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419).
+- Para obtener más orientación sobre el diseño de instrucciones, como el ajuste de los parámetros de muestreo, consulta la página [Estrategias de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=es-419).
 
-Feedback geben
+Enviar comentarios
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Zuletzt aktualisiert: 2026-06-29 (UTC).
+Última actualización: 2026-07-06 (UTC)
 
-Haben Sie Feedback für uns?
+¿Quieres brindar más información?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-06-29 (UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-06 (UTC)"],[],[]]

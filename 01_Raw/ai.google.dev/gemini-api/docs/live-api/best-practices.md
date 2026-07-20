@@ -1,109 +1,92 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=pt-BR
-fetched_at: 2026-07-06T05:06:31.375833+00:00
-title: "Pr\u00e1ticas recomendadas da API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=zh-TW
+fetched_at: 2026-07-20T04:39:23.400316+00:00
+title: "\u4f7f\u7528\u4e2d API \u7684\u6700\u4f73\u505a\u6cd5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Envie comentários
+提供意見
 
-# Práticas recomendadas da API Live
+# 使用中 API 的最佳做法
 
-Este guia aborda as práticas recomendadas que você pode seguir para otimizar o uso da API Live.
-Consulte a página [Introdução à API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br)
-para conferir uma visão geral e exemplos de código para casos de uso comuns.
+本指南將介紹最佳做法，協助您充分運用 Live API。如需常見用途的總覽和程式碼範例，請參閱「[開始使用 Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)」頁面。
 
-## Criar instruções claras do sistema
+## 設計清楚的系統指令
 
-Para ter o melhor desempenho da API Live, recomendamos ter um conjunto de instruções do sistema (SIs, na sigla em inglês) bem definido que defina o perfil do agente, as regras de conversação e as barreiras de proteção, nessa ordem.
+如要充分發揮 Live API 的效能，建議您先明確定義一組系統指令 (SI)，依序定義代理程式角色、對話規則和防護措施。
 
-Para melhores resultados, separe cada agente em uma SI distinta.
+為獲得最佳結果，請將每個代理程式分別歸入不同的 SI。
 
-1. **Especificar o perfil do agente**:forneça detalhes sobre o nome, a função e as características preferidas do agente. Se você quiser especificar o sotaque, também especifique o idioma de saída preferido (por exemplo, um sotaque britânico para um falante de inglês).
-2. **Especificar as regras de conversação**:coloque essas regras na ordem em que você espera que o modelo siga. Delimite entre elementos únicos da conversa e loops de conversação. Por exemplo:
+1. **指定代理程式角色：**詳細說明代理程式的名稱、角色和任何偏好特徵。如要指定口音，請務必同時指定偏好的輸出語言 (例如，為英文使用者指定英國口音)。
+2. **指定對話規則：**請按照您希望模型遵循的順序，區分對話的一次性元素和對話迴圈。例如：
 
-   - **Elemento único**:colete os detalhes de um cliente uma vez (como nome, local, número do cartão fidelidade).
-   - **Loop de conversação**:o usuário pode discutir recomendações, preços, devoluções e entrega, e pode querer passar de um tópico para outro. Informe ao modelo que ele pode participar desse loop de conversação pelo tempo que o usuário quiser.
-3. **Especificar chamadas de ferramentas em um fluxo em frases distintas**:por exemplo, se uma etapa única para coletar os detalhes de um cliente exigir a invocação de uma função `get_user_info`, você poderá dizer: *Sua primeira etapa é coletar informações do usuário. Primeiro, peça ao usuário que forneça o nome, o local e o número do cartão fidelidade. Em seguida,
-   invoque `get_user_info` com esses detalhes.*
-4. **Adicionar as barreiras de proteção necessárias**:forneça as barreiras de proteção conversacionais gerais que você não quer que o modelo faça. Você pode fornecer exemplos específicos de se *x* acontecer, você quer que o modelo faça *y*. Se você ainda não estiver recebendo o nível de precisão preferido, use a palavra *inequivocamente* para orientar o modelo a ser preciso.
+   - **一次性元素：**收集顧客詳細資料一次 (例如姓名、地點、會員卡號)。
+   - **對話迴圈：**使用者可以討論建議、價格、退貨和運送事宜，並可能想從一個主題轉到另一個主題。讓模型知道只要使用者願意，就可以持續進行這類對話。
+3. **在流程中以不同句子指定工具呼叫：**舉例來說，如果收集顧客詳細資料的一次性步驟需要叫用 `get_user_info` 函式，您可以說：「第一個步驟是收集使用者資訊。*首先，請使用者提供姓名、地點和會員卡號碼。然後使用這些詳細資料叫用 `get_user_info`。*
+4. **新增任何必要的防護措施：**提供任何一般對話防護措施，避免模型做出您不希望的行為。您可以提供具體範例，說明如果發生 *x*，您希望模型執行 *y*。如果模型仍未達到您偏好的精確度，請使用「unmistakably」一詞引導模型提高精確度。
 
-## Definir ferramentas com precisão
+## 精確定義工具
 
-Ao usar ferramentas com a API Live, seja específico nas definições de ferramentas.
-Informe ao Gemini em quais condições uma chamada de ferramenta deve ser invocada. Para mais detalhes, consulte [Definições de ferramentas](#tool-definitions-example) em
-a seção de exemplos.
+使用 Live API 時，請明確定義工具。
+請務必告訴 Gemini 應在何種情況下呼叫工具。詳情請參閱範例部分中的「[工具定義](#tool-definitions-example)」。
 
-## Criar comandos eficazes
+## 撰寫有效的提示
 
-- **Usar comandos claros**:forneça exemplos do que os modelos devem e não devem fazer nos comandos e tente limitar os comandos a um por perfil ou função por vez. Em vez de comandos longos e de várias páginas, considere usar o encadeamento de comandos. O modelo tem melhor desempenho em tarefas com chamadas de função única.
-- **Fornecer comandos e informações iniciais**:a API Live espera a entrada do usuário antes de responder. Para que a API Live inicie a conversa, inclua um comando pedindo que ela cumprimente o usuário ou inicie a conversa. Inclua informações sobre o usuário para que a API Live personalize essa saudação.
+- **使用明確的提示：**在提示中提供模型應執行的動作和不應執行的動作範例，並盡量一次只為一個角色或職務提供提示。建議您改用提示鏈結，而非冗長的多頁提示。模型最適合處理單一函式呼叫的工作。
+- **提供起始指令和資訊：**Live API 會先等待使用者輸入內容，再做出回應。如要讓 Live API 啟動對話，請加入提示，要求該 API 向使用者問候或開始對話。加入使用者資訊，讓 Live API 個人化問候語。
 
-## Especificar idioma
+## 指定語言
 
-Para um desempenho ideal na `gemini-live-2.5-flash` em cascata da API Live, verifique se o `language_code` da API corresponde ao idioma falado pelo usuário.
+如要讓 Live API 串聯 `gemini-live-2.5-flash` 達到最佳效能，請確保 API 的 `language_code` 與使用者說的語言相符。
 
-Se a expectativa for que o modelo responda em um idioma diferente do inglês, inclua o seguinte como parte das instruções do sistema:
+如果希望模型以非英文回覆，請在系統指令中加入下列內容：
 
 ```
 RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 ```
 
-## Streaming
+## 串流
 
-Ao implementar áudio em tempo real, siga estas práticas recomendadas:
+實作即時音訊時，請遵循下列最佳做法：
 
-- **Tamanho do bloco e latência**: envie áudio em blocos de 20 ms a 40 ms.
-- **Processamento de interrupção**: quando o usuário fala enquanto o modelo está respondendo,
-  o servidor envia uma mensagem `server_content` com `"interrupted": true`. Você precisa descartar imediatamente o buffer de áudio do lado do cliente para evitar que o agente continue falando com o usuário.
+- **區塊大小和延遲時間**：以 20 毫秒到 40 毫秒的區塊傳送音訊。
+- **中斷處理**：如果使用者在模型回覆時說話，伺服器會傳送含有 `"interrupted": true` 的 `server_content` 訊息。您必須立即捨棄用戶端音訊緩衝區，避免代理程式繼續與使用者交談。
 
-## Gerenciamento de contexto
+## 管理資訊脈絡
 
-Use `ContextWindowCompressionConfig` para sessões longas, já que os tokens de áudio nativos se acumulam rapidamente (aproximadamente 25 tokens por segundo de áudio).
+如果工作階段較長，請使用 `ContextWindowCompressionConfig`，因為原生音訊符記會快速累積 (每秒音訊約 25 個符記)。
 
-## Armazenamento em buffer do cliente
+## 用戶端緩衝
 
-Não armazene em buffer o áudio de entrada significativamente (como 1 segundo) antes de enviar. Envie pequenos blocos (20 ms a 100 ms) para minimizar a latência.
+請勿在傳送前大幅緩衝輸入音訊 (例如 1 秒)。傳送小區塊 (20 毫秒 - 100 毫秒)，盡量縮短延遲時間。
 
-## Reamostragem
+## 重新取樣
 
-Verifique se o aplicativo cliente reamostra a entrada do microfone (geralmente 44,1 kHz ou 48 kHz) para 16 kHz antes da transmissão.
+請確保用戶端應用程式會在傳輸前，將麥克風輸入內容 (通常為 44.1 kHz 或 48 kHz) 重新取樣為 16 kHz。
 
-## Gerenciamento de sessões
+## 工作階段管理
 
-Siga estas diretrizes para processar o ciclo de vida da sessão e garantir uma experiência do usuário confiável:
+請按照下列指南處理工作階段生命週期，確保使用者體驗穩定可靠：
 
-- **Ativar a compactação da janela de contexto**:os tokens de áudio se acumulam a aproximadamente 25 tokens por segundo. Sem compactação, as sessões somente de áudio são limitadas a 15 minutos e as sessões de áudio e vídeo a 2 minutos. Ative
-  [a compactação da janela de contexto](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-br#context-window-compression)
-  para estender as sessões a uma duração ilimitada.
-- **Implementar a retomada da sessão**:o servidor pode redefinir periodicamente a conexão WebSocket. Use
-  [a retomada da sessão](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-br#session-resumption)
-  para se reconectar sem perder o contexto. Mantenha o token de retomada mais recente das mensagens `SessionResumptionUpdate` e transmita-o como o identificador ao se reconectar. Os tokens de retomada são válidos por 2 horas após o término da última sessão.
-- **Processar mensagens GoAway:** o servidor envia uma
-  [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-br#goaway-message)
-  antes de encerrar uma conexão. Ouça essa mensagem e use o campo `timeLeft` para concluir ou se reconectar antes que a conexão seja fechada.
-- **Processar sinais generationComplete**:use a
-  [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-br#generation-complete-message)
-  mensagem para saber quando o modelo terminou de gerar uma resposta, para que o
-  aplicativo possa atualizar a interface ou continuar com a próxima ação.
+- **啟用脈絡窗口壓縮功能：**音訊權杖的累積速度約為每秒 25 個權杖。如果沒有壓縮，純音訊工作階段最多只能進行 15 分鐘，音訊和視訊工作階段則為 2 分鐘。啟用[內容視窗壓縮](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#context-window-compression)，即可將工作階段延長至無限時長。
+- **實作工作階段續傳：**伺服器可能會定期重設 WebSocket 連線。使用[工作階段續傳](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#session-resumption)功能，即可順暢地重新連線，不會遺失背景資訊。保留 `SessionResumptionUpdate` 訊息的最新續傳權杖，並在重新連線時將其做為控制代碼傳遞。工作階段終止後，續傳權杖的有效期限為 2 小時。
+- **處理 GoAway 訊息：**伺服器會在終止連線前傳送 [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#goaway-message) 訊息。請監聽這則訊息，並使用 `timeLeft` 欄位妥善結束或重新連線，以免連線中斷。
+- **處理 generationComplete 信號：**使用 [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#generation-complete-message) 訊息瞭解模型何時完成生成回覆，以便應用程式更新 UI 或繼續執行下一個動作。
 
-Para detalhes da implementação, consulte
-[Gerenciamento de sessões](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-br).
+如要瞭解實作方式，請參閱「[工作階段管理](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw)」。
 
-## Exemplos
+## 範例
 
-Este exemplo combina as práticas recomendadas e
-[as diretrizes para o design de instruções do sistema](#system-instruction-guidelines) para
-orientar o desempenho do modelo como um coach de carreira.
+這個範例結合了最佳做法和[系統指令設計指南](#system-instruction-guidelines)，引導模型以職涯教練的身分提供建議。
 
 ```
 **Persona:**
@@ -155,10 +138,10 @@ Remember that your ultimate goal is to create a supportive environment for your
 clients to thrive.
 ```
 
-### Definições de ferramentas
+### 工具定義
 
-Este JSON define as funções relevantes chamadas no exemplo de coach de carreira.
-Para melhores resultados ao definir funções, inclua os nomes, as descrições, os parâmetros e as condições de invocação.
+這個 JSON 會定義職業教練範例中呼叫的相關函式。
+定義函式時，請加入函式名稱、說明、參數和叫用條件，以獲得最佳結果。
 
 ```
 [
@@ -248,44 +231,44 @@ Para melhores resultados ao definir funções, inclua os nomes, as descrições,
 ]
 ```
 
-## Preços e faturamento
+## 價格與計費
 
-A API Gemini Live é faturada estritamente pelo uso de tokens. Como a API Live mantém uma sessão WebSocket persistente, o faturamento segue um modelo de composição com base na janela de contexto ativa.
+Gemini Live API 會嚴格按照權杖用量計費。由於 Live API 會維持持續的 WebSocket 工作階段，因此計費方式會根據有效內容視窗，採用複合式模型。
 
-### A janela de contexto da sessão (custos compostos)
+### 工作階段脈絡窗口 (複合成本)
 
-A API cobra por turno todos os tokens presentes na janela de contexto da sessão. Um "turno" é definido como uma entrada do usuário e a resposta correspondente do modelo.
+API 會根據工作階段情境視窗中的所有符記，按輪次收費。「回合」是指使用者輸入內容和模型相應的回覆。
 
-- **Acúmulo**:a janela de contexto inclui novos tokens do turno atual e todos os tokens acumulados de turnos anteriores.
-- **Refaturamento**:os tokens anteriores são reprocessados e contabilizados em cada novo turno, até o tamanho da janela de contexto configurada. À medida que uma sessão se estende, o custo por turno aumenta porque o histórico de conversas é reprocessado.
+- **累積：**內容視窗包含目前回合的新詞元，以及先前回合累積的所有詞元。
+- **重新計費：**系統會重新處理先前的權杖，並在每個新回合中計費，最多可達您設定的內容視窗大小。隨著工作階段時間拉長，系統會重新處理對話記錄，因此每回合的費用會增加。
 
-### Tokens de áudio e transcrições
+### 音訊權杖和轉錄稿
 
-A API Live é multimodal nativamente. Ela retém o histórico de conversas como tokens de áudio brutos para preservar a nuance e o tom acústico.
+Live API 本身就是多模態模型，這項功能會以原始音訊權杖的形式保留對話記錄，以保留聲學細微差異和語氣。
 
-- **Faturamento de áudio**:a API cobra pelos tokens de áudio nativos acumulados na taxa de entrada de áudio padrão em cada turno.
-- **Taxa extra de transcrição**:quando a transcrição de áudio para texto está ativada (`inputAudioTranscription` ou `outputAudioTranscription`), a API cobra por todos os tokens de texto gerados para transcrição na taxa de saída de token de texto, além dos custos padrão de token de áudio.
+- **音訊費用：**API 會在每個回合中，以標準音訊輸入費率計算累積的原生音訊權杖費用。
+- **轉錄附加費用：**啟用語音轉錄功能 (`inputAudioTranscription` 或 `outputAudioTranscription`) 後，除了標準音訊權杖費用外，API 還會按照文字權杖輸出費率，針對轉錄產生的所有文字權杖收費。
 
-### Gerenciar custos com limites de contexto
+### 使用背景資訊限制管理費用
 
-Para evitar o crescimento ilimitado de custos em sessões longas, configure o tamanho da janela de contexto usando `contextWindowCompression`.
+如要避免長時間工作階段的費用無上限成長，請使用 `contextWindowCompression` 設定內容視窗大小。
 
-Ao definir um acionador de compactação (por exemplo, 25.000 tokens) e uma janela deslizante (por exemplo, 8.000 tokens), a API remove automaticamente os tokens mais antigos quando o limite é atingido. Em seguida, a API fatura os turnos subsequentes apenas pelo histórico retido e por novos tokens.
+設定壓縮觸發條件 (例如 25,000 個權杖) 和滑動視窗 (例如 8,000 個權杖) 後，API 會在達到門檻時自動清除較舊的權杖。接著，API 只會針對保留的記錄加上任何新詞元，收取後續回合的費用。
 
-### Modo de áudio proativo
+### 主動式音訊模式
 
-Quando o modo de áudio proativo está ativado, os tokens de entrada são cobrados durante todo o tempo em que a API Live está ouvindo, enquanto os tokens de saída só são cobrados quando a API responde.
+啟用主動式音訊模式後，只要 Live API 處於接聽狀態，系統就會持續收取輸入權杖費用，但只會在 API 回應時收取輸出權杖費用。
 
-- **Observação para o Gemini 3.1**:o modo de áudio proativo não é compatível com `gemini-3.1-flash-live-preview`. Para esse modelo, você só será cobrado pelo áudio quando estiver transmitindo a entrada ativamente.
+- **Gemini 3.1 注意事項：**`gemini-3.1-flash-live-preview` 不支援主動式音訊模式。採用這種模式時，只有在主動串流輸入內容時，系統才會收取音訊費用。
 
-Para informações detalhadas sobre preços, consulte a [página de preços da API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+如需詳細定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
 
-Envie comentários
+提供意見
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Última atualização 2026-06-01 UTC.
+上次更新時間：2026-06-01 (世界標準時間)。
 
-Quer enviar seu feedback?
+想進一步說明嗎？
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-06-01 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-01 (世界標準時間)。"],[],[]]

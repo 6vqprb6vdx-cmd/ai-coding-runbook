@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=pl
-fetched_at: 2026-07-06T05:10:54.710289+00:00
-title: "Interakcje ze streamingiem \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=pt-BR
+fetched_at: 2026-07-20T04:43:28.620476+00:00
+title: "Intera\u00e7\u00f5es de streaming \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Interakcje ze streamingiem
+# Interações de streaming
 
-Podczas tworzenia interakcji możesz ustawić `stream: true`, aby przesyłać strumieniowo odpowiedź przy użyciu [zdarzeń wysyłanych przez serwer](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
+Ao criar uma interação, você pode definir `stream: true` para transmitir a resposta de forma incremental usando [eventos enviados pelo servidor](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
 
 ### Python
 
@@ -28,8 +28,8 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
-    input="Count to from 1 to 25.",
+    model="gemini-3.5-flash",
+    input="Count from 1 to 25.",
     stream=True,
 )
 for event in stream:
@@ -46,8 +46,8 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: "gemini-3-flash-preview",
-    input: "Count to from 1 to 25.",
+    model: "gemini-3.5-flash",
+    input: "Count from 1 to 25.",
     stream: true,
 });
 for await (const event of stream) {
@@ -67,15 +67,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   --no-buffer \
   -d '{
-    "model": "gemini-3-flash-preview",
-    "input": "Count to from 1 to 25.",
+    "model": "gemini-3.5-flash",
+    "input": "Count from 1 to 25.",
     "stream": true
   }'
 ```
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
@@ -104,39 +104,39 @@ event: step.stop
 data: {"index":1,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"v1_...","status":"completed","usage":{"total_tokens":346,"total_input_tokens":11,"input_tokens_by_modality":[{"modality":"text","tokens":11}],"total_cached_tokens":0,"total_output_tokens":90,"total_tool_use_tokens":0,"total_thought_tokens":245},"created":"2026-05-12T18:44:51Z","updated":"2026-05-12T18:44:51Z","service_tier":"standard","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.completed"}
+data: {"interaction":{"id":"v1_...","status":"completed","usage":{"total_tokens":346,"total_input_tokens":11,"input_tokens_by_modality":[{"modality":"text","tokens":11}],"total_cached_tokens":0,"total_output_tokens":90,"total_tool_use_tokens":0,"total_thought_tokens":245},"created":"2026-05-12T18:44:51Z","updated":"2026-05-12T18:44:51Z","service_tier":"standard","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
 ```
 
-## Typy zdarzeń
+## Tipos de evento
 
-Każde zdarzenie wysyłane przez serwer zawiera nazwany element `event_type` i powiązane dane JSON. Interfejs Interactions API używa symetrycznego modelu strumieniowania, w którym cała zawartość – tekst, wywołania narzędzi, myślenie – przepływa przez spójne zdarzenie **na podstawie kroku**.
+Cada evento enviado pelo servidor inclui um `event_type` nomeado e dados JSON associados. A API Interactions usa um modelo de transmissão simétrico em que todo o conteúdo (texto, chamadas de ferramenta, raciocínio) flui por um evento **baseado em etapas** consistente.
 
-Każdy strumień jest zgodny z tym przepływem zdarzeń:
+Cada stream segue este fluxo de eventos:
 
-1. `interaction.created`: interakcja jest tworzona i zawiera metadane (identyfikator, model, stan).
-2. Seria **kroków**, z których każdy składa się z:
-   - zdarzenia `step.start` wskazującego typ kroku (np. `model_output`, `thought`, `function_call`).
-   - co najmniej 1 zdarzenia `step.delta` z przyrostowymi danymi dla tego kroku.
-   - zdarzenia `step.stop` oznaczającego krok jako zakończony.
-3. Zdarzenie `interaction.completed` z końcowymi statystykami `usage`.
+1. `interaction.created`: a interação é criada e inclui metadados (ID, modelo, status).
+2. Uma série de **etapas**, cada uma consistindo em:
+   - Um evento `step.start`, que indica o tipo de etapa (por exemplo, `model_output`, `thought`, `function_call`).
+   - Um ou mais eventos `step.delta` com dados incrementais para essa etapa.
+   - Um evento `step.stop` que marca a etapa como concluída.
+3. Um evento `interaction.completed` com estatísticas `usage` finais.
 
-Gdy ustawisz `stream: false`, interfejs API zwróci pojedynczy obiekt `interaction` z tablicą `steps`. Każdy element w `steps` to w pełni zmontowana wersja cyklu `step.start` → `step.delta`(s) → `step.stop`.
+Quando você define `stream: false`, a API retorna um único objeto `interaction` com uma matriz `steps`. Cada elemento em `steps` é a versão totalmente montada de um ciclo `step.start` → `step.delta`(s) → `step.stop`.
 
 ### `interaction.created`
 
-Wysyłane, gdy interakcja zostanie utworzona. Zawiera identyfikator interakcji, model i stan początkowy.
+Enviado quando a interação é criada. Contém o ID da interação, o modelo e o status inicial.
 
 ```
 event: interaction.created
-data: {"interaction": {"id": "...", "model": "gemini-3-flash-preview", "status": "in_progress", "object": "interaction"}, "event_type": "interaction.created"}
+data: {"interaction": {"id": "...", "model": "gemini-3.5-flash", "status": "in_progress", "object": "interaction"}, "event_type": "interaction.created"}
 ```
 
 ### `interaction.status_update`
 
-Sygnalizuje przejście stanu na poziomie interakcji. Może się pojawiać między krokami.
+Sinaliza uma transição de status no nível da interação. Pode aparecer entre as etapas.
 
 ```
 event: interaction.status_update
@@ -145,23 +145,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-Oznacza początek nowego kroku. Zawiera `type` i `index` kroku. Typ kroku określa, jakich typów delty należy się spodziewać i jak krok będzie wyglądać w odpowiedzi bez strumieniowania:
+Marca o início de uma nova etapa. Contém o `type` e o `index` da etapa. O tipo de etapa determina quais tipos de delta esperar e como a etapa aparece em uma resposta não transmitida:
 
-| Typ kroku | Oczekiwane typy delty | Opis |
+| Tipo de etapa | Tipos de delta esperados | Descrição |
 | --- | --- | --- |
-| `model_output` | `text`, `image`, `audio` | Końcowa treść odpowiedzi modelu. |
-| `thought` | `thought_signature`, `thought_summary` | Rozumowanie w łańcuchu myśli. `summary` jest obecny tylko wtedy, gdy włączona jest opcja `thinking_summaries`. |
-| `function_call` | `arguments_delta` | Prośba o wykonanie funkcji przez klienta. Ustawia stan interakcji na `requires_action`. |
-| Narzędzia po stronie serwera | Zależy od narzędzia | Narzędzia wykonywane przez interfejs API (np. `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
+| `model_output` | `text`, `image`, `audio` | O conteúdo da resposta final do modelo. |
+| `thought` | `thought_signature`, `thought_summary` | Raciocínio da cadeia de pensamento. `summary` só está presente quando `thinking_summaries` está ativado. |
+| `function_call` | `arguments_delta` | Uma solicitação para o cliente executar uma função. Define o status da interação como `requires_action`. |
+| Ferramentas do lado do servidor | Varia de acordo com a ferramenta | Ferramentas executadas pela API (por exemplo, `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
 
-Pełną listę znajdziesz w dokumentacji interfejsu [Interactions API](https://ai.google.dev/api/interactions-api?hl=pl).
+Consulte a referência da API [Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br) para conferir a lista completa.
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-W przypadku wywołań funkcji krok zawiera nazwę funkcji, identyfikator i puste argumenty `{}`.
+Para chamadas de função, a etapa inclui o nome da função, o ID e os argumentos vazios `{}`.
 
 ```
 event: step.start
@@ -170,11 +170,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-Przyrostowe dane dla bieżącego kroku. Obiekt `delta` zawiera pole `type`, które określa jego kształt.
+Dados incrementais para a etapa atual. O objeto `delta` contém um campo `type` que determina o formato dele.
 
-**Przykłady:**
+**Exemplos:**
 
-**`text`:** przyrostowy token tekstowy z kroku `model_output`:
+**`text`**:token de texto incremental de uma etapa `model_output`:
 
 ```
 event: step.delta
@@ -184,32 +184,32 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** dane obrazu zakodowane w formacie Base64 z kroku `model_output`:
+**`image`**:dados de imagem codificados em Base64 de uma etapa `model_output`:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** treść podsumowania myślenia z kroku `thought`:
+**`thought_summary`:** conteúdo de resumo de raciocínio de uma etapa `thought`:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** (częściowy) ciąg znaków JSON argumentów wywołania funkcji. Musi być gromadzony w deltach:
+**`arguments_delta`**:string JSON (parcial) para argumentos de chamada de função. Precisa ser acumulado em deltas:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-Oto kilka najczęstszych typów delty. Pełną listę wszystkich typów delty znajdziesz w dokumentacji interfejsu [Interactions API](https://ai.google.dev/api/interactions-api?hl=pl).
+Estes são alguns dos tipos de delta mais comuns. Para conferir a lista completa de todos os tipos de delta, consulte a [referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br).
 
 ### `step.stop`
 
-Oznacza koniec kroku. Zawiera `index` kroku.
+Marca o fim de uma etapa. Contém o `index` da etapa.
 
 ```
 event: step.stop
@@ -218,7 +218,7 @@ data: {"index": 0, "event_type": "step.stop"}
 
 ### `interaction.completed`
 
-Wysyłane po zakończeniu interakcji. Zawiera końcowy obiekt interakcji ze statystykami `usage`. W trybie bez strumieniowania jest to sam obiekt odpowiedzi najwyższego poziomu. Nie zawiera w odpowiedzi `steps`.
+Enviado quando a interação é concluída. Contém o objeto de interação final com estatísticas `usage`. No modo não transmitido, esse é o próprio objeto de resposta de nível superior. Não inclui `steps` na resposta.
 
 ```
 event: interaction.completed
@@ -227,24 +227,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-Wysyłane, gdy podczas interakcji wystąpi błąd. Zawiera obiekt błędu z komunikatem i kodem.
+Enviado quando ocorre um erro durante a interação. Contém um objeto de erro com uma mensagem e um código.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## Strumieniowanie za pomocą narzędzi
+## Transmissão com ferramentas
 
-Interfejs Interactions API obsługuje strumieniowanie za pomocą narzędzi po stronie klienta (wywoływanie funkcji) i narzędzi po stronie serwera (wyszukiwarka Google, wykonywanie kodu itp.) w jednym żądaniu. Podczas strumieniowania wywołania narzędzi pojawiają się w strumieniu zdarzeń jako kroki określonego typu. W przypadku wywołań funkcji zdarzenie `step.start` dostarcza nazwę funkcji, a zdarzenia `step.delta` przesyłają argumenty jako ciągi znaków JSON (`arguments_delta`). Aby uzyskać pełne argumenty, musisz zgromadzić te delty.
-Narzędzia po stronie serwera, takie jak wyszukiwarka Google, są wykonywane automatycznie przez interfejs API, co powoduje tworzenie kroków `google_search_call` i `google_search_result`.
+A API Interactions oferece suporte à transmissão com ferramentas do lado do cliente (chamada de função) e do lado do servidor (Pesquisa Google, execução de código etc.) em uma única solicitação. Durante a transmissão, as invocações de ferramentas aparecem como etapas digitadas no fluxo de eventos. Para chamadas de função, o evento `step.start` entrega o nome da função, e os eventos `step.delta` transmitem os argumentos como strings JSON (`arguments_delta`). É necessário acumular esses deltas para receber os argumentos completos.
+As ferramentas do lado do servidor, como a Pesquisa Google, são executadas automaticamente pela API, produzindo etapas `google_search_call` e `google_search_result`.
 
-### Strumieniowanie za pomocą wywoływania funkcji
+### Transmissão com chamada de função
 
-Aby wykonywać wywoływanie funkcji za pomocą strumieniowania, klient musi obsługiwać rozmowę wieloetapową:
+Para realizar a chamada de função com transmissão, o cliente precisa processar uma conversa multiturno:
 
-1. **Etap 1 (żądanie funkcji):** wywołaj `interactions.create` z `stream: true` i zdefiniowanymi `tools`. Interfejs API będzie przesyłać strumieniowo krok `function_call`. Musisz gromadzić przyrostowe ciągi znaków JSON argumentów (`arguments_delta`) ze zdarzeń `step.delta`, dopóki interakcja nie zostanie zakończona ze stanem `requires_action`.
-2. **Etap 2 (wysyłanie wyniku):** ponownie wywołaj `interactions.create`, przekazując `previous_interaction_id` (pasujący do identyfikatora pierwszej interakcji) i wysyłając blok `function_result` w tablicy `input`. Spowoduje to wznowienie strumienia, co umożliwi modelowi wygenerowanie ostatecznej odpowiedzi.
+1. **Turno 1 (solicitação de função)** : chame `interactions.create` com `stream: true` e suas `tools` definidas. A API vai transmitir uma etapa `function_call`. É necessário acumular as strings JSON de argumento incremental (`arguments_delta`) de eventos `step.delta` até que a interação seja concluída com o status `requires_action`.
+2. **Turno 2 (envio do resultado)** : chame `interactions.create` novamente, transmitindo o `previous_interaction_id` (que corresponde ao ID da primeira interação) e enviando um bloco `function_result` na matriz `input`. Isso retoma o stream, permitindo que o modelo gere a resposta final.
 
 ### Python
 
@@ -271,7 +271,7 @@ weather_tool = {
 
 # Turn 1: Request function call
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     tools=[weather_tool],
     input="What is the weather in Paris right now?",
     stream=True,
@@ -297,13 +297,12 @@ for event in stream:
 # Turn 2: Execute tool and send the result back to resume stream
 if func_call_id:
     # Execute weather_tool using accumulated arguments
-    # args = json.loads(func_args_accumulated)
     dummy_result = {
         "content": [{"type": "text", "text": '{"weather": "Sunny and 22°C"}'}]
     }
 
     stream2 = client.interactions.create(
-        model="gemini-3-flash-preview",
+        model="gemini-3.5-flash",
         previous_interaction_id=first_interaction_id,
         input=[{
             "type": "function_result",
@@ -345,7 +344,7 @@ const weatherTool = {
 
 // Turn 1: Request function call
 const stream = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     tools: [weatherTool],
     input: "What is the weather in Paris right now?",
     stream: true,
@@ -374,13 +373,12 @@ for await (const event of stream) {
 
 // Turn 2: Execute tool and send the result back to resume stream
 if (funcCallId && firstInteractionId && funcCallName) {
-    // const args = JSON.parse(funcArgsAccumulated);
     const dummyResult = {
         content: [{ type: "text", text: '{"weather": "Sunny and 22°C"}' }]
     };
 
     const stream2 = await client.interactions.create({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.5-flash",
         previous_interaction_id: firstInteractionId,
         input: [{
             type: "function_result",
@@ -403,7 +401,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 
 ### REST
 
-**Etap 1:** żądanie wywołania funkcji
+**Turno 1**:solicitar chamada de função
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -411,7 +409,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   --no-buffer \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What is the weather in Paris right now?",
     "stream": true,
     "tools": [
@@ -434,7 +432,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Etap 2:** wyślij wynik funkcji za pomocą `previous_interaction_id` i `call_id` z etapu 1
+**Turno 2**:enviar o resultado da função usando o `previous_interaction_id` e o `call_id` do turno 1
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -442,7 +440,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   --no-buffer \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "previous_interaction_id": "v1_ChdGUVFJYXBXVUdLVEF4TjhQ...",
     "stream": true,
     "input": [
@@ -463,9 +461,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Strumieniowanie za pomocą wielu narzędzi
+### Transmissão com várias ferramentas
 
-W tym przykładzie użyto w jednym żądaniu narzędzia `function` i `google_search`:
+O exemplo a seguir usa uma ferramenta `function` e `google_search` em uma solicitação:
 
 ### Python
 
@@ -494,9 +492,9 @@ tools = [
 ]
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     tools=tools,
-    input="Search what it the largest mountain in Europe and what the weather is there right now?",
+    input="Search what is the largest mountain in Europe and what the weather is there right now?",
     stream=True,
 )
 for event in stream:
@@ -550,9 +548,9 @@ const tools = [
 ];
 
 const stream = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     tools: tools,
-    input: "Search what it the largest mountain in Europe and what the weather is there right now?",
+    input: "Search what is the largest mountain in Europe and what the weather is there right now?",
     stream: true,
 });
 for await (const event of stream) {
@@ -572,8 +570,6 @@ for await (const event of stream) {
             process.stdout.write(event.delta.text);
         } else if (event.delta.type === "google_search_call") {
             console.log(`  Queries: ${JSON.stringify(event.delta.arguments?.queries)}`);
-        } else if (event.step.type === "google_search_result") {
-            console.log(`  Result for: ${event.step.call_id}`);
         } else if (event.delta.type === "arguments_delta") {
             process.stdout.write(`  Args chunk: ${event.delta.arguments}`);
         }
@@ -594,8 +590,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   --no-buffer \
   -d '{
-    "model": "gemini-3-flash-preview",
-    "input": "Search what it the largest mountain in Europe and what the weather is there right now?",
+    "model": "gemini-3.5-flash",
+    "input": "Search what is the largest mountain in Europe and what the weather is there right now?",
     "stream": true,
     "tools": [
       { "type": "google_search" },
@@ -620,7 +616,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
@@ -662,15 +658,15 @@ event: step.stop
 data: {"index":3,"event_type":"step.stop"}
 
 event: interaction.completed
-data: {"interaction":{"id":"v1_...","status":"requires_action","usage":{"total_tokens":299,"total_input_tokens":138,"input_tokens_by_modality":[{"modality":"text","tokens":138}],"total_cached_tokens":0,"total_output_tokens":20,"total_tool_use_tokens":0,"total_thought_tokens":141},"created":"2026-05-12T17:24:26Z","updated":"2026-05-12T17:24:26Z","service_tier":"standard","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.completed"}
+data: {"interaction":{"id":"v1_...","status":"requires_action","usage":{"total_tokens":299,"total_input_tokens":138,"input_tokens_by_modality":[{"modality":"text","tokens":138}],"total_cached_tokens":0,"total_output_tokens":20,"total_tool_use_tokens":0,"total_thought_tokens":141},"created":"2026-05-12T17:24:26Z","updated":"2026-05-12T17:24:26Z","service_tier":"standard","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.completed"}
 
 event: done
 data: [DONE]
 ```
 
-## Strumieniowanie z myśleniem
+## Transmissão com raciocínio
 
-Gdy model używa myślenia, otrzymasz kroki `thought` z 2 różnymi typami delty: `thought_summary` (przyrostowa treść podsumowania tekstu lub obrazu) i `thought_signature` (zaszyfrowana reprezentacja wewnętrznego rozumowania modelu, wysyłana jako ostatnia delta przed `step.stop`). Jeśli włączona jest opcja `thinking_summaries`, delty `thought_summary` przesyłają strumieniowo podsumowanie rozumowania modelu. Więcej informacji o myśleniu znajdziesz w przewodniku [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl).
+Quando o modelo usa o raciocínio, você recebe etapas `thought` com dois tipos de delta distintos: `thought_summary` (conteúdo de resumo de texto ou imagem incremental) e `thought_signature` (uma representação criptografada do raciocínio interno do modelo, enviada como o último delta antes de `step.stop`). Se `thinking_summaries` estiver ativado, os deltas `thought_summary` vão transmitir um resumo do raciocínio do modelo. Para mais detalhes sobre o raciocínio, consulte o [guia de raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br).
 
 ### Python
 
@@ -680,7 +676,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3-flash-preview",
+    model="gemini-3.5-flash",
     input="What is the greatest common divisor of 1071 and 462?",
     generation_config={
         "thinking_summaries": "auto"
@@ -706,7 +702,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.5-flash",
     input: "What is the greatest common divisor of 1071 and 462?",
     generation_config: {
         thinking_summaries: "auto",
@@ -736,7 +732,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   --no-buffer \
   -d '{
-    "model": "gemini-3-flash-preview",
+    "model": "gemini-3.5-flash",
     "input": "What is the greatest common divisor of 1071 and 462?",
     "stream": true,
     "generation_config": {
@@ -747,7 +743,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3-flash-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3.5-flash"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
@@ -770,9 +766,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## Strumieniowanie za pomocą agentów
+## Transmissão com agentes
 
-Interfejs Interactions API obsługuje agentów, takich jak Deep Research. Agenci używają `background=True` i zwracają wyniki asynchronicznie, ale możesz też przesyłać strumieniowo interakcje z agentami, aby otrzymywać aktualizacje postępów i kroki pośrednie na bieżąco. Więcej informacji znajdziesz w przewodnikach [Wykonywanie w tle](https://ai.google.dev/gemini-api/docs/background-execution?hl=pl) i [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl).
+A API Interactions oferece suporte a agentes como o Deep Research. Os agentes usam `background=True` e retornam resultados de forma assíncrona, mas também é possível transmitir interações de agentes para receber atualizações de progresso e etapas intermediárias à medida que acontecem. Para mais detalhes, consulte o [guia de execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) e o [guia do Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br).
 
 ### Python
 
@@ -891,11 +887,11 @@ event: done
 data: [DONE]
 ```
 
-## Strumieniowe generowanie obrazów
+## Geração de imagens de transmissão
 
-Interfejs Interactions API obsługuje jednoczesne strumieniowanie wielu trybów wyjściowych. Jeśli w `response_format` zażądasz zarówno `text`, jak i `image`, możesz otrzymywać w tym samym strumieniu przeplatany tekst i wygenerowane obrazy.
+A API Interactions oferece suporte à transmissão de várias modalidades de saída simultaneamente. Ao solicitar `text` e `image` no `response_format`, você pode receber texto intercalado e imagens geradas no mesmo stream.
 
-W tym przykładzie użyto `gemini-3.1-flash-image-preview` (Nano Banana 2) do wyszukiwania informacji i generowania historii z przeplatanymi ilustracjami.
+O exemplo a seguir usa `gemini-3.1-flash-image` (Nano Banana 2) para pesquisar informações e gerar uma história com ilustrações intercaladas.
 
 ### Python
 
@@ -905,7 +901,7 @@ from google import genai
 client = genai.Client()
 
 stream = client.interactions.create(
-    model="gemini-3.1-flash-image-preview",
+    model="gemini-3.1-flash-image",
     tools=[{"type": "google_search", "search_types": ["web_search", "image_search"]}],
     input="Search for the history of the Colosseum and write a short illustrated story about a gladiator named Marcus. Interleave text and generated images.",
     response_format=[
@@ -931,7 +927,7 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const stream = await client.interactions.create({
-    model: "gemini-3.1-flash-image-preview",
+    model: "gemini-3.1-flash-image",
     tools: [{ type: "google_search", search_types: ["web_search", "image_search"] }],
     input: "Search for the history of the Colosseum and write a short illustrated story about a gladiator named Marcus. Interleave text and generated images.",
     response_format: [
@@ -960,7 +956,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "Content-Type: application/json" \
   --no-buffer \
   -d '{
-    "model": "gemini-3.1-flash-image-preview",
+    "model": "gemini-3.1-flash-image",
     "input": "Search for the history of the Colosseum and write a short illustrated story about a gladiator named Marcus. Interleave text and generated images.",
     "stream": true,
     "tools": [
@@ -979,7 +975,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 
 ```
 event: interaction.created
-data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3.1-flash-image-preview"},"event_type":"interaction.created"}
+data: {"interaction":{"id":"v1_...","status":"in_progress","object":"interaction","model":"gemini-3.1-flash-image"},"event_type":"interaction.created"}
 
 event: interaction.status_update
 data: {"interaction_id":"v1_...","status":"in_progress","event_type":"interaction.status_update"}
@@ -1048,24 +1044,24 @@ event: done
 data: [DONE]
 ```
 
-## Obsługa nieznanych zdarzeń
+## Como processar eventos desconhecidos
 
-Zgodnie z zasadami dotyczącymi obsługi wersji interfejsu API z czasem mogą zostać dodane nowe typy zdarzeń i typy delty. Kod powinien obsługiwać nieznane typy zdarzeń w sposób prawidłowy – rejestrować i pomijać wszystkie nierozpoznane zdarzenia, zamiast zgłaszać błąd.
+De acordo com a política de controle de versões da API, novos tipos de eventos e tipos de delta podem ser adicionados ao longo do tempo. O código precisa processar tipos de eventos desconhecidos normalmente: registre e pule todos os eventos que você não reconhece em vez de gerar um erro.
 
-## Co dalej?
+## A seguir
 
-- Dowiedz się więcej o interfejsie [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl).
-- Poznaj [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) za pomocą narzędzi.
-- Dowiedz się więcej o [myśleniu](https://ai.google.dev/gemini-api/docs/thinking?hl=pl), które zwiększa możliwości rozumowania.
-- Wypróbuj agenta [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pl) do długotrwałych zadań.
-- Wszystkie typy zdarzeń i typy delty znajdziesz w dokumentacji interfejsu [Interactions API](https://ai.google.dev/api/interactions-api?hl=pl).
+- Saiba mais sobre a [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br).
+- Saiba mais sobre a [chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) com ferramentas.
+- Saiba mais sobre [o raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para melhorar o raciocínio.
+- Teste o [agente do Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) para tarefas de longa duração.
+- Consulte a [referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br) para conferir todos os tipos de eventos e tipos de delta.
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-06-26 UTC.
+Última atualização 2026-07-07 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-06-26 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-07 UTC."],[],[]]

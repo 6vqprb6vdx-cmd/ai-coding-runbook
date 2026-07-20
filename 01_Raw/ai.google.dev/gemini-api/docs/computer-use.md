@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=he
-fetched_at: 2026-07-06T05:09:27.660577+00:00
-title: "\u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05de\u05d7\u05e9\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=pl
+fetched_at: 2026-07-20T04:41:10.128716+00:00
+title: "Korzystanie z\u00a0komputera \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interfejs Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pl) jest już ogólnie dostępny. Zalecamy korzystanie z tego interfejsu API, aby mieć dostęp do wszystkich najnowszych funkcji i modeli.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-שליחת משוב
+Prześlij opinię
 
-# שימוש במחשב
+# Korzystanie z komputera
 
-הכלי 'שימוש במחשב' מאפשר לכם ליצור סוכני בקרה לדפדפן, לנייד ולמחשב, שמבצעים אינטראקציות ומשימות אוטומטיות. באמצעות צילומי מסך, המודל יכול "לראות" מסך מחשב ו "לפעול" על ידי יצירת פעולות ספציפיות בממשק המשתמש, כמו לחיצות עכבר וקלט מהמקלדת. בדומה לקריאה לפונקציה, תצטרכו להטמיע את סביבת ההפעלה בצד הלקוח כדי לקבל ולהפעיל את הפעולות של השימוש במחשב.
+Narzędzie Computer Use umożliwia tworzenie agentów sterujących przeglądarką, urządzeniami mobilnymi i komputerami, którzy wchodzą w interakcje z użytkownikami i automatyzują zadania. Na podstawie zrzutów ekranu model może „widzieć” ekran komputera i „działać”, generując określone działania interfejsu, takie jak kliknięcia myszą i wpisywanie z klawiatury. Podobnie jak w przypadku wywoływania funkcji musisz wdrożyć środowisko wykonawcze po stronie klienta, aby otrzymywać i wykonywać działania związane z korzystaniem z komputera.
 
-‫Gemini 3.5 Flash הוא המודל המומלץ לשימוש במחשב, והוא כולל כמה יכולות חדשות:
+Gemini 3.5 Flash to zalecany model do użytku na komputerze. Wprowadzamy w nim kilka nowych funkcji:
 
-- **תמיכה בסביבות מרובות:** אפשר ליצור סוכנים לסביבות [דפדפן, נייד ומחשב](#supported-environments).
-- **פעולות יעילות עם כוונות:** הפעולות כוללות שדה `intent` שמסביר את ההיגיון של המודל מאחורי כל שלב.
-- **מדיניות בטיחות שאפשר להגדיר:** אפשר לשנות את [התנהגות הבטיחות](#safety-policies) באמצעות קטגוריות מדיניות מובנות ושינויים בהגדרות ברירת המחדל.
-- **זיהוי של הזרקת הנחיות:** הפעלה של [סריקת צילומי מסך](#prompt-injection) כדי לזהות הנחיות נסתרות של יריבים.
+- **Obsługa wielu środowisk:** twórz agentów dla środowisk [przeglądarki, urządzeń mobilnych i komputerów](#supported-environments).
+- **Uproszczone działania z intencjami:** działania zawierają pole `intent`, które wyjaśnia uzasadnienie modelu dla każdego kroku.
+- **Konfigurowalne zasady bezpieczeństwa:** dostosuj [zachowanie związane z bezpieczeństwem](#safety-policies) za pomocą wbudowanych kategorii zasad i zastąpień.
+- **Wykrywanie wstrzykiwania promptów:** włącz [skanowanie zrzutów ekranu](#prompt-injection), aby wykrywać ukryte instrukcje, które mogą być wykorzystywane do ataków.
 
-באמצעות 'שימוש במחשב', אפשר ליצור סוכנים ש:
+Za pomocą narzędzia Computer Use możesz tworzyć agentów, którzy:
 
-- להפוך לאוטומטיות משימות חוזרות של הזנת נתונים או מילוי טפסים באתרים.
-- ביצוע בדיקות אוטומטיות של אפליקציות אינטרנט ותהליכי משתמש
-- ביצוע מחקר באתרים שונים (למשל, איסוף מידע על מוצרים, מחירים וביקורות מאתרי מסחר אלקטרוני כדי לקבל החלטה לגבי רכישה)
+- automatyzować powtarzające się wprowadzanie danych lub wypełnianie formularzy w witrynach;
+- Przeprowadzanie automatycznych testów aplikacji internetowych i ścieżek użytkownika
+- prowadzić wyszukiwanie w różnych witrynach (np. zbierać informacje o produktach, cenach i opiniach w witrynach e-commerce, aby podjąć decyzję o zakupie);
 
-הנה דוגמה מינימלית לאתחול הלקוח ושליחת הנחיה למודל עם הכלי `computer_use` שמופעל בסביבת דפדפן:
+Oto minimalny przykład inicjowania klienta i wysyłania prompta do modelu z narzędziem `computer_use` włączonym w środowisku przeglądarki:
 
 ### Python
 
@@ -67,46 +67,46 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## איך פועלת התכונה 'שימוש במחשב'
+## Jak działa korzystanie z komputera
 
-כדי ליצור סוכן באמצעות מודל השימוש במחשב, צריך להגדיר לולאה רציפה בין האפליקציה לבין ה-API. מה הקוד יעשה בכל שלב:
+Aby utworzyć agenta z modelem Computer Use, musisz skonfigurować ciągłą pętlę między aplikacją a interfejsem API. Oto, co Twój kod
+będzie robić na każdym etapie:
 
-1. [**שליחת בקשה למודל**](#send-request)
-   - האפליקציה שולחת בקשת API שמכילה את הכלי לשימוש במחשב, את הגדרות התצורה (כמו סביבת היעד), את ההנחיה של המשתמש וצילום מסך של המסך הנוכחי.
-2. [**קבלת התשובה של המודל**](#model-response)
-   - המודל מנתח את המסך ואת ההנחיה ומחזיר תשובה שכוללת `function_call` שמייצג פעולה בממשק המשתמש (כמו קליק, גלילה או הקשה על מקש).
-   - במקרה של **Gemini 3.5 Flash**, התשובה כוללת גם נימוק `intent`
-     שמסביר למה המודל בחר בפעולה הזו.
-   - התגובה עשויה לכלול גם `safety_decision` ממערכת בטיחות פנימית שמסווגת את הפעולה כרגילה/מותרת, `require_confirmation` (נדרש אישור משתמש) או חסומה.
-3. [**מבצעים את הפעולה שקיבלתם**](#execute-actions)
-   - אם הפעולה מותרת (או שהמשתמש מאשר אותה), הקוד בצד הלקוח מנתח את `function_call`, משנה את קנה המידה של הקואורדינטות המנורמלות כך שיתאימו לאזור התצוגה, ומבצע את הפעולה בסביבת היעד באמצעות כלי אוטומציה (כמו Playwright). אם הפעולה חסומה, הלקוח צריך להפסיק את ההפעלה או לטפל בהפרעה.
-4. [**תיעוד של מצב הסביבה החדשה**](#capture-state)
-   - אחרי שהפעולה מסתיימת, האפליקציה מצלמת צילום מסך חדש ושולחת אותו בחזרה למודל ב-`function_result` כדי לבקש את השלב הבא.
+1. [**Wysyłanie żądania do modelu**](#send-request)
+   - Aplikacja wysyła żądanie do interfejsu API zawierające narzędzie Computer Use, ustawienia konfiguracji (np. środowisko docelowe), prompt użytkownika i zrzut ekranu.
+2. [**Otrzymywanie odpowiedzi modelu**](#model-response)
+   - Model analizuje ekran i prompt, a następnie zwraca odpowiedź, która zawiera sugerowany `function_call` reprezentujący działanie w interfejsie (np. kliknięcie, przewinięcie lub naciśnięcie klawisza).
+   - W przypadku **Gemini 3.5 Flash** odpowiedź zawiera też uzasadnienie`intent` wyjaśniające, dlaczego model wybrał to działanie.
+   - Odpowiedź może też zawierać `safety_decision` z wewnętrznego systemu bezpieczeństwa, który klasyfikuje działanie jako zwykłe/dozwolone, `require_confirmation` (wymagające zatwierdzenia przez użytkownika) lub zablokowane.
+3. [**Wykonaj otrzymane działanie**](#execute-actions)
+   - Jeśli działanie jest dozwolone (lub użytkownik je potwierdzi), kod po stronie klienta analizuje `function_call`, skaluje znormalizowane współrzędne, aby dopasować je do widocznego obszaru, i wykonuje działanie w środowisku docelowym za pomocą narzędzi do automatyzacji (takich jak Playwright). Jeśli działanie jest zablokowane, klient powinien wstrzymać wykonanie lub obsłużyć przerwanie.
+4. [**Zapisz stan nowego środowiska**](#capture-state)
+   - Po wykonaniu działania aplikacja robi nowy zrzut ekranu i wysyła go z powrotem do modelu w `function_result`, aby poprosić o kolejny krok.
 
-התהליך הזה חוזר על עצמו משלב 2, והמודל מתבקש שוב ושוב לבצע את הפעולה הבאה עד שהמשימה מסתיימת או שהתהליך מופסק.
+Proces powtarza się od kroku 2, stale prosząc model o wykonanie kolejnej czynności, dopóki zadanie nie zostanie ukończone lub przerwane.
 
-![סקירה כללית על שימוש במחשב](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=he)
+![Omówienie korzystania z komputera](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=pl)
 
-## איך מטמיעים את התכונה 'שימוש במחשב'
+## Jak wdrożyć korzystanie z komputera
 
-לפני שמתחילים להשתמש בכלי 'שימוש במחשב', צריך להגדיר:
+Zanim zaczniesz korzystać z narzędzia do używania komputera, musisz skonfigurować:
 
-- **סביבת ביצוע מאובטחת:** מריצים את הסוכן במכונה וירטואלית או במאגר מבודד כדי לבודד אותו ממערכת המארח ולהגביל את ההשפעה הפוטנציאלית שלו.
-  [הטמעה לדוגמה](https://github.com/google/computer-use-preview/) כוללת ארגז חול מבוסס Docker שמוכן לשימוש, ואפשר להשתמש בו כנקודת התחלה.
-- **הנדלר של פעולות מצד הלקוח:** הטמעת לוגיקה מצד הלקוח כדי להפעיל קואורדינטות, להקליד טקסט ולצלם צילומי מסך.
+- **Bezpieczne środowisko wykonawcze:** uruchamiaj agenta w piaskownicy w maszynie wirtualnej lub kontenerze, aby odizolować go od systemu hosta i ograniczyć jego potencjalny wpływ.
+  [Implementacja referencyjna](https://github.com/google/computer-use-preview/) zawiera gotową do użycia piaskownicę opartą na Dockerze, której możesz użyć jako punktu wyjścia.
+- **Obsługa działań po stronie klienta:** wdróż logikę po stronie klienta, aby wykonywać działania związane z współrzędnymi, wpisywać tekst i robić zrzuty ekranu.
 
-בדוגמאות שבהמשך נעשה שימוש בדפדפן אינטרנט כסביבת ההפעלה וב-[Playwright](https://playwright.dev/) כמטפל בצד הלקוח.
+W przykładach poniżej jako środowiska wykonawczego używamy przeglądarki, a jako modułu obsługi po stronie klienta – [Playwright](https://playwright.dev/).
 
-### ‫0. הגדרת Playwright
+### 0. Konfigurowanie Playwright
 
-קודם כול, מתקינים את החבילות הנדרשות:
+Najpierw zainstaluj wymagane pakiety:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-לאחר מכן, מאתחלים מופע של דפדפן Playwright לשימוש בהרצה:
+Następnie zainicjuj instancję przeglądarki Playwright, która będzie używana do wykonywania:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -134,15 +134,15 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. שליחת בקשה למודל
+### 1. Wysyłanie żądania do modelu
 
-מאתחלים את ספריית הלקוח ומגדירים את הכלי 'שימוש במחשב'. שימו לב: אין צורך לציין את גודל התצוגה כששולחים בקשה. המודל חוזה את קואורדינטות הפיקסלים שמותאמות לגובה ולרוחב של המסך.
+Zainicjuj bibliotekę klienta i skonfiguruj narzędzie Computer Use. Pamiętaj, że podczas wysyłania żądania nie musisz określać rozmiaru wyświetlacza. Model przewiduje współrzędne pikseli przeskalowane do wysokości i szerokości ekranu.
 
-### ‫Gemini 3.5 Flash (מומלץ)
+### Gemini 3.5 Flash (zalecany)
 
 ### Python
 
-משתמשים ב-`google-genai` Python SDK (גרסה `2.7.0` ואילך) כדי להגדיר בקשה לטירגוט סביבת הדפדפן:
+Użyj `google-genai`pakietu SDK Pythona (w wersji `2.7.0` lub nowszej), aby skonfigurować żądanie kierowane na środowisko przeglądarki:
 
 ```
 from google import genai
@@ -166,7 +166,7 @@ print(interaction)
 
 ### JavaScript
 
-משתמשים ב-Node.js SDK‏ `@google/genai` כדי להגדיר בקשה שמטרגטת את סביבת הדפדפן:
+Użyj pakietu `@google/genai` Node.js SDK, aby skonfigurować żądanie kierowane na środowisko przeglądarki:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -190,7 +190,7 @@ console.log(interaction);
 
 ### REST
 
-משתמשים ב-curl כדי לשלוח בקשה:
+Aby wysłać żądanie, użyj polecenia curl:
 
 ```
 curl -X POST \
@@ -210,7 +210,7 @@ curl -X POST \
   }'
 ```
 
-### ‫Gemini 2.5 (מדור קודם)
+### Gemini 2.5 (starsza wersja)
 
 ### Python
 
@@ -262,11 +262,11 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-### 2. קבלת התשובה מהמודל
+### 2. Otrzymywanie odpowiedzi modelu
 
-מודל התגובה מציע קריאה לפונקציה. במקרה של **Gemini 3.5 Flash**, התשובה מכילה כוונת הסקה מותאמת אישית לצד קואורדינטות. בדוגמה הבאה מוצגות שתי התשובות:
+Model odpowiedzi sugeruje wywołanie funkcji. W przypadku **Gemini 3.5 Flash** odpowiedź zawiera dostosowany zamiar rozumowania wraz z współrzędnymi. Poniżej znajdziesz przykłady obu odpowiedzi:
 
-### Gemini 3.5 Flash
+### Gemini 3.5 Flash
 
 ```
 {
@@ -284,7 +284,7 @@ console.log(interaction);
 }
 ```
 
-### ‫Gemini 2.5 (מדור קודם)
+### Gemini 2.5 (starsza wersja)
 
 ```
 {
@@ -312,11 +312,11 @@ console.log(interaction);
 }
 ```
 
-### 3. ביצוע הפעולות שהתקבלו
+### 3. wykonywać otrzymane działania,
 
-האפליקציה צריכה לנתח את קואורדינטות התגובה, לבצע את הפעולה ולשנות את קנה המידה שלהן מקואורדינטות נורמליות של 1,000x1,000.
+Aplikacja musi przeanalizować współrzędne odpowiedzi, wykonać działanie i skalować je ze znormalizowanych współrzędnych 1000 x 1000.
 
-הקוד שבהמשך מטפל גם בפקודות של כלי מדור קודם (`click_at`, `type_text_at`) וגם בפקודות יעילות של Gemini 3.5 Flash‏ (`click`, `type`).
+Poniższy kod obsługuje zarówno starsze polecenia narzędzi (`click_at`, `type_text_at`), jak i uproszczone polecenia Gemini 3.5 Flash (`click`, `type`).
 
 ### Python
 
@@ -481,9 +481,9 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
 }
 ```
 
-### 4. תיעוד של מצב הסביבה החדש
+### 4. Przechwyć nowy stan środowiska
 
-אחרי שמבצעים את הפעולות, שולחים את התוצאה של הפעלת הפונקציה בחזרה למודל כדי שהוא יוכל להשתמש במידע הזה כדי ליצור את הפעולה הבאה. אם בוצעו כמה פעולות (קריאות מקבילות), צריך לשלוח `function_result` לכל אחת מהן בתור הבא של המשתמש.
+Po wykonaniu działań wyślij wynik wykonania funkcji z powrotem do modelu, aby mógł on wykorzystać te informacje do wygenerowania następnego działania. Jeśli wykonano kilka działań (równoległych wywołań), w kolejnej turze użytkownika musisz wysłać `function_result` dla każdego z nich.
 
 ### Python
 
@@ -546,14 +546,14 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
-אחרי שמגדירים איך ללכוד ולעצב את מצב הסביבה, אפשר לשלב את כל השלבים האלה בלולאת ביצוע רציפה.
+Po określeniu sposobu rejestrowania i formatowania stanu środowiska możesz połączyć wszystkie te kroki w ciągłą pętlę wykonywania.
 
-## יצירת לופ של סוכן
+## Tworzenie pętli agenta
 
-כדי להפעיל אינטראקציות מרובות שלבים, משלבים את ארבעת השלבים מהקטע [איך מטמיעים את התכונה 'שימוש במחשב'](#implement-computer-use) בלולאה אחת.
-הלולאה הזו ממשיכה לבקש פעולות ולהעביר את התוצאות בחזרה למודל עד שהמשימה מסתיימת.
+Aby włączyć interakcje wieloetapowe, połącz 4 kroki z sekcji [Jak wdrożyć korzystanie z komputera](#implement-computer-use) w jedną pętlę.
+Pętla ta będzie kontynuować wysyłanie próśb o wykonanie działań i przekazywanie wyników z powrotem do modelu, dopóki zadanie nie zostanie ukończone.
 
-חשוב לזכור לנהל את היסטוריית השיחות בצורה נכונה על ידי הוספת התשובות של המודל והתשובות של הפונקציה להיסטוריה בכל שלב.
+Pamiętaj, aby prawidłowo zarządzać historią rozmów, dodając do niej na każdym etapie odpowiedzi modelu i odpowiedzi funkcji.
 
 ### Python
 
@@ -743,107 +743,107 @@ try {
 }
 ```
 
-## סביבות נתמכות (Gemini 3.5 Flash)
+## Obsługiwane środowiska (Gemini 3.5 Flash)
 
-‫Gemini 3.5 Flash תומך בשלוש סביבות שמוגדרות בתצורות `computer_use`:
+Model Gemini 3.5 Flash obsługuje 3 środowiska określone w `computer_use` konfiguracjach:
 
-### סביבת הדפדפן (`ENVIRONMENT_BROWSER`)
+### Środowisko przeglądarki (`ENVIRONMENT_BROWSER`)
 
-הפעולות הזמינות בכלי הדפדפן:
+Dostępne działania w narzędziu przeglądarki:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) |
 | --- | --- | --- |
-| **קליק** | קליקים שמאליים בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | לחיצות כפולות על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | לחיצות משולשות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | לחיצה אמצעית על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | לחיצות ימניות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | לחיצה ארוכה על כפתור העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | משחרר את לחצן העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **העברה** | העברת הסמן למיקום שצוין. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | הקלדת טקסט. | ‫`text`: str `press_enter`: bool (אופציונלי, ברירת מחדל `false`) `intent`: str |
-| **drag\_and\_drop** | גורר פריט מקואורדינטת ההתחלה לקואורדינטת הסיום. | ‫`start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | הפסקת ההרצה למספר שניות שצוין. | ‫`seconds`: int (אופציונלי, ברירת מחדל `1`) `intent`: str |
-| **press\_key** | לחיצה על המקש שצוין ושחרור שלו. | ‫`key`: str `intent`: str |
-| **key\_down** | לחיצה ארוכה על המקש שצוין. | ‫`key`: str `intent`: str |
-| **key\_up** | משחרר את המקש שצוין. | ‫`key`: str `intent`: str |
-| **מקש קיצור** | לחיצה על שילוב המקשים שצוין. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | מחזירה צילום מסך של המסך הנוכחי. | `intent`: str |
-| **scroll** | גלילה למעלה, למטה, שמאלה או ימינה בנקודה מסוימת בפיקסל אחד. | ‫`y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Optional, default `300`) `intent`: str |
-| **go\_back** | חזרה לדף האינטרנט הקודם בהיסטוריית הדפדפן. | `intent`: str |
-| **navigate** | ניווט ישירות לכתובת URL ספציפית. | ‫`url`: str `intent`: str |
-| **go\_forward** | מעבר קדימה לדף האינטרנט הבא בהיסטוריית הגלישה. | `intent`: str |
+| **kliknąć** | Lewy przycisk myszy kliknie w danym punkcie. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **double\_click** | Dwukrotne kliknięcie współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **triple\_click** | Trzykrotne kliknięcie we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **middle\_click** | Kliknięcie środkowym przyciskiem w danym miejscu. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **right\_click** | Kliknięcia prawym przyciskiem myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_down** | Naciska i przytrzymuje przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_up** | Zwalnia przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **przenieść** | Przenosi kursor w określone miejsce. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **type** | Wpisuje tekst. | `text`: str `press_enter`: bool (opcjonalny, domyślnie `false`) `intent`: str |
+| **drag\_and\_drop** | Przeciąga element od współrzędnych początkowych do końcowych. | `start_y`: int (0–999) `start_x`: int (0–999) `end_y`: int (0–999) `end_x`: int (0–999) `intent`: str |
+| **wait** | Wstrzymuje wykonywanie na określony czas (w sekundach). | `seconds`: int (opcjonalny, domyślnie `1`) `intent`: str |
+| **press\_key** | Naciśnięcie i puszczenie określonego klawisza. | `key`: str `intent`: str |
+| **key\_down** | Naciska i przytrzymuje określony klawisz. | `key`: str `intent`: str |
+| **key\_up** | Zwalnia określony klawisz. | `key`: str `intent`: str |
+| **klawisz skrótu** | Naciśnięcie określonej kombinacji klawiszy. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Zwraca zrzut bieżącego ekranu. | `intent`: str |
+| **scroll** | Przewija w górę, w dół, w lewo lub w prawo o określoną liczbę pikseli. | `y`: int (0–999) `x`: int (0–999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0–999, opcjonalnie, domyślnie `300`) `intent`: str |
+| **go\_back** | Wracasz do poprzedniej strony w historii przeglądarki. | `intent`: str |
+| **navigate** | Przechodzi bezpośrednio do określonego adresu URL. | `url`: str `intent`: str |
+| **go\_forward** | Przechodzi do następnej strony internetowej w historii przeglądarki. | `intent`: str |
 
-### סביבה לנייד (`ENVIRONMENT_MOBILE`)
+### Środowisko mobilne (`ENVIRONMENT_MOBILE`)
 
-פעולות בסביבה שעברה אופטימיזציה ל-Android:
+Działania w środowisku zoptymalizowanym pod kątem Androida:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) |
 | --- | --- | --- |
-| **open\_app** | פותח אפליקציה לפי השם שלה. | ‫`app_name`: str `intent`: str |
-| **קליק** | קליקים שמאליים בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | מציג רשימה של האפליקציות שזמינות במכשיר, ומחזיר את השמות ואת שמות החבילות שלהן. | `intent`: str |
-| **wait** | הפסקת ההרצה למספר שניות שצוין. | ‫`seconds`: int (אופציונלי, ברירת מחדל `1`) `intent`: str |
-| **go\_back** | חזרה למסך הקודם או לדף האינטרנט הקודם. | `intent`: str |
-| **type** | הקלדת טקסט. | ‫`text`: str `press_enter`: bool (אופציונלי, ברירת מחדל `false`) `intent`: str |
-| **drag\_and\_drop** | גורר פריט מקואורדינטת ההתחלה לקואורדינטת הסיום. | ‫`start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | מבצע לחיצה ארוכה בקואורדינטה במסך. | ‫`y`: int (0-999) `x`: int (0-999) `seconds`: int (אופציונלי, ברירת מחדל `2`) `intent`: str |
-| **press\_key** | לחיצה על המקש שצוין ושחרור שלו. | ‫`key`: str `intent`: str |
-| **take\_screenshot** | מחזירה צילום מסך של המסך הנוכחי. | `intent`: str |
+| **open\_app** | Otwiera aplikację według nazwy. | `app_name`: str `intent`: str |
+| **kliknąć** | Lewy przycisk myszy kliknie w danym punkcie. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **list\_apps** | Zawiera listę aplikacji dostępnych na urządzeniu, zwracając ich nazwy i nazwy pakietów. | `intent`: str |
+| **wait** | Wstrzymuje wykonywanie na określony czas (w sekundach). | `seconds`: int (opcjonalny, domyślnie `1`) `intent`: str |
+| **go\_back** | Cofasz się do poprzedniego ekranu lub strony internetowej. | `intent`: str |
+| **type** | Wpisuje tekst. | `text`: str `press_enter`: bool (opcjonalny, domyślnie `false`) `intent`: str |
+| **drag\_and\_drop** | Przeciąga element od współrzędnych początkowych do końcowych. | `start_y`: int (0–999) `start_x`: int (0–999) `end_y`: int (0–999) `end_x`: int (0–999) `intent`: str |
+| **long\_press** | Wykonuje długie naciśnięcie w określonym miejscu na ekranie. | `y`: int (0–999) `x`: int (0–999) `seconds`: int (opcjonalnie, domyślnie `2`) `intent`: str |
+| **press\_key** | Naciśnięcie i puszczenie określonego klawisza. | `key`: str `intent`: str |
+| **take\_screenshot** | Zwraca zrzut bieżącego ekranu. | `intent`: str |
 
-### סביבת שולחן עבודה (`ENVIRONMENT_DESKTOP`)
+### Środowisko graficzne (`ENVIRONMENT_DESKTOP`)
 
-פקודות לשימוש בסמן ברמת מערכת ההפעלה בסביבות שולחן עבודה:
+Polecenia kursora na poziomie systemu operacyjnego w środowiskach desktopowych:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) |
 | --- | --- | --- |
-| **קליק** | קליקים שמאליים בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | לחיצות כפולות על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | לחיצות משולשות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | לחיצה אמצעית על הקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | לחיצות ימניות בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | לחיצה ארוכה על כפתור העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | משחרר את לחצן העכבר בקואורדינטה. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **העברה** | העברת הסמן למיקום שצוין. | ‫`y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | הקלדת טקסט. | ‫`text`: str `press_enter`: bool (אופציונלי, ברירת מחדל `false`) `intent`: str |
-| **drag\_and\_drop** | גורר פריט מקואורדינטת ההתחלה לקואורדינטת הסיום. | ‫`start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | הפסקת ההרצה למספר שניות שצוין. | ‫`seconds`: int (אופציונלי, ברירת מחדל `1`) `intent`: str |
-| **press\_key** | לחיצה על המקש שצוין ושחרור שלו. | ‫`key`: str `intent`: str |
-| **key\_down** | לחיצה ארוכה על המקש שצוין. | ‫`key`: str `intent`: str |
-| **key\_up** | משחרר את המקש שצוין. | ‫`key`: str `intent`: str |
-| **מקש קיצור** | לחיצה על שילוב המקשים שצוין. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | מחזירה צילום מסך של המסך הנוכחי. | `intent`: str |
-| **scroll** | גלילה למעלה, למטה, שמאלה או ימינה בנקודה מסוימת בפיקסל אחד. | ‫`y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Optional, default `300`) `intent`: str |
+| **kliknąć** | Lewy przycisk myszy kliknie w danym punkcie. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **double\_click** | Dwukrotne kliknięcie współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **triple\_click** | Trzykrotne kliknięcie we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **middle\_click** | Kliknięcie środkowym przyciskiem w danym miejscu. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **right\_click** | Kliknięcia prawym przyciskiem myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_down** | Naciska i przytrzymuje przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **mouse\_up** | Zwalnia przycisk myszy we współrzędnych. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **przenieść** | Przenosi kursor w określone miejsce. | `y`: int (0–999) `x`: int (0–999) `intent`: str |
+| **type** | Wpisuje tekst. | `text`: str `press_enter`: bool (opcjonalny, domyślnie `false`) `intent`: str |
+| **drag\_and\_drop** | Przeciąga element od współrzędnych początkowych do końcowych. | `start_y`: int (0–999) `start_x`: int (0–999) `end_y`: int (0–999) `end_x`: int (0–999) `intent`: str |
+| **wait** | Wstrzymuje wykonywanie na określony czas (w sekundach). | `seconds`: int (opcjonalny, domyślnie `1`) `intent`: str |
+| **press\_key** | Naciśnięcie i puszczenie określonego klawisza. | `key`: str `intent`: str |
+| **key\_down** | Naciska i przytrzymuje określony klawisz. | `key`: str `intent`: str |
+| **key\_up** | Zwalnia określony klawisz. | `key`: str `intent`: str |
+| **klawisz skrótu** | Naciśnięcie określonej kombinacji klawiszy. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Zwraca zrzut bieżącego ekranu. | `intent`: str |
+| **scroll** | Przewija w górę, w dół, w lewo lub w prawo o określoną liczbę pikseli. | `y`: int (0–999) `x`: int (0–999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0–999, opcjonalnie, domyślnie `300`) `intent`: str |
 
-## פעולות בממשק המשתמש שנתמכות בגרסאות קודמות (Gemini 2.5)
+## Starsze obsługiwane działania w interfejsie (Gemini 2.5)
 
-במודלים מדור קודם (`gemini-2.5-computer-use-preview-10-2025`), הפעולות הבאות נתמכות:
+W przypadku starszych modeli (`gemini-2.5-computer-use-preview-10-2025`) obsługiwane są te działania:
 
-| שם הפקודה | תיאור | ארגומנטים (בבקשה להפעלת פונקציה) | דוגמה לבקשה להפעלת פונקציה |
+| Nazwa polecenia | Opis | Argumenty (w wywołaniu funkcji) | Przykładowe wywołanie funkcji |
 | --- | --- | --- | --- |
-| **open\_web\_browser** | הפעולה הזו תפתח את דפדפן האינטרנט. | ללא | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | הפקודה משהה את הביצוע למשך 5 שניות. | ללא | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | מעבר לדף הקודם בהיסטוריה. | ללא | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | מעבר לדף הבא בהיסטוריה. | ללא | `{"name": "go_forward", "arguments": {}}` |
-| **search** | עוברים למנוע החיפוש שמוגדר כברירת מחדל. | ללא | `{"name": "search", "arguments": {}}` |
-| **navigate** | הדפדפן עובר ישירות לכתובת ה-URL שצוינה. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | קליקים בקואורדינטה ספציפית. | ‫`y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | העכבר מרחף מעל קואורדינטה ספציפית. | ‫`y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | הקלדת טקסט בקואורדינטה. | ‫`y`: int ‏ (0-999), ‏ `x`: int ‏ (0-999), ‏ `text`: str, ‏ `press_enter`: bool (אופציונלי, ברירת המחדל היא True), ‏ `clear_before_typing`: bool (אופציונלי, ברירת המחדל היא True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | לוחצים על מקשים או על שילובים של מקשים. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | גלילה בכל דף האינטרנט. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | גלילה בקואורדינטות (x,y). | ‫`y`: int, `x`: int, `direction`: str, `magnitude`: int (אופציונלי, ברירת מחדל 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | גרירה בין שתי קואורדינטות. | ‫`y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
+| **open\_web\_browser** | Otwiera przeglądarkę. | Brak | `{"name": "open_web_browser", "arguments": {}}` |
+| **wait\_5\_seconds** | Wstrzymuje wykonywanie na 5 sekund. | Brak | `{"name": "wait_5_seconds", "arguments": {}}` |
+| **go\_back** | Przechodzi do poprzedniej strony w historii. | Brak | `{"name": "go_back", "arguments": {}}` |
+| **go\_forward** | Przechodzi do następnej strony w historii. | Brak | `{"name": "go_forward", "arguments": {}}` |
+| **search** | Przechodzi do domyślnej wyszukiwarki. | Brak | `{"name": "search", "arguments": {}}` |
+| **navigate** | Przekierowuje przeglądarkę bezpośrednio na podany adres URL. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
+| **click\_at** | Kliknięcia w określonych współrzędnych. | `y`: int (0–999), `x`: int (0–999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
+| **hover\_at** | Umieszcza wskaźnik myszy w określonym miejscu. | `y`: int (0–999), `x`: int (0–999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
+| **type\_text\_at** | Wpisuje tekst we współrzędnych. | `y`: int (0–999), `x`: int (0–999), `text`: str, `press_enter`: bool (opcjonalny, domyślnie True), `clear_before_typing`: bool (opcjonalny, domyślnie True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
+| **key\_combination** | Naciśnij klawisze lub kombinacje klawiszy. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
+| **scroll\_document** | Przewija całą stronę internetową. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
+| **scroll\_at** | Przewija do współrzędnych (x,y). | `y`: int, `x`: int, `direction`: str, `magnitude`: int (opcjonalnie, domyślnie 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
+| **drag\_and\_drop** | Przeciąganie między dwoma współrzędnymi. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
 
-## פונקציות מותאמות אישית בהגדרת המשתמש
+## Funkcje niestandardowe zdefiniowane przez użytkownika
 
-אפשר להרחיב את הפונקציונליות של המודל באמצעות פונקציות מותאמות אישית בהגדרת המשתמש. לדוגמה, בתרחישים של התערבות אנושית (HITL), אפשר להחריג פעולות מוגדרות מראש ולרשום פעולות בהתאמה אישית.
+Możesz rozszerzyć funkcjonalność modelu, dodając niestandardowe funkcje zdefiniowane przez użytkownika. Na przykład w scenariuszach z udziałem człowieka możesz wykluczyć domyślne wstępnie zdefiniowane działania i zarejestrować działania niestandardowe.
 
-#### Gemini 3.5 Flash Custom Tooling
+#### Narzędzia niestandardowe Gemini 3.5 Flash
 
 ### Python
 
-להחריג פעולות סטנדרטיות שהוגדרו מראש בדפדפן (כמו `click`) ולרשום כלי מותאם אישית `yield_to_user`:
+Wyklucz standardowe, zdefiniowane wstępnie działania przeglądarki (np. `click`) i zarejestruj niestandardowe narzędzie `yield_to_user`:
 
 ```
 from google import genai
@@ -882,7 +882,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-להחריג פעולות סטנדרטיות שהוגדרו מראש בדפדפן (כמו `click`) ולרשום כלי מותאם אישית `yield_to_user`:
+Wyklucz standardowe, zdefiniowane wstępnie działania przeglądarki (np. `click`) i zarejestruj niestandardowe narzędzie `yield_to_user`:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -919,7 +919,7 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-#### כלים מותאמים אישית של Gemini 2.5 (גרסה מדור קודם)
+#### Niestandardowe narzędzia Gemini 2.5 (starsza wersja)
 
 ### Python
 
@@ -999,29 +999,29 @@ const interaction = await ai.interactions.create({
 console.log(interaction);
 ```
 
-## ניהול רמות החשיבה (Gemini 3.5 Flash)
+## Zarządzanie poziomami myślenia (Gemini 3.5 Flash)
 
-בסוכנים לשימוש במחשב, אפשר להגדיר רמות חשיבה שונות כדי ליצור איזון בין איכות הפעולה למהירות הביצוע. בדרך כלל, רמות חשיבה נמוכות יותר מאפשרות להשיג איזון טוב במשימות אוטומציה רגילות.
+W przypadku agentów korzystających z komputera możesz skonfigurować różne poziomy myślenia, aby zrównoważyć jakość działania i szybkość wykonywania. Niższe poziomy myślenia zwykle zapewniają dobrą równowagę w przypadku standardowych zadań automatyzacji.
 
-## בטיחות ואבטחה
+## Bezpieczeństwo
 
-### הגדרת מדיניות אבטחה (Gemini 3.5 Flash)
+### Konfigurowanie zasad bezpieczeństwa (Gemini 3.5 Flash)
 
-מודל Gemini 3.5 Flash כולל קטגוריות מובנות של שירותי בטיחות שקובעות באופן אוטומטי אם נדרש אישור מהמשתמש.
+Model Gemini 3.5 Flash zawiera wbudowane kategorie usług związane z bezpieczeństwem, które automatycznie określają, czy wymagane jest potwierdzenie użytkownika.
 
-| קטגוריית מדיניות בנושא בטיחות | תיאור |
+| Kategoria zasad bezpieczeństwa | Opis |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | חסימה או הפעלה של אישור לפעולות שקשורות לתשלומים, לתשלום בקמעונאות או למוצרים מפוקחים. |
-| `SENSITIVE_DATA_MODIFICATION` | הגנה על רשומות בריאותיות, פיננסיות או ממשלתיות מפני שינויים לא מורשים. |
-| `COMMUNICATION_TOOL` | הגבלה של הסוכן כך שלא יוכל לשלוח אימיילים, הודעות צ'אט או טיוטות באופן אוטונומי. |
-| `ACCOUNT_CREATION` | ההגדרה הזו מגבילה את היכולת של הסוכן לרשום באופן אוטונומי חשבונות חדשים באתרים. |
-| `DATA_MODIFICATION` | ההרשאה הזו מסדירה שינויים במערכת הקבצים, שיתוף נתונים ומחיקת אחסון. |
-| `USER_CONSENT_MANAGEMENT` | נדרשת השתלטות על המשתמשים כדי להציג באנרים לבקשת הסכמה לשימוש בקובצי Cookie והודעות בנושא פרטיות. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | מונעת מהמודל לאשר באופן אוטונומי תנאים והגבלות או חוזים מחייבים מבחינה משפטית. |
+| `FINANCIAL_TRANSACTIONS` | Blokuje lub wywołuje potwierdzenie działań związanych z płatnościami, płatnościami w sklepie lub towarami podlegającymi regulacjom. |
+| `SENSITIVE_DATA_MODIFICATION` | chroni dokumentację medyczną, finansową i państwową przed nieautoryzowanymi modyfikacjami; |
+| `COMMUNICATION_TOOL` | Ogranicza możliwość samodzielnego wysyłania e-maili, wiadomości na czacie lub wersji roboczych przez agenta. |
+| `ACCOUNT_CREATION` | Ogranicza możliwość autonomicznego rejestrowania nowych kont w witrynach przez agenta. |
+| `DATA_MODIFICATION` | Reguluje ogólne modyfikacje systemu plików, udostępnianie danych i usuwanie pamięci. |
+| `USER_CONSENT_MANAGEMENT` | Wymaga przejęcia kontroli nad stroną przez banery z prośbą o zgodę na stosowanie plików cookie i komunikaty dotyczące prywatności. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | Zapobiega samodzielnemu akceptowaniu przez model Warunków korzystania z usługi lub prawnie wiążących umów. |
 
-#### שינויים מברירת המחדל של האבטחה
+#### Zastąpienia bezpieczeństwa
 
-אפשר לשנות מדיניות ספציפית על ידי העברת שינויים:
+Możesz zastąpić wybrane zasady, przekazując zastąpienia:
 
 ### Python
 
@@ -1067,13 +1067,13 @@ const interaction = await ai.interactions.create({
 });
 ```
 
-### זיהוי של החדרת הנחיות (Gemini 3.5 Flash)
+### Wykrywanie wstrzykiwania promptów (Gemini 3.5 Flash)
 
-מנגנון בטיחות אופציונלי שסורק פיקסלים בצילומי מסך כדי לזהות הוראות הנחיה זדונית נסתרות (למשל, 'התעלם מהפקודות הקודמות') וחוסם את הביצוע שלהן אם הן מזוהות.
+Opcjonalny mechanizm bezpieczeństwa, który skanuje piksele zrzutu ekranu pod kątem ukrytych instrukcji dotyczących promptów generujących szkodliwe treści (np. „Zignoruj poprzednie polecenia”) i blokuje wykonanie, gdy je wykryje.
 
-### אישור החלטה בנושא בטיחות
+### Potwierdzenie decyzji dotyczącej bezpieczeństwa
 
-התשובה יכולה לכלול את הפרמטר `safety_decision` בארגומנטים של קריאת הפונקציה:
+Odpowiedź może zawierać parametr `safety_decision` w argumentach wywołania funkcji:
 
 ```
 {
@@ -1094,7 +1094,7 @@ const interaction = await ai.interactions.create({
 }
 ```
 
-אם הערך של `safety_decision` הוא `require_confirmation`, מציגים למשתמש הקצה הנחיה. אם המשתמש מאשר, מגדירים את `safety_acknowledgement` ב-`function_result`.
+Jeśli wartość `safety_decision` to `require_confirmation`, wyświetl użytkownikowi prośbę. Jeśli użytkownik potwierdzi, ustaw wartość `safety_acknowledgement` w `function_result`.
 
 ### Python
 
@@ -1113,15 +1113,14 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### שיטות מומלצות לשמירה על האבטחה
+### Sprawdzone metody ochrony bezpieczeństwa
 
-שימוש במחשב מציג סיכוני אבטחה ותפעול ייחודיים, כי מודל שפועל בשם משתמש עלול להיתקל בתוכן לא מהימן במסכים או לבצע שגיאות בהפעלת פעולות. כדי להגן על נתוני המשתמשים ועל המערכות, מומלץ להטמיע את השיטות המומלצות הבאות:
+Korzystanie z komputera wiąże się z wyjątkowymi zagrożeniami dla bezpieczeństwa i działania, ponieważ model działający w imieniu użytkownika może napotkać na ekranach niezaufane treści lub popełniać błędy podczas wykonywania działań. Aby chronić dane i systemy użytkowników, stosuj te sprawdzone metody:
 
-1. **Human-in-the-Loop (HITL):**
+1. **Proces z udziałem człowieka:**
 
-   - **אכיפת אישור המשתמש:** אם התגובה בנושא בטיחות מציינת
-     `require_confirmation` (או אם נדרש אישור לפי החלטת הבטיחות הקודמת), המשתמש יתבקש לאשר.
-   - **הוספת הוראות בטיחות בהתאמה אישית:** אפשר להטמיע הוראת מערכת בהתאמה אישית כדי להגדיר ולאכוף את גבולות הבטיחות שלכם. לדוגמה:
+   - **Wymuszaj potwierdzenie przez użytkownika:** gdy odpowiedź dotycząca bezpieczeństwa wskazuje na `require_confirmation` (lub gdy wymaga tego starsza decyzja dotycząca bezpieczeństwa), wyświetl prośbę o zatwierdzenie przez użytkownika.
+   - **Podaj niestandardowe instrukcje dotyczące bezpieczeństwa:** wdróż niestandardową instrukcję systemową, aby zdefiniować i egzekwować własne granice bezpieczeństwa. Na przykład:
 
      ### Python
 
@@ -1334,37 +1333,37 @@ if 'safety_decision' in function_call.arguments:
          }]
      });
      ```
-2. **סביבת ביצוע מאובטחת:** הפעלת הסוכן בסביבה מאובטחת של ארגז חול כדי להגביל את ההשפעה הפוטנציאלית שלו. יכול להיות שמדובר במכונה וירטואלית (VM) בסביבת ארגז חול, במאגר (למשל Docker) או בפרופיל דפדפן ייעודי עם הרשאות מוגבלות. הוראות להגדרת ארגז חול באמצעות Docker מופיעות ב[הטמעה לדוגמה ב-GitHub](https://github.com/google/computer-use-preview/).
-3. **ניקוי קלט:** ניקוי של כל הטקסט שנוצר על ידי משתמשים בהנחיות, כדי לצמצם את הסיכון להוראות לא מכוונות או להחדרת הנחיות. זו שכבת אבטחה מועילה, אבל היא לא תחליף לסביבת ביצוע מאובטחת.
-4. **אמצעי הגנה על תוכן:** אפשר להשתמש באמצעי הגנה ובממשקי API של בטיחות תוכן כדי להעריך את הקלט של המשתמשים, את הקלט והפלט של כלי העזר ואת התשובות של הסוכן, ולבדוק אם הם מתאימים, אם יש בהם הזרקת הנחיות ואם הם מאפשרים עקיפת הגבלות.
-5. **רשימות היתרים ורשימות חסימה:** כדאי להטמיע מנגנוני סינון כדי לשלוט במיקומים שבהם המודל יכול לנווט ובפעולות שהוא יכול לבצע. רשימת חסימה של אתרים אסורים היא נקודת התחלה טובה, אבל רשימת היתרים מגבילה יותר ומספקת אבטחה טובה יותר.
-6. **יכולת מעקב ורישום ביומן:** שמירה של יומנים מפורטים לצורך ניפוי באגים, ביקורת ותגובה לאירועים. הלקוח צריך לתעד את ההנחיות, צילומי המסך, הפעולות שהמודל מציע (`function_call`), התגובות בנושא בטיחות וכל הפעולות שהלקוח מבצע בסופו של דבר.
-7. **ניהול סביבה:** מוודאים שהסביבה של ממשק המשתמש הגרפי עקבית.
-   חלונות קופצים, התראות או שינויים בפריסה שלא ציפיתם להם עלולים לבלבל את המודל. אם אפשר, מתחילים ממצב נקי ומוכר לכל משימה חדשה.
+2. **Bezpieczne środowisko wykonawcze:** uruchamiaj agenta w bezpiecznym środowisku piaskownicy, aby ograniczyć jego potencjalny wpływ. Może to być maszyna wirtualna w piaskownicy, kontener (np. Docker) lub dedykowany profil przeglądarki z ograniczonymi uprawnieniami. Wskazówki dotyczące konfigurowania piaskownicy za pomocą Dockera znajdziesz w [implementacji referencyjnej na GitHubie](https://github.com/google/computer-use-preview/).
+3. **Czyszczenie danych wejściowych:** czyszczenie całego tekstu wygenerowanego przez użytkownika w promptach w celu zmniejszenia ryzyka niezamierzonych instrukcji lub wstrzykiwania promptów. Jest to przydatna warstwa zabezpieczeń, ale nie zastępuje bezpiecznego środowiska wykonawczego.
+4. **Zabezpieczenia treści:** używaj zabezpieczeń i interfejsów Content Safety API, aby oceniać dane wejściowe użytkownika, dane wejściowe i wyjściowe narzędzia oraz odpowiedzi agenta pod kątem odpowiedniości, wstrzykiwania promptów i wykrywania jailbreaku.
+5. **Listy dozwolonych i zablokowanych:** wdróż mechanizmy filtrowania, aby kontrolować, gdzie model może się poruszać i co może robić. Dobrym punktem wyjścia jest lista zablokowanych zakazanych witryn, a jeszcze bezpieczniejsza jest bardziej restrykcyjna lista dozwolonych.
+6. **Obserwacja i rejestrowanie:** prowadź szczegółowe dzienniki na potrzeby debugowania, kontroli i reagowania na incydenty. Klient powinien rejestrować prompty, zrzuty ekranu, sugerowane przez model działania (`function_call`), odpowiedzi związane z bezpieczeństwem i wszystkie działania ostatecznie wykonane przez klienta.
+7. **Zarządzanie środowiskiem:** zadbaj o spójność środowiska GUI.
+   Nieoczekiwane wyskakujące okienka, powiadomienia lub zmiany układu mogą wprowadzić model w błąd. W miarę możliwości zaczynaj każde nowe zadanie od znanego, czystego stanu.
 
-## גרסאות המודלים
+## Wersje modelu
 
-אפשר להשתמש ב'שימוש במחשב' עם הדגמים הבאים:
+Z funkcji korzystania z komputera możesz korzystać w przypadku tych modeli:
 
-- ‫[**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he) (`gemini-3.5-flash`): המודל המומלץ לשימוש במחשב, עם פעולות יעילות באמצעות כוונות, תמיכה בסביבות דפדפן, נייד ומחשב, מדיניות אבטחה שניתנת להגדרה וזיהוי של הזרקת הנחיות.
-- ‫[**Gemini 3 Flash Preview**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he) (`gemini-3-flash-preview`): מודל בתצוגה מקדימה
-  עם תמיכה בשימוש במחשב.
-- ‫[**Gemini 2.5 (גרסת טרום-השקה מדור קודם)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=he) (`gemini-2.5-computer-use-preview-10-2025`): מודל טרום-השקה מדור קודם שעבר אופטימיזציה לשימוש במחשב מבוסס-דפדפן.
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=pl) (`gemini-3.5-flash`): zalecany model do użytku na komputerze, który oferuje uproszczone działania z intencjami, obsługę środowisk przeglądarki, urządzeń mobilnych i komputerów, konfigurowalne zasady bezpieczeństwa oraz wykrywanie wstrzykiwania promptów.
+- [**Gemini 3 Flash (wersja testowa)**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) (`gemini-3-flash-preview`): model w wersji testowej
+  obsługujący korzystanie z komputera.
+- [**Gemini 2.5 (starsza wersja testowa)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=pl) (`gemini-2.5-computer-use-preview-10-2025`): starsza wersja testowa modelu zoptymalizowana pod kątem korzystania z komputera w przeglądarce.
 
-## המאמרים הבאים
+## Co dalej?
 
-- אפשר להתנסות בשימוש במחשב ב[סביבת ההדגמה של Browserbase](http://gemini.browserbase.com).
-- בדף [Reference implementation](https://github.com/google/computer-use-preview) יש דוגמאות לקוד.
-- מידע על כלים אחרים של Gemini API:
-  - [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
-  - [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he)
+- Wypróbuj korzystanie z komputera w [środowisku demonstracyjnym Browserbase](http://gemini.browserbase.com).
+- Przykładowy kod znajdziesz w [implementacji referencyjnej](https://github.com/google/computer-use-preview).
+- Dowiedz się więcej o innych narzędziach Gemini API:
+  - [Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
+  - [Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl)
 
-שליחת משוב
+Prześlij opinię
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-עדכון אחרון: 2026-06-25 (שעון UTC).
+Ostatnia aktualizacja: 2026-07-06 UTC.
 
-רוצה לתת לנו משוב?
+Chcesz przekazać coś jeszcze?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-25 (שעון UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-06 UTC."],[],[]]

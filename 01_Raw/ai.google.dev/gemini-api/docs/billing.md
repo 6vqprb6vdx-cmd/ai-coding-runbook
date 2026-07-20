@@ -1,510 +1,460 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=th
-fetched_at: 2026-07-06T05:12:21.189931+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e01\u0e40\u0e01\u0e47\u0e1a\u0e40\u0e07\u0e34\u0e19 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=pt-BR
+fetched_at: 2026-07-20T04:43:17.565568+00:00
+title: "Faturamento \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-ตอนนี้ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) พร้อมให้บริการแก่ผู้ใช้ทั่วไปแล้ว เราขอแนะนำให้ใช้ API นี้เพื่อเข้าถึงฟีเจอร์และโมเดลล่าสุดทั้งหมด
+A [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br) já está disponível para todos os usuários. Recomendamos usar essa API para acessar todos os recursos e modelos mais recentes.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-ส่งความคิดเห็น
+Envie comentários
 
-# การเรียกเก็บเงิน
+# Faturamento
 
-คู่มือนี้จะให้ภาพรวมของตัวเลือกการเรียกเก็บเงินต่างๆ ของ Gemini API
-อธิบายวิธีเปิดใช้การเรียกเก็บเงินและตรวจสอบการใช้งาน รวมถึงตอบคำถามที่พบบ่อยเกี่ยวกับการเรียกเก็บเงิน
+Este guia oferece uma visão geral das diferentes opções de faturamento da API Gemini, explica como ativar o faturamento e monitorar o uso e fornece respostas para perguntas frequentes sobre o faturamento.
 
-## เกี่ยวกับการเรียกเก็บเงินและระดับ
+## Sobre faturamento e níveis
 
-การเรียกเก็บเงินสำหรับ Gemini API จะอิงตามประวัติการชำระเงินของคุณ
+O faturamento da API Gemini é baseado no seu histórico de pagamentos.
 
-| ระดับการใช้งาน | รอบคัดเลือก | [การจำกัดระดับการเรียกเก็บเงิน](#spend-caps) |
+| Nível de uso | Qualificação | [Limite do nível de faturamento](#spend-caps) |
 | --- | --- | --- |
-| **ฟรี** | [โปรเจ็กต์ที่ใช้งานอยู่](https://ai.google.dev/gemini-api/docs/api-key?hl=th#google-cloud-projects)หรือช่วงทดลองใช้ฟรี | ไม่มี |
-| **ระดับที่ 1** | [ตั้งค่าและลิงก์บัญชีสำหรับการเรียกเก็บเงินที่ใช้งานอยู่](#setup-billing) | $250 |
-| **ระดับ 2** | ชำระเงิน $100 + 3 วันนับจากการชำระเงินครั้งแรกสำเร็จ | $2,000 |
-| **ระดับ 3** | ชำระเงิน $1,000 + 30 วันนับจากการชำระเงินครั้งแรกสำเร็จ | $20,000 - $100,000 ขึ้นไป |
+| **Free** (link em francês) | [Projeto ativo](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) ou teste sem custo financeiro | N/A |
+| **Nível 1** | [Configurar e vincular uma conta de faturamento ativa](#setup-billing) | US$ 250,00 |
+| **Nível 2** | Pagamento de US $100 + 3 dias desde o primeiro pagamento bem-sucedido | US$ 2.000 |
+| **Nível 3** | Pago US $1.000 + 30 dias desde o primeiro pagamento bem-sucedido | US$ 20.000 a US$ 100.000 ou mais |
 
-บัญชีใหม่จะเริ่มต้นในรุ่นฟรี ซึ่งให้สิทธิ์เข้าถึง[โมเดลบางรายการ](https://ai.google.dev/gemini-api/docs/pricing?hl=th)ใน Gemini API และ AI Studio โดยมี[การจำกัดอัตราคำขอ](https://aistudio.google.com/rate-limit?hl=th)ของรุ่นฟรีของโมเดล
+As novas contas começam no nível sem custo financeiro, que permite o acesso a
+[determinados modelos](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) na API Gemini e no AI Studio,
+até os [limites de taxa](https://aistudio.google.com/rate-limit?hl=pt-br) do nível sem custo financeiro dos modelos.
 
-หากต้องการทําให้แอปพลิเคชันใช้งานได้โดยตรงจากโหมดสร้าง คุณสามารถใช้**ระดับเริ่มต้นของ Google Cloud** ระดับนี้ช่วยให้คุณเผยแพร่แอปพลิเคชันแบบ Full Stack ได้สูงสุด 2 รายการโดยไม่ต้องตั้งค่าโปรเจ็กต์ Google Cloud หรือบัญชีการเรียกเก็บเงิน
-ดูรายละเอียดได้ที่[การติดตั้งใช้งานจาก Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=th) และดูข้อมูลเพิ่มเติมได้ที่[เอกสารประกอบเกี่ยวกับระดับเริ่มต้นของ Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=th)
+Para implantar seus aplicativos diretamente do modo de build, use o
+**nível Starter do Google Cloud**. Com esse nível, é possível publicar até dois aplicativos
+de pilha completa sem configurar um projeto do Google Cloud ou uma conta de faturamento.
+Consulte [Como fazer a implantação no Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pt-br) para mais detalhes e consulte a [documentação do nível inicial do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br) para mais informações.
 
-หากต้องการเข้าถึงขีดจำกัดอัตราที่สูงขึ้น ใช้โมเดลขั้นสูง และตรวจสอบว่าระบบ**ไม่ได้**ใช้พรอมต์และคำตอบของคุณเพื่อปรับปรุงผลิตภัณฑ์ของ Google\* คุณสามารถ[ลิงก์บัญชีสำหรับการเรียกเก็บเงิน](#setup-billing)และ[ชำระเงินล่วงหน้า](#prepay)เพื่อย้ายไปใช้
-ระดับแบบชำระเงิน
-จากนั้นคุณจะเลื่อนไปสู่ระดับที่สูงขึ้นตามค่าใช้จ่ายสะสมและอายุบัญชี ในระดับที่ 3 คุณอาจมีตัวเลือกในการเปลี่ยนไปใช้การเรียกเก็บเงินแบบ[ชำระภายหลัง](#postpay)
+Para acessar limites de taxa mais altos, usar modelos avançados e garantir que seus comandos e respostas **não** sejam usados para melhorar os produtos do Google\*, [vincule uma conta de faturamento](#setup-billing) e [faça uma pré-pagamento](#prepay) para mudar para os planos pagos.
+Em seguida, você vai passar para níveis mais altos com base no gasto acumulado e na idade da conta. No nível 3, você pode mudar para o faturamento [pós-pago](#postpay).
 
-ระดับ ขีดจำกัดอัตรา และขีดจำกัดบัญชีการเรียกเก็บเงินทั้งหมดจะกำหนดที่ระดับ[บัญชีสำหรับการเรียกเก็บเงิน](#cloud-billing)
+Os níveis, os limites de taxa e os limites máximos da conta de faturamento são determinados no nível da [conta de faturamento](#cloud-billing).
 
-\* *ความเป็นส่วนตัวของข้อมูลระดับองค์กร: ดูข้อมูลเพิ่มเติมเกี่ยวกับการใช้ข้อมูล
-สำหรับบริการแบบชำระเงินได้ที่[ข้อกำหนดในการให้บริการ](https://ai.google.dev/gemini-api/terms?hl=th#data-use-paid)*
+\* *Privacidade de dados de nível empresarial: para mais informações sobre o uso de dados
+para serviços pagos, consulte os [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#data-use-paid).*
 
-## ตั้งค่าการเรียกเก็บเงินเพื่อเข้าถึงระดับแบบชำระเงิน
+## Configurar o faturamento para acessar o nível pago
 
-คุณสามารถสร้างโปรเจ็กต์และตั้งค่าการเรียกเก็บเงิน หรือนำเข้าโปรเจ็กต์ที่มีอยู่เพื่อ
-อัปเกรดเป็นระดับแบบชำระเงินใน [Google AI Studio](https://aistudio.google.com/projects?hl=th)
-การอัปเกรดจากรุ่นฟรีเป็นระดับที่ต้องชำระเงินหมายถึงการลิงก์บัญชีสำหรับการเรียกเก็บเงินและ[การชำระเงินล่วงหน้า](#prepay)เพื่อเพิ่มเครดิตอย่างน้อย $10 (หรือเทียบเท่าในสกุลเงินอื่นๆ) ลงในบัญชี
+Você pode criar um projeto e configurar o faturamento ou importar um projeto existente para
+fazer upgrade para o nível pago no [Google AI Studio](https://aistudio.google.com/projects?hl=pt-br).
+Para fazer upgrade do Nível sem custo financeiro para o Nível pago, vincule uma conta de faturamento e [faça um pré-pagamento](#prepay) para adicionar um mínimo de US $10 (ou o equivalente em outras moedas) de créditos à sua conta.
 
-1. ไปที่หน้า[คีย์ API](https://aistudio.google.com/api-keys?hl=th) ของ AI Studio
-   หน้า[โปรเจ็กต์](https://aistudio.google.com/projects?hl=th) หรือที่ใดก็ตามที่คุณเห็นปุ่ม
-   **ตั้งค่าการเรียกเก็บเงิน**ใน AI Studio
-   - ระบบจะสร้าง[โปรเจ็กต์และคีย์ API](https://ai.google.dev/gemini-api/docs/api-key?hl=th#google-cloud-projects) ให้กับผู้ใช้ใหม่โดยค่าเริ่มต้น
-   - หากต้องการคีย์ใหม่ ให้คลิก[**สร้างคีย์ API**](https://aistudio.google.com/api-keys?hl=th)
-     แล้วทำตามกล่องโต้ตอบเพื่อเพิ่มคู่คีย์-โปรเจ็กต์ลงในตาราง
-2. ค้นหาโปรเจ็กต์ในรุ่นฟรีที่คุณต้องการอัปเกรดเป็น Paid Tier แล้วคลิก**ตั้งค่าการเรียกเก็บเงิน**ในคอลัมน์*ระดับการเรียกเก็บเงิน*
-3. หากไม่เคยตั้งค่าบัญชีสำหรับการเรียกเก็บเงินของ Google มาก่อน ให้ทำดังนี้
-   - ระบบจะขอให้คุณเลือกประเทศเพื่อยอมรับข้อกำหนดในการให้บริการ
-   - จากนั้นกรอกหรือยืนยันข้อมูลติดต่อและวิธีการชำระเงินเพื่อดำเนินการต่อ
-4. หากคุณเคยตั้งค่าบัญชีการเรียกเก็บเงินของ Google ในอดีต ให้ทำดังนี้
-   - ระบบจะขอให้คุณเลือกจากบัญชีสำหรับการเรียกเก็บเงินที่มีอยู่
-   - หากไม่ต้องการใช้บัญชีที่มีอยู่ ให้คลิก**เพิ่มบัญชีสำหรับการเรียกเก็บเงินใหม่** แล้วกรอกหรือยืนยันข้อมูลติดต่อและวิธีการชำระเงินเพื่อดำเนินการต่อ
-5. จากนั้นคุณจะทำสิ่งใดสิ่งหนึ่งต่อไปนี้
-   - ขอให้ชำระเงินล่วงหน้าอย่างน้อย $10 เพื่อตั้งค่าการเรียกเก็บเงินให้เสร็จสมบูรณ์ (หมายความว่าระบบจะกำหนดให้บัญชีของคุณใช้แพ็กเกจการเรียกเก็บเงิน[ชำระล่วงหน้า](#prepay)โดยอัตโนมัติ)
-   - เมื่อมีตัวเลือกแพ็กเกจการเรียกเก็บเงินสำหรับบัญชีของคุณระหว่าง[ชำระล่วงหน้า](#prepay)และ[ชำระภายหลัง](#postpay)
-   - กำหนดให้ใช้แพ็กเกจการเรียกเก็บเงินแบบ[ชำระเงินภายหลัง](#postpay)ในช่วงเวลาชั่วคราว
-     จนกว่าระบบการชำระเงินล่วงหน้าแบบใหม่จะพร้อมให้บริการแก่ผู้ใช้ทุกคน (เริ่มตั้งแต่วันที่ 23 มีนาคม 2026)
-6. หลังจากชำระเงินล่วงหน้าหรือเลือกการชำระเงินภายหลัง การตั้งค่าบัญชีจะเสร็จสมบูรณ์
+1. Acesse a página [Chaves de API](https://aistudio.google.com/api-keys?hl=pt-br), [Projetos](https://aistudio.google.com/projects?hl=pt-br) ou qualquer lugar em que o botão **Configurar faturamento** apareça no AI Studio.
+   - Por padrão, os novos usuários têm um [projeto e uma chave de API](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) criados para eles.
+   - Se você precisar de uma nova chave, clique em [**Criar chave de API**](https://aistudio.google.com/api-keys?hl=pt-br) e siga a caixa de diálogo para adicionar um par chave-projeto à tabela.
+2. Encontre o projeto do nível sem custo financeiro que você quer fazer upgrade para o nível pago e clique em **Configurar faturamento** na coluna *Nível de faturamento*.
+3. Se você nunca configurou uma conta de faturamento do Google:
+   - Você vai precisar selecionar seu país para concordar com os Termos de Serviço.
+   - Em seguida, preencha ou confirme suas informações de contato e forma de pagamento para continuar.
+4. Se você já configurou contas de faturamento do Google:
+   - Será necessário escolher uma das suas contas de faturamento.
+   - Se não quiser usar nenhuma das suas contas, clique em **Adicionar nova conta de faturamento** e preencha ou confirme suas informações de contato e forma de pagamento para continuar.
+5. Em seguida, você vai:
+   - Foi solicitado que você fizesse um pré-pagamento mínimo de US $10 para concluir a configuração do faturamento (ou seja, sua conta foi atribuída automaticamente ao plano de faturamento [pré-pago](#prepay)).
+   - Escolha entre os planos de faturamento [Pré-pago](#prepay) e [Pós-pago](#postpay) para sua conta.
+   - Atribuído a um plano de faturamento [pós-pago](#postpay) por um período intermediário
+     até que o novo sistema pré-pago seja propagado para todos os usuários (a partir de 23 de março de 2026).
+6. Depois de fazer o pré-pagamento ou selecionar o pós-pago, a configuração da conta será concluída.
 
-### อัปเกรดเป็นแพ็กเกจแบบชำระเงินระดับถัดไป
+### Fazer upgrade para o próximo nível pago
 
-หากคุณใช้แพ็กเกจแบบชำระเงินอยู่แล้วและมีคุณสมบัติตรงตาม[เกณฑ์](#about-billing)
-ในการเปลี่ยนแพ็กเกจ ระบบจะอัปเกรดให้คุณเป็นแพ็กเกจระดับถัดไปโดยอัตโนมัติ
-(ขึ้นอยู่กับ[เวลาในการประมวลผล](#processing-times))
+Se você já estiver em um nível pago e atender aos [critérios](#about-billing) para uma mudança de plano, vai receber um upgrade automático para o próximo nível (sujeito a [tempos de processamento](#processing-times)).
 
-## ยืนยันสถานะการเรียกเก็บเงิน
+## Verificar o status de faturamento
 
-หลังจาก[ลิงก์บัญชีสำหรับการเรียกเก็บเงิน](#setup-billing)กับโปรเจ็กต์แล้ว คุณจะตรวจสอบสถานะได้ใน[หน้าการเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th) สถานะของระดับการใช้งานแบบชำระเงินจะเปลี่ยนแปลงได้ ซึ่งแตกต่างจากระดับการใช้งานฟรี
-โดยระดับการใช้งานของคุณจะกำหนดตามประวัติบัญชี
-แต่ Gemini API จะให้บริการคำขอเฉพาะในกรณีที่คุณมีเครดิต[การชำระเงินล่วงหน้า](#prepay)เป็นบวกเท่านั้น
+Depois de [vincular uma conta de faturamento](#setup-billing) ao seu projeto, você
+pode monitorar o status dela na
+[página de faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br). Ao contrário do nível sem custo financeiro, o status do nível pago é dinâmico. Embora seu nível de uso seja determinado pelo histórico da conta, a API Gemini só vai atender às solicitações se você tiver um saldo de crédito [pré-pago](#prepay) positivo.
 
-ในหน้า[โปรเจ็กต์](https://aistudio.google.com/projects?hl=th) คุณจะดูระดับและแพ็กเกจการเรียกเก็บเงินของโปรเจ็กต์ได้ในคอลัมน์*ระดับการเรียกเก็บเงิน* การดำเนินการเกี่ยวกับสถานะการเรียกเก็บเงินที่คุณอาจต้องดำเนินการสำหรับโปรเจ็กต์จะแสดงในคอลัมน์*ระดับการเรียกเก็บเงิน*หรือ*สถานะ*
+Na página [Projetos](https://aistudio.google.com/projects?hl=pt-br), é possível
+ver o nível e o plano de faturamento do projeto na coluna *Nível de faturamento*. Todas as ações de status de faturamento que você precisa realizar em um projeto são mostradas nas colunas *Nível de faturamento* ou *Status*:
 
-- "***ตั้งค่าการเรียกเก็บเงิน***" หากโปรเจ็กต์ไม่ได้แนบบัญชีสำหรับการเรียกเก็บเงิน
-- "***ตั้งค่าการชำระล่วงหน้า***" หากโปรเจ็กต์มีบัญชีสำหรับการเรียกเก็บเงินแนบอยู่ แต่ต้องใช้แพ็กเกจการเรียกเก็บเงิน[การชำระล่วงหน้า](#prepay)ที่ต้องตั้งค่า
-- "***ไม่มีเครดิต***" หากต้องใช้บัญชีสำหรับการเรียกเก็บเงินเพื่อซื้อเครดิต
-  แต่ไม่ได้ตั้งค่าบัญชีการชำระเงินแบบชำระล่วงหน้า หรือเครดิตคงเหลือ
-  ที่มีอยู่หมดแล้ว
+- ***Configurar faturamento*** se o projeto não tiver uma conta de faturamento vinculada.
+- ***Configurar pré-pago*** se o projeto tiver uma conta de faturamento vinculada, mas precisar usar um plano de faturamento [pré-pago](#prepay) que precisa ser configurado.
+- ***Sem créditos***: se a conta de faturamento for necessária para comprar créditos, mas a conta para pagamentos por pré-pagamento não estiver configurada ou o saldo de crédito disponível estiver esgotado.
 
-คลิกข้อความใดก็ได้เพื่อดำเนินการที่จำเป็น
+Clique em qualquer uma das mensagens para continuar com as ações necessárias.
 
-## ตรวจสอบการใช้งาน
+## Monitorar o uso
 
-คุณตรวจสอบการใช้งาน Gemini API ได้ใน [Google AI Studio](https://aistudio.google.com/usage?hl=th) ใน**แดชบอร์ด** >
-**การใช้งาน**
+É possível monitorar o uso da API Gemini no
+[Google AI Studio](https://aistudio.google.com/usage?hl=pt-br) em **Painel** >
+**Uso**.
 
-## แพ็กเกจการเรียกเก็บเงิน
+## Planos de faturamento
 
-แพ็กเกจการเรียกเก็บเงินสำหรับ Gemini API และ AI Studio แบ่งออกเป็น 2 หมวดหมู่ที่
-กำหนดเวลาที่คุณชำระค่าใช้งาน ได้แก่ การชำระล่วงหน้าและการชำระภายหลัง คุณสามารถตรวจสอบ
-แพ็กเกจการเรียกเก็บเงินที่กำหนดและจัดการวิธีการชำระเงินได้ในหน้า[การเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th)
+Os planos de faturamento da API Gemini e do AI Studio se enquadram em duas categorias que
+determinam quando você paga pelo uso: pré-pago e pós-pago. Você pode verificar seu plano de faturamento atribuído e gerenciar as formas de pagamento na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
 
-### ชำระเงินล่วงหน้า
+### Pré-pagamento
 
-ในแพ็กเกจการเรียกเก็บเงินแบบชำระล่วงหน้า คุณจะซื้อเครดิตเพื่อเติมเงินในยอดคงเหลือแบบชำระล่วงหน้าก่อนที่จะใช้ Gemini API และระบบจะหักค่าใช้จ่ายในการใช้ API จากยอดคงเหลือของเครดิตแบบชำระล่วงหน้า[แบบเรียลไทม์เกือบทั้งหมด](#processing-times)
-คุณชำระล่วงหน้าได้โดย[เพิ่มเครดิต](#buy-credits)ลงในบัญชี หรือตั้งค่า[การเติมเงินอัตโนมัติ](#auto-reload) หลังจากซื้อเครดิตแล้ว เครดิตที่ไม่ได้ใช้จะหมดอายุหลังจาก 12 เดือนและ[ขอเงินคืนไม่ได้](#refunds) ยกเว้นหลังจาก[เปลี่ยนไปใช้บัญชี Postpay](#postpay)
+No plano de faturamento pré-pago, você compra créditos para o saldo de pré-pagamento antes de usar a API Gemini, e os custos de uso da API são deduzidos do saldo de crédito pré-pago [quase em tempo real](#processing-times).
+Você pode fazer um pré-pagamento [adicionando créditos](#buy-credits) à sua conta ou configurando a [recarga automática](#auto-reload). Depois da compra, os créditos não usados expiram após 12 meses e [não são reembolsáveis](#refunds), exceto após [mudar para uma conta pós-paga](#postpay).
 
-เมื่อยอดคงเหลือเครดิตแบบชำระล่วงหน้าในบัญชีสำหรับการเรียกเก็บเงินเป็น $0 คีย์ API ทั้งหมดใน
-โปรเจ็กต์ทั้งหมดที่ลิงก์กับบัญชีสำหรับการเรียกเก็บเงินนั้นจะหยุดทำงานพร้อมกัน
-เครดิตที่ชำระล่วงหน้าใช้ได้กับค่าใช้จ่ายในการใช้งาน Gemini API เท่านั้น คุณจะใช้เครดิตดังกล่าวเพื่อชำระค่าบริการอื่นๆ ของ Google Cloud ไม่ได้
+Quando o saldo de crédito pré-pago na conta de faturamento chegar a US $0, todas as chaves de API em todos os projetos vinculados a essa conta de faturamento vão parar de funcionar simultaneamente.
+Os créditos pré-pagos se aplicam apenas aos custos de uso da API Gemini. Eles não podem ser usados para pagar por outros serviços do Google Cloud.
 
-ผู้ใช้ใหม่จะใช้แผนการเรียกเก็บเงินแบบชำระล่วงหน้าโดยค่าเริ่มต้น โปรเจ็กต์ที่สร้างก่อนการเปิดตัวแพ็กเกจการเรียกเก็บเงินแบบชำระล่วงหน้าและแบบชำระภายหลังอาจต้อง[อัปเดตรายละเอียดการเรียกเก็บเงินของโปรเจ็กต์](#verify-billing)ก่อนจึงจะใช้ Gemini API ต่อไปได้
+Os novos usuários usam o plano de faturamento pré-pago por padrão. Os projetos anteriores à introdução dos planos de faturamento pré-pago e pós-pago talvez precisem [atualizar os detalhes de faturamento do projeto](#verify-billing) antes de continuar usando a API Gemini.
 
-*โปรดทราบว่าการชำระล่วงหน้าไม่พร้อมให้บริการสำหรับบัญชี[ที่ออกใบแจ้งหนี้ (หรือออฟไลน์)](https://docs.cloud.google.com/billing/docs/concepts?hl=th#billing_account_types)*
+*O pré-pagamento não está disponível para contas [faturadas (ou off-line)](https://docs.cloud.google.com/billing/docs/concepts?hl=pt-br#billing_account_types).*
 
-#### ซื้อเครดิต
+#### Comprar créditos
 
-คุณซื้อเครดิตด้วยตนเองล่วงหน้าก่อนใช้ Gemini API เพื่อโหลดเครดิตลงในยอดคงเหลือของเครดิตบัญชีการชำระเงินล่วงหน้าได้
+É possível comprar créditos manualmente antes de usar a API Gemini para carregá-los no saldo de crédito da sua conta pré-paga.
 
-หากต้องการซื้อเครดิต ให้ไปที่หน้า[การเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th) แล้วเลือก**ซื้อเครดิต**
-การซื้อขั้นต่ำคือ $10 คุณสามารถชำระเงินล่วงหน้าสำหรับเครดิตได้สูงสุด $5,000
+Para comprar créditos, acesse a página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) e selecione **Comprar créditos**.
+A compra mínima é de US $10. O valor máximo de créditos que você pode pagar antecipadamente é de US$ 5.000.
 
-#### โหลดซ้ำอัตโนมัติ
+#### Atualizar automaticamente
 
-การเติมเงินอัตโนมัติเป็นฟีเจอร์เสริมที่จะเติมยอดเครดิตคงเหลือแบบชำระล่วงหน้าโดยอัตโนมัติเมื่อยอดคงเหลือเหลือน้อย
-ซึ่งจะเป็นประโยชน์ในการป้องกันไม่ให้บริการหยุดชะงัก
+A recarga automática é um recurso opcional que recarrega automaticamente o saldo de crédito pré-pago quando ele está baixo. Isso é útil para evitar interrupções no serviço.
 
-คุณตั้งค่าการเติมเงินอัตโนมัติและดูสถานะการเติมเงินอัตโนมัติได้ในการ์ด*เครดิต
-ที่ใช้ได้*ในหน้า[การเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th)
-คลิก**ตั้งค่าการเติมเงินอัตโนมัติ**หรือ**จัดการการเติมเงินอัตโนมัติ**เพื่อตั้งค่าวิธีการชำระเงิน จำนวนเงินที่เติม และยอดคงเหลือขั้นต่ำที่จะทำให้เกิดการชำระเงินสำหรับการเติมเงิน
+Você pode configurar a recarga automática e conferir o status dela no card *Créditos disponíveis* na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br). Clique em **Configurar recarga automática** ou
+**Gerenciar recarga automática** para definir sua forma de pagamento, o valor da recarga e o
+saldo mínimo que aciona um pagamento de recarga.
 
-#### ขีดจำกัดการเรียกเก็บเงินอัตโนมัติรายเดือน
+#### Limite mensal de cobrança automática
 
-วงเงินการเรียกเก็บเงินอัตโนมัติรายเดือนพร้อมให้บริการแก่ผู้ใช้แบบชำระล่วงหน้า
-และช่วยป้องกันค่าใช้จ่ายที่ไม่คาดคิดจากการเติมเงินเครดิตอัตโนมัติบ่อยๆ
-ใช้ฟีเจอร์นี้เพื่อกำหนดขีดจำกัดสูงสุดสำหรับการเติมเครดิตอัตโนมัติภายใน
-รอบการเรียกเก็บเงินเดียว เมื่อยอดเงินรวมของการเติมเงินอัตโนมัติในรอบการเรียกเก็บเงินถึงขีดจำกัดนี้ ระบบจะปิดใช้การเติมเงินอัตโนมัติจนกว่าจะถึงต้นเดือนถัดไป การชำระเงินแบบครั้งเดียวที่คุณดำเนินการด้วยตนเองจะไม่นับรวมในขีดจำกัดนี้
+O limite mensal de recarga automática está disponível para usuários pré-pagos e ajuda a evitar custos inesperados de recargas automáticas frequentes de crédito.
+Use esse recurso para definir um limite máximo de recargas automáticas de crédito em um único ciclo de faturamento. Quando o valor total das recargas automáticas em um ciclo de faturamento atinge esse limite, o sistema desativa a recarga automática até o início do mês seguinte. Os pagamentos únicos iniciados manualmente não são contabilizados nesse limite.
 
-วิธีกำหนดขีดจำกัดการเรียกเก็บเงินอัตโนมัติรายเดือนเมื่อเปิดใช้การเติมเงินอัตโนมัติ
+Para definir o limite mensal de recarga automática quando a recarga automática está ativada:
 
-1. ไปที่หน้า[การเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th)
-2. คลิก**จัดการการเติมเงินอัตโนมัติ**
-3. ขยายส่วน**ขีดจำกัดรายเดือน** แล้วป้อนขีดจำกัดสูงสุดต่อเดือนสำหรับการเติมเงินอัตโนมัติ
-4. คลิก**บันทึก**
+1. Acesse a página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
+2. Clique em **Gerenciar a recarga automática**.
+3. Abra a seção **Limite mensal** e insira o limite máximo mensal para recargas automáticas.
+4. Clique em **Salvar**.
 
-### ชำระเงินภายหลัง
+### Pós-pagamento
 
-ในแพ็กเกจการเรียกเก็บเงินแบบชำระเงินภายหลัง บัญชีสำหรับการเรียกเก็บเงินใน Cloud จะสะสมค่าใช้จ่ายและระบบจะเรียกเก็บเงินจากคุณโดยอัตโนมัติเมื่อสิ้นเดือน หรือเมื่อค่าใช้จ่ายถึง[วงเงินค่าใช้จ่ายที่กำหนดโดยอัตโนมัติ](#tier-spend-caps)ตามระดับบัญชีของคุณ
-ระบบจะเรียกเก็บเงินจากวิธีการชำระเงินที่แนบไว้กับบัญชีการชำระเงินแบบชำระเงินภายหลัง ซึ่งคุณจัดการได้ในหน้า[การเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th)
+No plano de faturamento pós-pago, sua conta do Cloud Billing acumula custos, e você
+recebe uma cobrança automática no fim do mês ou quando os custos atingem um
+[limite de gastos atribuído automaticamente](#tier-spend-caps) com base no nível da conta.
+O pagamento é cobrado na forma de pagamento anexada à sua conta de pagamentos pós-pagos, que pode ser gerenciada na página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br).
 
-เมื่อมีคุณสมบัติตรงตาม[เกณฑ์ระดับที่ 3](#about-billing) คุณจะเปลี่ยนจากแพ็กเกจแบบชำระล่วงหน้าเป็นแบบชำระภายหลังได้ด้วยตนเอง หากต้องการเปลี่ยนแพ็กเกจ คุณจะต้องคลิกปุ่ม**เปลี่ยนเป็นแบบชำระภายหลัง**ที่ปรากฏที่ด้านขวาบนของหน้า[การเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th) เมื่อบัญชีมีสิทธิ์
+Quando você atender aos [critérios do nível 3](#about-billing), poderá
+mudar manualmente do plano pré-pago para o pós-pago. Para mudar de plano, clique no botão **Mudar para pós-pago**, que aparece no canto superior direito da página [Faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) quando sua conta se qualificar.
 
-จากนั้นในหน้า**การเรียกเก็บเงิน** คุณจะดูยอดคงเหลือ วันครบกำหนด
-และการชำระเงินที่ผ่านมา รวมถึงชำระเงินและจัดการวิธีการชำระเงินได้
+Na página **Faturamento**, você pode conferir seu saldo, datas de vencimento e pagamentos anteriores, além de fazer pagamentos e gerenciar formas de pagamento.
 
-เมื่อ[ตั้งค่าการเรียกเก็บเงิน](#setup-billing)สำหรับโปรเจ็กต์ใหม่ หากคุณมีสิทธิ์ใช้การชำระเงินภายหลัง คุณจะมีตัวเลือกให้เลือกระหว่างการชำระล่วงหน้าและการชำระเงินภายหลังในกล่องโต้ตอบ[การตั้งค่าการเรียกเก็บเงิน](#setup-billing)
+Ao [configurar o faturamento](#setup-billing) de um novo projeto, se você se qualificar para o pós-pagamento, poderá escolher entre pré-pagamento e pós-pagamento na caixa de diálogo [configuração de faturamento](#setup-billing).
 
-หลังจากเปลี่ยนบัญชีสำหรับการเรียกเก็บเงินใน Cloud ให้ใช้แพ็กเกจการเรียกเก็บเงินแบบชำระภายหลังแล้ว ระบบจะเปลี่ยนโปรเจ็กต์ทั้งหมดที่ลิงก์กับบัญชีสำหรับการเรียกเก็บเงินนั้นเป็นแพ็กเกจแบบชำระภายหลัง คุณ
-ย้ายบัญชีสำหรับการเรียกเก็บเงินนั้นกลับไปใช้แพ็กเกจการเรียกเก็บเงินแบบชำระล่วงหน้าไม่ได้ คุณสามารถ
-ย้ายโปรเจ็กต์ไปยังบัญชีสำหรับการเรียกเก็บเงินที่มีแพ็กเกจการเรียกเก็บเงินอื่นเพื่อเปลี่ยน
-รอบการเรียกเก็บเงินสำหรับโปรเจ็กต์นั้นได้ โดยไปที่เอกสารประกอบของ Cloud เกี่ยวกับ[การจัดการ
-การเรียกเก็บเงินสำหรับโปรเจ็กต์](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=th)
+Depois de mudar uma conta do Cloud Billing para usar o plano de faturamento pós-pago, todos os projetos vinculados a essa conta também serão mudados para o plano pós-pago. Não é possível mover essa conta de faturamento de volta para o plano de faturamento pré-pago. Você pode
+mover um projeto para uma conta de faturamento com um plano diferente para mudar
+o ciclo de cobrança dele. Consulte a documentação do Cloud sobre [gerenciar
+o faturamento de projetos](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br).
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับรอบการเรียกเก็บเงินแบบชำระเงินภายหลังได้ใน[คู่มือการเรียกเก็บเงินใน Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=th)
+Saiba mais sobre o ciclo de cobrança pós-pago no [guia do Faturamento do Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br).
 
-## ขีดจำกัดค่าใช้จ่าย
+## Limites de gastos
 
-Gemini API รองรับขีดจำกัดค่าใช้จ่ายรายเดือนทั้งในระดับชั้นบัญชีสำหรับการเรียกเก็บเงินและระดับโปรเจ็กต์ ตัวควบคุมเหล่านี้ออกแบบมาเพื่อปกป้องบัญชีของคุณจาก
-การใช้งานเกินโควต้าโดยไม่คาดคิด และปกป้องระบบนิเวศเพื่อให้มั่นใจว่าบริการจะพร้อมใช้งาน
+A API Gemini oferece suporte a limites de gastos mensais nos níveis da conta de faturamento e do projeto. Esses controles foram criados para proteger sua conta contra
+excedentes inesperados e o ecossistema para garantir a disponibilidade do serviço.
 
-*โปรดทราบว่าวงเงินใช้จ่ายจะใช้กับบัญชี[ที่เรียกเก็บเงินตามใบแจ้งหนี้ (หรือออฟไลน์)](https://docs.cloud.google.com/billing/docs/concepts?hl=th#billing_account_types)
-ไม่ได้*
+*Os limites de gastos não estão disponíveis para contas [faturadas (ou off-line)](https://docs.cloud.google.com/billing/docs/concepts?hl=pt-br#billing_account_types).*
 
-### ขีดจำกัดการใช้จ่ายของโปรเจ็กต์
+### Limites de gastos do projeto
 
-คุณกำหนดวงเงินใช้จ่าย[ระดับโปรเจ็กต์](https://ai.google.dev/gemini-api/docs/api-key?hl=th#google-cloud-projects)ของคุณเองได้ใน AI Studio
-ซึ่งจะมีประโยชน์หากคุณมีหลายโปรเจ็กต์ภายใต้บัญชีการเรียกเก็บเงินเดียวกัน
-และต้องการให้แน่ใจว่าแต่ละโปรเจ็กต์มีสิทธิ์เข้าถึงวงเงินใช้จ่ายสะสม
-เพียงพอ
+É possível definir seus próprios limites de gastos [no nível do projeto](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) no AI Studio.
+Isso é útil se você tiver vários projetos na mesma conta de faturamento e quiser garantir que cada um tenha acesso a um limite de gastos cumulativo suficiente.
 
-บัญชีที่มี[บทบาท](https://docs.cloud.google.com/iam/docs/roles-overview?hl=th)ผู้แก้ไข เจ้าของ หรือผู้ดูแลระบบโปรเจ็กต์จะกำหนดวงเงินค่าใช้จ่ายต่อโปรเจ็กต์ใน AI Studio ได้ในหน้า[ค่าใช้จ่าย](https://aistudio.google.com/spend?hl=th)
-ในส่วน**วงเงินค่าใช้จ่ายรายเดือน** > **แก้ไขวงเงินค่าใช้จ่าย**
+As contas com as [funções](https://docs.cloud.google.com/iam/docs/roles-overview?hl=pt-br) de editor, proprietário ou administrador do projeto podem definir limites de gastos por projeto no AI Studio na página [Gasto](https://aistudio.google.com/spend?hl=pt-br) em **Limite de gastos mensais** > **Editar limite de gastos**.
 
-ดูรายละเอียดเกี่ยวกับสิทธิ์ Cloud IAM ของ Google Cloud ที่เฉพาะเจาะจงซึ่งจำเป็นต่อการดูหรือแก้ไขวงเงินค่าใช้จ่ายและข้อมูลสำหรับการเรียกเก็บเงินใน AI Studio ได้ที่[คู่มือการแก้ปัญหาของ AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=th#iam-permissions)
+Para detalhes sobre as permissões específicas do IAM do Google Cloud necessárias para visualizar ou editar limites de gastos e informações de faturamento no AI Studio, consulte o [guia de solução de problemas do AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pt-br#iam-permissions).
 
-หาก[ย้ายโปรเจ็กต์ไปยังบัญชีสำหรับการเรียกเก็บเงินอื่น](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=th#change_the_billing_account_for_a_project)
-วงเงินค่าใช้จ่ายที่คุณตั้งไว้สำหรับโปรเจ็กต์นั้นจะยังคงอยู่ แต่ค่าใช้จ่ายสะสม
-จะรีเซ็ตเป็น $0 สำหรับรอบการเรียกเก็บเงินใหม่
+Se você [mover um projeto para uma conta de faturamento diferente](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#change_the_billing_account_for_a_project),
+o limite de gastos definido para esse projeto vai persistir, mas os gastos acumulados
+serão redefinidos para US $0 no novo ciclo de faturamento.
 
-งานที่ใช้เวลานาน เช่น การดำเนินการ[โหมดเป็นกลุ่ม](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)และเซสชันของเอเจนต์ อาจทำให้มีการใช้งานเกินขีดจำกัดการใช้จ่ายของโปรเจ็กต์
+Tarefas de longa duração, como conclusões no [modo em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br) e sessões de agente, podem gerar excedentes além do limite de gastos do projeto.
 
-เวลาในการประมวลผลข้อมูลการเรียกเก็บเงินใน AI Studio อาจล่าช้าได้สูงสุดประมาณ 10 นาที คุณอาจพบว่ามีการใช้งานเกินขีดจำกัดของโปรเจ็กต์หากระบบยังไม่ได้ประมวลผลข้อมูลการเรียกเก็บเงิน
-ก่อนที่จะมีการเรียกเก็บเงินเพิ่มเติม
+Os tempos de processamento dos dados de faturamento podem ter um atraso de até 10 minutos no AI Studio. Você pode ter excedentes além do limite do projeto se os dados de faturamento não forem processados antes do acúmulo de mais cobranças.
 
-### ขีดจำกัดการใช้จ่ายของระดับบัญชีสำหรับการเรียกเก็บเงิน
+### Limites de gastos por nível da conta de faturamento
 
-[ระดับ](#about-billing)แต่ละระดับมีวงเงินใช้จ่ายรายเดือนสูงสุดดังนี้
+Cada [nível](#about-billing) tem um limite máximo de gasto mensal:
 
-| ระดับการใช้งาน | ขีดจำกัดค่าใช้จ่าย |
+| Nível de uso | Limite de gastos |
 | --- | --- |
-| **ฟรี** | ไม่มี |
-| **ระดับที่ 1** | $250 |
-| **ระดับ 2** | $2,000 |
-| **ระดับ 3** | $20,000 - $100,000 |
+| **Free** (link em francês) | N/A |
+| **Nível 1** | US$ 250,00 |
+| **Nível 2** | US$ 2.000 |
+| **Nível 3** | US$ 20.000 a US$ 100.000 |
 
-ระบบจะบังคับใช้ขีดจำกัดการใช้งานรายเดือนสำหรับ Gemini API ที่ระดับ[บัญชีสำหรับการเรียกเก็บเงิน](#cloud-billing) แม้ว่าขีดจำกัดเริ่มต้นจะมีการตั้งค่าไว้ล่วงหน้า แต่คุณก็[ขอเพิ่ม](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=th)
-เพื่อรองรับการใช้งานที่สูงขึ้นได้ ระบบจะรวบรวมค่าใช้จ่ายทั้งหมดในโปรเจ็กต์ที่ลิงก์ทั้งหมดซึ่งเปิดใช้บริการ Gemini API หลังจากยอดรวมของบัญชีสะสมถึงขีดจํากัดของระดับแล้ว ระบบจะหยุดบริการชั่วคราวสําหรับโปรเจ็กต์ทั้งหมดที่ลิงก์กับบัญชีสำหรับการเรียกเก็บเงินนั้นจนกว่าจะเริ่มรอบการเรียกเก็บเงินถัดไป (วันที่ 1 ของแต่ละเดือน)
+Os limites de uso mensais são obrigatórios para a API Gemini no nível da [conta de faturamento](#cloud-billing). Embora os limites padrão sejam predefinidos, é possível [solicitar um aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=pt-br) para acomodar um uso maior. O gasto total é agregado em todos os projetos vinculados que têm o serviço da API Gemini ativado. Quando o total acumulado da conta atinge o limite do nível, o serviço é pausado para todos os projetos vinculados a essa conta de faturamento até o início do próximo ciclo de faturamento (o primeiro dia de cada mês).
 
-#### ประเมินค่าใช้จ่ายในบัญชีสำหรับการเรียกเก็บเงิน
+#### Avaliar o gasto da sua conta de faturamento
 
-หากต้องการประเมินการใช้จ่ายรายเดือนที่ผ่านมาเพื่อดูว่า[ขีดจำกัดการใช้จ่ายระดับบัญชี
-การเรียกเก็บเงิน](#tier-spend-caps)ใหม่จะส่งผลต่อโปรเจ็กต์ที่กำลังดำเนินการอยู่หรือไม่
-ให้ทำตามขั้นตอนต่อไปนี้
+Para avaliar seus gastos mensais históricos e determinar se os novos [limites de gastos por nível da conta de faturamento](#tier-spend-caps) vão afetar seus projetos em andamento, siga estas etapas:
 
-1. ในคอนโซล Google Cloud ให้ดูหน้า[รายงานบัญชีสำหรับการเรียกเก็บเงินใน Cloud](https://console.cloud.google.com/billing/reports?hl=th)
-   - หากมีบัญชีสำหรับการเรียกเก็บเงินมากกว่า 1 บัญชี ให้เลือกบัญชีสำหรับการเรียกเก็บเงินใน Cloud ที่ต้องการดูรายงานค่าใช้จ่ายเมื่อมีข้อความแจ้ง
-2. โดยค่าเริ่มต้น รายงานจะ "จัดกลุ่มตามบริการ" ใน "เดือนปัจจุบัน" คุณจะเห็น **Gemini API** ในคอลัมน์**บริการ** และค่าใช้จ่ายทั้งหมดในคอลัมน์**ค่าใช้จ่ายในการใช้งาน**ของตาราง
-3. หากต้องการดูค่าใช้จ่ายแบบละเอียดที่จำกัดเฉพาะการใช้งาน Gemini API ให้ตั้งค่าตัวกรอง**จัดกลุ่มตาม**
-   เพื่อจัดกลุ่มตาม **SKU** และตัวกรอง**บริการ**เป็น **Gemini API**
-4. ปรับตัวกรอง**ช่วงเวลาตามวันที่ใช้งาน**เป็นช่วงที่ต้องการเพื่อ
-   ประเมินค่าใช้จ่ายที่ผ่านมาในช่วงเวลาหนึ่ง
+1. No console do Google Cloud, acesse a página [Relatórios da conta do Cloud Billing](https://console.cloud.google.com/billing/reports?hl=pt-br).
+   - Se você tiver mais de uma conta de faturamento, escolha a conta do Cloud
+     Billing que tem os relatórios de custo que você quer visualizar.
+2. Por padrão, o relatório é "Agrupar por serviço" no "Mês atual". Você vai encontrar **API Gemini** na coluna **Serviço** e o gasto total na coluna **Custo de uso** da tabela.
+3. Para ver custos granulares limitados ao uso da API Gemini, defina o filtro **Agrupar por** para **SKU** e o filtro **Serviços** para **API Gemini**.
+4. Ajuste o filtro **Período por data de uso** para o intervalo desejado e avalie seu gasto histórico em um período.
 
-## เวลาในการประมวลผล
+## Tempos de processamento
 
-สัญญาณและการอัปเดตการเรียกเก็บเงินไม่ได้เกิดขึ้นแบบเรียลไทม์เสมอไป
+Os indicadores e atualizações de faturamento nem sempre acontecem em tempo real.
 
-- **การใช้เครดิต**: โดยปกติแล้ว ระบบจะหักค่าใช้จ่ายในการใช้งานจากยอดเงินคงเหลือภายในไม่กี่นาที
-- **การยืนยันการชำระเงิน**: แม้ว่าการชำระเงินด้วยบัตรส่วนใหญ่จะดำเนินการทันที แต่การชำระเงินบางรูปแบบ (เช่น การโอนเงินผ่านธนาคาร) อาจใช้เวลาหลายวันจึงจะเสร็จสมบูรณ์ บริการจะกลับมาทำงานหรืออัปเกรดได้หลังจากที่การซื้อเครดิตได้รับการยืนยันอย่างเป็นทางการแล้วเท่านั้น
-- **การอัปเกรดระดับ**: หลังจากชำระเงินสำเร็จหรือเมื่อคุณมีคุณสมบัติตรงตาม[เกณฑ์การอัปเกรด](#about-billing) โดยปกติแล้วการอัปเกรดระดับจะแสดงภายใน 10 นาที
-- **กราฟรายละเอียดค่าใช้จ่ายทั้งหมด**: กราฟที่แสดงรายละเอียดค่าใช้จ่ายทั้งหมด
-  ทั้งในหน้า[การเรียกเก็บเงิน](https://aistudio.google.com/billing?hl=th)
-  และหน้า[ค่าใช้จ่าย](https://aistudio.google.com/spend?hl=th)อาจใช้เวลาถึง 24
-  ชั่วโมงในการอัปเดต
+- **Uso de crédito**: os custos de uso geralmente são descontados do seu saldo em minutos.
+- **Confirmação do pagamento**: embora a maioria dos pagamentos com cartão seja instantânea, algumas formas de pagamento (como transferências bancárias) podem levar vários dias para serem compensadas. Os serviços só são retomados ou atualizados após a confirmação oficial da compra de créditos.
+- **Upgrades de nível**: após um pagamento bem-sucedido ou quando você atende aos [critérios de upgrade](#about-billing), os upgrades de nível geralmente são refletidos em até 10 minutos.
+- **Gráficos de detalhamento do custo total**: os gráficos que mostram o detalhamento do custo total nas páginas [Faturamento](https://aistudio.google.com/billing?hl=pt-br) e [Gasto](https://aistudio.google.com/spend?hl=pt-br) podem levar até 24 horas para serem atualizados.
 
-อ่านคำแนะนำเกี่ยวกับการเรียกเก็บเงินใน Cloud เกี่ยวกับ[รอบการเรียกเก็บเงิน](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=th#delayed-billing)
-และเวลาในการตอบสนองของ[ธุรกรรม](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=th#missing-transactions)
-เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับความล่าช้าที่อาจเกิดขึ้นในการเรียกเก็บเงิน
+Leia os guias do Cloud Billing sobre [ciclo de cobrança](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#delayed-billing) e [latências de transação](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=pt-br#missing-transactions) para saber mais sobre possíveis atrasos no faturamento.
 
-## การคืนเงิน
+## Reembolsos
 
-ไม่อนุญาตให้คืนเงินสำหรับบัญชีสำหรับการเรียกเก็บเงินแบบ**ชำระล่วงหน้า** ยกเว้นเมื่อเปลี่ยนประเภทบัญชี
+Não é possível receber reembolsos em contas de faturamento **pré-pagas**, exceto ao mudar de tipo de conta.
 
-**เมื่อบัญชีแบบชำระเงินล่วงหน้าเปลี่ยนเป็นบัญชีแบบชำระเงินภายหลัง** (หลังจากที่คุณมีคุณสมบัติตรงตาม[เกณฑ์](#about-billing)และ[อัปเกรดด้วยตนเอง](#postpay)
-บัญชี) ระบบจะปิดบัญชีแบบชำระเงินล่วงหน้าและคืนเงินเครดิตแบบชำระเงินล่วงหน้าที่เหลือ
-ไปยังวิธีการชำระเงินที่บันทึกไว้โดยอัตโนมัติ
+**Quando uma conta pré-paga muda para o tipo pós-pago** (depois que você atende aos [critérios](#about-billing) e [faz upgrade manual](#postpay) da conta), a conta pré-paga é encerrada, e todos os créditos pré-pagos restantes são reembolsados automaticamente para a forma de pagamento registrada.
 
-หาก[ปิด](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=th#close-a-billing-account)บัญชีแบบชำระล่วงหน้าด้วยเหตุผลอื่นนอกเหนือจากการอัปเกรดเป็นแบบชำระเงินภายหลัง คุณจะเสียสิทธิ์ในเครดิตแบบชำระเงินล่วงหน้าที่เหลืออยู่
+Se você [encerrar](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=pt-br#close-a-billing-account)
+sua conta pré-paga por qualquer motivo que não seja o upgrade para pós-pago, todos os
+créditos pré-pagos restantes serão perdidos.
 
-เครดิตที่ซื้อจะหมดอายุหลังจากผ่านไป 1 ปี หลังจากเครดิตหมดอายุแล้ว ระบบจะริบเครดิต
-และไม่สามารถเรียกคืนได้
+Os créditos comprados expiram após um ano. Após o vencimento, os créditos são perdidos e não podem ser recuperados.
 
-บัญชี**แบบชำระเงินภายหลัง**เป็นไปตาม[นโยบายการคืนเงินของ Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=th#request_a_refund)
+As contas **pós-pagas** seguem a [política de reembolso do Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=pt-br#request_a_refund).
 
-## บัญชีสำหรับการเรียกเก็บเงินใน Cloud
+## Contas do Cloud Billing
 
-Gemini API ใช้[บัญชี Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=th) สำหรับบริการเรียกเก็บเงิน ซึ่งคุณ[ตั้งค่าได้โดยตรงใน AI Studio](#setup-billing)
-คุณใช้ AI Studio เพื่อติดตามการใช้จ่าย ทำความเข้าใจค่าใช้จ่าย และชำระเงินได้
+A API Gemini usa [contas do Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=pt-br) para serviços de faturamento, que você pode [configurar diretamente no AI Studio](#setup-billing).
+Use o AI Studio para acompanhar os gastos, entender os custos e fazer pagamentos.
 
-ระบบจะกำหนดระดับ ขีดจำกัดอัตรา และขีดจำกัดสูงสุดของบัญชีสำหรับการเรียกเก็บเงินทั้งหมดที่ระดับบัญชีสำหรับการเรียกเก็บเงิน
+Os níveis, os limites de taxa e os limites máximos da conta de faturamento são determinados no nível da conta de faturamento.
 
-### โปรเจ็กต์และคีย์ API
+### Projetos e chaves de API
 
-[โปรเจ็กต์](https://ai.google.dev/gemini-api/docs/api-key?hl=th#google-cloud-projects)ทั้งหมดที่ลิงก์กับบัญชีสำหรับการเรียกเก็บเงินใน Cloud จะรับช่วงระดับการใช้งานของบัญชีสำหรับการเรียกเก็บเงิน รวมถึงขีดจำกัดของอัตราที่เกี่ยวข้องและขีดจำกัดของบัญชี หาก[เปลี่ยนโปรเจ็กต์](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=th#change_the_billing_account_for_a_project)
-จากบัญชีสำหรับการเรียกเก็บเงินหนึ่งไปยังอีกบัญชีหนึ่ง ระดับของโปรเจ็กต์ รวมถึงโควต้าการใช้งานและ
-ขีดจำกัดของบัญชีจะเปลี่ยนเป็นระดับของบัญชีสำหรับการเรียกเก็บเงินใหม่
+Todos os [projetos](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#google-cloud-projects) vinculados a uma conta de faturamento do Cloud herdam o nível de uso e os limites de taxa e de conta associados. Se você [mudar um projeto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#change_the_billing_account_for_a_project)
+de uma conta de faturamento para outra, o nível dele e, consequentemente, os limites de taxa e
+os limites da conta serão alterados para o nível da nova conta de faturamento.
 
-ค่าใช้จ่ายสะสม (สำหรับผลิตภัณฑ์ Google Cloud ทั้งหมด) และอายุบัญชีในโปรเจ็กต์ทั้งหมดที่เชื่อมโยงกับบัญชีสำหรับการเรียกเก็บเงินจะนับรวมใน[การมีสิทธิ์ในระดับ](#about-billing)ของบัญชีสำหรับการเรียกเก็บเงินนั้น
+O gasto cumulativo (em todos os produtos do Google Cloud) e a idade da conta em todos os projetos vinculados a uma conta de faturamento contam para as [qualificações de nível](#about-billing) dessa conta.
 
-คุณ[ยกเลิกการลิงก์โปรเจ็กต์](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=th#disable_billing_for_a_project)กับบัญชีสำหรับการเรียกเก็บเงินเพื่อกลับไปใช้ระดับฟรีได้
+É possível [desvincular um projeto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
+da conta de faturamento para voltar ao nível sem custo financeiro.
 
-[คีย์ API](https://ai.google.dev/gemini-api/docs/api-key?hl=th) คือข้อมูลเข้าสู่ระบบที่สร้างขึ้นภายในโปรเจ็กต์
-โดยไม่มีการตั้งค่าการเรียกเก็บเงินแยกต่างหาก แต่จะรับช่วงขีดจำกัดของระดับและ
-สถานะการเรียกเก็บเงินของโปรเจ็กต์ การใช้งานสะสมจากคีย์ทั้งหมดภายในโปรเจ็กต์จะนับรวมในวงเงินค่าใช้จ่ายของโปรเจ็กต์นั้นและค่าใช้จ่ายทั้งหมดของบัญชีสำหรับการเรียกเก็บเงิน
+As [chaves de API](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br) são credenciais geradas em um projeto.
+Elas não têm configurações de faturamento independentes. Elas herdam os limites de nível e o status de faturamento do projeto. O uso cumulativo de todas as chaves em um projeto conta para o limite de gastos desse projeto e o gasto total da conta de faturamento.
 
-## คำถามที่พบบ่อย
+## Perguntas frequentes
 
-ส่วนต่อไปนี้จะตอบคำถามที่พบบ่อย
+As seções a seguir fornecem respostas para perguntas frequentes.
 
-### ระบบจะเรียกเก็บเงินค่าอะไรจากฉันบ้าง
+### Por que estou recebendo uma cobrança?
 
-ราคา Gemini API จะอิงตามสิ่งต่อไปนี้
+O preço da API Gemini é baseado no seguinte:
 
-- จำนวนโทเค็นอินพุต
-- จำนวนโทเค็นเอาต์พุต
-- จำนวนโทเค็นที่แคชไว้
-- ระยะเวลาการจัดเก็บโทเค็นที่แคชไว้
+- Contagem de tokens de entrada
+- Contagem de tokens de saída
+- Contagem de tokens em cache
+- Duração do armazenamento de tokens em cache
 
-ดูข้อมูลราคาได้ที่[หน้าการกำหนดราคา](https://ai.google.dev/pricing?hl=th)
+Para informações sobre preços, consulte a [página de preços](https://ai.google.dev/pricing?hl=pt-br).
 
-### ฉันจะดูโควต้าได้จากที่ใด
+### Onde posso ver minha cota?
 
-คุณดูโควต้าและขีดจำกัดของระบบได้ใน [AI Studio](https://aistudio.google.com/usage?hl=th)
+Você pode conferir sua cota e os limites do sistema no [AI Studio](https://aistudio.google.com/usage?hl=pt-br).
 
-### ฉันจะย้ายไปใช้ระดับการจำกัดอัตราที่สูงขึ้นหรือขอโควต้าเพิ่มเติมได้อย่างไร
+### Como faço para mudar para um nível de limite de taxa mais alto ou solicitar mais cota?
 
-คุณจะได้รับโควต้าเพิ่มขึ้นโดยอัตโนมัติเมื่อบัญชีมีคุณสมบัติตรงตาม[ข้อกำหนดของระดับ](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th#usage-tiers)ถัดไป
+Você vai receber mais cota automaticamente quando sua conta atingir os próximos [requisitos de nível](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br#usage-tiers).
 
-### ฉันใช้ Gemini API ได้ฟรีใน EEA (รวมถึงสหภาพยุโรป), สหราชอาณาจักร และสวิตเซอร์แลนด์ไหม
+### Posso usar a API Gemini sem custo financeiro no EEE (incluindo a UE), no Reino Unido e na Suíça?
 
-ใช่ เรามีทั้งระดับฟรีและระดับที่ต้องชำระเงินใน[หลายภูมิภาค](https://ai.google.dev/gemini-api/docs/available-regions?hl=th)
+Sim, oferecemos o nível sem custo financeiro e o nível pago em [várias regiões](https://ai.google.dev/gemini-api/docs/available-regions?hl=pt-br).
 
-### หากตั้งค่าการเรียกเก็บเงินด้วย Gemini API ฉันจะถูกเรียกเก็บเงินสำหรับการใช้งาน Google AI Studio ไหม
+### Se eu configurar o faturamento com a API Gemini, vou receber uma cobrança pelo uso do Google AI Studio?
 
-การใช้งาน AI Studio จะยังคงไม่มีค่าใช้จ่าย เว้นแต่ผู้ใช้จะลิงก์คีย์ API แบบชำระเงินเพื่อเข้าถึงฟีเจอร์แบบชำระเงิน
-เมื่อลิงก์คีย์ API แบบชำระเงินเป็นส่วนหนึ่งของโปรเจ็กต์แบบชำระเงินใน AI Studio ระบบจะเรียกเก็บเงินค่าการใช้งาน AI Studio สำหรับคีย์นั้นจากคุณ
-คุณสามารถสลับระหว่างโปรเจ็กต์ในระดับแบบชำระเงิน กับโปรเจ็กต์ในรุ่นฟรีได้ตามต้องการโดยใช้คีย์ API ที่เกี่ยวข้อง ซึ่งลิงก์กับแต่ละประเภท
+O uso do AI Studio continua sem custos financeiros, a menos que os usuários vinculem uma chave de API paga para
+acessar recursos pagos.
+Depois de vincular uma chave de API paga como parte de um projeto pago no AI Studio, você vai receber uma cobrança pelo uso do AI Studio com essa chave. Você pode alternar entre projetos do nível pago e do nível sem custo financeiro conforme necessário usando as respectivas chaves de API vinculadas a cada tipo.
 
-### หากฉันอยู่ในระดับฟรี ฉันจะอัปเกรดเป็นระดับที่สูงขึ้นได้อย่างไร
+### Se eu estiver no nível sem custo financeiro, como faço upgrade para níveis mais altos?
 
-หากต้องการเข้าถึงระดับที่สูงขึ้น คุณต้องตั้งค่าการเรียกเก็บเงินในโปรเจ็กต์ คลิก[**ตั้งค่า
-การเรียกเก็บเงิน**](#setup-billing)ใน Google AI Studio ซึ่งจะแนะนำวิธี
-เลือกหรือสร้างบัญชีสำหรับการเรียกเก็บเงินใน Cloud หากคุณต้องใช้รูปแบบการเรียกเก็บเงินแบบชำระล่วงหน้า กระบวนการ**ตั้งค่าการเรียกเก็บเงิน**จะแนะนำขั้นตอนการสร้างบัญชีชำระล่วงหน้าที่ลิงก์กับบัญชีสำหรับการเรียกเก็บเงินใน Cloud ของคุณ
+Para acessar níveis mais altos, configure o faturamento no seu projeto. Clique em [**Configurar
+faturamento**](#setup-billing) no Google AI Studio. Isso vai orientar você na
+seleção ou criação de uma conta do Cloud Billing. Se você precisar usar o modelo de faturamento pré-pago, o processo **Configurar faturamento** vai orientar você na criação de uma conta pré-paga vinculada à sua conta do Cloud Billing.
 
-### ฉันใช้โทเค็น 1 ล้านโทเค็นในรุ่นฟรีได้ไหม
+### Posso usar 1 milhão de tokens no nível sem custo financeiro?
 
-ระดับฟรีสำหรับ Gemini API จะแตกต่างกันไปตามโมเดลที่เลือก ตอนนี้คุณ
-สามารถลองใช้หน้าต่างบริบทขนาด 1 ล้านโทเค็นได้โดยทำดังนี้
+O nível sem custos financeiros da API Gemini varia de acordo com o modelo selecionado. Por enquanto, você
+pode testar a janela de contexto de 1 milhão de tokens das seguintes maneiras:
 
-- ใน Google AI Studio
-- พร้อมแพ็กเกจฟรีสำหรับบางรุ่น
-- แพ็กเกจแบบชำระเงินภายหลัง
+- No Google AI Studio
+- Com planos sem custo financeiro para modelos selecionados
+- Com planos pós-pagos
 
-### ฉันจะเปลี่ยนกลับไปใช้รุ่นฟรีหลังจากอัปเกรดเป็นระดับที่สูงขึ้น (แบบชำระเงิน) ได้ไหม
+### Posso voltar para o nível sem custo financeiro depois de fazer upgrade para níveis mais altos (pagos)?
 
-หากต้องการดาวน์เกรดเป็นรุ่นฟรี คุณสามารถ[ปิดใช้การเรียกเก็บเงิน](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=th#disable_billing_for_a_project) ในแต่ละโปรเจ็กต์ที่ต้องการดาวน์เกรด
+Para fazer downgrade para o nível sem custo financeiro, [desative o faturamento](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
+em cada um dos projetos que você quer fazer downgrade.
 
-### ฉันจะคํานวณจํานวนโทเค็นที่ใช้ได้อย่างไร
+### Como posso calcular o número de tokens que estou usando?
 
-ใช้วิธี [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=th#count_tokens)
-เพื่อนับจำนวนโทเค็น ดูข้อมูลเพิ่มเติมเกี่ยวกับโทเค็นได้ใน[คู่มือโทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th)
+Use o método [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=pt-br#count_tokens)
+para contar o número de tokens. Consulte o [guia de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) para saber mais sobre eles.
 
-### หากฉันลงชื่อสมัครใช้บัญชีสำหรับการเรียกเก็บเงินใน Cloud บัญชีแรกผ่าน AI Studio ฉันจะยังคงได้รับการทดลองใช้ฟรีของ Google Cloud ไหม
+### Se eu me inscrever na minha primeira conta do Cloud Billing pelo AI Studio, ainda vou receber um teste sem custo financeiro do Google Cloud?
 
-เมื่อลงชื่อสมัครใช้บัญชีสำหรับการเรียกเก็บเงินใน Cloud เป็นครั้งแรก [Google Cloud ช่วงทดลองใช้ฟรี](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=th#free-trial)จะเริ่มขึ้น และคุณจะได้รับ[เครดิตต้อนรับ](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=th#welcome-credits)มูลค่า $300
-อย่างไรก็ตาม คุณจะใช้เครดิตเหล่านั้นเพื่อชำระค่าการใช้งาน AI Studio ไม่ได้ คุณสามารถใช้
-เครดิตต้อนรับเพื่อชำระค่าบริการอื่นๆ ที่มีสิทธิ์ภายใน Google Cloud (โปรดทราบว่า
-เมื่อใช้เครดิตเหล่านั้นจนหมดหรือหมดอายุ (ภายใน 90 วัน) ระบบจะเรียกเก็บเงินค่าใช้จ่ายเพิ่มเติม
-โดยอัตโนมัติจากรูปแบบการชำระเงินที่คุณตั้งค่าไว้)
+Ao se inscrever na sua primeira conta do Cloud Billing, o [teste sem custo financeiro do Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=pt-br#free-trial) começa, e você recebe um [crédito de boas-vindas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#welcome-credits) de US $300.
+No entanto, esses créditos não podem ser usados para pagar pelo uso do AI Studio. Você pode usar o crédito de boas-vindas para pagar por outros serviços qualificados no Google Cloud. Depois que esses créditos forem consumidos ou expirarem (em 90 dias), os custos de uso adicionais serão faturados automaticamente na sua forma de pagamento estabelecida.
 
-### ฉันใช้เครดิตต้อนรับของ Google Cloud กับ Gemini API ได้ไหม
+### Posso usar meu crédito de boas-vindas do Google Cloud com a API Gemini?
 
-ไม่ได้ คุณไม่สามารถใช้[เครดิตต้อนรับ](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=th#welcome-credits)
-หรือเครดิตช่วงทดลองใช้ฟรีของ Google Cloud กับ Gemini API หรือ AI Studio ได้
+Não, o [crédito de boas-vindas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#welcome-credits)
+ou o crédito do teste sem custo financeiro do Google Cloud não podem ser usados na API Gemini ou no AI Studio.
 
-หากได้รับเครดิตต้อนรับของ Google Cloud ก่อนที่จะไม่มีสิทธิ์ คุณจะใช้เครดิตที่เหลือใน Gemini API
-และ AI Studio ได้จนกว่าเครดิตจะหมดอายุ (หลังจาก 90 วัน)
+Se você recebeu um crédito de boas-vindas do Google Cloud antes de ele se tornar inelegível, poderá gastar os créditos restantes na API Gemini e no AI Studio até que eles expirem (após 90 dias).
 
-### ช่วงทดลองใช้ฟรีของ Google Cloud มีผลกับการใช้งาน Gemini API ไหม
+### O teste sem custo financeiro do Google Cloud se aplica ao uso da API Gemini?
 
-ไม่ได้ ตั้งแต่เดือนมีนาคม 2026 เป็นต้นไป ระบบจะยกเว้นค่าใช้จ่ายในการใช้งาน Gemini API จากโปรแกรม[ช่วงทดลองใช้ฟรีของ Google Cloud มูลค่า$300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=th#free-trial)
-โดยเฉพาะ
+Não. A partir de março de 2026, os custos de uso da API Gemini serão especificamente excluídos do programa [Teste sem custos financeiros do Google Cloud de US$300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=pt-br#free-trial).
 
-### เครดิต Google Cloud ทำงานร่วมกับการชำระล่วงหน้าอย่างไร
+### Como os créditos do Google Cloud funcionam com o pré-pagamento?
 
-ผู้ใช้แบบชำระล่วงหน้าต้อง[ซื้อเครดิตแบบชำระล่วงหน้า](#buy-credits)ก่อน จึงจะใช้เครดิต Google Cloud ที่มีสิทธิ์กับปริมาณการใช้งาน Gemini API ได้ เมื่อมียอดคงเหลือของเครดิตการชำระล่วงหน้าที่ใช้งานอยู่ ระบบจะใช้เครดิต Google Cloud ที่มีสิทธิ์สำหรับ Gemini API ก่อนยอดคงเหลือของเครดิตการชำระล่วงหน้า เมื่อยอดเครดิตแบบชำระล่วงหน้า
-ในบัญชีสำหรับการเรียกเก็บเงินเป็น $0 ระบบจะไม่ใช้เครดิต Google Cloud อีก
-ต่อไป
+Os usuários pré-pagos precisam primeiro [comprar créditos pré-pagos](#buy-credits) antes que qualquer crédito qualificado do Google Cloud possa ser aplicado ao uso da API Gemini. Depois que você tiver um saldo de crédito pré-pago ativo, os créditos do Google Cloud qualificados para a API Gemini serão consumidos antes do saldo de crédito pré-pago. Quando o saldo de crédito pré-pago na conta de faturamento chegar a US $0, os créditos do Google Cloud não serão mais consumidos.
 
-เครดิต Google Cloud บางรายการ เช่น [เครดิตต้อนรับของ Google Cloud](#cloud-credits) ใช้กับ Gemini API และ AI Studio ไม่ได้
+Nem todos os créditos do Google Cloud, como o [crédito de boas-vindas do Google Cloud](#cloud-credits), podem ser usados na API Gemini e no AI Studio.
 
-### การเรียกเก็บเงินมีขั้นตอนอย่างไร
+### Como o faturamento é processado?
 
-ระบบ[การเรียกเก็บเงินใน Cloud](https://cloud.google.com/billing/docs/concepts?hl=th) จะจัดการการเรียกเก็บเงินสำหรับ Gemini API ดูข้อมูลเกี่ยวกับการตั้งค่าการเรียกเก็บเงินใน Cloud ในผลิตภัณฑ์ได้ใน[เอกสารประกอบการเรียกเก็บเงินใน Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=th)
+O faturamento da API Gemini é processado pelo sistema [Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=pt-br). Saiba mais sobre a
+configuração do Cloud Billing no produto na [documentação do Cloud Billing](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br).
 
-### มีการเรียกเก็บเงินสำหรับคำขอที่ไม่สำเร็จไหม
+### Sou cobrado por solicitações com falha?
 
-หากคำขอไม่สำเร็จและมีข้อผิดพลาด 400 หรือ 500 ระบบจะไม่เรียกเก็บเงินค่าโทเค็นที่ใช้
-อย่างไรก็ตาม ระบบจะยังคงนับรวมคำขอในโควต้าของคุณ
+Se a solicitação falhar com um erro 400 ou 500, não haverá cobrança pelos tokens usados. No entanto, a solicitação ainda será deduzida da sua cota.
 
-### มีการเรียกเก็บเงินจาก `GetTokens` ไหม
+### O `GetTokens` é faturado?
 
-ระบบจะไม่เรียกเก็บเงินสำหรับคำขอไปยัง `GetTokens` API และคำขอเหล่านั้นจะไม่นับรวมใน
-โควต้าการอนุมาน
+As solicitações para a API `GetTokens` não são faturadas e não são contabilizadas na cota de inferência.
 
-### ระบบจะจัดการข้อมูลใน Google AI Studio ของฉันอย่างไรหากฉันมีบัญชี API แบบชำระเงิน
+### Como meus dados do Google AI Studio são tratados se eu tiver uma conta de API paga?
 
-ดูรายละเอียดเกี่ยวกับวิธีจัดการข้อมูลเมื่อเปิดใช้การเรียกเก็บเงินใน Cloud ได้ใน[ข้อกำหนดในการให้บริการ](https://ai.google.dev/gemini-api/terms?hl=th#paid-services) (ดู "วิธีที่ Google ใช้ข้อมูลของคุณ" ในส่วน "บริการที่มีค่าใช้จ่าย") โปรดทราบว่าพรอมต์ใน Google AI Studio จะ
-ได้รับการจัดการภายใต้ข้อกำหนด "บริการแบบชำระเงิน" เดียวกัน ตราบใดที่โครงการ API อย่างน้อย 1 โครงการ
-เปิดใช้การเรียกเก็บเงิน ซึ่งคุณสามารถตรวจสอบได้ใน
-[หน้าคีย์ Gemini API](https://aistudio.google.com/api-keys?hl=th) หากเห็นโครงการใดก็ตาม
-ที่มีการทำเครื่องหมายเป็น "ชำระเงิน" ในส่วน "แพ็กเกจ"
+Consulte os [Termos de Serviço](https://ai.google.dev/gemini-api/terms?hl=pt-br#paid-services) para detalhes sobre como os dados são tratados quando o Cloud Billing está ativado (consulte "Como o Google usa seus dados" em "Serviços pagos"). Vale lembrar que seus comandos do Google AI Studio são tratados de acordo com os mesmos termos de "Serviços pagos", desde que pelo menos um projeto de API tenha o faturamento ativado. Para verificar isso, acesse a [página da chave de API Gemini](https://aistudio.google.com/api-keys?hl=pt-br) e confira se há projetos marcados como "Pago" em "Plano".
 
-### การเรียกเก็บเงินแบบชำระล่วงหน้าคืออะไร และใครที่ต้องใช้รูปแบบการเรียกเก็บเงินแบบชำระล่วงหน้า
+### O que é o faturamento pré-pago e quem precisa usar esse modelo?
 
-การเรียกเก็บเงินแบบชำระล่วงหน้าช่วยให้ผู้ใช้ Gemini API ใน AI Studio ซื้อเครดิตล่วงหน้าได้
-ตั้งแต่วันที่ 23 มี.ค. 2026 เป็นต้นไป ผู้ใช้ใหม่ของ AI Studio อาจต้องใช้
-แพ็กเกจการเรียกเก็บเงินแบบชำระล่วงหน้า ในระหว่างกระบวนการ[ตั้งค่าการเรียกเก็บเงิน](#setup-billing)ของ AI Studio
-UI จะแนะนําขั้นตอนการตั้งค่าการเรียกเก็บเงินและจะระบุ
-ว่าคุณต้องชําระเงินล่วงหน้าหรือไม่
+Com o faturamento pré-pago, os usuários da API Gemini no AI Studio podem comprar créditos antecipadamente.
+A partir de 23 de março de 2026, os novos usuários do AI Studio talvez precisem usar o plano de faturamento pré-pago. Durante o processo de [Configurar faturamento](#setup-billing) do AI Studio, a interface vai orientar você pelo fluxo de configuração de faturamento e indicar se é necessário fazer um pré-pagamento.
 
-### ฉันจะซื้อเครดิตแบบชำระล่วงหน้าได้อย่างไร และมีจำนวนขั้นต่ำหรือสูงสุดไหม
+### Como faço para comprar créditos pré-pagos? Há um valor mínimo ou máximo?
 
-คุณ[ซื้อเครดิต](#buy-credits)ได้ในหน้าการเรียกเก็บเงินของ AI Studio ในระหว่างกระบวนการซื้อ UI จะแสดงจำนวนเงินขั้นต่ำก่อนการซื้อที่จำเป็นสำหรับภูมิภาคและระดับชั้นของคุณ รวมถึงจำนวนเงินสูงสุดที่สามารถอยู่ในบัญชีได้ในครั้งเดียว
+Você pode [comprar créditos](#buy-credits) na página de faturamento do AI Studio. Durante o processo de compra, a interface vai mostrar o valor mínimo de pré-compra necessário para sua região e nível, além de um valor máximo que pode estar na sua conta de uma só vez.
 
-### ฉันจะกำหนดค่าบัญชีแบบชำระล่วงหน้าให้ซื้อเครดิตเพิ่มเติมโดยอัตโนมัติตามต้องการได้ไหม
+### Posso configurar minha conta pré-paga para comprar mais créditos automaticamente conforme necessário?
 
-ได้ เราขอแนะนำให้คุณกำหนดค่า[โหลดซ้ำอัตโนมัติ](#auto-reload)ในการตั้งค่าการเรียกเก็บเงินของ AI
-Studio คุณระบุยอดเครดิตคงเหลือ "ทริกเกอร์" (เช่น "เมื่อยอดคงเหลือต่ำกว่า $30") และ "มูลค่าการเติมเงิน" (เช่น "เติม $100")
+Sim, recomendamos que você configure o [recarregamento automático](#auto-reload) nas configurações de faturamento do AI Studio. Você especifica um saldo de crédito de "acionamento" (por exemplo, "quando meu saldo ficar abaixo de R $30") e um "valor de recarga" (por exemplo, "adicionar R $100").
 
-### ฉันจำกัดจำนวนเงินที่เรียกเก็บจากการเติมเงินอัตโนมัติได้ไหม
+### Posso limitar o valor das recargas automáticas?
 
-ได้ ผู้ใช้แบบชำระล่วงหน้าสามารถตั้ง[ขีดจำกัดการเรียกเก็บเงินอัตโนมัติรายเดือน](#monthly-auto-charge-limit)
-ภายในวิดเจ็ต**เติมเงินอัตโนมัติ** เมื่อจำนวนเงินรวมของการเติมเงินอัตโนมัติในรอบการเรียกเก็บเงินถึงขีดจำกัดนี้ ระบบจะปิดใช้การเติมเงินอัตโนมัติจนกว่าจะถึงเดือนถัดไป การซื้อเครดิตด้วยตนเอง
-จะไม่นับรวมในขีดจำกัดนี้
+Sim, os usuários do pré-pago podem definir um [limite mensal de recarga automática](#monthly-auto-charge-limit) no widget **Recarga automática**. Quando o valor total das recargas automáticas em um ciclo de faturamento atinge esse limite, o sistema desativa a recarga automática até o mês seguinte. As compras manuais de crédito não contam para esse limite.
 
-### ฉันจะขอเงินคืนสำหรับเครดิตที่ไม่ได้ใช้ได้ไหม
+### Posso receber um reembolso pelos meus créditos não utilizados?
 
-เครดิต API แบบชำระล่วงหน้าทั้งหมดจะหมดอายุหลังจาก 1 ปีและขอเงินคืนไม่ได้ อ่าน[นโยบายการคืนเงินสำหรับบัญชีแบบชำระล่วงหน้า](#refunds)
+Todos os créditos pré-pagos da API expiram após um ano e não podem ser reembolsados. Leia a [política de reembolso para contas pré-pagas](#refunds).
 
-### เครดิตแบบชำระล่วงหน้าของฉันมีวันหมดอายุไหม
+### Meus créditos pré-pagos expiram?
 
-ใช่ เครดิตจะหมดอายุ 12 เดือนหลังจากวันที่ซื้อ
+Sim, os créditos expiram 12 meses após a data da compra.
 
-### จะเกิดอะไรขึ้นเมื่อยอดเครดิตแบบชำระล่วงหน้าของฉันเป็น 0
+### O que acontece quando meu saldo de crédito pré-pago chega a R $0?
 
-บริการ Gemini API ทั้งหมดในทุกโปรเจ็กต์ที่ชำระเงินด้วยบัญชีการชำระเงินล่วงหน้าของ Cloud Billing นั้นจะหยุดทำงานทันทีเพื่อป้องกันไม่ให้มีการเรียกเก็บเงินเพิ่มเติม ระบบจะไม่ดาวน์เกรดโปรเจ็กต์ของคุณเป็นรุ่นฟรีโดยอัตโนมัติ
+Todos os serviços da API Gemini em todos os projetos pagos por essa conta pré-paga do Cloud Billing serão interrompidos imediatamente para evitar mais cobranças. Seus projetos
+não são automaticamente rebaixados para o nível sem custo financeiro.
 
-หากต้องการกู้คืนบริการในระดับแบบชำระเงินปัจจุบัน คุณต้อง[ซื้อ
-เครดิตเพิ่มเติม](#buy-credits) หลังจากซื้อเครดิตแล้ว คุณควรใช้ Gemini API ได้ โปรดทราบว่าอาจมี[ความล่าช้า](#processing-times)ขณะที่ระบบอัปเดตเพื่อแสดงยอดเครดิตคงเหลือ
+Para restaurar o serviço no seu nível pago atual, [compre mais créditos](#buy-credits). Depois de comprar créditos, você poderá usar a API Gemini. Pode haver um [atraso](#processing-times) enquanto nossos sistemas são atualizados para refletir seu saldo de crédito.
 
-หากต้องการดาวน์เกรดเป็นรุ่นฟรี คุณสามารถ[ปิดใช้การเรียกเก็บเงิน](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=th#disable_billing_for_a_project)ในโปรเจ็กต์ที่ต้องการดาวน์เกรดได้
+Se quiser fazer downgrade para o nível sem custo financeiro, [desative o faturamento](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=pt-br#disable_billing_for_a_project)
+nos projetos em que você quer fazer downgrade.
 
-### เหตุใดการใช้งานของฉันจึงหยุดลงแม้ว่ายอดเครดิตคงเหลือแบบชำระล่วงหน้าจะมากกว่า $0
+### Por que meu uso foi interrompido mesmo com um saldo de crédito pré-pago maior que R $0?
 
-คุณอาจใช้งานถึง[โควต้าการใช้งาน](#tier-spend-caps)สำหรับแพ็กเกจปัจจุบันแล้ว
-ขีดจำกัดการใช้งานจะเพิ่มขึ้นโดยอัตโนมัติเมื่อคุณเลื่อนระดับไปใช้แพ็กเกจที่สูงขึ้น การใช้งาน Gemini API ใน AI Studio อาจได้รับผลกระทบเนื่องจาก[สถานะของบัญชีสำหรับการเรียกเก็บเงินใน Cloud](#missed-payment) ด้วย
+Talvez você tenha atingido o [limite de uso](#tier-spend-caps) do seu nível atual.
+Os limites de uso aumentam automaticamente à medida que você avança para níveis mais altos. O uso da API Gemini no AI Studio também pode ser afetado pelo [status da sua conta do Cloud Billing](#missed-payment).
 
-### เหตุใดเครดิตคงเหลือในบัญชีแบบชำระล่วงหน้าของฉันจึงติดลบ
+### Por que o saldo de crédito da minha conta pré-paga está negativo?
 
-เนื่องจากระบบการเรียกเก็บเงินและการประมวลผลของเรามีความซับซ้อน จึงอาจเกิด[ความล่าช้า](#processing-times)ในการตัดการใช้งานหลังจากที่คุณใช้เครดิตทั้งหมด
-หมดแล้ว การใช้งานที่เกินนี้อาจปรากฏเป็นยอดเครดิตคงเหลือติดลบ
-ในแดชบอร์ดการเรียกเก็บเงินของ AI Studio หากเกิดกรณีนี้ ระบบจะหยุดบริการชั่วคราว
-และจะหักยอดคงเหลือติดลบจากการซื้อเครดิตครั้งถัดไป
+Devido à complexidade dos nossos sistemas de faturamento e processamento, pode haver [atrasos](#processing-times) na nossa capacidade de interromper o uso depois que você consumir todos os seus créditos. Esse uso em excesso pode aparecer como um saldo de crédito negativo no painel de faturamento do AI Studio. Se isso acontecer, o serviço será pausado, e o saldo negativo será deduzido da sua próxima compra de crédito.
 
-เราขอแนะนำให้ตั้งค่า[การโหลดซ้ำอัตโนมัติ](#auto-reload)เพื่อซื้อเครดิตเพิ่มเติมโดยอัตโนมัติเมื่อยอดเครดิตคงเหลือต่ำกว่าค่าที่คุณระบุ เพื่อไม่ให้บริการ Gemini API หยุดชั่วคราว
+Para evitar uma pausa no serviço da API Gemini, recomendamos configurar a [recarga automática](#auto-reload) para comprar mais créditos automaticamente quando o saldo ficar abaixo de um valor especificado.
 
-### ฉันใช้เครดิตแบบชำระล่วงหน้าสำหรับบริการอื่นๆ ของ Google Cloud เช่น Gemini Enterprise Agent Platform ได้ไหม
+### Posso usar meus créditos pré-pagos em outros serviços do Google Cloud, como a Gemini Enterprise Agent Platform?
 
-ไม่ได้ เครดิตแบบชำระล่วงหน้าจะใช้ได้กับการใช้งาน Gemini API เท่านั้น ระบบจะเรียกเก็บเงินสำหรับบริการอื่นๆ ของ Google Cloud ที่คุณใช้ (Compute, Storage, Gemini Enterprise Agent Platform) โดยใช้[รอบการเรียกเก็บเงินของระบบคลาวด์](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=th)มาตรฐาน
+Não, os créditos de pré-pagamento são estritamente vinculados ao uso da API Gemini. Qualquer
+outro serviço do Google Cloud que você usar (Compute, Storage, Gemini Enterprise Agent Platform) será cobrado usando
+o [ciclo de cobrança do Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br) padrão.
 
-### ฉันเปลี่ยนไปใช้แพ็กเกจการเรียกเก็บเงินแบบชำระเงินภายหลังได้ไหม
+### Posso mudar para um plano de faturamento pós-pago?
 
-เมื่อสร้างประวัติการชำระเงินและ[มีสิทธิ์เข้าถึงระดับ](#about-billing)
-สำหรับแพ็กเกจการเรียกเก็บเงินแบบชำระภายหลัง คุณสามารถเลือกเปลี่ยนค่าใช้จ่ายในการใช้ Gemini API ในอนาคตทั้งหมด
-เป็น[รอบการเรียกเก็บเงินแบบชำระภายหลัง](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=th#view-your-charging-cycle)มาตรฐานของ Google Cloud
-ที่รวมไว้ได้
+Quando você estabelece um histórico de pagamentos e [atinge um nível qualificado](#about-billing) para o plano de faturamento pós-pago, é possível transferir todos os custos futuros de uso da API Gemini para um [ciclo de cobrança pós-pago](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#view-your-charging-cycle) padrão e consolidado do Google Cloud.
 
-### จะเกิดอะไรขึ้นกับเครดิตแบบชำระล่วงหน้าของฉันหากฉันเปลี่ยนไปใช้แบบชำระภายหลัง
+### O que acontece com meus créditos pré-pagos se eu mudar para o pós-pago?
 
-เมื่ออัปเกรดเป็น[การชำระเงินภายหลัง](#postpay) การเรียกเก็บเงินใน Cloud จะปิดบัญชีการชำระเงินแบบชำระล่วงหน้า
-ปิด[การเติมเงินอัตโนมัติ](#auto-reload) และคืนเงินเครดิตแบบชำระล่วงหน้าที่ไม่ได้ใช้ให้คุณโดยอัตโนมัติ (ขึ้นอยู่กับเวลาในการประมวลผลการคืนเงินมาตรฐาน)
+Ao fazer upgrade para o [pós-pago](#postpay), o Cloud Billing encerra sua conta de pagamentos pré-paga, desativa a [recarga automática](#auto-reload) e reembolsa automaticamente os créditos pré-pagos não utilizados (sujeito ao tempo padrão de processamento de reembolso).
 
-### ฉันจะดูยอดคงเหลือของเครดิตการชำระล่วงหน้าและประวัติการทำธุรกรรมปัจจุบันได้จากที่ใด
+### Onde posso ver meu saldo de crédito pré-pago atual e o histórico de transações?
 
-การจัดการยอดคงเหลือและประวัติการทำธุรกรรมทั้งหมดสำหรับ Gemini API ต้องดำเนินการโดยตรงในแท็บการเรียกเก็บเงินของ Google AI Studio
+Todo o gerenciamento de saldo e o histórico de transações da API Gemini precisam ser feitos diretamente na guia "Faturamento" do Google AI Studio.
 
-### เหตุใดฉันจึงเห็นข้อความ "ประเภทบัญชีสำหรับการเรียกเก็บเงินไม่ได้ใช้งานหรือไม่รองรับ"
+### Por que aparece a mensagem "O tipo de conta de faturamento está inativo ou não é compatível"?
 
-ระบบอาจบล็อกการโต้ตอบการชำระเงินใน[หน้าการเรียกเก็บเงินของ AI Studio](https://aistudio.google.com/billing?hl=th) และแทนที่ด้วยข้อความ "ประเภทบัญชีสำหรับการเรียกเก็บเงินไม่ได้ใช้งานหรือระบบไม่รองรับ" หากประเภทบัญชีสำหรับการเรียกเก็บเงินหรือสถานะบัญชีสำหรับการเรียกเก็บเงินที่คุณเลือกไม่มีสิทธิ์ใช้ AI Studio ระดับชำระเงิน
+As interações de pagamentos na [página de faturamento do AI Studio](https://aistudio.google.com/billing?hl=pt-br) podem ser bloqueadas e substituídas pela mensagem "O tipo de conta de faturamento está inativo ou não é compatível" se o tipo ou status da conta de faturamento selecionada não for qualificado para o nível pago do AI Studio.
 
-ตรวจสอบสถานะบัญชีสำหรับการเรียกเก็บเงินได้ใน [Cloud Console](https://console.cloud.google.com/billing/?hl=th)
-ประเภทที่ไม่มีสิทธิ์อาจเป็น*บัญชีช่วงทดลองใช้ฟรี* ในกรณีนี้ คุณสามารถ[เปิดใช้งานการเรียกเก็บเงิน](#setup-billing)ใน AI Studio เพื่อให้มีสิทธิ์ได้ สถานะหนึ่งที่ไม่มีการใช้งานอาจเป็น*ปิด* ซึ่งในกรณีนี้คุณจะ[เปิดบัญชีอีกครั้ง](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=th)ได้
+Verifique o [Console do Cloud](https://console.cloud.google.com/billing/?hl=pt-br) para conferir o status da sua conta de faturamento. Um tipo inelegível pode ser *Conta de teste sem custo financeiro*. Nesse caso, [ative o faturamento](#setup-billing) no AI Studio para se tornar elegível. Um estado inativo pode ser *Encerrado*. Nesse caso, é possível [reabrir a conta](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=pt-br).
 
-### ค่าใช้จ่ายในการใช้งาน Gemini API จะแสดงในคอนโซล Google Cloud ไหม
+### Os custos de uso da API Gemini vão aparecer no console do Google Cloud?
 
-ได้ คุณดูค่าใช้จ่ายของ Gemini API พร้อมกับค่าใช้จ่ายที่เชื่อมโยงกับบริการอื่นๆ ของ Google Cloud
-ที่บัญชีสำหรับการเรียกเก็บเงินใน Cloud ของคุณชำระได้ใน[หน้าการจัดการค่าใช้จ่าย](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=th#cost-reports)
-ใน[คอนโซลการเรียกเก็บเงินใน Cloud](https://console.cloud.google.com/billing?hl=th) โปรดทราบ
-ว่าคุณจะจัดการยอดเครดิตแบบชำระล่วงหน้าได้ใน AI Studio เท่านั้น
+Sim, os custos da API Gemini, assim como os custos associados a outros serviços do Google Cloud pagos pela sua conta do Cloud Billing, podem ser consultados nas [páginas de gerenciamento de custos](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=pt-br#cost-reports) no [console do Cloud Billing](https://console.cloud.google.com/billing?hl=pt-br). Observação: só é possível gerenciar seu saldo de crédito pré-pago no AI Studio.
 
-### เหตุใดการใช้งาน Gemini API ของฉันจึงไม่แสดงในคอนโซลการเรียกเก็บเงินของ Cloud ในเมื่อฉันเห็นการใช้งานดังกล่าวในการเรียกเก็บเงินของ AI Studio พร้อมกับการใช้เครดิตของฉัน
+### Por que meu uso da API Gemini não aparece no console do Cloud Billing, mas aparece no faturamento do AI Studio, junto com o consumo dos meus créditos?
 
-Google Cloud และ AI Studio จะรายงานข้อมูลการใช้งานไปยังการเรียกเก็บเงินใน Cloud ในช่วงเวลาต่างๆ เนื่องจากระบบการเรียกเก็บเงินและการประมวลผลของเรามีความซับซ้อน คุณ
-อาจเห็นความล่าช้าระหว่างการใช้บริการกับการใช้งานและค่าใช้จ่ายที่
-พร้อมให้ดูในการเรียกเก็บเงินใน Cloud โดยปกติแล้ว รายละเอียดค่าใช้จ่ายจะพร้อมใช้งานภายใน 1 วัน แต่อาจใช้เวลานานกว่า 24 ชั่วโมงในบางครั้ง
-ดูข้อมูลเพิ่มเติมเกี่ยวกับการเรียกเก็บเงินที่ล่าช้าได้ใน[เอกสารประกอบการเรียกเก็บเงินใน Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=th#delayed-billing)
+O Google Cloud e o AI Studio informam dados de uso ao Cloud Billing em intervalos variados. Devido à complexidade dos nossos sistemas de faturamento e processamento, pode haver um atraso entre o uso dos serviços e a disponibilização do uso e dos custos para visualização no Cloud Billing. Normalmente, os detalhes de custo ficam disponíveis em um dia, mas às vezes podem demorar mais de 24 horas.
+Saiba mais sobre o faturamento atrasado na [documentação do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=pt-br#delayed-billing).
 
-### หากฉันใช้บริการอื่นๆ ของ Google Cloud ที่มีค่าใช้จ่ายซึ่งขึ้นอยู่กับรอบการเรียกเก็บเงินแบบชำระภายหลัง จะเกิดอะไรขึ้นหากฉันชำระเงินไม่ทัน
+### Se eu usar outros serviços do Google Cloud com custos sujeitos a um ciclo de cobrança pós-pago, o que acontece se eu não fizer um pagamento?
 
-การไม่ชำระค่าบริการอื่นๆ ของ Google Cloud อาจทำให้ระบบระงับการเข้าถึง Gemini API ใน AI Studio **ไม่ว่าคุณจะมีเครดิตแบบชำระล่วงหน้าพร้อมใช้งานมากน้อยเพียงใดก็ตาม** การใช้งาน AI Studio ขับเคลื่อนโดยบัญชีการเรียกเก็บเงินของ Google Cloud ซึ่ง
-สามารถแชร์ทั้งการเรียกเก็บเงินแบบชำระล่วงหน้าสำหรับ AI Studio และการเรียกเก็บเงินแบบชำระภายหลังสำหรับบริการอื่นๆ ของ Cloud
-ได้ ปัญหาเกี่ยวกับยอดคงเหลือของ Postpay จะหยุดบริการทั้งหมดที่เชื่อมโยงกับบัญชีนั้น
-ระบบจะระงับการใช้งาน Gemini API หากบัญชีสำหรับการเรียกเก็บเงินใน Cloud
-ของคุณถูกแจ้งว่ามีปัญหา เช่น
+Se você não fizer um pagamento por outros serviços do Google Cloud, seu acesso à API Gemini
+no AI Studio poderá ser suspenso, **independente de quantos créditos pré-pagos você tiver
+disponíveis**. O uso do AI Studio é feito por uma conta de faturamento do Google Cloud, que pode compartilhar o faturamento pré-pago do AI Studio e o pós-pago de outros serviços do Cloud. Um problema com seu saldo pós-pago interrompe todos os serviços vinculados a essa
+conta. O uso da API Gemini será suspenso se sua conta do Cloud Billing for sinalizada por problemas como:
 
-- ยอดคงเหลือที่ค้างชำระหรือเลยกำหนดชำระ
-- การชำระเงินที่ถูกปฏิเสธ
-- วิธีการชำระเงินไม่ถูกต้องหรือหมดอายุ
+- Um saldo em atraso ou vencido
+- Um pagamento recusado
+- Uma forma de pagamento inválida ou expirada
 
-หากต้องการกู้คืนบริการ คุณต้อง[แก้ไขปัญหาบัญชีแบบชำระภายหลัง](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=th#resolving-declined-payments)
-ในคอนโซลการเรียกเก็บเงินของ Google Cloud เมื่อแก้ไขปัญหาแล้ว คุณจะได้รับสิทธิ์เข้าถึงเครดิตและบริการ Gemini API แบบชำระล่วงหน้าอีกครั้ง
+Para restaurar o serviço, [resolva o problema da conta pós-paga](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=pt-br#resolving-declined-payments) no console do Google Cloud Billing. Depois de resolver o problema, você vai recuperar o acesso aos seus créditos e serviços pré-pagos da API Gemini.
 
-### ฉันจะขอรับความช่วยเหลือเกี่ยวกับการเรียกเก็บเงินได้จากที่ใด
+### Onde posso receber ajuda com o faturamento?
 
-หากต้องการความช่วยเหลือเกี่ยวกับการเรียกเก็บเงิน โปรดดู[รับการสนับสนุนการเรียกเก็บเงินใน Cloud](https://cloud.google.com/support/billing?hl=th)
+Para receber ajuda com o faturamento, consulte
+[Receber suporte do Cloud Billing](https://cloud.google.com/support/billing?hl=pt-br).
 
-ส่งความคิดเห็น
+Envie comentários
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-อัปเดตล่าสุด 2026-06-23 UTC
+Última atualização 2026-07-07 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Quer enviar seu feedback?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-23 UTC"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-07-07 UTC."],[],[]]

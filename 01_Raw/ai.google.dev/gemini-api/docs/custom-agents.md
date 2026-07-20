@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=id
-fetched_at: 2026-07-06T05:11:39.655749+00:00
-title: "Membangun Agen Terkelola \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ja
+fetched_at: 2026-07-20T04:44:33.951059+00:00
+title: "\u30de\u30cd\u30fc\u30b8\u30c9 \u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u69cb\u7bc9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
 Google uses AI technology to translate content into your preferred language. AI translations can contain errors.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Membangun Agen Terkelola
+# マネージド エージェントの構築
 
-Agen terkelola di Gemini API memungkinkan Anda memperluas agen Antigravity dengan petunjuk, kemampuan, dan data Anda sendiri. Anda dapat [menyesuaikan agen secara inline](#customize-inline) pada waktu interaksi, atau [menyimpan konfigurasi](#save-agent) sebagai agen terkelola yang Anda panggil berdasarkan ID.
+Gemini API のマネージド エージェントを使用すると、独自の指示、スキル、データで Antigravity エージェントを拡張できます。インタラクション時に[エージェントをインラインでカスタマイズ](#customize-inline)するか、ID で呼び出すマネージド エージェントとして[構成を保存](#save-agent)できます。
 
-## Menyesuaikan agen Antigravity
+## Antigravity エージェントをカスタマイズする
 
-Cara tercepat untuk membuat agen kustom adalah dengan meneruskan konfigurasi inline saat membuat interaksi baru tanpa memerlukan langkah pendaftaran. Anda dapat memperluas kemampuan agen dengan tiga cara:
+カスタム エージェントを構築する最も簡単な方法は、新しいインタラクションを作成するときに構成をインラインで渡すことです。登録手順は必要ありません。エージェントは次の 3 つの方法で拡張できます。
 
-- **Petunjuk sistem**: Teruskan teks inline melalui `system_instruction` untuk membentuk perilaku.
-- **Alat**: Ganti alat default (Eksekusi Kode, Penelusuran, Konteks URL), daftarkan server MCP jarak jauh, atau tentukan fungsi kustom (Pemanggilan Fungsi).
-- **File dan kemampuan**: Pasang file seperti `AGENTS.md` dan `SKILL.md` ke dalam lingkungan.
+- **システム指示**: `system_instruction` を介してインライン テキストを渡し、動作を形成します。
+- **ツール**: デフォルトのツール（コード実行、検索、URL コンテキスト）をオーバーライドする、リモート MCP サーバーを登録する、カスタム関数（関数呼び出し）を定義する。
+- **ファイルとスキル**: `AGENTS.md` や `SKILL.md` などのファイルを環境にマウントします。
 
-Berikut adalah contoh meneruskan ketiga inline:
+3 つすべてをインラインで渡す例を次に示します。
 
 ### Python
 
@@ -120,22 +120,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Semuanya ditentukan pada waktu interaksi. Anda tidak perlu mendaftarkan apa pun terlebih dahulu. Harness agen Antigravity menyediakan runtime (eksekusi kode, pengelolaan file, akses web) dan lapisan konfigurasi Anda di atasnya.
+すべてはインタラクション時に定義されます。事前に登録する必要はありません。Antigravity エージェント ハーネスは、ランタイム（コード実行、ファイル管理、ウェブアクセス）を提供し、その上に構成レイヤを配置します。
 
-### Alat dan petunjuk sistem
+### ツールとシステム指示
 
-Anda dapat menyesuaikan perilaku dan kemampuan agen untuk interaksi tertentu menggunakan parameter `system_instruction` dan `tools`.
+`system_instruction` パラメータと `tools` パラメータを使用して、特定インタラクションのエージェントの動作と機能をカスタマイズできます。
 
-- **Petunjuk sistem**: Gunakan parameter `system_instruction` untuk meneruskan teks inline yang membentuk perilaku agen. Setelan ini ideal untuk penyesuaian cepat yang ingin Anda ubah per panggilan. `system_instruction` dan `AGENTS.md` bersifat aditif; keduanya berlaku jika ada.
-- **Alat**: Secara default, agen Antigravity memiliki akses ke `code_execution`, `google_search`, dan `url_context`. Anda dapat mengganti daftar ini dengan meneruskan parameter `tools` pada waktu interaksi. Anda juga dapat mendaftarkan [server MCP jarak jauh](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#mcp-servers) atau menentukan [fungsi kustom (panggilan fungsi)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#function-calling) untuk menghubungkan agen ke API dan database Anda sendiri. Untuk mengetahui detail selengkapnya tentang alat yang tersedia, lihat [Antigravity Agent: Alat yang didukung](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#supported-tools).
+- **システム指示**: `system_instruction` パラメータを使用して、エージェントの動作を形作るインライン テキストを渡します。これは、呼び出しごとに変更したいクイック調整に最適です。`system_instruction` と `AGENTS.md` は加算的です。両方が存在する場合は両方が適用されます。
+- **ツール**: デフォルトでは、Antigravity エージェントは `code_execution`、`google_search`、`url_context` にアクセスできます。このリストは、インタラクション時に `tools` パラメータを渡すことでオーバーライドできます。[リモート MCP サーバー](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#mcp-servers)を登録したり、[カスタム関数（関数呼び出し）](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#function-calling)を定義して、エージェントを独自の API やデータベースに接続することもできます。利用可能なツールの詳細については、[Antigravity エージェント: サポートされているツール](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#supported-tools)をご覧ください。
 
-### Penyesuaian berbasis file
+### ファイルベースのカスタマイズ
 
-#### Struktur direktori agen
+#### エージェントのディレクトリ構造
 
-Meskipun Anda dapat meneruskan konfigurasi sebaris, sebaiknya susun file agen Anda dalam direktori terstruktur. Hal ini mempermudah pengelolaan, kontrol versi, dan pemasangan ke lingkungan agen.
+構成をインラインで渡すこともできますが、エージェントのファイルは構造化されたディレクトリに整理することをおすすめします。これにより、管理、バージョン管理、エージェントの環境へのマウントが容易になります。
 
-Direktori project agen standar terlihat seperti ini:
+一般的なエージェント プロジェクト ディレクトリは次のようになります。
 
 ```
 my-agent/
@@ -146,13 +146,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Runtime Antigravity memindai `.agents/` (dan root lingkungan) untuk mencari file ini.
+Antigravity ランタイムは、これらのファイルについて `.agents/`（および環境のルート）をスキャンします。
 
 #### AGENTS.md
 
-Agen otomatis memuat `.agents/AGENTS.md` (atau `/.agents/AGENTS.md`) dari lingkungan sebagai petunjuk sistem saat memulai. Gunakan `AGENTS.md` untuk definisi persona bentuk panjang, pedoman mendetail, dan petunjuk yang ingin Anda kontrol versinya bersama kode Anda.
+エージェントは、起動時に環境から `.agents/AGENTS.md`（または `/.agents/AGENTS.md`）をシステム命令として自動的に読み込みます。コードとともにバージョン管理する長い形式のペルソナ定義、詳細なガイドライン、手順には `AGENTS.md` を使用します。
 
-Pasang `AGENTS.md` menggunakan sumber inline:
+インライン ソースを使用して `AGENTS.md` をマウントします。
 
 ### Python
 
@@ -229,9 +229,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Keterampilan: SKILL.md
+#### スキル: SKILL.md
 
-Keterampilan adalah file yang memperluas kemampuan agen. Tempatkan di bawah `.agents/skills/<skill-name>/SKILL.md` dan harness akan otomatis menemukan serta mendaftarkannya.
+スキルは、エージェントの機能を拡張するファイルです。`.agents/skills/<skill-name>/SKILL.md` の下に配置すると、ハーネスが自動的に検出して登録します。
 
 ```
 .agents/
@@ -241,7 +241,7 @@ Keterampilan adalah file yang memperluas kemampuan agen. Tempatkan di bawah `.ag
         └── SKILL.md
 ```
 
-Pasang keterampilan menggunakan sumber inline:
+インライン ソースを使用してスキルをマウントします。
 
 ### Python
 
@@ -318,15 +318,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Keterampilan yang dimuat dari `.agents/skills/` dan `/.agents/skills/` akan ditemukan secara otomatis.
+`.agents/skills/` と `/.agents/skills/` から読み込まれたスキルはどちらも自動的に検出されます。
 
-## Membuat agen terkelola
+## マネージド エージェントを作成する
 
-Setelah melakukan iterasi pada konfigurasi, Anda dapat membuatnya sebagai agen terkelola dengan `agents.create`. Dengan begitu, Anda dapat memanggil agen berdasarkan ID tanpa mengulangi konfigurasi setiap saat.
+構成を反復処理したら、`agents.create` を使用してマネージド エージェントとして作成できます。これにより、構成を毎回繰り返すことなく、ID でエージェントを呼び出すことができます。
 
-### Dari sumber
+マネージド エージェントの作成時に指定する `id` は、プロジェクト内で一意である必要があり、予約済みの接頭辞（`google-`、`gemini-` など）で始めることはできません。制限付き接頭辞の完全なリストについては、[エージェント ID の制限](#agent-id-restrictions)をご覧ください。
 
-Tentukan `base_agent`, `id`, `system_instruction`, dan `base_environment` dengan sumber. Platform ini menyediakan sandbox baru dengan file Anda pada setiap pemanggilan. Lihat [Lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) untuk jenis sumber yang tersedia (Git, GCS, inline).
+### ソースから
+
+ソースとともに `base_agent`、`id`、`system_instruction`、`base_environment` を指定します。プラットフォームは、呼び出しごとにファイルを含む新しいサンドボックスをプロビジョニングします。使用可能なソースタイプ（Git、GCS、インライン）については、[環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja)をご覧ください。
 
 ### Python
 
@@ -433,9 +435,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### Dari lingkungan yang ada (fork)
+### 既存の環境から（フォーク）
 
-Lakukan iterasi dengan agen Antigravity dasar hingga lingkungan sudah tepat (paket terinstal, file sudah ada), lalu buat fork menjadi agen terkelola.
+環境が適切になるまで（パッケージがインストールされ、ファイルが配置されるまで）、ベースの Antigravity エージェントで反復処理を行い、その後、マネージド エージェントにフォークします。
 
 ### Python
 
@@ -499,11 +501,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Dengan aturan jaringan
+### ネットワーク ルールを使用する
 
-Anda dapat mengunci akses keluar atau menyuntikkan kredensial saat menyimpan agen terkelola. Untuk mengetahui skema daftar yang diizinkan, pola kredensial, dan karakter pengganti selengkapnya, lihat [Lingkungan: Konfigurasi jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration).
+マネージド エージェントを保存するときに、アウトバウンド アクセスをロックダウンしたり、認証情報を挿入したりできます。許可リストの完全なスキーマ、認証情報のパターン、ワイルドカードについては、[環境: ネットワーク構成](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#network-configuration)をご覧ください。
 
-Contoh berikut membuat agen `issue-resolver` yang hanya dapat mengakses GitHub dan PyPI, dengan kredensial yang dimasukkan untuk GitHub:
+次の例では、GitHub と PyPI にのみアクセスできる `issue-resolver` エージェントを作成し、GitHub の認証情報を挿入します。
 
 ### Python
 
@@ -613,9 +615,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## Memanggil agen
+## エージェントを呼び出す
 
-Panggil agen terkelola Anda dengan ID agen Anda dengan membuat interaksi baru. Setiap pemanggilan membuat fork lingkungan dasar, sehingga setiap proses dimulai dengan bersih.
+新しいインタラクションを作成して、エージェント ID を使用してマネージド エージェントを呼び出します。呼び出しごとにベース環境がフォークされるため、実行は常にクリーンな状態から開始されます。
 
 ### Python
 
@@ -654,13 +656,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Untuk percakapan multi-turn dan streaming, lihat [Panduan memulai](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id). Pola `previous_interaction_id` dan `environment` yang sama berlaku untuk agen terkelola.
+マルチターンの会話とストリーミングについては、[クイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja)をご覧ください。同じ `previous_interaction_id` パターンと `environment` パターンがマネージド エージェントに適用されます。
 
-Agen terkelola juga mendukung eksekusi dan pembatalan di latar belakang. Untuk mengetahui detail dan contoh kode, lihat [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#background-execution).
+マネージド エージェントは、バックグラウンド実行とキャンセルもサポートしています。詳細とコード例については、[Antigravity Agent: バックグラウンド実行](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja#background-execution)をご覧ください。
 
-## Mengganti konfigurasi saat pemanggilan
+## 呼び出し時の構成のオーバーライド
 
-Anda dapat mengganti `system_instruction` dan `tools` default agen saat membuat interaksi. Hal ini memungkinkan Anda mengubah perilaku atau kemampuan agen untuk satu kali proses tertentu tanpa mengubah definisi agen yang disimpan.
+インタラクションの作成時に、エージェントのデフォルトの `system_instruction`、`tools`、`environment` ネットワーク構成をオーバーライドできます。これにより、保存されているエージェント定義を変更せずに、特定実行のエージェントの動作、機能、認証情報を変更できます。
+
+### システム指示とツールをオーバーライドする
 
 ### Python
 
@@ -704,11 +708,93 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Kelola agen
+### ネットワーク構成をオーバーライドする（認証情報を更新する）
 
-Anda dapat mencantumkan, mendapatkan, dan menghapus agen.
+マネージド エージェントの `base_environment` にネットワーク認証情報が組み込まれている場合は、呼び出し時にオーバーライドして、有効期限切れのトークンを更新したり、API キーをローテーションしたりできます。新しい `network` 構成を含む `environment` オブジェクトを渡します。新しいネットワーク ルールは、そのインタラクションの以前のルールを完全に置き換えます。ベース環境のソース（ファイル、リポジトリ）は保持されます。
 
-### Mencantumkan agen
+### Python
+
+```
+# Invoke the agent with a fresh token, overriding the base_environment credentials
+result = client.interactions.create(
+    agent="issue-resolver",
+    input="Fix issue #42 and open a PR.",
+    environment={
+        "type": "remote",
+        "network": {
+            "allowlist": [
+                {
+                    "domain": "api.github.com",
+                    "transform": {
+                        "Authorization": "Bearer ghp_REFRESHED_TOKEN"
+                    },
+                },
+                {"domain": "pypi.org"},
+            ]
+        },
+    },
+)
+
+print(result.output_text)
+```
+
+### JavaScript
+
+```
+// Invoke the agent with a fresh token, overriding the base_environment credentials
+const result = await client.interactions.create({
+    agent: "issue-resolver",
+    input: "Fix issue #42 and open a PR.",
+    environment: {
+        type: "remote",
+        network: {
+            allowlist: [
+                {
+                    domain: "api.github.com",
+                    transform: {
+                        "Authorization": "Bearer ghp_REFRESHED_TOKEN"
+                    },
+                },
+                { domain: "pypi.org" },
+            ]
+        },
+    },
+}, { timeout: 300000 });
+
+console.log(result.output_text);
+```
+
+### REST
+
+```
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{
+      "agent": "issue-resolver",
+      "input": "Fix issue #42 and open a PR.",
+      "environment": {
+          "type": "remote",
+          "network": {
+              "allowlist": [
+                  {
+                      "domain": "api.github.com",
+                      "transform": {
+                          "Authorization": "Bearer ghp_REFRESHED_TOKEN"
+                      }
+                  },
+                  {"domain": "pypi.org"}
+              ]
+          }
+      }
+  }'
+```
+
+## エージェントを管理
+
+エージェントの一覧表示、取得、削除を行うことができます。
+
+### エージェントのリスト表示
 
 ### Python
 
@@ -736,7 +822,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Mendapatkan agen
+### エージェントを取得する
 
 ### Python
 
@@ -759,9 +845,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Menghapus agen
+### エージェントを削除する
 
-Menghapus akan menghapus konfigurasi. Lingkungan dan interaksi yang dibuat oleh agen yang sudah ada tidak terpengaruh.
+削除すると、構成が削除されます。既存の環境とエージェントによって作成されたインタラクションは影響を受けません。
 
 ### Python
 
@@ -782,46 +868,69 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Referensi definisi agen
+## エージェント定義のリファレンス
 
-| Kolom | Jenis | Wajib diisi | Deskripsi |
+| フィールド | 型 | 必須 / 省略可 | 説明 |
 | --- | --- | --- | --- |
-| `id` | string | Ya | ID agen unik. Digunakan untuk memanggil agen. |
-| `description` | string | Tidak | Deskripsi agen yang dapat dibaca manusia. |
-| `base_agent` | string | Ya | ID agen dasar (misalnya, `antigravity-preview-05-2026`). |
-| `system_instruction` | string | Tidak | Perintah sistem yang menentukan perilaku dan persona. |
-| `tools` | array | Tidak | Alat yang dapat digunakan agen. Jika dihilangkan, setelan defaultnya adalah `code_execution`, `google_search`, dan `url_context`. Alat yang didukung mencakup `code_execution`, `google_search`, `url_context`, `mcp_server`, dan definisi `function` kustom. |
-| `base_environment` | string atau objek | Tidak | `"remote"`, `environment_id`, atau objek konfigurasi dengan `sources` dan `network`. Lihat Lingkungan. |
+| `id` | 文字列 | ○ | Google Cloud プロジェクト内の一意のエージェント識別子。エージェントの呼び出しに使用されます。予約済みの接頭辞は使用できません。[エージェント ID の制限事項](#agent-id-restrictions)をご覧ください。 |
+| `description` | 文字列 | いいえ | 人が読める形式のエージェントの説明。 |
+| `base_agent` | 文字列 | ○ | ベース エージェント ID（例: `antigravity-preview-05-2026`）。 |
+| `system_instruction` | 文字列 | いいえ | 行動とペルソナを定義するシステム プロンプト。 |
+| `tools` | 配列 | いいえ | エージェントが使用できるツール。省略した場合、デフォルトの `code_execution`、`google_search`、`url_context` になります。サポートされているツールには、`code_execution`、`google_search`、`url_context`、`mcp_server`、カスタム `function` 定義が含まれます。 |
+| `base_environment` | 文字列またはオブジェクト | いいえ | `"remote"`、`environment_id`、または `sources` と `network` を含む構成オブジェクト。環境をご覧ください。 |
 
-## Alur kerja iterasi
+### エージェント ID の制限事項
 
-1. **Buat prototipe** dengan agen Antigravity dasar. Teruskan instruksi sistem dan sumber lingkungan secara inline. Uji petunjuk, keterampilan, dan penyiapan lingkungan secara interaktif.
-2. **Stabilkan** lingkungan. Instal paket, pasang sumber, verifikasi semuanya berfungsi.
-3. **Persist** sebagai agen terkelola dengan membuat agen baru, baik dari sumber maupun dengan membuat cabang lingkungan.
-4. **Perbarui** definisi agen. Ubah petunjuk sistem, tukar keterampilan, atau tambahkan sumber. Pemanggilan berikutnya akan mengambil konfigurasi baru.
+マネージド エージェントを作成するときに指定する `id` は、次のルールに従う必要があります。
 
-## Batasan
+- Google Cloud プロジェクト内で一意である必要があります。
+- 次の予約済みの接頭辞（大文字と小文字は区別されません）で始まってはなりません。そうでない場合、作成は失敗します。
+  - `antigravity-`
+  - `veo-`
+  - `omni-`
+  - `lyria-`
+  - `imagen-`
+  - `gemma-`
+  - `gemini-`
+  - `google-`
+  - `youtube-`
+  - `android-`
+  - `chrome-`
+  - `pixel-`
+  - `waze-`
+  - `fitbit-`
+  - `nest-`
+  - `kaggle-`
 
-- **Status pratinjau**: Agen terkelola dalam pratinjau. Fitur dan skema dapat berubah.
-- **Agen dasar**: Hanya `antigravity-preview-05-2026` yang didukung sebagai `base_agent`.
-- **Tanpa pembuatan versi**: Pembuatan versi dan rollback agen belum tersedia.
-- **Tidak ada penyusunan sub-agen**: Delegasi sub-agen belum didukung.
-- Anda dapat memiliki hingga 1.000 agen terkelola.
+## 反復処理のワークフロー
 
-## Langkah berikutnya
+1. ベースの Antigravity エージェントで**プロトタイプ**を作成します。システム指示と環境ソースをインラインで渡します。手順、スキル、環境設定をインタラクティブにテストします。
+2. 環境を**安定化**します。パッケージをインストールし、ソースをマウントして、すべてが機能することを確認します。
+3. ソースから新しいエージェントを作成するか、環境をフォークして、マネージド エージェントとして**永続化**します。
+4. エージェントの定義を**更新**します。システム指示を変更したり、スキルを入れ替えたり、ソースを追加したりします。次の呼び出しでは、新しい構成が取得されます。
 
-- [Ringkasan Agen](https://ai.google.dev/gemini-api/docs/agents?hl=id): Pelajari konsep inti agen terkelola.
-- [Panduan memulai](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id): Mulai membangun dengan percakapan multi-turn dan streaming.
-- [Agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id): Pelajari kemampuan, alat, dan harga untuk agen default.
-- [Lingkungan Agen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id): Konfigurasi sandbox, sumber, dan jaringan.
-- [Managed Agents API di Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=id): Untuk membuat agen dengan tata kelola organisasi bawaan.
+## 制限事項
 
-Kirim masukan
+- **プレビュー ステータス**: マネージド エージェントはプレビュー版です。機能とスキーマは変更される可能性があります。
+- **ベース エージェント**: `base_agent` として `antigravity-preview-05-2026` のみがサポートされます。
+- **バージョニングなし**: エージェントのバージョニングとロールバックはまだ使用できません。
+- **サブエージェントのネストなし**: サブエージェントの委任はまだサポートされていません。
+- 管理対象エージェントは最大 1,000 個まで使用できます。
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+## 次のステップ
 
-Terakhir diperbarui pada 2026-06-26 UTC.
+- [エージェントの概要](https://ai.google.dev/gemini-api/docs/agents?hl=ja): マネージド エージェントの基本コンセプトについて学習します。
+- [クイックスタート](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ja): マルチターン会話とストリーミングを使用して構築を開始します。
+- [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja): デフォルトのエージェントの機能、ツール、料金を確認します。
+- [エージェント環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja): サンドボックス、ソース、ネットワーキングを構成します。
+- [Agent Platform の Managed Agents API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ja): 組織のガバナンスが組み込まれたエージェントを作成する場合に使用します。
 
-Ada masukan untuk kami?
+フィードバックを送信
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-26 UTC."],[],[]]
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+
+最終更新日 2026-07-08 UTC。
+
+ご意見をお聞かせください
+
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-07-08 UTC。"],[],[]]
