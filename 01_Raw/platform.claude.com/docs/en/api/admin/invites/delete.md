@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/admin/invites/delete
-fetched_at: 2026-06-15T06:15:34.698867+00:00
+fetched_at: 2026-07-20T04:31:56.784766+00:00
 fetch_method: mintlify_md
 ---
 
@@ -8,7 +8,7 @@ fetch_method: mintlify_md
 
 **delete** `/v1/organizations/invites/{invite_id}`
 
-Delete Invite
+For Claude Enterprise organizations, this endpoint's availability is in beta.
 
 ### Path Parameters
 
