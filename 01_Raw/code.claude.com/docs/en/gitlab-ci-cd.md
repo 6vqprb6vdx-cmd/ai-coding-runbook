@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/gitlab-ci-cd
-fetched_at: 2026-07-06T05:03:13.515898+00:00
+fetched_at: 2026-07-27T04:31:40.181121+00:00
 fetch_method: mintlify_md
 ---
 
@@ -19,7 +19,7 @@ fetch_method: mintlify_md
 </Info>
 
 <Note>
-  This integration is built on top of the [Claude Code CLI and Agent SDK](/en/agent-sdk/overview), enabling programmatic use of Claude in your CI/CD jobs and custom automation workflows.
+  This integration is built on top of the [Claude Code CLI and Agent SDK](/docs/en/agent-sdk/overview), enabling programmatic use of Claude in your CI/CD jobs and custom automation workflows.
 </Note>
 
 ## Why use Claude Code with GitLab?
